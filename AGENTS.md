@@ -233,6 +233,7 @@ node scripts/two-instance.cjs --keep                  #   leave both windows up 
 node scripts/two-instance.cjs --offline               # M5 OFFLINE AUDIT: the same, with DNS dark
 npm run audit:bundle                                  # M5: what is actually inside release/
 node scripts/install-proof.cjs [--uninstall]          # M5: install it, and ask it where its files are
+node scripts/battery-relay.cjs                         # the RELAY: rooms, blind forwarding, restart
 node relay/src/server.js 5281                         # the standalone relay (needs `npm i` in relay/)
 node scripts/make-engine-fixtures.cjs                 # regenerate src/data/fixtures/engineCards.ts
 node scripts/battery-anim.cjs --keep                  #   leave Electron up to poke at
@@ -1101,6 +1102,28 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       signature: **p50 and p95 unmoved with only the tail degraded is
       interference; a real render regression moves the median too.**
       **Verified: 869 Vitest · 17/17 table section · 257/259 full battery.**
+
+- [x] **The relay has a battery (2026-07-28):** `scripts/battery-relay.cjs`,
+      **15/15**. The one transport nothing else covered — `two-instance.cjs` is
+      two real apps on a LAN socket and `src/net/net.test.ts` is a host plus four
+      clients over `loopbackPair`; neither goes near `relay/`, which is how
+      playing with friends over the internet actually works. Until this, the
+      relay was checked only by `relay.node.test.ts` greping that it does not
+      import `src/`.
+      ⚠️ **It imports nothing from `src/`, and that is the point.** A relay that
+      could see the engine would be a second source of truth, so a battery that
+      needed the engine to talk to the relay would be proving the wrong thing.
+      The frames are hand-built envelopes.
+      Covers: room create/join, presence announced BY THE RELAY (not inferred
+      from a `Hello` that may never arrive), an unknown body forwarded
+      byte-for-byte, a frame addressed to one connId, **a frame addressed into
+      ANOTHER room reaching nobody** (the only way a blind router could leak
+      between two tables), `noSuchRoom` with an actionable message, `RelayPeerLeft`
+      for a real member, and a relay restart where the host re-creates its
+      ORIGINAL code while a code already in use is refused rather than swapped.
+      ⚠️ Needs `npm i` in `relay/` (just `ws`); the script says so and exits 1
+      if it is missing. It boots the relay IN-PROCESS on an ephemeral port via
+      `startRelay()` — which is why that function returns its server.
 
 ⚠️ **Two invariants M2 established that M3 kept, and M4 must not break:**
 1. `animStore` may only **hide** or **decorate** — it never holds card→zone truth.
