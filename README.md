@@ -64,6 +64,16 @@ Wizards of the Coast's copyright. A packaging audit asserts no card art under
 `release/`. See [docs/SCRYFALL.md](docs/SCRYFALL.md) for the attribution the
 About screen displays verbatim.
 
+## License
+
+The code in this repository is [MIT licensed](LICENSE).
+
+⚠️ **That covers this software and nothing else.** It is not, and could not be,
+a licence to any Magic: The Gathering content — card names, card text, card
+images, the mana symbols and the game's rules text remain Wizards of the Coast's
+property, and none of it is redistributed here. The app fetches card data and
+images from Scryfall at runtime, into each player's own local cache.
+
 Commander's Roundtable is unofficial Fan Content permitted under the Fan Content
 Policy. Not approved or endorsed by Wizards of the Coast. Portions of the
 materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.
