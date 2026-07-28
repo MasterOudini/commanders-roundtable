@@ -1,0 +1,93 @@
+{
+  "name": "commanders-roundtable",
+  "private": true,
+  "version": "0.1.1",
+  "author": "meesamooman",
+  "description": "Commander's Roundtable — play Magic: The Gathering Commander (EDH) online with friends, with the rules bookkeeping automated.",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:fuzz": "vitest run src/engine/fuzz.node.test.ts",
+    "test:net": "vitest run src/net",
+    "relay": "node relay/src/server.js",
+    "two-instance": "node scripts/two-instance.cjs",
+    "electron:dev": "concurrently -k \"vite\" \"wait-on http://localhost:5280 && electron . --dev\"",
+    "desktop": "node scripts/dev-launcher.cjs",
+    "prepare-electron-dist": "node scripts/prepare-electron-dist.cjs",
+    "electron:build": "npm run build && npm run prepare-electron-dist && electron-builder --win",
+    "audit:bundle": "node scripts/audit-bundle.cjs",
+    "audit:offline": "node scripts/two-instance.cjs --offline"
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.3",
+    "ws": "^8.21.1"
+  },
+  "devDependencies": {
+    "@fontsource-variable/alegreya": "^5.2.8",
+    "@fontsource-variable/crimson-pro": "^5.2.8",
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "@fontsource/alegreya-sc": "^5.2.8",
+    "@tailwindcss/vite": "^4.2.1",
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/ws": "^8.18.1",
+    "@vitejs/plugin-react": "^6.0.0",
+    "concurrently": "^9.2.1",
+    "electron": "^42.0.0",
+    "electron-builder": "^26.8.1",
+    "lucide-react": "^1.21.0",
+    "mana-font": "^1.18.0",
+    "motion": "^12.42.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwindcss": "^4.2.1",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.0",
+    "vitest": "^4.0.18",
+    "wait-on": "^9.0.4",
+    "zustand": "^5.0.11"
+  },
+  "overrides": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3"
+  },
+  "build": {
+    "appId": "com.commanders-roundtable.app",
+    "productName": "Commander's Roundtable",
+    "electronDist": ".electron-dist",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "build/icon.ico",
+      "build/icon.png"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Commander's Roundtable"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "meesamooman",
+      "repo": "commanders-roundtable"
+    }
+  }
+}

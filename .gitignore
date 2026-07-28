@@ -1,0 +1,13 @@
+node_modules/
+dist/
+release/
+.electron-dist/
+launch.log
+*.local
+# Local card-data / image cache never belongs in the repo (and card art is
+# Wizards' copyright — it must never be committed or shipped).
+cache/
+
+# Per-machine Claude Code tool permissions — the name says local.
+# `.claude/launch.json` IS shared and stays tracked.
+.claude/settings.local.json

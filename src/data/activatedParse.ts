@@ -1,0 +1,153 @@
+// Activated abilities — `cost: effect`, parsed once at ingest.
+//
+// ⚠️ THE HONEST BOUNDARY, and it is the whole design: an ability is offered only
+// when the engine can CHARGE its cost. Mana and {T}/{Q} it can charge. `Sacrifice
+// this creature` (424 lines), `Pay 2 life` (294), `Discard a card` (227) are
+// decisions rather than prices — exactly the distinction D68 drew for ward, where
+// `ward—Pay N life` became a tax and `ward—Sacrifice a creature` stayed Tier 3
+// because "pay two life" and "sacrifice a creature" are not the same promise and
+// half-enforcing the second is worse than not enforcing it. Same rule here.
+// Measured: 16,299 ability lines carry a cost the engine cannot pay. They stay
+// manual and `tier3.ts` names them on the card.
+//
+// ⚠️ `isManaAbility` is ASKED OF `parseManaProduction`, matched by line index,
+// never re-guessed. A mana ability leaking into `ActivateAbility` would put
+// `{T}: Add {G}` on the stack — which CR 605 says never happens — and a real
+// ability misclassified as mana would vanish from the action list entirely.
+// `tier3.ts` learned this the hard way with Command Tower: a second heuristic
+// beside the first is how a disclosure starts lying.
+//
+// Excluded by construction, which is a feature: `Equip {2}`, `Crew 8`,
+// `Cycling {2}` and `Level up {1}` have NO COLON, so the line splitter never
+// classifies them as activated and they stay Tier 3 exactly as `tier3.ts`
+// already claims.
+
+import type { ActivatedAbility, ManaProduction } from '../engine/types/oracle';
+import type { ManaCost } from '../engine/types/mana';
+import type { Warn } from './oracleParse';
+import { parseTargetClauses, splitAbilityLines } from './targetParse';
+
+const NOOP_WARN: Warn = () => undefined;
+
+/** A loyalty cost: `+1`, `−3`, `-X`, `0`. Planeswalkers only. */
+const LOYALTY_RE = /^[+−-]?(?:\d+|X)$/;
+
+/** `Pay 3 life`. Same shape `parseWardLife` reads, and deliberately so. */
+const LIFE_RE = /\bpay\s+(\d+)\s+life\b/i;
+
+const SORCERY_ONLY_RE = /\bactivate\s+(?:this\s+ability\s+)?only\s+as\s+a\s+sorcery\b/i;
+
+/**
+ * Split a cost string on commas that separate cost components, not commas
+ * inside a symbol. `{1}, {T}, Sacrifice a creature` → three parts.
+ */
+function costParts(costText: string): string[] {
+  return costText
+    .split(',')
+    .map((p) => p.trim())
+    .filter((p) => p !== '');
+}
+
+/** Is this whole part payable in mana symbols alone? */
+const MANA_ONLY_RE = /^(?:\{[^}]+\}\s*)+$/;
+
+export interface ActivatedParseInput {
+  readonly oracleText: string;
+  readonly isPermanent: boolean;
+  /** From `parseManaProduction` on the SAME face, so mana abilities are known. */
+  readonly producesMana: readonly ManaProduction[];
+  /** From `parseManaCost`, applied to the mana part of each cost. */
+  readonly parseCost: (raw: string, warn?: Warn) => ManaCost | null;
+}
+
+/**
+ * Every activated ability on a face, in printed order.
+ *
+ * Returns `[]` for the common case — a vanilla creature, a basic land — which is
+ * what keeps this cheap across a 113,559-card ingest.
+ */
+export function parseActivatedAbilities(
+  input: ActivatedParseInput,
+  warn: Warn = NOOP_WARN,
+): ActivatedAbility[] {
+  const { oracleText, isPermanent, producesMana, parseCost } = input;
+  if (!oracleText) return [];
+
+  // ⚠️ Asked, not guessed. A null `line` is an intrinsic land-type ability, which
+  // has no printed line and so can never collide with one.
+  const manaLines = new Set<number>();
+  for (const p of producesMana) {
+    if (p.line !== null) manaLines.add(p.line);
+  }
+
+  const out: ActivatedAbility[] = [];
+  for (const line of splitAbilityLines(oracleText, isPermanent)) {
+    if (line.kind !== 'activated') continue;
+
+    const parts = costParts(line.costText);
+    const manaSymbols: string[] = [];
+    const unpaidCosts: string[] = [];
+    let requiresTap = false;
+    let requiresUntap = false;
+    let lifeCost = 0;
+    let isLoyalty = false;
+
+    for (const part of parts) {
+      if (part === '{T}') {
+        requiresTap = true;
+        continue;
+      }
+      if (part === '{Q}') {
+        requiresUntap = true;
+        continue;
+      }
+      if (LOYALTY_RE.test(part)) {
+        isLoyalty = true;
+        continue;
+      }
+      if (MANA_ONLY_RE.test(part)) {
+        manaSymbols.push(part);
+        continue;
+      }
+      const life = part.match(LIFE_RE);
+      if (life && /^pay\s+\d+\s+life$/i.test(part.trim())) {
+        lifeCost += Number(life[1] ?? 0);
+        continue;
+      }
+      unpaidCosts.push(part);
+    }
+
+    const raw = manaSymbols.join('');
+    const manaCost = raw === '' ? null : parseCost(raw, warn);
+    const isManaAbility = manaLines.has(line.index);
+
+    if (isLoyalty) warn('activated:loyalty');
+    else if (unpaidCosts.length > 0) warn('activated:nonManaCost');
+
+    // ⚠️ A life cost IS payable — `parseWardLife` set that precedent in M5 and
+    // the payment problem already carries a life component. But loyalty is not,
+    // because it needs once-per-turn tracking and a counter cost that do not
+    // exist, and an ability whose cost we cannot charge is not offered at all.
+    const payable = unpaidCosts.length === 0 && !isLoyalty;
+
+    out.push({
+      index: out.length,
+      costText: line.costText,
+      effectText: line.effectText,
+      manaCost,
+      requiresTap,
+      requiresUntap,
+      lifeCost,
+      unpaidCosts,
+      payable,
+      isManaAbility,
+      isLoyalty,
+      sorceryOnly: SORCERY_ONLY_RE.test(line.text),
+      // The same clause parser the spell path uses — one grammar, not two.
+      // Measured: 6,082 ability lines contain a target clause.
+      targets: parseTargetClauses(line.effectText, warn),
+    });
+  }
+
+  return out;
+}

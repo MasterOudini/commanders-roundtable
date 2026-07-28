@@ -1,0 +1,17 @@
+{
+  "name": "commanders-roundtable-relay",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Blind WebSocket relay for Commander's Roundtable. Room registry and forwarding only — no game logic, no card data, no rules.",
+  "type": "commonjs",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "ws": "^8.21.1"
+  }
+}

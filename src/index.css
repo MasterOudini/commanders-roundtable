@@ -1,0 +1,207 @@
+/* Commander's Roundtable — design tokens and base layer.
+ *
+ * All fonts are bundled npm packages. No CDN, no Google Fonts (workspace
+ * offline-first policy). MTG's own Beleren is proprietary to Wizards and is not
+ * distributable; Alegreya is the substitute — a calligraphic humanist serif
+ * with real small caps, the closest widely-available open face in character.
+ */
+@import 'tailwindcss';
+
+@import '@fontsource-variable/alegreya';
+@import '@fontsource/alegreya-sc';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/crimson-pro';
+@import '@fontsource-variable/jetbrains-mono';
+
+/* Mana symbols. Andrew Gioia's mana-font: fonts SIL OFL 1.1, code MIT.
+ * ⚠️ Import the GENERATED file, not 'mana-font/css/mana.css'. The package's own
+ * stylesheet emits 8 font files (~4.5 MB) — all of MPlantin, which we never
+ * reference, plus eot/ttf/svg fallbacks — and predates woff2. The generator keeps
+ * its glyph map and swaps in one woff2 @font-face (187 KB).
+ * Regenerate after upgrading mana-font:  node scripts/make-mana-css.cjs */
+@import './styles/mana.generated.css';
+
+/* ⚠️ `static` is load-bearing — do NOT drop it back to a plain `@theme`.
+ *
+ * Tailwind 4 TREE-SHAKES theme variables: it emits only the ones it finds as
+ * literal text in the source. Several tokens here are reached by interpolation
+ * instead — `identityToken()` builds `var(--color-mtg-${letter})` at runtime — so
+ * the scanner never sees `--color-mtg-r` and silently omits it. The failure is
+ * nasty: an undefined var inside color-mix() makes the value invalid, and the
+ * browser then drops the WHOLE declaration. A card lost its background AND its
+ * box-shadow, so single-colour cards rendered with no silhouette at all while
+ * colourless and multicolour ones (whose tokens do appear literally) looked fine.
+ * No console error, no build warning.
+ *
+ * `static` emits every declared token unconditionally. The cost is a few hundred
+ * bytes of CSS; the alternative is a class of bug that only shows up for the
+ * subset of values that happen to be composed dynamically.
+ *
+ * ⚠️ Separately: this block must become `@theme static inline` if a token value
+ * ever references a SCOPE-LOCAL var. Plain @theme emits at :root, where a scoped
+ * var is undefined; the token resolves to empty and inherits down, so every
+ * border-* utility falls back to currentColor (white lines everywhere). That one
+ * has cost this workspace real time twice. Today every value is a literal, so
+ * `inline` is not needed.
+ */
+@theme static {
+  /* ── Neutrals: cool slate, faintly green-shifted — a card table under a lamp */
+  --color-crt-void: oklch(0.130 0.014 250);
+  --color-crt-table: oklch(0.245 0.021 195);
+  --color-crt-table-lo: oklch(0.195 0.019 195);
+  --color-crt-surface: oklch(0.205 0.014 250);
+  --color-crt-raised: oklch(0.250 0.015 250);
+  --color-crt-inset: oklch(0.160 0.012 250);
+  --color-crt-border: oklch(0.325 0.016 250);
+  --color-crt-border-hi: oklch(0.430 0.020 250);
+  --color-crt-text: oklch(0.945 0.006 95);
+  --color-crt-dim: oklch(0.720 0.010 95);
+  --color-crt-faint: oklch(0.550 0.012 250);
+
+  /* ── Accent: brass. Deliberately NOT one of the five colours, so an accent
+   *    ring on a card can never be misread as "this has red mana". */
+  --color-crt-accent: oklch(0.780 0.115 78);
+  --color-crt-accent-hi: oklch(0.860 0.130 80);
+  --color-crt-accent-lo: oklch(0.440 0.070 78);
+  --color-crt-on-accent: oklch(0.190 0.020 78);
+
+  /* ── Semantics */
+  --color-crt-ok: oklch(0.740 0.130 152);
+  --color-crt-warn: oklch(0.800 0.140 82);
+  --color-crt-danger: oklch(0.640 0.190 24);
+  --color-crt-cmd: oklch(0.660 0.190 300); /* commander damage — unmistakable violet */
+
+  /* ── The five colours, LIGHTNESS-MATCHED so none dominates the table.
+   *    That matching is the whole "tasteful, not garish" lever. */
+  --color-mtg-w: oklch(0.930 0.045 92); /* parchment, not pure white */
+  --color-mtg-u: oklch(0.680 0.135 245);
+  --color-mtg-b: oklch(0.460 0.055 300); /* violet-black, so it reads on the felt */
+  --color-mtg-r: oklch(0.630 0.185 32);
+  --color-mtg-g: oklch(0.620 0.125 148);
+  --color-mtg-c: oklch(0.720 0.012 250);
+  --color-mtg-m: oklch(0.780 0.115 85); /* multicolour — gold */
+
+  /* ── Type */
+  --font-display: 'Alegreya Variable', Georgia, serif;
+  --font-sc: 'Alegreya SC', Georgia, serif;
+  --font-ui: 'Inter Variable', system-ui, sans-serif;
+  --font-rules: 'Crimson Pro Variable', Georgia, serif;
+  --font-num: 'JetBrains Mono Variable', ui-monospace, monospace;
+}
+
+/* Motion primitives. Durations live in TS (src/ui/anim/tokens.ts) because the
+ * choreographer scales them at runtime; these exist for CSS-only beats
+ * (shimmer, hover chrome) that never need scaling. */
+:root {
+  --crt-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --crt-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --crt-ease-overshoot: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --crt-dur-fast: 120ms;
+  --crt-dur: 180ms;
+  --crt-dur-slow: 320ms;
+}
+
+/* ⚠️ Resets go in @layer base and NOWHERE else. An unlayered universal
+ * `* { margin: 0; padding: 0 }` outranks @layer utilities and silently zeroes
+ * every padding and margin utility in its scope. That exact reset zeroed 111
+ * Tailwind utilities across two apps in this workspace. Never add one.
+ */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-crt-void);
+    color: var(--color-crt-text);
+    font-family: var(--font-ui);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    /* A card game is not a document: nothing here should rubber-band or
+     * text-select on a drag across the table. */
+    overflow: hidden;
+    user-select: none;
+  }
+
+  /* Numbers are read at a glance and must not shift width as they tick. */
+  .crt-num {
+    font-family: var(--font-num);
+    font-variant-numeric: tabular-nums;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-crt-accent);
+    outline-offset: 2px;
+  }
+}
+
+/* CSS-only beats. Anything the choreographer needs to scale, sequence or skip
+ * lives in TS instead (src/ui/anim/) — these are the ambient ones that never do.
+ * Only compositable properties animate here: background-position, opacity,
+ * transform. Never width/height/top/left in a beat. */
+@keyframes crt-shimmer {
+  from { background-position: 180% 0; }
+  to { background-position: -80% 0; }
+}
+
+@keyframes crt-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes crt-scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* The low-life warning ring. Only `opacity` animates, so it composites and costs
+ * nothing even while six other things are moving. A player at 4 life needs to see
+ * that without it competing for the animation budget. */
+@keyframes crt-breathe {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* The targeting arrow.
+ *
+ * ⚠️ Both are DECORATION on top of information. The arrow's PATH always draws —
+ * it is how a player sees what a spell is aimed at, and removing it under
+ * reduced motion would take away the affordance rather than the flourish. Only
+ * the march and the pulse stop, which the blanket rule below already does for
+ * every animation in the app, so neither needs its own media query. */
+@keyframes crt-arrow-march {
+  to { stroke-dashoffset: -20; }
+}
+.crt-arrow-march {
+  animation: crt-arrow-march 900ms linear infinite;
+}
+
+@keyframes crt-aim-pulse {
+  0%, 100% { outline-color: color-mix(in oklab, var(--color-crt-accent) 70%, transparent); }
+  50% { outline-color: var(--color-crt-accent-hi); }
+}
+.crt-aim-pulse {
+  animation: crt-aim-pulse 1400ms ease-in-out infinite;
+}
+
+/* Respect the OS setting everywhere, not just in the choreographer: an ambient
+ * shimmer is exactly the kind of motion this preference exists to stop. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

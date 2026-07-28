@@ -1,0 +1,9 @@
+# Keep LF in the repo on every platform. Without this, Windows checkouts
+# rewrite every file to CRLF and the first diff anyone takes is 262 files.
+* text=auto eol=lf
+
+# Binary, never normalised.
+*.png binary
+*.ico binary
+*.icns binary
+*.woff2 binary
