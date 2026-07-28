@@ -3165,3 +3165,70 @@ disables auto-update.
 **Verified: 36/36 bundle audit**, including the check that the feed owner is a
 real account — which had been pointing at `meesamooman`, a GitHub account that
 returns 404.
+
+## D104 — "TURN 0", and the tapped board the layout sweep never measured
+
+Two things found by playing a 35-turn game by hand rather than by running the
+suites.
+
+### The bar claimed a step that nobody was in
+
+Before the first `TurnBegan` the phase bar read **TURN 0** and lit **UNTAP**,
+while all four players were still keeping or mulliganing. The step it marked was
+not a fact about the game — `view.turn.phase` has a default and the engine had
+not set one yet — so the track was confidently pointing at a step nobody was in.
+
+It now reads `MULLIGANS · BEN GOES FIRST`, and **no step or group is marked at
+all**: both markers are unmounted and every label sits at `text-crt-faint`. A
+track that marks nothing is honest; a track that marks the wrong thing teaches
+the player something false about a game they are still learning.
+
+⚠️ `turn.turnNumber < 1` is the signal, and it is safe precisely because
+`emptyView()` starts at **1** — the fixture path can never render as pre-game,
+so the M2 scenarios are untouched.
+
+### The layout sweep had only ever measured untapped boards
+
+`battery-anim.cjs`'s table section builds boards up to 21 permanents a seat and
+asserts nothing overlaps and no band scrolls. Every one of those boards is
+**entirely untapped**, which is the one state a real game is never in.
+
+A tapped permanent's slot reserves the landscape footprint (D75) — measured 127 px
+against 91 px — so the packing is genuinely different once cards have been tapped
+for mana or sent to attack. Measured at 4 seats, 12 per seat: **0 bands scrolling
+untapped, against 2 bands and 52 px of overflow** with two thirds of the
+opponents' boards turned. The new block covers that.
+
+⚠️ **It taps the OPPONENTS.** My own band is the full table width — 1514 px
+against an opponent box's 421 px — and no realistic board exhausts it. A case
+that tapped my own board would have passed while proving nothing, which is what
+the first draft of this block did.
+
+⚠️ **The overflow is REPORTED, not asserted at zero.** Horizontal scroll is rung
+4 of the packing ladder and the deliberate answer to a board that cannot fit, so
+"no band scrolls" is not a bar a played board has to clear. What is asserted is
+what must hold in every tap state: **nothing overlaps**, and **nothing sits past
+the scroll extent** — a card the player can neither see nor scroll to is lost,
+which is the failure scrolling exists to prevent.
+
+### ⚠️ The trap that produced two false results in a row
+
+Trap 6 says to sample geometry only once the layout has settled.
+`waitForStableLayout` watches the metrics EPOCH, which settles as soon as the
+solve is done — but a tap is a CSS transition on the turn element (D76), so slot
+footprints keep moving after the epoch stops. Measuring in that window did not
+produce noise, it produced **confident wrong answers, twice**:
+
+1. Three overlaps reported in `p2:support` — the same slots measure 8 px apart
+   once settled.
+2. Tapping reported as REMOVING a 30 px overflow, i.e. the exact opposite of the
+   52 px it actually adds. That reading was believed long enough to be written
+   into a comment as fact before a hand measurement contradicted it.
+
+`waitForTurnsSettled()` polls the turned-count and every slot's
+`offsetLeft`/`offsetWidth` until both stop changing. **Any assertion about
+footprints has to wait for the transition, not the solve.**
+
+**Verified: 258/259 animation battery** (up from 253/254; five new checks) ·
+869 Vitest · the one failure is still the perf gate's long-frame count
+(D29/D29a).

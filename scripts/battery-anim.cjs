@@ -573,6 +573,151 @@ async function sectionTable(js, send) {
   await js(`window.__crt.table.setup({ seatCount: 4, permanentsPerSeat: 10, handSize: 7 })`);
   await sleep(300);
 
+  // ⚠️ `waitForStableLayout` watches the metrics epoch, which settles as soon as
+  // the SOLVE is done — but a tap is a CSS transition on the turn element
+  // (D76), so slot footprints keep moving after the epoch stops. Sampling in
+  // that window reported three overlaps in `p2:support` that a longer settle
+  // shows packed with 8 px gaps. This polls the turned-count and the slot
+  // geometry until both stop changing, which is what trap 6 asks for.
+  const waitForTurnsSettled = async () => {
+    let last = '';
+    let stable = 0;
+    for (let i = 0; i < 40 && stable < 3; i++) {
+      await sleep(120);
+      const now = await js(`(() => {
+        const slots = [...document.querySelectorAll('[data-band-slot]')];
+        return document.querySelectorAll('[data-card-turn="1"]').length + '|' +
+          slots.map((s) => Math.round(s.offsetLeft) + ',' + Math.round(s.offsetWidth)).join(';');
+      })()`);
+      if (now === last) stable++;
+      else { stable = 0; last = now; }
+    }
+  };
+
+  // ── A board that has actually been PLAYED (D75 footprints) ──
+  //
+  // ⚠️ EVERY MEASUREMENT ABOVE IS OF AN ALL-UNTAPPED BOARD, which is the one
+  // state a real game is never in. A tapped permanent turns a quarter turn and
+  // its slot RESERVES the landscape footprint (D75) — measured here at 127 px
+  // against 91 px — so the packing a band settles on is genuinely different
+  // once cards have been tapped for mana or sent to attack.
+  //
+  // Measured at 4 seats, 12 per seat, SETTLED: 0 bands scrolling untapped
+  // against 2 bands and 52 px of overflow once two thirds of the opponents'
+  // boards are turned. That is the case the sweep above never reached, and the
+  // reason this block exists.
+  //
+  // ⚠️ THE FIGURES ARE REPORTED, NOT ASSERTED AT A NUMBER. Horizontal scroll is
+  // rung 4 of the packing ladder and the deliberate answer to a board that
+  // cannot fit, so "0 bands scrolling" is not a bar a played board has to
+  // clear. What must hold in every tap state is asserted below: nothing
+  // overlaps, and nothing sits past the scroll extent.
+  //
+  // ⚠️ AN UNSETTLED READING OF THIS IS ACTIVELY MISLEADING, not merely noisy.
+  // Sampling mid-transition first reported three overlaps in `p2:support` that
+  // are packed with 8 px gaps once settled, and then reported tapping REMOVING
+  // a 30 px overflow — the opposite of the truth. Both came from measuring
+  // while the turn transition was still running. See `waitForTurnsSettled`.
+  //
+  // ⚠️ It taps the OPPONENTS, not me. My own band is the full table width
+  // (measured 1514 px against an opponent box's 421 px) and has room no
+  // realistic board exhausts — tapping it proves nothing. The narrow pods are
+  // where the packer is under pressure.
+  await setViewport(1920, 1080);
+  await js(`window.__crt.table.setup({ seatCount: 4, permanentsPerSeat: 12, handSize: 7 })`);
+  await waitForStableLayout(js, 200);
+
+  // The fixture ships some permanents already tapped, so the "untapped"
+  // baseline has to be MADE untapped rather than assumed.
+  await js(`(() => {
+    const v = window.__crt.table.view();
+    for (const p of v.seatOrder) window.__crt.table.untapAll(p);
+  })()`);
+  await waitForStableLayout(js, 200);
+  await waitForTurnsSettled();
+
+  const bandOverflow = () => js(`(() => {
+    const bands = [...document.querySelectorAll('[data-band]')];
+    const over = bands.map((b) => ({
+      band: b.getAttribute('data-band'),
+      scrolls: b.getAttribute('data-band-scrolls') === '1',
+      overflow: b.scrollWidth - b.clientWidth,
+    }));
+    return {
+      scrolling: over.filter((o) => o.scrolls).length,
+      widest: Math.max(0, ...over.map((o) => o.overflow)),
+      turned: document.querySelectorAll('[data-card-turn="1"]').length,
+    };
+  })()`);
+
+  const untappedState = await bandOverflow();
+  check('the baseline really is an untapped board', untappedState.turned === 0,
+    `${untappedState.turned} turned`);
+
+  const tappedCount = await js(`(() => {
+    const v = window.__crt.table.view();
+    let n = 0;
+    for (const p of v.seatOrder) {
+      if (p === v.me) continue;            // my band is the wide one — see above
+      const ids = (v.zones['bf:' + p] || []).filter((_, i) => i % 3 !== 0);
+      window.__crt.table.tap(ids);
+      n += ids.length;
+    }
+    return n;
+  })()`);
+  await waitForStableLayout(js, 200);
+  await waitForTurnsSettled();
+  const tappedState = await bandOverflow();
+
+  check('two thirds of every opponent board is turned', tappedCount >= 8 && tappedState.turned > 0,
+    `${tappedCount} tapped, ${tappedState.turned} turned in the DOM`);
+
+  // Reported, not asserted at a number — the packing legitimately differs and
+  // the point is that a CHANGE in these figures is visible in the output.
+  check('a played board is measured, and its packing reported',
+    tappedState.widest >= 0,
+    `untapped: ${untappedState.scrolling} band(s) / ${untappedState.widest}px over · ` +
+    `tapped: ${tappedState.scrolling} band(s) / ${tappedState.widest}px over`);
+
+  // ⚠️ THE BAR THAT MUST HOLD IN EVERY TAP STATE. The packer reserves the
+  // turned footprint per slot, so a row may end up wider than its band — it may
+  // never put two cards on top of each other.
+  const tappedGeom = await js('window.__crt.table.geometry()');
+  const overlaps = [];
+  for (const b of tappedGeom.bands) {
+    const cards = b.cards
+      .filter((c) => c.slot)
+      .slice()
+      .sort((x, y) => x.slot.left - y.slot.left);
+    for (let i = 1; i < cards.length; i++) {
+      const prev = cards[i - 1];
+      const cur = cards[i];
+      if (cur.slot.left < prev.slot.left + prev.slot.width - 1) {
+        overlaps.push(`${b.band}: ${prev.id} → ${cur.id}`);
+      }
+    }
+  }
+  check('a TAPPED board still overlaps nothing', overlaps.length === 0,
+    overlaps.length ? overlaps.slice(0, 3).join(' | ') : `${tappedGeom.bands.length} bands clean`);
+
+  // Nothing may sit past the scrollable extent — a card the player can neither
+  // see nor scroll to is lost, which is the failure scrolling exists to avoid.
+  const unreachable = await js(`(() => {
+    const out = [];
+    for (const band of document.querySelectorAll('[data-band]')) {
+      const limit = band.scrollWidth + 1;
+      for (const slot of band.querySelectorAll('[data-band-slot]')) {
+        if (slot.offsetLeft + slot.offsetWidth > limit) out.push(slot.getAttribute('data-band-slot'));
+      }
+    }
+    return out;
+  })()`);
+  check('every card on a tapped board is still reachable', unreachable.length === 0,
+    unreachable.length ? unreachable.slice(0, 4).join(', ') : 'none past the scroll extent');
+
+  await js(`window.__crt.table.setup({ seatCount: 4, permanentsPerSeat: 10, handSize: 7 })`);
+  await sleep(300);
+
   // Zone anchors are what make arbitrary zone→zone flights work. Every pile must
   // expose one, INCLUDING an empty one.
   const zones = await js(`(() => {

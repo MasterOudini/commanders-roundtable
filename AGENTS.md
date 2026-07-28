@@ -287,6 +287,14 @@ before asserting anything**: see trap 5 below.
    exactly like a broken falloff formula rather than like a race.
    `waitForStableLayout()` polls `metricsEpoch` until it stops changing, and the
    assertions check the epoch did not move across the measurement.
+   ⚠️ **The epoch is the SOLVE, not the transition.** A tap is a CSS transition
+   on the turn element (D76), so slot footprints keep moving after the epoch has
+   settled — and measuring in that window produces confident WRONG answers, not
+   noise: it reported three overlaps in a band whose slots are 8 px apart, and
+   reported tapping as removing a 30 px overflow when it adds 52 px. Anything
+   asserting on footprints must poll the turned-count and every slot's
+   `offsetLeft`/`offsetWidth` until they stop (`waitForTurnsSettled` in
+   `battery-anim.cjs`). See D104.
 7. **Measure the right box for anything rotated, and there are THREE of them.** A
    tapped card is a full quarter turn (D75), so a 101×141 card's client rect is
    141×101 — asserting no-overlap on client rects once reported a 6 px "overlap"
@@ -1044,6 +1052,25 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       also proves the pass comes from the new case rather than from the cast
       filter quietly skipping every targeted spell. A real run logged `SpellCast`
       twice plus a `TargetsChosen` — the targeting answer crossing a real socket.
+
+- [x] **Found by playing, not by testing (2026-07-28):** a 35-turn 4-seat game by
+      hand turned up two things every suite was green through. Decisions in **D104**.
+      ⚠️ **The bar read "TURN 0" and lit UNTAP during the mulligan** — a step
+      nobody was in, because `view.turn.phase` has a default the engine had not
+      set yet. It now reads `MULLIGANS · BEN GOES FIRST` and marks NO step:
+      both markers unmount and every label goes faint. `turnNumber < 1` is the
+      signal and is safe because `emptyView()` starts at 1, so fixture mode
+      cannot render as pre-game.
+      ⚠️ **The layout sweep had only ever measured UNTAPPED boards**, which is
+      the one state a real game is never in. A tapped slot reserves the
+      landscape footprint (D75) — 127 px against 91 px — and at 4 seats /
+      12 per seat that is **0 bands scrolling untapped against 2 bands and
+      52 px over** once the opponents are two-thirds turned. The new block taps
+      the OPPONENTS (my own band is 1514 px against their 421 px, so tapping
+      mine proves nothing), REPORTS the overflow rather than asserting zero
+      (scroll is rung 4 of the ladder, not a failure), and asserts what must
+      hold in every tap state: nothing overlaps, nothing past the scroll extent.
+      **Verified: 258/259 animation battery** (up from 253/254) **· 869 Vitest.**
 
 ⚠️ **Two invariants M2 established that M3 kept, and M4 must not break:**
 1. `animStore` may only **hide** or **decorate** — it never holds card→zone truth.

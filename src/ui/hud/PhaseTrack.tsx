@@ -81,13 +81,31 @@ export function PhaseTrack({ view, right }: { view: PlayerView; right?: ReactNod
   const myTurn = view.turn.active === view.me;
   const activeName = view.seats[view.turn.active]?.name ?? view.turn.active;
 
+  /**
+   * Nobody has taken a turn yet — everyone is still keeping or mulliganing.
+   *
+   * ⚠️ The bar read "TURN 0" and lit UNTAP, which is not a thing that is
+   * happening: the first `TurnBegan` is what makes it turn 1, so before that
+   * the step the view reports is a default rather than a fact. A track that
+   * confidently marks a step nobody is in is worse than one that marks none.
+   *
+   * ⚠️ `turnNumber < 1` cannot collide with the fixture path — `emptyView()`
+   * starts at 1 — so this never blanks the track in the M2 scenarios.
+   */
+  const pregame = view.turn.turnNumber < 1;
+
   return (
     <div
       className="flex h-[48px] items-stretch border-b border-crt-border/60 bg-crt-surface/70"
       style={{ gap: GAP, paddingRight: PAD_R }}
-      data-phase-track={view.turn.phase}
-      data-phase-group={group?.id}
-      aria-label={`Turn ${view.turn.turnNumber}, ${myTurn ? 'your turn' : `${activeName}'s turn`}, ${group?.label} — ${current?.label}`}
+      data-phase-track={pregame ? 'pregame' : view.turn.phase}
+      data-phase-group={pregame ? undefined : group?.id}
+      data-pregame={pregame ? '1' : undefined}
+      aria-label={
+        pregame
+          ? `Mulligans — ${myTurn ? 'you go' : `${activeName} goes`} first`
+          : `Turn ${view.turn.turnNumber}, ${myTurn ? 'your turn' : `${activeName}'s turn`}, ${group?.label} — ${current?.label}`
+      }
     >
       {/* ── Whose turn, and who the game is waiting on ──────────────────────── */}
       <div
@@ -99,18 +117,32 @@ export function PhaseTrack({ view, right }: { view: PlayerView; right?: ReactNod
         data-turn-owner={view.turn.active}
       >
         <span className="flex items-baseline gap-1.5 leading-none">
-          <span className="font-sc text-[10px] tracking-wider text-crt-faint">TURN</span>
-          <span className="crt-num text-[13px] leading-none text-crt-text">
-            {view.turn.turnNumber}
-          </span>
+          {pregame ? (
+            <span className="font-sc text-[10px] tracking-wider text-crt-faint">MULLIGANS</span>
+          ) : (
+            <>
+              <span className="font-sc text-[10px] tracking-wider text-crt-faint">TURN</span>
+              <span className="crt-num text-[13px] leading-none text-crt-text">
+                {view.turn.turnNumber}
+              </span>
+            </>
+          )}
           {/* Brass whoever it is — this IS the turn owner, and the same brass
               lights their pod. "YOUR" is what distinguishes mine, not a
-              different colour, so the two signals cannot disagree. */}
+              different colour, so the two signals cannot disagree.
+              Before turn 1 they are not taking a turn yet; they are the player
+              who will, which is a fact worth saying while hands are being kept. */}
           <span
             className="font-sc truncate text-[11px] tracking-wider text-crt-accent-hi"
             data-turn-label=""
           >
-            {myTurn ? 'YOUR TURN' : `${activeName.toUpperCase()}’S TURN`}
+            {pregame
+              ? myTurn
+                ? 'YOU GO FIRST'
+                : `${activeName.toUpperCase()} GOES FIRST`
+              : myTurn
+                ? 'YOUR TURN'
+                : `${activeName.toUpperCase()}’S TURN`}
           </span>
         </span>
         <span className="flex min-w-0 items-center gap-1.5">
@@ -121,7 +153,7 @@ export function PhaseTrack({ view, right }: { view: PlayerView; right?: ReactNod
               cells cannot hold a name — so the name comes and stands here
               instead. Above that width the track says it, and repeating it here
               would just be noise. */}
-          {compact && (
+          {compact && !pregame && (
             <span
               className="font-sc truncate text-[11px] tracking-wide text-crt-accent-hi"
               data-phase-name=""
@@ -136,13 +168,15 @@ export function PhaseTrack({ view, right }: { view: PlayerView; right?: ReactNod
       <div className="flex min-w-0 flex-1 flex-col justify-center gap-[3px] py-[5px]">
         {/* Phases. */}
         <div className="relative h-[15px]">
-          <motion.div
-            aria-hidden
-            className="absolute inset-y-0 z-0 rounded-[3px] bg-crt-accent-lo/35"
-            animate={{ left: pct(GROUP_OFFSETS[groupIndex] ?? 0), width: pct(group?.span ?? 1) }}
-            transition={{ duration: ds(DUR.landDrop), ease: EASE.out }}
-            data-phase-group-marker={groupIndex}
-          />
+          {!pregame && (
+            <motion.div
+              aria-hidden
+              className="absolute inset-y-0 z-0 rounded-[3px] bg-crt-accent-lo/35"
+              animate={{ left: pct(GROUP_OFFSETS[groupIndex] ?? 0), width: pct(group?.span ?? 1) }}
+              transition={{ duration: ds(DUR.landDrop), ease: EASE.out }}
+              data-phase-group-marker={groupIndex}
+            />
+          )}
           <div
             className="relative z-10 grid h-full"
             style={{ gridTemplateColumns: `repeat(${PHASES.length}, minmax(0,1fr))` }}
@@ -151,7 +185,7 @@ export function PhaseTrack({ view, right }: { view: PlayerView; right?: ReactNod
               <div
                 key={g.id}
                 data-phase-group-cell={g.id}
-                data-phase-group-current={i === groupIndex ? '1' : undefined}
+                data-phase-group-current={!pregame && i === groupIndex ? '1' : undefined}
                 className={`flex items-center justify-center overflow-hidden ${
                   i > 0 ? 'border-l border-crt-border/40' : ''
                 }`}
@@ -163,7 +197,7 @@ export function PhaseTrack({ view, right }: { view: PlayerView; right?: ReactNod
                     // window — and "MAIN 1" does not fit there at reading
                     // tracking. The letter-spacing is what gives, not the name.
                     compact ? 'px-0 text-[9px] tracking-[0.05em]' : 'px-1 text-[10px] tracking-[0.16em]'
-                  } ${i === groupIndex ? 'text-crt-accent-hi' : 'text-crt-faint'}`}
+                  } ${!pregame && i === groupIndex ? 'text-crt-accent-hi' : 'text-crt-faint'}`}
                 >
                   {g.label.toUpperCase()}
                 </span>
@@ -174,16 +208,18 @@ export function PhaseTrack({ view, right }: { view: PlayerView; right?: ReactNod
 
         {/* Steps. */}
         <div className="relative h-[19px]">
-          <motion.div
-            aria-hidden
-            className="absolute inset-y-0 z-0"
-            style={{ width: pct(1) }}
-            animate={{ left: pct(index) }}
-            transition={{ duration: ds(DUR.landDrop), ease: EASE.out }}
-            data-phase-marker={index}
-          >
-            <div className="absolute inset-x-[1px] inset-y-0 rounded-[3px] bg-crt-accent" />
-          </motion.div>
+          {!pregame && (
+            <motion.div
+              aria-hidden
+              className="absolute inset-y-0 z-0"
+              style={{ width: pct(1) }}
+              animate={{ left: pct(index) }}
+              transition={{ duration: ds(DUR.landDrop), ease: EASE.out }}
+              data-phase-marker={index}
+            >
+              <div className="absolute inset-x-[1px] inset-y-0 rounded-[3px] bg-crt-accent" />
+            </motion.div>
+          )}
           <div
             className="relative z-10 grid h-full"
             style={{ gridTemplateColumns: `repeat(${PHASES.length}, minmax(0,1fr))` }}
@@ -194,7 +230,7 @@ export function PhaseTrack({ view, right }: { view: PlayerView; right?: ReactNod
                 <div
                   key={p.id}
                   data-phase={p.id}
-                  data-phase-current={i === index ? '1' : undefined}
+                  data-phase-current={!pregame && i === index ? '1' : undefined}
                   className={`flex items-center justify-center overflow-hidden ${
                     startsGroup ? 'border-l border-crt-border/40' : ''
                   }`}
@@ -202,11 +238,13 @@ export function PhaseTrack({ view, right }: { view: PlayerView; right?: ReactNod
                 >
                   <span
                     className={`font-sc truncate px-1 text-[11px] tracking-wide ${
-                      i === index
-                        ? 'text-crt-on-accent'
-                        : i < index
-                          ? 'text-crt-dim'
-                          : 'text-crt-faint'
+                      pregame
+                        ? 'text-crt-faint'
+                        : i === index
+                          ? 'text-crt-on-accent'
+                          : i < index
+                            ? 'text-crt-dim'
+                            : 'text-crt-faint'
                     }`}
                   >
                     {compact ? p.short : p.step}
