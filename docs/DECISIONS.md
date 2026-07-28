@@ -3129,3 +3129,39 @@ targets, so it proves the round trip rather than tolerating it. With the
 `chooseTargets` case deleted it fails `expected 0 to be greater than 0`, which
 also confirms the pass comes from the case and not from the cast filter quietly
 skipping every targeted spell.
+
+## D103 — The installer's filename is pinned, because the update feed hard-codes it
+
+`electron-builder` was left to name the installer, so it produced
+`Commander's Roundtable Setup 0.2.0.exe` from `productName` — while the
+`latest.yml` it generated alongside pointed at
+`commanders-roundtable-setup-0.2.0.exe`. electron-updater URL-sanitises the name
+it writes into the feed (lowercase, hyphens, no apostrophe); the artifact keeps
+the pretty one. Two names for one file.
+
+That is invisible until the first auto-update. GitHub then applies a THIRD
+transformation — an uploaded asset's spaces become dots — so the release would
+have carried `Commander's.Roundtable.Setup.0.2.0.exe` while every installed copy
+asked the feed for `commanders-roundtable-setup-0.2.0.exe` and got a 404. The
+app would report "no update available" forever, which is indistinguishable from
+being up to date.
+
+`build.artifactName` is now `${name}-setup-${version}.${ext}`, which is already
+the sanitised form, so the built file, the feed and the uploaded asset are one
+string that survives all three transformations.
+
+⚠️ **`package.json` cannot carry the explanation.** electron-builder validates
+its `build` block against a schema that rejects unknown keys, so a `_note`
+sibling to `artifactName` is not a comment — it is a hard build failure:
+`configuration.-artifactNameNote is an invalid additional property`. That is why
+this reasoning lives here instead.
+
+⚠️ **`latest.yml` and the `.blockmap` are release ASSETS, not build leftovers.**
+The updater reads `latest.yml` to learn what the newest version is, and the
+blockmap is what makes an update a differential download rather than another
+103 MB. A release with only the `.exe` attached looks complete and silently
+disables auto-update.
+
+**Verified: 36/36 bundle audit**, including the check that the feed owner is a
+real account — which had been pointing at `meesamooman`, a GitHub account that
+returns 404.

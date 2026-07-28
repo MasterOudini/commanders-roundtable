@@ -62,6 +62,7 @@
   "build": {
     "appId": "com.commanders-roundtable.app",
     "productName": "Commander's Roundtable",
+    "artifactName": "${name}-setup-${version}.${ext}",
     "electronDist": ".electron-dist",
     "directories": {
       "output": "release"
