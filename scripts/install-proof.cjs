@@ -160,12 +160,21 @@ function findUnder(dir, matches, limit = 12, depth = 0, out = []) {
 }
 
 async function main() {
+  // ⚠️ Matches BOTH namings, and takes the NEWEST rather than the first.
+  // `build.artifactName` was pinned to the update feed's sanitised form (D103),
+  // so the file went from "Commander's Roundtable Setup 0.2.0.exe" to
+  // "commanders-roundtable-setup-0.2.0.exe" — which the old `/Setup .*\.exe$/`
+  // does not match. `release/` keeps previous builds, so the filter silently
+  // fell through to the 0.1.1 installer and this script would have proved the
+  // data root of the wrong build entirely.
   const installer = fs
     .readdirSync(RELEASE)
-    .filter((f) => /Setup .*\.exe$/.test(f))
-    .map((f) => path.join(RELEASE, f))[0];
+    .filter((f) => /setup[ -].*\.exe$/i.test(f) && !/uninstaller/i.test(f))
+    .map((f) => ({ f: path.join(RELEASE, f), t: fs.statSync(path.join(RELEASE, f)).mtimeMs }))
+    .sort((a, b) => b.t - a.t)
+    .map((x) => x.f)[0];
   if (!installer) {
-    console.error('No "… Setup ….exe" in release/ — run `npm run electron:build` first.');
+    console.error('No installer .exe in release/ — run `npm run electron:build` first.');
     process.exit(1);
   }
 
