@@ -1,7 +1,7 @@
 {
   "name": "commanders-roundtable",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "MasterOudini",
   "license": "MIT",
   "description": "Commander's Roundtable — play Magic: The Gathering Commander (EDH) online with friends, with the rules bookkeeping automated.",
