@@ -3316,3 +3316,46 @@ degraded is interference; a real render regression moves the median too.**
 
 **Verified: 869 Vitest · 17/17 table section · 257/259 full battery** (both
 failures the D29/D29a perf gate).
+
+## D106 — How to tell the perf gate's noise from a regression
+
+D29a established that the long-frame count is noisy and that the honest range is
+3–9. It did not say how to tell that noise from a real regression, and a session
+spent most of a day not knowing.
+
+Measured today, same machine, same scene, same commit:
+
+| | a game running | machine quiet |
+|---|---|---|
+| p50 | 8.3 ms | 8.3 ms |
+| p95 | 8.50 ms | 8.50 ms |
+| frames > 20 ms | 19 | **7** |
+| frames > 33 ms | 13 | **0** |
+| p99 | 50.1 ms | **24.9 ms** |
+
+The game was Overwatch, at 10.3 GB resident with the CPU at 79%. Closing it and
+changing nothing else moved the gate from two failures to its single documented
+one — and `<= 2 frames over 33 ms` went from failing at 13 to passing at 0.
+
+⚠️ **THE SIGNATURE. p50 and p95 unmoved while only the tail degrades is
+EXTERNAL LOAD. A real render regression moves the median too** — it has to,
+because the gate's scene does the same work every frame. p95 sat at exactly
+8.50 ms through every run today, including the worst ones, which was the tell
+from the beginning.
+
+Before suspecting the code, spend ten seconds on:
+
+```powershell
+Get-Process | Where-Object { $_.MainWindowTitle -ne '' } | Sort-Object WorkingSet64 -Descending | Select-Object -First 10 Name, WorkingSet64
+(Get-CimInstance Win32_Processor | Measure-Object -Property LoadPercentage -Average).Average
+```
+
+⚠️ And when the answer is genuinely not obvious, `git stash` settles it in two
+runs rather than by argument: measure the working tree, stash, measure again,
+pop. Done today over a layout change (D105) — 18 long frames with it against 17
+without, p50/p95/p99 identical — which ruled the change out before the real
+cause was found.
+
+⚠️ A reboot is the wrong instrument. RAM was 91.5 GB free of 128 GB and uptime
+14.6 hours; there was nothing to clear. The cost would have been a running game,
+109 browser tabs and an open editor, for a number that a single `taskkill` fixed.

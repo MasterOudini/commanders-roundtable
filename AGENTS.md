@@ -247,9 +247,9 @@ node scripts/screenshot.cjs out.png --wait 900       # visual proof
 serving) because animation assertions need the DEV build's `window.__crt` handles
 plus a real, unthrottled rAF clock — `scripts/probe.cjs` tests `dist/` under the
 production posture, where dev handles do not exist at all. It **hard-reloads the page
-before asserting anything**: see trap 5 below.
+before asserting anything**: see trap 6 below.
 
-⚠️ Eight traps, each of which has already cost real debugging time here:
+⚠️ Nine traps, each of which has already cost real debugging time here:
 
 1. **Restart the Vite dev server before probing** after an edit session. With
    HMR active, app modules resolve as `file.ts?t=<stamp>`, so a probe's
@@ -271,7 +271,15 @@ before asserting anything**: see trap 5 below.
    reads as "the assertion returned nothing" rather than as a client bug.
    `scripts/cdp.cjs` carries a comment to this effect — leave it there.
 
-5. **A battery that reuses a long-lived vite can load a STALE module graph.**
+5. **The perf gate's tail is EXTERNAL LOAD until proven otherwise.** Measured
+   today on one commit: a game running in the background gave 19 long frames and
+   13 over 33 ms; closing it gave 7 and 0. **p50 and p95 did not move — 8.50 ms
+   in both** — and that is the signature: a real render regression moves the
+   median too, because the gate's scene does the same work every frame. Check
+   `Get-Process | ? { $_.MainWindowTitle }` and `LoadPercentage` before
+   suspecting the code, and use `git stash` to settle it in two runs when it is
+   genuinely unclear. A reboot is the wrong instrument. See D106.
+6. **A battery that reuses a long-lived vite can load a STALE module graph.**
    `battery-anim.cjs` reuses a vite that is already serving, and a vite alive across
    an edit session carries HMR state; a freshly spawned Electron then loaded an old
    module, so the copy of `rectRegistry` the beats had closed over was not the copy
@@ -280,7 +288,7 @@ before asserting anything**: see trap 5 below.
    distinct matrix", which reads as "the beat does not animate". A clean reload made
    the same beat report 65 distinct matrices. The battery now does
    `Page.reload({ ignoreCache: true })` before its first assertion.
-6. **Sample geometry only once the layout has SETTLED.** Unhiding the persistent
+7. **Sample geometry only once the layout has SETTLED.** Unhiding the persistent
    table slot and any device-metrics override both reflow asynchronously (a
    `display: none` element measures 0×0, so the first real metrics pass happens on
    the ResizeObserver after it becomes visible). Sampling mid-reflow produced
@@ -296,7 +304,7 @@ before asserting anything**: see trap 5 below.
    asserting on footprints must poll the turned-count and every slot's
    `offsetLeft`/`offsetWidth` until they stop (`waitForTurnsSettled` in
    `battery-anim.cjs`). See D104.
-7. **Measure the right box for anything rotated, and there are THREE of them.** A
+8. **Measure the right box for anything rotated, and there are THREE of them.** A
    tapped card is a full quarter turn (D75), so a 101×141 card's client rect is
    141×101 — asserting no-overlap on client rects once reported a 6 px "overlap"
    between two correctly packed cards. Card SIZE is `offsetWidth`/`offsetHeight`
@@ -308,7 +316,7 @@ before asserting anything**: see trap 5 below.
    `transform !== 'none'` — a beat that squashed or nudged a card leaves an
    identity matrix behind, and that reads as a card turned 90° while standing
    perfectly upright.
-8. **Normalise a recorded track against the REQUESTED duration**, not the recorded
+9. **Normalise a recorded track against the REQUESTED duration**, not the recorded
    window. A recording starts on the frame the clone first exists and stops when it
    unmounts, so dividing by the observed span inflated a measured flip time from 0.50
    to anywhere in 0.52–0.60 depending on frame alignment — which looks exactly like a

@@ -588,7 +588,7 @@ async function sectionTable(js, send) {
   // (D76), so slot footprints keep moving after the epoch stops. Sampling in
   // that window reported three overlaps in `p2:support` that a longer settle
   // shows packed with 8 px gaps. This polls the turned-count and the slot
-  // geometry until both stop changing, which is what trap 6 asks for.
+  // geometry until both stop changing, which is what trap 7 asks for.
   const waitForTurnsSettled = async () => {
     // The choreographer first — a tap is a queued beat, and the auto-stack
     // grouping deliberately lags a turn behind the view (D77), so slots can
@@ -2021,7 +2021,7 @@ async function sectionTap(js, send) {
     // ⚠️ A teleport is measured as "one frame carried the whole move", not as a
     // pixel threshold. The threshold version sat one pixel from failing on a
     // 116 fps window and would have flaked outright on a 60 Hz one — the same
-    // sampled-motion trap as trap 8. Frames-in-motion is frame-rate independent:
+    // sampled-motion trap as trap 9. Frames-in-motion is frame-rate independent:
     // a spring takes a dozen, a teleport takes one.
     let travellers = 0, fewestMovingFrames = Infinity;
     for (const e of byId.values()) {
@@ -2215,7 +2215,7 @@ async function sectionDrag(js, send) {
   // The table must be VISIBLE before anything is measured: it is always mounted
   // but `display: none` when another screen is up, and a hidden element measures
   // 0×0 — so the drop zone would have no box and every hit test would miss. Same
-  // family as trap 6 in AGENTS.md.
+  // family as trap 7 in AGENTS.md.
   await goto(js, 'table');
   await send('Emulation.setDeviceMetricsOverride', {
     width: 1600, height: 900, deviceScaleFactor: 1, mobile: false,
@@ -2651,7 +2651,7 @@ async function sectionEngine(js, send) {
   // every card as overflow and the aim veil finds no hit areas at all. Running
   // this section on its own without navigating reported "the table did not
   // render the land" and "0/0 legal targets" for a table that was simply not on
-  // screen. Same family as trap 6 in AGENTS.md.
+  // screen. Same family as trap 7 in AGENTS.md.
   await goto(js, 'table');
   await send('Emulation.setDeviceMetricsOverride', {
     width: 1600, height: 900, deviceScaleFactor: 1, mobile: false,
