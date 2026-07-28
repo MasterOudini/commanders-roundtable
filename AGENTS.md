@@ -1072,6 +1072,36 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       hold in every tap state: nothing overlaps, nothing past the scroll extent.
       **Verified: 258/259 animation battery** (up from 253/254) **· 869 Vitest.**
 
+- [x] **A played board fits (2026-07-28):** a 4-seat board with two thirds of the
+      opponents tapped put **two bands into scroll, 52 px over**; the same board
+      untapped fits. Now **0 bands, 0 px**. Decisions in **D105**.
+      ⚠️ **The packer was never wrong.** Five slots — two upright at 69 px, three
+      turned at 96 px — is 426 px of card in a 421 px band, which does not fit at
+      ANY gap. It had already shrunk 100 → 96 and stopped, because
+      `MIN_BAND_CARD_H` is 96 **and `CARD_MODE_MIN_HEIGHT.chit` was also 96**:
+      two constants at the same value left the uniform-shrink rung with exactly
+      zero room, in precisely the case it exists for.
+      ⚠️ The chit cliff is now **88**, `SQUEEZE_FLOOR_H = 88` is what the PACKER
+      gets, and `PlayerPod` still sizes the BAND from `minCardH` (96). Different
+      questions: what every card is guaranteed, versus how far one over-full row
+      may go before it scrolls. A squeeze costs 5 px, never a render mode —
+      measured 24 chit / 7 full / **0 pile** in the bands afterwards.
+      ⚠️ New **rung 3: spend the whitespace first** (row gap 8 → 4, cluster
+      20 → 8, stepped only as far as needed), and `SCROLL_SLACK_PX = 2` because a
+      **1 px** rounding residual was enough to set `overflow-x: auto` under a row
+      whose cards are all fully visible.
+      ⚠️ Two checks changed and neither was bent: `packRow.test.ts`'s "five
+      turned cards must scroll" is now a fit (they were 2 px over), plus a new
+      six-card case so rung 5 still has coverage; and the battery measures
+      auto-stacking in **pixels** (2,146 unstacked vs 202 stacked) because the
+      band COUNT stopped discriminating once small overflows were absorbed.
+      ⚠️ **The perf gate degraded this session and it was not this change** —
+      `git stash`, same protocol back to back: p50/p95/p99 8.3/16.7/41.6 with it
+      against 8.3/16.7/41.7 without, 18 long frames against 17. Read the
+      signature: **p50 and p95 unmoved with only the tail degraded is
+      interference; a real render regression moves the median too.**
+      **Verified: 869 Vitest · 17/17 table section · 257/259 full battery.**
+
 ⚠️ **Two invariants M2 established that M3 kept, and M4 must not break:**
 1. `animStore` may only **hide** or **decorate** — it never holds card→zone truth.
    The DOM's zone membership is always the authoritative state, so the worst a

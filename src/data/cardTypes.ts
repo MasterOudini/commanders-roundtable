@@ -81,7 +81,24 @@ export type CardRenderMode = 'full' | 'chit' | 'back' | 'pile';
 export const CARD_MODE_MIN_HEIGHT = {
   /** Below this the full frame is mostly border — the art crop shows more. */
   full: 120,
-  chit: 96,
+  /**
+   * Below this a card stops being a card and becomes a `pile` — no name, no
+   * cost, no P/T.
+   *
+   * ⚠️ THIS USED TO BE 96, THE SAME NUMBER AS `MIN_BAND_CARD_H`, and the two
+   * being equal is what left the row packer's shrink rung with nowhere to go:
+   * the table solves every band card down to 96, the packer may not squeeze
+   * below 96, so a row under local pressure had no rung between "fits" and
+   * "scrolls". Measured on a played 4-seat board — 2 upright and 3 turned slots
+   * needing 426 px of a 421 px band — the row could not fit even with every gap
+   * removed. See D105.
+   *
+   * 88 is the headroom that fixes it: a pressured row squeezes to ~91 px and is
+   * still drawn as a chit, with its name, cost and P/T intact. Nothing renders
+   * at 88–95 px unless a row is genuinely over-full, and it goes back the moment
+   * those permanents untap.
+   */
+  chit: 88,
 } as const;
 
 /** Printed card aspect ratio (63×88 mm ≈ Scryfall's 745×1040). */

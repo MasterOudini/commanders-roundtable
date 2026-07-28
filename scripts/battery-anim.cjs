@@ -528,6 +528,8 @@ async function sectionTable(js, send) {
 
   const countScrollingBands = () =>
     js(`[...document.querySelectorAll('[data-band]')].filter((b) => b.getAttribute('data-band-scrolls') === '1').length`);
+  const totalOverflowPx = () =>
+    js(`[...document.querySelectorAll('[data-band]')].reduce((n, b) => n + Math.max(0, b.scrollWidth - b.clientWidth), 0)`);
   eq('no band needs to scroll with auto-stacking on', await countScrollingBands(), 0);
 
   // ── The load-bearing proof (D19) ──
@@ -542,6 +544,7 @@ async function sectionTable(js, send) {
     js(`[...document.querySelectorAll('[data-band-slot]')].length`);
   const stackedSlots = await countBandSlots();
   const stackedScrolls = await countScrollingBands();
+  const stackedOverflowPx = await totalOverflowPx();
   const realBoardGeom = await js('window.__crt.table.geometry()');
 
   check('a 21-per-seat board still overlaps nothing',
@@ -554,6 +557,7 @@ async function sectionTable(js, send) {
   await sleep(400);
   const unstackedSlots = await countBandSlots();
   const unstackedScrolls = await countScrollingBands();
+  const unstackedOverflowPx = await totalOverflowPx();
 
   // ⚠️ The honest form of the load-bearing claim. Auto-stacking does NOT make a
   // 21-per-seat board fit without scrolling — six DISTINCT creatures in a 5-slot
@@ -566,9 +570,15 @@ async function sectionTable(js, send) {
   check('auto-stacking removes a large fraction of the slots on a real board',
     saved > 0 && saved / unstackedSlots >= 0.25,
     `${unstackedSlots} slots → ${stackedSlots} (${Math.round((saved / unstackedSlots) * 100)}% fewer)`);
-  check('…and measurably fewer bands overflow because of it',
-    unstackedScrolls > stackedScrolls,
-    `${unstackedScrolls} bands overflow unstacked vs ${stackedScrolls} stacked`);
+  // ⚠️ Measured in PIXELS, not in how many bands happen to be over. The band
+  // COUNT is a coarse proxy that D105's gap rung made coarser still — it now
+  // absorbs small overflows entirely, so both sides can land on the same count
+  // while the actual pressure differs by an order of magnitude. Measured at 21
+  // per seat: 1,989 px of overflow unstacked against 127 px stacked.
+  check('…and measurably less overflow because of it',
+    unstackedOverflowPx > stackedOverflowPx * 2,
+    `${unstackedOverflowPx}px of overflow unstacked vs ${stackedOverflowPx}px stacked ` +
+    `(${unstackedScrolls} vs ${stackedScrolls} bands)`);
   await js('window.__crt.table.setAutoStack(true)');
   await js(`window.__crt.table.setup({ seatCount: 4, permanentsPerSeat: 10, handSize: 7 })`);
   await sleep(300);
@@ -580,13 +590,26 @@ async function sectionTable(js, send) {
   // shows packed with 8 px gaps. This polls the turned-count and the slot
   // geometry until both stop changing, which is what trap 6 asks for.
   const waitForTurnsSettled = async () => {
+    // The choreographer first — a tap is a queued beat, and the auto-stack
+    // grouping deliberately lags a turn behind the view (D77), so slots can
+    // still be regrouping after the transition itself has finished.
+    for (let i = 0; i < 60; i++) {
+      const busy = await js(`(() => {
+        const s = window.__crt.table.anim.stats();
+        return s.queuedGroups > 0 || s.running || s.liveBeats > 0 || s.inFlight > 0;
+      })()`);
+      if (!busy) break;
+      await sleep(100);
+    }
     let last = '';
     let stable = 0;
-    for (let i = 0; i < 40 && stable < 3; i++) {
+    for (let i = 0; i < 60 && stable < 5; i++) {
       await sleep(120);
       const now = await js(`(() => {
         const slots = [...document.querySelectorAll('[data-band-slot]')];
+        const bands = [...document.querySelectorAll('[data-band]')];
         return document.querySelectorAll('[data-card-turn="1"]').length + '|' +
+          bands.map((b) => b.scrollWidth - b.clientWidth).join(',') + '|' +
           slots.map((s) => Math.round(s.offsetLeft) + ',' + Math.round(s.offsetWidth)).join(';');
       })()`);
       if (now === last) stable++;

@@ -40,6 +40,21 @@ const IDEAL = {
  * readable at a glance. The layout ladder gives up other things before this.
  */
 export const MIN_BAND_CARD_H = 96;
+/**
+ * How far ONE row may squeeze below `MIN_BAND_CARD_H` when that row is locally
+ * over-full — a played board whose tapped permanents each reserve the landscape
+ * footprint (D75).
+ *
+ * ⚠️ This is NOT a second opinion about readability. `MIN_BAND_CARD_H` is what
+ * the TABLE solve guarantees every card; this is the floor the ROW packer may
+ * use when the alternative is rung 4, a scrollbar with cards past the edge. It
+ * sits at `CARD_MODE_MIN_HEIGHT.chit`, so a squeezed card is still drawn with
+ * its name, cost and P/T — the squeeze may cost 5 px, never a render mode.
+ *
+ * ⚠️ The two were the same number until D105, which is why the shrink rung was
+ * dead in exactly the case it exists for.
+ */
+export const SQUEEZE_FLOOR_H = 88;
 /** A hand card must stay in `full` mode — it is the one you read most. */
 export const MIN_HAND_CARD_H = 120;
 

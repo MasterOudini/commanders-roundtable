@@ -240,21 +240,45 @@ describe('packRow', () => {
     }
   });
 
-  it('walks the same ladder for turned cards: shrink, then admit it scrolls', () => {
+  it('walks the same ladder for turned cards: gaps, then shrink, then scroll', () => {
     // 5 upright opponent cards fit a 4-player pod row exactly. Turned, they need
-    // 612 px in a 510 px row, and even the 0.83 floor only gets them to 512 — so
-    // the honest answer is a scrolling row, not five cards lying on each other.
+    // 612 px in a 510 px row.
     const upright = packRow(items(5), OPTS);
     expect(upright.scale).toBe(1);
     expect(upright.scrolls).toBe(false);
 
+    // ⚠️ THIS USED TO ASSERT A SCROLLING ROW, and D105 is why it does not any
+    // more. At the 0.83 floor five turned cards are 480 px of card; the row's
+    // four 8 px gaps took it to 512, two pixels past the 510 it had. Spending
+    // the whitespace first (rung 3) brings the gaps to 4 px and the row to
+    // 496 — it fits, at the same card size it was going to scroll at.
     const turned = packRow(
       items(5).map((i) => ({ ...i, tapped: true })),
       OPTS,
     );
     expect(turned.scale).toBeLessThan(1);
-    expect(turned.scrolls).toBe(true);
-    expect(turned.overflow).toBeGreaterThan(0);
+    expect(turned.scrolls).toBe(false);
+    expect(turned.overflow).toBe(0);
+    expect(turned.width).toBeLessThanOrEqual(OPTS.rowWidth);
+    // The squeeze stayed above the chit cliff — a smaller card, never a pile.
+    expect(turned.cardH).toBeGreaterThanOrEqual(88);
+    // Whitespace was what paid for it: the pitch is tighter than the natural gap.
+    const pitch = turned.cards[1]!.x - turned.cards[0]!.x;
+    expect(pitch).toBeLessThan(turned.cards[0]!.footprintW + OPTS.gap);
+    for (let i = 1; i < turned.cards.length; i++) {
+      const prev = turned.cards[i - 1]!;
+      expect(turned.cards[i]!.x).toBeGreaterThanOrEqual(prev.x + prev.footprintW - 1e-6);
+    }
+
+    // Rung 5 still exists — six turned cards are past what gaps and a squeeze
+    // can absorb, and the honest answer there is a scrolling row rather than
+    // six cards lying on each other.
+    const six = packRow(
+      items(6).map((i) => ({ ...i, tapped: true })),
+      OPTS,
+    );
+    expect(six.scrolls).toBe(true);
+    expect(six.overflow).toBeGreaterThan(0);
 
     // Four of them, however, fit at full size — which is what makes reserving the
     // real footprint affordable rather than a permanent tax on every row.

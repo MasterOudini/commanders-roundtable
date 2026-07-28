@@ -3232,3 +3232,87 @@ footprints has to wait for the transition, not the solve.**
 **Verified: 258/259 animation battery** (up from 253/254; five new checks) ·
 869 Vitest · the one failure is still the perf gate's long-frame count
 (D29/D29a).
+
+## D105 — A played board fits: the shrink rung was dead in the case it exists for
+
+A 4-seat board with two thirds of the opponents' permanents tapped put **two
+bands into horizontal scroll, 52 px over**. The same board untapped fits with
+room to spare.
+
+### It was not a packing bug
+
+Measured on the worst band: five slots — two upright at 69 px and three turned at
+96 px — is **426 px of card in a 421 px band**. The gaps came to 52 px. So the
+row did not fit *at any gap*, and the packer had already shrunk cards from 100 px
+to 96 px and stopped. It was behaving correctly.
+
+It stopped at 96 because `MIN_BAND_CARD_H` is 96 **and
+`CARD_MODE_MIN_HEIGHT.chit` was also 96**. The table solves every band card down
+to the first number; the packer may not squeeze below it; and one pixel below the
+second a card stops being a card and becomes a `pile`. Two constants set to the
+same value left rung 3 — uniform shrink — with **exactly zero room, in precisely
+the situation it exists to handle**.
+
+### What gives, and what does not
+
+The trade was put to the user with the arithmetic. Chosen: spend a little card
+size, never a render mode.
+
+1. **`CARD_MODE_MIN_HEIGHT.chit` 96 → 88.** Headroom, so a squeezed card is still
+   drawn with its name, cost and P/T. Nothing renders at 88–95 px unless a row is
+   genuinely over-full.
+2. **`SQUEEZE_FLOOR_H = 88`** in `metrics.ts`, passed to the packer instead of
+   `MIN_BAND_CARD_H`. ⚠️ `PlayerPod` still sizes the BAND from `minCardH` (96) —
+   only the packer's floor moved. They are different questions: what every card
+   is guaranteed, versus how far ONE over-full row may go before it scrolls.
+3. **A new rung 3: spend the whitespace first.** Row gap 8 → 4 and cluster gap
+   20 → 8, stepped down only as far as the row actually needs. Whitespace is the
+   cheapest thing in a row; card size is not.
+4. **`SCROLL_SLACK_PX = 2`.** Card heights round to whole pixels and the width is
+   derived from the height, so the squeeze lands within a pixel of the target
+   rather than on it — and a **1 px** residual was enough to set
+   `overflow-x: auto` and put a real scrollbar under a row whose cards are all
+   fully visible. The pod already leaves 8 px between a band and the pile block,
+   which absorbs it. The per-card `overflow` count keeps its own tighter
+   threshold: this decides whether a row gets a scrollbar, never whether a card
+   is reported as past the edge.
+
+**Result, measured on the same board: 2 bands and 52 px over → 0 bands, 0 px.**
+Squeezed cards land at 92 px. Band render modes: **24 chit, 7 full, and zero
+`pile`** — the 8 pile-mode cards on screen are the library/graveyard/exile piles
+at 62–79 px, which is what they have always been.
+
+### ⚠️ Two checks changed, and neither was bent to make the build green
+
+**`packRow.test.ts`** asserted that five turned cards MUST scroll. They no longer
+do: at the 0.83 floor they are 480 px of card, and the row's four 8 px gaps took
+it to 512 in a 510 px row — two pixels. Rung 3 brings the gaps to 4 px and the
+row to 496, at the same card size it was going to scroll at. The test now asserts
+the fit, the tightened pitch, that the squeeze stayed above the chit cliff, and
+that SIX turned cards still scroll — rung 5 has to keep existing.
+
+**`battery-anim.cjs`** measured auto-stacking's value as "fewer bands overflow".
+Rung 3 absorbs small overflows entirely, so both sides landed on the same band
+count while the real pressure differed by an order of magnitude. It now measures
+**pixels**: 2,146 px of overflow unstacked against 202 px stacked. A more
+sensitive measure of the same claim, not a weaker one.
+
+### ⚠️ The perf gate got worse, and it was NOT this
+
+The gate degraded during this session — 12–18 long frames against the documented
+3–9, and p99 up from 25 ms to 41 ms. `git stash` made that answerable instead of
+arguable. Same protocol, back to back:
+
+| | with the change | stashed |
+|---|---|---|
+| p50 / p95 / p99 | 8.3 / 16.7 / 41.6 ms | 8.3 / 16.7 / 41.7 ms |
+| long frames | 18 | 17 |
+| over 33 ms | 11 | 12 |
+
+Identical, and marginally worse without it. Machine state after a session of
+builds, installs and battery runs — and `perf` run ALONE is the worse protocol
+anyway (D29a). The signature to read: **p50 and p95 unmoved with only the tail
+degraded is interference; a real render regression moves the median too.**
+
+**Verified: 869 Vitest · 17/17 table section · 257/259 full battery** (both
+failures the D29/D29a perf gate).

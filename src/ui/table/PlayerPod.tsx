@@ -5,6 +5,7 @@ import { PlayerPlate } from '../hud/PlayerPlate';
 import { podSlot, register, zoneSlot, type FrozenRect } from '../anim/rectRegistry';
 import { useDrag, type DropCheck } from '../../store/dragStore';
 import { useHandDrag } from './useHandDrag';
+import { SQUEEZE_FLOOR_H } from './metrics';
 import type { PointerEvent as ReactPointerEvent } from 'react';
 import type { InstanceId, PlayerId, PlayerView } from '../../view/types';
 import { zoneCards, zoneId } from '../../view/types';
@@ -185,13 +186,18 @@ export function PlayerPod({
       width={bandW}
       height={perBand}
       gap={rowGap}
-      minCardH={minCardH}
+      minCardH={SQUEEZE_FLOOR_H}
       autoStack={autoStack}
       {...(onCardClick ? { onCardClick } : {})}
       {...(mine && onCardPointerDown ? { onCardPointerDown } : {})}
       {...(onAttachmentsClick ? { onAttachmentsClick } : {})}
     />
   );
+  // ⚠️ `minCardH={SQUEEZE_FLOOR_H}` on both bands is the PACKER's floor, not the
+  // band's. `minCardH` still sizes the band itself (`minCardH + 12` above) at
+  // the table's readability floor; the packer's is how far ONE over-full row may
+  // squeeze before it gives up and scrolls. They were the same number until
+  // D105, which left that rung with nowhere to go on a tapped board.
   const support =
     bands === 2 ? (
       <BattlefieldBand
@@ -203,7 +209,7 @@ export function PlayerPod({
         width={bandW}
         height={perBand}
         gap={rowGap}
-        minCardH={minCardH}
+        minCardH={SQUEEZE_FLOOR_H}
         autoStack={autoStack}
         {...(onCardClick ? { onCardClick } : {})}
         {...(mine && onCardPointerDown ? { onCardPointerDown } : {})}

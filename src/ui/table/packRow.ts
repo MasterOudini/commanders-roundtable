@@ -84,6 +84,28 @@ function renderedSize(cardH: number, scale: number): { h: number; w: number } {
 
 /** Auto-stack floor: never squeeze a card below 83% or it stops matching its band. */
 const MIN_ROW_SCALE = 0.83;
+/**
+ * What the gaps collapse to when a row is over-full, before any card shrinks.
+ * A row that has spent its whitespace still reads as a row; a row of smaller
+ * cards is a worse trade, and a scrolling one is worse still.
+ */
+const TIGHT_GAP = 4;
+const TIGHT_CLUSTER_GAP = 8;
+/**
+ * Slack before a row admits it scrolls.
+ *
+ * ⚠️ A ROUNDING ALLOWANCE, not a quality concession. Card heights round to whole
+ * pixels and the width is derived from the height, so the squeeze lands within a
+ * pixel or two of the target rather than exactly on it — and a 1 px residual was
+ * enough to set `overflow-x: auto` and put a real scrollbar under a row whose
+ * cards are all fully visible. The pod leaves 8 px between a band and the pile
+ * block, so this much spill is absorbed by a margin that already exists.
+ *
+ * The per-card `overflow` count below keeps its own tighter threshold: this
+ * decides whether the row gets a scrollbar, never whether a card is reported as
+ * being past the edge.
+ */
+const SCROLL_SLACK_PX = 2;
 /** Attachment offset per tucked card, and how many are visible before a +N chip. */
 export const ATTACH_OFFSET_Y = 13;
 export const ATTACH_MAX_VISIBLE = 3;
@@ -163,10 +185,18 @@ function clusterOf(c: CardView): SupportCluster {
  *
  *  1. Natural fit — pitch = cardW + gap, centred.
  *  2. (Auto-stacking has already happened, in `groupIdentical`.)
- *  3. Uniform shrink, scale ∈ [0.83, 1], floored so height ≥ minCardH.
- *  4. Horizontal scroll with a persistent `+N` chip.
+ *  3. Tighten the gaps — row gap and the wider cluster gap — to `TIGHT_GAP` /
+ *     `TIGHT_CLUSTER_GAP`. Whitespace is the cheapest thing in the row to spend.
+ *  4. Uniform shrink, scale ∈ [0.83, 1], floored so height ≥ minCardH.
+ *  5. Horizontal scroll with a persistent `+N` chip.
  *
- * Step 4 is reached only by a genuinely enormous pod; the honest answer there is
+ * ⚠️ RUNG 3 EXISTS BECAUSE OF TAPPED BOARDS (D105). A turned slot reserves the
+ * card's HEIGHT as its width, so a row of played permanents needs about 1.39×
+ * the space of the same row untapped — measured at 426 px into a 421 px band,
+ * which does not fit at ANY gap. Spending the gaps first means the common case
+ * costs whitespace rather than card size.
+ *
+ * Step 5 is reached only by a genuinely enormous pod; the honest answer there is
  * the pod expander (click the header → full-width overlay), which is a feature
  * rather than a fallback.
  */
@@ -182,7 +212,7 @@ export function packRow(
     clusterGap?: number;
   },
 ): PackedRow {
-  const { rowWidth, cardW, cardH, gap, minCardH } = opts;
+  const { rowWidth, cardW, cardH, minCardH } = opts;
   const clusterGap = opts.clusterGap ?? 0;
 
   if (items.length === 0) {
@@ -199,7 +229,6 @@ export function packRow(
   }
 
   const clusterBreaks = clusterGap > 0 ? countClusterBreaks(items) : 0;
-  const fixed = (items.length - 1) * gap + clusterBreaks * clusterGap;
   /**
    * How wide this slot is on screen. A tapped card is turned a quarter turn to
    * the right, so it is as wide as a card is TALL — the row has to carry that
@@ -207,13 +236,36 @@ export function packRow(
    */
   const footprint = (item: PackItem, size: { h: number; w: number }): number =>
     item.tapped ? size.h : size.w;
-  /** Width of the whole row at a given scale, using the EXACT rendered sizes. */
-  const widthAt = (scale: number) => {
+  /** Just the cards, at a given scale, using the EXACT rendered sizes. */
+  const cardsWidthAt = (scale: number) => {
     const size = renderedSize(cardH, scale);
-    let sum = fixed;
+    let sum = 0;
     for (const item of items) sum += footprint(item, size);
     return sum;
   };
+  const gapsWidth = (g: number, cg: number) => (items.length - 1) * g + clusterBreaks * cg;
+
+  // ── Rung 3: spend the whitespace before spending card size ──
+  // Only as far as it needs to go: a row that is 6 px over does not deserve the
+  // same squeeze as one that is 60 px over, and uneven gaps between clusters are
+  // more noticeable than uniformly slightly-tighter ones.
+  let gap = opts.gap;
+  let clusterGapUsed = clusterGap;
+  if (cardsWidthAt(1) + gapsWidth(gap, clusterGapUsed) > rowWidth) {
+    const tightGap = Math.min(gap, TIGHT_GAP);
+    const tightCluster = Math.min(clusterGapUsed, TIGHT_CLUSTER_GAP);
+    const cards1 = cardsWidthAt(1);
+    for (let g = gap; g >= tightGap; g--) {
+      const cg = Math.max(tightCluster, Math.min(clusterGapUsed, g * 2));
+      gap = g;
+      clusterGapUsed = cg;
+      if (cards1 + gapsWidth(g, cg) <= rowWidth) break;
+    }
+  }
+
+  const fixed = gapsWidth(gap, clusterGapUsed);
+  /** Width of the whole row at a given scale, using the EXACT rendered sizes. */
+  const widthAt = (scale: number) => fixed + cardsWidthAt(scale);
 
   // The smallest scale allowed by BOTH the 0.83 uniform-shrink floor and the
   // absolute minimum readable card height.
@@ -237,7 +289,7 @@ export function packRow(
 
   const rendered = renderedSize(cardH, scale);
   const total = widthAt(scale);
-  const scrolls = total > rowWidth + 0.5;
+  const scrolls = total > rowWidth + SCROLL_SLACK_PX;
   // A scrolling row starts at its left edge; a fitting row is centred, which is
   // what makes a 3-permanent board look deliberate instead of abandoned.
   let x = scrolls ? 0 : Math.max(0, (rowWidth - total) / 2);
@@ -247,8 +299,8 @@ export function packRow(
   let overflow = 0;
 
   for (const item of items) {
-    if (clusterGap > 0 && prevCluster !== null && item.cluster !== prevCluster) {
-      x += clusterGap;
+    if (clusterGapUsed > 0 && prevCluster !== null && item.cluster !== prevCluster) {
+      x += clusterGapUsed;
     }
     prevCluster = item.cluster;
     const fw = footprint(item, rendered);
