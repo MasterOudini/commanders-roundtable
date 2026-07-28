@@ -86,7 +86,7 @@
     },
     "publish": {
       "provider": "github",
-      "owner": "meesamooman",
+      "owner": "MasterOudini",
       "repo": "commanders-roundtable"
     }
   }
