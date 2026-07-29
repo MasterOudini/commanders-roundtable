@@ -1170,6 +1170,57 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       `Loyalty 3…`, −2 left it alive at `1` in accent-hi, −1 more logged
       "Grist, the Hunger Tide dies."
 
+- [x] **Transforming into a planeswalker survives it too (2026-07-29):** D107
+      fixed the entry and said what it was not doing. This is that — **14
+      Commander-legal cards** whose back face is a planeswalker, all reached
+      through the Tier-3 Transform button, all landing on an empty counter map
+      and binned by SBA 4 on the same pump. `withTransformCounters` sits beside
+      `withEntryCounters` in the same funnel and answers the same CR clause from
+      the other side. Decisions in **D108**.
+      ⚠️ **SET TO N, NOT ADD N, and that is why it is a separate rule.**
+      `CountersChanged` is a delta and the Transform button TOGGLES, so `+5` per
+      flip leaves a flipped-away-and-back Jace on 10. The delta is computed
+      against what the card is carrying right then. An ENTRY may assume 0
+      (`clearBattlefieldFields` empties `counters`); a transform may assume
+      nothing.
+      ⚠️ **The trigger is the TRANSITION, not the destination.** A permanent that
+      was already a planeswalker and still is gets nothing — `Arlinn Kord` and
+      `Garruk Relentless` are planeswalkers on BOTH faces, and without that check
+      flipping Arlinn to her back face and back would refill her loyalty. Those
+      same two are the only planeswalker faces in the database with no printed
+      loyalty at all, so a `null` must add nothing rather than 0.
+      ⚠️ **No defense branch, measured:** **zero** cards have a non-Battle front
+      face and a Battle back face, so "becomes a battle" is unreachable except by
+      driving a Siege backwards. Same reasoning D107 used to give `TokenCreated`
+      no branch.
+      ⚠️ **The fuzz gate could not flip a card at all** — `manualIntentFor` had
+      no `ManualFlipFace` case, so no seed could turn a permanent over however
+      many faces it had. It gains one (AIMED at a two-faced permanent, or the
+      canary fires by luck) plus Jace in `DECK` and a transform canary.
+      ⚠️ **A manual case must never return `null`:** `runOne` treats that as "the
+      game has nothing left to do" and BREAKS out of the seed. The first cut cost
+      **37% of the gate's accepted intents (11,883 → 7,434 at 60 seeds)** and a
+      third of its turns, which reads as a slower engine rather than as a fuzzer
+      that stopped playing.
+      ⚠️ **`src/ui/` is unchanged.** `PermanentStack` already passes
+      `card.counters['loyalty']` straight through, so D107's corner box and
+      `Loyalty N…` button pick a transformed planeswalker up for free.
+      **Verified: 888 Vitest** (9 new in `sba.test.ts`) **· the 500-seed fuzz
+      gate green at 98,694 accepted intents / 1,138,047 events / 9,118 turns,
+      with 185 permanents entering with counters and 50 transforming into a
+      planeswalker · 258/259 animation battery · `npm run build` clean.** The one
+      battery failure is still the perf gate's long-frame count (D29/D29a): 9
+      long frames, **p50 8.3 ms / p95 8.50 ms, byte-identical to a passing run**
+      — D106's interference signature, on a path this engine-only change does not
+      touch. Every guard checked by DELETING it:
+      reverting the rule fails 4 of the 9, and the transition, zone and face-down
+      guards each fail exactly their own case.
+      Played it: Jace cast from the command zone for `{1}{U}`, transformed with
+      the real card menu → `{loyalty: 5}`, corner reading `5`, menu offering
+      `Loyalty 5…`; −2 left him at 3, flipping back kept the 3 inert on the
+      creature face, flipping forward again gave **5, not 8**, and −5 logged
+      "Jace, Telepath Unbound dies."
+
 ⚠️ **Two invariants M2 established that M3 kept, and M4 must not break:**
 1. `animStore` may only **hide** or **decorate** — it never holds card→zone truth.
    The DOM's zone membership is always the authoritative state, so the worst a

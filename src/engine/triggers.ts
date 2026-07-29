@@ -6,8 +6,10 @@
 // single most common way a rules engine develops a permanently missing trigger.
 //
 // With `EMPTY_REGISTRY` (what v1 ships) `collectTriggers` iterates an empty
-// candidate list and returns []. The built-in commander-zone replacement is the
-// one replacement effect that is NOT a card script, because it is a rule.
+// candidate list and returns []. The three built-ins below — the commander zone,
+// and the loyalty/defense counters a permanent gets on entering and on becoming
+// a planeswalker — are the replacements that are NOT card scripts, because they
+// are rules rather than cards.
 
 import { derive, makeDeriveCache } from './derive';
 import { faceOf } from './oracle';
@@ -40,6 +42,13 @@ export function applyReplacements(
     // rule can redirect a move, and a second replacement that read the original
     // would be answering a question about a board that never happened.
     events = withEntryCounters(state, oracle, events);
+  }
+
+  // Built-in: the other half of CR 306.5b. A permanent already on the
+  // battlefield that BECOMES a planeswalker gets its loyalty the same way one
+  // that arrives as a planeswalker does.
+  if (ev.t === 'FaceIndexSet') {
+    events = withTransformCounters(state, oracle, ev);
   }
 
   const defs = scripts.replacements();
@@ -119,9 +128,10 @@ function commanderZoneReplacement(state: GameState, moves: readonly CardMove[]):
  *
  * Face 0 is always the right face: `clearBattlefieldFields` resets `faceIndex`
  * on every entry, so a card cannot arrive showing its back. A permanent that
- * TRANSFORMS into a planeswalker afterwards is a different rule and is not
- * handled — 14 Commander-legal cards, all reached through the Tier-3 Transform
- * button, all needing set-to-N semantics this delta-based event does not have.
+ * TRANSFORMS into a planeswalker afterwards is a different rule, and it is
+ * `withTransformCounters` below — 14 Commander-legal cards, all reached through
+ * the Tier-3 Transform button, all needing the set-to-N semantics this
+ * entry-only delta cannot express (D108).
  *
  * Measured over all 113,559 printings: a printed loyalty appears on no
  * non-planeswalker face and a printed defense on no non-battle face, so the type
@@ -168,6 +178,98 @@ function withEntryCounters(
   // rather than prepended for the same reason: it has to land after the move it
   // belongs to, or it would add counters to a card still in its old zone.
   return [...events, { t: 'CountersChanged', changes }];
+}
+
+/**
+ * Built-in: the OTHER half of CR 306.5b. A permanent that becomes a
+ * planeswalker — by transforming into one, rather than by arriving as one —
+ * gets loyalty counters equal to the printed loyalty of the face it is now
+ * showing. `withEntryCounters` above is the same rule reached by entering;
+ * without this one, all 14 cards that transform into a planeswalker landed on an
+ * empty counter map and SBA 4 binned them on the same pump, which is exactly the
+ * bug D107 fixed, one step along.
+ *
+ * ⚠️ **SET TO N, NOT ADD N**, and that is the whole reason this is a separate
+ * rule rather than a line inside the entry one. `CountersChanged` is a DELTA and
+ * the Tier-3 Transform button TOGGLES, so `+5` on every flip would leave a
+ * flipped-away-and-back Jace on 10. The delta is computed against what the card
+ * is carrying at this instant, so the planeswalker face always lands on exactly
+ * its printed number no matter what came before. An entry can assume 0 because
+ * `clearBattlefieldFields` empties `counters`; a transform cannot assume
+ * anything.
+ *
+ * ⚠️ **The trigger is the TRANSITION, not the destination.** "Becomes a
+ * planeswalker" is a change of state, so a permanent that was ALREADY one and
+ * still is gets nothing. Two Commander-legal cards are planeswalkers on both
+ * faces — `Arlinn Kord // Arlinn, Embraced by the Moon` and `Garruk Relentless
+ * // Garruk, the Veil-Cursed` — and both are also the DB's only planeswalker
+ * faces with no printed loyalty at all. Without this check, flipping Arlinn to
+ * her back face and back would refill her loyalty from 1 to 3, which is the
+ * opposite of what her own rulings say: a permanent keeps its counters across a
+ * transform (CR 701.28 turns the card over and does nothing to what is on it).
+ *
+ * ⚠️ A NULL printed loyalty means ADD NOTHING, never 0 — a `delta` computed
+ * against 0 would strip the counters a both-faces planeswalker is carrying.
+ * Today the two null faces are the same two cards the transition check already
+ * covers, so either guard alone would hold; they are both here because they
+ * answer different questions and the next set can print a card that needs only
+ * one of them.
+ *
+ * ⚠️ **No defense branch, measured rather than assumed.** Of 113,559 printings,
+ * **no card has a non-Battle front face and a Battle back face** — a Siege
+ * transforms INTO something else, never into a battle — so "becomes a battle" is
+ * reachable only by flipping a Siege backwards with the Tier-3 button, where
+ * leaving its counters alone is both what CR 701.28 says and the un-surprising
+ * answer. This is the same shape as D107's reason for giving `TokenCreated` no
+ * branch: zero cards, so zero code.
+ *
+ * Scope, measured over the same database: **14** Commander-legal cards have a
+ * non-planeswalker front face and a planeswalker back face, all 14 print a
+ * numeric loyalty (2–7), 12 are `transform` and 2 are `modal_dfc`. Every one of
+ * them is reached through the Tier-3 Transform button, because
+ * `clearBattlefieldFields` resets `faceIndex` on entry and so nothing can arrive
+ * already showing its back — including `Nicol Bolas, the Ravager`, whose own
+ * ability returns it to the battlefield transformed.
+ *
+ * ⚠️ Where this deliberately diverges from CR: a permanent that becomes a
+ * planeswalker a SECOND time would, read literally, GET printed-loyalty more
+ * counters on top of whatever it kept. Set-to-N gives it exactly the printed
+ * number instead. None of the 14 can transform back in real Magic — they are all
+ * one-way — so the divergence is only reachable by driving a one-way transform
+ * backwards with a manual tool, and the alternative is a Jace sitting on 10.
+ */
+function withTransformCounters(
+  state: GameState,
+  oracle: OracleDb,
+  ev: Extract<EventBody, { t: 'FaceIndexSet' }>,
+): EventBody[] {
+  const card = state.cards[ev.card];
+  if (!card) return [ev];
+  // A card is only a permanent on the battlefield, and loyalty counters belong
+  // to a permanent. Turning a card over in a hand or a graveyard is the Tier-3
+  // tool doing exactly what it says and nothing else.
+  if (card.zone.kind !== 'battlefield') return [ev];
+  // CR 708.2, the same check the entry rule makes: a face-down permanent is a
+  // typeless 2/2, so it is not becoming a planeswalker whichever face index it
+  // is carrying underneath.
+  if (card.faceDown) return [ev];
+  const printing = oracle.byPrinting(card.printingId);
+  if (!printing) return [ev];
+
+  // ⚠️ `card.faceIndex` is still the OLD face: the funnel runs on the state
+  // BEFORE its event is applied, which is what makes the transition readable
+  // here at all.
+  const before = faceOf(printing, card.faceIndex);
+  const after = faceOf(printing, ev.faceIndex);
+  if (before.typeLine.types.includes('Planeswalker')) return [ev];
+  if (!after.typeLine.types.includes('Planeswalker')) return [ev];
+
+  const printed = after.baseLoyalty;
+  if (printed === null || printed <= 0) return [ev];
+  const current = card.counters['loyalty'] ?? 0;
+  if (printed === current) return [ev];
+
+  return [ev, { t: 'CountersChanged', changes: [{ card: ev.card, kind: 'loyalty', delta: printed - current }] }];
 }
 
 /**
