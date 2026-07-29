@@ -7,6 +7,7 @@ import { replay, stateHash } from './log';
 import { nextBelow, seedRng, shuffle, type RngState } from './rng';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
+import type { GameEvent } from './types/events';
 import type { Intent } from './types/intents';
 import type { GameState } from './types/state';
 
@@ -27,7 +28,24 @@ import type { GameState } from './types/state';
 const SEEDS = Number(process.env.CRT_FUZZ_SEEDS ?? 60);
 const INTENTS = Number(process.env.CRT_FUZZ_INTENTS ?? 200);
 
-/** A deck with enough variety that the fuzzer meets real decisions. */
+/**
+ * A deck with enough variety that the fuzzer meets real decisions.
+ *
+ * ⚠️ A CARD MISSING FROM HERE IS A CODE PATH THIS GATE CANNOT REACH, and the
+ * gate stays green the whole time it rots. It has now happened three times in
+ * this repo: the net fixture pool was forty lands, then had no targeted spell
+ * (D102) — and this list had no planeswalker and no battle, so the two SBAs that
+ * read a `loyalty` or a `defense` counter ran against an empty counter map in
+ * every one of 500 seeds. The two entries below are the only permanents in Magic
+ * that arrive with counters already on them (CR 306.5b/310.6), which makes them
+ * the only ones whose ENTRY changes the state hash.
+ *
+ * ⚠️ And Jace for the same reason one step along (D108): a permanent that
+ * TRANSFORMS into a planeswalker is the other way loyalty counters get written,
+ * and until he joined this list no card in the deck had a second face worth
+ * turning over. He is here rather than any of the other 13 because `{1}{U}` is
+ * cheap enough for the fuzzer to actually cast.
+ */
 const DECK = [
   'Forest', 'Island', 'Mountain', 'Plains', 'Swamp',
   'Command Tower', 'Sol Ring', 'Arcane Signet', 'Tundra', 'Boros Garrison',
@@ -37,6 +55,8 @@ const DECK = [
   'Raging Goblin', 'Child of Night', 'Ambush Viper', 'Baleful Strix',
   'Lightning Bolt', 'Counterspell', 'Cultivate', 'Swords to Plowshares',
   'Pacifism', 'Wrath of God', 'Brainstorm', 'Dark Ritual', 'Lightning Greaves',
+  'Grist, the Hunger Tide', 'Invasion of Gobakhan // Lightshield Array',
+  "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
 ];
 
 interface Picker {
@@ -68,7 +88,7 @@ function manualIntentFor(state: GameState, p: Picker): Intent | null {
   if (!player) return null;
   const battlefield = state.zones.battlefield;
   const anyCard = p.pick([...battlefield, ...(state.zones.hand[player] ?? [])]);
-  switch (p.below(8)) {
+  switch (p.below(9)) {
     case 0:
       return { t: 'ManualSetLife', player, target: p.pick(players) ?? player, delta: p.below(7) - 3 };
     case 1:
@@ -94,6 +114,30 @@ function manualIntentFor(state: GameState, p: Picker): Intent | null {
             to: { kind: 'graveyard', player: state.cards[anyCard]?.owner ?? player },
           }
         : null;
+    case 8: {
+      // ⚠️ AIMED, not drawn from `anyCard` like its siblings. A flip picked out
+      // of every card on the board and in a hand would land on the one card with
+      // a second face a handful of times in 100,000 intents, and a canary that
+      // fires by luck is the rot it exists to catch (D102) with an extra step.
+      // Battlefield only, because that is the only place a transform can write a
+      // loyalty counter — the `zone` guard in D108's rule is what the `in a hand`
+      // case in `sba.test.ts` pins, and it does not need a fuzz seed too.
+      const twoFaced = battlefield.filter((id) => {
+        const c = state.cards[id];
+        return c ? (ORACLE.byPrinting(c.printingId)?.faces.length ?? 1) > 1 : false;
+      });
+      const target = p.pick(twoFaced);
+      // ⚠️ AND IT MUST NOT RETURN NULL. `runOne` reads a null intent as "this
+      // game has nothing left to do" and BREAKS out of the seed, so a manual
+      // case that usually has nothing to act on does not skip a beat — it ends
+      // the run. Aiming the flip made "usually" the common case, and the first
+      // cut cost 37% of the gate's accepted intents (11,883 → 7,434 at 60 seeds)
+      // and a third of its turns. That reads as a slower engine, not as a
+      // fuzzer that stopped playing. The dice are the one sibling that needs
+      // nothing from the board.
+      if (!target) return { t: 'RollDice', player, sides: 6 };
+      return { t: 'ManualFlipFace', player, card: target };
+    }
     default:
       return null;
   }
@@ -189,6 +233,10 @@ interface Run {
   readonly finished: boolean;
   readonly targetPrompts: number;
   readonly targetsChosen: number;
+  /** Permanents that entered carrying loyalty or defense counters. */
+  readonly enteredWithCounters: number;
+  /** Permanents that BECAME a planeswalker and were given its loyalty. */
+  readonly transformedIntoPlaneswalker: number;
 }
 
 function runOne(seed: number): Run {
@@ -246,7 +294,28 @@ function runOne(seed: number): Run {
     finished: game.state.gamePhase === 'finished',
     targetPrompts,
     targetsChosen: game.log.filter((e) => e.body.t === 'TargetsChosen').length,
+    // ⚠️ TWO rules write these kinds now, so counting them is no longer enough
+    // to say which one ran — D108's transform rule writes `loyalty` exactly as
+    // the entry rule does. They are told apart by the event they were appended
+    // to: the funnel returns `[FaceIndexSet, CountersChanged]` for a transform,
+    // so a loyalty change sitting immediately after a flip came from D108 and
+    // anything else came from an entry. (The entry side cannot use the same
+    // adjacency in reverse: `commanderZoneReplacement` can push an `AwaitingSet`
+    // in between, so the counters do not always follow their `CardsMoved`.)
+    enteredWithCounters: countersWritten(game.log, false),
+    transformedIntoPlaneswalker: countersWritten(game.log, true),
   };
+}
+
+function countersWritten(log: readonly GameEvent[], viaTransform: boolean): number {
+  return log.filter((e, i) => {
+    if (e.body.t !== 'CountersChanged') return false;
+    const relevant = e.body.changes.some(
+      (c) => (c.kind === 'loyalty' || c.kind === 'defense') && c.delta > 0,
+    );
+    if (!relevant) return false;
+    return (log[i - 1]?.body.t === 'FaceIndexSet') === viaTransform;
+  }).length;
 }
 
 describe('replay-equivalence fuzzer — THE GATE', () => {
@@ -264,14 +333,27 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           finished: a.finished + (r.finished ? 1 : 0),
           targetPrompts: a.targetPrompts + r.targetPrompts,
           targetsChosen: a.targetsChosen + r.targetsChosen,
+          enteredWithCounters: a.enteredWithCounters + r.enteredWithCounters,
+          transformedIntoPlaneswalker: a.transformedIntoPlaneswalker + r.transformedIntoPlaneswalker,
         }),
-        { accepted: 0, events: 0, turns: 0, finished: 0, targetPrompts: 0, targetsChosen: 0 },
+        {
+          accepted: 0,
+          events: 0,
+          turns: 0,
+          finished: 0,
+          targetPrompts: 0,
+          targetsChosen: 0,
+          enteredWithCounters: 0,
+          transformedIntoPlaneswalker: 0,
+        },
       );
       // eslint-disable-next-line no-console
       console.log(
         `fuzz: ${SEEDS} seeds · ${totals.accepted} accepted intents · ${totals.events} events · ` +
           `${totals.turns} turns · ${totals.finished} games finished · ` +
-          `${totals.targetPrompts} target prompts · ${totals.targetsChosen} declared`,
+          `${totals.targetPrompts} target prompts · ${totals.targetsChosen} declared · ` +
+          `${totals.enteredWithCounters} entered with counters · ` +
+          `${totals.transformedIntoPlaneswalker} transformed into a planeswalker`,
       );
 
       // A fuzzer that silently did nothing would pass. These are the canaries.
@@ -283,6 +365,19 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       // cancelling — leaves the whole gate green while the feature is dead.
       expect(totals.targetPrompts).toBeGreaterThan(SEEDS);
       expect(totals.targetsChosen).toBeGreaterThan(SEEDS);
+      // ⚠️ THE ENTRY-COUNTER CANARY. The hash equality above is only evidence
+      // about a rule the run actually EXERCISED, and until Grist and the Siege
+      // joined `DECK` this gate could not put a planeswalker on a battlefield at
+      // all. Deliberately `> 0` rather than a rate: it is asserting the path is
+      // reachable, and the fuzzer has to draw and afford a 3-drop to get there.
+      expect(totals.enteredWithCounters).toBeGreaterThan(0);
+      // ⚠️ THE TRANSFORM CANARY, and it needed a new INTENT as well as a new
+      // card: `manualIntentFor` had no `ManualFlipFace` case at all, so no seed
+      // could turn a permanent over however many faces it had. Same `> 0`
+      // reasoning as the entry canary above — it asserts the path is reachable,
+      // and getting there means drawing Jace, affording him, resolving him, and
+      // then rolling the one manual tool in nine that flips.
+      expect(totals.transformedIntoPlaneswalker).toBeGreaterThan(0);
     },
     600_000,
   );

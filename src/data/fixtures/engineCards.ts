@@ -2625,6 +2625,221 @@ export const AVACYN_ANGEL_OF_HOPE: CardData = {
   "singleImage": true
 };
 
+export const INVASION_OF_GOBAKHAN_LIGHTSHIELD_ARRAY: CardData = {
+  "scryfallId": "11798730-6788-4e0b-a828-b46cab1a4fa7",
+  "oracleId": "86c32a56-3272-4738-b0b3-a8aa49a17ce4",
+  "name": "Invasion of Gobakhan // Lightshield Array",
+  "layout": "transform",
+  "faces": [
+    {
+      "name": "Invasion of Gobakhan",
+      "manaCost": "{1}{W}",
+      "typeLine": "Battle — Siege",
+      "oracleText": "(As a Siege enters, choose an opponent to protect it. You and others can attack it. When it's defeated, exile it, then cast it transformed.)\nWhen this Siege enters, look at target opponent's hand. You may exile a nonland card from it. For as long as that card remains exiled, its owner may play it. A spell cast this way costs {2} more to cast.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": "3",
+      "colors": [
+        "W"
+      ],
+      "artist": "Andreas Zafiratos",
+      "imageId": "11798730-6788-4e0b-a828-b46cab1a4fa7-0"
+    },
+    {
+      "name": "Lightshield Array",
+      "manaCost": "",
+      "typeLine": "Enchantment",
+      "oracleText": "At the beginning of your end step, put a +1/+1 counter on each creature that attacked this turn.\nSacrifice this enchantment: Creatures you control gain hexproof and indestructible until end of turn.",
+      "flavorText": "The weight of Phyrexia crashed down upon Gobakhan, but the will of its people endured.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Andreas Zafiratos",
+      "imageId": "11798730-6788-4e0b-a828-b46cab1a4fa7-1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Transform"
+  ],
+  "setCode": "mom",
+  "collectorNumber": "22",
+  "commanderLegality": "legal",
+  "singleImage": false
+};
+
+export const JACE_VRYN_S_PRODIGY_JACE_TELEPATH_UNBOUND: CardData = {
+  "scryfallId": "02d6d693-f1f3-4317-bcc0-c21fa8490d38",
+  "oracleId": "594f6881-c059-46f8-aa4e-7151d502de73",
+  "name": "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
+  "layout": "transform",
+  "faces": [
+    {
+      "name": "Jace, Vryn's Prodigy",
+      "manaCost": "{1}{U}",
+      "typeLine": "Legendary Creature — Human Wizard",
+      "oracleText": "{T}: Draw a card, then discard a card. If there are five or more cards in your graveyard, exile Jace, then return him to the battlefield transformed under his owner's control.",
+      "flavorText": "\"People's thoughts just come to me. Sometimes I don't know if it's them or me thinking.\"",
+      "power": "0",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jaime Jones",
+      "imageId": "02d6d693-f1f3-4317-bcc0-c21fa8490d38-0"
+    },
+    {
+      "name": "Jace, Telepath Unbound",
+      "manaCost": "",
+      "typeLine": "Legendary Planeswalker — Jace",
+      "oracleText": "+1: Up to one target creature gets -2/-0 until your next turn.\n−3: You may cast target instant or sorcery card from your graveyard this turn. If that spell would be put into your graveyard, exile it instead.\n−9: You get an emblem with \"Whenever you cast a spell, target opponent mills five cards.\"",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": "5",
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jaime Jones",
+      "imageId": "02d6d693-f1f3-4317-bcc0-c21fa8490d38-1"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Transform",
+    "Mill"
+  ],
+  "setCode": "ori",
+  "collectorNumber": "60",
+  "commanderLegality": "legal",
+  "singleImage": false
+};
+
+export const ARLINN_KORD_ARLINN_EMBRACED_BY_THE_MOON: CardData = {
+  "scryfallId": "314c478c-cd8e-4256-9542-79846c6f8f63",
+  "oracleId": "6bb7d0df-7a9f-4e17-8c31-7628c4b12356",
+  "name": "Arlinn Kord // Arlinn, Embraced by the Moon",
+  "layout": "transform",
+  "faces": [
+    {
+      "name": "Arlinn Kord",
+      "manaCost": "{2}{R}{G}",
+      "typeLine": "Legendary Planeswalker — Arlinn",
+      "oracleText": "+1: Until end of turn, up to one target creature gets +2/+2 and gains vigilance and haste.\n0: Create a 2/2 green Wolf creature token. Transform Arlinn Kord.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": "3",
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Winona Nelson",
+      "imageId": "314c478c-cd8e-4256-9542-79846c6f8f63-0"
+    },
+    {
+      "name": "Arlinn, Embraced by the Moon",
+      "manaCost": "",
+      "typeLine": "Legendary Planeswalker — Arlinn",
+      "oracleText": "+1: Creatures you control get +1/+1 and gain trample until end of turn.\n−1: Arlinn deals 3 damage to any target. Transform Arlinn.\n−6: You get an emblem with \"Creatures you control have haste and '{T}: This creature deals damage equal to its power to any target.'\"",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Winona Nelson",
+      "imageId": "314c478c-cd8e-4256-9542-79846c6f8f63-1"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Transform"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "SOI-243",
+  "commanderLegality": "legal",
+  "singleImage": false
+};
+
+export const INVASION_OF_NEW_PHYREXIA_TEFERI_AKOSA_OF_ZHALFIR: CardData = {
+  "scryfallId": "1b83af86-e1a9-4be1-83dc-0c1ab81b129e",
+  "oracleId": "480ea052-87d7-4fea-ac97-b6121b78f863",
+  "name": "Invasion of New Phyrexia // Teferi Akosa of Zhalfir",
+  "layout": "transform",
+  "faces": [
+    {
+      "name": "Invasion of New Phyrexia",
+      "manaCost": "{X}{W}{U}",
+      "typeLine": "Battle — Siege",
+      "oracleText": "(As a Siege enters, choose an opponent to protect it. You and others can attack it. When it's defeated, exile it, then cast it transformed.)\nWhen this Siege enters, create X 2/2 white and blue Knight creature tokens with vigilance.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": "6",
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Chris Rallis",
+      "imageId": "1b83af86-e1a9-4be1-83dc-0c1ab81b129e-0"
+    },
+    {
+      "name": "Teferi Akosa of Zhalfir",
+      "manaCost": "",
+      "typeLine": "Legendary Planeswalker — Teferi",
+      "oracleText": "+1: Draw two cards. Then discard two cards unless you discard a creature card.\n−2: You get an emblem with \"Knights you control get +1/+0 and have ward {1}.\"\n−3: Tap any number of untapped creatures you control. When you do, shuffle target nonland permanent an opponent controls with mana value X or less into its owner's library, where X is the number of creatures tapped this way.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": "4",
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Chris Rallis",
+      "imageId": "1b83af86-e1a9-4be1-83dc-0c1ab81b129e-1"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Transform"
+  ],
+  "setCode": "mom",
+  "collectorNumber": "239",
+  "commanderLegality": "legal",
+  "singleImage": false
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "05e8f775-02bd-46dc-a618-07a9a127fa69",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -2799,6 +3014,10 @@ export const ENGINE_CARDS: CardData[] = [
   TYMNA_THE_WEAVER,
   GRIST_THE_HUNGER_TIDE,
   AVACYN_ANGEL_OF_HOPE,
+  INVASION_OF_GOBAKHAN_LIGHTSHIELD_ARRAY,
+  JACE_VRYN_S_PRODIGY_JACE_TELEPATH_UNBOUND,
+  ARLINN_KORD_ARLINN_EMBRACED_BY_THE_MOON,
+  INVASION_OF_NEW_PHYREXIA_TEFERI_AKOSA_OF_ZHALFIR,
   SOLDIER_TOKEN,
   TREASURE_TOKEN,
   BEAST_TOKEN,

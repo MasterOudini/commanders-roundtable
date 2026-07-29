@@ -65,6 +65,26 @@ const WANTED = [
   'Kess, Dissident Mage', 'Krenko, Mob Boss', 'Talrand, Sky Summoner',
   'Yeva, Nature\'s Herald', 'Thrasios, Triton Hero', 'Tymna the Weaver',
   'Grist, the Hunger Tide', 'Avacyn, Angel of Hope',
+  // The two permanent types that enter with counters on them (CR 306.5b/310.6).
+  // Grist above is the planeswalker; this is the only battle in the fixtures,
+  // and without it the defense half of that rule has nothing to test against.
+  'Invasion of Gobakhan // Lightshield Array',
+  // Permanents that BECOME a planeswalker (D108). One card per measured branch
+  // of that rule, and none of the three is interchangeable with another:
+  //   · Jace is the plain case — a creature front, a planeswalker back, printed
+  //     loyalty 5. It is also the only one of the three that is CHEAP ({1}{U}),
+  //     which is what lets the fuzzer afford it.
+  //   · Arlinn is a planeswalker on BOTH faces, and her back face is one of the
+  //     only two planeswalker faces in the database with no printed loyalty at
+  //     all. She is the card that makes "was it already a planeswalker" and "a
+  //     null loyalty adds nothing" load-bearing rather than asserted.
+  //   · Invasion of New Phyrexia is the only one of the 14 whose front face
+  //     already carries counters — a Siege with defense 6 that becomes a
+  //     planeswalker with loyalty 4 — so it is the only way to test that the
+  //     counters of the OTHER kind are left where they are.
+  "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
+  'Arlinn Kord // Arlinn, Embraced by the Moon',
+  'Invasion of New Phyrexia // Teferi Akosa of Zhalfir',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

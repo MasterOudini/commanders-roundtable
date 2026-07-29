@@ -3359,3 +3359,282 @@ cause was found.
 ⚠️ A reboot is the wrong instrument. RAM was 91.5 GB free of 128 GB and uptime
 14.6 hours; there was nothing to clear. The cost would have been a running game,
 109 browser tabs and an open editor, for a number that a single `taskkill` fixed.
+
+## D107 — A planeswalker died the moment it landed, because nothing ever wrote a loyalty counter
+
+`sba.ts` has checked "planeswalker at 0 loyalty" and "battle at 0 defense" since
+M3. It reads `card.counters['loyalty']` and `card.counters['defense']` — and
+across the whole engine, **nothing had ever written either one**. A repo-wide
+grep for `'loyalty'` found the read in `sba.ts` and `loyalty: face.baseLoyalty`
+in `derive.ts`, which is a derived characteristic, not a counter. So every
+planeswalker that reached the battlefield reached it with an empty counter map,
+`0 <= 0` held on the same pump, and it was in the graveyard before it could be
+looked at. Battles were identical.
+
+**A planeswalker enters with loyalty counters equal to its PRINTED loyalty
+(CR 306.5b), a battle with defense counters equal to its printed defense
+(CR 310.6), and "enters with counters" is a REPLACEMENT EFFECT (CR 614.1c).**
+That last clause decided where the fix goes.
+
+### It belongs in the funnel, not at the entry sites
+
+Ten places emit a `CardsMoved` onto the battlefield: a cast resolving, a land
+drop, `effects.ts`, the loop, four Tier-3 manual tools. Adding counters at each
+of them is precisely the "some candidates twice, others never" failure
+`applyReplacements` exists to prevent, and it is not hypothetical — the rule had
+already been forgotten at all ten. `withEntryCounters` runs once, on the funnel's
+output, immediately after the commander-zone rule and reading ITS rewritten
+moves rather than the original event.
+
+### It has to be an EVENT
+
+The obvious-looking home is the reducer's `CardsMoved` case, and it is the wrong
+one: `apply` is pure in (state, event) alone and cannot look a printing up.
+Counters are part of `GameState` and therefore of the state hash, so a reducer
+that reached for the oracle would be a live/replay divergence surfacing 200
+events later with no visible cause. The rule emits a `CountersChanged` — the
+event that already exists, with the reducer case that already works — appended
+after the move it belongs to. Invariant 5 holds with nothing new added to it.
+
+⚠️ **The PRINTED value, off the oracle face, not `derive()`'s.** CR says printed,
+and the pre-move state would answer the wrong question anyway: `layerOne` only
+treats a face-down permanent as a typeless 2/2 once its zone IS the battlefield,
+so deriving in the funnel would hand a face-down planeswalker its loyalty.
+`move.faceDown` is checked directly instead.
+
+⚠️ **Face 0 is always right**, because `clearBattlefieldFields` resets
+`faceIndex` on every entry — a card cannot arrive showing its back. The delta is
+exact for the same reason: that function also empties `counters`, so a
+planeswalker's second trip to the battlefield gives 3 again and not 6.
+
+### Measured over the whole database, so the boundary is stated rather than guessed
+
+| | count |
+|---|---|
+| Commander-legal planeswalkers (front face) | **289** |
+| …with a numeric printed loyalty | **288** |
+| Commander-legal battles | **36** |
+| …with a numeric printed defense | **36** |
+| Printed loyalty on a non-planeswalker face | **0** |
+| Printed defense on a non-battle face | **0** |
+| Planeswalker or battle TOKENS | **0** |
+
+`Nissa, Steward of Elements` is the single exception, printing `X`, and it gets
+nothing — the same honest answer `derive()` already gives a `*`-power creature
+(it is visibly wrong on the board and a Tier-3 override fixes it) rather than a
+number nobody can trace. Zero tokens is why `TokenCreated` needs no branch. And
+because a printed loyalty appears on no non-planeswalker face anywhere, the type
+check in the rule never disagrees with the number — it is there so this rule and
+SBA 4 answer "is this a planeswalker" the same way rather than two ways.
+
+⚠️ **Not handled: a permanent that TRANSFORMS into a planeswalker.** 14
+Commander-legal cards (`Jace, Vryn's Prodigy`, `Nissa, Vastwood Seer`, …), all
+reached through the Tier-3 Transform button, all needing set-to-N semantics this
+delta-based event does not have — flipping back and forth would stack loyalty.
+They still land on an empty counter map and die, exactly as every planeswalker
+used to. **→ Done in D108**, which is where the set-to-N reasoning ended up; the
+paragraph above is left as written because the boundary it drew is why D108 is a
+second rule rather than a flag on this one.
+
+### The corner box was showing the printed number
+
+`Card.tsx` drew `face.loyalty ?? face.defense` — the printed string — under a
+comment promising "the CURRENT one (counters, continuous effects) not the
+printed one". Harmless while no loyalty counter existed; the moment the engine
+started counting one down it meant a planeswalker read **3** for the rest of its
+life while the SBA was two clicks from binning it. `Card` now takes `loyalty` and
+`defense` as numbers (not the counters record — it is memoised and exists ~50
+times on a board), and the corner turns `accent-hi` when the current value
+differs from printed, the same reading P/T already gets. This is invariant 10:
+a losing condition the engine enforces has to be visible before it fires.
+
+### And there was no way to spend loyalty at all
+
+`tier3.ts` has said "Its loyalty abilities — use the counters tool and apply the
+effect yourself" since M5, and it was right that a loyalty ability is Tier 3 (no
+colon, so `activatedParse` never reads one). But the card menu's only counter
+control was `+1/+1…`. The tool it named did not exist for the counter it named.
+The menu now carries a `Loyalty N…`/`Defense N…` button, keyed off the counter
+actually being present so it never appears on a creature.
+
+### ⚠️ The fuzz gate could not reach any of this, and stayed green for it
+
+`fuzz.node.test.ts`'s `DECK` had no planeswalker and no battle, so 500 seeds ×
+200 intents ran both SBAs against an empty counter map every single time. This
+is the third instance in this repo of the same thing — the net fixture pool was
+forty lands, then had no targeted spell (D102) — so the deck gains Grist and
+`Invasion of Ikoria`, and the gate gains an **entry-counter canary** beside the
+targeting ones. A hash equality is only evidence about a rule the run actually
+exercised.
+
+**Verified: 879 Vitest** (10 new in `sba.test.ts`, **5 of which fail with the
+fix reverted**) **· the 500-seed fuzz gate green at 98,969 accepted intents /
+1,148,707 events / 9,230 turns, with 228 permanents entering with counters ·
+258/259 animation battery · `npm run build` clean.** The one battery failure is
+still the perf gate's long-frame count (D29/D29a): 8 long frames, 1 over 33 ms,
+**p50 8.3 ms and p95 8.50 ms — byte-identical to a passing run**, which is
+D106's interference signature and not a render regression.
+
+**Played it.** A real 2-seat solo game from a real imported deck: Grist entered
+the battlefield with `{loyalty: 3}` and stayed there, the corner read `3`, the
+card menu offered `Loyalty 3…`, removing 2 left it alive at `1` in accent-hi
+with "You remove 2 loyalty counters from Grist, the Hunger Tide." in the log,
+and removing the last one produced "Grist, the Hunger Tide dies."
+
+## D108 — And a permanent that TRANSFORMS into a planeswalker
+
+D107 gave a planeswalker its loyalty on the way IN, and said in as many words
+what it was not doing. This is that: **14 Commander-legal cards** whose front
+face is not a planeswalker and whose back face is — `Jace, Vryn's Prodigy`,
+`Nissa, Vastwood Seer`, `Kytheon, Hero of Akros`, `Valki, God of Lies`, … — all
+reached through the Tier-3 Transform button, all landing on an empty counter map,
+all binned by SBA 4 on the same pump. D107's bug, one step along, and the same
+symptom: the card was in the graveyard before anyone could look at it.
+
+### The same rule, so the same funnel
+
+`withTransformCounters` sits beside `withEntryCounters` in `applyReplacements`
+and answers the same CR clause from the other side. The funnel is the one place
+that sees every event with the oracle in hand, which is what both halves need;
+and `FaceIndexSet` is emitted by exactly one intent, so unlike the ten entry
+sites there was never a temptation to write it at the call site.
+
+⚠️ It reads `state.cards[…].faceIndex` for the OLD face and `ev.faceIndex` for
+the new one. The funnel runs on the state BEFORE its event is applied — which is
+what makes a transition readable here at all, and is the same property D107 leans
+on to know a card's pre-move zone.
+
+### ⚠️ SET TO N, NOT ADD N — the whole reason it is a separate rule
+
+`CountersChanged` is a DELTA and the Transform button TOGGLES. `+5` on every flip
+leaves a flipped-away-and-back Jace on 10, and on 15 after another round trip.
+The delta is computed against what the card is carrying at that instant
+(`printed − current`), so the planeswalker face always lands on exactly its
+printed number however it got there. An ENTRY can assume the current value is 0,
+because `clearBattlefieldFields` empties `counters`; a transform can assume
+nothing, and that difference is not expressible as a flag on the entry rule.
+
+### ⚠️ The trigger is the TRANSITION, not the destination
+
+"Becomes a planeswalker" is a change of state, so a permanent that was already
+one and still is gets nothing. Two Commander-legal cards are planeswalkers on
+BOTH faces — `Arlinn Kord // Arlinn, Embraced by the Moon` and `Garruk Relentless
+// Garruk, the Veil-Cursed` — and without this check, flipping Arlinn to her back
+face and back would refill her from 1 to 3. Free loyalty, on the wrong side of
+the rules, from a button whose whole job is to be honest.
+
+CR 701.28 turns the card over and does nothing to what is sitting on it: a
+permanent keeps its counters across a transform. That is also why a flipped-back
+Jace still shows the 3 he had spent down to, inert on a creature face.
+
+⚠️ And those same two cards are the only planeswalker faces in the database with
+**no printed loyalty at all**, so a `null` has to mean "add nothing" rather than
+0 — a delta computed against 0 would strip the counters they are carrying.
+Either guard alone would cover both cards today; both are here because they
+answer different questions and the next set can print one that needs only one.
+
+### Measured, so the boundary is stated rather than guessed
+
+| | count |
+|---|---|
+| Commander-legal, front face not a planeswalker, back face one | **14** |
+| …with a numeric printed loyalty on the back face | **14** (2–7) |
+| …`transform` / `modal_dfc` | 12 / 2 |
+| …whose front face is a Battle | 1 (`Invasion of New Phyrexia`) |
+| Cards with a non-Battle front face and a Battle back face | **0** |
+| Planeswalker faces DB-wide with no printed loyalty | **2** (Arlinn, Garruk) |
+
+⚠️ **No defense branch, and the zero is the reason.** A Siege transforms INTO
+something else, never into a battle, so "becomes a battle" is reachable only by
+driving a Siege backwards with the Tier-3 button — where leaving its counters
+alone is both what CR 701.28 says and the un-surprising answer. Same shape as
+D107's reason for giving `TokenCreated` no branch: zero cards, zero code.
+
+⚠️ All 14 arrive on face 0 and are flipped by hand, including `Nicol Bolas, the
+Ravager`, whose own ability returns it to the battlefield transformed —
+`clearBattlefieldFields` resets `faceIndex` on entry, so nothing can arrive
+already showing its back. The two `modal_dfc` cards are not transforming cards in
+real Magic at all; in this app the Transform button is how their back face is
+reached, because `ManualFlipFace` keys off `faces.length >= 2` and not on layout.
+
+### Where it diverges from CR, deliberately
+
+Read literally, a permanent that becomes a planeswalker a SECOND time *gets*
+printed-loyalty more counters on top of whatever it kept. Set-to-N gives it
+exactly the printed number instead. **None of the 14 can transform back in real
+Magic** — every one is a one-way transform — so the divergence is only reachable
+by driving a one-way transform backwards with a manual tool, and the alternative
+is a Jace sitting on 10.
+
+### ⚠️ The fuzz gate could not turn a card over at all
+
+D107 added an entry-counter canary and recorded why. The same hole was one layer
+down: `manualIntentFor` had **no `ManualFlipFace` case**, so no seed could flip
+anything however many faces it had, and `DECK` had no card with a second face
+worth turning. Both are fixed, and the canary is `> 0` for the same reason
+D107's is — it asserts the path is reachable, not a rate.
+
+⚠️ **The flip is AIMED at a two-faced permanent, not drawn from `anyCard` like
+its siblings.** Picked at random it would land on the one card that matters a
+handful of times in 100,000 intents, and a canary that fires by luck is the rot
+it exists to catch with an extra step.
+
+⚠️ **And a manual case must never return `null`.** `runOne` reads a null intent
+as "this game has nothing left to do" and BREAKS out of the seed. Aiming the flip
+made "nothing to flip" the common case, and the first cut cost **37% of the
+gate's accepted intents (11,883 → 7,434 at 60 seeds) and a third of its turns** —
+which reads as a slower engine, not as a fuzzer that quietly stopped playing. It
+falls back to the dice, the one sibling that needs nothing from the board.
+⚠️ Cases 1, 3 and 7 have the same latent shape; they are left alone because
+`anyCard` is undefined only when a player's hand AND the whole battlefield are
+empty, which after mulligans essentially never happens.
+
+⚠️ **D107's entry counter had to be narrowed on the way past.** Its comment said
+"only the ENTRY rule writes these two kinds", and that stopped being true the
+moment this rule shipped. They are told apart by the event they were appended to:
+a loyalty change immediately after a `FaceIndexSet` came from here, anything else
+from an entry. The entry side cannot use the same adjacency in reverse —
+`commanderZoneReplacement` can push an `AwaitingSet` between a `CardsMoved` and
+its counters.
+
+### One thing the brief for this work had wrong
+
+It recorded that "two of the 14 back faces have no printed loyalty", naming
+Arlinn's and Garruk's. Measured: **all 14 print a numeric loyalty**, and Arlinn
+and Garruk are back faces of cards whose FRONT is already a planeswalker, so
+neither is one of the 14 at all. The correction matters because it moves those
+two cards from "the null case inside the scope" to "the both-faces case just
+outside it" — which is what made the transition guard necessary rather than
+merely tidy.
+
+### Nothing in `src/ui/` changed
+
+D107 already made the corner box read the counter rather than the printed number
+and gave the card menu a `Loyalty N…` button keyed off the counter being present.
+`PermanentStack` passes `card.counters['loyalty']` straight through, so a
+transformed planeswalker gets both for free. D107's note that "a planeswalker on
+the battlefield always has at least one loyalty counter, because SBA 4 bins it
+the instant it does not" is more true after this, not less.
+
+**Verified: 888 Vitest** (9 new in `sba.test.ts`) **· the 500-seed fuzz gate
+green at 98,694 accepted intents / 1,138,047 events / 9,118 turns, with 185
+permanents entering with counters and 50 transforming into a planeswalker ·
+258/259 animation battery · `npm run build` clean.** The one battery failure is
+still the perf gate's long-frame count (D29/D29a): 9 long frames, 2 over 33 ms,
+**p50 8.3 ms and p95 8.50 ms — byte-identical to a passing run**, which is
+D106's interference signature and not a render regression, on a path this
+engine-only change does not touch. 0 stray rect reads.
+Every guard was checked by DELETING it: reverting the
+rule fails 4 of the 9, removing the transition guard fails Arlinn alone, removing
+the zone guard fails the in-a-hand case alone, and removing the face-down guard
+fails the face-down case alone. The transform canary reports 0 with the rule
+reverted.
+
+**Played it.** A real 2-seat solo game from a real saved deck (Jace as the
+commander, 99 Islands): cast from the command zone for `{1}{U}`, resolved as a
+creature with no counters, and the card menu offered `Transform` and no loyalty
+control. One click and he was `Jace, Telepath Unbound`, still on the battlefield,
+`{loyalty: 5}`, the corner reading **5**, the menu now offering `Loyalty 5…`.
+Removing 2 left him at 3; flipping back to the creature kept the 3 sitting there
+inert; flipping forward again gave **5, not 8**. Removing all 5 produced
+"Jace, Telepath Unbound dies." and a card in the graveyard.
