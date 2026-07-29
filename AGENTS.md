@@ -1133,6 +1133,43 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       if it is missing. It boots the relay IN-PROCESS on an ephemeral port via
       `startRelay()` — which is why that function returns its server.
 
+- [x] **A planeswalker survives being played (2026-07-29):** it entered the
+      battlefield and was in the graveyard on the same pump, because **nothing in
+      the engine had ever written a `loyalty` counter** — `sba.ts` has read
+      `counters['loyalty']` since M3 and `0 <= 0` always held. Battles were
+      identical on `counters['defense']`. Decisions in **D107**.
+      A permanent now enters with its PRINTED loyalty / defense (CR 306.5b,
+      310.6) as a `CountersChanged` on the log, emitted from `applyReplacements`
+      — because "enters with counters" IS a replacement effect (CR 614.1c), and
+      because ten separate places emit a `CardsMoved` onto the battlefield and
+      the rule had been forgotten at all ten.
+      ⚠️ **An EVENT, never a reducer branch.** `apply` is pure in (state, event)
+      alone and cannot look a printing up; counters are part of `GameState` and
+      so of the state hash, so a reducer that reached for the oracle would be a
+      live/replay divergence with no visible cause.
+      ⚠️ **The corner box had been drawing the PRINTED number** under a comment
+      promising the current one — harmless while no loyalty counter existed, and
+      the moment one counted down it meant a planeswalker read `3` for the rest
+      of its life. `Card` takes `loyalty`/`defense` as numbers now and highlights
+      them when they differ from printed (invariant 10).
+      ⚠️ **And there was no way to spend loyalty at all.** `tier3.ts` has said
+      "use the counters tool" since M5; the card menu's only counter control was
+      `+1/+1…`. It now carries `Loyalty N…` / `Defense N…`, keyed off the counter
+      being present so it never shows on a creature.
+      ⚠️ **The fuzz gate could not reach any of this and stayed green** — `DECK`
+      had no planeswalker and no battle, the third instance of that failure in
+      this repo (D102). It gains Grist, `Invasion of Ikoria`, and an
+      entry-counter canary beside the targeting ones.
+      **Verified: 879 Vitest** (10 new in `sba.test.ts`, **5 of which fail with
+      the fix reverted**) **· the 500-seed fuzz gate green at 98,969 accepted
+      intents / 1,148,707 events, with 228 permanents entering with counters ·
+      258/259 animation battery.** The one failure is still the perf gate's
+      long-frame count (D29/D29a): 8 long frames, **p50 8.3 ms / p95 8.50 ms,
+      byte-identical to a passing run** — D106's interference signature.
+      Played it: Grist entered at `{loyalty: 3}` and stayed, the menu offered
+      `Loyalty 3…`, −2 left it alive at `1` in accent-hi, −1 more logged
+      "Grist, the Hunger Tide dies."
+
 ⚠️ **Two invariants M2 established that M3 kept, and M4 must not break:**
 1. `animStore` may only **hide** or **decorate** — it never holds card→zone truth.
    The DOM's zone membership is always the authoritative state, so the worst a

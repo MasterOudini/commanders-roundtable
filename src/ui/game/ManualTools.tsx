@@ -237,6 +237,18 @@ export function CardMenu() {
 
   const owner = card.owner;
   const onBattlefield = zone?.startsWith('bf:') ?? false;
+  // ⚠️ The engine puts loyalty and defense counters on at entry (CR 306.5b/310.6)
+  // and SBA 4 bins the permanent when they reach 0 — but `+1`/`−2`/`−5` is Tier 3,
+  // because a loyalty ability has no colon and the ingest never reads one. So
+  // this button is the ONLY way to spend loyalty, and without it the engine
+  // would count something down that nobody could touch. Keyed off the counter
+  // actually being there, so it never shows up on a creature.
+  const spendable: 'loyalty' | 'defense' | null =
+    card.counters['loyalty'] !== undefined
+      ? 'loyalty'
+      : card.counters['defense'] !== undefined
+        ? 'defense'
+        : null;
 
   return (
     <div
@@ -278,6 +290,26 @@ export function CardMenu() {
           >
             +1/+1…
           </button>
+          {spendable && (
+            <button
+              type="button"
+              className={BTN_GHOST_SMALL}
+              data-menu={spendable}
+              onClick={() =>
+                askNumber({
+                  title: spendable === 'loyalty' ? 'Loyalty counters' : 'Defense counters',
+                  label: 'How many (negative removes)',
+                  initial: spendable === 'loyalty' ? 1 : -1,
+                  min: -99,
+                  max: 99,
+                  onSubmit: (delta) =>
+                    send({ t: 'ManualSetCounter', player: viewer, card: menu.card, kind: spendable, delta }),
+                })
+              }
+            >
+              {spendable === 'loyalty' ? 'Loyalty' : 'Defense'} {card.counters[spendable] ?? 0}…
+            </button>
+          )}
           <button
             type="button"
             className={BTN_GHOST_SMALL}

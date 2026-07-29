@@ -10,6 +10,7 @@
 // one replacement effect that is NOT a card script, because it is a rule.
 
 import { derive, makeDeriveCache } from './derive';
+import { faceOf } from './oracle';
 import type { ScriptRegistry } from './scripts/registry';
 import type { CardMove, EventBody, GameEvent } from './types/events';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
@@ -25,7 +26,7 @@ import type { Awaiting, GameState, PendingTrigger } from './types/state';
  */
 export function applyReplacements(
   state: GameState,
-  _oracle: OracleDb,
+  oracle: OracleDb,
   scripts: ScriptRegistry,
   ev: EventBody,
 ): EventBody[] {
@@ -35,6 +36,10 @@ export function applyReplacements(
   // anywhere may go to the command zone instead, at its owner's choice.
   if (ev.t === 'CardsMoved') {
     events = commanderZoneReplacement(state, ev.moves);
+    // ⚠️ AFTER the commander rule, and reading ITS output rather than `ev`. That
+    // rule can redirect a move, and a second replacement that read the original
+    // would be answering a question about a board that never happened.
+    events = withEntryCounters(state, oracle, events);
   }
 
   const defs = scripts.replacements();
@@ -84,6 +89,85 @@ function commanderZoneReplacement(state: GameState, moves: readonly CardMove[]):
     }
   }
   return out;
+}
+
+/**
+ * Built-in: CR 306.5b and 310.6. A planeswalker enters the battlefield with a
+ * number of loyalty counters equal to its PRINTED loyalty; a battle with defense
+ * counters equal to its printed defense.
+ *
+ * ⚠️ A REPLACEMENT EFFECT, which is why it lives in this funnel (CR 614.1c —
+ * "enters with counters" is a replacement, not a trigger). Ten different places
+ * can move a card onto the battlefield — a cast resolving, a land drop, an
+ * effect, four Tier-3 manual tools, combat's own cleanup — and adding the
+ * counters at each of them would be the "some candidates twice, others never"
+ * failure the funnel exists to prevent. It never happened at any of them, so
+ * every planeswalker entered with zero loyalty and SBA 4 binned it on the same
+ * pass. Nobody saw it because neither starter deck contains one.
+ *
+ * ⚠️ AN EVENT, never a reducer branch. `apply` is pure in (state, event) alone
+ * and cannot look a printing up, so counters added inside the `CardsMoved` case
+ * would be a state change the replay could not reproduce. Counters are part of
+ * `GameState` and so of the state hash — that is exactly the disagreement the
+ * fuzzer would report 200 events later with no visible cause.
+ *
+ * ⚠️ The PRINTED value, off the oracle face, not `derive()`'s. CR says printed,
+ * and the pre-move state derives from the wrong zone anyway: a face-down entry
+ * is only a 2/2 with no types once it has ARRIVED (`layerOne` checks
+ * `zone.kind === 'battlefield'`), so deriving here would hand a face-down
+ * planeswalker its loyalty.
+ *
+ * Face 0 is always the right face: `clearBattlefieldFields` resets `faceIndex`
+ * on every entry, so a card cannot arrive showing its back. A permanent that
+ * TRANSFORMS into a planeswalker afterwards is a different rule and is not
+ * handled — 14 Commander-legal cards, all reached through the Tier-3 Transform
+ * button, all needing set-to-N semantics this delta-based event does not have.
+ *
+ * Measured over all 113,559 printings: a printed loyalty appears on no
+ * non-planeswalker face and a printed defense on no non-battle face, so the type
+ * check below never disagrees with the number — it is here so this rule and
+ * SBA 4 decide "is this a planeswalker" the same way rather than two ways.
+ * 288 of the 289 Commander-legal planeswalkers have a numeric printed loyalty
+ * (Nissa, Steward of Elements prints `X`) and all 36 battles a numeric defense.
+ * There are no planeswalker or battle TOKENS at all, which is why `TokenCreated`
+ * needs nothing here.
+ */
+function withEntryCounters(
+  state: GameState,
+  oracle: OracleDb,
+  events: readonly EventBody[],
+): EventBody[] {
+  const changes: { card: InstanceId; kind: string; delta: number }[] = [];
+  for (const ev of events) {
+    if (ev.t !== 'CardsMoved') continue;
+    for (const move of ev.moves) {
+      if (move.to.kind !== 'battlefield' || move.from.kind === 'battlefield') continue;
+      // CR 708.2: a face-down permanent is a 2/2 creature with no name and no
+      // types. It is not a planeswalker, so it gets no loyalty.
+      if (move.faceDown) continue;
+      const card = state.cards[move.card];
+      if (!card) continue;
+      const printing = oracle.byPrinting(card.printingId);
+      if (!printing) continue;
+      const face = faceOf(printing, 0);
+      const { baseLoyalty, baseDefense } = face;
+      if (baseLoyalty !== null && baseLoyalty > 0 && face.typeLine.types.includes('Planeswalker')) {
+        changes.push({ card: move.card, kind: 'loyalty', delta: baseLoyalty });
+      }
+      if (baseDefense !== null && baseDefense > 0 && face.typeLine.types.includes('Battle')) {
+        changes.push({ card: move.card, kind: 'defense', delta: baseDefense });
+      }
+    }
+  }
+  if (changes.length === 0) return [...events];
+  // One event for the whole batch — a wrath that returns three planeswalkers is
+  // one `CountersChanged`, exactly as the SBA's own counter pass is.
+  //
+  // ⚠️ A DELTA onto a card that has just arrived, and it is exact because
+  // `clearBattlefieldFields` empties `counters` on every entry. It is appended
+  // rather than prepended for the same reason: it has to land after the move it
+  // belongs to, or it would add counters to a card still in its old zone.
+  return [...events, { t: 'CountersChanged', changes }];
 }
 
 /**

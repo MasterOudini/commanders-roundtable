@@ -2625,6 +2625,58 @@ export const AVACYN_ANGEL_OF_HOPE: CardData = {
   "singleImage": true
 };
 
+export const INVASION_OF_GOBAKHAN_LIGHTSHIELD_ARRAY: CardData = {
+  "scryfallId": "11798730-6788-4e0b-a828-b46cab1a4fa7",
+  "oracleId": "86c32a56-3272-4738-b0b3-a8aa49a17ce4",
+  "name": "Invasion of Gobakhan // Lightshield Array",
+  "layout": "transform",
+  "faces": [
+    {
+      "name": "Invasion of Gobakhan",
+      "manaCost": "{1}{W}",
+      "typeLine": "Battle — Siege",
+      "oracleText": "(As a Siege enters, choose an opponent to protect it. You and others can attack it. When it's defeated, exile it, then cast it transformed.)\nWhen this Siege enters, look at target opponent's hand. You may exile a nonland card from it. For as long as that card remains exiled, its owner may play it. A spell cast this way costs {2} more to cast.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": "3",
+      "colors": [
+        "W"
+      ],
+      "artist": "Andreas Zafiratos",
+      "imageId": "11798730-6788-4e0b-a828-b46cab1a4fa7-0"
+    },
+    {
+      "name": "Lightshield Array",
+      "manaCost": "",
+      "typeLine": "Enchantment",
+      "oracleText": "At the beginning of your end step, put a +1/+1 counter on each creature that attacked this turn.\nSacrifice this enchantment: Creatures you control gain hexproof and indestructible until end of turn.",
+      "flavorText": "The weight of Phyrexia crashed down upon Gobakhan, but the will of its people endured.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Andreas Zafiratos",
+      "imageId": "11798730-6788-4e0b-a828-b46cab1a4fa7-1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Transform"
+  ],
+  "setCode": "mom",
+  "collectorNumber": "22",
+  "commanderLegality": "legal",
+  "singleImage": false
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "05e8f775-02bd-46dc-a618-07a9a127fa69",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -2799,6 +2851,7 @@ export const ENGINE_CARDS: CardData[] = [
   TYMNA_THE_WEAVER,
   GRIST_THE_HUNGER_TIDE,
   AVACYN_ANGEL_OF_HOPE,
+  INVASION_OF_GOBAKHAN_LIGHTSHIELD_ARRAY,
   SOLDIER_TOKEN,
   TREASURE_TOKEN,
   BEAST_TOKEN,

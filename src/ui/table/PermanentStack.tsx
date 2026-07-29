@@ -141,6 +141,12 @@ export function PermanentStack({
         faceDown={card.faceDown}
         power={card.power}
         toughness={card.toughness}
+        // ⚠️ The battlefield is the only place these mean anything: a card in a
+        // hand or a graveyard has no counters and shows its printed value. The
+        // engine puts them on at entry (CR 306.5b/310.6) and SBA 4 reads them
+        // back, so this is the number the player is watching count down.
+        loyalty={card.counters['loyalty'] ?? null}
+        defense={card.counters['defense'] ?? null}
         tapped={card.tapped}
         summoningSick={card.summoningSick}
         damage={card.damage}

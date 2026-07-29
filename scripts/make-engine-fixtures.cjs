@@ -65,6 +65,10 @@ const WANTED = [
   'Kess, Dissident Mage', 'Krenko, Mob Boss', 'Talrand, Sky Summoner',
   'Yeva, Nature\'s Herald', 'Thrasios, Triton Hero', 'Tymna the Weaver',
   'Grist, the Hunger Tide', 'Avacyn, Angel of Hope',
+  // The two permanent types that enter with counters on them (CR 306.5b/310.6).
+  // Grist above is the planeswalker; this is the only battle in the fixtures,
+  // and without it the defense half of that rule has nothing to test against.
+  'Invasion of Gobakhan // Lightshield Array',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

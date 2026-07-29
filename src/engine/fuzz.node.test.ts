@@ -27,7 +27,18 @@ import type { GameState } from './types/state';
 const SEEDS = Number(process.env.CRT_FUZZ_SEEDS ?? 60);
 const INTENTS = Number(process.env.CRT_FUZZ_INTENTS ?? 200);
 
-/** A deck with enough variety that the fuzzer meets real decisions. */
+/**
+ * A deck with enough variety that the fuzzer meets real decisions.
+ *
+ * ⚠️ A CARD MISSING FROM HERE IS A CODE PATH THIS GATE CANNOT REACH, and the
+ * gate stays green the whole time it rots. It has now happened three times in
+ * this repo: the net fixture pool was forty lands, then had no targeted spell
+ * (D102) — and this list had no planeswalker and no battle, so the two SBAs that
+ * read a `loyalty` or a `defense` counter ran against an empty counter map in
+ * every one of 500 seeds. The two entries below are the only permanents in Magic
+ * that arrive with counters already on them (CR 306.5b/310.6), which makes them
+ * the only ones whose ENTRY changes the state hash.
+ */
 const DECK = [
   'Forest', 'Island', 'Mountain', 'Plains', 'Swamp',
   'Command Tower', 'Sol Ring', 'Arcane Signet', 'Tundra', 'Boros Garrison',
@@ -37,6 +48,7 @@ const DECK = [
   'Raging Goblin', 'Child of Night', 'Ambush Viper', 'Baleful Strix',
   'Lightning Bolt', 'Counterspell', 'Cultivate', 'Swords to Plowshares',
   'Pacifism', 'Wrath of God', 'Brainstorm', 'Dark Ritual', 'Lightning Greaves',
+  'Grist, the Hunger Tide', 'Invasion of Gobakhan // Lightshield Array',
 ];
 
 interface Picker {
@@ -189,6 +201,8 @@ interface Run {
   readonly finished: boolean;
   readonly targetPrompts: number;
   readonly targetsChosen: number;
+  /** Permanents that entered carrying loyalty or defense counters. */
+  readonly enteredWithCounters: number;
 }
 
 function runOne(seed: number): Run {
@@ -246,6 +260,14 @@ function runOne(seed: number): Run {
     finished: game.state.gamePhase === 'finished',
     targetPrompts,
     targetsChosen: game.log.filter((e) => e.body.t === 'TargetsChosen').length,
+    // ⚠️ Only the ENTRY rule writes these two kinds — the fuzzer's Tier-3
+    // counter tool only ever adds `+1/+1` — so this counts entries without
+    // needing to pair each one back to its `CardsMoved`.
+    enteredWithCounters: game.log.filter(
+      (e) =>
+        e.body.t === 'CountersChanged' &&
+        e.body.changes.some((c) => (c.kind === 'loyalty' || c.kind === 'defense') && c.delta > 0),
+    ).length,
   };
 }
 
@@ -264,14 +286,16 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           finished: a.finished + (r.finished ? 1 : 0),
           targetPrompts: a.targetPrompts + r.targetPrompts,
           targetsChosen: a.targetsChosen + r.targetsChosen,
+          enteredWithCounters: a.enteredWithCounters + r.enteredWithCounters,
         }),
-        { accepted: 0, events: 0, turns: 0, finished: 0, targetPrompts: 0, targetsChosen: 0 },
+        { accepted: 0, events: 0, turns: 0, finished: 0, targetPrompts: 0, targetsChosen: 0, enteredWithCounters: 0 },
       );
       // eslint-disable-next-line no-console
       console.log(
         `fuzz: ${SEEDS} seeds · ${totals.accepted} accepted intents · ${totals.events} events · ` +
           `${totals.turns} turns · ${totals.finished} games finished · ` +
-          `${totals.targetPrompts} target prompts · ${totals.targetsChosen} declared`,
+          `${totals.targetPrompts} target prompts · ${totals.targetsChosen} declared · ` +
+          `${totals.enteredWithCounters} entered with counters`,
       );
 
       // A fuzzer that silently did nothing would pass. These are the canaries.
@@ -283,6 +307,12 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       // cancelling — leaves the whole gate green while the feature is dead.
       expect(totals.targetPrompts).toBeGreaterThan(SEEDS);
       expect(totals.targetsChosen).toBeGreaterThan(SEEDS);
+      // ⚠️ THE ENTRY-COUNTER CANARY. The hash equality above is only evidence
+      // about a rule the run actually EXERCISED, and until Grist and the Siege
+      // joined `DECK` this gate could not put a planeswalker on a battlefield at
+      // all. Deliberately `> 0` rather than a rate: it is asserting the path is
+      // reachable, and the fuzzer has to draw and afford a 3-drop to get there.
+      expect(totals.enteredWithCounters).toBeGreaterThan(0);
     },
     600_000,
   );

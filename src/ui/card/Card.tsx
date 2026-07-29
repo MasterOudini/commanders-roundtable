@@ -56,6 +56,23 @@ export interface CardProps {
   /** Engine-derived current power/toughness, including counters and effects. */
   power?: number | null;
   toughness?: number | null;
+  /**
+   * Loyalty counters on a planeswalker / defense counters on a battle, RIGHT
+   * NOW. Both share the corner box with P/T, because a card is only ever one of
+   * the three.
+   *
+   * ⚠️ A NUMBER, not the counters record. `Card` is memoised on shallow props and
+   * exists ~50 times on a 4-player board (see the note on the memo); an object
+   * prop would be safe only for as long as the projector kept preserving its
+   * identity, which is a promise made somewhere else entirely.
+   *
+   * ⚠️ Null means "nobody told me", and the printed value is then shown — which
+   * is right for a card in a hand or a graveyard, and never wrong on the
+   * battlefield: a planeswalker there always has at least one loyalty counter,
+   * because SBA 4 bins it the instant it does not.
+   */
+  loyalty?: number | null;
+  defense?: number | null;
   tapped?: boolean;
   summoningSick?: boolean;
   /** Damage marked this turn, drawn as a red pip. */
@@ -141,6 +158,8 @@ const CardImpl = function Card({
   inFlight = false,
   power = null,
   toughness = null,
+  loyalty = null,
+  defense = null,
   tapped = false,
   summoningSick = false,
   damage = 0,
@@ -204,11 +223,21 @@ const CardImpl = function Card({
   // one. That also covers loyalty and battle defense, which live in the same box.
   const currentPt = power !== null && toughness !== null;
   const printedPt = face.power !== null && face.toughness !== null;
+  // ⚠️ The COUNTERS, not the printed number, for a planeswalker or a battle. This
+  // box drew `face.loyalty` from M1 until the engine started putting loyalty
+  // counters on at all (CR 306.5b), and a planeswalker that reads its printed 3
+  // for the rest of the game while the SBA is counting down to 0 is a card the
+  // player cannot read at exactly the moment it matters.
+  const currentCounter = loyalty ?? defense;
+  const printedCounter = face.loyalty ?? face.defense;
   const cornerValue = currentPt
     ? `${power}/${toughness}`
     : printedPt
       ? `${face.power}/${face.toughness}`
-      : (face.loyalty ?? face.defense);
+      : (currentCounter ?? printedCounter);
+  const differsFromPrinted = currentPt
+    ? !ptMatchesPrinted(power, toughness, face.power, face.toughness)
+    : currentCounter !== null && String(currentCounter) !== printedCounter;
   const showPt = chrome && cornerValue !== null && cornerValue !== undefined && mode !== 'back';
 
   const label = useMemo(() => {
@@ -380,9 +409,8 @@ const CardImpl = function Card({
             fontSize: 12,
             // Current P/T differing from printed is the single most important
             // thing the chrome exists for — colour it so the difference is seen.
-            color: currentPt && !ptMatchesPrinted(power, toughness, face.power, face.toughness)
-              ? 'var(--color-crt-accent-hi)'
-              : undefined,
+            // A planeswalker down to 1 from a printed 3 is the same reading.
+            color: differsFromPrinted ? 'var(--color-crt-accent-hi)' : undefined,
             boxShadow: `inset 0 0 0 1px color-mix(in oklab, ${tint} 45%, transparent)`,
           }}
         >

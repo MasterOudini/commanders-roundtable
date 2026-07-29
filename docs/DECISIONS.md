@@ -3359,3 +3359,122 @@ cause was found.
 ⚠️ A reboot is the wrong instrument. RAM was 91.5 GB free of 128 GB and uptime
 14.6 hours; there was nothing to clear. The cost would have been a running game,
 109 browser tabs and an open editor, for a number that a single `taskkill` fixed.
+
+## D107 — A planeswalker died the moment it landed, because nothing ever wrote a loyalty counter
+
+`sba.ts` has checked "planeswalker at 0 loyalty" and "battle at 0 defense" since
+M3. It reads `card.counters['loyalty']` and `card.counters['defense']` — and
+across the whole engine, **nothing had ever written either one**. A repo-wide
+grep for `'loyalty'` found the read in `sba.ts` and `loyalty: face.baseLoyalty`
+in `derive.ts`, which is a derived characteristic, not a counter. So every
+planeswalker that reached the battlefield reached it with an empty counter map,
+`0 <= 0` held on the same pump, and it was in the graveyard before it could be
+looked at. Battles were identical.
+
+**A planeswalker enters with loyalty counters equal to its PRINTED loyalty
+(CR 306.5b), a battle with defense counters equal to its printed defense
+(CR 310.6), and "enters with counters" is a REPLACEMENT EFFECT (CR 614.1c).**
+That last clause decided where the fix goes.
+
+### It belongs in the funnel, not at the entry sites
+
+Ten places emit a `CardsMoved` onto the battlefield: a cast resolving, a land
+drop, `effects.ts`, the loop, four Tier-3 manual tools. Adding counters at each
+of them is precisely the "some candidates twice, others never" failure
+`applyReplacements` exists to prevent, and it is not hypothetical — the rule had
+already been forgotten at all ten. `withEntryCounters` runs once, on the funnel's
+output, immediately after the commander-zone rule and reading ITS rewritten
+moves rather than the original event.
+
+### It has to be an EVENT
+
+The obvious-looking home is the reducer's `CardsMoved` case, and it is the wrong
+one: `apply` is pure in (state, event) alone and cannot look a printing up.
+Counters are part of `GameState` and therefore of the state hash, so a reducer
+that reached for the oracle would be a live/replay divergence surfacing 200
+events later with no visible cause. The rule emits a `CountersChanged` — the
+event that already exists, with the reducer case that already works — appended
+after the move it belongs to. Invariant 5 holds with nothing new added to it.
+
+⚠️ **The PRINTED value, off the oracle face, not `derive()`'s.** CR says printed,
+and the pre-move state would answer the wrong question anyway: `layerOne` only
+treats a face-down permanent as a typeless 2/2 once its zone IS the battlefield,
+so deriving in the funnel would hand a face-down planeswalker its loyalty.
+`move.faceDown` is checked directly instead.
+
+⚠️ **Face 0 is always right**, because `clearBattlefieldFields` resets
+`faceIndex` on every entry — a card cannot arrive showing its back. The delta is
+exact for the same reason: that function also empties `counters`, so a
+planeswalker's second trip to the battlefield gives 3 again and not 6.
+
+### Measured over the whole database, so the boundary is stated rather than guessed
+
+| | count |
+|---|---|
+| Commander-legal planeswalkers (front face) | **289** |
+| …with a numeric printed loyalty | **288** |
+| Commander-legal battles | **36** |
+| …with a numeric printed defense | **36** |
+| Printed loyalty on a non-planeswalker face | **0** |
+| Printed defense on a non-battle face | **0** |
+| Planeswalker or battle TOKENS | **0** |
+
+`Nissa, Steward of Elements` is the single exception, printing `X`, and it gets
+nothing — the same honest answer `derive()` already gives a `*`-power creature
+(it is visibly wrong on the board and a Tier-3 override fixes it) rather than a
+number nobody can trace. Zero tokens is why `TokenCreated` needs no branch. And
+because a printed loyalty appears on no non-planeswalker face anywhere, the type
+check in the rule never disagrees with the number — it is there so this rule and
+SBA 4 answer "is this a planeswalker" the same way rather than two ways.
+
+⚠️ **Not handled: a permanent that TRANSFORMS into a planeswalker.** 14
+Commander-legal cards (`Jace, Vryn's Prodigy`, `Nissa, Vastwood Seer`, …), all
+reached through the Tier-3 Transform button, all needing set-to-N semantics this
+delta-based event does not have — flipping back and forth would stack loyalty.
+They still land on an empty counter map and die, exactly as every planeswalker
+used to.
+
+### The corner box was showing the printed number
+
+`Card.tsx` drew `face.loyalty ?? face.defense` — the printed string — under a
+comment promising "the CURRENT one (counters, continuous effects) not the
+printed one". Harmless while no loyalty counter existed; the moment the engine
+started counting one down it meant a planeswalker read **3** for the rest of its
+life while the SBA was two clicks from binning it. `Card` now takes `loyalty` and
+`defense` as numbers (not the counters record — it is memoised and exists ~50
+times on a board), and the corner turns `accent-hi` when the current value
+differs from printed, the same reading P/T already gets. This is invariant 10:
+a losing condition the engine enforces has to be visible before it fires.
+
+### And there was no way to spend loyalty at all
+
+`tier3.ts` has said "Its loyalty abilities — use the counters tool and apply the
+effect yourself" since M5, and it was right that a loyalty ability is Tier 3 (no
+colon, so `activatedParse` never reads one). But the card menu's only counter
+control was `+1/+1…`. The tool it named did not exist for the counter it named.
+The menu now carries a `Loyalty N…`/`Defense N…` button, keyed off the counter
+actually being present so it never appears on a creature.
+
+### ⚠️ The fuzz gate could not reach any of this, and stayed green for it
+
+`fuzz.node.test.ts`'s `DECK` had no planeswalker and no battle, so 500 seeds ×
+200 intents ran both SBAs against an empty counter map every single time. This
+is the third instance in this repo of the same thing — the net fixture pool was
+forty lands, then had no targeted spell (D102) — so the deck gains Grist and
+`Invasion of Ikoria`, and the gate gains an **entry-counter canary** beside the
+targeting ones. A hash equality is only evidence about a rule the run actually
+exercised.
+
+**Verified: 879 Vitest** (10 new in `sba.test.ts`, **5 of which fail with the
+fix reverted**) **· the 500-seed fuzz gate green at 98,969 accepted intents /
+1,148,707 events / 9,230 turns, with 228 permanents entering with counters ·
+258/259 animation battery · `npm run build` clean.** The one battery failure is
+still the perf gate's long-frame count (D29/D29a): 8 long frames, 1 over 33 ms,
+**p50 8.3 ms and p95 8.50 ms — byte-identical to a passing run**, which is
+D106's interference signature and not a render regression.
+
+**Played it.** A real 2-seat solo game from a real imported deck: Grist entered
+the battlefield with `{loyalty: 3}` and stayed there, the corner read `3`, the
+card menu offered `Loyalty 3…`, removing 2 left it alive at `1` in accent-hi
+with "You remove 2 loyalty counters from Grist, the Hunger Tide." in the log,
+and removing the last one produced "Grist, the Hunger Tide dies."
