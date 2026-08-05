@@ -169,7 +169,12 @@ function predicateOf(phrase: string): PermanentPredicate | null {
 }
 
 /** `a Forest or a Plains` · `a Mount or Vehicle` → one predicate per alternative. */
-function predicatesOf(phrase: string): readonly PermanentPredicate[] | null {
+/**
+ * Split "X or Y" into predicates. Exported since D168 for the sacrifice-cost
+ * recognition in `activatedParse.ts` — one grammar for "a Forest or a Plains"
+ * whether it gates a land's entry or prices an ability.
+ */
+export function predicatesOf(phrase: string): readonly PermanentPredicate[] | null {
   const parts = phrase.split(/\bor\b/).map((p) => p.trim()).filter((p) => p !== '');
   if (parts.length === 0) return null;
   const out: PermanentPredicate[] = [];

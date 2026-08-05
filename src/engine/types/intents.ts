@@ -67,6 +67,12 @@ export type Intent =
       readonly abilityIndex: number;
       readonly targets?: readonly TargetChoice[];
       readonly plan?: PaymentPlan;
+      /**
+       * Which permanent pays a "Sacrifice a <predicate>" cost (D168).
+       * Required when the ability carries one; the host re-validates it
+       * against `sacrificeCandidatesFor` — a client's word is not a rule.
+       */
+      readonly sacrifice?: InstanceId;
     }
   | { readonly t: 'ChooseTargets'; readonly player: PlayerId; readonly targets: readonly TargetChoice[] }
   | { readonly t: 'ChooseX'; readonly player: PlayerId; readonly x: number }
@@ -236,6 +242,8 @@ export type RejectReason =
   | 'timingRestriction'
   | 'cannotAfford'
   | 'stalePaymentPlan'
+  | 'needsSacrifice'
+  | 'illegalSacrifice'
   | 'invalidPaymentPlan'
   | 'landDropUsed'
   | 'notALand'

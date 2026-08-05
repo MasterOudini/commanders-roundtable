@@ -72,6 +72,24 @@ export function onVeilPick(choice: TargetChoice): void {
   const table = useTable.getState();
   const mode = table.mode;
 
+  // The sacrifice pick is one pick: what the cost eats (D168). ⚠️ Unlike the
+  // attach branch below this is TIER 1 — the pick rides the `ActivateAbility`
+  // intent, and the host re-validates it with `sacrificeCandidatesFor` before
+  // charging, so a stale click costs a refusal message and never a permanent.
+  if (mode.kind === 'sacrifice') {
+    useAim.getState().reset();
+    table.setMode({ kind: 'idle' });
+    if (choice.kind !== 'card') return;
+    session.submit({
+      t: 'ActivateAbility',
+      player: table.viewer,
+      card: mode.card,
+      abilityIndex: mode.abilityIndex,
+      sacrifice: choice.id,
+    });
+    return;
+  }
+
   // Attaching is one pick: the host. ⚠️ It goes out as `ManualAttach`, a Tier-3
   // tool — the engine moves the attachment and logs it, and the equip COST and
   // its sorcery-speed timing remain the player's, because `Equip {2}` is not an
@@ -115,6 +133,51 @@ export function beginAimFrom(cardId: string): void {
     sourceRect: resolveKey(cardSlot(cardId)),
     viaDrag: false,
   });
+}
+
+/**
+ * Activate one of a permanent's abilities — the click a panel row sends.
+ *
+ * ⚠️ ONE implementation, this file's rule: what activating MEANS — pick a
+ * sacrifice, aim its targets, or go straight to the engine — must not be
+ * re-decided by every control that offers an ability.
+ *
+ * ⚠️ The sacrifice pick comes first and the branches are exclusive: no def
+ * shipping today carries BOTH a sacrifice cost and a target clause, and
+ * `legal.ts` cannot offer such an ability until one does. When one ships, the
+ * pick must CHAIN into targeting (carry `sacrifice` through the targeting
+ * mode) — submitting with either half missing is refused by the host
+ * (`needsSacrifice` / target validation), so the gap fails safe with a
+ * message rather than silently.
+ */
+export function startActivation(
+  card: string,
+  ability: { readonly abilityIndex: number; readonly name: string; readonly needsSacrifice: boolean },
+): void {
+  const table = useTable.getState();
+  if (ability.needsSacrifice) {
+    table.setMode({ kind: 'sacrifice', card, abilityIndex: ability.abilityIndex, name: ability.name });
+    beginAimFrom(card);
+    return;
+  }
+  const specs = session.targetSpecsFor(card, ability.abilityIndex);
+  const max = specs.reduce((n, s) => n + s.max, 0);
+  if (specs.length > 0 && max > 0) {
+    const min = specs.reduce((n, s) => n + s.min, 0);
+    table.setMode({
+      kind: 'targeting',
+      source: { kind: 'ability', card, abilityIndex: ability.abilityIndex },
+      name: ability.name,
+      chosen: [],
+      specs,
+      min,
+      max,
+      next: 'submit',
+    });
+    beginAimFrom(card);
+    return;
+  }
+  session.submit({ t: 'ActivateAbility', player: table.viewer, card, abilityIndex: ability.abilityIndex });
 }
 
 /** Finish aiming: on to payment for a spell, or straight to the engine for an ability. */

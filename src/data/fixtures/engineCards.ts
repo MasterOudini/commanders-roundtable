@@ -9649,6 +9649,103 @@ export const CONSCRIPTED_INFANTRY: CardData = {
   "singleImage": true
 };
 
+export const AHRIMAN: CardData = {
+  "scryfallId": "162a415c-5465-497e-8f4e-c6f09681641d",
+  "oracleId": "37d1d507-25dc-4cd0-b51e-2f1e9b24832c",
+  "name": "Ahriman",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ahriman",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Eye Horror",
+      "oracleText": "Flying, deathtouch\n{3}, Sacrifice another creature or artifact: Draw a card.",
+      "flavorText": "\"The Wrath of Dark has nearly reached its zenith! No one can stop it! Least of all you!\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Kevin Sidharta",
+      "imageId": "162a415c-5465-497e-8f4e-c6f09681641d"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Deathtouch",
+    "Flying"
+  ],
+  "setCode": "fin",
+  "collectorNumber": "87",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CARNAGE_ALTAR: CardData = {
+  "scryfallId": "52688a03-26a4-40ff-8a99-a268113a9802",
+  "oracleId": "aa05900f-0f04-407e-931c-fea8f91e78e3",
+  "name": "Carnage Altar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Carnage Altar",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "{3}, Sacrifice a creature: Draw a card.",
+      "flavorText": "\"In these bloodstains I will find the fingerprints of our oppressors.\"\n—Anowon, the Ruin Sage",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "James Paick",
+      "imageId": "52688a03-26a4-40ff-8a99-a268113a9802"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "zen",
+  "collectorNumber": "198",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLAWS_OF_GIX: CardData = {
+  "scryfallId": "78372366-8c4c-46ac-bd7c-a735c2b24b5d",
+  "oracleId": "c4d384d7-f294-4b2d-9971-a4689c150255",
+  "name": "Claws of Gix",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Claws of Gix",
+      "manaCost": "{0}",
+      "typeLine": "Artifact",
+      "oracleText": "{1}, Sacrifice a permanent: You gain 1 life.",
+      "flavorText": "When the Brotherhood of Gix dug out the cave of Koilos they found their master's severed hand. They enshrined it, hoping that one day it would point the way to Phyrexia.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Henry G. Higginbotham",
+      "imageId": "78372366-8c4c-46ac-bd7c-a735c2b24b5d"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "usg",
+  "collectorNumber": "290",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -10867,6 +10964,9 @@ export const ENGINE_CARDS: CardData[] = [
   COMMON_CROOK,
   CONCLAVE_CAVALIER,
   CONSCRIPTED_INFANTRY,
+  AHRIMAN,
+  CARNAGE_ALTAR,
+  CLAWS_OF_GIX,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

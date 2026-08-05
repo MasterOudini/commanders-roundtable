@@ -417,7 +417,27 @@ function applyBody(state: GameState, body: EventBody): GameState {
         zones = removeFromZone(zones, card.zone, id);
         delete cards[id];
       }
-      return { ...state, cards, zones };
+      // ⚠️ COMBAT MAY STILL NAME A CEASED TOKEN, and a deleted instance is the
+      // one departure the "filter at use" convention cannot absorb — every
+      // other dead combatant still EXISTS in a graveyard, which is all
+      // `checkInvariants` requires. Reachable since D168: a chooser cost can
+      // sacrifice an attacking token at instant speed while an awaiting holds
+      // the pump mid-combat, where end-of-combat's `RemovedFromCombat` has not
+      // run yet. Pruned in that event's exact shape (attackers, blockers, and
+      // both nested orders).
+      const combat =
+        state.combat === null
+          ? null
+          : {
+              ...state.combat,
+              attackers: state.combat.attackers
+                .filter((a) => !body.cards.includes(a.card))
+                .map((a) => ({ ...a, blockerOrder: a.blockerOrder.filter((x) => !body.cards.includes(x)) })),
+              blockers: state.combat.blockers
+                .filter((b) => !body.cards.includes(b.card))
+                .map((b) => ({ ...b, attackerOrder: b.attackerOrder.filter((x) => !body.cards.includes(x)) })),
+            };
+      return { ...state, cards, zones, combat };
     }
 
     case 'CardsRevealed': {

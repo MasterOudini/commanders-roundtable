@@ -97,14 +97,9 @@ interface Candidate {
  * class strings exist so that day is findable with grep.
  */
 const REFUSED: ReadonlyMap<string, string> = new Map([
-  // The general-sacrifice cost chooser (D159; D162 names it the largest
-  // unlock in sight — six of batch 5's twelve refusals alone).
-  ['Agent of Shauku', 'sacrifice-cost chooser'],
-  ['Ahriman', 'sacrifice-cost chooser'],
-  ['Akki Scrapchomper', 'sacrifice-cost chooser'],
-  ['Arms Dealer', 'sacrifice-cost chooser'],
-  ['Army Ants', 'sacrifice-cost chooser'],
-  ['Aura Fracture', 'sacrifice-cost chooser'],
+  // ⚠️ The 'sacrifice-cost chooser' class — FIFTEEN entries at its peak, the
+  // ledger's largest — was BUILT in D168 (`ActivateAbility.sacrifice`) and its
+  // entries deleted the same day, so those cards re-enter the offer stream.
   // A script cannot raise ANOTHER player's prompt from resolve (D160).
   ['Abyssal Horror', 'script-raised prompt'],
   // The "modified" predicate (D160).
@@ -128,10 +123,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // chooser (D163).
   ["Ayula's Influence", 'discard-cost chooser'],
   // Batch 7 (D164).
-  ['Barrage of Expendables', 'sacrifice-cost chooser'],
-  ['Barrage Ogre', 'sacrifice-cost chooser'],
-  ['Barrin, Master Wizard', 'sacrifice-cost chooser'],
-  ['Blazing Hellhound', 'sacrifice-cost chooser'],
   // Exile-N-cards-from-your-graveyard as a COST is a chooser over a public
   // zone nothing charges yet — the graveyard sibling of the sacrifice
   // chooser (D164).
@@ -141,8 +132,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // wired to the seeded generator (D164).
   ['Black Cat', 'ctx.random stub'],
   // Batch 8 (D165).
-  ['Blood Rites', 'sacrifice-cost chooser'],
-  ['Bog Naughty', 'sacrifice-cost chooser'],
   // Remove-a-+1/+1-counter-from-a-creature-you-control as a COST is a
   // chooser over counter state nothing charges yet (D165).
   ['Bolrac-Clan Crusher', 'remove-counter cost'],
@@ -151,11 +140,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // (CardsMoved to exile instead of graveyard); named cheap, not built yet.
   ['Brittle Effigy', 'exile-self cost'],
   ['Cabal Surgeon', 'exile-from-graveyard cost'],
-  ['Carnage Altar', 'sacrifice-cost chooser'],
   ['Catapult Master', 'tap-creatures cost'],
   // Batch 10 (D167).
-  ['Cephalid Scout', 'sacrifice-cost chooser'],
-  ['Claws of Gix', 'sacrifice-cost chooser'],
   ['Charging Strifeknight', 'discard-cost chooser'],
   // "Your second spell each turn" is Axgard's per-turn trigger memory one
   // count over (D167).

@@ -5,6 +5,7 @@ import { useTable, type TableMode, type TargetSource } from '../../store/tableSt
 import { useAim } from '../../store/aimStore';
 import { beginAimFrom, onVeilPick } from './aimCommit';
 import { canTapOnly, manaOptionsFor } from './manaOptions';
+import { abilityOptionsFor } from './abilityOptions';
 import { faceOptionsFor } from './faceOptions';
 import { useDrag, type DropCheck } from '../../store/dragStore';
 import { cardSlot, resolveKey, setDropOrigin, takeDropOrigin, zoneSlot, type FrozenRect } from '../anim/rectRegistry';
@@ -272,8 +273,13 @@ export function useEngineTable() {
       //
       // ⚠️ The panel still commits on the PICK when it holds one card, so this
       // is one extra click and never two.
+      // ⚠️ Abilities open the SAME panel (D168) — before this, no click path
+      // consumed an `ActivateAbility` at all, so every def since D159 was
+      // reachable by the bot and by nobody at the table. Checked beside the
+      // mana options because a tapped Book of Rass has no mana row and no
+      // tap-only row and still has an ability to offer.
       const options = manaOptionsFor(legal, id);
-      if (options.length > 0) {
+      if (options.length > 0 || abilityOptionsFor(legal, id).length > 0) {
         // ⚠️ Anchored off `rectRegistry`, the only legal caller of
         // `getBoundingClientRect` in this app — the click's own coordinates are
         // deliberately not used, because the panel belongs beside the CARD

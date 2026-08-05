@@ -568,6 +568,11 @@ const WANTED = [
   'Common Crook',
   'Conclave Cavalier',
   'Conscripted Infantry',
+  // D168 — the sacrifice-cost chooser's proof cards, pulled from the REFUSED
+  // ledger the day the class was built.
+  'Ahriman',
+  'Carnage Altar',
+  'Claws of Gix',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

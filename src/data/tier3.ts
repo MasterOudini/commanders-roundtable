@@ -269,10 +269,12 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (SHIPPED_ACTIVATED_REFS.has(`${card.oracleId}#a${ability.index}`)) continue;
 
     // ⚠️ A SELF-SACRIFICE COST IS CHARGEABLE SINCE D159 AND OFFERED ONLY WHEN A
-    // SCRIPT WILL RUN THE EFFECT — for this card there is no script, so the
-    // app will not offer the ability at all, and the note says the manual
-    // route rather than promising a charge that `legal.ts` refuses to make.
-    if (ability.sacrificesSelf) {
+    // SCRIPT WILL RUN THE EFFECT — and since D168 the same holds for a
+    // sacrifice-cost CHOOSER (`sacrificeCost`, "Sacrifice a creature") — for
+    // this card there is no script, so the app will not offer the ability at
+    // all, and the note says the manual route rather than promising a charge
+    // that `legal.ts` refuses to make.
+    if (ability.sacrificesSelf || ability.sacrificeCost) {
       add(
         abilityNoteLabel(ability.costText),
         'pay that cost with the manual tools, then apply the effect at the table',

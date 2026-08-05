@@ -11174,3 +11174,171 @@ inside the new ceiling) · `npm run build` clean · probe 124/124 ·
   self-only def dispatch is the named next lever if it approaches 900 s.
 - Prior items stand (exile-self cost, `ctx.random`, the unattached-Aura
   targeting question, once-per-turn memory, per-damage-entry granularity).
+
+## D168 — M6.4k: the sacrifice-cost chooser, and the panel that made every ability clickable
+
+**1,881 of 31,692 Commander-legal cards now execute completely, up from 1,878.**
+The commissioned engine work between batches 10 and 11: "Sacrifice a
+<predicate>" as an activation cost is now a CHOICE the activation carries —
+`ActivateAbility.sacrifice` names the permanent — and the REFUSED ledger's
+largest class (FIFTEEN entries at its peak) is deleted, its cards back in the
+offer stream. Three of them are the proof: `Carnage Altar` ("{3}, Sacrifice a
+creature: Draw a card."), `Claws of Gix` ("{1}, Sacrifice a permanent: You
+gain 1 life.") and `Ahriman` ("{3}, Sacrifice another creature or artifact:
+Draw a card.").
+
+**The pipeline, end to end, one grammar:**
+- **Parse** (`activatedParse.ts`): `Sacrifice (a|an|another) <rest>`, anchored
+  both ends. "a permanent" is the empty predicate — every `.every` over empty
+  arrays holds, which is exactly what the word means. Anything else goes
+  through `predicatesOf` — `replacementParse`'s OWN splitter, exported rather
+  than re-implemented (the Command Tower rule, again): "creature or artifact"
+  is one predicate per OR arm, and a phrase it cannot read stays in
+  `unpaidCosts`, so "Sacrifice a creature with power 4" is REFUSED rather than
+  widened. `ActivatedAbility.sacrificeCost = { another, any } | null`.
+- **Offer** (`legal.ts`): the def gate first — eating a permanent for nothing
+  is not D122's disclosed status quo — then `sacrificeCandidatesFor`: the
+  activator's battlefield, DERIVED characteristics (an animated land really
+  can feed "Sacrifice a creature"), `another` dropping the source, predicate
+  match in `conditionHolds`'s exact shape so the two graders cannot drift.
+  **No candidate, no offer** — a cost you cannot pay is not offered — and the
+  candidates ride the legal action (`sacrificeCandidates`), so no client
+  re-derives them.
+- **Validate** (`handlers.activateAbility`): missing pick →
+  `'needsSacrifice'`; a pick outside `sacrificeCandidatesFor`'s own answer →
+  `'illegalSacrifice'` (the host re-runs the SAME function — a client's word
+  is not a rule, D139's shape a third intent over). Both are refusals that eat
+  nothing, pinned by tests that assert the log did not move.
+- **Charge** (`finishAbility`): the chosen permanent rides `PendingCast.
+  sacrifice` (optional field — pre-D168 replays untouched) and is paid in the
+  COST batch beside D159's self-sacrifice, through the ordinary `CardsMoved`,
+  so dies-triggers and the funnel see it like any other death — with a
+  narration NAMING WHAT DIED ("You sacrifice Grizzly Bears."), because a
+  permanent must never leave the battlefield without the log saying so (D100).
+
+⚠️⚠️ **BUILDING THE UI HALF FOUND THAT THERE WAS NO UI AT ALL — for ANY
+activated ability.** No renderer path consumed an `ActivateAbility` legal
+action: `aimCommit.commitTargets` could submit one, but the only thing that
+ever entered that mode was the dev handles. Every def landed since D159 —
+Arcane Encyclopedia's draw, War Room, the Locket cycle, Ant Queen, ~40
+abilities — was exercised by the bot, the fuzzer and the batteries and
+reachable by NOBODY at the table. D143 named this exact failure ("a prompt's
+answerers and its control are separate work, and 'the driver can answer it'
+reads exactly like 'it is finished'") and it happened anyway, for ten batches,
+because every gate is an answerer. **The control is now the card's own click
+panel** (`ManaChoice`, D110's panel): under the mana rows, one row per
+offered ability — the printed cost drawn as glyphs, the whole line as text,
+unaffordable rows marked and disabled — and `startActivation` in
+`aimCommit.ts` is the ONE place deciding what a row click means: a sacrifice
+cost enters the veil pick; a targeted ability enters targeting (`next:
+'submit'`, the mode that existed and nothing entered); anything else submits.
+The click chain opens the panel for a card with abilities even when it has no
+mana and no tap-only row (a tapped Book of Rass still has its ability).
+
+**The veil pick is the attach mode's shape with Tier-1 teeth:** mode
+`sacrifice` carries card + abilityIndex + name and NO candidate list —
+`GameLayer` re-reads the candidates off the CURRENT legal action on every
+commit (the veil's own re-legalisation rule), so a candidate that dies
+mid-pick stops being clickable and an ability that left `legal` offers
+nothing. Escape backs out with the aim reset (the arrow's tail is pinned to
+the source). The prompt bar reads "Choose what Carnage Altar sacrifices."
+
+**Proof cards, each a different clause of the grammar:**
+- `Carnage Altar` — the typed predicate. No creature, no offer; the offer
+  appears the moment a candidate does; the Altar itself (an artifact) is
+  `'illegalSacrifice'`; a missing pick is `'needsSacrifice'` with the log
+  unmoved; the Bears is in the graveyard BEFORE settling (CR 602.2b) with the
+  Altar untouched.
+- `Claws of Gix` — the empty predicate, and the self-INCLUSION proof: a LAND
+  pays "a permanent", and the Claws pay their OWN cost — the source is gone
+  the moment the cost is paid and the ability on the stack still gains the
+  life (CR 113.7a).
+- `Ahriman` — the OR-predicate and the "another" exclusion: candidates are
+  the other creature and the artifact, never Ahriman, never a land; the
+  ARTIFACT arm pays and the draw arrives; `sacrifice: eye` is refused even
+  though Ahriman is a creature.
+
+⚠️ **The fuzz builder names a candidate off the offer** (`p.below` over
+`sacrificeCandidates`), so the gate exercises the pick, the charge and all
+three predicate shapes at scale — **and its FIRST full run found a real
+engine hole (seed 305): `attacker c877 does not exist`.** Sacrificing an
+ATTACKING TOKEN at instant speed deletes the instance (`TokensCeased`, CR
+704.5d's two-step) while `state.combat` still names it. The hole predates
+D168 — `TokensCeased` has never pruned combat — and stayed invisible for
+seven batches of attacking tokens because an ordinary combat death's
+priority windows AUTO-PASS straight through end of combat, where
+`RemovedFromCombat` cleans the lists before any invariant check settles on
+the state; a chooser cost paid while an AWAITING holds the pump mid-combat
+is what froze the stale reference somewhere the fuzzer's per-intent
+`checkInvariants` could see it. **The fix is the reducer's `TokensCeased`
+pruning combat in `RemovedFromCombat`'s exact shape** (attackers, blockers,
+both nested orders) — the minimal repair, because the engine's convention is
+"combat may name DEPARTED cards, filtered at use" and a deleted instance is
+the one departure that convention cannot absorb: every other dead combatant
+still exists in a graveyard, which is all `checkInvariants` requires.
+Pinned by a regression test that stages the exact scenario (token attacker,
+`holdEverywhere`, chooser sacrifice mid-declare-attackers); with the prune
+disabled it fails with the gate's own message, and nothing else moves.
+
+⚠️ **`payable` grew by 489 cards and none of them is offered** — D159's shape
+again, measured: tier3 `payable` 4,777 → 5,266, either 21,068 → 21,379,
+wasSilent 16,343 → 16,762 — the whole database's "Sacrifice a <predicate>"
+costs became chargeable-in-principle, while the def gate keeps every undef'd
+one unoffered and their tier3 note keeps the manual-route wording
+(`abilityText` unmoved at 17,368; the note's LABEL and TEXT are identical for
+a sacrifice-cost ability with and without D168, which is why no disclosure
+churned). `silentAfter` 2,289 → 2,292 — exactly the three landed cards. At
+the printings level the reclassification is a PERFECT MIRROR:
+`activated:nonManaCost` 10,372 → 8,572 and `payable` 28,133 → 29,933 — the
+same 1,800 lines seen from both sides, with nothing leaking anywhere else.
+
+⚠️ **A card with BOTH a sacrifice cost and a target clause is unoffered today**
+(no def ships one), and `startActivation`'s branches are exclusive — when one
+ships, the pick must CHAIN into targeting. Submitting with either half
+missing is refused by the host, so the gap fails safe with a message. The
+freed ledger cards include that shape (`Barrage of Expendables`), so the
+batch that lands one builds the chain.
+
+**Re-measured, every coverage delta exactly the three cards:** `complete`
+1,878 → **1,881** · `blocked` 29,811 · `scriptableToday` 1,115 → 1,112 ·
+ladder [1112, 1211, 3164, 5048, 6235] · botPool creature 1,259 / artifact 47
+· fixtures 304 → 307 · `SHIPPED_SCRIPTS` 148 → 151 · `batch.json` re-emitted
+at **1,009** — 997 minus the three landed PLUS the twelve ledger-freed cards
+back in the stream · `botDeck.ts` regenerated (Adun reaches 1,035).
+
+**Verified: `node scripts/cardgen/verify.cjs --full` — ALL FIVE GATES PASSED
+in one invocation: `tsc -b` clean · conformance green · coverage accounting
+green over the real database · 221 test files, 2,162 Vitest passed / 10
+skipped (218 / 2,139 before) · the 500-seed replay fuzz gate green at
+**569.6 s idle** with 151 scripts registered (330 s inside the 900 s
+ceiling) · `npm run build` clean · probe 124/124 · `battery-anim.cjs bot
+engine prompts` 127/127.** ⚠️ D106 gained an unusual data point on the way:
+the SAME gate ran green at 598.9 s **under a playing Disney+ stream** (load
+41%, the fuzz worker visibly starved) — the first loaded run of the arc to
+finish inside its ceiling rather than tripping it, which is the ceiling
+working as a hang-catcher and not a perf referee. The idle number is the one
+recorded as capacity.
+
+⚠️ **Checked by BREAKING it:** the wrong-kind, missing-pick and
+"another"-self rejects are permanent break tests IN the suites; the
+no-candidate-no-offer rule is asserted from the offer side (Carnage Altar
+with an empty board); and the combat prune was reverted on purpose —
+exactly the seed-305 regression test fails, with `attacker c63 does not
+exist`, and the other 76 engine/combat/SBA checks around it do not move.
+
+⚠️ **Reportables:**
+- **The sacrifice+targets chain** (above) — unoffered today, named for the
+  batch that lands one.
+- **The remaining cost-chooser classes are now ONE pattern away each**: the
+  discard-cost chooser (hand, hidden — D137's prompt shapes), tap-creatures /
+  tap-permanents, exile-from-graveyard, remove-counter — each is this
+  decision's `sacrificeCost` with a different verb and zone. The chooser's
+  candidates-on-the-offer + re-validate-in-the-handler shape is the
+  template.
+- **The ability rows are click-covered by nothing** — the panel ships with
+  unit-tested pure options (`abilityOptionsFor`) and the veil pick reuses
+  attach-mode machinery the battery drives, but no battery check clicks an
+  ability row end to end yet. D144's lesson says write it before the panel
+  rots; the next battery pass should add it.
+- D160's spell seam, script-raised prompts, once-per-turn memory,
+  per-damage-entry granularity and `ctx.random` stand.

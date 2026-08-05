@@ -107,6 +107,23 @@ export type TableMode =
       readonly name: string;
       /** Equipment goes on creatures; an Aura may go on anything it enchants. */
       readonly creaturesOnly: boolean;
+    }
+  /**
+   * Naming the permanent an ability's sacrifice cost eats (D168).
+   *
+   * ⚠️ TIER 1, unlike `attach` above: the pick rides the `ActivateAbility`
+   * intent, the host re-validates it against `sacrificeCandidatesFor`, and the
+   * charge is a real `CardsMoved` in the cost batch. The mode carries no
+   * candidate list of its own — the veil re-reads them off the CURRENT legal
+   * action every commit (`GameLayer`), so a candidate that died mid-pick stops
+   * being offered rather than being refused after the click.
+   */
+  | {
+      readonly kind: 'sacrifice';
+      readonly card: string;
+      readonly abilityIndex: number;
+      /** Shown in the prompt: the ability's own label. */
+      readonly name: string;
     };
 
 export interface NumberRequest {
@@ -431,8 +448,10 @@ export const useTable = create<TableUi>((set, get) => ({
       return;
     }
     // ⚠️ The arrow's tail is pinned to the attachment, so dropping the mode has
-    // to drop the aim with it — the same reason the pending blocker does.
-    if (mode.kind === 'attach') {
+    // to drop the aim with it — the same reason the pending blocker does. The
+    // sacrifice pick pins its tail to the ability's source (D168), so it backs
+    // out the same way.
+    if (mode.kind === 'attach' || mode.kind === 'sacrifice') {
       useAim.getState().reset();
       set({ mode: { kind: 'idle' } });
       return;

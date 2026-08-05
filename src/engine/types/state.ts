@@ -357,6 +357,13 @@ export interface PendingCast {
   readonly taxApplied: number;
   /** The modal DFC face being cast, carried to the `StackObject`. See D155. */
   readonly faceIndex: number;
+  /**
+   * The permanent chosen for a "Sacrifice a <predicate>" activation cost
+   * (D168), validated at activation and charged in `finishAbility`'s cost
+   * batch. Optional so every pre-D168 pending — and its replay — is
+   * untouched.
+   */
+  readonly sacrifice?: InstanceId;
 }
 
 export interface PendingTrigger {

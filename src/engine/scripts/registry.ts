@@ -7,6 +7,9 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { AHRIMAN_SCRIPT } from './cards/ahriman';
+import { CARNAGE_ALTAR_SCRIPT } from './cards/carnageAltar';
+import { CLAWS_OF_GIX_SCRIPT } from './cards/clawsOfGix';
 import { CELESTIAL_FORCE_SCRIPT } from './cards/celestialForce';
 import { CENTAUR_GLADE_SCRIPT } from './cards/centaurGlade';
 import { CENTAUR_HEALER_SCRIPT } from './cards/centaurHealer';
@@ -249,6 +252,9 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AHRIMAN_SCRIPT,
+  CARNAGE_ALTAR_SCRIPT,
+  CLAWS_OF_GIX_SCRIPT,
   CELESTIAL_FORCE_SCRIPT,
   CENTAUR_GLADE_SCRIPT,
   CENTAUR_HEALER_SCRIPT,

@@ -169,6 +169,9 @@ import { COMMANDERS_SPHERE_SCRIPT } from './scripts/cards/commandersSphere';
 import { COMMON_CROOK_SCRIPT } from './scripts/cards/commonCrook';
 import { CONCLAVE_CAVALIER_SCRIPT } from './scripts/cards/conclaveCavalier';
 import { CONSCRIPTED_INFANTRY_SCRIPT } from './scripts/cards/conscriptedInfantry';
+import { AHRIMAN_SCRIPT } from './scripts/cards/ahriman';
+import { CARNAGE_ALTAR_SCRIPT } from './scripts/cards/carnageAltar';
+import { CLAWS_OF_GIX_SCRIPT } from './scripts/cards/clawsOfGix';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -414,6 +417,10 @@ const DECK = [
   'Clarion Cathars', 'Clockwork Drawbridge', 'Cloudchaser Eagle',
   'Cloudkin Seer', 'Cogwork Wrestler', "Commander's Sphere", 'Common Crook',
   'Conclave Cavalier', 'Conscripted Infantry',
+  // ⚠️ M6.4k/D168 — the sacrifice-cost CHOOSER's proof cards: the builder
+  // names a candidate off the offer, so the gate exercises the pick, the
+  // charge and the "another"/OR/empty predicates at scale.
+  'Ahriman', 'Carnage Altar', 'Claws of Gix',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -606,6 +613,9 @@ const SCRIPTS = createRegistry([
   COMMON_CROOK_SCRIPT,
   CONCLAVE_CAVALIER_SCRIPT,
   CONSCRIPTED_INFANTRY_SCRIPT,
+  AHRIMAN_SCRIPT,
+  CARNAGE_ALTAR_SCRIPT,
+  CLAWS_OF_GIX_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,
@@ -873,13 +883,20 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       };
     case 'PassPriority':
       return { t: 'PassPriority', player: holder };
-    case 'ActivateAbility':
+    case 'ActivateAbility': {
+      // ⚠️ D168: a sacrifice-cost ability arrives with its legal candidates on
+      // the offer, and the intent must NAME one or the host rejects it — pick
+      // at random so the chooser is exercised across the gate's games.
+      const sacs = chosen.sacrificeCandidates;
+      const sac = sacs && sacs.length > 0 ? sacs[p.below(sacs.length)] : undefined;
       return {
         t: 'ActivateAbility',
         player: holder,
         card: chosen.card,
         abilityIndex: chosen.abilityIndex,
+        ...(sac !== undefined ? { sacrifice: sac } : {}),
       };
+    }
   }
 }
 

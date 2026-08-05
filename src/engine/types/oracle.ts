@@ -456,6 +456,19 @@ export interface ActivatedAbility {
    */
   readonly lifeCostCommanderColors: boolean;
   /**
+   * `Sacrifice a <predicate>` — a sacrifice the player CHOOSES (D168): the
+   * cost is chargeable once the activation names which permanent
+   * (`ActivateAbility.sacrifice`), and `legal.ts` offers it only when the
+   * def is registered AND at least one candidate exists. `another` excludes
+   * the source itself ("Sacrifice another creature"). `null` for every
+   * ability without such a cost; predicates reuse `replacementParse`'s
+   * grammar so "a Forest or a Plains" reads one way everywhere.
+   */
+  readonly sacrificeCost: {
+    readonly another: boolean;
+    readonly any: readonly import('../../data/replacementParse').PermanentPredicate[];
+  } | null;
+  /**
    * `Sacrifice this <type>` — a SELF-sacrifice: deterministic, no chooser, so
    * the engine can charge it (D159). ⚠️ Chargeable is not offerable: a
    * destructive cost is OFFERED only when the game's registry carries an

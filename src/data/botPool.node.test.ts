@@ -408,11 +408,13 @@ const POOL: Record<string, number> = {
   // own header said "no enchantments … because the engine runs none of those
   // yet"; the ceiling rose exactly as it promised it would.
   // M6.4d (D161): +13 creatures.
-  creature: 1258,
+  // M6.4k (D168): the sacrifice-cost chooser's proof cards — +1 creature
+  // (Ahriman), +2 artifacts (Carnage Altar, Claws of Gix).
+  creature: 1259,
   instant: 201,
   sorcery: 146,
   land: 225,
-  artifact: 45,
+  artifact: 47,
   enchantment: 3,
 };
 

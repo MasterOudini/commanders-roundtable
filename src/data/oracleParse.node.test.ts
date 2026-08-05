@@ -417,7 +417,11 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // engine OFFERS a self-sacrifice only when a def will run it —
       // `legal.ts`'s gate — so this is the parse admitting a price, not the
       // app charging one for nothing.
-      'activated:nonManaCost': 10372,
+      // ⚠️ 10,372 → 8,572 in M6.4k (D168): `Sacrifice a <predicate>` became
+      // the CHOOSER cost — 1,800 printings' lines moved, and `payable` below
+      // grew by exactly the same 1,800, the two sides of one reclassification.
+      // Same def gate: chargeable is not offerable.
+      'activated:nonManaCost': 8572,
       'activated:loyalty': 4635,
       'target:modalUnion': 2751,
       'target:unparsedClause': 1459,
@@ -472,7 +476,9 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
     // the newly admitted lines).
     expect(report.activated).toEqual({
       lines: 43140,
-      payable: 28133,
+      // ⚠️ 28,133 → 29,933 in M6.4k (D168): the sacrifice-cost chooser's
+      // 1,800 lines — the exact mirror of `nonManaCost`'s fall above.
+      payable: 29933,
       // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
       manaAbility: 11582,
       targeted: 11081,

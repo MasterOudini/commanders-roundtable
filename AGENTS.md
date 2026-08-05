@@ -4137,6 +4137,70 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       (commissioned — D168 is next); the wall history lives in the gate's
       own comment; prior items stand.
 
+- [x] **M6.4k — The sacrifice-cost chooser, and the panel that made every
+      ability clickable (2026-08-06):** **1,881 of 31,692 Commander-legal cards
+      now execute completely, up from 1,878** — the commissioned engine work
+      between batches 10 and 11, and the REFUSED ledger's largest class
+      (FIFTEEN entries) deleted the day it was built. Decisions in **D168**.
+      ⚠️⚠️ **"Sacrifice a <predicate>" IS NOW A CHOICE THE ACTIVATION
+      CARRIES** — `ActivateAbility.sacrifice` names the permanent. One grammar
+      end to end: `activatedParse` reads the cost through `replacementParse`'s
+      OWN `predicatesOf` ("a permanent" is the empty predicate; "another
+      creature or artifact" one predicate per OR arm; an unreadable phrase
+      stays refused), `legal.ts` offers only past the def gate AND only while
+      a candidate exists (`sacrificeCandidatesFor` — DERIVED characteristics,
+      battlefield order, the candidates riding the legal action), the host
+      re-validates the pick with the same function (`needsSacrifice` /
+      `illegalSacrifice`, both eating nothing), and the charge is paid in the
+      cost batch beside D159's self-sacrifice, through the ordinary
+      `CardsMoved`, narrated by WHAT DIED.
+      ⚠️⚠️ **BUILDING THE UI HALF FOUND THERE WAS NO ACTIVATION UI AT ALL** —
+      no renderer path consumed an `ActivateAbility`, so every def landed
+      since D159 (~40 abilities) was reachable by the bot, the fuzzer and the
+      batteries and by NOBODY at the table. D143's lesson at its largest.
+      **The control is the card's own click panel**: ability rows under the
+      mana options (`abilityOptionsFor`, pure), `startActivation` as the ONE
+      router (sacrifice → veil pick; targets → targeting `next: 'submit'`;
+      else submit), a `sacrifice` table mode whose veil re-reads candidates
+      off the CURRENT legal action every commit, and the prompt bar naming
+      the pick.
+      ⚠️⚠️ **THE GATE'S FIRST RUN FOUND A REAL ENGINE HOLE (fuzz seed 305):**
+      sacrificing an ATTACKING TOKEN deletes the instance (`TokensCeased`)
+      while combat still names it — `attacker c877 does not exist`. Predates
+      D168; invisible for seven batches because ordinary combat deaths
+      auto-pass through end-of-combat's cleanup before any invariant check
+      settles, while a chooser paid under a live awaiting freezes the stale
+      state in view. **Fixed in the reducer: `TokensCeased` prunes combat in
+      `RemovedFromCombat`'s exact shape.** Regression test stages the exact
+      scenario; with the prune reverted it fails with the gate's own message.
+      **Proof cards:** `Carnage Altar` (typed predicate; no-candidate-no-offer
+      asserted from the offer side; wrong-kind and missing-pick rejects with
+      the log unmoved), `Claws of Gix` (empty predicate; a LAND pays; the
+      Claws pay their OWN cost and the ability still resolves — CR 113.7a),
+      `Ahriman` (OR predicate + "another": candidates exclude the source,
+      the artifact arm pays).
+      ⚠️ **The parse moved the whole database and none of it is offered**:
+      tier3 `payable` 4,777 → 5,266 (+489 cards), printings-level
+      `nonManaCost` 10,372 → 8,572 against `payable` 28,133 → 29,933 — the
+      same 1,800 lines, a perfect mirror. The def gate holds; `abilityText`
+      unmoved; `silentAfter` +3 = exactly the landed cards.
+      Fixtures 304 → 307 · `SHIPPED_SCRIPTS` 148 → 151 · ladder [1112, 1211,
+      3164, 5048, 6235] · botPool creature 1,259 / artifact 47 · `batch.json`
+      at **1,009** (997 − 3 landed + 15 ledger-freed) · botDeck: Adun reaches
+      1,035.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      221 test files, 2,162 Vitest passed / 10 skipped · the 500-seed gate
+      green at 569.6 s idle (151 scripts, 330 s inside the ceiling; the same
+      gate also passed at 598.9 s UNDER a playing video stream — the first
+      loaded run of the arc to finish inside the ceiling, D106) · build
+      clean · probe 124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D168): the sacrifice+targets chain (unoffered today
+      — no def ships both; the freed `Barrage of Expendables` class needs it);
+      the other cost-chooser classes are each this decision one verb over
+      (discard, tap-creatures/permanents, exile-from-graveyard,
+      remove-counter); the ability rows have no battery click-check yet
+      (D144's lesson — write it before the panel rots); prior items stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

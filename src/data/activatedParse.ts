@@ -26,6 +26,7 @@ import type { ActivatedAbility, ManaProduction } from '../engine/types/oracle';
 import type { ManaCost } from '../engine/types/mana';
 import type { Warn } from './oracleParse';
 import { parseTargetClauses, splitAbilityLines } from './targetParse';
+import { predicatesOf } from './replacementParse';
 
 const NOOP_WARN: Warn = () => undefined;
 
@@ -92,6 +93,7 @@ export function parseActivatedAbilities(
     let lifeCost = 0;
     let lifeCostCommanderColors = false;
     let sacrificesSelf = false;
+    let sacrificeCost: ActivatedAbility['sacrificeCost'] = null;
     let isLoyalty = false;
 
     for (const part of parts) {
@@ -134,6 +136,28 @@ export function parseActivatedAbilities(
         sacrificesSelf = true;
         continue;
       }
+      // ⚠️ The CHOOSER half (D168): "Sacrifice a creature" / "another
+      // creature or artifact" / "a Food" — a decision, priced by letting the
+      // ACTIVATION name the permanent (`ActivateAbility.sacrifice`).
+      // Anchored both ends; a phrase `predicatesOf` cannot read stays in
+      // `unpaidCosts`, so "Sacrifice a creature with power 4" is refused
+      // rather than widened. "a permanent" is the empty predicate — every
+      // `.every` over empty arrays holds, which is exactly what the word
+      // means. Chargeable is not offerable: the def gate in `legal.ts` and
+      // `handlers.ts` still refuses an undef'd ability (D159's rule).
+      const sac = /^sacrifice (a|an|another) (.+)$/i.exec(part.trim());
+      if (sac && sacrificeCost === null) {
+        const another = (sac[1] ?? '').toLowerCase() === 'another';
+        const rest = (sac[2] ?? '').trim();
+        const any =
+          /^permanents?$/i.test(rest)
+            ? [{ supertypes: [], types: [], subtypes: [], colors: [] }]
+            : predicatesOf(rest);
+        if (any !== null) {
+          sacrificeCost = { another, any };
+          continue;
+        }
+      }
       unpaidCosts.push(part);
     }
 
@@ -160,6 +184,7 @@ export function parseActivatedAbilities(
       lifeCost,
       lifeCostCommanderColors,
       sacrificesSelf,
+      sacrificeCost,
       unpaidCosts,
       payable,
       isManaAbility,

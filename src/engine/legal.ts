@@ -13,7 +13,7 @@ import { affordable, solveInputFor, type SolveInput } from './payment';
 import { isMainPhase } from './turn';
 import type { ScriptRegistry } from './scripts/registry';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
-import type { OracleCard, OracleDb } from './types/oracle';
+import type { ActivatedAbility, OracleCard, OracleDb } from './types/oracle';
 import type { GameState } from './types/state';
 
 export type LegalAction =
@@ -73,6 +73,12 @@ export type LegalAction =
       readonly costText: string;
       readonly effectText: string;
       readonly label: string;
+      /**
+       * Present when the cost sacrifices a CHOSEN permanent (D168): the
+       * activator's legal choices, battlefield order. The intent must name
+       * one in `sacrifice`.
+       */
+      readonly sacrificeCandidates?: readonly InstanceId[];
     }
   | { readonly t: 'PassPriority' };
 
@@ -196,6 +202,21 @@ export function legalActions(
       if (ability.sacrificesSelf && !activatedDefRegistered(scripts, card.oracleId, ability.index)) {
         continue;
       }
+      // ⚠️ The CHOOSER cost (D168): same def gate as the self-sacrifice —
+      // eating a permanent for nothing is not disclosed status quo — plus
+      // "a cost you cannot pay is not offered": no candidate, no offer.
+      let sacCandidates: readonly InstanceId[] | null = null;
+      if (ability.sacrificeCost) {
+        if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        sacCandidates = sacrificeCandidatesFor(
+          state,
+          (cid) => derive(state, oracle, scripts, cid, context.cache),
+          player,
+          id,
+          ability.sacrificeCost,
+        );
+        if (sacCandidates.length === 0) continue;
+      }
       if (ability.requiresTap && inst.tapped) continue;
       if (ability.requiresUntap && !inst.tapped) continue;
       if (ability.requiresTap && !readyToTap(state, d, inst)) continue;
@@ -223,6 +244,7 @@ export function legalActions(
         costText: ability.costText,
         effectText: ability.effectText,
         label: d.name,
+        ...(sacCandidates ? { sacrificeCandidates: sacCandidates } : {}),
       });
     }
   }
@@ -254,6 +276,41 @@ export function activatedDefRegistered(
 ): boolean {
   const ref = `${oracleId}#a${index}`;
   return scripts.get(oracleId)?.activated?.some((d) => d.ref === ref) ?? false;
+}
+
+/**
+ * Which of the activator's permanents can pay a "Sacrifice a <predicate>"
+ * cost (D168). DERIVED characteristics, never the printed line — an animated
+ * land really can feed "Sacrifice a creature" — with the predicate match in
+ * `conditionHolds`'s exact shape so the two graders cannot drift. `another`
+ * excludes the ability's own source. Battlefield order, so the candidate
+ * list is stable and replayable.
+ *
+ * ⚠️ Exported because `handlers.activateAbility` re-checks the CHOSEN
+ * permanent with the same function — a client's word is not a rule (D139).
+ */
+export function sacrificeCandidatesFor(
+  state: GameState,
+  deriveOf: (id: InstanceId) => { readonly typeLine: { readonly supertypes: readonly string[]; readonly types: readonly string[]; readonly subtypes: readonly string[] }; readonly colors: readonly string[] },
+  player: PlayerId,
+  selfId: InstanceId,
+  cost: NonNullable<ActivatedAbility['sacrificeCost']>,
+): readonly InstanceId[] {
+  const out: InstanceId[] = [];
+  for (const id of state.zones.battlefield) {
+    if (state.cards[id]?.controller !== player) continue;
+    if (cost.another && id === selfId) continue;
+    const chars = deriveOf(id);
+    const hit = cost.any.some(
+      (p) =>
+        p.supertypes.every((t) => chars.typeLine.supertypes.includes(t)) &&
+        p.types.every((t) => chars.typeLine.types.includes(t)) &&
+        p.subtypes.every((t) => chars.typeLine.subtypes.includes(t)) &&
+        p.colors.every((c) => chars.colors.includes(c)),
+    );
+    if (hit) out.push(id);
+  }
+  return out;
 }
 
 function readyToTap(

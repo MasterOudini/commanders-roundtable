@@ -14,7 +14,7 @@ import {
   validateBlockDeclaration,
 } from './combat';
 import { derive, makeDeriveCache } from './derive';
-import { activatedDefRegistered, canActAtSorcerySpeed, castableFaces } from './legal';
+import { activatedDefRegistered, canActAtSorcerySpeed, castableFaces, sacrificeCandidatesFor } from './legal';
 import { buildPaymentProblem, costStringOf, manaSourcesOf, wardTaxFrom } from './mana';
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
@@ -624,6 +624,27 @@ function activateAbility(
   if (ability.sacrificesSelf && !activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
     return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
   }
+  // ⚠️ The CHOOSER cost (D168): the def gate, then the CHOICE — required,
+  // and re-validated with the same predicate `legal.ts` offered by, because
+  // a client's word is not a rule (D139's shape, a third intent over).
+  if (ability.sacrificeCost) {
+    if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+      return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
+    }
+    if (!intent.sacrifice) {
+      return reject('needsSacrifice', `${face.name}'s cost sacrifices a permanent — say which one.`);
+    }
+    const legalSacs = sacrificeCandidatesFor(
+      state,
+      (cid: InstanceId) => derive(state, deps.oracle, deps.scripts, cid),
+      intent.player,
+      intent.card,
+      ability.sacrificeCost,
+    );
+    if (!legalSacs.includes(intent.sacrifice)) {
+      return reject('illegalSacrifice', `That permanent cannot pay ${face.name}'s "${ability.costText}" cost.`);
+    }
+  }
   if (ability.requiresTap && card.tapped) return reject('alreadyTapped', `${face.name} is already tapped.`);
   if (ability.requiresUntap && !card.tapped) return reject('notUntapped', `${face.name} must be tapped for that.`);
   if (ability.sorceryOnly && !canActAtSorcerySpeed(state, intent.player)) {
@@ -662,6 +683,10 @@ function activateAbility(
   const pending: PendingCast = {
     player: intent.player,
     card: intent.card,
+    // The chosen sacrifice rides the pending so the targets prompt cannot
+    // lose it (D168); an `Awaiting` blocks every intent in the gap, so the
+    // validated choice cannot go stale either.
+    ...(ability.sacrificeCost && intent.sacrifice ? { sacrifice: intent.sacrifice } : {}),
     // An ability is a chit, not a card on the stack. See D155.
     faceIndex: 0,
     // ⚠️ Records where the permanent IS, and is never used to move it — an
@@ -1026,6 +1051,39 @@ function finishAbility(
   // other death; `resolve` must therefore never assume its source is still on
   // the battlefield. Reachable only past `legal.ts`'s and `activateAbility`'s
   // def gates, so it can never eat a permanent for a scriptless ability.
+  // ⚠️ The CHOSEN sacrifice (D168) is charged exactly where the self-
+  // sacrifice is — in the cost batch, through the ordinary event, so
+  // dies-triggers and the funnel see it like any other death. Validated at
+  // activation and unreachable past the def gates, so it can never eat a
+  // permanent for a scriptless ability.
+  if (ability.sacrificeCost && pending.sacrifice) {
+    const chosen = state.cards[pending.sacrifice];
+    if (!chosen || chosen.zone.kind !== 'battlefield') {
+      return reject('noSuchCard', 'The permanent chosen for the sacrifice is not on the battlefield.');
+    }
+    events.push({
+      t: 'CardsMoved',
+      moves: [
+        {
+          card: pending.sacrifice,
+          from: { kind: 'battlefield', player: chosen.controller },
+          to: { kind: 'graveyard', player: chosen.owner },
+        },
+      ],
+    });
+    // The line names WHAT DIED, not the source — "You sacrifice Grizzly
+    // Bears.", with the activation line below saying why (D100's rule: a
+    // permanent must never leave the battlefield without the log saying so).
+    const chosenPrinting = deps.oracle.byPrinting(chosen.printingId);
+    const chosenName = chosenPrinting ? faceOf(chosenPrinting, chosen.faceIndex).name : 'a permanent';
+    events.push(
+      narrated(
+        n`${who(state, pending.player)} ${vb(pending.player, 'sacrifices', 'sacrifice')} ${chosenName}.`,
+        pending.player,
+        identity,
+      ),
+    );
+  }
   if (ability.sacrificesSelf) {
     const src = state.cards[pending.card];
     if (!src) return reject('noSuchCard', 'That permanent is not in the game.');

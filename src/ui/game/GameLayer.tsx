@@ -50,9 +50,23 @@ export function GameLayer({
   // creature that died mid-aim kept its legal ring, and at four players an
   // opponent acting mid-aim is entirely ordinary.
   const awaiting = useTable((s) => s.awaiting);
+  const legal = useTable((s) => s.legal);
   useEffect(() => {
     if (mode.kind === 'targeting') {
       setTargets(session.legalTargetsFor(mode.specs, mode.source.card));
+      return;
+    }
+    // The sacrifice pick (D168): the candidates come off the CURRENT legal
+    // action — computed host-side by `sacrificeCandidatesFor` and re-offered
+    // on every commit — so a candidate that died mid-pick stops being
+    // clickable, and the veil can never offer what the engine would refuse.
+    // An ability that left `legal` entirely offers nothing; Escape backs out.
+    if (mode.kind === 'sacrifice') {
+      const live = legal.find(
+        (a) => a.t === 'ActivateAbility' && a.card === mode.card && a.abilityIndex === mode.abilityIndex,
+      );
+      const candidates = live?.t === 'ActivateAbility' ? (live.sacrificeCandidates ?? []) : [];
+      setTargets(candidates.map((id) => ({ kind: 'card' as const, id })));
       return;
     }
     // Blocking is the same overlay with a different legal set, and it has TWO
@@ -97,7 +111,7 @@ export function GameLayer({
       return;
     }
     setTargets([]);
-  }, [mode, epoch, awaiting, view, viewer]);
+  }, [mode, epoch, awaiting, legal, view, viewer]);
 
   // ⚠️ Escape backs out ONE step. A player halfway through declaring five
   // attackers who taps Escape to close a menu must not lose the five.
@@ -117,7 +131,9 @@ export function GameLayer({
   return (
     <>
       <AimVeil
-        active={mode.kind === 'targeting' || mode.kind === 'blockers' || mode.kind === 'attach'}
+        active={
+          mode.kind === 'targeting' || mode.kind === 'blockers' || mode.kind === 'attach' || mode.kind === 'sacrifice'
+        }
         legalTargets={targets}
         chosenIds={chosenIdsFor(mode)}
         onPick={(choice) => onVeilPick(choice)}

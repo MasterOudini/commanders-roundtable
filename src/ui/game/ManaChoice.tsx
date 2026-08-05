@@ -7,6 +7,8 @@ import { ManaCost } from '../card/ManaCost';
 import { readElements, type FrozenRect } from '../anim/rectRegistry';
 import { BTN_SMALL, PANEL } from './styles';
 import { canTapOnly, manaOptionsFor, TAP_ONLY, type ManaOption, type TapChoice } from './manaOptions';
+import { abilityOptionsFor, costWords, type AbilityOption } from './abilityOptions';
+import { startActivation } from './aimCommit';
 
 // "Which mana?" — the panel a source with more than one thing to give opens,
 // and the batch a shift-click builds.
@@ -36,6 +38,13 @@ interface Row {
   readonly options: readonly ManaOption[];
   /** Offer "turn it and nothing else" — mine, on the battlefield, untapped. */
   readonly tapOnly: boolean;
+  /**
+   * Its non-mana activated abilities the engine will charge and RUN (D168 —
+   * before this, no click path consumed an `ActivateAbility` at all, so every
+   * shipped def was reachable by the bot and by nobody at the table). Drawn in
+   * the single-card panel only: the batch is a tap gesture.
+   */
+  readonly abilities: readonly AbilityOption[];
 }
 
 export function ManaChoicePanel() {
@@ -59,13 +68,15 @@ export function ManaChoicePanel() {
     return choice.cards.flatMap((card) => {
       const options = manaOptionsFor(legal, card);
       const tapOnly = canTapOnly(view, card, viewer);
-      // Nothing to offer at all: it makes no mana and it is not mine to turn.
-      if (options.length === 0 && !tapOnly) return [];
+      const abilities = abilityOptionsFor(legal, card);
+      // Nothing to offer at all: it makes no mana, runs nothing, and it is not
+      // mine to turn.
+      if (options.length === 0 && !tapOnly && abilities.length === 0) return [];
       const action = legal.find((a) => a.t === 'TapForMana' && a.card === card);
       const label = action?.t === 'TapForMana'
         ? action.label
         : (view.cards[card]?.card?.name ?? 'This permanent');
-      return [{ card, label, options, tapOnly }];
+      return [{ card, label, options, tapOnly, abilities }];
     });
   }, [choice, legal, view, viewer]);
 
@@ -84,6 +95,9 @@ export function ManaChoicePanel() {
 
   const batch = rows.length > 1;
   const anyMana = rows.some((r) => r.options.length > 0);
+  // Abilities are single-card only — the batch is a tap gesture, and five
+  // stacked ability lists would be a different panel wearing this one's frame.
+  const anyAbility = !batch && rows.some((r) => r.abilities.length > 0);
   /**
    * What this row will do, if it is already decided.
    *
@@ -201,8 +215,10 @@ export function ManaChoicePanel() {
             single Tap button is the kind of small lie that makes an interface
             feel untrustworthy. */}
         {anyMana
-          ? (batch ? 'Which mana from each?' : 'Which mana?')
-          : (batch ? 'Turn them?' : 'Turn it?')}
+          ? (batch ? 'Which mana from each?' : anyAbility ? 'Which mana, or an ability?' : 'Which mana?')
+          : anyAbility
+            ? (rows[0]?.tapOnly ? 'Use an ability, or turn it?' : 'Use an ability?')
+            : (batch ? 'Turn them?' : 'Turn it?')}
         {!batch && <> · shift-click more to add them</>}
       </p>
 
@@ -280,6 +296,45 @@ export function ManaChoicePanel() {
               </button>
             )}
           </div>
+
+          {/* ⚠️ TIER 1, unlike everything above it in the single-card case: the
+              engine charges this cost and a shipped script runs the effect
+              (D159's seam, this panel's first consumer — D168). One row per
+              ability, the whole printed line, because "what will this button
+              do" must be answerable without hovering the card. A sacrifice
+              cost routes through the veil pick first; `startActivation` is the
+              ONE place that decision lives. */}
+          {!batch && row.abilities.length > 0 && (
+            <div className="mt-1.5 flex flex-col gap-1" data-ability-rows={row.card}>
+              {row.abilities.map((a) => (
+                <button
+                  key={a.abilityIndex}
+                  type="button"
+                  data-ability-option={a.abilityIndex}
+                  data-ability-card={row.card}
+                  disabled={!a.affordable}
+                  className={
+                    'flex items-start gap-1.5 rounded border border-crt-border bg-crt-raised px-2 py-1.5 '
+                    + 'text-left text-[11px] leading-snug '
+                    + (a.affordable
+                      ? 'text-crt-text hover:border-crt-accent hover:bg-crt-inset'
+                      : 'cursor-not-allowed text-crt-faint opacity-60')
+                  }
+                  onClick={() => {
+                    close();
+                    startActivation(row.card, a);
+                  }}
+                >
+                  <ManaCost cost={a.cost} size={13} className="mt-[1px] shrink-0" />
+                  <span className="min-w-0">
+                    {costWords(a.cost) !== '' && <>{costWords(a.cost)}: </>}
+                    {a.effect}
+                    {!a.affordable && <span className="text-crt-faint"> — not enough mana</span>}
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       ))}
 
