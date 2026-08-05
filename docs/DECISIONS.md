@@ -10318,3 +10318,99 @@ same instrument, three wall-clocks, one machine.
 - The `payable`/`wasSilent`/`silentBefore` tier3 baselines are PARSE-RELATIVE
   and moved with the classifier — the headline numbers D122 quotes are of
   their parse generation, not constants.
+
+## D160 — M6.4c: the first batch at scale, and the day the zero pins flipped
+
+**1,761 of 31,692 Commander-legal cards now execute completely, up from 1,742.**
+Nineteen scripts landed from `select.cjs`'s own 25 — the first batch taken at
+the pipeline's word rather than hand-curated — and the six it refused are
+NAMED, each with the machinery it waits on: `Agent of Shauku`, `Ahriman` and
+`Akki Scrapchomper` (a general "Sacrifice a —" is a CHOOSER the activation
+stage does not have; only self-sacrifice is a price, D159), `Akki Ember-Keeper`
+(the "modified" predicate — Equipment, YOUR Auras, counters — deserves its own
+decision), `Abyssal Horror` (a script raising the discard prompt from a
+trigger's resolve is untested ground), and ⚠️⚠️ **`Aliban's Tower` — an
+INSTANT, which exposed a selection finding: `select.cjs` hands out SPELLS, and
+`CardScript` has no spell seam at all.** A spell executes through the effect
+vocabulary or not at all; the classifier's `scriptable` includes
+vocabulary-refused spells, so the pipeline can select what the pipeline cannot
+land. Either the selection filters spells to the vocabulary's queue, or the
+vocabulary work claims them — a decision the next batch should make first.
+
+**Landed, with five firsts in one batch:**
+- **The first CAST-watching trigger** — `Talrand, Sky Summoner` fires on
+  `SpellCast`, typed off the face actually cast (D155's `obj.faceIndex`), and
+  a starter commander the app has shipped since M3 finally does what it says.
+- **The first SCRIPT-created tokens** — Talrand's Drake, `Agents of HYDRA`'s
+  Villain (a dies-trigger token), `Ambassador Oak`'s Elf Warrior. Each script
+  asks `TOKEN_TABLE` — the ONE resolver (D132) — with an import-time guard,
+  and each printing is pinned in `WANTED_TOKENS` so the pool holds it and the
+  token is REAL rather than D133's blank. Fixtures 144 → 164 (17 cards + 3
+  tokens).
+- **The first script BOUNCE and activated GRAVEYARD RETURN** — `Aether Adept`
+  (to the OWNER's hand, wherever it was controlled) and `Adun Oakenshield`
+  (D138's zone + card-type restrictions on an activated target).
+- **The first script UNTIL-END-OF-TURN pumps** — `Affa Guard Hound` +0/+3 and
+  `Ambush Gigapede` -2/-2 through `PtModifiedUntilEndOfTurn`: layer 7c sums
+  them, cleanup ends them, and the state-based action does the killing, none
+  of it the def's job.
+- **The first script DAMAGE and player-targeted activated** — `Aladdin's Ring`
+  builds a `ResolvedDamage` the way `damageTo` does (keywords off the DERIVED
+  source, `applyAs` from infect/wither and the target's kind), and `Acolyte of
+  Xathrid` is loss of life, deliberately NOT damage (CR 119.3). Plus
+  `Alchemist's Apprentice` — a cost that is ONLY the self-sacrifice, no mana,
+  no tap.
+
+⚠️⚠️ **TWO ZERO PINS FLIPPED, AND BOTH WERE DESIGNED TO.** `botPool` pinned
+"no enchantment, planeswalker or battle is executable at all" as exact zeroes
+"because the day one becomes non-zero is a day worth noticing" — **`Ajani's
+Welcome` is the first enchantment the engine runs completely**, and the pin now
+reads ONE with the other two still zero. And `tier3.test.ts` pinned all four
+starter commanders as noted since D122 — **Talrand's note is silent now**,
+invariant 9's other direction doing its job.
+
+⚠️ **THE BOT CHANGED ITS OWN COMMANDER.** Regenerating `botDeck.ts` from the
+widened pool, the builder dropped `Jasmine Boreal` (GW, reaching 758 cards) for
+**`Adun Oakenshield` (BGR, 48 fully-executable legendaries, reaching 976)** —
+the machine choosing the commander whose ability it can actually use, with a
+37-nonbasic mana base drawn from the landed refuges and karoo-style lands.
+Nothing in the builder changed; the pool did.
+
+⚠️ `Yotian Dissident` — the first targeted trigger, proved in testing since
+D147 — ships for real, and shipping it forced the TEETH SWAP: it was half of
+`shippedScripts.node.test.ts`'s must-fail pair, and a shipped card cannot be
+the example of an unshipped one. `Humility` holds the post now — also the card
+the fuzz DECK pins as never-dealt, so both teeth point at one name.
+
+**Re-measured, every coverage delta exactly the nineteen:** `complete` 1,742 →
+**1,761** · `blocked` 29,931 · `scriptableToday` 1,251 → 1,232 · ladder
+[1232, 1331, 3284, 5168, 6355] · botPool creature 1,162 / artifact 35 / land
+216 / **enchantment 1** · tier3 `abilityText` 17,442, `payable` 4,820,
+`silentAfter` 2,172 · `SHIPPED_SCRIPTS` pinned 12 → 31 · `batch.json`
+re-emitted at total 1,232.
+
+**Verified: `node scripts/cardgen/verify.cjs --full` — ALL FIVE GATES PASSED
+in one invocation on the idle machine: `tsc -b` clean · conformance green ·
+coverage accounting green over the real database with 31 shipped scripts ·
+101 test files, 1,542 Vitest passed / 10 skipped (82 / 1,450 before this
+batch) · the 500-seed replay fuzz gate green at 375.1 s — the fastest gate of
+the arc, with 41 scripts registered, every landed card dealt, and the
+activated-seam canary holding · `npm run build` clean · probe 124/124 ·
+`battery-anim.cjs bot engine prompts` **127/127, with the bot playing its NEW
+Adun Oakenshield deck** — after the battery's own commander check was fixed to
+read the GENERATED deck rather than pin a name: it failed on a deck that was
+exactly right, the stale-expectation shape D157's sort post-mortem warns
+about, caught by the batch that moved the name.**
+
+⚠️ **Reportables:**
+- **The spell-selection gap** (above) — `select.cjs` should stop emitting
+  spells, or the vocabulary should claim them; today they are dead weight in
+  every batch.
+- **A script cannot raise a prompt from `resolve`** — the discard prompt
+  (`Abyssal Horror`), and any card whose effect asks a question, needs a
+  decision about `AwaitingSet` inside a resolution batch before it is
+  attempted.
+- The "modified" predicate (one card here, more behind it) is buildable from
+  state the engine already carries — attachments with aura-controller checks
+  plus counters — and deserves its own entry when built.
+- The general-sacrifice CHOOSER remains the largest cost gap (D159).

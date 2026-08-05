@@ -3789,6 +3789,46 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       price; computed life beyond the one phrase stays unpaid; `ctx.random` is
       still a stub; the tier3 baselines are parse-relative.
 
+- [x] **M6.4c — The first batch at scale, and the day the zero pins flipped
+      (2026-08-05):** **1,761 of 31,692 Commander-legal cards now execute
+      completely, up from 1,742.** Nineteen scripts landed from `select.cjs`'s
+      own 25 — the first batch taken at the pipeline's word — with the six
+      refusals NAMED (three general-sacrifice choosers, the "modified"
+      predicate, a script-raised discard prompt, and ⚠️ **an INSTANT:
+      `select.cjs` hands out spells and `CardScript` has no spell seam — the
+      selection can pick what the pipeline cannot land**, D160's headline
+      reportable). Decisions in **D160**.
+      **Five firsts in one batch:** a CAST-watching trigger (`Talrand` — a
+      starter commander finally does what it says); SCRIPT-created tokens via
+      `TOKEN_TABLE` with three new pinned token fixtures (Drake, Elf Warrior,
+      Villain — real cards, never D133's blanks); a script bounce and an
+      activated graveyard return; until-end-of-turn pumps through layer 7c
+      with the SBA doing the killing; script damage built the way `damageTo`
+      builds it, plus a player-targeted activated and a sacrifice-ONLY cost.
+      ⚠️⚠️ **TWO ZERO PINS FLIPPED BY DESIGN**: `Ajani's Welcome` is the FIRST
+      ENCHANTMENT the bot pool has ever held (the pin said "the day one
+      becomes non-zero is a day worth noticing" — this is that day), and
+      Talrand's tier3 note is silent (three starter commanders still say so).
+      ⚠️ **THE BOT CHANGED ITS OWN COMMANDER**: regenerated from the widened
+      pool, `botDeck.ts` dropped Jasmine Boreal (GW, 758 reachable) for **Adun
+      Oakenshield (BGR, 48 executable legendaries, 976 reachable)** — the
+      machine choosing the commander whose ability it can use. Nothing in the
+      builder changed; the pool did.
+      ⚠️ `Yotian Dissident` ships and forced the TEETH SWAP (`Humility` is the
+      accounting gate's must-fail example now — both teeth on one name).
+      Fixtures 144 → 164 · `SHIPPED_SCRIPTS` 12 → 31 · `batch.json` at 1,232 ·
+      ladder [1232, 1331, 3284, 5168, 6355].
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation: 101
+      test files, 1,542 Vitest passed / 10 skipped · the 500-seed gate green at
+      375.1 s (fastest of the arc, 41 scripts registered) · build clean ·
+      probe 124/124 · battery 127/127 with the bot on its NEW deck — after
+      fixing the battery's own commander check to read the generated deck
+      instead of pinning a name that was true for one era.**
+      ⚠️ **Reportables** (D160): the spell-selection gap; a script cannot raise
+      a prompt from `resolve` (blocks `Abyssal Horror`'s class); the "modified"
+      predicate; the general-sacrifice chooser (D159, still the largest cost
+      gap).
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

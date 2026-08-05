@@ -2687,7 +2687,15 @@ async function sectionBot(js, send) {
   // ⚠️ A bot has no deck PICKER, only a label. Offering one would promise a
   // choice the bot cannot honour — it plays the curated deck or it half-executes.
   eq('a bot seat shows its deck instead of a picker', picked.pickers, 1);
-  check('and names the curated commander', /Jasmine Boreal/.test(picked.label), picked.label);
+  // ⚠️ Read from the GENERATED deck, never pinned by name: the builder picks
+  // the commander that reaches the most executable cards, so the name CHANGES
+  // when the pool grows — Jasmine Boreal (M6.1–M6.4b) became Adun Oakenshield
+  // the day `Ajani's Welcome` and eighteen friends landed (D160), and this
+  // check failed on a deck that was exactly right.
+  const botCommander = /commander: "([^"]+)"/.exec(
+    fs.readFileSync(path.join(__dirname, '..', 'src', 'data', 'botDeck.ts'), 'utf8'),
+  )[1];
+  check('and names the curated commander', picked.label.includes(botCommander), picked.label);
 
   await js(`document.querySelector('[data-solo="start"]').click()`);
   await js('window.__crt.engine.settle(15000)');

@@ -73,6 +73,27 @@ const COMPLETE: readonly [string, CardData][] = [
   ['Deserted Temple', fx.DESERTED_TEMPLE],
   ['Hedron Archive', fx.HEDRON_ARCHIVE],
   ['War Room', fx.WAR_ROOM],
+  // M6.4c (D160): batch 3's nineteen, accepted by their shipped defs — the
+  // sentence half AND the activated half of the claims map both at work.
+  ['Talrand, Sky Summoner', fx.TALRAND_SKY_SUMMONER],
+  ['Yotian Dissident', fx.YOTIAN_DISSIDENT],
+  ['A.I.M. Labs', fx.A_I_M_LABS],
+  ['Abzan Banner', fx.ABZAN_BANNER],
+  ['Acolyte of Xathrid', fx.ACOLYTE_OF_XATHRID],
+  ['Adun Oakenshield', fx.ADUN_OAKENSHIELD],
+  ['Aether Adept', fx.AETHER_ADEPT],
+  ['Affa Guard Hound', fx.AFFA_GUARD_HOUND],
+  ['Agents of HYDRA', fx.AGENTS_OF_HYDRA],
+  ['Airship Engine Room', fx.AIRSHIP_ENGINE_ROOM],
+  ["Ajani's Welcome", fx.AJANI_S_WELCOME],
+  ['Akoum Refuge', fx.AKOUM_REFUGE],
+  ['Akroan Jailer', fx.AKROAN_JAILER],
+  ['Akroan Mastiff', fx.AKROAN_MASTIFF],
+  ["Aladdin's Ring", fx.ALADDIN_S_RING],
+  ["Alchemist's Apprentice", fx.ALCHEMIST_S_APPRENTICE],
+  ['Amateur Hero', fx.AMATEUR_HERO],
+  ['Ambassador Oak', fx.AMBASSADOR_OAK],
+  ['Ambush Gigapede', fx.AMBUSH_GIGAPEDE],
 ];
 
 /**

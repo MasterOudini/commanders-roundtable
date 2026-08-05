@@ -16,13 +16,13 @@ import {
   KNIGHTHOOD_SCRIPT,
   KWENDE_SCRIPT,
   HUMILITY_SCRIPT,
-  YOTIAN_DISSIDENT_SCRIPT,
 } from './testing/cardScripts';
 // ⚠️ The SHIPPED scripts, not testing copies — M6.4a landed these eight, and
 // the gate must exercise exactly what the app runs (one card, one script). The
 // guard at the bottom of this file holds the rule in both halves: every entry
 // of `SHIPPED_SCRIPTS` registered here AND dealt in `DECK`.
 import { ONULET_SCRIPT } from './scripts/cards/onulet';
+import { YOTIAN_DISSIDENT_SCRIPT } from './scripts/cards/yotianDissident';
 import { SOUL_WARDEN_SCRIPT } from './scripts/cards/soulWarden';
 import { ESSENCE_WARDEN_SCRIPT } from './scripts/cards/essenceWarden';
 import { RADIANT_FOUNTAIN_SCRIPT } from './scripts/cards/radiantFountain';
@@ -34,6 +34,24 @@ import { ARCANE_ENCYCLOPEDIA_SCRIPT } from './scripts/cards/arcaneEncyclopedia';
 import { DESERTED_TEMPLE_SCRIPT } from './scripts/cards/desertedTemple';
 import { HEDRON_ARCHIVE_SCRIPT } from './scripts/cards/hedronArchive';
 import { WAR_ROOM_SCRIPT } from './scripts/cards/warRoom';
+import { TALRAND_SKY_SUMMONER_SCRIPT } from './scripts/cards/talrandSkySummoner';
+import { AIM_LABS_SCRIPT } from './scripts/cards/aimLabs';
+import { ABZAN_BANNER_SCRIPT } from './scripts/cards/abzanBanner';
+import { ACOLYTE_OF_XATHRID_SCRIPT } from './scripts/cards/acolyteOfXathrid';
+import { ADUN_OAKENSHIELD_SCRIPT } from './scripts/cards/adunOakenshield';
+import { AETHER_ADEPT_SCRIPT } from './scripts/cards/aetherAdept';
+import { AFFA_GUARD_HOUND_SCRIPT } from './scripts/cards/affaGuardHound';
+import { AGENTS_OF_HYDRA_SCRIPT } from './scripts/cards/agentsOfHydra';
+import { AIRSHIP_ENGINE_ROOM_SCRIPT } from './scripts/cards/airshipEngineRoom';
+import { AJANIS_WELCOME_SCRIPT } from './scripts/cards/ajanisWelcome';
+import { AKOUM_REFUGE_SCRIPT } from './scripts/cards/akoumRefuge';
+import { AKROAN_JAILER_SCRIPT } from './scripts/cards/akroanJailer';
+import { AKROAN_MASTIFF_SCRIPT } from './scripts/cards/akroanMastiff';
+import { ALADDINS_RING_SCRIPT } from './scripts/cards/aladdinsRing';
+import { ALCHEMISTS_APPRENTICE_SCRIPT } from './scripts/cards/alchemistsApprentice';
+import { AMATEUR_HERO_SCRIPT } from './scripts/cards/amateurHero';
+import { AMBASSADOR_OAK_SCRIPT } from './scripts/cards/ambassadorOak';
+import { AMBUSH_GIGAPEDE_SCRIPT } from './scripts/cards/ambushGigapede';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -193,6 +211,14 @@ const DECK = [
   // prompt and its answer in real games.
   'Soul Warden', 'Essence Warden', 'Radiant Fountain', "Adventurer's Inn",
   'Wall of Blossoms',
+  // ⚠️ M6.4c/D160 — batch 3's nineteen, every shipped script dealt (the D156
+  // guard's rule). Talrand turns the gate's own spells into Drakes; the pumps,
+  // bounces, returns and sacrifices all run inside real random games.
+  'Talrand, Sky Summoner', 'A.I.M. Labs', 'Abzan Banner', 'Acolyte of Xathrid',
+  'Adun Oakenshield', 'Aether Adept', 'Affa Guard Hound', 'Agents of HYDRA',
+  'Airship Engine Room', "Ajani's Welcome", 'Akoum Refuge', 'Akroan Jailer',
+  'Akroan Mastiff', "Aladdin's Ring", "Alchemist's Apprentice", 'Amateur Hero',
+  'Ambassador Oak', 'Ambush Gigapede',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -241,6 +267,28 @@ const SCRIPTS = createRegistry([
   DESERTED_TEMPLE_SCRIPT,
   HEDRON_ARCHIVE_SCRIPT,
   WAR_ROOM_SCRIPT,
+  // M6.4c/D160 — batch 3, nineteen scripts. Firsts for this gate: a
+  // CAST-watching trigger creating tokens (Talrand), script bounces and
+  // graveyard returns, until-end-of-turn pumps, script damage, a
+  // player-targeted activated, and three more self-sacrifices.
+  TALRAND_SKY_SUMMONER_SCRIPT,
+  AIM_LABS_SCRIPT,
+  ABZAN_BANNER_SCRIPT,
+  ACOLYTE_OF_XATHRID_SCRIPT,
+  ADUN_OAKENSHIELD_SCRIPT,
+  AETHER_ADEPT_SCRIPT,
+  AFFA_GUARD_HOUND_SCRIPT,
+  AGENTS_OF_HYDRA_SCRIPT,
+  AIRSHIP_ENGINE_ROOM_SCRIPT,
+  AJANIS_WELCOME_SCRIPT,
+  AKOUM_REFUGE_SCRIPT,
+  AKROAN_JAILER_SCRIPT,
+  AKROAN_MASTIFF_SCRIPT,
+  ALADDINS_RING_SCRIPT,
+  ALCHEMISTS_APPRENTICE_SCRIPT,
+  AMATEUR_HERO_SCRIPT,
+  AMBASSADOR_OAK_SCRIPT,
+  AMBUSH_GIGAPEDE_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

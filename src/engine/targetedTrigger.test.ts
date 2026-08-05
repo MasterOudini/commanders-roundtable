@@ -20,10 +20,11 @@ import { canBlock } from './combat';
 import { costStringOf, manaSourcesOf } from './mana';
 import { engineCompleteness } from '../data/engineComplete';
 import { createRegistry, NO_SCRIPTS } from './scripts/registry';
-import { SPINELESS_THUG_SCRIPT, YOTIAN_DISSIDENT_SCRIPT } from './testing/cardScripts';
-// The SHIPPED Onulet (M6.4a) — the testing copy it replaced is gone, so the
-// dies-trigger cases here drive the script the app actually runs.
+import { SPINELESS_THUG_SCRIPT } from './testing/cardScripts';
+// The SHIPPED Onulet (M6.4a) and Yotian Dissident (M6.4c) — the testing copies
+// they replaced are gone, so these cases drive the scripts the app runs.
 import { ONULET_SCRIPT } from './scripts/cards/onulet';
+import { YOTIAN_DISSIDENT_SCRIPT } from './scripts/cards/yotianDissident';
 import { advanceUntil, holdEverywhere, must, ORACLE, put, startedGame } from './testing/harness';
 import type { GameState, TargetChoice } from './types/state';
 

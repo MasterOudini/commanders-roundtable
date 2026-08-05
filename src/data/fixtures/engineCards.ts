@@ -4968,6 +4968,585 @@ export const WAR_ROOM: CardData = {
   "singleImage": true
 };
 
+export const A_I_M_LABS: CardData = {
+  "scryfallId": "ca24cd9f-fd9f-4ea0-8b9c-ecf98db219a6",
+  "oracleId": "8417f2d5-93c9-474a-a143-5c4e17097a88",
+  "name": "A.I.M. Labs",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "A.I.M. Labs",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {U} or {B}.",
+      "flavorText": "\"Once I was a mere human guinea pig for A.I.M. scientists. But they did their job too well, and now I am their master!\"\n—M.O.D.O.K.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Lixin Yin",
+      "imageId": "ca24cd9f-fd9f-4ea0-8b9c-ecf98db219a6"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "msh",
+  "collectorNumber": "257",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ABZAN_BANNER: CardData = {
+  "scryfallId": "7855528a-ede9-49a9-8749-795a004fd927",
+  "oracleId": "46535f8e-1bcd-4588-ac6c-a4bc89c379c8",
+  "name": "Abzan Banner",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Abzan Banner",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {W}, {B}, or {G}.\n{W}{B}{G}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "Stone to endure, roots to remember.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "7855528a-ede9-49a9-8749-795a004fd927"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ktk",
+  "collectorNumber": "215",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ACOLYTE_OF_XATHRID: CardData = {
+  "scryfallId": "4b0b14d4-41de-42ac-9894-77bbcebaabfc",
+  "oracleId": "62dca41b-58b0-45eb-ada7-568e80a2abec",
+  "name": "Acolyte of Xathrid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Acolyte of Xathrid",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{1}{B}, {T}: Target player loses 1 life.",
+      "flavorText": "Like all priests, she gives her blessings only to those truly worthy of them.",
+      "power": "0",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Chris Rahn",
+      "imageId": "4b0b14d4-41de-42ac-9894-77bbcebaabfc"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "m10",
+  "collectorNumber": "83",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ADUN_OAKENSHIELD: CardData = {
+  "scryfallId": "184da30e-0db4-450c-8856-5c23088c35be",
+  "oracleId": "aefd49a4-ecec-42cb-b882-e5db7f81eff8",
+  "name": "Adun Oakenshield",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Adun Oakenshield",
+      "manaCost": "{B}{R}{G}",
+      "typeLine": "Legendary Creature — Human Knight",
+      "oracleText": "{B}{R}{G}, {T}: Return target creature card from your graveyard to your hand.",
+      "flavorText": "\". . . And at his passing, the bodies of the world's great warriors shall rise from their graves and follow him to battle.\"\n—The Anvilonian Grimoire",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G",
+        "R"
+      ],
+      "artist": "Jeff A. Menges",
+      "imageId": "184da30e-0db4-450c-8856-5c23088c35be"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "me1",
+  "collectorNumber": "141",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AETHER_ADEPT: CardData = {
+  "scryfallId": "0b551dab-1a81-406d-b708-b3b7300eb02e",
+  "oracleId": "e076067c-77b7-4a37-a62d-51434392dd53",
+  "name": "Aether Adept",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aether Adept",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "When this creature enters, return target creature to its owner's hand.",
+      "flavorText": "Some mages do their best work in solitude. Others do their best work creating it.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Eric Deschamps",
+      "imageId": "0b551dab-1a81-406d-b708-b3b7300eb02e"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m11",
+  "collectorNumber": "41",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AFFA_GUARD_HOUND: CardData = {
+  "scryfallId": "85623f54-1c18-4b1e-a8da-df66de3832a6",
+  "oracleId": "3819daab-fe35-4f99-9282-47bd05c7fcd6",
+  "name": "Affa Guard Hound",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Affa Guard Hound",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Dog",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, target creature gets +0/+3 until end of turn.",
+      "flavorText": "Once a welcoming hub for explorers, Affa became a place of guarded tongues and quick defenses.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Ryan Pancoast",
+      "imageId": "85623f54-1c18-4b1e-a8da-df66de3832a6"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flash"
+  ],
+  "setCode": "roe",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AGENTS_OF_HYDRA: CardData = {
+  "scryfallId": "857fef2e-df1f-4ec6-a262-f6fa52389cf9",
+  "oracleId": "31816924-1430-4581-86e8-325e2ca16217",
+  "name": "Agents of HYDRA",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Agents of HYDRA",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Spy Villain",
+      "oracleText": "When this creature dies, create a 2/1 black Villain creature token with menace. (It can't be blocked except by two or more creatures.)",
+      "flavorText": "\"Hail HYDRA! Immortal HYDRA! We shall never be destroyed! Cut off one head and two more shall take its place! We serve none but the Master—as the world shall soon serve us! Hail HYDRA!\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Wero Gallo",
+      "imageId": "857fef2e-df1f-4ec6-a262-f6fa52389cf9"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "msh",
+  "collectorNumber": "85",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AIRSHIP_ENGINE_ROOM: CardData = {
+  "scryfallId": "0b98ba34-f251-4bd0-9d75-1d4445be5cfd",
+  "oracleId": "01ed9139-293d-4477-a145-3c6fe59266c7",
+  "name": "Airship Engine Room",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Airship Engine Room",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {U} or {R}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+      "flavorText": "The Fire Nation's expansion fueled progress, and their progress fueled expansion.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Andreas Rocha",
+      "imageId": "0b98ba34-f251-4bd0-9d75-1d4445be5cfd"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tla",
+  "collectorNumber": "265",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AJANI_S_WELCOME: CardData = {
+  "scryfallId": "b7d0793f-0180-41a4-b9e8-1c527d1b978b",
+  "oracleId": "4a782bf9-4051-4613-8852-33b0d85a0edd",
+  "name": "Ajani's Welcome",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ajani's Welcome",
+      "manaCost": "{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever a creature you control enters, you gain 1 life.",
+      "flavorText": "\"You cannot defend others if your own well-being is neglected.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Eric Deschamps",
+      "imageId": "b7d0793f-0180-41a4-b9e8-1c527d1b978b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "M19-6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AKOUM_REFUGE: CardData = {
+  "scryfallId": "0b32023d-454a-456c-92fa-ebd591d2b854",
+  "oracleId": "354fecd1-2371-49e3-81c6-7e47728dbb1f",
+  "name": "Akoum Refuge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Akoum Refuge",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {B} or {R}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Fred Fields",
+      "imageId": "0b32023d-454a-456c-92fa-ebd591d2b854"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "c13",
+  "collectorNumber": "272",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AKROAN_JAILER: CardData = {
+  "scryfallId": "8d96bc2b-2e31-4654-b192-c3f023d9fde6",
+  "oracleId": "e3ad2c77-2a41-4a4a-a6bf-e542d0162b88",
+  "name": "Akroan Jailer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Akroan Jailer",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{2}{W}, {T}: Tap target creature.",
+      "flavorText": "He ensures escape attempts are just that—attempts.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Anastasia Ovchinnikova",
+      "imageId": "8d96bc2b-2e31-4654-b192-c3f023d9fde6"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ori",
+  "collectorNumber": "1",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AKROAN_MASTIFF: CardData = {
+  "scryfallId": "7e21938b-46b1-4b2f-8269-0cd0e998cddc",
+  "oracleId": "6039b9b7-e49a-4ea3-887c-a17dd502d63f",
+  "name": "Akroan Mastiff",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Akroan Mastiff",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Dog",
+      "oracleText": "{W}, {T}: Tap target creature.",
+      "flavorText": "Even when many of the soldiers who guarded Akros were called away, its safety was never in doubt.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "7e21938b-46b1-4b2f-8269-0cd0e998cddc"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "jou",
+  "collectorNumber": "3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ALADDIN_S_RING: CardData = {
+  "scryfallId": "04ad952c-7e5a-4090-a126-e9f6f357b768",
+  "oracleId": "7810915f-df4d-445a-8ba8-fe6ed3abf1ae",
+  "name": "Aladdin's Ring",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aladdin's Ring",
+      "manaCost": "{8}",
+      "typeLine": "Artifact",
+      "oracleText": "{8}, {T}: This artifact deals 4 damage to any target.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Dan Frazier",
+      "imageId": "04ad952c-7e5a-4090-a126-e9f6f357b768"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 8,
+  "keywords": [],
+  "setCode": "4bb",
+  "collectorNumber": "292",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ALCHEMIST_S_APPRENTICE: CardData = {
+  "scryfallId": "31abba67-1241-4fb3-88b5-4c4668ec5f25",
+  "oracleId": "de085c51-2555-450e-a479-ddbb3bea9e8c",
+  "name": "Alchemist's Apprentice",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Alchemist's Apprentice",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "Sacrifice this creature: Draw a card.",
+      "flavorText": "Side effects may include foul odors, scalding steam, and spontaneous nonexistence.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "David Palumbo",
+      "imageId": "31abba67-1241-4fb3-88b5-4c4668ec5f25"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "avr",
+  "collectorNumber": "42",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AMATEUR_HERO: CardData = {
+  "scryfallId": "38d3b35d-3ae7-4f41-879f-e05146112b24",
+  "oracleId": "fc8ee6e1-a2e1-4033-a164-7968fc79dd27",
+  "name": "Amateur Hero",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Amateur Hero",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Hero",
+      "oracleText": "When this creature enters, you gain 2 life.",
+      "flavorText": "\"Spider-Man wouldn't hesitate to save others, and neither will I!\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Anthony Devine",
+      "imageId": "38d3b35d-3ae7-4f41-879f-e05146112b24"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "spe",
+  "collectorNumber": "1",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AMBASSADOR_OAK: CardData = {
+  "scryfallId": "1c7c05b3-ea23-477c-8a55-370cb6ae0941",
+  "oracleId": "4045c24e-098f-4582-8c50-576a94c7b705",
+  "name": "Ambassador Oak",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ambassador Oak",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Treefolk Warrior",
+      "oracleText": "When this creature enters, create a 1/1 green Elf Warrior creature token.",
+      "flavorText": "Treefolk and elves share a common interest in the forests, but really the elves just feel at home with the view from above.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "1c7c05b3-ea23-477c-8a55-370cb6ae0941"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "a25",
+  "collectorNumber": "158",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AMBUSH_GIGAPEDE: CardData = {
+  "scryfallId": "93b17d09-974a-4e33-b14d-5fe4230ab241",
+  "oracleId": "4faf62c3-3ba7-4540-be26-777305ef184e",
+  "name": "Ambush Gigapede",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ambush Gigapede",
+      "manaCost": "{4}{B}{B}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "Flash\nWhen this creature enters, target creature an opponent controls gets -2/-2 until end of turn.",
+      "flavorText": "\"First rule of crossing Blacksnag Bog: if you can't see the bottom, don't.\"\n—Chance Mulligan, wilderness guide",
+      "power": "6",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Kekai Kotaki",
+      "imageId": "93b17d09-974a-4e33-b14d-5fe4230ab241"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flash"
+  ],
+  "setCode": "otj",
+  "collectorNumber": "77",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -5092,6 +5671,112 @@ export const BEAST_TOKEN: CardData = {
   "keywords": [],
   "setCode": "tclb",
   "collectorNumber": "38",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const DRAKE_TOKEN: CardData = {
+  "scryfallId": "07027a7c-5843-4d78-9b86-8799363c0b82",
+  "oracleId": "9e266374-80f1-458a-9417-16220d2a013a",
+  "name": "Drake",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Drake",
+      "manaCost": "",
+      "typeLine": "Token Creature — Drake",
+      "oracleText": "Flying",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "07027a7c-5843-4d78-9b86-8799363c0b82"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "tc20",
+  "collectorNumber": "8",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const ELF_WARRIOR_TOKEN: CardData = {
+  "scryfallId": "023f668a-a8e6-4fcb-98d1-30adf343f050",
+  "oracleId": "dac8a765-6845-4b57-bb79-4ec463436f92",
+  "name": "Elf Warrior",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Elf Warrior",
+      "manaCost": "",
+      "typeLine": "Token Creature — Elf Warrior",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Daniel Correia",
+      "imageId": "023f668a-a8e6-4fcb-98d1-30adf343f050"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tltc",
+  "collectorNumber": "11",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const VILLAIN_TOKEN: CardData = {
+  "scryfallId": "4a51b6a0-9a54-4f01-b959-0a28c15d103f",
+  "oracleId": "4ca04338-08e4-411e-a891-36ab9c320236",
+  "name": "Villain",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Villain",
+      "manaCost": "",
+      "typeLine": "Token Creature — Villain",
+      "oracleText": "Menace",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Thanh Tuấn",
+      "imageId": "4a51b6a0-9a54-4f01-b959-0a28c15d103f"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Menace"
+  ],
+  "setCode": "tmsh",
+  "collectorNumber": "9",
   "commanderLegality": "not_legal",
   "singleImage": true
 };
@@ -5238,8 +5923,28 @@ export const ENGINE_CARDS: CardData[] = [
   DESERTED_TEMPLE,
   HEDRON_ARCHIVE,
   WAR_ROOM,
+  A_I_M_LABS,
+  ABZAN_BANNER,
+  ACOLYTE_OF_XATHRID,
+  ADUN_OAKENSHIELD,
+  AETHER_ADEPT,
+  AFFA_GUARD_HOUND,
+  AGENTS_OF_HYDRA,
+  AIRSHIP_ENGINE_ROOM,
+  AJANI_S_WELCOME,
+  AKOUM_REFUGE,
+  AKROAN_JAILER,
+  AKROAN_MASTIFF,
+  ALADDIN_S_RING,
+  ALCHEMIST_S_APPRENTICE,
+  AMATEUR_HERO,
+  AMBASSADOR_OAK,
+  AMBUSH_GIGAPEDE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
   BEAST_TOKEN,
+  DRAKE_TOKEN,
+  ELF_WARRIOR_TOKEN,
+  VILLAIN_TOKEN,
 ];

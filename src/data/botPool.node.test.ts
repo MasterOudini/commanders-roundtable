@@ -274,8 +274,14 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * becomes non-zero is a day worth noticing — and because a bug once made this
    * read 9 enchantments (see `clauseAccounted`'s substring note).
    */
-  test('no enchantment, planeswalker or battle is executable at all', () => {
-    expect(r.poolByType['enchantment'] ?? 0).toBe(0);
+  test('ONE enchantment executes now; planeswalkers and battles still none', () => {
+    // ⚠️ This pinned exact ZEROES from M6.1 until M6.4c (D160), "because the
+    // day one becomes non-zero is a day worth noticing" — this is that day:
+    // `Ajani's Welcome` is the first enchantment the engine runs completely,
+    // through a shipped script. Planeswalkers (loyalty costs) and battles are
+    // still structurally out, and stay pinned at zero for the same reason the
+    // enchantment was.
+    expect(r.poolByType['enchantment'] ?? 0).toBe(1);
     expect(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -397,11 +403,16 @@ const POOL: Record<string, number> = {
   // Adventurer's Inn) — the first cards a SHIPPED SCRIPT put in this pool.
   // M6.4b (D159): +2 artifacts (Arcane Encyclopedia, Hedron Archive) and +2
   // lands (Deserted Temple, War Room) — the first ACTIVATED abilities.
-  creature: 1149,
+  // M6.4c (D160): +13 creatures, +2 artifacts, +3 lands — and ⚠️ THE FIRST
+  // ENCHANTMENT THIS POOL HAS EVER HELD (`Ajani's Welcome`). The bot deck's
+  // own header said "no enchantments … because the engine runs none of those
+  // yet"; the ceiling rose exactly as it promised it would.
+  creature: 1162,
   instant: 201,
   sorcery: 146,
-  land: 213,
-  artifact: 33,
+  land: 216,
+  artifact: 35,
+  enchantment: 1,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

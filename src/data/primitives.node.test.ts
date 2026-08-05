@@ -311,15 +311,17 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // eight cards, every one leaving `blocked` and `scriptableToday` by
       // exactly one — which is the silence hook and the selection agreeing.
       // M6.4b (D159) moved it again by exactly the four the ActivatedDef seam
-      // unblocked: 1,738 → 1,742.
-      complete: 1742,
-      blocked: 29950,
+      // unblocked: 1,738 → 1,742. M6.4c (D160): the first select.cjs batch at
+      // scale — 19 of 25, the six refusals named — 1,742 → 1,761.
+      complete: 1761,
+      blocked: 29931,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
       // mis-swallowed. The landed batches are what move it now: every shipped
-      // card leaves this pool (1,263 → 1,255 in D158, → 1,251 in D159).
-      scriptableToday: 1251,
+      // card leaves this pool (1,263 → 1,255 in D158, → 1,251 in D159, → 1,232
+      // in D160).
+      scriptableToday: 1232,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -365,7 +367,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // Every rung fell by exactly 8 in M6.4a (D158) and by exactly 4 more in
     // M6.4b (D159): shipped batches leave the blocked pool, and the ladder is
     // drawn from blocked cards.
-    expect(steps.map((s) => s.unlocked)).toEqual([1251, 1350, 3303, 5187, 6374]);
+    expect(steps.map((s) => s.unlocked)).toEqual([1232, 1331, 3284, 5168, 6355]);
     expect(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(4.5);
   });
 
@@ -537,8 +539,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect(steps.map((s) => s.unlocked)).toEqual([1251, 1350]);
-    expect(r.complete).toBe(1742);
+    expect(steps.map((s) => s.unlocked)).toEqual([1232, 1331]);
+    expect(r.complete).toBe(1761);
   });
 });
 

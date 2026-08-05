@@ -24,9 +24,7 @@ import {
   KNIGHTHOOD,
   KWENDE_PRIDE_OF_FEMEREF,
   SPINELESS_THUG,
-  YOTIAN_DISSIDENT,
 } from '../../data/fixtures/engineCards';
-import { parseTargetClauses } from '../../data/targetParse';
 import type { CardData } from '../../data/cardTypes';
 import type { CardScript } from '../scripts/api';
 import type { EventBody } from '../types/events';
@@ -57,20 +55,10 @@ const PRIDEMATE_TEXT = printed(
   AJANI_S_PRIDEMATE,
   'Whenever you gain life, put a +1/+1 counter on this creature.',
 );
-const YOTIAN_TEXT = printed(
-  YOTIAN_DISSIDENT,
-  'Whenever an artifact you control enters, put a +1/+1 counter on target creature you control.',
-);
-/**
- * ⚠️ **PARSED FROM THE CARD'S OWN WORDS, NOT HAND-WRITTEN.** A literal spec here
- * would be a second opinion about what the sentence says, sitting beside the
- * parser that already answers it — the rule five entries of DECISIONS.md have
- * had to write down (D122, D127, D129, D130, D131). It also means the
- * restriction the test asserts on ("you control") is the one the ingest reads,
- * so a parser that stopped reading it would fail here rather than silently
- * widen what the trigger may hit.
- */
-const YOTIAN_TARGETS = parseTargetClauses(YOTIAN_TEXT);
+// ⚠️ `Yotian Dissident` LIVED HERE from D147 to D160 and now ships for real —
+// `src/engine/scripts/cards/yotianDissident.ts`. One card, one script; the
+// teeth check in `shippedScripts.node.test.ts` that used this copy as its
+// must-fail example holds `Humility` now.
 
 const THUG_TEXT = printed(SPINELESS_THUG, "This creature can't block.");
 
@@ -232,69 +220,8 @@ export const AJANIS_PRIDEMATE: CardScript = {
   ],
 };
 
-/**
- * `Yotian Dissident` — `{G}{W}` 1/1, "Whenever an artifact you control enters,
- * put a +1/+1 counter on target creature you control."
- *
- * ⚠️ **THE FIRST TRIGGER IN THIS PROJECT THAT TARGETS.** Until D147 a
- * `TriggerDef` had no way to declare targets, `PendingTrigger` carried none and
- * `drainTriggers` built every stack object with `targets: []` — so all 3,218
- * Commander-legal cards whose triggered ability names a target were
- * unscriptable, however simple the rest of the card was.
- *
- * ⚠️ Its target is RESTRICTED, and that is the point. "target creature" — the
- * commonest wording at 926 lines — would pass this test with `targetAllowed`
- * never consulted, because every creature on the board is legal for it. "you
- * control" is the smallest restriction that makes the check observable.
- *
- * ⚠️ The effect needs NOTHING new: `CountersChanged` has been on the log since
- * D107. One primitive per proof (D130's correction, where a whole row turned
- * out to have been scriptable all along).
- */
-export const YOTIAN_DISSIDENT_SCRIPT: CardScript = {
-  oracleId: YOTIAN_DISSIDENT.oracleId,
-  name: YOTIAN_DISSIDENT.name,
-  triggers: [
-    {
-      abilityId: 'artifact-etb',
-      text: YOTIAN_TEXT,
-      event: 'CardsMoved',
-      activeZones: ['battlefield'],
-      optional: false,
-      targets: YOTIAN_TARGETS,
-      // "an ARTIFACT YOU CONTROL enters" — the mover must land on the
-      // battlefield, be an artifact, and be this permanent's controller's.
-      // ⚠️ `derive`, not the printed type line: an artifact by layer 4 is an
-      // artifact, and reading the printing would miss every animated one.
-      matches: (ctx, self, ev) => {
-        if (ev.t !== 'CardsMoved') return false;
-        const mine = ctx.query.controllerOf(self);
-        return ev.moves.some((m) => {
-          if (m.to.kind !== 'battlefield') return false;
-          const card = ctx.state.cards[m.card];
-          if (!card || card.controller !== mine) return false;
-          return ctx.derive(m.card).typeLine.types.includes('Artifact');
-        });
-      },
-      label: () => 'Yotian Dissident — +1/+1 counter on target creature you control',
-      // ⚠️ THE TARGET IS READ OFF THE STACK OBJECT, which is where CR 603.3d put
-      // it when the ability went on the stack — and where CR 608.2b re-checked
-      // it a moment ago. A script that re-picked here would be choosing on the
-      // player's behalf, one prompt too late.
-      resolve: (ctx, _self, obj): readonly EventBody[] => {
-        const target = obj.targets[0];
-        if (!target || target.kind === 'player') return [];
-        // Re-checked at resolution for the same reason `AJANIS_PRIDEMATE` does:
-        // CR 603.2 puts the ability on the stack independently of its source,
-        // and a `CountersChanged` naming a card in a graveyard is a number
-        // nothing reads.
-        return ctx.state.cards[target.id]?.zone.kind === 'battlefield'
-          ? [{ t: 'CountersChanged', changes: [{ card: target.id, kind: '+1/+1', delta: 1 }] }]
-          : [];
-      },
-    },
-  ],
-};
+// (Yotian Dissident's script — the first targeted trigger, D147 — ships from
+// `../scripts/cards/yotianDissident.ts` since D160.)
 
 // ⚠️ `Onulet` LIVED HERE from D147 to D158 and now ships for real —
 // `src/engine/scripts/cards/onulet.ts`, registered in `SHIPPED_SCRIPTS`. One

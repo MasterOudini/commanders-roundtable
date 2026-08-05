@@ -114,10 +114,13 @@ describe('tier3NotesFor', () => {
  * for the bot's deck; these are notes, not rules.
  */
 describe('a permanent’s text, which the app does not run', () => {
-  test('every starter commander used to be silent, and none of them is now', () => {
-    // Talrand's whole card is one triggered ability; Kess's and Yeva's are static;
-    // Krenko's is an activated ability the engine charges and does not run.
-    expect(what(C.TALRAND_SKY_SUMMONER)).toEqual(['Its ability text']);
+  test('three starter commanders still say so — and Talrand no longer needs to', () => {
+    // Kess's and Yeva's whole cards are static; Krenko's is an activated
+    // ability the engine charges and does not run. ⚠️ Talrand was the fourth
+    // from D122 until his script SHIPPED in M6.4c (D160) — a Drake for every
+    // instant or sorcery, for real — so his silence is invariant 9's other
+    // direction: a card the engine runs completely must say nothing.
+    expect(what(C.TALRAND_SKY_SUMMONER)).toEqual([]);
     expect(what(C.KESS_DISSIDENT_MAGE)).toEqual(['Its ability text']);
     expect(what(C.YEVA_NATURE_S_HERALD)).toEqual(['Its ability text']);
     expect(what(C.KRENKO_MOB_BOSS)).toEqual(['Its “{T}” ability']);

@@ -392,6 +392,27 @@ const WANTED = [
   'Deserted Temple',
   'Hedron Archive',
   'War Room',
+  // M6.4c — batch 3 (D160): 19 landed of select.cjs's 25 (the 6 deferred are
+  // named in D160 — general sacrifice choosers, the `modified` predicate, a
+  // script-raised discard prompt, and an INSTANT the script API has no seam
+  // for). Talrand and Yotian Dissident were fixtures already.
+  'A.I.M. Labs',
+  'Abzan Banner',
+  'Acolyte of Xathrid',
+  'Adun Oakenshield',
+  'Aether Adept',
+  'Affa Guard Hound',
+  'Agents of HYDRA',
+  'Airship Engine Room',
+  "Ajani's Welcome",
+  'Akoum Refuge',
+  'Akroan Jailer',
+  'Akroan Mastiff',
+  "Aladdin's Ring",
+  "Alchemist's Apprentice",
+  'Amateur Hero',
+  'Ambassador Oak',
+  'Ambush Gigapede',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -408,6 +429,11 @@ const WANTED_TOKENS = [
   { name: 'Servo', set: 'tdft', cn: '8', key: 'SERVO_TOKEN' },
   { name: 'Treasure', set: 'trna', cn: '12', key: 'TREASURE_TOKEN' },
   { name: 'Beast', set: 'tclb', cn: '38', key: 'BEAST_TOKEN' },
+  // M6.4c (D160) — the first SCRIPT-created tokens. Each is the exact printing
+  // its card's `TOKEN_TABLE` entry names, for D133's reason above.
+  { name: 'Drake', set: 'tc20', cn: '8', key: 'DRAKE_TOKEN' },
+  { name: 'Elf Warrior', set: 'tltc', cn: '11', key: 'ELF_WARRIOR_TOKEN' },
+  { name: 'Villain', set: 'tmsh', cn: '9', key: 'VILLAIN_TOKEN' },
 ];
 
 function constName(name) {

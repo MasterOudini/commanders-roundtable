@@ -19,7 +19,7 @@ import { homedir } from 'node:os';
 import { createInterface } from 'node:readline';
 import { describe, expect, test } from 'vitest';
 import { SHIPPED_SCRIPTS } from '../engine/scripts/registry';
-import { AJANIS_MANTRA, YOTIAN_DISSIDENT_SCRIPT } from '../engine/testing/cardScripts';
+import { AJANIS_MANTRA, HUMILITY_SCRIPT } from '../engine/testing/cardScripts';
 import { engineCompleteness } from './engineComplete';
 import { tier3NotesFor } from './tier3';
 import type { CardData } from './cardTypes';
@@ -84,7 +84,12 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
    * knowing either way.
    */
   test('and the check has teeth — the TEST scripts fail it, as they should', async () => {
-    const testScripts = [AJANIS_MANTRA, YOTIAN_DISSIDENT_SCRIPT];
+    // ⚠️ Yotian Dissident held this post from D156 until it SHIPPED in D160 —
+    // a shipped card cannot be the example of an unshipped one. `Humility`
+    // took over: engineComplete refuses it (ability text a script does not
+    // claim — the testing registry is not SHIPPED_SCRIPTS) and tier3 notes it,
+    // and it is also the card the fuzz DECK teeth pin as never-dealt.
+    const testScripts = [AJANIS_MANTRA, HUMILITY_SCRIPT];
     const cards = await cardsFor(testScripts);
     const bad = testScripts.map((s) => violation(s, cards.get(s.oracleId))).filter((x) => x !== null);
     expect(bad).toHaveLength(testScripts.length);
@@ -98,8 +103,9 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // Soul Warden, Essence Warden, Radiant Fountain, Adventurer's Inn, Wall of
     // Blossoms, Wall of Omens, Baleful Strix, Onulet. M6.4b (D159) landed the
     // four the ActivatedDef seam unblocked: Arcane Encyclopedia, Deserted
-    // Temple, Hedron Archive, War Room.
-    expect(SHIPPED_SCRIPTS).toHaveLength(12);
+    // Temple, Hedron Archive, War Room. M6.4c (D160) landed nineteen — the
+    // first select.cjs batch at scale, 19 of 25 with the six refusals named.
+    expect(SHIPPED_SCRIPTS).toHaveLength(31);
   });
 });
 

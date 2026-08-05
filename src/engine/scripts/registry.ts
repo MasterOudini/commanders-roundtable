@@ -7,6 +7,25 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { TALRAND_SKY_SUMMONER_SCRIPT } from './cards/talrandSkySummoner';
+import { YOTIAN_DISSIDENT_SCRIPT } from './cards/yotianDissident';
+import { AIM_LABS_SCRIPT } from './cards/aimLabs';
+import { ABZAN_BANNER_SCRIPT } from './cards/abzanBanner';
+import { ACOLYTE_OF_XATHRID_SCRIPT } from './cards/acolyteOfXathrid';
+import { ADUN_OAKENSHIELD_SCRIPT } from './cards/adunOakenshield';
+import { AETHER_ADEPT_SCRIPT } from './cards/aetherAdept';
+import { AFFA_GUARD_HOUND_SCRIPT } from './cards/affaGuardHound';
+import { AGENTS_OF_HYDRA_SCRIPT } from './cards/agentsOfHydra';
+import { AIRSHIP_ENGINE_ROOM_SCRIPT } from './cards/airshipEngineRoom';
+import { AJANIS_WELCOME_SCRIPT } from './cards/ajanisWelcome';
+import { AKOUM_REFUGE_SCRIPT } from './cards/akoumRefuge';
+import { AKROAN_JAILER_SCRIPT } from './cards/akroanJailer';
+import { AKROAN_MASTIFF_SCRIPT } from './cards/akroanMastiff';
+import { ALADDINS_RING_SCRIPT } from './cards/aladdinsRing';
+import { ALCHEMISTS_APPRENTICE_SCRIPT } from './cards/alchemistsApprentice';
+import { AMATEUR_HERO_SCRIPT } from './cards/amateurHero';
+import { AMBASSADOR_OAK_SCRIPT } from './cards/ambassadorOak';
+import { AMBUSH_GIGAPEDE_SCRIPT } from './cards/ambushGigapede';
 import { ARCANE_ENCYCLOPEDIA_SCRIPT } from './cards/arcaneEncyclopedia';
 import { DESERTED_TEMPLE_SCRIPT } from './cards/desertedTemple';
 import { HEDRON_ARCHIVE_SCRIPT } from './cards/hedronArchive';
@@ -113,6 +132,25 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  TALRAND_SKY_SUMMONER_SCRIPT,
+  YOTIAN_DISSIDENT_SCRIPT,
+  AIM_LABS_SCRIPT,
+  ABZAN_BANNER_SCRIPT,
+  ACOLYTE_OF_XATHRID_SCRIPT,
+  ADUN_OAKENSHIELD_SCRIPT,
+  AETHER_ADEPT_SCRIPT,
+  AFFA_GUARD_HOUND_SCRIPT,
+  AGENTS_OF_HYDRA_SCRIPT,
+  AIRSHIP_ENGINE_ROOM_SCRIPT,
+  AJANIS_WELCOME_SCRIPT,
+  AKOUM_REFUGE_SCRIPT,
+  AKROAN_JAILER_SCRIPT,
+  AKROAN_MASTIFF_SCRIPT,
+  ALADDINS_RING_SCRIPT,
+  ALCHEMISTS_APPRENTICE_SCRIPT,
+  AMATEUR_HERO_SCRIPT,
+  AMBASSADOR_OAK_SCRIPT,
+  AMBUSH_GIGAPEDE_SCRIPT,
   ARCANE_ENCYCLOPEDIA_SCRIPT,
   DESERTED_TEMPLE_SCRIPT,
   HEDRON_ARCHIVE_SCRIPT,
