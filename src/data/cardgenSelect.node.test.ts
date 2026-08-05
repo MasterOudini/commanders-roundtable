@@ -153,6 +153,16 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Cabal Surgeon', 'exile-from-graveyard cost'],
   ['Carnage Altar', 'sacrifice-cost chooser'],
   ['Catapult Master', 'tap-creatures cost'],
+  // Batch 10 (D167).
+  ['Cephalid Scout', 'sacrifice-cost chooser'],
+  ['Claws of Gix', 'sacrifice-cost chooser'],
+  ['Charging Strifeknight', 'discard-cost chooser'],
+  // "Your second spell each turn" is Axgard's per-turn trigger memory one
+  // count over (D167).
+  ['Clarion Spirit', 'once-per-turn trigger memory'],
+  // Tap-two-untapped-ARTIFACTS as a cost — the tap-creatures chooser's
+  // artifact sibling (D167).
+  ['Clock of Omens', 'tap-permanents cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -11088,3 +11088,89 @@ Briarknit-style negatives on the debuff twins.
 - The sacrifice-cost chooser holds THIRTEEN of the ledger's 30 entries.
 - D164/D165's items stand (`ctx.random`, exile-from-graveyard,
   once-per-turn memory, per-damage-entry granularity, remove-counter).
+
+## D167 — M6.4j: twenty landed, and the first upkeep trigger ships (2026-08-06)
+
+**What was decided:** land batch 10 — twenty of `select.cjs`'s 25, the first
+batch under the STANDING continuation ("keep batches coming until I say
+stop"). **1,878 of 31,692 Commander-legal cards now execute completely, up
+from 1,858.** `SHIPPED_SCRIPTS` 128 → 148, and the offerable pool broke
+under a thousand (997).
+
+**Five refusals, all named:** two sacrifice-cost choosers (`Cephalid
+Scout`, `Claws of Gix` — the class holds FIFTEEN entries), a discard-cost
+chooser (`Charging Strifeknight`), a once-per-turn memory (`Clarion
+Spirit` — "your second spell each turn" is Axgard's gap one count over),
+and `Clock of Omens` (tap-two-untapped-ARTIFACTS — entered as a
+tap-permanents cost, the tap-creatures chooser's artifact sibling).
+
+**Batch 10 — twenty landed, two firsts and a third enchantment:**
+
+- **The first SHIPPED upkeep trigger.** `Celestial Force` ("at the
+  beginning of EACH upkeep, you gain 3 life") rides `StepBegan`/'upkeep'
+  with NO active-player filter — the test registry's Ajani's Mantra has
+  carried the "your upkeep" variant since D128, and this is the shape's
+  first appearance in `SHIPPED_SCRIPTS`. The test walks two full turns and
+  watches the life climb on the OPPONENT's upkeep too.
+- **The first targeted ETB TAP.** `Chrome Prowler` aims the Transfixer's
+  tap through the trigger machinery at an opponent's creature, with the
+  own-creature refusal pinned.
+- **The pool's THIRD enchantment.** `Centaur Glade` (a repeatable activated
+  token maker) joins `Ajani's Welcome` and `Captive Flame`; the D160
+  zero-pin now reads three, all names in its comment.
+
+The other seventeen ride shipped shapes: a FREE self-sacrifice draw
+(`Commander's Sphere` — no mana, no tap, the identity-scoped mana line
+being the engine's since D110), a leaves-only Food (`City Pigeon` —
+Brandywine's broader half alone), a dies multi-token with the distinct-id
+teeth (`Conclave Cavalier`'s two Elf Knights), a tap-ping through
+Aladdin's Ring's damage shape (`Chandra's Magmutt`), a self-sacrifice
+token (`Centaur's Herald`) and pump (`Child of Thorns`), three tap-target
+activateds (`Checkpoint Officer`, `Clockwork Drawbridge`, and the Prowler
+above), ETB tokens (`Chimney Rabble`'s Phyrexian Goblin, `Clarion
+Cathars`' Human, `Common Crook`'s dies-Treasure, `Conscripted Infantry`'s
+artifact Soldier — FOUR new printings pinned: Centaur `trvr 10`, Elf
+Knight `trvr 15`, Phyrexian Goblin `tfdn 31`, artifact Soldier `totc 26`),
+ETB gains (`Centaur Healer`, `Centaur Nurturer` beside its engine-run
+any-color line), an ETB draw (`Cloudkin Seer`), an ETB enchantment destroy
+(`Cloudchaser Eagle` — Aven Cloudchaser's twin, name and all), and a flash
+ETB debuff (`Cogwork Wrestler`).
+
+**Re-measured, every delta exactly the twenty cards:** `complete` 1,858 →
+1,878 · `blocked` 29,834 → 29,814 · `scriptableToday` 1,135 → 1,115 ·
+ladder [1115, 1214, 3167, 5051, 6238] · botPool creature 1,240 → 1,258,
+artifact 44 → 45, enchantment 2 → 3 · tier3 `abilityText` 17,381 → 17,368,
+`payable` 4,777, `silentAfter` 2,269 → 2,289 · fixtures 280 → 304 (28
+tokens) · `batch.json` at 997 (20 landed + 5 refused off 1,022, exact) ·
+`botDeck.ts` regenerated (Centaur Glade joins; Adun reaches 1,032).
+
+⚠️⚠️ **THE FIRST GATE RUN HIT D166's PREDICTED WALL — the fuzz TIMED OUT at
+its 600 s ceiling** (unit suite, conformance and accounting all green; the
+machine idle at load 26). The second bus pass went in on the spot — the
+eager per-call constructions (`Object.keys`, both ctxs, both derive caches)
+made lazy, D162's regression lesson one object over, plus a per-kind
+present-def memo that skips defs whose card is in nobody's deck — **and it
+measured ~2% (73.5 → 72.2 s at 60 seeds), which is the honest finding: the
+bus is no longer the wall. The cost is the GAMES** — richer boards firing
+more triggers is the arc succeeding, at roughly +40–60 s per 20 scripts.
+The gate's timeout is therefore raised ONCE to 900 s with the history in
+its comment (a hang catcher, not a perf referee — D133's rule), and
+self-only def dispatch is the named next lever if the wall approaches the
+new ceiling.
+
+**Verified on the re-run: `node scripts/cardgen/verify.cjs --full` — ALL
+FIVE GATES PASSED in one invocation on the idle machine:** `tsc -b` clean ·
+conformance green · coverage accounting green over the real database · 218
+test files, 2,139 Vitest passed / 10 skipped (198 / 2,039 before) · the
+500-seed replay fuzz gate green at 589.6 s (148 scripts registered, 310 s
+inside the new ceiling) · `npm run build` clean · probe 124/124 ·
+`battery-anim.cjs bot engine prompts` 127/127.
+
+**Reportables (D167):**
+
+- The sacrifice-cost chooser holds FIFTEEN of the ledger's 35 entries —
+  COMMISSIONED: D168 builds it before batch 11.
+- The fuzz wall history now lives in the gate's own timeout comment;
+  self-only def dispatch is the named next lever if it approaches 900 s.
+- Prior items stand (exile-self cost, `ctx.random`, the unattached-Aura
+  targeting question, once-per-turn memory, per-damage-entry granularity).

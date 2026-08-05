@@ -120,7 +120,9 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // refusals (two sacrifice-choosers, one NEW remove-counter cost class).
     // M6.4i (D166) landed twenty-one of 25 — four refusals, one NEW class
     // (exile-SELF cost, named cheap: sacrificesSelf one event over).
-    expect(SHIPPED_SCRIPTS).toHaveLength(128);
+    // M6.4j (D167) landed twenty of 25 — the first UPKEEP trigger shipped,
+    // the pool's third enchantment, five ledger refusals.
+    expect(SHIPPED_SCRIPTS).toHaveLength(148);
   });
 });
 

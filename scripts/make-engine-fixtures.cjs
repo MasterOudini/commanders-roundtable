@@ -543,6 +543,31 @@ const WANTED = [
   'Cathar Commando',
   'Cathedral Sanctifier',
   'Caustic Caterpillar',
+  // M6.4j — batch 10 (D167): 20 landed of select.cjs's 25; the five refusals
+  // are two sacrifice-cost choosers (Cephalid Scout, Claws of Gix), a
+  // discard-cost chooser (Charging Strifeknight), a once-per-turn memory
+  // (Clarion Spirit — "your second spell each turn") and a tap-permanents
+  // cost (Clock of Omens).
+  'Celestial Force',
+  'Centaur Glade',
+  'Centaur Healer',
+  'Centaur Nurturer',
+  "Centaur's Herald",
+  "Chandra's Magmutt",
+  'Checkpoint Officer',
+  'Child of Thorns',
+  'Chimney Rabble',
+  'Chrome Prowler',
+  'City Pigeon',
+  'Clarion Cathars',
+  'Clockwork Drawbridge',
+  'Cloudchaser Eagle',
+  'Cloudkin Seer',
+  'Cogwork Wrestler',
+  "Commander's Sphere",
+  'Common Crook',
+  'Conclave Cavalier',
+  'Conscripted Infantry',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -570,6 +595,11 @@ const WANTED_TOKENS = [
   // M6.4e (D162).
   { name: 'Wurm', set: 'trtr', cn: '11', key: 'WURM_TOKEN' },
   { name: 'Thopter', set: 'tafc', cn: '12', key: 'THOPTER_TOKEN' },
+  // M6.4j (D167).
+  { name: 'Centaur', set: 'trvr', cn: '10', key: 'CENTAUR_TOKEN' },
+  { name: 'Elf Knight', set: 'trvr', cn: '15', key: 'ELF_KNIGHT_TOKEN' },
+  { name: 'Phyrexian Goblin', set: 'tfdn', cn: '31', key: 'PHYREXIAN_GOBLIN_TOKEN' },
+  { name: 'Soldier', set: 'totc', cn: '26', key: 'SOLDIER_ARTIFACT_TOKEN' },
   // M6.4i (D166).
   { name: 'Boar', set: 'tpca', cn: '14', key: 'BOAR_TOKEN' },
   { name: 'Dragon', set: 'tmm3', cn: '7', key: 'DRAGON_TOKEN' },

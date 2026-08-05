@@ -4100,6 +4100,43 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       quirk, every Aura is invisible to scripted enchantment removal); the
       sacrifice-chooser at THIRTEEN of 30 ledger entries; prior items stand.
 
+- [x] **M6.4j — Twenty landed, and the first upkeep trigger ships
+      (2026-08-06):** **1,878 of 31,692 Commander-legal cards now execute
+      completely, up from 1,858** — the first batch under the STANDING
+      continuation, `SHIPPED_SCRIPTS` 128 → 148, the offerable pool under a
+      thousand (997). Decisions in **D167**.
+      **Two firsts and a third enchantment:** the first SHIPPED upkeep
+      trigger (`Celestial Force` — `StepBegan`/'upkeep', EACH upkeep, no
+      active-player filter; the test watches the opponent's upkeep pay too);
+      the first targeted ETB TAP (`Chrome Prowler`, own-creature refusal
+      pinned); `Centaur Glade` makes the D160 zero-pin read THREE. Plus a
+      FREE self-sacrifice draw (`Commander's Sphere`), a leaves-only Food
+      (`City Pigeon`), a dies multi-token with distinct-id teeth (`Conclave
+      Cavalier`), a tap-ping (`Chandra's Magmutt`), and fourteen twins.
+      FOUR new token pins (Centaur `trvr 10`, Elf Knight `trvr 15`,
+      Phyrexian Goblin `tfdn 31`, artifact Soldier `totc 26`).
+      ⚠️ **Five refusals, all in the ledger: the sacrifice-cost chooser at
+      FIFTEEN of 35 entries** (Cephalid Scout, Claws of Gix joined), plus a
+      discard-cost (Charging Strifeknight), a once-per-turn memory (Clarion
+      Spirit — "your second spell each turn"), and a tap-permanents cost
+      (Clock of Omens, the tap-creatures chooser's artifact sibling).
+      Fixtures 280 → 304 (28 tokens) · ladder [1115, 1214, 3167, 5051,
+      6238] · `batch.json` at 997 · botDeck: Centaur Glade joins (Adun
+      reaches 1,032).
+      ⚠️⚠️ **D166's PREDICTED WALL ARRIVED: the first gate run's fuzz TIMED
+      OUT at 600 s.** A second bus pass (lazy per-call constructions +
+      present-def memo) measured ~2% — the honest finding is the cost is the
+      GAMES, not the bus — so the timeout is raised ONCE to 900 s with the
+      history in its comment, and self-only def dispatch is the named next
+      lever.
+      **Verified on the re-run: `verify.cjs --full` — ALL FIVE GATES in one
+      invocation: 218 test files, 2,139 Vitest passed / 10 skipped · the
+      500-seed gate green at 589.6 s (148 scripts, 310 s inside the new
+      ceiling) · build clean · probe 124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D167): the sacrifice-cost chooser at FIFTEEN
+      (commissioned — D168 is next); the wall history lives in the gate's
+      own comment; prior items stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

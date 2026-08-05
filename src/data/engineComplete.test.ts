@@ -200,6 +200,27 @@ const COMPLETE: readonly [string, CardData][] = [
   ['Cathar Commando', fx.CATHAR_COMMANDO],
   ['Cathedral Sanctifier', fx.CATHEDRAL_SANCTIFIER],
   ['Caustic Caterpillar', fx.CAUSTIC_CATERPILLAR],
+  // M6.4j (D167) — batch 10.
+  ['Celestial Force', fx.CELESTIAL_FORCE],
+  ['Centaur Glade', fx.CENTAUR_GLADE],
+  ['Centaur Healer', fx.CENTAUR_HEALER],
+  ['Centaur Nurturer', fx.CENTAUR_NURTURER],
+  ["Centaur's Herald", fx.CENTAUR_S_HERALD],
+  ["Chandra's Magmutt", fx.CHANDRA_S_MAGMUTT],
+  ['Checkpoint Officer', fx.CHECKPOINT_OFFICER],
+  ['Child of Thorns', fx.CHILD_OF_THORNS],
+  ['Chimney Rabble', fx.CHIMNEY_RABBLE],
+  ['Chrome Prowler', fx.CHROME_PROWLER],
+  ['City Pigeon', fx.CITY_PIGEON],
+  ['Clarion Cathars', fx.CLARION_CATHARS],
+  ['Clockwork Drawbridge', fx.CLOCKWORK_DRAWBRIDGE],
+  ['Cloudchaser Eagle', fx.CLOUDCHASER_EAGLE],
+  ['Cloudkin Seer', fx.CLOUDKIN_SEER],
+  ['Cogwork Wrestler', fx.COGWORK_WRESTLER],
+  ["Commander's Sphere", fx.COMMANDER_S_SPHERE],
+  ['Common Crook', fx.COMMON_CROOK],
+  ['Conclave Cavalier', fx.CONCLAVE_CAVALIER],
+  ['Conscripted Infantry', fx.CONSCRIPTED_INFANTRY],
 ];
 
 /**

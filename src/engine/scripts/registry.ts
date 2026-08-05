@@ -7,6 +7,26 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { CELESTIAL_FORCE_SCRIPT } from './cards/celestialForce';
+import { CENTAUR_GLADE_SCRIPT } from './cards/centaurGlade';
+import { CENTAUR_HEALER_SCRIPT } from './cards/centaurHealer';
+import { CENTAUR_NURTURER_SCRIPT } from './cards/centaurNurturer';
+import { CENTAURS_HERALD_SCRIPT } from './cards/centaursHerald';
+import { CHANDRAS_MAGMUTT_SCRIPT } from './cards/chandrasMagmutt';
+import { CHECKPOINT_OFFICER_SCRIPT } from './cards/checkpointOfficer';
+import { CHILD_OF_THORNS_SCRIPT } from './cards/childOfThorns';
+import { CHIMNEY_RABBLE_SCRIPT } from './cards/chimneyRabble';
+import { CHROME_PROWLER_SCRIPT } from './cards/chromeProwler';
+import { CITY_PIGEON_SCRIPT } from './cards/cityPigeon';
+import { CLARION_CATHARS_SCRIPT } from './cards/clarionCathars';
+import { CLOCKWORK_DRAWBRIDGE_SCRIPT } from './cards/clockworkDrawbridge';
+import { CLOUDCHASER_EAGLE_SCRIPT } from './cards/cloudchaserEagle';
+import { CLOUDKIN_SEER_SCRIPT } from './cards/cloudkinSeer';
+import { COGWORK_WRESTLER_SCRIPT } from './cards/cogworkWrestler';
+import { COMMANDERS_SPHERE_SCRIPT } from './cards/commandersSphere';
+import { COMMON_CROOK_SCRIPT } from './cards/commonCrook';
+import { CONCLAVE_CAVALIER_SCRIPT } from './cards/conclaveCavalier';
+import { CONSCRIPTED_INFANTRY_SCRIPT } from './cards/conscriptedInfantry';
 import { BRIARPACK_ALPHA_SCRIPT } from './cards/briarpackAlpha';
 import { BRINDLE_BOAR_SCRIPT } from './cards/brindleBoar';
 import { BRINDLE_SHOAT_SCRIPT } from './cards/brindleShoat';
@@ -229,6 +249,26 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CELESTIAL_FORCE_SCRIPT,
+  CENTAUR_GLADE_SCRIPT,
+  CENTAUR_HEALER_SCRIPT,
+  CENTAUR_NURTURER_SCRIPT,
+  CENTAURS_HERALD_SCRIPT,
+  CHANDRAS_MAGMUTT_SCRIPT,
+  CHECKPOINT_OFFICER_SCRIPT,
+  CHILD_OF_THORNS_SCRIPT,
+  CHIMNEY_RABBLE_SCRIPT,
+  CHROME_PROWLER_SCRIPT,
+  CITY_PIGEON_SCRIPT,
+  CLARION_CATHARS_SCRIPT,
+  CLOCKWORK_DRAWBRIDGE_SCRIPT,
+  CLOUDCHASER_EAGLE_SCRIPT,
+  CLOUDKIN_SEER_SCRIPT,
+  COGWORK_WRESTLER_SCRIPT,
+  COMMANDERS_SPHERE_SCRIPT,
+  COMMON_CROOK_SCRIPT,
+  CONCLAVE_CAVALIER_SCRIPT,
+  CONSCRIPTED_INFANTRY_SCRIPT,
   BRIARPACK_ALPHA_SCRIPT,
   BRINDLE_BOAR_SCRIPT,
   BRINDLE_SHOAT_SCRIPT,

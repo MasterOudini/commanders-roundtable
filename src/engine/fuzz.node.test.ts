@@ -149,6 +149,26 @@ import { CAT_OWL_SCRIPT } from './scripts/cards/catOwl';
 import { CATHAR_COMMANDO_SCRIPT } from './scripts/cards/catharCommando';
 import { CATHEDRAL_SANCTIFIER_SCRIPT } from './scripts/cards/cathedralSanctifier';
 import { CAUSTIC_CATERPILLAR_SCRIPT } from './scripts/cards/causticCaterpillar';
+import { CELESTIAL_FORCE_SCRIPT } from './scripts/cards/celestialForce';
+import { CENTAUR_GLADE_SCRIPT } from './scripts/cards/centaurGlade';
+import { CENTAUR_HEALER_SCRIPT } from './scripts/cards/centaurHealer';
+import { CENTAUR_NURTURER_SCRIPT } from './scripts/cards/centaurNurturer';
+import { CENTAURS_HERALD_SCRIPT } from './scripts/cards/centaursHerald';
+import { CHANDRAS_MAGMUTT_SCRIPT } from './scripts/cards/chandrasMagmutt';
+import { CHECKPOINT_OFFICER_SCRIPT } from './scripts/cards/checkpointOfficer';
+import { CHILD_OF_THORNS_SCRIPT } from './scripts/cards/childOfThorns';
+import { CHIMNEY_RABBLE_SCRIPT } from './scripts/cards/chimneyRabble';
+import { CHROME_PROWLER_SCRIPT } from './scripts/cards/chromeProwler';
+import { CITY_PIGEON_SCRIPT } from './scripts/cards/cityPigeon';
+import { CLARION_CATHARS_SCRIPT } from './scripts/cards/clarionCathars';
+import { CLOCKWORK_DRAWBRIDGE_SCRIPT } from './scripts/cards/clockworkDrawbridge';
+import { CLOUDCHASER_EAGLE_SCRIPT } from './scripts/cards/cloudchaserEagle';
+import { CLOUDKIN_SEER_SCRIPT } from './scripts/cards/cloudkinSeer';
+import { COGWORK_WRESTLER_SCRIPT } from './scripts/cards/cogworkWrestler';
+import { COMMANDERS_SPHERE_SCRIPT } from './scripts/cards/commandersSphere';
+import { COMMON_CROOK_SCRIPT } from './scripts/cards/commonCrook';
+import { CONCLAVE_CAVALIER_SCRIPT } from './scripts/cards/conclaveCavalier';
+import { CONSCRIPTED_INFANTRY_SCRIPT } from './scripts/cards/conscriptedInfantry';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -383,6 +403,17 @@ const DECK = [
   'Cabal Trainee', 'Cackling Imp', 'Capashen Unicorn', 'Captive Flame',
   "Cartographer's Companion", 'Carven Caryatid', 'Castle Ardenvale',
   'Cat-Owl', 'Cathar Commando', 'Cathedral Sanctifier', 'Caustic Caterpillar',
+  // M6.4j/D167 — batch 10: the first shipped UPKEEP trigger (Celestial
+  // Force, EACH upkeep — four firings per turn cycle at this table), a
+  // targeted ETB TAP (Chrome Prowler), a leaves-only Food (City Pigeon), a
+  // free self-sacrifice draw (Commander's Sphere), and a dies multi-token
+  // (Conclave Cavalier).
+  'Celestial Force', 'Centaur Glade', 'Centaur Healer', 'Centaur Nurturer',
+  "Centaur's Herald", "Chandra's Magmutt", 'Checkpoint Officer',
+  'Child of Thorns', 'Chimney Rabble', 'Chrome Prowler', 'City Pigeon',
+  'Clarion Cathars', 'Clockwork Drawbridge', 'Cloudchaser Eagle',
+  'Cloudkin Seer', 'Cogwork Wrestler', "Commander's Sphere", 'Common Crook',
+  'Conclave Cavalier', 'Conscripted Infantry',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -555,6 +586,26 @@ const SCRIPTS = createRegistry([
   CATHAR_COMMANDO_SCRIPT,
   CATHEDRAL_SANCTIFIER_SCRIPT,
   CAUSTIC_CATERPILLAR_SCRIPT,
+  CELESTIAL_FORCE_SCRIPT,
+  CENTAUR_GLADE_SCRIPT,
+  CENTAUR_HEALER_SCRIPT,
+  CENTAUR_NURTURER_SCRIPT,
+  CENTAURS_HERALD_SCRIPT,
+  CHANDRAS_MAGMUTT_SCRIPT,
+  CHECKPOINT_OFFICER_SCRIPT,
+  CHILD_OF_THORNS_SCRIPT,
+  CHIMNEY_RABBLE_SCRIPT,
+  CHROME_PROWLER_SCRIPT,
+  CITY_PIGEON_SCRIPT,
+  CLARION_CATHARS_SCRIPT,
+  CLOCKWORK_DRAWBRIDGE_SCRIPT,
+  CLOUDCHASER_EAGLE_SCRIPT,
+  CLOUDKIN_SEER_SCRIPT,
+  COGWORK_WRESTLER_SCRIPT,
+  COMMANDERS_SPHERE_SCRIPT,
+  COMMON_CROOK_SCRIPT,
+  CONCLAVE_CAVALIER_SCRIPT,
+  CONSCRIPTED_INFANTRY_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,
@@ -1315,7 +1366,15 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       // clicks either way, which is the coverage that does not depend on luck.
       if (SEEDS >= 500) expect(totals.replacementChoices).toBeGreaterThan(0);
     },
-    600_000,
+    // ⚠️ A HANG CATCHER, NOT A PERF REFEREE (D133's testTimeout rule). The
+    // wall grows with the arc's whole point — more scripts mean richer games
+    // mean more events — and it crossed 600 s at 148 scripts (D167). A
+    // second bus pass (lazy construction + present-def memo) measured ~2% at
+    // 60 seeds, which is the proof the cost is the GAMES, not the bus.
+    // History: 394 s @ 57 · 471 s @ 107 · 568 s @ 128 · timeout @ 148.
+    // Raised once; self-only def dispatch is the named next lever if the
+    // wall ever approaches THIS ceiling.
+    900_000,
   );
 
   test('a fuzzed game never leaks a library into any projection', () => {

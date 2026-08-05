@@ -812,19 +812,26 @@ export function collectTriggers(
 ): PendingTrigger[] {
   if (scripts.size === 0) return [];
   const out: PendingTrigger[] = [];
-  const cache = makeDeriveCache(after);
-  const cacheBefore = makeDeriveCache(before);
   let n = after.eventCount * 1000;
 
-  // ⚠️ HOISTED, and it is not a micro-optimisation. This was `allObjects(after)`
-  // in the innermost position, so `Object.keys(state.cards)` was rebuilt once
-  // per (event × def) — O(events × defs × cards), which is noise with one
-  // registered card and the shape of the bus with a library of them. Both id
-  // lists are built ONCE, here.
-  const idsAfter = Object.keys(after.cards);
-  const idsBefore = Object.keys(before.cards);
-  const ctxAfter = readonlyCtx(after, oracle, scripts, cache);
-  const ctxBefore = readonlyCtx(before, oracle, scripts, cacheBefore);
+  // ⚠️ HOISTED **AND LAZY** (D168) — D147 hoisted the id lists out of the
+  // inner loop; D168 made them (and both ctxs and both derive caches) built
+  // on FIRST DEMAND, because every one of them was constructed per
+  // collectTriggers CALL — once per pump — while most batches contain no
+  // event any def watches. That is D162's eager-maps regression one object
+  // over: `Object.keys(after.cards)` alone was an O(cards) pass per pump.
+  let idsAfterMemo: string[] | null = null;
+  let idsBeforeMemo: string[] | null = null;
+  const idsOf = (look: boolean): string[] =>
+    look
+      ? (idsBeforeMemo ??= Object.keys(before.cards))
+      : (idsAfterMemo ??= Object.keys(after.cards));
+  let ctxAfterMemo: ReturnType<typeof readonlyCtx> | null = null;
+  let ctxBeforeMemo: ReturnType<typeof readonlyCtx> | null = null;
+  const ctxOf = (look: boolean): ReturnType<typeof readonlyCtx> =>
+    look
+      ? (ctxBeforeMemo ??= readonlyCtx(before, oracle, scripts, makeDeriveCache(before)))
+      : (ctxAfterMemo ??= readonlyCtx(after, oracle, scripts, makeDeriveCache(after)));
 
   // ⚠️ THE PER-ORACLE SOURCE INDEX (D162) — D147 hoisted the id lists; this
   // removes the remaining O(events × defs × cards) scan that D128 named and
@@ -859,12 +866,31 @@ export function collectTriggers(
   let byOracleAfterMemo: Map<string, string[]> | null = null;
   let byOracleBeforeMemo: Map<string, string[]> | null = null;
   const byOracle = (look: boolean): Map<string, string[]> => {
-    if (look) return (byOracleBeforeMemo ??= indexByOracle(before, idsBefore));
-    return (byOracleAfterMemo ??= indexByOracle(after, idsAfter));
+    if (look) return (byOracleBeforeMemo ??= indexByOracle(before, idsOf(true)));
+    return (byOracleAfterMemo ??= indexByOracle(after, idsOf(false)));
+  };
+
+  // ⚠️ THE PER-KIND PRESENT-DEF MEMO (D168). At 148 scripts a `CardsMoved`
+  // event consults ~150 defs, most of whose cards are in nobody's deck this
+  // game — and a batch can hold dozens of `CardsMoved` events. The absent
+  // defs produce no matches, so SKIPPING them cannot change the match
+  // sequence: this memo filters each kind's def list to defs with at least
+  // one instance, once per batch, and every later event of the same kind
+  // walks only the survivors. Order within the list is registry order,
+  // untouched — the output is bit-identical to the unfiltered loop.
+  const presentDefsByKind = new Map<string, ReturnType<ScriptRegistry['triggersFor']>>();
+  const presentDefsFor = (kind: EventBody['t']): ReturnType<ScriptRegistry['triggersFor']> => {
+    const got = presentDefsByKind.get(kind);
+    if (got) return got;
+    const filtered = scripts
+      .triggersFor(kind)
+      .filter(({ script, def }) => (byOracle(def.looksBack === true).get(script.oracleId)?.length ?? 0) > 0);
+    presentDefsByKind.set(kind, filtered);
+    return filtered;
   };
 
   for (const event of applied) {
-    for (const { script, def } of scripts.triggersFor(event.body.t)) {
+    for (const { script, def } of presentDefsFor(event.body.t)) {
       // ⚠️ CR 603.10a — A TRIGGER THAT LOOKS BACK IN TIME ASKS THE OLD BOARD,
       // and every question has to move together. A "dies" trigger runs after
       // its own source has reached the graveyard, so asking `after` rejects it
@@ -874,7 +900,7 @@ export function collectTriggers(
       // so a dies-trigger could not be written correctly at all (D128).
       const look = def.looksBack === true;
       const state = look ? before : after;
-      const ctx = look ? ctxBefore : ctxAfter;
+      const ctx = ctxOf(look);
       // The index above — only this script's own instances, in the same order
       // the full scan would have visited them.
       const candidates = byOracle(look).get(script.oracleId) ?? [];
