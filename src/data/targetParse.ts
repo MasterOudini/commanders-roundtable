@@ -21,7 +21,13 @@
 // a count prefix and a controller suffix covers the overwhelming majority, and
 // the tail is long, flat and not worth guessing at.
 
-import type { TargetController, TargetKind, TargetSpec, TargetZone } from '../engine/types/oracle';
+import type {
+  NumericRestriction,
+  TargetController,
+  TargetKind,
+  TargetSpec,
+  TargetZone,
+} from '../engine/types/oracle';
 import { FREE_TARGET } from '../engine/types/oracle';
 // ⚠️ Type-only, and deliberately so: `oracleParse` imports THIS module, so a
 // value import would close a runtime cycle. Types are erased, so this is not one.
@@ -97,9 +103,14 @@ export function splitAbilityLines(text: string, isPermanentSpell = false): Abili
     }
     // An activated ability is `cost: effect`, and the colon has to come before
     // any sentence break or "Choose one — - Destroy target..." reads as a cost.
+    // ⚠️ The length cap exists for PROSE colons, and prose never opens with a
+    // brace — so a line that STARTS with a mana/tap symbol is a cost line at
+    // any length (D159). War Room's cost is 82 characters: `{3}, {T}, Pay life
+    // equal to the number of colors in your commanders' color identity`.
     const colon = line.indexOf(':');
     const stop = line.search(/[.;]/);
-    if (colon > 0 && colon <= MAX_COST_LEN && (stop < 0 || colon < stop)) {
+    const costLike = colon <= MAX_COST_LEN || line.startsWith('{');
+    if (colon > 0 && costLike && (stop < 0 || colon < stop)) {
       out.push({
         text: line,
         kind: 'activated',
@@ -262,6 +273,15 @@ interface NounEntry {
   readonly kinds: readonly TargetKind[];
   readonly controller?: TargetController;
   readonly zones?: readonly TargetZone[];
+  /**
+   * CARD TYPES this noun requires (D138). `['Creature']` for `creature card`.
+   *
+   * WARNING: a type named here must NOT also appear in `unenforced` — that field
+   * is what `tier3.ts` prints as 'the app will not check this', and saying so
+   * about something now enforced is the disclosure lying in the safe direction,
+   * which is still lying.
+   */
+  readonly cardTypes?: readonly string[];
   /** Printed words this entry knowingly does not enforce. */
   readonly unenforced?: readonly string[];
 }
@@ -293,7 +313,7 @@ const NOUNS: readonly NounEntry[] = [
 
   // stack objects
   { re: new RegExp(`^instant\\s+or\\s+sorcery\\s+spell${s}\\b`, 'i'), kinds: ['spell'] },
-  { re: new RegExp(`^instant\\s+or\\s+sorcery\\s+card${s}\\b`, 'i'), kinds: ['card'], zones: ['graveyard'] },
+  { re: new RegExp(`^instant\\s+or\\s+sorcery\\s+card${s}\\b`, 'i'), kinds: ['card'], zones: ['graveyard'], cardTypes: ['Instant', 'Sorcery'] },
   { re: new RegExp(`^activated\\s+or\\s+triggered\\s+abilit(?:y|ies)\\b`, 'i'), kinds: ['spell'] },
   { re: new RegExp(`^spell${s}\\s+or\\s+abilit(?:y|ies)\\b`, 'i'), kinds: ['spell'] },
   { re: new RegExp(`^spell${s}\\s+or\\s+permanent${s}\\b`, 'i'), kinds: ['spell', 'permanent'] },
@@ -308,8 +328,19 @@ const NOUNS: readonly NounEntry[] = [
   { re: new RegExp(`^blocking\\s+creature${s}\\b`, 'i'), kinds: ['creature'], unenforced: ['blocking'] },
 
   // cards in known zones
-  { re: new RegExp(`^creature\\s+card${s}\\b`, 'i'), kinds: ['card'], unenforced: ['creature card'] },
-  { re: new RegExp(`^permanent\\s+card${s}\\b`, 'i'), kinds: ['card'], unenforced: ['permanent card'] },
+  { re: new RegExp(`^creature\\s+card${s}\\b`, 'i'), kinds: ['card'], cardTypes: ['Creature'] },
+  // ⚠️ "Permanent card" is a card of any PERMANENT type (CR 110.4a), and
+  // `cardTypes` is ANY-of — so the six types ARE the restriction, exactly.
+  // Until D147 this sat in `unenforced`, which is `tier3.ts`'s way of printing
+  // "the app will not check this" on the card: `Zombify`-shaped reanimation
+  // would accept an instant or a sorcery out of a graveyard. D138 closed the
+  // same hole for "creature card" and left this as its own reportable, because
+  // one type is a list of one and six is a list of six.
+  {
+    re: new RegExp(`^permanent\\s+card${s}\\b`, 'i'),
+    kinds: ['card'],
+    cardTypes: ['Artifact', 'Battle', 'Creature', 'Enchantment', 'Land', 'Planeswalker'],
+  },
   { re: new RegExp(`^card${s}\\b`, 'i'), kinds: ['card'] },
 
   // plain kinds
@@ -353,6 +384,10 @@ const CONTROLLER_WINDOW = 40;
 
 interface ControllerResult {
   readonly controller: TargetController | null;
+  /** The zone the clause names, when it names one (D138). */
+  readonly zones: readonly TargetZone[] | null;
+  /** The numeric restriction the clause names, when it names one (D139). */
+  readonly numeric: NumericRestriction | null;
   /** Where the printed clause ends. */
   readonly end: number;
 }
@@ -366,19 +401,93 @@ function readController(after: string, from: number): ControllerResult {
   const stop = window.search(/[.;\n]/);
   const searchable = stop >= 0 ? window.slice(0, stop) : window;
 
+  /**
+   * ⚠️ **THE ZONE PHRASE IS READ HERE, AND IT CARRIES A CONTROLLER TOO.**
+   * "Return target creature card from your graveyard to your hand" names both:
+   * WHICH zone (a graveyard, not exile) and WHOSE (yours, not an opponent's).
+   * Before D138 neither was read, so `Raise Dead` admitted any card in ANY
+   * graveyard or exile — and the type restriction sat in `unenforced` on top of
+   * that, so it admitted lands as well.
+   *
+   * ⚠️ Checked BEFORE "you control", because a graveyard clause never says
+   * "control": the plain reader would return null, consume nothing, and leave
+   * the phrase to be swallowed as part of the next clause's text.
+   *
+   * ⚠️ "a graveyard" (Naya Charm, Pulse of Murasa) means ANY graveyard, so the
+   * controller stays null rather than being narrowed to the caster. Reading it
+   * as "yours" would block a legal choice, which is the one direction
+   * `targetParse` is never allowed to be wrong in.
+   */
+  /**
+   * ⚠️ **THE NUMERIC QUALIFIER IS READ FIRST, because it comes first in print.**
+   * "target creature with power 4 or greater you control" puts it between the
+   * noun and the controller phrase, so a reader that looked for "you control"
+   * immediately after the noun would find nothing and drop BOTH. Reading it here
+   * and recursing means each qualifier consumes its own words and the rest still
+   * gets its turn.
+   *
+   * ⚠️ It also fixes `text`. The clause's printed span runs to `end`, so before
+   * this the prompt bar showed "target creature" for a card that says "target
+   * creature with power 4 or greater" — the app quoting a rule the card does not
+   * have.
+   */
+  const num = searchable.match(
+    /^\s+with\s+(mana value|converted mana cost|power|toughness)\s+(\d+)\s+or\s+(less|greater|more)\b/i,
+  );
+  if (num) {
+    const rawAttr = (num[1] ?? '').toLowerCase();
+    const attr = rawAttr === 'power' || rawAttr === 'toughness' ? rawAttr : 'manaValue';
+    const value = Number(num[2]);
+    const cmp = (num[3] ?? '').toLowerCase() === 'less' ? 'atMost' : 'atLeast';
+    const consumed = from + (num[0]?.length ?? 0);
+    // Recurse, so "…with power 4 or greater YOU CONTROL" keeps both.
+    const rest = readController(after, consumed);
+    return {
+      controller: rest.controller,
+      zones: rest.zones,
+      numeric: Number.isFinite(value) ? { attr, cmp, value } : null,
+      end: rest.end,
+    };
+  }
+
+  const gy = searchable.match(/^\s+(?:from|in)\s+(your|a|an opponent's)\s+graveyards?\b/i);
+  if (gy) {
+    const whose = (gy[1] ?? '').toLowerCase();
+    /**
+     * ⚠️ **RECURSES, FOR THE SAME REASON THE NUMERIC BRANCH ABOVE DOES** (D140).
+     * Qualifiers come in either order, and a branch that returns instead of
+     * recursing silently drops whatever follows it. "target creature card IN
+     * YOUR GRAVEYARD with mana value 4 or less" read the zone and threw the
+     * number away — `numeric: null`, `text` truncated at "…in your graveyard" —
+     * which is precisely the silent widening D139 closed for the other ordering,
+     * surviving in the branch that was written first.
+     *
+     * ⚠️ **ONE PRINTED CARD NEEDS IT TODAY** (`Too Evil to Stay Dead`), and the
+     * asymmetry is the reason to fix it rather than the card: two qualifier
+     * readers that behave differently is a bug waiting for the third one.
+     */
+    const rest = readController(after, from + (gy[0]?.length ?? 0));
+    return {
+      controller: whose === 'your' ? 'you' : whose === 'a' ? null : 'opponent',
+      zones: ['graveyard'],
+      numeric: rest.numeric,
+      end: rest.end,
+    };
+  }
+
   const you = searchable.match(/^\s+you\s+control\b/i);
-  if (you) return { controller: 'you', end: from + (you[0]?.length ?? 0) };
+  if (you) return { controller: 'you', zones: null, numeric: null, end: from + (you[0]?.length ?? 0) };
 
   const opp = searchable.match(/^\s+an\s+opponent\s+controls\b/i);
-  if (opp) return { controller: 'opponent', end: from + (opp[0]?.length ?? 0) };
+  if (opp) return { controller: 'opponent', zones: null, numeric: null, end: from + (opp[0]?.length ?? 0) };
 
   const notYou = searchable.match(/^\s+you\s+don(?:'|’)?t\s+control\b/i);
-  if (notYou) return { controller: 'opponent', end: from + (notYou[0]?.length ?? 0) };
+  if (notYou) return { controller: 'opponent', zones: null, numeric: null, end: from + (notYou[0]?.length ?? 0) };
 
   const other = searchable.match(/^\s+another\s+player\s+controls\b/i);
-  if (other) return { controller: 'opponent', end: from + (other[0]?.length ?? 0) };
+  if (other) return { controller: 'opponent', zones: null, numeric: null, end: from + (other[0]?.length ?? 0) };
 
-  return { controller: null, end: from };
+  return { controller: null, zones: null, numeric: null, end: from };
 }
 
 // ── the clause parser ────────────────────────────────────────────────────────
@@ -419,6 +528,8 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
         kinds: ['creature', 'player', 'planeswalker', 'battle'],
         controller: 'any',
         zones: [],
+        cardTypes: [],
+        numeric: null,
         text: text.slice(start >= 0 ? start : at, at + word.length),
         confident: true,
         unenforced: [],
@@ -462,7 +573,9 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
       max: count.max,
       kinds: entry.kinds,
       controller,
-      zones: entry.zones ?? [],
+      zones: ctl.zones ?? entry.zones ?? [],
+      cardTypes: entry.cardTypes ?? [],
+      numeric: ctl.numeric,
       text: text.slice(count.start, ctl.end).trim(),
       confident: count.confident,
       unenforced,
@@ -514,7 +627,9 @@ export function parseEnchant(text: string, warn: Warn = NOOP_WARN): TargetSpec |
     max: 1,
     kinds: entry.kinds,
     controller: ctl.controller ?? entry.controller ?? 'any',
-    zones: entry.zones ?? [],
+    zones: ctl.zones ?? entry.zones ?? [],
+    cardTypes: entry.cardTypes ?? [],
+    numeric: ctl.numeric,
     text: (m[0] ?? '').trim(),
     confident: true,
     unenforced,
@@ -531,7 +646,7 @@ const MODAL_RE = /\bchoose\s+(one|two|three|up to)\b/i;
  * ⚠️ Activated-ability lines are excluded — those belong to `activated[i]`.
  * Triggered-ability lines are excluded too, and that is a deliberate v1 call: no
  * trigger reaches the stack with targets without a card script, and
- * `EMPTY_REGISTRY` ships. Asking a player to aim an ETB the app will never
+ * `SHIPPED_REGISTRY` ships. Asking a player to aim an ETB the app will never
  * execute is theatre.
  *
  * ⚠️ Modal spells emit ONE free spec for the whole face. The clauses belong to

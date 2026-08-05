@@ -5,11 +5,14 @@
 // not synced, this reports that plainly instead of quietly starting a game with
 // no cards — a table full of blanks is far worse than a message saying why.
 
-import { seatFromDeck, seatName, starterSeat, startSpec, TOKEN_NAMES, type CardResolver } from './buildGame';
+import { botSeat, seatFromDeck, seatName, starterSeat, startSpec, tokenPrintingsNeeded, TOKEN_NAMES, type CardResolver } from './buildGame';
+import { attachBots } from './botSeat';
+import { DEFAULT_BOT } from '../bot/types';
 import * as session from './session';
 import type { CardData } from '../data/cardTypes';
 import type { SeatSpec } from './session';
 import type { PlayerView } from '../view/types';
+import type { ScriptRegistry } from '../engine/scripts/registry';
 
 export interface SoloResult {
   readonly ok: boolean;
@@ -43,8 +46,19 @@ function bridgeResolver(): CardResolver | null {
   };
 }
 
-/** Token printings for the manual tool, resolved by name and layout. */
-async function loadTokens(): Promise<CardData[]> {
+/**
+ * Token printings this game needs: the manual tool's twelve, plus every token
+ * the seated decks can actually create.
+ *
+ * ⚠️ The second half is not a convenience — see `tokenPrintingsNeeded`. A card
+ * that creates a token the pool does not hold resolves correctly and puts a
+ * BLANK on the battlefield, because `derive` cannot find the printing.
+ *
+ * ⚠️ Fetched by exact id through `byId`, one call each, because the baked table
+ * already decided WHICH printing the description names (D133). Looking it up by
+ * name here would be a second copy of that decision.
+ */
+async function loadTokens(seats: readonly SeatSpec[]): Promise<CardData[]> {
   const bridge = window.crt;
   if (!bridge) return [];
   const out: CardData[] = [];
@@ -55,6 +69,16 @@ async function loadTokens(): Promise<CardData[]> {
       if (token) out.push(token);
     } catch {
       // A missing token is not worth failing a game start over.
+    }
+  }
+  const have = new Set(out.map((c) => c.scryfallId));
+  for (const id of tokenPrintingsNeeded(seats)) {
+    if (have.has(id)) continue;
+    try {
+      const token = await bridge.cardDb.byId(id);
+      if (token) out.push(token);
+    } catch {
+      // Same reasoning: a game that starts without one token beats no game.
     }
   }
   return out;
@@ -83,7 +107,14 @@ export interface SoloOptions {
   readonly seats?: number;
   /** Deck ids per seat; `null` means "use a starter deck". */
   readonly deckIds?: readonly (string | null)[];
+  /** Which seats a bot plays. Seat 0 is always a person. */
+  readonly bots?: readonly boolean[];
   readonly seed?: string;
+  /**
+   * Card scripts. **No screen passes this** — see `HostOptions.scripts` for why
+   * the seam exists and what it deliberately is not.
+   */
+  readonly scripts?: ScriptRegistry;
 }
 
 export async function startSolo(opts: SoloOptions = {}): Promise<SoloResult> {
@@ -117,8 +148,19 @@ export async function startSolo(opts: SoloOptions = {}): Promise<SoloResult> {
   const count = Math.min(4, Math.max(2, opts.seats ?? 4));
   const seats: SeatSpec[] = [];
   const missing: string[] = [];
+  const botIds: string[] = [];
   for (let i = 0; i < count; i++) {
     const id = `p${i + 1}`;
+    // ⚠️ Before the deck branch: a bot plays the curated deck and nothing else,
+    // because that deck is the whole reason it can play honestly. Seat 0 can
+    // never be a bot (`soloStore.setBot` enforces it).
+    if (opts.bots?.[i] && i > 0) {
+      const built = await botSeat(id, seatName(i), resolver);
+      seats.push(built.seat);
+      missing.push(...built.missing);
+      botIds.push(id);
+      continue;
+    }
     const deckId = opts.deckIds?.[i] ?? null;
     if (deckId) {
       const deck = await bridge.decks.get(deckId);
@@ -143,7 +185,7 @@ export async function startSolo(opts: SoloOptions = {}): Promise<SoloResult> {
     };
   }
 
-  const tokens = await loadTokens();
+  const tokens = await loadTokens(seats);
   const seed = opts.seed ?? `solo-${seats.length}-${seats.map((s) => s.library.length).join('-')}`;
   const info = await bridge.app.info().catch(() => null);
   // ⚠️ A solo game is a real host with a real client per seat, over loopback
@@ -153,7 +195,12 @@ export async function startSolo(opts: SoloOptions = {}): Promise<SoloResult> {
     spec: startSpec(seats, tokens, seed),
     oracleVersion: await oracleVersion(),
     appVersion: info?.version ?? '0.0.0',
+    ...(opts.scripts !== undefined ? { scripts: opts.scripts } : {}),
   });
+
+  // ⚠️ AFTER `startLocal`, because a runner needs the client it drives — and
+  // after the game has started, so the bot's first decision sees a real board.
+  if (botIds.length > 0) attachBots(botIds, DEFAULT_BOT);
 
   // Art for everything in play, so the table is not a wall of synthetic faces.
   const ids = [...new Set(seats.flatMap((s) => [...s.commanders, ...s.library]).map((c) => c.scryfallId))];

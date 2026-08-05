@@ -29,6 +29,7 @@ import type { LegalAction } from '../engine/legal';
 import type { Intent, RejectReason } from '../engine/types/intents';
 import type { Awaiting, TargetChoice } from '../engine/types/state';
 import type { TargetSpec } from '../engine/types/oracle';
+import type { ScriptRegistry } from '../engine/scripts/registry';
 import type { CardData } from '../data/cardTypes';
 import type { EngineEvent, PlayerView } from '../view/types';
 import { emptyView } from '../view/types';
@@ -80,6 +81,17 @@ let lastReject: Rejection | null = null;
 let rejectSeq = 0;
 let seatSwitchTimer: ReturnType<typeof setTimeout> | null = null;
 let gameId = '';
+/**
+ * Seats a bot is playing, and the teardown for the runners driving them.
+ *
+ * ⚠️ Kept HERE rather than on `SeatSpec`, because `SeatSpec` goes to
+ * `HostSession` and the host must not know what a bot is. "A bot is a client"
+ * (M4 invariant 6) is the one claim the whole design rests on, and a `kind`
+ * field on the wire would quietly contradict it — besides being meaningless in
+ * a LAN game, where it would have to be redacted or explained.
+ */
+let botSeats = new Set<string>();
+let botTeardown: (() => void) | null = null;
 
 const EMPTY: SessionSnapshot = {
   running: false,
@@ -208,12 +220,20 @@ function isActiveSeat(playerId: string): boolean {
 export function clientHooks(playerId: string): ClientHooks {
   return {
     onBatch: (events, next) => {
-      if (!isActiveSeat(playerId)) return;
-      // ⚠️ Told BEFORE the choreographer, so the offer is up while the card is
-      // still flying to the graveyard rather than a beat later.
+      // ⚠️ HOISTED ABOVE THE ACTIVE-SEAT GUARD, and narrowed to the controller's
+      // OWN client. Before this the offer was raised from whichever client the
+      // table happened to be looking at, so a bot seat — which is never the
+      // viewer — could resolve an assisted spell and be offered nothing at all,
+      // while the human was offered it instead (D120 fixed WHOSE name went on
+      // the button, not whose client raised it). `controller === playerId` also
+      // keeps the multiplicity at exactly one in a solo game, where all four
+      // clients receive every update.
       for (const e of events) {
-        if (e.t === 'StackResolved' && e.instanceId) notifyResolved(e.instanceId, e.targets);
+        if (e.t === 'StackResolved' && e.instanceId && e.controller === playerId) {
+          notifyResolved(e.instanceId, e.targets, e.controller);
+        }
       }
+      if (!isActiveSeat(playerId)) return;
       choreographer.ingest([...events], next);
     },
     onSnapshot: (next) => {
@@ -258,6 +278,12 @@ export interface LocalStart {
   readonly spec: StartSpec;
   readonly oracleVersion: string;
   readonly appVersion: string;
+  /**
+   * Card scripts, for a caller that has some. **The app never passes this** and
+   * `SHIPPED_REGISTRY` is still what ships — see `HostOptions.scripts`, which
+   * carries the whole reason this parameter exists.
+   */
+  readonly scripts?: ScriptRegistry;
 }
 
 /**
@@ -283,6 +309,7 @@ export function startLocal(start: LocalStart): PlayerView {
     resolver: bridgeResolver(start.spec.pool),
     extraPool: start.spec.pool,
     ...(start.spec.options !== undefined ? { options: start.spec.options } : {}),
+    ...(start.scripts !== undefined ? { scripts: start.scripts } : {}),
     onEvents: persistEvents,
     onDesync: (record) => {
       void window.crt?.gameLog.desync({ side: 'host', gameId, ...record }).catch(() => undefined);
@@ -359,6 +386,11 @@ function persistEvents(events: readonly unknown[]): void {
 }
 
 export function stop(): void {
+  // ⚠️ BEFORE the clients close. A runner holds a timer against its client, and
+  // a timer that fires after `close()` submits into a transport that is gone.
+  botTeardown?.();
+  botTeardown = null;
+  botSeats = new Set();
   for (const off of unsubs) off();
   unsubs = [];
   for (const client of clients.values()) client.close();
@@ -448,8 +480,16 @@ function maybeSwitchSeat(): void {
   // ⚠️ Only ever within THIS app. A remote game has one client, so `clients`
   // has one entry and the hotseat cannot reach a seat somebody else is holding.
   if (!autoSwitch || clients.size < 2) return;
+  // ⚠️ A table with one human and three bots must never arm this at all. Every
+  // switch would be suppressed below, and arming it means a 50-iteration
+  // choreographer poll on every single submit for a hand-off that cannot happen.
+  if (clients.size - botSeats.size < 2) return;
   const needed = whoIsNeeded();
-  if (!needed || needed === viewer || !clients.has(needed)) return;
+  // ⚠️ THE TABLE NEVER FOLLOWS A BOT. `whoIsNeeded()` returns whoever holds
+  // priority, which is routinely the bot, and following it would flip the board
+  // to the bot's side every time it responded to anything. `whoIsNeeded` itself
+  // is left alone — it is the honest answer to "who is the game waiting on".
+  if (!needed || needed === viewer || !clients.has(needed) || botSeats.has(needed)) return;
   if (seatSwitchTimer !== null) clearTimeout(seatSwitchTimer);
   const started = Date.now();
   const poll = (): void => {
@@ -459,12 +499,50 @@ function maybeSwitchSeat(): void {
     if (settled || Date.now() - started > 4000) {
       seatSwitchTimer = null;
       const target = whoIsNeeded();
-      if (target && target !== viewer && clients.has(target)) setViewer(target);
+      // ⚠️ Guarded AGAIN, because the target is re-read after the drain: a bot
+      // can perfectly well become the seat the game is waiting on between the
+      // first check and this one.
+      if (target && target !== viewer && clients.has(target) && !botSeats.has(target)) {
+        // ⚠️ Announced only for a switch the GAME made. Pressing a seat in the
+        // picker is already its own answer to "why am I looking at Ben"; a
+        // banner over a button the player just pressed is noise, and it is the
+        // unannounced hand-off that the player experiences as the table
+        // changing sides on its own.
+        notifyHandoff(viewer, target);
+        setViewer(target);
+      }
       return;
     }
     seatSwitchTimer = setTimeout(poll, 80);
   };
   seatSwitchTimer = setTimeout(poll, 80);
+}
+
+// ── the hotseat hand-off ─────────────────────────────────────────────────────
+//
+// ⚠️ A NOTIFICATION, in the same shape as `onSpellResolved` and for the same
+// reason: it is a thing that happened, not a thing the game is waiting on. It
+// carries seat IDS and no names — `src/ui/` already holds `seats` and is the
+// only layer that should be composing a sentence.
+
+export interface SeatHandoff {
+  readonly from: string;
+  readonly to: string;
+}
+
+type HandoffListener = (handoff: SeatHandoff) => void;
+let handoffListeners: HandoffListener[] = [];
+
+function notifyHandoff(from: string, to: string): void {
+  for (const fn of [...handoffListeners]) fn({ from, to });
+}
+
+/** Told whenever the hotseat moves the table to another seat by itself. */
+export function onSeatHandoff(fn: HandoffListener): () => void {
+  handoffListeners.push(fn);
+  return () => {
+    handoffListeners = handoffListeners.filter((x) => x !== fn);
+  };
 }
 
 export function setViewer(player: string): void {
@@ -521,13 +599,30 @@ export function previewCast(
 export interface ResolvedSpell {
   readonly card: string;
   readonly targets: readonly TargetChoice[];
+  /**
+   * WHOSE spell resolved — never "whoever is looking at the table".
+   *
+   * ⚠️ This listener fires on the ACTIVE SEAT'S client, which in a hotseat is
+   * regularly not the player who cast the thing: the table follows priority
+   * (D42), so a spell cast by Ben resolves while Ana is being viewed. Every
+   * consumer must act for this player and not for `viewerId()`. See D120.
+   */
+  readonly controller: string;
 }
 
 type ResolvedListener = (spell: ResolvedSpell) => void;
 let resolvedListeners: ResolvedListener[] = [];
 
-function notifyResolved(card: string, targets: readonly { kind: 'card' | 'player' | 'stack'; id: string }[]): void {
-  const spell: ResolvedSpell = { card, targets: targets.map((t) => ({ kind: t.kind, id: t.id }) as TargetChoice) };
+function notifyResolved(
+  card: string,
+  targets: readonly { kind: 'card' | 'player' | 'stack'; id: string }[],
+  controller: string,
+): void {
+  const spell: ResolvedSpell = {
+    card,
+    targets: targets.map((t) => ({ kind: t.kind, id: t.id }) as TargetChoice),
+    controller,
+  };
   for (const fn of [...resolvedListeners]) fn(spell);
 }
 
@@ -570,6 +665,41 @@ export function seatIds(): string[] {
 /** Seats this app can actually act for — one in a network game, all in solo. */
 export function localSeats(): string[] {
   return [...clients.keys()];
+}
+
+/** Seats a person is playing: `localSeats()` minus anything a bot is driving. */
+export function humanSeats(): string[] {
+  return [...clients.keys()].filter((id) => !botSeats.has(id));
+}
+
+export function isBotSeat(player: string): boolean {
+  return botSeats.has(player);
+}
+
+export function botSeatIds(): string[] {
+  return [...botSeats];
+}
+
+/**
+ * Register the seats bots are driving, and how to stop them.
+ *
+ * ⚠️ Called AFTER `startLocal`, because a runner needs the client it drives.
+ */
+export function setBotSeats(ids: readonly string[], teardown?: () => void): void {
+  botTeardown?.();
+  botSeats = new Set(ids);
+  botTeardown = teardown ?? null;
+}
+
+/**
+ * The `ClientSession` for a seat this app holds, so a bot can drive it.
+ *
+ * ⚠️ `remote` ⇒ null, and that is load-bearing rather than defensive: a guest
+ * drives exactly one seat, its own, and returning null here is what makes "no
+ * bots over the wire" a property of the code rather than a line in a comment.
+ */
+export function clientFor(player: string): ClientSession | null {
+  return remote ? null : (clients.get(player) ?? null);
 }
 
 export function logLength(): number {

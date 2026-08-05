@@ -23,6 +23,7 @@ import { clonesCreated } from '../anim/flightLayer';
 import { prefersReducedMotion } from '../anim/reducedMotion';
 import { animScale } from '../anim/tokens';
 import { viewHash } from '../../engine/diffView';
+import { hoverFrom, hoveredInstanceId } from './useTapKey';
 import type { Intent } from '../../engine/types/intents';
 
 export function exposeEngineHandles(): void {
@@ -60,7 +61,19 @@ export function exposeEngineHandles(): void {
               : a.t === 'PlayLand'
                 ? { t: a.t, card: a.card, label: a.label }
                 : a.t === 'TapForMana'
-                  ? { t: a.t, card: a.card, label: a.label, conditional: a.conditional }
+                  ? {
+                      t: a.t,
+                      card: a.card,
+                      label: a.label,
+                      conditional: a.conditional,
+                      // ⚠️ Both of these are what a probe needs to ask "what can
+                      // this land bring, and which intent brings it". Leaving
+                      // them out reported `outputs is not iterable`, which reads
+                      // as an engine bug rather than as a handle projecting the
+                      // action down to less than the app has.
+                      abilityIndex: a.abilityIndex,
+                      outputs: [...a.outputs],
+                    }
                   : { t: a.t },
           ),
           events: session.eventCount(),
@@ -206,6 +219,21 @@ export function exposeEngineHandles(): void {
         }),
       },
 
+      /**
+       * The E shortcut: what the pointer is over, and how to put it there.
+       *
+       * ⚠️ `hover` goes through `hoverFrom`, the same writer the real
+       * `pointerover` listener calls — the aim handles' reason, unchanged: a
+       * synthetic pointer event racing the real mouse is a corruption this
+       * workspace has already paid for. The KEYPRESS is left to the battery to
+       * dispatch for real, because a keyboard event has no such hazard and
+       * dispatching it is what proves the key is actually bound.
+       */
+      tap: {
+        hover: (selector: string) => hoverFrom(document.querySelector(selector)),
+        hovered: () => hoveredInstanceId(),
+      },
+
       /** The projected view the table is currently rendering. */
       view: () => useGame.getState().view,
       /** Wait for the animation queue to drain, so geometry is stable. */
@@ -314,6 +342,13 @@ function simplestIntent(snapshot: session.SessionSnapshot): Intent | null {
         return { t: 'CommanderZoneChoice', player: awaiting.player, toCommandZone: true, always: true };
       case 'orderTriggers':
         return { t: 'OrderTriggers', player: awaiting.player, order: [...awaiting.triggers] };
+      case 'optionalTrigger':
+        return {
+          t: 'AnswerOptionalTrigger',
+          player: awaiting.player,
+          stackId: awaiting.stackId,
+          accept: false,
+        };
       default:
         return null;
     }

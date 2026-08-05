@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
 import { AimVeil } from './AimVeil';
 import { AttachmentsPanel, CardMenu, ManualToolsDrawer } from './ManualTools';
+import { ManaChoicePanel } from './ManaChoice';
+import { FaceChoicePanel } from './FaceChoice';
+import { LibraryMenu, PeekPanel } from './LibraryPanels';
+import { ZoneBrowser } from './ZoneBrowser';
 import { NumberDialog, TextDialog } from './Dialogs';
 import { PaymentReview } from './PaymentReview';
 import { PromptBar } from './PromptBar';
+import { SeatHandoff } from './SeatHandoff';
 import { SkipHint } from './SkipHint';
 import { StopsPanel } from './StopsPanel';
 import { BTN_GHOST_SMALL } from './styles';
@@ -140,9 +145,15 @@ export function GameLayer({
       <ManualToolsDrawer tokens={tokens} />
       <PaymentReview />
       <PromptBar />
+      <SeatHandoff />
       <SkipHint />
       <CardMenu />
       <AttachmentsPanel />
+      <ManaChoicePanel />
+      <FaceChoicePanel />
+      <LibraryMenu />
+      <PeekPanel />
+      <ZoneBrowser />
       <NumberDialog />
       <TextDialog />
     </>

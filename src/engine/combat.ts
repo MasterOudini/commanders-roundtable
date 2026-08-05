@@ -1,8 +1,9 @@
 // Combat legality and damage assignment. Pure functions over state — the
 // handlers turn their answers into events.
 
-import { derive, type DeriveCache } from './derive';
+import { derive, makeScriptCtx, type DeriveCache } from './derive';
 import type { ScriptRegistry } from './scripts/registry';
+import type { CombatDef, ScriptCtx } from './scripts/api';
 import type { ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
 import type { DerivedCharacteristics, OracleDb } from './types/oracle';
@@ -38,7 +39,47 @@ export function canAttack(deps: CombatDeps, id: InstanceId): boolean {
   if (!chars.keywords.has('haste') && card.summonedOnTurn !== null && card.summonedOnTurn >= state.turn.turnNumber) {
     return false;
   }
-  return true;
+  // ⚠️ **CR 508.1c — CONTINUOUS RESTRICTIONS, and this is a SEAM THAT DID NOT
+  // EXIST** until D147. D129 filed 227 cards under the layer-6 bucket because
+  // their text looks like a static ability, and then found that `canAttack` and
+  // `canBlock` consulted no static at all — so the engine could not express
+  // "this creature can't attack" however the script was written.
+  //
+  // ⚠️ It is asked LAST, after the built-in rules, so a script can only ever
+  // narrow what is legal. A def that returned `true` cannot make a tapped or
+  // summoning-sick creature attack, which is the direction that would be a
+  // rules bug rather than a card.
+  return !restrictedBy(deps, (def, ctx, self) => def.canAttack?.(ctx, self, id) === false);
+}
+
+/**
+ * Does any live `CombatDef` say no?
+ *
+ * ⚠️ The context is built ON FIRST CANDIDATE, so a board with no combat scripts
+ * — every board the shipped app has, since `SHIPPED_REGISTRY` ships — allocates
+ * nothing and the whole check is one array-length test.
+ */
+function restrictedBy(
+  deps: CombatDeps,
+  ask: (def: CombatDef, ctx: ScriptCtx, self: InstanceId) => boolean,
+): boolean {
+  const defs = deps.scripts.combat();
+  if (defs.length === 0) return false;
+  const { state } = deps;
+  let ctx: ScriptCtx | null = null;
+  for (const sourceId of state.zones.battlefield) {
+    const source = state.cards[sourceId];
+    if (!source) continue;
+    for (const { script, def } of defs) {
+      if (source.oracleId !== script.oracleId) continue;
+      if (!def.activeZones.includes(source.zone.kind)) continue;
+      // CR 613 layer 6 — a silenced permanent restricts nothing.
+      if (!d(deps, sourceId).hasAbilities) continue;
+      ctx ??= makeScriptCtx(state, deps.oracle, deps.scripts);
+      if (ask(def, ctx, sourceId)) return true;
+    }
+  }
+  return false;
 }
 
 /** Opponents still in the game, plus the planeswalkers and battles they control. */
@@ -76,7 +117,11 @@ export type BlockRejection =
   | 'shadow'
   | 'skulk'
   | 'horsemanship'
-  | 'landwalk';
+  | 'landwalk'
+  // ⚠️ A continuous restriction from a card script (CR 509.1b) — deliberately
+  // not the name of a keyword, because it is not one. Every other member here
+  // names the printed evasion that stopped the block.
+  | 'restricted';
 
 /**
  * Per-pair blocking legality. The whole Tier-2 evasion surface, in one place.
@@ -131,6 +176,13 @@ export function canBlock(
   if (ac.keywords.has('horsemanship') && !bc.keywords.has('horsemanship')) return 'horsemanship';
   if (ac.landwalk.length > 0 && defenderControlsLandType(deps, defendingPlayer, ac.landwalk)) {
     return 'landwalk';
+  }
+  // ⚠️ CR 509.1b — the same seam as `canAttack`, and LAST for the same reason: a
+  // script may only ever narrow. It reports `restricted`, a rejection of its
+  // own, because every other value above names the printed keyword that stopped
+  // the block and this one is not a keyword.
+  if (restrictedBy(deps, (def, ctx, self) => def.canBlock?.(ctx, self, blocker, attacker) === false)) {
+    return 'restricted';
   }
   return null;
 }
@@ -218,6 +270,13 @@ function blockRejectionText(
       return `${an} is not attacking.`;
     case 'notACreature':
       return `${bn} cannot block.`;
+    // ⚠️ It cannot name the card that stopped it, and that is honest rather
+    // than lazy: `canBlock` returns a reason, not a source, and inventing one
+    // here would mean re-running every def to find out which said no. The
+    // player can see the board; what they need to know is that a rule and not
+    // a bug refused the block.
+    case 'restricted':
+      return `Something on the battlefield stops ${bn} blocking ${an}.`;
   }
 }
 

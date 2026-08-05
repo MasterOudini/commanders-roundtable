@@ -26,6 +26,22 @@ import { DEFAULT_OPTIONS, type GameState } from './types/state';
 export interface Emitted {
   readonly events: readonly EventBody[];
   readonly rng?: RngState;
+  /**
+   * These events have ALREADY been through the replacement funnel — do not run
+   * it again.
+   *
+   * ⚠️ **THE ONE PRODUCER IS `AnswerChooseReplacement`** (CR 616, D148), and it
+   * needs this because it is the only handler that resumes a suspended fold: its
+   * events are the REST of a batch that was already funnelled, and re-running the
+   * built-ins over them would apply them twice — a planeswalker entering would
+   * get its loyalty a second time, and the card-script effects would be offered
+   * a second turn in violation of CR 614.5.
+   *
+   * ⚠️ It is an OPT-IN on the one path that needs it rather than a check inside
+   * the funnel, because "have I seen this event before" is not a question an
+   * event can answer about itself.
+   */
+  readonly funnelled?: boolean;
 }
 
 export function emitted(events: readonly EventBody[], rng?: RngState): Emitted {
@@ -101,6 +117,7 @@ export function emptyState(seed = 'unseeded'): GameState {
     },
     combat: null,
     pendingCast: null,
+    pendingReplacement: null,
     untilEndOfTurn: [],
     pendingTriggers: [],
     winners: [],

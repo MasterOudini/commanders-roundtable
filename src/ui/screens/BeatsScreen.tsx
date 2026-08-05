@@ -76,7 +76,7 @@ const CASES: BeatCase[] = [
     note: '300 ms accelerating down, then a 260 ms squash-and-rebound thump.',
     ms: DUR.resolve + DUR.landThump,
     events: () => [
-      { t: 'StackResolved', stepId: 1, stackItemId: 'st1', instanceId: 'beat-card', to: DST, targets: [] },
+      { t: 'StackResolved', stepId: 1, stackItemId: 'st1', instanceId: 'beat-card', to: DST, targets: [], controller: 'p1' },
       { t: 'PermanentEntered', stepId: 1, instanceId: 'beat-card', isLand: false },
     ],
   },
@@ -181,7 +181,7 @@ function beatView(card: CardData, zone: 'lib' | 'bf' | 'stack'): PlayerView {
         isCommander: false,
         isToken: false,
         attacking: null,
-        blocking: null,
+        blocking: [],
       },
     },
     zones: { [z]: ['beat-card'] } as PlayerView['zones'],

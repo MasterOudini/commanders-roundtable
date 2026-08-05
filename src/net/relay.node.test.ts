@@ -247,7 +247,14 @@ describe('a four-player game over real sockets', () => {
       await sleep(2);
       rounds += 1;
     }
-    expect(rounds).toBeGreaterThan(20);
+    // ⚠️ A LOWER BOUND ON THE DRIVER DOING WORK, not a measurement of the game.
+    // How many intents it takes to reach turn 6 is a property of the stops
+    // policy (`legal.ts`), and it halved when auto-pass stopped asking players
+    // who could do nothing: the same five turns now cost 11 rounds rather than
+    // 21. What this file is actually about — every client converging on the
+    // host's event count between intents, and the view hashes below — is
+    // unchanged, and the turn assertion after the loop is the coverage bar.
+    expect(rounds).toBeGreaterThan(8);
     await until(() => table.clients.every((c) => c.session.snapshot().eventCount === table.host.eventCount()));
 
     expect(table.clients[0]?.session.snapshot().turn.number ?? 0).toBeGreaterThan(3);

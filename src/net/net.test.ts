@@ -3,8 +3,11 @@ import { ClientSession } from './client';
 import { viewHash } from '../engine/diffView';
 import { project } from '../engine/project';
 import { createOracleDb } from '../engine/oracle';
-import { EMPTY_REGISTRY } from '../engine/scripts/registry';
+import { NO_SCRIPTS } from '../engine/scripts/registry';
 import { PROTOCOL_VERSION } from './protocol';
+import { unionIdentity } from './host';
+import * as CARDS from '../data/fixtures/engineCards';
+import type { CardData, ColorLetter } from '../data/cardTypes';
 import { loopbackPair } from './transport';
 import { FIXTURE_ORACLE_VERSION, fixtureDeck, makeTable, settle } from './testing/table';
 import { playFrom } from './testing/script';
@@ -492,7 +495,12 @@ describe('rewind across the wire', () => {
     table.join('Ada');
     table.join('Bo');
     await table.startGame();
-    playFrom(table, 80);
+    // ⚠️ A LIVE game with plenty of log behind it, and 80 intents is no longer
+    // that: auto-pass stopped asking players who could do nothing, so 80 now
+    // plays this table to turn 24 and a FINISHED game refuses the vote — which
+    // reads as "the rewind did not change the hash" rather than as "there was
+    // nothing left to rewind". 30 reaches turn 13 with 1,132 events.
+    playFrom(table, 30);
 
     const mark = table.host.eventCount() - 10;
     const before = table.host.hash();
@@ -542,6 +550,51 @@ describe('a fresh oracle db over the wire', () => {
     const db = createOracleDb(Object.values(view.cards).flatMap((c) => (c.card ? [c.card] : [])));
     expect(db.byPrinting(commander?.card?.scryfallId ?? '')).toBeDefined();
     void project;
-    void EMPTY_REGISTRY;
+    void NO_SCRIPTS;
+  });
+});
+
+/**
+ * A seat's colour identity is the UNION over its commanders.
+ *
+ * ⚠️ This was `commanders[0]?.colorIdentity ?? []`, and a partner pair is two
+ * cards with one identity (CR 903.4) — so an Ardenn + Rograkh deck sat down as
+ * mono-white or mono-red depending on which commander happened to be first in
+ * the list. It is not cosmetic: `expandOutputs` resolves Command Tower, Arcane
+ * Signet and every other "any colour in your commander's identity" source
+ * against exactly this list, so the Tower offered ONE colour instead of two —
+ * and a deck whose first commander had no colours offered none at all, which
+ * reads as the land being broken.
+ */
+describe('a seat sits down with every commander it has', () => {
+  const card = (name: string, colorIdentity: ColorLetter[]): CardData => ({
+    ...CARDS.SOL_RING,
+    name,
+    scryfallId: `x-${name}`,
+    oracleId: `o-${name}`,
+    colorIdentity,
+  });
+
+  test('a partner pair contributes BOTH identities', () => {
+    expect(unionIdentity([card('Rograkh', ['R']), card('Ardenn', ['W'])])).toEqual(['W', 'R']);
+  });
+
+  test('one commander is unchanged', () => {
+    expect(unionIdentity([card('Yeva', ['G'])])).toEqual(['G']);
+  });
+
+  /** ⚠️ WUBRG order, so two seats with the same colours always read the same. */
+  test('the union is in printed order, whatever order the commanders are in', () => {
+    expect(unionIdentity([card('a', ['G', 'U']), card('b', ['B'])])).toEqual(['U', 'B', 'G']);
+  });
+
+  test('a colourless commander gives a colourless seat', () => {
+    expect(unionIdentity([card('Kozilek', [])])).toEqual([]);
+    expect(unionIdentity([])).toEqual([]);
+  });
+
+  /** A five-colour pair is five colours, not ten entries. */
+  test('overlapping identities are not counted twice', () => {
+    expect(unionIdentity([card('a', ['W', 'U']), card('b', ['U', 'B'])])).toEqual(['W', 'U', 'B']);
   });
 });

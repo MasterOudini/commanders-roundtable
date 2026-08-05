@@ -270,6 +270,19 @@ describe('state-based actions', () => {
   });
 });
 
+/** p2, on p1's turn, holding one Lightning Bolt they can actually pay for. */
+function boltInHand() {
+  const game = startedGame({
+    players: 2,
+    decks: [[], ['Lightning Bolt', 'Mountain']],
+    startingPlayer: 'p1',
+  });
+  put(game, 'p2', 'Lightning Bolt', 'hand');
+  // p2 needs the Mountain on the battlefield to afford the Bolt.
+  put(game, 'p2', 'Mountain');
+  return game;
+}
+
 describe('auto-pass', () => {
   test('a player with no meaningful action auto-passes', () => {
     const game = startedGame({ decks: [[], [], [], []], librarySize: 40 });
@@ -298,21 +311,86 @@ describe('auto-pass', () => {
    * `shouldAutoPass` calls `legalActions`, which returns nothing for a player
    * who does not hold priority — so calling it for a bystander always says
    * "yes, pass", and a test that did would pass for the wrong reason.
+   *
+   * ⚠️ These two are one policy read from both sides, and they replace a single
+   * older case that asserted a bystander with an affordable instant is stopped
+   * in the ACTIVE player's main phase. That is the behaviour that was reported
+   * as the game "changing sides" mid-turn: holding one instant is true for a
+   * whole turn cycle, so it stopped that player in every step of it. Holding a
+   * play is now a reason to be asked in a WINDOW, not everywhere.
    */
-  test('auto-pass does NOT fire when a player holds an affordable instant', () => {
+  test('an affordable instant does not stop a bystander in the active main phase', () => {
+    const game = boltInHand();
+    expect(game.state.turn.step).toBe('precombatMain');
+    must(game.submit({ t: 'PassPriority', player: 'p1' }));
+    // p2 could Bolt in response to nothing at all, so the step ended instead.
+    expect(game.state.turn.step).not.toBe('precombatMain');
+  });
+
+  test('an affordable instant DOES stop a bystander at the active end step', () => {
+    const game = boltInHand();
+    // ⚠️ `advanceUntil` throws rather than asserts if the engine never stops
+    // there, which is the failure this window exists to prevent: held-up mana
+    // with nowhere to spend it.
+    advanceUntil(
+      game,
+      (s) => s.turn.step === 'end' && s.turn.activePlayer === 'p1' && s.priority.player === 'p2',
+    );
+    expect(shouldAutoPass(game.state, ORACLE, game.deps.scripts, 'p2')).toBe(false);
+  });
+
+  /**
+   * ⚠️ `meaningfulActions` is the WHOLE answer to "could this player do
+   * anything", now that `shouldAutoPass` asks it first — so an ability they can
+   * pay for has to count, or the game would auto-pass a player whose only play
+   * is on the battlefield rather than in their hand. Figure of Destiny's
+   * `{R/W}` needs no tap, so summoning sickness does not enter into it.
+   */
+  test('an ability they can pay for counts as something to do', () => {
     const game = startedGame({
       players: 2,
-      decks: [[], ['Lightning Bolt', 'Mountain']],
+      decks: [[], ['Figure of Destiny', 'Mountain']],
       startingPlayer: 'p1',
     });
-    const bolt = findAnywhere(game, 'p2', 'Lightning Bolt');
-    must(game.submit({ t: 'ManualMoveCard', player: 'p2', card: bolt, to: { kind: 'hand', player: 'p2' } }));
-    // p2 needs the Mountain on the battlefield to afford the Bolt.
-    const mountain = findAnywhere(game, 'p2', 'Mountain');
-    must(game.submit({ t: 'ManualMoveCard', player: 'p2', card: mountain, to: { kind: 'battlefield', player: 'p2' } }));
-    must(game.submit({ t: 'PassPriority', player: 'p1' }));
-    expect(game.state.priority.player).toBe('p2');
+    put(game, 'p2', 'Figure of Destiny');
+    put(game, 'p2', 'Mountain');
+    advanceUntil(
+      game,
+      (s) => s.turn.step === 'end' && s.turn.activePlayer === 'p1' && s.priority.player === 'p2',
+    );
     expect(shouldAutoPass(game.state, ORACLE, game.deps.scripts, 'p2')).toBe(false);
+  });
+
+  /**
+   * ⚠️ `alwaysStop` is a refinement of "I could do something", never an
+   * override of it. Both combat steps are ticked by default, so before this a
+   * player with an empty hand and no untapped land was stopped twice on every
+   * opponent's turn — at a four-player table, six clicks per turn cycle with no
+   * decision in any of them.
+   */
+  test('an always-stop step does not stop a player who can do nothing', () => {
+    const game = startedGame({
+      players: 2,
+      decks: [[], []],
+      librarySize: 40,
+      startingPlayer: 'p1',
+    });
+    // Full control is the only thing that still stops everywhere, and it is how
+    // this test gets p2 holding priority in a step they would now pass through.
+    fullControl(game, 'p2');
+    advanceUntil(
+      game,
+      (s) => s.turn.step === 'declareAttackers' && s.priority.player === 'p2',
+    );
+    const stops = game.state.players['p2']?.stops;
+    if (!stops) throw new Error('no stops');
+    expect(stops.alwaysStop['declareAttackers']).toBe(true);
+    // ⚠️ Asserted on the ENGINE moving, not on `shouldAutoPass` — the moment
+    // auto is restored the engine passes for p2, and after that `legalActions`
+    // is empty for them and the predicate would answer "pass" for the wrong
+    // reason (see the note above).
+    must(game.submit({ t: 'SetStops', player: 'p2', stops: { ...stops, mode: 'auto' } }));
+    expect(game.state.turn.step).not.toBe('declareAttackers');
   });
 
   test('a player who cannot pay for the instant DOES auto-pass', () => {
@@ -325,13 +403,27 @@ describe('auto-pass', () => {
     expect(game.state.turn.step).not.toBe(step);
   });
 
+  /**
+   * ⚠️ p2 is given the means to answer, and that is the point of the case now:
+   * `precombatMain` is not one of p2's stop windows, so the ONLY thing that can
+   * stop them here is the stack having grown. A bystander who cannot respond is
+   * no longer stopped to watch a spell they have no answer to.
+   */
   test('stopWhenAnyoneCasts interrupts the auto-pass chain', () => {
-    const game = startedGame({ decks: [['Mountain', 'Lightning Bolt']], startingPlayer: 'p1' });
+    const game = startedGame({
+      players: 2,
+      decks: [
+        ['Mountain', 'Lightning Bolt'],
+        ['Mountain', 'Lightning Bolt'],
+      ],
+      startingPlayer: 'p1',
+    });
     fullControl(game, 'p1');
-    const mountain = findAnywhere(game, 'p1', 'Mountain');
-    must(game.submit({ t: 'ManualMoveCard', player: 'p1', card: mountain, to: { kind: 'battlefield', player: 'p1' } }));
-    const bolt = findAnywhere(game, 'p1', 'Lightning Bolt');
-    must(game.submit({ t: 'ManualMoveCard', player: 'p1', card: bolt, to: { kind: 'hand', player: 'p1' } }));
+    put(game, 'p1', 'Mountain');
+    put(game, 'p1', 'Lightning Bolt', 'hand');
+    put(game, 'p2', 'Mountain');
+    put(game, 'p2', 'Lightning Bolt', 'hand');
+    const bolt = find(game, 'p1', 'hand', 'Lightning Bolt');
     must(game.submit({ t: 'CastSpell', player: 'p1', card: bolt, targets: [{ kind: 'player', id: 'p2' }] }));
     expect(game.state.stack).toHaveLength(1);
     // The stack grew since p2 last held priority, so the engine must STOP with
@@ -340,6 +432,25 @@ describe('auto-pass', () => {
     expect(game.state.priority.player).toBe('p2');
     expect(game.state.stack).toHaveLength(1);
     expect(shouldAutoPass(game.state, ORACLE, game.deps.scripts, 'p2')).toBe(false);
+  });
+
+  test('a bystander who cannot answer is not stopped by the stack', () => {
+    const game = startedGame({
+      players: 2,
+      decks: [['Mountain', 'Lightning Bolt'], []],
+      librarySize: 40,
+      startingPlayer: 'p1',
+    });
+    fullControl(game, 'p1');
+    put(game, 'p1', 'Mountain');
+    put(game, 'p1', 'Lightning Bolt', 'hand');
+    const bolt = find(game, 'p1', 'hand', 'Lightning Bolt');
+    must(game.submit({ t: 'CastSpell', player: 'p1', card: bolt, targets: [{ kind: 'player', id: 'p2' }] }));
+    must(game.submit({ t: 'PassPriority', player: 'p1' }));
+    // p2 holds nothing they could cast, so the Bolt resolved instead of asking
+    // them to watch it.
+    expect(game.state.stack).toHaveLength(0);
+    expect(game.state.players['p2']?.life).toBe(37);
   });
 
   test('full control stops everywhere', () => {

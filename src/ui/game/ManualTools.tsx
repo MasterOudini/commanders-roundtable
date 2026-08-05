@@ -252,7 +252,16 @@ export function CardMenu() {
 
   return (
     <div
-      className={`absolute z-[1100] w-[190px] ${PANEL}`}
+      // ⚠️ FIXED, not absolute. `x`/`y` are the CLICK's `clientX`/`clientY` —
+      // viewport coordinates — while this panel's positioned ancestor is the
+      // screen slot, which starts below the app header. Absolute drew the whole
+      // menu 49 px low, by exactly the header's height, on every card on the
+      // table; the clamps below made it worse rather than better, because
+      // `window.innerHeight` is viewport space too and was being compared
+      // against a container-space number. Nothing between this and the document
+      // creates a containing block — `PlayerPod`'s `contain: layout paint` is
+      // not an ancestor of the overlay. See D111.
+      className={`fixed z-[1100] w-[190px] ${PANEL}`}
       style={{ left: Math.min(menu.x, window.innerWidth - 200), top: Math.min(menu.y, window.innerHeight - 300) }}
       data-card-menu={menu.card}
     >
@@ -271,6 +280,11 @@ export function CardMenu() {
             }
           >
             {card.tapped ? 'Untap' : 'Tap'}
+            {/* ⚠️ The shortcut is named HERE because this menu is where a player
+                already comes to turn a card, and a key nobody is told about has
+                not shipped — the same lesson `SkipHint` exists for. Pointing at
+                the permanent and pressing E sends this very intent. */}
+            <span className="crt-num text-[10px] text-crt-faint">E</span>
           </button>
           <button
             type="button"
@@ -427,7 +441,10 @@ export function AttachmentsPanel() {
 
   return (
     <div
-      className={`absolute z-[1100] w-[236px] ${PANEL}`}
+      // ⚠️ FIXED, for `CardMenu`'s reason: `x`/`y` come from the tab's own
+      // `getBoundingClientRect`, which is viewport space, and this panel's
+      // positioned ancestor starts below the app header. See D111.
+      className={`fixed z-[1100] w-[236px] ${PANEL}`}
       style={{
         left: Math.min(panel.x, window.innerWidth - 246),
         top: Math.min(panel.y, window.innerHeight - 40 - attached.length * 58),

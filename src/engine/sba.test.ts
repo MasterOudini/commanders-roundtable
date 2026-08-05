@@ -12,7 +12,7 @@
 import { describe, expect, test } from 'vitest';
 import { checkInvariants } from './invariants';
 import { replay, stateHash } from './log';
-import { battlefieldOf, findAnywhere, idsIn, must, put, startedGame } from './testing/harness';
+import { advanceUntil, battlefieldOf, findAnywhere, holdEverywhere, idsIn, must, put, startedGame } from './testing/harness';
 
 const GRIST = 'Grist, the Hunger Tide';
 // ⚠️ The FULL card name, both halves. The harness looks a card up by
@@ -295,5 +295,61 @@ describe('a permanent that BECOMES a planeswalker', () => {
     const invasion = put(game, 'p1', INVASION);
     flip(game, invasion);
     expect(stateHash(replay(game.log, game.seed))).toBe(game.hash());
+  });
+});
+
+// ── the world rule (CR 704.5m) ───────────────────────────────────────────────
+//
+// ⚠️ A Tier-1 gap found by D129 while choosing a layer-6 demonstration card, and
+// left open until D147: `sba.ts` never mentioned the supertype, so any number of
+// world permanents could sit on the battlefield at once. `Gravity Sphere` is the
+// only world permanent in these fixtures — it is there for the CR 613.7
+// timestamp pair — and it is why the gap was noticed at all.
+describe('the world rule', () => {
+  const WORLD = 'Gravity Sphere';
+
+  test('two world permanents: the NEWEST survives, with nobody asked', () => {
+    const game = startedGame({ players: 2, decks: [[WORLD, WORLD]] });
+    holdEverywhere(game);
+    const first = put(game, 'p1', WORLD);
+    const second = put(game, 'p1', WORLD);
+    advanceUntil(game, (s) => s.zones.battlefield.length <= 1, 20_000);
+
+    expect(game.state.cards[first]?.zone.kind).toBe('graveyard');
+    expect(game.state.cards[second]?.zone.kind).toBe('battlefield');
+    // ⚠️ NO PROMPT. This is the whole difference from the legend rule: the
+    // answer is determined, so asking would be a question with one legal reply.
+    expect(game.state.priority.awaiting?.kind).not.toBe('legendChoice');
+  });
+
+  test('it is GLOBAL — two players cannot keep one each', () => {
+    const game = startedGame({ players: 2, decks: [[WORLD], [WORLD]] });
+    holdEverywhere(game);
+    const mine = put(game, 'p1', WORLD);
+    const theirs = put(game, 'p2', WORLD);
+    advanceUntil(game, (s) => s.zones.battlefield.length <= 1, 20_000);
+
+    // The legend rule groups by controller; this one does not.
+    expect(game.state.cards[mine]?.zone.kind).toBe('graveyard');
+    expect(game.state.cards[theirs]?.zone.kind).toBe('battlefield');
+  });
+
+  test('one on its own is left alone', () => {
+    const game = startedGame({ players: 2, decks: [[WORLD]] });
+    holdEverywhere(game);
+    const only = put(game, 'p1', WORLD);
+    advanceUntil(game, (s) => s.priority.awaiting !== null || s.stack.length === 0, 20_000);
+    expect(game.state.cards[only]?.zone.kind).toBe('battlefield');
+  });
+
+  test('it goes to its OWNER\u2019s graveyard, not its controller\u2019s', () => {
+    const game = startedGame({ players: 2, decks: [[WORLD], [WORLD]] });
+    holdEverywhere(game);
+    const theirs = put(game, 'p2', WORLD);
+    // p1 steals it, then plays their own — so the stolen one is the older.
+    must(game.submit({ t: 'ManualSetController', player: 'p1', card: theirs, controller: 'p1' }));
+    put(game, 'p1', WORLD);
+    advanceUntil(game, (s) => s.zones.battlefield.length <= 1, 20_000);
+    expect(game.state.cards[theirs]?.zone).toEqual({ kind: 'graveyard', player: 'p2' });
   });
 });

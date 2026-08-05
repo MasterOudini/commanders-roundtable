@@ -123,6 +123,7 @@ const BODIES: AnyBody[] = [
       priority: 'p1',
       log: [],
       hiddenCounts: {},
+      peek: [],
     },
     dict: {},
     session: {

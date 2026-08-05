@@ -2,7 +2,8 @@ import { describe, expect, test } from 'vitest';
 import { faceOf } from './oracle';
 import { derive } from './derive';
 import { parseEffects } from '../data/effectParse';
-import { ORACLE, advanceUntil, findAnywhere, fullControl, must, put, startedGame } from './testing/harness';
+import { toViewEvents } from './viewEvents';
+import { ORACLE, advanceUntil, find, findAnywhere, fullControl, holdEverywhere, must, put, startedGame } from './testing/harness';
 import type { Game } from './game';
 
 // Spells that actually do something.
@@ -118,6 +119,47 @@ describe('effects resolving', () => {
     const life = game.state.players['p2']?.life ?? 0;
     resolveStack(game);
     expect(game.state.players['p2']?.life).toBe(life);
+  });
+
+  /**
+   * ⚠️ WHOSE SPELL WAS THAT. The assisted offer (D90) is raised from
+   * `StackResolved` on whichever client is the ACTIVE SEAT — which in a hotseat
+   * is regularly not the caster, because the table follows priority (D42). With
+   * no controller on the event the offer named whoever was looking, and applying
+   * it drew Ben's two cards into Ana's hand. The card cannot answer for it
+   * either: `clearBattlefieldFields` resets a moved card's `controller` to its
+   * OWNER, so a spell in a graveyard only says whose card it is. See D120.
+   */
+  test('a resolved spell names the player who CAST it, for every viewer', () => {
+    const game = startedGame({
+      players: 2,
+      decks: [[], ['Mountain', 'Lightning Bolt']],
+      startingPlayer: 'p1',
+    });
+    holdEverywhere(game);
+    put(game, 'p2', 'Mountain');
+    put(game, 'p2', 'Lightning Bolt', 'hand');
+    advanceUntil(game, (s) => s.priority.player === 'p2');
+    const bolt = find(game, 'p2', 'hand', 'Lightning Bolt');
+    must(game.submit({ t: 'CastSpell', player: 'p2', card: bolt, targets: [{ kind: 'player', id: 'p1' }] }));
+    const from = game.log.length;
+    resolveStack(game);
+
+    const produced = game.log.slice(from);
+    const resolved = produced.flatMap((e) => (e.body.t === 'StackResolved' ? [e.body] : []));
+    expect(resolved).toHaveLength(1);
+    expect(resolved[0]?.controller).toBe('p2');
+
+    // ⚠️ And it survives the projection, for a viewer who is NOT the caster —
+    // which is the exact case that was broken, since p1 is who the table was
+    // showing when p2's spell resolved.
+    for (const viewer of ['p1', 'p2']) {
+      const cues = toViewEvents(produced, game.state, viewer).flatMap((e) =>
+        e.t === 'StackResolved' && e.instanceId ? [e] : [],
+      );
+      expect(cues).toHaveLength(1);
+      expect(cues[0]?.controller).toBe('p2');
+    }
   });
 
   test('an assisted card resolves without doing anything by itself', () => {

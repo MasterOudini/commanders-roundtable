@@ -14,8 +14,8 @@
 
 import { assignBlockerDamage, creaturesInCombat, canAttack, legalDefenders, needsFirstStrikeSubstep, resolveCombatDamage } from './combat';
 import { derive, makeDeriveCache } from './derive';
-import { effectEvents } from './effects';
-import { candidatesFromState, targetAllowed, untargetableByRule } from './targets';
+import { effectResult } from './effects';
+import { candidatesFromState, minimumLegalTargets, targetAllowed, untargetableByRule, type TargetingSource } from './targets';
 import { checkGameOver, checkStateBasedActions } from './sba';
 import { emitted, type Emitted } from './log';
 import { faceOf } from './oracle';
@@ -24,12 +24,14 @@ import { drawFromTop, mulligansComplete } from './setup';
 import { orderTriggersApnap } from './triggers';
 import { grantsPriority, nextStep, skipsFirstDraw } from './turn';
 import { shouldAutoPass, legalActions } from './legal';
+import type { ActivatedDef, ScriptCtx, TriggerDef } from './scripts/api';
 import type { ScriptRegistry } from './scripts/registry';
 import type { EventBody, GameEvent, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
 import { EMPTY_POOL, poolTotal } from './types/mana';
-import type { OracleDb, OracleFace } from './types/oracle';
-import { apnapOrder, livingPlayers, type Awaiting, type GameState, type StackObject } from './types/state';
+import type { RngState } from './rng';
+import type { OracleDb, OracleFace, TargetSpec } from './types/oracle';
+import { apnapOrder, livingPlayers, type Awaiting, type GameState, type PendingTrigger, type StackObject } from './types/state';
 import { canBlock } from './combat';
 
 export interface EngineDeps {
@@ -61,7 +63,7 @@ export function advance(state: GameState, deps: EngineDeps): Emitted {
   if (over.length > 0) return emitted(over);
 
   // 2 — trigger drain, APNAP (CR 603.3b).
-  if (state.pendingTriggers.length > 0) return drainTriggers(state);
+  if (state.pendingTriggers.length > 0) return drainTriggers(state, deps);
 
   // 3 — blocked on a human. The engine stops here and nowhere else.
   if (state.priority.awaiting !== null) return emitted([]);
@@ -131,33 +133,104 @@ function sameIds(a: readonly string[], b: readonly string[]): boolean {
 
 // ── triggers ─────────────────────────────────────────────────────────────────
 
-function drainTriggers(state: GameState): Emitted {
+function drainTriggers(state: GameState, deps: EngineDeps): Emitted {
   const ordered = orderTriggersApnap(state, state.pendingTriggers);
   const byController = new Map<PlayerId, typeof ordered>();
   for (const t of ordered) byController.set(t.controller, [...(byController.get(t.controller) ?? []), t]);
 
+  // CR 603.3b — a controller putting two or more simultaneous triggers on the
+  // stack CHOOSES their order. Walk the controllers in APNAP order: every group
+  // BEFORE the first one that owes a choice has its stack position settled
+  // whatever the answer turns out to be, so it goes on now; the owing
+  // controller is asked; everyone after waits their turn, still pending.
+  //
+  // ⚠️ The prefix-stacking is not cosmetic. The previous shape stacked NOTHING
+  // until every group was a singleton — so a single-trigger ACTIVE player
+  // behind a prompted non-active one would have gone on the stack AFTER the
+  // answer, above the answered triggers, which reverses CR 603.3b's order.
+  const ready: PendingTrigger[] = [];
+  let demand: Awaiting | null = null;
   for (const [controller, list] of byController) {
     if (list.length >= 2) {
-      const awaiting: Awaiting = {
-        kind: 'orderTriggers',
-        player: controller,
-        triggers: list.map((t) => t.id),
-      };
-      return emitted([{ t: 'AwaitingSet', awaiting }]);
+      demand = { kind: 'orderTriggers', player: controller, triggers: list.map((t) => t.id) };
+      break;
     }
+    ready.push(...list);
   }
 
-  // ⚠️ APNAP puts the ACTIVE player's triggers on the stack first, so the
-  // non-active player's end up on top and resolve first. Reversing this is the
-  // classic off-by-one in a trigger bus, and it is invisible until two triggers
-  // fight over the same object.
+  if (demand === null) return emitted(stackPendingTriggers(state, deps, ordered).events);
+
+  const prefix = stackPendingTriggers(state, deps, ready);
+  // A targeted trigger in the prefix raised its own prompt — one question at a
+  // time (`AwaitingSet` holds exactly one). The rest stay pending; the next
+  // `advance()` re-enters here.
+  if (prefix.stopped) return emitted(prefix.events);
+
+  // ⚠️ THE RE-RAISE GUARD (`advanceMulligan`'s idiom), and the reason this
+  // function was rewritten: the owing controller's triggers STAY PENDING while
+  // the question is up, and this drain runs BEFORE `advance()`'s awaiting
+  // check — so without the guard the next iteration re-entered here and
+  // re-emitted the same `AwaitingSet` forever. Pump's 10,000-iteration throw,
+  // reached by the FIRST two simultaneous same-controller script triggers this
+  // engine ever produced: two tokens entering under a Soul Warden (D158).
+  // Never emit over ANY live prompt from here — its own included.
+  const events = prefix.events;
+  if (state.priority.awaiting === null) events.push({ t: 'AwaitingSet', awaiting: demand });
+  return emitted(events);
+}
+
+/**
+ * Put pending triggers on the stack, in the order GIVEN — the caller decides
+ * what that order means (APNAP from the drain above; the controller's own
+ * answer from the `OrderTriggers` handler).
+ *
+ * ⚠️ ONE implementation, two callers (D148's rule). The handler re-implementing
+ * "fill targets, build the object, narrate, clear" is how the two would come to
+ * disagree — and before D158 the handler had NO stacking at all, so an answered
+ * ordering was immediately re-asked by the next drain, forever.
+ *
+ * ⚠️ APNAP puts the ACTIVE player's triggers on the stack first, so the
+ * non-active player's end up on top and resolve first. Reversing this is the
+ * classic off-by-one in a trigger bus, and it is invisible until two triggers
+ * fight over the same object.
+ */
+export function stackPendingTriggers(
+  state: GameState,
+  deps: EngineDeps,
+  ordered: readonly PendingTrigger[],
+): { events: EventBody[]; stopped: boolean } {
   const events: EventBody[] = [];
+  const drained: string[] = [];
   let stackCounter = state.counters.stack;
   for (const trigger of ordered) {
+    // ⚠️ CR 603.3d — A TRIGGER WITH NO LEGAL TARGET IS REMOVED FROM THE STACK,
+    // so it never goes on in the first place. This is the rule AND it is what
+    // stops the prompt below from being a wedge: a trigger has no `pendingCast`
+    // to cancel, so a driver handed an unanswerable targets prompt would have
+    // no legal reply at all and the game would stop forever. D102's exact
+    // shape, prevented rather than recovered from.
+    if (trigger.specs.length > 0) {
+      const src = targetingSourceFor(state, deps, trigger.source, trigger.controller);
+      const fill = src
+        ? minimumLegalTargets(trigger.specs, src, candidatesFromState(state, deps))
+        : null;
+      if (!fill) {
+        drained.push(trigger.id);
+        events.push(
+          narrated(
+            n`${trigger.label} — no legal target, so it is removed from the stack (CR 603.3d).`,
+            trigger.controller,
+          ),
+        );
+        continue;
+      }
+    }
     stackCounter++;
     const obj: StackObject = {
       id: `s${stackCounter}`,
       kind: 'triggered',
+      // An ability is a chit, not a card — there is no face to be. See D155.
+      faceIndex: 0,
       controller: trigger.controller,
       card: null,
       source: trigger.source,
@@ -175,9 +248,40 @@ function drainTriggers(state: GameState): Emitted {
     events.push(
       narrated(n`${who(state, trigger.controller)}: ${trigger.label}`, trigger.controller),
     );
+    drained.push(trigger.id);
+
+    // ⚠️ CR 603.3d — TARGETS ARE CHOSEN AS THE ABILITY IS PUT ON THE STACK, so
+    // the object goes on and the question is asked in the same uninterruptible
+    // pass. Nobody can act in the gap: an `Awaiting` blocks every intent
+    // (D136's precedent, where a permanent has likewise already entered while
+    // its prompt is up).
+    //
+    // ⚠️ AND THE DRAIN STOPS HERE. Everything after this trigger stays pending
+    // and is drained by the next `advance`, because a second prompt cannot be
+    // raised while this one is up — `AwaitingSet` holds exactly one. Draining
+    // them all first and then asking would need somewhere to keep the specs of
+    // an object already on the stack, which is a field on `GameState` bought to
+    // avoid one extra pass through a loop that already exists.
+    if (trigger.specs.length > 0) {
+      const awaiting: Awaiting = {
+        kind: 'chooseTargets',
+        player: trigger.controller,
+        stackId: obj.id,
+        count: trigger.specs.reduce((sum, s) => sum + s.min, 0),
+        source: trigger.source,
+        label: trigger.label,
+        specs: trigger.specs,
+        forKind: 'trigger',
+      };
+      events.push({ t: 'PendingTriggersCleared', ids: drained });
+      events.push({ t: 'AwaitingSet', awaiting });
+      return { events, stopped: true };
+    }
   }
-  events.push({ t: 'PendingTriggersCleared', ids: ordered.map((t) => t.id) });
-  return emitted(events);
+  // Nothing to clear when the caller's list was empty (the drain's ready
+  // prefix can be), and an empty `ids` would be a marker meaning nothing.
+  if (drained.length > 0) events.push({ t: 'PendingTriggersCleared', ids: drained });
+  return { events, stopped: false };
 }
 
 // ── turn-based actions (CR 703) ──────────────────────────────────────────────
@@ -488,7 +592,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
 
   if (obj.card !== null) {
     const card = state.cards[obj.card];
-    if (!card) return emitted([{ t: 'StackResolved', stackId: obj.id, card: null, to: null, targets: obj.targets }]);
+    if (!card) return emitted([{ t: 'StackResolved', stackId: obj.id, card: null, to: null, targets: obj.targets, controller: obj.controller }]);
     const oracleCard = deps.oracle.byPrinting(card.printingId);
     const face = oracleCard ? faceOf(oracleCard, card.faceIndex) : null;
 
@@ -509,7 +613,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     const to = face?.isPermanent
       ? { kind: 'battlefield' as const, player: obj.controller }
       : { kind: 'graveyard' as const, player: card.owner };
-    events.push({ t: 'StackResolved', stackId: obj.id, card: obj.card, to, targets: obj.targets });
+    events.push({ t: 'StackResolved', stackId: obj.id, card: obj.card, to, targets: obj.targets, controller: obj.controller });
     // ⚠️ THE EFFECT RUNS BEFORE THE CARD MOVES. A spell is still on the stack
     // while it resolves (CR 608.2), so its own text can point at the board it is
     // about to leave — and, concretely, a Bolt that had already been put into the
@@ -518,51 +622,195 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     // ⚠️ Only `auto`. A partly-understood card does nothing here and is offered
     // to the player instead: half-executing is the one outcome worse than not
     // executing at all. See `effectParse.ts`.
+    // ⚠️ `effectResult`, not `effectEvents`: a clause may consume randomness
+    // ("discards two cards at random"), and the RNG advances ONLY through a
+    // recorded `rngAfter`. Dropping it here would replay the game to a different
+    // board than it was played on — silently, and only for those cards.
+    let rng: RngState | undefined;
     if (face && face.effectMode === 'auto' && face.effects.length > 0) {
-      events.push(...effectEvents(state, deps, obj, face.effects));
+      const result = effectResult(state, deps, obj, face.effects);
+      events.push(...result.events);
+      rng = result.rng;
     }
     events.push({
       t: 'CardsMoved',
-      moves: [{ card: obj.card, from: { kind: 'stack', player: null }, to }],
+      // ⚠️ The SPELL's face, carried onto the permanent it becomes — CR 712.
+      // Without it a modal DFC resolves and `clearBattlefieldFields` puts its
+      // front face on the battlefield. See D155.
+      moves: [
+        {
+          card: obj.card,
+          from: { kind: 'stack', player: null },
+          to,
+          ...(obj.faceIndex === 0 ? {} : { faceIndex: obj.faceIndex }),
+        },
+      ],
     });
     events.push(narrated(`${obj.label} resolves.`, obj.controller, obj.identity));
-    return emitted(events);
+    return emitted(events, rng);
   }
 
   // An ability. With no card scripts there is nothing to run, but the object
   // still leaves the stack — which is what stops a triggered ability from
   // wedging the priority loop forever.
-  events.push({ t: 'StackResolved', stackId: obj.id, card: null, to: null, targets: obj.targets });
-  const script = obj.abilityRef ? deps.scripts.get(obj.abilityRef.slice(0, obj.abilityRef.indexOf('#'))) : undefined;
-  const def = script?.triggers?.find((t) => `${script.oracleId}#${t.abilityId}` === obj.abilityRef);
-  if (script && def && obj.source) {
-    const cache = makeDeriveCache(state);
+  const def = triggerDefFor(deps, obj);
+
+  // CR 603.1 — "you may". A "may" trigger uses the stack like any other and the
+  // CHOICE is made by its controller on RESOLUTION, which is why this is here
+  // and not in `drainTriggers`. See D128.
+  if (def?.optional === true && obj.source !== null) {
+    // ⚠️ NEVER ASK A PLAYER WHO IS OUT OF THE GAME. Their answer is not in
+    // doubt — a departed player chooses nothing — and CR 800.4a goes further,
+    // removing their objects from the stack outright, which this engine does
+    // not model. So the ability resolves having done nothing.
+    //
+    // ⚠️ Whether the prompt could be ANSWERED depends on the client, and that
+    // is the argument for not raising it: the test harness answers on the
+    // departed seat's behalf, so removing this guard does not hang the suite —
+    // it hands a live question to somebody who has left the table, and which
+    // clients still speak for that seat is not a property `src/engine/` can
+    // see. D102's rule, applied one step earlier than usual.
+    if (!(state.players[obj.controller]?.hasLost ?? true)) {
+      const awaiting: Awaiting = {
+        kind: 'optionalTrigger',
+        player: obj.controller,
+        stackId: obj.id,
+        source: obj.source,
+        label: obj.label,
+      };
+      return emitted([{ t: 'AwaitingSet', awaiting }]);
+    }
+    return emitted(resolveAbility(state, deps, obj, false));
+  }
+
+  return emitted(resolveAbility(state, deps, obj, null));
+}
+
+/** The `TriggerDef` behind a stack object, or undefined for anything else. */
+function triggerDefFor(deps: EngineDeps, obj: StackObject): TriggerDef | undefined {
+  if (!obj.abilityRef) return undefined;
+  const script = deps.scripts.get(obj.abilityRef.slice(0, obj.abilityRef.indexOf('#')));
+  return script?.triggers?.find((t) => `${script.oracleId}#${t.abilityId}` === obj.abilityRef);
+}
+
+/**
+ * The `ActivatedDef` behind an ACTIVATED stack object, or undefined (D159).
+ * The join is `def.ref === obj.abilityRef` — the exact
+ * `${oracleId}#a${index}` string `handlers.activateAbility` wrote — which is
+ * also why a trigger's `abilityId` may never match /^a\d+$/ (D158's review
+ * rule): `triggerDefFor` above would claim the activated object first.
+ */
+function activatedDefFor(deps: EngineDeps, obj: StackObject): ActivatedDef | undefined {
+  if (obj.kind !== 'activated' || !obj.abilityRef) return undefined;
+  const script = deps.scripts.get(obj.abilityRef.slice(0, obj.abilityRef.indexOf('#')));
+  return script?.activated?.find((d) => d.ref === obj.abilityRef);
+}
+
+/**
+ * The one `ScriptCtx` construction — every def kind resolves through the same
+ * context, so a field added for one cannot silently stay a stub for another
+ * (how `ctx.random` rotted unnoticed, D158's reportable — still a stub, still
+ * said).
+ */
+function scriptCtxFor(state: GameState, deps: EngineDeps): ScriptCtx {
+  const cache = makeDeriveCache(state);
+  return {
+    state,
+    oracle: deps.oracle,
+    derive: (id: InstanceId) => derive(state, deps.oracle, deps.scripts, id, cache),
+    options: state.options,
+    ids: {
+      nextInstance: () => `c${state.counters.instance + 1}`,
+      nextStack: () => `s${state.counters.stack + 1}`,
+    },
+    query: {
+      permanentsOf: (player: PlayerId) =>
+        state.zones.battlefield.filter((id) => state.cards[id]?.controller === player),
+      controllerOf: (id: InstanceId) => state.cards[id]?.controller ?? null,
+      isOnBattlefield: (id: InstanceId) => state.cards[id]?.zone.kind === 'battlefield',
+    },
+    random: { below: () => 0, shuffled: <T,>(xs: readonly T[]) => xs },
+  };
+}
+
+/**
+ * Resolve an ability off the top of the stack.
+ *
+ * ⚠️ ONE IMPLEMENTATION, TWO CALLERS. `resolveTop` calls it for every ability;
+ * `handlers.answerOptionalTrigger` calls it with the player's answer, because a
+ * "may" trigger stops mid-resolution and comes back through an intent. A second
+ * copy of "an ability leaves the stack, runs its script and narrates" would
+ * eventually disagree with this one about the order of those three, and the
+ * difference would only ever show up on a card that killed its own source.
+ *
+ * @param answer `null` for an ability that was never optional — run it, and say
+ *   nothing about a decision nobody made. `true`/`false` are a "may" trigger's
+ *   answer, and each writes its own line: a declined trigger and a trigger whose
+ *   effect happened to do nothing leave an identical board, so the log is the
+ *   only place that difference can live.
+ */
+export function resolveAbility(
+  state: GameState,
+  deps: EngineDeps,
+  obj: StackObject,
+  answer: boolean | null,
+): EventBody[] {
+  const events: EventBody[] = [
+    { t: 'StackResolved', stackId: obj.id, card: null, to: null, targets: obj.targets, controller: obj.controller },
+  ];
+  const def = triggerDefFor(deps, obj);
+
+  // ⚠️ CR 608.2b — AN ABILITY WHOSE EVERY TARGET IS ILLEGAL DOES NOT RESOLVE.
+  // The board moves between the moment targets are chosen and the moment the
+  // ability resolves (that is the whole reason targeting is two steps), so a
+  // trigger aimed at a creature somebody killed in response must do nothing at
+  // all rather than run its script against a card in a graveyard.
+  //
+  // ⚠️ "EVERY", not "any" — a partial fizzle still resolves for the targets
+  // that survive, and it is the script's job to skip the dead ones. This only
+  // catches the total case, which is the one with a rule of its own.
+  const srcCard = obj.source ? state.cards[obj.source] : undefined;
+  const srcPrinting = srcCard ? deps.oracle.byPrinting(srcCard.printingId) : undefined;
+  const srcFace = srcCard && srcPrinting ? faceOf(srcPrinting, srcCard.faceIndex) : null;
+  if (obj.targets.length > 0 && !targetsStillLegal(state, deps, obj, srcFace, def?.targets ?? [])) {
     events.push(
-      ...def.resolve(
-        {
-          state,
-          oracle: deps.oracle,
-          derive: (id: InstanceId) => derive(state, deps.oracle, deps.scripts, id, cache),
-          options: state.options,
-          ids: {
-            nextInstance: () => `c${state.counters.instance + 1}`,
-            nextStack: () => `s${state.counters.stack + 1}`,
-          },
-          query: {
-            permanentsOf: (player: PlayerId) =>
-              state.zones.battlefield.filter((id) => state.cards[id]?.controller === player),
-            controllerOf: (id: InstanceId) => state.cards[id]?.controller ?? null,
-            isOnBattlefield: (id: InstanceId) => state.cards[id]?.zone.kind === 'battlefield',
-          },
-          random: { below: () => 0, shuffled: <T,>(xs: readonly T[]) => xs },
-        },
-        obj.source,
-        obj,
+      narrated(
+        n`${obj.label} — no legal target left, so it does not resolve (CR 608.2b).`,
+        obj.controller,
+      ),
+    );
+    return events;
+  }
+
+  if (answer !== false && def && obj.source) {
+    events.push(...def.resolve(scriptCtxFor(state, deps), obj.source, obj));
+  }
+
+  // ⚠️ THE ACTIVATED SEAM (D159). Until this branch, `ActivatedDef` was a dead
+  // field: the registry never indexed it, and this function's only script
+  // lookup was `triggerDefFor` — so `legal.ts` offered a payable ability,
+  // `handlers.ts` charged its whole cost, and the resolution ran nothing
+  // (D122's disclosed gap, now closed for any ability a def claims by `ref`).
+  // `obj.source` may point at a GRAVEYARD card here — a self-sacrifice cost
+  // (Hedron Archive) pays the source away before the ability resolves, which
+  // is why a def's `resolve` must read `obj.controller` and never assume the
+  // battlefield.
+  const adef = activatedDefFor(deps, obj);
+  if (adef && obj.source !== null) {
+    events.push(...adef.resolve(scriptCtxFor(state, deps), obj.source, obj));
+  }
+  if (answer !== null) {
+    events.push(
+      narrated(
+        answer
+          ? n`${who(state, obj.controller)} ${vb(obj.controller, 'uses', 'use')} ${obj.label}.`
+          : n`${who(state, obj.controller)} ${vb(obj.controller, 'declines', 'decline')} ${obj.label}.`,
+        obj.controller,
       ),
     );
   }
   events.push(narrated(`${obj.label} resolves.`, obj.controller, obj.identity));
-  return emitted(events);
+  return events;
 }
 
 /**
@@ -578,9 +826,41 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
  * battlefield". A target that changed zones is a NEW object (CR 400.7) and is
  * never still legal.
  */
-function targetsStillLegal(state: GameState, deps: EngineDeps, obj: StackObject, face: OracleFace | null): boolean {
+/**
+ * What ward and protection measure a triggered ability against: its SOURCE's
+ * colours, and its controller.
+ *
+ * ⚠️ The source is the permanent whose ability triggered, not a card on the
+ * stack — a triggered ability has no card of its own (CR 113.7a), which is why
+ * `StackObject.card` is null for one.
+ */
+function targetingSourceFor(
+  state: GameState,
+  deps: EngineDeps,
+  source: InstanceId | null,
+  controller: PlayerId,
+): TargetingSource | null {
+  if (!source) return null;
+  const card = state.cards[source];
+  const printing = card ? deps.oracle.byPrinting(card.printingId) : undefined;
+  if (!card || !printing) return null;
+  return { controller, colors: faceOf(printing, card.faceIndex).colors };
+}
+
+function targetsStillLegal(
+  state: GameState,
+  deps: EngineDeps,
+  obj: StackObject,
+  face: OracleFace | null,
+  // ⚠️ A TRIGGERED ABILITY'S CLAUSES LIVE ON ITS `TriggerDef`, NOT ON THE FACE.
+  // Its source's printed `targets` are the card's own spell clauses, which for
+  // a permanent is an empty list — so without this a trigger fell to the
+  // "no parsed clause" branch and every restriction the def declared went
+  // unchecked at resolution, having been enforced when they were chosen.
+  specsOverride?: readonly TargetSpec[],
+): boolean {
   if (obj.targets.length === 0) return true;
-  const specs = face?.targets ?? [];
+  const specs = specsOverride ?? face?.targets ?? [];
   const candidates = candidatesFromState(state, deps);
   const src = { controller: obj.controller, colors: face?.colors ?? [] };
   return obj.targets.some((target, i) => {

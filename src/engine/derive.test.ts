@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { derive, makeDeriveCache } from './derive';
-import { createRegistry, EMPTY_REGISTRY } from './scripts/registry';
+import { createRegistry, NO_SCRIPTS } from './scripts/registry';
 import type { CardScript, MutableCharacteristics, ScriptCtx } from './scripts/api';
 import { ORACLE, find, findAnywhere, must, put, startedGame } from './testing/harness';
 import type { InstanceId } from './types/ids';
@@ -110,10 +110,10 @@ describe('derive — layers 1, 7b and the Tier-3 override', () => {
     const game = startedGame({ decks: [['Grizzly Bears']] });
     const bear = put(game, 'p1', 'Grizzly Bears');
     const cache = makeDeriveCache(game.state);
-    expect(derive(game.state, ORACLE, EMPTY_REGISTRY, bear, cache).power).toBe(2);
+    expect(derive(game.state, ORACLE, NO_SCRIPTS, bear, cache).power).toBe(2);
     must(game.submit({ t: 'ManualSetCounter', player: 'p1', card: bear, kind: '+1/+1', delta: 1 }));
     // Same cache object, new state: the eventCount moved, so it must recompute.
-    expect(derive(game.state, ORACLE, EMPTY_REGISTRY, bear, cache).power).toBe(3);
+    expect(derive(game.state, ORACLE, NO_SCRIPTS, bear, cache).power).toBe(3);
   });
 });
 
@@ -143,10 +143,10 @@ const ANTHEM_OF_TESTING: CardScript = {
 
 describe('the script registry is purely additive', () => {
   test('a script-less card is zero registrations', () => {
-    expect(EMPTY_REGISTRY.size).toBe(0);
-    expect(EMPTY_REGISTRY.triggersFor('CardsMoved')).toEqual([]);
-    expect(EMPTY_REGISTRY.staticsFor('ptModify')).toEqual([]);
-    expect(EMPTY_REGISTRY.get('anything')).toBeUndefined();
+    expect(NO_SCRIPTS.size).toBe(0);
+    expect(NO_SCRIPTS.triggersFor('CardsMoved')).toEqual([]);
+    expect(NO_SCRIPTS.staticsFor('ptModify')).toEqual([]);
+    expect(NO_SCRIPTS.get('anything')).toBeUndefined();
   });
 
   test('a registered static reaches derive() with no call-site change', () => {

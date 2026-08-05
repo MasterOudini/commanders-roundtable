@@ -21,8 +21,17 @@ interface SoloSetup {
   seats: number;
   /** Deck id per seat index. `null` means "use a starter deck". */
   deckIds: readonly (string | null)[];
+  /**
+   * Which seats a bot plays.
+   *
+   * ⚠️ Seat 0 is always a person — a table with nobody at it is a tournament
+   * run, and that belongs in a script rather than behind a lobby button. The
+   * setter enforces it rather than the screen, so there is one place to check.
+   */
+  bots: readonly boolean[];
   setSeats: (seats: number) => void;
   setDeck: (index: number, deckId: string | null) => void;
+  setBot: (index: number, isBot: boolean) => void;
   /** A deck that no longer exists must not stay selected. */
   dropMissingDecks: (existing: readonly string[]) => void;
 }
@@ -30,9 +39,18 @@ interface SoloSetup {
 export const useSolo = create<SoloSetup>((set) => ({
   seats: MAX_SEATS,
   deckIds: Array.from({ length: MAX_SEATS }, () => null),
+  bots: Array.from({ length: MAX_SEATS }, () => false),
 
   setSeats: (seats) =>
     set({ seats: Math.min(MAX_SEATS, Math.max(MIN_SEATS, Math.round(seats) || MIN_SEATS)) }),
+
+  setBot: (index, isBot) =>
+    set((s) => {
+      if (index <= 0 || index >= MAX_SEATS) return s;
+      const bots = [...s.bots];
+      bots[index] = isBot;
+      return { bots };
+    }),
 
   setDeck: (index, deckId) =>
     set((s) => {

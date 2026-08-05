@@ -30,5 +30,20 @@ export default defineConfig({
     environment: 'node',
     include: ['src/**/*.test.ts'],
     globals: false,
+    /**
+     * ⚠️ RAISED FROM VITEST'S 5 s DEFAULT, AND IT IS NOT MASKING A SLOW TEST.
+     * Measured in isolation, the three slowest tests in the suite are 2.0 s
+     * ("40 turns of passes"), 2.4 s ("cleanup clears marked damage") and 3.5 s
+     * ("a dropped client rejoins") — all comfortably inside the default. They
+     * began timing out only once the suite reached 57 files, because vitest runs
+     * files CONCURRENTLY and the slowest ones then get a fraction of a core.
+     * The set of failures varied between runs, which is the tell (D106): a real
+     * regression is reproducible in isolation and this is not.
+     *
+     * So the timeout is here to catch a HANG, which is what it is for, rather
+     * than to referee CPU contention. Anything genuinely long says so itself —
+     * the fuzz gate passes its own 600 s.
+     */
+    testTimeout: 20_000,
   },
 });

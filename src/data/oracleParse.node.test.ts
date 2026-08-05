@@ -59,6 +59,24 @@ interface Report {
     withUnenforced: number;
   };
   activated: { lines: number; payable: number; manaAbility: number; targeted: number };
+  /**
+   * ⚠️ MULTI-COLOUR LANDS, measured in both directions — the honest form of "the
+   * mana chooser works for every land, not only Command Tower". `multiColour` is
+   * how many Commander-legal lands can make more than one colour at all;
+   * `oneOption` is how many of those the ingest still boils down to a single
+   * choice, which is the number that must be talked about rather than rounded
+   * off. `byShape` says HOW they got there, because the three shapes fail
+   * differently: intrinsic land types, one clause reading "Add {W} or {U}", and
+   * "any colour".
+   */
+  lands: {
+    total: number;
+    multiColour: number;
+    oneOption: number;
+    byShape: Record<string, number>;
+    examples: Record<string, string>;
+    misses: string[];
+  };
   /** `confident` with no `kinds` — an impossible state. Must stay empty. */
   impossibleSpecs: string[];
   /**
@@ -91,6 +109,7 @@ async function run(): Promise<Report> {
     wardLife: 0,
     targets: { facesWithSpecs: 0, specs: 0, confident: 0, free: 0, enchant: 0, withUnenforced: 0 },
     activated: { lines: 0, payable: 0, manaAbility: 0, targeted: 0 },
+    lands: { total: 0, multiColour: 0, oneOption: 0, byShape: {}, examples: {}, misses: [] },
     impossibleSpecs: [],
     freeSpecsDemandingMany: [],
   };
@@ -159,6 +178,67 @@ async function run(): Promise<Report> {
             report.landsWithBasicTypeAndNoMana.push(card.name);
           }
         }
+        // ── What a multi-colour land actually OFFERS when you tap it ─────────
+        //
+        // ⚠️ Counted through the SAME arithmetic the panel uses: expand
+        // `anyColor` (against five colours, the widest a real identity gets),
+        // flatten every ability's outputs, and dedupe by cost string. Counting
+        // `producesMana.length` instead would say a dual land has two options
+        // and a "{T}: Add {W} or {U}" land has one, when to a player they are
+        // the same land.
+        if (face.isLand && card.commanderLegality === 'legal' && i === 0) {
+          report.lands.total++;
+          const costs: string[] = [];
+          for (const prod of face.producesMana) {
+            const outs = prod.anyColor
+              ? (['W', 'U', 'B', 'R', 'G'] as const).map((c) => ({
+                  mana: { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0, [c]: prod.anyColor?.amount ?? 1 },
+                }))
+              : prod.outputs;
+            for (const o of outs) {
+              const cost = (['W', 'U', 'B', 'R', 'G', 'C'] as const)
+                .map((k) => `{${k}}`.repeat((o.mana as Record<string, number>)[k] ?? 0))
+                .join('');
+              if (cost && !costs.includes(cost)) costs.push(cost);
+            }
+          }
+          // ⚠️ "MAKES TWO COLOURS" AND "OFFERS A CHOICE" ARE DIFFERENT THINGS,
+          // and conflating them is the first thing this measurement got wrong.
+          // Dimir Aqueduct taps for `{U}{B}` — two colours, one option, nothing
+          // to choose — as do the Odyssey filter lands (`{W}{U}`) and every
+          // karoo. Flagging those as misses reported twenty perfectly correct
+          // lands as broken. What the panel exists for is a land offering more
+          // than one ANSWER.
+          if (costs.length >= 2) {
+            report.lands.multiColour++;
+            const shape = face.producesMana.some((p) => p.anyColor)
+              ? 'any colour'
+              : face.producesMana.length > 1
+                ? 'several abilities'
+                : 'one clause, several outputs';
+            report.lands.byShape[shape] = (report.lands.byShape[shape] ?? 0) + 1;
+            report.lands.examples[shape] ??= `${card.name} → ${costs.join(' ')}`;
+          }
+          // ⚠️ THE MISS TEST, in the direction that can rot: the card's own text
+          // (or its land types) says there is a choice, and the ingest produced
+          // fewer than two answers. Two intrinsic basic types is a dual; `or`
+          // between mana symbols is `Add {W} or {U}`; "any color" is the Tower.
+          // Each is a shape the parser has a branch for, so a miss means a
+          // branch stopped firing — which is exactly the failure that would let
+          // a player tap a dual land and silently get whichever colour is first.
+          const basics = face.typeLine.subtypes.filter((s) => BASIC_TYPES.has(s));
+          const text = face.oracleText ?? '';
+          const saysChoice =
+            basics.length >= 2
+            || /add\b[^.]*\{[WUBRGC]\}[^.]*\bor\b[^.]*\{[WUBRGC]\}/i.test(text)
+            || /add\s+(?:one|two|three|a|an|X)\s+mana\s+of\s+any/i.test(text);
+          if (saysChoice && costs.length < 2) {
+            report.lands.oneOption++;
+            if (report.lands.misses.length < 20) {
+              report.lands.misses.push(`${card.name} → [${costs.join(' ')}]`);
+            }
+          }
+        }
         if (face.typeLine.types.length === 0) {
           report.typelessFaces++;
           // A face with no type at all can never be played. It matters only if
@@ -188,8 +268,72 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
         `\ningest: ${report.cards} cards / ${report.faces} faces\n` +
           sorted.map(([k, v]) => `  ${String(v).padStart(7)}  ${k}`).join('\n'),
       );
+      // eslint-disable-next-line no-console
+      console.log(
+        `\nlands: ${report.lands.total} Commander-legal · ${report.lands.multiColour} make more `
+          + `than one colour · ${report.lands.oneOption} of those offer fewer than two options\n`
+          + Object.entries(report.lands.byShape)
+            .sort((a, b) => b[1] - a[1])
+            .map(([k, v]) => `  ${String(v).padStart(7)}  ${k}  (e.g. ${report.lands.examples[k]})`)
+            .join('\n')
+          + (report.lands.misses.length ? `\n  misses: ${report.lands.misses.join(' | ')}` : ''),
+      );
     }
   }, 180_000);
+
+  /**
+   * ⚠️ EVERY land that can make more than one colour offers more than one
+   * choice. This is "the mana chooser works for every land, not only Command
+   * Tower" as a number rather than a claim, and it is asserted in the direction
+   * that can actually rot: a parser change that collapsed `Add {W} or {U}` into
+   * one output, or dropped an intrinsic land type, would leave the player
+   * tapping a dual land and silently getting whichever colour came first.
+   *
+   * ⚠️ `multiColour` is pinned as a floor too, because zero of zero satisfies
+   * the line above — the same green-over-nothing this repo has been caught by
+   * three times.
+   */
+  test('every multi-colour land offers every colour it can make', () => {
+    // ⚠️ 4,270 of 12,500 Commander-legal lands offer more than one answer, in
+    // three shapes: 2,070 "one clause, several outputs" (Orzhov Guildgate),
+    // 1,487 "several abilities" (the duals and their intrinsic types), and 713
+    // "any colour" (Command Tower, Reflecting Pool, Pillar of the Paruns).
+    // Pinned as a floor, because "zero of zero" satisfies the assertion below.
+    expect(report.lands.multiColour).toBeGreaterThan(4000);
+    // ⚠️ TWENTY-SIX PRINTINGS ARE NOT COVERED, and the list is named rather
+    // than rounded off. Every one is a scope the ingest genuinely cannot
+    // resolve, in THREE families since D147: a SUBTYPE-scoped set ("a Gate you
+    // control could produce" — Plaza of Harmony, Gond Gate, Pit of Offerings), a
+    // VARIABLE amount ("Add X mana of any one color" — Baldur's Gate,
+    // Springjack Pasture), and — new — an any-colour ability that IS NOT THIS
+    // LAND'S TO USE, either on a trigger or granted to something else.
+    // Widening either would offer mana the card cannot make, which is worse than
+    // offering none. They keep whatever concrete ability they have — all five
+    // still tap for {C} — and `tier3.ts` says on the card what is not enforced.
+    const distinct = [...new Set(report.lands.misses.map((m) => m.split(' →')[0]))].sort();
+    expect(distinct).toEqual([
+      "Baldur's Gate",
+      // ⚠️ FOUR LANDS JOINED THIS LIST IN D147, and every one of them was
+      // OFFERING MANA IT CANNOT MAKE before that. Their any-colour ability is
+      // not theirs to use: `Crumbling Vestige` and `Branch of Vitu-Ghazi` have
+      // it on a TRIGGER (when it enters / when it is turned face up), and
+      // `The World Tree` and `Riftstone Portal` GRANT it to other lands in
+      // quoted text. Tapping any of the four gives {C} or {G} and nothing else
+      // — which is what they offer now.
+      'Branch of Vitu-Ghazi',
+      'Crumbling Vestige',
+      'Gond Gate',
+      'Pit of Offerings',
+      'Plaza of Harmony',
+      'Riftstone Portal',
+      'Springjack Pasture',
+      'The World Tree',
+    ]);
+    // ⚠️ PRINTINGS, not names — 26 across the nine cards above, where the list
+    // itself is deduplicated. It was 13 across five until D147 added four
+    // lands whose any-colour ability turned out not to be theirs to use.
+    expect(report.lands.oneOption).toBe(26);
+  });
 
   test('nothing throws', () => {
     expect(report.threw).toEqual([]);
@@ -259,21 +403,43 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
   test('the measured coverage matches the numbers pinned in D32', () => {
     expect(report.warnings).toEqual({
       'keywords:noneTier2': 23555,
-      'effect:none': 18569,
-      'effect:partial': 4148,
-      'effect:auto': 1614,
-      'activated:nonManaCost': 13581,
+      // ⚠️ M6.3c moved all three (D130): the counter vocabulary took 115 FACES
+      // out of "understood nothing" — 17 to fully understood and 98 to partly,
+      // where the prompt bar offers the counter clause as one logged click.
+      // These count FACES over every printing, which is why they are an order of
+      // magnitude larger than `botPool`'s distinct-name figures.
+      'effect:none': 17101,
+      'effect:partial': 4967,
+      'effect:auto': 2263,
+      // ⚠️ 13,581 → 10,372 in M6.4b (D159): `Sacrifice this <type>` and War
+      // Room's commanders'-colors life phrase became CHARGEABLE cost parts, so
+      // 3,209 printings' ability lines stopped warning `nonManaCost`. The
+      // engine OFFERS a self-sacrifice only when a def will run it —
+      // `legal.ts`'s gate — so this is the parse admitting a price, not the
+      // app charging one for nothing.
+      'activated:nonManaCost': 10372,
       'activated:loyalty': 4635,
       'target:modalUnion': 2751,
       'target:unparsedClause': 1459,
       'typeLine:unknownType': 729,
       'protection:unenforced': 677,
-      'mana:noSymbols': 629,
-      'target:unparsedCount': 549,
+      // ⚠️ 629 → 540 when "any TYPE" started parsing (D116): 89 of these were
+      // Reflecting Pool and its family falling through to "there are no mana
+      // symbols in this line", because the pattern only knew "any color".
+      'mana:noSymbols': 227,
+      // ⚠️ The same shape over a set the parser cannot resolve — "a GATE you
+      // control could produce", and nothing else. Answering it with every colour
+      // your lands make would offer mana the card cannot produce, so it warns
+      // and produces nothing.
+      'mana:anyScopeUnread': 16,
+      // 549 → 551 in M6.4b (D159): two long-cost lines reclassified
+      // sentence→activated by the brace rule carry a count clause the parser
+      // declines to guess — invisible to targeting before, honestly counted now.
+      'target:unparsedCount': 551,
       'ward:nonManaCost': 151,
-      'mana:variableAmount': 102,
+      'mana:variableAmount': 88,
       'target:unparsedEnchant': 14,
-      'mana:unknownSymbolInAbility': 18,
+      'mana:unknownSymbolInAbility': 10,
       'mana:noUsableOutput': 10,
       'manaCost:unknownSymbol': 2,
       'manaCost:halfMana': 1,
@@ -295,13 +461,21 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       confident: 17330,
       free: 3510,
       enchant: 3536,
-      withUnenforced: 1987,
+      withUnenforced: 1379,
     });
+    // ⚠️ M6.4b (D159) moved three of these over the whole 113,559-printing
+    // database: `lines` +195 (the brace rule admits a long cost that opens
+    // with a mana/tap symbol — before, an 82-character cost read as a static
+    // sentence), `payable` +3,404 (self-sacrifice and the commanders'-colors
+    // life phrase became chargeable PRICES — offered only where a def will run
+    // the effect, `legal.ts`'s gate), `targeted` +50 (target clauses inside
+    // the newly admitted lines).
     expect(report.activated).toEqual({
-      lines: 42945,
-      payable: 24729,
-      manaAbility: 11911,
-      targeted: 11031,
+      lines: 43140,
+      payable: 28133,
+      // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
+      manaAbility: 11582,
+      targeted: 11081,
     });
   });
 
@@ -327,6 +501,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       'mana:noUsableOutput',
       'mana:unknownSymbolInAbility',
       'mana:anyCombination',
+      'mana:anyScopeUnread',
       'protection:unenforced',
       'ward:nonManaCost',
       'typeLine:unknownType',

@@ -56,6 +56,17 @@ export type TableMode =
   | {
       readonly kind: 'payment';
       readonly card: string;
+      /**
+       * Which FACE is being cast — a split half, an adventure, a modal DFC's
+       * back (D155). Omitted means face 0, which is every ordinary card.
+       *
+       * ⚠️ It has to ride the payment mode rather than be looked up again in
+       * `PaymentReview`, because by then the only thing identifying the spell is
+       * the card id — and a card with two castable faces has two costs. Getting
+       * this wrong charges one half's mana for the other's, which is D53's
+       * "approve one payment, be charged another" with the halves swapped.
+       */
+      readonly faceIndex?: number;
       readonly xValue: number;
       readonly targets: readonly TargetChoice[];
     }
@@ -148,6 +159,83 @@ interface TableUi {
    */
   attachments: { host: string; x: number; y: number } | null;
   /**
+   * "Which mana?" — open on the source, or SOURCES, being tapped.
+   *
+   * ⚠️ A LIST, even for one card. A plain click on a land that can make two
+   * things and a shift-click that adds a fourth land to a batch are the same
+   * question asked about a different number of cards, and modelling the single
+   * case separately is how two code paths end up disagreeing about what tapping
+   * means.
+   *
+   * ⚠️ It holds the CARDS and where to draw, never the options. Those are read
+   * out of `legal` every render, exactly as `CardMenu` re-reads the card: a
+   * source that gets tapped, bounced or killed while the panel is open must stop
+   * offering mana it can no longer make, and a snapshot taken at open time would
+   * happily offer it.
+   */
+  manaChoice: { cards: readonly string[]; x: number; y: number } | null;
+  /**
+   * "Which half?" — a card in hand with more than one playable face (D155).
+   *
+   * ⚠️ Only the CARD is held, never the options: they are recomputed from
+   * `legal` every render for `manaChoice`'s reason one line up. A modal DFC
+   * whose land half stops being playable because somebody else's turn began
+   * must stop offering it while the panel is open.
+   */
+  faceChoice: { card: string; x: number; y: number } | null;
+  /**
+   * Cards picked so far for whichever card-picking prompt is up — a hand
+   * discard (D137), a library pick (D141), or an ORDERING (D142).
+   *
+   * ⚠️ **IT IS AN ORDER, NOT A SET, and D142 is why that matters.** For the two
+   * picking prompts the sequence is incidental; for `orderCards` it IS the
+   * answer, so this has always to be appended to rather than toggled into a set.
+   * The array shape was right from D137 by luck; it is right on purpose now.
+   *
+   * ⚠️ UI STATE, and it has to be: the answer is SIMULTANEOUS (CR 701.8a
+   * chooses N cards and discards them together), so the intent takes all of them
+   * at once and something has to hold the partial pick until it is complete.
+   * `MulliganBottom` sends one card per click instead and the engine
+   * accumulates — a fine idiom there, and the wrong one here, because a discard
+   * applied a card at a time is a different rule from a discard applied at once.
+   *
+   * ⚠️ Cleared whenever the prompt changes, not when it is answered: a
+   * rewind, a resync or a spell fizzling all end the question, and a stale pick
+   * would ring cards the next prompt never asked about.
+   */
+  pickOrder: readonly string[];
+  /** The "what shall I do with this library" menu, anchored to a library pile. */
+  libraryMenu: { player: string; x: number; y: number } | null;
+  /**
+   * Looking through an OPEN pile — a graveyard or an exile zone.
+   *
+   * ⚠️ Not anchored, unlike its three siblings: a graveyard holds thirty cards
+   * and a panel beside the pile could not show them. It is centred, like the
+   * peek panel, for the same reason.
+   */
+  zoneBrowser: { player: string; kind: 'gy' | 'exile' } | null;
+  /**
+   * What the cards I am currently looking at are FOR — **when I chose to look at
+   * them myself.**
+   *
+   * ⚠️ UI state, and it has to be: the engine sees a reveal and nothing more. A
+   * scry and a surveil are the same peek followed by different decisions, and
+   * teaching the engine to tell them apart would be teaching it a rule it does
+   * not enforce — the whole Tier-3 line. The panel remembers which question it
+   * asked; the log records what was actually done.
+   *
+   * ⚠️⚠️ **IT IS A TIER-3 CONCEPT AND NOTHING ELSE, which is narrower than it
+   * looks and was not written down until D147.** When the RULES are asking about
+   * these cards — a `chooseFromZone` over a library (D141) or an `orderCards`
+   * (D142) — the prompt owns the panel: it supplies the title, the hint and what
+   * a click means, and every button this field selects between is gone. So this
+   * value is not merely unused in that state, it is meaningless in it, and
+   * anything reading it has to check for a prompt first. `PeekPanel` does;
+   * `data-peek-mode` reports `prompt` rather than a stale mode, so the DOM says
+   * which of the two is in charge instead of implying this one always is.
+   */
+  peekMode: 'look' | 'scry' | 'surveil';
+  /**
    * ⚠️ `window.prompt` THROWS in Electron. Every number and text input in this
    * app goes through these two slots and a real dialog component; a probe greps
    * `src/` for `window.prompt|confirm|alert` and must find nothing.
@@ -175,6 +263,26 @@ interface TableUi {
   closeCardMenu: () => void;
   openAttachments: (host: string, x: number, y: number) => void;
   closeAttachments: () => void;
+  openManaChoice: (cards: readonly string[], x: number, y: number) => void;
+  openFaceChoice: (card: string, x: number, y: number) => void;
+  closeFaceChoice: () => void;
+  /**
+   * Shift-click: take one more of this slot into the batch, or clear it.
+   *
+   * ⚠️ It takes the SLOT'S CARDS, not one card, because a slot may be a pile:
+   * twelve identical Forests are one thing you can point at (D19) and twelve
+   * things you can tap. Passing a single card is the ordinary case and behaves
+   * exactly as a toggle.
+   */
+  toggleManaChoice: (members: readonly string[], x: number, y: number) => void;
+  closeManaChoice: () => void;
+  togglePick: (card: string) => void;
+  clearPick: () => void;
+  openLibraryMenu: (player: string, x: number, y: number) => void;
+  closeLibraryMenu: () => void;
+  openZoneBrowser: (player: string, kind: 'gy' | 'exile') => void;
+  closeZoneBrowser: () => void;
+  setPeekMode: (mode: 'look' | 'scry' | 'surveil') => void;
   askNumber: (request: NumberRequest) => void;
   askText: (request: TextRequest) => void;
   closeDialogs: () => void;
@@ -199,20 +307,81 @@ export const useTable = create<TableUi>((set, get) => ({
   logOpen: false,
   cardMenu: null,
   attachments: null,
+  manaChoice: null,
+  faceChoice: null,
+  pickOrder: [],
+  libraryMenu: null,
+  zoneBrowser: null,
+  peekMode: 'look',
   numberRequest: null,
   textRequest: null,
 
   setMode: (mode) => set({ mode }),
   setGameSetup: ({ tokens, stops }) => set({ tokens, stops }),
-  setSnapshot: (s) => set(s),
+  /**
+   * ⚠️ A PARTIAL DISCARD PICK DIES WITH THE PROMPT THAT ASKED FOR IT (D137).
+   * The question can end without being answered — a rewind, a resync, the seat
+   * changing under a hotseat hand-off — and a pick left behind would ring cards
+   * for a prompt that is gone, or worse, be sent as the answer to the next one.
+   * Keyed on the prompt CHANGING rather than on it clearing, so a second discard
+   * arriving straight after the first also starts empty.
+   */
+  setSnapshot: (s) =>
+    set((st) => (st.awaiting === s.awaiting ? s : { ...s, pickOrder: [] })),
   setMessage: (message) => set({ message }),
   setToolsOpen: (toolsOpen) => set({ toolsOpen }),
   setStopsOpen: (stopsOpen) => set({ stopsOpen }),
   setLogOpen: (logOpen) => set({ logOpen }),
-  openCardMenu: (card, x, y) => set({ cardMenu: { card, x, y }, attachments: null }),
+  // ⚠️ The three anchored panels are MUTUALLY EXCLUSIVE. Each is pinned to a
+  // card, so two open at once would overlap and the one underneath would take
+  // clicks meant for the one on top.
+  openCardMenu: (card, x, y) => set({ cardMenu: { card, x, y }, attachments: null, manaChoice: null }),
   closeCardMenu: () => set({ cardMenu: null }),
-  openAttachments: (host, x, y) => set({ attachments: { host, x, y }, cardMenu: null }),
+  openAttachments: (host, x, y) => set({ attachments: { host, x, y }, cardMenu: null, manaChoice: null }),
   closeAttachments: () => set({ attachments: null }),
+  openManaChoice: (cards, x, y) => set({ manaChoice: { cards, x, y }, cardMenu: null, attachments: null }),
+  openFaceChoice: (card, x, y) =>
+    set({ faceChoice: { card, x, y }, cardMenu: null, attachments: null, manaChoice: null }),
+  closeFaceChoice: () => set({ faceChoice: null }),
+  toggleManaChoice: (members, x, y) => {
+    const first = members[0];
+    if (first === undefined) return;
+    const open = get().manaChoice;
+    if (!open) {
+      set({ manaChoice: { cards: [first], x, y }, cardMenu: null, attachments: null });
+      return;
+    }
+    // ⚠️ ONE MORE PER CLICK. Shift-clicking a pile of twelve Forests five times
+    // means five Forests, not one Forest toggled five times — which is what a
+    // slot-keyed toggle gave, because every click named the same representative.
+    const next = members.find((id) => !open.cards.includes(id));
+    const cards = next !== undefined
+      ? [...open.cards, next]
+      // ⚠️ Once the whole slot is in, the click CLEARS the whole slot. For the
+      // ordinary one-card slot that is exactly the toggle it always was, and for
+      // a pile it is the only reading of "I have clicked this as many times as
+      // it has cards" that leaves the player somewhere useful. Escape still
+      // drops one at a time, which is the fine-grained undo.
+      : open.cards.filter((id) => !members.includes(id));
+    // ⚠️ Taking the last one back out CLOSES it. A panel listing nothing, still
+    // anchored to a card, is a dialog about no question.
+    set({ manaChoice: cards.length === 0 ? null : { ...open, cards } });
+  },
+  closeManaChoice: () => set({ manaChoice: null }),
+  togglePick: (card) =>
+    set((st) => ({
+      pickOrder: st.pickOrder.includes(card)
+        ? st.pickOrder.filter((c) => c !== card)
+        : [...st.pickOrder, card],
+    })),
+  clearPick: () => set({ pickOrder: [] }),
+  openLibraryMenu: (player, x, y) =>
+    set({ libraryMenu: { player, x, y }, cardMenu: null, attachments: null, manaChoice: null }),
+  closeLibraryMenu: () => set({ libraryMenu: null }),
+  openZoneBrowser: (player, kind) =>
+    set({ zoneBrowser: { player, kind }, cardMenu: null, attachments: null, manaChoice: null, libraryMenu: null }),
+  closeZoneBrowser: () => set({ zoneBrowser: null }),
+  setPeekMode: (peekMode) => set({ peekMode }),
   askNumber: (numberRequest) => set({ numberRequest }),
   askText: (textRequest) => set({ textRequest }),
   closeDialogs: () => set({ numberRequest: null, textRequest: null }),
@@ -223,8 +392,19 @@ export const useTable = create<TableUi>((set, get) => ({
       set({ numberRequest: null, textRequest: null });
       return;
     }
-    if (state.cardMenu || state.attachments) {
-      set({ cardMenu: null, attachments: null });
+    // ⚠️ A BATCH of mana sources backs out one at a time, for the reason the
+    // attacker list does: a player who shift-clicked five lands and taps Escape
+    // to shed the last one must not lose the other four.
+    if (state.manaChoice && state.manaChoice.cards.length > 1) {
+      set({ manaChoice: { ...state.manaChoice, cards: state.manaChoice.cards.slice(0, -1) } });
+      return;
+    }
+    if (state.zoneBrowser) {
+      set({ zoneBrowser: null });
+      return;
+    }
+    if (state.cardMenu || state.attachments || state.manaChoice || state.libraryMenu) {
+      set({ cardMenu: null, attachments: null, manaChoice: null, libraryMenu: null });
       return;
     }
     const mode = state.mode;

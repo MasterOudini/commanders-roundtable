@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
-import { AlertTriangle, Crown, Layers, Play, Swords, User } from 'lucide-react';
+import { AlertTriangle, Bot, Crown, Layers, Play, Swords, User } from 'lucide-react';
 import { startSolo } from '../../game/solo';
 import { seatName } from '../../game/buildGame';
 import * as session from '../../game/session';
 import { useDecks } from '../../store/deckStore';
 import { useSolo, MAX_SEATS, MIN_SEATS } from '../../store/soloStore';
+import { BOT_DECK } from '../../data/botDeck';
 import { useTable } from '../../store/tableStore';
 import { useUi } from '../../store/uiStore';
 import type { DeckSummary } from '../../types/bridge';
@@ -13,10 +14,10 @@ import type { StopPolicy } from '../../engine/types/state';
 // Set up a game against yourself: how many at the table, and what each of them
 // is playing.
 //
-// ⚠️ Solo is a HOTSEAT (D42/D43). There is no AI — you take every seat in turn,
-// and the app does the rules for all of them. The header says so, because a
-// player who expects opponents to act on their own will otherwise read the first
-// pass-priority prompt as the game being stuck.
+// ⚠️ Solo is a HOTSEAT (D42/D43) unless you say otherwise. A seat left on
+// "You" is one you take in turn; a seat set to "Bot" plays itself. The header
+// says which, because a player who expects opponents to act on their own will
+// otherwise read the first pass-priority prompt as the game being stuck.
 //
 // ⚠️ The seat labels come from `seatName()`, the same function the engine seats
 // with. A lobby that invented its own names would put "Player 2" on this screen
@@ -55,7 +56,7 @@ const DEFAULT_STOPS_FOR_UI: StopPolicy = {
 export function SoloScreen() {
   const decks = useDecks((s) => s.decks);
   const refreshDecks = useDecks((s) => s.refresh);
-  const { seats, deckIds, setSeats, setDeck, dropMissingDecks } = useSolo();
+  const { seats, deckIds, bots, setSeats, setDeck, setBot, dropMissingDecks } = useSolo();
   const goto = useUi((s) => s.goto);
   const setGameSetup = useTable((s) => s.setGameSetup);
   const running = useTable((s) => s.running);
@@ -71,7 +72,11 @@ export function SoloScreen() {
     setBusy(true);
     setStatus({ ok: true, message: 'Shuffling up…' });
     try {
-      const result = await startSolo({ seats, deckIds: deckIds.slice(0, seats) });
+      const result = await startSolo({
+        seats,
+        deckIds: deckIds.slice(0, seats),
+        bots: bots.slice(0, seats),
+      });
       setStatus({ ok: result.ok, message: result.message });
       if (result.ok) {
         // ⚠️ The table reads these from the store; it does not start games. A
@@ -85,7 +90,7 @@ export function SoloScreen() {
     } finally {
       setBusy(false);
     }
-  }, [seats, deckIds, setGameSetup, goto]);
+  }, [seats, deckIds, bots, setGameSetup, goto]);
 
   const byId = new Map(decks.map((d) => [d.id, d]));
 
@@ -97,9 +102,10 @@ export function SoloScreen() {
           <div>
             <h1 className="font-display text-lg">Play solo</h1>
             <p className="mt-1 text-sm text-crt-dim">
-              Pick how many are at the table and what each of them is playing. You take
-              every seat yourself, one after another — the app runs the rules, shuffles,
-              and passes the turn around.
+              Pick how many are at the table and what each of them is playing. A seat
+              set to <span className="text-crt-text">You</span> is one you take yourself,
+              one after another; a seat set to <span className="text-crt-text">Bot</span>{' '}
+              plays itself. The app runs the rules, shuffles, and passes the turn around.
             </p>
           </div>
         </header>
@@ -141,7 +147,9 @@ export function SoloScreen() {
                 decks={decks}
                 deck={byId.get(deckIds[i] ?? '') ?? null}
                 value={deckIds[i] ?? null}
+                isBot={bots[i] ?? false}
                 onChange={(id) => setDeck(i, id)}
+                onController={(isBot) => setBot(i, isBot)}
               />
             ))}
           </div>
@@ -200,13 +208,15 @@ export function SoloScreen() {
 }
 
 function SeatRow({
-  index, decks, deck, value, onChange,
+  index, decks, deck, value, isBot, onChange, onController,
 }: {
   index: number;
   decks: DeckSummary[];
   deck: DeckSummary | null;
   value: string | null;
+  isBot: boolean;
   onChange: (deckId: string | null) => void;
+  onController: (isBot: boolean) => void;
 }) {
   const isMe = index === 0;
   return (
@@ -218,20 +228,58 @@ function SeatRow({
         {seatName(index)}
       </span>
 
-      <select
-        className={`${FIELD} max-w-xs flex-1`}
-        value={value ?? ''}
-        onChange={(e) => onChange(e.target.value === '' ? null : e.target.value)}
-        aria-label={`Deck for ${seatName(index)}`}
-        data-solo-deck={index}
-      >
-        <option value="">Starter deck (not a legal Commander deck)</option>
-        {decks.map((d) => (
-          <option key={d.id} value={d.id}>{d.name}</option>
-        ))}
-      </select>
+      {/*
+        ⚠️ Seat 0 has no control at all rather than a disabled one. A table with
+        nobody at it is a tournament run, which belongs in a script; offering the
+        choice and then refusing it explains less than not offering it.
+      */}
+      {!isMe && (
+        <div className="flex shrink-0 overflow-hidden rounded border border-crt-line" role="group">
+          {([false, true] as const).map((bot) => (
+            <button
+              key={String(bot)}
+              type="button"
+              onClick={() => onController(bot)}
+              aria-pressed={isBot === bot}
+              data-solo-controller={index}
+              data-controller={bot ? 'bot' : 'human'}
+              data-selected={isBot === bot ? 'true' : 'false'}
+              className={`flex items-center gap-1 px-2 py-1 text-[11px] ${
+                isBot === bot ? 'bg-crt-accent/20 text-crt-accent-hi' : 'text-crt-dim hover:text-crt-text'
+              }`}
+            >
+              {bot ? <Bot size={11} aria-hidden /> : <User size={11} aria-hidden />}
+              {bot ? 'Bot' : 'You'}
+            </button>
+          ))}
+        </div>
+      )}
 
-      {deck && (
+      {isBot ? (
+        // ⚠️ Not a deck picker. A bot plays the curated deck and only that,
+        // because it cannot read a card and apply it by hand — so a deck full of
+        // cards the app half-runs would make it look broken rather than weak.
+        <span className="flex items-center gap-1.5 text-[11px] text-crt-faint" data-solo-botdeck={index}>
+          <Crown size={11} className="text-crt-accent" aria-hidden />
+          {BOT_DECK.commander}
+          <span className="crt-num">· 100 cards the app runs in full</span>
+        </span>
+      ) : (
+        <select
+          className={`${FIELD} max-w-xs flex-1`}
+          value={value ?? ''}
+          onChange={(e) => onChange(e.target.value === '' ? null : e.target.value)}
+          aria-label={`Deck for ${seatName(index)}`}
+          data-solo-deck={index}
+        >
+          <option value="">Starter deck (not a legal Commander deck)</option>
+          {decks.map((d) => (
+            <option key={d.id} value={d.id}>{d.name}</option>
+          ))}
+        </select>
+      )}
+
+      {!isBot && deck && (
         <span className="flex items-center gap-1.5 text-[11px] text-crt-faint">
           {deck.commanderNames.length > 0 ? (
             <>

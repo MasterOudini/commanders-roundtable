@@ -618,7 +618,7 @@ export function buildGroup(intents: BeatIntent[], ctx: BuildContext): BuiltGroup
         // must never occupy the queue.
         if (intent.phase === 'endCombat' || intent.phase === 'untap') {
           const combatants = Object.values(ctx.after.cards)
-            .filter((c) => c.attacking !== null || c.blocking !== null)
+            .filter((c) => c.attacking !== null || c.blocking.length > 0)
             .map((c) => c.instanceId);
           const posed = [...lastAttackPlans.map((p) => p.instanceId), ...lastBlockPlans.map((p) => p.blocker), ...combatants];
           lastAttackPlans = [];

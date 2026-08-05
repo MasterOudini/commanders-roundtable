@@ -7,7 +7,7 @@ import { useDrag, type DropCheck } from '../../store/dragStore';
 import { useHandDrag } from './useHandDrag';
 import { SQUEEZE_FLOOR_H } from './metrics';
 import type { PointerEvent as ReactPointerEvent } from 'react';
-import type { InstanceId, PlayerId, PlayerView } from '../../view/types';
+import type { InstanceId, PlayerId, PlayerView, ZoneKind } from '../../view/types';
 import { zoneCards, zoneId } from '../../view/types';
 
 // One seat's area. ONE component for both my seat and an opponent's pod, with an
@@ -39,6 +39,7 @@ export function PlayerPod({
   dropCheck,
   onCardPointerDown,
   onAttachmentsClick,
+  onZoneClick,
 }: {
   view: PlayerView;
   player: PlayerId;
@@ -51,7 +52,7 @@ export function PlayerPod({
   rowGap: number;
   minCardH: number;
   autoStack?: boolean;
-  onCardClick?: (instanceId: InstanceId) => void;
+  onCardClick?: (instanceId: InstanceId, e?: { shiftKey: boolean }, members?: readonly InstanceId[]) => void;
   /** Only MY pod takes these, and only its command zone uses them. */
   onCardDrop?: (instanceId: InstanceId, rect: FrozenRect) => void;
   dropCheck?: (instanceId: InstanceId) => DropCheck;
@@ -59,6 +60,11 @@ export function PlayerPod({
   onCardPointerDown?: (instanceId: InstanceId, e: ReactPointerEvent) => void;
   /** Every pod takes this: what is on a creature is worth reading on any seat. */
   onAttachmentsClick?: (host: InstanceId, x: number, y: number) => void;
+  /**
+   * A click on one of the closed/open piles — library, graveyard, exile.
+   * What each one OFFERS is decided upstairs; this reports the pile.
+   */
+  onZoneClick?: (player: PlayerId, kind: ZoneKind) => void;
 }) {
   const mine = orientation === 'mine';
   const seat = view.seats[player];
@@ -324,8 +330,21 @@ export function PlayerPod({
               }
               : {})}
           />
-          <ZonePile view={view} player={player} kind="lib" height={zoneH} faceDown />
-          <ZonePile view={view} player={player} kind="gy" height={zoneH} />
+          <ZonePile
+            view={view}
+            player={player}
+            kind="lib"
+            height={zoneH}
+            faceDown
+            {...(onZoneClick ? { onClick: () => onZoneClick(player, 'lib') } : {})}
+          />
+          <ZonePile
+            view={view}
+            player={player}
+            kind="gy"
+            height={zoneH}
+            {...(onZoneClick ? { onClick: () => onZoneClick(player, 'gy') } : {})}
+          />
           {/* Underneath both, lying on its side the way a deck sits on a mat. */}
           <div className={exileSideways ? 'flex w-full justify-center' : 'contents'}>
             <ZonePile
@@ -334,6 +353,7 @@ export function PlayerPod({
               kind="exile"
               height={zoneH}
               sideways={exileSideways}
+              {...(onZoneClick ? { onClick: () => onZoneClick(player, 'exile') } : {})}
             />
           </div>
         </div>

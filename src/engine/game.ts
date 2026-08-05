@@ -9,7 +9,7 @@ import { apply } from './reducer';
 import { redactBatch } from './redact';
 import { newGame, type SetupSpec } from './setup';
 import { Projector } from './project';
-import { applyReplacements, collectTriggers } from './triggers';
+import { collectTriggers, replacementOptions, runReplacementFunnel } from './triggers';
 import { toViewEvents } from './viewEvents';
 import type { EventBody, EventCause, GameEvent } from './types/events';
 import type { PlayerId } from './types/ids';
@@ -107,7 +107,11 @@ export class Game {
     const before = this.log.length;
     this.pending.clear();
     this.applyBatch(
-      result.rng === undefined ? { events: result.events } : { events: result.events, rng: result.rng },
+      {
+        events: result.events,
+        ...(result.rng === undefined ? {} : { rng: result.rng }),
+        ...(result.funnelled === true ? { funnelled: true } : {}),
+      },
       cause,
     );
     this.pump();
@@ -186,25 +190,54 @@ export class Game {
     const produced: GameEvent[] = [];
     let seq = this.log.length;
 
-    for (let i = 0; i < batch.events.length; i++) {
-      const body = batch.events[i];
+    // ⚠️ **THE FUNNEL CAN NOW STOP MID-BATCH** (CR 616, D148). When two or more
+    // replacement effects apply to one event, the affected object's controller
+    // chooses which applies first — so the event is HELD, unapplied, and the
+    // rest of the batch is parked with it. `settled` is what got through before
+    // the question; `pending` is everything still owed.
+    //
+    // ⚠️ The held event is NOT applied and NOT logged. That is the difference
+    // from every other prompt in this engine, and it is forced: D136's
+    // apply-then-ask is unavailable when the ORDER changes the outcome.
+    const funnel: ReturnType<typeof runReplacementFunnel> =
+      batch.funnelled === true
+        ? { kind: 'done', events: batch.events }
+        : runReplacementFunnel(this.state, this.deps.oracle, this.deps.scripts, batch.events);
+    const bodies =
+      funnel.kind === 'done'
+        ? funnel.events
+        : [
+            ...funnel.settled,
+            { t: 'ReplacementPending', pending: funnel.pending } as const,
+            {
+              t: 'AwaitingSet',
+              awaiting: {
+                kind: 'chooseReplacement',
+                player: funnel.pending.player,
+                options: replacementOptions(
+                  this.state,
+                  this.deps.oracle,
+                  this.deps.scripts,
+                  funnel.pending,
+                ),
+              },
+            } as const,
+          ];
+
+    for (let i = 0; i < bodies.length; i++) {
+      const body = bodies[i];
       if (!body) continue;
-      const replaced = applyReplacements(this.state, this.deps.oracle, this.deps.scripts, body);
-      for (let j = 0; j < replaced.length; j++) {
-        const e2 = replaced[j];
-        if (!e2) continue;
-        const isLast = i === batch.events.length - 1 && j === replaced.length - 1;
-        const event: GameEvent = {
-          seq: seq++,
-          stepId,
-          body: e2,
-          cause,
-          ...(batch.rng !== undefined && isLast ? { rngBefore, rngAfter: batch.rng } : {}),
-        };
-        this.state = apply(this.state, event);
-        produced.push(event);
-        if (this.checkInvariants) assertInvariants(this.state);
-      }
+      const isLast = i === bodies.length - 1;
+      const event: GameEvent = {
+        seq: seq++,
+        stepId,
+        body,
+        cause,
+        ...(batch.rng !== undefined && isLast ? { rngBefore, rngAfter: batch.rng } : {}),
+      };
+      this.state = apply(this.state, event);
+      produced.push(event);
+      if (this.checkInvariants) assertInvariants(this.state);
     }
 
     this.log = [...this.log, ...produced];

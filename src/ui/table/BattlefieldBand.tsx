@@ -48,7 +48,7 @@ export function BattlefieldBand({
   gap: number;
   minCardH: number;
   autoStack?: boolean;
-  onCardClick?: (instanceId: InstanceId) => void;
+  onCardClick?: (instanceId: InstanceId, e?: { shiftKey: boolean }, members?: readonly InstanceId[]) => void;
   /** Only MY bands take this: it is how an Equipment is picked up. */
   onCardPointerDown?: (instanceId: InstanceId, e: ReactPointerEvent) => void;
   /** EVERY band takes this — an opponent's auras are worth reading too. */

@@ -57,7 +57,8 @@ interface Instance {
   isCommander: boolean;
   isToken: boolean;
   attacking: PlayerId | null;
-  blocking: InstanceId | null;
+  /** Every attacker this one is blocking — an array for the reason `CardView.blocking` is. */
+  blocking: InstanceId[];
   attachedTo: InstanceId | null;
 }
 
@@ -149,7 +150,7 @@ export class FixtureTable {
       isCommander: false,
       isToken: false,
       attacking: null,
-      blocking: null,
+      blocking: [],
       attachedTo: null,
       ...over,
     };
@@ -175,7 +176,7 @@ export class FixtureTable {
       inst.tapped = false;
       inst.damage = 0;
       inst.attacking = null;
-      inst.blocking = null;
+      inst.blocking = [];
       inst.summoningSick = false;
       inst.counters = {};
     }
@@ -452,13 +453,13 @@ export class FixtureTable {
         this.move(item.instanceId, to);
         const isLand = /\bLand\b/.test(type);
         if (isPermanent && /\bCreature\b/.test(type)) inst.summoningSick = true;
-        events.push({ t: 'StackResolved', stepId, stackItemId: item.stackItemId, instanceId: item.instanceId, to, targets: [] });
+        events.push({ t: 'StackResolved', stepId, stackItemId: item.stackItemId, instanceId: item.instanceId, to, targets: [], controller: item.controller });
         if (isPermanent) {
           events.push({ t: 'PermanentEntered', stepId, instanceId: item.instanceId, isLand });
         }
       }
     } else {
-      events.push({ t: 'StackResolved', stepId, stackItemId: item.stackItemId, instanceId: null, to: null, targets: [] });
+      events.push({ t: 'StackResolved', stepId, stackItemId: item.stackItemId, instanceId: null, to: null, targets: [], controller: null });
     }
 
     const entry = this.logLine(`${item.label} resolves.`, item.controller, item.identity);
@@ -624,7 +625,15 @@ export class FixtureTable {
     for (const b of blocks) {
       const inst = this.instances.get(b.blocker);
       if (!inst) continue;
-      inst.blocking = b.attacker;
+      // Appends, so one creature listed against two attackers really is blocking
+      // both — the shape `orderAttackers` exists for. Assigning used to overwrite,
+      // and a fixture that cannot reach a code path is how that path rots (D102).
+      //
+      // ⚠️ A NEW ARRAY, never `push`. The instance's array is handed to the
+      // CardView by reference, so mutating it in place would let `sameCardView`
+      // compare an array against ITSELF and report no change — a blocker that
+      // never re-renders.
+      if (!inst.blocking.includes(b.attacker)) inst.blocking = [...inst.blocking, b.attacker];
       applied.push(b);
     }
     const entry = this.logLine(`${applied.length} blocker${applied.length === 1 ? '' : 's'} declared.`);
@@ -809,7 +818,7 @@ function sameCardView(a: CardView, b: CardView): boolean {
     a.isCommander === b.isCommander &&
     a.isToken === b.isToken &&
     a.attacking === b.attacking &&
-    a.blocking === b.blocking &&
+    sameIds(a.blocking, b.blocking) &&
     sameCounters(a.counters, b.counters)
   );
 }

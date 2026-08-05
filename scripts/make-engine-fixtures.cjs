@@ -11,7 +11,17 @@
 //
 // So: every fixture here is a verbatim `CardData` record, copied byte for byte
 // out of ~/.commanders-roundtable/cards/cards.ndjson, and
-// `scripts/battery-carddb.cjs` cross-checks that the real cards still say it.
+// `src/data/fixtures/engineCards.node.test.ts` re-reads every one of them from
+// that same file and asserts the committed record is still byte-identical —
+// naming the card and the field that moved when it is not.
+//
+// ⚠️ This comment, and the header written below, used to say
+// `scripts/battery-carddb.cjs` did that cross-check. IT DID NOT, and never named
+// this file: that battery's "Validator assumptions" section is D15b's guard for
+// `src/data/validate.test.ts`'s hand-written fixtures, and its 15 checks overlap
+// these records at four cards. Everything the engine tests, the net tests and
+// the fuzz gate build on was unguarded until 2026-07-29 (D123).
+//
 // Regenerate with:
 //
 //     node scripts/make-engine-fixtures.cjs
@@ -36,7 +46,7 @@ const WANTED = [
   'Plains', 'Island', 'Swamp', 'Mountain', 'Forest', 'Wastes',
   'Snow-Covered Forest',
   'Command Tower', 'Tundra', 'Ancient Tomb', 'Boros Garrison', 'Gemstone Mine',
-  'Reflecting Pool', 'Cavern of Souls', 'Bojuka Bog',
+  'Reflecting Pool', 'Exotic Orchard', 'Cavern of Souls', 'Bojuka Bog',
   // artifacts
   'Sol Ring', 'Arcane Signet', 'Mox Diamond', 'Lightning Greaves', 'Darksteel Myr',
   // mana creatures
@@ -85,11 +95,317 @@ const WANTED = [
   "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
   'Arlinn Kord // Arlinn, Embraced by the Moon',
   'Invasion of New Phyrexia // Teferi Akosa of Zhalfir',
+  // M6.1 — card SHAPES the bot's curated deck introduced that nothing here had.
+  // Not "some cards from the bot deck": the deck is 99 cards and most of them
+  // are shapes already covered (a vanilla body, a basic, a mana rock). These
+  // four are the ones the fuzz gate genuinely could not reach before.
+  //   · Dryad Arbor is a LAND CREATURE — summoning-sick, tappable for mana, and
+  //     a creature for every rule that reads the battlefield. Nothing else here
+  //     is both.
+  //   · Darksteel Citadel is an ARTIFACT land, which is two permanent types on
+  //     one card in a way `Tree of Tales` and friends make common in the pool.
+  //   · Monstrous Growth is a PUMP spell, and pump is one of the 11 effect kinds
+  //     `effectParse` reads. The pool has 148 executable instants and the fuzz
+  //     deck had damage, counter, exile and destroy — not this one.
+  //   · Akroma is six enforced keywords plus protection from two colours on one
+  //     body, which is the densest Tier-2 combat object in the format.
+  'Dryad Arbor',
+  'Darksteel Citadel',
+  'Monstrous Growth',
+  'Akroma, Angel of Wrath',
+  // M6.3 — the first card in these fixtures that exists for a "MAY" TRIGGER
+  // (D128). `Ajani's Mantra` is `{1}{W}` and its WHOLE printed text is "At the
+  // beginning of your upkeep, you may gain 1 life." — so a script for it runs
+  // every word of the card (D90) rather than most of one, which is what makes
+  // it a fair proof that the primitive works rather than a fixture shaped to fit
+  // it. Chosen over the other 275 single-sentence "may" cards for three measured
+  // reasons: the effect is inside `effectParse`'s existing vocabulary, so no
+  // second primitive is needed to demonstrate this one; the trigger keys on
+  // `StepBegan`, which fires twelve times a turn instead of on every
+  // `CardsMoved`, so the fuzz gate's trigger bus stays cheap; and it is bounded
+  // at once per upkeep per copy, so a 4-seat game cannot drown in prompts.
+  // It is also an ENCHANTMENT — the type D121 measured the engine running
+  // exactly ZERO of.
+  "Ajani's Mantra",
+  // M6.3 — the CR 613.7 TIMESTAMP PAIR (D129), and the two cards that make
+  // layer 6 observable. `Levitation` grants flying to your creatures,
+  // `Gravity Sphere` takes it off everyone's, both in layer 6 — so which one
+  // entered the battlefield LAST is the whole answer, and neither card can
+  // demonstrate that alone. Both are single-sentence, so a script for either
+  // runs every word of it (D90).
+  // ⚠️ `Gravity Sphere` is a WORLD enchantment and this engine has no world rule
+  // (CR 704.5m) — a pre-existing Tier-1 gap, named in D129, and inert with one
+  // world permanent on the board. It is registered in tests only.
+  'Levitation',
+  'Gravity Sphere',
+  // M6.3c — the counter EFFECT (D130). Four cards, and each is here for a
+  // different half of the boundary:
+  //   · `Battlegrowth` "Put a +1/+1 counter on target creature." — a whole
+  //     spell inside the vocabulary, so it resolves by ITSELF with no script.
+  //   · `Scar` is the same sentence with `-1/-1`, and it can KILL: layer 7d
+  //     makes a 1/1 into a 0/0 and the state-based action bins it, which is the
+  //     only way a counter effect reaches lethality (D90 — the SBA's job).
+  //   · `Burst of Strength` is "Put a +1/+1 counter on target creature AND
+  //     UNTAP IT." — ONE sentence, so the assisted rule never sees a second
+  //     clause, and only the anchored `$` stops the parser executing two thirds
+  //     of the card. It must come out `manual`, and that is a test.
+  //   · `Ajani's Pridemate` "Whenever you gain life, put a +1/+1 counter on
+  //     this creature." — a PERMANENT, to show a card script can already emit
+  //     `CountersChanged` without any of the above, which is the measurement
+  //     correction at the heart of D130.
+  'Battlegrowth',
+  'Scar',
+  'Burst of Strength',
+  "Ajani's Pridemate",
+  // M6.3f — the token EFFECT (D133). `Raise the Alarm` makes TWO of one token,
+  // `Servo Exhibition` makes a colourless ARTIFACT creature token (two card
+  // types, and no colour word to read), and `Slime Molding` is `X/X` — the
+  // negative case the resolver must refuse rather than guess a size for.
+  'Raise the Alarm',
+  'Servo Exhibition',
+  'Slime Molding',
+  // M6.3g — CR 614.1c, "enters tapped" (D134), and the pair is the whole point.
+  // `Orzhov Guildgate` is the unconditional clause and the app now runs the
+  // WHOLE card; `Haunted Ridge` is the same land one word longer — "enters
+  // tapped UNLESS you control two or more other lands" — and must NOT be
+  // accepted. Tapping it and dropping the condition would be strictly worse
+  // than doing nothing, because the player never sees the choice they were owed.
+  'Orzhov Guildgate',
+  'Haunted Ridge',
+  // M6.3g — the two cards that bring the REPLACEMENT API back to life (D134),
+  // and they have to be a pair. Both replace the same `CountersChanged` D130
+  // built, and together they are the textbook CR 616 case: two counters become
+  // SIX with Hardened Scales applied first and FIVE the other way round, so the
+  // order is not a detail. Scales is also the card that proves the recursion
+  // guard — its own output matches its own condition.
+  'Hardened Scales',
+  'Branching Evolution',
+  // M6.3h — the CONDITION on "enters tapped" (D135). One card per shape the
+  // vocabulary reads, plus the one it must refuse:
+  //   · `Sunpetal Grove` — "unless you control a Forest or a Plains", the
+  //     check-land wording and the biggest group.
+  //   · `Neglected Manor` — "unless a player has 13 or less life", a query about
+  //     somebody other than the controller.
+  //   · `Lair of the Hydra` — the INVERTED wording, "If you control two or more
+  //     other lands, this land enters tapped", which normalises to the same
+  //     query with its polarity flipped.
+  //   · `Godless Shrine` — "you may pay 2 life. If you don't, it enters tapped."
+  //     D135 REFUSED IT and D136 reads it, which is the one fixture in this file
+  //     that has changed sides. The refusal was right while there was nowhere to
+  //     ask: an engine that silently declined to pay makes the player's decision
+  //     for them. `Awaiting.entersChoice` is that somewhere.
+  'Sunpetal Grove',
+  'Neglected Manor',
+  'Lair of the Hydra',
+  'Godless Shrine',
+
+  // ── modal DFCs — D155 ──────────────────────────────────────────────────────
+  // ⚠️ THE FIXTURE POOL HAD NO `modal_dfc` AT ALL (121 normal, 2 split, 4 token,
+  // 5 transform), which is why `castSpell`'s hardcoded `faceIndex = 0` survived
+  // every suite: a fixture that cannot reach a code path is how that path rots
+  // (D102, and this is the fifth time).
+  //
+  // One per shape the back face can take:
+  //   · `Malakir Mire`           — a plain land that ENTERS TAPPED (D134).
+  //   · `Agadeem, the Undercrypt` — a land that ASKS for 3 life (D136), the very
+  //     rule D136's reportable said no back face could ever reach.
+  //   · `Sword of the Realms`    — a permanent SPELL, so it goes hand → stack →
+  //     battlefield and proves the face survives both moves.
+  'Malakir Rebirth // Malakir Mire',
+  "Agadeem's Awakening // Agadeem, the Undercrypt",
+  'Halvar, God of Battle // Sword of the Realms',
+  // M6.3i — the PROMPT (D136), and both of these exist to stop it going wrong.
+  //   · `The Black Gate` pays THREE life, and it is here because every other
+  //     card of this shape whose first face is a land pays two. A cost read off
+  //     the card and a cost hardcoded to 2 are indistinguishable on a fixture
+  //     set where every card says 2 — and the database prints both (21 printings
+  //     at 2, 16 at 3).
+  //   · `Multiversal Passage` CONTAINS the clause and must be REFUSED: "As this
+  //     land enters, choose a basic land type. Then you may pay 2 life. If you
+  //     don't, it enters tapped." Reading it would take 2 life from the player
+  //     and drop the choice that decides what the land taps for — half-execution
+  //     with a real cost attached, which is the failure the anchors exist for.
+  'The Black Gate',
+  'Multiversal Passage',
+  // M6.3j — DISCARD, and the choice that comes with it (D137).
+  //   · `Mind Rot` — "Target player discards two cards." The whole card, and the
+  //     one that raises `chooseFromZone`.
+  //   · `Mental Vapors` — the same sentence at ONE card, so the singular/plural
+  //     of the pattern is exercised by a real printing rather than by a guess.
+  //   · `Hymn to Tourach` — "…two cards AT RANDOM", 54 lines across the format,
+  //     and it must be REFUSED: `effectEvents` has no RNG, and randomness in
+  //     this engine comes only from the seeded generator threaded through the
+  //     log. Executing it as a chosen discard hands the player a decision the
+  //     card does not give them.
+  //   · `Duress` — "Target opponent reveals their hand. You choose a nonland
+  //     card from it. That player discards that card." 53 lines where the CASTER
+  //     picks, from a hand made public. A different chooser and a different
+  //     prompt; also REFUSED.
+  'Mind Rot',
+  'Mental Vapors',
+  'Hymn to Tourach',
+  'Duress',
+  // M6.3k — the GRAVEYARD RETURN (D138). Two destinations, and two cards that
+  // prove the newly-enforced target is narrowed by the right amount:
+  //   · `Raise Dead` — "Return target creature card from your graveyard to your
+  //     hand." 16 lines, 12 whole cards. THE card that exposed the hole: its
+  //     spec was `kinds:['card'], zones:[], unenforced:['creature card']`, and
+  //     nothing checked zones or types — so it could take a LAND out of an
+  //     OPPONENT'S EXILE.
+  //   · `Zombify` — the same sentence to the BATTLEFIELD. A separate effect
+  //     kind, because the card arrives as a permanent rather than in a hand.
+  //   · `Regrowth` — "target card", naming no type at all, so the enforcement
+  //     must not over-narrow: it legitimately takes anything in the graveyard.
+  //   · `Relearn` — "target instant or sorcery card", the DISJUNCTION: either
+  //     type qualifies, and the check must be "any of", never "all of".
+  'Raise Dead',
+  'Zombify',
+  'Regrowth',
+  'Relearn',
+  // M6.3l — the NUMERIC restriction (D139). Three attributes, both comparators,
+  // on three different kinds of object:
+  //   · `Smite the Monstrous` — "Destroy target creature with power 4 or
+  //     greater." THE card that exposed the hole. It parsed to
+  //     `kinds:['creature'], confident:true, unenforced:[]` — the qualifier
+  //     matched no noun entry, so it was never recorded ANYWHERE, and the app
+  //     would destroy a 1/1 with it while `tier3.ts` said nothing at all.
+  //   · `Eternal Isolation` — "power 4 or greater" again, exiling rather than
+  //     destroying, so the restriction is exercised on a second effect kind.
+  //   · `Disdainful Stroke` — "Counter target spell with mana value 4 or
+  //     greater." A STACK object, which is why the stack candidate carries a
+  //     real mana value where its power and toughness are null.
+  //   · `Unearth` — "mana value 3 or less": the OTHER comparator, reanimating,
+  //     and the exact card D138 had to turn away for want of this field.
+  'Smite the Monstrous',
+  'Eternal Isolation',
+  'Disdainful Stroke',
+  'Unearth',
+  // M6.3n — LOOK AT THE TOP N (D141). The two forms that carry no order
+  // decision, and the two that do and must be refused:
+  //   · `Forbidden Alchemy` — "…Put one of them into your hand and the rest
+  //     into your GRAVEYARD." A graveyard is ordered but nobody chooses that
+  //     order, so the whole question never arises — which is why this is the
+  //     biggest form the vocabulary can take.
+  //   · `Sleight of Hand` — "…Put one of them into your hand and THE OTHER on
+  //     the bottom of your library." Singular: exactly one card is left, so
+  //     there is no order to choose.
+  //   · `Dig Through Time` — "…and the rest on the bottom of your library IN
+  //     ANY ORDER." REFUSED: that is a second decision the card gives the
+  //     player and this does not offer.
+  //   · `Drawn from Dreams` — "…IN A RANDOM order." REFUSED: `effectEvents` has
+  //     no RNG, exactly as for "discards at random" (D137).
+  'Forbidden Alchemy',
+  'Sleight of Hand',
+  'Dig Through Time',
+  'Drawn from Dreams',
+  // M6.3o — the ORDERING prompt (D142). `Dig Through Time` above CHANGES SIDES
+  // here: D141 refused it because there was nowhere to ask for the sequence, and
+  // there is now. `Drawn from Dreams` stays refused — "in a RANDOM order" needs
+  // the seeded generator, which no prompt supplies.
+  //   · `Impulse` — take one of four, order the other three to the bottom. The
+  //     whole card, so it is the one that becomes executable.
+  //   · `Index` — take NOTHING and re-stack all five on top. A different
+  //     sentence, not a special case: it has no "put N into your hand" clause.
+  'Impulse',
+  'Index',
+  // M6.3t — the first card in these fixtures with a TARGETED TRIGGER (D147).
+  // "Whenever an artifact you control enters, put a +1/+1 counter on target
+  // creature you control." — one sentence, so a script for it runs every word
+  // (D90), and it was chosen over the other 3,217 cards with a targeted trigger
+  // for two measured reasons.
+  //   · Its EFFECT already exists: `CountersChanged` has been on the log since
+  //     D107, so this proves the targeting primitive rather than smuggling in a
+  //     second one (D130's rule).
+  //   · Its target is RESTRICTED — "you control" — where the commonest wording
+  //     ("target creature", 926 lines) is not. An unrestricted clause would pass
+  //     with `targetAllowed` never consulted, which is a green tick over
+  //     nothing: the restriction is the only part a test can see enforced.
+  // Its trigger condition needs an artifact, and `Darksteel Citadel` above is
+  // one — an artifact LAND, so one card entering answers both halves.
+  'Yotian Dissident',
+  // M6.3t — the first DIES trigger (D147), and it is the case that could not be
+  // written at all. "When this creature dies, you gain 2 life." triggers on its
+  // OWN death, so by the time the bus runs the card is in a graveyard: the zone
+  // check rejects its own source and `matches` is handed a board it has already
+  // left. `collectTriggers` took `before` as a parameter and threw it away with
+  // `void before` — CR 603.10a's look-back existed nowhere.
+  // ⚠️ Its effect is `LifeChanged`, which has been on the log since M3, so this
+  // proves the look-back and not a second primitive (D130's rule).
+  'Onulet',
+  // M6.3t — the first COMBAT RESTRICTION (D147). "This creature can't block."
+  // is the whole card, so a script for it runs every word (D90), and it is the
+  // shape D129 filed 227 cards under `layer6` for, before finding that
+  // `canAttack` and `canBlock` consulted no static at all.
+  // ⚠️ CHOSEN OVER "can't attack" DELIBERATELY: `canAttack` already refuses a
+  // creature for six built-in reasons, so a test could pass with the new seam
+  // never consulted. Nothing else in these fixtures stops a 2/2 blocking.
+  'Spineless Thug',
+  // M6.3t — the CHOSEN COLOUR (D147), and the card that makes the field pay for
+  // itself. Sol Grail is TWO LINES and both of them are now run: 'As this
+  // artifact enters, choose a color.' raises the prompt, and '{T}: Add one mana
+  // of the chosen color.' is a mana ability scoped to the answer. So it is the
+  // whole card, with no card script anywhere — which is what separates the
+  // colour shape of that sentence from the creature-type and opponent shapes,
+  // whose consumers do need one.
+  'Sol Grail',
+  // M6.3v — the CR 613.8 DEPENDENCY PAIR (D149), and neither card shows it
+  // alone. Both are LAYER 6 and both are single-sentence, so a script for
+  // either runs every word (D90):
+  //   · Knighthood — 'Creatures you control have first strike.'
+  //   · Kwende, Pride of Femeref — 'Creatures you control with first strike
+  //     have double strike.'
+  // Kwende DEPENDS on Knighthood: whether it applies to a creature is decided
+  // by whether Knighthood has already granted first strike. In plain timestamp
+  // order with Kwende first, a vanilla creature ends with first strike and NO
+  // double strike — the card doing nothing, silently, on a board where it
+  // plainly should. That is the whole of why CR 613.8 exists.
+  'Knighthood',
+  'Kwende, Pride of Femeref',
+  // M6.3x — the card that was UNREPRESENTABLE (D151). 'All creatures lose all
+  // abilities and have base power and toughness 1/1.' — one line, so a script
+  // runs every word (D90), and it is two layers on one card: 6 (lose
+  // abilities) and 7b (base P/T), both of which this engine has.
+  // ⚠️ Named as unrepresentable by D129, D147, D148, D149 and D150 in turn:
+  // `MutableCharacteristics` modelled KEYWORDS, and every other ability lives
+  // in the script registry keyed by oracleId, so 'lose all abilities' had
+  // nowhere to be written. It does now.
+  'Humility',
+  // M6.4a — the FIRST SHIPPED BATCH (D158). Eight cards from batch.json, all
+  // trigger-shaped, all from the user's own decks or the fuzz pool (§7 rung 1
+  // and 2). Wall of Omens, Baleful Strix and Onulet were fixtures already; the
+  // five below join so their scripts' `printed()` guards and per-card tests run
+  // against DB-guarded records rather than paraphrases (D15b).
+  // ⚠️ The four ACTIVATED cards of the same batch (Arcane Encyclopedia,
+  // Deserted Temple, Hedron Archive, War Room) are NOT here: `ActivatedDef` is
+  // a dead seam — the registry never indexes it and `resolveAbility` consults
+  // triggers only — so no script can make them run (D158's reportable).
+  'Soul Warden',
+  'Essence Warden',
+  'Radiant Fountain',
+  "Adventurer's Inn",
+  'Wall of Blossoms',
+  // M6.4b — the ACTIVATED batch (D159), the four cards D158 named as
+  // structurally unlandable until the `ActivatedDef` seam existed. Two also
+  // prove the new cost machinery: `Hedron Archive` is the self-sacrifice cost,
+  // `War Room` the computed commanders'-colors life cost.
+  'Arcane Encyclopedia',
+  'Deserted Temple',
+  'Hedron Archive',
+  'War Room',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
 const WANTED_TOKENS = [
-  { name: 'Soldier', set: 'tmd1', cn: '1', key: 'SOLDIER_TOKEN' },
+  // ⚠️ **PINNED TO THE PRINTING `TOKEN_TABLE` NAMES**, not to a pretty one.
+  // M6.3f resolves "create two 1/1 white Soldier creature tokens" to an exact
+  // `printingId` at build time (D133), and the engine's oracle is built from the
+  // game's POOL — so a fixture holding a DIFFERENT Soldier reprint would make
+  // `Raise the Alarm` create a card the test oracle has never heard of, and
+  // `derive` would return the inert unknown-printing object: a blank 0/0 the
+  // state-based action bins. Same token either way at a real table; not the same
+  // id, and the id is what the pool is keyed on.
+  { name: 'Soldier', set: 't40k', cn: '2★', key: 'SOLDIER_TOKEN' },
+  { name: 'Servo', set: 'tdft', cn: '8', key: 'SERVO_TOKEN' },
   { name: 'Treasure', set: 'trna', cn: '12', key: 'TREASURE_TOKEN' },
   { name: 'Beast', set: 'tclb', cn: '38', key: 'BEAST_TOKEN' },
 ];
@@ -148,8 +464,9 @@ async function main() {
   lines.push('// turns a rules test into a test of the edit — the D15b failure mode.');
   lines.push('// Regenerate with `node scripts/make-engine-fixtures.cjs` (needs a synced DB).');
   lines.push('//');
-  lines.push('// `scripts/battery-carddb.cjs` cross-checks these against the live database, so');
-  lines.push('// a Scryfall rewording fails there rather than rotting silently here.');
+  lines.push('// `engineCards.node.test.ts`, beside this file, re-reads every record here from');
+  lines.push('// the live database and asserts it is byte-identical — so a Scryfall rewording,');
+  lines.push('// or a hand edit, fails there rather than rotting silently here.');
   lines.push('');
   lines.push("import type { CardData } from '../cardTypes';");
   lines.push('');

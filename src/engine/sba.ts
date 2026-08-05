@@ -165,6 +165,49 @@ export function checkStateBasedActions(
     }
   }
 
+  // 8 — the WORLD rule (CR 704.5m). Two or more permanents with the world
+  // supertype: all but the one that has had it for the SHORTEST time are put
+  // into their owners' graveyards.
+  //
+  // ⚠️ **NOT A CHOICE, and that is the difference from the legend rule below.**
+  // The legend rule asks its controller which copy to keep; this one has a
+  // determined answer — the newest survives — so it moves cards without a
+  // prompt. Reading it as "ask like the legend rule" would be a question with
+  // one legal answer.
+  //
+  // ⚠️ **GLOBAL, not per-controller.** The legend rule groups by controller AND
+  // name; the world rule looks at the whole battlefield at once, so two players
+  // cannot each keep one.
+  //
+  // ⚠️ THE BATTLEFIELD ARRAY IS THE TIMESTAMP (CR 613.7c, and D129 leans on the
+  // same property for the layer system): `addToZone` appends, and a permanent
+  // that re-enters goes to the back. So the LAST world permanent in the array is
+  // the newest, and everything before it goes. CR's tie case — two gaining the
+  // supertype simultaneously — has no representation here, because one array
+  // cannot hold two things at one index.
+  const worlds: InstanceId[] = [];
+  for (const id of state.zones.battlefield) {
+    if (doomed.has(id)) continue;
+    if (!state.cards[id]) continue;
+    if (derive(state, oracle, scripts, id, cache).typeLine.supertypes.includes('World')) {
+      worlds.push(id);
+    }
+  }
+  for (const id of worlds.slice(0, -1)) {
+    const card = state.cards[id];
+    if (!card) continue;
+    actions.push({ t: 'worldRule', card: id });
+    // ⚠️ From the CONTROLLER's battlefield to the OWNER's graveyard — a stolen
+    // world enchantment goes home (CR 404.3), the same asymmetry every other
+    // move in this file carries.
+    moves.push({
+      card: id,
+      from: { kind: 'battlefield', player: card.controller },
+      to: { kind: 'graveyard', player: card.owner },
+    });
+    doomed.add(id);
+  }
+
   // 6 — the legend rule. ALWAYS ASK, even for two identical copies: damage,
   // counters and attachments differ, so the choice is real.
   const legendPrompt = findLegendChoice(state, oracle, scripts, cache, doomed);

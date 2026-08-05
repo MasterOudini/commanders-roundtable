@@ -14,6 +14,21 @@
 // above it. "Crew is not automatic — tap the crew yourself" is a fact about
 // this application and will stay true.
 //
+// ⚠️ D122 and D124 added the three categories this file was silent about, all
+// found while building the bot (D121) and all of them the same failure as an
+// unenforced keyword, one step deeper:
+//
+//  • a PERMANENT's triggered and static text, which `parseEffects` cannot speak
+//    for because it reads instants and sorceries only;
+//  • a PAYABLE non-mana activated ability, which the engine charges and then does
+//    not run;
+//  • the half of a MANA line that is not "add mana" — the engine taps the source
+//    and adds the mana and takes no other cost, which is the one case where it
+//    does part of a line and carries on.
+//
+// None of the three changed what the engine does. Silence had been claiming
+// coverage in all of them, on 16,020 of 31,692 Commander-legal cards.
+//
 // Pure, offline, and driven by the same two inputs the ingest uses — Scryfall's
 // `keywords[]` and the oracle text — so it cannot claim coverage the parser does
 // not have.
@@ -25,12 +40,47 @@ import { isPermanentType } from './oracleParse';
 import { parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities } from './activatedParse';
 import { parseEffects } from './effectParse';
+import { SHIPPED_ACTIVATED_REFS, unaccountedLines } from './engineComplete';
 
 export interface Tier3Note {
   /** Short label, e.g. "Crew". */
   readonly what: string;
   /** What the player does instead. Active voice, from their side. */
   readonly how: string;
+}
+
+/**
+ * The label for a permanent's unrun triggered and static text (D122).
+ *
+ * ⚠️ ONE label for both, and that is a decision rather than laziness.
+ * `splitAbilityLines` calls a line `triggered` only when it STARTS with "When",
+ * "Whenever", "At the beginning" or "At end of", so every ability-word line —
+ * `Magecraft — Whenever you cast…`, `Landfall — Whenever a land enters…` — comes
+ * back as `static`. Two labels would therefore have told a Sedgemoor Witch player
+ * to treat a trigger as an always-on rule, and this file's whole argument is that
+ * a disclosure which is confidently wrong is worse than one that is coarse. What
+ * a player has to know is identical either way: the app does not run this.
+ *
+ * Exported so `tier3.node.test.ts` can attribute a note to this branch when it
+ * measures the population — never to build a note anywhere else.
+ */
+export const ABILITY_TEXT_NOTE = 'Its ability text';
+
+/**
+ * The label for a mana line the engine runs only PART of (D124).
+ *
+ * ⚠️ NOT the same statement as `Its mana ability` below, and the difference is the
+ * whole reason it is a second note: that one means the app will not tap the source
+ * at all, so tap it yourself. This one means the app WILL tap it and add the mana,
+ * and will do nothing else printed on that line — which is the opposite half, and
+ * saying either sentence in the other's place would send a player to the manual
+ * tools for something already done or leave them believing a cost was taken.
+ */
+export const MANA_PART_NOTE = 'Part of its mana ability';
+
+/** The label for one activated ability, named by the cost the player pays. */
+export function abilityNoteLabel(costText: string): string {
+  return `Its “${costText}” ability`;
 }
 
 /**
@@ -151,6 +201,56 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     add('Its effect', 'read it and apply it with the manual tools — the app does not run this one');
   }
 
+  // ⚠️ A PERMANENT'S OWN TEXT, which the note above cannot speak for and which
+  // went unsaid until D122. `parseEffects` reads INSTANTS AND SORCERIES ONLY, by
+  // construction — a permanent's text is a triggered or static ability that needs
+  // the script registry and the trigger bus rather than a one-shot resolution —
+  // so `mode` is `manual` for every permanent and the branch above excludes them
+  // deliberately. The result was that `Wall of Omens` and `Talrand, Sky Summoner`,
+  // both shipping in the starter decks, produced ZERO notes, and zero notes is
+  // what a vanilla Grizzly Bears produces: the hover panel's silence reads as "the
+  // app handles this card completely" while `SHIPPED_REGISTRY` runs none of it.
+  //
+  // ⚠️ ASKED OF `engineComplete`, never re-derived here — the third time this file
+  // applies that rule, for the reason the mana and targeting notes above give. Its
+  // line accounting is what the bot's own pool predicate uses, so this cannot
+  // claim a gap the bot is not also refused, and a card the predicate accepts
+  // stays silent (`engineComplete.test.ts` asserts that direction).
+  //
+  // ⚠️ SENTENCE lines only. A keyword line the engine does not enforce belongs to
+  // the keyword loop below and D68's deliberately short list; an activated line is
+  // named with its cost by the ability loop. Saying either of them here would be
+  // reporting one line twice.
+  if (isPermanent) {
+    const unrun = unaccountedLines(card, faceIndex);
+    if (unrun.some((l) => l.kind === 'sentence')) {
+      add(ABILITY_TEXT_NOTE, 'nothing happens by itself — read it and use the manual tools when it applies');
+    }
+
+    // ⚠️ THE ONE PLACE THE APP DOES PART OF A LINE AND CARRIES ON (D124).
+    // `tapForMana` taps the permanent and emits `ManaAdded`, and that is all it
+    // does: it takes no cost beyond the tap, checks no activation condition,
+    // tracks no once-per-turn limit and applies no second sentence. So
+    // `Rakdos Signet` hands over {B}{R} without ever taking its {1},
+    // `Phyrexian Tower` makes {B}{B} with nothing sacrificed, `Temple of the
+    // False God` works on two lands, and `Ancient Tomb` deals nobody the 2
+    // damage printed on the same line as its mana.
+    //
+    // ⚠️ ONE note for all four reasons a line lands here — an extra cost, an
+    // activation condition, a spend restriction, an amount that depends on the
+    // board — because `ManaProduction.conditional` is a single flag that ORs them
+    // together and does not record which applied. Splitting the note would mean
+    // re-deriving the reason from the text beside the parser that already decided
+    // it, which is the mistake this file has now recorded learning three times.
+    // The `how` names all four instead, which is true of every card in the set.
+    if (unrun.some((l) => l.kind === 'mana')) {
+      add(
+        MANA_PART_NOTE,
+        'the app taps it and adds the mana — any other cost, condition or restriction on that line is yours',
+      );
+    }
+  }
+
   if (allSpecs.some((s) => s.kinds.length === 0)) {
     add('Its targets', 'aim at anything — the app cannot read this card’s targeting rule, so it does not check it');
   }
@@ -159,8 +259,50 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     add(`“${unenforced.slice(0, 2).join('”, “')}” on its target`, 'check it yourself — only the KIND of object is checked');
   }
   for (const ability of abilities) {
-    if (ability.isManaAbility || ability.payable) continue;
-    const what = ability.isLoyalty ? 'Its loyalty abilities' : `Its “${ability.costText}” ability`;
+    if (ability.isManaAbility) continue;
+
+    // ⚠️ A SHIPPED `ActivatedDef` RUNS THIS ABILITY COMPLETELY (D159) — cost
+    // charged by the engine, effect resolved by the script — so the card owes
+    // the player no note for it. Keyed by the ability's `ref`, built in
+    // `engineComplete.ts` beside the line claims so both silences derive from
+    // one set of defs.
+    if (SHIPPED_ACTIVATED_REFS.has(`${card.oracleId}#a${ability.index}`)) continue;
+
+    // ⚠️ A SELF-SACRIFICE COST IS CHARGEABLE SINCE D159 AND OFFERED ONLY WHEN A
+    // SCRIPT WILL RUN THE EFFECT — for this card there is no script, so the
+    // app will not offer the ability at all, and the note says the manual
+    // route rather than promising a charge that `legal.ts` refuses to make.
+    if (ability.sacrificesSelf) {
+      add(
+        abilityNoteLabel(ability.costText),
+        'pay that cost with the manual tools, then apply the effect at the table',
+      );
+      continue;
+    }
+
+    // ⚠️ PAYABLE IS NOT RUN, AND THE COST IS TAKEN ANYWAY (D122). `payable` means
+    // the engine can charge the COST, never that it can run the EFFECT:
+    // `legal.ts` offers every ability that is
+    // `payable && !isManaAbility && !isLoyalty`, `handlers.ts` taps the permanent
+    // and takes the mana, and `loop.ts` resolves it with "with no card scripts
+    // there is nothing to run" — unless a shipped def claimed it above.
+    // `Krenko, Mob Boss` is a starter commander — tap
+    // him, get no Goblins — and this file skipped him precisely BECAUSE he was
+    // payable. What the engine does is not this file's to change; saying it is.
+    //
+    // The condition mirrors `legal.ts`'s so the two can be read against each
+    // other. `activatedParse` already makes `payable` false for a loyalty cost,
+    // so `!isLoyalty` is belt-and-braces — and worth keeping, because the note
+    // below is the right one for a planeswalker either way.
+    if (ability.payable && !ability.isLoyalty) {
+      add(
+        abilityNoteLabel(ability.costText),
+        'the app charges that cost and then nothing happens — apply the effect yourself with the manual tools',
+      );
+      continue;
+    }
+
+    const what = ability.isLoyalty ? 'Its loyalty abilities' : abilityNoteLabel(ability.costText);
     add(what, ability.isLoyalty
       ? 'use the counters tool and apply the effect yourself'
       : 'pay that cost with the manual tools, then apply the effect at the table');

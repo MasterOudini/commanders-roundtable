@@ -52,7 +52,19 @@ export function PermanentStack({
    * two places put the last card in a row 2.7 px past its band's right edge.
    */
   height: number;
-  onClick?: (instanceId: string) => void;
+  /**
+   * A click on this permanent, with the browser's own account of it and — when
+   * this slot is a PILE — every card the pile stands for. This file knows there
+   * was a click and nothing else; what a plain one versus a shift-one MEANS is
+   * decided upstairs, the same seam `onPointerDown` keeps.
+   *
+   * ⚠️ The members are handed over rather than re-derived because "identical" is
+   * this file's neighbour's rule (`groupIdentical`: same oracle id, tapped
+   * state, counters, sickness, no attachments) and a second copy of it upstairs
+   * would eventually disagree about what one slot contains — the exact failure
+   * `tier3.ts` warns about for second heuristics.
+   */
+  onClick?: (instanceId: string, e?: { shiftKey: boolean }, members?: readonly string[]) => void;
   /**
    * A press on this permanent, forwarded with its instance id. What it MEANS is
    * decided upstairs — this file knows there is a press and nothing else, the
@@ -153,7 +165,9 @@ export function PermanentStack({
         tapDelayMs={tapDelayMs}
         turnOnMount={turnOnMount}
         inFlight={inFlight.has(packed.instanceId)}
-        {...(onClick ? { onClick: () => onClick(packed.instanceId) } : {})}
+        {...(onClick
+          ? { onClick: (e: { shiftKey: boolean }) => onClick(packed.instanceId, e, packed.members) }
+          : {})}
       />
 
       {count > 1 && (

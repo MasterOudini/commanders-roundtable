@@ -6,11 +6,20 @@
 // of leaking what it was never given. A `hidden: true` flag would work exactly
 // as well right up until one component forgot to check it.
 //
-// ⚠️ A LIBRARY IS A COUNT, FULL STOP — including your own. The host process
-// holds the shuffled order in memory, and `project()` strips it, so the game UI
-// (which reads only the view) cannot show it even by accident. That is what
-// makes accidental cheating structurally impossible rather than a matter of
+// ⚠️ A LIBRARY IS A COUNT — including your own. The host process holds the
+// shuffled order in memory, and `project()` strips it, so the game UI (which
+// reads only the view) cannot show it even by accident. That is what makes
+// accidental cheating structurally impossible rather than a matter of
 // discipline.
+//
+// ⚠️ WITH EXACTLY ONE EXCEPTION, and it is bounded by the same predicate as
+// everything else here: `view.peek` gives the viewer the ORDER of the cards at
+// the top of their OWN library that are already `revealedTo` them. Their
+// contents have been in `cards` since M3 — a peek is a reveal — so the exception
+// is the order alone, and it exists because a scry that shows you three cards in
+// a dictionary's order is not a scry. It stops at the first card not revealed to
+// the viewer, so it can never run past what `canSee` already allows, and
+// projection being per-viewer means it cannot describe anyone else's library.
 //
 // ⚠️ REFERENTIAL IDENTITY IS A HARD REQUIREMENT (D21), not an optimisation.
 // Measured in M2: before the projection reused unchanged objects, EVERY view
@@ -66,6 +75,8 @@ export class Projector {
   private readonly lastCards = new Map<InstanceId, CardView>();
   private readonly lastSeats = new Map<PlayerId, SeatView>();
   private readonly lastZones = new Map<ZoneId, InstanceId[]>();
+  /** The last `peek` array handed out, for the D21 identity rule. */
+  private lastPeek: InstanceId[] | null = null;
   /** Rendered log rows by line id. A narration line never changes once written. */
   private readonly lastLog = new Map<number, LogEntry>();
 
@@ -90,17 +101,20 @@ export class Projector {
     const seatOrder = state.seating.map((_, i) => state.seating[(at + i) % state.seating.length] ?? '');
 
     const attacking = new Map<InstanceId, PlayerId>();
-    const blocking = new Map<InstanceId, InstanceId>();
+    const blocking = new Map<InstanceId, readonly InstanceId[]>();
     if (state.combat) {
       for (const a of state.combat.attackers) {
         const defender =
           a.defender.kind === 'player' ? a.defender.id : (state.cards[a.defender.id]?.controller ?? '');
         attacking.set(a.card, defender);
       }
-      for (const b of state.combat.blockers) {
-        const first = b.attackerOrder[0];
-        if (first) blocking.set(b.card, first);
-      }
+      // ⚠️ THE WHOLE ORDER, not `attackerOrder[0]`. Taking the first was the
+      // reason `orderAttackers` could not be answered by anybody: the prompt
+      // asks which attackers this blocker is blocking, and the view could name
+      // exactly one of them. The state array is handed over BY REFERENCE, so an
+      // unchanged combat re-projects to the same array and `sameCardView` keeps
+      // the card's identity (D21) without a per-card allocation.
+      for (const b of state.combat.blockers) blocking.set(b.card, b.attackerOrder);
     }
 
     const emit = (inst: CardInstance): void => {
@@ -131,7 +145,7 @@ export class Projector {
         isCommander: inst.isCommander,
         isToken: inst.isToken,
         attacking: attacking.get(inst.id) ?? null,
-        blocking: blocking.get(inst.id) ?? null,
+        blocking: blocking.get(inst.id) ?? NOT_BLOCKING,
       };
       const prev = this.lastCards.get(inst.id);
       const reused = prev && sameCardView(prev, next) ? prev : next;
@@ -201,6 +215,31 @@ export class Projector {
       if (!inst.revealedTo.includes(viewer)) continue;
       emit(inst);
     }
+
+    // ── What I am looking at off the top of my own library ────────────────────
+    //
+    // ⚠️ The library array is BOTTOM-FIRST — its last entry is the top card, the
+    // convention `ManualDraw` and `ManualPeekLibrary` already slice by. This
+    // walks DOWN from the top and stops at the first card not revealed to me, so
+    // the result is the revealed prefix in the order a player would turn them
+    // over. A card revealed from deeper in the library (a tutor) is visible in
+    // `cards` and correctly absent here: it is not the top of anything.
+    //
+    // ⚠️ Ordered, and only ever MY OWN. Projection is per-viewer, so this cannot
+    // hand one player the order of another's library — the same property that
+    // makes `hiddenCounts` safe.
+    const ownLibrary = state.zones.library[viewer] ?? [];
+    const peeked: InstanceId[] = [];
+    for (let i = ownLibrary.length - 1; i >= 0; i--) {
+      const id = ownLibrary[i];
+      if (id === undefined) break;
+      if (!state.cards[id]?.revealedTo.includes(viewer)) break;
+      peeked.push(id);
+    }
+    // D21: hand back the same array when nothing moved, or every commit re-renders
+    // the peek panel and the card map it reads.
+    const peek = this.lastPeek && sameIds(this.lastPeek, peeked) ? this.lastPeek : peeked;
+    this.lastPeek = peek;
 
     const seats: Record<PlayerId, SeatView> = {};
     for (const p of state.seating) {
@@ -282,6 +321,7 @@ export class Projector {
       priority: state.priority.player,
       log,
       hiddenCounts,
+      peek,
     };
   }
 
@@ -350,6 +390,17 @@ function sameCounters(a: Record<string, number>, b: Record<string, number>): boo
   return true;
 }
 
+/**
+ * ONE array for every card that is not blocking.
+ *
+ * ⚠️ Not `[]` at the call site: that allocates per card per projection and, worse,
+ * hands the UI a fresh reference every frame for a value that never changes.
+ * `sameCardView` compares `blocking` by CONTENTS so a new array would not by
+ * itself break identity — but this is the hot path D21 measured, and 100 cards ×
+ * every commit is exactly the shape of allocation it exists to avoid.
+ */
+const NOT_BLOCKING: readonly InstanceId[] = [];
+
 /** Field by field, because a shallow object compare is exactly what fails here. */
 function sameCardView(a: CardView, b: CardView): boolean {
   return (
@@ -367,7 +418,10 @@ function sameCardView(a: CardView, b: CardView): boolean {
     a.isCommander === b.isCommander &&
     a.isToken === b.isToken &&
     a.attacking === b.attacking &&
-    a.blocking === b.blocking &&
+    // ⚠️ BY CONTENTS, not by reference. `blocking` is an array now, and a
+    // reference compare would rebuild every blocker's CardView on every commit
+    // the moment anything else in combat moved — which is D21's cost, silently.
+    sameIds(a.blocking, b.blocking) &&
     sameCounters(a.counters, b.counters)
   );
 }

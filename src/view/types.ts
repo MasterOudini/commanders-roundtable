@@ -156,8 +156,21 @@ export interface CardView {
   isToken: boolean;
   /** Set while this permanent is attacking, so the lane can draw it. */
   attacking: PlayerId | null;
-  /** Set while this permanent is blocking a specific attacker. */
-  blocking: InstanceId | null;
+  /**
+   * Every attacker this permanent is blocking, in the engine's damage-assignment
+   * order. Empty while it is not blocking.
+   *
+   * ⚠️ AN ARRAY BECAUSE ONE CREATURE CAN BLOCK SEVERAL, and this was a single
+   * `InstanceId` until it became clear no client could answer the
+   * `orderAttackers` prompt — which asks for exactly this list. `GameState` has
+   * modelled it as `BlockerDecl.attackerOrder` since M3; the projection was
+   * throwing all but the first away with `attackerOrder[0]`, so the view could
+   * not express the answer to a question the engine knows how to ask. See D125.
+   *
+   * ⚠️ The ORDER is load-bearing, not incidental: `assignBlockerDamage` divides
+   * the blocker's power down this list, so re-sorting it changes who dies.
+   */
+  blocking: readonly InstanceId[];
 }
 
 export interface SeatView {
@@ -247,6 +260,20 @@ export interface PlayerView {
   log: LogEntry[];
   /** Counts for zones the viewer cannot see into (own library, others' hands). */
   hiddenCounts: Partial<Record<ZoneId, number>>;
+  /**
+   * The top of MY OWN library that I am currently looking at, TOP FIRST.
+   *
+   * ⚠️ The one ordered thing about a library that ever reaches a client, and it
+   * is not a leak: these are exactly the cards already revealed to this viewer,
+   * which projection has been handing over as `cards` entries since M3. What was
+   * missing was the ORDER — and a scry that shows you three cards in a
+   * dictionary's order is not a scry.
+   *
+   * ⚠️ It is the revealed PREFIX from the top and stops at the first card that
+   * is not revealed, so a card revealed from deeper in the library (a tutor)
+   * never turns into a phantom "top of your library".
+   */
+  peek: InstanceId[];
 }
 
 // ── Events ───────────────────────────────────────────────────────────────────
@@ -285,6 +312,16 @@ export type EngineEvent =
       targets: { kind: 'card' | 'player' | 'stack'; id: string }[];
       /** Where the card went — battlefield for a permanent, graveyard otherwise. */
       to: ZoneId | null;
+      /**
+       * WHOSE spell it was. `null` only for a fizzle or a counter, which carry
+       * no `instanceId` either.
+       *
+       * ⚠️ The assisted offer needs this for the same reason it needs `targets`,
+       * and needs it MORE: without it the offer was applied by whoever was
+       * looking at the table, which in a hotseat is regularly not the player who
+       * cast the spell. See D120.
+       */
+      controller: PlayerId | null;
     })
   | (Base & { t: 'PermanentTapped'; instanceId: InstanceId })
   | (Base & { t: 'PermanentUntapped'; instanceId: InstanceId })
@@ -334,12 +371,26 @@ export function emptyView(me: PlayerId = 'p1'): PlayerView {
     priority: me,
     log: [],
     hiddenCounts: {},
+    peek: [],
   };
 }
 
 /** Ordered zone contents, without the caller needing to handle `undefined`. */
 export function zoneCards(view: PlayerView, id: ZoneId): InstanceId[] {
   return view.zones[id] ?? [];
+}
+
+/**
+ * Is this card on a battlefield — anyone's?
+ *
+ * ⚠️ Filed under its CONTROLLER, which is the one zone that can hold it (see
+ * `project.ts`). Shared because two callers ask it about the same card for
+ * different reasons — "may E turn this" and "may the panel offer to turn this" —
+ * and two spellings of the same question is how they end up disagreeing.
+ */
+export function onBattlefield(view: PlayerView, id: InstanceId): boolean {
+  const card = view.cards[id];
+  return !!card && zoneCards(view, zoneId('bf', card.controller)).includes(id);
 }
 
 /**

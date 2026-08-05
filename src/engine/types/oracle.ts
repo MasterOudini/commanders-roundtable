@@ -11,6 +11,10 @@
 // projection has to hand the renderer exactly the shape it already renders.
 
 import type { CardData, ColorLetter } from '../../data/cardTypes';
+// ⚠️ A TYPE-ONLY import, so the 400-entry generated table does not become an
+// engine dependency. The table itself is read in `effectParse.ts`, at ingest.
+import type { TokenRef } from '../../data/tokenTable';
+import type { EntersTapped } from '../../data/replacementParse';
 import type { ManaCost } from './mana';
 import type { ManaPool } from './mana';
 import type { OracleId, PrintingId } from './ids';
@@ -94,7 +98,18 @@ export interface ManaProduction {
    * the solver runs. Marking it conditional (and so excluding it from auto-tap)
    * would grey out half a real Commander deck's hand.
    */
-  readonly anyColor: { readonly scope: 'all' | 'identity'; readonly amount: number } | null;
+  /**
+   * ⚠️ `landsYou` / `landsOpponents` are resolved against the BOARD at solve
+   * time, exactly as `identity` is resolved against the commander: Reflecting
+   * Pool makes what your lands make, Exotic Orchard what an opponent's do. They
+   * are not conditional — the engine knows both sets exactly — and a land whose
+   * scope it CANNOT resolve ("a Gate you control", "X mana") stays unparsed
+   * rather than being widened to something the card cannot do.
+   */
+  readonly anyColor: {
+    readonly scope: 'all' | 'identity' | 'landsYou' | 'landsOpponents' | 'chosen';
+    readonly amount: number;
+  } | null;
   readonly requiresTap: boolean;
   /**
    * ⚠️ Excluded from auto-tap, still manually tappable.
@@ -144,6 +159,42 @@ export type TargetKind =
 
 export type TargetController = 'any' | 'you' | 'opponent';
 
+/**
+ * ⚠️ CLOSED at three attributes and two comparators, and every member is here
+ * because the database prints it: mana value (504 lines), power (385),
+ * toughness (33); "or less" (587), "or greater" (335). "converted mana cost" is
+ * the same attribute under its pre-2021 name and normalises to `manaValue`.
+ */
+/**
+ * `lookAtTop` only: how many of the revealed cards are taken, and where the
+ * rest go.
+ *
+ * ⚠️ **CLOSED AT TWO DESTINATIONS, and the two it leaves out are left out for
+ * different reasons.** "on the bottom of your library IN ANY ORDER" (6 lines) is
+ * a second decision the player is owed and this does not offer; "IN A RANDOM
+ * order" (2 lines) needs the seeded generator, which `effectEvents` does not
+ * have — D137's refusal of "discards at random", one card type along.
+ */
+export interface LookSpec {
+  /** How many go to the hand. `0` for a pure re-ordering (`Index`). */
+  readonly take: number;
+  /**
+   * ⚠️ **THE TWO `Ordered` DESTINATIONS RAISE A SECOND PROMPT** (D142). D141
+   * refused them precisely because "in any order" is a decision the card gives
+   * the player and there was nowhere to ask; `Awaiting.orderCards` is that
+   * somewhere. The unordered two stay separate rather than being folded in — a
+   * graveyard has no order anybody chooses, and "the other" leaves one card,
+   * so raising a prompt for either would be a question with one legal answer.
+   */
+  readonly rest: 'graveyard' | 'bottom' | 'bottomOrdered' | 'topOrdered';
+}
+
+export interface NumericRestriction {
+  readonly attr: 'manaValue' | 'power' | 'toughness';
+  readonly cmp: 'atMost' | 'atLeast';
+  readonly value: number;
+}
+
 export type TargetZone = 'graveyard' | 'exile';
 
 /**
@@ -171,6 +222,32 @@ export interface TargetSpec {
   /** Only ever non-empty when `kinds` includes `'card'`. */
   readonly zones: readonly TargetZone[];
   /**
+   * CARD TYPES the clause requires — `['Creature']` for "target creature card".
+   * Empty means the clause names no type.
+   *
+   * ⚠️ **THIS EXISTS BECAUSE `kinds` CANNOT SAY IT.** Everything in a
+   * graveyard has exactly one kind, `card`, so "target creature card" and "target
+   * card" were the SAME spec — the type went into `unenforced` and was checked by
+   * nothing. `Raise Dead` could take a land. See D138.
+   *
+   * ⚠️ ANY of them matches, not all: a clause naming two types means "either"
+   * ("target instant or sorcery card"), and a card that is both still qualifies.
+   */
+  readonly cardTypes: readonly string[];
+  /**
+   * A NUMERIC restriction — "with power 4 or greater", "with mana value 3 or
+   * less". `null` when the clause names none.
+   *
+   * ⚠️ **THIS WAS NOT MERELY UNENFORCED, IT WAS DROPPED SILENTLY.** Before D139
+   * "Destroy target creature with power 4 or greater" parsed to
+   * `kinds:['creature'], confident:true, unenforced:[]` — the qualifier was not
+   * matched by the noun table, so it never entered `unenforced` either. The app
+   * would destroy a 1/1 with it, and `tier3.ts` said nothing, because there was
+   * nothing recorded to say. `text` was wrong too: it read "target creature",
+   * so the prompt bar showed a clause the card does not have.
+   */
+  readonly numeric: NumericRestriction | null;
+  /**
    * The clause EXACTLY as printed, sliced out of the oracle text — never
    * re-worded. It is what the prompt bar says. A paraphrase would be a second
    * rules text that drifts from Scryfall's the moment Wizards rewords something,
@@ -194,6 +271,8 @@ export const FREE_TARGET: TargetSpec = {
   kinds: [],
   controller: 'any',
   zones: [],
+  cardTypes: [],
+  numeric: null,
   text: '',
   confident: false,
   unenforced: [],
@@ -214,14 +293,72 @@ export type EffectKind =
   | 'damage'
   | 'destroy'
   | 'exile'
-  | 'bounce'
+  /** COUNTER A SPELL. The counters you put on a permanent are the two below. */
   | 'counter'
+  | 'bounce'
   | 'pump'
   | 'tap'
   | 'untap'
   | 'draw'
   | 'gainLife'
-  | 'loseLife';
+  | 'loseLife'
+  | 'putCounters'
+  | 'removeCounters'
+  | 'createToken'
+  /**
+   * CR 701.8. A player puts cards from their hand into their graveyard — and
+   * unless the card says otherwise, THEY choose which (see D137).
+   *
+   * ⚠️ The only effect kind whose resolution can STOP and ask. Every other one
+   * turns into events and is done; this one raises `Awaiting.chooseFromZone`
+   * when the player has more cards than the effect takes.
+   */
+  | 'discard'
+  /**
+   * CR 400.7 — a card leaving a graveyard for its owner's HAND. `Raise Dead`.
+   *
+   * ⚠️ Distinct from `bounce` even though both end in a hand: `bounce` moves a
+   * PERMANENT off the battlefield and is written to read a battlefield target,
+   * where this reads a card in a graveyard. One kind for both would have to
+   * decide which zone it meant at resolution, from a target that no longer says.
+   */
+  | 'returnFromGraveyard'
+  /**
+   * Reanimation — a creature card from a graveyard onto the BATTLEFIELD.
+   * `Zombify`, `Resurrection`, `Unburial Rites`.
+   *
+   * ⚠️ Its own kind rather than a destination flag on the one above, because the
+   * card arrives as a PERMANENT: it enters the battlefield, so it runs the whole
+   * entry funnel — the loyalty counters (D107), "enters tapped" (D134/D135), and
+   * the pay-to-enter-untapped prompt (D136) all apply to it and none of them
+   * apply to a card going to a hand.
+   */
+  | 'reanimate'
+  /**
+   * CR 701.16 — look at the top N of your library, keep some, and the rest go
+   * somewhere. `Forbidden Alchemy`, `Sleight of Hand`. See D141.
+   *
+   * ⚠️ The second effect kind whose resolution STOPS and asks (after `discard`),
+   * and the first whose prompt is over a zone the player has just been SHOWN.
+   */
+  | 'lookAtTop';
+
+/**
+ * The counters a spell may put on or take off, and the list is CLOSED at two.
+ *
+ * ⚠️ **BECAUSE THESE ARE THE TWO THE ENGINE READS.** `derive.ts` sums `+1/+1`
+ * and `-1/-1` at layer 7d, so putting one of them is a change the board actually
+ * shows. Every other counter Magic prints — charge, trample, deathtouch, page,
+ * stun — would be recorded on the card and applied by NOTHING, which is
+ * half-execution wearing a number (D90): the log would say the counter went on,
+ * the card would carry it, and the rules would ignore it forever.
+ *
+ * ⚠️ `loyalty` and `defense` are deliberately absent too, even though `sba.ts`
+ * reads them. "Put two loyalty counters on target planeswalker" is real, but no
+ * Commander-legal spell's WHOLE text is that clause, so admitting it would widen
+ * the vocabulary for zero cards and one more thing to be wrong about.
+ */
+export type CounterKind = '+1/+1' | '-1/-1';
 
 export interface EffectSpec {
   readonly kind: EffectKind;
@@ -231,12 +368,48 @@ export interface EffectSpec {
   readonly power: number;
   readonly toughness: number;
   /**
+   * `putCounters` / `removeCounters` only: WHICH counter, from the closed list.
+   *
+   * ⚠️ `null` for every other kind, and `effects.ts` refuses to emit without it.
+   * A default of `'+1/+1'` would have been tidier and would mean that any future
+   * rule which forgot to set it silently put +1/+1 counters somewhere.
+   */
+  readonly counterKind: CounterKind | null;
+  /**
+   * `createToken` only: the printing the description names.
+   *
+   * ⚠️ RESOLVED AT BUILD TIME, from `TOKEN_TABLE` (D133). It is on the spec
+   * rather than looked up in `effects.ts` because that is what keeps
+   * `effectMode` a property of the CARD: a description the table cannot name is
+   * a sentence the parser did not understand, decided once at ingest, the same
+   * for every player. Resolving at resolution time instead would make whether a
+   * spell executes depend on which tokens happened to be in the game's pool.
+   */
+  readonly token: TokenRef | null;
+  /** `lookAtTop` only: how many to keep and where the rest go (D141). */
+  readonly look: LookSpec | null;
+  /**
    * Which of the spell's targets this clause applies to — an index into
    * `StackObject.targets`. -1 means "no target", e.g. `Draw three cards`.
    */
   readonly targetIndex: number;
   /** Applies to the caster rather than to a target. `You gain 3 life`. */
   readonly self: boolean;
+  /**
+   * `discard` only: the cards are chosen AT RANDOM rather than by their owner.
+   *
+   * ⚠️ **A DIFFERENT EFFECT, not a flag on a shared one, in every way that
+   * matters.** A normal discard raises `chooseFromZone` and waits for a person;
+   * this one takes the cards itself and raises nothing. `Hymn to Tourach`
+   * against `Mind Rot` is the pair.
+   *
+   * ⚠️ It was refused outright until D147 (D137 measured 54 lines and said why):
+   * `effectEvents` had no randomness, and randomness in this engine comes ONLY
+   * from the seeded generator threaded through the log. Approximating it — the
+   * first N in hand, say — would be a rule the app made up, and one that a
+   * player watching their own hand would notice immediately.
+   */
+  readonly atRandom: boolean;
   /** The sentence exactly as printed, for the log and the assisted offer. */
   readonly text: string;
 }
@@ -275,6 +448,22 @@ export interface ActivatedAbility {
   readonly requiresUntap: boolean;
   /** `Pay 3 life`. 0 when there is none. */
   readonly lifeCost: number;
+  /**
+   * `Pay life equal to the number of colors in your commanders' color
+   * identity` — War Room's exact phrase, and only that phrase (D90). The
+   * NUMBER is computed at ACTIVATION from the player's identity, which is why
+   * it cannot live in `lifeCost` (D159).
+   */
+  readonly lifeCostCommanderColors: boolean;
+  /**
+   * `Sacrifice this <type>` — a SELF-sacrifice: deterministic, no chooser, so
+   * the engine can charge it (D159). ⚠️ Chargeable is not offerable: a
+   * destructive cost is OFFERED only when the game's registry carries an
+   * `ActivatedDef` that will run the effect — charging mana for nothing is
+   * D122's disclosed status quo, eating a permanent for nothing is not.
+   * `Sacrifice a creature` (a choice) stays in `unpaidCosts`.
+   */
+  readonly sacrificesSelf: boolean;
   /** Cost components the engine cannot charge, verbatim: `Sacrifice a creature`, `+1`. */
   readonly unpaidCosts: readonly string[];
   readonly payable: boolean;
@@ -344,7 +533,7 @@ export interface OracleFace {
    * never asks you to aim.
    *
    * ⚠️ Triggered-ability clauses are parsed and DISCARDED in v1: no trigger
-   * reaches the stack with targets without a card script, and `EMPTY_REGISTRY`
+   * reaches the stack with targets without a card script, and `SHIPPED_REGISTRY`
    * ships. A spell that asked you to aim an ETB it never executes is theatre.
    */
   readonly targets: readonly TargetSpec[];
@@ -358,6 +547,26 @@ export interface OracleFace {
    */
   readonly effects: readonly EffectSpec[];
   readonly effectMode: EffectMode;
+  /**
+   * CR 614.1c — this permanent enters the battlefield tapped.
+   *
+   * ⚠️ `null` means it does not; `{ unless: null }` means it always does; a
+   * condition means it does UNLESS that board query holds (D135). A REPLACEMENT
+   * EFFECT, applied by `applyReplacements` alongside the entry counters (D107),
+   * and not a keyword or an ability line.
+   *
+   * ⚠️ ONE FIELD RATHER THAN A BOOLEAN AND A CONDITION BESIDE IT, because two
+   * fields that must be read together are a trap: "enters tapped unless you
+   * control a Forest" is not `entersTapped: false`, and a caller that checked
+   * only the boolean would let it in untapped every time.
+   */
+  readonly entersTapped: EntersTapped | null;
+  /**
+   * "As this ~ enters, choose a color." (CR 614.12). See
+   * `CardInstance.chosenColor` for why the colour and not the other two shapes
+   * of that sentence.
+   */
+  readonly choosesColorOnEntry: boolean;
 }
 
 export interface OracleCard {
@@ -403,6 +612,8 @@ export interface DerivedCharacteristics {
   readonly loyalty: number | null;
   readonly defense: number | null;
   readonly keywords: ReadonlySet<Keyword>;
+  /** CR 613 layer 6 — false when an effect has removed every ability. */
+  readonly hasAbilities: boolean;
   readonly protection: Protection;
   readonly landwalk: readonly string[];
   /** `Toxic N`. 0 unless the creature has toxic. */

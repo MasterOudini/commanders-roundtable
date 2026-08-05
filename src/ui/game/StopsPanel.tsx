@@ -105,7 +105,7 @@ export function StopsPanel({ stops }: { stops: StopPolicy | null }) {
         />
       </div>
 
-      <p className="mt-2 font-sc text-[10px] tracking-wider text-crt-faint">ALWAYS STOP AT</p>
+      <p className="mt-2 font-sc text-[10px] tracking-wider text-crt-faint">ALSO STOP AT</p>
       <div className="mt-1 grid grid-cols-2 gap-x-2 gap-y-0.5">
         {STEPS.map(({ step, label }) => (
           <Toggle
@@ -118,8 +118,10 @@ export function StopsPanel({ stops }: { stops: StopPolicy | null }) {
         ))}
       </div>
       <p className="mt-2 text-[10px] leading-snug text-crt-faint">
-        With auto-pass on, the game only asks you when you can actually do
-        something. Hold Ctrl while it passes to force a stop.
+        The game never stops you when you have nothing you could play, whatever
+        is ticked here. On your own turn it stops in your main phases, and on
+        everyone else&rsquo;s at their end step. Turn on full control to be asked
+        in every step instead.
       </p>
     </div>
   );

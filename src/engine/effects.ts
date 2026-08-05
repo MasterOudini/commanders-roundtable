@@ -12,6 +12,7 @@
 // `effectParse.ts` for why half-executing is the failure that matters.
 
 import { derive, type DeriveCache } from './derive';
+import { shuffle, type RngState } from './rng';
 import type { EngineDeps } from './loop';
 import type { EventBody, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
@@ -58,13 +59,64 @@ export function effectEvents(
   effects: readonly EffectSpec[],
   cache?: DeriveCache,
 ): EventBody[] {
+  return effectResult(state, deps, obj, effects, cache).events;
+}
+
+/**
+ * The same thing, plus the RNG if any clause consumed randomness.
+ *
+ * ⚠️ **TWO ENTRY POINTS RATHER THAN ONE CHANGED SIGNATURE, and the reason is the
+ * rule it protects.** The RNG advances ONLY through a recorded `rngAfter`
+ * (`reducer.ts`), so a caller that took the events and dropped the `rng` would
+ * replay to a DIFFERENT board than it played — silently, and only for the cards
+ * that use randomness. Callers that cannot thread it keep the narrow function,
+ * which is why `effectEvents` still exists and still returns an array; the ones
+ * that can use this and are checked by `tsc`.
+ */
+export function effectResult(
+  state: GameState,
+  deps: EngineDeps,
+  obj: StackObject,
+  effects: readonly EffectSpec[],
+  cache?: DeriveCache,
+): { events: EventBody[]; rng?: RngState } {
   const out: EventBody[] = [];
+  // ⚠️ Threaded through the loop and returned ONCE at the end, never read from
+  // `state` per clause: two clauses that each drew from `state.rng` would draw
+  // the SAME numbers, because nothing between them advanced it.
+  let rng: RngState | undefined;
   const controller = obj.controller;
   const source = obj.card ?? obj.source;
+  // One allocator for every instance this resolution creates. See `createToken`.
+  let nextInstance = state.counters.instance;
 
   for (const effect of effects) {
     const aim = effect.self ? null : aimOf(state, obj.targets[effect.targetIndex]);
-    if (!effect.self && !aim) continue;
+    /**
+     * ⚠️ **A SKIPPED CLAUSE SAYS SO.** CR 608.2b is right that the spell still
+     * resolves when only SOME of its targets are gone — only an all-illegal
+     * spell is countered on resolution — but for a milestone this branch was a
+     * bare `continue`, and a spell that resolves having done nothing, with the
+     * log reading only "Mind Rot resolves.", is indistinguishable from a bug.
+     *
+     * ⚠️ IT COST FOUR HOURS TO PROVE THAT, and on a card that turned out to be
+     * working: D137's investigation read "cast, resolves, nothing happened" and
+     * spent the whole time inside the engine, because the log offered no way to
+     * tell "your target left" from "this effect is broken". The line below is
+     * the difference between those two, and it is the reason it exists.
+     *
+     * A CARD is the subject, so no parts and no person (see the file header).
+     */
+    if (!effect.self && !aim) {
+      out.push(
+        narrated(
+          `${obj.label} — no legal target left for “${effect.text}”`,
+          obj.controller,
+          obj.identity,
+        ),
+      );
+      continue;
+    }
 
     switch (effect.kind) {
       case 'damage': {
@@ -164,9 +216,271 @@ export function effectEvents(
         out.push({ t: 'LifeChanged', player: aim.id, delta: -effect.amount, to: p.life - effect.amount });
         break;
       }
+
+      /**
+       * CR 701.8a — and THE PLAYER CHOOSES, which is why this case can produce
+       * a prompt where every other one produces only events. See D137.
+       *
+       * ⚠️ **THREE OUTCOMES, and only the third asks anything.** An empty hand
+       * discards nothing; a hand no bigger than the effect goes to the graveyard
+       * whole, because there is no choice left to make and a prompt with one
+       * legal answer is a click that teaches the player nothing; anything larger
+       * raises `chooseFromZone`.
+       *
+       * ⚠️ **THE PROMPT IS EMITTED, NOT THE DISCARD.** The cards move when the
+       * answer comes back — so a resolution that ends here leaves the spell
+       * fully resolved (it is already in the graveyard, `resolveTop` put it
+       * there in this same batch) with the discard outstanding. That is D136's
+       * shape exactly: the engine cannot suspend a fold, so the question comes
+       * last and its consequence arrives with the answer.
+       *
+       * ⚠️ **ONE PROMPT PER RESOLUTION.** A second `AwaitingSet` in the same
+       * batch would silently overwrite the first, so a spell with two discard
+       * clauses would ask about one and drop the other — half-execution. No card
+       * in this vocabulary can print two (each is a whole anchored sentence
+       * naming one target), and the guard is here so that stays true rather than
+       * being true by luck.
+       */
+      /**
+       * CR 400.7. The card goes to its OWNER — `aim.owner`, never the caster.
+       *
+       * ⚠️ **A GRAVEYARD IS PUBLIC AND SHARED, so "your graveyard" is a
+       * targeting restriction and not an ownership one.** By the time the spell
+       * resolves the target is just a card id; `targetAllowed` is what kept it
+       * to the caster's own graveyard (D138), and re-deciding it here from the
+       * caster would send a stolen card to the wrong hand.
+       */
+      case 'returnFromGraveyard': {
+        if (aim?.kind !== 'card') break;
+        // ⚠️ NOT `moveTo` — that helper hardcodes `from: battlefield`, which is
+        // right for its four callers (destroy, exile, bounce) and wrong here.
+        // A `from` that does not match where the card actually is leaves it in
+        // BOTH zones, and `assertInvariants` catches it as exactly that.
+        out.push({
+          t: 'CardsMoved',
+          moves: [
+            {
+              card: aim.id,
+              from: { kind: 'graveyard', player: aim.owner },
+              to: { kind: 'hand', player: aim.owner },
+            },
+          ],
+        });
+        break;
+      }
+
+      /**
+       * ⚠️ The controller is the CASTER (CR 400.7a — "under your control" is the
+       * default for a reanimation spell), and the destination is a battlefield
+       * `ZoneRef` naming them. That is also what makes the entry funnel work on
+       * it: `withEntersTapped` reads `move.to.player` to decide whose board the
+       * permanent is arriving on, so a move that named the owner instead would
+       * ask "do YOU control two other lands" of the wrong seat (D135).
+       */
+      case 'reanimate': {
+        if (aim?.kind !== 'card') break;
+        out.push({
+          t: 'CardsMoved',
+          moves: [
+            {
+              card: aim.id,
+              from: { kind: 'graveyard', player: aim.owner },
+              to: { kind: 'battlefield', player: controller },
+            },
+          ],
+        });
+        break;
+      }
+
+      /**
+       * CR 701.16 — look at the top N, keep some, the rest go somewhere. D141.
+       *
+       * ⚠️ **THE REVEAL IS WHAT MAKES THE PROMPT ANSWERABLE.** `CardsRevealed`
+       * marks the cards `revealedTo` the controller, which is precisely what
+       * `project.ts` turns into `view.peek` (D114) — the one exception to "a
+       * library is a count, full stop". So the client can list the candidates
+       * from its own view and the prompt ships no ids, exactly as the discard
+       * prompt does for a hand. `redactEvent` strips the ids for everyone else.
+       *
+       * ⚠️ **FEWER CARDS THAN THE SPELL LOOKS AT IS NORMAL**, not an error — a
+       * library near the bottom simply has fewer. The take is clamped, and if
+       * the whole remaining library fits in the hand there is no choice to make
+       * and no prompt: the same "a question with one legal answer" rule the
+       * discard case follows.
+       */
+      case 'lookAtTop': {
+        const look = effect.look;
+        if (!look) break;
+        const library = state.zones.library[controller] ?? [];
+        if (library.length === 0) break;
+        // The TOP of a library is the END of the array (`drawFromTop`).
+        const top = library.slice(Math.max(0, library.length - effect.amount));
+        out.push({ t: 'CardsRevealed', cards: top, to: [controller] });
+        const take = Math.min(look.take, top.length);
+        /**
+         * ⚠️ **TAKE NOTHING IS A REAL FORM** (`Index`, D142): look at five and
+         * put them back in an order of your choosing. It skips the pick prompt
+         * entirely and goes straight to the ordering one — and a single card has
+         * a single sequence, so it skips that too.
+         */
+        if (take === 0) {
+          if (top.length > 1) {
+            out.push({
+              t: 'AwaitingSet',
+              awaiting: {
+                kind: 'orderCards',
+                player: controller,
+                zone: 'library',
+                destination: look.rest === 'topOrdered' ? 'top' : 'bottom',
+                count: top.length,
+                label: obj.label,
+              },
+            });
+          } else {
+            out.push({ t: 'CardsRevealed', cards: top, to: [] });
+          }
+          break;
+        }
+        if (take >= top.length) {
+          out.push({
+            t: 'CardsMoved',
+            moves: top.map((card) => ({
+              card,
+              from: { kind: 'library' as const, player: controller },
+              to: { kind: 'hand' as const, player: controller },
+            })),
+          });
+          break;
+        }
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        out.push({
+          t: 'AwaitingSet',
+          awaiting: {
+            kind: 'chooseFromZone',
+            player: controller,
+            zone: 'library',
+            rest: look.rest,
+            count: take,
+            label: obj.label,
+          },
+        });
+        break;
+      }
+
+      case 'discard': {
+        if (aim?.kind !== 'player') break;
+        const hand = state.zones.hand[aim.id] ?? [];
+        if (hand.length === 0) break;
+        if (hand.length <= effect.amount) {
+          out.push({
+            t: 'CardsMoved',
+            moves: hand.map((card) => ({
+              card,
+              from: { kind: 'hand' as const, player: aim.id },
+              to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? aim.id },
+            })),
+          });
+          break;
+        }
+        // ⚠️ AT RANDOM ASKS NOBODY (CR 701.8b). The cards are taken here, from
+        // the SEEDED generator threaded through the log — the only source of
+        // randomness this engine has, and the reason D137 refused this wording
+        // rather than approximating it.
+        if (effect.atRandom) {
+          const draw = shuffle(rng ?? state.rng, hand);
+          rng = draw.next;
+          const taken = draw.value.slice(0, effect.amount);
+          out.push({
+            t: 'CardsMoved',
+            moves: taken.map((card) => ({
+              card,
+              from: { kind: 'hand' as const, player: aim.id },
+              to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? aim.id },
+            })),
+          });
+          break;
+        }
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        out.push({
+          t: 'AwaitingSet',
+          awaiting: {
+            kind: 'chooseFromZone',
+            player: aim.id,
+            zone: 'hand',
+            // A discard leaves the unchosen where they are, so there is no
+            // destination for "the rest" to go to.
+            rest: null,
+            count: effect.amount,
+            label: obj.label,
+          },
+        });
+        break;
+      }
+
+      /**
+       * ⚠️ THE EVENT HAS EXISTED SINCE D107 and was reached only by the Tier-3
+       * counter tool and by the two built-in replacements. Nothing had to be
+       * added to the log, the reducer or the hash — the whole of this primitive
+       * is a vocabulary that can SAY it. See D130.
+       *
+       * ⚠️ Battlefield only. A counter on a card in a graveyard is a number
+       * nothing reads, and `clearBattlefieldFields` wipes it on the next move
+       * anyway — so emitting one would be a log line that says something
+       * happened when nothing did. Targeting already restricts a `target
+       * creature` to the battlefield (D91); this is the second lock, on the side
+       * that writes rather than the side that aims.
+       *
+       * ⚠️ LETHALITY IS STILL THE SBA'S JOB, exactly as it is for damage (D90).
+       * `Scar` puts a `-1/-1` counter on a 1/1 and emits nothing else; layer 7d
+       * makes it 0/0 and `checkStateBasedActions` bins it on the next pass. A
+       * second "is this lethal" here would eventually disagree with combat.
+       */
+      /**
+       * ⚠️ THE PRINTING IS ON THE SPEC, resolved at build time (D133). Nothing
+       * is looked up here, and that is deliberate: a token whose description
+       * the table could not name never reached `effectMode: 'auto'`, so this
+       * case cannot be asked to create something it has no card for.
+       *
+       * ⚠️ Instance ids are allocated from ONE counter across every effect this
+       * object produces. Two token clauses in one spell each starting from
+       * `state.counters.instance + 1` would name the same card twice, and the
+       * reducer would overwrite the first with the second — one token, silently.
+       */
+      case 'createToken': {
+        if (!effect.token) break;
+        for (let n = 0; n < effect.amount; n++) {
+          nextInstance++;
+          out.push({
+            t: 'TokenCreated',
+            card: `c${nextInstance}`,
+            oracleId: effect.token.oracleId,
+            printingId: effect.token.printingId,
+            controller,
+            owner: controller,
+            turnNumber: state.turn.turnNumber,
+          });
+        }
+        break;
+      }
+
+      case 'putCounters':
+      case 'removeCounters': {
+        if (aim?.kind !== 'card' || effect.counterKind === null) break;
+        if (state.cards[aim.id]?.zone.kind !== 'battlefield') break;
+        const delta = effect.kind === 'putCounters' ? effect.amount : -effect.amount;
+        if (delta === 0) break;
+        out.push({
+          t: 'CountersChanged',
+          changes: [{ card: aim.id, kind: effect.counterKind, delta }],
+        });
+        break;
+      }
     }
   }
-  return out;
+  // ⚠️ `rng` is omitted entirely when nothing drew, not set to `state.rng`.
+  // `log.ts` records `rngBefore`/`rngAfter` only when a batch carries one, and a
+  // no-op advance on every spell would put two identical states on every event.
+  return rng === undefined ? { events: out } : { events: out, rng };
 }
 
 /**
@@ -223,8 +537,13 @@ function moveFromStack(card: InstanceId, kind: 'graveyard', player: PlayerId): E
  * ⚠️ Drawing from an empty library does NOT lose the game here — it sets the
  * flag and the SBA does it (CR 704.5b). Doing it inline would skip the pass that
  * every other loss goes through.
+ *
+ * ⚠️ EXPORTED FOR THE CARD SCRIPTS (M6.4a, D158), and only for them: a shipped
+ * ETB draw (`Wall of Omens`) must route through THE one draw rule, or the
+ * empty-library flag would be re-derived in `scripts/cards/` and eventually
+ * disagree with this copy about what an empty library means.
  */
-function drawEvents(state: GameState, player: PlayerId, count: number): EventBody[] {
+export function drawEvents(state: GameState, player: PlayerId, count: number): EventBody[] {
   const library = state.zones.library[player] ?? [];
   // ⚠️ The SAME helper the draw step and the mulligan use. A second "take N off
   // the top" would eventually disagree about which end of the array is the top,

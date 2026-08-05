@@ -32,6 +32,7 @@ import type {
   GameOptions,
   LossReason,
   PendingCast,
+  PendingReplacement,
   PendingTrigger,
   Phase,
   StackObject,
@@ -49,6 +50,19 @@ export interface CardMove {
   readonly to: ZoneRef;
   readonly placement?: ZonePlacement;
   readonly faceDown?: boolean;
+  /**
+   * The face this card is moving AS — CR 712, a modal DFC's back face. Omit for
+   * every ordinary card.
+   *
+   * ⚠️ **IT RIDES ON THE MOVE AND NOT ON A SEPARATE EVENT, AND THAT IS FORCED
+   * BY THE FUNNEL** (D155). `runReplacementFunnel` reads the state BEFORE the
+   * batch is applied, so an earlier `FaceIndexSet` in the same batch would not
+   * be visible to it — "enters tapped" and "as this enters, pay 3 life" would
+   * be decided from the front face. And a LATER one is too late for the same
+   * question. The move is the event that says "this enters as face N", so the
+   * face belongs on it — exactly as `faceDown` already does.
+   */
+  readonly faceIndex?: number;
 }
 
 export interface ResolvedDamage {
@@ -93,6 +107,12 @@ export type SbaAction =
   | { readonly t: 'auraFalls'; readonly card: InstanceId }
   | { readonly t: 'equipmentUnattaches'; readonly card: InstanceId }
   | { readonly t: 'legendRule'; readonly player: PlayerId; readonly name: string; readonly candidates: readonly InstanceId[] }
+  /**
+   * CR 704.5m. ⚠️ Carries no `candidates` and raises no prompt, unlike
+   * `legendRule` above: the newest world permanent survives and the rest go,
+   * with nothing for anyone to decide.
+   */
+  | { readonly t: 'worldRule'; readonly card: InstanceId }
   | { readonly t: 'tokenCeasesToExist'; readonly card: InstanceId }
   | { readonly t: 'counterAnnihilation'; readonly card: InstanceId; readonly amount: number };
 
@@ -228,6 +248,36 @@ export type EventBody =
   | { readonly t: 'CastCancelled'; readonly stackId: StackId }
   | { readonly t: 'SpellCast'; readonly obj: StackObject }
   | { readonly t: 'AbilityPutOnStack'; readonly obj: StackObject }
+  /**
+   * Targets chosen for an object ALREADY on the stack — a triggered ability, and
+   * only a triggered ability.
+   *
+   * ⚠️ Deliberately not `TargetsChosen`, which writes to `pendingCast`: a
+   * trigger never has one. CR 603.3d puts the object on the stack and chooses
+   * its targets as one action, so the object exists first and this fills it in
+   * on the same uninterruptible pass — nobody can act in the gap, because an
+   * `Awaiting` blocks every intent (D136's precedent, same shape).
+   */
+  /**
+   * The colour a permanent was given as it entered (CR 614.12).
+   *
+   * ⚠️ On the LOG, like every other state change, because `chosenColor` is part
+   * of `GameState` and so of the state hash — a replay that recomputed it would
+   * have to re-ask a question nobody is there to answer.
+   */
+  /**
+   * The replacement funnel suspended, holding an event nobody has applied
+   * (CR 616). See `PendingReplacement`.
+   *
+   * ⚠️ ON THE LOG, because the held event is part of `GameState` while it waits
+   * and so of the state hash. A replay that recomputed which effects applied
+   * would be re-deciding a question the player already answered.
+   */
+  | { readonly t: 'ReplacementPending'; readonly pending: PendingReplacement }
+  /** The funnel resumed; whatever it produced follows this event. */
+  | { readonly t: 'ReplacementResolved' }
+  | { readonly t: 'ColorChosen'; readonly card: InstanceId; readonly color: ColorLetter }
+  | { readonly t: 'StackTargetsSet'; readonly stackId: StackId; readonly targets: readonly TargetChoice[] }
   | { readonly t: 'CommanderCastCountIncreased'; readonly card: InstanceId; readonly to: number }
   | {
       readonly t: 'StackResolved';
@@ -236,11 +286,48 @@ export type EventBody =
       readonly to: ZoneRef | null;
       /** What it was aimed at, so an assisted card can still be offered after it resolves. */
       readonly targets: readonly TargetChoice[];
+      /**
+       * WHO CONTROLLED IT, for the same reason `targets` is here and it is not
+       * optional.
+       *
+       * ⚠️ The stack object is gone by the time anything downstream asks, and
+       * the card cannot answer for it: `clearBattlefieldFields` resets a moved
+       * card's `controller` to its OWNER, so a resolved spell in a graveyard
+       * says only whose card it is. Without this the assisted offer (D90) had no
+       * idea whose spell it was and named whoever happened to be looking —
+       * which in a hotseat is routinely somebody else, and Ben's Thrill of
+       * Possibility drew two cards for Ana. See D120.
+       */
+      readonly controller: PlayerId;
     }
   | { readonly t: 'SpellFizzled'; readonly stackId: StackId }
   | { readonly t: 'SpellCountered'; readonly stackId: StackId }
   | { readonly t: 'PendingTriggersAdded'; readonly triggers: readonly PendingTrigger[] }
   | { readonly t: 'PendingTriggersCleared'; readonly ids: readonly string[] }
+  /**
+   * A player's answer to a "may" trigger (CR 603.1), recorded before the
+   * ability resolves in the same batch.
+   *
+   * ⚠️ A MARKER — `apply` returns the state unchanged, exactly as
+   * `StateBasedActionsApplied` does. The consequences travel as their own
+   * events beside it. It is here because a DECISION is the one thing the
+   * resolution's own events cannot show: a declined trigger and a trigger whose
+   * effect happened to do nothing produce an identical board, and the log is
+   * the only place the difference can live. It is also what lets the fuzz gate
+   * count both answers rather than assume it reached them.
+   */
+  | { readonly t: 'OptionalTriggerAnswered'; readonly stackId: StackId; readonly player: PlayerId; readonly accept: boolean }
+  /**
+   * A player's answer to an "as this enters, you may pay N life" replacement
+   * (CR 614.12), recorded before its consequence in the same batch. See D136.
+   *
+   * ⚠️ A MARKER, for `OptionalTriggerAnswered`'s reason and one more of its own:
+   * paying the life is a `LifeChanged` indistinguishable from any other, and
+   * DECLINING is a `PermanentsTapped` indistinguishable from a land tapped for
+   * mana. Without this the log could not say a question had been asked at all,
+   * and the fuzz canary could not tell the two answers apart.
+   */
+  | { readonly t: 'EntersChoiceAnswered'; readonly card: InstanceId; readonly player: PlayerId; readonly pay: boolean }
 
   // ── combat ───────────────────────────────────────────────────────────────
   | { readonly t: 'CombatBegan' }

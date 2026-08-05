@@ -5,6 +5,35 @@ import { legalActions } from './legal';
 import { project } from './project';
 import { replay, stateHash } from './log';
 import { nextBelow, seedRng, shuffle, type RngState } from './rng';
+import { createRegistry, SHIPPED_SCRIPTS } from './scripts/registry';
+import {
+  AJANIS_MANTRA,
+  AJANIS_PRIDEMATE,
+  GRAVITY_SPHERE_SCRIPT,
+  LEVITATION_SCRIPT,
+  BRANCHING_EVOLUTION_SCRIPT,
+  HARDENED_SCALES_SCRIPT,
+  KNIGHTHOOD_SCRIPT,
+  KWENDE_SCRIPT,
+  HUMILITY_SCRIPT,
+  YOTIAN_DISSIDENT_SCRIPT,
+} from './testing/cardScripts';
+// ⚠️ The SHIPPED scripts, not testing copies — M6.4a landed these eight, and
+// the gate must exercise exactly what the app runs (one card, one script). The
+// guard at the bottom of this file holds the rule in both halves: every entry
+// of `SHIPPED_SCRIPTS` registered here AND dealt in `DECK`.
+import { ONULET_SCRIPT } from './scripts/cards/onulet';
+import { SOUL_WARDEN_SCRIPT } from './scripts/cards/soulWarden';
+import { ESSENCE_WARDEN_SCRIPT } from './scripts/cards/essenceWarden';
+import { RADIANT_FOUNTAIN_SCRIPT } from './scripts/cards/radiantFountain';
+import { ADVENTURERS_INN_SCRIPT } from './scripts/cards/adventurersInn';
+import { WALL_OF_BLOSSOMS_SCRIPT } from './scripts/cards/wallOfBlossoms';
+import { WALL_OF_OMENS_SCRIPT } from './scripts/cards/wallOfOmens';
+import { BALEFUL_STRIX_SCRIPT } from './scripts/cards/balefulStrix';
+import { ARCANE_ENCYCLOPEDIA_SCRIPT } from './scripts/cards/arcaneEncyclopedia';
+import { DESERTED_TEMPLE_SCRIPT } from './scripts/cards/desertedTemple';
+import { HEDRON_ARCHIVE_SCRIPT } from './scripts/cards/hedronArchive';
+import { WAR_ROOM_SCRIPT } from './scripts/cards/warRoom';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -57,7 +86,185 @@ const DECK = [
   'Pacifism', 'Wrath of God', 'Brainstorm', 'Dark Ritual', 'Lightning Greaves',
   'Grist, the Hunger Tide', 'Invasion of Gobakhan // Lightshield Array',
   "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
+  // ⚠️ M6.1. The bot plays a deck built only from cards the engine runs
+  // COMPLETELY, and four of its shapes had never been dealt here: a LAND
+  // CREATURE (summoning-sick and tappable for mana at once), an ARTIFACT land,
+  // a PUMP spell (one of the 11 effect kinds, and the gate had damage, counter,
+  // exile and destroy but not this), and six enforced keywords plus protection
+  // from two colours on one body. Same rule as the three additions above it:
+  // a card missing from here is a code path this gate cannot reach.
+  'Dryad Arbor', 'Darksteel Citadel', 'Monstrous Growth', 'Akroma, Angel of Wrath',
+  // ⚠️ M6.3ab / D155 — a MODAL DFC, the layout this gate had never been dealt.
+  // Its back face is a land that enters tapped, so it reaches the face path and
+  // D134's rule on a back face at the same time.
+  'Malakir Rebirth // Malakir Mire',
+  // ⚠️ M6.3/D128. `Ajani's Mantra` is here for the same reason as every entry
+  // above it, and this time the gap was total rather than partial: with
+  // `NO_SCRIPTS` this gate had never run the TRIGGER BUS AT ALL.
+  // `collectTriggers` returns `[]` on `scripts.size === 0`, so in 500 seeds no
+  // `PendingTrigger` had ever existed, `orderTriggersApnap` had never sorted
+  // anything, `drainTriggers` had never put an ability on the stack and
+  // `orderTriggers` — a prompt with a real producer in `loop.ts` — had never
+  // been raised. `SCRIPTS` below is what fixes that, and this card is what it
+  // holds.
+  "Ajani's Mantra",
+  // ⚠️ M6.3/D129, and the same rule again one layer along: `applyStatics` had
+  // never RUN in this gate either, for the same reason the trigger bus had not.
+  // The pair is deliberate — `Levitation` grants flying and `Gravity Sphere`
+  // takes it away, both in layer 6, so which entered last is the answer (CR
+  // 613.7) and neither card alone would exercise the ordering.
+  // ⚠️ `Gravity Sphere` is a WORLD enchantment and this engine has no world rule
+  // (CR 704.5m), so four seats can hold four of them here where a real table
+  // could not. Inert: nothing in the engine reads the supertype. Test-only.
+  'Levitation', 'Gravity Sphere',
+  // M6.3c/D130 — the counter EFFECT, on both sides of the boundary.
+  // `Battlegrowth` and `Scar` are SPELLS that now resolve by themselves, so the
+  // gate reaches `effectEvents` emitting `CountersChanged` for the first time;
+  // Scar's `-1/-1` also reaches lethality through layer 7d and the state-based
+  // action, which no other card here does. `Ajani's Pridemate` is the PERMANENT
+  // side: it puts counters through a card script and needed none of the
+  // vocabulary, which is the measurement correction D130 makes.
+  'Battlegrowth', 'Scar', "Ajani's Pridemate",
+  // ⚠️ M6.3f/D133 — the TOKEN effect. `Raise the Alarm` puts two real Soldiers
+  // on the battlefield from a spell that resolves by itself, which reaches
+  // `TokenCreated` from the RULES for the first time: the event has been on the
+  // log since M3 and every one of them until now came from the Tier-3 tool.
+  // ⚠️ The Soldier PRINTING has to be in the pool or the token derives to a
+  // blank, and `makeSpec` builds the pool from `ENGINE_CARDS` — which is why the
+  // fixture is pinned to the printing `TOKEN_TABLE` names, not to a pretty one.
+  'Raise the Alarm',
+  // ⚠️ M6.3g/D134 — CR 614.1c. `Orzhov Guildgate` is the unconditional "enters
+  // tapped", so a land ARRIVES tapped from a real land drop for the first time;
+  // `Haunted Ridge` is the same land one word longer ("unless you control two
+  // or more other lands") and must NOT be tapped. Both in the deck, because a
+  // rule that fires on everything and a rule that fires on the right things
+  // look identical with only the positive case dealt.
+  'Orzhov Guildgate', 'Haunted Ridge',
+  // ⚠️ M6.3h/D135 — the CONDITION. `Sunpetal Grove` is a check-land ("unless
+  // you control a Forest or a Plains") and `Haunted Ridge` above is now a
+  // COUNT ("unless you control two or more other lands"), so both answers get
+  // exercised as a real game's board fills up — which no single-state test can
+  // do.
+  'Sunpetal Grove',
+  // ⚠️ M6.3i/D136 — the QUESTION. `Godless Shrine` was here as the card the
+  // parser must REFUSE and is now the card that ASKS: "you may pay 2 life. If
+  // you don't, it enters tapped." It is the only route this gate has to the
+  // `entersChoice` prompt, and — unlike `optionalTrigger`, which needs a
+  // registered script — it needs nothing but the land being played, so the
+  // prompt is reachable in a game the shipped `NO_SCRIPTS` could run.
+  // `The Black Gate` pays THREE, so a cost hardcoded to 2 cannot pass here
+  // either.
+  'Godless Shrine', 'The Black Gate',
+  // ⚠️ M6.3j/D137 — DISCARD, and the choice it raises. `Mind Rot` is the only
+  // route this gate has to `chooseFromZone`, and it needs no registry: a real
+  // cast at a real player, which the fuzzer does constantly. `Hymn to Tourach`
+  // is the card that must NOT resolve by itself ("at random", no RNG here), so
+  // a parser that widened one word would show up as a spell the gate suddenly
+  // started auto-resolving.
+  'Mind Rot', 'Hymn to Tourach',
+  // ⚠️ M6.3t/D147 — the two paths that did not exist before, and neither is
+  // reachable without its card. `Yotian Dissident` is the only TARGETED
+  // trigger: until D147 every stack object a trigger built carried
+  // `targets: []`, so the prompt, the validation, `StackTargetsSet` and
+  // CR 608.2b for an ability were all unreachable here. It triggers off
+  // `Darksteel Citadel` above, which is already in the deck.
+  // ⚠️ `Onulet` is the only trigger that LOOKS BACK IN TIME (CR 603.10a), and
+  // it is the one whose absence would be invisible: a dies trigger that never
+  // fires leaves NO trace, so every other counter in this gate is unmoved by
+  // it being broken.
+  'Yotian Dissident', 'Onulet',
+  // ⚠️ M6.3u/D148 — the CR 616 PAIR. Two replacements applying to ONE event is
+  // the only thing that suspends the funnel, so without both of these on one
+  // battlefield the continuation, its three parked queues, the prompt and the
+  // resume are unreachable from this gate entirely.
+  'Hardened Scales', 'Branching Evolution',
+  // ⚠️ M6.3v/D149 — the CR 613.8 DEPENDENCY pair, and neither card reaches the
+  // rule alone. `Kwende` reads a keyword that `Knighthood` grants, so which
+  // applies first decides whether Kwende applies AT ALL — the only shape in
+  // this engine's layer vocabulary where dependency is observable.
+  'Knighthood', 'Kwende, Pride of Femeref',
+  // ⚠️ M6.4a/D158 — the FIRST SHIPPED BATCH. Wall of Omens, Baleful Strix and
+  // Onulet were dealt already; these five join so every shipped script is
+  // exercised by the gate (the guard below holds both halves of that rule).
+  // The two wardens matter beyond coverage: a creature entering while BOTH are
+  // out is two simultaneous same-controller triggers — the exact shape whose
+  // first ever occurrence livelocked `drainTriggers` (the re-raise the D158
+  // rewrite guards against), so this gate now reaches the `orderTriggers`
+  // prompt and its answer in real games.
+  'Soul Warden', 'Essence Warden', 'Radiant Fountain', "Adventurer's Inn",
+  'Wall of Blossoms',
+  // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
+  // `Arcane Encyclopedia` is the first script-resolved activated ability;
+  // `Deserted Temple` the first TARGETED one (its untap re-checked at
+  // resolution, CR 608.2b); `Hedron Archive` the first SELF-SACRIFICE cost —
+  // a permanent paying itself into the graveyard at activation, dies-triggers
+  // and all; `War Room` the first COMPUTED life cost, priced off each seat's
+  // commander identity.
+  'Arcane Encyclopedia', 'Deserted Temple', 'Hedron Archive', 'War Room',
 ];
+
+/**
+ * ⚠️ THE FIRST NON-EMPTY REGISTRY THIS GATE HAS EVER RUN, and it is what makes
+ * the `optionalTrigger` prompt reachable at all: the prompt is raised only when
+ * a `TriggerDef` says `optional`, and a `TriggerDef` only exists if something
+ * registered one. A card in `DECK` with no script here would be a code path the
+ * gate still could not reach — the failure D102, D107, D108 and D121 all record,
+ * with an extra step.
+ *
+ * ⚠️ Since M6.4a this holds BOTH kinds: the testing scripts that exist to reach
+ * engine seams (`Ajani's Mantra` for the optional prompt, the layer pairs), and
+ * every SHIPPED script — because a shipped card missing from this registry is a
+ * code path the gate cannot reach, which is the failure D102, D107, D108 and
+ * D121 all record. The guard below asserts the shipped half mechanically.
+ */
+const SCRIPTS = createRegistry([
+  AJANIS_MANTRA,
+  AJANIS_PRIDEMATE,
+  LEVITATION_SCRIPT,
+  GRAVITY_SPHERE_SCRIPT,
+  // M6.3t — the two paths D147 opened, both unreachable from this gate without
+  // a script that uses them: `Yotian Dissident` is the only TARGETED trigger,
+  // and `Onulet` the only one that LOOKS BACK IN TIME (CR 603.10a).
+  YOTIAN_DISSIDENT_SCRIPT,
+  ONULET_SCRIPT,
+  // M6.4a/D158 — the rest of the first shipped batch (Onulet, one line up, is
+  // the shipped module too).
+  SOUL_WARDEN_SCRIPT,
+  ESSENCE_WARDEN_SCRIPT,
+  RADIANT_FOUNTAIN_SCRIPT,
+  ADVENTURERS_INN_SCRIPT,
+  WALL_OF_BLOSSOMS_SCRIPT,
+  WALL_OF_OMENS_SCRIPT,
+  BALEFUL_STRIX_SCRIPT,
+  // M6.4b/D159 — the activated batch.
+  ARCANE_ENCYCLOPEDIA_SCRIPT,
+  DESERTED_TEMPLE_SCRIPT,
+  HEDRON_ARCHIVE_SCRIPT,
+  WAR_ROOM_SCRIPT,
+  // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
+  // reaches the rule alone: two replacements applying to ONE event is the only
+  // thing that suspends the funnel, so without both of these the continuation,
+  // its three parked queues, the prompt and the resume are unreachable here.
+  HARDENED_SCALES_SCRIPT,
+  BRANCHING_EVOLUTION_SCRIPT,
+  // The CR 613.8 dependency pair (D149).
+  KNIGHTHOOD_SCRIPT,
+  KWENDE_SCRIPT,
+]);
+
+/** The two layer-6 sources, for the canary that says `applyStatics` ran. */
+const LAYER6_ORACLES = new Set([LEVITATION_SCRIPT.oracleId, GRAVITY_SPHERE_SCRIPT.oracleId]);
+
+/**
+ * Every shipped `ActivatedDef` ref, for the canary that says the D159 seam ran
+ * HERE — an ability charged by the engine and resolved by a script, in a real
+ * fuzzed game rather than only in a unit test.
+ */
+const ACTIVATED_REFS = new Set(
+  [ARCANE_ENCYCLOPEDIA_SCRIPT, DESERTED_TEMPLE_SCRIPT, HEDRON_ARCHIVE_SCRIPT, WAR_ROOM_SCRIPT].flatMap(
+    (s) => (s.activated ?? []).map((d) => d.ref),
+  ),
+);
 
 interface Picker {
   rng: RngState;
@@ -88,7 +295,7 @@ function manualIntentFor(state: GameState, p: Picker): Intent | null {
   if (!player) return null;
   const battlefield = state.zones.battlefield;
   const anyCard = p.pick([...battlefield, ...(state.zones.hand[player] ?? [])]);
-  switch (p.below(9)) {
+  switch (p.below(13)) {
     case 0:
       return { t: 'ManualSetLife', player, target: p.pick(players) ?? player, delta: p.below(7) - 3 };
     case 1:
@@ -138,6 +345,38 @@ function manualIntentFor(state: GameState, p: Picker): Intent | null {
       if (!target) return { t: 'RollDice', player, sides: 6 };
       return { t: 'ManualFlipFace', player, card: target };
     }
+    // ── The library tools ─────────────────────────────────────────────────
+    //
+    // ⚠️ These three arrived together and the leak test below is why they had
+    // to reach the fuzzer at all: it asserts that NO library card appears in
+    // any projection, which was only true because nothing in this file had
+    // ever peeked. An assertion that holds because the path is unreachable is
+    // the rot D102 and D108 both name — so the fuzzer peeks now, and the leak
+    // test asserts the real boundary instead.
+    case 9:
+      return { t: 'ManualPeekLibrary', player, count: 1 + p.below(3) };
+    case 10:
+      return { t: 'ManualStopPeeking', player };
+    case 11:
+      return {
+        t: 'ManualMoveTopOfLibrary',
+        player,
+        target: p.pick(players) ?? player,
+        count: 1 + p.below(3),
+        to: p.below(2) === 0 ? 'graveyard' : 'exile',
+      };
+    // ⚠️ It REJECTS on an empty pile, which is most of the time early on — and
+    // that is fine, unlike returning null: a rejection is counted and the seed
+    // plays on, where a null ends the run (D108).
+    case 12:
+      return {
+        t: 'ManualMoveZone',
+        player,
+        target: p.pick(players) ?? player,
+        from: p.below(2) === 0 ? 'graveyard' : 'exile',
+        to: p.below(2) === 0 ? 'library' : 'exile',
+        shuffle: p.below(2) === 0,
+      };
     default:
       return null;
   }
@@ -184,6 +423,58 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       if (!player) return null;
       return { t: 'DeclareBlockers', player, blocks: [] };
     }
+    /**
+     * ⚠️ ITS OWN RANDOMISED CASE rather than the `simplestAnswer` fallthrough,
+     * for the same reason `mulligan` has one. `simplestAnswer` always DECLINES —
+     * that is its stated policy and the right one for a driver that must never
+     * run card text a test did not ask for — so falling through would leave the
+     * ACCEPT half of this primitive, the half that runs a card script, untaken
+     * in all 500 seeds while the gate stayed green. A coin flip reaches both,
+     * and the two canaries below assert it did.
+     */
+    case 'optionalTrigger':
+      return {
+        t: 'AnswerOptionalTrigger',
+        player: awaiting.player,
+        stackId: awaiting.stackId,
+        accept: p.below(2) === 0,
+      };
+    /**
+     * ⚠️ A COIN FLIP for the case above's reason, and here the declining half
+     * is the one `simplestAnswer` would have left the gate stuck on: paying is
+     * the answer that changes a life total, and a driver that never paid would
+     * run 500 seeds without a single `LifeChanged` from this path while both
+     * canaries stayed green on the taps alone.
+     *
+     * ⚠️ AND PAYING CAN BE REJECTED — `answerEntersChoice` re-checks the life
+     * total — so the flip is guarded on what the player can afford. A rejected
+     * intent is not a wedge here (`runOne` submits the next one), but it is a
+     * seed that silently stopped testing the thing it was reached for.
+     */
+    /**
+     * ⚠️ THE ONLY ANSWER IN THIS DRIVER THAT READS THE BOARD, because the
+     * prompt ships no candidates (D137) — a hand is hidden, so listing it in an
+     * `Awaiting` would post it to every client. The fuzzer picks RANDOMLY rather
+     * than taking the first `count`, so the discard is not always the same
+     * corner of the hand and a replay that depended on the order would diverge.
+     */
+    case 'chooseFromZone': {
+      const hand = [...(state.zones.hand[awaiting.player] ?? [])];
+      const picked: string[] = [];
+      while (picked.length < awaiting.count && hand.length > 0) {
+        picked.push(...hand.splice(p.below(hand.length), 1));
+      }
+      return { t: 'AnswerChooseFromZone', player: awaiting.player, cards: picked };
+    }
+    case 'entersChoice': {
+      const life = state.players[awaiting.player]?.life ?? 0;
+      return {
+        t: 'AnswerEntersChoice',
+        player: awaiting.player,
+        source: awaiting.source,
+        pay: life >= awaiting.life && p.below(2) === 0,
+      };
+    }
     default:
       return simplestAnswer(awaiting, state);
   }
@@ -195,13 +486,16 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   if (p.below(20) === 0) return manualIntentFor(state, p);
   const holder = state.priority.player;
   if (!holder) return null;
-  const actions = legalActions(state, ORACLE, deps().scripts, holder);
+  const actions = legalActions(state, ORACLE, SCRIPTS, holder);
   const usable = actions.filter((a) => a.t !== 'CastSpell' || a.affordable);
   const chosen = p.pick(usable);
   if (!chosen) return { t: 'PassPriority', player: holder };
   switch (chosen.t) {
     case 'PlayLand':
-      return { t: 'PlayLand', player: holder, card: chosen.card };
+      // ⚠️ THE FACE THE OFFER NAMES. Taking face 0 here is exactly the bug
+      // D155 fixed one layer up, and it would leave the gate unable to reach a
+      // modal DFC's land half however many were dealt.
+      return { t: 'PlayLand', player: holder, card: chosen.card, faceIndex: chosen.faceIndex };
     case 'CastSpell':
       return { t: 'CastSpell', player: holder, card: chosen.card };
     case 'TapForMana':
@@ -210,7 +504,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
         player: holder,
         card: chosen.card,
         abilityIndex: chosen.abilityIndex,
-        outputChoice: p.below(Math.max(1, chosen.outputs)),
+        outputChoice: p.below(Math.max(1, chosen.outputs.length)),
       };
     case 'PassPriority':
       return { t: 'PassPriority', player: holder };
@@ -237,11 +531,37 @@ interface Run {
   readonly enteredWithCounters: number;
   /** Permanents that BECAME a planeswalker and were given its loyalty. */
   readonly transformedIntoPlaneswalker: number;
+  readonly peeked: number;
+  /** Triggered abilities put on the stack — zero for the whole of M3–M6.2. */
+  readonly triggersFired: number;
+  readonly activatedRun: number;
+  readonly optionalTaken: number;
+  readonly optionalDeclined: number;
+  /** Layer-6 sources that reached a battlefield — `applyStatics` had live work. */
+  readonly layer6Sources: number;
+  /** `+1/+1`/`-1/-1` counters written by a SPELL or a SCRIPT, never by a tool. */
+  readonly ptCountersWritten: number;
+  /** Tokens created by the RULES — every one before M6.3f came from a tool. */
+  readonly tokensCreated: number;
+  /** …and how many of them the oracle could actually name. */
+  readonly tokensNamed: number;
+  /** Permanents that arrived TAPPED because their own text says so (CR 614.1c). */
+  readonly enteredTapped: number;
+  readonly entersPaid: number;
+  readonly entersDeclined: number;
+  readonly discardsChosen: number;
+  readonly cardsDiscarded: number;
+  readonly triggerTargetsChosen: number;
+  readonly triggersFizzled: number;
+  readonly diesTriggers: number;
+  readonly replacementChoices: number;
+  /** Permanents that entered as a face other than the front one (CR 712). */
+  readonly backFacesPlayed: number;
 }
 
 function runOne(seed: number): Run {
   const p = picker(`fuzz-${seed}`);
-  const game = Game.create(makeSpec({ players: 4, seed: `fuzz-${seed}`, decks: [DECK, DECK, DECK, DECK], librarySize: 60 }), deps(), {
+  const game = Game.create(makeSpec({ players: 4, seed: `fuzz-${seed}`, decks: [DECK, DECK, DECK, DECK], librarySize: 60 }), deps(SCRIPTS), {
     checkInvariants: false,
   });
   let accepted = 0;
@@ -304,6 +624,107 @@ function runOne(seed: number): Run {
     // in between, so the counters do not always follow their `CardsMoved`.)
     enteredWithCounters: countersWritten(game.log, false),
     transformedIntoPlaneswalker: countersWritten(game.log, true),
+    peeked: game.log.filter((e) => e.body.t === 'CardsRevealed').length,
+    // ⚠️ `kind === 'triggered'`, not every `AbilityPutOnStack`. That event also
+    // carries every ACTIVATED ability, and this counter read 249 with an EMPTY
+    // registry when it did not filter — a canary that would have gone green over
+    // a trigger bus that never ran once.
+    triggersFired: game.log.filter(
+      (e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.kind === 'triggered',
+    ).length,
+    // ⚠️ Filtered to the SHIPPED refs, not `kind === 'activated'` alone — the
+    // engine has stacked activated abilities since M3 and resolved them to
+    // nothing; only one whose ref a def claims runs a script (D159), and that
+    // is the new ground this canary exists for.
+    activatedRun: game.log.filter(
+      (e) =>
+        e.body.t === 'AbilityPutOnStack' &&
+        e.body.obj.kind === 'activated' &&
+        ACTIVATED_REFS.has(e.body.obj.abilityRef ?? ''),
+    ).length,
+    optionalTaken: game.log.filter((e) => e.body.t === 'OptionalTriggerAnswered' && e.body.accept).length,
+    optionalDeclined: game.log.filter((e) => e.body.t === 'OptionalTriggerAnswered' && !e.body.accept).length,
+    // ⚠️ Layer 6 emits NO EVENT — it is a derivation, and `derive.ts`'s header
+    // says characteristics are never stored. So the canary counts the SOURCES
+    // arriving instead: an enchantment on a battlefield is `applyStatics` having
+    // real work, which is the closest a log can get to "the layer ran".
+    layer6Sources: game.log.filter(
+      (e) =>
+        e.body.t === 'CardsMoved' &&
+        e.body.moves.some(
+          (m) => m.to.kind === 'battlefield' && LAYER6_ORACLES.has(game.state.cards[m.card]?.oracleId ?? ''),
+        ),
+    ).length,
+    // ⚠️ `cause.kind !== 'manual'` is the whole assertion. The fuzzer's Tier-3
+    // tools write `+1/+1` counters one manual intent in thirteen, so an
+    // unfiltered count would have been green before this milestone existed —
+    // the same green-over-nothing the trigger canary was caught by in D128.
+    ptCountersWritten: game.log.filter(
+      (e) =>
+        e.body.t === 'CountersChanged' &&
+        e.cause.kind !== 'manual' &&
+        e.body.changes.some((c) => c.kind === '+1/+1' || c.kind === '-1/-1'),
+    ).length,
+    tokensCreated: game.log.filter((e) => e.body.t === 'TokenCreated' && e.cause.kind !== 'manual').length,
+    // ⚠️ THE CANARY THAT MATTERS, not the count above it. A token whose printing
+    // the pool does not hold still produces a `TokenCreated` — it just derives
+    // to the inert unknown-printing object, a nameless 0/0 the state-based
+    // action bins on the next pass. Counting the EVENT would have gone green on
+    // a game that created nothing anybody could see; this counts the ones the
+    // oracle can name.
+    tokensNamed: game.log.filter(
+      (e) => e.body.t === 'TokenCreated' && e.cause.kind !== 'manual' && ORACLE.byPrinting(e.body.printingId) !== undefined,
+    ).length,
+    // ⚠️ The tap must follow the MOVE that caused it. Counting every
+    // `PermanentsTapped` would also count the untap step's mirror, every Tier-3
+    // wrench and every land tapped for mana — none of which is this rule.
+    // ⚠️ BOTH ANSWERS COUNTED SEPARATELY, because either one alone can be zero
+    // while the gate stays green. Paying is a `LifeChanged` and declining is a
+    // `PermanentsTapped`, and both of those events happen constantly for
+    // unrelated reasons — so the marker is the only thing that can tell this
+    // path apart from a land tapped for mana, which is why it exists.
+    // ⚠️ TWO NUMBERS AGAIN: the prompts ANSWERED, and the cards that actually
+    // moved. A discard whose answer was rejected leaves the first rising and the
+    // second flat, which is exactly the silent half-failure a single counter
+    // would hide.
+    discardsChosen: game.log.filter(
+      (e) => e.body.t === 'Narrated' && /\bdiscard(?:s)? \d+ card/.test(e.body.text),
+    ).length,
+    cardsDiscarded: game.log.filter(
+      (e) =>
+        e.body.t === 'CardsMoved' &&
+        e.cause.kind !== 'manual' &&
+        e.body.moves.some((m) => m.from.kind === 'hand' && m.to.kind === 'graveyard'),
+    ).length,
+    // ⚠️ THE TARGETED-TRIGGER COUNTERS. `StackTargetsSet` is written by this
+    // path and NOTHING else, so unlike `TargetsChosen` (which a spell also
+    // writes) it cannot go green on somebody else's work.
+    triggerTargetsChosen: game.log.filter((e) => e.body.t === 'StackTargetsSet').length,
+    // ⚠️ `ReplacementPending` is written by the CR 616 suspension and NOTHING
+    // else, so unlike a counter over 'was a replacement applied' it cannot go
+    // green on the single-effect path that has worked since D134.
+    replacementChoices: game.log.filter((e) => e.body.t === 'ReplacementPending').length,
+    // CR 608.2b for a TRIGGER — a distinct sentence from the spell fizzle, so
+    // the two cannot be confused for each other.
+    triggersFizzled: game.log.filter(
+      (e) => e.body.t === 'Narrated' && /does not resolve \(CR 608\.2b\)/.test(e.body.text),
+    ).length,
+    // ⚠️ COUNTED BY THE ABILITY, not by the life: `Onulet` gains 2 life and so
+    // does nothing else in `DECK`, but a canary that watched a life total would
+    // be one card away from going green over the wrong thing.
+    diesTriggers: game.log.filter(
+      (e) => e.body.t === 'AbilityPutOnStack' && /^Onulet —/.test(e.body.obj.label),
+    ).length,
+    entersPaid: game.log.filter((e) => e.body.t === 'EntersChoiceAnswered' && e.body.pay).length,
+    entersDeclined: game.log.filter((e) => e.body.t === 'EntersChoiceAnswered' && !e.body.pay).length,
+    // ⚠️ A MOVE that names a face — the one mechanism D155 rests on. Counting
+    // `FaceIndexSet` instead would count TRANSFORMS, which is a different rule.
+    backFacesPlayed: game.log.filter(
+      (e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => (m.faceIndex ?? 0) !== 0),
+    ).length,
+    enteredTapped: game.log.filter(
+      (e, i) => e.body.t === 'PermanentsTapped' && game.log[i - 1]?.body.t === 'CardsMoved',
+    ).length,
   };
 }
 
@@ -318,6 +739,54 @@ function countersWritten(log: readonly GameEvent[], viaTransform: boolean): numb
   }).length;
 }
 
+/**
+ * ⚠️⚠️ **EVERY SHIPPED SCRIPT MUST BE IN THIS GATE’S POOL** — M6.4-LIBRARY-SPEC
+ * §6 gate 3, and the rule this repo has broken FOUR times (D102, D107, D108,
+ * D121). A card missing from `DECK` is a code path the fuzzer cannot reach, and
+ * the gate stays green the whole time that path rots.
+ *
+ * ⚠️ It is written NOW, while `SHIPPED_SCRIPTS` is empty and the check is
+ * vacuous, for the reason `shippedScripts.node.test.ts` gives about itself: the
+ * rule has lived in comments since D102 and comments are what got broken. M6.4
+ * lands scripts in batches, and a batch that forgets this is indistinguishable
+ * from a batch that did it right.
+ *
+ * ⚠️ Two halves, because either alone is satisfiable while the path stays dead:
+ * the script has to be REGISTERED here (or the trigger bus never sees it) and
+ * its card has to be DEALT here (or nothing ever puts it on a battlefield).
+ */
+describe('the fuzz pool covers every shipped script', () => {
+  test('every shipped script is registered in this gate', () => {
+    const missing = SHIPPED_SCRIPTS.filter((s) => !SCRIPTS.get(s.oracleId)).map((s) => s.name);
+    expect(missing).toEqual([]);
+  });
+
+  test('and its card is dealt in DECK', () => {
+    const dealt = new Set(DECK);
+    const missing = SHIPPED_SCRIPTS.filter((s) => !dealt.has(s.name)).map((s) => s.name);
+    expect(missing).toEqual([]);
+  });
+
+  /**
+   * ⚠️ THE TEETH, because both checks above pass over an empty list — D128’s
+   * green-over-nothing, which this repo has now written down five times. The
+   * TEST registry is the right thing to point them at: those scripts are
+   * deliberately not shipped, and `AJANIS_MANTRA` IS dealt while
+   * `KNIGHTHOOD_SCRIPT`’s card is not, so one half fires and the other does not.
+   */
+  test('and the checks have teeth', () => {
+    const dealt = new Set(DECK);
+    expect(SCRIPTS.get(AJANIS_MANTRA.oracleId)).toBeDefined();
+    expect(dealt.has(AJANIS_MANTRA.name)).toBe(true);
+    // ⚠️ A script whose card this gate does NOT deal — the failure the second
+    // check exists to catch, on a real one. `Humility` is registered nowhere and
+    // dealt nowhere, which is exactly the state a forgotten batch would leave a
+    // shipped script in. (The first card I reached for, `Kwende`, IS dealt — the
+    // gate is already correct about every script it registers, which is the
+    // point of the two checks above and the reason this one needed a real miss.)
+    expect(dealt.has(HUMILITY_SCRIPT.name)).toBe(false);
+  });
+});
 describe('replay-equivalence fuzzer — THE GATE', () => {
   test(
     `${SEEDS} seeds × ${INTENTS} random legal intents replay to an identical hash`,
@@ -335,6 +804,24 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           targetsChosen: a.targetsChosen + r.targetsChosen,
           enteredWithCounters: a.enteredWithCounters + r.enteredWithCounters,
           transformedIntoPlaneswalker: a.transformedIntoPlaneswalker + r.transformedIntoPlaneswalker,
+          peeked: a.peeked + r.peeked,
+          triggersFired: a.triggersFired + r.triggersFired,
+          activatedRun: a.activatedRun + r.activatedRun,
+          optionalTaken: a.optionalTaken + r.optionalTaken,
+          optionalDeclined: a.optionalDeclined + r.optionalDeclined,
+          layer6Sources: a.layer6Sources + r.layer6Sources,
+          ptCountersWritten: a.ptCountersWritten + r.ptCountersWritten,
+          tokensCreated: a.tokensCreated + r.tokensCreated,
+          tokensNamed: a.tokensNamed + r.tokensNamed,
+          enteredTapped: a.enteredTapped + r.enteredTapped,
+          entersPaid: a.entersPaid + r.entersPaid,
+          discardsChosen: a.discardsChosen + r.discardsChosen,
+          cardsDiscarded: a.cardsDiscarded + r.cardsDiscarded,
+          triggerTargetsChosen: a.triggerTargetsChosen + r.triggerTargetsChosen,
+          triggersFizzled: a.triggersFizzled + r.triggersFizzled,
+          diesTriggers: a.diesTriggers + r.diesTriggers,
+          replacementChoices: a.replacementChoices + r.replacementChoices,
+          entersDeclined: a.entersDeclined + r.entersDeclined,
         }),
         {
           accepted: 0,
@@ -345,6 +832,24 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           targetsChosen: 0,
           enteredWithCounters: 0,
           transformedIntoPlaneswalker: 0,
+          peeked: 0,
+          triggersFired: 0,
+          activatedRun: 0,
+          optionalTaken: 0,
+          optionalDeclined: 0,
+          layer6Sources: 0,
+          ptCountersWritten: 0,
+          tokensCreated: 0,
+          tokensNamed: 0,
+          enteredTapped: 0,
+          entersPaid: 0,
+          discardsChosen: 0,
+          cardsDiscarded: 0,
+          triggerTargetsChosen: 0,
+          triggersFizzled: 0,
+          diesTriggers: 0,
+          replacementChoices: 0,
+          entersDeclined: 0,
         },
       );
       // eslint-disable-next-line no-console
@@ -353,7 +858,17 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.turns} turns · ${totals.finished} games finished · ` +
           `${totals.targetPrompts} target prompts · ${totals.targetsChosen} declared · ` +
           `${totals.enteredWithCounters} entered with counters · ` +
-          `${totals.transformedIntoPlaneswalker} transformed into a planeswalker`,
+          `${totals.transformedIntoPlaneswalker} transformed into a planeswalker · ` +
+          `${totals.peeked} library peeks · ` +
+          `${totals.triggersFired} triggered abilities · ` +
+          `${totals.activatedRun} activated abilities resolved by script · ` +
+          `${totals.optionalTaken} may-triggers taken / ${totals.optionalDeclined} declined · ` +
+          `${totals.layer6Sources} layer-6 sources on a battlefield · ` +
+          `${totals.ptCountersWritten} +1/+1 or -1/-1 counters written by the rules · ` +
+          `${totals.tokensCreated} tokens created by the rules (${totals.tokensNamed} the oracle can name) · ` +
+          `${totals.enteredTapped} permanents entered tapped · ` +
+          `${totals.entersPaid} paid life to enter untapped / ${totals.entersDeclined} declined · ` +
+          `${totals.discardsChosen} discards chosen, ${totals.cardsDiscarded} moves of hand→graveyard`,
       );
 
       // A fuzzer that silently did nothing would pass. These are the canaries.
@@ -377,7 +892,114 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       // reasoning as the entry canary above — it asserts the path is reachable,
       // and getting there means drawing Jace, affording him, resolving him, and
       // then rolling the one manual tool in nine that flips.
-      expect(totals.transformedIntoPlaneswalker).toBeGreaterThan(0);
+      // ⚠️ **AT THE GATE SIZE ONLY, and D155 is what moved it there** — D149's
+      // precedent, now for the second canary. Adding one modal DFC to `DECK`
+      // diluted every other card enough that this path stopped being reached at
+      // the 60-seed default while staying comfortable at 500: measured 0 at 60
+      // and green at 500 on the same commit. A `> 0` that is a coin flip at the
+      // default is a check that fails for reasons unrelated to what it tests.
+      if (SEEDS >= 500) expect(totals.transformedIntoPlaneswalker).toBeGreaterThan(0);
+      // ⚠️ THE PEEK CANARY. The leak test above now asserts a BOUNDARY —
+      // a library card may reach a projection only when it is revealed to
+      // that viewer — and an assertion about a boundary nothing crosses is
+      // the same green-over-nothing this file has been caught by twice.
+      expect(totals.peeked).toBeGreaterThan(0);
+      // ⚠️ THE TRIGGER-BUS CANARY, and it is new ground rather than a widening.
+      // Until D128 this gate ran `NO_SCRIPTS`, so `collectTriggers`
+      // short-circuited on `scripts.size === 0` in every one of 500 seeds and
+      // the whole bus — collect, APNAP sort, drain, `AbilityPutOnStack` — was
+      // unreachable from the one thing that runs the engine ten thousand times
+      // a night.
+      expect(totals.triggersFired).toBeGreaterThan(0);
+      // ⚠️ THE ACTIVATED-SEAM CANARY (D159). The engine has stacked activated
+      // abilities since M3 — the counter is filtered to the SHIPPED refs, so
+      // it counts only an ability a def RESOLVED, which is the new ground.
+      // Gate-size only, like the dies-trigger canary: reaching one takes
+      // drawing the artifact or land, playing it, affording the activation and
+      // the fuzzer choosing it, which is a coin flip across 60 arbitrary seeds.
+      if (SEEDS >= 500) expect(totals.activatedRun).toBeGreaterThan(0);
+      // ⚠️ BOTH ANSWERS, separately. One canary over "was the prompt raised"
+      // would stay green with a driver that only ever declined, and declining
+      // runs no script at all — so the accept path, which is the entire point of
+      // the primitive, would be exercised by nothing. Deliberately `> 0` rather
+      // than a rate, like the entry-counter canary: getting here means drawing
+      // Ajani's Mantra, affording `{1}{W}`, resolving it, and surviving to an
+      // upkeep of your own.
+      expect(totals.optionalTaken).toBeGreaterThan(0);
+      expect(totals.optionalDeclined).toBeGreaterThan(0);
+      // ⚠️ THE LAYER-6 CANARY. `applyStatics` short-circuits on an empty def
+      // list, so before D129 it had never run its body here either — and unlike
+      // the trigger bus, layer 6 writes NO EVENT to assert on. This counts the
+      // sources arriving, which is what gives the layer live work.
+      expect(totals.layer6Sources).toBeGreaterThan(0);
+      // ⚠️ THE COUNTER-EFFECT CANARY. `CountersChanged` has been on the log
+      // since D107, so the EVENT was always reachable — what was not is the
+      // rules writing one: a spell resolving through `effectEvents`, or a card
+      // script returning one. Filtered against `manual` for exactly that reason.
+      expect(totals.ptCountersWritten).toBeGreaterThan(0);
+      // ⚠️ THE TOKEN CANARY, and it asserts the NAMED count rather than the
+      // event count — see `tokensNamed`. Equality between the two is the real
+      // property: every token the rules created was a card the oracle knew.
+      expect(totals.tokensNamed).toBeGreaterThan(0);
+      expect(totals.tokensNamed).toBe(totals.tokensCreated);
+      // ⚠️ THE ENTERS-TAPPED CANARY. Ten places move a card onto the
+      // battlefield and the rule lives in the replacement funnel so it catches
+      // all ten; a gate that never played one of these lands would be green on
+      // a rule that fired nowhere.
+      expect(totals.enteredTapped).toBeGreaterThan(0);
+      // ⚠️ THE ENTERS-CHOICE CANARY, and it is TWO numbers for the reason the
+      // may-trigger canary is two: a driver that only ever declined would leave
+      // the paying half — the half that costs life and can be REJECTED —
+      // untaken in all 500 seeds, and the tap count above would rise anyway.
+      expect(totals.entersPaid).toBeGreaterThan(0);
+      expect(totals.entersDeclined).toBeGreaterThan(0);
+      // ⚠️ THE DISCARD CANARY. `CardsMoved` hand→graveyard also happens at
+      // cleanup for a hand over seven, so the count alone would have been green
+      // since M3; the narration counter is the one that only this path writes.
+      expect(totals.discardsChosen).toBeGreaterThan(0);
+      expect(totals.cardsDiscarded).toBeGreaterThan(0);
+      // ⚠️ THE TARGETED-TRIGGER CANARY. Before D147 `drainTriggers` built every
+      // stack object with `targets: []`, so this whole path — the prompt, the
+      // validation, `StackTargetsSet`, and CR 608.2b for an ability — did not
+      // exist. A gate that never played a Yotian Dissident would be green on it.
+      expect(totals.triggerTargetsChosen).toBeGreaterThan(0);
+      // ⚠️ THE LOOK-BACK CANARY, and it is the one that would have been green
+      // over nothing in the most misleading way: a dies trigger that never
+      // fires leaves NO trace at all, so every other counter here is unmoved by
+      // it being broken. Counting the ability reaching the stack is the only
+      // evidence that CR 603.10a ran.
+      // ⚠️ **AT THE GATE SIZE, for D155's reason and D149's precedent.** Adding
+      // one card to `DECK` does not merely dilute it — it RE-ROLLS every seed's
+      // game, because the deck list feeds the shuffle. So a canary that is rare
+      // at the 60-seed default is a coin flip on which 60 arbitrary games come
+      // up, and this one and the Jace transform both went to 0 at 60 while the
+      // 500-seed gate stayed green on the same commit.
+      if (SEEDS >= 500) expect(totals.diesTriggers).toBeGreaterThan(0);
+      // ⚠️ THE CR 616 CANARY. The funnel suspends only when TWO replacements
+      // apply to one event, which needs both cards on one battlefield and a
+      // counter being put — so this is the one number that says the
+      // continuation, its three parked queues and the resume all ran in a real
+      // game rather than only in a unit test.
+      // ⚠️ **NOT ASSERTED > 0, AND MEASURED RATHER THAN ASSUMED: 500 seeds
+      // reach it ZERO times.** CR 616 suspends only when TWO replacements apply
+      // to ONE event, which needs both one-of enchantments cast onto the same
+      // battlefield AND a +1/+1 counter put afterwards — three specific cards
+      // inside 200 random intents. Asserting a positive here would be a flaky
+      // gate; asserting nothing and saying so is D137's precedent for the
+      // "no legal target" narration, which also fired zero times.
+      //
+      // ⚠️ THE COVERAGE IS ELSEWHERE AND IS STRONGER: `battery-anim.cjs prompts`
+      // drives both branches with REAL CLICKS in a real Electron, through the
+      // `HostOptions.scripts` seam D146 built. The counter stays because it is
+      // free and will start moving the day this deck changes.
+      // ⚠️ **AT THE GATE SIZE ONLY, and the rate is why: MEASURED at 5 across
+      // 500 seeds.** Two replacements applying to ONE event needs both one-of
+      // enchantments cast onto the same battlefield and a +1/+1 counter after —
+      // roughly one seed in a hundred. Asserting it at the 60-seed default would
+      // be a coin-flip gate; asserting it at 500 and saying the rate is the
+      // honest form. `battery-anim.cjs prompts` covers both branches with real
+      // clicks either way, which is the coverage that does not depend on luck.
+      if (SEEDS >= 500) expect(totals.replacementChoices).toBeGreaterThan(0);
     },
     600_000,
   );
@@ -386,7 +1008,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
     const p = picker('leak');
     const game = Game.create(
       makeSpec({ players: 4, seed: 'leak', decks: [DECK, DECK, DECK, DECK], librarySize: 60 }),
-      deps(),
+      deps(SCRIPTS),
       { checkInvariants: false },
     );
     for (let i = 0; i < 300; i++) {
@@ -397,8 +1019,26 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
     for (const viewer of game.state.seating) {
       const view = project(game.state, ORACLE, game.deps.scripts, viewer);
       const libraries = new Set(game.state.seating.flatMap((x) => [...(game.state.zones.library[x] ?? [])]));
+      // ⚠️ THE BOUNDARY, not a blanket ban. A library card may appear in a
+      // projection for exactly one reason — it has been revealed to THIS viewer,
+      // which is what a peek is and has been since M3. This assertion used to
+      // read "no library card, ever", and it passed only because nothing in this
+      // file could peek; the fuzzer does now, so it says what it means.
       for (const id of Object.keys(view.cards)) {
-        expect(libraries.has(id), `${viewer} can see library card ${id}`).toBe(false);
+        if (!libraries.has(id)) continue;
+        expect(
+          game.state.cards[id]?.revealedTo.includes(viewer),
+          `${viewer} can see library card ${id} without it being revealed to them`,
+        ).toBe(true);
+      }
+      // ⚠️ And the ORDER exception is bounded the same way: `peek` is only ever
+      // my OWN library, only cards revealed to me, and only the run from the top
+      // — the three clauses that stop it becoming "the client knows the deck".
+      const ownLibrary = game.state.zones.library[viewer] ?? [];
+      for (const [i, id] of view.peek.entries()) {
+        expect(ownLibrary.includes(id), `${viewer} peeked at a card not in their library`).toBe(true);
+        expect(game.state.cards[id]?.revealedTo.includes(viewer)).toBe(true);
+        expect(ownLibrary[ownLibrary.length - 1 - i], `peek is not the top run, in order`).toBe(id);
       }
       for (const other of game.state.seating) {
         expect(view.zones[zoneId('lib', other)]).toBeUndefined();
@@ -414,7 +1054,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
     const p = picker('rewind');
     const game = Game.create(
       makeSpec({ players: 4, seed: 'rewind', decks: [DECK, DECK, DECK, DECK], librarySize: 60 }),
-      deps(),
+      deps(SCRIPTS),
       { checkInvariants: false },
     );
     const marks: number[] = [];

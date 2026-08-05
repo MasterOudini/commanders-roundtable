@@ -4,8 +4,10 @@ import { useGame } from '../../store/gameStore';
 import { useTable, type TableMode, type TargetSource } from '../../store/tableStore';
 import { useAim } from '../../store/aimStore';
 import { beginAimFrom, onVeilPick } from './aimCommit';
+import { canTapOnly, manaOptionsFor } from './manaOptions';
+import { faceOptionsFor } from './faceOptions';
 import { useDrag, type DropCheck } from '../../store/dragStore';
-import { cardSlot, resolveKey, setDropOrigin, takeDropOrigin, type FrozenRect } from '../anim/rectRegistry';
+import { cardSlot, resolveKey, setDropOrigin, takeDropOrigin, zoneSlot, type FrozenRect } from '../anim/rectRegistry';
 import { zoneCards, zoneId } from '../../view/types';
 import type { InstanceId, PlayerView } from '../../view/types';
 
@@ -69,6 +71,9 @@ export function useEngineTable() {
   const seats = useTable((s) => s.seats);
   const awaiting = useTable((s) => s.awaiting);
   const openCardMenu = useTable((s) => s.openCardMenu);
+  const openManaChoice = useTable((s) => s.openManaChoice);
+  const openFaceChoice = useTable((s) => s.openFaceChoice);
+  const toggleManaChoice = useTable((s) => s.toggleManaChoice);
   const view = useGame((s) => s.view);
 
   // Mirror the session into the store so components re-render on engine change.
@@ -129,8 +134,36 @@ export function useEngineTable() {
   );
 
   const onCardClick = useCallback(
-    (id: InstanceId) => {
+    (id: InstanceId, e?: { shiftKey: boolean }, members?: readonly InstanceId[]) => {
       if (!session.isRunning()) return;
+
+      // ⚠️ SHIFT BUILDS A BATCH, and it is checked before every mode below on
+      // purpose: it is a modifier on "tap this", not a separate mode, so it must
+      // not be swallowed by whatever the table is otherwise doing. On a card it
+      // cannot apply to it falls through and behaves as a plain click, rather
+      // than being a silent no-op.
+      //
+      // ⚠️ ANY permanent of mine I could turn, not only one that makes mana. The
+      // batch is "the cards I am tapping"; what each one GIVES is the row's
+      // answer, and for a creature that answer is "nothing, it just turns".
+      const tappable = (c: InstanceId): boolean =>
+        manaOptionsFor(legal, c).length > 0 || canTapOnly(view, c, viewer);
+      if (e?.shiftKey && mode.kind === 'idle' && tappable(id)) {
+        // ⚠️ THE WHOLE SLOT, filtered to what can actually be tapped right now.
+        // A pile is one thing to point at and many things to tap, and `legal` is
+        // what says which of its members the engine will accept — never a guess
+        // from the view. (`groupIdentical` keys on tapped state, so an untapped
+        // pile's members are all untapped; this still filters, because a slot
+        // that stops being tappable mid-batch must stop being offered.)
+        const slot = (members ?? [id]).filter(tappable);
+        const rect = resolveKey(cardSlot(id));
+        toggleManaChoice(
+          slot.length > 0 ? slot : [id],
+          rect ? rect.left + rect.width + 6 : 12,
+          rect ? rect.top : 12,
+        );
+        return;
+      }
 
       // Declaring attackers: click to arm or unarm, against the current default
       // defender. Drag onto a pod (or use the defender chips) to send one
@@ -165,11 +198,49 @@ export function useEngineTable() {
         return;
       }
 
+      /**
+       * Discarding (D137): click cards in hand to pick them, and the LAST one
+       * sends. Same "commits on the pick" rule the mana panel follows (D113) —
+       * a separate confirm step for a choice you can already see ringed is a
+       * click that tells the player nothing.
+       *
+       * ⚠️ Unlike the bottoming above, this ACCUMULATES rather than sending each
+       * card, because CR 701.8a discards the chosen cards simultaneously.
+       */
+      if (awaiting?.kind === 'chooseFromZone' && awaiting.player === viewer) {
+        const hand = zoneCards(view, zoneId('hand', viewer));
+        if (!hand.includes(id)) return;
+        const st = useTable.getState();
+        const picked = st.pickOrder.includes(id)
+          ? st.pickOrder.filter((c) => c !== id)
+          : [...st.pickOrder, id];
+        if (picked.length >= awaiting.count) {
+          send({ t: 'AnswerChooseFromZone', player: viewer, cards: picked.slice(0, awaiting.count) });
+          st.clearPick();
+        } else {
+          st.togglePick(id);
+        }
+        return;
+      }
+
       if (mode.kind !== 'idle') return;
 
+      // ⚠️ MORE THAN ONE PLAYABLE FACE — ASK. A split card, an adventure or a
+      // modal DFC has two halves and this used to take `legal.find(…)`, the
+      // FIRST match, so 355 Commander-legal cards had a half nobody could reach
+      // (D155). One option still acts on the spot: the panel exists for the
+      // choice, not for the ceremony. D110's rule, one card type along.
+      const faces = faceOptionsFor(legal, id);
+      if (faces.length > 1) {
+        // Anchored off `rectRegistry`, for the mana panel's reasons below.
+        const rect = resolveKey(cardSlot(id));
+        openFaceChoice(id, rect ? rect.left + rect.width + 6 : 12, rect ? rect.top : 12);
+        return;
+      }
+
       const land = legal.find((a) => a.t === 'PlayLand' && a.card === id);
-      if (land) {
-        send({ t: 'PlayLand', player: viewer, card: id });
+      if (land?.t === 'PlayLand') {
+        send({ t: 'PlayLand', player: viewer, card: id, faceIndex: land.faceIndex });
         return;
       }
 
@@ -189,17 +260,27 @@ export function useEngineTable() {
         return;
       }
 
-      // A permanent that can make mana: tap it. The first output is the
-      // default; the card menu offers the rest.
-      const tap = legal.find((a) => a.t === 'TapForMana' && a.card === id && !a.conditional);
-      if (tap?.t === 'TapForMana') {
-        send({
-          t: 'TapForMana',
-          player: viewer,
-          card: id,
-          abilityIndex: tap.abilityIndex,
-          outputChoice: 0,
-        });
+      // A permanent that can make mana: ASK, always.
+      //
+      // ⚠️ EVEN WITH ONE OPTION. A single-option source used to tap for its mana
+      // on the spot, which read as the obvious default and cost a click less —
+      // but it made "turn it and add nothing" unreachable on the most common
+      // card in the game. `Tap only` lives in this panel; a source that never
+      // opens the panel never offers it, so a Forest could be tapped for green
+      // and by no other means. One click for the mana, one for turning it, and
+      // both are visible: the player is never told what they meant.
+      //
+      // ⚠️ The panel still commits on the PICK when it holds one card, so this
+      // is one extra click and never two.
+      const options = manaOptionsFor(legal, id);
+      if (options.length > 0) {
+        // ⚠️ Anchored off `rectRegistry`, the only legal caller of
+        // `getBoundingClientRect` in this app — the click's own coordinates are
+        // deliberately not used, because the panel belongs beside the CARD
+        // rather than beside the pixel that was pressed, and a batch has no one
+        // pixel anyway.
+        const rect = resolveKey(cardSlot(id));
+        openManaChoice([id], rect ? rect.left + rect.width + 6 : 12, rect ? rect.top : 12);
         return;
       }
 
@@ -210,9 +291,57 @@ export function useEngineTable() {
       if (attach) {
         setMode({ kind: 'attach', card: id, name: attach.name, creaturesOnly: attach.creaturesOnly });
         beginAimFrom(id);
+        return;
+      }
+
+      // ⚠️ LAST, and only for a permanent of mine with nothing else to do: offer
+      // to just turn it. Tapping for the sake of tapping is a real play — a cost
+      // the engine cannot charge, a crew, an ability it does not parse — and it
+      // was reachable only by the E key and the right-click menu, so a left
+      // click on a creature did nothing at all and looked broken.
+      //
+      // ⚠️ It ASKS rather than turning. This branch catches every click that
+      // reached the end of the list, including ones aimed at nothing in
+      // particular, and a stray click that silently turned a blocker is a
+      // decision made for the player.
+      if (canTapOnly(view, id, viewer)) {
+        const rect = resolveKey(cardSlot(id));
+        openManaChoice([id], rect ? rect.left + rect.width + 6 : 12, rect ? rect.top : 12);
       }
     },
-    [awaiting, legal, mode, send, setMode, view, viewer],
+    [awaiting, legal, mode, openFaceChoice, openManaChoice, send, setMode, toggleManaChoice, view, viewer],
+  );
+
+  /**
+   * A click on a pile: offer what can be done to it.
+   *
+   * ⚠️ A CLOSED pile and an OPEN one get different answers, and that is the
+   * whole distinction. A library cannot be browsed — its order is the one thing
+   * projection strips — so it gets a menu of actions taking a number. A
+   * graveyard or an exile pile is public, so it gets the cards themselves: the
+   * pile renders only its TOP card, which left everything under it unreachable.
+   *
+   * ⚠️ The library menu is anchored off `rectRegistry`, where every pile
+   * registers whether or not it holds a card — a library you have decked out
+   * still has a pile to click. The browser is centred instead, because thirty
+   * cards do not fit beside a pile.
+   */
+  const onZoneClick = useCallback(
+    (player: string, kind: 'lib' | 'gy' | 'exile' | 'hand' | 'bf' | 'cmd') => {
+      if (!session.isRunning()) return;
+      if (kind === 'gy' || kind === 'exile') {
+        useTable.getState().openZoneBrowser(player, kind);
+        return;
+      }
+      if (kind !== 'lib') return;
+      const rect = resolveKey(zoneSlot(zoneId('lib', player)));
+      useTable.getState().openLibraryMenu(
+        player,
+        rect ? rect.left + rect.width + 6 : 12,
+        rect ? rect.top : 12,
+      );
+    },
+    [],
   );
 
   /** The attachment tab on a permanent: show what is on it. */
@@ -426,7 +555,7 @@ export function useEngineTable() {
     };
   }, []);
 
-  return { onCardClick, onCardContextMenu, onCardPointerDown, onAttachmentsClick, onCardDrop, dropCheck, send };
+  return { onCardClick, onCardContextMenu, onCardPointerDown, onAttachmentsClick, onZoneClick, onCardDrop, dropCheck, send };
 }
 
 /** The card's current face name, for a message about a card the player can see. */

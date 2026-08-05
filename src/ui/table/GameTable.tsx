@@ -10,7 +10,7 @@ import { useLayout } from '../../store/layoutStore';
 import { useAnim } from '../../store/animStore';
 import type { DropCheck } from '../../store/dragStore';
 import type { FrozenRect } from '../anim/rectRegistry';
-import type { InstanceId, PlayerId, PlayerView } from '../../view/types';
+import type { InstanceId, PlayerId, PlayerView, ZoneKind } from '../../view/types';
 import type { SeatCount } from './metrics';
 
 // The table. Arena-style seating: my hand at the bottom, my battlefield above it,
@@ -33,12 +33,13 @@ export function GameTable({
   dropCheck,
   onCardPointerDown,
   onAttachmentsClick,
+  onZoneClick,
   phaseTrackRight,
 }: {
   view: PlayerView;
   seatCount: SeatCount;
   autoStack?: boolean;
-  onCardClick?: (instanceId: InstanceId) => void;
+  onCardClick?: (instanceId: InstanceId, e?: { shiftKey: boolean }, members?: readonly InstanceId[]) => void;
   /**
    * A card was dragged out of the hand and let go over my side of the table, at
    * this rect. Without it the hand does not drag at all — which is exactly what
@@ -50,6 +51,11 @@ export function GameTable({
   onCardPointerDown?: (instanceId: InstanceId, e: import('react').PointerEvent) => void;
   /** The attachment tab on any permanent, mine or an opponent's. */
   onAttachmentsClick?: (host: InstanceId, x: number, y: number) => void;
+  /**
+   * A click on one of the closed/open piles — library, graveyard, exile.
+   * What each one OFFERS is decided upstairs; this reports the pile.
+   */
+  onZoneClick?: (player: PlayerId, kind: ZoneKind) => void;
   /**
    * Game-level controls for the right end of the phase bar. A node, so this
    * still knows nothing about the engine — and a slot rather than an overlay
@@ -113,6 +119,7 @@ export function GameTable({
                   autoStack={autoStack}
                   {...(onCardClick ? { onCardClick } : {})}
                   {...(onAttachmentsClick ? { onAttachmentsClick } : {})}
+                  {...(onZoneClick ? { onZoneClick } : {})}
                 />
               </div>
             );
@@ -157,6 +164,7 @@ export function GameTable({
               {...(dropCheck ? { dropCheck } : {})}
               {...(onCardPointerDown ? { onCardPointerDown } : {})}
               {...(onAttachmentsClick ? { onAttachmentsClick } : {})}
+                  {...(onZoneClick ? { onZoneClick } : {})}
             />
           </div>
 

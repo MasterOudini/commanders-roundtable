@@ -157,7 +157,12 @@ export function groupIdentical(
       c.damage,
       counters,
       c.attacking ?? '-',
-      c.blocking ?? '-',
+      // ⚠️ The WHOLE list, so two creatures blocking different attackers never
+      // auto-stack into one slot (D19 groups by "identical", and what a creature
+      // is blocking is part of that). Joined with a separator that cannot appear
+      // in an instance id, and the ORDER counts — two blockers on the same pair
+      // of attackers in opposite orders take different damage.
+      c.blocking.join('+') || '-',
     ].join('|');
 
     const existing = byKey.get(key);

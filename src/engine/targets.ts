@@ -18,7 +18,7 @@
 // ⚠️ HEXPROOF AND SHROUD ARE ENFORCED HERE FOR THE FIRST TIME. Both have been in
 // the Tier-2 table since M1 and were read by nothing — the same gap D68 found for
 // ward, and found the same way. What is enforced is the PRINTED keyword only;
-// a granted one needs a layer-6 continuous effect and `EMPTY_REGISTRY` ships, so
+// a granted one needs a layer-6 continuous effect and `SHIPPED_REGISTRY` ships, so
 // Lightning Greaves does nothing. `tier3.ts` says so on the card.
 
 import type { ColorLetter } from '../data/cardTypes';
@@ -43,6 +43,32 @@ export interface TargetCandidate {
   readonly controller: PlayerId;
   /** What this object counts as. A creature land is both. */
   readonly kinds: readonly TargetKind[];
+  /**
+   * Its CARD TYPES — `Creature`, `Instant`, `Land` — as derived, not as printed.
+   *
+   * ⚠️ **`kinds` CANNOT ANSWER "is this a creature CARD".** In a graveyard every
+   * object gets exactly one kind, `card`, whatever it is (see `kindsFromTypes`),
+   * which is right for "target card in a graveyard" and useless for the 200+
+   * cards that say "target CREATURE card". Before D138 that restriction was
+   * listed in `unenforced` and checked by nothing, so `Raise Dead` — "Return
+   * target creature card from your graveyard to your hand" — would happily take
+   * a LAND. See D138.
+   */
+  readonly types: readonly string[];
+  /**
+   * The three numbers a clause can restrict on (D139): mana value, and derived
+   * power/toughness. `null` where the object has none — a land has no power, and
+   * a player has none of the three.
+   *
+   * ⚠️ **DERIVED, NOT PRINTED.** A creature under a +2/+2 effect really does have
+   * power 4, and "target creature with power 4 or greater" really does admit it
+   * — CR 613 settles characteristics before targeting legality is checked.
+   * Reading the printed value instead would refuse a legal target, which is the
+   * one direction this file may never be wrong in.
+   */
+  readonly manaValue: number | null;
+  readonly power: number | null;
+  readonly toughness: number | null;
   readonly colors: readonly ColorLetter[];
   readonly hexproof: boolean;
   readonly shroud: boolean;
@@ -93,6 +119,55 @@ export function targetAllowed(
   if (!spec.kinds.some((k) => c.kinds.includes(k))) return false;
   if (spec.controller === 'you' && c.controller !== src.controller) return false;
   if (spec.controller === 'opponent' && c.controller === src.controller) return false;
+
+  /**
+   * ⚠️ **THE ZONE, WHICH THIS PREDICATE IGNORED UNTIL D138.** `TargetSpec.zones`
+   * has existed since the targeting work and was read by NOTHING — the field's
+   * own comment said "narrowed by `TargetSpec.zones`" about a narrowing that did
+   * not happen. Everything in a graveyard OR exile answers to kind `card`, so
+   * "target card in your graveyard" admitted exiled cards too.
+   *
+   * Empty means the clause named no zone, which is free aim over zones — the
+   * same asymmetry the rest of this file follows: an unread restriction may
+   * ALLOW an illegal choice, never BLOCK a legal one.
+   */
+  if (spec.zones.length > 0) {
+    if (c.zone !== 'graveyard' && c.zone !== 'exile') return false;
+    if (!spec.zones.includes(c.zone)) return false;
+  }
+
+  /**
+   * ⚠️ **AND THE CARD TYPE, for the same reason.** "Target creature card" and
+   * "target card" produced the identical spec, so `Raise Dead` could return a
+   * land. ANY of the named types matches: "instant or sorcery card" is a
+   * disjunction, and a card that is both still qualifies.
+   */
+  if (spec.cardTypes.length > 0 && !spec.cardTypes.some((t) => c.types.includes(t))) return false;
+
+  /**
+   * ⚠️ **THE NUMERIC RESTRICTION, AND IT WAS NOT EVEN DISCLAIMED** (D139).
+   * "Destroy target creature with power 4 or greater" parsed to
+   * `kinds:['creature'], confident:true, unenforced:[]` — the qualifier matched
+   * no noun entry, so it was never recorded anywhere at all. `Smite the
+   * Monstrous` would destroy a 1/1, and `tier3.ts` said nothing about it,
+   * because there was nothing to say. That is a step worse than the zone and
+   * type holes D138 closed: those at least left a trace.
+   *
+   * ⚠️ **A MISSING NUMBER REFUSES.** A land has no power and a player has no
+   * mana value, so `null` here means the candidate cannot satisfy a clause about
+   * that attribute — not that the clause is waived. This is the one place in
+   * this file where absence narrows rather than widens, and it is right because
+   * the SPEC is known: the parser read the restriction, so the asymmetry that
+   * protects unread clauses does not apply.
+   */
+  if (spec.numeric) {
+    const actual =
+      spec.numeric.attr === 'power' ? c.power : spec.numeric.attr === 'toughness' ? c.toughness : c.manaValue;
+    if (actual === null) return false;
+    if (spec.numeric.cmp === 'atMost' && actual > spec.numeric.value) return false;
+    if (spec.numeric.cmp === 'atLeast' && actual < spec.numeric.value) return false;
+  }
+
   return true;
 }
 
@@ -102,6 +177,39 @@ export function legalTargetsFor(
   candidates: readonly TargetCandidate[],
 ): TargetChoice[] {
   return candidates.filter((c) => targetAllowed(spec, src, c)).map((c) => c.choice);
+}
+
+/**
+ * The smallest legal declaration for a set of clauses, or `null` when the board
+ * cannot satisfy them.
+ *
+ * ⚠️ **ONE COPY, TWO QUESTIONS.** The fuzz/test driver needs the VALUE ("what do
+ * I answer this prompt with"); the engine needs only whether it is null ("may
+ * this trigger go on the stack at all", CR 603.3d). Those were about to be two
+ * greedy fills in two files that could disagree — the same split D53 closed for
+ * candidate building, and D102 for the driver's answers.
+ *
+ * ⚠️ Fills each clause from its OWN legal set and never lets one object answer
+ * two clauses, because `validateTargets` runs a one-for-one matching and would
+ * reject "the first N legal choices" whenever two picks answered the same clause
+ * (D102's `planTargets`, same reasoning).
+ */
+export function minimumLegalTargets(
+  specs: readonly TargetSpec[],
+  src: TargetingSource,
+  candidates: readonly TargetCandidate[],
+): TargetChoice[] | null {
+  const picked: TargetChoice[] = [];
+  for (const spec of specs) {
+    for (let i = 0; i < spec.min; i++) {
+      const next = legalTargetsFor(spec, src, candidates).find(
+        (c) => !picked.some((p) => p.kind === c.kind && p.id === c.id),
+      );
+      if (!next) return null;
+      picked.push(next);
+    }
+  }
+  return picked;
 }
 
 // ── assignment ───────────────────────────────────────────────────────────────
@@ -284,6 +392,10 @@ export function candidatesFromState(
       zone,
       controller: card.controller,
       kinds: kindsFromTypes(d.typeLine.types, zone),
+      types: d.typeLine.types,
+      manaValue: deps.oracle.byPrinting(card.printingId)?.manaValue ?? null,
+      power: d.power,
+      toughness: d.toughness,
       colors: d.colors,
       hexproof: d.keywords.has('hexproof'),
       shroud: d.keywords.has('shroud'),
@@ -303,6 +415,22 @@ export function candidatesFromState(
       zone: 'stack',
       controller: obj.controller,
       kinds: ['spell'],
+      // A spell on the stack and a player have no CARD types to restrict on;
+      // every clause that says "creature card" is about a graveyard or exile.
+      types: [],
+      /**
+       * ⚠️ **A SPELL ON THE STACK DOES HAVE A MANA VALUE**, and 504 lines in the
+       * format restrict on it — `Disdainful Stroke` is "Counter target spell
+       * with mana value 4 or greater". Leaving this null to match the other two
+       * would make every such counterspell refuse everything, which is the
+       * failure mode `targetParse` calls blocking a legal choice.
+       *
+       * ⚠️ From the PRINTING, not from `derive()`: a spell on the stack has no
+       * derive entry at all. An ability (no `card`) genuinely has none.
+       */
+      manaValue: obj.card ? (deps.oracle.byPrinting(state.cards[obj.card]?.printingId ?? '')?.manaValue ?? null) : null,
+      power: null,
+      toughness: null,
       // A stack object's own colours matter only for protection, and nothing
       // targeting the stack has protection. Left empty rather than derived,
       // because a spell on the stack has no `derive()` entry.
@@ -320,6 +448,10 @@ export function candidatesFromState(
       zone: 'player',
       controller: player,
       kinds: ['player'],
+      types: [],
+      manaValue: null,
+      power: null,
+      toughness: null,
       colors: [],
       hexproof: false,
       shroud: false,

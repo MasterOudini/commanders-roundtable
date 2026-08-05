@@ -2642,6 +2642,141 @@ async function sectionNet(js, send) {
   await js('window.__crt.engine.stop()');
 }
 
+// ── M6.1: a bot takes a seat ─────────────────────────────────────────────────
+//
+// ⚠️ DRIVEN THROUGH THE REAL LOBBY BUTTONS, not through a store. That is D102's
+// lesson applied here: the two-instance sign-off went green while proving
+// nothing because it stopped one step short of the code path it was fixed for.
+// Clicking `data-solo-controller` is what proves the control is WIRED — a store
+// poke would pass with the button rendering nothing at all.
+//
+// ⚠️ The headline check is sampled on EVERY poll, never once at the end. "The
+// table never follows a bot" is a claim about a whole game, and a bot holds
+// priority dozens of times per turn; a one-shot check would miss a flip and a
+// flip back between two samples.
+async function sectionBot(js, send) {
+  console.log('\n── Bot (M6.1) ──');
+
+  await send('Emulation.setDeviceMetricsOverride', {
+    width: 1600, height: 900, deviceScaleFactor: 1, mobile: false,
+  });
+  await goto(js, 'solo');
+  await sleep(300);
+
+  const seats = await js(`(() => {
+    const rows = document.querySelectorAll('[data-solo-seat]');
+    const bots = document.querySelectorAll('[data-solo-controller][data-controller="bot"]');
+    return { rows: rows.length, botButtons: bots.length };
+  })()`);
+  eq('every seat but the first offers a Human/Bot control', seats.botButtons, seats.rows - 1);
+
+  await js(`(() => {
+    document.querySelectorAll('[data-solo-controller][data-controller="bot"]').forEach((b) => b.click());
+    return true;
+  })()`);
+  await sleep(200);
+
+  const picked = await js(`(() => {
+    const on = document.querySelectorAll('[data-solo-controller][data-controller="bot"][data-selected="true"]');
+    const decks = document.querySelectorAll('[data-solo-botdeck]');
+    const pickers = document.querySelectorAll('[data-solo-deck]');
+    return { on: on.length, decks: decks.length, pickers: pickers.length,
+             label: decks[0] ? decks[0].textContent.trim() : '' };
+  })()`);
+  eq('all three opponents became bots', picked.on, 3);
+  // ⚠️ A bot has no deck PICKER, only a label. Offering one would promise a
+  // choice the bot cannot honour — it plays the curated deck or it half-executes.
+  eq('a bot seat shows its deck instead of a picker', picked.pickers, 1);
+  check('and names the curated commander', /Jasmine Boreal/.test(picked.label), picked.label);
+
+  await js(`document.querySelector('[data-solo="start"]').click()`);
+  await js('window.__crt.engine.settle(15000)');
+  await sleep(1500);
+
+  const opening = await js('window.__crt.engine.state()');
+  check('the game started with the human on seat p1', opening.running && opening.viewer === 'p1',
+    `running=${opening.running} viewer=${opening.viewer}`);
+
+  // ⚠️ THE BOTS ANSWER THEIR OWN MULLIGANS with nobody touching anything — but
+  // POLL for it, never sample once. Each bot waits `thinkMs` before acting and
+  // they answer in seat order, so a single read after a fixed sleep catches the
+  // table mid-hand-out: this check first reported `submitted=["p2","p3"]` on a
+  // game that went on to reach turn 11 with all three bots playing. Same shape
+  // as D119's "a probe must ACT, THEN WAIT".
+  let mull = opening;
+  for (let i = 0; i < 40 && (!mull.awaiting || (mull.awaiting.submitted || []).length < 3); i++) {
+    await sleep(250);
+    mull = await js('window.__crt.engine.state()');
+    if (!mull.awaiting || mull.awaiting.kind !== 'mulligan') break;
+  }
+  check('all three bots mulliganed unaided, and only the human is left to decide',
+    mull.awaiting && mull.awaiting.kind === 'mulligan'
+      && (mull.awaiting.submitted || []).length === 3
+      && (mull.awaiting.players || []).join(',') === 'p1',
+    mull.awaiting ? `submitted=${JSON.stringify(mull.awaiting.submitted)} waiting=${JSON.stringify(mull.awaiting.players)}` : 'no prompt');
+
+  await js(`window.__crt.engine.submit({ t: 'MulliganDecision', player: 'p1', keep: true })`);
+
+  // Play a few of the human's turns and watch the bots take theirs.
+  let sawBotViewer = null;
+  let humanActs = 0;
+  for (let i = 0; i < 26; i++) {
+    const step = await js(`(() => {
+      const s = window.__crt.engine.state();
+      if (!s.running || s.finished) return { done: true, viewer: s.viewer, turn: s.turn.number };
+      const a = s.awaiting;
+      if (a) {
+        if (a.kind === 'declareAttackers' && a.player === 'p1') {
+          window.__crt.engine.submit({ t: 'DeclareAttackers', player: 'p1', attackers: [] });
+          return { acted: true, viewer: s.viewer, turn: s.turn.number };
+        }
+        if (a.kind === 'declareBlockers' && (a.players || []).includes('p1')) {
+          window.__crt.engine.submit({ t: 'DeclareBlockers', player: 'p1', blocks: [] });
+          return { acted: true, viewer: s.viewer, turn: s.turn.number };
+        }
+        return { viewer: s.viewer, turn: s.turn.number };
+      }
+      if (s.priority !== 'p1') return { viewer: s.viewer, turn: s.turn.number };
+      const land = s.legal.find((x) => x.t === 'PlayLand');
+      if (land) {
+        window.__crt.engine.submit({ t: 'PlayLand', player: 'p1', card: land.card });
+        return { acted: true, viewer: s.viewer, turn: s.turn.number };
+      }
+      window.__crt.engine.submit({ t: 'PassPriority', player: 'p1' });
+      return { acted: true, viewer: s.viewer, turn: s.turn.number };
+    })()`);
+    if (step.acted) humanActs++;
+    if (step.viewer && step.viewer !== 'p1' && !sawBotViewer) sawBotViewer = step.viewer;
+    if (step.done) break;
+    await sleep(700);
+  }
+
+  check('the table NEVER followed a bot seat', sawBotViewer === null,
+    sawBotViewer ? `the viewer became ${sawBotViewer}` : `p1 across ${humanActs} human actions`);
+
+  const played = await js(`(() => {
+    const rows = [...document.querySelectorAll('[data-log-id]')].map((r) => (r.textContent || '').trim());
+    const bot = rows.filter((t) => /^(Ben|Cy|Dee)\\b/.test(t));
+    return {
+      turn: window.__crt.engine.state().turn.number,
+      events: window.__crt.engine.state().events,
+      botLands: bot.filter((t) => /plays /.test(t)).length,
+      botCasts: bot.filter((t) => /casts /.test(t)).length,
+      botWrench: bot.filter((t) => /🔧/.test(t)).length,
+    };
+  })()`);
+  check('the bots played lands unaided', played.botLands > 2, `${played.botLands} land lines`);
+  check('the bots cast spells unaided', played.botCasts > 0, `${played.botCasts} cast lines`);
+  // ⚠️ NO WRENCH. The wrench means a human hand-waved a rule with a Tier-3 tool,
+  // and the bot never does that — its deck is built so it never has to.
+  eq('and not one bot action carries the manual wrench', played.botWrench, 0);
+  check('the game got somewhere', played.turn > 4 && played.events > 300,
+    `turn ${played.turn}, ${played.events} events`);
+
+  await js('window.__crt.engine.stop()');
+  await send('Emulation.clearDeviceMetricsOverride');
+}
+
 async function sectionEngine(js, send) {
   console.log('\n── Engine (M3) ──');
 
@@ -2785,6 +2920,118 @@ async function sectionEngine(js, send) {
   })()`);
   check('the DOM shows the land on the battlefield', landDom.present === true,
     `${landPlay.card} in ${landDom.zone}`);
+
+  // ── E turns the permanent under the cursor ────────────────────────────────
+  //
+  // ⚠️ Two halves, driven differently ON PURPOSE. The HOVER goes through
+  // `engine.tap.hover`, the same writer the real `pointerover` listener calls,
+  // for the reason the aim handles give: a synthetic pointer event racing the
+  // real mouse is a corruption this workspace has already paid for. The
+  // KEYPRESS is a real dispatched `KeyboardEvent`, because a keyboard event has
+  // no such hazard and dispatching it is the only thing that proves the key is
+  // bound at all.
+  //
+  // ⚠️ Hover is re-read straight after it is set, and the assertions are about
+  // THAT id. A real mouse resting over the window can therefore change WHICH
+  // card this is about; it cannot make the check lie about the one it names.
+  const tapKey = await js(`(async () => {
+    const id = ${JSON.stringify(landPlay.card)};
+    const sel = '[data-band-slot="' + id + '"] [data-instance-id]';
+    const el = document.querySelector(sel);
+    if (!el) return { skipped: 'no rendered slot for the land' };
+    const press = () => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'e', bubbles: true }));
+    const cardOf = () => window.__crt.engine.view().cards[id];
+    const poolOf = () => {
+      const v = window.__crt.engine.view();
+      return { ...v.seats[v.me].manaPool };
+    };
+    const total = (p) => Object.keys(p).reduce((n, k) => n + p[k], 0);
+
+    // ⚠️ E DOES WHAT CLICKING DOES. It used to send \`ManualSetTapped\` — it
+    // turned the card and made no mana — so pressing it on a land was not what
+    // a player means by "tap this land". The assertion is therefore about the
+    // POOL, not about a wrench in the log.
+    const hovered = window.__crt.engine.tap.hover(sel);
+    const before = cardOf().tapped;
+    const poolBefore = poolOf();
+    press();
+    await new Promise((r) => setTimeout(r, 260));
+    // E opens the same panel a click opens — including on a one-option land,
+    // which is what keeps "Tap only" reachable everywhere.
+    const panel = document.querySelector('[data-mana-choice]');
+    const asked = !!panel;
+    const offered = panel
+      ? [...panel.querySelectorAll('[data-mana-option], [data-tap-only]')]
+          .map((b2) => b2.getAttribute('data-mana-option') || 'tap-only')
+      : [];
+    const tappedWhileAsking = cardOf().tapped;
+    if (panel && panel.querySelector('[data-mana-option]')) {
+      panel.querySelector('[data-mana-option]').click();
+    }
+    await window.__crt.engine.settle(6000);
+    const afterTap = cardOf().tapped;
+    const gained = total(poolOf()) - total(poolBefore);
+
+    // A card in HAND is not a permanent: E must not cast it, and must submit
+    // nothing at all. Asserted on the EVENT COUNT, because a click in the fan
+    // would be a real play with a real cost.
+    const v = window.__crt.engine.view();
+    const inHand = (v.zones['hand:' + v.me] || [])[0] || null;
+    let handHovered = null, handEventsBefore = null, handEventsAfter = null;
+    if (inHand) {
+      handHovered = window.__crt.engine.tap.hover('[data-hand-instance="' + inHand + '"] [data-instance-id]');
+      handEventsBefore = window.__crt.engine.state().events;
+      press();
+      await window.__crt.engine.settle(4000);
+      handEventsAfter = window.__crt.engine.state().events;
+    }
+
+    // Mid-declaration the table is asking a question; a stray letter must not
+    // answer a different one.
+    window.__crt.engine.setMode({ kind: 'attackers', chosen: [], defaultDefender: null });
+    const busyEvents = window.__crt.engine.state().events;
+    window.__crt.engine.tap.hover(sel);
+    press();
+    await window.__crt.engine.settle(4000);
+    const busyAfter = window.__crt.engine.state().events;
+    window.__crt.engine.setMode({ kind: 'idle' });
+
+    return {
+      skipped: null, hovered, expected: id, before, afterTap, gained,
+      asked, offered, tappedWhileAsking,
+      inHand, handHovered, handEventsBefore, handEventsAfter,
+      busyEvents, busyAfter,
+    };
+  })()`);
+  if (tapKey.skipped) {
+    check('E does to a permanent what clicking it does', false, tapKey.skipped);
+  } else {
+    check('pointing at a permanent registers it as the card E would act on',
+      tapKey.hovered === tapKey.expected, `${tapKey.hovered} vs ${tapKey.expected}`);
+    // ⚠️ THE POINT OF THE KEY. It used to send `ManualSetTapped` — the card
+    // turned and no mana appeared, which is not what "tap this land" means.
+    check('E opens the same panel a click opens, offering Tap only',
+      tapKey.asked === true && (tapKey.offered || []).includes('tap-only')
+        && tapKey.tappedWhileAsking === false,
+      `[${(tapKey.offered || []).join(' ')}], tapped-while-asking=${tapKey.tappedWhileAsking}`);
+    check('and taking the mana from it taps the land and fills the pool',
+      tapKey.before === false && tapKey.afterTap === true && tapKey.gained > 0,
+      `tapped ${tapKey.before} → ${tapKey.afterTap}, pool +${tapKey.gained}`);
+    if (tapKey.inHand) {
+      // ⚠️ A click in the FAN is a real play with a real cost, so E must not
+      // reach one — a letter key that cast a spell because the cursor happened
+      // to be over the hand is a misclick nobody can undo.
+      check('E over a card in hand submits NOTHING — it never casts',
+        tapKey.handHovered === tapKey.inHand && tapKey.handEventsAfter === tapKey.handEventsBefore,
+        `${tapKey.handHovered}: ${tapKey.handEventsBefore} → ${tapKey.handEventsAfter} events`);
+    } else {
+      check('E over a card in hand submits NOTHING — it never casts', true,
+        'skipped — no card in hand');
+    }
+    check('E does nothing while the table is asking a question',
+      tapKey.busyAfter === tapKey.busyEvents,
+      `${tapKey.busyEvents} → ${tapKey.busyAfter} events in attackers mode`);
+  }
 
   // ── The aim veil and the targeting arrow ──────────────────────────────────
   //
@@ -2989,8 +3236,17 @@ async function sectionEngine(js, send) {
     `reached turn ${audit.turn.number} in ${audit.stops.length} stops`);
   check('the game never stops in the untap step (CR 502.3)', !steps.includes('untap'),
     steps.join(', '));
-  check('the game reaches and stops in the declare-attackers step',
-    steps.includes('declareAttackers'), steps.join(', '));
+  // ⚠️ THE STOPS POLICY, MEASURED. This board is empty and this hand is lands,
+  // so the only thing anybody can do in the whole cycle is play one — and the
+  // engine must therefore stop in the main phases and NOWHERE else. It used to
+  // stop at declare attackers and declare blockers too, because `alwaysStop`
+  // has both ticked by default and was read BEFORE "could this player act at
+  // all": two forced clicks per player per turn with no decision in either.
+  // Reaching the attackers step is still covered — by the block below, with a
+  // creature on the board, so the prompt it asserts on is a real one. See D119.
+  check('the game stops only where this player could actually act',
+    steps.length > 0 && steps.every((s) => s === 'precombatMain' || s === 'postcombatMain'),
+    steps.join(', '));
 
   // ⚠️ With no creatures the engine declares "no attackers" ITSELF rather than
   // prompting — one fewer forced click per player per turn. So the prompt has
@@ -3051,14 +3307,92 @@ async function sectionEngine(js, send) {
   const converge = await js(`(() => {
     const v = window.__crt.engine.view();
     const bf = v.seatOrder.flatMap((p) => v.zones['bf:' + p] || []);
-    // Auto-stacking collapses identical permanents into ONE slot, so a slot
-    // stands for its whole group: check membership, not a count.
-    const slots = [...document.querySelectorAll('[data-band-slot]')].map((e) => e.getAttribute('data-band-slot'));
-    const missing = bf.filter((id) => !slots.includes(id));
-    return { bf: bf.length, slots: slots.length, missing: missing.slice(0, 5), missingCount: missing.length };
+    // (No backticks in here: this whole block is inside a template literal.)
+    // Auto-stacking collapses identical permanents into ONE slot, and only the
+    // pile's REPRESENTATIVE carries a data-band-slot — its members are not in
+    // the DOM at all. So "every permanent id is also a slot id" is the wrong
+    // test: it passed only while no two permanents on the board happened to be
+    // identical, and reported a correctly rendered second Mountain as missing
+    // the first time a game drew one. Count through the piles instead, and check
+    // separately that no slot stands for something that is not there.
+    const slotEls = [...document.querySelectorAll('[data-band-slot]')];
+    const slots = slotEls.map((e) => e.getAttribute('data-band-slot'));
+    const rendered = slotEls.reduce((n, e) => n + (Number(e.getAttribute('data-stack-count')) || 1), 0);
+    const strays = slots.filter((id) => !bf.includes(id));
+    return { bf: bf.length, slots: slots.length, rendered, strays: strays.slice(0, 5), strayCount: strays.length };
   })()`);
-  check('every permanent on the WHOLE board is rendered in the DOM', converge.missingCount === 0,
-    `${converge.bf} permanents, ${converge.slots} slots${converge.missingCount ? `, missing ${converge.missing.join(',')}` : ''}`);
+  check('every permanent on the WHOLE board is rendered in the DOM',
+    converge.rendered === converge.bf && converge.strayCount === 0,
+    `${converge.bf} permanents over ${converge.slots} slots, ${converge.rendered} rendered`
+    + (converge.strayCount ? `, ${converge.strayCount} stray: ${converge.strays.join(',')}` : ''));
+
+  // ── the hotseat says so when it changes seats ─────────────────────────────
+  //
+  // ⚠️ Solo play is a hotseat (D42): the table follows whoever the game is
+  // waiting on, and it did that in complete silence until D119 — which reads,
+  // played by hand, as the app changing sides on its own.
+  //
+  // ⚠️ ACT, THEN WAIT — never poll while submitting. The switch is deferred
+  // until the choreographer drains (`maybeSwitchSeat`), and every submit
+  // CLEARS the pending timer, so a loop that submits between polls starves the
+  // very thing it is waiting for and the banner never appears.
+  const handoff = await js(`(async () => {
+    window.__crt.engine.setAutoSwitch(true);
+    const before = window.__crt.engine.state().viewer;
+    for (let attempt = 0; attempt < 4; attempt++) {
+      const st = window.__crt.engine.state();
+      if (st.finished) break;
+      const a = st.awaiting;
+      if (a) {
+        const player = a.player || (a.players || []).find((x) => !(a.submitted || []).includes(x));
+        if (a.kind === 'declareAttackers') window.__crt.engine.submit({ t: 'DeclareAttackers', player: player, attackers: [] });
+        else if (a.kind === 'declareBlockers') window.__crt.engine.submit({ t: 'DeclareBlockers', player: player, blocks: [] });
+        else if (a.kind === 'mulligan') window.__crt.engine.submit({ t: 'MulliganDecision', player: player, keep: true });
+        else if (st.priority) window.__crt.engine.submit({ t: 'PassPriority', player: st.priority });
+        else break;
+      } else if (st.priority) {
+        window.__crt.engine.submit({ t: 'PassPriority', player: st.priority });
+      } else break;
+      for (let i = 0; i < 60; i++) {
+        const el = document.querySelector('[data-seat-handoff]');
+        if (el) {
+          return {
+            seen: true,
+            before: before,
+            to: el.getAttribute('data-handoff-to'),
+            text: (el.textContent || '').replace(/\\s+/g, ' ').trim(),
+            viewer: window.__crt.engine.state().viewer,
+          };
+        }
+        await new Promise((r) => setTimeout(r, 40));
+      }
+    }
+    return { seen: false, before: before, viewer: window.__crt.engine.state().viewer };
+  })()`);
+  check('the hotseat ANNOUNCES a seat change it made itself',
+    handoff.seen === true && handoff.to === handoff.viewer,
+    handoff.seen ? `"${handoff.text}" → viewer ${handoff.viewer}` : 'no banner appeared');
+
+  // ⚠️ And only one it MADE. Pressing a seat in the picker is already its own
+  // answer to "why am I looking at Ben"; announcing that would be a banner over
+  // a button the player just pressed.
+  const manualQuiet = await js(`(async () => {
+    // ⚠️ Wait out the banner the check above just raised, or this one reads it
+    // as its own and fails for a reason that has nothing to do with the picker.
+    for (let i = 0; i < 150; i++) {
+      if (!document.querySelector('[data-seat-handoff]')) break;
+      await new Promise((r) => setTimeout(r, 40));
+    }
+    const st = window.__crt.engine.state();
+    const other = (window.__crt.engine.view().seatOrder || []).find((id) => id !== st.viewer);
+    if (!other) return { skipped: 'only one seat' };
+    window.__crt.engine.setViewer(other);
+    for (let i = 0; i < 12; i++) await new Promise((r) => setTimeout(r, 40));
+    return { banner: !!document.querySelector('[data-seat-handoff]'), viewer: window.__crt.engine.state().viewer };
+  })()`);
+  check('a seat change the PLAYER made is not announced',
+    manualQuiet.skipped ? true : manualQuiet.banner === false,
+    manualQuiet.skipped || `viewer ${manualQuiet.viewer}, no banner`);
 
   // Group rewind, end to end, with the table following it.
   const rewound = await js(`(async () => {
@@ -3074,12 +3408,1794 @@ async function sectionEngine(js, send) {
   check('rewinding actually shortens the active log', rewound.afterLog < rewound.beforeLog,
     `${rewound.afterLog} < ${rewound.beforeLog}`);
 
+  // ── "Which mana?" — a source with more than one thing to give ─────────────
+  //
+  // ⚠️ ITS OWN GAME, and LAST, because it cannot help perturbing one. It has to
+  // reach a seat whose commander identity has more than one colour — Command
+  // Tower makes exactly what its controller's identity allows, so the mono-red
+  // starter seat has nothing to choose between — and getting there means passing
+  // priority and drawing. Run in the middle of the section that moved the board
+  // far enough that the convergence check reported a permanent missing from the
+  // DOM: two Mountains had auto-stacked into one slot. A check that needs a
+  // different game should start one, not bend the one everything else is using.
+  //
+  // ⚠️ Driven with real `click()`s on the real elements. A click carries none of
+  // the synthetic-pointer interleaving hazard a drag does — there is no gesture
+  // to corrupt — so this exercises `onCardClick` and the panel's own buttons
+  // rather than a handle standing in for them.
+  //
+  // ⚠️ And it DRAWS UNTIL IT FINDS ONE rather than hoping the opening hand has
+  // one. Two battery checks here have already been rewritten for asserting on
+  // luck (D67); "the starter deck contains Command Tower" is a fact about the
+  // deck, "it is in the seven cards I was dealt" is not.
+  await js('window.__crt.engine.stop()');
+  const manaStart = await js('window.__crt.engine.start(2)');
+  check('a second game starts for the mana-choice checks', manaStart && manaStart.ok === true,
+    manaStart ? manaStart.message : 'no result');
+  await js('window.__crt.engine.settle(9000)');
+  const manaUi = await js(`(async () => {
+    const options = (id) => {
+      const legal = window.__crt.engine.state().legal;
+      const out = [];
+      for (const a of legal) {
+        if (a.t !== 'TapForMana' || a.card !== id) continue;
+        for (const cost of a.outputs) if (!out.includes(cost)) out.push(cost);
+      }
+      return out;
+    };
+    const face = (c) => (c && c.card ? (c.card.faces[0] || {}) : {});
+
+    for (let i = 0; i < 8; i++) {
+      const st = window.__crt.engine.state();
+      if (!st.awaiting || st.awaiting.kind !== 'mulligan') break;
+      window.__crt.engine.submit({ t: 'MulliganDecision', player: st.awaiting.players[0], keep: true });
+    }
+    await window.__crt.engine.settle(9000);
+
+    // ⚠️ The viewer does NOT follow priority — auto-switch follows the seat that
+    // must ANSWER something. So the seat is chosen explicitly, with auto-switch
+    // off so it stays chosen, and priority is walked to it because only the
+    // player holding priority may tap for mana.
+    window.__crt.engine.setAutoSwitch(false);
+    let hops = 0;
+    for (; hops < 8; hops++) {
+      const st = window.__crt.engine.state();
+      if (!st.priority) break;
+      window.__crt.engine.setViewer(st.priority);
+      const v = window.__crt.engine.view();
+      if ((v.seats[v.me].identity || []).length > 1) break;
+      window.__crt.engine.submit({ t: 'PassPriority', player: st.priority });
+      await window.__crt.engine.settle(9000);
+    }
+    const seat = window.__crt.engine.view();
+    if ((seat.seats[seat.me].identity || []).length < 2) {
+      window.__crt.engine.setAutoSwitch(true);
+      return { skipped: 'no two-colour seat holding priority after ' + hops + ' hops' };
+    }
+
+    // ⚠️ Recognise the candidate from its ORACLE TEXT before placing it, and
+    // place at most two cards. "any color" is the multi-option case for a
+    // multi-colour seat; a basic land is the one-option control.
+    const wantMulti = (c) => /any color/i.test(face(c).oracleText || '')
+      && /\\b(Land|Artifact)\\b/.test(face(c).typeLine || '');
+    const wantSingle = (c) => /\\bBasic\\b/i.test(face(c).typeLine || '');
+
+    let multi = null, single = null, rounds = 0;
+    for (; rounds < 16; rounds++) {
+      const v = window.__crt.engine.view();
+      const me = v.me;
+      const hand = v.zones['hand:' + me] || [];
+      const place = (id) => {
+        window.__crt.engine.submit({ t: 'ManualMoveCard', player: me, card: id,
+          to: { kind: 'battlefield', player: me } });
+      };
+      if (!multi) {
+        const found = hand.find((id) => wantMulti(v.cards[id]));
+        if (found) { place(found); multi = found; }
+      }
+      if (!single) {
+        const found = hand.find((id) => wantSingle(v.cards[id]) && id !== multi);
+        if (found) { place(found); single = found; }
+      }
+      if (multi && single) break;
+      const left = v.hiddenCounts['lib:' + me] || 0;
+      if (left === 0) break;
+      window.__crt.engine.submit({ t: 'ManualDraw', player: me, target: me, count: Math.min(4, left) });
+      await window.__crt.engine.settle(9000);
+    }
+    await window.__crt.engine.settle(9000);
+    window.__crt.engine.setAutoSwitch(true);
+    if (!multi) return { skipped: 'no any-colour source drawn in ' + rounds + ' rounds' };
+    if (options(multi).length < 2) {
+      return { skipped: 'the any-colour source offers ' + options(multi).length + ' option(s)' };
+    }
+    await new Promise((r) => setTimeout(r, 450));
+
+    const el = (id) => document.querySelector('[data-band-slot="' + id + '"] [data-instance-id]');
+    const poolOf = () => {
+      const v = window.__crt.engine.view();
+      return { ...v.seats[v.me].manaPool };
+    };
+    if (!el(multi)) return { skipped: 'the source has no rendered slot' };
+
+    // ⚠️ EVEN A ONE-OPTION SOURCE ASKS. It used to tap for its mana on the spot,
+    // which cost a click less and made "turn it and add nothing" unreachable on
+    // a basic land — "Tap only" lives in this panel, so a source that never
+    // opens it never offers it. (No backticks here: this block is a template
+    // literal.)
+    let singleAsked = null, singleTapped = null, singleName = null;
+    let singleButtons = null, singleAfterPick = null, singlePoolMoved = null;
+    if (single && el(single) && options(single).length === 1) {
+      singleName = face(window.__crt.engine.view().cards[single]).name || '?';
+      const poolOfMe = () => {
+        const v0 = window.__crt.engine.view();
+        return { ...v0.seats[v0.me].manaPool };
+      };
+      const poolB = poolOfMe();
+      el(single).click();
+      await new Promise((r) => setTimeout(r, 260));
+      const p1 = document.querySelector('[data-mana-choice]');
+      singleAsked = !!p1;
+      singleButtons = p1
+        ? [...p1.querySelectorAll('[data-mana-option], [data-tap-only]')]
+            .map((b2) => b2.getAttribute('data-mana-option') || 'tap-only')
+        : [];
+      // Nothing may have happened yet — asking is not doing.
+      singleTapped = window.__crt.engine.view().cards[single].tapped;
+      // Taking the mana still commits on the PICK: one extra click, never two.
+      if (p1 && p1.querySelector('[data-mana-option]')) p1.querySelector('[data-mana-option]').click();
+      await window.__crt.engine.settle(6000);
+      singleAfterPick = window.__crt.engine.view().cards[single].tapped;
+      const poolA = poolOfMe();
+      singlePoolMoved = Object.keys(poolA).some((k) => poolA[k] !== (poolB[k] || 0));
+    }
+
+    // MORE than one asks.
+    const wanted = options(multi);
+    const before = poolOf();
+    el(multi).click();
+    await new Promise((r) => setTimeout(r, 300));
+    const panel = document.querySelector('[data-mana-choice]');
+    const shown = [...document.querySelectorAll('[data-mana-option]')]
+      .map((b) => b.getAttribute('data-mana-option'));
+    // Every button draws real mana-font glyphs rather than the raw braces.
+    const glyphs = [...document.querySelectorAll('[data-mana-option] i.ms')].length;
+    const tappedWhileAsking = window.__crt.engine.view().cards[multi].tapped;
+
+    // Pick the LAST one, which is never what taking output 0 would have given.
+    const pick = shown[shown.length - 1];
+    document.querySelector('[data-mana-option="' + pick + '"]').click();
+    await window.__crt.engine.settle(6000);
+    const after = poolOf();
+    const gained = Object.keys(after).filter((k) => after[k] > (before[k] || 0));
+
+    return {
+      skipped: null, rounds, hops,
+      name: face(window.__crt.engine.view().cards[multi]).name,
+      wanted, shown, glyphs, pick,
+      panelOpened: !!panel, tappedWhileAsking,
+      closedAfterPick: !document.querySelector('[data-mana-choice]'),
+      tappedAfterPick: window.__crt.engine.view().cards[multi].tapped,
+      gained, before, after,
+      singleName, singleAsked, singleTapped, singleButtons, singleAfterPick, singlePoolMoved,
+    };
+  })()`);
+  if (manaUi.skipped) {
+    check('a source with more than one mana option asks which', false, manaUi.skipped);
+  } else {
+    check('a source with more than one mana option opens the chooser',
+      manaUi.panelOpened === true, `${manaUi.name}, ${manaUi.rounds} draw round(s)`);
+    check('it offers EVERY mana that source can make',
+      manaUi.shown.length === manaUi.wanted.length
+        && manaUi.wanted.every((c) => manaUi.shown.includes(c)),
+      `shown [${manaUi.shown.join(' ')}] vs legal [${manaUi.wanted.join(' ')}]`);
+    check('the options are drawn as mana symbols, not as text',
+      manaUi.glyphs >= manaUi.shown.length, `${manaUi.glyphs} glyphs over ${manaUi.shown.length} options`);
+    // ⚠️ Asking must not COMMIT. A panel that had already tapped the land would
+    // be a menu for a decision the player had unknowingly made.
+    check('nothing is tapped while the question is still open',
+      manaUi.tappedWhileAsking === false);
+    check('picking one adds THAT mana',
+      manaUi.gained.length === 1 && manaUi.pick.includes(manaUi.gained[0]),
+      `picked ${manaUi.pick}, pool gained ${manaUi.gained.join(',') || 'nothing'}`);
+    check('and taps the source, and closes',
+      manaUi.tappedAfterPick === true && manaUi.closedAfterPick === true,
+      `tapped=${manaUi.tappedAfterPick} closed=${manaUi.closedAfterPick}`);
+    if (manaUi.singleName) {
+      // ⚠️ The other half of the feature: a Forest must not grow a dialog.
+      // ⚠️ THE WHOLE POINT: a basic land must be able to say "just turn it".
+      check('even a ONE-option source asks, so Tap only is always reachable',
+        manaUi.singleAsked === true
+          && (manaUi.singleButtons || []).includes('tap-only')
+          && manaUi.singleTapped === false,
+        `${manaUi.singleName}: [${(manaUi.singleButtons || []).join(' ')}], tapped-while-asking=${manaUi.singleTapped}`);
+      check('and taking its mana still commits on the pick — one extra click, never two',
+        manaUi.singleAfterPick === true && manaUi.singlePoolMoved === true,
+        `tapped=${manaUi.singleAfterPick}, pool moved=${manaUi.singlePoolMoved}`);
+    } else {
+      check('even a ONE-option source asks, so Tap only is always reachable', true,
+        'skipped — no single-option source on the board');
+      check('and taking its mana still commits on the pick — one extra click, never two', true,
+        'skipped — no single-option source on the board');
+    }
+  }
+
+  // ── …and the same panel, tapping SEVERAL lands at once ────────────────────
+  //
+  // ⚠️ A real `MouseEvent` with `shiftKey: true`, dispatched on the card. A
+  // plain `.click()` cannot carry a modifier, and the modifier is the whole
+  // gesture — this is the one thing a handle standing in for the click could
+  // not prove.
+  const manaBatch = await js(`(async () => {
+    const options = (id) => {
+      const legal = window.__crt.engine.state().legal;
+      const out = [];
+      for (const a of legal) {
+        if (a.t !== 'TapForMana' || a.card !== id) continue;
+        for (const cost of a.outputs) if (!out.includes(cost)) out.push(cost);
+      }
+      return out;
+    };
+    const face = (c) => (c && c.card ? (c.card.faces[0] || {}) : {});
+    const me = window.__crt.engine.view().me;
+
+    // ⚠️ IT PLACES ITS OWN SOURCES. The single-source checks above tapped
+    // everything they put down, so by the time this runs the board has nothing
+    // left to batch — "0 untapped sources" is a fact about the check that ran
+    // first, not about the feature. One any-colour source (so the batch has a
+    // real question in it) and two basics (which answer themselves).
+    const wantMulti = (c) => /any color/i.test(face(c).oracleText || '')
+      && /\\b(Land|Artifact)\\b/.test(face(c).typeLine || '');
+    const wantBasic = (c) => /\\bBasic\\b/i.test(face(c).typeLine || '');
+    const placed = [];
+    const placedNames = [];
+    let multiPlaced = null;
+    for (let r = 0; r < 20; r++) {
+      const v = window.__crt.engine.view();
+      const hand = v.zones['hand:' + me] || [];
+      const place = (id) => {
+        window.__crt.engine.submit({ t: 'ManualMoveCard', player: me, card: id,
+          to: { kind: 'battlefield', player: me } });
+        placed.push(id);
+      };
+      if (!multiPlaced) {
+        const found = hand.find((id) => wantMulti(v.cards[id]));
+        if (found) { place(found); multiPlaced = found; }
+      }
+      // ⚠️ DISTINCT basics. Two of a kind auto-stack into one slot, and this
+      // block is about batching separate sources — the pile is its own check.
+      for (const id of hand) {
+        if (placed.length >= 3) break;
+        const nm = (v.cards[id].card ? v.cards[id].card.name : '');
+        if (multiPlaced && wantBasic(v.cards[id]) && !placedNames.includes(nm) && !placed.includes(id)) {
+          place(id);
+          placedNames.push(nm);
+        }
+      }
+      if (multiPlaced && placed.length >= 3) break;
+      const left = v.hiddenCounts['lib:' + me] || 0;
+      if (left === 0) break;
+      window.__crt.engine.submit({ t: 'ManualDraw', player: me, target: me, count: Math.min(4, left) });
+      await window.__crt.engine.settle(9000);
+    }
+    await window.__crt.engine.settle(9000);
+    await new Promise((r) => setTimeout(r, 450));
+
+    const v0 = window.__crt.engine.view();
+    // ⚠️ ONLY WHAT IS CLICKABLE. Two identical basics auto-stack into ONE slot
+    // (D19) and only the pile's representative is in the DOM, so a batch of
+    // "three permanents I placed" can be two things a player could point at.
+    // The gesture works on rendered slots, so the check must pick from those.
+    // ⚠️ AND A SLOT OF ITS OWN. A pile answers a shift-click by taking one MORE
+    // of itself, so a two-card slot in here turns this block's remove/re-add
+    // step into two adds — which it did, and the panel then closed under the
+    // check. Piles have their own block; this one is about separate sources.
+    const usable = placed.filter((id) => {
+      const el = document.querySelector('[data-band-slot="' + id + '"]');
+      return v0.cards[id] && !v0.cards[id].tapped && options(id).length > 0
+        && el && Number(el.getAttribute('data-stack-count')) === 1;
+    });
+    if (usable.length < 2 || !multiPlaced || !usable.includes(multiPlaced)) {
+      return { skipped: 'placed only ' + usable.length + ' separately clickable source(s)' };
+    }
+    // The any-colour one FIRST, so the batch always contains a real question.
+    const picked = [multiPlaced, ...usable.filter((id) => id !== multiPlaced)].slice(0, 3);
+    const el = (id) => document.querySelector('[data-band-slot="' + id + '"] [data-instance-id]');
+    if (picked.some((id) => !el(id))) return { skipped: 'a chosen source has no rendered slot' };
+
+    const shiftClick = (id) => el(id).dispatchEvent(
+      new MouseEvent('click', { bubbles: true, cancelable: true, shiftKey: true }));
+
+    const panelOf = () => document.querySelector('[data-mana-choice]');
+    const sourcesShown = () => {
+      const p = panelOf();
+      return p ? Number(p.getAttribute('data-mana-sources')) : 0;
+    };
+
+    for (const id of picked) { shiftClick(id); await new Promise((r) => setTimeout(r, 90)); }
+    const afterAdding = sourcesShown();
+    const rings = document.querySelectorAll('[data-mana-rings] > div').length;
+    const tappedWhileBuilding = picked.filter((id) => window.__crt.engine.view().cards[id].tapped).length;
+
+    // Shift-clicking one again takes it back out, then puts it back.
+    shiftClick(picked[picked.length - 1]);
+    await new Promise((r) => setTimeout(r, 90));
+    const afterRemoving = sourcesShown();
+    shiftClick(picked[picked.length - 1]);
+    await new Promise((r) => setTimeout(r, 90));
+
+    // Answer every source that has a choice; the one-option ones answer
+    // themselves. Nothing may be tapped until the batch is committed.
+    const readyBefore = panelOf().getAttribute('data-mana-ready');
+    const want = [];
+    for (const id of picked) {
+      const opts = options(id);
+      const cost = opts[opts.length - 1];
+      want.push(cost);
+      if (opts.length > 1) {
+        document.querySelector('[data-mana-card="' + id + '"][data-mana-option="' + cost + '"]').click();
+        await new Promise((r) => setTimeout(r, 60));
+      }
+    }
+    const readyAfter = panelOf().getAttribute('data-mana-ready');
+    const tappedBeforeCommit = picked.filter((id) => window.__crt.engine.view().cards[id].tapped).length;
+
+    const poolOf = () => ({ ...window.__crt.engine.view().seats[me].manaPool });
+    const before = poolOf();
+    const eventsBefore = window.__crt.engine.state().events;
+    document.querySelector('[data-mana-commit]').click();
+    await window.__crt.engine.settle(8000);
+    const after = poolOf();
+    const addedTotal = Object.keys(after).reduce((n, k) => n + Math.max(0, after[k] - (before[k] || 0)), 0);
+    const wantTotal = want.join('').split('}').length - 1;
+
+    return {
+      skipped: null,
+      picked: picked.length, afterAdding, afterRemoving, rings,
+      tappedWhileBuilding, tappedBeforeCommit, readyBefore, readyAfter,
+      names: picked.map((id) => face(window.__crt.engine.view().cards[id]).name),
+      want, addedTotal, wantTotal, before, after,
+      tappedAfter: picked.filter((id) => window.__crt.engine.view().cards[id].tapped).length,
+      closed: !panelOf(),
+      events: window.__crt.engine.state().events - eventsBefore,
+    };
+  })()`);
+  if (manaBatch.skipped) {
+    check('shift-click batches several sources into one panel', false, manaBatch.skipped);
+  } else {
+    check('shift-click batches several sources into one panel',
+      manaBatch.afterAdding === manaBatch.picked,
+      `${manaBatch.afterAdding}/${manaBatch.picked} rows: ${manaBatch.names.join(', ')}`);
+    check('every source in the batch is ringed on the table',
+      manaBatch.rings === manaBatch.picked, `${manaBatch.rings} rings over ${manaBatch.picked} sources`);
+    check('shift-clicking one again takes it back out',
+      manaBatch.afterRemoving === manaBatch.picked - 1,
+      `${manaBatch.picked} → ${manaBatch.afterRemoving}`);
+    // ⚠️ The whole point of a batch: NOTHING happens until it is committed. A
+    // land tapped while the player is still choosing is a decision made for them.
+    check('nothing taps while the batch is being built or answered',
+      manaBatch.tappedWhileBuilding === 0 && manaBatch.tappedBeforeCommit === 0,
+      `${manaBatch.tappedWhileBuilding} while building, ${manaBatch.tappedBeforeCommit} after answering`);
+    check('the batch is not committable until every source has an answer',
+      manaBatch.readyAfter === '1', `ready ${manaBatch.readyBefore} → ${manaBatch.readyAfter}`);
+    check('committing taps them ALL and adds every mana chosen',
+      manaBatch.tappedAfter === manaBatch.picked && manaBatch.addedTotal === manaBatch.wantTotal,
+      `${manaBatch.tappedAfter}/${manaBatch.picked} tapped, pool +${manaBatch.addedTotal} of ${manaBatch.wantTotal} (${manaBatch.want.join(' ')})`);
+    check('and the panel closes', manaBatch.closed === true);
+  }
+  // ── A pile of identical lands taps one by one ─────────────────────────────
+  //
+  // ⚠️ Twelve identical Forests are ONE slot (D19) and twelve things to tap.
+  // Both halves are checked here: a plain click takes one out of the pile (which
+  // then splits, because grouping keys on tapped state), and a shift-click takes
+  // one more of it into the batch each time rather than toggling the one
+  // representative every slot-keyed click named.
+  const manaPile = await js(`(async () => {
+    const face = (c) => (c && c.card ? (c.card.faces[0] || {}) : {});
+    const options = (cid) => {
+      const legal = window.__crt.engine.state().legal;
+      const out = [];
+      for (const a of legal) {
+        if (a.t !== 'TapForMana' || a.card !== cid) continue;
+        for (const cost of a.outputs) if (!out.includes(cost)) out.push(cost);
+      }
+      return out;
+    };
+    const me = window.__crt.engine.view().me;
+
+    // Three of ONE basic, so they group. Drawing rather than hoping, again.
+    let trio = [];
+    for (let r = 0; r < 20 && trio.length < 3; r++) {
+      const v = window.__crt.engine.view();
+      const hand = v.zones['hand:' + me] || [];
+      const byName = new Map();
+      for (const cid of hand) {
+        if (!/\\bBasic\\b/i.test(face(v.cards[cid]).typeLine || '')) continue;
+        const nm = face(v.cards[cid]).name;
+        byName.set(nm, [...(byName.get(nm) || []), cid]);
+      }
+      for (const [, ids] of byName) if (ids.length >= 3) { trio = ids.slice(0, 3); break; }
+      if (trio.length === 3) break;
+      const left = v.hiddenCounts['lib:' + me] || 0;
+      if (!left) break;
+      window.__crt.engine.submit({ t: 'ManualDraw', player: me, target: me, count: Math.min(5, left) });
+      await window.__crt.engine.settle(9000);
+    }
+    if (trio.length < 3) return { skipped: 'never drew three of one basic' };
+    for (const cid of trio) {
+      window.__crt.engine.submit({ t: 'ManualMoveCard', player: me, card: cid,
+        to: { kind: 'battlefield', player: me } });
+    }
+    await window.__crt.engine.settle(9000);
+    await new Promise((r) => setTimeout(r, 500));
+
+    const name = face(window.__crt.engine.view().cards[trio[0]]).name;
+    // The slot the pile rendered as — whichever member represents it.
+    const slotFor = (ids) => {
+      for (const cid of ids) {
+        const el = document.querySelector('[data-band-slot="' + cid + '"]');
+        if (el) return el;
+      }
+      return null;
+    };
+    const pileEl = slotFor(trio);
+    if (!pileEl) return { skipped: 'the trio rendered no slot' };
+    const stacked = Number(pileEl.getAttribute('data-stack-count'));
+    const tappedOf = () => trio.filter((cid) => window.__crt.engine.view().cards[cid].tapped).length;
+
+    // ONE plain click, then taking its mana, takes ONE out of the pile.
+    //
+    // ⚠️ The click ASKS now, even on a one-option land — that is what keeps
+    // "Tap only" reachable on a basic. So the pile is reduced by answering the
+    // panel, not by the click itself.
+    const before = tappedOf();
+    pileEl.querySelector('[data-instance-id]').click();
+    await new Promise((r) => setTimeout(r, 280));
+    const pilePanel = document.querySelector('[data-mana-choice]');
+    if (pilePanel && pilePanel.querySelector('[data-mana-option]')) {
+      pilePanel.querySelector('[data-mana-option]').click();
+    }
+    await window.__crt.engine.settle(8000);
+    await new Promise((r) => setTimeout(r, 600));
+    const afterOne = tappedOf();
+    const stillUp = trio.filter((cid) => !window.__crt.engine.view().cards[cid].tapped);
+    const restEl = slotFor(stillUp);
+    const splitTo = restEl ? Number(restEl.getAttribute('data-stack-count')) : 0;
+
+    // The two that are left: shift-click the pile TWICE for two of them.
+    const rest = trio.filter((cid) => !window.__crt.engine.view().cards[cid].tapped
+      && options(cid).length > 0);
+    let rows = 0;
+    for (let i = 0; i < rest.length; i++) {
+      const el = slotFor(rest);
+      if (!el) break;
+      el.querySelector('[data-instance-id]').dispatchEvent(
+        new MouseEvent('click', { bubbles: true, cancelable: true, shiftKey: true }));
+      await new Promise((r) => setTimeout(r, 140));
+      const p = document.querySelector('[data-mana-choice]');
+      rows = p ? Number(p.getAttribute('data-mana-sources')) : 0;
+    }
+    const poolBefore = { ...window.__crt.engine.view().seats[me].manaPool };
+    const commit = document.querySelector('[data-mana-commit]');
+    if (commit) commit.click();
+    else {
+      // One source left: the single-row panel commits on the pick itself.
+      const b = document.querySelector('[data-mana-option]');
+      if (b) b.click();
+    }
+    await window.__crt.engine.settle(8000);
+    const poolAfter = { ...window.__crt.engine.view().seats[me].manaPool };
+    const gained = Object.keys(poolAfter)
+      .reduce((n, k) => n + Math.max(0, poolAfter[k] - (poolBefore[k] || 0)), 0);
+
+    return {
+      skipped: null, name, stacked, before, afterOne, splitTo,
+      restCount: rest.length, rows, gained,
+      tappedFinal: tappedOf(),
+    };
+  })()`);
+  if (manaPile.skipped) {
+    check('a pile of identical lands taps one at a time', false, manaPile.skipped);
+  } else {
+    check('three identical lands render as ONE slot', manaPile.stacked === 3,
+      `${manaPile.name} ×${manaPile.stacked}`);
+    check('a plain click takes exactly ONE land out of the pile',
+      manaPile.before === 0 && manaPile.afterOne === 1,
+      `${manaPile.before} → ${manaPile.afterOne} tapped`);
+    check('and the pile splits, leaving the rest still stacked',
+      manaPile.splitTo === 2, `${manaPile.splitTo} left in the untapped pile`);
+    // ⚠️ THE BUG THIS FIXES: every shift-click named the same representative, so
+    // the second one took it straight back out and a pile could never put more
+    // than one card in the batch.
+    check('shift-clicking a pile takes one MORE of it each time',
+      manaPile.rows === manaPile.restCount,
+      `${manaPile.rows} rows over ${manaPile.restCount} shift-clicks`);
+    check('committing taps every one of them and adds their mana',
+      manaPile.tappedFinal === 3 && manaPile.gained === manaPile.restCount,
+      `${manaPile.tappedFinal}/3 tapped, pool +${manaPile.gained}`);
+  }
+
+  // ── Tapping for the sake of tapping ───────────────────────────────────────
+  //
+  // ⚠️ Two things that were unreachable from a left click: a land that can make
+  // mana had no way to say "turn it and add nothing", and a creature had no
+  // left-click meaning at all — it did nothing and looked broken. Both answer
+  // through the same panel now, and both send `ManualSetTapped` rather than a
+  // `TapForMana` with an empty output, so the log carries the Tier-3 wrench.
+  const tapOnly = await js(`(async () => {
+    const face = (c) => (c && c.card ? (c.card.faces[0] || {}) : {});
+    const options = (cid) => {
+      const legal = window.__crt.engine.state().legal;
+      const out = [];
+      for (const a of legal) {
+        if (a.t !== 'TapForMana' || a.card !== cid) continue;
+        for (const cost of a.outputs) if (!out.includes(cost)) out.push(cost);
+      }
+      return out;
+    };
+    const me = window.__crt.engine.view().me;
+
+    // A creature of mine on the battlefield, drawn if need be.
+    let creature = null;
+    for (let r = 0; r < 20 && !creature; r++) {
+      const v = window.__crt.engine.view();
+      const hand = v.zones['hand:' + me] || [];
+      const found = hand.find((cid) => /\\bCreature\\b/.test(face(v.cards[cid]).typeLine || ''));
+      if (found) {
+        window.__crt.engine.submit({ t: 'ManualMoveCard', player: me, card: found,
+          to: { kind: 'battlefield', player: me } });
+        creature = found;
+        break;
+      }
+      const left = v.hiddenCounts['lib:' + me] || 0;
+      if (!left) break;
+      window.__crt.engine.submit({ t: 'ManualDraw', player: me, target: me, count: Math.min(5, left) });
+      await window.__crt.engine.settle(9000);
+    }
+    if (!creature) return { skipped: 'no creature to place' };
+    await window.__crt.engine.settle(9000);
+    await new Promise((r) => setTimeout(r, 500));
+
+    const el = (cid) => {
+      const slot = document.querySelector('[data-band-slot="' + cid + '"]');
+      return slot ? slot.querySelector('[data-instance-id]') : null;
+    };
+    if (!el(creature)) return { skipped: 'the creature has no rendered slot' };
+
+    // A LEFT CLICK on a creature now offers to turn it — and only offers.
+    const eventsBefore = window.__crt.engine.state().events;
+    el(creature).click();
+    await new Promise((r) => setTimeout(r, 260));
+    const panel = document.querySelector('[data-mana-choice]');
+    const askedNotTurned = !!panel
+      && window.__crt.engine.view().cards[creature].tapped === false
+      && window.__crt.engine.state().events === eventsBefore;
+    const creatureButtons = panel
+      ? [...panel.querySelectorAll('[data-mana-option], [data-tap-only]')].length : 0;
+    const creatureLabel = panel && panel.querySelector('[data-tap-only]')
+      ? panel.querySelector('[data-tap-only]').textContent : null;
+
+    // Take it: the card turns, adds nothing, and the log says a human did it.
+    const poolBefore = { ...window.__crt.engine.view().seats[me].manaPool };
+    const logBefore = window.__crt.engine.view().log.length;
+    if (panel && panel.querySelector('[data-tap-only]')) panel.querySelector('[data-tap-only]').click();
+    await window.__crt.engine.settle(8000);
+    const poolAfter = { ...window.__crt.engine.view().seats[me].manaPool };
+    const poolMoved = Object.keys(poolAfter).some((k) => poolAfter[k] !== (poolBefore[k] || 0));
+    const log = window.__crt.engine.view().log;
+    let line = null;
+    for (let i = log.length - 1; i >= 0 && i >= logBefore - 1; i--) {
+      if (/\\btaps?\\b/i.test(log[i].text)) { line = log[i]; break; }
+    }
+
+    // And a MANA SOURCE offers it beside the colours.
+    //
+    // ⚠️ It places its OWN, because everything above has been tapping things:
+    // the first cut of this check reported "skipped — no multi-option source
+    // left untapped", which is a green tick for the headline case going
+    // untested.
+    for (let r = 0; r < 20; r++) {
+      const v = window.__crt.engine.view();
+      const has = (v.zones['bf:' + me] || []).some((cid) => !v.cards[cid].tapped
+        && options(cid).length > 1);
+      if (has) break;
+      const hand = v.zones['hand:' + me] || [];
+      const found = hand.find((cid) => /any color/i.test(face(v.cards[cid]).oracleText || '')
+        && /\\b(Land|Artifact)\\b/.test(face(v.cards[cid]).typeLine || ''));
+      if (found) {
+        window.__crt.engine.submit({ t: 'ManualMoveCard', player: me, card: found,
+          to: { kind: 'battlefield', player: me } });
+        await window.__crt.engine.settle(9000);
+        await new Promise((r2) => setTimeout(r2, 400));
+        continue;
+      }
+      const left = v.hiddenCounts['lib:' + me] || 0;
+      if (!left) break;
+      window.__crt.engine.submit({ t: 'ManualDraw', player: me, target: me, count: Math.min(5, left) });
+      await window.__crt.engine.settle(9000);
+    }
+    await new Promise((r) => setTimeout(r, 400));
+
+    const v2 = window.__crt.engine.view();
+    const src = (v2.zones['bf:' + me] || []).find((cid) => !v2.cards[cid].tapped
+      && options(cid).length > 1 && el(cid));
+    let srcOffered = null, srcTurned = null, srcPoolMoved = null, srcName = null;
+    if (src) {
+      srcName = face(v2.cards[src]).name;
+      el(src).click();
+      await new Promise((r) => setTimeout(r, 260));
+      const p2 = document.querySelector('[data-mana-choice]');
+      const btn = p2 ? p2.querySelector('[data-tap-only]') : null;
+      srcOffered = !!btn && p2.querySelectorAll('[data-mana-option]').length === options(src).length;
+      const poolB = { ...window.__crt.engine.view().seats[me].manaPool };
+      if (btn) btn.click();
+      await window.__crt.engine.settle(8000);
+      const poolA = { ...window.__crt.engine.view().seats[me].manaPool };
+      srcTurned = window.__crt.engine.view().cards[src].tapped;
+      srcPoolMoved = Object.keys(poolA).some((k) => poolA[k] !== (poolB[k] || 0));
+    }
+
+    return {
+      skipped: null,
+      creatureName: face(window.__crt.engine.view().cards[creature]).name,
+      askedNotTurned, creatureButtons, creatureLabel,
+      turned: window.__crt.engine.view().cards[creature].tapped,
+      poolMoved, manual: line ? line.manual : null, text: line ? line.text : null,
+      srcName, srcOffered, srcTurned, srcPoolMoved,
+    };
+  })()`);
+  if (tapOnly.skipped) {
+    check('a left click on a creature offers to turn it', false, tapOnly.skipped);
+  } else {
+    check('a left click on a creature offers to turn it, and only offers',
+      tapOnly.askedNotTurned === true,
+      `${tapOnly.creatureName}: panel with ${tapOnly.creatureButtons} button(s), nothing submitted`);
+    check('a card with no mana ability shows one plain Tap button',
+      tapOnly.creatureButtons === 1 && tapOnly.creatureLabel === 'Tap',
+      `label "${tapOnly.creatureLabel}"`);
+    check('taking it turns the card and adds NOTHING to the pool',
+      tapOnly.turned === true && tapOnly.poolMoved === false,
+      `tapped=${tapOnly.turned}, pool moved=${tapOnly.poolMoved}`);
+    check('and it is logged as a MANUAL action', tapOnly.manual === true,
+      tapOnly.text ? `"${tapOnly.text}"` : 'no log line');
+    if (tapOnly.srcName) {
+      // ⚠️ BESIDE the colours, not instead of them: the mana is still the
+      // default, and this is the override the player never had.
+      check('a mana source offers Tap only BESIDE every colour it can make',
+        tapOnly.srcOffered === true, `${tapOnly.srcName}`);
+      check('and taking it turns the source without adding mana',
+        tapOnly.srcTurned === true && tapOnly.srcPoolMoved === false,
+        `tapped=${tapOnly.srcTurned}, pool moved=${tapOnly.srcPoolMoved}`);
+    } else {
+      check('a mana source offers Tap only BESIDE every colour it can make', true,
+        'skipped — no multi-option source left untapped');
+    }
+  }
+
+  // ── The library: scry, surveil, mill, exile ───────────────────────────────
+  //
+  // ⚠️ Clicking a library did NOTHING before this. The four actions are all
+  // Tier 3 and all go out as intents the engine already had, except the bulk
+  // move — a client cannot name a library card, because projection strips the
+  // order and the ids, so "mill three" is not three `ManualMoveCard`s.
+  //
+  // ⚠️ `view.peek` is the one ordered thing about a library that reaches a
+  // client, and only for the cards already revealed to that viewer. This checks
+  // it is ordered TOP FIRST, which is the whole reason it exists: a scry that
+  // shows three cards in a dictionary's order is not a scry.
+  const libraryUi = await js(`(async () => {
+    const me = window.__crt.engine.view().me;
+    const libOf = (p) => window.__crt.engine.view().hiddenCounts['lib:' + p] || 0;
+    const gyOf = (p) => (window.__crt.engine.view().zones['gy:' + p] || []).length;
+    const exOf = (p) => (window.__crt.engine.view().zones['exile:' + p] || []).length;
+    const pile = document.querySelector('[data-zone="lib:' + me + '"]');
+    if (!pile) return { skipped: 'no library pile rendered' };
+
+    // Clicking the pile opens the menu.
+    pile.click();
+    await new Promise((r) => setTimeout(r, 260));
+    const menu = document.querySelector('[data-library-menu]');
+    const actions = menu
+      ? [...menu.querySelectorAll('[data-library-action]')].map((b) => b.getAttribute('data-library-action'))
+      : [];
+
+    // MILL 3, blind: three cards leave the library for the graveyard.
+    const libBefore = libOf(me), gyBefore = gyOf(me);
+    menu.querySelector('[data-library-action="mill"]').click();
+    await new Promise((r) => setTimeout(r, 200));
+    const dialog = !!document.querySelector('input[type="number"], input');
+    window.__crt.engine.submit({ t: 'ManualMoveTopOfLibrary', player: me, target: me, count: 3, to: 'graveyard' });
+    await window.__crt.engine.settle(8000);
+    const milled = { lib: libBefore - libOf(me), gy: gyOf(me) - gyBefore };
+    window.__crt.engine.escape();
+
+    // EXILE 2 from the top.
+    const libBefore2 = libOf(me), exBefore = exOf(me);
+    window.__crt.engine.submit({ t: 'ManualMoveTopOfLibrary', player: me, target: me, count: 2, to: 'exile' });
+    await window.__crt.engine.settle(8000);
+    const exiled = { lib: libBefore2 - libOf(me), ex: exOf(me) - exBefore };
+
+    // SCRY 3: look, and check the order is top-first against the graveyard the
+    // same cards would land in.
+    window.__crt.engine.submit({ t: 'ManualPeekLibrary', player: me, count: 3 });
+    await window.__crt.engine.settle(8000);
+    await new Promise((r) => setTimeout(r, 300));
+    const peek = [...window.__crt.engine.view().peek];
+    const panelUp = !!document.querySelector('[data-peek-panel]');
+    const shown = [...document.querySelectorAll('[data-peek-card]')].map((e) => e.getAttribute('data-peek-card'));
+    const named = peek.every((cid) => {
+      const c = window.__crt.engine.view().cards[cid];
+      return !!c && c.card !== null;
+    });
+
+    // The bottom card of the three goes to the bottom; the top two stay.
+    const libBefore3 = libOf(me);
+    const sentDown = peek[peek.length - 1];
+    const stayed = peek.slice(0, peek.length - 1);
+    window.__crt.engine.submit({ t: 'ManualMoveCard', player: me, card: sentDown,
+      to: { kind: 'library', player: me }, placement: 'bottom' });
+    await window.__crt.engine.settle(8000);
+    const afterMove = [...window.__crt.engine.view().peek];
+
+    // Done: the rest stay on top, in order, and stop being revealed.
+    window.__crt.engine.submit({ t: 'ManualStopPeeking', player: me });
+    await window.__crt.engine.settle(8000);
+    const afterDone = [...window.__crt.engine.view().peek];
+
+    // And the ones that stayed are STILL the top, in the same order: look again.
+    window.__crt.engine.submit({ t: 'ManualPeekLibrary', player: me, count: stayed.length });
+    await window.__crt.engine.settle(8000);
+    const relooked = [...window.__crt.engine.view().peek];
+    window.__crt.engine.submit({ t: 'ManualStopPeeking', player: me });
+    await window.__crt.engine.settle(8000);
+
+    return {
+      skipped: null, actions, dialog,
+      milled, exiled,
+      peek, panelUp, shown, named,
+      libUnchangedByScry: libOf(me) === libBefore3,
+      afterMove, afterDone, stayed, relooked,
+    };
+  })()`);
+  // ⚠️ THROUGH THE REAL BUTTON, number dialog and all. Everything above submits
+  // `ManualPeekLibrary` directly, which leaves the panel in its default `look`
+  // mode — so scry and surveil, the two the player actually asked for, were
+  // untested by every check in this file. This drives Scry… → the dialog →
+  // Confirm, and reads the mode back off the panel.
+  const scryUi = await js(`(async () => {
+    const me = window.__crt.engine.view().me;
+    const pile = document.querySelector('[data-zone="lib:' + me + '"]');
+    if (!pile) return { skipped: 'no library pile' };
+    pile.click();
+    await new Promise((r) => setTimeout(r, 220));
+    const btn = document.querySelector('[data-library-action="scry"]');
+    if (!btn) return { skipped: 'no scry button' };
+    btn.click();
+    await new Promise((r) => setTimeout(r, 220));
+    const dialog = document.querySelector('[data-dialog="number"]');
+    if (!dialog) return { skipped: 'no number dialog' };
+    // Type a real 2 into the real input, the way a player would.
+    const input = dialog.querySelector('input');
+    const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+    setter.call(input, '2');
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    await new Promise((r) => setTimeout(r, 120));
+    dialog.querySelector('[data-dialog-ok]').click();
+    await window.__crt.engine.settle(8000);
+    await new Promise((r) => setTimeout(r, 400));
+
+    const panel = document.querySelector('[data-peek-panel]');
+    const mode = panel ? panel.getAttribute('data-peek-mode') : null;
+    const buttons = panel
+      ? [...new Set([...panel.querySelectorAll('[data-peek-to]')].map((b) => b.getAttribute('data-peek-to')))]
+      : [];
+    const count = panel ? Number(panel.getAttribute('data-peek-panel')) : 0;
+    // Clean up so the checks after this one see a settled table.
+    window.__crt.engine.submit({ t: 'ManualStopPeeking', player: me });
+    await window.__crt.engine.settle(8000);
+    return { skipped: null, mode, buttons, count };
+  })()`);
+  if (scryUi.skipped) {
+    check('the Scry button opens a scry, through its own dialog', false, scryUi.skipped);
+  } else {
+    check('the Scry button opens a scry, through its own dialog',
+      scryUi.mode === 'scry' && scryUi.count === 2,
+      `mode=${scryUi.mode}, ${scryUi.count} cards`);
+    // ⚠️ A scry offers TOP or BOTTOM and nothing else. Offering "Hand" here
+    // would be a different action wearing scry's name.
+    check('a scry offers the bottom, and nothing that is not a scry',
+      scryUi.buttons.length === 1 && scryUi.buttons[0] === 'bottom',
+      `[${scryUi.buttons.join(', ')}]`);
+  }
+
+  if (libraryUi.skipped) {
+    check('clicking a library offers what can be done to it', false, libraryUi.skipped);
+  } else {
+    check('clicking a library offers scry, surveil, mill and exile',
+      ['scry', 'surveil', 'mill', 'exile'].every((a) => libraryUi.actions.includes(a)),
+      libraryUi.actions.join(', '));
+    check('mill N moves exactly N cards library → graveyard',
+      libraryUi.milled.lib === 3 && libraryUi.milled.gy === 3,
+      `library −${libraryUi.milled.lib}, graveyard +${libraryUi.milled.gy}`);
+    check('exile N moves exactly N cards library → exile',
+      libraryUi.exiled.lib === 2 && libraryUi.exiled.ex === 2,
+      `library −${libraryUi.exiled.lib}, exile +${libraryUi.exiled.ex}`);
+    check('a scry shows the cards it is looking at, face up',
+      libraryUi.panelUp === true && libraryUi.peek.length === 3 && libraryUi.named === true,
+      `${libraryUi.peek.length} cards, panel=${libraryUi.panelUp}, all named=${libraryUi.named}`);
+    check('the panel lists exactly what the view says it is looking at',
+      libraryUi.shown.join(',') === libraryUi.peek.join(','),
+      `${libraryUi.shown.join(',')} vs ${libraryUi.peek.join(',')}`);
+    // ⚠️ Sending one card to the bottom must not change the library's SIZE —
+    // it is a move within the zone, and a scry that drew or binned a card by
+    // accident is the worst possible bug in this panel.
+    check('sending one to the bottom keeps the library the same size',
+      libraryUi.libUnchangedByScry === true);
+    check('and it leaves the peek — the panel shows only what is left to decide',
+      libraryUi.afterMove.join(',') === libraryUi.stayed.join(','),
+      `${libraryUi.afterMove.join(',')} vs ${libraryUi.stayed.join(',')}`);
+    check('Done stops the looking', libraryUi.afterDone.length === 0,
+      `${libraryUi.afterDone.length} still revealed`);
+    // ⚠️ THE ORDER IS THE FEATURE. Looking again must show the kept cards in the
+    // same order, top first — that is what "keep the order they came in" means.
+    check('the cards kept on top are still the top, in the same order',
+      libraryUi.relooked.join(',') === libraryUi.stayed.join(','),
+      `${libraryUi.relooked.join(',')} vs ${libraryUi.stayed.join(',')}`);
+  }
+
+  // ── The graveyard and exile piles open a browser ──────────────────────────
+  //
+  // ⚠️ A pile renders only its TOP card, so every card under it was unreachable:
+  // a graveyard is public information with thirty cards in it and one of them on
+  // screen. The browser lists them all and moves any one, through the same
+  // `ManualMoveCard` the card menu uses.
+  const zoneUi = await js(`(async () => {
+    const me = window.__crt.engine.view().me;
+    const gy = () => (window.__crt.engine.view().zones['gy:' + me] || []);
+    const hand = () => (window.__crt.engine.view().zones['hand:' + me] || []);
+    const lib = () => window.__crt.engine.view().hiddenCounts['lib:' + me] || 0;
+
+    // Put some cards in the graveyard to look through.
+    window.__crt.engine.submit({ t: 'ManualMoveTopOfLibrary', player: me, target: me, count: 5, to: 'graveyard' });
+    await window.__crt.engine.settle(8000);
+    await new Promise((r) => setTimeout(r, 400));
+    const inPile = gy().length;
+
+    const pile = document.querySelector('[data-zone="gy:' + me + '"]');
+    if (!pile) return { skipped: 'no graveyard pile rendered' };
+    // ⚠️ How many of them the TABLE draws, before the browser opens. This is the
+    // number the feature exists for.
+    const renderedOnTable = document.querySelectorAll('[data-zone="gy:' + me + '"] [data-instance-id]').length;
+    pile.click();
+    await new Promise((r) => setTimeout(r, 300));
+    const panel = document.querySelector('[data-zone-browser]');
+    const listed = panel ? [...panel.querySelectorAll('[data-zone-card]')].map((e) => e.getAttribute('data-zone-card')) : [];
+    // Newest first: the card that just died is the one you are looking for.
+    const newestFirst = listed.join(',') === [...gy()].reverse().join(',');
+    const destinations = panel
+      ? [...new Set([...panel.querySelectorAll('[data-zone-card]:first-child [data-zone-to]')]
+          .map((b) => b.getAttribute('data-zone-to')))]
+      : [];
+
+    // Take a card that is NOT on top back to hand — the whole point.
+    const buried = listed[listed.length - 1];
+    const handBefore = hand().length;
+    const row = panel.querySelector('[data-zone-card="' + buried + '"]');
+    row.querySelector('[data-zone-to="hand"]').click();
+    await window.__crt.engine.settle(8000);
+    const tookBuried = hand().includes(buried) && hand().length === handBefore + 1;
+    const listAfter = [...document.querySelectorAll('[data-zone-card]')].map((e) => e.getAttribute('data-zone-card'));
+
+    // Shuffle the rest into the library, in one action and one log line.
+    const libBefore = lib(), rest = gy().length, logBefore = window.__crt.engine.view().log.length;
+    document.querySelector('[data-zone-bulk="shuffle-in"]').click();
+    await window.__crt.engine.settle(8000);
+    const lines = window.__crt.engine.view().log.length - logBefore;
+    const closed = !document.querySelector('[data-zone-browser]');
+
+    return {
+      skipped: null, inPile, renderedOnTable, listed, newestFirst, destinations,
+      tookBuried, buriedGone: !listAfter.includes(buried),
+      shuffled: { gy: gy().length, lib: lib() - libBefore, rest }, lines, closed,
+    };
+  })()`);
+  if (zoneUi.skipped) {
+    check('clicking a graveyard opens a browser of every card in it', false, zoneUi.skipped);
+  } else {
+    // ⚠️ THE GAP THIS CLOSES, measured: the table draws ONE card for a pile of
+    // five, and the browser lists all five.
+    check('the table draws one card for the pile; the browser lists them all',
+      zoneUi.renderedOnTable === 1 && zoneUi.listed.length === zoneUi.inPile,
+      `${zoneUi.renderedOnTable} on the table, ${zoneUi.listed.length} of ${zoneUi.inPile} in the browser`);
+    check('the browser lists them newest first', zoneUi.newestFirst === true,
+      zoneUi.listed.join(','));
+    check('every card offers somewhere to go',
+      ['hand', 'battlefield', 'library-top', 'library-bottom', 'exile', 'command']
+        .every((d) => zoneUi.destinations.includes(d)),
+      zoneUi.destinations.join(', '));
+    check('a card from UNDER the top can be taken back',
+      zoneUi.tookBuried === true && zoneUi.buriedGone === true,
+      `moved=${zoneUi.tookBuried}, left the list=${zoneUi.buriedGone}`);
+    check('shuffling the pile in empties it into the library',
+      zoneUi.shuffled.gy === 0 && zoneUi.shuffled.lib === zoneUi.shuffled.rest,
+      `graveyard ${zoneUi.shuffled.gy}, library +${zoneUi.shuffled.lib} of ${zoneUi.shuffled.rest}`);
+    // ⚠️ ONE line for one action. Thirty cards leaving a graveyard as thirty
+    // lines buries the game in it, which is why it is one intent.
+    check('and writes ONE log line, not one per card', zoneUi.lines === 1,
+      `${zoneUi.lines} lines`);
+    check('the browser closes when the pile is gone', zoneUi.closed === true);
+  }
+
+  // ── The anchored panels open WHERE THEY WERE ASKED TO ─────────────────────
+  //
+  // ⚠️ All three place themselves from VIEWPORT coordinates — a click's
+  // `clientX`/`clientY`, or an element's `getBoundingClientRect`. Their
+  // positioned ancestor is the screen slot, which starts below the app header,
+  // so `position: absolute` drew every one of them 49 px low and nobody noticed
+  // for four milestones: a menu near the cursor reads as fine. This asserts the
+  // rendered box against the arithmetic the components themselves do, clamps
+  // included, so it fails on a coordinate-space slip without being a second
+  // opinion about where a panel ought to go.
+  const anchored = await js(`(async () => {
+    const v = window.__crt.engine.view();
+    const me = v.me;
+    const mine = v.zones['bf:' + me] || [];
+    if (mine.length < 2) return { skipped: 'need two permanents on my battlefield' };
+    const [host, other] = mine;
+    const el = document.querySelector('[data-band-slot="' + host + '"]');
+    if (!el) return { skipped: 'no rendered slot' };
+
+    // The card menu, from a real right-click at a known point.
+    const r = el.getBoundingClientRect();
+    const x = Math.round(r.left + r.width / 2);
+    const y = Math.round(r.top + r.height / 2);
+    el.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, clientX: x, clientY: y }));
+    await new Promise((res) => setTimeout(res, 220));
+    const menuEl = document.querySelector('[data-card-menu]');
+    const menu = menuEl ? menuEl.getBoundingClientRect() : null;
+    const menuWant = { left: Math.min(x, window.innerWidth - 200), top: Math.min(y, window.innerHeight - 300) };
+    window.__crt.engine.escape();
+    await new Promise((res) => setTimeout(res, 120));
+
+    // The attachments panel, from the tab a real attachment grows.
+    window.__crt.engine.submit({ t: 'ManualAttach', player: me, card: other, to: host });
+    await window.__crt.engine.settle(8000);
+    await new Promise((res) => setTimeout(res, 420));
+    const tab = document.querySelector('[data-attachments="' + host + '"]');
+    if (!tab) {
+      return { skipped: null, menu: menu ? { left: Math.round(menu.left), top: Math.round(menu.top) } : null,
+               menuWant, tabMissing: true };
+    }
+    const tr = tab.getBoundingClientRect();
+    tab.click();
+    await new Promise((res) => setTimeout(res, 220));
+    const panelEl = document.querySelector('[data-attachments-panel]');
+    const panel = panelEl ? panelEl.getBoundingClientRect() : null;
+    const panelWant = {
+      left: Math.min(Math.round(tr.left), window.innerWidth - 246),
+      top: Math.min(Math.round(tr.bottom + 4), window.innerHeight - 40 - 1 * 58),
+    };
+    window.__crt.engine.escape();
+    return {
+      skipped: null, tabMissing: false,
+      menu: menu ? { left: Math.round(menu.left), top: Math.round(menu.top) } : null, menuWant,
+      panel: panel ? { left: Math.round(panel.left), top: Math.round(panel.top) } : null, panelWant,
+    };
+  })()`);
+  if (anchored.skipped) {
+    check('the card menu opens where it was clicked', false, anchored.skipped);
+  } else {
+    check('the card menu opens where it was clicked',
+      !!anchored.menu && Math.abs(anchored.menu.top - anchored.menuWant.top) <= 1
+        && Math.abs(anchored.menu.left - anchored.menuWant.left) <= 1,
+      anchored.menu
+        ? `at ${anchored.menu.left},${anchored.menu.top} — wanted ${anchored.menuWant.left},${anchored.menuWant.top}`
+        : 'no menu opened');
+    if (anchored.tabMissing) {
+      check('the attachments panel opens under its tab', false, 'the host grew no attachment tab');
+    } else {
+      check('the attachments panel opens under its tab',
+        !!anchored.panel && Math.abs(anchored.panel.top - anchored.panelWant.top) <= 1
+          && Math.abs(anchored.panel.left - anchored.panelWant.left) <= 1,
+        anchored.panel
+          ? `at ${anchored.panel.left},${anchored.panel.top} — wanted ${anchored.panelWant.left},${anchored.panelWant.top}`
+          : 'no panel opened');
+    }
+  }
+
   // Hand the table back to the fixtures so the remaining sections are unaffected.
   await js('window.__crt.engine.stop()');
   await js('window.__crt.table.setup({ seatCount: 4 })');
   await js('window.__crt.table.settle(6000)');
   check('the fixture table still works after the engine stops',
     (await js('Object.keys(window.__crt.table.view().cards).length')) > 0);
+  await send('Emulation.clearDeviceMetricsOverride', {});
+}
+
+
+/**
+ * Every prompt the RULES raise, answered the way a player answers it.
+ *
+ * ⚠️ **THIS EXISTS BECAUSE THE ENGINE SEAM WAS NEVER THE PROBLEM.** Four prompts
+ * shipped across M6.3 with unit tests, a bot answer, a fuzz answer and a net
+ * driver answer — and two of them could not be answered by a person at all
+ * (D142 knowingly, D141 without noticing). From a suite that never clicks, that
+ * state is indistinguishable from finished.
+ *
+ * ⚠️ Split out of `sectionEngine` (D146), which was doing two jobs at 104 checks
+ * and growing by seven a slice: M3's rules coverage and this. A prompt failure
+ * buried among land drops and mana pools is a prompt failure people scroll past.
+ *
+ * ⚠️ EVERY BLOCK SAVES ITS OWN DECK and deletes it in a `finally`, pass or fail.
+ * These prompts need cards no starter deck holds, and a battery that leaves
+ * rubbish in `~/.commanders-roundtable` is one people stop running.
+ *
+ * ⚠️ Run it alone with `node scripts/battery-anim.cjs prompts`.
+ */
+async function sectionPrompts(js, send) {
+  console.log('\n── Prompts (M6.3) ──');
+
+  // ⚠️ THE SAME PREAMBLE `sectionEngine` NEEDS, and for the same reason: the
+  // table screen is always mounted but `display: none` when another screen is
+  // active, and a `display: none` element measures 0x0 — so every panel this
+  // section clicks would be found and be unclickable. Trap 7 in AGENTS.md.
+  await goto(js, 'table');
+  await send('Emulation.setDeviceMetricsOverride', {
+    width: 1600, height: 900, deviceScaleFactor: 1, mobile: false,
+  });
+  await waitForStableLayout(js, 200);
+  await sleep(250);
+
+  // ⚠️ A card database is required and its absence is a SKIP, not a failure —
+  // the same rule `botPool.node.test.ts` follows, and loudly, because a section
+  // that silently tests nothing is worse than one that fails.
+  const ready = await js('window.__crt.engine.start(2)');
+  if (!ready || !ready.ok) {
+    check('prompts section skipped — no card database', false, ready ? ready.message : 'no result');
+    await send('Emulation.clearDeviceMetricsOverride', {});
+    return;
+  }
+  await js('window.__crt.engine.settle(8000)');
+
+  /**
+   * THE PEEK PANEL, driven by real clicks (D144).
+   *
+   * ⚠️ **THIS IS THE CHECK THAT WOULD HAVE CAUGHT TWO SHIPPED GAPS.** D142
+   * shipped `orderCards` with no human control and said so; D141's library
+   * `chooseFromZone` had the same hole and NOBODY NOTICED for a whole slice.
+   * Both were answerable by the bot, the fuzzer and the net driver — which is
+   * exactly what "finished" looks like from a test suite that never clicks.
+   *
+   * ⚠️ It needs a card no starter deck holds, so it SAVES A DECK and starts its
+   * own game, the same shape D110's mana check uses for the same reason. The
+   * deck is deleted at the end whether or not the checks pass — a battery that
+   * leaves rubbish in the user's data directory gets ignored.
+   *
+   * ⚠️ THE ASSERTION THAT MATTERS IS THE DRAW ORDER, not that the panel closed.
+   * Everything else about this feature is true whichever way round the sequence
+   * goes; only drawing the cards back proves the player's first click ended up
+   * on top.
+   */
+  const peek = await js(`(async () => {
+    const out = { steps: [] };
+    const mk = (n, q) => ({ quantity: q, name: n, section: 'main', lineNo: 1, raw: q + 'x ' + n });
+    const deck = {
+      id: 'battery-peek', name: 'battery peek',
+      createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+      commanders: [{ quantity: 1, name: 'Talrand, Sky Summoner', section: 'commander', lineNo: 1, raw: '1x Talrand, Sky Summoner' }],
+      main: [mk('Index', 20), mk('Island', 79)], sideboard: [], houseRuled: true, sourceText: '',
+    };
+    let savedId = null;
+    try {
+      const saved = await window.crt.decks.save(deck);
+      savedId = saved.id;
+      const solo = await import('/src/game/solo.ts');
+      const r = await solo.startSolo({ seats: 2, deckIds: [savedId, null], seed: 'battery-peek' });
+      if (!r.ok) { out.error = r.message; return out; }
+      const e = window.__crt.engine;
+      e.submit({ t: 'MulliganDecision', player: 'p1', keep: true });
+      e.submit({ t: 'MulliganDecision', player: 'p2', keep: true });
+      await new Promise((x) => setTimeout(x, 700));
+
+      // Lands out, mana in hand, and an Index to cast.
+      const v0 = e.view();
+      const lands = (v0.zones['hand:p1'] || []).filter((k) => v0.cards[k] && v0.cards[k].card && v0.cards[k].card.name === 'Island');
+      lands.slice(0, 3).forEach((k) => e.submit({ t: 'ManualMoveCard', player: 'p1', card: k, to: { kind: 'battlefield', player: 'p1' } }));
+      e.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'U', amount: 6 });
+      await new Promise((x) => setTimeout(x, 400));
+
+      let idx = null;
+      for (let attempt = 0; attempt < 6 && !idx; attempt++) {
+        const v = e.view();
+        (v.zones['hand:p1'] || []).forEach((k) => {
+          if (!idx && v.cards[k] && v.cards[k].card && v.cards[k].card.name === 'Index') idx = k;
+        });
+        if (!idx) { e.submit({ t: 'ManualDraw', player: 'p1', target: 'p1', count: 6 }); await new Promise((x) => setTimeout(x, 300)); }
+      }
+      if (!idx) { out.error = 'no Index reached hand'; return out; }
+      out.cast = e.submit({ t: 'CastSpell', player: 'p1', card: idx, targets: [] });
+
+      // Let it resolve — the stops may hand priority back before it does.
+      for (let i = 0; i < 10 && !document.querySelector('[data-peek-pick]'); i++) {
+        const v = e.view();
+        if (v.priority) e.submit({ t: 'PassPriority', player: v.priority });
+        await new Promise((x) => setTimeout(x, 250));
+      }
+
+      const els = () => [].slice.call(document.querySelectorAll('[data-peek-card]'));
+      out.panelCards = els().length;
+      out.hint = (document.querySelector('[data-peek-hint]') || {}).textContent || '';
+      out.doneButtons = document.querySelectorAll('[data-peek-done]').length;
+      out.barText = (document.querySelector('[data-prompt-bar]') || {}).textContent || '';
+      if (out.panelCards === 0) { out.error = 'panel never opened'; return out; }
+
+      // Click in a deliberately scrambled order and remember it.
+      const ids = els().map((el) => el.dataset.peekCard);
+      const order = [2, 0, 4, 1, 3].filter((i) => i < ids.length);
+      out.clicked = order.map((i) => ids[i]);
+      for (let i = 0; i < order.length; i++) {
+        els()[order[i]].querySelector('[data-peek-pick]').click();
+        await new Promise((x) => setTimeout(x, 150));
+        if (i === 1) out.midBadge = (document.querySelector('[data-peek-pick="2"]') || {}).dataset ? '2' : null;
+        if (i === 1) out.midHint = (document.querySelector('[data-peek-hint]') || {}).textContent || '';
+      }
+      await new Promise((x) => setTimeout(x, 800));
+      out.panelAfter = document.querySelectorAll('[data-peek-card]').length;
+      out.awaitingAfter = (e.view().awaiting && e.view().awaiting.kind) || null;
+
+      // ⚠️ THE REAL PROOF: draw them back and compare with what was clicked.
+      e.submit({ t: 'ManualDraw', player: 'p1', target: 'p1', count: out.clicked.length });
+      await new Promise((x) => setTimeout(x, 700));
+      const hand = e.view().zones['hand:p1'] || [];
+      out.drawn = hand.slice(-out.clicked.length);
+    } catch (err) {
+      out.error = String(err && err.message ? err.message : err);
+    } finally {
+      if (savedId) { try { await window.crt.decks.delete(savedId); } catch (e2) { out.cleanup = String(e2); } }
+    }
+    return out;
+  })()`);
+
+  if (peek.error) {
+    // An honest skip rather than a green tick — but NOT for "the panel never
+    // opened", which is the failure this block exists to catch.
+    const fatal = peek.error === 'panel never opened';
+    check('the peek panel opens for a rules prompt and takes real clicks', !fatal, peek.error);
+  } else {
+    check('a rules-raised peek opens the panel', peek.panelCards === 5, `${peek.panelCards} cards`);
+    check('the panel counts the picks as they are made',
+      /1\/5|2\/5/.test(peek.midHint || ''), JSON.stringify(peek.midHint));
+    // ⚠️ A "Done" button under a live prompt would clear the reveal WITHOUT
+    // answering, leaving the engine waiting on cards the player can no longer
+    // see. Its absence is a rule, not a style choice.
+    check('no Done button is offered while a prompt is up', peek.doneButtons === 0,
+      `${peek.doneButtons} found`);
+    check('the prompt bar names the ordering, not the hand',
+      /in the order you want them/.test(peek.barText || ''), String(peek.barText).slice(0, 70));
+    check('the last click submits, and the panel closes',
+      peek.panelAfter === 0 && peek.awaitingAfter === null,
+      `${peek.panelAfter} cards left, awaiting=${peek.awaitingAfter}`);
+    check('the cards come back in EXACTLY the clicked order',
+      Array.isArray(peek.drawn) && peek.drawn.join(',') === (peek.clicked || []).join(','),
+      `clicked ${(peek.clicked || []).join(',')} · drew ${(peek.drawn || []).join(',')}`);
+  }
+
+  /**
+   * PAY-TO-ENTER (D136) and the HAND DISCARD (D137), driven by real clicks.
+   *
+   * ⚠️ **D144's own reportable.** Both prompts were driven by hand when they
+   * shipped and covered by nothing afterwards — which is precisely the state
+   * D141's and D142's prompts were in when one of them turned out to have no
+   * control at all. "Somebody clicked it once" is not coverage.
+   *
+   * ⚠️ THE DISCARD PROMPT GOES TO THE TARGET, NOT THE CASTER, and that cost
+   * hours once (D137's investigation): the game correctly waits on the opponent
+   * while the caster's screen shows nothing to do. So this drives BOTH sides —
+   * the caster's bar must say who is deciding, and the answer must be given from
+   * the other seat.
+   *
+   * ⚠️ AND THE CLICK TARGET IS THE CARD, NOT THE SLOT. `[data-hand-instance]`
+   * is the slot WRAPPER; the handler is on `[data-instance-id]` inside it, and
+   * a click on the parent fires nothing. That is the second thing that cost
+   * hours, and encoding it here is most of why this check is worth having.
+   */
+  const prompts = await js(`(async () => {
+    const out = {};
+    const mk = (n, q) => ({ quantity: q, name: n, section: 'main', lineNo: 1, raw: q + 'x ' + n });
+    const save = async (id, name, main, cmd) => {
+      const d = {
+        id, name, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+        commanders: [{ quantity: 1, name: cmd, section: 'commander', lineNo: 1, raw: '1x ' + cmd }],
+        main, sideboard: [], houseRuled: true, sourceText: '',
+      };
+      return (await window.crt.decks.save(d)).id;
+    };
+    const solo = await import('/src/game/solo.ts');
+    const e = window.__crt.engine;
+    const keep = async () => {
+      e.submit({ t: 'MulliganDecision', player: 'p1', keep: true });
+      e.submit({ t: 'MulliganDecision', player: 'p2', keep: true });
+      await new Promise((x) => setTimeout(x, 700));
+      // WARNING: SET THE VIEWER, or p1's own hand comes back with card: null.
+      // startSolo leaves the viewer wherever the turn order starts, and
+      // projection correctly hides a hand from anyone but its owner - so a
+      // search by NAME through another seat's view silently finds nothing and
+      // reads as "the deck has no such card". Same family as the seat confusion
+      // that cost D137 hours.
+      e.setViewer('p1');
+      await new Promise((x) => setTimeout(x, 300));
+    };
+    const findIn = (zone, name) => {
+      const v = e.view();
+      return (v.zones[zone] || []).find((k) => v.cards[k] && v.cards[k].card && v.cards[k].card.name === name) || null;
+    };
+    const drawUntil = async (name, tries) => {
+      for (let i = 0; i < tries; i++) {
+        const hit = findIn('hand:p1', name);
+        if (hit) return hit;
+        e.submit({ t: 'ManualDraw', player: 'p1', target: 'p1', count: 8 });
+        await new Promise((x) => setTimeout(x, 300));
+      }
+      return null;
+    };
+    let shockId = null; let rotId = null;
+    try {
+      // ── D136: a shock land, paid for and declined ─────────────────────────
+      shockId = await save('battery-shock', 'battery shock', [mk('Godless Shrine', 20), mk('Plains', 79)], 'Jasmine Boreal');
+      const paid = {};
+      for (const mode of ['pay', 'decline']) {
+        const r = await solo.startSolo({ seats: 2, deckIds: [shockId, null], seed: 'battery-shock-' + mode });
+        if (!r.ok) { out.shockError = r.message; break; }
+        await keep();
+        const land = await drawUntil('Godless Shrine', 5);
+        if (!land) { out.shockError = 'no Godless Shrine reached hand'; break; }
+        const lifeBefore = e.view().seats.p1.life;
+        // WARNING: MOVED, not played, and that is deliberate twice over. A land
+        // drop needs it to be p1's turn, which startSolo does not guarantee -
+        // and the prompt lives in applyReplacements, which D134 put there
+        // precisely because TEN different paths put a permanent on the
+        // battlefield. Moving it proves the funnel catches a path that is not
+        // the land drop, which is the property worth checking.
+        e.submit({ t: 'ManualMoveCard', player: 'p1', card: land, to: { kind: 'battlefield', player: 'p1' } });
+        await new Promise((x) => setTimeout(x, 900));
+        const btns = [].slice.call(document.querySelectorAll('button[data-action]')).map((b) => b.dataset.action);
+        if (mode === 'pay') {
+          out.shockBar = (document.querySelector('[data-prompt-bar]') || {}).textContent || '';
+          out.shockButtons = btns.filter((x) => /enters-choice/.test(x));
+        }
+        const btn = document.querySelector('button[data-action="' + (mode === 'pay' ? 'pay' : 'decline') + '-enters-choice"]');
+        if (!btn) { out.shockError = 'no ' + mode + ' button'; break; }
+        btn.click();
+        await new Promise((x) => setTimeout(x, 800));
+        const v = e.view();
+        paid[mode] = { life: lifeBefore - v.seats.p1.life, tapped: !!(v.cards[land] && v.cards[land].tapped) };
+      }
+      out.shock = paid;
+
+      // ── D137: a discard, answered from the OTHER seat ─────────────────────
+      rotId = await save('battery-rot', 'battery rot', [mk('Mind Rot', 20), mk('Swamp', 79)], 'Jasmine Boreal');
+      const r2 = await solo.startSolo({ seats: 2, deckIds: [rotId, rotId], seed: 'battery-rot' });
+      if (!r2.ok) { out.rotError = r2.message; return out; }
+      await keep();
+      const swamps = (e.view().zones['hand:p1'] || []).filter((k) => {
+        const c = e.view().cards[k];
+        return c && c.card && c.card.name === 'Swamp';
+      });
+      swamps.slice(0, 3).forEach((k) => e.submit({ t: 'ManualMoveCard', player: 'p1', card: k, to: { kind: 'battlefield', player: 'p1' } }));
+      e.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'B', amount: 6 });
+      await new Promise((x) => setTimeout(x, 400));
+      const rot = await drawUntil('Mind Rot', 5);
+      if (!rot) { out.rotError = 'no Mind Rot reached hand'; return out; }
+      out.rotHandBefore = (e.view().zones['hand:p2'] || []).length;
+      e.submit({ t: 'CastSpell', player: 'p1', card: rot, targets: [{ kind: 'player', id: 'p2' }] });
+      for (let i = 0; i < 10; i++) {
+        await new Promise((x) => setTimeout(x, 250));
+        const bar = (document.querySelector('[data-prompt-bar]') || {}).textContent || '';
+        if (/discarding/.test(bar)) break;
+        const v = e.view();
+        if (v.priority) e.submit({ t: 'PassPriority', player: v.priority });
+      }
+      // ⚠️ The CASTER's screen: it must name who is deciding, not go blank.
+      out.casterBar = (document.querySelector('[data-prompt-bar]') || {}).textContent || '';
+
+      // Now the seat being asked.
+      e.setViewer('p2');
+      await new Promise((x) => setTimeout(x, 800));
+      out.discarderBar = (document.querySelector('[data-prompt-bar]') || {}).textContent || '';
+      const slots = [].slice.call(document.querySelectorAll('[data-hand-instance]'));
+      out.handSlots = slots.length;
+      // ⚠️ The CARD, not the slot wrapper.
+      const cardEl = (el) => el.querySelector('[data-instance-id]');
+      if (slots.length < 2 || !cardEl(slots[0])) { out.rotError = 'no clickable hand cards'; return out; }
+      cardEl(slots[0]).click();
+      await new Promise((x) => setTimeout(x, 400));
+      out.ringsAfterFirst = document.querySelectorAll('[data-pick-rings]').length;
+      cardEl(slots[1]).click();
+      await new Promise((x) => setTimeout(x, 900));
+      const v3 = e.view();
+      out.rotHandAfter = (v3.zones['hand:p2'] || []).length;
+      out.rotGraveyard = (v3.zones['gy:p2'] || []).length;
+      out.rotAwaiting = (v3.awaiting && v3.awaiting.kind) || null;
+    } catch (err) {
+      out.error = String(err && err.message ? err.message : err);
+    } finally {
+      for (const id of [shockId, rotId]) {
+        if (id) { try { await window.crt.decks.delete(id); } catch (e2) { out.cleanup = String(e2); } }
+      }
+    }
+    return out;
+  })()`);
+
+  // ── D136 ────────────────────────────────────────────────────────────────
+  if (prompts.shockError) {
+    check('a shock land offers both answers and honours them', false, prompts.shockError);
+  } else {
+    check('a shock land asks, with both answers as buttons',
+      (prompts.shockButtons || []).length === 2,
+      (prompts.shockButtons || []).join(', ') + ' — ' + String(prompts.shockBar).slice(0, 60));
+    // ⚠️ BOTH BRANCHES, in two games. A check that only paid would pass with the
+    // decline button wired to the same handler.
+    check('paying costs the life and leaves the land untapped',
+      prompts.shock && prompts.shock.pay && prompts.shock.pay.life === 2 && prompts.shock.pay.tapped === false,
+      JSON.stringify(prompts.shock && prompts.shock.pay));
+    check('declining costs nothing and taps it',
+      prompts.shock && prompts.shock.decline && prompts.shock.decline.life === 0 && prompts.shock.decline.tapped === true,
+      JSON.stringify(prompts.shock && prompts.shock.decline));
+  }
+
+  // ── D137 ────────────────────────────────────────────────────────────────
+  if (prompts.rotError) {
+    check('a discard is asked of the TARGET and answered by clicking cards', false, prompts.rotError);
+  } else {
+    // ⚠️ The caster's own screen. Blank here is what sent D137's investigation
+    // into the engine for hours.
+    check('the CASTER is told who is deciding', /discarding/.test(prompts.casterBar || ''),
+      String(prompts.casterBar).slice(0, 60));
+    check('the seat being asked is told what to click',
+      /click 2 cards in your hand/.test(prompts.discarderBar || ''),
+      String(prompts.discarderBar).slice(0, 60));
+    check('the first pick draws a ring', prompts.ringsAfterFirst === 1,
+      String(prompts.ringsAfterFirst) + ' ring layers');
+    check('the second pick sends it: two cards leave the hand for the graveyard',
+      prompts.rotHandAfter === prompts.rotHandBefore - 2 && prompts.rotGraveyard === 2 && prompts.rotAwaiting === null,
+      `hand ${prompts.rotHandBefore}→${prompts.rotHandAfter}, gy ${prompts.rotGraveyard}, awaiting=${prompts.rotAwaiting}`);
+  }
+  await js("window.__crt.engine.setViewer('p1')");
+
+  /**
+   * THE "MAY" TRIGGER (D128) — the one prompt no machine had ever clicked.
+   *
+   * ⚠️ **IT WAS UNREACHABLE IN THE RUNNING APP, not merely uncovered.**
+   * `optionalTrigger` is raised only by a registered `TriggerDef`, and
+   * `host.ts` hardcoded the shipped registry — so no deck, no board and no sequence
+   * of clicks could produce it. Its buttons, its intent and its answer path were
+   * covered by `tsc -b` and review alone while every other M6.3 prompt was being
+   * clicked by a machine (D145). `HostOptions.scripts` is the seam, and this
+   * passes the TEST registry through it. **Nothing here ships a card script** —
+   * see D146, and that field's own note for the accounting M6.4 still owes.
+   *
+   * ⚠️ THE ENCHANTMENT IS MOVED, NOT CAST — casting at sorcery speed needs p1's
+   * own main phase, which `startSolo` does not guarantee (D145's shock land, the
+   * same reason). The trigger's `activeZones` is the battlefield and it does not
+   * care how the card got there.
+   *
+   * ⚠️ BOTH BRANCHES, IN ONE GAME, because this trigger fires EVERY upkeep — so
+   * taking it and declining it are two turns rather than two games. Asking again
+   * next turn is itself an assertion: a prompt answered once must not be spent.
+   *
+   * ⚠️ SPLIT ACROSS SEVERAL `js()` CALLS ON PURPOSE. Every CDP send has a hard
+   * 30 s timeout, and reaching the next upkeep is two turn cycles of real
+   * priority passing — one long expression would report a CDP timeout, which
+   * reads exactly like a wedged engine. `window.__may` holds the helpers between
+   * calls and `drive()` takes its own budget.
+   */
+  let may = {};
+  try {
+    may = await js(`(async () => {
+      const out = {};
+      const e = window.__crt.engine;
+      const solo = await import('/src/game/solo.ts');
+      // ⚠️ Stateless factories, so trap 1 does not apply: a ghost copy of a
+      // registry BUILDER produces an equivalent registry, where a ghost copy of
+      // a zustand store is a different store. Never reach for a store this way.
+      const cs = await import('/src/engine/testing/cardScripts.ts');
+      const rg = await import('/src/engine/scripts/registry.ts');
+      const nap = (ms) => new Promise((x) => setTimeout(x, ms));
+      const btn = (a) => document.querySelector('button[data-action="' + a + '"]');
+      const bar = () => (document.querySelector('[data-prompt-bar]') || {}).textContent || '';
+
+      window.__may = {
+        btn, bar, nap,
+        /**
+         * Play on until the "may" trigger asks, answering anything in the way.
+         *
+         * ⚠️⚠️ THE PROMPT IS DETECTED IN THE **DOM**, NEVER IN \`e.view()\`. The
+         * dev view LAGS THE ENGINE BY ONE ANIMATION GROUP (D137), and the group
+         * that stops the game on this trigger is the last one — so at the exact
+         * moment the bar reads "Ajani's Mantra — gain 1 life — this one is
+         * optional" and both buttons are on screen, \`view().awaiting\` is still
+         * \`undefined\` and stays that way. The first cut polled it and reported
+         * "the prompt never came up" about a prompt that was up.
+         */
+        drive: async (budgetMs) => {
+          const t0 = Date.now();
+          e.setViewer('p1');
+          while (Date.now() - t0 < budgetMs) {
+            if (btn('take-optional-trigger')) { await nap(250); return true; }
+            const v = e.view();
+            const aw = v.awaiting;
+            // ⚠️ Nobody attacks. Otherwise p2's starter deck swings, p1's life
+            // moves for reasons that have nothing to do with the trigger, and
+            // the life assertions below measure combat instead.
+            if (aw && aw.kind === 'declareAttackers') e.submit({ t: 'DeclareAttackers', player: aw.player, attackers: [] });
+            else if (aw && aw.kind === 'declareBlockers') e.submit({ t: 'DeclareBlockers', player: aw.player, blocks: [] });
+            else if (v.priority) e.submit({ t: 'PassPriority', player: v.priority });
+            await nap(60);
+          }
+          return false;
+        },
+        answer: async (action) => {
+          const r = {};
+          const before = e.view().seats.p1.life;
+          r.buttons = [].slice.call(document.querySelectorAll('button[data-action]'))
+            .map((b) => b.dataset.action).filter((a) => /optional-trigger/.test(a));
+          r.bar = bar();
+          const b = btn(action);
+          if (!b) { r.error = 'no ' + action + ' button'; return r; }
+          b.click();
+          await nap(1200);
+          r.life = e.view().seats.p1.life - before;
+          // ⚠️ THE DOM AGAIN, for the same reason \`drive\` uses it — and it is
+          // the better assertion anyway: "the buttons are gone" is what the
+          // player sees, where an awaiting field is what the engine holds.
+          r.stillAsking = !!btn('take-optional-trigger');
+          return r;
+        },
+      };
+
+      const mk = (n, q) => ({ quantity: q, name: n, section: 'main', lineNo: 1, raw: q + 'x ' + n });
+      const deck = {
+        id: 'battery-mantra', name: 'battery mantra',
+        createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+        commanders: [{ quantity: 1, name: 'Jasmine Boreal', section: 'commander', lineNo: 1, raw: '1x Jasmine Boreal' }],
+        main: [mk("Ajani's Mantra", 20), mk('Plains', 79)], sideboard: [],
+        houseRuled: true, sourceText: '',
+      };
+      out.deckId = (await window.crt.decks.save(deck)).id;
+      const r = await solo.startSolo({
+        seats: 2, deckIds: [out.deckId, null], seed: 'battery-mantra',
+        scripts: rg.createRegistry([cs.AJANIS_MANTRA]),
+      });
+      if (!r.ok) { out.error = r.message; return out; }
+      e.submit({ t: 'MulliganDecision', player: 'p1', keep: true });
+      e.submit({ t: 'MulliganDecision', player: 'p2', keep: true });
+      await nap(700);
+      // ⚠️ D145's trap: startSolo leaves the viewer wherever turn order starts,
+      // so p1's own hand reads back with card: null through another seat's view.
+      e.setViewer('p1');
+      await nap(250);
+
+      const find = () => {
+        const v = e.view();
+        return (v.zones['hand:p1'] || []).find((k) => {
+          const c = v.cards[k];
+          return c && c.card && c.card.name === "Ajani's Mantra";
+        }) || null;
+      };
+      let mantra = find();
+      for (let i = 0; i < 5 && !mantra; i++) {
+        e.submit({ t: 'ManualDraw', player: 'p1', target: 'p1', count: 8 });
+        await nap(300);
+        mantra = find();
+      }
+      if (!mantra) { out.error = "no Ajani's Mantra reached hand"; return out; }
+      e.submit({ t: 'ManualMoveCard', player: 'p1', card: mantra, to: { kind: 'battlefield', player: 'p1' } });
+      await nap(500);
+      return out;
+    })()`);
+
+    if (!may.error) {
+      let arrived = false;
+      for (let i = 0; i < 6 && !arrived; i++) arrived = await js('window.__may.drive(20000)');
+      if (!arrived) may.error = 'the may-trigger prompt never came up';
+      else may.took = await js("window.__may.answer('take-optional-trigger')");
+    }
+    if (!may.error) {
+      let again = false;
+      for (let i = 0; i < 6 && !again; i++) again = await js('window.__may.drive(20000)');
+      may.askedAgain = again;
+      if (again) may.declined = await js("window.__may.answer('decline-optional-trigger')");
+    }
+  } finally {
+    // ⚠️ D144's rule: a block that saves its own deck deletes it, pass or fail.
+    // The `finally` is on THIS side because the work is split across calls.
+    await js("window.crt.decks.delete('battery-mantra').catch(() => undefined)");
+  }
+
+  if (may.error || (may.took && may.took.error)) {
+    check('a "may" trigger stops the game and asks its controller', false,
+      may.error || may.took.error);
+  } else {
+    check('a "may" trigger stops the game and offers both answers',
+      (may.took.buttons || []).length === 2, (may.took.buttons || []).join(', '));
+    // ⚠️ The card's OWN label, because the prompt bar is the only thing on
+    // screen that can say WHAT is optional — "Do it" cannot.
+    check('the prompt names the card, and says it is optional',
+      /Ajani.s Mantra/.test(may.took.bar || '') && /optional/.test(may.took.bar || ''),
+      String(may.took.bar).slice(0, 70));
+    check('taking it runs the ability — 1 life',
+      may.took.life === 1 && may.took.stillAsking === false,
+      'life +' + may.took.life + ', still asking: ' + may.took.stillAsking);
+    // ⚠️ Answered once is not spent: it is a trigger, and it fires every upkeep.
+    check('it asks again on the next upkeep', may.askedAgain === true, String(may.askedAgain));
+    // ⚠️ BOTH BRANCHES. Before D128 nothing anywhere branched on `optional`, so
+    // the ability ran whether or not the player wanted it — which is exactly the
+    // state a decline button wired to the same handler would restore.
+    check('declining runs nothing at all',
+      !!may.declined && may.declined.life === 0 && may.declined.stillAsking === false,
+      may.declined ? 'life +' + may.declined.life + ', still asking: ' + may.declined.stillAsking : 'never asked');
+  }
+
+  /**
+   * CR 616 — WHICH REPLACEMENT APPLIES FIRST (D148), both branches.
+   *
+   * ⚠️ **THE FUZZ GATE CANNOT REACH THIS AND IT WAS MEASURED, NOT ASSUMED: 500
+   * seeds, zero suspensions.** The funnel stops only when TWO replacements apply
+   * to ONE event, which needs both one-of enchantments onto the same battlefield
+   * plus a +1/+1 counter afterwards — three specific cards inside 200 random
+   * intents. So this is the coverage, and it is the stronger kind anyway: real
+   * clicks, in a real Electron, on the buttons a person would use.
+   *
+   * ⚠️ It runs at all because of the \`HostOptions.scripts\` seam D146 built for
+   * \`optionalTrigger\`. The app still ships no card scripts.
+   *
+   * ⚠️ **BOTH ORDERS, IN TWO GAMES, AND THE NUMBERS DIFFER — that is the whole
+   * point of the rule.** Two counters become SIX applying "plus one" first and
+   * FIVE applying "twice" first. A check that only did one would pass with the
+   * player's answer thrown away and battlefield order used, which is exactly
+   * what D134 shipped and D148 replaced.
+   */
+  let cr616 = {};
+  try {
+    cr616 = await js(`(async () => {
+      const out = {};
+      const nap = (ms) => new Promise((x) => setTimeout(x, ms));
+      const e = window.__crt.engine;
+      const solo = await import('/src/game/solo.ts');
+      const cs = await import('/src/engine/testing/cardScripts.ts');
+      const rg = await import('/src/engine/scripts/registry.ts');
+      const reg = rg.createRegistry([cs.HARDENED_SCALES_SCRIPT, cs.BRANCHING_EVOLUTION_SCRIPT]);
+      const mk = (n, q) => ({ quantity: q, name: n, section: 'main', lineNo: 1, raw: q + 'x ' + n });
+
+      const deck = {
+        id: 'battery-cr616', name: 'battery cr616',
+        createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+        commanders: [{ quantity: 1, name: 'Jasmine Boreal', section: 'commander', lineNo: 1, raw: '1x Jasmine Boreal' }],
+        main: [mk('Hardened Scales', 25), mk('Branching Evolution', 25), mk('Grizzly Bears', 25), mk('Forest', 24)],
+        sideboard: [], houseRuled: true, sourceText: '',
+      };
+      out.deckId = (await window.crt.decks.save(deck)).id;
+
+      const find = (name) => {
+        const v = e.view();
+        return (v.zones['hand:p1'] || []).find((k) => {
+          const c = v.cards[k];
+          return c && c.card && c.card.name === name;
+        }) || null;
+      };
+      const put = async (name) => {
+        for (let i = 0; i < 6; i++) {
+          const id = find(name);
+          if (id) {
+            e.submit({ t: 'ManualMoveCard', player: 'p1', card: id, to: { kind: 'battlefield', player: 'p1' } });
+            // ⚠️ **WAIT FOR IT TO ACTUALLY LAND, do not nap and hope.** A fixed
+            // sleep let the counter be set while the Grizzly Bears was still in
+            // HAND — the prompt still appeared (both replacements match on the
+            // CONTROLLER, not on the zone), the answer was taken, and then
+            // clearBattlefieldFields() wiped the counters the instant the card
+            // entered. The check read 0 counters and looked exactly like a
+            // broken resume.
+            // (No backticks in this comment: it lives inside a template literal.)
+            for (let w = 0; w < 20; w++) {
+              if ((e.view().zones['bf:p1'] || []).includes(id)) return id;
+              await nap(120);
+            }
+            return null;
+          }
+          e.submit({ t: 'ManualDraw', player: 'p1', target: 'p1', count: 8 });
+          await nap(300);
+        }
+        return null;
+      };
+
+      /** One game: put both enchantments and a bear down, add 2, answer \`want\`. */
+      const run = async (want, seed) => {
+        const r = await solo.startSolo({ seats: 2, deckIds: [out.deckId, null], seed, scripts: reg });
+        if (!r.ok) return { error: r.message };
+        e.submit({ t: 'MulliganDecision', player: 'p1', keep: true });
+        e.submit({ t: 'MulliganDecision', player: 'p2', keep: true });
+        await nap(700);
+        // ⚠️ D145's trap: startSolo leaves the viewer wherever turn order starts.
+        e.setViewer('p1');
+        await nap(250);
+        if (!(await put('Hardened Scales'))) return { error: 'no Hardened Scales' };
+        if (!(await put('Branching Evolution'))) return { error: 'no Branching Evolution' };
+        const bears = await put('Grizzly Bears');
+        if (!bears) return { error: 'no Grizzly Bears' };
+
+        e.submit({ t: 'ManualSetCounter', player: 'p1', card: bears, kind: '+1/+1', delta: 2 });
+        await nap(700);
+
+        const bar = (document.querySelector('[data-prompt-bar]') || {}).textContent || '';
+        const btns = [].slice.call(document.querySelectorAll('button[data-action="choose-replacement"]'));
+        const labels = btns.map((b) => b.textContent || '');
+        // ⚠️ Matched on the ability's PRINTED TEXT — \`Hardened Scales\` does not
+        // contain its own NAME in its own text, which is how the first cut of the
+        // unit test silently fell back to battlefield order.
+        const pick = btns.find((b) => (b.textContent || '').includes(want));
+        if (!pick) return { error: 'no button for ' + want + ' — saw: ' + labels.join(' | '), bar, labels };
+        pick.click();
+        await nap(900);
+        const counters = (e.view().cards[bears] || {}).counters || {};
+        return { bar, labels, counters: counters['+1/+1'] ?? 0, awaiting: (e.view().awaiting && e.view().awaiting.kind) || null };
+      };
+
+      out.plusOne = await run('plus one', 'cr616-a');
+      out.twice = await run('twice', 'cr616-b');
+      return out;
+    })()`);
+  } finally {
+    // ⚠️ D144's rule: a block that saves its own deck deletes it, pass or fail.
+    await js("window.crt.decks.delete('battery-cr616').catch(() => undefined)");
+  }
+
+  if (cr616.plusOne?.error || cr616.twice?.error) {
+    check('CR 616 asks which replacement applies first', false,
+      cr616.plusOne?.error || cr616.twice?.error);
+  } else {
+    check('two replacements on one event STOP the game and ask',
+      (cr616.plusOne.labels || []).length === 2,
+      String(cr616.plusOne.bar).slice(0, 70));
+    // ⚠️ THE TWO NUMBERS ARE THE RULE. Six one way, five the other, same board.
+    check('applying "plus one" first gives 6 counters',
+      cr616.plusOne.counters === 6 && cr616.plusOne.awaiting === null,
+      cr616.plusOne.counters + ' counters, awaiting=' + cr616.plusOne.awaiting);
+    check('applying "twice" first gives 5 — the order genuinely matters',
+      cr616.twice.counters === 5 && cr616.twice.awaiting === null,
+      cr616.twice.counters + ' counters, awaiting=' + cr616.twice.awaiting);
+  }
+
+  // Hand the table back to the fixtures so the remaining sections are unaffected.
+  await js('window.__crt.engine.stop()');
+  await js('window.__crt.table.setup({ seatCount: 4 })');
+  await js('window.__crt.table.settle(6000)');
+  /**
+   * THE FACE CHOOSER, driven by real clicks (D155).
+   *
+   * ⚠️ **WITHOUT THIS, D155 IS THE STATE D142 SHIPPED IN AND D143 CALLED OUT**:
+   * the engine takes a face, the bot and the fuzzer pass one, and no person at
+   * the table can choose. `legalActions` has offered every castable face since
+   * M3 while the click path took the FIRST match, so the second half of 355
+   * Commander-legal cards was listed and unreachable.
+   *
+   * ⚠️ It plays the LAND half, which needs no mana at all — so the check is
+   * about the choice and not about a board that can pay for something.
+   */
+  let faces = { error: 'not run' };
+  try {
+    faces = await js(`(async () => {
+      const out = {};
+      const nap = (ms) => new Promise((x) => setTimeout(x, ms));
+      const e = window.__crt.engine;
+      const solo = await import('/src/game/solo.ts');
+      const mk = (n, q) => ({ quantity: q, name: n, section: 'main', lineNo: 1, raw: q + 'x ' + n });
+      const deck = {
+        id: 'battery-mdfc', name: 'battery mdfc',
+        createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+        commanders: [{ quantity: 1, name: 'Jasmine Boreal', section: 'commander', lineNo: 1, raw: '1x Jasmine Boreal' }],
+        main: [mk('Malakir Rebirth // Malakir Mire', 40), mk('Forest', 59)],
+        sideboard: [], houseRuled: true, sourceText: '',
+      };
+      out.deckId = (await window.crt.decks.save(deck)).id;
+
+      const r = await solo.startSolo({ seats: 2, deckIds: [out.deckId, null], seed: 4242 });
+      if (!r.ok) return { error: r.message };
+      e.submit({ t: 'MulliganDecision', player: 'p1', keep: true });
+      e.submit({ t: 'MulliganDecision', player: 'p2', keep: true });
+      await nap(700);
+      // D145's trap: startSolo leaves the viewer wherever turn order starts.
+      e.setViewer('p1');
+      await nap(400);
+
+      const find = () => {
+        const v = e.view();
+        return (v.zones['hand:p1'] || []).find((k) => {
+          const c = v.cards[k];
+          return c && c.card && c.card.name.indexOf('Malakir') === 0;
+        }) || null;
+      };
+      let id = find();
+      for (let i = 0; i < 6 && !id; i++) {
+        e.submit({ t: 'ManualDraw', player: 'p1', target: 'p1', count: 8 });
+        await nap(300);
+        id = find();
+      }
+      if (!id) return { error: 'no Malakir Rebirth reached hand' };
+      out.card = id;
+
+      // ⚠️ P1 MUST BE IN THEIR OWN MAIN PHASE, or there is no land drop and the
+      // card offers ONE action instead of two — the panel is for the CHOICE, so
+      // with one option it correctly does not open and the check would fail for
+      // a reason that has nothing to do with what it tests. D145's trap, one
+      // step further along: startSolo does not promise whose turn it is.
+      for (let i = 0; i < 60; i++) {
+        const sn = e.state();
+        if (sn.turn && sn.turn.active === 'p1' && String(sn.turn.step || '').toLowerCase().indexOf('main') >= 0
+            && sn.priority === 'p1' && !sn.awaiting) break;
+        if (sn.priority) e.submit({ t: 'PassPriority', player: sn.priority });
+        await nap(90);
+      }
+      // ⚠️ THE VIEWER AGAIN. Passing priority through a hotseat hands the seat
+      // over (D119), so the viewer set before the loop is not the viewer after it
+      // — and p1's hand is then not rendered at all, which reads as 'the card is
+      // missing' rather than 'you are looking at somebody else's hand'.
+      e.setViewer('p1');
+      await nap(400);
+      const snap = e.state();
+      out.turn = snap.turn;
+      out.priority = snap.priority;
+      out.actions = (snap.legal || []).filter((x) => x.card === id).map((x) => x.t);
+
+      // ⚠️ data-instance-id, NOT the data-hand-instance slot wrapper —
+      // D145 encoded that trap and it is the same one here.
+      const el = document.querySelector('[data-instance-id="' + id + '"]');
+      if (!el) return { error: 'card not rendered in hand' };
+      el.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await nap(350);
+
+      const panel = document.querySelector('[data-face-choice]');
+      out.panel = panel ? Number(panel.getAttribute('data-face-choice')) : 0;
+      out.options = Array.from(document.querySelectorAll('[data-face-option]'))
+        .map((b) => b.getAttribute('data-face-option'));
+      if (!panel) return out;
+
+      // The BACK face: the land half.
+      const back = document.querySelector('[data-face-option="1"]');
+      if (!back) { out.error = 'no face 1 offered'; return out; }
+      back.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await nap(600);
+      e.settle(4000);
+      await nap(400);
+
+      const v = e.view();
+      out.onBattlefield = (v.zones['bf:p1'] || []).indexOf(id) >= 0;
+      out.faceIndex = v.cards[id] ? v.cards[id].faceIndex : -1;
+      out.tapped = v.cards[id] ? !!v.cards[id].tapped : false;
+      out.panelClosed = !document.querySelector('[data-face-choice]');
+      return out;
+    })()`);
+  } finally {
+    // D144's rule: a block that saves its own deck deletes it, pass or fail.
+    await js("window.crt.decks.delete('battery-mdfc').catch(() => undefined)");
+  }
+
+  if (faces.error) {
+    check('a card with two playable faces asks which half', false, faces.error);
+  } else {
+    check('a card with two playable faces asks which half',
+      faces.panel === 2,
+      'panel=' + faces.panel + ' options=[' + (faces.options || []).join(',') + '] actions=[' +
+        (faces.actions || []).join(',') + '] turn=' + JSON.stringify(faces.turn) + ' prio=' + faces.priority);
+    check('choosing the BACK face plays that face',
+      faces.onBattlefield === true && faces.faceIndex === 1,
+      'battlefield=' + faces.onBattlefield + ' faceIndex=' + faces.faceIndex);
+    // ⚠️ D134's rule reached through a real click, on a back face, which is the
+    // whole point: the entry rules could never see one before D155.
+    check('and the back face enters TAPPED, as its own text says',
+      faces.tapped === true, 'tapped=' + faces.tapped);
+    check('and the panel closes behind it', faces.panelClosed === true, String(faces.panelClosed));
+  }
+
   await send('Emulation.clearDeviceMetricsOverride', {});
 }
 
@@ -3161,6 +5277,8 @@ async function main() {
     ['fx', sectionFx],
     ['combat', sectionCombat],
     ['engine', sectionEngine],
+    ['prompts', sectionPrompts],
+    ['bot', sectionBot],
     ['drag', sectionDrag],
     ['net', sectionNet],
     ['motion', sectionMotion],

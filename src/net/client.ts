@@ -590,6 +590,21 @@ export class ClientSession {
         zone,
         controller: cv.controller,
         kinds,
+        types,
+        /**
+         * ⚠️ **THE VIEW'S P/T, NOT THE PRINTING'S** (D139). `CardView.power` is
+         * documented as "CURRENT power/toughness after counters and effects",
+         * which is exactly what the host computes with `derive()` — and the two
+         * adapters MUST agree, or the aim veil lights up a creature the host
+         * then refuses. Reading `face.power` here would disagree on every
+         * pumped creature.
+         *
+         * ⚠️ Mana value comes from the ORACLE CARD, not the face: a split card's
+         * faces each have their own cost, and `manaValue` is the whole card's.
+         */
+        manaValue: oracleCard.manaValue,
+        power: cv.power,
+        toughness: cv.toughness,
         colors: face.colors,
         hexproof: face.keywords.includes('hexproof'),
         shroud: face.keywords.includes('shroud'),
@@ -607,6 +622,17 @@ export class ClientSession {
         zone: 'stack',
         controller: item.controller,
         kinds: ['spell'],
+        types: [],
+        /**
+         * ⚠️ A SPELL ON THE STACK HAS A MANA VALUE and 504 lines restrict on it
+         * (`Disdainful Stroke`). `instanceId` is null for an activated or
+         * triggered ability, which genuinely has none.
+         */
+        manaValue: item.instanceId
+          ? (this.pool.oracle().byPrinting(this.view.cards[item.instanceId]?.card?.scryfallId ?? '')?.manaValue ?? null)
+          : null,
+        power: null,
+        toughness: null,
         colors: [],
         hexproof: false,
         shroud: false,
@@ -620,6 +646,10 @@ export class ClientSession {
         zone: 'player',
         controller: player,
         kinds: ['player'],
+        types: [],
+        manaValue: null,
+        power: null,
+        toughness: null,
         colors: [],
         hexproof: false,
         shroud: false,

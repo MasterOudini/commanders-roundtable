@@ -5,6 +5,7 @@ import {
   ORACLE,
   advanceUntil,
   find,
+  holdEverywhere,
   must,
   put,
   startedGame,
@@ -28,6 +29,14 @@ function combatBoard(mine: readonly string[], theirs: readonly string[]) {
   });
   const attackers = mine.map((n) => put(game, 'p1', n));
   const blockers = theirs.map((n) => put(game, 'p2', n));
+  // ⚠️ Every case below observes combat MID-FLIGHT — the blocker order, the
+  // board between blocks and damage, a creature pulled out of combat before it
+  // fights. Auto-pass runs the game straight through any window in which nobody
+  // could act, so without this the whole of combat happens inside the `block()`
+  // submit and each of those tests asserts on a moment that has already gone.
+  // A rules test must not depend on the stops policy: `holdEverywhere` says
+  // "stop everywhere" out loud, instead of leaning on the defaults to do it.
+  holdEverywhere(game);
   advanceUntil(game, (s) => s.turn.turnNumber === 3 && s.priority.awaiting?.kind === 'declareAttackers');
   return { game, attackers, blockers };
 }

@@ -26,6 +26,9 @@ Design documents, preserved in-repo so they survive any single session:
 | `docs/M3-HANDOFF.md` | Self-contained brief for M3. Complete. |
 | `docs/M4-HANDOFF.md` | Self-contained brief for M4. Complete. |
 | `docs/M5-HANDOFF.md` | Self-contained brief for M5. Complete. |
+| `docs/M6-BOT-HANDOFF.md` | Self-contained brief for M6 — the bot opponent. **M6.1 and M6.2 are DONE (D121, D126); M6.3 is MEASURED (D127), with `optional` BUILT (D128), layer 6's ability half BUILT and ORDERED (D129), counter EFFECTS built (D130), TOKEN effects built on a baked resolver (D132/D133), "enters tapped" plus the revived replacement API (D134), its CONDITION on seven board queries (D135), the replacement effect that ASKS (D136), DISCARD on the first prompt over a hidden zone (D137), the graveyard return with the target restriction it exposed (D138), the numeric restriction (D139), the top-N look (D141), and the ordering prompt (D142) — together taking `complete` from **1,405 to 1,723**; M6.4–M6.5 are not started.** ⚠️ Its ≥95% bar for level 1 over level 0 was measured and MISSED at 82.8% [79.2%, 85.9%] — D126 says why, and the reason is the baseline rather than the bot. Read it before any work on solo AI: it states why "a bot that knows every card" is two projects, and which one is the long one. ⚠️ Its §3 table and §5 are written from the HOST's side and are wrong for a client-side bot in five rows — D121 lists them. |
+| `docs/M6.4-LIBRARY-SPEC.md` | **The full-coverage spec: every one of the 31,692 Commander-legal cards inside the bot, including the genuinely hard ones. THE SCAFFOLDING IS BUILT; NO CARD IS SCRIPTED YET.** Sizes each class of hard card against the real database (cost modification 1,496 · replacement 1,154 · copy 980 · combat maximisation 645 · linked abilities 621 · rule-changing 166), says what each needs from the ENGINE rather than from a script, and names the cards that will never be automated. Read it before any card-scripting work. ⚠️ Its M6.4a done-when was AMENDED in D157: "every gate in §6 runs in CI" is not achievable — nine test files need the 86 MB card database and SKIP without it, leaving a run green — so CI holds gates 2/3/4 and `verify.cjs --full` holds 1 and 5. |
+| `docs/M6.4-HANDOFF.md` | **Self-contained brief for starting M6.4 in a fresh session.** Where the numbers stand (1,730 of 31,692 complete; 1,263 blocked on a script alone), what the pre-M6.4 pass built to land into, the loop, the non-negotiable constraints, the traps this repo has already paid for, and the two open reportables. Start a card-scripting session here. |
 | `docs/SCRYFALL.md` | What we take from Scryfall, the API obligations, and the two attribution strings the About screen must display verbatim. |
 | `docs/INSTALL-AND-PLAY.md` | **For the friends, not for a developer.** Install, first-run sync, deck import, hosting, the firewall prompt, and what to do when it goes wrong. |
 
@@ -41,7 +44,7 @@ deliberately diverged. Where they disagree, DECISIONS.md wins.
 | **2 — keyword automation** | Parsed from Scryfall `keywords[]` and enforced where it affects combat or casting. | flying, reach, trample, vigilance, haste, lifelink, deathtouch, first/double strike, menace, defender, indestructible, flash, hexproof, shroud, landwalk, fear, intimidate, skulk, shadow, horsemanship, **infect, wither, toxic** (M5), protection from a colour, and ward as a cast-time tax — mana **or** `ward—Pay N life` (M5) |
 | **2.5 — parsed effects** (D90) | A spell whose text the ingest understands COMPLETELY resolves by itself. Measured: **274 of 6,975** Commander-legal instants/sorceries. | `Lightning Bolt`, `Shock`, `Negate`, `Mortify`, `Harmonize`, `Pull Under` — damage, destroy, exile, bounce, counter, pump, tap/untap, draw, gain/lose life |
 | **2.5a — assisted** (D90) | A spell the ingest understands only IN PART never runs by itself. When it resolves the prompt bar offers the understood part as one logged, manual click and says the rest is yours. **1,300** spells. | `Beast Within` — "Destroy target permanent" is offered; "its controller creates a 3/3" is yours |
-| **3 — manual with helpers** | NOT enforced, **and said so on the card** (`src/data/tier3.ts`, shown in the hover zoom — D68). The player reads the card and uses a tool. | Every other card ability. Tools: move any card between any zones, create tokens, add/remove counters, adjust life/mana, tap/untap anything, reveal cards, roll dice, flip coins |
+| **3 — manual with helpers** | NOT enforced, **and said so on the card** (`src/data/tier3.ts`, shown in the hover zoom — D68, D122, D124). The player reads the card and uses a tool. Measured: **21,037 of 31,692** Commander-legal cards carry a note. | Every other card ability — including every triggered and static ability on a permanent, any activated ability the engine charges but cannot run, and the half of a mana line that is not "add mana". Tools: move any card between any zones, create tokens, add/remove counters, adjust life/mana, tap/untap anything, reveal cards, roll dice, flip coins |
 
 The engine is architected (event-driven, per-card script registry) so individual
 cards can gain scripted automation later **without rewrites**. A script-less
@@ -227,15 +230,22 @@ node electron/cardsvc-worker.cjs --sync --rebuild     #   re-transform from the 
 node electron/cardsvc-worker.cjs --reindex            #   rebuild only cards.idx, offline
 node electron/cardsvc-worker.cjs --query "sol ring"   #   ad-hoc lookup
 node scripts/battery-anim.cjs                         # THE ANIMATION BATTERY (M2 + M3 + M4 + M5)
-node scripts/battery-anim.cjs flight table tap hand choreo beats hud fx combat engine drag net motion perf
+node scripts/battery-anim.cjs flight table tap hand choreo beats hud fx combat engine bot drag net motion perf
 node scripts/two-instance.cjs                         # M4 SIGN-OFF: two real apps, one LAN socket
 node scripts/two-instance.cjs --keep                  #   leave both windows up to poke at
 node scripts/two-instance.cjs --offline               # M5 OFFLINE AUDIT: the same, with DNS dark
 npm run audit:bundle                                  # M5: what is actually inside release/
 node scripts/install-proof.cjs [--uninstall]          # M5: install it, and ask it where its files are
 node scripts/battery-relay.cjs                         # the RELAY: rooms, blind forwarding, restart
+node scripts/battery-bot.cjs                           # M6.2: level 1 vs level 0, 60 games + a Wilson interval
+node scripts/battery-bot.cjs --games 500               #   the gate: 1,000 games
 node relay/src/server.js 5281                         # the standalone relay (needs `npm i` in relay/)
 node scripts/make-engine-fixtures.cjs                 # regenerate src/data/fixtures/engineCards.ts
+npx vitest run src/data/fixtures/engineCards.node.test.ts           #   …and the guard that all 86 still match the live DB (D123)
+CRT_BOTPOOL_REPORT=1 npx vitest run src/data/botPool.node.test.ts   # M6.1: what the engine runs COMPLETELY, over the real DB
+CRT_WRITE_BOT_DECK=1 npx vitest run src/data/botPool.node.test.ts   #   and regenerate src/data/botDeck.ts from it
+CRT_TIER3_REPORT=1 npx vitest run src/data/tier3.node.test.ts       # D122/D124: what the app SAYS it will not do, over the real DB
+CRT_PRIMITIVES_REPORT=1 npx vitest run src/data/primitives.node.test.ts  # M6.3/D127: what each missing engine primitive is worth
 node scripts/battery-anim.cjs --keep                  #   leave Electron up to poke at
 npx electron . --dev --remote-debugging-port=9223 \
   --disable-backgrounding-occluded-windows --disable-renderer-backgrounding
@@ -1221,6 +1231,2582 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       creature face, flipping forward again gave **5, not 8**, and −5 logged
       "Jace, Telepath Unbound dies."
 
+- [x] **Tap a permanent by pointing at it and pressing E (2026-07-29):** the thing
+      a Commander player does most often cost a right-click, a menu and a button.
+      `E` over the card does it now, in both directions — a tapped card
+      straightens. `src/ui/game/useTapKey.ts` · called from `GameLayer` beside
+      `useAimGesture` · the card menu's button says `Tap ᴇ`, because a key nobody
+      is told about has not shipped (`SkipHint`'s lesson). Decisions in **D109**.
+      ⚠️ **The SAME Tier-3 tool, not a new one** — it sends the very
+      `ManualSetTapped` that button has always sent, so the wrench in the log, the
+      second-person narration and the "anyone's permanent" scope are inherited
+      rather than re-decided. Nothing in `src/ui/table/` changed.
+      ⚠️ **A delegated `pointerover`, NOT `elementFromPoint`** — two of the three
+      reasons `AimVeil` records for refusing it apply here unchanged, the sharper
+      one being that `perf.ts` patches `getBoundingClientRect` alone, so an
+      `elementFromPoint` habit would flush layout while keeping the meter at zero.
+      The hover is MODULE state, never a store: it is read once per keypress and
+      drives nothing that renders, and a store would commit the whole table on
+      every pointer crossing (D21's 50–58 ms).
+      ⚠️ Three guards: the key is ignored while an input has focus (**`e` is a
+      character**, legal in every text field and in a number input as `1e5`); only
+      in `idle` mode, so a stray letter cannot answer a question the table is
+      asking; and battlefield-only — which **guards the LOG, not the state**, since
+      `reducer.ts` already drops a tap outside the battlefield (CR 110.5b).
+      ⚠️ **And that third guard's first check passed with the guard DELETED**,
+      because the reducer was doing the work. It asserts on the EVENT COUNT now:
+      99 → 99 with it, 99 → 102 without.
+      **Verified: 43/43 `battery-anim.cjs engine`** (6 new) **· 888 Vitest ·
+      124/124 probe · `npm run build` clean.** Both behavioural guards checked by
+      deleting them — exactly their own two checks fail and nothing else moves.
+      Played it against a live dev instance with **real** Chromium input rather
+      than constructed events (`Input.dispatchMouseEvent` → a genuine
+      `pointerover`, `Input.dispatchKeyEvent` → a genuine keydown), which is the
+      one thing the battery cannot prove because it drives hover through the
+      handle: pointer onto a Mountain → hovered `c24`, `e` → tapped, the card
+      drawn at **90°** (D75), and the log reading 🔧 "You tap Mountain."
+
+- [x] **A land that can make two colours asks which (2026-07-29):** clicking a
+      mana source submitted `outputChoice: 0` of the first unconditional ability
+      it found, under a comment saying the card menu offered the rest — **the
+      card menu had no mana controls at all.** So a Tundra made white and only
+      white, an Arcane Signet made the first colour of its controller's identity,
+      and Cavern of Souls could not be clicked at all. Now **one option taps,
+      more than one asks**: a panel beside the card with one button per thing it
+      can add, drawn in mana-font glyphs. `src/ui/game/manaOptions.ts` (pure) ·
+      `ManaChoice.tsx` · `tableStore.manaChoice` · `legal.ts` ·
+      `mana.costStringOf`. Decisions in **D110**.
+      ⚠️ **The legal action stopped reporting a COUNT.** `outputs: number` is the
+      one thing a chooser cannot draw; it is `readonly string[]` now — `['{G}']`,
+      `['{C}{C}']`, `['{W}','{U}',…] `— indexed so the position IS the
+      `outputChoice` the intent names. Changing the TYPE rather than adding a
+      second field is what turned its one stale consumer (the fuzzer's
+      `Math.max(1, chosen.outputs)`) into a compile error instead of a `NaN`.
+      ⚠️ **The count is per ABILITY; the question is per CARD.** A dual land is
+      two abilities of one output each, an any-colour land one ability of five —
+      only the flattened list says "this land can bring more than one thing",
+      which is why `manaOptionsFor` exists.
+      ⚠️ **Restricted mana is OFFERED, marked, not hidden.** The first cut let
+      unconditional options hide conditional ones to avoid two buttons reading
+      `{C}` above `{C}`; that solved the ambiguity by deleting Cavern of Souls,
+      whose five colours are all conditional. Offer everything, dedupe by what it
+      ADDS with the unconditional one winning the slot, and mark the rest with a
+      **dashed edge** — by shape, never colour, since the five colours are inside
+      these buttons.
+      **Verified: 899 Vitest** (11 new) **· 51/51 `battery-anim.cjs engine`**
+      (8 new) **· 271/273 full battery · the 500-seed fuzz gate green · 124/124
+      probe · `npm run build` clean.** The two battery failures are still the perf
+      gate's frame counts (D29/D29a): **p50 8.3 ms / p95 8.50 ms, byte-identical
+      to a passing run**, which is D106's interference signature and not a render
+      regression — the gate's scene is fixture-driven and never opens this panel.
+      0 stray rect reads. Screenshotted live: Arcane Signet offering `{B}{R}{U}`
+      under a Kess identity, picking `{U}` putting exactly U in the pool, a
+      Mountain still tapping on one click with no dialog.
+      ⚠️ **The battery check gets its OWN game, and runs last** — it must reach a
+      seat with more than one colour, and doing that mid-section moved the board
+      far enough that the convergence check reported a permanent missing.
+      ⚠️ Two checks were repaired on the way, both **pre-existing and both
+      passing for the wrong reason**: the convergence check tested "every
+      permanent id is also a slot id", which is wrong the moment two identical
+      permanents auto-stack (only the pile's representative is in the DOM) — it
+      counts through `data-stack-count` now; and the E-tap log check read the
+      log's LAST line, which an opponent drawing a card had already displaced
+      once ("Cy draws a card."). It searches for the tap line instead.
+
+- [x] **Shift-click to tap several lands at once (2026-07-29):** the same panel
+      takes a BATCH — shift-click every source you want, answer each, tap them
+      all together. A plain click is untouched, and a single land with a real
+      choice still commits on the pick rather than growing a confirm step.
+      `tableStore.manaChoice.cards` · `toggleManaChoice` · `ManaBatchRings` ·
+      `Card`/`PermanentStack` `onClick` now forward the event. Decisions in
+      **D111**.
+      ⚠️ **One source and many are the SAME panel** — `cards` is a list even for
+      a plain click, because "which mana does this bring" and "which mana do
+      these five bring" are the same question at different lengths. A second
+      panel for the batch is how two answers to "what does tapping mean" get
+      built, which is the split D110 existed to close.
+      ⚠️ **NOTHING taps until the batch is committed** — a land tapped mid-choice
+      is a decision made for the player, and it moves the board under the panel.
+      Committing sends one `TapForMana` per source; the engine has no "tap these
+      five" intent and should not grow one.
+      ⚠️ **The modifier is THREADED, not sniffed off a window listener** — the M2
+      seam is unchanged ("there was a click, and here is what the browser said
+      about it"), and the parameter is optional at every level so the many
+      `onClick={() => f(id)}` handlers stay valid.
+      ⚠️ **The rings are the feedback**, and `highlightedIds()` — which looked
+      like the place for them — is **dead code that nothing imports**; adding the
+      batch to it would have shipped a feature that renders nothing.
+      ⚠️ **Every anchored panel had been drawing ~50 px low**, found while adding
+      the rings: the anchor is a viewport rect, the positioned ancestor is the
+      screen slot, and the difference is exactly the app header. All three —
+      `ManaChoicePanel`, `CardMenu`, `AttachmentsPanel` — are `fixed` now. Card
+      top 691 / panel top 691; measured with the fix reverted, the card menu and
+      attachments panel open **53 px low** (653 against 600, 726 against 673).
+      ⚠️ The clamps that keep a panel on screen are viewport arithmetic too, so
+      the battery pins each panel against the components' OWN arithmetic rather
+      than the raw click point — a menu right-clicked near the bottom of the
+      table legitimately opens above the cursor. Before this there was **no check
+      of any kind** on where an anchored panel opens.
+      ⚠️ The batch works on RENDERED SLOTS: twelve identical Forests are one slot
+      (D19), so shift-clicking a pile adds its representative — which is what the
+      player can point at, and what the battery had to be taught after its first
+      cut placed three permanents, two of which auto-stacked. **Lifted the same
+      day — see the next entry.**
+
+- [x] **A pile of lands taps one card at a time (2026-07-29):** twelve identical
+      Forests are ONE slot (D19) and twelve things to tap. Both gestures give up
+      one card per click now. `toggleManaChoice` takes the SLOT'S CARDS ·
+      `PermanentStack` passes `packed.members` with the click. Decisions in
+      **D112**.
+      ⚠️ **Only one half was broken.** A plain click already worked — it taps the
+      representative, grouping keys on tapped state, so the pile splits and the
+      next click takes the next one. The battery pins that now because nothing
+      did. A SHIFT-click could not get past one: the toggle was keyed on the card
+      the slot names, and a slot names its representative, so every click named
+      the same card and the second took it straight back out.
+      ⚠️ **The slot is what gets toggled.** Add the first member not already in
+      the batch; once the whole slot is in, the click CLEARS that slot — which
+      for a one-card slot is exactly the toggle it always was. Escape still drops
+      one at a time.
+      ⚠️ **The members are HANDED OVER, never re-derived** — "identical" is
+      `groupIdentical`'s rule, and a second copy of it upstairs would eventually
+      disagree about what one slot contains. The hook then filters them through
+      `legal`, never the view.
+      ⚠️ One ring per SLOT, not per card: members 2..n have no `data-band-slot`,
+      so a pile draws one ring. That is correct — the ring marks the thing you
+      pointed at, and the panel carries the count.
+      **Verified: 911 Vitest** (4 new) **· 65/65 `battery-anim.cjs engine`**
+      (5 new) **· 285/287 full battery · 124/124 probe · `npm run build` clean.**
+      The pile rule was checked by REVERTING it: both its checks fail (`0 rows
+      over 2 shift-clicks`, `1/3 tapped`) and nothing else moves. The two battery
+      failures are the perf gate's frame counts with **p50 8.3 ms / p95 8.50 ms
+      byte-identical to a passing run** — D106's interference signature, with
+      four other apps windowed.
+      ⚠️ **Found by the revert, not the feature:** making a pile take one MORE of
+      itself turned D111's batch check's remove-then-re-add step into two adds,
+      emptying the panel under it. That block now places DISTINCT basics and
+      requires `data-stack-count === 1`, because it is about batching SEPARATE
+      sources — a check that silently depended on "no two of these are the same
+      card" fails for reasons unrelated to what it tests.
+
+- [x] **Tapping a card for the sake of tapping it (2026-07-29):** a left click
+      did whatever the card could DO and offered no way to say "turn it and
+      nothing else" — so turning a card by hand was reachable only from E (D109)
+      and the right-click menu, and a left click on a creature did **nothing at
+      all**. A source now offers `Tap only` beside every colour it can make, and
+      a card with no mana ability opens the same panel with a single `Tap`.
+      `manaOptions.canTapOnly` · `TAP_ONLY` · `view/types.onBattlefield`.
+      Decisions in **D113**.
+      ⚠️ **A different INTENT, so a different-looking button.** `Tap only` sends
+      `ManualSetTapped` — the Tier-3 tool E and the menu already send — not a
+      `TapForMana` with an empty output, which would be a lie about the rules. It
+      is drawn in WORDS, not a glyph: every glyph in this panel means "this much
+      mana goes in the pool", and one meaning "no mana" would read as a sixth pip
+      (mana-font's `{T}` was the prettier wrong answer).
+      ⚠️ **The one-option fast path was REMOVED the same day** — it tapped a
+      basic land for its mana with no panel, which made `Tap only` unreachable on
+      exactly the card it is wanted on, and D117 then removed the last workaround
+      by routing E to the click. Every source asks now: one click for the mana,
+      one for turning it, and the panel still commits on the PICK, so it is one
+      extra click and never two.
+      ⚠️ **It ASKS, it does not turn.** The branch is LAST in the click chain and
+      catches every click that reached the end of the list; a stray click that
+      silently turned a blocker is a decision made for the player. Measured: the
+      click leaves the event count unmoved.
+      ⚠️ **Mine, on the battlefield, untapped** — not an opponent's (a misclick
+      would look like a play), not one already turned, not one in hand. The batch
+      generalised with it: shift-click takes any permanent of mine, and the
+      tap-only rows commit as ONE `ManualSetTapped` so the log reads "You tap 3
+      permanents." with a single wrench.
+      **Verified: 916 Vitest** (5 new) **· 71/71 `battery-anim.cjs engine`**
+      (6 new) **· 292/293 full battery · 124/124 probe · `npm run build` clean.**
+      The one battery failure is the perf gate's long-frame count at 7, inside
+      the documented 3–9 range, p50 8.3 / p95 8.50 ms, and its "≤2 frames over
+      33 ms" sub-check PASSING at 1.
+      ⚠️ The headline check was a **green tick over nothing** at first —
+      "a mana source offers Tap only beside every colour" reported `skipped — no
+      multi-option source left untapped`, because every block above it had been
+      tapping things. It places its own source now.
+
+- [x] **The library: scry, surveil, mill, exile (2026-07-29):** clicking a
+      library did **nothing**; it opens a menu now — `Scry…`, `Surveil…`,
+      `Mill…`, `Exile…`, `Look…`, each taking a number — and scry/surveil open a
+      panel of the cards face up, top first, one decision per card.
+      `view.peek` · `project.ts` · `ManualStopPeeking` ·
+      `ManualMoveTopOfLibrary` · `src/ui/game/LibraryPanels.tsx`. Decisions in
+      **D114**.
+      ⚠️ **`project.ts`'s "a library is a count, FULL STOP" now has exactly one
+      exception, and the file's own header says so.** `view.peek` gives the
+      viewer the ORDER of the top cards of their OWN library already
+      `revealedTo` them — the contents have been in `cards` since M3, so the
+      exception is the order alone, and it exists because a scry that shows three
+      cards in a dictionary's order is not a scry. Bounded by three clauses: own
+      library, revealed to this viewer, the run from the top.
+      ⚠️ **Scry and surveil are the SAME peek** — the difference is what you do
+      next, so the mode is UI state and every decision goes out as the
+      `ManualMoveCard` the card menu already had. Each commits on the click and
+      the row vanishes **because the move clears the reveal**, so what is left
+      when you press Done is what stays on top, in its existing order.
+      ⚠️ `ManualStopPeeking` exists because a peek has no natural end;
+      `ManualMoveTopOfLibrary` because a client cannot NAME a library card, and
+      peek-then-move would log "You look at the top 3" before every mill.
+      ⚠️ **The fuzzer's leak test was passing because the path was
+      unreachable** — it asserted no library card ever reaches a projection,
+      which held only because nothing had peeked. It states the real boundary
+      now (revealed to THAT viewer) and pins the order exception, with a peek
+      canary beside the entry and transform ones: **381 peeks at 500 seeds**.
+      **Verified: 924 Vitest** (8 new) **· 82/82 `battery-anim.cjs engine`**
+      (11 new) **· 303/304 full battery · the 500-seed fuzz gate green at 98,660
+      accepted intents / 1,139,033 events / 9,148 turns · 124/124 probe ·
+      `npm run build` clean.** The one battery failure is the perf gate's
+      long-frame count at **4, the lowest of the session, with 0 frames over
+      33 ms**.
+      ⚠️ **The Scry button itself was untested at first** — every check submitted
+      `ManualPeekLibrary` directly, which leaves the panel in its default `look`
+      mode, so scry and surveil were exercised by nothing. A check now clicks the
+      real button, types into the real number dialog, and reads the mode back.
+
+- [x] **Looking through a graveyard, and an exile pile (2026-07-29):** a pile
+      renders only its TOP card, so every card under it was **unreachable** — you
+      could not return the fifth card to hand or reanimate the tenth, and nothing
+      said what was in there. Measured: **1 card drawn on the table, 8 of 8 in
+      the browser.** Clicking either open pile now lists the lot face up, each
+      card with Hand / Battlefield / Library top+bottom / Exile / Command, plus
+      "Shuffle into library" and "Exile the lot". `ZoneBrowser.tsx` ·
+      `ManualMoveZone` · `onZoneClick`. Decisions in **D115**.
+      ⚠️ **A closed pile and an open one get different answers** — that is the
+      whole distinction from D114. A library cannot be browsed (its order is the
+      one thing projection strips), so it gets a menu of actions taking a number;
+      an open pile gets the cards themselves.
+      ⚠️ **Any player's, always to the OWNER's zone** — a graveyard is public and
+      reaching into an opponent's is a real play, but a stolen creature goes to
+      the graveyard of whoever owns it. Listed newest first, because the card you
+      want is almost always the one that just died.
+      ⚠️ `ManualMoveZone` is ONE intent because thirty cards leaving a graveyard
+      is one thing a player did, and the shuffled `order` must cover the cards
+      that just ARRIVED — `LibraryShuffled` sets the zone rather than permuting
+      it, so shuffling the pre-move library would drop everything the same intent
+      was putting in.
+      **Verified: 929 Vitest** (5 new) **· 89/89 `battery-anim.cjs engine`**
+      (7 new) **· 309/311 full battery · the 500-seed fuzz gate green at 98,581
+      accepted intents / 1,142,579 events · 124/124 probe · `npm run build`
+      clean.**
+      ⚠️ **A run in the middle reported three EXTRA failures** — the hand-fan
+      hover checks, sampled mid-reflow (trap 7), with `LoadPercentage` 63 and
+      **Overwatch running**: D106's measured case. Same code at load 46 passes
+      them with p50/p95 back to 8.3/8.50 ms. The tell was that p95 had DOUBLED to
+      16.7, which is the one thing interference and a real regression do not
+      share — when only the tail moves it is load, and when p95 moves, look.
+
+- [x] **What a land offers: the partner bug, and every other land (2026-07-29):**
+      reported as "Command Tower does not show my two colours". Two faults, one
+      symptom. Decisions in **D116**.
+      ⚠️ **A seat sat down with ONE commander's colours** — `host.ts` used
+      `commanders[0]?.colorIdentity`, and a partner pair is two cards with one
+      identity (CR 903.4), so an Ardenn + Rograkh deck played as mono-white or
+      mono-red. The deck VALIDATOR had always computed the union, so the two
+      halves of the app disagreed and the right one runs before the game starts.
+      `unionIdentity` is the single answer now.
+      ⚠️ The symptom was quieter than the fault because **tapping for mana writes
+      no log line at all** — with one option the land tapped silently and
+      correctly, which is exactly what "nothing happened" looks like.
+      ⚠️ **Reflecting Pool produced NOTHING, and had since M1** — the pattern read
+      "any COLOR" and the card says "any TYPE". Measured over the database:
+      **12,500 Commander-legal lands · 4,270 offer more than one answer · 13
+      printings still do not.** `anyColor.scope` gains `landsYou` and
+      `landsOpponents`, resolved against the board like `identity` is against the
+      commander, from CONCRETE outputs only — which is the recursion guard and
+      the rule: two Reflecting Pools alone genuinely make no mana.
+      ⚠️ **The first measurement was wrong about 20 of its 36 misses**: it counted
+      "makes two colours" rather than "offers two answers", so Dimir Aqueduct
+      (`{U}{B}`) and the filter lands were reported broken. They add both,
+      always — nothing to choose.
+      ⚠️ The boundary stayed one: "a GATE you control could produce" warns
+      `mana:anyScopeUnread` and produces nothing, because widening it would offer
+      mana the card cannot make (D90). The 13 are NAMED in the test.
+      **Verified: 939 Vitest** (14 new) **· 87/87 engine section · 308/309 full
+      battery · 500-seed fuzz green · 124/124 probe · build clean.** Pinned
+      coverage numbers moved deliberately: `mana:noSymbols` 629 → 540, new
+      `mana:anyScopeUnread` 16, `activated.manaAbility` 11,911 → 11,938.
+
+- [x] **E does what clicking does (2026-07-29):** D109 gave `E` to "turn the card
+      and nothing else", so pressing it on a land turned the land and made no
+      mana — not what a player means by "tap this land". It routes to the same
+      `onCardClick` a left click does. Decisions in **D117**.
+      ⚠️ **The handler is passed IN, not imported** — it is a `useCallback` over
+      live legality, mode and view, and a module copy would answer with the board
+      as it was when the table mounted (the stale-binding trap). `useTapKey`
+      moved to `TableScreen`, where `onCardClick` lives.
+      ⚠️ Turn-it-and-nothing-else is still there: `Tap only` (D113) and the menu.
+      ⚠️ **Still battlefield-only** — a click in the FAN casts, and a letter key
+      that cast a spell because the cursor was over the hand is a misclick with a
+      real cost. Two checks were DELETED rather than adapted because they
+      described the old meaning; what replaced them asserts the POOL moved.
+
+- [x] **Tapping a land says so (2026-07-29):** `tapForMana` emitted a tap and a
+      pool change and **no narration at all** — which D116 named as the reason
+      its own bug was invisible, since a land tapping correctly and a click doing
+      nothing looked identical. `You tap Command Tower for {U}.` Decisions in
+      **D118**.
+      ⚠️ **Tier 1 — no wrench.** The engine did this; nobody hand-waved it, and
+      keeping those apart is the log's whole job.
+      ⚠️ It names the MANA, because "where did that `{U}` come from" is the
+      question a log is scanned for.
+      ⚠️ **Paying for a spell still writes ONE line** — `applyPlan` emits its own
+      events and never routes through `tapForMana`, so auto-tapping five lands
+      logs the cast alone. Only a land the PLAYER tapped writes a line, which is
+      what bounds this to deliberate actions.
+      **Verified: 941 Vitest** (2 new) **· 308/309 full battery · 500-seed fuzz
+      green at 98,581 accepted intents and 1,161,398 events (up from 1,142,579 —
+      +18,819 lines, with intents, turns and every replay hash unchanged) ·
+      124/124 probe · build clean.**
+      **Verified: 907 Vitest** (8 new — the first suite for `tableStore`) **·
+      60/60 `battery-anim.cjs engine`** (9 new: 7 for the batch, driven with a
+      real `MouseEvent` carrying `shiftKey: true` since `.click()` cannot carry a
+      modifier and the modifier is the whole gesture, plus one each pinning where
+      the card menu and the attachments panel open — both checked by REVERTING
+      the fix) **· 279/280 full battery · 124/124 probe · `npm run build`
+      clean.** The one battery failure is still the perf gate's
+      long-frame count (D29/D29a): 9 long frames inside the documented 3–9 range,
+      p95 inside its 18 ms bar, **2 frames over 33 ms — that sub-check now
+      PASSES** where it failed in the previous run, on a fixture-driven scene
+      neither change touches. 0 stray rect reads.
+      Screenshotted live: Arcane Signet + Mountain + Swamp in one panel, the
+      basics pre-answered as "only", "1 left" until the Signet is answered, three
+      rings on the table, `Tap 3` putting `{U}{R}{B}` in the pool.
+
+- [x] **The turn walks properly, and the hotseat says when it hands over
+      (2026-07-29):** reported as the game "changing sides" mid-turn — you play a
+      land as Ben, the board becomes Ana's, and Ben's turn walks into combat with
+      somebody else's hand at the bottom. Two faults. Decisions in **D119**.
+      ⚠️ **`shouldAutoPass` asked its questions in the wrong order.** "Could this
+      player do anything at all" was the LAST clause, so `alwaysStop`,
+      `stopWhenAnyoneCasts` and `stopBeforeCombatDamage` each stopped a player
+      with an empty hand and no untapped land — two forced clicks per opponent's
+      turn per player on the default stops, plus one every time anybody cast
+      anything. It is the FIRST question now and every clause below it is a
+      refinement, never an override; `mode: 'fullControl'` is the one thing that
+      still stops everywhere, which is what its label promises.
+      ⚠️ **And holding a play is a reason to be asked SOMEWHERE, not everywhere.**
+      `stopWhenIHaveInstantSpeedPlay` had no notion of which step was worth
+      stopping in, and "I hold a castable instant" is true for a whole turn
+      cycle — one Mountain and one `{R}` instant stopped that player in main 1,
+      begin combat, end of combat, main 2 and the end step of a turn they were
+      not taking. `isStopWindow`: your own main phases, and somebody else's END
+      step. Everything else that matters is already its own clause.
+      ⚠️ **`meaningfulActions` gained an affordable `ActivateAbility`** in the
+      same change, because it is now the WHOLE answer to "could you act" — a
+      firebreathing blocker's pump is exactly what `stopBeforeCombatDamage`
+      exists for. `TapForMana` stays out for the reason it always did.
+      ⚠️ `src/ui/game/SeatHandoff.tsx` — "Ben → Ana / You are Ana now" over the
+      table for 2.2 s, green because green is PRIORITY (D99). Fired from
+      `session.onSeatHandoff`, which the AUTOMATIC switch alone raises: a banner
+      over a seat button the player just pressed explains nothing.
+      ⚠️ The stops panel's `ALWAYS STOP AT` is `ALSO STOP AT`, and its
+      "Hold Ctrl to force a stop" line is gone — **nothing ever implemented it.**
+      **Verified: 945 Vitest** (5 new, 1 replaced) **· 91/91 `battery-anim.cjs
+      engine`** (2 new) **· 303/305 full battery · `npm run build` clean · the
+      500-seed fuzz gate green, and ITS COUNTERS ARE THE FIX: 17,003 turns
+      against 9,148 and 2,239,781 events against 1,161,398, from 5% FEWER
+      accepted intents (93,565 against 98,581).** The same 200 intents per seed
+      now play nearly twice the game.
+      ⚠️ **Nine existing checks failed and not one was a rule** — every one was
+      observing a moment that no longer exists, because combat, a cast and a
+      whole turn now run through in a single submit when nobody can act. New
+      harness rule: `holdEverywhere(game)` — a test that needs to OBSERVE an
+      intermediate state must SAY so rather than lean on the stops of the day.
+      ⚠️ **The renderer-console battery check fails in `drag` and `motion` with
+      React's `Maximum update depth exceeded`, and it is NOT this work** —
+      reproduced unchanged with `SeatHandoff` unmounted; eleven other sections
+      pass the same check. Pre-existing, tracked separately.
+
+- [x] **A resolved spell says whose it was (2026-07-29):** reported as "I played
+      a card as Ben, and the effects got to Ana" — Ben cast Thrill of
+      Possibility and ANA drew the two cards. Decisions in **D120**.
+      ⚠️ **The assisted offer (D90) never knew whose spell it was.** It is raised
+      from `StackResolved` on the ACTIVE SEAT'S client, and the hotseat follows
+      priority (D42), so by the time a spell resolves the table has usually moved
+      to whoever must respond. The event carried `card` and `targets` and no
+      controller, `PromptBar`'s own comment said "if it was mine" while nothing
+      checked it, and Apply submitted `ManualApplyEffect` with `player: viewer`.
+      ⚠️ **Worse over the wire than in a hotseat:** a guest is always its own
+      active seat, so EVERY player was offered every assisted spell anyone cast,
+      each naming themselves honestly for somebody else's card.
+      ⚠️ `StackResolved.controller` is now required, carried through
+      `toViewEvents` and `session.onSpellResolved`. **The card cannot answer for
+      it** — `clearBattlefieldFields` resets a moved card's `controller` to its
+      OWNER (right per CR 108.4, useless here), and the stack object that knew is
+      destroyed in the same reducer pass. `null` only on fizzle/counter, which
+      carry no `instanceId` either.
+      ⚠️ The offer is filtered on `localSeats()`, never `viewer`: one seat over
+      the wire, every seat in a hotseat so it survives the D119 hand-off. When
+      the caster is not on screen it says "For Ben, who cast it."
+      ⚠️ **`ManualApplyEffect` stays as permissive as every other Tier-3 tool**,
+      deliberately — a guard built on the card's OWNER would reject Kess casting
+      from a graveyard and any stolen card. The UI naming the wrong player was
+      the bug.
+      **Verified: 946 Vitest** (1 new, **checked by BREAKING the fix** — emitting
+      `state.turn.activePlayer` fails it with `expected 'p1' to be 'p2'`) **·
+      303/305 full battery · fuzz gate unchanged · build clean.** Reproduced live
+      with the user's own two decks through the real solo lobby: viewer pinned to
+      Ana, Thrill cast by Ben → **Ben's hand 4→6 and library 92→90, Ana's 7 and
+      91 unmoved**, logged "Ben applies the part of Thrill of Possibility…".
+
+- [x] **M6.1 — A bot takes a seat (2026-07-29):** pick **Bot** on any opponent
+      seat in the solo lobby and it plays: mulligans, plays lands, casts, attacks,
+      blocks, and tries to win. `src/bot/` — `types.ts` (the `BotPort`, seven
+      methods, each one an existing public `ClientSession` method) · `awaiting.ts`
+      (**all 13 `Awaiting` kinds**, exhaustive) · `policy.ts` · `combat.ts` ·
+      `targets.ts` (`planTargets`, MOVED here; `net/testing/script.ts` imports it)
+      · `runner.ts` (the drain gate, the re-entrancy latch, the progress guard).
+      `src/game/botSeat.ts` is the only impure file in the path — a clock and a
+      cast, no decisions. Decisions in **D121**.
+      ⚠️ **`src/bot/` holds the ENGINE's clock rule with the NET's import rule**,
+      plus one neither other block needs: no runtime import of an engine module
+      that takes a `GameState`. A bot is a client and there is no `GameState` to
+      cheat with — invariant 3 made mechanical rather than aspirational.
+      ⚠️ **The brief's §3 toolbox is unreachable from a seat.** `legalActions`,
+      `shouldAutoPass`, `canAttack`, `canBlock` and `candidatesFromState` all take
+      a `GameState`. What the bot uses is `ClientSnapshot.legal` off the wire and
+      the legal choices carried inside `declareAttackers`/`declareBlockers`.
+      ⚠️ **`decide()` returns `act | wait | fault`, never `Intent | null`** — that
+      conflation is D102, and it cost this project three sign-off checks for weeks.
+      A fourteenth `Awaiting` kind is a **compile error**.
+      ⚠️ **`stopWhenIHaveInstantSpeedPlay` must stay ON**, and its name is the
+      trap: it gates `isStopWindow` ENTIRELY, which includes your own main phases.
+      Measured with it off — turn 88, 73 lands, 88 attacks, and **four spells
+      cast**, with every other check green.
+      **The pool, measured over the real database and pinned in
+      `src/data/botPool.node.test.ts` — the first thing here that counts CARDS
+      rather than faces: 1,405 of 31,692 distinct Commander-legal cards run
+      completely (4.4%)** — 1,120 creatures, 148 instants, 67 sorceries, 48 lands,
+      22 artifacts, and **0 enchantments, 0 planeswalkers, 0 battles**.
+      ⚠️ **D90's 6,975 reproduces exactly; its 274 and 1,300 do NOT** (269 and
+      1,359; 273 counting any face). **D116's 12,500 lands is a PRINTINGS count** —
+      there are 1,114 distinct land names, and §2 of the M6 brief prints the two
+      units side by side as if they matched.
+      **The bot's deck is a LEGAL Commander deck**, unlike the starter deck (D43),
+      and `validateCommanderDeck` says so in a test rather than a comment:
+      **Jasmine Boreal**, chosen from 45 fully-executable legendary creatures, 99
+      cards on a stated curve, no RNG anywhere.
+      **Verified: 1,051 Vitest** (up from 946) **· 12/12 in a new `battery-anim.cjs
+      bot` section · 91/91 `engine`, unchanged · 124/124 probe · build clean · the
+      500-seed fuzz gate green at 92,778 accepted intents / 2,257,235 events /
+      17,196 turns**, with `Dryad Arbor`, `Darksteel Citadel`, `Monstrous Growth`
+      and `Akroma, Angel of Wrath` added to `DECK` for the shapes the bot's deck
+      introduced. Played by hand through the real lobby buttons: turn 13, 1,517
+      events, three bots with real boards, **the table never once followed a bot**.
+      ⚠️ **Five pre-existing defects found and NOT fixed here** (D121 lists them):
+      a permanent's triggered/static text is unenforced and unsaid; a payable
+      non-mana ability charges its cost and runs nothing; `assignCombatDamage` has
+      no answering intent at all; `orderAttackers` is unanswerable because
+      `CardView.blocking` is singular; and the engine fixtures have no rot guard
+      despite two comments claiming one.
+      **All five are closed now** — 1 and 2 by D122, 3 and 4 by D125, 5 by D123. **The first two are now SAID (D122
+      below) and the fifth is guarded (D123, last entry); the engine's behaviour
+      is unchanged by either. Two remain open.**
+- [x] **Half the card pool said nothing, and silence means "handled" (2026-07-29):**
+      the two disclosure gaps at the top of D121's reportable list, closed as
+      disclosures only — `legal.ts`, `handlers.ts` and `loop.ts` are untouched, and
+      `engineComplete.ts` still refuses both classes for the bot's deck. A
+      permanent's triggered and static text now says the app does not run it, and a
+      payable non-mana activated ability now says the cost is charged and nothing
+      follows. Decisions in **D122**.
+      ⚠️ **ASKED OF `engineComplete.unaccountedLines()`, the same line accounting
+      the bot's pool predicate uses** — the third time `tier3.ts` has refused to
+      re-derive an answer a parser already gives, and what makes "a card the
+      predicate accepts stays silent" true by construction. Asserted over 31,692
+      cards rather than 82 fixtures: **0 engine-complete cards carry a note**.
+      **Measured: 17,963 cards (56.7%) gain the ability-text note and 4,016 (12.7%)
+      the charged-ability note.** All four starter commanders were in the silent
+      half. A third gap — a mana line the engine runs only part of — was measured
+      here at 339 silent cards and closed next.
+- [x] **The app taps a Signet and never takes the {1} (2026-07-29):** the third
+      disclosure, and the exact MIRROR of Krenko. `tapForMana` emits a tap and
+      `ManaAdded` and stops: it takes no cost beyond the tap, checks no activation
+      condition, tracks no once-per-turn limit, computes no board-dependent amount
+      and applies no second sentence — so a `Rakdos Signet` hands over {B}{R}
+      without its {1}, `Phyrexian Tower` makes {B}{B} with nothing sacrificed, and
+      `Ancient Tomb` deals nobody the 2 damage on its own line. Now said as
+      **`Part of its mana ability`**. Decisions in **D124**.
+      ⚠️ **ONE note for four reasons, because `ManaProduction.conditional` ORs them
+      together** — an activation cost beyond {T}, an activation condition, a spend
+      restriction, an amount the engine cannot compute — **and records which for
+      none.** Splitting it would have meant re-deriving the reason beside the parser
+      that decided it.
+      ⚠️ **It is the OPPOSITE statement to `Its mana ability`** (that one means the
+      app will not tap it at all). One line can never raise both: a parser warning
+      means no production for that line, and this note needs one.
+      ⚠️ **`kind: 'mana'` requires an ACTIVATED line (CR 605.1a).**
+      `parseManaProduction` matches "add" anywhere, so the first cut told **193
+      cards** "the app taps it and adds the mana" about a TRIGGER — caught by
+      `abilityText` falling 17,963 → 17,770, and it is back at 17,963 now.
+      **Measured: 723 cards (2.3%) gain the mana note; 21,037 (66.4%) carry at
+      least one of the three; 16,020 — 50.5% of the whole Commander-legal pool —
+      said NOTHING AT ALL before and say something now.** Cards with no note at
+      all: **17,824 → 1,804**, and **everything still silent (345) is a keyword line
+      D68 chose not to name** — `residual === residualKeyword` is an assertion.
+      ⚠️ **Two reportables, measured and NOT fixed** (D124): `parseManaProduction`
+      reads reminder text and granted abilities as the card's OWN mana ability
+      (**310 cards** — it never calls `scrub`, so Noggle Robber's Treasure reminder
+      makes the Noggle a mana source), and `ManaChoice.tsx`'s "Dashed mana is
+      restricted — the card says what it may be spent on" is true of a spend
+      restriction and wrong for the other three reasons.
+      **Verified: 1,077 Vitest / 5 skipped (27 new — 21 fixture-level, 6 over the
+      real database in `src/data/tier3.node.test.ts`) · `tsc -b` clean ·
+      `npm run build` clean · every `botPool.node.test.ts` number reproducing after
+      the refactor.**
+
+- [x] **The engine fixtures now have the guard they claimed to have (2026-07-29):**
+      D121's reportable list, item 5. `scripts/make-engine-fixtures.cjs` said — in
+      its own header and again in the header it writes into the generated
+      `src/data/fixtures/engineCards.ts` — that `scripts/battery-carddb.cjs`
+      cross-checks these records against the live database. **It never did.** `grep
+      engineCards scripts/battery-carddb.cjs` finds nothing.
+      `src/data/fixtures/engineCards.node.test.ts` is that guard, and both claim
+      sites now name it. Decisions in **D123**.
+      ⚠️ **The 15 checks that looked like coverage are D15b's, for a DIFFERENT set
+      of fixtures** — the hand-written records in `src/data/validate.test.ts`. They
+      touch ENGINE_CARDS at four cards (`Wastes`, `Thrasios`, `Grist`, `Shorikai`)
+      because the validator and the engine happen to care about some of the same
+      cards, and then only in the one field each pattern reads. Everything
+      `src/engine/testing/harness.ts`, `src/net/testing/table.ts`, the fuzz gate
+      and seven test files build on was unguarded.
+      ⚠️ **The comparison is `JSON.stringify(record, null, 2)` — the exact bytes
+      the generator writes — so what is asserted is that REGENERATING WOULD BE A
+      NO-OP.** One comparison catches a rewording, a re-typed card, a legality
+      change, a dropped field, a key-order change, and a hand edit of the file that
+      says DO NOT EDIT BY HAND. A list of pinned patterns only ever covers what
+      somebody thought to pin, which is how this gap survived beside 15 of them.
+      ⚠️ **The generator's selection rule is reproduced from each fixture's OWN
+      fields**, never from a second copy of its `WANTED` list — a copy is one more
+      thing to keep in step, and a fixture added to one and not the other would be
+      unguarded in exactly the way this fixes. A token is pinned by set + collector
+      number, everything else takes the first non-token printing of that name, and
+      the fixture's own `layout` says which rule it was taken under.
+      ⚠️ **A `.node.test.ts` rather than the promised battery section, and forced
+      rather than chosen** (`botPool.node.test.ts`'s reason): ENGINE_CARDS is
+      TypeScript and there is no TS runner outside Vitest, so a `.cjs` could only
+      read the generated file with a regex — a second reader of the generator's
+      output beside the generator.
+      **Verified: 1,077 Vitest / 5 skipped across 45 files** (4 new checks plus the
+      loud-skip marker) **· `tsc -b` clean.** The engine, the parsers and the
+      fixture DATA are untouched — three lines of header comment are the only edit
+      to `engineCards.ts` — so the fuzz gate cannot move, and it ran at its default
+      seed count inside the full suite.
+      **Regeneration proved to be a no-op rather than argued to be:** the file was
+      copied aside, the generator re-derived it from the live database ("Wrote 86
+      cards"), and the result is **byte-identical, md5
+      `9604c178269d1c3bdd7e4aa6c7b2255b` before and after** — so all 86 records
+      still say exactly what the real cards say today.
+      ⚠️ **Checked by BREAKING what it guards:** one word changed in `Monstrous
+      Growth`'s fixture text (`until end of turn` → `until the end of turn`, the
+      shape a real rewording takes) fails with `Monstrous Growth [por 173†] —
+      faces[0].oracleText: "…" → "…"`, and **nothing else in the suite noticed the
+      edit** — which is the rot, demonstrated on one card. The loud skip was
+      checked too, with `CRT_DATA_DIR` pointed at a directory that does not exist:
+      the four real checks report as skipped BY NAME and stderr says how to sync.
+
+- [x] **Two prompts nothing could answer (2026-07-31):** D121's last two
+      reportable items, both latent hangs of D102's exact shape and both invisible
+      because **nothing raises either of them**, so no suite ever tried.
+      Decisions in **D125**.
+      ⚠️ **`assignCombatDamage` is DELETED from the `Awaiting` union**, with
+      `GameOptions.manualCombatDamageAssignment`. It had no `AssignCombatDamage`
+      intent, no handler and no button — `PromptBar` described it and rendered
+      nothing — and only an option no screen could set would have raised it.
+      Building it instead would have been half a feature: CR 510.1a–d assignment
+      is a real decision only across two or more blockers, and the ORDER those
+      blockers are taken in is `orderBlockers`, which has no producer either.
+      D44 Q5 and the spec's §6.4 say so now instead of promising a seam.
+      ⚠️ **`CardView.blocking` is a `readonly InstanceId[]`.** `orderAttackers`
+      asks which attackers a blocker is blocking, in order — and `project.ts` was
+      keeping `attackerOrder[0]`, so the one prompt whose answer IS that list could
+      not be answered from a `PlayerView`. `GameState` has modelled it as an array
+      since M3. The bot answers it now; the union is **12 kinds, all twelve
+      answerable**, with no deliberate fault left in `src/bot/awaiting.ts`.
+      ⚠️ **The order is load-bearing** (`assignBlockerDamage` divides power down
+      it), the array is handed over BY REFERENCE with one shared `NOT_BLOCKING`
+      for the rest, and `sameCardView` compares it BY CONTENTS — a reference
+      compare would rebuild every blocker's view whenever anything in combat moved
+      (D21). The fixture table takes the mirror rule: `declareBlockers` builds a
+      new array rather than `push`ing, or a blocker never re-renders.
+      ⚠️ **`packRow`'s auto-stack key needed the whole list**, not the first id:
+      two creatures blocking different attackers must not group into one slot.
+      **`src/engine/awaitingProducers.node.test.ts` — the map is asserted now.**
+      It reads the union out of `state.ts`, scans every non-test source for a
+      constructed `kind: '…'`, and pins **10 producers of 12 kinds**; the two
+      without are NAMED, with a check that each still has an intent AND a handler
+      — which is exactly what `assignCombatDamage` failed. Also: only
+      `src/engine/` may construct a prompt, every produced kind names a real
+      `file:line`, and every kind has a case in the bot.
+      ⚠️ `testing/` and `fixtures/` are excluded from the scan on purpose — a
+      harness that hand-builds a prompt proves nothing about what the engine
+      raises in play.
+      ⚠️ **AND THE THIRD ANSWERER HAD THE SAME DEFECT.**
+      `testing/harness.ts`'s `simplestAnswer` — which `answer()` and the fuzzer's
+      `default:` branch both run through — returned a bare `null` for
+      `mulliganBottom`, `rewindVote`, `orderBlockers` and `orderAttackers`. The
+      first two **have producers**, so they were live wedges; what hid them is
+      that the 500-seed gate carries its OWN `mulliganBottom` case and never
+      proposes a rewind, so the fallback was unreachable from the one thing that
+      runs it constantly. `rewindVote` answers **decline** — one decline cancels
+      the vote at any table size, and agreeing would HALF-EXECUTE a rewind, since
+      unanimity only clears the awaiting while the re-fold is `Game.rewind` and
+      not a reducer case. `state` is REQUIRED now rather than optional-with-a-
+      warning. `src/engine/simplestAnswer.test.ts` reaches each prompt for real
+      and SUBMITS every answer; restoring the nulls fails 5 of its 8.
+      ⚠️ **And `simplestAnswer` returns `Intent`, not `Intent | null`.** Three
+      more nulls hid in `x ? … : null` ternaries guarding prompts their producers
+      make impossible; each answers now, so "the driver always has an answer" is
+      a fact about the TYPE — a case added later that cannot think of one fails
+      `tsc -b`. A malformed prompt gets an answer the handler REJECTS, and the
+      handler's message names the malformed prompt where `no simple answer for
+      prompt "…"` named the driver. `answer()` lost that branch entirely.
+      **Verified: 1,092 Vitest / 5 skipped across 47 files** (6 in the producer
+      test, 8 in `simplestAnswer.test.ts`, a multi-block projection case, and the
+      bot suite now asserting all twelve ACT) **· `tsc -b` clean · `npm run build`
+      clean ·
+      129/129 in `battery-anim.cjs table combat bot engine` · the 500-seed replay
+      fuzz gate green at 92,778 accepted intents / 2,257,235 events / 17,196
+      turns** — it matters here because `GameOptions` is part of `GameState` and
+      so of the state hash.
+      ⚠️ **Those three counters are byte-identical to D121's, and that IS the
+      assertion:** removing an option nothing read and widening a projection field
+      must not change a single event. A move in any of them would mean this
+      touched play.
+      ⚠️ **Checked by breaking it, twice, both reverted:** a thirteenth variant in
+      the union fails three checks and names `canaryThirteenth`; a producer removed
+      from `loop.ts` fails two and names `orderTriggers`.
+
+- [x] **M6.2 — It plays properly (2026-07-31):** an evaluation function, a combat
+      solver that prices a whole attack rather than each attacker alone, and a
+      tournament that puts a confidence interval on what any of it was worth.
+      `src/bot/eval.ts` (`scorePosition`, `creatureValue`, `pressure` — in
+      LIFE-EQUIVALENT points, so every weight can be argued about in words) ·
+      `src/bot/random.ts` (level 0, the legal-random baseline) ·
+      `src/bot/tournament.node.test.ts` + **`scripts/battery-bot.cjs`** ·
+      `src/bot/decisions.test.ts` (the regression harness). Decisions in **D126**.
+      **Measured over 500 games: level 1 beats level 0 82.8% [79.2%, 85.9%]**,
+      0 draws, 21.7 turns/game, **135 decisions/second**, 0 faults — finishing on
+      28.1 life against level 0's 0.1.
+      ⚠️ **THE BRIEF'S ≥95% BAR IS NOT MET, and the reason is measured.**
+      "Legal-random" with a creature deck is not a weak player: it plays a land
+      nearly every turn, casts real creatures and attacks with ten a game, and its
+      only true mistakes are never blocking and attacking at random. **And the
+      losses are not mana screw** — level 1 ends with 7.5 lands in games it wins
+      and 9.1 in games it loses; screw would show the opposite.
+      ⚠️ **The attack is priced as a SET.** The first version priced each attacker
+      against the defender's best blocker alone, so ONE creature vetoed a swing by
+      five and the bot attacked barely more than a random one — 9.8 attackers a
+      game against level 0's 12.3, winning 62.5%. A defender must SPEND their
+      blockers; everything past that number connects. Now 14.6 a game.
+      ⚠️ **Survival is a RULE, not a weight.** At 8 life against two 4/4s every
+      trade scored ≤ 0, so the bot declined both blocks and died — a position a
+      human answers instantly, invisible to the win rate and caught by the
+      regression harness. Raising the chump multiplier fixes it and LOSES games
+      (79% → 77%). Trades are priced; not dying is not a trade. Worth 4 points.
+      ⚠️ **Three constants swept and baked in** — `CLOCK` 1/2/3 → 74/78/78%,
+      `SAFETY` 0.25/0.5/0.75/1.0 → 76/79/79/77%, and a flat value for damage
+      prevented 0/0.5/1.0/1.5 → **79/75/74/73%**. That last one reads like a bug
+      fix and is a regression: the bot blocks instead of racing, and the race is
+      what closes a game from 40 life.
+      ⚠️ **The tuning knobs could not stay.** They were `process.env` reads, which
+      `purity.node.test.ts` bans in `src/bot/` — so a knob left behind fails
+      `tsc -b` rather than shipping as configuration nobody sets.
+      ⚠️ **Wilson, not the normal approximation** (which claims [1.00, 1.00] at
+      40/40), and every seed played TWICE, once from each side, because going
+      first is a real advantage. A MIRROR match on a 40%-land deck: on
+      `fixtureDeck`'s 60% each seat cast six spells in seventeen turns and the
+      measurement read 62–67% [43%, 79%] — an instrument that could not see the
+      thing it was pointed at.
+      **Verified: 1,127 Vitest / 5 skipped across 49 files** (30 new, up from 1,097) **· `tsc -b`
+      clean · `npm run build` clean · `battery-anim.cjs bot` 12/12 unchanged · the
+      500-seed fuzz gate unmoved**, which is the right result for a change that
+      adds nothing under `src/engine/`.
+
+- [x] **M6.3 — The primitives (2026-07-31 measured, CLOSED 2026-08-05):** the M6
+      brief's §6.1 says the measurement comes first and decides the order —
+      *"Measure the unlock… That number is how you decide what to build next."*
+      That measurement exists and is pinned; **no primitive is built yet.**
+      `src/data/primitives.ts` + `src/data/primitives.node.test.ts`. Decisions in
+      **D127**.
+      **Over 31,692 distinct Commander-legal cards: 1,405 run completely, 30,287
+      are blocked. 795 are scriptable with the engine exactly as it stands; the
+      first four primitives take that to 8,286 — 10.4× — and all nineteen to
+      16,736.**
+      **The order, by cards waiting on it and NOTHING else:** `optional` 2,012 ·
+      `layer6` 1,722 · `effect:counter` 1,441 · `effect:token` 1,123 ·
+      `effect:sacrifice` 933 · `chooseFromZone` 755 · `duration` 674.
+      ⚠️ **It is NOT the brief's list order.** `modal` and `delayed`, both named
+      in §6.1, are worth **34** and **84** cards.
+      ⚠️ **`optional` is first and is the cheapest thing on the list.**
+      `TriggerDef.optional` has been in the script API since M3, `collectTriggers`
+      copies it onto every `PendingTrigger`, and **nothing anywhere branches on
+      it** — a "may" trigger fires unconditionally, which is half-execution in
+      the one direction D90 forbids. What is missing is a prompt and an answer.
+      ⚠️ **The brief's seven primitives were not the answer.** Classifying against
+      §6.1's list alone left **68.7%** of blocked cards unclassified. Two families
+      were missing and both are large: the EFFECT VOCABULARY (`effectParse` has
+      eleven kinds and none of them is "create a token" or "put a counter", though
+      both EVENTS have been on the log since M3/D107), and KEYWORD ABILITIES the
+      engine does not run (Equip alone was 448 cards). Residue is 44.7% now and
+      the largest remaining shape is 327 cards of 13,551 — a genuine long tail,
+      which is M6.4's problem rather than a missing primitive.
+      ⚠️ **SCRIPTABLE IS NOT EXECUTABLE, so M6.3's own done-when cannot be met by
+      M6.3.** A primitive makes a card *possible* to script; the script is M6.4.
+      `1,405` moves only when scripts land, so the two milestones are one arc.
+      ⚠️ The classifier asks **`parseEffects`** whether a line is expressible —
+      the same closed vocabulary the engine runs, never a second list. Third time
+      this project has had to write that down (the Command Tower lesson, D122).
+      **Verified: 4 checks over the real database, with the build-order figures
+      and the 10.4× multiplication pinned as EXACT values** so the order cannot
+      quietly stop being the right one · `tsc -b` clean.
+      **The build has begun: `optional` (D128), layer 6's ability half (D129)
+      and counter effects (D130) — see the three entries below.
+      ⚠️ D129 found that this entry's "`derive.ts` runs 1/7b/7c/7d" was wrong:
+      every layer has a live seam, and what layer 6 lacked was CR 613.7's ORDER.
+      ⚠️ D129 and D130 both found the same thing one layer apart — **these rows
+      are BUCKETS, not primitives.** `layer6`'s 1,722 is 1,108 ability grants
+      plus 227 combat restrictions the engine has no seam for; `effect:counter`'s
+      1,441 is 197 spells plus 981 cards that were never blocked at all, because
+      `CountersChanged` already existed and the classifier's proxy cannot see
+      what a SCRIPT can return. Split a row before building it.**
+
+      ⚠️⚠️ **CLOSED ON A RESTATED CRITERION, AND THE RESTATEMENT IS THE HONEST
+      PART (D157).** The M6 brief's done-when for this milestone is *"the number
+      of completely-executable Commander-legal cards has MULTIPLIED and the fuzz
+      gate is green with all of them in the pool."* `complete` went **1,405 →
+      1,730 — ×1.23**, which is not a multiplication, and **it never could have
+      been**: D127 measured on day one that scriptable is not executable, that a
+      primitive makes a card *possible* to script, and that the script is M6.4.
+      The bar was written for an arc, and M6.3 is the first half of it.
+
+      What M6.3 is closed against instead, all measured:
+      · **what a SCRIPT can express went 795 → 1,362** — and that second number
+        is D153's correction of a figure that had been inflated to 3,463 by a
+        pre-filter since D128, so the honest gain is smaller than this file
+        claimed for twenty-four decisions;
+      · **`complete` 1,405 → 1,730 (+325)**, every card of it through the effect
+        VOCABULARY and the built-in replacements rather than through a script;
+      · **the 500-seed replay fuzz gate green**, last at 456.9 s, with every
+        script the gate registers also dealt in its deck — now asserted rather
+        than remembered (D156);
+      · **nothing in the layer system is described as unrepresentable any more.**
+        D129 named three impossibilities, D151 removed the last of them, and what
+        is left of CR 613 is three ordinary items with stated shapes.
+
+      ⚠️ **THE MULTIPLICATION IS M6.4's, AND SAYING SO IS THE POINT.** Ticking
+      this box on the original wording would have claimed a coverage number this
+      milestone was never able to move.
+
+- [x] **M6.3a — "You may" (2026-08-01):** the first primitive off D127's list,
+      and the biggest by sole need (**2,012 cards**). A "may" trigger stops on
+      resolution and asks its controller; the answer is honoured, and declining
+      is a real outcome rather than a no-op. Decisions in **D128**.
+      ⚠️ **The flag existed and nothing read it.** `TriggerDef.optional` has been
+      in the script API since M3 and `collectTriggers` has copied it onto every
+      `PendingTrigger` for as long — so a "may" trigger fired unconditionally,
+      which is half-execution in the one direction D90 forbids: doing something
+      the player never chose.
+      `Awaiting` gains `optionalTrigger` (**12 kinds → 13**), `intents.ts` gains
+      `AnswerOptionalTrigger`, `events.ts` gains `OptionalTriggerAnswered`
+      (a marker, like `StateBasedActionsApplied`), and `loop.ts`'s `resolveTop`
+      grows the one decision. **CR 603.1 — the choice is made ON RESOLUTION**, so
+      the ability still goes on the stack, still takes its APNAP position and can
+      still be responded to.
+      ⚠️ **ONE RESOLUTION, TWO CALLERS.** `resolveAbility` is EXTRACTED, not
+      copied: `resolveTop` calls it for every ability, `answerOptionalTrigger`
+      calls it with the answer. Two copies of "leaves the stack, runs its script,
+      narrates" would disagree about the order of those three, invisibly, until a
+      card killed its own source.
+      ⚠️ **All five D125-hardened places failed until updated, which is the guard
+      working** — the union, the producer map (now **11 producers of 13 kinds**),
+      `simplestAnswer`, the bot's exhaustive switch, the net driver — plus
+      `PromptBar`'s viewer branch, written from the first line rather than found
+      by playing (D101).
+      ⚠️ **`simplestAnswer` declines and the bot accepts, on purpose.** Declining
+      runs no script, so it is legal on any board and cannot make a rules test
+      execute card text it did not ask for. The bot's accept is a POLICY, said to
+      be one: a prompt carries a label and nothing else, and `src/bot/` may not
+      import an engine module taking a `GameState`. It is unreachable today —
+      the bot's pool has no card with an unrun triggered ability.
+      ⚠️ **A player who is out of the game is never asked**, because their answer
+      is not in doubt and CR 800.4a would have removed the object outright.
+      **Proved on a real card:** `src/engine/testing/cardScripts.ts` registers
+      `Ajani's Mantra` — `{1}{W}`, and its WHOLE printed text is the optional
+      trigger, so the script runs every word of it (D90). It is the first real
+      card text ever to run through the trigger bus; `turn.test.ts`'s fixture
+      trigger resolves to `[]`. **Not shipped** — `EMPTY_REGISTRY` is still what
+      the app runs.
+      ⚠️ **THE FUZZ GATE HAD NEVER RUN THE TRIGGER BUS AT ALL.**
+      `collectTriggers` short-circuits on `scripts.size === 0`, so in 500 seeds
+      no `PendingTrigger` had existed, nothing had been APNAP-sorted, no ability
+      had been drained onto the stack and `orderTriggers` — a prompt with a real
+      producer — had never been raised. The gate builds a registry now, and
+      answers the new prompt with a COIN FLIP rather than through
+      `simplestAnswer`, or the accept half would go untaken in all 500 seeds.
+      ⚠️ **Its first trigger canary was green over nothing:** counting every
+      `AbilityPutOnStack` read **249 with an empty registry**, because that event
+      also carries every ACTIVATED ability. Filtered on `obj.kind`, it is 0
+      without the script and 1,198 with it.
+      **Verified: 1,138 Vitest / 6 skipped across 51 files** (up from 1,126 / 6
+      across 50) **· `tsc -b` clean · `npm run build` clean · the 500-seed replay
+      fuzz gate green at 93,267 accepted intents / 2,290,878 events / 17,301
+      turns — up 0.5%, 1.5% and 0.6% from D125's, with every replay hash matching
+      — carrying 1,198 triggered abilities and 621 may-triggers taken / 566
+      declined against 0 / 0 / 0 before · `battery-anim.cjs bot engine` 102/102 ·
+      `battery-bot.cjs --games 40` 78.8% [68.6%, 86.3%], 0 faults ·
+      `npx electron scripts/probe.cjs` 124/124 · registry cost measured at 1.6%.**
+      ⚠️ **`1,405` DID NOT MOVE, and that is the correct result.** What a script
+      CAN express went **795 → 2,915 (+2,120, 3.67×)**; what the engine RUNS is
+      unchanged, because this wrote no card scripts into the product.
+      `primitives.node.test.ts` asserts both in one test so the enabling figure
+      can never be reported as coverage. Every classifier figure D127 pinned is
+      byte-identical — only the new `BUILT` set moved.
+      ⚠️ **The prompt is UNREACHABLE in the shipped app** (`host.ts` builds its
+      `Game` with `EMPTY_REGISTRY`), so `PromptBar`'s branch and the net driver's
+      case are covered by `tsc -b` and review, not by play. Acceptable only
+      because `Awaiting` crosses the wire WHOLE (D61) with no per-kind code on
+      either side. **M6.4 must drive this prompt through the real UI on the first
+      "may" card it lands.**
+      ⚠️ **Two reportables, measured and NOT fixed** (D128): a "dies" trigger
+      cannot be written correctly at all — `collectTriggers` takes `before` but
+      `readonlyCtx` builds the script context from `after` alone, so `matches`
+      cannot see the board the card died on; and `collectTriggers` rebuilds
+      `Object.keys(state.cards)` inside both of its loops, which is noise with
+      one registered card and O(events × defs × cards) with a library.
+
+- [x] **M6.3b — Layer 6 existed; what it lacked was an ORDER (2026-08-01):**
+      the second primitive off D127's list, and the first thing it found is that
+      the starting point was misread. Decisions in **D129**.
+      ⚠️ **`derive.ts` has called `applyStatics(…, 'ability')` since M3**, and
+      also for `type`, `color`, `cda`, `ptSet`, `ptModify` and `ptSwitch`. Layer
+      6 was never missing; "runs layers 1, 7b, 7c, 7d" described what the layers
+      had been USED for. What was missing is **CR 613.7 — the order**.
+      ⚠️ **THE BATTLEFIELD ARRAY IS THE TIMESTAMP.** `addToZone` appends, so
+      `state.zones.battlefield` is arrival order and a permanent that re-enters
+      goes to the back — exactly CR 613.7c, which is why **no timestamp field was
+      added to `GameState`**. That makes `zones.ts`'s order convention
+      load-bearing for the layer system, which nothing said; it is asserted now.
+      ⚠️ **The loop was nested the wrong way round**: defs outside, battlefield
+      inside, so every source of the first-REGISTERED script applied before any
+      source of the second. `Levitation` against `Gravity Sphere` was decided by
+      the registry rather than by which enchantment entered last.
+      ⚠️ **`StaticDef.appliesTo` takes the candidate's `chars` now**, because a
+      static that asks `ctx.derive(candidate)` recurses forever — it is running
+      inside that object's own derive. Measured as `RangeError: Maximum call
+      stack size exceeded` on the first real script, whose only sin was asking
+      "is this a creature". `chars` is also the better answer: it has layer 4
+      applied where a printed type line does not.
+      **Proved on the canonical pair** — `Levitation` ("Creatures you control
+      have flying") and `Gravity Sphere` ("All creatures lose flying"), both
+      single-sentence, and **neither proves anything alone**: two grants commute,
+      so only a grant against a removal shows an order.
+      ⚠️ **THIS IS WHAT D82 WAS WAITING FOR.** Hexproof and shroud have been
+      enforced only where PRINTED since the targeting work, because "a granted
+      one needs a layer-6 script" — and none had ever existed. **`combat.ts` is
+      UNCHANGED**: it reads derived characteristics, so the grant arrives for
+      free, asserted on the block prompt's own `legal` list.
+      ⚠️ **CR 613.8 DEPENDENCY IS NOT BUILT, and 613.7d/e are not either** (a
+      re-attached Aura and a face-down permanent keep their old position). The
+      rule that follows is the brief's: a card whose correctness needs one of
+      them is not registered. Removing a NON-KEYWORD ability has no
+      representation at all — `MutableCharacteristics` models keywords — so
+      `Humility` could not have been the demonstration card in any case.
+      ⚠️ **`layer6` is NOT added to the report's `BUILT` set, and the reason is
+      measured**: of the bucket's 1,722 cards, **1,108 are ability grants (built
+      here), 253 anthems (layer 7c, since M3), 134 conditionals (already worked)
+      — and 227 are COMBAT RESTRICTIONS**, CR 508/509, which `canAttack` and
+      `canBlock` consult no static for. Ticking the bucket would claim 227 cards
+      the engine cannot express. **A bucket is not a primitive**; the split is
+      pinned, and doing it properly is M6.3c's first job.
+      ⚠️ **The split was nearly measured with a SECOND COPY of the rule** — a
+      scripted edit wrote every `\b` as a literal BACKSPACE, so all 1,722 cards
+      fell into `other` while the classifier still filed them under `layer6`. The
+      report asks `layer6Kind`, exported from `primitives.ts` and composed from
+      the same constants `LAYER6` is built from. Fourth time (D122, D127).
+      **Verified: 1,147 Vitest / 6 skipped across 52 files** (up from 1,126 / 6
+      across 50 at the start of M6.3) **· `tsc -b` clean · `npm run build` clean
+      · the 500-seed fuzz gate green at 92,986 accepted intents / 2,337,352
+      events / 17,685 turns, every replay hash matching, carrying 1,329 triggered
+      abilities and 577 layer-6 sources on a battlefield · `battery-anim.cjs bot
+      engine` 102/102 · `battery-bot.cjs --games 40` 78.8% [68.6%, 86.3%], 0
+      faults · probe 124/124 · every D127 figure reproducing.**
+      ⚠️ **It costs 64%, measured and attributed**: 60 seeds, same deck, games
+      identical to within 0.03% of events — **33.6 s with the trigger script
+      alone, 55.2 s with the two statics**. The cause is `applyStatics` scanning
+      the whole battlefield once per object per layer per derive, O(N²) across an
+      SBA sweep. **The first guess was wrong and is recorded as wrong**: making
+      `makeScriptCtx` lazy recovers about 1%, and the comment claiming otherwise
+      was corrected rather than deleted. Zero cost in the product, which ships
+      `EMPTY_REGISTRY`; index the sources before M6.4 lands statics at scale.
+      ⚠️ **Checked by reverting the loop nesting**: exactly the two ordering
+      checks fail, one by its own message (`Levitation last — flying: expected
+      false to be true`), and the other six pass because they do not depend on
+      order.
+      ⚠️ **One more Tier-1 gap found in passing: there is NO WORLD RULE** (CR
+      704.5m). `sba.ts` never mentions the supertype, so any number of world
+      permanents can coexist. Unrelated to layers; found by choosing `Gravity
+      Sphere`.
+
+- [x] **M6.3c — Counters: seven cards EXECUTED, and 981 that were never blocked
+      (2026-08-01):** the third primitive off D127's list, `effect:counter`,
+      worth 1,441 cards by sole need. **The first one to move the number that
+      matters — and most of what it was supposed to be worth was not missing.**
+      Decisions in **D130**.
+      ⚠️ **Measured first (D129's lesson).** The 1,441 splits: **197 spells**
+      (which need the effect VOCABULARY), **263 "enters with"** (a replacement),
+      **221 activated + 760 triggered/static** — and those **981 WERE NEVER
+      BLOCKED ON A PRIMITIVE.** `CountersChanged` has been on the log since D107
+      and a `TriggerDef` returns `EventBody[]`, so a permanent that puts counters
+      has been scriptable since M3. D127 filed them here because its proxy for
+      "could a script express you" is `parseEffects` — the INGEST vocabulary for
+      one-shot SPELLS, which refuses every permanent by construction.
+      **Asserted, not argued:** `Ajani's Pridemate` is registered and driven with
+      no vocabulary involved at all.
+      ⚠️ **263 are blocked on a DEAD API.** `applyReplacements` fetches
+      `scripts.replacements()`, checks the length, and returns `events` unchanged
+      **either way** — a registered `ReplacementDef` has never run. D128's shape
+      exactly. NOT fixed here: it belongs to `replacement` (418), and doing it
+      properly needs CR 616's ordering prompt.
+      **Built:** `putCounters` / `removeCounters` in `effectParse`'s closed
+      vocabulary → the `CountersChanged` that already existed. Nothing was added
+      to the log, the reducer or the state hash.
+      ⚠️ **`CounterKind` is `'+1/+1' | '-1/-1'` and nothing else** — the two
+      `derive.ts` sums at layer 7d. A charge or trample counter would be recorded
+      on the card and applied by NOTHING, which is half-execution wearing a
+      number (D90).
+      ⚠️ **`Burst of Strength` is why the pattern is anchored**: "Put a +1/+1
+      counter on target creature AND UNTAP IT" is ONE sentence, so the `assisted`
+      rule never sees a second clause, and only the `$` stops the parser running
+      two thirds of the card. It comes out `manual`, pinned.
+      **1,405 → 1,412 cards now run COMPLETELY** — `Battlegrowth`, `Scar`,
+      `Blight Rot`, `Common Bond`, `Honor`, `Instill Infection` and `Tuinvale
+      Treefolk // Oaken Boon`. Also **auto 269 → 276, assisted 1,359 → 1,403**
+      (44 more spells whose counter clause the prompt bar can now offer as one
+      logged click), 115 faces out of "understood nothing", and scriptable
+      795 → 845.
+      ⚠️ **The seventh is an ADVENTURE**, which is why the pool's `creature`
+      count moved for a spell change: `engineCompleteness` sums every face,
+      `bucketOf` types by the first. It raised the right question — the app does
+      not OFFER that half — and **27 engine-complete cards were already
+      multi-face** with zero notes, so this adds one to a pre-existing silence
+      rather than creating one. Measured before concluding.
+      ⚠️ **The cumulative ladder moved at both ends and D127's 10.4× is 9.8×**:
+      up at the start (50 more scriptable), DOWN at the end, because the seven
+      that became complete left `blocked` and the ladder is drawn from blocked
+      cards. **A falling total is the measurement working** — the pool a
+      primitive could unlock shrinks every time one is executed.
+      **Verified: 1,156 Vitest / 6 skipped across 53 files** (up from 1,147 / 52)
+      **· `tsc -b` clean · `npm run build` clean · the 500-seed fuzz gate green
+      at 92,630 accepted intents / 2,375,679 events / 18,051 turns, with 1,330
+      +1/+1 or -1/-1 counters written by the RULES (0 before) and target prompts
+      up 3,285 → 4,889 · `battery-anim.cjs bot engine` 102/102 ·
+      `battery-bot.cjs --games 40` 78.8% [68.6%, 86.3%], 0 faults · probe
+      124/124.**
+      ⚠️ The fuzz canary is filtered on `cause.kind !== 'manual'` — the fuzzer's
+      Tier-3 tools write `+1/+1` counters one manual intent in thirteen, so an
+      unfiltered count would have been green since M3. D128's green-over-nothing,
+      avoided by remembering it.
+      ⚠️ **`battery-bot` is unchanged to the decimal by design** —
+      `tournament.node.test.ts` plays a MIRROR deck, not `botDeck.ts`. But
+      **`botDeck.ts` DID change and had to be regenerated**: the pool grew, so
+      `Common Bond` displaced a card at mana value 3. Its two guards are semantic
+      (in the pool, legal deck) and neither would have noticed — **a generated
+      file with no "regenerating is a no-op" guard, which is D123's finding in a
+      second file.**
+      ⚠️ **Two more reportables** (D130): a triggered ability cannot choose a
+      TARGET at all (`PendingTrigger` carries none, `drainTriggers` builds
+      `targets: []`), so every targeted trigger is unscriptable; and D127's proxy
+      over-reports every primitive whose EVENT already exists — **`effect:token`
+      (1,123) is the same shape and should be split before it is built.**
+
+- [x] **M6.3d — `effect:token` SPLIT, and D130's prediction was wrong
+      (2026-08-01):** measured, not built. Decisions in **D131**.
+      ⚠️ **The two events are NOT alike.** D130 predicted tokens would be the
+      same shape as counters — an event that already exists, so several hundred
+      cards already scriptable. `CountersChanged` takes a free-string `kind`;
+      **`TokenCreated` requires an `oracleId` AND a `printingId`**, so a script
+      must NAME one of 3,290 token printings — and nothing maps a printed
+      description to one. The only token resolution in the app is `TOKEN_NAMES`
+      in `buildGame.ts`: **twelve names, hand-written**, for the Tier-3 tool.
+      **Both halves of the row are blocked on the same missing piece, and it is a
+      resolver over card DATA rather than an engine primitive.**
+      **The split of 1,123:** by owner **373 spells / 750 permanents**; by what
+      is asked for **421 plain · 342 with abilities · 212 predefined artifact
+      (Treasure, Food, Clue…) · 77 copies · 71 X** — `unclaimed` **0**, so the
+      five buckets are the whole row.
+      ⚠️ **77 belong to CR 707**, not here (M6.4-LIBRARY-SPEC §4.4).
+      **Feasibility, measured against the data on disk:** 3,290 token printings /
+      848 names; of 165 distinct plain descriptions **88 resolve uniquely, 3
+      ambiguously, 74 to none** — 261 of 389 cards. **Every miss is a token that
+      CARRIES TEXT** (`Angel 4/4 W "Flying"`, `Spider 1/2 G "Reach"`), which is
+      why `withAbilities` is 342.
+      ⚠️ **THE ABILITIES ARE IDENTITY, NOT DECORATION.** The database holds both
+      `Angel 4/4 W "Flying"` and `Angel 4/4 W "Flying, vigilance"` — same P/T,
+      colour and subtype, distinguished by nothing but their text. A resolver
+      matching on P/T and type alone would create the WRONG token, silently, on a
+      card that reads correctly.
+      ⚠️ **373 spells is 1.9× the 197 counters was worth**, so the ceiling on
+      `complete` is higher than D130's seven — but every one still needs the
+      resolver first.
+      **Verified: 1,157 Vitest / 6 skipped across 53 files · `tsc -b` clean ·
+      build clean.** Both splits pinned, asked of `tokenKind` exported from
+      `primitives.ts` rather than re-derived (D129's lesson). Nothing under
+      `src/engine/` was touched, so the fuzz gate cannot move and was not re-run.
+      ⚠️ **THE GENERAL LESSON, NOW THREE TIMES OVER:** D129 found `layer6` was a
+      bucket containing a rules subsystem it had no seam for; D130 found
+      `effect:counter` was a bucket containing 981 cards never blocked at all;
+      D131 finds `effect:token` is a bucket whose two halves share one dependency
+      nobody had named. **Split the row before building it** — the classifier
+      answers "what does this SENTENCE need", which is not "what does this ENGINE
+      lack".
+
+- [x] **M6.3e — The token resolver (2026-08-01):** `src/data/tokenParse.ts` — a
+      printed token description, and the printing it names. The piece D131 found
+      both halves of `effect:token` blocked on. Decisions in **D132**.
+      **Measured over the whole database: 586 of 1,180 token clauses are
+      readable, 567 of those name exactly ONE printing (96.8%), 0 ambiguous, 19
+      name no token at all — and 526 of the 1,123 cards have EVERY token line
+      resolved**, which is the number that matters because a card is executable
+      only if all of it is.
+      ⚠️ **EVERY FAILURE IS A REFUSAL.** A description this module cannot read
+      completely, or that names no token, or that names two, produces NOTHING.
+      **Four things had to be right, and the first cut got all four wrong** — it
+      resolved 53 clauses and called 328 ambiguous. Each fix came from reading a
+      failure:
+      ⚠️ **Ambiguity is counted by `oracleId`, not by PRINTING.** The plain 1/1
+      white Soldier has **66 printings and one oracle id**; counting printings
+      invented 328 ambiguities. Two oracle ids is a refusal. The printing chosen
+      among reprints is deterministic (lowest scryfall id) or two players would
+      disagree about a `printingId` on the wire.
+      ⚠️ **The printing states its keywords with REMINDER TEXT** — the card says
+      "with lifelink", the token prints `Lifelink (Damage dealt by…)`. Without
+      scrubbing, every keyword token in the format misses.
+      ⚠️ **A predefined token's ability is its OWN and the card never states it**
+      — "create a Treasure token" against `{T}, Sacrifice this token: Add one
+      mana of any color.` Its NAME is the whole identity.
+      ⚠️ **AND THE ONE THAT CANNOT BE SEEN IN THE WORDS.** Callers hand this
+      module text already through `scrub`, which blanks quoted text with SPACES
+      OF THE SAME LENGTH — so `Dragon Egg`'s "…token with flying and \"{R}: …\""
+      arrives as a token with flying and a run of spaces: a well-formed
+      description of a DIFFERENT, real token. Matching it would put the wrong
+      permanent on the battlefield on a card that reads correctly. The guard is
+      `/\s{2,}/` — the gap is only visible in the spaces the quotes left.
+      ⚠️ **The 19 misses are the DATABASE, not the parser**: a green Dog, a 2/3
+      red Minotaur *with haste* where only the vanilla one was printed. Pinned
+      under 5% so a parser that started inventing matches shows up here first.
+      **Verified: 1,189 Vitest / 7 skipped across 55 files** (up from 1,157 / 53)
+      **· `tsc -b` clean · build clean.** 28 checks against the three REAL token
+      fixtures, 4 over the live database. Nothing under `src/engine/` was
+      touched, so the fuzz gate cannot move and was not re-run.
+      ⚠️ **NOTHING CALLS IT AT RUNTIME YET, and that needs a DECISION** — stated
+      plainly because the last three entries were about seams nothing consumes.
+      For a token spell to resolve by itself, `effectParse` must decide `auto`,
+      and that needs the token corpus. **(A)** thread a token index into
+      `parseFace` — nearly free at runtime, but `effectMode` stops being a
+      property of the CARD and `tier3`/`engineComplete`/`botPool` would disagree
+      with the engine (D122's exact failure); **(B)** resolve at DATABASE BUILD
+      time and store the printing id on `CardData` — cleanest, like
+      `colorIdentity` (D12a), but a schema change, a re-sync, 93 regenerated
+      fixtures and a wider wire dictionary (D52); **(C)** never `auto`, only
+      `assisted` — nothing can half-execute and no schema change, but `complete`
+      does not move. **Recommended: (B) long-run, (C) as the first shippable
+      step.** (A) buys the least and breaks the most.
+
+- [x] **M6.3f — Tokens EXECUTE (2026-08-01):** the resolver got its consumer.
+      **1,412 → 1,472 cards now run completely — +60, 8.6× what the counter
+      vocabulary was worth.** Decisions in **D133**.
+      ⚠️ **D132's option (B) as WRITTEN is not implementable**, and that is a
+      structural fact rather than a change of mind: the card database is built by
+      `electron/cardsvc-worker.cjs`, and **`electron/` never imports `src/`** — a
+      grep proves it — so storing the printing id on `CardData` at ingest would
+      need a SECOND COPY of `tokenParse.ts` in CommonJS. Five entries of this
+      file already say why that is the one thing not to do.
+      **So the resolution is baked into a GENERATED TS TABLE** —
+      `src/data/tokenTable.ts`, 400 descriptions, 64 kB, the same idiom as
+      `botDeck.ts`. Identical semantics (`effectMode` stays a property of the
+      CARD), and none of (B)'s priced costs: no schema change, no re-sync, no
+      wire growth. It carries the **regenerating-is-a-no-op guard** D130 caught
+      `botDeck.ts` missing.
+      ⚠️ **THE PART THAT COULD HAVE BEEN SILENTLY WRONG: a token whose printing
+      the POOL does not hold is a BLANK.** `derive` cannot find it, so it becomes
+      the inert unknown-printing object — a nameless 0/0 the SBA bins — and the
+      spell resolves perfectly having produced nothing anybody can see. Three
+      lifecycles had to carry it: solo's `loadTokens(seats)`, the host resolving
+      a guest's token printings **inside the same awaited `.then` that seats the
+      deck** (after it would race `start()`), and the FIXTURE — `SOLDIER_TOKEN`
+      was pinned to `tmd1 1` where the table names `t40k 2★`. Same token at a
+      real table; **not the same id, and the id is what the pool is keyed on.**
+      **Also: spells `auto` 276 → 337, `assisted` 1,403 → 1,532, `effect:token`
+      sole-need 1,123 → 796, scriptable 845 → 1,130.**
+      ⚠️ **The resolver's OWN measurement fell — 1,123 → 796 cards, 586 → 244
+      readable, 526 → 213 resolved — and that is it working.** The cards it
+      resolves have left the blocked set for the completed one. D127's ladder is
+      **7.3× where it was 10.4×** for the same reason at both ends. A headline
+      that could only go up would be measuring effort.
+      **Verified: 1,199 Vitest / 8 skipped across 57 files** (up from 1,189 / 55)
+      **· `tsc -b` clean · build clean · the 500-seed fuzz gate green at 92,254
+      accepted intents / 2,413,154 events / 18,349 turns, with 782 tokens created
+      by the RULES and all 782 nameable by the oracle · `battery-anim.cjs bot
+      engine` 102/102 · `battery-bot.cjs --games 40` 78.8% [68.6%, 86.3%], 0
+      faults · probe 124/124.**
+      ⚠️ **The fuzz canary counts tokens the ORACLE CAN NAME and asserts it
+      EQUALS the number created.** `TokenCreated` fires whether or not the
+      printing exists, so the count alone would go green on a board of blanks.
+      ⚠️ **Three tests began timing out and it is NOT a regression.** At 57 files
+      vitest's concurrency starves the slowest ones; measured in isolation they
+      are 2.0 s, 2.4 s and 3.5 s against a 5 s default, and **the failing SET
+      varied between runs** — D106's tell. `testTimeout` is 20 s now, to catch a
+      HANG rather than referee CPU.
+      ⚠️ **The bundle grew 813.7 kB → 876.6 kB** (+7.7%), which is the table —
+      the price of (B), named rather than absorbed.
+
+- [x] **M6.3g — "Enters tapped", and the replacement API that had never run
+      (2026-08-01):** **1,472 → 1,577 cards run completely — +105, the largest
+      single step of M6.3, and LANDS went 48 → 128.** Decisions in **D134**.
+      ⚠️ **Split first, for the FOURTH time, and for the fourth time the row was
+      not a primitive.** `replacement`'s 418 is **173 "enters tapped" · 133 other
+      "instead" · 108 "if … would … instead" · 4 "as … enters"**. Only the first
+      is a self-replacement with no choice, no ordering and no interaction — a
+      property of the card, so a built-in rule beside D107's entry counters
+      rather than a card script. **661 blocked cards carry the line, 517 of them
+      LANDS**, and the bot pool's rejection tally had it fifth at 411.
+      ⚠️ **THE ANCHOR IS THE WHOLE SAFETY PROPERTY.** The strict clause accepts
+      538 lines and finishes **104 cards outright**, against the loose
+      classifier's 173 — the difference is every card that CONTAINS the clause
+      without being it: `enters tapped UNLESS you control two or more other
+      lands` (31), `UNLESS you have two or more opponents` (10), `UNLESS a player
+      has 13 or less life` (10), `enters tapped AND doesn't untap` (3). Tapping
+      those and dropping the condition is strictly worse than doing nothing.
+      `engineComplete` asks `replacementParse` rather than re-reading the text —
+      the fourth time that rule has been written in that file.
+      ⚠️ An EVENT in `applyReplacements`, never a reducer branch (D107's reason:
+      `apply` cannot look a printing up, and `tapped` is in the state hash), and
+      it lives in the funnel because TEN places move a card onto the battlefield.
+      Asserted by a test that PLAYS the land rather than moving it with a tool.
+      ⚠️ **AND THE REPLACEMENT API HAD NEVER RUN.** `applyReplacements` fetched
+      `scripts.replacements()`, checked whether the list was empty, and returned
+      `events` unchanged **either way** — so a registered `ReplacementDef` had
+      never fired since M3. D130 and D131 both named it while measuring something
+      else; `TriggerDef.optional`'s shape exactly (D128). It runs now, proved
+      with `Hardened Scales` + `Branching Evolution`.
+      ⚠️ **`used` is the termination argument AND the rule** — CR 614.5, an
+      effect applies at most once to a given event. Without it Hardened Scales
+      replaces its own output forever: its result matches its own condition. It
+      does not return a wrong number; it does not return. `api.ts` asked for this
+      guard in a comment and could not enforce it.
+      ⚠️ **CR 616's CHOICE IS NOT BUILT, and it is said.** Two counters with both
+      enchantments out is **six** one way and **five** the other, so the order is
+      not a detail. Applied in BATTLEFIELD order (D129's timestamp order) —
+      deterministic and replayable, and not the rule. A card whose correctness
+      depends on choosing stays unregistered.
+      ⚠️ **Four other rows went UP and it is not a regression**: `optional`
+      2,012 → 2,033, `layer6` 1,722 → 1,734, `counter` 1,351 → 1,364, `token`
+      796 → 804. A card blocked by replacement AND one other thing is now blocked
+      by the other thing alone, so it moves into that row. The rows partition
+      what is left, and finishing one feeds the others.
+      **Verified: 1,215 Vitest / 8 skipped across 59 files** (up from 1,199 / 57)
+      **· `tsc -b` clean · build clean · the 500-seed fuzz gate green at 92,113
+      accepted intents / 2,424,881 events / 18,374 turns, with **1,034 permanents
+      entering tapped** and 826 tokens all nameable · `battery-anim.cjs bot
+      engine` 102/102 · `battery-bot.cjs --games 40` 78.8% [68.6%, 86.3%], 0
+      faults · probe 124/124.**
+      ⚠️ The canary counts a `PermanentsTapped` that FOLLOWS a `CardsMoved` —
+      counting every tap would also count the untap step's mirror, every wrench
+      and every land tapped for mana.
+      ⚠️ **Three reportables** (D134): the other 245 sole-need cards need CR
+      616's prompt; "enters tapped UNLESS …" is 60+ cards on four wordings, all
+      board queries the engine could evaluate and the cheapest remaining slice;
+      and `Grimgrin enters tapped AND doesn't untap` is the one shape joined by
+      "and" rather than split by a full stop.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,577.** Then: CR 616's ordering prompt
+      (unblocks 245), "enters tapped unless" (60+), or the `layer6` split (227).
+
+- [x] **M6.3h — "Enters tapped UNLESS": seven board queries, and the one that is
+      a PROMPT (2026-08-01):** D134 named this as the cheapest remaining slice at
+      "60+ cards on four wordings". Measured properly it is **112 cards on 40
+      distinct wordings**, and the measurement shaped the vocabulary rather than
+      the other way round. **1,577 → 1,642 cards run completely — +65, and every
+      one of them is a LAND (128 → 193, 17.3% of all 1,114 Commander-legal land
+      names).** Decisions in **D135**.
+      **The seven queries, and the cards behind each:** `otherLands` 26 ·
+      `controlPermanent` ~48 (`a Forest` · `a Forest or a Plains` · `a basic
+      land` · `a Mount or Vehicle` · `a legendary green creature`) · `basicLands`
+      10 · `opponents` 10 · `anyPlayerLifeAtMost` 10 · `opponentsLands` 5 ·
+      `otherLandsOfType` 5 — **104 of the 112**. Every one is a question about
+      the board the engine answers with no input from anybody, which is what
+      makes them buildable, and nothing is modelled speculatively: a shape the
+      pool does not print is a shape no real card can test.
+      ⚠️ **`As this land enters, you may pay 2 life. If you don't, it enters
+      tapped.` IS A PROMPT — 20 cards on that exact wording, 37 across the
+      shape — and it is REFUSED.** Reading it as a board query means the engine
+      declines to pay, every time, silently: the player is never offered the
+      choice the card gives them. That is D90 with a decision instead of an
+      effect. `Godless Shrine` is a fixture, so the refusal is a test rather than
+      an intention.
+      ⚠️ **THE ENTERING LAND IS NOT ON THE BATTLEFIELD YET, and every "other
+      lands" count depends on it.** `applyReplacements` runs on the state BEFORE
+      its own event — the property `withTransformCounters` already relies on to
+      see the old face — so counting the battlefield as it stands is exactly the
+      "other" these cards mean. Nothing has to exclude the card itself, and a
+      version that did would be wrong by one on every dual land in the format.
+      ⚠️ **`selfRef` matches `This land` and NOT `this land`**, because every
+      clause it was written for starts a sentence. The inverted wording says it
+      mid-sentence — "If you control two or more other lands, **this land**
+      enters tapped" — so the clause parsed as nothing and `Lair of the Hydra`
+      came in UNTAPPED on every board: the failure that looks exactly like the
+      feature working, because an untapped land is what you get when a rule does
+      not fire. Fixed in `replacementParse` with a case-insensitive pass, not by
+      changing `selfRef`, which `effectParse`'s whole vocabulary depends on.
+      ⚠️ **The inverted wording is normalised at PARSE time, so there is ONE
+      evaluator.** "enters tapped IF you control ≥2 other lands" is exactly
+      "enters tapped UNLESS you control ≤1 other lands"; doing that flip in the
+      engine would have meant a second place that knows what these clauses mean.
+      Only `otherLands` prints this way (5 cards) — inverting anything else would
+      be a guess, so anything else is refused.
+      ⚠️ **`OracleFace.entersTapped` is ONE field (`EntersTapped | null`), not a
+      boolean with a condition beside it.** "Enters tapped unless you control a
+      Forest" is not `entersTapped: false`, and a caller that checked only the
+      boolean would let it in untapped every time.
+      ⚠️ Four other rows rose again for D134's reason — `optional` 2,033 → 2,037,
+      `layer6` 1,734 → 1,736, `counter` 1,364 → 1,365, `token` 804 → 812: a card
+      blocked by this AND one other thing is now blocked by the other alone.
+      **Verified: 1,222 Vitest / 8 skipped across 59 files** (up from 1,215 / 8)
+      **· `tsc -b` clean · build clean · the 500-seed fuzz gate green at 91,657
+      accepted intents / 2,412,366 events / 18,238 turns, with permanents
+      entering tapped up 40% at 1,450** (`Sunpetal Grove` joins `DECK` beside
+      `Haunted Ridge` so both answers are exercised as a real board fills up, and
+      `Godless Shrine` joins as the one the parser must refuse) **·
+      `battery-anim.cjs bot engine` 102/102 · `battery-bot.cjs --games 40` 78.8%
+      [68.6%, 86.3%], 0 faults · probe 124/124.** Tier-3 `abilityText` 17,634 →
+      17,532 and cards with no note at all 1,983 → **2,048**; fixtures 101 → 105.
+      ⚠️ **Three reportables** (D135): the 37 "you may pay N life" lands, the 4
+      "as this land enters, choose a colour" cards and CR 616's ordering all
+      converge on ONE missing piece — **a replacement effect that asks a
+      question** — which is now the next thing worth building by weight of cards
+      rather than by row; `Grimgrin enters tapped AND doesn't untap` (3 cards)
+      needs untap restrictions rather than a wider parser; and "enters tapped
+      with two charge counters" (10 cards) is two rules that both exist in one
+      sentence nothing reads together.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,642.**
+
+- [x] **M6.3i — A replacement effect that ASKS, and D135's reportable was wrong
+      about it (2026-08-01):** D135 closed by naming "three rows converging on one
+      missing piece — a replacement effect that asks a question". **Measured,
+      they do not converge**, and the correction is the useful half of this entry:
+      they are three prompts with three answer types and wildly different payoffs.
+      **1,642 → 1,658 cards run completely (+16), lands 193 → 208.** Decisions in
+      **D136**.
+      **The split of "As ~ enters …" — 267 cards, 115 wordings, measured against
+      `engineComplete`'s own leftover lines:** `choose` **162 cards / 6
+      completable** · `other` 47/12 · `pay` **32/16** · `reveal` 19/15.
+      ⚠️ **THE BIGGEST FAMILY IS WORTH SIX CARDS.** "As this enters, choose a
+      creature type" (55) · "choose a color" (33) · "choose an opponent" (10) —
+      and **172 of the other unaccounted lines on those cards read "the
+      chosen"**. The answer only matters because a later ability consumes it, so
+      building the question alone asks the player something that does nothing:
+      a prompt as theatre, worse than the silence it replaced. It needs a
+      `chosen` field on card state, which does not exist.
+      ⚠️ **D135's "4 cards" for that family was `asEnters` counted over LANDS
+      ONLY**, carried into a sentence about the whole database — and its "37" for
+      the shape built here was cards CARRYING the line rather than cards it would
+      finish. Two numbers, both reach reported as unlock, which is the exact error
+      `primitives.node.test.ts` has two columns to prevent.
+      ⚠️ **`payLife` is an `EntersTappedCondition`**, beside D135's seven board
+      queries — not a second field and not a second parser, because "you may pay 2
+      life, and if you don't it enters tapped" IS "enters tapped unless you pay 2
+      life". It is the one member that is a QUESTION rather than a QUERY, so
+      **`conditionHolds` EXCLUDES it from its parameter type**: a caller that
+      forgets `isAskedCondition` fails `tsc -b` rather than tapping a land and
+      never asking. Every wrong way to write that branch is silent — `false` is
+      D135's refusal reintroduced as a bug, `true` lets the land in free.
+      ⚠️ **THE PERMANENT HAS ALREADY ENTERED, UNTAPPED, while the prompt is up.**
+      `applyReplacements` is pure `(state, events) → events` and cannot stop;
+      suspending the fold would mean a CONTINUATION in `GameState`. So the entry
+      happens, the question is asked, and the answer appends the payment or the
+      tap. Nobody can act in the gap (an `Awaiting` blocks every intent), and a
+      test that reads `tapped` before answering gets `false` every time.
+      ⚠️ **A player who CANNOT pay is never asked** (CR 119.4), and the life is
+      re-checked in the handler rather than trusted from a prompt written earlier.
+      At exactly the price the payment is legal — `<`, not `<=` — because paying
+      to 0 loses the game and that is the player's call.
+      ⚠️ **The QUEUE is unreachable today and the test says so.** No intent
+      produces a two-card battlefield move; it is built because a funnel is where
+      that kind of gap hides (D128's dead `optional`, D134's dead
+      `ReplacementDef`), and driven at `applyReplacements` and `handle` rather
+      than claimed as end-to-end.
+      ⚠️ **The FIRST prompt of M6.3 the bot can actually PRICE** — it carries a
+      number, against a life total the bot reads off its own `PlayerView`, where
+      `optionalTrigger`'s accept is a policy it cannot justify. Pays to a FLOOR of
+      12 life, a floor and not a ratio. And reachable: the pool grew, so
+      `botDeck.ts` regenerated with **`Temple Garden`** in it.
+      **Verified: 1,233 Vitest / 8 skipped across 59 files** (up from 1,222 / 8)
+      **· `tsc -b` clean · build clean · the 500-seed fuzz gate green at 88,305
+      accepted intents / 2,301,233 events / 17,345 turns with **491 paid life to
+      enter untapped / 476 declined** · `battery-anim.cjs bot engine` 102/102 ·
+      `battery-bot.cjs --games 40` 78.8% [68.6%, 86.3%], 0 faults · probe
+      124/124.** Cards with no Tier-3 note 2,048 → **2,063**; fixtures 105 → 107.
+      ⚠️ Intents, events and turns are all down ~4% and the prompt is why: it
+      consumes one of each seed's 200 intents and blocks the rest until answered.
+      ⚠️ **PLAYED BY HAND THROUGH THE REAL UI, which D128 could not be** — that
+      prompt needs a registry and `EMPTY_REGISTRY` ships, so D128 left "M6.4 must
+      drive this through the real UI" as a debt. This one needs only a real deck
+      and a real `PlayLand`: the bar reads "Godless Shrine enters tapped unless
+      you pay 2 life", **Pay 2 life** took 40 → 38 with the land upright, **Enter
+      tapped** left 40 and tapped it, both logged.
+      ⚠️ **Three reportables** (D136): `faceOf(printing, 0)` means **every MDFC
+      BACK FACE is invisible** to this rule and to D134's and D135's — all 16
+      printings of the 3-life wording — which needs the engine to know which face
+      a permanent entered as; `chooseFromZone` now has TWO parsed families waiting
+      on it (these 19 reveal lands plus D127's 1,625) and its answer type is also
+      what CR 616's ordering needs, making it the best-value prompt left; and the
+      `choose` family's 162 cards need a `chosen` field on card state, which is
+      the primitive rather than the question.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,658.**
+
+- [x] **M6.3j — Discarding, and the first prompt over a HIDDEN zone (2026-08-01):**
+      `chooseFromZone` split for the seventh time running, built for its largest
+      shape, and **1,658 → 1,665 cards run completely (+7)** — with the assisted
+      count moving four times further. Decisions in **D137**.
+      **The row is ONE regex with five alternatives and they are five rules:**
+      `discard` 801 cards · `from your graveyard/hand to …` 675 · `look at the
+      top N` 154 · `return a card from a graveyard` 9 · and `search library` —
+      which matches **ZERO**, because `effect:search` is checked one rule earlier
+      with a strictly broader pattern. Dead alternation in the classifier that
+      decides the build order, there since D127.
+      ⚠️ **AND DISCARD SPLIT AGAIN**, by what the clause IS: activated payload
+      265 · trigger payload 239 · **plain one-shot EFFECT 221** · modal mode 44 ·
+      additional cost 25 · keyword cost 18. Only the plain effect is a spell that
+      resolves by itself. Of 825 lines, **717 let the DISCARDING player pick**.
+      ⚠️ **THE PROMPT CARRIES NO CARD IDS, and that is the whole design.** Every
+      other `Awaiting` variant names battlefield permanents or stack objects
+      because the union crosses the wire WHOLE (D61); a hand is hidden, so
+      listing candidates would post one player's hand to every client the moment
+      they were asked to discard. It says only who, which zone and how many, and
+      the client computes the rest from its own `PlayerView` — D125's rule met by
+      construction. A test asserts the keys are exactly
+      `count, kind, label, player, zone`.
+      ⚠️ **The price is paid in the HANDLER**, which is the entire legality check
+      because the prompt vouches for nothing: exact count, no DUPLICATE ids
+      (`[c1, c1]` has length 2 and is one card), every id in that player's own
+      hand. ⚠️ And **no prompt when there is no choice** (CR 701.8a) — an empty
+      hand discards nothing, a hand no bigger than the count goes whole.
+      ⚠️ **TWO WORDINGS REFUSED, each a different prompt:** `at random` (54
+      lines) cannot be approximated because `effectEvents` has no RNG and
+      randomness here comes only from the seeded generator; and `Target opponent
+      reveals their hand. You choose a nonland card from it.` (53 lines, Duress /
+      Thoughtseize) has the CASTER pick from a hand made public first. Both are
+      fixtures, so both refusals are tests.
+      ⚠️ **THE ROW SAID 801, SOLE-NEED SAID 404, THE PLAIN-EFFECT SUBSET SAID
+      135, AND THE ANSWER IS 7.** Each is honest about a different question and
+      only the last is cards the engine runs. D130's shape exactly (a 1,441-card
+      row that paid 7), and the third time a "COMPLETE-if-built" estimate has
+      overshot by two orders of magnitude — **measure the SENTENCE, not the row.**
+      Spells `auto` 337 → **344**, `assisted` 1,532 → **1,564** (the bigger and
+      better move), cards with no Tier-3 note 2,063 → **2,070**.
+      **Verified: 1,244 Vitest / 8 skipped across 60 files** (up from 1,233 / 8)
+      **· `tsc -b` clean · build clean · the 500-seed fuzz gate green at 85,421
+      accepted intents / 2,328,874 events / 17,721 turns with **240 discards
+      chosen, 339 hand→graveyard moves** · `battery-anim.cjs bot engine` 102/102
+      · `battery-bot.cjs --games 40` 78.8% [68.6%, 86.3%], 0 faults · probe
+      124/124.** Fixtures 107 → 111. Played by hand through the real UI: the bar
+      read "Ben is discarding 2." to Ana and "Mind Rot: click 2 cards in your
+      hand to discard." to Ben, one ring after the first click, and the second
+      click sent it — hand 7 → 5, graveyard 2, log "Ben discards 2 cards."
+      ⚠️⚠️ **TWO BUGS WERE REPORTED THIS SESSION AND NEITHER EXISTED** (D137 has
+      both in full). `botPool`'s numbers are NOT order-dependent — `auto` and
+      `autoAnyFace` moved by different amounts, which puts the old value of one
+      on the new value of the other, and `expect` throws on the first failure so
+      the "second assertion disagrees" evidence was an assertion that never ran.
+      Mind Rot does NOT resolve without discarding — the prompt goes to the
+      TARGET, and the investigation had disabled the hotseat hand-off that shows
+      it; then clicking `[data-hand-instance]` did nothing because that is the
+      SLOT WRAPPER and the handler is on `[data-instance-id]` inside it.
+      ⚠️ **AND THE REUSABLE ONE: `window.__crt.engine.view()` LAGS THE ENGINE BY
+      ONE ANIMATION GROUP** — it can report "p1 has priority in main1" while the
+      engine rejects a sorcery-speed cast as out of phase. Drive CDP verification
+      off `submit()` results, never off the view.
+      ⚠️ **AND THE ONE FIX THE FALSE ALARM EARNED: a clause whose target has
+      gone now SAYS SO.** It was a bare `continue`, so the log read "Mind Rot
+      resolves." and nothing else — correct per CR 608.2b, and indistinguishable
+      from a broken effect, which is precisely why the non-bug above took four
+      hours. It reads `Mind Rot — no legal target left for “…”` now. Not
+      reachable by fizzling a single-target spell (that is countered on
+      resolution and never enters `effectEvents`); it takes a cast naming no
+      target. Checked by deleting it — exactly its own check fails.
+      ⚠️ **It fired ZERO times in 500 seeds** and the gate came back
+      byte-identical (85,421 intents / 2,328,874 events / 17,721 turns), so the
+      branch is real, rare and covered only by the unit test. Said plainly
+      because a fuzz canary here would have been green over nothing (D128).
+      ⚠️ **Two reportables** (D137): `return a card from your graveyard` (675
+      cards, 273 sole-need) is the same prompt shape over a PUBLIC zone, so it
+      needs no hidden-information design and is the cheapest slice left; and
+      `look at the top N` (154) already has half its machinery from D114's
+      scry/surveil and needs only an EFFECT that raises it.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,665.**
+
+- [x] **M6.3k — The graveyard return, and a target restriction nothing checked
+      (2026-08-01):** D137 named this as the cheapest remaining slice, and it was
+      — but the effect was not the interesting part. **Building it found that
+      `targetAllowed` had never checked the ZONE or the CARD TYPE**, so
+      `Raise Dead` ("Return target creature card from your graveyard to your
+      hand") could take a **land** out of an **opponent's exile**.
+      **1,665 → 1,684 cards run completely (+19)**, and **547 fewer target specs
+      carry an unenforced restriction — 1,987 → 1,440**, which is 15× the size of
+      the effect. Decisions in **D138**.
+      **The eighth split:** 686 cards — 376 to a HAND, 312 to the BATTLEFIELD;
+      and by clause, plain one-shot EFFECT 275 (150 sole-need) · trigger payload
+      205 · activated payload 137 · modal mode 70. Measured by the SENTENCE
+      before building rather than after (D137's lesson), the five whole-card
+      forms are worth **36**.
+      ⚠️ **THREE HOLES IN ONE CARD.** `TargetSpec.zones` had existed since the
+      targeting work and was read by NOTHING — `TargetKind`'s own comment
+      promised a narrowing that never happened. "from YOUR graveyard" was not
+      read at all. And "creature card" sat in `unenforced`, the field
+      `tier3.ts` prints as "the app will not check this".
+      ⚠️ **`kinds` COULD NOT HAVE SAID IT** — in a graveyard every object is
+      kind `card`, so "target creature card" and "target card" were the
+      IDENTICAL spec. Fixed with a new field on both sides (`TargetSpec.cardTypes`,
+      `TargetCandidate.types`), because the existing one was structurally
+      incapable of carrying the answer.
+      ⚠️ **THE TYPE ERROR FOUND BOTH ADAPTERS**, which is that file's whole
+      design: a required `types` failed `tsc -b` in the host's three candidate
+      builders and the client's. D53's shape holding — two producers, one
+      predicate — and why there was no second copy to hunt for.
+      ⚠️ The zone phrase is read in `readController`, BEFORE "you control",
+      because a graveyard clause never says "control" and the plain reader would
+      consume nothing. "a graveyard" stays `controller: null` — narrowing it to
+      the caster would BLOCK a legal choice, the one direction `targetParse` may
+      never be wrong in.
+      ⚠️ **TWO EFFECT KINDS, NOT ONE WITH A FLAG.** A reanimated card becomes a
+      PERMANENT, so it runs the whole entry funnel — loyalty counters (D107),
+      enters-tapped (D134/D135), the pay-to-enter prompt (D136) — and none of
+      that applies to a card going to a hand. The card goes to its OWNER, the
+      permanent to the CASTER.
+      ⚠️ **A `.+` IN THE PATTERN, CAUGHT BY ITS OWN TEST**: it swallowed
+      "creature card WITH MANA VALUE 3 OR LESS", a restriction `TargetSpec` has
+      no field for, so the spell would have reanimated anything at all. `GY_NOUN`
+      is closed to the three nouns targeting can fully decide.
+      ⚠️ **`moveTo` HARDCODES `from: battlefield`** — right for destroy/exile/
+      bounce, wrong for a graveyard, and it left the card in BOTH zones.
+      `assertInvariants` caught it by name.
+      **Verified: 1,256 Vitest / 8 skipped across 61 files** (up from 1,245 / 8)
+      **· `tsc -b` clean · build clean · the 500-seed fuzz gate green at 510.75 s,
+      byte-identical to D137's · `battery-anim.cjs bot engine` 102/102 ·
+      `battery-bot.cjs --games 40` 78.8% [68.6%, 86.3%], 0 faults · probe
+      124/124.** Fixtures 111 → 115; spells `auto` 344 → **364**, `assisted`
+      1,564 → **1,610**; Tier-3 notes SHRANK (2,070 → 2,090 silent), which is the
+      disclosure telling the truth for the first time in that direction.
+      ⚠️⚠️ **AND A THIRD FALSE ALARM, CAUGHT THIS TIME BEFORE IT WAS REPORTED.**
+      The gate took **860 s against its own 600 s timeout** on byte-identical
+      games — which reads exactly like a 50% regression from the new
+      per-candidate checks. It was not. Timed back to back at 60 seeds:
+      **enforcement reverted 73.65 s, enforcement restored 69.83 s** — the
+      restored run was FASTER. Overwatch was resident (14,701 s CPU) and my own
+      Electron batteries were running concurrently with the gate;
+      `battery-bot` reported **32 decisions/s against its usual 130**, which is
+      the load showing up in a second instrument. D106 records this case,
+      Overwatch included. **Never run the batteries and the 500-seed gate at the
+      same time, and never read a wall-clock number from a loaded machine.**
+      ⚠️ **Three reportables** (D138): `permanent card` is now the only common
+      graveyard noun still `unenforced`, and giving it `cardTypes` is the
+      cheapest follow-on; `TargetSpec` has NO NUMERIC RESTRICTION, so "with mana
+      value 3 or less" (and every "with power N or less") is refused — one field
+      plus one comparison would unlock the mana-value reanimators; and `look at
+      the top N` (154 cards) still has half its machinery unused from D114.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,684.**
+
+- [x] **M6.3l — The numeric restriction, and a cast the host took on trust
+      (2026-08-01):** D138 called this one field plus one comparison. It is —
+      **1,684 → 1,711 cards run completely (+27)** — and it turned up a second
+      hole with nothing to do with numbers. Decisions in **D139**.
+      ⚠️ **D138'S OWN REPORTABLE HAD THE MECHANISM WRONG, and the truth is
+      worse.** It implied "with mana value 3 or less" sat in `unenforced` the way
+      "creature card" did. Measured: **target specs whose `unenforced` names a
+      numeric attribute — ZERO.** `Smite the Monstrous` parsed to
+      `kinds:['creature'], confident:true, unenforced:[]`: the qualifier matched
+      no noun entry, so it was **never recorded anywhere at all**. Not enforced,
+      not disclaimed, not visible. The app would destroy a 1/1 with it, and
+      `text` read "target creature" — the prompt bar quoting the player a rule
+      the card does not have.
+      **The closed vocabulary, shaped by what the database prints:** mana value
+      504 lines / 490 cards · power 385 / 370 · toughness 33 / 33; `or less` 587
+      · `or greater` 335. "converted mana cost" normalises to `manaValue`.
+      ⚠️ **THE ORDER OF THE FIX IS THE FIX.** D138 refused to widen the effect
+      vocabulary for this wording and was RIGHT: accepting the sentence while the
+      restriction inside it went unchecked would have let a reanimation spell take
+      anything. **Enforce first, admit the wording second** — the other way round
+      is how a card that reads correctly runs incorrectly. Once `targetAllowed`
+      checks it, one shared `QUALIFIER` widens both `TARGET` and `GY_NOUN`.
+      ⚠️ **DERIVED, NOT PRINTED** (CR 613 settles characteristics before targeting
+      legality): a pumped 2/2 really is a legal target for "power 4 or greater",
+      and reading the printed value would REFUSE a legal choice. ⚠️ **A spell on
+      the stack HAS a mana value** — 504 lines restrict on it (`Disdainful
+      Stroke`) — where its power and toughness are genuinely absent. ⚠️ **And a
+      missing number REFUSES**: the one place in `targets.ts` where absence
+      narrows rather than widens, right because the spec is KNOWN.
+      ⚠️ The qualifier is read in `readController`, which now **recurses** —
+      "target creature with power 4 or greater YOU CONTROL" puts the number
+      between the noun and the controller phrase, so a reader that looked for
+      "you control" straight after the noun would drop BOTH.
+      ⚠️⚠️ **THE SECOND HOLE: `CastSpell` WAS TAKEN AT ITS WORD.** `prepareCast`
+      takes a `targets` list and uses it for exactly one thing — the ward
+      surcharge — and **never calls `validateTargets`**. The two-stage path
+      validates in `chooseTargets`; a cast that NAMED its own targets had no
+      equivalent. Not reachable from this app's UI, but "the host decides
+      legality" is what the whole net layer rests on (D53, D61, invariant 4), and
+      a rule enforced only when the client asks nicely is not enforced. It is also
+      the seam a test driver uses: D137's own test cast Mind Rot with an empty
+      target list and the host allowed it. Closed, and that test retargeted.
+      **Verified: 1,268 Vitest / 8 skipped across 62 files** (up from 1,256 / 8)
+      **· `tsc -b` clean · build clean · the 500-seed fuzz gate green and
+      byte-identical at 457.48 s · `battery-anim.cjs bot engine` 102/102 ·
+      `battery-bot.cjs --games 40` 78.8% [68.6%, 86.3%], 0 faults at 135
+      decisions/s · probe 124/124.** Fixtures 115 → 119; spells `auto` 364 →
+      **394**, `assisted` 1,610 → **1,636**; `effect:auto` faces 2,067 →
+      **2,170**; cards with no Tier-3 note 2,090 → **2,117**.
+      ⚠️ **The gate ran 457 s here, 510 s for the identical games last time, and
+      860 s for the run that triggered D138's phantom-slowdown hunt** — same
+      machine, same work, three wall-clocks. A third data point for D106.
+      ⚠️ **Two reportables** (D139): the restriction is read even where the EFFECT
+      is not — `Eternal Isolation` stays Tier 3 but its aim veil is now honest,
+      which is true for all ~890 cards carrying one of these phrases rather than
+      only the 27 that became executable; and "with power N or less" on a clause
+      that ALSO names a zone still loses the zone, because the graveyard branch of
+      `readController` does not yet recurse the way the numeric one does.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,711.**
+
+- [x] **M6.3m — Both qualifier readers now behave the same (2026-08-01):** a
+      four-line symmetry fix, and the useful half is that **D139's reportable was
+      wrong and measuring first is what caught it**. Decisions in **D140**.
+      ⚠️ D139 said "a clause that names a zone AND a number loses the zone".
+      Measured: the numeric branch it added RECURSES and is checked FIRST, so
+      "with mana value 3 or less from your graveyard" already produced both. That
+      reportable described a gap its own change had closed — written from reading
+      the code instead of running it, the fourth claim this session to fail that
+      way.
+      ⚠️ **THE OTHER ORDER WAS GENUINELY BROKEN.** "target creature card IN YOUR
+      GRAVEYARD with mana value 4 or less" read the zone and threw the number
+      away, truncating `text` to match — the same silent widening D139 closed,
+      surviving in the branch written first because the fix went to the new code
+      and not to its neighbour. The graveyard branch RETURNED where the numeric
+      one RECURSED.
+      ⚠️ **ONE PRINTED CARD NEEDS IT** (`Too Evil to Stay Dead`) **and NO
+      COVERAGE NUMBER MOVED** — it is a Teamwork sorcery with a conditional
+      second target, far outside the effect vocabulary, so it stays Tier 3 and
+      `complete` is unchanged at 1,711. What changed is its AIM VEIL. The
+      justification is the asymmetry, not the card: two readers of the same kind
+      of qualifier behaving differently is a bug waiting for the third one, and
+      whichever branch it got written next to would have decided its behaviour.
+      **Verified: 1,269 Vitest / 8 skipped across 62 files · `tsc -b` clean ·
+      build clean · the 500-seed gate green and byte-identical for the fourth run
+      running at 487.28 s.** Checked by reverting the recursion: exactly its own
+      check fails and nothing else moves.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,711.**
+
+- [x] **M6.3n — Look at the top N, and the sentence boundary that hid it
+      (2026-08-01):** D137 called this half-built already. Right about the
+      machinery, wrong about the hard part. **1,711 → 1,718 cards run completely
+      (+7).** Decisions in **D141**.
+      **The tenth split — 350 blocked cards:** trigger payload 149 · plain
+      one-shot EFFECT 138 (97 whole-card) · activated 64. By destination: the
+      BOTTOM 186 · bottom IN ANY ORDER 75 · the GRAVEYARD 54 · back in any order
+      21. Only the plain effect resolves alone, and **only the destinations
+      carrying no ORDER decision can be executed.**
+      ⚠️ **TWO REFUSALS, TWO REASONS.** "In any order" (6 lines, `Dig Through
+      Time`) is a SECOND decision the card gives the player and this offers only
+      the first — executing it picks an order on their behalf. "In a random
+      order" (2 lines) needs the seeded generator, which `effectEvents` does not
+      have — D137's "discards at random", one card type along. Both are FIXTURES,
+      so both refusals are real printings rather than assertions about strings.
+      ⚠️ `the other` is admitted BECAUSE it is singular — one card left means no
+      order to choose — and the build checks the arithmetic rather than being
+      right by luck. A graveyard needs no qualifier at all, which is why it is
+      the biggest form this takes.
+      ⚠️⚠️ **THE SPLITTER RUNS BEFORE THE PARSER, AND THE FIRST CUT PARSED
+      NOTHING.** `parseEffects` splits on the full stop and matches one rule per
+      sentence; the card prints TWO sentences that are one effect, so a pattern
+      spanning them could never match however it was written. `sentences()` now
+      JOINS a `Look at the top N cards of your library.` head to what follows.
+      ⚠️ **The join changes the CLAUSE COUNT, which is what decides `auto` versus
+      `assisted`** — load-bearing in both directions: without it the card is two
+      clauses of which zero are understood, and with a looser head it would glue
+      an unrelated sentence on and turn an `assisted` card into a `manual` one.
+      ⚠️ **THE PROMPT IS THE DISCARD PROMPT OVER A SECOND ZONE** and still ships
+      no card ids: a library is hidden, and the client sees exactly what the rules
+      revealed to it through `view.peek` (D114's one exception to "a library is a
+      count"). The handler DERIVES the leftovers from the reveal, so the prompt
+      carries only a count and a destination — putting the pool on it would post a
+      library top to the wire (D61). The reveal is cleared on the answer.
+      ⚠️ **ONE REAL BUG, CAUGHT BY ITS OWN TEST: the bottom is INDEX 0.**
+      `addToZone` appends and `drawFromTop` takes from the end, so a move without
+      `placement: 'bottom'` put the declined card straight back under the next
+      draw — invisible to any test that only checked it had left the revealed set.
+      ⚠️ **D137's pinned FIELD LIST failed the moment `rest` was added**, which is
+      that check working: every new field on a prompt over a hidden zone gets
+      looked at before it ships. `rest` is an enum naming a destination, so it
+      cannot leak.
+      **Verified: 1,280 Vitest / 8 skipped across 63 files** (up from 1,268 / 8)
+      **· `tsc -b` clean · build clean · the 500-seed gate green and
+      byte-identical for the FIFTH run running at 477.17 s · `battery-anim.cjs
+      bot engine` 102/102 · `battery-bot.cjs --games 40` 78.8% [68.6%, 86.3%], 0
+      faults · probe 124/124.** Fixtures 119 → 123; spells `auto` 394 → **401**,
+      `assisted` 1,636 → **1,641**; `effect:auto` faces 2,170 → **2,207**.
+      ⚠️ **7 cards from a 350-card row — the fourth estimate to overshoot by two
+      orders of magnitude**, and the reason is the same every time: a row counts
+      cards CARRYING a clause, the sentence rules count cards whose WHOLE text is
+      understood.
+      ⚠️ **Three reportables** (D141): "in any order" is now the biggest single
+      thing blocked here at **96 cards** and needs an ORDERING prompt, which would
+      also serve CR 616's replacement ordering (unbuilt since D134); the trigger
+      and activated halves are 213 cards needing card scripts, not a primitive;
+      and `sentences()` now has a join list of ONE — past two or three entries the
+      honest move is a two-pass parser rather than a widening list of heads.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,718.**
+
+- [x] **M6.3o — The ordering prompt, and a "96 cards" that was four
+      (2026-08-01):** D141 named "in any order" as the biggest thing left in its
+      row at **96 cards**. Measured by SENTENCE before building — the eleventh
+      split — it is **four**: `Impulse`, `Stock Up`, `Anticipate` (take M, order
+      the rest to the bottom) and `Index` (order all N back on top). **1,718 →
+      1,723 (+5).** Decisions in **D142**.
+      ⚠️ **THE FIFTH ROW-LEVEL ESTIMATE TO OVERSHOOT BY TWO ORDERS OF MAGNITUDE**
+      (D130, D137, D138, D141, this), and the cause is identical every time: a
+      row counts cards CARRYING a clause; the sentence rules complete cards whose
+      WHOLE text is understood. This is the first one where the corrected number
+      was known BEFORE a line was written rather than after.
+      Built anyway, and not for the four cards: **this is the prompt CR 616
+      needs**, unbuilt since D134, and the shape every future "in any order" will
+      use. The other 92 are trigger payloads needing card scripts (`Sage Owl` is
+      8 lines / 6 whole on its own) or want the optional type-filtered reveal.
+      ⚠️ **THE THIRD PROMPT IN A ROW THAT SHIPS NO CARD IDS** (D137's hand,
+      D141's library, this). The client lists them from `view.peek`; putting them
+      on the prompt would post a library top to every client (D61). Deliberately
+      NOT `orderTriggers`, which DOES carry its list because the stack is public
+      — same verb, opposite disclosure.
+      ⚠️ **`Impulse` CHAINS TWO PROMPTS** — pick, then order — because they are
+      separate decisions; the kept card moves as soon as it is chosen. `Index`
+      skips the first: `take: 0` is a real printed form, not a degenerate case.
+      And neither is raised when there is nothing to decide, since one card has
+      one sequence.
+      ⚠️ **THE BUG: BOTH ENDS REVERSE, AND ONLY ONE LOOKED LIKE IT.** The first
+      cut reversed for the TOP only, reasoning about appending, and bottomed
+      `Impulse`'s three cards in exactly the wrong order. Each placement puts the
+      card it applies AT the named end — appending for the top, unshifting for the
+      bottom — so the LAST card applied lands nearest it either way. Its own test
+      caught it; nothing else would have, because the cards all arrive regardless.
+      ⚠️ **`Dig Through Time` CHANGED SIDES** — D141 pinned it as a fixture that
+      must be refused, and it is read now — while **`Drawn from Dreams` is still
+      refused**: "in a RANDOM order" needs the seeded generator, and no prompt
+      supplies one (D137).
+      **Verified: 1,285 Vitest / 8 skipped across 63 files · `tsc -b` clean ·
+      build clean · the 500-seed gate green and byte-identical for the SIXTH run
+      running at 486.51 s · `battery-anim.cjs bot engine` 102/102 ·
+      `battery-bot.cjs --games 40` 78.8% [68.6%, 86.3%], 0 faults · probe
+      124/124.** Fixtures 123 → 125; spells `auto` 401 → **406**, `assisted`
+      1,641 → **1,647**; `effect:auto` faces 2,207 → **2,240**.
+      ⚠️⚠️ **THE UI IS PROMPT-BAR TEXT ONLY, and this is the first prompt in M6.3
+      shipped without a working human control.** The bar says "click your N cards
+      in the order you want them", and D114's peek panel lists them — but nothing
+      records the click ORDER, so the prompt is answerable by the bot, the fuzzer
+      and the net driver and NOT by a person at the table. Said plainly rather
+      than left to be found by playing; it is the next thing to finish.
+      ⚠️ **Two more reportables** (D142): CR 616's ordering now HAS its prompt and
+      is still not built — D134 applies overlapping replacements in battlefield
+      order and says it is not the player's choice, and this is the shape that
+      choice needs; and `Sage Owl`'s 6 whole cards are one card script away, the
+      effect being built already.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,723.**
+
+- [x] **M6.3p — The ordering control, and a second prompt that had no control
+      either (2026-08-01):** D142 shipped `orderCards` answerable by the bot, the
+      fuzzer and the net driver but NOT by a person, and said so. This finishes
+      it — and finding it found the same gap one prompt earlier. Decisions in
+      **D143**.
+      ⚠️ **D141's LIBRARY `chooseFromZone` HAD NO CONTROL EITHER, and that had
+      not been noticed.** `useEngineTable`'s click branch checks
+      `hand.includes(id)`, so clicking a peeked card did nothing; and the peek
+      panel's own buttons (built for D114's Tier-3 tools) send `ManualMoveCard`,
+      which under a live prompt BYPASSES the question the engine is waiting on
+      AND writes a Tier-3 wrench for something the rules are doing.
+      **The lesson is narrow and worth keeping: a prompt's ANSWERERS and its
+      CONTROL are separate work, and "the driver can answer it" reads exactly
+      like "it is finished".**
+      ⚠️ **ONE CONTROL SERVES BOTH.** A live prompt takes the peek panel over —
+      Tier-3 buttons go away, the card becomes clickable, clicking adds it to the
+      answer. **Append, never toggle-into-a-set**: for a pick the sequence is
+      incidental, for an ordering it IS the answer. `discardPick` is renamed
+      `pickOrder`, which said "discard" while serving three prompts and "a set"
+      while holding a sequence.
+      ⚠️ **The badge is the POSITION, not a tick** — for an ordering the number is
+      the whole answer. ⚠️ **No "Done" while a prompt is up**:
+      `ManualStopPeeking` clears the reveal without answering, which is a wedge
+      with a button on it. ⚠️ **And the bar names the right place** — D141's text
+      said "in your HAND to discard" for a library peek, sending the player after
+      a control that genuinely was not there.
+      **Verified: 1,285 Vitest / 8 skipped across 63 files · `tsc -b` clean ·
+      build clean · `battery-anim.cjs bot engine` 102/102 · probe 124/124.**
+      ⚠️ **DRIVEN THROUGH THE REAL UI, AND THE ORDER IS CHECKED BY DRAWING.**
+      `Index` revealed five, the panel counted "2/5 chosen" mid-pick, the fifth
+      click submitted, and five draws came back in EXACTLY the clicked order —
+      first-clicked drawn first. `Impulse` drove both stages, with the
+      destination word changing from "top" to "bottom" between the two spells.
+      ⚠️ **Two reportables** (D143): NO AUTOMATED CHECK COVERS THIS PANEL —
+      `battery-anim.cjs`'s `engine` section drives real clicks and never opens a
+      peek, which is how D142 shipped without a control and D141's went unnoticed
+      for a slice; and `peekMode` is now half-dead, deciding only the Tier-3 copy
+      while a prompt overrides both it and the buttons.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,723** (unchanged — this is a control,
+      not a card).
+
+- [x] **M6.3q — The check that would have caught two shipped gaps (2026-08-01):**
+      D143's own reportable, closed. Six checks in `battery-anim.cjs engine`
+      driving REAL CLICKS on the peek panel; the section is **91 → 97**.
+      Decisions in **D144**.
+      ⚠️ **THE ENGINE SEAM WAS NEVER THE PROBLEM.** `chooseFromZone` and
+      `orderCards` both had unit tests and answers from the bot, the fuzzer and
+      the net driver — and both were UNANSWERABLE BY A PERSON. From a suite that
+      never clicks, that state is indistinguishable from finished.
+      ⚠️ It SAVES ITS OWN DECK (`Index` is in no starter deck) and **deletes it
+      in a `finally`, pass or fail** — D110's precedent for a block starting its
+      own game, plus the cleanup rule, because a battery that leaves rubbish in
+      the user's data directory is one people stop running.
+      ⚠️ **THE ASSERTION THAT MATTERS IS THE DRAW ORDER.** Everything else is true
+      whichever way round the sequence goes; only drawing the cards back proves
+      the player's first click ended up on top.
+      ⚠️ **VERIFIED BY BREAKING IT.** The card's `onClick` was removed — exactly
+      the state D142 shipped — and three checks failed, the useful one reading
+      `clicked c92,c85,c100,c88,c50 · drew c85,c88,c92,c50,c100`: the cards came
+      back in LIBRARY order, which is what "the clicks did nothing" looks like
+      from the other end.
+      **Verified: `battery-anim.cjs bot engine` 108/108 · 1,285 Vitest / 8
+      skipped across 63 files · `tsc -b` clean · build clean · probe 124/124.**
+      ⚠️ It reports an honest SKIP for a shuffle that never deals an `Index`, but
+      NOT for "panel never opened" — a skip that swallowed its own subject is
+      D128's green-over-nothing.
+      ⚠️ **Two reportables** (D144): D137's hand discard and D136's pay-to-enter
+      are still uncovered here — both were driven by hand at the time, which is
+      exactly what was true of the two this entry is about; and `peekMode`
+      remains half-dead, now safe to collapse to a Tier-3-only concept.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,723** (unchanged — this is a check,
+      not a card).
+
+- [x] **M6.3r — The last two prompts get clicked, and two traps get encoded
+      (2026-08-01):** D144's reportable, closed. D136's pay-to-enter and D137's
+      hand discard were driven by hand when they shipped and covered by nothing
+      since — the exact state the two prompts D144 wrote checks for had been in.
+      Seven more checks; `engine` is **97 → 104**, `bot engine` **108 → 115**.
+      Decisions in **D145**.
+      ⚠️ **BOTH BRANCHES, IN TWO GAMES.** The shock land is paid for once and
+      declined once, because a check that only paid would pass with the decline
+      button wired to the same handler — the single most likely way this UI
+      breaks. Proved by doing exactly that: rewiring decline to send `pay: true`
+      fails `declining costs nothing and taps it` and nothing else moves.
+      ⚠️ **TWO TRAPS THAT HAD ALREADY COST HOURS ARE NOW ENCODED.** (1) The
+      discard prompt goes to the TARGET, so the caster's screen shows nothing to
+      do — which sent D137's investigation into the engine for four hours on a
+      working feature; the check drives both sides. (2) The click target is
+      `[data-instance-id]`, NOT the `[data-hand-instance]` slot wrapper — a
+      click on the parent fires nothing, and that was the other half of the same
+      four hours.
+      ⚠️ **AND A THIRD, FOUND WHILE WRITING IT: `startSolo` leaves the viewer
+      wherever the turn order starts**, so p1's own hand comes back with
+      `card: null` and a search by NAME through another seat's view reads as
+      "the deck has no such card". It reported `no Godless Shrine reached hand`
+      for a deck that was 20% Godless Shrine. `keep()` sets the viewer now.
+      ⚠️ **The shock land is MOVED, not played** — a land drop needs it to be
+      p1's turn, which `startSolo` does not guarantee, and moving it is the
+      better test anyway: the prompt lives in `applyReplacements`, which D134 put
+      there because TEN paths put a permanent onto the battlefield, so this proves
+      the funnel catches one that is not the land drop.
+      **Verified: `battery-anim.cjs bot engine` 115/115 · 1,285 Vitest / 8
+      skipped across 63 files · `tsc -b` clean · build clean · probe 124/124.**
+      Both blocks save their own decks and delete them in a `finally`, pass or
+      fail — D144's rule, followed twice.
+      ⚠️ **Two reportables** (D145): EVERY prompt built in M6.3 is now clicked by
+      a machine except `optionalTrigger` (D128), which is unreachable in the
+      shipped app at all (`host.ts` builds with `EMPTY_REGISTRY`) — that debt is
+      the only one of its kind left, and these three blocks are the pattern to
+      discharge it with; and the `engine` section is doing two jobs at 104 checks,
+      worth splitting into its own prompt-UI section before the next slice.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,723** (unchanged — checks, not cards).
+
+- [x] **M6.3s — The prompts get their own section, and the last unclickable prompt
+      gets clicked (2026-08-02):** both of D145's reportables, closed in one pass.
+      `engine` is **104 → 91** and a new `prompts` section holds **18**;
+      `bot engine prompts` is **115 → 120**. Decisions in **D146**.
+      ⚠️ **`optionalTrigger` WAS UNREACHABLE IN THE RUNNING APP, not merely
+      uncovered.** It is raised only by a registered `TriggerDef` and `host.ts`
+      built with `EMPTY_REGISTRY`, so no deck, no board and no sequence of clicks
+      could produce it — D128's debt, open since. `HostOptions.scripts` is the
+      seam: optional, defaulting to `EMPTY_REGISTRY`, passed by no screen, the
+      same shape as `extraPool`. The battery passes the TEST registry through it
+      and clicks the prompt.
+      ⚠️ **NOTHING HERE SHIPS A CARD SCRIPT.** Landing scripts is still M6.4 and
+      still owes the accounting this does not discharge: a card whose script runs
+      must have its `tier3.ts` note go silent and `engineComplete` accept it, in
+      the same commit. Deliberately NOT `options` — `GameOptions` is part of the
+      state hash and a registry is a dependency.
+      ⚠️⚠️ **THE VIEW-LAG TRAP COST THE FIRST TWO RUNS.**
+      `window.__crt.engine.view()` lags the engine by one animation group (D137),
+      and the group that STOPS the game is the last one — so with the bar reading
+      "Ajani's Mantra — gain 1 life — this one is optional" and both buttons on
+      screen, `view().awaiting` was `undefined` and stayed that way. The loop
+      polled it and reported "the prompt never came up" about a prompt that was
+      up, twice, including once after restarting vite on a stale-module-graph
+      theory. **A lagging view catches up only while the game is FLOWING; at the
+      moment it stops it stays wrong.** Detection is the DOM now, which is the
+      better assertion anyway.
+      ⚠️ **Both branches in ONE game** — the trigger fires every upkeep, so taking
+      and declining are two turns rather than D145's two games, and **asking again
+      next upkeep is itself an assertion**: a prompt answered once must not be
+      spent. Nobody attacks, or p2's starter deck moves p1's life for reasons
+      that have nothing to do with the trigger.
+      ⚠️ **Split across several `js()` calls** because every CDP send has a hard
+      30 s timeout and reaching the next upkeep is two turn cycles of real
+      priority passing; one long expression reports a CDP timeout, which reads
+      exactly like a wedged engine.
+      **Verified: `battery-anim.cjs bot engine prompts` 120/120 · 1,285 Vitest /
+      8 skipped across 63 files · `tsc -b` clean · build clean · probe 124/124.**
+      Checked by breaking it: the decline button rewired to `accept: true` fails
+      exactly `declining runs nothing at all — life +1` and nothing else moves.
+      ⚠️ **EVERY PROMPT BUILT IN M6.3 IS NOW CLICKED BY A MACHINE** — all four of
+      `optionalTrigger`, `entersChoice`, `chooseFromZone` and `orderCards`,
+      through real clicks in a real Electron. **One reportable left from this arc:
+      `peekMode` is still half-dead and safe to collapse to a Tier-3-only
+      concept.**
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,723** (unchanged — checks, not cards).
+
+- [x] **M6.3t — The pre-M6.4 list, worked (2026-08-02):** thirteen of the
+      eighteen items on the "before M6.4" list, built and verified in one pass —
+      three engine PRIMITIVES and ten correctness debts that had each been
+      measured and left. Decisions in **D147**.
+      ⚠️ **A TRIGGERED ABILITY CAN TARGET — 3,218 cards, the largest family
+      measured in this arc.** `PendingTrigger` carried no targets, `TriggerDef`
+      could not declare any, and `drainTriggers` built every stack object with
+      `targets: []`. CR 603.3d: the object goes on the stack and the question is
+      asked in one uninterruptible pass, so `resolve` — which already receives
+      the `StackObject` — needed no change. CR 603.3d ALSO removes a trigger with
+      no legal target, which is what stops the prompt being a wedge: a trigger has
+      no `pendingCast` to cancel (D102's shape, prevented). CR 608.2b re-checks
+      at resolution, against the DEF's specs — a permanent's printed `targets` is
+      an empty list, so without that every restriction went unchecked.
+      ⚠️ **A "DIES" TRIGGER CAN BE WRITTEN AT ALL (CR 603.10a).**
+      `collectTriggers` took `before` and threw it away with `void before`, so a
+      trigger on its own source's death was rejected twice — the zone check found
+      it in a graveyard and `matches` got a board it had left. `looksBack` asks
+      both of the old state, and **the flag has a break test in the suite**
+      (D128's lesson: a flag nothing reads looks exactly like one that works).
+      ⚠️ **COMBAT RESTRICTIONS HAVE A SEAM (227 cards).** D129 filed them under
+      `layer6`; `canAttack`/`canBlock` consulted no static at all. `CombatDef` is
+      deliberately NOT a layer — CR 613 settles CHARACTERISTICS and "can't block"
+      is a rule about an ACTION. **Restrictions only**, measured 11:1 over
+      requirements (1,138 "can't be blocked" · 393 "can't attack" · 320 "can't
+      block" vs 123 "attacks if able" · 39 "must be blocked"), because a
+      requirement is a property of the whole DECLARATION and cannot be checked one
+      creature at a time. Asked LAST, so a script may only ever narrow.
+      ⚠️ **`applyStatics` WAS O(N²) AND IS INDEXED** — D129 measured +64% with two
+      statics and named this fix in its own comment. Same games, 60 seeds:
+      **66 s / 59 s before, 42 s / 49 s after.** The index keeps BATTLEFIELD
+      ORDER, which is CR 613.7c's timestamp and the whole of D129's fix.
+      ⚠️⚠️ **310 CARDS WERE COUNTED AS MANA SOURCES FOR SOMEBODY ELSE'S ABILITY.**
+      `parseManaProduction` never called `scrub`, so a Treasure's reminder text
+      and any ability a card GRANTS in quotes read as its own. `strayMana`
+      **310 → 0**. And the scrub exposed a deeper fault: `Braid of Fire`'s
+      reminder says "unless you pay its upkeep cost", which was what marked the
+      card conditional — remove the reminder and a cumulative upkeep started
+      looking like a plain mana ability, with the disclosure going SILENT on it.
+      The missing rule is CR 605.1a: **a mana ability is an ACTIVATED ability**,
+      and the loop accepted a colon-less line. **Four real lands were offering
+      mana they cannot make** — `Crumbling Vestige` and `Branch of Vitu-Ghazi`
+      have their any-colour on a TRIGGER, `The World Tree` and `Riftstone Portal`
+      GRANT it to other lands. `complete` **1,723 → 1,722**: `Glittermonger` was
+      in the pool for a line it does not have.
+      ⚠️ **THE WORLD RULE (CR 704.5m)**, found by D129 and unbuilt since. NOT a
+      choice, unlike the legend rule beside it, and GLOBAL rather than
+      per-controller.
+      ⚠️ Nine smaller debts closed: `permanent card` enforced (unenforced specs
+      **1,440 → 1,379**); `collectTriggers`'s per-loop `Object.keys` hoisted;
+      **`botDeck.ts` got its regenerate-is-a-no-op guard AND FAILED IT
+      IMMEDIATELY** — the committed deck had drifted, its header reading "722
+      cards" against a live 742; `SHIPPED_SCRIPTS` is a named list with
+      `shippedScripts.node.test.ts` enforcing the tier3/engineComplete accounting
+      that had lived only in comments since D122, **with a teeth check over the
+      TEST registry because the shipped list is empty**; `ManaChoice`'s "dashed
+      mana is restricted" copy was wrong for three of its four cases; `peekMode`
+      documented as Tier-3-only with `data-peek-mode` reporting `prompt`; and the
+      entry rules read the card's own face — which changes nothing today because
+      **an MDFC back face cannot reach the battlefield at all** (`castSpell` opens
+      `const faceIndex = 0`), a bigger finding than D136's reportable.
+      ⚠️ **AND RANDOMNESS IN `effectEvents` (the 14th item).** D137 refused "at
+      random" with a REASON rather than a verdict — no RNG, and randomness here
+      comes only from the seeded generator threaded through the log.
+      `effectResult` returns the advanced generator beside its events, so
+      `Hymn to Tourach` **changed sides** the way `Dig Through Time` did in D142:
+      a refusal whose stated reason has been removed is not a rule. TWO entry
+      points rather than one changed signature, because the RNG advances ONLY
+      through a recorded `rngAfter` — a caller that dropped it would **replay to
+      a different board than it played**, silently, and only for the cards that
+      use randomness. The MANUAL path is threaded too, and it is the one that
+      would have been missed: a card with an at-random clause AND an unread one
+      is ASSISTED, so it arrives there rather than resolving alone. `complete`
+      **1,722 → 1,725**; spells `auto` **406 → 409**.
+      ⚠️ **AND THE CHOSEN COLOUR (the 15th item, CR 614.12).** D136 measured
+      the "As this ~ enters, choose …" family at 162 cards and said the FIELD is
+      the primitive, not the question — and that is exactly why only ONE of its
+      three shapes is built. Measured: colour 52 · creature type 58 · opponent 12,
+      and **almost none of them is the whole card** — the choice is always
+      consumed by a later line. The COLOUR has a consumer the engine already has
+      (`{T}: Add one mana of the chosen color`, which `parseManaProduction` has
+      modelled as an `anyColor` scope since M1), so `chosen` is a fourth scope
+      beside `identity` and `landsYou` — a set of one that lives on the permanent
+      rather than the board. **`Sol Grail` is the whole card in two lines, with
+      no card script anywhere.** Creature type and opponent are REFUSED: their
+      consumers need M6.4, so asking today would store an answer nothing reads.
+      `chosenColor`, not a general `chosen`, because a field with two members
+      nothing populates is the same theatre with a wider type.
+      ⚠️ **THE ONLY PROMPT IN M6.3 WHOSE ANSWER IS A FACT RATHER THAN AN ACTION** —
+      remembered on the object, so it is in the state hash and on the log. Before
+      it is answered the source offers NOTHING: not "any colour", not colourless,
+      because five options would be the engine making the player's choice.
+      `complete` **1,725 → 1,730**, and **`Coldsteel Heart` joined the BOT's
+      deck**. D125's producer map caught the new kind on the first `tsc -b`, by
+      name, in three files at once.
+      **Verified: 65 test files, 1,317 Vitest / 9 skipped · `tsc -b` clean ·
+      build clean · the 500-seed fuzz gate green at 323.8 s with SIX scripts
+      registered (four before) · `battery-anim.cjs bot engine prompts` 120/120 ·
+      `battery-bot.cjs --games 40` 7/7 · probe 124/124.** Fixtures 125 → 128.
+      Two new fuzz canaries, both chosen because they cannot go green on
+      somebody else's work.
+      ⚠️ The `prompt(` grep caught a test helper named `prompt` for the SECOND
+      time (D144 records the first). Renamed the helper, not the check.
+      ⚠️ **THREE ITEMS NOT BUILT, each with a reason rather than a shrug** (D147):
+      **CR 616's ordering needs a RESUMABLE FOLD** — `applyReplacements` is pure
+      `(state, events) => events`, and D136's apply-then-ask is unavailable
+      because the ORDER changes the outcome, so it means a continuation in
+      `GameState`; **CR 613.8
+      dependency** and removing a NON-KEYWORD ability (`MutableCharacteristics`
+      models keywords, so `Humility` is unrepresentable); and the **two-pass parser
+      is deferred ON PURPOSE** — D141 said "past two or three entries" and
+      `sentences()`'s join list still has ONE.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,730** — and it went DOWN by one on
+      the way (`Glittermonger`, which was never really there) before the
+      at-random discard put three back and the chosen colour five more.
+
+- [x] **M6.3u — CR 616, with the continuation (2026-08-02):** the last of the
+      three architectural items D147 named, and the only one whose stated reason
+      was "this needs a continuation in `GameState`". It has one. Decisions in
+      **D148**.
+      ⚠️ **IT WAS NEVER ON D127's LIST** — M6.3's build order measured seven
+      primitives by cards-waiting; this came out of D134's bucket split as a
+      reportable and was re-named as unbuilt by D142 and D147.
+      ⚠️ **THE TRICK THAT WORKED TWICE DOES NOT WORK HERE.** D136 and D147 both
+      prompt from inside the replacement funnel by letting the event happen and
+      asking afterwards. Unavailable when the ORDER changes the outcome:
+      `Hardened Scales` before `Branching Evolution` turns two counters into
+      SIX, the other way FIVE. So the event is HELD, unapplied, and
+      `applyReplacements`'s purity is bought back by moving the state into
+      `GameState`.
+      ⚠️ **THREE QUEUES, BECAUSE THE PIPELINE HAS THREE STAGES**, and collapsing
+      any two is wrong invisibly: `siblings` shares CR 614.5's `used` (every
+      level of one event's fan-out is still that event, which is why no stack of
+      frames is needed), `rest` is this body's remaining built-in output with a
+      fresh `used`, and `queued` is the raw rest of the batch — kept apart
+      because **the built-ins are NOT idempotent**: re-running
+      `withEntryCounters` over a `CardsMoved` it has seen adds a planeswalker's
+      loyalty twice.
+      ⚠️ `applyReplacements` is now the BUILT-INS AND NOTHING ELSE; card scripts
+      moved to `runReplacementFunnel`, because a function returning
+      `EventBody[]` has nowhere to put a question. **`Accept.funnelled`** is the
+      one flag on the one path that needs it — without it the resumed events go
+      through the funnel again, which the first test run reported as **"the
+      ordering prompt never cleared"**.
+      ⚠️ **TWO TESTS CHANGED SIDES** (D142's `Dig Through Time`, D147's
+      `Hymn to Tourach`, now these): they asserted BATTLEFIELD ORDER — D134's
+      deterministic fallback, shipped while saying plainly it was not the rule —
+      and now assert that the PLAYER's answer decides it and that **both outcomes
+      are reachable from one board**. ⚠️ The first cut of that test **silently
+      fell back to battlefield order**, because it looked the option up by CARD
+      NAME and `Hardened Scales` does not contain its own name in its own text;
+      the label is the ability's PRINTED TEXT.
+      ⚠️ **THE FUZZ GATE CANNOT REACH IT, MEASURED: 500 seeds, ZERO
+      suspensions** — two replacements on one event needs both one-of
+      enchantments plus a counter, three specific cards inside 200 random
+      intents. The counter stays at `>= 0` with the number written down (D137's
+      precedent). **The coverage is `battery-anim.cjs prompts` and it is
+      stronger**: real clicks, both orders, two games, 6 one way and 5 the other
+      — running at all because of the `HostOptions.scripts` seam D146 built.
+      `prompts` 19 → 22, `bot engine prompts` **120 → 123**.
+      ⚠️ **The battery's first run read 0 and it was the CHECK, not the engine**:
+      `put()` submitted the move and slept, so the counter was set while the
+      Grizzly Bears was still in HAND — the prompt still appeared (both
+      replacements match on the CONTROLLER, not the zone) and
+      `clearBattlefieldFields` wiped the counters as the card entered. It waits
+      for `bf:p1` now.
+      **Verified: 65 test files, 1,318 Vitest / 9 skipped · `tsc -b` clean ·
+      build clean · the 500-seed fuzz gate green at 324.6 s · `battery-anim.cjs
+      bot engine prompts` 123/123 · `battery-bot.cjs --games 40` 7/7 · probe
+      124/124.** The gate matters beyond the canary: `pendingReplacement` is in
+      the state hash and `ReplacementPending` is on the log, so a held event that
+      replayed differently would show as a mismatch across 500 seeds.
+      ⚠️ D125's producer map caught the new kind on the first `tsc -b`, by name,
+      in three files at once. **Eighteen `Awaiting` kinds, sixteen with
+      producers.**
+      ⚠️ **`complete` DID NOT MOVE, and that is correct** — this is a rules
+      primitive with no parser behind it. It makes a class of card SCRIPTABLE
+      that could not be written before; scripts are M6.4.
+      ⚠️ **TWO ITEMS LEFT on the pre-M6.4 list**: CR 613.8 dependency (and
+      removing a non-keyword ability, which `MutableCharacteristics` cannot
+      represent), and the two-pass parser — deferred by its own criterion, since
+      `sentences()`'s join list still has ONE entry.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,730** (unchanged by this — a
+      primitive, not a card).
+
+- [x] **M6.3v — CR 613.8, and a correction (2026-08-02):** dependency in the
+      layer system, and the second-to-last item on the pre-M6.4 list. Decisions
+      in **D149**.
+      ⚠️⚠️ **FIRST, THE CORRECTION: D148's "500 seeds, ZERO suspensions" WAS
+      MEASURED ON A DECK WITHOUT THE CARDS.** The patch meant to add
+      `Hardened Scales` and `Branching Evolution` to the fuzz `DECK` aborted on
+      an unrelated MISS and wrote nothing, while a separate edit did register
+      both SCRIPTS — so the gate ran with two replacement effects registered and
+      no way to draw either. **With both dealt: 5 suspensions across 500 seeds.**
+      The canary asserts it AT THE GATE SIZE ONLY, with the rate written beside
+      it, because `> 0` at the 60-seed default is a coin flip and failed the
+      first full run after it was switched on.
+      ⚠️ The lesson is the PATCH SCRIPT: one that reports MISSES and exits
+      without writing leaves the tree in a state where a later successful edit
+      makes it look like everything landed.
+      ⚠️ **THE REAL PAIR, and neither card shows the rule alone:** `Knighthood`
+      ("Creatures you control have first strike") and `Kwende, Pride of Femeref`
+      ("Creatures you control with first strike have double strike"), both layer
+      6, both single-sentence. **Kwende READS A KEYWORD THAT KNIGHTHOOD GRANTS**,
+      so which applies first decides whether Kwende applies AT ALL — in plain
+      timestamp order with Kwende first, a vanilla creature ends with first
+      strike and NO double strike, the card doing nothing silently on a board
+      where it plainly should. Found by measuring what the format prints: 20
+      lines scope a static on `with flying`, one each on vigilance, first strike,
+      menace, defender and trample — and first strike is the only one whose
+      partner is also a whole card in one line.
+      ⚠️ **WHAT IS BUILT is 613.8a clause (b)'s first half — "what it applies
+      to", for the object being derived** — which this engine can answer exactly:
+      `appliesTo` is a predicate over `chars`, so "would B change A's answer" is
+      one clone and one call. **NOT built: "the text or the EXISTENCE of the
+      first effect"**, which needs an effect that removes another script's
+      static; `MutableCharacteristics` models KEYWORDS, so `Humility` stays
+      unrepresentable rather than merely unwritten (D129, D147, still true).
+      ⚠️ **Clause (c) is satisfied BY CONSTRUCTION** — this runs within ONE layer
+      and `'cda'` is its own layer, so the two effects are always both CDAs or
+      neither. ⚠️ **613.8b's LOOP is handled**: when every remaining effect
+      depends on another the rule stops applying and timestamp order resumes,
+      which is also what makes it terminate. ⚠️ Timestamp is the SCAN order, so
+      D129's fix stays the tie-break.
+      ⚠️ **THE `printed()` GUARD EARNED ITS KEEP.** Kwende HAS double strike
+      himself, so his text is TWO lines and the first is a keyword the engine
+      already enforces; the guard threw on the first run with the real text in
+      the message. The static claims the second line, `keywords` covers the
+      first, and the whole card is accounted for between them.
+      **Verified: 65 test files, 1,322 Vitest / 9 skipped · `tsc -b` clean ·
+      build clean · the 500-seed fuzz gate green at 384.6 s ·
+      `battery-anim.cjs bot engine prompts` 123/123 · probe 124/124.** Fixtures
+      129 → 131.
+      ⚠️ **Checked by breaking it, and the break test is IN the suite**: with
+      `dependencyOrder` disabled exactly one check fails, naming the order —
+      `double strike with Kwende, Pride of Femeref then Knighthood: expected
+      false to be true`. The suite also asserts the WRONG answer explicitly
+      (Kwende alone grants nothing), because a test of only the happy order would
+      pass with the dependency code deleted.
+      ⚠️ A 729 s run of the same gate FAILED on its own 600 s timeout and was NOT
+      a regression — the only difference from the 394 s passing run before it was
+      a `writeFileSync`. D106's signature, third time this session.
+      ⚠️ **ONE ITEM LEFT on the pre-M6.4 list**, deferred by its own criterion:
+      the two-pass parser. D141 said `sentences()`'s join list should become one
+      "past two or three entries"; it still has ONE.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,730** (unchanged by this — a
+      primitive, not a card).
+
+- [x] **M6.3w — The two-pass effect parser, and the list is closed
+      (2026-08-02):** the last of the eighteen pre-M6.4 items. Decisions in
+      **D150**.
+      ⚠️ **BUILT AT ONE ENTRY, ON REQUEST, AGAINST ITS OWN CRITERION** — D141
+      said `sentences()`'s join list should become a two-pass parser "past two or
+      three entries" and it never got a second one; D147 and D149 both deferred
+      it for exactly that reason.
+      ⚠️ **SO THE BAR IS THE REFACTOR BAR, AND IT IS MET: every pinned coverage
+      number over the 31,692-card database is BYTE-IDENTICAL.** `auto` 409,
+      `assisted` 1,650, `effect:auto` 2,263, `complete` 1,730, all fifteen of
+      tier3's figures, the bot pool by type, the primitives ladder. A refactor
+      with no card-count payoff has one honest success criterion and that is it —
+      D123's "regenerating would be a no-op", applied to a parser.
+      ⚠️ **THE PROPERTY THAT MAKES IT SAFE WAS ALREADY THERE: every rule is
+      ANCHORED AT BOTH ENDS** (D90, so a prefix could never "understand"
+      `Homing Lightning`). A one-sentence rule therefore CANNOT match a
+      two-sentence window — so pass two can try wider windows first at no risk,
+      and a rule wanting two sentences just writes a pattern spanning the full
+      stop. **No head list, no per-rule declaration.** D141's constraint — "the
+      splitter runs first, so a rule spanning the full stop could never match" —
+      is what has gone away.
+      ⚠️ The clause COUNT still comes from the same place as the numerator
+      (`understood < clauses.length` decides `auto` vs `assisted`, and a joined
+      pair is ONE clause), which is why pass two returns the groups rather than a
+      flat sentence list. `MAX_SPAN` is a bound on the WINDOW, not a list of what
+      may be joined: raising it needs no other change anywhere.
+      ⚠️ **One real behavioural improvement, small and correct:** a window that
+      matches nothing at any width leaves its FIRST sentence unmatched and
+      advances by ONE, so the next sentence still gets its own chance. The join
+      list consumed the pair unconditionally, so a head followed by an unreadable
+      tail took the tail down with it.
+      **Verified: 66 test files, 1,329 Vitest / 9 skipped · `tsc -b` clean ·
+      build clean · the 500-seed fuzz gate green at 366.5 s ·
+      `battery-anim.cjs bot engine prompts` 123/123 · `battery-bot.cjs --games
+      40` 7/7 · probe 124/124.** Checked by breaking it: with the window pinned to
+      one sentence exactly one check fails — `a rule written across a full stop
+      still matches: expected 'manual' to be 'auto'` — and nothing else moves,
+      which is also the proof that the window is all the rewrite added.
+      ⚠️ **THE PRE-M6.4 LIST IS CLOSED.** All eighteen items are built or
+      deliberately unbuilt with a stated reason: fifteen in D147, then CR 616
+      (D148), CR 613.8 (D149) and this. What stays unrepresentable is named and
+      unchanged — removing a NON-KEYWORD ability, because
+      `MutableCharacteristics` models keywords, so `Humility` cannot be written
+      rather than merely not having been.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,730** (unchanged by this — for a
+      parser refactor that is the point rather than a disappointment).
+
+- [x] **M6.3x — Losing a NON-KEYWORD ability (2026-08-03):** the thing five
+      entries in a row named as unrepresentable — D129 found it, and D147, D148,
+      D149 and D150 each closed by repeating it. Decisions in **D151**.
+      ⚠️ **WHY IT WAS UNREPRESENTABLE:** keywords are a `Set` on the derived
+      characteristics, and **every other ability — triggered, static,
+      replacement, combat, activated — lives in the SCRIPT REGISTRY keyed by
+      `oracleId`**, where no characteristic can reach it. So
+      `chars.keywords.clear()` silences a creature's flying and leaves its ETB
+      trigger, its mana ability and its "can't block" restriction running.
+      ⚠️ **A FLAG, NOT A LIST — `chars.hasAbilities`** — because that is what the
+      rule says: not "remove these abilities" but "have none". **`finish()` is
+      the ONE place that turns it into consequences**, so a script never has to
+      remember them: `keywords`, `protection` and `landwalk` (read by
+      `canBlock`), `toxicAmount` (combat damage) and `producesMana` (the payment
+      solver). Clearing only the keyword set leaves a Humility'd Akroma
+      unblockable by red and a Humility'd Llanowar Elves tapping for green.
+      ⚠️ **AND FOUR CONSULT SITES, because a source with no abilities is not a
+      source** — trigger bus, static index, replacement funnel, combat seam —
+      plus `legalActions`, which is the least obvious: the activated list comes
+      off the ORACLE face, not the derived object, so without it a silenced
+      permanent still offers every ability it prints.
+      ⚠️ **TYPESCRIPT NAMED EVERY CONSTRUCTION SITE.** A required field failed
+      `tsc -b` at all four places `MutableCharacteristics` is built, including
+      the face-down 2/2 (CR 708.2) and the unknown-printing blank — which is the
+      argument for required over optional: four defaults decided deliberately
+      rather than inherited from `undefined`.
+      ⚠️ **THE RECURSION GUARD:** asking "has this source lost its abilities"
+      means deriving it, and deriving it runs the pass that asks — so **an
+      ability-removal source is exempt from ability removal**, which breaks the
+      loop by construction. Right for every printed card (`Humility` is an
+      enchantment and never silences itself; two do not silence each other — both
+      asserted). The case it cannot answer needs a layer-4 type change
+      (`Opalescence`), modelled here only through the Tier-3 override.
+      ⚠️ Proved on **`Humility`** itself, one line and therefore every word (D90)
+      — **TWO STATICS BECAUSE IT IS TWO LAYERS**, 6 and 7b, which CR applies in
+      that order however the sentence reads.
+      **Verified: 66 test files, 1,336 Vitest / 9 skipped · `tsc -b` clean ·
+      build clean · the 500-seed fuzz gate green at 432.8 s ·
+      `battery-anim.cjs bot engine prompts` 123/123 · `battery-bot.cjs --games
+      40` 7/7 · probe 124/124.** Fixtures 131 → 132.
+      ⚠️ **Checked by breaking it, and FOUR checks fail — one per consequence**
+      (`expected 5 to be +0` for keywords, `[ 'B', 'R' ]` for protection, the
+      mana list, the registry ability). A single check would have passed with
+      three of the five fields still leaking.
+      ⚠️ A battery run showed three failures that did NOT reproduce — re-run
+      123/123, all three rendered-slot and settle-state checks (the class D110
+      and D115 record as load-sensitive), on a machine that had just finished a
+      432 s fuzz gate. D106's signature, fourth time this session.
+      ⚠️ **`complete` did not move**, expected for a rules primitive with no
+      parser behind it. **AND THE LAST NAMED IMPOSSIBILITY IS GONE** — nothing in
+      the layer system is now described as unrepresentable. What is left is
+      ordinary work with a stated shape: CR 613.8's "what it DOES to the things
+      it applies to", 613.7d/e's re-timestamping, and the dependency case needing
+      layer-4 type changing.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,730.**
+
+- [x] **M6.3y — CR 613.8a clause (b), second half (2026-08-03):** D149 built
+      "what it applies to" and named "what it DOES" as unbuilt. This is it, and
+      the useful half is that **the obvious implementation is WRONG and was
+      measured wrong rather than reasoned wrong**. Decisions in **D152**.
+      ⚠️⚠️ **THE NAIVE READING BREAKS A CORRECT BEHAVIOUR.** Implemented as
+      "A depends on B if applying B changes A's OUTPUT" — clone, apply B, apply A
+      to both, compare deltas — the layer test failed two checks by name:
+      `Levitation last — flying: expected false to be true`. `Gravity Sphere`
+      ("all creatures lose flying") came out DEPENDING on `Levitation`, because
+      without Levitation there is no flying to remove and with it there is. So
+      Levitation applied first every time and the creature **never flew even when
+      Levitation entered LAST** — the wrong MTG answer, breaking D129's timestamp
+      pair.
+      ⚠️ **ACTING ON A DIFFERENT STARTING STATE IS ORDERING, NOT DEPENDENCY.**
+      Clause (b) is about the effect's own SPECIFICATION changing — "gains all
+      abilities of that creature" does something different when that creature's
+      abilities change; "loses flying" always does the same thing and only the
+      board differs. **Nothing but the def can tell those apart**, because the
+      difference is in what the sentence MEANS, not in what the function computes.
+      ⚠️ So the def DECLARES it: `StaticDef.effectReads`. Opt-in, so the rule
+      cannot fire where it would be wrong, and every existing script omits it and
+      is unaffected. Compared BY VALUE, or every declared reader would depend on
+      everything.
+      ⚠️ **NO REAL CARD IN THIS VOCABULARY NEEDS IT, and that is stated rather
+      than hidden**: every script in `cardScripts.ts` is a constant delta. The
+      shape that needs it is "gains all abilities of target creature" — copy
+      machinery (CR 707), which is M6.4. The mechanism is proved with a DECLARED
+      reader built from the real `Knighthood` grant, with the undeclared negative
+      asserted beside it.
+      ⚠️ The reader is registered FIRST and enters the battlefield FIRST, so both
+      registration and timestamp order would run it before the granter — a test
+      where it happened to be last would pass with the mechanism deleted.
+      **Verified: 66 test files, 1,338 Vitest / 9 skipped · `tsc -b` clean ·
+      build clean · the 500-seed fuzz gate green at 453.0 s ·
+      `battery-anim.cjs bot engine prompts` 123/123 · probe 124/124.**
+      ⚠️ **WHAT IS LEFT OF CR 613 IS THREE NAMED, ORDINARY ITEMS — no
+      impossibilities**: 613.7d/e's re-timestamping, the dependency case needing
+      layer-4 type changing (`Opalescence` making an enchantment a creature so
+      `Humility` can reach it), and the copy machinery that would give
+      `effectReads` its first real card.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,730** (unchanged — a primitive, not
+      a card; the fourth in a row).
+
+- [x] **M6.3z — The BUILT set, re-measured (2026-08-03):** asked whether M6.3
+      was finished, and the honest answer needed the primitives report to be
+      true. It was not. Decisions in **D153**.
+      ⚠️⚠️ **`optional` WAS TESTED BEFORE `expressible`, SO IT SWALLOWED
+      EVERYTHING.** `primitiveFor` asked "does this line contain *you may*" ahead
+      of the vocabulary check and every rule below it. Measured: of the **4,549
+      lines** it caught that way, **169 — 3.7% — needed nothing but the yes/no**.
+      The rest were lines like "you may search your library for a basic land
+      card", whose library search was counted NOWHERE.
+      ⚠️ **A PRE-FILTER DEFEATS `unlockedBy`**, which requires EVERY line of a
+      card to be covered — D90's rule applied to a roadmap. `optional` is IN
+      `BUILT`, so all 4,380 misfiled lines were counted as already handled: the
+      report claimed **3,463** scriptable cards where the honest figure is
+      **1,362**, an inflation of 2,101 live from D128 to now.
+      ⚠️ **AND IT MOVED THE BUILD ORDER THIS FILE EXISTS TO DECIDE.** `optional`
+      led D127's table at 2,012 by sole need — the headline that made it M6.3's
+      first primitive. It is **96, the second SMALLEST row.** Building it first
+      did no harm, and that is luck: the flag existed since M3 and the work was
+      one prompt.
+      ⚠️ The headline ladder is **10.4× → 9.8× → 5.1×** (1,263 → 6,386). Two
+      causes, told apart: executing a primitive shrinks the pool, **and the rest
+      of it was never there**. A falling total is the measurement working in BOTH
+      directions.
+      ⚠️⚠️ **MOST ROWS CAN NEVER BE TICKED, AND THAT IS STRUCTURAL** — now written
+      where `BUILT` is defined. `expressible` runs BEFORE every rule, so a line
+      in a row is by definition one the vocabulary could not read, and widening
+      the vocabulary DRAINS the row instead of qualifying it. Pinned twice
+      already as a fall: `effect:counter` 1,441 → 1,364 (D130), `effect:token`
+      1,123 → 812 (D133). Only rows `parseEffects` cannot drain — `layer6`,
+      `optional`, `keyword:*`, `costMod`, `replacement` — can ever be ticked.
+      ⚠️ **`layer6` STAYS OUT AND D129's REASON IS NOW THE WRONG ONE**: it
+      excluded the row over 227 combat RESTRICTIONS with no seam, and **D147 built
+      that seam** — only 2 of its 689 restriction lines are still beyond the
+      engine. The live reason: **1,855 of the row's 4,676 lines are grants that
+      END**, and `GameState.untilEndOfTurn` carries POWER AND TOUGHNESS AND
+      NOTHING ELSE — there is no temporary keyword grant in this engine at all.
+      **958 of the 1,791 sole-need cards carry one**, asserted in the split test
+      rather than written in a comment, because D129's reason lived in a comment
+      and stayed there for twenty-four decisions after it stopped being true.
+      **Verified: 66 test files, 1,341 Vitest / 9 skipped · `tsc -b` clean ·
+      build clean.** ⚠️ **Checked by breaking it, and the break is unusually good
+      evidence**: with the pre-filter put back, seven checks fail and **every one
+      reproduces its OLD pinned number byte-for-byte** — `[1263, 3463, 5509,
+      7302, 8432]`, `grant: 1119`, `spell: 313`. A pure reclassification, decided
+      by one branch.
+      ⚠️ **The engine gates were NOT re-run and that is safe**: `primitives.ts` is
+      imported by two TEST files and nothing else — not by `src/engine/`,
+      `src/bot/`, `src/ui/`, `electron/` or any script, and it is not in the
+      bundle. D131's precedent.
+      ⚠️ `tokenParse.node.test.ts` moved for the same reason seen from the other
+      side (812 → 915 cards), and **the resolver did not change: 258/280 against
+      225/244, 92.1% against 92.2%.**
+      ⚠️⚠️ **AND THE INTEGRITY CHECK FOUND THE SAME CORRUPTION TWICE MORE, ONE
+      OF IT ARCHITECTURAL.** A control-character scan over the whole repo found
+      two files carrying literal BACKSPACE (0x08) where `\b` was meant —
+      **D129's patch-script bug, which fixed the lines it noticed and never
+      swept.** (1) `primitives.node.test.ts`'s `isLand` matched nothing, so
+      `isLand` was FALSE for every card and the "tapped LANDS" figure printed 0;
+      now `/\bLand\b/` and **asserted at 16**, because it was printed and never
+      asserted — the same failure as `BUILT`, one file over. (2)
+      **`src/engine/purity.node.test.ts` — THREE of them**: `new WebSocket`,
+      `document.` and `window.`, the entire socket-and-DOM half of invariant 7.
+      **Three architectural guards passing over nothing.**
+      ⚠️ **INVISIBLE BY CONSTRUCTION** — a backspace renders as nothing, so the
+      source reads correctly every time anyone looks at it. Only a scan for the
+      character code finds it, and the only other hit in the repo is a form feed
+      in Chromium's vendored LICENSES file.
+      ⚠️ Repairing the regexes caught a failure immediately and it was in the
+      CHECK: it read the RAW file, so `protocol.ts` explaining a "5-minute grace
+      window." in prose registered as touching `window`. `stripComments` sits
+      three screens up in the same file saying it is "what keeps the test about
+      code rather than prose" — applied to the engine's checks, never to the net
+      layer's. Both halves had to be wrong for the guard to be silent.
+      ⚠️ **THE GOOD NEWS IS MEASURED: repaired and comment-stripped, all 103
+      purity checks pass** — nothing had crept past while they were blind. And it
+      discriminates: `window.location` appended to `protocol.ts` fails by name,
+      and the file was put back by string surgery, never `git restore`.
+      ⚠️ **Reportable:** the residue is at **49.5% against a 0.5 bar**, and
+      `unclassified` at **7,779** by sole need is now the largest row by a factor
+      of four — the honest next measurement. ⚠️ **AND A CONTROL-CHARACTER SCAN
+      BELONGS IN THE GATES** rather than in a session's memory: three corrupted
+      regexes across two files survived twenty-four decisions and one of them was
+      an architectural invariant.
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,730** (unchanged — a measurement, not
+      a primitive; the fifth in a row).
+
+- [x] **M6.3aa — The control-character scan, in the gates (2026-08-03):** D153's
+      closing reportable, built. `src/sourceIntegrity.node.test.ts` reads every
+      text file in the repo and fails on any control character that is not tab,
+      newline or carriage return. Decisions in **D154**, and it is **invariant 14**
+      at the foot of this file.
+      ⚠️ **INVISIBLE BY CONSTRUCTION IS THE WHOLE ARGUMENT.** A backspace renders
+      as nothing, so the three corrupted regexes D153 found read correctly in an
+      editor, a diff, a review and every tool that printed those files — including
+      during the sessions that fixed neighbouring lines. A person being careful is
+      not a control here.
+      ⚠️ **It scans TEST files, deliberately** — the opposite of
+      `purity.node.test.ts` two directories over, and measured rather than
+      stylistic: all three instances were in tests, because a corrupt regex in
+      product code fails loudly the first time it runs while a corrupt one in an
+      ASSERTION just quietly stops asserting.
+      ⚠️ `.electron-dist/` is excluded as a vendored Chromium tree whose LICENSES
+      file legitimately carries a form feed — **the only other hit in the whole
+      repository**, so it is one directory rather than a growing allowlist.
+      ⚠️ **The failure says what to TYPE**: `file:line`, the hex code, and the
+      escape it was meant to be, with `\b` named as "a REGEX WORD BOUNDARY, and
+      the one that has bitten this repo three times" — plus the cause (a patch
+      script through a shell heredoc) and the fix (write the script to a FILE).
+      ⚠️ **The file that scans for control characters must not contain one, and it
+      runs over itself** — its table is built with `String.fromCharCode(92)`.
+      **Verified: 67 test files, 1,344 Vitest / 9 skipped** (up from 66 / 1,341,
+      so it is in `npm run test` and therefore in every gate run rather than in a
+      session's memory) **· `tsc -b` clean.**
+      ⚠️ **A canary AND teeth**, because this is exactly the check that passes
+      over nothing: a file-count canary above 100, and `offendingCodes` asserted
+      in BOTH directions — it flags backspace, null, vertical tab, form feed and
+      DEL, and leaves tab, CR and LF alone.
+      ⚠️ **Checked end to end by planting a real one**: `src/zz_break.ts` holding
+      the exact corruption from `primitives.node.test.ts` fails with
+      `src\zz_break.ts:1 — 0x08 (meant: \b …)`. Removed with `unlink`, never
+      `git restore`.
+      ⚠️ Cost: the full suite ran 76.6 s against 73–83 s across the session's
+      other runs — inside the noise (D106).
+      **M6.3 IN TOTAL: `complete` 1,405 → 1,730** (unchanged — a gate, not a card).
+
+
+### Before M6.4
+
+- [x] **The pre-M6.4 list, worked (2026-08-05):** thirteen items, all closed.
+      Decisions in **D155**, **D156** and **D157**.
+      ⚠️⚠️ **THE MODAL DFC BACK FACE — Tier 1, in the shipped app (D155).**
+      `castSpell` opened with `const faceIndex = 0` and `playLand` read
+      `faceOf(oracleCard, 0)`, while `legalActions` had been OFFERING every
+      castable face since M3 — so the back face of all **98** Commander-legal
+      modal DFCs was listed, clickable and played as the FRONT face. The UI half
+      is bigger: the click path took `legal.find(…)`, the first match, so the
+      second half of **123 split cards and 134 adventures** went with it. **355
+      cards with a half nobody could play.**
+      ⚠️ It silently disabled three rules that were built, tested and shipped —
+      D134’s "enters tapped", D135’s conditions and D136’s pay-to-enter prompt all
+      read the entering card’s face, and no back face could reach any of them.
+      ⚠️ The face rides on the `CardMove`, not on a separate event, and the
+      FUNNEL forces that: `runReplacementFunnel` reads the state BEFORE the batch,
+      so an earlier `FaceIndexSet` is invisible to it and a later one is too late.
+      ⚠️ **THE FIXTURE POOL HAD NO `modal_dfc` AT ALL** — fifth time a fixture
+      unable to reach a path is how the path rotted. Three real cards added; and
+      a FACE CHOOSER, because the engine taking a face is not the feature (D143).
+      ⚠️⚠️ **`EMPTY_REGISTRY` WAS A TRAP WITH A FUSE ON IT (D156)** — built from
+      `SHIPPED_SCRIPTS`, so the constant named "empty" stops being empty the
+      moment M6.4 lands anything, across **45 references in 20 files** meaning two
+      different things. Split into `SHIPPED_REGISTRY` and `NO_SCRIPTS`. A real
+      bug fell out: D135’s board queries derived with NO scripts, which is wrong
+      the moment a static changes a type.
+      ⚠️ **THE FUZZ-POOL RULE FINALLY HAS A GUARD** — every shipped script
+      registered in the gate AND dealt in its DECK, the rule this repo has broken
+      four times. Written while the list is empty, teeth pointed at `Humility`.
+      ⚠️ **THE PIPELINE (D157):** `scripts/cardgen/` with select, verify and land,
+      and **no `draft.cjs` on purpose** — a script that called a model would put a
+      network dependency in the repo. Selection measured **1,263 scriptable
+      cards**, the user’s own decks first.
+      ⚠️ **THE CONFORMANCE CORPUS** — five known-hard interactions, every case
+      asserting BOTH directions. Its first draft of case 5 was a green tick over
+      nothing and the corpus’s own purpose caught it.
+      ⚠️⚠️ **THE BIGGEST ROW WAS A BLACK BOX AND IS NOW SPLIT**: `unclassified`,
+      7,779 cards, 18,208 lines → `activatedCost` 3,170 · `triggeredShell` 2,509
+      · `damage` 1,328 · `exile` 1,263 · … · **`other` 5,422**. Naming a line
+      does not make it expressible, so these are a secondary classification and
+      never a `RULES` row. It replaced the residue bar that was at 49.5% against
+      a hard 0.5: what is bounded now is the genuinely UNNAMED share, 29.8%.
+      ⚠️ **CI CANNOT HOLD ALL FIVE GATES AND SAYS SO** — nine test files need the
+      86 MB card database and SKIP without it, leaving a run green. CI holds
+      types, build, integrity, the corpus, the unit suite and the 500-seed gate,
+      prints what it could not check, and the count is pinned at nine.
+      **Verified: 70 test files, 1,371 Vitest / 10 skipped · `tsc -b` clean ·
+      build clean · the 500-seed fuzz gate green at 456.9 s ·
+      `battery-anim.cjs prompts` 26/26 · fixtures 132 → 135.**
+      ⚠️ **Two reportables:** `verify.cjs` has never run end to end because there
+      is no batch to verify; and targeting still aims with the FRONT face’s specs,
+      so a back-face spell that targets cannot be cast through the UI (it fails
+      safe — the host rejects it).
+
+### M6.4 (in progress)
+
+- [x] **M6.4a — The first shipped batch (2026-08-05):** eight card scripts in
+      `src/engine/scripts/cards/`, the first entries `SHIPPED_SCRIPTS` has ever
+      held — `Soul Warden`, `Essence Warden`, `Radiant Fountain`, `Adventurer's
+      Inn`, `Wall of Blossoms`, `Wall of Omens`, `Baleful Strix`, `Onulet` —
+      and **1,738 of 31,692 Commander-legal cards now execute completely, up
+      from 1,730.** Decisions in **D158**.
+      ⚠️⚠️ **FOUR OF THE BATCH'S TWELVE ARE STRUCTURALLY UNLANDABLE.**
+      `ActivatedDef` is a dead seam — `IndexedRegistry` never indexes it, the
+      `ScriptRegistry` interface has no accessor for it, and `resolveAbility`'s
+      only script lookup is triggers — and `tier3.ts`'s activated notes are an
+      independent second lock. `Arcane Encyclopedia`, `Deserted Temple`,
+      `Hedron Archive` and `War Room` stay disclaimed; the seam is the next
+      engine work M6.4 needs. D15b caught the fifth card mid-plan: `Adventurer's
+      Inn` was assumed activated and is `Radiant Fountain`'s trigger twin.
+      ⚠️⚠️ **THE SILENCE MECHANISM DID NOT EXIST AND GATE 5 WAS UNPASSABLE
+      WITHOUT IT.** `engineCompleteness`/`tier3NotesFor` were pure text parsers
+      with no knowledge of `SHIPPED_SCRIPTS`. Built as `lineClaims` in
+      `engineComplete.ts`: PER-LINE claims (D90 — a partial script can never
+      silence an unimplemented line), matched `scrub(def.text).trim()` against
+      the leftover, `activated` defs excluded structurally, keyed on the NAMED
+      list so the teeth stay teeth. One chokepoint, so engineComplete, tier3,
+      primitives, botPool and cardgenSelect moved together by construction.
+      ⚠️⚠️ **THE FIRST TWO SIMULTANEOUS SAME-CONTROLLER SCRIPT TRIGGERS THIS
+      ENGINE EVER PRODUCED LIVELOCKED IT** — two tokens under a Soul Warden hit
+      pump's 10,000-iteration throw. `orderTriggers` had never been reached
+      through the live loop by anything: the raise re-emitted forever (the
+      drain runs before `advance()`'s awaiting check and had no re-raise guard;
+      `advanceMulligan` has carried one since M3), and the ANSWER only
+      reordered, so the next drain re-asked forever. Fixed with
+      `stackPendingTriggers` — one implementation, two callers (D148's rule):
+      the drain stacks every controller's group up to the first that owes a
+      choice, then asks; the answer stacks the chosen order. The prefix rule
+      also fixed latent APNAP wrongness (a single-trigger active player behind
+      a prompted opponent would have stacked AFTER the answer — CR 603.3b
+      reversed). Pinned by the three-warden test.
+      ⚠️ **TOKENS ARE NOT MOVES**: a token enters via `TokenCreated`, never
+      `CardsMoved`, and the bus dispatches on exact event kind — so one printed
+      "Whenever another creature enters" line is TWO TriggerDefs, and the
+      one-def variant's miss is a permanent break test. Granularity measured:
+      every battlefield entry today is its own event, so per-event firing IS
+      per-creature; a future batched-entry event would under-fire and the bus
+      needs per-move firing first.
+      ⚠️ The shipped `Onulet` replaced the testing copy and fixed its resolve on
+      the way — `obj.controller` (who controlled it AS IT DIED, CR 603.3d), not
+      the dead card's owner; a stolen Onulet pays the thief, pinned. One card,
+      one script. `drawEvents` exported so the draw walls route through THE one
+      draw rule, empty-library loss included.
+      ⚠️ **`verify.cjs` RAN END TO END FOR THE FIRST TIME** (D157's reportable)
+      and the orchestrator itself needed nothing: five gates spawned, failures
+      aggregated, exit honest. Its first run recorded D106's fifth case — the
+      500-seed gate at 1,014 s against a 600 s timeout with a AAA game
+      (`Spider-Man2`) resident at LoadPercentage 100; alone on the idle machine
+      the same gate is **426.0 s, faster than D157's 456.9 s** despite 5.3× the
+      triggered abilities.
+      **Verified: `node scripts/cardgen/verify.cjs --full` — ALL FIVE GATES
+      PASSED on the idle machine: `tsc -b` clean · conformance green · coverage
+      accounting green over the real database · 78 test files, 1,422 Vitest
+      passed / 10 skipped (70 / 1,371 before) · the 500-seed replay fuzz gate
+      green at 447.2 s in the full run, 426.0 s alone · `npm run build` clean ·
+      probe 124/124 against the new build · `battery-anim.cjs bot engine
+      prompts` 127/127** — with the gate's games carrying the
+      batch: 500 seeds · 83,977 accepted intents · 2,592,922 events · 19,517
+      turns · **7,067 triggered abilities (1,329 before)** · 640 tokens all
+      nameable · 1,749 permanents entering tapped · every replay hash equal.
+      Re-measured, every delta exactly the eight cards: `blocked` 29,954 ·
+      `scriptableToday` 1,263 → 1,255 · ladder [1255, 1354, 3307, 5191, 6378] ·
+      botPool creature 1,149 / land 211 · tier3 `abilityText` 17,498,
+      `silentAfter` 2,149 · `botDeck.ts` regenerated (Adventurer's Inn joined;
+      "reaching 754 cards") · fixtures 135 → 140 · `batch.json` re-emitted at
+      total 1,255.
+      ⚠️ **Checked by BREAKING it:** the hook disabled at one call site fails
+      the coverage gate naming ALL EIGHT cards by their exact line; the one-def
+      warden misses the token the real script catches; the livelock was
+      observed live before the fix existed (the regression tests were born
+      failing).
+      ⚠️ **Reportables** (D158): the `ActivatedDef` seam; `ctx.random` is a stub
+      at all three `ScriptCtx` sites while `api.ts` promises a seeded RNG — no
+      random card may ship until wired; `collectTriggers` still scans every
+      card id per (event × def) — fine at 426 s today, the first suspect when
+      the library grows; `docs/DECISIONS.md` carried a truncated duplicate of
+      D1–D147 as an 8,827-line prefix (D157's sort fallout) — repaired by byte
+      surgery, 326 → 168 headings, tail byte-identical.
+
+- [x] **M6.4b — The ActivatedDef seam, and the four cards it unblocks
+      (2026-08-05):** **1,742 of 31,692 Commander-legal cards now execute
+      completely, up from 1,738 — and §7's rung 1 is EMPTY: every card in the
+      user's own saved decks runs.** Landed: `Arcane Encyclopedia`,
+      `Deserted Temple`, `Hedron Archive`, `War Room`. Decisions in **D159**.
+      ⚠️⚠️ **`ActivatedDef` WAS A DEAD FIELD AND IS NOW THE THIRD CONSULTED DEF
+      KIND** — `resolveAbility` looks it up by `ref === obj.abilityRef`, the
+      string `handlers.activateAbility` has written since M3; the engine still
+      owns parse → offer → charge → stack. The interface SHRANK to its consult
+      sites (`{ ref, text, resolve }`) — its first cut carried four fields
+      nothing read, D158's disease in the seam's own type. The `ScriptCtx`
+      construction is ONE site now (`scriptCtxFor`).
+      ⚠️⚠️ **TWO COSTS BECAME CHARGEABLE:** `Sacrifice this <type>` — paid in
+      the cost batch through an ordinary `CardsMoved`, dies-triggers and all,
+      and **OFFERED ONLY WHEN THE GAME'S REGISTRY CARRIES THE DEF** (charging
+      mana for nothing is D122's disclosed status quo; eating a permanent for
+      nothing is not) — and War Room's `Pay life equal to the number of colors
+      in your commanders' color identity`, the RULE parsed and the NUMBER read
+      off `players[p].identity` at offer and activation (Kess pays 3, Krenko 1,
+      one script, pinned). **~812 sacrifice-self cards are now each ONE DEF
+      away — the widest single unlock M6.4 has.**
+      ⚠️ **THE CLASSIFIER WAS BLIND TO LONG COSTS**: a `cost: effect` line with
+      its colon past 60 characters read as a SENTENCE; a line that OPENS WITH A
+      BRACE is a cost at any length now (War Room's is 82). Measured: +195 real
+      ability lines over all printings; 45 cards' notes truer;
+      `activated:nonManaCost` 13,581 → 10,372; `payable` 4,016 → 4,828 cards —
+      all def-gated, and `silentAfter` moving by exactly the four landed cards
+      is the proof no disclosure was lost.
+      ⚠️ Two test traps encoded: a pool funded before `advanceUntil` empties at
+      the step boundary (CR 500.4); an activated ability can resolve inside its
+      own submit under default stops, so responding to it needs
+      `holdEverywhere` first.
+      **Verified: `node scripts/cardgen/verify.cjs --full` — ALL FIVE GATES
+      PASSED in one invocation on the idle machine: `tsc -b` clean ·
+      conformance green · coverage accounting green over the real database ·
+      82 test files, 1,450 Vitest passed / 10 skipped (78 / 1,422 before) ·
+      the 500-seed replay fuzz gate green at 382.8 s with 12 scripts
+      registered and the activated-seam canary holding at gate size ·
+      `npm run build` clean · probe 124/124 · `battery-anim.cjs bot engine
+      prompts` 127/127.** D106's sixth case recorded on the way: identical
+      games at 411.3 s idle and 760 s (a timeout) under a resident Overwatch.
+      ⚠️ **Checked by BREAKING it:** tier3's activated silence disabled fails
+      the coverage gate naming ALL FOUR cards by their printed costs; Hedron's
+      def-gate break test ships in the suite; the claims kind-separation is a
+      unit test; the fuzz gate gains the activated-seam canary (gate-size,
+      like the dies-trigger one).
+      ⚠️ **Reportables** (D159): a general sacrifice cost is a CHOOSER, not a
+      price; computed life beyond the one phrase stays unpaid; `ctx.random` is
+      still a stub; the tier3 baselines are parse-relative.
+
+⚠️ **One that protects the enforcement of every other one (D154):**
+14. **No source file contains a control character.** Tab, newline and carriage
+    return; nothing else below 32, and not DEL.
+    `src/sourceIntegrity.node.test.ts` scans every text file in the repo on every
+    `npm run test`. ⚠️ It exists because three regexes here were written with
+    their `\b` as a literal BACKSPACE by a patch script and therefore matched
+    nothing — `primitives.node.test.ts`'s `isLand`, and **`purity.node.test.ts`'s
+    `new WebSocket`, `document.` and `window.`, which is the whole socket-and-DOM
+    half of invariant 7 below, unenforced for twenty-four decisions.** ⚠️ A
+    backspace RENDERS AS NOTHING, so the source reads correctly in an editor, a
+    diff, a review and every tool that prints it: being careful is not a control,
+    only the scan is. ⚠️ It deliberately scans TEST files, unlike
+    `purity.node.test.ts` — all three instances were in tests, because a corrupt
+    regex in product code fails loudly while a corrupt one in an assertion just
+    stops asserting. ⚠️ And when writing a patch script, put it in a FILE and run
+    `node <file>`: every instance got in through a shell heredoc eating the
+    backslash.
+
 ⚠️ **Two invariants M2 established that M3 kept, and M4 must not break:**
 1. `animStore` may only **hide** or **decorate** — it never holds card→zone truth.
    The DOM's zone membership is always the authoritative state, so the worst a
@@ -1268,7 +3854,15 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
 9. **A category that is unenforced must be SAID.** `src/data/tier3.ts` tells the
    player, on the card, what the app will not do for them — derived from the same
    parser the ingest uses, so it cannot claim coverage the engine does not have,
-   and silent for a card the engine handles completely. See D68.
+   and silent for a card the engine handles completely. See D68, and **D122/D124
+   for how badly it can be broken without anything failing**: a permanent's
+   triggered and static text, a payable-but-unrun activated ability, and the half
+   of a mana line that is not "add mana" were all three unsaid, so **16,020 of
+   31,692 Commander-legal cards — 50.5% — said nothing at all**, which in this app
+   means "handled". Ask this of anything that stops short of running a card — in
+   BOTH directions, because the mana case was the engine doing part of a line and
+   charging none of its cost — and never let a note be re-derived beside the parser
+   that already answers it.
 10. **Any losing condition the engine enforces has to be visible before it
     fires.** Poison had a state-based action from M3 and appeared on no screen
     until M5. Ask this of anything added to `sba.ts`.

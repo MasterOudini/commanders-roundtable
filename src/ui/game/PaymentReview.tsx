@@ -41,6 +41,8 @@ export function PaymentReview() {
       t: 'CastSpell',
       player: viewer,
       card: mode.card,
+      // Omitted for every ordinary card; face 0 is the engine's default. D155.
+      ...(mode.faceIndex ? { faceIndex: mode.faceIndex } : {}),
       ...(preview.hasX ? { xValue: mode.xValue } : {}),
       ...(preview.plan ? { plan: preview.plan } : {}),
       // ⚠️ ALWAYS sent, even when empty, and the difference is load-bearing: an

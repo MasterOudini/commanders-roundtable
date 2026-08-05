@@ -58,7 +58,7 @@ function view(id: string, card: CardData | null, over: Partial<CardView> = {}): 
     isCommander: false,
     isToken: false,
     attacking: null,
-    blocking: null,
+    blocking: [],
     ...over,
   };
 }

@@ -4,7 +4,7 @@ import { legalActions } from './legal';
 import { project } from './project';
 import { seedRng, nextBelow } from './rng';
 import { deps, keepAll, newTestGame, ORACLE } from './testing/harness';
-import { EMPTY_REGISTRY } from './scripts/registry';
+import { NO_SCRIPTS } from './scripts/registry';
 import type { Game } from './game';
 import type { Intent } from './types/intents';
 import type { PlayerId } from './types/ids';
@@ -47,7 +47,7 @@ function randomIntent(game: Game, rand: () => number): Intent | null {
   }
   const holder = state.priority.player;
   if (!holder) return null;
-  const legal = legalActions(state, ORACLE, EMPTY_REGISTRY, holder);
+  const legal = legalActions(state, ORACLE, NO_SCRIPTS, holder);
   const playable = legal.filter((a) => a.t === 'PlayLand' || (a.t === 'CastSpell' && a.affordable));
   if (playable.length > 0 && rand() % 2 === 0) {
     const pick = playable[rand() % playable.length];
@@ -75,7 +75,16 @@ function makeRand(seed: string): () => number {
 
 describe('diffView + applyPatch', () => {
   test('reproduces project() exactly over 500 real updates, for every seat', () => {
-    const game = newTestGame({ players: 4, seed: 'diff-500', game: { checkInvariants: false } });
+    // ⚠️ A DEEP library, because the bar is 500 updates and an update is now a
+    // lot more game than it was: auto-pass stopped asking players who could do
+    // nothing, so the same 500 intents cover roughly twice the turns and a
+    // 30-card library decked the whole table out at 359 of them.
+    const game = newTestGame({
+      players: 4,
+      seed: 'diff-500',
+      librarySize: 150,
+      game: { checkInvariants: false },
+    });
     keepAll(game);
     const seats: PlayerId[] = ['p1', 'p2', 'p3', 'p4'];
     game.setViewers(seats);

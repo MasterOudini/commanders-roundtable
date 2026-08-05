@@ -16,6 +16,7 @@
 // which is the whole rule.
 
 import type { CardData, CardFace, ColorLetter } from './cardTypes';
+import { scrub } from './targetParse';
 import type { HybridOption, HybridSymbol, ManaCost, ManaPool } from '../engine/types/mana';
 import { EMPTY_POOL } from '../engine/types/mana';
 import type {
@@ -31,6 +32,7 @@ import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords'
 import { parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities } from './activatedParse';
 import { parseEffects } from './effectParse';
+import { parseEntersTapped, parseChoosesColorOnEntry } from './replacementParse';
 
 /** Every warning a parse produced, as `category` strings for tallying. */
 export type Warn = (category: string) => void;
@@ -496,12 +498,44 @@ export function parseManaProduction(
   // intrinsic ones — one physical land offering three tap options in the
   // payment UI. The intrinsic land-type pass above already has these covered.
   for (const [lineIndex, raw] of (face.oracleText ?? '').split('\n').entries()) {
-    const line = raw.trim();
-    if (line.startsWith('(') && line.endsWith(')')) continue;
+    const printed = raw.trim();
+    if (printed.startsWith('(') && printed.endsWith(')')) continue;
+    // ⚠️⚠️ **SCRUBBED, AND EVERYTHING BELOW READS THE SCRUBBED COPY.** Reminder
+    // text and quoted text are somebody ELSE'S mana ability, not this card's:
+    //   · `Noggle Robber` creates a Treasure, and the Treasure's reminder text
+    //     spells out "{T}, Sacrifice this token: Add one mana of any color." —
+    //     inside the Noggle's own line, so the whole-line check above never saw
+    //     it and the Noggle was recorded as a mana source.
+    //   · A card that GRANTS "{T}: Add {G}" to something else was likewise read
+    //     as having the ability itself. This is the Teferi bug `parseWard`
+    //     already documents, one parser along.
+    // Measured at **310 cards** when D124 found it and left it as a reportable.
+    // ⚠️ `scrub` blanks with SPACES OF THE SAME LENGTH, so every index below
+    // still lines up with what is printed — including the colon, which is the
+    // point: a colon inside a quoted granted ability is not this card's
+    // activation colon, and blanking it is the correct answer rather than a
+    // side effect.
+    const line = scrub(printed);
     if (!/\badd\b/i.test(line)) continue;
     const colon = line.indexOf(':');
-    const cost = colon >= 0 ? line.slice(0, colon) : '';
-    const effect = colon >= 0 ? line.slice(colon + 1) : line;
+    // ⚠️⚠️ **AN ACTIVATED LINE, OR IT IS NOT A MANA ABILITY (CR 605.1a).** A mana
+    // ability is an activated ability — a cost, a colon, an effect — and this
+    // loop used to accept a colon-less line with `cost = ''`, so any sentence
+    // containing the word "add" became one.
+    //
+    // ⚠️ Found by the scrub above rather than reasoned out, which is worth
+    // recording: `Braid of Fire` reads "Cumulative upkeep—Add {R}." and its
+    // REMINDER text says "unless you pay its upkeep cost". That "unless" was
+    // what `CONDITIONAL_RE` had been matching, so the card was marked
+    // conditional for a reason that had nothing to do with the card — and the
+    // moment reminder text stopped being read, a cumulative upkeep the engine
+    // does not implement started looking like a plain, fully-run mana ability.
+    // The disclosure would have gone silent on it (D122's failure, exactly).
+    // D124 already stated this rule for the tier-3 NOTE; the production itself
+    // had never checked it.
+    if (colon < 0) continue;
+    const cost = line.slice(0, colon);
+    const effect = line.slice(colon + 1);
     if (!/\badd\b/i.test(effect)) continue;
 
     const requiresTap = /\{T\}/.test(cost);
@@ -513,8 +547,38 @@ export function parseManaProduction(
     const conditional = extraCost || CONDITIONAL_RE.test(effect) || /\bonly\b/i.test(line);
 
     // "Add one mana of any color", "Add two mana of any one color".
+    // ⚠️ "any TYPE" as well as "any color". Reflecting Pool, Horizon of Progress
+    // and Plaza of Harmony all read "one mana of any TYPE that a land you
+    // control could produce", so a pattern that only knew "color" did not match
+    // them at all — `producesMana` came out EMPTY and the most-played
+    // colour-fixing land in the format produced nothing.
+    // ⚠️ **"THE CHOSEN COLOR" — the consumer that makes D136's `chosen` field
+    // pay for itself** (D147). 17 cards read it, and 9 of them also print "As
+    // this ~ enters, choose a color", so the engine can answer the question and
+    // then honour the answer with no card script at all — `Sol Grail` is the
+    // whole card in those two lines.
+    //
+    // ⚠️ It is a SCOPE beside `identity` and `landsYou`, not a new mechanism:
+    // "one mana of X" where X is a set the engine can resolve is exactly what
+    // `anyColor` already models. The set here has one member and lives on the
+    // permanent rather than on the board.
+    if (/\badd one mana of the chosen colou?r\b/i.test(effect)) {
+      push({
+        outputs: [],
+        anyColor: { scope: 'chosen', amount: 1 },
+        requiresTap,
+        // NOT conditional: the engine knows the chosen colour exactly, the same
+        // way it knows a commander's identity. Before the choice is answered it
+        // resolves to the empty set and the source simply offers nothing.
+        conditional: extraCost,
+        text: printed,
+        line: lineIndex,
+      });
+      continue;
+    }
+
     const anyMatch = effect.match(
-      /add\s+(one|two|three|a|an|X)\s+mana\s+of\s+any\s+(?:one\s+)?(color|colour)([^.]*)/i,
+      /add\s+(one|two|three|a|an|X)\s+mana\s+of\s+any\s+(?:one\s+)?(color|colour|type)([^.]*)/i,
     );
     if (anyMatch) {
       const amount = wordToNumber(anyMatch[1] ?? 'one');
@@ -524,15 +588,32 @@ export function parseManaProduction(
       }
       const tail = (anyMatch[3] ?? '').toLowerCase();
       const identityScoped = tail.includes("commander's color identity") || tail.includes('commander’s color identity');
+      // ⚠️ EXACTLY these two phrasings, and nothing looser. "a Gate you control
+      // could produce" is the same SHAPE and a different SET, and answering it
+      // with every colour your lands make would offer mana the card cannot
+      // produce — the never-half-execute rule (D90) applied to a land. Anything
+      // else keeps falling through to the warning below.
+      const boardScope = /\ba land you control could produce\b/.test(tail)
+        ? ('landsYou' as const)
+        : /\ba land an opponent controls could produce\b/.test(tail)
+          ? ('landsOpponents' as const)
+          : null;
+      if (!identityScoped && !boardScope && /\bcould produce\b/.test(tail)) {
+        // Same shape, a set we cannot resolve. Counted, not guessed at.
+        warn('mana:anyScopeUnread');
+        continue;
+      }
       if (tail.includes('combination')) warn('mana:anyCombination');
+      const scope = identityScoped ? ('identity' as const) : (boardScope ?? ('all' as const));
       push({
         outputs: [],
-        anyColor: { scope: identityScoped ? 'identity' : 'all', amount },
+        anyColor: { scope, amount },
         requiresTap,
-        // An identity-scoped land (Command Tower) is NOT conditional: the
-        // engine knows the controller's commander identity exactly.
-        conditional: identityScoped ? extraCost : conditional,
-        text: line.trim(),
+        // An identity-scoped land (Command Tower) is NOT conditional: the engine
+        // knows the controller's commander identity exactly. Nor is a
+        // board-scoped one — it knows what is on the battlefield exactly too.
+        conditional: scope === 'all' ? conditional : extraCost,
+        text: printed,
         line: lineIndex,
       });
       continue;
@@ -577,7 +658,7 @@ export function parseManaProduction(
       warn('mana:noUsableOutput');
       continue;
     }
-    push({ outputs, anyColor: null, requiresTap, conditional, text: line.trim(), line: lineIndex });
+    push({ outputs, anyColor: null, requiresTap, conditional, text: printed, line: lineIndex });
   }
 
   return out;
@@ -684,5 +765,9 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     activated,
     effects: parsedEffects.effects,
     effectMode: parsedEffects.mode,
+    // ⚠️ Only a PERMANENT can enter the battlefield, so an instant whose text
+    // somehow matched would be claiming a rule it can never reach.
+    entersTapped: isPermanent ? parseEntersTapped(face.oracleText, face.name) : null,
+    choosesColorOnEntry: isPermanent && parseChoosesColorOnEntry(face.oracleText),
   };
 }

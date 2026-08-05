@@ -478,7 +478,16 @@ Blockers assign back symmetrically over `attackerOrder` with the same lethal log
 
 **Commander damage attribution.** `isCommanderDamage` is set only when the source has `isCommander === true` **and** the target is a player **and** the event is `CombatDamageDealt` (903.10a: combat damage only). `apply()` does `players[target].commanderDamage[source.id] += amount` and emits `CommanderDamageDealt{total}`. Because the key is the commander's **instance id**, damage from two different commanders never pools, a partner pair tracks separately, and a Tier-3 "this creature becomes your commander" starts a fresh tally — all without extra code. The SBA check is `Object.values(commanderDamage).some(v => v >= options.commanderDamageThreshold)`.
 
-**Manual override.** `options.manualCombatDamageAssignment` (or a per-player stop) turns the auto-assignment into a proposal: `AwaitingSet{assignCombatDamage}` per attacker with a real choice, pre-filled with the automatic answer. See Q5.
+**Manual override — ⚠️ NOT BUILT, AND THE SEAM IS GONE (D125).** This section used
+to describe `options.manualCombatDamageAssignment` turning the auto-assignment into
+a proposal: `AwaitingSet{assignCombatDamage}` per attacker, pre-filled with the
+automatic answer. What shipped was the `Awaiting` variant and the option, with **no
+answering intent, no handler and no button** — a prompt that would have stopped the
+game with nothing able to answer it on any client. Both were deleted. Assignment is
+automatic, full stop; `assignAttackerDamage` is the whole behaviour. Rebuilding this
+needs the intent, the handler, the UI **and** a producer for `orderBlockers`, since
+dividing damage down an order the player was never allowed to choose is half a
+feature. See Q5 and D125.
 
 ### 6.5 `endCombat` (rule 511)
 

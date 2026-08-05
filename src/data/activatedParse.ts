@@ -90,6 +90,8 @@ export function parseActivatedAbilities(
     let requiresTap = false;
     let requiresUntap = false;
     let lifeCost = 0;
+    let lifeCostCommanderColors = false;
+    let sacrificesSelf = false;
     let isLoyalty = false;
 
     for (const part of parts) {
@@ -112,6 +114,24 @@ export function parseActivatedAbilities(
       const life = part.match(LIFE_RE);
       if (life && /^pay\s+\d+\s+life$/i.test(part.trim())) {
         lifeCost += Number(life[1] ?? 0);
+        continue;
+      }
+      // ⚠️ WAR ROOM'S EXACT PHRASE AND ONLY THAT PHRASE (D90, D159). The number
+      // is board-dependent, so the parse records the RULE and the activation
+      // computes it from the player's identity. Any other "pay life equal to…"
+      // wording stays unpaid — a computed cost the engine cannot compute is a
+      // cost it cannot charge.
+      if (/^pay life equal to the number of colors in your commanders' color identity$/i.test(part.trim())) {
+        lifeCostCommanderColors = true;
+        continue;
+      }
+      // ⚠️ SELF-sacrifice only — "Sacrifice this artifact/creature/land/…" is
+      // deterministic (no chooser), so it is a PRICE the engine can take
+      // (D159). "Sacrifice a creature" is a decision and stays unpaid, exactly
+      // the ward distinction D68 drew. ⚠️ Chargeable is not offerable — see
+      // `ActivatedAbility.sacrificesSelf` and `legal.ts`'s def gate.
+      if (/^sacrifice this [a-z]+$/i.test(part.trim())) {
+        sacrificesSelf = true;
         continue;
       }
       unpaidCosts.push(part);
@@ -138,6 +158,8 @@ export function parseActivatedAbilities(
       requiresTap,
       requiresUntap,
       lifeCost,
+      lifeCostCommanderColors,
+      sacrificesSelf,
       unpaidCosts,
       payable,
       isManaAbility,

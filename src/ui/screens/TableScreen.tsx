@@ -21,6 +21,7 @@ import { GameLayer } from '../game/GameLayer';
 import { instanceIdOf } from '../game/AimVeil';
 import { exposeEngineHandles } from '../game/devHandles';
 import { exposeNetHandles } from '../../net/devHandles';
+import { useTapKey } from '../game/useTapKey';
 import { useEngineTable } from '../game/useEngineTable';
 import { useTable } from '../../store/tableStore';
 import * as session from '../../game/session';
@@ -69,7 +70,11 @@ export function TableScreen() {
   const stops = useTable((s) => s.stops);
   const setGameSetup = useTable((s) => s.setGameSetup);
   const goto = useUi((s) => s.goto);
-  const { onCardClick, onCardContextMenu, onCardPointerDown, onAttachmentsClick, onCardDrop, dropCheck } = useEngineTable();
+  const { onCardClick, onCardContextMenu, onCardPointerDown, onAttachmentsClick, onZoneClick, onCardDrop, dropCheck } = useEngineTable();
+  // ⚠️ Point at a permanent and press E: it does what CLICKING it does. Wired
+  // here rather than in `GameLayer` because this is where `onCardClick` lives,
+  // and E must not become a second answer to what a card does.
+  useTapKey(onCardClick);
 
   // ⚠️ Every dev handle reads through a ref. A handle that captured `table` or
   // `setSeatCount` from the render it was registered in would keep driving a dead
@@ -476,7 +481,7 @@ export function TableScreen() {
         view={view ?? emptyView()}
         seatCount={engineRunning ? (Math.min(4, Math.max(2, view.seatOrder.length || 4)) as SeatCount) : seatCount}
         autoStack={autoStack}
-        {...(engineRunning ? { onCardClick, onCardDrop, dropCheck, onCardPointerDown, onAttachmentsClick } : {})}
+        {...(engineRunning ? { onCardClick, onCardDrop, dropCheck, onCardPointerDown, onAttachmentsClick, onZoneClick } : {})}
         // ⚠️ In the BAR, not floating over it. Both of these used to sit at
         // `left-1/2 top-2`, which is the middle of the phase track — the button
         // covered two steps, and one of them was the current one often enough to

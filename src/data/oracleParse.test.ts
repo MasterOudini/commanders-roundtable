@@ -422,11 +422,44 @@ describe('parseManaProduction', () => {
     expect(p[0]?.conditional).toBe(true);
   });
 
-  test('a land whose ability the parser cannot model produces nothing, loudly', () => {
+  /**
+   * ⚠️ Reflecting Pool used to be THIS FILE'S example of a land the parser could
+   * not model, and it produced nothing at all — the most-played colour-fixing
+   * land in the format. Two things were wrong: the pattern read "any color" and
+   * the card says "any TYPE", and there was no scope for "that a land you
+   * control could produce". It is read now, and resolved against the board.
+   */
+  test('a land defined by the OTHER lands is read, and scoped to them', () => {
     const seen: string[] = [];
     const p = parseManaProduction(face(C.REFLECTING_POOL), typeOf(C.REFLECTING_POOL), (c) => seen.push(c));
+    expect(p).toHaveLength(1);
+    expect(p[0]?.anyColor).toEqual({ scope: 'landsYou', amount: 1 });
+    // ⚠️ NOT conditional: the engine knows exactly what is on the battlefield,
+    // so auto-tap may use it — the same reasoning Command Tower gets.
+    expect(p[0]?.conditional).toBe(false);
+    expect(seen).toEqual([]);
+  });
+
+  /**
+   * ⚠️ And the boundary stays a boundary. "a GATE you control could produce" is
+   * the same shape over a set the parser cannot resolve, and answering it with
+   * every colour your lands make would offer mana the card cannot produce. It
+   * warns and produces nothing, which is the never-half-execute rule (D90).
+   */
+  test('a scope it cannot resolve produces nothing, loudly', () => {
+    const seen: string[] = [];
+    const gateLand = {
+      ...C.REFLECTING_POOL,
+      faces: [
+        {
+          ...C.REFLECTING_POOL.faces[0]!,
+          oracleText: '{T}: Add one mana of any type that a Gate you control could produce.',
+        },
+      ],
+    };
+    const p = parseManaProduction(face(gateLand), typeOf(gateLand), (c) => seen.push(c));
     expect(p).toEqual([]);
-    expect(seen.length).toBeGreaterThan(0);
+    expect(seen).toContain('mana:anyScopeUnread');
   });
 
   test('a card with no mana ability produces nothing', () => {

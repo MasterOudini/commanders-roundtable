@@ -7,6 +7,7 @@ import type { InstanceId, PlayerId } from './types/ids';
 import {
   COLORS,
   EMPTY_POOL,
+  MANA_KEYS,
   poolFrom,
   poolTotal,
   type Color,
@@ -53,6 +54,25 @@ export function maxAmount(source: ManaSource): number {
 }
 
 /**
+ * One mana output as a Scryfall cost string: `{G}`, `{C}{C}`, `{W}{U}`.
+ *
+ * ⚠️ This is what "what will this land bring me" is written in, and it is a
+ * STRING rather than the pool it came from because the answer travels: it goes
+ * into every `TapForMana` legal action, over the wire to every guest, and
+ * straight into `<ManaCost>`, which reads exactly this shape. Six numeric keys
+ * per output, repeated per source per frame, would be the same fact in a form
+ * nothing at either end wants.
+ *
+ * ⚠️ WUBRG then C — the printed order, so two lands never disagree about which
+ * way round `{W}{U}` reads.
+ */
+export function costStringOf(mana: ManaPool): string {
+  let out = '';
+  for (const key of MANA_KEYS) out += `{${key}}`.repeat(mana[key]);
+  return out;
+}
+
+/**
  * Every mana ability a player could activate right now.
  *
  * `includeConditional` is false for auto-tap and true for the manual tap menu:
@@ -69,6 +89,16 @@ export function manaSourcesOf(
   opts: { includeConditional?: boolean; includeTapped?: boolean; cache?: DeriveCache } = {},
 ): ManaSource[] {
   const identity = state.players[player]?.identity ?? [];
+  // ⚠️ TWO PASSES, because a land can be defined by the other lands. Reflecting
+  // Pool makes "any type that a land you control could produce" and Exotic
+  // Orchard what an opponent's lands do, so those two sets have to be known
+  // before any dynamic source is expanded.
+  //
+  // ⚠️ The sets are built from CONCRETE outputs only — a source whose own scope
+  // is dynamic contributes nothing to them. That is the recursion guard, and it
+  // is also the rule: two Reflecting Pools and nothing else genuinely produce no
+  // mana, because neither can name a colour the other could make.
+  const landColours = boardColours(state, oracle, scripts, opts.cache);
   const out: ManaSource[] = [];
   for (const id of state.zones.battlefield) {
     const card = state.cards[id];
@@ -81,7 +111,21 @@ export function manaSourcesOf(
       // Summoning sickness stops a creature using a {T} ability. CR 302.6 —
       // and it is the single most common "why can't I tap this" question.
       if (prod.requiresTap && d.isCreature && !canTapForAbility(state, card.id, d)) continue;
-      const outputs = expandOutputs(prod.outputs, prod.anyColor, identity);
+      const scoped =
+        prod.anyColor?.scope === 'landsYou'
+          ? (landColours.get(player) ?? [])
+          : prod.anyColor?.scope === 'landsOpponents'
+            ? opponentColours(state, player, landColours)
+            : // ⚠️ THE PERMANENT'S OWN ANSWER (D147). A set of one, and EMPTY
+              // until the "as this enters, choose a color" prompt is answered —
+              // at which point `expandOutputs` yields nothing and the source is
+              // skipped below. That is the honest state: a Sol Grail whose
+              // colour nobody has named makes no mana, which is what the card
+              // says.
+              prod.anyColor?.scope === 'chosen'
+              ? (card.chosenColor === null ? [] : [card.chosenColor])
+              : identity;
+      const outputs = expandOutputs(prod.outputs, prod.anyColor, scoped);
       if (outputs.length === 0) continue;
       out.push({
         card: id,
@@ -94,6 +138,63 @@ export function manaSourcesOf(
     }
   }
   return out;
+}
+
+/**
+ * What each player's LANDS could produce, from their concrete outputs alone.
+ *
+ * ⚠️ Lands, not permanents: "a land you control could produce" says so, and a
+ * Birds of Paradise is not a land. ⚠️ And concrete outputs only — a dynamic
+ * source contributes nothing, which is what stops Reflecting Pool asking
+ * Reflecting Pool. Tapped lands still count: the card asks what a land COULD
+ * produce, not what it can produce right now.
+ */
+function boardColours(
+  state: GameState,
+  oracle: OracleDb,
+  scripts: ScriptRegistry,
+  cache?: DeriveCache,
+): Map<PlayerId, Color[]> {
+  const byPlayer = new Map<PlayerId, Set<Color>>();
+  for (const id of state.zones.battlefield) {
+    const card = state.cards[id];
+    if (!card || card.phasedOut) continue;
+    const d = derive(state, oracle, scripts, id, cache);
+    if (!d.isLand) continue;
+    for (const prod of d.producesMana) {
+      if (prod.anyColor) continue;
+      for (const output of prod.outputs) {
+        for (const colour of COLORS) {
+          if (output.mana[colour] > 0) {
+            let set = byPlayer.get(card.controller);
+            if (!set) {
+              set = new Set<Color>();
+              byPlayer.set(card.controller, set);
+            }
+            set.add(colour);
+          }
+        }
+      }
+    }
+  }
+  const out = new Map<PlayerId, Color[]>();
+  for (const [p, set] of byPlayer) out.set(p, COLORS.filter((c) => set.has(c)));
+  return out;
+}
+
+/** The union over everyone else — Exotic Orchard reads every opponent, not one. */
+function opponentColours(
+  state: GameState,
+  player: PlayerId,
+  landColours: Map<PlayerId, Color[]>,
+): Color[] {
+  const seen = new Set<Color>();
+  for (const [p, colours] of landColours) {
+    if (p === player) continue;
+    if (state.players[p]?.hasLost) continue;
+    for (const c of colours) seen.add(c);
+  }
+  return COLORS.filter((c) => seen.has(c));
 }
 
 function canTapForAbility(
@@ -117,11 +218,16 @@ function canTapForAbility(
  */
 function expandOutputs(
   outputs: readonly ManaOutput[],
-  anyColor: { scope: 'all' | 'identity'; amount: number } | null,
-  identity: readonly ColorLetter[],
+  anyColor: { scope: 'all' | 'identity' | 'landsYou' | 'landsOpponents' | 'chosen'; amount: number } | null,
+  /**
+   * The colours this particular scope resolves to. `all` ignores it; every other
+   * scope has already been worked out by the caller, which is the only place
+   * that can see the board.
+   */
+  scoped: readonly ColorLetter[],
 ): ManaOutput[] {
   if (!anyColor) return [...outputs];
-  const colors: readonly Color[] = anyColor.scope === 'identity' ? (identity as readonly Color[]) : COLORS;
+  const colors: readonly Color[] = anyColor.scope === 'all' ? COLORS : (scoped as readonly Color[]);
   return colors.map((c) => ({
     mana: poolFrom({ [c]: anyColor.amount }),
     amount: anyColor.amount,

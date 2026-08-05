@@ -141,6 +141,10 @@ export function diffView(prev: PlayerView, next: PlayerView, base: number, nextC
     set['turn'] = next.turn;
   }
   if (!sameStack(prev.stack, next.stack)) set['stack'] = next.stack;
+  // ⚠️ Whole-value, like `seatOrder`: it is a handful of ids that change
+  // together, and a guest whose scry never arrived would be looking at an empty
+  // panel while the host thought they were deciding.
+  if (!sameStrings(prev.peek, next.peek)) set['peek'] = next.peek;
 
   // ── the log, as an append when it provably is one ──────────────────────────
   if (!sameLog(prev.log, next.log)) {
@@ -248,6 +252,9 @@ export function applyPatch(view: PlayerView, patch: ViewPatch): PlayerView {
         break;
       case 'stack':
         top.stack = value as StackItemView[];
+        break;
+      case 'peek':
+        top.peek = value as InstanceId[];
         break;
       default:
         // An unknown key from a newer host. Ignoring it keeps the view

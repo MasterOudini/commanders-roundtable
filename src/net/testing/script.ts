@@ -1,48 +1,15 @@
 import type { ClientSession } from '../client';
 import type { Intent } from '../../engine/types/intents';
-import type { TargetSpec } from '../../engine/types/oracle';
-import type { InstanceId } from '../../engine/types/ids';
-import type { TargetChoice } from '../../engine/types/state';
 import type { TestTable } from './table';
+import { planTargets } from '../../bot/targets';
 
 // Extracted so a measurement harness can reuse the same script the tests use.
-
-/**
- * Pick the targets a spell or ability requires, from the acting client's own view.
- *
- * ⚠️ PER CLAUSE, not "the first N legal choices". `validateTargets` does not just
- * check that every choice is legal *somewhere* — it runs `assignTargets`, which
- * has to match the choices to the clauses one-for-one. A flat "first N of the
- * union" list satisfies neither: two picks that both only answer clause A leave
- * clause B unfilled, and the host rejects the whole thing. So each clause is
- * filled from its OWN legal set, and `taken` stops one object answering twice
- * (`validateTargets` refuses a duplicate outright).
- *
- * `spec.min` is what a clause REQUIRES; an optional clause ("up to one target")
- * has min 0 and is simply left empty, which is the minimal legal answer.
- *
- * Returns null when a required clause has no legal object left — the caller must
- * then not cast at all, or abandon the cast if it is already staged.
- */
-function planTargets(
-  session: ClientSession,
-  source: InstanceId,
-  specs: readonly TargetSpec[],
-): TargetChoice[] | null {
-  const taken = new Set<string>();
-  const targets: TargetChoice[] = [];
-  for (const spec of specs) {
-    for (let i = 0; i < spec.min; i++) {
-      const pick = session
-        .legalTargetsFor([spec], source)
-        .find((c) => !taken.has(`${c.kind}:${c.id}`));
-      if (!pick) return null;
-      taken.add(`${pick.kind}:${pick.id}`);
-      targets.push(pick);
-    }
-  }
-  return targets;
-}
+//
+// ⚠️ `planTargets` MOVED to `src/bot/targets.ts` and is imported rather than
+// copied. Its rule is D102's — targets are matched to clauses ONE FOR ONE, so
+// "the first N legal choices" is rejected whenever two picks answer the same
+// clause — and two copies of a rule that subtle will drift. Called here with no
+// view, which keeps the "first legal" ordering this driver has always had.
 
 /**
  * Answer whatever the game is waiting for, from the acting client's own view.
@@ -97,6 +64,63 @@ export function simplestIntent(
           ? { t: 'OrderTriggers', player: awaiting.player, order: [...awaiting.triggers] }
           : null;
       /**
+       * ⚠️ The same repair as `chooseTargets` below, made BEFORE the wedge
+       * rather than after it. This driver is the one D102 caught with no case
+       * for a prompt that had just been added, and `two-instance.cjs` reported
+       * it as `host t?` for weeks. Declining is the answer that runs no script
+       * and therefore cannot be rejected by a board this driver never inspects.
+       */
+      case 'optionalTrigger':
+        return awaiting.player === snapshot.you
+          ? { t: 'AnswerOptionalTrigger', player: awaiting.player, stackId: awaiting.stackId, accept: false }
+          : null;
+      /**
+       * ⚠️ Added WITH the prompt (D136), not after a sign-off went quiet. This
+       * driver plays lands, and a shock land in a deck it drives would fall to
+       * `default: return null` and stop the run — the same wedge twice above,
+       * and the reason `two-instance.cjs` cannot be trusted to notice: it stops
+       * on a RESOLVED SPELL, so a land drop that wedged before the first cast
+       * reads as a slow shuffle rather than as a bug.
+       *
+       * Declining, because it is the answer the handler cannot reject: paying
+       * re-checks a life total this driver never inspects.
+       */
+      /** Any colour is legal on any board; white, for reproducibility. */
+      case 'chooseReplacement':
+        return awaiting.player === snapshot.you && awaiting.options[0]
+          ? { t: 'AnswerChooseReplacement', player: awaiting.player, key: awaiting.options[0].key }
+          : null;
+      case 'chooseColor':
+        return awaiting.player === snapshot.you
+          ? { t: 'AnswerChooseColor', player: awaiting.player, color: 'W' }
+          : null;
+      case 'entersChoice':
+        return awaiting.player === snapshot.you
+          ? { t: 'AnswerEntersChoice', player: awaiting.player, source: awaiting.source, pay: false }
+          : null;
+      /**
+       * ⚠️ **THE PROMPT CARRIES NO CANDIDATES, so this driver has to read the
+       * VIEW** — which is the whole point of D137's design: a hand is hidden, so
+       * the answer comes from the one place that legitimately holds it. A driver
+       * that could answer from the prompt alone would be a driver holding a hand
+       * it should not have.
+       */
+      /** The revealed set as it stands (D142) — always legal, never a guess. */
+      case 'orderCards':
+        return awaiting.player === snapshot.you
+          ? { t: 'AnswerOrderCards', player: awaiting.player, cards: [...(session.currentView().peek ?? [])] }
+          : null;
+      case 'chooseFromZone': {
+        if (awaiting.player !== snapshot.you) return null;
+        const v = session.currentView();
+        // Two zones (D141): a library offers only what was just revealed.
+        const hand =
+          awaiting.zone === 'library' ? (v.peek ?? []) : (v.zones[`hand:${awaiting.player}`] ?? []);
+        // Fewer than asked is a rejection rather than a wedge, and the engine
+        // does not raise this unless the hand is bigger than the count.
+        return { t: 'AnswerChooseFromZone', player: awaiting.player, cards: hand.slice(0, awaiting.count) };
+      }
+      /**
        * ⚠️ Without this the script WEDGES, and it looks like a desync rather than
        * a gap. The targeting work added this prompt; `simplestIntent` casts
        * spells, so the first targeted spell it cast fell to `default: return
@@ -120,7 +144,7 @@ export function simplestIntent(
   }
   if (snapshot.priority !== snapshot.you) return null;
   const land = snapshot.legal.find((a) => a.t === 'PlayLand');
-  if (land?.t === 'PlayLand') return { t: 'PlayLand', player: snapshot.you, card: land.card };
+  if (land?.t === 'PlayLand') return { t: 'PlayLand', player: snapshot.you, card: land.card, faceIndex: land.faceIndex };
   /**
    * ⚠️ Skipping an untargetable spell is what stops the `CancelPendingCast` above
    * becoming a LIVELOCK. `legalActions` does not check targets at all — it offers
@@ -145,7 +169,7 @@ export function simplestIntent(
     // host's validator agree about a plan built from a `SolveInput` off the wire.
     const preview = session.previewCast(cast.card, 0);
     if (preview?.plan) {
-      return { t: 'CastSpell', player: snapshot.you, card: cast.card, plan: preview.plan };
+      return { t: 'CastSpell', player: snapshot.you, card: cast.card, faceIndex: cast.faceIndex, plan: preview.plan };
     }
   }
   return { t: 'PassPriority', player: snapshot.you };

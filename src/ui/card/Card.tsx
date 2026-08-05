@@ -115,7 +115,19 @@ export interface CardProps {
    */
   chrome?: boolean;
   className?: string;
-  onClick?: () => void;
+  /**
+   * ⚠️ It is handed the EVENT, and `src/ui/table/` is no wiser for it: "there
+   * was a click, and here is what the browser said about it" is input, not
+   * meaning — the same seam `onPointerDown` already keeps. Shift-clicking a
+   * mana source builds a selection upstairs, and a handler that could not see
+   * the modifier would have to learn it from a global, which is how a click
+   * ends up meaning different things in two places.
+   *
+   * The parameter is structural rather than a React type so a caller may pass
+   * anything carrying a modifier, and OPTIONAL at every call site above, so the
+   * many `onClick={() => f(id)}` handlers stay valid.
+   */
+  onClick?: (e: { shiftKey: boolean }) => void;
   onPointerEnter?: () => void;
   onPointerLeave?: () => void;
 }
@@ -278,7 +290,7 @@ const CardImpl = function Card({
       onClick={onClick}
       onPointerEnter={onPointerEnter}
       onPointerLeave={onPointerLeave}
-      onKeyDown={onClick ? (e) => { if (e.key === 'Enter' || e.key === ' ') onClick(); } : undefined}
+      onKeyDown={onClick ? (e) => { if (e.key === 'Enter' || e.key === ' ') onClick(e); } : undefined}
       data-card-id={card?.scryfallId ?? 'hidden'}
       data-card-mode={mode}
       data-instance-id={instanceId}

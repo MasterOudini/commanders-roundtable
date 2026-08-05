@@ -184,14 +184,31 @@ describe('src/net purity', () => {
     }
   });
 
+  /**
+   * ⚠️⚠️ **ALL THREE OF THESE WERE PASSING OVER NOTHING UNTIL D153.** Each regex
+   * had been written with its `\b` as a literal BACKSPACE character (0x08) by a
+   * patch script — `/<BS>new WebSocket<BS>/` matches no string that has ever
+   * existed — so the net layer's socket and DOM line was unenforced, silently,
+   * and invisibly: a backspace renders as nothing, so the source read correctly
+   * every time anyone looked at it. D129 records the same corruption in
+   * `primitives.node.test.ts`, and D153 found a third instance in the same sweep.
+   * **The detector is a scan for control characters, and it belongs on any file a
+   * script has edited.**
+   *
+   * ⚠️ And repairing the regex is only half of it: the check read the RAW file,
+   * so the first thing it caught was `protocol.ts` explaining a "5-minute grace
+   * window." in prose. `stripComments` exists three screens up for exactly this
+   * reason and its own comment says so — "what keeps the test about code rather
+   * than prose". Two guards, one lesson, applied in one place and not the other.
+   */
   test('only the transport layer touches a socket or the DOM', () => {
     for (const file of NET_FILES) {
       const name = file.split(sep).pop() ?? '';
       if (SOCKET_FILES.has(name)) continue;
-      const text = readFileSync(file, 'utf8');
-      expect(/new WebSocket/.test(text), `${name} opens a socket`).toBe(false);
-      expect(/document\./.test(text), `${name} touches the DOM`).toBe(false);
-      expect(/window\./.test(text), `${name} touches window`).toBe(false);
+      const code = stripComments(readFileSync(file, 'utf8'));
+      expect(/\bnew WebSocket\b/.test(code), `${name} opens a socket`).toBe(false);
+      expect(/\bdocument\./.test(code), `${name} touches the DOM`).toBe(false);
+      expect(/\bwindow\./.test(code), `${name} touches window`).toBe(false);
     }
   });
 
@@ -200,5 +217,61 @@ describe('src/net purity', () => {
     expect(host).not.toMatch(/from\s+['"]\.\.\/(ui|store)\//);
     const client = readFileSync(join(NET_DIR, 'client.ts'), 'utf8');
     expect(client).not.toMatch(/from\s+['"]\.\.\/(ui|store)\//);
+  });
+});
+
+// ── the bot's own line ───────────────────────────────────────────────────────
+//
+// ⚠️ `src/bot/` holds the ENGINE's clock rule with the NET's import rule, and
+// the difference from `src/net/` is the point. The net block permits
+// `setTimeout` because a transport needs backoff; a bot must not have one, or
+// pacing ends up inside the policy and then a headless tournament can never run
+// faster than real time and the replay proof acquires an "unless the timing
+// differs" caveat nobody can discharge. Every timer lives in
+// `src/game/botSeat.ts`, which is renderer code and is not scanned here.
+//
+// ⚠️ And one rule neither other block needs: NO RUNTIME IMPORT OF AN ENGINE
+// MODULE THAT TAKES A `GameState`. `legalActions`, `canAttack` and
+// `candidatesFromState` all look importable and would compile — they would just
+// always be handed nothing, because a client has no `GameState` and a bot IS a
+// client. This is M6 invariant 3 made mechanical instead of aspirational.
+
+const BOT_DIR = join(process.cwd(), 'src', 'bot');
+const BOT_FILES = sourceFiles(BOT_DIR);
+
+/** Engine modules whose exported functions all take a `GameState`. */
+const HOST_ONLY = /(?<!type\s)\{[^}]*\}\s*from\s+['"][^'"]*\.\.\/engine\/(legal|combat|loop|reducer|handlers|project|game|sba|triggers|turn|zones|derive)['"]/;
+
+describe('src/bot purity', () => {
+  test('there are bot files to check', () => {
+    expect(BOT_FILES.length).toBeGreaterThan(3);
+  });
+
+  test.each(BOT_FILES.map((f) => [relative(process.cwd(), f), f] as const))(
+    '%s imports nothing platform-specific',
+    (_name, file) => {
+      const code = stripComments(readFileSync(file, 'utf8'));
+      const hit = code.match(/from\s+['"](react|react-dom|electron|zustand|node:[a-z/]+|motion[/a-z]*)['"]/);
+      expect(hit?.[1] ?? null).toBeNull();
+    },
+  );
+
+  test.each(BOT_FILES.map((f) => [relative(process.cwd(), f), f] as const))(
+    '%s has no clock and no randomness',
+    (_name, file) => {
+      const code = stripComments(readFileSync(file, 'utf8'));
+      const found: string[] = [];
+      for (const [re, label] of BANNED_CALLS) if (re.test(code)) found.push(label);
+      expect(found).toEqual([]);
+    },
+  );
+
+  test('no bot file calls an engine function that needs a GameState', () => {
+    const offenders: string[] = [];
+    for (const file of BOT_FILES) {
+      const code = stripComments(readFileSync(file, 'utf8'));
+      if (HOST_ONLY.test(code)) offenders.push(relative(process.cwd(), file));
+    }
+    expect(offenders).toEqual([]);
   });
 });

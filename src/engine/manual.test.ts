@@ -1,12 +1,14 @@
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from './log';
 import { TREASURE_TOKEN, SOLDIER_TOKEN } from '../data/fixtures/engineCards';
+import { project } from './project';
 import {
   advanceUntil,
   battlefieldOf,
   findAnywhere,
   idsIn,
   must,
+  ORACLE,
   put,
   startedGame,
 } from './testing/harness';
@@ -164,6 +166,154 @@ describe('Tier-3 manual tools', () => {
     for (const id of top) expect(game.state.cards[id]?.revealedTo).toEqual(['p1']);
     // ⚠️ Only the peeker. Everyone else must still see nothing.
     for (const id of top) expect(game.state.cards[id]?.revealedTo).not.toContain('p2');
+  });
+
+  /**
+   * ⚠️ THE ORDER IS THE FEATURE. `view.peek` is the only ordered thing about a
+   * library that ever reaches a client, and it is top-first — a scry that shows
+   * three cards in a dictionary's order is not a scry. The library array is
+   * bottom-first, so this is the assertion that the two conventions are the
+   * right way round.
+   */
+  test('a peek is projected TOP FIRST, and only to the peeker', () => {
+    const game = startedGame();
+    must(game.submit({ t: 'ManualPeekLibrary', player: 'p1', count: 3 }));
+    const library = idsIn(game, 'p1', 'library');
+    const view = project(game.state, ORACLE, game.deps.scripts, 'p1');
+    expect(view.peek).toEqual([
+      library[library.length - 1],
+      library[library.length - 2],
+      library[library.length - 3],
+    ]);
+    for (const id of view.peek) expect(view.cards[id]?.card).not.toBeNull();
+    // Nobody else is looking at anything, and cannot see what p1 is looking at.
+    const other = project(game.state, ORACLE, game.deps.scripts, 'p2');
+    expect(other.peek).toEqual([]);
+    for (const id of view.peek) expect(other.cards[id]).toBeUndefined();
+  });
+
+  test('a peek stops when you stop looking', () => {
+    const game = startedGame();
+    must(game.submit({ t: 'ManualPeekLibrary', player: 'p1', count: 2 }));
+    expect(project(game.state, ORACLE, game.deps.scripts, 'p1').peek).toHaveLength(2);
+    must(game.submit({ t: 'ManualStopPeeking', player: 'p1' }));
+    expect(project(game.state, ORACLE, game.deps.scripts, 'p1').peek).toEqual([]);
+  });
+
+  /** ⚠️ Not a rejection: it is the natural end of a scry that moved every card. */
+  test('stopping when nothing is revealed is accepted and does nothing', () => {
+    const game = startedGame();
+    const before = game.state.eventCount;
+    must(game.submit({ t: 'ManualStopPeeking', player: 'p1' }));
+    expect(game.state.eventCount).toBe(before);
+  });
+
+  /**
+   * ⚠️ A card sent to the bottom stops being peeked WITHOUT a second intent —
+   * the reducer clears a reveal on any move, because keeping it would leak the
+   * new zone. That is what makes a scry resolve one card at a time.
+   */
+  test('sending a peeked card to the bottom leaves the peek and keeps the rest in order', () => {
+    const game = startedGame();
+    must(game.submit({ t: 'ManualPeekLibrary', player: 'p1', count: 3 }));
+    const peek = [...project(game.state, ORACLE, game.deps.scripts, 'p1').peek];
+    const size = idsIn(game, 'p1', 'library').length;
+    must(game.submit({
+      t: 'ManualMoveCard', player: 'p1', card: peek[2] as string,
+      to: { kind: 'library', player: 'p1' }, placement: 'bottom',
+    }));
+    const after = project(game.state, ORACLE, game.deps.scripts, 'p1');
+    expect(after.peek).toEqual(peek.slice(0, 2));
+    // A move within the library must not change how many cards are in it.
+    expect(idsIn(game, 'p1', 'library')).toHaveLength(size);
+    expect(idsIn(game, 'p1', 'library')[0]).toBe(peek[2]);
+  });
+
+  test('mill N takes exactly N off the top, top card first', () => {
+    const game = startedGame();
+    const library = idsIn(game, 'p1', 'library');
+    const top3 = [library[library.length - 1], library[library.length - 2], library[library.length - 3]];
+    must(game.submit({ t: 'ManualMoveTopOfLibrary', player: 'p1', target: 'p1', count: 3, to: 'graveyard' }));
+    expect(idsIn(game, 'p1', 'library')).toHaveLength(library.length - 3);
+    expect(idsIn(game, 'p1', 'graveyard')).toEqual(top3);
+  });
+
+  test('exile from the top does the same, into exile', () => {
+    const game = startedGame();
+    const before = idsIn(game, 'p1', 'library').length;
+    must(game.submit({ t: 'ManualMoveTopOfLibrary', player: 'p1', target: 'p1', count: 2, to: 'exile' }));
+    expect(idsIn(game, 'p1', 'library')).toHaveLength(before - 2);
+    expect(idsIn(game, 'p1', 'exile')).toHaveLength(2);
+  });
+
+  /** ⚠️ Milling an OPPONENT is a real play, and the intent has always had a target. */
+  test('another player can be milled', () => {
+    const game = startedGame();
+    const before = idsIn(game, 'p2', 'library').length;
+    must(game.submit({ t: 'ManualMoveTopOfLibrary', player: 'p1', target: 'p2', count: 4, to: 'graveyard' }));
+    expect(idsIn(game, 'p2', 'library')).toHaveLength(before - 4);
+    expect(idsIn(game, 'p2', 'graveyard')).toHaveLength(4);
+  });
+
+  test('milling more than the library holds takes what is there', () => {
+    const game = startedGame();
+    const size = idsIn(game, 'p1', 'library').length;
+    must(game.submit({ t: 'ManualMoveTopOfLibrary', player: 'p1', target: 'p1', count: 99, to: 'graveyard' }));
+    expect(idsIn(game, 'p1', 'library')).toHaveLength(0);
+    expect(idsIn(game, 'p1', 'graveyard')).toHaveLength(size);
+  });
+
+  /**
+   * ⚠️ THE SHUFFLE MUST COVER THE CARDS THAT JUST ARRIVED. `LibraryShuffled`
+   * SETS the library to its `order`, so an order computed over the library as it
+   * stood BEFORE the moves would drop every card the same intent was putting in
+   * — the graveyard would empty into nothing.
+   */
+  test('a whole graveyard shuffles into the library', () => {
+    const game = startedGame();
+    must(game.submit({ t: 'ManualMoveTopOfLibrary', player: 'p1', target: 'p1', count: 5, to: 'graveyard' }));
+    const lib = idsIn(game, 'p1', 'library').length;
+    const gy = idsIn(game, 'p1', 'graveyard');
+    expect(gy).toHaveLength(5);
+    must(game.submit({ t: 'ManualMoveZone', player: 'p1', target: 'p1', from: 'graveyard', to: 'library', shuffle: true }));
+    expect(idsIn(game, 'p1', 'graveyard')).toHaveLength(0);
+    const after = idsIn(game, 'p1', 'library');
+    expect(after).toHaveLength(lib + 5);
+    for (const id of gy) expect(after).toContain(id);
+  });
+
+  test('a whole graveyard can be exiled at once', () => {
+    const game = startedGame();
+    must(game.submit({ t: 'ManualMoveTopOfLibrary', player: 'p2', target: 'p2', count: 4, to: 'graveyard' }));
+    must(game.submit({ t: 'ManualMoveZone', player: 'p1', target: 'p2', from: 'graveyard', to: 'exile', shuffle: false }));
+    expect(idsIn(game, 'p2', 'graveyard')).toHaveLength(0);
+    expect(idsIn(game, 'p2', 'exile')).toHaveLength(4);
+  });
+
+  test('an exile pile can go back into the library', () => {
+    const game = startedGame();
+    must(game.submit({ t: 'ManualMoveTopOfLibrary', player: 'p1', target: 'p1', count: 3, to: 'exile' }));
+    const lib = idsIn(game, 'p1', 'library').length;
+    must(game.submit({ t: 'ManualMoveZone', player: 'p1', target: 'p1', from: 'exile', to: 'library', shuffle: true }));
+    expect(idsIn(game, 'p1', 'exile')).toHaveLength(0);
+    expect(idsIn(game, 'p1', 'library')).toHaveLength(lib + 3);
+  });
+
+  test('moving an empty pile is refused', () => {
+    const game = startedGame();
+    const result = game.submit({ t: 'ManualMoveZone', player: 'p1', target: 'p1', from: 'graveyard', to: 'exile', shuffle: false });
+    expect(result.ok).toBe(false);
+    if (!result.ok) expect(result.message).toContain('empty');
+  });
+
+  /** ⚠️ One action, one line — thirty lines would bury the game in it. */
+  test('moving a whole zone writes ONE narration line', () => {
+    const game = startedGame();
+    must(game.submit({ t: 'ManualMoveTopOfLibrary', player: 'p1', target: 'p1', count: 6, to: 'graveyard' }));
+    const before = game.state.narration.length;
+    must(game.submit({ t: 'ManualMoveZone', player: 'p1', target: 'p1', from: 'graveyard', to: 'exile', shuffle: false }));
+    expect(game.state.narration.length - before).toBe(1);
+    expect(game.state.narration[game.state.narration.length - 1]?.manual).toBe(true);
   });
 
   test('draw and shuffle by hand', () => {

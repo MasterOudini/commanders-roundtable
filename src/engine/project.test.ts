@@ -5,6 +5,7 @@ import {
   advanceUntil,
   battlefieldOf,
   findAnywhere,
+  holdEverywhere,
   idsIn,
   must,
   put,
@@ -165,6 +166,9 @@ describe('projection — the hidden-information boundary', () => {
 
   test('the stack projects with a label, controller and identity', () => {
     const game = startedGame({ players: 2, decks: [['Mountain', 'Lightning Bolt'], []] });
+    // ⚠️ There has to BE a stack to project. Auto-pass resolves a spell nobody
+    // can answer inside the casting submit, so the engine is held still here.
+    holdEverywhere(game);
     put(game, 'p1', 'Mountain');
     const bolt = findAnywhere(game, 'p1', 'Lightning Bolt');
     must(game.submit({ t: 'ManualMoveCard', player: 'p1', card: bolt, to: { kind: 'hand', player: 'p1' } }));
@@ -190,6 +194,10 @@ describe('projection — the hidden-information boundary', () => {
     const game = startedGame({ players: 2, decks: [['Grizzly Bears'], ['Scathe Zombies']] });
     const bear = put(game, 'p1', 'Grizzly Bears');
     const zombie = put(game, 'p2', 'Scathe Zombies');
+    // ⚠️ The attacking/blocking flags exist only WHILE combat does, and with
+    // auto-pass on there is no window between blocks and damage for anyone who
+    // cannot act — the whole of combat happens inside the DeclareBlockers submit.
+    holdEverywhere(game);
     advanceUntil(game, (s) => s.turn.turnNumber === 3 && s.priority.awaiting?.kind === 'declareAttackers');
     must(
       game.submit({
@@ -202,7 +210,55 @@ describe('projection — the hidden-information boundary', () => {
     must(game.submit({ t: 'DeclareBlockers', player: 'p2', blocks: [{ blocker: zombie, attacker: bear }] }));
     const view = viewFor(game, 'p1');
     expect(view.cards[bear]?.attacking).toBe('p2');
-    expect(view.cards[zombie]?.blocking).toBe(bear);
+    expect(view.cards[zombie]?.blocking).toEqual([bear]);
+    expect(view.cards[bear]?.blocking).toEqual([]);
+  });
+
+  /**
+   * ⚠️ THE CASE THE OLD PROJECTION COULD NOT REPORT. `blocking` was one
+   * `InstanceId` built from `attackerOrder[0]`, so a creature blocking two
+   * attackers named the first and dropped the second — and `orderAttackers`, the
+   * prompt that asks for exactly this list, was unanswerable by any client for
+   * that reason alone. `GameState` has carried the whole order since M3. See D125.
+   */
+  test('a creature blocking two attackers reports both, in the engine order', () => {
+    const game = startedGame({
+      players: 2,
+      decks: [['Grizzly Bears', 'Scathe Zombies'], ['Serra Angel']],
+    });
+    const bear = put(game, 'p1', 'Grizzly Bears');
+    const zombie = put(game, 'p1', 'Scathe Zombies');
+    const angel = put(game, 'p2', 'Serra Angel');
+    holdEverywhere(game);
+    advanceUntil(game, (s) => s.turn.turnNumber === 3 && s.priority.awaiting?.kind === 'declareAttackers');
+    must(
+      game.submit({
+        t: 'DeclareAttackers',
+        player: 'p1',
+        attackers: [
+          { card: bear, defender: { kind: 'player', id: 'p2' } },
+          { card: zombie, defender: { kind: 'player', id: 'p2' } },
+        ],
+      }),
+    );
+    advanceUntil(game, (s) => s.priority.awaiting?.kind === 'declareBlockers');
+    must(
+      game.submit({
+        t: 'DeclareBlockers',
+        player: 'p2',
+        blocks: [
+          { blocker: angel, attacker: bear },
+          { blocker: angel, attacker: zombie },
+        ],
+      }),
+    );
+
+    // Both, and in the order the engine will assign damage down — the order is
+    // load-bearing, so equality against the state's own list is the assertion.
+    const order = game.state.combat?.blockers.find((b) => b.card === angel)?.attackerOrder;
+    expect(order).toEqual([bear, zombie]);
+    expect(viewFor(game, 'p1').cards[angel]?.blocking).toEqual([bear, zombie]);
+    expect(viewFor(game, 'p2').cards[angel]?.blocking).toEqual([bear, zombie]);
   });
 
   test('summoning sickness is projected, and haste clears it', () => {

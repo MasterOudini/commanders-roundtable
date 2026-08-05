@@ -19,7 +19,13 @@ export type StackId = string;
 export type OracleId = string;
 /** Scryfall id — the identity of one *printing*. Decides which art is shown. */
 export type PrintingId = string;
-/** `${oracleId}#${abilityIndex}` — stable across printings, which is the point. */
+/**
+ * Stable across printings, which is the point. Two producers, two suffixes:
+ * an ACTIVATED ability is `${oracleId}#a${abilityIndex}` (handlers.ts, and the
+ * `ref` an `ActivatedDef` must carry), a TRIGGERED one is
+ * `${oracleId}#${abilityId}` (triggers.ts, the def's own id) — which is why a
+ * trigger's `abilityId` may never match /^a\d+$/ (D158/D159).
+ */
 export type AbilityRef = string;
 
 export type ZoneKind =

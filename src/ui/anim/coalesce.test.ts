@@ -135,7 +135,7 @@ describe('coalesce — the multi-hop rule', () => {
     // stack you already know it never stayed on, then fly off it again.
     const events: EngineEvent[] = [
       { t: 'SpellCast', stepId: S, instanceId: 'x', from: 'hand:p1', controller: 'p1', stackItemId: 'st1' },
-      { t: 'StackResolved', stepId: S, stackItemId: 'st1', instanceId: 'x', to: 'gy:p1', targets: [] },
+      { t: 'StackResolved', stepId: S, stackItemId: 'st1', instanceId: 'x', to: 'gy:p1', targets: [], controller: 'p1' },
     ];
     const flights = only(coalesce(events), 'flight');
     expect(flights).toHaveLength(1);
@@ -168,7 +168,7 @@ describe('coalesce — the multi-hop rule', () => {
     expect(cast[0]!.as).toBe('cast');
 
     const resolve = only(
-      coalesce([{ t: 'StackResolved', stepId: S, stackItemId: 'st1', instanceId: 'x', to: 'bf:p1', targets: [] }]),
+      coalesce([{ t: 'StackResolved', stepId: S, stackItemId: 'st1', instanceId: 'x', to: 'bf:p1', targets: [], controller: 'p1' }]),
       'flight',
     );
     expect(resolve[0]!.as).toBe('resolve');

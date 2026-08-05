@@ -13,6 +13,9 @@
 // classic way a rules engine ends up with a 3/3 that dies to 2 damage.
 
 import type { ColorLetter } from '../../data/cardTypes';
+// ⚠️ TYPE-ONLY, and it has to be: `events.ts` imports this module back. A type
+// import is erased, so the cycle never exists at runtime.
+import type { EventBody } from './events';
 import type { RngState } from '../rng';
 import type {
   AbilityRef,
@@ -68,8 +71,6 @@ export interface GameOptions {
   readonly freeFirstMulligan: boolean;
   /** CR 903.9a. 'ask' teaches the rule; 'always' hides a real choice (Q3). */
   readonly commanderZoneReplacement: 'ask' | 'always' | 'never';
-  /** Turns automatic combat damage into a pre-filled proposal (Q5). */
-  readonly manualCombatDamageAssignment: boolean;
   readonly poisonThreshold: number;
 }
 
@@ -80,7 +81,6 @@ export const DEFAULT_OPTIONS: GameOptions = {
   maxLandsPerTurn: 1,
   freeFirstMulligan: true,
   commanderZoneReplacement: 'ask',
-  manualCombatDamageAssignment: false,
   poisonThreshold: 10,
 };
 
@@ -175,6 +175,29 @@ export interface CardInstance {
   readonly ptOverride: { readonly power: number; readonly toughness: number } | null;
   /** Tier-3 manual type-line override, applied at layer 4. */
   readonly typeOverride: string | null;
+  /**
+   * The colour named by "As this ~ enters, choose a color." (CR 614.12).
+   *
+   * ⚠️ **A COLOUR, NOT A GENERAL `chosen`, AND THE NARROWNESS IS THE POINT.**
+   * D136 measured the "as ~ enters, choose" family at 162 cards and called a
+   * `chosen` field the primitive — and it was right that the FIELD is the
+   * primitive rather than the question. But the family is three shapes with
+   * three consumers, and only one of those consumers exists:
+   *   · **colour (52 lines)** — read by `{T}: Add one mana of the chosen color`,
+   *     which `parseManaProduction` already models as an `anyColor` scope. So
+   *     the engine can consume it TODAY, and `Sol Grail` is the whole card in
+   *     two lines.
+   *   · **creature type (58)** and **opponent (12)** — read only by card text
+   *     that needs a script (M6.4). Asking those questions now would store an
+   *     answer nothing reads: D136's "a prompt as theatre, worse than the
+   *     silence it replaced".
+   * A general field with two members nothing populates is that same theatre with
+   * a wider type. When those consumers land, they bring their own field.
+   *
+   * ⚠️ Cleared by `clearBattlefieldFields` like every other battlefield-only
+   * fact, so a permanent that leaves and re-enters is asked again (CR 400.7).
+   */
+  readonly chosenColor: ColorLetter | null;
   /** Players who may see this card even though its zone is hidden. */
   readonly revealedTo: readonly PlayerId[];
   readonly phasedOut: boolean;
@@ -234,6 +257,17 @@ export interface StackObject {
   readonly isCommanderCast: boolean;
   /** Where the card came from, so a fizzle/counter can send it home. */
   readonly castFrom: ZoneRef | null;
+  /**
+   * Which face was cast — CR 712, a modal DFC's back face.
+   *
+   * ⚠️ **THE SPELL CARRIES IT, NOT THE CARD, AND THAT IS FORCED**: every zone
+   * change runs `clearBattlefieldFields`, which resets `CardInstance.faceIndex`
+   * to 0 (right for CR 400.7 and for a TRANSFORM permanent that dies as its
+   * front face). A modal DFC's face is a property of the SPELL and has to
+   * survive hand → stack → battlefield, so it rides here and is re-applied with
+   * a `FaceIndexSet` after each move. See D155.
+   */
+  readonly faceIndex: number;
 }
 
 /**
@@ -256,6 +290,55 @@ export type CastStage = 'modes' | 'targets' | 'x' | 'pay' | 'ready';
  * recoverable and being fatal: the host holds the half-finished cast, so a
  * reconnecting client is handed it back in the snapshot and carries on.
  */
+/**
+ * **THE REPLACEMENT FUNNEL, SUSPENDED MID-FOLD.** CR 616.1: when two or more
+ * replacement effects would apply to one event, the affected object's controller
+ * chooses which applies first, then the question is asked again of what is left.
+ *
+ * ⚠️ **THIS IS A CONTINUATION, AND IT HAD TO BE.** `applyReplacements` is pure
+ * `(state, events) => events` and cannot stop to ask. D136 solved its
+ * pay-to-enter prompt by letting the event happen and asking afterwards — that
+ * trick is unavailable here, because the ORDER changes the outcome: `Hardened
+ * Scales` before `Branching Evolution` turns two counters into six, the other
+ * way round gives five. So the event is HELD, unapplied, until the answer comes.
+ *
+ * ⚠️ **TWO QUEUES, BECAUSE CR 614.5 IS PER-EVENT.** "An effect applies at most
+ * once to a given event" — so `used` covers `event` and everything it fans out
+ * into (`siblings`), and the rest of the batch (`rest`) starts over with an
+ * empty set. Sharing one set across the batch would let a replacement fire on
+ * the first `CountersChanged` of a wrath and on none of the others.
+ *
+ * ⚠️ The fan-out needs no nesting: every level of it shares one `used`, so a
+ * replacement that turns one event into three simply splices them into
+ * `siblings` and the loop carries on. Only the batch boundary needs a second
+ * queue.
+ */
+export interface PendingReplacement {
+  /** The event being replaced. NOT yet applied — that is the whole point. */
+  readonly event: EventBody;
+  /** Who chooses. CR 616.1 — the affected object's controller, or its owner. */
+  readonly player: PlayerId;
+  /** `${sourceId}#${abilityId}` already applied to this event (CR 614.5). */
+  readonly used: readonly string[];
+  /** The rest of this event's fan-out. Shares `used`. */
+  readonly siblings: readonly EventBody[];
+  /**
+   * The rest of what the BUILT-IN replacements produced for this body. Each
+   * starts with an empty `used`, and the built-ins have already run on them.
+   */
+  readonly rest: readonly EventBody[];
+  /**
+   * The rest of the BATCH — raw bodies the built-ins have not seen yet.
+   *
+   * ⚠️ **THREE QUEUES BECAUSE THE PIPELINE HAS THREE STAGES**, and collapsing
+   * any two of them would be wrong in a way that stays invisible until it bites:
+   * `siblings` shares CR 614.5's `used` and these two do not, and the built-ins
+   * are NOT idempotent — re-running `withEntryCounters` over a `CardsMoved` it
+   * has already seen adds the loyalty a second time.
+   */
+  readonly queued: readonly EventBody[];
+}
+
 export interface PendingCast {
   readonly player: PlayerId;
   readonly card: InstanceId;
@@ -272,6 +355,8 @@ export interface PendingCast {
   readonly lifePaid: number;
   readonly isCommanderCast: boolean;
   readonly taxApplied: number;
+  /** The modal DFC face being cast, carried to the `StackObject`. See D155. */
+  readonly faceIndex: number;
 }
 
 export interface PendingTrigger {
@@ -281,6 +366,15 @@ export interface PendingTrigger {
   readonly abilityRef: AbilityRef;
   readonly label: string;
   readonly optional: boolean;
+  /**
+   * One per printed target clause, copied from the `TriggerDef` when the bus
+   * found it. Empty for the overwhelming majority of triggers.
+   *
+   * ⚠️ Copied rather than looked up again at drain time because the def is
+   * reachable only through the registry, and `PendingTrigger` is part of
+   * `GameState` — which replays without one.
+   */
+  readonly specs: readonly TargetSpec[];
 }
 
 /**
@@ -296,6 +390,16 @@ export interface PendingTrigger {
  * ⚠️ D61: this union crosses the wire WHOLE, because every field in every variant
  * is a public game object. Re-read D61 before adding a variant — one that carried
  * (say) "choose a card from your hand" would need redacting.
+ *
+ * ⚠️ A VARIANT NEEDS AN ANSWERING INTENT AND A CLIENT THAT CAN COMPUTE THE
+ * ANSWER — not one of the two. `assignCombatDamage` lived here with neither: no
+ * `AssignCombatDamage` in `intents.ts`, no button in `PromptBar`, and reachable
+ * only through an option no screen could set. `orderAttackers` had both halves
+ * of an intent and a `PlayerView` that could not express the answer, because
+ * `CardView.blocking` was one id. Either shape is a hang the moment something
+ * raises it, and a hang is indistinguishable from a healthy idle — D102. The
+ * producer side is asserted in `awaitingProducers.node.test.ts`; the answering
+ * side by `src/bot/awaiting.ts`'s exhaustive switch. See D125.
  */
 export type Awaiting =
   | { readonly kind: 'mulligan'; readonly players: readonly PlayerId[]; readonly submitted: readonly PlayerId[] }
@@ -344,7 +448,6 @@ export type Awaiting =
       readonly player: PlayerId;
       readonly queue: readonly { readonly player: PlayerId; readonly card: InstanceId; readonly from: ZoneRef }[];
     }
-  | { readonly kind: 'assignCombatDamage'; readonly player: PlayerId; readonly attacker: InstanceId }
   /**
    * CR 601.2b. Its own prompt because a cast that stops must say so — see the
    * note on this union. Without it the X stage halted invisibly and the caster
@@ -373,7 +476,195 @@ export type Awaiting =
       readonly label: string;
       /** One per clause, in printed order. Never empty while this prompt is up. */
       readonly specs: readonly TargetSpec[];
-      readonly forKind: 'spell' | 'ability';
+      /**
+       * ⚠️ `'trigger'` is the odd one: a spell or an activated ability is
+       * waiting in `pendingCast` and has not reached the stack, where a
+       * triggered ability is ALREADY ON THE STACK while this prompt is up
+       * (CR 603.3d puts the object there and chooses its targets in one
+       * action). So `stackId` names a real object for a trigger and a
+       * not-yet-existing one for the other two — read `forKind` before
+       * reaching for it.
+       */
+      readonly forKind: 'spell' | 'ability' | 'trigger';
+    }
+  /**
+   * CR 603.1 — a triggered ability that says "you may". The ability uses the
+   * stack like any other; the CHOICE is made by its controller on resolution,
+   * which is why this prompt is raised from `resolveTop` and not from the
+   * trigger drain.
+   *
+   * ⚠️ `TriggerDef.optional` has been in the script API since M3 and
+   * `collectTriggers` has copied it onto every `PendingTrigger` for as long —
+   * with nothing anywhere branching on it, so a "may" trigger fired
+   * unconditionally. That is half-execution in the one direction D90 forbids:
+   * doing something the player never chose. See D128.
+   *
+   * `label` is the trigger's own label, already narrated publicly when the
+   * ability went on the stack, and `source` is a permanent. D61 holds: every
+   * field here is public.
+   */
+  | {
+      readonly kind: 'optionalTrigger';
+      readonly player: PlayerId;
+      readonly stackId: StackId;
+      readonly source: InstanceId;
+      readonly label: string;
+    }
+  /**
+   * CR 614.12 — a replacement effect that asks its controller a question as the
+   * permanent enters. Today that is exactly one printed shape: "As this land
+   * enters, you may pay N life. If you don't, it enters tapped." See D136.
+   *
+   * ⚠️ **THE FIRST PROMPT RAISED FROM INSIDE `applyReplacements`**, and the only
+   * one in this union whose producer is the replacement funnel rather than the
+   * priority loop or a cast stage. That is what made it worth building: D135
+   * could read the sentence and had nowhere to ask.
+   *
+   * ⚠️ **THE PERMANENT HAS ALREADY ENTERED when this is up, and it is UNTAPPED.**
+   * Suspending the fold mid-batch would mean a continuation in `GameState` —
+   * hashable, replayable, and enormous. Instead the entry happens, the question
+   * is asked, and the answer appends EITHER the life payment OR the tap. Nobody
+   * can act in between (an `Awaiting` blocks every other intent), so the only
+   * observer of the gap is a card that triggers on "enters tapped" — which is
+   * the same one-event-later shape `withEntersTapped` has had since D134.
+   *
+   * ⚠️ **A QUEUE, for `commanderZoneChoice`'s reason exactly** (CR 903.9a's
+   * note above): one `CardsMoved` can put several such lands onto the
+   * battlefield — a Tier-3 zone move, or a spell that puts two lands out — and
+   * asking about one while silently tapping the rest is half-execution. The head
+   * is this prompt; answering pops it and re-arms for the next.
+   *
+   * Every field is public: `source` is a battlefield permanent and `life` is
+   * printed on it. D61 holds.
+   */
+  /**
+   * CR 616.1 — which of several applicable replacement effects applies next.
+   *
+   * ⚠️ The options are `${sourceId}#${abilityId}` keys and the printed text of
+   * the ability. Both are public: the source is a battlefield permanent and the
+   * text is on the card. D61 holds.
+   *
+   * ⚠️ ONE AT A TIME, not "order them all". That is CR 616.1 exactly — choose
+   * one, apply it, then ask again of what remains — and it is also the only
+   * version that stays right when applying one effect changes which of the
+   * others still apply.
+   */
+  | {
+      readonly kind: 'chooseReplacement';
+      readonly player: PlayerId;
+      readonly options: readonly { readonly key: string; readonly label: string }[];
+    }
+  /**
+   * ⚠️ **THE ONLY PROMPT IN M6.3 WHOSE ANSWER IS A FACT RATHER THAN AN ACTION.**
+   * CR 614.12 — "As this ~ enters, choose a color" is answered as the permanent
+   * enters, and the answer is REMEMBERED on the object (`CardInstance.chosenColor`)
+   * for every later ability to read. Every other prompt in this union resolves
+   * and is gone.
+   *
+   * ⚠️ Five options, always, and no card ids: the colours are a closed set the
+   * client already knows, so this variant carries nothing that could leak (D61).
+   */
+  | {
+      readonly kind: 'chooseColor';
+      readonly player: PlayerId;
+      readonly source: InstanceId;
+      readonly label: string;
+    }
+  | {
+      readonly kind: 'entersChoice';
+      readonly player: PlayerId;
+      readonly source: InstanceId;
+      /** What declining costs: the permanent enters tapped instead. */
+      readonly life: number;
+      readonly label: string;
+      /**
+       * The permanents after this one still waiting to be asked about.
+       *
+       * ⚠️ Each entry carries its own LABEL, so the handler that pops the queue
+       * needs no oracle at all. The alternative — looking the name up when the
+       * next prompt is built — puts a second reader of the printing beside the
+       * funnel that already read it, which is the duplication D122 and D134 both
+       * name; and the handler would need `deps` for one string.
+       */
+      readonly queue: readonly {
+        readonly card: InstanceId;
+        readonly player: PlayerId;
+        readonly life: number;
+        readonly label: string;
+      }[];
+    }
+  /**
+   * CR 701.8a — a player choosing cards out of their own hand to discard.
+   *
+   * ⚠️ **THE FIRST PROMPT OVER A HIDDEN ZONE, AND IT CARRIES NO CARD IDS.**
+   * Every other variant in this union names battlefield permanents or stack
+   * objects, and each says so because `Awaiting` crosses the wire WHOLE (D61) —
+   * a redaction pass per prompt kind is exactly the per-kind wire code D61
+   * exists to avoid. A hand is hidden, so listing the candidates here would post
+   * one player's hand to every client the moment they were asked to discard.
+   *
+   * So it says only WHO, WHICH ZONE and HOW MANY. The client computes the
+   * candidate list from its own `PlayerView`, which already shows a player their
+   * own hand — D125's rule that a variant needs a client able to COMPUTE the
+   * answer, satisfied by construction rather than by shipping the answer.
+   *
+   * ⚠️ **RAISED ONLY WHEN THERE IS A CHOICE TO MAKE.** A player holding no more
+   * cards than the effect takes discards their whole hand with no prompt (CR
+   * 701.8a), and an empty hand discards nothing. Asking anyway would be a
+   * question with one legal answer.
+   *
+   * See D137.
+   */
+  | {
+      readonly kind: 'chooseFromZone';
+      readonly player: PlayerId;
+      /**
+       * `hand` for a discard (D137); `library` for "look at the top N" (D141).
+       *
+       * ⚠️ **BOTH ARE HIDDEN ZONES AND NEITHER SHIPS CARD IDS.** For a hand the
+       * client already sees its own; for a library it sees exactly the cards the
+       * rules just revealed to it, through `view.peek` (D114). Listing them
+       * here would post one player's library top to every client, which is the
+       * same leak the hand case exists to avoid.
+       */
+      readonly zone: 'hand' | 'library';
+      /**
+       * Where the cards NOT chosen go — `library` prompts only, `null` for a
+       * discard, where the unchosen simply stay in hand.
+       */
+      readonly rest: 'graveyard' | 'bottom' | 'bottomOrdered' | 'topOrdered' | null;
+      /** Exactly this many — never "up to", because no card in the slice says so. */
+      readonly count: number;
+      /** `Mind Rot` — what is making them do it, for the prompt bar. */
+      readonly label: string;
+    }
+  /**
+   * "…in any order" — the player puts a known set of cards into a sequence.
+   * `Impulse` bottoms three of four; `Index` re-stacks five. See D142.
+   *
+   * ⚠️ **NO CARD IDS, for the third time and the same reason** (D137, D141).
+   * The cards are the ones the rules just revealed to this player, and the
+   * client lists them from `view.peek`. `Awaiting` crosses the wire WHOLE
+   * (D61), so putting them here would post a library top to every client.
+   *
+   * ⚠️ **RAISED ONLY WHEN THERE IS AN ORDER TO CHOOSE.** One card has one
+   * sequence, so a single leftover skips the prompt and moves straight away —
+   * the same "a question with one legal answer" rule the discard and look
+   * prompts already follow.
+   *
+   * ⚠️ It is deliberately NOT `orderTriggers`, which carries its list because
+   * triggers on the stack are public. Same verb, opposite disclosure.
+   */
+  | {
+      readonly kind: 'orderCards';
+      readonly player: PlayerId;
+      /** Only `library` today; CR 616's ordering will want another. */
+      readonly zone: 'library';
+      /** Where the sequence is written once it is chosen. */
+      readonly destination: 'top' | 'bottom';
+      /** How many cards are being ordered — never which. */
+      readonly count: number;
+      readonly label: string;
     }
   | { readonly kind: 'rewindVote'; readonly proposer: PlayerId; readonly toEventCount: number; readonly agreed: readonly PlayerId[]; readonly declined: readonly PlayerId[] };
 
@@ -451,6 +742,11 @@ export interface GameState {
   readonly priority: PriorityState;
   readonly combat: CombatState | null;
   readonly pendingCast: PendingCast | null;
+  /**
+   * **The replacement funnel, suspended mid-fold** (CR 616). See
+   * `PendingReplacement`.
+   */
+  readonly pendingReplacement: PendingReplacement | null;
   /**
    * P/T modifiers that end at cleanup (CR layer 7c, CR 514.2).
    *

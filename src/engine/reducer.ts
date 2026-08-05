@@ -156,6 +156,7 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     controller: owner,
     ptOverride: null,
     typeOverride: null,
+    chosenColor: null,
     faceIndex: 0,
   };
 }
@@ -372,6 +373,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
           ...base,
           zone: move.to,
           faceDown: move.faceDown ?? false,
+          // ⚠️ AFTER `base`, which carries `clearBattlefieldFields`'s reset to 0.
+          // Absent — every ordinary card — this changes nothing at all. See D155.
+          ...(move.faceIndex === undefined ? {} : { faceIndex: move.faceIndex }),
           // A reveal is about a card sitting in a hidden zone. Once it moves,
           // the reveal is meaningless and keeping it would leak the new zone.
           revealedTo: [],
@@ -672,6 +676,25 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'CastCancelled':
       return { ...state, pendingCast: null };
 
+    // ⚠️ Targets only, and only on an object that is already there. It does NOT
+    // touch `stackAdds` or `passedSinceLastAction`: nothing new arrived on the
+    // stack, so re-arming everyone's "somebody cast something" stop would make
+    // one trigger stop the table twice.
+    case 'ReplacementPending':
+      return { ...state, pendingReplacement: body.pending };
+
+    case 'ReplacementResolved':
+      return { ...state, pendingReplacement: null };
+
+    case 'ColorChosen':
+      return withCard(state, body.card, { chosenColor: body.color });
+
+    case 'StackTargetsSet':
+      return {
+        ...state,
+        stack: state.stack.map((o) => (o.id === body.stackId ? { ...o, targets: body.targets } : o)),
+      };
+
     case 'SpellCast':
     case 'AbilityPutOnStack': {
       const stackAdds = state.priority.stackAdds + 1;
@@ -712,6 +735,13 @@ function applyBody(state: GameState, body: EventBody): GameState {
 
     case 'PendingTriggersCleared':
       return { ...state, pendingTriggers: state.pendingTriggers.filter((t) => !body.ids.includes(t.id)) };
+
+    case 'OptionalTriggerAnswered':
+    case 'EntersChoiceAnswered':
+      // A marker for the log and the animation stream, like
+      // `StateBasedActionsApplied`; what the answer DID travels as its own
+      // events in the same batch.
+      return state;
 
     // ── combat ───────────────────────────────────────────────────────────
     case 'CombatBegan':
@@ -911,6 +941,7 @@ function newInstance(
     commanderCastCount: 0,
     ptOverride: null,
     typeOverride: null,
+    chosenColor: null,
     revealedTo: [],
     phasedOut: false,
   };

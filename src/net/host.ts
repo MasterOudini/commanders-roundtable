@@ -28,13 +28,14 @@ import { Game } from '../engine/game';
 import { hashOf } from '../engine/hash';
 import { legalActions, legalContext } from '../engine/legal';
 import { createOracleDb } from '../engine/oracle';
-import { EMPTY_REGISTRY } from '../engine/scripts/registry';
+import { SHIPPED_REGISTRY, type ScriptRegistry } from '../engine/scripts/registry';
 import type { SetupPlayer, SetupSpec } from '../engine/setup';
 import type { EventBody, GameEvent } from '../engine/types/events';
 import type { PlayerId, PrintingId } from '../engine/types/ids';
 import type { Intent } from '../engine/types/intents';
 import { DEFAULT_OPTIONS, type GameOptions } from '../engine/types/state';
-import type { CardData } from '../data/cardTypes';
+import type { CardData, ColorLetter } from '../data/cardTypes';
+import { tokenPrintingIdsIn } from '../data/tokenParse';
 import type { PlayerView } from '../view/types';
 import {
   envelope,
@@ -58,6 +59,25 @@ export interface SeatSpec {
   readonly name: string;
   readonly commanders: readonly CardData[];
   readonly library: readonly CardData[];
+}
+
+/**
+ * A seat's colour identity: the UNION over every commander it sits down with.
+ *
+ * ⚠️ CR 903.4 — a partner pair's identity is both cards' identities together,
+ * which is exactly why the deck validator has always computed it that way when
+ * checking the 99. This is the same rule on the other side of the game, and the
+ * two used to disagree: the validator would legalise a white-red Ardenn +
+ * Rograkh deck and then the engine would play it as whichever commander happened
+ * to be first in the list.
+ *
+ * ⚠️ In WUBRG order, so two seats with the same colours always read the same way
+ * — `expandOutputs` hands this list straight to the player as mana buttons.
+ */
+export function unionIdentity(commanders: readonly CardData[]): ColorLetter[] {
+  const seen = new Set<ColorLetter>();
+  for (const c of commanders) for (const letter of c.colorIdentity) seen.add(letter);
+  return (['W', 'U', 'B', 'R', 'G'] as const).filter((letter) => seen.has(letter));
 }
 
 export interface StartSpec {
@@ -94,6 +114,25 @@ export interface HostOptions {
   /** Token printings and anything else that can appear without being in a deck. */
   readonly extraPool?: readonly CardData[];
   readonly options?: Partial<GameOptions>;
+  /**
+   * Card scripts. **Omitted by the app, and `SHIPPED_REGISTRY` is what ships.**
+   *
+   * ⚠️ NOT a step towards shipping scripts, and deliberately not `options` —
+   * a registry is a DEPENDENCY, where `GameOptions` is part of `GameState` and
+   * so of the state hash. Landing scripts into the product is M6.4 and carries
+   * an accounting obligation this seam does not discharge: the moment a card's
+   * script runs, its `tier3.ts` note must go silent and `engineComplete` must
+   * accept it, in the same commit (M6.4-LIBRARY-SPEC §6.5, and D122's failure
+   * in the other direction).
+   *
+   * ⚠️ It exists because `optionalTrigger` (D128) is raised only by a registered
+   * `TriggerDef`, so with the registry hardcoded there was NO WAY to reach that
+   * prompt in a running app at all — its buttons, its intent and its answer path
+   * were covered by `tsc -b` and review alone while every other M6.3 prompt was
+   * being clicked by a machine (D145). The battery passes a test registry here
+   * and clicks it. See D146.
+   */
+  readonly scripts?: ScriptRegistry;
   readonly maxPlayers?: number;
   readonly now?: () => number;
   /** Append-only persistence. Called with each new slice of history, in order. */
@@ -382,7 +421,7 @@ export class HostSession {
     const ids = [...new Set([...deck.commanders, ...deck.mainDeck].map((c) => c.printingId))];
     return this.opts.resolver
       .resolve(ids)
-      .then((found) => {
+      .then(async (found) => {
         const issues: string[] = [];
         const commanders: CardData[] = [];
         const library: CardData[] = [];
@@ -412,6 +451,12 @@ export class HostSession {
           seat.library = library;
           seat.deckName = deck.name;
           for (const card of [...commanders, ...library]) this.pool.set(card.scryfallId, card);
+          // ⚠️ AWAITED, IN THE SAME CHAIN THAT SEATS THE DECK. A card that
+          // creates a token the pool does not hold resolves correctly and puts a
+          // BLANK on the battlefield — `derive` cannot find the printing. Doing
+          // this after `sendTo` would race `start()`, and a race here is a game
+          // that is silently wrong rather than one that fails.
+          await this.addTokenPrintings([...commanders, ...library]);
         } else {
           seat.ready = false;
         }
@@ -456,6 +501,31 @@ export class HostSession {
     };
   }
 
+  /**
+   * Put the token printings these cards can create into the pool.
+   *
+   * ⚠️ THE POOL IS WHAT THE ORACLE DB IS BUILT FROM (`start()`), so a token
+   * printing that is not in it derives to the inert "unknown printing" object —
+   * no name, no types, a 0/0 the state-based action bins on the next pass. The
+   * spell would have resolved correctly and put a blank on the battlefield.
+   *
+   * ⚠️ It reuses `DeckResolver`, which already resolves by printing id, rather
+   * than growing a second way for the host to reach the card database. Cards
+   * already in the pool are not re-fetched, so a four-player table with the same
+   * Soldier token in every deck costs one lookup.
+   */
+  private async addTokenPrintings(cards: readonly CardData[]): Promise<void> {
+    const wanted = tokenPrintingIdsIn(cards).filter((id) => !this.pool.has(id));
+    if (wanted.length === 0) return;
+    try {
+      const found = await this.opts.resolver.resolve(wanted);
+      for (const card of found.values()) this.pool.set(card.scryfallId, card);
+    } catch {
+      // A token that cannot be fetched is one card that will not be creatable.
+      // Failing the whole deck submission over it would be worse.
+    }
+  }
+
   /** Seats with no deck yet — the ones the host UI fills with a starter. */
   seatsWithoutDecks(): PlayerId[] {
     return this.seats.filter((s) => s.library.length === 0).map((s) => s.id);
@@ -494,7 +564,16 @@ export class HostSession {
       name: seat.name,
       commanders: seat.commanders.map((c) => ({ oracleId: c.oracleId, printingId: c.scryfallId })),
       library: seat.library.map((c) => ({ oracleId: c.oracleId, printingId: c.scryfallId })),
-      identity: seat.commanders[0]?.colorIdentity ?? [],
+      // ⚠️ EVERY commander, not the first one. A partner pair is two cards and
+      // one colour identity (CR 903.4), so taking `commanders[0]` silently threw
+      // away half of an Ardenn + Rograkh deck's colours — and the deck plays as
+      // mono-red or mono-white from that moment on. It is not a cosmetic error:
+      // `expandOutputs` resolves Command Tower, Arcane Signet and every other
+      // "any colour in your commander's identity" source against exactly this
+      // list, so a Tower offered one colour instead of two, and a deck whose
+      // FIRST commander had no colours at all offered none — which reads as the
+      // land being broken rather than as the identity being wrong.
+      identity: unionIdentity(seat.commanders),
     }));
     const spec: SetupSpec = {
       gameId: this.opts.gameId,
@@ -502,7 +581,8 @@ export class HostSession {
       players,
       ...(this.opts.options !== undefined ? { options: this.opts.options } : {}),
     };
-    this.game = Game.create(spec, { oracle: createOracleDb([...this.pool.values()]), scripts: EMPTY_REGISTRY }, {
+    const scripts = this.opts.scripts ?? SHIPPED_REGISTRY;
+    this.game = Game.create(spec, { oracle: createOracleDb([...this.pool.values()]), scripts }, {
       // ⚠️ Off in a live game: the invariant sweep is O(cards) per event and the
       // fuzzer already runs it over a million of them. Paying for it here would
       // cost a long frame per commit — exactly what D21 was about.

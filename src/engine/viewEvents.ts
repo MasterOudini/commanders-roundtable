@@ -209,12 +209,24 @@ export function toViewEvents(
           instanceId: body.card,
           to: body.to ? viewZone(body.to) : null,
           targets: body.targets.map((t) => ({ kind: t.kind, id: t.id })),
+          controller: body.controller,
         });
         break;
 
+      // ⚠️ `controller: null` and it is not a shrug: a fizzled or countered
+      // spell carries `instanceId: null` too, so nothing downstream can offer
+      // anything for it. Naming a controller here would be inventing one.
       case 'SpellFizzled':
       case 'SpellCountered':
-        out.push({ t: 'StackResolved', stepId, stackItemId: body.stackId, instanceId: null, to: null, targets: [] });
+        out.push({
+          t: 'StackResolved',
+          stepId,
+          stackItemId: body.stackId,
+          instanceId: null,
+          to: null,
+          targets: [],
+          controller: null,
+        });
         break;
 
       // ⚠️ Spell damage animates through the SAME `DamageDealt` view event

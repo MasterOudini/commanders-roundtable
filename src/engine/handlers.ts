@@ -6,6 +6,7 @@
 // has just been told "no". "notYourPriority" is a code for the client; "Ana has
 // priority — wait for her to pass" is the message.
 
+import { replacementOptions, resumeReplacementFunnel } from './triggers';
 import {
   legalDefenders,
   needsFirstStrikeSubstep,
@@ -13,8 +14,8 @@ import {
   validateBlockDeclaration,
 } from './combat';
 import { derive, makeDeriveCache } from './derive';
-import { canActAtSorcerySpeed } from './legal';
-import { buildPaymentProblem, manaSourcesOf, wardTaxFrom } from './mana';
+import { activatedDefRegistered, canActAtSorcerySpeed, castableFaces } from './legal';
+import { buildPaymentProblem, costStringOf, manaSourcesOf, wardTaxFrom } from './mana';
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
 import { suggestPayment, solveInputFor, validatePlan } from './payment';
@@ -22,7 +23,7 @@ import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle } from './rng';
 import { n, narrated, their, vb, who } from './narrate';
 import { bottomCountFor, drawFromTop } from './setup';
-import type { EngineDeps } from './loop';
+import { resolveAbility, stackPendingTriggers, type EngineDeps } from './loop';
 import type { CardMove, EventBody } from './types/events';
 import type { AbilityRef, InstanceId, PlayerId, StackId, ZoneRef } from './types/ids';
 import type { TargetSpec } from './types/oracle';
@@ -86,7 +87,19 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
     case 'CommanderZoneChoice':
       return commanderZoneChoice(state, intent);
     case 'OrderTriggers':
-      return orderTriggers(state, intent);
+      return orderTriggers(state, intent, deps);
+    case 'AnswerOptionalTrigger':
+      return answerOptionalTrigger(state, intent, deps);
+    case 'AnswerChooseReplacement':
+      return answerChooseReplacement(state, intent, deps);
+    case 'AnswerChooseColor':
+      return answerChooseColor(state, intent);
+    case 'AnswerEntersChoice':
+      return answerEntersChoice(state, intent);
+    case 'AnswerChooseFromZone':
+      return answerChooseFromZone(state, intent);
+    case 'AnswerOrderCards':
+      return answerOrderCards(state, intent);
     case 'Concede':
       return concede(state, intent.player);
     case 'RollDice':
@@ -281,7 +294,14 @@ function playLand(
   }
   const oracleCard = deps.oracle.byPrinting(card.printingId);
   if (!oracleCard) return reject('noSuchCard', 'That card is not in the card database.');
-  const face = faceOf(oracleCard, 0);
+  // ⚠️ CR 712 — the land half of a modal DFC. This read `faceOf(oracleCard, 0)`
+  // until D155, so `Malakir Mire` came down as `Malakir Rebirth` and failed
+  // `notALand`, while `legalActions` had been offering it since M3.
+  const faceIndex = intent.faceIndex ?? 0;
+  if (!castableFaces(oracleCard).includes(faceIndex)) {
+    return reject('noSuchCard', `${oracleCard.name} has no face ${faceIndex} you can play.`);
+  }
+  const face = faceOf(oracleCard, faceIndex);
   if (!face.isLand) return reject('notALand', `${face.name} is not a land.`);
 
   return accept([
@@ -292,6 +312,10 @@ function playLand(
           card: intent.card,
           from: { kind: 'hand', player: intent.player },
           to: { kind: 'battlefield', player: intent.player },
+          // ⚠️ ON THE MOVE, so the replacement funnel — which reads the state
+          // BEFORE this event — can see that `Malakir Mire` enters tapped and
+          // that `Agadeem, the Undercrypt` asks for 3 life. See D155.
+          ...(faceIndex === 0 ? {} : { faceIndex }),
         },
       ],
     },
@@ -403,7 +427,15 @@ function castSpell(
   if (state.pendingCast) {
     return reject('wrongCastStage', 'Finish or cancel the spell you are already casting.');
   }
-  const faceIndex = 0;
+  // ⚠️ CR 712 — WHICH FACE. This was `const faceIndex = 0` until D155, so a
+  // modal DFC's back face was offered by `legalActions`, clickable in the UI,
+  // and cast as the FRONT face. `castableFaces` is the same function the offer
+  // is built from, asked again here because the host decides legality (D139).
+  const faceIndex = intent.faceIndex ?? 0;
+  const printing = deps.oracle.byPrinting(state.cards[intent.card]?.printingId ?? '');
+  if (printing && !castableFaces(printing).includes(faceIndex)) {
+    return reject('noSuchCard', `${printing.name} has no face ${faceIndex} you can cast.`);
+  }
   const setup = prepareCast(
     state,
     deps,
@@ -423,6 +455,31 @@ function castSpell(
   const needsX = !!setup.face.manaCost && setup.face.manaCost.xCount > 0 && intent.xValue === undefined;
   const needsTargets = setup.face.targets.length > 0 && intent.targets === undefined;
 
+  /**
+   * ⚠️ **INLINE TARGETS WERE NEVER CHECKED, AND THE HOST IS THE ONLY AUTHORITY**
+   * (found while building D139). `prepareCast` takes the list and uses it for one
+   * thing — the ward surcharge — so a `CastSpell` that NAMED its targets skipped
+   * `validateTargets` altogether. The two-stage path validates in
+   * `chooseTargets`; this one had no equivalent.
+   *
+   * ⚠️ It is not reachable from this app's own UI, which always lets the targets
+   * stage raise its prompt (`intent.targets` is undefined there) — but "the host
+   * decides legality" is the property the whole net layer rests on, and a rule
+   * enforced only when the client asks nicely is not enforced. It is also exactly
+   * the seam a test driver uses, which is how a suite can go green on casts no
+   * player could make.
+   */
+  if (intent.targets !== undefined && setup.face.targets.length > 0) {
+    const verdict = validateTargets(
+      setup.face.targets,
+      { controller: intent.player, colors: setup.face.colors },
+      setup.face.name,
+      intent.targets,
+      candidatesFromState(state, deps),
+    );
+    if (!verdict.ok) return reject('illegalTarget', verdict.message);
+  }
+
   if (needsX || needsTargets) {
     const stackId = `s${state.counters.stack + 1}`;
     const pending: PendingCast = {
@@ -432,6 +489,7 @@ function castSpell(
       stackId,
       stage: needsX ? 'x' : 'targets',
       kind: 'spell',
+      faceIndex,
       abilityRef: null,
       modes: [],
       targets: intent.targets ?? [],
@@ -445,7 +503,18 @@ function castSpell(
     return accept([
       {
         t: 'CardsMoved',
-        moves: [{ card: intent.card, from: setup.from, to: { kind: 'stack', player: null } }],
+        // ⚠️ The face goes ONTO THE STACK with the card, so the object there IS
+        // the back face: `resolveTop` reads `card.faceIndex` to decide whether
+        // the spell is a permanent, and without this `Sword of the Realms`
+        // would resolve straight into the graveyard. See D155.
+        moves: [
+          {
+            card: intent.card,
+            from: setup.from,
+            to: { kind: 'stack', player: null },
+            ...(faceIndex === 0 ? {} : { faceIndex }),
+          },
+        ],
       },
       { t: 'CastBegan', pending },
       // ⚠️ A STAGE THAT STOPS MUST SAY SO. Without this the X stage halted
@@ -548,6 +617,13 @@ function activateAbility(
   if (!ability.payable) {
     return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
   }
+  // ⚠️ The same rule `legal.ts` offers by (D159): a self-sacrifice is charged
+  // only for an ability the registry will RUN. The host re-checks because a
+  // client's word is not a rule (D139's shape) — without this, a hand-built
+  // intent could eat a permanent for no effect.
+  if (ability.sacrificesSelf && !activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+    return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
+  }
   if (ability.requiresTap && card.tapped) return reject('alreadyTapped', `${face.name} is already tapped.`);
   if (ability.requiresUntap && !card.tapped) return reject('notUntapped', `${face.name} must be tapped for that.`);
   if (ability.sorceryOnly && !canActAtSorcerySpeed(state, intent.player)) {
@@ -556,12 +632,20 @@ function activateAbility(
 
   const stackId = `s${state.counters.stack + 1}`;
   const abilityRef = `${oracleCard.oracleId}#a${intent.abilityIndex}`;
-  const problem = buildPaymentProblem(ability.manaCost, 0, [], 0, ability.lifeCost);
+  // War Room's computed cost: the RULE was parsed, the NUMBER is read off the
+  // player now (D159) — and it rides in the problem, so the targets stage, the
+  // payment review and the wire all see the real price.
+  const lifeToPay =
+    ability.lifeCost +
+    (ability.lifeCostCommanderColors ? (state.players[intent.player]?.identity.length ?? 0) : 0);
+  const problem = buildPaymentProblem(ability.manaCost, 0, [], 0, lifeToPay);
   const needsTargets = ability.targets.length > 0 && intent.targets === undefined;
 
   const pending: PendingCast = {
     player: intent.player,
     card: intent.card,
+    // An ability is a chit, not a card on the stack. See D155.
+    faceIndex: 0,
     // ⚠️ Records where the permanent IS, and is never used to move it — an
     // ability leaves its source on the battlefield.
     from: { kind: 'battlefield', player: intent.player },
@@ -620,11 +704,61 @@ function targetsAwaiting(
   };
 }
 
+/**
+ * Targets for a triggered ability that is already on the stack (CR 603.3d).
+ *
+ * ⚠️ **THE PROMPT VOUCHES FOR NOTHING.** `specs` crosses the wire, so a client
+ * could send anything back; this is where the price is paid, exactly as
+ * `answerChooseFromZone` does for a hidden zone. The source is the PERMANENT
+ * whose ability triggered, so its colours are what ward and protection are
+ * measured against.
+ */
+function chooseTriggerTargets(
+  state: GameState,
+  intent: Extract<Intent, { t: 'ChooseTargets' }>,
+  deps: EngineDeps,
+  awaiting: Extract<Awaiting, { kind: 'chooseTargets' }>,
+): HandleResult {
+  if (awaiting.player !== intent.player) {
+    return reject('notYourTurn', 'That ability is not yours to aim.');
+  }
+  const source = state.cards[awaiting.source];
+  const printing = source ? deps.oracle.byPrinting(source.printingId) : undefined;
+  if (!source || !printing) return reject('noSuchCard', 'That card is not in the game.');
+  const face = faceOf(printing, source.faceIndex);
+
+  const verdict = validateTargets(
+    awaiting.specs,
+    { controller: intent.player, colors: face.colors },
+    awaiting.label,
+    intent.targets,
+    candidatesFromState(state, deps),
+  );
+  if (!verdict.ok) return reject('illegalTarget', verdict.message);
+
+  return {
+    ok: true,
+    events: [
+      { t: 'StackTargetsSet', stackId: awaiting.stackId, targets: intent.targets },
+      { t: 'AwaitingSet', awaiting: null },
+    ],
+  };
+}
+
 function chooseTargets(
   state: GameState,
   intent: Extract<Intent, { t: 'ChooseTargets' }>,
   deps: EngineDeps,
 ): HandleResult {
+  // ⚠️ A TRIGGER FIRST, because it is the one shape with NO `pendingCast` — its
+  // object is already on the stack (CR 603.3d). Reading `pendingCast` first
+  // would reject every targeted trigger with "You are not casting anything",
+  // which is true and useless.
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind === 'chooseTargets' && awaiting.forKind === 'trigger') {
+    return chooseTriggerTargets(state, intent, deps, awaiting);
+  }
+
   const pending = state.pendingCast;
   if (!pending || pending.player !== intent.player) {
     return reject('noPendingCast', 'You are not casting anything.');
@@ -777,7 +911,14 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
   const events: EventBody[] = [
     {
       t: 'CardsMoved',
-      moves: [{ card: args.card, from: setup.from, to: { kind: 'stack', player: null } }],
+      moves: [
+        {
+          card: args.card,
+          from: setup.from,
+          to: { kind: 'stack', player: null },
+          ...(args.faceIndex === 0 ? {} : { faceIndex: args.faceIndex }),
+        },
+      ],
     },
   ];
   events.push(...payEvents(state, deps, args.player, plan, setup));
@@ -786,6 +927,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
   const obj: StackObject = {
     id: stackId,
     kind: 'spell',
+    faceIndex: args.faceIndex,
     controller: args.player,
     card: args.card,
     source: null,
@@ -859,10 +1001,40 @@ function finishAbility(
   // CR 602.2b — the tap is part of the COST, so it is paid now, in this batch.
   if (ability.requiresTap) events.push({ t: 'PermanentsTapped', cards: [pending.card] });
   if (ability.requiresUntap) events.push({ t: 'PermanentsUntapped', cards: [pending.card] });
+  // ⚠️ THE SELF-SACRIFICE IS A COST TOO (CR 602.2b, D159) — paid here, before
+  // the ability is on the stack, so the source is already in its owner's
+  // graveyard when anything can respond. The move goes through the ordinary
+  // event so dies-triggers (Onulet's shape) and the funnel see it like any
+  // other death; `resolve` must therefore never assume its source is still on
+  // the battlefield. Reachable only past `legal.ts`'s and `activateAbility`'s
+  // def gates, so it can never eat a permanent for a scriptless ability.
+  if (ability.sacrificesSelf) {
+    const src = state.cards[pending.card];
+    if (!src) return reject('noSuchCard', 'That permanent is not in the game.');
+    events.push({
+      t: 'CardsMoved',
+      moves: [
+        {
+          card: pending.card,
+          from: { kind: 'battlefield', player: pending.player },
+          to: { kind: 'graveyard', player: src.owner },
+        },
+      ],
+    });
+    events.push(
+      narrated(
+        n`${who(state, pending.player)} ${vb(pending.player, 'sacrifices', 'sacrifice')} ${face.name}.`,
+        pending.player,
+        identity,
+      ),
+    );
+  }
 
   const obj: StackObject = {
     id: pending.stackId,
     kind: 'activated',
+    // An ability is a chit, not a card. See D155.
+    faceIndex: 0,
     controller: pending.player,
     // ⚠️ `card: null` is what makes this a chit rather than a card on the stack,
     // and `resolveTop` already keys off it — an ability resolving must not move
@@ -941,6 +1113,7 @@ function finishFromPending(
   const obj: StackObject = {
     id: pending.stackId,
     kind: 'spell',
+    faceIndex: pending.faceIndex,
     controller: pending.player,
     card: pending.card,
     source: null,
@@ -1032,6 +1205,32 @@ function tapForMana(
   const events: EventBody[] = [];
   if (source.requiresTap) events.push({ t: 'PermanentsTapped', cards: [intent.card] });
   events.push({ t: 'ManaAdded', player: intent.player, mana: output.mana, source: intent.card });
+
+  // ⚠️ THE LOG SAID NOTHING ABOUT THIS UNTIL NOW, and it was the loudest silence
+  // in the app: tapping a land emitted a tap and a pool change and no narration,
+  // so a land that tapped correctly and a click that did nothing at all looked
+  // identical. That is what made D116's partner-identity bug so hard to see from
+  // the table — the Tower was tapping, for the one colour it had been told
+  // about, in silence.
+  //
+  // ⚠️ Tier 1, so `manual: false` — no wrench. This is the engine performing a
+  // rules action, not a player hand-waving one, and the log's whole job is to
+  // keep those apart.
+  //
+  // ⚠️ It names the MANA, because "you tapped a land" is not the question a
+  // player scans the log for; "where did that {U} come from" is.
+  const name = derive(state, deps.oracle, deps.scripts, intent.card).name || 'a permanent';
+  const added = costStringOf(output.mana);
+  events.push(
+    narrated(
+      source.requiresTap
+        ? n`${who(state, intent.player)} ${vb(intent.player, 'taps', 'tap')} ${name} for ${added}.`
+        : n`${who(state, intent.player)} ${vb(intent.player, 'adds', 'add')} ${added} from ${name}.`,
+      intent.player,
+      [],
+      false,
+    ),
+  );
   return accept(events);
 }
 
@@ -1243,6 +1442,7 @@ function commanderZoneChoice(
 function orderTriggers(
   state: GameState,
   intent: Extract<Intent, { t: 'OrderTriggers' }>,
+  deps: EngineDeps,
 ): HandleResult {
   const awaiting = state.priority.awaiting;
   if (awaiting?.kind !== 'orderTriggers' || awaiting.player !== intent.player) {
@@ -1252,14 +1452,441 @@ function orderTriggers(
     return reject('invalidOrder', 'That ordering does not list exactly your waiting triggers.');
   }
   const byId = new Map(state.pendingTriggers.map((t) => [t.id, t]));
-  const reordered = [
-    ...intent.order.map((id) => byId.get(id)).filter((t): t is NonNullable<typeof t> => !!t),
-    ...state.pendingTriggers.filter((t) => !intent.order.includes(t.id)),
-  ];
+  const chosen = intent.order
+    .map((id) => byId.get(id))
+    .filter((t): t is NonNullable<typeof t> => !!t);
+  // ⚠️ THE ANSWER PUTS THEM ON THE STACK, not merely into a new order. The
+  // previous shape only reordered `pendingTriggers` — so the next drain saw the
+  // same two-or-more group and asked again, forever: the answered half of
+  // D158's livelock, on a prompt no test had ever reached through the live
+  // loop. `stackPendingTriggers` is the drain's OWN stacking — one
+  // implementation, two callers (D148's rule).
+  //
+  // ⚠️ `AwaitingSet null` FIRST: the stacking can raise a `chooseTargets`
+  // prompt of its own, and clearing the awaiting afterwards would wipe it
+  // (answerOptionalTrigger's lesson, two functions down).
+  //
+  // Triggers belonging to OTHER controllers stay pending — the next `advance()`
+  // stacks or asks them in APNAP turn.
   return accept([
-    { t: 'PendingTriggersCleared', ids: state.pendingTriggers.map((t) => t.id) },
-    { t: 'PendingTriggersAdded', triggers: reordered },
     { t: 'AwaitingSet', awaiting: null },
+    ...stackPendingTriggers(state, deps, chosen).events,
+  ]);
+}
+
+/**
+ * CR 603.1 — the answer to a "may" trigger, which finishes a resolution
+ * `resolveTop` deliberately stopped half way through.
+ *
+ * ⚠️ THE RESOLUTION IS `loop.ts`'s, NOT A COPY. `resolveAbility` is the single
+ * implementation both callers share; re-implementing "leaves the stack, runs its
+ * script, narrates" here is how the two would come to disagree about the order
+ * of those three, which matters on any card that kills its own source.
+ *
+ * ⚠️ `AwaitingSet null` GOES FIRST, and that is not cosmetic: the resolution
+ * runs through `applyReplacements`, which can raise a prompt of its own (a
+ * commander heading for a graveyard), and clearing the awaiting afterwards would
+ * wipe it.
+ */
+function answerOptionalTrigger(
+  state: GameState,
+  intent: Extract<Intent, { t: 'AnswerOptionalTrigger' }>,
+  deps: EngineDeps,
+): HandleResult {
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind !== 'optionalTrigger' || awaiting.player !== intent.player) {
+    return reject('notAwaitingThat', 'You are not being asked about an optional trigger.');
+  }
+  // ⚠️ The prompt names the stack object, and so must the answer. Without this
+  // an answer aimed at a trigger that has already resolved would silently
+  // resolve whatever is on top now — the shape D120 records for the assisted
+  // offer, one zone along.
+  if (awaiting.stackId !== intent.stackId) {
+    return reject('notAwaitingThat', 'That is not the trigger you are being asked about.');
+  }
+  const obj = state.stack[state.stack.length - 1];
+  if (!obj || obj.id !== awaiting.stackId) {
+    return reject('noSuchCard', 'That trigger is no longer on top of the stack.');
+  }
+  return accept([
+    { t: 'AwaitingSet', awaiting: null },
+    { t: 'OptionalTriggerAnswered', stackId: obj.id, player: intent.player, accept: intent.accept },
+    ...resolveAbility(state, deps, obj, intent.accept),
+  ]);
+}
+
+/**
+ * CR 614.12 — the answer to "as this enters, you may pay N life", which
+ * `applyReplacements` asked as the permanent arrived. See D136.
+ *
+ * ⚠️ **THE PERMANENT IS ALREADY ON THE BATTLEFIELD, UNTAPPED, and this decides
+ * whether it stays that way.** The alternative — suspending the fold until the
+ * answer came back — means a continuation living in `GameState`, which is
+ * hashable and replayable and enormous. Nobody can act in the gap, because an
+ * `Awaiting` blocks every other intent.
+ *
+ * ⚠️ **THE LIFE IS RE-CHECKED HERE, not trusted from the prompt.** The prompt
+ * was written when the permanent entered and the answer arrives later; between
+ * them a state-based action or a replacement in the same batch can have taken
+ * the player below the price. Paying life they no longer have would be a
+ * negative life total conjured out of a stale number, so an unaffordable "yes"
+ * is refused with a message rather than silently downgraded to "no" — the
+ * player asked to pay, and being told why they cannot is the honest answer.
+ *
+ * ⚠️ **RE-ARMS FOR THE QUEUE**, exactly as `commanderZoneChoice` does: the tail
+ * of the batch's questions becomes the next prompt, and only an empty tail
+ * clears the awaiting.
+ */
+/**
+ * CR 614.12 — the colour named as a permanent entered.
+ *
+ * ⚠️ The answer is a FACT the object keeps, not an action, so unlike every other
+ * prompt here there is nothing to validate about the board: any of the five
+ * colours is legal on any board. What IS validated is who is answering.
+ */
+/**
+ * CR 616.1 — apply the chosen replacement, then keep folding.
+ *
+ * ⚠️ **THE ANSWER RESUMES A SUSPENDED FOLD**, which is unlike every other prompt
+ * in this engine: the others answer a question and let the loop carry on, where
+ * this one hands the engine back an event it has been holding unapplied. So the
+ * events it returns are the REST OF THE ORIGINAL BATCH, and they must not go
+ * through the funnel again — `resumeReplacementFunnel` has already done that,
+ * and re-running the built-ins over them would add a planeswalker's loyalty
+ * twice.
+ */
+function answerChooseReplacement(
+  state: GameState,
+  intent: Extract<Intent, { t: 'AnswerChooseReplacement' }>,
+  deps: EngineDeps,
+): HandleResult {
+  const pending = state.pendingReplacement;
+  const awaiting = state.priority.awaiting;
+  if (!pending || awaiting?.kind !== 'chooseReplacement') {
+    return reject('noPendingChoice', 'Nothing is waiting on a replacement effect.');
+  }
+  if (awaiting.player !== intent.player) {
+    return reject('notYourTurn', 'That choice belongs to another player.');
+  }
+  if (!awaiting.options.some((o) => o.key === intent.key)) {
+    return reject('illegalTarget', 'That is not one of the effects you were offered.');
+  }
+
+  const result = resumeReplacementFunnel(state, deps.oracle, deps.scripts, pending, intent.key);
+  const chosen = awaiting.options.find((o) => o.key === intent.key);
+  const said = narrated(
+    n`${who(state, intent.player)} ${vb(intent.player, 'applies', 'apply')} ${chosen?.label ?? 'a replacement effect'} first.`,
+    intent.player,
+  );
+
+  if (result.kind === 'done') {
+    return {
+      ok: true,
+      funnelled: true,
+      events: [
+        { t: 'ReplacementResolved' },
+        { t: 'AwaitingSet', awaiting: null },
+        said,
+        ...result.events,
+      ],
+    };
+  }
+  // ⚠️ It can stop again straight away — that is CR 616's "then repeat", and the
+  // second question is a different one because the first answer changed which
+  // effects still apply.
+  return {
+    ok: true,
+    funnelled: true,
+    events: [
+      { t: 'ReplacementResolved' },
+      said,
+      ...result.settled,
+      { t: 'ReplacementPending', pending: result.pending },
+      { t: 'AwaitingSet', awaiting: { kind: 'chooseReplacement', player: result.pending.player, options: replacementOptions(state, deps.oracle, deps.scripts, result.pending) } },
+    ],
+  };
+}
+
+function answerChooseColor(
+  state: GameState,
+  intent: Extract<Intent, { t: 'AnswerChooseColor' }>,
+): HandleResult {
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind !== 'chooseColor') {
+    return reject('noPendingChoice', 'Nothing is waiting for a colour.');
+  }
+  if (awaiting.player !== intent.player) {
+    return reject('notYourTurn', 'That choice is not yours to make.');
+  }
+  return {
+    ok: true,
+    events: [
+      { t: 'ColorChosen', card: awaiting.source, color: intent.color },
+      narrated(
+        n`${who(state, intent.player)} ${vb(intent.player, 'names', 'name')} {${intent.color}} for ${awaiting.label}.`,
+        intent.player,
+      ),
+      { t: 'AwaitingSet', awaiting: null },
+    ],
+  };
+}
+
+function answerEntersChoice(
+  state: GameState,
+  intent: Extract<Intent, { t: 'AnswerEntersChoice' }>,
+): HandleResult {
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind !== 'entersChoice' || awaiting.player !== intent.player) {
+    return reject('notAwaitingThat', 'You are not being asked about a permanent entering.');
+  }
+  // The prompt names the permanent, and so must the answer — an answer aimed at
+  // one that has already been dealt with would otherwise pay for a different
+  // card, which is the shape D128 guards on the stack id.
+  if (awaiting.source !== intent.source) {
+    return reject('notAwaitingThat', 'That is not the permanent you are being asked about.');
+  }
+  const seat = state.players[intent.player];
+  if (intent.pay && (!seat || seat.life < awaiting.life)) {
+    return reject('cannotAfford', `You do not have ${awaiting.life} life to pay.`);
+  }
+
+  const events: EventBody[] = [
+    { t: 'EntersChoiceAnswered', card: awaiting.source, player: intent.player, pay: intent.pay },
+  ];
+  if (intent.pay) {
+    const life = seat?.life ?? 0;
+    events.push({ t: 'LifeChanged', player: intent.player, delta: -awaiting.life, to: life - awaiting.life });
+    events.push(
+      narrated(
+        n`${who(state, intent.player)} ${vb(intent.player, 'pays', 'pay')} ${String(awaiting.life)} life for ${awaiting.label}.`,
+        intent.player,
+      ),
+    );
+  } else {
+    events.push({ t: 'PermanentsTapped', cards: [awaiting.source] });
+    events.push(
+      narrated(n`${awaiting.label} enters tapped.`, intent.player),
+    );
+  }
+
+  const next = awaiting.queue[0];
+  events.push({
+    t: 'AwaitingSet',
+    awaiting: next
+      ? {
+          kind: 'entersChoice',
+          player: next.player,
+          source: next.card,
+          life: next.life,
+          label: next.label,
+          queue: awaiting.queue.slice(1),
+        }
+      : null,
+  });
+  return accept(events);
+}
+
+/**
+ * CR 701.8a — the cards a player picked out of their own hand to discard.
+ *
+ * ⚠️ **THE PROMPT SHIPS NO CANDIDATES, so this is the whole legality check.**
+ * `Awaiting.chooseFromZone` says only who, which zone and how many — a hand is
+ * hidden and listing it would post it to every client (D61). That is the right
+ * trade, and the price is paid here: every id has to be checked against the
+ * state rather than against a list the prompt vouched for.
+ *
+ * Four ways to get it wrong, and each is its own rejection:
+ *   · the wrong number of cards — a short answer would discard too few
+ *   · a DUPLICATE id — `[c1, c1]` looks like two cards and is one, so a `length`
+ *     check alone would let a player discard half of what they owe
+ *   · a card that is not in that zone — including one in somebody else's hand,
+ *     which a client cannot see and so cannot have picked honestly
+ *   · a card in the right zone belonging to the wrong player
+ */
+function answerChooseFromZone(
+  state: GameState,
+  intent: Extract<Intent, { t: 'AnswerChooseFromZone' }>,
+): HandleResult {
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind !== 'chooseFromZone' || awaiting.player !== intent.player) {
+    return reject('notAwaitingThat', 'You are not being asked to choose cards.');
+  }
+  if (intent.cards.length !== awaiting.count) {
+    return reject(
+      'invalidAmount',
+      `Choose exactly ${awaiting.count} card${awaiting.count === 1 ? '' : 's'}.`,
+    );
+  }
+  const unique = new Set(intent.cards);
+  if (unique.size !== intent.cards.length) {
+    return reject('noSuchCard', 'You named the same card twice.');
+  }
+  /**
+   * ⚠️ **THE LIBRARY CASE DERIVES "THE REST" FROM THE REVEAL** (D141), which is
+   * why the prompt needs no card ids beyond the count and the destination. The
+   * cards the effect showed carry `revealedTo` this player, so the leftovers are
+   * exactly the revealed library cards they did not pick. Carrying the pool on
+   * the prompt instead would put a library's top on the wire (D61).
+   */
+  if (awaiting.zone === 'library') {
+    const lib = state.zones.library[intent.player] ?? [];
+    const shown = lib.filter((id) => state.cards[id]?.revealedTo.includes(intent.player));
+    for (const card of intent.cards) {
+      if (!shown.includes(card)) return reject('wrongZone', 'That card is not one you are looking at.');
+    }
+    const rest = shown.filter((id) => !unique.has(id));
+    const toHand = intent.cards.map((card) => ({
+      card,
+      from: { kind: 'library' as const, player: intent.player },
+      to: { kind: 'hand' as const, player: intent.player },
+    }));
+    /**
+     * ⚠️ The leftovers go to the BOTTOM, which is the FRONT of the array —
+     * `drawFromTop` takes from the end, so "bottom" is index 0. A move that got
+     * this backwards would put the cards the player just declined straight back
+     * under their next draw.
+     */
+    const toRest = rest.map((card) =>
+      awaiting.rest === 'graveyard'
+        ? {
+            card,
+            from: { kind: 'library' as const, player: intent.player },
+            to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? intent.player },
+          }
+        : {
+            card,
+            from: { kind: 'library' as const, player: intent.player },
+            to: { kind: 'library' as const, player: intent.player },
+            // ⚠️ `placement` IS REQUIRED HERE. `addToZone` appends, and the top
+            // of a library is the END of the array, so a move without it puts
+            // the declined card straight back under the next draw — the exact
+            // opposite of what "on the bottom" means, and invisible in any test
+            // that only checked the card had left the revealed set.
+            placement: 'bottom' as const,
+          },
+    );
+    /**
+     * ⚠️ **"IN ANY ORDER" CHAINS INTO A SECOND PROMPT** (D142). The pick is
+     * answered; the SEQUENCE for the leftovers is a separate decision and gets
+     * its own question, so the taken cards move now and the rest wait. One card
+     * left has one sequence, so it skips the prompt — the same "a question with
+     * one legal answer" rule every prompt in this file follows.
+     */
+    if ((awaiting.rest === 'bottomOrdered' || awaiting.rest === 'topOrdered') && rest.length > 1) {
+      return accept([
+        {
+          t: 'AwaitingSet',
+          awaiting: {
+            kind: 'orderCards',
+            player: intent.player,
+            zone: 'library',
+            destination: awaiting.rest === 'topOrdered' ? 'top' : 'bottom',
+            count: rest.length,
+            label: awaiting.label,
+          },
+        },
+        { t: 'CardsMoved', moves: toHand },
+        narrated(
+          n`${who(state, intent.player)} ${vb(intent.player, 'takes', 'take')} ${intent.cards.length} card${intent.cards.length === 1 ? '' : 's'}.`,
+          intent.player,
+        ),
+      ]);
+    }
+
+    return accept([
+      { t: 'AwaitingSet', awaiting: null },
+      { t: 'CardsMoved', moves: [...toHand, ...toRest] },
+      // ⚠️ The reveal is CLEARED, or the player keeps seeing the cards that went
+      // to the bottom for the rest of the game — `view.peek` reads `revealedTo`.
+      { t: 'CardsRevealed', cards: [...shown], to: [] },
+      narrated(
+        n`${who(state, intent.player)} ${vb(intent.player, 'takes', 'take')} ${intent.cards.length} card${intent.cards.length === 1 ? '' : 's'} and ${vb(intent.player, 'puts', 'put')} ${rest.length} ${awaiting.rest === 'graveyard' ? 'into the graveyard' : 'on the bottom'}.`,
+        intent.player,
+      ),
+    ]);
+  }
+
+  const hand = state.zones.hand[intent.player] ?? [];
+  for (const card of intent.cards) {
+    if (!hand.includes(card)) return reject('wrongZone', 'That card is not in your hand.');
+  }
+
+  const moves = intent.cards.map((card) => ({
+    card,
+    from: { kind: 'hand' as const, player: intent.player },
+    to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? intent.player },
+  }));
+  return accept([
+    { t: 'AwaitingSet', awaiting: null },
+    { t: 'CardsMoved', moves },
+    narrated(
+      n`${who(state, intent.player)} ${vb(intent.player, 'discards', 'discard')} ${intent.cards.length} card${intent.cards.length === 1 ? '' : 's'}.`,
+      intent.player,
+    ),
+  ]);
+}
+
+/**
+ * "…in any order" — the sequence the player chose. See D142.
+ *
+ * ⚠️ **THE PROMPT CARRIES NO IDS, so this is the whole legality check** — the
+ * third prompt in a row built that way (D137, D141) and the same trade every
+ * time: a hidden zone cannot be listed on the wire, so the handler pays for it.
+ * The answer must be exactly the revealed set, each card once, no extras.
+ *
+ * ⚠️ **FIRST ENTRY FIRST, and the two destinations write it in OPPOSITE array
+ * directions.** `addToZone` appends and the TOP of a library is the END of the
+ * array, so a sequence going to the top must be applied in reverse to come out
+ * the way the player read it. Getting this backwards is invisible to a test that
+ * only checks the cards arrived.
+ */
+function answerOrderCards(
+  state: GameState,
+  intent: Extract<Intent, { t: 'AnswerOrderCards' }>,
+): HandleResult {
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind !== 'orderCards' || awaiting.player !== intent.player) {
+    return reject('notAwaitingThat', 'You are not being asked to order anything.');
+  }
+  const lib = state.zones.library[intent.player] ?? [];
+  const shown = lib.filter((id) => state.cards[id]?.revealedTo.includes(intent.player));
+  if (intent.cards.length !== shown.length) {
+    return reject('invalidAmount', `Order all ${shown.length} cards.`);
+  }
+  const unique = new Set(intent.cards);
+  if (unique.size !== intent.cards.length) {
+    return reject('noSuchCard', 'You named the same card twice.');
+  }
+  for (const card of intent.cards) {
+    if (!shown.includes(card)) return reject('wrongZone', 'That card is not one you are ordering.');
+  }
+
+  /**
+   * ⚠️ **REVERSED FOR BOTH ENDS, and the symmetry is not a coincidence.** The
+   * player's FIRST card must end up nearest the destination, and each placement
+   * puts the card it applies at that end — appending for the top, unshifting for
+   * the bottom. So whichever end it is, the LAST card applied is the one that
+   * lands nearest it, and the sequence has to go on backwards.
+   *
+   * ⚠️ The first cut reversed only for the top, reasoning about appending alone,
+   * and bottomed `Impulse`'s three cards in exactly the wrong order. Its own test
+   * caught it; nothing else would have, because the cards all arrive either way.
+   */
+  const sequence = [...intent.cards].reverse();
+  const moves = sequence.map((card) => ({
+    card,
+    from: { kind: 'library' as const, player: intent.player },
+    to: { kind: 'library' as const, player: intent.player },
+    placement: awaiting.destination,
+  }));
+  return accept([
+    { t: 'AwaitingSet', awaiting: null },
+    { t: 'CardsMoved', moves },
+    { t: 'CardsRevealed', cards: [...shown], to: [] },
+    narrated(
+      n`${who(state, intent.player)} ${vb(intent.player, 'puts', 'put')} ${intent.cards.length} cards on the ${awaiting.destination} of ${their(intent.player)} library.`,
+      intent.player,
+    ),
   ]);
 }
 

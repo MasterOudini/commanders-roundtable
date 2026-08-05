@@ -13,7 +13,7 @@
 // guessed the player would be wrong more often than the player is.
 
 import { derive } from './derive';
-import { effectEvents } from './effects';
+import { effectResult } from './effects';
 import { faceOf } from './oracle';
 import { shuffle } from './rng';
 import { n, narrated, ref, themself, their, vb, who, whoElse, whoseElse } from './narrate';
@@ -336,6 +336,93 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
       ]);
     }
 
+    case 'ManualStopPeeking': {
+      const library = state.zones.library[actor] ?? [];
+      const looking = library.filter((id) => state.cards[id]?.revealedTo.includes(actor));
+      // ⚠️ Not a rejection. "Stop looking" when nothing is revealed is the
+      // natural end of a scry that put every card somewhere else, and the UI
+      // sends it either way rather than deciding whether the engine will want it.
+      if (looking.length === 0) return accept([]);
+      return accept([{ t: 'RevealCleared', cards: looking }]);
+    }
+
+    case 'ManualMoveTopOfLibrary': {
+      const library = state.zones.library[intent.target] ?? [];
+      if (intent.count < 1 || intent.count > 100) {
+        return reject('invalidAmount', 'Move between 1 and 100 cards.');
+      }
+      const take = Math.min(intent.count, library.length);
+      if (take === 0) return reject('invalidAmount', 'That library is empty.');
+      // ⚠️ TOP FIRST. The library array is bottom-first, so the top `take` cards
+      // are its last entries, and reversing them means the card that was on top
+      // is the one that arrives first — which is the order a graveyard shows.
+      const ids = library.slice(library.length - take).reverse();
+      const to = intent.to;
+      return accept([
+        marker(actor, to === 'graveyard' ? 'mill' : 'exileTop', `${intent.target} ×${take}`),
+        {
+          t: 'CardsMoved',
+          moves: ids.map((card) => ({
+            card,
+            from: { kind: 'library' as const, player: intent.target },
+            to: { kind: to, player: intent.target },
+          })),
+        },
+        narrated(
+          to === 'graveyard'
+            ? n`${who(state, intent.target)} ${vb(intent.target, 'mills', 'mill')} ${take} card${take === 1 ? '' : 's'}.`
+            : n`${who(state, intent.target)} ${vb(intent.target, 'exiles', 'exile')} the top ${take} card${take === 1 ? '' : 's'} of ${their(intent.target)} library.`,
+          intent.target,
+          [],
+          true,
+        ),
+      ]);
+    }
+
+    case 'ManualMoveZone': {
+      const pile = intent.from === 'graveyard'
+        ? (state.zones.graveyard[intent.target] ?? [])
+        : (state.zones.exile[intent.target] ?? []);
+      // ⚠️ NOT `zoneWord`: it returns "the graveyard", and these sentences put a
+      // possessive in front of it — "your the graveyard".
+      const pileWord = intent.from === 'graveyard' ? 'graveyard' : 'exile';
+      if (pile.length === 0) return reject('invalidAmount', `That ${pileWord} is empty.`);
+      const events: EventBody[] = [
+        marker(actor, 'moveZone', `${intent.target} ${intent.from}→${intent.to}`),
+        {
+          t: 'CardsMoved',
+          moves: pile.map((card) => ({
+            card,
+            from: { kind: intent.from, player: intent.target },
+            to: { kind: intent.to, player: intent.target },
+          })),
+        },
+      ];
+      // ⚠️ The shuffled `order` must be a permutation of the library AFTER the
+      // cards arrive, because `LibraryShuffled` SETS the zone rather than
+      // permuting it. Shuffling the library as it stands now would drop every
+      // card this intent is moving into it.
+      let next = state.rng;
+      if (intent.to === 'library' && intent.shuffle) {
+        const resulting = [...(state.zones.library[intent.target] ?? []), ...pile];
+        const shuffled = shuffle(state.rng, resulting);
+        events.push({ t: 'LibraryShuffled', player: intent.target, order: shuffled.value });
+        next = shuffled.next;
+      }
+      const count = pile.length;
+      events.push(
+        narrated(
+          intent.to === 'library'
+            ? n`${me} ${vb(actor, 'shuffles', 'shuffle')} ${whoseElse(state, actor, intent.target)} ${pileWord} into ${their(intent.target)} library.`
+            : n`${me} ${vb(actor, 'exiles', 'exile')} ${whoseElse(state, actor, intent.target)} ${pileWord} — ${count} card${count === 1 ? '' : 's'}.`,
+          actor,
+          [],
+          true,
+        ),
+      );
+      return accept(events, next);
+    }
+
     case 'ManualDraw': {
       const library = state.zones.library[intent.target] ?? [];
       if (intent.count < 1 || intent.count > 100) return reject('invalidAmount', 'Draw between 1 and 100 cards.');
@@ -408,6 +495,9 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
         card: intent.card,
         source: null,
         abilityRef: null,
+        // The card's own face — this is the ASSISTED offer for a spell that has
+        // already resolved, so whatever face it was cast as is on the instance.
+        faceIndex: card.faceIndex,
         targets: intent.targets,
         modes: [],
         xValue: null,
@@ -417,7 +507,12 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
         isCommanderCast: false,
         castFrom: null,
       };
-      const events = effectEvents(state, deps, obj, face.effects);
+      // ⚠️ `effectResult`, so the RNG is threaded here TOO. This path is the
+      // ASSISTED offer, which by definition runs a card the parser understood
+      // only in part — so a card with an at-random clause AND an unread one
+      // arrives here rather than resolving on its own, and dropping the advance
+      // would make exactly those cards replay to a different board.
+      const { events, rng } = effectResult(state, deps, obj, face.effects);
       if (events.length === 0) {
         return reject('illegalTarget', 'Those targets are gone — apply the rest of the card by hand.');
       }
@@ -431,7 +526,7 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
           identityOf(state, deps, intent.card),
           true,
         ),
-      ]);
+      ], rng);
     }
 
     case 'ManualSetCommander': {

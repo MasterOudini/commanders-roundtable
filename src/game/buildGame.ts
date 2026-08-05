@@ -9,6 +9,8 @@
 import type { CardData } from '../data/cardTypes';
 import type { DeckFile } from '../data/deckTypes';
 import type { SeatSpec, StartSpec } from './session';
+import { BOT_DECK } from '../data/botDeck';
+import { tokenPrintingIdsIn } from '../data/tokenParse';
 
 /**
  * ⚠️ NO SEAT IS CALLED "YOU". Seat 0 used to be, and it was wrong twice over.
@@ -138,6 +140,37 @@ export async function starterSeat(
   };
 }
 
+/**
+ * The deck a bot seat plays.
+ *
+ * ⚠️ Every card in it is one the engine runs COMPLETELY (`engineComplete.ts`),
+ * and that is the whole difference from `starterSeat`. A human holding a Tier-3
+ * card reads it and applies it with the manual tools; a bot cannot, so a card
+ * the app only partly runs is a card the bot must never draw. It is also, unlike
+ * the starter deck, a LEGAL Commander deck — `botPool.node.test.ts` runs it
+ * through the same validator an imported deck goes through.
+ */
+export async function botSeat(
+  id: string,
+  name: string,
+  resolver: CardResolver,
+): Promise<{ seat: SeatSpec; missing: string[] }> {
+  const wanted = [BOT_DECK.commander, ...BOT_DECK.main].map((n) => ({ name: n }));
+  const resolved = await resolver.many(wanted);
+  const commanders: CardData[] = [];
+  const library: CardData[] = [];
+  const missing: string[] = [];
+  for (const [i, card] of resolved.entries()) {
+    if (!card) {
+      missing.push(wanted[i]?.name ?? '?');
+      continue;
+    }
+    if (i === 0) commanders.push(card);
+    else library.push(card);
+  }
+  return { seat: { id, name, commanders, library }, missing };
+}
+
 /** Everything the oracle db needs: every deck card plus the token printings. */
 export function poolOf(seats: readonly SeatSpec[], tokens: readonly CardData[]): CardData[] {
   const byPrinting = new Map<string, CardData>();
@@ -158,6 +191,25 @@ export function startSpec(
 
 export function seatName(index: number): string {
   return SEAT_NAMES[index] ?? `Player ${index + 1}`;
+}
+
+/**
+ * Every token PRINTING the cards at this table can create, from the baked table.
+ *
+ * ⚠️ **A GAME MUST CARRY THE TOKENS ITS DECKS CAN MAKE, or a created token is a
+ * blank.** `TokenCreated` names a `printingId`, and `derive` looks that printing
+ * up in the oracle DB — which `host.ts` builds from the POOL. A printing the
+ * pool does not hold derives to the inert "unknown printing" object: no name, no
+ * types, a 0/0 the state-based action bins on the next pass. The card would have
+ * resolved correctly and produced nothing visible, which is the half-execution
+ * D90 forbids arriving by the back door.
+ *
+ * ⚠️ Exact PRINTING ids, not names. The table already decided which printing a
+ * description names (D133), and re-deciding it here from a name would be a
+ * second copy of that rule — the one that would drift.
+ */
+export function tokenPrintingsNeeded(seats: readonly SeatSpec[]): string[] {
+  return tokenPrintingIdsIn(seats.flatMap((seat) => [...seat.commanders, ...seat.library]));
 }
 
 /** The token printings the manual tool offers. Resolved from the card database. */

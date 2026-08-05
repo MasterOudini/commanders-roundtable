@@ -13,7 +13,7 @@ import type { ColorLetter } from '../data/cardTypes';
 import { parseTypeLine } from '../data/oracleParse';
 import { faceOf } from './oracle';
 import type { ScriptRegistry } from './scripts/registry';
-import type { MutableCharacteristics, ScriptCtx } from './scripts/api';
+import type { MutableCharacteristics, ScriptCtx, StaticDef } from './scripts/api';
 import type { InstanceId } from './types/ids';
 import type { DerivedCharacteristics, Keyword, OracleDb, ParsedTypeLine } from './types/oracle';
 import { NO_PROTECTION } from './types/oracle';
@@ -28,13 +28,38 @@ const FACE_DOWN_TYPE: ParsedTypeLine = {
 
 const EMPTY_TYPE: ParsedTypeLine = { supertypes: [], types: [], subtypes: [], raw: '' };
 
+/** One live source of a continuous effect, already matched to its def. */
+interface StaticSource {
+  readonly sourceId: InstanceId;
+  readonly def: StaticDef;
+}
+
 export interface DeriveCache {
   eventCount: number;
   map: Map<InstanceId, DerivedCharacteristics>;
+  /**
+   * Which permanents on the battlefield actually have a static in each layer,
+   * built once per (cache, layer) instead of once per object per layer.
+   *
+   * ⚠️ **THIS IS THE O(N²) D129 MEASURED AND DEFERRED.** `applyStatics` walked
+   * the whole battlefield for every object, in every layer, on every derive —
+   * so an SBA sweep over N permanents did N × layers × N instance comparisons.
+   * With two registered statics that was **+64%** on the fuzz gate (33.6 s →
+   * 55.2 s at 60 seeds); with a real card library it is the shape of the whole
+   * layer system. D129's own comment named this index as the fix and said to
+   * build it before M6.4 lands statics at scale.
+   *
+   * ⚠️ Keyed to the cache, so it is invalidated exactly when the derived
+   * characteristics are — by `state.eventCount`. A source that entered or left
+   * the battlefield changed the event count, so a stale index cannot outlive
+   * the board it describes. That is also why it is NOT a field on `GameState`:
+   * it is a memo, not a fact about the game.
+   */
+  staticSources: Map<string, readonly StaticSource[]>;
 }
 
 export function makeDeriveCache(state: GameState): DeriveCache {
-  return { eventCount: state.eventCount, map: new Map() };
+  return { eventCount: state.eventCount, map: new Map(), staticSources: new Map() };
 }
 
 /**
@@ -58,7 +83,7 @@ export function derive(
     const hit = cache.map.get(id);
     if (hit) return hit;
   }
-  const result = computeDerived(state, oracle, scripts, id);
+  const result = computeDerived(state, oracle, scripts, id, cache);
   cache?.map.set(id, result);
   return result;
 }
@@ -68,6 +93,7 @@ function computeDerived(
   oracle: OracleDb,
   scripts: ScriptRegistry,
   id: InstanceId,
+  cache: DeriveCache | undefined,
 ): DerivedCharacteristics {
   const inst = state.cards[id];
   if (!inst) {
@@ -80,6 +106,7 @@ function computeDerived(
       loyalty: null,
       defense: null,
       keywords: new Set<Keyword>(),
+      hasAbilities: true,
       protection: NO_PROTECTION,
       landwalk: [],
       toxicAmount: 0,
@@ -91,16 +118,20 @@ function computeDerived(
   // Layer 4 — type-changing. Only the Tier-3 manual override in v1.
   if (inst.typeOverride !== null) chars.typeLine = parseTypeLine(inst.typeOverride);
 
-  // Layer 6 — ability adding/removing. Card scripts only; none in v1.
-  applyStatics(state, oracle, scripts, inst, chars, 'ability');
-  applyStatics(state, oracle, scripts, inst, chars, 'type');
-  applyStatics(state, oracle, scripts, inst, chars, 'color');
+  // Layer 6 — ability adding/removing. Card scripts only; none ship.
+  //
+  // ⚠️ It has always RUN; what it lacked was an ORDER. See `applyStatics` for
+  // why the battlefield array is the timestamp (CR 613.7c) and D129 for the two
+  // re-timestamping clauses and the dependency rule it does not implement.
+  applyStatics(state, oracle, scripts, inst, chars, 'ability', cache);
+  applyStatics(state, oracle, scripts, inst, chars, 'type', cache);
+  applyStatics(state, oracle, scripts, inst, chars, 'color', cache);
 
   // Layer 7a — characteristic-defining P/T (`*`-power cards). A script sets it;
   // without one, `basePower` was already null and the card is 0/0. That is the
   // honest Tier-2 answer, and the SBA will bin it — which is visible, unlike a
   // silent guess of 1/1.
-  applyStatics(state, oracle, scripts, inst, chars, 'cda');
+  applyStatics(state, oracle, scripts, inst, chars, 'cda', cache);
 
   // Layer 7b — setting base P/T.
   //
@@ -113,7 +144,7 @@ function computeDerived(
     chars.power = inst.ptOverride.power;
     chars.toughness = inst.ptOverride.toughness;
   }
-  applyStatics(state, oracle, scripts, inst, chars, 'ptSet');
+  applyStatics(state, oracle, scripts, inst, chars, 'ptSet', cache);
 
   // Layer 7c — P/T modifying effects (anthems, and "until end of turn").
   //
@@ -127,7 +158,7 @@ function computeDerived(
     if (chars.power !== null) chars.power += mod.power;
     if (chars.toughness !== null) chars.toughness += mod.toughness;
   }
-  applyStatics(state, oracle, scripts, inst, chars, 'ptModify');
+  applyStatics(state, oracle, scripts, inst, chars, 'ptModify', cache);
 
   // Layer 7d(ours) — counters. CR puts +1/+1 counters in 7d proper.
   const plus = inst.counters['+1/+1'] ?? 0;
@@ -135,7 +166,7 @@ function computeDerived(
   if (chars.power !== null) chars.power += plus - minus;
   if (chars.toughness !== null) chars.toughness += plus - minus;
 
-  applyStatics(state, oracle, scripts, inst, chars, 'ptSwitch');
+  applyStatics(state, oracle, scripts, inst, chars, 'ptSwitch', cache);
 
   const card = inst.faceDown ? undefined : oracle.byPrinting(inst.printingId);
   const manaValue = card?.manaValue ?? 0;
@@ -156,6 +187,7 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
       loyalty: null,
       defense: null,
       keywords: new Set<Keyword>(),
+      hasAbilities: true,
       protection: NO_PROTECTION,
       landwalk: [],
       toxicAmount: 0,
@@ -175,6 +207,7 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
       loyalty: null,
       defense: null,
       keywords: new Set<Keyword>(),
+      hasAbilities: true,
       protection: NO_PROTECTION,
       landwalk: [],
       toxicAmount: 0,
@@ -190,6 +223,10 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
     loyalty: face.baseLoyalty,
     defense: face.baseDefense,
     keywords: new Set<Keyword>(face.keywords),
+    // ⚠️ LAYER ONE: a printed object HAS its abilities. Only a layer-6 effect
+    // takes them away, which is why the default lives here and not in a
+    // constructor default nobody would read.
+    hasAbilities: true,
     protection: face.protection,
     landwalk: [...face.landwalk],
     toxicAmount: face.toxicAmount,
@@ -197,11 +234,36 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
 }
 
 /**
- * Run every registered static ability of one layer against this object.
+ * Run every registered static ability of one layer against this object, in
+ * TIMESTAMP ORDER (CR 613.7).
  *
- * With `EMPTY_REGISTRY` this is one `Map.get` returning a shared empty array and
+ * With `SHIPPED_REGISTRY` this is one `Map.get` returning a shared empty array and
  * a loop that does not run — which is the point of the design. Nothing here
  * asks whether the card is scripted.
+ *
+ * ⚠️ **THE BATTLEFIELD ARRAY IS THE TIMESTAMP**, and that is not a coincidence
+ * this file may lean on quietly: `addToZone` APPENDS, and `removeFromZone`
+ * takes a card out, so `state.zones.battlefield` is arrival order and a
+ * permanent that leaves and re-enters goes to the back. That is exactly CR
+ * 613.7c for a permanent entering the battlefield, and it is why no timestamp
+ * field had to be added to `GameState` (which would have been a second source
+ * of truth for the same fact, and part of the state hash). `zones.ts`'s order
+ * convention is therefore load-bearing for the layer system — see D129.
+ *
+ * ⚠️ **THE SOURCE LOOP IS OUTERMOST, AND IT USED TO BE INNERMOST.** With the
+ * defs outside, every source of the FIRST-REGISTERED script applied before any
+ * source of the second — so `Levitation` (grant flying) against `Gravity
+ * Sphere` (lose flying) was decided by registration order, which is an
+ * implementation detail of the registry, rather than by which enchantment
+ * entered the battlefield last, which is the rule. Invisible with zero scripts
+ * registered, and wrong on the first pair that disagreed.
+ *
+ * ⚠️ **NOT COVERED, and deliberately:** CR 613.7d (an Aura or Equipment takes a
+ * NEW timestamp when it becomes attached to a different object) and 613.7e (a
+ * permanent turning face down). Neither changes the battlefield array, so a
+ * re-attached Aura keeps its old position. And CR 613.8 DEPENDENCY is not built
+ * at all. All three are stated in D129 with the rule that follows from them: a
+ * card whose correctness needs one of them is not registered.
  */
 function applyStatics(
   state: GameState,
@@ -210,19 +272,168 @@ function applyStatics(
   inst: CardInstance,
   chars: MutableCharacteristics,
   layer: Parameters<ScriptRegistry['staticsFor']>[0],
+  cache: DeriveCache | undefined,
 ): void {
   const defs = scripts.staticsFor(layer);
   if (defs.length === 0) return;
+
+  // ⚠️ **THE BATTLEFIELD WALK IS INDEXED NOW** (D147). It used to run here, once
+  // per object per layer per derive — O(N²) across an SBA sweep, measured by
+  // D129 at **+64%** on the fuzz gate with only two statics registered, and the
+  // shape of the whole layer system once a real card library is loaded. What is
+  // left below is a loop over the sources that ACTUALLY have a static in this
+  // layer, which on any realistic board is a handful and usually none.
+  //
+  // ⚠️ The index is memoised on the `DeriveCache`, so it is invalidated by
+  // exactly the same thing the derived characteristics are — `state.eventCount`.
+  // A permanent that entered or left moved that number, so a stale index cannot
+  // outlive its board.
+  const sources = staticSourcesFor(state, scripts, cache, layer);
+  if (sources.length === 0) return;
+
+  // The context is built ON FIRST MATCH rather than per call, so a layer with
+  // defs registered but no source in play allocates nothing.
   const ctx = makeScriptCtx(state, oracle, scripts);
-  for (const { script, def } of defs) {
-    for (const sourceId of state.zones.battlefield) {
-      const source = state.cards[sourceId];
-      if (!source || source.oracleId !== script.oracleId) continue;
+  // ⚠️ CR 613.8 — DEPENDENCY OUTRANKS TIMESTAMP. See `dependencyOrder`.
+  for (const { sourceId, def } of dependencyOrder(sources, ctx, inst.id, chars)) {
+    // ⚠️ `chars` is handed over so `appliesTo` never has to derive the object
+    // it is being asked about — which is unbounded recursion, because it is
+    // running inside that object's own derive. See `StaticDef.appliesTo`.
+    if (!def.appliesTo(ctx, sourceId, inst.id, chars)) continue;
+    def.modify(chars, ctx, sourceId, inst.id);
+  }
+}
+
+/**
+ * A working copy of one object's characteristics, for asking "what would happen
+ * if this other effect applied first".
+ *
+ * ⚠️ The mutable members are copied; `typeLine` and `protection` are replaced
+ * wholesale by the effects that change them rather than mutated in place, so a
+ * shallow copy of the record plus fresh `Set`/array for the three that ARE
+ * mutated is the whole of it.
+ */
+function cloneChars(chars: MutableCharacteristics): MutableCharacteristics {
+  return {
+    ...chars,
+    colors: [...chars.colors],
+    keywords: new Set(chars.keywords),
+    landwalk: [...chars.landwalk],
+  };
+}
+
+/**
+ * CR 613.8 — apply a layer's effects in DEPENDENCY order, falling back to
+ * timestamp.
+ *
+ * 613.8a: A depends on B when applying B would change what A applies to (or what
+ * it does to what it applies to). 613.8b: a dependent effect waits until after
+ * everything it depends on; a dependency LOOP is ignored and its members go in
+ * timestamp order.
+ *
+ * ⚠️ **THE REAL PAIR THIS EXISTS FOR** is `Knighthood` ("Creatures you control
+ * have first strike") and `Kwende, Pride of Femeref` ("Creatures you control
+ * with first strike have double strike"), both layer 6. Kwende DEPENDS on
+ * Knighthood: whether Kwende applies to a creature is decided by whether
+ * Knighthood has already granted it first strike. In timestamp order with Kwende
+ * first, a vanilla creature ends with first strike and NO double strike — the
+ * card doing nothing, silently, on a board where it plainly should.
+ *
+ * ⚠️ **WHAT IS BUILT IS 613.8a CLAUSE (b)'s FIRST HALF: "what it applies to",
+ * evaluated for the object being derived.** That is a real question this engine
+ * can answer cheaply and exactly — `appliesTo` is a predicate over `chars`, so
+ * "would B change A's answer" is one clone and one call. The other half ("what it
+ * DOES to the things it applies to") and "the text or existence of the first
+ * effect" are NOT built: the second needs an effect that can remove another
+ * script's static, which `MutableCharacteristics` cannot represent at all — it
+ * models keywords, so `Humility` is unrepresentable rather than merely unwritten
+ * (D129, D147).
+ *
+ * ⚠️ **613.8a CLAUSE (c) IS SATISFIED BY CONSTRUCTION HERE.** "Neither effect is
+ * from a characteristic-defining ability or both are" — this runs WITHIN one
+ * layer, `'cda'` is its own layer, so the two are always both or neither.
+ *
+ * ⚠️ O(k²) where k is the number of effects in this layer with a live source —
+ * which is 0 on every board the shipped app has, and a handful on any real one.
+ * The common case exits on the first line.
+ */
+function dependencyOrder(
+  sources: readonly StaticSource[],
+  ctx: ScriptCtx,
+  self: InstanceId,
+  chars: MutableCharacteristics,
+): readonly StaticSource[] {
+  if (sources.length < 2) return sources;
+
+  /** Does `a` depend on `b`? — would applying b change a's verdict on `self`? */
+  const dependsOn = (a: StaticSource, b: StaticSource): boolean => {
+    if (a === b) return false;
+    const before = a.def.appliesTo(ctx, a.sourceId, self, chars);
+    const probe = cloneChars(chars);
+    if (!b.def.appliesTo(ctx, b.sourceId, self, probe)) return false;
+    b.def.modify(probe, ctx, b.sourceId, self);
+    const afterB = a.def.appliesTo(ctx, a.sourceId, self, probe);
+    // Clause (b), first half — what it APPLIES TO.
+    if (afterB !== before) return true;
+    // Clause (b), second half — what it DOES to what it applies to. Only for an
+    // effect that has SAID its behaviour reads a characteristic; see
+    // `StaticDef.effectReads` for why a measurement cannot stand in for that.
+    if (!before || !a.def.effectReads?.length) return false;
+    return a.def.effectReads.some((what) => changed(what, chars, probe));
+  };
+
+  const out: StaticSource[] = [];
+  const left = [...sources];
+  while (left.length > 0) {
+    // ⚠️ TIMESTAMP ORDER IS THE SCAN ORDER, so it remains the tie-break between
+    // two effects that depend on nothing — which is CR 613.8's default and
+    // D129's fix, kept intact.
+    let pick = left.findIndex((a) => !left.some((b) => b !== a && dependsOn(a, b)));
+    // ⚠️ CR 613.8b — A DEPENDENCY LOOP IS IGNORED. Every remaining effect
+    // depends on another, so the rule stops applying and timestamp order
+    // resumes. Taking the first is also what makes this terminate.
+    if (pick < 0) pick = 0;
+    out.push(left[pick] as StaticSource);
+    left.splice(pick, 1);
+  }
+  return out;
+}
+
+/**
+ * The permanents on the battlefield that carry a static in this layer, in
+ * BATTLEFIELD ORDER.
+ *
+ * ⚠️ **THE ORDER IS CR 613.7c AND IS LOAD-BEARING.** `state.zones.battlefield`
+ * is arrival order (`addToZone` appends, and a permanent that re-enters goes to
+ * the back), which is the timestamp order the layer system applies effects in —
+ * `Levitation` against `Gravity Sphere` is decided by nothing else. The outer
+ * loop must stay the BATTLEFIELD and the inner one the defs; nesting them the
+ * other way applies every source of the first-registered script before any
+ * source of the second, and the registry is not a timestamp. That was a real
+ * bug (D129), so the index preserves the order rather than grouping by def.
+ */
+function staticSourcesFor(
+  state: GameState,
+  scripts: ScriptRegistry,
+  cache: DeriveCache | undefined,
+  layer: Parameters<ScriptRegistry['staticsFor']>[0],
+): readonly StaticSource[] {
+  const hit = cache?.staticSources.get(layer);
+  if (hit) return hit;
+
+  const defs = scripts.staticsFor(layer);
+  const out: StaticSource[] = [];
+  for (const sourceId of state.zones.battlefield) {
+    const source = state.cards[sourceId];
+    if (!source) continue;
+    for (const { script, def } of defs) {
+      if (source.oracleId !== script.oracleId) continue;
       if (!def.activeZones.includes(source.zone.kind)) continue;
-      if (!def.appliesTo(ctx, sourceId, inst.id)) continue;
-      def.modify(chars, ctx, sourceId, inst.id);
+      out.push({ sourceId, def });
     }
   }
+  cache?.staticSources.set(layer, out);
+  return out;
 }
 
 /**
@@ -233,7 +444,7 @@ function applyStatics(
  * poison the cache with a half-computed value. Statics are rare and shallow;
  * correctness wins.
  */
-function makeScriptCtx(state: GameState, oracle: OracleDb, scripts: ScriptRegistry): ScriptCtx {
+export function makeScriptCtx(state: GameState, oracle: OracleDb, scripts: ScriptRegistry): ScriptCtx {
   return {
     state,
     oracle,
@@ -270,6 +481,14 @@ function finish(
   // would put a number nobody can trace on the board.
   const power = isCreature ? (chars.power ?? 0) : chars.power;
   const toughness = isCreature ? (chars.toughness ?? 0) : chars.toughness;
+  // ⚠️ **ONE PLACE, SO NOTHING CAN BE FORGOTTEN.** "Loses all abilities" is not
+  // "loses its keywords": every ability-shaped field on a derived object has to
+  // go, and each is separately load-bearing — `protection` and `landwalk` are
+  // read by `canBlock`, `toxicAmount` by combat damage, `producesMana` by the
+  // payment solver. Clearing only `keywords` would leave a Humility'd Akroma
+  // still unblockable by red and a Humility'd Signet still tapping for mana.
+  const gone = !chars.hasAbilities;
+  const produces = gone ? [] : producesMana;
   return {
     name: chars.name,
     typeLine: chars.typeLine,
@@ -278,10 +497,11 @@ function finish(
     toughness,
     loyalty: chars.loyalty,
     defense: chars.defense,
-    keywords: chars.keywords,
-    protection: chars.protection,
-    landwalk: chars.landwalk,
-    toxicAmount: chars.toxicAmount,
+    keywords: gone ? new Set<Keyword>() : chars.keywords,
+    hasAbilities: !gone,
+    protection: gone ? NO_PROTECTION : chars.protection,
+    landwalk: gone ? [] : chars.landwalk,
+    toxicAmount: gone ? 0 : chars.toxicAmount,
     isCreature,
     isLand: types.includes('Land'),
     isPermanent:
@@ -294,7 +514,7 @@ function finish(
       types.includes('Spacecraft'),
     isLegendary: chars.typeLine.supertypes.includes('Legendary'),
     manaValue,
-    producesMana,
+    producesMana: produces,
   };
 }
 
@@ -305,4 +525,32 @@ export function hasLethalDamage(d: DerivedCharacteristics, inst: CardInstance): 
   if (inst.damage <= 0) return false;
   if (inst.deathtouchDamage) return true;
   return inst.damage >= d.toughness;
+}
+
+/**
+ * Did applying an effect change one of the characteristics another effect says
+ * it reads? CR 613.8a clause (b), second half.
+ *
+ * ⚠️ Compared by VALUE, not by reference: `cloneChars` copies the mutable
+ * members, so a probe that changed nothing must compare equal or every declared
+ * reader would depend on everything.
+ */
+function changed(
+  what: 'keywords' | 'pt' | 'types' | 'colors',
+  before: MutableCharacteristics,
+  after: MutableCharacteristics,
+): boolean {
+  switch (what) {
+    case 'keywords':
+      return (
+        before.keywords.size !== after.keywords.size ||
+        [...before.keywords].some((k) => !after.keywords.has(k))
+      );
+    case 'pt':
+      return before.power !== after.power || before.toughness !== after.toughness;
+    case 'types':
+      return before.typeLine.raw !== after.typeLine.raw;
+    case 'colors':
+      return before.colors.join(',') !== after.colors.join(',');
+  }
 }

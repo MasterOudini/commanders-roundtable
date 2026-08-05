@@ -10,6 +10,7 @@ import {
   find,
   findAnywhere,
   fullControl,
+  holdEverywhere,
   idsIn,
   must,
   nameOf,
@@ -112,6 +113,113 @@ describe('mana pools and sources', () => {
       }),
     );
     expect(game.state.cards[cavern]?.tapped).toBe(true);
+  });
+
+  /**
+   * ⚠️ THE LEGAL ACTION HAS TO SAY WHAT IT WILL ADD, not how many ways there
+   * are. It carried a COUNT for four milestones, which is the one thing a
+   * chooser cannot draw — and for a dual land the count is 1 on each of two
+   * actions, so it could not even be read as "how many colours".
+   */
+  test('a TapForMana action says what each of its outputs adds', () => {
+    const game = startedGame({ decks: [['Forest', 'Sol Ring', 'Tundra']] });
+    const forest = put(game, 'p1', 'Forest');
+    const ring = put(game, 'p1', 'Sol Ring');
+    const tundra = put(game, 'p1', 'Tundra');
+    fullControl(game, 'p1');
+    const taps = legalActions(game.state, ORACLE, game.deps.scripts, 'p1')
+      .filter((a) => a.t === 'TapForMana');
+    const outputsOf = (card: InstanceId): string[] =>
+      taps.filter((a) => a.t === 'TapForMana' && a.card === card)
+        .flatMap((a) => (a.t === 'TapForMana' ? [...a.outputs] : []));
+
+    expect(outputsOf(forest)).toEqual(['{G}']);
+    // Two mana in ONE output, so it reads as one choice rather than two.
+    expect(outputsOf(ring)).toEqual(['{C}{C}']);
+    // A dual land: two abilities, one output each, and both colours present.
+    expect(outputsOf(tundra).sort()).toEqual(['{U}', '{W}']);
+  });
+
+  test('an any-colour land lists every colour it can actually make', () => {
+    const game = startedGame({ decks: [['Command Tower']] }); // Kess = UBR
+    const tower = put(game, 'p1', 'Command Tower');
+    fullControl(game, 'p1');
+    const action = legalActions(game.state, ORACLE, game.deps.scripts, 'p1')
+      .find((a) => a.t === 'TapForMana' && a.card === tower);
+    if (action?.t !== 'TapForMana') throw new Error('Command Tower offered no mana ability');
+    expect([...action.outputs].sort()).toEqual(['{B}', '{R}', '{U}']);
+  });
+
+  /**
+   * ⚠️ A LAND DEFINED BY THE OTHER LANDS. Reflecting Pool makes "any type that a
+   * land you control could produce", which the ingest read as nothing at all
+   * until D116 — the pattern knew "any color" and the card says "any type". It
+   * is resolved against the board, like Command Tower is against the commander.
+   */
+  test('Reflecting Pool offers what the rest of my lands offer', () => {
+    const game = startedGame({ decks: [['Reflecting Pool', 'Forest', 'Island']] });
+    const pool = put(game, 'p1', 'Reflecting Pool');
+    put(game, 'p1', 'Forest');
+    put(game, 'p1', 'Island');
+    fullControl(game, 'p1');
+    const action = legalActions(game.state, ORACLE, game.deps.scripts, 'p1')
+      .find((a) => a.t === 'TapForMana' && a.card === pool);
+    if (action?.t !== 'TapForMana') throw new Error('Reflecting Pool offered no mana ability');
+    expect([...action.outputs].sort()).toEqual(['{G}', '{U}']);
+  });
+
+  /**
+   * ⚠️ THE RECURSION GUARD, and it is also the rule: two Reflecting Pools and
+   * nothing else genuinely produce no mana, because neither can name a colour
+   * the other could make. A dynamic source contributes nothing to the set the
+   * dynamic sources are resolved against.
+   */
+  test('a Reflecting Pool with only another Reflecting Pool makes nothing', () => {
+    const game = startedGame({ decks: [['Reflecting Pool', 'Reflecting Pool']] });
+    put(game, 'p1', 'Reflecting Pool');
+    put(game, 'p1', 'Reflecting Pool');
+    fullControl(game, 'p1');
+    const taps = legalActions(game.state, ORACLE, game.deps.scripts, 'p1')
+      .filter((a) => a.t === 'TapForMana');
+    expect(taps).toEqual([]);
+  });
+
+  /** ⚠️ Exotic Orchard reads the OTHER side of the table, and every opponent. */
+  test("Exotic Orchard offers what an opponent's lands offer", () => {
+    const game = startedGame({ decks: [['Exotic Orchard'], ['Swamp']] });
+    const orchard = put(game, 'p1', 'Exotic Orchard');
+    put(game, 'p2', 'Swamp');
+    fullControl(game, 'p1');
+    const action = legalActions(game.state, ORACLE, game.deps.scripts, 'p1')
+      .find((a) => a.t === 'TapForMana' && a.card === orchard);
+    if (action?.t !== 'TapForMana') throw new Error('Exotic Orchard offered no mana ability');
+    expect([...action.outputs]).toEqual(['{B}']);
+  });
+
+  /**
+   * ⚠️ THE LOG SAID NOTHING ABOUT A MANA TAP UNTIL D116. It emitted a tap and a
+   * pool change and no narration, so a land tapping correctly and a click doing
+   * nothing at all looked identical from the table — which is what hid the
+   * partner-identity bug for a whole game.
+   */
+  test('tapping for mana says so, and names the mana', () => {
+    const game = startedGame({ decks: [['Forest']] });
+    const forest = put(game, 'p1', 'Forest');
+    const before = game.state.narration.length;
+    must(game.submit({ t: 'TapForMana', player: 'p1', card: forest, abilityIndex: 0, outputChoice: 0 }));
+    const line = game.state.narration[game.state.narration.length - 1];
+    expect(game.state.narration.length).toBe(before + 1);
+    expect(line?.text).toBe('Ana taps Forest for {G}.');
+    // ⚠️ Tier 1 — the engine did this, not a player hand-waving it. No wrench.
+    expect(line?.manual).toBe(false);
+  });
+
+  test('a two-mana source names both', () => {
+    const game = startedGame({ decks: [['Sol Ring']] });
+    const ring = put(game, 'p1', 'Sol Ring');
+    must(game.submit({ t: 'TapForMana', player: 'p1', card: ring, abilityIndex: 0, outputChoice: 0 }));
+    expect(game.state.narration[game.state.narration.length - 1]?.text)
+      .toBe('Ana taps Sol Ring for {C}{C}.');
   });
 
   test('a summoning-sick mana creature cannot be tapped', () => {
@@ -271,6 +379,10 @@ describe('casting', () => {
 
   test('an instant can be cast on an opponent turn', () => {
     const game = startedGame({ players: 2, decks: [['Mountain', 'Lightning Bolt'], []] });
+    // ⚠️ The stack is what proves the cast, so the engine has to be held still
+    // long enough to look at it: with auto-pass on, a Bolt nobody can answer is
+    // cast and resolved inside this one submit.
+    holdEverywhere(game);
     put(game, 'p1', 'Mountain');
     const bolt = findAnywhere(game, 'p1', 'Lightning Bolt');
     must(game.submit({ t: 'ManualMoveCard', player: 'p1', card: bolt, to: { kind: 'hand', player: 'p1' } }));
