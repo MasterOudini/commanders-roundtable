@@ -146,6 +146,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Remove-a-+1/+1-counter-from-a-creature-you-control as a COST is a
   // chooser over counter state nothing charges yet (D165).
   ['Bolrac-Clan Crusher', 'remove-counter cost'],
+  // Batch 9 (D166).
+  // "Exile this artifact" as a cost — sacrificesSelf ONE EVENT OVER
+  // (CardsMoved to exile instead of graveyard); named cheap, not built yet.
+  ['Brittle Effigy', 'exile-self cost'],
+  ['Cabal Surgeon', 'exile-from-graveyard cost'],
+  ['Carnage Altar', 'sacrifice-cost chooser'],
+  ['Catapult Master', 'tap-creatures cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -517,6 +517,32 @@ const WANTED = [
   'Brass Secretary',
   'Brazen Freebooter',
   'Briarknit Kami',
+  // M6.4i — batch 9 (D166): 21 landed of select.cjs's 25; the four refusals
+  // are Brittle Effigy (a NEW exile-SELF cost class — sacrificesSelf one
+  // event over, cheap to build), Cabal Surgeon (exile-from-graveyard cost),
+  // Carnage Altar (sacrifice-cost chooser) and Catapult Master
+  // (tap-creatures cost).
+  'Briarpack Alpha',
+  'Brindle Boar',
+  'Brindle Shoat',
+  'Brinebarrow Intruder',
+  'Brood Weaver',
+  'Broodmate Dragon',
+  'Bulwark Giant',
+  'Burrenton Shield-Bearers',
+  'Burrog Befuddler',
+  'Buzz Bots',
+  'Cabal Trainee',
+  'Cackling Imp',
+  'Capashen Unicorn',
+  'Captive Flame',
+  "Cartographer's Companion",
+  'Carven Caryatid',
+  'Castle Ardenvale',
+  'Cat-Owl',
+  'Cathar Commando',
+  'Cathedral Sanctifier',
+  'Caustic Caterpillar',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -544,6 +570,11 @@ const WANTED_TOKENS = [
   // M6.4e (D162).
   { name: 'Wurm', set: 'trtr', cn: '11', key: 'WURM_TOKEN' },
   { name: 'Thopter', set: 'tafc', cn: '12', key: 'THOPTER_TOKEN' },
+  // M6.4i (D166).
+  { name: 'Boar', set: 'tpca', cn: '14', key: 'BOAR_TOKEN' },
+  { name: 'Dragon', set: 'tmm3', cn: '7', key: 'DRAGON_TOKEN' },
+  { name: 'Human', set: 'tfdn', cn: '3', key: 'HUMAN_TOKEN' },
+  { name: 'Map', set: 'tbig', cn: '7', key: 'MAP_TOKEN' },
   // M6.4h (D165).
   { name: 'Saproling', set: 'tddj', cn: '1', key: 'SAPROLING_TOKEN' },
   // M6.4g (D164).

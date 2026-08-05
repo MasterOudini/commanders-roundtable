@@ -178,6 +178,28 @@ const COMPLETE: readonly [string, CardData][] = [
   ['Brass Secretary', fx.BRASS_SECRETARY],
   ['Brazen Freebooter', fx.BRAZEN_FREEBOOTER],
   ['Briarknit Kami', fx.BRIARKNIT_KAMI],
+  // M6.4i (D166) — batch 9.
+  ['Briarpack Alpha', fx.BRIARPACK_ALPHA],
+  ['Brindle Boar', fx.BRINDLE_BOAR],
+  ['Brindle Shoat', fx.BRINDLE_SHOAT],
+  ['Brinebarrow Intruder', fx.BRINEBARROW_INTRUDER],
+  ['Brood Weaver', fx.BROOD_WEAVER],
+  ['Broodmate Dragon', fx.BROODMATE_DRAGON],
+  ['Bulwark Giant', fx.BULWARK_GIANT],
+  ['Burrenton Shield-Bearers', fx.BURRENTON_SHIELD_BEARERS],
+  ['Burrog Befuddler', fx.BURROG_BEFUDDLER],
+  ['Buzz Bots', fx.BUZZ_BOTS],
+  ['Cabal Trainee', fx.CABAL_TRAINEE],
+  ['Cackling Imp', fx.CACKLING_IMP],
+  ['Capashen Unicorn', fx.CAPASHEN_UNICORN],
+  ['Captive Flame', fx.CAPTIVE_FLAME],
+  ["Cartographer's Companion", fx.CARTOGRAPHER_S_COMPANION],
+  ['Carven Caryatid', fx.CARVEN_CARYATID],
+  ['Castle Ardenvale', fx.CASTLE_ARDENVALE],
+  ['Cat-Owl', fx.CAT_OWL],
+  ['Cathar Commando', fx.CATHAR_COMMANDO],
+  ['Cathedral Sanctifier', fx.CATHEDRAL_SANCTIFIER],
+  ['Caustic Caterpillar', fx.CAUSTIC_CATERPILLAR],
 ];
 
 /**

@@ -274,14 +274,14 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * becomes non-zero is a day worth noticing — and because a bug once made this
    * read 9 enchantments (see `clauseAccounted`'s substring note).
    */
-  test('ONE enchantment executes now; planeswalkers and battles still none', () => {
+  test('TWO enchantments execute now; planeswalkers and battles still none', () => {
     // ⚠️ This pinned exact ZEROES from M6.1 until M6.4c (D160), "because the
-    // day one becomes non-zero is a day worth noticing" — this is that day:
-    // `Ajani's Welcome` is the first enchantment the engine runs completely,
-    // through a shipped script. Planeswalkers (loyalty costs) and battles are
+    // day one becomes non-zero is a day worth noticing" — `Ajani's Welcome`
+    // was that day, and `Captive Flame` (M6.4i, D166 — a repeatable activated
+    // pump) is the second. Planeswalkers (loyalty costs) and battles are
     // still structurally out, and stay pinned at zero for the same reason the
-    // enchantment was.
-    expect(r.poolByType['enchantment'] ?? 0).toBe(1);
+    // enchantments were.
+    expect(r.poolByType['enchantment'] ?? 0).toBe(2);
     expect(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -408,12 +408,12 @@ const POOL: Record<string, number> = {
   // own header said "no enchantments … because the engine runs none of those
   // yet"; the ceiling rose exactly as it promised it would.
   // M6.4d (D161): +13 creatures.
-  creature: 1221,
+  creature: 1240,
   instant: 201,
   sorcery: 146,
-  land: 224,
+  land: 225,
   artifact: 44,
-  enchantment: 1,
+  enchantment: 2,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

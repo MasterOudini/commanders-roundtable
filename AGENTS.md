@@ -4062,6 +4062,44 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ledger; D164's items stand (`ctx.random`, exile-from-graveyard,
       once-per-turn memory, per-damage-entry granularity).
 
+- [x] **M6.4i — Twenty-one landed, and two lessons the tests taught
+      (2026-08-05):** **1,858 of 31,692 Commander-legal cards now execute
+      completely, up from 1,837.** `SHIPPED_SCRIPTS` 107 → 128. Decisions in
+      **D166**.
+      **Three firsts:** the first SELF-attack triggers (`Burrenton
+      Shield-Bearers` and `Cat-Owl` — Armasaur's event with an is-it-me
+      filter, the granularity-safe shape; Cat-Owl attacks, targets ITSELF and
+      straightens mid-combat); D135's conditional entry proven BOTH ways by a
+      shipped script's own test (`Castle Ardenvale` — tapped with no Plains,
+      untapped with one — which also carries the first token maker on a
+      LAND); the pool's SECOND enchantment (`Captive Flame` — the D160
+      zero-pin reads TWO, both names in its comment).
+      ⚠️⚠️ **Two lessons from the tests, one a genuine footgun:**
+      `g.state.cards[f(g)]` evaluates the member chain BEFORE the call, and
+      an IMMUTABLE state makes that a silent time-travel read — D135's rule
+      looked broken while working perfectly, settled by a probe in one run;
+      and an UNATTACHED AURA is refused as a generic "target enchantment"
+      (Pacifism vs "target artifact or enchantment"), recorded as a
+      reportable because an Aura on the battlefield IS an enchantment.
+      ⚠️ **Four refusals, ONE new class — the cheapest ever named:**
+      `Brittle Effigy`'s exile-SELF cost is `sacrificesSelf` one event over
+      (same recognition, same gate, exile instead of graveyard). Plus the
+      sacrifice-chooser's THIRTEENTH entry (Carnage Altar),
+      exile-from-graveyard (Cabal Surgeon), tap-creatures (Catapult Master).
+      Fixtures 255 → 280 (24 tokens, FOUR new pins: Boar `tpca 14`, Dragon
+      `tmm3 7`, Human `tfdn 3`, Map `tbig 7`) · ladder [1135, 1234, 3187,
+      5071, 6258] · `batch.json` at 1,022 · botDeck: Captive Flame joins
+      (Adun reaches 1,023).
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation: 198
+      test files, 2,039 Vitest passed / 10 skipped · the 500-seed gate green
+      at 568.2 s (128 scripts — ⚠️ 32 s of timeout margin left; a second
+      index-scale pass is approaching due) · build clean · probe 124/124 ·
+      battery 127/127.**
+      ⚠️ **Reportables** (D166): the exile-self cost clears its class in an
+      afternoon; the unattached-Aura targeting question (if it is a kind
+      quirk, every Aura is invisible to scripted enchantment removal); the
+      sacrifice-chooser at THIRTEEN of 30 ledger entries; prior items stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

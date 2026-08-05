@@ -118,7 +118,9 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // call in a resolve. Six refusals, all in the ledger.
     // M6.4h (D165) landed twenty-two of 25 — the cleanest batch yet: three
     // refusals (two sacrifice-choosers, one NEW remove-counter cost class).
-    expect(SHIPPED_SCRIPTS).toHaveLength(107);
+    // M6.4i (D166) landed twenty-one of 25 — four refusals, one NEW class
+    // (exile-SELF cost, named cheap: sacrificesSelf one event over).
+    expect(SHIPPED_SCRIPTS).toHaveLength(128);
   });
 });
 

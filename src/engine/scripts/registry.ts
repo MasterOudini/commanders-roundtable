@@ -7,6 +7,27 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { BRIARPACK_ALPHA_SCRIPT } from './cards/briarpackAlpha';
+import { BRINDLE_BOAR_SCRIPT } from './cards/brindleBoar';
+import { BRINDLE_SHOAT_SCRIPT } from './cards/brindleShoat';
+import { BRINEBARROW_INTRUDER_SCRIPT } from './cards/brinebarrowIntruder';
+import { BROOD_WEAVER_SCRIPT } from './cards/broodWeaver';
+import { BROODMATE_DRAGON_SCRIPT } from './cards/broodmateDragon';
+import { BULWARK_GIANT_SCRIPT } from './cards/bulwarkGiant';
+import { BURRENTON_SHIELD_BEARERS_SCRIPT } from './cards/burrentonShieldBearers';
+import { BURROG_BEFUDDLER_SCRIPT } from './cards/burrogBefuddler';
+import { BUZZ_BOTS_SCRIPT } from './cards/buzzBots';
+import { CABAL_TRAINEE_SCRIPT } from './cards/cabalTrainee';
+import { CACKLING_IMP_SCRIPT } from './cards/cacklingImp';
+import { CAPASHEN_UNICORN_SCRIPT } from './cards/capashenUnicorn';
+import { CAPTIVE_FLAME_SCRIPT } from './cards/captiveFlame';
+import { CARTOGRAPHERS_COMPANION_SCRIPT } from './cards/cartographersCompanion';
+import { CARVEN_CARYATID_SCRIPT } from './cards/carvenCaryatid';
+import { CASTLE_ARDENVALE_SCRIPT } from './cards/castleArdenvale';
+import { CAT_OWL_SCRIPT } from './cards/catOwl';
+import { CATHAR_COMMANDO_SCRIPT } from './cards/catharCommando';
+import { CATHEDRAL_SANCTIFIER_SCRIPT } from './cards/cathedralSanctifier';
+import { CAUSTIC_CATERPILLAR_SCRIPT } from './cards/causticCaterpillar';
 import { BLOOD_SERVITOR_SCRIPT } from './cards/bloodServitor';
 import { BLOODFELL_CAVES_SCRIPT } from './cards/bloodfellCaves';
 import { BLOODTALLOW_CANDLE_SCRIPT } from './cards/bloodtallowCandle';
@@ -208,6 +229,27 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BRIARPACK_ALPHA_SCRIPT,
+  BRINDLE_BOAR_SCRIPT,
+  BRINDLE_SHOAT_SCRIPT,
+  BRINEBARROW_INTRUDER_SCRIPT,
+  BROOD_WEAVER_SCRIPT,
+  BROODMATE_DRAGON_SCRIPT,
+  BULWARK_GIANT_SCRIPT,
+  BURRENTON_SHIELD_BEARERS_SCRIPT,
+  BURROG_BEFUDDLER_SCRIPT,
+  BUZZ_BOTS_SCRIPT,
+  CABAL_TRAINEE_SCRIPT,
+  CACKLING_IMP_SCRIPT,
+  CAPASHEN_UNICORN_SCRIPT,
+  CAPTIVE_FLAME_SCRIPT,
+  CARTOGRAPHERS_COMPANION_SCRIPT,
+  CARVEN_CARYATID_SCRIPT,
+  CASTLE_ARDENVALE_SCRIPT,
+  CAT_OWL_SCRIPT,
+  CATHAR_COMMANDO_SCRIPT,
+  CATHEDRAL_SANCTIFIER_SCRIPT,
+  CAUSTIC_CATERPILLAR_SCRIPT,
   BLOOD_SERVITOR_SCRIPT,
   BLOODFELL_CAVES_SCRIPT,
   BLOODTALLOW_CANDLE_SCRIPT,

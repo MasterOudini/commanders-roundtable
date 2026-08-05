@@ -10984,3 +10984,107 @@ All 48 new per-card tests passed on their first run.
 - Remove-counter cost joins the cost ledger (Bolrac-Clan Crusher).
 - D164's items stand: `ctx.random` wiring (blocks Black Cat),
   exile-from-graveyard, once-per-turn memory, per-damage-entry granularity.
+
+## D166 — M6.4i: twenty-one landed, and two lessons the tests taught (2026-08-05)
+
+**What was decided:** land batch 9 — twenty-one of `select.cjs`'s 25.
+**1,858 of 31,692 Commander-legal cards now execute completely, up from
+1,837.** `SHIPPED_SCRIPTS` 107 → 128.
+
+**Four refusals, ONE new class:** `Brittle Effigy` ("Exile this artifact" as
+a cost) is an **exile-SELF cost** — named CHEAP in the ledger, because it is
+D159's `sacrificesSelf` machinery one event over: the same recognition, the
+same offer gate, a `CardsMoved` to exile instead of a graveyard. The other
+three are ledger regulars: `Cabal Surgeon` (exile-from-graveyard), `Carnage
+Altar` (the sacrifice-cost chooser's THIRTEENTH entry), `Catapult Master`
+(tap-creatures).
+
+**Batch 9 — twenty-one landed, three firsts:**
+
+- **The first SELF-attack triggers.** `Burrenton Shield-Bearers` ("whenever
+  this creature attacks, target creature gets +0/+3") and `Cat-Owl`
+  ("…untap target artifact or creature") watch `AttackersDeclared` with an
+  is-it-me filter — Armasaur's event scoped to one attacker, which is the
+  granularity-safe shape (one self, one entry). Cat-Owl's test is the
+  pretty one: it attacks, targets ITSELF, and straightens mid-combat — the
+  attack's own tap undone by the trigger it caused.
+- **D135's conditional entry proven BOTH ways by a shipped script's test.**
+  `Castle Ardenvale` enters TAPPED with no Plains and UNTAPPED with one —
+  the first script whose card carries an "enters tapped unless" line, so
+  the first per-card test that pins the condition's two answers. Its
+  activated line is also **the first token maker on a LAND** (a1 after the
+  mana line, a 1/1 Human).
+- **The pool's SECOND enchantment.** `Captive Flame` (a repeatable
+  activated pump) joins `Ajani's Welcome` — the D160 zero-pin that became
+  one now reads TWO, with its comment carrying both names.
+
+The other eighteen ride shipped shapes: three self-sacrifice destroys
+(`Capashen Unicorn`, `Cathar Commando`, `Caustic Caterpillar` — the
+"artifact or enchantment" two-kind target, an indestructible negative on
+the Unicorn), two flash ETB debuffs against opponent creatures
+(`Brinebarrow Intruder`, `Burrog Befuddler`), two ETB pumps (`Briarpack
+Alpha`, `Bone Pit Brute`), dies-tokens (`Brindle Shoat`'s Boar, `Brood
+Weaver`'s Spider), ETB tokens (`Broodmate Dragon`'s 4/4, `Cartographer's
+Companion`'s Map), a dies-draw (`Buzz Bots`), an ETB draw (`Carven
+Caryatid` — Wall of Omens's shape from the arc's first batch), ETB gains
+(`Bulwark Giant`'s 5, `Cathedral Sanctifier`'s 3), a mana-free self-sac
+gain (`Brindle Boar`) and drain (`Bile Urchin`'s twin `Cackling Imp`, on a
+tap), a self-sac targeted debuff (`Cabal Trainee`), and a creature-body
+untap (`Blossom Dryad`).
+
+⚠️⚠️ **TWO LESSONS THE TESTS TAUGHT, one of them a genuine footgun:**
+
+- **`g.state.cards[enterCastle(g)]` reads the state BEFORE the call.**
+  JavaScript evaluates the member chain ahead of the bracketed expression,
+  and this engine's state is IMMUTABLE — so the index went into the
+  PRE-entry cards map, where nothing is tapped, and D135's rule looked
+  broken while working perfectly. A probe with the same steps in separate
+  statements proved the engine right in one run. The fix is a hoisted
+  variable and a comment; the lesson is that an immutable-state engine
+  turns this classic evaluation-order trap into a silent time-travel read.
+- **An unattached Aura is not offered as a generic enchantment target.**
+  `Pacifism` placed on the battlefield by a Tier-3 move was REFUSED as a
+  target for "target artifact or enchantment" (illegalTarget) while a plain
+  enchantment passes — recorded as a reportable below, because an Aura on
+  the battlefield IS an enchantment and a generic enchantment target
+  should reach it.
+
+**Re-measured, every delta exactly the twenty-one cards:** `complete`
+1,837 → 1,858 · `blocked` 29,855 → 29,834 · `scriptableToday` 1,156 → 1,135
+· ladder [1135, 1234, 3187, 5071, 6258] · botPool creature 1,221 → 1,240,
+enchantment 1 → 2, land 224 → 225 · tier3 `abilityText` 17,394 → 17,381,
+`payable` 4,784, `silentAfter` 2,248 → 2,269 · fixtures 255 → 280 (24
+tokens — FOUR new pins: the 3/3 Boar `tpca 14`, the 4/4 Dragon `tmm3 7`,
+the 1/1 Human `tfdn 3`, the Map `tbig 7`) · `batch.json` at 1,022 (21
+landed + 4 refused off 1,047, exact) · `botDeck.ts` regenerated (Captive
+Flame joins; Adun reaches 1,023).
+
+**Verified: `node scripts/cardgen/verify.cjs --full` — ALL FIVE GATES
+PASSED in one invocation on the idle machine:** `tsc -b` clean ·
+conformance green · coverage accounting green over the real database ·
+198 test files, 2,039 Vitest passed / 10 skipped (177 / 1,932 before) · the
+500-seed replay fuzz gate green at 568.2 s (128 scripts registered — ⚠️ 32 s
+of margin left on the 600 s timeout; the wall grows with the script count,
+and a second index-scale optimization is approaching DUE the way D161 made
+the first one due) · `npm run build` clean · probe 124/124 ·
+`battery-anim.cjs bot engine prompts` 127/127.
+
+**Checked by breaking it, in the suite:** Castle's condition pinned from
+BOTH sides in one test; the Unicorn's indestructible survival with the
+cost staying paid; Brinebarrow's own-creature refusal; Boltwing's
+opponent-entry negative beside Lumaret's (D165's pair, one batch on);
+Briarknit-style negatives on the debuff twins.
+
+**Reportables (D166):**
+
+- **The exile-self cost is the cheapest ledger entry ever named** —
+  `sacrificesSelf` one event over. Building it clears Brittle Effigy and
+  its class in an afternoon.
+- **The unattached-Aura targeting question:** the candidates layer refuses
+  an Aura for a generic "target enchantment" clause. If that is a kind-
+  classification quirk rather than a rule, ~every Aura is invisible to
+  enchantment removal the engine runs — worth one look in the next
+  targeting pass.
+- The sacrifice-cost chooser holds THIRTEEN of the ledger's 30 entries.
+- D164/D165's items stand (`ctx.random`, exile-from-graveyard,
+  once-per-turn memory, per-damage-entry granularity, remove-counter).

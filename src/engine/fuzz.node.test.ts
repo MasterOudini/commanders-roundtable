@@ -128,6 +128,27 @@ import { BRANDYWINE_FARMER_SCRIPT } from './scripts/cards/brandywineFarmer';
 import { BRASS_SECRETARY_SCRIPT } from './scripts/cards/brassSecretary';
 import { BRAZEN_FREEBOOTER_SCRIPT } from './scripts/cards/brazenFreebooter';
 import { BRIARKNIT_KAMI_SCRIPT } from './scripts/cards/briarknitKami';
+import { BRIARPACK_ALPHA_SCRIPT } from './scripts/cards/briarpackAlpha';
+import { BRINDLE_BOAR_SCRIPT } from './scripts/cards/brindleBoar';
+import { BRINDLE_SHOAT_SCRIPT } from './scripts/cards/brindleShoat';
+import { BRINEBARROW_INTRUDER_SCRIPT } from './scripts/cards/brinebarrowIntruder';
+import { BROOD_WEAVER_SCRIPT } from './scripts/cards/broodWeaver';
+import { BROODMATE_DRAGON_SCRIPT } from './scripts/cards/broodmateDragon';
+import { BULWARK_GIANT_SCRIPT } from './scripts/cards/bulwarkGiant';
+import { BURRENTON_SHIELD_BEARERS_SCRIPT } from './scripts/cards/burrentonShieldBearers';
+import { BURROG_BEFUDDLER_SCRIPT } from './scripts/cards/burrogBefuddler';
+import { BUZZ_BOTS_SCRIPT } from './scripts/cards/buzzBots';
+import { CABAL_TRAINEE_SCRIPT } from './scripts/cards/cabalTrainee';
+import { CACKLING_IMP_SCRIPT } from './scripts/cards/cacklingImp';
+import { CAPASHEN_UNICORN_SCRIPT } from './scripts/cards/capashenUnicorn';
+import { CAPTIVE_FLAME_SCRIPT } from './scripts/cards/captiveFlame';
+import { CARTOGRAPHERS_COMPANION_SCRIPT } from './scripts/cards/cartographersCompanion';
+import { CARVEN_CARYATID_SCRIPT } from './scripts/cards/carvenCaryatid';
+import { CASTLE_ARDENVALE_SCRIPT } from './scripts/cards/castleArdenvale';
+import { CAT_OWL_SCRIPT } from './scripts/cards/catOwl';
+import { CATHAR_COMMANDO_SCRIPT } from './scripts/cards/catharCommando';
+import { CATHEDRAL_SANCTIFIER_SCRIPT } from './scripts/cards/cathedralSanctifier';
+import { CAUSTIC_CATERPILLAR_SCRIPT } from './scripts/cards/causticCaterpillar';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -352,6 +373,16 @@ const DECK = [
   'Book of Rass', 'Boros Cluestone', 'Boros Locket', 'Botanical Plaza',
   'Bottle Gnomes', 'Braidwood Cup', 'Bramble Elemental', 'Brandywine Farmer',
   'Brass Secretary', 'Brazen Freebooter', 'Briarknit Kami',
+  // M6.4i/D166 — batch 9: two SELF-attack triggers (Burrenton, Cat-Owl —
+  // the fuzzer's random attacks exercise both), D135's conditional entry on
+  // Castle Ardenvale (a Plains in the deck answers it both ways), and
+  // eighteen twins of shipped shapes.
+  'Briarpack Alpha', 'Brindle Boar', 'Brindle Shoat', 'Brinebarrow Intruder',
+  'Brood Weaver', 'Broodmate Dragon', 'Bulwark Giant',
+  'Burrenton Shield-Bearers', 'Burrog Befuddler', 'Buzz Bots',
+  'Cabal Trainee', 'Cackling Imp', 'Capashen Unicorn', 'Captive Flame',
+  "Cartographer's Companion", 'Carven Caryatid', 'Castle Ardenvale',
+  'Cat-Owl', 'Cathar Commando', 'Cathedral Sanctifier', 'Caustic Caterpillar',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -503,6 +534,27 @@ const SCRIPTS = createRegistry([
   BRASS_SECRETARY_SCRIPT,
   BRAZEN_FREEBOOTER_SCRIPT,
   BRIARKNIT_KAMI_SCRIPT,
+  BRIARPACK_ALPHA_SCRIPT,
+  BRINDLE_BOAR_SCRIPT,
+  BRINDLE_SHOAT_SCRIPT,
+  BRINEBARROW_INTRUDER_SCRIPT,
+  BROOD_WEAVER_SCRIPT,
+  BROODMATE_DRAGON_SCRIPT,
+  BULWARK_GIANT_SCRIPT,
+  BURRENTON_SHIELD_BEARERS_SCRIPT,
+  BURROG_BEFUDDLER_SCRIPT,
+  BUZZ_BOTS_SCRIPT,
+  CABAL_TRAINEE_SCRIPT,
+  CACKLING_IMP_SCRIPT,
+  CAPASHEN_UNICORN_SCRIPT,
+  CAPTIVE_FLAME_SCRIPT,
+  CARTOGRAPHERS_COMPANION_SCRIPT,
+  CARVEN_CARYATID_SCRIPT,
+  CASTLE_ARDENVALE_SCRIPT,
+  CAT_OWL_SCRIPT,
+  CATHAR_COMMANDO_SCRIPT,
+  CATHEDRAL_SANCTIFIER_SCRIPT,
+  CAUSTIC_CATERPILLAR_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,
