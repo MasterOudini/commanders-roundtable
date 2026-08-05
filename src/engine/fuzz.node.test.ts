@@ -65,6 +65,19 @@ import { ARCHAEOMANCER_SCRIPT } from './scripts/cards/archaeomancer';
 import { ARCHIVIST_SCRIPT } from './scripts/cards/archivist';
 import { ARCHON_OF_JUSTICE_SCRIPT } from './scripts/cards/archonOfJustice';
 import { ARDENT_ELEMENTALIST_SCRIPT } from './scripts/cards/ardentElementalist';
+import { ARGOTHIAN_ENCHANTRESS_SCRIPT } from './scripts/cards/argothianEnchantress';
+import { ARK_OF_BLIGHT_SCRIPT } from './scripts/cards/arkOfBlight';
+import { ARMADA_WURM_SCRIPT } from './scripts/cards/armadaWurm';
+import { ARMASAUR_GUIDE_SCRIPT } from './scripts/cards/armasaurGuide';
+import { ASGARDIAN_CITADEL_SCRIPT } from './scripts/cards/asgardianCitadel';
+import { ASHEN_RIDER_SCRIPT } from './scripts/cards/ashenRider';
+import { ASHIOKS_REAPER_SCRIPT } from './scripts/cards/ashioksReaper';
+import { ASPIRING_AERONAUT_SCRIPT } from './scripts/cards/aspiringAeronaut';
+import { ATTENDED_KNIGHT_SCRIPT } from './scripts/cards/attendedKnight';
+import { AURIOK_TRANSFIXER_SCRIPT } from './scripts/cards/auriokTransfixer';
+import { AVEN_BATTLE_PRIEST_SCRIPT } from './scripts/cards/avenBattlePriest';
+import { AVEN_CLOUDCHASER_SCRIPT } from './scripts/cards/avenCloudchaser';
+import { AVEN_FOGBRINGER_SCRIPT } from './scripts/cards/avenFogbringer';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -237,6 +250,16 @@ const DECK = [
   'Ant Queen', 'Aquus Steed', 'Arashin Cleric', 'Arasta of the Endless Web',
   'Arborback Stomper', 'Archaeomancer', 'Archivist', 'Archon of Justice',
   'Ardent Elementalist',
+  // M6.4e/D162 — batch 5: the first ATTACK-COUNT trigger (Armasaur Guide fires
+  // only on ≥3-attacker declarations), a second cast-watcher (Argothian
+  // Enchantress, enchantment spells), an enchantment-dies watcher (Ashiok's
+  // Reaper), an enters-OR-dies double def (Ashen Rider), and two targeted
+  // ActivatedDefs (Ark of Blight sacrifices ITSELF to kill a land; Auriok
+  // Transfixer taps an artifact).
+  'Argothian Enchantress', 'Ark of Blight', 'Armada Wurm', 'Armasaur Guide',
+  'Asgardian Citadel', 'Ashen Rider', "Ashiok's Reaper", 'Aspiring Aeronaut',
+  'Attended Knight', 'Auriok Transfixer', 'Aven Battle Priest',
+  'Aven Cloudchaser', 'Aven Fogbringer',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -325,6 +348,19 @@ const SCRIPTS = createRegistry([
   ARCHIVIST_SCRIPT,
   ARCHON_OF_JUSTICE_SCRIPT,
   ARDENT_ELEMENTALIST_SCRIPT,
+  ARGOTHIAN_ENCHANTRESS_SCRIPT,
+  ARK_OF_BLIGHT_SCRIPT,
+  ARMADA_WURM_SCRIPT,
+  ARMASAUR_GUIDE_SCRIPT,
+  ASGARDIAN_CITADEL_SCRIPT,
+  ASHEN_RIDER_SCRIPT,
+  ASHIOKS_REAPER_SCRIPT,
+  ASPIRING_AERONAUT_SCRIPT,
+  ATTENDED_KNIGHT_SCRIPT,
+  AURIOK_TRANSFIXER_SCRIPT,
+  AVEN_BATTLE_PRIEST_SCRIPT,
+  AVEN_CLOUDCHASER_SCRIPT,
+  AVEN_FOGBRINGER_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

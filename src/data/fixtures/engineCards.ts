@@ -6067,6 +6067,465 @@ export const ARDENT_ELEMENTALIST: CardData = {
   "singleImage": true
 };
 
+export const ARGOTHIAN_ENCHANTRESS: CardData = {
+  "scryfallId": "5b3847f1-5dda-463f-b898-ea2a879313a1",
+  "oracleId": "11f17f85-ca97-4551-838f-7cb32f0e5f10",
+  "name": "Argothian Enchantress",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Argothian Enchantress",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Human Druid",
+      "oracleText": "Shroud (This creature can't be the target of spells or abilities.)\nWhenever you cast an enchantment spell, draw a card.",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Daren Bader",
+      "imageId": "5b3847f1-5dda-463f-b898-ea2a879313a1"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Shroud"
+  ],
+  "setCode": "prm",
+  "collectorNumber": "36104",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARK_OF_BLIGHT: CardData = {
+  "scryfallId": "f3b09956-cc34-4472-8b9f-ae355522bd5a",
+  "oracleId": "b4505b07-ac99-4706-88b2-6164389e447c",
+  "name": "Ark of Blight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ark of Blight",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "{3}, {T}, Sacrifice this artifact: Destroy target land.",
+      "flavorText": "When opened, it erases entire landscapes from minds and maps.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "David Martin",
+      "imageId": "f3b09956-cc34-4472-8b9f-ae355522bd5a"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "scg",
+  "collectorNumber": "140",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARMADA_WURM: CardData = {
+  "scryfallId": "26290f14-f2f4-4c6c-b167-75379d78370d",
+  "oracleId": "33598888-0367-4085-9415-f4e21da08354",
+  "name": "Armada Wurm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Armada Wurm",
+      "manaCost": "{2}{G}{G}{W}{W}",
+      "typeLine": "Creature — Wurm",
+      "oracleText": "Trample\nWhen this creature enters, create a 5/5 green Wurm creature token with trample.",
+      "flavorText": "No one in the Conclave acts alone.",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Volkan Baǵa",
+      "imageId": "26290f14-f2f4-4c6c-b167-75379d78370d"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "gk1",
+  "collectorNumber": "108",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARMASAUR_GUIDE: CardData = {
+  "scryfallId": "c80fc380-0499-4499-8a60-c43844c02c9b",
+  "oracleId": "1d4e7422-2e26-49ce-beef-08f61583089a",
+  "name": "Armasaur Guide",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Armasaur Guide",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Dinosaur",
+      "oracleText": "Vigilance (Attacking doesn't cause this creature to tap.)\nWhenever you attack with three or more creatures, put a +1/+1 counter on target creature you control.",
+      "flavorText": "The armasaur was skittish about the lanterns, until it noticed the captivating dance of its shadow along the walls.",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Loïc Canavaggia",
+      "imageId": "c80fc380-0499-4499-8a60-c43844c02c9b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ASGARDIAN_CITADEL: CardData = {
+  "scryfallId": "d5f88c3d-b17b-46aa-a573-449350f95d46",
+  "oracleId": "e3614df6-ce84-4180-ade1-a1751e8e3c9a",
+  "name": "Asgardian Citadel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Asgardian Citadel",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {R} or {W}.",
+      "flavorText": "\"Asgard remains Asgard, be it in space, a mystic realm, or floating above Broxton, Oklahoma.\"\n—Thor",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Paulius Daščioras",
+      "imageId": "d5f88c3d-b17b-46aa-a573-449350f95d46"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "msh",
+  "collectorNumber": "258",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ASHEN_RIDER: CardData = {
+  "scryfallId": "1f2054d9-d10f-4127-aece-71c3f0ef547c",
+  "oracleId": "455f66eb-3e33-4b51-9ec1-32288bdd3a68",
+  "name": "Ashen Rider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ashen Rider",
+      "manaCost": "{4}{W}{W}{B}{B}",
+      "typeLine": "Creature — Archon",
+      "oracleText": "Flying\nWhen this creature enters or dies, exile target permanent.",
+      "flavorText": "One offering to appease her on her arrival. Another to celebrate her departure.",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Chris Rahn",
+      "imageId": "1f2054d9-d10f-4127-aece-71c3f0ef547c"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 8,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "2x2",
+  "collectorNumber": "173",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ASHIOK_S_REAPER: CardData = {
+  "scryfallId": "83957fe0-6500-420c-9b7a-2448a1c1d3b3",
+  "oracleId": "6f1e5571-ddda-4cea-84ef-36a571d8fd51",
+  "name": "Ashiok's Reaper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ashiok's Reaper",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Nightmare",
+      "oracleText": "Whenever an enchantment you control is put into a graveyard from the battlefield, draw a card.",
+      "flavorText": "Neva's dreams were haunted by memories of the invasion—oil-black tendrils grasping at her through the mist. Or . . . was this something new?",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Denis Zhbankov",
+      "imageId": "83957fe0-6500-420c-9b7a-2448a1c1d3b3"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "woe",
+  "collectorNumber": "79",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ASPIRING_AERONAUT: CardData = {
+  "scryfallId": "1ae6c87f-003b-44b7-96fd-ab8fca9af6f1",
+  "oracleId": "b2e31c0f-8914-4a18-bc05-44efb7e0f18c",
+  "name": "Aspiring Aeronaut",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aspiring Aeronaut",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Human Artificer",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhen this creature enters, create a 1/1 colorless Thopter artifact creature token with flying.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Willian Murai",
+      "imageId": "1ae6c87f-003b-44b7-96fd-ab8fca9af6f1"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ori",
+  "collectorNumber": "46",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ATTENDED_KNIGHT: CardData = {
+  "scryfallId": "c0f5cb3f-c27d-4b35-930f-00d806393796",
+  "oracleId": "b3eb8f65-5eba-42a9-a1b4-4f37b14d03d9",
+  "name": "Attended Knight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Attended Knight",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "First strike\nWhen this creature enters, create a 1/1 white Soldier creature token.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Seb McKinnon",
+      "imageId": "c0f5cb3f-c27d-4b35-930f-00d806393796"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "First strike"
+  ],
+  "setCode": "m13",
+  "collectorNumber": "5",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AURIOK_TRANSFIXER: CardData = {
+  "scryfallId": "9f5c3f22-f228-4503-9d35-ee1b36a46ef0",
+  "oracleId": "0ad5f4c5-f6d2-4e96-af65-5488d9711113",
+  "name": "Auriok Transfixer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Auriok Transfixer",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Scout",
+      "oracleText": "{W}, {T}: Tap target artifact.",
+      "flavorText": "\"My grandfather knew enough spells to fill a hundred scrolls. Nowadays, if a spell cannot fight the levelers, it is not even taught to our young.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Stephen Tappin",
+      "imageId": "9f5c3f22-f228-4503-9d35-ee1b36a46ef0"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mrd",
+  "collectorNumber": "5",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AVEN_BATTLE_PRIEST: CardData = {
+  "scryfallId": "a37d3345-3950-4977-af19-209c7a2f8d0c",
+  "oracleId": "696fb1fa-5535-4f73-8235-ad4416dcfdd0",
+  "name": "Aven Battle Priest",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aven Battle Priest",
+      "manaCost": "{5}{W}",
+      "typeLine": "Creature — Bird Cleric",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhen this creature enters, you gain 3 life.",
+      "flavorText": "When the shadow of the aven falls across the battlefield, hope rises in the hearts of the soldiers.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Severin Brassell",
+      "imageId": "a37d3345-3950-4977-af19-209c7a2f8d0c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "ORI-6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AVEN_CLOUDCHASER: CardData = {
+  "scryfallId": "03872618-1428-48c9-8f6d-8edc53560df2",
+  "oracleId": "48bda7dd-d023-41e8-8c28-e0cfda0d07ca",
+  "name": "Aven Cloudchaser",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aven Cloudchaser",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Bird Soldier",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhen this creature enters, destroy target enchantment.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Justin Sweet",
+      "imageId": "03872618-1428-48c9-8f6d-8edc53560df2"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "8ed",
+  "collectorNumber": "5",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AVEN_FOGBRINGER: CardData = {
+  "scryfallId": "c0ee9e09-c4b1-4133-90a3-350677f0b72a",
+  "oracleId": "3fb3d4b3-1034-449c-864b-633e7f39d73f",
+  "name": "Aven Fogbringer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aven Fogbringer",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Bird Wizard",
+      "oracleText": "Flying\nWhen this creature enters, return target land to its owner's hand.",
+      "flavorText": "\"I cover the land with blankets and it sleeps.\"",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "c0ee9e09-c4b1-4133-90a3-350677f0b72a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "jud",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -6371,6 +6830,74 @@ export const SPIDER_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const WURM_TOKEN: CardData = {
+  "scryfallId": "33ee3f6c-5df6-4271-b2f9-86b9afffab7b",
+  "oracleId": "25be869c-ea45-4fdc-9cff-bde028d5cb66",
+  "name": "Wurm",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Wurm",
+      "manaCost": "",
+      "typeLine": "Token Creature — Wurm",
+      "oracleText": "Trample",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Anthony Palumbo",
+      "imageId": "33ee3f6c-5df6-4271-b2f9-86b9afffab7b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "trtr",
+  "collectorNumber": "11",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const THOPTER_TOKEN: CardData = {
+  "scryfallId": "0b7388df-6f76-4e96-9a28-62c8c0e6c9d4",
+  "oracleId": "7c0b6b53-4ddb-4bb5-8a26-0041b2006d3f",
+  "name": "Thopter",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Thopter",
+      "manaCost": "",
+      "typeLine": "Token Artifact Creature — Thopter",
+      "oracleText": "Flying",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Richard Wright",
+      "imageId": "0b7388df-6f76-4e96-9a28-62c8c0e6c9d4"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "tafc",
+  "collectorNumber": "12",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -6545,6 +7072,19 @@ export const ENGINE_CARDS: CardData[] = [
   ARCHIVIST,
   ARCHON_OF_JUSTICE,
   ARDENT_ELEMENTALIST,
+  ARGOTHIAN_ENCHANTRESS,
+  ARK_OF_BLIGHT,
+  ARMADA_WURM,
+  ARMASAUR_GUIDE,
+  ASGARDIAN_CITADEL,
+  ASHEN_RIDER,
+  ASHIOK_S_REAPER,
+  ASPIRING_AERONAUT,
+  ATTENDED_KNIGHT,
+  AURIOK_TRANSFIXER,
+  AVEN_BATTLE_PRIEST,
+  AVEN_CLOUDCHASER,
+  AVEN_FOGBRINGER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -6554,4 +7094,6 @@ export const ENGINE_CARDS: CardData[] = [
   VILLAIN_TOKEN,
   INSECT_TOKEN,
   SPIDER_TOKEN,
+  WURM_TOKEN,
+  THOPTER_TOKEN,
 ];

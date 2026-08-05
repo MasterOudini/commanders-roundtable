@@ -826,6 +826,43 @@ export function collectTriggers(
   const ctxAfter = readonlyCtx(after, oracle, scripts, cache);
   const ctxBefore = readonlyCtx(before, oracle, scripts, cacheBefore);
 
+  // ⚠️ THE PER-ORACLE SOURCE INDEX (D162) — D147 hoisted the id lists; this
+  // removes the remaining O(events × defs × cards) scan that D128 named and
+  // the 500-seed gate finally priced: 599.5 s of a 600 s timeout at 57
+  // registered defs (D161). A def can only ever fire from instances of ITS OWN
+  // card, and the registry is keyed by `oracleId` — so one O(cards) pass here
+  // replaces a full-board scan per (event × def), and each def walks a list
+  // that is almost always empty or length one.
+  //
+  // ⚠️ ORDER IS LOAD-BEARING: the lists keep `Object.keys` order, so the
+  // (def, id) match sequence — and therefore every `PendingTrigger` id and the
+  // APNAP input order — is BIT-IDENTICAL to the scan it replaces. Proven by a
+  // 60-seed A/B with byte-identical counters, not assumed.
+  const indexByOracle = (state: GameState, ids: readonly string[]) => {
+    const m = new Map<string, string[]>();
+    for (const id of ids) {
+      const o = state.cards[id]?.oracleId;
+      if (!o) continue;
+      const got = m.get(o);
+      if (got) got.push(id);
+      else m.set(o, [id]);
+    }
+    return m;
+  };
+  // ⚠️ LAZY, and the first cut's eagerness was a measured REGRESSION: built
+  // unconditionally, the two maps cost an O(cards) pass of hashing and allocs
+  // on EVERY collectTriggers call — and most batches contain no event any def
+  // watches, so the old filtered scan they replaced never ran at all there.
+  // 60-seed A/B: eager 84.8 s against the 71.4 s scan it was meant to beat,
+  // with byte-identical counters. Built on first demand, the cost lands only
+  // where the saved scans lived.
+  let byOracleAfterMemo: Map<string, string[]> | null = null;
+  let byOracleBeforeMemo: Map<string, string[]> | null = null;
+  const byOracle = (look: boolean): Map<string, string[]> => {
+    if (look) return (byOracleBeforeMemo ??= indexByOracle(before, idsBefore));
+    return (byOracleAfterMemo ??= indexByOracle(after, idsAfter));
+  };
+
   for (const event of applied) {
     for (const { script, def } of scripts.triggersFor(event.body.t)) {
       // ⚠️ CR 603.10a — A TRIGGER THAT LOOKS BACK IN TIME ASKS THE OLD BOARD,
@@ -837,11 +874,13 @@ export function collectTriggers(
       // so a dies-trigger could not be written correctly at all (D128).
       const look = def.looksBack === true;
       const state = look ? before : after;
-      const ids = look ? idsBefore : idsAfter;
       const ctx = look ? ctxBefore : ctxAfter;
-      for (const id of ids) {
+      // The index above — only this script's own instances, in the same order
+      // the full scan would have visited them.
+      const candidates = byOracle(look).get(script.oracleId) ?? [];
+      for (const id of candidates) {
         const card = state.cards[id];
-        if (!card || card.oracleId !== script.oracleId) continue;
+        if (!card) continue;
         if (!def.activeZones.includes(card.zone.kind)) continue;
       // ⚠️ **CR 613 LAYER 6 — A SOURCE WITH NO ABILITIES IS NOT A SOURCE.** This
       // is the other half of `hasAbilities`: clearing an object's keywords says

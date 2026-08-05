@@ -111,6 +111,20 @@ const COMPLETE: readonly [string, CardData][] = [
   ['Archivist', fx.ARCHIVIST],
   ['Archon of Justice', fx.ARCHON_OF_JUSTICE],
   ['Ardent Elementalist', fx.ARDENT_ELEMENTALIST],
+  // M6.4e (D162) — batch 5.
+  ['Argothian Enchantress', fx.ARGOTHIAN_ENCHANTRESS],
+  ['Ark of Blight', fx.ARK_OF_BLIGHT],
+  ['Armada Wurm', fx.ARMADA_WURM],
+  ['Armasaur Guide', fx.ARMASAUR_GUIDE],
+  ['Asgardian Citadel', fx.ASGARDIAN_CITADEL],
+  ['Ashen Rider', fx.ASHEN_RIDER],
+  ["Ashiok's Reaper", fx.ASHIOK_S_REAPER],
+  ['Aspiring Aeronaut', fx.ASPIRING_AERONAUT],
+  ['Attended Knight', fx.ATTENDED_KNIGHT],
+  ['Auriok Transfixer', fx.AURIOK_TRANSFIXER],
+  ['Aven Battle Priest', fx.AVEN_BATTLE_PRIEST],
+  ['Aven Cloudchaser', fx.AVEN_CLOUDCHASER],
+  ['Aven Fogbringer', fx.AVEN_FOGBRINGER],
 ];
 
 /**

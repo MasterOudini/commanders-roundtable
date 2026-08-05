@@ -7,6 +7,19 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ARGOTHIAN_ENCHANTRESS_SCRIPT } from './cards/argothianEnchantress';
+import { ARK_OF_BLIGHT_SCRIPT } from './cards/arkOfBlight';
+import { ARMADA_WURM_SCRIPT } from './cards/armadaWurm';
+import { ARMASAUR_GUIDE_SCRIPT } from './cards/armasaurGuide';
+import { ASGARDIAN_CITADEL_SCRIPT } from './cards/asgardianCitadel';
+import { ASHEN_RIDER_SCRIPT } from './cards/ashenRider';
+import { ASHIOKS_REAPER_SCRIPT } from './cards/ashioksReaper';
+import { ASPIRING_AERONAUT_SCRIPT } from './cards/aspiringAeronaut';
+import { ATTENDED_KNIGHT_SCRIPT } from './cards/attendedKnight';
+import { AURIOK_TRANSFIXER_SCRIPT } from './cards/auriokTransfixer';
+import { AVEN_BATTLE_PRIEST_SCRIPT } from './cards/avenBattlePriest';
+import { AVEN_CLOUDCHASER_SCRIPT } from './cards/avenCloudchaser';
+import { AVEN_FOGBRINGER_SCRIPT } from './cards/avenFogbringer';
 import { ANABA_SHAMAN_SCRIPT } from './cards/anabaShaman';
 import { ANGEL_OF_DESPAIR_SCRIPT } from './cards/angelOfDespair';
 import { ANGEL_OF_MERCY_SCRIPT } from './cards/angelOfMercy';
@@ -145,6 +158,19 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ARGOTHIAN_ENCHANTRESS_SCRIPT,
+  ARK_OF_BLIGHT_SCRIPT,
+  ARMADA_WURM_SCRIPT,
+  ARMASAUR_GUIDE_SCRIPT,
+  ASGARDIAN_CITADEL_SCRIPT,
+  ASHEN_RIDER_SCRIPT,
+  ASHIOKS_REAPER_SCRIPT,
+  ASPIRING_AERONAUT_SCRIPT,
+  ATTENDED_KNIGHT_SCRIPT,
+  AURIOK_TRANSFIXER_SCRIPT,
+  AVEN_BATTLE_PRIEST_SCRIPT,
+  AVEN_CLOUDCHASER_SCRIPT,
+  AVEN_FOGBRINGER_SCRIPT,
   ANABA_SHAMAN_SCRIPT,
   ANGEL_OF_DESPAIR_SCRIPT,
   ANGEL_OF_MERCY_SCRIPT,

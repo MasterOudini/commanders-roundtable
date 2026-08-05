@@ -107,7 +107,10 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // first select.cjs batch at scale, 19 of 25 with the six refusals named.
     // M6.4d (D161) landed thirteen and taught the SELECTION two refusal shapes
     // its needs column could not see (spells; unenforced target clauses).
-    expect(SHIPPED_SCRIPTS).toHaveLength(44);
+    // M6.4e (D162) landed thirteen of 25 — the twelve refusals are all cost or
+    // prompt classes the ledger already names, six of them the general-
+    // sacrifice chooser alone.
+    expect(SHIPPED_SCRIPTS).toHaveLength(57);
   });
 });
 

@@ -3874,6 +3874,54 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       random-discard, tap-N, exile-from-library); D160's spell-seam and
       script-raised-prompt items stand.
 
+- [x] **M6.4e — The index that was due, and thirteen more (2026-08-05):**
+      **1,787 of 31,692 Commander-legal cards now execute completely, up from
+      1,774.** Decisions in **D162**.
+      ⚠️⚠️ **THE collectTriggers INDEX LANDED, AND THE FIRST CUT WAS A MEASURED
+      REGRESSION.** The per-oracle index named since D158 and declared due by
+      D161's 599.5 s squeaker: three 60-seed legs on the idle machine,
+      counters byte-identical across all three — **baseline scan 71.4 s; eager
+      index 84.8 s (it built both sides' maps unconditionally per call, and
+      most event batches match no def); lazy memos 61.5 s, 14% under the
+      baseline.** An index that is not lazier than the scan it replaces is a
+      second scan. The 500-seed gate is the at-scale proof: **394.4 s with 57
+      scripts against 599.5 s with 44** — thirteen more scripts, 205 seconds
+      faster, where D161 passed by half a second.
+      **Four firsts in batch 5:** the first def on a COMBAT event (`Armasaur
+      Guide` counts its controller's declared attackers — ≥3 asks for a
+      target, 2 asks for nothing, both pinned); the first script TAP (`Auriok
+      Transfixer`, the untap guard's mirror — a turned target gets no event);
+      the first TARGETED self-sacrifice (`Ark of Blight` — Darksteel Citadel
+      survives it and the Ark STAYS SPENT, the no-refund rule); the first
+      enters-OR-dies double def (`Ashen Rider`, one printed line, two defs,
+      the dies half looking back). Plus a second cast-watcher (`Argothian
+      Enchantress`, enchantment spells), an enchantment-dies watcher
+      (`Ashiok's Reaper`, looks back so a wipe still pays), three more ETB
+      tokens (Wurm `trtr 11` and Thopter `tafc 12` pinned; Attended Knight
+      reuses the `t40k 2★` Soldier), Radiant Fountain's shape on a land that
+      ALSO enters tapped (`Asgardian Citadel` — the test asserts both halves),
+      an ETB gain, an ETB enchantment destroy, an ETB land bounce.
+      ⚠️ **Twelve refusals, ZERO new classes — and six of them are the
+      general-sacrifice chooser alone** (Agent of Shauku, Ahriman, Akki
+      Scrapchomper, Arms Dealer, Army Ants, Aura Fracture), which D162
+      promotes to the single largest unlock in sight. The rest: Abyssal
+      Horror (script-raised prompt), Akki Ember-Keeper ("modified"), Amok
+      (random-discard), Ancestor's Prophet and Aphetto Grifter (tap-N),
+      Arc-Slogger (exile-from-library).
+      Fixtures 181 → 196 (11 tokens) · `SHIPPED_SCRIPTS` 44 → 57 · ladder
+      [1206, 1305, 3258, 5142, 6329] · `batch.json` at 1,122 · botDeck: **Ark
+      of Blight joined the bot's deck** (Adun reaches 985 from 982, Dreadbore
+      displaced).
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation: 127
+      test files, 1,671 Vitest passed / 10 skipped · the 500-seed gate green
+      at 394.4 s (57 scripts registered) · build clean · probe 124/124 ·
+      battery 127/127.**
+      ⚠️ **Reportables** (D162): the general-sacrifice chooser (six-in-one-
+      batch; an `Awaiting` from cost payment over a PUBLIC zone — cheaper than
+      it looks); the rest of the cost ledger (random-discard + `ctx.random`,
+      tap-N, exile-from-library); D160's spell seam and script-raised prompts;
+      the "modified" predicate.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

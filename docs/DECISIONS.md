@@ -10499,3 +10499,123 @@ since D158 — is now DUE before the next batch lands, built with an idle
   exile-from-library join the general-sacrifice chooser (D159) and
   random-discard as named, unbuilt cost machinery.
 - D160's spell-seam and script-raised-prompt reportables stand.
+
+## D162 — M6.4e: the collectTriggers index, and thirteen more (2026-08-05)
+
+**What was decided:** land the per-oracle index D158 named and D161 declared
+due, prove it byte-identical before trusting it, and then land batch 5 —
+thirteen of `select.cjs`'s 25, with the twelve refusals all falling into cost
+or prompt classes the ledger already names. **1,787 of 31,692 Commander-legal
+cards now execute completely, up from 1,774.**
+
+**The index, and the measured wrong turn.** `collectTriggers` had scanned every
+card id per (event × def) since M3 — noise at one script, and D161's 599.5 s
+gate pass (against a 600 s timeout) made it due. The A/B protocol was three
+legs at 60 seeds on the idle machine, counters compared byte-for-byte:
+
+- **Baseline (the old scan): 71.4 s** — 8,744 accepted intents · 305,864
+  events · 2,368 turns · 625 triggered abilities · 248 activated resolved by
+  script.
+- **The first cut was a REGRESSION: 84.8 s, byte-identical counters.** It
+  built `oracleId → InstanceId[]` maps for the after-state AND the before-state
+  unconditionally on every call — but most event batches match no def at all,
+  so the maps were built and thrown away thousands of times per game. An index
+  that is not lazier than the scan it replaces is just a second scan.
+- **The lazy fix: 61.5 s, byte-identical counters — 14% under the baseline.**
+  Two memos (`??=`), each built the FIRST time a def actually needs that
+  side's index; a batch that matches nothing builds nothing. The def loop asks
+  `byOracle(look).get(script.oracleId)` and walks only its own card's
+  instances; the oracleId equality check fell away because the index implies
+  it. Object key order is preserved, so `PendingTrigger` sequences — and every
+  replay hash — are bit-identical by construction, and the zero-valley case
+  (no registered scripts) still short-circuits before any index exists.
+
+The 500-seed proof is this batch's own gate: **394.4 s with 57 scripts
+registered, against 599.5 s with 44** — thirteen more scripts, 205 seconds
+faster, where the previous batch passed its 600 s timeout by half a second.
+
+**Batch 5 — thirteen landed, and four firsts:**
+
+- **The first def on a COMBAT event.** `Armasaur Guide` watches
+  `AttackersDeclared` and counts the declaration's attackers its controller
+  owns (≥3), then targets "creature you control" through D147's trigger
+  machinery and writes the counter Yotian's way. The negative is pinned: two
+  attackers ask for nothing.
+- **The first script to TAP.** `Auriok Transfixer` ("{W}, {T}: Tap target
+  artifact") emits `PermanentsTapped` with the mirror of Deserted Temple's
+  guard — a target already turned gets no event, asserted on the event both
+  ways.
+- **The first TARGETED self-sacrifice.** `Ark of Blight` combines D159's
+  chargeable "Sacrifice this artifact" with Deserted Temple's targeted
+  resolve; the indestructible check is carried by a real card — Darksteel
+  Citadel survives, and the Ark stays spent, because a cost is paid whether or
+  not the effect lands (CR 601.2, the no-refund rule).
+- **The first enters-OR-dies double def.** `Ashen Rider` is one printed line
+  and two TriggerDefs — Soul Warden's two-defs-one-line rule pointed at a
+  second event kind — the dies half looking back (CR 603.10a) and both halves
+  targeting.
+
+The rest of the thirteen ride shipped shapes: `Argothian Enchantress` is
+Talrand's cast-watcher asking for enchantment spells (its shroud is a printed
+Tier-2 keyword the targeting layer enforces already, D82); `Ashiok's Reaper`
+watches OTHER cards' deaths by derived type and controller, looking back so a
+wipe that takes the Reaper too still pays out; `Armada Wurm`, `Aspiring
+Aeronaut` and `Attended Knight` are Ambassador Oak's ETB token (two new pinned
+token fixtures — the trample Wurm `trtr 11`, the colorless Thopter `tafc 12` —
+and the Soldier reuses the `t40k 2★` printing the table already names);
+`Asgardian Citadel` is Radiant Fountain's gain beside D134's enters-tapped
+built-in, and its test asserts BOTH (the land enters tapped AND gains — a card
+is complete only if all of it runs); `Aven Battle Priest` gains 3; `Aven
+Cloudchaser` destroys a targeted enchantment (indestructible checked — an
+enchantment can carry the keyword); `Aven Fogbringer` bounces a targeted land
+to its OWNER's hand.
+
+**The twelve refusals, all named classes:** six general-sacrifice costs (Agent
+of Shauku, Ahriman, Akki Scrapchomper, Arms Dealer, Army Ants, Aura Fracture —
+the chooser D159 named is now SIX cards deep in a single batch of 25, the
+widest cost gap by far); Abyssal Horror (a script cannot raise the target
+player's discard prompt, D160); Akki Ember-Keeper (the "modified" predicate);
+Amok (random-discard cost); Ancestor's Prophet and Aphetto Grifter
+(tap-N-untapped-creatures costs); Arc-Slogger (exile-from-library cost). No
+NEW refusal class appeared — the ledger absorbed all twelve, which is what
+the ledger is for.
+
+**Re-measured, every delta exactly the thirteen cards:** `complete` 1,774 →
+1,787 · `blocked` 29,918 → 29,905 · `scriptableToday` 1,219 → 1,206 · ladder
+[1206, 1305, 3258, 5142, 6329] · botPool creature 1,175 → 1,186, artifact
+35 → 36, land 216 → 217 · tier3 `abilityText` 17,433 → 17,422, `payable`
+4,816 → 4,814 (the two ActivatedDefs' charged-note going silent), `silentAfter`
+2,185 → 2,198 · `SHIPPED_SCRIPTS` 44 → 57 · fixtures 181 → 196 (11 tokens) ·
+`batch.json` re-emitted at 1,122 · `botDeck.ts` regenerated — **Ark of Blight
+joined the bot's deck, displacing Dreadbore** (Adun Oakenshield reaches 985
+from 982).
+
+**Verified: `node scripts/cardgen/verify.cjs --full` — ALL FIVE GATES PASSED
+in one invocation on the idle machine:** `tsc -b` clean · conformance green ·
+coverage accounting green over the real database · 127 test files, 1,671
+Vitest passed / 10 skipped (114 / 1,598 before) · the 500-seed replay fuzz
+gate green at 394.4 s · `npm run build` clean · probe 124/124 ·
+`battery-anim.cjs bot engine prompts` 127/127.
+
+**Checked by breaking it, in the suite:** the eager-index regression is
+recorded above rather than repeated; Armasaur's two-attacker negative,
+Auriok's already-tapped no-event, Darksteel Citadel's survival with the Ark
+still spent, the Reaper's three negatives (opponent's enchantment, own
+creature, each its own test) and Enchantress's creature-spell negative are all
+permanent tests. All 34 new per-card tests passed on their first run.
+
+**Reportables (D162):**
+
+- **The general-sacrifice cost chooser is now the single largest unlock in
+  sight** — six refusals in THIS batch alone, ~an eighth of every batch since
+  D159 named it. It is a prompt (choose which land/Goblin/artifact to feed),
+  which means an `Awaiting` raised from cost payment — D137's hidden-zone
+  rules do not apply (the battlefield is public), so it is cheaper than it
+  looks.
+- The rest of the cost-class ledger stands: random-discard (Amok — also
+  blocked on `ctx.random`, still a stub), tap-N-untapped-creatures
+  (Ancestor's Prophet, Aphetto Grifter), exile-from-library (Arc-Slogger).
+- D160's spell-seam and script-raised-prompt items stand (Abyssal Horror
+  waits on the second).
+- The "modified" predicate (Akki Ember-Keeper) — needs equipment/aura/counter
+  state the engine HAS, composed into one derived question.

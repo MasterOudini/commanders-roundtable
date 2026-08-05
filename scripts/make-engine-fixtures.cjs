@@ -432,6 +432,26 @@ const WANTED = [
   'Archivist',
   'Archon of Justice',
   'Ardent Elementalist',
+  // M6.4e — batch 5 (D162): 13 landed of select.cjs's 25; the twelve refusals
+  // are six general-sacrifice costs (Agent of Shauku, Ahriman, Akki
+  // Scrapchomper, Arms Dealer, Army Ants, Aura Fracture), Abyssal Horror (a
+  // script cannot raise the target player's discard prompt), Akki Ember-Keeper
+  // (the "modified" predicate), Amok (random-discard cost), Ancestor's Prophet
+  // and Aphetto Grifter (tap-N-creatures costs), Arc-Slogger (exile-from-library
+  // cost).
+  'Argothian Enchantress',
+  'Ark of Blight',
+  'Armada Wurm',
+  'Armasaur Guide',
+  'Asgardian Citadel',
+  'Ashen Rider',
+  "Ashiok's Reaper",
+  'Aspiring Aeronaut',
+  'Attended Knight',
+  'Auriok Transfixer',
+  'Aven Battle Priest',
+  'Aven Cloudchaser',
+  'Aven Fogbringer',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -456,6 +476,9 @@ const WANTED_TOKENS = [
   // M6.4d (D161).
   { name: 'Insect', set: 'tsoi', cn: '7', key: 'INSECT_TOKEN' },
   { name: 'Spider', set: 'tmh1', cn: '14', key: 'SPIDER_TOKEN' },
+  // M6.4e (D162).
+  { name: 'Wurm', set: 'trtr', cn: '11', key: 'WURM_TOKEN' },
+  { name: 'Thopter', set: 'tafc', cn: '12', key: 'THOPTER_TOKEN' },
 ];
 
 function constName(name) {
