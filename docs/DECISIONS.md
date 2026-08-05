@@ -10619,3 +10619,131 @@ permanent tests. All 34 new per-card tests passed on their first run.
   waits on the second).
 - The "modified" predicate (Akki Ember-Keeper) — needs equipment/aura/counter
   state the engine HAS, composed into one derived question.
+
+## D163 — M6.4f: the REFUSED ledger, and nine more (2026-08-05)
+
+**What was decided:** stop paying the re-classification tax the selection had
+been charging every batch, then land batch 6 — nine of `select.cjs`'s 25.
+**1,796 of 31,692 Commander-legal cards now execute completely, up from
+1,787.**
+
+**TWELVE OF THE 25 SLOTS WERE D162's REFUSALS RE-OFFERED, VERBATIM.** The
+selection's two D161 filters are PARSE questions (spells; unenforced target
+clauses); a cost-class refusal is a DRAFTER's verdict — "the machinery to
+charge this cost does not exist" — and no parser row records it, so every
+refused card rotated straight back into the next batch. Half a batch of
+re-reading per batch, growing as the ledger grows.
+
+**The fix is the third selection filter, and unlike the two parse filters it
+is a NAMED LEDGER**: `REFUSED` in `cardgenSelect.node.test.ts`, name → class,
+one entry per card a drafter held and refused. Sixteen entries as of this
+batch: six `sacrifice-cost chooser`, three `tap-creatures cost`, and one each
+of `script-raised prompt`, `modified predicate`, `random-discard cost`,
+`exile-from-library cost`, `once-per-turn trigger memory`, `per-damage-entry
+trigger granularity`, `discard-cost chooser`.
+
+⚠️ **SELF-CORRECTING BY CONSTRUCTION, because a name-list beside a live
+codebase rots.** `select()` checks every REFUSED card's `engineCompleteness`
+during its scan and records any that now run completely; a test fails naming
+them. So the day a class is BUILT and its cards land, the stale entries
+cannot survive the suite — the ledger can only ever under-offer cards that
+are genuinely still blocked, never hide ones that stopped being. The class
+strings exist so that day is findable with grep. Offerable pool 1,122 →
+**1,097** — 9 landed, 16 refused, exact.
+
+**Batch 6 — nine landed, four firsts:**
+
+- **The first HYBRID activation cost a shipped def charges.** `Azorius
+  Locket` ("{W/U}{W/U}{W/U}{W/U}, {T}, Sacrifice this artifact: Draw two
+  cards") — the cost rides the same payment problem a hybrid CASTING cost
+  has ridden since M3, the parse is pinned payable + sacrificesSelf, and the
+  test pays all four pips in white alone, which is the hybrid's whole point.
+- **D139's numeric restriction exercised on the ACTIVATED path.** `Aysen
+  Bureaucrats` ("{T}: Tap target creature with power 2 or less") taps a 2/2
+  and is REFUSED at activation against a 5/5 — the derived-power check
+  running through `ActivateAbility`'s inline validation (the hole D161
+  closed), asserted from both sides.
+- **The first repeatable no-tap draw on a creature.** `Azure Mage`
+  ("{3}{U}: Draw a card") goes twice in one turn — no {T} in the cost means
+  no summoning-sickness gate and no once-per-turn anything, which the test
+  proves by doing it.
+- **The -1/-1 twin of the ETB counter.** `Baleful Ammit` writes the OTHER
+  counter kind `derive` sums at layer 7d, with "creature you control"
+  enforced — the test pins an opponent's creature being refused at
+  `ChooseTargets`.
+
+The rest are twins of batch-5 shapes: `Aven of Enduring Hope` (Battle
+Priest's gain), `Avengers Hangar` (Asgardian Citadel's gain-beside-D134's-tap,
+both halves asserted again), `Aviation Pioneer` (Aspiring Aeronaut's
+colorless Thopter — the SAME table entry and fixture, so this batch pinned
+ZERO new tokens), `Azorius Cluestone` (Hedron's sacrifice-draw), `Backup
+Agent` (the +1/+1 ETB, unrestricted).
+
+⚠️ **One test bug caught by its own first run:** the Locket's draw counter
+counted EVENTS, and "draw two" arrives as ONE `CardsMoved` of two moves — it
+read 1 where two cards had genuinely arrived. It counts MOVES now. The same
+helper in the single-draw tests is correct either way, which is exactly how a
+counting bug survives until a two-of-something card meets it.
+
+**The four fresh refusals — two of them NEW classes:**
+
+- **`Axgard Artisan` — once-per-turn trigger memory.** "Whenever one or more
+  +1/+1 counters are put on this creature FOR THE FIRST TIME EACH TURN" needs
+  per-turn per-card trigger state the engine does not hold anywhere; a def
+  cannot remember it fired.
+- **`Aya of Alexandria` — per-damage-entry trigger granularity.**
+  `CombatDamageDealt` batches EVERY creature's damage into one event
+  (`damages: ResolvedDamage[]`), and the trigger bus fires once per EVENT —
+  so "whenever a historic creature you control deals combat damage to a
+  player" would under-fire whenever two historic attackers connect in the
+  same substep: one token where the card makes two. This is Soul Warden's
+  granularity warning ("a future event that batched several entries would
+  under-fire this trigger") met in the wild — combat damage has been batched
+  since M3, and the bus needs per-entry firing before any per-creature damage
+  trigger can ship.
+- `Ayula's Influence` — a discard-a-card-AS-COST chooser, the hand-side
+  sibling of the sacrifice chooser (a cost prompt over a HIDDEN zone, so
+  D137's no-card-ids rule applies where the sacrifice chooser's public-zone
+  prompt does not).
+- `Azami, Lady of Scrolls` — tap-an-untapped-Wizard cost, the existing
+  tap-creatures class at N=1.
+
+**Re-measured, every delta exactly the nine cards:** `complete` 1,787 →
+1,796 · `blocked` 29,905 → 29,896 · `scriptableToday` 1,206 → 1,197 · ladder
+[1197, 1296, 3249, 5133, 6320] · botPool creature 1,186 → 1,192, artifact
+36 → 38, land 217 → 218 · tier3 `abilityText` 17,422 → 17,417, `payable`
+4,814 → 4,810, `silentAfter` 2,198 → 2,207 · `SHIPPED_SCRIPTS` 57 → 66 ·
+fixtures 196 → 205 (tokens still 11) · `botDeck.ts` regenerated (Adun
+reaches 986).
+
+**Verified: `node scripts/cardgen/verify.cjs --full` — ALL FIVE GATES PASSED
+in one invocation on the idle machine:** `tsc -b` clean · conformance green ·
+coverage accounting green over the real database · 136 test files, 1,720
+Vitest passed / 10 skipped (127 / 1,671 before) · the 500-seed replay fuzz
+gate green at 404.5 s (66 scripts registered — ten seconds over D162's 394.4
+with nine more scripts, exactly the index scaling as designed) ·
+`npm run build` clean · probe 124/124 · `battery-anim.cjs bot engine
+prompts` 127/127.
+
+**Checked by breaking it, in the suite:** the Bureaucrats' 5/5 refusal and
+the Ammit's wrong-controller refusal are permanent negative tests; the
+Locket's parse pin holds the hybrid question; the REFUSED guard's teeth are
+structural (a stale entry fails by name — the mechanism was exercised by
+design review rather than by a plant, since no class has been built since the
+ledger was written this session).
+
+**Reportables (D163):**
+
+- **The general-sacrifice chooser now holds SIX ledger entries** and remains
+  the largest unlock in sight (D162). The ledger makes its value precise:
+  build it, and six cards land plus the ledger's guard forces their entries
+  out.
+- **The REFUSED ledger is a NAMED list, and additions are manual** — a
+  drafter who refuses a card must enter it, or the next batch re-offers that
+  card once more. The guard prevents staleness in one direction only
+  (entries outliving their gap); nothing detects a refusal that was never
+  entered except the batch that re-reads it.
+- Once-per-turn trigger memory and per-damage-entry bus granularity join the
+  engine-work list; the discard-cost chooser joins the cost ledger beside
+  random-discard, tap-creatures and exile-from-library.
+- D160's spell seam and script-raised prompts stand.

@@ -78,6 +78,15 @@ import { AURIOK_TRANSFIXER_SCRIPT } from './scripts/cards/auriokTransfixer';
 import { AVEN_BATTLE_PRIEST_SCRIPT } from './scripts/cards/avenBattlePriest';
 import { AVEN_CLOUDCHASER_SCRIPT } from './scripts/cards/avenCloudchaser';
 import { AVEN_FOGBRINGER_SCRIPT } from './scripts/cards/avenFogbringer';
+import { AVEN_OF_ENDURING_HOPE_SCRIPT } from './scripts/cards/avenOfEnduringHope';
+import { AVENGERS_HANGAR_SCRIPT } from './scripts/cards/avengersHangar';
+import { AVIATION_PIONEER_SCRIPT } from './scripts/cards/aviationPioneer';
+import { AYSEN_BUREAUCRATS_SCRIPT } from './scripts/cards/aysenBureaucrats';
+import { AZORIUS_CLUESTONE_SCRIPT } from './scripts/cards/azoriusCluestone';
+import { AZORIUS_LOCKET_SCRIPT } from './scripts/cards/azoriusLocket';
+import { AZURE_MAGE_SCRIPT } from './scripts/cards/azureMage';
+import { BACKUP_AGENT_SCRIPT } from './scripts/cards/backupAgent';
+import { BALEFUL_AMMIT_SCRIPT } from './scripts/cards/balefulAmmit';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -260,6 +269,14 @@ const DECK = [
   'Asgardian Citadel', 'Ashen Rider', "Ashiok's Reaper", 'Aspiring Aeronaut',
   'Attended Knight', 'Auriok Transfixer', 'Aven Battle Priest',
   'Aven Cloudchaser', 'Aven Fogbringer',
+  // M6.4f/D163 — batch 6: the first HYBRID activation cost (Azorius Locket),
+  // a numeric-restricted activated target (Aysen Bureaucrats, power ≤2), a
+  // repeatable no-tap draw (Azure Mage), the -1/-1 twin of the +1/+1 ETB
+  // counter (Baleful Ammit), and twins of batch 5's gain/tapped-land/Thopter
+  // shapes.
+  'Aven of Enduring Hope', 'Avengers Hangar', 'Aviation Pioneer',
+  'Aysen Bureaucrats', 'Azorius Cluestone', 'Azorius Locket', 'Azure Mage',
+  'Backup Agent', 'Baleful Ammit',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -361,6 +378,15 @@ const SCRIPTS = createRegistry([
   AVEN_BATTLE_PRIEST_SCRIPT,
   AVEN_CLOUDCHASER_SCRIPT,
   AVEN_FOGBRINGER_SCRIPT,
+  AVEN_OF_ENDURING_HOPE_SCRIPT,
+  AVENGERS_HANGAR_SCRIPT,
+  AVIATION_PIONEER_SCRIPT,
+  AYSEN_BUREAUCRATS_SCRIPT,
+  AZORIUS_CLUESTONE_SCRIPT,
+  AZORIUS_LOCKET_SCRIPT,
+  AZURE_MAGE_SCRIPT,
+  BACKUP_AGENT_SCRIPT,
+  BALEFUL_AMMIT_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

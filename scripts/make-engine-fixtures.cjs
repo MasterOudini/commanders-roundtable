@@ -452,6 +452,22 @@ const WANTED = [
   'Aven Battle Priest',
   'Aven Cloudchaser',
   'Aven Fogbringer',
+  // M6.4f — batch 6 (D163): 9 landed of select.cjs's 25. Twelve slots were
+  // batch 5's refusals re-offered (the selection cannot see cost-class
+  // refusals — the REFUSED ledger in cardgenSelect fixes that from here on),
+  // and four fresh refusals: Axgard Artisan (once-per-turn trigger memory),
+  // Aya of Alexandria (CombatDamageDealt batches all creatures' damage into
+  // one event, so a per-creature trigger under-fires), Ayula's Influence
+  // (discard-as-cost chooser), Azami (tap-a-Wizard cost).
+  'Aven of Enduring Hope',
+  'Avengers Hangar',
+  'Aviation Pioneer',
+  'Aysen Bureaucrats',
+  'Azorius Cluestone',
+  'Azorius Locket',
+  'Azure Mage',
+  'Backup Agent',
+  'Baleful Ammit',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

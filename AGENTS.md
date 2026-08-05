@@ -3922,6 +3922,54 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       tap-N, exile-from-library); D160's spell seam and script-raised prompts;
       the "modified" predicate.
 
+- [x] **M6.4f — The REFUSED ledger, and nine more (2026-08-05):** **1,796 of
+      31,692 Commander-legal cards now execute completely, up from 1,787.**
+      Decisions in **D163**.
+      ⚠️⚠️ **TWELVE OF THE 25 SLOTS WERE D162's REFUSALS RE-OFFERED,
+      VERBATIM** — the selection's D161 filters are parse questions and a
+      cost-class refusal is a DRAFTER's verdict no parser row records. The
+      third selection filter is a NAMED LEDGER (`REFUSED` in
+      `cardgenSelect.node.test.ts`, name → class, sixteen entries) and it is
+      **self-correcting by construction**: `select()` records any entry whose
+      card now runs completely and a test fails NAMING it, so the day a class
+      is built its stale entries cannot survive the suite. Offerable pool
+      1,122 → **1,097** (9 landed + 16 refused, exact).
+      **Four firsts in batch 6:** the first HYBRID activation cost a shipped
+      def charges (`Azorius Locket`, {W/U}×4 paid in all-white — the parse
+      pinned payable + sacrificesSelf); D139's numeric restriction exercised
+      on the ACTIVATED path (`Aysen Bureaucrats` taps a 2/2 and is REFUSED a
+      5/5 at activation, both pinned); the first repeatable no-tap draw on a
+      creature (`Azure Mage`, twice in one turn); the -1/-1 ETB twin
+      (`Baleful Ammit`, wrong-controller refusal pinned). Plus five twins of
+      batch-5 shapes — and ZERO new token pins (Aviation Pioneer shares
+      Aspiring Aeronaut's colorless Thopter entry and fixture).
+      ⚠️ **Four fresh refusals, TWO NEW CLASSES:** `Axgard Artisan`
+      (once-per-turn trigger memory — "for the first time each turn" has no
+      per-turn state to read); **`Aya of Alexandria` (per-damage-entry
+      trigger granularity — `CombatDamageDealt` batches every creature's
+      damage into ONE event and the bus fires per event, so a per-creature
+      damage trigger under-fires on multi-attacker turns: Soul Warden's
+      granularity warning met in the wild)**; `Ayula's Influence`
+      (discard-cost chooser, the hand-side sibling of the sacrifice chooser);
+      `Azami, Lady of Scrolls` (tap-creatures cost, existing class).
+      ⚠️ The Locket's own first run caught a counting bug: "draw two" is ONE
+      `CardsMoved` of two moves, and the draw counter read events — 1 where
+      two cards had arrived. It counts MOVES now.
+      Fixtures 196 → 205 (tokens still 11) · `SHIPPED_SCRIPTS` 57 → 66 ·
+      ladder [1197, 1296, 3249, 5133, 6320] · `batch.json` at 1,097 ·
+      botDeck: Adun reaches 986.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation: 136
+      test files, 1,720 Vitest passed / 10 skipped · the 500-seed gate green
+      at 404.5 s (66 scripts registered) · build clean · probe 124/124 ·
+      battery 127/127.**
+      ⚠️ **Reportables** (D163): the general-sacrifice chooser now holds SIX
+      ledger entries and stays the largest unlock in sight; the ledger's
+      guard is one-directional (a stale entry fails by name, but a refusal
+      never ENTERED is only caught by the batch that re-reads it);
+      once-per-turn memory and per-damage-entry bus granularity join the
+      engine-work list; the discard-cost chooser joins the cost ledger;
+      D160's spell seam and script-raised prompts stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

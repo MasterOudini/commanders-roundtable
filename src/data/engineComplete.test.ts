@@ -125,6 +125,16 @@ const COMPLETE: readonly [string, CardData][] = [
   ['Aven Battle Priest', fx.AVEN_BATTLE_PRIEST],
   ['Aven Cloudchaser', fx.AVEN_CLOUDCHASER],
   ['Aven Fogbringer', fx.AVEN_FOGBRINGER],
+  // M6.4f (D163) — batch 6.
+  ['Aven of Enduring Hope', fx.AVEN_OF_ENDURING_HOPE],
+  ['Avengers Hangar', fx.AVENGERS_HANGAR],
+  ['Aviation Pioneer', fx.AVIATION_PIONEER],
+  ['Aysen Bureaucrats', fx.AYSEN_BUREAUCRATS],
+  ['Azorius Cluestone', fx.AZORIUS_CLUESTONE],
+  ['Azorius Locket', fx.AZORIUS_LOCKET],
+  ['Azure Mage', fx.AZURE_MAGE],
+  ['Backup Agent', fx.BACKUP_AGENT],
+  ['Baleful Ammit', fx.BALEFUL_AMMIT],
 ];
 
 /**

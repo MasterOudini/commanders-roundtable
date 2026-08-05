@@ -7,6 +7,15 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { AVEN_OF_ENDURING_HOPE_SCRIPT } from './cards/avenOfEnduringHope';
+import { AVENGERS_HANGAR_SCRIPT } from './cards/avengersHangar';
+import { AVIATION_PIONEER_SCRIPT } from './cards/aviationPioneer';
+import { AYSEN_BUREAUCRATS_SCRIPT } from './cards/aysenBureaucrats';
+import { AZORIUS_CLUESTONE_SCRIPT } from './cards/azoriusCluestone';
+import { AZORIUS_LOCKET_SCRIPT } from './cards/azoriusLocket';
+import { AZURE_MAGE_SCRIPT } from './cards/azureMage';
+import { BACKUP_AGENT_SCRIPT } from './cards/backupAgent';
+import { BALEFUL_AMMIT_SCRIPT } from './cards/balefulAmmit';
 import { ARGOTHIAN_ENCHANTRESS_SCRIPT } from './cards/argothianEnchantress';
 import { ARK_OF_BLIGHT_SCRIPT } from './cards/arkOfBlight';
 import { ARMADA_WURM_SCRIPT } from './cards/armadaWurm';
@@ -158,6 +167,15 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AVEN_OF_ENDURING_HOPE_SCRIPT,
+  AVENGERS_HANGAR_SCRIPT,
+  AVIATION_PIONEER_SCRIPT,
+  AYSEN_BUREAUCRATS_SCRIPT,
+  AZORIUS_CLUESTONE_SCRIPT,
+  AZORIUS_LOCKET_SCRIPT,
+  AZURE_MAGE_SCRIPT,
+  BACKUP_AGENT_SCRIPT,
+  BALEFUL_AMMIT_SCRIPT,
   ARGOTHIAN_ENCHANTRESS_SCRIPT,
   ARK_OF_BLIGHT_SCRIPT,
   ARMADA_WURM_SCRIPT,

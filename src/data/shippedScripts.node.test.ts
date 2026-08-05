@@ -110,7 +110,10 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // M6.4e (D162) landed thirteen of 25 — the twelve refusals are all cost or
     // prompt classes the ledger already names, six of them the general-
     // sacrifice chooser alone.
-    expect(SHIPPED_SCRIPTS).toHaveLength(57);
+    // M6.4f (D163) landed nine of 25 — twelve slots were D162's refusals
+    // re-offered (the REFUSED ledger in cardgenSelect now ends that tax), and
+    // the four fresh refusals are named there with their classes.
+    expect(SHIPPED_SCRIPTS).toHaveLength(66);
   });
 });
 

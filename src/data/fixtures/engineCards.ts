@@ -6526,6 +6526,313 @@ export const AVEN_FOGBRINGER: CardData = {
   "singleImage": true
 };
 
+export const AVEN_OF_ENDURING_HOPE: CardData = {
+  "scryfallId": "02c1310c-1b54-42dd-bf24-889770fa2ded",
+  "oracleId": "e8291185-9d87-4aa2-b7ba-d4946e5a082f",
+  "name": "Aven of Enduring Hope",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aven of Enduring Hope",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Bird Cleric",
+      "oracleText": "Flying\nWhen this creature enters, you gain 3 life.",
+      "flavorText": "\"This storm will calm. We must believe that.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "James Ryman",
+      "imageId": "02c1310c-1b54-42dd-bf24-889770fa2ded"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "hou",
+  "collectorNumber": "5",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AVENGERS_HANGAR: CardData = {
+  "scryfallId": "c5d03ebb-1ce9-4a6b-b13e-a72f0b075ae8",
+  "oracleId": "10fc2009-4212-47c6-8a97-ab0f45c1f91b",
+  "name": "Avengers Hangar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Avengers Hangar",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {W} or {U}.",
+      "flavorText": "\"I made some modifications I think you'll like. You were a test pilot, weren't you, Carol? Want to take the new Quinjet for a spin?\"\n—Tony Stark",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Pablo Mendoza",
+      "imageId": "c5d03ebb-1ce9-4a6b-b13e-a72f0b075ae8"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "msh",
+  "collectorNumber": "259",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AVIATION_PIONEER: CardData = {
+  "scryfallId": "4165233d-8651-4498-91b6-d3e5e6d613a5",
+  "oracleId": "ad11ff81-acaa-4529-ba15-718dadbea259",
+  "name": "Aviation Pioneer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aviation Pioneer",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Artificer",
+      "oracleText": "When this creature enters, create a 1/1 colorless Thopter artifact creature token with flying.",
+      "flavorText": "\"They say perfection is unattainable, but they said that about flight too.\"",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Lake Hurwitz",
+      "imageId": "4165233d-8651-4498-91b6-d3e5e6d613a5"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "j22",
+  "collectorNumber": "275",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AYSEN_BUREAUCRATS: CardData = {
+  "scryfallId": "194a17ad-8393-44d4-a5d1-a61f9a875573",
+  "oracleId": "786b2028-cf24-4f00-b1d6-05b94e78d617",
+  "name": "Aysen Bureaucrats",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aysen Bureaucrats",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Advisor",
+      "oracleText": "{T}: Tap target creature with power 2 or less.",
+      "flavorText": "\"I would say that our bureaucrats are no better than vipers—but I shouldn't insult the vipers.\"\n—Murat, death speaker",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Alan Rabinowitz",
+      "imageId": "194a17ad-8393-44d4-a5d1-a61f9a875573"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "me2",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AZORIUS_CLUESTONE: CardData = {
+  "scryfallId": "09eeb301-bc28-4515-ad69-0b1b5164a5bc",
+  "oracleId": "27e04c41-f42c-4d60-8a71-ec2d7c326f64",
+  "name": "Azorius Cluestone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Azorius Cluestone",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {W} or {U}.\n{W}{U}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "Its three sides represent the Sova, judges and arbitrators; the Jelenn, scribes and elocutors; and the Lyev, lawmages and enforcers.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Raoul Vitale",
+      "imageId": "09eeb301-bc28-4515-ad69-0b1b5164a5bc"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dgm",
+  "collectorNumber": "136",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AZORIUS_LOCKET: CardData = {
+  "scryfallId": "13aed078-9e29-48e7-b145-5252362031a0",
+  "oracleId": "ca13dda2-fbb0-4b6b-9126-3c8df04dee2b",
+  "name": "Azorius Locket",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Azorius Locket",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {W} or {U}.\n{W/U}{W/U}{W/U}{W/U}, {T}, Sacrifice this artifact: Draw two cards.",
+      "flavorText": "\"Mandatory lockets enable the tracking of all Senate personnel for improved security and efficiency.\"\n—Dovin Baan",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Craig J Spearing",
+      "imageId": "13aed078-9e29-48e7-b145-5252362031a0"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "rna",
+  "collectorNumber": "231",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AZURE_MAGE: CardData = {
+  "scryfallId": "a473897f-49eb-4e0f-a5b6-ea75e10be91a",
+  "oracleId": "bbf9fd47-10e1-4749-b06f-4fe72200afc7",
+  "name": "Azure Mage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Azure Mage",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{3}{U}: Draw a card.",
+      "flavorText": "\"We draw our power from the infinite ocean of the mind, where all manner of things can be conceived.\"\n—Azure creed",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Izzy",
+      "imageId": "a473897f-49eb-4e0f-a5b6-ea75e10be91a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m12",
+  "collectorNumber": "45",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BACKUP_AGENT: CardData = {
+  "scryfallId": "2a46af75-3880-4141-b26e-19834d67e7a8",
+  "oracleId": "df9a3fe0-aca8-4adb-9ef6-45616025925b",
+  "name": "Backup Agent",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Backup Agent",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Citizen",
+      "oracleText": "When this creature enters, put a +1/+1 counter on target creature.",
+      "flavorText": "\"My sources say the Beamtown Bullies were spotted in the Mezzio. Keep your eyes sharp and stay close to me.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Aaron J. Riley",
+      "imageId": "2a46af75-3880-4141-b26e-19834d67e7a8"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "snc",
+  "collectorNumber": "2",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BALEFUL_AMMIT: CardData = {
+  "scryfallId": "19a3b84b-1da5-4047-8b12-75fbec065b70",
+  "oracleId": "1cfa9f7d-ef1f-4907-aeb1-15c0df33fccc",
+  "name": "Baleful Ammit",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Baleful Ammit",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Crocodile Demon",
+      "oracleText": "Lifelink\nWhen this creature enters, put a -1/-1 counter on target creature you control.",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Seb McKinnon",
+      "imageId": "19a3b84b-1da5-4047-8b12-75fbec065b70"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Lifelink"
+  ],
+  "setCode": "akr",
+  "collectorNumber": "92",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -7085,6 +7392,15 @@ export const ENGINE_CARDS: CardData[] = [
   AVEN_BATTLE_PRIEST,
   AVEN_CLOUDCHASER,
   AVEN_FOGBRINGER,
+  AVEN_OF_ENDURING_HOPE,
+  AVENGERS_HANGAR,
+  AVIATION_PIONEER,
+  AYSEN_BUREAUCRATS,
+  AZORIUS_CLUESTONE,
+  AZORIUS_LOCKET,
+  AZURE_MAGE,
+  BACKUP_AGENT,
+  BALEFUL_AMMIT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -84,6 +84,54 @@ interface Candidate {
   readonly lines: number;
 }
 
+/**
+ * ⚠️ THE THIRD SELECTION FILTER, AND UNLIKE THE TWO PARSE FILTERS IT IS A
+ * NAMED LEDGER — each entry is a card a drafter HELD and refused for a
+ * machinery gap the needs column has no row for. Twelve of batch 6's 25
+ * slots were batch 5's refusals re-offered (D162's dozen, verbatim); half a
+ * batch of re-classification per batch is the tax this table ends.
+ *
+ * ⚠️ SELF-CORRECTING BY CONSTRUCTION: `select()` records any entry whose card
+ * has become COMPLETE, and a test fails naming it — so the day a class is
+ * built and its cards land, the stale entries cannot survive the suite. The
+ * class strings exist so that day is findable with grep.
+ */
+const REFUSED: ReadonlyMap<string, string> = new Map([
+  // The general-sacrifice cost chooser (D159; D162 names it the largest
+  // unlock in sight — six of batch 5's twelve refusals alone).
+  ['Agent of Shauku', 'sacrifice-cost chooser'],
+  ['Ahriman', 'sacrifice-cost chooser'],
+  ['Akki Scrapchomper', 'sacrifice-cost chooser'],
+  ['Arms Dealer', 'sacrifice-cost chooser'],
+  ['Army Ants', 'sacrifice-cost chooser'],
+  ['Aura Fracture', 'sacrifice-cost chooser'],
+  // A script cannot raise ANOTHER player's prompt from resolve (D160).
+  ['Abyssal Horror', 'script-raised prompt'],
+  // The "modified" predicate (D160).
+  ['Akki Ember-Keeper', 'modified predicate'],
+  // Random-discard cost — and `ctx.random` is still a stub (D161).
+  ['Amok', 'random-discard cost'],
+  // Tap-N-untapped-creatures costs (D161).
+  ["Ancestor's Prophet", 'tap-creatures cost'],
+  ['Aphetto Grifter', 'tap-creatures cost'],
+  ['Azami, Lady of Scrolls', 'tap-creatures cost'],
+  // Exile-from-library cost (D161).
+  ['Arc-Slogger', 'exile-from-library cost'],
+  // "For the first time each turn" needs per-turn trigger memory the engine
+  // does not hold (D163).
+  ['Axgard Artisan', 'once-per-turn trigger memory'],
+  // `CombatDamageDealt` batches EVERY creature's damage into one event and
+  // the bus fires per event, so a per-creature damage trigger under-fires on
+  // multi-attacker turns (D163).
+  ['Aya of Alexandria', 'per-damage-entry trigger granularity'],
+  // Discard-a-card-as-cost chooser — the hand-side sibling of the sacrifice
+  // chooser (D163).
+  ["Ayula's Influence", 'discard-cost chooser'],
+]);
+
+/** Filled by `select()`: REFUSED entries whose card now runs completely. */
+const staleRefusals: string[] = [];
+
 async function select(): Promise<Candidate[]> {
   const decks = deckNames();
   const pool = poolNames();
@@ -102,8 +150,15 @@ async function select(): Promise<Candidate[]> {
     if (card.commanderLegality !== 'legal') continue;
     if (seen.has(card.name)) continue;
     seen.add(card.name);
+    const complete = engineCompleteness(card).complete;
+    if (REFUSED.has(card.name)) {
+      // A refused card that now runs completely is a STALE ledger entry — its
+      // class was built and the entry must go; the guard test names it.
+      if (complete) staleRefusals.push(card.name);
+      continue;
+    }
     // Already run completely — there is nothing for a script to add.
-    if (engineCompleteness(card).complete) continue;
+    if (complete) continue;
 
     const p = primitivesFor(card);
     // ⚠️ SOLE NEED `scriptable`, nothing else. A card that also waits on a
@@ -151,6 +206,14 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
   test('the ordering puts the user’s own cards first', () => {
     const rungs = all.map((c) => c.rung);
     expect([...rungs].sort((a, b) => a - b)).toEqual(rungs);
+  });
+
+  test('the REFUSED ledger holds only cards still waiting on their named gap', () => {
+    // A name here means: delete that ledger entry — its class was built.
+    expect(staleRefusals).toEqual([]);
+    // And nothing refused leaks into the ranking.
+    const offered = new Set(all.map((c) => c.name));
+    for (const name of REFUSED.keys()) expect(offered.has(name)).toBe(false);
   });
 
   test('and writes the batch when asked', () => {
