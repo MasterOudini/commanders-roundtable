@@ -10414,3 +10414,88 @@ about, caught by the batch that moved the name.**
   state the engine already carries — attachments with aura-controller checks
   plus counters — and deserves its own entry when built.
 - The general-sacrifice CHOOSER remains the largest cost gap (D159).
+
+## D161 — M6.4d: thirteen landed, a validation hole closed, and the selection taught to refuse
+
+**1,774 of 31,692 Commander-legal cards now execute completely, up from
+1,761.** Thirteen scripts landed from `select.cjs`'s 25 — and the batch's most
+valuable products were the two cards PULLED and what pulling them found.
+
+⚠️⚠️ **A HOST-SIDE VALIDATION HOLE, FOUND BY A NEGATIVE TEST AND CLOSED —
+D139's, ONE INTENT OVER.** `Angelic Page`'s test aimed "target attacking or
+blocking creature" at a bystander and expected refusal; the engine ACCEPTED.
+`ActivateAbility` with INLINE targets skipped target validation entirely — the
+prompt-stage path has validated since the targeting work, the inline path went
+straight to payment, exactly the shape D139 closed on `CastSpell`. Not
+reachable from this app's UI (the aim flow answers the prompt stage), and "the
+host decides legality" is what the net layer rests on. Closed with the same
+predicate and message the prompt stage uses.
+
+⚠️⚠️ **AND THE FIXED VALIDATION SAID THE BYSTANDER WAS LEGAL — because
+"attacking"/"blocking" ARE NOT ENFORCED.** `targetParse` rows file the combat
+qualifiers under `unenforced`, which `faceCompleteness` refuses — so `Angelic
+Page` and `Anointer of Champions` could never pass the coverage gate however
+their scripts read, and the SELECTION had offered them anyway: `primitivesFor`'s
+needs column cannot see target-spec refusals, the second selection/gate
+mismatch after D160's spells. Both cards were pulled, and **`cardgenSelect`
+gained the two filters the drafts paid for**: a non-permanent face outside the
+effect vocabulary is not offered (no spell seam), and a card with an unread or
+unenforced target clause is not offered (the gate would refuse it). The
+OFFERABLE pool is 1,135 where the parsers' `scriptableToday` is 1,219 — the
+84-card gap is exactly the dead weight every previous batch re-shuffled.
+
+**Landed, four firsts:**
+- **Script DESTROY** (`Angel of Despair`) — and destroy answers to
+  indestructible, asked of the DERIVED target exactly as `effects.ts` does;
+  the break test is a real card, `Darksteel Myr` surviving the trigger that
+  kills a Lion. **Script EXILE** (`Archon of Justice`) — the first trigger
+  that both LOOKS BACK and TARGETS (D147 built the halves; this ships the
+  combination), and exile ignores indestructible because CR 701.7 is about
+  destruction.
+- **The opponent-cast trigger** (`Arasta of the Endless Web`) — Talrand's
+  mirror, the token to the ability's controller, never the caster.
+- **The repeatable token ability** (`Ant Queen`) — no tap in the cost, two
+  activations, two real Insects.
+- Plus `Anaba Shaman` (creature ping), `Archivist` (`{T}: Draw`), the
+  Archaeomancer/Ardent Elementalist graveyard-return twins, `Aquus Steed`
+  (-2/-0), three ETB-gain angels and a dies-gain construct.
+
+⚠️ **The ten refusals, named:** D160's six again (the selection gap, now
+CLOSED against recurrence) · `Amok` (a random-discard COST — randomness and a
+chooser in one part) · `Ancestor's Prophet` and `Aphetto Grifter` (tap-N-
+untapped-creatures costs — a chooser) · `Arc-Slogger` (an exile-from-library
+cost, a new class for the ledger).
+
+**Re-measured, every coverage delta exactly the thirteen:** `complete` 1,761 →
+**1,774** · `blocked` 29,918 · `scriptableToday` 1,219 (with the offerable
+pool at 1,135 — two numbers now, and the comment says which is which) · ladder
+[1219, 1318, 3271, 5155, 6342] · botPool creature 1,175 · tier3 `abilityText`
+17,433, `payable` 4,816, `silentAfter` 2,185 · `botDeck.ts` regenerated (Adun
+Oakenshield now reaches 982 cards from 49 executable legendaries) ·
+`SHIPPED_SCRIPTS` pinned 31 → 44 · fixtures 181 (the two pulled cards stay
+fixtures — real cards, waiting on the combat-qualifier work).
+
+**Verified: `node scripts/cardgen/verify.cjs --full` — ALL FIVE GATES PASSED
+in one invocation: `tsc -b` clean · conformance green · coverage accounting
+green over the real database with 44 shipped scripts · 114 test files, 1,598
+Vitest passed / 10 skipped (101 / 1,542 before this batch) · the 500-seed
+replay fuzz gate green at 599.5 s against its 600 s timeout — a pass by half
+a second, said plainly: the games grow richer every batch (57 registered
+scripts, 13 more DECK cards, and the machine was not fully idle at launch),
+and ⚠️ the `collectTriggers` per-oracle source index — a named reportable
+since D158 — is now DUE before the next batch lands, built with an idle
+60-seed A/B per D106 · `npm run build` clean · probe 124/124 ·
+`battery-anim.cjs bot engine prompts` 127/127.**
+
+⚠️ **Reportables:**
+- **The `collectTriggers` per-oracle index is DUE** — the gate's own wall
+  clock said so at 599.5 of 600 s.
+- **Combat-qualifier targeting is the next targeting-layer widening**:
+  "attacking"/"blocking" are public combat state, `targetParse` already
+  isolates the wordings, and enforcing them (spec field + candidate fields on
+  BOTH adapters + `targetAllowed`) returns Angelic Page and Anointer the day
+  it lands — plus honest aim veils for every combat-restricted card.
+- **The cost-class ledger grows**: tap-N-untapped-creatures and
+  exile-from-library join the general-sacrifice chooser (D159) and
+  random-discard as named, unbuilt cost machinery.
+- D160's spell-seam and script-raised-prompt reportables stand.

@@ -413,6 +413,25 @@ const WANTED = [
   'Amateur Hero',
   'Ambassador Oak',
   'Ambush Gigapede',
+  // M6.4d — batch 4 (D161): 15 landed of select.cjs's 25; the ten refusals
+  // are D160's six again (the selection gap) plus Amok (random-discard cost),
+  // Ancestor's Prophet and Aphetto Grifter (tap-N-creatures costs) and
+  // Arc-Slogger (an exile-from-library cost).
+  'Anaba Shaman',
+  'Angel of Despair',
+  'Angel of Mercy',
+  'Angelic Page',
+  'Anodet Lurker',
+  'Anointer of Champions',
+  'Ant Queen',
+  'Aquus Steed',
+  'Arashin Cleric',
+  'Arasta of the Endless Web',
+  'Arborback Stomper',
+  'Archaeomancer',
+  'Archivist',
+  'Archon of Justice',
+  'Ardent Elementalist',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -434,6 +453,9 @@ const WANTED_TOKENS = [
   { name: 'Drake', set: 'tc20', cn: '8', key: 'DRAKE_TOKEN' },
   { name: 'Elf Warrior', set: 'tltc', cn: '11', key: 'ELF_WARRIOR_TOKEN' },
   { name: 'Villain', set: 'tmsh', cn: '9', key: 'VILLAIN_TOKEN' },
+  // M6.4d (D161).
+  { name: 'Insect', set: 'tsoi', cn: '7', key: 'INSECT_TOKEN' },
+  { name: 'Spider', set: 'tmh1', cn: '14', key: 'SPIDER_TOKEN' },
 ];
 
 function constName(name) {

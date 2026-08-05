@@ -7,6 +7,19 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ANABA_SHAMAN_SCRIPT } from './cards/anabaShaman';
+import { ANGEL_OF_DESPAIR_SCRIPT } from './cards/angelOfDespair';
+import { ANGEL_OF_MERCY_SCRIPT } from './cards/angelOfMercy';
+import { ANODET_LURKER_SCRIPT } from './cards/anodetLurker';
+import { ANT_QUEEN_SCRIPT } from './cards/antQueen';
+import { AQUUS_STEED_SCRIPT } from './cards/aquusSteed';
+import { ARASHIN_CLERIC_SCRIPT } from './cards/arashinCleric';
+import { ARASTA_OF_THE_ENDLESS_WEB_SCRIPT } from './cards/arastaOfTheEndlessWeb';
+import { ARBORBACK_STOMPER_SCRIPT } from './cards/arborbackStomper';
+import { ARCHAEOMANCER_SCRIPT } from './cards/archaeomancer';
+import { ARCHIVIST_SCRIPT } from './cards/archivist';
+import { ARCHON_OF_JUSTICE_SCRIPT } from './cards/archonOfJustice';
+import { ARDENT_ELEMENTALIST_SCRIPT } from './cards/ardentElementalist';
 import { TALRAND_SKY_SUMMONER_SCRIPT } from './cards/talrandSkySummoner';
 import { YOTIAN_DISSIDENT_SCRIPT } from './cards/yotianDissident';
 import { AIM_LABS_SCRIPT } from './cards/aimLabs';
@@ -132,6 +145,19 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ANABA_SHAMAN_SCRIPT,
+  ANGEL_OF_DESPAIR_SCRIPT,
+  ANGEL_OF_MERCY_SCRIPT,
+  ANODET_LURKER_SCRIPT,
+  ANT_QUEEN_SCRIPT,
+  AQUUS_STEED_SCRIPT,
+  ARASHIN_CLERIC_SCRIPT,
+  ARASTA_OF_THE_ENDLESS_WEB_SCRIPT,
+  ARBORBACK_STOMPER_SCRIPT,
+  ARCHAEOMANCER_SCRIPT,
+  ARCHIVIST_SCRIPT,
+  ARCHON_OF_JUSTICE_SCRIPT,
+  ARDENT_ELEMENTALIST_SCRIPT,
   TALRAND_SKY_SUMMONER_SCRIPT,
   YOTIAN_DISSIDENT_SCRIPT,
   AIM_LABS_SCRIPT,

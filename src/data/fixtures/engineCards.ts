@@ -5547,6 +5547,526 @@ export const AMBUSH_GIGAPEDE: CardData = {
   "singleImage": true
 };
 
+export const ANABA_SHAMAN: CardData = {
+  "scryfallId": "142260bd-4e4f-4057-b124-4744cea698d7",
+  "oracleId": "bc416c17-e1f0-4344-8c21-6184cac10205",
+  "name": "Anaba Shaman",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Anaba Shaman",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Minotaur Shaman",
+      "oracleText": "{R}, {T}: This creature deals 1 damage to any target.",
+      "flavorText": "Just try taking *this* bull by the horns.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Alex Horley-Orlandelli",
+      "imageId": "142260bd-4e4f-4057-b124-4744cea698d7"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "175★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANGEL_OF_DESPAIR: CardData = {
+  "scryfallId": "3382b240-b477-410d-aee8-898fe0e934ef",
+  "oracleId": "02520741-d7f0-46e6-acbe-010b65fc24c0",
+  "name": "Angel of Despair",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Angel of Despair",
+      "manaCost": "{3}{W}{W}{B}{B}",
+      "typeLine": "Creature — Angel",
+      "oracleText": "Flying\nWhen this creature enters, destroy target permanent.",
+      "flavorText": "\"I feel in them a sense of duty and commitment, yet I can feel nothing else. It is as if their duty is to an empty void.\"\n—Razia, Boros archangel",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Todd Lockwood",
+      "imageId": "3382b240-b477-410d-aee8-898fe0e934ef"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "cmd",
+  "collectorNumber": "180",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANGEL_OF_MERCY: CardData = {
+  "scryfallId": "130ac12e-61de-4ae9-9295-47392c2208e7",
+  "oracleId": "a2daaf32-dbfe-4618-892e-0da24f63a44a",
+  "name": "Angel of Mercy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Angel of Mercy",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Angel",
+      "oracleText": "Flying\nWhen this creature enters, you gain 3 life.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Melissa A. Benson",
+      "imageId": "130ac12e-61de-4ae9-9295-47392c2208e7"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "s99",
+  "collectorNumber": "2",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANGELIC_PAGE: CardData = {
+  "scryfallId": "3a5c2eb7-e019-4923-b182-ff66b5c15a49",
+  "oracleId": "f7f76abc-8656-4e97-9b7f-7f89ca3e6d93",
+  "name": "Angelic Page",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Angelic Page",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Angel Spirit",
+      "oracleText": "Flying\n{T}: Target attacking or blocking creature gets +1/+1 until end of turn.",
+      "flavorText": "If only every message were as perfect as its bearer.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "3a5c2eb7-e019-4923-b182-ff66b5c15a49"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "brb",
+  "collectorNumber": "4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANODET_LURKER: CardData = {
+  "scryfallId": "c97773f5-548a-4107-b29c-56b5428d5ddb",
+  "oracleId": "5c2dbe90-5784-4bc4-a715-76a61c1ecfbc",
+  "name": "Anodet Lurker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Anodet Lurker",
+      "manaCost": "{5}",
+      "typeLine": "Artifact Creature — Construct",
+      "oracleText": "When this creature dies, you gain 3 life.",
+      "flavorText": "These machines build fearsome visages out of scrap metal to scare off predators who would otherwise be eager to consume them.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jeff Easley",
+      "imageId": "c97773f5-548a-4107-b29c-56b5428d5ddb"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "5dn",
+  "collectorNumber": "101",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANOINTER_OF_CHAMPIONS: CardData = {
+  "scryfallId": "3379dc97-abdf-43d7-8625-f8ac04b5687e",
+  "oracleId": "f74ef5b0-9222-43d0-a919-aaf28dc21b59",
+  "name": "Anointer of Champions",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Anointer of Champions",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{T}: Target attacking creature gets +1/+1 until end of turn.",
+      "flavorText": "\"Arise. You have been anointed by the light. Go forth and fight without fear, for you shall be victorious.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Anna Steinbauer",
+      "imageId": "3379dc97-abdf-43d7-8625-f8ac04b5687e"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "e01",
+  "collectorNumber": "3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANT_QUEEN: CardData = {
+  "scryfallId": "499cc16c-9ead-45b9-b56c-7512cd54cf7c",
+  "oracleId": "50de88d4-0beb-45e5-9664-d4f0e280e652",
+  "name": "Ant Queen",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ant Queen",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "{1}{G}: Create a 1/1 green Insect creature token.",
+      "flavorText": "\"Kill the queen first, or we'll be fighting her drones forever. It is not in a queen's nature to have enough servants.\"\n—Borzard, exterminator captain",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Trevor Claxton",
+      "imageId": "499cc16c-9ead-45b9-b56c-7512cd54cf7c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "mm2",
+  "collectorNumber": "139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AQUUS_STEED: CardData = {
+  "scryfallId": "af643949-7a9b-4195-8ab8-d43b1928b85a",
+  "oracleId": "3517abe3-eb18-49af-9f1c-b372d2039d99",
+  "name": "Aquus Steed",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aquus Steed",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "{2}{U}, {T}: Target creature gets -2/-0 until end of turn.",
+      "flavorText": "In water, it's as graceful as a dolphin. On land, it darts and jerks so unpredictably that few can ride it for long.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Warren Mahy",
+      "imageId": "af643949-7a9b-4195-8ab8-d43b1928b85a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "rtr",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARASHIN_CLERIC: CardData = {
+  "scryfallId": "10aeac19-6892-448e-9e5f-302051a089fc",
+  "oracleId": "69bcdb42-c170-4848-b95b-f4621867d084",
+  "name": "Arashin Cleric",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Arashin Cleric",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "When this creature enters, you gain 3 life.",
+      "flavorText": "\"We'll have time to put out the fires when those trapped within the ruins are safe.\"",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Chris Rahn",
+      "imageId": "10aeac19-6892-448e-9e5f-302051a089fc"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "frf",
+  "collectorNumber": "5",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARASTA_OF_THE_ENDLESS_WEB: CardData = {
+  "scryfallId": "03b9304c-9993-4539-9165-48568eb81db1",
+  "oracleId": "695eea46-1535-48c5-bbb6-0b8379e77bfc",
+  "name": "Arasta of the Endless Web",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Arasta of the Endless Web",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Legendary Enchantment Creature — Spider",
+      "oracleText": "Reach\nWhenever an opponent casts an instant or sorcery spell, create a 1/2 green Spider creature token with reach.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Sam Rowan",
+      "imageId": "03b9304c-9993-4539-9165-48568eb81db1"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Reach"
+  ],
+  "setCode": "thb",
+  "collectorNumber": "325",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARBORBACK_STOMPER: CardData = {
+  "scryfallId": "3d0c7584-a716-47cc-8ea5-3b5ab16952dc",
+  "oracleId": "a3f35e0f-bf7a-42bf-b612-ac3af3a33727",
+  "name": "Arborback Stomper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Arborback Stomper",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "Trample\nWhen this creature enters, you gain 5 life.",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "3d0c7584-a716-47cc-8ea5-3b5ab16952dc"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "klr",
+  "collectorNumber": "152",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARCHAEOMANCER: CardData = {
+  "scryfallId": "1b045cab-6d53-4711-86a5-259e29d4c0f1",
+  "oracleId": "a91a3266-cadd-47a0-9b20-160307f14c07",
+  "name": "Archaeomancer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Archaeomancer",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "When this creature enters, return target instant or sorcery card from your graveyard to your hand.",
+      "flavorText": "\"Words of power never disappear. They sleep, awaiting those with the will to rouse them.\"",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "1b045cab-6d53-4711-86a5-259e29d4c0f1"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "C17-81",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARCHIVIST: CardData = {
+  "scryfallId": "083507d3-b28f-4e84-909b-bca2a2131233",
+  "oracleId": "d137586f-83b0-40af-8100-443460b07ac0",
+  "name": "Archivist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Archivist",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{T}: Draw a card.",
+      "flavorText": "\"Words—so innocent and powerless are they, as standing in a dictionary; how potent for good and evil they become to one who knows how to combine them!\"\n—Nathaniel Hawthorne",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Donato Giancola",
+      "imageId": "083507d3-b28f-4e84-909b-bca2a2131233"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "60",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARCHON_OF_JUSTICE: CardData = {
+  "scryfallId": "042b0148-5821-4105-9cda-a0e405eb8bee",
+  "oracleId": "d551931d-4ebe-4acc-9e87-6c628897071a",
+  "name": "Archon of Justice",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Archon of Justice",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Creature — Archon",
+      "oracleText": "Flying\nWhen this creature dies, exile target permanent.",
+      "flavorText": "In dark times, Truth bears a blade.",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jason Chan",
+      "imageId": "042b0148-5821-4105-9cda-a0e405eb8bee"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "jmp",
+  "collectorNumber": "89",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARDENT_ELEMENTALIST: CardData = {
+  "scryfallId": "309face2-7f10-4d6e-a0cb-bfaf7fd30992",
+  "oracleId": "1edd4f50-05ee-43e0-a288-c26666910c8b",
+  "name": "Ardent Elementalist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ardent Elementalist",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "When this creature enters, return target instant or sorcery card from your graveyard to your hand.",
+      "flavorText": "While the Dawnhart witches focus their magic on nature and community, other covens consort with devils and twist the elements to their will.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Miguel Mercado",
+      "imageId": "309face2-7f10-4d6e-a0cb-bfaf7fd30992"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "MID-128",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -5781,6 +6301,76 @@ export const VILLAIN_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const INSECT_TOKEN: CardData = {
+  "scryfallId": "0057f94e-c2be-44e1-a93b-e31432f4ffa5",
+  "oracleId": "c39cd31f-c4a2-4ca8-b4f9-b2e6289743bc",
+  "name": "Insect",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Insect",
+      "manaCost": "",
+      "typeLine": "Token Creature — Insect",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "0057f94e-c2be-44e1-a93b-e31432f4ffa5"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tsoi",
+  "collectorNumber": "7",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const SPIDER_TOKEN: CardData = {
+  "scryfallId": "01591603-d903-419d-9957-cf0ae7f79240",
+  "oracleId": "bd386399-69f0-4653-96a1-fd05b8fd148c",
+  "name": "Spider",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Spider",
+      "manaCost": "",
+      "typeLine": "Token Creature — Spider",
+      "oracleText": "Reach",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Daniel Ljunggren",
+      "imageId": "01591603-d903-419d-9957-cf0ae7f79240"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Reach"
+  ],
+  "setCode": "tmh1",
+  "collectorNumber": "14",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -5940,6 +6530,21 @@ export const ENGINE_CARDS: CardData[] = [
   AMATEUR_HERO,
   AMBASSADOR_OAK,
   AMBUSH_GIGAPEDE,
+  ANABA_SHAMAN,
+  ANGEL_OF_DESPAIR,
+  ANGEL_OF_MERCY,
+  ANGELIC_PAGE,
+  ANODET_LURKER,
+  ANOINTER_OF_CHAMPIONS,
+  ANT_QUEEN,
+  AQUUS_STEED,
+  ARASHIN_CLERIC,
+  ARASTA_OF_THE_ENDLESS_WEB,
+  ARBORBACK_STOMPER,
+  ARCHAEOMANCER,
+  ARCHIVIST,
+  ARCHON_OF_JUSTICE,
+  ARDENT_ELEMENTALIST,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -5947,4 +6552,6 @@ export const ENGINE_CARDS: CardData[] = [
   DRAKE_TOKEN,
   ELF_WARRIOR_TOKEN,
   VILLAIN_TOKEN,
+  INSECT_TOKEN,
+  SPIDER_TOKEN,
 ];

@@ -52,6 +52,19 @@ import { ALCHEMISTS_APPRENTICE_SCRIPT } from './scripts/cards/alchemistsApprenti
 import { AMATEUR_HERO_SCRIPT } from './scripts/cards/amateurHero';
 import { AMBASSADOR_OAK_SCRIPT } from './scripts/cards/ambassadorOak';
 import { AMBUSH_GIGAPEDE_SCRIPT } from './scripts/cards/ambushGigapede';
+import { ANABA_SHAMAN_SCRIPT } from './scripts/cards/anabaShaman';
+import { ANGEL_OF_DESPAIR_SCRIPT } from './scripts/cards/angelOfDespair';
+import { ANGEL_OF_MERCY_SCRIPT } from './scripts/cards/angelOfMercy';
+import { ANODET_LURKER_SCRIPT } from './scripts/cards/anodetLurker';
+import { ANT_QUEEN_SCRIPT } from './scripts/cards/antQueen';
+import { AQUUS_STEED_SCRIPT } from './scripts/cards/aquusSteed';
+import { ARASHIN_CLERIC_SCRIPT } from './scripts/cards/arashinCleric';
+import { ARASTA_OF_THE_ENDLESS_WEB_SCRIPT } from './scripts/cards/arastaOfTheEndlessWeb';
+import { ARBORBACK_STOMPER_SCRIPT } from './scripts/cards/arborbackStomper';
+import { ARCHAEOMANCER_SCRIPT } from './scripts/cards/archaeomancer';
+import { ARCHIVIST_SCRIPT } from './scripts/cards/archivist';
+import { ARCHON_OF_JUSTICE_SCRIPT } from './scripts/cards/archonOfJustice';
+import { ARDENT_ELEMENTALIST_SCRIPT } from './scripts/cards/ardentElementalist';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -219,6 +232,11 @@ const DECK = [
   'Airship Engine Room', "Ajani's Welcome", 'Akoum Refuge', 'Akroan Jailer',
   'Akroan Mastiff', "Aladdin's Ring", "Alchemist's Apprentice", 'Amateur Hero',
   'Ambassador Oak', 'Ambush Gigapede',
+  // ⚠️ M6.4d/D161 — batch 4's thirteen, every shipped script dealt.
+  'Anaba Shaman', 'Angel of Despair', 'Angel of Mercy', 'Anodet Lurker',
+  'Ant Queen', 'Aquus Steed', 'Arashin Cleric', 'Arasta of the Endless Web',
+  'Arborback Stomper', 'Archaeomancer', 'Archivist', 'Archon of Justice',
+  'Ardent Elementalist',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -289,6 +307,24 @@ const SCRIPTS = createRegistry([
   AMATEUR_HERO_SCRIPT,
   AMBASSADOR_OAK_SCRIPT,
   AMBUSH_GIGAPEDE_SCRIPT,
+  // M6.4d/D161 — batch 4, thirteen scripts: script destroy (indestructible
+  // asked of the derived target), the first looks-back-AND-targets trigger,
+  // Arasta turning the gate's own spells into Spiders for the OTHER seat, a
+  // repeatable token ability, and the Page/Anointer refusals that taught the
+  // selection about unenforced target clauses.
+  ANABA_SHAMAN_SCRIPT,
+  ANGEL_OF_DESPAIR_SCRIPT,
+  ANGEL_OF_MERCY_SCRIPT,
+  ANODET_LURKER_SCRIPT,
+  ANT_QUEEN_SCRIPT,
+  AQUUS_STEED_SCRIPT,
+  ARASHIN_CLERIC_SCRIPT,
+  ARASTA_OF_THE_ENDLESS_WEB_SCRIPT,
+  ARBORBACK_STOMPER_SCRIPT,
+  ARCHAEOMANCER_SCRIPT,
+  ARCHIVIST_SCRIPT,
+  ARCHON_OF_JUSTICE_SCRIPT,
+  ARDENT_ELEMENTALIST_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

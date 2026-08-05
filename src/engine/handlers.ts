@@ -630,6 +630,24 @@ function activateAbility(
     return reject('timingRestriction', `${face.name}'s ability is sorcery-speed — use it in your own main phase with an empty stack.`);
   }
 
+  // ⚠️ D139's HOLE, ONE INTENT OVER (D161): a cast that NAMED its own targets
+  // was validated since D139; an activation that named them went straight to
+  // payment — so a hand-built intent could aim "target attacking creature" at
+  // a bystander. Not reachable from this app's UI (the aim flow answers the
+  // prompt stage, which has always validated), but "the host decides legality"
+  // is what the whole net layer rests on, and the test driver uses exactly
+  // this seam. Same predicate, same message as the prompt stage.
+  if (intent.targets !== undefined && ability.targets.length > 0) {
+    const verdict = validateTargets(
+      ability.targets,
+      { controller: intent.player, colors: face.colors },
+      face.name,
+      intent.targets,
+      candidatesFromState(state, deps),
+    );
+    if (!verdict.ok) return reject('illegalTarget', verdict.message);
+  }
+
   const stackId = `s${state.counters.stack + 1}`;
   const abilityRef = `${oracleCard.oracleId}#a${intent.abilityIndex}`;
   // War Room's computed cost: the RULE was parsed, the NUMBER is read off the

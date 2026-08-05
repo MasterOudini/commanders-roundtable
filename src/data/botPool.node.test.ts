@@ -407,7 +407,8 @@ const POOL: Record<string, number> = {
   // ENCHANTMENT THIS POOL HAS EVER HELD (`Ajani's Welcome`). The bot deck's
   // own header said "no enchantments … because the engine runs none of those
   // yet"; the ceiling rose exactly as it promised it would.
-  creature: 1162,
+  // M6.4d (D161): +13 creatures.
+  creature: 1175,
   instant: 201,
   sorcery: 146,
   land: 216,

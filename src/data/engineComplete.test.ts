@@ -94,6 +94,23 @@ const COMPLETE: readonly [string, CardData][] = [
   ['Amateur Hero', fx.AMATEUR_HERO],
   ['Ambassador Oak', fx.AMBASSADOR_OAK],
   ['Ambush Gigapede', fx.AMBUSH_GIGAPEDE],
+  // M6.4d (D161): batch 4's thirteen. ⚠️ Angelic Page and Anointer of
+  // Champions are NOT here — their "attacking"/"blocking" clauses are
+  // unenforced target restrictions, so this predicate refuses them however
+  // many scripts ship, which is exactly why they were pulled from the batch.
+  ['Anaba Shaman', fx.ANABA_SHAMAN],
+  ['Angel of Despair', fx.ANGEL_OF_DESPAIR],
+  ['Angel of Mercy', fx.ANGEL_OF_MERCY],
+  ['Anodet Lurker', fx.ANODET_LURKER],
+  ['Ant Queen', fx.ANT_QUEEN],
+  ['Aquus Steed', fx.AQUUS_STEED],
+  ['Arashin Cleric', fx.ARASHIN_CLERIC],
+  ['Arasta of the Endless Web', fx.ARASTA_OF_THE_ENDLESS_WEB],
+  ['Arborback Stomper', fx.ARBORBACK_STOMPER],
+  ['Archaeomancer', fx.ARCHAEOMANCER],
+  ['Archivist', fx.ARCHIVIST],
+  ['Archon of Justice', fx.ARCHON_OF_JUSTICE],
+  ['Ardent Elementalist', fx.ARDENT_ELEMENTALIST],
 ];
 
 /**

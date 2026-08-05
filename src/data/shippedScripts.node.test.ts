@@ -105,7 +105,9 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // four the ActivatedDef seam unblocked: Arcane Encyclopedia, Deserted
     // Temple, Hedron Archive, War Room. M6.4c (D160) landed nineteen — the
     // first select.cjs batch at scale, 19 of 25 with the six refusals named.
-    expect(SHIPPED_SCRIPTS).toHaveLength(31);
+    // M6.4d (D161) landed thirteen and taught the SELECTION two refusal shapes
+    // its needs column could not see (spells; unenforced target clauses).
+    expect(SHIPPED_SCRIPTS).toHaveLength(44);
   });
 });
 

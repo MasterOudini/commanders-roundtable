@@ -3829,6 +3829,51 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       predicate; the general-sacrifice chooser (D159, still the largest cost
       gap).
 
+- [x] **M6.4d — Thirteen landed, a validation hole closed, and the selection
+      taught to refuse (2026-08-05):** **1,774 of 31,692 Commander-legal cards
+      now execute completely, up from 1,761.** Decisions in **D161**.
+      ⚠️⚠️ **A HOST-SIDE VALIDATION HOLE, FOUND BY A NEGATIVE TEST — D139's,
+      ONE INTENT OVER.** `ActivateAbility` with INLINE targets skipped target
+      validation entirely (the prompt-stage path has validated since the
+      targeting work); a hand-built intent could aim "target attacking
+      creature" at a bystander. Closed with the prompt stage's own predicate
+      and message. Found because `Angelic Page`'s test EXPECTED the refusal.
+      ⚠️⚠️ **AND THE FIXED VALIDATION EXPOSED THE SECOND SELECTION/GATE
+      MISMATCH**: "attacking"/"blocking" are UNENFORCED target clauses, so the
+      coverage gate refuses those cards however their scripts read — and the
+      selection had offered them, because `primitivesFor`'s needs cannot see
+      spec refusals. `Angelic Page` and `Anointer of Champions` were PULLED,
+      and `cardgenSelect` gained the two filters the drafts paid for: no
+      spells (no spell seam, D160), no unread/unenforced target clauses. The
+      OFFERABLE pool is 1,135 against the parsers' 1,219 — the 84-card gap is
+      the dead weight every batch had been re-shuffling.
+      **Four firsts:** script DESTROY with indestructible asked of the derived
+      target (`Angel of Despair`; the break test is `Darksteel Myr` surviving
+      what kills a Lion) · script EXILE on the first looks-back-AND-targets
+      trigger (`Archon of Justice`) · the opponent-cast trigger (`Arasta`,
+      Talrand's mirror — the token to the ability's controller, not the
+      caster) · the repeatable token ability (`Ant Queen`, no tap, two
+      activations two Insects). Plus a creature ping, `{T}: Draw`, two
+      graveyard-return twins, -2/-0, three ETB-gain angels, a dies-gain.
+      ⚠️ **Ten refusals named**: D160's six (recurrence now CLOSED by the
+      filters) · `Amok` (random-discard cost) · `Ancestor's Prophet` and
+      `Aphetto Grifter` (tap-N-untapped-creatures costs) · `Arc-Slogger`
+      (exile-from-library cost — a new ledger class).
+      Fixtures 181 (the pulled pair stay, waiting on combat-qualifier
+      enforcement) · `SHIPPED_SCRIPTS` 31 → 44 · ladder [1219, 1318, 3271,
+      5155, 6342] · botDeck: Adun reaches 982 from 49 legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation: 114
+      test files, 1,598 Vitest passed / 10 skipped · the 500-seed gate green
+      at 599.5 s against its 600 s timeout — a pass by half a second, said
+      plainly: ⚠️ the `collectTriggers` per-oracle index (named since D158) is
+      DUE before the next batch · build clean · probe 124/124 · battery
+      127/127.**
+      ⚠️ **Reportables** (D161): the collectTriggers index (now due);
+      combat-qualifier targeting as the next targeting-layer widening (returns
+      the pulled pair); the cost-class ledger (general-sacrifice chooser,
+      random-discard, tap-N, exile-from-library); D160's spell-seam and
+      script-raised-prompt items stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

@@ -29,6 +29,7 @@ import { createInterface } from 'node:readline';
 import { describe, expect, test } from 'vitest';
 import type { CardData } from './cardTypes';
 import { engineCompleteness, unaccountedLines } from './engineComplete';
+import { parseFace } from './oracleParse';
 import { primitivesFor } from './primitives';
 import { ENGINE_CARDS } from './fixtures/engineCards';
 
@@ -108,6 +109,23 @@ async function select(): Promise<Candidate[]> {
     // ⚠️ SOLE NEED `scriptable`, nothing else. A card that also waits on a
     // primitive is not draftable today whatever its text looks like.
     if (p.needs.size !== 1 || !p.needs.has('scriptable')) continue;
+
+    // ⚠️ TWO SHAPES THE NEEDS COLUMN CANNOT SEE, both found by handing them to
+    // a drafter (D160, D161). A SPELL face outside the effect vocabulary is
+    // "scriptable" by lines and unlandable in fact — `CardScript` has no spell
+    // seam; a spell executes through the vocabulary or not at all. And a
+    // target spec with an UNREAD or UNENFORCED clause fails `faceCompleteness`
+    // whatever a script claims, so the gate would refuse the landed card
+    // ("attacking or blocking" cost this batch two drafts). Both are asked of
+    // the parsers that decide them, never re-read here.
+    let landable = true;
+    for (let i = 0; i < card.faces.length; i++) {
+      const face = parseFace(card, i);
+      if (!face.isPermanent && face.effectMode !== 'auto') landable = false;
+      const specs = [...face.targets, ...face.activated.flatMap((a) => a.targets)];
+      if (specs.some((s) => s.kinds.length === 0 || s.unenforced.length > 0)) landable = false;
+    }
+    if (!landable) continue;
 
     let lines = 0;
     for (let i = 0; i < card.faces.length; i++) lines += unaccountedLines(card, i).length;
