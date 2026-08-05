@@ -127,6 +127,19 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Discard-a-card-as-cost chooser — the hand-side sibling of the sacrifice
   // chooser (D163).
   ["Ayula's Influence", 'discard-cost chooser'],
+  // Batch 7 (D164).
+  ['Barrage of Expendables', 'sacrifice-cost chooser'],
+  ['Barrage Ogre', 'sacrifice-cost chooser'],
+  ['Barrin, Master Wizard', 'sacrifice-cost chooser'],
+  ['Blazing Hellhound', 'sacrifice-cost chooser'],
+  // Exile-N-cards-from-your-graveyard as a COST is a chooser over a public
+  // zone nothing charges yet — the graveyard sibling of the sacrifice
+  // chooser (D164).
+  ['Bearscape', 'exile-from-graveyard cost'],
+  // "…discards a card AT RANDOM" as an EFFECT — `ctx.random` is a stub at
+  // every ScriptCtx site (D158), so no random card may ship until it is
+  // wired to the seeded generator (D164).
+  ['Black Cat', 'ctx.random stub'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

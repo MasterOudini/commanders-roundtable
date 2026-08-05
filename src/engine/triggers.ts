@@ -921,14 +921,18 @@ function readonlyCtx(
   scripts: ScriptRegistry,
   cache: ReturnType<typeof makeDeriveCache>,
 ): Parameters<NonNullable<ReturnType<ScriptRegistry['triggersFor']>[number]>['def']['matches']>[0] {
+  // Advancing allocators, one pair per ctx (D164) — `matches` must not emit
+  // events, but the ctx keeps the same contract as the resolution's.
+  let instAlloc = state.counters.instance;
+  let stackAlloc = state.counters.stack;
   return {
     state,
     oracle,
     derive: (id: InstanceId) => derive(state, oracle, scripts, id, cache),
     options: state.options,
     ids: {
-      nextInstance: () => `c${state.counters.instance + 1}`,
-      nextStack: () => `s${state.counters.stack + 1}`,
+      nextInstance: () => `c${++instAlloc}`,
+      nextStack: () => `s${++stackAlloc}`,
     },
     query: {
       permanentsOf: (player: PlayerId) =>

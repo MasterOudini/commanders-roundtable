@@ -10747,3 +10747,148 @@ ledger was written this session).
   engine-work list; the discard-cost chooser joins the cost ledger beside
   random-discard, tap-creatures and exile-from-library.
 - D160's spell seam and script-raised prompts stand.
+
+## D164 — M6.4g: nineteen landed, and the allocator that handed out one id (2026-08-05)
+
+**What was decided:** land batch 7 — nineteen of `select.cjs`'s 25, the
+biggest batch of the arc — and fix the script-API defect it flushed out.
+**1,815 of 31,692 Commander-legal cards now execute completely, up from
+1,796.**
+
+⚠️⚠️ **`ctx.ids.nextInstance` WAS A PURE READ, AND TWO TOKENS IN ONE RESOLVE
+GOT ONE ID.** All three `ScriptCtx` construction sites defined it as
+`` () => `c${state.counters.instance + 1}` `` — a read of the UNAPPLIED
+state, so every call in a single `resolve` returned the same id. The second
+`TokenCreated` then OVERWROTE the first card in the reducer while
+`addToZone` appended the id a second time — one real token, and a duplicated
+zone entry, in the same state.
+
+⚠️ **THE TWO TESTS READ THE SAME CORRUPTION DIFFERENTLY, AND ONE OF THEM
+PASSED.** `Beetleback Chief`'s count-only assertion saw the duplicated
+battlefield entry as "2 Goblins" and went green over a board with one
+overwritten token on it twice; `Blaze Commando`'s read 1 Soldier and failed,
+which is the only reason anything was found. Instrumenting the log settled
+it in one run: `tokenEvents: ['c63', 'c63']`. A counting assertion cannot
+tell two things from one thing twice — **both tests now assert the DISTINCT
+id set** (`new Set(ids).size`), which is the regression's permanent teeth.
+
+⚠️ **THE VOCABULARY PATH ALWAYS KNEW.** `effects.ts`'s `createToken` has
+kept its own advancing counter since D133, under a comment reading "one
+allocator for every instance this resolution creates" — the effect engine
+allocates correctly and the script API beside it never got the same care,
+because no script before this batch ever created two instances in one
+resolve. The fix is that same allocator, moved into the ctx: per-ctx
+advancing closures at all three sites (`loop.ts`'s resolution ctx,
+`triggers.ts`'s matches ctx, `derive.ts`'s static ctx). **The first call is
+byte-identical to the old read**, so every shipped single-allocation script
+replays unchanged — the 500-seed gate's equal hashes are the proof at scale.
+
+**Batch 7 — nineteen landed, five firsts:**
+
+- **The first def watching from the HAND.** `Bartered Cow` ("when this
+  creature dies AND when you discard this card") is one printed line and two
+  zone-changes: Beskir's dies half, plus `activeZones: ['hand']` with
+  `looksBack` — CR 603.10a's mechanism one zone over, since a discarded card
+  has already left the hand when the bus runs. The fuzz gate's cleanup
+  discards exercise it for free.
+- **The first combat-damage trigger — safe where Aya of Alexandria is
+  not.** `Belligerent Guest` watches only ITSELF: one creature attacks one
+  defender, so its player-damage is at most one entry per
+  `CombatDamageDealt`, and per-event firing IS per-instance firing. D163's
+  granularity refusal stands for per-creature watchers; the self-only shape
+  ships.
+- **The first spell-damage watcher.** `Blaze Commando` matches `DamageDealt`
+  entries whose source is its controller's instant or sorcery — and that
+  event fires once per resolving object however many targets it burned,
+  which is exactly the card's own "once per spell".
+- **The first PHYREXIAN activation cost.** `Blinding Souleater`'s {W/P}
+  rides the payment problem that has modelled phyrexian halves since M3; the
+  parse is pinned payable and the test pays it in white.
+- **The first multi-token resolves** — `Beetleback Chief` and `Blaze
+  Commando`, the pair that found the allocator.
+
+The rest ride shipped shapes: `Barbarian Riftcutter` (Ark of Blight's
+targeted self-sacrifice, Darksteel Citadel break test included), `Bile
+Urchin` (a MANA-FREE self-sacrifice draining a targeted player — no {T}, so
+no sickness gate), `Beast Whisperer` (the cast-watcher asking for
+creatures), `Bear's Companion` / `Beskir Shieldmate` / `Beamsaw Prospector`
+(ETB/dies tokens — a 4/4 Bear, a Human Warrior, a Lander), `Benalish
+Heralds` (tap-draw), `Benalish Trapper` and `Blinding Mage` (the SAME
+printed tap-a-creature text on two oracle ids, each proven on its own),
+`Bigfin Bouncer` (the bounce with "an opponent controls" enforced — your own
+creature refused at ChooseTargets, pinned), `Birnin Zana Plaza` (the third
+enters-tapped gain land), `Birthing Boughs` (an activated token maker on an
+artifact — no sickness wait), `Blighted Cataract` / `Azorius`-style
+sacrifice-draw on a land, and `Blister Beetle` (a targeted ETB writing the
+layer-7c until-end-of-turn debuff, cleanup taking it back — asserted).
+
+**The six refusals, all IN THE LEDGER now:** `Barrage of Expendables`,
+`Barrage Ogre`, `Barrin, Master Wizard`, `Blazing Hellhound` (four more
+sacrifice-cost choosers — the class holds TEN entries), `Bearscape`
+(exile-from-graveyard cost — a NEW class: a chooser over a public zone,
+sibling to the sacrifice chooser), `Black Cat` (a random EFFECT — target
+opponent discards at random — while `ctx.random` is a stub, D158's
+reportable now BLOCKING a named card).
+
+⚠️ One test trimmed honestly: Bartered Cow's library-staging negative was
+dropped because the harness's `put()` stages hand/battlefield/graveyard/
+exile/command and not the library — the two watched zones are positively
+proven and the zone gate is `collectTriggers`' own machinery.
+
+**Re-measured, every delta exactly the nineteen cards:** `complete` 1,796 →
+1,815 · `blocked` 29,896 → 29,877 · `scriptableToday` 1,197 → 1,178 · ladder
+[1178, 1277, 3230, 5114, 6301] · botPool creature 1,192 → 1,208, artifact
+38 → 39, land 218 → 220 · tier3 `abilityText` 17,417 → 17,406, `payable`
+4,802, `silentAfter` 2,207 → 2,226 · `SHIPPED_SCRIPTS` 66 → 85 · fixtures
+205 → 232 (19 tokens — EIGHT new printings pinned: the 4/4 Bear `ttla 12`,
+Blood `tbig 2`, Food `tunf 10`, Goblin `l12 1`, Human Warrior `tkhm 3`,
+Lander `teoe 6`, the colorless Shapeshifter `tmh1 1`, the RW haste Soldier
+`tonc 17`) · `batch.json` at 1,072 (19 landed + 6 refused off 1,097, exact)
+· `botDeck.ts` regenerated — **Birthing Boughs joined, Darksteel Ingot
+out** (Adun reaches 994).
+
+⚠️⚠️ **THE FIRST FULL-GATE RUN FAILED, AND THE FAILURE WAS A RATE CANARY
+ROTTING ON SCHEDULE.** Every replay hash was equal and five of the six fuzz
+tests were green; what failed was D149's CR 616 canary —
+`replacementChoices > 0` at 500 seeds — at ZERO. That suspension needs
+`Hardened Scales` and `Branching Evolution` on one battlefield plus a
+counter event, measured at 5-per-500 when the fuzz DECK held ~60 names and
+the pair sat in every 60-card library; four batches of growth diluted the
+pair out of the libraries, and the canary's own comment had said the
+counter "will start moving the day this deck changes". **Re-weighted to
+FIVE copies of each** — presence and draw odds both restored, the expected
+rate an order of magnitude above the assertion's floor instead of a Poisson
+coin flip at it. The run also recorded how much the batch changed the
+GAMES: target prompts went ~3,000 → 39,866 (nineteen targeted defs the
+fuzzer now answers constantly) and accepted intents fell ~30% to 58,626,
+because prompts consume them — no gate asserts either number, but the next
+rate canary should be read against this shape, not D149's.
+
+**Verified: `node scripts/cardgen/verify.cjs --full` — ALL FIVE GATES PASSED
+in one invocation on the idle machine:** `tsc -b` clean · conformance green ·
+coverage accounting green over the real database · 155 test files, 1,818
+Vitest passed / 10 skipped (136 / 1,720 before) · the 500-seed replay fuzz
+gate green at 510.6 s (85 scripts registered; the wall grew with the 13×
+target-prompt load, still 90 s inside the timeout) — **and the equal replay
+hashes are the allocator fix's at-scale proof** · `npm run build` clean ·
+probe 124/124 · `battery-anim.cjs bot engine prompts` 127/127.
+
+**Checked by breaking it, in the suite:** the distinct-id set assertions in
+both multi-token tests fail against the old allocator by construction (they
+were born failing against it); Riftcutter's Darksteel Citadel survival,
+Bigfin's own-creature refusal, Bartered Cow's two zone paths, Blister
+Beetle's cleanup-removes-it and Beast Whisperer's enchantment negative are
+permanent tests.
+
+**Reportables (D164):**
+
+- **The sacrifice-cost chooser now holds TEN ledger entries** — four more in
+  one batch. Every batch since D159 has paid it; it is overdue.
+- **`ctx.random` is no longer an abstract stub — it BLOCKS a ledger entry**
+  (Black Cat). Wiring it to the seeded generator through the recorded
+  `rngAfter` (D147's `effectResult` precedent) is bounded work with a named
+  payoff.
+- Exile-from-graveyard joins the cost ledger beside discard-cost, tap-N,
+  random-discard and exile-from-library.
+- Once-per-turn trigger memory and per-damage-entry bus granularity stand
+  (D163).

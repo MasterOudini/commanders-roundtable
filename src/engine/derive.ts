@@ -445,14 +445,18 @@ function staticSourcesFor(
  * correctness wins.
  */
 export function makeScriptCtx(state: GameState, oracle: OracleDb, scripts: ScriptRegistry): ScriptCtx {
+  // Advancing allocators, one pair per ctx (D164) — statics never emit, but
+  // every ScriptCtx keeps one contract: repeated calls hand out DISTINCT ids.
+  let instAlloc = state.counters.instance;
+  let stackAlloc = state.counters.stack;
   return {
     state,
     oracle,
     derive: (id) => derive(state, oracle, scripts, id),
     options: state.options,
     ids: {
-      nextInstance: () => `c${state.counters.instance + 1}`,
-      nextStack: () => `s${state.counters.stack + 1}`,
+      nextInstance: () => `c${++instAlloc}`,
+      nextStack: () => `s${++stackAlloc}`,
     },
     query: {
       permanentsOf: (player) => state.zones.battlefield.filter((id) => state.cards[id]?.controller === player),

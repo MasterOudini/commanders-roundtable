@@ -468,6 +468,30 @@ const WANTED = [
   'Azure Mage',
   'Backup Agent',
   'Baleful Ammit',
+  // M6.4g — batch 7 (D164): 19 landed of select.cjs's 25; the six refusals
+  // are four sacrifice-cost choosers (Barrage of Expendables, Barrage Ogre,
+  // Barrin, Blazing Hellhound) and two NEW ledger classes — Bearscape
+  // (exile-from-graveyard cost) and Black Cat (a random EFFECT while
+  // ctx.random is a stub).
+  'Barbarian Riftcutter',
+  'Bartered Cow',
+  'Beamsaw Prospector',
+  "Bear's Companion",
+  'Beast Whisperer',
+  'Beetleback Chief',
+  'Belligerent Guest',
+  'Benalish Heralds',
+  'Benalish Trapper',
+  'Beskir Shieldmate',
+  'Bigfin Bouncer',
+  'Bile Urchin',
+  'Birnin Zana Plaza',
+  'Birthing Boughs',
+  'Blaze Commando',
+  'Blighted Cataract',
+  'Blinding Mage',
+  'Blinding Souleater',
+  'Blister Beetle',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -495,6 +519,15 @@ const WANTED_TOKENS = [
   // M6.4e (D162).
   { name: 'Wurm', set: 'trtr', cn: '11', key: 'WURM_TOKEN' },
   { name: 'Thopter', set: 'tafc', cn: '12', key: 'THOPTER_TOKEN' },
+  // M6.4g (D164).
+  { name: 'Bear', set: 'ttla', cn: '12', key: 'BEAR_44_TOKEN' },
+  { name: 'Blood', set: 'tbig', cn: '2', key: 'BLOOD_TOKEN' },
+  { name: 'Food', set: 'tunf', cn: '10', key: 'FOOD_TOKEN' },
+  { name: 'Goblin', set: 'l12', cn: '1', key: 'GOBLIN_TOKEN' },
+  { name: 'Human Warrior', set: 'tkhm', cn: '3', key: 'HUMAN_WARRIOR_TOKEN' },
+  { name: 'Lander', set: 'teoe', cn: '6', key: 'LANDER_TOKEN' },
+  { name: 'Shapeshifter', set: 'tmh1', cn: '1', key: 'SHAPESHIFTER_TOKEN' },
+  { name: 'Soldier', set: 'tonc', cn: '17', key: 'SOLDIER_RW_TOKEN' },
 ];
 
 function constName(name) {

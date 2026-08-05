@@ -7,6 +7,25 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { BARBARIAN_RIFTCUTTER_SCRIPT } from './cards/barbarianRiftcutter';
+import { BARTERED_COW_SCRIPT } from './cards/barteredCow';
+import { BEAMSAW_PROSPECTOR_SCRIPT } from './cards/beamsawProspector';
+import { BEARS_COMPANION_SCRIPT } from './cards/bearsCompanion';
+import { BEAST_WHISPERER_SCRIPT } from './cards/beastWhisperer';
+import { BEETLEBACK_CHIEF_SCRIPT } from './cards/beetlebackChief';
+import { BELLIGERENT_GUEST_SCRIPT } from './cards/belligerentGuest';
+import { BENALISH_HERALDS_SCRIPT } from './cards/benalishHeralds';
+import { BENALISH_TRAPPER_SCRIPT } from './cards/benalishTrapper';
+import { BESKIR_SHIELDMATE_SCRIPT } from './cards/beskirShieldmate';
+import { BIGFIN_BOUNCER_SCRIPT } from './cards/bigfinBouncer';
+import { BILE_URCHIN_SCRIPT } from './cards/bileUrchin';
+import { BIRNIN_ZANA_PLAZA_SCRIPT } from './cards/birninZanaPlaza';
+import { BIRTHING_BOUGHS_SCRIPT } from './cards/birthingBoughs';
+import { BLAZE_COMMANDO_SCRIPT } from './cards/blazeCommando';
+import { BLIGHTED_CATARACT_SCRIPT } from './cards/blightedCataract';
+import { BLINDING_MAGE_SCRIPT } from './cards/blindingMage';
+import { BLINDING_SOULEATER_SCRIPT } from './cards/blindingSouleater';
+import { BLISTER_BEETLE_SCRIPT } from './cards/blisterBeetle';
 import { AVEN_OF_ENDURING_HOPE_SCRIPT } from './cards/avenOfEnduringHope';
 import { AVENGERS_HANGAR_SCRIPT } from './cards/avengersHangar';
 import { AVIATION_PIONEER_SCRIPT } from './cards/aviationPioneer';
@@ -167,6 +186,25 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BARBARIAN_RIFTCUTTER_SCRIPT,
+  BARTERED_COW_SCRIPT,
+  BEAMSAW_PROSPECTOR_SCRIPT,
+  BEARS_COMPANION_SCRIPT,
+  BEAST_WHISPERER_SCRIPT,
+  BEETLEBACK_CHIEF_SCRIPT,
+  BELLIGERENT_GUEST_SCRIPT,
+  BENALISH_HERALDS_SCRIPT,
+  BENALISH_TRAPPER_SCRIPT,
+  BESKIR_SHIELDMATE_SCRIPT,
+  BIGFIN_BOUNCER_SCRIPT,
+  BILE_URCHIN_SCRIPT,
+  BIRNIN_ZANA_PLAZA_SCRIPT,
+  BIRTHING_BOUGHS_SCRIPT,
+  BLAZE_COMMANDO_SCRIPT,
+  BLIGHTED_CATARACT_SCRIPT,
+  BLINDING_MAGE_SCRIPT,
+  BLINDING_SOULEATER_SCRIPT,
+  BLISTER_BEETLE_SCRIPT,
   AVEN_OF_ENDURING_HOPE_SCRIPT,
   AVENGERS_HANGAR_SCRIPT,
   AVIATION_PIONEER_SCRIPT,

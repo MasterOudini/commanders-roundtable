@@ -3970,6 +3970,63 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       engine-work list; the discard-cost chooser joins the cost ledger;
       D160's spell seam and script-raised prompts stand.
 
+- [x] **M6.4g — Nineteen landed, and the allocator that handed out one id
+      (2026-08-05):** **1,815 of 31,692 Commander-legal cards now execute
+      completely, up from 1,796** — the biggest batch of the arc. Decisions in
+      **D164**.
+      ⚠️⚠️ **`ctx.ids.nextInstance` WAS A PURE READ OF THE UNAPPLIED STATE** —
+      every call in one resolve returned the SAME id, so a script creating two
+      tokens OVERWROTE the first and duplicated the zone entry. Found by the
+      arc's first two-token resolves, and **the two tests read the corruption
+      differently: Beetleback Chief's count-only assertion saw the duplicated
+      battlefield entry as "2 Goblins" and PASSED; Blaze Commando's read 1 and
+      failed** — the only reason anything was found. `effects.ts`'s
+      `createToken` has kept its own advancing counter since D133; the script
+      API beside it never got the same care. Fixed with per-ctx ADVANCING
+      allocators at all three `ScriptCtx` sites — the first call is
+      byte-identical to the old read, so every shipped script replays
+      unchanged (the 500-seed gate's equal hashes prove it at scale). Both
+      tests now assert the DISTINCT id set.
+      **Five firsts:** the first HAND-zone def (`Bartered Cow`, one line, two
+      zone-changes — `activeZones: ['hand']` + `looksBack`, exercised by the
+      fuzz gate's cleanup discards for free); the first combat-damage trigger
+      (`Belligerent Guest` — SELF-only, so per-event firing is per-instance,
+      safe where D163 refused Aya); the first spell-damage watcher (`Blaze
+      Commando` — `DamageDealt` fires once per resolving object, the card's
+      own granularity); the first PHYREXIAN activation cost (`Blinding
+      Souleater`, {W/P} pinned payable, paid in white); the first multi-token
+      resolves (the pair that found the allocator). Plus fourteen on shipped
+      shapes — including a mana-free self-sacrifice with a player target
+      (`Bile Urchin`), the same printed text landed on two oracle ids
+      (`Benalish Trapper` / `Blinding Mage`, each proven on its own), and a
+      targeted until-end-of-turn debuff with cleanup asserted (`Blister
+      Beetle`).
+      ⚠️ **Six refusals, all IN THE LEDGER: the sacrifice-cost chooser now
+      holds TEN entries** (Barrage of Expendables, Barrage Ogre, Barrin,
+      Blazing Hellhound joined) **plus two NEW classes** — `Bearscape`
+      (exile-from-graveyard cost) and `Black Cat` (a random effect while
+      `ctx.random` is a stub — D158's reportable now BLOCKS a named card).
+      Fixtures 205 → 232 (19 tokens, EIGHT new printings pinned) ·
+      `SHIPPED_SCRIPTS` 66 → 85 · ladder [1178, 1277, 3230, 5114, 6301] ·
+      `batch.json` at 1,072 · botDeck: Birthing Boughs in, Darksteel Ingot
+      out (Adun reaches 994).
+      ⚠️ **The first full-gate run failed on a RATE canary rotting on
+      schedule** — D149's CR 616 `replacementChoices > 0` hit ZERO with every
+      replay hash equal, because four batches of DECK growth had diluted the
+      Hardened Scales + Branching Evolution pair out of the 60-card
+      libraries (its own comment predicted it). Re-weighted to five copies
+      each; and the batch reshaped the games — target prompts ~3,000 →
+      39,866, accepted intents down ~30% — which future rate canaries must
+      be read against.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation: 155
+      test files, 1,818 Vitest passed / 10 skipped · the 500-seed gate green
+      at 510.6 s (85 scripts; equal hashes are the allocator's at-scale
+      proof) · build clean · probe 124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D164): the sacrifice-cost chooser at TEN entries is
+      overdue; `ctx.random` wiring is bounded work with a named payoff (Black
+      Cat's class); exile-from-graveyard joins the cost ledger; once-per-turn
+      memory and per-damage-entry granularity stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

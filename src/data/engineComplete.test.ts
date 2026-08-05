@@ -135,6 +135,26 @@ const COMPLETE: readonly [string, CardData][] = [
   ['Azure Mage', fx.AZURE_MAGE],
   ['Backup Agent', fx.BACKUP_AGENT],
   ['Baleful Ammit', fx.BALEFUL_AMMIT],
+  // M6.4g (D164) — batch 7.
+  ['Barbarian Riftcutter', fx.BARBARIAN_RIFTCUTTER],
+  ['Bartered Cow', fx.BARTERED_COW],
+  ['Beamsaw Prospector', fx.BEAMSAW_PROSPECTOR],
+  ["Bear's Companion", fx.BEAR_S_COMPANION],
+  ['Beast Whisperer', fx.BEAST_WHISPERER],
+  ['Beetleback Chief', fx.BEETLEBACK_CHIEF],
+  ['Belligerent Guest', fx.BELLIGERENT_GUEST],
+  ['Benalish Heralds', fx.BENALISH_HERALDS],
+  ['Benalish Trapper', fx.BENALISH_TRAPPER],
+  ['Beskir Shieldmate', fx.BESKIR_SHIELDMATE],
+  ['Bigfin Bouncer', fx.BIGFIN_BOUNCER],
+  ['Bile Urchin', fx.BILE_URCHIN],
+  ['Birnin Zana Plaza', fx.BIRNIN_ZANA_PLAZA],
+  ['Birthing Boughs', fx.BIRTHING_BOUGHS],
+  ['Blaze Commando', fx.BLAZE_COMMANDO],
+  ['Blighted Cataract', fx.BLIGHTED_CATARACT],
+  ['Blinding Mage', fx.BLINDING_MAGE],
+  ['Blinding Souleater', fx.BLINDING_SOULEATER],
+  ['Blister Beetle', fx.BLISTER_BEETLE],
 ];
 
 /**

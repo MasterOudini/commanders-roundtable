@@ -113,7 +113,10 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // M6.4f (D163) landed nine of 25 — twelve slots were D162's refusals
     // re-offered (the REFUSED ledger in cardgenSelect now ends that tax), and
     // the four fresh refusals are named there with their classes.
-    expect(SHIPPED_SCRIPTS).toHaveLength(66);
+    // M6.4g (D164) landed nineteen of 25 — the biggest batch of the arc, and
+    // the one that found ctx.ids.nextInstance handing the SAME id to every
+    // call in a resolve. Six refusals, all in the ledger.
+    expect(SHIPPED_SCRIPTS).toHaveLength(85);
   });
 });
 

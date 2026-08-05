@@ -87,6 +87,25 @@ import { AZORIUS_LOCKET_SCRIPT } from './scripts/cards/azoriusLocket';
 import { AZURE_MAGE_SCRIPT } from './scripts/cards/azureMage';
 import { BACKUP_AGENT_SCRIPT } from './scripts/cards/backupAgent';
 import { BALEFUL_AMMIT_SCRIPT } from './scripts/cards/balefulAmmit';
+import { BARBARIAN_RIFTCUTTER_SCRIPT } from './scripts/cards/barbarianRiftcutter';
+import { BARTERED_COW_SCRIPT } from './scripts/cards/barteredCow';
+import { BEAMSAW_PROSPECTOR_SCRIPT } from './scripts/cards/beamsawProspector';
+import { BEARS_COMPANION_SCRIPT } from './scripts/cards/bearsCompanion';
+import { BEAST_WHISPERER_SCRIPT } from './scripts/cards/beastWhisperer';
+import { BEETLEBACK_CHIEF_SCRIPT } from './scripts/cards/beetlebackChief';
+import { BELLIGERENT_GUEST_SCRIPT } from './scripts/cards/belligerentGuest';
+import { BENALISH_HERALDS_SCRIPT } from './scripts/cards/benalishHeralds';
+import { BENALISH_TRAPPER_SCRIPT } from './scripts/cards/benalishTrapper';
+import { BESKIR_SHIELDMATE_SCRIPT } from './scripts/cards/beskirShieldmate';
+import { BIGFIN_BOUNCER_SCRIPT } from './scripts/cards/bigfinBouncer';
+import { BILE_URCHIN_SCRIPT } from './scripts/cards/bileUrchin';
+import { BIRNIN_ZANA_PLAZA_SCRIPT } from './scripts/cards/birninZanaPlaza';
+import { BIRTHING_BOUGHS_SCRIPT } from './scripts/cards/birthingBoughs';
+import { BLAZE_COMMANDO_SCRIPT } from './scripts/cards/blazeCommando';
+import { BLIGHTED_CATARACT_SCRIPT } from './scripts/cards/blightedCataract';
+import { BLINDING_MAGE_SCRIPT } from './scripts/cards/blindingMage';
+import { BLINDING_SOULEATER_SCRIPT } from './scripts/cards/blindingSouleater';
+import { BLISTER_BEETLE_SCRIPT } from './scripts/cards/blisterBeetle';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -230,7 +249,18 @@ const DECK = [
   // the only thing that suspends the funnel, so without both of these on one
   // battlefield the continuation, its three parked queues, the prompt and the
   // resume are unreachable from this gate entirely.
-  'Hardened Scales', 'Branching Evolution',
+  // ⚠️ FIVE COPIES OF EACH, re-weighted in D164: the rate was measured at 5
+  // per 500 seeds when this list held ~60 names and the pair sat in EVERY
+  // 60-card library. The canary's own comment said the counter "will start
+  // moving the day this deck changes" — it did, to ZERO, once four batches
+  // had nearly doubled the list and diluted the pair out of the libraries.
+  // Five copies make the pair reliably present AND reliably drawn, putting
+  // the expected rate an order of magnitude above the assertion's floor
+  // instead of a Poisson coin flip at it.
+  'Hardened Scales', 'Hardened Scales', 'Hardened Scales', 'Hardened Scales',
+  'Hardened Scales',
+  'Branching Evolution', 'Branching Evolution', 'Branching Evolution',
+  'Branching Evolution', 'Branching Evolution',
   // ⚠️ M6.3v/D149 — the CR 613.8 DEPENDENCY pair, and neither card reaches the
   // rule alone. `Kwende` reads a keyword that `Knighthood` grants, so which
   // applies first decides whether Kwende applies AT ALL — the only shape in
@@ -277,6 +307,18 @@ const DECK = [
   'Aven of Enduring Hope', 'Avengers Hangar', 'Aviation Pioneer',
   'Aysen Bureaucrats', 'Azorius Cluestone', 'Azorius Locket', 'Azure Mage',
   'Backup Agent', 'Baleful Ammit',
+  // M6.4g/D164 — batch 7: the first HAND-zone def (Bartered Cow fires on its
+  // own discard — the cleanup discard exercises it for free), the first
+  // combat-damage trigger (Belligerent Guest, self-only so per-event firing
+  // is per-instance), the first spell-damage watcher (Blaze Commando), the
+  // first PHYREXIAN activation cost (Blinding Souleater), and two multi-token
+  // resolves that exist because ctx.ids.nextInstance used to hand out ONE id.
+  'Barbarian Riftcutter', 'Bartered Cow', 'Beamsaw Prospector',
+  "Bear's Companion", 'Beast Whisperer', 'Beetleback Chief',
+  'Belligerent Guest', 'Benalish Heralds', 'Benalish Trapper',
+  'Beskir Shieldmate', 'Bigfin Bouncer', 'Bile Urchin', 'Birnin Zana Plaza',
+  'Birthing Boughs', 'Blaze Commando', 'Blighted Cataract', 'Blinding Mage',
+  'Blinding Souleater', 'Blister Beetle',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -387,6 +429,25 @@ const SCRIPTS = createRegistry([
   AZURE_MAGE_SCRIPT,
   BACKUP_AGENT_SCRIPT,
   BALEFUL_AMMIT_SCRIPT,
+  BARBARIAN_RIFTCUTTER_SCRIPT,
+  BARTERED_COW_SCRIPT,
+  BEAMSAW_PROSPECTOR_SCRIPT,
+  BEARS_COMPANION_SCRIPT,
+  BEAST_WHISPERER_SCRIPT,
+  BEETLEBACK_CHIEF_SCRIPT,
+  BELLIGERENT_GUEST_SCRIPT,
+  BENALISH_HERALDS_SCRIPT,
+  BENALISH_TRAPPER_SCRIPT,
+  BESKIR_SHIELDMATE_SCRIPT,
+  BIGFIN_BOUNCER_SCRIPT,
+  BILE_URCHIN_SCRIPT,
+  BIRNIN_ZANA_PLAZA_SCRIPT,
+  BIRTHING_BOUGHS_SCRIPT,
+  BLAZE_COMMANDO_SCRIPT,
+  BLIGHTED_CATARACT_SCRIPT,
+  BLINDING_MAGE_SCRIPT,
+  BLINDING_SOULEATER_SCRIPT,
+  BLISTER_BEETLE_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

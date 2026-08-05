@@ -714,14 +714,23 @@ function activatedDefFor(deps: EngineDeps, obj: StackObject): ActivatedDef | und
  */
 function scriptCtxFor(state: GameState, deps: EngineDeps): ScriptCtx {
   const cache = makeDeriveCache(state);
+  // ⚠️ ADVANCING allocators, one pair per ctx — a pure read of the unapplied
+  // state hands the SAME id to every call in one resolve, so a script creating
+  // two tokens overwrote the first and duplicated the zone entry (found by
+  // Beetleback Chief / Blaze Commando, D164). The first call is byte-identical
+  // to the old read, so every single-allocation script replays unchanged;
+  // `effects.ts`'s createToken has kept its own advancing counter since D133
+  // for exactly this reason.
+  let instAlloc = state.counters.instance;
+  let stackAlloc = state.counters.stack;
   return {
     state,
     oracle: deps.oracle,
     derive: (id: InstanceId) => derive(state, deps.oracle, deps.scripts, id, cache),
     options: state.options,
     ids: {
-      nextInstance: () => `c${state.counters.instance + 1}`,
-      nextStack: () => `s${state.counters.stack + 1}`,
+      nextInstance: () => `c${++instAlloc}`,
+      nextStack: () => `s${++stackAlloc}`,
     },
     query: {
       permanentsOf: (player: PlayerId) =>
