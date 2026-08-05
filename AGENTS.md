@@ -4027,6 +4027,41 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       Cat's class); exile-from-graveyard joins the cost ledger; once-per-turn
       memory and per-damage-entry granularity stand.
 
+- [x] **M6.4h — Twenty-two landed, the cleanest batch yet (2026-08-05):**
+      **1,837 of 31,692 Commander-legal cards now execute completely, up from
+      1,815** — the largest batch of the arc, and `SHIPPED_SCRIPTS` passed one
+      hundred (85 → 107). Decisions in **D165**.
+      ⚠️ **Only THREE refusals, and the ratio is the LEDGER working** — the
+      D161 parse filters and D163's REFUSED ledger have drained the
+      un-landable shapes out of the offer stream. The three: two more
+      sacrifice-cost choosers (Blood Rites, Bog Naughty — **the class holds
+      TWELVE of the ledger's 26 entries**) and one NEW class (Bolrac-Clan
+      Crusher, remove-a-counter cost).
+      **Five firsts:** the first ATTACHMENT trigger (`Bramble Elemental`
+      watches `AttachmentChanged` for an Aura landing on ITSELF — two
+      DISTINCT Saprolings via D164's allocator, attached-elsewhere negative
+      pinned); the first FIXED life activation cost (`Book of Rass`, paid
+      TWICE in one turn, life 40 → 38 → 36 asserted); the first
+      enters-OR-LEAVES double def (`Brandywine Farmer` — a BOUNCE pays,
+      leaves ≠ dies, pinned); the first SELF-INCLUSIVE controlled-creature
+      watcher (`Bogwater Lumaret` — its own entry gains, beside `Boltwing
+      Marauder` carrying the exclusion, both shapes pinned from both sides);
+      the first SUBTYPE cast-watcher (`Briarknit Kami`, Spirit/Arcane).
+      Plus `Bloodtallow Candle`'s -5/-5 killing a 2/2 THROUGH the SBA, two
+      three-line sacrifice-draw lands, two more Cluestone/Locket pairs, and
+      twelve twins of shipped shapes.
+      Fixtures 232 → 255 (20 tokens, ONE new pin — Saproling `tddj 1`) ·
+      ladder [1156, 1255, 3208, 5092, 6279] · `batch.json` at 1,047 ·
+      botDeck: FIVE batch-8 cards joined (Adun reaches 1,012).
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation: 177
+      test files, 1,932 Vitest passed / 10 skipped · the 500-seed gate green
+      at 471.5 s (107 scripts) · build clean · probe 124/124 · battery
+      127/127.** All 48 new per-card tests passed on their first run.
+      ⚠️ **Reportables** (D165): the sacrifice-cost chooser at TWELVE entries
+      is the arc's most overdue engine work; remove-counter cost joins the
+      ledger; D164's items stand (`ctx.random`, exile-from-graveyard,
+      once-per-turn memory, per-damage-entry granularity).
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

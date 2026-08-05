@@ -106,6 +106,28 @@ import { BLIGHTED_CATARACT_SCRIPT } from './scripts/cards/blightedCataract';
 import { BLINDING_MAGE_SCRIPT } from './scripts/cards/blindingMage';
 import { BLINDING_SOULEATER_SCRIPT } from './scripts/cards/blindingSouleater';
 import { BLISTER_BEETLE_SCRIPT } from './scripts/cards/blisterBeetle';
+import { BLOOD_SERVITOR_SCRIPT } from './scripts/cards/bloodServitor';
+import { BLOODFELL_CAVES_SCRIPT } from './scripts/cards/bloodfellCaves';
+import { BLOODTALLOW_CANDLE_SCRIPT } from './scripts/cards/bloodtallowCandle';
+import { BLOSSOM_DRYAD_SCRIPT } from './scripts/cards/blossomDryad';
+import { BLOSSOMING_SANDS_SCRIPT } from './scripts/cards/blossomingSands';
+import { BOGARDAN_RAGER_SCRIPT } from './scripts/cards/bogardanRager';
+import { BOGWATER_LUMARET_SCRIPT } from './scripts/cards/bogwaterLumaret';
+import { BOILING_ROCK_PRISON_SCRIPT } from './scripts/cards/boilingRockPrison';
+import { BOLTWING_MARAUDER_SCRIPT } from './scripts/cards/boltwingMarauder';
+import { BOND_BEETLE_SCRIPT } from './scripts/cards/bondBeetle';
+import { BONE_PIT_BRUTE_SCRIPT } from './scripts/cards/bonePitBrute';
+import { BOOK_OF_RASS_SCRIPT } from './scripts/cards/bookOfRass';
+import { BOROS_CLUESTONE_SCRIPT } from './scripts/cards/borosCluestone';
+import { BOROS_LOCKET_SCRIPT } from './scripts/cards/borosLocket';
+import { BOTANICAL_PLAZA_SCRIPT } from './scripts/cards/botanicalPlaza';
+import { BOTTLE_GNOMES_SCRIPT } from './scripts/cards/bottleGnomes';
+import { BRAIDWOOD_CUP_SCRIPT } from './scripts/cards/braidwoodCup';
+import { BRAMBLE_ELEMENTAL_SCRIPT } from './scripts/cards/brambleElemental';
+import { BRANDYWINE_FARMER_SCRIPT } from './scripts/cards/brandywineFarmer';
+import { BRASS_SECRETARY_SCRIPT } from './scripts/cards/brassSecretary';
+import { BRAZEN_FREEBOOTER_SCRIPT } from './scripts/cards/brazenFreebooter';
+import { BRIARKNIT_KAMI_SCRIPT } from './scripts/cards/briarknitKami';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -319,6 +341,17 @@ const DECK = [
   'Beskir Shieldmate', 'Bigfin Bouncer', 'Bile Urchin', 'Birnin Zana Plaza',
   'Birthing Boughs', 'Blaze Commando', 'Blighted Cataract', 'Blinding Mage',
   'Blinding Souleater', 'Blister Beetle',
+  // M6.4h/D165 — batch 8: the first ATTACHMENT trigger (Bramble Elemental —
+  // the fuzzer's ManualAttach intents exercise it), the first fixed-life
+  // activation cost (Book of Rass), an enters-OR-LEAVES double def
+  // (Brandywine Farmer — bounces pay too), and a self-inclusive
+  // creatures-you-control gain (Bogwater Lumaret).
+  'Blood Servitor', 'Bloodfell Caves', 'Bloodtallow Candle', 'Blossom Dryad',
+  'Blossoming Sands', 'Bogardan Rager', 'Bogwater Lumaret',
+  'Boiling Rock Prison', 'Boltwing Marauder', 'Bond Beetle', 'Bone Pit Brute',
+  'Book of Rass', 'Boros Cluestone', 'Boros Locket', 'Botanical Plaza',
+  'Bottle Gnomes', 'Braidwood Cup', 'Bramble Elemental', 'Brandywine Farmer',
+  'Brass Secretary', 'Brazen Freebooter', 'Briarknit Kami',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -448,6 +481,28 @@ const SCRIPTS = createRegistry([
   BLINDING_MAGE_SCRIPT,
   BLINDING_SOULEATER_SCRIPT,
   BLISTER_BEETLE_SCRIPT,
+  BLOOD_SERVITOR_SCRIPT,
+  BLOODFELL_CAVES_SCRIPT,
+  BLOODTALLOW_CANDLE_SCRIPT,
+  BLOSSOM_DRYAD_SCRIPT,
+  BLOSSOMING_SANDS_SCRIPT,
+  BOGARDAN_RAGER_SCRIPT,
+  BOGWATER_LUMARET_SCRIPT,
+  BOILING_ROCK_PRISON_SCRIPT,
+  BOLTWING_MARAUDER_SCRIPT,
+  BOND_BEETLE_SCRIPT,
+  BONE_PIT_BRUTE_SCRIPT,
+  BOOK_OF_RASS_SCRIPT,
+  BOROS_CLUESTONE_SCRIPT,
+  BOROS_LOCKET_SCRIPT,
+  BOTANICAL_PLAZA_SCRIPT,
+  BOTTLE_GNOMES_SCRIPT,
+  BRAIDWOOD_CUP_SCRIPT,
+  BRAMBLE_ELEMENTAL_SCRIPT,
+  BRANDYWINE_FARMER_SCRIPT,
+  BRASS_SECRETARY_SCRIPT,
+  BRAZEN_FREEBOOTER_SCRIPT,
+  BRIARKNIT_KAMI_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

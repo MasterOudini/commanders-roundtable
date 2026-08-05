@@ -10892,3 +10892,95 @@ permanent tests.
   random-discard and exile-from-library.
 - Once-per-turn trigger memory and per-damage-entry bus granularity stand
   (D163).
+
+## D165 — M6.4h: twenty-two landed, the cleanest batch yet (2026-08-05)
+
+**What was decided:** land batch 8 — twenty-two of `select.cjs`'s 25, the
+largest and cleanest batch of the arc. **1,837 of 31,692 Commander-legal
+cards now execute completely, up from 1,815**, and `SHIPPED_SCRIPTS` passed
+one hundred (85 → 107).
+
+**Only THREE refusals, and the ratio is the ledger working.** The D161 parse
+filters and the D163 REFUSED ledger have drained the un-landable shapes out
+of the offer stream batch by batch; what reaches a batch now is
+overwhelmingly machinery the arc has already built. The three: `Blood Rites`
+and `Bog Naughty` (sacrifice-cost choosers — **the class holds TWELVE
+entries**), and `Bolrac-Clan Crusher` (a NEW class: remove-a-+1/+1-counter
+as a COST, a chooser over counter state nothing charges).
+
+**Batch 8 — twenty-two landed, five firsts:**
+
+- **The first ATTACHMENT trigger.** `Bramble Elemental` watches
+  `AttachmentChanged` — an event only the Tier-3 attach tool raises today
+  (D96) — for an Aura landing on ITSELF, and makes two DISTINCT Saprolings
+  through D164's advancing allocator. The negative is pinned: an Aura
+  attached to a bystander makes nothing. The fuzzer's `ManualAttach`
+  intents exercise the def at scale.
+- **The first FIXED life activation cost.** `Book of Rass` ("{2}, Pay 2
+  life: Draw a card") — `parseWardLife` set the payable-life precedent in
+  M5 and the payment problem has carried a life component since; the test
+  pays it TWICE in one turn (no {T}) and watches the life fall 40 → 38 → 36.
+- **The first enters-OR-LEAVES double def.** `Brandywine Farmer` pays on
+  ANY departure — the test bounces it to HAND, proving the leaves half is
+  broader than a dies trigger — with the leave half looking back (CR
+  603.10a).
+- **The first SELF-INCLUSIVE controlled-creature watcher.** `Bogwater
+  Lumaret` ("this creature or another creature you control") deliberately
+  omits the `m.card !== self` exclusion every Soul-Warden-shaped def
+  carries: its own entry gains the first life. Its opponent-entry negative
+  is pinned beside it, as is `Boltwing Marauder`'s — the same shape WITH
+  the exclusion and a pump target.
+- **The first SUBTYPE-filtered cast-watcher.** `Briarknit Kami` asks the
+  cast face's subtypes (Spirit or Arcane) where Talrand and the
+  enchantress/whisperer pair ask card types; `Bile Urchin` doubles as the
+  fixture pool's cheapest Spirit spell.
+
+One integration proof worth naming: `Bloodtallow Candle`'s -5/-5 kills a
+2/2 THROUGH THE STATE-BASED ACTION — the def writes only the layer-7c
+modifier and the SBA does the binning, which is exactly the division of
+labour D160's pumps promised. The rest ride shipped shapes: two more
+Cluestone/Locket pairs (`Boros`), two three-line sacrifice-draw LANDS
+(`Boiling Rock Prison`, `Botanical Plaza` — enters-tapped and the mana line
+are the engine's, the def owes line three as ability 1), `Blossom Dryad`
+(Deserted Temple's untap on a creature), `Bottle Gnomes` and `Brass
+Secretary` (self-sacrifice gain/draw), `Braidwood Cup` ({T}: gain 1),
+`Bogardan Rager` / `Bone Pit Brute` (targeted ETB +4/+0 pumps), `Bond
+Beetle` (Backup Agent's twin), `Blood Servitor` / `Brazen Freebooter`
+(Blood and Treasure ETB tokens on already-pinned printings), and two more
+enters-tapped gain lands.
+
+**Re-measured, every delta exactly the twenty-two cards:** `complete`
+1,815 → 1,837 · `blocked` 29,877 → 29,855 · `scriptableToday` 1,178 → 1,156
+· ladder [1156, 1255, 3208, 5092, 6279] · botPool creature 1,208 → 1,221,
+artifact 39 → 44, land 220 → 224 · tier3 `abilityText` 17,406 → 17,394,
+`payable` 4,792, `silentAfter` 2,226 → 2,248 · `SHIPPED_SCRIPTS` 85 → 107 ·
+fixtures 232 → 255 (20 tokens — ONE new pin, the Saproling `tddj 1`) ·
+`batch.json` at 1,047 (22 landed + 3 refused off 1,072, exact) ·
+`botDeck.ts` regenerated — **five batch-8 cards joined** (Bloodfell Caves,
+Bloodtallow Candle, Boiling Rock Prison, Book of Rass, Braidwood Cup; Adun
+reaches 1,012).
+
+**Verified: `node scripts/cardgen/verify.cjs --full` — ALL FIVE GATES
+PASSED in one invocation on the idle machine** (Overwatch was resident at
+load 85 when the gates were staged — D106's named interferer — and the run
+waited for the user to close it): `tsc -b` clean · conformance green ·
+coverage accounting green over the real database · 177 test files, 1,932
+Vitest passed / 10 skipped (155 / 1,818 before) · the 500-seed replay fuzz
+gate green at 471.5 s (107 scripts registered) · `npm run build` clean ·
+probe 124/124 · `battery-anim.cjs bot engine prompts` 127/127.
+
+**Checked by breaking it, in the suite:** Bramble's attached-elsewhere
+negative and distinct-id set; Lumaret's opponent negative beside Boltwing's
+(the shape with and without self, each pinned from both sides); Briarknit's
+non-Spirit negative; the Candle's SBA kill; the Farmer's bounce-not-dies
+leave; Book of Rass's double activation with the life genuinely falling.
+All 48 new per-card tests passed on their first run.
+
+**Reportables (D165):**
+
+- **The sacrifice-cost chooser holds TWELVE of the ledger's 26 entries.**
+  Every batch since D159 has added to it; it remains the single largest
+  unlock and the arc's most overdue engine work.
+- Remove-counter cost joins the cost ledger (Bolrac-Clan Crusher).
+- D164's items stand: `ctx.random` wiring (blocks Black Cat),
+  exile-from-graveyard, once-per-turn memory, per-damage-entry granularity.

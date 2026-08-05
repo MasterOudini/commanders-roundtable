@@ -492,6 +492,31 @@ const WANTED = [
   'Blinding Mage',
   'Blinding Souleater',
   'Blister Beetle',
+  // M6.4h — batch 8 (D165): 22 landed of select.cjs's 25; the three refusals
+  // are two sacrifice-cost choosers (Blood Rites, Bog Naughty) and one NEW
+  // ledger class — Bolrac-Clan Crusher (remove-a-counter cost).
+  'Blood Servitor',
+  'Bloodfell Caves',
+  'Bloodtallow Candle',
+  'Blossom Dryad',
+  'Blossoming Sands',
+  'Bogardan Rager',
+  'Bogwater Lumaret',
+  'Boiling Rock Prison',
+  'Boltwing Marauder',
+  'Bond Beetle',
+  'Bone Pit Brute',
+  'Book of Rass',
+  'Boros Cluestone',
+  'Boros Locket',
+  'Botanical Plaza',
+  'Bottle Gnomes',
+  'Braidwood Cup',
+  'Bramble Elemental',
+  'Brandywine Farmer',
+  'Brass Secretary',
+  'Brazen Freebooter',
+  'Briarknit Kami',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -519,6 +544,8 @@ const WANTED_TOKENS = [
   // M6.4e (D162).
   { name: 'Wurm', set: 'trtr', cn: '11', key: 'WURM_TOKEN' },
   { name: 'Thopter', set: 'tafc', cn: '12', key: 'THOPTER_TOKEN' },
+  // M6.4h (D165).
+  { name: 'Saproling', set: 'tddj', cn: '1', key: 'SAPROLING_TOKEN' },
   // M6.4g (D164).
   { name: 'Bear', set: 'ttla', cn: '12', key: 'BEAR_44_TOKEN' },
   { name: 'Blood', set: 'tbig', cn: '2', key: 'BLOOD_TOKEN' },

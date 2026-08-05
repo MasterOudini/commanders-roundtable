@@ -116,7 +116,9 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // M6.4g (D164) landed nineteen of 25 — the biggest batch of the arc, and
     // the one that found ctx.ids.nextInstance handing the SAME id to every
     // call in a resolve. Six refusals, all in the ledger.
-    expect(SHIPPED_SCRIPTS).toHaveLength(85);
+    // M6.4h (D165) landed twenty-two of 25 — the cleanest batch yet: three
+    // refusals (two sacrifice-choosers, one NEW remove-counter cost class).
+    expect(SHIPPED_SCRIPTS).toHaveLength(107);
   });
 });
 

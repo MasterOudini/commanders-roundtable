@@ -7,6 +7,28 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { BLOOD_SERVITOR_SCRIPT } from './cards/bloodServitor';
+import { BLOODFELL_CAVES_SCRIPT } from './cards/bloodfellCaves';
+import { BLOODTALLOW_CANDLE_SCRIPT } from './cards/bloodtallowCandle';
+import { BLOSSOM_DRYAD_SCRIPT } from './cards/blossomDryad';
+import { BLOSSOMING_SANDS_SCRIPT } from './cards/blossomingSands';
+import { BOGARDAN_RAGER_SCRIPT } from './cards/bogardanRager';
+import { BOGWATER_LUMARET_SCRIPT } from './cards/bogwaterLumaret';
+import { BOILING_ROCK_PRISON_SCRIPT } from './cards/boilingRockPrison';
+import { BOLTWING_MARAUDER_SCRIPT } from './cards/boltwingMarauder';
+import { BOND_BEETLE_SCRIPT } from './cards/bondBeetle';
+import { BONE_PIT_BRUTE_SCRIPT } from './cards/bonePitBrute';
+import { BOOK_OF_RASS_SCRIPT } from './cards/bookOfRass';
+import { BOROS_CLUESTONE_SCRIPT } from './cards/borosCluestone';
+import { BOROS_LOCKET_SCRIPT } from './cards/borosLocket';
+import { BOTANICAL_PLAZA_SCRIPT } from './cards/botanicalPlaza';
+import { BOTTLE_GNOMES_SCRIPT } from './cards/bottleGnomes';
+import { BRAIDWOOD_CUP_SCRIPT } from './cards/braidwoodCup';
+import { BRAMBLE_ELEMENTAL_SCRIPT } from './cards/brambleElemental';
+import { BRANDYWINE_FARMER_SCRIPT } from './cards/brandywineFarmer';
+import { BRASS_SECRETARY_SCRIPT } from './cards/brassSecretary';
+import { BRAZEN_FREEBOOTER_SCRIPT } from './cards/brazenFreebooter';
+import { BRIARKNIT_KAMI_SCRIPT } from './cards/briarknitKami';
 import { BARBARIAN_RIFTCUTTER_SCRIPT } from './cards/barbarianRiftcutter';
 import { BARTERED_COW_SCRIPT } from './cards/barteredCow';
 import { BEAMSAW_PROSPECTOR_SCRIPT } from './cards/beamsawProspector';
@@ -186,6 +208,28 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BLOOD_SERVITOR_SCRIPT,
+  BLOODFELL_CAVES_SCRIPT,
+  BLOODTALLOW_CANDLE_SCRIPT,
+  BLOSSOM_DRYAD_SCRIPT,
+  BLOSSOMING_SANDS_SCRIPT,
+  BOGARDAN_RAGER_SCRIPT,
+  BOGWATER_LUMARET_SCRIPT,
+  BOILING_ROCK_PRISON_SCRIPT,
+  BOLTWING_MARAUDER_SCRIPT,
+  BOND_BEETLE_SCRIPT,
+  BONE_PIT_BRUTE_SCRIPT,
+  BOOK_OF_RASS_SCRIPT,
+  BOROS_CLUESTONE_SCRIPT,
+  BOROS_LOCKET_SCRIPT,
+  BOTANICAL_PLAZA_SCRIPT,
+  BOTTLE_GNOMES_SCRIPT,
+  BRAIDWOOD_CUP_SCRIPT,
+  BRAMBLE_ELEMENTAL_SCRIPT,
+  BRANDYWINE_FARMER_SCRIPT,
+  BRASS_SECRETARY_SCRIPT,
+  BRAZEN_FREEBOOTER_SCRIPT,
+  BRIARKNIT_KAMI_SCRIPT,
   BARBARIAN_RIFTCUTTER_SCRIPT,
   BARTERED_COW_SCRIPT,
   BEAMSAW_PROSPECTOR_SCRIPT,

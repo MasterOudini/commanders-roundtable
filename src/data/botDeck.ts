@@ -13,7 +13,7 @@
 // tutors, no recursion, because the engine runs none of those yet. That ceiling
 // is the honest state of the app and it rises as the engine's coverage does.
 //
-// commander: Adun Oakenshield (BGR), chosen from 49 fully-executable legendary creatures for reaching 994 cards
+// commander: Adun Oakenshield (BGR), chosen from 49 fully-executable legendary creatures for reaching 1012 cards
 // mv 0–1: wanted 6, took 6
 // mv 2–2: wanted 14, took 14
 // mv 3–3: wanted 14, took 14
@@ -30,9 +30,9 @@ export const BOT_DECK = {
   "Diregraf Ghoul",
   "Icehide Golem",
   "Battlegrowth",
+  "Bloodtallow Candle",
   "Brute Force",
   "Bull Rush",
-  "Darksteel Relic",
   "Gifted Aetherborn",
   "Aggressive Urge",
   "Antagonize",
@@ -58,9 +58,9 @@ export const BOT_DECK = {
   "Blight Rot",
   "Bloodstone Cameo",
   "Bombard",
+  "Braidwood Cup",
   "Break Down",
   "Commune with Evil",
-  "Crack Open",
   "Bake into a Pie",
   "Bee Sting",
   "Carrion Call",
@@ -83,9 +83,9 @@ export const BOT_DECK = {
   "Dosan's Oldest Chant",
   "Yargle and Multani",
   "Quakestrider Ceratops",
+  "Book of Rass",
   "Bounty of Might",
   "Desert Twister",
-  "Explosive Impact",
   "Sire of Seven Deaths",
   "Aladdin's Ring",
   "Cinder Storm",
@@ -96,7 +96,9 @@ export const BOT_DECK = {
   "Blackcleave Cliffs",
   "Bleeding Woods",
   "Blood Crypt",
+  "Bloodfell Caves",
   "Blooming Marsh",
+  "Boiling Rock Prison",
   "Cinder Barrens",
   "Cinder Glade",
   "Command Tower",
@@ -124,7 +126,5 @@ export const BOT_DECK = {
   "Overgrown Tomb",
   "Radiant Fountain",
   "Rakdos Guildgate",
-  "Razortrap Gorge",
-  "Reflecting Pool",
   ],
 } as const;

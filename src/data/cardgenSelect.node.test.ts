@@ -140,6 +140,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // every ScriptCtx site (D158), so no random card may ship until it is
   // wired to the seeded generator (D164).
   ['Black Cat', 'ctx.random stub'],
+  // Batch 8 (D165).
+  ['Blood Rites', 'sacrifice-cost chooser'],
+  ['Bog Naughty', 'sacrifice-cost chooser'],
+  // Remove-a-+1/+1-counter-from-a-creature-you-control as a COST is a
+  // chooser over counter state nothing charges yet (D165).
+  ['Bolrac-Clan Crusher', 'remove-counter cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

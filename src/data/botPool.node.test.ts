@@ -408,11 +408,11 @@ const POOL: Record<string, number> = {
   // own header said "no enchantments … because the engine runs none of those
   // yet"; the ceiling rose exactly as it promised it would.
   // M6.4d (D161): +13 creatures.
-  creature: 1208,
+  creature: 1221,
   instant: 201,
   sorcery: 146,
-  land: 220,
-  artifact: 39,
+  land: 224,
+  artifact: 44,
   enchantment: 1,
 };
 
