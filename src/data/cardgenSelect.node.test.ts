@@ -184,6 +184,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dromad Purebred', 'per-damage-entry trigger granularity'],
   ['Dune Diviner', 'tap-permanents cost'],
   ['Dwarven Bloodboiler', 'tap-creatures cost'],
+  // M6.4r (D174) — batch 16's two refusals. Ezio watches a CLASS of
+  // creatures deal combat damage, so two simultaneous Assassins are two
+  // instances batched into one event (Aya's class, dealer side widened).
+  ['Ezio, Blade of Vengeance', 'per-damage-entry trigger granularity'],
+  ['Fearless Liberator', 'once-per-turn trigger memory'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

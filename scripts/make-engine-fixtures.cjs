@@ -701,6 +701,30 @@ const WANTED = [
   'Errant Doomsayers',
   // Edgewall Innkeeper's test needs a real ADVENTURE creature to cast.
   'Tuinvale Treefolk // Oaken Boon',
+  // Batch 16 (D174).
+  'Ertai, the Corrupted',
+  'Ertai, Wizard Adept',
+  'Etherium Astrolabe',
+  'Etherium Spinner',
+  'Exclusion Mage',
+  'Experimental Aviator',
+  'Exultant Cultist',
+  'Eyeblight Assassin',
+  'Faerie Duelist',
+  'Faerie Formation',
+  'Falcon Abomination',
+  'Falkenrath Celebrants',
+  'Fallaji Vanguard',
+  'Fallen Ferromancer',
+  'Fan Bearer',
+  'Farbog Boneflinger',
+  'Featherbrained Filcher',
+  'Felidar Cub',
+  'Femeref Enchantress',
+  'Feral Prowler',
+  'Ferocious Pup',
+  'Festering Goblin',
+  'Fevered Convulsions',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -728,6 +752,10 @@ const WANTED_TOKENS = [
   // M6.4e (D162).
   { name: 'Wurm', set: 'trtr', cn: '11', key: 'WURM_TOKEN' },
   { name: 'Thopter', set: 'tafc', cn: '12', key: 'THOPTER_TOKEN' },
+  // Batch 16 (D174). The decayed Zombie gets a DISTINCT key — the plain
+  // 2/2 Zombie (tc14 16) is pinned above.
+  { name: 'Faerie', set: 'tmoc', cn: '11', key: 'FAERIE_TOKEN' },
+  { name: 'Zombie', set: 'tdrc', cn: '7', key: 'ZOMBIE_DECAYED_TOKEN' },
   // Batch 15 (D173). The lifelink Soldier gets a DISTINCT key — the plain
   // Soldier (t40k 2★) is pinned above.
   { name: 'Goblin', set: 'tecl', cn: '6', key: 'GOBLIN_BR_TOKEN' },

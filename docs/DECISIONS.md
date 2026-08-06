@@ -11802,3 +11802,72 @@ batches); the answer-mode arrow and ability rows
 still owe a battery click-check; the cost-chooser classes, `ctx.random`,
 once-per-turn memory, per-damage-entry granularity, token entry choice
 and the spell seam stand.
+
+## D174 — M6.4r: twenty-three landed, and the 2,000 line is crossed (2026-08-06)
+
+**What was decided:** batch 16 of the M6.4 loop lands twenty-three of its
+25 — **2,013 of 31,692 Commander-legal cards now execute completely, up
+from 1,990, CROSSING TWO THOUSAND** — with two refusals, both existing
+ledger classes. `SHIPPED_SCRIPTS` 260 → 283. The arc began at 1,730
+(D158); sixteen batches later the engine runs 283 more cards' full text
+than the parsers alone ever could.
+
+**The headliner:** `Ertai, the Corrupted` — "{U}, {T}, Sacrifice a
+creature or enchantment: Counter target spell" — composes D168's
+OR-predicate chooser with D170's counterspell pair (SpellCountered + the
+card's stack exit through `moveFromStack`) and D169's staged chain, with
+ZERO new engine work. The test holds a real cast on the stack, pays with
+a creature, pins that a LAND is neither arm, and watches the held spell
+die. `Ertai, Wizard Adept` counters standing up; both are LEGENDS, so
+**the fully-executable legendary pool reads 53**.
+
+**One genuine fix found by a test:** the first cut of `Fallen
+Ferromancer`'s ping hardcoded infect as `applyAs: 'wither'` — combat.ts's
+own rule says infect versus a PLAYER is **'poison'** (CR 702.90b/c), and
+the poison test read 0 counters. The def now branches per target kind,
+and both halves are pinned: a creature takes the ping as a -1/-1 counter,
+a player takes it as poison with life unmoved.
+
+**The rest:** the mv-4 any-spell Thopter spinner (`Etherium Spinner` —
+Emrakul's filter with no type gate), a targeted ETB bounce with the
+opponent restriction (`Exclusion Mage`), two-token ETBs on Thopters and
+Blood (`Experimental Aviator`, `Falkenrath Celebrants` — distinct-id
+teeth both), the DECAYED-Zombie ETB (`Falcon Abomination` — the token's
+own decayed text is tier3-disclosed on the token, the Blood-token
+precedent, so creating it is not half-execution), a self-inclusive
+targeted entry watcher in TWO defs (`Fallaji Vanguard`), the artifact
+chooser paying with ITSELF (`Etherium Astrolabe`, CR 113.7a), a NO-mana
+sacrifice cost (`Felidar Cub`), the any-enchantment-dies watcher
+(`Femeref Enchantress` — looksBack so the dying enchantment still has a
+derivation), Boast-free tap actives, ETB and dies debuffs at three
+strengths, dies draws, an ETB Wolf, and a repeatable -1/-1 counter
+(`Fevered Convulsions` — two activations kill a 2/2 through the SBA).
+
+**Two refusals, both existing classes:** `Ezio, Blade of Vengeance`
+(per-damage-entry granularity — a CLASS of creatures dealing combat
+damage widens Aya's dealer side: two simultaneous Assassins are two
+instances in one event) and `Fearless Liberator` (once-per-turn memory —
+Boast).
+
+**The numbers, every delta exactly the twenty-three cards:** primitives
+`complete` 1,990 → 2,013 · `blocked` 29,679 · `scriptableToday` 980 ·
+ladder [980, 1079, 3032, 4916, 6103] · botPool creature 1,363, artifact
+56, enchantment 18 · tier3 `either` −23 exactly, `silentAfter` 2,401 →
+2,424 (+23 exactly) · fixtures 440 → 465 (50 tokens: Faerie `tmoc 11`,
+decayed Zombie `tdrc 7` joined) · `batch.json` at **859** (884 − 23 − 2,
+exact) · botDeck regenerated.
+
+**Verified: `verify.cjs --full` — ALL FIVE GATES PASSED in one
+invocation** — 353 test files, 2,736 Vitest passed / 10 skipped · the
+500-seed replay fuzz gate green at 1,338.4 s (283 scripts registered,
+462 s inside the 1,800 s ceiling — and FASTER than batch 15's 1,396.4 s
+despite 23 more scripts, which is run-to-run variance worth recording
+against the trend) · build clean · probe 124/124 · battery `bot engine
+prompts` 127/127.
+
+**Reportables:** the fuzz headroom keeps shrinking — self-only def
+dispatch (D169) is the named lever and its due date is measured in
+batches; the answer-mode arrow and ability rows still owe a battery
+click-check; the cost-chooser classes, `ctx.random`, once-per-turn
+memory, per-damage-entry granularity (now FIVE ledger entries), token
+entry choice and the spell seam stand.

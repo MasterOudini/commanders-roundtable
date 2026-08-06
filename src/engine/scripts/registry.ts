@@ -7,6 +7,29 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ERTAI_THE_CORRUPTED_SCRIPT } from './cards/ertaiTheCorrupted';
+import { ERTAI_WIZARD_ADEPT_SCRIPT } from './cards/ertaiWizardAdept';
+import { ETHERIUM_ASTROLABE_SCRIPT } from './cards/etheriumAstrolabe';
+import { ETHERIUM_SPINNER_SCRIPT } from './cards/etheriumSpinner';
+import { EXCLUSION_MAGE_SCRIPT } from './cards/exclusionMage';
+import { EXPERIMENTAL_AVIATOR_SCRIPT } from './cards/experimentalAviator';
+import { EXULTANT_CULTIST_SCRIPT } from './cards/exultantCultist';
+import { EYEBLIGHT_ASSASSIN_SCRIPT } from './cards/eyeblightAssassin';
+import { FAERIE_DUELIST_SCRIPT } from './cards/faerieDuelist';
+import { FAERIE_FORMATION_SCRIPT } from './cards/faerieFormation';
+import { FALCON_ABOMINATION_SCRIPT } from './cards/falconAbomination';
+import { FALKENRATH_CELEBRANTS_SCRIPT } from './cards/falkenrathCelebrants';
+import { FALLAJI_VANGUARD_SCRIPT } from './cards/fallajiVanguard';
+import { FALLEN_FERROMANCER_SCRIPT } from './cards/fallenFerromancer';
+import { FAN_BEARER_SCRIPT } from './cards/fanBearer';
+import { FARBOG_BONEFLINGER_SCRIPT } from './cards/farbogBoneflinger';
+import { FEATHERBRAINED_FILCHER_SCRIPT } from './cards/featherbrainedFilcher';
+import { FELIDAR_CUB_SCRIPT } from './cards/felidarCub';
+import { FEMEREF_ENCHANTRESS_SCRIPT } from './cards/femerefEnchantress';
+import { FERAL_PROWLER_SCRIPT } from './cards/feralProwler';
+import { FEROCIOUS_PUP_SCRIPT } from './cards/ferociousPup';
+import { FESTERING_GOBLIN_SCRIPT } from './cards/festeringGoblin';
+import { FEVERED_CONVULSIONS_SCRIPT } from './cards/feveredConvulsions';
 import { EDGEWALL_INNKEEPER_SCRIPT } from './cards/edgewallInnkeeper';
 import { EFFICIENT_CONSTRUCTION_SCRIPT } from './cards/efficientConstruction';
 import { EIDOLON_OF_INSPIRATION_SCRIPT } from './cards/eidolonOfInspiration';
@@ -361,6 +384,29 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ERTAI_THE_CORRUPTED_SCRIPT,
+  ERTAI_WIZARD_ADEPT_SCRIPT,
+  ETHERIUM_ASTROLABE_SCRIPT,
+  ETHERIUM_SPINNER_SCRIPT,
+  EXCLUSION_MAGE_SCRIPT,
+  EXPERIMENTAL_AVIATOR_SCRIPT,
+  EXULTANT_CULTIST_SCRIPT,
+  EYEBLIGHT_ASSASSIN_SCRIPT,
+  FAERIE_DUELIST_SCRIPT,
+  FAERIE_FORMATION_SCRIPT,
+  FALCON_ABOMINATION_SCRIPT,
+  FALKENRATH_CELEBRANTS_SCRIPT,
+  FALLAJI_VANGUARD_SCRIPT,
+  FALLEN_FERROMANCER_SCRIPT,
+  FAN_BEARER_SCRIPT,
+  FARBOG_BONEFLINGER_SCRIPT,
+  FEATHERBRAINED_FILCHER_SCRIPT,
+  FELIDAR_CUB_SCRIPT,
+  FEMEREF_ENCHANTRESS_SCRIPT,
+  FERAL_PROWLER_SCRIPT,
+  FEROCIOUS_PUP_SCRIPT,
+  FESTERING_GOBLIN_SCRIPT,
+  FEVERED_CONVULSIONS_SCRIPT,
   EDGEWALL_INNKEEPER_SCRIPT,
   EFFICIENT_CONSTRUCTION_SCRIPT,
   EIDOLON_OF_INSPIRATION_SCRIPT,

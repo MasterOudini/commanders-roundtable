@@ -120,11 +120,10 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // refusals (two sacrifice-choosers, one NEW remove-counter cost class).
     // M6.4i (D166) landed twenty-one of 25 — four refusals, one NEW class
     // (exile-SELF cost, named cheap: sacrificesSelf one event over).
-    // M6.4q (D173) landed ALL 25 — the arc's first zero-refusal sweep: the
-    // adventure-layout cast filter, the beginning-of-combat targeted
-    // trigger, the power-threshold entry watcher, the becomes-tapped SELF
-    // watcher, and the mana-value cast filter.
-    expect(SHIPPED_SCRIPTS).toHaveLength(260);
+    // M6.4r (D174) landed twenty-three of 25 and CROSSED 2,000 complete —
+    // Ertai the Corrupted composes D168's chooser with D170's counterspell,
+    // and the infect ping carries poison to a player.
+    expect(SHIPPED_SCRIPTS).toHaveLength(283);
   });
 });
 

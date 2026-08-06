@@ -315,8 +315,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // scale — 19 of 25, the six refusals named — 1,742 → 1,761. M6.4d
       // (D161): thirteen more, and the selection taught two refusal shapes —
       // 1,761 → 1,774.
-      complete: 1990,
-      blocked: 29702,
+      complete: 2013,
+      blocked: 29679,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -325,7 +325,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1003,
+      scriptableToday: 980,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -371,7 +371,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // Every rung fell by exactly 8 in M6.4a (D158) and by exactly 4 more in
     // M6.4b (D159): shipped batches leave the blocked pool, and the ladder is
     // drawn from blocked cards.
-    expect(steps.map((s) => s.unlocked)).toEqual([1003, 1102, 3055, 4939, 6126]);
+    expect(steps.map((s) => s.unlocked)).toEqual([980, 1079, 3032, 4916, 6103]);
     expect(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(4.5);
   });
 
@@ -543,8 +543,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect(steps.map((s) => s.unlocked)).toEqual([1003, 1102]);
-    expect(r.complete).toBe(1990);
+    expect(steps.map((s) => s.unlocked)).toEqual([980, 1079]);
+    expect(r.complete).toBe(2013);
   });
 });
 

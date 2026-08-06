@@ -13649,6 +13649,817 @@ export const TUINVALE_TREEFOLK_OAKEN_BOON: CardData = {
   "singleImage": true
 };
 
+export const ERTAI_THE_CORRUPTED: CardData = {
+  "scryfallId": "3476e706-f71a-4f7a-b026-cd8cb0665c39",
+  "oracleId": "36934bd0-b275-4222-926c-b5a74cf0967d",
+  "name": "Ertai, the Corrupted",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ertai, the Corrupted",
+      "manaCost": "{2}{W}{U}{B}",
+      "typeLine": "Legendary Creature — Phyrexian Human Wizard",
+      "oracleText": "{U}, {T}, Sacrifice a creature or enchantment: Counter target spell.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "U",
+        "W"
+      ],
+      "artist": "Sidharth Chaturvedi",
+      "imageId": "3476e706-f71a-4f7a-b026-cd8cb0665c39"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "1216",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ERTAI_WIZARD_ADEPT: CardData = {
+  "scryfallId": "91971e19-61ce-45ac-b700-9ffca5091a27",
+  "oracleId": "f2902dfd-888f-4b02-b8ad-1056f0059fc3",
+  "name": "Ertai, Wizard Adept",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ertai, Wizard Adept",
+      "manaCost": "{2}{U}",
+      "typeLine": "Legendary Creature — Human Wizard",
+      "oracleText": "{2}{U}{U}, {T}: Counter target spell.",
+      "flavorText": "\"Was that *it*?\"\n—Ertai, wizard adept",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "91971e19-61ce-45ac-b700-9ffca5091a27"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "exo",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ETHERIUM_ASTROLABE: CardData = {
+  "scryfallId": "d60731c6-7a25-4f2b-8ed1-2469a2d300c6",
+  "oracleId": "8d7194f7-1525-4f6e-b974-b947a254f437",
+  "name": "Etherium Astrolabe",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Etherium Astrolabe",
+      "manaCost": "{2}{U}",
+      "typeLine": "Artifact",
+      "oracleText": "Flash\n{B}, {T}, Sacrifice an artifact: Draw a card.",
+      "flavorText": "\"Speculation is foolish when the tools of certainty are available.\"\n—Cinna, vedalken consul",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Michael Bruinsma",
+      "imageId": "d60731c6-7a25-4f2b-8ed1-2469a2d300c6"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flash"
+  ],
+  "setCode": "ala",
+  "collectorNumber": "41",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ETHERIUM_SPINNER: CardData = {
+  "scryfallId": "84130c94-f98c-4a66-9880-4b09fa663067",
+  "oracleId": "b501128b-2797-401b-8aec-923050081cae",
+  "name": "Etherium Spinner",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Etherium Spinner",
+      "manaCost": "{2}{U}",
+      "typeLine": "Artifact Creature — Human Wizard",
+      "oracleText": "Whenever you cast a spell with mana value 4 or greater, create a 1/1 colorless Thopter artifact creature token with flying.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Mark Behm",
+      "imageId": "84130c94-f98c-4a66-9880-4b09fa663067"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "j21",
+  "collectorNumber": "184",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EXCLUSION_MAGE: CardData = {
+  "scryfallId": "62c8024e-490a-484a-bcee-da7728a64a1f",
+  "oracleId": "fd28fe55-36cd-4242-8dd4-edb58fbb9895",
+  "name": "Exclusion Mage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Exclusion Mage",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "When this creature enters, return target creature an opponent controls to its owner's hand.",
+      "flavorText": "Successful battles start with knowing who's worth fighting.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Chris Seaman",
+      "imageId": "62c8024e-490a-484a-bcee-da7728a64a1f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "fdn",
+  "collectorNumber": "508",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EXPERIMENTAL_AVIATOR: CardData = {
+  "scryfallId": "962dc573-612d-434b-82fb-af9c3e3c9aca",
+  "oracleId": "47f221a4-b51a-46b9-a4fc-46bc8ec7ddd3",
+  "name": "Experimental Aviator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Experimental Aviator",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Creature — Human Artificer",
+      "oracleText": "Flying\nWhen this creature enters, create two 1/1 colorless Thopter artifact creature tokens with flying.",
+      "flavorText": "\"The little thopters seemed lonely up here, so I thought I'd join them.\"",
+      "power": "0",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jesper Ejsing",
+      "imageId": "962dc573-612d-434b-82fb-af9c3e3c9aca"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "kld",
+  "collectorNumber": "46",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EXULTANT_CULTIST: CardData = {
+  "scryfallId": "91c7e3c3-37de-4f6a-a719-284a8c8d32e3",
+  "oracleId": "e802442e-6a78-4c15-9034-fc8872470208",
+  "name": "Exultant Cultist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Exultant Cultist",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "When this creature dies, draw a card.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Joseph Meehan",
+      "imageId": "91c7e3c3-37de-4f6a-a719-284a8c8d32e3"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "sir",
+  "collectorNumber": "68",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EYEBLIGHT_ASSASSIN: CardData = {
+  "scryfallId": "0e2a973f-772e-469b-8c70-c2cecfcc9353",
+  "oracleId": "09cacd93-5c20-4993-9ee2-a756204796f7",
+  "name": "Eyeblight Assassin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Eyeblight Assassin",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Elf Assassin",
+      "oracleText": "When this creature enters, target creature an opponent controls gets -1/-1 until end of turn.",
+      "flavorText": "\"Boggart blood disgusts me almost as much as the foul creatures themselves.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "0e2a973f-772e-469b-8c70-c2cecfcc9353"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "bbd",
+  "collectorNumber": "143",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FAERIE_DUELIST: CardData = {
+  "scryfallId": "a7da9c9b-aeef-4f48-bc8f-39425841cc8c",
+  "oracleId": "ccbf7141-69c9-407d-b68e-c1c63ddef213",
+  "name": "Faerie Duelist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Faerie Duelist",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Faerie Rogue",
+      "oracleText": "Flash\nFlying\nWhen this creature enters, target creature an opponent controls gets -2/-0 until end of turn.",
+      "flavorText": "Faeries are easily offended and quick to exact a quirky revenge.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Yongjae Choi",
+      "imageId": "a7da9c9b-aeef-4f48-bc8f-39425841cc8c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying",
+    "Flash"
+  ],
+  "setCode": "rna",
+  "collectorNumber": "39",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FAERIE_FORMATION: CardData = {
+  "scryfallId": "15709316-7382-46b9-9b70-53a5147e7051",
+  "oracleId": "0366c2f6-6e78-4526-808c-fa7bace6006e",
+  "name": "Faerie Formation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Faerie Formation",
+      "manaCost": "{4}{U}",
+      "typeLine": "Creature — Faerie",
+      "oracleText": "Flying\n{3}{U}: Create a 1/1 blue Faerie creature token with flying. Draw a card.",
+      "flavorText": "The throng flitted from castle to castle, leaving a trail of star-crossed love, damaging rumors, and missing heirlooms in their wake.",
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ryan Yee",
+      "imageId": "15709316-7382-46b9-9b70-53a5147e7051"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "eld",
+  "collectorNumber": "316",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FALCON_ABOMINATION: CardData = {
+  "scryfallId": "40e5e0e9-bc54-4a23-b880-a1b5ec740a8c",
+  "oracleId": "21eea63f-72b2-4155-bfad-f9937a8f8614",
+  "name": "Falcon Abomination",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Falcon Abomination",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Zombie Bird",
+      "oracleText": "Flying\nWhen this creature enters, create a 2/2 black Zombie creature token with decayed. (It can't block. When it attacks, sacrifice it at end of combat.)",
+      "flavorText": "The foulest of fowl.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Brent Hollowell",
+      "imageId": "40e5e0e9-bc54-4a23-b880-a1b5ec740a8c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "dbl",
+  "collectorNumber": "52",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FALKENRATH_CELEBRANTS: CardData = {
+  "scryfallId": "3eafd571-9364-44d9-8da5-1d93c07f0300",
+  "oracleId": "3c0be888-0d66-4bad-84f4-90c3934915d7",
+  "name": "Falkenrath Celebrants",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Falkenrath Celebrants",
+      "manaCost": "{4}{R}",
+      "typeLine": "Creature — Vampire",
+      "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhen this creature enters, create two Blood tokens. (They're artifacts with \"{1}, {T}, Discard a card, Sacrifice this token: Draw a card.\")",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Anna Steinbauer",
+      "imageId": "3eafd571-9364-44d9-8da5-1d93c07f0300"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Menace"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "VOW-156",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FALLAJI_VANGUARD: CardData = {
+  "scryfallId": "ffe9ee1c-5eb3-4d63-a641-0ec5adf7b058",
+  "oracleId": "e60b23ba-2258-4da1-b873-452ee215846b",
+  "name": "Fallaji Vanguard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fallaji Vanguard",
+      "manaCost": "{2}{R}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "First strike\nWhenever this creature or another creature you control enters, target creature gets +2/+0 until end of turn.",
+      "flavorText": "\"The Burnished Banner will show the Warlord that the Suwwardi Marches belong to the Fallaji!\"",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Joshua Cairos",
+      "imageId": "ffe9ee1c-5eb3-4d63-a641-0ec5adf7b058"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "First strike"
+  ],
+  "setCode": "bro",
+  "collectorNumber": "210",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FALLEN_FERROMANCER: CardData = {
+  "scryfallId": "7b200986-f553-4156-8f5e-37678db09687",
+  "oracleId": "22446354-e5c3-4f19-9731-79a4562639d1",
+  "name": "Fallen Ferromancer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fallen Ferromancer",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Phyrexian Human Shaman",
+      "oracleText": "Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)\n{1}{R}, {T}: This creature deals 1 damage to any target.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "David Rapoza",
+      "imageId": "7b200986-f553-4156-8f5e-37678db09687"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Infect"
+  ],
+  "setCode": "nph",
+  "collectorNumber": "82",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FAN_BEARER: CardData = {
+  "scryfallId": "0ae1ff5c-9403-40f9-ab03-827b9be89663",
+  "oracleId": "d2e7198a-0eb5-4d30-973f-4b2d9617436f",
+  "name": "Fan Bearer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fan Bearer",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "{2}, {T}: Tap target creature.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Anthony Palumbo",
+      "imageId": "0ae1ff5c-9403-40f9-ab03-827b9be89663"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "akr",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FARBOG_BONEFLINGER: CardData = {
+  "scryfallId": "3185eeac-39ae-4e6e-bfdd-4b8edd984af1",
+  "oracleId": "46027ca0-9d06-42b3-8012-124861c6b558",
+  "name": "Farbog Boneflinger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Farbog Boneflinger",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "When this creature enters, target creature gets -2/-2 until end of turn.",
+      "flavorText": "\"Here are some bones for you to choke on, dear brother!\"\n—Gisa, to Geralf",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Tomasz Jedruszek",
+      "imageId": "3185eeac-39ae-4e6e-bfdd-4b8edd984af1"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "cn2",
+  "collectorNumber": "134",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FEATHERBRAINED_FILCHER: CardData = {
+  "scryfallId": "78c55706-4d00-4b97-965c-0b2d0963e59d",
+  "oracleId": "79a9fc1c-a6a9-483a-9ba7-d09fe41760c3",
+  "name": "Featherbrained Filcher",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Featherbrained Filcher",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Bird Mutant",
+      "oracleText": "Flying\nWhen this creature leaves the battlefield, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+      "flavorText": "\"HI! I'm Pete!\"",
+      "power": "0",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jakob Eirich",
+      "imageId": "78c55706-4d00-4b97-965c-0b2d0963e59d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Flying",
+    "Food"
+  ],
+  "setCode": "tmt",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FELIDAR_CUB: CardData = {
+  "scryfallId": "0d61d50b-7ab6-45a9-b207-31d87aa2e555",
+  "oracleId": "cae60cf8-cd64-4595-a4dd-946694cf2bb1",
+  "name": "Felidar Cub",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Felidar Cub",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Cat Beast",
+      "oracleText": "Sacrifice this creature: Destroy target enchantment.",
+      "flavorText": "Felidars that make it through their first year of life can easily live to see a hundred years more.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "0d61d50b-7ab6-45a9-b207-31d87aa2e555"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "fdn",
+  "collectorNumber": "573",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FEMEREF_ENCHANTRESS: CardData = {
+  "scryfallId": "20ba72c7-7957-4d02-b41e-c0132fe1f2e6",
+  "oracleId": "8b983a46-580f-4a94-8ef3-5253e503148e",
+  "name": "Femeref Enchantress",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Femeref Enchantress",
+      "manaCost": "{G}{W}",
+      "typeLine": "Creature — Human Druid",
+      "oracleText": "Whenever an enchantment is put into a graveyard from the battlefield, draw a card.",
+      "flavorText": "\"Then she spread a fine dust over the land, like a butterfly shaking its wing.\"\n—\"The Enchantress,\" Femeref tale",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "D. Alexander Gregory",
+      "imageId": "20ba72c7-7957-4d02-b41e-c0132fe1f2e6"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "vis",
+  "collectorNumber": "129",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FERAL_PROWLER: CardData = {
+  "scryfallId": "8ad968cb-d348-45b2-977d-7c6a63646e2b",
+  "oracleId": "5bebba2d-867f-4ed1-a308-904fac32c8b6",
+  "name": "Feral Prowler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Feral Prowler",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Cat",
+      "oracleText": "When this creature dies, draw a card.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ben Wootten",
+      "imageId": "8ad968cb-d348-45b2-977d-7c6a63646e2b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "akr",
+  "collectorNumber": "191",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FEROCIOUS_PUP: CardData = {
+  "scryfallId": "2354cb24-5c70-4aaa-8636-46866f0950c1",
+  "oracleId": "a1112750-8d38-49e0-ab1c-77110b2bbc4d",
+  "name": "Ferocious Pup",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ferocious Pup",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Wolf",
+      "oracleText": "When this creature enters, create a 2/2 green Wolf creature token.",
+      "flavorText": "The strongest pack has the fiercest pups.",
+      "power": "0",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Rudy Siswanto",
+      "imageId": "2354cb24-5c70-4aaa-8636-46866f0950c1"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m20",
+  "collectorNumber": "171",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FESTERING_GOBLIN: CardData = {
+  "scryfallId": "00444e40-7436-48c3-9cbb-e6d8b96c1a3a",
+  "oracleId": "66fb4764-d309-4c30-a2a4-474f9030dc87",
+  "name": "Festering Goblin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Festering Goblin",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Zombie Goblin",
+      "oracleText": "When this creature dies, target creature gets -1/-1 until end of turn.",
+      "flavorText": "In life, it was a fetid, disease-ridden thing. In death, not much changed.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Thomas M. Baxa",
+      "imageId": "00444e40-7436-48c3-9cbb-e6d8b96c1a3a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "130",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FEVERED_CONVULSIONS: CardData = {
+  "scryfallId": "3a790769-e76e-49e9-9d6d-05ce8e858243",
+  "oracleId": "83f35293-39e9-4c78-9c9f-25a1fc905676",
+  "name": "Fevered Convulsions",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fevered Convulsions",
+      "manaCost": "{B}{B}",
+      "typeLine": "Enchantment",
+      "oracleText": "{2}{B}{B}: Put a -1/-1 counter on target creature.",
+      "flavorText": "\"Tell me again why you failed to capture Gerrard, you worthless pile of spine.\"\n—Volrath, to Greven",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jeff Miracola",
+      "imageId": "3a790769-e76e-49e9-9d6d-05ce8e858243"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tmp",
+  "collectorNumber": "136",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -14017,6 +14828,78 @@ export const THOPTER_TOKEN: CardData = {
   ],
   "setCode": "tafc",
   "collectorNumber": "12",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const FAERIE_TOKEN: CardData = {
+  "scryfallId": "010ffef8-22ce-4d8f-80f0-6749f63ec4c2",
+  "oracleId": "03fc0cae-a6d3-4fae-995d-038eb32c48ac",
+  "name": "Faerie",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Faerie",
+      "manaCost": "",
+      "typeLine": "Token Creature — Faerie",
+      "oracleText": "Flying",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Irina Nordsol",
+      "imageId": "010ffef8-22ce-4d8f-80f0-6749f63ec4c2"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "tmoc",
+  "collectorNumber": "11",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const ZOMBIE_DECAYED_TOKEN: CardData = {
+  "scryfallId": "64525159-3df4-4a35-a4ee-bd69f62517f2",
+  "oracleId": "888fef82-b8be-434a-9be2-609e1ded9a5e",
+  "name": "Zombie",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Zombie",
+      "manaCost": "",
+      "typeLine": "Token Creature — Zombie",
+      "oracleText": "Decayed (This creature can't block. When it attacks, sacrifice it at end of combat.)",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Sam White",
+      "imageId": "64525159-3df4-4a35-a4ee-bd69f62517f2"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Decayed"
+  ],
+  "setCode": "tdrc",
+  "collectorNumber": "7",
   "commanderLegality": "not_legal",
   "singleImage": true
 };
@@ -15656,6 +16539,29 @@ export const ENGINE_CARDS: CardData[] = [
   EPHARA_S_WARDEN,
   ERRANT_DOOMSAYERS,
   TUINVALE_TREEFOLK_OAKEN_BOON,
+  ERTAI_THE_CORRUPTED,
+  ERTAI_WIZARD_ADEPT,
+  ETHERIUM_ASTROLABE,
+  ETHERIUM_SPINNER,
+  EXCLUSION_MAGE,
+  EXPERIMENTAL_AVIATOR,
+  EXULTANT_CULTIST,
+  EYEBLIGHT_ASSASSIN,
+  FAERIE_DUELIST,
+  FAERIE_FORMATION,
+  FALCON_ABOMINATION,
+  FALKENRATH_CELEBRANTS,
+  FALLAJI_VANGUARD,
+  FALLEN_FERROMANCER,
+  FAN_BEARER,
+  FARBOG_BONEFLINGER,
+  FEATHERBRAINED_FILCHER,
+  FELIDAR_CUB,
+  FEMEREF_ENCHANTRESS,
+  FERAL_PROWLER,
+  FEROCIOUS_PUP,
+  FESTERING_GOBLIN,
+  FEVERED_CONVULSIONS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -15667,6 +16573,8 @@ export const ENGINE_CARDS: CardData[] = [
   SPIDER_TOKEN,
   WURM_TOKEN,
   THOPTER_TOKEN,
+  FAERIE_TOKEN,
+  ZOMBIE_DECAYED_TOKEN,
   GOBLIN_BR_TOKEN,
   SOLDIER_LIFELINK_TOKEN,
   ELDRAZI_HORROR_TOKEN,

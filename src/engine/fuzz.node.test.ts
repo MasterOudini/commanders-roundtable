@@ -281,6 +281,29 @@ import { ENLIGHTENED_MANIAC_SCRIPT } from './scripts/cards/enlightenedManiac';
 import { ENVOY_OF_OKINEC_AHAU_SCRIPT } from './scripts/cards/envoyOfOkinecAhau';
 import { EPHARAS_WARDEN_SCRIPT } from './scripts/cards/epharasWarden';
 import { ERRANT_DOOMSAYERS_SCRIPT } from './scripts/cards/errantDoomsayers';
+import { ERTAI_THE_CORRUPTED_SCRIPT } from './scripts/cards/ertaiTheCorrupted';
+import { ERTAI_WIZARD_ADEPT_SCRIPT } from './scripts/cards/ertaiWizardAdept';
+import { ETHERIUM_ASTROLABE_SCRIPT } from './scripts/cards/etheriumAstrolabe';
+import { ETHERIUM_SPINNER_SCRIPT } from './scripts/cards/etheriumSpinner';
+import { EXCLUSION_MAGE_SCRIPT } from './scripts/cards/exclusionMage';
+import { EXPERIMENTAL_AVIATOR_SCRIPT } from './scripts/cards/experimentalAviator';
+import { EXULTANT_CULTIST_SCRIPT } from './scripts/cards/exultantCultist';
+import { EYEBLIGHT_ASSASSIN_SCRIPT } from './scripts/cards/eyeblightAssassin';
+import { FAERIE_DUELIST_SCRIPT } from './scripts/cards/faerieDuelist';
+import { FAERIE_FORMATION_SCRIPT } from './scripts/cards/faerieFormation';
+import { FALCON_ABOMINATION_SCRIPT } from './scripts/cards/falconAbomination';
+import { FALKENRATH_CELEBRANTS_SCRIPT } from './scripts/cards/falkenrathCelebrants';
+import { FALLAJI_VANGUARD_SCRIPT } from './scripts/cards/fallajiVanguard';
+import { FALLEN_FERROMANCER_SCRIPT } from './scripts/cards/fallenFerromancer';
+import { FAN_BEARER_SCRIPT } from './scripts/cards/fanBearer';
+import { FARBOG_BONEFLINGER_SCRIPT } from './scripts/cards/farbogBoneflinger';
+import { FEATHERBRAINED_FILCHER_SCRIPT } from './scripts/cards/featherbrainedFilcher';
+import { FELIDAR_CUB_SCRIPT } from './scripts/cards/felidarCub';
+import { FEMEREF_ENCHANTRESS_SCRIPT } from './scripts/cards/femerefEnchantress';
+import { FERAL_PROWLER_SCRIPT } from './scripts/cards/feralProwler';
+import { FEROCIOUS_PUP_SCRIPT } from './scripts/cards/ferociousPup';
+import { FESTERING_GOBLIN_SCRIPT } from './scripts/cards/festeringGoblin';
+import { FEVERED_CONVULSIONS_SCRIPT } from './scripts/cards/feveredConvulsions';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -588,6 +611,17 @@ const DECK = [
   'Emmara, Soul of the Accord', "Emrakul's Influence", 'Enatu Golem',
   "Enchantress's Presence", 'Enlightened Maniac', 'Envoy of Okinec Ahau',
   "Ephara's Warden", 'Errant Doomsayers',
+  // M6.4r/D174 — batch 16: the chooser-fed counterspells (a held cast is
+  // something this deck produces constantly), the mv-4 Thopter spinner, and
+  // the infect ping whose player half is POISON.
+  'Ertai, the Corrupted', 'Ertai, Wizard Adept', 'Etherium Astrolabe',
+  'Etherium Spinner', 'Exclusion Mage', 'Experimental Aviator',
+  'Exultant Cultist', 'Eyeblight Assassin', 'Faerie Duelist',
+  'Faerie Formation', 'Falcon Abomination', 'Falkenrath Celebrants',
+  'Fallaji Vanguard', 'Fallen Ferromancer', 'Fan Bearer',
+  'Farbog Boneflinger', 'Featherbrained Filcher', 'Felidar Cub',
+  'Femeref Enchantress', 'Feral Prowler', 'Ferocious Pup',
+  'Festering Goblin', 'Fevered Convulsions',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -892,6 +926,29 @@ const SCRIPTS = createRegistry([
   ENVOY_OF_OKINEC_AHAU_SCRIPT,
   EPHARAS_WARDEN_SCRIPT,
   ERRANT_DOOMSAYERS_SCRIPT,
+  ERTAI_THE_CORRUPTED_SCRIPT,
+  ERTAI_WIZARD_ADEPT_SCRIPT,
+  ETHERIUM_ASTROLABE_SCRIPT,
+  ETHERIUM_SPINNER_SCRIPT,
+  EXCLUSION_MAGE_SCRIPT,
+  EXPERIMENTAL_AVIATOR_SCRIPT,
+  EXULTANT_CULTIST_SCRIPT,
+  EYEBLIGHT_ASSASSIN_SCRIPT,
+  FAERIE_DUELIST_SCRIPT,
+  FAERIE_FORMATION_SCRIPT,
+  FALCON_ABOMINATION_SCRIPT,
+  FALKENRATH_CELEBRANTS_SCRIPT,
+  FALLAJI_VANGUARD_SCRIPT,
+  FALLEN_FERROMANCER_SCRIPT,
+  FAN_BEARER_SCRIPT,
+  FARBOG_BONEFLINGER_SCRIPT,
+  FEATHERBRAINED_FILCHER_SCRIPT,
+  FELIDAR_CUB_SCRIPT,
+  FEMEREF_ENCHANTRESS_SCRIPT,
+  FERAL_PROWLER_SCRIPT,
+  FEROCIOUS_PUP_SCRIPT,
+  FESTERING_GOBLIN_SCRIPT,
+  FEVERED_CONVULSIONS_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

@@ -4436,6 +4436,42 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       memory, per-damage-entry granularity, token entry choice and the
       spell seam stand.
 
+- [x] **M6.4r — Twenty-three landed, and the 2,000 line is crossed
+      (2026-08-06):** **2,013 of 31,692 Commander-legal cards now execute
+      completely, up from 1,990** — the arc began at 1,730 sixteen batches
+      ago. `SHIPPED_SCRIPTS` 260 → 283. Decisions in **D174**.
+      **The headliner:** `Ertai, the Corrupted` composes D168's OR-predicate
+      chooser with D170's counterspell pair through D169's staged chain —
+      ZERO new engine work: a held cast dies to a sacrificed creature, a
+      LAND is neither arm, and `Ertai, Wizard Adept` counters standing up.
+      Both are LEGENDS — **the fully-executable legendary pool reads 53**.
+      ⚠️ **One genuine fix found by its own test:** the infect ping
+      (`Fallen Ferromancer`) hardcoded `applyAs: 'wither'`; combat.ts's own
+      rule says infect versus a PLAYER is **poison** (CR 702.90b/c). The
+      def branches per target kind now, both halves pinned.
+      **Also:** the mv-4 any-spell Thopter spinner, the DECAYED-Zombie ETB
+      (the token's own text tier3-disclosed on the token — the Blood
+      precedent, so creating it is not half-execution), the artifact
+      chooser paying with ITSELF (CR 113.7a), a NO-mana sacrifice cost
+      (`Felidar Cub`), the any-enchantment-dies watcher, a self-inclusive
+      targeted entry watcher in two defs, and two-token ETBs with
+      distinct-id teeth.
+      ⚠️ **Two refusals, both existing classes:** Ezio (per-damage-entry —
+      a CLASS dealing combat damage widens Aya's dealer side) and Fearless
+      Liberator (Boast, once-per-turn memory).
+      Fixtures 440 → 465 (50 tokens: Faerie `tmoc 11`, decayed Zombie
+      `tdrc 7`) · ladder [980, 1079, 3032, 4916, 6103] · `batch.json` at
+      859 (exact).
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      353 test files, 2,736 Vitest passed / 10 skipped · the 500-seed gate
+      green at 1,338.4 s (283 scripts, 462 s inside the 1,800 s ceiling) ·
+      build clean · probe 124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D174): self-only def dispatch's due date is
+      measured in batches; the answer-mode arrow and ability rows owe a
+      battery click-check; the cost-chooser classes, `ctx.random`,
+      once-per-turn memory, per-damage-entry granularity (five entries),
+      token entry choice and the spell seam stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
