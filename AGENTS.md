@@ -4256,6 +4256,57 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       once-per-turn memory, per-damage-entry granularity and the spell seam
       stand.
 
+- [x] **M6.4n — Twenty-three again: the transform-watcher, the counterspell,
+      and the tap-watcher (2026-08-06):** **1,927 of 31,692 Commander-legal
+      cards now execute completely, up from 1,904.** Three event kinds
+      consumed by a def for the first time. Decisions in **D170**.
+      **The firsts:** `Cult of the Waxing Moon` watches `FaceIndexSet` with
+      the filter on the DERIVED destination face (flipping back to the Human
+      front pays nothing — both branches on one werewolf); `Daring
+      Apprentice` counters a REAL held cast through the staged prompt — ⚠️
+      its own first test caught an under-emit (`SpellCountered` alone
+      strands the card in the stack zone; the def now routes the move
+      through a newly exported `moveFromStack`, the `drawEvents` precedent);
+      `Deeproot Pilgrimage` watches `PermanentsTapped`, whose per-event
+      batching is EXACTLY the card's "one or more" wording — the shape D163
+      refused for Aya, correct here by the printed rule, with the nontoken
+      filter proven from both sides.
+      **Also:** the first HISTORIC cast filter (D'Avenant Trapper, off the
+      face actually cast); Forest and Zombie chooser predicates with
+      wrong-kind rejects; an attack-untap; enchantment- and Merfolk-cast
+      watchers; **the enchantment pool reads ELEVEN**; a dies-token on
+      D165's Saproling pin.
+      ⚠️ **Two refusals, both existing classes:** Curious Altisaur
+      (per-damage-entry granularity — not self-only) and Deadbridge Shaman
+      (script-raised prompt, the dies-twin).
+      ⚠️ Pinned on the way: the engine's phases are
+      `precombatMain`/`postcombatMain` — a `'main1'` predicate matches
+      nothing and the advance runs the game to its deck-out end, reading as
+      a gameOver reject three turns later.
+      Fixtures 334 → 363 (35 tokens: Human Soldier `tthb 2`, hexproof
+      Merfolk `txln 3`, Wolf `tlrw 10`; a werewolf, Forest body, Zombie and
+      vanilla Merfolk join unscripted) · `SHIPPED_SCRIPTS` 174 → 197 ·
+      ladder [1066, 1165, 3118, 5002, 6189] · `batch.json` at 959 (exact) ·
+      botDeck: Dark Heart of the Wood joins.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      267 test files, 2,360 Vitest passed / 10 skipped · the 500-seed gate
+      green at 1,148.7 s (197 scripts, 651 s inside the raised ceiling) ·
+      build clean · probe 124/124 · battery 127/127 (both in an idle
+      window — the new standing rule: gates wait for quiet, light work
+      never does).**
+      ⚠️⚠️ **THE FUZZ WALL ARRIVED AGAIN — D167's verdict, proven harder:**
+      the first run failed ONLY its 900 s ceiling after COMPLETING all 500
+      seeds with every hash equal at 1,162 s under desktop load; ~145 s per
+      60 seeds projects ~900–1,200 s even idle on 2.84 M events / 24 K
+      turns of genuinely richer games. Ceiling raised a second time
+      (900 → 1,800 s) with the trend table in the gate's comment and the
+      rule made explicit: raised only ever after a completed-and-equal run
+      proves growth rather than a hang.
+      ⚠️ **Reportables** (D170): the answer-mode arrow and ability rows
+      still owe a battery click-check (three features deep); the
+      cost-chooser classes, `ctx.random`, once-per-turn memory,
+      per-damage-entry granularity and the spell seam stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

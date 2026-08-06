@@ -598,6 +598,39 @@ const WANTED = [
   'Crimson Caravaneer',
   'Crocodile of the Crossing',
   'Crustacean Commando',
+  // Batch 12 (D170) — twenty-three landable: the first transform-watcher and
+  // script counterspell, three more subtype chooser costs, and twins.
+  'Cult of the Waxing Moon',
+  'Cultbrand Cinder',
+  'Cunning Sparkmage',
+  "D'Avenant Trapper",
+  'Daring Apprentice',
+  'Dark Heart of the Wood',
+  'Darkslick Drake',
+  'Dauntless Aven',
+  'Dauntless Survivor',
+  'Dawnhart Geist',
+  'Dawnhart Rejuvenator',
+  'Dawning Angel',
+  'Daybreak Charger',
+  'Daybreak Combatants',
+  'Daysquad Marshal',
+  'Dazzling Angel',
+  'Dazzling Ramparts',
+  'Deadapult',
+  'Deadeye Duelist',
+  'Deathbloom Thallid',
+  'Dedicated Martyr',
+  'Deeproot Pilgrimage',
+  'Deeproot Waters',
+  // A TRANSFORM card whose back face is a non-Human creature — the board
+  // Cult of the Waxing Moon's test flips. Not itself scripted.
+  'Duskwatch Recruiter // Krallenhorde Howler',
+  // Batch-12 test bodies, none scripted: a vanilla Zombie for Deadapult's
+  // predicate and a vanilla nontoken Merfolk for the Deeproot pair. (The
+  // Forest Dark Heart of the Wood's test sacrifices is already a fixture.)
+  'Walking Corpse',
+  'Merfolk of the Pearl Trident',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -625,6 +658,10 @@ const WANTED_TOKENS = [
   // M6.4e (D162).
   { name: 'Wurm', set: 'trtr', cn: '11', key: 'WURM_TOKEN' },
   { name: 'Thopter', set: 'tafc', cn: '12', key: 'THOPTER_TOKEN' },
+  // Batch 12 (D170).
+  { name: 'Human Soldier', set: 'tthb', cn: '2', key: 'HUMAN_SOLDIER_TOKEN' },
+  { name: 'Merfolk', set: 'txln', cn: '3', key: 'MERFOLK_TOKEN' },
+  { name: 'Wolf', set: 'tlrw', cn: '10', key: 'WOLF_TOKEN' },
   // Batch 11 (D169).
   { name: 'Squid', set: 'tblc', cn: '17', key: 'SQUID_TOKEN' },
   { name: 'Dinosaur', set: 'txln', cn: '5', key: 'DINOSAUR_TOKEN' },

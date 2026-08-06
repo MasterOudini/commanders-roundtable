@@ -524,7 +524,9 @@ function moveTo(card: InstanceId, kind: 'graveyard' | 'exile' | 'hand', player: 
   };
 }
 
-function moveFromStack(card: InstanceId, kind: 'graveyard', player: PlayerId): EventBody {
+// ⚠️ Exported since D170 (the `drawEvents` precedent): a card script that
+// counters a spell must move the card by THE one rule, not a copy of it.
+export function moveFromStack(card: InstanceId, kind: 'graveyard', player: PlayerId): EventBody {
   return {
     t: 'CardsMoved',
     moves: [{ card, from: { kind: 'stack', player: null }, to: { kind, player } }],

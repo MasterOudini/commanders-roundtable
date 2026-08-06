@@ -195,6 +195,29 @@ import { CRESTED_HERDCALLER_SCRIPT } from './scripts/cards/crestedHerdcaller';
 import { CRIMSON_CARAVANEER_SCRIPT } from './scripts/cards/crimsonCaravaneer';
 import { CROCODILE_OF_THE_CROSSING_SCRIPT } from './scripts/cards/crocodileOfTheCrossing';
 import { CRUSTACEAN_COMMANDO_SCRIPT } from './scripts/cards/crustaceanCommando';
+import { CULT_OF_THE_WAXING_MOON_SCRIPT } from './scripts/cards/cultOfTheWaxingMoon';
+import { CULTBRAND_CINDER_SCRIPT } from './scripts/cards/cultbrandCinder';
+import { CUNNING_SPARKMAGE_SCRIPT } from './scripts/cards/cunningSparkmage';
+import { D_AVENANT_TRAPPER_SCRIPT } from './scripts/cards/dAvenantTrapper';
+import { DARING_APPRENTICE_SCRIPT } from './scripts/cards/daringApprentice';
+import { DARK_HEART_OF_THE_WOOD_SCRIPT } from './scripts/cards/darkHeartOfTheWood';
+import { DARKSLICK_DRAKE_SCRIPT } from './scripts/cards/darkslickDrake';
+import { DAUNTLESS_AVEN_SCRIPT } from './scripts/cards/dauntlessAven';
+import { DAUNTLESS_SURVIVOR_SCRIPT } from './scripts/cards/dauntlessSurvivor';
+import { DAWNHART_GEIST_SCRIPT } from './scripts/cards/dawnhartGeist';
+import { DAWNHART_REJUVENATOR_SCRIPT } from './scripts/cards/dawnhartRejuvenator';
+import { DAWNING_ANGEL_SCRIPT } from './scripts/cards/dawningAngel';
+import { DAYBREAK_CHARGER_SCRIPT } from './scripts/cards/daybreakCharger';
+import { DAYBREAK_COMBATANTS_SCRIPT } from './scripts/cards/daybreakCombatants';
+import { DAYSQUAD_MARSHAL_SCRIPT } from './scripts/cards/daysquadMarshal';
+import { DAZZLING_ANGEL_SCRIPT } from './scripts/cards/dazzlingAngel';
+import { DAZZLING_RAMPARTS_SCRIPT } from './scripts/cards/dazzlingRamparts';
+import { DEADAPULT_SCRIPT } from './scripts/cards/deadapult';
+import { DEADEYE_DUELIST_SCRIPT } from './scripts/cards/deadeyeDuelist';
+import { DEATHBLOOM_THALLID_SCRIPT } from './scripts/cards/deathbloomThallid';
+import { DEDICATED_MARTYR_SCRIPT } from './scripts/cards/dedicatedMartyr';
+import { DEEPROOT_PILGRIMAGE_SCRIPT } from './scripts/cards/deeprootPilgrimage';
+import { DEEPROOT_WATERS_SCRIPT } from './scripts/cards/deeprootWaters';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -454,6 +477,18 @@ const DECK = [
   'Courier Griffin', "Courier's Capsule", 'Court Street Denizen',
   'Crenellated Wall', 'Crested Herdcaller', 'Crimson Caravaneer',
   'Crocodile of the Crossing', 'Crustacean Commando',
+  // ⚠️ M6.4m/D170 — batch 12: the transform-watcher rides the werewolf, the
+  // counterspell aims at real casts, the tap-watcher fires off the Merfolk,
+  // and the subtype choosers eat their own bodies.
+  'Cult of the Waxing Moon', 'Cultbrand Cinder', 'Cunning Sparkmage',
+  "D'Avenant Trapper", 'Daring Apprentice', 'Dark Heart of the Wood',
+  'Darkslick Drake', 'Dauntless Aven', 'Dauntless Survivor', 'Dawnhart Geist',
+  'Dawnhart Rejuvenator', 'Dawning Angel', 'Daybreak Charger',
+  'Daybreak Combatants', 'Daysquad Marshal', 'Dazzling Angel',
+  'Dazzling Ramparts', 'Deadapult', 'Deadeye Duelist', 'Deathbloom Thallid',
+  'Dedicated Martyr', 'Deeproot Pilgrimage', 'Deeproot Waters',
+  'Duskwatch Recruiter // Krallenhorde Howler', 'Forest', 'Walking Corpse',
+  'Merfolk of the Pearl Trident',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -672,6 +707,29 @@ const SCRIPTS = createRegistry([
   CRIMSON_CARAVANEER_SCRIPT,
   CROCODILE_OF_THE_CROSSING_SCRIPT,
   CRUSTACEAN_COMMANDO_SCRIPT,
+  CULT_OF_THE_WAXING_MOON_SCRIPT,
+  CULTBRAND_CINDER_SCRIPT,
+  CUNNING_SPARKMAGE_SCRIPT,
+  D_AVENANT_TRAPPER_SCRIPT,
+  DARING_APPRENTICE_SCRIPT,
+  DARK_HEART_OF_THE_WOOD_SCRIPT,
+  DARKSLICK_DRAKE_SCRIPT,
+  DAUNTLESS_AVEN_SCRIPT,
+  DAUNTLESS_SURVIVOR_SCRIPT,
+  DAWNHART_GEIST_SCRIPT,
+  DAWNHART_REJUVENATOR_SCRIPT,
+  DAWNING_ANGEL_SCRIPT,
+  DAYBREAK_CHARGER_SCRIPT,
+  DAYBREAK_COMBATANTS_SCRIPT,
+  DAYSQUAD_MARSHAL_SCRIPT,
+  DAZZLING_ANGEL_SCRIPT,
+  DAZZLING_RAMPARTS_SCRIPT,
+  DEADAPULT_SCRIPT,
+  DEADEYE_DUELIST_SCRIPT,
+  DEATHBLOOM_THALLID_SCRIPT,
+  DEDICATED_MARTYR_SCRIPT,
+  DEEPROOT_PILGRIMAGE_SCRIPT,
+  DEEPROOT_WATERS_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,
@@ -1444,10 +1502,16 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
     // mean more events — and it crossed 600 s at 148 scripts (D167). A
     // second bus pass (lazy construction + present-def memo) measured ~2% at
     // 60 seeds, which is the proof the cost is the GAMES, not the bus.
-    // History: 394 s @ 57 · 471 s @ 107 · 568 s @ 128 · timeout @ 148.
-    // Raised once; self-only def dispatch is the named next lever if the
-    // wall ever approaches THIS ceiling.
-    900_000,
+    // History: 394 s @ 57 · 471 s @ 107 · 568 s @ 128 · timeout @ 148 ·
+    // 589.6 s @ 148 · 622.7 s @ 174 · timeout @ 197 (D170 — the run
+    // COMPLETED all 500 seeds with every hash equal at 1,162 s under desktop
+    // load; ~145 s per 60 seeds projects ~900–1,200 s, straddling the old
+    // ceiling even idle, on 2.84 M events / 24 K turns of genuinely richer
+    // games). Raised twice now, and only ever after a completed-and-equal
+    // run proved the wall was growth rather than a hang. Self-only def
+    // dispatch remains the named lever if WALL TIME itself (not the
+    // ceiling) becomes the problem.
+    1_800_000,
   );
 
   test('a fuzzed game never leaks a library into any projection', () => {

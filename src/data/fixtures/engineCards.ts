@@ -10545,6 +10545,928 @@ export const CRUSTACEAN_COMMANDO: CardData = {
   "singleImage": true
 };
 
+export const CULT_OF_THE_WAXING_MOON: CardData = {
+  "scryfallId": "3ee31c45-4e39-4b74-a249-2a80cb485c44",
+  "oracleId": "4ea5409e-9b39-434c-bdb8-8c798128f199",
+  "name": "Cult of the Waxing Moon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cult of the Waxing Moon",
+      "manaCost": "{4}{G}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "Whenever a permanent you control transforms into a non-Human creature, create a 2/2 green Wolf creature token.",
+      "flavorText": "In times of madness, people cling to the familiar, monstrous though it may be.",
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Anastasia Ovchinnikova",
+      "imageId": "3ee31c45-4e39-4b74-a249-2a80cb485c44"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "SOI-201",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CULTBRAND_CINDER: CardData = {
+  "scryfallId": "f6b80a10-a9a9-445e-8040-6cc0155271d8",
+  "oracleId": "cbb030aa-ba4f-4d9e-920d-001a40982f5e",
+  "name": "Cultbrand Cinder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cultbrand Cinder",
+      "manaCost": "{4}{B/R}",
+      "typeLine": "Creature — Elemental Shaman",
+      "oracleText": "When this creature enters, put a -1/-1 counter on target creature.",
+      "flavorText": "\"Your seared flesh will be the first step in your journey to dark enlightenment.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "f6b80a10-a9a9-445e-8040-6cc0155271d8"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "shm",
+  "collectorNumber": "182",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CUNNING_SPARKMAGE: CardData = {
+  "scryfallId": "699842c1-6507-48ee-b98b-3774d1f07c76",
+  "oracleId": "ab4a25d8-e1d0-454e-9d06-f7960a0352bc",
+  "name": "Cunning Sparkmage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cunning Sparkmage",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "Haste\n{T}: This creature deals 1 damage to any target.",
+      "flavorText": "\"I see the weaknesses you hide even from yourself.\"",
+      "power": "0",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Wayne Reynolds",
+      "imageId": "699842c1-6507-48ee-b98b-3774d1f07c76"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "wwk",
+  "collectorNumber": "79",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const D_AVENANT_TRAPPER: CardData = {
+  "scryfallId": "a5881ab3-566b-4999-997e-cd5ecb84282b",
+  "oracleId": "745d37dd-d18e-47cc-81d0-8e61a07342f2",
+  "name": "D'Avenant Trapper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "D'Avenant Trapper",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Archer",
+      "oracleText": "Whenever you cast a historic spell, tap target creature an opponent controls. (Artifacts, legendaries, and Sagas are historic.)",
+      "flavorText": "\"Go swiftly, clever arrow, and teach\nThe philosophy of stillness.\"\n—D'Avenant verse",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Winona Nelson",
+      "imageId": "a5881ab3-566b-4999-997e-cd5ecb84282b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dom",
+  "collectorNumber": "11",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DARING_APPRENTICE: CardData = {
+  "scryfallId": "0344006b-990e-46a0-a6d4-ace88af66b46",
+  "oracleId": "863ad4b8-094b-46b3-b6cd-0640e1f01d6d",
+  "name": "Daring Apprentice",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Daring Apprentice",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{T}, Sacrifice this creature: Counter target spell.",
+      "flavorText": "In front of every great wizard is a doomed apprentice.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Kaja Foglio",
+      "imageId": "0344006b-990e-46a0-a6d4-ace88af66b46"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "6ed",
+  "collectorNumber": "62",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DARK_HEART_OF_THE_WOOD: CardData = {
+  "scryfallId": "baa3ae99-a770-4487-8de6-68a347ee64bb",
+  "oracleId": "c44f40da-867e-4237-b4b1-ed6feb1f37b7",
+  "name": "Dark Heart of the Wood",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dark Heart of the Wood",
+      "manaCost": "{B}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Sacrifice a Forest: You gain 3 life.",
+      "flavorText": "\"The soil here is rich with the rotting dead, and the sun's fingers barely penetrate the dark canopy. Plant our brethren here. This shall be our sanctuary.\"\n—Savra",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Mark Tedin",
+      "imageId": "baa3ae99-a770-4487-8de6-68a347ee64bb"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "rav",
+  "collectorNumber": "200",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DARKSLICK_DRAKE: CardData = {
+  "scryfallId": "234f4131-1e7f-4220-b46c-bb4a6713876e",
+  "oracleId": "cef11518-ecb2-4250-996c-a03fa9dfb09e",
+  "name": "Darkslick Drake",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Darkslick Drake",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Creature — Phyrexian Drake",
+      "oracleText": "Flying\nWhen this creature dies, draw a card.",
+      "flavorText": "At the edge of the Mephidross, Phyrexia's influence seeps into life and land.",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Chippy",
+      "imageId": "234f4131-1e7f-4220-b46c-bb4a6713876e"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "som",
+  "collectorNumber": "30",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAUNTLESS_AVEN: CardData = {
+  "scryfallId": "01e6320c-6f8b-4582-ad11-9b868bff08a1",
+  "oracleId": "7104e471-06aa-426d-af1e-d5f0b1fb18c3",
+  "name": "Dauntless Aven",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dauntless Aven",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Bird Warrior",
+      "oracleText": "Flying\nWhenever this creature attacks, untap target creature you control.",
+      "flavorText": "In the chaos brought by the new gods, swift-winged aven served as pathfinders, leading the last of the people away from the ruins of Naktamun.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "01e6320c-6f8b-4582-ad11-9b868bff08a1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "hou",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAUNTLESS_SURVIVOR: CardData = {
+  "scryfallId": "52b1b4a2-52a7-4fcd-aa96-f7d9e459657b",
+  "oracleId": "8371dee1-5f4a-410a-8b7c-e4110cdbe9bd",
+  "name": "Dauntless Survivor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dauntless Survivor",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Human Warrior",
+      "oracleText": "When this creature enters, put a +1/+1 counter on target creature.",
+      "flavorText": "\"I've got a little surprise for you, beasties! Come and get it!\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "David Rapoza",
+      "imageId": "52b1b4a2-52a7-4fcd-aa96-f7d9e459657b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "znr",
+  "collectorNumber": "184",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAWNHART_GEIST: CardData = {
+  "scryfallId": "8feaf92a-cc79-41ca-8020-42d10b5e6600",
+  "oracleId": "ed7a2ee0-289d-4e5f-92e0-1539395baf33",
+  "name": "Dawnhart Geist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dawnhart Geist",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Spirit Warlock",
+      "oracleText": "Whenever you cast an enchantment spell, you gain 2 life.",
+      "flavorText": "\"Our bodies may lie slain, but perhaps we can still complete the ritual. I'd rather not spend my afterlife in this wretched eternal night.\"",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Artur Treffner",
+      "imageId": "8feaf92a-cc79-41ca-8020-42d10b5e6600"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dbl",
+  "collectorNumber": "275",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAWNHART_REJUVENATOR: CardData = {
+  "scryfallId": "110dd279-0aa1-43a7-a2de-42abde34220f",
+  "oracleId": "c6e92911-a100-43eb-ab4b-3778b0db1918",
+  "name": "Dawnhart Rejuvenator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dawnhart Rejuvenator",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Human Warlock",
+      "oracleText": "When this creature enters, you gain 3 life.\n{T}: Add one mana of any color.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Cabrol",
+      "imageId": "110dd279-0aa1-43a7-a2de-42abde34220f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "MID-301",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAWNING_ANGEL: CardData = {
+  "scryfallId": "326e1569-3394-468d-addd-c0a5346f7031",
+  "oracleId": "a7d88510-d2ce-4dd6-938c-964cc74ff7d7",
+  "name": "Dawning Angel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dawning Angel",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Angel",
+      "oracleText": "Flying\nWhen this creature enters, you gain 4 life.",
+      "flavorText": "\"As the sun rose behind the Bone Spire, an angel appeared over the charnel fields, bringing a surge of new hope.\"\n—Krinnea, *Siege of the Bone Spire*",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Yongjae Choi",
+      "imageId": "326e1569-3394-468d-addd-c0a5346f7031"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "j22",
+  "collectorNumber": "170",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAYBREAK_CHARGER: CardData = {
+  "scryfallId": "309ea7a5-c096-4216-b6bd-a848f2540c31",
+  "oracleId": "d3de6b36-c631-4b52-b16b-0749a347d73d",
+  "name": "Daybreak Charger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Daybreak Charger",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Unicorn",
+      "oracleText": "When this creature enters, target creature gets +2/+0 until end of turn.",
+      "flavorText": "It's often mistaken for the coming dawn as it gallops across the horizon.",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Forrest Imel",
+      "imageId": "309ea7a5-c096-4216-b6bd-a848f2540c31"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "j22",
+  "collectorNumber": "172",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAYBREAK_COMBATANTS: CardData = {
+  "scryfallId": "294f9d15-b3c4-4723-9a6d-86a4cba65682",
+  "oracleId": "fbb3f959-ded7-4570-bacf-0e1394dbef80",
+  "name": "Daybreak Combatants",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Daybreak Combatants",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Human Warrior",
+      "oracleText": "Haste (This creature can attack and {T} as soon as it comes under your control.)\nWhen this creature enters, target creature gets +2/+0 until end of turn.",
+      "flavorText": "After weeks of unending darkness, a glimpse of dawn was all the people of Stensia needed to rekindle their will to fight.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Joshua Raphael",
+      "imageId": "294f9d15-b3c4-4723-9a6d-86a4cba65682"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "dbl",
+  "collectorNumber": "420",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAYSQUAD_MARSHAL: CardData = {
+  "scryfallId": "17d566bd-f272-49d1-bffb-588f2a42046a",
+  "oracleId": "42de2d46-c98d-4ae5-a53d-97531592529b",
+  "name": "Daysquad Marshal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Daysquad Marshal",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "When this creature enters, create a 1/1 white Human Soldier creature token.",
+      "flavorText": "\"The night emboldens many monsters, but the mightiest will attack in broad daylight.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Micah Epstein",
+      "imageId": "17d566bd-f272-49d1-bffb-588f2a42046a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "iko",
+  "collectorNumber": "8",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAZZLING_ANGEL: CardData = {
+  "scryfallId": "027dc444-e544-4693-8653-3dcdda530162",
+  "oracleId": "7de464e3-fae3-44cc-8233-776fc727c00a",
+  "name": "Dazzling Angel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dazzling Angel",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Angel",
+      "oracleText": "Flying\nWhenever another creature you control enters, you gain 1 life.",
+      "flavorText": "Her wings ripple with impossible colors—a sign that a miracle is on the way.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Daneen Wilkerson",
+      "imageId": "027dc444-e544-4693-8653-3dcdda530162"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "9",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAZZLING_RAMPARTS: CardData = {
+  "scryfallId": "ce43a2df-4305-4ab1-ae45-96cca597650e",
+  "oracleId": "0527fc47-2bfc-4d02-90fa-5a1284f89a0a",
+  "name": "Dazzling Ramparts",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dazzling Ramparts",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Wall",
+      "oracleText": "Defender\n{1}{W}, {T}: Tap target creature.",
+      "flavorText": "When Anafenza holds court under the First Tree, the gates of Mer-Ek are sealed. No safer place exists in all of Tarkir.",
+      "power": "0",
+      "toughness": "7",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jung Park",
+      "imageId": "ce43a2df-4305-4ab1-ae45-96cca597650e"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Defender"
+  ],
+  "setCode": "ktk",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEADAPULT: CardData = {
+  "scryfallId": "b8f9cb4d-5ee2-4934-a0ca-43148491ae35",
+  "oracleId": "5e0fea29-0fd5-4535-b1df-cd66e50662cc",
+  "name": "Deadapult",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deadapult",
+      "manaCost": "{2}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "{R}, Sacrifice a Zombie: This enchantment deals 2 damage to any target.",
+      "flavorText": "\"Nothing ruins your day like a blazing zombie.\"\n—Tahngarth",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mark Brill",
+      "imageId": "b8f9cb4d-5ee2-4934-a0ca-43148491ae35"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dmr",
+  "collectorNumber": "115",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEADEYE_DUELIST: CardData = {
+  "scryfallId": "e9a50b7a-8741-4520-8d45-8e6b128c2628",
+  "oracleId": "29ef90ac-2396-4488-970d-d440297ba5ee",
+  "name": "Deadeye Duelist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deadeye Duelist",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Human Assassin",
+      "oracleText": "Reach\n{1}, {T}: This creature deals 1 damage to target opponent.",
+      "flavorText": "Slickshots are always eager to demonstrate their skills to whomever questions them.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Diana Cearley",
+      "imageId": "e9a50b7a-8741-4520-8d45-8e6b128c2628"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Reach"
+  ],
+  "setCode": "otj",
+  "collectorNumber": "119",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEATHBLOOM_THALLID: CardData = {
+  "scryfallId": "236ead00-d43e-4079-b74d-09be9875fd2d",
+  "oracleId": "ce873790-de4d-4ba3-8023-c44306ba3ff8",
+  "name": "Deathbloom Thallid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deathbloom Thallid",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Fungus",
+      "oracleText": "When this creature dies, create a 1/1 green Saproling creature token.",
+      "flavorText": "\"Nature is not always gentle or kind, but all life begets life.\"\n—Marwyn of Llanowar",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Mike Burns",
+      "imageId": "236ead00-d43e-4079-b74d-09be9875fd2d"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dom",
+  "collectorNumber": "84",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEDICATED_MARTYR: CardData = {
+  "scryfallId": "d1f95b64-858b-4344-84a2-3afa5c7b9ee9",
+  "oracleId": "ca39af65-985d-4ab1-874b-9e8d3455c349",
+  "name": "Dedicated Martyr",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dedicated Martyr",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{W}, Sacrifice this creature: You gain 3 life.",
+      "flavorText": "\"If he's so willing to suffer for his cause, then by all means, let us oblige him.\"\n—Cabal Patriarch",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Dave Dorman",
+      "imageId": "d1f95b64-858b-4344-84a2-3afa5c7b9ee9"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEEPROOT_PILGRIMAGE: CardData = {
+  "scryfallId": "0706ae9f-150d-4d5b-b973-17fcbf6d5fab",
+  "oracleId": "188656d8-4ea8-4e58-88da-b010a16eb6f2",
+  "name": "Deeproot Pilgrimage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deeproot Pilgrimage",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever one or more nontoken Merfolk you control become tapped, create a 1/1 blue Merfolk creature token with hexproof.",
+      "flavorText": "\"These glyphs are more than trail markings! They tell a story as they go. But does it end in celebration or tragedy?\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Rémi Jacquot",
+      "imageId": "0706ae9f-150d-4d5b-b973-17fcbf6d5fab"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plci",
+  "collectorNumber": "52p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEEPROOT_WATERS: CardData = {
+  "scryfallId": "24bec3b7-5dfc-4b48-ae8f-5bf49470d030",
+  "oracleId": "8e7b31eb-7a91-4992-b24a-d81173e1dbc8",
+  "name": "Deeproot Waters",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deeproot Waters",
+      "manaCost": "{2}{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever you cast a Merfolk spell, create a 1/1 blue Merfolk creature token with hexproof. (A creature with hexproof can't be the target of spells or abilities your opponents control.)",
+      "flavorText": "A visit to the Deeproot Tree and its ancient spring replenishes a merfolk's connection to nature.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Zezhou Chen",
+      "imageId": "24bec3b7-5dfc-4b48-ae8f-5bf49470d030"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "xln",
+  "collectorNumber": "51",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DUSKWATCH_RECRUITER_KRALLENHORDE_HOWLER: CardData = {
+  "scryfallId": "1031eeaa-6c21-4192-b185-85708819344d",
+  "oracleId": "87c43776-dd98-4e12-9b95-82d2b8f4f1ab",
+  "name": "Duskwatch Recruiter // Krallenhorde Howler",
+  "layout": "transform",
+  "faces": [
+    {
+      "name": "Duskwatch Recruiter",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Human Warrior Werewolf",
+      "oracleText": "{2}{G}: Look at the top three cards of your library. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in any order.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Craig J Spearing",
+      "imageId": "1031eeaa-6c21-4192-b185-85708819344d-0"
+    },
+    {
+      "name": "Krallenhorde Howler",
+      "manaCost": "",
+      "typeLine": "Creature — Werewolf",
+      "oracleText": "Creature spells you cast cost {1} less to cast.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Craig J Spearing",
+      "imageId": "1031eeaa-6c21-4192-b185-85708819344d-1"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Transform"
+  ],
+  "setCode": "sir",
+  "collectorNumber": "194",
+  "commanderLegality": "legal",
+  "singleImage": false
+};
+
+export const WALKING_CORPSE: CardData = {
+  "scryfallId": "053b59b4-a22c-4228-aadc-ae9da6bb465e",
+  "oracleId": "fea95888-e16a-4209-9cd4-623f7f4d2f67",
+  "name": "Walking Corpse",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Walking Corpse",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "",
+      "flavorText": "\"Feeding a normal army is a problem of logistics. With zombies, it is an asset. Feeding is why they fight. Feeding is why they are feared.\"\n—Jadar, ghoulcaller of Nephalia",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Igor Kieryluk",
+      "imageId": "053b59b4-a22c-4228-aadc-ae9da6bb465e"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m21",
+  "collectorNumber": "128",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MERFOLK_OF_THE_PEARL_TRIDENT: CardData = {
+  "scryfallId": "126fec7a-4f36-49e5-a2d7-96deb7af856f",
+  "oracleId": "218d9277-c179-4de3-9c7f-79b5a6d4fa38",
+  "name": "Merfolk of the Pearl Trident",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Merfolk of the Pearl Trident",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Merfolk",
+      "oracleText": "",
+      "flavorText": "Are merfolk humans with fins, or are humans merfolk with feet?",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "DiTerlizzi",
+      "imageId": "126fec7a-4f36-49e5-a2d7-96deb7af856f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "por",
+  "collectorNumber": "60",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -10913,6 +11835,110 @@ export const THOPTER_TOKEN: CardData = {
   ],
   "setCode": "tafc",
   "collectorNumber": "12",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const HUMAN_SOLDIER_TOKEN: CardData = {
+  "scryfallId": "1e76f0e3-9411-401d-ab38-9c3c64769483",
+  "oracleId": "a4095286-d51b-4527-b6ce-23aa539fc23a",
+  "name": "Human Soldier",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Human Soldier",
+      "manaCost": "",
+      "typeLine": "Token Creature — Human Soldier",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kimonas Theodossiou",
+      "imageId": "1e76f0e3-9411-401d-ab38-9c3c64769483"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tthb",
+  "collectorNumber": "2",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const MERFOLK_TOKEN: CardData = {
+  "scryfallId": "90317f5e-d121-4c00-86cc-5bbee953f600",
+  "oracleId": "fd6663bc-49ae-4e31-b0aa-60f142dfd18c",
+  "name": "Merfolk",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Merfolk",
+      "manaCost": "",
+      "typeLine": "Token Creature — Merfolk",
+      "oracleText": "Hexproof (This creature can't be the target of spells or abilities your opponents control.)",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "90317f5e-d121-4c00-86cc-5bbee953f600"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Hexproof"
+  ],
+  "setCode": "txln",
+  "collectorNumber": "3",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const WOLF_TOKEN: CardData = {
+  "scryfallId": "02a80dc2-0811-4df0-95f1-dd80ce9e24de",
+  "oracleId": "b2224843-8274-4872-a7ca-2adf69cc066b",
+  "name": "Wolf",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Wolf",
+      "manaCost": "",
+      "typeLine": "Token Creature — Wolf",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "02a80dc2-0811-4df0-95f1-dd80ce9e24de"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tlrw",
+  "collectorNumber": "10",
   "commanderLegality": "not_legal",
   "singleImage": true
 };
@@ -11922,6 +12948,32 @@ export const ENGINE_CARDS: CardData[] = [
   CRIMSON_CARAVANEER,
   CROCODILE_OF_THE_CROSSING,
   CRUSTACEAN_COMMANDO,
+  CULT_OF_THE_WAXING_MOON,
+  CULTBRAND_CINDER,
+  CUNNING_SPARKMAGE,
+  D_AVENANT_TRAPPER,
+  DARING_APPRENTICE,
+  DARK_HEART_OF_THE_WOOD,
+  DARKSLICK_DRAKE,
+  DAUNTLESS_AVEN,
+  DAUNTLESS_SURVIVOR,
+  DAWNHART_GEIST,
+  DAWNHART_REJUVENATOR,
+  DAWNING_ANGEL,
+  DAYBREAK_CHARGER,
+  DAYBREAK_COMBATANTS,
+  DAYSQUAD_MARSHAL,
+  DAZZLING_ANGEL,
+  DAZZLING_RAMPARTS,
+  DEADAPULT,
+  DEADEYE_DUELIST,
+  DEATHBLOOM_THALLID,
+  DEDICATED_MARTYR,
+  DEEPROOT_PILGRIMAGE,
+  DEEPROOT_WATERS,
+  DUSKWATCH_RECRUITER_KRALLENHORDE_HOWLER,
+  WALKING_CORPSE,
+  MERFOLK_OF_THE_PEARL_TRIDENT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -11933,6 +12985,9 @@ export const ENGINE_CARDS: CardData[] = [
   SPIDER_TOKEN,
   WURM_TOKEN,
   THOPTER_TOKEN,
+  HUMAN_SOLDIER_TOKEN,
+  MERFOLK_TOKEN,
+  WOLF_TOKEN,
   SQUID_TOKEN,
   DINOSAUR_TOKEN,
   JUNK_TOKEN,

@@ -7,6 +7,29 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { CULT_OF_THE_WAXING_MOON_SCRIPT } from './cards/cultOfTheWaxingMoon';
+import { CULTBRAND_CINDER_SCRIPT } from './cards/cultbrandCinder';
+import { CUNNING_SPARKMAGE_SCRIPT } from './cards/cunningSparkmage';
+import { D_AVENANT_TRAPPER_SCRIPT } from './cards/dAvenantTrapper';
+import { DARING_APPRENTICE_SCRIPT } from './cards/daringApprentice';
+import { DARK_HEART_OF_THE_WOOD_SCRIPT } from './cards/darkHeartOfTheWood';
+import { DARKSLICK_DRAKE_SCRIPT } from './cards/darkslickDrake';
+import { DAUNTLESS_AVEN_SCRIPT } from './cards/dauntlessAven';
+import { DAUNTLESS_SURVIVOR_SCRIPT } from './cards/dauntlessSurvivor';
+import { DAWNHART_GEIST_SCRIPT } from './cards/dawnhartGeist';
+import { DAWNHART_REJUVENATOR_SCRIPT } from './cards/dawnhartRejuvenator';
+import { DAWNING_ANGEL_SCRIPT } from './cards/dawningAngel';
+import { DAYBREAK_CHARGER_SCRIPT } from './cards/daybreakCharger';
+import { DAYBREAK_COMBATANTS_SCRIPT } from './cards/daybreakCombatants';
+import { DAYSQUAD_MARSHAL_SCRIPT } from './cards/daysquadMarshal';
+import { DAZZLING_ANGEL_SCRIPT } from './cards/dazzlingAngel';
+import { DAZZLING_RAMPARTS_SCRIPT } from './cards/dazzlingRamparts';
+import { DEADAPULT_SCRIPT } from './cards/deadapult';
+import { DEADEYE_DUELIST_SCRIPT } from './cards/deadeyeDuelist';
+import { DEATHBLOOM_THALLID_SCRIPT } from './cards/deathbloomThallid';
+import { DEDICATED_MARTYR_SCRIPT } from './cards/dedicatedMartyr';
+import { DEEPROOT_PILGRIMAGE_SCRIPT } from './cards/deeprootPilgrimage';
+import { DEEPROOT_WATERS_SCRIPT } from './cards/deeprootWaters';
 import { AGENT_OF_SHAUKU_SCRIPT } from './cards/agentOfShauku';
 import { AKKI_SCRAPCHOMPER_SCRIPT } from './cards/akkiScrapchomper';
 import { ARMS_DEALER_SCRIPT } from './cards/armsDealer';
@@ -275,6 +298,29 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CULT_OF_THE_WAXING_MOON_SCRIPT,
+  CULTBRAND_CINDER_SCRIPT,
+  CUNNING_SPARKMAGE_SCRIPT,
+  D_AVENANT_TRAPPER_SCRIPT,
+  DARING_APPRENTICE_SCRIPT,
+  DARK_HEART_OF_THE_WOOD_SCRIPT,
+  DARKSLICK_DRAKE_SCRIPT,
+  DAUNTLESS_AVEN_SCRIPT,
+  DAUNTLESS_SURVIVOR_SCRIPT,
+  DAWNHART_GEIST_SCRIPT,
+  DAWNHART_REJUVENATOR_SCRIPT,
+  DAWNING_ANGEL_SCRIPT,
+  DAYBREAK_CHARGER_SCRIPT,
+  DAYBREAK_COMBATANTS_SCRIPT,
+  DAYSQUAD_MARSHAL_SCRIPT,
+  DAZZLING_ANGEL_SCRIPT,
+  DAZZLING_RAMPARTS_SCRIPT,
+  DEADAPULT_SCRIPT,
+  DEADEYE_DUELIST_SCRIPT,
+  DEATHBLOOM_THALLID_SCRIPT,
+  DEDICATED_MARTYR_SCRIPT,
+  DEEPROOT_PILGRIMAGE_SCRIPT,
+  DEEPROOT_WATERS_SCRIPT,
   AGENT_OF_SHAUKU_SCRIPT,
   AKKI_SCRAPCHOMPER_SCRIPT,
   ARMS_DEALER_SCRIPT,

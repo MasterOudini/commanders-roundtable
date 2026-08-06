@@ -11441,3 +11441,98 @@ prompts` 127/127.**
   permanents, exile-from-graveyard, remove-counter, exile-self), plus
   `ctx.random`, once-per-turn memory, per-damage-entry granularity, and
   D160's spell seam.
+
+## D170 — M6.4n: twenty-three again — the transform-watcher, the counterspell, and the tap-watcher
+
+**1,927 of 31,692 Commander-legal cards now execute completely, up from
+1,904** — batch 12 matches batch 11's 23 of 25, with three event kinds
+consumed by a def for the first time.
+
+**The three firsts:**
+- **The transform-watcher** (`Cult of the Waxing Moon`) — the bus dispatches
+  on `FaceIndexSet`, the event D108's Transform button has emitted since it
+  existed, and the filter asks the DERIVED post-flip characteristics — so
+  "transforms into a non-Human creature" reads the destination face through
+  the layers, flipping BACK to a Human front face pays nothing, and both
+  branches are proven on one werewolf (`Duskwatch Recruiter`, a fixture
+  added for exactly this board).
+- **The script counterspell** (`Daring Apprentice`) — aimed by the staged
+  prompt at a REAL held cast, self-sacrifice paid on the answer, and the
+  spell leaves the stack without resolving. ⚠️ **Its own first test run
+  caught an under-emit**: `SpellCountered` alone pops the stack OBJECT while
+  the CARD stays stranded in the stack zone forever — the effect
+  vocabulary's counter emits a PAIR, and the def now routes the card's move
+  through a newly exported `moveFromStack` (the `drawEvents` precedent: one
+  rule, never a copy).
+- **The tap-watcher** (`Deeproot Pilgrimage`) — a def on `PermanentsTapped`,
+  and the batched event is EXACTLY the card's own granularity: "one or more
+  … become tapped" fires once per event however many turned together, so
+  per-event dispatch is the printed rule here where D163 refused it for Aya.
+  The nontoken filter is proven from both sides: the Merfolk turning pays a
+  token, the TOKEN it made turning pays nothing.
+
+**Also landed:** the first HISTORIC cast filter (`D'Avenant Trapper` —
+artifact/legendary/Saga off the face actually cast, D155's rule); three more
+subtype chooser costs (`Dark Heart of the Wood`'s Forest — a LAND subtype —
+`Deadapult`'s Zombie, both proven with wrong-kind rejects); an attack-untap
+(`Dauntless Aven`, Auriok's guard mirrored); the enchantment- and
+Merfolk-cast watchers (`Dawnhart Geist`, `Deeproot Waters`); ETB
+counters/pumps/gains/tokens and pings on shipped shapes; a dies-draw, a
+dies-token on D165's Saproling pin, and a self-sac gain. **The enchantment
+pool reads ELEVEN** (Dark Heart, Deadapult and both Deeproots joined — the
+D160 zero-pin's comment now lists four generations).
+
+⚠️ **Two refusals, both existing classes:** `Curious Altisaur` ("a Dinosaur
+you control deals combat damage" — NOT self-only, so `CombatDamageDealt`'s
+per-event batching under-fires it: Aya's class) and `Deadbridge Shaman` (a
+dies-trigger raising the TARGET OPPONENT's discard prompt — D160's
+script-raised prompt class).
+
+⚠️ **One test lesson pinned on the way:** the engine's phase names are
+`precombatMain`/`postcombatMain` — an advance predicate written as
+`'main1'` matches NOTHING and the game quietly runs to its deck-out end,
+which reads as "gameOver rejected my intent" three turns later. And the
+scratchpad's query script was lost to temp-dir GC and rebuilt against
+`cardindex`'s own API — batch scripts now assume nothing survives between
+sessions.
+
+**Re-measured, every coverage delta exactly the 23 cards:** `complete`
+1,904 → **1,927** · `blocked` 29,765 · `scriptableToday` 1,066 · ladder
+[1066, 1165, 3118, 5002, 6189] · tier3 `silentAfter` 2,315 → 2,338 (+23
+exactly) · botPool creature 1,296 / **enchantment 11** · fixtures 334 → 363
+(35 tokens — Human Soldier `tthb 2`, hexproof Merfolk `txln 3`, Wolf
+`tlrw 10` pinned; the werewolf, a Forest-check body, a Zombie and a vanilla
+Merfolk join as unscripted test boards) · `SHIPPED_SCRIPTS` 174 → 197 ·
+`batch.json` at **959** (984 − 23 − 2, exact) · `botDeck.ts` regenerated
+(Dark Heart of the Wood joins; Defeat displaced).
+
+**Verified: `node scripts/cardgen/verify.cjs --full` — ALL FIVE GATES PASSED
+in one invocation: `tsc -b` clean · conformance green · coverage accounting
+green over the real database · 267 test files, 2,360 Vitest passed / 10
+skipped (244 / 2,264 before) · the 500-seed replay fuzz gate green at
+**1,148.7 s** with 197 scripts registered (651 s inside the raised 1,800 s
+ceiling) · `npm run build` clean · probe 124/124 · `battery-anim.cjs
+bot engine prompts` 127/127 — the battery and probe run in an IDLE WINDOW
+under the new standing rule (gates wait for quiet; light work never does).**
+
+⚠️⚠️ **THE FUZZ WALL ARRIVED AGAIN, AND THE VERDICT IS THE SAME AS D167's,
+PROVEN HARDER.** The first full-gate run at 197 scripts failed ONLY its
+900 s ceiling — having COMPLETED all 500 seeds with every replay hash equal
+and every canary green (3,714 triggers, 695 script-resolved abilities, 517
+nameable tokens, 2,179 enters-tapped) at 1,162 s under desktop load. The
+D162 protocol re-measured: ~145 s per 60 seeds projects ~900–1,200 s even
+idle, on 2.84 M events / 24 K turns — the games are genuinely richer
+because more of every deck is scripted, which is the arc's whole point. The
+bus was measured at ~2% in D167 and nothing here changed that. **The
+ceiling is raised a second time (900 s → 1,800 s), with the full trend
+table in the gate's own comment, and the rule made explicit: it is raised
+only ever after a completed-and-equal run proves the wall is growth rather
+than a hang.** Self-only def dispatch stays the named lever if WALL TIME
+itself becomes the problem for CI rather than the ceiling.
+
+⚠️ **Reportables:**
+- The answer-mode arrow and the ability rows still owe a battery
+  click-check (D169's item, now three features deep — due before it becomes
+  D143's fourth instance).
+- The remaining cost-chooser classes, `ctx.random`, once-per-turn memory,
+  per-damage-entry granularity and the spell seam stand.

@@ -155,6 +155,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // script-raised prompt class (D160) — the caster's script asking ANOTHER
   // player's hidden-zone question.
   ['Corrupt Court Official', 'script-raised prompt'],
+  // Batch 12 (D170).
+  // "Whenever a Dinosaur you control deals combat damage" — NOT self-only,
+  // so `CombatDamageDealt`'s per-event batching under-fires it on
+  // multi-Dinosaur turns (Aya's class, D163).
+  ['Curious Altisaur', 'per-damage-entry trigger granularity'],
+  // A dies-trigger raising the TARGET OPPONENT's discard prompt (D160's
+  // class, Corrupt Court Official's dies-twin).
+  ['Deadbridge Shaman', 'script-raised prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
