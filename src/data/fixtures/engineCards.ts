@@ -12133,6 +12133,623 @@ export const DOOMED_NECROMANCER: CardData = {
   "singleImage": true
 };
 
+export const DOOMED_TRAVELER: CardData = {
+  "scryfallId": "1bbfd61b-fba3-4826-817a-e0eed7b8eda0",
+  "oracleId": "a30907c0-fbde-4fd3-a8c7-f304305fcea7",
+  "name": "Doomed Traveler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Doomed Traveler",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "When this creature dies, create a 1/1 white Spirit creature token with flying.",
+      "flavorText": "He vowed he would never rest until he reached his destination. He doesn't know how right he was.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Lars Grant-West",
+      "imageId": "1bbfd61b-fba3-4826-817a-e0eed7b8eda0"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ima",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRACONIC_DISCIPLE: CardData = {
+  "scryfallId": "8cc56c65-b199-4203-b6f3-d890ab613800",
+  "oracleId": "781cee5f-f9cb-42ed-b408-543d297bf96d",
+  "name": "Draconic Disciple",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Draconic Disciple",
+      "manaCost": "{1}{R}{G}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "{T}: Add one mana of any color.\n{7}, {T}, Sacrifice this creature: Create a 5/5 red Dragon creature token with flying.",
+      "flavorText": "\"If I am to die, I will die in the embrace of immeasurable flame.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Yongjae Choi",
+      "imageId": "8cc56c65-b199-4203-b6f3-d890ab613800"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "scd",
+  "collectorNumber": "225",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRAGON_BLOOD: CardData = {
+  "scryfallId": "2aed32a2-01db-4416-bd27-666f3abe04a1",
+  "oracleId": "b751c1c6-195d-4023-9d0b-3c91d6b834d4",
+  "name": "Dragon Blood",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dragon Blood",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{3}, {T}: Put a +1/+1 counter on target creature.",
+      "flavorText": "A single drop turns skin to scale and fist to claw.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Ron Spencer",
+      "imageId": "2aed32a2-01db-4416-bd27-666f3abe04a1"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "j22",
+  "collectorNumber": "762",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRAGON_ROOST: CardData = {
+  "scryfallId": "1da84a3e-a8b2-4cb4-b9c9-1b5c2dca8c67",
+  "oracleId": "6dc98143-7c4c-4b75-9bbb-5226d800b1d6",
+  "name": "Dragon Roost",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dragon Roost",
+      "manaCost": "{4}{R}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "{5}{R}{R}: Create a 5/5 red Dragon creature token with flying. (It can't be blocked except by creatures with flying or reach.)",
+      "flavorText": "Dragons erupt from peaks of chaos and flow from rivers of molten rage.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jim Pavelec",
+      "imageId": "1da84a3e-a8b2-4cb4-b9c9-1b5c2dca8c67"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "10e",
+  "collectorNumber": "197",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRAGON_TRAINER: CardData = {
+  "scryfallId": "91bd75a1-cb54-4e38-9ce1-e8f32a73c6eb",
+  "oracleId": "328a0691-9453-4f2d-a9c3-5c69da252d20",
+  "name": "Dragon Trainer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dragon Trainer",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Creature — Human",
+      "oracleText": "When this creature enters, create a 4/4 red Dragon creature token with flying.",
+      "flavorText": "\"I was hardly a month old when he hatched. We grew up together. Even shared a crib!\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "91bd75a1-cb54-4e38-9ce1-e8f32a73c6eb"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "fdn",
+  "collectorNumber": "84",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRAGONLAIR_SPIDER: CardData = {
+  "scryfallId": "56a23047-04c8-4f37-8296-f489370859aa",
+  "oracleId": "f17d3aa4-6e88-4973-b2a4-942098a1c463",
+  "name": "Dragonlair Spider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dragonlair Spider",
+      "manaCost": "{2}{R}{R}{G}{G}",
+      "typeLine": "Creature — Spider",
+      "oracleText": "Reach\nWhenever an opponent casts a spell, create a 1/1 green Insect creature token.",
+      "flavorText": "Swarms thrive in its nest, feeding on leathery bits of discarded wing.",
+      "power": "5",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "56a23047-04c8-4f37-8296-f489370859aa"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Reach"
+  ],
+  "setCode": "pc2",
+  "collectorNumber": "87",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRAGOON_S_WYVERN: CardData = {
+  "scryfallId": "d92bce20-308e-4841-aaf8-8e20698292e7",
+  "oracleId": "f328012f-4696-47bb-ab43-247bdcb13f03",
+  "name": "Dragoon's Wyvern",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dragoon's Wyvern",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Drake",
+      "oracleText": "Flying\nWhen this creature enters, create a 1/1 colorless Hero creature token.",
+      "flavorText": "\"I heard that to become a dragoon, you had to make a pact with a living wyvern. However, thanks to the dragonslayers, there aren't that many dragons left.\"\n—Ceraulian, San d'Oria citizen",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jason Kiantoro",
+      "imageId": "d92bce20-308e-4841-aaf8-8e20698292e7"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "fin",
+  "collectorNumber": "49",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DREAMSTONE_HEDRON: CardData = {
+  "scryfallId": "0c47168a-fb41-43e7-b878-b564d82b5644",
+  "oracleId": "0e2575be-c596-4c8c-bf07-7941ca065721",
+  "name": "Dreamstone Hedron",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dreamstone Hedron",
+      "manaCost": "{6}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {C}{C}{C}.\n{3}, {T}, Sacrifice this artifact: Draw three cards.",
+      "flavorText": "Only the Eldrazi mind thinks in the warped paths required to open the hedrons and tap the power within.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Eric Deschamps",
+      "imageId": "0c47168a-fb41-43e7-b878-b564d82b5644"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "arc",
+  "collectorNumber": "105",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRIDER: CardData = {
+  "scryfallId": "0f157946-5152-4e93-b378-854844e64a11",
+  "oracleId": "1db76752-31ed-4a16-986a-d0852ba7d812",
+  "name": "Drider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drider",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Elf Spider",
+      "oracleText": "Reach\nWhenever this creature deals combat damage to a player, create a 2/1 black Spider creature token with menace and reach.",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jodie Muir",
+      "imageId": "0f157946-5152-4e93-b378-854844e64a11"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Reach"
+  ],
+  "setCode": "hbg",
+  "collectorNumber": "152",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRIVER_OF_THE_DEAD: CardData = {
+  "scryfallId": "4443696a-0b9a-4081-91aa-800b5c4065d2",
+  "oracleId": "7c179e54-3beb-4761-bddf-41fa98b082db",
+  "name": "Driver of the Dead",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Driver of the Dead",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Vampire",
+      "oracleText": "When this creature dies, return target creature card with mana value 2 or less from your graveyard to the battlefield.",
+      "flavorText": "Some vampires resorted to corpse trading after cathars burned their estates and drove them from their ancestral feeding grounds.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "James Ryman",
+      "imageId": "4443696a-0b9a-4081-91aa-800b5c4065d2"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "fdn",
+  "collectorNumber": "605",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DROGSKOL_REAVER: CardData = {
+  "scryfallId": "76f0ae1f-75cf-4bb0-8651-fbf14fa59f81",
+  "oracleId": "68175b49-f1e6-4b34-aad9-20d61a43d427",
+  "name": "Drogskol Reaver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drogskol Reaver",
+      "manaCost": "{5}{W}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nDouble strike (This creature deals both first-strike and regular combat damage.)\nLifelink (Damage dealt by this creature also causes you to gain that much life.)\nWhenever you gain life, draw a card.",
+      "flavorText": "Wracked and warped with anguish, it obsessively seeks out other souls to hoard within its eternal prison.",
+      "power": "3",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Vincent Proce",
+      "imageId": "76f0ae1f-75cf-4bb0-8651-fbf14fa59f81"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Flying",
+    "Lifelink",
+    "Double strike"
+  ],
+  "setCode": "2x2",
+  "collectorNumber": "205",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRUID_LYRIST: CardData = {
+  "scryfallId": "e9923532-bc4f-44de-b963-d6914321c49a",
+  "oracleId": "b32a10ba-528c-4dc1-9828-b33f5d5a3091",
+  "name": "Druid Lyrist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Druid Lyrist",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Human Druid",
+      "oracleText": "{G}, {T}, Sacrifice this creature: Destroy target enchantment.",
+      "flavorText": "The druids and the forest are in perfect harmony. They sing the same songs.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "e9923532-bc4f-44de-b963-d6914321c49a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "238",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRUID_OF_HORNS: CardData = {
+  "scryfallId": "19ca91ea-dffd-44a9-a54a-c664d83c357b",
+  "oracleId": "06c12fcc-1c08-40a0-a0da-e139c42f083f",
+  "name": "Druid of Horns",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Druid of Horns",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Human Druid",
+      "oracleText": "Whenever you cast an Aura spell that targets this creature, create a 3/3 green Beast creature token.",
+      "flavorText": "No welcome for those who trespass. Only fang and horn and claw.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "19ca91ea-dffd-44a9-a54a-c664d83c357b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "m19",
+  "collectorNumber": "176",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DUNES_OF_THE_DEAD: CardData = {
+  "scryfallId": "326c7483-2c45-4804-85c4-d40ecdba4fc7",
+  "oracleId": "c761f71c-785c-4533-a2b7-2da3667688b8",
+  "name": "Dunes of the Dead",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dunes of the Dead",
+      "manaCost": "",
+      "typeLine": "Land — Desert",
+      "oracleText": "{T}: Add {C}.\nWhen this land is put into a graveyard from the battlefield, create a 2/2 black Zombie creature token.",
+      "flavorText": "The Curse of Wandering permeated Amonkhet long before Nicol Bolas. He simply harnessed it.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "E. M. Gist",
+      "imageId": "326c7483-2c45-4804-85c4-d40ecdba4fc7"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "hou",
+  "collectorNumber": "175",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DWARVEN_CASTLE_GUARD: CardData = {
+  "scryfallId": "e17c0d27-e88d-4ba9-acbb-3f916cee3d7e",
+  "oracleId": "b51e0ae3-126b-4b7e-9dd1-818a5b8e512a",
+  "name": "Dwarven Castle Guard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dwarven Castle Guard",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Dwarf Soldier",
+      "oracleText": "When this creature dies, create a 1/1 colorless Hero creature token.",
+      "flavorText": "\"'Lali-ho' is the dwarven greeting!\"",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Crystal Fae",
+      "imageId": "e17c0d27-e88d-4ba9-acbb-3f916cee3d7e"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "fin",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DWARVEN_MINE: CardData = {
+  "scryfallId": "5c83074d-0c9b-4b58-94ca-d75240485579",
+  "oracleId": "74ed0bd3-ac31-41a4-8220-d8e7c8c1c437",
+  "name": "Dwarven Mine",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dwarven Mine",
+      "manaCost": "",
+      "typeLine": "Land — Mountain",
+      "oracleText": "({T}: Add {R}.)\nThis land enters tapped unless you control three or more other Mountains.\nWhen this land enters untapped, create a 1/1 red Dwarf creature token.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Alexander Forssberg",
+      "imageId": "5c83074d-0c9b-4b58-94ca-d75240485579"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "eld",
+  "collectorNumber": "243",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EAGER_TRUFFLESNOUT: CardData = {
+  "scryfallId": "a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7",
+  "oracleId": "7f2ba562-8d5e-4915-967e-54916c3c5876",
+  "name": "Eager Trufflesnout",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Eager Trufflesnout",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Boar",
+      "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nWhenever this creature deals combat damage to a player, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Filipe Pagliuso",
+      "imageId": "a6e8433d-eb2a-43d1-b59b-7d70ff97c8e7"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Food",
+    "Trample"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "102",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EARTHBLIGHTER: CardData = {
+  "scryfallId": "830a4048-48ac-4856-9af9-5052ec146518",
+  "oracleId": "86b8fdad-0025-4b6f-8527-23686820a5cd",
+  "name": "Earthblighter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Earthblighter",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{2}{B}, {T}, Sacrifice a Goblin: Destroy target land.",
+      "flavorText": "\"A single dedicated mind can bring about the greatest destruction. That, or goblins—goblins work too.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Alex Horley-Orlandelli",
+      "imageId": "830a4048-48ac-4856-9af9-5052ec146518"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "lgn",
+  "collectorNumber": "68",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -12501,6 +13118,179 @@ export const THOPTER_TOKEN: CardData = {
   ],
   "setCode": "tafc",
   "collectorNumber": "12",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const SPIRIT_TOKEN: CardData = {
+  "scryfallId": "0000a54c-a511-4925-92dc-01b937f9afad",
+  "oracleId": "dc4e2134-f0c2-49aa-9ea3-ebf83af1445c",
+  "name": "Spirit",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Spirit",
+      "manaCost": "",
+      "typeLine": "Token Creature — Spirit",
+      "oracleText": "Flying",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mike Sass",
+      "imageId": "0000a54c-a511-4925-92dc-01b937f9afad"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "tmm2",
+  "collectorNumber": "5",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const DRAGON_5_5_TOKEN: CardData = {
+  "scryfallId": "029c9790-d5f3-4fe2-a2f5-6da5d27de835",
+  "oracleId": "60fe4897-6760-4c5a-8074-c92bd64df52b",
+  "name": "Dragon",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Dragon",
+      "manaCost": "",
+      "typeLine": "Token Creature — Dragon",
+      "oracleText": "Flying",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "029c9790-d5f3-4fe2-a2f5-6da5d27de835"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "tkhm",
+  "collectorNumber": "11",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const HERO_TOKEN: CardData = {
+  "scryfallId": "00686381-e0a5-4cd3-8812-3b4aaefa31fa",
+  "oracleId": "fcf819ef-28e4-46be-a28d-5865ff90e15a",
+  "name": "Hero",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Hero",
+      "manaCost": "",
+      "typeLine": "Token Creature — Hero",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Josephine Chang",
+      "imageId": "00686381-e0a5-4cd3-8812-3b4aaefa31fa"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tfin",
+  "collectorNumber": "26",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const SPIDER_MENACE_TOKEN: CardData = {
+  "scryfallId": "124e0b03-d9fb-44f1-9e3c-3462aabdd42e",
+  "oracleId": "3e6a1c13-16f0-4256-b468-1f537de78629",
+  "name": "Spider",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Spider",
+      "manaCost": "",
+      "typeLine": "Token Creature — Spider",
+      "oracleText": "Menace, reach",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Joe Slucher",
+      "imageId": "124e0b03-d9fb-44f1-9e3c-3462aabdd42e"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Reach",
+    "Menace"
+  ],
+  "setCode": "tafr",
+  "collectorNumber": "7",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const DWARF_TOKEN: CardData = {
+  "scryfallId": "46203366-7104-4fda-b38d-dc18d93154a9",
+  "oracleId": "1c65717f-09ac-46f3-b480-19c2cafe9fe9",
+  "name": "Dwarf",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Dwarf",
+      "manaCost": "",
+      "typeLine": "Token Creature — Dwarf",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Kari Christensen",
+      "imageId": "46203366-7104-4fda-b38d-dc18d93154a9"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "TELD-7",
   "commanderLegality": "not_legal",
   "singleImage": true
 };
@@ -13794,6 +14584,24 @@ export const ENGINE_CARDS: CardData[] = [
   DOCKSIDE_CHEF,
   DOOMED_DISSENTER,
   DOOMED_NECROMANCER,
+  DOOMED_TRAVELER,
+  DRACONIC_DISCIPLE,
+  DRAGON_BLOOD,
+  DRAGON_ROOST,
+  DRAGON_TRAINER,
+  DRAGONLAIR_SPIDER,
+  DRAGOON_S_WYVERN,
+  DREAMSTONE_HEDRON,
+  DRIDER,
+  DRIVER_OF_THE_DEAD,
+  DROGSKOL_REAVER,
+  DRUID_LYRIST,
+  DRUID_OF_HORNS,
+  DUNES_OF_THE_DEAD,
+  DWARVEN_CASTLE_GUARD,
+  DWARVEN_MINE,
+  EAGER_TRUFFLESNOUT,
+  EARTHBLIGHTER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -13805,6 +14613,11 @@ export const ENGINE_CARDS: CardData[] = [
   SPIDER_TOKEN,
   WURM_TOKEN,
   THOPTER_TOKEN,
+  SPIRIT_TOKEN,
+  DRAGON_5_5_TOKEN,
+  HERO_TOKEN,
+  SPIDER_MENACE_TOKEN,
+  DWARF_TOKEN,
   BAT_TOKEN,
   ELDRAZI_TOKEN,
   GOAT_TOKEN,

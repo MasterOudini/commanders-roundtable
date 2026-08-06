@@ -654,6 +654,25 @@ const WANTED = [
   'Dockside Chef',
   'Doomed Dissenter',
   'Doomed Necromancer',
+  // Batch 14 (D172).
+  'Doomed Traveler',
+  'Draconic Disciple',
+  'Dragon Blood',
+  'Dragon Roost',
+  'Dragon Trainer',
+  'Dragonlair Spider',
+  "Dragoon's Wyvern",
+  'Dreamstone Hedron',
+  'Drider',
+  'Driver of the Dead',
+  'Drogskol Reaver',
+  'Druid Lyrist',
+  'Druid of Horns',
+  'Dunes of the Dead',
+  'Dwarven Castle Guard',
+  'Dwarven Mine',
+  'Eager Trufflesnout',
+  'Earthblighter',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -681,6 +700,13 @@ const WANTED_TOKENS = [
   // M6.4e (D162).
   { name: 'Wurm', set: 'trtr', cn: '11', key: 'WURM_TOKEN' },
   { name: 'Thopter', set: 'tafc', cn: '12', key: 'THOPTER_TOKEN' },
+  // Batch 14 (D172). Dragon 5/5 and Spider 2/1 get DISTINCT keys — a 4/4
+  // Dragon (tmm3 7) and a 1/2 Spider (tmh1 14) are already pinned above.
+  { name: 'Spirit', set: 'tmm2', cn: '5', key: 'SPIRIT_TOKEN' },
+  { name: 'Dragon', set: 'tkhm', cn: '11', key: 'DRAGON_5_5_TOKEN' },
+  { name: 'Hero', set: 'tfin', cn: '26', key: 'HERO_TOKEN' },
+  { name: 'Spider', set: 'tafr', cn: '7', key: 'SPIDER_MENACE_TOKEN' },
+  { name: 'Dwarf', set: 'plst', cn: 'TELD-7', key: 'DWARF_TOKEN' },
   // Batch 13 (D171).
   { name: 'Bat', set: 'tlci', cn: '6', key: 'BAT_TOKEN' },
   { name: 'Eldrazi', set: 'tcmm', cn: '1', key: 'ELDRAZI_TOKEN' },

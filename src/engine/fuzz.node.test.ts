@@ -238,6 +238,24 @@ import { DISPERSING_ORB_SCRIPT } from './scripts/cards/dispersingOrb';
 import { DOCKSIDE_CHEF_SCRIPT } from './scripts/cards/docksideChef';
 import { DOOMED_DISSENTER_SCRIPT } from './scripts/cards/doomedDissenter';
 import { DOOMED_NECROMANCER_SCRIPT } from './scripts/cards/doomedNecromancer';
+import { DOOMED_TRAVELER_SCRIPT } from './scripts/cards/doomedTraveler';
+import { DRACONIC_DISCIPLE_SCRIPT } from './scripts/cards/draconicDisciple';
+import { DRAGON_BLOOD_SCRIPT } from './scripts/cards/dragonBlood';
+import { DRAGON_ROOST_SCRIPT } from './scripts/cards/dragonRoost';
+import { DRAGON_TRAINER_SCRIPT } from './scripts/cards/dragonTrainer';
+import { DRAGONLAIR_SPIDER_SCRIPT } from './scripts/cards/dragonlairSpider';
+import { DRAGOONS_WYVERN_SCRIPT } from './scripts/cards/dragoonsWyvern';
+import { DREAMSTONE_HEDRON_SCRIPT } from './scripts/cards/dreamstoneHedron';
+import { DRIDER_SCRIPT } from './scripts/cards/drider';
+import { DRIVER_OF_THE_DEAD_SCRIPT } from './scripts/cards/driverOfTheDead';
+import { DROGSKOL_REAVER_SCRIPT } from './scripts/cards/drogskolReaver';
+import { DRUID_LYRIST_SCRIPT } from './scripts/cards/druidLyrist';
+import { DRUID_OF_HORNS_SCRIPT } from './scripts/cards/druidOfHorns';
+import { DUNES_OF_THE_DEAD_SCRIPT } from './scripts/cards/dunesOfTheDead';
+import { DWARVEN_CASTLE_GUARD_SCRIPT } from './scripts/cards/dwarvenCastleGuard';
+import { DWARVEN_MINE_SCRIPT } from './scripts/cards/dwarvenMine';
+import { EAGER_TRUFFLESNOUT_SCRIPT } from './scripts/cards/eagerTrufflesnout';
+import { EARTHBLIGHTER_SCRIPT } from './scripts/cards/earthblighter';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -518,6 +536,15 @@ const DECK = [
   'Discordant Piper', 'Disease Carriers', 'Dismal Backwater',
   "Dispeller's Capsule", 'Dispersing Orb', 'Dockside Chef', 'Doomed Dissenter',
   'Doomed Necromancer',
+  // M6.4p/D172 — batch 14: the LifeChanged consumer, the cast-targets
+  // reader (Pacifism is already dealt for it to ride), and the
+  // enters-untapped Mine behind the deck's Mountains.
+  'Doomed Traveler', 'Draconic Disciple', 'Dragon Blood', 'Dragon Roost',
+  'Dragon Trainer', 'Dragonlair Spider', "Dragoon's Wyvern",
+  'Dreamstone Hedron', 'Drider', 'Driver of the Dead', 'Drogskol Reaver',
+  'Druid Lyrist', 'Druid of Horns', 'Dunes of the Dead',
+  'Dwarven Castle Guard', 'Dwarven Mine', 'Eager Trufflesnout',
+  'Earthblighter',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -779,6 +806,24 @@ const SCRIPTS = createRegistry([
   DOCKSIDE_CHEF_SCRIPT,
   DOOMED_DISSENTER_SCRIPT,
   DOOMED_NECROMANCER_SCRIPT,
+  DOOMED_TRAVELER_SCRIPT,
+  DRACONIC_DISCIPLE_SCRIPT,
+  DRAGON_BLOOD_SCRIPT,
+  DRAGON_ROOST_SCRIPT,
+  DRAGON_TRAINER_SCRIPT,
+  DRAGONLAIR_SPIDER_SCRIPT,
+  DRAGOONS_WYVERN_SCRIPT,
+  DREAMSTONE_HEDRON_SCRIPT,
+  DRIDER_SCRIPT,
+  DRIVER_OF_THE_DEAD_SCRIPT,
+  DROGSKOL_REAVER_SCRIPT,
+  DRUID_LYRIST_SCRIPT,
+  DRUID_OF_HORNS_SCRIPT,
+  DUNES_OF_THE_DEAD_SCRIPT,
+  DWARVEN_CASTLE_GUARD_SCRIPT,
+  DWARVEN_MINE_SCRIPT,
+  EAGER_TRUFFLESNOUT_SCRIPT,
+  EARTHBLIGHTER_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

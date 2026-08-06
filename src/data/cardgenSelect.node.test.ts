@@ -172,6 +172,18 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Devout Chaplain', 'tap-creatures cost'],
   ['Devout Witness', 'discard-cost chooser'],
   ['Diversionary Tactics', 'tap-creatures cost'],
+  // M6.4p (D172) — batch 14's seven refusals. Dragon Broodmother is a NEW
+  // class: its token carries DEVOUR, an as-enters sacrifice choice on the
+  // created permanent that nothing can raise. Dromad Purebred is the
+  // RECEIVER side of Aya's class — two simultaneous sources are two damage
+  // instances batched into one event, so per-event firing under-fires.
+  ['Dragon Broodmother', 'token entry choice (devour)'],
+  ['Dragonborn Champion', 'per-damage-entry trigger granularity'],
+  ['Draugr Recruiter', 'once-per-turn trigger memory'],
+  ['Dread Rider', 'exile-from-graveyard cost'],
+  ['Dromad Purebred', 'per-damage-entry trigger granularity'],
+  ['Dune Diviner', 'tap-permanents cost'],
+  ['Dwarven Bloodboiler', 'tap-creatures cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

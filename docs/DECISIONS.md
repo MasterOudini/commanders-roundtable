@@ -11626,3 +11626,86 @@ battery click-check (four features deep now — D144's lesson compounding);
 the cost-chooser classes (discard, tap-creatures/permanents,
 exile-from-graveyard, remove-counter), `ctx.random`, once-per-turn memory,
 per-damage-entry granularity and the spell seam all stand.
+
+## D172 — M6.4p: eighteen landed — the life-gain watcher, the cast-targets reader, and the enters-untapped filter (2026-08-06)
+
+**What was decided:** batch 14 of the M6.4 loop lands eighteen of its 25 —
+**1,965 of 31,692 Commander-legal cards now execute completely, up from
+1,947** — with seven refusals, one of them a NEW ledger class.
+`SHIPPED_SCRIPTS` 217 → 235.
+
+**Three firsts:**
+
+- **The life-gain watcher** (`Drogskol Reaver`): the first def on
+  `LifeChanged`. The filter is the delta's SIGN plus the controller, the
+  bus fires per gain EVENT — the granularity the card means — and the loop
+  closes itself because drawing does not gain life. Its own lifelink is the
+  intended engine: connect, gain, draw, all three tested from both sides
+  (a loss draws nothing, an opponent's gain draws nothing).
+- **The cast-watcher that reads the SPELL'S CHOSEN TARGETS** (`Druid of
+  Horns`): "an Aura spell that targets this creature" is a filter over
+  `SpellCast` — the event carries the stack object, the stack object
+  carries the aims the caster declared, so no new seam. The negatives pin
+  both edges: an Aura aimed at another creature pays nothing, and an Aura
+  merely ATTACHED with the Tier-3 tool (no cast) pays nothing.
+- **The enters-UNTAPPED filter** (`Dwarven Mine`): line 1 is D135's
+  `otherLandsOfType` board query, and the def's trigger reads its own
+  condition off the AFTER state — by the time triggers collect, the entry
+  has already applied (or not applied) D134's tap, so `tapped` IS the
+  answer. Both halves proven from both sides: alone it enters tapped and
+  stays silent; behind three other Mountains it enters untapped and pays
+  the Dwarf.
+
+**The fifteen twins:** a dies-Spirit (`Doomed Traveler`), the
+self-sacrifice Dragon (`Draconic Disciple`, mana line the engine's), a
+repeatable targeted counter (`Dragon Blood`), a mana-only Dragon faucet
+with two DISTINCT ids in one turn (`Dragon Roost` — **the pool's
+THIRTEENTH enchantment**, D164's allocator teeth), an ETB Dragon
+(`Dragon Trainer`), Arasta's opponent-cast Insect on a bigger body
+(`Dragonlair Spider`), an ETB and a dies Hero on one new pin (`Dragoon's
+Wyvern`, `Dwarven Castle Guard`), Hedron Archive's bigger sibling with the
+three-card draw counted as MOVES (`Dreamstone Hedron`), Belligerent
+Guest's hit-a-player shape twice (`Drider`'s menace-reach Spider — a
+printing distinct from the 1/2 by nothing but its abilities, D131;
+`Eager Trufflesnout`'s Food), **a dies-trigger REANIMATION with D139's
+numeric restriction on the aim** (`Driver of the Dead` — mv 2 comes back,
+mv 4 is refused at the answer), a self-sacrifice enchantment kill
+(`Druid Lyrist`), a LAND's dies-token with the bounce negative
+(`Dunes of the Dead`), and the Goblin chooser paying for a land destroy
+(`Earthblighter`).
+
+**Seven refusals, ONE new class:** `Dragon Broodmother` — **token entry
+choice (devour)**: the token it creates carries an as-enters sacrifice
+choice on the CREATED permanent, a prompt nothing can raise, so creating
+it would half-execute the token's own text. The rest are existing
+classes: `Dragonborn Champion` AND `Dromad Purebred` (per-damage-entry
+granularity — Dromad is the RECEIVER side: two simultaneous sources are
+two damage instances batched into one event, where Belligerent Guest's
+DEALER side is one instance and safe), `Draugr Recruiter` (once-per-turn
+memory — Boast), `Dread Rider` (exile-from-graveyard cost), `Dune
+Diviner` (tap-permanents cost), `Dwarven Bloodboiler` (tap-creatures
+cost).
+
+**The numbers, every delta exactly the eighteen cards:** primitives
+`complete` 1,947 → 1,965 · `blocked` 29,727 · `scriptableToday` 1,028 ·
+ladder [1028, 1127, 3080, 4964, 6151] · botPool creature 1,322, artifact
+54, land 229, enchantment 13 · tier3 `either` −18 exactly, `silentAfter`
+2,358 → 2,376 (+18 exactly) · fixtures 387 → 410 (44 tokens: Spirit
+`tmm2 5`, Dragon `tkhm 11`, Hero `tfin 26`, Spider `tafr 7`, Dwarf
+`plst TELD-7` joined; the 4/4 Dragon and the Beast were already pinned) ·
+`batch.json` at **909** (934 − 18 landed − 7 ledger-freed, exact) ·
+botDeck regenerated — **Dunes of the Dead and Dwarven Mine JOIN the
+bot's deck** (Adun reaches 1,085 from 1,071).
+
+**Verified: `verify.cjs --full` — ALL FIVE GATES PASSED in one
+invocation** — 305 test files, 2,530 Vitest passed / 10 skipped · the
+500-seed replay fuzz gate green at 1,320.8 s (235 scripts registered,
+479 s inside the 1,800 s ceiling; +62 s for 18 scripts, on-trend) ·
+build clean · probe 124/124 · battery `bot engine prompts` 127/127.
+
+**Reportables:** the answer-mode arrow and D168's ability rows still owe
+a battery click-check; the cost-chooser classes (discard,
+tap-creatures/permanents, exile-from-graveyard, remove-counter),
+`ctx.random`, once-per-turn memory, per-damage-entry granularity (now
+FOUR ledger entries across both sides), the token-entry-choice class and
+the spell seam stand.

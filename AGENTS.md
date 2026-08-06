@@ -4350,6 +4350,45 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       `ctx.random`, once-per-turn memory, per-damage-entry granularity and
       the spell seam stand.
 
+- [x] **M6.4p — Eighteen landed: the life-gain watcher, the cast-targets
+      reader, and the enters-untapped filter (2026-08-06):** **1,965 of
+      31,692 Commander-legal cards now execute completely, up from 1,947.**
+      `SHIPPED_SCRIPTS` 217 → 235. Decisions in **D172**.
+      **Three firsts:** `Drogskol Reaver` is the first def on `LifeChanged`
+      (the filter is the delta's SIGN plus the controller; drawing does not
+      gain life, so the loop closes itself — its own lifelink is the
+      intended engine); `Druid of Horns` is the first cast-watcher reading
+      the SPELL'S CHOSEN TARGETS off the `SpellCast` event's stack object
+      (an Aura aimed elsewhere pays nothing, and a Tier-3 ATTACH without a
+      cast pays nothing); `Dwarven Mine` is the first enters-UNTAPPED
+      filter — D135's board query decides the tap, and the def reads its
+      condition off the AFTER state, both halves proven from both sides.
+      **Fifteen twins**, including `Driver of the Dead` — a dies-trigger
+      REANIMATION with D139's numeric restriction enforced at the answer
+      (mv 2 returns, mv 4 refused) — `Dragon Roost` as **the pool's
+      THIRTEENTH enchantment** making two DISTINCT Dragons in one turn, and
+      both new lands (`Dunes of the Dead`, `Dwarven Mine`) **joining the
+      bot's deck** (Adun reaches 1,085).
+      ⚠️ **Seven refusals, ONE new class:** `Dragon Broodmother`'s token
+      carries DEVOUR — an as-enters choice on the CREATED permanent that
+      nothing can raise (token entry choice). `Dromad Purebred` pins the
+      RECEIVER side of per-damage-entry granularity (simultaneous sources
+      batch into one event; the dealer side stays safe). Plus once-per-turn
+      memory (Draugr Recruiter's Boast), exile-from-graveyard (Dread
+      Rider), tap-permanents (Dune Diviner), tap-creatures (Dwarven
+      Bloodboiler).
+      Fixtures 387 → 410 (44 tokens: Spirit `tmm2 5`, Dragon `tkhm 11`,
+      Hero `tfin 26`, Spider `tafr 7`, Dwarf `plst TELD-7`) · ladder
+      [1028, 1127, 3080, 4964, 6151] · `batch.json` at 909 (exact).
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      305 test files, 2,530 Vitest passed / 10 skipped · the 500-seed gate
+      green at 1,320.8 s (235 scripts, 479 s inside the 1,800 s ceiling) ·
+      build clean · probe 124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D172): the answer-mode arrow and ability rows owe
+      a battery click-check; the cost-chooser classes, `ctx.random`,
+      once-per-turn memory, per-damage-entry granularity (four entries,
+      both sides), token entry choice and the spell seam stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

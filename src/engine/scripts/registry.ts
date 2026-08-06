@@ -7,6 +7,24 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { DOOMED_TRAVELER_SCRIPT } from './cards/doomedTraveler';
+import { DRACONIC_DISCIPLE_SCRIPT } from './cards/draconicDisciple';
+import { DRAGON_BLOOD_SCRIPT } from './cards/dragonBlood';
+import { DRAGON_ROOST_SCRIPT } from './cards/dragonRoost';
+import { DRAGON_TRAINER_SCRIPT } from './cards/dragonTrainer';
+import { DRAGONLAIR_SPIDER_SCRIPT } from './cards/dragonlairSpider';
+import { DRAGOONS_WYVERN_SCRIPT } from './cards/dragoonsWyvern';
+import { DREAMSTONE_HEDRON_SCRIPT } from './cards/dreamstoneHedron';
+import { DRIDER_SCRIPT } from './cards/drider';
+import { DRIVER_OF_THE_DEAD_SCRIPT } from './cards/driverOfTheDead';
+import { DROGSKOL_REAVER_SCRIPT } from './cards/drogskolReaver';
+import { DRUID_LYRIST_SCRIPT } from './cards/druidLyrist';
+import { DRUID_OF_HORNS_SCRIPT } from './cards/druidOfHorns';
+import { DUNES_OF_THE_DEAD_SCRIPT } from './cards/dunesOfTheDead';
+import { DWARVEN_CASTLE_GUARD_SCRIPT } from './cards/dwarvenCastleGuard';
+import { DWARVEN_MINE_SCRIPT } from './cards/dwarvenMine';
+import { EAGER_TRUFFLESNOUT_SCRIPT } from './cards/eagerTrufflesnout';
+import { EARTHBLIGHTER_SCRIPT } from './cards/earthblighter';
 import { DEEPWOOD_TANTIV_SCRIPT } from './cards/deepwoodTantiv';
 import { DESECRATED_TOMB_SCRIPT } from './cards/desecratedTomb';
 import { DESOLATION_TWIN_SCRIPT } from './cards/desolationTwin';
@@ -318,6 +336,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DOOMED_TRAVELER_SCRIPT,
+  DRACONIC_DISCIPLE_SCRIPT,
+  DRAGON_BLOOD_SCRIPT,
+  DRAGON_ROOST_SCRIPT,
+  DRAGON_TRAINER_SCRIPT,
+  DRAGONLAIR_SPIDER_SCRIPT,
+  DRAGOONS_WYVERN_SCRIPT,
+  DREAMSTONE_HEDRON_SCRIPT,
+  DRIDER_SCRIPT,
+  DRIVER_OF_THE_DEAD_SCRIPT,
+  DROGSKOL_REAVER_SCRIPT,
+  DRUID_LYRIST_SCRIPT,
+  DRUID_OF_HORNS_SCRIPT,
+  DUNES_OF_THE_DEAD_SCRIPT,
+  DWARVEN_CASTLE_GUARD_SCRIPT,
+  DWARVEN_MINE_SCRIPT,
+  EAGER_TRUFFLESNOUT_SCRIPT,
+  EARTHBLIGHTER_SCRIPT,
   DEEPWOOD_TANTIV_SCRIPT,
   DESECRATED_TOMB_SCRIPT,
   DESOLATION_TWIN_SCRIPT,

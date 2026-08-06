@@ -120,11 +120,10 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // refusals (two sacrifice-choosers, one NEW remove-counter cost class).
     // M6.4i (D166) landed twenty-one of 25 — four refusals, one NEW class
     // (exile-SELF cost, named cheap: sacrificesSelf one event over).
-    // M6.4o (D171) landed twenty of 25 — the first graveyard-exit watcher,
-    // the first cast-of-itself trigger, the first chosenColor trigger
-    // consumer, the first becomes-blocked watcher, and the first script
-    // REANIMATION.
-    expect(SHIPPED_SCRIPTS).toHaveLength(217);
+    // M6.4p (D172) landed eighteen of 25 — the first LifeChanged consumer,
+    // the first cast-watcher reading the spell's chosen targets, and the
+    // first enters-UNTAPPED filter.
+    expect(SHIPPED_SCRIPTS).toHaveLength(235);
   });
 });
 
