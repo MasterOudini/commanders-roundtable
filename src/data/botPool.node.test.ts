@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). Planeswalkers (loyalty costs) and battles are still
     // structurally out, and stay pinned at zero for the same reason the
     // enchantments were.
-    expect(r.poolByType['enchantment'] ?? 0).toBe(11);
+    expect(r.poolByType['enchantment'] ?? 0).toBe(12);
     expect(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -415,14 +415,14 @@ const POOL: Record<string, number> = {
   // M6.4l (D169): +18 creatures, +1 artifact — and the enchantment pin the
   // D160 zero-pin comment said was worth noticing reads SEVEN now (Aura
   // Fracture, Barrage of Expendables, Blood Rites, Contemplation joined).
-  // M6.4m (D170): +19 creatures, +4 enchantments (Dark Heart of the Wood,
-  // Deadapult, Deeproot Pilgrimage, Deeproot Waters).
-  creature: 1296,
+  // M6.4o (D171): +13 creatures, +4 artifacts, +2 lands, and the TWELFTH
+  // enchantment (Dispersing Orb).
+  creature: 1309,
   instant: 201,
   sorcery: 146,
-  land: 225,
-  artifact: 48,
-  enchantment: 11,
+  land: 227,
+  artifact: 52,
+  enchantment: 12,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

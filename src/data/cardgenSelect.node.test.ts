@@ -163,6 +163,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // A dies-trigger raising the TARGET OPPONENT's discard prompt (D160's
   // class, Corrupt Court Official's dies-twin).
   ['Deadbridge Shaman', 'script-raised prompt'],
+  // M6.4o (D171) — batch 13's five refusals, all existing classes.
+  ['Deepwood Drummer', 'discard-cost chooser'],
+  // "{4}{B}, Sacrifice this creature: Target player discards two cards" —
+  // the resolve must raise the target's chooseFromZone, which a script
+  // cannot do (D160's class).
+  ['Dementia Bat', 'script-raised prompt'],
+  ['Devout Chaplain', 'tap-creatures cost'],
+  ['Devout Witness', 'discard-cost chooser'],
+  ['Diversionary Tactics', 'tap-creatures cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -7,6 +7,26 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { DEEPWOOD_TANTIV_SCRIPT } from './cards/deepwoodTantiv';
+import { DESECRATED_TOMB_SCRIPT } from './cards/desecratedTomb';
+import { DESOLATION_TWIN_SCRIPT } from './cards/desolationTwin';
+import { DIAMOND_MARE_SCRIPT } from './cards/diamondMare';
+import { DOOMED_NECROMANCER_SCRIPT } from './cards/doomedNecromancer';
+import { DERANGED_OUTCAST_SCRIPT } from './cards/derangedOutcast';
+import { DESTRUCTIVE_DIGGER_SCRIPT } from './cards/destructiveDigger';
+import { DEVOTEE_OF_STRENGTH_SCRIPT } from './cards/devoteeOfStrength';
+import { DEVOUT_MONK_SCRIPT } from './cards/devoutMonk';
+import { DIMENSION_X_SCRIPT } from './cards/dimensionX';
+import { DIMIR_CLUESTONE_SCRIPT } from './cards/dimirCluestone';
+import { DIMIR_LOCKET_SCRIPT } from './cards/dimirLocket';
+import { DIRE_FLEET_HOARDER_SCRIPT } from './cards/direFleetHoarder';
+import { DISCORDANT_PIPER_SCRIPT } from './cards/discordantPiper';
+import { DISEASE_CARRIERS_SCRIPT } from './cards/diseaseCarriers';
+import { DISMAL_BACKWATER_SCRIPT } from './cards/dismalBackwater';
+import { DISPELLERS_CAPSULE_SCRIPT } from './cards/dispellersCapsule';
+import { DISPERSING_ORB_SCRIPT } from './cards/dispersingOrb';
+import { DOCKSIDE_CHEF_SCRIPT } from './cards/docksideChef';
+import { DOOMED_DISSENTER_SCRIPT } from './cards/doomedDissenter';
 import { CULT_OF_THE_WAXING_MOON_SCRIPT } from './cards/cultOfTheWaxingMoon';
 import { CULTBRAND_CINDER_SCRIPT } from './cards/cultbrandCinder';
 import { CUNNING_SPARKMAGE_SCRIPT } from './cards/cunningSparkmage';
@@ -298,6 +318,26 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DEEPWOOD_TANTIV_SCRIPT,
+  DESECRATED_TOMB_SCRIPT,
+  DESOLATION_TWIN_SCRIPT,
+  DIAMOND_MARE_SCRIPT,
+  DOOMED_NECROMANCER_SCRIPT,
+  DERANGED_OUTCAST_SCRIPT,
+  DESTRUCTIVE_DIGGER_SCRIPT,
+  DEVOTEE_OF_STRENGTH_SCRIPT,
+  DEVOUT_MONK_SCRIPT,
+  DIMENSION_X_SCRIPT,
+  DIMIR_CLUESTONE_SCRIPT,
+  DIMIR_LOCKET_SCRIPT,
+  DIRE_FLEET_HOARDER_SCRIPT,
+  DISCORDANT_PIPER_SCRIPT,
+  DISEASE_CARRIERS_SCRIPT,
+  DISMAL_BACKWATER_SCRIPT,
+  DISPELLERS_CAPSULE_SCRIPT,
+  DISPERSING_ORB_SCRIPT,
+  DOCKSIDE_CHEF_SCRIPT,
+  DOOMED_DISSENTER_SCRIPT,
   CULT_OF_THE_WAXING_MOON_SCRIPT,
   CULTBRAND_CINDER_SCRIPT,
   CUNNING_SPARKMAGE_SCRIPT,

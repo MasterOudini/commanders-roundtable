@@ -11467,6 +11467,672 @@ export const MERFOLK_OF_THE_PEARL_TRIDENT: CardData = {
   "singleImage": true
 };
 
+export const DEEPWOOD_TANTIV: CardData = {
+  "scryfallId": "bfa2028e-4e73-4ff2-a9e2-9ac347d67893",
+  "oracleId": "3b31a9a7-6c97-4e82-bf72-de83034f81a9",
+  "name": "Deepwood Tantiv",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deepwood Tantiv",
+      "manaCost": "{4}{G}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "Whenever this creature becomes blocked, you gain 2 life.",
+      "flavorText": "A single tantiv is just as dangerous as a herd.",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Joel Biske",
+      "imageId": "bfa2028e-4e73-4ff2-a9e2-9ac347d67893"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "241",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DERANGED_OUTCAST: CardData = {
+  "scryfallId": "e2b35fee-8e24-4d89-ad77-d55d06bb1d7f",
+  "oracleId": "115f1397-fa24-4412-80b7-e2a6ddedcd4c",
+  "name": "Deranged Outcast",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deranged Outcast",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Human Rogue",
+      "oracleText": "{1}{G}, Sacrifice a Human: Put two +1/+1 counters on target creature.",
+      "flavorText": "Cast out by his village, he now takes grim offense at refugees who seek shelter in his forest.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "e2b35fee-8e24-4d89-ad77-d55d06bb1d7f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dka",
+  "collectorNumber": "112",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DESECRATED_TOMB: CardData = {
+  "scryfallId": "37b45b10-f4d9-4342-88aa-1c65b772a8b1",
+  "oracleId": "07ff619a-21ee-44b6-b666-ceab4a78096a",
+  "name": "Desecrated Tomb",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Desecrated Tomb",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "Whenever one or more creature cards leave your graveyard, create a 1/1 black Bat creature token with flying.",
+      "flavorText": "The grave robbers were startled, for the door to the mausoleum was already open.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Dimitar Marinski",
+      "imageId": "37b45b10-f4d9-4342-88aa-1c65b772a8b1"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pm19",
+  "collectorNumber": "230s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DESOLATION_TWIN: CardData = {
+  "scryfallId": "4d229d8d-5e64-4403-a4ae-a0a186a83935",
+  "oracleId": "c0cb1f37-1679-42c7-a794-81e088157eeb",
+  "name": "Desolation Twin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Desolation Twin",
+      "manaCost": "{10}",
+      "typeLine": "Creature — Eldrazi",
+      "oracleText": "When you cast this spell, create a 10/10 colorless Eldrazi creature token.",
+      "flavorText": "\"With precise coordination and enough blood spilled, one can be driven off, even brought down. But two . . . that's a lot of blood.\"\n—Munda, ambush leader",
+      "power": "10",
+      "toughness": "10",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jack Wang",
+      "imageId": "4d229d8d-5e64-4403-a4ae-a0a186a83935"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 10,
+  "keywords": [],
+  "setCode": "bfz",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DESTRUCTIVE_DIGGER: CardData = {
+  "scryfallId": "70efa837-dcf7-466c-b9e6-7239c5d0754c",
+  "oracleId": "56787f7d-d9e9-42f2-a419-31f15e6e436e",
+  "name": "Destructive Digger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Destructive Digger",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Goblin",
+      "oracleText": "{3}, {T}, Sacrifice an artifact or land: Draw a card.",
+      "flavorText": "\"Depending what's behind that boulder, we're either about to be very rich or very disintegrated.\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Filipe Pagliuso",
+      "imageId": "70efa837-dcf7-466c-b9e6-7239c5d0754c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "j25",
+  "collectorNumber": "133",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEVOTEE_OF_STRENGTH: CardData = {
+  "scryfallId": "977698ab-3b64-41f2-a214-ac95e04c9956",
+  "oracleId": "a6d8f944-f516-49d7-9aa8-77b98e862d6a",
+  "name": "Devotee of Strength",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Devotee of Strength",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Snake Wizard",
+      "oracleText": "{4}{G}: Target creature gets +2/+2 until end of turn.",
+      "flavorText": "When Rhonas fell, his followers stirred with newfound strength—a final gift from a god they thought indomitable.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Yeong-Hao Han",
+      "imageId": "977698ab-3b64-41f2-a214-ac95e04c9956"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "hou",
+  "collectorNumber": "113",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEVOUT_MONK: CardData = {
+  "scryfallId": "cd1101f5-0bc1-47fa-891b-206b9c1c7f79",
+  "oracleId": "8a0f4e8e-b541-4327-80fe-4fecc23e0df3",
+  "name": "Devout Monk",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Devout Monk",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Monk Cleric",
+      "oracleText": "When this creature enters, you gain 1 life.",
+      "flavorText": "Discipline wears many robes.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Daniel Gelon",
+      "imageId": "cd1101f5-0bc1-47fa-891b-206b9c1c7f79"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "s99",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DIAMOND_MARE: CardData = {
+  "scryfallId": "3c39b0ce-db4c-472c-b68e-07e6ba3a4588",
+  "oracleId": "9a440122-a015-4af2-b270-37f019884458",
+  "name": "Diamond Mare",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Diamond Mare",
+      "manaCost": "{2}",
+      "typeLine": "Artifact Creature — Horse",
+      "oracleText": "As this creature enters, choose a color.\nWhenever you cast a spell of the chosen color, you gain 1 life.",
+      "flavorText": "When it passes, rainbows follow.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Alayna Danner",
+      "imageId": "3c39b0ce-db4c-472c-b68e-07e6ba3a4588"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "fdn",
+  "collectorNumber": "770",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DIMENSION_X: CardData = {
+  "scryfallId": "1c244fc2-70f0-4149-b0d2-d49fc6bac2b0",
+  "oracleId": "8683341a-e836-41e5-9034-4da09eb0ab42",
+  "name": "Dimension X",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dimension X",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {R} or {W}.",
+      "flavorText": "\"Hey, in crazy backwards land, crazy backwards dude is king.\"\n—Michelangelo",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Maël Ollivier-Henry",
+      "imageId": "1c244fc2-70f0-4149-b0d2-d49fc6bac2b0"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tmt",
+  "collectorNumber": "183",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DIMIR_CLUESTONE: CardData = {
+  "scryfallId": "0d8ac24f-3309-453a-b2d6-6363df9a1ddd",
+  "oracleId": "62f834c7-4765-4b6f-812c-7ce14e13ea0d",
+  "name": "Dimir Cluestone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dimir Cluestone",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {U} or {B}.\n{U}{B}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "It waits in the chill of the undercity, holding nameless secrets for those who dare to touch it.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Raoul Vitale",
+      "imageId": "0d8ac24f-3309-453a-b2d6-6363df9a1ddd"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dgm",
+  "collectorNumber": "138",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DIMIR_LOCKET: CardData = {
+  "scryfallId": "08e3dd7a-8378-4368-a5e4-a1ca7899a67b",
+  "oracleId": "3ae4b679-2e3c-4f60-bcf4-b279917cdc54",
+  "name": "Dimir Locket",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dimir Locket",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {U} or {B}.\n{U/B}{U/B}{U/B}{U/B}, {T}, Sacrifice this artifact: Draw two cards.",
+      "flavorText": "\"Wear this, and take your place among the shadows—wise, lethal, and unseen.\"\n—Ivrelya, Dimir spymaster",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Zezhou Chen",
+      "imageId": "08e3dd7a-8378-4368-a5e4-a1ca7899a67b"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "znc",
+  "collectorNumber": "111",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DIRE_FLEET_HOARDER: CardData = {
+  "scryfallId": "0fcd719e-fa21-42bb-968b-ccc0cd3829c6",
+  "oracleId": "7d48ad95-d428-4e2d-b697-56907c3ce579",
+  "name": "Dire Fleet Hoarder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dire Fleet Hoarder",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Pirate",
+      "oracleText": "When this creature dies, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "Among the pirates of the Brazen Coalition, the only thing more dangerous than failure is success.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Deruchenko Alexander",
+      "imageId": "0fcd719e-fa21-42bb-968b-ccc0cd3829c6"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "xln",
+  "collectorNumber": "102",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DISCORDANT_PIPER: CardData = {
+  "scryfallId": "a8cce294-f6ee-4b18-8b65-7d01d0317b00",
+  "oracleId": "bb0107f4-723a-4f2c-8e4b-237d5f668e3c",
+  "name": "Discordant Piper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Discordant Piper",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Zombie Satyr",
+      "oracleText": "When this creature dies, create a 0/1 white Goat creature token.",
+      "flavorText": "The death of the party.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "John Stanko",
+      "imageId": "a8cce294-f6ee-4b18-8b65-7d01d0317b00"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "thb",
+  "collectorNumber": "88",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DISEASE_CARRIERS: CardData = {
+  "scryfallId": "49125cfc-dbae-4543-9d2d-4cc78f45ce9a",
+  "oracleId": "ccdd6376-9b74-4d13-9f80-87d0bd3d4a2a",
+  "name": "Disease Carriers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Disease Carriers",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Creature — Rat",
+      "oracleText": "When this creature dies, target creature gets -2/-2 until end of turn.",
+      "flavorText": "Rath is a disease all its inhabitants carry.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Chippy & Matthew D. Wilson",
+      "imageId": "49125cfc-dbae-4543-9d2d-4cc78f45ce9a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "uds",
+  "collectorNumber": "57",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DISMAL_BACKWATER: CardData = {
+  "scryfallId": "082b52c9-c46e-44d3-b723-546ba528e07b",
+  "oracleId": "865a2194-fca0-446e-aae3-ca475cd66e00",
+  "name": "Dismal Backwater",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dismal Backwater",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {U} or {B}.",
+      "flavorText": "\"I ask only that the winds return you to me as swiftly as they bear you and the Storm Crane away.\"\n—Samthar, Sultai merchant, to Jialing, Jeskai monk",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Alayna Danner",
+      "imageId": "082b52c9-c46e-44d3-b723-546ba528e07b"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tdm",
+  "collectorNumber": "254",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DISPELLER_S_CAPSULE: CardData = {
+  "scryfallId": "0710e943-8882-4a31-973b-1bb07d545af8",
+  "oracleId": "91fc862d-fdde-45ea-a05d-30d38e7a735c",
+  "name": "Dispeller's Capsule",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dispeller's Capsule",
+      "manaCost": "{W}",
+      "typeLine": "Artifact",
+      "oracleText": "{2}{W}, {T}, Sacrifice this artifact: Destroy target artifact or enchantment.",
+      "flavorText": "\"I find its symmetry pleasing. It rids our world of offensive refuse while disposing of itself.\"\n—Dolomarus, Proctor of the Clean",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Franz Vohwinkel",
+      "imageId": "0710e943-8882-4a31-973b-1bb07d545af8"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "c16",
+  "collectorNumber": "64",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DISPERSING_ORB: CardData = {
+  "scryfallId": "69db0298-f6d5-450f-add3-a28c0a43f33f",
+  "oracleId": "dabc4ba1-3f90-4cea-a737-d41537cce729",
+  "name": "Dispersing Orb",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dispersing Orb",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "{3}{U}, Sacrifice a permanent: Return target permanent to its owner's hand.",
+      "flavorText": "\"Like the seas, the Æther is fickle and ever-changing. If we can control one, we can master the other.\"\n—Riptide Project director",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "69db0298-f6d5-450f-add3-a28c0a43f33f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ons",
+  "collectorNumber": "80",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DOCKSIDE_CHEF: CardData = {
+  "scryfallId": "4f9692d4-8543-4f76-b9ec-e08240091c50",
+  "oracleId": "fed12a16-8920-403c-be63-0601a9d864b0",
+  "name": "Dockside Chef",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dockside Chef",
+      "manaCost": "{B}",
+      "typeLine": "Enchantment Creature — Human Citizen",
+      "oracleText": "{1}{B}, Sacrifice an artifact or creature: Draw a card.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Phoebe Wahl",
+      "imageId": "4f9692d4-8543-4f76-b9ec-e08240091c50"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "1629★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DOOMED_DISSENTER: CardData = {
+  "scryfallId": "0992cacb-ba33-4f0c-a1b1-cf747f754fd3",
+  "oracleId": "11cb509d-21af-48f1-b355-135ebd3e4bd1",
+  "name": "Doomed Dissenter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Doomed Dissenter",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human",
+      "oracleText": "When this creature dies, create a 2/2 black Zombie creature token.",
+      "flavorText": "There is only one fate left to those banished from the God-Pharaoh's city.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Tony Foti",
+      "imageId": "0992cacb-ba33-4f0c-a1b1-cf747f754fd3"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "bbd",
+  "collectorNumber": "142",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DOOMED_NECROMANCER: CardData = {
+  "scryfallId": "1c8cf693-d46e-41d0-ba4d-1cbb5b092857",
+  "oracleId": "155422a0-a0cd-4399-8ed9-fa68ac2c80a6",
+  "name": "Doomed Necromancer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Doomed Necromancer",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Human Cleric Mercenary",
+      "oracleText": "{B}, {T}, Sacrifice this creature: Return target creature card from your graveyard to the battlefield.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Volkan Baǵa",
+      "imageId": "1c8cf693-d46e-41d0-ba4d-1cbb5b092857"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ajmp",
+  "collectorNumber": "137",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -11835,6 +12501,140 @@ export const THOPTER_TOKEN: CardData = {
   ],
   "setCode": "tafc",
   "collectorNumber": "12",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const BAT_TOKEN: CardData = {
+  "scryfallId": "00841e4b-0995-4fb5-93d6-e177beba4934",
+  "oracleId": "ff86d8fc-5242-405e-b5e3-f9ff73296794",
+  "name": "Bat",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Bat",
+      "manaCost": "",
+      "typeLine": "Token Creature — Bat",
+      "oracleText": "Flying",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Steven Russell Black",
+      "imageId": "00841e4b-0995-4fb5-93d6-e177beba4934"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "tlci",
+  "collectorNumber": "6",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const ELDRAZI_TOKEN: CardData = {
+  "scryfallId": "1a2f00da-1c4d-45d4-af34-9216a34bff2a",
+  "oracleId": "41014a6a-0f5b-48ae-8cb8-9a89f0f0180f",
+  "name": "Eldrazi",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Eldrazi",
+      "manaCost": "",
+      "typeLine": "Token Creature — Eldrazi",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "10",
+      "toughness": "10",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jack Wang",
+      "imageId": "1a2f00da-1c4d-45d4-af34-9216a34bff2a"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tcmm",
+  "collectorNumber": "1",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const GOAT_TOKEN: CardData = {
+  "scryfallId": "031dc414-b956-45af-b4a5-40e695f7370a",
+  "oracleId": "f62b776a-d4de-455a-ae5a-ca07982974db",
+  "name": "Goat",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Goat",
+      "manaCost": "",
+      "typeLine": "Token Creature — Goat",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Thacker",
+      "imageId": "031dc414-b956-45af-b4a5-40e695f7370a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tncc",
+  "collectorNumber": "6",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const ZOMBIE_TOKEN: CardData = {
+  "scryfallId": "0397aa00-6d82-47d9-bc30-072b722c8b71",
+  "oracleId": "ddc8c973-c31e-463f-be45-f3fa7d632362",
+  "name": "Zombie",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Zombie",
+      "manaCost": "",
+      "typeLine": "Token Creature — Zombie",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Lucas Graciano",
+      "imageId": "0397aa00-6d82-47d9-bc30-072b722c8b71"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tc14",
+  "collectorNumber": "16",
   "commanderLegality": "not_legal",
   "singleImage": true
 };
@@ -12974,6 +13774,26 @@ export const ENGINE_CARDS: CardData[] = [
   DUSKWATCH_RECRUITER_KRALLENHORDE_HOWLER,
   WALKING_CORPSE,
   MERFOLK_OF_THE_PEARL_TRIDENT,
+  DEEPWOOD_TANTIV,
+  DERANGED_OUTCAST,
+  DESECRATED_TOMB,
+  DESOLATION_TWIN,
+  DESTRUCTIVE_DIGGER,
+  DEVOTEE_OF_STRENGTH,
+  DEVOUT_MONK,
+  DIAMOND_MARE,
+  DIMENSION_X,
+  DIMIR_CLUESTONE,
+  DIMIR_LOCKET,
+  DIRE_FLEET_HOARDER,
+  DISCORDANT_PIPER,
+  DISEASE_CARRIERS,
+  DISMAL_BACKWATER,
+  DISPELLER_S_CAPSULE,
+  DISPERSING_ORB,
+  DOCKSIDE_CHEF,
+  DOOMED_DISSENTER,
+  DOOMED_NECROMANCER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -12985,6 +13805,10 @@ export const ENGINE_CARDS: CardData[] = [
   SPIDER_TOKEN,
   WURM_TOKEN,
   THOPTER_TOKEN,
+  BAT_TOKEN,
+  ELDRAZI_TOKEN,
+  GOAT_TOKEN,
+  ZOMBIE_TOKEN,
   HUMAN_SOLDIER_TOKEN,
   MERFOLK_TOKEN,
   WOLF_TOKEN,

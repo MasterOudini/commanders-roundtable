@@ -631,6 +631,29 @@ const WANTED = [
   // Forest Dark Heart of the Wood's test sacrifices is already a fixture.)
   'Walking Corpse',
   'Merfolk of the Pearl Trident',
+  // Batch 13 (D171) — twenty landable: the becomes-blocked, graveyard-exit
+  // and cast-of-itself watchers, the first chosenColor trigger consumer,
+  // the first script reanimation, and twins.
+  'Deepwood Tantiv',
+  'Deranged Outcast',
+  'Desecrated Tomb',
+  'Desolation Twin',
+  'Destructive Digger',
+  'Devotee of Strength',
+  'Devout Monk',
+  'Diamond Mare',
+  'Dimension X',
+  'Dimir Cluestone',
+  'Dimir Locket',
+  'Dire Fleet Hoarder',
+  'Discordant Piper',
+  'Disease Carriers',
+  'Dismal Backwater',
+  "Dispeller's Capsule",
+  'Dispersing Orb',
+  'Dockside Chef',
+  'Doomed Dissenter',
+  'Doomed Necromancer',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -658,6 +681,11 @@ const WANTED_TOKENS = [
   // M6.4e (D162).
   { name: 'Wurm', set: 'trtr', cn: '11', key: 'WURM_TOKEN' },
   { name: 'Thopter', set: 'tafc', cn: '12', key: 'THOPTER_TOKEN' },
+  // Batch 13 (D171).
+  { name: 'Bat', set: 'tlci', cn: '6', key: 'BAT_TOKEN' },
+  { name: 'Eldrazi', set: 'tcmm', cn: '1', key: 'ELDRAZI_TOKEN' },
+  { name: 'Goat', set: 'tncc', cn: '6', key: 'GOAT_TOKEN' },
+  { name: 'Zombie', set: 'tc14', cn: '16', key: 'ZOMBIE_TOKEN' },
   // Batch 12 (D170).
   { name: 'Human Soldier', set: 'tthb', cn: '2', key: 'HUMAN_SOLDIER_TOKEN' },
   { name: 'Merfolk', set: 'txln', cn: '3', key: 'MERFOLK_TOKEN' },

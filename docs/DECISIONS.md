@@ -11536,3 +11536,93 @@ itself becomes the problem for CI rather than the ceiling.
   D143's fourth instance).
 - The remaining cost-chooser classes, `ctx.random`, once-per-turn memory,
   per-damage-entry granularity and the spell seam stand.
+
+## D171 — M6.4o: twenty landed — the graveyard-exit watcher, the self-cast trigger, the chosenColor consumer, and the first script reanimation (2026-08-06)
+
+**What was decided:** batch 13 of the M6.4 loop lands twenty of its 25 —
+**1,947 of 31,692 Commander-legal cards now execute completely, up from
+1,927** — with five refusals, all existing ledger classes. `SHIPPED_SCRIPTS`
+197 → 217.
+
+**Five firsts, four of them event- or state-consumers no def had touched:**
+
+- **The graveyard-exit watcher** (`Desecrated Tomb`): `CardsMoved` with
+  `m.from.kind === 'graveyard'` on the CONTROLLER's side, the mover's
+  card-type read off the ORACLE face — a graveyard card has no battlefield
+  derivation to ask — and the per-event batching is EXACTLY the card's own
+  "one or more creature cards leave" wording, so the granularity question
+  D158 first raised answers itself here: the event IS the batch the card
+  describes.
+- **The cast-of-ITSELF trigger** (`Desolation Twin`): `activeZones:
+  ['stack']` — the one zone the card occupies at the moment "when you cast
+  this spell" can fire. The 10/10 Eldrazi arrives while the Twin is still on
+  the stack, which is the printed timing; the test's negative pins that a
+  Twin PUT onto the battlefield (not cast) brings nothing.
+- **The chosenColor consumer** (`Diamond Mare`): the first trigger to READ
+  D147's `chosenColor`. Line 0 ("As this creature enters, choose a color")
+  is the ENGINE's built-in recognition — the same one that completed Sol
+  Grail with no script — so the def claims line 1 alone, and its filter
+  compares the cast face's colours to the answer remembered on its own
+  instance. Before the answer the filter matches nothing, which is the mana
+  scope's own "no answer, no offer" rule one event kind over.
+- **The becomes-blocked watcher** (`Deepwood Tantiv`):
+  `AttackerBecameBlocked`, self-filtered — per-event firing is per-instance,
+  the granularity-safe shape — and CR 509.1g's "fires once however many
+  blockers pile on" falls straight out of the event being emitted once per
+  declaration.
+- **The first script REANIMATION** (`Doomed Necromancer`): the graveyard
+  target is aimed by D138's zone machinery, re-checked at resolution (CR
+  608.2b), and the return is an ordinary `CardsMoved` graveyard →
+  battlefield — so the entry funnel (loyalty counters, enters-tapped, the
+  pay-to-enter prompt) runs on the reanimated permanent for free. The
+  permanent enters under the ACTIVATOR; the card stays owned by its owner —
+  D138's split, one zone over. The test also pins CR 601.2's order end to
+  end: the prompt up with the Necromancer still on the battlefield, an
+  opponent's graveyard card REJECTED, and the sacrifice charged only on the
+  accepted answer.
+
+**The fifteen twins:** the staged chooser+target chain on a Human predicate
+(`Deranged Outcast`, +2 +1/+1 counters), two OR-predicate sacrifice-draws
+(`Destructive Digger` artifact-or-land, `Dockside Chef`
+artifact-or-creature), a mana-only targeted pump (`Devotee of Strength`),
+an ETB gain (`Devout Monk`), two Asgardian-shape gain lands — one of them
+(`Dimension X`) carrying ASGARDIAN CITADEL'S EXACT PRINTED TEXT on a second
+oracle id, Benalish Trapper's precedent — (`Dismal Backwater` the other),
+the Dimir Cluestone/Locket pair, three dies-tokens on two new pins and one
+old (`Dire Fleet Hoarder` Treasure, `Discordant Piper` Goat, `Doomed
+Dissenter` Zombie), a dies-trigger with a target whose −2/−2 kills a 2/2
+through the SBA (`Disease Carriers`), a self-sacrifice destroy with the
+indestructible negative (`Dispeller's Capsule`, the Capsule spent either
+way), and Barrin's empty-predicate bounce on an enchantment (`Dispersing
+Orb`).
+
+**Five refusals, all existing classes, all in the ledger:** `Deepwood
+Drummer` and `Devout Witness` (discard-cost chooser), `Dementia Bat`
+(script-raised prompt — its resolve must raise the TARGET's discard),
+`Devout Chaplain` and `Diversionary Tactics` (tap-creatures cost).
+
+**The numbers, every delta exactly the twenty cards:** primitives
+`complete` 1,927 → 1,947 · `blocked` 29,765 → 29,745 · `scriptableToday`
+1,066 → 1,046 · ladder [1046, 1145, 3098, 4982, 6169] · botPool creature
+1,296 → 1,309, artifact 48 → 52, land 225 → 227, and **the TWELFTH
+enchantment** (`Dispersing Orb`) · tier3 `either` −20 exactly,
+`silentAfter` 2,338 → 2,358 (+20 exactly — the proof no disclosure was
+lost) · fixtures 363 → 387 (39 tokens: Bat `tlci 6`, Eldrazi `tcmm 1`,
+Goat `tncc 6`, Zombie `tc14 16` joined) · `batch.json` at **934** (959 −
+20 landed − 5 ledger-freed, exact) · botDeck regenerated (Adun reaches
+1,071 from 1,058).
+
+**Verified: `verify.cjs --full` — ALL FIVE GATES PASSED in one
+invocation** — 287 test files, 2,450 Vitest passed / 10 skipped · the
+500-seed replay fuzz gate green at 1,258.6 s (217 scripts registered,
+541 s inside the 1,800 s ceiling; wall grew ~110 s for 20 scripts,
+on-trend) · build clean · probe 124/124 · battery `bot engine prompts`
+127/127 — gates run in an idle window per the standing rule (Overwatch
+was resident when the batch was ready; light work continued and the
+gates waited, and batch 14 was classified in the hold).
+
+**Reportables:** the answer-mode arrow and D168's ability rows still owe a
+battery click-check (four features deep now — D144's lesson compounding);
+the cost-chooser classes (discard, tap-creatures/permanents,
+exile-from-graveyard, remove-counter), `ctx.random`, once-per-turn memory,
+per-damage-entry granularity and the spell seam all stand.

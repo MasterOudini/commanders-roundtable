@@ -4307,6 +4307,49 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       cost-chooser classes, `ctx.random`, once-per-turn memory,
       per-damage-entry granularity and the spell seam stand.
 
+- [x] **M6.4o — Twenty landed: the graveyard-exit watcher, the self-cast
+      trigger, the chosenColor consumer, and the first script reanimation
+      (2026-08-06):** **1,947 of 31,692 Commander-legal cards now execute
+      completely, up from 1,927.** `SHIPPED_SCRIPTS` 197 → 217. Decisions in
+      **D171**.
+      **Five firsts:** `Desecrated Tomb` watches `CardsMoved` FROM the
+      controller's graveyard with the mover typed off the ORACLE face (a
+      graveyard card has no battlefield derivation), and the per-event batch
+      IS the card's "one or more" wording; `Desolation Twin` triggers on its
+      OWN cast from `activeZones: ['stack']` — the 10/10 arrives while the
+      Twin is still a spell, and a Twin merely PUT onto the battlefield
+      brings nothing; `Diamond Mare` is the first trigger CONSUMER of D147's
+      `chosenColor` (line 0 is the engine's built-in prompt, the def claims
+      only the watcher, and no answer means no match); `Deepwood Tantiv`
+      watches `AttackerBecameBlocked` self-filtered (CR 509.1g's fire-once
+      falls out of one event per declaration); `Doomed Necromancer` is the
+      first script REANIMATION — D138's graveyard aim, CR 608.2b re-check,
+      and an ordinary CardsMoved to the battlefield so the entry funnel runs
+      on the returned permanent for free, with CR 601.2's charge-on-answer
+      order pinned end to end.
+      **Fifteen twins**, including Dimension X carrying Asgardian Citadel's
+      EXACT printed text on a second oracle id (Benalish Trapper's
+      precedent), the Dimir Cluestone/Locket pair, three dies-tokens on the
+      new Goat/Zombie/old Treasure pins, a dies-trigger whose −2/−2 kills
+      through the SBA, and Dispersing Orb — **the pool's TWELFTH
+      enchantment**.
+      ⚠️ **Five refusals, all existing ledger classes:** two discard-cost
+      choosers (Deepwood Drummer, Devout Witness), a script-raised prompt
+      (Dementia Bat), two tap-creatures costs (Devout Chaplain, Diversionary
+      Tactics).
+      Fixtures 363 → 387 (39 tokens: Bat `tlci 6`, Eldrazi `tcmm 1`, Goat
+      `tncc 6`, Zombie `tc14 16`) · ladder [1046, 1145, 3098, 4982, 6169] ·
+      `batch.json` at 934 (exact) · botDeck: Adun reaches 1,071.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      287 test files, 2,450 Vitest passed / 10 skipped · the 500-seed gate
+      green at 1,258.6 s (217 scripts, 541 s inside the 1,800 s ceiling) ·
+      build clean · probe 124/124 · battery 127/127 (gates held for an idle
+      window per the standing rule; batch 14 classified in the hold).**
+      ⚠️ **Reportables** (D171): the answer-mode arrow and ability rows owe
+      a battery click-check (four features deep); the cost-chooser classes,
+      `ctx.random`, once-per-turn memory, per-damage-entry granularity and
+      the spell seam stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

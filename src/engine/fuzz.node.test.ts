@@ -218,6 +218,26 @@ import { DEATHBLOOM_THALLID_SCRIPT } from './scripts/cards/deathbloomThallid';
 import { DEDICATED_MARTYR_SCRIPT } from './scripts/cards/dedicatedMartyr';
 import { DEEPROOT_PILGRIMAGE_SCRIPT } from './scripts/cards/deeprootPilgrimage';
 import { DEEPROOT_WATERS_SCRIPT } from './scripts/cards/deeprootWaters';
+import { DEEPWOOD_TANTIV_SCRIPT } from './scripts/cards/deepwoodTantiv';
+import { DERANGED_OUTCAST_SCRIPT } from './scripts/cards/derangedOutcast';
+import { DESECRATED_TOMB_SCRIPT } from './scripts/cards/desecratedTomb';
+import { DESOLATION_TWIN_SCRIPT } from './scripts/cards/desolationTwin';
+import { DESTRUCTIVE_DIGGER_SCRIPT } from './scripts/cards/destructiveDigger';
+import { DEVOTEE_OF_STRENGTH_SCRIPT } from './scripts/cards/devoteeOfStrength';
+import { DEVOUT_MONK_SCRIPT } from './scripts/cards/devoutMonk';
+import { DIAMOND_MARE_SCRIPT } from './scripts/cards/diamondMare';
+import { DIMENSION_X_SCRIPT } from './scripts/cards/dimensionX';
+import { DIMIR_CLUESTONE_SCRIPT } from './scripts/cards/dimirCluestone';
+import { DIMIR_LOCKET_SCRIPT } from './scripts/cards/dimirLocket';
+import { DIRE_FLEET_HOARDER_SCRIPT } from './scripts/cards/direFleetHoarder';
+import { DISCORDANT_PIPER_SCRIPT } from './scripts/cards/discordantPiper';
+import { DISEASE_CARRIERS_SCRIPT } from './scripts/cards/diseaseCarriers';
+import { DISMAL_BACKWATER_SCRIPT } from './scripts/cards/dismalBackwater';
+import { DISPELLERS_CAPSULE_SCRIPT } from './scripts/cards/dispellersCapsule';
+import { DISPERSING_ORB_SCRIPT } from './scripts/cards/dispersingOrb';
+import { DOCKSIDE_CHEF_SCRIPT } from './scripts/cards/docksideChef';
+import { DOOMED_DISSENTER_SCRIPT } from './scripts/cards/doomedDissenter';
+import { DOOMED_NECROMANCER_SCRIPT } from './scripts/cards/doomedNecromancer';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -489,6 +509,15 @@ const DECK = [
   'Dedicated Martyr', 'Deeproot Pilgrimage', 'Deeproot Waters',
   'Duskwatch Recruiter // Krallenhorde Howler', 'Forest', 'Walking Corpse',
   'Merfolk of the Pearl Trident',
+  // M6.4o/D171 — batch 13: the graveyard-exit watcher, the cast-of-itself
+  // trigger, the chosenColor consumer, the becomes-blocked watcher, and the
+  // first script REANIMATION (Doomed Necromancer's graveyard target).
+  'Deepwood Tantiv', 'Deranged Outcast', 'Desecrated Tomb', 'Desolation Twin',
+  'Destructive Digger', 'Devotee of Strength', 'Devout Monk', 'Diamond Mare',
+  'Dimension X', 'Dimir Cluestone', 'Dimir Locket', 'Dire Fleet Hoarder',
+  'Discordant Piper', 'Disease Carriers', 'Dismal Backwater',
+  "Dispeller's Capsule", 'Dispersing Orb', 'Dockside Chef', 'Doomed Dissenter',
+  'Doomed Necromancer',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -730,6 +759,26 @@ const SCRIPTS = createRegistry([
   DEDICATED_MARTYR_SCRIPT,
   DEEPROOT_PILGRIMAGE_SCRIPT,
   DEEPROOT_WATERS_SCRIPT,
+  DEEPWOOD_TANTIV_SCRIPT,
+  DERANGED_OUTCAST_SCRIPT,
+  DESECRATED_TOMB_SCRIPT,
+  DESOLATION_TWIN_SCRIPT,
+  DESTRUCTIVE_DIGGER_SCRIPT,
+  DEVOTEE_OF_STRENGTH_SCRIPT,
+  DEVOUT_MONK_SCRIPT,
+  DIAMOND_MARE_SCRIPT,
+  DIMENSION_X_SCRIPT,
+  DIMIR_CLUESTONE_SCRIPT,
+  DIMIR_LOCKET_SCRIPT,
+  DIRE_FLEET_HOARDER_SCRIPT,
+  DISCORDANT_PIPER_SCRIPT,
+  DISEASE_CARRIERS_SCRIPT,
+  DISMAL_BACKWATER_SCRIPT,
+  DISPELLERS_CAPSULE_SCRIPT,
+  DISPERSING_ORB_SCRIPT,
+  DOCKSIDE_CHEF_SCRIPT,
+  DOOMED_DISSENTER_SCRIPT,
+  DOOMED_NECROMANCER_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,
