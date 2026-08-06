@@ -187,6 +187,15 @@ export function commitTargets(): void {
   if (mode.kind !== 'targeting') return;
   useAim.getState().reset();
 
+  // Answering a prompt the ENGINE raised (D169): a trigger's targets
+  // (CR 603.3d), or the staged targets of a sacrifice-cost activation. The
+  // intent names no stack object — the host reads its own live awaiting.
+  if (mode.next === 'answer') {
+    session.submit({ t: 'ChooseTargets', player: table.viewer, targets: [...mode.chosen] });
+    table.setMode({ kind: 'idle' });
+    return;
+  }
+
   if (mode.next === 'submit' && mode.source.kind === 'ability') {
     session.submit({
       t: 'ActivateAbility',

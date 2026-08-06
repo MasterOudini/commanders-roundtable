@@ -11342,3 +11342,102 @@ exist`, and the other 76 engine/combat/SBA checks around it do not move.
   rots; the next battery pass should add it.
 - D160's spell seam, script-raised prompts, once-per-turn memory,
   per-damage-entry granularity and `ctx.random` stand.
+
+## D169 — M6.4l: twenty-three landed on the staged chain, and the prompt that armed the arrow
+
+**1,904 of 31,692 Commander-legal cards now execute completely, up from
+1,881** — the largest batch of the arc (23 of 25, past D165's 22), and the
+first one whose selection was mostly the REFUSED ledger giving cards BACK:
+twelve freed sacrifice-chooser cards led the offer, and ten of them needed
+D168's named follow-on, built here.
+
+⚠️⚠️ **THE `chooseTargets` PROMPT HAD NO HUMAN CONTROL, AND THAT IS BIGGER
+THAN THIS BATCH.** The prompt-bar text has said "Choose targets: drag the
+arrow onto each one" since the targeting work — and NOTHING ever armed the
+arrow: no renderer code entered targeting mode off the awaiting, so a human
+whose OWN trigger asked for a target was WEDGED (the awaiting blocks every
+intent, and the only control was text about a control that did not exist).
+Every targeted trigger shipped since batch 5 — Chrome Prowler, Armasaur
+Guide, and now every ETB in this batch — was answerable by the bot, the
+fuzzer and the net driver and by nobody at the table. D143's
+answerers-vs-control lesson, THIRD instance (D142's ordering prompt, D168's
+activation panel), and the third time every gate being an answerer is
+exactly what hid it. **The fix:** targeting mode gains `next: 'answer'`
+(submits a `ChooseTargets` for the live awaiting), `TargetSource` gains
+`stack`, and an effect in `useEngineTable` arms the arrow whenever the
+awaiting is mine — specs off the AWAITING, the host's own statement, never
+re-parsed. Escape drops the mode and the effect re-arms it: the game
+genuinely cannot proceed unanswered, so un-escapable is honest.
+
+**The staged chain, proven end to end** (`Agent of Shauku`'s suite): the
+activation names its sacrifice, the engine stages the target prompt, and
+the COST IS CHARGED ON THE ANSWER — CR 601.2's order (targets at 601.2c,
+payment at 601.2g) made visible: the land is still on the battlefield while
+the prompt is up, and in the graveyard the moment the answer lands. This is
+why the ten sacrifice+target cards needed ZERO further engine work: D168's
+pick plus the existing staging compose.
+
+**Landed, 23 of 25:**
+- **The ten sacrifice+target defs** — every predicate shape from D168 paired
+  with an effect family: pumps (`Agent of Shauku` +2/+0, `Bog Naughty`'s
+  Food-fed -3/-3), destroys with the indestructible discipline (`Army Ants`
+  land-for-land, `Aura Fracture`'s NO-mana cost — the sacrifice IS the
+  price), pings off enchantment sources (`Barrage of Expendables`,
+  `Blood Rites`) and creatures (`Barrage Ogre`'s tap+artifact,
+  `Blazing Hellhound`'s "another"), a bounce off the empty predicate
+  (`Barrin, Master Wizard`), and the first SUBTYPE predicates (`Arms
+  Dealer`'s Goblin, `Bog Naughty`'s Food). ⚠️ The Arms Dealer negative
+  taught the predicate's own lesson: the Dealer is a Goblin Rogue, so
+  "Sacrifice a Goblin" legally eats ITSELF — the wrong-kind test must use a
+  genuinely Goblin-less creature.
+- **The freed chooser pair** landing on D168 unchanged (`Akki Scrapchomper`'s
+  artifact-or-land OR, `Cephalid Scout`).
+- **Eleven fresh shapes**: `Contemplation` (the any-spell cast-watcher — the
+  enchantment pool the D160 zero-pin watches reads SEVEN now),
+  `Coral Barrier` (the islandwalk Squid — the printing distinct from
+  nothing but its ability, D131), `Crested Herdcaller` (the TRAMPLE
+  Dinosaur, one table row from the vanilla one), `Crimson Caravaneer` (a
+  DOUBLE STRIKER's combat-damage trigger genuinely fires twice, one Junk
+  per sub-step, distinct ids — D164's allocator teeth), `Crustacean
+  Commando` (Mutagen), `Court Street Denizen` (the colour-filtered
+  two-def enters-trigger with a target — a white TOKEN counts),
+  `Crocodile of the Crossing` (targeted ETB counter on your OWN board),
+  `Crenellated Wall` ({T} pump behind a Defender line), `Courier's Capsule`
+  (self-sac draw-two, counted in MOVES — D163), `Council of Advisors` and
+  `Courier Griffin` (ETB draw/gain twins).
+- **Two refusals, both existing classes:** `Coral Helm` (random-discard
+  cost) and `Corrupt Court Official` (a trigger's resolve raising ANOTHER
+  player's discard prompt — D160's script-raised prompt class).
+
+⚠️ **One test lesson worth keeping** (`Council of Advisors`): `put` may
+fetch the card from the opening HAND, so a hand-size delta reads 0 while
+the ETB draw genuinely happened — count LOG MOVES, never hand size.
+
+**Re-measured, every coverage delta exactly the 23 cards:** `complete`
+1,881 → **1,904** · `blocked` 29,788 · `scriptableToday` 1,089 · ladder
+[1089, 1188, 3141, 5025, 6212] · tier3 `silentAfter` 2,292 → 2,315 (+23
+exactly) · botPool creature 1,277 / artifact 48 / **enchantment 7** ·
+fixtures 307 → 334 (32 tokens — Squid `tblc 17`, trample Dinosaur `txln 5`,
+Junk `tpip 15`, Mutagen `ttmt 9` pinned) · `SHIPPED_SCRIPTS` 151 → 174 ·
+`batch.json` at **984** (1,009 − 23 landed − 2 refused, exact) ·
+`botDeck.ts` regenerated (Barrage of Expendables and Blood Rites joined;
+Bull Rush and Demon's Grasp displaced).
+
+**Verified: `node scripts/cardgen/verify.cjs --full` — ALL FIVE GATES PASSED
+in one invocation: `tsc -b` clean · conformance green · coverage accounting
+green over the real database · 244 test files, 2,264 Vitest passed / 10
+skipped (221 / 2,162 before) · the 500-seed replay fuzz gate green at
+**622.7 s** with 174 scripts registered (277 s inside the 900 s ceiling —
+the wall grew ~53 s for 23 scripts, 569.6 s → 622.7 s, and D167's named
+lever, self-only def dispatch, is the plan for when the trend closes the
+gap) · `npm run build` clean · probe 124/124 · `battery-anim.cjs bot engine
+prompts` 127/127.**
+
+⚠️ **Reportables:**
+- **The answer-mode arrow is battery-covered by nothing yet** — same status
+  as D168's ability rows; one prompts-section block should drive a real
+  staged activation click-through (D144's lesson, now owed by two features).
+- The remaining cost-chooser classes stand (discard, tap-creatures/
+  permanents, exile-from-graveyard, remove-counter, exile-self), plus
+  `ctx.random`, once-per-turn memory, per-damage-entry granularity, and
+  D160's spell seam.

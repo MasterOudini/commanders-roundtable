@@ -120,9 +120,10 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // refusals (two sacrifice-choosers, one NEW remove-counter cost class).
     // M6.4i (D166) landed twenty-one of 25 — four refusals, one NEW class
     // (exile-SELF cost, named cheap: sacrificesSelf one event over).
-    // M6.4k (D168) landed the sacrifice-cost CHOOSER and its three proof
-    // cards, pulled from the REFUSED ledger the day the class was built.
-    expect(SHIPPED_SCRIPTS).toHaveLength(151);
+    // M6.4l (D169) landed twenty-three of 25 — the biggest batch of the arc:
+    // ten sacrifice+target defs on the staged chain, the freed chooser pair,
+    // and eleven fresh shapes.
+    expect(SHIPPED_SCRIPTS).toHaveLength(174);
   });
 });
 

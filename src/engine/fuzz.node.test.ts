@@ -172,6 +172,29 @@ import { CONSCRIPTED_INFANTRY_SCRIPT } from './scripts/cards/conscriptedInfantry
 import { AHRIMAN_SCRIPT } from './scripts/cards/ahriman';
 import { CARNAGE_ALTAR_SCRIPT } from './scripts/cards/carnageAltar';
 import { CLAWS_OF_GIX_SCRIPT } from './scripts/cards/clawsOfGix';
+import { AGENT_OF_SHAUKU_SCRIPT } from './scripts/cards/agentOfShauku';
+import { AKKI_SCRAPCHOMPER_SCRIPT } from './scripts/cards/akkiScrapchomper';
+import { ARMS_DEALER_SCRIPT } from './scripts/cards/armsDealer';
+import { ARMY_ANTS_SCRIPT } from './scripts/cards/armyAnts';
+import { AURA_FRACTURE_SCRIPT } from './scripts/cards/auraFracture';
+import { BARRAGE_OF_EXPENDABLES_SCRIPT } from './scripts/cards/barrageOfExpendables';
+import { BARRAGE_OGRE_SCRIPT } from './scripts/cards/barrageOgre';
+import { BARRIN_MASTER_WIZARD_SCRIPT } from './scripts/cards/barrinMasterWizard';
+import { BLAZING_HELLHOUND_SCRIPT } from './scripts/cards/blazingHellhound';
+import { BLOOD_RITES_SCRIPT } from './scripts/cards/bloodRites';
+import { BOG_NAUGHTY_SCRIPT } from './scripts/cards/bogNaughty';
+import { CEPHALID_SCOUT_SCRIPT } from './scripts/cards/cephalidScout';
+import { CONTEMPLATION_SCRIPT } from './scripts/cards/contemplation';
+import { CORAL_BARRIER_SCRIPT } from './scripts/cards/coralBarrier';
+import { COUNCIL_OF_ADVISORS_SCRIPT } from './scripts/cards/councilOfAdvisors';
+import { COURIER_GRIFFIN_SCRIPT } from './scripts/cards/courierGriffin';
+import { COURIERS_CAPSULE_SCRIPT } from './scripts/cards/couriersCapsule';
+import { COURT_STREET_DENIZEN_SCRIPT } from './scripts/cards/courtStreetDenizen';
+import { CRENELLATED_WALL_SCRIPT } from './scripts/cards/crenellatedWall';
+import { CRESTED_HERDCALLER_SCRIPT } from './scripts/cards/crestedHerdcaller';
+import { CRIMSON_CARAVANEER_SCRIPT } from './scripts/cards/crimsonCaravaneer';
+import { CROCODILE_OF_THE_CROSSING_SCRIPT } from './scripts/cards/crocodileOfTheCrossing';
+import { CRUSTACEAN_COMMANDO_SCRIPT } from './scripts/cards/crustaceanCommando';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -421,6 +444,16 @@ const DECK = [
   // names a candidate off the offer, so the gate exercises the pick, the
   // charge and the "another"/OR/empty predicates at scale.
   'Ahriman', 'Carnage Altar', 'Claws of Gix',
+  // ⚠️ M6.4l/D169 — batch 11: the ten sacrifice+target defs ride the STAGED
+  // chain (the builder picks the sacrifice, the driver answers the target
+  // prompt), plus the freed chooser pair and eleven fresh shapes.
+  'Agent of Shauku', 'Akki Scrapchomper', 'Arms Dealer', 'Army Ants',
+  'Aura Fracture', 'Barrage of Expendables', 'Barrage Ogre',
+  'Barrin, Master Wizard', 'Blazing Hellhound', 'Blood Rites', 'Bog Naughty',
+  'Cephalid Scout', 'Contemplation', 'Coral Barrier', 'Council of Advisors',
+  'Courier Griffin', "Courier's Capsule", 'Court Street Denizen',
+  'Crenellated Wall', 'Crested Herdcaller', 'Crimson Caravaneer',
+  'Crocodile of the Crossing', 'Crustacean Commando',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -616,6 +649,29 @@ const SCRIPTS = createRegistry([
   AHRIMAN_SCRIPT,
   CARNAGE_ALTAR_SCRIPT,
   CLAWS_OF_GIX_SCRIPT,
+  AGENT_OF_SHAUKU_SCRIPT,
+  AKKI_SCRAPCHOMPER_SCRIPT,
+  ARMS_DEALER_SCRIPT,
+  ARMY_ANTS_SCRIPT,
+  AURA_FRACTURE_SCRIPT,
+  BARRAGE_OF_EXPENDABLES_SCRIPT,
+  BARRAGE_OGRE_SCRIPT,
+  BARRIN_MASTER_WIZARD_SCRIPT,
+  BLAZING_HELLHOUND_SCRIPT,
+  BLOOD_RITES_SCRIPT,
+  BOG_NAUGHTY_SCRIPT,
+  CEPHALID_SCOUT_SCRIPT,
+  CONTEMPLATION_SCRIPT,
+  CORAL_BARRIER_SCRIPT,
+  COUNCIL_OF_ADVISORS_SCRIPT,
+  COURIER_GRIFFIN_SCRIPT,
+  COURIERS_CAPSULE_SCRIPT,
+  COURT_STREET_DENIZEN_SCRIPT,
+  CRENELLATED_WALL_SCRIPT,
+  CRESTED_HERDCALLER_SCRIPT,
+  CRIMSON_CARAVANEER_SCRIPT,
+  CROCODILE_OF_THE_CROSSING_SCRIPT,
+  CRUSTACEAN_COMMANDO_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

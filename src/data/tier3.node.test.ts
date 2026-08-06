@@ -478,12 +478,14 @@ const MEASURED: Record<string, number> = {
   // manual-route wording, `abilityText` does not move, and `silentAfter`
   // moving by exactly the three landed cards is the proof no disclosure was
   // lost.
-  abilityText: 17368,
-  payable: 5266,
+  // ⚠️ M6.4l (D169): twenty-three silences — the batch's cards leaving both
+  // note kinds, split by what each card is.
+  abilityText: 17359,
+  payable: 5252,
   manaPart: 625,
-  either: 21379,
-  eitherAnyFace: 21404,
-  wasSilent: 16762,
+  either: 21356,
+  eitherAnyFace: 21381,
+  wasSilent: 16739,
   // ⚠️ M6.3c moved the three SILENCE counters by exactly the seven cards the
   // counter vocabulary completed (D130), and moving them is the correct
   // behaviour rather than a regression: a card the engine now runs in full must
@@ -497,9 +499,9 @@ const MEASURED: Record<string, number> = {
   // nothing under them. M6.4b's PARSE widening does move it: these baselines
   // are parse-relative, and a line reclassified sentence→activated changes
   // what the old rules would have said too.
-  wasSilentAnyFace: 16631,
+  wasSilentAnyFace: 16608,
   silentBefore: 19054,
-  silentAfter: 2292,
+  silentAfter: 2315,
   residual: 356,
   residualKeyword: 356,
   residualManaLine: 0,

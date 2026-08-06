@@ -573,6 +573,31 @@ const WANTED = [
   'Ahriman',
   'Carnage Altar',
   'Claws of Gix',
+  // Batch 11 (D169) — ten freed chooser+target cards, two chooser-direct,
+  // and eleven fresh shapes.
+  'Agent of Shauku',
+  'Akki Scrapchomper',
+  'Arms Dealer',
+  'Army Ants',
+  'Aura Fracture',
+  'Barrage of Expendables',
+  'Barrage Ogre',
+  'Barrin, Master Wizard',
+  'Blazing Hellhound',
+  'Blood Rites',
+  'Bog Naughty',
+  'Cephalid Scout',
+  'Contemplation',
+  'Coral Barrier',
+  'Council of Advisors',
+  'Courier Griffin',
+  "Courier's Capsule",
+  'Court Street Denizen',
+  'Crenellated Wall',
+  'Crested Herdcaller',
+  'Crimson Caravaneer',
+  'Crocodile of the Crossing',
+  'Crustacean Commando',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -600,6 +625,11 @@ const WANTED_TOKENS = [
   // M6.4e (D162).
   { name: 'Wurm', set: 'trtr', cn: '11', key: 'WURM_TOKEN' },
   { name: 'Thopter', set: 'tafc', cn: '12', key: 'THOPTER_TOKEN' },
+  // Batch 11 (D169).
+  { name: 'Squid', set: 'tblc', cn: '17', key: 'SQUID_TOKEN' },
+  { name: 'Dinosaur', set: 'txln', cn: '5', key: 'DINOSAUR_TOKEN' },
+  { name: 'Junk', set: 'tpip', cn: '15', key: 'JUNK_TOKEN' },
+  { name: 'Mutagen', set: 'ttmt', cn: '9', key: 'MUTAGEN_TOKEN' },
   // M6.4j (D167).
   { name: 'Centaur', set: 'trvr', cn: '10', key: 'CENTAUR_TOKEN' },
   { name: 'Elf Knight', set: 'trvr', cn: '15', key: 'ELF_KNIGHT_TOKEN' },

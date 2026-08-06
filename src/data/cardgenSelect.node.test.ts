@@ -149,6 +149,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Tap-two-untapped-ARTIFACTS as a cost — the tap-creatures chooser's
   // artifact sibling (D167).
   ['Clock of Omens', 'tap-permanents cost'],
+  // Batch 11 (D169).
+  ['Coral Helm', 'random-discard cost'],
+  // "target opponent discards a card" from a trigger's resolve is the
+  // script-raised prompt class (D160) — the caster's script asking ANOTHER
+  // player's hidden-zone question.
+  ['Corrupt Court Official', 'script-raised prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

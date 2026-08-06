@@ -110,6 +110,33 @@ export function useEngineTable() {
     session.submit(intent);
   }, []);
 
+  // ⚠️ A LIVE TARGET PROMPT ARMS THE ARROW (D169). `chooseTargets` blocks
+  // every intent until answered, and its only control used to be the
+  // prompt-bar TEXT ("drag the arrow onto each one") over an arrow nothing
+  // had armed — so a human whose OWN trigger asked for a target was wedged.
+  // D143's answerers-vs-control gap, third instance: the bot, the fuzzer and
+  // the net driver all answer the intent, and every gate is an answerer.
+  // The specs come off the AWAITING — the host's own statement of what it
+  // wants — never re-parsed; `chosen` resets on entry because the prompt is
+  // the whole question. Escape drops the mode and this effect re-arms it:
+  // the game genuinely cannot proceed unanswered, so un-escapable is honest.
+  useEffect(() => {
+    if (awaiting?.kind !== 'chooseTargets' || awaiting.player !== viewer) return;
+    if (mode.kind !== 'idle') return;
+    setMode({
+      kind: 'targeting',
+      source: { kind: 'stack', card: awaiting.source },
+      name: awaiting.label,
+      chosen: [],
+      specs: awaiting.specs,
+      min: awaiting.count,
+      max: awaiting.specs.reduce((n, s) => n + s.max, 0),
+      next: 'answer',
+    });
+    const key = cardSlot(awaiting.source);
+    useAim.getState().begin({ sourceKey: key, sourceRect: resolveKey(key), viaDrag: false });
+  }, [awaiting, mode.kind, setMode, viewer]);
+
   /**
    * Enter targeting for a spell or ability, if it wants any.
    *

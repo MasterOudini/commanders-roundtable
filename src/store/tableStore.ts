@@ -7,10 +7,15 @@ import type { CardData } from '../data/cardTypes';
 import type { Awaiting, DefenderRef, StopPolicy, TargetChoice } from '../engine/types/state';
 import type { TargetSpec } from '../engine/types/oracle';
 
-/** What is being aimed. An ability adds which of its owner's abilities it is. */
+/**
+ * What is being aimed. An ability adds which of its owner's abilities it is;
+ * `stack` is an object ALREADY on the stack whose live `chooseTargets` prompt
+ * is being answered (D169) — its specs come off the awaiting, never re-parsed.
+ */
 export type TargetSource =
   | { readonly kind: 'spell'; readonly card: string }
-  | { readonly kind: 'ability'; readonly card: string; readonly abilityIndex: number };
+  | { readonly kind: 'ability'; readonly card: string; readonly abilityIndex: number }
+  | { readonly kind: 'stack'; readonly card: string };
 
 // UI state for the play surface: what the game is waiting for, what the player
 // is halfway through choosing, and which drawers are open.
@@ -42,8 +47,13 @@ export type TableMode =
       readonly specs: readonly TargetSpec[];
       readonly min: number;
       readonly max: number;
-      /** What the last commit does: a spell pays first, a free ability submits. */
-      readonly next: 'payment' | 'submit';
+      /**
+       * What the last commit does: a spell pays first, a free ability
+       * submits, and `answer` sends a `ChooseTargets` for a prompt the
+       * engine has ALREADY raised (D169) — the one case where backing out is
+       * not local, so Escape re-arms rather than escaping.
+       */
+      readonly next: 'payment' | 'submit' | 'answer';
     }
   /**
    * Reviewing what auto-tap proposes before paying.

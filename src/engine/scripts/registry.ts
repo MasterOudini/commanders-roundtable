@@ -7,6 +7,29 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { AGENT_OF_SHAUKU_SCRIPT } from './cards/agentOfShauku';
+import { AKKI_SCRAPCHOMPER_SCRIPT } from './cards/akkiScrapchomper';
+import { ARMS_DEALER_SCRIPT } from './cards/armsDealer';
+import { ARMY_ANTS_SCRIPT } from './cards/armyAnts';
+import { AURA_FRACTURE_SCRIPT } from './cards/auraFracture';
+import { BARRAGE_OF_EXPENDABLES_SCRIPT } from './cards/barrageOfExpendables';
+import { BARRAGE_OGRE_SCRIPT } from './cards/barrageOgre';
+import { BARRIN_MASTER_WIZARD_SCRIPT } from './cards/barrinMasterWizard';
+import { BLAZING_HELLHOUND_SCRIPT } from './cards/blazingHellhound';
+import { BLOOD_RITES_SCRIPT } from './cards/bloodRites';
+import { BOG_NAUGHTY_SCRIPT } from './cards/bogNaughty';
+import { CEPHALID_SCOUT_SCRIPT } from './cards/cephalidScout';
+import { CONTEMPLATION_SCRIPT } from './cards/contemplation';
+import { CORAL_BARRIER_SCRIPT } from './cards/coralBarrier';
+import { COUNCIL_OF_ADVISORS_SCRIPT } from './cards/councilOfAdvisors';
+import { COURIER_GRIFFIN_SCRIPT } from './cards/courierGriffin';
+import { COURIERS_CAPSULE_SCRIPT } from './cards/couriersCapsule';
+import { COURT_STREET_DENIZEN_SCRIPT } from './cards/courtStreetDenizen';
+import { CRENELLATED_WALL_SCRIPT } from './cards/crenellatedWall';
+import { CRESTED_HERDCALLER_SCRIPT } from './cards/crestedHerdcaller';
+import { CRIMSON_CARAVANEER_SCRIPT } from './cards/crimsonCaravaneer';
+import { CROCODILE_OF_THE_CROSSING_SCRIPT } from './cards/crocodileOfTheCrossing';
+import { CRUSTACEAN_COMMANDO_SCRIPT } from './cards/crustaceanCommando';
 import { AHRIMAN_SCRIPT } from './cards/ahriman';
 import { CARNAGE_ALTAR_SCRIPT } from './cards/carnageAltar';
 import { CLAWS_OF_GIX_SCRIPT } from './cards/clawsOfGix';
@@ -252,6 +275,29 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AGENT_OF_SHAUKU_SCRIPT,
+  AKKI_SCRAPCHOMPER_SCRIPT,
+  ARMS_DEALER_SCRIPT,
+  ARMY_ANTS_SCRIPT,
+  AURA_FRACTURE_SCRIPT,
+  BARRAGE_OF_EXPENDABLES_SCRIPT,
+  BARRAGE_OGRE_SCRIPT,
+  BARRIN_MASTER_WIZARD_SCRIPT,
+  BLAZING_HELLHOUND_SCRIPT,
+  BLOOD_RITES_SCRIPT,
+  BOG_NAUGHTY_SCRIPT,
+  CEPHALID_SCOUT_SCRIPT,
+  CONTEMPLATION_SCRIPT,
+  CORAL_BARRIER_SCRIPT,
+  COUNCIL_OF_ADVISORS_SCRIPT,
+  COURIER_GRIFFIN_SCRIPT,
+  COURIERS_CAPSULE_SCRIPT,
+  COURT_STREET_DENIZEN_SCRIPT,
+  CRENELLATED_WALL_SCRIPT,
+  CRESTED_HERDCALLER_SCRIPT,
+  CRIMSON_CARAVANEER_SCRIPT,
+  CROCODILE_OF_THE_CROSSING_SCRIPT,
+  CRUSTACEAN_COMMANDO_SCRIPT,
   AHRIMAN_SCRIPT,
   CARNAGE_ALTAR_SCRIPT,
   CLAWS_OF_GIX_SCRIPT,

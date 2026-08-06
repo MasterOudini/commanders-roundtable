@@ -9746,6 +9746,805 @@ export const CLAWS_OF_GIX: CardData = {
   "singleImage": true
 };
 
+export const AGENT_OF_SHAUKU: CardData = {
+  "scryfallId": "d8316804-6f8b-423e-a2c3-fa476c095544",
+  "oracleId": "d2e0d739-b441-4173-a8f1-b831a19ea98e",
+  "name": "Agent of Shauku",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Agent of Shauku",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Mercenary",
+      "oracleText": "{1}{B}, Sacrifice a land: Target creature gets +2/+0 until end of turn.",
+      "flavorText": "\"Go ahead. Take it. You'll be so very powerful . . . and what harm can it do?\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Donato Giancola",
+      "imageId": "d8316804-6f8b-423e-a2c3-fa476c095544"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "pcy",
+  "collectorNumber": "55",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AKKI_SCRAPCHOMPER: CardData = {
+  "scryfallId": "b0e02737-0193-46e4-a506-cec86a44dc99",
+  "oracleId": "baea7cc5-15ec-4229-ad8b-d4b34c2e21e8",
+  "name": "Akki Scrapchomper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Akki Scrapchomper",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Phyrexian Goblin",
+      "oracleText": "{1}{R}, {T}, Sacrifice an artifact or land: Draw a card.",
+      "flavorText": "The Furnace Host found great value in the chaotic ingenuity of Kamigawa's akki and allowed willing converts to \"experiment\" however they saw fit.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Wisnu Tan",
+      "imageId": "b0e02737-0193-46e4-a506-cec86a44dc99"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mom",
+  "collectorNumber": "130",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARMS_DEALER: CardData = {
+  "scryfallId": "910d3c33-8cda-487b-8b44-87a9d06d6749",
+  "oracleId": "8ebc4198-7317-4ffb-b8b8-14733c2077ff",
+  "name": "Arms Dealer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Arms Dealer",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Goblin Rogue",
+      "oracleText": "{1}{R}, Sacrifice a Goblin: This creature deals 4 damage to target creature.",
+      "flavorText": "\"Guaranteed to leave your enemies sufficiently stabbed, bitten, cleaved, or exploded.\"\n—Grezkrick's Emporium motto",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Wayne Reynolds",
+      "imageId": "910d3c33-8cda-487b-8b44-87a9d06d6749"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m13",
+  "collectorNumber": "120",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARMY_ANTS: CardData = {
+  "scryfallId": "0d4d4cc1-71e3-4046-9165-4f6bb8cb0bc1",
+  "oracleId": "c39112ab-ee1f-4f00-b18b-692b5fe32b80",
+  "name": "Army Ants",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Army Ants",
+      "manaCost": "{1}{B}{R}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "{T}, Sacrifice a land: Destroy target land.",
+      "flavorText": "\"Do not underestimate the power of many against one.\"\n—Sidar Jabari",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Geofrey Darrow & I. Rabarot",
+      "imageId": "0d4d4cc1-71e3-4046-9165-4f6bb8cb0bc1"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "VIS-126",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AURA_FRACTURE: CardData = {
+  "scryfallId": "de8d3e36-977f-4169-8f2a-a4057b912ccb",
+  "oracleId": "3495d83a-b103-42be-8708-9ce971b352bd",
+  "name": "Aura Fracture",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aura Fracture",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Sacrifice a land: Destroy target enchantment.",
+      "flavorText": "Jamuraa's rhystic mages treat magic as their garden, uprooting unwanted spells as bothersome weeds.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "de8d3e36-977f-4169-8f2a-a4057b912ccb"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pcy",
+  "collectorNumber": "2",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BARRAGE_OF_EXPENDABLES: CardData = {
+  "scryfallId": "8b94ff00-0821-4743-b693-2ba310466306",
+  "oracleId": "da7600f6-5d4c-46bf-936a-9e0f0d508e19",
+  "name": "Barrage of Expendables",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Barrage of Expendables",
+      "manaCost": "{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "{R}, Sacrifice a creature: This enchantment deals 1 damage to any target.",
+      "flavorText": "Goblin generals don't distinguish between troops and ammunition.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Trevor Claxton",
+      "imageId": "8b94ff00-0821-4743-b693-2ba310466306"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "jmp",
+  "collectorNumber": "292",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BARRAGE_OGRE: CardData = {
+  "scryfallId": "68a335cb-e437-4957-9675-6eaa0316abd2",
+  "oracleId": "d556c71e-ce16-4229-880b-744790f93797",
+  "name": "Barrage Ogre",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Barrage Ogre",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Creature — Ogre Warrior",
+      "oracleText": "{T}, Sacrifice an artifact: This creature deals 2 damage to any target.",
+      "flavorText": "The elves had devised countless strategies to combat Memnarch's war machines, but they had no idea what to do when one was *thrown* at them.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "David Rapoza",
+      "imageId": "68a335cb-e437-4957-9675-6eaa0316abd2"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "j22",
+  "collectorNumber": "496",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BARRIN_MASTER_WIZARD: CardData = {
+  "scryfallId": "ec79e35f-9e78-462d-8b71-4f044e2eff90",
+  "oracleId": "8c6d6684-1943-4af3-98da-951604193911",
+  "name": "Barrin, Master Wizard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Barrin, Master Wizard",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Legendary Creature — Human Wizard",
+      "oracleText": "{2}, Sacrifice a permanent: Return target creature to its owner's hand.",
+      "flavorText": "\"Knowledge is no more expensive than ignorance, and at least as satisfying.\"\n—Barrin, master wizard",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Michael Sutfin",
+      "imageId": "ec79e35f-9e78-462d-8b71-4f044e2eff90"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "usg",
+  "collectorNumber": "63",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLAZING_HELLHOUND: CardData = {
+  "scryfallId": "332769b1-1eb5-4c77-8317-27addc28650b",
+  "oracleId": "598a7410-35e8-4d62-9bf1-d44ee7717040",
+  "name": "Blazing Hellhound",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blazing Hellhound",
+      "manaCost": "{2}{B}{R}",
+      "typeLine": "Creature — Elemental Dog",
+      "oracleText": "{1}, Sacrifice another creature: This creature deals 1 damage to any target.",
+      "flavorText": "It tears the flesh from your bones and then swallows the ash with its fiery maw.",
+      "power": "4",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Eric Velhagen",
+      "imageId": "332769b1-1eb5-4c77-8317-27addc28650b"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ori",
+  "collectorNumber": "210",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLOOD_RITES: CardData = {
+  "scryfallId": "6af8cd97-28cb-4499-a197-687e8f31644a",
+  "oracleId": "69757aaf-182e-41a0-a5b4-4404e4c81c45",
+  "name": "Blood Rites",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blood Rites",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "{1}{R}, Sacrifice a creature: This enchantment deals 2 damage to any target.",
+      "flavorText": "\"The threat of the kami was made worse by the blood rituals of the ogres, who freed terrifying oni to wander Kamigawa unhindered.\"\n—*Observations of the Kami War*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "6af8cd97-28cb-4499-a197-687e8f31644a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "chk",
+  "collectorNumber": "159",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BOG_NAUGHTY: CardData = {
+  "scryfallId": "0cf282fe-83fd-4208-b46f-dae76e3a7f62",
+  "oracleId": "74303ddb-d3b6-433d-a299-e0c4a7267461",
+  "name": "Bog Naughty",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bog Naughty",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Creature — Faerie",
+      "oracleText": "Flying\n{2}{B}, Sacrifice a Food: Target creature gets -3/-3 until end of turn.",
+      "flavorText": "\"The faerie plucked an acorn off the ground. One knight's quest was about to come to a bitter end.\"\n—*Tales of the Fae*",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Mila Pesic",
+      "imageId": "0cf282fe-83fd-4208-b46f-dae76e3a7f62"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "eld",
+  "collectorNumber": "80",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CEPHALID_SCOUT: CardData = {
+  "scryfallId": "6efdf190-970d-4751-b214-cd962f7f2ca8",
+  "oracleId": "0ee042ce-7cb2-47a8-9a48-6ffc07ba07b3",
+  "name": "Cephalid Scout",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cephalid Scout",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Octopus Wizard Scout",
+      "oracleText": "Flying\n{2}{U}, Sacrifice a land: Draw a card.",
+      "flavorText": "The more they survey the dreadful dry expanses, the more the cephalids thirst to tame them.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Alan Pollack",
+      "imageId": "6efdf190-970d-4751-b214-cd962f7f2ca8"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ody",
+  "collectorNumber": "74",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONTEMPLATION: CardData = {
+  "scryfallId": "848672be-b1cd-40ef-a7ed-ce1620aebd2e",
+  "oracleId": "fa7efcef-a688-4e25-a823-4d53b2e96508",
+  "name": "Contemplation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Contemplation",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever you cast a spell, you gain 1 life.",
+      "flavorText": "\"How fascinating it is to watch the machinations of one's own mind play themselves out.\"\n—Volrath",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Brom",
+      "imageId": "848672be-b1cd-40ef-a7ed-ce1620aebd2e"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "sth",
+  "collectorNumber": "4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CORAL_BARRIER: CardData = {
+  "scryfallId": "f34cd305-d823-4996-9f8f-806386491f5d",
+  "oracleId": "f03474ce-b687-489f-add3-a82d77e18355",
+  "name": "Coral Barrier",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Coral Barrier",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Wall",
+      "oracleText": "Defender (This creature can't attack.)\nWhen this creature enters, create a 1/1 blue Squid creature token with islandwalk. (It can't be blocked as long as defending player controls an Island.)",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Florian de Gesincourt",
+      "imageId": "f34cd305-d823-4996-9f8f-806386491f5d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Defender"
+  ],
+  "setCode": "m15",
+  "collectorNumber": "49",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COUNCIL_OF_ADVISORS: CardData = {
+  "scryfallId": "0c59f45b-46fa-4494-9b25-cf9d3e462539",
+  "oracleId": "ff427657-173a-4845-89af-6f0a93467130",
+  "name": "Council of Advisors",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Council of Advisors",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Advisor",
+      "oracleText": "When this creature enters, draw a card.",
+      "flavorText": "Sun Quan's long and successful rule in the years 199 to 251 was due to his ability to choose and foster talented advisors and generals.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Liu Shangying",
+      "imageId": "0c59f45b-46fa-4494-9b25-cf9d3e462539"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "40",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COURIER_GRIFFIN: CardData = {
+  "scryfallId": "4d3afc71-f5db-45c3-96b2-8454b7f33542",
+  "oracleId": "2bb0a5e3-ccb0-4f87-b021-e60ebfa35b2b",
+  "name": "Courier Griffin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Courier Griffin",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Griffin",
+      "oracleText": "Flying\nWhen this creature enters, you gain 2 life.",
+      "flavorText": "\"Sea Gate has fallen. Survivors are on the move. Will send another griffin when we find refuge. Stay hidden. Stay safe.\"\n—Message from Tars Olan, kor world-gift",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kieran Yanner",
+      "imageId": "4d3afc71-f5db-45c3-96b2-8454b7f33542"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "bfz",
+  "collectorNumber": "21",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COURIER_S_CAPSULE: CardData = {
+  "scryfallId": "39ae12ff-8039-4aac-aa50-f879376888a1",
+  "oracleId": "4e694613-e2e1-4ae3-baa8-f372259e91cf",
+  "name": "Courier's Capsule",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Courier's Capsule",
+      "manaCost": "{1}{U}",
+      "typeLine": "Artifact",
+      "oracleText": "{1}{U}, {T}, Sacrifice this artifact: Draw two cards.",
+      "flavorText": "In ages past, Esper couriers bore messages written on ornate scrolls. The medium has grown more sophisticated, but the principle remains the same.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Andrew Murray",
+      "imageId": "39ae12ff-8039-4aac-aa50-f879376888a1"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ala",
+  "collectorNumber": "37",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COURT_STREET_DENIZEN: CardData = {
+  "scryfallId": "7eed8c7a-cd9b-4a02-90c6-f8c5c2ad95a7",
+  "oracleId": "34312179-f3f9-47ca-bdf4-5abbd493876e",
+  "name": "Court Street Denizen",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Court Street Denizen",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Whenever another white creature you control enters, tap target creature an opponent controls.",
+      "flavorText": "\"The Boros fight for justice. The Azorius fight for law. I hold the line between, and make sure the people are given both.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Volkan Baǵa",
+      "imageId": "7eed8c7a-cd9b-4a02-90c6-f8c5c2ad95a7"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "DDO-5",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRENELLATED_WALL: CardData = {
+  "scryfallId": "b059ab1d-dfb1-44e7-a236-f6600e454147",
+  "oracleId": "ca9e41e8-7830-4721-b131-07d0b60297ad",
+  "name": "Crenellated Wall",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crenellated Wall",
+      "manaCost": "{4}",
+      "typeLine": "Artifact Creature — Wall",
+      "oracleText": "Defender (This creature can't attack.)\n{T}: Target creature gets +0/+4 until end of turn.",
+      "flavorText": "Mercadian soldiers excel at finding things to stand behind.",
+      "power": "0",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Arnie Swekel",
+      "imageId": "b059ab1d-dfb1-44e7-a236-f6600e454147"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [
+    "Defender"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "MMQ-290",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRESTED_HERDCALLER: CardData = {
+  "scryfallId": "44c7792e-39e4-486e-827b-b0d01cd15bc3",
+  "oracleId": "86c0ddaa-6926-450d-949a-6c89f43c71c2",
+  "name": "Crested Herdcaller",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crested Herdcaller",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Creature — Dinosaur",
+      "oracleText": "Trample\nWhen this creature enters, create a 3/3 green Dinosaur creature token with trample.",
+      "flavorText": "\"Our survival, like theirs, depends on our ability to work together.\"\n—Huatli, to Tishana",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Lucas Graciano",
+      "imageId": "44c7792e-39e4-486e-827b-b0d01cd15bc3"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "gn2",
+  "collectorNumber": "46",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRIMSON_CARAVANEER: CardData = {
+  "scryfallId": "3acc522b-6297-455e-8bb5-6187061496d0",
+  "oracleId": "ab3360e5-6a60-4806-bbc2-b7b26c119856",
+  "name": "Crimson Caravaneer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crimson Caravaneer",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Human Scout",
+      "oracleText": "Double strike, trample\nWhenever this creature deals combat damage to a player, create a Junk token. (It's an artifact with \"{T}, Sacrifice this token: Exile the top card of your library. You may play that card this turn. Activate only as a sorcery.\")",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Nicholas Gregory",
+      "imageId": "3acc522b-6297-455e-8bb5-6187061496d0"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Trample",
+    "Double strike"
+  ],
+  "setCode": "pip",
+  "collectorNumber": "56",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CROCODILE_OF_THE_CROSSING: CardData = {
+  "scryfallId": "0f0e7de5-1191-4076-8f73-82e5ce65e0f3",
+  "oracleId": "e5e31d27-3907-4c65-a988-a754f217e061",
+  "name": "Crocodile of the Crossing",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crocodile of the Crossing",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Crocodile",
+      "oracleText": "Haste\nWhen this creature enters, put a -1/-1 counter on target creature you control.",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "0f0e7de5-1191-4076-8f73-82e5ce65e0f3"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "akr",
+  "collectorNumber": "187",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRUSTACEAN_COMMANDO: CardData = {
+  "scryfallId": "9528cc07-df4b-417f-ad65-c2fae6fc2d49",
+  "oracleId": "b24a87af-407f-4c58-80b4-caab9c65a233",
+  "name": "Crustacean Commando",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crustacean Commando",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Crab Mutant Soldier",
+      "oracleText": "When this creature enters, create a Mutagen token. (It's an artifact with \"{1}, {T}, Sacrifice this token: Put a +1/+1 counter on target creature. Activate only as a sorcery.\")",
+      "flavorText": "\"Wondering what I've got in the box? Pain, soldier! And lots of it!\"\n—Herman",
+      "power": "0",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Narendra Bintara Adi",
+      "imageId": "9528cc07-df4b-417f-ad65-c2fae6fc2d49"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tmt",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -10114,6 +10913,139 @@ export const THOPTER_TOKEN: CardData = {
   ],
   "setCode": "tafc",
   "collectorNumber": "12",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const SQUID_TOKEN: CardData = {
+  "scryfallId": "2c7e1ec8-ee84-4806-bd89-defd79902e41",
+  "oracleId": "dd85fcd6-9bfd-4deb-a56a-77c6bca8eb97",
+  "name": "Squid",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Squid",
+      "manaCost": "",
+      "typeLine": "Token Creature — Squid",
+      "oracleText": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.)",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jack Wang",
+      "imageId": "2c7e1ec8-ee84-4806-bd89-defd79902e41"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Landwalk",
+    "Islandwalk"
+  ],
+  "setCode": "tblc",
+  "collectorNumber": "17",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const DINOSAUR_TOKEN: CardData = {
+  "scryfallId": "1ccee594-e1e6-4a82-bc17-93bcdeb36198",
+  "oracleId": "240300bd-5088-43c5-a873-290507515843",
+  "name": "Dinosaur",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Dinosaur",
+      "manaCost": "",
+      "typeLine": "Token Creature — Dinosaur",
+      "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Filip Burburan",
+      "imageId": "1ccee594-e1e6-4a82-bc17-93bcdeb36198"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "txln",
+  "collectorNumber": "5",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const JUNK_TOKEN: CardData = {
+  "scryfallId": "62c4a6f6-6425-4c0c-b35a-880fcab42aad",
+  "oracleId": "7034bca4-8ba0-47a6-886e-ecbd829ddaec",
+  "name": "Junk",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Junk",
+      "manaCost": "",
+      "typeLine": "Token Artifact — Junk",
+      "oracleText": "{T}, Sacrifice this artifact: Exile the top card of your library. You may play that card this turn. Activate only as a sorcery.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Justine Cruz",
+      "imageId": "62c4a6f6-6425-4c0c-b35a-880fcab42aad"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tpip",
+  "collectorNumber": "15",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const MUTAGEN_TOKEN: CardData = {
+  "scryfallId": "6559c423-449c-4e8e-8384-3ce78183e317",
+  "oracleId": "4c1e395a-94c0-4e83-a621-b3387bfebbdf",
+  "name": "Mutagen",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Mutagen",
+      "manaCost": "",
+      "typeLine": "Token Artifact — Mutagen",
+      "oracleText": "{1}, {T}, Sacrifice this token: Put a +1/+1 counter on target creature. Activate only as a sorcery.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Madeline Boni",
+      "imageId": "6559c423-449c-4e8e-8384-3ce78183e317"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "ttmt",
+  "collectorNumber": "9",
   "commanderLegality": "not_legal",
   "singleImage": true
 };
@@ -10967,6 +11899,29 @@ export const ENGINE_CARDS: CardData[] = [
   AHRIMAN,
   CARNAGE_ALTAR,
   CLAWS_OF_GIX,
+  AGENT_OF_SHAUKU,
+  AKKI_SCRAPCHOMPER,
+  ARMS_DEALER,
+  ARMY_ANTS,
+  AURA_FRACTURE,
+  BARRAGE_OF_EXPENDABLES,
+  BARRAGE_OGRE,
+  BARRIN_MASTER_WIZARD,
+  BLAZING_HELLHOUND,
+  BLOOD_RITES,
+  BOG_NAUGHTY,
+  CEPHALID_SCOUT,
+  CONTEMPLATION,
+  CORAL_BARRIER,
+  COUNCIL_OF_ADVISORS,
+  COURIER_GRIFFIN,
+  COURIER_S_CAPSULE,
+  COURT_STREET_DENIZEN,
+  CRENELLATED_WALL,
+  CRESTED_HERDCALLER,
+  CRIMSON_CARAVANEER,
+  CROCODILE_OF_THE_CROSSING,
+  CRUSTACEAN_COMMANDO,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -10978,6 +11933,10 @@ export const ENGINE_CARDS: CardData[] = [
   SPIDER_TOKEN,
   WURM_TOKEN,
   THOPTER_TOKEN,
+  SQUID_TOKEN,
+  DINOSAUR_TOKEN,
+  JUNK_TOKEN,
+  MUTAGEN_TOKEN,
   CENTAUR_TOKEN,
   ELF_KNIGHT_TOKEN,
   PHYREXIAN_GOBLIN_TOKEN,

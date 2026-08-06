@@ -4201,6 +4201,61 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       remove-counter); the ability rows have no battery click-check yet
       (D144's lesson — write it before the panel rots); prior items stand.
 
+- [x] **M6.4l — Twenty-three landed on the staged chain, and the prompt that
+      armed the arrow (2026-08-06):** **1,904 of 31,692 Commander-legal cards
+      now execute completely, up from 1,881** — the largest batch of the arc
+      (23 of 25), led by the REFUSED ledger giving its freed sacrifice-chooser
+      cards back. Decisions in **D169**.
+      ⚠️⚠️ **THE `chooseTargets` PROMPT HAD NO HUMAN CONTROL** — the bar has
+      said "drag the arrow onto each one" since the targeting work and
+      NOTHING ever armed the arrow, so a human whose own trigger asked for a
+      target was WEDGED. Every targeted trigger since batch 5 was answerable
+      by the bot, the fuzzer and the net driver and by nobody at the table —
+      D143's lesson, THIRD instance. Fixed: targeting mode gains
+      `next: 'answer'`, `TargetSource` gains `stack`, and the awaiting arms
+      the arrow with the HOST's own specs; Escape re-arms because the game
+      genuinely cannot proceed unanswered.
+      ⚠️ **The staged chain proven end to end** (`Agent of Shauku`): the pick
+      rides the intent, the target prompt stages, and the COST IS CHARGED ON
+      THE ANSWER — CR 601.2's order made visible (the land still on the
+      battlefield while the prompt is up). The ten sacrifice+target cards
+      needed ZERO further engine work: D168 plus the existing staging compose.
+      **Landed:** the ten chooser+target defs (every D168 predicate shape —
+      typed, empty, OR, "another", and the first SUBTYPES: Arms Dealer's
+      Goblin, Bog Naughty's Food — paired with pumps, indestructible-aware
+      destroys, enchantment- and creature-source pings, a bounce, and Aura
+      Fracture's NO-mana cost where the sacrifice IS the price) · the freed
+      pair (Akki Scrapchomper, Cephalid Scout) · eleven fresh shapes
+      (Contemplation's any-spell cast-watcher — **the enchantment pool reads
+      SEVEN**; the islandwalk Squid and trample Dinosaur whose printings are
+      distinct by nothing but their abilities, D131; Crimson Caravaneer's
+      double-strike trigger firing once per sub-step with DISTINCT Junk ids,
+      D164's teeth; the colour-filtered two-def Court Street Denizen whose
+      white TOKEN counts; Crocodile of the Crossing's own-board ETB counter;
+      Crenellated Wall, Courier's Capsule, Council of Advisors, Courier
+      Griffin, Crustacean Commando's Mutagen).
+      ⚠️ **Two refusals, both existing classes:** Coral Helm (random-discard
+      cost), Corrupt Court Official (script-raised prompt).
+      ⚠️ Two test lessons pinned: Arms Dealer is ITSELF a Goblin, so the
+      wrong-kind negative must use a Goblin-less creature; and `put` may
+      fetch from the opening HAND, so ETB draws are counted in LOG MOVES,
+      never hand size.
+      Fixtures 307 → 334 (32 tokens: Squid `tblc 17`, Dinosaur `txln 5`,
+      Junk `tpip 15`, Mutagen `ttmt 9`) · `SHIPPED_SCRIPTS` 151 → 174 ·
+      ladder [1089, 1188, 3141, 5025, 6212] · `batch.json` at 984 (exact) ·
+      botDeck: Barrage of Expendables and Blood Rites join.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      244 test files, 2,264 Vitest passed / 10 skipped · the 500-seed gate
+      green at 622.7 s (174 scripts, 277 s inside the ceiling; the wall grew
+      ~53 s for 23 scripts — self-only def dispatch is the named lever when
+      the trend closes the gap) · build clean · probe 124/124 · battery
+      127/127.**
+      ⚠️ **Reportables** (D169): the answer-mode arrow and D168's ability
+      rows are battery-covered by nothing yet (D144's lesson, owed by two
+      features); the remaining cost-chooser classes, `ctx.random`,
+      once-per-turn memory, per-damage-entry granularity and the spell seam
+      stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

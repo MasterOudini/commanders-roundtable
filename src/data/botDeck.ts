@@ -13,7 +13,7 @@
 // tutors, no recursion, because the engine runs none of those yet. That ceiling
 // is the honest state of the app and it rises as the engine's coverage does.
 //
-// commander: Adun Oakenshield (BGR), chosen from 49 fully-executable legendary creatures for reaching 1035 cards
+// commander: Adun Oakenshield (BGR), chosen from 50 fully-executable legendary creatures for reaching 1048 cards
 // mv 0–1: wanted 6, took 6
 // mv 2–2: wanted 14, took 14
 // mv 3–3: wanted 14, took 14
@@ -29,10 +29,10 @@ export const BOT_DECK = {
   main: [
   "Diregraf Ghoul",
   "Icehide Golem",
+  "Barrage of Expendables",
   "Battlegrowth",
   "Bloodtallow Candle",
   "Brute Force",
-  "Bull Rush",
   "Gifted Aetherborn",
   "Aggressive Urge",
   "Antagonize",
@@ -75,12 +75,12 @@ export const BOT_DECK = {
   "Eviscerate",
   "Gigantosaurus",
   "Terrian, World Tyrant",
+  "Blood Rites",
   "Centaur Glade",
   "Cleansing Screech",
   "Command the Storm",
   "Contract Killing",
   "Dark Nourishment",
-  "Demon's Grasp",
   "Yargle and Multani",
   "Quakestrider Ceratops",
   "Book of Rass",

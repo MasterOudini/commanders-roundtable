@@ -278,10 +278,12 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // ⚠️ This pinned exact ZEROES from M6.1 until M6.4c (D160), "because the
     // day one becomes non-zero is a day worth noticing" — `Ajani's Welcome`
     // was that day; `Captive Flame` (D166) and `Centaur Glade` (D167 — an
-    // activated token maker) followed. Planeswalkers (loyalty costs) and
-    // battles are still structurally out, and stay pinned at zero for the
-    // same reason the enchantments were.
-    expect(r.poolByType['enchantment'] ?? 0).toBe(3);
+    // activated token maker) followed, and D169's chooser+target batch more
+    // than doubled it (Aura Fracture, Barrage of Expendables, Blood Rites,
+    // Contemplation). Planeswalkers (loyalty costs) and battles are still
+    // structurally out, and stay pinned at zero for the same reason the
+    // enchantments were.
+    expect(r.poolByType['enchantment'] ?? 0).toBe(7);
     expect(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -410,12 +412,15 @@ const POOL: Record<string, number> = {
   // M6.4d (D161): +13 creatures.
   // M6.4k (D168): the sacrifice-cost chooser's proof cards — +1 creature
   // (Ahriman), +2 artifacts (Carnage Altar, Claws of Gix).
-  creature: 1259,
+  // M6.4l (D169): +18 creatures, +1 artifact — and the enchantment pin the
+  // D160 zero-pin comment said was worth noticing reads SEVEN now (Aura
+  // Fracture, Barrage of Expendables, Blood Rites, Contemplation joined).
+  creature: 1277,
   instant: 201,
   sorcery: 146,
   land: 225,
-  artifact: 47,
-  enchantment: 3,
+  artifact: 48,
+  enchantment: 7,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {
