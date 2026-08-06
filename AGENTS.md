@@ -4389,6 +4389,53 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       once-per-turn memory, per-damage-entry granularity (four entries,
       both sides), token entry choice and the spell seam stand.
 
+- [x] **M6.4q — The first zero-refusal sweep: all twenty-five landed
+      (2026-08-06):** **1,990 of 31,692 Commander-legal cards now execute
+      completely, up from 1,965.** `SHIPPED_SCRIPTS` 235 → 260. Decisions in
+      **D173**.
+      ⚠️ **A SWEEP, and the reason is the machinery**: eleven batches of
+      D161 parse filters and the 36-entry REFUSED ledger have drained the
+      un-landable shapes from the offer stream. Four cards carried
+      engine-fact RISK at classification; all four facts were CHECKED
+      before a line was written, and held.
+      **Five firsts:** `Edgewall Innkeeper` filters casts on the printing's
+      LAYOUT (`adventure`, cast face Creature — a real Tuinvale Treefolk
+      cast in the test); `Eidolon of Inspiration` is the first
+      beginning-of-combat targeted trigger (`StepBegan`/'beginCombat' +
+      active-player filter; the Eidolon self-targets so CR 603.3d never
+      removes it); `Elemental Bond` is the first power-threshold entry
+      watcher (derived power ≥3, TWO defs per Soul Warden's token rule);
+      `Emmara, Soul of the Accord` is the first becomes-tapped SELF watcher
+      (`PermanentsTapped` covers every tap path, so one filter is the whole
+      condition); `Emrakul's Influence` filters casts on MANA VALUE (D139's
+      number) + Eldrazi + Creature.
+      **Twenty twins**, including `Elvish Lyrist` on Druid Lyrist's exact
+      text (Benalish precedent), `Elite Headhunter`'s hybrid
+      another-or-artifact chooser that can never eat itself, and
+      `Errant Doomsayers` reading TOUGHNESS where Ephara's Warden reads
+      power. ⚠️ **FOUR enchantments in one batch — the pool reads
+      SEVENTEEN**; **Emmara is the 51st fully-executable legendary**;
+      Emrakul's Influence joined the bot's deck.
+      Fixtures 410 → 440 (48 tokens: Goblin `tecl 6`, lifelink Soldier
+      `tmom 2`, Eldrazi Horror `temn 1`, Gnome `tlci 16`) · ladder [1003,
+      1102, 3055, 4939, 6126] · `batch.json` at 884 (exact — nothing
+      refused).
+      ⚠️ **The first full-gate run failed on the LAYER-6 CANARY rotting on
+      schedule** — Levitation + Gravity Sphere at one copy each, diluted
+      below one appearance in 60 seeds by four batches of DECK growth.
+      Re-weighted to FIVE each (D149's fix, third instance of the class);
+      the gate relaunched from the top.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      330 test files, 2,638 Vitest passed / 10 skipped · the 500-seed gate
+      green at 1,396.4 s (260 scripts, 404 s inside the 1,800 s ceiling) ·
+      build clean · probe 124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D173): the fuzz ceiling's headroom shrinks on
+      schedule — self-only def dispatch (D169) is due before the trend
+      closes it; the answer-mode arrow and ability rows owe a battery
+      click-check; the cost-chooser classes, `ctx.random`, once-per-turn
+      memory, per-damage-entry granularity, token entry choice and the
+      spell seam stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

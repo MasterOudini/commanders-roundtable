@@ -12750,6 +12750,905 @@ export const EARTHBLIGHTER: CardData = {
   "singleImage": true
 };
 
+export const EDGEWALL_INNKEEPER: CardData = {
+  "scryfallId": "7c5d0560-f9e6-4c70-8cce-cae61e4e74bc",
+  "oracleId": "e3d7cea4-0d4c-4320-966d-17ef69b5e433",
+  "name": "Edgewall Innkeeper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Edgewall Innkeeper",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Human Peasant",
+      "oracleText": "Whenever you cast a creature spell that has an Adventure, draw a card. (It doesn't need to have gone on the adventure first.)",
+      "flavorText": "\"Warmth. Safety. A fully-stocked larder. You'll find nothing like Edgewall Keep in the wilds, I promise you that!\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Matt Stewart",
+      "imageId": "7c5d0560-f9e6-4c70-8cce-cae61e4e74bc"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "eld",
+  "collectorNumber": "151",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EFFICIENT_CONSTRUCTION: CardData = {
+  "scryfallId": "abfbe1d5-beb7-49b8-a504-f1cc47ee4731",
+  "oracleId": "5af48f87-7b94-44de-90e3-91f10ced00d3",
+  "name": "Efficient Construction",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Efficient Construction",
+      "manaCost": "{3}{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever you cast an artifact spell, create a 1/1 colorless Thopter artifact creature token with flying.",
+      "flavorText": "For some of Ghirapur's aerowrights, building thopters is a byproduct of larger construction efforts.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jonas De Ro",
+      "imageId": "abfbe1d5-beb7-49b8-a504-f1cc47ee4731"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "aer",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EIDOLON_OF_INSPIRATION: CardData = {
+  "scryfallId": "53343a0c-d97c-4d6f-b696-5343a962e3dd",
+  "oracleId": "ad70144e-16e4-4604-9e6d-cb287f67ddb5",
+  "name": "Eidolon of Inspiration",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Eidolon of Inspiration",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Enchantment Creature — Spirit",
+      "oracleText": "At the beginning of combat on your turn, target creature you control gets +2/+0 until end of turn.",
+      "flavorText": "\"Agios was felled by a minotaur's blade, but I swear I have seen him since—in the midst of battle, wherever help is needed most.\"\n—Phrokos, soldier of Akros",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Bram Sels",
+      "imageId": "53343a0c-d97c-4d6f-b696-5343a962e3dd"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "thb",
+  "collectorNumber": "271",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EIDOLON_OF_PHILOSOPHY: CardData = {
+  "scryfallId": "d2897635-b387-485d-932f-5655244a381f",
+  "oracleId": "65acea17-c900-4574-b22f-910285552aa2",
+  "name": "Eidolon of Philosophy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Eidolon of Philosophy",
+      "manaCost": "{U}",
+      "typeLine": "Enchantment Creature — Spirit",
+      "oracleText": "{6}{U}, Sacrifice this creature: Draw three cards.",
+      "flavorText": "\"And what did Erekastos teach us is the nature of the soul?\"",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Adam Paquette",
+      "imageId": "d2897635-b387-485d-932f-5655244a381f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "thb",
+  "collectorNumber": "48",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELDER_AUNTIE: CardData = {
+  "scryfallId": "84678e98-2258-4ea1-aaf0-8ac4cc2ecf8d",
+  "oracleId": "079f0d7f-57a5-4101-a9e3-c5a57148b3fb",
+  "name": "Elder Auntie",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elder Auntie",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Goblin Warlock",
+      "oracleText": "When this creature enters, create a 1/1 black and red Goblin creature token.",
+      "flavorText": "\"Did nephew spit up again? Oh, good! Auntie needed to make a new batch of potions for the merrow market.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Caio Monteiro",
+      "imageId": "84678e98-2258-4ea1-aaf0-8ac4cc2ecf8d"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ecl",
+  "collectorNumber": "133",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELDERLEAF_MENTOR: CardData = {
+  "scryfallId": "5e8bded3-46c3-474f-9d09-978df8705ad1",
+  "oracleId": "3795fc31-2369-47d0-b9c9-120f44b8f114",
+  "name": "Elderleaf Mentor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elderleaf Mentor",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Elf Warrior",
+      "oracleText": "When this creature enters, create a 1/1 green Elf Warrior creature token.",
+      "flavorText": "\"Our ancestors grew complacent in their divinity, allowing their lessers to topple them. Never again.\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "5e8bded3-46c3-474f-9d09-978df8705ad1"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "khm",
+  "collectorNumber": "165",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELEMENTAL_BOND: CardData = {
+  "scryfallId": "516ebdba-0f25-459a-a26b-f6fa928b96e6",
+  "oracleId": "d9a7e5a6-3e41-4fc6-987a-18fe1b9d67dd",
+  "name": "Elemental Bond",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elemental Bond",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever a creature you control with power 3 or greater enters, draw a card.",
+      "flavorText": "\"I want to help Zendikar. Show me the way.\"\n—Nissa Revane",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "David Gaillet",
+      "imageId": "516ebdba-0f25-459a-a26b-f6fa928b96e6"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "c19",
+  "collectorNumber": "163",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELF_REPLICA: CardData = {
+  "scryfallId": "b92cce55-22ee-40a7-bb94-4889093f142c",
+  "oracleId": "2dda5011-aaa1-48d0-afa8-76998278ab75",
+  "name": "Elf Replica",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elf Replica",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Elf",
+      "oracleText": "{1}{G}, Sacrifice this creature: Destroy target enchantment.",
+      "flavorText": "It hunts with unnerving ferocity.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Carl Critchlow",
+      "imageId": "b92cce55-22ee-40a7-bb94-4889093f142c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mrd",
+  "collectorNumber": "167",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELGAUD_INQUISITOR: CardData = {
+  "scryfallId": "c342e1da-7ab9-4e29-96e6-77d820a45ede",
+  "oracleId": "e84164cf-c3bf-45ae-9a0a-9dfeacd36768",
+  "name": "Elgaud Inquisitor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elgaud Inquisitor",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "Lifelink (Damage dealt by this creature also causes you to gain that much life.)\nWhen this creature dies, create a 1/1 white Spirit creature token with flying.",
+      "flavorText": "\"It will take more than steel alone to purge this world of evil.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "c342e1da-7ab9-4e29-96e6-77d820a45ede"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Lifelink"
+  ],
+  "setCode": "dka",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELITE_ARRESTER: CardData = {
+  "scryfallId": "070f0a21-8e06-46ec-9d84-c65067b23893",
+  "oracleId": "f25af8de-3edb-400b-9b6c-ec446a8314fa",
+  "name": "Elite Arrester",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elite Arrester",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{1}{U}, {T}: Tap target creature.",
+      "flavorText": "\"Hold it! I need to see your papers.\"",
+      "power": "0",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Randy Vargas",
+      "imageId": "070f0a21-8e06-46ec-9d84-c65067b23893"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "rna",
+  "collectorNumber": "266",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELITE_HEADHUNTER: CardData = {
+  "scryfallId": "aa9d0279-4fe0-4228-a82f-bc3cd91500df",
+  "oracleId": "fad0118b-d046-4ee7-87d9-e6799f70a7a8",
+  "name": "Elite Headhunter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elite Headhunter",
+      "manaCost": "{B/R}{B/R}{B/R}{B/R}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\n{B/R}{B/R}{B/R}, Sacrifice another creature or an artifact: This creature deals 2 damage to target creature or planeswalker.",
+      "flavorText": "Nothing remains of his foes but the gripping story of their downfall.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Daarken",
+      "imageId": "aa9d0279-4fe0-4228-a82f-bc3cd91500df"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Menace"
+  ],
+  "setCode": "eld",
+  "collectorNumber": "209",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELTURGARD_RANGER: CardData = {
+  "scryfallId": "f6898737-957f-44a6-bef7-fb196658176f",
+  "oracleId": "27083627-a5d0-4fc6-9e66-fa44803ef080",
+  "name": "Elturgard Ranger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elturgard Ranger",
+      "manaCost": "{4}{G}",
+      "typeLine": "Creature — Human Elf Ranger",
+      "oracleText": "Reach\nWhen this creature enters, create a 2/2 green Wolf creature token.",
+      "flavorText": "Since the fall of Elturel, they've walked the Sword Coast from Tethyr to Icewind Dale, eyes always on their prey.",
+      "power": "4",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Francisco Miyara",
+      "imageId": "f6898737-957f-44a6-bef7-fb196658176f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Reach"
+  ],
+  "setCode": "afr",
+  "collectorNumber": "182",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELVEN_LYRE: CardData = {
+  "scryfallId": "2ed92578-7e25-4079-aa29-f269606f149c",
+  "oracleId": "7601378d-42cb-4351-8316-8f78a3b49a85",
+  "name": "Elven Lyre",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elven Lyre",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "{1}, {T}, Sacrifice this artifact: Target creature gets +2/+2 until end of turn.",
+      "flavorText": "Scholars are uncertain whether it was the actual sound or some other magical property of the elven lyre that transformed its player.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Kaja Foglio",
+      "imageId": "2ed92578-7e25-4079-aa29-f269606f149c"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "me2",
+  "collectorNumber": "208",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELVISH_HEXHUNTER: CardData = {
+  "scryfallId": "c2b7f4d7-278b-45fc-98aa-b7c8b9162bcd",
+  "oracleId": "f8f450c1-f405-4ccc-aef3-f0186d1f5056",
+  "name": "Elvish Hexhunter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elvish Hexhunter",
+      "manaCost": "{G/W}",
+      "typeLine": "Creature — Elf Shaman",
+      "oracleText": "{G/W}, {T}, Sacrifice this creature: Destroy target enchantment.",
+      "flavorText": "\"All manner of curses, blights, and luckspoils infect Shadowmoor. We stalk them all, one perilous quest at a time.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Alex Horley-Orlandelli",
+      "imageId": "c2b7f4d7-278b-45fc-98aa-b7c8b9162bcd"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "shm",
+  "collectorNumber": "226",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELVISH_LYRIST: CardData = {
+  "scryfallId": "1c63ea60-4ce0-4dc7-bda6-7f623b0f9e2a",
+  "oracleId": "e0de1c9b-f71f-4498-a968-d3c635cb4c5c",
+  "name": "Elvish Lyrist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elvish Lyrist",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Elf",
+      "oracleText": "{G}, {T}, Sacrifice this creature: Destroy target enchantment.",
+      "flavorText": "Bring the spear of ancient briar;\nBring the torch to light the pyre.\nBring the one who trod our ground;\nBring the spade to dig his mound.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "1c63ea60-4ce0-4dc7-bda6-7f623b0f9e2a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "usg",
+  "collectorNumber": "248",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELVISH_SCRAPPER: CardData = {
+  "scryfallId": "47ebab87-fd0c-43d0-bde1-e36065d764dd",
+  "oracleId": "81b2242b-40c9-475a-a198-28dd348235ec",
+  "name": "Elvish Scrapper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elvish Scrapper",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Elf",
+      "oracleText": "{G}, {T}, Sacrifice this creature: Destroy target artifact.",
+      "flavorText": "\"The stories tell of a distant time when machines overran the forests, destroying everything that lived. That time will not come again.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "47ebab87-fd0c-43d0-bde1-e36065d764dd"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "245",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELVISH_VISIONARY: CardData = {
+  "scryfallId": "186212d3-4b41-42a2-b2ee-81e035e22408",
+  "oracleId": "c6a3a882-a127-4590-93d7-679ef4313efe",
+  "name": "Elvish Visionary",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elvish Visionary",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Elf Shaman",
+      "oracleText": "When this creature enters, draw a card.",
+      "flavorText": "\"From a tiny sprout, the greatest trees grow and flourish. May the seeds of your mind be equally fruitful.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "D. Alexander Gregory",
+      "imageId": "186212d3-4b41-42a2-b2ee-81e035e22408"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "BBD-196",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EMMARA_SOUL_OF_THE_ACCORD: CardData = {
+  "scryfallId": "07c42262-6291-43df-ba34-83e462ab56b6",
+  "oracleId": "c65ba242-3369-48a9-864f-1b1f85238f67",
+  "name": "Emmara, Soul of the Accord",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Emmara, Soul of the Accord",
+      "manaCost": "{G}{W}",
+      "typeLine": "Legendary Creature — Elf Cleric",
+      "oracleText": "Whenever Emmara becomes tapped, create a 1/1 white Soldier creature token with lifelink.",
+      "flavorText": "\"Whatever hatred destroys, a single act of trust can revive.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Mark Winters",
+      "imageId": "07c42262-6291-43df-ba34-83e462ab56b6"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "GRN-168",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EMRAKUL_S_INFLUENCE: CardData = {
+  "scryfallId": "112476e7-72ab-4ebc-9e6e-e96fbf5109c0",
+  "oracleId": "92eb07ca-ec57-48c3-98ce-9e878bd968c1",
+  "name": "Emrakul's Influence",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Emrakul's Influence",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever you cast an Eldrazi creature spell with mana value 7 or greater, draw two cards.",
+      "flavorText": "Hordes of Eldrazi and cultists swarmed over Thraben's defenses, and the members of the Gatewatch found themselves overrun.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ryan Alexander Lee",
+      "imageId": "112476e7-72ab-4ebc-9e6e-e96fbf5109c0"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "emn",
+  "collectorNumber": "157",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ENATU_GOLEM: CardData = {
+  "scryfallId": "74b2e63d-61c6-46e4-9a6f-56653c49b2ea",
+  "oracleId": "1cb3f27c-2670-43b8-9305-8adf2e7bd3ae",
+  "name": "Enatu Golem",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Enatu Golem",
+      "manaCost": "{6}",
+      "typeLine": "Artifact Creature — Golem",
+      "oracleText": "When this creature dies, you gain 4 life.",
+      "flavorText": "Golems conjured from the debris of Enatu Temple provided a sturdy but expendable first line of defense against the Eldrazi.",
+      "power": "3",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "74b2e63d-61c6-46e4-9a6f-56653c49b2ea"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "roe",
+  "collectorNumber": "217",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ENCHANTRESS_S_PRESENCE: CardData = {
+  "scryfallId": "3f50538b-f866-4e75-8856-2ad8af635011",
+  "oracleId": "795b096a-2bce-4588-a2c9-abc5ea40dc0c",
+  "name": "Enchantress's Presence",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Enchantress's Presence",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever you cast an enchantment spell, draw a card.",
+      "flavorText": "\"The wise learn from successes as well as mistakes.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "3f50538b-f866-4e75-8856-2ad8af635011"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "cmm",
+  "collectorNumber": "893",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ENLIGHTENED_MANIAC: CardData = {
+  "scryfallId": "7f186ffa-b914-45cc-bf25-1306842a2ad5",
+  "oracleId": "4310524d-dc0e-48ad-ae66-4c64aaa39340",
+  "name": "Enlightened Maniac",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Enlightened Maniac",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Human",
+      "oracleText": "When this creature enters, create a 3/2 colorless Eldrazi Horror creature token.",
+      "flavorText": "\"At last! Proof that it's not all in my head!\"",
+      "power": "0",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jaime Jones",
+      "imageId": "7f186ffa-b914-45cc-bf25-1306842a2ad5"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "EMN-58",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ENVOY_OF_OKINEC_AHAU: CardData = {
+  "scryfallId": "96de0741-9270-4118-bb8e-f3480c75a582",
+  "oracleId": "ebc70734-bf1a-4754-8094-bcbb4db91f30",
+  "name": "Envoy of Okinec Ahau",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Envoy of Okinec Ahau",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Cat Advisor",
+      "oracleText": "{4}{W}: Create a 1/1 colorless Gnome artifact creature token.",
+      "flavorText": "Though wary of each other at first, the Malamet and the Oltec found a common enemy in the mycoids. They began to share glyph knowledge and other crafting secrets.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "96de0741-9270-4118-bb8e-f3480c75a582"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "lci",
+  "collectorNumber": "11",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EPHARA_S_WARDEN: CardData = {
+  "scryfallId": "71f7f788-2795-46a7-82ae-270f1e9415ca",
+  "oracleId": "805d1f48-dd91-4034-b42c-3f1f1cb75cc9",
+  "name": "Ephara's Warden",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ephara's Warden",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{T}: Tap target creature with power 3 or less.",
+      "flavorText": "\"When you threaten the sanctity of the polis, you insult Ephara herself. If she doesn't smite you, I will.\"",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "71f7f788-2795-46a7-82ae-270f1e9415ca"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ths",
+  "collectorNumber": "10",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ERRANT_DOOMSAYERS: CardData = {
+  "scryfallId": "0eb5c6e6-7251-4b80-9561-742442d8a497",
+  "oracleId": "82d4d70b-afb9-4ae7-8f30-16bc64dccf3e",
+  "name": "Errant Doomsayers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Errant Doomsayers",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Rebel",
+      "oracleText": "{T}: Tap target creature with toughness 2 or less.",
+      "flavorText": "\"Heed my words, traveler. Plagues, war, desolation . . . all mere hints of what is yet to come from Dominaria's vault of horrors.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Liz Danforth",
+      "imageId": "0eb5c6e6-7251-4b80-9561-742442d8a497"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tsr",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TUINVALE_TREEFOLK_OAKEN_BOON: CardData = {
+  "scryfallId": "7b7c91e7-b0c6-47e1-9c92-c5e9faace876",
+  "oracleId": "09193c40-538c-4154-a671-076eece35e54",
+  "name": "Tuinvale Treefolk // Oaken Boon",
+  "layout": "adventure",
+  "faces": [
+    {
+      "name": "Tuinvale Treefolk",
+      "manaCost": "{5}{G}",
+      "typeLine": "Creature — Treefolk Druid",
+      "oracleText": "",
+      "flavorText": "\"Right now you are a feeble stick, but I will help you grow some rings.\"",
+      "power": "6",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "James Arnold",
+      "imageId": "7b7c91e7-b0c6-47e1-9c92-c5e9faace876"
+    },
+    {
+      "name": "Oaken Boon",
+      "manaCost": "{3}{G}",
+      "typeLine": "Sorcery — Adventure",
+      "oracleText": "Put two +1/+1 counters on target creature. (Then exile this card. You may cast the creature later from exile.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "James Arnold",
+      "imageId": "7b7c91e7-b0c6-47e1-9c92-c5e9faace876"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "eld",
+  "collectorNumber": "301",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -13118,6 +14017,135 @@ export const THOPTER_TOKEN: CardData = {
   ],
   "setCode": "tafc",
   "collectorNumber": "12",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const GOBLIN_BR_TOKEN: CardData = {
+  "scryfallId": "6139a45d-ebc7-4bca-8c13-73c85ea5fe0d",
+  "oracleId": "3914728b-8a25-4af0-b569-5f177f77290e",
+  "name": "Goblin",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Goblin",
+      "manaCost": "",
+      "typeLine": "Token Creature — Goblin",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Larry MacDougall",
+      "imageId": "6139a45d-ebc7-4bca-8c13-73c85ea5fe0d"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tecl",
+  "collectorNumber": "6",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const SOLDIER_LIFELINK_TOKEN: CardData = {
+  "scryfallId": "1774c68a-3d76-4fe1-b741-e6acf6b9214c",
+  "oracleId": "a5ab7f2d-a434-4342-a178-754bdd0181b6",
+  "name": "Soldier",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Soldier",
+      "manaCost": "",
+      "typeLine": "Token Creature — Soldier",
+      "oracleText": "Lifelink",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Arash Radkia",
+      "imageId": "1774c68a-3d76-4fe1-b741-e6acf6b9214c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Lifelink"
+  ],
+  "setCode": "tmom",
+  "collectorNumber": "2",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const ELDRAZI_HORROR_TOKEN: CardData = {
+  "scryfallId": "11d25bde-a303-4b06-a3e1-4ad642deae58",
+  "oracleId": "294116b1-58c6-40bb-8997-0deda327c522",
+  "name": "Eldrazi Horror",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Eldrazi Horror",
+      "manaCost": "",
+      "typeLine": "Token Creature — Eldrazi Horror",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jason Felix",
+      "imageId": "11d25bde-a303-4b06-a3e1-4ad642deae58"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "temn",
+  "collectorNumber": "1",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const GNOME_TOKEN: CardData = {
+  "scryfallId": "6def709a-53b3-4520-9544-74ab6472d256",
+  "oracleId": "142c04da-7739-4e43-954b-3cd9b462f6bb",
+  "name": "Gnome",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Gnome",
+      "manaCost": "",
+      "typeLine": "Token Artifact Creature — Gnome",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Racrufi",
+      "imageId": "6def709a-53b3-4520-9544-74ab6472d256"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tlci",
+  "collectorNumber": "16",
   "commanderLegality": "not_legal",
   "singleImage": true
 };
@@ -14602,6 +15630,32 @@ export const ENGINE_CARDS: CardData[] = [
   DWARVEN_MINE,
   EAGER_TRUFFLESNOUT,
   EARTHBLIGHTER,
+  EDGEWALL_INNKEEPER,
+  EFFICIENT_CONSTRUCTION,
+  EIDOLON_OF_INSPIRATION,
+  EIDOLON_OF_PHILOSOPHY,
+  ELDER_AUNTIE,
+  ELDERLEAF_MENTOR,
+  ELEMENTAL_BOND,
+  ELF_REPLICA,
+  ELGAUD_INQUISITOR,
+  ELITE_ARRESTER,
+  ELITE_HEADHUNTER,
+  ELTURGARD_RANGER,
+  ELVEN_LYRE,
+  ELVISH_HEXHUNTER,
+  ELVISH_LYRIST,
+  ELVISH_SCRAPPER,
+  ELVISH_VISIONARY,
+  EMMARA_SOUL_OF_THE_ACCORD,
+  EMRAKUL_S_INFLUENCE,
+  ENATU_GOLEM,
+  ENCHANTRESS_S_PRESENCE,
+  ENLIGHTENED_MANIAC,
+  ENVOY_OF_OKINEC_AHAU,
+  EPHARA_S_WARDEN,
+  ERRANT_DOOMSAYERS,
+  TUINVALE_TREEFOLK_OAKEN_BOON,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -14613,6 +15667,10 @@ export const ENGINE_CARDS: CardData[] = [
   SPIDER_TOKEN,
   WURM_TOKEN,
   THOPTER_TOKEN,
+  GOBLIN_BR_TOKEN,
+  SOLDIER_LIFELINK_TOKEN,
+  ELDRAZI_HORROR_TOKEN,
+  GNOME_TOKEN,
   SPIRIT_TOKEN,
   DRAGON_5_5_TOKEN,
   HERO_TOKEN,

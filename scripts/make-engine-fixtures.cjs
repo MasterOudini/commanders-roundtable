@@ -673,6 +673,34 @@ const WANTED = [
   'Dwarven Mine',
   'Eager Trufflesnout',
   'Earthblighter',
+  // Batch 15 (D173).
+  'Edgewall Innkeeper',
+  'Efficient Construction',
+  'Eidolon of Inspiration',
+  'Eidolon of Philosophy',
+  'Elder Auntie',
+  'Elderleaf Mentor',
+  'Elemental Bond',
+  'Elf Replica',
+  'Elgaud Inquisitor',
+  'Elite Arrester',
+  'Elite Headhunter',
+  'Elturgard Ranger',
+  'Elven Lyre',
+  'Elvish Hexhunter',
+  'Elvish Lyrist',
+  'Elvish Scrapper',
+  'Elvish Visionary',
+  'Emmara, Soul of the Accord',
+  "Emrakul's Influence",
+  'Enatu Golem',
+  "Enchantress's Presence",
+  'Enlightened Maniac',
+  'Envoy of Okinec Ahau',
+  "Ephara's Warden",
+  'Errant Doomsayers',
+  // Edgewall Innkeeper's test needs a real ADVENTURE creature to cast.
+  'Tuinvale Treefolk // Oaken Boon',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -700,6 +728,12 @@ const WANTED_TOKENS = [
   // M6.4e (D162).
   { name: 'Wurm', set: 'trtr', cn: '11', key: 'WURM_TOKEN' },
   { name: 'Thopter', set: 'tafc', cn: '12', key: 'THOPTER_TOKEN' },
+  // Batch 15 (D173). The lifelink Soldier gets a DISTINCT key — the plain
+  // Soldier (t40k 2★) is pinned above.
+  { name: 'Goblin', set: 'tecl', cn: '6', key: 'GOBLIN_BR_TOKEN' },
+  { name: 'Soldier', set: 'tmom', cn: '2', key: 'SOLDIER_LIFELINK_TOKEN' },
+  { name: 'Eldrazi Horror', set: 'temn', cn: '1', key: 'ELDRAZI_HORROR_TOKEN' },
+  { name: 'Gnome', set: 'tlci', cn: '16', key: 'GNOME_TOKEN' },
   // Batch 14 (D172). Dragon 5/5 and Spider 2/1 get DISTINCT keys — a 4/4
   // Dragon (tmm3 7) and a 1/2 Spider (tmh1 14) are already pinned above.
   { name: 'Spirit', set: 'tmm2', cn: '5', key: 'SPIRIT_TOKEN' },

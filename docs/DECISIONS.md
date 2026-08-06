@@ -11709,3 +11709,96 @@ tap-creatures/permanents, exile-from-graveyard, remove-counter),
 `ctx.random`, once-per-turn memory, per-damage-entry granularity (now
 FOUR ledger entries across both sides), the token-entry-choice class and
 the spell seam stand.
+
+## D173 — M6.4q: the first zero-refusal sweep — all twenty-five landed (2026-08-06)
+
+**What was decided:** batch 15 of the M6.4 loop lands **ALL 25 of its
+cards — the arc's first zero-refusal batch** — and **1,990 of 31,692
+Commander-legal cards now execute completely, up from 1,965.**
+`SHIPPED_SCRIPTS` 235 → 260.
+
+**Why a sweep happened, said honestly:** the D161 parse filters and the
+36-entry REFUSED ledger have been draining un-landable shapes out of the
+offer stream for eleven batches, and the E-alphabet run happened to hold
+none of the surviving cost-chooser classes. Four cards carried
+engine-fact RISK at classification and all four facts held when checked
+before a line was written — the checks are the point, not the luck.
+
+**Five firsts:**
+
+- **The adventure-layout cast filter** (`Edgewall Innkeeper`): "a creature
+  spell that has an Adventure" is a fact about the PRINTING, so the filter
+  asks the oracle for `layout === 'adventure'` and the cast face for
+  Creature. The test casts a real adventure creature (`Tuinvale Treefolk`,
+  a fixture since this batch) and pins that a plain creature pays nothing.
+- **The beginning-of-combat targeted trigger** (`Eidolon of
+  Inspiration`): Celestial Force's `StepBegan` one step later
+  (`beginCombat`), the "on your turn" filter on the ACTIVE player, and
+  D147's targeted-trigger machinery asking for the aim — the Eidolon
+  itself is always a legal "creature you control", so CR 603.3d never
+  removes it.
+- **The power-threshold entry watcher** (`Elemental Bond`): "power 3 or
+  greater" asked of the DERIVED entrant (CR 613 settles first), and one
+  printed line is TWO TriggerDefs because tokens enter via `TokenCreated`
+  (Soul Warden's rule) — the token half proven with a 5/5 Dragon made by
+  the Tier-3 tool.
+- **The becomes-tapped SELF watcher** (`Emmara, Soul of the Accord`):
+  `PermanentsTapped` is emitted by every tap path — attack declarations,
+  {T} costs, mana abilities, tap effects, the wrench — so
+  `ev.cards.includes(self)` is the whole printed condition. Tapping
+  someone else pays nothing; untapping her pays nothing.
+- **The mana-value cast filter** (`Emrakul's Influence`): subtype + type +
+  the printing's `manaValue` — the number `targets.ts` has read for stack
+  objects since D139 — drawing two off a cast `Desolation Twin`.
+
+**The twenty twins:** four cast-watchers (artifact → Thopter, enchantment
+→ draw on `Enchantress's Presence` — Argothian's filter on an enchantment
+BODY), five sacrifice-self destroys across every printed cost shape
+({G}, {1}{G} no-tap, {G/W} hybrid, and `Elvish Lyrist` carrying Druid
+Lyrist's EXACT text on a second oracle id), the hybrid-cost
+another-or-artifact chooser ping (`Elite Headhunter` — its own
+"another" negative pins that it can never eat itself), two
+numeric-restriction taps (power ≤3, TOUGHNESS ≤2 — D139's other
+attribute), a mana-and-tap tap, four ETB tokens on three new pins plus a
+dies-Spirit and a dies-gain, an ETB draw, a sacrifice-self pump, a
+sacrifice-self draw-three, and a repeatable Gnome faucet with D164's
+distinct-id teeth.
+
+**The numbers, every delta exactly the twenty-five cards:** primitives
+`complete` 1,965 → 1,990 · `blocked` 29,702 · `scriptableToday` 1,003 ·
+ladder [1003, 1102, 3055, 4939, 6126] · botPool creature 1,342, artifact
+55, and **FOUR enchantments in one batch — the pool reads SEVENTEEN**
+(Efficient Construction, Elemental Bond, Emrakul's Influence,
+Enchantress's Presence) · **Emmara is the 51st fully-executable
+legendary** and `Emrakul's Influence` joined the bot's deck · tier3
+`either` −25 exactly, `silentAfter` 2,376 → 2,401 (+25 exactly) ·
+fixtures 410 → 440 (48 tokens: Goblin `tecl 6`, lifelink Soldier
+`tmom 2`, Eldrazi Horror `temn 1`, Gnome `tlci 16` joined, plus Tuinvale
+Treefolk for the adventure cast) · `batch.json` at **884** (909 − 25 −
+0, exact).
+
+⚠️ **THE FIRST FULL-GATE RUN FAILED ON A RATE CANARY ROTTING ON
+SCHEDULE — the third instance of the class its own comments predict.**
+The layer-6 canary (`totals.layer6Sources > 0`, D129's proof that
+`applyStatics` has live work) read ZERO at the 60-seed leg inside the
+unit suite: `Levitation` and `Gravity Sphere` were dealt at ONE copy
+each, and four batches of DECK growth (+88 names since D164's
+re-weighting pass) diluted the pair below one appearance in 60 seeds.
+Same fix as D149's CR 616 pair: FIVE copies of each, the rot's cause
+written at the deal site. The 60-seed leg passed on the re-run and the
+full gate was relaunched from the top — a batch lands only on all five
+gates green in ONE invocation.
+
+**Verified (the relaunched run): `verify.cjs --full` — ALL FIVE GATES
+PASSED in one invocation** — 330 test files, 2,638 Vitest passed / 10
+skipped · the 500-seed replay fuzz gate green at 1,396.4 s (260 scripts
+registered, 404 s inside the 1,800 s ceiling) · build clean · probe
+124/124 · battery `bot engine prompts` 127/127.
+
+**Reportables:** the fuzz ceiling's headroom is shrinking on schedule —
+self-only def dispatch (named since D169) is due before the trend closes
+the remaining 404 s (~75 s of wall per 25-script batch says four to five
+batches); the answer-mode arrow and ability rows
+still owe a battery click-check; the cost-chooser classes, `ctx.random`,
+once-per-turn memory, per-damage-entry granularity, token entry choice
+and the spell seam stand.

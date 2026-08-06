@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). Planeswalkers (loyalty costs) and battles are still
     // structurally out, and stay pinned at zero for the same reason the
     // enchantments were.
-    expect(r.poolByType['enchantment'] ?? 0).toBe(13);
+    expect(r.poolByType['enchantment'] ?? 0).toBe(17);
     expect(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -415,14 +415,15 @@ const POOL: Record<string, number> = {
   // M6.4l (D169): +18 creatures, +1 artifact — and the enchantment pin the
   // D160 zero-pin comment said was worth noticing reads SEVEN now (Aura
   // Fracture, Barrage of Expendables, Blood Rites, Contemplation joined).
-  // M6.4p (D172): +13 creatures, +2 artifacts, +2 lands, and the THIRTEENTH
-  // enchantment (Dragon Roost).
-  creature: 1322,
+  // M6.4q (D173): +20 creatures, +1 artifact, and FOUR enchantments at once
+  // (Efficient Construction, Elemental Bond, Emrakul's Influence,
+  // Enchantress's Presence) — the pool reads SEVENTEEN.
+  creature: 1342,
   instant: 201,
   sorcery: 146,
   land: 229,
-  artifact: 54,
-  enchantment: 13,
+  artifact: 55,
+  enchantment: 17,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

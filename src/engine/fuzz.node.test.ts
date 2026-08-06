@@ -256,6 +256,31 @@ import { DWARVEN_CASTLE_GUARD_SCRIPT } from './scripts/cards/dwarvenCastleGuard'
 import { DWARVEN_MINE_SCRIPT } from './scripts/cards/dwarvenMine';
 import { EAGER_TRUFFLESNOUT_SCRIPT } from './scripts/cards/eagerTrufflesnout';
 import { EARTHBLIGHTER_SCRIPT } from './scripts/cards/earthblighter';
+import { EDGEWALL_INNKEEPER_SCRIPT } from './scripts/cards/edgewallInnkeeper';
+import { EFFICIENT_CONSTRUCTION_SCRIPT } from './scripts/cards/efficientConstruction';
+import { EIDOLON_OF_INSPIRATION_SCRIPT } from './scripts/cards/eidolonOfInspiration';
+import { EIDOLON_OF_PHILOSOPHY_SCRIPT } from './scripts/cards/eidolonOfPhilosophy';
+import { ELDER_AUNTIE_SCRIPT } from './scripts/cards/elderAuntie';
+import { ELDERLEAF_MENTOR_SCRIPT } from './scripts/cards/elderleafMentor';
+import { ELEMENTAL_BOND_SCRIPT } from './scripts/cards/elementalBond';
+import { ELF_REPLICA_SCRIPT } from './scripts/cards/elfReplica';
+import { ELGAUD_INQUISITOR_SCRIPT } from './scripts/cards/elgaudInquisitor';
+import { ELITE_ARRESTER_SCRIPT } from './scripts/cards/eliteArrester';
+import { ELITE_HEADHUNTER_SCRIPT } from './scripts/cards/eliteHeadhunter';
+import { ELTURGARD_RANGER_SCRIPT } from './scripts/cards/elturgardRanger';
+import { ELVEN_LYRE_SCRIPT } from './scripts/cards/elvenLyre';
+import { ELVISH_HEXHUNTER_SCRIPT } from './scripts/cards/elvishHexhunter';
+import { ELVISH_LYRIST_SCRIPT } from './scripts/cards/elvishLyrist';
+import { ELVISH_SCRAPPER_SCRIPT } from './scripts/cards/elvishScrapper';
+import { ELVISH_VISIONARY_SCRIPT } from './scripts/cards/elvishVisionary';
+import { EMMARA_SOUL_OF_THE_ACCORD_SCRIPT } from './scripts/cards/emmaraSoulOfTheAccord';
+import { EMRAKULS_INFLUENCE_SCRIPT } from './scripts/cards/emrakulsInfluence';
+import { ENATU_GOLEM_SCRIPT } from './scripts/cards/enatuGolem';
+import { ENCHANTRESSS_PRESENCE_SCRIPT } from './scripts/cards/enchantresssPresence';
+import { ENLIGHTENED_MANIAC_SCRIPT } from './scripts/cards/enlightenedManiac';
+import { ENVOY_OF_OKINEC_AHAU_SCRIPT } from './scripts/cards/envoyOfOkinecAhau';
+import { EPHARAS_WARDEN_SCRIPT } from './scripts/cards/epharasWarden';
+import { ERRANT_DOOMSAYERS_SCRIPT } from './scripts/cards/errantDoomsayers';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -338,7 +363,13 @@ const DECK = [
   // ⚠️ `Gravity Sphere` is a WORLD enchantment and this engine has no world rule
   // (CR 704.5m), so four seats can hold four of them here where a real table
   // could not. Inert: nothing in the engine reads the supertype. Test-only.
-  'Levitation', 'Gravity Sphere',
+  // ⚠️ FIVE COPIES EACH (D173): one of each was enough until four batches of
+  // DECK growth diluted the pair below one appearance in 60 seeds and the
+  // layer-6 canary read 0 — D149's CR 616 weighting, third instance of the
+  // rot its own comment predicts.
+  'Levitation', 'Levitation', 'Levitation', 'Levitation', 'Levitation',
+  'Gravity Sphere', 'Gravity Sphere', 'Gravity Sphere', 'Gravity Sphere',
+  'Gravity Sphere',
   // M6.3c/D130 — the counter EFFECT, on both sides of the boundary.
   // `Battlegrowth` and `Scar` are SPELLS that now resolve by themselves, so the
   // gate reaches `effectEvents` emitting `CountersChanged` for the first time;
@@ -545,6 +576,18 @@ const DECK = [
   'Druid Lyrist', 'Druid of Horns', 'Dunes of the Dead',
   'Dwarven Castle Guard', 'Dwarven Mine', 'Eager Trufflesnout',
   'Earthblighter',
+  // M6.4q/D173 — batch 15, the zero-refusal sweep. Tuinvale Treefolk joins
+  // so Edgewall Innkeeper's adventure filter has a real cast to catch;
+  // Desolation Twin (already dealt) feeds Emrakul's Influence.
+  'Tuinvale Treefolk // Oaken Boon',
+  'Edgewall Innkeeper', 'Efficient Construction', 'Eidolon of Inspiration',
+  'Eidolon of Philosophy', 'Elder Auntie', 'Elderleaf Mentor',
+  'Elemental Bond', 'Elf Replica', 'Elgaud Inquisitor', 'Elite Arrester',
+  'Elite Headhunter', 'Elturgard Ranger', 'Elven Lyre', 'Elvish Hexhunter',
+  'Elvish Lyrist', 'Elvish Scrapper', 'Elvish Visionary',
+  'Emmara, Soul of the Accord', "Emrakul's Influence", 'Enatu Golem',
+  "Enchantress's Presence", 'Enlightened Maniac', 'Envoy of Okinec Ahau',
+  "Ephara's Warden", 'Errant Doomsayers',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -824,6 +867,31 @@ const SCRIPTS = createRegistry([
   DWARVEN_MINE_SCRIPT,
   EAGER_TRUFFLESNOUT_SCRIPT,
   EARTHBLIGHTER_SCRIPT,
+  EDGEWALL_INNKEEPER_SCRIPT,
+  EFFICIENT_CONSTRUCTION_SCRIPT,
+  EIDOLON_OF_INSPIRATION_SCRIPT,
+  EIDOLON_OF_PHILOSOPHY_SCRIPT,
+  ELDER_AUNTIE_SCRIPT,
+  ELDERLEAF_MENTOR_SCRIPT,
+  ELEMENTAL_BOND_SCRIPT,
+  ELF_REPLICA_SCRIPT,
+  ELGAUD_INQUISITOR_SCRIPT,
+  ELITE_ARRESTER_SCRIPT,
+  ELITE_HEADHUNTER_SCRIPT,
+  ELTURGARD_RANGER_SCRIPT,
+  ELVEN_LYRE_SCRIPT,
+  ELVISH_HEXHUNTER_SCRIPT,
+  ELVISH_LYRIST_SCRIPT,
+  ELVISH_SCRAPPER_SCRIPT,
+  ELVISH_VISIONARY_SCRIPT,
+  EMMARA_SOUL_OF_THE_ACCORD_SCRIPT,
+  EMRAKULS_INFLUENCE_SCRIPT,
+  ENATU_GOLEM_SCRIPT,
+  ENCHANTRESSS_PRESENCE_SCRIPT,
+  ENLIGHTENED_MANIAC_SCRIPT,
+  ENVOY_OF_OKINEC_AHAU_SCRIPT,
+  EPHARAS_WARDEN_SCRIPT,
+  ERRANT_DOOMSAYERS_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

@@ -120,10 +120,11 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // refusals (two sacrifice-choosers, one NEW remove-counter cost class).
     // M6.4i (D166) landed twenty-one of 25 — four refusals, one NEW class
     // (exile-SELF cost, named cheap: sacrificesSelf one event over).
-    // M6.4p (D172) landed eighteen of 25 — the first LifeChanged consumer,
-    // the first cast-watcher reading the spell's chosen targets, and the
-    // first enters-UNTAPPED filter.
-    expect(SHIPPED_SCRIPTS).toHaveLength(235);
+    // M6.4q (D173) landed ALL 25 — the arc's first zero-refusal sweep: the
+    // adventure-layout cast filter, the beginning-of-combat targeted
+    // trigger, the power-threshold entry watcher, the becomes-tapped SELF
+    // watcher, and the mana-value cast filter.
+    expect(SHIPPED_SCRIPTS).toHaveLength(260);
   });
 });
 

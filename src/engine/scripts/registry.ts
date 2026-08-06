@@ -7,6 +7,31 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { EDGEWALL_INNKEEPER_SCRIPT } from './cards/edgewallInnkeeper';
+import { EFFICIENT_CONSTRUCTION_SCRIPT } from './cards/efficientConstruction';
+import { EIDOLON_OF_INSPIRATION_SCRIPT } from './cards/eidolonOfInspiration';
+import { EIDOLON_OF_PHILOSOPHY_SCRIPT } from './cards/eidolonOfPhilosophy';
+import { ELDER_AUNTIE_SCRIPT } from './cards/elderAuntie';
+import { ELDERLEAF_MENTOR_SCRIPT } from './cards/elderleafMentor';
+import { ELEMENTAL_BOND_SCRIPT } from './cards/elementalBond';
+import { ELF_REPLICA_SCRIPT } from './cards/elfReplica';
+import { ELGAUD_INQUISITOR_SCRIPT } from './cards/elgaudInquisitor';
+import { ELITE_ARRESTER_SCRIPT } from './cards/eliteArrester';
+import { ELITE_HEADHUNTER_SCRIPT } from './cards/eliteHeadhunter';
+import { ELTURGARD_RANGER_SCRIPT } from './cards/elturgardRanger';
+import { ELVEN_LYRE_SCRIPT } from './cards/elvenLyre';
+import { ELVISH_HEXHUNTER_SCRIPT } from './cards/elvishHexhunter';
+import { ELVISH_LYRIST_SCRIPT } from './cards/elvishLyrist';
+import { ELVISH_SCRAPPER_SCRIPT } from './cards/elvishScrapper';
+import { ELVISH_VISIONARY_SCRIPT } from './cards/elvishVisionary';
+import { EMMARA_SOUL_OF_THE_ACCORD_SCRIPT } from './cards/emmaraSoulOfTheAccord';
+import { EMRAKULS_INFLUENCE_SCRIPT } from './cards/emrakulsInfluence';
+import { ENATU_GOLEM_SCRIPT } from './cards/enatuGolem';
+import { ENCHANTRESSS_PRESENCE_SCRIPT } from './cards/enchantresssPresence';
+import { ENLIGHTENED_MANIAC_SCRIPT } from './cards/enlightenedManiac';
+import { ENVOY_OF_OKINEC_AHAU_SCRIPT } from './cards/envoyOfOkinecAhau';
+import { EPHARAS_WARDEN_SCRIPT } from './cards/epharasWarden';
+import { ERRANT_DOOMSAYERS_SCRIPT } from './cards/errantDoomsayers';
 import { DOOMED_TRAVELER_SCRIPT } from './cards/doomedTraveler';
 import { DRACONIC_DISCIPLE_SCRIPT } from './cards/draconicDisciple';
 import { DRAGON_BLOOD_SCRIPT } from './cards/dragonBlood';
@@ -336,6 +361,31 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  EDGEWALL_INNKEEPER_SCRIPT,
+  EFFICIENT_CONSTRUCTION_SCRIPT,
+  EIDOLON_OF_INSPIRATION_SCRIPT,
+  EIDOLON_OF_PHILOSOPHY_SCRIPT,
+  ELDER_AUNTIE_SCRIPT,
+  ELDERLEAF_MENTOR_SCRIPT,
+  ELEMENTAL_BOND_SCRIPT,
+  ELF_REPLICA_SCRIPT,
+  ELGAUD_INQUISITOR_SCRIPT,
+  ELITE_ARRESTER_SCRIPT,
+  ELITE_HEADHUNTER_SCRIPT,
+  ELTURGARD_RANGER_SCRIPT,
+  ELVEN_LYRE_SCRIPT,
+  ELVISH_HEXHUNTER_SCRIPT,
+  ELVISH_LYRIST_SCRIPT,
+  ELVISH_SCRAPPER_SCRIPT,
+  ELVISH_VISIONARY_SCRIPT,
+  EMMARA_SOUL_OF_THE_ACCORD_SCRIPT,
+  EMRAKULS_INFLUENCE_SCRIPT,
+  ENATU_GOLEM_SCRIPT,
+  ENCHANTRESSS_PRESENCE_SCRIPT,
+  ENLIGHTENED_MANIAC_SCRIPT,
+  ENVOY_OF_OKINEC_AHAU_SCRIPT,
+  EPHARAS_WARDEN_SCRIPT,
+  ERRANT_DOOMSAYERS_SCRIPT,
   DOOMED_TRAVELER_SCRIPT,
   DRACONIC_DISCIPLE_SCRIPT,
   DRAGON_BLOOD_SCRIPT,
