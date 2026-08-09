@@ -4472,6 +4472,56 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       once-per-turn memory, per-damage-entry granularity (five entries),
       token entry choice and the spell seam stand.
 
+- [x] **M6.4s — Twenty-one landed: the first DiceRolled consumer, the
+      nontoken dies watcher, and both twins in one batch (2026-08-08):**
+      **2,034 of 31,692 Commander-legal cards now execute completely, up
+      from 2,013.** `SHIPPED_SCRIPTS` 283 → 304 — past three hundred.
+      Decisions in **D175**.
+      **The firsts:** `Feywild Trickster` is the first def on `DiceRolled`
+      — the Tier-3 dice tool's own event, on the log since M3 with no
+      consumer; the per-event batching IS the card's "one or more"
+      wording (Deeproot Pilgrimage's argument, D170), and the fuzz gate's
+      manual-intent case already rolls dice, so the gate exercises it with
+      no new machinery. `Field of Souls` is the first dies filter on
+      `CardInstance.isToken` (Soul Warden's dies-mirror; both sides
+      proven — a token dying pays nothing). `Fisk Tower` and `Foot
+      Headquarters` carry ONE exact printed text on two new oracle ids —
+      the first time BOTH twins of a text land in a single batch. Plus
+      the first targeted script UNTAP (`Filigree Sages`, the tap def's
+      mirror with the upright-target negative pinned).
+      **Also:** a {7}{R} player-or-planeswalker burn; the chooser+staged
+      chain on `Fodder Cannon`; `Flamekin Spitfire`'s any-target ping
+      with the per-kind `applyAs` branch written at first cut (D174's
+      lesson applied before a test could catch it); the THREE-line
+      `Foggy Bottom Swamp` (mana a0, sac-draw #a1, enters tapped);
+      `Foundry of the Consuls`' TWO Thopters with distinct-id teeth;
+      ETB Food/Treasure/Clue makers; **the enchantment pool reads
+      TWENTY-ONE** (Field of Souls + both Fonts). All 47 new per-card
+      tests passed on their first run.
+      ⚠️ **Four refusals, ONE new class:** `Floodbringer` and `Flooded
+      Shoreline` name the RETURN-PERMANENT cost (the bounce-side sibling
+      of the sacrifice chooser); plus once-per-turn memory (Firja) and a
+      discard-cost chooser (Fodder Tosser). The ledger holds 42.
+      Fixtures 465 → 488 (52 tokens: Faerie Dragon `tclb 6`, Clue
+      `twho 21`) · ladder [959, 1058, 3011, 4895, 6082] · `batch.json`
+      at 834 (exact) · botDeck: Foggy Bottom Swamp and Foundry of the
+      Consuls join (Adun reaches 1,118).
+      ⚠️ **The first full-gate run failed on the DIES canary rotting on
+      schedule** — Onulet at ONE copy is the only card that canary
+      counts, diluted to ZERO across 500 prompt-saturated seeds (every
+      hash equal). Five copies now (D149's fix, FOURTH instance of the
+      class); the gate relaunched from the top.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      374 test files, 2,825 Vitest passed / 10 skipped · the 500-seed
+      gate green at 1,489.3 s (304 scripts, 311 s inside the 1,800 s
+      ceiling) · build clean · probe 124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D175): self-only def dispatch stays the named
+      fuzz lever; the answer-mode arrow and ability rows owe a battery
+      click-check; the cost-chooser classes (now including
+      RETURN-PERMANENT), `ctx.random`, once-per-turn memory,
+      per-damage-entry granularity, token entry choice and the spell
+      seam stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

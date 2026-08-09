@@ -189,6 +189,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // instances batched into one event (Aya's class, dealer side widened).
   ['Ezio, Blade of Vengeance', 'per-damage-entry trigger granularity'],
   ['Fearless Liberator', 'once-per-turn trigger memory'],
+  // M6.4s (D175) — batch 17's four refusals. Floodbringer and Flooded
+  // Shoreline open a NEW class: "Return a land you control to its owner's
+  // hand" as an ACTIVATION COST — the chooser one verb over from
+  // sacrifice, with the bounce-cost machinery unbuilt.
+  ['Firja, Judge of Valor', 'once-per-turn trigger memory'],
+  ['Floodbringer', 'return-permanent cost'],
+  ['Flooded Shoreline', 'return-permanent cost'],
+  ['Fodder Tosser', 'discard-cost chooser'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -725,6 +725,28 @@ const WANTED = [
   'Ferocious Pup',
   'Festering Goblin',
   'Fevered Convulsions',
+  // Batch 17 (D175).
+  'Feywild Trickster',
+  'Field of Souls',
+  'Fierce Witchstalker',
+  'Filigree Crawler',
+  'Filigree Sages',
+  'Fire Snake',
+  'Fisk Tower',
+  'Flamekin Gildweaver',
+  'Flamekin Spitfire',
+  'Flamewave Invoker',
+  'Flowstone Overseer',
+  'Fodder Cannon',
+  'Foggy Bottom Swamp',
+  'Font of Fortunes',
+  'Font of Vigor',
+  'Foot Headquarters',
+  'Forecasting Fortune Teller',
+  'Foundry of the Consuls',
+  'Fountain of Youth',
+  'Friendly Ghost',
+  'Frostbridge Guard',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -752,6 +774,9 @@ const WANTED_TOKENS = [
   // M6.4e (D162).
   { name: 'Wurm', set: 'trtr', cn: '11', key: 'WURM_TOKEN' },
   { name: 'Thopter', set: 'tafc', cn: '12', key: 'THOPTER_TOKEN' },
+  // Batch 17 (D175).
+  { name: 'Faerie Dragon', set: 'tclb', cn: '6', key: 'FAERIE_DRAGON_TOKEN' },
+  { name: 'Clue', set: 'twho', cn: '21', key: 'CLUE_TOKEN' },
   // Batch 16 (D174). The decayed Zombie gets a DISTINCT key — the plain
   // 2/2 Zombie (tc14 16) is pinned above.
   { name: 'Faerie', set: 'tmoc', cn: '11', key: 'FAERIE_TOKEN' },

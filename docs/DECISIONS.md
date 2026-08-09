@@ -11871,3 +11871,103 @@ batches; the answer-mode arrow and ability rows still owe a battery
 click-check; the cost-chooser classes, `ctx.random`, once-per-turn
 memory, per-damage-entry granularity (now FIVE ledger entries), token
 entry choice and the spell seam stand.
+
+## D175 — M6.4s: the first DiceRolled consumer, the nontoken dies watcher, and both twins in one batch (2026-08-08)
+
+**What was decided:** batch 17 of the M6.4 loop lands twenty-one of its
+25 — **2,034 of 31,692 Commander-legal cards now execute completely, up
+from 2,013** — with four refusals, ONE of them a NEW cost class.
+`SHIPPED_SCRIPTS` 283 → 304, past three hundred.
+
+**The headliner:** `Feywild Trickster` — "Whenever you roll one or more
+dice, create a 1/1 blue Faerie Dragon creature token with flying" — is
+**the first def on `DiceRolled`**, an event that has been on the log
+since M3 as the Tier-3 dice tool's output and has never had a consumer.
+The filter is one clause (`ev.player` is the roller, matched against the
+Trickster's controller), and the per-event batching IS the card's "one
+or more" wording — the Tier-3 tool rolls one die per intent, so one
+event per roll is exactly CR 706's fire-once shape, the same argument
+Deeproot Pilgrimage made for `PermanentsTapped` (D170). ⚠️ The trigger
+rides the MANUAL tool's own event: a player rolling a die for any other
+card's sake pays the Trickster, which is the printed rule. The fuzz
+gate's manual-intent case 4 already submits `RollDice`, so the gate
+exercises the def with no new machinery — the token count moved the
+moment the card joined `DECK`.
+
+**The second first:** `Field of Souls` — "Whenever a nontoken creature
+is put into your graveyard from the battlefield, create a 1/1 white
+Spirit creature token with flying" — is **the first dies filter on
+`CardInstance.isToken`**. The dies shape is Soul Warden's mirror
+(from battlefield + to graveyard + `looksBack`), and the nontoken
+restriction is proven from BOTH sides: a real creature dying pays a
+Spirit, a token dying pays nothing. It is also an ENCHANTMENT, and the
+two sacrifice-draw Fonts land beside it — **the enchantment pool reads
+TWENTY-ONE.**
+
+**And the twins:** `Fisk Tower` and `Foot Headquarters` carry the SAME
+exact printed text on two new oracle ids — Asgardian Citadel's shape,
+landed on the Dimension X / Benalish Trapper precedent — and this is
+the first time BOTH twins of one text arrive in a single batch, each
+proven on its own oracle id.
+
+**The rest:** the first targeted script UNTAP (`Filigree Sages`,
+{2}{U} repeatable — the tap def's mirror, with the `!card.tapped` guard
+proven: an upright target gets no event); a {7}{R} player-or-planeswalker
+burn (`Flamewave Invoker`); the D168 chooser + D169 staged chain on a
+{4},{T} 4-damage cannon (`Fodder Cannon`); a {3}{R} any-target ping with
+the full per-kind `applyAs` branch written at first cut (`Flamekin
+Spitfire` — D174's Fallen Ferromancer lesson applied before the test
+could catch it); a repeatable {R}{R} +1/-1 (`Flowstone Overseer`); three
+sacrifice-self draw/gain actives (`Foggy Bottom Swamp` — a THREE-line
+land whose mana line is a0 and whose sac-draw is #a1, entering tapped
+per D134 so its test untaps first; `Font of Fortunes`; `Font of
+Vigor`); `Foundry of the Consuls`' sac-self TWO Thopters with D164's
+distinct-id teeth; ETB Food/Treasure/Clue makers (`Fierce Witchstalker`,
+`Flamekin Gildweaver`, `Forecasting Fortune-Teller`); a dies Thopter
+(`Filigree Crawler`); a dies land-destroy with the targeted trigger
+arrow (`Fire Snake`); a {2},{T} gain (`Fountain of Youth`); a targeted
+ETB +2/+4 (`Friendly Ghost`); and a {2}{W},{T} tap (`Frostbridge
+Guard`). All 47 new per-card tests passed on their first run.
+
+**Four refusals, ONE new class:** `Floodbringer` and `Flooded
+Shoreline` both cost **"Return a land you control to its owner's
+hand"** — a RETURN-PERMANENT cost, a chooser class no ledger entry had
+ever named (the bounce-side sibling of the sacrifice chooser: same
+recognition, same gate, a zone move that is not a death). Plus `Firja,
+Judge of Valor` (once-per-turn memory — "second spell each turn") and
+`Fodder Tosser` (discard-cost chooser). The ledger holds 42 entries.
+
+**The numbers, every delta exactly the twenty-one cards:** primitives
+`complete` 2,013 → 2,034 · `blocked` 29,658 · `scriptableToday` 959 ·
+ladder [959, 1058, 3011, 4895, 6082] · botPool creature 1,375, artifact
+58, **enchantment 21**, land 233 · tier3 `abilityText` 17,281,
+`silentAfter` 2,424 → 2,445 (+21 exactly) · fixtures 465 → 488 (52
+tokens: Faerie Dragon `tclb 6`, Clue `twho 21` joined) · `batch.json`
+at **834** (859 − 21 − 4, exact) · botDeck regenerated — **Foggy Bottom
+Swamp and Foundry of the Consuls joined the bot's deck** (Adun reaches
+1,118, displacing Luxury Suite and Overgrown Tomb).
+
+⚠️ **The first full-gate run failed on the DIES canary rotting on
+schedule** — `Onulet` at ONE copy since D147 is the only card the
+canary counts, and seventeen batches of DECK growth meeting
+prompt-saturated games (48,953 target prompts against 48,906 accepted
+intents) starved the compound event it needs — dealt AND resolved to a
+battlefield AND dying — to ZERO across all 500 seeds, with every
+replay hash equal at 1,548.0 s. Re-weighted to FIVE copies at the deal
+site (D149's fix — the FOURTH instance of the class, after CR 616's
+pair in D164 and layer 6's in D173) and the gate relaunched from the
+top.
+
+**Verified: `verify.cjs --full` — ALL FIVE GATES PASSED in one
+invocation** — 374 test files, 2,825 Vitest passed / 10 skipped · the
+500-seed replay fuzz gate green at 1,489.3 s (304 scripts registered,
+311 s inside the 1,800 s ceiling) · build clean · probe 124/124 ·
+battery `bot engine prompts` 127/127.
+
+**Reportables:** self-only def dispatch (D169) stays the named fuzz
+lever and its due date is measured in batches; the answer-mode arrow
+and ability rows still owe a battery click-check; the cost-chooser
+classes (discard, tap-creatures/permanents, exile-from-graveyard,
+remove-counter, and now RETURN-PERMANENT), `ctx.random`, once-per-turn
+memory, per-damage-entry granularity, token entry choice and the spell
+seam stand.

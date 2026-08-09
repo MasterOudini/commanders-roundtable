@@ -120,10 +120,10 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // refusals (two sacrifice-choosers, one NEW remove-counter cost class).
     // M6.4i (D166) landed twenty-one of 25 — four refusals, one NEW class
     // (exile-SELF cost, named cheap: sacrificesSelf one event over).
-    // M6.4r (D174) landed twenty-three of 25 and CROSSED 2,000 complete —
-    // Ertai the Corrupted composes D168's chooser with D170's counterspell,
-    // and the infect ping carries poison to a player.
-    expect(SHIPPED_SCRIPTS).toHaveLength(283);
+    // M6.4s (D175) landed twenty-one of 25 — the first DiceRolled consumer
+    // (Feywild Trickster rides the Tier-3 roll tool's own event), the
+    // nontoken dies watcher, and the untap active.
+    expect(SHIPPED_SCRIPTS).toHaveLength(304);
   });
 });
 

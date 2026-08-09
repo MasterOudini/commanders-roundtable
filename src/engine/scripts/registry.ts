@@ -7,6 +7,27 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { FEYWILD_TRICKSTER_SCRIPT } from './cards/feywildTrickster';
+import { FIELD_OF_SOULS_SCRIPT } from './cards/fieldOfSouls';
+import { FIERCE_WITCHSTALKER_SCRIPT } from './cards/fierceWitchstalker';
+import { FILIGREE_CRAWLER_SCRIPT } from './cards/filigreeCrawler';
+import { FILIGREE_SAGES_SCRIPT } from './cards/filigreeSages';
+import { FIRE_SNAKE_SCRIPT } from './cards/fireSnake';
+import { FISK_TOWER_SCRIPT } from './cards/fiskTower';
+import { FLAMEKIN_GILDWEAVER_SCRIPT } from './cards/flamekinGildweaver';
+import { FLAMEKIN_SPITFIRE_SCRIPT } from './cards/flamekinSpitfire';
+import { FLAMEWAVE_INVOKER_SCRIPT } from './cards/flamewaveInvoker';
+import { FLOWSTONE_OVERSEER_SCRIPT } from './cards/flowstoneOverseer';
+import { FODDER_CANNON_SCRIPT } from './cards/fodderCannon';
+import { FOGGY_BOTTOM_SWAMP_SCRIPT } from './cards/foggyBottomSwamp';
+import { FONT_OF_FORTUNES_SCRIPT } from './cards/fontOfFortunes';
+import { FONT_OF_VIGOR_SCRIPT } from './cards/fontOfVigor';
+import { FOOT_HEADQUARTERS_SCRIPT } from './cards/footHeadquarters';
+import { FORECASTING_FORTUNE_TELLER_SCRIPT } from './cards/forecastingFortuneTeller';
+import { FOUNDRY_OF_THE_CONSULS_SCRIPT } from './cards/foundryOfTheConsuls';
+import { FOUNTAIN_OF_YOUTH_SCRIPT } from './cards/fountainOfYouth';
+import { FRIENDLY_GHOST_SCRIPT } from './cards/friendlyGhost';
+import { FROSTBRIDGE_GUARD_SCRIPT } from './cards/frostbridgeGuard';
 import { ERTAI_THE_CORRUPTED_SCRIPT } from './cards/ertaiTheCorrupted';
 import { ERTAI_WIZARD_ADEPT_SCRIPT } from './cards/ertaiWizardAdept';
 import { ETHERIUM_ASTROLABE_SCRIPT } from './cards/etheriumAstrolabe';
@@ -384,6 +405,27 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FEYWILD_TRICKSTER_SCRIPT,
+  FIELD_OF_SOULS_SCRIPT,
+  FIERCE_WITCHSTALKER_SCRIPT,
+  FILIGREE_CRAWLER_SCRIPT,
+  FILIGREE_SAGES_SCRIPT,
+  FIRE_SNAKE_SCRIPT,
+  FISK_TOWER_SCRIPT,
+  FLAMEKIN_GILDWEAVER_SCRIPT,
+  FLAMEKIN_SPITFIRE_SCRIPT,
+  FLAMEWAVE_INVOKER_SCRIPT,
+  FLOWSTONE_OVERSEER_SCRIPT,
+  FODDER_CANNON_SCRIPT,
+  FOGGY_BOTTOM_SWAMP_SCRIPT,
+  FONT_OF_FORTUNES_SCRIPT,
+  FONT_OF_VIGOR_SCRIPT,
+  FOOT_HEADQUARTERS_SCRIPT,
+  FORECASTING_FORTUNE_TELLER_SCRIPT,
+  FOUNDRY_OF_THE_CONSULS_SCRIPT,
+  FOUNTAIN_OF_YOUTH_SCRIPT,
+  FRIENDLY_GHOST_SCRIPT,
+  FROSTBRIDGE_GUARD_SCRIPT,
   ERTAI_THE_CORRUPTED_SCRIPT,
   ERTAI_WIZARD_ADEPT_SCRIPT,
   ETHERIUM_ASTROLABE_SCRIPT,

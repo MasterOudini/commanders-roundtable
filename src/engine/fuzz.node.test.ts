@@ -304,6 +304,27 @@ import { FERAL_PROWLER_SCRIPT } from './scripts/cards/feralProwler';
 import { FEROCIOUS_PUP_SCRIPT } from './scripts/cards/ferociousPup';
 import { FESTERING_GOBLIN_SCRIPT } from './scripts/cards/festeringGoblin';
 import { FEVERED_CONVULSIONS_SCRIPT } from './scripts/cards/feveredConvulsions';
+import { FEYWILD_TRICKSTER_SCRIPT } from './scripts/cards/feywildTrickster';
+import { FIELD_OF_SOULS_SCRIPT } from './scripts/cards/fieldOfSouls';
+import { FIERCE_WITCHSTALKER_SCRIPT } from './scripts/cards/fierceWitchstalker';
+import { FILIGREE_CRAWLER_SCRIPT } from './scripts/cards/filigreeCrawler';
+import { FILIGREE_SAGES_SCRIPT } from './scripts/cards/filigreeSages';
+import { FIRE_SNAKE_SCRIPT } from './scripts/cards/fireSnake';
+import { FISK_TOWER_SCRIPT } from './scripts/cards/fiskTower';
+import { FLAMEKIN_GILDWEAVER_SCRIPT } from './scripts/cards/flamekinGildweaver';
+import { FLAMEKIN_SPITFIRE_SCRIPT } from './scripts/cards/flamekinSpitfire';
+import { FLAMEWAVE_INVOKER_SCRIPT } from './scripts/cards/flamewaveInvoker';
+import { FLOWSTONE_OVERSEER_SCRIPT } from './scripts/cards/flowstoneOverseer';
+import { FODDER_CANNON_SCRIPT } from './scripts/cards/fodderCannon';
+import { FOGGY_BOTTOM_SWAMP_SCRIPT } from './scripts/cards/foggyBottomSwamp';
+import { FONT_OF_FORTUNES_SCRIPT } from './scripts/cards/fontOfFortunes';
+import { FONT_OF_VIGOR_SCRIPT } from './scripts/cards/fontOfVigor';
+import { FOOT_HEADQUARTERS_SCRIPT } from './scripts/cards/footHeadquarters';
+import { FORECASTING_FORTUNE_TELLER_SCRIPT } from './scripts/cards/forecastingFortuneTeller';
+import { FOUNDRY_OF_THE_CONSULS_SCRIPT } from './scripts/cards/foundryOfTheConsuls';
+import { FOUNTAIN_OF_YOUTH_SCRIPT } from './scripts/cards/fountainOfYouth';
+import { FRIENDLY_GHOST_SCRIPT } from './scripts/cards/friendlyGhost';
+import { FROSTBRIDGE_GUARD_SCRIPT } from './scripts/cards/frostbridgeGuard';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -448,7 +469,14 @@ const DECK = [
   // it is the one whose absence would be invisible: a dies trigger that never
   // fires leaves NO trace, so every other counter in this gate is unmoved by
   // it being broken.
-  'Yotian Dissident', 'Onulet',
+  // ⚠️ FIVE COPIES OF ONULET (D175): one was enough for sixteen batches, until
+  // batch 17's DECK growth met prompt-saturated games — 48,953 target prompts
+  // against 48,906 accepted intents — and the compound event the dies canary
+  // needs (Onulet dealt AND resolved to a battlefield AND dying) hit ZERO
+  // across all 500 seeds with every replay hash equal. D149's CR 616
+  // weighting, FOURTH instance of the rot these comments keep predicting.
+  'Yotian Dissident',
+  'Onulet', 'Onulet', 'Onulet', 'Onulet', 'Onulet',
   // ⚠️ M6.3u/D148 — the CR 616 PAIR. Two replacements applying to ONE event is
   // the only thing that suspends the funnel, so without both of these on one
   // battlefield the continuation, its three parked queues, the prompt and the
@@ -622,6 +650,16 @@ const DECK = [
   'Farbog Boneflinger', 'Featherbrained Filcher', 'Felidar Cub',
   'Femeref Enchantress', 'Feral Prowler', 'Ferocious Pup',
   'Festering Goblin', 'Fevered Convulsions',
+  // M6.4s/D175 — batch 17. Feywild Trickster rides the fuzzer's own manual
+  // dice rolls; the two Asgardian-text twins and the Foggy Bottom draw give
+  // the land shapes three more bodies.
+  'Feywild Trickster', 'Field of Souls', 'Fierce Witchstalker',
+  'Filigree Crawler', 'Filigree Sages', 'Fire Snake', 'Fisk Tower',
+  'Flamekin Gildweaver', 'Flamekin Spitfire', 'Flamewave Invoker',
+  'Flowstone Overseer', 'Fodder Cannon', 'Foggy Bottom Swamp',
+  'Font of Fortunes', 'Font of Vigor', 'Foot Headquarters',
+  'Forecasting Fortune Teller', 'Foundry of the Consuls',
+  'Fountain of Youth', 'Friendly Ghost', 'Frostbridge Guard',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -949,6 +987,27 @@ const SCRIPTS = createRegistry([
   FEROCIOUS_PUP_SCRIPT,
   FESTERING_GOBLIN_SCRIPT,
   FEVERED_CONVULSIONS_SCRIPT,
+  FEYWILD_TRICKSTER_SCRIPT,
+  FIELD_OF_SOULS_SCRIPT,
+  FIERCE_WITCHSTALKER_SCRIPT,
+  FILIGREE_CRAWLER_SCRIPT,
+  FILIGREE_SAGES_SCRIPT,
+  FIRE_SNAKE_SCRIPT,
+  FISK_TOWER_SCRIPT,
+  FLAMEKIN_GILDWEAVER_SCRIPT,
+  FLAMEKIN_SPITFIRE_SCRIPT,
+  FLAMEWAVE_INVOKER_SCRIPT,
+  FLOWSTONE_OVERSEER_SCRIPT,
+  FODDER_CANNON_SCRIPT,
+  FOGGY_BOTTOM_SWAMP_SCRIPT,
+  FONT_OF_FORTUNES_SCRIPT,
+  FONT_OF_VIGOR_SCRIPT,
+  FOOT_HEADQUARTERS_SCRIPT,
+  FORECASTING_FORTUNE_TELLER_SCRIPT,
+  FOUNDRY_OF_THE_CONSULS_SCRIPT,
+  FOUNTAIN_OF_YOUTH_SCRIPT,
+  FRIENDLY_GHOST_SCRIPT,
+  FROSTBRIDGE_GUARD_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,
