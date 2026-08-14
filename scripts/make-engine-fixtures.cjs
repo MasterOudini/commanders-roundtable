@@ -811,6 +811,28 @@ const WANTED = [
   'Haazda Officer',
   'Haazda Vigilante',
   'Hagra Sharpshooter',
+  // Batch 21 (D179).
+  'Harrier Griffin',
+  'Hatching Plans',
+  'Head of the Homestead',
+  'Headless Rider',
+  'Healer of the Glade',
+  'Healer of the Pride',
+  'Heart Warden',
+  'Heartwood Giant',
+  'Heavy Infantry',
+  "Hell's Kitchen",
+  'Helpful Hunter',
+  'Herald of Faith',
+  'Herald of the Fair',
+  'Hero of Precinct One',
+  'High Market',
+  'Highland Game',
+  'Hill Giant Herdgorger',
+  'Hinterland Sanctifier',
+  'Hoard Robber',
+  'Hobbling Zombie',
+  'Honey Mammoth',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -903,6 +925,12 @@ const WANTED_TOKENS = [
   { name: 'Map', set: 'tbig', cn: '7', key: 'MAP_TOKEN' },
   // M6.4h (D165).
   { name: 'Saproling', set: 'tddj', cn: '1', key: 'SAPROLING_TOKEN' },
+  // Batch 21 (D179): the 1/1 white Rabbit joins. Head of the Homestead's pair
+  // resolves here; Headless Rider REUSES the Zombie `tc14 16`, Hobbling Zombie
+  // the decayed Zombie `tdrc 7`, Hero of Precinct One the Human `tfdn 3`, and
+  // Hoard Robber the Treasure `trna 12` — all four checked against
+  // TOKEN_TABLE's printingIds before a line was written.
+  { name: 'Rabbit', set: 'tclb', cn: '4', key: 'RABBIT_TOKEN' },
   // M6.4g (D164).
   { name: 'Bear', set: 'ttla', cn: '12', key: 'BEAR_44_TOKEN' },
   { name: 'Blood', set: 'tbig', cn: '2', key: 'BLOOD_TOKEN' },

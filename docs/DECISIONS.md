@@ -12232,3 +12232,90 @@ stays the named fuzz lever; the answer-mode arrow and ability rows owe
 a battery click-check; `ctx.random`, once-per-turn memory,
 per-damage-entry granularity, token entry choice and the spell seam
 stand.
+
+## D179 — M6.4w: the multicolored filter, and a draw nothing can watch (2026-08-14)
+
+**What was decided:** batch 21 of the M6.4 loop lands twenty-one of its
+25 — **2,116 of 31,692 Commander-legal cards now execute completely, up
+from 2,095** — with four refusals, THREE of them NEW classes for the
+second batch running. `SHIPPED_SCRIPTS` 365 → 386.
+
+**The headliners:** `Hero of Precinct One` is the first MULTICOLORED
+cast filter — D'Avenant Trapper's access to the face actually cast with
+the colour COUNT as the question (colour identity would be wrong: a
+mono-colour card with a hybrid identity is not a multicolored SPELL),
+proven from both sides with Baleful Strix paying a Human and Grizzly
+Bears paying nothing. `Harrier Griffin` is the first UPKEEP trigger
+that TARGETS — Celestial Force's `StepBegan` with Eidolon of
+Inspiration's active-player filter and the tap resolve on the answer,
+its test pinning that the prompt arrives on the CONTROLLER's turn.
+`Hatching Plans` is the enchantment that wants to die — the dies filter
+under its long-form "is put into a graveyard from the battlefield"
+wording, drawing three.
+
+**The rest:** `Heartwood Giant` composes the FOREST predicate with the
+staged target chain (a Forest and the tap deal 2 to a chosen player; a
+non-Forest land is `illegalSacrifice`); `Herald of the Fair` lands
+Haazda Officer's EXACT text on its own oracle id (the Benalish
+precedent); the controlled-entry watcher lands as TWINS in one batch
+(`Healer of the Pride` at 2, `Hinterland Sanctifier` at 1 — both
+proven three ways: self entry pays nothing, mine pays, an opponent's
+pays nothing); `Headless Rider`'s self-OR-other nontoken Zombie dies
+watcher is proven by killing its OWN token for nothing; `Hoard Robber`
+is Belligerent Guest's combat-damage watcher paying Treasure;
+`Hobbling Zombie` leaves the decayed 2/2 behind; `Hell's Kitchen` is
+Fisk Tower's exact three-line shape in Rakdos colours; `Heart Warden`
+and `High Market` carry `#a1` sacrifice payoffs (the Warden paying with
+ITSELF); `Heavy Infantry` re-proves Chrome Prowler's opponent
+restriction; four ETB gains at 3/3/4 and a dies-gain pair round it
+out. **The enchantment pool reads TWENTY-SEVEN.** All 21 suites — 51
+tests — passed on their FIRST run: the FOURTH consecutive
+first-run-clean batch.
+
+**Four refusals, THREE NEW classes:** `Hardened Tactician` pays with
+"a token" — `predicatesOf` models card TYPES and SUBTYPES, and
+token-ness is neither (isToken lives on the INSTANCE), so the D168
+carrier cannot read the predicate (TOKEN-PREDICATE SACRIFICE COST — a
+cheap-ish widening: a token flag on the predicate plus isToken in
+`sacrificeCandidatesFor`). `Hatchet Bully` PUTS a -1/-1 counter on a
+chosen creature as a cost (PUT-COUNTER COST — the other direction from
+Bolrac-Clan's remove-counter). `Horizon Chimera` watches "whenever you
+draw" and there is NO DRAW TO WATCH: `drawFromTop` emits a bare
+`CardsMoved` library→hand, indistinguishable from an Impulse-take or a
+manual wrench move, and `matches` receives the event BODY — the
+sacrifice-event discriminator (Graf Mole, D177) one event over
+(DRAW-EVENT DISCRIMINATOR; a `DrewCards` marker or an is-draw flag on
+the move is the missing piece, and the family behind it is large).
+Plus `Hand of Justice` (tap-creatures cost, existing). The ledger
+holds 60.
+
+**The numbers, every delta exactly the twenty-one cards:** primitives
+`complete` 2,095 → 2,116 · `blocked` 29,576 · `scriptableToday` 877 ·
+ladder [877, 976, 2929, 4813, 6000] · botPool creature 1,436, artifact
+65, **enchantment 27**, land 241 · tier3 `abilityText` 17,231,
+`payable` 5,168 (−3, the def-gated activated costs), `either` −21
+exactly, `silentAfter` 2,506 → 2,527 (+21 exactly) · fixtures 556 →
+578 (60 tokens: the 1/1 white Rabbit `tclb 4` joined; Zombie
+`tc14 16`, decayed Zombie `tdrc 7`, Human `tfdn 3` and Treasure
+`trna 12` REUSED, all four checked against TOKEN_TABLE's printingIds
+before a line was written) · `batch.json` at **734** (759 − 21 − 4,
+exact) · botDeck regenerated — **Adun reaches 1,174 cards from 55
+legendaries**.
+
+**Verified: `verify.cjs --full` — ALL FIVE GATES PASSED in one
+invocation** — 456 test files, 3,178 Vitest passed / 10 skipped · the
+500-seed replay fuzz gate green at 1,553.4 s (386 scripts registered,
+247 s inside the 1,800 s ceiling — the headroom is thinning on
+schedule; self-only def dispatch, named since D169, is approaching
+due) · build clean · probe 124/124 · battery `bot engine prompts`
+127/127.
+
+**Reportables:** the draw-event discriminator is the richest new class
+(a `DrewCards` marker unlocks the whole "whenever you draw" family)
+and the token-predicate the cheapest; the put-counter cost joins the
+cost-chooser ledger; D178's classes (alternative activation cost,
+ability-word activated cost, graveyard-activated ability) stand;
+self-only def dispatch (D169) stays the named fuzz lever; the
+answer-mode arrow and ability rows owe a battery click-check;
+`ctx.random`, once-per-turn memory, per-damage-entry granularity,
+token entry choice and the spell seam stand.

@@ -223,6 +223,20 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Half-Elf Monk', 'ability-word activated cost'],
   ['Halimar Depths', 'script-raised prompt'],
   ['Halo Scarab', 'graveyard-activated ability'],
+  // Batch 21 (D179): one existing class and THREE new ones. `Hardened
+  // Tactician` pays with "a token" — predicatesOf models card types and
+  // subtypes, and token-ness is neither (isToken lives on the INSTANCE), so
+  // the D168 carrier cannot read the predicate. `Hatchet Bully` PUTS a -1/-1
+  // counter on a chosen creature as a cost — a cost-chooser in the other
+  // direction from Bolrac-Clan's remove-counter. `Horizon Chimera` watches
+  // "whenever you draw" and there is no draw to watch: drawFromTop emits a
+  // bare CardsMoved library→hand, indistinguishable from an Impulse-take or
+  // a manual wrench move, and `matches` receives the event BODY — the
+  // sacrifice-event discriminator (Graf Mole, D177) one event over.
+  ['Hand of Justice', 'tap-creatures cost'],
+  ['Hardened Tactician', 'token-predicate sacrifice cost'],
+  ['Hatchet Bully', 'put-counter cost'],
+  ['Horizon Chimera', 'draw-event discriminator'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

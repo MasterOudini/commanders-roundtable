@@ -7,6 +7,27 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { HARRIER_GRIFFIN_SCRIPT } from './cards/harrierGriffin';
+import { HATCHING_PLANS_SCRIPT } from './cards/hatchingPlans';
+import { HEAD_OF_THE_HOMESTEAD_SCRIPT } from './cards/headOfTheHomestead';
+import { HEADLESS_RIDER_SCRIPT } from './cards/headlessRider';
+import { HEALER_OF_THE_GLADE_SCRIPT } from './cards/healerOfTheGlade';
+import { HEALER_OF_THE_PRIDE_SCRIPT } from './cards/healerOfThePride';
+import { HEART_WARDEN_SCRIPT } from './cards/heartWarden';
+import { HEARTWOOD_GIANT_SCRIPT } from './cards/heartwoodGiant';
+import { HEAVY_INFANTRY_SCRIPT } from './cards/heavyInfantry';
+import { HELLS_KITCHEN_SCRIPT } from './cards/hellsKitchen';
+import { HELPFUL_HUNTER_SCRIPT } from './cards/helpfulHunter';
+import { HERALD_OF_FAITH_SCRIPT } from './cards/heraldOfFaith';
+import { HERALD_OF_THE_FAIR_SCRIPT } from './cards/heraldOfTheFair';
+import { HERO_OF_PRECINCT_ONE_SCRIPT } from './cards/heroOfPrecinctOne';
+import { HIGH_MARKET_SCRIPT } from './cards/highMarket';
+import { HIGHLAND_GAME_SCRIPT } from './cards/highlandGame';
+import { HILL_GIANT_HERDGORGER_SCRIPT } from './cards/hillGiantHerdgorger';
+import { HINTERLAND_SANCTIFIER_SCRIPT } from './cards/hinterlandSanctifier';
+import { HOARD_ROBBER_SCRIPT } from './cards/hoardRobber';
+import { HOBBLING_ZOMBIE_SCRIPT } from './cards/hobblingZombie';
+import { HONEY_MAMMOTH_SCRIPT } from './cards/honeyMammoth';
 import { GRASPING_LONGNECK_SCRIPT } from './cards/graspingLongneck';
 import { GRAVE_TITAN_SCRIPT } from './cards/graveTitan';
 import { GRAYPELT_REFUGE_SCRIPT } from './cards/graypeltRefuge';
@@ -466,6 +487,27 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  HARRIER_GRIFFIN_SCRIPT,
+  HATCHING_PLANS_SCRIPT,
+  HEAD_OF_THE_HOMESTEAD_SCRIPT,
+  HEADLESS_RIDER_SCRIPT,
+  HEALER_OF_THE_GLADE_SCRIPT,
+  HEALER_OF_THE_PRIDE_SCRIPT,
+  HEART_WARDEN_SCRIPT,
+  HEARTWOOD_GIANT_SCRIPT,
+  HEAVY_INFANTRY_SCRIPT,
+  HELLS_KITCHEN_SCRIPT,
+  HELPFUL_HUNTER_SCRIPT,
+  HERALD_OF_FAITH_SCRIPT,
+  HERALD_OF_THE_FAIR_SCRIPT,
+  HERO_OF_PRECINCT_ONE_SCRIPT,
+  HIGH_MARKET_SCRIPT,
+  HIGHLAND_GAME_SCRIPT,
+  HILL_GIANT_HERDGORGER_SCRIPT,
+  HINTERLAND_SANCTIFIER_SCRIPT,
+  HOARD_ROBBER_SCRIPT,
+  HOBBLING_ZOMBIE_SCRIPT,
+  HONEY_MAMMOTH_SCRIPT,
   GRASPING_LONGNECK_SCRIPT,
   GRAVE_TITAN_SCRIPT,
   GRAYPELT_REFUGE_SCRIPT,

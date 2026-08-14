@@ -4662,6 +4662,53 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       token entry choice, the spell seam, self-only def dispatch and the
       battery click-check debt stand.
 
+- [x] **M6.4w — Twenty-one landed: the multicolored filter, and a draw
+      nothing can watch (2026-08-14):** **2,116 of 31,692 Commander-legal
+      cards now execute completely, up from 2,095.** `SHIPPED_SCRIPTS`
+      365 → 386. Decisions in **D179**.
+      **The headliners:** `Hero of Precinct One` is the first MULTICOLORED
+      cast filter — the colour COUNT of the face actually cast, not the
+      identity (a hybrid mono-colour card is not a multicolored SPELL),
+      proven from both sides. `Harrier Griffin` is the first UPKEEP
+      trigger that TARGETS (the prompt pinned to the CONTROLLER's turn);
+      `Hatching Plans` is the enchantment that wants to die (the
+      long-form dies wording, drawing three).
+      **Also:** Heartwood Giant composes the Forest predicate with the
+      staged chain; Herald of the Fair lands Haazda Officer's EXACT text
+      on its own id; the controlled-entry watcher lands as TWINS (Healer
+      of the Pride at 2, Hinterland Sanctifier at 1, each proven three
+      ways); Headless Rider's nontoken-Zombie dies watcher is proven by
+      killing its OWN token for nothing; Hoard Robber pays Treasure on
+      connecting; two `#a1` sacrifice payoffs (Heart Warden paying with
+      ITSELF); four ETB gains and a dies-gain pair. **The enchantment
+      pool reads TWENTY-SEVEN.** All 21 suites — 51 tests — green on
+      their FIRST run: the FOURTH consecutive first-run-clean batch.
+      ⚠️ **Four refusals, THREE NEW classes for the second batch
+      running:** token-predicate sacrifice cost (Hardened Tactician —
+      predicatesOf models types, token-ness is an INSTANCE fact),
+      put-counter cost (Hatchet Bully — the remove-counter chooser's
+      other direction), and DRAW-EVENT DISCRIMINATOR (Horizon Chimera —
+      drawFromTop emits a bare CardsMoved indistinguishable from an
+      Impulse-take, and matches gets the BODY: Graf Mole one event over;
+      a DrewCards marker unlocks the whole "whenever you draw" family).
+      Plus a tap-creatures cost. The ledger holds 60.
+      Fixtures 556 → 578 (60 tokens: Rabbit `tclb 4`; four pins REUSED
+      after checking TOKEN_TABLE's printingIds) · ladder [877, 976,
+      2929, 4813, 6000] · `batch.json` at 734 (exact) · botDeck: Adun
+      reaches 1,174 from 55 legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      456 test files, 3,178 Vitest passed / 10 skipped ·
+      the 500-seed gate green at 1,553.4 s (386 scripts,
+      247 s inside the 1,800 s ceiling — self-only def dispatch is
+      approaching due) · build clean · probe
+      124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D179): the draw-event discriminator is the
+      richest new class and the token-predicate the cheapest; the
+      cost-chooser classes, D178's three, self-only def dispatch, the
+      battery click-check debt, `ctx.random`, once-per-turn memory,
+      per-damage-entry granularity, token entry choice and the spell
+      seam stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

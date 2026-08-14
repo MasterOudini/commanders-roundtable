@@ -134,7 +134,13 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // pair, the attacker-count Soldier (Haazda Marshal), Greed's life-cost
     // draw; THREE new refusal classes (alternative activation cost,
     // ability-word activated cost, graveyard-activated ability).
-    expect(SHIPPED_SCRIPTS).toHaveLength(365);
+    // M6.4w (D179) landed twenty-one of 25 — the first MULTICOLORED cast
+    // filter (Hero of Precinct One), the first upkeep trigger that TARGETS
+    // (Harrier Griffin), the enchantment that wants to die (Hatching Plans);
+    // THREE new refusal classes again (token-predicate sacrifice cost,
+    // put-counter cost, draw-event discriminator — the last is Graf Mole's
+    // finding one event over).
+    expect(SHIPPED_SCRIPTS).toHaveLength(386);
   });
 });
 

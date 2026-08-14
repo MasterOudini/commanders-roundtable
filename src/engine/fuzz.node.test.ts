@@ -386,6 +386,27 @@ import { HAAZDA_MARSHAL_SCRIPT } from './scripts/cards/haazdaMarshal';
 import { HAAZDA_OFFICER_SCRIPT } from './scripts/cards/haazdaOfficer';
 import { HAAZDA_VIGILANTE_SCRIPT } from './scripts/cards/haazdaVigilante';
 import { HAGRA_SHARPSHOOTER_SCRIPT } from './scripts/cards/hagraSharpshooter';
+import { HARRIER_GRIFFIN_SCRIPT } from './scripts/cards/harrierGriffin';
+import { HATCHING_PLANS_SCRIPT } from './scripts/cards/hatchingPlans';
+import { HEAD_OF_THE_HOMESTEAD_SCRIPT } from './scripts/cards/headOfTheHomestead';
+import { HEADLESS_RIDER_SCRIPT } from './scripts/cards/headlessRider';
+import { HEALER_OF_THE_GLADE_SCRIPT } from './scripts/cards/healerOfTheGlade';
+import { HEALER_OF_THE_PRIDE_SCRIPT } from './scripts/cards/healerOfThePride';
+import { HEART_WARDEN_SCRIPT } from './scripts/cards/heartWarden';
+import { HEARTWOOD_GIANT_SCRIPT } from './scripts/cards/heartwoodGiant';
+import { HEAVY_INFANTRY_SCRIPT } from './scripts/cards/heavyInfantry';
+import { HELLS_KITCHEN_SCRIPT } from './scripts/cards/hellsKitchen';
+import { HELPFUL_HUNTER_SCRIPT } from './scripts/cards/helpfulHunter';
+import { HERALD_OF_FAITH_SCRIPT } from './scripts/cards/heraldOfFaith';
+import { HERALD_OF_THE_FAIR_SCRIPT } from './scripts/cards/heraldOfTheFair';
+import { HERO_OF_PRECINCT_ONE_SCRIPT } from './scripts/cards/heroOfPrecinctOne';
+import { HIGH_MARKET_SCRIPT } from './scripts/cards/highMarket';
+import { HIGHLAND_GAME_SCRIPT } from './scripts/cards/highlandGame';
+import { HILL_GIANT_HERDGORGER_SCRIPT } from './scripts/cards/hillGiantHerdgorger';
+import { HINTERLAND_SANCTIFIER_SCRIPT } from './scripts/cards/hinterlandSanctifier';
+import { HOARD_ROBBER_SCRIPT } from './scripts/cards/hoardRobber';
+import { HOBBLING_ZOMBIE_SCRIPT } from './scripts/cards/hobblingZombie';
+import { HONEY_MAMMOTH_SCRIPT } from './scripts/cards/honeyMammoth';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -773,6 +794,17 @@ const DECK = [
   'Guardian of Pilgrims', 'Gutless Ghoul', 'Guul Draz Mucklord',
   'Haazda Marshal', 'Haazda Officer', 'Haazda Vigilante',
   'Hagra Sharpshooter',
+  // M6.4w/D179 — batch 21. Harrier Griffin rides the gate's own upkeeps and
+  // target prompts; Herald of Faith and Hoard Robber its declared attacks;
+  // Hero of Precinct One pays only on a MULTICOLORED cast, which the deck's
+  // gold spells supply.
+  'Harrier Griffin', 'Hatching Plans', 'Head of the Homestead',
+  'Headless Rider', 'Healer of the Glade', 'Healer of the Pride',
+  'Heart Warden', 'Heartwood Giant', 'Heavy Infantry', "Hell's Kitchen",
+  'Helpful Hunter', 'Herald of Faith', 'Herald of the Fair',
+  'Hero of Precinct One', 'High Market', 'Highland Game',
+  'Hill Giant Herdgorger', 'Hinterland Sanctifier', 'Hoard Robber',
+  'Hobbling Zombie', 'Honey Mammoth',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -1185,6 +1217,27 @@ const SCRIPTS = createRegistry([
   HAAZDA_OFFICER_SCRIPT,
   HAAZDA_VIGILANTE_SCRIPT,
   HAGRA_SHARPSHOOTER_SCRIPT,
+  HARRIER_GRIFFIN_SCRIPT,
+  HATCHING_PLANS_SCRIPT,
+  HEAD_OF_THE_HOMESTEAD_SCRIPT,
+  HEADLESS_RIDER_SCRIPT,
+  HEALER_OF_THE_GLADE_SCRIPT,
+  HEALER_OF_THE_PRIDE_SCRIPT,
+  HEART_WARDEN_SCRIPT,
+  HEARTWOOD_GIANT_SCRIPT,
+  HEAVY_INFANTRY_SCRIPT,
+  HELLS_KITCHEN_SCRIPT,
+  HELPFUL_HUNTER_SCRIPT,
+  HERALD_OF_FAITH_SCRIPT,
+  HERALD_OF_THE_FAIR_SCRIPT,
+  HERO_OF_PRECINCT_ONE_SCRIPT,
+  HIGH_MARKET_SCRIPT,
+  HIGHLAND_GAME_SCRIPT,
+  HILL_GIANT_HERDGORGER_SCRIPT,
+  HINTERLAND_SANCTIFIER_SCRIPT,
+  HOARD_ROBBER_SCRIPT,
+  HOBBLING_ZOMBIE_SCRIPT,
+  HONEY_MAMMOTH_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,
