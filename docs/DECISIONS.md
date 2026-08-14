@@ -12616,3 +12616,72 @@ structural end (a cast-time promise needs its own state); the
 classes at once); the cost-chooser classes, `ctx.random`,
 once-per-turn memory, per-damage-entry granularity, token entry
 choice, the spell seam, and the battery click-check debt stand.
+
+## D184 — M6.4ab: zero new classes, and the substring that refused a fresh card (2026-08-14)
+
+**What was decided:** batch 25 of the M6.4 loop lands twenty of its 25 —
+**2,199 of 31,692 Commander-legal cards now execute completely, up from
+2,179** — with five refusals and, for the first time since D175, **ZERO
+new refusal classes**: every refusal is an existing named gap, which is
+the ledger's drainage doing its job. `SHIPPED_SCRIPTS` 449 → 469.
+
+**The pipeline bug the batch's own landing exposed:** `land.cjs`'s
+already-landed check was a plain `includes()` substring test, and
+`KINGFISHER_SCRIPT` is a substring of batch 24's
+`ITHILIEN_KINGFISHER_SCRIPT` — so the tool refused a FRESH card the day
+the shorter name followed the longer one in. Fixed with a word-boundary
+match (`_` is a word character, so `\bKINGFISHER_SCRIPT\b` correctly
+rejects the embedded hit while catching genuine duplicates); the check
+runs before any write, so nothing had landed and the tree was clean.
+
+**The firsts and families:** `Kor Line-Slinger` taps behind D139's
+numeric CEILING ("power 3 or less" — the floors' mirror, a power-6
+Grave Titan refused), with `Law-Rune Enforcer` beside it on the
+mana-value floor; `Khalni Garden` is the entry-tapped land paying a
+TOKEN (the Plant), Fisk's shape with a body instead of life;
+`Keldon Necropolis` puts the chooser+target chain on a legendary LAND;
+`Knight of Doves` watches my ENCHANTMENTS dying (Golgari's watcher one
+type over, the creature negative pinned); `Knightfisher`'s
+nontoken-Bird watcher is deliberately ONE def — a token Bird is
+excluded by the printed word, so a `TokenCreated` arm would be dead
+code wearing coverage, and the Fish it makes proves the filter by its
+own entry; `Kor Celebrant` is the self-inclusive gain (Kapsho's
+qualifies paying life); `Ley Druid` carries `Juniper Order Druid`'s
+EXACT text one batch later, and `Kingfisher` hands `Ithilien
+Kingfisher` back its original. Plus the OR-predicate draw
+(`Kingpin's Enforcers`), the Selesnya Foggy Bottom (`Kyoshi Village` —
+whose test taught that an enters-tapped land must be straightened
+before its {T} cost can pay), two Ally makers, the UW vigilance
+Knight, dies/ETB counters with the own-side spec, and three gains. All
+20 suites — 45 tests — green (19 first-run; Kyoshi Village's failure
+was the TEST paying {T} from a tapped land, not the engine).
+
+**Five refusals, all existing classes:** exile-from-graveyard (Kessig
+Wolfrider), remove-counter (Korozda Gorgon), multi-sacrifice
+(Krark-Clan Engineers), discard-cost (Kris Mage), tap-creatures (Kyren
+Negotiations). The ledger holds 77.
+
+**The numbers, every delta exactly the twenty cards:** primitives
+`complete` 2,179 → 2,199 · `blocked` 29,493 · `scriptableToday` 794 ·
+ladder [794, 893, 2846, 4730, 5917] · botPool **creature 1,500 — the
+pool crosses fifteen hundred**, artifact 73, land 251 · tier3
+`abilityText` 17,174, `payable` 5,142 (−7, def-gated), `either` −20
+exactly, `silentAfter` 2,590 → 2,610 (+20 exactly) · fixtures 646 →
+670 (68 tokens: the Plant `tnec 9`, the flying Bird `trtr 1`, the UW
+vigilance Knight `wmom 3` and the Fish `twho 10` joined; the Ally
+`ttla 8` REUSED) · `batch.json` at **634** (659 − 20 − 5, exact) ·
+botDeck regenerated — **Adun reaches 1,213 cards from 60
+legendaries**.
+
+**Verified: `verify.cjs --full` — ALL FIVE GATES PASSED in one
+invocation** — 539 test files, 3,530 Vitest passed / 10 skipped · the
+500-seed replay fuzz gate green at 1,940.6 s (469 scripts registered,
+1,659 s inside the 3,600 s ceiling) · build clean · probe 124/124 ·
+battery `bot engine prompts` 127/127.
+
+**Reportables:** the zero-new-classes batch is the measurement the
+ledger exists for — the refusal stream is converging on the named
+engine work; the `DrewCards` event stays the highest-value single
+unlock; the cost-chooser classes, `ctx.random`, once-per-turn memory,
+per-damage-entry granularity, token entry choice, the spell seam, and
+the battery click-check debt stand.

@@ -54,7 +54,12 @@ for (const mod of names) {
 }
 
 let registry = readFileSync(registryPath, 'utf8');
-const already = landing.filter((l) => registry.includes(l.exported));
+// ⚠️ WORD-BOUNDARY, not includes() (D184): `KINGFISHER_SCRIPT` is a
+// substring of `ITHILIEN_KINGFISHER_SCRIPT`, and the plain substring test
+// refused a fresh card the day the shorter name followed the longer one in.
+// `_` is a word character, so \b correctly rejects the embedded match while
+// still catching a genuine duplicate.
+const already = landing.filter((l) => new RegExp(`\\b${l.exported}\\b`).test(registry));
 if (already.length > 0) {
   console.error(`already landed: ${already.map((l) => l.exported).join(', ')}`);
   process.exit(1);

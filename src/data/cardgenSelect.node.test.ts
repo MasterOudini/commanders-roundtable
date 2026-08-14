@@ -265,6 +265,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Jori En, Ruin Diver', 'once-per-turn trigger memory'],
   ['Keeper of the Nine Gales', 'tap-creatures cost'],
   ['Keldon Arsonist', 'multi-sacrifice cost'],
+  // Batch 25 (D184): five refusals, ZERO new classes — every one an
+  // existing named gap, which is the ledger's drainage doing its job.
+  ['Kessig Wolfrider', 'exile-from-graveyard cost'],
+  ['Korozda Gorgon', 'remove-counter cost'],
+  ['Krark-Clan Engineers', 'multi-sacrifice cost'],
+  ['Kris Mage', 'discard-cost chooser'],
+  ['Kyren Negotiations', 'tap-creatures cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

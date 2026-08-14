@@ -4880,6 +4880,45 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       memory, per-damage-entry granularity, token entry choice, the
       spell seam and the battery click-check debt stand.
 
+- [x] **M6.4ab — Twenty landed: zero new classes, and the substring that
+      refused a fresh card (2026-08-14):** **2,199 of 31,692
+      Commander-legal cards now execute completely, up from 2,179.**
+      `SHIPPED_SCRIPTS` 449 → 469. Decisions in **D184**.
+      ⚠️ **The pipeline bug the landing exposed:** `land.cjs`'s
+      already-landed check was a plain `includes()` — and
+      `KINGFISHER_SCRIPT` is a substring of `ITHILIEN_KINGFISHER_SCRIPT`,
+      so the tool refused a FRESH card. Fixed with a word-boundary match;
+      the check runs before any write, so the tree was clean.
+      **Firsts and families:** D139's numeric CEILING (Kor Line-Slinger's
+      "power 3 or less", the floors' mirror) beside the mana-value floor
+      (Law-Rune Enforcer); Khalni Garden paying a TOKEN on the tapped
+      entry; the chooser+target chain on a legendary LAND (Keldon
+      Necropolis); Knight of Doves watching ENCHANTMENTS die;
+      Knightfisher's nontoken-Bird watcher deliberately ONE def (a
+      TokenCreated arm would be dead code — the printed word excludes it,
+      and its own Fish proves the filter); Ley Druid and Kingfisher
+      handing back exact texts from one batch earlier. **The creature
+      pool crosses FIFTEEN HUNDRED (1,500).** All 20 suites — 45 tests —
+      green (19 first-run; the one failure was the TEST paying {T} from a
+      tapped land).
+      ⚠️ **Five refusals, ZERO new classes** — the first such batch since
+      D175, and the measurement the ledger exists for: the refusal stream
+      is converging on the named engine work. The ledger holds 77.
+      Fixtures 646 → 670 (68 tokens: Plant `tnec 9`, flying Bird
+      `trtr 1`, UW vigilance Knight `wmom 3`, Fish `twho 10`; Ally
+      reused) · ladder [794, 893, 2846, 4730, 5917] · `batch.json` at 634
+      (exact) · botDeck: Adun reaches 1,213 from 60 legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      539 test files, 3,530 Vitest passed / 10
+      skipped · the 500-seed gate green at 1,940.6 s (469 scripts,
+      1,659 s inside the 3,600 s ceiling) · build clean ·
+      probe 124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D184): the refusal stream converging is the
+      arc's signal to schedule the named engine work (`DrewCards` first);
+      the cost-chooser classes, `ctx.random`, once-per-turn memory,
+      per-damage-entry granularity, token entry choice, the spell seam
+      and the battery click-check debt stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

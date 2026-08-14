@@ -470,6 +470,26 @@ import { KAZANDU_REFUGE_SCRIPT } from './scripts/cards/kazanduRefuge';
 import { KEENING_APPARITION_SCRIPT } from './scripts/cards/keeningApparition';
 import { KEENING_BANSHEE_SCRIPT } from './scripts/cards/keeningBanshee';
 import { KEEPER_OF_FABLES_SCRIPT } from './scripts/cards/keeperOfFables';
+import { KELDON_NECROPOLIS_SCRIPT } from './scripts/cards/keldonNecropolis';
+import { KEMBAS_SKYGUARD_SCRIPT } from './scripts/cards/kembasSkyguard';
+import { KHALNI_GARDEN_SCRIPT } from './scripts/cards/khalniGarden';
+import { KINDLY_CUSTOMER_SCRIPT } from './scripts/cards/kindlyCustomer';
+import { KINGFISHER_SCRIPT } from './scripts/cards/kingfisher';
+import { KINGPINS_ENFORCERS_SCRIPT } from './scripts/cards/kingpinsEnforcers';
+import { KINSBAILE_SKIRMISHER_SCRIPT } from './scripts/cards/kinsbaileSkirmisher';
+import { KNIGHT_OF_DOVES_SCRIPT } from './scripts/cards/knightOfDoves';
+import { KNIGHT_OF_THE_NEW_COALITION_SCRIPT } from './scripts/cards/knightOfTheNewCoalition';
+import { KNIGHTFISHER_SCRIPT } from './scripts/cards/knightfisher';
+import { KOALA_SHEEP_SCRIPT } from './scripts/cards/koalaSheep';
+import { KOR_CELEBRANT_SCRIPT } from './scripts/cards/korCelebrant';
+import { KOR_LINE_SLINGER_SCRIPT } from './scripts/cards/korLineSlinger';
+import { KUJAR_SEEDSCULPTOR_SCRIPT } from './scripts/cards/kujarSeedsculptor';
+import { KYOSHI_VILLAGE_SCRIPT } from './scripts/cards/kyoshiVillage';
+import { KYOSHI_WARRIORS_SCRIPT } from './scripts/cards/kyoshiWarriors';
+import { LAW_RUNE_ENFORCER_SCRIPT } from './scripts/cards/lawRuneEnforcer';
+import { LAWLESS_BROKER_SCRIPT } from './scripts/cards/lawlessBroker';
+import { LETTER_OF_ACCEPTANCE_SCRIPT } from './scripts/cards/letterOfAcceptance';
+import { LEY_DRUID_SCRIPT } from './scripts/cards/leyDruid';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -915,6 +935,17 @@ const DECK = [
   'Kamahl, Pit Fighter', 'Kami of Ancient Law', 'Kami of Twisted Reflection',
   'Kapsho Kitefins', 'Kavu Climber', 'Kazandu Refuge', 'Keening Apparition',
   'Keening Banshee', 'Keeper of Fables',
+  // M6.4ab/D184 — batch 25. Keldon Necropolis rides the chooser+target
+  // chain; the Kor pair, the Knights and the token makers ride entries and
+  // deaths the games already make; Khalni Garden pays its Plant on the
+  // funnel's own tapped entry.
+  'Keldon Necropolis', "Kemba's Skyguard", 'Khalni Garden',
+  'Kindly Customer', 'Kingfisher', "Kingpin's Enforcers",
+  'Kinsbaile Skirmisher', 'Knight of Doves', 'Knight of the New Coalition',
+  'Knightfisher', 'Koala-Sheep', 'Kor Celebrant', 'Kor Line-Slinger',
+  'Kujar Seedsculptor', 'Kyoshi Village', 'Kyoshi Warriors',
+  'Law-Rune Enforcer', 'Lawless Broker', 'Letter of Acceptance',
+  'Ley Druid',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -1411,6 +1442,26 @@ const SCRIPTS = createRegistry([
   KEENING_APPARITION_SCRIPT,
   KEENING_BANSHEE_SCRIPT,
   KEEPER_OF_FABLES_SCRIPT,
+  KELDON_NECROPOLIS_SCRIPT,
+  KEMBAS_SKYGUARD_SCRIPT,
+  KHALNI_GARDEN_SCRIPT,
+  KINDLY_CUSTOMER_SCRIPT,
+  KINGFISHER_SCRIPT,
+  KINGPINS_ENFORCERS_SCRIPT,
+  KINSBAILE_SKIRMISHER_SCRIPT,
+  KNIGHT_OF_DOVES_SCRIPT,
+  KNIGHT_OF_THE_NEW_COALITION_SCRIPT,
+  KNIGHTFISHER_SCRIPT,
+  KOALA_SHEEP_SCRIPT,
+  KOR_CELEBRANT_SCRIPT,
+  KOR_LINE_SLINGER_SCRIPT,
+  KUJAR_SEEDSCULPTOR_SCRIPT,
+  KYOSHI_VILLAGE_SCRIPT,
+  KYOSHI_WARRIORS_SCRIPT,
+  LAW_RUNE_ENFORCER_SCRIPT,
+  LAWLESS_BROKER_SCRIPT,
+  LETTER_OF_ACCEPTANCE_SCRIPT,
+  LEY_DRUID_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

@@ -905,6 +905,27 @@ const WANTED = [
   'Keening Apparition',
   'Keening Banshee',
   'Keeper of Fables',
+  // Batch 25 (D184).
+  'Keldon Necropolis',
+  "Kemba's Skyguard",
+  'Khalni Garden',
+  'Kindly Customer',
+  'Kingfisher',
+  "Kingpin's Enforcers",
+  'Kinsbaile Skirmisher',
+  'Knight of Doves',
+  'Knight of the New Coalition',
+  'Knightfisher',
+  'Koala-Sheep',
+  'Kor Celebrant',
+  'Kor Line-Slinger',
+  'Kujar Seedsculptor',
+  'Kyoshi Village',
+  'Kyoshi Warriors',
+  'Law-Rune Enforcer',
+  'Lawless Broker',
+  'Letter of Acceptance',
+  'Ley Druid',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -1015,6 +1036,14 @@ const WANTED_TOKENS = [
   // Saproling `tddj 1` — checked against TOKEN_TABLE's printingIds first.
   { name: 'Ally', set: 'ttla', cn: '8', key: 'ALLY_TOKEN' },
   { name: 'Cat Warrior', set: 'tc18', cn: '15', key: 'CAT_WARRIOR_TOKEN' },
+  // Batch 25 (D184): the 0/1 Plant (Khalni Garden), the flying Bird (Knight
+  // of Doves), the UW vigilance Knight (Knight of the New Coalition) and the
+  // 1/1 Fish (Knightfisher) join; Kyoshi Warriors REUSES the Ally `ttla 8` —
+  // all mapped from TOKEN_TABLE's printingIds before a line was written.
+  { name: 'Plant', set: 'tnec', cn: '9', key: 'PLANT_TOKEN' },
+  { name: 'Bird', set: 'trtr', cn: '1', key: 'BIRD_FLYING_TOKEN' },
+  { name: 'Knight', set: 'wmom', cn: '3', key: 'KNIGHT_UW_TOKEN' },
+  { name: 'Fish', set: 'twho', cn: '10', key: 'FISH_TOKEN' },
   // M6.4g (D164).
   { name: 'Bear', set: 'ttla', cn: '12', key: 'BEAR_44_TOKEN' },
   { name: 'Blood', set: 'tbig', cn: '2', key: 'BLOOD_TOKEN' },

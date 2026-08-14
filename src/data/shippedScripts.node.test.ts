@@ -153,7 +153,12 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // Keeper of Fables' non-Human combat-damage filter, Junktown's triple
     // Junk, three more Fisk-shape refuges and a Kami text twin; one new
     // refusal class (the gift mechanic).
-    expect(SHIPPED_SCRIPTS).toHaveLength(449);
+    // M6.4ab (D184) landed twenty of 25 — ZERO new refusal classes (the
+    // ledger's drainage working), Khalni Garden's token-paying entry-tapped
+    // land, D139's numeric CEILING (Kor Line-Slinger) beside its floors, and
+    // the land.cjs substring false-positive its own refusal exposed
+    // (KINGFISHER_SCRIPT inside ITHILIEN_KINGFISHER_SCRIPT).
+    expect(SHIPPED_SCRIPTS).toHaveLength(469);
   });
 });
 

@@ -7,6 +7,26 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { KELDON_NECROPOLIS_SCRIPT } from './cards/keldonNecropolis';
+import { KEMBAS_SKYGUARD_SCRIPT } from './cards/kembasSkyguard';
+import { KHALNI_GARDEN_SCRIPT } from './cards/khalniGarden';
+import { KINDLY_CUSTOMER_SCRIPT } from './cards/kindlyCustomer';
+import { KINGFISHER_SCRIPT } from './cards/kingfisher';
+import { KINGPINS_ENFORCERS_SCRIPT } from './cards/kingpinsEnforcers';
+import { KINSBAILE_SKIRMISHER_SCRIPT } from './cards/kinsbaileSkirmisher';
+import { KNIGHT_OF_DOVES_SCRIPT } from './cards/knightOfDoves';
+import { KNIGHT_OF_THE_NEW_COALITION_SCRIPT } from './cards/knightOfTheNewCoalition';
+import { KNIGHTFISHER_SCRIPT } from './cards/knightfisher';
+import { KOALA_SHEEP_SCRIPT } from './cards/koalaSheep';
+import { KOR_CELEBRANT_SCRIPT } from './cards/korCelebrant';
+import { KOR_LINE_SLINGER_SCRIPT } from './cards/korLineSlinger';
+import { KUJAR_SEEDSCULPTOR_SCRIPT } from './cards/kujarSeedsculptor';
+import { KYOSHI_VILLAGE_SCRIPT } from './cards/kyoshiVillage';
+import { KYOSHI_WARRIORS_SCRIPT } from './cards/kyoshiWarriors';
+import { LAW_RUNE_ENFORCER_SCRIPT } from './cards/lawRuneEnforcer';
+import { LAWLESS_BROKER_SCRIPT } from './cards/lawlessBroker';
+import { LETTER_OF_ACCEPTANCE_SCRIPT } from './cards/letterOfAcceptance';
+import { LEY_DRUID_SCRIPT } from './cards/leyDruid';
 import { JEWEL_THIEF_SCRIPT } from './cards/jewelThief';
 import { JEWEL_EYED_COBRA_SCRIPT } from './cards/jewelEyedCobra';
 import { JHOIRA_WEATHERLIGHT_CAPTAIN_SCRIPT } from './cards/jhoiraWeatherlightCaptain';
@@ -550,6 +570,26 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  KELDON_NECROPOLIS_SCRIPT,
+  KEMBAS_SKYGUARD_SCRIPT,
+  KHALNI_GARDEN_SCRIPT,
+  KINDLY_CUSTOMER_SCRIPT,
+  KINGFISHER_SCRIPT,
+  KINGPINS_ENFORCERS_SCRIPT,
+  KINSBAILE_SKIRMISHER_SCRIPT,
+  KNIGHT_OF_DOVES_SCRIPT,
+  KNIGHT_OF_THE_NEW_COALITION_SCRIPT,
+  KNIGHTFISHER_SCRIPT,
+  KOALA_SHEEP_SCRIPT,
+  KOR_CELEBRANT_SCRIPT,
+  KOR_LINE_SLINGER_SCRIPT,
+  KUJAR_SEEDSCULPTOR_SCRIPT,
+  KYOSHI_VILLAGE_SCRIPT,
+  KYOSHI_WARRIORS_SCRIPT,
+  LAW_RUNE_ENFORCER_SCRIPT,
+  LAWLESS_BROKER_SCRIPT,
+  LETTER_OF_ACCEPTANCE_SCRIPT,
+  LEY_DRUID_SCRIPT,
   JEWEL_THIEF_SCRIPT,
   JEWEL_EYED_COBRA_SCRIPT,
   JHOIRA_WEATHERLIGHT_CAPTAIN_SCRIPT,

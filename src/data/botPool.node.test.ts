@@ -427,11 +427,13 @@ const POOL: Record<string, number> = {
   // Locket and Jeskai Banner beside Jandor's Saddlebags and Jayemdae Tome).
   // M6.4aa (D183): +16 creatures and +5 lands (three refuges, Kabira
   // Crossroads, Junktown).
-  creature: 1484,
+  // M6.4ab (D184): +16 creatures (the pool crosses 1,500), +3 lands and
+  // Letter of Acceptance.
+  creature: 1500,
   instant: 201,
   sorcery: 146,
-  land: 248,
-  artifact: 72,
+  land: 251,
+  artifact: 73,
   enchantment: 28,
 };
 
