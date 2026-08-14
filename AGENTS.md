@@ -4618,6 +4618,50 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       `ctx.random`, once-per-turn memory, per-damage-entry granularity,
       token entry choice and the spell seam stand.
 
+- [x] **M6.4v — Eighteen landed: Grave Titan, and three new classes in one
+      letter (2026-08-14):** **2,095 of 31,692 Commander-legal cards now
+      execute completely, up from 2,077.** `SHIPPED_SCRIPTS` 347 → 365.
+      Decisions in **D178**.
+      **The headliner:** `Grave Titan` — the first ENTERS-OR-ATTACKS pair:
+      one printed line, two defs, each paying two DISTINCT Zombies; one
+      test proves both arms in one game (two on entry, four after a real
+      declared attack). `Haazda Vigilante` lands the same pair with D139's
+      numeric spec; `Haazda Marshal` is the attacker-count filter with the
+      self-among-them condition, both sides pinned.
+      **Also:** Greed's life-cost draw (40 → 38 asserted); three sacrifice
+      choosers incl. Gutless Ghoul paying with ITSELF (CR 113.7a); the
+      Gruul Cluestone/Locket pair; dies-gains, dies-debuffs, targeted ETB
+      pumps, the dies counter; Guarded Heir's two 3/3 Knights on a NEW
+      pin. **The enchantment pool reads TWENTY-SIX.** All 18 suites — 41
+      tests — green on their FIRST run: the THIRD consecutive
+      first-run-clean batch.
+      ⚠️ **Seven refusals, THREE NEW classes:** alternative activation
+      cost (Granite Shard's "{3}, {T} or {R}, {T}"), ability-word
+      activated cost (Half-Elf Monk's "Stunning Strike — {1}{W}, {T}:" —
+      named as a parse-widening candidate), and graveyard-activated
+      ability (Halo Scarab — the ability lives in a zone legal.ts never
+      offers from). Plus exile-from-graveyard ×2, Boast, and a
+      script-raised prompt. The ledger holds 56.
+      Fixtures 537 → 556 (59 tokens: 3/3 Knight `tfdn 4`) · ladder [898,
+      997, 2950, 4834, 6021] · `batch.json` at 759 (exact) · botDeck:
+      Adun reaches 1,163 from 55 legendaries.
+      ⚠️ **The first full-gate run failed on the MAY-TRIGGER canary rotting
+      on schedule** — Ajani's Mantra at ONE copy is the only source either
+      optional counter reads, diluted to ZERO at the 60-seed leg by DECK
+      growth (every replay hash equal; the 500-seed leg itself green). Five
+      copies now (D149's fix, EIGHTH instance of the class); the gate
+      relaunched from the top.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      435 test files, 3,085 Vitest passed / 10 skipped ·
+      the 500-seed gate green at 1,394.8 s (365 scripts,
+      405 s inside the 1,800 s ceiling) · build clean · probe
+      124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D178): the ability-word cost is the cheapest new
+      class ever named (a scrub, not a seam); the cost-chooser classes,
+      `ctx.random`, once-per-turn memory, per-damage-entry granularity,
+      token entry choice, the spell seam, self-only def dispatch and the
+      battery click-check debt stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

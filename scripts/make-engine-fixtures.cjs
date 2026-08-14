@@ -792,6 +792,25 @@ const WANTED = [
   'Golgari Locket',
   'Golgari Rotwurm',
   'Grandmother Sengir',
+  // Batch 20 (D178).
+  'Grasping Longneck',
+  'Grave Titan',
+  'Graypelt Refuge',
+  'Greed',
+  'Grim Backwoods',
+  'Grim Physician',
+  'Gruul Cluestone',
+  'Gruul Locket',
+  'Gryff Vanguard',
+  'Guarded Heir',
+  'Guardian Automaton',
+  'Guardian of Pilgrims',
+  'Gutless Ghoul',
+  'Guul Draz Mucklord',
+  'Haazda Marshal',
+  'Haazda Officer',
+  'Haazda Vigilante',
+  'Hagra Sharpshooter',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -837,6 +856,10 @@ const WANTED_TOKENS = [
   { name: 'Spirit', set: 'tema', cn: '1', key: 'SPIRIT_C_TOKEN' },
   { name: 'Goblin Soldier', set: 'tema', cn: '15', key: 'GOBLIN_SOLDIER_TOKEN' },
   { name: 'Troll Warrior', set: 'tkhm', cn: '16', key: 'TROLL_WARRIOR_TOKEN' },
+  // Batch 20 (D178). The 3/3 Knight gets a DISTINCT key — the 2/2 vigilance
+  // Knight (tm21 4) is pinned above. Zombie (tc14 16) and the lifelink
+  // Soldier (tmom 2) are REUSED — both match the TOKEN_TABLE printings.
+  { name: 'Knight', set: 'tfdn', cn: '4', key: 'KNIGHT_33_TOKEN' },
   // Batch 16 (D174). The decayed Zombie gets a DISTINCT key — the plain
   // 2/2 Zombie (tc14 16) is pinned above.
   { name: 'Faerie', set: 'tmoc', cn: '11', key: 'FAERIE_TOKEN' },

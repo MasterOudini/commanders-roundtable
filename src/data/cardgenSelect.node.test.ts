@@ -210,6 +210,19 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Goblin Warrens', 'multi-sacrifice cost'],
   ['Goldmaw Champion', 'once-per-turn trigger memory'],
   ['Graf Mole', 'sacrifice-event discriminator'],
+  // Batch 20 (D178) — THREE new classes. Alternative cost: "{3}, {T} or
+  // {R}, {T}:" has no carrier and a def would charge one reading of an
+  // ambiguous price. Ability-word cost: the em-dash label sits inside the
+  // cost string ("Stunning Strike — {1}{W}, {T}") — a parse-widening
+  // candidate. Graveyard-activated: the ability itself lives in the
+  // graveyard, and legal.ts offers battlefield abilities only.
+  ['Granite Shard', 'alternative activation cost'],
+  ['Great Arashin City', 'exile-from-graveyard cost'],
+  ['Grim Lavamancer', 'exile-from-graveyard cost'],
+  ['Hagi Mob', 'once-per-turn trigger memory'],
+  ['Half-Elf Monk', 'ability-word activated cost'],
+  ['Halimar Depths', 'script-raised prompt'],
+  ['Halo Scarab', 'graveyard-activated ability'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

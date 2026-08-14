@@ -7,6 +7,24 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { GRASPING_LONGNECK_SCRIPT } from './cards/graspingLongneck';
+import { GRAVE_TITAN_SCRIPT } from './cards/graveTitan';
+import { GRAYPELT_REFUGE_SCRIPT } from './cards/graypeltRefuge';
+import { GREED_SCRIPT } from './cards/greed';
+import { GRIM_BACKWOODS_SCRIPT } from './cards/grimBackwoods';
+import { GRIM_PHYSICIAN_SCRIPT } from './cards/grimPhysician';
+import { GRUUL_CLUESTONE_SCRIPT } from './cards/gruulCluestone';
+import { GRUUL_LOCKET_SCRIPT } from './cards/gruulLocket';
+import { GRYFF_VANGUARD_SCRIPT } from './cards/gryffVanguard';
+import { GUARDED_HEIR_SCRIPT } from './cards/guardedHeir';
+import { GUARDIAN_AUTOMATON_SCRIPT } from './cards/guardianAutomaton';
+import { GUARDIAN_OF_PILGRIMS_SCRIPT } from './cards/guardianOfPilgrims';
+import { GUTLESS_GHOUL_SCRIPT } from './cards/gutlessGhoul';
+import { GUUL_DRAZ_MUCKLORD_SCRIPT } from './cards/guulDrazMucklord';
+import { HAAZDA_MARSHAL_SCRIPT } from './cards/haazdaMarshal';
+import { HAAZDA_OFFICER_SCRIPT } from './cards/haazdaOfficer';
+import { HAAZDA_VIGILANTE_SCRIPT } from './cards/haazdaVigilante';
+import { HAGRA_SHARPSHOOTER_SCRIPT } from './cards/hagraSharpshooter';
 import { GNARLBACK_RHINO_SCRIPT } from './cards/gnarlbackRhino';
 import { GNARLED_EFFIGY_SCRIPT } from './cards/gnarledEffigy';
 import { GNOTTVOLD_SLUMBERMOUND_SCRIPT } from './cards/gnottvoldSlumbermound';
@@ -448,6 +466,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GRASPING_LONGNECK_SCRIPT,
+  GRAVE_TITAN_SCRIPT,
+  GRAYPELT_REFUGE_SCRIPT,
+  GREED_SCRIPT,
+  GRIM_BACKWOODS_SCRIPT,
+  GRIM_PHYSICIAN_SCRIPT,
+  GRUUL_CLUESTONE_SCRIPT,
+  GRUUL_LOCKET_SCRIPT,
+  GRYFF_VANGUARD_SCRIPT,
+  GUARDED_HEIR_SCRIPT,
+  GUARDIAN_AUTOMATON_SCRIPT,
+  GUARDIAN_OF_PILGRIMS_SCRIPT,
+  GUTLESS_GHOUL_SCRIPT,
+  GUUL_DRAZ_MUCKLORD_SCRIPT,
+  HAAZDA_MARSHAL_SCRIPT,
+  HAAZDA_OFFICER_SCRIPT,
+  HAAZDA_VIGILANTE_SCRIPT,
+  HAGRA_SHARPSHOOTER_SCRIPT,
   GNARLBACK_RHINO_SCRIPT,
   GNARLED_EFFIGY_SCRIPT,
   GNOTTVOLD_SLUMBERMOUND_SCRIPT,

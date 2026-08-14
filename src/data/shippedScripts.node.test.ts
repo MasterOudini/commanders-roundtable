@@ -130,7 +130,11 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // resolve (Gnottvold: destroy + token, the Troll arriving past an
     // indestructible target), the fourth Benalish id, and TWO new refusal
     // classes (multi-sacrifice cost; sacrifice-event discriminator).
-    expect(SHIPPED_SCRIPTS).toHaveLength(347);
+    // M6.4v (D178) landed eighteen of 25 — Grave Titan's enters-or-attacks
+    // pair, the attacker-count Soldier (Haazda Marshal), Greed's life-cost
+    // draw; THREE new refusal classes (alternative activation cost,
+    // ability-word activated cost, graveyard-activated ability).
+    expect(SHIPPED_SCRIPTS).toHaveLength(365);
   });
 });
 

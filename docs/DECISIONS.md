@@ -12152,3 +12152,83 @@ would also serve Graf Mole's whole family); self-only def dispatch
 rows still owe a battery click-check; the cost-chooser classes,
 `ctx.random`, once-per-turn memory, per-damage-entry granularity,
 token entry choice and the spell seam stand.
+
+## D178 — M6.4v: Grave Titan, and three new classes in one letter (2026-08-14)
+
+**What was decided:** batch 20 of the M6.4 loop lands eighteen of its
+25 — **2,095 of 31,692 Commander-legal cards now execute completely, up
+from 2,077** — with seven refusals, THREE of them NEW classes.
+`SHIPPED_SCRIPTS` 347 → 365.
+
+**The headliner:** `Grave Titan` — the first ENTERS-OR-ATTACKS pair:
+one printed line, two defs (Ashen Rider's rule on the attack side), the
+entry via `CardsMoved` and the attack via `AttackersDeclared`, each
+paying two DISTINCT Zombies through D164's allocator — and one test
+proves both arms in one game: two Zombies on entry, four after a real
+declared attack. `Haazda Vigilante` lands the same pair with D139's
+numeric restriction in the trigger's own spec (+1/+1 on a creature with
+power 2 or less), and `Haazda Marshal` is Armasaur Guide's
+attacker-count filter with the self-among-them condition — three
+attackers with the Marshal pay the lifelink Soldier, two pay nothing,
+both pinned.
+
+**The rest:** `Greed`'s {B}-and-2-life draw (Book of Rass's cost shape,
+the life charge asserted at 40 → 38); three sacrifice choosers
+(`Grim Backwoods` on a land, `Gutless Ghoul` paying with ITSELF,
+CR 113.7a); the Gruul Cluestone/Locket pair — the FOURTH colour pair;
+dies-gains at 2 and 3 (`Grasping Longneck`, `Guardian Automaton`);
+dies-debuff with the opponent-restricted spec (`Grim Physician`);
+targeted ETB pumps plain and controller-restricted (`Guardian of
+Pilgrims`, `Haazda Officer`); the dies counter (`Guul Draz Mucklord`);
+`Graypelt Refuge`'s enters-tapped ETB gain; ETB draws and the two-Knight
+`Guarded Heir` on a NEW 3/3 pin. **The enchantment pool reads
+TWENTY-SIX.** All 18 suites — 41 tests — passed on their FIRST run: the
+THIRD consecutive first-run-clean batch, the token pin mapped from
+`TOKEN_TABLE`'s printingId before a line was written.
+
+**Seven refusals, THREE NEW classes:** `Granite Shard` costs
+"{3}, {T} or {R}, {T}" — an ALTERNATIVE ACTIVATION COST with no
+carrier, where a def would charge one reading of an ambiguous price;
+`Half-Elf Monk` prints "Stunning Strike — {1}{W}, {T}:" — an
+ABILITY-WORD ACTIVATED COST, the em-dash label sitting inside the cost
+string (named as a parse-widening candidate: scrubbing ability words is
+likely a small fix); `Halo Scarab` activates "{2}, Exile this card from
+your graveyard:" — a GRAVEYARD-ACTIVATED ABILITY, and the ability
+itself lives in a zone `legal.ts` never offers from. Plus
+exile-from-graveyard twice (`Great Arashin City`, `Grim Lavamancer`),
+Boast (`Hagi Mob`), and `Halimar Depths`' ETB look-and-order
+(script-raised prompt). The ledger holds 56.
+
+**The numbers, every delta exactly the eighteen cards:** primitives
+`complete` 2,077 → 2,095 · `blocked` 29,597 · `scriptableToday` 898 ·
+ladder [898, 997, 2950, 4834, 6021] · botPool creature 1,418, artifact
+65, **enchantment 26**, land 239 · tier3 `abilityText` 17,249, `either`
+−18 exactly, `silentAfter` 2,488 → 2,506 (+18 exactly) · fixtures 537 →
+556 (59 tokens: the 3/3 Knight `tfdn 4` joined; Zombie `tc14 16` and the
+lifelink Soldier `tmom 2` reused) · `batch.json` at **759** (784 − 18 −
+7, exact) · botDeck regenerated — **Adun reaches 1,163 cards from 55
+legendaries**.
+
+**The first full-gate run failed on the MAY-TRIGGER canary rotting on
+schedule** — `Ajani's Mantra` at ONE copy is the only source
+`optionalTaken`/`optionalDeclined` read, and batch 20's DECK growth
+diluted the compound event (dealt AND cast AND surviving to an upkeep,
+then a coin flip each way) to ZERO at the 60-seed leg with every replay
+hash equal — the 500-seed gate leg itself was green at 1,437.7 s. Five
+copies now (D149's fix, EIGHTH instance of the class, Onulet's profile
+one prompt over); the gate relaunched from the top.
+
+**Verified: `verify.cjs --full` — ALL FIVE GATES PASSED in one
+invocation** — 435 test files, 3,085 Vitest passed / 10 skipped · the
+500-seed replay fuzz gate green at 1,394.8 s (365 scripts registered,
+405 s inside the 1,800 s ceiling) · build clean · probe 124/124 ·
+battery `bot engine prompts` 127/127.
+
+**Reportables:** the ability-word activated cost is the cheapest new
+class ever named (a scrub, not a seam) and Granite Shard's alternative
+cost the most structural; the multi-sacrifice and sacrifice-event
+discriminator classes stand from D177; self-only def dispatch (D169)
+stays the named fuzz lever; the answer-mode arrow and ability rows owe
+a battery click-check; `ctx.random`, once-per-turn memory,
+per-damage-entry granularity, token entry choice and the spell seam
+stand.

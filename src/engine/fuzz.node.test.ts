@@ -368,6 +368,24 @@ import { GOLGARI_GERMINATION_SCRIPT } from './scripts/cards/golgariGermination';
 import { GOLGARI_LOCKET_SCRIPT } from './scripts/cards/golgariLocket';
 import { GOLGARI_ROTWURM_SCRIPT } from './scripts/cards/golgariRotwurm';
 import { GRANDMOTHER_SENGIR_SCRIPT } from './scripts/cards/grandmotherSengir';
+import { GRASPING_LONGNECK_SCRIPT } from './scripts/cards/graspingLongneck';
+import { GRAVE_TITAN_SCRIPT } from './scripts/cards/graveTitan';
+import { GRAYPELT_REFUGE_SCRIPT } from './scripts/cards/graypeltRefuge';
+import { GREED_SCRIPT } from './scripts/cards/greed';
+import { GRIM_BACKWOODS_SCRIPT } from './scripts/cards/grimBackwoods';
+import { GRIM_PHYSICIAN_SCRIPT } from './scripts/cards/grimPhysician';
+import { GRUUL_CLUESTONE_SCRIPT } from './scripts/cards/gruulCluestone';
+import { GRUUL_LOCKET_SCRIPT } from './scripts/cards/gruulLocket';
+import { GRYFF_VANGUARD_SCRIPT } from './scripts/cards/gryffVanguard';
+import { GUARDED_HEIR_SCRIPT } from './scripts/cards/guardedHeir';
+import { GUARDIAN_AUTOMATON_SCRIPT } from './scripts/cards/guardianAutomaton';
+import { GUARDIAN_OF_PILGRIMS_SCRIPT } from './scripts/cards/guardianOfPilgrims';
+import { GUTLESS_GHOUL_SCRIPT } from './scripts/cards/gutlessGhoul';
+import { GUUL_DRAZ_MUCKLORD_SCRIPT } from './scripts/cards/guulDrazMucklord';
+import { HAAZDA_MARSHAL_SCRIPT } from './scripts/cards/haazdaMarshal';
+import { HAAZDA_OFFICER_SCRIPT } from './scripts/cards/haazdaOfficer';
+import { HAAZDA_VIGILANTE_SCRIPT } from './scripts/cards/haazdaVigilante';
+import { HAGRA_SHARPSHOOTER_SCRIPT } from './scripts/cards/hagraSharpshooter';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -452,6 +470,15 @@ const DECK = [
   // `orderTriggers` — a prompt with a real producer in `loop.ts` — had never
   // been raised. `SCRIPTS` below is what fixes that, and this card is what it
   // holds.
+  // ⚠️ FIVE COPIES OF THE MANTRA (D178): one was enough for nineteen batches,
+  // until batch 20's DECK growth diluted the compound event the may-trigger
+  // canaries need (Mantra dealt AND cast for `{1}{W}` AND surviving to an
+  // upkeep, then a coin flip EACH WAY) below one occurrence at the 60-seed
+  // leg — `optionalTaken` read ZERO with every replay hash equal. It is the
+  // ONLY source either optional counter reads, Onulet's exact profile one
+  // prompt over. D149's fix, EIGHTH instance of the rot these comments keep
+  // predicting.
+  "Ajani's Mantra", "Ajani's Mantra", "Ajani's Mantra", "Ajani's Mantra",
   "Ajani's Mantra",
   // ⚠️ M6.3/D129, and the same rule again one layer along: `applyStatics` had
   // never RUN in this gate either, for the same reason the trigger bus had not.
@@ -737,6 +764,15 @@ const DECK = [
   'Goblin Sledder', 'Goblin Trenches', "Gods' Eye, Gate to the Reikai",
   'Goldmeadow Harrier', 'Golgari Cluestone', 'Golgari Germination',
   'Golgari Locket', 'Golgari Rotwurm', 'Grandmother Sengir',
+  // Batch 20 (D178): Grave Titan and Haazda Vigilante ride the gate's own
+  // combat declarations for their attack arms; the Marshal's ≥3 filter
+  // fires whenever a wide board swings.
+  'Grasping Longneck', 'Grave Titan', 'Graypelt Refuge', 'Greed',
+  'Grim Backwoods', 'Grim Physician', 'Gruul Cluestone', 'Gruul Locket',
+  'Gryff Vanguard', 'Guarded Heir', 'Guardian Automaton',
+  'Guardian of Pilgrims', 'Gutless Ghoul', 'Guul Draz Mucklord',
+  'Haazda Marshal', 'Haazda Officer', 'Haazda Vigilante',
+  'Hagra Sharpshooter',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -1130,6 +1166,25 @@ const SCRIPTS = createRegistry([
   GOLGARI_LOCKET_SCRIPT,
   GOLGARI_ROTWURM_SCRIPT,
   GRANDMOTHER_SENGIR_SCRIPT,
+  // Batch 20 (D178).
+  GRASPING_LONGNECK_SCRIPT,
+  GRAVE_TITAN_SCRIPT,
+  GRAYPELT_REFUGE_SCRIPT,
+  GREED_SCRIPT,
+  GRIM_BACKWOODS_SCRIPT,
+  GRIM_PHYSICIAN_SCRIPT,
+  GRUUL_CLUESTONE_SCRIPT,
+  GRUUL_LOCKET_SCRIPT,
+  GRYFF_VANGUARD_SCRIPT,
+  GUARDED_HEIR_SCRIPT,
+  GUARDIAN_AUTOMATON_SCRIPT,
+  GUARDIAN_OF_PILGRIMS_SCRIPT,
+  GUTLESS_GHOUL_SCRIPT,
+  GUUL_DRAZ_MUCKLORD_SCRIPT,
+  HAAZDA_MARSHAL_SCRIPT,
+  HAAZDA_OFFICER_SCRIPT,
+  HAAZDA_VIGILANTE_SCRIPT,
+  HAGRA_SHARPSHOOTER_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

@@ -16625,6 +16625,618 @@ export const GRANDMOTHER_SENGIR: CardData = {
   "singleImage": true
 };
 
+export const GRASPING_LONGNECK: CardData = {
+  "scryfallId": "7fddcd48-3efe-4b56-9d69-9659b3dc6021",
+  "oracleId": "bc509d30-ceca-47ef-a574-62c021812014",
+  "name": "Grasping Longneck",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Grasping Longneck",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment Creature — Horror",
+      "oracleText": "Reach\nWhen this creature dies, you gain 2 life.",
+      "flavorText": "\"We ran, but it was all around us—like a writhing, flailing forest of rubbery limbs and stabbing talons.\"\n—Survivor's journal",
+      "power": "4",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mathias Kollros",
+      "imageId": "7fddcd48-3efe-4b56-9d69-9659b3dc6021"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Reach"
+  ],
+  "setCode": "dsk",
+  "collectorNumber": "180",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRAVE_TITAN: CardData = {
+  "scryfallId": "08a92949-b045-4e13-8b1e-5d4ec097432e",
+  "oracleId": "f3abd4d1-a975-4e85-8684-aa0fce029670",
+  "name": "Grave Titan",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Grave Titan",
+      "manaCost": "{4}{B}{B}",
+      "typeLine": "Creature — Giant",
+      "oracleText": "Deathtouch\nWhenever this creature enters or attacks, create two 2/2 black Zombie creature tokens.",
+      "flavorText": null,
+      "power": "6",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "08a92949-b045-4e13-8b1e-5d4ec097432e"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Deathtouch"
+  ],
+  "setCode": "ha7",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRAYPELT_REFUGE: CardData = {
+  "scryfallId": "07e81ace-4d75-4d79-ab99-c42288580def",
+  "oracleId": "60b36821-0fad-423c-98c4-f64d991719f3",
+  "name": "Graypelt Refuge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Graypelt Refuge",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {G} or {W}.",
+      "flavorText": "\"As long as the Shire remains safe, I shall find wandering more bearable; somewhere there is a firm foothold, even if I cannot return.\"\n—Frodo",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Erikas Perl",
+      "imageId": "07e81ace-4d75-4d79-ab99-c42288580def"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "ltc",
+  "collectorNumber": "316",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GREED: CardData = {
+  "scryfallId": "111a16a2-e875-4756-80db-290f9e8606db",
+  "oracleId": "1ff62220-be95-4901-b8d8-812b9a1a1b0a",
+  "name": "Greed",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Greed",
+      "manaCost": "{3}{B}",
+      "typeLine": "Enchantment",
+      "oracleText": "{B}, Pay 2 life: Draw a card.",
+      "flavorText": "\"There is no calamity greater than lavish desires./ There is no greater guilt than discontentment./ And there is no greater disaster than greed.\" —*Tao Tê Ching 46*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Phil Foglio",
+      "imageId": "111a16a2-e875-4756-80db-290f9e8606db"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "leg",
+  "collectorNumber": "101",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRIM_BACKWOODS: CardData = {
+  "scryfallId": "045abeeb-f5e5-4f3f-9836-5b1553e03f11",
+  "oracleId": "5effaa94-7f87-4485-8959-473d584c5034",
+  "name": "Grim Backwoods",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Grim Backwoods",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{2}{B}{G}, {T}, Sacrifice a creature: Draw a card.",
+      "flavorText": "\"I love what they've done with the place.\"\n—Liliana Vess",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Vincent Proce",
+      "imageId": "045abeeb-f5e5-4f3f-9836-5b1553e03f11"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "dka",
+  "collectorNumber": "156",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRIM_PHYSICIAN: CardData = {
+  "scryfallId": "b7e92c82-840f-4c75-b617-7b58a07be5b4",
+  "oracleId": "381539ce-fc05-4855-80da-b0807a7c07c2",
+  "name": "Grim Physician",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Grim Physician",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "When this creature dies, target creature an opponent controls gets -1/-1 until end of turn.",
+      "flavorText": "The Returned retain no memory of their identities, but sometimes they mindlessly attempt familiar tasks.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "b7e92c82-840f-4c75-b617-7b58a07be5b4"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "thb",
+  "collectorNumber": "100",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRUUL_CLUESTONE: CardData = {
+  "scryfallId": "bc47d1fe-8ab2-42f6-bcab-4bc2084ceba7",
+  "oracleId": "80911151-1e72-4d10-b00a-9fcff2dd131a",
+  "name": "Gruul Cluestone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gruul Cluestone",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {R} or {G}.\n{R}{G}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "Forgotten under rocks and vines, Gruul symbols mark the sites of primitive rituals where shamans once chanted to the wild.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Raoul Vitale",
+      "imageId": "bc47d1fe-8ab2-42f6-bcab-4bc2084ceba7"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dgm",
+  "collectorNumber": "140",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRUUL_LOCKET: CardData = {
+  "scryfallId": "1ec78880-a8ec-4c87-bc3f-e2a79d154884",
+  "oracleId": "7018ccd0-96e6-458f-b412-197edcb2bafd",
+  "name": "Gruul Locket",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gruul Locket",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {R} or {G}.\n{R/G}{R/G}{R/G}{R/G}, {T}, Sacrifice this artifact: Draw two cards.",
+      "flavorText": "\"In life, it was a cunning survivor, fearless and quick. May its power pass to you as you wear its skull.\"\n—Gna, Gruul shaman",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Kev Walker",
+      "imageId": "1ec78880-a8ec-4c87-bc3f-e2a79d154884"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "rna",
+  "collectorNumber": "234",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRYFF_VANGUARD: CardData = {
+  "scryfallId": "53a14ab8-62f4-4873-b4ef-650f0aded095",
+  "oracleId": "3bcdf832-4ce2-4043-b46a-0c5fd7019fcd",
+  "name": "Gryff Vanguard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gryff Vanguard",
+      "manaCost": "{4}{U}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Flying\nWhen this creature enters, draw a card.",
+      "flavorText": "\"Ghouls smashed the door, but I heard the call of the gryffs and knew we were saved.\"\n—Ekka, shopkeeper of Hanweir",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jason Chan",
+      "imageId": "53a14ab8-62f4-4873-b4ef-650f0aded095"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ddq",
+  "collectorNumber": "25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GUARDED_HEIR: CardData = {
+  "scryfallId": "525ba5c7-3ce5-4e52-b8b5-96c9040a6738",
+  "oracleId": "63e79a6f-ed98-480a-a740-d44e111046f7",
+  "name": "Guarded Heir",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Guarded Heir",
+      "manaCost": "{5}{W}",
+      "typeLine": "Creature — Human Noble",
+      "oracleText": "Lifelink (Damage dealt by this creature also causes you to gain that much life.)\nWhen this creature enters, create two 3/3 white Knight creature tokens.",
+      "flavorText": "The fate of the kingdom is tied to her own. Until she's old enough to rule, her vassals will not leave her side.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Craig J Spearing",
+      "imageId": "525ba5c7-3ce5-4e52-b8b5-96c9040a6738"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Lifelink"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GUARDIAN_AUTOMATON: CardData = {
+  "scryfallId": "7e8916b7-f5e4-4fae-8db8-9859d69212ec",
+  "oracleId": "cd29d0fd-685f-4c26-b69c-e96f1c0d59c4",
+  "name": "Guardian Automaton",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Guardian Automaton",
+      "manaCost": "{4}",
+      "typeLine": "Artifact Creature — Construct",
+      "oracleText": "When this creature dies, you gain 3 life.",
+      "flavorText": "The wealthy in the city of Ghirapur outfit their lives with grand machines, entrusting even their children to filigree and gears.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Vincent Proce",
+      "imageId": "7e8916b7-f5e4-4fae-8db8-9859d69212ec"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ori",
+  "collectorNumber": "227",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GUARDIAN_OF_PILGRIMS: CardData = {
+  "scryfallId": "92bd32b0-042c-4915-95a1-3ce3b22bf0f6",
+  "oracleId": "a090bc9c-d253-4a29-87d6-aa849f856d36",
+  "name": "Guardian of Pilgrims",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Guardian of Pilgrims",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Spirit Cleric",
+      "oracleText": "When this creature enters, target creature gets +1/+1 until end of turn.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Lordigan",
+      "imageId": "92bd32b0-042c-4915-95a1-3ce3b22bf0f6"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "sir",
+  "collectorNumber": "32",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GUTLESS_GHOUL: CardData = {
+  "scryfallId": "b8bb97ce-d9cf-47db-93cb-02745ebeb05e",
+  "oracleId": "5ebc166d-98c5-4ab7-9610-bc5bcd231d80",
+  "name": "Gutless Ghoul",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gutless Ghoul",
+      "manaCost": "{2}{B}",
+      "typeLine": "Snow Creature — Zombie",
+      "oracleText": "{1}, Sacrifice a creature: You gain 2 life.",
+      "flavorText": "\"Make sure those wretches feed only upon the plagued. The blood of the healthy is reserved for me alone.\"\n—Garza Zol, plague queen",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Kensuke Okabayashi",
+      "imageId": "b8bb97ce-d9cf-47db-93cb-02745ebeb05e"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "csp",
+  "collectorNumber": "60",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GUUL_DRAZ_MUCKLORD: CardData = {
+  "scryfallId": "b996743e-7f48-49d8-948b-ceb75bddf215",
+  "oracleId": "ad62cd58-fe6f-4844-b3dc-5ba21327fc43",
+  "name": "Guul Draz Mucklord",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Guul Draz Mucklord",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Crocodile",
+      "oracleText": "When this creature dies, put a +1/+1 counter on target creature you control.",
+      "flavorText": "Death comes in many forms on Guul Draz, most of them slow, subtle, and agonizing. At least a monstrous crocodile offers a swift death.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Darek Zabrocki",
+      "imageId": "b996743e-7f48-49d8-948b-ceb75bddf215"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "znr",
+  "collectorNumber": "104",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HAAZDA_MARSHAL: CardData = {
+  "scryfallId": "5c561d89-b02d-4f1a-b49a-cdf2def3404d",
+  "oracleId": "3a1efa7e-21d5-47a1-bcd8-7d4616be0d58",
+  "name": "Haazda Marshal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Haazda Marshal",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Whenever this creature and at least two other creatures attack, create a 1/1 white Soldier creature token with lifelink.",
+      "flavorText": "Ravnica's convoluted power structure often boils down to who can muster the most swords on a given block.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Josh Hass",
+      "imageId": "5c561d89-b02d-4f1a-b49a-cdf2def3404d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "grn",
+  "collectorNumber": "13",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HAAZDA_OFFICER: CardData = {
+  "scryfallId": "5ba5f096-c6ea-4db6-966b-617e3454813f",
+  "oracleId": "35023c04-ae62-47bf-80a0-faa2d7a67788",
+  "name": "Haazda Officer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Haazda Officer",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "When this creature enters, target creature you control gets +1/+1 until end of turn.",
+      "flavorText": "\"You two, cover the alley! You, with me! Eyes on windows, balconies, and rooftops. Who knows what a fish-octopus-crab can do!\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Aaron Miller",
+      "imageId": "5ba5f096-c6ea-4db6-966b-617e3454813f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "rna",
+  "collectorNumber": "10",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HAAZDA_VIGILANTE: CardData = {
+  "scryfallId": "5277fe72-dc33-4d19-a439-63b5344c6034",
+  "oracleId": "4b707ef4-2c17-41e7-8dac-583791a98055",
+  "name": "Haazda Vigilante",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Haazda Vigilante",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Giant Soldier",
+      "oracleText": "Whenever this creature enters or attacks, put a +1/+1 counter on target creature you control with power 2 or less.",
+      "flavorText": "\"Call the Boros if you want. While they figure out if they have enough people to send a patrol, I'll be out clobbering the lowlifes who robbed you.\"",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Tomas Duchek",
+      "imageId": "5277fe72-dc33-4d19-a439-63b5344c6034"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "mkm",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HAGRA_SHARPSHOOTER: CardData = {
+  "scryfallId": "a706b2e3-bd0e-4111-8b68-976869c7d707",
+  "oracleId": "d2f59fa6-8e61-4a70-8044-196d7b26ec9e",
+  "name": "Hagra Sharpshooter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hagra Sharpshooter",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Human Assassin Ally",
+      "oracleText": "{4}{B}: Target creature gets -1/-1 until end of turn.",
+      "flavorText": "\"It's hard to find their weak points, but I very much enjoy the discovery process.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Josu Hernaiz",
+      "imageId": "a706b2e3-bd0e-4111-8b68-976869c7d707"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "bfz",
+  "collectorNumber": "113",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -17265,6 +17877,40 @@ export const TROLL_WARRIOR_TOKEN: CardData = {
   ],
   "setCode": "tkhm",
   "collectorNumber": "16",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const KNIGHT_33_TOKEN: CardData = {
+  "scryfallId": "0d287806-07bb-4709-9260-b9ef34fe2a13",
+  "oracleId": "99221882-ed7b-454b-8f08-3c7579612ce3",
+  "name": "Knight",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Knight",
+      "manaCost": "",
+      "typeLine": "Token Creature — Knight",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Daneen Wilkerson",
+      "imageId": "0d287806-07bb-4709-9260-b9ef34fe2a13"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tfdn",
+  "collectorNumber": "4",
   "commanderLegality": "not_legal",
   "singleImage": true
 };
@@ -19063,6 +19709,24 @@ export const ENGINE_CARDS: CardData[] = [
   GOLGARI_LOCKET,
   GOLGARI_ROTWURM,
   GRANDMOTHER_SENGIR,
+  GRASPING_LONGNECK,
+  GRAVE_TITAN,
+  GRAYPELT_REFUGE,
+  GREED,
+  GRIM_BACKWOODS,
+  GRIM_PHYSICIAN,
+  GRUUL_CLUESTONE,
+  GRUUL_LOCKET,
+  GRYFF_VANGUARD,
+  GUARDED_HEIR,
+  GUARDIAN_AUTOMATON,
+  GUARDIAN_OF_PILGRIMS,
+  GUTLESS_GHOUL,
+  GUUL_DRAZ_MUCKLORD,
+  HAAZDA_MARSHAL,
+  HAAZDA_OFFICER,
+  HAAZDA_VIGILANTE,
+  HAGRA_SHARPSHOOTER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -19082,6 +19746,7 @@ export const ENGINE_CARDS: CardData[] = [
   SPIRIT_C_TOKEN,
   GOBLIN_SOLDIER_TOKEN,
   TROLL_WARRIOR_TOKEN,
+  KNIGHT_33_TOKEN,
   FAERIE_TOKEN,
   ZOMBIE_DECAYED_TOKEN,
   GOBLIN_BR_TOKEN,
