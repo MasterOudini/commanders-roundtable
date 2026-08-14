@@ -12319,3 +12319,100 @@ self-only def dispatch (D169) stays the named fuzz lever; the
 answer-mode arrow and ability rows owe a battery click-check;
 `ctx.random`, once-per-turn memory, per-damage-entry granularity,
 token entry choice and the spell seam stand.
+
+## D180 — M6.4x: attacks alone, four Hornets, and the Plains that is its own plural (2026-08-14)
+
+**What was decided:** batch 22 of the M6.4 loop lands twenty of its 25 —
+**2,136 of 31,692 Commander-legal cards now execute completely, up from
+2,116** — with five refusals, TWO of them NEW classes. `SHIPPED_SCRIPTS`
+386 → 406, past four hundred.
+
+**The headliner is a parser bug the batch's own test forced out:**
+`Idyllic Grange` counts "three or more other Plains", and D135's
+`otherLandsOfType` pattern strips a trailing `s` — so the capture read
+**"Plain", a subtype no land has, and the count read zero forever.**
+PLAINS IS ITS OWN PLURAL, the only basic whose printed plural equals its
+subtype; every earlier consumer counted Forests or Mountains (whose
+plurals ARE subtype+s) and was correct, so the bug sat latent since D135
+in exactly the shape D135 itself warned about — the failure that looks
+like the feature working, because a land entering tapped is what you get
+when a condition never holds. Fixed in `replacementParse` with the
+special case named; the Grange's suite proves both halves both ways
+(untapped-and-asks behind three Plains, tapped-and-silent alone).
+
+**The firsts:** `Imperial Subduer` is the first ATTACKS-ALONE filter —
+exactly ONE declared attacker, and that one a controlled
+Samurai-or-Warrior, with the two-attacker negative pinned. `Hornet
+Queen` makes FOUR deathtouch-flying Insects with distinct ids — the
+largest single token drop a script has made (NEW pin `tc21 17`, whose
+keywords are its identity, D131). `Ichor Wellspring` is the
+enters-OR-dies pair on an ARTIFACT (Ashen Rider's rule, both arms drawn
+in one game).
+
+**The rest:** `Hurler Cyclops` rides the chooser+target chain with the
+"another" predicate (it can never eat itself, `illegalSacrifice`
+pinned); `Insight` pays only on an OPPONENT'S green cast (Arasta's
+filter with Hero of Precinct One's colour access, both sides proven);
+`Iceridge Serpent` bounces to the OWNER's hand; `Indrik Stomphowler`
+destroys through the indestructible check (Darksteel Myr survives);
+`Hyrax Tower Scout` untaps on entry (the upright-target guard);
+`Icatian Priest` is the activated targeted pump; `Impassioned Orator`
+lands the Sanctifier text's THIRD id; `Hobbling`-style dies-tokens on
+the lifelink Soldier and a NEW BG flying Insect (`tdsk 13`);
+`Illegitimate Business` is Fisk Tower's three-line shape a third time;
+`Humbling Elder` and `Hornet Harasser` debuff from entry and death.
+**The enchantment pool reads TWENTY-EIGHT.** 19 of 20 suites were green
+on their FIRST run; the twentieth (Idyllic Grange) failed on the
+Plains-plural bug above, which is the test doing its job.
+
+**Five refusals, TWO NEW classes:** `Icebind Pillar` pays {S} — the
+engine has NO snow-source concept anywhere in payment or mana, so
+charging the {T} without the {S} would be half-execution (SNOW
+ACTIVATION COST). `Illuminated Folio` pays by revealing two cards from
+hand that share a colour — the discard-cost chooser's shape over a
+hidden zone plus a constraint the prompt must validate (REVEAL-COST
+CHOOSER). Plus a discard-cost chooser (Icatian Crier), a script-raised
+prompt (Inkfathom Divers), and `Infernal Tribute` — Hardened
+Tactician's NONTOKEN mirror, the token-predicate class from D179
+holding both directions. The ledger holds 65.
+
+**The numbers, every delta exactly the twenty cards:** primitives
+`complete` 2,116 → 2,136 · `blocked` 29,556 · `scriptableToday` 857 ·
+ladder [857, 956, 2909, 4793, 5980] · botPool creature 1,451, artifact
+67, **enchantment 28**, land 243 · tier3 `abilityText` 17,214,
+`payable` 5,165 (−3, the def-gated costs), `either` −20 exactly,
+`silentAfter` 2,527 → 2,547 (+20 exactly) · fixtures 578 → 600 (62
+tokens: the deathtouch-flying Insect `tc21 17` and the BG flying
+Insect `tdsk 13` joined; Food `tunf 10`, Wolf `tlrw 10` and the
+lifelink Soldier `tmom 2` REUSED, all checked against TOKEN_TABLE's
+printingIds first) · `batch.json` at **709** (734 − 20 − 5, exact) ·
+botDeck regenerated — **Adun reaches 1,185 cards from 55 legendaries**.
+
+**The first full-gate run failed on the CR 616 PAIR canary rotting on
+schedule** — `replacementChoices` read ZERO at gate size with every
+replay hash equal. A PAIR canary rots QUADRATICALLY: both cards must
+share one battlefield, so DECK density decay hits the compound rate
+twice — five copies each (D164's fix) survived a ~250-name list, and at
+~500 names the true rate had fallen to ~1–3 per 500. Both cards are
+FIFTEEN copies now (~9× the compound rate), the NINTH instance of the
+class and the second re-weight of this canary; its comment now says the
+third rot earns a canary-staples mechanism in the deck builder, not a
+fourth multiplication. The gate relaunched from the top.
+
+**Verified: `verify.cjs --full` — ALL FIVE GATES PASSED in one
+invocation** — 476 test files, 3,266 Vitest passed / 10 skipped · the
+500-seed replay fuzz gate green at 1,774.5 s (406 scripts registered
+plus the pair re-weight's thirty extra names, **26 s inside the
+1,800 s ceiling — THE WALL D169 NAMED HAS ARRIVED**: self-only def
+dispatch is DUE as the next commissioned engine work, the D162
+precedent, before batch 23 can gate) · build clean · probe 124/124 ·
+battery `bot engine prompts` 127/127.
+
+**Reportables:** the snow cost is a bounded engine gap (a snow flag on
+mana sources plus a payment branch); the reveal-cost chooser joins the
+cost-chooser ledger beside discard; D179's draw-event discriminator
+stands as the richest class; self-only def dispatch (D169) stays the
+named fuzz lever with the headroom thinning; the answer-mode arrow and
+ability rows owe a battery click-check; `ctx.random`, once-per-turn
+memory, per-damage-entry granularity, token entry choice and the spell
+seam stand.

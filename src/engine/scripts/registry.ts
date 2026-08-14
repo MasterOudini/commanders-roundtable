@@ -7,6 +7,26 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { HORNET_HARASSER_SCRIPT } from './cards/hornetHarasser';
+import { HORNET_QUEEN_SCRIPT } from './cards/hornetQueen';
+import { HOT_DOG_CART_SCRIPT } from './cards/hotDogCart';
+import { HOWLING_GIANT_SCRIPT } from './cards/howlingGiant';
+import { HUMBLING_ELDER_SCRIPT } from './cards/humblingElder';
+import { HUNTED_WITNESS_SCRIPT } from './cards/huntedWitness';
+import { HURLER_CYCLOPS_SCRIPT } from './cards/hurlerCyclops';
+import { HYRAX_TOWER_SCOUT_SCRIPT } from './cards/hyraxTowerScout';
+import { ICATIAN_PRIEST_SCRIPT } from './cards/icatianPriest';
+import { ICERIDGE_SERPENT_SCRIPT } from './cards/iceridgeSerpent';
+import { ICHOR_WELLSPRING_SCRIPT } from './cards/ichorWellspring';
+import { IDYLLIC_GRANGE_SCRIPT } from './cards/idyllicGrange';
+import { ILLEGITIMATE_BUSINESS_SCRIPT } from './cards/illegitimateBusiness';
+import { ILLVOI_GALEBLADE_SCRIPT } from './cards/illvoiGaleblade';
+import { IMPASSIONED_ORATOR_SCRIPT } from './cards/impassionedOrator';
+import { IMPERIAL_SUBDUER_SCRIPT } from './cards/imperialSubduer';
+import { INDRIK_STOMPHOWLER_SCRIPT } from './cards/indrikStomphowler';
+import { INFECTIOUS_HOST_SCRIPT } from './cards/infectiousHost';
+import { INFESTATION_SAGE_SCRIPT } from './cards/infestationSage';
+import { INSIGHT_SCRIPT } from './cards/insight';
 import { HARRIER_GRIFFIN_SCRIPT } from './cards/harrierGriffin';
 import { HATCHING_PLANS_SCRIPT } from './cards/hatchingPlans';
 import { HEAD_OF_THE_HOMESTEAD_SCRIPT } from './cards/headOfTheHomestead';
@@ -487,6 +507,26 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  HORNET_HARASSER_SCRIPT,
+  HORNET_QUEEN_SCRIPT,
+  HOT_DOG_CART_SCRIPT,
+  HOWLING_GIANT_SCRIPT,
+  HUMBLING_ELDER_SCRIPT,
+  HUNTED_WITNESS_SCRIPT,
+  HURLER_CYCLOPS_SCRIPT,
+  HYRAX_TOWER_SCOUT_SCRIPT,
+  ICATIAN_PRIEST_SCRIPT,
+  ICERIDGE_SERPENT_SCRIPT,
+  ICHOR_WELLSPRING_SCRIPT,
+  IDYLLIC_GRANGE_SCRIPT,
+  ILLEGITIMATE_BUSINESS_SCRIPT,
+  ILLVOI_GALEBLADE_SCRIPT,
+  IMPASSIONED_ORATOR_SCRIPT,
+  IMPERIAL_SUBDUER_SCRIPT,
+  INDRIK_STOMPHOWLER_SCRIPT,
+  INFECTIOUS_HOST_SCRIPT,
+  INFESTATION_SAGE_SCRIPT,
+  INSIGHT_SCRIPT,
   HARRIER_GRIFFIN_SCRIPT,
   HATCHING_PLANS_SCRIPT,
   HEAD_OF_THE_HOMESTEAD_SCRIPT,

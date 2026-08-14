@@ -237,6 +237,18 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hardened Tactician', 'token-predicate sacrifice cost'],
   ['Hatchet Bully', 'put-counter cost'],
   ['Horizon Chimera', 'draw-event discriminator'],
+  // Batch 22 (D180): three existing classes and TWO new ones. `Icebind
+  // Pillar` pays {S} — the engine has NO snow-source concept anywhere in
+  // payment or mana, so charging the {T} without the {S} would be
+  // half-execution. `Illuminated Folio` pays by REVEALING two cards from
+  // hand that share a colour — the discard-cost chooser's shape over a
+  // hidden zone plus a constraint the prompt would have to validate.
+  // `Infernal Tribute` is Hardened Tactician's NONTOKEN mirror.
+  ['Icatian Crier', 'discard-cost chooser'],
+  ['Icebind Pillar', 'snow activation cost'],
+  ['Illuminated Folio', 'reveal-cost chooser'],
+  ['Infernal Tribute', 'token-predicate sacrifice cost'],
+  ['Inkfathom Divers', 'script-raised prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

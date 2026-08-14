@@ -140,7 +140,11 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // THREE new refusal classes again (token-predicate sacrifice cost,
     // put-counter cost, draw-event discriminator — the last is Graf Mole's
     // finding one event over).
-    expect(SHIPPED_SCRIPTS).toHaveLength(386);
+    // M6.4x (D180) landed twenty of 25 — the attacks-ALONE filter (Imperial
+    // Subduer), Hornet Queen's FOUR-token entry, and the Plains-plural
+    // parser bug Idyllic Grange's own test exposed (latent since D135);
+    // two new refusal classes (snow activation cost, reveal-cost chooser).
+    expect(SHIPPED_SCRIPTS).toHaveLength(406);
   });
 });
 

@@ -407,6 +407,26 @@ import { HINTERLAND_SANCTIFIER_SCRIPT } from './scripts/cards/hinterlandSanctifi
 import { HOARD_ROBBER_SCRIPT } from './scripts/cards/hoardRobber';
 import { HOBBLING_ZOMBIE_SCRIPT } from './scripts/cards/hobblingZombie';
 import { HONEY_MAMMOTH_SCRIPT } from './scripts/cards/honeyMammoth';
+import { HORNET_HARASSER_SCRIPT } from './scripts/cards/hornetHarasser';
+import { HORNET_QUEEN_SCRIPT } from './scripts/cards/hornetQueen';
+import { HOT_DOG_CART_SCRIPT } from './scripts/cards/hotDogCart';
+import { HOWLING_GIANT_SCRIPT } from './scripts/cards/howlingGiant';
+import { HUMBLING_ELDER_SCRIPT } from './scripts/cards/humblingElder';
+import { HUNTED_WITNESS_SCRIPT } from './scripts/cards/huntedWitness';
+import { HURLER_CYCLOPS_SCRIPT } from './scripts/cards/hurlerCyclops';
+import { HYRAX_TOWER_SCOUT_SCRIPT } from './scripts/cards/hyraxTowerScout';
+import { ICATIAN_PRIEST_SCRIPT } from './scripts/cards/icatianPriest';
+import { ICERIDGE_SERPENT_SCRIPT } from './scripts/cards/iceridgeSerpent';
+import { ICHOR_WELLSPRING_SCRIPT } from './scripts/cards/ichorWellspring';
+import { IDYLLIC_GRANGE_SCRIPT } from './scripts/cards/idyllicGrange';
+import { ILLEGITIMATE_BUSINESS_SCRIPT } from './scripts/cards/illegitimateBusiness';
+import { ILLVOI_GALEBLADE_SCRIPT } from './scripts/cards/illvoiGaleblade';
+import { IMPASSIONED_ORATOR_SCRIPT } from './scripts/cards/impassionedOrator';
+import { IMPERIAL_SUBDUER_SCRIPT } from './scripts/cards/imperialSubduer';
+import { INDRIK_STOMPHOWLER_SCRIPT } from './scripts/cards/indrikStomphowler';
+import { INFECTIOUS_HOST_SCRIPT } from './scripts/cards/infectiousHost';
+import { INFESTATION_SAGE_SCRIPT } from './scripts/cards/infestationSage';
+import { INSIGHT_SCRIPT } from './scripts/cards/insight';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -591,10 +611,25 @@ const DECK = [
   // Five copies make the pair reliably present AND reliably drawn, putting
   // the expected rate an order of magnitude above the assertion's floor
   // instead of a Poisson coin flip at it.
+  // ⚠️ FIFTEEN COPIES OF EACH (D180): a PAIR canary rots QUADRATICALLY —
+  // both cards must share one battlefield, so density decay hits the
+  // compound rate twice. Five copies each survived D164's ~250-name list;
+  // at ~500 names the gate read ZERO with every replay hash equal (the
+  // rounds either side measured the true rate at ~1–3 per 500). Tripling
+  // both marginals recovers ~9× the compound rate, back to an expectation
+  // comfortably above the floor. NINTH instance of the rot class, and the
+  // second re-weight of THIS canary — if it rots a third time, the honest
+  // fix is a canary-staples mechanism in the deck builder, not a fourth
+  // multiplication.
   'Hardened Scales', 'Hardened Scales', 'Hardened Scales', 'Hardened Scales',
-  'Hardened Scales',
+  'Hardened Scales', 'Hardened Scales', 'Hardened Scales', 'Hardened Scales',
+  'Hardened Scales', 'Hardened Scales', 'Hardened Scales', 'Hardened Scales',
+  'Hardened Scales', 'Hardened Scales', 'Hardened Scales',
   'Branching Evolution', 'Branching Evolution', 'Branching Evolution',
-  'Branching Evolution', 'Branching Evolution',
+  'Branching Evolution', 'Branching Evolution', 'Branching Evolution',
+  'Branching Evolution', 'Branching Evolution', 'Branching Evolution',
+  'Branching Evolution', 'Branching Evolution', 'Branching Evolution',
+  'Branching Evolution', 'Branching Evolution', 'Branching Evolution',
   // ⚠️ M6.3v/D149 — the CR 613.8 DEPENDENCY pair, and neither card reaches the
   // rule alone. `Kwende` reads a keyword that `Knighthood` grants, so which
   // applies first decides whether Kwende applies AT ALL — the only shape in
@@ -805,6 +840,16 @@ const DECK = [
   'Hero of Precinct One', 'High Market', 'Highland Game',
   'Hill Giant Herdgorger', 'Hinterland Sanctifier', 'Hoard Robber',
   'Hobbling Zombie', 'Honey Mammoth',
+  // M6.4x/D180 — batch 22. Idyllic Grange carries the Plains-plural fix its
+  // own test forced; Imperial Subduer needs a LONE attack, which the gate's
+  // random declarations supply; Hurler Cyclops rides the chooser+target
+  // chain; Insight pays only on an OPPONENT'S green cast.
+  'Hornet Harasser', 'Hornet Queen', 'Hot Dog Cart', 'Howling Giant',
+  'Humbling Elder', 'Hunted Witness', 'Hurler Cyclops', 'Hyrax Tower Scout',
+  'Icatian Priest', 'Iceridge Serpent', 'Ichor Wellspring', 'Idyllic Grange',
+  'Illegitimate Business', 'Illvoi Galeblade', 'Impassioned Orator',
+  'Imperial Subduer', 'Indrik Stomphowler', 'Infectious Host',
+  'Infestation Sage', 'Insight',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -1238,6 +1283,26 @@ const SCRIPTS = createRegistry([
   HOARD_ROBBER_SCRIPT,
   HOBBLING_ZOMBIE_SCRIPT,
   HONEY_MAMMOTH_SCRIPT,
+  HORNET_HARASSER_SCRIPT,
+  HORNET_QUEEN_SCRIPT,
+  HOT_DOG_CART_SCRIPT,
+  HOWLING_GIANT_SCRIPT,
+  HUMBLING_ELDER_SCRIPT,
+  HUNTED_WITNESS_SCRIPT,
+  HURLER_CYCLOPS_SCRIPT,
+  HYRAX_TOWER_SCOUT_SCRIPT,
+  ICATIAN_PRIEST_SCRIPT,
+  ICERIDGE_SERPENT_SCRIPT,
+  ICHOR_WELLSPRING_SCRIPT,
+  IDYLLIC_GRANGE_SCRIPT,
+  ILLEGITIMATE_BUSINESS_SCRIPT,
+  ILLVOI_GALEBLADE_SCRIPT,
+  IMPASSIONED_ORATOR_SCRIPT,
+  IMPERIAL_SUBDUER_SCRIPT,
+  INDRIK_STOMPHOWLER_SCRIPT,
+  INFECTIOUS_HOST_SCRIPT,
+  INFESTATION_SAGE_SCRIPT,
+  INSIGHT_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

@@ -213,7 +213,13 @@ const CONDITIONS: readonly (readonly [RegExp, (m: RegExpMatchArray) => EntersTap
     new RegExp(`^you control (${N}) or more other ([A-Z][a-z]+)s$`, ''),
     (m) => {
       const n = count(m[1]);
-      const subtype = m[2];
+      // ⚠️ PLAINS IS ITS OWN PLURAL — the only basic whose printed plural
+      // equals its subtype, so stripping the `s` here yields "Plain", a
+      // subtype no land has, and the count reads zero forever. Latent since
+      // D135 (every earlier consumer counted Forests/Mountains, whose
+      // plurals ARE subtype+s); found by Idyllic Grange's own test (D180).
+      const raw = m[2];
+      const subtype = raw === 'Plain' ? 'Plains' : raw;
       return n === null || !subtype ? null : { kind: 'otherLandsOfType', subtype, count: n };
     },
   ],

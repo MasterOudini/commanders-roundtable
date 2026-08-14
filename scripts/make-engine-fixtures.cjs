@@ -833,6 +833,27 @@ const WANTED = [
   'Hoard Robber',
   'Hobbling Zombie',
   'Honey Mammoth',
+  // Batch 22 (D180).
+  'Hornet Harasser',
+  'Hornet Queen',
+  'Hot Dog Cart',
+  'Howling Giant',
+  'Humbling Elder',
+  'Hunted Witness',
+  'Hurler Cyclops',
+  'Hyrax Tower Scout',
+  'Icatian Priest',
+  'Iceridge Serpent',
+  'Ichor Wellspring',
+  'Idyllic Grange',
+  'Illegitimate Business',
+  'Illvoi Galeblade',
+  'Impassioned Orator',
+  'Imperial Subduer',
+  'Indrik Stomphowler',
+  'Infectious Host',
+  'Infestation Sage',
+  'Insight',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -931,6 +952,13 @@ const WANTED_TOKENS = [
   // Hoard Robber the Treasure `trna 12` — all four checked against
   // TOKEN_TABLE's printingIds before a line was written.
   { name: 'Rabbit', set: 'tclb', cn: '4', key: 'RABBIT_TOKEN' },
+  // Batch 22 (D180): the deathtouch+flying Insect (Hornet Queen's four) and
+  // the BG flying Insect (Infestation Sage) join. Hot Dog Cart REUSES the
+  // Food `tunf 10`, Howling Giant the Wolf `tlrw 10`, Hunted Witness the
+  // lifelink Soldier `tmom 2` — all three checked against TOKEN_TABLE's
+  // printingIds before a line was written.
+  { name: 'Insect', set: 'tc21', cn: '17', key: 'INSECT_DT_FLYING_TOKEN' },
+  { name: 'Insect', set: 'tdsk', cn: '13', key: 'INSECT_BG_TOKEN' },
   // M6.4g (D164).
   { name: 'Bear', set: 'ttla', cn: '12', key: 'BEAR_44_TOKEN' },
   { name: 'Blood', set: 'tbig', cn: '2', key: 'BLOOD_TOKEN' },

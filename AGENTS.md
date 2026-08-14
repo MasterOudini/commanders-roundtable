@@ -4709,6 +4709,65 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       per-damage-entry granularity, token entry choice and the spell
       seam stand.
 
+- [x] **M6.4x — Twenty landed: attacks alone, four Hornets, and the Plains
+      that is its own plural (2026-08-14):** **2,136 of 31,692
+      Commander-legal cards now execute completely, up from 2,116.**
+      `SHIPPED_SCRIPTS` 386 → 406 — past four hundred. Decisions in
+      **D180**.
+      ⚠️ **The headliner is a parser bug the batch's own test forced out:**
+      `Idyllic Grange` counts "three or more other Plains" and D135's
+      `otherLandsOfType` strips a trailing `s` — the capture read "Plain",
+      a subtype NO land has, and the count read zero forever. PLAINS IS
+      ITS OWN PLURAL, the only basic whose printed plural equals its
+      subtype; every earlier consumer counted Forests/Mountains and was
+      right, so the bug sat latent since D135 in the exact
+      looks-like-working shape D135 warned about. Fixed in
+      `replacementParse`, both halves proven both ways.
+      **The firsts:** Imperial Subduer's ATTACKS-ALONE filter (exactly one
+      declared attacker, the two-attacker negative pinned); Hornet Queen's
+      FOUR deathtouch-flying Insects with distinct ids — the largest
+      single token drop yet (NEW pin `tc21 17`); Ichor Wellspring's
+      enters-OR-dies pair on an ARTIFACT, both arms drawn in one game.
+      **Also:** Hurler Cyclops on the chooser+target chain ("another" —
+      it can never eat itself); Insight paying only on an OPPONENT'S
+      green cast; the owner's-hand bounce; the indestructible-checked
+      entry destroy (Darksteel Myr survives); the entry untap; the
+      activated targeted pump; the Sanctifier text's THIRD id. **The
+      enchantment pool reads TWENTY-EIGHT.** 19 of 20 suites first-run
+      green; the twentieth failed on the Plains bug, which is the test
+      doing its job.
+      ⚠️ **Five refusals, TWO NEW classes:** snow activation cost
+      (Icebind Pillar — the engine has NO snow-source concept, and
+      charging the {T} without the {S} is half-execution) and reveal-cost
+      chooser (Illuminated Folio — a constrained pick over a hidden zone
+      as a COST). Plus discard-cost, script-raised prompt, and Infernal
+      Tribute — the token-predicate class holding both directions. The
+      ledger holds 65.
+      Fixtures 578 → 600 (62 tokens: two new Insect pins; three pins
+      REUSED after checking TOKEN_TABLE) · ladder [857, 956, 2909, 4793,
+      5980] · `batch.json` at 709 (exact) · botDeck: Adun reaches 1,185
+      from 55 legendaries.
+      ⚠️ **The first full-gate run failed on the CR 616 PAIR canary
+      rotting on schedule** — a PAIR canary rots QUADRATICALLY (both cards
+      must share one battlefield), and five copies each had decayed to a
+      true rate of ~1–3 per 500. FIFTEEN copies of each now (~9× the
+      compound rate; ninth rot instance, second re-weight of this canary —
+      a third earns a canary-staples mechanism, not a fourth multiply);
+      the gate relaunched from the top.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      476 test files, 3,266 Vitest passed / 10 skipped ·
+      the 500-seed gate green at 1,774.5 s (406 scripts + the pair
+      re-weight, **26 s inside the ceiling — THE WALL HAS ARRIVED:
+      self-only def dispatch is DUE before batch 23**, the D162
+      precedent) · build clean · probe
+      124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D180): the snow cost is a bounded gap; the
+      reveal-cost chooser joins the ledger; the draw-event discriminator
+      stays the richest class; self-only def dispatch, the battery
+      click-check debt, `ctx.random`, once-per-turn memory,
+      per-damage-entry granularity, token entry choice and the spell seam
+      stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

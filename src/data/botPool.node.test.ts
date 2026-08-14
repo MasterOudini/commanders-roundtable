@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). Planeswalkers (loyalty costs) and battles are still
     // structurally out, and stay pinned at zero for the same reason the
     // enchantments were.
-    expect(r.poolByType['enchantment'] ?? 0).toBe(27);
+    expect(r.poolByType['enchantment'] ?? 0).toBe(28);
     expect(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -420,12 +420,15 @@ const POOL: Record<string, number> = {
   // Enchantress's Presence) — the pool reads SEVENTEEN.
   // M6.4w (D179): +18 creatures, +2 lands (Hell's Kitchen, High Market) and
   // Hatching Plans — the pool reads TWENTY-SEVEN.
-  creature: 1436,
+  // M6.4x (D180): +15 creatures, +2 artifacts (Hot Dog Cart, Ichor
+  // Wellspring), +2 lands (Idyllic Grange, Illegitimate Business) and
+  // Insight — the pool reads TWENTY-EIGHT.
+  creature: 1451,
   instant: 201,
   sorcery: 146,
-  land: 241,
-  artifact: 65,
-  enchantment: 27,
+  land: 243,
+  artifact: 67,
+  enchantment: 28,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {
