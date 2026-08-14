@@ -12416,3 +12416,58 @@ named fuzz lever with the headroom thinning; the answer-mode arrow and
 ability rows owe a battery click-check; `ctx.random`, once-per-turn
 memory, per-damage-entry granularity, token entry choice and the spell
 seam stand.
+
+## D181 — The lever that measured flat, and the third ceiling (2026-08-14)
+
+**What was decided:** the fuzz gate's ceiling rises 1,800 s → 3,600 s —
+the THIRD raise, on the criterion the last two wrote down: a
+completed-and-equal run proving growth rather than a hang (D180's round
+31 finished all 500 seeds with every replay hash equal at 1,774.5 s,
+26 s under the old ceiling). And the lever that was supposed to prevent
+this raise is RETIRED, because it was finally tried and measured FLAT.
+
+**The lever's story, told honestly:** "self-only def dispatch" has been
+the named next fuzz lever since D169, re-named in D173, D174, D175,
+D176, D177, D179 and D180 — eight decisions of deferred confidence.
+Implemented, it is a two-line reorder: the candidate loop ran
+`hasAbilities` (a DERIVE — the D129 cost center) before `matches` (a
+cheap `ev.moves.some` for almost every candidate an event does not
+involve), and both are pure filters joined by AND, so asking the cheap
+question first is structurally identical by conjunction-commutes and
+confines the derive to firing candidates. **Measured at 60 seeds on the
+idle machine: 221.6 s before, 222.3 s after.** Zero. The derive-first
+order was never the wall, because `hasAbilities` and `matches` both sit
+behind D162's per-oracle index and D168's present-def memo — the bus
+work per event was already near the floor. The reorder was REVERTED the
+hour it was measured (D162's rule: a lever that does not move the
+number does not ship), and D167's verdict is re-confirmed at 406
+scripts: **the cost is the GAMES, not the bus.**
+
+**Why the ceiling and not something else:** the wall time is the arc's
+own point — more scripts mean richer games mean more events (the trend
+table in the gate's comment now runs 394 s @ 57 scripts to 1,774.5 s @
+406, near-linear in registered scripts). The gate is a HANG CATCHER,
+not a perf referee (D133); a ceiling that the healthy wall brushes
+stops distinguishing growth from hangs, which is the one job it has.
+3,600 s restores ~2× headroom at the current trend — roughly forty
+more batches — and the raise criterion stays: a third raise happens
+only after another completed-and-equal run proves the next brush is
+still growth.
+
+**This commit lands NO cards** — a test-config constant, a reverted
+experiment, and these documents. D170's precedent: the ceiling raise
+rides its own commit and the NEXT batch's full gate exercises it.
+`npm run build` clean; the 60-seed leg green at 222.3 s (both orders).
+
+**Reportables:** "self-only def dispatch" is STRUCK from the standing
+reportables — tried, measured, retired. If wall TIME itself ever
+becomes the problem (not the ceiling), the levers are game-shaped:
+fewer intents per seed, a seed-count profile, or parallel shards —
+each a gate-strength tradeoff to be priced, not assumed. The
+answer-mode arrow and ability rows still owe a battery click-check;
+`ctx.random`, once-per-turn memory, per-damage-entry granularity,
+token entry choice, the spell seam, and the cost-chooser classes
+(discard, reveal, tap-creatures/permanents, exile-from-graveyard,
+remove-counter, put-counter, token-predicate, multi-sacrifice,
+return-permanent, snow) all stand, with the draw-event discriminator
+(D179) still the richest.

@@ -2090,11 +2090,18 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
     // COMPLETED all 500 seeds with every hash equal at 1,162 s under desktop
     // load; ~145 s per 60 seeds projects ~900–1,200 s, straddling the old
     // ceiling even idle, on 2.84 M events / 24 K turns of genuinely richer
-    // games). Raised twice now, and only ever after a completed-and-equal
-    // run proved the wall was growth rather than a hang. Self-only def
-    // dispatch remains the named lever if WALL TIME itself (not the
-    // ceiling) becomes the problem.
-    1_800_000,
+    // games) · 1,357 s @ 347 · 1,394.8 s @ 365 · 1,553.4 s @ 386 ·
+    // 1,774.5 s @ 406 (D180's round 31 — completed, every hash equal, 26 s
+    // under the old ceiling). Raised THREE times now, and only ever after a
+    // completed-and-equal run proved the wall was growth rather than a hang.
+    // ⚠️ THE NAMED LEVER WAS TRIED AND MEASURED FLAT (D181): reordering the
+    // candidate loop to run `matches` before the `hasAbilities` derive — the
+    // whole of D169's "self-only dispatch" idea, structurally identical by
+    // conjunction-commutes — moved a 60-seed leg from 221.6 s to 222.3 s.
+    // The bus is FLAT at 406 scripts; D167's verdict holds. The wall is the
+    // games, the games are the arc's point, and the honest response is this
+    // ceiling on its stated criterion — not a lever that measures 0%.
+    3_600_000,
   );
 
   test('a fuzzed game never leaks a library into any projection', () => {

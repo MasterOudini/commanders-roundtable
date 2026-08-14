@@ -4768,6 +4768,34 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       per-damage-entry granularity, token entry choice and the spell seam
       stand.
 
+- [x] **M6.4y — The lever that measured flat, and the third ceiling
+      (2026-08-14):** no cards land here. The fuzz gate's ceiling rises
+      1,800 s → 3,600 s on its stated criterion — D180's round 31
+      COMPLETED all 500 seeds with every replay hash equal at 1,774.5 s,
+      26 s under the old ceiling — and the lever named since D169 is
+      RETIRED. Decisions in **D181**.
+      ⚠️ **"Self-only def dispatch" was tried and measured FLAT.**
+      Implemented as the candidate loop's reorder (`matches` before the
+      `hasAbilities` derive — structurally identical by
+      conjunction-commutes), a 60-seed idle leg moved 221.6 s → 222.3 s:
+      zero. Behind D162's per-oracle index and D168's present-def memo
+      the bus was already at the floor; D167's verdict — the cost is the
+      GAMES, not the bus — re-confirmed at 406 scripts. The reorder was
+      REVERTED the hour it was measured (D162's rule: a lever that does
+      not move the number does not ship), and the standing reportable is
+      STRUCK.
+      ⚠️ The gate's trend table now runs 394 s @ 57 → 1,774.5 s @ 406,
+      near-linear in scripts; 3,600 s restores ~2× headroom (~forty more
+      batches), and a fourth raise needs the same completed-and-equal
+      proof. If wall TIME itself ever becomes the problem, the levers
+      are game-shaped (intents per seed, seed profile, shards) — each a
+      gate-strength tradeoff to be priced, not assumed.
+      **Verified: `npm run build` clean · the 60-seed fuzz leg green at
+      ~222 s in BOTH orders (the A/B) · no engine behavior change in the
+      committed tree (the experiment is reverted; the ceiling is test
+      config).** The next batch's full gate exercises the new ceiling —
+      D170's precedent for a ceiling raise riding its own commit.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
