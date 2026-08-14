@@ -490,6 +490,21 @@ import { LAW_RUNE_ENFORCER_SCRIPT } from './scripts/cards/lawRuneEnforcer';
 import { LAWLESS_BROKER_SCRIPT } from './scripts/cards/lawlessBroker';
 import { LETTER_OF_ACCEPTANCE_SCRIPT } from './scripts/cards/letterOfAcceptance';
 import { LEY_DRUID_SCRIPT } from './scripts/cards/leyDruid';
+import { LIBRARY_LARCENIST_SCRIPT } from './scripts/cards/libraryLarcenist';
+import { LIFECREED_DUO_SCRIPT } from './scripts/cards/lifecreedDuo';
+import { LIVING_LIGHTNING_SCRIPT } from './scripts/cards/livingLightning';
+import { LLANOWAR_VISIONARY_SCRIPT } from './scripts/cards/llanowarVisionary';
+import { LONE_MISSIONARY_SCRIPT } from './scripts/cards/loneMissionary';
+import { LONG_FENG_GRAND_SECRETARIAT_SCRIPT } from './scripts/cards/longFengGrandSecretariat';
+import { LOS_DIABLOS_MISSILE_BASE_SCRIPT } from './scripts/cards/losDiablosMissileBase';
+import { LOXODON_MYSTIC_SCRIPT } from './scripts/cards/loxodonMystic';
+import { LUKE_CAGE_HERO_FOR_HIRE_SCRIPT } from './scripts/cards/lukeCageHeroForHire';
+import { LUMINARCH_ASPIRANT_SCRIPT } from './scripts/cards/luminarchAspirant';
+import { MAALFELD_TWINS_SCRIPT } from './scripts/cards/maalfeldTwins';
+import { MADAME_HYDRA_SCRIPT } from './scripts/cards/madameHydra';
+import { MAKESHIFT_MUNITIONS_SCRIPT } from './scripts/cards/makeshiftMunitions';
+import { MALCATORS_WATCHER_SCRIPT } from './scripts/cards/malcatorsWatcher';
+import { MALEVOLENT_AWAKENING_SCRIPT } from './scripts/cards/malevolentAwakening';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -946,6 +961,14 @@ const DECK = [
   'Kujar Seedsculptor', 'Kyoshi Village', 'Kyoshi Warriors',
   'Law-Rune Enforcer', 'Lawless Broker', 'Letter of Acceptance',
   'Ley Druid',
+  // M6.4ac/D185 — batch 26. Luke Cage and Luminarch Aspirant ride every one
+  // of the gate's own combats; Madame Hydra pays only on a Villain cast,
+  // which Kingpin's Enforcers supplies.
+  'Library Larcenist', 'Lifecreed Duo', 'Living Lightning',
+  'Llanowar Visionary', 'Lone Missionary', 'Long Feng, Grand Secretariat',
+  'Los Diablos Missile Base', 'Loxodon Mystic', 'Luke Cage, Hero for Hire',
+  'Luminarch Aspirant', 'Maalfeld Twins', 'Madame Hydra',
+  'Makeshift Munitions', "Malcator's Watcher", 'Malevolent Awakening',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -1462,6 +1485,21 @@ const SCRIPTS = createRegistry([
   LAWLESS_BROKER_SCRIPT,
   LETTER_OF_ACCEPTANCE_SCRIPT,
   LEY_DRUID_SCRIPT,
+  LIBRARY_LARCENIST_SCRIPT,
+  LIFECREED_DUO_SCRIPT,
+  LIVING_LIGHTNING_SCRIPT,
+  LLANOWAR_VISIONARY_SCRIPT,
+  LONE_MISSIONARY_SCRIPT,
+  LONG_FENG_GRAND_SECRETARIAT_SCRIPT,
+  LOS_DIABLOS_MISSILE_BASE_SCRIPT,
+  LOXODON_MYSTIC_SCRIPT,
+  LUKE_CAGE_HERO_FOR_HIRE_SCRIPT,
+  LUMINARCH_ASPIRANT_SCRIPT,
+  MAALFELD_TWINS_SCRIPT,
+  MADAME_HYDRA_SCRIPT,
+  MAKESHIFT_MUNITIONS_SCRIPT,
+  MALCATORS_WATCHER_SCRIPT,
+  MALEVOLENT_AWAKENING_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

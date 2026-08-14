@@ -158,7 +158,14 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // land, D139's numeric CEILING (Kor Line-Slinger) beside its floors, and
     // the land.cjs substring false-positive its own refusal exposed
     // (KINGFISHER_SCRIPT inside ITHILIEN_KINGFISHER_SCRIPT).
-    expect(SHIPPED_SCRIPTS).toHaveLength(469);
+    // M6.4ac (D185) landed fifteen of 25 — the leanest batch of the arc,
+    // because classification CORRECTED ITSELF mid-write: Lifeblood, Lifetap
+    // and Linden moved to refusals when writing a resolve exposed that a
+    // resolve cannot see the EVENT, so per-item wording on a batched event
+    // under-fires (Aya's D163 class on taps and attacks). Four new classes
+    // (kicker memory, explore mechanic, negated-type sacrifice predicate,
+    // per-tap-entry granularity).
+    expect(SHIPPED_SCRIPTS).toHaveLength(484);
   });
 });
 

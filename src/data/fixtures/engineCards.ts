@@ -20833,6 +20833,527 @@ export const LEY_DRUID: CardData = {
   "singleImage": true
 };
 
+export const LIBRARY_LARCENIST: CardData = {
+  "scryfallId": "cb33529b-80bd-4f52-94cc-d8371c53ad75",
+  "oracleId": "eb0e6f63-2861-4392-ac0e-64380fbbd8ae",
+  "name": "Library Larcenist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Library Larcenist",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Merfolk Rogue",
+      "oracleText": "Whenever this creature attacks, draw a card.",
+      "flavorText": "\"I specialize in missing manuscripts, pilfered poetry, and lifted letters.\"",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Mila Pesic",
+      "imageId": "cb33529b-80bd-4f52-94cc-d8371c53ad75"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m21",
+  "collectorNumber": "55",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LIFECREED_DUO: CardData = {
+  "scryfallId": "ca543405-5e12-48a0-9a77-082ac9bcb2f2",
+  "oracleId": "63686c6b-9051-4002-aa8e-da8a3021330f",
+  "name": "Lifecreed Duo",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lifecreed Duo",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Bat Bird",
+      "oracleText": "Flying\nWhenever another creature you control enters, you gain 1 life.",
+      "flavorText": "\"Why are you eating upside down?\" asked the bird. \"Why are you eating upside up?\" replied the bat.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Lorenzo Mastroianni",
+      "imageId": "ca543405-5e12-48a0-9a77-082ac9bcb2f2"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "blb",
+  "collectorNumber": "20",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LIVING_LIGHTNING: CardData = {
+  "scryfallId": "0104b9b6-7727-45e9-931f-28f7facf8692",
+  "oracleId": "1f4738db-be2e-4d02-ad0c-1b74dd6bbfdc",
+  "name": "Living Lightning",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Living Lightning",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Elemental Shaman",
+      "oracleText": "When this creature dies, return target instant or sorcery card from your graveyard to your hand.",
+      "flavorText": "Not all storms come from the sky.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Caio Monteiro",
+      "imageId": "0104b9b6-7727-45e9-931f-28f7facf8692"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "2x2",
+  "collectorNumber": "118",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LLANOWAR_VISIONARY: CardData = {
+  "scryfallId": "168b0af2-aa4f-421d-bb0a-54f5ac3f72fc",
+  "oracleId": "f75ed312-3a23-4624-80c5-03980aa22d0b",
+  "name": "Llanowar Visionary",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Llanowar Visionary",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Elf Druid",
+      "oracleText": "When this creature enters, draw a card.\n{T}: Add {G}.",
+      "flavorText": "The elves of Llanowar look to their past to determine the shape of their future.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Cristi Balanescu",
+      "imageId": "168b0af2-aa4f-421d-bb0a-54f5ac3f72fc"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "771",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LONE_MISSIONARY: CardData = {
+  "scryfallId": "6d31d5b6-0973-43d2-aae0-a3f3e7a61800",
+  "oracleId": "626f1dc3-3b14-4873-902f-ffec5487a97d",
+  "name": "Lone Missionary",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lone Missionary",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Kor Monk",
+      "oracleText": "When this creature enters, you gain 4 life.",
+      "flavorText": "His mission has become a grim pilgrimage, a tour of the Eldrazi-stricken outposts across Zendikar. But he marches on alone, stubborn as the daily dawn.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "6d31d5b6-0973-43d2-aae0-a3f3e7a61800"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mm3",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LONG_FENG_GRAND_SECRETARIAT: CardData = {
+  "scryfallId": "a3eb92fe-bc59-4472-9028-f368bd015609",
+  "oracleId": "9bf9fe83-b0df-4ef8-ac54-c0d223d4e410",
+  "name": "Long Feng, Grand Secretariat",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Long Feng, Grand Secretariat",
+      "manaCost": "{1}{B/G}{B/G}",
+      "typeLine": "Legendary Creature — Human Advisor",
+      "oracleText": "Whenever another creature you control or a land you control is put into a graveyard from the battlefield, put a +1/+1 counter on target creature you control.",
+      "flavorText": "\"In silencing talk of conflict, Ba Sing Se remains a peaceful, orderly utopia.\"",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Robin Har",
+      "imageId": "a3eb92fe-bc59-4472-9028-f368bd015609"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tla",
+  "collectorNumber": "233",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LOS_DIABLOS_MISSILE_BASE: CardData = {
+  "scryfallId": "2123fcb5-8181-47ab-9a2d-7ede5b5118e8",
+  "oracleId": "4b17048f-8c7f-4e29-8f56-16db4c2106e6",
+  "name": "Los Diablos Missile Base",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Los Diablos Missile Base",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {R} or {G}.",
+      "flavorText": "\"My men have been stationed here for weeks because of your infernal delays, Banner! Are you going to test that gamma bomb or not?\"\n—General \"Thunderbolt\" Ross",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Rockey Chen",
+      "imageId": "2123fcb5-8181-47ab-9a2d-7ede5b5118e8"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "msh",
+  "collectorNumber": "270",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LOXODON_MYSTIC: CardData = {
+  "scryfallId": "5976c352-ac49-4e0d-a4c0-ec9b6b78db9c",
+  "oracleId": "f3e22884-a9ca-4479-b400-df1c1d2fd153",
+  "name": "Loxodon Mystic",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Loxodon Mystic",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Creature — Elephant Cleric",
+      "oracleText": "{W}, {T}: Tap target creature.",
+      "flavorText": "As the nim storm across the plains, a lone priest stands in their path. At his silent gesture, the battle line breaks, and the tide turns.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "5976c352-ac49-4e0d-a4c0-ec9b6b78db9c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "dst",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LUKE_CAGE_HERO_FOR_HIRE: CardData = {
+  "scryfallId": "51cef04a-fa47-4f82-8772-76d4bc82bada",
+  "oracleId": "3d776a25-c341-4058-9b5f-84e70edb25a4",
+  "name": "Luke Cage, Hero for Hire",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Luke Cage, Hero for Hire",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Legendary Creature — Human Mercenary Hero",
+      "oracleText": "Trample\nAt the beginning of combat on your turn, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "\"Sweet Christmas!\"",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mateus Manhanini",
+      "imageId": "51cef04a-fa47-4f82-8772-76d4bc82bada"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Treasure",
+    "Trample"
+  ],
+  "setCode": "msc",
+  "collectorNumber": "696",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LUMINARCH_ASPIRANT: CardData = {
+  "scryfallId": "355e8682-2aa8-4294-aa72-5e9587a6444c",
+  "oracleId": "cb9994b9-924b-4e10-9075-9cfbec88f2bf",
+  "name": "Luminarch Aspirant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Luminarch Aspirant",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "At the beginning of combat on your turn, put a +1/+1 counter on target creature you control.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mads Ahm",
+      "imageId": "355e8682-2aa8-4294-aa72-5e9587a6444c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "prm",
+  "collectorNumber": "83812",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAALFELD_TWINS: CardData = {
+  "scryfallId": "604b4377-7161-4d51-ab10-18de5416be44",
+  "oracleId": "dda4b515-49c0-43fe-9f6a-36defa326bb1",
+  "name": "Maalfeld Twins",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Maalfeld Twins",
+      "manaCost": "{5}{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "When this creature dies, create two 2/2 black Zombie creature tokens.",
+      "flavorText": "\"Who am I to break up a family?\"\n—Ghoulcaller Gisa",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Mike Sass",
+      "imageId": "604b4377-7161-4d51-ab10-18de5416be44"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "gn3",
+  "collectorNumber": "56",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MADAME_HYDRA: CardData = {
+  "scryfallId": "4dedca48-b7a2-45b9-af1e-b3754879d1d6",
+  "oracleId": "d812c8e3-a475-4ad2-a93f-7208ad873676",
+  "name": "Madame Hydra",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Madame Hydra",
+      "manaCost": "{2}{B}{R}",
+      "typeLine": "Legendary Creature — Human Villain",
+      "oracleText": "Whenever you cast a Villain spell, create a 2/1 black Villain creature token with menace. (It can't be blocked except by two or more creatures.)",
+      "flavorText": "\"This will be our night of glory! Hail HYDRA!\"",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Pauline Voss",
+      "imageId": "4dedca48-b7a2-45b9-af1e-b3754879d1d6"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "msh",
+  "collectorNumber": "451",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAKESHIFT_MUNITIONS: CardData = {
+  "scryfallId": "19d1ad9f-e217-49fb-8b27-025ca133b6c9",
+  "oracleId": "2421bec6-7647-4684-be61-d1aa951c6b4f",
+  "name": "Makeshift Munitions",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Makeshift Munitions",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "{1}, Sacrifice an artifact or creature: This enchantment deals 1 damage to any target.",
+      "flavorText": "\"Grease up a firecannon good and proper with dinosaur-liver oil, and it'll shoot just about anything.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Filip Burburan",
+      "imageId": "19d1ad9f-e217-49fb-8b27-025ca133b6c9"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "cmr",
+  "collectorNumber": "191",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MALCATOR_S_WATCHER: CardData = {
+  "scryfallId": "293121f8-54d1-496b-8b55-e97d7b687404",
+  "oracleId": "b0493924-dc6d-4655-865f-7e9b40f547ea",
+  "name": "Malcator's Watcher",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Malcator's Watcher",
+      "manaCost": "{1}{U}",
+      "typeLine": "Artifact Creature — Phyrexian Drone",
+      "oracleText": "Flying, vigilance\nWhen this creature dies, draw a card.",
+      "flavorText": "Each of the Gitaxian sectives watches the others, looking for any hint of imperfection.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jason A. Engle",
+      "imageId": "293121f8-54d1-496b-8b55-e97d7b687404"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying",
+    "Vigilance"
+  ],
+  "setCode": "j25",
+  "collectorNumber": "324",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MALEVOLENT_AWAKENING: CardData = {
+  "scryfallId": "35d94052-aae3-4ced-9309-fc4a0d1f159d",
+  "oracleId": "522fc178-d11a-4919-83b0-e58453e3a160",
+  "name": "Malevolent Awakening",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Malevolent Awakening",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Enchantment",
+      "oracleText": "{1}{B}{B}, Sacrifice a creature: Return target creature card from your graveyard to your hand.",
+      "flavorText": "The most popular pit fighters are brought back for encore performances.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Alex Horley-Orlandelli",
+      "imageId": "35d94052-aae3-4ced-9309-fc4a0d1f159d"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "147",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -23750,6 +24271,21 @@ export const ENGINE_CARDS: CardData[] = [
   LAWLESS_BROKER,
   LETTER_OF_ACCEPTANCE,
   LEY_DRUID,
+  LIBRARY_LARCENIST,
+  LIFECREED_DUO,
+  LIVING_LIGHTNING,
+  LLANOWAR_VISIONARY,
+  LONE_MISSIONARY,
+  LONG_FENG_GRAND_SECRETARIAT,
+  LOS_DIABLOS_MISSILE_BASE,
+  LOXODON_MYSTIC,
+  LUKE_CAGE_HERO_FOR_HIRE,
+  LUMINARCH_ASPIRANT,
+  MAALFELD_TWINS,
+  MADAME_HYDRA,
+  MAKESHIFT_MUNITIONS,
+  MALCATOR_S_WATCHER,
+  MALEVOLENT_AWAKENING,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -272,6 +272,24 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Krark-Clan Engineers', 'multi-sacrifice cost'],
   ['Kris Mage', 'discard-cost chooser'],
   ['Kyren Negotiations', 'tap-creatures cost'],
+  // Batch 26 (D185): FOUR new classes. `Lullmage's Familiar` needs kicker
+  // (a cast-time additional-cost choice nothing records); `Lurking
+  // Chupacabra` needs explore; `Magmaw` sacrifices "a NONLAND permanent"
+  // and predicatesOf has no type negation (the token-predicate's sibling);
+  // and Lifeblood/Lifetap/Linden fail on GRANULARITY — per-item wording
+  // (each Mountain that taps, each white attacker) against a batched event
+  // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
+  // taps and attack declarations.
+  ["Lullmage's Familiar", 'kicker memory'],
+  ['Lurking Chupacabra', 'explore mechanic'],
+  ['Magmaw', 'negated-type sacrifice predicate'],
+  ['Lifeblood', 'per-tap-entry trigger granularity'],
+  ['Lifetap', 'per-tap-entry trigger granularity'],
+  ['Linden, the Steadfast Queen', 'per-tap-entry trigger granularity'],
+  ['Lyla, Holographic Assistant', 'draw-event discriminator'],
+  ['Mad Prophet', 'discard-cost chooser'],
+  ['Mad Ratter', 'draw-event discriminator'],
+  ['Mage il-Vec', 'random-discard cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -12685,3 +12685,80 @@ engine work; the `DrewCards` event stays the highest-value single
 unlock; the cost-chooser classes, `ctx.random`, once-per-turn memory,
 per-damage-entry granularity, token entry choice, the spell seam, and
 the battery click-check debt stand.
+
+## D185 — M6.4ac: the classification that corrected itself (2026-08-14)
+
+**What was decided:** batch 26 of the M6.4 loop lands fifteen of its
+25 — **2,214 of 31,692 Commander-legal cards now execute completely, up
+from 2,199** — the LEANEST batch of the arc, and the reason is the
+useful part. `SHIPPED_SCRIPTS` 469 → 484.
+
+**The classification corrected itself mid-write.** `Lifeblood`,
+`Lifetap` and `Linden, the Steadfast Queen` were classified landable —
+and writing Lifeblood's resolve exposed the fact that kills all three:
+**a `resolve` receives the STACK OBJECT, not the event**, so a def
+cannot count how many of an event's items matched. Per-item wording
+("whenever a Mountain an opponent controls becomes tapped", "whenever
+a white creature you control attacks") against a BATCHED event (a
+wrench tapping two Mountains at once; two white attackers in one
+declaration) under-fires — pays one where the rules pay two — which is
+half-execution, and EXACTLY the granularity rule D163 refused Aya of
+Alexandria under, one event kind over. The half-written module was
+DELETED, the three cards joined the ledger as PER-TAP-ENTRY TRIGGER
+GRANULARITY, and the batch is honest at fifteen. (The shipped
+watchers this does NOT touch: self-only filters are singular by
+construction; entries are one event per creature, measured in D158;
+Deeproot/Keeper carry printed "one or more" wording that MATCHES the
+batch.)
+
+**What landed:** `Luke Cage, Hero for Hire` and `Luminarch Aspirant`
+put Eidolon's begin-combat filter on a Treasure and a targeted counter
+— the Aspirant asks for an aim EVERY combat of yours; `Madame Hydra`'s
+Villain cast-watcher pays in its own kind on D160's own token pin;
+`Long Feng, Grand Secretariat` watches TWO type arms die ("another"
+binding only to the creature arm — a land needs no exclusion, and both
+arms are proven); `Living Lightning` and `Malevolent Awakening` carry
+D138's graveyard returns on a dies trigger and a chooser enchantment;
+`Makeshift Munitions` is Goblin Bombardment's ping with the
+OR-predicate; `Maalfeld Twins` pays two distinct Zombies from the
+grave; `Lifecreed Duo` lands the Sanctifier text's FOURTH id;
+`Llanowar Visionary` puts the ETB-draw ABOVE a mana line (TEXT
+split[0] — the first time the trigger line comes first); a refuge text
+twin, an attack-draw, a coloured-pip tap, three gains and a dies-draw
+round it out. **The enchantment pool reads THIRTY; the legendary pool
+63.** All 15 suites — 34 tests — passed on their FIRST run.
+
+**Ten refusals, FOUR NEW classes:** per-tap-entry trigger granularity
+(the three above); KICKER MEMORY (`Lullmage's Familiar` — a cast-time
+additional-cost choice nothing records); EXPLORE MECHANIC (`Lurking
+Chupacabra`); NEGATED-TYPE SACRIFICE PREDICATE (`Magmaw`'s "nonland
+permanent" — `predicatesOf` has no type negation, the
+token-predicate's sibling). Plus draw-event discriminator twice
+(`Lyla`, `Mad Ratter`), discard-cost (`Mad Prophet`), and
+random-discard (`Mage il-Vec`). The ledger holds 87.
+
+**The numbers, every delta exactly the fifteen cards:** primitives
+`complete` 2,199 → 2,214 · `blocked` 29,478 · `scriptableToday` 779 ·
+ladder [779, 878, 2831, 4715, 5902] · botPool creature 1,512,
+**enchantment 30**, land 252 · tier3 `abilityText` 17,162, `payable`
+5,139 (−3, def-gated), `either` −15 exactly, `silentAfter` 2,610 →
+2,625 (+15 exactly) · fixtures 670 → 685 (68 tokens — no new pins:
+Zombie `tc14 16`, Treasure `trna 12` and the Villain `tmsh 9` — D160's
+own pin — all REUSED) · `batch.json` at **609** (634 − 15 − 10,
+exact) · botDeck regenerated — **Adun reaches 1,222 cards from 63
+legendaries** (Long Feng, Luke Cage and Madame Hydra joined).
+
+**Verified: `verify.cjs --full` — ALL FIVE GATES PASSED in one
+invocation** — 554 test files, 3,594 Vitest passed /
+10 skipped · the 500-seed replay fuzz gate green at 1,974.2 s (484
+scripts registered, 1,626 s inside the 3,600 s ceiling) ·
+build clean · probe 124/124 · battery `bot engine prompts` 127/127.
+
+**Reportables:** the granularity family now spans damage (Aya), taps
+and attack declarations — a per-item event fan-out (the bus firing a
+trigger PER MATCHING ITEM of a batch, with the item on the
+PendingTrigger) would unlock all three at once and joins `DrewCards`
+at the top of the engine-work list; kicker and explore are structural
+mechanics for the named-classes long tail; the cost-chooser classes,
+`ctx.random`, once-per-turn memory, token entry choice, the spell
+seam, and the battery click-check debt stand.

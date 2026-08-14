@@ -7,6 +7,21 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { LIBRARY_LARCENIST_SCRIPT } from './cards/libraryLarcenist';
+import { LIFECREED_DUO_SCRIPT } from './cards/lifecreedDuo';
+import { LIVING_LIGHTNING_SCRIPT } from './cards/livingLightning';
+import { LLANOWAR_VISIONARY_SCRIPT } from './cards/llanowarVisionary';
+import { LONE_MISSIONARY_SCRIPT } from './cards/loneMissionary';
+import { LONG_FENG_GRAND_SECRETARIAT_SCRIPT } from './cards/longFengGrandSecretariat';
+import { LOS_DIABLOS_MISSILE_BASE_SCRIPT } from './cards/losDiablosMissileBase';
+import { LOXODON_MYSTIC_SCRIPT } from './cards/loxodonMystic';
+import { LUKE_CAGE_HERO_FOR_HIRE_SCRIPT } from './cards/lukeCageHeroForHire';
+import { LUMINARCH_ASPIRANT_SCRIPT } from './cards/luminarchAspirant';
+import { MAALFELD_TWINS_SCRIPT } from './cards/maalfeldTwins';
+import { MADAME_HYDRA_SCRIPT } from './cards/madameHydra';
+import { MAKESHIFT_MUNITIONS_SCRIPT } from './cards/makeshiftMunitions';
+import { MALCATORS_WATCHER_SCRIPT } from './cards/malcatorsWatcher';
+import { MALEVOLENT_AWAKENING_SCRIPT } from './cards/malevolentAwakening';
 import { KELDON_NECROPOLIS_SCRIPT } from './cards/keldonNecropolis';
 import { KEMBAS_SKYGUARD_SCRIPT } from './cards/kembasSkyguard';
 import { KHALNI_GARDEN_SCRIPT } from './cards/khalniGarden';
@@ -570,6 +585,21 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  LIBRARY_LARCENIST_SCRIPT,
+  LIFECREED_DUO_SCRIPT,
+  LIVING_LIGHTNING_SCRIPT,
+  LLANOWAR_VISIONARY_SCRIPT,
+  LONE_MISSIONARY_SCRIPT,
+  LONG_FENG_GRAND_SECRETARIAT_SCRIPT,
+  LOS_DIABLOS_MISSILE_BASE_SCRIPT,
+  LOXODON_MYSTIC_SCRIPT,
+  LUKE_CAGE_HERO_FOR_HIRE_SCRIPT,
+  LUMINARCH_ASPIRANT_SCRIPT,
+  MAALFELD_TWINS_SCRIPT,
+  MADAME_HYDRA_SCRIPT,
+  MAKESHIFT_MUNITIONS_SCRIPT,
+  MALCATORS_WATCHER_SCRIPT,
+  MALEVOLENT_AWAKENING_SCRIPT,
   KELDON_NECROPOLIS_SCRIPT,
   KEMBAS_SKYGUARD_SCRIPT,
   KHALNI_GARDEN_SCRIPT,

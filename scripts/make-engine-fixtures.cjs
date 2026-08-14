@@ -926,6 +926,23 @@ const WANTED = [
   'Lawless Broker',
   'Letter of Acceptance',
   'Ley Druid',
+  // Batch 26 (D185). All tokens REUSED (Zombie tc14 16, Treasure trna 12,
+  // Villain tmsh 9 — D160's own pin), checked against TOKEN_TABLE first.
+  'Library Larcenist',
+  'Lifecreed Duo',
+  'Living Lightning',
+  'Llanowar Visionary',
+  'Lone Missionary',
+  'Long Feng, Grand Secretariat',
+  'Los Diablos Missile Base',
+  'Loxodon Mystic',
+  'Luke Cage, Hero for Hire',
+  'Luminarch Aspirant',
+  'Maalfeld Twins',
+  'Madame Hydra',
+  'Makeshift Munitions',
+  "Malcator's Watcher",
+  'Malevolent Awakening',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -4919,6 +4919,52 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       per-damage-entry granularity, token entry choice, the spell seam
       and the battery click-check debt stand.
 
+- [x] **M6.4ac — Fifteen landed: the classification that corrected itself
+      (2026-08-14):** **2,214 of 31,692 Commander-legal cards now execute
+      completely, up from 2,199** — the LEANEST batch of the arc, and the
+      reason is the point. `SHIPPED_SCRIPTS` 469 → 484. Decisions in
+      **D185**.
+      ⚠️ **The classification corrected itself mid-write:** Lifeblood,
+      Lifetap and Linden were classified landable, and WRITING Lifeblood's
+      resolve exposed the killer — a resolve receives the STACK OBJECT,
+      not the event, so per-item wording against a BATCHED event (a
+      wrench tapping two Mountains; two white attackers in one
+      declaration) under-fires. That is D163's Aya refusal one event kind
+      over; the half-written module was DELETED and the three joined the
+      ledger as PER-TAP-ENTRY TRIGGER GRANULARITY. (Self-only filters,
+      per-creature entries and printed "one or more" wordings are all
+      untouched — each matches its batch by construction.)
+      **What landed:** Luke Cage and Luminarch Aspirant on Eidolon's
+      begin-combat filter (the Aspirant asks for an aim EVERY combat);
+      Madame Hydra's Villain cast-watcher paying in its own kind; Long
+      Feng's TWO-arm dies watcher (creature-with-"another" or land, both
+      proven); D138's graveyard returns on a dies trigger and a chooser
+      enchantment; Bombardment's ping with the OR-predicate; two distinct
+      Zombies from the grave; the Sanctifier text's FOURTH id; the first
+      trigger line printed ABOVE a mana line (Llanowar Visionary, TEXT
+      split[0]). **The enchantment pool reads THIRTY; the legendary pool
+      63.** All 15 suites — 34 tests — green on their FIRST run.
+      ⚠️ **Ten refusals, FOUR new classes:** per-tap-entry granularity
+      (×3), kicker memory, explore mechanic, negated-type sacrifice
+      predicate; plus draw-discriminator ×2, discard-cost,
+      random-discard. The ledger holds 87.
+      Fixtures 670 → 685 (68 tokens — no new pins, three REUSED incl.
+      D160's own Villain) · ladder [779, 878, 2831, 4715, 5902] ·
+      `batch.json` at 609 (exact) · botDeck: Adun reaches 1,222 from 63
+      legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      554 test files, 3,594 Vitest passed / 10
+      skipped · the 500-seed gate green at 1,974.2 s (484 scripts,
+      1,626 s inside the 3,600 s ceiling) · build clean ·
+      probe 124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D185): the granularity family now spans damage,
+      taps and attacks — a PER-ITEM EVENT FAN-OUT in the bus would unlock
+      all three and joins `DrewCards` at the top of the engine-work
+      list; kicker and explore join the structural tail; the
+      cost-chooser classes, `ctx.random`, once-per-turn memory, token
+      entry choice, the spell seam and the battery click-check debt
+      stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
