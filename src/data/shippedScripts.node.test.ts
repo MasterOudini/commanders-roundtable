@@ -144,7 +144,12 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // Subduer), Hornet Queen's FOUR-token entry, and the Plains-plural
     // parser bug Idyllic Grange's own test exposed (latent since D135);
     // two new refusal classes (snow activation cost, reveal-cost chooser).
-    expect(SHIPPED_SCRIPTS).toHaveLength(406);
+    // M6.4z (D182) landed twenty-two of 25 — the first ATTACKS-OR-BLOCKS
+    // pair (Jedit Ojanen, the first BlockersDeclared consumer), a FOUR-id
+    // identical-text family (+1/+1-counter entries), and Jayemdae Tome
+    // carrying Arcane Encyclopedia's exact text back to D159's first
+    // activated; one new refusal class (last-drawn-card memory cost).
+    expect(SHIPPED_SCRIPTS).toHaveLength(428);
   });
 });
 

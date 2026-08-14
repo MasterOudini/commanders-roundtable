@@ -4796,6 +4796,52 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       config).** The next batch's full gate exercises the new ceiling —
       D170's precedent for a ceiling raise riding its own commit.
 
+- [x] **M6.4z — Twenty-two landed: attacks or blocks, and a four-id text
+      family (2026-08-14):** **2,158 of 31,692 Commander-legal cards now
+      execute completely, up from 2,136.** `SHIPPED_SCRIPTS` 406 → 428.
+      Decisions in **D182**.
+      **The headliner:** `Jedit Ojanen of Efrava` is the first
+      ATTACKS-OR-BLOCKS pair — and the blocks arm is the FIRST
+      `BlockersDeclared` consumer this engine has (the event carried its
+      blocks since M3 with nothing watching). Both arms pay the
+      forestwalk Cat Warrior; the blocks test drives a REAL scripted
+      attack from the opponent's seat.
+      **The families:** the +1/+1-counter targeted entry lands as a
+      FOUR-ID text family (Ironpaw Aspirant, Ironshell Beetle, Jeong
+      Jeong's Deserters, and Iron Bully behind a Menace header) — the
+      largest yet; Jayemdae Tome carries Arcane Encyclopedia's exact text
+      back to D159's first activated; the Izzet Cluestone/Locket pair is
+      the fifth colour pair, Jeskai Banner the three-colour extension.
+      **Also:** Intrepid Hero's tap-destroy behind D139's numeric floor
+      (Grave Titan dies, Bears refused); Ivy Lane Denizen's
+      colour-filtered controlled-entry watcher with a targeted counter;
+      Izzet Chronarch's graveyard return; Jarvis's Hero-subtype
+      cast-watcher — proven POSITIVE with Spider-Ham, Peter Porker, the
+      first Hero-subtype fixture, queried from the DB rather than tested
+      only by negation. **Three more legendaries — the pool reads 58.**
+      All 22 suites — 48 tests — green on their FIRST run.
+      ⚠️ **Three refusals, ONE new class:** last-drawn-card memory cost
+      (Jandor's Ring — no per-turn draw identity exists; the draw-event
+      discriminator's sibling, and a `DrewCards` event with the card id
+      would unlock BOTH). Plus discard-cost and remove-counter. The
+      ledger holds 68.
+      Fixtures 600 → 625 (64 tokens: Ally `ttla 8`, Cat Warrior
+      `tc18 15`; Saproling reused) · ladder [835, 934, 2887, 4771,
+      5958] · `batch.json` at 684 (exact) · botDeck: Adun reaches 1,194
+      from 58 legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      498 test files, 3,358 Vitest passed / 10 skipped ·
+      the 500-seed gate green at 1,982.2 s (428 scripts,
+      1,618 s inside the 3,600 s ceiling — the first run under
+      D181's raise, and it would have BREACHED the old 1,800 s: the
+      raise landed exactly on time) · build clean · probe 124/124 ·
+      battery 127/127.**
+      ⚠️ **Reportables** (D182): a `DrewCards` event with the card id
+      unlocks both draw classes at once; the cost-chooser classes,
+      `ctx.random`, once-per-turn memory, per-damage-entry granularity,
+      token entry choice, the spell seam and the battery click-check
+      debt stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

@@ -854,6 +854,34 @@ const WANTED = [
   'Infectious Host',
   'Infestation Sage',
   'Insight',
+  // Batch 23 (D182).
+  'Inspired Insurgent',
+  'Inspiring Cleric',
+  'Intrepid Hero',
+  'Invasion Reinforcements',
+  'Iron Bully',
+  'Ironpaw Aspirant',
+  'Ironshell Beetle',
+  'Ithilien Kingfisher',
+  'Ivy Lane Denizen',
+  'Izzet Chronarch',
+  'Izzet Cluestone',
+  'Izzet Locket',
+  'Jade Mage',
+  'Jadecraft Artisan',
+  "Jandor's Saddlebags",
+  "Jarvis, Earth's Mightiest Butler",
+  'Jayemdae Tome',
+  'Jedit Ojanen of Efrava',
+  "Jedit's Dragoons",
+  "Jeong Jeong's Deserters",
+  'Jeska, Warrior Adept',
+  'Jeskai Banner',
+  // Batch 23's test helper: the cheapest Hero-subtype creature the DB holds
+  // that Jarvis's cast-watcher can prove its POSITIVE case with (no
+  // Hero-typed card was a fixture before). Unregistered — its own ETB never
+  // fires in the test.
+  'Spider-Ham, Peter Porker',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -959,6 +987,11 @@ const WANTED_TOKENS = [
   // printingIds before a line was written.
   { name: 'Insect', set: 'tc21', cn: '17', key: 'INSECT_DT_FLYING_TOKEN' },
   { name: 'Insect', set: 'tdsk', cn: '13', key: 'INSECT_BG_TOKEN' },
+  // Batch 23 (D182): the 1/1 white Ally (Invasion Reinforcements) and the
+  // forestwalk 2/2 Cat Warrior (Jedit Ojanen) join; Jade Mage REUSES the
+  // Saproling `tddj 1` — checked against TOKEN_TABLE's printingIds first.
+  { name: 'Ally', set: 'ttla', cn: '8', key: 'ALLY_TOKEN' },
+  { name: 'Cat Warrior', set: 'tc18', cn: '15', key: 'CAT_WARRIOR_TOKEN' },
   // M6.4g (D164).
   { name: 'Bear', set: 'ttla', cn: '12', key: 'BEAR_44_TOKEN' },
   { name: 'Blood', set: 'tbig', cn: '2', key: 'BLOOD_TOKEN' },

@@ -427,6 +427,28 @@ import { INDRIK_STOMPHOWLER_SCRIPT } from './scripts/cards/indrikStomphowler';
 import { INFECTIOUS_HOST_SCRIPT } from './scripts/cards/infectiousHost';
 import { INFESTATION_SAGE_SCRIPT } from './scripts/cards/infestationSage';
 import { INSIGHT_SCRIPT } from './scripts/cards/insight';
+import { INSPIRED_INSURGENT_SCRIPT } from './scripts/cards/inspiredInsurgent';
+import { INSPIRING_CLERIC_SCRIPT } from './scripts/cards/inspiringCleric';
+import { INTREPID_HERO_SCRIPT } from './scripts/cards/intrepidHero';
+import { INVASION_REINFORCEMENTS_SCRIPT } from './scripts/cards/invasionReinforcements';
+import { IRON_BULLY_SCRIPT } from './scripts/cards/ironBully';
+import { IRONPAW_ASPIRANT_SCRIPT } from './scripts/cards/ironpawAspirant';
+import { IRONSHELL_BEETLE_SCRIPT } from './scripts/cards/ironshellBeetle';
+import { ITHILIEN_KINGFISHER_SCRIPT } from './scripts/cards/ithilienKingfisher';
+import { IVY_LANE_DENIZEN_SCRIPT } from './scripts/cards/ivyLaneDenizen';
+import { IZZET_CHRONARCH_SCRIPT } from './scripts/cards/izzetChronarch';
+import { IZZET_CLUESTONE_SCRIPT } from './scripts/cards/izzetCluestone';
+import { IZZET_LOCKET_SCRIPT } from './scripts/cards/izzetLocket';
+import { JADE_MAGE_SCRIPT } from './scripts/cards/jadeMage';
+import { JADECRAFT_ARTISAN_SCRIPT } from './scripts/cards/jadecraftArtisan';
+import { JANDORS_SADDLEBAGS_SCRIPT } from './scripts/cards/jandorsSaddlebags';
+import { JARVIS_EARTHS_MIGHTIEST_BUTLER_SCRIPT } from './scripts/cards/jarvisEarthsMightiestButler';
+import { JAYEMDAE_TOME_SCRIPT } from './scripts/cards/jayemdaeTome';
+import { JEDIT_OJANEN_OF_EFRAVA_SCRIPT } from './scripts/cards/jeditOjanenOfEfrava';
+import { JEDITS_DRAGOONS_SCRIPT } from './scripts/cards/jeditsDragoons';
+import { JEONG_JEONGS_DESERTERS_SCRIPT } from './scripts/cards/jeongJeongsDeserters';
+import { JESKA_WARRIOR_ADEPT_SCRIPT } from './scripts/cards/jeskaWarriorAdept';
+import { JESKAI_BANNER_SCRIPT } from './scripts/cards/jeskaiBanner';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -850,6 +872,17 @@ const DECK = [
   'Illegitimate Business', 'Illvoi Galeblade', 'Impassioned Orator',
   'Imperial Subduer', 'Indrik Stomphowler', 'Infectious Host',
   'Infestation Sage', 'Insight',
+  // M6.4z/D182 — batch 23. Jedit Ojanen rides BOTH combat declarations (the
+  // gate's first BlockersDeclared consumer); the four-id counter family and
+  // the Izzet trio ride entries and activations the games already make.
+  'Inspired Insurgent', 'Inspiring Cleric', 'Intrepid Hero',
+  'Invasion Reinforcements', 'Iron Bully', 'Ironpaw Aspirant',
+  'Ironshell Beetle', 'Ithilien Kingfisher', 'Ivy Lane Denizen',
+  'Izzet Chronarch', 'Izzet Cluestone', 'Izzet Locket', 'Jade Mage',
+  'Jadecraft Artisan', "Jandor's Saddlebags",
+  "Jarvis, Earth's Mightiest Butler", 'Jayemdae Tome',
+  'Jedit Ojanen of Efrava', "Jedit's Dragoons", "Jeong Jeong's Deserters",
+  'Jeska, Warrior Adept', 'Jeskai Banner',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -1303,6 +1336,28 @@ const SCRIPTS = createRegistry([
   INFECTIOUS_HOST_SCRIPT,
   INFESTATION_SAGE_SCRIPT,
   INSIGHT_SCRIPT,
+  INSPIRED_INSURGENT_SCRIPT,
+  INSPIRING_CLERIC_SCRIPT,
+  INTREPID_HERO_SCRIPT,
+  INVASION_REINFORCEMENTS_SCRIPT,
+  IRON_BULLY_SCRIPT,
+  IRONPAW_ASPIRANT_SCRIPT,
+  IRONSHELL_BEETLE_SCRIPT,
+  ITHILIEN_KINGFISHER_SCRIPT,
+  IVY_LANE_DENIZEN_SCRIPT,
+  IZZET_CHRONARCH_SCRIPT,
+  IZZET_CLUESTONE_SCRIPT,
+  IZZET_LOCKET_SCRIPT,
+  JADE_MAGE_SCRIPT,
+  JADECRAFT_ARTISAN_SCRIPT,
+  JANDORS_SADDLEBAGS_SCRIPT,
+  JARVIS_EARTHS_MIGHTIEST_BUTLER_SCRIPT,
+  JAYEMDAE_TOME_SCRIPT,
+  JEDIT_OJANEN_OF_EFRAVA_SCRIPT,
+  JEDITS_DRAGOONS_SCRIPT,
+  JEONG_JEONGS_DESERTERS_SCRIPT,
+  JESKA_WARRIOR_ADEPT_SCRIPT,
+  JESKAI_BANNER_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

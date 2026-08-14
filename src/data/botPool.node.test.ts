@@ -423,11 +423,13 @@ const POOL: Record<string, number> = {
   // M6.4x (D180): +15 creatures, +2 artifacts (Hot Dog Cart, Ichor
   // Wellspring), +2 lands (Idyllic Grange, Illegitimate Business) and
   // Insight — the pool reads TWENTY-EIGHT.
-  creature: 1451,
+  // M6.4z (D182): +17 creatures and +5 artifacts (the Izzet Cluestone,
+  // Locket and Jeskai Banner beside Jandor's Saddlebags and Jayemdae Tome).
+  creature: 1468,
   instant: 201,
   sorcery: 146,
   land: 243,
-  artifact: 67,
+  artifact: 72,
   enchantment: 28,
 };
 

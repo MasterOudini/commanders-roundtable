@@ -18637,6 +18637,793 @@ export const INSIGHT: CardData = {
   "singleImage": true
 };
 
+export const INSPIRED_INSURGENT: CardData = {
+  "scryfallId": "119d4579-26e6-4985-b232-40d11d60fd96",
+  "oracleId": "5863c67b-a47c-4466-8bd1-210ab26e0d3f",
+  "name": "Inspired Insurgent",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Inspired Insurgent",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Peasant Ally",
+      "oracleText": "{1}, Sacrifice this creature: Destroy target artifact or enchantment.",
+      "flavorText": "Thanks to Katara, the coal meant to fuel enemy ships instead fueled the prisoners' liberation.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Thomas Stoop",
+      "imageId": "119d4579-26e6-4985-b232-40d11d60fd96"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tle",
+  "collectorNumber": "77",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INSPIRING_CLERIC: CardData = {
+  "scryfallId": "31b8f1da-c8ea-41d5-b1ad-b714c22d3683",
+  "oracleId": "65e19aec-e8ea-412f-a239-bd8d1b78249c",
+  "name": "Inspiring Cleric",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Inspiring Cleric",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Vampire Cleric",
+      "oracleText": "When this creature enters, you gain 4 life.",
+      "flavorText": "\"The Immortal Sun will bring us true eternal life to replace the everlasting shadow of undeath.\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "31b8f1da-c8ea-41d5-b1ad-b714c22d3683"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "xln",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INTREPID_HERO: CardData = {
+  "scryfallId": "0d346531-7751-4e51-867a-49bf3ea5d305",
+  "oracleId": "63c1dfcc-9d47-4dee-b4e6-1f50e716cf9e",
+  "name": "Intrepid Hero",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Intrepid Hero",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{T}: Destroy target creature with power 4 or greater.",
+      "flavorText": "A fool knows no fear. A hero shows no fear.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mike Ploog",
+      "imageId": "0d346531-7751-4e51-867a-49bf3ea5d305"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "wc02",
+  "collectorNumber": "bk22sb",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INVASION_REINFORCEMENTS: CardData = {
+  "scryfallId": "b8845bba-d116-43cd-8ae0-e553f3324d66",
+  "oracleId": "185316ff-6fb7-4b5c-8a60-3238674562a6",
+  "name": "Invasion Reinforcements",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Invasion Reinforcements",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Warrior Ally",
+      "oracleText": "Flash\nWhen this creature enters, create a 1/1 white Ally creature token.",
+      "flavorText": "Many of the those who aided in the invasion of the Fire Nation were not soldiers by occupation, though they were warriors at heart.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Yuhong Ding",
+      "imageId": "b8845bba-d116-43cd-8ae0-e553f3324d66"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flash"
+  ],
+  "setCode": "tla",
+  "collectorNumber": "24",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IRON_BULLY: CardData = {
+  "scryfallId": "545521f8-ab61-4f18-b290-16cd2c2d505e",
+  "oracleId": "7d78155c-c63f-48a3-86e5-12b80400d8de",
+  "name": "Iron Bully",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Iron Bully",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Golem",
+      "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhen this creature enters, put a +1/+1 counter on target creature.",
+      "flavorText": "\"Why would someone have built ... wait, never mind. Send it to the front lines!\"\n—Commander Grozdan",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Aaron Miller",
+      "imageId": "545521f8-ab61-4f18-b290-16cd2c2d505e"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Menace"
+  ],
+  "setCode": "2xm",
+  "collectorNumber": "262",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IRONPAW_ASPIRANT: CardData = {
+  "scryfallId": "f70689a0-ac69-4052-84fc-9055e9e1c54b",
+  "oracleId": "fab5f694-4a9c-4e72-b164-f236e8212ff7",
+  "name": "Ironpaw Aspirant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ironpaw Aspirant",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Cat Warrior",
+      "oracleText": "When this creature enters, put a +1/+1 counter on target creature.",
+      "flavorText": "\"Train your mind and your muscles with equal ferocity, cub. Without wisdom, even a mighty warrior is nothing but a bully.\"\n—Sovereign Okinec Ahau",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "f70689a0-ac69-4052-84fc-9055e9e1c54b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "lci",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IRONSHELL_BEETLE: CardData = {
+  "scryfallId": "57f8b6b0-f858-41d5-9839-fd1247b9477f",
+  "oracleId": "693ca077-2b91-4de1-8136-8fe45f8ea5a7",
+  "name": "Ironshell Beetle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ironshell Beetle",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "When this creature enters, put a +1/+1 counter on target creature.",
+      "flavorText": "\"Please don't feed the beetles.\"\n—Promenade warning sign",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "57f8b6b0-f858-41d5-9839-fd1247b9477f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "grn",
+  "collectorNumber": "134",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ITHILIEN_KINGFISHER: CardData = {
+  "scryfallId": "68c29762-6859-4564-9e1d-a87fa63b951a",
+  "oracleId": "a2dd89a1-9b3e-4bd1-9b48-36516d63726a",
+  "name": "Ithilien Kingfisher",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ithilien Kingfisher",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying\nWhen this creature dies, draw a card.",
+      "flavorText": "After their reunion, the Hobbits spent many days in Ithilien. The stream that flowed from the falls of Henneth Annûn could be heard in the night as it rushed down through its rocky gate.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Alexander Ostrowski",
+      "imageId": "68c29762-6859-4564-9e1d-a87fa63b951a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ltr",
+  "collectorNumber": "58",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IVY_LANE_DENIZEN: CardData = {
+  "scryfallId": "2ad9d411-4bc2-48d8-99aa-c38604ef8c6f",
+  "oracleId": "a5da5ad6-4ed2-4041-a983-76a8c87fa109",
+  "name": "Ivy Lane Denizen",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ivy Lane Denizen",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Elf Warrior",
+      "oracleText": "Whenever another green creature you control enters, put a +1/+1 counter on target creature.",
+      "flavorText": "\"Skyknight gear? Well, I have drake-skin gauntlets, supple and fireproof. Or a ceratok chestplate that'll stop a crossbow bolt.\"",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Winona Nelson",
+      "imageId": "2ad9d411-4bc2-48d8-99aa-c38604ef8c6f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "DDU-12",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IZZET_CHRONARCH: CardData = {
+  "scryfallId": "29681b0d-1aed-4b50-9710-9c15f3c83c72",
+  "oracleId": "1da438f3-db1c-4713-a60c-e078f31d809c",
+  "name": "Izzet Chronarch",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Izzet Chronarch",
+      "manaCost": "{3}{U}{R}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "When this creature enters, return target instant or sorcery card from your graveyard to your hand.",
+      "flavorText": "He ensures not only whether but also when and where the lightning strikes twice.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Nick Percival",
+      "imageId": "29681b0d-1aed-4b50-9710-9c15f3c83c72"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "cmd",
+  "collectorNumber": "205",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IZZET_CLUESTONE: CardData = {
+  "scryfallId": "8cf63def-e2cc-48c7-8409-c08a36eddf93",
+  "oracleId": "3c76bb90-92fb-428b-8e94-def4cf4b6f2d",
+  "name": "Izzet Cluestone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Izzet Cluestone",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {U} or {R}.\n{U}{R}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "It holds within it an unsolvable riddle. A creative answer yields an invitation to the guild.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Raoul Vitale",
+      "imageId": "8cf63def-e2cc-48c7-8409-c08a36eddf93"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dgm",
+  "collectorNumber": "141",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IZZET_LOCKET: CardData = {
+  "scryfallId": "348f3bec-ad16-4bc7-8da9-3956c9900f95",
+  "oracleId": "7ee07546-2c2e-4679-b671-7ea509b1d3ea",
+  "name": "Izzet Locket",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Izzet Locket",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {U} or {R}.\n{U/R}{U/R}{U/R}{U/R}, {T}, Sacrifice this artifact: Draw two cards.",
+      "flavorText": "\"Remember to discharge your locket every seven hours. Unless you prefer the spontaneous aether overload, of course.\"\n—Daxiver, Izzet electromancer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Dmitry Burmak",
+      "imageId": "348f3bec-ad16-4bc7-8da9-3956c9900f95"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "grn",
+  "collectorNumber": "238",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JADE_MAGE: CardData = {
+  "scryfallId": "32d6c8d3-04a1-4b35-b7d1-18bed82beaf4",
+  "oracleId": "6daf3c59-7636-4d44-872b-67722b4868cb",
+  "name": "Jade Mage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jade Mage",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "{2}{G}: Create a 1/1 green Saproling creature token.",
+      "flavorText": "\"We are one with the wild things. Life blooms from our fingertips and nature responds to our summons.\"\n—Jade creed",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Izzy",
+      "imageId": "32d6c8d3-04a1-4b35-b7d1-18bed82beaf4"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m12",
+  "collectorNumber": "181",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JADECRAFT_ARTISAN: CardData = {
+  "scryfallId": "2b745934-c1fe-49f5-bda4-b0eafa1408e1",
+  "oracleId": "9290f549-3e5d-4e39-a20e-8be6b674abc7",
+  "name": "Jadecraft Artisan",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jadecraft Artisan",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Merfolk Shaman",
+      "oracleText": "When this creature enters, target creature gets +2/+2 until end of turn.",
+      "flavorText": "\"A blade is not fully forged until it is given.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Izzy",
+      "imageId": "2b745934-c1fe-49f5-bda4-b0eafa1408e1"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "rix",
+  "collectorNumber": "135",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JANDOR_S_SADDLEBAGS: CardData = {
+  "scryfallId": "16e0441d-5ad8-4087-912b-80066ac7009f",
+  "oracleId": "3aa0e73f-ac88-47a5-9cc5-0c941a939eae",
+  "name": "Jandor's Saddlebags",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jandor's Saddlebags",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "{3}, {T}: Untap target creature.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Dameon Willich",
+      "imageId": "16e0441d-5ad8-4087-912b-80066ac7009f"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "4bb",
+  "collectorNumber": "330",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JARVIS_EARTH_S_MIGHTIEST_BUTLER: CardData = {
+  "scryfallId": "62c31cd8-0c30-4cfb-89d6-2e4dac19f6ea",
+  "oracleId": "63e17cbd-6dae-42d2-a074-7924db1477bf",
+  "name": "Jarvis, Earth's Mightiest Butler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jarvis, Earth's Mightiest Butler",
+      "manaCost": "{2}{U}",
+      "typeLine": "Legendary Creature — Human Advisor",
+      "oracleText": "Whenever you cast a Hero spell, draw a card.",
+      "flavorText": "\"My association with the Avengers is far more than a job. It's more a duty of friendship and loyalty. A calling I cherish deeply.\"",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Gintas Galvanauskas",
+      "imageId": "62c31cd8-0c30-4cfb-89d6-2e4dac19f6ea"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "msc",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JAYEMDAE_TOME: CardData = {
+  "scryfallId": "0736c836-d90b-440c-bb6f-4b2eeaaa3d73",
+  "oracleId": "39ee576a-0803-4063-9c84-f2b537e4d44c",
+  "name": "Jayemdae Tome",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jayemdae Tome",
+      "manaCost": "{4}",
+      "typeLine": "Artifact — Book",
+      "oracleText": "{4}, {T}: Draw a card.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Mark Tedin",
+      "imageId": "0736c836-d90b-440c-bb6f-4b2eeaaa3d73"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "5ed",
+  "collectorNumber": "384",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JEDIT_OJANEN_OF_EFRAVA: CardData = {
+  "scryfallId": "02830294-431a-4402-aafe-f29f224d7d0b",
+  "oracleId": "c065a7c0-272b-4b7e-a41c-7164352cd189",
+  "name": "Jedit Ojanen of Efrava",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jedit Ojanen of Efrava",
+      "manaCost": "{3}{G}{G}{G}",
+      "typeLine": "Legendary Creature — Cat Warrior",
+      "oracleText": "Forestwalk (This creature can't be blocked as long as defending player controls a Forest.)\nWhenever Jedit Ojanen attacks or blocks, create a 2/2 green Cat Warrior creature token with forestwalk.",
+      "flavorText": "The cat warriors recognized this Jedit's face, but not his fierce loyalty to Efrava.",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "02830294-431a-4402-aafe-f29f224d7d0b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Landwalk",
+    "Forestwalk"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "PLC-131",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JEDIT_S_DRAGOONS: CardData = {
+  "scryfallId": "3f190c65-f939-4453-95d7-9acb36cf97c2",
+  "oracleId": "3f6df152-a0b9-441a-a8aa-8bb77f70d491",
+  "name": "Jedit's Dragoons",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jedit's Dragoons",
+      "manaCost": "{5}{W}",
+      "typeLine": "Creature — Cat Soldier",
+      "oracleText": "Vigilance\nWhen this creature enters, you gain 4 life.",
+      "flavorText": "After Efrava was destroyed, the cat warriors scattered across Dominaria. Those who followed Jedit's example were strong enough to survive the ravages of apocalypse.",
+      "power": "2",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Matson",
+      "imageId": "3f190c65-f939-4453-95d7-9acb36cf97c2"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "ddi",
+  "collectorNumber": "20",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JEONG_JEONG_S_DESERTERS: CardData = {
+  "scryfallId": "060966f9-5e56-4512-9ef3-2b216daf093c",
+  "oracleId": "6a06d281-3ca2-498f-91d0-e13e7b0869f9",
+  "name": "Jeong Jeong's Deserters",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jeong Jeong's Deserters",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Rebel Ally",
+      "oracleText": "When this creature enters, put a +1/+1 counter on target creature.",
+      "flavorText": "To leave the Fire Nation required incredible trust. They had that in Jeong Jeong.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Leonardo Borazio",
+      "imageId": "060966f9-5e56-4512-9ef3-2b216daf093c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tla",
+  "collectorNumber": "25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JESKA_WARRIOR_ADEPT: CardData = {
+  "scryfallId": "1cf96a59-8b7d-4a5b-adfd-17eeedd95db5",
+  "oracleId": "3186fddd-23fd-440c-ad61-b4130e00f765",
+  "name": "Jeska, Warrior Adept",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jeska, Warrior Adept",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Legendary Creature — Human Barbarian Warrior",
+      "oracleText": "First strike, haste\n{T}: Jeska deals 1 damage to any target.",
+      "flavorText": "\"My brother and I both come from Balthor's forge. Kamahl has a temper of fire. I have a temper of steel.\"",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "rk post",
+      "imageId": "1cf96a59-8b7d-4a5b-adfd-17eeedd95db5"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "First strike",
+    "Haste"
+  ],
+  "setCode": "jud",
+  "collectorNumber": "93",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JESKAI_BANNER: CardData = {
+  "scryfallId": "684dc050-a66b-4364-9880-56f383db6c0a",
+  "oracleId": "fda10ef2-f431-4d9b-96a4-4db4c98d2b0c",
+  "name": "Jeskai Banner",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jeskai Banner",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {U}, {R}, or {W}.\n{U}{R}{W}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "Discipline to persevere, insight to discover.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "684dc050-a66b-4364-9880-56f383db6c0a"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ktk",
+  "collectorNumber": "222",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIDER_HAM_PETER_PORKER: CardData = {
+  "scryfallId": "020426f0-ca38-4b0e-aa20-6fe12dc34853",
+  "oracleId": "00b50215-e832-417f-9c80-2bc3050b6ebb",
+  "name": "Spider-Ham, Peter Porker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spider-Ham, Peter Porker",
+      "manaCost": "{1}{G}",
+      "typeLine": "Legendary Creature — Spider Boar Hero",
+      "oracleText": "When Spider-Ham enters, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")\nAnimal May-Ham — Other Spiders, Boars, Bats, Bears, Birds, Cats, Dogs, Frogs, Jackals, Lizards, Mice, Otters, Rabbits, Raccoons, Rats, Squirrels, Turtles, and Wolves you control get +1/+1.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jim Cheung & Jay David Ramos",
+      "imageId": "020426f0-ca38-4b0e-aa20-6fe12dc34853"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Food",
+    "Animal May-Ham"
+  ],
+  "setCode": "spm",
+  "collectorNumber": "201",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -20475,6 +21262,77 @@ export const INSECT_BG_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const ALLY_TOKEN: CardData = {
+  "scryfallId": "01439983-8394-4a0c-9e9e-92a3f1927fe3",
+  "oracleId": "63d59a37-fd7c-4d53-a666-7db6fae2f78f",
+  "name": "Ally",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Ally",
+      "manaCost": "",
+      "typeLine": "Token Creature — Ally",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Salvatorre Zee Yazzie",
+      "imageId": "01439983-8394-4a0c-9e9e-92a3f1927fe3"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "ttla",
+  "collectorNumber": "8",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const CAT_WARRIOR_TOKEN: CardData = {
+  "scryfallId": "0742ca95-9455-4f56-b26c-2994d12af602",
+  "oracleId": "e2b387e7-8b4c-41cd-95ca-df5dd1680425",
+  "name": "Cat Warrior",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Cat Warrior",
+      "manaCost": "",
+      "typeLine": "Token Creature — Cat Warrior",
+      "oracleText": "Forestwalk",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Michael Sutfin",
+      "imageId": "0742ca95-9455-4f56-b26c-2994d12af602"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Landwalk",
+    "Forestwalk"
+  ],
+  "setCode": "tc18",
+  "collectorNumber": "15",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 export const BEAR_44_TOKEN: CardData = {
   "scryfallId": "1dbbdb0f-57a4-4b85-ba5c-1383f0efb3af",
   "oracleId": "af4bd34a-0a0b-4c53-8f13-579c45ab471a",
@@ -21277,6 +22135,29 @@ export const ENGINE_CARDS: CardData[] = [
   INFECTIOUS_HOST,
   INFESTATION_SAGE,
   INSIGHT,
+  INSPIRED_INSURGENT,
+  INSPIRING_CLERIC,
+  INTREPID_HERO,
+  INVASION_REINFORCEMENTS,
+  IRON_BULLY,
+  IRONPAW_ASPIRANT,
+  IRONSHELL_BEETLE,
+  ITHILIEN_KINGFISHER,
+  IVY_LANE_DENIZEN,
+  IZZET_CHRONARCH,
+  IZZET_CLUESTONE,
+  IZZET_LOCKET,
+  JADE_MAGE,
+  JADECRAFT_ARTISAN,
+  JANDOR_S_SADDLEBAGS,
+  JARVIS_EARTH_S_MIGHTIEST_BUTLER,
+  JAYEMDAE_TOME,
+  JEDIT_OJANEN_OF_EFRAVA,
+  JEDIT_S_DRAGOONS,
+  JEONG_JEONG_S_DESERTERS,
+  JESKA_WARRIOR_ADEPT,
+  JESKAI_BANNER,
+  SPIDER_HAM_PETER_PORKER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -21331,6 +22212,8 @@ export const ENGINE_CARDS: CardData[] = [
   RABBIT_TOKEN,
   INSECT_DT_FLYING_TOKEN,
   INSECT_BG_TOKEN,
+  ALLY_TOKEN,
+  CAT_WARRIOR_TOKEN,
   BEAR_44_TOKEN,
   BLOOD_TOKEN,
   FOOD_TOKEN,

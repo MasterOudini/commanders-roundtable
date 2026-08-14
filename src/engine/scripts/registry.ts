@@ -7,6 +7,28 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { INSPIRED_INSURGENT_SCRIPT } from './cards/inspiredInsurgent';
+import { INSPIRING_CLERIC_SCRIPT } from './cards/inspiringCleric';
+import { INTREPID_HERO_SCRIPT } from './cards/intrepidHero';
+import { INVASION_REINFORCEMENTS_SCRIPT } from './cards/invasionReinforcements';
+import { IRON_BULLY_SCRIPT } from './cards/ironBully';
+import { IRONPAW_ASPIRANT_SCRIPT } from './cards/ironpawAspirant';
+import { IRONSHELL_BEETLE_SCRIPT } from './cards/ironshellBeetle';
+import { ITHILIEN_KINGFISHER_SCRIPT } from './cards/ithilienKingfisher';
+import { IVY_LANE_DENIZEN_SCRIPT } from './cards/ivyLaneDenizen';
+import { IZZET_CHRONARCH_SCRIPT } from './cards/izzetChronarch';
+import { IZZET_CLUESTONE_SCRIPT } from './cards/izzetCluestone';
+import { IZZET_LOCKET_SCRIPT } from './cards/izzetLocket';
+import { JADE_MAGE_SCRIPT } from './cards/jadeMage';
+import { JADECRAFT_ARTISAN_SCRIPT } from './cards/jadecraftArtisan';
+import { JANDORS_SADDLEBAGS_SCRIPT } from './cards/jandorsSaddlebags';
+import { JARVIS_EARTHS_MIGHTIEST_BUTLER_SCRIPT } from './cards/jarvisEarthsMightiestButler';
+import { JAYEMDAE_TOME_SCRIPT } from './cards/jayemdaeTome';
+import { JEDIT_OJANEN_OF_EFRAVA_SCRIPT } from './cards/jeditOjanenOfEfrava';
+import { JEDITS_DRAGOONS_SCRIPT } from './cards/jeditsDragoons';
+import { JEONG_JEONGS_DESERTERS_SCRIPT } from './cards/jeongJeongsDeserters';
+import { JESKA_WARRIOR_ADEPT_SCRIPT } from './cards/jeskaWarriorAdept';
+import { JESKAI_BANNER_SCRIPT } from './cards/jeskaiBanner';
 import { HORNET_HARASSER_SCRIPT } from './cards/hornetHarasser';
 import { HORNET_QUEEN_SCRIPT } from './cards/hornetQueen';
 import { HOT_DOG_CART_SCRIPT } from './cards/hotDogCart';
@@ -507,6 +529,28 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  INSPIRED_INSURGENT_SCRIPT,
+  INSPIRING_CLERIC_SCRIPT,
+  INTREPID_HERO_SCRIPT,
+  INVASION_REINFORCEMENTS_SCRIPT,
+  IRON_BULLY_SCRIPT,
+  IRONPAW_ASPIRANT_SCRIPT,
+  IRONSHELL_BEETLE_SCRIPT,
+  ITHILIEN_KINGFISHER_SCRIPT,
+  IVY_LANE_DENIZEN_SCRIPT,
+  IZZET_CHRONARCH_SCRIPT,
+  IZZET_CLUESTONE_SCRIPT,
+  IZZET_LOCKET_SCRIPT,
+  JADE_MAGE_SCRIPT,
+  JADECRAFT_ARTISAN_SCRIPT,
+  JANDORS_SADDLEBAGS_SCRIPT,
+  JARVIS_EARTHS_MIGHTIEST_BUTLER_SCRIPT,
+  JAYEMDAE_TOME_SCRIPT,
+  JEDIT_OJANEN_OF_EFRAVA_SCRIPT,
+  JEDITS_DRAGOONS_SCRIPT,
+  JEONG_JEONGS_DESERTERS_SCRIPT,
+  JESKA_WARRIOR_ADEPT_SCRIPT,
+  JESKAI_BANNER_SCRIPT,
   HORNET_HARASSER_SCRIPT,
   HORNET_QUEEN_SCRIPT,
   HOT_DOG_CART_SCRIPT,

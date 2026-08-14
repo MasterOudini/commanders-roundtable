@@ -12471,3 +12471,80 @@ token entry choice, the spell seam, and the cost-chooser classes
 remove-counter, put-counter, token-predicate, multi-sacrifice,
 return-permanent, snow) all stand, with the draw-event discriminator
 (D179) still the richest.
+
+## D182 — M6.4z: attacks or blocks, and a four-id text family (2026-08-14)
+
+**What was decided:** batch 23 of the M6.4 loop lands twenty-two of its
+25 — **2,158 of 31,692 Commander-legal cards now execute completely, up
+from 2,136** — with three refusals, ONE of them a NEW class.
+`SHIPPED_SCRIPTS` 406 → 428.
+
+**The headliner:** `Jedit Ojanen of Efrava` is the first
+ATTACKS-OR-BLOCKS pair — one printed line, two defs, and the blocks arm
+is **the first `BlockersDeclared` consumer this engine has**: the event
+has carried `blocks: {blocker, attacker}[]` since M3 with nothing
+watching it. Both arms make the forestwalk Cat Warrior (NEW pin
+`tc18 15`), and the blocks test drives a REAL scripted attack from the
+opponent's seat (`fullControl(p2)` holds the declaration open — the
+harness idiom for making the scriptless seat act).
+
+**The families:** the +1/+1-counter targeted entry lands as a FOUR-ID
+text family — `Ironpaw Aspirant`, `Ironshell Beetle` and `Jeong Jeong's
+Deserters` carry the identical line and `Iron Bully` the same line
+behind a Menace header — the largest single-text family yet, each
+proven on its own registration. `Jayemdae Tome` carries `Arcane
+Encyclopedia`'s exact "{4}, {T}: Draw a card." back to D159's very
+first activated def. The Izzet Cluestone/Locket pair joins as the
+fifth colour pair, with `Jeskai Banner` extending the shape to three
+colours.
+
+**The rest:** `Intrepid Hero`'s tap-destroy behind D139's numeric spec
+(a power-6 Grave Titan dies, a power-2 Bears is refused);
+`Ivy Lane Denizen`'s controlled-entry watcher with a COLOUR filter on
+the derived entrant, its payoff a targeted counter (a white creature
+entering pays nothing); `Izzet Chronarch` returning a chosen instant
+from the graveyard through D138's spec; `Inspired Insurgent`'s
+self-sacrifice destroy; `Jade Mage` making two Saprolings in one turn;
+`Jarvis, Earth's Mightiest Butler`'s Hero-subtype cast-watcher —
+proven positive with `Spider-Ham, Peter Porker`, **the first
+Hero-subtype fixture** (no fixture carried the subtype, so the batch
+queried the database for the cheapest one rather than testing only the
+negative); `Jeska, Warrior Adept`'s tap-ping; `Jandor's Saddlebags`'
+targeted untap; two ETB gain-4s; a dies-draw. **Three more
+fully-executable legendaries — the pool reads 58.** All 22 suites — 48
+tests — passed on their FIRST run.
+
+**Three refusals, ONE NEW class:** `Jandor's Ring` pays by discarding
+"the last card you drew this turn" — the engine tracks NO per-turn
+draw identity (LAST-DRAWN-CARD MEMORY COST, the draw-event
+discriminator's sibling: there is not even a draw event, let alone a
+memory of which card came last). Plus a discard-cost chooser
+(`Insolent Neonate`) and a remove-counter cost (`Ion Storm`). The
+ledger holds 68.
+
+**The numbers, every delta exactly the twenty-two cards:** primitives
+`complete` 2,136 → 2,158 · `blocked` 29,534 · `scriptableToday` 835 ·
+ladder [835, 934, 2887, 4771, 5958] · botPool creature 1,468,
+**artifact 72** (+5: the Izzet pair, the Banner, the Saddlebags, the
+Tome), enchantment 28, land 243 · tier3 `abilityText` 17,201,
+`payable` 5,156 (−9, the def-gated costs), `either` −22 exactly,
+`silentAfter` 2,547 → 2,569 (+22 exactly) · fixtures 600 → 625 (64
+tokens: the Ally `ttla 8` and the forestwalk Cat Warrior `tc18 15`
+joined; the Saproling `tddj 1` REUSED; plus the Spider-Ham helper) ·
+`batch.json` at **684** (709 − 22 − 3, exact) · botDeck regenerated —
+**Adun reaches 1,194 cards from 58 legendaries**.
+
+**Verified: `verify.cjs --full` — ALL FIVE GATES PASSED in one
+invocation** — 498 test files, 3,358 Vitest passed / 10 skipped · the
+500-seed replay fuzz gate green at 1,982.2 s (428 scripts registered,
+1,618 s inside the 3,600 s ceiling — the FIRST run under D181's raise,
+and it would have BREACHED the old 1,800 s: the raise landed exactly
+on time) · build clean · probe 124/124 · battery `bot engine prompts`
+127/127.
+
+**Reportables:** the last-drawn-card memory cost stacks on D179's
+draw-event discriminator — a `DrewCards` event with the card id would
+unlock BOTH classes at once, which strengthens that reportable's case;
+the cost-chooser classes, `ctx.random`, once-per-turn memory,
+per-damage-entry granularity, token entry choice, the spell seam, and
+the battery click-check debt stand.

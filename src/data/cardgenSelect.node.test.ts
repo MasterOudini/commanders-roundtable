@@ -249,6 +249,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Illuminated Folio', 'reveal-cost chooser'],
   ['Infernal Tribute', 'token-predicate sacrifice cost'],
   ['Inkfathom Divers', 'script-raised prompt'],
+  // Batch 23 (D182): two existing classes and ONE new one. `Jandor's Ring`
+  // pays by discarding "the last card you drew this turn" — the engine
+  // tracks no per-turn draw identity at all (the draw-event discriminator's
+  // sibling: there is not even a draw EVENT, let alone a memory of which
+  // card came last).
+  ['Insolent Neonate', 'discard-cost chooser'],
+  ['Ion Storm', 'remove-counter cost'],
+  ["Jandor's Ring", 'last-drawn-card memory cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
