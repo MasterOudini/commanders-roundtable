@@ -201,6 +201,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ghirapur Aether Grid', 'tap-permanents cost'],
   ['Gilt-Leaf Seer', 'script-raised prompt'],
   ['Glare of Subdual', 'tap-creatures cost'],
+  // Batch 19 (D177) — TWO NEW classes. Multi-sacrifice: D168's
+  // `ActivateAbility.sacrifice` names ONE permanent, so "Sacrifice two
+  // Goblins" has no carrier. Sacrifice-event discriminator: `EventCause`
+  // has no sacrifice kind AND `matches` receives the event BODY, so a
+  // "whenever you sacrifice" watcher would over-fire on every death.
+  ['Goblin Picker', 'discard-cost chooser'],
+  ['Goblin Warrens', 'multi-sacrifice cost'],
+  ['Goldmaw Champion', 'once-per-turn trigger memory'],
+  ['Graf Mole', 'sacrifice-event discriminator'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

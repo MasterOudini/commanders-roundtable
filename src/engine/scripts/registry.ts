@@ -7,6 +7,27 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { GNARLBACK_RHINO_SCRIPT } from './cards/gnarlbackRhino';
+import { GNARLED_EFFIGY_SCRIPT } from './cards/gnarledEffigy';
+import { GNOTTVOLD_SLUMBERMOUND_SCRIPT } from './cards/gnottvoldSlumbermound';
+import { GOBLIN_ASSAULT_TEAM_SCRIPT } from './cards/goblinAssaultTeam';
+import { GOBLIN_BOMBARDMENT_SCRIPT } from './cards/goblinBombardment';
+import { GOBLIN_FIREBOMB_SCRIPT } from './cards/goblinFirebomb';
+import { GOBLIN_FIRESLINGER_SCRIPT } from './cards/goblinFireslinger';
+import { GOBLIN_GANG_LEADER_SCRIPT } from './cards/goblinGangLeader';
+import { GOBLIN_GARDENER_SCRIPT } from './cards/goblinGardener';
+import { GOBLIN_INSTIGATOR_SCRIPT } from './cards/goblinInstigator';
+import { GOBLIN_REPLICA_SCRIPT } from './cards/goblinReplica';
+import { GOBLIN_SETTLER_SCRIPT } from './cards/goblinSettler';
+import { GOBLIN_SLEDDER_SCRIPT } from './cards/goblinSledder';
+import { GOBLIN_TRENCHES_SCRIPT } from './cards/goblinTrenches';
+import { GODS_EYE_GATE_TO_THE_REIKAI_SCRIPT } from './cards/godsEyeGateToTheReikai';
+import { GOLDMEADOW_HARRIER_SCRIPT } from './cards/goldmeadowHarrier';
+import { GOLGARI_CLUESTONE_SCRIPT } from './cards/golgariCluestone';
+import { GOLGARI_GERMINATION_SCRIPT } from './cards/golgariGermination';
+import { GOLGARI_LOCKET_SCRIPT } from './cards/golgariLocket';
+import { GOLGARI_ROTWURM_SCRIPT } from './cards/golgariRotwurm';
+import { GRANDMOTHER_SENGIR_SCRIPT } from './cards/grandmotherSengir';
 import { FUGITIVE_DRUID_SCRIPT } from './cards/fugitiveDruid';
 import { FUME_SPITTER_SCRIPT } from './cards/fumeSpitter';
 import { FYNDHORN_BROWNIE_SCRIPT } from './cards/fyndhornBrownie';
@@ -427,6 +448,27 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GNARLBACK_RHINO_SCRIPT,
+  GNARLED_EFFIGY_SCRIPT,
+  GNOTTVOLD_SLUMBERMOUND_SCRIPT,
+  GOBLIN_ASSAULT_TEAM_SCRIPT,
+  GOBLIN_BOMBARDMENT_SCRIPT,
+  GOBLIN_FIREBOMB_SCRIPT,
+  GOBLIN_FIRESLINGER_SCRIPT,
+  GOBLIN_GANG_LEADER_SCRIPT,
+  GOBLIN_GARDENER_SCRIPT,
+  GOBLIN_INSTIGATOR_SCRIPT,
+  GOBLIN_REPLICA_SCRIPT,
+  GOBLIN_SETTLER_SCRIPT,
+  GOBLIN_SLEDDER_SCRIPT,
+  GOBLIN_TRENCHES_SCRIPT,
+  GODS_EYE_GATE_TO_THE_REIKAI_SCRIPT,
+  GOLDMEADOW_HARRIER_SCRIPT,
+  GOLGARI_CLUESTONE_SCRIPT,
+  GOLGARI_GERMINATION_SCRIPT,
+  GOLGARI_LOCKET_SCRIPT,
+  GOLGARI_ROTWURM_SCRIPT,
+  GRANDMOTHER_SENGIR_SCRIPT,
   FUGITIVE_DRUID_SCRIPT,
   FUME_SPITTER_SCRIPT,
   FYNDHORN_BROWNIE_SCRIPT,

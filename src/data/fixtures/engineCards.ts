@@ -15916,6 +15916,715 @@ export const GLITTERMONGER: CardData = {
   "singleImage": true
 };
 
+export const GNARLBACK_RHINO: CardData = {
+  "scryfallId": "68a69558-aca0-413d-9762-2fa115b44abd",
+  "oracleId": "1ae339fd-8e64-4e3a-8e27-e4993932ba62",
+  "name": "Gnarlback Rhino",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gnarlback Rhino",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Rhino",
+      "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nWhenever you cast a spell that targets this creature, draw a card.",
+      "flavorText": "\"I think it's trying to tell us that the forest is angry.\"\n—Vivien Reid",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "YW Tang",
+      "imageId": "68a69558-aca0-413d-9762-2fa115b44abd"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "m20",
+  "collectorNumber": "300",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GNARLED_EFFIGY: CardData = {
+  "scryfallId": "e6aee954-2a04-425d-8d05-09dad58af656",
+  "oracleId": "5fa3cc1a-09ee-4152-8c50-ea719510fc20",
+  "name": "Gnarled Effigy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gnarled Effigy",
+      "manaCost": "{4}",
+      "typeLine": "Artifact",
+      "oracleText": "{4}, {T}: Put a -1/-1 counter on target creature.",
+      "flavorText": "\"Bits of fallen scarecrow, laces of elfskin leather, teeth of an axeshark merrow . . . An industrious soul can find new uses for the most mundane items.\"\n—Mowagh the Gwyllion",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Ron Brown",
+      "imageId": "e6aee954-2a04-425d-8d05-09dad58af656"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "shm",
+  "collectorNumber": "251",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GNOTTVOLD_SLUMBERMOUND: CardData = {
+  "scryfallId": "735470df-65d8-43e9-837e-4869c8e4f052",
+  "oracleId": "2e413d18-2c55-49be-9e49-54d170c978a2",
+  "name": "Gnottvold Slumbermound",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gnottvold Slumbermound",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {R}.\n{3}{R}{G}{G}, {T}, Sacrifice this land: Destroy target land. Create a 4/4 green Troll Warrior creature token with trample.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Simon Dominic",
+      "imageId": "735470df-65d8-43e9-837e-4869c8e4f052"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "khm",
+  "collectorNumber": "258",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_ASSAULT_TEAM: CardData = {
+  "scryfallId": "880047fd-d258-40fb-bcd5-37cb26678dfe",
+  "oracleId": "d464b54c-3b02-4c4e-99ef-1ad75f336c65",
+  "name": "Goblin Assault Team",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Assault Team",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Goblin Warrior",
+      "oracleText": "Haste\nWhen this creature dies, put a +1/+1 counter on target creature you control.",
+      "flavorText": "Under the veneer of the various guilds, each goblin has the same basic need: to run screaming at the enemy and hit a bunch of stuff.",
+      "power": "4",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "880047fd-d258-40fb-bcd5-37cb26678dfe"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "war",
+  "collectorNumber": "129",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_BOMBARDMENT: CardData = {
+  "scryfallId": "179e954f-1d90-4ef4-b800-25845cc338e2",
+  "oracleId": "edad60c6-80de-4033-af1b-a703ac332983",
+  "name": "Goblin Bombardment",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Bombardment",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "Sacrifice a creature: This enchantment deals 1 damage to any target.",
+      "flavorText": "One mogg to aim the catapult, one mogg to steer the rock.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "179e954f-1d90-4ef4-b800-25845cc338e2"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tmp",
+  "collectorNumber": "179",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_FIREBOMB: CardData = {
+  "scryfallId": "0ba00d0f-0ea5-417c-a792-06b3b9d1c8f1",
+  "oracleId": "2625fa9c-638c-46d3-966b-1166f440186f",
+  "name": "Goblin Firebomb",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Firebomb",
+      "manaCost": "{1}",
+      "typeLine": "Artifact",
+      "oracleText": "Flash\n{7}, {T}, Sacrifice this artifact: Destroy target permanent.",
+      "flavorText": "\"And if this works, Tawnos is gonna let us build the full-sized version!\"\n—Tergel, goblin explosioneer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Noah Thatcher",
+      "imageId": "0ba00d0f-0ea5-417c-a792-06b3b9d1c8f1"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Flash"
+  ],
+  "setCode": "bro",
+  "collectorNumber": "235",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_FIRESLINGER: CardData = {
+  "scryfallId": "1c0ebffc-7350-4f04-b13c-20c41563e57e",
+  "oracleId": "396564be-3747-49dd-98dc-afb81a375f18",
+  "name": "Goblin Fireslinger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Fireslinger",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Goblin Warrior",
+      "oracleText": "{T}: This creature deals 1 damage to target player or planeswalker.",
+      "flavorText": "A rock between your eyes hurts. A burning rock between your eyes ruins your whole day.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "1c0ebffc-7350-4f04-b13c-20c41563e57e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "MM2-114",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_GANG_LEADER: CardData = {
+  "scryfallId": "643c8f3b-cbb7-4290-8c8a-a6a1000e12ac",
+  "oracleId": "79d99305-b3dd-4687-af69-bf4b28704aae",
+  "name": "Goblin Gang Leader",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Gang Leader",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Creature — Goblin Warrior",
+      "oracleText": "When this creature enters, create two 1/1 red Goblin creature tokens.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jakub Kasper",
+      "imageId": "643c8f3b-cbb7-4290-8c8a-a6a1000e12ac"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "xana",
+  "collectorNumber": "40",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_GARDENER: CardData = {
+  "scryfallId": "009c1788-a3ab-41cb-8f9a-d220c376953b",
+  "oracleId": "29781b19-0917-4d8f-abe3-df0b7e96d8a6",
+  "name": "Goblin Gardener",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Gardener",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Goblin",
+      "oracleText": "When this creature dies, destroy target land.",
+      "flavorText": "Years of attempts have brought the goblins no closer to growing a sausage tree.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jerry Tiritilli",
+      "imageId": "009c1788-a3ab-41cb-8f9a-d220c376953b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "7ed",
+  "collectorNumber": "188★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_INSTIGATOR: CardData = {
+  "scryfallId": "71c818eb-3846-471f-967a-76e1cb809b9f",
+  "oracleId": "8b022754-6d16-470e-b754-4df6e4f4709e",
+  "name": "Goblin Instigator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Instigator",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Goblin Rogue",
+      "oracleText": "When this creature enters, create a 1/1 red Goblin creature token.",
+      "flavorText": "\"We can take 'em. You go first!\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Filip Burburan",
+      "imageId": "71c818eb-3846-471f-967a-76e1cb809b9f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "M19-142",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_REPLICA: CardData = {
+  "scryfallId": "63282976-e08d-4b8c-bbfc-f6739fdaeaf9",
+  "oracleId": "0c5a7772-8358-4549-a583-f54246869e20",
+  "name": "Goblin Replica",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Replica",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Goblin",
+      "oracleText": "{3}{R}, Sacrifice this creature: Destroy target artifact.",
+      "flavorText": "It destroys with unthinking glee.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Carl Critchlow",
+      "imageId": "63282976-e08d-4b8c-bbfc-f6739fdaeaf9"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mrd",
+  "collectorNumber": "178",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_SETTLER: CardData = {
+  "scryfallId": "503ef4d7-2028-4363-b3af-f9fe690510f9",
+  "oracleId": "04dd449f-ff3a-4ed7-8241-244d58b371dc",
+  "name": "Goblin Settler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Settler",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Goblin",
+      "oracleText": "When this creature enters, destroy target land.",
+      "flavorText": "Be it ever so crumbled, there's no place like home.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "503ef4d7-2028-4363-b3af-f9fe690510f9"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "vma",
+  "collectorNumber": "172",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_SLEDDER: CardData = {
+  "scryfallId": "0e15b76b-5de6-41c0-badf-fbc0bd2e246a",
+  "oracleId": "ae93292a-458a-441b-a7de-4b10f0d20cc0",
+  "name": "Goblin Sledder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Sledder",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Goblin",
+      "oracleText": "Sacrifice a Goblin: Target creature gets +1/+1 until end of turn.",
+      "flavorText": "\"Let's play 'sled.' Here's how it works: you're the sled.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "0e15b76b-5de6-41c0-badf-fbc0bd2e246a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "dd1",
+  "collectorNumber": "41",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_TRENCHES: CardData = {
+  "scryfallId": "06625dee-d2e6-4efa-a385-5113d0fe78ac",
+  "oracleId": "b43f40e6-c0ad-4a12-b75d-f2ba12629bfe",
+  "name": "Goblin Trenches",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Trenches",
+      "manaCost": "{1}{R}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "{2}, Sacrifice a land: Create two 1/1 red and white Goblin Soldier creature tokens.",
+      "flavorText": "\"Even if we dislodge them, I fear these lands will never again yield crops.\"\n—Kimmick, vanguard knight",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Filip Burburan",
+      "imageId": "06625dee-d2e6-4efa-a385-5113d0fe78ac"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ema",
+  "collectorNumber": "203",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GODS_EYE_GATE_TO_THE_REIKAI: CardData = {
+  "scryfallId": "bdc33a21-d196-4c17-a296-87ff08e7ef69",
+  "oracleId": "a66008c9-1ede-4dcf-8d35-6c0ed2390996",
+  "name": "Gods' Eye, Gate to the Reikai",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gods' Eye, Gate to the Reikai",
+      "manaCost": "",
+      "typeLine": "Legendary Land",
+      "oracleText": "{T}: Add {C}.\nWhen Gods' Eye is put into a graveyard from the battlefield, create a 1/1 colorless Spirit creature token.",
+      "flavorText": "Listen at its walls and you will hear the whispers of gods.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "John Avon",
+      "imageId": "bdc33a21-d196-4c17-a296-87ff08e7ef69"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "bok",
+  "collectorNumber": "164",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOLDMEADOW_HARRIER: CardData = {
+  "scryfallId": "647937f1-93d7-478c-b180-21a580f28566",
+  "oracleId": "546f037b-aea8-4c7a-9b66-373f1be0bac6",
+  "name": "Goldmeadow Harrier",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goldmeadow Harrier",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Kithkin Soldier",
+      "oracleText": "{W}, {T}: Tap target creature.",
+      "flavorText": "\"It's a proven fact that sling-stones from the dawn side of the riverbank sail the farthest and truest.\"\n—Deagan, cenn of Burrenton",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "647937f1-93d7-478c-b180-21a580f28566"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "DDF-3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOLGARI_CLUESTONE: CardData = {
+  "scryfallId": "ff77e1ee-7fa3-4370-a0c9-ec008b63302f",
+  "oracleId": "e917ad3d-df8e-442b-918c-3aa7a10f3cc4",
+  "name": "Golgari Cluestone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Golgari Cluestone",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {B} or {G}.\n{B}{G}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "Golgari mold collects whispers, intelligence that is later harvested by Jarad and his high chancellors.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Raoul Vitale",
+      "imageId": "ff77e1ee-7fa3-4370-a0c9-ec008b63302f"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dgm",
+  "collectorNumber": "139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOLGARI_GERMINATION: CardData = {
+  "scryfallId": "24a1db16-d936-4f92-9611-327a988ce04c",
+  "oracleId": "3f9cf871-7df6-49d5-aab3-ad945571b707",
+  "name": "Golgari Germination",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Golgari Germination",
+      "manaCost": "{1}{B}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever a nontoken creature you control dies, create a 1/1 green Saproling creature token.",
+      "flavorText": "The Golgari don't bury their dead. They plant them.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Thomas M. Baxa",
+      "imageId": "24a1db16-d936-4f92-9611-327a988ce04c"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "rav",
+  "collectorNumber": "209",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOLGARI_LOCKET: CardData = {
+  "scryfallId": "1c2e7843-9a87-46cb-be06-6db58649db85",
+  "oracleId": "dba6e24e-7875-46b9-b51d-4cd71568ecfa",
+  "name": "Golgari Locket",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Golgari Locket",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {B} or {G}.\n{B/G}{B/G}{B/G}{B/G}, {T}, Sacrifice this artifact: Draw two cards.",
+      "flavorText": "\"Wear it at all times. It will guide our reanimators to your corpse.\"\n—Mazirek, kraul death priest",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Milivoj Ćeran",
+      "imageId": "1c2e7843-9a87-46cb-be06-6db58649db85"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "grn",
+  "collectorNumber": "237",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOLGARI_ROTWURM: CardData = {
+  "scryfallId": "2cc97674-f60a-4854-a807-60dbcf90637e",
+  "oracleId": "75df9e6a-a17c-4311-a4e7-ff0d75728337",
+  "name": "Golgari Rotwurm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Golgari Rotwurm",
+      "manaCost": "{3}{B}{G}",
+      "typeLine": "Creature — Zombie Wurm",
+      "oracleText": "{B}, Sacrifice a creature: Target player loses 1 life.",
+      "flavorText": "Like corpse-worms through a carapace, rotwurms slide through the hollowed bones of the undercity.",
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Wayne England",
+      "imageId": "2cc97674-f60a-4854-a807-60dbcf90637e"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "rav",
+  "collectorNumber": "210",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRANDMOTHER_SENGIR: CardData = {
+  "scryfallId": "b43b2370-fe1b-491b-9dd0-b49a30bb2b93",
+  "oracleId": "4f92804f-a231-4406-9a16-f4e102517b06",
+  "name": "Grandmother Sengir",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Grandmother Sengir",
+      "manaCost": "{4}{B}",
+      "typeLine": "Legendary Creature — Human Wizard",
+      "oracleText": "{1}{B}, {T}: Target creature gets -1/-1 until end of turn.",
+      "flavorText": "\"Rarely have power and madness been so delightfully wed as they have in our dear grandmother.\"\n—Baron Sengir",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "b43b2370-fe1b-491b-9dd0-b49a30bb2b93"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "me2",
+  "collectorNumber": "93",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -16454,6 +17163,108 @@ export const SPIRIT_RW_TOKEN: CardData = {
   "keywords": [],
   "setCode": "tsos",
   "collectorNumber": "10",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const SPIRIT_C_TOKEN: CardData = {
+  "scryfallId": "082c3bad-3fea-4c3f-8263-4b16139bb32a",
+  "oracleId": "6a7a9dff-ff9e-4005-a17f-6ea0c11c1d5a",
+  "name": "Spirit",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Spirit",
+      "manaCost": "",
+      "typeLine": "Token Creature — Spirit",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "082c3bad-3fea-4c3f-8263-4b16139bb32a"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tema",
+  "collectorNumber": "1",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const GOBLIN_SOLDIER_TOKEN: CardData = {
+  "scryfallId": "3022b41d-05c1-452e-a1cd-5ec5a7f4d79d",
+  "oracleId": "7b646e97-6c1d-4b37-8e27-82c36f2561e9",
+  "name": "Goblin Soldier",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Goblin Soldier",
+      "manaCost": "",
+      "typeLine": "Token Creature — Goblin Soldier",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Filip Burburan",
+      "imageId": "3022b41d-05c1-452e-a1cd-5ec5a7f4d79d"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tema",
+  "collectorNumber": "15",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const TROLL_WARRIOR_TOKEN: CardData = {
+  "scryfallId": "8869a8cc-d196-417f-bba5-5ed31bae6a18",
+  "oracleId": "47f6e1b9-95e2-4078-923b-2d67d601989c",
+  "name": "Troll Warrior",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Troll Warrior",
+      "manaCost": "",
+      "typeLine": "Token Creature — Troll Warrior",
+      "oracleText": "Trample",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Caio Monteiro",
+      "imageId": "8869a8cc-d196-417f-bba5-5ed31bae6a18"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "tkhm",
+  "collectorNumber": "16",
   "commanderLegality": "not_legal",
   "singleImage": true
 };
@@ -18231,6 +19042,27 @@ export const ENGINE_CARDS: CardData[] = [
   GINGERBREAD_CABIN,
   GLEAMING_BARRIER,
   GLITTERMONGER,
+  GNARLBACK_RHINO,
+  GNARLED_EFFIGY,
+  GNOTTVOLD_SLUMBERMOUND,
+  GOBLIN_ASSAULT_TEAM,
+  GOBLIN_BOMBARDMENT,
+  GOBLIN_FIREBOMB,
+  GOBLIN_FIRESLINGER,
+  GOBLIN_GANG_LEADER,
+  GOBLIN_GARDENER,
+  GOBLIN_INSTIGATOR,
+  GOBLIN_REPLICA,
+  GOBLIN_SETTLER,
+  GOBLIN_SLEDDER,
+  GOBLIN_TRENCHES,
+  GODS_EYE_GATE_TO_THE_REIKAI,
+  GOLDMEADOW_HARRIER,
+  GOLGARI_CLUESTONE,
+  GOLGARI_GERMINATION,
+  GOLGARI_LOCKET,
+  GOLGARI_ROTWURM,
+  GRANDMOTHER_SENGIR,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -18247,6 +19079,9 @@ export const ENGINE_CARDS: CardData[] = [
   KNIGHT_VIGILANCE_TOKEN,
   GARGOYLE_TOKEN,
   SPIRIT_RW_TOKEN,
+  SPIRIT_C_TOKEN,
+  GOBLIN_SOLDIER_TOKEN,
+  TROLL_WARRIOR_TOKEN,
   FAERIE_TOKEN,
   ZOMBIE_DECAYED_TOKEN,
   GOBLIN_BR_TOKEN,

@@ -13,7 +13,7 @@
 // tutors, no recursion, because the engine runs none of those yet. That ceiling
 // is the honest state of the app and it rises as the engine's coverage does.
 //
-// commander: Adun Oakenshield (BGR), chosen from 54 fully-executable legendary creatures for reaching 1133 cards
+// commander: Adun Oakenshield (BGR), chosen from 55 fully-executable legendary creatures for reaching 1152 cards
 // mv 0–1: wanted 6, took 6
 // mv 2–2: wanted 14, took 14
 // mv 3–3: wanted 14, took 14
@@ -119,12 +119,12 @@ export const BOT_DECK = {
   "Gargoyle Castle",
   "Geothermal Bog",
   "Gingerbread Cabin",
+  "Gnottvold Slumbermound",
+  "Gods' Eye, Gate to the Reikai",
   "Gohn, Town of Ruin",
   "Golgari Guildgate",
   "Gongaga, Reactor Town",
   "Great Furnace",
   "Gruul Guildgate",
-  "Haunted Mire",
-  "Haunted Ridge",
   ],
 } as const;

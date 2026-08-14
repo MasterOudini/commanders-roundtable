@@ -4568,6 +4568,56 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       memory, per-damage-entry granularity, token entry choice and the
       spell seam stand.
 
+- [x] **M6.4u — Twenty-one landed: the two-sentence resolve, and two new
+      classes named by one Goblin page (2026-08-14):** **2,077 of 31,692
+      Commander-legal cards now execute completely, up from 2,056.**
+      `SHIPPED_SCRIPTS` 326 → 347. Decisions in **D177**.
+      **The headliner:** `Gnottvold Slumbermound` is the first TWO-SENTENCE
+      activated resolve — destroy target land AND make the Troll — and its
+      test pins the rule that makes them two EFFECTS: against Darksteel
+      Citadel the destruction stops at indestructible (CR 701.7b) and the
+      Troll STILL arrives. Ark of Blight returns empty there and is right
+      to; the Slumbermound may not.
+      **Also:** the D168 chooser in three more shapes (Bombardment's
+      mana-free creature pick on an enchantment ping; Sledder's GOBLIN
+      subtype paying with ITSELF, CR 113.7a; Trenches' LAND predicate
+      paying for two DISTINCT Goblin Soldiers) plus Rotwurm's {B} drain;
+      targeted dies/ETB destroys through the trigger arrow; `Gnarlback
+      Rhino` — the cast-targets reader with the caster filter KEPT, proven
+      from the opponent's seat; `Gods' Eye, Gate to the Reikai`, the
+      dies-token on a LAND; `Goldmeadow Harrier`, the FOURTH Benalish id;
+      `Golgari Germination`'s controller-filtered nontoken watcher (its
+      isToken negative proven by killing its own Saproling); and
+      `Grandmother Sengir`, **the 55th fully-executable legendary**.
+      **The enchantment pool reads TWENTY-FIVE.** All 21 suites — 50
+      tests — green on their FIRST run; the three new token pins were
+      mapped from TOKEN_TABLE's own printingIds BEFORE a line was written
+      (the batch-18 lesson), and Goblin/Saproling were reused after
+      checking they match.
+      ⚠️ **Four refusals, TWO NEW classes, both named by one Goblin page:**
+      `Goblin Warrens` (MULTI-SACRIFICE cost — D168's carrier names ONE
+      permanent) and `Graf Mole` (SACRIFICE-EVENT DISCRIMINATOR — checked:
+      `EventCause` has no sacrifice kind and `matches` receives the event
+      BODY, so the watcher would over-fire on every death). Plus a
+      discard-cost chooser (Goblin Picker) and Boast (Goldmaw Champion).
+      The ledger holds 49.
+      Fixtures 513 → 537 (58 tokens: Spirit `tema 1`, Goblin Soldier
+      `tema 15`, Troll Warrior `tkhm 16`; Goblin `l12 1` + Saproling
+      `tddj 1` reused) · ladder [916, 1015, 2968, 4852, 6039] ·
+      `batch.json` at 784 (exact) · botDeck: Adun reaches 1,152 from 55
+      legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      417 test files, 3,012 Vitest passed / 10 skipped ·
+      the 500-seed gate green at 1,357.0 s (347 scripts,
+      443 s inside the 1,800 s ceiling) · build clean · probe
+      124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D177): the multi-sacrifice cost and the
+      sacrifice-event discriminator join the engine-work list; self-only
+      def dispatch stays the named fuzz lever; the answer-mode arrow and
+      ability rows owe a battery click-check; the cost-chooser classes,
+      `ctx.random`, once-per-turn memory, per-damage-entry granularity,
+      token entry choice and the spell seam stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

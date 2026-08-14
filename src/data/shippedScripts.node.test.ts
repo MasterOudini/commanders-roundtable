@@ -126,7 +126,11 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // M6.4t (D176) landed twenty-two of 25 — Glittermonger returns from the
     // D147 mana-ability misparse as a real def; both twins of one ETB-draw
     // text in a single batch; three refusals, all existing ledger classes.
-    expect(SHIPPED_SCRIPTS).toHaveLength(326);
+    // M6.4u (D177) landed twenty-one of 25 — the two-sentence activated
+    // resolve (Gnottvold: destroy + token, the Troll arriving past an
+    // indestructible target), the fourth Benalish id, and TWO new refusal
+    // classes (multi-sacrifice cost; sacrifice-event discriminator).
+    expect(SHIPPED_SCRIPTS).toHaveLength(347);
   });
 });
 

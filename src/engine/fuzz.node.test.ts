@@ -347,6 +347,27 @@ import { GIDEONS_LAWKEEPER_SCRIPT } from './scripts/cards/gideonsLawkeeper';
 import { GINGERBREAD_CABIN_SCRIPT } from './scripts/cards/gingerbreadCabin';
 import { GLEAMING_BARRIER_SCRIPT } from './scripts/cards/gleamingBarrier';
 import { GLITTERMONGER_SCRIPT } from './scripts/cards/glittermonger';
+import { GNARLBACK_RHINO_SCRIPT } from './scripts/cards/gnarlbackRhino';
+import { GNARLED_EFFIGY_SCRIPT } from './scripts/cards/gnarledEffigy';
+import { GNOTTVOLD_SLUMBERMOUND_SCRIPT } from './scripts/cards/gnottvoldSlumbermound';
+import { GOBLIN_ASSAULT_TEAM_SCRIPT } from './scripts/cards/goblinAssaultTeam';
+import { GOBLIN_BOMBARDMENT_SCRIPT } from './scripts/cards/goblinBombardment';
+import { GOBLIN_FIREBOMB_SCRIPT } from './scripts/cards/goblinFirebomb';
+import { GOBLIN_FIRESLINGER_SCRIPT } from './scripts/cards/goblinFireslinger';
+import { GOBLIN_GANG_LEADER_SCRIPT } from './scripts/cards/goblinGangLeader';
+import { GOBLIN_GARDENER_SCRIPT } from './scripts/cards/goblinGardener';
+import { GOBLIN_INSTIGATOR_SCRIPT } from './scripts/cards/goblinInstigator';
+import { GOBLIN_REPLICA_SCRIPT } from './scripts/cards/goblinReplica';
+import { GOBLIN_SETTLER_SCRIPT } from './scripts/cards/goblinSettler';
+import { GOBLIN_SLEDDER_SCRIPT } from './scripts/cards/goblinSledder';
+import { GOBLIN_TRENCHES_SCRIPT } from './scripts/cards/goblinTrenches';
+import { GODS_EYE_GATE_TO_THE_REIKAI_SCRIPT } from './scripts/cards/godsEyeGateToTheReikai';
+import { GOLDMEADOW_HARRIER_SCRIPT } from './scripts/cards/goldmeadowHarrier';
+import { GOLGARI_CLUESTONE_SCRIPT } from './scripts/cards/golgariCluestone';
+import { GOLGARI_GERMINATION_SCRIPT } from './scripts/cards/golgariGermination';
+import { GOLGARI_LOCKET_SCRIPT } from './scripts/cards/golgariLocket';
+import { GOLGARI_ROTWURM_SCRIPT } from './scripts/cards/golgariRotwurm';
+import { GRANDMOTHER_SENGIR_SCRIPT } from './scripts/cards/grandmotherSengir';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -398,6 +419,17 @@ const DECK = [
   'Lightning Bolt', 'Counterspell', 'Cultivate', 'Swords to Plowshares',
   'Pacifism', 'Wrath of God', 'Brainstorm', 'Dark Ritual', 'Lightning Greaves',
   'Grist, the Hunger Tide', 'Invasion of Gobakhan // Lightshield Array',
+  // ⚠️ FIVE COPIES OF JACE (D177): the transform canary was the RAREST
+  // event in this gate — 2 per 500 seeds at batch 17 — because reaching it
+  // means drawing him, affording him, resolving him, AND rolling the one
+  // manual tool in nine that flips. Batch 19's DECK growth took it to ZERO
+  // at GATE SIZE (every hash equal, 1,404.5 s) — the D175 dies-canary
+  // profile exactly, and the same fix: D149's weighting, FIFTH re-weight of
+  // the class (seventh rot event overall).
+  "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
+  "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
+  "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
+  "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
   "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
   // ⚠️ M6.1. The bot plays a deck built only from cards the engine runs
   // COMPLETELY, and four of its shapes had never been dealt here: a LAND
@@ -694,6 +726,17 @@ const DECK = [
   'Ghitu War Cry', 'Ghost Warden', 'Ghosts of the Damned',
   "Gideon's Lawkeeper", 'Gingerbread Cabin', 'Gleaming Barrier',
   'Glittermonger',
+  // Batch 19 (D177): Gnottvold's two-sentence resolve meets Darksteel
+  // Citadel (already in this deck) for the indestructible half; the three
+  // sacrifice choosers and both targeted dies/ETB destroys ride the gate's
+  // own combat and manual moves.
+  'Gnarlback Rhino', 'Gnarled Effigy', 'Gnottvold Slumbermound',
+  'Goblin Assault Team', 'Goblin Bombardment', 'Goblin Firebomb',
+  'Goblin Fireslinger', 'Goblin Gang Leader', 'Goblin Gardener',
+  'Goblin Instigator', 'Goblin Replica', 'Goblin Settler',
+  'Goblin Sledder', 'Goblin Trenches', "Gods' Eye, Gate to the Reikai",
+  'Goldmeadow Harrier', 'Golgari Cluestone', 'Golgari Germination',
+  'Golgari Locket', 'Golgari Rotwurm', 'Grandmother Sengir',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -1065,6 +1108,28 @@ const SCRIPTS = createRegistry([
   GINGERBREAD_CABIN_SCRIPT,
   GLEAMING_BARRIER_SCRIPT,
   GLITTERMONGER_SCRIPT,
+  // Batch 19 (D177).
+  GNARLBACK_RHINO_SCRIPT,
+  GNARLED_EFFIGY_SCRIPT,
+  GNOTTVOLD_SLUMBERMOUND_SCRIPT,
+  GOBLIN_ASSAULT_TEAM_SCRIPT,
+  GOBLIN_BOMBARDMENT_SCRIPT,
+  GOBLIN_FIREBOMB_SCRIPT,
+  GOBLIN_FIRESLINGER_SCRIPT,
+  GOBLIN_GANG_LEADER_SCRIPT,
+  GOBLIN_GARDENER_SCRIPT,
+  GOBLIN_INSTIGATOR_SCRIPT,
+  GOBLIN_REPLICA_SCRIPT,
+  GOBLIN_SETTLER_SCRIPT,
+  GOBLIN_SLEDDER_SCRIPT,
+  GOBLIN_TRENCHES_SCRIPT,
+  GODS_EYE_GATE_TO_THE_REIKAI_SCRIPT,
+  GOLDMEADOW_HARRIER_SCRIPT,
+  GOLGARI_CLUESTONE_SCRIPT,
+  GOLGARI_GERMINATION_SCRIPT,
+  GOLGARI_LOCKET_SCRIPT,
+  GOLGARI_ROTWURM_SCRIPT,
+  GRANDMOTHER_SENGIR_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

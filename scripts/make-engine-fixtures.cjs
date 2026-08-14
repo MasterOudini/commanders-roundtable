@@ -770,6 +770,28 @@ const WANTED = [
   'Gingerbread Cabin',
   'Gleaming Barrier',
   'Glittermonger',
+  // Batch 19 (D177).
+  'Gnarlback Rhino',
+  'Gnarled Effigy',
+  'Gnottvold Slumbermound',
+  'Goblin Assault Team',
+  'Goblin Bombardment',
+  'Goblin Firebomb',
+  'Goblin Fireslinger',
+  'Goblin Gang Leader',
+  'Goblin Gardener',
+  'Goblin Instigator',
+  'Goblin Replica',
+  'Goblin Settler',
+  'Goblin Sledder',
+  'Goblin Trenches',
+  "Gods' Eye, Gate to the Reikai",
+  'Goldmeadow Harrier',
+  'Golgari Cluestone',
+  'Golgari Germination',
+  'Golgari Locket',
+  'Golgari Rotwurm',
+  'Grandmother Sengir',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -808,6 +830,13 @@ const WANTED_TOKENS = [
   { name: 'Knight', set: 'tm21', cn: '4', key: 'KNIGHT_VIGILANCE_TOKEN' },
   { name: 'Gargoyle', set: 'tm10', cn: '8', key: 'GARGOYLE_TOKEN' },
   { name: 'Spirit', set: 'tsos', cn: '10', key: 'SPIRIT_RW_TOKEN' },
+  // Batch 19 (D177). The colorless Spirit gets a DISTINCT key — the white
+  // (tmm2 5) and R/W (tsos 10) Spirits are pinned above. Goblin (l12 1) and
+  // Saproling (tddj 1) are REUSED from the pins above — both match the
+  // TOKEN_TABLE printings (the batch-18 Lander lesson, checked this time).
+  { name: 'Spirit', set: 'tema', cn: '1', key: 'SPIRIT_C_TOKEN' },
+  { name: 'Goblin Soldier', set: 'tema', cn: '15', key: 'GOBLIN_SOLDIER_TOKEN' },
+  { name: 'Troll Warrior', set: 'tkhm', cn: '16', key: 'TROLL_WARRIOR_TOKEN' },
   // Batch 16 (D174). The decayed Zombie gets a DISTINCT key — the plain
   // 2/2 Zombie (tc14 16) is pinned above.
   { name: 'Faerie', set: 'tmoc', cn: '11', key: 'FAERIE_TOKEN' },

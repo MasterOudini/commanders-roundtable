@@ -12065,3 +12065,90 @@ click-check; the cost-chooser classes (discard, tap-creatures,
 tap-permanents, exile-from-graveyard, remove-counter, return-permanent),
 `ctx.random`, once-per-turn memory, per-damage-entry granularity, token
 entry choice and the spell seam stand.
+
+## D177 — M6.4u: the two-sentence resolve, and two new classes named by one Goblin page (2026-08-14)
+
+**What was decided:** batch 19 of the M6.4 loop lands twenty-one of its
+25 — **2,077 of 31,692 Commander-legal cards now execute completely, up
+from 2,056** — with four refusals, TWO of them NEW classes.
+`SHIPPED_SCRIPTS` 326 → 347.
+
+**The headliner:** `Gnottvold Slumbermound` is the first TWO-SENTENCE
+activated resolve — "Destroy target land. Create a 4/4 green Troll
+Warrior creature token with trample" — and the test pins the rule that
+makes two sentences two EFFECTS: against `Darksteel Citadel` the
+destruction stops at indestructible (CR 701.7b) **and the Troll still
+arrives**, because the second sentence never depended on the first. Ark
+of Blight's own pattern returns empty on an indestructible target and
+is right to — its whole text IS the destroy; the Slumbermound may not.
+
+**The rest of the sweep:** the D168 chooser in three more predicate
+shapes — `Goblin Bombardment`'s mana-free creature chooser on an
+enchantment ping, `Goblin Sledder`'s GOBLIN subtype paying with ITSELF
+(CR 113.7a), `Goblin Trenches`' LAND predicate paying for two DISTINCT
+Goblin Soldiers — plus `Golgari Rotwurm`'s {B} drain; targeted
+dies/ETB destroys through the trigger arrow (`Goblin Gardener`,
+`Goblin Settler`) and a targeted dies counter with a controller-
+restricted spec (`Goblin Assault Team`); `Gnarlback Rhino` — the
+cast-targets reader with the CASTER filter KEPT, proven from the
+opponent's seat the way Fugitive Druid proved it dropped; `Gods' Eye,
+Gate to the Reikai` — the dies-token on a LAND and a LEGEND;
+`Goldmeadow Harrier`, the FOURTH oracle id on the Benalish Trapper
+text; the Golgari Cluestone/Locket pair; `Golgari Germination` —
+Field of Souls' nontoken watcher with the CONTROLLER filter, its
+isToken negative proven by killing its own Saproling; two Goblin ETB
+token makers on the token tool's own pin; and `Grandmother Sengir`,
+the 55th fully-executable legendary. **The enchantment pool reads
+TWENTY-FIVE.** All 21 suites — 50 tests — passed on their FIRST run,
+the batch-18 fixture lesson holding (the three new token pins were
+mapped from `TOKEN_TABLE`'s own printingIds before a line was written,
+and the Goblin and Saproling pins were REUSED after checking they
+match).
+
+**Four refusals, TWO NEW CLASSES, both named by one page of Goblins:**
+`Goblin Warrens` costs "Sacrifice two Goblins" — a MULTI-SACRIFICE
+cost, and D168's `ActivateAbility.sacrifice` names ONE permanent, so
+the cost has no carrier; `Graf Mole` watches "whenever you sacrifice a
+Clue" — a SACRIFICE-EVENT DISCRIMINATOR, and it was CHECKED before
+classifying: `EventCause` has no sacrifice kind AND a `TriggerDef`'s
+`matches` receives the event BODY rather than the `GameEvent` wrapper,
+so a def cannot read `cause` at all — the watcher would over-fire on
+every Clue death. Plus `Goblin Picker` (discard-cost chooser) and
+`Goldmaw Champion` (Boast — once-per-turn memory). The ledger holds 49.
+
+**The numbers, every delta exactly the twenty-one cards:** primitives
+`complete` 2,056 → 2,077 · `blocked` 29,615 · `scriptableToday` 916 ·
+ladder [916, 1015, 2968, 4852, 6039] · botPool creature 1,405, artifact
+63, **enchantment 25**, land 237 · tier3 `abilityText` 17,261, `either`
+−21 exactly, `silentAfter` 2,467 → 2,488 (+21 exactly) · fixtures 513 →
+537 (58 tokens: colorless Spirit `tema 1`, Goblin Soldier `tema 15`,
+Troll Warrior `tkhm 16` joined; Goblin `l12 1` and Saproling `tddj 1`
+reused) · `batch.json` at **784** (809 − 21 − 4, exact) · botDeck
+regenerated — **Adun reaches 1,152 cards choosing from 55 legendaries**
+(Gnottvold Slumbermound and Gods' Eye joined the deck, displacing the
+Haunted pair).
+
+⚠️ **The first full-gate run failed on the TRANSFORM canary at GATE
+SIZE — the seventh rate-canary rot, on the rarest event in the block.**
+`transformedIntoPlaneswalker` was 2 per 500 at batch 17 (drawing Jace,
+affording him, resolving him, AND rolling the one manual tool in nine
+that flips); batch 19's DECK growth took it to ZERO across all 500
+seeds with every replay hash equal at 1,404.5 s — the D175 dies-canary
+profile exactly, and the same fix: FIVE copies of Jace at the deal
+site, the fifth re-weight of D149's class. The gate relaunched from
+the top.
+
+**Verified: `verify.cjs --full` — ALL FIVE GATES PASSED in one
+invocation** — 417 test files, 3,012 Vitest passed /
+10 skipped · the 500-seed replay fuzz gate green at 1,357.0 s (347
+scripts registered, 443 s inside the 1,800 s ceiling) ·
+build clean · probe 124/124 · battery `bot engine prompts` 127/127.
+
+**Reportables:** the multi-sacrifice cost and the sacrifice-event
+discriminator join the engine-work list (the discriminator is the
+richer one — a `Sacrificed` marker on the move or a cause on the BODY
+would also serve Graf Mole's whole family); self-only def dispatch
+(D169) stays the named fuzz lever; the answer-mode arrow and ability
+rows still owe a battery click-check; the cost-chooser classes,
+`ctx.random`, once-per-turn memory, per-damage-entry granularity,
+token entry choice and the spell seam stand.
