@@ -11971,3 +11971,97 @@ classes (discard, tap-creatures/permanents, exile-from-graveyard,
 remove-counter, and now RETURN-PERMANENT), `ctx.random`, once-per-turn
 memory, per-damage-entry granularity, token entry choice and the spell
 seam stand.
+
+## D176 — M6.4t: Glittermonger comes back, and three texts land as twins (2026-08-09)
+
+**What was decided:** batch 18 of the M6.4 loop lands twenty-two of its
+25 — **2,056 of 31,692 Commander-legal cards now execute completely, up
+from 2,034** — with three refusals, ALL existing ledger classes.
+`SHIPPED_SCRIPTS` 304 → 326.
+
+**The headliner is an arc closing:** `Glittermonger` — "{T}: Create a
+Treasure token" — is the card D147 PULLED from the pool when its line
+was exposed as a mana-ability misparse (`parseManaProduction` reading
+"Create a Treasure" as production; `complete` went DOWN by one that
+day). It returns as a real def: Ant Queen's no-mana repeatable through
+the ActivatedDef seam and `TOKEN_TABLE`, proven by its own test. What
+the parser was wrong to claim, a script now genuinely does.
+
+**Three texts land as TWINS in one batch** (the Benalish rule — each
+proven on its own oracle id): `Gallant Citizen` and `Generous Stray`
+carry ONE exact ETB-draw text and BOTH arrive here; `Ghitu War Cry` is
+Captive Flame's exact "{R}: Target creature gets +1/+0" on a second id;
+`Gideon's Lawkeeper` is the THIRD id on Benalish Trapper and Blinding
+Mage's "{W}, {T}: Tap target creature."
+
+**The filters proven by dropping them:** `Fugitive Druid` is Druid of
+Horns' cast-targets reader (D172) with the CASTER filter removed — the
+test casts an Aura at the Druid from the OPPONENT's seat and the
+Druid's controller draws; `Garrison Excavator` is Desecrated Tomb's
+graveyard-exit watcher (D171) with the mover's TYPE filter removed — a
+LAND leaving pays the Spirit, the exact case Tomb's own negative
+refuses.
+
+**The rest:** `Genghis Frog` — the first SUBTYPE-filtered
+self-inclusive entering watcher (Court Street Denizen's two defs +
+Bogwater Lumaret's self-inclusion + a Mutant filter asked of the
+derived entrant; its own Mutagen is an Artifact, so the trigger cannot
+feed itself — asserted; Crustacean Commando pays the Mutant arm) — and
+**the 54th fully-executable legendary**; `Gingerbread Cabin` — Dwarven
+Mine's enters-untapped filter on a FOREST count, the second consumer of
+D135's `otherLandsOfType`, both halves proven from both sides;
+`Galactic Wayfarer`'s Lander (the token's search text tier3-disclosed
+on the token, the Blood precedent); ETB Knight/Thopter tokens and two
+ETB draws; a dies Human Soldier and a dies Treasure; tap actives at
+{2} and {W}; the untap actives one type over (`Fyndhorn Brownie` on
+creatures, `Galvanic Key` on artifacts behind Flash); `Fume Spitter`'s
+mana-free self-sacrifice −1/−1; tap-cost pumps and a −1/−0 debuff
+(`Ghost Warden`, `Ghosts of the Damned`); `Gargoyle Castle`'s
+sacrifice-self 3/4 Gargoyle; and `Ghirapur Gearcrafter`. **The
+enchantment pool reads TWENTY-TWO.** All 22 suites passed on their
+FIRST run — after one fixture-regen parse error: the new Lander pin
+duplicated the Tier-3 token tool's existing `LANDER_TOKEN` const, the
+generator emitted both, and every suite failed at transform until the
+duplicate was removed and the batch comment taught to say the Lander
+is REUSED. A fixture pin is not free just because the token is.
+
+**Three refusals, all existing classes:** `Ghirapur Aether Grid`
+(tap-permanents cost), `Glare of Subdual` (tap-creatures cost),
+`Gilt-Leaf Seer` (script-raised prompt — its look-and-order runs ON
+RESOLUTION, which a def's `resolve` cannot raise). The ledger holds 45.
+
+**The numbers, every delta exactly the twenty-two cards:** primitives
+`complete` 2,034 → 2,056 · `blocked` 29,636 · `scriptableToday` 937 ·
+ladder [937, 1036, 2989, 4873, 6060] · botPool creature 1,393, artifact
+59, **enchantment 22**, land 235 · tier3 `abilityText` 17,269, `either`
+−22 exactly, `silentAfter` 2,445 → 2,467 (+22 exactly) · fixtures 488 →
+513 (55 tokens: Knight `tm21 4`, Gargoyle `tm10 8`, R/W Spirit
+`tsos 10` joined; the Lander `teoe 6` reused) · `batch.json` at **809**
+(834 − 22 − 3, exact) · botDeck regenerated — **Adun reaches 1,133
+cards choosing from 54 legendaries** (Genghis Frog joined the pool).
+
+⚠️ **The first TWO full-gate runs each failed on a starved canary at
+the 60-SEED leg — the fifth and sixth rate-canary rots, and the first
+at the default size while the gate size stayed healthy both times.**
+Run one read `enteredWithCounters` 0 at 60 (a 30-per-500 rate); run two
+read `discardsChosen` 0 at 60 (a 10-per-500 rate, expectation ~1.2 —
+a 30% coin flip every run) — while BOTH runs' 500-seed gates passed all
+six checks (1,404.7 s, 1,425.4 s) with the same canaries alive. One
+cause: batch 18's DECK growth re-rolled every seed and took the two
+lowest-rate counters under Poisson reliability at 60. Both gate-sized
+per the file's own precedent (D155's transform canary), the remaining
+60-seed canaries AUDITED against the measured 500-rates — everything
+left has expectation ≥8 — and the full gate relaunched from the top.
+
+**Verified: `verify.cjs --full` — ALL FIVE GATES PASSED in one
+invocation** — 396 test files, 2,924 Vitest passed /
+10 skipped · the 500-seed replay fuzz gate green at 1,423.1 s (326
+scripts registered, 377 s inside the 1,800 s ceiling) ·
+build clean · probe 124/124 · battery `bot engine prompts` 127/127.
+
+**Reportables:** self-only def dispatch (D169) stays the named fuzz
+lever; the answer-mode arrow and ability rows still owe a battery
+click-check; the cost-chooser classes (discard, tap-creatures,
+tap-permanents, exile-from-graveyard, remove-counter, return-permanent),
+`ctx.random`, once-per-turn memory, per-damage-entry granularity, token
+entry choice and the spell seam stand.

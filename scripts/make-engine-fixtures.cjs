@@ -747,6 +747,29 @@ const WANTED = [
   'Fountain of Youth',
   'Friendly Ghost',
   'Frostbridge Guard',
+  // Batch 18 (D176).
+  'Fugitive Druid',
+  'Fume Spitter',
+  'Fyndhorn Brownie',
+  'Galactic Wayfarer',
+  'Gallant Cavalry',
+  'Gallant Citizen',
+  'Galvanic Key',
+  'Gargoyle Castle',
+  'Garrison Cat',
+  'Garrison Excavator',
+  'Gavony Trapper',
+  'Generous Stray',
+  'Generous Visitor',
+  'Genghis Frog',
+  'Ghirapur Gearcrafter',
+  'Ghitu War Cry',
+  'Ghost Warden',
+  'Ghosts of the Damned',
+  "Gideon's Lawkeeper",
+  'Gingerbread Cabin',
+  'Gleaming Barrier',
+  'Glittermonger',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -777,6 +800,14 @@ const WANTED_TOKENS = [
   // Batch 17 (D175).
   { name: 'Faerie Dragon', set: 'tclb', cn: '6', key: 'FAERIE_DRAGON_TOKEN' },
   { name: 'Clue', set: 'twho', cn: '21', key: 'CLUE_TOKEN' },
+  // Batch 18 (D176). The R/W Spirit gets a DISTINCT key — the 1/1 white
+  // Spirit (tmm2 5) is pinned elsewhere in this list. Each is the exact
+  // printing its card's TOKEN_TABLE entry names (mapped from the table's own
+  // printingIds). ⚠️ The Lander (teoe 6) is NOT here — it was already pinned
+  // below for the Tier-3 token tool, and Galactic Wayfarer reuses that entry.
+  { name: 'Knight', set: 'tm21', cn: '4', key: 'KNIGHT_VIGILANCE_TOKEN' },
+  { name: 'Gargoyle', set: 'tm10', cn: '8', key: 'GARGOYLE_TOKEN' },
+  { name: 'Spirit', set: 'tsos', cn: '10', key: 'SPIRIT_RW_TOKEN' },
   // Batch 16 (D174). The decayed Zombie gets a DISTINCT key — the plain
   // 2/2 Zombie (tc14 16) is pinned above.
   { name: 'Faerie', set: 'tmoc', cn: '11', key: 'FAERIE_TOKEN' },

@@ -15163,6 +15163,759 @@ export const FROSTBRIDGE_GUARD: CardData = {
   "singleImage": true
 };
 
+export const FUGITIVE_DRUID: CardData = {
+  "scryfallId": "afe165cd-8ef7-408e-ae56-3c6a0cc4e409",
+  "oracleId": "e05f3236-dc82-4353-87ab-d26ae7caa0e7",
+  "name": "Fugitive Druid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fugitive Druid",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Human Druid",
+      "oracleText": "Whenever this creature becomes the target of an Aura spell, you draw a card.",
+      "flavorText": "\"If the druids are so devoted to their trees, I will carve them coffins from their precious heartwood.\"\n—Volrath",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Quinton Hoover",
+      "imageId": "afe165cd-8ef7-408e-ae56-3c6a0cc4e409"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "tmp",
+  "collectorNumber": "229",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FUME_SPITTER: CardData = {
+  "scryfallId": "3e5bc90c-d186-4fb5-85ae-cfb9ff598880",
+  "oracleId": "6556a15b-be4b-45ea-867d-3a8e26202b42",
+  "name": "Fume Spitter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fume Spitter",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Phyrexian Horror",
+      "oracleText": "Sacrifice this creature: Put a -1/-1 counter on target creature.",
+      "flavorText": "\"Our archers made sport of it as it fumbled its way up the slag ridge. As it collapsed we thought ourselves safe, but the foul thing carried more than necrogen.\"\n—Adaran, Tangle hunter",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "3e5bc90c-d186-4fb5-85ae-cfb9ff598880"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "td2",
+  "collectorNumber": "49",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FYNDHORN_BROWNIE: CardData = {
+  "scryfallId": "06204e82-9dfd-4334-a23a-f8240fc37772",
+  "oracleId": "6d1f8073-4da2-4abc-abb4-2053c4a40bbf",
+  "name": "Fyndhorn Brownie",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fyndhorn Brownie",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Ouphe",
+      "oracleText": "{2}{G}, {T}: Untap target creature.",
+      "flavorText": "\"I've been insulted by drunks in a hundred inns, but never as skillfully or annoyingly as by those blasted Brownies.\"\n—General Jarkeld, the Arctic Fox",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Richard Thomas",
+      "imageId": "06204e82-9dfd-4334-a23a-f8240fc37772"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ice",
+  "collectorNumber": "242",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GALACTIC_WAYFARER: CardData = {
+  "scryfallId": "85b898d2-050f-49a2-87af-07d54d105336",
+  "oracleId": "86746a84-3e8a-44b4-8494-60cbee9816b5",
+  "name": "Galactic Wayfarer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Galactic Wayfarer",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Human Scout",
+      "oracleText": "When this creature enters, create a Lander token. (It's an artifact with \"{2}, {T}, Sacrifice this token: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\")",
+      "flavorText": "Most say the Edge cannot be measured, but some will spend their lives trying anyway.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Quintin Gleim",
+      "imageId": "85b898d2-050f-49a2-87af-07d54d105336"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "eoe",
+  "collectorNumber": "185",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GALLANT_CAVALRY: CardData = {
+  "scryfallId": "38f370a9-1401-4018-bbd3-0a8737f9fbea",
+  "oracleId": "b500c460-2814-47a4-b307-17ca519f3565",
+  "name": "Gallant Cavalry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gallant Cavalry",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Vigilance (Attacking doesn't cause this creature to tap.)\nWhen this creature enters, create a 2/2 white Knight creature token with vigilance.",
+      "flavorText": "\"Our duty does not stop at our borders.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Craig J Spearing",
+      "imageId": "38f370a9-1401-4018-bbd3-0a8737f9fbea"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "j22",
+  "collectorNumber": "186",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GALLANT_CITIZEN: CardData = {
+  "scryfallId": "2ee7271f-ab1c-4332-b5cb-69b7cea80912",
+  "oracleId": "2fcb1c1c-6157-4955-b899-e8a8b337d188",
+  "name": "Gallant Citizen",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gallant Citizen",
+      "manaCost": "{G/W}{G/W}",
+      "typeLine": "Creature — Human Citizen",
+      "oracleText": "When this creature enters, draw a card.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Mirko Failoni",
+      "imageId": "2ee7271f-ab1c-4332-b5cb-69b7cea80912"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "om1",
+  "collectorNumber": "137",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GALVANIC_KEY: CardData = {
+  "scryfallId": "934936d1-f470-47fa-ac28-344020c9fc76",
+  "oracleId": "d8a552ca-2c7b-410e-bd7e-1bb81465277a",
+  "name": "Galvanic Key",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Galvanic Key",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "Flash\n{3}, {T}: Untap target artifact.",
+      "flavorText": "A solution in search of a problem.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Tony Szczudlo",
+      "imageId": "934936d1-f470-47fa-ac28-344020c9fc76"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Flash"
+  ],
+  "setCode": "mrd",
+  "collectorNumber": "173",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GARGOYLE_CASTLE: CardData = {
+  "scryfallId": "9834b4e1-7e9f-4f93-a2aa-13a52e8a11fc",
+  "oracleId": "963f2848-15bd-441b-a55c-635f53b7b63f",
+  "name": "Gargoyle Castle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gargoyle Castle",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{5}, {T}, Sacrifice this land: Create a 3/4 colorless Gargoyle artifact creature token with flying.",
+      "flavorText": "Most knew of the tower's wizard and gargoyle. Few realized which was guardian and which was master.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Paul Bonner",
+      "imageId": "9834b4e1-7e9f-4f93-a2aa-13a52e8a11fc"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "c19",
+  "collectorNumber": "245",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GARRISON_CAT: CardData = {
+  "scryfallId": "e7ff8345-227c-43b4-bed5-af3a34c0a990",
+  "oracleId": "e7bc7c44-946c-4131-b764-add0c5f21020",
+  "name": "Garrison Cat",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Garrison Cat",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Cat",
+      "oracleText": "When this creature dies, create a 1/1 white Human Soldier creature token.",
+      "flavorText": "After much arguing, the soldiers decided to keep it, on the grounds that it killed enough mice to count as an honorary monster slayer.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Sidharth Chaturvedi",
+      "imageId": "e7ff8345-227c-43b4-bed5-af3a34c0a990"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "iko",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GARRISON_EXCAVATOR: CardData = {
+  "scryfallId": "f11d2846-f181-4751-82ac-1e1ced6f46c7",
+  "oracleId": "5d808e64-a648-4f1b-a3a9-fd09568db281",
+  "name": "Garrison Excavator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Garrison Excavator",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Orc Sorcerer",
+      "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhenever one or more cards leave your graveyard, create a 2/2 red and white Spirit creature token.",
+      "flavorText": "\"I don't care that they're 'off-limits,' the Lost Barracks hold too many war relics to not pay them a visit!\"",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Cristi Balanescu",
+      "imageId": "f11d2846-f181-4751-82ac-1e1ced6f46c7"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Menace"
+  ],
+  "setCode": "sos",
+  "collectorNumber": "116",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GAVONY_TRAPPER: CardData = {
+  "scryfallId": "34c1fab2-06cb-462d-a6bf-44bb4e6dc7ca",
+  "oracleId": "d4da20c7-ae4a-44c6-8f03-9e719ccee8c9",
+  "name": "Gavony Trapper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gavony Trapper",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{2}, {T}: Tap target creature.",
+      "flavorText": "The elite cathars of the Parish-Blades train in all manner of techniques designed to delay and frustrate the beasts that hunt the crossways.",
+      "power": "0",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Caio Monteiro",
+      "imageId": "34c1fab2-06cb-462d-a6bf-44bb4e6dc7ca"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "dbl",
+  "collectorNumber": "22",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GENEROUS_STRAY: CardData = {
+  "scryfallId": "3289db66-231f-4370-aca6-644d75bee293",
+  "oracleId": "5722a13f-7d70-438c-94ba-97a3f53fbc5c",
+  "name": "Generous Stray",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Generous Stray",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Cat",
+      "oracleText": "When this creature enters, draw a card.",
+      "flavorText": "Cats place their gifts with care, so that a bare foot will step on them in the middle of the night.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Milivoj Ćeran",
+      "imageId": "3289db66-231f-4370-aca6-644d75bee293"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "grn",
+  "collectorNumber": "129",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GENEROUS_VISITOR: CardData = {
+  "scryfallId": "d1066ccd-a932-4d05-98da-11ae4675364e",
+  "oracleId": "0629747e-8dd8-4150-95ee-9d860264ccb0",
+  "name": "Generous Visitor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Generous Visitor",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Whenever you cast an enchantment spell, put a +1/+1 counter on target creature.",
+      "flavorText": "It is said that one must modestly refuse a gift three times before accepting it to show humility before the kami.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Iris Compiet",
+      "imageId": "d1066ccd-a932-4d05-98da-11ae4675364e"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "neo",
+  "collectorNumber": "185",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GENGHIS_FROG: CardData = {
+  "scryfallId": "7df26085-eedb-4bdd-a60a-aabfbe9c3157",
+  "oracleId": "1d6d0348-46ad-46ed-ae7b-d7510f0ebe70",
+  "name": "Genghis Frog",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Genghis Frog",
+      "manaCost": "{G}{U}",
+      "typeLine": "Legendary Creature — Frog Mutant Rogue",
+      "oracleText": "Trample\nWhenever Genghis Frog or another Mutant you control enters, create a Mutagen token. (It's an artifact with \"{1}, {T}, Sacrifice this token: Put a +1/+1 counter on target creature. Activate only as a sorcery.\")",
+      "flavorText": "\"Free our brothers! The human reign of terror around here ends tonight!\"",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "U"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "7df26085-eedb-4bdd-a60a-aabfbe9c3157"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "tmt",
+  "collectorNumber": "148",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GHIRAPUR_GEARCRAFTER: CardData = {
+  "scryfallId": "b9ec4def-3f9a-436e-aa7b-d1e03c7dbc6a",
+  "oracleId": "710dc9b1-7d32-4330-95a8-3e91a668202a",
+  "name": "Ghirapur Gearcrafter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ghirapur Gearcrafter",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Human Artificer",
+      "oracleText": "When this creature enters, create a 1/1 colorless Thopter artifact creature token with flying. (A creature with flying can't be blocked except by creatures with flying or reach.)",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Victor Adame Minguez",
+      "imageId": "b9ec4def-3f9a-436e-aa7b-d1e03c7dbc6a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pio",
+  "collectorNumber": "138",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GHITU_WAR_CRY: CardData = {
+  "scryfallId": "7d2ce069-ec5a-4309-b81f-356dd6ebcb03",
+  "oracleId": "0439df39-0324-4110-b3f4-4a32393021de",
+  "name": "Ghitu War Cry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ghitu War Cry",
+      "manaCost": "{2}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "{R}: Target creature gets +1/+0 until end of turn.",
+      "flavorText": "The war cry is not simply a shout but a sacrament.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Douglas Shuler",
+      "imageId": "7d2ce069-ec5a-4309-b81f-356dd6ebcb03"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "ULG-78",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GHOST_WARDEN: CardData = {
+  "scryfallId": "2cd81534-79cb-4fde-bfa5-11c510ac6e11",
+  "oracleId": "66bd5999-742a-43e0-827c-ecb8ec7db242",
+  "name": "Ghost Warden",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ghost Warden",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "{T}: Target creature gets +1/+1 until end of turn.",
+      "flavorText": "\"I thought of fate as an iron lattice, intricate but rigidly unchangeable. That was until some force bent fate's bars to spare my life.\"\n—Ilromov, traveling storyteller",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Ittoku",
+      "imageId": "2cd81534-79cb-4fde-bfa5-11c510ac6e11"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "10e",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GHOSTS_OF_THE_DAMNED: CardData = {
+  "scryfallId": "20275678-3488-43d8-a93b-993e2267ab07",
+  "oracleId": "1b3bbd3c-f5ef-4940-82a2-d36f4d148b9a",
+  "name": "Ghosts of the Damned",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ghosts of the Damned",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "{T}: Target creature gets -1/-0 until end of turn.",
+      "flavorText": "The voices of the dead ring in the heart long after they have faded from the ears.",
+      "power": "0",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "20275678-3488-43d8-a93b-993e2267ab07"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "leg",
+  "collectorNumber": "98",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GIDEON_S_LAWKEEPER: CardData = {
+  "scryfallId": "1c71eb81-a077-4c85-a4ce-4ad664486bee",
+  "oracleId": "bae86bb0-5a97-4f6a-8a3f-4e6848bfacc0",
+  "name": "Gideon's Lawkeeper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gideon's Lawkeeper",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{W}, {T}: Tap target creature.",
+      "flavorText": "\"The essence of a lawful society is swift deterrence.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "1c71eb81-a077-4c85-a4ce-4ad664486bee"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "m12",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GINGERBREAD_CABIN: CardData = {
+  "scryfallId": "3b583cc8-95e6-4772-afe3-d405b65836e0",
+  "oracleId": "fa98c367-0312-49c6-abef-72e5ead4cc7d",
+  "name": "Gingerbread Cabin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gingerbread Cabin",
+      "manaCost": "",
+      "typeLine": "Land — Forest",
+      "oracleText": "({T}: Add {G}.)\nThis land enters tapped unless you control three or more other Forests.\nWhen this land enters untapped, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Chris Ostrowski",
+      "imageId": "3b583cc8-95e6-4772-afe3-d405b65836e0"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Food"
+  ],
+  "setCode": "c21",
+  "collectorNumber": "290",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GLEAMING_BARRIER: CardData = {
+  "scryfallId": "1b49b009-e6f2-494a-9235-f5c25c2d70a9",
+  "oracleId": "1eb9e401-8975-447b-839d-f7cd23897465",
+  "name": "Gleaming Barrier",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gleaming Barrier",
+      "manaCost": "{2}",
+      "typeLine": "Artifact Creature — Wall",
+      "oracleText": "Defender\nWhen this creature dies, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "\"Gold without freedom might as well be lead.\"\n—Angrath",
+      "power": "0",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jason Felix",
+      "imageId": "1b49b009-e6f2-494a-9235-f5c25c2d70a9"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Treasure",
+    "Defender"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "252",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GLITTERMONGER: CardData = {
+  "scryfallId": "1a3d70d2-0604-41b3-8dd1-bfeb05832271",
+  "oracleId": "184c763c-b52a-471c-bd87-d01729ebe5e4",
+  "name": "Glittermonger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Glittermonger",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Elf Rogue",
+      "oracleText": "{T}: Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "Street corners in the Mezzio are a tantalizing bazaar of the fantastic, the illicit, and the fake.",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Evyn Fong",
+      "imageId": "1a3d70d2-0604-41b3-8dd1-bfeb05832271"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "snc",
+  "collectorNumber": "149",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -15597,6 +16350,110 @@ export const CLUE_TOKEN: CardData = {
   "keywords": [],
   "setCode": "twho",
   "collectorNumber": "21",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const KNIGHT_VIGILANCE_TOKEN: CardData = {
+  "scryfallId": "076f934b-a244-45f1-bcb3-7c5e882e9911",
+  "oracleId": "340aaeb6-cd18-4908-9729-8c53ab02c6f8",
+  "name": "Knight",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Knight",
+      "manaCost": "",
+      "typeLine": "Token Creature — Knight",
+      "oracleText": "Vigilance",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "076f934b-a244-45f1-bcb3-7c5e882e9911"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "tm21",
+  "collectorNumber": "4",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const GARGOYLE_TOKEN: CardData = {
+  "scryfallId": "af3aa149-00fa-4932-b004-f64c8b5d3ca7",
+  "oracleId": "75573242-fb61-442e-8f01-ffc4f7487122",
+  "name": "Gargoyle",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Gargoyle",
+      "manaCost": "",
+      "typeLine": "Token Artifact Creature — Gargoyle",
+      "oracleText": "Flying",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Paul Bonner",
+      "imageId": "af3aa149-00fa-4932-b004-f64c8b5d3ca7"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "tm10",
+  "collectorNumber": "8",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const SPIRIT_RW_TOKEN: CardData = {
+  "scryfallId": "877f7ddb-ed70-41a0-b845-d9bf8ac65f9b",
+  "oracleId": "73dbaedb-5ff6-4ddb-b24e-81b58ea436a0",
+  "name": "Spirit",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Spirit",
+      "manaCost": "",
+      "typeLine": "Token Creature — Spirit",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Marco Gorlei",
+      "imageId": "877f7ddb-ed70-41a0-b845-d9bf8ac65f9b"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tsos",
+  "collectorNumber": "10",
   "commanderLegality": "not_legal",
   "singleImage": true
 };
@@ -17352,6 +18209,28 @@ export const ENGINE_CARDS: CardData[] = [
   FOUNTAIN_OF_YOUTH,
   FRIENDLY_GHOST,
   FROSTBRIDGE_GUARD,
+  FUGITIVE_DRUID,
+  FUME_SPITTER,
+  FYNDHORN_BROWNIE,
+  GALACTIC_WAYFARER,
+  GALLANT_CAVALRY,
+  GALLANT_CITIZEN,
+  GALVANIC_KEY,
+  GARGOYLE_CASTLE,
+  GARRISON_CAT,
+  GARRISON_EXCAVATOR,
+  GAVONY_TRAPPER,
+  GENEROUS_STRAY,
+  GENEROUS_VISITOR,
+  GENGHIS_FROG,
+  GHIRAPUR_GEARCRAFTER,
+  GHITU_WAR_CRY,
+  GHOST_WARDEN,
+  GHOSTS_OF_THE_DAMNED,
+  GIDEON_S_LAWKEEPER,
+  GINGERBREAD_CABIN,
+  GLEAMING_BARRIER,
+  GLITTERMONGER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -17365,6 +18244,9 @@ export const ENGINE_CARDS: CardData[] = [
   THOPTER_TOKEN,
   FAERIE_DRAGON_TOKEN,
   CLUE_TOKEN,
+  KNIGHT_VIGILANCE_TOKEN,
+  GARGOYLE_TOKEN,
+  SPIRIT_RW_TOKEN,
   FAERIE_TOKEN,
   ZOMBIE_DECAYED_TOKEN,
   GOBLIN_BR_TOKEN,

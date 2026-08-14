@@ -197,6 +197,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Floodbringer', 'return-permanent cost'],
   ['Flooded Shoreline', 'return-permanent cost'],
   ['Fodder Tosser', 'discard-cost chooser'],
+  // Batch 18 (D176) — all three existing classes.
+  ['Ghirapur Aether Grid', 'tap-permanents cost'],
+  ['Gilt-Leaf Seer', 'script-raised prompt'],
+  ['Glare of Subdual', 'tap-creatures cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

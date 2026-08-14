@@ -7,6 +7,28 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { FUGITIVE_DRUID_SCRIPT } from './cards/fugitiveDruid';
+import { FUME_SPITTER_SCRIPT } from './cards/fumeSpitter';
+import { FYNDHORN_BROWNIE_SCRIPT } from './cards/fyndhornBrownie';
+import { GALACTIC_WAYFARER_SCRIPT } from './cards/galacticWayfarer';
+import { GALLANT_CAVALRY_SCRIPT } from './cards/gallantCavalry';
+import { GALLANT_CITIZEN_SCRIPT } from './cards/gallantCitizen';
+import { GALVANIC_KEY_SCRIPT } from './cards/galvanicKey';
+import { GARGOYLE_CASTLE_SCRIPT } from './cards/gargoyleCastle';
+import { GARRISON_CAT_SCRIPT } from './cards/garrisonCat';
+import { GARRISON_EXCAVATOR_SCRIPT } from './cards/garrisonExcavator';
+import { GAVONY_TRAPPER_SCRIPT } from './cards/gavonyTrapper';
+import { GENEROUS_STRAY_SCRIPT } from './cards/generousStray';
+import { GENEROUS_VISITOR_SCRIPT } from './cards/generousVisitor';
+import { GENGHIS_FROG_SCRIPT } from './cards/genghisFrog';
+import { GHIRAPUR_GEARCRAFTER_SCRIPT } from './cards/ghirapurGearcrafter';
+import { GHITU_WAR_CRY_SCRIPT } from './cards/ghituWarCry';
+import { GHOST_WARDEN_SCRIPT } from './cards/ghostWarden';
+import { GHOSTS_OF_THE_DAMNED_SCRIPT } from './cards/ghostsOfTheDamned';
+import { GIDEONS_LAWKEEPER_SCRIPT } from './cards/gideonsLawkeeper';
+import { GINGERBREAD_CABIN_SCRIPT } from './cards/gingerbreadCabin';
+import { GLEAMING_BARRIER_SCRIPT } from './cards/gleamingBarrier';
+import { GLITTERMONGER_SCRIPT } from './cards/glittermonger';
 import { FEYWILD_TRICKSTER_SCRIPT } from './cards/feywildTrickster';
 import { FIELD_OF_SOULS_SCRIPT } from './cards/fieldOfSouls';
 import { FIERCE_WITCHSTALKER_SCRIPT } from './cards/fierceWitchstalker';
@@ -405,6 +427,28 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FUGITIVE_DRUID_SCRIPT,
+  FUME_SPITTER_SCRIPT,
+  FYNDHORN_BROWNIE_SCRIPT,
+  GALACTIC_WAYFARER_SCRIPT,
+  GALLANT_CAVALRY_SCRIPT,
+  GALLANT_CITIZEN_SCRIPT,
+  GALVANIC_KEY_SCRIPT,
+  GARGOYLE_CASTLE_SCRIPT,
+  GARRISON_CAT_SCRIPT,
+  GARRISON_EXCAVATOR_SCRIPT,
+  GAVONY_TRAPPER_SCRIPT,
+  GENEROUS_STRAY_SCRIPT,
+  GENEROUS_VISITOR_SCRIPT,
+  GENGHIS_FROG_SCRIPT,
+  GHIRAPUR_GEARCRAFTER_SCRIPT,
+  GHITU_WAR_CRY_SCRIPT,
+  GHOST_WARDEN_SCRIPT,
+  GHOSTS_OF_THE_DAMNED_SCRIPT,
+  GIDEONS_LAWKEEPER_SCRIPT,
+  GINGERBREAD_CABIN_SCRIPT,
+  GLEAMING_BARRIER_SCRIPT,
+  GLITTERMONGER_SCRIPT,
   FEYWILD_TRICKSTER_SCRIPT,
   FIELD_OF_SOULS_SCRIPT,
   FIERCE_WITCHSTALKER_SCRIPT,

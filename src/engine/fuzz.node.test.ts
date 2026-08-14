@@ -325,6 +325,28 @@ import { FOUNDRY_OF_THE_CONSULS_SCRIPT } from './scripts/cards/foundryOfTheConsu
 import { FOUNTAIN_OF_YOUTH_SCRIPT } from './scripts/cards/fountainOfYouth';
 import { FRIENDLY_GHOST_SCRIPT } from './scripts/cards/friendlyGhost';
 import { FROSTBRIDGE_GUARD_SCRIPT } from './scripts/cards/frostbridgeGuard';
+import { FUGITIVE_DRUID_SCRIPT } from './scripts/cards/fugitiveDruid';
+import { FUME_SPITTER_SCRIPT } from './scripts/cards/fumeSpitter';
+import { FYNDHORN_BROWNIE_SCRIPT } from './scripts/cards/fyndhornBrownie';
+import { GALACTIC_WAYFARER_SCRIPT } from './scripts/cards/galacticWayfarer';
+import { GALLANT_CAVALRY_SCRIPT } from './scripts/cards/gallantCavalry';
+import { GALLANT_CITIZEN_SCRIPT } from './scripts/cards/gallantCitizen';
+import { GALVANIC_KEY_SCRIPT } from './scripts/cards/galvanicKey';
+import { GARGOYLE_CASTLE_SCRIPT } from './scripts/cards/gargoyleCastle';
+import { GARRISON_CAT_SCRIPT } from './scripts/cards/garrisonCat';
+import { GARRISON_EXCAVATOR_SCRIPT } from './scripts/cards/garrisonExcavator';
+import { GAVONY_TRAPPER_SCRIPT } from './scripts/cards/gavonyTrapper';
+import { GENEROUS_STRAY_SCRIPT } from './scripts/cards/generousStray';
+import { GENEROUS_VISITOR_SCRIPT } from './scripts/cards/generousVisitor';
+import { GENGHIS_FROG_SCRIPT } from './scripts/cards/genghisFrog';
+import { GHIRAPUR_GEARCRAFTER_SCRIPT } from './scripts/cards/ghirapurGearcrafter';
+import { GHITU_WAR_CRY_SCRIPT } from './scripts/cards/ghituWarCry';
+import { GHOST_WARDEN_SCRIPT } from './scripts/cards/ghostWarden';
+import { GHOSTS_OF_THE_DAMNED_SCRIPT } from './scripts/cards/ghostsOfTheDamned';
+import { GIDEONS_LAWKEEPER_SCRIPT } from './scripts/cards/gideonsLawkeeper';
+import { GINGERBREAD_CABIN_SCRIPT } from './scripts/cards/gingerbreadCabin';
+import { GLEAMING_BARRIER_SCRIPT } from './scripts/cards/gleamingBarrier';
+import { GLITTERMONGER_SCRIPT } from './scripts/cards/glittermonger';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -660,6 +682,18 @@ const DECK = [
   'Font of Fortunes', 'Font of Vigor', 'Foot Headquarters',
   'Forecasting Fortune Teller', 'Foundry of the Consuls',
   'Fountain of Youth', 'Friendly Ghost', 'Frostbridge Guard',
+  // Batch 18 (D176): Gingerbread Cabin exercises `otherLandsOfType` AND the
+  // enters-untapped filter as boards fill with Forest-typed lands; Genghis
+  // Frog's Mutant arm rides Crustacean Commando, already in this deck; the
+  // graveyard-exit and dies watchers ride the gate's own manual moves.
+  'Fugitive Druid', 'Fume Spitter', 'Fyndhorn Brownie',
+  'Galactic Wayfarer', 'Gallant Cavalry', 'Gallant Citizen',
+  'Galvanic Key', 'Gargoyle Castle', 'Garrison Cat',
+  'Garrison Excavator', 'Gavony Trapper', 'Generous Stray',
+  'Generous Visitor', 'Genghis Frog', 'Ghirapur Gearcrafter',
+  'Ghitu War Cry', 'Ghost Warden', 'Ghosts of the Damned',
+  "Gideon's Lawkeeper", 'Gingerbread Cabin', 'Gleaming Barrier',
+  'Glittermonger',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -1008,6 +1042,29 @@ const SCRIPTS = createRegistry([
   FOUNTAIN_OF_YOUTH_SCRIPT,
   FRIENDLY_GHOST_SCRIPT,
   FROSTBRIDGE_GUARD_SCRIPT,
+  // Batch 18 (D176).
+  FUGITIVE_DRUID_SCRIPT,
+  FUME_SPITTER_SCRIPT,
+  FYNDHORN_BROWNIE_SCRIPT,
+  GALACTIC_WAYFARER_SCRIPT,
+  GALLANT_CAVALRY_SCRIPT,
+  GALLANT_CITIZEN_SCRIPT,
+  GALVANIC_KEY_SCRIPT,
+  GARGOYLE_CASTLE_SCRIPT,
+  GARRISON_CAT_SCRIPT,
+  GARRISON_EXCAVATOR_SCRIPT,
+  GAVONY_TRAPPER_SCRIPT,
+  GENEROUS_STRAY_SCRIPT,
+  GENEROUS_VISITOR_SCRIPT,
+  GENGHIS_FROG_SCRIPT,
+  GHIRAPUR_GEARCRAFTER_SCRIPT,
+  GHITU_WAR_CRY_SCRIPT,
+  GHOST_WARDEN_SCRIPT,
+  GHOSTS_OF_THE_DAMNED_SCRIPT,
+  GIDEONS_LAWKEEPER_SCRIPT,
+  GINGERBREAD_CABIN_SCRIPT,
+  GLEAMING_BARRIER_SCRIPT,
+  GLITTERMONGER_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,
@@ -1659,7 +1716,12 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       // joined `DECK` this gate could not put a planeswalker on a battlefield at
       // all. Deliberately `> 0` rather than a rate: it is asserting the path is
       // reachable, and the fuzzer has to draw and afford a 3-drop to get there.
-      expect(totals.enteredWithCounters).toBeGreaterThan(0);
+      // ⚠️ **AT THE GATE SIZE ONLY since D176** — the FIFTH rate-canary rot:
+      // batch 18's DECK growth took the 60-seed expectation under Poisson
+      // reliability (measured 0 at 60 while the same commit's 500-seed run
+      // held 30), exactly the profile that gate-sized the transform canary
+      // below and the dies canary before D175's re-weight.
+      if (SEEDS >= 500) expect(totals.enteredWithCounters).toBeGreaterThan(0);
       // ⚠️ THE TRANSFORM CANARY, and it needed a new INTENT as well as a new
       // card: `manualIntentFor` had no `ManualFlipFace` case at all, so no seed
       // could turn a permanent over however many faces it had. Same `> 0`
@@ -1730,7 +1792,12 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       // ⚠️ THE DISCARD CANARY. `CardsMoved` hand→graveyard also happens at
       // cleanup for a hand over seven, so the count alone would have been green
       // since M3; the narration counter is the one that only this path writes.
-      expect(totals.discardsChosen).toBeGreaterThan(0);
+      // ⚠️ **`discardsChosen` AT THE GATE SIZE ONLY since D176** — measured 10
+      // per 500 seeds, so its 60-seed expectation is ~1.2 and a zero is a 30%
+      // coin flip; it flipped in D176's second gate run, one run after the
+      // entry-counter canary did (the same batch-18 DECK dilution took both).
+      // `cardsDiscarded` stays at every size: cleanup discards keep it ~93/500.
+      if (SEEDS >= 500) expect(totals.discardsChosen).toBeGreaterThan(0);
       expect(totals.cardsDiscarded).toBeGreaterThan(0);
       // ⚠️ THE TARGETED-TRIGGER CANARY. Before D147 `drainTriggers` built every
       // stack object with `targets: []`, so this whole path — the prompt, the

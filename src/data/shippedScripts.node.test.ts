@@ -123,7 +123,10 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // M6.4s (D175) landed twenty-one of 25 — the first DiceRolled consumer
     // (Feywild Trickster rides the Tier-3 roll tool's own event), the
     // nontoken dies watcher, and the untap active.
-    expect(SHIPPED_SCRIPTS).toHaveLength(304);
+    // M6.4t (D176) landed twenty-two of 25 — Glittermonger returns from the
+    // D147 mana-ability misparse as a real def; both twins of one ETB-draw
+    // text in a single batch; three refusals, all existing ledger classes.
+    expect(SHIPPED_SCRIPTS).toHaveLength(326);
   });
 });
 

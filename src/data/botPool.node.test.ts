@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). Planeswalkers (loyalty costs) and battles are still
     // structurally out, and stay pinned at zero for the same reason the
     // enchantments were.
-    expect(r.poolByType['enchantment'] ?? 0).toBe(21);
+    expect(r.poolByType['enchantment'] ?? 0).toBe(22);
     expect(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -418,12 +418,12 @@ const POOL: Record<string, number> = {
   // M6.4q (D173): +20 creatures, +1 artifact, and FOUR enchantments at once
   // (Efficient Construction, Elemental Bond, Emrakul's Influence,
   // Enchantress's Presence) — the pool reads SEVENTEEN.
-  creature: 1375,
+  creature: 1393,
   instant: 201,
   sorcery: 146,
-  land: 233,
-  artifact: 58,
-  enchantment: 21,
+  land: 235,
+  artifact: 59,
+  enchantment: 22,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

@@ -4522,6 +4522,52 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       per-damage-entry granularity, token entry choice and the spell
       seam stand.
 
+- [x] **M6.4t — Twenty-two landed: Glittermonger comes back, and three
+      texts land as twins (2026-08-09):** **2,056 of 31,692 Commander-legal
+      cards now execute completely, up from 2,034.** `SHIPPED_SCRIPTS`
+      304 → 326. Decisions in **D176**.
+      **The headliner is an arc closing:** `Glittermonger` — the card D147
+      PULLED from the pool as a mana-ability misparse — returns as a real
+      {T}-for-a-Treasure def through the ActivatedDef seam. What the
+      parser was wrong to claim, a script now genuinely does.
+      **Three texts land as twins in one batch** (each proven on its own
+      oracle id): Gallant Citizen + Generous Stray carry ONE ETB-draw
+      text and BOTH arrive here; Ghitu War Cry is Captive Flame's exact
+      text; Gideon's Lawkeeper is the THIRD id on the Benalish Trapper /
+      Blinding Mage tap line.
+      **Filters proven by dropping them:** `Fugitive Druid` (Druid of
+      Horns minus the caster filter — an OPPONENT's Aura cast at the
+      Druid pays its controller, driven from the opponent's seat) and
+      `Garrison Excavator` (Desecrated Tomb minus the mover's type — a
+      LAND leaving the graveyard pays, Tomb's own negative case).
+      **Also:** `Genghis Frog`, the first SUBTYPE-filtered self-inclusive
+      entering watcher (two defs; its own Mutagen is an Artifact so the
+      trigger cannot feed itself) and the 54th fully-executable legendary;
+      `Gingerbread Cabin`, Dwarven Mine's enters-untapped filter on a
+      FOREST count (`otherLandsOfType`'s second consumer, both halves both
+      ways); the Lander on the Blood precedent; the untap actives one
+      type over; **the enchantment pool reads TWENTY-TWO**. All 22 suites
+      green on their first run — after one fixture-regen parse error (the
+      Lander pin duplicated the token tool's existing const; the batch
+      comment now says the Lander is REUSED).
+      ⚠️ **Three refusals, all existing classes:** tap-permanents
+      (Ghirapur Aether Grid), tap-creatures (Glare of Subdual),
+      script-raised prompt (Gilt-Leaf Seer). The ledger holds 45.
+      Fixtures 488 → 513 (55 tokens: Knight `tm21 4`, Gargoyle `tm10 8`,
+      R/W Spirit `tsos 10`; Lander `teoe 6` reused) · ladder [937, 1036,
+      2989, 4873, 6060] · `batch.json` at 809 (exact) · botDeck: Adun
+      reaches 1,133 from 54 legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      396 test files, 2,924 Vitest passed / 10 skipped ·
+      the 500-seed gate green at 1,423.1 s (326 scripts,
+      377 s inside the 1,800 s ceiling) · build clean · probe
+      124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D176): self-only def dispatch stays the named
+      fuzz lever; the answer-mode arrow and ability rows owe a battery
+      click-check; the cost-chooser classes, `ctx.random`, once-per-turn
+      memory, per-damage-entry granularity, token entry choice and the
+      spell seam stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
