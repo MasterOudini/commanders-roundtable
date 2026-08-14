@@ -149,7 +149,11 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // identical-text family (+1/+1-counter entries), and Jayemdae Tome
     // carrying Arcane Encyclopedia's exact text back to D159's first
     // activated; one new refusal class (last-drawn-card memory cost).
-    expect(SHIPPED_SCRIPTS).toHaveLength(428);
+    // M6.4aa (D183) landed twenty-one of 25 — Jhoira's historic cast-watcher,
+    // Keeper of Fables' non-Human combat-damage filter, Junktown's triple
+    // Junk, three more Fisk-shape refuges and a Kami text twin; one new
+    // refusal class (the gift mechanic).
+    expect(SHIPPED_SCRIPTS).toHaveLength(449);
   });
 });
 

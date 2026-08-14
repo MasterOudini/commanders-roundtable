@@ -4842,6 +4842,44 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       token entry choice, the spell seam and the battery click-check
       debt stand.
 
+- [x] **M6.4aa — Twenty-one landed: the historic watcher, and a gift
+      nothing can give (2026-08-14):** **2,179 of 31,692 Commander-legal
+      cards now execute completely, up from 2,158.** `SHIPPED_SCRIPTS`
+      428 → 449. Decisions in **D183**.
+      **The headliners:** `Jhoira, Weatherlight Captain` pays on HISTORIC
+      casts (D'Avenant's filter finally paying its controller, both sides
+      proven); `Keeper of Fables` reads the DERIVED dealer on
+      `CombatDamageDealt` — mine, a Creature, NOT a Human — with the
+      per-event batch as the card's own "one or more" (the Human negative
+      through a real attack); `Junktown` pays {4}{R}, the tap and itself
+      for THREE distinct Junk.
+      **Also:** the Treasure twins (Jewel Thief entering, Jewel-Eyed
+      Cobra dying); three more Fisk-shape refuges (Jungle Hollow carrying
+      Illegitimate Business's EXACT text) plus Kabira Crossroads at 2;
+      the Kami of Ancient Law / Keening Apparition EXACT-text pair;
+      Kapsho Kitefins' self-INCLUSIVE controlled-entry tap; Kabuto Moth's
+      +1/+2; Kamahl's tap-ping at 3; a LAND untap. **Two more
+      legendaries — the pool reads 60.** All 21 suites — 45 tests — green
+      on their FIRST run.
+      ⚠️ **Four refusals, ONE new class:** the GIFT MECHANIC (Jolly
+      Gerbils — no gift concept exists anywhere in the engine). Plus
+      once-per-turn memory, tap-creatures, multi-sacrifice. The ledger
+      holds 72.
+      Fixtures 625 → 646 (64 tokens — NO new pins, three REUSED after
+      checking TOKEN_TABLE) · ladder [814, 913, 2866, 4750, 5937] ·
+      `batch.json` at 659 (exact) · botDeck: Adun reaches 1,206 from 60
+      legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      519 test files, 3,445 Vitest passed / 10
+      skipped · the 500-seed gate green at 1,931.0 s (449 scripts,
+      1,669 s inside the 3,600 s ceiling) · build clean ·
+      probe 124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D183): the gift mechanic joins the structural
+      end of the class list; `DrewCards` stays the highest-value single
+      unlock; the cost-chooser classes, `ctx.random`, once-per-turn
+      memory, per-damage-entry granularity, token entry choice, the
+      spell seam and the battery click-check debt stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

@@ -882,6 +882,29 @@ const WANTED = [
   // Hero-typed card was a fixture before). Unregistered — its own ETB never
   // fires in the test.
   'Spider-Ham, Peter Porker',
+  // Batch 24 (D183). All three tokens (Treasure, hexproof Merfolk, Junk)
+  // are REUSED pins, checked against TOKEN_TABLE's printingIds first.
+  'Jewel Thief',
+  'Jewel-Eyed Cobra',
+  'Jhoira, Weatherlight Captain',
+  'Joraga Visionary',
+  'Jungle Barrier',
+  'Jungle Hollow',
+  'Jungleborn Pioneer',
+  'Juniper Order Druid',
+  'Junktown',
+  'Jwar Isle Refuge',
+  'Kabira Crossroads',
+  'Kabuto Moth',
+  'Kamahl, Pit Fighter',
+  'Kami of Ancient Law',
+  'Kami of Twisted Reflection',
+  'Kapsho Kitefins',
+  'Kavu Climber',
+  'Kazandu Refuge',
+  'Keening Apparition',
+  'Keening Banshee',
+  'Keeper of Fables',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

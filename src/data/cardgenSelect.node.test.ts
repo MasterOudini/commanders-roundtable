@@ -257,6 +257,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Insolent Neonate', 'discard-cost chooser'],
   ['Ion Storm', 'remove-counter cost'],
   ["Jandor's Ring", 'last-drawn-card memory cost'],
+  // Batch 24 (D183): three existing classes and ONE new one. `Jolly
+  // Gerbils` triggers "whenever you give a gift" — the engine has no gift
+  // concept anywhere (a cast-time promise on gift-carrying spells; nothing
+  // raises, records or fulfils one).
+  ['Jolly Gerbils', 'gift mechanic'],
+  ['Jori En, Ruin Diver', 'once-per-turn trigger memory'],
+  ['Keeper of the Nine Gales', 'tap-creatures cost'],
+  ['Keldon Arsonist', 'multi-sacrifice cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

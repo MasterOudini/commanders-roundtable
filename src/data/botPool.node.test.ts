@@ -425,10 +425,12 @@ const POOL: Record<string, number> = {
   // Insight — the pool reads TWENTY-EIGHT.
   // M6.4z (D182): +17 creatures and +5 artifacts (the Izzet Cluestone,
   // Locket and Jeskai Banner beside Jandor's Saddlebags and Jayemdae Tome).
-  creature: 1468,
+  // M6.4aa (D183): +16 creatures and +5 lands (three refuges, Kabira
+  // Crossroads, Junktown).
+  creature: 1484,
   instant: 201,
   sorcery: 146,
-  land: 243,
+  land: 248,
   artifact: 72,
   enchantment: 28,
 };

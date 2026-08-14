@@ -12548,3 +12548,71 @@ unlock BOTH classes at once, which strengthens that reportable's case;
 the cost-chooser classes, `ctx.random`, once-per-turn memory,
 per-damage-entry granularity, token entry choice, the spell seam, and
 the battery click-check debt stand.
+
+## D183 — M6.4aa: the historic watcher, and a gift nothing can give (2026-08-14)
+
+**What was decided:** batch 24 of the M6.4 loop lands twenty-one of its
+25 — **2,179 of 31,692 Commander-legal cards now execute completely, up
+from 2,158** — with four refusals, ONE of them a NEW class.
+`SHIPPED_SCRIPTS` 428 → 449.
+
+**The headliners:** `Jhoira, Weatherlight Captain` pays on HISTORIC
+casts — D'Avenant Trapper's filter (Artifact type, Legendary supertype,
+or Saga subtype, off the face actually cast) finally paying its
+controller in cards, proven from both sides with an artifact cast
+drawing and a plain creature paying nothing. `Keeper of Fables` reads
+the DERIVED dealer on `CombatDamageDealt` — mine, a Creature, and NOT a
+Human — with the per-event batch as the card's own "one or more"
+wording (D170's argument), the Human negative driven through a real
+declared attack. `Junktown` pays {4}{R}, the tap and itself for THREE
+Junk with distinct ids.
+
+**The rest:** the Treasure twins (`Jewel Thief` entering, `Jewel-Eyed
+Cobra` dying); THREE more Fisk-shape refuges (`Jungle Hollow` carrying
+Illegitimate Business's EXACT text, `Jwar Isle Refuge`, `Kazandu
+Refuge`) plus `Kabira Crossroads` on a mono-coloured mana line paying
+2; the `Kami of Ancient Law` / `Keening Apparition` EXACT-text pair
+(no-mana self-sacrifice enchantment destroy, both proven on their own
+ids); `Kami of Twisted Reflection` bouncing my own creature home;
+`Kapsho Kitefins` — the self-INCLUSIVE controlled-entry watcher whose
+printed line spells the self arm out, asking to tap an opponent's
+creature on every entry; `Kabuto Moth`'s asymmetric +1/+2 tap-pump;
+`Kamahl, Pit Fighter`'s tap-ping at 3; `Juniper Order Druid` untapping
+a LAND; three ETB draws and an entry debuff. **Two more legendaries —
+the pool reads 60.** All 21 suites — 45 tests — passed on their FIRST
+run.
+
+**Four refusals, ONE NEW class:** `Jolly Gerbils` triggers "whenever
+you GIVE A GIFT" — the engine has no gift concept anywhere (a
+cast-time promise on gift-carrying spells; nothing raises, records or
+fulfils one): the GIFT MECHANIC class. Plus once-per-turn memory
+(`Jori En`'s second-spell wording, Clarion Spirit's exact ledger
+entry), a tap-creatures cost (`Keeper of the Nine Gales`), and a
+multi-sacrifice cost (`Keldon Arsonist`). The ledger holds 72.
+
+**The numbers, every delta exactly the twenty-one cards:** primitives
+`complete` 2,158 → 2,179 · `blocked` 29,513 · `scriptableToday` 814 ·
+ladder [814, 913, 2866, 4750, 5937] · botPool creature 1,484, land 248
+(+5: the refuges, the Crossroads, Junktown) · tier3 `abilityText`
+17,187, `payable` 5,149 (−7, the def-gated costs), `either` −21
+exactly, `silentAfter` 2,569 → 2,590 (+21 exactly) · fixtures 625 →
+646 (64 tokens — NO new pins: Treasure `trna 12`, the hexproof Merfolk
+`txln 3` and the Junk `tpip 15` all REUSED, checked against
+TOKEN_TABLE's printingIds first) · `batch.json` at **659** (684 − 21 −
+4, exact) · botDeck regenerated — **Adun reaches 1,206 cards from 60
+legendaries**.
+
+**Verified: `verify.cjs --full` — ALL FIVE GATES PASSED in one
+invocation** — 519 test files, 3,445 Vitest passed / 10 skipped · the
+500-seed replay fuzz gate green at 1,931.0 s (449 scripts registered,
+1,669 s inside the 3,600 s ceiling — 51 s FASTER than round 32 despite
+21 more scripts, which is seed-mix variance and the reason wall-clocks
+are read against the trend, never a single run) · build clean · probe
+124/124 · battery `bot engine prompts` 127/127.
+
+**Reportables:** the gift mechanic joins the named-classes list at the
+structural end (a cast-time promise needs its own state); the
+`DrewCards` event stays the highest-value single unlock (both draw
+classes at once); the cost-chooser classes, `ctx.random`,
+once-per-turn memory, per-damage-entry granularity, token entry
+choice, the spell seam, and the battery click-check debt stand.

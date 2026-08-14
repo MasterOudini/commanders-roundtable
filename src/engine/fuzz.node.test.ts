@@ -449,6 +449,27 @@ import { JEDITS_DRAGOONS_SCRIPT } from './scripts/cards/jeditsDragoons';
 import { JEONG_JEONGS_DESERTERS_SCRIPT } from './scripts/cards/jeongJeongsDeserters';
 import { JESKA_WARRIOR_ADEPT_SCRIPT } from './scripts/cards/jeskaWarriorAdept';
 import { JESKAI_BANNER_SCRIPT } from './scripts/cards/jeskaiBanner';
+import { JEWEL_THIEF_SCRIPT } from './scripts/cards/jewelThief';
+import { JEWEL_EYED_COBRA_SCRIPT } from './scripts/cards/jewelEyedCobra';
+import { JHOIRA_WEATHERLIGHT_CAPTAIN_SCRIPT } from './scripts/cards/jhoiraWeatherlightCaptain';
+import { JORAGA_VISIONARY_SCRIPT } from './scripts/cards/joragaVisionary';
+import { JUNGLE_BARRIER_SCRIPT } from './scripts/cards/jungleBarrier';
+import { JUNGLE_HOLLOW_SCRIPT } from './scripts/cards/jungleHollow';
+import { JUNGLEBORN_PIONEER_SCRIPT } from './scripts/cards/junglebornPioneer';
+import { JUNIPER_ORDER_DRUID_SCRIPT } from './scripts/cards/juniperOrderDruid';
+import { JUNKTOWN_SCRIPT } from './scripts/cards/junktown';
+import { JWAR_ISLE_REFUGE_SCRIPT } from './scripts/cards/jwarIsleRefuge';
+import { KABIRA_CROSSROADS_SCRIPT } from './scripts/cards/kabiraCrossroads';
+import { KABUTO_MOTH_SCRIPT } from './scripts/cards/kabutoMoth';
+import { KAMAHL_PIT_FIGHTER_SCRIPT } from './scripts/cards/kamahlPitFighter';
+import { KAMI_OF_ANCIENT_LAW_SCRIPT } from './scripts/cards/kamiOfAncientLaw';
+import { KAMI_OF_TWISTED_REFLECTION_SCRIPT } from './scripts/cards/kamiOfTwistedReflection';
+import { KAPSHO_KITEFINS_SCRIPT } from './scripts/cards/kapshoKitefins';
+import { KAVU_CLIMBER_SCRIPT } from './scripts/cards/kavuClimber';
+import { KAZANDU_REFUGE_SCRIPT } from './scripts/cards/kazanduRefuge';
+import { KEENING_APPARITION_SCRIPT } from './scripts/cards/keeningApparition';
+import { KEENING_BANSHEE_SCRIPT } from './scripts/cards/keeningBanshee';
+import { KEEPER_OF_FABLES_SCRIPT } from './scripts/cards/keeperOfFables';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -883,6 +904,17 @@ const DECK = [
   "Jarvis, Earth's Mightiest Butler", 'Jayemdae Tome',
   'Jedit Ojanen of Efrava', "Jedit's Dragoons", "Jeong Jeong's Deserters",
   'Jeska, Warrior Adept', 'Jeskai Banner',
+  // M6.4aa/D183 — batch 24. Jhoira pays on the deck's own artifacts and
+  // legends; Keeper of Fables on any non-Human connecting; the Kami pair,
+  // the refuges and the Treasure twins ride entries, deaths and sacrifices
+  // the games already make.
+  'Jewel Thief', 'Jewel-Eyed Cobra', 'Jhoira, Weatherlight Captain',
+  'Joraga Visionary', 'Jungle Barrier', 'Jungle Hollow',
+  'Jungleborn Pioneer', 'Juniper Order Druid', 'Junktown',
+  'Jwar Isle Refuge', 'Kabira Crossroads', 'Kabuto Moth',
+  'Kamahl, Pit Fighter', 'Kami of Ancient Law', 'Kami of Twisted Reflection',
+  'Kapsho Kitefins', 'Kavu Climber', 'Kazandu Refuge', 'Keening Apparition',
+  'Keening Banshee', 'Keeper of Fables',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -1358,6 +1390,27 @@ const SCRIPTS = createRegistry([
   JEONG_JEONGS_DESERTERS_SCRIPT,
   JESKA_WARRIOR_ADEPT_SCRIPT,
   JESKAI_BANNER_SCRIPT,
+  JEWEL_THIEF_SCRIPT,
+  JEWEL_EYED_COBRA_SCRIPT,
+  JHOIRA_WEATHERLIGHT_CAPTAIN_SCRIPT,
+  JORAGA_VISIONARY_SCRIPT,
+  JUNGLE_BARRIER_SCRIPT,
+  JUNGLE_HOLLOW_SCRIPT,
+  JUNGLEBORN_PIONEER_SCRIPT,
+  JUNIPER_ORDER_DRUID_SCRIPT,
+  JUNKTOWN_SCRIPT,
+  JWAR_ISLE_REFUGE_SCRIPT,
+  KABIRA_CROSSROADS_SCRIPT,
+  KABUTO_MOTH_SCRIPT,
+  KAMAHL_PIT_FIGHTER_SCRIPT,
+  KAMI_OF_ANCIENT_LAW_SCRIPT,
+  KAMI_OF_TWISTED_REFLECTION_SCRIPT,
+  KAPSHO_KITEFINS_SCRIPT,
+  KAVU_CLIMBER_SCRIPT,
+  KAZANDU_REFUGE_SCRIPT,
+  KEENING_APPARITION_SCRIPT,
+  KEENING_BANSHEE_SCRIPT,
+  KEEPER_OF_FABLES_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,

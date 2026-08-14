@@ -7,6 +7,27 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { JEWEL_THIEF_SCRIPT } from './cards/jewelThief';
+import { JEWEL_EYED_COBRA_SCRIPT } from './cards/jewelEyedCobra';
+import { JHOIRA_WEATHERLIGHT_CAPTAIN_SCRIPT } from './cards/jhoiraWeatherlightCaptain';
+import { JORAGA_VISIONARY_SCRIPT } from './cards/joragaVisionary';
+import { JUNGLE_BARRIER_SCRIPT } from './cards/jungleBarrier';
+import { JUNGLE_HOLLOW_SCRIPT } from './cards/jungleHollow';
+import { JUNGLEBORN_PIONEER_SCRIPT } from './cards/junglebornPioneer';
+import { JUNIPER_ORDER_DRUID_SCRIPT } from './cards/juniperOrderDruid';
+import { JUNKTOWN_SCRIPT } from './cards/junktown';
+import { JWAR_ISLE_REFUGE_SCRIPT } from './cards/jwarIsleRefuge';
+import { KABIRA_CROSSROADS_SCRIPT } from './cards/kabiraCrossroads';
+import { KABUTO_MOTH_SCRIPT } from './cards/kabutoMoth';
+import { KAMAHL_PIT_FIGHTER_SCRIPT } from './cards/kamahlPitFighter';
+import { KAMI_OF_ANCIENT_LAW_SCRIPT } from './cards/kamiOfAncientLaw';
+import { KAMI_OF_TWISTED_REFLECTION_SCRIPT } from './cards/kamiOfTwistedReflection';
+import { KAPSHO_KITEFINS_SCRIPT } from './cards/kapshoKitefins';
+import { KAVU_CLIMBER_SCRIPT } from './cards/kavuClimber';
+import { KAZANDU_REFUGE_SCRIPT } from './cards/kazanduRefuge';
+import { KEENING_APPARITION_SCRIPT } from './cards/keeningApparition';
+import { KEENING_BANSHEE_SCRIPT } from './cards/keeningBanshee';
+import { KEEPER_OF_FABLES_SCRIPT } from './cards/keeperOfFables';
 import { INSPIRED_INSURGENT_SCRIPT } from './cards/inspiredInsurgent';
 import { INSPIRING_CLERIC_SCRIPT } from './cards/inspiringCleric';
 import { INTREPID_HERO_SCRIPT } from './cards/intrepidHero';
@@ -529,6 +550,27 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  JEWEL_THIEF_SCRIPT,
+  JEWEL_EYED_COBRA_SCRIPT,
+  JHOIRA_WEATHERLIGHT_CAPTAIN_SCRIPT,
+  JORAGA_VISIONARY_SCRIPT,
+  JUNGLE_BARRIER_SCRIPT,
+  JUNGLE_HOLLOW_SCRIPT,
+  JUNGLEBORN_PIONEER_SCRIPT,
+  JUNIPER_ORDER_DRUID_SCRIPT,
+  JUNKTOWN_SCRIPT,
+  JWAR_ISLE_REFUGE_SCRIPT,
+  KABIRA_CROSSROADS_SCRIPT,
+  KABUTO_MOTH_SCRIPT,
+  KAMAHL_PIT_FIGHTER_SCRIPT,
+  KAMI_OF_ANCIENT_LAW_SCRIPT,
+  KAMI_OF_TWISTED_REFLECTION_SCRIPT,
+  KAPSHO_KITEFINS_SCRIPT,
+  KAVU_CLIMBER_SCRIPT,
+  KAZANDU_REFUGE_SCRIPT,
+  KEENING_APPARITION_SCRIPT,
+  KEENING_BANSHEE_SCRIPT,
+  KEEPER_OF_FABLES_SCRIPT,
   INSPIRED_INSURGENT_SCRIPT,
   INSPIRING_CLERIC_SCRIPT,
   INTREPID_HERO_SCRIPT,
