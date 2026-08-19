@@ -325,7 +325,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 758,
+      scriptableToday: 2453,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -365,14 +365,18 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
    * script; the script is M6.4. `complete` is the number that answers coverage,
    * and it is asserted below.
    */
-  test('the first four primitives multiply what is scriptable by 5', () => {
+  test('the first four primitives multiply what is scriptable by 3', () => {
     const order: Primitive[] = ['optional', 'layer6', 'effect:counter', 'effect:token'];
     const steps = cumulative(r, order);
     // Every rung fell by exactly 8 in M6.4a (D158) and by exactly 4 more in
     // M6.4b (D159): shipped batches leave the blocked pool, and the ladder is
     // drawn from blocked cards.
-    expect(steps.map((s) => s.unlocked)).toEqual([758, 857, 2810, 4694, 5881]);
-    expect(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(4.5);
+    // ⚠️ D191 then moved the whole spell tail INTO rung 0 (a spell face is
+    // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
+    // report's own headline note coming true: "if that number is large, the
+    // library is the bottleneck", and now it is.
+    expect(steps.map((s) => s.unlocked)).toEqual([2453, 2552, 4526, 6434, 7641]);
+    expect(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(3);
   });
 
   /**
@@ -543,7 +547,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect(steps.map((s) => s.unlocked)).toEqual([758, 857]);
+    expect(steps.map((s) => s.unlocked)).toEqual([2453, 2552]);
     expect(r.complete).toBe(2237);
   });
 });
@@ -587,6 +591,54 @@ describe('a "you may" line is only `optional` if that is all it needs', () => {
 });
 
 /**
+ * ⚠️⚠️ **D191 — THE SPELL RECLASSIFICATION, ASSERTED WITHOUT THE DATABASE**
+ * (the same argument as the block above: the rule lives in one branch of
+ * `primitiveFor`, and the counts alone cannot say which way is right).
+ *
+ * A NON-PERMANENT face's lines are scriptable BY THE SEAM: `SpellDef` (D187)
+ * runs whole-spell text, so the effect vocabulary is not the blocker for a
+ * spell — only the things a def cannot express are (prompts in resolution,
+ * randomness until `ctx.random` is wired, choices). `SPELL_STRUCTURAL` names
+ * those; everything else on a spell face files under `scriptable`.
+ *
+ * ⚠️ The break-evidence for the DB-level flip is D153's pattern, recorded in
+ * D191: with the branch disabled, the OLD pinned ladder [758, 857, 2810,
+ * 4694, 5881] and every secondary row reproduce byte-for-byte — a pure
+ * reclassification, decided by this one branch.
+ */
+describe('a spell face is scriptable by the seam unless the line is structural (D191)', () => {
+  const of = (text: string, spellFace: boolean): Primitive =>
+    primitiveFor({ text, kind: 'sentence' }, 'Test Card', spellFace);
+
+  test('an unreadable-but-expressible spell line is scriptable — Fruition, the shipped proof', () => {
+    expect(of('You gain 1 life for each Forest on the battlefield.', true)).toBe('scriptable');
+  });
+
+  test('the SAME line on a permanent face is untouched — nothing moves for permanents', () => {
+    expect(of('You gain 1 life for each Forest on the battlefield.', false)).toBe('unclassified');
+  });
+
+  test('a structural line never comes out scriptable, spell face or not', () => {
+    // A modal spell gives the player a choice no SpellDef v1 raises.
+    expect(of('Choose one —', true)).not.toBe('scriptable');
+    // Randomness in resolution: ctx.random is not wired through the seam.
+    expect(of('Flip a coin.', true)).not.toBe('scriptable');
+    // A payment question in resolution is a prompt, not an effect.
+    expect(of('Counter target spell unless its controller pays {3}.', true)).not.toBe('scriptable');
+  });
+
+  test('a RULES row caught above keeps its claim — only the residue spills', () => {
+    expect(
+      of('You may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.', true),
+    ).toBe('effect:search');
+  });
+
+  test('scrubbed quoted text (the double-space gap, D132) is refused', () => {
+    expect(of('Create a 1/1 white Bird creature token with flying and  .', true)).not.toBe('scriptable');
+  });
+});
+
+/**
  * ⚠️ **THE FIFTH BUCKET SPLIT, AND THE BIGGEST** (D157). `unclassified` is the
  * largest row in this report by a factor of four, and until now it was a black
  * box the build order could say nothing about — which is exactly the state
@@ -616,19 +668,19 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
   test('the residue splits into named families', () => {
     expect(rr.residue).toEqual({
       activatedCost: 3170,
-      triggeredShell: 2509,
-      damage: 1327,
-      exile: 1263,
-      staticShell: 1017,
-      attackBlock: 999,
-      lifeGainLoss: 938,
-      drawDiscard: 577,
-      tokensAndCounters: 507,
+      triggeredShell: 2500,
+      damage: 839,
+      exile: 942,
+      staticShell: 765,
+      attackBlock: 994,
+      lifeGainLoss: 696,
+      drawDiscard: 369,
+      tokensAndCounters: 376,
       copySpell: 224,
       cantBeCountered: 109,
-      gainControl: 95,
-      wardHexproofGrant: 49,
-      other: 5422,
+      gainControl: 66,
+      wardHexproofGrant: 48,
+      other: 3818,
     });
   });
 

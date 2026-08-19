@@ -29,6 +29,7 @@
 import type { CardData } from './cardTypes';
 import { parseEffects } from './effectParse';
 import { unaccountedLines, type UnaccountedLine } from './engineComplete';
+import { parseTypeLine } from './oracleParse';
 
 /**
  * The primitives the M6 brief names, plus the two the data added.
@@ -396,8 +397,59 @@ const RULES: readonly (readonly [Primitive, RegExp])[] = [
   ['layer6', LAYER6],
 ];
 
+/**
+ * Shapes a `SpellDef` genuinely CANNOT express (D191) — each names a class
+ * with real missing machinery, so a spell line carrying one keeps its row or
+ * its residue instead of joining `scriptable`:
+ *
+ *   · modal choices — no mode-choosing cast prompt exists;
+ *   · randomness in any clothes (at random / coins / rolls / SHUFFLE — a
+ *     shuffle consumes the seeded RNG) — `ctx.random` is unwired (D158);
+ *   · library search and any "you/opponent chooses" — script-raised prompts,
+ *     a standing refusal class;
+ *   · votes, copies (CR 707), control/life exchanges, extra turns (rules
+ *     hooks), "outside the game" (needs the sideboard feature), punisher
+ *     "unless" choices, damage division;
+ *   · a run of blanked spaces — `scrub` erases QUOTED granted text with
+ *     spaces of the same length, so the line reads as less than it is
+ *     (D132's invisible gap).
+ *
+ * ⚠️ AN EXCLUSION LIST BOUNDS THE OVERCLAIM, IT DOES NOT PERFECT IT (D153's
+ * lesson pointed the other way): a structural shape this list misses inflates
+ * `scriptableToday` until the per-batch classification refuses the card and
+ * the ledger names its class — at which point the shape belongs HERE too.
+ */
+const SPELL_STRUCTURAL: readonly RegExp[] = [
+  /\bchoose (one|two|three|four|up to)\b/i,
+  /\bat random\b/i,
+  /\bcoin\b/i,
+  /\broll\b/i,
+  /\bshuffle\b/i,
+  /\bsearch\b/i,
+  /\bvote\b|\bcouncil\b/i,
+  /\bcop(y|ies)\b/i,
+  /\bexchange\b/i,
+  /\bextra turn\b/i,
+  /\boutside the game\b/i,
+  /\bunless\b/i,
+  /\bdivided as you choose\b|\bdistribute\b|\bany number of\b/i,
+  /\bchooses?\b/i,
+  /\s{2,}/,
+  // ⚠️ CAST-TIME PROPERTIES — a `resolve` runs at RESOLUTION, so a line about
+  // how the spell is CAST or what happens to it ON THE STACK is inexpressible
+  // by construction, not merely unread: "can't be countered" is stack
+  // interaction (spec §4.8), an additional cost is charged at CR 601.2, and a
+  // cast restriction gates legality before any resolve exists. These are
+  // one-line spells, so without this they would surface at the FRONT of a
+  // lines-count-ordered wave as guaranteed draft refusals.
+  /\bcan't be countered\b/i,
+  /\ban additional cost\b/i,
+  /\bcast (this spell|~) only\b/i,
+  /\bspend only\b/i,
+];
+
 /** What one unaccounted line is waiting on. */
-export function primitiveFor(line: UnaccountedLine, cardName: string): Primitive {
+export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace = false): Primitive {
   const text = line.text;
 
   // A keyword ability is not a sentence — check the shape before reading it as
@@ -439,6 +491,22 @@ export function primitiveFor(line: UnaccountedLine, cardName: string): Primitive
   }
 
   for (const [primitive, re] of RULES) if (re.test(text)) return primitive;
+
+  // ⚠️⚠️ **D191 — THE SEAM THE NEEDS COLUMN COULD NOT SEE.** Since D187 a
+  // `SpellDef` resolves an instant or sorcery's WHOLE text from `resolveTop`,
+  // so a spell line the vocabulary cannot read is no longer blocked on the
+  // vocabulary at all — a script expresses it directly, the same standard as
+  // a trigger resolve. Measured before this branch existed: flipping the
+  // selection's "no spells" filter moved the offerable pool 584 → 583,
+  // because every unreadable spell line filed into a row or the residue and
+  // no spell ever reached sole-need-`scriptable`.
+  //
+  // ⚠️ ONLY the residue spills — a spell line a RULES row caught above keeps
+  // its row, because those name machinery a spell def lacks exactly the way
+  // a trigger def does (prompts, temporary grants, CR 707). And only past
+  // the STRUCTURAL list, which names what a resolve cannot express.
+  if (spellFace && !SPELL_STRUCTURAL.some((re) => re.test(text))) return 'scriptable';
+
   return 'unclassified';
 }
 
@@ -452,8 +520,12 @@ export interface CardPrimitives {
 export function primitivesFor(card: CardData): CardPrimitives {
   const lines: { text: string; primitive: Primitive }[] = [];
   for (let i = 0; i < card.faces.length; i++) {
+    // D191: a SPELL face's lines are scriptable by the seam (see
+    // `primitiveFor`); asked of THE type-line parser, never a second regex.
+    const types = parseTypeLine(card.faces[i]?.typeLine ?? '').types;
+    const spellFace = types.includes('Instant') || types.includes('Sorcery');
     for (const line of unaccountedLines(card, i)) {
-      lines.push({ text: line.text, primitive: primitiveFor(line, card.name) });
+      lines.push({ text: line.text, primitive: primitiveFor(line, card.name, spellFace) });
     }
   }
   return { needs: new Set(lines.map((l) => l.primitive)), lines };

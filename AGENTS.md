@@ -5084,6 +5084,55 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       classes, `ctx.random`, once-per-turn memory, token entry choice and
       the battery click-check debt stand.
 
+- [x] **M6.4af — D191: the spell reclassification — the seam's pool-opener
+      lands (2026-08-19):** **coverage UNCHANGED at 2,237 of 31,692** — a
+      reclassification, not a card — **and the OFFERABLE pool TRIPLES:
+      583 → 2,020**, rung 1 reading 32: the user's own decks' spells are back
+      in reach. Decisions in **D191**.
+      ⚠️⚠️ **THE BRANCH:** a NON-PERMANENT face's residue line files
+      `scriptable` — `SpellDef` (D187) runs whole-spell text, so the effect
+      vocabulary is not a spell's blocker; only what a `resolve` cannot
+      express is. `primitiveFor` gains `spellFace` (derived per face from
+      `parseTypeLine` — Instant or Sorcery); the branch sits AFTER the RULES
+      scan, so a RULES row keeps its claim — ONLY the residue spills.
+      ⚠️ **`SPELL_STRUCTURAL` names what a resolve cannot express** — modal
+      choices, randomness until `ctx.random`, votes, copies, exchanges,
+      extra turns, outside-the-game, `unless` payments, divided damage,
+      searches, the D132 double-space scrub gap — **plus the CAST-TIME
+      PROPERTIES the first measurement caught overclaimed**: "can't be
+      countered" (stack interaction, §4.8), additional costs (CR 601.2),
+      cast-only, spend-only. A resolve runs at RESOLUTION; those one-line
+      spells would have led a lines-count wave as guaranteed refusals.
+      The four rows moved scriptableToday 2,497 → 2,453 and restored
+      `cantBeCountered` to EXACTLY 109 — the regex hit precisely its class.
+      ⚠️ **AN EXCLUSION LIST BOUNDS THE OVERCLAIM, IT DOES NOT PERFECT
+      IT** — a shape it misses surfaces at DRAFT time and the D163 ledger
+      absorbs it; a class named there twice earns its row. Narrow on purpose.
+      **Measured:** scriptableToday **758 → 2,453** · ladder [758, 857,
+      2810, 4694, 5881] → **[2453, 2552, 4526, 6434, 7641]** · the
+      four-primitive multiplier 5.1× → 3.1× — D127's own note coming true:
+      THE LIBRARY IS NOW THE BOTTLENECK. Secondary rows drained in mirror
+      (damage 1,327 → 839 · exile 1,263 → 942 · lifeGainLoss 938 → 696 ·
+      other 5,422 → 3,818) · `batch.json` at **2,020** (32 / 3 / 1,985).
+      ⚠️ **Break-evidence, D153's pattern:** branch disabled, the OLD pins
+      reproduce byte-for-byte (758, the old ladder, damage 1,327). A pure
+      reclassification decided by one branch; the unit block asserts the
+      rule without the database (Fruition's line both ways, modal/coin/
+      `unless` refused, `effect:search` keeping its claim, the double-space
+      guard).
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      579 test files, 3,706 Vitest passed / 10 skipped ·
+      the 500-seed gate green at 2734.6 s (507 scripts — the ENGINE is
+      untouched this landing) · build clean · probe 124/124 · battery
+      127/127.**
+      ⚠️ **Reportables** (D191): wave 1 on the widened pool is
+      family-heavy — parametric damage/pump/draw twins surface first by
+      lines-count; the STRUCTURAL rows shrink as wiring lands (`ctx.random`
+      un-guards "at random", script prompts un-guard searches); multi-face
+      spell faces stay refused (SpellDef v1 single-faced); the gate-rework
+      steps (canary staples, pool rotation, seed sharding) are due before
+      waves scale to 50–100.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

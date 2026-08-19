@@ -12997,3 +12997,73 @@ each ONE def away — a wave drains them; amount-reading damage triggers
 ("gain that much") need the item to carry the AMOUNT too (v2: a typed
 item union, sized when a wave needs it); Jandor's Ring's last-drawn memory
 reads the latest `DrewCards` tail at activation — buildable now.
+
+## D191 — M6.4af: the spell reclassification — the seam's pool-opener (2026-08-19)
+
+**What was decided:** `primitiveFor` takes a third parameter, `spellFace`,
+and for a NON-PERMANENT face's line everything past the RULES scan files
+`scriptable` unless `SPELL_STRUCTURAL` matches. `primitivesFor` derives
+`spellFace` per face from `parseTypeLine(...).types` — Instant or Sorcery.
+The branch sits AFTER the RULES rows, so a spell line a RULES row caught
+keeps its row: ONLY the residue spills.
+
+**Why:** D187 built the seam and measured the selection flip moving NOTHING
+(offerable 584 → 583) — the classifier filed unreadable spell lines under
+effect rows and the residue, so no spell ever reached sole-need-`scriptable`
+and the needs column could not SEE the seam. A `SpellDef` resolves the
+WHOLE spell text, so for a spell the effect vocabulary is not the blocker —
+only what a `resolve` cannot express is.
+
+**`SPELL_STRUCTURAL` names what a resolve cannot express:** modal choices,
+"at random" and coin/roll until `ctx.random` is wired, votes, copies,
+exchanges, extra turns, outside-the-game, `unless` payments,
+divided/distributed damage and "any number of", searches and shuffles
+(choice prompts over hidden zones), player choices, and the D132
+double-space scrub gap. **Plus four CAST-TIME PROPERTY rows the first
+measurement caught overclaimed:** the first cut moved `cantBeCountered`
+109 → 69 — but "can't be countered" is a property of the spell ON THE
+STACK (spec §4.8), an additional cost is charged at CR 601.2, and a
+cast-only / spend-only restriction gates casting legality; a `resolve` runs
+at RESOLUTION and can express none of them. They are one-line spells, so
+they would have surfaced at the FRONT of a lines-count-ordered wave as
+guaranteed refusals. With the four rows added, scriptableToday came back
+2,497 → 2,453 and `cantBeCountered` restored to EXACTLY 109 — the regex
+hit precisely its class.
+
+⚠️ **AN EXCLUSION LIST BOUNDS THE OVERCLAIM, IT DOES NOT PERFECT IT.** A
+structural shape the list misses files scriptable and surfaces at DRAFT
+time as a refusal — the D163 REFUSED ledger is the backstop, and a refusal
+class named there twice earns its row HERE. The list errs narrow on
+purpose: a row too wide silently re-blocks real wave material, which is
+the failure this decision exists to end.
+
+**Measured:** scriptableToday **758 → 2,453**; the ladder [758, 857, 2810,
+4694, 5881] → **[2453, 2552, 4526, 6434, 7641]**; the four-primitive
+multiplier 5.1× → 3.1× — the report's own headline note coming true:
+"if that number is large, the library is the bottleneck", and now it is.
+The secondary rows drained in mirror — damage 1,327 → 839 · exile
+1,263 → 942 · lifeGainLoss 938 → 696 · drawDiscard 577 → 369 ·
+staticShell 1,017 → 765 · tokensAndCounters 507 → 376 · other
+5,422 → 3,818 · attackBlock 999 → 994 · triggeredShell 2,509 → 2,500 ·
+wardHexproofGrant 49 → 48 · gainControl 95 → 66. **The OFFERABLE pool
+TRIPLES: 583 → 2,020** (rung 1 = 32 — the user's own decks' spells are
+back in reach; rung 2 = 3; rung 3 = 1,985). `complete` is UNCHANGED at
+2,237 — a reclassification, not a card — and the engine is untouched.
+
+**Break-evidence (D153's pattern):** with the branch disabled the OLD pins
+reproduce byte-for-byte — 758, the old ladder, damage 1,327, lifeGainLoss
+938 — and the new unit block fails on its own subject. A pure
+reclassification, decided by one branch. The unit block asserts the rule
+without the database: Fruition's own line (the shipped SpellDef proof)
+scriptable as a spell face and `unclassified` as a permanent,
+modal/coin/`unless` never scriptable, a RULES row (`effect:search`)
+keeping its claim on a spell face, the double-space guard refusing.
+
+**Reportables:** wave 1 on the widened pool is family-heavy — the
+parametric damage/pump/draw twins surface first under lines-count
+ordering; the STRUCTURAL rows shrink as engine wiring lands
+(`ctx.random` un-guards "at random" and coin/roll; script-raised prompts
+un-guard searches); multi-face spell faces stay refused at selection
+(SpellDef v1 is single-faced); the gate-rework steps (canary-staples
+table, pool rotation, seed sharding) are due before waves scale to
+50–100.
