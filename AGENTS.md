@@ -5184,6 +5184,36 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the battery click-check debt stand.
 
 
+- [x] **M6.4ah — the gate rework: canary staples + rotating pools
+      (2026-08-19):** coverage unchanged at **2,253** (gate infrastructure,
+      not cards) — and the fuzz wall DEMOLISHED: **the same 60-seed leg
+      went 308.4 s → 83.8 s (3.7×)** by rotating per-seed pools, and the
+      full gate 714.1 s where round 39b took 2,253 s. Decisions in
+      **D193**.
+      ⚠️⚠️ **CANARY_STAPLES ends the rate-canary rot class** (nine
+      incidents, D149–D180): every canary's fuel is declared beside its
+      counter (`counterKeys: (keyof Run)[]` — compile-time tie) and dealt
+      into EVERY seat of EVERY seed; the weights and rot histories moved
+      from inline comments into the table. Thirteen staples cover every
+      floor the gate asserts.
+      ⚠️ **`poolFor(seed, seat)`** — fixed CORE + staples deal + a 40-slot
+      round-robin window over the sorted scripted names; libraries ~600 →
+      ~150, so `checkInvariants` (the measured wall — the bus was at the
+      floor, D181) walks 4× fewer instances per intent. PURE in (seed,
+      seat, sorted list): the same seed deals the same pool forever.
+      ⚠️ **The membership invariant is three layers now:** L1 a COMPUTED
+      set-math theorem (union ⊇ all scripted ×≥2, staples at exact weight,
+      both sizes), L2 the aggregate counters, L3 the staples by
+      construction. The Humility teeth unchanged.
+      ⚠️ Rate canaries must now be read against D193's pool shape, never
+      against pre-rework rounds; seed sharding stays drafted but is no
+      longer urgent (5× headroom).
+      **Verified: 60-seed leg 83.8 s green · `verify.cjs --full` ALL FIVE
+      GATES: 596 files, 3,794 passed / 10 skipped ·
+      500-seed gate 714.1 s · build clean · probe 124/124 ·
+      battery 127/127.**
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

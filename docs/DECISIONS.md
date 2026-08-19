@@ -13144,3 +13144,60 @@ GRANTS directly after the gate rework — the "+N/+N and gains K" families
 are the biggest blocked spell twins and the permanent side is D153's
 958-card class; the gate-rework steps (canary staples, pool rotation, seed
 sharding — implementation drafted) precede wave scaling to 50–100.
+
+
+## D193 — M6.4ah: the gate rework — canary staples + rotating pools (2026-08-19)
+
+**What was decided:** the fuzz gate's one DECK — every shipped name dealt to
+every seat, ~600-card libraries — became `poolFor(seed, seat)`: a fixed
+unweighted CORE, the full CANARY_STAPLES deal, and a 40-slot round-robin
+window over the sorted scripted names. Per-seed libraries fell ~600 → ~150.
+**Measured on the same tree, same 60 seeds: 308.4 s → 83.8 s — 3.7×** —
+the invariant-walk cut the design predicted (`checkInvariants` walks
+4×|library| instances per accepted intent; D167/D181 proved the bus was
+already at the floor). The full gate drops from ~2,253 s to 714.1 s.
+
+**Why now:** round 39's fuzz hit the 3,600 s ceiling under desktop load one
+wave after D180's comment predicted the fix — "if it rots a third time, the
+honest fix is a canary-staples mechanism in the deck builder, not a fourth
+multiplication." Wave 1's wraths also reshaped the games; the honest lever
+was never a fourth ceiling raise.
+
+⚠️⚠️ **THE CANARY-STAPLES TABLE is the structural end of the rate-canary
+rot class** — NINE incidents (D149 · D164 · D173 · D175 · D176 · D177 ·
+D178 · D180 ×2): a canary's fuel is now DECLARED beside the counter it
+feeds (`counterKeys: (keyof Run)[]` — a renamed counter fails tsc at the
+table) and dealt into EVERY seat of EVERY seed, so pool growth can never
+dilute it again. The copy weights and rot histories moved out of inline
+comments into the table rows. Thirteen staples cover every floor the gate
+asserts.
+
+⚠️ **The pool-membership invariant became three checked layers:** L1 — a
+COMPUTED set-math theorem (union of a run's windows ⊇ every scripted name
+with multiplicity ≥ 2, staples at exactly their declared weight × seats ×
+seeds — asserted at BOTH sizes, because the modulo arithmetic is exactly
+where an off-by-one hides); L2 — the aggregate counters the gate already
+asserts; L3 — the staples, in every pool by construction. The Humility
+teeth are unchanged (registered nowhere, dealt nowhere; an injected fake IS
+assigned) — they guard the derivation, which rotation does not touch.
+
+⚠️ **`poolFor` is PURE in (seed, seat, canonical sorted list)** —
+registration order must never decide a shuffle (D129 one seam over), and
+the same seed must deal the same pool forever or replay breaks. Rotating
+coverage at 60 seeds: 9,600 slots over ~500 scripted names ≈ 19 deals
+each; at 500 seeds ≈ 155 each — far above the old probabilistic reach.
+
+**Verified:** the 60-seed leg green at 83.8 s (7 tests — the L1 theorem
+and the staples-soundness check joined the file) · `verify.cjs --full`
+ALL FIVE GATES: 596 files, 3,794 passed / 10 skipped ·
+the 500-seed gate green at 714.1 s · build clean · probe 124/124 ·
+battery 127/127.
+
+**Reportables:** seed sharding (`verify.cjs --fuzz-shards`, step 4 of the
+draft) is now OPTIONAL rather than urgent — the wall moved from ~2,250 s
+to 714.1 s with 5× ceiling headroom; take it when script count
+approaches ~2,000. The counter RATES changed with the pool shape (scripted
+density per seed fell; staple density rose) — the next batch must read
+rate movements against D193, not against pre-rework rounds. Temp keyword
+grants are next (spell-family-landscape.md), then the script-raised prompt
+seam (script-prompt-seam-design.md).

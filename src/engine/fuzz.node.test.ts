@@ -47,24 +47,87 @@ const SEEDS = Number(process.env.CRT_FUZZ_SEEDS ?? 60);
 const INTENTS = Number(process.env.CRT_FUZZ_INTENTS ?? 200);
 
 /**
- * A deck with enough variety that the fuzzer meets real decisions.
- *
- * ⚠️ A CARD MISSING FROM HERE IS A CODE PATH THIS GATE CANNOT REACH, and the
- * gate stays green the whole time it rots. It has now happened three times in
- * this repo: the net fixture pool was forty lands, then had no targeted spell
- * (D102) — and this list had no planeswalker and no battle, so the two SBAs that
- * read a `loyalty` or a `defense` counter ran against an empty counter map in
- * every one of 500 seeds. The two entries below are the only permanents in Magic
- * that arrive with counters already on them (CR 306.5b/310.6), which makes them
- * the only ones whose ENTRY changes the state hash.
- *
- * ⚠️ And Jace for the same reason one step along (D108): a permanent that
- * TRANSFORMS into a planeswalker is the other way loyalty counters get written,
- * and until he joined this list no card in the deck had a second face worth
- * turning over. He is here rather than any of the other 13 because `{1}{U}` is
- * cheap enough for the fuzzer to actually cast.
+ * ⚠️⚠️ **THE CANARY-STAPLES TABLE (D193)** — the structural end of the
+ * rate-canary rot class its own comments spent nine incidents predicting
+ * (D149 · D164 · D173 · D175 · D176 · D177 · D178 · D180 ×2): a canary's
+ * FUEL is declared beside the counter it feeds and dealt into EVERY seat of
+ * EVERY seed by `poolFor`, so pool growth can never dilute it again. The
+ * copy weights and their rot histories moved here from the inline comments
+ * they used to live in; `counterKeys` names the `Run` fields each staple
+ * exists to move (a compile-time tie — a renamed counter fails tsc here).
  */
-const CORE = [
+interface CanaryStaple {
+  /** The card — or EVERY card of a set that must meet on one battlefield. */
+  readonly names: readonly string[];
+  /** Deliberate per-seat weight. Pairs compound — the weight is per NAME. */
+  readonly copiesPerSeat: number;
+  readonly counterKeys: readonly (keyof Run)[];
+  readonly rotHistory: string;
+}
+
+const CANARY_STAPLES: readonly CanaryStaple[] = [
+  // Transform-into-planeswalker: draw him, afford {1}{U}, resolve, then roll
+  // the one manual tool in nine that flips — the rarest event in the gate.
+  { names: ["Jace, Vryn's Prodigy // Jace, Telepath Unbound"], copiesPerSeat: 5,
+    counterKeys: ['transformedIntoPlaneswalker'], rotHistory: 'D108 D177' },
+  // The ONLY source either optional counter reads.
+  { names: ["Ajani's Mantra"], copiesPerSeat: 5,
+    counterKeys: ['optionalTaken', 'optionalDeclined'], rotHistory: 'D128 D178' },
+  // The layer-6 ordering pair — a grant against a removal (CR 613.7).
+  { names: ['Levitation', 'Gravity Sphere'], copiesPerSeat: 5,
+    counterKeys: ['layer6Sources'], rotHistory: 'D129 D149 D173' },
+  // The CR 616 pair — rots QUADRATICALLY (both must share a battlefield);
+  // D180's comment demanded this table if it rotted a third time.
+  { names: ['Hardened Scales', 'Branching Evolution'], copiesPerSeat: 15,
+    counterKeys: ['replacementChoices'], rotHistory: 'D148 D149 D164 D180' },
+  // The only trigger that LOOKS BACK (CR 603.10a) — a dies trigger that
+  // never fires leaves no trace at all.
+  { names: ['Onulet'], copiesPerSeat: 5,
+    counterKeys: ['diesTriggers'], rotHistory: 'D158 D175' },
+  // The only permanents in Magic that ARRIVE with counters (CR 306.5b/310.6).
+  { names: ['Grist, the Hunger Tide', 'Invasion of Gobakhan // Lightshield Array'],
+    copiesPerSeat: 1, counterKeys: ['enteredWithCounters'], rotHistory: 'D107 D176' },
+  // CR 614.1c and D135's conditions — the unconditional tap, the count and
+  // the type check, from both sides as a real board fills up.
+  { names: ['Orzhov Guildgate', 'Haunted Ridge', 'Sunpetal Grove'], copiesPerSeat: 1,
+    counterKeys: ['enteredTapped'], rotHistory: 'D134 D135' },
+  // The enters-choice prompt, BOTH answers — The Black Gate pays THREE, so a
+  // cost hardcoded to 2 cannot pass.
+  { names: ['Godless Shrine', 'The Black Gate'], copiesPerSeat: 1,
+    counterKeys: ['entersPaid', 'entersDeclined'], rotHistory: 'D136' },
+  // The only route to `chooseFromZone` — a real cast at a real player.
+  { names: ['Mind Rot'], copiesPerSeat: 1,
+    counterKeys: ['discardsChosen', 'cardsDiscarded'], rotHistory: 'D137 D176' },
+  // The only TARGETED trigger — fires off Darksteel Citadel in FIXED_CORE.
+  { names: ['Yotian Dissident'], copiesPerSeat: 1,
+    counterKeys: ['triggerTargetsChosen'], rotHistory: 'D147' },
+  // The rules-written token — its Soldier printing is pinned in TOKEN_TABLE.
+  { names: ['Raise the Alarm'], copiesPerSeat: 1,
+    counterKeys: ['tokensNamed'], rotHistory: 'D133' },
+  // The counter EFFECT on both sides of the vocabulary boundary; Scar's
+  // -1/-1 reaches lethality through layer 7d and the SBA.
+  { names: ['Battlegrowth', 'Scar'], copiesPerSeat: 1,
+    counterKeys: ['ptCountersWritten'], rotHistory: 'D130' },
+  // The modal DFC — the face path and D134's rule on a back face at once.
+  { names: ['Malakir Rebirth // Malakir Mire'], copiesPerSeat: 1,
+    counterKeys: ['backFacesPlayed'], rotHistory: 'D155' },
+];
+
+/** What every seat is GUARANTEED to hold of the staples, weights applied. */
+const STAPLE_DEAL: readonly string[] = CANARY_STAPLES.flatMap((s) =>
+  s.names.flatMap((n) => Array<string>(s.copiesPerSeat).fill(n)),
+);
+const STAPLE_NAMES: ReadonlySet<string> = new Set(CANARY_STAPLES.flatMap((s) => s.names));
+
+/**
+ * The unweighted half of every pool: basics, mana rocks, real creatures and
+ * spells so the fuzzer meets real decisions, the mechanism cards whose paths
+ * the gate exists to reach, and the support bodies shipped watchers need.
+ * ⚠️ A CARD MISSING FROM THE POOLS IS A CODE PATH THIS GATE CANNOT REACH
+ * (D102, D107, D108, D121). Weighted canary fuel lives in CANARY_STAPLES,
+ * never here — an inline weight is the rot shape D193 ended.
+ */
+const FIXED_CORE = [
   'Forest', 'Island', 'Mountain', 'Plains', 'Swamp',
   'Command Tower', 'Sol Ring', 'Arcane Signet', 'Tundra', 'Boros Garrison',
   'Llanowar Elves', 'Birds of Paradise', 'Grizzly Bears', 'Serra Angel',
@@ -73,194 +136,60 @@ const CORE = [
   'Raging Goblin', 'Child of Night', 'Ambush Viper', 'Baleful Strix',
   'Lightning Bolt', 'Counterspell', 'Cultivate', 'Swords to Plowshares',
   'Pacifism', 'Wrath of God', 'Brainstorm', 'Dark Ritual', 'Lightning Greaves',
-  'Grist, the Hunger Tide', 'Invasion of Gobakhan // Lightshield Array',
-  // ⚠️ FIVE COPIES OF JACE (D177): the transform canary was the RAREST
-  // event in this gate — 2 per 500 seeds at batch 17 — because reaching it
-  // means drawing him, affording him, resolving him, AND rolling the one
-  // manual tool in nine that flips. Batch 19's DECK growth took it to ZERO
-  // at GATE SIZE (every hash equal, 1,404.5 s) — the D175 dies-canary
-  // profile exactly, and the same fix: D149's weighting, FIFTH re-weight of
-  // the class (seventh rot event overall).
-  "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
-  "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
-  "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
-  "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
-  "Jace, Vryn's Prodigy // Jace, Telepath Unbound",
-  // ⚠️ M6.1. The bot plays a deck built only from cards the engine runs
-  // COMPLETELY, and four of its shapes had never been dealt here: a LAND
-  // CREATURE (summoning-sick and tappable for mana at once), an ARTIFACT land,
-  // a PUMP spell (one of the 11 effect kinds, and the gate had damage, counter,
-  // exile and destroy but not this), and six enforced keywords plus protection
-  // from two colours on one body. Same rule as the three additions above it:
-  // a card missing from here is a code path this gate cannot reach.
+  // M6.1 (D121): a land creature, an artifact land, a pump spell, and six
+  // enforced keywords plus protection on one body.
   'Dryad Arbor', 'Darksteel Citadel', 'Monstrous Growth', 'Akroma, Angel of Wrath',
-  // ⚠️ M6.3ab / D155 — a MODAL DFC, the layout this gate had never been dealt.
-  // Its back face is a land that enters tapped, so it reaches the face path and
-  // D134's rule on a back face at the same time.
-  'Malakir Rebirth // Malakir Mire',
-  // ⚠️ M6.3/D128. `Ajani's Mantra` is here for the same reason as every entry
-  // above it, and this time the gap was total rather than partial: with
-  // `NO_SCRIPTS` this gate had never run the TRIGGER BUS AT ALL.
-  // `collectTriggers` returns `[]` on `scripts.size === 0`, so in 500 seeds no
-  // `PendingTrigger` had ever existed, `orderTriggersApnap` had never sorted
-  // anything, `drainTriggers` had never put an ability on the stack and
-  // `orderTriggers` — a prompt with a real producer in `loop.ts` — had never
-  // been raised. `SCRIPTS` below is what fixes that, and this card is what it
-  // holds.
-  // ⚠️ FIVE COPIES OF THE MANTRA (D178): one was enough for nineteen batches,
-  // until batch 20's DECK growth diluted the compound event the may-trigger
-  // canaries need (Mantra dealt AND cast for `{1}{W}` AND surviving to an
-  // upkeep, then a coin flip EACH WAY) below one occurrence at the 60-seed
-  // leg — `optionalTaken` read ZERO with every replay hash equal. It is the
-  // ONLY source either optional counter reads, Onulet's exact profile one
-  // prompt over. D149's fix, EIGHTH instance of the rot these comments keep
-  // predicting.
-  "Ajani's Mantra", "Ajani's Mantra", "Ajani's Mantra", "Ajani's Mantra",
-  "Ajani's Mantra",
-  // ⚠️ M6.3/D129, and the same rule again one layer along: `applyStatics` had
-  // never RUN in this gate either, for the same reason the trigger bus had not.
-  // The pair is deliberate — `Levitation` grants flying and `Gravity Sphere`
-  // takes it away, both in layer 6, so which entered last is the answer (CR
-  // 613.7) and neither card alone would exercise the ordering.
-  // ⚠️ `Gravity Sphere` is a WORLD enchantment and this engine has no world rule
-  // (CR 704.5m), so four seats can hold four of them here where a real table
-  // could not. Inert: nothing in the engine reads the supertype. Test-only.
-  // ⚠️ FIVE COPIES EACH (D173): one of each was enough until four batches of
-  // DECK growth diluted the pair below one appearance in 60 seeds and the
-  // layer-6 canary read 0 — D149's CR 616 weighting, third instance of the
-  // rot its own comment predicts.
-  'Levitation', 'Levitation', 'Levitation', 'Levitation', 'Levitation',
-  'Gravity Sphere', 'Gravity Sphere', 'Gravity Sphere', 'Gravity Sphere',
-  'Gravity Sphere',
-  // M6.3c/D130 — the counter EFFECT, on both sides of the boundary.
-  // `Battlegrowth` and `Scar` are SPELLS that now resolve by themselves, so the
-  // gate reaches `effectEvents` emitting `CountersChanged` for the first time;
-  // Scar's `-1/-1` also reaches lethality through layer 7d and the state-based
-  // action, which no other card here does. `Ajani's Pridemate` is the PERMANENT
-  // side: it puts counters through a card script and needed none of the
-  // vocabulary, which is the measurement correction D130 makes.
-  'Battlegrowth', 'Scar', "Ajani's Pridemate",
-  // ⚠️ M6.3f/D133 — the TOKEN effect. `Raise the Alarm` puts two real Soldiers
-  // on the battlefield from a spell that resolves by itself, which reaches
-  // `TokenCreated` from the RULES for the first time: the event has been on the
-  // log since M3 and every one of them until now came from the Tier-3 tool.
-  // ⚠️ The Soldier PRINTING has to be in the pool or the token derives to a
-  // blank, and `makeSpec` builds the pool from `ENGINE_CARDS` — which is why the
-  // fixture is pinned to the printing `TOKEN_TABLE` names, not to a pretty one.
-  'Raise the Alarm',
-  // ⚠️ M6.3g/D134 — CR 614.1c. `Orzhov Guildgate` is the unconditional "enters
-  // tapped", so a land ARRIVES tapped from a real land drop for the first time;
-  // `Haunted Ridge` is the same land one word longer ("unless you control two
-  // or more other lands") and must NOT be tapped. Both in the deck, because a
-  // rule that fires on everything and a rule that fires on the right things
-  // look identical with only the positive case dealt.
-  'Orzhov Guildgate', 'Haunted Ridge',
-  // ⚠️ M6.3h/D135 — the CONDITION. `Sunpetal Grove` is a check-land ("unless
-  // you control a Forest or a Plains") and `Haunted Ridge` above is now a
-  // COUNT ("unless you control two or more other lands"), so both answers get
-  // exercised as a real game's board fills up — which no single-state test can
-  // do.
-  'Sunpetal Grove',
-  // ⚠️ M6.3i/D136 — the QUESTION. `Godless Shrine` was here as the card the
-  // parser must REFUSE and is now the card that ASKS: "you may pay 2 life. If
-  // you don't, it enters tapped." It is the only route this gate has to the
-  // `entersChoice` prompt, and — unlike `optionalTrigger`, which needs a
-  // registered script — it needs nothing but the land being played, so the
-  // prompt is reachable in a game the shipped `NO_SCRIPTS` could run.
-  // `The Black Gate` pays THREE, so a cost hardcoded to 2 cannot pass here
-  // either.
-  'Godless Shrine', 'The Black Gate',
-  // ⚠️ M6.3j/D137 — DISCARD, and the choice it raises. `Mind Rot` is the only
-  // route this gate has to `chooseFromZone`, and it needs no registry: a real
-  // cast at a real player, which the fuzzer does constantly. `Hymn to Tourach`
-  // is the card that must NOT resolve by itself ("at random", no RNG here), so
-  // a parser that widened one word would show up as a spell the gate suddenly
-  // started auto-resolving.
-  'Mind Rot', 'Hymn to Tourach',
-  // ⚠️ M6.3t/D147 — the two paths that did not exist before, and neither is
-  // reachable without its card. `Yotian Dissident` is the only TARGETED
-  // trigger: until D147 every stack object a trigger built carried
-  // `targets: []`, so the prompt, the validation, `StackTargetsSet` and
-  // CR 608.2b for an ability were all unreachable here. It triggers off
-  // `Darksteel Citadel` above, which is already in the deck.
-  // ⚠️ `Onulet` is the only trigger that LOOKS BACK IN TIME (CR 603.10a), and
-  // it is the one whose absence would be invisible: a dies trigger that never
-  // fires leaves NO trace, so every other counter in this gate is unmoved by
-  // it being broken.
-  // ⚠️ FIVE COPIES OF ONULET (D175): one was enough for sixteen batches, until
-  // batch 17's DECK growth met prompt-saturated games — 48,953 target prompts
-  // against 48,906 accepted intents — and the compound event the dies canary
-  // needs (Onulet dealt AND resolved to a battlefield AND dying) hit ZERO
-  // across all 500 seeds with every replay hash equal. D149's CR 616
-  // weighting, FOURTH instance of the rot these comments keep predicting.
-  'Yotian Dissident',
-  'Onulet', 'Onulet', 'Onulet', 'Onulet', 'Onulet',
-  // ⚠️ M6.3u/D148 — the CR 616 PAIR. Two replacements applying to ONE event is
-  // the only thing that suspends the funnel, so without both of these on one
-  // battlefield the continuation, its three parked queues, the prompt and the
-  // resume are unreachable from this gate entirely.
-  // ⚠️ FIVE COPIES OF EACH, re-weighted in D164: the rate was measured at 5
-  // per 500 seeds when this list held ~60 names and the pair sat in EVERY
-  // 60-card library. The canary's own comment said the counter "will start
-  // moving the day this deck changes" — it did, to ZERO, once four batches
-  // had nearly doubled the list and diluted the pair out of the libraries.
-  // Five copies make the pair reliably present AND reliably drawn, putting
-  // the expected rate an order of magnitude above the assertion's floor
-  // instead of a Poisson coin flip at it.
-  // ⚠️ FIFTEEN COPIES OF EACH (D180): a PAIR canary rots QUADRATICALLY —
-  // both cards must share one battlefield, so density decay hits the
-  // compound rate twice. Five copies each survived D164's ~250-name list;
-  // at ~500 names the gate read ZERO with every replay hash equal (the
-  // rounds either side measured the true rate at ~1–3 per 500). Tripling
-  // both marginals recovers ~9× the compound rate, back to an expectation
-  // comfortably above the floor. NINTH instance of the rot class, and the
-  // second re-weight of THIS canary — if it rots a third time, the honest
-  // fix is a canary-staples mechanism in the deck builder, not a fourth
-  // multiplication.
-  'Hardened Scales', 'Hardened Scales', 'Hardened Scales', 'Hardened Scales',
-  'Hardened Scales', 'Hardened Scales', 'Hardened Scales', 'Hardened Scales',
-  'Hardened Scales', 'Hardened Scales', 'Hardened Scales', 'Hardened Scales',
-  'Hardened Scales', 'Hardened Scales', 'Hardened Scales',
-  'Branching Evolution', 'Branching Evolution', 'Branching Evolution',
-  'Branching Evolution', 'Branching Evolution', 'Branching Evolution',
-  'Branching Evolution', 'Branching Evolution', 'Branching Evolution',
-  'Branching Evolution', 'Branching Evolution', 'Branching Evolution',
-  'Branching Evolution', 'Branching Evolution', 'Branching Evolution',
-  // ⚠️ M6.3v/D149 — the CR 613.8 DEPENDENCY pair, and neither card reaches the
-  // rule alone. `Kwende` reads a keyword that `Knighthood` grants, so which
-  // applies first decides whether Kwende applies AT ALL — the only shape in
-  // this engine's layer vocabulary where dependency is observable.
+  // M6.3c (D130): the permanent side of the counter effect, no vocabulary.
+  "Ajani's Pridemate",
+  // M6.3j (D137): the card that must NOT resolve by itself ("at random").
+  'Hymn to Tourach',
+  // M6.3v (D149): the CR 613.8 dependency pair — Kwende reads a keyword
+  // Knighthood grants, the only observable dependency in this vocabulary.
   'Knighthood', 'Kwende, Pride of Femeref',
-  // ⚠️ SUPPORT BODIES for shipped watchers — cards that are NOT scripts
-  // themselves but exist so a shipped filter has something real to catch:
-  // the werewolf for Cult of the Waxing Moon, a Zombie and a vanilla
-  // Merfolk for the chooser predicates and the tap-watcher, and the
-  // adventure creature for Edgewall Innkeeper (its counter clause made it
-  // engine-complete through the VOCABULARY, so it is not in
-  // `SHIPPED_SCRIPTS` and the derivation below would drop it).
+  // SUPPORT BODIES for shipped watchers — not scripts themselves; a shipped
+  // filter needs something real to catch, and the derivation cannot know
+  // that (Tuinvale is engine-complete through the VOCABULARY, so it is not
+  // in SHIPPED_SCRIPTS at all).
   'Duskwatch Recruiter // Krallenhorde Howler', 'Walking Corpse',
   'Merfolk of the Pearl Trident', 'Tuinvale Treefolk // Oaken Boon',
 ];
 
 /**
- * ⚠️ THE SHIPPED HALF OF THE DECK IS DERIVED, NOT HAND-LISTED (D188). The
- * per-batch name blocks that lived here restated what `SHIPPED_SCRIPTS`
- * already knows, and every hand list is a rot site — five broken-guard
- * incidents were all hand-list drift. `CORE` keeps what a derivation cannot
- * know: the mechanism cards, the canary staples with their DELIBERATE copy
- * weights (their comments above are the rot history), and the support
- * bodies. Everything scripted deals ONE copy unless CORE weights it.
+ * ⚠️⚠️ **ROTATING PER-SEED POOLS (D193).** The one DECK that dealt every
+ * shipped name to every seat made `checkInvariants` walk 4×|DECK| card
+ * instances per accepted intent — the measured wall (D167/D181: the bus is
+ * at the floor; the cost is the games and the walk). Every seat now holds
+ * FIXED_CORE, the full staples deal, and a round-robin WINDOW of the
+ * scripted names — per-seed libraries shrink from ~600 to ~150 while the
+ * RUN still covers every shipped script many times over.
  *
- * Sorted canonically so the deck is a pure function of the script list —
- * registration order must never decide a shuffle (D129 one seam over).
+ * The pool-membership invariant becomes three checked layers:
+ *   L1 — the set-math theorem below: the union of every seed's windows
+ *        covers every scripted name with multiplicity ≥ 2, at BOTH sizes;
+ *   L2 — the aggregate counters the gate already asserts;
+ *   L3 — the staples, in every pool by construction.
+ *
+ * ⚠️ PURE in (seed, seat, canonical sorted list) — registration order must
+ * never decide a shuffle (D129 one seam over), and the same seed must deal
+ * the same pool forever or replay breaks.
  */
-const CORE_NAMES: ReadonlySet<string> = new Set(CORE);
-const DECK = [
-  ...CORE,
-  ...SHIPPED_SCRIPTS.map((s) => s.name)
-    .filter((n) => !CORE_NAMES.has(n))
-    .sort(),
-];
+const CORE_NAMES: ReadonlySet<string> = new Set([...FIXED_CORE, ...STAPLE_NAMES]);
+const SCRIPTED_SORTED: readonly string[] = SHIPPED_SCRIPTS.map((s) => s.name)
+  .filter((n) => !CORE_NAMES.has(n))
+  .sort();
+/** Rotating slots per seat — 500 seeds × 4 seats × 40 = 80k slots per run. */
+const STRIDE = 40;
+
+function poolFor(seed: number, seat: number): readonly string[] {
+  const rotating: string[] = [];
+  if (SCRIPTED_SORTED.length > 0) {
+    const offset = (seed * 4 + seat) * STRIDE;
+    for (let k = 0; k < STRIDE; k++) {
+      rotating.push(SCRIPTED_SORTED[(offset + k) % SCRIPTED_SORTED.length] as string);
+    }
+  }
+  return [...FIXED_CORE, ...STAPLE_DEAL, ...rotating];
+}
 
 /**
  * ⚠️ THE FIRST NON-EMPTY REGISTRY THIS GATE HAS EVER RUN, and it is what makes
@@ -614,7 +543,7 @@ interface Run {
 
 function runOne(seed: number): Run {
   const p = picker(`fuzz-${seed}`);
-  const game = Game.create(makeSpec({ players: 4, seed: `fuzz-${seed}`, decks: [DECK, DECK, DECK, DECK], librarySize: 60 }), deps(SCRIPTS), {
+  const game = Game.create(makeSpec({ players: 4, seed: `fuzz-${seed}`, decks: [poolFor(seed, 0), poolFor(seed, 1), poolFor(seed, 2), poolFor(seed, 3)], librarySize: 60 }), deps(SCRIPTS), {
     checkInvariants: false,
   });
   let accepted = 0;
@@ -814,10 +743,35 @@ describe('the fuzz pool covers every shipped script', () => {
     expect(missing).toEqual([]);
   });
 
-  test('and its card is dealt in DECK', () => {
-    const dealt = new Set(DECK);
-    const missing = SHIPPED_SCRIPTS.filter((s) => !dealt.has(s.name)).map((s) => s.name);
-    expect(missing).toEqual([]);
+  test('L1 — the pools of a run cover every scripted name, at both sizes', () => {
+    // ⚠️ COMPUTED, never derived on paper — the modulo arithmetic is exactly
+    // where an off-by-one hides. What is asserted is the floor the gate
+    // needs: every scripted name dealt in ≥ 2 seats across the run, and
+    // every staple in EVERY pool at exactly its declared weight.
+    const counts = new Map<string, number>();
+    for (let seed = 0; seed < SEEDS; seed++) {
+      for (let seat = 0; seat < 4; seat++) {
+        for (const n of poolFor(seed, seat)) counts.set(n, (counts.get(n) ?? 0) + 1);
+      }
+    }
+    const under = SCRIPTED_SORTED.filter((n) => (counts.get(n) ?? 0) < 2);
+    expect(under).toEqual([]);
+    for (const s of CANARY_STAPLES) {
+      for (const n of s.names) expect(counts.get(n) ?? 0).toBe(SEEDS * 4 * s.copiesPerSeat);
+    }
+  });
+
+  test('the staples table is sound: every staple resolves in the oracle', () => {
+    // A typo'd staple is a SILENT BLANK (D133's lesson for tokens, the same
+    // failure one layer up) — makeSpec would throw at game creation, but this
+    // names the bad entry directly.
+    for (const s of CANARY_STAPLES) {
+      for (const n of s.names) {
+        expect(ORACLE.byName(n), `staple ${n} does not resolve in the oracle`).toBeDefined();
+      }
+      expect(s.counterKeys.length).toBeGreaterThan(0);
+      expect(s.copiesPerSeat).toBeGreaterThan(0);
+    }
   });
 
   /**
@@ -828,7 +782,7 @@ describe('the fuzz pool covers every shipped script', () => {
    * `KNIGHTHOOD_SCRIPT`’s card is not, so one half fires and the other does not.
    */
   test('and the checks have teeth', () => {
-    const dealt = new Set(DECK);
+    const dealt = new Set(poolFor(0, 0));
     expect(SCRIPTS.get(AJANIS_MANTRA.oracleId)).toBeDefined();
     expect(dealt.has(AJANIS_MANTRA.name)).toBe(true);
     // ⚠️ A script whose card this gate does NOT deal — the failure the second
@@ -1091,7 +1045,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
   test('a fuzzed game never leaks a library into any projection', () => {
     const p = picker('leak');
     const game = Game.create(
-      makeSpec({ players: 4, seed: 'leak', decks: [DECK, DECK, DECK, DECK], librarySize: 60 }),
+      makeSpec({ players: 4, seed: 'leak', decks: [poolFor(0, 0), poolFor(0, 1), poolFor(0, 2), poolFor(0, 3)], librarySize: 60 }),
       deps(SCRIPTS),
       { checkInvariants: false },
     );
@@ -1137,7 +1091,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
   test('a fuzzed game rewinds to any point and still replays', () => {
     const p = picker('rewind');
     const game = Game.create(
-      makeSpec({ players: 4, seed: 'rewind', decks: [DECK, DECK, DECK, DECK], librarySize: 60 }),
+      makeSpec({ players: 4, seed: 'rewind', decks: [poolFor(0, 0), poolFor(0, 1), poolFor(0, 2), poolFor(0, 3)], librarySize: 60 }),
       deps(SCRIPTS),
       { checkInvariants: false },
     );
