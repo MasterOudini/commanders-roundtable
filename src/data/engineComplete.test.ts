@@ -33,6 +33,12 @@ const COMPLETE: readonly [string, CardData][] = [
   // one. The pinned negative example becoming a positive is the coverage
   // number moving at fixture level.
   ['Dark Ritual', fx.DARK_RITUAL],
+  // ⚠️ And two more pinned negatives became positives in D196 — Swords to
+  // Plowshares ('the exile is understood; the life gain is not') and Wrath
+  // of God ('destroy ALL, which the vocabulary does not read'). Both true of
+  // the vocabulary to this day; both cards run through SpellDefs now.
+  ['Swords to Plowshares', fx.SWORDS_TO_PLOWSHARES],
+  ['Wrath of God', fx.WRATH_OF_GOD],
   // ⚠️ D116's two board-resolved scopes. `landsYou`/`landsOpponents` are
   // expanded at solve time exactly as `identity` is, so they are not
   // conditional and the bot may hold them.
@@ -245,8 +251,6 @@ const INCOMPLETE: readonly [string, CardData, string][] = [
   ['Ancient Tomb', fx.ANCIENT_TOMB, 'the mana is fine; the 2 damage on the SAME LINE is not'],
   ['Boros Garrison', fx.BOROS_GARRISON, 'enters tapped, which applyReplacements does not do'],
   ['Cultivate', fx.CULTIVATE, 'a sorcery searching a library — outside the closed vocabulary'],
-  ['Swords to Plowshares', fx.SWORDS_TO_PLOWSHARES, 'the exile is understood; the life gain is not'],
-  ['Wrath of God', fx.WRATH_OF_GOD, 'destroy ALL, which the vocabulary does not read'],
   ['Grist, the Hunger Tide', fx.GRIST_THE_HUNGER_TIDE, 'loyalty abilities'],
   ['Avacyn, Angel of Hope', fx.AVACYN_ANGEL_OF_HOPE, 'a static ability granting indestructible'],
 ];

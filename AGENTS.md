@@ -5292,6 +5292,49 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the next 25-batch runs on the 2,191 pool.
 
 
+- [x] **M6.4ak — seventeen landed: the night's seams become card
+      vocabulary (2026-08-20):** **2,424 of 31,692 Commander-legal cards now
+      execute completely, up from 2,407.** `SHIPPED_SCRIPTS` 540; the
+      ledger holds 107. All 48 tests green on the FIRST run — the sixth
+      consecutive first-run-clean batch. Decisions in **D196**.
+      **The composition proofs:** `Temple of Malice`/`Zhalfirin Void` —
+      the first SCRY TRIGGERS (a TriggerDef resolve emits D195's
+      reveal-then-ask pair; the handler cares only about `revealedTo`);
+      `A.I.M. Synthoids` the ETB surveil; `Doom Whisperer` = D165's life
+      cost + the surveil ask; `Advance Scout`/`Spearbreaker Behemoth` —
+      the first ACTIVATED consumers of D194's rider, and **Spearbreaker's
+      test proves the night composes: a GRANTED indestructible survives a
+      scripted Wrath of God** (the wipes ask the derived set).
+      **More firsts:** the NAME predicate (Accumulated Knowledge counts its
+      kin across ALL graveyards via `ctx.oracle`); the hand REVEAL
+      (Gitaxian Probe — looking is not choosing, the Duress class stays
+      refused); the wheel (whole hands are choiceless discards, sevens
+      through THE draw rule); the board-computed X pump; the SUBTYPE wipe
+      (Dryad Arbor dies as a Forest); per-player land-count burn; the
+      D139-floored bottom-of-library removal.
+      ⚠️ **Three pinned negatives became positives** — Swords to
+      Plowshares and Wrath of God joined Dark Ritual in the fixture
+      COMPLETE list: still true of the vocabulary, obsolete about the
+      engine.
+      ⚠️ **Eight refusals, THREE new classes:** the UEOT power/toughness
+      SWITCH (About Face), the QUOTED-ABILITY temporary grant (Abnormal
+      Endurance), CONDITIONAL MANA PRODUCTION (The Grey Havens — a mana
+      ability cannot be an ActivatedDef, CR 605). Plus cast-time
+      alternative, mana persistence, play-from-exile, ctx.random,
+      ability-word cost.
+      Fixtures 745 · botPool 1,533/339/188/259 · ladder [2627, 2726, 4519,
+      6433, 7645] · `batch.json` 2,166 (exact) · botDeck: Acidic Soil,
+      Doom Whisperer, Accelerated Mutation join (Adun 1,347).
+      **Verified: `verify.cjs --full` — ALL FIVE GATES:
+      615 files, 3,893 passed / 10 skipped · 500-seed
+      gate 976.9 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D196): the scry-trigger shape is a family-table
+      candidate (dozens of scry lands print the same two lines); the
+      UEOT-switch and quoted-ability grants join the temp-grant tail;
+      conditional mana production named; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

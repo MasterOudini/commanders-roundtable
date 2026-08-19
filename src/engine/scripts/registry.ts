@@ -7,6 +7,23 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { TERMINATE_SCRIPT } from './cards/terminate';
+import { WRATH_OF_GOD_SCRIPT } from './cards/wrathOfGod';
+import { WAVE_OF_RECKONING_SCRIPT } from './cards/waveOfReckoning';
+import { SWORDS_TO_PLOWSHARES_SCRIPT } from './cards/swordsToPlowshares';
+import { ETERNAL_ISOLATION_SCRIPT } from './cards/eternalIsolation';
+import { ACID_RAIN_SCRIPT } from './cards/acidRain';
+import { ACIDIC_SOIL_SCRIPT } from './cards/acidicSoil';
+import { ACCUMULATED_KNOWLEDGE_SCRIPT } from './cards/accumulatedKnowledge';
+import { GITAXIAN_PROBE_SCRIPT } from './cards/gitaxianProbe';
+import { WHEEL_OF_FORTUNE_SCRIPT } from './cards/wheelOfFortune';
+import { ACCELERATED_MUTATION_SCRIPT } from './cards/acceleratedMutation';
+import { TEMPLE_OF_MALICE_SCRIPT } from './cards/templeOfMalice';
+import { ZHALFIRIN_VOID_SCRIPT } from './cards/zhalfirinVoid';
+import { ADVANCE_SCOUT_SCRIPT } from './cards/advanceScout';
+import { SPEARBREAKER_BEHEMOTH_SCRIPT } from './cards/spearbreakerBehemoth';
+import { DOOM_WHISPERER_SCRIPT } from './cards/doomWhisperer';
+import { AIM_SYNTHOIDS_SCRIPT } from './cards/aimSynthoids';
 import { DARK_RITUAL_SCRIPT } from './cards/darkRitual';
 import { PYRETIC_RITUAL_SCRIPT } from './cards/pyreticRitual';
 import { SEETHING_SONG_SCRIPT } from './cards/seethingSong';
@@ -644,6 +661,23 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  TERMINATE_SCRIPT,
+  WRATH_OF_GOD_SCRIPT,
+  WAVE_OF_RECKONING_SCRIPT,
+  SWORDS_TO_PLOWSHARES_SCRIPT,
+  ETERNAL_ISOLATION_SCRIPT,
+  ACID_RAIN_SCRIPT,
+  ACIDIC_SOIL_SCRIPT,
+  ACCUMULATED_KNOWLEDGE_SCRIPT,
+  GITAXIAN_PROBE_SCRIPT,
+  WHEEL_OF_FORTUNE_SCRIPT,
+  ACCELERATED_MUTATION_SCRIPT,
+  TEMPLE_OF_MALICE_SCRIPT,
+  ZHALFIRIN_VOID_SCRIPT,
+  ADVANCE_SCOUT_SCRIPT,
+  SPEARBREAKER_BEHEMOTH_SCRIPT,
+  DOOM_WHISPERER_SCRIPT,
+  AIM_SYNTHOIDS_SCRIPT,
   DARK_RITUAL_SCRIPT,
   PYRETIC_RITUAL_SCRIPT,
   SEETHING_SONG_SCRIPT,

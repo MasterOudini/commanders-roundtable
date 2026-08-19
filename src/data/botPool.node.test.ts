@@ -431,10 +431,10 @@ const POOL: Record<string, number> = {
   // Letter of Acceptance.
   // M6.4ac (D185): +12 creatures, +1 land, and TWO enchantments (Makeshift
   // Munitions, Malevolent Awakening) — the pool reads THIRTY.
-  creature: 1529,
-  instant: 335,
-  sorcery: 181,
-  land: 257,
+  creature: 1533,
+  instant: 339,
+  sorcery: 188,
+  land: 259,
   artifact: 75,
   enchantment: 30,
 };

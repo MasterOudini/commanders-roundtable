@@ -328,6 +328,23 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Stinging Study', 'script-raised prompt'],
   ['Bedevil', 'spell target parse (noun list)'],
   ['Fall of the Hammer', 'spell target parse (second clause)'],
+  // Batch M6.4ak (D196) — eight refusals, THREE new classes. About Face
+  // needs an until-end-of-turn power/toughness SWITCH, which the carrier
+  // does not hold (it carries deltas and keywords — a switch is neither);
+  // Abnormal Endurance GRANTS A QUOTED TRIGGERED ABILITY for the turn,
+  // which is the temporary-grant class beyond keywords entirely; The Grey
+  // Havens' second mana ability is CONDITIONAL PRODUCTION (any color among
+  // legendary creatures in graveyards) — a mana ability cannot be an
+  // ActivatedDef (CR 605: it does not use the stack), so the parse gap is
+  // the card's real blocker. The rest are standing classes.
+  ['Deadly Rollick', 'cast-time alternative cost'],
+  ['About Face', 'until-end-of-turn power/toughness switch'],
+  ['The Last Agni Kai', 'rule-changing (mana persistence)'],
+  ['Act on Impulse', 'play-from-exile permission'],
+  ["Animist's Awakening", 'ctx.random'],
+  ['The Grey Havens', 'conditional mana production'],
+  ['Towering Viewpoint', 'ability-word activated cost'],
+  ['Abnormal Endurance', 'temporary non-keyword ability grant'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

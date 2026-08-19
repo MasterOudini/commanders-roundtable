@@ -1916,40 +1916,6 @@ export const FIGURE_OF_DESTINY: CardData = {
   "singleImage": true
 };
 
-export const GITAXIAN_PROBE: CardData = {
-  "scryfallId": "1fbb4493-23db-4c91-a3e0-17b139f5d00f",
-  "oracleId": "1d67f5ff-1fce-45e5-b6a1-416c569351e2",
-  "name": "Gitaxian Probe",
-  "layout": "normal",
-  "faces": [
-    {
-      "name": "Gitaxian Probe",
-      "manaCost": "{U/P}",
-      "typeLine": "Sorcery",
-      "oracleText": "({U/P} can be paid with either {U} or 2 life.)\nLook at target player's hand.\nDraw a card.",
-      "flavorText": null,
-      "power": null,
-      "toughness": null,
-      "loyalty": null,
-      "defense": null,
-      "colors": [
-        "U"
-      ],
-      "artist": "Pedro Correa",
-      "imageId": "1fbb4493-23db-4c91-a3e0-17b139f5d00f"
-    }
-  ],
-  "colorIdentity": [
-    "U"
-  ],
-  "cmc": 1,
-  "keywords": [],
-  "setCode": "sld",
-  "collectorNumber": "2067",
-  "commanderLegality": "legal",
-  "singleImage": true
-};
-
 export const FIRE_ICE: CardData = {
   "scryfallId": "04cb4e4e-8275-4132-8f1a-84b486725400",
   "oracleId": "ae92942b-919c-4ea9-b693-85fcef765d5a",
@@ -22901,6 +22867,523 @@ export const CONSIDER: CardData = {
   "singleImage": true
 };
 
+export const TERMINATE: CardData = {
+  "scryfallId": "0476ea45-ee6d-41c6-93b8-50f92cb37b78",
+  "oracleId": "6257c2fd-005f-41e3-8a72-af76df1eb134",
+  "name": "Terminate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Terminate",
+      "manaCost": "{B}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature. It can't be regenerated.",
+      "flavorText": "Like his mother before him, Darigaaz gave his life defending Dominaria from the tyranny of self-styled \"gods.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "DiTerlizzi",
+      "imageId": "0476ea45-ee6d-41c6-93b8-50f92cb37b78"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dmc",
+  "collectorNumber": "172",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WAVE_OF_RECKONING: CardData = {
+  "scryfallId": "0b101b5e-d478-4686-b3cf-bdc545f089e5",
+  "oracleId": "24f7143c-d43a-4120-baa0-0235b15d8186",
+  "name": "Wave of Reckoning",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wave of Reckoning",
+      "manaCost": "{4}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each creature deals damage to itself equal to its power.",
+      "flavorText": "Inner conflict can defeat a soldier more quickly than any army.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Bradley Williams",
+      "imageId": "0b101b5e-d478-4686-b3cf-bdc545f089e5"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "56",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ACID_RAIN: CardData = {
+  "scryfallId": "13281377-6d16-4ed3-8aa6-c47d6eb783df",
+  "oracleId": "6ae3c3a2-bd17-4fea-ae27-9d2d1eaf8cc0",
+  "name": "Acid Rain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Acid Rain",
+      "manaCost": "{3}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all Forests.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "NéNé Thomas",
+      "imageId": "13281377-6d16-4ed3-8aa6-c47d6eb783df"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "me4",
+  "collectorNumber": "36",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ACIDIC_SOIL: CardData = {
+  "scryfallId": "790157c9-b1ed-4da5-9d50-e99e0dd807b7",
+  "oracleId": "4ccc1ac5-db90-4fc9-9795-7afaf7466c3e",
+  "name": "Acidic Soil",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Acidic Soil",
+      "manaCost": "{2}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Acidic Soil deals damage to each player equal to the number of lands they control.",
+      "flavorText": "Phyrexia had tried to take Urza's soul. He was relieved that Shiv tried to claim only his soles.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Scott M. Fischer",
+      "imageId": "790157c9-b1ed-4da5-9d50-e99e0dd807b7"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "usg",
+  "collectorNumber": "172",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ACCUMULATED_KNOWLEDGE: CardData = {
+  "scryfallId": "1aca74e7-33f7-4729-884b-702a5cfb01d4",
+  "oracleId": "1ca25379-d194-4670-a7bf-525ad11cf436",
+  "name": "Accumulated Knowledge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Accumulated Knowledge",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Draw a card, then draw cards equal to the number of cards named Accumulated Knowledge in all graveyards.",
+      "flavorText": "\"I have seen and heard much here. There are secrets within secrets. Let me show you.\"\n—Takara, to Eladamri",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "1aca74e7-33f7-4729-884b-702a5cfb01d4"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "prm",
+  "collectorNumber": "36182",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GITAXIAN_PROBE: CardData = {
+  "scryfallId": "1fbb4493-23db-4c91-a3e0-17b139f5d00f",
+  "oracleId": "1d67f5ff-1fce-45e5-b6a1-416c569351e2",
+  "name": "Gitaxian Probe",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gitaxian Probe",
+      "manaCost": "{U/P}",
+      "typeLine": "Sorcery",
+      "oracleText": "({U/P} can be paid with either {U} or 2 life.)\nLook at target player's hand.\nDraw a card.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Pedro Correa",
+      "imageId": "1fbb4493-23db-4c91-a3e0-17b139f5d00f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "2067",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WHEEL_OF_FORTUNE: CardData = {
+  "scryfallId": "2597050f-6b1b-474e-aa16-33fd154628ca",
+  "oracleId": "a8abd966-de7b-46a3-8ac7-8747ab35653a",
+  "name": "Wheel of Fortune",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wheel of Fortune",
+      "manaCost": "{2}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each player discards their hand, then draws seven cards.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "John Matson",
+      "imageId": "2597050f-6b1b-474e-aa16-33fd154628ca"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "vma",
+  "collectorNumber": "192",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ACCELERATED_MUTATION: CardData = {
+  "scryfallId": "282f808c-0b58-4b98-aeda-f606a10d1a4b",
+  "oracleId": "f8a9c279-0f11-4a22-8651-f9caf013ca3c",
+  "name": "Accelerated Mutation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Accelerated Mutation",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +X/+X until end of turn, where X is the greatest mana value among permanents you control.",
+      "flavorText": "Its food just got a lot smaller and its stomach a lot bigger.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "282f808c-0b58-4b98-aeda-f606a10d1a4b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "scg",
+  "collectorNumber": "109",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPLE_OF_MALICE: CardData = {
+  "scryfallId": "06c0383a-ad82-4a22-8f55-2613048e3275",
+  "oracleId": "7c439c18-31dc-41fe-b03d-3fca06e6fc0b",
+  "name": "Temple of Malice",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temple of Malice",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {B} or {R}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jonas De Ro",
+      "imageId": "06c0383a-ad82-4a22-8f55-2613048e3275"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "dsc",
+  "collectorNumber": "310",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ZHALFIRIN_VOID: CardData = {
+  "scryfallId": "5d1851b2-c291-41ac-8985-e72988de1dbe",
+  "oracleId": "13aab4fc-4c89-45e6-8275-b074b00d0ee9",
+  "name": "Zhalfirin Void",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Zhalfirin Void",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "When this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {C}.",
+      "flavorText": "\"The wind whispers, 'come home,' but I cannot.\"\n—Teferi",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "John Avon",
+      "imageId": "5d1851b2-c291-41ac-8985-e72988de1dbe"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "pdom",
+  "collectorNumber": "249",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ADVANCE_SCOUT: CardData = {
+  "scryfallId": "81ce7e1e-ffe5-4ced-8967-9a6917245240",
+  "oracleId": "831e2185-0bb2-45bb-99cd-d2091bad86f0",
+  "name": "Advance Scout",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Advance Scout",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Soldier Scout",
+      "oracleText": "First strike\n{W}: Target creature gains first strike until end of turn.",
+      "flavorText": "\"The soldier's path is worn smooth by the tread of many feet—all in one direction, none returning.\"\n—Oracle *en*-Vec",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "81ce7e1e-ffe5-4ced-8967-9a6917245240"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "First strike"
+  ],
+  "setCode": "tmp",
+  "collectorNumber": "1",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DOOM_WHISPERER: CardData = {
+  "scryfallId": "0a11ee0d-ff8d-4648-8b4e-29440c135c30",
+  "oracleId": "4a01db2e-cd43-4b1a-a480-169018f82501",
+  "name": "Doom Whisperer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Doom Whisperer",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Creature — Nightmare Demon",
+      "oracleText": "Flying, trample\nPay 2 life: Surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": "The sound of every twisted secret tempts you to hear another.",
+      "power": "6",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Vincent Proce",
+      "imageId": "0a11ee0d-ff8d-4648-8b4e-29440c135c30"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying",
+    "Surveil",
+    "Trample"
+  ],
+  "setCode": "grn",
+  "collectorNumber": "69",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TOWERING_VIEWPOINT: CardData = {
+  "scryfallId": "c6e84b05-15fe-4335-a5fd-a26d1905f313",
+  "oracleId": "46c404c3-636a-4945-a61c-62f013a9c50f",
+  "name": "Towering Viewpoint",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Towering Viewpoint",
+      "manaCost": "{2}",
+      "typeLine": "Artifact Creature — Wall",
+      "oracleText": "Defender, reach\nLeap of Faith — {3}: Target creature gains flying until end of turn.",
+      "flavorText": "The leap of faith is a sacred rite of the Assassins—it strengthens their resolve and purges fear from their hearts.",
+      "power": "0",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Lixin Yin",
+      "imageId": "c6e84b05-15fe-4335-a5fd-a26d1905f313"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Reach",
+    "Leap of Faith",
+    "Defender"
+  ],
+  "setCode": "acr",
+  "collectorNumber": "263",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const A_I_M_SYNTHOIDS: CardData = {
+  "scryfallId": "f29dee50-ea7e-4a54-bc91-99928a8405e3",
+  "oracleId": "10916f33-aaa6-43a1-9835-b60fd061161f",
+  "name": "A.I.M. Synthoids",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "A.I.M. Synthoids",
+      "manaCost": "{2}",
+      "typeLine": "Artifact Creature — Robot Villain",
+      "oracleText": "When this creature enters, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": "\"M.O.D.O.K.—commands—that—you—be—neutralized! Nothing—must—interfere—with—our—programmed—mission!\"",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Alexander Skripnikov",
+      "imageId": "f29dee50-ea7e-4a54-bc91-99928a8405e3"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "msh",
+  "collectorNumber": "242",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const READ_THE_BONES: CardData = {
+  "scryfallId": "0975e578-cd4e-43fa-800c-c38e6cd1248a",
+  "oracleId": "5bf4d8d9-a2b2-4dba-ac05-9d4470a89db2",
+  "name": "Read the Bones",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Read the Bones",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Scry 2, then draw two cards. You lose 2 life. (To scry 2, look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": "The dead know lessons the living haven't learned.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Lars Grant-West",
+      "imageId": "0975e578-cd4e-43fa-800c-c38e6cd1248a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "ddp",
+  "collectorNumber": "56",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -25337,7 +25820,6 @@ export const ENGINE_CARDS: CardData[] = [
   SEDGEMOOR_WITCH,
   DELVER_OF_SECRETS_INSECTILE_ABERRATION,
   FIGURE_OF_DESTINY,
-  GITAXIAN_PROBE,
   FIRE_ICE,
   WEAR_TEAR,
   SHORIKAI_GENESIS_ENGINE,
@@ -25944,6 +26426,21 @@ export const ENGINE_CARDS: CardData[] = [
   OPT,
   PREORDAIN,
   CONSIDER,
+  TERMINATE,
+  WAVE_OF_RECKONING,
+  ACID_RAIN,
+  ACIDIC_SOIL,
+  ACCUMULATED_KNOWLEDGE,
+  GITAXIAN_PROBE,
+  WHEEL_OF_FORTUNE,
+  ACCELERATED_MUTATION,
+  TEMPLE_OF_MALICE,
+  ZHALFIRIN_VOID,
+  ADVANCE_SCOUT,
+  DOOM_WHISPERER,
+  TOWERING_VIEWPOINT,
+  A_I_M_SYNTHOIDS,
+  READ_THE_BONES,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

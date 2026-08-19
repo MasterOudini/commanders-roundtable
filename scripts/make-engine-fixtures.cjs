@@ -66,8 +66,7 @@ const WANTED = [
   'Twinblade Slasher', 'Tyrranax Rex', 'Bloated Contaminator',
   'Sedgemoor Witch',
   // odd shapes the parser has to survive
-  'Delver of Secrets // Insectile Aberration', 'Figure of Destiny',
-  'Gitaxian Probe', 'Fire // Ice', 'Wear // Tear', 'Shorikai, Genesis Engine',
+  'Delver of Secrets // Insectile Aberration', 'Figure of Destiny', 'Fire // Ice', 'Wear // Tear', 'Shorikai, Genesis Engine',
   // spells
   'Lightning Bolt', 'Counterspell', 'Cultivate', 'Swords to Plowshares',
   'Pacifism', 'Wrath of God', 'Brainstorm', 'Dark Ritual',
@@ -1000,6 +999,27 @@ const WANTED = [
   'Opt',
   'Preordain',
   'Consider',
+  // M6.4ak (D196) - the first scry-TRIGGER lands, the D194-consuming
+  // activated grants, the wrath/self-damage twins, and the batch's spells.
+  'Terminate',
+  'Wave of Reckoning',
+  'Acid Rain',
+  'Acidic Soil',
+  'Accumulated Knowledge',
+  'Gitaxian Probe',
+  'Wheel of Fortune',
+  'Accelerated Mutation',
+  'Temple of Malice',
+  'Zhalfirin Void',
+  'Advance Scout',
+  'Doom Whisperer',
+  'Towering Viewpoint',
+  'A.I.M. Synthoids',
+  // D196 also: the assisted-spell EXAMPLE for tier3.test.ts — Swords to
+  // Plowshares held that post until it SHIPPED, and Read the Bones is the
+  // ask-not-last guard's own child (D195): scry-then-draw understood, the
+  // life loss after the ask keeps it assisted.
+  'Read the Bones',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

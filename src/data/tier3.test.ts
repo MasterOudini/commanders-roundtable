@@ -207,9 +207,14 @@ describe('a permanent’s text, which the app does not run', () => {
     // ⚠️ A regression guard rather than a new claim: `auto` stays silent,
     // `assisted` still offers its half, and a manual spell still owns "Its
     // effect". D122 added a branch for permanents alone.
+    // ⚠️ Swords to Plowshares held the `assisted` post until it SHIPPED
+    // (D196) and is silent now; Read the Bones took over — the ask-not-last
+    // guard's own child (D195): scry-then-draw is understood, and the life
+    // loss AFTER the ask keeps it honestly assisted.
     expect(what(C.LIGHTNING_BOLT)).toEqual([]);
     expect(what(C.COUNTERSPELL)).toEqual([]);
-    expect(what(C.SWORDS_TO_PLOWSHARES)).toEqual(['Part of its effect']);
+    expect(what(C.SWORDS_TO_PLOWSHARES)).toEqual([]);
+    expect(what(C.READ_THE_BONES)).toEqual(['Part of its effect']);
     expect(what(C.CULTIVATE)).toEqual(['Its effect']);
   });
 

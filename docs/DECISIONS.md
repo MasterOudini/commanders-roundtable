@@ -13344,3 +13344,62 @@ where that marker should be emitted when it lands; Brainstorm,
 Electrodominance and Stinging Study stay ledgered (hand-side choose,
 free-cast, chooseOption — different prompts); the scry family's
 remaining tail is spells with riders the vocabulary does not read yet.
+
+
+## D196 — M6.4ak: seventeen landed — the night's seams become card vocabulary (2026-08-20)
+
+**What was decided:** the first batch AFTER the night's three engine
+landings, and it is the proof they compose. Seventeen of 25 landed; all 48
+tests green on the first run — the SIXTH consecutive first-run-clean batch.
+
+**The firsts:** `Temple of Malice` and `Zhalfirin Void` are the first SCRY
+TRIGGERS — a TriggerDef's resolve emits the same reveal-then-ask pair the
+D195 effect emits, and the handler cares only about `revealedTo`, so
+nothing new was built; `A.I.M. Synthoids` is the ETB SURVEIL on a
+creature; `Doom Whisperer` composes D165's life cost with the surveil ask
+(a repeatable engine-charged graveyard-filler); `Advance Scout` and
+`Spearbreaker Behemoth` are the first ACTIVATED consumers of D194's
+keyword rider — and Spearbreaker's test is the composition proof of the
+whole night: **a GRANTED indestructible survives a scripted Wrath of God**,
+because the wipes ask the derived keyword set. `Accumulated Knowledge` is
+the first NAME predicate (counting its own kin across ALL graveyards
+through `ctx.oracle`); `Gitaxian Probe` the first hand REVEAL (the whole
+target hand `revealedTo` the caster, nobody else — looking is not
+choosing, which is why the Duress class stays refused); `Wheel of Fortune`
+the first wheel (whole hands are choiceless discards, CR 701.8a; every
+seven comes through THE draw rule); `Accelerated Mutation` the first
+board-computed X pump; `Acid Rain` the first SUBTYPE wipe (Dryad Arbor
+dies as a Forest — derived); `Acidic Soil` per-player land-count burn.
+Plus `Terminate`, `Wrath of God`, `Wave of Reckoning`, `Swords to
+Plowshares` (the exile pays the CONTROLLER its derived power) and
+`Eternal Isolation` (D139's floor at the aim, the bottom placement).
+
+⚠️ **THREE PINNED NEGATIVES BECAME POSITIVES**: Swords to Plowshares
+('the exile is understood; the life gain is not') and Wrath of God
+('destroy ALL, which the vocabulary does not read') joined Dark Ritual in
+the fixture COMPLETE list — statements still true of the vocabulary,
+obsolete about the ENGINE.
+
+**Eight refusals, THREE new classes:** `About Face` (an until-end-of-turn
+power/toughness SWITCH — the carrier holds deltas and keywords, a switch
+is neither), `Abnormal Endurance` (granting a QUOTED TRIGGERED ABILITY
+for the turn — the temporary-grant class beyond keywords entirely),
+`The Grey Havens` (CONDITIONAL MANA PRODUCTION — a mana ability cannot be
+an ActivatedDef, CR 605: it does not use the stack, so the parse gap is
+the real blocker). Plus cast-time alternative cost (Deadly Rollick),
+rule-changing mana persistence (The Last Agni Kai), play-from-exile
+(Act on Impulse), ctx.random (Animist's Awakening), ability-word cost
+(Towering Viewpoint — D178's class). The ledger holds **107**.
+
+**Numbers:** `complete` 2,424 (2,407 + 17); `SHIPPED_SCRIPTS` 540;
+fixtures 745; botPool creature 1,533 / instant 339 / sorcery 188 / land
+259; ladder [2627, 2726, 4519, 6433, 7645]; `batch.json` at **2,166**
+(2,191 − 17 − 8, exact); tier3 silentAfter 2,836. ⚠️ **Acidic Soil,
+Doom Whisperer and Accelerated Mutation joined the bot's deck** (Adun
+reaches 1,347).
+
+**Reportables:** the UEOT-switch carrier and the quoted-ability grant
+join the temp-grant family's named tail; conditional mana production is
+now a class with a name (the D124 mana-note family's engine half); the
+scry-trigger shape is a FAMILY-TABLE candidate (dozens of scry lands
+print the same two lines); prior items stand.
