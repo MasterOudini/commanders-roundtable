@@ -758,9 +758,11 @@ function applyBody(state: GameState, body: EventBody): GameState {
 
     case 'OptionalTriggerAnswered':
     case 'EntersChoiceAnswered':
+    case 'DrewCards':
       // A marker for the log and the animation stream, like
       // `StateBasedActionsApplied`; what the answer DID travels as its own
-      // events in the same batch.
+      // events in the same batch. (`DrewCards` marks a REAL draw beside its
+      // `CardsMoved` — the trigger bus's discriminator, D189.)
       return state;
 
     // ── combat ───────────────────────────────────────────────────────────

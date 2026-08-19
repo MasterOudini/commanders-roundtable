@@ -236,7 +236,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hand of Justice', 'tap-creatures cost'],
   ['Hardened Tactician', 'token-predicate sacrifice cost'],
   ['Hatchet Bully', 'put-counter cost'],
-  ['Horizon Chimera', 'draw-event discriminator'],
+  // (Horizon Chimera's draw-event-discriminator entry DRAINED here when
+  // D189's `DrewCards` + D190's per-item fan-out shipped it — the
+  // stale-refusal guard working as designed.)
   // Batch 22 (D180): three existing classes and TWO new ones. `Icebind
   // Pillar` pays {S} — the engine has NO snow-source concept anywhere in
   // payment or mana, so charging the {T} without the {S} would be
@@ -340,18 +342,21 @@ async function select(): Promise<Candidate[]> {
     // primitive is not draftable today whatever its text looks like.
     if (p.needs.size !== 1 || !p.needs.has('scriptable')) continue;
 
-    // ⚠️ TWO SHAPES THE NEEDS COLUMN CANNOT SEE, both found by handing them to
-    // a drafter (D160, D161). A SPELL face outside the effect vocabulary is
-    // "scriptable" by lines and unlandable in fact — `CardScript` has no spell
-    // seam; a spell executes through the vocabulary or not at all. And a
-    // target spec with an UNREAD or UNENFORCED clause fails `faceCompleteness`
-    // whatever a script claims, so the gate would refuse the landed card
-    // ("attacking or blocking" cost this batch two drafts). Both are asked of
-    // the parsers that decide them, never re-read here.
+    // ⚠️ SHAPES THE NEEDS COLUMN CANNOT SEE, found by handing them to a
+    // drafter (D160, D161). A target spec with an UNREAD or UNENFORCED clause
+    // fails `faceCompleteness` whatever a script claims, so the gate would
+    // refuse the landed card ("attacking or blocking" cost a batch two
+    // drafts). Asked of the parsers that decide them, never re-read here.
+    //
+    // ⚠️ SPELLS ARE OFFERABLE SINCE D187 — `SpellDef` exists and the seam in
+    // `resolveTop` runs a whole-spell script, so the D161 "no spells" filter
+    // is GONE. What stays refused is a MULTI-FACE card with a spell face:
+    // SpellDef v1 is single-faced (no face-keyed ref yet), so a split or
+    // adventure half would land on the wrong face — D187's own reportable.
     let landable = true;
     for (let i = 0; i < card.faces.length; i++) {
       const face = parseFace(card, i);
-      if (!face.isPermanent && face.effectMode !== 'auto') landable = false;
+      if (!face.isPermanent && card.faces.length > 1) landable = false;
       const specs = [...face.targets, ...face.activated.flatMap((a) => a.targets)];
       if (specs.some((s) => s.kinds.length === 0 || s.unenforced.length > 0)) landable = false;
     }

@@ -97,6 +97,26 @@ export interface TriggerDef {
    */
   readonly targets?: readonly TargetSpec[];
   /**
+   * PER-ITEM FAN-OUT (D190) — the granularity family's unlock. The bus fires
+   * a def once per matching EVENT, and several event kinds BATCH their items
+   * (`CombatDamageDealt` batches every creature's damage, `PermanentsTapped`
+   * every tap, `AttackersDeclared` every attacker, `DrewCards` every card) —
+   * so per-item wording ("whenever a creature you control deals combat
+   * damage to a player", "whenever you draw a card") UNDER-FIRED and was
+   * refused outright (Aya's D163 class, met again in D172, D185, D186).
+   *
+   * When present, and after `matches` accepts the event, the bus creates ONE
+   * `PendingTrigger` PER returned instance id, each carrying that id as
+   * `item` — which rides the stack object into `resolve` (`obj.item`). An
+   * empty return fires nothing. The ids are returned in the EVENT's own item
+   * order, so the trigger sequence is deterministic and replays.
+   *
+   * ⚠️ Omit it for self-only filters, per-creature entries and printed "one
+   * or more" wordings — each of those matches its batch by construction
+   * (D185's list), and fanning them out would OVER-fire instead.
+   */
+  readonly perItem?: (ctx: ScriptCtx, self: InstanceId, ev: EventBody) => readonly InstanceId[];
+  /**
    * CR 603.10a — this trigger LOOKS BACK IN TIME.
    *
    * ⚠️ A "dies" or "leaves the battlefield" trigger is the case, and without
@@ -233,6 +253,39 @@ export interface ActivatedDef {
   resolve(ctx: ScriptCtx, self: InstanceId, obj: StackObject): readonly EventBody[];
 }
 
+/**
+ * The whole-spell resolution of an INSTANT or SORCERY — the seam D160 named
+ * as the largest structural gap: `select.cjs` hands out spells and, until
+ * this, `CardScript` had nowhere to put one.
+ *
+ * Consulted by `resolveTop` for a resolving spell whose oracleId carries a
+ * def, BEFORE `effectParse`'s vocabulary — exactly one of the two runs, and
+ * the def outranks, because a def claims the WHOLE card (the accounting
+ * refuses partial claims) and running the vocabulary after it would double
+ * every clause the parser also understood. Unscripted spells keep resolving
+ * through the vocabulary unchanged.
+ *
+ * What the def INHERITS from the seam point (loop.ts): the spell is still ON
+ * the stack while it resolves (CR 608.2 — its own text can point at the
+ * board it is about to leave, and a Char has a source for its damage), and
+ * fizzle has already been decided (CR 608.2b, `targetsStillLegal`), so
+ * `resolve` runs only with the declared targets still legal.
+ *
+ * `text` is the cast face's FULL printed oracle text — `lineClaims` splits
+ * it per line, so a spell def claims every line of its card or the coverage
+ * accounting refuses it (D90: never half-execute). `self` is the card on the
+ * stack (`obj.card`), and the controller is `obj.controller`, never the
+ * card's owner (Kess casts from a graveyard).
+ *
+ * ⚠️ No randomness until `ctx.random` is wired (D158's standing item): the
+ * vocabulary path threads `rngAfter` and this seam does not yet, so a def
+ * that consumed randomness would replay to a different board than it played.
+ */
+export interface SpellDef {
+  readonly text: string;
+  resolve(ctx: ScriptCtx, self: InstanceId, obj: StackObject): readonly EventBody[];
+}
+
 export interface CardScript {
   readonly oracleId: OracleId;
   readonly name: string;
@@ -242,4 +295,6 @@ export interface CardScript {
   readonly activated?: readonly ActivatedDef[];
   /** Continuous combat RESTRICTIONS. See `CombatDef`. */
   readonly combat?: readonly CombatDef[];
+  /** Whole-spell resolution for an instant or sorcery. See `SpellDef`. */
+  readonly spell?: SpellDef;
 }

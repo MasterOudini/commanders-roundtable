@@ -551,6 +551,31 @@ export function drawEvents(state: GameState, player: PlayerId, count: number): E
   // the top" would eventually disagree about which end of the array is the top,
   // and the disagreement would only show up as a shuffled-looking library.
   const out: EventBody[] = [...drawFromTop(player, count, library)];
+  const marker = drewCardsMarker(player, out);
+  if (marker) out.push(marker);
   if (library.length < count) out.push({ t: 'DrewFromEmptyLibrary', player });
   return out;
+}
+
+/**
+ * The `DrewCards` marker for a REAL draw (CR 121), derived from the moves the
+ * draw just produced — never recomputed from the library, so the ids and
+ * their DRAW ORDER cannot drift from what actually moved. Returns null when
+ * nothing was drawn (an empty library draws no cards; the loss flag travels
+ * separately).
+ *
+ * ⚠️ Called at exactly TWO sites — here and the turn's draw step — and never
+ * by `drawFromTop` itself, which the opening hands share: an opening hand is
+ * not a draw an ability can watch, and an Impulse-style take must stay
+ * indistinguishable from silence (D179's discriminator is the whole point).
+ */
+export function drewCardsMarker(player: PlayerId, events: readonly EventBody[]): EventBody | null {
+  const ids: InstanceId[] = [];
+  for (const e of events) {
+    if (e.t !== 'CardsMoved') continue;
+    for (const m of e.moves) {
+      if (m.from.kind === 'library' && m.to.kind === 'hand') ids.push(m.card);
+    }
+  }
+  return ids.length > 0 ? { t: 'DrewCards', player, cards: ids } : null;
 }

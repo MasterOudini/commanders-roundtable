@@ -173,7 +173,10 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // Decoy). Two new classes: scry/surveil event discriminator (Matoya —
     // no event marks a scry, D114 made the mode UI state) and the {Q}
     // untap-symbol activation cost (Merrow Grimeblotter).
-    expect(SHIPPED_SCRIPTS).toHaveLength(504);
+    // M6.4ae (D187-D190): the engine unlocks' proof cards - Char and Fruition
+    // are the FIRST SpellDef entries (the spell seam), Horizon Chimera the
+    // DrewCards x per-item fan-out composition (D179's own named card).
+    expect(SHIPPED_SCRIPTS).toHaveLength(507);
   });
 });
 

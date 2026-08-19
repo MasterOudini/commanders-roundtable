@@ -22033,6 +22033,114 @@ export const MERIADOC_BRANDYBUCK: CardData = {
   "singleImage": true
 };
 
+export const CHAR: CardData = {
+  "scryfallId": "3dc5f957-c1e4-452d-a78b-8d772ea0b940",
+  "oracleId": "e57d90ad-2f54-46ca-8237-aa383353a0de",
+  "name": "Char",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Char",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Char deals 4 damage to any target and 2 damage to you.",
+      "flavorText": "If you've never choked on the embers of your own spell, you aren't casting it hard enough.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dave Dorman",
+      "imageId": "3dc5f957-c1e4-452d-a78b-8d772ea0b940"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "p15a",
+  "collectorNumber": "1",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FRUITION: CardData = {
+  "scryfallId": "147082a3-1408-44f9-ab39-f069cee5c710",
+  "oracleId": "5f3ef680-90f4-487f-b44b-db25e29e57ce",
+  "name": "Fruition",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fruition",
+      "manaCost": "{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "You gain 1 life for each Forest on the battlefield.",
+      "flavorText": "Come to these woods and suffer no pain; you've burdens to lose and new life to gain.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Steve Luke",
+      "imageId": "147082a3-1408-44f9-ab39-f069cee5c710"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "por",
+  "collectorNumber": "166",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HORIZON_CHIMERA: CardData = {
+  "scryfallId": "7022506d-8685-41e0-bd1a-2c27c964128b",
+  "oracleId": "a1ed77f9-51ac-4cca-a9ce-d3874f3948ad",
+  "name": "Horizon Chimera",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Horizon Chimera",
+      "manaCost": "{2}{G}{U}",
+      "typeLine": "Creature — Chimera",
+      "oracleText": "Flash\nFlying, trample\nWhenever you draw a card, you gain 1 life.",
+      "flavorText": "\"Do not try to make sense of the chimera. Impossibility is its habitat.\"\n—Kydele, prophet of Kruphix",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "U"
+      ],
+      "artist": "Sam Burley",
+      "imageId": "7022506d-8685-41e0-bd1a-2c27c964128b"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying",
+    "Trample",
+    "Flash"
+  ],
+  "setCode": "c16",
+  "collectorNumber": "204",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -25051,6 +25159,9 @@ export const ENGINE_CARDS: CardData[] = [
   MERCHANT_OF_SECRETS,
   MERFOLK_SKYSCOUT,
   MERIADOC_BRANDYBUCK,
+  CHAR,
+  FRUITION,
+  HORIZON_CHIMERA,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

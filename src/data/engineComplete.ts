@@ -140,6 +140,17 @@ export function lineClaims(scripts: readonly CardScript[]): ReadonlyMap<string, 
       const t = scrub(d.text).trim();
       if (t !== '') entry(s.oracleId).activated.add(t);
     }
+    // A SPELL def carries the cast face's WHOLE printed text (SpellDef's
+    // contract) while the accounting matches per LINE — split it, so a
+    // multi-line spell claims each of its lines and a def that stopped short
+    // leaves a leftover the gate refuses (D90). Spell lines are sentences,
+    // never `cost: effect` lines, so they join the sentence kind.
+    if (s.spell) {
+      for (const line of s.spell.text.split('\n')) {
+        const t = scrub(line).trim();
+        if (t !== '') entry(s.oracleId).sentences.add(t);
+      }
+    }
   }
   return out;
 }
@@ -156,6 +167,19 @@ const SHIPPED_CLAIMS = lineClaims(SHIPPED_SCRIPTS);
  */
 export const SHIPPED_ACTIVATED_REFS: ReadonlySet<string> = new Set(
   SHIPPED_SCRIPTS.flatMap((s) => (s.activated ?? []).map((d) => d.ref)),
+);
+
+/**
+ * Every oracleId whose SHIPPED script carries a SPELL def — `tier3.ts`'s key
+ * for silencing the "Its effect" / "Part of its effect" notes, the spell
+ * mirror of `SHIPPED_ACTIVATED_REFS` (D159's idiom): built HERE beside the
+ * line claims so the disclosure and the accounting derive from the same
+ * defs at one site. A def that claimed the lines but left the note live —
+ * or silenced the note without claiming the lines — fails
+ * `shippedScripts.node.test.ts` either way.
+ */
+export const SHIPPED_SPELL_ORACLES: ReadonlySet<string> = new Set(
+  SHIPPED_SCRIPTS.filter((s) => s.spell !== undefined).map((s) => s.oracleId),
 );
 
 /**

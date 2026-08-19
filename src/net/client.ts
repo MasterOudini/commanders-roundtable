@@ -28,6 +28,7 @@ import type { Intent, RejectReason } from '../engine/types/intents';
 import type { Awaiting, Step, TargetChoice } from '../engine/types/state';
 import type { OracleFace, TargetKind, TargetSpec } from '../engine/types/oracle';
 import { targetAllowed, type TargetCandidate } from '../engine/targets';
+import { SHIPPED_REGISTRY } from '../engine/scripts/registry';
 import { emptyView, type EngineEvent, type PlayerView } from '../view/types';
 import {
   envelope,
@@ -534,6 +535,15 @@ export class ClientSession {
   assistedEffectsFor(cardId: InstanceId): { name: string; lines: string[] } | null {
     const face = this.faceFor(cardId);
     if (!face || face.effectMode !== 'assisted' || face.effects.length === 0) return null;
+    // ⚠️ A SHIPPED SPELL DEF ALREADY RAN THE WHOLE CARD — `effectMode` is a
+    // PARSE-time property, so a scripted spell whose text the vocabulary only
+    // partly reads still says `assisted` here, and offering that half again
+    // would run it TWICE. The registry ships in the bundle, so the client can
+    // ask it directly with no wire change (loop.ts's seam carries the mirror
+    // comment).
+    const data = this.view.cards[cardId]?.card;
+    const oracleCard = data ? this.pool.oracle().byPrinting(data.scryfallId) : null;
+    if (oracleCard && SHIPPED_REGISTRY.spell(oracleCard.oracleId)) return null;
     return { name: face.name, lines: face.effects.map((e) => e.text) };
   }
 

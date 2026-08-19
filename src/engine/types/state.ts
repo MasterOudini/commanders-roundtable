@@ -258,6 +258,12 @@ export interface StackObject {
   /** Where the card came from, so a fizzle/counter can send it home. */
   readonly castFrom: ZoneRef | null;
   /**
+   * The ITEM a per-item fan-out firing is about (D190), carried from
+   * `PendingTrigger.item` so `resolve` can read which drawn card / dealer /
+   * tapped permanent THIS firing answers. Absent on every other object.
+   */
+  readonly item?: InstanceId;
+  /**
    * Which face was cast — CR 712, a modal DFC's back face.
    *
    * ⚠️ **THE SPELL CARRIES IT, NOT THE CARD, AND THAT IS FORCED**: every zone
@@ -373,6 +379,13 @@ export interface PendingTrigger {
   readonly abilityRef: AbilityRef;
   readonly label: string;
   readonly optional: boolean;
+  /**
+   * The ITEM this firing is about, when its def fanned a batched event out
+   * per item (D190) — the dealing creature, the tapped permanent, the drawn
+   * card. Rides onto `StackObject.item` so `resolve` can read it. Optional so
+   * every pre-D190 pending — and its replay — is untouched.
+   */
+  readonly item?: InstanceId;
   /**
    * One per printed target clause, copied from the `TriggerDef` when the bus
    * found it. Empty for the overwhelming majority of triggers.

@@ -4,7 +4,7 @@
 // array or undefined, which is exactly what makes the rest of the engine work
 // with no `if (scripted)` anywhere.
 
-import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
+import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
 import { MAN_OWAR_SCRIPT } from './cards/manOWar';
@@ -27,6 +27,9 @@ import { MEMORIAL_TO_WAR_SCRIPT } from './cards/memorialToWar';
 import { MERCHANT_OF_SECRETS_SCRIPT } from './cards/merchantOfSecrets';
 import { MERFOLK_SKYSCOUT_SCRIPT } from './cards/merfolkSkyscout';
 import { MERIADOC_BRANDYBUCK_SCRIPT } from './cards/meriadocBrandybuck';
+import { CHAR_SCRIPT } from './cards/char';
+import { FRUITION_SCRIPT } from './cards/fruition';
+import { HORIZON_CHIMERA_SCRIPT } from './cards/horizonChimera';
 import { LIBRARY_LARCENIST_SCRIPT } from './cards/libraryLarcenist';
 import { LIFECREED_DUO_SCRIPT } from './cards/lifecreedDuo';
 import { LIVING_LIGHTNING_SCRIPT } from './cards/livingLightning';
@@ -527,6 +530,8 @@ export interface ScriptRegistry {
   replacements(): readonly { readonly script: CardScript; readonly def: ReplacementDef }[];
   /** Continuous combat restrictions, CR 508.1c / 509.1b. */
   combat(): readonly { readonly script: CardScript; readonly def: CombatDef }[];
+  /** Whole-spell resolution for a resolving instant or sorcery. See `SpellDef`. */
+  spell(oracleId: OracleId): SpellDef | undefined;
   readonly size: number;
 }
 
@@ -536,9 +541,22 @@ class IndexedRegistry implements ScriptRegistry {
   private readonly byLayer = new Map<StaticDef['layer'], { script: CardScript; def: StaticDef }[]>();
   private readonly reps: { script: CardScript; def: ReplacementDef }[] = [];
   private readonly combats: { script: CardScript; def: CombatDef }[] = [];
+  private readonly spells = new Map<OracleId, SpellDef>();
 
   constructor(scripts: readonly CardScript[]) {
     for (const script of scripts) {
+      // ⚠️ A DUPLICATE ORACLE ID IS A CORRUPTED REGISTRY, NOT LAST-WRITE-WINS.
+      // `byOracle.set` would keep only the second script while every per-def
+      // index below APPENDS — so a twice-registered card DOUBLE-FIRES its
+      // triggers while `get()` reports only one of them. Harmless while the
+      // list is hand-curated; near-certain once generated family tables
+      // produce membership. Refuse loudly at construction.
+      if (this.byOracle.has(script.oracleId)) {
+        throw new Error(
+          `duplicate script for oracleId ${script.oracleId} (${script.name}) — ` +
+            'a second registration would double-fire its defs. Remove one.',
+        );
+      }
       this.byOracle.set(script.oracleId, script);
       for (const def of script.triggers ?? []) {
         const list = this.byEvent.get(def.event) ?? [];
@@ -552,6 +570,7 @@ class IndexedRegistry implements ScriptRegistry {
       }
       for (const def of script.replacements ?? []) this.reps.push({ script, def });
       for (const def of script.combat ?? []) this.combats.push({ script, def });
+      if (script.spell) this.spells.set(script.oracleId, script.spell);
     }
   }
 
@@ -573,6 +592,10 @@ class IndexedRegistry implements ScriptRegistry {
 
   combat(): readonly { readonly script: CardScript; readonly def: CombatDef }[] {
     return this.combats;
+  }
+
+  spell(oracleId: OracleId): SpellDef | undefined {
+    return this.spells.get(oracleId);
   }
 
   get size(): number {
@@ -625,6 +648,12 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   MERCHANT_OF_SECRETS_SCRIPT,
   MERFOLK_SKYSCOUT_SCRIPT,
   MERIADOC_BRANDYBUCK_SCRIPT,
+  // M6.4ae (D187–D190) — the engine unlocks' proof cards: the first two
+  // SpellDefs (Char, Fruition) and the DrewCards × per-item fan-out
+  // composition (Horizon Chimera).
+  CHAR_SCRIPT,
+  FRUITION_SCRIPT,
+  HORIZON_CHIMERA_SCRIPT,
   LIBRARY_LARCENIST_SCRIPT,
   LIFECREED_DUO_SCRIPT,
   LIVING_LIGHTNING_SCRIPT,

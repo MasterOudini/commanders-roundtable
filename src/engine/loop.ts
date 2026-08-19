@@ -14,7 +14,7 @@
 
 import { assignBlockerDamage, creaturesInCombat, canAttack, legalDefenders, needsFirstStrikeSubstep, resolveCombatDamage } from './combat';
 import { derive, makeDeriveCache } from './derive';
-import { effectResult } from './effects';
+import { drewCardsMarker, effectResult } from './effects';
 import { candidatesFromState, minimumLegalTargets, targetAllowed, untargetableByRule, type TargetingSource } from './targets';
 import { checkGameOver, checkStateBasedActions } from './sba';
 import { emitted, type Emitted } from './log';
@@ -243,6 +243,8 @@ export function stackPendingTriggers(
       taxApplied: 0,
       isCommanderCast: false,
       castFrom: null,
+      // The per-item firing's subject rides through to `resolve` (D190).
+      ...(trigger.item !== undefined ? { item: trigger.item } : {}),
     };
     events.push({ t: 'AbilityPutOnStack', obj });
     events.push(
@@ -316,7 +318,12 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
             ),
           );
         } else {
-          events.push(...drawFromTop(ap, 1, library));
+          const drawn = drawFromTop(ap, 1, library);
+          events.push(...drawn);
+          // The REAL-draw marker (D189) — the draw step is one of exactly two
+          // sites; `drawEvents` is the other. Opening hands never mark.
+          const marker = drewCardsMarker(ap, drawn);
+          if (marker) events.push(marker);
           events.push(narrated(n`${who(state, ap)} ${vb(ap, 'draws', 'draw')} a card.`, ap));
         }
       }
@@ -626,8 +633,20 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     // ("discards two cards at random"), and the RNG advances ONLY through a
     // recorded `rngAfter`. Dropping it here would replay the game to a different
     // board than it was played on — silently, and only for those cards.
+    //
+    // ⚠️ A SHIPPED SPELL DEF OUTRANKS THE VOCABULARY, and exactly ONE of the
+    // two runs. A def claims the card's WHOLE text (the coverage accounting
+    // refuses partial claims, D90), so running `effectResult` after it would
+    // double every clause the parser also understood. The def inherits this
+    // spot's two guarantees: the card is still ON the stack (CR 608.2), and
+    // fizzle was decided above (CR 608.2b). `client.assistedEffectsFor`
+    // carries the mirror rule — a scripted spell must never ALSO raise the
+    // assisted offer, or the parsed half runs twice.
     let rng: RngState | undefined;
-    if (face && face.effectMode === 'auto' && face.effects.length > 0) {
+    const spellDef = oracleCard ? deps.scripts.spell(oracleCard.oracleId) : undefined;
+    if (spellDef) {
+      events.push(...spellDef.resolve(scriptCtxFor(state, deps), obj.card, obj));
+    } else if (face && face.effectMode === 'auto' && face.effects.length > 0) {
       const result = effectResult(state, deps, obj, face.effects);
       events.push(...result.events);
       rng = result.rng;

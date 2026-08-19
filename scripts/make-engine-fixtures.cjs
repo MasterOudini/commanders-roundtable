@@ -966,6 +966,11 @@ const WANTED = [
   'Merchant of Secrets',
   'Merfolk Skyscout',
   'Meriadoc Brandybuck',
+  // M6.4ae (D187–D190): the spell seam's proof cards (the first SpellDef
+  // instants/sorceries) and the DrewCards × per-item fan-out composition.
+  'Char',
+  'Fruition',
+  'Horizon Chimera',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

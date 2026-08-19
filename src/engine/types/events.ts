@@ -328,6 +328,23 @@ export type EventBody =
    * and the fuzz canary could not tell the two answers apart.
    */
   | { readonly t: 'EntersChoiceAnswered'; readonly card: InstanceId; readonly player: PlayerId; readonly pay: boolean }
+  /**
+   * A player DREW (CR 121) — the marker beside the `CardsMoved` that did it,
+   * with the drawn ids in DRAW ORDER. See D189.
+   *
+   * ⚠️ A MARKER, for `OptionalTriggerAnswered`'s reason turned inside out: a
+   * draw's `CardsMoved` (library → hand) is byte-identical to an
+   * Impulse-style TAKE, a tutor to hand, or the manual tool — so "whenever
+   * you draw" could not be watched at all (D179's draw-event discriminator;
+   * D182's last-drawn memory). Emitted ONLY at the two real-draw sites — the
+   * turn's draw step and `drawEvents`, THE one draw rule — and deliberately
+   * NOT for opening hands (no ability can be watching before the game) and
+   * NOT by `drawFromTop` itself, which the openers share.
+   *
+   * ⚠️ The ids add no information the paired `CardsMoved` does not already
+   * carry — projection treats the pair identically.
+   */
+  | { readonly t: 'DrewCards'; readonly player: PlayerId; readonly cards: readonly InstanceId[] }
 
   // ── combat ───────────────────────────────────────────────────────────────
   | { readonly t: 'CombatBegan' }

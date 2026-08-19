@@ -5016,6 +5016,74 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       once-per-turn memory, per-damage-entry granularity, token entry
       choice, the spell seam and the battery click-check debt stand.
 
+- [x] **M6.4ae — Four engine unlocks in one landing: the spell seam, the
+      derived fuzz pool, the real-draw marker, and per-item fan-out
+      (2026-08-19):** **2,237 of 31,692 Commander-legal cards now execute
+      completely, up from 2,234** — the three are PROOF cards for two of the
+      arc's oldest standing reportables. `SHIPPED_SCRIPTS` 504 → 507.
+      Decisions in **D187–D190**; built and proven in a git worktree while
+      batch 27's gate ran, ported after its commit.
+      ⚠️⚠️ **THE SPELL SEAM (D187):** `CardScript.spell` — whole-spell
+      resolution consulted in `resolveTop` BEFORE the vocabulary, exactly one
+      of the two runs, fizzle and still-on-the-stack inherited (CR 608.2/b).
+      `Char` and `Fruition` are the first SpellDefs. The DOUBLE-EXECUTION
+      hazard was found at design time: `effectMode` is parse-time, so a
+      scripted spell parsing `assisted` would run AND be offered —
+      `client.assistedEffectsFor` now asks the shipped registry directly (it
+      ships in the bundle; no wire change). `lineClaims` gains the spell kind
+      (full text split per line); the teeth caught the disclosure half
+      immediately — `SHIPPED_SPELL_ORACLES` silences tier3's effect notes,
+      D159's idiom. The D161 "no spells" selection filter is GONE
+      (multi-face spell faces stay refused — SpellDef v1 is single-faced).
+      ⚠️ **AND THE FLIP MOVED NOTHING, measured:** offerable 584 → 583 — the
+      primitives classifier files unreadable spell lines under effect rows,
+      so no spell reaches sole-need-scriptable and the needs column cannot
+      SEE the seam. The reclassification is D191's own careful decision.
+      ⚠️⚠️ **THE FUZZ POOL DERIVES (D188):** the gate's ~500 hand imports and
+      ~630-name DECK are GONE (~1,200 lines) — `SCRIPTS` spreads
+      `SHIPPED_SCRIPTS`, `DECK` derives sorted shipped names over a
+      hand-curated `CORE` (mechanism cards, canary staples with their
+      deliberate weights and rot-history comments, and the SUPPORT BODIES a
+      derivation cannot know). The per-batch fuzz-registration step is
+      DELETED from the loop. Proven before port: 60-seed gate green over the
+      derived pool, plus a one-off SUPERSET check (all 601 old names still
+      dealt). `ACTIVATED_REFS` derives too — its hand list of four was the
+      rot shape one counter over. ⚠️ And `IndexedRegistry` THROWS on a
+      duplicate oracleId now — it silently kept the second script while
+      APPENDING both defs (double-fire), latent since M3, near-certain under
+      generated family tables.
+      ⚠️⚠️ **`DrewCards` (D189):** a REAL draw (CR 121) marks itself —
+      `{player, cards}` in draw order beside the moves, emitted at exactly
+      TWO sites (the draw step; `drawEvents`, THE one draw rule) and never
+      for opening hands or Impulse-style takes. The draw-event discriminator
+      ("the richest class", D179) and last-drawn memory (D182) both close on
+      this one marker.
+      ⚠️⚠️ **PER-ITEM FAN-OUT (D190):** `TriggerDef.perItem` — the bus fires
+      once PER ITEM of a batched event, the item riding `PendingTrigger` →
+      `StackObject.item` into `resolve`. Aya's D163 granularity class —
+      met again in D172, D185, D186 — closes at the bus. **`Horizon
+      Chimera`** (the card D179 named) is the composition proof: an Azorius
+      Locket draw-two fires it TWICE (+2 life), a manual library→hand take
+      pays NOTHING, an opponent's draw pays nothing. Its ledger entry
+      DRAINED via the stale-refusal guard — the ledger holds 91.
+      Fixtures 707 → 710 (640 + 70) · ladder [758, 857, 2810, 4694, 5881] ·
+      botPool creature 1,526, **instant 202, sorcery 147** (Char and
+      Fruition counted up the pool's spell columns) · `batch.json` at 583 ·
+      botDeck: Adun reaches 1,229.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      579 test files, 3,701 Vitest passed / 10 skipped ·
+      the 500-seed gate green at 2,100.3 s (507 scripts on the DERIVED
+      pool, 1,500 s inside the 3,600 s ceiling) · build clean ·
+      probe 124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D187–D190): D191 = the spell reclassification (the
+      seam's real pool-opener); the granularity family's remaining ledger
+      entries are each ONE def away; amount-reading damage triggers need a
+      typed item (v2); `SpellDef.targets` widens past the parser; multi-face
+      spell defs need a face-keyed ref; canary-staples table + pool rotation
+      + seed sharding are the next gate-rework steps; the cost-chooser
+      classes, `ctx.random`, once-per-turn memory, token entry choice and
+      the battery click-check debt stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

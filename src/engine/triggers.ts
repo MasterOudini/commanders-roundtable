@@ -924,17 +924,28 @@ export function collectTriggers(
       // through the Tier-3 override. Said plainly rather than left to be found.
         if (!hasAbilities(state, oracle, scripts, id)) continue;
         if (!def.matches(ctx, id, event.body)) continue;
-        out.push({
-          id: `t${n++}`,
-          source: id,
-          controller: card.controller,
-          abilityRef: `${script.oracleId}#${def.abilityId}`,
-          label: def.label(ctx, id, event.body),
-          optional: def.optional,
-          // ⚠️ Copied, never looked up again: `PendingTrigger` is part of
-          // `GameState`, which replays with no registry in reach.
-          specs: def.targets ?? [],
-        });
+        // ⚠️ PER-ITEM FAN-OUT (D190): a def that declares `perItem` fires once
+        // per matching ITEM of the batch, each firing carrying its item —
+        // per-item wording against a batched event finally pays N where the
+        // rules pay N (Aya's D163 refusal class, closed at the bus). The ids
+        // arrive in the EVENT's own order, so the trigger sequence replays.
+        const items: readonly (InstanceId | undefined)[] = def.perItem
+          ? def.perItem(ctx, id, event.body)
+          : [undefined];
+        for (const item of items) {
+          out.push({
+            id: `t${n++}`,
+            source: id,
+            controller: card.controller,
+            abilityRef: `${script.oracleId}#${def.abilityId}`,
+            label: def.label(ctx, id, event.body),
+            optional: def.optional,
+            // ⚠️ Copied, never looked up again: `PendingTrigger` is part of
+            // `GameState`, which replays with no registry in reach.
+            specs: def.targets ?? [],
+            ...(item !== undefined ? { item } : {}),
+          });
+        }
       }
     }
   }

@@ -40,7 +40,7 @@ import { isPermanentType } from './oracleParse';
 import { parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities } from './activatedParse';
 import { parseEffects } from './effectParse';
-import { SHIPPED_ACTIVATED_REFS, unaccountedLines } from './engineComplete';
+import { SHIPPED_ACTIVATED_REFS, SHIPPED_SPELL_ORACLES, unaccountedLines } from './engineComplete';
 
 export interface Tier3Note {
   /** Short label, e.g. "Crew". */
@@ -195,10 +195,16 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     face.name,
     parseTypeLine(face.typeLine).types.some((t) => t === 'Instant' || t === 'Sorcery'),
   );
-  if (parsedEffects.mode === 'assisted') {
-    add('Part of its effect', 'the app offers the part it understands when this resolves — the rest is yours');
-  } else if (parsedEffects.mode === 'manual' && !isPermanent) {
-    add('Its effect', 'read it and apply it with the manual tools — the app does not run this one');
+  // ⚠️ A SHIPPED SPELL DEF RUNS THE WHOLE CARD (D187) — the seam in loop.ts
+  // outranks the vocabulary, so however the PARSER reads this spell, the app
+  // executes every word of it and both notes would be lies. The same set the
+  // client's assisted-offer suppression reads, built beside the line claims.
+  if (!SHIPPED_SPELL_ORACLES.has(card.oracleId)) {
+    if (parsedEffects.mode === 'assisted') {
+      add('Part of its effect', 'the app offers the part it understands when this resolves — the rest is yours');
+    } else if (parsedEffects.mode === 'manual' && !isPermanent) {
+      add('Its effect', 'read it and apply it with the manual tools — the app does not run this one');
+    }
   }
 
   // ⚠️ A PERMANENT'S OWN TEXT, which the note above cannot speak for and which

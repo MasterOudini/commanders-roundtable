@@ -12848,3 +12848,152 @@ build clean · probe 124/124 · battery `bot engine prompts` 127/127.
 the cost-chooser ledger; the cost-chooser classes, `ctx.random`,
 once-per-turn memory, per-damage-entry granularity, token entry choice,
 the spell seam and the battery click-check debt stand.
+
+## D187 — M6.4ae: the spell seam (2026-08-19)
+
+**What was decided:** `CardScript` gains `spell?: SpellDef` — whole-spell
+resolution for instants and sorceries — closing D160's standing headline
+reportable: 6,975 spells were unreachable by scripts BY CONSTRUCTION while
+`effectParse`'s closed vocabulary auto-resolved ~409. The first two spell
+defs ship as proof cards: **`Char`** (targeted, two damage clauses — the
+vocabulary reads it only in part) and **`Fruition`** (untargeted,
+board-computed "for each Forest" — outside the vocabulary entirely).
+**2,237 of 31,692 Commander-legal cards now execute completely,
+up from 2,234.** `SHIPPED_SCRIPTS` 504 → 507.
+
+**The seam point is `resolveTop`, and it inherits everything.** The def is
+consulted where the vocabulary ran (loop.ts): fizzle is already decided
+(CR 608.2b `targetsStillLegal` — a scripted spell whose targets all died is
+countered on resolution and the def never runs), and the spell is still ON
+the stack while resolving (CR 608.2 — Char has a live source for its
+damage). **The def OUTRANKS the vocabulary and exactly ONE of the two
+runs** — a def claims the whole card, so running `effectResult` after it
+would double every clause the parser also understood.
+
+**The double-execution hazard, found at design time:** `effectMode` is a
+PARSE-time property, so a scripted spell whose text parses `assisted` would
+run its script AND raise the D90 assisted offer — the parsed half executing
+TWICE. Closed in `client.assistedEffectsFor`: the SHIPPED registry ships in
+the bundle, so the client asks `SHIPPED_REGISTRY.spell(oracleId)` directly,
+no wire change. Char's own test pins both halves of the predicate (the
+vocabulary must NOT fully read it; the registry must carry the def).
+
+**The accounting moved as one chokepoint (D158's design paying off):**
+`lineClaims` gains the spell kind — a `SpellDef.text` is the face's FULL
+printed text, split per line into sentence-kind claims, so a def that
+stopped short leaves a leftover line and the coverage gate refuses the card
+(D90). And the disclosure needed its own key: the teeth caught both proof
+cards engine-complete while still carrying tier3's "Its effect" note —
+`SHIPPED_SPELL_ORACLES` (built beside the claims, D159's
+`SHIPPED_ACTIVATED_REFS` idiom) silences the "Its effect" / "Part of its
+effect" notes exactly for scripted spells.
+
+**Also: the registry refuses duplicates now.** `IndexedRegistry` silently
+OVERWROTE `byOracle` on a duplicate oracleId while APPENDING its trigger
+defs — a twice-registered card double-fires with `get()` reporting one
+script. Latent since M3 with hand-curated lists; near-certain under
+generated family tables. A constructor throw, with its own break test.
+
+**Selection:** the D161 "no spells" filter flips to DEF-GATED — spells are
+offerable because the seam exists; each still lands as an ordinary reviewed
+def. Offerable pool 584 → 583 - and the flip alone moved NOTHING, measured: the primitives classifier files an unreadable spell line under its effect-vocabulary rows (damage, lifeGainLoss), so a spell face never reaches sole-need-scriptable and the needs column CANNOT SEE the seam. The reclassification - a non-permanent face is scriptable BY THE SEAM - is its own careful decision (D191, next), with the ladder consequences it deserves (D153-grade care).
+
+**Verified:** 579 test files, 3,701 Vitest passed / 10 skipped; the 500-seed fuzz green at 2,100.3s (507 scripts on the derived pool, 1,500s inside the 3,600s ceiling); all worktree proof suites (9 tests) green
+on their first run; the 519-file engine sweep green with the seam in place;
+`tsc -b` clean at every step.
+
+**Reportables:** SpellDef v1 lands only spells whose target clauses the
+parser reads (or that target nothing) — `SpellDef.targets` declared like
+`TriggerDef.targets` (D147's shape) is the widening for
+unread-target spells; multi-FACE spells (split/adventure) stay refused
+until a face-keyed def ref; `ctx.random` still gates random spells; the
+assisted-offer suppression is pinned at the predicate level — a battery
+click-check joins the standing UI-coverage debt.
+
+## D188 — M6.4ae: the fuzz gate derives its pool (2026-08-19)
+
+**What was decided:** the fuzz gate's `SCRIPTS` and `DECK` are DERIVED from
+`SHIPPED_SCRIPTS` — the ~500 hand imports and the ~630-name hand list are
+GONE (≈1,200 lines), replaced by a spread and a sorted name derivation.
+Every hand list is a rot site: all five broken-guard incidents in this repo
+were hand-list drift (D102, D107, D108, D121, D156), and the per-batch fuzz
+registration step — 20 imports + 20 SCRIPTS entries + 20 DECK names every
+batch — is deleted from the loop entirely.
+
+**What a derivation cannot know stays hand-curated in `CORE`:** the
+mechanism cards, the canary staples with their DELIBERATE copy weights
+(Jace ×5, Mantra ×5, Onulet ×5, the CR 616 pair ×15 — the rot-history
+comments preserved verbatim), and the SUPPORT BODIES for shipped watchers
+(the werewolf for Cult of the Waxing Moon, a Zombie and a vanilla Merfolk
+for choosers and the tap-watcher, Tuinvale for Edgewall's adventure filter
+— engine-complete through the VOCABULARY, so no derivation would deal it).
+
+**Proven three ways in the worktree before port:** the 60-seed gate green
+over the derived pool (296 s under heavy load, every replay hash equal,
+all guard tests green); a one-off SUPERSET check — every one of the old
+list's 601 names still dealt (the only "misses" were quoted phrases the
+extractor caught inside comments); `tsc -b` clean.
+
+**`ACTIVATED_REFS` derives too** — the canary's hand list of FOUR scripts
+was the rot shape one counter over: every batch landing new ActivatedDefs
+widened the real population while the counter watched the original four
+forever. It now counts every shipped activated ref.
+
+**Reportables:** CORE's staples are the raw material for the canary-staples
+TABLE (counterKey → staple with a meta-guard) — next; pool rotation
+(`poolFor`) and seed sharding follow it with a 60-seed measurement leg
+before any ceiling move.
+
+## D189 — M6.4ae: `DrewCards`, the real-draw marker (2026-08-19)
+
+**What was decided:** a REAL draw (CR 121) now emits a `DrewCards` marker —
+`{player, cards}` in draw order — beside the `CardsMoved` that did it. A
+marker, `OptionalTriggerAnswered`'s reason turned inside out: a draw's
+library→hand move is byte-identical to an Impulse-style take, a tutor, or
+the manual tool, so "whenever you draw" could not be WATCHED at all —
+D179's draw-event discriminator (named "the richest class") and D182's
+last-drawn-card memory, both closed by one event.
+
+**Emitted at exactly TWO sites** — the turn's draw step and `drawEvents`,
+THE one draw rule (D158) — via `drewCardsMarker`, which derives the ids
+from the moves the draw just produced (never recomputed, so order cannot
+drift). Deliberately NOT for opening hands (no ability can watch before
+the game; `drawFromTop` itself stays unmarked because the openers share
+it) and NOT for takes. Reducer no-op, state unchanged, no wire change.
+
+**Verified:** 4/4 new tests — the draw step marks, the opening hand does
+not, a scripted draw (Wall of Blossoms) marks exactly its own card, a
+manual library→hand move stays silent, replay hash equal with markers in
+the log.
+
+## D190 — M6.4ae: per-item fan-out (2026-08-19)
+
+**What was decided:** `TriggerDef.perItem` — after `matches` accepts a
+batched event, the bus creates ONE `PendingTrigger` PER item the def
+enumerates, each carrying its item onto `StackObject.item` for `resolve`.
+This closes the GRANULARITY class at the bus: per-item wording against a
+batched event under-fired and was refused outright — Aya's D163 class, met
+again on the receiver side (D172), on taps and attacks (D185) and on draws
+(D186). `CombatDamageDealt`, `PermanentsTapped`, `AttackersDeclared` and
+`DrewCards` all batch; a per-item def now pays N where the rules pay N.
+
+**Omit it where the batch already matches:** self-only filters,
+per-creature entries and printed "one or more" wordings (D185's list) —
+fanning those out would OVER-fire instead. The item ids arrive in the
+event's own order, so the firing sequence is deterministic and replays;
+`PendingTrigger.item`/`StackObject.item` are optional, so every pre-D190
+pending and its replay is untouched.
+
+**Proof card: `Horizon Chimera`** — the card D179 named when it named the
+class — "Whenever you draw a card, you gain 1 life" composed over BOTH new
+seams: an Azorius Locket draw-two fires the trigger TWICE (one per drawn
+card, +2 life), a manual library→hand take pays NOTHING, an opponent's
+draw pays nothing, replay hash equal. The ledger's Horizon Chimera entry
+self-drains at port (the stale-refusal guard).
+
+**Reportables:** the granularity family's remaining ledger entries
+(per-damage both sides, per-tap-entry ×3, per-attacker wordings) are now
+each ONE def away — a wave drains them; amount-reading damage triggers
+("gain that much") need the item to carry the AMOUNT too (v2: a typed
+item union, sized when a wave needs it); Jandor's Ring's last-drawn memory
+reads the latest `DrewCards` tail at activation — buildable now.
