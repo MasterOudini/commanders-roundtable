@@ -4965,6 +4965,57 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       entry choice, the spell seam and the battery click-check debt
       stand.
 
+- [x] **M6.4ad — Twenty landed: the attack declaration learns who it hit,
+      and the five-hundredth script (2026-08-14):** **2,234 of 31,692
+      Commander-legal cards now execute completely, up from 2,214.**
+      `SHIPPED_SCRIPTS` 484 → **504** — past five hundred. Decisions in
+      **D186**.
+      **The headliner:** `Meriadoc Brandybuck` is the first `DefenderRef`
+      read in a def — "attack a PLAYER" filters the declaration on the
+      defender's kind, and the same Halfling aimed at a planeswalker pays
+      NOTHING (both sides proven). `Mavren Fein, Dusk Apostle` lands the
+      nontoken-Vampire attack filter beside it, its negative proven with
+      the script's OWN PRODUCT: the token the first attack created
+      attacks alone and pays nothing. Both print "one or more" — the
+      per-declaration batch itself (Deeproot's argument).
+      **Two more firsts:** `Meltstrider Eulogist`, the first
+      COUNTER-CONDITIONED dies watcher (the mover's +1/+1 counters read
+      off the BEFORE state, Field of Souls's `isToken` idiom one field
+      over); `Merfolk Skyscout`, the first attacks-or-blocks pair that
+      TARGETS (Jedit's arms, each carrying the trigger prompt, resolving
+      as the untap — the blocks arm driven through a real scripted
+      attack).
+      **The families:** all FOUR Memorials + Meditation Pools — five
+      three-line lands in one batch (draw, draw-two, two DISTINCT
+      Soldiers, D138's targeted graveyard return refusing a land card,
+      and a land destroy where the indestructible check earns its keep:
+      Darksteel Citadel IS a land, survives, and the Memorial stays
+      spent). `Master Decoy` is the FIFTH Benalish id; `Mardu Banner`
+      the second Banner. **The land pool reads 257; the legendary pool
+      65.** All 20 suites — 44 tests — green on their FIRST run: the
+      FIFTH consecutive first-run-clean batch.
+      ⚠️ **Five refusals, TWO new classes:** the scry/surveil EVENT
+      DISCRIMINATOR (Matoya — no event marks a scry; the peek is Tier-3
+      and scry/surveil are UI MODES on it, D114 — the draw-event
+      discriminator's exact sibling) and the {Q} UNTAP-SYMBOL activation
+      cost (Merrow Grimeblotter). Plus discard-cost ×2 and the
+      return-permanent cost's third entry (Meloku). The ledger holds 92.
+      Fixtures 685 → 707 (70 tokens: Vampire `tmom 3`, Robot `ttmt 10`
+      new; Spirit, Food, Soldier REUSED against TOKEN_TABLE) · ladder
+      [759, 858, 2811, 4695, 5882] · `batch.json` at 584 (exact) ·
+      botDeck: Adun reaches 1,227 from 65 legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      574 test files, 3,678 Vitest passed / 10
+      skipped · the 500-seed gate green at 2,101.9 s (504 scripts,
+      1,498 s inside the 3,600 s ceiling) · build clean ·
+      probe 124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D186): the EVENT-MARKER family now has two
+      members — `DrewCards` (both draw classes) and a scry/surveil
+      marker (Matoya's) — one design serves both; the untap-symbol cost
+      joins the ledger; the cost-chooser classes, `ctx.random`,
+      once-per-turn memory, per-damage-entry granularity, token entry
+      choice, the spell seam and the battery click-check debt stand.
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

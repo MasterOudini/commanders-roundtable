@@ -943,6 +943,29 @@ const WANTED = [
   'Makeshift Munitions',
   "Malcator's Watcher",
   'Malevolent Awakening',
+  // Batch 27 (D186). Spirit tmm2 5, Food tunf 10 and Soldier t40k 2★ are
+  // REUSED; Vampire tmom 3 and Robot ttmt 10 are the batch's two new pins —
+  // all five checked against TOKEN_TABLE's printingIds first.
+  "Man-o'-War",
+  'Mandroid Squadron',
+  'Manic Vandal',
+  'Marble Chalice',
+  'Mardu Banner',
+  'Martyr of Dusk',
+  'Master Decoy',
+  'Mausoleum Guard',
+  'Mavren Fein, Dusk Apostle',
+  'Mawcor',
+  'Mechanized Ninja Cavalry',
+  'Meditation Pools',
+  'Meltstrider Eulogist',
+  'Memorial to Folly',
+  'Memorial to Genius',
+  'Memorial to Glory',
+  'Memorial to War',
+  'Merchant of Secrets',
+  'Merfolk Skyscout',
+  'Meriadoc Brandybuck',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -1023,6 +1046,9 @@ const WANTED_TOKENS = [
   { name: 'Dinosaur', set: 'txln', cn: '5', key: 'DINOSAUR_TOKEN' },
   { name: 'Junk', set: 'tpip', cn: '15', key: 'JUNK_TOKEN' },
   { name: 'Mutagen', set: 'ttmt', cn: '9', key: 'MUTAGEN_TOKEN' },
+  // Batch 27 (D186).
+  { name: 'Vampire', set: 'tmom', cn: '3', key: 'VAMPIRE_LIFELINK_TOKEN' },
+  { name: 'Robot', set: 'ttmt', cn: '10', key: 'ROBOT_TOKEN' },
   // M6.4j (D167).
   { name: 'Centaur', set: 'trvr', cn: '10', key: 'CENTAUR_TOKEN' },
   { name: 'Elf Knight', set: 'trvr', cn: '15', key: 'ELF_KNIGHT_TOKEN' },

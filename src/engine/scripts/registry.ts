@@ -7,6 +7,26 @@
 import type { CardScript, CombatDef, ReplacementDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { MAN_OWAR_SCRIPT } from './cards/manOWar';
+import { MANDROID_SQUADRON_SCRIPT } from './cards/mandroidSquadron';
+import { MANIC_VANDAL_SCRIPT } from './cards/manicVandal';
+import { MARBLE_CHALICE_SCRIPT } from './cards/marbleChalice';
+import { MARDU_BANNER_SCRIPT } from './cards/marduBanner';
+import { MARTYR_OF_DUSK_SCRIPT } from './cards/martyrOfDusk';
+import { MASTER_DECOY_SCRIPT } from './cards/masterDecoy';
+import { MAUSOLEUM_GUARD_SCRIPT } from './cards/mausoleumGuard';
+import { MAVREN_FEIN_DUSK_APOSTLE_SCRIPT } from './cards/mavrenFeinDuskApostle';
+import { MAWCOR_SCRIPT } from './cards/mawcor';
+import { MECHANIZED_NINJA_CAVALRY_SCRIPT } from './cards/mechanizedNinjaCavalry';
+import { MEDITATION_POOLS_SCRIPT } from './cards/meditationPools';
+import { MELTSTRIDER_EULOGIST_SCRIPT } from './cards/meltstriderEulogist';
+import { MEMORIAL_TO_FOLLY_SCRIPT } from './cards/memorialToFolly';
+import { MEMORIAL_TO_GENIUS_SCRIPT } from './cards/memorialToGenius';
+import { MEMORIAL_TO_GLORY_SCRIPT } from './cards/memorialToGlory';
+import { MEMORIAL_TO_WAR_SCRIPT } from './cards/memorialToWar';
+import { MERCHANT_OF_SECRETS_SCRIPT } from './cards/merchantOfSecrets';
+import { MERFOLK_SKYSCOUT_SCRIPT } from './cards/merfolkSkyscout';
+import { MERIADOC_BRANDYBUCK_SCRIPT } from './cards/meriadocBrandybuck';
 import { LIBRARY_LARCENIST_SCRIPT } from './cards/libraryLarcenist';
 import { LIFECREED_DUO_SCRIPT } from './cards/lifecreedDuo';
 import { LIVING_LIGHTNING_SCRIPT } from './cards/livingLightning';
@@ -585,6 +605,26 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MAN_OWAR_SCRIPT,
+  MANDROID_SQUADRON_SCRIPT,
+  MANIC_VANDAL_SCRIPT,
+  MARBLE_CHALICE_SCRIPT,
+  MARDU_BANNER_SCRIPT,
+  MARTYR_OF_DUSK_SCRIPT,
+  MASTER_DECOY_SCRIPT,
+  MAUSOLEUM_GUARD_SCRIPT,
+  MAVREN_FEIN_DUSK_APOSTLE_SCRIPT,
+  MAWCOR_SCRIPT,
+  MECHANIZED_NINJA_CAVALRY_SCRIPT,
+  MEDITATION_POOLS_SCRIPT,
+  MELTSTRIDER_EULOGIST_SCRIPT,
+  MEMORIAL_TO_FOLLY_SCRIPT,
+  MEMORIAL_TO_GENIUS_SCRIPT,
+  MEMORIAL_TO_GLORY_SCRIPT,
+  MEMORIAL_TO_WAR_SCRIPT,
+  MERCHANT_OF_SECRETS_SCRIPT,
+  MERFOLK_SKYSCOUT_SCRIPT,
+  MERIADOC_BRANDYBUCK_SCRIPT,
   LIBRARY_LARCENIST_SCRIPT,
   LIFECREED_DUO_SCRIPT,
   LIVING_LIGHTNING_SCRIPT,

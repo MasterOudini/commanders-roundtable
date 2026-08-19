@@ -12762,3 +12762,89 @@ at the top of the engine-work list; kicker and explore are structural
 mechanics for the named-classes long tail; the cost-chooser classes,
 `ctx.random`, once-per-turn memory, token entry choice, the spell
 seam, and the battery click-check debt stand.
+
+## D186 — M6.4ad: the attack declaration learns who it hit (2026-08-14)
+
+**What was decided:** batch 27 of the M6.4 loop lands twenty of its 25 —
+**2,234 of 31,692 Commander-legal cards now execute completely, up from
+2,214** — and `SHIPPED_SCRIPTS` crosses FIVE HUNDRED (469 → 484 was last
+batch; **484 → 504** here).
+
+**The headliner is the first `DefenderRef` read in a def.**
+`Meriadoc Brandybuck`'s "Whenever one or more Halflings you control
+attack A PLAYER" filters the declaration on `a.defender.kind ===
+'player'` — the field `AttackersDeclared` has carried since M3 with no
+script consumer — and the negative is proven by aiming the same Halfling
+at a planeswalker (`Grist`), which pays nothing. `Mavren Fein, Dusk
+Apostle` lands the NONTOKEN-VAMPIRE attack filter beside it, and its
+negative is proven with the script's OWN PRODUCT: the Vampire token the
+first attack created attacks alone two turns later and pays nothing.
+Both wordings print "one or more", which IS the per-declaration batch
+(Deeproot's argument, D170).
+
+**Two more firsts:** `Meltstrider Eulogist` is the first
+COUNTER-CONDITIONED dies watcher — the mover's `+1/+1` counters are read
+off the BEFORE state exactly the way Field of Souls reads `isToken`
+(`looksBack` hands `matches` the board the creature died on, counters
+still on it); a counterless creature dying draws nothing, proven from
+both sides. `Merfolk Skyscout` is the first ATTACKS-OR-BLOCKS pair that
+TARGETS: Jedit's two arms (D182), each carrying the trigger prompt
+(D169's arrow machinery), resolving as Filigree Sages's untap — both
+arms driven, the blocks arm through a real scripted attack from the
+opponent's seat.
+
+**The families:** all four MEMORIALS land in one batch beside
+`Meditation Pools` — five three-line lands (enters tapped + mana +
+sacrifice payoff), carrying a draw, a draw-two, two DISTINCT Soldiers, a
+targeted graveyard return (D138's aim; a land card in the graveyard is
+REFUSED by `cardTypes`) and a targeted land destroy whose indestructible
+check earns its keep because **Darksteel Citadel is a land** — it
+survives and the Memorial STAYS SPENT. `Master Decoy` is the FIFTH
+oracle id on the Benalish Trapper text; `Mardu Banner` joins Jeskai as
+the second Banner. `Man-o'-War`, `Manic Vandal` and `Chrome Prowler`'s
+shape round out the targeted ETBs; `Mawcor` puts the tap-ping behind a
+keyword line (Cackling Imp's `#a0`); dies-tokens pay a lifelink Vampire
+and two DISTINCT Spirits. **The land pool reads 257 (+5), the legendary
+pool 65** (Mavren, Meriadoc). All 20 suites — 44 tests — green on their
+FIRST run: the FIFTH consecutive first-run-clean batch.
+
+⚠️ **One tooling note, not a bug:** `land.cjs` derives the export from
+the module filename with a lowercase→uppercase split, so `manOWar.ts`
+must export `MAN_OWAR_SCRIPT` (the O→W boundary does not split). The
+check refused the mismatch BEFORE writing anything — the export was
+renamed to comply.
+
+**Five refusals, TWO new classes:** the SCRY/SURVEIL EVENT
+DISCRIMINATOR (`Matoya, Archon Elder` — no event marks a scry: the peek
+is a Tier-3 reveal and scry/surveil are UI MODES on it, D114, so
+"whenever you scry or surveil" has nothing to watch; the draw-event
+discriminator's exact sibling) and the {Q} UNTAP-SYMBOL ACTIVATION COST
+(`Merrow Grimeblotter` — the source must be TAPPED and untaps as the
+price; no parse reads it, no charge path pays it). Plus two
+discard-cost choosers (Masked Meower, Mental Discipline) and the
+return-permanent cost's third entry (`Meloku the Clouded Mirror`). The
+ledger holds 92.
+
+**The numbers, every delta exactly the twenty cards:** primitives
+`complete` 2,214 → 2,234 · `blocked` 29,458 · `scriptableToday` 759 ·
+ladder [759, 858, 2811, 4695, 5882] · botPool creature 1,525, artifact
+75, **land 257**, enchantment 30 · tier3 `abilityText` 17,151, `payable`
+5,130 (−9, def-gated), `either` −20 exactly, `silentAfter` 2,625 → 2,645
+(+20 exactly) · fixtures 685 → 707 (70 tokens — TWO new pins, Vampire
+`tmom 3` and Robot `ttmt 10`; Spirit `tmm2 5`, Food `tunf 10` and
+Soldier `t40k 2★` REUSED after checking TOKEN_TABLE's printingIds) ·
+`batch.json` at **584** (609 − 20 − 5, exact) · botDeck regenerated —
+**Adun reaches 1,227 cards from 65 legendaries**.
+
+**Verified: `verify.cjs --full` — ALL FIVE GATES PASSED in one
+invocation** — 574 test files, 3,678 Vitest passed /
+10 skipped · the 500-seed replay fuzz gate green at 2,101.9 s (504
+scripts registered, 1,498 s inside the 3,600 s ceiling) ·
+build clean · probe 124/124 · battery `bot engine prompts` 127/127.
+
+**Reportables:** the EVENT-MARKER family now has two members — a
+`DrewCards` marker (both draw classes, D182) and a scry/surveil marker
+(Matoya's class) — one design serving both; the untap-symbol cost joins
+the cost-chooser ledger; the cost-chooser classes, `ctx.random`,
+once-per-turn memory, per-damage-entry granularity, token entry choice,
+the spell seam and the battery click-check debt stand.

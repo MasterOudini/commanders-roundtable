@@ -165,7 +165,15 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // under-fires (Aya's D163 class on taps and attacks). Four new classes
     // (kicker memory, explore mechanic, negated-type sacrifice predicate,
     // per-tap-entry granularity).
-    expect(SHIPPED_SCRIPTS).toHaveLength(484);
+    // M6.4ad (D186) landed twenty of 25 — the first DefenderRef read in a
+    // def (Meriadoc's "attack a player"), Mavren Fein's nontoken-Vampire
+    // attack filter, the first counter-conditioned dies watcher
+    // (Meltstrider), the first targeted attacks-or-blocks pair (Merfolk
+    // Skyscout), the four Memorials, and the fifth Benalish id (Master
+    // Decoy). Two new classes: scry/surveil event discriminator (Matoya —
+    // no event marks a scry, D114 made the mode UI state) and the {Q}
+    // untap-symbol activation cost (Merrow Grimeblotter).
+    expect(SHIPPED_SCRIPTS).toHaveLength(504);
   });
 });
 

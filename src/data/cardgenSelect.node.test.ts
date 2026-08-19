@@ -290,6 +290,18 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Mad Prophet', 'discard-cost chooser'],
   ['Mad Ratter', 'draw-event discriminator'],
   ['Mage il-Vec', 'random-discard cost'],
+  // Batch 27 (D186), five refusals and TWO new classes. Matoya names the
+  // SCRY/SURVEIL EVENT DISCRIMINATOR: no event marks a scry — the peek is a
+  // Tier-3 reveal and scry/surveil are UI MODES on it (D114), so "whenever
+  // you scry or surveil" has nothing to watch. Merrow Grimeblotter names the
+  // {Q} UNTAP-SYMBOL ACTIVATION COST: the source must be tapped and untaps
+  // as the price, which no parse reads and no charge path pays. Meloku is
+  // the return-permanent cost's third entry (D175's class).
+  ['Masked Meower', 'discard-cost chooser'],
+  ['Matoya, Archon Elder', 'scry-surveil event discriminator'],
+  ['Meloku the Clouded Mirror', 'return-permanent cost'],
+  ['Mental Discipline', 'discard-cost chooser'],
+  ['Merrow Grimeblotter', 'untap-symbol activation cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

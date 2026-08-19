@@ -505,6 +505,26 @@ import { MADAME_HYDRA_SCRIPT } from './scripts/cards/madameHydra';
 import { MAKESHIFT_MUNITIONS_SCRIPT } from './scripts/cards/makeshiftMunitions';
 import { MALCATORS_WATCHER_SCRIPT } from './scripts/cards/malcatorsWatcher';
 import { MALEVOLENT_AWAKENING_SCRIPT } from './scripts/cards/malevolentAwakening';
+import { MAN_OWAR_SCRIPT } from './scripts/cards/manOWar';
+import { MANDROID_SQUADRON_SCRIPT } from './scripts/cards/mandroidSquadron';
+import { MANIC_VANDAL_SCRIPT } from './scripts/cards/manicVandal';
+import { MARBLE_CHALICE_SCRIPT } from './scripts/cards/marbleChalice';
+import { MARDU_BANNER_SCRIPT } from './scripts/cards/marduBanner';
+import { MARTYR_OF_DUSK_SCRIPT } from './scripts/cards/martyrOfDusk';
+import { MASTER_DECOY_SCRIPT } from './scripts/cards/masterDecoy';
+import { MAUSOLEUM_GUARD_SCRIPT } from './scripts/cards/mausoleumGuard';
+import { MAVREN_FEIN_DUSK_APOSTLE_SCRIPT } from './scripts/cards/mavrenFeinDuskApostle';
+import { MAWCOR_SCRIPT } from './scripts/cards/mawcor';
+import { MECHANIZED_NINJA_CAVALRY_SCRIPT } from './scripts/cards/mechanizedNinjaCavalry';
+import { MEDITATION_POOLS_SCRIPT } from './scripts/cards/meditationPools';
+import { MELTSTRIDER_EULOGIST_SCRIPT } from './scripts/cards/meltstriderEulogist';
+import { MEMORIAL_TO_FOLLY_SCRIPT } from './scripts/cards/memorialToFolly';
+import { MEMORIAL_TO_GENIUS_SCRIPT } from './scripts/cards/memorialToGenius';
+import { MEMORIAL_TO_GLORY_SCRIPT } from './scripts/cards/memorialToGlory';
+import { MEMORIAL_TO_WAR_SCRIPT } from './scripts/cards/memorialToWar';
+import { MERCHANT_OF_SECRETS_SCRIPT } from './scripts/cards/merchantOfSecrets';
+import { MERFOLK_SKYSCOUT_SCRIPT } from './scripts/cards/merfolkSkyscout';
+import { MERIADOC_BRANDYBUCK_SCRIPT } from './scripts/cards/meriadocBrandybuck';
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -969,6 +989,16 @@ const DECK = [
   'Los Diablos Missile Base', 'Loxodon Mystic', 'Luke Cage, Hero for Hire',
   'Luminarch Aspirant', 'Maalfeld Twins', 'Madame Hydra',
   'Makeshift Munitions', "Malcator's Watcher", 'Malevolent Awakening',
+  // M6.4ad/D186 — batch 27. Mavren Fein and Meriadoc read the ATTACK
+  // declaration (nontoken-Vampire filter; the first DefenderRef read);
+  // Merfolk Skyscout's untap prompt rides both combat arms; Meltstrider's
+  // counter-conditioned dies watcher feeds on the gate's own +1/+1 wrenches.
+  "Man-o'-War", 'Mandroid Squadron', 'Manic Vandal', 'Marble Chalice',
+  'Mardu Banner', 'Martyr of Dusk', 'Master Decoy', 'Mausoleum Guard',
+  'Mavren Fein, Dusk Apostle', 'Mawcor', 'Mechanized Ninja Cavalry',
+  'Meditation Pools', 'Meltstrider Eulogist', 'Memorial to Folly',
+  'Memorial to Genius', 'Memorial to Glory', 'Memorial to War',
+  'Merchant of Secrets', 'Merfolk Skyscout', 'Meriadoc Brandybuck',
   // ⚠️ M6.4b/D159 — the ACTIVATED batch, and each is a first for this gate:
   // `Arcane Encyclopedia` is the first script-resolved activated ability;
   // `Deserted Temple` the first TARGETED one (its untap re-checked at
@@ -1500,6 +1530,26 @@ const SCRIPTS = createRegistry([
   MAKESHIFT_MUNITIONS_SCRIPT,
   MALCATORS_WATCHER_SCRIPT,
   MALEVOLENT_AWAKENING_SCRIPT,
+  MAN_OWAR_SCRIPT,
+  MANDROID_SQUADRON_SCRIPT,
+  MANIC_VANDAL_SCRIPT,
+  MARBLE_CHALICE_SCRIPT,
+  MARDU_BANNER_SCRIPT,
+  MARTYR_OF_DUSK_SCRIPT,
+  MASTER_DECOY_SCRIPT,
+  MAUSOLEUM_GUARD_SCRIPT,
+  MAVREN_FEIN_DUSK_APOSTLE_SCRIPT,
+  MAWCOR_SCRIPT,
+  MECHANIZED_NINJA_CAVALRY_SCRIPT,
+  MEDITATION_POOLS_SCRIPT,
+  MELTSTRIDER_EULOGIST_SCRIPT,
+  MEMORIAL_TO_FOLLY_SCRIPT,
+  MEMORIAL_TO_GENIUS_SCRIPT,
+  MEMORIAL_TO_GLORY_SCRIPT,
+  MEMORIAL_TO_WAR_SCRIPT,
+  MERCHANT_OF_SECRETS_SCRIPT,
+  MERFOLK_SKYSCOUT_SCRIPT,
+  MERIADOC_BRANDYBUCK_SCRIPT,
   // M6.3u/D148 — the two whose ORDER a player now chooses (CR 616). Neither
   // reaches the rule alone: two replacements applying to ONE event is the only
   // thing that suspends the funnel, so without both of these the continuation,
