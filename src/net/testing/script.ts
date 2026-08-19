@@ -138,6 +138,11 @@ export function simplestIntent(
           ? { t: 'ChooseTargets', player: awaiting.player, targets }
           : { t: 'CancelPendingCast', player: awaiting.player };
       }
+      /** D195 — keep everything in revealed order: the no-op scry, always legal. */
+      case 'scryChoice':
+        return awaiting.player === snapshot.you
+          ? { t: 'AnswerScry', player: awaiting.player, toTop: [...(session.currentView().peek ?? [])], toBottom: [] }
+          : null;
       default:
         return null;
     }

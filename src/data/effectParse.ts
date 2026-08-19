@@ -118,6 +118,7 @@ const BASE: EffectFields = {
   token: null,
   look: null,
   atRandom: false,
+  thenDraw: 0,
 };
 
 /**
@@ -260,6 +261,74 @@ const RULES: readonly Rule[] = [
     build: (m) => {
       const kws = grantedKeywords(m[1], m[2]);
       return kws !== null ? { ...BASE, keywords: kws } : null;
+    },
+  },
+  /**
+   * D195 — scry and surveil, the second and third effect kinds whose
+   * resolution can stop and ask. The bare forms; the caster is the one who
+   * looks, so there is no target.
+   */
+  {
+    kind: 'scry',
+    re: new RegExp(`^scry (${NUM})\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      return n === null ? null : { ...BASE, amount: n, targetIndex: -1, self: true };
+    },
+  },
+  {
+    kind: 'surveil',
+    re: new RegExp(`^surveil (${NUM})\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      return n === null ? null : { ...BASE, amount: n, targetIndex: -1, self: true };
+    },
+  },
+  /**
+   * ⚠️ **THE DRAW RIDES THE SPEC, NEVER STANDS AFTER IT** — "Scry 2, then
+   * draw a card." (Preordain) and "Surveil 1, then draw a card." (Consider)
+   * are one printed sentence; Opt splits it as "Scry 1." then "Draw a
+   * card.", which the two-pass window (D150) hands to the last rule below
+   * as one string. All of them carry the draw INSIDE the scry spec because
+   * the draw must see the library AS REORDERED: a separate draw effect in
+   * the same batch would be built against the pre-answer state and take a
+   * card the player had not placed yet. The answer handler emits the draw
+   * against the post-choice state (D195).
+   */
+  {
+    kind: 'scry',
+    re: new RegExp(`^scry (${NUM}), then draw (a|one|two|three|four|five|six|seven|\\d+) cards?\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      const d = num(m[2]);
+      return n === null || d === null ? null : { ...BASE, amount: n, thenDraw: d, targetIndex: -1, self: true };
+    },
+  },
+  {
+    kind: 'surveil',
+    re: new RegExp(`^surveil (${NUM}), then draw (a|one|two|three|four|five|six|seven|\\d+) cards?\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      const d = num(m[2]);
+      return n === null || d === null ? null : { ...BASE, amount: n, thenDraw: d, targetIndex: -1, self: true };
+    },
+  },
+  {
+    kind: 'scry',
+    re: new RegExp(`^scry (${NUM})\\. (?:you )?draw (a|one|two|three|four|five|six|seven|\\d+) cards?\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      const d = num(m[2]);
+      return n === null || d === null ? null : { ...BASE, amount: n, thenDraw: d, targetIndex: -1, self: true };
+    },
+  },
+  {
+    kind: 'surveil',
+    re: new RegExp(`^surveil (${NUM})\\. (?:you )?draw (a|one|two|three|four|five|six|seven|\\d+) cards?\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      const d = num(m[2]);
+      return n === null || d === null ? null : { ...BASE, amount: n, thenDraw: d, targetIndex: -1, self: true };
     },
   },
   { kind: 'tap', re: new RegExp(`^tap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
@@ -675,6 +744,22 @@ export function parseEffects(
   }
   if (understood < clauses.length) {
     // ⚠️ The important branch. Understood-but-incomplete NEVER runs by itself.
+    warn('effect:partial');
+    return { effects, mode: 'assisted' };
+  }
+  /**
+   * ⚠️ **AN EFFECT THAT ASKS MUST BE LAST, OR THE CARD NEVER RUNS BY ITSELF
+   * (D195).** `effectEvents` stops emitting at an `AwaitingSet`, so anything
+   * after an asking effect in one resolution would be silently DROPPED —
+   * "Scry 1. Do X." would scry and never do X, which is half-execution in
+   * D90's exact sense while every sentence reads as understood. The
+   * scry-then-draw shapes are safe because the draw rides INSIDE the scry
+   * spec and the answer handler emits it; anything else lands `assisted`,
+   * where the player applies the parts by hand. (`lookAtTop` chains its own
+   * follow-ups through the answer, so it carries the same constraint.)
+   */
+  const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil']);
+  if (effects.slice(0, -1).some((e) => ASKS.has(e.kind))) {
     warn('effect:partial');
     return { effects, mode: 'assisted' };
   }

@@ -521,6 +521,24 @@ export function simplestAnswer(
       );
       return { t: 'AnswerOrderCards', player: awaiting.player, cards: shown };
     }
+    /**
+     * D195 — keep everything on top in the revealed order: the no-op scry,
+     * legal from any state, executing no hidden choice a rules test did not
+     * ask for (the same reasoning as declining an optional trigger). The
+     * revealed run reads top-first when reversed — library top is the END of
+     * the array.
+     */
+    case 'scryChoice': {
+      const shown = (state.zones.library[awaiting.player] ?? []).filter((id) =>
+        state.cards[id]?.revealedTo.includes(awaiting.player),
+      );
+      return {
+        t: 'AnswerScry',
+        player: awaiting.player,
+        toTop: [...shown].reverse(),
+        toBottom: [],
+      };
+    }
     case 'chooseFromZone': {
       // ⚠️ TWO ZONES NOW (D141). A hand is read straight off the state; a
       // library offers only the cards the effect just REVEALED, and answering

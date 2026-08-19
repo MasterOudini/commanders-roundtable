@@ -22,6 +22,8 @@ import { suggestPayment, solveInputFor, validatePlan } from './payment';
 import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle } from './rng';
 import { n, narrated, their, vb, who } from './narrate';
+import { drawEvents } from './effects';
+import { apply } from './reducer';
 import { bottomCountFor, drawFromTop } from './setup';
 import { resolveAbility, stackPendingTriggers, type EngineDeps } from './loop';
 import type { CardMove, EventBody } from './types/events';
@@ -100,6 +102,8 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
       return answerChooseFromZone(state, intent);
     case 'AnswerOrderCards':
       return answerOrderCards(state, intent);
+    case 'AnswerScry':
+      return answerScry(state, intent);
     case 'Concede':
       return concede(state, intent.player);
     case 'RollDice':
@@ -1964,6 +1968,100 @@ function answerOrderCards(
       intent.player,
     ),
   ]);
+}
+
+/**
+ * Scry or surveil, answered (D195). The FOURTH prompt over a hidden zone, so
+ * the whole legality check lives here — the answer must be an EXACT partition
+ * of the revealed run: every card once, nothing outside it, nothing missing.
+ *
+ * ⚠️ `toTop` is FIRST ENTRY FIRST (the card that ends up on top), and the
+ * moves are applied in REVERSE for `answerOrderCards`'s reason: each
+ * `placement: 'top'` puts its card at the end of the array, so the last one
+ * applied lands topmost.
+ *
+ * ⚠️ **THE `thenDraw` RIDER IS EMITTED AGAINST A SCRATCH STATE.** "Scry 2,
+ * then draw a card" must draw the card the player just placed on top —
+ * `drawEvents` built against the PRE-answer state would take the top of the
+ * unplaced run instead. The scry's own events are folded through the pure
+ * reducer first, and the draw is computed from what the library then is;
+ * both event groups go out in one accept, in that order, so the reducer
+ * applies them exactly as the scratch predicted. (This also keeps every draw
+ * rule — the D189 marker, the empty-library loss — in THE one place, D158.)
+ */
+function answerScry(
+  state: GameState,
+  intent: Extract<Intent, { t: 'AnswerScry' }>,
+): HandleResult {
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind !== 'scryChoice' || awaiting.player !== intent.player) {
+    return reject('notAwaitingThat', 'You are not scrying.');
+  }
+  const lib = state.zones.library[intent.player] ?? [];
+  const shown = lib.filter((id) => state.cards[id]?.revealedTo.includes(intent.player));
+  const answered = [...intent.toTop, ...intent.toBottom];
+  if (answered.length !== shown.length) {
+    return reject('invalidAmount', `Place all ${shown.length} card${shown.length === 1 ? '' : 's'}.`);
+  }
+  const unique = new Set(answered);
+  if (unique.size !== answered.length) {
+    return reject('noSuchCard', 'You named the same card twice.');
+  }
+  for (const card of answered) {
+    if (!shown.includes(card)) return reject('wrongZone', 'That card is not one you are looking at.');
+  }
+
+  const sendAway: CardMove[] = intent.toBottom.map((card) =>
+    awaiting.toGraveyard
+      ? {
+          card,
+          from: { kind: 'library' as const, player: intent.player },
+          to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? intent.player },
+        }
+      : {
+          card,
+          from: { kind: 'library' as const, player: intent.player },
+          to: { kind: 'library' as const, player: intent.player },
+          // ⚠️ Required — `addToZone` appends and the top is the END of the
+          // array, so without it the declined card sits under the next draw.
+          placement: 'bottom' as const,
+        },
+  );
+  const keep: CardMove[] = [...intent.toTop].reverse().map((card) => ({
+    card,
+    from: { kind: 'library' as const, player: intent.player },
+    to: { kind: 'library' as const, player: intent.player },
+    placement: 'top' as const,
+  }));
+
+  const events: EventBody[] = [
+    { t: 'AwaitingSet', awaiting: null },
+    ...(sendAway.length + keep.length > 0 ? [{ t: 'CardsMoved' as const, moves: [...sendAway, ...keep] }] : []),
+    // Clear the reveal, or the player keeps seeing these cards forever —
+    // `view.peek` reads `revealedTo`.
+    { t: 'CardsRevealed', cards: [...shown], to: [] },
+    narrated(
+      n`${who(state, intent.player)} ${vb(intent.player, awaiting.toGraveyard ? 'surveils' : 'scries', awaiting.toGraveyard ? 'surveil' : 'scry')} ${shown.length}, keeping ${intent.toTop.length} on top.`,
+      intent.player,
+    ),
+  ];
+
+  if (awaiting.thenDraw > 0) {
+    // Fold the scry through the pure reducer so the draw sees the reordered
+    // library; the seq numbers on the scratch are irrelevant — only zones are
+    // read back out.
+    let scratch = state;
+    for (const body of events) {
+      scratch = apply(scratch, {
+        seq: scratch.eventCount,
+        body,
+        cause: { kind: 'system' },
+      } as never);
+    }
+    events.push(...drawEvents(scratch, intent.player, awaiting.thenDraw));
+  }
+
+  return accept(events);
 }
 
 function concede(state: GameState, player: PlayerId): HandleResult {

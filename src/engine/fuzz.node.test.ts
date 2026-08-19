@@ -98,6 +98,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // The only route to `chooseFromZone` — a real cast at a real player.
   { names: ['Mind Rot'], copiesPerSeat: 1,
     counterKeys: ['discardsChosen', 'cardsDiscarded'], rotHistory: 'D137 D176' },
+  // The scry prompt (D195) — a {U} cantrip the fuzzer can afford, whose
+  // resolution stops and asks; the driver answers keep-all via
+  // simplestAnswer's no-op scry.
+  { names: ['Preordain'], copiesPerSeat: 1,
+    counterKeys: ['scryChoices'], rotHistory: 'D195' },
   // The only TARGETED trigger — fires off Darksteel Citadel in FIXED_CORE.
   { names: ['Yotian Dissident'], copiesPerSeat: 1,
     counterKeys: ['triggerTargetsChosen'], rotHistory: 'D147' },
@@ -537,6 +542,8 @@ interface Run {
   readonly triggersFizzled: number;
   readonly diesTriggers: number;
   readonly replacementChoices: number;
+  /** Scry/surveil prompts raised by a resolving effect (D195). */
+  readonly scryChoices: number;
   /** Permanents that entered as a face other than the front one (CR 712). */
   readonly backFacesPlayed: number;
 }
@@ -686,6 +693,9 @@ function runOne(seed: number): Run {
     // else, so unlike a counter over 'was a replacement applied' it cannot go
     // green on the single-effect path that has worked since D134.
     replacementChoices: game.log.filter((e) => e.body.t === 'ReplacementPending').length,
+    scryChoices: game.log.filter(
+      (e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'scryChoice',
+    ).length,
     // CR 608.2b for a TRIGGER — a distinct sentence from the spell fizzle, so
     // the two cannot be confused for each other.
     triggersFizzled: game.log.filter(
@@ -828,6 +838,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           triggersFizzled: a.triggersFizzled + r.triggersFizzled,
           diesTriggers: a.diesTriggers + r.diesTriggers,
           replacementChoices: a.replacementChoices + r.replacementChoices,
+          scryChoices: a.scryChoices + r.scryChoices,
           entersDeclined: a.entersDeclined + r.entersDeclined,
         }),
         {
@@ -856,6 +867,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           triggersFizzled: 0,
           diesTriggers: 0,
           replacementChoices: 0,
+          scryChoices: 0,
           entersDeclined: 0,
         },
       );
@@ -1017,6 +1029,11 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       // honest form. `battery-anim.cjs prompts` covers both branches with real
       // clicks either way, which is the coverage that does not depend on luck.
       if (SEEDS >= 500) expect(totals.replacementChoices).toBeGreaterThan(0);
+      // ⚠️ THE SCRY CANARY (D195): Preordain is a staple in every pool, {U} is
+      // affordable, and the prompt is answered by the driver's no-op scry —
+      // so at gate size the effect that stops and asks must have stopped and
+      // asked somewhere.
+      if (SEEDS >= 500) expect(totals.scryChoices).toBeGreaterThan(0);
     },
     // ⚠️ A HANG CATCHER, NOT A PERF REFEREE (D133's testTimeout rule). The
     // wall grows with the arc's whole point — more scripts mean richer games

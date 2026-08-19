@@ -13272,3 +13272,75 @@ from [quality]" is parameterised and outside the closed map; activated/
 triggered pump-with-rider lines are now EXPRESSIBLE for scripts too (the
 event carries keywords wherever a def emits it); the script-raised prompt
 seam is next (script-prompt-seam-design.md).
+
+
+## D195 — M6.4aj: scry and surveil — the effects that stop and ask (2026-08-20)
+
+**What was decided:** `scry` and `surveil` joined the effect vocabulary as
+the SECOND AND THIRD effect kinds whose resolution can stop and ask
+(discard was the first, D137). The resolution reveals the top N to the
+caster (D114's peek machinery — `view.peek` lists the cards, the prompt
+ships NO ids, the fourth hidden-zone prompt built on D137's rule) and
+raises `Awaiting.scryChoice`; the answer — `AnswerScry {toTop, toBottom}`
+— must be an EXACT partition of the revealed run, validated entirely in
+the handler.
+
+⚠️⚠️ **THE `thenDraw` RIDER RIDES THE SPEC AND IS EMITTED AGAINST A
+SCRATCH STATE.** "Scry 2, then draw a card" must draw the card the player
+just KEPT — `drawEvents` built against the pre-answer state would take
+the top of the unplaced run. The answer handler folds the scry's own
+events through the pure reducer first and computes the draw from what the
+library then is; both groups go out in one accept, in that order, so the
+reducer applies them exactly as the scratch predicted — and every draw
+rule (the D189 marker, the empty-library loss) stays in THE one place
+(D158). The test proves it from BOTH answers: bottom it and the draw
+takes the card underneath; keep it and the draw takes exactly it.
+
+⚠️⚠️ **AND THE GUARD THE SHAPE FORCED, RETROACTIVE OVER DISCARD TOO: AN
+EFFECT THAT ASKS MUST BE LAST, OR THE CARD NEVER RUNS BY ITSELF.**
+`effectEvents` stops emitting at an `AwaitingSet`, so anything after an
+asking effect in one resolution is silently DROPPED — "Scry 1. Destroy
+target artifact." would scry and never destroy: half-execution in D90's
+exact sense while every sentence reads as understood. `parseEffects` now
+lands any such card `assisted`. This is why `Read the Bones` ("Scry 2,
+then draw two cards. You lose 2 life.") STAYS in the REFUSED ledger while
+`Introduction to Prophecy` drained out of it by name through the
+stale-refusal guard — the designed flow, working.
+
+**The forms:** bare (`Scry N.` / `Surveil N.`), the comma-form
+(`Scry 2, then draw a card.` — Preordain, ONE printed sentence), and the
+WINDOW-form — Opt prints `Scry 1.` and `Draw a card.` as two lines, and
+D150's two-pass window hands the joined pair to one anchored rule. The
+window earned its keep here: D141's join list never grew past one entry,
+and the refactor built "for two or three entries from now" paid off at
+entry two.
+
+**Measured:** `complete` 2,350 → **2,407** (+57 more with zero scripts —
+two vocabulary landings in one night total +154); auto 509 → 570;
+botPool instant 292 → 335, sorcery 168 → 181; offerable 2,089 → 2,191;
+triggeredShell drained 2,497 → 2,322 (scry trigger-payloads became
+readable). ⚠️ **The bot's deck gained 25 more** (Adun reaches 1,338 —
+Eat to Extinction, Bolt of Keranos, Artisan's Sorrow: the scry riders).
+Fixtures 729 → 732 (Opt, Preordain, Consider).
+
+**The fan-out** (all named by tsc or the D125 map, as designed): the bot
+keeps everything in revealed order (a policy, said to be one — its
+`CardView.cmc` ceiling cannot price a scry); `simplestAnswer` and the net
+driver answer the same no-op scry; PromptBar names the destination
+because scry and surveil differ only there; the peek panel gained the
+scry mode — clicks build the KEEP list top-first and a commit button
+submits, because keep-zero and keep-all are both real answers so no click
+can be "the last one" (D113's commits-on-the-pick rule does not apply).
+`Preordain` joined CANARY_STAPLES feeding a new `scryChoices` counter —
+one table row, which is D193 paying for itself on the first landing after
+it. The battery gained three real-click checks in the same landing
+(D144's rule): the panel takeover, the counting submit button, and the
+rider drawing THE KEPT CARD.
+
+**Reportables:** "look at the top N" wordings that ARE scries in
+disguise stay on their D141 machinery; scry-as-trigger-PAYLOAD
+("whenever you scry") still wants D186's marker — the new resolution is
+where that marker should be emitted when it lands; Brainstorm,
+Electrodominance and Stinging Study stay ledgered (hand-side choose,
+free-cast, chooseOption — different prompts); the scry family's
+remaining tail is spells with riders the vocabulary does not read yet.

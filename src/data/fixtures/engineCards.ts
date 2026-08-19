@@ -22793,6 +22793,114 @@ export const RUSH_OF_ADRENALINE: CardData = {
   "singleImage": true
 };
 
+export const OPT: CardData = {
+  "scryfallId": "015e9da6-c704-4b00-b717-8c07ba2b2ff7",
+  "oracleId": "713332c1-5bd8-400f-bfff-c1ca0697a043",
+  "name": "Opt",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Opt",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Scry 1. (Look at the top card of your library. You may put that card on the bottom.)\nDraw a card.",
+      "flavorText": "\"Sometimes the hardest choice is between two wonders.\"\n—Gadwick, the Wizened",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "015e9da6-c704-4b00-b717-8c07ba2b2ff7"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "woc",
+  "collectorNumber": "101",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PREORDAIN: CardData = {
+  "scryfallId": "0d375d5d-c98b-43ef-94d0-2daca974ba15",
+  "oracleId": "ac641490-ca14-48d7-8cc4-b69ce984befa",
+  "name": "Preordain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Preordain",
+      "manaCost": "{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Scry 2, then draw a card. (To scry 2, look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "0d375d5d-c98b-43ef-94d0-2daca974ba15"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "prm",
+  "collectorNumber": "86092",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONSIDER: CardData = {
+  "scryfallId": "0461a1be-c463-4b4b-bd8c-7b4134982ec0",
+  "oracleId": "4c9bcba6-87b5-4fb3-97ee-6fe5b739337d",
+  "name": "Consider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Consider",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)\nDraw a card.",
+      "flavorText": "Ivold gasped in surprise. Either a very strange insect had crawled onto one of the lenses or he was seeing geists at last!",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Zezhou Chen",
+      "imageId": "0461a1be-c463-4b4b-bd8c-7b4134982ec0"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "dbl",
+  "collectorNumber": "44",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -25833,6 +25941,9 @@ export const ENGINE_CARDS: CardData[] = [
   SQUALL_LINE,
   JUMP,
   RUSH_OF_ADRENALINE,
+  OPT,
+  PREORDAIN,
+  CONSIDER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

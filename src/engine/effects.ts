@@ -421,6 +421,40 @@ export function effectResult(
       }
 
       /**
+       * CR 701.18 / 701.42 — scry and surveil (D195). The reveal is what makes
+       * the prompt answerable, exactly as `lookAtTop`'s comment says: the cards
+       * become `revealedTo` the controller, `view.peek` lists them, and the
+       * prompt ships no ids. ⚠️ Unlike a look, scry 1 STILL asks — top or
+       * bottom is a real choice at any count — and an empty library scries
+       * nothing (CR 701.18b's degenerate case).
+       *
+       * ⚠️ A `thenDraw` rider is NOT emitted here: the draw must see the
+       * library AS REORDERED, so it rides the awaiting and the ANSWER handler
+       * emits it against the post-choice state.
+       */
+      case 'scry':
+      case 'surveil': {
+        const library = state.zones.library[controller] ?? [];
+        const n = Math.min(effect.amount, library.length);
+        if (n === 0) break;
+        const top = library.slice(library.length - n);
+        out.push({ t: 'CardsRevealed', cards: top, to: [controller] });
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        out.push({
+          t: 'AwaitingSet',
+          awaiting: {
+            kind: 'scryChoice',
+            player: controller,
+            count: n,
+            toGraveyard: effect.kind === 'surveil',
+            thenDraw: effect.thenDraw,
+            label: obj.label,
+          },
+        });
+        break;
+      }
+
+      /**
        * ⚠️ THE EVENT HAS EXISTED SINCE D107 and was reached only by the Tier-3
        * counter tool and by the two built-in replacements. Nothing had to be
        * added to the log, the reducer or the hash — the whole of this primitive

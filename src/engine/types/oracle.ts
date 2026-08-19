@@ -315,6 +315,16 @@ export type EffectKind =
    */
   | 'discard'
   /**
+   * CR 701.18 / 701.42 — scry and surveil: look at the top N of your own
+   * library, keep some on top in an order you choose, and put the rest on
+   * the bottom (scry) or into your graveyard (surveil). The SECOND and
+   * THIRD effect kinds whose resolution can stop and ask (discard was the
+   * first, D137); the answer is a partition plus an order, validated
+   * entirely in the handler because the prompt ships no card ids (D195).
+   */
+  | 'scry'
+  | 'surveil'
+  /**
    * CR 400.7 — a card leaving a graveyard for its owner's HAND. `Raise Dead`.
    *
    * ⚠️ Distinct from `bounce` even though both end in a hand: `bounce` moves a
@@ -396,6 +406,15 @@ export interface EffectSpec {
   readonly token: TokenRef | null;
   /** `lookAtTop` only: how many to keep and where the rest go (D141). */
   readonly look: LookSpec | null;
+  /**
+   * `scry`/`surveil` only: cards drawn AFTER the choice resolves — the
+   * "Scry 2, then draw a card" / "Surveil 1, then draw a card" shape
+   * (Preordain, Consider). It rides the spec because the draw must see the
+   * library AS REORDERED, so it is carried through the prompt and emitted
+   * by the ANSWER handler against the post-choice state — emitting it here
+   * would draw from under the cards the player has not placed yet (D195).
+   */
+  readonly thenDraw: number;
   /**
    * Which of the spell's targets this clause applies to — an index into
    * `StackObject.targets`. -1 means "no target", e.g. `Draw three cards`.

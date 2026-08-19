@@ -686,6 +686,27 @@ export type Awaiting =
       readonly count: number;
       readonly label: string;
     }
+  /**
+   * CR 701.18/701.42 — scry or surveil (D195): partition the revealed top run
+   * into kept-on-top-in-order and sent-away. The FOURTH prompt over a hidden
+   * zone and it ships no card ids like the other three — the client lists the
+   * candidates from its own `view.peek` (the rules revealed them to it).
+   */
+  | {
+      readonly kind: 'scryChoice';
+      readonly player: PlayerId;
+      /** How many cards were revealed — never which. */
+      readonly count: number;
+      /** Surveil sends the rejects to the graveyard instead of the bottom. */
+      readonly toGraveyard: boolean;
+      /**
+       * Cards drawn AFTER the choice resolves ("Scry 2, then draw a card") —
+       * carried through the prompt because the draw must see the library AS
+       * REORDERED (D195).
+       */
+      readonly thenDraw: number;
+      readonly label: string;
+    }
   | { readonly kind: 'rewindVote'; readonly proposer: PlayerId; readonly toEventCount: number; readonly agreed: readonly PlayerId[]; readonly declined: readonly PlayerId[] };
 
 export interface PriorityState {

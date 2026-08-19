@@ -136,6 +136,19 @@ export type Intent =
    * for nothing because it carries nothing.
    */
   | { readonly t: 'AnswerOrderCards'; readonly player: PlayerId; readonly cards: readonly InstanceId[] }
+  /**
+   * The scry/surveil answer (D195): `toTop` FIRST ENTRY FIRST — the card that
+   * ends up on top — and `toBottom` is the rest (the graveyard, for a
+   * surveil). Together they must be an EXACT partition of the revealed run,
+   * checked against the state for `AnswerChooseFromZone`'s reason: the prompt
+   * vouches for nothing because it carries nothing.
+   */
+  | {
+      readonly t: 'AnswerScry';
+      readonly player: PlayerId;
+      readonly toTop: readonly InstanceId[];
+      readonly toBottom: readonly InstanceId[];
+    }
 
   // Tier 3 — manual tools. NOT enforced; every one is marked in the log.
   | { readonly t: 'ManualMoveCard'; readonly player: PlayerId; readonly card: InstanceId; readonly to: { readonly kind: 'library' | 'hand' | 'battlefield' | 'graveyard' | 'exile' | 'command'; readonly player: PlayerId }; readonly placement?: 'top' | 'bottom'; readonly faceDown?: boolean }

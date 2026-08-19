@@ -185,8 +185,8 @@ describe.skipIf(!HAVE_DB)('the token resolver, over the real database', () => {
       cardsFullyResolved: r.cardsFullyResolved,
     }).toEqual({
       tokenPrintings: 3290,
-      cards: 913,
-      lines: 946,
+      cards: 911,
+      lines: 944,
       parsed: 278,
       unique: 256,
       noMatch: 22,

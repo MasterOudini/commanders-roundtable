@@ -5250,6 +5250,48 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       from X" is parameterised; the script-raised prompt seam is next.
 
 
+- [x] **M6.4aj — scry and surveil: the effects that stop and ask
+      (2026-08-20):** **2,407 of 31,692 Commander-legal cards now execute
+      completely, up from 2,350** — +57 more with ZERO scripts; the night's
+      two vocabulary landings total +154. Decisions in **D195**.
+      ⚠️⚠️ **The second and third effect kinds whose resolution can STOP
+      AND ASK** (discard was the first, D137): the resolution reveals the
+      top N to the caster and raises `scryChoice` — the FOURTH hidden-zone
+      prompt, shipping NO card ids; `AnswerScry {toTop, toBottom}` must be
+      an exact partition, validated wholly in the handler.
+      ⚠️⚠️ **The `thenDraw` rider is emitted against a SCRATCH STATE**
+      (the answer's own events folded through the pure reducer first), so
+      "Scry 2, then draw a card" draws the card the player JUST KEPT —
+      proven from both answers — and every draw rule stays in the one
+      place (D158/D189).
+      ⚠️⚠️ **AN EFFECT THAT ASKS MUST BE LAST or the card lands
+      `assisted`** — `effectEvents` stops at an `AwaitingSet`, so a
+      follow-on effect would be silently dropped: half-execution while
+      every sentence reads understood. Retroactive over discard. This is
+      why Read the Bones STAYS ledgered while Introduction to Prophecy
+      DRAINED by name through the stale-refusal guard.
+      ⚠️ **Opt is the D150 window's payoff**: its two printed lines join
+      into one anchored rule — the two-pass parser built "for two or three
+      entries from now" earned its keep at entry two.
+      ⚠️ **Preordain joined CANARY_STAPLES** (one row — D193 paying for
+      itself immediately) feeding the new `scryChoices` counter; the bot,
+      simplestAnswer and the net driver all answer the no-op scry (a
+      policy, said to be one); the peek panel gained the scry mode with a
+      COMMIT button (keep-zero and keep-all are both real answers, so no
+      click can be the last one) and the battery gained three real-click
+      checks in the same landing (D144's rule).
+      auto 509 → 570 · instant 335 / sorcery 181 · offerable 2,191 ·
+      botDeck +25 (Adun 1,338) · fixtures 732.
+      **Verified: 16 new tests in scry.test.ts + the parse guard ·
+      `verify.cjs --full` ALL FIVE GATES: 598 files,
+      3,811 passed / 10 skipped · 500-seed gate 699.4 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D195): the scry/surveil TRIGGER-payload family
+      wants D186's marker emitted from the new resolution; Brainstorm/
+      Electrodominance/Stinging Study stay ledgered (different prompts);
+      the next 25-batch runs on the 2,191 pool.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

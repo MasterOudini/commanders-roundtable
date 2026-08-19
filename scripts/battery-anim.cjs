@@ -5204,6 +5204,130 @@ async function sectionPrompts(js, send) {
     check('and the panel closes behind it', faces.panelClosed === true, String(faces.panelClosed));
   }
 
+  /**
+   * THE SCRY PANEL, driven by real clicks (D195, under D144's rule: the
+   * control ships WITH its check). Preordain — "Scry 2, then draw a card" —
+   * runs by VOCABULARY, so no registry is passed: the whole chain from parse
+   * to prompt to panel to answer to the reordered draw is the thing clicked.
+   *
+   * ⚠️ THE ASSERTION THAT MATTERS: the card CLICKED AS KEPT is the card the
+   * rider then DRAWS. Everything else is true whichever card was kept.
+   */
+  const scry = await js(`(async () => {
+    const out = {};
+    const nap = (ms) => new Promise((x) => setTimeout(x, ms));
+    const mk = (n, q) => ({ quantity: q, name: n, section: 'main', lineNo: 1, raw: q + 'x ' + n });
+    const deck = {
+      id: 'battery-scry', name: 'battery scry',
+      createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+      commanders: [{ quantity: 1, name: 'Talrand, Sky Summoner', section: 'commander', lineNo: 1, raw: '1x Talrand, Sky Summoner' }],
+      main: [mk('Preordain', 20), mk('Island', 79)], sideboard: [], houseRuled: true, sourceText: '',
+    };
+    let savedId = null;
+    try {
+      const saved = await window.crt.decks.save(deck);
+      savedId = saved.id;
+      const solo = await import('/src/game/solo.ts');
+      const r = await solo.startSolo({ seats: 2, deckIds: [savedId, null], seed: 'battery-scry' });
+      if (!r.ok) { out.error = r.message; return out; }
+      const e = window.__crt.engine;
+      e.submit({ t: 'MulliganDecision', player: 'p1', keep: true });
+      e.submit({ t: 'MulliganDecision', player: 'p2', keep: true });
+      await nap(700);
+      e.setViewer('p1');
+      await nap(250);
+
+      // ⚠️ Preordain is a SORCERY and the seed decides who goes first — pass
+      // until it is p1's own first main. ⚠️ THE VIEW's names, not the
+      // engine's: the field is turn.ACTIVE and the phase id is 'main1'
+      // ('precombatMain' is the ENGINE's word and never appears in a view —
+      // the check that read it matched nothing and exhausted its passes).
+      for (let i = 0; i < 40; i++) {
+        const v = e.view();
+        if (v.turn && v.turn.active === 'p1' && v.turn.phase === 'main1' && v.priority === 'p1') break;
+        if (v.priority) e.submit({ t: 'PassPriority', player: v.priority });
+        await nap(120);
+      }
+      // ⚠️ The hotseat hand-off FOLLOWS priority (D119), so the passes above
+      // moved the viewer — pin it back or every hand card reads card: null.
+      e.setViewer('p1');
+      await nap(200);
+
+      let spell = null;
+      for (let attempt = 0; attempt < 6 && !spell; attempt++) {
+        const v = e.view();
+        (v.zones['hand:p1'] || []).forEach((k) => {
+          if (!spell && v.cards[k] && v.cards[k].card && v.cards[k].card.name === 'Preordain') spell = k;
+        });
+        if (!spell) { e.submit({ t: 'ManualDraw', player: 'p1', target: 'p1', count: 6 }); await nap(300); }
+      }
+      if (!spell) {
+        const v = e.view();
+        const hand = v.zones['hand:p1'] || [];
+        out.error = 'no Preordain reached hand — hand=' + hand.length +
+          ' names=' + JSON.stringify(hand.slice(0, 5).map((k) => v.cards[k] && v.cards[k].card && v.cards[k].card.name)) +
+          ' turn=' + JSON.stringify(v.turn && { ap: v.turn.activePlayer, ph: v.turn.phase }) + ' prio=' + v.priority;
+        return out;
+      }
+      e.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'U', amount: 1 });
+      out.cast = e.submit({ t: 'CastSpell', player: 'p1', card: spell, targets: [] });
+
+      for (let i = 0; i < 12 && !document.querySelector('[data-peek-scry-submit]'); i++) {
+        const v = e.view();
+        if (v.priority) e.submit({ t: 'PassPriority', player: v.priority });
+        await nap(250);
+      }
+      const els = () => [].slice.call(document.querySelectorAll('[data-peek-card]'));
+      out.panelCards = els().length;
+      out.hint = (document.querySelector('[data-peek-hint]') || {}).textContent || '';
+      out.submitBefore = (document.querySelector('[data-peek-scry-submit]') || {}).textContent || '';
+      if (out.panelCards === 0) {
+        const v = e.view();
+        out.error = 'scry panel never opened — cast=' + JSON.stringify(out.cast) +
+          ' awaiting=' + JSON.stringify(v.awaiting) + ' peekLen=' + (v.peek || []).length +
+          ' prio=' + v.priority + ' stack=' + (v.stack || []).length;
+        return out;
+      }
+
+      // Keep the SECOND revealed card — badge 1 must appear on it.
+      const ids = els().map((el) => el.dataset.peekCard);
+      out.kept = ids[1] || ids[0];
+      els()[ids[1] ? 1 : 0].querySelector('[data-peek-pick]').click();
+      await nap(250);
+      out.badge = !!document.querySelector('[data-peek-pick="1"]');
+      out.submitAfter = (document.querySelector('[data-peek-scry-submit]') || {}).textContent || '';
+
+      document.querySelector('[data-peek-scry-submit]').click();
+      await nap(800);
+      out.panelAfter = document.querySelectorAll('[data-peek-card]').length;
+      out.awaitingAfter = (e.view().awaiting && e.view().awaiting.kind) || null;
+
+      // ⚠️ THE PROOF: the rider drew exactly the kept card.
+      const hand = e.view().zones['hand:p1'] || [];
+      out.drawnKept = hand.indexOf(out.kept) >= 0;
+      return out;
+    } catch (err) {
+      out.error = String(err && err.message ? err.message : err);
+      return out;
+    } finally {
+      if (savedId) { try { await window.crt.decks.delete(savedId); } catch (e2) { out.cleanup = String(e2); } }
+    }
+  })()`);
+
+  if (scry.error) {
+    check('a scry prompt takes the peek panel over and honours the answer', false, scry.error);
+  } else {
+    check('a scry prompt takes the peek panel over and honours the answer',
+      scry.panelCards === 2 && scry.badge === true,
+      'cards=' + scry.panelCards + ' badge=' + scry.badge + ' hint=' + JSON.stringify(scry.hint));
+    check('the submit button counts the keeps and names the destination',
+      /Keep 1/.test(scry.submitAfter) && /bottom/.test(scry.submitAfter),
+      'before=' + JSON.stringify(scry.submitBefore) + ' after=' + JSON.stringify(scry.submitAfter));
+    check('submitting closes the panel, clears the prompt, and the rider DRAWS THE KEPT CARD',
+      scry.panelAfter === 0 && scry.awaitingAfter === null && scry.drawnKept === true,
+      'panelAfter=' + scry.panelAfter + ' awaiting=' + scry.awaitingAfter + ' drawnKept=' + scry.drawnKept);
+  }
+
   await send('Emulation.clearDeviceMetricsOverride', {});
 }
 

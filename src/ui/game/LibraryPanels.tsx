@@ -179,7 +179,9 @@ export function PeekPanel() {
       ? ({ kind: 'pick', count: awaiting.count, label: awaiting.label } as const)
       : awaiting?.kind === 'orderCards' && awaiting.player === viewer
         ? ({ kind: 'order', count: awaiting.count, label: awaiting.label, to: awaiting.destination } as const)
-        : null;
+        : awaiting?.kind === 'scryChoice' && awaiting.player === viewer
+          ? ({ kind: 'scry', count: awaiting.count, label: awaiting.label, toGrave: awaiting.toGraveyard } as const)
+          : null;
 
   if (peek.length === 0) return null;
 
@@ -209,6 +211,15 @@ export function PeekPanel() {
   const clickPrompt = (id: string): void => {
     if (!prompt) return;
     const st = useTable.getState();
+    /**
+     * ⚠️ A SCRY NEVER AUTO-SENDS (D195): keeping zero and keeping all are both
+     * real answers, so "the last click submits" has no last click — the pick
+     * list is the KEEP set (top first) and the button below commits it.
+     */
+    if (prompt.kind === 'scry') {
+      st.togglePick(id);
+      return;
+    }
     if (st.pickOrder.includes(id)) {
       st.togglePick(id);
       return;
@@ -223,6 +234,19 @@ export function PeekPanel() {
         ? { t: 'AnswerChooseFromZone', player: viewer, cards: next }
         : { t: 'AnswerOrderCards', player: viewer, cards: next },
     );
+    st.clearPick();
+  };
+
+  const submitScry = (): void => {
+    if (prompt?.kind !== 'scry') return;
+    const st = useTable.getState();
+    const keep = st.pickOrder;
+    send({
+      t: 'AnswerScry',
+      player: viewer,
+      toTop: keep,
+      toBottom: peek.filter((id) => !keep.includes(id)),
+    });
     st.clearPick();
   };
 
@@ -244,7 +268,15 @@ export function PeekPanel() {
         {/* ⚠️ NO "DONE" WHILE A PROMPT IS UP. `ManualStopPeeking` clears the
             reveal without answering, which leaves the engine waiting on a
             question about cards the player can no longer see — a wedge with a
-            button on it. The prompt has to be answered. */}
+            button on it. The prompt has to be answered.
+            ⚠️ The scry SUBMIT below is not that Done: it ANSWERS the prompt
+            (keep-zero and keep-all are both real answers, so no click can be
+            "the last one" and a commit button is the only honest control). */}
+        {prompt?.kind === 'scry' && (
+          <button type="button" className={BTN_SMALL} data-peek-scry-submit="" onClick={submitScry}>
+            Keep {pickOrder.length}, rest to {prompt.toGrave ? 'graveyard' : 'bottom'}
+          </button>
+        )}
         {!prompt && (
         <button
           type="button"
@@ -265,7 +297,9 @@ export function PeekPanel() {
           ? `${copy.hint} Topmost first.`
           : prompt.kind === 'pick'
             ? `Click ${prompt.count} card${prompt.count === 1 ? '' : 's'} to keep. ${pickOrder.length}/${prompt.count} chosen.`
-            : `Click all ${prompt.count} in the order you want them, ${prompt.to} first. ${pickOrder.length}/${prompt.count} chosen.`}
+            : prompt.kind === 'scry'
+              ? `Click the cards to KEEP on top, in draw order; the rest go to the ${prompt.toGrave ? 'graveyard' : 'bottom'}. ${pickOrder.length} kept.`
+              : `Click all ${prompt.count} in the order you want them, ${prompt.to} first. ${pickOrder.length}/${prompt.count} chosen.`}
       </p>
 
       <div className="mt-2 flex gap-2 overflow-x-auto pb-1">

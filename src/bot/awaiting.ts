@@ -372,6 +372,27 @@ export function answerAwaiting(
         'name a colour',
       );
     }
+
+    /**
+     * ⚠️ **KEEP EVERYTHING ON TOP IN THE REVEALED ORDER — A POLICY, AND SAID
+     * TO BE ONE** (D195). A real scry decision prices the cards against what
+     * the bot wants next, which is exactly the per-card judgement its
+     * `CardView.cmc` ceiling cannot carry (the `orderCards` case says the
+     * same). Keeping the order as revealed is the no-op scry: legal from any
+     * state, and it executes no judgement it does not have. `view.peek` is
+     * top-first, which is also `toTop`'s first-entry-first.
+     */
+    case 'scryChoice': {
+      if (awaiting.player !== me) return wait('not my scry');
+      const shown = view.peek ?? [];
+      if (shown.length !== awaiting.count) {
+        return fault('noIntentForAwaiting', `asked to scry ${awaiting.count}, can see ${shown.length}`);
+      }
+      return act(
+        { t: 'AnswerScry', player: me, toTop: [...shown], toBottom: [] },
+        `scry ${awaiting.count}, keeping the order`,
+      );
+    }
   }
 
   // ⚠️ THE REAL GUARD IS THE COMPILE ERROR, not this line: `never` means a

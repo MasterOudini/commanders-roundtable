@@ -135,7 +135,7 @@ const PRODUCED = [...new Set(SITES.map((s) => s.kind))].sort();
 const NO_PRODUCER = ['orderAttackers', 'orderBlockers'] as const;
 
 describe('Awaiting — which prompts the engine can raise', () => {
-  test('the union is the eighteen kinds this test knows about', () => {
+  test('the union is the nineteen kinds this test knows about', () => {
     expect([...KINDS].sort()).toEqual(
       [
         'chooseColor',
@@ -156,11 +156,12 @@ describe('Awaiting — which prompts the engine can raise', () => {
         'orderBlockers',
         'orderTriggers',
         'rewindVote',
+        'scryChoice',
       ].sort(),
     );
   });
 
-  test('sixteen of the eighteen have a producer, and the sites are real', () => {
+  test('seventeen of the nineteen have a producer, and the sites are real', () => {
     expect(PRODUCED).toEqual(
       [
         'chooseColor',
@@ -179,6 +180,7 @@ describe('Awaiting — which prompts the engine can raise', () => {
         'orderCards',
         'orderTriggers',
         'rewindVote',
+        'scryChoice',
       ].sort(),
     );
     // Every kind claimed as produced must name at least one file:line, so the

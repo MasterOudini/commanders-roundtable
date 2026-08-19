@@ -994,6 +994,12 @@ const WANTED = [
   // grant (Jump) and the pump-with-rider (Rush of Adrenaline).
   'Jump',
   'Rush of Adrenaline',
+  // M6.4aj (D195) - scry and surveil as effects: the window-form (Opt,
+  // 'Scry 1.' then 'Draw a card.'), the comma-form (Preordain), and the
+  // surveil comma-form (Consider).
+  'Opt',
+  'Preordain',
+  'Consider',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

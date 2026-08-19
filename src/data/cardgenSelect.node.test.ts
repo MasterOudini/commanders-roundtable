@@ -323,7 +323,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Brainstorm', 'script-raised prompt'],
   ['Chaos Warp', 'ctx.random'],
   ['Read the Bones', 'script-raised prompt'],
-  ['Introduction to Prophecy', 'script-raised prompt'],
   ['Electrodominance', 'script-raised prompt'],
   ['Day of Black Sun', 'temporary keyword/ability grant'],
   ['Stinging Study', 'script-raised prompt'],

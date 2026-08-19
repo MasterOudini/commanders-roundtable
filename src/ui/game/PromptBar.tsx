@@ -143,6 +143,14 @@ function describe(
         return awaiting.player === viewer
           ? `${awaiting.label}: click your ${awaiting.count} cards in the order you want them, ${awaiting.destination} first.`
           : `${nameOf(seats, awaiting.player)} is ordering ${awaiting.count} cards.`;
+      // ⚠️ D195. The control is the peek panel: each card toggles between
+      // keeping (numbered, top first) and sending away; Done submits. The
+      // bar names the destination because scry and surveil differ ONLY there.
+      case 'scryChoice':
+        if (awaiting.player !== viewer) {
+          return `${nameOf(seats, awaiting.player)} is ${awaiting.toGraveyard ? 'surveilling' : 'scrying'} ${awaiting.count}.`;
+        }
+        return `${awaiting.label}: click cards to send to the ${awaiting.toGraveyard ? 'graveyard' : 'bottom'}; the rest stay on top in the order shown.`;
       case 'rewindVote':
         return awaiting.proposer === viewer
           ? `You proposed rewinding to event ${awaiting.toEventCount}.`
