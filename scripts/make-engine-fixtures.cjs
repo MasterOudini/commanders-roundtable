@@ -990,6 +990,10 @@ const WANTED = [
   'Slash the Ranks',
   'Solar Blaze',
   'Squall Line',
+  // M6.4ai (D194) - the temporary keyword grant's proof cards: the pure
+  // grant (Jump) and the pump-with-rider (Rush of Adrenaline).
+  'Jump',
+  'Rush of Adrenaline',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

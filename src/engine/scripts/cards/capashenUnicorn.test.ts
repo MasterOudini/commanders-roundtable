@@ -1,4 +1,4 @@
-﻿// `Capashen Unicorn` — the self-sacrifice destroy against an enchantment,
+// `Capashen Unicorn` — the self-sacrifice destroy against an enchantment,
 // with an INDESTRUCTIBLE artifact surviving it and the cost staying paid.
 
 import { describe, expect, test } from 'vitest';

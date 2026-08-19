@@ -29,7 +29,7 @@ import type {
 } from './ids';
 import type { ManaPool, PaymentProblem } from './mana';
 import type { NarrationPart } from './narration';
-import type { TargetSpec } from './oracle';
+import type { Keyword, TargetSpec } from './oracle';
 
 export type Phase =
   | 'beginning'
@@ -778,6 +778,13 @@ export interface GameState {
     readonly card: InstanceId;
     readonly power: number;
     readonly toughness: number;
+    /**
+     * Tier-2 keywords the card GAINS until end of turn (D194) — the carrier
+     * D153 measured missing under 958 sole-need cards. Optional so every
+     * pre-D194 entry and its replay hash are untouched. Read at layer 6 in
+     * `derive.ts`, cleared by the same `UntilEndOfTurnEnded` as the P/T.
+     */
+    readonly keywords?: readonly Keyword[];
   }[];
   readonly pendingTriggers: readonly PendingTrigger[];
   readonly winners: readonly PlayerId[];

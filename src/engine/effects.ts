@@ -179,6 +179,9 @@ export function effectResult(
           card: aim.id,
           power: effect.power,
           toughness: effect.toughness,
+          // D194 — the keyword rider. Spread-conditional so a plain pump
+          // emits the exact pre-D194 event, hash-identical on replay.
+          ...(effect.keywords.length > 0 ? { keywords: effect.keywords } : {}),
         });
         break;
       }

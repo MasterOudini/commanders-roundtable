@@ -910,7 +910,14 @@ function applyBody(state: GameState, body: EventBody): GameState {
         ...state,
         untilEndOfTurn: [
           ...state.untilEndOfTurn,
-          { card: body.card, power: body.power, toughness: body.toughness },
+          {
+            card: body.card,
+            power: body.power,
+            toughness: body.toughness,
+            // Spread-conditional so an event with no keywords appends the
+            // exact pre-D194 entry — hash-identical replays.
+            ...(body.keywords !== undefined ? { keywords: body.keywords } : {}),
+          },
         ],
       };
 

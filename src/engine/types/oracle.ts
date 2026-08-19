@@ -368,6 +368,14 @@ export interface EffectSpec {
   readonly power: number;
   readonly toughness: number;
   /**
+   * `pump` only: Tier-2 keywords GAINED until end of turn (D194) — "gets
+   * +1/+1 and gains trample" and the pure "gains flying" form, which is a
+   * pump of +0/+0 carrying a keyword. Empty for every other kind and for a
+   * plain pump; the closed GRANTABLE map in `effectParse.ts` decides what
+   * may appear here, so an unenforced keyword can never be granted.
+   */
+  readonly keywords: readonly Keyword[];
+  /**
    * `putCounters` / `removeCounters` only: WHICH counter, from the closed list.
    *
    * ⚠️ `null` for every other kind, and `effects.ts` refuses to emit without it.

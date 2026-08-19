@@ -124,6 +124,26 @@ function computeDerived(
   // why the battlefield array is the timestamp (CR 613.7c) and D129 for the two
   // re-timestamping clauses and the dependency rule it does not implement.
   applyStatics(state, oracle, scripts, inst, chars, 'ability', cache);
+  // ⚠️ **TEMPORARY KEYWORD GRANTS (D194)** — the carrier D153 measured missing
+  // under 958 sole-need cards: `untilEndOfTurn` held power and toughness and
+  // nothing else, so no spell or script could grant flying for a turn. The
+  // grants land HERE, in layer 6 where CR puts ability-adding, AFTER the
+  // statics.
+  //
+  // ⚠️ THE ORDERING ARGUMENT, stated because it is a scope decision: CR 613.7c
+  // gives a one-shot effect its own timestamp (when it was created), and this
+  // engine's layer-6 timestamp is the BATTLEFIELD ARRAY (D129) — the two are
+  // not comparable, so a true merge needs per-effect sequence stamps. What
+  // ships instead is additions-after-statics, which is EXACTLY right as long
+  // as every layer-6 static in play is itself an ADDITION (additions commute)
+  // — and every SHIPPED static is: the only ability-REMOVING statics in the
+  // repo are testing scripts (Gravity Sphere, Humility). The day a removal
+  // ships, this needs the real timestamp merge — that is the named
+  // reportable, not a surprise.
+  for (const mod of state.untilEndOfTurn) {
+    if (mod.card !== inst.id || mod.keywords === undefined) continue;
+    for (const k of mod.keywords) chars.keywords.add(k);
+  }
   applyStatics(state, oracle, scripts, inst, chars, 'type', cache);
   applyStatics(state, oracle, scripts, inst, chars, 'color', cache);
 

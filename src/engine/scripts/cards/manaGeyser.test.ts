@@ -1,4 +1,4 @@
-﻿// `Mana Geyser` â€” the board-computed ritual: one {R} per tapped land the
+// `Mana Geyser` — the board-computed ritual: one {R} per tapped land the
 // OPPONENTS control, counted at resolution. The untapped land and the
 // caster's own tapped land both prove the filter from its other side.
 
@@ -38,9 +38,9 @@ function board(): Game {
 }
 
 describe('Mana Geyser', () => {
-  test('adds {R} per TAPPED land the OPPONENTS control â€” two, not four', () => {
+  test('adds {R} per TAPPED land the OPPONENTS control — two, not four', () => {
     const g = board();
-    // 5 funded âˆ’ 5 paid + 2 from the Geyser.
+    // 5 funded − 5 paid + 2 from the Geyser.
     expect(g.state.players['p1']?.pool.R).toBe(2);
   });
 

@@ -185,12 +185,12 @@ describe.skipIf(!HAVE_DB)('the token resolver, over the real database', () => {
       cardsFullyResolved: r.cardsFullyResolved,
     }).toEqual({
       tokenPrintings: 3290,
-      cards: 915,
-      lines: 948,
-      parsed: 280,
-      unique: 258,
+      cards: 913,
+      lines: 946,
+      parsed: 278,
+      unique: 256,
       noMatch: 22,
-      cardsFullyResolved: 244,
+      cardsFullyResolved: 242,
     });
   });
 

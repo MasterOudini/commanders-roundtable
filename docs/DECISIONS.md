@@ -13201,3 +13201,74 @@ density per seed fell; staple density rose) — the next batch must read
 rate movements against D193, not against pre-rework rounds. Temp keyword
 grants are next (spell-family-landscape.md), then the script-raised prompt
 seam (script-prompt-seam-design.md).
+
+
+## D194 — M6.4ai: temporary keyword grants — the biggest unlock of the arc (2026-08-19)
+
+**What was decided:** `GameState.untilEndOfTurn` — which held power and
+toughness AND NOTHING ELSE since M3 (D153 measured 958 sole-need cards
+against that gap) — now carries optional Tier-2 `keywords`. One carrier:
+the P/T halves and the keywords ride the same entry, end at the same
+`UntilEndOfTurnEnded` cleanup, and replay identically (the field is
+optional, so every pre-D194 event and entry hashes byte-for-byte).
+
+**The chain:** `PtModifiedUntilEndOfTurn` gains optional `keywords` → the
+reducer appends them spread-conditionally → `derive.ts` reads them at
+LAYER 6, after `applyStatics('ability')` → combat, targeting and the SBA
+see them for free because they read derived characteristics (D129's
+proof, re-used).
+
+⚠️ **THE ORDERING ARGUMENT, stated as a scope decision:** CR 613.7c gives
+a one-shot effect its own timestamp, and this engine's layer-6 timestamp
+is the battlefield array (D129) — not comparable. What ships is
+additions-after-statics, which is EXACTLY right while every layer-6 static
+in play is itself an addition (additions commute) — and every SHIPPED
+static is: the only ability-REMOVING statics in the repo are testing
+scripts (Gravity Sphere, Humility). The day a removal ships, the real
+timestamp merge is due — a named reportable, not a surprise.
+
+⚠️ **THE VOCABULARY IS THE UNLOCK — +97 cards with ZERO card scripts, the
+largest single-landing coverage move of the entire arc** (the previous
+record was 23): `GRANTABLE` — a CLOSED printed-name → Tier-2-member map
+(21 entries; `flash` out as cast-time, `toxic` out as numbered) — feeds
+two new anchored pump rules: `gets +N/+N and gains K( and K)?` and the
+pure `gains K( and K)?`. A keyword outside the map leaves the WHOLE
+sentence unread — D90 for grants: an unenforced keyword granted
+"successfully" is a card half-working while looking whole.
+
+**Measured:** `complete` 2,253 → **2,350**; auto 409 → **509** (+100
+spells resolving entirely by themselves — auto had not moved since
+D150!); assisted 1,650 → 1,724; botPool instant 208 → 292, sorcery
+157 → 168, creature +2; scriptableToday 2,437 → 2,542; the layer6 grant
+split drained 1,166 → 1,000 and D153's temp-grant count 958 → 792;
+offerable 1,995 → 2,089. ⚠️ **The bot's deck gained 72 cards in one
+landing** (Adun reaches 1,313) — combat tricks: Bladebrand, Ancestors'
+Aid, Battle-Rage Blessing… The proof fixtures are `Jump` (the pure grant)
+and `Rush of Adrenaline` (the rider); fixtures 727 → 729.
+
+⚠️⚠️ **A TOOLING DISASTER FOUND AND FULLY REPAIRED ON THE WAY:** PS5.1's
+`Get-Content -Raw` reads BOM-less UTF-8 as cp1252 and `Set-Content
+-Encoding utf8` writes a BOM — so every file edited through that pipeline
+(nine, including four committed in wave 1) had its non-ASCII characters
+double-encoded and a BOM prepended. Found when the fixture generator
+crashed on BOM+shebang; the ★ in a token pin was mangled too. A
+deterministic reverser (UTF-8 → cp1252 bytes → UTF-8, refusing any file
+that does not decode cleanly) repaired all nine; the four committed ones
+ride this landing. **The rule now: repo files are edited by the Edit tool
+or a `node` patch script ONLY — never PowerShell string pipelines** —
+invariant 14's cousin, and the third bite of the same tooth in one night.
+
+**Verified:** 7 new tests in `tempGrants.test.ts` (the closed-map negative,
+the two-keyword mapping, derived flying granted and CLEANED UP, the
+one-entry rider, replay hash) · `verify.cjs --full` ALL FIVE GATES:
+597 files, 3,801 passed / 10 skipped · the 500-seed
+gate green at 705.5 s · build clean · probe 124/124 · battery
+127/127.
+
+**Reportables:** the LOSE direction ("loses all abilities until end of
+turn", Day of Black Sun's class) needs the timestamp merge plus a
+lose-carrier — unbuilt, and its ledger entries stand; "gains protection
+from [quality]" is parameterised and outside the closed map; activated/
+triggered pump-with-rider lines are now EXPRESSIBLE for scripts too (the
+event carries keywords wherever a def emits it); the script-raised prompt
+seam is next (script-prompt-seam-design.md).

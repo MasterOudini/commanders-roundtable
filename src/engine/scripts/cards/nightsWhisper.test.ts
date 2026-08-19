@@ -1,5 +1,5 @@
-﻿// `Night's Whisper` â€” two real draws through `drawEvents` (the D189 marker
-// fires) and the 2 life. Draws counted in LIBRARY moves, not hand size â€”
+// `Night's Whisper` — two real draws through `drawEvents` (the D189 marker
+// fires) and the 2 life. Draws counted in LIBRARY moves, not hand size —
 // the Azorius Locket lesson (D163).
 
 import { describe, expect, test } from 'vitest';

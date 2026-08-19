@@ -26,6 +26,7 @@ import type {
 } from './ids';
 import type { ManaPool } from './mana';
 import type { NarrationPart } from './narration';
+import type { Keyword } from './oracle';
 import type {
   Awaiting,
   DefenderRef,
@@ -394,6 +395,12 @@ export type EventBody =
       readonly card: InstanceId;
       readonly power: number;
       readonly toughness: number;
+      /**
+       * Tier-2 keywords GAINED until end of turn (D194). Optional so every
+       * pre-D194 event replays byte-identically; a keywords-only grant
+       * ("gains flying until end of turn") carries power 0 / toughness 0.
+       */
+      readonly keywords?: readonly Keyword[];
     }
   /** Cleanup, CR 514.2. Every until-end-of-turn modifier ends at once. */
   | { readonly t: 'UntilEndOfTurnEnded' }

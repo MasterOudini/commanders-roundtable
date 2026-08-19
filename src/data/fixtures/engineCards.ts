@@ -22725,6 +22725,74 @@ export const SQUALL_LINE: CardData = {
   "singleImage": true
 };
 
+export const JUMP: CardData = {
+  "scryfallId": "11db1794-569d-4db2-b667-607a8b3e1251",
+  "oracleId": "f7518456-45ed-41d4-bd3c-5aacea28eb35",
+  "name": "Jump",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jump",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gains flying until end of turn.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Mark Poole",
+      "imageId": "11db1794-569d-4db2-b667-607a8b3e1251"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "fbb",
+  "collectorNumber": "62",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUSH_OF_ADRENALINE: CardData = {
+  "scryfallId": "024eea40-6d8f-4b4e-9bcc-e55a9f12bf64",
+  "oracleId": "ec9975f4-dfff-4b72-9da8-8f2025f0524a",
+  "name": "Rush of Adrenaline",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rush of Adrenaline",
+      "manaCost": "{R}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +2/+1 and gains trample until end of turn.",
+      "flavorText": "Scarecrows only go so far in sending the message to stay away.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chris Rallis",
+      "imageId": "024eea40-6d8f-4b4e-9bcc-e55a9f12bf64"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "e02",
+  "collectorNumber": "28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -25763,6 +25831,8 @@ export const ENGINE_CARDS: CardData[] = [
   SLASH_THE_RANKS,
   SOLAR_BLAZE,
   SQUALL_LINE,
+  JUMP,
+  RUSH_OF_ADRENALINE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -1,4 +1,4 @@
-﻿// `Chandra's Ignition` â€” one source, the whole table: each OTHER creature
+// `Chandra's Ignition` — one source, the whole table: each OTHER creature
 // and each OPPONENT takes the source's power; the source itself and its
 // caster take nothing.
 

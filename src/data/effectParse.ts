@@ -21,7 +21,7 @@
 // express as EVENTS is an effect it must not claim. `tier3.ts` asks this module
 // what it understood, and says so on the card.
 
-import type { CounterKind, EffectKind, EffectMode, EffectSpec } from '../engine/types/oracle';
+import type { CounterKind, EffectKind, EffectMode, EffectSpec, Keyword } from '../engine/types/oracle';
 import type { Warn } from './oracleParse';
 import { scrub } from './targetParse';
 import { parseTokenClause, specKey } from './tokenParse';
@@ -111,6 +111,7 @@ const BASE: EffectFields = {
   amount: 0,
   power: 0,
   toughness: 0,
+  keywords: [],
   targetIndex: 0,
   self: false,
   counterKind: null,
@@ -118,6 +119,52 @@ const BASE: EffectFields = {
   look: null,
   atRandom: false,
 };
+
+/**
+ * ⚠️ **THE GRANTABLE KEYWORDS (D194)** — printed name → the Tier-2 member the
+ * engine actually enforces. CLOSED deliberately: a keyword outside this map
+ * ("banding", "protection from red" — a parameterised shape, not a word) makes
+ * the whole sentence unread, which is D90's rule for grants: an unenforced
+ * keyword granted "successfully" is a card half-working while looking whole.
+ * `flash` is absent (a cast-time permission, meaningless until-end-of-turn on
+ * a permanent already fielded here) and `toxic` is absent (it carries a
+ * NUMBER, which this shape does not read).
+ */
+const GRANTABLE: ReadonlyMap<string, Keyword> = new Map<string, Keyword>([
+  ['flying', 'flying'],
+  ['reach', 'reach'],
+  ['trample', 'trample'],
+  ['vigilance', 'vigilance'],
+  ['haste', 'haste'],
+  ['lifelink', 'lifelink'],
+  ['deathtouch', 'deathtouch'],
+  ['first strike', 'firstStrike'],
+  ['double strike', 'doubleStrike'],
+  ['menace', 'menace'],
+  ['defender', 'defender'],
+  ['indestructible', 'indestructible'],
+  ['hexproof', 'hexproof'],
+  ['shroud', 'shroud'],
+  ['fear', 'fear'],
+  ['intimidate', 'intimidate'],
+  ['skulk', 'skulk'],
+  ['shadow', 'shadow'],
+  ['horsemanship', 'horsemanship'],
+  ['infect', 'infect'],
+  ['wither', 'wither'],
+]);
+const KW = [...GRANTABLE.keys()].sort((a, b) => b.length - a.length).join('|');
+
+function grantedKeywords(...raw: (string | undefined)[]): readonly Keyword[] | null {
+  const out: Keyword[] = [];
+  for (const r of raw) {
+    if (r === undefined) continue;
+    const k = GRANTABLE.get(r.toLowerCase());
+    if (k === undefined) return null;
+    if (!out.includes(k)) out.push(k);
+  }
+  return out.length > 0 ? out : null;
+}
 
 /**
  * The counters a spell may put on or take off — CLOSED at the two `derive.ts`
@@ -182,6 +229,37 @@ const RULES: readonly Rule[] = [
       const p = Number(m[1]);
       const t = Number(m[2]);
       return Number.isFinite(p) && Number.isFinite(t) ? { ...BASE, power: p, toughness: t } : null;
+    },
+  },
+  /**
+   * D194 — the pump-with-rider and the pure grant. Both are `pump` because
+   * `untilEndOfTurn` is ONE carrier: the P/T halves and the keywords ride the
+   * same entry and end at the same cleanup. A keyword outside GRANTABLE makes
+   * `grantedKeywords` return null and the sentence stays unread — the closed
+   * map IS the safety property here, exactly as `counterKindOf` is for
+   * counters.
+   */
+  {
+    kind: 'pump',
+    re: new RegExp(
+      `^${TARGET} gets ([+-]${NUM})/([+-]${NUM}) and gains (${KW})(?: and (${KW}))? until end of turn\\.$`,
+      'i',
+    ),
+    build: (m) => {
+      const p = Number(m[1]);
+      const t = Number(m[2]);
+      const kws = grantedKeywords(m[3], m[4]);
+      return Number.isFinite(p) && Number.isFinite(t) && kws !== null
+        ? { ...BASE, power: p, toughness: t, keywords: kws }
+        : null;
+    },
+  },
+  {
+    kind: 'pump',
+    re: new RegExp(`^${TARGET} gains (${KW})(?: and (${KW}))? until end of turn\\.$`, 'i'),
+    build: (m) => {
+      const kws = grantedKeywords(m[1], m[2]);
+      return kws !== null ? { ...BASE, keywords: kws } : null;
     },
   },
   { kind: 'tap', re: new RegExp(`^tap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },

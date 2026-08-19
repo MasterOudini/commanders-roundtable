@@ -1,5 +1,5 @@
-﻿// `Night's Whisper` â€” "You draw two cards and lose 2 life." The first
-// SpellDef through `drawEvents` â€” THE one draw rule (D158), so the two draws
+// `Night's Whisper` — "You draw two cards and lose 2 life." The first
+// SpellDef through `drawEvents` — THE one draw rule (D158), so the two draws
 // arrive as one CardsMoved, the D189 `DrewCards` marker fires for exactly
 // those two cards, and drawing from an empty library loses the game the way
 // every other draw does. D192.

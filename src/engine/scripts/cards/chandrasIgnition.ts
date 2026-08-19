@@ -1,11 +1,11 @@
-﻿// `Chandra's Ignition` â€” "Target creature you control deals damage equal to
+// `Chandra's Ignition` — "Target creature you control deals damage equal to
 // its power to each other creature and each opponent." The first AoE dealt
 // BY a chosen permanent: one source, N entries, all in ONE DamageDealt so
-// the burn is simultaneous. The source's riders ride every entry â€” a
+// the burn is simultaneous. The source's riders ride every entry — a
 // lifelink source pays its controller once per entry, deathtouch makes
 // every creature hit lethal, infect splits poison (players) from wither
 // (creatures) exactly as combat does (CR 702.90b/c, D174's lesson). "Each
-// opponent" is every other player still in the game â€” the caster and the
+// opponent" is every other player still in the game — the caster and the
 // source's own entry are excluded by the card's own words. D192.
 
 import { CHANDRA_S_IGNITION } from '../../../data/fixtures/engineCards';

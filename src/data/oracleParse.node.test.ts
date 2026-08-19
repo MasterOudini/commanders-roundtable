@@ -408,9 +408,9 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // where the prompt bar offers the counter clause as one logged click.
       // These count FACES over every printing, which is why they are an order of
       // magnitude larger than `botPool`'s distinct-name figures.
-      'effect:none': 17101,
-      'effect:partial': 4967,
-      'effect:auto': 2263,
+      'effect:none': 16674,
+      'effect:partial': 5095,
+      'effect:auto': 2562,
       // ⚠️ 13,581 → 10,372 in M6.4b (D159): `Sacrifice this <type>` and War
       // Room's commanders'-colors life phrase became CHARGEABLE cost parts, so
       // 3,209 printings' ability lines stopped warning `nonManaCost`. The

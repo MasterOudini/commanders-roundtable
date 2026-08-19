@@ -5214,6 +5214,42 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       battery 127/127.**
 
 
+- [x] **M6.4ai — temporary keyword grants: the biggest unlock of the arc
+      (2026-08-19):** **2,350 of 31,692 Commander-legal cards now execute
+      completely, up from 2,253 — +97 with ZERO card scripts**, the largest
+      single-landing move of the arc (the record was 23). Decisions in
+      **D194**.
+      ⚠️⚠️ **THE CARRIER:** `untilEndOfTurn` held P/T AND NOTHING ELSE
+      since M3 (D153's 958-card measurement); its entries now carry
+      optional Tier-2 `keywords`, riding the same entry, ending at the
+      same cleanup, replaying byte-identically (optional field). `derive`
+      reads them at LAYER 6 after the statics — additions commute, and
+      every SHIPPED static is an addition (the only removals are testing
+      scripts), so the CR 613.7c timestamp merge is a named reportable,
+      not a gap.
+      ⚠️ **THE VOCABULARY:** `GRANTABLE` — a CLOSED printed-name →
+      Tier-2 map (21 entries) — feeds two anchored pump rules ("gets
+      +N/+N and gains K", pure "gains K( and K)?"). Outside the map, the
+      WHOLE sentence stays unread (D90 for grants). **auto 409 → 509**,
+      its first move since D150; assisted 1,724; instant 208 → 292.
+      ⚠️ **The bot gained 72 cards in one landing** (Adun 1,313) — combat
+      tricks. Proof fixtures Jump + Rush of Adrenaline (729).
+      ⚠️⚠️ **AND A TOOLING DISASTER REPAIRED:** PS5.1 Get-Content reads
+      BOM-less UTF-8 as cp1252 and Set-Content utf8 writes BOMs — nine
+      files (four already committed in wave 1) had every non-ASCII char
+      double-encoded. A deterministic reverser repaired all nine. **Repo
+      files are edited by the Edit tool or node patch scripts ONLY —
+      never PowerShell string pipelines.**
+      **Verified: 7 new tests (grant derives, cleanup ends it, the
+      closed-map negative, replay hash) · `verify.cjs --full` ALL FIVE:
+      597 files, 3,801 passed / 10 skipped · 500-seed
+      gate 705.5 s · build clean · probe 124/124 · battery
+      127/127.**
+      ⚠️ **Reportables** (D194): the LOSE direction (Day of Black Sun's
+      class) needs the timestamp merge + a lose-carrier; "gains protection
+      from X" is parameterised; the script-raised prompt seam is next.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
