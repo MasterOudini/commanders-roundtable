@@ -432,8 +432,8 @@ const POOL: Record<string, number> = {
   // M6.4ac (D185): +12 creatures, +1 land, and TWO enchantments (Makeshift
   // Munitions, Malevolent Awakening) — the pool reads THIRTY.
   creature: 1526,
-  instant: 202,
-  sorcery: 147,
+  instant: 208,
+  sorcery: 157,
   land: 257,
   artifact: 75,
   enchantment: 30,

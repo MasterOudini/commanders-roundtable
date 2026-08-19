@@ -1,12 +1,28 @@
-// The script registry, pre-indexed so the trigger bus never scans the board.
+﻿// The script registry, pre-indexed so the trigger bus never scans the board.
 //
-// ⚠️ `SHIPPED_REGISTRY` is what v1 ships. Every method on it returns an empty
+// âš ï¸ `SHIPPED_REGISTRY` is what v1 ships. Every method on it returns an empty
 // array or undefined, which is exactly what makes the rest of the engine work
 // with no `if (scripted)` anywhere.
 
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { DARK_RITUAL_SCRIPT } from './cards/darkRitual';
+import { PYRETIC_RITUAL_SCRIPT } from './cards/pyreticRitual';
+import { SEETHING_SONG_SCRIPT } from './cards/seethingSong';
+import { MANA_GEYSER_SCRIPT } from './cards/manaGeyser';
+import { INFERNAL_GRASP_SCRIPT } from './cards/infernalGrasp';
+import { NIGHTS_WHISPER_SCRIPT } from './cards/nightsWhisper';
+import { DAMNATION_SCRIPT } from './cards/damnation';
+import { FUMIGATE_SCRIPT } from './cards/fumigate';
+import { SLASH_THE_RANKS_SCRIPT } from './cards/slashTheRanks';
+import { FELL_THE_MIGHTY_SCRIPT } from './cards/fellTheMighty';
+import { SOLAR_BLAZE_SCRIPT } from './cards/solarBlaze';
+import { PREY_UPON_SCRIPT } from './cards/preyUpon';
+import { RABID_BITE_SCRIPT } from './cards/rabidBite';
+import { CHANDRAS_IGNITION_SCRIPT } from './cards/chandrasIgnition';
+import { SQUALL_LINE_SCRIPT } from './cards/squallLine';
+import { RECKLESS_RAGE_SCRIPT } from './cards/recklessRage';
 import { MAN_OWAR_SCRIPT } from './cards/manOWar';
 import { MANDROID_SQUADRON_SCRIPT } from './cards/mandroidSquadron';
 import { MANIC_VANDAL_SCRIPT } from './cards/manicVandal';
@@ -521,7 +537,7 @@ export interface ScriptRegistry {
    * Triggers that could fire on this event kind.
    *
    * Indexed by `TriggerDef.event` so the cost is O(#candidate triggers) rather
-   * than O(#permanents × #triggers). With 84 permanents on a 4-player board and
+   * than O(#permanents Ã— #triggers). With 84 permanents on a 4-player board and
    * an event fired for every damage mark, the difference is the difference
    * between a combat step and a frame drop.
    */
@@ -545,15 +561,15 @@ class IndexedRegistry implements ScriptRegistry {
 
   constructor(scripts: readonly CardScript[]) {
     for (const script of scripts) {
-      // ⚠️ A DUPLICATE ORACLE ID IS A CORRUPTED REGISTRY, NOT LAST-WRITE-WINS.
+      // âš ï¸ A DUPLICATE ORACLE ID IS A CORRUPTED REGISTRY, NOT LAST-WRITE-WINS.
       // `byOracle.set` would keep only the second script while every per-def
-      // index below APPENDS — so a twice-registered card DOUBLE-FIRES its
+      // index below APPENDS â€” so a twice-registered card DOUBLE-FIRES its
       // triggers while `get()` reports only one of them. Harmless while the
       // list is hand-curated; near-certain once generated family tables
       // produce membership. Refuse loudly at construction.
       if (this.byOracle.has(script.oracleId)) {
         throw new Error(
-          `duplicate script for oracleId ${script.oracleId} (${script.name}) — ` +
+          `duplicate script for oracleId ${script.oracleId} (${script.name}) â€” ` +
             'a second registration would double-fire its defs. Remove one.',
         );
       }
@@ -613,21 +629,37 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
 /**
  * **THE CARD SCRIPTS THE APP SHIPS.** Empty today; M6.4 fills it.
  *
- * ⚠️ **A NAMED LIST, NOT AN INLINE `[]`, AND THAT IS THE WHOLE POINT.** Adding a
+ * âš ï¸ **A NAMED LIST, NOT AN INLINE `[]`, AND THAT IS THE WHOLE POINT.** Adding a
  * script here has an accounting obligation that until D147 lived only in
  * comments: the moment a card's script runs, that card's `tier3.ts` note must go
  * silent and `engineComplete` must accept it, in the same commit
- * (M6.4-LIBRARY-SPEC §6.5). Otherwise the app runs a card while telling the
- * player it will not — or, worse, runs PART of one silently, which is D90's rule
+ * (M6.4-LIBRARY-SPEC Â§6.5). Otherwise the app runs a card while telling the
+ * player it will not â€” or, worse, runs PART of one silently, which is D90's rule
  * and D122's measured failure in the other direction, where 16,020 cards said
  * nothing at all and silence in this app means "handled".
  *
  * `shippedScripts.node.test.ts` asserts exactly that, over this list, against
- * the real card database. With the list empty the assertion is vacuous — so the
+ * the real card database. With the list empty the assertion is vacuous â€” so the
  * same file proves the check has TEETH by running it over the test registry,
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DARK_RITUAL_SCRIPT,
+  PYRETIC_RITUAL_SCRIPT,
+  SEETHING_SONG_SCRIPT,
+  MANA_GEYSER_SCRIPT,
+  INFERNAL_GRASP_SCRIPT,
+  NIGHTS_WHISPER_SCRIPT,
+  DAMNATION_SCRIPT,
+  FUMIGATE_SCRIPT,
+  SLASH_THE_RANKS_SCRIPT,
+  FELL_THE_MIGHTY_SCRIPT,
+  SOLAR_BLAZE_SCRIPT,
+  PREY_UPON_SCRIPT,
+  RABID_BITE_SCRIPT,
+  CHANDRAS_IGNITION_SCRIPT,
+  SQUALL_LINE_SCRIPT,
+  RECKLESS_RAGE_SCRIPT,
   MAN_OWAR_SCRIPT,
   MANDROID_SQUADRON_SCRIPT,
   MANIC_VANDAL_SCRIPT,
@@ -648,8 +680,8 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   MERCHANT_OF_SECRETS_SCRIPT,
   MERFOLK_SKYSCOUT_SCRIPT,
   MERIADOC_BRANDYBUCK_SCRIPT,
-  // M6.4ae (D187–D190) — the engine unlocks' proof cards: the first two
-  // SpellDefs (Char, Fruition) and the DrewCards × per-item fan-out
+  // M6.4ae (D187â€“D190) â€” the engine unlocks' proof cards: the first two
+  // SpellDefs (Char, Fruition) and the DrewCards Ã— per-item fan-out
   // composition (Horizon Chimera).
   CHAR_SCRIPT,
   FRUITION_SCRIPT,
@@ -1141,12 +1173,12 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
 ];
 
 /**
- * **WHAT THE APP SHIPS** — `SHIPPED_SCRIPTS`, indexed. Every card is Tier 3
+ * **WHAT THE APP SHIPS** â€” `SHIPPED_SCRIPTS`, indexed. Every card is Tier 3
  * unless a script here says otherwise.
  *
- * ⚠️⚠️ **THIS WAS CALLED `EMPTY_REGISTRY` UNTIL D156, AND THE NAME WAS A TRAP
+ * âš ï¸âš ï¸ **THIS WAS CALLED `EMPTY_REGISTRY` UNTIL D156, AND THE NAME WAS A TRAP
  * WITH A FUSE ON IT.** It is built FROM `SHIPPED_SCRIPTS`, so the constant named
- * "empty" stops being empty the moment M6.4 lands its first script — and it was
+ * "empty" stops being empty the moment M6.4 lands its first script â€” and it was
  * used for two different things across 46 references in 20 files. Product code
  * meant "what ships"; **eight test files meant "a registry with no scripts at
  * all"**, and those would have silently started running card scripts, changing
@@ -1158,13 +1190,13 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
 export const SHIPPED_REGISTRY: ScriptRegistry = new IndexedRegistry(SHIPPED_SCRIPTS);
 
 /**
- * **A REGISTRY WITH NO SCRIPTS, FOREVER** — for a test that wants the engine's
- * script-less behaviour. ⚠️ The HOST does NOT default to this — it defaults to
+ * **A REGISTRY WITH NO SCRIPTS, FOREVER** â€” for a test that wants the engine's
+ * script-less behaviour. âš ï¸ The HOST does NOT default to this â€” it defaults to
  * `SHIPPED_REGISTRY`, because omitting `HostOptions.scripts` has to mean
  * "whatever the app ships" and not "nothing", or landing a script would change
  * the library and not the game.
  *
- * ⚠️ Built from a literal `[]`, never from `SHIPPED_SCRIPTS`. That is the whole
+ * âš ï¸ Built from a literal `[]`, never from `SHIPPED_SCRIPTS`. That is the whole
  * distinction from `SHIPPED_REGISTRY` above and the reason both exist: a test
  * asserting "a script-less card is zero registrations" must keep asserting it
  * when the app ships a thousand scripts.

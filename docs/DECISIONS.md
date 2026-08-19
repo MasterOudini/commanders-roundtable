@@ -13067,3 +13067,80 @@ un-guard searches); multi-face spell faces stay refused at selection
 (SpellDef v1 is single-faced); the gate-rework steps (canary-staples
 table, pool rotation, seed sharding) are due before waves scale to
 50–100.
+
+
+## D192 — M6.4ag: wave 1 — the first SpellDef batch at scale (2026-08-19)
+
+**What was decided:** sixteen SpellDefs landed from the D191-widened pool's
+first selection — all rung 1, the user's own decks — through the D187 seam:
+the rituals (`Dark Ritual`, `Pyretic Ritual`, `Seething Song`, and
+`Mana Geyser` counting opponents' tapped lands at resolution — the FIRST
+mana-adding resolves, through the same `ManaAdded` a land writes), the
+wraths (`Damnation`, `Fumigate` counting only what it actually destroyed,
+`Slash the Ranks` reading every player's `commanderIds` for the exemption,
+`Solar Blaze`, and `Fell the Mighty` reading the target's DERIVED power as
+its bar — all batched into ONE CardsMoved so the deaths are simultaneous,
+all skipping indestructible), the fights (`Prey Upon` both ways with each
+side's riders, `Rabid Bite` one-way — the deathtouch Strix proves the
+difference from both sides), `Chandra's Ignition` (one chosen source, its
+riders on every entry, poison vs wither split per target kind — D174's
+combat rule), `Squall Line` (the first X SpellDef, X off `obj.xValue`),
+`Night's Whisper` (the first draw resolve through `drawEvents` — the D189
+marker fires for exactly its two cards), `Infernal Grasp`, and
+`Reckless Rage` (two clauses, two targets, its own parse-premise test).
+
+⚠️ **`Damnation`'s "They can't be regenerated." is executed as NOTHING and
+that is pinned as a TRIPWIRE, not asserted in prose**: the engine has no
+regeneration — no shield, no effect that creates one, no SBA that consults
+one — so the clause forbids a mechanism that cannot occur.
+`damnation.node.test.ts` scans every engine source for `regenerat` and
+fails BY FILE NAME the day that stops being true, at which point Damnation
+and every wipe shipped on the same argument must join the wave that models
+the interaction.
+
+⚠️⚠️ **TWO DRAFT-TIME PULLS, BOTH BY THEIR OWN FAILING TESTS — the D187
+`SpellDef.targets` reportable now has two NAMED cards.** `Bedevil`:
+`targetParse` reads "A or B" but NOT the Oxford list — "target artifact,
+creature, or planeswalker" parsed to `target artifact` alone, a SILENT
+NARROWING (the host refused the creature by the parser's own claim).
+`Fall of the Hammer`: the repeated-verb second clause parses (Reckless
+Rage's premise test passes) but a mid-sentence "to another target creature"
+does not — "takes at most one target". Both modules were DELETED, both
+cards led into the REFUSED ledger under `spell target parse`; widening the
+parser is commissioned work, never a workaround (D90).
+
+⚠️ **THE ENGINE CORRECTED THE TESTS TWICE, and both corrections are the
+system working**: `Akroma, Angel of Wrath` (the drafts' big body) has
+protection from black and from red, so Bedevil ({B}{B}{R}), Fall of the
+Hammer ({1}{R}) and Chandra's Ignition ({3}{R}{R}) were all REFUSED her as
+a target by the targeting layer — the tests swapped to `Colossal
+Dreadmaw`; and `ManualSetTapped` takes `cards` (the D113 batch), which
+tsc caught before any test ran.
+
+**The other seven refusals, classified before a line was drafted:**
+`Brainstorm`, `Read the Bones`, `Introduction to Prophecy`,
+`Electrodominance`, `Stinging Study` — all script-raised prompts (hand
+choice + ordering, scry decisions, a free cast, the which-commander pick
+under partners — **the class now holds FIVE wave-1 entries and is due**);
+`Chaos Warp` (ctx.random — the shuffle permutation); `Day of Black Sun`
+(temporary ability loss — `untilEndOfTurn` carries P/T only, D153, and
+destroying WITHOUT the loss wrongly spares ability-indestructible
+creatures). The ledger holds **100**.
+
+**Numbers:** `complete` 2,237 → **2,253**; `SHIPPED_SCRIPTS` 507 → 523;
+fixtures 710 → 727 (+17 by name, ZERO new tokens); botPool instant
+202 → 208, sorcery 147 → 157; ladder [2437, 2536, 4510, 6418, 7625];
+tier3 silentAfter 2,664; `batch.json` at **1,995** (2,020 − 16 landed − 9
+refused, exact); rung 1 down to 7 — the user's own decks' spells are
+nearly exhausted. ⚠️ **`Damnation` and `Chandra's Ignition` JOINED THE
+BOT'S DECK** (Adun reaches 1,241) — the bot holds board wipes for the
+first time.
+
+**Reportables:** the script-raised-prompt seam is the arc's most-due engine
+work (five entries in one wave); the spell target-parse widening has two
+named cards; `ctx.random` blocks Chaos Warp by name; the family-landscape
+measurement (spell-family-landscape.md, stashed) puts TEMPORARY KEYWORD
+GRANTS directly after the gate rework — the "+N/+N and gains K" families
+are the biggest blocked spell twins and the permanent side is D153's
+958-card class; the gate-rework steps (canary staples, pool rotation, seed
+sharding — implementation drafted) precede wave scaling to 50–100.

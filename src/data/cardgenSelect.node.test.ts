@@ -304,6 +304,31 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Meloku the Clouded Mirror', 'return-permanent cost'],
   ['Mental Discipline', 'discard-cost chooser'],
   ['Merrow Grimeblotter', 'untap-symbol activation cost'],
+  // Wave 1 / M6.4ag (D192) — the first SpellDef batch's nine refusals.
+  // Brainstorm, the scry cantrips, Electrodominance and Stinging Study all
+  // need a resolve that can ASK (hand choice + ordering, scry decisions, a
+  // free cast, a which-commander pick under partners); Chaos Warp's
+  // shuffle needs the seeded rng (ctx.random, a stub since D158); Day of
+  // Black Sun's 'loses all abilities until end of turn' needs the
+  // temporary-grant carrier `untilEndOfTurn` does not have (D153 — it
+  // holds P/T and nothing else), and destroying WITHOUT the ability loss
+  // wrongly spares ability-indestructible creatures. ⚠️ Bedevil and Fall
+  // of the Hammer are DRAFT-TIME pulls, tsc-green modules deleted on their
+  // own failing tests: targetParse reads 'A or B' but not the OXFORD list
+  // ('artifact, creature, or planeswalker' claimed as 'target artifact' —
+  // a silent NARROWING), and reads Reckless Rage's repeated-verb second
+  // clause but not a mid-sentence 'to another target creature' ('takes at
+  // most one target'). Both are the D187 reportable — SpellDef targets
+  // widening past the parser — now with two named cards waiting on it.
+  ['Brainstorm', 'script-raised prompt'],
+  ['Chaos Warp', 'ctx.random'],
+  ['Read the Bones', 'script-raised prompt'],
+  ['Introduction to Prophecy', 'script-raised prompt'],
+  ['Electrodominance', 'script-raised prompt'],
+  ['Day of Black Sun', 'temporary keyword/ability grant'],
+  ['Stinging Study', 'script-raised prompt'],
+  ['Bedevil', 'spell target parse (noun list)'],
+  ['Fall of the Hammer', 'spell target parse (second clause)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

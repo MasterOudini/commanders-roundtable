@@ -22141,6 +22141,590 @@ export const HORIZON_CHIMERA: CardData = {
   "singleImage": true
 };
 
+export const BEDEVIL: CardData = {
+  "scryfallId": "06a34cfb-b0b3-4a51-af7a-601631d6c93b",
+  "oracleId": "bceecc64-96f1-4e7b-8904-0aef90377764",
+  "name": "Bedevil",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bedevil",
+      "manaCost": "{B}{B}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target artifact, creature, or planeswalker.",
+      "flavorText": "\"It's easy to get taken in by the spectacle, to enjoy a bit of naughty amusement. But make no mistake: the Cult of Rakdos is a danger.\"\n—Tajic",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Seb McKinnon",
+      "imageId": "06a34cfb-b0b3-4a51-af7a-601631d6c93b"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "prna",
+  "collectorNumber": "157p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHANDRA_S_IGNITION: CardData = {
+  "scryfallId": "31d0275d-1a1a-421d-a2ae-9a61697a3a74",
+  "oracleId": "f61680da-606e-4d16-b0a0-361aa5210901",
+  "name": "Chandra's Ignition",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chandra's Ignition",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control deals damage equal to its power to each other creature and each opponent.",
+      "flavorText": "In the moment before her execution, she realized what it meant to be a pyromancer, to be alive, to be Chandra.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Eric Deschamps",
+      "imageId": "31d0275d-1a1a-421d-a2ae-9a61697a3a74"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "ORI-137",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAMNATION: CardData = {
+  "scryfallId": "13c7a547-ed19-465e-96d5-13aa51886239",
+  "oracleId": "d57a8f0b-7989-4db5-8756-6f2690097252",
+  "name": "Damnation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Damnation",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures. They can't be regenerated.",
+      "flavorText": "Their bodies rotted, their bones splintered, and their souls frayed to tatters. Only then were they granted the mercy of death.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Ian Miller",
+      "imageId": "13c7a547-ed19-465e-96d5-13aa51886239"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "prm",
+  "collectorNumber": "102249",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FALL_OF_THE_HAMMER: CardData = {
+  "scryfallId": "50f9b279-c8b8-44ec-83bd-2e4767b3e87c",
+  "oracleId": "7e3fe8e4-e56a-4109-a314-96c44bbe7d22",
+  "name": "Fall of the Hammer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fall of the Hammer",
+      "manaCost": "{1}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control deals damage equal to its power to another target creature.",
+      "flavorText": "It is unwise to insult the god of the forge. It is also unwise to stand near anyone else who has insulted him.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Adam Paquette",
+      "imageId": "50f9b279-c8b8-44ec-83bd-2e4767b3e87c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "c15",
+  "collectorNumber": "154",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FELL_THE_MIGHTY: CardData = {
+  "scryfallId": "0615e8f6-d68f-480b-9fa3-5205cd6bfc83",
+  "oracleId": "1fbb2a7c-8093-4729-b8fe-cf032d99470f",
+  "name": "Fell the Mighty",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fell the Mighty",
+      "manaCost": "{4}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures with power greater than target creature's power.",
+      "flavorText": "Dungeons & Dragons Supplement I: Greyhawk *(1975)*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Greg Bell",
+      "imageId": "0615e8f6-d68f-480b-9fa3-5205cd6bfc83"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "1778",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FUMIGATE: CardData = {
+  "scryfallId": "085e4b57-495b-41bc-a49d-fa5f00553555",
+  "oracleId": "b17ea905-0696-4e58-b564-557e87236e27",
+  "name": "Fumigate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fumigate",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures. You gain 1 life for each creature destroyed this way.",
+      "flavorText": "\"Ghirapur's gremlin population poses a threat to the infrastructure of the fairgrounds. Threats must be eliminated.\"\n—Sram, senior edificer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "085e4b57-495b-41bc-a49d-fa5f00553555"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "pkld",
+  "collectorNumber": "15p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INFERNAL_GRASP: CardData = {
+  "scryfallId": "0141b48a-89bb-40fb-b7f0-99a5bb8070a5",
+  "oracleId": "94f0a572-e91c-4b56-a5d1-6cbbeabd210d",
+  "name": "Infernal Grasp",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Infernal Grasp",
+      "manaCost": "{1}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature. You lose 2 life.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Naomi Baker",
+      "imageId": "0141b48a-89bb-40fb-b7f0-99a5bb8070a5"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "omb",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MANA_GEYSER: CardData = {
+  "scryfallId": "109447b2-d507-433a-a81c-3a7a255444b1",
+  "oracleId": "a8dba58b-2956-492e-ae30-49db2ae68e53",
+  "name": "Mana Geyser",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mana Geyser",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Add {R} for each tapped land your opponents control.",
+      "flavorText": "The Quicksilver Sea hissed and bubbled at the indignity. The Vulshok shaman just smiled.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Martina Pilcerova",
+      "imageId": "109447b2-d507-433a-a81c-3a7a255444b1"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "c21",
+  "collectorNumber": "176",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NIGHT_S_WHISPER: CardData = {
+  "scryfallId": "18f23daa-bc59-456a-8a28-3823e51bc74b",
+  "oracleId": "7ffae8f8-3006-4969-a339-6d30678f87ea",
+  "name": "Night's Whisper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Night's Whisper",
+      "manaCost": "{1}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "You draw two cards and lose 2 life.",
+      "flavorText": "\"I have seen things that would reduce a weaker person to blubbering and raving. Want to hear about them?\"\n—Vraska",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "John Severin Brassell",
+      "imageId": "18f23daa-bc59-456a-8a28-3823e51bc74b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ddm",
+  "collectorNumber": "68",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PREY_UPON: CardData = {
+  "scryfallId": "0eb1b036-0856-4cfb-ace5-2731f13696bd",
+  "oracleId": "b3c12848-528d-4005-878f-4f950a07240a",
+  "name": "Prey Upon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Prey Upon",
+      "manaCost": "{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control fights target creature you don't control. (Each deals damage equal to its power to the other.)",
+      "flavorText": "\"You don't find many old werewolf hunters.\"\n—Paulin, trapper of Somberwald",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dave Kendall",
+      "imageId": "0eb1b036-0856-4cfb-ace5-2731f13696bd"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Fight"
+  ],
+  "setCode": "uma",
+  "collectorNumber": "178",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PYRETIC_RITUAL: CardData = {
+  "scryfallId": "1e577638-a7ed-4bcc-90fb-0cffe87d5a28",
+  "oracleId": "86ef6474-613f-41fb-931c-d4279b03ed99",
+  "name": "Pyretic Ritual",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pyretic Ritual",
+      "manaCost": "{1}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Add {R}{R}{R}.",
+      "flavorText": "The Multiverse is filled with limitless power just waiting for someone to reach out and seize it.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "James Paick",
+      "imageId": "1e577638-a7ed-4bcc-90fb-0cffe87d5a28"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m11",
+  "collectorNumber": "153",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RABID_BITE: CardData = {
+  "scryfallId": "1bc94eac-a96e-4a7b-8594-a1b5fb921f3a",
+  "oracleId": "6d5dc34b-3eea-4b77-8db7-94bc30b14c4c",
+  "name": "Rabid Bite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rabid Bite",
+      "manaCost": "{1}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control deals damage equal to its power to target creature you don't control.",
+      "flavorText": "A healthy felidar is voracious yet regal. A rabid felidar is nothing more than appetite lashed to frothing jaws.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "John Thacker",
+      "imageId": "1bc94eac-a96e-4a7b-8594-a1b5fb921f3a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "gn3",
+  "collectorNumber": "104",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RECKLESS_RAGE: CardData = {
+  "scryfallId": "0e4b97a3-8f6f-461e-aa55-ab752752f539",
+  "oracleId": "d7e2b2ba-cb5e-41f1-ad33-baf56c0b72ed",
+  "name": "Reckless Rage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reckless Rage",
+      "manaCost": "{R}",
+      "typeLine": "Instant",
+      "oracleText": "Reckless Rage deals 4 damage to target creature you don't control and 2 damage to target creature you control.",
+      "flavorText": "\"Hard to starboard! Starb— Abandon ship! Abandon ship!\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "0e4b97a3-8f6f-461e-aa55-ab752752f539"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "rix",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEETHING_SONG: CardData = {
+  "scryfallId": "10418027-7b05-49e7-8ff4-6a03e3fb656b",
+  "oracleId": "64bf8929-f5f2-4d50-8667-13b1d007bcfc",
+  "name": "Seething Song",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Seething Song",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Add {R}{R}{R}{R}{R}.",
+      "flavorText": "\"The purest ore is produced from the hottest furnace, and the brightest thunder-bolt is elicited from the darkest storm.\"\n—Charles Colton",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Martina Pilcerova",
+      "imageId": "10418027-7b05-49e7-8ff4-6a03e3fb656b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "216",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLASH_THE_RANKS: CardData = {
+  "scryfallId": "0913a5e8-7f77-44f2-a7cf-c8c0d6270a86",
+  "oracleId": "ba7f1b09-5727-484d-a502-3dcf4d618c56",
+  "name": "Slash the Ranks",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slash the Ranks",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures and planeswalkers except for commanders.",
+      "flavorText": "The generals each surveyed their devastated forces. Then, slowly, they turned to each other and raised their swords.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "0913a5e8-7f77-44f2-a7cf-c8c0d6270a86"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "cmr",
+  "collectorNumber": "47",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOLAR_BLAZE: CardData = {
+  "scryfallId": "3f6de1fd-12c6-4cbd-b8ce-09602787cf53",
+  "oracleId": "424f3d53-47e7-4212-8267-53279ea8900a",
+  "name": "Solar Blaze",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Solar Blaze",
+      "manaCost": "{2}{R}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each creature deals damage to itself equal to its power.",
+      "flavorText": "\"The primary weapon is nothing more than light. It shows them what they are, and they burn of their own accord.\"\n—Aurelia",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Adam Paquette",
+      "imageId": "3f6de1fd-12c6-4cbd-b8ce-09602787cf53"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "pwar",
+  "collectorNumber": "216p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SQUALL_LINE: CardData = {
+  "scryfallId": "3f368729-a6f2-4bf7-8b06-39c551f0b24a",
+  "oracleId": "cdf9fab2-bfdb-4bf3-a06a-b21e07600e23",
+  "name": "Squall Line",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Squall Line",
+      "manaCost": "{X}{G}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Squall Line deals X damage to each creature with flying and each player.",
+      "flavorText": "The constant shifting of Dominaria's shredded timeline played havoc with its atmosphere, combining savage electrical storms from ages past.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Lars Grant-West",
+      "imageId": "3f368729-a6f2-4bf7-8b06-39c551f0b24a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tsp",
+  "collectorNumber": "222",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -25162,6 +25746,23 @@ export const ENGINE_CARDS: CardData[] = [
   CHAR,
   FRUITION,
   HORIZON_CHIMERA,
+  BEDEVIL,
+  CHANDRA_S_IGNITION,
+  DAMNATION,
+  FALL_OF_THE_HAMMER,
+  FELL_THE_MIGHTY,
+  FUMIGATE,
+  INFERNAL_GRASP,
+  MANA_GEYSER,
+  NIGHT_S_WHISPER,
+  PREY_UPON,
+  PYRETIC_RITUAL,
+  RABID_BITE,
+  RECKLESS_RAGE,
+  SEETHING_SONG,
+  SLASH_THE_RANKS,
+  SOLAR_BLAZE,
+  SQUALL_LINE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

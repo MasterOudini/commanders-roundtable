@@ -26,6 +26,13 @@ const COMPLETE: readonly [string, CardData][] = [
   ['Snow-Covered Forest', fx.SNOW_COVERED_FOREST],
   ['Command Tower', fx.COMMAND_TOWER],
   ['Tundra', fx.TUNDRA],
+  // ⚠️ Dark Ritual sat in INCOMPLETE below from M6.1 to M6.4ag with the note
+  // 'a sorcery-speed "Add {B}{B}{B}" is not an ability anything taps' — true
+  // of the PARSER then and still true of it now. What changed is the SEAM:
+  // a SpellDef (D187) resolves the whole card, and wave 1 (D192) shipped
+  // one. The pinned negative example becoming a positive is the coverage
+  // number moving at fixture level.
+  ['Dark Ritual', fx.DARK_RITUAL],
   // ⚠️ D116's two board-resolved scopes. `landsYou`/`landsOpponents` are
   // expanded at solve time exactly as `identity` is, so they are not
   // conditional and the bot may hold them.
@@ -236,7 +243,6 @@ const INCOMPLETE: readonly [string, CardData, string][] = [
   ['Lightning Greaves', fx.LIGHTNING_GREAVES, 'equip has no colon, so it is not even an ability line'],
   ['Tarmogoyf', fx.TARMOGOYF, 'a characteristic-defining ability'],
   ['Ancient Tomb', fx.ANCIENT_TOMB, 'the mana is fine; the 2 damage on the SAME LINE is not'],
-  ['Dark Ritual', fx.DARK_RITUAL, 'a sorcery-speed "Add {B}{B}{B}" is not an ability anything taps'],
   ['Boros Garrison', fx.BOROS_GARRISON, 'enters tapped, which applyReplacements does not do'],
   ['Cultivate', fx.CULTIVATE, 'a sorcery searching a library — outside the closed vocabulary'],
   ['Swords to Plowshares', fx.SWORDS_TO_PLOWSHARES, 'the exile is understood; the life gain is not'],

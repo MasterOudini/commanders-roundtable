@@ -501,8 +501,8 @@ const MEASURED: Record<string, number> = {
   // are parse-relative, and a line reclassified sentence→activated changes
   // what the old rules would have said too.
   wasSilentAnyFace: 16277,
-  silentBefore: 19056,
-  silentAfter: 2648,
+  silentBefore: 19072,
+  silentAfter: 2664,
   residual: 356,
   residualKeyword: 356,
   residualManaLine: 0,

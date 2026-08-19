@@ -5133,6 +5133,57 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       steps (canary staples, pool rotation, seed sharding) are due before
       waves scale to 50–100.
 
+- [x] **M6.4ag — WAVE 1: the first SpellDef batch at scale (2026-08-19):**
+      **2,253 of 31,692 Commander-legal cards now execute completely, up
+      from 2,237** — sixteen spells from the D191-widened pool's first
+      selection, ALL rung 1 (the user's own decks). `SHIPPED_SCRIPTS`
+      507 → 523; the REFUSED ledger holds 100. Decisions in **D192**.
+      **The firsts:** mana-adding resolves (three rituals + `Mana Geyser`
+      counting opponents' tapped lands); board wipes in ONE simultaneous
+      CardsMoved with indestructible skipped (`Damnation`, `Fumigate`
+      counting only its own kills, `Slash the Ranks` reading
+      `commanderIds`, `Solar Blaze`, `Fell the Mighty` on the target's
+      derived power); fights with per-side riders (`Prey Upon`,
+      `Rabid Bite`); `Chandra's Ignition` (chosen source, riders on every
+      entry, poison/wither split); `Squall Line` (first X SpellDef);
+      `Night's Whisper` (first draw resolve — the D189 marker fires).
+      ⚠️ **`Damnation`'s regeneration clause is a SOURCE-SCAN TRIPWIRE**
+      (`damnation.node.test.ts`): vacuous while the engine has no
+      regeneration, failing by file name the day one appears.
+      ⚠️⚠️ **TWO DRAFT-TIME PULLS by their own failing tests** — the D187
+      `SpellDef.targets` reportable now has two NAMED cards: `Bedevil`
+      (the Oxford noun list parses to `target artifact` ALONE — a silent
+      narrowing) and `Fall of the Hammer` (a mid-sentence "another target
+      creature" is not segmented — "takes at most one target"). Modules
+      deleted, cards ledgered under `spell target parse`.
+      ⚠️ **The engine corrected the tests**: Akroma's protection from
+      black/red refused three drafts' targeting (swapped to Colossal
+      Dreadmaw) — the targeting layer doing its job.
+      ⚠️ **Refusal signal:** FIVE of the nine refusals are script-raised
+      prompts (Brainstorm, two scry cantrips, Electrodominance, Stinging
+      Study) — the class is the arc's most-due engine work. Plus
+      ctx.random (Chaos Warp) and the temporary-grant class (Day of Black
+      Sun — destroying without the ability loss would wrongly spare
+      ability-indestructible creatures).
+      ⚠️ **`Damnation` and `Chandra's Ignition` JOINED THE BOT'S DECK**
+      (Adun reaches 1,241 from 65 legendaries) — the bot wields wraths.
+      Fixtures 710 → 727 (ZERO new tokens) · botPool instant 208 /
+      sorcery 157 · ladder [2437, 2536, 4510, 6418, 7625] · `batch.json`
+      at 1,995 (exact) · rung 1 down to 7.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES in one invocation:
+      596 test files, 3,793 Vitest passed / 10
+      skipped · the 500-seed gate green at 2252.9 s (523 scripts —
+      the first fuzz pool holding BOARD WIPES) · build clean · probe
+      124/124 · battery 127/127.**
+      ⚠️ **Reportables** (D192): the script-raised-prompt seam (five
+      entries in one wave); the spell target-parse widening (two named
+      cards); `ctx.random`; the gate rework (drafted) then TEMPORARY
+      KEYWORD GRANTS (the family-landscape measurement: the "+N/+N and
+      gains K" spell twins plus D153's 958-card permanent class); the
+      cost-chooser classes, once-per-turn memory, token entry choice and
+      the battery click-check debt stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

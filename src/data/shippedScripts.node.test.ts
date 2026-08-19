@@ -176,7 +176,11 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // M6.4ae (D187-D190): the engine unlocks' proof cards - Char and Fruition
     // are the FIRST SpellDef entries (the spell seam), Horizon Chimera the
     // DrewCards x per-item fan-out composition (D179's own named card).
-    expect(SHIPPED_SCRIPTS).toHaveLength(507);
+    // M6.4ag (D192) - WAVE 1: sixteen SpellDefs from the D191-widened pool,
+    // all rung 1 (the user's own decks) - rituals, wraths, fights, burn,
+    // draw. Bedevil and Fall of the Hammer were pulled at draft time by
+    // their own failing tests (spell target parse - see the REFUSED ledger).
+    expect(SHIPPED_SCRIPTS).toHaveLength(523);
   });
 });
 

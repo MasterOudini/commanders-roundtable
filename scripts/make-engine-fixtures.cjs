@@ -971,6 +971,25 @@ const WANTED = [
   'Char',
   'Fruition',
   'Horizon Chimera',
+  // M6.4ag (D192) — WAVE 1: the first SpellDef batch at scale, all from the
+  // user's own decks (rung 1 of the D191-widened pool). No new tokens.
+  'Bedevil',
+  "Chandra's Ignition",
+  'Damnation',
+  'Fall of the Hammer',
+  'Fell the Mighty',
+  'Fumigate',
+  'Infernal Grasp',
+  'Mana Geyser',
+  "Night's Whisper",
+  'Prey Upon',
+  'Pyretic Ritual',
+  'Rabid Bite',
+  'Reckless Rage',
+  'Seething Song',
+  'Slash the Ranks',
+  'Solar Blaze',
+  'Squall Line',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
