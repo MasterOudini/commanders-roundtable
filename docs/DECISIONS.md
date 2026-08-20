@@ -14497,3 +14497,55 @@ sorcery 327 · batch.json 1,675 · botDeck: Adun reaches 1,552.
 **Reportables:** the qualifier/compound widening family (second-clause
 at eight, counted-list, subtype members) tops the targeting queue;
 prior items stand.
+
+## D217 — M6.4bf: sixteen landed — the opponent-gift, the six-target destroy, and the exactly-10 conditional (2026-08-20)
+
+**Coverage: 2,753 → 2,769 of 31,692 (+16).** `SHIPPED_SCRIPTS` 856 → 872;
+the ledger 288 → 297 (+9, ONE new class); the pool 1,675 → 1,650;
+fixtures 1,071 → 1,087 (+16, no new tokens). All 48 tests green on the
+FIRST run — the second consecutive first-run-clean batch.
+
+⚠️ **Both probes came back GREEN, so nothing was pulled:** 'Target
+opponent gains control of target permanent you control.' parses to TWO
+confident specs with the opponent restriction ENFORCED (`controller:
+'opponent'` on a player kind — Donate's parse holds one word over), and
+'Destroy six target creatures.' reads a confident min6/max6 counted
+spec — the counted machinery proven at its largest printed count.
+
+**The firsts.** `Harmless Offering` is the control gift's OPPONENT twin
+(Donate's ControlChanged with the belt kept in resolve). `Hex` takes
+SIX targets in one submit — five Bears die and the sixth pick, the
+indestructible Myr, survives its own destruction per-target.
+`Hidetsugu's Second Rite` is the exactly-10 conditional — both branches
+from real casts, and its replay test deliberately uses the 40-life arm
+because the 10-life cast ENDS a two-player game on the spot. `Hellfire`
+counts its OWN kills for the X+3 recoil (Fumigate's census feeding
+damage to the CASTER). `Heartwarming Redemption` is the wheel where
+every count is knowable up front (discard n, draw n+1, gain n+1, all
+off the pre-state). `Hint of Insanity` reveals the hand to every seat
+and discards the nonland name-pairs — the Bears pair goes, the Swamp
+pair STAYS. `Hold the Line` pumps the BLOCKERS mid-combat (+7/+7
+through a real DeclareBlockers; the 1/1 blocker eats the 2/2 attacker).
+`Hedge Maze` is Elegant Parlor's surveil-land shape on the
+Forest-Island twin; `Harmonic Convergence` tops every owner's library
+with their own enchantments; `Hurkyl's-shape` bounces by computed
+census; `Harrowing Journey` draws for the TARGET; plus Heat Ray's
+plain X burn, Hell Swarm's -1/-0 board, Heroes' Reunion, Harsh
+Sustenance's census damage+gain, Hibernation's green bounce-wipe, and
+Hobbit's Sting-style census counting both halves.
+
+**Nine refusals, ONE new class:** `Hoarder's Greed` names the CLASH
+mechanic (reveal + each player's top/bottom choice + compare + a
+repeat loop). Plus regeneration, up-to-N ('one or two' still parses
+confident exactly-2 — the D212 hazard), Granite Shard's
+alternative-cost cycle-mate, two script-raised prompts, Chaoslace's
+color change, two temporary game-wide triggers, and play-from-exile.
+
+**Measured after landing:** primitives complete 2,769 · blocked 28,923 ·
+scriptableToday 2,284 · ladder [2284, 2383, 4176, 6090, 7302] · tier3
+silentAfter 3,180 (+16 exact) · botPool instant 483 / sorcery 332 /
+land 265 · batch.json 1,650 · botDeck: Adun reaches 1,561.
+
+**Reportables:** the counted-spec machinery is now proven at 2 and 6 —
+the up-to-N class (the ledger's heaviest) still waits on the CHOOSER
+half; prior items stand.

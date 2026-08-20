@@ -645,6 +645,21 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Graven Lore', 'mana-spent memory'],
   ['Gravkill', 'spell target parse (noun list)'],
   ['Grisly Salvage', 'script-raised prompt'],
+  // D217 — Hoarder's Greed CLASHES (reveal + each player's top/bottom
+  // choice + compare + a repeat loop, a NEW class); 'one or two target
+  // creatures' still parses confident exactly-2 (the D212 hazard, so
+  // Hearts on Fire waits with Fancy Footwork); Heartwood Shard is
+  // Granite Shard's cycle-mate; Heaven's Gate is Chaoslace's class with
+  // the up-to hazard on top.
+  ['Heal the Scars', 'regeneration'],
+  ['Hearts on Fire', 'up-to-N targeting'],
+  ['Heartwood Shard', 'alternative activation cost'],
+  ['Heated Argument', 'script-raised prompt'],
+  ["Heaven's Gate", 'UEOT color change'],
+  ['Hellish Rebuke', 'temporary game-wide trigger'],
+  ['Hex Magic', 'play-from-exile permission'],
+  ['High Tide', 'temporary game-wide trigger'],
+  ["Hoarder's Greed", 'clash mechanic'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -5974,6 +5974,40 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       tops the targeting queue; prior items stand.
 
 
+- [x] **M6.4bf — Sixteen landed: the opponent-gift, the six-target
+      destroy, and the exactly-10 conditional (2026-08-20):** **2,769 of
+      31,692 Commander-legal cards now execute completely, up from
+      2,753.** `SHIPPED_SCRIPTS` 856 → 872; ledger 297. All 48 tests
+      first-run green — the second consecutive such batch. Decisions in
+      **D217**.
+      ⚠️ **Both probes GREEN, nothing pulled:** 'Target opponent'
+      parses with the opponent restriction ENFORCED (Donate one word
+      over), and 'six target creatures' reads confident min6/max6 —
+      the counted machinery at its largest printed count.
+      **Firsts:** the control gift's opponent twin (Harmless Offering);
+      the SIX-target destroy (Hex — the indestructible sixth pick
+      survives per-target); the exactly-10 conditional (Hidetsugu's
+      Second Rite — the 10-life arm ends a two-player game, so the
+      replay test uses the other branch); the own-kill recoil
+      (Hellfire, X+3 to the CASTER); the fully-computable wheel
+      (Heartwarming Redemption); the name-pair hand discard (Hint of
+      Insanity — land pairs exempt); the mid-combat BLOCKER pump (Hold
+      the Line, +7/+7 through a real DeclareBlockers); the surveil
+      land's Forest-Island twin (Hedge Maze).
+      ⚠️ **Nine refusals, ONE new class:** clash mechanic (Hoarder's
+      Greed).
+      Fixtures 1,087 · botPool instant 483 / sorcery 332 / land 265 ·
+      ladder [2284, 2383, 4176, 6090, 7302] · batch.json 1,650 ·
+      botDeck: Adun reaches 1,561.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 950
+      files, 5,572 passed / 10 skipped · 500-seed gate
+      758.2 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D217): the counted-spec machinery is proven at
+      2 and 6 — up-to-N (the ledger's heaviest class) still waits on
+      the chooser half; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

@@ -34583,6 +34583,557 @@ export const HARMATTAN_EFREET: CardData = {
   "singleImage": true
 };
 
+export const HARMLESS_OFFERING: CardData = {
+  "scryfallId": "39432d13-d5a6-420d-a814-dee0b17a34ca",
+  "oracleId": "f5d32e5f-066b-42cf-8dd1-072a96275313",
+  "name": "Harmless Offering",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Harmless Offering",
+      "manaCost": "{2}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target opponent gains control of target permanent you control.",
+      "flavorText": "\"Such an adorable face!\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "39432d13-d5a6-420d-a814-dee0b17a34ca"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pemn",
+  "collectorNumber": "131s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HARMONIC_CONVERGENCE: CardData = {
+  "scryfallId": "5aafc380-cf4d-4843-b9c3-c389d9c5e942",
+  "oracleId": "400adeec-11b4-4a9c-9466-dcab524d87ea",
+  "name": "Harmonic Convergence",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Harmonic Convergence",
+      "manaCost": "{2}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Put all enchantments on top of their owners' libraries.",
+      "flavorText": "When the eternal stars align, can mere mortals resist?",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "John Avon",
+      "imageId": "5aafc380-cf4d-4843-b9c3-c389d9c5e942"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ulg",
+  "collectorNumber": "103",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HARROWING_JOURNEY: CardData = {
+  "scryfallId": "9cf96a6c-8481-4954-b149-7153b80480be",
+  "oracleId": "70f3d545-d114-485d-8d8b-4a93b2393c41",
+  "name": "Harrowing Journey",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Harrowing Journey",
+      "manaCost": "{4}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player draws three cards and loses 3 life.",
+      "flavorText": "\"There are always fools who attempt to traverse Kruin Pass before sundown and every time they wind up in a race for their lives.\"\n—Old Rutstein",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "James Paick",
+      "imageId": "9cf96a6c-8481-4954-b149-7153b80480be"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "dka",
+  "collectorNumber": "67",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HARSH_SUSTENANCE: CardData = {
+  "scryfallId": "770d60a0-23fc-4224-873c-2e5549b3a816",
+  "oracleId": "f5cf471f-032c-4ebb-823c-8841de209216",
+  "name": "Harsh Sustenance",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Harsh Sustenance",
+      "manaCost": "{1}{W}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Harsh Sustenance deals X damage to any target and you gain X life, where X is the number of creatures you control.",
+      "flavorText": "The Shifting Wastes provide refuge to those who know where to look for it.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Cynthia Sheppard",
+      "imageId": "770d60a0-23fc-4224-873c-2e5549b3a816"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "frf",
+  "collectorNumber": "154",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HEARTWARMING_REDEMPTION: CardData = {
+  "scryfallId": "af569235-f5cb-4e3e-ba77-c1c429ed0a60",
+  "oracleId": "011af4c1-e8ed-44bf-b7b5-dfdc18524cd0",
+  "name": "Heartwarming Redemption",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Heartwarming Redemption",
+      "manaCost": "{2}{R}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Discard all the cards in your hand, then draw that many cards plus one. You gain life equal to the number of cards in your hand.",
+      "flavorText": "Kytheon had known war every day of his life. Now he finally knew peace.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "af569235-f5cb-4e3e-ba77-c1c429ed0a60"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "war",
+  "collectorNumber": "199",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HEAT_RAY: CardData = {
+  "scryfallId": "32d91705-de45-41a1-b7e8-f40d3dcf1520",
+  "oracleId": "76ec76b9-da0f-4b9d-ad0a-d734052a5f2b",
+  "name": "Heat Ray",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Heat Ray",
+      "manaCost": "{X}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Heat Ray deals X damage to target creature.",
+      "flavorText": "It's not known whether the Thran built the device to forge their wonders or to defend them.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "32d91705-de45-41a1-b7e8-f40d3dcf1520"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "brb",
+  "collectorNumber": "32",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HEDGE_MAZE: CardData = {
+  "scryfallId": "15cbc81d-e464-4583-a9a8-b8a4931b1521",
+  "oracleId": "ca4b6689-04ee-4227-9bdc-cb5a9590c745",
+  "name": "Hedge Maze",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hedge Maze",
+      "manaCost": "",
+      "typeLine": "Land — Forest Island",
+      "oracleText": "({T}: Add {G} or {U}.)\nThis land enters tapped.\nWhen this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Andrew Mar",
+      "imageId": "15cbc81d-e464-4583-a9a8-b8a4931b1521"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "pmkm",
+  "collectorNumber": "262s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HELL_SWARM: CardData = {
+  "scryfallId": "64164d1b-75f4-456e-a717-90ce554dc16c",
+  "oracleId": "f8df23ed-e239-435a-a4a9-cf10da6df28f",
+  "name": "Hell Swarm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hell Swarm",
+      "manaCost": "{B}",
+      "typeLine": "Instant",
+      "oracleText": "All creatures get -1/-0 until end of turn.",
+      "flavorText": "The brightness of day turned in an instant to dusk as the swarm descended upon the battlefield.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Christopher Rush",
+      "imageId": "64164d1b-75f4-456e-a717-90ce554dc16c"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "leg",
+  "collectorNumber": "103",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HELLFIRE: CardData = {
+  "scryfallId": "362f1fe9-20af-434c-9957-7a1a564d89e6",
+  "oracleId": "e7b1975d-9574-4333-8530-33167948078a",
+  "name": "Hellfire",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hellfire",
+      "manaCost": "{2}{B}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all nonblack creatures. Hellfire deals X plus 3 damage to you, where X is the number of creatures that died this way.",
+      "flavorText": "\"High on a throne of royal state . . . insatiate to pursue vain war with heav'n.\" —John Milton, *Paradise Lost*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "362f1fe9-20af-434c-9957-7a1a564d89e6"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "leg",
+  "collectorNumber": "105",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HEROES_REUNION: CardData = {
+  "scryfallId": "135d6043-5ec1-4ad4-8296-41fe23f11cb9",
+  "oracleId": "beab66e0-2b6c-478f-ba42-8c0c216a527e",
+  "name": "Heroes' Reunion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Heroes' Reunion",
+      "manaCost": "{G}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Target player gains 7 life.",
+      "flavorText": "\"You helped save my people from a Phyrexian fate. Did you think I wouldn't return the favor?\"\n—Eladamri, to Gerrard",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "135d6043-5ec1-4ad4-8296-41fe23f11cb9"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "inv",
+  "collectorNumber": "250",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HEX: CardData = {
+  "scryfallId": "067c38f3-4b5c-4e7f-af66-e410dea19314",
+  "oracleId": "89457fa8-b0e2-4277-b6a9-c6601c59b46d",
+  "name": "Hex",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hex",
+      "manaCost": "{4}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy six target creatures.",
+      "flavorText": "When killing five just isn't enough.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Michael Sutfin",
+      "imageId": "067c38f3-4b5c-4e7f-af66-e410dea19314"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "clb",
+  "collectorNumber": "757",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HIBERNATION: CardData = {
+  "scryfallId": "68b7444c-fabb-4437-8db9-a1008ea09415",
+  "oracleId": "633b541b-e37f-451a-be73-3398e61e0f75",
+  "name": "Hibernation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hibernation",
+      "manaCost": "{2}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return all green permanents to their owners' hands.",
+      "flavorText": "On its way to the cave, the armadillo brushed by a sapling. It awoke to find a full-grown tree blocking its path.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Scott Kirschner",
+      "imageId": "68b7444c-fabb-4437-8db9-a1008ea09415"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "usg",
+  "collectorNumber": "79",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HIDETSUGU_S_SECOND_RITE: CardData = {
+  "scryfallId": "2e48eb77-3bd7-444a-9262-799cc706c05a",
+  "oracleId": "749683c9-8cc0-4e8e-8d90-adda5e5f4e93",
+  "name": "Hidetsugu's Second Rite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hidetsugu's Second Rite",
+      "manaCost": "{3}{R}",
+      "typeLine": "Instant",
+      "oracleText": "If target player has exactly 10 life, Hidetsugu's Second Rite deals 10 damage to that player.",
+      "flavorText": "Hidetsugu never relinquished a grudge. He let it burn within him, gathering ever greater intensity until the final moment of vengeance.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jeff Miracola",
+      "imageId": "2e48eb77-3bd7-444a-9262-799cc706c05a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "sok",
+  "collectorNumber": "102",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HINT_OF_INSANITY: CardData = {
+  "scryfallId": "d6abaca0-7ce1-4024-adf6-ef6cc0fbcb75",
+  "oracleId": "4db59824-6bcb-4707-977b-0ff699d8662b",
+  "name": "Hint of Insanity",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hint of Insanity",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player reveals their hand. That player discards all nonland cards with the same name as another card in their hand.",
+      "flavorText": "\"Practice makes perfect, but obsession makes better.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Luca Zontini",
+      "imageId": "d6abaca0-7ce1-4024-adf6-ef6cc0fbcb75"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "143",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HOBBIT_S_STING: CardData = {
+  "scryfallId": "019eab42-9e0c-4958-ac97-74d3db5580f3",
+  "oracleId": "845bbad1-02f9-432b-aca4-13a5ec71fd06",
+  "name": "Hobbit's Sting",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hobbit's Sting",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Hobbit's Sting deals X damage to target creature, where X is the number of creatures you control plus the number of Foods you control.",
+      "flavorText": "\"One for the Shire!\" cried Aragorn. \"The Hobbit's bite is deep! You have a good blade, Frodo son of Drogo!\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Viko Menezes",
+      "imageId": "019eab42-9e0c-4958-ac97-74d3db5580f3"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ltr",
+  "collectorNumber": "20",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HOLD_THE_LINE: CardData = {
+  "scryfallId": "d20ee9c8-6d58-42fc-8b27-bfd0ea6d4374",
+  "oracleId": "1ff55bbd-cde2-4fe9-a129-16790831d665",
+  "name": "Hold the Line",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hold the Line",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Blocking creatures get +7/+7 until end of turn.",
+      "flavorText": "\"Forgive me, Master Kami, but in the interest of my people I must halt your advance.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Ron Spears",
+      "imageId": "d20ee9c8-6d58-42fc-8b27-bfd0ea6d4374"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ddn",
+  "collectorNumber": "66",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -37965,6 +38516,22 @@ export const ENGINE_CARDS: CardData[] = [
   HALLOWED_BURIAL,
   HARD_HITTING_QUESTION,
   HARMATTAN_EFREET,
+  HARMLESS_OFFERING,
+  HARMONIC_CONVERGENCE,
+  HARROWING_JOURNEY,
+  HARSH_SUSTENANCE,
+  HEARTWARMING_REDEMPTION,
+  HEAT_RAY,
+  HEDGE_MAZE,
+  HELL_SWARM,
+  HELLFIRE,
+  HEROES_REUNION,
+  HEX,
+  HIBERNATION,
+  HIDETSUGU_S_SECOND_RITE,
+  HINT_OF_INSANITY,
+  HOBBIT_S_STING,
+  HOLD_THE_LINE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

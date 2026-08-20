@@ -1391,6 +1391,24 @@ const WANTED = [
   'Hallowed Burial',
   'Hard-Hitting Question',
   'Harmattan Efreet',
+  // M6.4bf (D217) - batch 51: the control gift's opponent twin, the
+  // enchantment bounce-wipe, and the surveil land.
+  'Harmless Offering',
+  'Harmonic Convergence',
+  'Harrowing Journey',
+  'Harsh Sustenance',
+  'Heartwarming Redemption',
+  'Heat Ray',
+  'Hedge Maze',
+  'Hell Swarm',
+  'Hellfire',
+  "Heroes' Reunion",
+  'Hex',
+  'Hibernation',
+  "Hidetsugu's Second Rite",
+  'Hint of Insanity',
+  "Hobbit's Sting",
+  'Hold the Line',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

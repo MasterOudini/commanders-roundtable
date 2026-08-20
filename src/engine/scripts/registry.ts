@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { HARMLESS_OFFERING_SCRIPT } from './cards/harmlessOffering';
+import { HARMONIC_CONVERGENCE_SCRIPT } from './cards/harmonicConvergence';
+import { HARROWING_JOURNEY_SCRIPT } from './cards/harrowingJourney';
+import { HARSH_SUSTENANCE_SCRIPT } from './cards/harshSustenance';
+import { HEARTWARMING_REDEMPTION_SCRIPT } from './cards/heartwarmingRedemption';
+import { HEAT_RAY_SCRIPT } from './cards/heatRay';
+import { HEDGE_MAZE_SCRIPT } from './cards/hedgeMaze';
+import { HELL_SWARM_SCRIPT } from './cards/hellSwarm';
+import { HELLFIRE_SCRIPT } from './cards/hellfire';
+import { HEROES_REUNION_SCRIPT } from './cards/heroesReunion';
+import { HEX_SCRIPT } from './cards/hex';
+import { HIBERNATION_SCRIPT } from './cards/hibernation';
+import { HIDETSUGUS_SECOND_RITE_SCRIPT } from './cards/hidetsugusSecondRite';
+import { HINT_OF_INSANITY_SCRIPT } from './cards/hintOfInsanity';
+import { HOBBITS_STING_SCRIPT } from './cards/hobbitsSting';
+import { HOLD_THE_LINE_SCRIPT } from './cards/holdTheLine';
 import { GLISSAS_SCORN_SCRIPT } from './cards/glissasScorn';
 import { GLISTENING_DELUGE_SCRIPT } from './cards/glisteningDeluge';
 import { GOBLIN_MOTIVATOR_SCRIPT } from './cards/goblinMotivator';
@@ -977,6 +993,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  HARMLESS_OFFERING_SCRIPT,
+  HARMONIC_CONVERGENCE_SCRIPT,
+  HARROWING_JOURNEY_SCRIPT,
+  HARSH_SUSTENANCE_SCRIPT,
+  HEARTWARMING_REDEMPTION_SCRIPT,
+  HEAT_RAY_SCRIPT,
+  HEDGE_MAZE_SCRIPT,
+  HELL_SWARM_SCRIPT,
+  HELLFIRE_SCRIPT,
+  HEROES_REUNION_SCRIPT,
+  HEX_SCRIPT,
+  HIBERNATION_SCRIPT,
+  HIDETSUGUS_SECOND_RITE_SCRIPT,
+  HINT_OF_INSANITY_SCRIPT,
+  HOBBITS_STING_SCRIPT,
+  HOLD_THE_LINE_SCRIPT,
   GLISSAS_SCORN_SCRIPT,
   GLISTENING_DELUGE_SCRIPT,
   GOBLIN_MOTIVATOR_SCRIPT,
