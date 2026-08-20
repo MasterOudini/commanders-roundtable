@@ -15274,3 +15274,59 @@ botDeck: Adun reaches 1,690 from 68 legendaries.
 **Reportables:** the typed-spell counter shape is now proven with BOTH
 riders (draw here, burn/gain in D219's family); the discriminator and
 qualifier families stand; prior items stand.
+
+## D232 — M6.4bu: twenty-one landed — a new record, and four test traps in one batch (2026-08-21)
+
+**3,032 of 31,692 Commander-legal cards now execute completely, up from
+3,011** — twenty-one scripts, the largest batch of the arc (the record
+was 20, held three times). `SHIPPED_SCRIPTS` 1,114 → 1,135; the REFUSED
+ledger holds 408 (+4, zero new classes).
+
+**The headliners:** `Peer into the Abyss` (the target draws
+ceil(library/2) and loses ceil(life/2), both computed in one resolve);
+`Phyresis Outbreak` (each opponent's poison lands FIRST, so the
+per-controller debuff counts the new counter — the resolve computes the
+after-map before emitting); the `Penumbra` trio (dies-shadow tokens on
+THREE new pins — Cat tdmr 3, Spider tmma 7, Wurm tuma 7); `Pestered
+Wellguard` (becomes-tapped pays a Faerie on the fourth new pin,
+tecl 5); `Peer Past the Veil` (the wheel whose type census reads
+graveyard-UNION-hand while the resolving sorcery is still on the stack
+and correctly absent).
+
+**Also:** the exact-text twins `Path of Peace` = Misfortune's Gain and
+`Patron of the Arts` = Noggle Robber; `Phyrexia's Core` (the artifact
+chooser paying a gain on a LAND); `Phyrexian Debaser` (the tapped
+self-sacrifice debuff); `Parcel Myr` (the self-sacrifice draw);
+`Perish` (the color wipe, the damnation tripwire's ELEVENTH client);
+`Peppersmoke` (debuff + Faerie-gated draw, proven both ways).
+
+⚠️⚠️ **NOT first-run clean — nine failures across four files, and every
+one was the TEST, with four traps worth keeping:**
+1. **`put()` FETCHES from the player's own listed deck** — it does not
+   materialize from the oracle, so every support name must be LISTED in
+   that player's deck (N times for N puts). Fourteen deck lists patched.
+2. **`CardInstance` carries no `name`** — name reads go through
+   `nameOf(g, id)` (the oracle), and the spell is fetched to hand with
+   `put(g, p, name, 'hand')`, never found by scanning a shuffled
+   opening hand.
+3. **A spell can resolve INSIDE its own CastSpell submit** under default
+   stops — capture baselines BEFORE the cast (the D232 probe showed the
+   whole resolution inside the submit's event batch; two tests measured
+   deltas of zero around an already-resolved spell).
+4. **The opening hand is 7 of a shuffled 30** (decks pad with basics) —
+   a wheel's "empty hand" variant actually discards six basic Lands
+   (one type, one draw), and listed nonbasics must be fetched OUT
+   (exile) when a census must not see them.
+
+**Four refusals, ZERO new classes:** Part Water (cast-time computed
+target count), Patrol Signaler (untap-symbol activation cost), Peace of
+Mind and Pegasus Refuge (discard-cost chooser).
+
+**Measured after landing:** primitives complete 3,032 · blocked 28,660 ·
+scriptableToday 2,021 · ladder [2021, 2120, 3913, 5827, 7039] · botPool
+creature 1,656 / instant 556 / sorcery 412 / artifact 87 / enchantment
+43 / land 278 · fixtures 1,362 (79 tokens) · batch.json 1,275 ·
+botDeck: Adun reaches 1,704 from 68 legendaries.
+
+**Reportables:** the discard-cost chooser keeps absorbing refusals; the
+aim-layer qualifier convergence stands; prior items stand.

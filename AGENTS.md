@@ -6448,6 +6448,36 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       with both riders; prior items stand.
 
 
+- [x] **M6.4bu — TWENTY-ONE landed: a new record, and four test traps
+      (2026-08-21):** **3,032 of 31,692 Commander-legal cards now execute
+      completely, up from 3,011** — the largest batch of the arc.
+      `SHIPPED_SCRIPTS` 1,114 → 1,135; ledger 408. Decisions in **D232**.
+      **The headliners:** Peer into the Abyss (ceil(lib/2) draws +
+      ceil(life/2) loss in one resolve); Phyresis Outbreak (the poison
+      lands FIRST and the per-controller debuff counts it); the Penumbra
+      dies-shadow trio (three new pins) + Pestered Wellguard's
+      becomes-tapped Faerie (the fourth); Peer Past the Veil (the wheel
+      censusing graveyard∪hand with the on-stack sorcery correctly
+      absent); the Path of Peace = Misfortune's Gain and Patron of the
+      Arts = Noggle Robber exact-text twins; Perish (tripwire client
+      ELEVEN).
+      ⚠️ **NOT first-run clean — nine test-side failures, four traps
+      pinned:** put() fetches from the player's LISTED deck; name reads
+      go through nameOf (CardInstance has no name); a spell can resolve
+      INSIDE its own submit (capture baselines pre-cast); the opening
+      hand is 7 of a shuffled padded 30.
+      ⚠️ **Four refusals, ZERO new classes.**
+      Fixtures 1,362 (79 tokens — 4 new pins) · botPool creature 1,656 /
+      instant 556 / sorcery 412 / land 278 · ladder [2021, 2120, 3913,
+      5827, 7039] · batch.json 1,275 · botDeck: Adun reaches 1,704.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,214
+      files, 6,800 passed / 10 skipped · 500-seed gate
+      759.7 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D232): the four test traps are loop lessons;
+      prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

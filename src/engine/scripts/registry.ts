@@ -7,6 +7,27 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { PARCEL_MYR_SCRIPT } from './cards/parcelMyr';
+import { PART_THE_VEIL_SCRIPT } from './cards/partTheVeil';
+import { PARTING_THOUGHTS_SCRIPT } from './cards/partingThoughts';
+import { PATH_OF_PEACE_SCRIPT } from './cards/pathOfPeace';
+import { PATRON_OF_THE_ARTS_SCRIPT } from './cards/patronOfTheArts';
+import { PEACE_AND_QUIET_SCRIPT } from './cards/peaceAndQuiet';
+import { PEACE_STRIDER_SCRIPT } from './cards/peaceStrider';
+import { PEACH_GARDEN_OATH_SCRIPT } from './cards/peachGardenOath';
+import { PEEL_FROM_REALITY_SCRIPT } from './cards/peelFromReality';
+import { PEER_INTO_THE_ABYSS_SCRIPT } from './cards/peerIntoTheAbyss';
+import { PEER_PAST_THE_VEIL_SCRIPT } from './cards/peerPastTheVeil';
+import { PENUMBRA_BOBCAT_SCRIPT } from './cards/penumbraBobcat';
+import { PENUMBRA_SPIDER_SCRIPT } from './cards/penumbraSpider';
+import { PENUMBRA_WURM_SCRIPT } from './cards/penumbraWurm';
+import { PEPPERSMOKE_SCRIPT } from './cards/peppersmoke';
+import { PERISH_SCRIPT } from './cards/perish';
+import { PESTERED_WELLGUARD_SCRIPT } from './cards/pesteredWellguard';
+import { PHARIKAS_CURE_SCRIPT } from './cards/pharikasCure';
+import { PHYRESIS_OUTBREAK_SCRIPT } from './cards/phyresisOutbreak';
+import { PHYREXIAS_CORE_SCRIPT } from './cards/phyrexiasCore';
+import { PHYREXIAN_DEBASER_SCRIPT } from './cards/phyrexianDebaser';
 import { ORZHOV_LOCKET_SCRIPT } from './cards/orzhovLocket';
 import { OSCORP_RESEARCH_TEAM_SCRIPT } from './cards/oscorpResearchTeam';
 import { OSTIARY_THRULL_SCRIPT } from './cards/ostiaryThrull';
@@ -1235,6 +1256,27 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PARCEL_MYR_SCRIPT,
+  PART_THE_VEIL_SCRIPT,
+  PARTING_THOUGHTS_SCRIPT,
+  PATH_OF_PEACE_SCRIPT,
+  PATRON_OF_THE_ARTS_SCRIPT,
+  PEACE_AND_QUIET_SCRIPT,
+  PEACE_STRIDER_SCRIPT,
+  PEACH_GARDEN_OATH_SCRIPT,
+  PEEL_FROM_REALITY_SCRIPT,
+  PEER_INTO_THE_ABYSS_SCRIPT,
+  PEER_PAST_THE_VEIL_SCRIPT,
+  PENUMBRA_BOBCAT_SCRIPT,
+  PENUMBRA_SPIDER_SCRIPT,
+  PENUMBRA_WURM_SCRIPT,
+  PEPPERSMOKE_SCRIPT,
+  PERISH_SCRIPT,
+  PESTERED_WELLGUARD_SCRIPT,
+  PHARIKAS_CURE_SCRIPT,
+  PHYRESIS_OUTBREAK_SCRIPT,
+  PHYREXIAS_CORE_SCRIPT,
+  PHYREXIAN_DEBASER_SCRIPT,
   ORZHOV_LOCKET_SCRIPT,
   OSCORP_RESEARCH_TEAM_SCRIPT,
   OSTIARY_THRULL_SCRIPT,

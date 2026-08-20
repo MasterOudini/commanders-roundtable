@@ -1683,6 +1683,28 @@ const WANTED = [
   'Paradox Gardens',
   'Parallectric Feedback',
   'Paraselene',
+  // D232 (M6.4bu)
+  'Parcel Myr',
+  'Part the Veil',
+  'Parting Thoughts',
+  'Path of Peace',
+  'Patron of the Arts',
+  'Peace and Quiet',
+  'Peace Strider',
+  'Peach Garden Oath',
+  'Peel from Reality',
+  'Peer into the Abyss',
+  'Peer Past the Veil',
+  'Penumbra Bobcat',
+  'Penumbra Spider',
+  'Penumbra Wurm',
+  'Peppersmoke',
+  'Perish',
+  'Pestered Wellguard',
+  "Pharika's Cure",
+  'Phyresis Outbreak',
+  "Phyrexia's Core",
+  'Phyrexian Debaser',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -1821,6 +1843,11 @@ const WANTED_TOKENS = [
   { name: 'Construct', set: 'tclb', cn: '16', key: 'CONSTRUCT_TOKEN' },
   // M6.4bt (D231) - Oyobi's big Spirit.
   { name: 'Spirit', set: 'tvoc', cn: '3', key: 'SPIRIT_33_TOKEN' },
+  // D232 (M6.4bu)
+  { name: 'Faerie', set: 'tecl', cn: '5', key: 'FAERIE_UB_TOKEN' },
+  { name: 'Cat', set: 'tdmr', cn: '3', key: 'CAT_21_TOKEN' },
+  { name: 'Spider', set: 'tmma', cn: '7', key: 'SPIDER_24_TOKEN' },
+  { name: 'Wurm', set: 'tuma', cn: '7', key: 'WURM_66_TOKEN' },
 ];
 
 function constName(name) {

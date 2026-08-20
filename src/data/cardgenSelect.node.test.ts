@@ -838,6 +838,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ovinize', 'until-end-of-turn base P/T set'],
   ["Pain's Reward", 'bidding mechanic'],
   ['Painful Truths', 'converge (cast-time mana-color memory)'],
+  // D232 (M6.4bu)
+  ['Part Water', 'cast-time computed target count'],
+  ['Patrol Signaler', 'untap-symbol activation cost'],
+  ['Peace of Mind', 'discard-cost chooser'],
+  ['Pegasus Refuge', 'discard-cost chooser'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
