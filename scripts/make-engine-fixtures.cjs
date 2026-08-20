@@ -1228,6 +1228,24 @@ const WANTED = [
   'Desert Sandstorm',
   "Desert's Due",
   'Sunscorched Desert',
+  // M6.4aw (D208) - batch 42: the land destroys with riders, the historic
+  // bounce, the board-computed counter, and the unattach.
+  'Despoil',
+  'Destroy the Evidence',
+  'Destructive Revelry',
+  'Desynchronization',
+  'Devastate',
+  'Devastation',
+  'Devour in Shadow',
+  'Dimir Informant',
+  'Dinotomaton',
+  'Dire Tactics',
+  'Diresight',
+  'Disarm',
+  'Disempower',
+  'Disorder',
+  'Dispersal Shield',
+  'Displacement Wave',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

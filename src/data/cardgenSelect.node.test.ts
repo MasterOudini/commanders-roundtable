@@ -510,6 +510,21 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Defiling Tears', 'temporary non-keyword ability grant'],
   ['Demonic Gifts', 'temporary non-keyword ability grant'],
   ['Deny the Witch', 'ability countering'],
+  // D208 — Devout Decree's "that's black or red" is the POSITIVE color
+  // qualifier (Befoul holds the negated direction) and it is silently
+  // unenforced; Diminish SETS base P/T (untilEndOfTurn carries deltas and
+  // keywords, never a base); Disrupt Decorum GOADS (no goad concept
+  // anywhere); Detonate and Disembowel bound their target's mana value at
+  // X — a cast-variable threshold the spec cannot carry.
+  ['Detonate', 'computed target threshold'],
+  ['Devout Decree', 'color target qualifier unenforced'],
+  ['Diminish', 'until-end-of-turn base P/T set'],
+  ['Diminishing Returns', 'opponent-chooses'],
+  ['Disallow', 'ability countering'],
+  ['Disembowel', 'computed target threshold'],
+  ['Displace', 'up-to-N targeting'],
+  ['Disrupt Decorum', 'goad mechanic'],
+  ['Divine Gambit', 'opponent-chooses'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -29620,6 +29620,560 @@ export const SUNSCORCHED_DESERT: CardData = {
   "singleImage": true
 };
 
+export const DESPOIL: CardData = {
+  "scryfallId": "06bb6ff7-2cd6-430e-a618-0b83d9c1d044",
+  "oracleId": "77fa18fa-5dba-4e4c-9b24-9bfa9b68779f",
+  "name": "Despoil",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Despoil",
+      "manaCost": "{3}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target land. Its controller loses 2 life.",
+      "flavorText": "Nothing could grow where the vile smoke had been, and no one could breathe it and live.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Scott M. Fischer",
+      "imageId": "06bb6ff7-2cd6-430e-a618-0b83d9c1d044"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "pcy",
+  "collectorNumber": "62",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DESTROY_THE_EVIDENCE: CardData = {
+  "scryfallId": "bca53097-108d-457e-831c-e3d6cb499a41",
+  "oracleId": "79aa86f5-bee4-498c-a0cd-719c05b136b2",
+  "name": "Destroy the Evidence",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Destroy the Evidence",
+      "manaCost": "{4}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target land. Its controller reveals cards from the top of their library until they reveal a land card, then puts those cards into their graveyard.",
+      "flavorText": "Everyone knew the Dimir had done the damage. Everyone suspected the Izzet had hired them.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Clint Cearley",
+      "imageId": "bca53097-108d-457e-831c-e3d6cb499a41"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "rtr",
+  "collectorNumber": "64",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DESTRUCTIVE_REVELRY: CardData = {
+  "scryfallId": "5ed74d6f-c454-45b8-9ea7-61d0fae01e3b",
+  "oracleId": "7165fade-ea96-4026-bc80-620729b8f70c",
+  "name": "Destructive Revelry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Destructive Revelry",
+      "manaCost": "{R}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target artifact or enchantment. Destructive Revelry deals 2 damage to that permanent's controller.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "5ed74d6f-c454-45b8-9ea7-61d0fae01e3b"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "pio",
+  "collectorNumber": "214",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DESYNCHRONIZATION: CardData = {
+  "scryfallId": "3ddd3561-0143-40b7-81bc-640a978b8b15",
+  "oracleId": "dab64d0f-1246-4a4d-9a79-6db2ca0c8882",
+  "name": "Desynchronization",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Desynchronization",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return each nonland permanent that's not historic to its owner's hand. (Artifacts, legendaries, and Sagas are historic.)",
+      "flavorText": "History cannot be changed, and the Animus is not kind to those who try.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Lie Setiawan",
+      "imageId": "3ddd3561-0143-40b7-81bc-640a978b8b15"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "acr",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEVASTATE: CardData = {
+  "scryfallId": "bfe7c990-a34b-475e-a612-447c22f998d3",
+  "oracleId": "90b3e2df-182d-4dad-9934-597a048fefc6",
+  "name": "Devastate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Devastate",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target land. Devastate deals 1 damage to each creature and each player.",
+      "flavorText": "\"You're willing to die for your homeland. I'm willing to kill for it.\"\n—Latulla, Keldon overseer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "bfe7c990-a34b-475e-a612-447c22f998d3"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "pcy",
+  "collectorNumber": "87",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEVASTATION: CardData = {
+  "scryfallId": "71cce019-162c-4969-89ac-1cf94148a032",
+  "oracleId": "052838cb-dcf0-46f5-82b1-c3ed863b42b7",
+  "name": "Devastation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Devastation",
+      "manaCost": "{5}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures and lands.",
+      "flavorText": "There is much talk about the art of creation. What about the art of destruction?",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Steve Luke",
+      "imageId": "71cce019-162c-4969-89ac-1cf94148a032"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "por",
+  "collectorNumber": "123",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEVOUR_IN_SHADOW: CardData = {
+  "scryfallId": "98c80584-b7b5-4dcd-8a00-812b9dd9b1b9",
+  "oracleId": "9086d8ff-e375-4149-996d-2a88a7596c1c",
+  "name": "Devour in Shadow",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Devour in Shadow",
+      "manaCost": "{B}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature. It can't be regenerated. You lose life equal to that creature's toughness.",
+      "flavorText": "\"Feel the burn of the mists. Master them. They will devour your enemies.\"\n—Geth, keeper of the Vault",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Thomas M. Baxa",
+      "imageId": "98c80584-b7b5-4dcd-8a00-812b9dd9b1b9"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "5dn",
+  "collectorNumber": "46",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DIMIR_INFORMANT: CardData = {
+  "scryfallId": "0230afeb-5ce8-436e-9afc-73cdd7baf424",
+  "oracleId": "fa66d63b-dfb7-42b8-8249-4d60e89058ac",
+  "name": "Dimir Informant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dimir Informant",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Rogue",
+      "oracleText": "When this creature enters, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": "The letters arrive, all sealed and read.",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Lucas Graciano",
+      "imageId": "0230afeb-5ce8-436e-9afc-73cdd7baf424"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "grn",
+  "collectorNumber": "36",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DINOTOMATON: CardData = {
+  "scryfallId": "9de1a93e-ec71-45fa-b0b8-2c21123e390c",
+  "oracleId": "443f2272-6475-4966-8ca2-717d4cf208ee",
+  "name": "Dinotomaton",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dinotomaton",
+      "manaCost": "{3}{R}",
+      "typeLine": "Artifact Creature — Dinosaur Gnome",
+      "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhen this creature enters, target creature you control gains menace until end of turn.",
+      "flavorText": "\"Oh, Saheeli would *love* you.\"\n—Huatli",
+      "power": "4",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "9de1a93e-ec71-45fa-b0b8-2c21123e390c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Menace"
+  ],
+  "setCode": "lci",
+  "collectorNumber": "144",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DIRE_TACTICS: CardData = {
+  "scryfallId": "e0e3974e-3753-4f25-8930-6d96b40332ce",
+  "oracleId": "0c8cb2ec-5b58-497c-a6e7-2d25512d5a44",
+  "name": "Dire Tactics",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dire Tactics",
+      "manaCost": "{W}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Exile target creature. If you don't control a Human, you lose life equal to that creature's toughness.",
+      "flavorText": "\"I will preserve human life at all costs. I will stand alone against behemoths before I let them touch my city. I will hold the wall.\"\n—Oath of the Coppercoats",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Daarken",
+      "imageId": "e0e3974e-3753-4f25-8930-6d96b40332ce"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "iko",
+  "collectorNumber": "183",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DIRESIGHT: CardData = {
+  "scryfallId": "144d5261-ee05-4b7f-ba9d-68aefbdab48e",
+  "oracleId": "a7b12df9-fddd-4cd4-8c09-d54a47867ab6",
+  "name": "Diresight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Diresight",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Surveil 2, then draw two cards. You lose 2 life. (To surveil 2, look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": "Avatar Roku showed Aang the truth behind Sozin's Comet.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Evan Shipard",
+      "imageId": "144d5261-ee05-4b7f-ba9d-68aefbdab48e"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "tle",
+  "collectorNumber": "162",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DISARM: CardData = {
+  "scryfallId": "427c6350-af52-45f1-8024-5f31aa62a0d0",
+  "oracleId": "44d54814-2eeb-4df8-b8d3-789f0bcb307a",
+  "name": "Disarm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Disarm",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Unattach all Equipment from target creature.",
+      "flavorText": "\"Be thankful I left you your clothes.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Alex Horley-Orlandelli",
+      "imageId": "427c6350-af52-45f1-8024-5f31aa62a0d0"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mrd",
+  "collectorNumber": "32",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DISEMPOWER: CardData = {
+  "scryfallId": "3a86a2ae-aaf3-4d4d-ae06-ec3d4a539550",
+  "oracleId": "ff9f4bfe-1585-4eaa-943c-1e85ed79a820",
+  "name": "Disempower",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Disempower",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Put target artifact or enchantment on top of its owner's library.",
+      "flavorText": "\"Mangara is gone. Who among you doubts that I have taken his power?\"\n—Kaervek",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Matson",
+      "imageId": "3a86a2ae-aaf3-4d4d-ae06-ec3d4a539550"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "9",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DISORDER: CardData = {
+  "scryfallId": "3fa5ec10-dfea-4e6d-8996-553a4a0eb8a4",
+  "oracleId": "586da84b-1384-4da2-983d-340c22b73eb8",
+  "name": "Disorder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Disorder",
+      "manaCost": "{1}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Disorder deals 2 damage to each white creature and each player who controls a white creature.",
+      "flavorText": "\"Then, just when the other guys were winnin', the sky threw up.\"\n—Jula, goblin raider",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "3fa5ec10-dfea-4e6d-8996-553a4a0eb8a4"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "usg",
+  "collectorNumber": "181",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DISPERSAL_SHIELD: CardData = {
+  "scryfallId": "0c257df6-f275-40db-bfe3-a9291356cdf7",
+  "oracleId": "aefb1463-76fb-419e-8cda-8c5bfb88a3d2",
+  "name": "Dispersal Shield",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dispersal Shield",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target spell if its mana value is less than or equal to the greatest mana value among permanents you control.",
+      "flavorText": "\"Maybe next time.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Dave Dorman",
+      "imageId": "0c257df6-f275-40db-bfe3-a9291356cdf7"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "scg",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DISPLACEMENT_WAVE: CardData = {
+  "scryfallId": "ad6fef1f-6cc9-4e24-a1be-fc313774f28d",
+  "oracleId": "2b3fc609-7b19-441a-ab7e-58ccd70d955b",
+  "name": "Displacement Wave",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Displacement Wave",
+      "manaCost": "{X}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Return all nonland permanents with mana value X or less to their owners' hands.",
+      "flavorText": "The sea respects no boundaries, least of all the coast.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Seb McKinnon",
+      "imageId": "ad6fef1f-6cc9-4e24-a1be-fc313774f28d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ori",
+  "collectorNumber": "55",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -32858,6 +33412,22 @@ export const ENGINE_CARDS: CardData[] = [
   DESERT_SANDSTORM,
   DESERT_S_DUE,
   SUNSCORCHED_DESERT,
+  DESPOIL,
+  DESTROY_THE_EVIDENCE,
+  DESTRUCTIVE_REVELRY,
+  DESYNCHRONIZATION,
+  DEVASTATE,
+  DEVASTATION,
+  DEVOUR_IN_SHADOW,
+  DIMIR_INFORMANT,
+  DINOTOMATON,
+  DIRE_TACTICS,
+  DIRESIGHT,
+  DISARM,
+  DISEMPOWER,
+  DISORDER,
+  DISPERSAL_SHIELD,
+  DISPLACEMENT_WAVE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

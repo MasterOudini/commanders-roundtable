@@ -14039,3 +14039,59 @@ SUPPORT body) · batch.json 1,900 · botDeck: Adun reaches 1,458.
 heaviest parse slice; ability countering joins the structural tail; the
 noun-list family is one entry richer and its remaining members surface
 one test at a time — prior items stand.
+
+## D208 — M6.4aw: sixteen landed — the historic bounce, the board-computed counter, and the unattach (2026-08-20)
+
+**Coverage: 2,611 → 2,627 of 31,692 (+16).** `SHIPPED_SCRIPTS` 714 → 730;
+the ledger 205 → 214 (+9); the pool 1,900 → 1,875. All 51 new tests green
+on the FIRST run — the batch drafted out-of-tree while gate 55 ran.
+
+**The firsts.** `Desynchronization` is the first HISTORIC filter on a
+sweep — CR 700.10 asked of the DERIVED type line (legendary supertype,
+Artifact type, Saga subtype), so the plain creatures bounce while the
+artifact creature stands. `Dispersal Shield` is the first BOARD-COMPUTED
+conditional counter: Corrupted Resolve's shape with the bound read off
+the caster's own permanents' greatest mana value, and the countered
+spell's MV counts a chosen X through the parsed cost's `xCount`
+(CR 202.3b). `Disarm` is the first UNATTACH — one
+AttachmentChanged-to-null per attached EQUIPMENT by derived subtype, the
+Aura on the same creature proven to stay. `Destroy the Evidence` is the
+first reveal-until-a-land mill: the run is walked off ORACLE faces, shown
+to every living player, and milled whole (the test ENGINEERS the top with
+placement moves so the run length is exact). `Devour in Shadow` and
+`Dire Tactics` read toughness pre-move — the first tied to the creature
+(the indestructible survivor still costs the caster 1, the Certain Death
+precedent), the second gated on a board query (no Human, no cost).
+`Dinotomaton` grants MENACE from a targeted ETB; `Dimir Informant` and
+`Diresight` are the ETB surveil and the Cruel Truths text twin;
+`Despoil`, `Destructive Revelry`, `Devastate` and `Devastation` are the
+land destroys with riders and the two-type wipe; `Disorder` burns the
+white half of every board; `Displacement Wave` bounces everything at MV
+≤ X; `Disempower` puts the artifact on top of its owner's library.
+
+⚠️ `Devour in Shadow`'s printed text carries the regeneration clause, so
+its module joins the damnation tripwire's client list (the sixth).
+
+**Nine refusals, THREE new classes:** `Devout Decree` (COLOR TARGET
+QUALIFIER unenforced — "that's black or red" is the POSITIVE direction of
+Befoul's negated class, and it drops silently today), `Diminish`
+(UNTIL-END-OF-TURN BASE P/T SET — `untilEndOfTurn` carries deltas and
+keywords, never a base; About Face's switch is the other non-delta),
+`Disrupt Decorum` (GOAD — no goad concept exists anywhere in the
+engine). Plus `Disallow` — ABILITY COUNTERING's second entry in two
+batches — the computed threshold twice (`Detonate`, `Disembowel` —
+"mana value X" is a cast-variable bound), two opponent-chooses
+(`Diminishing Returns`' draw-up-to, `Divine Gambit`'s may-put), and an
+up-to-N (`Displace`).
+
+**Measured after landing:** primitives complete 2,627 · blocked 29,065 ·
+scriptableToday 2,426 · ladder [2426, 2525, 4318, 6232, 7444] · tier3
+silentAfter 3,038 (+16 exact) · botPool creature 1,567 / instant 418 /
+sorcery 272 · fixtures 943 (70 tokens — none new, no new supports) ·
+batch.json 1,875 · botDeck: Adun reaches 1,467.
+
+**Reportables:** ability countering at TWO entries in two batches is
+climbing the ledger; the color-qualifier pair (positive + negated) and
+the keyword qualifier converge on ONE targeting-layer widening —
+qualifier enforcement over derived characteristics (D139's playbook, D197
+named it); the second-clause family stands at eight; prior items stand.

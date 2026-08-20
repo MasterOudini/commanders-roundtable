@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { DESPOIL_SCRIPT } from './cards/despoil';
+import { DESTROY_THE_EVIDENCE_SCRIPT } from './cards/destroyTheEvidence';
+import { DESTRUCTIVE_REVELRY_SCRIPT } from './cards/destructiveRevelry';
+import { DESYNCHRONIZATION_SCRIPT } from './cards/desynchronization';
+import { DEVASTATE_SCRIPT } from './cards/devastate';
+import { DEVASTATION_SCRIPT } from './cards/devastation';
+import { DEVOUR_IN_SHADOW_SCRIPT } from './cards/devourInShadow';
+import { DIMIR_INFORMANT_SCRIPT } from './cards/dimirInformant';
+import { DINOTOMATON_SCRIPT } from './cards/dinotomaton';
+import { DIRE_TACTICS_SCRIPT } from './cards/direTactics';
+import { DIRESIGHT_SCRIPT } from './cards/diresight';
+import { DISARM_SCRIPT } from './cards/disarm';
+import { DISEMPOWER_SCRIPT } from './cards/disempower';
+import { DISORDER_SCRIPT } from './cards/disorder';
+import { DISPERSAL_SHIELD_SCRIPT } from './cards/dispersalShield';
+import { DISPLACEMENT_WAVE_SCRIPT } from './cards/displacementWave';
 import { DEBT_TO_THE_DEATHLESS_SCRIPT } from './cards/debtToTheDeathless';
 import { DECIMATE_SCRIPT } from './cards/decimate';
 import { DECLARATION_IN_STONE_SCRIPT } from './cards/declarationInStone';
@@ -835,6 +851,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DESPOIL_SCRIPT,
+  DESTROY_THE_EVIDENCE_SCRIPT,
+  DESTRUCTIVE_REVELRY_SCRIPT,
+  DESYNCHRONIZATION_SCRIPT,
+  DEVASTATE_SCRIPT,
+  DEVASTATION_SCRIPT,
+  DEVOUR_IN_SHADOW_SCRIPT,
+  DIMIR_INFORMANT_SCRIPT,
+  DINOTOMATON_SCRIPT,
+  DIRE_TACTICS_SCRIPT,
+  DIRESIGHT_SCRIPT,
+  DISARM_SCRIPT,
+  DISEMPOWER_SCRIPT,
+  DISORDER_SCRIPT,
+  DISPERSAL_SHIELD_SCRIPT,
+  DISPLACEMENT_WAVE_SCRIPT,
   DEBT_TO_THE_DEATHLESS_SCRIPT,
   DECIMATE_SCRIPT,
   DECLARATION_IN_STONE_SCRIPT,

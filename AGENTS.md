@@ -5702,6 +5702,39 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ability countering; prior items stand.
 
 
+- [x] **M6.4aw — Sixteen landed: the historic bounce, the board-computed
+      counter, and the unattach (2026-08-20):** **2,627 of 31,692
+      Commander-legal cards now execute completely, up from 2,611.**
+      `SHIPPED_SCRIPTS` 714 → 730; ledger 214. All 51 new tests
+      first-run clean. Decisions in **D208**.
+      **Firsts:** the HISTORIC sweep filter (Desynchronization — CR
+      700.10 off the derived type line); the board-computed conditional
+      counter (Dispersal Shield — the bound is my greatest MV, the
+      spell's MV counts chosen X via the parsed cost's xCount); the
+      UNATTACH (Disarm — per-Equipment AttachmentChanged-to-null, the
+      Aura stays); the reveal-until-a-land mill (Destroy the Evidence —
+      the test engineers the library top so the run is exact);
+      toughness-pre-move riders both ways (Devour in Shadow tied to the
+      creature, Dire Tactics gated on a board query); the targeted ETB
+      menace grant (Dinotomaton).
+      ⚠️ Devour in Shadow's printed text joins the damnation tripwire's
+      client list (the sixth).
+      ⚠️ **Nine refusals, THREE new classes:** color target qualifier
+      unenforced (Devout Decree — the positive of Befoul's negated
+      direction), until-end-of-turn base P/T set (Diminish), goad
+      (Disrupt Decorum). Disallow is ability countering's SECOND entry
+      in two batches.
+      Fixtures 943 · botPool 1,567/418/272 · ladder [2426, 2525, 4318,
+      6232, 7444] · batch.json 1,875 · botDeck: Adun reaches 1,467.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 808
+      files, 4,863 passed / 10 skipped · 500-seed gate
+      733.1 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D208): the three qualifier classes converge on
+      one targeting-layer widening (D139's playbook); ability countering
+      climbs; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

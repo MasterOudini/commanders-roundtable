@@ -434,9 +434,11 @@ const POOL: Record<string, number> = {
   // M6.4au (D206): +2 creatures, +2 instants, +9 sorceries, Darksteel
   // Pendant, and Dauthi Embrace — the pool reads THIRTY-TWO.
   // M6.4av (D207): +6 instants and +11 sorceries — an all-spell batch.
-  creature: 1565,
-  instant: 411,
-  sorcery: 265,
+  // M6.4aw (D208): +7 instants, +7 sorceries, and two creatures (Dimir
+  // Informant, Dinotomaton).
+  creature: 1567,
+  instant: 418,
+  sorcery: 272,
   land: 261,
   artifact: 77,
   enchantment: 32,
