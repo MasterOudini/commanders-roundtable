@@ -5482,6 +5482,36 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the Ring and amass in the structural tail; prior items stand.
 
 
+- [x] **M6.4ap — Thirteen landed, first-run clean (2026-08-20):**
+      **2,517 of 31,692 Commander-legal cards now execute completely, up
+      from 2,504.** `SHIPPED_SCRIPTS` 607 → 620; ledger 149 (+12 — the
+      most refusal-heavy batch of the arc, honestly named). All 39 new
+      tests green on the FIRST run. Decisions in **D201**.
+      **Landed:** the each-opponent burn twins (Boltwave 3 / Breath of
+      Malfegor 5); Squall's X sweep on horsemanship (the filter's
+      negative half — nobody has it); the TARGET-draws-X (Braingeyser);
+      the greatest-mana-value pump + untap (Boon of Boseiju); the
+      conditional draw read BEFORE the move (Break the Spell — its test
+      casts a REAL Pacifism through D198's fix); the per-color kill
+      payment (Breathe Your Last); the RADIANCE set (Brightflame — X to
+      the target and every color-sharer, gain per creature hit); the
+      negated-subtype wipe (Breath Weapon); the everyone's-Goblins
+      ritual; the attacks-surveil Dragon; the tapped-creature draw count.
+      ⚠️ **Twelve refusals, TWO new class names:** REGENERATION (Boon of
+      Erebos — the Damnation tripwire's subject becomes a ledger class)
+      and the UNTAP RESTRICTION (Bontu's). Script-raised prompts hold
+      ELEVEN entries — the most-due seam.
+      Fixtures 830 · botPool 1,552/378/222 · ladder [2536, 2635, 4428,
+      6342, 7554] · batch.json 2,050 · TWO joined the bot's deck.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 698
+      files, 4,307 passed / 10 skipped · 500-seed gate
+      719.3 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D201): the script-raised prompt seam by
+      weight (11 entries); the second-clause/counted-list widening;
+      prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

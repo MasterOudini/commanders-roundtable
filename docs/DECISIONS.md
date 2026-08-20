@@ -13677,3 +13677,50 @@ cards (Fall of the Hammer, Biomantic Mastery, Betrayal at the Vault,
 Blood Feud) — the widening is due by weight; the computed-threshold class
 joins D197's keyword qualifier in the targeting queue; the Ring and amass
 join the structural tail; prior items stand.
+
+## D201 — M6.4ap: thirteen landed, first-run clean, and the refusal-heavy tail of the B's (2026-08-20)
+
+**Coverage: 2,504 → 2,517 of 31,692 (+13).** `SHIPPED_SCRIPTS` 607 → 620;
+the ledger 137 → 149 (+12 — the arc's most refusal-heavy batch, and the
+signal is honest: the pool's alphabetical march hit a seam of piles,
+prompts and mechanics). All 39 new tests green on the FIRST run.
+
+**What landed.** The each-opponent burns as twins-in-shape (`Boltwave` 3,
+`Breath of Malfegor` 5); `Borrowing the East Wind` — Squall Line's X
+sweep one keyword over (horsemanship; the fixture pool has none, so the
+players alone take it — the filter's negative half); `Braingeyser` (the
+TARGET draws X); `Boon of Boseiju` (the computed pump — greatest mana
+value among MY permanents — composed with Filigree's untap);
+`Break the Spell` (the conditional draw read BEFORE the move: mine-or-
+token destroyed draws, theirs does not, both proven — and its test casts
+a REAL Pacifism through D198's attach fix); `Breathe Your Last` (the
+kill pays per the victim's DERIVED colors); `Brightflame` (the radiance
+set: X to the target and every color-sharing creature, the gain = X per
+creature actually hit); `Breath Weapon` (a NEGATED subtype is fine on a
+computed wipe — nothing is targeted); `Brightstone Ritual` (the ritual
+counting EVERYONE's Goblins); `Boulderborn Dragon` (attacks-surveil
+behind a two-keyword line); `Bountiful Harvest`; `Borrowing 100,000
+Arrows` (draw per TAPPED creature of the target).
+
+**Twelve refusals, TWO new class names:** `Boon of Erebos` is the first
+card refused for REGENERATION by name (the engine has none — the
+Damnation tripwire's subject becomes a ledger class), and `Bontu's Last
+Reckoning` for the UNTAP RESTRICTION (no skip-untap carrier). Plus two
+opponent-chooses piles (Boneyard Parley, Brilliant Ultimatum), three
+script-raised prompts (Bounty of Skemfar, Brainsurge — Brainstorm's
+hand-to-library-top shape — and Breaking Point's any-player offer), the
+Ring (Breaking of the Fellowship), a quoted-ability grant (Brawl), a
+subtype compound (Bounce Off — Vehicle is not a card type, so the spec
+cannot enforce it), a counted list (Broken Dam, "one or two target
+creatures"), and the keyword qualifier (Broken Wings).
+
+**Measured after landing:** primitives blocked 29,175 · scriptableToday
+2,536 · ladder [2536, 2635, 4428, 6342, 7554] · tier3 abilityText 17,134 /
+silentAfter 2,928 (+13 exact) · botPool creature 1,552 / instant 378 /
+sorcery 222 · fixtures 830 (70 tokens — none new) · batch.json 2,050 ·
+**TWO joined the bot's deck** (Bountiful Harvest, Breath of Malfegor).
+
+**Reportables:** script-raised prompts hold ELEVEN ledger entries and
+stay the most-due engine seam; the second-clause/counted-list widening by
+weight; regeneration and the untap restriction join the structural tail
+with honest names; prior items stand.

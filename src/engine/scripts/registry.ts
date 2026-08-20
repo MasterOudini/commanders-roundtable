@@ -7,6 +7,19 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { BOLTWAVE_SCRIPT } from './cards/boltwave';
+import { BOON_OF_BOSEIJU_SCRIPT } from './cards/boonOfBoseiju';
+import { BORROWING_ARROWS_SCRIPT } from './cards/borrowingArrows';
+import { BORROWING_THE_EAST_WIND_SCRIPT } from './cards/borrowingTheEastWind';
+import { BOULDERBORN_DRAGON_SCRIPT } from './cards/boulderbornDragon';
+import { BOUNTIFUL_HARVEST_SCRIPT } from './cards/bountifulHarvest';
+import { BRAINGEYSER_SCRIPT } from './cards/braingeyser';
+import { BREAK_THE_SPELL_SCRIPT } from './cards/breakTheSpell';
+import { BREATH_OF_MALFEGOR_SCRIPT } from './cards/breathOfMalfegor';
+import { BREATH_WEAPON_SCRIPT } from './cards/breathWeapon';
+import { BREATHE_YOUR_LAST_SCRIPT } from './cards/breatheYourLast';
+import { BRIGHTFLAME_SCRIPT } from './cards/brightflame';
+import { BRIGHTSTONE_RITUAL_SCRIPT } from './cards/brightstoneRitual';
 import { BIORHYTHM_SCRIPT } from './cards/biorhythm';
 import { BITE_DOWN_SCRIPT } from './cards/biteDown';
 import { BLASTFIRE_BOLT_SCRIPT } from './cards/blastfireBolt';
@@ -728,6 +741,19 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BOLTWAVE_SCRIPT,
+  BOON_OF_BOSEIJU_SCRIPT,
+  BORROWING_ARROWS_SCRIPT,
+  BORROWING_THE_EAST_WIND_SCRIPT,
+  BOULDERBORN_DRAGON_SCRIPT,
+  BOUNTIFUL_HARVEST_SCRIPT,
+  BRAINGEYSER_SCRIPT,
+  BREAK_THE_SPELL_SCRIPT,
+  BREATH_OF_MALFEGOR_SCRIPT,
+  BREATH_WEAPON_SCRIPT,
+  BREATHE_YOUR_LAST_SCRIPT,
+  BRIGHTFLAME_SCRIPT,
+  BRIGHTSTONE_RITUAL_SCRIPT,
   BIORHYTHM_SCRIPT,
   BITE_DOWN_SCRIPT,
   BLASTFIRE_BOLT_SCRIPT,

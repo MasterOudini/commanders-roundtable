@@ -1102,6 +1102,21 @@ const WANTED = [
   'Blossoming Wreath',
   'Boil',
   'Boiling Seas',
+  // M6.4ap (D201) - the each-opponent burns, the computed pump+untap, the
+  // radiance set, the conditional draw, and the batch.
+  'Boltwave',
+  'Boon of Boseiju',
+  "Borrowing 100,000 Arrows",
+  'Borrowing the East Wind',
+  'Boulderborn Dragon',
+  'Bountiful Harvest',
+  'Braingeyser',
+  'Break the Spell',
+  'Breath of Malfegor',
+  'Breath Weapon',
+  'Breathe Your Last',
+  'Brightflame',
+  'Brightstone Ritual',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

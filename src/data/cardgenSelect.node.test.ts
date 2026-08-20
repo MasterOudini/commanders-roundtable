@@ -404,6 +404,25 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Bleeding Edge', 'amass mechanic'],
   ['Blood Feud', 'spell target parse (second clause)'],
   ['Blot Out', 'opponent-chooses'],
+  // D201 — Bontu's wrath rider needs a skip-untap carrier the state does
+  // not hold; Boon of Erebos REGENERATES (the engine has no regeneration —
+  // the Damnation tripwire's subject, now a named refusal class); Bounce
+  // Off's 'creature or Vehicle' is a subtype compound the spec cannot
+  // enforce (Vehicle is not a card type); Brainsurge picks hand cards back
+  // onto the library top (Brainstorm's prompt); Breaking Point offers every
+  // player a choice.
+  ["Bontu's Last Reckoning", 'untap restriction'],
+  ['Boon of Erebos', 'regeneration'],
+  ['Bounce Off', 'spell target parse (noun list)'],
+  ['Bounty of Skemfar', 'script-raised prompt'],
+  ['Brainsurge', 'script-raised prompt'],
+  ['Brawl', 'temporary keyword/ability grant'],
+  ['Breaking of the Fellowship', 'the Ring mechanic'],
+  ['Breaking Point', 'script-raised prompt'],
+  ['Brilliant Ultimatum', 'opponent-chooses'],
+  ['Broken Dam', 'spell target parse (counted list)'],
+  ['Broken Wings', 'keyword target qualifier unenforced'],
+  ['Boneyard Parley', 'opponent-chooses'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
