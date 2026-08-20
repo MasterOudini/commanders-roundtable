@@ -35720,6 +35720,700 @@ export const OKETRA_THE_TRUE: CardData = {
   "singleImage": true
 };
 
+export const HYSTERICAL_BLINDNESS: CardData = {
+  "scryfallId": "5aeaa757-e3b0-4606-a689-e8a20a686c3a",
+  "oracleId": "705531b3-77cc-4d1f-851b-45e03c029991",
+  "name": "Hysterical Blindness",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hysterical Blindness",
+      "manaCost": "{2}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Creatures your opponents control get -4/-0 until end of turn.",
+      "flavorText": "\"The panic is amusing, but the real fun comes when the spell passes and the villagers start looking for a scapegoat.\"\n—Ludevic, necro-alchemist",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Wayne England",
+      "imageId": "5aeaa757-e3b0-4606-a689-e8a20a686c3a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "isd",
+  "collectorNumber": "59",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ICATIAN_SCOUT: CardData = {
+  "scryfallId": "08982a91-f194-4df7-a9b2-bcaeff5d44bf",
+  "oracleId": "b1a9f49a-b0e2-481f-806d-0bc321517a4f",
+  "name": "Icatian Scout",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Icatian Scout",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier Scout",
+      "oracleText": "{1}, {T}: Target creature gains first strike until end of turn.",
+      "flavorText": "\"Because the orc hordes attacked along the entire border, Scouts were essential to Icatia's defense.\"\n—*Sarpadian Empires, vol. VI*",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Richard Kane Ferguson",
+      "imageId": "08982a91-f194-4df7-a9b2-bcaeff5d44bf"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "me2",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ICEQUAKE: CardData = {
+  "scryfallId": "14b4dd4d-c617-4603-8a87-761ec6fc6883",
+  "oracleId": "8c0a6ac1-b1cc-405a-95fb-f06b7fecbb54",
+  "name": "Icequake",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Icequake",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target land. If that land was a snow land, Icequake deals 1 damage to that land's controller.",
+      "flavorText": "\"When the earth shakes, and their animals are swallowed up by the ground, perhaps they will think twice before attacking again.\"\n—Lim-Dûl, the Necromancer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Richard Kane Ferguson",
+      "imageId": "14b4dd4d-c617-4603-8a87-761ec6fc6883"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ice",
+  "collectorNumber": "134",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IDENTITY_CRISIS: CardData = {
+  "scryfallId": "930d0de1-39af-4b08-81a3-2cca8aae5d40",
+  "oracleId": "0abe0584-d876-4827-972b-589da53dbe96",
+  "name": "Identity Crisis",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Identity Crisis",
+      "manaCost": "{2}{W}{W}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Exile all cards from target player's hand and graveyard.",
+      "flavorText": "\"To join our ranks, one must be pure. To be pure, one must be blessed by etherium. To be blessed, one must forget oneself.\"\n—Ethersworn prayer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Thomas M. Baxa",
+      "imageId": "930d0de1-39af-4b08-81a3-2cca8aae5d40"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "arb",
+  "collectorNumber": "81",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IL_MHEG_PIXIE: CardData = {
+  "scryfallId": "ae612312-3a8e-495f-8730-deaaf7505ca1",
+  "oracleId": "c2c47e13-b581-41a8-a4af-542557a6249a",
+  "name": "Il Mheg Pixie",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Il Mheg Pixie",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Faerie",
+      "oracleText": "Flying\nWhenever this creature attacks, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "\"Well now, aren't you just brimming with life? I'd love to suck up all that aether like nectar from a flower!\"",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ramza Psyru",
+      "imageId": "ae612312-3a8e-495f-8730-deaaf7505ca1"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying",
+    "Surveil"
+  ],
+  "setCode": "fin",
+  "collectorNumber": "57",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ILLUMINATION: CardData = {
+  "scryfallId": "eb28f6e5-c9ef-416e-b315-967d857e7600",
+  "oracleId": "cd1a6508-aaba-4515-9496-057915d02040",
+  "name": "Illumination",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Illumination",
+      "manaCost": "{W}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target artifact or enchantment spell. Its controller gains life equal to its mana value.",
+      "flavorText": "\"A brilliant light can either illuminate or blind. How will you know which until you open your eyes?\"\n—Asmira, Holy Avenger",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "David O'Connor",
+      "imageId": "eb28f6e5-c9ef-416e-b315-967d857e7600"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "21",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IMMOLATING_GYRE: CardData = {
+  "scryfallId": "bd0b8aee-fbfb-470f-9ac2-64fce0b4b2fb",
+  "oracleId": "1888b473-e26a-4882-ae18-5a0a6caee410",
+  "name": "Immolating Gyre",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Immolating Gyre",
+      "manaCost": "{4}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Immolating Gyre deals X damage to each creature and planeswalker you don't control, where X is the number of instant and sorcery cards in your graveyard.",
+      "flavorText": "\"Nice army you had there.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Campbell White",
+      "imageId": "bd0b8aee-fbfb-470f-9ac2-64fce0b4b2fb"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "jmp",
+  "collectorNumber": "20",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IMPERIOUS_INKMAGE: CardData = {
+  "scryfallId": "d5df1c3f-2536-4476-b8cd-34b026c38366",
+  "oracleId": "fcd31653-4964-46a6-820c-f17e8cbaa1fa",
+  "name": "Imperious Inkmage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Imperious Inkmage",
+      "manaCost": "{1}{W}{B}",
+      "typeLine": "Creature — Orc Warlock",
+      "oracleText": "Vigilance\nWhen this creature enters, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": "\"It's not ego if you're flawless, darling.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Nathaniel Himawan",
+      "imageId": "d5df1c3f-2536-4476-b8cd-34b026c38366"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Surveil",
+    "Vigilance"
+  ],
+  "setCode": "sos",
+  "collectorNumber": "195",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IN_GARRUK_S_WAKE: CardData = {
+  "scryfallId": "19d774ac-394f-4c35-90d0-b94a8236773c",
+  "oracleId": "a6899b94-427d-4851-a474-4087e0a0918a",
+  "name": "In Garruk's Wake",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "In Garruk's Wake",
+      "manaCost": "{7}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures you don't control and all planeswalkers you don't control.",
+      "flavorText": "Beyond pain, beyond obsession and wild despair, there lies a place of twisted power only the most tormented souls can reach.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Chase Stone",
+      "imageId": "19d774ac-394f-4c35-90d0-b94a8236773c"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 9,
+  "keywords": [],
+  "setCode": "pm15",
+  "collectorNumber": "100p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INCANDESCENT_ARIA: CardData = {
+  "scryfallId": "009ba3d1-c1bf-4dad-b7b2-3799399534b0",
+  "oracleId": "d031b482-b33d-4eb4-a5bc-ea96e66a1d99",
+  "name": "Incandescent Aria",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Incandescent Aria",
+      "manaCost": "{R}{G}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Incandescent Aria deals 3 damage to each nontoken creature.",
+      "flavorText": "As the assassins converged on Kitt Kanto, she struck a high note and held it, unbroken, for nearly a minute. When the room fell silent, she was surrounded only by rose petals falling gently to the floor.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R",
+        "W"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "009ba3d1-c1bf-4dad-b7b2-3799399534b0"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "psnc",
+  "collectorNumber": "192p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INCITE_REBELLION: CardData = {
+  "scryfallId": "3633c759-f86a-436d-b54d-0d6c9ef14b63",
+  "oracleId": "26bbc473-cf99-4a82-b432-604757a832c4",
+  "name": "Incite Rebellion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Incite Rebellion",
+      "manaCost": "{4}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "For each player, Incite Rebellion deals damage to that player and each creature that player controls equal to the number of creatures they control.",
+      "flavorText": "Nothing breaks the monotony like a good old-fashioned riot.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Alex Horley-Orlandelli",
+      "imageId": "3633c759-f86a-436d-b54d-0d6c9ef14b63"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "cm2",
+  "collectorNumber": "108",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INFECTIOUS_BITE: CardData = {
+  "scryfallId": "83dfb2a5-cd5c-46c6-9bb8-7c5d00f3e003",
+  "oracleId": "7b740cd6-e07d-4273-8a7f-e084bdaf0f1c",
+  "name": "Infectious Bite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Infectious Bite",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control deals damage equal to its power to target creature you don't control. Each opponent gets a poison counter.",
+      "flavorText": "\"Let me tell you why you must never close your eyes when on watch. Not even for a second.\"\n—Jor Kadeen",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Campbell White",
+      "imageId": "83dfb2a5-cd5c-46c6-9bb8-7c5d00f3e003"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "one",
+  "collectorNumber": "172",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INFECTIOUS_INQUIRY: CardData = {
+  "scryfallId": "0a10f284-b043-4307-bdc7-6dad47cc9221",
+  "oracleId": "66051196-53ea-4461-b241-205df9395b3b",
+  "name": "Infectious Inquiry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Infectious Inquiry",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "You draw two cards and you lose 2 life. Each opponent gets a poison counter.",
+      "flavorText": "\"I give you pain, you give me information. A simple trade, is it not?\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Eli Minaya",
+      "imageId": "0a10f284-b043-4307-bdc7-6dad47cc9221"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "one",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INFERNAL_CONTRACT: CardData = {
+  "scryfallId": "86272ecc-33bd-4144-996a-9e0c9d0a9e20",
+  "oracleId": "4372205f-45e6-49c7-b1fd-13a41e20d4de",
+  "name": "Infernal Contract",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Infernal Contract",
+      "manaCost": "{B}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw four cards. You lose half your life, rounded up.",
+      "flavorText": "\"East and West meet and angels cry.\nUnholy power darkens the sky.\"\n—\"The Ballad of the Paladins\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "86272ecc-33bd-4144-996a-9e0c9d0a9e20"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "7ed",
+  "collectorNumber": "143★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INFERNO: CardData = {
+  "scryfallId": "2625be66-c292-4ba7-b9d8-e3991a8c8636",
+  "oracleId": "69e2df4e-c7f3-4c3a-be5b-1c4afb29cead",
+  "name": "Inferno",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Inferno",
+      "manaCost": "{5}{R}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Inferno deals 6 damage to each creature and each player.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Randy Asplund-Faith",
+      "imageId": "2625be66-c292-4ba7-b9d8-e3991a8c8636"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "ren",
+  "collectorNumber": "90",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INFEST: CardData = {
+  "scryfallId": "19b424bd-3243-41a5-ac30-2246458e7d20",
+  "oracleId": "d6850616-7db5-4141-9ab0-ae8d1f08114f",
+  "name": "Infest",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Infest",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "All creatures get -2/-2 until end of turn.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "19b424bd-3243-41a5-ac30-2246458e7d20"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "prm",
+  "collectorNumber": "43568",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INNER_CALM_OUTER_STRENGTH: CardData = {
+  "scryfallId": "40f56817-aabf-469c-a82c-37315decc73c",
+  "oracleId": "b7bdbae5-549f-403b-83ca-4f9a1ac93e93",
+  "name": "Inner Calm, Outer Strength",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Inner Calm, Outer Strength",
+      "manaCost": "{2}{G}",
+      "typeLine": "Instant — Arcane",
+      "oracleText": "Target creature gets +X/+X until end of turn, where X is the number of cards in your hand.",
+      "flavorText": "The ghostly objects around the kami circled faster and faster, creating a dizzying cyclone of motion. When it opened its eyes, it struck.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Stephen Tappin",
+      "imageId": "40f56817-aabf-469c-a82c-37315decc73c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "sok",
+  "collectorNumber": "133",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INNER_FIRE: CardData = {
+  "scryfallId": "b1d886a2-ae83-4d95-9ec0-582c563181e6",
+  "oracleId": "27348fe5-21d4-40f7-9feb-bba2c2321008",
+  "name": "Inner Fire",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Inner Fire",
+      "manaCost": "{3}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Add {R} for each card in your hand.",
+      "flavorText": "\"Heart of Sokenzan, I call to you! Lend me your fire.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "b1d886a2-ae83-4d95-9ec0-582c563181e6"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "sok",
+  "collectorNumber": "105",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INNER_STRUGGLE: CardData = {
+  "scryfallId": "b43be50a-8624-46f6-860a-39ffbfbdaa6a",
+  "oracleId": "c993ebf8-972f-41c7-9870-d7f8aa9a69d9",
+  "name": "Inner Struggle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Inner Struggle",
+      "manaCost": "{3}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature deals damage to itself equal to its power.",
+      "flavorText": "\"Reflect upon your evils lest they reflect upon you.\"\n—Inquisitor Laerin",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mathias Kollros",
+      "imageId": "b43be50a-8624-46f6-860a-39ffbfbdaa6a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "soi",
+  "collectorNumber": "167",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INQUISITION: CardData = {
+  "scryfallId": "5f133f06-6398-4db1-8577-66c16fd3e00d",
+  "oracleId": "9178253e-0d89-450d-a93b-ed4765e945db",
+  "name": "Inquisition",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Inquisition",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player reveals their hand. Inquisition deals damage to that player equal to the number of white cards in their hand.",
+      "flavorText": "Many of those entrusted to Primata Delphine's care tended to express themselves with screams.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Anson Maddocks",
+      "imageId": "5f133f06-6398-4db1-8577-66c16fd3e00d"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "drk",
+  "collectorNumber": "47",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -39135,6 +39829,26 @@ export const ENGINE_CARDS: CardData[] = [
   HURRICANE,
   HYMN_OF_REBIRTH,
   OKETRA_THE_TRUE,
+  HYSTERICAL_BLINDNESS,
+  ICATIAN_SCOUT,
+  ICEQUAKE,
+  IDENTITY_CRISIS,
+  IL_MHEG_PIXIE,
+  ILLUMINATION,
+  IMMOLATING_GYRE,
+  IMPERIOUS_INKMAGE,
+  IN_GARRUK_S_WAKE,
+  INCANDESCENT_ARIA,
+  INCITE_REBELLION,
+  INFECTIOUS_BITE,
+  INFECTIOUS_INQUIRY,
+  INFERNAL_CONTRACT,
+  INFERNO,
+  INFEST,
+  INNER_CALM_OUTER_STRENGTH,
+  INNER_FIRE,
+  INNER_STRUGGLE,
+  INQUISITION,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -14612,3 +14612,57 @@ sorcery 336 · batch.json 1,625 · botDeck: Adun reaches 1,569.
 sweep — any script that moves a card while a zone question is up shares
 the shape (the fix is general, but other queued prompts recording zones
 deserve the same staleness audit); prior items stand.
+
+## D219 — M6.4bh: twenty landed — the poison riders, the per-player fan, and the counter that pays its victim (2026-08-20)
+
+**Coverage: 2,785 → 2,805 of 31,692 (+20).** `SHIPPED_SCRIPTS` 888 → 908
+— past nine hundred; the ledger 306 → 311 (+5, ONE new class); the pool
+1,625 → 1,600; fixtures 1,104 → 1,124 (+20, no new tokens). All 20
+suites — 59 tests — green on their FIRST run: the third first-run-clean
+batch in four.
+
+⚠️ **A dump oddity, resolved before it cost anything:** the batch dump
+printed Inferno as '[Card] (Theme color: {R})' — `dump-d199-batch.cjs`
+resolves by NAME and hit a Jumpstart theme-card printing. The batch's
+oracleId is the REAL Inferno ('deals 6 damage to each creature and each
+player'), checked in cards.ndjson, and it LANDS. The rule: when a dump
+line looks impossible, the batch entry's oracleId is authoritative.
+
+**The firsts.** `Illumination` is the counter that PAYS its victim —
+Corrupted Resolve's stack shape plus Dispersal Shield's mana-value read
+(manaValue + xCount·xValue), the gain routed to the COUNTERED spell's
+controller. `Ionize` is its burn twin (2 at the caster). `Jaded
+Response` reads the cast face's colors against my derived board — the
+no-share cast resolves untouched, both branches from real casts.
+`Incite Rebellion` is the first PER-PLAYER census fan: each player's
+own creature count, dealt to them and to each of their creatures, my
+side included. `Infectious Bite` and `Infectious Inquiry` write poison
+through `PoisonChanged` beside their bites and draws. `Invincible
+Hymn`-style... — `Icequake` reads the SNOW supertype pre-move (the
+Snow-Covered Swamp burns its controller, the plain Swamp does not).
+`Identity Crisis` empties hand AND graveyard into exile in one move
+batch. `Il Mheg Pixie` is the attacks-surveil on a one-drop flyer;
+`Imperious Inkmage` the ETB surveil 2; `Hour-of-Glory`-style reveals
+continue in `Inquisition` (the hand goes public, only the WHITE cards
+burn). `Immolating Gyre` counts my dead instants and sorceries and
+spares everything I control. `In Garruk's Wake` wipes only what I
+don't control. `Incandescent Aria` exempts TOKENS (the Tier-3 tool's
+own Soldier proves it). `Infernal Contract` is Cruel Bargain's exact
+text on its own id; `Inner Struggle` makes the target bite ITSELF
+(its own riders apply); `Inner Fire` is the computed ritual ({R} per
+hand card); plus Hysterical Blindness, Icatian Scout's {1},{T} grant,
+Infest, and Inner Calm's hand-count pump.
+
+**Five refusals, ONE new class:** `Illicit Auction` names the BIDDING
+mechanic — a life-bid loop for control, a genuinely multi-player
+prompt cycle. Plus three script-raised prompts and a quoted-ability
+grant.
+
+**Measured after landing:** primitives complete 2,805 · blocked 28,887 ·
+scriptableToday 2,248 · ladder [2248, 2347, 4140, 6054, 7266] · tier3
+silentAfter 3,216 (+20 exact) · botPool creature 1,582 / instant 500 /
+sorcery 347 · batch.json 1,600 · botDeck: Adun reaches 1,582.
+
+**Reportables:** the counterspell-with-rider family now has four
+members (Essence Backlash, Illumination, Ionize, Jaded Response) — a
+family-table candidate; prior items stand.

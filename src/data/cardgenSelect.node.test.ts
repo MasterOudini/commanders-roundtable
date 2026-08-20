@@ -674,6 +674,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hurl Through Hell', 'play-from-exile permission'],
   ['Hydroform', 'land animation'],
   ['Hypothesizzle', 'script-raised prompt'],
+  // D219 — Illicit Auction runs a life-BIDDING loop for control of the
+  // creature (a NEW class, and a genuinely multi-player prompt cycle);
+  // Ill-Gotten Gains and Imposing Grandeur hand EVERY player a choice.
+  ['Ill-Gotten Gains', 'script-raised prompt'],
+  ['Illicit Auction', 'bidding mechanic'],
+  ['Imposing Grandeur', 'script-raised prompt'],
+  ['In the Presence of Ages', 'script-raised prompt'],
+  ['Incite Hysteria', 'quoted-ability temporary grant'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

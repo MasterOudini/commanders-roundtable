@@ -1428,6 +1428,28 @@ const WANTED = [
   'Hurricane',
   'Hymn of Rebirth',
   'Oketra the True',
+  // M6.4bh (D219) - batch 53: the poison riders, the per-player fan,
+  // and the counter that pays its victim.
+  'Hysterical Blindness',
+  'Icatian Scout',
+  'Icequake',
+  'Identity Crisis',
+  'Il Mheg Pixie',
+  'Illumination',
+  'Immolating Gyre',
+  'Imperious Inkmage',
+  "In Garruk's Wake",
+  'Incandescent Aria',
+  'Incite Rebellion',
+  'Infectious Bite',
+  'Infectious Inquiry',
+  'Infernal Contract',
+  'Inferno',
+  'Infest',
+  'Inner Calm, Outer Strength',
+  'Inner Fire',
+  'Inner Struggle',
+  'Inquisition',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

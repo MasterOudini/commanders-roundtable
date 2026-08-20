@@ -7,6 +7,26 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { HYSTERICAL_BLINDNESS_SCRIPT } from './cards/hystericalBlindness';
+import { ICATIAN_SCOUT_SCRIPT } from './cards/icatianScout';
+import { ICEQUAKE_SCRIPT } from './cards/icequake';
+import { IDENTITY_CRISIS_SCRIPT } from './cards/identityCrisis';
+import { IL_MHEG_PIXIE_SCRIPT } from './cards/ilMhegPixie';
+import { ILLUMINATION_SCRIPT } from './cards/illumination';
+import { IMMOLATING_GYRE_SCRIPT } from './cards/immolatingGyre';
+import { IMPERIOUS_INKMAGE_SCRIPT } from './cards/imperiousInkmage';
+import { IN_GARRUKS_WAKE_SCRIPT } from './cards/inGarruksWake';
+import { INCANDESCENT_ARIA_SCRIPT } from './cards/incandescentAria';
+import { INCITE_REBELLION_SCRIPT } from './cards/inciteRebellion';
+import { INFECTIOUS_BITE_SCRIPT } from './cards/infectiousBite';
+import { INFECTIOUS_INQUIRY_SCRIPT } from './cards/infectiousInquiry';
+import { INFERNAL_CONTRACT_SCRIPT } from './cards/infernalContract';
+import { INFERNO_SCRIPT } from './cards/inferno';
+import { INFEST_SCRIPT } from './cards/infest';
+import { INNER_CALM_OUTER_STRENGTH_SCRIPT } from './cards/innerCalmOuterStrength';
+import { INNER_FIRE_SCRIPT } from './cards/innerFire';
+import { INNER_STRUGGLE_SCRIPT } from './cards/innerStruggle';
+import { INQUISITION_SCRIPT } from './cards/inquisition';
 import { HOLY_LIGHT_SCRIPT } from './cards/holyLight';
 import { HOMING_LIGHTNING_SCRIPT } from './cards/homingLightning';
 import { HONOR_THE_FALLEN_SCRIPT } from './cards/honorTheFallen';
@@ -1009,6 +1029,26 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  HYSTERICAL_BLINDNESS_SCRIPT,
+  ICATIAN_SCOUT_SCRIPT,
+  ICEQUAKE_SCRIPT,
+  IDENTITY_CRISIS_SCRIPT,
+  IL_MHEG_PIXIE_SCRIPT,
+  ILLUMINATION_SCRIPT,
+  IMMOLATING_GYRE_SCRIPT,
+  IMPERIOUS_INKMAGE_SCRIPT,
+  IN_GARRUKS_WAKE_SCRIPT,
+  INCANDESCENT_ARIA_SCRIPT,
+  INCITE_REBELLION_SCRIPT,
+  INFECTIOUS_BITE_SCRIPT,
+  INFECTIOUS_INQUIRY_SCRIPT,
+  INFERNAL_CONTRACT_SCRIPT,
+  INFERNO_SCRIPT,
+  INFEST_SCRIPT,
+  INNER_CALM_OUTER_STRENGTH_SCRIPT,
+  INNER_FIRE_SCRIPT,
+  INNER_STRUGGLE_SCRIPT,
+  INQUISITION_SCRIPT,
   HOLY_LIGHT_SCRIPT,
   HOMING_LIGHTNING_SCRIPT,
   HONOR_THE_FALLEN_SCRIPT,

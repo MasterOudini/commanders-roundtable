@@ -6042,6 +6042,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       for the same staleness shape; prior items stand.
 
 
+- [x] **M6.4bh — Twenty landed: the poison riders, the per-player fan,
+      and the counter that pays its victim (2026-08-20):** **2,805 of
+      31,692 Commander-legal cards now execute completely, up from
+      2,785.** `SHIPPED_SCRIPTS` 888 → 908 — past nine hundred; ledger
+      311. All 59 tests first-run green. Decisions in **D219**.
+      **Firsts:** the counter that PAYS its victim (Illumination —
+      Corrupted Resolve's shape + Dispersal Shield's mv read, the gain
+      to the countered spell's controller) and its burn twin (Ionize);
+      the color-share conditional counter (Jaded Response, both
+      branches); the PER-PLAYER census fan (Incite Rebellion — each
+      player's own count at them and their board); script POISON riders
+      (Infectious Bite / Inquiry); the snow-supertype rider (Icequake);
+      the two-zone exile (Identity Crisis); the token-exempt sweep
+      (Incandescent Aria); the self-bite (Inner Struggle); the computed
+      ritual (Inner Fire).
+      ⚠️ **The dump printed Inferno as a Jumpstart theme card** — the
+      dumper resolves by NAME; the batch's oracleId is the real Inferno
+      and it landed. The batch entry is authoritative.
+      ⚠️ **Five refusals, ONE new class:** bidding mechanic (Illicit
+      Auction).
+      Fixtures 1,124 · botPool creature 1,582 / instant 500 / sorcery
+      347 · ladder [2248, 2347, 4140, 6054, 7266] · batch.json 1,600 ·
+      botDeck: Adun reaches 1,582.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 987
+      files, 5,754 passed / 10 skipped · 500-seed gate
+      752.7 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D219): the counterspell-with-rider family is a
+      table candidate at four members; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
