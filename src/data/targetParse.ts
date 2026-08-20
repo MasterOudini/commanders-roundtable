@@ -318,6 +318,11 @@ const NOUNS: readonly NounEntry[] = [
   { re: new RegExp(`^creature${s}\\s+or\\s+enchantment${s}\\b`, 'i'), kinds: ['creature', 'enchantment'] },
   { re: new RegExp(`^creature${s}\\s+or\\s+artifact${s}\\b`, 'i'), kinds: ['creature', 'artifact'] },
   { re: new RegExp(`^enchantment${s}\\s+or\\s+land${s}\\b`, 'i'), kinds: ['enchantment', 'land'] },
+  // D207: `Demolish`'s own test caught this one MISSING — the bare
+  // `artifact` entry matched the prefix and the ` or land` fell off a spec
+  // still claiming confidence, so the aim veil refused a LAND for a spell
+  // whose whole point is hitting lands. The compound sits with its family.
+  { re: new RegExp(`^artifact${s}\\s+or\\s+land${s}\\b`, 'i'), kinds: ['artifact', 'land'] },
   // `Icy Manipulator`: a comma-or list.
   { re: new RegExp(`^artifact,\\s*creature,\\s*or\\s+land${s}\\b`, 'i'), kinds: ['artifact', 'creature', 'land'] },
   { re: new RegExp(`^artifact,\\s*enchantment,\\s*or\\s+land${s}\\b`, 'i'), kinds: ['artifact', 'enchantment', 'land'] },

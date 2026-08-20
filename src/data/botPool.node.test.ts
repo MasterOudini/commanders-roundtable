@@ -433,9 +433,10 @@ const POOL: Record<string, number> = {
   // Munitions, Malevolent Awakening) — the pool reads THIRTY.
   // M6.4au (D206): +2 creatures, +2 instants, +9 sorceries, Darksteel
   // Pendant, and Dauthi Embrace — the pool reads THIRTY-TWO.
+  // M6.4av (D207): +6 instants and +11 sorceries — an all-spell batch.
   creature: 1565,
-  instant: 405,
-  sorcery: 254,
+  instant: 411,
+  sorcery: 265,
   land: 261,
   artifact: 77,
   enchantment: 32,

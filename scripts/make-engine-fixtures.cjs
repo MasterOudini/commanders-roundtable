@@ -1207,6 +1207,27 @@ const WANTED = [
   'Deathless Angel',
   'Snow-Covered Swamp',
   'Ohran Viper',
+  // M6.4av (D207) - batch 41: the Clue spells, the computed sweeps, the
+  // four-target destroy, and the ritual destroy. Sunscorched Desert is a
+  // SUPPORT body for Desert's Due's count.
+  'Debt to the Deathless',
+  'Decimate',
+  'Declaration in Stone',
+  'Deconstruct',
+  'Deduce',
+  'Defibrillating Current',
+  'Defile',
+  'Delete',
+  'Deluge',
+  'Deluge of Doom',
+  'Demolish',
+  "Demon's Due",
+  'Depopulate',
+  'Depressurize',
+  'Desecration Plague',
+  'Desert Sandstorm',
+  "Desert's Due",
+  'Sunscorched Desert',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

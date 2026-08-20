@@ -13982,3 +13982,60 @@ SUPPORT bodies) · batch.json 1,925 · botDeck: Adun reaches 1,447.
 **Reportables:** the second-clause family at EIGHT cards is past due —
 the widening is the next engine work by weight; the scry/surveil family
 table stays overdue by shape count; prior items stand.
+
+## D207 — M6.4av: seventeen landed — the four-target destroy, and the compound the parser was silently halving (2026-08-20)
+
+**Coverage: 2,594 → 2,611 of 31,692 (+17)** — an ALL-SPELL batch (6
+instants, 11 sorceries). `SHIPPED_SCRIPTS` 697 → 714; the ledger
+197 → 205 (+8); the pool 1,925 → 1,900.
+
+⚠️⚠️ **THE PARSER HOLE THE BATCH'S OWN TEST FORCED OUT:** `Demolish`'s
+"Destroy target artifact or land." parsed to a CONFIDENT spec of kinds
+`['artifact']` — the bare `artifact` noun matched the prefix and the
+" or land" fell off a spec still claiming confidence, so the aim veil
+refused a LAND for a spell whose whole point is hitting lands
+(`Desecration Plague`'s "enchantment or land" compound existed; this
+one was simply missing). The probe pinned it, the compound joined its
+family in `targetParse`'s NOUNS, and the test that found it now proves
+a Mountain dies to it. The D192 Bedevil class, met in the wild through
+a green suite rather than a draft-time pull.
+
+**The firsts.** `Decimate` — probed BEFORE writing (the D206 idiom) —
+parses to FOUR confident enforced specs and lands as the first
+four-target destroy: one simultaneous CardsMoved, CR 608.2b re-checks
+per target, Darksteel Citadel survives while the other three die.
+`Declaration in Stone` exiles the same-name family (oracle-name match
+over the victim's controller's board) and pays THAT PLAYER one Clue per
+NONTOKEN exiled. `Deconstruct`'s ritual pays through an indestructible
+miss (CR 608.2c — the destroy stops, the {G}{G}{G} does not).
+`Demon's Due` is Cruel Truths one ask over (the loss commutes and lands
+before the scry ask; the draws ride `thenDraw`). `Depressurize` reads
+the post-debuff power as plain arithmetic (Ambuscade's idiom from the
+other side): a 2/2 at -3/-0 is destroyed, a 6/6 stands at 3.
+`Depopulate` draws for every multicolored-creature controller off the
+DERIVED colors, then wipes. `Deluge of Doom` counts DISTINCT card types
+across the caster's graveyard off the ORACLE faces. `Deluge` taps all
+grounded creatures (a sweep filter, not a target qualifier). `Deduce`
+and `Declaration` bring Investigate to SpellDefs; `Defile` and
+`Desert's Due` count Swamps and Deserts; `Delete` X-burns everything
+nonartifact plus every player; `Debt to the Deathless` doubles X out of
+each opponent and gains the sum actually lost.
+
+**Eight refusals, ONE new class:** `Deny the Witch` (ABILITY
+COUNTERING — countering an activated or triggered ability on the stack
+is a target kind and an un-cast the engine has no seam for). Plus the
+computed threshold twice (`Detonate`, `Disembowel` — "mana value X" is
+a cast-variable bound), two up-to-Ns, a regeneration, a script-raised
+prompt (`Defensive Maneuvers` — a creature type of the caster's
+choice), and two quoted-ability grants.
+
+**Measured after landing:** primitives complete 2,611 · blocked 29,081 ·
+scriptableToday 2,442 · ladder [2442, 2541, 4334, 6248, 7460] · tier3
+silentAfter 3,022 (+17 exact) · botPool instant 411 / sorcery 265 ·
+fixtures 927 (70 tokens — none new; Sunscorched Desert joins as a
+SUPPORT body) · batch.json 1,900 · botDeck: Adun reaches 1,458.
+
+**Reportables:** the second-clause family at EIGHT cards stays the
+heaviest parse slice; ability countering joins the structural tail; the
+noun-list family is one entry richer and its remaining members surface
+one test at a time — prior items stand.

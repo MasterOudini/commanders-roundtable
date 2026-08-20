@@ -28998,6 +28998,628 @@ export const OHRAN_VIPER: CardData = {
   "singleImage": true
 };
 
+export const DEBT_TO_THE_DEATHLESS: CardData = {
+  "scryfallId": "4507bd96-60b7-4c66-a2f5-eb1d0af972dd",
+  "oracleId": "6130f22d-7901-4f9f-b777-27bb0dacc063",
+  "name": "Debt to the Deathless",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Debt to the Deathless",
+      "manaCost": "{X}{W}{W}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each opponent loses two times X life. You gain life equal to the life lost this way.",
+      "flavorText": "Some of Orzhov's cruelest collectors remember their debtors by taste alone.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Seb McKinnon",
+      "imageId": "4507bd96-60b7-4c66-a2f5-eb1d0af972dd"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "rvr",
+  "collectorNumber": "364",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DECIMATE: CardData = {
+  "scryfallId": "18445778-6176-40f6-a396-05e85579e85e",
+  "oracleId": "a4e5693f-12a0-451e-818d-d6efc7b4ed25",
+  "name": "Decimate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Decimate",
+      "manaCost": "{2}{R}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target artifact, target creature, target enchantment, and target land. (You can't cast this spell unless you have legal choices for all its targets.)",
+      "flavorText": "Tormented by her own existence, Karona turned her wrath on the world that had birthed her.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Kekai Kotaki",
+      "imageId": "18445778-6176-40f6-a396-05e85579e85e"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dmr",
+  "collectorNumber": "356",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DECLARATION_IN_STONE: CardData = {
+  "scryfallId": "6f5513a2-e63d-44df-b8a5-37c298e38e3c",
+  "oracleId": "49554441-bb48-4829-b8d6-55e687a6c2e2",
+  "name": "Declaration in Stone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Declaration in Stone",
+      "manaCost": "{1}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Exile target creature and all other creatures its controller controls with the same name as that creature. That player investigates for each nontoken creature exiled this way.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Tyler Jacobson",
+      "imageId": "6f5513a2-e63d-44df-b8a5-37c298e38e3c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "ncc",
+  "collectorNumber": "196",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DECONSTRUCT: CardData = {
+  "scryfallId": "53face79-d2bf-43dd-aa4e-d724c2b68c49",
+  "oracleId": "36a8ceb1-148b-41e0-a7bf-ceb879bf08e7",
+  "name": "Deconstruct",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deconstruct",
+      "manaCost": "{2}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target artifact. Add {G}{G}{G}.",
+      "flavorText": "\"Nothing in this world, not even magic, likes to be caged.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "D. Alexander Gregory",
+      "imageId": "53face79-d2bf-43dd-aa4e-d724c2b68c49"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mrd",
+  "collectorNumber": "118",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEDUCE: CardData = {
+  "scryfallId": "0d9f7563-0c3e-4bfe-b61a-8e6a6d2411b4",
+  "oracleId": "eeae4161-9f35-45df-8b3c-c55e37f49cd1",
+  "name": "Deduce",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deduce",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Draw a card. Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": "「異常を見落としてはならない。そこに謎を解く鍵があることが多いからだ。」\n――アルキスト・プロフトの捜査日誌",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Shusaku Sato",
+      "imageId": "0d9f7563-0c3e-4bfe-b61a-8e6a6d2411b4"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "soa",
+  "collectorNumber": "146",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEFIBRILLATING_CURRENT: CardData = {
+  "scryfallId": "bf3a18cf-03db-4eb0-8d53-0c1a71e184da",
+  "oracleId": "5a96b93b-bae6-48fb-87f5-05f3ffcf7ba9",
+  "name": "Defibrillating Current",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Defibrillating Current",
+      "manaCost": "{2/R}{2/W}{2/B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Defibrillating Current deals 4 damage to target creature or planeswalker and you gain 2 life.",
+      "flavorText": "A small shock to save a life, a large one to take it away.\n—Mardu healer's adage",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R",
+        "W"
+      ],
+      "artist": "Isis",
+      "imageId": "bf3a18cf-03db-4eb0-8d53-0c1a71e184da"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R",
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "tdm",
+  "collectorNumber": "177",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEFILE: CardData = {
+  "scryfallId": "5bcb4398-edd1-41a7-a496-b12bce22ceb6",
+  "oracleId": "49dddec0-d958-4810-8c6e-225fc8118c8f",
+  "name": "Defile",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Defile",
+      "manaCost": "{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets -1/-1 until end of turn for each Swamp you control.",
+      "flavorText": "The only shortcut in a bog is to the bottom.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Joe Slucher",
+      "imageId": "5bcb4398-edd1-41a7-a496-b12bce22ceb6"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mh1",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DELETE: CardData = {
+  "scryfallId": "875c7337-78af-4e13-89e5-3255ba2d4053",
+  "oracleId": "01d0156f-c26a-4668-a3a4-15ee0790d1b6",
+  "name": "Delete",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Delete",
+      "manaCost": "{X}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Delete deals X damage to each nonartifact creature and each player.",
+      "flavorText": "\"You will be deleted.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Steve Argyle",
+      "imageId": "875c7337-78af-4e13-89e5-3255ba2d4053"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "who",
+  "collectorNumber": "81",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DELUGE: CardData = {
+  "scryfallId": "22e64f32-0436-4f07-b2b5-a622e3f59d65",
+  "oracleId": "cd271e61-0135-484f-ae02-5aaca57c1124",
+  "name": "Deluge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deluge",
+      "manaCost": "{2}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Tap all creatures without flying.",
+      "flavorText": "\"From the sea came all life, and to the sea it will return. The sooner the better.\"\n—Emperor Aboshan",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Wayne England",
+      "imageId": "22e64f32-0436-4f07-b2b5-a622e3f59d65"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "80",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DELUGE_OF_DOOM: CardData = {
+  "scryfallId": "948927b2-087a-4f57-844e-68fc8ab01bc0",
+  "oracleId": "a81fcdf8-59e7-471d-96ce-f87e656572b1",
+  "name": "Deluge of Doom",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deluge of Doom",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "All creatures get -X/-X until end of turn, where X is the number of card types among cards in your graveyard.",
+      "flavorText": "\"I told you there were no razorkin down that passage. I never said it was *safe*.\"\n—Winter",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nereida",
+      "imageId": "948927b2-087a-4f57-844e-68fc8ab01bc0"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dsc",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEMOLISH: CardData = {
+  "scryfallId": "1b0fb13b-60f0-4b96-b63c-8a9df745bfca",
+  "oracleId": "08c6d2fd-d9ae-4f95-bb9d-7e16b1039814",
+  "name": "Demolish",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Demolish",
+      "manaCost": "{3}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target artifact or land.",
+      "flavorText": "\"Pound the steel until it fits. Doesn't work? Bash to bits.\"\n—Dwarven forging song",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Gary Ruddell",
+      "imageId": "1b0fb13b-60f0-4b96-b63c-8a9df745bfca"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "179",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEMON_S_DUE: CardData = {
+  "scryfallId": "2e59fb98-c887-42f1-a620-9e6b40b94cb5",
+  "oracleId": "bf65a5f5-5536-4616-a09e-2416439c7bc6",
+  "name": "Demon's Due",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Demon's Due",
+      "manaCost": "{3}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Scry 2, then draw two cards. You lose 2 life.",
+      "flavorText": "Ob Nixilis extends his hand not in partnership, but to affirm your subservience.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "2e59fb98-c887-42f1-a620-9e6b40b94cb5"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "snc",
+  "collectorNumber": "75",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEPOPULATE: CardData = {
+  "scryfallId": "139d4af6-e08b-4006-bcf6-19b3158f2a4c",
+  "oracleId": "4a83c2fa-f2d2-4b86-8407-4269f127936d",
+  "name": "Depopulate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Depopulate",
+      "manaCost": "{2}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each player who controls a multicolored creature draws a card. Then destroy all creatures.",
+      "flavorText": "No screams rang out. No blood stained the streets. In an instant, the bustling metropolis simply fell silent.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jokubas Uogintas",
+      "imageId": "139d4af6-e08b-4006-bcf6-19b3158f2a4c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "psnc",
+  "collectorNumber": "10s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEPRESSURIZE: CardData = {
+  "scryfallId": "25520d5a-1a83-42cc-8ace-8b1156019d64",
+  "oracleId": "abcb5321-c295-4abf-8622-7de79679d27a",
+  "name": "Depressurize",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Depressurize",
+      "manaCost": "{1}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets -3/-0 until end of turn. Then if that creature's power is 0 or less, destroy it.",
+      "flavorText": "The Sunstar faith teaches of Perfect Void—of emptying oneself so that the light may fill the hollow. But in the void of death, its teachings bring little comfort.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Danny Schwartz",
+      "imageId": "25520d5a-1a83-42cc-8ace-8b1156019d64"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "eoe",
+  "collectorNumber": "95",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DESECRATION_PLAGUE: CardData = {
+  "scryfallId": "42dbc5e5-5d46-47f7-a700-b65781a13c7a",
+  "oracleId": "131d55d1-7429-4940-b7d2-d759aabff47b",
+  "name": "Desecration Plague",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Desecration Plague",
+      "manaCost": "{3}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target enchantment or land.",
+      "flavorText": "\"The gods think of us as insects. Perhaps there is wisdom in that.\"\n—Perisophia the philosopher",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ralph Horsley",
+      "imageId": "42dbc5e5-5d46-47f7-a700-b65781a13c7a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "jou",
+  "collectorNumber": "120",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DESERT_SANDSTORM: CardData = {
+  "scryfallId": "588ad2bf-405d-4c36-b485-e415c22f2703",
+  "oracleId": "230bf3a4-68a8-4553-b8d7-ad340cbd7371",
+  "name": "Desert Sandstorm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Desert Sandstorm",
+      "manaCost": "{2}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Desert Sandstorm deals 1 damage to each creature.",
+      "flavorText": "While pursuing the remnants of Yuan Shao's forces into the Wuhan Desert, Cao Cao was temporarily turned back by a fierce sandstorm.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Xu Tan",
+      "imageId": "588ad2bf-405d-4c36-b485-e415c22f2703"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DESERT_S_DUE: CardData = {
+  "scryfallId": "35e899e4-e2de-44cf-b6f4-cace8d3770cb",
+  "oracleId": "909eacf3-05ce-4c2b-97a8-49b6ea597b64",
+  "name": "Desert's Due",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Desert's Due",
+      "manaCost": "{1}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets -2/-2 until end of turn. It gets an additional -1/-1 until end of turn for each Desert you control.",
+      "flavorText": "He was glad when the mirages appeared. At least he wouldn't die alone.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "David Palumbo",
+      "imageId": "35e899e4-e2de-44cf-b6f4-cace8d3770cb"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "otj",
+  "collectorNumber": "85",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUNSCORCHED_DESERT: CardData = {
+  "scryfallId": "38ba5598-ca5c-42da-83d7-b22243c8704e",
+  "oracleId": "256b8c23-589e-429d-9e6e-433d55079eb4",
+  "name": "Sunscorched Desert",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sunscorched Desert",
+      "manaCost": "",
+      "typeLine": "Land — Desert",
+      "oracleText": "When this land enters, it deals 1 damage to target player or planeswalker.\n{T}: Add {C}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Min Yum",
+      "imageId": "38ba5598-ca5c-42da-83d7-b22243c8704e"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "akr",
+  "collectorNumber": "331",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -32218,6 +32840,24 @@ export const ENGINE_CARDS: CardData[] = [
   DEATHLESS_ANGEL,
   SNOW_COVERED_SWAMP,
   OHRAN_VIPER,
+  DEBT_TO_THE_DEATHLESS,
+  DECIMATE,
+  DECLARATION_IN_STONE,
+  DECONSTRUCT,
+  DEDUCE,
+  DEFIBRILLATING_CURRENT,
+  DEFILE,
+  DELETE,
+  DELUGE,
+  DELUGE_OF_DOOM,
+  DEMOLISH,
+  DEMON_S_DUE,
+  DEPOPULATE,
+  DEPRESSURIZE,
+  DESECRATION_PLAGUE,
+  DESERT_SANDSTORM,
+  DESERT_S_DUE,
+  SUNSCORCHED_DESERT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

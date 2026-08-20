@@ -7,6 +7,23 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { DEBT_TO_THE_DEATHLESS_SCRIPT } from './cards/debtToTheDeathless';
+import { DECIMATE_SCRIPT } from './cards/decimate';
+import { DECLARATION_IN_STONE_SCRIPT } from './cards/declarationInStone';
+import { DECONSTRUCT_SCRIPT } from './cards/deconstruct';
+import { DEDUCE_SCRIPT } from './cards/deduce';
+import { DEFIBRILLATING_CURRENT_SCRIPT } from './cards/defibrillatingCurrent';
+import { DEFILE_SCRIPT } from './cards/defile';
+import { DELETE_SCRIPT } from './cards/delete';
+import { DELUGE_SCRIPT } from './cards/deluge';
+import { DELUGE_OF_DOOM_SCRIPT } from './cards/delugeOfDoom';
+import { DEMOLISH_SCRIPT } from './cards/demolish';
+import { DEMONS_DUE_SCRIPT } from './cards/demonsDue';
+import { DEPOPULATE_SCRIPT } from './cards/depopulate';
+import { DEPRESSURIZE_SCRIPT } from './cards/depressurize';
+import { DESECRATION_PLAGUE_SCRIPT } from './cards/desecrationPlague';
+import { DESERT_SANDSTORM_SCRIPT } from './cards/desertSandstorm';
+import { DESERTS_DUE_SCRIPT } from './cards/desertsDue';
 import { DAKMOR_PLAGUE_SCRIPT } from './cards/dakmorPlague';
 import { DAMNABLE_PACT_SCRIPT } from './cards/damnablePact';
 import { DANGEROUS_WAGER_SCRIPT } from './cards/dangerousWager';
@@ -818,6 +835,23 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DEBT_TO_THE_DEATHLESS_SCRIPT,
+  DECIMATE_SCRIPT,
+  DECLARATION_IN_STONE_SCRIPT,
+  DECONSTRUCT_SCRIPT,
+  DEDUCE_SCRIPT,
+  DEFIBRILLATING_CURRENT_SCRIPT,
+  DEFILE_SCRIPT,
+  DELETE_SCRIPT,
+  DELUGE_SCRIPT,
+  DELUGE_OF_DOOM_SCRIPT,
+  DEMOLISH_SCRIPT,
+  DEMONS_DUE_SCRIPT,
+  DEPOPULATE_SCRIPT,
+  DEPRESSURIZE_SCRIPT,
+  DESECRATION_PLAGUE_SCRIPT,
+  DESERT_SANDSTORM_SCRIPT,
+  DESERTS_DUE_SCRIPT,
   DAKMOR_PLAGUE_SCRIPT,
   DAMNABLE_PACT_SCRIPT,
   DANGEROUS_WAGER_SCRIPT,

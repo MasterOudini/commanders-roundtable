@@ -5670,6 +5670,38 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       prior items stand.
 
 
+- [x] **M6.4av — Seventeen landed: the four-target destroy, and the
+      compound the parser was halving (2026-08-20):** **2,611 of 31,692
+      Commander-legal cards now execute completely, up from 2,594** — an
+      ALL-SPELL batch. `SHIPPED_SCRIPTS` 697 → 714; ledger 205.
+      Decisions in **D207**.
+      ⚠️⚠️ **The parser hole the batch's own test forced out:**
+      "Destroy target artifact or land." parsed CONFIDENT to
+      `['artifact']` — the compound was missing and the bare noun
+      matched the prefix, so the aim veil refused a LAND for Demolish.
+      The compound joined its family; a Mountain dies to it now.
+      **Firsts:** the FOUR-target destroy (Decimate — probed before
+      writing, one simultaneous move, per-target indestructible);
+      the same-name exile paying the VICTIM's controller in Clues
+      (Declaration in Stone); the ritual that pays through an
+      indestructible miss (Deconstruct, CR 608.2c); the loss-then-ask
+      scry rider (Demon's Due); post-debuff arithmetic destroy
+      (Depressurize); the multicolored-controller draw + wipe
+      (Depopulate); the graveyard card-type count (Deluge of Doom).
+      ⚠️ **Eight refusals, ONE new class:** ability countering (Deny
+      the Witch). The computed threshold takes Detonate and Disembowel;
+      Defensive Maneuvers' creature-type choice is a script prompt.
+      Fixtures 927 · botPool instant 411 / sorcery 265 · ladder [2442,
+      2541, 4334, 6248, 7460] · batch.json 1,900 · botDeck: Adun
+      reaches 1,458.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 792
+      files, 4,781 passed / 10 skipped · 500-seed gate
+      733.1 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D207): the second-clause family at eight;
+      ability countering; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

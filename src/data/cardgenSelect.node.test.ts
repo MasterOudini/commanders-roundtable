@@ -497,6 +497,19 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Death or Glory', 'opponent-chooses'],
   ['Death Ward', 'regeneration'],
   ['Deathlace', 'color change (indefinite)'],
+  // D207 — Deny the Witch counters ACTIVATED AND TRIGGERED ABILITIES on
+  // the stack, a target kind and an un-cast the engine has no seam for;
+  // Debt of Loyalty regenerates AND changes control off the regeneration;
+  // Defensive Maneuvers takes a creature type of the caster's choice at
+  // resolution; Decision Paralysis adds a skip-untap rider to its up-to-N.
+  ['Debt of Loyalty', 'regeneration'],
+  ['Decision Paralysis', 'up-to-N targeting'],
+  ['Decompose', 'up-to-N targeting'],
+  ['Defenestrate', 'keyword target qualifier unenforced'],
+  ['Defensive Maneuvers', 'script-raised prompt'],
+  ['Defiling Tears', 'temporary non-keyword ability grant'],
+  ['Demonic Gifts', 'temporary non-keyword ability grant'],
+  ['Deny the Witch', 'ability countering'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
