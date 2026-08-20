@@ -828,6 +828,16 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Order of Whiteclay', 'untap-symbol activation cost'],
   ["Oread of Mountain's Blaze", 'discard-cost chooser'],
   ['Organ Grinder', 'exile-from-graveyard cost'],
+  // D231 — Oust puts the creature SECOND from the top (Chronostutter's
+  // class: the move event knows top and bottom only); Over the Top's mass
+  // battlefield put includes AURAS whose enchant choice is a prompt (Open
+  // the Vaults' reasoning); Ovinize also strips abilities but the
+  // base-P/T SET is the blocker.
+  ['Oust', 'library position placement'],
+  ['Over the Top', 'script-raised prompt'],
+  ['Ovinize', 'until-end-of-turn base P/T set'],
+  ["Pain's Reward", 'bidding mechanic'],
+  ['Painful Truths', 'converge (cast-time mana-color memory)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

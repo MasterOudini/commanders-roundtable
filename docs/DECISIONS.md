@@ -15233,3 +15233,44 @@ batch.json 1,325 · botDeck: Adun reaches 1,682.
 **Reportables:** the discriminator family holds FOUR members (sacrifice,
 draw — closed by D189 — scry/surveil, discard): a typed-cause or marker
 design would sweep the remaining three; prior items stand.
+
+## D231 — M6.4bt: twenty landed — three thousand crossed (2026-08-21)
+
+**3,011 of 31,692 Commander-legal cards now execute completely, up from
+2,991** — the coverage count crosses three thousand, on a twenty-card
+batch that ties the arc record. `SHIPPED_SCRIPTS` 1,094 → 1,114; the
+REFUSED ledger holds 404. All 51 tests green on the FIRST run — the
+ninth first-run-clean batch.
+
+**The headliners:** `Overwhelming Intellect` counters a CREATURE spell
+and draws its mana value — the typed-spell noun PROBED before drafting:
+'creature spell' parses with cardTypes ENFORCED, so the aim layer
+refuses a Lightning Bolt and the draw reads the countered card's parsed
+cost. `Parallectric Feedback` is the stack-aimed burn at the CASTER —
+the spell it aims at still RESOLVES (probed: 'target spell's
+controller' aims at the stack, hurts a player, counters nothing).
+
+**Also:** `Ostiary Thrull` is the EIGHTH id on the Trapper tap text;
+`Outlaw Medic` and `Palace Familiar` share one dies-draw line behind
+different keyword headers, each proven on its own id; `Oyobi, Who
+Split the Heavens` pays a 3/3 Spirit (tvoc 3, a NEW pin) per
+Spirit-or-Arcane cast — her test casts batch-mate `Nebelgast Herald`;
+`Overwhelming Forces` is the one-player wipe that draws per kill;
+`Oxidize` joins the damnation tripwire as its TENTH client; the
+Peer-family twins and the Papyrus/Oasis land shapes round out the
+twenty.
+
+**Five refusals, ZERO new classes:** Oust (library position placement),
+Over the Top (script-raised prompt — the mass put includes Auras),
+Ovinize (until-end-of-turn base P/T set), Pain's Reward (bidding),
+Painful Truths (converge — cast-time mana-color memory).
+
+**Measured after landing:** primitives complete 3,011 · blocked 28,681 ·
+scriptableToday 2,042 · ladder [2042, 2141, 3934, 5848, 7060] · botPool
+creature 1,648 / instant 550 / sorcery 406 / artifact 87 / enchantment
+43 / land 277 · fixtures 1,337 (75 tokens) · batch.json 1,300 ·
+botDeck: Adun reaches 1,690 from 68 legendaries.
+
+**Reportables:** the typed-spell counter shape is now proven with BOTH
+riders (draw here, burn/gain in D219's family); the discriminator and
+qualifier families stand; prior items stand.

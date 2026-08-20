@@ -6420,6 +6420,34 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       members wants one typed-cause design; prior items stand.
 
 
+- [x] **M6.4bt — Twenty landed: three thousand crossed (2026-08-21):**
+      **3,011 of 31,692 Commander-legal cards now execute completely, up
+      from 2,991** — the count crosses three thousand on a record-tying
+      batch. `SHIPPED_SCRIPTS` 1,094 → 1,114; ledger 404. All 51 tests
+      first-run green — the ninth such batch. Decisions in **D231**.
+      **The headliners:** Overwhelming Intellect (the typed-spell counter
+      that draws the countered card's mana value — 'creature spell'
+      PROBED: cardTypes ENFORCED at the aim) and Parallectric Feedback
+      (the stack-aimed burn at the CASTER — the spell still resolves).
+      **Also:** Ostiary Thrull (the EIGHTH Trapper id); Outlaw Medic +
+      Palace Familiar (one dies-draw line behind different keywords);
+      Oyobi's 3/3 Spirit per Spirit-or-Arcane cast (her test casts
+      batch-mate Nebelgast Herald); Overwhelming Forces (the one-player
+      wipe that draws per kill); Oxidize (the damnation tripwire's TENTH
+      client).
+      ⚠️ **Five refusals, ZERO new classes.**
+      Fixtures 1,337 (+1 Spirit pin tvoc 3) · botPool creature 1,648 /
+      instant 550 / sorcery 406 / artifact 87 / enchantment 43 / land
+      277 · ladder [2042, 2141, 3934, 5848, 7060] · batch.json 1,300 ·
+      botDeck: Adun reaches 1,690 from 68 legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,193
+      files, 6,709 passed / 10 skipped · 500-seed gate
+      749.5 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D231): the typed-spell counter shape is proven
+      with both riders; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

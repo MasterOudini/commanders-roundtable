@@ -1661,6 +1661,28 @@ const WANTED = [
   'Ornamental Courage',
   'Ornery Kudu',
   'Orzhov Cluestone',
+  // M6.4bt (D231) - batch 65: the typed-spell counter with the MV draw,
+  // the spell-controller burn, and the eighth Trapper id.
+  'Orzhov Locket',
+  'Oscorp Research Team',
+  'Ostiary Thrull',
+  'Outlaw Medic',
+  'Outnumber',
+  'Overflowing Insight',
+  'Overgrown Estate',
+  'Overwhelming Forces',
+  'Overwhelming Instinct',
+  'Overwhelming Intellect',
+  'Oxidda Scrapmelter',
+  'Oxidize',
+  'Oyobi, Who Split the Heavens',
+  'Pacification Array',
+  'Painful Lesson',
+  'Palace Familiar',
+  'Paladin of the Bloodstained',
+  'Paradox Gardens',
+  'Parallectric Feedback',
+  'Paraselene',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -1797,6 +1819,8 @@ const WANTED_TOKENS = [
   // M6.4bq (D228) - News Helicopter's Citizen, the Schematic's Construct.
   { name: 'Human Citizen', set: 'tspm', cn: '4', key: 'HUMAN_CITIZEN_TOKEN' },
   { name: 'Construct', set: 'tclb', cn: '16', key: 'CONSTRUCT_TOKEN' },
+  // M6.4bt (D231) - Oyobi's big Spirit.
+  { name: 'Spirit', set: 'tvoc', cn: '3', key: 'SPIRIT_33_TOKEN' },
 ];
 
 function constName(name) {

@@ -7,6 +7,26 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ORZHOV_LOCKET_SCRIPT } from './cards/orzhovLocket';
+import { OSCORP_RESEARCH_TEAM_SCRIPT } from './cards/oscorpResearchTeam';
+import { OSTIARY_THRULL_SCRIPT } from './cards/ostiaryThrull';
+import { OUTLAW_MEDIC_SCRIPT } from './cards/outlawMedic';
+import { OUTNUMBER_SCRIPT } from './cards/outnumber';
+import { OVERFLOWING_INSIGHT_SCRIPT } from './cards/overflowingInsight';
+import { OVERGROWN_ESTATE_SCRIPT } from './cards/overgrownEstate';
+import { OVERWHELMING_FORCES_SCRIPT } from './cards/overwhelmingForces';
+import { OVERWHELMING_INSTINCT_SCRIPT } from './cards/overwhelmingInstinct';
+import { OVERWHELMING_INTELLECT_SCRIPT } from './cards/overwhelmingIntellect';
+import { OXIDDA_SCRAPMELTER_SCRIPT } from './cards/oxiddaScrapmelter';
+import { OXIDIZE_SCRIPT } from './cards/oxidize';
+import { OYOBI_WHO_SPLIT_THE_HEAVENS_SCRIPT } from './cards/oyobiWhoSplitTheHeavens';
+import { PACIFICATION_ARRAY_SCRIPT } from './cards/pacificationArray';
+import { PAINFUL_LESSON_SCRIPT } from './cards/painfulLesson';
+import { PALACE_FAMILIAR_SCRIPT } from './cards/palaceFamiliar';
+import { PALADIN_OF_THE_BLOODSTAINED_SCRIPT } from './cards/paladinOfTheBloodstained';
+import { PARADOX_GARDENS_SCRIPT } from './cards/paradoxGardens';
+import { PARALLECTRIC_FEEDBACK_SCRIPT } from './cards/parallectricFeedback';
+import { PARASELENE_SCRIPT } from './cards/paraselene';
 import { OLTEC_CLOUD_GUARD_SCRIPT } from './cards/oltecCloudGuard';
 import { OMASHU_CITY_SCRIPT } from './cards/omashuCity';
 import { OMENSPEAKER_SCRIPT } from './cards/omenspeaker';
@@ -1215,6 +1235,26 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ORZHOV_LOCKET_SCRIPT,
+  OSCORP_RESEARCH_TEAM_SCRIPT,
+  OSTIARY_THRULL_SCRIPT,
+  OUTLAW_MEDIC_SCRIPT,
+  OUTNUMBER_SCRIPT,
+  OVERFLOWING_INSIGHT_SCRIPT,
+  OVERGROWN_ESTATE_SCRIPT,
+  OVERWHELMING_FORCES_SCRIPT,
+  OVERWHELMING_INSTINCT_SCRIPT,
+  OVERWHELMING_INTELLECT_SCRIPT,
+  OXIDDA_SCRAPMELTER_SCRIPT,
+  OXIDIZE_SCRIPT,
+  OYOBI_WHO_SPLIT_THE_HEAVENS_SCRIPT,
+  PACIFICATION_ARRAY_SCRIPT,
+  PAINFUL_LESSON_SCRIPT,
+  PALACE_FAMILIAR_SCRIPT,
+  PALADIN_OF_THE_BLOODSTAINED_SCRIPT,
+  PARADOX_GARDENS_SCRIPT,
+  PARALLECTRIC_FEEDBACK_SCRIPT,
+  PARASELENE_SCRIPT,
   OLTEC_CLOUD_GUARD_SCRIPT,
   OMASHU_CITY_SCRIPT,
   OMENSPEAKER_SCRIPT,
