@@ -442,10 +442,12 @@ const POOL: Record<string, number> = {
   // M6.4az (D211): +3 instants and +10 sorceries — a third all-spell batch.
   // M6.4ba (D212): +8 instants, +4 sorceries, Faerie Seer, and Fear of
   // Surveillance.
+  // M6.4bb (D213): +11 instants, +8 sorceries, and Fields of Strife — a
+  // TWENTY-card batch.
   creature: 1570,
-  instant: 443,
-  sorcery: 297,
-  land: 262,
+  instant: 454,
+  sorcery: 305,
+  land: 263,
   artifact: 77,
   enchantment: 32,
 };

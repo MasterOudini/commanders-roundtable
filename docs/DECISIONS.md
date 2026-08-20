@@ -14289,3 +14289,56 @@ botDeck: Adun reaches 1,505.
 maximum) joins the class's dossier — enforcement must fix the PARSE and
 the chooser together; the fixture file crosses one thousand next batch;
 prior items stand.
+
+## D213 — M6.4bb: TWENTY landed — the name census, the combat wipe, and the compound hole's creature twin (2026-08-20)
+
+**Coverage: 2,681 → 2,701 of 31,692 (+20)** — the largest batch since the
+spell seam opened, crossing 2,700. `SHIPPED_SCRIPTS` 784 → 804 — past
+eight hundred; the ledger 260 → 265 (+5); the pool 1,775 → 1,750; the
+fixture file crosses ONE THOUSAND (1,018).
+
+⚠️ **D207's compound hole has a CREATURE twin, and the batch's test found
+it the same way:** "Destroy target creature or land." parsed CONFIDENT to
+`['creature']` — the Mountain was refused as "that choice doesn't fit"
+by `Fissure`'s own suite. The compound joined its family beside D207's
+`artifact or land`. Two members of one family found by two batches'
+tests; any remaining `<noun> or land` prints will surface the same way.
+
+**The firsts.** `Feast of Flesh` and `Flame Burst` are the NAME CENSUS —
+X counts copies of the card's own name across EVERY graveyard by oracle
+name (the resolving copy is on the stack and does not count itself).
+`Fight to the Death` is the first COMBAT-STATE wipe: blocking creatures
+are `combat.blockers[].card` and blocked attackers the union of every
+blocker's `attackerOrder`, proven through a REAL DeclareBlockers — the
+blocker and its blocked attacker die, the unblocked attacker fights on.
+`Fields of Strife` is the first ACTIVATED surveil on a LAND behind
+D134's tapped built-in — three printed lines, the def claiming #a1
+(the enters-tapped line never counts in the ability index).
+`Final Judgment` is the exile-wipe — no indestructible gate, the Myr
+goes too. `Flame Wave` fans 4 at a player and their whole board
+(Chandra's Fury's shape at a flat amount); `Flame Sweep`'s exemption is
+BOTH conditions at once (mine AND flying — my Strix lives, theirs dies);
+`Filigree Fracture` draws only off a blue/black victim (the colorless
+Ring pays nothing, the Strix pays one); `First Volley` pings the
+creature and its controller in one event; `Feed the Swarm` and
+`Feast of Flesh` read MV and census pre-move; `Feeding Frenzy`,
+`Festive Funeral`, `Festergloom`, `Eyeblight`-style sweeps and the
+burn family (Famine's 3, Fire Tempest's 6, Flame Rift's 4-to-everyone,
+Fiery Cannonade's non-Pirate 2) round out the twenty. `Fissure` joins
+the damnation tripwire's client list (the SEVENTH).
+
+**Five refusals, TWO new classes:** `Feast of Succession` (MONARCH — no
+monarch concept anywhere) and `Finishing Move` (STICKERS — {TK} tickets
+have no home either). Plus Feign Death's quoted grant, Fire Prophecy's
+Brainstorm prompt, and Firespout's mana-spent memory.
+
+**Measured after landing:** primitives complete 2,701 · blocked 28,991 ·
+scriptableToday 2,352 · ladder [2352, 2451, 4244, 6158, 7370] · tier3
+silentAfter 3,112 (+20 exact) · botPool instant 454 / sorcery 305 / land
+263 · fixtures 1,018 (70 tokens — none new) · batch.json 1,750 · botDeck:
+Adun reaches 1,520.
+
+**Reportables:** the `<noun> or land` compound family should be SWEPT
+rather than found one test at a time — a five-minute probe over the
+remaining pairs closes it; the name-census idiom joins the name family's
+table candidacy; prior items stand.

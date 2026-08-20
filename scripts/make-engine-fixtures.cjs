@@ -1310,6 +1310,28 @@ const WANTED = [
   'Fault Line',
   'Fear of Surveillance',
   'Cyclops of One-Eyed Pass',
+  // M6.4bb (D213) - batch 47: the name census, the combat wipe, and the
+  // burn family.
+  'Feast of Flesh',
+  'Feed the Swarm',
+  'Feedback Bolt',
+  'Feeding Frenzy',
+  'Festergloom',
+  'Festival of Trokin',
+  'Festive Funeral',
+  'Fields of Strife',
+  'Fiery Cannonade',
+  'Fight to the Death',
+  'Filigree Fracture',
+  'Filter Out',
+  'Final Judgment',
+  'Fire Tempest',
+  'First Volley',
+  'Fissure',
+  'Flame Burst',
+  'Flame Rift',
+  'Flame Sweep',
+  'Flame Wave',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -32075,6 +32075,689 @@ export const CYCLOPS_OF_ONE_EYED_PASS: CardData = {
   "singleImage": true
 };
 
+export const FEAST_OF_FLESH: CardData = {
+  "scryfallId": "2d344791-5d5c-40c5-99c7-931954ea39d1",
+  "oracleId": "6f214306-1664-41ec-b999-1b7471bbcbd6",
+  "name": "Feast of Flesh",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Feast of Flesh",
+      "manaCost": "{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Feast of Flesh deals X damage to target creature and you gain X life, where X is 1 plus the number of cards named Feast of Flesh in all graveyards.",
+      "flavorText": "\"Starving an army that feeds on its enemies is a sound strategy.\"\n—Garza Zol, plague queen",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Volkan Baǵa",
+      "imageId": "2d344791-5d5c-40c5-99c7-931954ea39d1"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "csp",
+  "collectorNumber": "56",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FEED_THE_SWARM: CardData = {
+  "scryfallId": "029e2a27-46f2-44fa-ac7c-462c69feab95",
+  "oracleId": "5825997b-10d7-4a36-972c-a80ddd90b8ed",
+  "name": "Feed the Swarm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Feed the Swarm",
+      "manaCost": "{1}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target creature or enchantment an opponent controls. You lose life equal to that permanent's mana value.",
+      "flavorText": "\"We have found many of our folk lying slain as they fled thither.\"\n—Rider of Rohan",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Pavel Kolomeyets",
+      "imageId": "029e2a27-46f2-44fa-ac7c-462c69feab95"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ltc",
+  "collectorNumber": "200",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FEEDBACK_BOLT: CardData = {
+  "scryfallId": "a370375c-14bf-4381-9359-f2e600867e7c",
+  "oracleId": "2fc5ebd9-e4af-4e2b-a2cc-a13fe051c5cb",
+  "name": "Feedback Bolt",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Feedback Bolt",
+      "manaCost": "{4}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Feedback Bolt deals damage to target player or planeswalker equal to the number of artifacts you control.",
+      "flavorText": "The path of least resistance is often through your enemies.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "a370375c-14bf-4381-9359-f2e600867e7c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "5dn",
+  "collectorNumber": "64",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FEEDING_FRENZY: CardData = {
+  "scryfallId": "a6d74c30-ebca-4684-ad84-3ca19193ad88",
+  "oracleId": "d14fa263-a6ae-4ab4-b391-2f1ff356fa54",
+  "name": "Feeding Frenzy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Feeding Frenzy",
+      "manaCost": "{2}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets -X/-X until end of turn, where X is the number of Zombies on the battlefield.",
+      "flavorText": "It wasn't as much a strategy as a dim instinct to drown their prey.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nelson DeCastro",
+      "imageId": "a6d74c30-ebca-4684-ad84-3ca19193ad88"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ons",
+  "collectorNumber": "147",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FESTERGLOOM: CardData = {
+  "scryfallId": "5da1371f-8888-4428-b3f4-d8f07e12f91b",
+  "oracleId": "a653ac26-e9c9-4319-88f6-c83cc64d3bdb",
+  "name": "Festergloom",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Festergloom",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Nonblack creatures get -1/-1 until end of turn.",
+      "flavorText": "The death of a scout can be as informative as a safe return.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Mathias Kollros",
+      "imageId": "5da1371f-8888-4428-b3f4-d8f07e12f91b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "cn2",
+  "collectorNumber": "135",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FESTIVAL_OF_TROKIN: CardData = {
+  "scryfallId": "f5bd783b-d4cd-4a53-8fec-a5ead7c14738",
+  "oracleId": "a5a3cd2c-20ae-49a8-88fa-e8e3e7cc50db",
+  "name": "Festival of Trokin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Festival of Trokin",
+      "manaCost": "{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "You gain 2 life for each creature you control.",
+      "flavorText": "Everyone loves a good sale.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jeffrey R. Busch",
+      "imageId": "f5bd783b-d4cd-4a53-8fec-a5ead7c14738"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "p02",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FESTIVE_FUNERAL: CardData = {
+  "scryfallId": "90a90af0-eb40-40da-bf4b-f0af687c6430",
+  "oracleId": "85d7c8d4-6f99-4b1d-9e0e-ff41bbeee682",
+  "name": "Festive Funeral",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Festive Funeral",
+      "manaCost": "{4}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets -X/-X until end of turn, where X is the number of cards in your graveyard.",
+      "flavorText": "\"Even as we mourn the last, we look to the next with joy. Hopefully, my new suitor will bring the Cauldron home.\"\n—Ayara, First of Locthwain",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "90a90af0-eb40-40da-bf4b-f0af687c6430"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "eld",
+  "collectorNumber": "87",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FIELDS_OF_STRIFE: CardData = {
+  "scryfallId": "3dc7a4c3-c356-4fba-bea0-e8788da3eb57",
+  "oracleId": "a32e08fa-bea4-4ba9-a126-9bf0a91f67e2",
+  "name": "Fields of Strife",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fields of Strife",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {R} or {W}.\n{2}{R}{W}, {T}: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "The terrible Blood Age lives on in the unending battle between thousands of spirits trapped in their final moments.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Josu Solano",
+      "imageId": "3dc7a4c3-c356-4fba-bea0-e8788da3eb57"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "sos",
+  "collectorNumber": "255",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FIERY_CANNONADE: CardData = {
+  "scryfallId": "396f1cdf-712b-4518-a0e8-0039303dccdc",
+  "oracleId": "7e108b31-2ea3-4129-b324-a2d31c78bbe6",
+  "name": "Fiery Cannonade",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fiery Cannonade",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Fiery Cannonade deals 2 damage to each non-Pirate creature.",
+      "flavorText": "Wary of the ferocious dinosaurs, the Legion of Dusk built up the walls of their fort—just in time for the pirates to burn them down.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Ben Wootten",
+      "imageId": "396f1cdf-712b-4518-a0e8-0039303dccdc"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "cmr",
+  "collectorNumber": "178",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FIGHT_TO_THE_DEATH: CardData = {
+  "scryfallId": "5552ca9b-0245-4f91-9646-a5b5443863a2",
+  "oracleId": "7f885ffc-7245-4f00-a903-6e088007c635",
+  "name": "Fight to the Death",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fight to the Death",
+      "manaCost": "{R}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy all blocking creatures and all blocked creatures.",
+      "flavorText": "When a battlefield falls silent, it's rarely due to a cease-fire.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Michael Komarck",
+      "imageId": "5552ca9b-0245-4f91-9646-a5b5443863a2"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "arb",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FILIGREE_FRACTURE: CardData = {
+  "scryfallId": "65075828-d685-4107-866e-75a53cbc6414",
+  "oracleId": "e2376660-20f2-4474-b6fd-d270e0e6a31e",
+  "name": "Filigree Fracture",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Filigree Fracture",
+      "manaCost": "{2}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target artifact or enchantment. If that permanent was blue or black, draw a card.",
+      "flavorText": "The sphinx tyrannized Bant until a rhox mage tested the hardiness of her shiny parts.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "65075828-d685-4107-866e-75a53cbc6414"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "con",
+  "collectorNumber": "82",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FILTER_OUT: CardData = {
+  "scryfallId": "0a8b57b9-54e8-4f5c-b53a-cd5fc2fb2a34",
+  "oracleId": "8c95d823-6bbd-4484-8f38-b1bb20403085",
+  "name": "Filter Out",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Filter Out",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return all noncreature, nonland permanents to their owners' hands.",
+      "flavorText": "The glistening oil had been rendered inert, but planes wouldn't begin to truly heal until every last drop was purged.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Julia Metzger",
+      "imageId": "0a8b57b9-54e8-4f5c-b53a-cd5fc2fb2a34"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mat",
+  "collectorNumber": "107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FINAL_JUDGMENT: CardData = {
+  "scryfallId": "2503e136-031f-498a-b042-4077baebe8f8",
+  "oracleId": "69ef9308-bc25-4f3c-a5fd-1ebaed6e4842",
+  "name": "Final Judgment",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Final Judgment",
+      "manaCost": "{4}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Exile all creatures.",
+      "flavorText": "\"The clashing warriors turned to face O-Kagachi, the greatest kami, and their sigh of awe was their last breath.\"\n—*Great Battles of Kamigawa*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "2503e136-031f-498a-b042-4077baebe8f8"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "bok",
+  "collectorNumber": "4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FIRE_TEMPEST: CardData = {
+  "scryfallId": "1154e873-4e61-40eb-9e6f-d9b4c9795bb7",
+  "oracleId": "ede6a352-52de-4ae0-816f-50140033dedf",
+  "name": "Fire Tempest",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fire Tempest",
+      "manaCost": "{5}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Fire Tempest deals 6 damage to each creature and each player.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mike Dringenberg",
+      "imageId": "1154e873-4e61-40eb-9e6f-d9b4c9795bb7"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "s99",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FIRST_VOLLEY: CardData = {
+  "scryfallId": "d6e5e360-ed47-40c1-8ad7-57645c2854ca",
+  "oracleId": "b6a89457-1581-46d4-b75b-c5b8704d9f6f",
+  "name": "First Volley",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "First Volley",
+      "manaCost": "{1}{R}",
+      "typeLine": "Instant — Arcane",
+      "oracleText": "First Volley deals 1 damage to target creature and 1 damage to that creature's controller.",
+      "flavorText": "\"We searched their bodies for signs of the blades that had killed them, but found nothing more than scorched flesh.\"\n—Tender-Hand, kitsune healer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Glen Angus",
+      "imageId": "d6e5e360-ed47-40c1-8ad7-57645c2854ca"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "bok",
+  "collectorNumber": "100",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FISSURE: CardData = {
+  "scryfallId": "0478aeca-98e9-41eb-a120-7575fc4e12ab",
+  "oracleId": "c8b1e9f3-b014-4e57-b278-6d84a7e88b23",
+  "name": "Fissure",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fissure",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature or land. It can't be regenerated.",
+      "flavorText": "\"Must not all things at the last be swallowed up in death?\"\n—Plato, Phædo, trans. Jowett",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Douglas Shuler",
+      "imageId": "0478aeca-98e9-41eb-a120-7575fc4e12ab"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "me1",
+  "collectorNumber": "93",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLAME_BURST: CardData = {
+  "scryfallId": "64bbd438-7df2-4d7b-88ad-4531ebaf3931",
+  "oracleId": "37e44e1c-481d-4f5d-b76b-036f40e9124e",
+  "name": "Flame Burst",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Flame Burst",
+      "manaCost": "{1}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Flame Burst deals X damage to any target, where X is 2 plus the number of cards named Flame Burst in all graveyards.",
+      "flavorText": "As hot as a dwarf's rage.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "64bbd438-7df2-4d7b-88ad-4531ebaf3931"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "194",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLAME_RIFT: CardData = {
+  "scryfallId": "7717eeb9-c457-4a65-93a0-e91c7f6a1970",
+  "oracleId": "28479aa8-d1cd-421a-8bbb-0594bb4dd410",
+  "name": "Flame Rift",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Flame Rift",
+      "manaCost": "{1}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Flame Rift deals 4 damage to each player.",
+      "flavorText": "Crovax hungered for power, and the stronghold devoured the sky.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Ben Thompson",
+      "imageId": "7717eeb9-c457-4a65-93a0-e91c7f6a1970"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "nem",
+  "collectorNumber": "80",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLAME_SWEEP: CardData = {
+  "scryfallId": "4702a838-8577-49b6-8b7a-f9b6d2929481",
+  "oracleId": "0b34f471-40da-4c7a-81df-245fc3d14092",
+  "name": "Flame Sweep",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Flame Sweep",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Flame Sweep deals 2 damage to each creature except for creatures you control with flying.",
+      "flavorText": "\"I have calculated that a dragon in flight, in a single strafing run, can cover an area of—\"\n—Thaedus the Clever, last words",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Viktor Titov",
+      "imageId": "4702a838-8577-49b6-8b7a-f9b6d2929481"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m20",
+  "collectorNumber": "139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLAME_WAVE: CardData = {
+  "scryfallId": "62bedb43-1827-4afa-b57e-f96caa78f7ec",
+  "oracleId": "cee8ec5f-e36d-4bca-9b19-cb33113835b1",
+  "name": "Flame Wave",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Flame Wave",
+      "manaCost": "{3}{R}{R}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Flame Wave deals 4 damage to target player or planeswalker and each creature that player or that planeswalker's controller controls.",
+      "flavorText": "\"I hear the roaring of a wave whose waters are red and whose mists are black.\"\n—Oracle *en*-Vec",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Donato Giancola",
+      "imageId": "62bedb43-1827-4afa-b57e-f96caa78f7ec"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "STH-81",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -35384,6 +36067,26 @@ export const ENGINE_CARDS: CardData[] = [
   FAULT_LINE,
   FEAR_OF_SURVEILLANCE,
   CYCLOPS_OF_ONE_EYED_PASS,
+  FEAST_OF_FLESH,
+  FEED_THE_SWARM,
+  FEEDBACK_BOLT,
+  FEEDING_FRENZY,
+  FESTERGLOOM,
+  FESTIVAL_OF_TROKIN,
+  FESTIVE_FUNERAL,
+  FIELDS_OF_STRIFE,
+  FIERY_CANNONADE,
+  FIGHT_TO_THE_DEATH,
+  FILIGREE_FRACTURE,
+  FILTER_OUT,
+  FINAL_JUDGMENT,
+  FIRE_TEMPEST,
+  FIRST_VOLLEY,
+  FISSURE,
+  FLAME_BURST,
+  FLAME_RIFT,
+  FLAME_SWEEP,
+  FLAME_WAVE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -323,6 +323,9 @@ const NOUNS: readonly NounEntry[] = [
   // still claiming confidence, so the aim veil refused a LAND for a spell
   // whose whole point is hitting lands. The compound sits with its family.
   { re: new RegExp(`^artifact${s}\\s+or\\s+land${s}\\b`, 'i'), kinds: ['artifact', 'land'] },
+  // D213: `Fissure`'s test caught the CREATURE twin of D207's hole — the
+  // same silent halving one noun over.
+  { re: new RegExp(`^creature${s}\\s+or\\s+land${s}\\b`, 'i'), kinds: ['creature', 'land'] },
   // `Icy Manipulator`: a comma-or list.
   { re: new RegExp(`^artifact,\\s*creature,\\s*or\\s+land${s}\\b`, 'i'), kinds: ['artifact', 'creature', 'land'] },
   { re: new RegExp(`^artifact,\\s*enchantment,\\s*or\\s+land${s}\\b`, 'i'), kinds: ['artifact', 'enchantment', 'land'] },

@@ -7,6 +7,26 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { FEAST_OF_FLESH_SCRIPT } from './cards/feastOfFlesh';
+import { FEED_THE_SWARM_SCRIPT } from './cards/feedTheSwarm';
+import { FEEDBACK_BOLT_SCRIPT } from './cards/feedbackBolt';
+import { FEEDING_FRENZY_SCRIPT } from './cards/feedingFrenzy';
+import { FESTERGLOOM_SCRIPT } from './cards/festergloom';
+import { FESTIVAL_OF_TROKIN_SCRIPT } from './cards/festivalOfTrokin';
+import { FESTIVE_FUNERAL_SCRIPT } from './cards/festiveFuneral';
+import { FIELDS_OF_STRIFE_SCRIPT } from './cards/fieldsOfStrife';
+import { FIERY_CANNONADE_SCRIPT } from './cards/fieryCannonade';
+import { FIGHT_TO_THE_DEATH_SCRIPT } from './cards/fightToTheDeath';
+import { FILIGREE_FRACTURE_SCRIPT } from './cards/filigreeFracture';
+import { FILTER_OUT_SCRIPT } from './cards/filterOut';
+import { FINAL_JUDGMENT_SCRIPT } from './cards/finalJudgment';
+import { FIRE_TEMPEST_SCRIPT } from './cards/fireTempest';
+import { FIRST_VOLLEY_SCRIPT } from './cards/firstVolley';
+import { FISSURE_SCRIPT } from './cards/fissure';
+import { FLAME_BURST_SCRIPT } from './cards/flameBurst';
+import { FLAME_RIFT_SCRIPT } from './cards/flameRift';
+import { FLAME_SWEEP_SCRIPT } from './cards/flameSweep';
+import { FLAME_WAVE_SCRIPT } from './cards/flameWave';
 import { EXTINGUISH_THE_LIGHT_SCRIPT } from './cards/extinguishTheLight';
 import { EYE_GOUGE_SCRIPT } from './cards/eyeGouge';
 import { EYEBLIGHT_MASSACRE_SCRIPT } from './cards/eyeblightMassacre';
@@ -905,6 +925,26 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FEAST_OF_FLESH_SCRIPT,
+  FEED_THE_SWARM_SCRIPT,
+  FEEDBACK_BOLT_SCRIPT,
+  FEEDING_FRENZY_SCRIPT,
+  FESTERGLOOM_SCRIPT,
+  FESTIVAL_OF_TROKIN_SCRIPT,
+  FESTIVE_FUNERAL_SCRIPT,
+  FIELDS_OF_STRIFE_SCRIPT,
+  FIERY_CANNONADE_SCRIPT,
+  FIGHT_TO_THE_DEATH_SCRIPT,
+  FILIGREE_FRACTURE_SCRIPT,
+  FILTER_OUT_SCRIPT,
+  FINAL_JUDGMENT_SCRIPT,
+  FIRE_TEMPEST_SCRIPT,
+  FIRST_VOLLEY_SCRIPT,
+  FISSURE_SCRIPT,
+  FLAME_BURST_SCRIPT,
+  FLAME_RIFT_SCRIPT,
+  FLAME_SWEEP_SCRIPT,
+  FLAME_WAVE_SCRIPT,
   EXTINGUISH_THE_LIGHT_SCRIPT,
   EYE_GOUGE_SCRIPT,
   EYEBLIGHT_MASSACRE_SCRIPT,

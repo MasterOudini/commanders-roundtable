@@ -5848,6 +5848,38 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       class dossier; prior items stand.
 
 
+- [x] **M6.4bb — TWENTY landed: the name census, the combat wipe, and the
+      compound hole's creature twin (2026-08-20):** **2,701 of 31,692
+      Commander-legal cards now execute completely, up from 2,681** — the
+      largest batch since the spell seam opened. `SHIPPED_SCRIPTS`
+      784 → 804; ledger 265; fixtures cross ONE THOUSAND (1,018).
+      Decisions in **D213**.
+      ⚠️ **D207's compound hole has a CREATURE twin:** "target creature
+      or land" parsed confident to creature-only — Fissure's own test
+      refused the Mountain. The compound joined its family; sweep the
+      remaining `<noun> or land` pairs rather than finding them one
+      test at a time.
+      **Firsts:** the NAME CENSUS (Feast of Flesh / Flame Burst — X
+      counts the card's own name across every graveyard); the
+      COMBAT-STATE wipe (Fight to the Death — blockers + blocked
+      attackers through a real DeclareBlockers); the activated surveil
+      LAND behind the tapped built-in (Fields of Strife, #a1); the
+      exile-wipe (Final Judgment — the Myr goes too); the
+      player-and-their-board fan at a flat 4 (Flame Wave); the
+      double-condition exemption (Flame Sweep — mine AND flying).
+      ⚠️ **Five refusals, TWO new classes:** monarch (Feast of
+      Succession), stickers (Finishing Move).
+      Fixtures 1,018 · botPool instant 454 / sorcery 305 / land 263 ·
+      ladder [2352, 2451, 4244, 6158, 7370] · batch.json 1,750 ·
+      botDeck: Adun reaches 1,520.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 882
+      files, 5,236 passed / 10 skipped · 500-seed gate
+      728.9 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D213): sweep the `<noun> or land` compounds;
+      the name-family table candidacy grows; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

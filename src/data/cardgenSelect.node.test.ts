@@ -595,6 +595,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Fateful Handoff', 'script-raised prompt'],
   ['Fathom Trawl', 'script-raised prompt'],
   ['Fatigue', 'phase skipping'],
+  // D213 — Feast of Succession makes the caster the MONARCH (no monarch
+  // concept anywhere); Finishing Move hands out {TK} tickets and a
+  // STICKER (no sticker concept either); Fire Prophecy may-puts a hand
+  // card on the bottom (Brainstorm's prompt).
+  ['Feast of Succession', 'monarch mechanic'],
+  ['Feign Death', 'temporary non-keyword ability grant'],
+  ['Finishing Move', 'sticker mechanic'],
+  ['Fire Prophecy', 'script-raised prompt'],
+  ['Firespout', 'mana-spent memory'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
