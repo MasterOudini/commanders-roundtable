@@ -816,6 +816,18 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Oboro Breezecaller', 'return-permanent cost'],
   ['Ogre Shaman', 'ctx.random'],
   ["Oketra's Last Mercy", 'untap restriction'],
+  // D230 — Ominous Sphinx names the DISCARD-EVENT DISCRIMINATOR: a
+  // discard is a bare hand-to-graveyard CardsMoved indistinguishable from
+  // a Tier-3 move (Graf Mole's sacrifice shape and Horizon Chimera's old
+  // draw shape, one verb over; the cycling half has nothing to watch at
+  // all). Open the Vaults returns AURAS, whose enchant-target choice is a
+  // prompt.
+  ['Ominous Sphinx', 'discard-event discriminator'],
+  ['Ondu War Cleric', 'tap-creatures cost'],
+  ['Open the Vaults', 'script-raised prompt'],
+  ['Order of Whiteclay', 'untap-symbol activation cost'],
+  ["Oread of Mountain's Blaze", 'discard-cost chooser'],
+  ['Organ Grinder', 'exile-from-graveyard cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

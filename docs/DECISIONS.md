@@ -15186,3 +15186,50 @@ batch.json 1,350 · botDeck: Adun reaches 1,668.
 **Reportables:** the perItem fan-out has now paid on draws and blocks —
 the remaining granularity ledger entries are each one def away; prior
 items stand.
+
+## D230 — M6.4bs: nineteen landed — the land that surveils and survives (2026-08-20)
+
+**Coverage: 2,972 → 2,991 of 31,692 (+19).** `SHIPPED_SCRIPTS` 1,075 →
+1,094; the ledger 393 → 399 (+6, ONE new class); the pool 1,350 →
+1,325; fixtures 1,316 (no new token pins — the Gnome and the 2/2
+Zombie were both VERIFIED as the pinned printings before a line was
+written). All 45 tests green on the FIRST run — the eighth
+first-run-clean batch.
+
+**The firsts:** `Ominous Asylum` is the ACTIVATED surveil land — {4}
+and the tap, NO sacrifice, and its test asserts the land SURVIVES its
+own ability tapped (the sac-draw lands' opposite). `One with
+Nothing` is the choiceless whole-hand discard as a SpellDef. `One
+with the Machine` draws the GREATEST mana value among my artifacts
+(the Gaze idiom on a draw). `Orcish Mechanics` and `Orcish Vandal`
+land ONE ability text on two oracle ids IN THE SAME BATCH (the Fisk
+precedent), each proven on its own id.
+
+**Also:** `Omenspeaker` carries Octoprophet's exact text (twin
+assert); `Onslaught` taps off my creature casts; `Open the Graves`
+pays a 2/2 Zombie per nontoken death and its own token's death pays
+nothing; `Orc Sureshot`'s entry pair debuffs the opponent;
+`Orcish Bloodpainter`'s creature chooser pings; `Ornamental
+Courage` untaps and pumps in one resolve; `Ornery Kudu` is the
+targeted -1/-1 counter; `Oltec Cloud Guard` (Gnome), `Onyx
+Goblet`, `Onyx Mage`, `Opportunity`, `Oracle's Restoration`
+(three riders), `Omashu City` and `Orzhov Cluestone` round out the
+twins.
+
+**Six refusals, ONE new class:** `Ominous Sphinx` names the
+DISCARD-EVENT DISCRIMINATOR — a discard is a bare hand-to-graveyard
+CardsMoved indistinguishable from a Tier-3 move (Graf Mole's sacrifice
+shape and Horizon Chimera's old draw shape, one verb over; the cycling
+half has nothing to watch at all). Open the Vaults returns AURAS,
+whose enchant-target choice is a prompt; plus tap-creatures, the
+untap-symbol cost, a discard-cost chooser and exile-from-graveyard.
+
+**Measured after landing:** primitives complete 2,991 · blocked 28,701 ·
+scriptableToday 2,062 · ladder [2062, 2161, 3954, 5868, 7080] · tier3
+silentAfter 3,402 / payable 5,075 · botPool creature 1,641 / instant
+546 / sorcery 402 / artifact 85 / enchantment 41 / land 276 ·
+batch.json 1,325 · botDeck: Adun reaches 1,682.
+
+**Reportables:** the discriminator family holds FOUR members (sacrifice,
+draw — closed by D189 — scry/surveil, discard): a typed-cause or marker
+design would sweep the remaining three; prior items stand.

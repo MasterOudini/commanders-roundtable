@@ -42251,6 +42251,655 @@ export const OLIVIA_S_WRATH: CardData = {
   "singleImage": true
 };
 
+export const OLTEC_CLOUD_GUARD: CardData = {
+  "scryfallId": "02d68a38-2e0b-401b-b67d-a55e2af5b18d",
+  "oracleId": "922a8e27-a367-40c6-84df-86ed32f71c7c",
+  "name": "Oltec Cloud Guard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Oltec Cloud Guard",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Flying\nWhen this creature enters, create a 1/1 colorless Gnome artifact creature token.",
+      "flavorText": "Many Oltec youth dream of one day joining the elite bat-riding cavalry of the Thousand Moons military force.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Evyn Fong",
+      "imageId": "02d68a38-2e0b-401b-b67d-a55e2af5b18d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "lci",
+  "collectorNumber": "28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OMASHU_CITY: CardData = {
+  "scryfallId": "c21e413b-96ed-4ded-b567-f1647074ce5f",
+  "oracleId": "6f9a4bb2-5959-4a5c-83af-c2729e6673df",
+  "name": "Omashu City",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Omashu City",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {R} or {G}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+      "flavorText": "\"The Earth Kingdom city of Omashu! I used to always come here to visit my friend Bumi.\"\n—Aang",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Andreas Rocha",
+      "imageId": "c21e413b-96ed-4ded-b567-f1647074ce5f"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tla",
+  "collectorNumber": "275",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OMENSPEAKER: CardData = {
+  "scryfallId": "1b635abe-ad7e-44b8-b3fe-6e365db87c29",
+  "oracleId": "43d7fcf3-acc2-4e9b-a466-c73b1b6c58af",
+  "name": "Omenspeaker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Omenspeaker",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "When this creature enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": "Her prophecies amaze her even as she speaks them.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Dallas Williams",
+      "imageId": "1b635abe-ad7e-44b8-b3fe-6e365db87c29"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "cmr",
+  "collectorNumber": "83",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OMINOUS_ASYLUM: CardData = {
+  "scryfallId": "371b03a1-7707-4a8a-8c0e-0272418c801f",
+  "oracleId": "676141c3-a433-4aba-86fb-729628f96dfa",
+  "name": "Ominous Asylum",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ominous Asylum",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {B} or {R}.\n{4}, {T}: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "371b03a1-7707-4a8a-8c0e-0272418c801f"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "om1",
+  "collectorNumber": "182",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ONE_WITH_NOTHING: CardData = {
+  "scryfallId": "5a5841fa-4f30-495a-b840-3ef5a2af8fad",
+  "oracleId": "ba995901-bb32-45ed-8af8-f98784b5a9b0",
+  "name": "One with Nothing",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "One with Nothing",
+      "manaCost": "{B}",
+      "typeLine": "Instant",
+      "oracleText": "Discard your hand.",
+      "flavorText": "When nothing remains, everything is equally possible.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jim Nelson",
+      "imageId": "5a5841fa-4f30-495a-b840-3ef5a2af8fad"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "sok",
+  "collectorNumber": "84",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ONE_WITH_THE_MACHINE: CardData = {
+  "scryfallId": "01719820-28d3-4f3a-bc5a-69c471378a43",
+  "oracleId": "757eadac-dd29-4a7f-8683-5bc823168326",
+  "name": "One with the Machine",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "One with the Machine",
+      "manaCost": "{3}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw cards equal to the greatest mana value among artifacts you control.",
+      "flavorText": "\"When I grafted the Planar Bridge into myself, I felt my Planeswalker spark flare beyond my body. The Multiverse was my plaything. It felt . . . incredible.\"\n—Tezzeret",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Chase Stone",
+      "imageId": "01719820-28d3-4f3a-bc5a-69c471378a43"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "pm19",
+  "collectorNumber": "66s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ONSLAUGHT: CardData = {
+  "scryfallId": "0afaf142-dbca-45bf-aea2-01c53bda635a",
+  "oracleId": "ae9ca82c-e07e-4a41-a387-0ef7d6df14b6",
+  "name": "Onslaught",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Onslaught",
+      "manaCost": "{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever you cast a creature spell, tap target creature.",
+      "flavorText": "The last thing to go through the mogg's mind was its teeth.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "0afaf142-dbca-45bf-aea2-01c53bda635a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "exo",
+  "collectorNumber": "92",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ONYX_GOBLET: CardData = {
+  "scryfallId": "3686eb57-e9c8-480f-8ab4-2894e1b5fe20",
+  "oracleId": "3e070d7a-6a1e-4cce-b196-73f4052c049c",
+  "name": "Onyx Goblet",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Onyx Goblet",
+      "manaCost": "{2}{B}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Target player loses 1 life.",
+      "flavorText": "The goblet was a gift from the sphinx Gorael, who hoped humans and vedalken would eventually destroy each other to acquire it, leaving all of Esper to her own kind.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "rk post",
+      "imageId": "3686eb57-e9c8-480f-8ab4-2894e1b5fe20"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ala",
+  "collectorNumber": "81",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ONYX_MAGE: CardData = {
+  "scryfallId": "eabd38e6-1e59-42d2-bd1a-555c77cf6747",
+  "oracleId": "8a398777-2fa5-4cac-adee-4582e59d410d",
+  "name": "Onyx Mage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Onyx Mage",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{1}{B}: Target creature you control gains deathtouch until end of turn. (Any amount of damage it deals to a creature is enough to destroy it.)",
+      "flavorText": "\"We wield death and darkness, powers that make lesser mages tremble in fear.\"\n—Onyx creed",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Izzy",
+      "imageId": "eabd38e6-1e59-42d2-bd1a-555c77cf6747"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m12",
+  "collectorNumber": "103",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OPEN_THE_GRAVES: CardData = {
+  "scryfallId": "11fedd76-ee35-4a17-8cdb-684414783df9",
+  "oracleId": "28778958-a1f9-4fea-b551-c193d1257f18",
+  "name": "Open the Graves",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Open the Graves",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever a nontoken creature you control dies, create a 2/2 black Zombie creature token.",
+      "flavorText": "It was a night like any other. It would soon become a night no one would ever forget.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Vincent Proce",
+      "imageId": "11fedd76-ee35-4a17-8cdb-684414783df9"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "scd",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OPPORTUNITY: CardData = {
+  "scryfallId": "00f6934f-2dd1-4715-9b7c-3ec59e8d083e",
+  "oracleId": "1f544a9f-c238-4858-be19-d6cd7d023dcc",
+  "name": "Opportunity",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Opportunity",
+      "manaCost": "{4}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Target player draws four cards.",
+      "flavorText": "\"He cocooned himself alone in his workshop for months. When he finally emerged, all broad grins and excited chatter, I knew he'd found his answer.\"\n—Barrin, master wizard",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ron Spears",
+      "imageId": "00f6934f-2dd1-4715-9b7c-3ec59e8d083e"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "brb",
+  "collectorNumber": "47",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ORACLE_S_RESTORATION: CardData = {
+  "scryfallId": "0863a19d-4511-4a78-98dd-d194afd1c39b",
+  "oracleId": "00e75a6b-699e-4824-86e5-66d45245cd9b",
+  "name": "Oracle's Restoration",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Oracle's Restoration",
+      "manaCost": "{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control gets +1/+1 until end of turn. You draw a card and gain 1 life.",
+      "flavorText": "Though the archaic had ravaged Titan's Grave and stolen Jadzi from safety, her compassion soothed its frenzy.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Elliot Lang",
+      "imageId": "0863a19d-4511-4a78-98dd-d194afd1c39b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "sos",
+  "collectorNumber": "156",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ORC_SURESHOT: CardData = {
+  "scryfallId": "1ec21f76-4bcb-4303-b5e8-f877adc6c632",
+  "oracleId": "c56726a6-d424-46a0-b3b3-2b44fbcbc63a",
+  "name": "Orc Sureshot",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Orc Sureshot",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Orc Archer",
+      "oracleText": "Whenever another creature you control enters, target creature an opponent controls gets -1/-1 until end of turn.",
+      "flavorText": "\"Words have yet to halt an arrow.\"",
+      "power": "4",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "1ec21f76-4bcb-4303-b5e8-f877adc6c632"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "FRF-78",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ORCISH_BLOODPAINTER: CardData = {
+  "scryfallId": "746eaf30-3ded-4a9f-a4ec-1925edcc8e94",
+  "oracleId": "259bba2f-8c68-4267-8f51-0b2144778653",
+  "name": "Orcish Bloodpainter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Orcish Bloodpainter",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Orc Shaman",
+      "oracleText": "{T}, Sacrifice a creature: This creature deals 1 damage to any target.",
+      "flavorText": "Blood calls to blood.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Alan Pollack",
+      "imageId": "746eaf30-3ded-4a9f-a4ec-1925edcc8e94"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "csp",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ORCISH_MECHANICS: CardData = {
+  "scryfallId": "5e34fc6b-5f00-4a22-9ee2-afc1caf99961",
+  "oracleId": "0ec58835-de2d-4064-89a9-f92db80bc276",
+  "name": "Orcish Mechanics",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Orcish Mechanics",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Orc",
+      "oracleText": "{T}, Sacrifice an artifact: This creature deals 2 damage to any target.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "5e34fc6b-5f00-4a22-9ee2-afc1caf99961"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "atq",
+  "collectorNumber": "27",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ORCISH_VANDAL: CardData = {
+  "scryfallId": "6192b4ea-f781-4c56-89bc-530f5388b6b5",
+  "oracleId": "933a1811-7e1a-4173-b1c9-34b2c858ba68",
+  "name": "Orcish Vandal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Orcish Vandal",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Orc Warrior",
+      "oracleText": "{T}, Sacrifice an artifact: This creature deals 2 damage to any target.",
+      "flavorText": "Every ancient relic is a weapon if you throw it hard enough.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Alex Konstad",
+      "imageId": "6192b4ea-f781-4c56-89bc-530f5388b6b5"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dom",
+  "collectorNumber": "137",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ORNAMENTAL_COURAGE: CardData = {
+  "scryfallId": "7ac40bb0-f594-4807-bb6d-3ac978945a49",
+  "oracleId": "1aaa85e1-4770-457f-a9af-3eeb56c71447",
+  "name": "Ornamental Courage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ornamental Courage",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Untap target creature. It gets +1/+3 until end of turn.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Anthony Palumbo",
+      "imageId": "7ac40bb0-f594-4807-bb6d-3ac978945a49"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "klr",
+  "collectorNumber": "173",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ORNERY_KUDU: CardData = {
+  "scryfallId": "7c3b11c6-339f-4d11-8aeb-ec38834ee188",
+  "oracleId": "8abef87a-4a5c-412e-8137-827cee50bb8b",
+  "name": "Ornery Kudu",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ornery Kudu",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Antelope",
+      "oracleText": "When this creature enters, put a -1/-1 counter on target creature you control.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Deruchenko Alexander",
+      "imageId": "7c3b11c6-339f-4d11-8aeb-ec38834ee188"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "akr",
+  "collectorNumber": "206",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ORZHOV_CLUESTONE: CardData = {
+  "scryfallId": "338ee065-a4a6-4120-b0bd-3e940f458294",
+  "oracleId": "09650a76-05c4-40a0-b861-d146b3ba87d6",
+  "name": "Orzhov Cluestone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Orzhov Cluestone",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {W} or {B}.\n{W}{B}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "A symbol of power and wealth, the only commodities that matter to the Orzhov.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Raoul Vitale",
+      "imageId": "338ee065-a4a6-4120-b0bd-3e940f458294"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "c15",
+  "collectorNumber": "261",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -45987,6 +46636,25 @@ export const ENGINE_CARDS: CardData[] = [
   OGGYAR_BATTLE_SEER,
   OGRE_ARSONIST,
   OLIVIA_S_WRATH,
+  OLTEC_CLOUD_GUARD,
+  OMASHU_CITY,
+  OMENSPEAKER,
+  OMINOUS_ASYLUM,
+  ONE_WITH_NOTHING,
+  ONE_WITH_THE_MACHINE,
+  ONSLAUGHT,
+  ONYX_GOBLET,
+  ONYX_MAGE,
+  OPEN_THE_GRAVES,
+  OPPORTUNITY,
+  ORACLE_S_RESTORATION,
+  ORC_SURESHOT,
+  ORCISH_BLOODPAINTER,
+  ORCISH_MECHANICS,
+  ORCISH_VANDAL,
+  ORNAMENTAL_COURAGE,
+  ORNERY_KUDU,
+  ORZHOV_CLUESTONE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

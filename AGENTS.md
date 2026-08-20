@@ -6389,6 +6389,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       and blocks; prior items stand.
 
 
+- [x] **M6.4bs — Nineteen landed: the land that surveils and survives
+      (2026-08-20):** **2,991 of 31,692 Commander-legal cards now execute
+      completely, up from 2,972.** `SHIPPED_SCRIPTS` 1,075 → 1,094;
+      ledger 399. All 45 tests first-run green — the eighth such batch.
+      Decisions in **D230**.
+      **The firsts:** Ominous Asylum (the ACTIVATED surveil land — no
+      sacrifice; the test asserts it SURVIVES tapped); One with Nothing
+      (the choiceless whole-hand discard); One with the Machine (the
+      greatest-MV draw); Orcish Mechanics + Orcish Vandal (ONE ability
+      text on two ids in the SAME batch — the Fisk precedent).
+      **Also:** Omenspeaker (Octoprophet's exact text); Onslaught
+      (creature-cast tap); Open the Graves (a Zombie per nontoken death;
+      its own token's death pays nothing); Orc Sureshot; Orcish
+      Bloodpainter; Ornamental Courage (untap + pump); Ornery Kudu;
+      Oltec Cloud Guard; Onyx Goblet / Mage; Opportunity; Oracle's
+      Restoration; Omashu City; Orzhov Cluestone.
+      ⚠️ **Six refusals, ONE new class:** the DISCARD-EVENT
+      DISCRIMINATOR (Ominous Sphinx) — the discriminator family's
+      fourth member.
+      Fixtures 1,316 (no new tokens — both VERIFIED reuses) · botPool
+      creature 1,641 / instant 546 / sorcery 402 / artifact 85 /
+      enchantment 41 / land 276 · ladder [2062, 2161, 3954, 5868,
+      7080] · batch.json 1,325 · botDeck: Adun reaches 1,682.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,173
+      files, 6,618 passed / 10 skipped · 500-seed gate
+      745.9 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D230): the discriminator family at four
+      members wants one typed-cause design; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

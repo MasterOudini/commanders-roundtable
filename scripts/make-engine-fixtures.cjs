@@ -1640,6 +1640,27 @@ const WANTED = [
   'Oggyar Battle-Seer',
   'Ogre Arsonist',
   "Olivia's Wrath",
+  // M6.4bs (D230) - batch 64: the activated surveil land, the Orcish
+  // twins landing together, and the choiceless wheel.
+  'Oltec Cloud Guard',
+  'Omashu City',
+  'Omenspeaker',
+  'Ominous Asylum',
+  'One with Nothing',
+  'One with the Machine',
+  'Onslaught',
+  'Onyx Goblet',
+  'Onyx Mage',
+  'Open the Graves',
+  'Opportunity',
+  "Oracle's Restoration",
+  'Orc Sureshot',
+  'Orcish Bloodpainter',
+  'Orcish Mechanics',
+  'Orcish Vandal',
+  'Ornamental Courage',
+  'Ornery Kudu',
+  'Orzhov Cluestone',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

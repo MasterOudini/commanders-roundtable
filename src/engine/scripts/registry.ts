@@ -7,6 +7,25 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { OLTEC_CLOUD_GUARD_SCRIPT } from './cards/oltecCloudGuard';
+import { OMASHU_CITY_SCRIPT } from './cards/omashuCity';
+import { OMENSPEAKER_SCRIPT } from './cards/omenspeaker';
+import { OMINOUS_ASYLUM_SCRIPT } from './cards/ominousAsylum';
+import { ONE_WITH_NOTHING_SCRIPT } from './cards/oneWithNothing';
+import { ONE_WITH_THE_MACHINE_SCRIPT } from './cards/oneWithTheMachine';
+import { ONSLAUGHT_SCRIPT } from './cards/onslaught';
+import { ONYX_GOBLET_SCRIPT } from './cards/onyxGoblet';
+import { ONYX_MAGE_SCRIPT } from './cards/onyxMage';
+import { OPEN_THE_GRAVES_SCRIPT } from './cards/openTheGraves';
+import { OPPORTUNITY_SCRIPT } from './cards/opportunity';
+import { ORACLES_RESTORATION_SCRIPT } from './cards/oraclesRestoration';
+import { ORC_SURESHOT_SCRIPT } from './cards/orcSureshot';
+import { ORCISH_BLOODPAINTER_SCRIPT } from './cards/orcishBloodpainter';
+import { ORCISH_MECHANICS_SCRIPT } from './cards/orcishMechanics';
+import { ORCISH_VANDAL_SCRIPT } from './cards/orcishVandal';
+import { ORNAMENTAL_COURAGE_SCRIPT } from './cards/ornamentalCourage';
+import { ORNERY_KUDU_SCRIPT } from './cards/orneryKudu';
+import { ORZHOV_CLUESTONE_SCRIPT } from './cards/orzhovCluestone';
 import { NO_WITNESSES_SCRIPT } from './cards/noWitnesses';
 import { NOBLE_STAND_SCRIPT } from './cards/nobleStand';
 import { NOBLE_STEEDS_SCRIPT } from './cards/nobleSteeds';
@@ -1196,6 +1215,25 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  OLTEC_CLOUD_GUARD_SCRIPT,
+  OMASHU_CITY_SCRIPT,
+  OMENSPEAKER_SCRIPT,
+  OMINOUS_ASYLUM_SCRIPT,
+  ONE_WITH_NOTHING_SCRIPT,
+  ONE_WITH_THE_MACHINE_SCRIPT,
+  ONSLAUGHT_SCRIPT,
+  ONYX_GOBLET_SCRIPT,
+  ONYX_MAGE_SCRIPT,
+  OPEN_THE_GRAVES_SCRIPT,
+  OPPORTUNITY_SCRIPT,
+  ORACLES_RESTORATION_SCRIPT,
+  ORC_SURESHOT_SCRIPT,
+  ORCISH_BLOODPAINTER_SCRIPT,
+  ORCISH_MECHANICS_SCRIPT,
+  ORCISH_VANDAL_SCRIPT,
+  ORNAMENTAL_COURAGE_SCRIPT,
+  ORNERY_KUDU_SCRIPT,
+  ORZHOV_CLUESTONE_SCRIPT,
   NO_WITNESSES_SCRIPT,
   NOBLE_STAND_SCRIPT,
   NOBLE_STEEDS_SCRIPT,
