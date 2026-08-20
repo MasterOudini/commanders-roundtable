@@ -1469,6 +1469,26 @@ const WANTED = [
   'Jaded Response',
   'Jagged Lightning',
   'Atogatog',
+  // M6.4bj (D221) - batch 55: the three-type wipe, the first SpellDef
+  // discard ask, and the fear grant.
+  'Jokulhaups',
+  'Jovial Evil',
+  'Joyous Respite',
+  'Judgment Bolt',
+  'Justice Strike',
+  "Kaervek's Hex",
+  'Kami of the Waning Moon',
+  "Kaya's Wrath",
+  'Keen Glidemaster',
+  'Keep Watch',
+  "Kiku's Shadow",
+  'Kindle',
+  'Kishla Village',
+  'Kiss of Death',
+  'Kiss of the Amesha',
+  'Landbind Ritual',
+  'Languish',
+  "Laquatus's Creativity",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -699,6 +699,17 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Isolation at Orthanc', 'library position placement'],
   ['Join Forces', 'up-to-N targeting'],
   ['Joint Assault', 'soulbond pairing'],
+  // D221 — Kaervek's Purge and Killing Glare bind their numeric
+  // qualifier to the CAST X (Blazing Hope's computed threshold); Lair
+  // Delve's rest goes to the bottom IN ANY ORDER — a real ordering
+  // choice (D141's rule), so it waits with the script prompts.
+  ["Kaervek's Purge", 'computed target threshold'],
+  ["Kami's Flare", 'modified predicate'],
+  ["Kefnet's Last Word", 'untap restriction'],
+  ['Killing Glare', 'computed target threshold'],
+  ["Kruphix's Insight", 'script-raised prompt'],
+  ['Lair Delve', 'script-raised prompt'],
+  ['Larder Zombie', 'tap-creatures cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

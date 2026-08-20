@@ -7,6 +7,24 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { JOKULHAUPS_SCRIPT } from './cards/jokulhaups';
+import { JOVIAL_EVIL_SCRIPT } from './cards/jovialEvil';
+import { JOYOUS_RESPITE_SCRIPT } from './cards/joyousRespite';
+import { JUDGMENT_BOLT_SCRIPT } from './cards/judgmentBolt';
+import { JUSTICE_STRIKE_SCRIPT } from './cards/justiceStrike';
+import { KAERVEKS_HEX_SCRIPT } from './cards/kaerveksHex';
+import { KAMI_OF_THE_WANING_MOON_SCRIPT } from './cards/kamiOfTheWaningMoon';
+import { KAYAS_WRATH_SCRIPT } from './cards/kayasWrath';
+import { KEEN_GLIDEMASTER_SCRIPT } from './cards/keenGlidemaster';
+import { KEEP_WATCH_SCRIPT } from './cards/keepWatch';
+import { KIKUS_SHADOW_SCRIPT } from './cards/kikusShadow';
+import { KINDLE_SCRIPT } from './cards/kindle';
+import { KISHLA_VILLAGE_SCRIPT } from './cards/kishlaVillage';
+import { KISS_OF_DEATH_SCRIPT } from './cards/kissOfDeath';
+import { KISS_OF_THE_AMESHA_SCRIPT } from './cards/kissOfTheAmesha';
+import { LANDBIND_RITUAL_SCRIPT } from './cards/landbindRitual';
+import { LANGUISH_SCRIPT } from './cards/languish';
+import { LAQUATUSS_CREATIVITY_SCRIPT } from './cards/laquatussCreativity';
 import { INSPIRATION_SCRIPT } from './cards/inspiration';
 import { INSPIRED_ULTIMATUM_SCRIPT } from './cards/inspiredUltimatum';
 import { INSPIRIT_SCRIPT } from './cards/inspirit';
@@ -1045,6 +1063,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  JOKULHAUPS_SCRIPT,
+  JOVIAL_EVIL_SCRIPT,
+  JOYOUS_RESPITE_SCRIPT,
+  JUDGMENT_BOLT_SCRIPT,
+  JUSTICE_STRIKE_SCRIPT,
+  KAERVEKS_HEX_SCRIPT,
+  KAMI_OF_THE_WANING_MOON_SCRIPT,
+  KAYAS_WRATH_SCRIPT,
+  KEEN_GLIDEMASTER_SCRIPT,
+  KEEP_WATCH_SCRIPT,
+  KIKUS_SHADOW_SCRIPT,
+  KINDLE_SCRIPT,
+  KISHLA_VILLAGE_SCRIPT,
+  KISS_OF_DEATH_SCRIPT,
+  KISS_OF_THE_AMESHA_SCRIPT,
+  LANDBIND_RITUAL_SCRIPT,
+  LANGUISH_SCRIPT,
+  LAQUATUSS_CREATIVITY_SCRIPT,
   INSPIRATION_SCRIPT,
   INSPIRED_ULTIMATUM_SCRIPT,
   INSPIRIT_SCRIPT,

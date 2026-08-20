@@ -6104,6 +6104,38 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       playbook one comparison over; prior items stand.
 
 
+- [x] **M6.4bj — Eighteen landed: the three-type wipe, and the first
+      SpellDef discard ask (2026-08-20):** **2,839 of 31,692
+      Commander-legal cards now execute completely, up from 2,821.**
+      `SHIPPED_SCRIPTS` 924 → 942; ledger 326. Decisions in **D221**.
+      ⚠️⚠️ **The headliner: Laquatus's Creativity is the first SpellDef
+      to raise the DISCARD prompt** — the target draws their hand's
+      worth, then the resolve emits D137's own `chooseFromZone` ask at
+      the TARGET, ask-last holding by construction. ⚠️ Its test taught
+      a keeper: `settle()` no-ops while a standing ask is up (the
+      stack is already empty) — advance until the awaiting clears.
+      **Also:** Jokulhaups (the three-type wipe, the damnation
+      tripwire's NINTH client); Justice Strike + Kiku's Shadow (Inner
+      Struggle's text on two more ids — a three-id self-bite family);
+      Kaya's Wrath (my kills only); Kishla Village (paid surveil at
+      #a1 behind the conditional tapped entry); Kami of the Waning
+      Moon (the FEAR grant); Kaervek's Hex (two color arms summed per
+      creature); Keep Watch (draws per attacker from the defender's
+      seat); Liturgy of Blood (paid through an indestructible miss).
+      One probe green (Kiss of Death's opponent-or-planeswalker
+      compound, restriction enforced).
+      ⚠️ **Seven refusals, no new classes.**
+      Fixtures 1,159 · botPool creature 1,585 / instant 511 / sorcery
+      365 / land 266 · ladder [2214, 2313, 4106, 6020, 7232] ·
+      batch.json 1,550 · botDeck: Adun reaches 1,600.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,021
+      files, 5,920 passed / 10 skipped · 500-seed gate
+      800.5 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D221): the SpellDef discard ask opens the
+      Mind-Rot-shaped family to scripts; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

@@ -14720,3 +14720,56 @@ sorcery 354 / artifact 80 · batch.json 1,575 · botDeck: Adun reaches
 **Reportables:** the numeric-exact widening is D139's playbook one
 comparison over (eq beside or-less/or-greater) and would drain its
 class; prior items stand.
+
+## D221 — M6.4bj: eighteen landed — the three-type wipe, and the first SpellDef discard ask (2026-08-20)
+
+**Coverage: 2,821 → 2,839 of 31,692 (+18).** `SHIPPED_SCRIPTS` 924 → 942;
+the ledger 319 → 326 (+7, no new classes); the pool 1,575 → 1,550;
+fixtures 1,141 → 1,159 (+18, no new tokens). One probe (Kiss of Death's
+'target opponent or planeswalker') came back GREEN — the compound
+parses with the opponent restriction ENFORCED on the player half.
+
+⚠️⚠️ **THE HEADLINER: `Laquatus's Creativity` is the first SpellDef to
+raise the DISCARD prompt.** The target draws their hand's worth, then
+the resolve emits the same `chooseFromZone` awaiting the effect
+vocabulary's discard has used since D137 — the ask lands on the TARGET,
+for n of the doubled hand, and the ask-last rule (D195) holds by
+construction. ⚠️ Its test taught a trap worth keeping: **`settle()`
+no-ops while a standing ask is up** (the stack is already empty), so a
+test that needs the driver's answer must `advanceUntil(awaiting ===
+null)` — the harness answers on the way.
+
+**Also:** `Jokulhaups` — the three-type wipe (artifacts, creatures,
+lands; the enchantment and the indestructible Myr stand) — joins the
+damnation tripwire as its NINTH client, its printed no-regeneration
+clause vacuous while the engine has none. `Justice Strike` and
+`Kiku's Shadow` land Inner Struggle's exact text on two more oracle
+ids — a three-id self-bite family in two batches. `Kaya's Wrath`
+counts only MY kills for its gain (Fumigate's rule on the Orzhov twin).
+`Kishla Village` puts the paid surveil at #a1 behind D135's
+conditional tapped entry (the mana line counts in the index — Fields
+of Strife's rule). `Looming-Spires`-style targeted land triggers
+continue next batch. `Kami of the Waning Moon` grants FEAR off the
+Spirit-or-Arcane cast watcher. `Kaervek's Hex` sums its two color
+arms per creature (green 2, white 1, black 0). `Judgment Bolt` reads
+my Equipment census at the victim's controller. `Keep Watch` draws
+per declared attacker from the defender's seat. `Kindle` and `Life
+Burst`-style cross-graveyard name censuses; `Liturgy of Blood` pays
+{B}{B}{B} through an indestructible miss; `Lavalanche`-style X fans
+arrive next batch; plus Jovial Evil's doubled census, Joyous Respite,
+Landbind Ritual, Languish, Kiss of Death, and Kiss of the Amesha.
+
+**Seven refusals, no new classes:** two computed thresholds (the
+numeric bound tied to the cast X), the modified predicate, an untap
+restriction, two script prompts (Lair Delve's bottom-in-any-order rest
+is D141's ordering choice), and a tap-creatures cost.
+
+**Measured after landing:** primitives complete 2,839 · blocked 28,853 ·
+scriptableToday 2,214 · ladder [2214, 2313, 4106, 6020, 7232] · tier3
+silentAfter 3,250 (+18 exact) · botPool creature 1,585 / instant 511 /
+sorcery 365 / land 266 · batch.json 1,550 · botDeck: Adun reaches
+1,600.
+
+**Reportables:** the SpellDef discard ask opens the Mind-Rot-shaped
+family to scripts (any draw-then-discard or punish-discard wording
+with the ask last); prior items stand.

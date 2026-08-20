@@ -37010,6 +37010,626 @@ export const ATOGATOG: CardData = {
   "singleImage": true
 };
 
+export const JOKULHAUPS: CardData = {
+  "scryfallId": "018ca0cc-9628-4035-9dab-2598ebc25b08",
+  "oracleId": "7bdfe368-353c-4f8d-851f-05b7ea9f905d",
+  "name": "Jokulhaups",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jokulhaups",
+      "manaCost": "{4}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all artifacts, creatures, and lands. They can't be regenerated.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mike Kerr",
+      "imageId": "018ca0cc-9628-4035-9dab-2598ebc25b08"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "prm",
+  "collectorNumber": "70942",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JOVIAL_EVIL: CardData = {
+  "scryfallId": "c993c74c-a574-423b-81c8-96b0a7a6e529",
+  "oracleId": "274c5367-f02e-44a0-be8a-5ed03c831bda",
+  "name": "Jovial Evil",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jovial Evil",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Jovial Evil deals X damage to target opponent, where X is twice the number of white creatures that player controls.",
+      "flavorText": "\"Today, for a lark, let's visit the plains. I'm sure we'll find something to entertain us.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Christopher Rush",
+      "imageId": "c993c74c-a574-423b-81c8-96b0a7a6e529"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "leg",
+  "collectorNumber": "109",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JOYOUS_RESPITE: CardData = {
+  "scryfallId": "1e33847f-fa55-4b2e-9d88-9a9e118b5cc8",
+  "oracleId": "8dbc1563-63b0-4a13-9fcc-bcd592015189",
+  "name": "Joyous Respite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Joyous Respite",
+      "manaCost": "{3}{G}",
+      "typeLine": "Sorcery — Arcane",
+      "oracleText": "You gain 1 life for each land you control.",
+      "flavorText": "\"I have been gifted by the kami with long life. So far, they have not seen fit to withdraw their gift. There may yet be a way to stop the killing without more blood, human or kami, being spilled.\"\n—Dosan the Falling Leaf",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "1e33847f-fa55-4b2e-9d88-9a9e118b5cc8"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "chk",
+  "collectorNumber": "216",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JUDGMENT_BOLT: CardData = {
+  "scryfallId": "05b04b06-9271-4a28-a60e-287df0d1a4d1",
+  "oracleId": "aad9f9f2-4c6b-48d0-80bd-77b73a9ea5f1",
+  "name": "Judgment Bolt",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Judgment Bolt",
+      "manaCost": "{3}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Judgment Bolt deals 5 damage to target creature and X damage to that creature's controller, where X is the number of Equipment you control.",
+      "flavorText": "\"I'm here to even the odds. Any objections?\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Billy Christian",
+      "imageId": "05b04b06-9271-4a28-a60e-287df0d1a4d1"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "fin",
+  "collectorNumber": "559",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JUSTICE_STRIKE: CardData = {
+  "scryfallId": "27619ce9-59df-4f0e-a5db-2d32a530e547",
+  "oracleId": "bc63e7ca-e62a-4026-803d-eecdbbedf3c6",
+  "name": "Justice Strike",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Justice Strike",
+      "manaCost": "{R}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature deals damage to itself equal to its power.",
+      "flavorText": "\"Those who show no mercy to the weak deserve no mercy from the strong.\"\n—Firemane Kavrova",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Clint Cearley",
+      "imageId": "27619ce9-59df-4f0e-a5db-2d32a530e547"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "grn",
+  "collectorNumber": "182",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KAERVEK_S_HEX: CardData = {
+  "scryfallId": "097910fb-7c48-4535-8ffc-b521d08294b0",
+  "oracleId": "7c69cb2b-14f1-4215-aba8-c107493c3036",
+  "name": "Kaervek's Hex",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kaervek's Hex",
+      "manaCost": "{3}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Kaervek's Hex deals 1 damage to each nonblack creature and an additional 1 damage to each green creature.",
+      "flavorText": "\"If the curse does not strike you dead, question your soul.\"\n—Kaervek",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Ian Miller",
+      "imageId": "097910fb-7c48-4535-8ffc-b521d08294b0"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "130",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KAMI_OF_THE_WANING_MOON: CardData = {
+  "scryfallId": "23a395a6-b1f5-4b7f-87cc-c77b4d497e9a",
+  "oracleId": "c42e3df9-b9e1-4b36-bc9d-05351f87d707",
+  "name": "Kami of the Waning Moon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kami of the Waning Moon",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nWhenever you cast a Spirit or Arcane spell, target creature gains fear until end of turn. (It can't be blocked except by artifact creatures and/or black creatures.)",
+      "flavorText": "\"For a moment, Reito's defenders regrouped. Then wailing kami reappeared to send them scattering like flocks of frightened birds.\"\n—*Great Battles of Kamigawa*",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Matt Thompson",
+      "imageId": "23a395a6-b1f5-4b7f-87cc-c77b4d497e9a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "chk",
+  "collectorNumber": "120",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KAYA_S_WRATH: CardData = {
+  "scryfallId": "20adee32-2144-44ad-a70c-ebfbda0900ec",
+  "oracleId": "bc8de6c7-c69d-4add-8f25-825d945874f9",
+  "name": "Kaya's Wrath",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kaya's Wrath",
+      "manaCost": "{W}{W}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures. You gain life equal to the number of creatures you controlled that were destroyed this way.",
+      "flavorText": "Teysa convened the meeting of the Obzedat. Kaya ended it.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Victor Adame Minguez",
+      "imageId": "20adee32-2144-44ad-a70c-ebfbda0900ec"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dmc",
+  "collectorNumber": "155",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KEEN_GLIDEMASTER: CardData = {
+  "scryfallId": "cce6289e-f665-4faa-8285-c843447f3e52",
+  "oracleId": "98deac9e-28ea-4d11-8d75-833bf6d66e6e",
+  "name": "Keen Glidemaster",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Keen Glidemaster",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{2}{U}: Target creature gains flying until end of turn.",
+      "flavorText": "\"Fear is a rational response, but waiting won't make it any easier. Just jump!\"",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Caroline Gariba",
+      "imageId": "cce6289e-f665-4faa-8285-c843447f3e52"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m21",
+  "collectorNumber": "54",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KEEP_WATCH: CardData = {
+  "scryfallId": "6e702ee4-62b5-4d3b-a202-8cac4b84591c",
+  "oracleId": "847b5be5-cb0c-4857-bcd9-c5cfe55fdaeb",
+  "name": "Keep Watch",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Keep Watch",
+      "manaCost": "{2}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Draw a card for each attacking creature.",
+      "flavorText": "\"I see their moral dilemmas. I see their raw courage. I see their self-sacrifice. I see our victory.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Fred Rahmqvist",
+      "imageId": "6e702ee4-62b5-4d3b-a202-8cac4b84591c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "jud",
+  "collectorNumber": "43",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KIKU_S_SHADOW: CardData = {
+  "scryfallId": "38700c7d-2f24-47e4-a899-d294daed5549",
+  "oracleId": "ce1678a1-441a-4303-a83a-d7d138b366fd",
+  "name": "Kiku's Shadow",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kiku's Shadow",
+      "manaCost": "{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature deals damage to itself equal to its power.",
+      "flavorText": "\"Me? No, I'm not going to kill you. I won't even lay a finger on you. I promise.\"\n—Kiku, Night's Flower",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "38700c7d-2f24-47e4-a899-d294daed5549"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "sok",
+  "collectorNumber": "77",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KINDLE: CardData = {
+  "scryfallId": "49ab00d1-7242-4509-a9db-59d4edb2e654",
+  "oracleId": "9397a23b-770a-43fc-8bc2-2c3abb0683c5",
+  "name": "Kindle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kindle",
+      "manaCost": "{1}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Kindle deals X damage to any target, where X is 2 plus the number of cards named Kindle in all graveyards.",
+      "flavorText": "Hope of deliverance is scorched by the fire of futility.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Donato Giancola",
+      "imageId": "49ab00d1-7242-4509-a9db-59d4edb2e654"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tpr",
+  "collectorNumber": "137",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KISHLA_VILLAGE: CardData = {
+  "scryfallId": "0bdb0021-0035-49dc-b9f0-0d9926b9de24",
+  "oracleId": "4eb428ab-f5b0-46ca-98dd-b3466a91ef97",
+  "name": "Kishla Village",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kishla Village",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped unless you control an Island or a Swamp.\n{T}: Add {G}.\n{3}{G}, {T}: Surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Bruce Brenneise",
+      "imageId": "0bdb0021-0035-49dc-b9f0-0d9926b9de24"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "ptdm",
+  "collectorNumber": "259s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KISS_OF_DEATH: CardData = {
+  "scryfallId": "bf6832c1-a0a9-49ec-a787-879e510aee08",
+  "oracleId": "c2c25406-e84a-47b0-8a46-fe60f9b0cffa",
+  "name": "Kiss of Death",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kiss of Death",
+      "manaCost": "{4}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Kiss of Death deals 4 damage to target opponent or planeswalker. You gain 4 life.",
+      "flavorText": "\"I'd sooner lock lips with a viper. At least I might walk away from *that*.\"\n—Elvish scout",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Melissa A. Benson",
+      "imageId": "bf6832c1-a0a9-49ec-a787-879e510aee08"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "p02",
+  "collectorNumber": "76",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KISS_OF_THE_AMESHA: CardData = {
+  "scryfallId": "25dc0ced-d789-461a-8e1c-96212a39351f",
+  "oracleId": "779d3e58-de06-44be-98f8-f05f7711ecb2",
+  "name": "Kiss of the Amesha",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kiss of the Amesha",
+      "manaCost": "{4}{W}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player gains 7 life and draws two cards.",
+      "flavorText": "Once a year, Akrasa holds a joust that draws knights and their leotaus from every nation on Bant. The prize is an Akrasan sigil, but the true reward is the angel's kiss.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Todd Lockwood",
+      "imageId": "25dc0ced-d789-461a-8e1c-96212a39351f"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "BBD-225",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LANDBIND_RITUAL: CardData = {
+  "scryfallId": "245357c6-b4cd-40f3-b7c2-413eee767239",
+  "oracleId": "63500b81-8fac-4208-91d3-0fe642899d87",
+  "name": "Landbind Ritual",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Landbind Ritual",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "You gain 2 life for each Plains you control.",
+      "flavorText": "\"Honor this place, for our children's children will stand here and speak these same words again.\"\n—Ayli, Kamsa cleric",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "245357c6-b4cd-40f3-b7c2-413eee767239"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "zen",
+  "collectorNumber": "24",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LANGUISH: CardData = {
+  "scryfallId": "69923060-9015-41ea-91ad-f3252ba25c85",
+  "oracleId": "ef1a83f2-6707-41a2-b5ed-861c8e45ae07",
+  "name": "Languish",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Languish",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "All creatures get -4/-4 until end of turn.",
+      "flavorText": "Life is such a fragile thing.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jeff Simpson",
+      "imageId": "69923060-9015-41ea-91ad-f3252ba25c85"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "pori",
+  "collectorNumber": "105",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LAQUATUS_S_CREATIVITY: CardData = {
+  "scryfallId": "dcd48c28-bfa3-4eca-8e1a-f72d785b2ab9",
+  "oracleId": "d4a73cee-659b-4e1a-8821-a8d0a31c749f",
+  "name": "Laquatus's Creativity",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Laquatus's Creativity",
+      "manaCost": "{4}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player draws cards equal to the number of cards in their hand, then discards that many cards.",
+      "flavorText": "One never knows when inspiration will bubble up.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Don Hazeltine",
+      "imageId": "dcd48c28-bfa3-4eca-8e1a-f72d785b2ab9"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "88",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -40462,6 +41082,24 @@ export const ENGINE_CARDS: CardData[] = [
   JADED_RESPONSE,
   JAGGED_LIGHTNING,
   ATOGATOG,
+  JOKULHAUPS,
+  JOVIAL_EVIL,
+  JOYOUS_RESPITE,
+  JUDGMENT_BOLT,
+  JUSTICE_STRIKE,
+  KAERVEK_S_HEX,
+  KAMI_OF_THE_WANING_MOON,
+  KAYA_S_WRATH,
+  KEEN_GLIDEMASTER,
+  KEEP_WATCH,
+  KIKU_S_SHADOW,
+  KINDLE,
+  KISHLA_VILLAGE,
+  KISS_OF_DEATH,
+  KISS_OF_THE_AMESHA,
+  LANDBIND_RITUAL,
+  LANGUISH,
+  LAQUATUS_S_CREATIVITY,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
