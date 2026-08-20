@@ -14666,3 +14666,57 @@ sorcery 347 · batch.json 1,600 · botDeck: Adun reaches 1,582.
 **Reportables:** the counterspell-with-rider family now has four
 members (Essence Backlash, Illumination, Ionize, Jaded Response) — a
 family-table candidate; prior items stand.
+
+## D220 — M6.4bi: sixteen landed — the control theft, and the numeric qualifier's EXACT hole (2026-08-20)
+
+**Coverage: 2,805 → 2,821 of 31,692 (+16).** `SHIPPED_SCRIPTS` 908 → 924;
+the ledger 311 → 319 (+8, THREE new classes); the pool 1,600 → 1,575;
+fixtures 1,124 → 1,141 (+17: the sixteen plus `Atogatog` as the
+five-color body). All 47 tests green on the FIRST run — the fourth
+first-run-clean batch in five.
+
+⚠️ **The Isolate probe found the numeric family's fourth hole:** 'Exile
+target permanent with mana value 1.' parses CONFIDENT to a plain
+'target permanent' with the EXACT-value qualifier silently dropped —
+D139 built 'or less' and 'or greater' and nothing reads equality. The
+aim would offer ANY permanent for a mv-1-only exile. Pulled on the
+probe; 'spell target parse (numeric exact)' is a NEW class. The other
+three probes were green: the comma-joined two-spec Ultimatum sentence,
+the 'artifact or creature' pair, and 'each of two target creatures'
+(min2/max2) all parse enforced.
+
+**The firsts.** `Invoke the Winds` is the control gift pointed at
+MYSELF — Donate's ControlChanged with the caster as the receiver, plus
+the untap, and the control holds into the next turn (asserted).
+`Invincible Hymn` sets my life TO my library count (the computed-delta
+set at its largest swing). `Ionize` is the counter-with-burn twin of
+D219's Illumination; `Jaded Response`'s color-share sibling landed a
+batch earlier — the family grows. `Iridian Maelstrom` exempts ALL-five-
+colors (Atogatog rides it out). `Hurricane`-after-`Squall Line`
+continues in `Jagged Lightning`'s counted pair (3 to each of two).
+`Into the Core` is Dust to Dust's exact text; `Iron Lance` Fyndhorn
+Bow's; `Justice-Strike`-era self-bites continue next batch. `Ixalli's
+Keeper` pays {7}{G}, the tap, and ITSELF for a +5/+5 trample grant.
+Plus Inspiration, Inspired Ultimatum's three riders, Inspirit's
+untap+pump, Inundate's nonblue bounce-wipe, Invigorating Falls'
+cross-graveyard gain, Ire of Kaminari's Arcane census, and Irradiate's
+artifact-count debuff.
+
+**Eight refusals, THREE new classes:** `Ironhoof Boar` names the
+HAND-ACTIVATED ability (channel — an activated cost paid from a zone
+legal.ts never offers from, Halo Scarab's gap one zone over);
+`Isildur's Fateful Strike` names the CAST-PERMISSION condition (a
+legendary instant castable only behind a legendary body — a permission
+nothing checks); `Joint Assault` names SOULBOND pairing (no paired
+state exists anywhere). Plus Isolate's numeric-exact, two up-to-Ns,
+amass, a script prompt, and library position placement.
+
+**Measured after landing:** primitives complete 2,821 · blocked 28,871 ·
+scriptableToday 2,232 · ladder [2232, 2331, 4124, 6038, 7250] · tier3
+silentAfter 3,232 (+16 exact) · botPool creature 1,583 / instant 507 /
+sorcery 354 / artifact 80 · batch.json 1,575 · botDeck: Adun reaches
+1,589.
+
+**Reportables:** the numeric-exact widening is D139's playbook one
+comparison over (eq beside or-less/or-greater) and would drain its
+class; prior items stand.

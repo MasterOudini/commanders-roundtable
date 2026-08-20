@@ -36414,6 +36414,602 @@ export const INQUISITION: CardData = {
   "singleImage": true
 };
 
+export const INSPIRATION: CardData = {
+  "scryfallId": "1374df24-bcff-45eb-a2fd-2f39439c9e6a",
+  "oracleId": "8f32ceb2-92c2-4dde-bf73-40bb79c3fcef",
+  "name": "Inspiration",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Inspiration",
+      "manaCost": "{3}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Target player draws two cards.",
+      "flavorText": "\"Madness and genius are separated only by degrees of success.\"\n—Sidar Jabari",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Zina Saunders",
+      "imageId": "1374df24-bcff-45eb-a2fd-2f39439c9e6a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "6ed",
+  "collectorNumber": "76",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INSPIRED_ULTIMATUM: CardData = {
+  "scryfallId": "0d822363-3705-41b9-b5e6-8e6ea8eb4131",
+  "oracleId": "76ca315a-4979-4fda-8d3f-b7f4e5d3a622",
+  "name": "Inspired Ultimatum",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Inspired Ultimatum",
+      "manaCost": "{U}{U}{R}{R}{R}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player gains 5 life, Inspired Ultimatum deals 5 damage to any target, then you draw five cards.",
+      "flavorText": "\"Inner peace is wonderful, and worth striving for. Outer peace is much less important.\"\n—Taelya, Lavabrink pyromage",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U",
+        "W"
+      ],
+      "artist": "Tyler Jacobson",
+      "imageId": "0d822363-3705-41b9-b5e6-8e6ea8eb4131"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U",
+    "W"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "piko",
+  "collectorNumber": "191s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INSPIRIT: CardData = {
+  "scryfallId": "55e0e300-db79-4328-ba1d-9c3910e47f52",
+  "oracleId": "90fd82e8-f638-4ba4-a03c-a30d46f93a39",
+  "name": "Inspirit",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Inspirit",
+      "manaCost": "{2}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Untap target creature. It gets +2/+4 until end of turn.",
+      "flavorText": "\"We will force the Cabal into their own pits!\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Keith Garletts",
+      "imageId": "55e0e300-db79-4328-ba1d-9c3910e47f52"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ons",
+  "collectorNumber": "41",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INTO_THE_CORE: CardData = {
+  "scryfallId": "9cb91ecb-1962-4cd1-80c1-c9e2485822ae",
+  "oracleId": "ad08ad3a-bc58-43da-b7f3-4a478132da8a",
+  "name": "Into the Core",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Into the Core",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Exile two target artifacts.",
+      "flavorText": "\"They believe they're driving us back, but we're leading them to their doom.\"\n—Kethek, furnace stoker",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Whit Brachna",
+      "imageId": "9cb91ecb-1962-4cd1-80c1-c9e2485822ae"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mbs",
+  "collectorNumber": "67",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INUNDATE: CardData = {
+  "scryfallId": "d5047c92-2885-4a7b-b51f-f3e093dca5ad",
+  "oracleId": "0390a3dc-386c-402f-a89c-b94867bfb0a2",
+  "name": "Inundate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Inundate",
+      "manaCost": "{3}{U}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Return all nonblue creatures to their owners' hands.",
+      "flavorText": "\"For years, the landfolk have emptied their refuse into the waters. It's time to return the favor.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "d5047c92-2885-4a7b-b51f-f3e093dca5ad"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "eve",
+  "collectorNumber": "25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INVIGORATING_FALLS: CardData = {
+  "scryfallId": "ec74e797-390e-4ebd-a53b-098ef3edd7d1",
+  "oracleId": "c5c98759-e009-4340-9326-9f5ff70a86bc",
+  "name": "Invigorating Falls",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Invigorating Falls",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "You gain life equal to the number of creature cards in all graveyards.",
+      "flavorText": "Krosan druids do not fear death, for they know that nature will only prosper from their passing.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "ec74e797-390e-4ebd-a53b-098ef3edd7d1"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "tor",
+  "collectorNumber": "128",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INVINCIBLE_HYMN: CardData = {
+  "scryfallId": "712c64bc-ba0c-4bab-9329-54805f4efa8a",
+  "oracleId": "cc7d99e8-f9dc-47d3-b6c0-e9308d33c3c0",
+  "name": "Invincible Hymn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Invincible Hymn",
+      "manaCost": "{6}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Count the number of cards in your library. Your life total becomes that number.",
+      "flavorText": "Bantians believe those who are born into the highest caste and live a life of discipline and virtue can ascend to become angels.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Matt Stewart",
+      "imageId": "712c64bc-ba0c-4bab-9329-54805f4efa8a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 8,
+  "keywords": [],
+  "setCode": "ala",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INVOKE_THE_WINDS: CardData = {
+  "scryfallId": "2945329b-caf5-4c49-b2a6-d5160609ba0d",
+  "oracleId": "721c3255-953c-49cd-a5dd-852c3d09eae4",
+  "name": "Invoke the Winds",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Invoke the Winds",
+      "manaCost": "{1}{U}{U}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Gain control of target artifact or creature. Untap it.",
+      "flavorText": "\"Are you seriously telling me your heavy combat mech . . . blew away?\"\n—Risona, leader of the Asari Uprisers",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Olivier Bernard",
+      "imageId": "2945329b-caf5-4c49-b2a6-d5160609ba0d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "pneo",
+  "collectorNumber": "58p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IONIZE: CardData = {
+  "scryfallId": "0b9dacdb-f9df-41e5-97ea-11dfa37f1b49",
+  "oracleId": "01da67a5-e3dc-44f4-8a93-513bfa4d8fbc",
+  "name": "Ionize",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ionize",
+      "manaCost": "{1}{U}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target spell. Ionize deals 2 damage to that spell's controller.",
+      "flavorText": "\"Countermagic is a simple process of breaking matter into its elementary particles.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Chase Stone",
+      "imageId": "0b9dacdb-f9df-41e5-97ea-11dfa37f1b49"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pgrn",
+  "collectorNumber": "179p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IRE_OF_KAMINARI: CardData = {
+  "scryfallId": "0b927e30-3508-4daf-91ce-8978b04062cb",
+  "oracleId": "4870ec65-8067-45fb-b7ec-a6eca87c7e77",
+  "name": "Ire of Kaminari",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ire of Kaminari",
+      "manaCost": "{3}{R}",
+      "typeLine": "Instant — Arcane",
+      "oracleText": "Ire of Kaminari deals damage to any target equal to the number of Arcane cards in your graveyard.",
+      "flavorText": "\"Thunder broke the brittle silence over the Araba. A surge of raw energy lifted the soldier's body into the air and briefly, in the heart of the flash, he saw the face of a god.\"\n—*Great Battles of Kamigawa*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "0b927e30-3508-4daf-91ce-8978b04062cb"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "bok",
+  "collectorNumber": "109",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IRIDIAN_MAELSTROM: CardData = {
+  "scryfallId": "38fe90c6-1fdd-49d0-9493-ae148a9a835e",
+  "oracleId": "92cc43e5-782f-4540-bc60-3d18f357caf3",
+  "name": "Iridian Maelstrom",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Iridian Maelstrom",
+      "manaCost": "{W}{U}{B}{R}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy each creature that isn't all colors.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "artist": "Justyna Dura",
+      "imageId": "38fe90c6-1fdd-49d0-9493-ae148a9a835e"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "dmc",
+  "collectorNumber": "88",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IRON_LANCE: CardData = {
+  "scryfallId": "41f7d212-faf2-4a6f-a338-d9e5014b56d5",
+  "oracleId": "09e588c2-0fb8-4c30-aff3-433db7a07b6e",
+  "name": "Iron Lance",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Iron Lance",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "{3}, {T}: Target creature gains first strike until end of turn.",
+      "flavorText": "\"The only way to get Mercadians to fight on the front lines is to give them really long weapons.\"\n—Gerrard",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Scott M. Fischer",
+      "imageId": "41f7d212-faf2-4a6f-a338-d9e5014b56d5"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "300",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IRRADIATE: CardData = {
+  "scryfallId": "7e0460cf-ff87-4cf8-89b5-a8b9fb7322e0",
+  "oracleId": "84d45389-a085-44bc-a3fb-1a5f7cc6cbe0",
+  "name": "Irradiate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Irradiate",
+      "manaCost": "{3}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets -1/-1 until end of turn for each artifact you control.",
+      "flavorText": "The blast ignores the cage of metal but devours the flesh inside.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dave Dorman",
+      "imageId": "7e0460cf-ff87-4cf8-89b5-a8b9fb7322e0"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mrd",
+  "collectorNumber": "67",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IXALLI_S_KEEPER: CardData = {
+  "scryfallId": "e5b98537-abf4-46cb-853f-9561811ab439",
+  "oracleId": "183e2796-2fc1-4f0e-b1be-95285d2ea046",
+  "name": "Ixalli's Keeper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ixalli's Keeper",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "{7}{G}, {T}, Sacrifice this creature: Target creature gets +5/+5 and gains trample until end of turn.",
+      "flavorText": "The people of the Sun Empire worship the sun in three aspects. Ixalli is the Verdant Sun, who fosters growth in all things.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Lake Hurwitz",
+      "imageId": "e5b98537-abf4-46cb-853f-9561811ab439"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "xln",
+  "collectorNumber": "193",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JADED_RESPONSE: CardData = {
+  "scryfallId": "6a9ab1f0-4e75-4165-85bc-6f838c221d6a",
+  "oracleId": "23917517-7561-45b3-b156-77cd2f340466",
+  "name": "Jaded Response",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jaded Response",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target spell if it shares a color with a creature you control.",
+      "flavorText": "\"Calm down everyone; it's nothing we haven't seen before.\"\n—Sisay",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Matt Cavotta",
+      "imageId": "6a9ab1f0-4e75-4165-85bc-6f838c221d6a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "apc",
+  "collectorNumber": "26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JAGGED_LIGHTNING: CardData = {
+  "scryfallId": "148e6704-9cf0-45cf-9bab-db318c016593",
+  "oracleId": "b5d5cfc0-17e0-42d1-b5bd-9f27b11191f9",
+  "name": "Jagged Lightning",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jagged Lightning",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Jagged Lightning deals 3 damage to each of two target creatures.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Michael Weaver",
+      "imageId": "148e6704-9cf0-45cf-9bab-db318c016593"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "p02",
+  "collectorNumber": "106",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ATOGATOG: CardData = {
+  "scryfallId": "4a3e6eb5-6d0f-4f82-86f9-bbce8d27afbb",
+  "oracleId": "b9fdb740-e5d7-4464-b378-2e0514ca28d8",
+  "name": "Atogatog",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Atogatog",
+      "manaCost": "{W}{U}{B}{R}{G}",
+      "typeLine": "Legendary Creature — Atog",
+      "oracleText": "Sacrifice an Atog creature: Atogatog gets +X/+X until end of turn, where X is the sacrificed creature's power.",
+      "flavorText": "It relishes old-fashioned family meals.",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "artist": "Ron Spears",
+      "imageId": "4a3e6eb5-6d0f-4f82-86f9-bbce8d27afbb"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "286",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -39849,6 +40445,23 @@ export const ENGINE_CARDS: CardData[] = [
   INNER_FIRE,
   INNER_STRUGGLE,
   INQUISITION,
+  INSPIRATION,
+  INSPIRED_ULTIMATUM,
+  INSPIRIT,
+  INTO_THE_CORE,
+  INUNDATE,
+  INVIGORATING_FALLS,
+  INVINCIBLE_HYMN,
+  INVOKE_THE_WINDS,
+  IONIZE,
+  IRE_OF_KAMINARI,
+  IRIDIAN_MAELSTROM,
+  IRON_LANCE,
+  IRRADIATE,
+  IXALLI_S_KEEPER,
+  JADED_RESPONSE,
+  JAGGED_LIGHTNING,
+  ATOGATOG,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

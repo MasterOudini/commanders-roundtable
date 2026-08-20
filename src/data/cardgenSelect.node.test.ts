@@ -682,6 +682,23 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Imposing Grandeur', 'script-raised prompt'],
   ['In the Presence of Ages', 'script-raised prompt'],
   ['Incite Hysteria', 'quoted-ability temporary grant'],
+  // D220 — Ironhoof Boar CHANNELS (an activated cost paid from HAND, a
+  // zone legal.ts never offers from — Halo Scarab's gap one zone over,
+  // a NEW class); Isildur's Fateful Strike is a LEGENDARY INSTANT
+  // (castable only behind a legendary body — a cast permission nothing
+  // checks, NEW); Joint Assault reads soulbond pairing (no paired
+  // state exists, NEW); Isolate PROBED — 'with mana value 1' parses
+  // confident with the EXACT-value qualifier silently dropped (D139
+  // built or-less/or-greater only), the numeric family's fourth hole.
+  ['Interpret the Signs', 'script-raised prompt'],
+  ['Into the Void', 'up-to-N targeting'],
+  ['Invade the City', 'amass mechanic'],
+  ['Ironhoof Boar', 'hand-activated ability'],
+  ["Isildur's Fateful Strike", 'cast-permission condition'],
+  ['Isolate', 'spell target parse (numeric exact)'],
+  ['Isolation at Orthanc', 'library position placement'],
+  ['Join Forces', 'up-to-N targeting'],
+  ['Joint Assault', 'soulbond pairing'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

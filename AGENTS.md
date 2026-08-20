@@ -6073,6 +6073,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       table candidate at four members; prior items stand.
 
 
+- [x] **M6.4bi — Sixteen landed: the control theft, and the numeric
+      qualifier's EXACT hole (2026-08-20):** **2,821 of 31,692
+      Commander-legal cards now execute completely, up from 2,805.**
+      `SHIPPED_SCRIPTS` 908 → 924; ledger 319. All 47 tests first-run
+      green — the fourth such batch in five. Decisions in **D220**.
+      ⚠️ **The Isolate probe found the numeric family's fourth hole:**
+      'with mana value 1' parses confident with the EXACT-value
+      qualifier silently dropped (D139 built or-less/or-greater;
+      equality is unread). Pulled; 'spell target parse (numeric exact)'
+      is a NEW class. The other three probes were green.
+      **Firsts:** the control gift pointed at MYSELF (Invoke the
+      Winds — ControlChanged to the caster, control holds across
+      turns); the life SET to a library count (Invincible Hymn); the
+      counter-with-burn (Ionize, Illumination's twin); the all-colors
+      exemption (Iridian Maelstrom — Atogatog joins WANTED); the
+      sacrifice-self pump grant (Ixalli's Keeper); Dust to Dust's and
+      Fyndhorn Bow's texts on second ids (Into the Core, Iron Lance).
+      ⚠️ **Eight refusals, THREE new classes:** hand-activated ability
+      (channel), cast-permission condition (legendary instant),
+      soulbond pairing.
+      Fixtures 1,141 · botPool creature 1,583 / instant 507 / sorcery
+      354 / artifact 80 · ladder [2232, 2331, 4124, 6038, 7250] ·
+      batch.json 1,575 · botDeck: Adun reaches 1,589.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,003
+      files, 5,833 passed / 10 skipped · 500-seed gate
+      777.0 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D220): the numeric-exact widening is D139's
+      playbook one comparison over; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

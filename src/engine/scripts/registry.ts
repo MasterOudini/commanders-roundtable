@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { INSPIRATION_SCRIPT } from './cards/inspiration';
+import { INSPIRED_ULTIMATUM_SCRIPT } from './cards/inspiredUltimatum';
+import { INSPIRIT_SCRIPT } from './cards/inspirit';
+import { INTO_THE_CORE_SCRIPT } from './cards/intoTheCore';
+import { INUNDATE_SCRIPT } from './cards/inundate';
+import { INVIGORATING_FALLS_SCRIPT } from './cards/invigoratingFalls';
+import { INVINCIBLE_HYMN_SCRIPT } from './cards/invincibleHymn';
+import { INVOKE_THE_WINDS_SCRIPT } from './cards/invokeTheWinds';
+import { IONIZE_SCRIPT } from './cards/ionize';
+import { IRE_OF_KAMINARI_SCRIPT } from './cards/ireOfKaminari';
+import { IRIDIAN_MAELSTROM_SCRIPT } from './cards/iridianMaelstrom';
+import { IRON_LANCE_SCRIPT } from './cards/ironLance';
+import { IRRADIATE_SCRIPT } from './cards/irradiate';
+import { IXALLIS_KEEPER_SCRIPT } from './cards/ixallisKeeper';
+import { JADED_RESPONSE_SCRIPT } from './cards/jadedResponse';
+import { JAGGED_LIGHTNING_SCRIPT } from './cards/jaggedLightning';
 import { HYSTERICAL_BLINDNESS_SCRIPT } from './cards/hystericalBlindness';
 import { ICATIAN_SCOUT_SCRIPT } from './cards/icatianScout';
 import { ICEQUAKE_SCRIPT } from './cards/icequake';
@@ -1029,6 +1045,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  INSPIRATION_SCRIPT,
+  INSPIRED_ULTIMATUM_SCRIPT,
+  INSPIRIT_SCRIPT,
+  INTO_THE_CORE_SCRIPT,
+  INUNDATE_SCRIPT,
+  INVIGORATING_FALLS_SCRIPT,
+  INVINCIBLE_HYMN_SCRIPT,
+  INVOKE_THE_WINDS_SCRIPT,
+  IONIZE_SCRIPT,
+  IRE_OF_KAMINARI_SCRIPT,
+  IRIDIAN_MAELSTROM_SCRIPT,
+  IRON_LANCE_SCRIPT,
+  IRRADIATE_SCRIPT,
+  IXALLIS_KEEPER_SCRIPT,
+  JADED_RESPONSE_SCRIPT,
+  JAGGED_LIGHTNING_SCRIPT,
   HYSTERICAL_BLINDNESS_SCRIPT,
   ICATIAN_SCOUT_SCRIPT,
   ICEQUAKE_SCRIPT,

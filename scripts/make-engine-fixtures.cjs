@@ -1450,6 +1450,25 @@ const WANTED = [
   'Inner Fire',
   'Inner Struggle',
   'Inquisition',
+  // M6.4bi (D220) - batch 54: the control theft, the counter that
+  // burns, and the all-colors exemption.
+  'Inspiration',
+  'Inspired Ultimatum',
+  'Inspirit',
+  'Into the Core',
+  'Inundate',
+  'Invigorating Falls',
+  'Invincible Hymn',
+  'Invoke the Winds',
+  'Ionize',
+  'Ire of Kaminari',
+  'Iridian Maelstrom',
+  'Iron Lance',
+  'Irradiate',
+  "Ixalli's Keeper",
+  'Jaded Response',
+  'Jagged Lightning',
+  'Atogatog',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
