@@ -5637,6 +5637,39 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       prior items stand.
 
 
+- [x] **M6.4au — Fifteen landed: the wheels, the snow sweep, and the
+      shadow grants (2026-08-20):** **2,594 of 31,692 Commander-legal
+      cards now execute completely, up from 2,579.** `SHIPPED_SCRIPTS`
+      682 → 697; ledger 197. All 43 new tests green on the FIRST run —
+      the batch was drafted OUT-OF-TREE against dumped texts while gate
+      53 ran, then ported whole. Decisions in **D206**.
+      **Firsts:** the wheels (Dark Deal's per-player minus-one counted
+      BEFORE the moves; Dangerous Wager); the SNOW sweep (Dead of
+      Winter — X off derived supertypes, the surviving 6/6's derived
+      power pinning X exactly); the per-player wipe rider (Deadly
+      Tempest); the two-type wipe + draw (Death Begets Life); the
+      CERTAIN DEATH rider precedent (Death's Caress — the Human check
+      is NOT destroyed-this-way, read pre-move); the first SHADOW
+      grants (both Dauthis — the Embrace is enchantment THIRTY-TWO);
+      Darksteel Pendant's scry 1 at #a0.
+      ⚠️ **The Damnation tripwire eats COMMENTS** — gate 53 failed on
+      the word in cullingSun.ts's prose; reword comments, never grow
+      the exclude list for prose.
+      ⚠️ **Ten refusals, THREE new classes:** face-down (morph),
+      mana-spent memory, end-the-turn. Deadshot is the second-clause
+      family's EIGHTH card; Deathlace opens color change (indefinite).
+      Fixtures 909 · botPool 1,565/405/254, artifact 77, enchantment
+      32 · ladder [2459, 2558, 4351, 6265, 7477] · batch.json 1,925 ·
+      botDeck: Adun reaches 1,447.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 775
+      files, 4,689 passed / 10 skipped · 500-seed gate
+      697.4 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D206): the second-clause widening at eight
+      cards is past due; the scry/surveil family table by shape count;
+      prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

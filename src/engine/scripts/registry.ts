@@ -7,6 +7,21 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { DAKMOR_PLAGUE_SCRIPT } from './cards/dakmorPlague';
+import { DAMNABLE_PACT_SCRIPT } from './cards/damnablePact';
+import { DANGEROUS_WAGER_SCRIPT } from './cards/dangerousWager';
+import { DARK_DEAL_SCRIPT } from './cards/darkDeal';
+import { DARKSTEEL_PENDANT_SCRIPT } from './cards/darksteelPendant';
+import { DAUTHI_EMBRACE_SCRIPT } from './cards/dauthiEmbrace';
+import { DAUTHI_TRAPPER_SCRIPT } from './cards/dauthiTrapper';
+import { DAY_OF_JUDGMENT_SCRIPT } from './cards/dayOfJudgment';
+import { DEAD_OF_WINTER_SCRIPT } from './cards/deadOfWinter';
+import { DEADLY_TEMPEST_SCRIPT } from './cards/deadlyTempest';
+import { DEATH_BEGETS_LIFE_SCRIPT } from './cards/deathBegetsLife';
+import { DEATH_GRASP_SCRIPT } from './cards/deathGrasp';
+import { DEATH_WIND_SCRIPT } from './cards/deathWind';
+import { DEATHS_CARESS_SCRIPT } from './cards/deathsCaress';
+import { DEATHLESS_ANGEL_SCRIPT } from './cards/deathlessAngel';
 import { CORRUPT_SCRIPT } from './cards/corrupt';
 import { CORRUPTED_RESOLVE_SCRIPT } from './cards/corruptedResolve';
 import { COSMIC_EPIPHANY_SCRIPT } from './cards/cosmicEpiphany';
@@ -803,6 +818,21 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DAKMOR_PLAGUE_SCRIPT,
+  DAMNABLE_PACT_SCRIPT,
+  DANGEROUS_WAGER_SCRIPT,
+  DARK_DEAL_SCRIPT,
+  DARKSTEEL_PENDANT_SCRIPT,
+  DAUTHI_EMBRACE_SCRIPT,
+  DAUTHI_TRAPPER_SCRIPT,
+  DAY_OF_JUDGMENT_SCRIPT,
+  DEAD_OF_WINTER_SCRIPT,
+  DEADLY_TEMPEST_SCRIPT,
+  DEATH_BEGETS_LIFE_SCRIPT,
+  DEATH_GRASP_SCRIPT,
+  DEATH_WIND_SCRIPT,
+  DEATHS_CARESS_SCRIPT,
+  DEATHLESS_ANGEL_SCRIPT,
   CORRUPT_SCRIPT,
   CORRUPTED_RESOLVE_SCRIPT,
   COSMIC_EPIPHANY_SCRIPT,

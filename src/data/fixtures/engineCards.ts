@@ -28415,6 +28415,589 @@ export const CUT_A_DEAL: CardData = {
   "singleImage": true
 };
 
+export const DAKMOR_PLAGUE: CardData = {
+  "scryfallId": "58b38ef1-5839-4292-91d6-e45698c69a75",
+  "oracleId": "a6cc516d-5a4b-455a-ab16-367d64215527",
+  "name": "Dakmor Plague",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dakmor Plague",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Dakmor Plague deals 3 damage to each creature and each player.",
+      "flavorText": "The tiniest cough can be deadlier than the fiercest dragon.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jeff Miracola",
+      "imageId": "58b38ef1-5839-4292-91d6-e45698c69a75"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "p02",
+  "collectorNumber": "69",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAMNABLE_PACT: CardData = {
+  "scryfallId": "0817c5fa-acd9-4fed-ab8b-06750a8817b0",
+  "oracleId": "28dd0ae4-fc56-4abf-af24-6c6c8d0a10cd",
+  "name": "Damnable Pact",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Damnable Pact",
+      "manaCost": "{X}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player draws X cards and loses X life.",
+      "flavorText": "\"Silumgar's mind is a dark labyrinth, full of grim secrets and subtle traps.\"\n—Siara, the Dragon's Mouth",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "0817c5fa-acd9-4fed-ab8b-06750a8817b0"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "c17",
+  "collectorNumber": "108",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DANGEROUS_WAGER: CardData = {
+  "scryfallId": "636c4042-703f-4548-9a0f-cb550c468bf9",
+  "oracleId": "7e0d60d7-cb27-4e45-80d4-c29aef5d56b6",
+  "name": "Dangerous Wager",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dangerous Wager",
+      "manaCost": "{1}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Discard your hand, then draw two cards.",
+      "flavorText": "\"C'mon friend, take a turn tossing the knucklebones. What've you got to lose?\"\n—Tobias, trader of Erdwal",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Drew Baker",
+      "imageId": "636c4042-703f-4548-9a0f-cb550c468bf9"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "avr",
+  "collectorNumber": "131",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DARK_DEAL: CardData = {
+  "scryfallId": "0e234227-d91e-4049-ad4a-3beca6b89023",
+  "oracleId": "c527eb80-ccac-40b8-8377-c31121613128",
+  "name": "Dark Deal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dark Deal",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each player discards all the cards in their hand, then draws that many cards minus one.",
+      "flavorText": "Dungeon Master's Guide, *Revised 5th Edition, cover art sketch (2024)*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Tyler Jacobson",
+      "imageId": "0e234227-d91e-4049-ad4a-3beca6b89023"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "873",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DARKSTEEL_PENDANT: CardData = {
+  "scryfallId": "9c1bac5f-c41a-49f0-94b0-79653b6fa67a",
+  "oracleId": "431838a8-f020-4e4e-a6f4-2d4ca27c56df",
+  "name": "Darksteel Pendant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Darksteel Pendant",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "Indestructible (Effects that say \"destroy\" don't destroy this artifact.)\n{1}, {T}: Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Terese Nielsen",
+      "imageId": "9c1bac5f-c41a-49f0-94b0-79653b6fa67a"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Indestructible",
+    "Scry"
+  ],
+  "setCode": "dst",
+  "collectorNumber": "113",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAUTHI_EMBRACE: CardData = {
+  "scryfallId": "7e84bb94-d654-4d69-89d9-0a398a940125",
+  "oracleId": "b19a7ae7-3af5-4aa6-80e1-8888054427de",
+  "name": "Dauthi Embrace",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dauthi Embrace",
+      "manaCost": "{2}{B}",
+      "typeLine": "Enchantment",
+      "oracleText": "{B}{B}: Target creature gains shadow until end of turn. (It can block or be blocked by only creatures with shadow.)",
+      "flavorText": "\"The Dauthi army grows by screams and bounds.\"\n—Lyna, Soltari emissary",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Andrew Robinson",
+      "imageId": "7e84bb94-d654-4d69-89d9-0a398a940125"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tmp",
+  "collectorNumber": "120",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAUTHI_TRAPPER: CardData = {
+  "scryfallId": "6d83770e-16ff-49c6-b4e7-eb7fc566eef8",
+  "oracleId": "3aa64915-8b1b-4414-b11e-d2078c1732a5",
+  "name": "Dauthi Trapper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dauthi Trapper",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Dauthi Minion",
+      "oracleText": "{T}: Target creature gains shadow until end of turn. (It can block or be blocked by only creatures with shadow.)",
+      "flavorText": "Merfolk tell their young of Dandân, humans of Rag Man. Dal tell tales of the Dauthi, and they are far worse.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Thomas M. Baxa",
+      "imageId": "6d83770e-16ff-49c6-b4e7-eb7fc566eef8"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "sth",
+  "collectorNumber": "56",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAY_OF_JUDGMENT: CardData = {
+  "scryfallId": "03f6b25f-d11c-483a-a3e9-6b801d333482",
+  "oracleId": "d057289d-5e28-43d5-8ff3-4a1bc723477d",
+  "name": "Day of Judgment",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Day of Judgment",
+      "manaCost": "{2}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Vincent Proce",
+      "imageId": "03f6b25f-d11c-483a-a3e9-6b801d333482"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "m11",
+  "collectorNumber": "12",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEAD_OF_WINTER: CardData = {
+  "scryfallId": "f480df6d-e227-4ccb-ad6d-a4ad48a360ad",
+  "oracleId": "4d877c28-5276-4ea6-91c6-eeed890ca545",
+  "name": "Dead of Winter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dead of Winter",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "All nonsnow creatures get -X/-X until end of turn, where X is the number of snow permanents you control.",
+      "flavorText": "\"At last, silence.\"\n—Tevesh Szat",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "f480df6d-e227-4ccb-ad6d-a4ad48a360ad"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mh1",
+  "collectorNumber": "85",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEADLY_TEMPEST: CardData = {
+  "scryfallId": "177cc55d-e00d-4246-9191-1b457f92a935",
+  "oracleId": "b5516bc9-ec8d-4323-8748-96c49d7d0622",
+  "name": "Deadly Tempest",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deadly Tempest",
+      "manaCost": "{4}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures. Each player loses life equal to the number of creatures they controlled that were destroyed this way.",
+      "flavorText": "When the winds blow out of the abyss, death is the only harvest.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Cliff Childs",
+      "imageId": "177cc55d-e00d-4246-9191-1b457f92a935"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "c20",
+  "collectorNumber": "131",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEATH_BEGETS_LIFE: CardData = {
+  "scryfallId": "08cb3168-6872-43b6-9980-35ddc20cf192",
+  "oracleId": "53e86135-3b24-4618-bcc0-af4d81e672dd",
+  "name": "Death Begets Life",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Death Begets Life",
+      "manaCost": "{5}{B}{G}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures and enchantments. Draw a card for each permanent destroyed this way.",
+      "flavorText": "\"Life ensures death. Death ensures life. Yet always I remain. Perhaps an abiding harvest needs an ageless shepherd.\"\n—Ugin",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G",
+        "U"
+      ],
+      "artist": "Justin Hernandez & Alexis Hernandez",
+      "imageId": "08cb3168-6872-43b6-9980-35ddc20cf192"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "U"
+  ],
+  "cmc": 8,
+  "keywords": [],
+  "setCode": "tdm",
+  "collectorNumber": "406",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEATH_GRASP: CardData = {
+  "scryfallId": "0e893dd4-8c37-496e-bc39-cd83d42b4cc4",
+  "oracleId": "a2335149-d2db-48c1-9699-0df8ce12d4dd",
+  "name": "Death Grasp",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Death Grasp",
+      "manaCost": "{X}{W}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Death Grasp deals X damage to any target. You gain X life.",
+      "flavorText": "Yawgmoth's greatest joy came from watching one hero defeat another.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Eric Peterson",
+      "imageId": "0e893dd4-8c37-496e-bc39-cd83d42b4cc4"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "apc",
+  "collectorNumber": "95",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEATH_WIND: CardData = {
+  "scryfallId": "462a0961-cca5-4d63-867f-7426dbef8639",
+  "oracleId": "a636b62a-340b-444d-9161-f6d3367b745c",
+  "name": "Death Wind",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Death Wind",
+      "manaCost": "{X}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets -X/-X until end of turn.",
+      "flavorText": "Leukin stared at the smoldering angel feathers. \"Run!\" he screamed to his patrol. \"We don't stand a chance!\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Tomasz Jedruszek",
+      "imageId": "462a0961-cca5-4d63-867f-7426dbef8639"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "avr",
+  "collectorNumber": "93",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEATH_S_CARESS: CardData = {
+  "scryfallId": "0643fb9a-8284-4dfc-836a-c2c69ef09f32",
+  "oracleId": "aac711d1-2fa0-42f9-9eda-a1642f3ff016",
+  "name": "Death's Caress",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Death's Caress",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target creature. If that creature was a Human, you gain life equal to its toughness.",
+      "flavorText": "The faint smell of cloves, the rustling of the wind, and a paralyzing descent into an airless, fathomless tomb.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "James Ryman",
+      "imageId": "0643fb9a-8284-4dfc-836a-c2c69ef09f32"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "dka",
+  "collectorNumber": "59",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEATHLESS_ANGEL: CardData = {
+  "scryfallId": "049fb314-184c-4411-9035-f04215659056",
+  "oracleId": "6098ba4b-ebfe-48da-a33d-b94c021ac559",
+  "name": "Deathless Angel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deathless Angel",
+      "manaCost": "{4}{W}{W}",
+      "typeLine": "Creature — Angel",
+      "oracleText": "Flying\n{W}{W}: Target creature gains indestructible until end of turn.",
+      "flavorText": "\"I should have died that day, but I suffered not a scratch. I awoke in a lake of blood, none of it apparently my own.\"\n—*The War Diaries*",
+      "power": "5",
+      "toughness": "7",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "049fb314-184c-4411-9035-f04215659056"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "roe",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SNOW_COVERED_SWAMP: CardData = {
+  "scryfallId": "5dce8b37-50da-4f21-9664-e4d6ce6c4e3c",
+  "oracleId": "d8239a86-7184-4005-ba1e-2dddcd756c47",
+  "name": "Snow-Covered Swamp",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Snow-Covered Swamp",
+      "manaCost": "",
+      "typeLine": "Basic Snow Land — Swamp",
+      "oracleText": "({T}: Add {B}.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Alayna Danner",
+      "imageId": "5dce8b37-50da-4f21-9664-e4d6ce6c4e3c"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OHRAN_VIPER: CardData = {
+  "scryfallId": "2dd1d028-0c7c-450b-a1ae-812b1212fef6",
+  "oracleId": "879fdcd8-62ea-4d39-abd4-44e6d82adf4d",
+  "name": "Ohran Viper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ohran Viper",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Snow Creature — Snake",
+      "oracleText": "Whenever this creature deals combat damage to a creature, destroy that creature at end of combat.\nWhenever this creature deals combat damage to a player, you may draw a card.",
+      "flavorText": "The ohran viper is not cold-blooded. Its veins course with the same antigelid venom used to kill its prey.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "2dd1d028-0c7c-450b-a1ae-812b1212fef6"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "c15",
+  "collectorNumber": "194",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -31618,6 +32201,23 @@ export const ENGINE_CARDS: CardData[] = [
   CRYSTAL_BALL,
   CULLING_SUN,
   CUT_A_DEAL,
+  DAKMOR_PLAGUE,
+  DAMNABLE_PACT,
+  DANGEROUS_WAGER,
+  DARK_DEAL,
+  DARKSTEEL_PENDANT,
+  DAUTHI_EMBRACE,
+  DAUTHI_TRAPPER,
+  DAY_OF_JUDGMENT,
+  DEAD_OF_WINTER,
+  DEADLY_TEMPEST,
+  DEATH_BEGETS_LIFE,
+  DEATH_GRASP,
+  DEATH_WIND,
+  DEATH_S_CARESS,
+  DEATHLESS_ANGEL,
+  SNOW_COVERED_SWAMP,
+  OHRAN_VIPER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

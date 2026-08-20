@@ -13923,3 +13923,62 @@ heaviest named parse slice and its widening is due; the scry/surveil
 trigger matrix now spans every shape (ETB, cast, tapped, attacks,
 activated, dies) — the family table is overdue by count; prior items
 stand.
+
+## D206 — M6.4au: fifteen landed — the wheels, the snow sweep, and the shadow grants (2026-08-20)
+
+**Coverage: 2,579 → 2,594 of 31,692 (+15).** `SHIPPED_SCRIPTS` 682 → 697;
+the ledger 187 → 197 (+10); the pool 1,950 → 1,925. All 43 new tests green
+on the FIRST run — drafted OUT-OF-TREE against the dumped oracle texts
+while gate 53 ran, ported and landed in one pass (the only correction the
+port needed was a fixture-const name: the generator writes an apostrophe
+as an underscore, so the card is `DEATH_S_CARESS` while land.cjs's
+file-name derivation keeps the script `DEATHS_CARESS_SCRIPT`).
+
+**The batch.** The WHEELS land: `Dark Deal` (each hand discarded whole —
+CR 701.8a, no ask — with "that many minus one" counted per player BEFORE
+the moves) and `Dangerous Wager` (the caster's own hand for two).
+`Dead of Winter` is the SNOW sweep — X counts the caster's snow
+permanents off the DERIVED type line's supertypes, nonsnow creatures
+anywhere take -X/-X, snow creatures are exempt, and the test pins X
+exactly by reading the surviving 6/6's derived power (3). The wipe
+riders: `Deadly Tempest` splits Fumigate's destroyed-this-way count PER
+PLAYER; `Death Begets Life` wipes two types and draws the total.
+`Death's Caress` takes the CERTAIN DEATH precedent: its rider is NOT
+"destroyed this way" — the Human check and the toughness are read off
+the derived pre-move state, so an indestructible Human would still pay
+(said in the module's comment; the three common branches pinned).
+`Dauthi Embrace` and `Dauthi Trapper` are the first SHADOW grants a def
+ships (the combat layer has enforced printed shadow since M1), and the
+Embrace is the pool's THIRTY-SECOND enchantment. `Darksteel Pendant` is
+Crystal Ball one card shallower; `Deathless Angel` hands Spearbreaker's
+indestructible grant to a {W}{W} cost; `Damnable Pact` is Braingeyser
+plus the mirrored life loss; `Dakmor Plague` burns every creature and
+every player in one DamageDealt; `Day of Judgment` is Wrath's twin;
+`Death Grasp` and `Death Wind` the X burn and the X debuff.
+
+⚠️ **The Damnation tripwire eats COMMENTS:** gate 53's only failure was
+the word "regeneration" in `cullingSun.ts`'s PROSE ("without the
+regeneration clause"). The fix is rewording the comment — the exclude
+list is for modules whose PRINTED TEXT carries the clause, never for
+prose.
+
+**Ten refusals, THREE new classes:** `Cyber Conversion` (FACE-DOWN — the
+morph family's hidden-identity machinery, spec §4.7), `Dawnglow
+Infusion` (MANA-SPENT memory — which mana paid the cast is recorded
+nowhere), `Day's Undoing` (END THE TURN — CR 727, the structural tail
+beside extra turns). Plus `Deadshot` — the second-clause family's
+EIGHTH card — a noun-list Vehicle compound, an up-to-N, a script-raised
+prompt, an opponent-chooses, a regeneration, and `Deathlace` (color
+change (indefinite) — Chaoslace's family without the UEOT bound, plus a
+SPELL-color aim).
+
+**Measured after landing:** primitives complete 2,594 · blocked 29,098 ·
+scriptableToday 2,459 · ladder [2459, 2558, 4351, 6265, 7477] · tier3
+silentAfter 3,005 (+15 exact) / payable 5,112 · botPool creature 1,565 /
+instant 405 / sorcery 254 / artifact 77 / enchantment 32 · fixtures 909
+(70 tokens — none new; Snow-Covered Swamp and Ohran Viper join as
+SUPPORT bodies) · batch.json 1,925 · botDeck: Adun reaches 1,447.
+
+**Reportables:** the second-clause family at EIGHT cards is past due —
+the widening is the next engine work by weight; the scry/surveil family
+table stays overdue by shape count; prior items stand.

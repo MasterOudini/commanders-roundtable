@@ -1187,6 +1187,26 @@ const WANTED = [
   'Crystal Ball',
   'Culling Sun',
   'Cut a Deal',
+  // M6.4au (D206) - the wheels, the wipes with computed riders, and the
+  // shadow grants. Snow-Covered Swamp and Ohran Viper are SUPPORT bodies
+  // for Dead of Winter's snow count and its exemption.
+  'Dakmor Plague',
+  'Damnable Pact',
+  'Dangerous Wager',
+  'Dark Deal',
+  'Darksteel Pendant',
+  'Dauthi Embrace',
+  'Dauthi Trapper',
+  'Day of Judgment',
+  'Dead of Winter',
+  'Deadly Tempest',
+  'Death Begets Life',
+  'Death Grasp',
+  'Death Wind',
+  "Death's Caress",
+  'Deathless Angel',
+  'Snow-Covered Swamp',
+  'Ohran Viper',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

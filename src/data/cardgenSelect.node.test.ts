@@ -479,6 +479,24 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Culling Ritual', 'script-raised prompt'],
   ['Curfew', 'opponent-chooses'],
   ['Cut Down', 'computed target threshold'],
+  // D206 — Cyber Conversion turns the target FACE DOWN (the morph family's
+  // hidden-identity machinery, spec 4.7); Dawnglow Infusion reads WHICH
+  // mana was spent to cast it, a fact the cast records nowhere; Day's
+  // Undoing ENDS THE TURN (CR 727 — the structural tail beside extra
+  // turns); Deadshot's mid-sentence 'another target creature' is the
+  // second-clause family's EIGHTH card; Deathlace is Chaoslace's family
+  // without the UEOT bound — and it can aim at a SPELL's color, a second
+  // gap.
+  ['Cyber Conversion', 'face-down (morph family)'],
+  ['Daring Demolition', 'spell target parse (noun list)'],
+  ['Dauntless Onslaught', 'up-to-N targeting'],
+  ['Dawnglow Infusion', 'mana-spent memory'],
+  ["Day's Undoing", 'end the turn'],
+  ['Dead Reckoning', 'script-raised prompt'],
+  ['Deadshot', 'spell target parse (second clause)'],
+  ['Death or Glory', 'opponent-chooses'],
+  ['Death Ward', 'regeneration'],
+  ['Deathlace', 'color change (indefinite)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

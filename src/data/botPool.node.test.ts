@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). Planeswalkers (loyalty costs) and battles are still
     // structurally out, and stay pinned at zero for the same reason the
     // enchantments were.
-    expect(r.poolByType['enchantment'] ?? 0).toBe(31);
+    expect(r.poolByType['enchantment'] ?? 0).toBe(32);
     expect(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -431,12 +431,14 @@ const POOL: Record<string, number> = {
   // Letter of Acceptance.
   // M6.4ac (D185): +12 creatures, +1 land, and TWO enchantments (Makeshift
   // Munitions, Malevolent Awakening) — the pool reads THIRTY.
-  creature: 1563,
-  instant: 403,
-  sorcery: 245,
+  // M6.4au (D206): +2 creatures, +2 instants, +9 sorceries, Darksteel
+  // Pendant, and Dauthi Embrace — the pool reads THIRTY-TWO.
+  creature: 1565,
+  instant: 405,
+  sorcery: 254,
   land: 261,
-  artifact: 76,
-  enchantment: 31,
+  artifact: 77,
+  enchantment: 32,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {
