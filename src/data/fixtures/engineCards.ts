@@ -30590,6 +30590,517 @@ export const DWARVEN_CATAPULT: CardData = {
   "singleImage": true
 };
 
+export const EARLY_HARVEST: CardData = {
+  "scryfallId": "16a5ae9a-a0be-4b33-97f1-d38346560966",
+  "oracleId": "32001382-3079-4bbe-8d86-05da654c0d1a",
+  "name": "Early Harvest",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Early Harvest",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target player untaps all basic lands they control.",
+      "flavorText": "\"Earth's increase, foison plenty,\nBarns and garners never empty:\nVines with clust'ring bunches growing;\nPlants with goodly burden bowing.\"\n—William Shakespeare, *The Tempest*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "16a5ae9a-a0be-4b33-97f1-d38346560966"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "235★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EARTH_TREMOR: CardData = {
+  "scryfallId": "b5f700c6-7591-481d-b223-21f5b820e831",
+  "oracleId": "1dd7d11b-e3f3-4886-b412-0c085187869c",
+  "name": "Earth Tremor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Earth Tremor",
+      "manaCost": "{3}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Earth Tremor deals damage to target creature or planeswalker equal to the number of lands you control.",
+      "flavorText": "\"Every cave-in is Moradin telling you to leave the earth where it is.\"\n—Halgar, dwarven recluse",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Borja Pindado",
+      "imageId": "b5f700c6-7591-481d-b223-21f5b820e831"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "clb",
+  "collectorNumber": "171",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EARTHQUAKE: CardData = {
+  "scryfallId": "01bde909-899d-4efc-aac5-57b69fa764db",
+  "oracleId": "9a40614b-50a3-422c-849e-53c8b7d3d204",
+  "name": "Earthquake",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Earthquake",
+      "manaCost": "{X}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Earthquake deals X damage to each creature without flying and each player.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Richard Kane Ferguson",
+      "imageId": "01bde909-899d-4efc-aac5-57b69fa764db"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "5ed",
+  "collectorNumber": "223",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ECHOING_CALM: CardData = {
+  "scryfallId": "060e278c-dc34-4a94-9b15-6e9ffb2a1aee",
+  "oracleId": "d0bc217b-1149-4a33-a4a1-29e07597dc41",
+  "name": "Echoing Calm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Echoing Calm",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target enchantment and all other enchantments with the same name as that enchantment.",
+      "flavorText": "A single light unleashes a hail of cleansing.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "060e278c-dc34-4a94-9b15-6e9ffb2a1aee"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dst",
+  "collectorNumber": "2",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ECHOING_COURAGE: CardData = {
+  "scryfallId": "04367e72-3f8c-4cba-8bdf-5a1ba9c9f01f",
+  "oracleId": "359db1e6-bed9-412f-9e7c-f827ff6f2229",
+  "name": "Echoing Courage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Echoing Courage",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature and all other creatures with the same name as that creature get +2/+2 until end of turn.",
+      "flavorText": "A single seed unleashes a flurry of growth.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "04367e72-3f8c-4cba-8bdf-5a1ba9c9f01f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "a25",
+  "collectorNumber": "166",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ECHOING_DECAY: CardData = {
+  "scryfallId": "23a927c2-ded1-4014-a692-2af965eb3ed8",
+  "oracleId": "a1e46cc7-47da-4165-8c6b-f1cd2aa79aa5",
+  "name": "Echoing Decay",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Echoing Decay",
+      "manaCost": "{1}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature and all other creatures with the same name as that creature get -2/-2 until end of turn.",
+      "flavorText": "A single fear unleashes a torrent of nightmares.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "23a927c2-ded1-4014-a692-2af965eb3ed8"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "DST-41",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ECHOING_RUIN: CardData = {
+  "scryfallId": "01f842c8-cd6c-4f4d-9aa8-417a92b37867",
+  "oracleId": "e04ca2dc-873e-4d80-b1d7-4873ffdb3af5",
+  "name": "Echoing Ruin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Echoing Ruin",
+      "manaCost": "{1}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target artifact and all other artifacts with the same name as that artifact.",
+      "flavorText": "A single misstep unleashes an avalanche of ruin.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "01f842c8-cd6c-4f4d-9aa8-417a92b37867"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dst",
+  "collectorNumber": "59",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELDRITCH_PACT: CardData = {
+  "scryfallId": "281a741f-288c-4f19-b200-cacef57674e9",
+  "oracleId": "281ea9b6-055a-4274-90b3-c74311a6f863",
+  "name": "Eldritch Pact",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Eldritch Pact",
+      "manaCost": "{6}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player draws X cards and loses X life, where X is the number of cards in their graveyard.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Peter Polach",
+      "imageId": "281a741f-288c-4f19-b200-cacef57674e9"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "clb",
+  "collectorNumber": "574",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELEGANT_PARLOR: CardData = {
+  "scryfallId": "1f0cef88-50bd-4baa-8d02-26ec4967a7be",
+  "oracleId": "9ea747cf-5d04-4aa7-bdc3-8145860cd1ba",
+  "name": "Elegant Parlor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elegant Parlor",
+      "manaCost": "",
+      "typeLine": "Land — Mountain Plains",
+      "oracleText": "({T}: Add {R} or {W}.)\nThis land enters tapped.\nWhen this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Sergey Glushakov",
+      "imageId": "1f0cef88-50bd-4baa-8d02-26ec4967a7be"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "mkm",
+  "collectorNumber": "325",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELVISH_HERDER: CardData = {
+  "scryfallId": "3cb2b07e-3d50-4b85-be2a-c99e9c8ebf25",
+  "oracleId": "7832b90a-23b9-448c-9019-8ee2e8dfab31",
+  "name": "Elvish Herder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elvish Herder",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Elf",
+      "oracleText": "{G}: Target creature gains trample until end of turn.",
+      "flavorText": "Before Urza and Mishra came to Argoth, the herders prevented their creatures from stampeding. During the war, they encouraged it.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Tom Fleming",
+      "imageId": "3cb2b07e-3d50-4b85-be2a-c99e9c8ebf25"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "usg",
+  "collectorNumber": "247",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EMPTY_THE_CATACOMBS: CardData = {
+  "scryfallId": "e41cbd0b-9f54-4e8f-9a4b-fed8e435a2e0",
+  "oracleId": "49e0af9d-eb76-4ad6-b60a-430ae353728c",
+  "name": "Empty the Catacombs",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Empty the Catacombs",
+      "manaCost": "{3}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each player returns all creature cards from their graveyard to their hand.",
+      "flavorText": "When the dead are laid to rest in Ravnica, it's usually just a nap.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Mark A. Nelson",
+      "imageId": "e41cbd0b-9f54-4e8f-9a4b-fed8e435a2e0"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "rav",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const END_HOSTILITIES: CardData = {
+  "scryfallId": "80a53ed7-a7b7-40d8-9239-cf6f205dbc59",
+  "oracleId": "7b2e2c4b-b8fd-440c-8a79-de6532022745",
+  "name": "End Hostilities",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "End Hostilities",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures and all permanents attached to creatures.",
+      "flavorText": "Her palm flared like the eye of a waking dragon. Then all was calm.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jason Rainville",
+      "imageId": "80a53ed7-a7b7-40d8-9239-cf6f205dbc59"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ktk",
+  "collectorNumber": "8",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const END_THE_FESTIVITIES: CardData = {
+  "scryfallId": "0b8f388d-b313-4838-ad2c-82d4a0337b52",
+  "oracleId": "09618da4-6e2d-4047-96d7-0576c0754e7d",
+  "name": "End the Festivities",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "End the Festivities",
+      "manaCost": "{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "End the Festivities deals 1 damage to each opponent and each creature and planeswalker they control.",
+      "flavorText": "When the defenses around Lurenbraum Fortress faltered, the Crimson Ballroom received some unexpected guests.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chris Rallis",
+      "imageId": "0b8f388d-b313-4838-ad2c-82d4a0337b52"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "dbl",
+  "collectorNumber": "422",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ENGULF_THE_SHORE: CardData = {
+  "scryfallId": "22909767-a088-49ff-83be-37f967d1da3d",
+  "oracleId": "a3d4ed7c-c586-4581-96dc-977636d27583",
+  "name": "Engulf the Shore",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Engulf the Shore",
+      "manaCost": "{3}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return to their owners' hands all creatures with toughness less than or equal to the number of Islands you control.",
+      "flavorText": "\"The tides have begun to ignore the moon.\"\n—Tamiyo's journal",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Cliff Childs",
+      "imageId": "22909767-a088-49ff-83be-37f967d1da3d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "soi",
+  "collectorNumber": "58",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ENRAGE: CardData = {
+  "scryfallId": "2b1e6973-003a-4f3e-b793-2e59519b1b8c",
+  "oracleId": "0f6e66d5-4f27-485b-999d-ee55c1e218b9",
+  "name": "Enrage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Enrage",
+      "manaCost": "{X}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +X/+0 until end of turn.",
+      "flavorText": "\"You wouldn't like me when I'm angry.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Justin Sweet",
+      "imageId": "2b1e6973-003a-4f3e-b793-2e59519b1b8c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "185",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -33856,6 +34367,21 @@ export const ENGINE_CARDS: CardData[] = [
   DRY_SPELL,
   DUST_TO_DUST,
   DWARVEN_CATAPULT,
+  EARLY_HARVEST,
+  EARTH_TREMOR,
+  EARTHQUAKE,
+  ECHOING_CALM,
+  ECHOING_COURAGE,
+  ECHOING_DECAY,
+  ECHOING_RUIN,
+  ELDRITCH_PACT,
+  ELEGANT_PARLOR,
+  ELVISH_HERDER,
+  EMPTY_THE_CATACOMBS,
+  END_HOSTILITIES,
+  END_THE_FESTIVITIES,
+  ENGULF_THE_SHORE,
+  ENRAGE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -437,10 +437,12 @@ const POOL: Record<string, number> = {
   // M6.4aw (D208): +7 instants, +7 sorceries, and two creatures (Dimir
   // Informant, Dinotomaton).
   // M6.4ax (D209): +7 instants and +5 sorceries — a second all-spell batch.
-  creature: 1567,
-  instant: 425,
-  sorcery: 277,
-  land: 261,
+  // M6.4ay (D210): +7 instants, +6 sorceries, Elvish Herder, and Elegant
+  // Parlor — the 262nd land.
+  creature: 1568,
+  instant: 432,
+  sorcery: 283,
+  land: 262,
   artifact: 77,
   enchantment: 32,
 };

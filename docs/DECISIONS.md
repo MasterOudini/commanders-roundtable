@@ -14146,3 +14146,49 @@ the ledger and has a bounded shape (a min/max the CHOOSER may stop
 short of — the counted-list machinery from Dust to Dust's spec is the
 enforcement half already); the second-clause family stands at eight;
 prior items stand.
+
+## D210 — M6.4ay: fifteen landed — the Echoing name family, the surveil land, and the attached-permanents wipe (2026-08-20)
+
+**Coverage: 2,639 → 2,654 of 31,692 (+15).** `SHIPPED_SCRIPTS` 742 → 757;
+the ledger 227 → 237 (+10); the pool 1,850 → 1,825. All 43 new tests green
+on the FIRST run — the TENTH consecutive first-run-clean batch.
+
+**The name family lands whole.** `Echoing Calm`, `Echoing Courage`,
+`Echoing Decay` and `Echoing Ruin` are Declaration in Stone's oracle-name
+match in four directions — destroy-enchantment, pump, debuff,
+destroy-artifact — each sweeping BOTH boards for the shared name while the
+differently named permanent stands (Courage and Decay prove it from the
+pump and the SBA side at once).
+
+**The rest.** `Elegant Parlor` is Commercial District's shape on the
+Mountain-Plains surveil land — three printed lines, the def claiming only
+the trigger (mana reminder parsed, enters-tapped built-in), and its test
+asserts BOTH halves in one entry. `End Hostilities` wipes creatures AND
+everything attached to them off a pre-wipe attachment scan: the worn
+Greaves die with their bear, the spare stands. `Engulf the Shore` bounces
+toughness ≤ my Island count on every board; `Earthquake` is the X sweep
+with the flying exemption; `Eldritch Pact` reads X off the TARGET's
+graveyard; `Empty the Catacombs` returns every player's dead creatures
+choicelessly (typed off ORACLE faces); `Early Harvest` untaps the
+target's basics and nothing else; `Earth Tremor` burns for my land
+count; `End the Festivities` pings the opponents' whole halves;
+`Elvish Herder` grants trample; `Enrage` is the X pump.
+
+**Ten refusals, TWO new classes:** `Eliminate the Impossible` (SUSPECT —
+no suspected concept exists anywhere) and `Empty City Ruse` (PHASE
+SKIPPING — no skip-phase concept either). Plus Earth Rumble's land
+animation, Eaten by Spiders' keyword qualifier, two script prompts
+(Elven Farsight's may-reveal rides AFTER the scry ask — Read the Bones'
+shape; Enshrined Memories bottoms cards in a caster-picked order), two
+opponent-chooses (End of the Hunt's greatest-MV tie, Endless Detour),
+and two up-to-Ns.
+
+**Measured after landing:** primitives complete 2,654 · blocked 29,038 ·
+scriptableToday 2,399 · ladder [2399, 2498, 4291, 6205, 7417] · tier3
+silentAfter 3,065 (+15 exact) · botPool creature 1,568 / instant 432 /
+sorcery 283 / land 262 · fixtures 970 (70 tokens — none new) · batch.json
+1,825 · botDeck: Adun reaches 1,486.
+
+**Reportables:** the name-family idiom now has FIVE shipped consumers and
+reads as a family-table candidate; the scry/surveil land cycle (Elegant
+Parlor's shape) prints ten twins — the same table; prior items stand.

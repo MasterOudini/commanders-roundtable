@@ -543,6 +543,22 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Dryad's Caress", 'mana-spent memory'],
   ['Dual Shot', 'up-to-N targeting'],
   ['Dwarven Song', 'UEOT color change'],
+  // D210 — Eliminate the Impossible clears SUSPECTED (no suspect concept
+  // anywhere); Empty City Ruse SKIPS combat phases (no skip-phase
+  // concept); Elven Farsight's may-reveal rides AFTER the scry ask (Read
+  // the Bones' shape); Enshrined Memories bottoms revealed cards in an
+  // order the caster picks — orderCards raised from a resolve; End of the
+  // Hunt's greatest-MV can TIE and the opponent breaks it.
+  ['Dwell on the Past', 'up-to-N targeting'],
+  ['Early Frost', 'up-to-N targeting'],
+  ['Earth Rumble', 'land animation (type change)'],
+  ['Eaten by Spiders', 'keyword target qualifier unenforced'],
+  ['Eliminate the Impossible', 'suspect mechanic'],
+  ['Elven Farsight', 'script-raised prompt'],
+  ['Empty City Ruse', 'phase skipping'],
+  ['End of the Hunt', 'opponent-chooses'],
+  ['Endless Detour', 'opponent-chooses'],
+  ['Enshrined Memories', 'script-raised prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

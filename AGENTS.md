@@ -5763,6 +5763,35 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       already; prior items stand.
 
 
+- [x] **M6.4ay — Fifteen landed: the Echoing name family, the surveil
+      land, and the attached-permanents wipe (2026-08-20):** **2,654 of
+      31,692 Commander-legal cards now execute completely, up from
+      2,639.** `SHIPPED_SCRIPTS` 742 → 757; ledger 237. All 43 tests
+      first-run clean — the TENTH consecutive such batch. Decisions in
+      **D210**.
+      **Firsts:** the Echoing NAME FAMILY in four directions (Calm /
+      Courage / Decay / Ruin — Declaration in Stone's oracle-name match
+      sweeping both boards); the three-line surveil LAND (Elegant
+      Parlor — the def claims only the trigger; enters-tapped built-in
+      and mana reminder parsed); the attached-permanents wipe (End
+      Hostilities — the worn Equipment dies with its host, the spare
+      stands); the Island-count bounce (Engulf the Shore); the
+      target-graveyard X (Eldritch Pact); the flying-exempt X sweep
+      (Earthquake).
+      ⚠️ **Ten refusals, TWO new classes:** suspect mechanic (Eliminate
+      the Impossible), phase skipping (Empty City Ruse).
+      Fixtures 970 · botPool 1,568/432/283, land 262 · ladder [2399,
+      2498, 4291, 6205, 7417] · batch.json 1,825 · botDeck: Adun reaches
+      1,486.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 835
+      files, 4,998 passed / 10 skipped · 500-seed gate
+      731.0 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D210): the name-family idiom (five consumers)
+      and the surveil-land cycle (ten twins) are family-table
+      candidates; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

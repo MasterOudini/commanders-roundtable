@@ -1260,6 +1260,23 @@ const WANTED = [
   'Dry Spell',
   'Dust to Dust',
   'Dwarven Catapult',
+  // M6.4ay (D210) - batch 44: the Echoing name family, the surveil land,
+  // and the attached-permanents wipe.
+  'Early Harvest',
+  'Earth Tremor',
+  'Earthquake',
+  'Echoing Calm',
+  'Echoing Courage',
+  'Echoing Decay',
+  'Echoing Ruin',
+  'Eldritch Pact',
+  'Elegant Parlor',
+  'Elvish Herder',
+  'Empty the Catacombs',
+  'End Hostilities',
+  'End the Festivities',
+  'Engulf the Shore',
+  'Enrage',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

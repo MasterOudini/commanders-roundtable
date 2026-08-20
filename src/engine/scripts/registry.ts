@@ -7,6 +7,21 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { EARLY_HARVEST_SCRIPT } from './cards/earlyHarvest';
+import { EARTH_TREMOR_SCRIPT } from './cards/earthTremor';
+import { EARTHQUAKE_SCRIPT } from './cards/earthquake';
+import { ECHOING_CALM_SCRIPT } from './cards/echoingCalm';
+import { ECHOING_COURAGE_SCRIPT } from './cards/echoingCourage';
+import { ECHOING_DECAY_SCRIPT } from './cards/echoingDecay';
+import { ECHOING_RUIN_SCRIPT } from './cards/echoingRuin';
+import { ELDRITCH_PACT_SCRIPT } from './cards/eldritchPact';
+import { ELEGANT_PARLOR_SCRIPT } from './cards/elegantParlor';
+import { ELVISH_HERDER_SCRIPT } from './cards/elvishHerder';
+import { EMPTY_THE_CATACOMBS_SCRIPT } from './cards/emptyTheCatacombs';
+import { END_HOSTILITIES_SCRIPT } from './cards/endHostilities';
+import { END_THE_FESTIVITIES_SCRIPT } from './cards/endTheFestivities';
+import { ENGULF_THE_SHORE_SCRIPT } from './cards/engulfTheShore';
+import { ENRAGE_SCRIPT } from './cards/enrage';
 import { DIVINE_OFFERING_SCRIPT } from './cards/divineOffering';
 import { DOGPILE_SCRIPT } from './cards/dogpile';
 import { DONATE_SCRIPT } from './cards/donate';
@@ -863,6 +878,21 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  EARLY_HARVEST_SCRIPT,
+  EARTH_TREMOR_SCRIPT,
+  EARTHQUAKE_SCRIPT,
+  ECHOING_CALM_SCRIPT,
+  ECHOING_COURAGE_SCRIPT,
+  ECHOING_DECAY_SCRIPT,
+  ECHOING_RUIN_SCRIPT,
+  ELDRITCH_PACT_SCRIPT,
+  ELEGANT_PARLOR_SCRIPT,
+  ELVISH_HERDER_SCRIPT,
+  EMPTY_THE_CATACOMBS_SCRIPT,
+  END_HOSTILITIES_SCRIPT,
+  END_THE_FESTIVITIES_SCRIPT,
+  ENGULF_THE_SHORE_SCRIPT,
+  ENRAGE_SCRIPT,
   DIVINE_OFFERING_SCRIPT,
   DOGPILE_SCRIPT,
   DONATE_SCRIPT,
