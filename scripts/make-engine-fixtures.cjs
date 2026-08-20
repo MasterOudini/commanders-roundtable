@@ -1246,6 +1246,20 @@ const WANTED = [
   'Disorder',
   'Dispersal Shield',
   'Displacement Wave',
+  // M6.4ax (D209) - batch 43: the Domain debuffs, the even split, the
+  // control gift, and the counted exile.
+  'Divine Offering',
+  'Dogpile',
+  'Donate',
+  'Double Trouble',
+  'Douse in Gloom',
+  'Drag Down',
+  'Drag to the Bottom',
+  'Dramatic Reversal',
+  'Drown in Sorrow',
+  'Dry Spell',
+  'Dust to Dust',
+  'Dwarven Catapult',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

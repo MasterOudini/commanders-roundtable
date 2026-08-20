@@ -14095,3 +14095,54 @@ climbing the ledger; the color-qualifier pair (positive + negated) and
 the keyword qualifier converge on ONE targeting-layer widening —
 qualifier enforcement over derived characteristics (D139's playbook, D197
 named it); the second-clause family stands at eight; prior items stand.
+
+## D209 — M6.4ax: twelve landed — the control gift, the counted exile, and the even split (2026-08-20)
+
+**Coverage: 2,627 → 2,639 of 31,692 (+12)** — a second consecutive
+all-spell batch (7 instants, 5 sorceries). `SHIPPED_SCRIPTS` 730 → 742;
+the ledger 214 → 227 (+13); the pool 1,875 → 1,850. All 38 new tests
+green on the FIRST run.
+
+**Two probes widened the batch from ten to twelve.** `Donate` probes to
+TWO confident specs — any player, plus a permanent whose controller is
+YOU — and lands as the first SpellDef producer of `ControlChanged` (the
+event has carried control since M3; the Ring stays on the battlefield
+with a new controller and its old owner). `Dust to Dust` probes to ONE
+spec of min 2 / max 2, so the intent carries both picks — the first
+COUNTED target list to land, and exile takes the indestructible Myr
+because exile is not destroy.
+
+**The rest.** `Dwarven Catapult` is the divided-damage family's one
+DETERMINISTIC member — "divided evenly, rounded down" is floor(X/count)
+to each, no one chooses (X=5 over two is 2 each; X=3 is 1 each, pinned
+from both sides). `Dogpile` counts my declared attackers mid-combat, cast
+in the attacker's own post-declaration window and read before combat
+damage lands. `Double Trouble` doubles power as a computed per-creature
+DELTA off the derived value. `Drag Down` and `Drag to the Bottom` bring
+Domain to the debuff side (Allied Strategies' count; the sweep pins X
+exactly through a survivor's derived power). `Drown in Sorrow` composes
+the board debuff with the D195 scry ask — the debuff commutes, the ask is
+LAST. `Dramatic Reversal` untaps my nonland board; `Divine Offering`
+pays the artifact's MV whether or not it dies (the Certain Death
+precedent); `Douse in Gloom` and `Dry Spell` are the burn twins.
+
+**Thirteen refusals, ZERO new classes — and the up-to-N family absorbs
+FIVE in one batch, its heaviest showing** (Donatello's Science Lesson,
+Double Negative, Downpour, Dragonclaw Strike, Dual Shot). Plus three
+opponent-chooses (Do or Die's piles, Drain Power's forced activations,
+and — of note — nothing else), Dominate's computed threshold, the Ring
+(Dreadful as the Storm), Brainstorm's prompt (Dream Cache),
+play-from-exile (Dream Harvest), mana-spent memory's SECOND card
+(Dryad's Caress), and a UEOT color change (Dwarven Song).
+
+**Measured after landing:** primitives complete 2,639 · blocked 29,053 ·
+scriptableToday 2,414 · ladder [2414, 2513, 4306, 6220, 7432] · tier3
+silentAfter 3,050 (+12 exact) · botPool instant 425 / sorcery 277 ·
+fixtures 955 (70 tokens — none new) · batch.json 1,850 · botDeck: Adun
+reaches 1,475.
+
+**Reportables:** up-to-N targeting is now the heaviest refusal class in
+the ledger and has a bounded shape (a min/max the CHOOSER may stop
+short of — the counted-list machinery from Dust to Dust's spec is the
+enforcement half already); the second-clause family stands at eight;
+prior items stand.

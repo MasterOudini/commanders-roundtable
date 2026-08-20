@@ -7,6 +7,18 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { DIVINE_OFFERING_SCRIPT } from './cards/divineOffering';
+import { DOGPILE_SCRIPT } from './cards/dogpile';
+import { DONATE_SCRIPT } from './cards/donate';
+import { DOUBLE_TROUBLE_SCRIPT } from './cards/doubleTrouble';
+import { DOUSE_IN_GLOOM_SCRIPT } from './cards/douseInGloom';
+import { DRAG_DOWN_SCRIPT } from './cards/dragDown';
+import { DRAG_TO_THE_BOTTOM_SCRIPT } from './cards/dragToTheBottom';
+import { DRAMATIC_REVERSAL_SCRIPT } from './cards/dramaticReversal';
+import { DROWN_IN_SORROW_SCRIPT } from './cards/drownInSorrow';
+import { DRY_SPELL_SCRIPT } from './cards/drySpell';
+import { DUST_TO_DUST_SCRIPT } from './cards/dustToDust';
+import { DWARVEN_CATAPULT_SCRIPT } from './cards/dwarvenCatapult';
 import { DESPOIL_SCRIPT } from './cards/despoil';
 import { DESTROY_THE_EVIDENCE_SCRIPT } from './cards/destroyTheEvidence';
 import { DESTRUCTIVE_REVELRY_SCRIPT } from './cards/destructiveRevelry';
@@ -851,6 +863,18 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DIVINE_OFFERING_SCRIPT,
+  DOGPILE_SCRIPT,
+  DONATE_SCRIPT,
+  DOUBLE_TROUBLE_SCRIPT,
+  DOUSE_IN_GLOOM_SCRIPT,
+  DRAG_DOWN_SCRIPT,
+  DRAG_TO_THE_BOTTOM_SCRIPT,
+  DRAMATIC_REVERSAL_SCRIPT,
+  DROWN_IN_SORROW_SCRIPT,
+  DRY_SPELL_SCRIPT,
+  DUST_TO_DUST_SCRIPT,
+  DWARVEN_CATAPULT_SCRIPT,
   DESPOIL_SCRIPT,
   DESTROY_THE_EVIDENCE_SCRIPT,
   DESTRUCTIVE_REVELRY_SCRIPT,

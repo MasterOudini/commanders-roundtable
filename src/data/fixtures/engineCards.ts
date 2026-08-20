@@ -30174,6 +30174,422 @@ export const DISPLACEMENT_WAVE: CardData = {
   "singleImage": true
 };
 
+export const DIVINE_OFFERING: CardData = {
+  "scryfallId": "3b1201ef-1a8c-4b29-be7b-2ff7c755c839",
+  "oracleId": "231f8edb-4ea1-44be-8794-b76a31462dfc",
+  "name": "Divine Offering",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Divine Offering",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target artifact. You gain life equal to its mana value.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jeff A. Menges",
+      "imageId": "3b1201ef-1a8c-4b29-be7b-2ff7c755c839"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "me4",
+  "collectorNumber": "10",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DOGPILE: CardData = {
+  "scryfallId": "26316b00-22db-4546-8366-8a624f10c1ba",
+  "oracleId": "a4364218-f746-42ff-8495-bf8ca69c3b62",
+  "name": "Dogpile",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dogpile",
+      "manaCost": "{3}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Dogpile deals damage to any target equal to the number of attacking creatures you control.",
+      "flavorText": "There is no shelter from this storm, its rain of fists, or the thunderous cackles of bloodlust.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jeff Miracola",
+      "imageId": "26316b00-22db-4546-8366-8a624f10c1ba"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "rav",
+  "collectorNumber": "120",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DONATE: CardData = {
+  "scryfallId": "7f6d8ce9-f8c8-45ad-b74c-97fba0e2982e",
+  "oracleId": "049d1fb2-cce7-40e7-a633-e84cf9782d89",
+  "name": "Donate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Donate",
+      "manaCost": "{2}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player gains control of target permanent you control.",
+      "flavorText": "Campus pranksters initiate new students with the old \"beeble bomb\" routine.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jeff Miracola",
+      "imageId": "7f6d8ce9-f8c8-45ad-b74c-97fba0e2982e"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "uds",
+  "collectorNumber": "31",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DOUBLE_TROUBLE: CardData = {
+  "scryfallId": "f9a73605-3a17-4887-8395-5bb8d10714bd",
+  "oracleId": "2ef063d2-8702-43a3-a7d0-fc255f8512d3",
+  "name": "Double Trouble",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Double Trouble",
+      "manaCost": "{4}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Double the power of each creature you control until end of turn.",
+      "flavorText": "\"Keep up, Spider-Man. We don't have all night!\"\n—Ghost-Spider, Gwen Stacy",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Nathaniel Himawan",
+      "imageId": "f9a73605-3a17-4887-8395-5bb8d10714bd"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Double"
+  ],
+  "setCode": "spe",
+  "collectorNumber": "13",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DOUSE_IN_GLOOM: CardData = {
+  "scryfallId": "50a4fe4d-460d-4143-9a8e-14e16b211722",
+  "oracleId": "1fd754fd-c053-4638-b379-46d903357b01",
+  "name": "Douse in Gloom",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Douse in Gloom",
+      "manaCost": "{2}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Douse in Gloom deals 2 damage to target creature and you gain 2 life.",
+      "flavorText": "Orzhov prisoners are steeped in a blackened brew that robs their souls of strength. Patriarchs drink that brew to extend their own lives.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "50a4fe4d-460d-4143-9a8e-14e16b211722"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "gpt",
+  "collectorNumber": "49",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRAG_DOWN: CardData = {
+  "scryfallId": "03eb2163-cce2-4d07-b7d7-9c70a41fa373",
+  "oracleId": "30e397e9-a705-4484-8387-04fb84010b2d",
+  "name": "Drag Down",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drag Down",
+      "manaCost": "{2}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Domain — Target creature gets -1/-1 until end of turn for each basic land type among lands you control.",
+      "flavorText": "The barbarians of Jund believe the bottomless tar pits extend forever into other, darker worlds.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Trevor Claxton",
+      "imageId": "03eb2163-cce2-4d07-b7d7-9c70a41fa373"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Domain"
+  ],
+  "setCode": "con",
+  "collectorNumber": "42",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRAG_TO_THE_BOTTOM: CardData = {
+  "scryfallId": "6f72da0d-f48d-438d-8bc8-23e509a47149",
+  "oracleId": "c4d7a200-7401-4c9a-a7cf-6c98fa8eb61a",
+  "name": "Drag to the Bottom",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drag to the Bottom",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Domain — Each creature gets -X/-X until end of turn, where X is 1 plus the number of basic land types among lands you control.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nino Is",
+      "imageId": "6f72da0d-f48d-438d-8bc8-23e509a47149"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Domain"
+  ],
+  "setCode": "dmu",
+  "collectorNumber": "401",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRAMATIC_REVERSAL: CardData = {
+  "scryfallId": "2ad14406-4504-4951-83f0-82c298964d6c",
+  "oracleId": "da46904c-8fb8-44c2-b2ab-775a1cc12ec3",
+  "name": "Dramatic Reversal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dramatic Reversal",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Untap all nonland permanents you control.",
+      "flavorText": "\"I beat you all before and I'll do it again!\"\n—Toph",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Maël Ollivier-Henry",
+      "imageId": "2ad14406-4504-4951-83f0-82c298964d6c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tle",
+  "collectorNumber": "158",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DROWN_IN_SORROW: CardData = {
+  "scryfallId": "107cdfa4-da15-4610-9b72-e6e6c59deec4",
+  "oracleId": "5c93ec85-f87f-4121-9fbf-61fd598d1e65",
+  "name": "Drown in Sorrow",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drown in Sorrow",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "All creatures get -2/-2 until end of turn. Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Valera Lutfullina",
+      "imageId": "107cdfa4-da15-4610-9b72-e6e6c59deec4"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "prm",
+  "collectorNumber": "88296",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRY_SPELL: CardData = {
+  "scryfallId": "54558c35-89fd-4733-8419-81fd7a619319",
+  "oracleId": "980a9957-6b52-45c6-b847-f84974d5a653",
+  "name": "Dry Spell",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dry Spell",
+      "manaCost": "{1}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Dry Spell deals 1 damage to each creature and each player.",
+      "flavorText": "\"Wherever water is lacking, all things suffer.\"\n—Autumn Willow",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "54558c35-89fd-4733-8419-81fd7a619319"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "me2",
+  "collectorNumber": "87",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DUST_TO_DUST: CardData = {
+  "scryfallId": "6e8a9a5c-0e5f-4498-88d8-6aac465923b1",
+  "oracleId": "b17eb586-0272-4d02-be75-de06ea044b6f",
+  "name": "Dust to Dust",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dust to Dust",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Exile two target artifacts.",
+      "flavorText": "\"All this nonsense made by mages\nRusts and crumbles through the ages.\"\n—Aline Corralurn, \"Inheritance\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Doug Keith",
+      "imageId": "6e8a9a5c-0e5f-4498-88d8-6aac465923b1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "5ed",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DWARVEN_CATAPULT: CardData = {
+  "scryfallId": "302fc651-90f7-476d-9197-fa52c9f13923",
+  "oracleId": "2aae77ed-1a91-41f5-8dc2-e353d63a7586",
+  "name": "Dwarven Catapult",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dwarven Catapult",
+      "manaCost": "{X}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Dwarven Catapult deals X damage divided evenly, rounded down, among all creatures target opponent controls.",
+      "flavorText": "\"Often greatly outnumbered in battle, Dwarves relied on catapults as one means of damaging a large army.\"\n—*Sarpadian Empires, vol. IV*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jeff A. Menges",
+      "imageId": "302fc651-90f7-476d-9197-fa52c9f13923"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ptc",
+  "collectorNumber": "et51sb",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -33428,6 +33844,18 @@ export const ENGINE_CARDS: CardData[] = [
   DISORDER,
   DISPERSAL_SHIELD,
   DISPLACEMENT_WAVE,
+  DIVINE_OFFERING,
+  DOGPILE,
+  DONATE,
+  DOUBLE_TROUBLE,
+  DOUSE_IN_GLOOM,
+  DRAG_DOWN,
+  DRAG_TO_THE_BOTTOM,
+  DRAMATIC_REVERSAL,
+  DROWN_IN_SORROW,
+  DRY_SPELL,
+  DUST_TO_DUST,
+  DWARVEN_CATAPULT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

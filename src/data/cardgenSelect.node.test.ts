@@ -525,6 +525,24 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Displace', 'up-to-N targeting'],
   ['Disrupt Decorum', 'goad mechanic'],
   ['Divine Gambit', 'opponent-chooses'],
+  // D209 — the up-to-N family absorbs FIVE in one batch (its heaviest
+  // showing); Drain Power forces the TARGET to activate mana abilities of
+  // their own choosing; Dream Cache picks two hand cards back onto the
+  // library (Brainstorm's prompt); Dryad's Caress is mana-spent memory's
+  // second card.
+  ['Do or Die', 'opponent-chooses'],
+  ['Dominate', 'computed target threshold'],
+  ["Donatello's Science Lesson", 'up-to-N targeting'],
+  ['Double Negative', 'up-to-N targeting'],
+  ['Downpour', 'up-to-N targeting'],
+  ['Dragonclaw Strike', 'up-to-N targeting'],
+  ['Drain Power', 'opponent-chooses'],
+  ['Dreadful as the Storm', 'the Ring mechanic'],
+  ['Dream Cache', 'script-raised prompt'],
+  ['Dream Harvest', 'play-from-exile permission'],
+  ["Dryad's Caress", 'mana-spent memory'],
+  ['Dual Shot', 'up-to-N targeting'],
+  ['Dwarven Song', 'UEOT color change'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -436,9 +436,10 @@ const POOL: Record<string, number> = {
   // M6.4av (D207): +6 instants and +11 sorceries — an all-spell batch.
   // M6.4aw (D208): +7 instants, +7 sorceries, and two creatures (Dimir
   // Informant, Dinotomaton).
+  // M6.4ax (D209): +7 instants and +5 sorceries — a second all-spell batch.
   creature: 1567,
-  instant: 418,
-  sorcery: 272,
+  instant: 425,
+  sorcery: 277,
   land: 261,
   artifact: 77,
   enchantment: 32,

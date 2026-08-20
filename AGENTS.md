@@ -5735,6 +5735,34 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       climbs; prior items stand.
 
 
+- [x] **M6.4ax — Twelve landed: the control gift, the counted exile, and
+      the even split (2026-08-20):** **2,639 of 31,692 Commander-legal
+      cards now execute completely, up from 2,627** — a second
+      consecutive all-spell batch. `SHIPPED_SCRIPTS` 730 → 742; ledger
+      227. All 38 tests first-run clean. Decisions in **D209**.
+      **Firsts:** the control GIFT (Donate — probed to TWO confident
+      specs, the first SpellDef producer of ControlChanged); the COUNTED
+      target list (Dust to Dust — one spec min 2/max 2, exile takes the
+      indestructible); the deterministic even split (Dwarven Catapult —
+      floor(X/count), both sides pinned); the mid-combat attacker count
+      (Dogpile — cast in the attacker's own window, read before combat
+      damage); computed power DOUBLING (Double Trouble); Domain debuffs
+      (Drag Down / Drag to the Bottom); the board debuff + scry ask
+      (Drown in Sorrow).
+      ⚠️ **Thirteen refusals, ZERO new classes — up-to-N absorbs FIVE in
+      one batch, its heaviest showing.**
+      Fixtures 955 · botPool instant 425 / sorcery 277 · ladder [2414,
+      2513, 4306, 6220, 7432] · batch.json 1,850 · botDeck: Adun reaches
+      1,475.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 820
+      files, 4,925 passed / 10 skipped · 500-seed gate
+      724.9 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D209): up-to-N is the ledger's heaviest class
+      and Dust to Dust's counted-spec machinery is its enforcement half
+      already; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
