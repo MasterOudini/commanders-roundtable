@@ -660,6 +660,20 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hex Magic', 'play-from-exile permission'],
   ['High Tide', 'temporary game-wide trigger'],
   ["Hoarder's Greed", 'clash mechanic'],
+  // D218 — Honor's Reward BOLSTERS (the least-toughness tie is the
+  // caster's pick — Defensive Maneuvers' precedent); Hour of
+  // Devastation is the LOSE direction of the temp-grant carrier (Day of
+  // Black Sun's class); Hypothesizzle's may-discard rider and the
+  // bolster tie are the script-prompt seam's 13th and 14th entries.
+  ["Honor's Reward", 'script-raised prompt'],
+  ['Horses of the Bruinen', 'the Ring mechanic'],
+  ['Hostile Takeover', 'until-end-of-turn base P/T set'],
+  ['Hour of Devastation', 'temporary keyword/ability grant'],
+  ['Humble', 'until-end-of-turn base P/T set'],
+  ['Hurl into History', 'discover mechanic'],
+  ['Hurl Through Hell', 'play-from-exile permission'],
+  ['Hydroform', 'land animation'],
+  ['Hypothesizzle', 'script-raised prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

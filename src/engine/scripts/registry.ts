@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { HOLY_LIGHT_SCRIPT } from './cards/holyLight';
+import { HOMING_LIGHTNING_SCRIPT } from './cards/homingLightning';
+import { HONOR_THE_FALLEN_SCRIPT } from './cards/honorTheFallen';
+import { HOODWINK_SCRIPT } from './cards/hoodwink';
+import { HOPE_AND_GLORY_SCRIPT } from './cards/hopeAndGlory';
+import { HORIZON_SCHOLAR_SCRIPT } from './cards/horizonScholar';
+import { HORRIFIC_ASSAULT_SCRIPT } from './cards/horrificAssault';
+import { HOUR_OF_GLORY_SCRIPT } from './cards/hourOfGlory';
+import { HOWL_FROM_BEYOND_SCRIPT } from './cards/howlFromBeyond';
+import { HUATLIS_FINAL_STRIKE_SCRIPT } from './cards/huatlisFinalStrike';
+import { HUBRIS_SCRIPT } from './cards/hubris';
+import { HUNGER_OF_THE_NIM_SCRIPT } from './cards/hungerOfTheNim';
+import { HUNGRY_FLAMES_SCRIPT } from './cards/hungryFlames';
+import { HURKYLS_RECALL_SCRIPT } from './cards/hurkylsRecall';
+import { HURRICANE_SCRIPT } from './cards/hurricane';
+import { HYMN_OF_REBIRTH_SCRIPT } from './cards/hymnOfRebirth';
 import { HARMLESS_OFFERING_SCRIPT } from './cards/harmlessOffering';
 import { HARMONIC_CONVERGENCE_SCRIPT } from './cards/harmonicConvergence';
 import { HARROWING_JOURNEY_SCRIPT } from './cards/harrowingJourney';
@@ -993,6 +1009,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  HOLY_LIGHT_SCRIPT,
+  HOMING_LIGHTNING_SCRIPT,
+  HONOR_THE_FALLEN_SCRIPT,
+  HOODWINK_SCRIPT,
+  HOPE_AND_GLORY_SCRIPT,
+  HORIZON_SCHOLAR_SCRIPT,
+  HORRIFIC_ASSAULT_SCRIPT,
+  HOUR_OF_GLORY_SCRIPT,
+  HOWL_FROM_BEYOND_SCRIPT,
+  HUATLIS_FINAL_STRIKE_SCRIPT,
+  HUBRIS_SCRIPT,
+  HUNGER_OF_THE_NIM_SCRIPT,
+  HUNGRY_FLAMES_SCRIPT,
+  HURKYLS_RECALL_SCRIPT,
+  HURRICANE_SCRIPT,
+  HYMN_OF_REBIRTH_SCRIPT,
   HARMLESS_OFFERING_SCRIPT,
   HARMONIC_CONVERGENCE_SCRIPT,
   HARROWING_JOURNEY_SCRIPT,

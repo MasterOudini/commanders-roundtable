@@ -1409,6 +1409,25 @@ const WANTED = [
   'Hint of Insanity',
   "Hobbit's Sting",
   'Hold the Line',
+  // M6.4bg (D218) - batch 52: Homing Lightning executes (the D90 card),
+  // the God census exile, and the Aura-rider bounce.
+  'Holy Light',
+  'Homing Lightning',
+  'Honor the Fallen',
+  'Hoodwink',
+  'Hope and Glory',
+  'Horizon Scholar',
+  'Horrific Assault',
+  'Hour of Glory',
+  'Howl from Beyond',
+  "Huatli's Final Strike",
+  'Hubris',
+  'Hunger of the Nim',
+  'Hungry Flames',
+  "Hurkyl's Recall",
+  'Hurricane',
+  'Hymn of Rebirth',
+  'Oketra the True',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

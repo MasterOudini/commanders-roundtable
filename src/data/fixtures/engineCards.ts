@@ -35134,6 +35134,592 @@ export const HOLD_THE_LINE: CardData = {
   "singleImage": true
 };
 
+export const HOLY_LIGHT: CardData = {
+  "scryfallId": "34fbb723-2507-489a-acf1-22ac0dcbcd9c",
+  "oracleId": "8f7dd328-b367-4546-ba79-1efc1e97f2ab",
+  "name": "Holy Light",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Holy Light",
+      "manaCost": "{2}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Nonwhite creatures get -1/-1 until end of turn.",
+      "flavorText": "\"Bathed in hallowed light, the infidels looked upon the impurities of their souls and despaired.\"\n—The Book of Tal",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Drew Tucker",
+      "imageId": "34fbb723-2507-489a-acf1-22ac0dcbcd9c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "me1",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HOMING_LIGHTNING: CardData = {
+  "scryfallId": "00bca3e9-43c9-4647-8259-00580c0457ea",
+  "oracleId": "6e7f8e25-49a9-49a0-9bf4-129439344550",
+  "name": "Homing Lightning",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Homing Lightning",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Homing Lightning deals 4 damage to target creature and each other creature with the same name as that creature.",
+      "flavorText": "\"I see countless worlds. What makes them think I can't find them in just one?\"\n—Ral Zarek",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "00bca3e9-43c9-4647-8259-00580c0457ea"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "rvr",
+  "collectorNumber": "112",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HONOR_THE_FALLEN: CardData = {
+  "scryfallId": "70147617-10e0-413d-be0a-a888b9cb6b97",
+  "oracleId": "db557d5e-eecd-4891-90fa-c5bcb8532015",
+  "name": "Honor the Fallen",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Honor the Fallen",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Exile all creature cards from all graveyards. You gain 1 life for each card exiled this way.",
+      "flavorText": "\"May the River claim Cho-Manno's body, wherever it lies.\"\n—Ta-Karnst, Cho-Arrim healer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "70147617-10e0-413d-be0a-a888b9cb6b97"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "21",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HOODWINK: CardData = {
+  "scryfallId": "6afcbb04-e2f2-45f1-8060-9174174140e9",
+  "oracleId": "a2fe10b8-857e-4881-85ef-24a0f96a3d79",
+  "name": "Hoodwink",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hoodwink",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return target artifact, enchantment, or land to its owner's hand.",
+      "flavorText": "The youths of Rishada's marketplace are always ready for a quick footrace.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Volkan Baǵa",
+      "imageId": "6afcbb04-e2f2-45f1-8060-9174174140e9"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "prm",
+  "collectorNumber": "62449",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HOPE_AND_GLORY: CardData = {
+  "scryfallId": "7cc6478f-4ae5-4f26-baa9-b28e992f962e",
+  "oracleId": "506ea048-aca5-439a-a5b5-059ddda0672a",
+  "name": "Hope and Glory",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hope and Glory",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Untap two target creatures. Each of them gets +1/+1 until end of turn.",
+      "flavorText": "\"Serra ruled by faith. I cannot afford that luxury.\"\n—Radiant, archangel",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "7cc6478f-4ae5-4f26-baa9-b28e992f962e"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ulg",
+  "collectorNumber": "9",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HORIZON_SCHOLAR: CardData = {
+  "scryfallId": "0584e234-4ce9-4e17-a1cf-d6dafc4e1374",
+  "oracleId": "29933a32-3738-4ec5-aa6d-ce3684e2e5a3",
+  "name": "Horizon Scholar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Horizon Scholar",
+      "manaCost": "{5}{U}",
+      "typeLine": "Creature — Sphinx",
+      "oracleText": "Flying\nWhen this creature enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Karl Kopinski",
+      "imageId": "0584e234-4ce9-4e17-a1cf-d6dafc4e1374"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Scry",
+    "Flying"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "THS-51",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HORRIFIC_ASSAULT: CardData = {
+  "scryfallId": "cfa6ed13-7bba-40c0-8e0e-4ffd3cea6241",
+  "oracleId": "4c7e091e-e3c1-446d-a442-4aacb3cdd575",
+  "name": "Horrific Assault",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Horrific Assault",
+      "manaCost": "{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control deals damage equal to its power to target creature or planeswalker you don't control. If you control an Eldrazi, you gain 3 life.",
+      "flavorText": "With shifting forms and no angel to pray to, Innistrad's werewolves were especially susceptible to Emrakul's influence.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Justine Jones",
+      "imageId": "cfa6ed13-7bba-40c0-8e0e-4ffd3cea6241"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mh3",
+  "collectorNumber": "157",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HOUR_OF_GLORY: CardData = {
+  "scryfallId": "f35e66cb-af50-411a-b6f2-16fb7072eff5",
+  "oracleId": "d97fd43b-146f-4d13-9c45-51bceaff742e",
+  "name": "Hour of Glory",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hour of Glory",
+      "manaCost": "{3}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Exile target creature. If that creature was a God, its controller reveals their hand and exiles all cards from it with the same name as that creature.",
+      "flavorText": "The gods of the trials also faced the opportunity to prove themselves worthy.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "f35e66cb-af50-411a-b6f2-16fb7072eff5"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "hou",
+  "collectorNumber": "65",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HOWL_FROM_BEYOND: CardData = {
+  "scryfallId": "15fd1202-ad8b-4526-ba6b-0460f56d91a6",
+  "oracleId": "403cf6ae-48a9-4ea9-894e-7135cfca4e1b",
+  "name": "Howl from Beyond",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Howl from Beyond",
+      "manaCost": "{X}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +X/+0 until end of turn.",
+      "flavorText": "Whether it howls for hunger or for joy, you're in trouble just the same.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dave Dorman",
+      "imageId": "15fd1202-ad8b-4526-ba6b-0460f56d91a6"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "7ed",
+  "collectorNumber": "142★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HUATLI_S_FINAL_STRIKE: CardData = {
+  "scryfallId": "1247a5fa-b50a-4ab1-96ca-dbeb45bd0b56",
+  "oracleId": "20acb8df-2ea0-48b0-8dcf-54dd0e1f8db8",
+  "name": "Huatli's Final Strike",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Huatli's Final Strike",
+      "manaCost": "{2}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control gets +1/+0 until end of turn. It deals damage equal to its power to target creature an opponent controls.",
+      "flavorText": "\"Inti's name will grace our poems and histories for generations. Yours will collect dust, forgotten, in this cave.\"\n—Huatli, to Vito",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Marta Nael",
+      "imageId": "1247a5fa-b50a-4ab1-96ca-dbeb45bd0b56"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "lci",
+  "collectorNumber": "190",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HUBRIS: CardData = {
+  "scryfallId": "05f5b473-edad-43a9-b4e7-b6d3fc877cf2",
+  "oracleId": "95fbd573-c04c-408a-a8c3-f7e1ad5ddac0",
+  "name": "Hubris",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hubris",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return target creature and all Auras attached to it to their owners' hands.",
+      "flavorText": "\"You wish to learn of Nyx? Very well.\"\n—Phenax, god of deception",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Seb McKinnon",
+      "imageId": "05f5b473-edad-43a9-b4e7-b6d3fc877cf2"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "jou",
+  "collectorNumber": "41",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HUNGER_OF_THE_NIM: CardData = {
+  "scryfallId": "bba50e47-2417-447f-b334-50ef0faecfae",
+  "oracleId": "1af3c6ff-2884-4d8c-a01f-6f74d8ea10cc",
+  "name": "Hunger of the Nim",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hunger of the Nim",
+      "manaCost": "{1}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature gets +1/+0 until end of turn for each artifact you control.",
+      "flavorText": "Their pain is so great, they can't help but share it with others.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Puddnhead",
+      "imageId": "bba50e47-2417-447f-b334-50ef0faecfae"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dst",
+  "collectorNumber": "46",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HUNGRY_FLAMES: CardData = {
+  "scryfallId": "07392a36-e63a-4648-b8df-1172403922eb",
+  "oracleId": "a2c00788-14e7-4ab5-8c71-2a176621a177",
+  "name": "Hungry Flames",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hungry Flames",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Hungry Flames deals 3 damage to target creature and 2 damage to target player or planeswalker.",
+      "flavorText": "In the hold of the *Heart of Kiran*, Chandra answered Dovin Baan's sabotage with an explosive retort.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Izzy",
+      "imageId": "07392a36-e63a-4648-b8df-1172403922eb"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "jmp",
+  "collectorNumber": "336",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HURKYL_S_RECALL: CardData = {
+  "scryfallId": "0d6439c1-9969-4fd0-b6ad-1a88c1aa6e31",
+  "oracleId": "ed1e5d24-c8a8-48fe-a88f-1003ad432477",
+  "name": "Hurkyl's Recall",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hurkyl's Recall",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return all artifacts target player owns to their hand.",
+      "flavorText": "Hurkyl's research at the College of Lat-Nam wasn't enough to stop the two brothers, but for centuries thereafter her spellcraft taught artificers restraint.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ralph Horsley",
+      "imageId": "0d6439c1-9969-4fd0-b6ad-1a88c1aa6e31"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "MM2-48",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HURRICANE: CardData = {
+  "scryfallId": "0dd7e1ab-9279-47b3-b5a8-401f35cd69f1",
+  "oracleId": "9c021685-4017-49c7-9f58-2ae0243361a0",
+  "name": "Hurricane",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hurricane",
+      "manaCost": "{X}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Hurricane deals X damage to each creature with flying and each player.",
+      "flavorText": "\"The raging winds . . . , settling on the sea, the surges sweep, / Raise liquid mountains, and disclose the deep.\"\n—Virgil, *Aeneid*, Book I, trans. Dryden",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Cornelius Brudi",
+      "imageId": "0dd7e1ab-9279-47b3-b5a8-401f35cd69f1"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ath",
+  "collectorNumber": "58",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HYMN_OF_REBIRTH: CardData = {
+  "scryfallId": "61d0f2f2-f6e2-4b8a-8418-10b17c5e0ea9",
+  "oracleId": "f06fca68-593b-4fbd-a5a9-618060311172",
+  "name": "Hymn of Rebirth",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hymn of Rebirth",
+      "manaCost": "{3}{G}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put target creature card from a graveyard onto the battlefield under your control.",
+      "flavorText": "\"There will come soft rains, and spring shall be amongst us, a welcome friend.\"\n—Halvor Arenson, Kjeldoran Priest",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Richard Kane Ferguson",
+      "imageId": "61d0f2f2-f6e2-4b8a-8418-10b17c5e0ea9"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ice",
+  "collectorNumber": "295",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OKETRA_THE_TRUE: CardData = {
+  "scryfallId": "b3aa8c17-e37e-430e-a940-d016c4ab5852",
+  "oracleId": "646e68c8-cc42-4d6c-8363-a18b10a10eae",
+  "name": "Oketra the True",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Oketra the True",
+      "manaCost": "{3}{W}",
+      "typeLine": "Legendary Creature — God",
+      "oracleText": "Double strike, indestructible\nOketra can't attack or block unless you control at least three other creatures.\n{3}{W}: Create a 1/1 white Warrior creature token with vigilance.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Bastien L. Deharme",
+      "imageId": "b3aa8c17-e37e-430e-a940-d016c4ab5852"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Indestructible",
+    "Double strike"
+  ],
+  "setCode": "mp2",
+  "collectorNumber": "5",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -38532,6 +39118,23 @@ export const ENGINE_CARDS: CardData[] = [
   HINT_OF_INSANITY,
   HOBBIT_S_STING,
   HOLD_THE_LINE,
+  HOLY_LIGHT,
+  HOMING_LIGHTNING,
+  HONOR_THE_FALLEN,
+  HOODWINK,
+  HOPE_AND_GLORY,
+  HORIZON_SCHOLAR,
+  HORRIFIC_ASSAULT,
+  HOUR_OF_GLORY,
+  HOWL_FROM_BEYOND,
+  HUATLI_S_FINAL_STRIKE,
+  HUBRIS,
+  HUNGER_OF_THE_NIM,
+  HUNGRY_FLAMES,
+  HURKYL_S_RECALL,
+  HURRICANE,
+  HYMN_OF_REBIRTH,
+  OKETRA_THE_TRUE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

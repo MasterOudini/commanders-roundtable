@@ -6008,6 +6008,40 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the chooser half; prior items stand.
 
 
+- [x] **M6.4bg — Homing Lightning executes, and the gate catches a
+      flickered commander (2026-08-20):** **2,785 of 31,692
+      Commander-legal cards now execute completely, up from 2,769.**
+      `SHIPPED_SCRIPTS` 872 → 888; ledger 306. Decisions in **D218**.
+      ⚠️⚠️ **The gate's first run FAILED on a real engine hole (fuzz
+      seed 69): a commander in two zones at once.** Flicker of Fate
+      exiled Krenko (raising the commander-zone choice) and returned
+      him in the same resolve; the owner's later yes moved him from the
+      STALE recorded zone. Fixed in `commanderZoneChoice` — the answer
+      re-checks the card still sits where the queue recorded it;
+      `commanderZoneStale.test.ts` stages it, and the 70-seed leg
+      reproduces seed 69 green.
+      **The headliner: Homing Lightning — THE D90 CARD — executes.**
+      The name fan crosses the whole battlefield, my own Bears
+      included.
+      **Also:** the God-conditional census exile (Hour of Glory, on the
+      new Oketra support body); the Aura-rider bounce by OWNER
+      (Hubris — ⚠️ test Auras are CAST, never put(): the aura-falls SBA
+      bins a put() Aura before any Tier-3 attach lands); the by-OWNER
+      artifact recall; the every-graveyard creature exile; the counted
+      pair untap+pump; the two-clause burn (probed to two confident
+      specs).
+      ⚠️ **Nine refusals, no new classes.**
+      Fixtures 1,104 · botPool creature 1,579 / instant 494 / sorcery
+      336 · ladder [2268, 2367, 4160, 6074, 7286] · batch.json 1,625 ·
+      botDeck: Adun reaches 1,569.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 967
+      files, 5,655 passed / 10 skipped · 500-seed gate
+      756.0 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D218): audit the other zone-recording prompts
+      for the same staleness shape; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

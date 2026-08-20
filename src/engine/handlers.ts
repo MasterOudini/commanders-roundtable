@@ -1495,7 +1495,17 @@ function commanderZoneChoice(
   const head = awaiting.queue[0];
   if (!head) return accept([{ t: 'AwaitingSet', awaiting: null }]);
   const events: EventBody[] = [];
-  if (intent.toCommandZone) {
+  // ⚠️ The commander may have MOVED ON while the question was up: a flicker
+  // exiles it (raising this choice) and returns it to the battlefield in the
+  // SAME resolve, so by answer time the recorded `from` is stale. Moving from
+  // the stale zone leaves the card in two zone arrays at once — fuzz seed 69
+  // found exactly that (Flicker of Fate on Krenko). If the card no longer
+  // sits where the queue recorded it, the question is moot and a yes does
+  // nothing (CR 903.9a applies to the zone change that raised it).
+  const card = state.cards[head.card];
+  const still =
+    !!card && card.zone.kind === head.from.kind && card.zone.player === head.from.player;
+  if (intent.toCommandZone && still) {
     events.push({
       t: 'CardsMoved',
       moves: [{ card: head.card, from: head.from, to: { kind: 'command', player: head.player } }],

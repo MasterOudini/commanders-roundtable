@@ -14549,3 +14549,66 @@ land 265 · batch.json 1,650 · botDeck: Adun reaches 1,561.
 **Reportables:** the counted-spec machinery is now proven at 2 and 6 —
 the up-to-N class (the ledger's heaviest) still waits on the CHOOSER
 half; prior items stand.
+
+## D218 — M6.4bg: Homing Lightning executes, and the gate catches a flickered commander (2026-08-20)
+
+**Coverage: 2,769 → 2,785 of 31,692 (+16).** `SHIPPED_SCRIPTS` 872 → 888;
+the ledger 297 → 306 (+9, no new classes); the pool 1,650 → 1,625;
+fixtures 1,087 → 1,104 (+17: the sixteen plus `Oketra the True` as the
+mono-faced God body — the only in-tree God was a modal DFC).
+
+⚠️⚠️ **THE GATE'S FIRST RUN FAILED ON A REAL ENGINE HOLE — fuzz seed 69:
+a commander in two zones at once.** `Flicker of Fate` exiled Krenko
+(raising the commander-zone choice), returned him to the battlefield in
+the SAME resolve, and the owner's later "command zone" answer moved him
+from the STALE recorded zone — leaving c158 in both the battlefield and
+command arrays. Pre-existing since the choice shipped; it needed a
+flicker aimed at a commander plus a yes, which the D193 pool rotation
+finally dealt together. **Fixed in `commanderZoneChoice`:** the answer
+re-checks that the card still sits where the queue recorded it — a
+moved-on commander makes the question moot and the yes a no-op (CR
+903.9a applies to the zone change that raised it).
+`commanderZoneStale.test.ts` stages the exact scenario; with the check
+deleted the suite fails, and the 70-seed leg reproduces seed 69 green.
+
+**The headliner:** `Homing Lightning` — THE D90 CARD. The loose-prefix
+parser would have "understood" it and silently dropped the name fan;
+closing the vocabulary refused it and named the never-half-execute
+rule. A script now runs every word: 4 to the target and each OTHER
+same-name creature, controller-agnostic (the test kills my own Bears
+with it).
+
+**Also:** `Hour of Glory`'s God-conditional census exile (the God takes
+its hand-twins with it, the hand revealed to every seat; a non-God
+keeps the hand private — Oketra proves both arms); `Hubris` bounces the
+creature AND its riding Auras by OWNER (the worn Pacifism comes back to
+MY hand; the one on my own creature stays) — ⚠️ its first test put() the
+Aura and the aura-falls SBA binned it before the Tier-3 attach could
+land: **test Auras are CAST through D198's attach path, never put()**;
+`Hurkyl's Recall` scans by OWNER; `Honor the Fallen` exiles creature
+cards from EVERY graveyard and counts the gain; `Hoodwink`'s
+'artifact, enchantment, or land' triple probed as ALREADY parsed (three
+kinds enforced — the compound family holds); `Hope and Glory` proves
+the counted pair untap+pump; `Horrific Assault` gates its gain on an
+Eldrazi (Desolation Twin); `Huatli's Final Strike` reads power AFTER
+its own +1; `Hungry Flames` splits two damage clauses from one
+sentence (probed to two confident specs); `Hymn of Rebirth` reanimates
+from ANY graveyard under MY control; plus Holy Light, Horizon
+Scholar's ETB scry 2, Howl from Beyond's +X/+0, Hunger of the Nim,
+Hurricane (Squall Line's shape), and Hysterical-style board math.
+
+**Nine refusals, no new classes:** bolster's tie choice and
+Hypothesizzle's may-discard join the script-prompt seam (13th/14th);
+Hour of Devastation is the LOSE direction of the temp-grant carrier
+(Day of Black Sun's class); plus the Ring, two base-P/T sets, discover,
+play-from-exile, and land animation.
+
+**Measured after landing:** primitives complete 2,785 · blocked 28,907 ·
+scriptableToday 2,268 · ladder [2268, 2367, 4160, 6074, 7286] · tier3
+silentAfter 3,196 (+16 exact) · botPool creature 1,579 / instant 494 /
+sorcery 336 · batch.json 1,625 · botDeck: Adun reaches 1,569.
+
+**Reportables:** the flicker-vs-pending-choice composition is worth a
+sweep — any script that moves a card while a zone question is up shares
+the shape (the fix is general, but other queued prompts recording zones
+deserve the same staleness audit); prior items stand.
