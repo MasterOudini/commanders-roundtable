@@ -1059,6 +1059,29 @@ const WANTED = [
   'Arborea Pegasus',
   'Apocalypse',
   'Arms of Hadar',
+  // M6.4an (D199) - the enchantment wipe, the same-name debuff, the per-Aura
+  // burn, the color-mode bounce, the reveal-sort, and the batch. Bedevil (the
+  // noun-list widening's vocabulary card) has had a fixture since its D192
+  // pull. Uthros Research Craft is the SUPPORT body for Beyond the Quiet's
+  // Spacecraft arm.
+  'Axgard Cavalry',
+  'Back to Nature',
+  "Baki's Curse",
+  'Balance of Power',
+  'Baleful Stare',
+  'Banishment Decree',
+  'Barrier of Bones',
+  "Barrin's Unmaking",
+  'Battle Hymn',
+  'Battle Rampart',
+  'Battleflight Eagle',
+  'Battlesong Berserker',
+  'Beacon Behemoth',
+  'Beast Hunt',
+  'Bewildering Blizzard',
+  'Beyond the Quiet',
+  'Bile Blight',
+  'Uthros Research Craft',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

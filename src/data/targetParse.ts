@@ -321,6 +321,10 @@ const NOUNS: readonly NounEntry[] = [
   // `Icy Manipulator`: a comma-or list.
   { re: new RegExp(`^artifact,\\s*creature,\\s*or\\s+land${s}\\b`, 'i'), kinds: ['artifact', 'creature', 'land'] },
   { re: new RegExp(`^artifact,\\s*enchantment,\\s*or\\s+land${s}\\b`, 'i'), kinds: ['artifact', 'enchantment', 'land'] },
+  // D199: two more of Icy's shape — `Bedevil` (ledgered since D192 as the
+  // noun-list class) and `Banishment Decree` print them whole.
+  { re: new RegExp(`^artifact,\\s*creature,\\s*or\\s+planeswalker${s}\\b`, 'i'), kinds: ['artifact', 'creature', 'planeswalker'] },
+  { re: new RegExp(`^artifact,\\s*creature,\\s*or\\s+enchantment${s}\\b`, 'i'), kinds: ['artifact', 'creature', 'enchantment'] },
 
   // stack objects
   // ⚠️ `cardTypes` on a spell noun is enforced against the CAST FACE's types

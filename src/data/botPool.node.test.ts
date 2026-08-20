@@ -239,10 +239,10 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * the pins have been swapped; the measurement itself is deterministic and was
    * verified identical across isolated and full-suite runs.
    */
-  test('D90 does not reproduce, and the vocabulary keeps moving it: 573 auto, 1,721 assisted (D198)', () => {
-    expect(r.spells.auto).toBe(573);
-    expect(r.spells.assisted).toBe(1721);
-    expect(r.spells.autoAnyFace).toBe(581);
+  test('D90 does not reproduce, and the vocabulary keeps moving it: 574 auto, 1,723 assisted (D199)', () => {
+    expect(r.spells.auto).toBe(574);
+    expect(r.spells.assisted).toBe(1723);
+    expect(r.spells.autoAnyFace).toBe(582);
   });
 
   /**
@@ -431,9 +431,9 @@ const POOL: Record<string, number> = {
   // Letter of Acceptance.
   // M6.4ac (D185): +12 creatures, +1 land, and TWO enchantments (Makeshift
   // Munitions, Malevolent Awakening) — the pool reads THIRTY.
-  creature: 1543,
-  instant: 357,
-  sorcery: 203,
+  creature: 1549,
+  instant: 365,
+  sorcery: 208,
   land: 259,
   artifact: 75,
   enchantment: 30,

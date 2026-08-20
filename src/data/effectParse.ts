@@ -46,6 +46,8 @@ const NOUNS = [
   'enchantment spell',
   'artifact spell',
   'instant or sorcery spell',
+  'artifact, creature, or planeswalker',
+  'artifact, creature, or enchantment',
   'artifact or enchantment',
   'creature or planeswalker',
   'player or planeswalker',

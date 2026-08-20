@@ -7,6 +7,23 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { AXGARD_CAVALRY_SCRIPT } from './cards/axgardCavalry';
+import { BACK_TO_NATURE_SCRIPT } from './cards/backToNature';
+import { BAKIS_CURSE_SCRIPT } from './cards/bakisCurse';
+import { BALANCE_OF_POWER_SCRIPT } from './cards/balanceOfPower';
+import { BALEFUL_STARE_SCRIPT } from './cards/balefulStare';
+import { BANISHMENT_DECREE_SCRIPT } from './cards/banishmentDecree';
+import { BARRIER_OF_BONES_SCRIPT } from './cards/barrierOfBones';
+import { BARRINS_UNMAKING_SCRIPT } from './cards/barrinsUnmaking';
+import { BATTLE_HYMN_SCRIPT } from './cards/battleHymn';
+import { BATTLE_RAMPART_SCRIPT } from './cards/battleRampart';
+import { BATTLEFLIGHT_EAGLE_SCRIPT } from './cards/battleflightEagle';
+import { BATTLESONG_BERSERKER_SCRIPT } from './cards/battlesongBerserker';
+import { BEACON_BEHEMOTH_SCRIPT } from './cards/beaconBehemoth';
+import { BEAST_HUNT_SCRIPT } from './cards/beastHunt';
+import { BEWILDERING_BLIZZARD_SCRIPT } from './cards/bewilderingBlizzard';
+import { BEYOND_THE_QUIET_SCRIPT } from './cards/beyondTheQuiet';
+import { BILE_BLIGHT_SCRIPT } from './cards/bileBlight';
 import { AUGURY_OWL_SCRIPT } from './cards/auguryOwl';
 import { ARCHIVE_DRAGON_SCRIPT } from './cards/archiveDragon';
 import { AUTOMATIC_LIBRARIAN_SCRIPT } from './cards/automaticLibrarian';
@@ -693,6 +710,23 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AXGARD_CAVALRY_SCRIPT,
+  BACK_TO_NATURE_SCRIPT,
+  BAKIS_CURSE_SCRIPT,
+  BALANCE_OF_POWER_SCRIPT,
+  BALEFUL_STARE_SCRIPT,
+  BANISHMENT_DECREE_SCRIPT,
+  BARRIER_OF_BONES_SCRIPT,
+  BARRINS_UNMAKING_SCRIPT,
+  BATTLE_HYMN_SCRIPT,
+  BATTLE_RAMPART_SCRIPT,
+  BATTLEFLIGHT_EAGLE_SCRIPT,
+  BATTLESONG_BERSERKER_SCRIPT,
+  BEACON_BEHEMOTH_SCRIPT,
+  BEAST_HUNT_SCRIPT,
+  BEWILDERING_BLIZZARD_SCRIPT,
+  BEYOND_THE_QUIET_SCRIPT,
+  BILE_BLIGHT_SCRIPT,
   AUGURY_OWL_SCRIPT,
   ARCHIVE_DRAGON_SCRIPT,
   AUTOMATIC_LIBRARIAN_SCRIPT,

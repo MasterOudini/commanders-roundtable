@@ -5407,6 +5407,46 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       structural tail; prior items stand.
 
 
+- [x] **M6.4an — Seventeen landed, the noun-list widening, and the ledger
+      gives Bedevil back (2026-08-20):** **2,486 of 31,692 Commander-legal
+      cards now execute completely, up from 2,467** — 17 scripts + 2
+      vocabulary cards. `SHIPPED_SCRIPTS` 572 → 589; ledger 130.
+      Decisions in **D199**.
+      ⚠️ **THE NOUN-LIST WIDENING (Icy's idiom):** two comma-or compounds
+      join both parsers with all three kinds ENFORCED — and **`Bedevil`,
+      the class's founding card (D192), DRAINED through the stale-refusal
+      guard**: a vocabulary card, no script anywhere, proven by a real
+      cast killing a Sol Ring. `Banishment Decree` lands on the other
+      compound with the top-of-library move.
+      **The batch:** the ETB surveil behind Defender; the first "whenever
+      YOU attack" targeted trigger; the {T}-haste TWO-ID text family; the
+      D139-floored vigilance grant (the 2/2 refused, pinned); the
+      color-MODE bounce (ties included, both outcomes from one board);
+      the per-attached-Aura burn whose test CASTS a real Pacifism through
+      D198's attach fix; the hand-difference draw; the public reveal +
+      Mountain-or-red count; the ritual; the reveal-sort; the NAME
+      predicate debuff (both same-name Bears die); the Spacecraft wipe
+      arm on its own support fixture.
+      ⚠️ **The D169 counting trap charged its second customer** (Baleful
+      Stare's test measured a hand around a put that fetched from the
+      opening seven — the engine was perfect); Beast Hunt pinned "a
+      reveal is asserted ON THE LOG — zone moves clear `revealedTo`".
+      ⚠️ **Eight refusals, THREE new classes:** dungeon/venture mechanic,
+      negated-color target qualifier, counted target list. Plus the
+      second-clause shape's second card (Biomantic Mastery).
+      Fixtures 799 (70 tokens — none new) · botPool 1,549/365/208 ·
+      ladder [2567, 2666, 4459, 6373, 7585] · batch.json 2,100 (rungs
+      1–2 ZERO) · **FIVE joined the bot's deck** (Adun reaches 1,374).
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 667
+      files, 4,150 passed / 10 skipped · 500-seed gate
+      731.7 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D199): the counted-list and second-clause
+      parse shapes are the targeting layer's named slices beside D197's
+      keyword qualifier; the dungeon subsystem joins the structural
+      tail; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

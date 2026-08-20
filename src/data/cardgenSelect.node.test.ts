@@ -326,7 +326,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Electrodominance', 'script-raised prompt'],
   ['Day of Black Sun', 'temporary keyword/ability grant'],
   ['Stinging Study', 'script-raised prompt'],
-  ['Bedevil', 'spell target parse (noun list)'],
+  // ⚠️ Bedevil DRAINED in D199: the noun-list widening added its Oxford
+  // compound to both parsers (Icy Manipulator's own idiom), so its whole
+  // text is one admitted destroy — a vocabulary card, no script anywhere.
+  // Aftershock and Atraxa's Fall stay: their lists were never the (only)
+  // blocker.
   ['Fall of the Hammer', 'spell target parse (second clause)'],
   // Batch M6.4ak (D196) — eight refusals, THREE new classes. About Face
   // needs an until-end-of-turn power/toughness SWITCH, which the carrier
@@ -370,6 +374,22 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Arcane Omens', 'converge (cast-time mana-color memory)'],
   ["Ashnod's Intervention", 'temporary non-keyword ability grant'],
   ['Artificial Evolution', 'text-changing effect (CR 612)'],
+  // D199 — Bar the Gate needs the DUNGEON subsystem (no venture concept
+  // anywhere in the engine); Befoul's compound carries a NEGATED COLOR
+  // ('nonblack creature') that TargetSpec has no field for — enforcing the
+  // kinds while dropping the color would destroy a black creature the card
+  // cannot touch; Betrayal at the Vault's 'each of two other target
+  // creatures' parses to max 1 (a COUNTED list, probed) — a silent
+  // narrowing; Biomantic Mastery's mid-sentence 'another target player' is
+  // Fall of the Hammer's shape one kind over.
+  ['Balloon Peddler', 'discard-cost chooser'],
+  ['Band Together', 'up-to-N targeting'],
+  ['Bar the Gate', 'dungeon/venture mechanic'],
+  ['Befoul', 'negated-color target qualifier'],
+  ['Bend or Break', 'opponent-chooses'],
+  ['Benefaction of Rhonas', 'script-raised prompt'],
+  ['Betrayal at the Vault', 'spell target parse (counted list)'],
+  ['Biomantic Mastery', 'spell target parse (second clause)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

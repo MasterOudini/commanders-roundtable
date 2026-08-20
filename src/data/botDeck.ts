@@ -13,7 +13,7 @@
 // tutors, no recursion, because the engine runs none of those yet. That ceiling
 // is the honest state of the app and it rises as the engine's coverage does.
 //
-// commander: Adun Oakenshield (BGR), chosen from 65 fully-executable legendary creatures for reaching 1364 cards
+// commander: Adun Oakenshield (BGR), chosen from 65 fully-executable legendary creatures for reaching 1374 cards
 // mv 0–1: wanted 6, took 6
 // mv 2–2: wanted 14, took 14
 // mv 3–3: wanted 14, took 14
@@ -42,11 +42,11 @@ export const BOT_DECK = {
   "Antagonize",
   "Arcane Signet",
   "Ark of Blight",
+  "Back to Nature",
+  "Battle Hymn",
   "Battle-Rage Blessing",
+  "Bile Blight",
   "Bladebrand",
-  "Blitzball Shot",
-  "Breath of Fire",
-  "Brute Strength",
   "Vampire Nighthawk",
   "Force of Savagery",
   "Acidic Soil",
@@ -59,8 +59,8 @@ export const BOT_DECK = {
   "Aura Barbs",
   "Awaken the Bear",
   "Bathe in Dragonfire",
+  "Bedevil",
   "Bestow Greatness",
-  "Birthing Boughs",
   "Agonizing Syphon",
   "Ambition's Cost",
   "Anarchy",
@@ -69,10 +69,10 @@ export const BOT_DECK = {
   "Artisan's Sorrow",
   "Ashen Powder",
   "Bake into a Pie",
+  "Beast Hunt",
   "Bee Sting",
   "Carrion Call",
   "Caustic Rain",
-  "Concentrated Fire",
   "Gigantosaurus",
   "Doom Whisperer",
   "Terrian, World Tyrant",

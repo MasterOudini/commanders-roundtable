@@ -13548,3 +13548,74 @@ cheapest named slice (D139's playbook — this batch widened the TYPE
 qualifier; the KEYWORD one is the same move one field over); the noun-list
 class holds three cards; converge and the text-changer join the structural
 tail; prior items stand.
+
+## D199 — M6.4an: seventeen landed, the noun-list widening, and the ledger gives Bedevil back (2026-08-20)
+
+**Coverage: 2,467 → 2,486 of 31,692 (+19 — 17 scripts + 2 vocabulary).**
+`SHIPPED_SCRIPTS` 572 → 589; the ledger 123 → 130 (one drained, eight in);
+the offerable pool 2,125 → 2,100 with rungs 1–2 still at ZERO.
+
+**The noun-list widening, Icy Manipulator's own idiom.** Two comma-or
+compounds join BOTH parsers' noun tables — `artifact, creature, or
+planeswalker` and `artifact, creature, or enchantment` — all three kinds
+ENFORCED, zero new machinery. **`Bedevil` — the class's founding card,
+REFUSED since D192 — drained through the stale-refusal guard the moment
+the parse read it**: its whole text is one admitted destroy, a vocabulary
+card with no script anywhere, proven end to end (a real cast kills a Sol
+Ring) in `nounListTargets.test.ts`. `Banishment Decree` lands on the
+other compound with Anchor's top-of-library move. Aftershock and Atraxa's
+Fall STAY ledgered — their lists were never the (only) blocker.
+
+**The seventeen.** The scry-surveil family gains the ETB surveil behind a
+Defender header (`Barrier of Bones`); `Battlesong Berserker` is the first
+"whenever YOU attack" targeted trigger (every attacker in one declaration
+belongs to the declaring player, so any-of-mine IS the filter); the
+{T}-haste grant lands as a TWO-ID text family (`Axgard Cavalry`,
+`Battle Rampart`) beside `Beacon Behemoth`'s D139-floored vigilance
+(the 2/2 refused at the aim, pinned); `Battleflight Eagle` is Arborea
+Pegasus's exact shape at +2. The computed resolves: `Barrin's Unmaking`
+(the color-MODE set over every battlefield permanent, ties included — a
+share bounces, a miss is a real outcome, both from one board),
+`Baki's Curse` (2 per attached Aura per creature — its test CASTS a real
+Pacifism through D198's attach fix: the composition paying immediately),
+`Balance of Power` (the hand-difference draw, both branches),
+`Baleful Stare` (public reveal + count once per Mountain-OR-red card),
+`Battle Hymn` (Geyser's ritual on my creatures), `Beast Hunt` (the
+choiceless reveal-sort: creatures to hand, rest to graveyard),
+`Bile Blight` (the NAME predicate on a debuff — both same-name Bears die
+of one cast), `Bewildering Blizzard`, `Beyond the Quiet` (exile all
+creatures AND Spacecraft — `Uthros Research Craft` is the support body
+proving the subtype arm), `Back to Nature`, `Apocalypse`'s smaller
+cousins all on shipped shapes.
+
+**⚠️ The D169 counting trap charged its second customer:** Baleful
+Stare's first test measured p1's hand around a `put` that FETCHED A COPY
+THE OPENING HAND ALREADY HELD — "expected 8 to be 9" with the engine
+perfect (the snapshot probe showed both draws landing and the spell
+having been in the opening seven all along). The rule restated: measure
+AFTER the put, minus the spell — or count LOG MOVES. And Beast Hunt
+pinned the reveal rule from the other side: per-card `revealedTo` CLEARS
+on the zone move (D114), so a reveal is asserted ON THE LOG.
+
+**Eight refusals, THREE new classes:** `Bar the Gate` (dungeon/venture —
+no dungeon concept exists anywhere in the engine), `Befoul` (a NEGATED
+COLOR in the compound — `nonblack creature` has no TargetSpec field, and
+enforcing the kinds while dropping the color would destroy a black
+creature the card cannot touch), `Betrayal at the Vault` ("each of two
+other target creatures" parses to max 1 — a COUNTED list, probed before a
+line was written). Plus `Biomantic Mastery` (Fall of the Hammer's
+second-clause shape one kind over), discard-cost, up-to-N,
+opponent-chooses, script-raised prompt.
+
+**Measured after landing:** primitives blocked 29,206 · scriptableToday
+2,567 · ladder [2567, 2666, 4459, 6373, 7585] · tier3 abilityText 17,136 /
+silentAfter 2,897 (+18 = the 17 scripts + Bedevil, exact) · botPool auto
+574 / assisted 1,723 / autoAnyFace 582 / creature 1,549 / instant 365 /
+sorcery 208 · effect:auto faces 2,778 · fixtures 799 (70 tokens — none
+new) · **FIVE joined the bot's deck** (Bedevil, Back to Nature, Battle
+Hymn, Bile Blight, Beast Hunt — Adun reaches 1,374).
+
+**Reportables:** the keyword target-qualifier widening (D197) and the
+counted-list/second-clause parse family are now the targeting layer's two
+named slices; the dungeon subsystem joins the structural tail; prior items
+stand.
