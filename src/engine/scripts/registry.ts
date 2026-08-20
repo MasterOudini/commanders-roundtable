@@ -7,6 +7,24 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { MOB_JUSTICE_SCRIPT } from './cards/mobJustice';
+import { MOBILIZE_SCRIPT } from './cards/mobilize';
+import { MOGG_RAIDER_SCRIPT } from './cards/moggRaider';
+import { MOLECULAR_MODIFIER_SCRIPT } from './cards/molecularModifier';
+import { MOLTEN_RAIN_SCRIPT } from './cards/moltenRain';
+import { MONK_REALIST_SCRIPT } from './cards/monkRealist';
+import { MONUMENTAL_CORRUPTION_SCRIPT } from './cards/monumentalCorruption';
+import { MOONFOLK_PUZZLEMAKER_SCRIPT } from './cards/moonfolkPuzzlemaker';
+import { MOONLIT_WAKE_SCRIPT } from './cards/moonlitWake';
+import { MOONRISE_CLERIC_SCRIPT } from './cards/moonriseCleric';
+import { MORALE_SCRIPT } from './cards/morale';
+import { MORNINGTIDE_SCRIPT } from './cards/morningtide';
+import { MOSSBEARD_ANCIENT_SCRIPT } from './cards/mossbeardAncient';
+import { MOSSTODON_SCRIPT } from './cards/mosstodon';
+import { MOTHRIDER_PATROL_SCRIPT } from './cards/mothriderPatrol';
+import { MUDHOLE_SCRIPT } from './cards/mudhole';
+import { MULCH_SCRIPT } from './cards/mulch';
+import { MULTANIS_DECREE_SCRIPT } from './cards/multanisDecree';
 import { MIGHT_OF_THE_NEPHILIM_SCRIPT } from './cards/mightOfTheNephilim';
 import { MILITARY_INTELLIGENCE_SCRIPT } from './cards/militaryIntelligence';
 import { MIND_BURST_SCRIPT } from './cards/mindBurst';
@@ -1123,6 +1141,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MOB_JUSTICE_SCRIPT,
+  MOBILIZE_SCRIPT,
+  MOGG_RAIDER_SCRIPT,
+  MOLECULAR_MODIFIER_SCRIPT,
+  MOLTEN_RAIN_SCRIPT,
+  MONK_REALIST_SCRIPT,
+  MONUMENTAL_CORRUPTION_SCRIPT,
+  MOONFOLK_PUZZLEMAKER_SCRIPT,
+  MOONLIT_WAKE_SCRIPT,
+  MOONRISE_CLERIC_SCRIPT,
+  MORALE_SCRIPT,
+  MORNINGTIDE_SCRIPT,
+  MOSSBEARD_ANCIENT_SCRIPT,
+  MOSSTODON_SCRIPT,
+  MOTHRIDER_PATROL_SCRIPT,
+  MUDHOLE_SCRIPT,
+  MULCH_SCRIPT,
+  MULTANIS_DECREE_SCRIPT,
   MIGHT_OF_THE_NEPHILIM_SCRIPT,
   MILITARY_INTELLIGENCE_SCRIPT,
   MIND_BURST_SCRIPT,

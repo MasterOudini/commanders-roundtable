@@ -769,6 +769,17 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Misinformation', 'up-to-N targeting'],
   ['Misleading Motes', 'script-raised prompt'],
   ['Misstep', 'untap restriction'],
+  // D226 — Mnemonic Nexus SHUFFLES from a resolve (the RNG stub); Molder
+  // is the numeric-EXACT family's third card ('with mana value X' is an
+  // equality the parser silently drops); Most Valuable Slayer's 'target
+  // attacking creature' is Malamet Brawler's class's second card.
+  ['Mnemonic Nexus', 'ctx.random'],
+  ['Molder', 'spell target parse (numeric exact)'],
+  ['Molten Vortex', 'discard-cost chooser'],
+  ['Moonlace', 'color change (indefinite)'],
+  ['Moorland Haunt', 'exile-from-graveyard cost'],
+  ['Morbius the Living Vampire', 'graveyard-activated ability'],
+  ['Most Valuable Slayer', 'combat target qualifier unenforced'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

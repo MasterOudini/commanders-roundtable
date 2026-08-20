@@ -6259,6 +6259,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       drawn and computed counts; prior items stand.
 
 
+- [x] **M6.4bo — Eighteen landed: the untap sweep, and every graveyard
+      empties at once (2026-08-20):** **2,917 of 31,692 Commander-legal
+      cards now execute completely, up from 2,899.** `SHIPPED_SCRIPTS`
+      1,002 → 1,020; ledger 373. Decisions in **D226**.
+      **The firsts:** Mobilize (the UNTAP sweep — PermanentsUntapped over
+      my tapped creatures); Morningtide (every graveyard into exile in
+      one move); Mulch (the choiceless reveal-sort counted off the LOG);
+      Moonfolk Puzzlemaker (the becomes-tapped scry, toGraveyard FALSE);
+      Mosstodon (the floored trample grant — Grave Titan replaced
+      Colossal Dreadmaw as the target, whose PRINTED trample made the
+      assert vacuous).
+      **Also:** Mogg Raider (Sledder's exact text, pays with itself);
+      Molten Rain (the recoil conditioned on the derived supertype,
+      pre-move); Multani's Decree (own kills at 2 apiece); Monumental
+      Corruption; Moonlit Wake; Monk Realist; Mob Justice; Mudhole;
+      Morale (the engine corrected the test: Bureaucrats is a 1/1 —
+      3+2); Mothrider Patrol; Mossbeard Ancient; Moonrise Cleric.
+      ⚠️ **A PS-pipeline slip on one draft was caught and the file
+      REWRITTEN (D194's rule held).**
+      ⚠️ **Seven refusals, ZERO new classes.**
+      Fixtures 1,238 · botPool creature 1,604 / instant 534 / sorcery
+      391 / enchantment 35 · ladder [2136, 2235, 4028, 5942, 7154] ·
+      batch.json 1,425 · botDeck: Adun reaches 1,639.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,099
+      files, 6,295 passed / 10 skipped · 500-seed gate
+      749.5 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D226): the numeric-exact and combat-qualifier
+      widenings each hold multiple cards; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

@@ -14977,3 +14977,57 @@ batch.json 1,450 · botDeck: Adun reaches 1,628 from 66 legendaries.
 
 **Reportables:** the discard-ask family now spans fixed, drawn and
 computed counts; prior items stand.
+
+## D226 — M6.4bo: eighteen landed — the untap sweep, and every graveyard empties at once (2026-08-20)
+
+**Coverage: 2,899 → 2,917 of 31,692 (+18).** `SHIPPED_SCRIPTS` 1,002 →
+1,020; the ledger 366 → 373 (+7, ZERO new classes — three of the seven
+are named FAMILIES' next cards); the pool 1,450 → 1,425; fixtures
+1,220 → 1,238.
+
+**The firsts:** `Mobilize` is the first UNTAP SWEEP — one
+`PermanentsUntapped` batch over my tapped derived creatures, Metal
+Fatigue's mirror. `Morningtide` empties EVERY graveyard into exile in
+one simultaneous move (its own resolved spell lands in the caster's
+graveyard AFTERWARD, which the test deliberately does not assert away).
+`Mulch` is the choiceless reveal-sort counted off the LOG's own
+CardsRevealed. `Moonfolk Puzzlemaker` raises the scry ask from a
+BECOMES-TAPPED watcher (toGraveyard FALSE — a scry bottoms, never
+buries). `Mosstodon` lands the floored activated trample grant — and
+its test swapped Colossal Dreadmaw OUT for Grave Titan, because a
+target with PRINTED trample makes the grant assert vacuous.
+
+**Also:** `Mogg Raider` carries Goblin Sledder's exact text (twin
+assert, pays with ITSELF); `Molten Rain`'s recoil is CONDITIONED on
+the victim's derived supertype read pre-move (a basic dies free; a
+nonbasic indestructible survives and still costs 2); `Multani's
+Decree` counts its own kills at 2 apiece; `Monumental Corruption`
+wheels the TARGET off my artifact census; `Metropolis-style` triggers
+land as Moonlit Wake (ANY creature dies, artifact deaths pay nothing)
+and Moonrise Cleric; `Monk Realist`'s targeted ETB destroy; `Mob
+Justice`'s player-or-planeswalker census burn; `Mudhole`'s computed
+graveyard-subset exile; `Morale`'s combat-wide pump (the test's own
+arithmetic was corrected by the engine: Aysen Bureaucrats is a 1/1,
+so the pumped pair connects for 3+2); `Mothrider Patrol`'s priced
+tap; `Mossbeard Ancient`'s entry gain.
+
+⚠️ **A tooling slip caught and reversed:** one draft test was touched
+by a PowerShell string pipeline and its em-dashes double-encoded —
+the D194 rule held (the file was REWRITTEN with the Write tool, never
+patched), and the port notes now carry a mangled-byte grep.
+
+**Seven refusals, ZERO new classes:** Mnemonic Nexus shuffles from a
+resolve (the RNG stub); Molder is the numeric-EXACT family's third
+card; Most Valuable Slayer's 'target attacking creature' is the
+combat-qualifier class's second; plus a discard-cost chooser, the
+indefinite color change, exile-from-graveyard, and the
+graveyard-activated ability.
+
+**Measured after landing:** primitives complete 2,917 · blocked 28,775 ·
+scriptableToday 2,136 · ladder [2136, 2235, 4028, 5942, 7154] · tier3
+silentAfter 3,328 / payable 5,093 · botPool creature 1,604 / instant
+534 / sorcery 391 / artifact 82 / enchantment 35 / land 271 ·
+batch.json 1,425 · botDeck: Adun reaches 1,639.
+
+**Reportables:** the numeric-exact and combat-qualifier widenings each
+hold multiple ledger cards; prior items stand.

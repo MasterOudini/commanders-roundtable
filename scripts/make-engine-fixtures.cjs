@@ -1559,6 +1559,26 @@ const WANTED = [
   "Mm'menon, Uthros Exile",
   // Support body: the Equipment Misthios's Fury's conditional reads.
   'Swiftfoot Boots',
+  // M6.4bo (D226) - batch 60: the untap sweep, exile-all-graveyards, the
+  // choiceless reveal-sort, and the Sledder twin.
+  'Mob Justice',
+  'Mobilize',
+  'Mogg Raider',
+  'Molecular Modifier',
+  'Molten Rain',
+  'Monk Realist',
+  'Monumental Corruption',
+  'Moonfolk Puzzlemaker',
+  'Moonlit Wake',
+  'Moonrise Cleric',
+  'Morale',
+  'Morningtide',
+  'Mossbeard Ancient',
+  'Mosstodon',
+  'Mothrider Patrol',
+  'Mudhole',
+  'Mulch',
+  "Multani's Decree",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
