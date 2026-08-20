@@ -7,6 +7,24 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { PHYREXIAN_DEFILER_SCRIPT } from './cards/phyrexianDefiler';
+import { PHYREXIAN_DENOUNCER_SCRIPT } from './cards/phyrexianDenouncer';
+import { PHYREXIAN_RECLAMATION_SCRIPT } from './cards/phyrexianReclamation';
+import { PHYREXIAN_VAULT_SCRIPT } from './cards/phyrexianVault';
+import { PHYREXIAN_VIVISECTOR_SCRIPT } from './cards/phyrexianVivisector';
+import { PIERCE_STRIDER_SCRIPT } from './cards/pierceStrider';
+import { PIETY_SCRIPT } from './cards/piety';
+import { PIGGY_BANK_SCRIPT } from './cards/piggyBank';
+import { PILLAGE_SCRIPT } from './cards/pillage';
+import { PILLARDROP_RESCUER_SCRIPT } from './cards/pillardropRescuer';
+import { PINPOINT_AVALANCHE_SCRIPT } from './cards/pinpointAvalanche';
+import { PIRANHA_MARSH_SCRIPT } from './cards/piranhaMarsh';
+import { PITH_DRILLER_SCRIPT } from './cards/pithDriller';
+import { PITILESS_PLUNDERER_SCRIPT } from './cards/pitilessPlunderer';
+import { PIXIE_QUEEN_SCRIPT } from './cards/pixieQueen';
+import { PLAGUE_WIND_SCRIPT } from './cards/plagueWind';
+import { PLAGUED_RUSALKA_SCRIPT } from './cards/plaguedRusalka';
+import { PLANAR_BIRTH_SCRIPT } from './cards/planarBirth';
 import { PARCEL_MYR_SCRIPT } from './cards/parcelMyr';
 import { PART_THE_VEIL_SCRIPT } from './cards/partTheVeil';
 import { PARTING_THOUGHTS_SCRIPT } from './cards/partingThoughts';
@@ -1256,6 +1274,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PHYREXIAN_DEFILER_SCRIPT,
+  PHYREXIAN_DENOUNCER_SCRIPT,
+  PHYREXIAN_RECLAMATION_SCRIPT,
+  PHYREXIAN_VAULT_SCRIPT,
+  PHYREXIAN_VIVISECTOR_SCRIPT,
+  PIERCE_STRIDER_SCRIPT,
+  PIETY_SCRIPT,
+  PIGGY_BANK_SCRIPT,
+  PILLAGE_SCRIPT,
+  PILLARDROP_RESCUER_SCRIPT,
+  PINPOINT_AVALANCHE_SCRIPT,
+  PIRANHA_MARSH_SCRIPT,
+  PITH_DRILLER_SCRIPT,
+  PITILESS_PLUNDERER_SCRIPT,
+  PIXIE_QUEEN_SCRIPT,
+  PLAGUE_WIND_SCRIPT,
+  PLAGUED_RUSALKA_SCRIPT,
+  PLANAR_BIRTH_SCRIPT,
   PARCEL_MYR_SCRIPT,
   PART_THE_VEIL_SCRIPT,
   PARTING_THOUGHTS_SCRIPT,

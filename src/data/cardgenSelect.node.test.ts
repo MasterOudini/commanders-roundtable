@@ -843,6 +843,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Patrol Signaler', 'untap-symbol activation cost'],
   ['Peace of Mind', 'discard-cost chooser'],
   ['Pegasus Refuge', 'discard-cost chooser'],
+  // D233 (M6.4bv)
+  ['Pieces of the Puzzle', 'script-raised prompt'],
+  ['Pierce the Sky', 'keyword target qualifier unenforced'],
+  ['Pinion Feast', 'keyword target qualifier unenforced'],
+  ['Piracy', 'tap-permission grant'],
+  ['Pistus Strike', 'keyword target qualifier unenforced'],
+  ['Pit Fight', 'spell target parse (second clause)'],
+  ['Plague Witch', 'discard-cost chooser'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

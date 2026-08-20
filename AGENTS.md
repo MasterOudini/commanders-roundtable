@@ -6478,6 +6478,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       prior items stand.
 
 
+- [x] **M6.4bv — Eighteen landed: the prevention tripwire
+      (2026-08-21):** **3,050 of 31,692 Commander-legal cards now execute
+      completely, up from 3,032.** `SHIPPED_SCRIPTS` 1,135 → 1,153;
+      ledger 415. All 43 tests FIRST-RUN green — the tenth such batch,
+      the first drafted wholly under D232's four traps. Decisions in
+      **D233**.
+      **The headliners:** Planar Birth (every graveyard's basics stand up
+      tapped for their owners — the mass reanimation); Pinpoint Avalanche
+      behind the NEW `prevention.node.test.ts` tripwire (script damage
+      never meets combat.ts's preventedAmount — the vacuity contract
+      pinned in BOTH directions); Phyrexian Vivisector (dies-scry, its
+      own death included); Phyrexian Reclamation (life-priced graveyard
+      return); Piety (the +0/+3 blocker sweep); Pillage + Plague Wind
+      (damnation clients #12/#13); Plagued Rusalka (pays with ITSELF).
+      ⚠️ **Seven refusals, ONE new class — and THREE are the keyword
+      target qualifier: the TargetSpec.keywords widening is now the
+      heaviest named aim-layer debt.** Pit Fight PROBED (the second
+      clause IS dropped — the family's ninth card); Piracy names
+      'tap-permission grant'.
+      Fixtures 1,380 (79 tokens — none new) · botPool creature 1,666 /
+      instant 558 / sorcery 415 / enchantment 44 / land 279 · ladder
+      [2003, 2102, 3895, 5809, 7021] · batch.json 1,250 · botDeck: Adun
+      reaches 1,719.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,233
+      files, 6,879 passed / 10 skipped · 500-seed gate
+      755.4 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D233): the keyword-qualifier widening; the
+      second vacuity contract; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

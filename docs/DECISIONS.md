@@ -15330,3 +15330,52 @@ botDeck: Adun reaches 1,704 from 68 legendaries.
 
 **Reportables:** the discard-cost chooser keeps absorbing refusals; the
 aim-layer qualifier convergence stands; prior items stand.
+
+## D233 — M6.4bv: eighteen landed — the prevention tripwire, and the widening the refusals demand (2026-08-21)
+
+**3,050 of 31,692 Commander-legal cards now execute completely, up from
+3,032.** `SHIPPED_SCRIPTS` 1,135 → 1,153; the REFUSED ledger holds 415.
+All 43 tests green on the FIRST run — the tenth first-run-clean batch,
+and the first drafted entirely under D232's four pinned traps.
+
+**The headliners:** `Planar Birth` (the mass tapped reanimation —
+every basic land card in EVERY graveyard stands up tapped for its
+owner, Nurgle's Conscription's idiom at format width, the nonbasic
+negative pinned); `Pinpoint Avalanche` ships behind a NEW TRIPWIRE —
+**`prevention.node.test.ts`**: script damage never routes through
+combat.ts's `preventedAmount` (the engine's ONE prevention site, CR
+702.16c), so "The damage can't be prevented" executes as nothing
+TODAY, and the scan fails the day effects.ts or reducer.ts gains the
+concept (the damnation pattern, one clause over — and the test pins
+combat.ts still HOLDS the site, so the argument cannot silently move).
+
+**Also:** `Phyrexian Vivisector` (the dies-scry — its OWN death asks
+too); `Phyrexian Reclamation` (the life-priced activated graveyard
+return, the land-card refusal pinned); `Piety` (the +0/+3 blocker
+sweep through a real DeclareBlockers); `Pierce Strider` (the targeted-
+opponent ETB — self-targeting REFUSED, D217's enforcement met from the
+trigger side); `Pillage` and `Plague Wind` (damnation tripwire
+clients #12 and #13); `Plagued Rusalka` (the chooser paying with
+ITSELF, CR 113.7a); the `Phyrexian Defiler`/`Denouncer` pair
+(Debaser's line at -3/-3 and -1/-1); `Piranha Marsh` and `Pith
+Driller` (targeted ETB triggers answered through the arrow).
+
+**Seven refusals, ONE new class — and a widening now overdue by
+weight:** Pierce the Sky, Pinion Feast and Pistus Strike are ALL
+'keyword target qualifier unenforced' — THREE in one batch, taking
+D197's class to a size that makes TargetSpec.keywords (D139's playbook
+one field over) the heaviest named aim-layer debt. Plus Piracy
+('tap-permission grant', NEW), Pit Fight ('spell target parse (second
+clause)' — PROBED before drafting: the mid-sentence "another target
+creature" IS silently dropped, the family's NINTH card), Pieces of the
+Puzzle (script-raised prompt), Plague Witch (discard-cost chooser).
+
+**Measured after landing:** primitives complete 3,050 · blocked 28,642 ·
+scriptableToday 2,003 · ladder [2003, 2102, 3895, 5809, 7021] · botPool
+creature 1,666 / instant 558 / sorcery 415 / artifact 88 / enchantment
+44 / land 279 · fixtures 1,380 (79 tokens — none new) · batch.json
+1,250 · botDeck: Adun reaches 1,719 from 68 legendaries.
+
+**Reportables:** the keyword-qualifier widening (four ledger cards and
+counting); the prevention tripwire joins the damnation tripwire as the
+second vacuity contract; prior items stand.

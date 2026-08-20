@@ -1705,6 +1705,25 @@ const WANTED = [
   'Phyresis Outbreak',
   "Phyrexia's Core",
   'Phyrexian Debaser',
+  // D233 (M6.4bv)
+  'Phyrexian Defiler',
+  'Phyrexian Denouncer',
+  'Phyrexian Reclamation',
+  'Phyrexian Vault',
+  'Phyrexian Vivisector',
+  'Pierce Strider',
+  'Piety',
+  'Piggy Bank',
+  'Pillage',
+  'Pillardrop Rescuer',
+  'Pinpoint Avalanche',
+  'Piranha Marsh',
+  'Pith Driller',
+  'Pitiless Plunderer',
+  'Pixie Queen',
+  'Plague Wind',
+  'Plagued Rusalka',
+  'Planar Birth',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
