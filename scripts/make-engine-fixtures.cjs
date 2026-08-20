@@ -1082,6 +1082,26 @@ const WANTED = [
   'Beyond the Quiet',
   'Bile Blight',
   'Uthros Research Craft',
+  // M6.4ao (D200) - the life-SET pair, the one-way bite, the X burn, the
+  // Boil/Boiling Seas text twins, and the batch.
+  'Biorhythm',
+  'Bite Down',
+  'Blastfire Bolt',
+  'Blaze',
+  'Blazing Volley',
+  'Blessed Reversal',
+  'Blessed Wind',
+  'Blinding Light',
+  'Blood Lust',
+  'Blood Mist',
+  'Blood Pact',
+  'Blood Tithe',
+  'Bloodcurdling Scream',
+  'Bloodlust Inciter',
+  'Bloodthorn Taunter',
+  'Blossoming Wreath',
+  'Boil',
+  'Boiling Seas',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -25216,6 +25216,620 @@ export const UTHROS_RESEARCH_CRAFT: CardData = {
   "singleImage": true
 };
 
+export const BIORHYTHM: CardData = {
+  "scryfallId": "17d1a10f-ce21-4914-9984-c7c559161230",
+  "oracleId": "447de961-106c-4189-83ce-ca63d487e1cd",
+  "name": "Biorhythm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Biorhythm",
+      "manaCost": "{6}{G}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each player's life total becomes the number of creatures they control.",
+      "flavorText": "\"I have seen life's purpose, and now it is my own.\"\n—Kamahl, druid acolyte",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ron Spears",
+      "imageId": "17d1a10f-ce21-4914-9984-c7c559161230"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 8,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "231",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BITE_DOWN: CardData = {
+  "scryfallId": "0eacd3de-b803-4322-8d88-d533761aa748",
+  "oracleId": "623903de-3c04-4745-9af3-d7ec9fb2574d",
+  "name": "Bite Down",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bite Down",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control deals damage equal to its power to target creature or planeswalker you don't control.",
+      "flavorText": "\"Yavimaya takes care of herself; the kavu are evidence of this. What does your Coalition offer that the forest cannot provide?\"\n—Jenson Carthalion",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Kitt Lapeña",
+      "imageId": "0eacd3de-b803-4322-8d88-d533761aa748"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dmu",
+  "collectorNumber": "155",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLASTFIRE_BOLT: CardData = {
+  "scryfallId": "0d836420-96a9-4041-9e17-8d65b1564ccb",
+  "oracleId": "dcddeac9-8de7-4347-a956-522f4f2fc63b",
+  "name": "Blastfire Bolt",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blastfire Bolt",
+      "manaCost": "{5}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Blastfire Bolt deals 5 damage to target creature. Destroy all Equipment attached to that creature.",
+      "flavorText": "\"Encase yourself in the most elaborate armor, and cower behind the heaviest shield. I would hate for you to feel helpless.\"\n—Korig the Ruiner",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Phill Simmer",
+      "imageId": "0d836420-96a9-4041-9e17-8d65b1564ccb"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "M15-130",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLAZE: CardData = {
+  "scryfallId": "0313ea00-6c9f-4579-b322-4e37c093774c",
+  "oracleId": "0596920f-9946-42f4-a03b-24aab67f9f1b",
+  "name": "Blaze",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blaze",
+      "manaCost": "{X}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Blaze deals X damage to any target.",
+      "flavorText": "Fire never dies alone.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Alex Horley-Orlandelli",
+      "imageId": "0313ea00-6c9f-4579-b322-4e37c093774c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "175",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLAZING_VOLLEY: CardData = {
+  "scryfallId": "1fa2a1c1-9a89-4fd5-b546-8fa14b953b5a",
+  "oracleId": "3656338d-ca08-465b-b09a-d8d8d1196eec",
+  "name": "Blazing Volley",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blazing Volley",
+      "manaCost": "{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Blazing Volley deals 1 damage to each creature your opponents control.",
+      "flavorText": "The arrows fell like fiery rain, and for a moment, the sky itself seemed to burn.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Zezhou Chen",
+      "imageId": "1fa2a1c1-9a89-4fd5-b546-8fa14b953b5a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "AKH-119",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLESSED_REVERSAL: CardData = {
+  "scryfallId": "06a1d373-f619-4855-9154-aee6deeacb59",
+  "oracleId": "70e0b676-61a2-4dcf-8f61-d9281467ed43",
+  "name": "Blessed Reversal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blessed Reversal",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "You gain 3 life for each creature attacking you.",
+      "flavorText": "\"A battle's outcome is never certain.\"\n—The Southern Paladin",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "06a1d373-f619-4855-9154-aee6deeacb59"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "7ed",
+  "collectorNumber": "3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLESSED_WIND: CardData = {
+  "scryfallId": "3cb624d6-9aec-498c-8df9-6fd025c74487",
+  "oracleId": "93da4a35-d2d8-476c-ad03-318101c0118b",
+  "name": "Blessed Wind",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blessed Wind",
+      "manaCost": "{7}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player's life total becomes 20.",
+      "flavorText": "\"The fourth wind of ascension is Anointer, deifying the worthy.\"\n—*Keld Triumphant*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Anthony S. Waters",
+      "imageId": "3cb624d6-9aec-498c-8df9-6fd025c74487"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 9,
+  "keywords": [],
+  "setCode": "pcy",
+  "collectorNumber": "4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLINDING_LIGHT: CardData = {
+  "scryfallId": "46408a88-4e96-48c0-98e2-d0d3ccecf459",
+  "oracleId": "6b315dc3-c330-4b30-b6ad-4da12ccf6ca3",
+  "name": "Blinding Light",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blinding Light",
+      "manaCost": "{2}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Tap all nonwhite creatures.",
+      "flavorText": "Let the unjust avert their faces and contemplate their peril.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Coulthart",
+      "imageId": "46408a88-4e96-48c0-98e2-d0d3ccecf459"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "s99",
+  "collectorNumber": "8",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLOOD_LUST: CardData = {
+  "scryfallId": "37a63f96-e2d4-4786-80ea-79b206263cef",
+  "oracleId": "55a253f9-f44d-4898-af83-fea68b7b279d",
+  "name": "Blood Lust",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blood Lust",
+      "manaCost": "{1}{R}",
+      "typeLine": "Instant",
+      "oracleText": "If target creature has toughness 5 or greater, it gets +4/-4 until end of turn. Otherwise, it gets +4/-X until end of turn, where X is its toughness minus 1.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Anson Maddocks",
+      "imageId": "37a63f96-e2d4-4786-80ea-79b206263cef"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "5ed",
+  "collectorNumber": "212",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLOOD_MIST: CardData = {
+  "scryfallId": "2c01ef93-f41a-406f-91fc-f015b6014575",
+  "oracleId": "22188333-69b6-4685-b96b-b8a102ad5531",
+  "name": "Blood Mist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blood Mist",
+      "manaCost": "{3}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "At the beginning of combat on your turn, target creature you control gains double strike until end of turn.",
+      "flavorText": "\"Some claim that rage is a cloud that obscures thought and vision. But I can assure you—I've never seen with greater clarity.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Joseph Meehan",
+      "imageId": "2c01ef93-f41a-406f-91fc-f015b6014575"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "inr",
+  "collectorNumber": "143",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLOOD_PACT: CardData = {
+  "scryfallId": "607b1066-1ca0-45e1-a55c-30aed77cc8dc",
+  "oracleId": "cfc5a284-7238-4c98-9d2f-7e5c3329be7b",
+  "name": "Blood Pact",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blood Pact",
+      "manaCost": "{2}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target player draws two cards and loses 2 life.",
+      "flavorText": "Griselbrand's defeat did not mark the end of the Skirsdag cult. They simply turned their worship to the next demon to emerge from the shadows bearing offers of power.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Sam White",
+      "imageId": "607b1066-1ca0-45e1-a55c-30aed77cc8dc"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mid",
+  "collectorNumber": "88",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLOOD_TITHE: CardData = {
+  "scryfallId": "cf166294-3359-4da4-84d0-006c75c183fd",
+  "oracleId": "c82665b7-d011-4bdc-b4a2-eca5861b16d2",
+  "name": "Blood Tithe",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blood Tithe",
+      "manaCost": "{3}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each opponent loses 3 life. You gain life equal to the life lost this way.",
+      "flavorText": "The Crimson Throne may be empty, but its coffers are full.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Robh Ruppel",
+      "imageId": "cf166294-3359-4da4-84d0-006c75c183fd"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "m11",
+  "collectorNumber": "84",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLOODCURDLING_SCREAM: CardData = {
+  "scryfallId": "dcb0ec62-6d6f-4d10-bc2d-37f25495f884",
+  "oracleId": "3ee2060a-5152-4a53-8183-cbd642e4cc29",
+  "name": "Bloodcurdling Scream",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bloodcurdling Scream",
+      "manaCost": "{X}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature gets +X/+0 until end of turn.",
+      "flavorText": "\"I have all the weapons my enemies have—and far deeper rage.\"\n—Tojira, swamp queen",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dan Frazier",
+      "imageId": "dcb0ec62-6d6f-4d10-bc2d-37f25495f884"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "p02",
+  "collectorNumber": "63",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLOODLUST_INCITER: CardData = {
+  "scryfallId": "00da134b-7115-4e8d-b257-3cc1c0e0a3e8",
+  "oracleId": "826b83ba-0fe5-4f1d-91c8-799a1100d1e6",
+  "name": "Bloodlust Inciter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bloodlust Inciter",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Human Warrior",
+      "oracleText": "{T}: Target creature gains haste until end of turn. (It can attack and {T} this turn.)",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Anthony Palumbo",
+      "imageId": "00da134b-7115-4e8d-b257-3cc1c0e0a3e8"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "akr",
+  "collectorNumber": "140",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLOODTHORN_TAUNTER: CardData = {
+  "scryfallId": "8769e8f6-15ad-4f1b-bb4d-848ae6b7549e",
+  "oracleId": "b59da333-e658-447e-a8bd-8c0124d8b905",
+  "name": "Bloodthorn Taunter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bloodthorn Taunter",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Human Scout",
+      "oracleText": "Haste\n{T}: Target creature with power 5 or greater gains haste until end of turn.",
+      "flavorText": "Naya's celebrants stoke the gargantuans into a rage, loosing a tide of muscle with the precision of an arrow.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jesper Ejsing",
+      "imageId": "8769e8f6-15ad-4f1b-bb4d-848ae6b7549e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "ala",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLOSSOMING_WREATH: CardData = {
+  "scryfallId": "2f944ad9-c9ce-47b2-80fa-d0f7fcf0fd5d",
+  "oracleId": "fbd99a88-8926-455e-8e23-58fed6d14719",
+  "name": "Blossoming Wreath",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blossoming Wreath",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "You gain life equal to the number of creature cards in your graveyard.",
+      "flavorText": "\"I place this wreath for you, my kin. Even in death, you give me strength to avenge you.\"\n—Mirri of the *Weatherlight*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Brian Durfee",
+      "imageId": "2f944ad9-c9ce-47b2-80fa-d0f7fcf0fd5d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "wth",
+  "collectorNumber": "120",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BOIL: CardData = {
+  "scryfallId": "15a0087c-4e0f-4547-b441-b5a517c00b91",
+  "oracleId": "3a51485b-31b2-4fa5-824a-a919f9d28ca8",
+  "name": "Boil",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Boil",
+      "manaCost": "{3}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy all Islands.",
+      "flavorText": "\"When every reef is bared and every wave is dust—only then shall I rest.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jason Alexander Behnke",
+      "imageId": "15a0087c-4e0f-4547-b441-b5a517c00b91"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "180",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BOILING_SEAS: CardData = {
+  "scryfallId": "d08ff26e-c561-4b55-9745-50f896689d0d",
+  "oracleId": "7421b711-81a4-4042-b024-f55bf9ff203f",
+  "name": "Boiling Seas",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Boiling Seas",
+      "manaCost": "{3}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all Islands.",
+      "flavorText": "What burns the land, boils the seas.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Tom Wänerstrand",
+      "imageId": "d08ff26e-c561-4b55-9745-50f896689d0d"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "178",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -28326,6 +28940,24 @@ export const ENGINE_CARDS: CardData[] = [
   BEYOND_THE_QUIET,
   BILE_BLIGHT,
   UTHROS_RESEARCH_CRAFT,
+  BIORHYTHM,
+  BITE_DOWN,
+  BLASTFIRE_BOLT,
+  BLAZE,
+  BLAZING_VOLLEY,
+  BLESSED_REVERSAL,
+  BLESSED_WIND,
+  BLINDING_LIGHT,
+  BLOOD_LUST,
+  BLOOD_MIST,
+  BLOOD_PACT,
+  BLOOD_TITHE,
+  BLOODCURDLING_SCREAM,
+  BLOODLUST_INCITER,
+  BLOODTHORN_TAUNTER,
+  BLOSSOMING_WREATH,
+  BOIL,
+  BOILING_SEAS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -5447,6 +5447,41 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       tail; prior items stand.
 
 
+- [x] **M6.4ao — Eighteen landed: the pool crosses 2,500 (2026-08-20):**
+      **2,504 of 31,692 Commander-legal cards now execute completely, up
+      from 2,486.** `SHIPPED_SCRIPTS` 589 → 607; ledger 137. Decisions
+      in **D200**.
+      **Firsts:** the life SETS (Biorhythm, Blessed Wind — a set is a
+      computed `LifeChanged` delta); X on damage and a pump (Blaze,
+      Bloodcurdling Scream); the filtered board TAP (Blinding Light);
+      the first ENCHANTMENT begin-combat targeted trigger (Blood Mist —
+      the pool's 31st enchantment); both branches of a printed
+      conditional off derived toughness (Blood Lust); the combat
+      DEFENDER read (Blessed Reversal); the one-way bite with the
+      compound + you-don't-control spec (Bite Down); attached-Equipment
+      destruction (Blastfire Bolt); the Boil/Boiling Seas text twins.
+      ⚠️⚠️ **THE HARNESS TRAP:** `put()` by name returns the SAME
+      instance when the deck holds one copy (short lists pad with
+      basics) — Blastfire's "spare" Greaves WAS the worn pair, and Bile
+      Blight's same-name test had been a green vacuity over one Bear.
+      A test needing two copies lists the name twice and asserts the
+      ids differ.
+      ⚠️ **Seven refusals, THREE new classes:** the Ring, amass, and the
+      COMPUTED target threshold (Blazing Hope — probed to a confident
+      spec with the bound silently dropped). The second-clause parse
+      family holds FOUR cards — the widening is due by weight.
+      Fixtures 817 · botPool 1,551/372/216, enchantment 31 · ladder
+      [2549, 2648, 4441, 6355, 7567] · batch.json 2,075 · **FOUR joined
+      the bot's deck**.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 685
+      files, 4,242 passed / 10 skipped · 500-seed gate
+      703.6 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D200): the second-clause/counted-list widening
+      by weight; the computed threshold beside D197's keyword qualifier;
+      the Ring and amass in the structural tail; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

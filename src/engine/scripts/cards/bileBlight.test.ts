@@ -18,12 +18,13 @@ function settle(g: Game): void {
 function blighted(): { g: Game; a: InstanceId; b: InstanceId; maw: InstanceId } {
   const g = startedGame({
     players: 2,
-    decks: [['Bile Blight'], ['Grizzly Bears', 'Colossal Dreadmaw']],
+    decks: [['Bile Blight'], ['Grizzly Bears', 'Grizzly Bears', 'Colossal Dreadmaw']],
     scripts: createRegistry([BILE_BLIGHT_SCRIPT]),
   });
   const a = put(g, 'p2', 'Grizzly Bears');
   const b = put(g, 'p2', 'Grizzly Bears');
   const maw = put(g, 'p2', 'Colossal Dreadmaw');
+  expect(b).not.toBe(a);
   settle(g);
   holdEverywhere(g);
   advanceUntil(g, (s) => s.turn.activePlayer === 'p1' && s.turn.phase === 'precombatMain', 60_000);

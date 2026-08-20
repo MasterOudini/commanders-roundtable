@@ -13619,3 +13619,61 @@ Hymn, Bile Blight, Beast Hunt — Adun reaches 1,374).
 counted-list/second-clause parse family are now the targeting layer's two
 named slices; the dungeon subsystem joins the structural tail; prior items
 stand.
+
+## D200 — M6.4ao: eighteen landed, the pool crosses 2,500, and the harness trap that made a green vacuity (2026-08-20)
+
+**Coverage: 2,486 → 2,504 of 31,692 (+18)** — past two and a half thousand.
+`SHIPPED_SCRIPTS` 589 → 607; the ledger 130 → 137; the pool 2,100 → 2,075.
+
+**The firsts.** `Biorhythm` and `Blessed Wind` are the first life SETS —
+`LifeChanged` carries delta AND total, so a set is a computed delta and a
+player already at the number gets no event. `Blaze` and `Bloodcurdling
+Scream` put `obj.xValue` on damage and on a pump (Squall Line's read).
+`Blinding Light` is the first script that TAPS A FILTERED BOARD (every
+untapped DERIVED nonwhite creature in one `PermanentsTapped`).
+`Blood Mist` is the first ENCHANTMENT with a begin-combat targeted
+trigger (Eidolon's filter + the D194 rider — the bot pool's 31st
+enchantment). `Blood Lust` executes BOTH printed branches off the derived
+toughness (a 6/6 to 10/2; a 2/2 to 6/1 — never killing its own target).
+`Blessed Reversal` reads the combat DEFENDER (a creature attacking my
+planeswalker is not attacking ME). `Bite Down` is the one-way bite with
+the compound creature-or-planeswalker + "you don't control" spec — MY
+creature refused as the second target, pinned. `Blastfire Bolt` destroys
+the target's ATTACHED Equipment only (the worn Greaves die, the spare pair
+stands). `Boil` + `Boiling Seas` land ONE text as twins; the {T}-haste
+grant reaches its THIRD id (`Bloodlust Inciter`) plus the D139-floored
+variant (`Bloodthorn Taunter`). `Blood Tithe`, `Blood Pact`,
+`Blazing Volley`, `Blossoming Wreath` on shipped shapes.
+
+**⚠️⚠️ THE HARNESS TRAP: `put()` BY NAME RETURNS THE SAME INSTANCE when
+the deck holds one copy** — startedGame PADS short deck lists with basics
+rather than repeating names, so a name listed once yields ONE card, and
+the second `put` falls through to the battlefield search and hands back
+the FIRST card's id. Found because Blastfire Bolt's "spare" Greaves died
+(it WAS the worn pair); and the same shape had already made Bile Blight's
+same-name test a GREEN VACUITY — "both Bears die" passing over one Bear.
+The rule: a test that needs TWO copies lists the name TWICE in the deck
+and asserts the ids DIFFER. D169's counting trap, third and fourth
+customers, now from the identity side.
+
+**Seven refusals, THREE new classes:** `Birthday Escape` (the Ring — no
+tempted-by-the-Ring concept anywhere), `Bleeding Edge` (AMASS — counter +
+type change + conditional token in one word), `Blazing Hope` (a COMPUTED
+target threshold — "power greater than or equal to your life total"
+probed to a confident spec with the qualifier silently DROPPED; landing it
+would exile a 1/1 at 40 life — D139's shape with a computed bound). Plus
+`Blood Feud` ("fights another target creature" — the second-clause parse
+family's third card), up-to-N, computed target count, opponent-chooses.
+
+**Measured after landing:** primitives blocked 29,188 · scriptableToday
+2,549 · ladder [2549, 2648, 4441, 6355, 7567] · tier3 abilityText 17,135 /
+silentAfter 2,915 (+18 exact) · botPool creature 1,551 / enchantment 31 /
+instant 372 / sorcery 216 · fixtures 817 (70 tokens — none new) ·
+batch.json 2,075 · **FOUR joined the bot's deck** (Bite Down, Blood Mist,
+Blood Tithe, Blastfire Bolt).
+
+**Reportables:** the second-clause/counted-list parse family holds FOUR
+cards (Fall of the Hammer, Biomantic Mastery, Betrayal at the Vault,
+Blood Feud) — the widening is due by weight; the computed-threshold class
+joins D197's keyword qualifier in the targeting queue; the Ring and amass
+join the structural tail; prior items stand.

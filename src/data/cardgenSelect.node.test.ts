@@ -390,6 +390,20 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Benefaction of Rhonas', 'script-raised prompt'],
   ['Betrayal at the Vault', 'spell target parse (counted list)'],
   ['Biomantic Mastery', 'spell target parse (second clause)'],
+  // D200 — Blazing Hope's threshold is COMPUTED at cast time ("power
+  // greater than or equal to your life total"): probed, the qualifier is
+  // silently DROPPED (spec 'target creature', unenforced []), so landing
+  // it would exile a 1/1 at 40 life — D139's shape with a computed bound.
+  // Birthday Escape needs the Ring (no tempted-by-the-Ring concept
+  // anywhere); Bleeding Edge needs AMASS (counter + type change + a
+  // conditional token in one word).
+  ['Bionic Blow', 'up-to-N targeting'],
+  ['Birthday Escape', 'the Ring mechanic'],
+  ['Blatant Thievery', 'cast-time computed target count'],
+  ['Blazing Hope', 'computed target threshold'],
+  ['Bleeding Edge', 'amass mechanic'],
+  ['Blood Feud', 'spell target parse (second clause)'],
+  ['Blot Out', 'opponent-chooses'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

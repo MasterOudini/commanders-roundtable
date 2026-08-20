@@ -7,6 +7,24 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { BIORHYTHM_SCRIPT } from './cards/biorhythm';
+import { BITE_DOWN_SCRIPT } from './cards/biteDown';
+import { BLASTFIRE_BOLT_SCRIPT } from './cards/blastfireBolt';
+import { BLAZE_SCRIPT } from './cards/blaze';
+import { BLAZING_VOLLEY_SCRIPT } from './cards/blazingVolley';
+import { BLESSED_REVERSAL_SCRIPT } from './cards/blessedReversal';
+import { BLESSED_WIND_SCRIPT } from './cards/blessedWind';
+import { BLINDING_LIGHT_SCRIPT } from './cards/blindingLight';
+import { BLOOD_LUST_SCRIPT } from './cards/bloodLust';
+import { BLOOD_MIST_SCRIPT } from './cards/bloodMist';
+import { BLOOD_PACT_SCRIPT } from './cards/bloodPact';
+import { BLOOD_TITHE_SCRIPT } from './cards/bloodTithe';
+import { BLOODCURDLING_SCREAM_SCRIPT } from './cards/bloodcurdlingScream';
+import { BLOODLUST_INCITER_SCRIPT } from './cards/bloodlustInciter';
+import { BLOODTHORN_TAUNTER_SCRIPT } from './cards/bloodthornTaunter';
+import { BLOSSOMING_WREATH_SCRIPT } from './cards/blossomingWreath';
+import { BOIL_SCRIPT } from './cards/boil';
+import { BOILING_SEAS_SCRIPT } from './cards/boilingSeas';
 import { AXGARD_CAVALRY_SCRIPT } from './cards/axgardCavalry';
 import { BACK_TO_NATURE_SCRIPT } from './cards/backToNature';
 import { BAKIS_CURSE_SCRIPT } from './cards/bakisCurse';
@@ -710,6 +728,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BIORHYTHM_SCRIPT,
+  BITE_DOWN_SCRIPT,
+  BLASTFIRE_BOLT_SCRIPT,
+  BLAZE_SCRIPT,
+  BLAZING_VOLLEY_SCRIPT,
+  BLESSED_REVERSAL_SCRIPT,
+  BLESSED_WIND_SCRIPT,
+  BLINDING_LIGHT_SCRIPT,
+  BLOOD_LUST_SCRIPT,
+  BLOOD_MIST_SCRIPT,
+  BLOOD_PACT_SCRIPT,
+  BLOOD_TITHE_SCRIPT,
+  BLOODCURDLING_SCREAM_SCRIPT,
+  BLOODLUST_INCITER_SCRIPT,
+  BLOODTHORN_TAUNTER_SCRIPT,
+  BLOSSOMING_WREATH_SCRIPT,
+  BOIL_SCRIPT,
+  BOILING_SEAS_SCRIPT,
   AXGARD_CAVALRY_SCRIPT,
   BACK_TO_NATURE_SCRIPT,
   BAKIS_CURSE_SCRIPT,
