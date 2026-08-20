@@ -5943,6 +5943,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       sweep-probe stays overdue; prior items stand.
 
 
+- [x] **M6.4be — Nineteen landed: the tapped-state sweep, the
+      distinct-powers draw, and the subtype compound that narrows
+      (2026-08-20):** **2,753 of 31,692 Commander-legal cards now execute
+      completely, up from 2,734.** `SHIPPED_SCRIPTS` 837 → 856; ledger
+      288. All 55 tests first-run green (D215's mana-cost lesson,
+      applied). Decisions in **D216**.
+      **Firsts:** the TAPPED-state sweep (Guan Yu's 1,000-Li March — a
+      tapped indestructible Myr proves the checks independent); the
+      DISTINCT-values census (Golden Ratio — a SET of derived powers);
+      the bottom-of-library board wipe (Hallowed Burial — NOT
+      destruction, the Myr goes under); the defender's three-way
+      mid-combat burn (Hail Storm); the artifact-LAND rider (Glissa's
+      Scorn — Darksteel Citadel survives and its controller still
+      pays); Bite Down's text on a second id (Hard-Hitting Question).
+      ⚠️ **The Gravkill probe found the SUBTYPE-member narrowing:**
+      'creature or Spacecraft' parses confident to creature-only — a
+      compound hole no compound row can fix (TargetSpec has no subtype
+      field). Refused; the sweep-probe reportable widens.
+      ⚠️ **Six refusals, TWO new classes:** incubate mechanic, physical
+      item choice.
+      Fixtures 1,071 · botPool creature 1,578 / instant 473 / sorcery
+      327 · ladder [2300, 2399, 4192, 6106, 7318] · batch.json 1,675 ·
+      botDeck: Adun reaches 1,552.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 934
+      files, 5,492 passed / 10 skipped · 500-seed gate
+      797.9 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D216): the qualifier/compound widening family
+      tops the targeting queue; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

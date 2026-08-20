@@ -7,6 +7,25 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { GLISSAS_SCORN_SCRIPT } from './cards/glissasScorn';
+import { GLISTENING_DELUGE_SCRIPT } from './cards/glisteningDeluge';
+import { GOBLIN_MOTIVATOR_SCRIPT } from './cards/goblinMotivator';
+import { GOBLIN_WAR_STRIKE_SCRIPT } from './cards/goblinWarStrike';
+import { GOLDEN_RATIO_SCRIPT } from './cards/goldenRatio';
+import { GRANULATE_SCRIPT } from './cards/granulate';
+import { GREAT_DEFENDER_SCRIPT } from './cards/greatDefender';
+import { GREY_HAVENS_NAVIGATOR_SCRIPT } from './cards/greyHavensNavigator';
+import { GRIM_FLOWERING_SCRIPT } from './cards/grimFlowering';
+import { GRIPTIDE_SCRIPT } from './cards/griptide';
+import { GROUND_ASSAULT_SCRIPT } from './cards/groundAssault';
+import { GROWTH_CYCLE_SCRIPT } from './cards/growthCycle';
+import { GRUESOME_FATE_SCRIPT } from './cards/gruesomeFate';
+import { GUAN_YUS_MARCH_SCRIPT } from './cards/guanYusMarch';
+import { GUARDIAN_OF_SOLITUDE_SCRIPT } from './cards/guardianOfSolitude';
+import { HAIL_STORM_SCRIPT } from './cards/hailStorm';
+import { HALLOWED_BURIAL_SCRIPT } from './cards/hallowedBurial';
+import { HARD_HITTING_QUESTION_SCRIPT } from './cards/hardHittingQuestion';
+import { HARMATTAN_EFREET_SCRIPT } from './cards/harmattanEfreet';
 import { FRANTIC_INVENTORY_SCRIPT } from './cards/franticInventory';
 import { FYNDHORN_BOW_SCRIPT } from './cards/fyndhornBow';
 import { GAEAS_MIGHT_SCRIPT } from './cards/gaeasMight';
@@ -958,6 +977,25 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GLISSAS_SCORN_SCRIPT,
+  GLISTENING_DELUGE_SCRIPT,
+  GOBLIN_MOTIVATOR_SCRIPT,
+  GOBLIN_WAR_STRIKE_SCRIPT,
+  GOLDEN_RATIO_SCRIPT,
+  GRANULATE_SCRIPT,
+  GREAT_DEFENDER_SCRIPT,
+  GREY_HAVENS_NAVIGATOR_SCRIPT,
+  GRIM_FLOWERING_SCRIPT,
+  GRIPTIDE_SCRIPT,
+  GROUND_ASSAULT_SCRIPT,
+  GROWTH_CYCLE_SCRIPT,
+  GRUESOME_FATE_SCRIPT,
+  GUAN_YUS_MARCH_SCRIPT,
+  GUARDIAN_OF_SOLITUDE_SCRIPT,
+  HAIL_STORM_SCRIPT,
+  HALLOWED_BURIAL_SCRIPT,
+  HARD_HITTING_QUESTION_SCRIPT,
+  HARMATTAN_EFREET_SCRIPT,
   FRANTIC_INVENTORY_SCRIPT,
   FYNDHORN_BOW_SCRIPT,
   GAEAS_MIGHT_SCRIPT,

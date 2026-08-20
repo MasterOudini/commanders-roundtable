@@ -632,6 +632,19 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Gift of Tusks', 'until-end-of-turn base P/T set'],
   ['Glimpse of Nature', 'temporary game-wide trigger'],
   ['Glimpse the Sun God', 'cast-time computed target count'],
+  // D216 — Glistening Dawn incubates (an Incubator DFC token carrying
+  // counters, a NEW class); Goblin Game has players hide PHYSICAL items
+  // (a NEW class, and the structural end of the list); Gravkill's
+  // 'creature or Spacecraft' probes to a confident creature-only spec —
+  // the subtype member silently dropped, and a SUBTYPE compound needs
+  // TargetSpec machinery, not a compound row; Graven Lore scries by the
+  // {S} spent (Firespout's mana-spent memory).
+  ['Glistening Dawn', 'incubate mechanic'],
+  ['Glorious Gale', 'the Ring mechanic'],
+  ['Goblin Game', 'physical item choice'],
+  ['Graven Lore', 'mana-spent memory'],
+  ['Gravkill', 'spell target parse (noun list)'],
+  ['Grisly Salvage', 'script-raised prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

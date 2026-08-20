@@ -33928,6 +33928,661 @@ export const AZORIUS_GUILDGATE: CardData = {
   "singleImage": true
 };
 
+export const GLISSA_S_SCORN: CardData = {
+  "scryfallId": "f11187c1-de35-4e85-87c3-656f978b2d7e",
+  "oracleId": "f30f17f0-bd2d-4f10-9739-111917acc100",
+  "name": "Glissa's Scorn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Glissa's Scorn",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target artifact. Its controller loses 1 life.",
+      "flavorText": "\"If it were fit to survive, it wouldn't have been so easily put down.\"\n—Glissa",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "f11187c1-de35-4e85-87c3-656f978b2d7e"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "nph",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GLISTENING_DELUGE: CardData = {
+  "scryfallId": "83ca46ac-0698-4651-940d-3fd20c266b74",
+  "oracleId": "706833f7-af50-45bf-8f1d-d3a5a31cf2c8",
+  "name": "Glistening Deluge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Glistening Deluge",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "All creatures get -1/-1 until end of turn. Creatures that are green and/or white get an additional -2/-2 until end of turn.",
+      "flavorText": "As oil began to pour from Ikoria's crystals, some monsters developed strange mechanical mutations. Others were simply pulled under.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Anastasia Balakchina",
+      "imageId": "83ca46ac-0698-4651-940d-3fd20c266b74"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mom",
+  "collectorNumber": "107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_MOTIVATOR: CardData = {
+  "scryfallId": "94b3a4fb-9024-45ef-a54b-cf3a9fa5b9c2",
+  "oracleId": "df67597f-42a8-4fa7-b426-d7db8b384445",
+  "name": "Goblin Motivator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Motivator",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Goblin Warrior",
+      "oracleText": "{T}: Target creature gains haste until end of turn. (It can attack and {T} this turn.)",
+      "flavorText": "Small words stoke large flames.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "94b3a4fb-9024-45ef-a54b-cf3a9fa5b9c2"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "m19",
+  "collectorNumber": "143",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_WAR_STRIKE: CardData = {
+  "scryfallId": "738fecfd-1119-4dcb-acd6-ec9715d9c074",
+  "oracleId": "5944d5c7-65ab-425f-a453-ed5871ca3d73",
+  "name": "Goblin War Strike",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin War Strike",
+      "manaCost": "{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Goblin War Strike deals damage to target player or planeswalker equal to the number of Goblins you control.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Michael Weaver",
+      "imageId": "738fecfd-1119-4dcb-acd6-ec9715d9c074"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "p02",
+  "collectorNumber": "105",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOLDEN_RATIO: CardData = {
+  "scryfallId": "626fbddb-3963-4dd2-8507-9777ed66bbbc",
+  "oracleId": "724700ad-1e4e-4cbc-af7f-0b3b87ed4bc8",
+  "name": "Golden Ratio",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Golden Ratio",
+      "manaCost": "{1}{G}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw a card for each different power among creatures you control.",
+      "flavorText": "\"When I look around, I see a world defined by patterns that still manages to defy them.\"\n—Kianne, Quandrix dean",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "U"
+      ],
+      "artist": "Alix Branwyn",
+      "imageId": "626fbddb-3963-4dd2-8507-9777ed66bbbc"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "stx",
+  "collectorNumber": "190",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRANULATE: CardData = {
+  "scryfallId": "e13798b8-689e-4f19-af10-b72d3fe19f3c",
+  "oracleId": "fdcec649-6651-4ba0-bd3f-84f16e65397d",
+  "name": "Granulate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Granulate",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy each nonland artifact with mana value 4 or less.",
+      "flavorText": "There aren't *that* many ways to destroy a solid steel weapon, but somehow the goblins keep finding new ones.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "e13798b8-689e-4f19-af10-b72d3fe19f3c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "5dn",
+  "collectorNumber": "67",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GREAT_DEFENDER: CardData = {
+  "scryfallId": "879a8653-1538-4f78-a3d3-a900a4d9499b",
+  "oracleId": "c84496bc-6421-4930-a118-b0f9ee7e13f6",
+  "name": "Great Defender",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Great Defender",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +0/+X until end of turn, where X is its mana value.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mark Poole",
+      "imageId": "879a8653-1538-4f78-a3d3-a900a4d9499b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "leg",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GREY_HAVENS_NAVIGATOR: CardData = {
+  "scryfallId": "4dd89994-bdff-47ca-a65d-10afcc7e773e",
+  "oracleId": "14291205-1ac2-4804-b365-4f65377d5803",
+  "name": "Grey Havens Navigator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Grey Havens Navigator",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Elf Pilot",
+      "oracleText": "Flash\nWhen this creature enters, scry 1.",
+      "flavorText": "It was an old tradition that beyond the Shire stood the Grey Havens, from which at times elven-ships set sail, never to return.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Henry Peters",
+      "imageId": "4dd89994-bdff-47ca-a65d-10afcc7e773e"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flash",
+    "Scry"
+  ],
+  "setCode": "ltr",
+  "collectorNumber": "53",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRIM_FLOWERING: CardData = {
+  "scryfallId": "65222b42-8375-4c7a-b0fc-d6fb81876202",
+  "oracleId": "65428247-b386-410c-91b7-81dd278c0927",
+  "name": "Grim Flowering",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Grim Flowering",
+      "manaCost": "{5}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw a card for each creature card in your graveyard.",
+      "flavorText": "\"Nothing in nature goes to waste, not even the rotting corpse of a good-for-nothing, blood-sucking vampire.\"\n—Halana of Ulvenwald",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Adam Paquette",
+      "imageId": "65222b42-8375-4c7a-b0fc-d6fb81876202"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "cma",
+  "collectorNumber": "114",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRIPTIDE: CardData = {
+  "scryfallId": "27f92b74-86bb-4bb3-8f78-640984698f28",
+  "oracleId": "5a6bbc45-6cb8-40ff-9f7c-7b2c5713dd78",
+  "name": "Griptide",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Griptide",
+      "manaCost": "{3}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Put target creature on top of its owner's library.",
+      "flavorText": "\"Beware the seagrafs just off the shore. These waters are filled with hungry geists looking for an easy meal.\"\n—Captain Eberhart",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Igor Kieryluk",
+      "imageId": "27f92b74-86bb-4bb3-8f78-640984698f28"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dka",
+  "collectorNumber": "38",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GROUND_ASSAULT: CardData = {
+  "scryfallId": "570edcbb-5770-4589-9941-787bf9d139bd",
+  "oracleId": "13613f6e-a6e4-4493-b029-8ec11610c29f",
+  "name": "Ground Assault",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ground Assault",
+      "manaCost": "{R}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Ground Assault deals damage to target creature equal to the number of lands you control.",
+      "flavorText": "\"Taking down a dragon is easy. All you need is enough space to get in a good swing.\"\n—Narbulg Nine Fingers",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Karl Kopinski",
+      "imageId": "570edcbb-5770-4589-9941-787bf9d139bd"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "znc",
+  "collectorNumber": "91",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GROWTH_CYCLE: CardData = {
+  "scryfallId": "1e619121-f2e8-4da5-8652-a2b5dae2e55c",
+  "oracleId": "ec714e79-10ec-43ea-a0ff-f8c9083fe015",
+  "name": "Growth Cycle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Growth Cycle",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +3/+3 until end of turn. It gets an additional +2/+2 until end of turn for each card named Growth Cycle in your graveyard.",
+      "flavorText": "\"Shed your faded husk! Emerge sleeker and stronger!\"\n—Tyris, fauna shaman",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "1e619121-f2e8-4da5-8652-a2b5dae2e55c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m20",
+  "collectorNumber": "175",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRUESOME_FATE: CardData = {
+  "scryfallId": "15c65b81-b736-4bc5-ba12-fb74c64406cd",
+  "oracleId": "cf874feb-00fe-4e48-b57a-cf8b9855c057",
+  "name": "Gruesome Fate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gruesome Fate",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each opponent loses 1 life for each creature you control.",
+      "flavorText": "\"You were keen enough to sink your fangs into us, vampire! And now you're afraid of a few little nibbles?\"\n—Udvil \"Ratty\" Ratlock",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Even Amundsen",
+      "imageId": "15c65b81-b736-4bc5-ba12-fb74c64406cd"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "RIX-75",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GUAN_YU_S_1_000_LI_MARCH: CardData = {
+  "scryfallId": "8fa7526a-7a4e-4b3d-b96e-91f2bbf1c7bd",
+  "oracleId": "a1b87d5d-9493-4001-8c7e-553f40de61ea",
+  "name": "Guan Yu's 1,000-Li March",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Guan Yu's 1,000-Li March",
+      "manaCost": "{4}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all tapped creatures.",
+      "flavorText": "\"He [Guan Yu] covered the ground on a thousand-*li* horse; / With dragon blade he took each pass by force.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Yang Guangmai",
+      "imageId": "8fa7526a-7a4e-4b3d-b96e-91f2bbf1c7bd"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GUARDIAN_OF_SOLITUDE: CardData = {
+  "scryfallId": "85d16011-956b-40ac-afb6-6c7ad774802f",
+  "oracleId": "712ec339-ffa8-43bb-a826-a7b0f0120b1f",
+  "name": "Guardian of Solitude",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Guardian of Solitude",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Whenever you cast a Spirit or Arcane spell, target creature gains flying until end of turn.",
+      "flavorText": "\"It seemed an easy thing, to step into the nothingness, to fall, to die. But then, for an instant, I saw it, eyes filled with endless sorrow, and I turned back to face my pain.\"\n—Snow-Fur, kitsune poet",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Stephen Tappin",
+      "imageId": "85d16011-956b-40ac-afb6-6c7ad774802f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "chk",
+  "collectorNumber": "64",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HAIL_STORM: CardData = {
+  "scryfallId": "8627bdbb-0ee3-4f4e-9016-ca0d33d27d40",
+  "oracleId": "73eacb1f-3d35-4ead-bead-f85e6cfc17ab",
+  "name": "Hail Storm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hail Storm",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Hail Storm deals 2 damage to each attacking creature and 1 damage to you and each creature you control.",
+      "flavorText": "\"If they can't take the hail, they'd better stay home.\"\n—Arna Kennerüd, skycaptain",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jeff A. Menges",
+      "imageId": "8627bdbb-0ee3-4f4e-9016-ca0d33d27d40"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tsb",
+  "collectorNumber": "79",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HALLOWED_BURIAL: CardData = {
+  "scryfallId": "94389b94-1514-44d1-b19b-7be104db9bba",
+  "oracleId": "dcaaddee-00b1-495c-9161-40c91c900aac",
+  "name": "Hallowed Burial",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hallowed Burial",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put all creatures on the bottom of their owners' libraries.",
+      "flavorText": "\"I'd rather hear the screams of battle than the quiet that follows.\"\n—Talara, elvish safewright",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Dave Kendall",
+      "imageId": "94389b94-1514-44d1-b19b-7be104db9bba"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "cn2",
+  "collectorNumber": "91",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HARD_HITTING_QUESTION: CardData = {
+  "scryfallId": "8ad807c2-14a7-4464-bf57-c323fb3c0bd0",
+  "oracleId": "05fdefb4-2be7-4d9a-9ab9-14bbbe72aef7",
+  "name": "Hard-Hitting Question",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hard-Hitting Question",
+      "manaCost": "{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control deals damage equal to its power to target creature or planeswalker you don't control.",
+      "flavorText": "\"Keen eyes and an analytical mind are some of a detective's most important tools. As is a mean left hook.\"\n—Senior Inspector Holjo",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Nicholas Gregory",
+      "imageId": "8ad807c2-14a7-4464-bf57-c323fb3c0bd0"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mkm",
+  "collectorNumber": "164",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HARMATTAN_EFREET: CardData = {
+  "scryfallId": "b6673d49-c3f6-41f6-84c6-1957fff71509",
+  "oracleId": "84b1d4e1-ca8a-4eed-b5c4-364876938aee",
+  "name": "Harmattan Efreet",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Harmattan Efreet",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Creature — Efreet",
+      "oracleText": "Flying\n{1}{U}{U}: Target creature gains flying until end of turn.",
+      "flavorText": "\"One moment I was walking along the beach, and the next I was high in the air, staring into a hideous smiling face.\"\n—Tarub, Suq'Ata sailor",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Drew Tucker",
+      "imageId": "b6673d49-c3f6-41f6-84c6-1957fff71509"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "mir",
+  "collectorNumber": "69",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -37291,6 +37946,25 @@ export const ENGINE_CARDS: CardData[] = [
   GIANT_S_IRE,
   GLIDER_KIDS,
   AZORIUS_GUILDGATE,
+  GLISSA_S_SCORN,
+  GLISTENING_DELUGE,
+  GOBLIN_MOTIVATOR,
+  GOBLIN_WAR_STRIKE,
+  GOLDEN_RATIO,
+  GRANULATE,
+  GREAT_DEFENDER,
+  GREY_HAVENS_NAVIGATOR,
+  GRIM_FLOWERING,
+  GRIPTIDE,
+  GROUND_ASSAULT,
+  GROWTH_CYCLE,
+  GRUESOME_FATE,
+  GUAN_YU_S_1_000_LI_MARCH,
+  GUARDIAN_OF_SOLITUDE,
+  HAIL_STORM,
+  HALLOWED_BURIAL,
+  HARD_HITTING_QUESTION,
+  HARMATTAN_EFREET,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -1370,6 +1370,27 @@ const WANTED = [
   "Giant's Ire",
   'Glider Kids',
   'Azorius Guildgate',
+  // M6.4be (D216) - batch 50: the census spells, the tapped-creature
+  // wipe, and the grant activateds.
+  "Glissa's Scorn",
+  'Glistening Deluge',
+  'Goblin Motivator',
+  'Goblin War Strike',
+  'Golden Ratio',
+  'Granulate',
+  'Great Defender',
+  'Grey Havens Navigator',
+  'Grim Flowering',
+  'Griptide',
+  'Ground Assault',
+  'Growth Cycle',
+  'Gruesome Fate',
+  "Guan Yu's 1,000-Li March",
+  'Guardian of Solitude',
+  'Hail Storm',
+  'Hallowed Burial',
+  'Hard-Hitting Question',
+  'Harmattan Efreet',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

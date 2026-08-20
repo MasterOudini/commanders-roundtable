@@ -14444,3 +14444,56 @@ reaches 1,541.
 **Reportables:** the second-clause family (eight) and the counted-list
 widening top the targeting queue; the compound sweep-probe stays
 overdue and cheap; prior items stand.
+
+## D216 — M6.4be: nineteen landed — the control-state sweep, the distinct-powers draw, and the subtype compound that narrows (2026-08-20)
+
+**Coverage: 2,734 → 2,753 of 31,692 (+19).** `SHIPPED_SCRIPTS` 837 → 856;
+the ledger 282 → 288 (+6, TWO new classes); the pool 1,700 → 1,675;
+fixtures 1,052 → 1,071 (+19, no new tokens). All 19 suites — 55 tests —
+green on their FIRST run: the pre-verified mana costs (D215's lesson,
+applied) paid for themselves immediately.
+
+**The firsts.** `Guan Yu's 1,000-Li March` is the first TAPPED-state
+sweep — the filter is the INSTANCE fact, so a tapped indestructible Myr
+proves the two checks are independent. `Golden Ratio` is the first
+DISTINCT-values census (a SET of derived powers — two Bears share one).
+`Hallowed Burial` is the first bottom-of-library board wipe: NOT
+destruction, so the indestructible Myr goes under with everything else
+(asserted). `Hail Storm` is cast as the DEFENDER mid-combat and pays
+three ways at once — attackers 2, me 1, my creatures 1 — with my own
+attacker due BOTH entries by construction. `Glissa's Scorn` extends the
+Death's Caress rider precedent to an artifact LAND: Darksteel Citadel
+survives the destroy and its controller still pays the life.
+`Glistening Deluge` sums its color-conditional extra into one entry per
+creature. `Guardian of Solitude` is Briarknit Kami's Spirit-or-Arcane
+matcher with the flying grant as payload; `Grey Havens Navigator` the
+ETB scry behind Flash; `Goblin Motivator` carries its printed reminder
+(NOT Akki Drillmaster's text twin — checked); `Hard-Hitting Question`
+IS Bite Down's exact text on its own id; `Harmattan Efreet` the paid
+flying grant behind a keyword header; plus the Gate-free censuses
+(Goblin War Strike, Ground Assault, Gruesome Fate, Grim Flowering,
+Growth Cycle's self-name pump), Griptide's top-of-library move,
+Granulate's nonland-artifact wipe, and Great Defender's
+mana-value-of-the-target pump.
+
+⚠️ **The Gravkill probe found the SUBTYPE-member narrowing:** 'Exile
+target creature or Spacecraft.' parses CONFIDENT to kinds ['creature'] —
+the Spacecraft half silently dropped, D207's compound hole with a
+member no compound row can fix (TargetSpec has no subtype field).
+Refused into the noun-list class; the sweep-probe reportable now spans
+kind compounds AND subtype members.
+
+**Six refusals, TWO new classes:** `Glistening Dawn` names the INCUBATE
+mechanic (an Incubator DFC token carrying counters) and `Goblin Game`
+names PHYSICAL ITEM CHOICE (players hide real objects — the structural
+end of the list). Plus the Ring (Glorious Gale), mana-spent memory
+(Graven Lore), Gravkill, and a script-raised prompt (Grisly Salvage).
+
+**Measured after landing:** primitives complete 2,753 · blocked 28,939 ·
+scriptableToday 2,300 · ladder [2300, 2399, 4192, 6106, 7318] · tier3
+silentAfter 3,164 (+19 exact) · botPool creature 1,578 / instant 473 /
+sorcery 327 · batch.json 1,675 · botDeck: Adun reaches 1,552.
+
+**Reportables:** the qualifier/compound widening family (second-clause
+at eight, counted-list, subtype members) tops the targeting queue;
+prior items stand.
