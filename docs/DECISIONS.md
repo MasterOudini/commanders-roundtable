@@ -15031,3 +15031,61 @@ batch.json 1,425 · botDeck: Adun reaches 1,639.
 
 **Reportables:** the numeric-exact and combat-qualifier widenings each
 hold multiple ledger cards; prior items stand.
+
+## D227 — M6.4bp: twenty landed — the countered spell learns to pay, and the Snake counters from the battlefield (2026-08-20)
+
+**Coverage: 2,917 → 2,937 of 31,692 (+20) — the biggest batch of the
+arc.** `SHIPPED_SCRIPTS` 1,020 → 1,040; the ledger 373 → 378 (+5, both
+parse refusals PROBED before a line was drafted); the pool 1,425 →
+1,400; fixtures 1,238 → 1,260 (+20 cards, +2 token pins: Murmuring
+Mystic's Bird Illusion tgrn 3 and Myr Sire's Phyrexian Myr tcmm 44,
+mapped from TOKEN_TABLE's own printingIds).
+
+**The firsts:** `Multani's Presence` is the FIRST `SpellCountered`
+consumer — the countered spell leaves in the same batch, so the def
+looks BACK and reads its controller off the before-state's stack (its
+test drives a REAL Counterspell from the opponent's seat at p1's held
+Bears cast). `Mystic Snake` is the first ETB trigger AIMED AT THE
+STACK: the trigger's spec is the counterspell's, the answer arrow's
+stack TargetSource (D169) carries it, and the resolve is Daring
+Apprentice's two-event pair — a creature that counters on entry, mid
+someone else's cast. `Mystic Repeal` and `Natural Obsolescence` land
+the BOTTOM-of-library placement as targeted removal (not destruction:
+indestructible is no shield).
+
+**Also:** `Murmuring Mystic` is Talrand's filter paying a Bird
+Illusion; `Nebelgast Beguiler` carries Master Decoy's exact text (the
+SEVENTH Trapper-tap id) and `Mogg-Raider`-era Sledder logic reaches
+`Mogg Raider`'s twin; `Muscle Burst` and `Mind-Burst`-style
+censuses meet as a pump; `Mutilate` scales Nausea's board debuff by
+the Swamp census; `Mulch`-era reveal machinery serves
+`Nature's Resurgence`'s per-seat graveyard-census draws;
+`Nature's Claim` pays the controller through an indestructible miss;
+`Naga Oracle` surveils 3 on entry; `Nantuko Disciple`,
+`Mystic Archaeologist`, `Myr Scrapling`, `Myr Sire`,
+`Mutant Town`, `Muse Drake`, `Natural Spring`, `Nature's Ruin`
+and `Nausea` round out the twins — Nausea's own test corrected by
+the engine (a 2/2 at -1/-1 is a LIVING 1/1; the victim became the
+Bureaucrats).
+
+⚠️ **Both parse refusals were PROBED, not guessed** (probe JSON kept in
+the drafts): `Mystic Denial`'s 'creature or sorcery spell' parses
+CONFIDENT to a battlefield CREATURE — the typed-spell compound hole,
+the aim offering permanents for a counterspell — and `Mutiny`'s
+'another target creature that player controls' is silently DROPPED
+(the second-clause family, with a cross-target binding no spec can
+carry).
+
+**Five refusals:** the two probed parse holes, Muse Vortex
+(play-from-exile + a random-order bottom), Nahiri's Stoneblades
+(up-to-N), Natural Affinity (land animation).
+
+**Measured after landing:** primitives complete 2,937 · blocked 28,755 ·
+scriptableToday 2,116 · ladder [2116, 2215, 4008, 5922, 7134] · tier3
+silentAfter 3,348 / payable 5,089 · botPool creature 1,613 / instant
+538 / sorcery 396 / artifact 82 / enchantment 36 / land 272 ·
+batch.json 1,400 · botDeck: Adun reaches 1,652.
+
+**Reportables:** the typed-spell compound widening joins the aim-layer
+queue beside the numeric-exact and combat-qualifier families; prior
+items stand.

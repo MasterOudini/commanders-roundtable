@@ -7,6 +7,26 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { MULTANIS_PRESENCE_SCRIPT } from './cards/multanisPresence';
+import { MURMURING_MYSTIC_SCRIPT } from './cards/murmuringMystic';
+import { MUSCLE_BURST_SCRIPT } from './cards/muscleBurst';
+import { MUSE_DRAKE_SCRIPT } from './cards/museDrake';
+import { MUTANT_TOWN_SCRIPT } from './cards/mutantTown';
+import { MUTILATE_SCRIPT } from './cards/mutilate';
+import { MYR_SCRAPLING_SCRIPT } from './cards/myrScrapling';
+import { MYR_SIRE_SCRIPT } from './cards/myrSire';
+import { MYSTIC_ARCHAEOLOGIST_SCRIPT } from './cards/mysticArchaeologist';
+import { MYSTIC_REPEAL_SCRIPT } from './cards/mysticRepeal';
+import { MYSTIC_SNAKE_SCRIPT } from './cards/mysticSnake';
+import { NAGA_ORACLE_SCRIPT } from './cards/nagaOracle';
+import { NANTUKO_DISCIPLE_SCRIPT } from './cards/nantukoDisciple';
+import { NATURAL_OBSOLESCENCE_SCRIPT } from './cards/naturalObsolescence';
+import { NATURAL_SPRING_SCRIPT } from './cards/naturalSpring';
+import { NATURES_CLAIM_SCRIPT } from './cards/naturesClaim';
+import { NATURES_RESURGENCE_SCRIPT } from './cards/naturesResurgence';
+import { NATURES_RUIN_SCRIPT } from './cards/naturesRuin';
+import { NAUSEA_SCRIPT } from './cards/nausea';
+import { NEBELGAST_BEGUILER_SCRIPT } from './cards/nebelgastBeguiler';
 import { MOB_JUSTICE_SCRIPT } from './cards/mobJustice';
 import { MOBILIZE_SCRIPT } from './cards/mobilize';
 import { MOGG_RAIDER_SCRIPT } from './cards/moggRaider';
@@ -1141,6 +1161,26 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MULTANIS_PRESENCE_SCRIPT,
+  MURMURING_MYSTIC_SCRIPT,
+  MUSCLE_BURST_SCRIPT,
+  MUSE_DRAKE_SCRIPT,
+  MUTANT_TOWN_SCRIPT,
+  MUTILATE_SCRIPT,
+  MYR_SCRAPLING_SCRIPT,
+  MYR_SIRE_SCRIPT,
+  MYSTIC_ARCHAEOLOGIST_SCRIPT,
+  MYSTIC_REPEAL_SCRIPT,
+  MYSTIC_SNAKE_SCRIPT,
+  NAGA_ORACLE_SCRIPT,
+  NANTUKO_DISCIPLE_SCRIPT,
+  NATURAL_OBSOLESCENCE_SCRIPT,
+  NATURAL_SPRING_SCRIPT,
+  NATURES_CLAIM_SCRIPT,
+  NATURES_RESURGENCE_SCRIPT,
+  NATURES_RUIN_SCRIPT,
+  NAUSEA_SCRIPT,
+  NEBELGAST_BEGUILER_SCRIPT,
   MOB_JUSTICE_SCRIPT,
   MOBILIZE_SCRIPT,
   MOGG_RAIDER_SCRIPT,

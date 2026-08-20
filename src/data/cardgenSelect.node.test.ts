@@ -780,6 +780,17 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Moorland Haunt', 'exile-from-graveyard cost'],
   ['Morbius the Living Vampire', 'graveyard-activated ability'],
   ['Most Valuable Slayer', 'combat target qualifier unenforced'],
+  // D227 — BOTH parse refusals are PROBED (d227\probe-out.json): Mystic
+  // Denial's 'creature or sorcery spell' parses CONFIDENT to a
+  // battlefield CREATURE (the typed-spell compound hole — the aim would
+  // offer permanents for a counterspell), and Mutiny's 'another target
+  // creature that player controls' is silently DROPPED; Muse Vortex also
+  // bottoms in a random order (the RNG stub).
+  ['Muse Vortex', 'play-from-exile permission'],
+  ['Mutiny', 'spell target parse (second clause)'],
+  ['Mystic Denial', 'spell target parse (noun list)'],
+  ["Nahiri's Stoneblades", 'up-to-N targeting'],
+  ['Natural Affinity', 'land animation'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

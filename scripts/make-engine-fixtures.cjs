@@ -1579,6 +1579,28 @@ const WANTED = [
   'Mudhole',
   'Mulch',
   "Multani's Decree",
+  // M6.4bp (D227) - batch 61: the first SpellCountered watcher, Mystic
+  // Snake's ETB counter, and the bottom-of-library removals.
+  "Multani's Presence",
+  'Murmuring Mystic',
+  'Muscle Burst',
+  'Muse Drake',
+  'Mutant Town',
+  'Mutilate',
+  'Myr Scrapling',
+  'Myr Sire',
+  'Mystic Archaeologist',
+  'Mystic Repeal',
+  'Mystic Snake',
+  'Naga Oracle',
+  'Nantuko Disciple',
+  'Natural Obsolescence',
+  'Natural Spring',
+  "Nature's Claim",
+  "Nature's Resurgence",
+  "Nature's Ruin",
+  'Nausea',
+  'Nebelgast Beguiler',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -1709,6 +1731,9 @@ const WANTED_TOKENS = [
   { name: 'Lander', set: 'teoe', cn: '6', key: 'LANDER_TOKEN' },
   { name: 'Shapeshifter', set: 'tmh1', cn: '1', key: 'SHAPESHIFTER_TOKEN' },
   { name: 'Soldier', set: 'tonc', cn: '17', key: 'SOLDIER_RW_TOKEN' },
+  // M6.4bp (D227) - Murmuring Mystic's Bird Illusion, Myr Sire's Myr.
+  { name: 'Bird Illusion', set: 'tgrn', cn: '3', key: 'BIRD_ILLUSION_TOKEN' },
+  { name: 'Phyrexian Myr', set: 'tcmm', cn: '44', key: 'PHYREXIAN_MYR_TOKEN' },
 ];
 
 function constName(name) {

@@ -180,7 +180,7 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // all rung 1 (the user's own decks) - rituals, wraths, fights, burn,
     // draw. Bedevil and Fall of the Hammer were pulled at draft time by
     // their own failing tests (spell target parse - see the REFUSED ledger).
-    expect(SHIPPED_SCRIPTS).toHaveLength(1020);
+    expect(SHIPPED_SCRIPTS).toHaveLength(1040);
   });
 });
 

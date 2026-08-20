@@ -6290,6 +6290,41 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       widenings each hold multiple cards; prior items stand.
 
 
+- [x] **M6.4bp — Twenty landed: the countered spell learns to pay
+      (2026-08-20):** **2,937 of 31,692 Commander-legal cards now execute
+      completely, up from 2,917 — the biggest batch of the arc.**
+      `SHIPPED_SCRIPTS` 1,020 → 1,040; ledger 378. Decisions in
+      **D227**.
+      **The firsts:** Multani's Presence (the FIRST SpellCountered
+      consumer — looksBack reads the countered spell's controller off the
+      before-state stack; a REAL Counterspell drives the test); Mystic
+      Snake (the first ETB trigger AIMED AT THE STACK — the answer
+      arrow's stack TargetSource carries the counterspell spec); Mystic
+      Repeal / Natural Obsolescence (bottom-of-library placement as
+      removal).
+      **Also:** Murmuring Mystic (Talrand's Bird Illusion twin);
+      Nebelgast Beguiler (Master Decoy's exact text — the SEVENTH
+      Trapper id); Mogg-family census pumps and censuses; Mutilate's
+      Swamp-scaled debuff; Nature's Resurgence's per-seat
+      graveyard-census draws; Nature's Claim's paid indestructible miss;
+      Naga Oracle's ETB surveil 3 — and Nausea's test corrected BY the
+      engine (a 2/2 at -1/-1 is a LIVING 1/1).
+      ⚠️ **Both parse refusals PROBED before drafting:** Mystic Denial's
+      compound parses to a battlefield CREATURE; Mutiny's second clause
+      is silently dropped.
+      ⚠️ **Five refusals, ZERO new classes.**
+      Fixtures 1,260 (+2 token pins) · botPool creature 1,613 / instant
+      538 / sorcery 396 / enchantment 36 / land 272 · ladder [2116,
+      2215, 4008, 5922, 7134] · batch.json 1,400 · botDeck: Adun
+      reaches 1,652.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,119
+      files, 6,386 passed / 10 skipped · 500-seed gate
+      761.0 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D227): the typed-spell compound widening joins
+      the aim-layer queue; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
