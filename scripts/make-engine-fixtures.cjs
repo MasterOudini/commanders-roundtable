@@ -1622,6 +1622,24 @@ const WANTED = [
   'Nimblewright Schematic',
   'Nimraiser Paladin',
   'Nine-Tail White Fox',
+  // M6.4br (D229) - batch 63: the most-creatures census, the per-item
+  // blocks watcher, and the tapped opponent-graveyard reanimation.
+  'No Witnesses',
+  'Noble Stand',
+  'Noble Steeds',
+  'Nocturnal Raid',
+  'Noggle Robber',
+  'North Pole Gates',
+  'Notion Rain',
+  'Noxious Revival',
+  "Nurgle's Conscription",
+  'Nyx-Fleece Ram',
+  'Oasis Gardener',
+  'Octoprophet',
+  "Odric's Outrider",
+  'Oggyar Battle-Seer',
+  'Ogre Arsonist',
+  "Olivia's Wrath",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

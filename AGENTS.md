@@ -6358,6 +6358,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       cards; prior items stand.
 
 
+- [x] **M6.4br — Sixteen landed: two blockers, two firings
+      (2026-08-20):** **2,972 of 31,692 Commander-legal cards now execute
+      completely, up from 2,956.** `SHIPPED_SCRIPTS` 1,059 → 1,075;
+      ledger 393. Decisions in **D229**.
+      **The headliner: Noble Stand** — the SECOND perItem consumer:
+      D190's fan-out on BlockersDeclared items fires once PER BLOCKING
+      CREATURE; two blockers in one declaration gain exactly 4.
+      **Also:** No Witnesses (the most-creatures census pays Clues
+      BEFORE its own wipe); Nurgle's Conscription (tapped
+      opponent-graveyard reanimation + exile-the-rest); Notion Rain
+      (recoil first, ask LAST with thenDraw 2; the empty-library branch
+      still draws); Noxious Revival (the FULL-text SpellDef claim with
+      the Phyrexian reminder — Marrow Shards' precedent — and a
+      placement-top return); Odric's Outrider (self-inclusive dies
+      watcher, targeted counter); Oggyar Battle-Seer (the first
+      activated scry on a CREATURE); Nyx-Fleece Ram (MY upkeep only);
+      Olivia's Wrath (the exempted census debuff).
+      ⚠️ **Nine refusals, ZERO new classes** — Nullify is the PROBED
+      typed-spell compound hole verbatim.
+      Fixtures 1,297 (no new tokens) · botPool creature 1,633 / instant
+      543 / sorcery 400 / enchantment 39 / land 274 · ladder [2081,
+      2180, 3973, 5887, 7099] · batch.json 1,350 · botDeck: Adun
+      reaches 1,668.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,154
+      files, 6,535 passed / 10 skipped · 500-seed gate
+      778.6 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D229): the perItem fan-out has paid on draws
+      and blocks; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

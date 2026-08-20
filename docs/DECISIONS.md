@@ -15139,3 +15139,50 @@ batch.json 1,375 · botDeck: Adun reaches 1,661 from 67 legendaries.
 **Reportables:** the combat-qualifier class at three cards is due
 beside the numeric-exact and typed-spell-compound widenings; prior
 items stand.
+
+## D229 — M6.4br: sixteen landed — two blockers, two firings (2026-08-20)
+
+**Coverage: 2,956 → 2,972 of 31,692 (+16).** `SHIPPED_SCRIPTS` 1,059 →
+1,075; the ledger 384 → 393 (+9, ZERO new classes); the pool 1,375 →
+1,350; fixtures 1,297 (no new token pins — the Clue, Treasure and
+Vampire all reuse).
+
+**The headliner:** `Noble Stand` is the SECOND perItem consumer —
+D190's fan-out on `BlockersDeclared` items: "whenever a creature you
+control blocks" fires once PER BLOCKING CREATURE, and the test declares
+TWO blockers in ONE declaration and gains exactly 4.
+
+**Also:** `No Witnesses` runs the most-creatures census (ties
+included) and pays the Clues BEFORE its own wipe empties the count.
+`Nurgle's Conscription` reanimates from an opponent's graveyard
+TAPPED under my control and exiles the REST of that graveyard after
+the move. `Notion Rain` emits its recoil FIRST and the surveil ask
+LAST with thenDraw 2 (Cruel Truths' ordering) — and its empty-library
+branch draws through `drawEvents` so "then draw two" is never
+dropped. `Noxious Revival`'s SpellDef claims the FULL printed text,
+Phyrexian reminder line included (the Marrow Shards precedent), and
+puts any graveyard card on TOP of its owner's library. `Odric's
+Outrider` is the self-inclusive dies watcher with a targeted counter;
+`Oggyar Battle-Seer` is the first activated scry on a CREATURE;
+`Nyx-Fleece Ram` gains on MY upkeep only; `Mutilate`-style censuses
+land as `Olivia's Wrath` (non-Vampire -X/-X); plus Noble Steeds,
+Nocturnal Raid, Noggle Robber's enters-or-dies Treasures, North Pole
+Gates, Oasis Gardener, Octoprophet, Ogre Arsonist and Opportunity-era
+twins.
+
+**Nine refusals, ZERO new classes:** Nullify is Mystic Denial's PROBED
+typed-spell compound hole verbatim; Ogre Shaman's cost discards at
+random (the RNG stub); Noxious Grasp's "that's green or white" is
+Devout Decree's class; plus the quoted-ability grant, rad counters,
+tap-creatures, remove-counter, return-permanent and the untap
+restriction.
+
+**Measured after landing:** primitives complete 2,972 · blocked 28,720 ·
+scriptableToday 2,081 · ladder [2081, 2180, 3973, 5887, 7099] · tier3
+silentAfter 3,383 / payable 5,083 · botPool creature 1,633 / instant
+543 / sorcery 400 / artifact 83 / enchantment 39 / land 274 ·
+batch.json 1,350 · botDeck: Adun reaches 1,668.
+
+**Reportables:** the perItem fan-out has now paid on draws and blocks —
+the remaining granularity ledger entries are each one def away; prior
+items stand.

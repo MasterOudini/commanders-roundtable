@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { NO_WITNESSES_SCRIPT } from './cards/noWitnesses';
+import { NOBLE_STAND_SCRIPT } from './cards/nobleStand';
+import { NOBLE_STEEDS_SCRIPT } from './cards/nobleSteeds';
+import { NOCTURNAL_RAID_SCRIPT } from './cards/nocturnalRaid';
+import { NOGGLE_ROBBER_SCRIPT } from './cards/noggleRobber';
+import { NORTH_POLE_GATES_SCRIPT } from './cards/northPoleGates';
+import { NOTION_RAIN_SCRIPT } from './cards/notionRain';
+import { NOXIOUS_REVIVAL_SCRIPT } from './cards/noxiousRevival';
+import { NURGLES_CONSCRIPTION_SCRIPT } from './cards/nurglesConscription';
+import { NYX_FLEECE_RAM_SCRIPT } from './cards/nyxFleeceRam';
+import { OASIS_GARDENER_SCRIPT } from './cards/oasisGardener';
+import { OCTOPROPHET_SCRIPT } from './cards/octoprophet';
+import { ODRICS_OUTRIDER_SCRIPT } from './cards/odricsOutrider';
+import { OGGYAR_BATTLE_SEER_SCRIPT } from './cards/oggyarBattleSeer';
+import { OGRE_ARSONIST_SCRIPT } from './cards/ogreArsonist';
+import { OLIVIAS_WRATH_SCRIPT } from './cards/oliviasWrath';
 import { NEBELGAST_HERALD_SCRIPT } from './cards/nebelgastHerald';
 import { NEED_FOR_SPEED_SCRIPT } from './cards/needForSpeed';
 import { NEEDLE_STORM_SCRIPT } from './cards/needleStorm';
@@ -1180,6 +1196,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  NO_WITNESSES_SCRIPT,
+  NOBLE_STAND_SCRIPT,
+  NOBLE_STEEDS_SCRIPT,
+  NOCTURNAL_RAID_SCRIPT,
+  NOGGLE_ROBBER_SCRIPT,
+  NORTH_POLE_GATES_SCRIPT,
+  NOTION_RAIN_SCRIPT,
+  NOXIOUS_REVIVAL_SCRIPT,
+  NURGLES_CONSCRIPTION_SCRIPT,
+  NYX_FLEECE_RAM_SCRIPT,
+  OASIS_GARDENER_SCRIPT,
+  OCTOPROPHET_SCRIPT,
+  ODRICS_OUTRIDER_SCRIPT,
+  OGGYAR_BATTLE_SEER_SCRIPT,
+  OGRE_ARSONIST_SCRIPT,
+  OLIVIAS_WRATH_SCRIPT,
   NEBELGAST_HERALD_SCRIPT,
   NEED_FOR_SPEED_SCRIPT,
   NEEDLE_STORM_SCRIPT,

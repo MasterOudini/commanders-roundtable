@@ -41695,6 +41695,562 @@ export const NINE_TAIL_WHITE_FOX: CardData = {
   "singleImage": true
 };
 
+export const NO_WITNESSES: CardData = {
+  "scryfallId": "0c7faae5-287e-4a96-9f67-8003404f433b",
+  "oracleId": "0639bd82-084f-47d5-b158-05dfc29efa40",
+  "name": "No Witnesses",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "No Witnesses",
+      "manaCost": "{2}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each player who controls the most creatures investigates. Then destroy all creatures. (To investigate, create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": "When cunning fails, there's always violence.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Michele Giorgi",
+      "imageId": "0c7faae5-287e-4a96-9f67-8003404f433b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "pmkm",
+  "collectorNumber": "27s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NOBLE_STAND: CardData = {
+  "scryfallId": "5f53ab12-7c16-43b1-b9f9-a5e523cf431b",
+  "oracleId": "1aa1e34c-b2ff-4750-9e73-5707a8f49bfb",
+  "name": "Noble Stand",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Noble Stand",
+      "manaCost": "{4}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever a creature you control blocks, you gain 2 life.",
+      "flavorText": "Soldiers will always endanger their lives to defend many other lives.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Greg Hildebrandt & Tim Hildebrandt",
+      "imageId": "5f53ab12-7c16-43b1-b9f9-a5e523cf431b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "nem",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NOBLE_STEEDS: CardData = {
+  "scryfallId": "45a35751-a232-40ba-a73b-d3ca7a44867d",
+  "oracleId": "d6005e47-d545-4c16-b54a-bfe1dde61a98",
+  "name": "Noble Steeds",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Noble Steeds",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "{1}{W}: Target creature gains first strike until end of turn.",
+      "flavorText": "\"Only an animal born in the wild has sufficient heart to be a true Knight's steed.\"\n—King Darien of Kjeldor",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "45a35751-a232-40ba-a73b-d3ca7a44867d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "all",
+  "collectorNumber": "11a",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NOCTURNAL_RAID: CardData = {
+  "scryfallId": "0015fee8-068a-421e-9143-bcb575371f9a",
+  "oracleId": "5b4b08a5-3af8-4c33-ab5e-7bee7f79e77a",
+  "name": "Nocturnal Raid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nocturnal Raid",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Black creatures get +2/+0 until end of turn.",
+      "flavorText": "\"The finest offering of night is not stealth but daring.\"\n—Tetlok, Breathstealer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "John Matson",
+      "imageId": "0015fee8-068a-421e-9143-bcb575371f9a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "132",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NOGGLE_ROBBER: CardData = {
+  "scryfallId": "0082ca96-10f3-4823-be16-117556b2afc3",
+  "oracleId": "a2f33166-6cfc-4dc5-8edc-088bf40f06b5",
+  "name": "Noggle Robber",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Noggle Robber",
+      "manaCost": "{1}{R/G}{R/G}",
+      "typeLine": "Creature — Noggle Rogue",
+      "oracleText": "When this creature enters or dies, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "Noggles have no concept of money, but they do have a high affinity for \"shiny.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Steve Ellis",
+      "imageId": "0082ca96-10f3-4823-be16-117556b2afc3"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "ecl",
+  "collectorNumber": "237",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NORTH_POLE_GATES: CardData = {
+  "scryfallId": "bcf7b9da-d35d-4338-b4d9-83e47dc058ee",
+  "oracleId": "3fcd1432-66d0-40e1-85ef-b57a6fa94b7c",
+  "name": "North Pole Gates",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "North Pole Gates",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {W} or {U}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+      "flavorText": "The Northern Water Tribe knew their safety was earned through diligence and caution.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Andreas Rocha",
+      "imageId": "bcf7b9da-d35d-4338-b4d9-83e47dc058ee"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tla",
+  "collectorNumber": "274",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NOTION_RAIN: CardData = {
+  "scryfallId": "66ed78c5-be23-4fcb-9143-e6574cd6ec68",
+  "oracleId": "f93dbe17-71d1-4542-96ff-81ac6da9513f",
+  "name": "Notion Rain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Notion Rain",
+      "manaCost": "{1}{U}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Surveil 2, then draw two cards. Notion Rain deals 2 damage to you. (To surveil 2, look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": "City air is a constant drizzle of private thoughts.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "U"
+      ],
+      "artist": "Lius Lasahido",
+      "imageId": "66ed78c5-be23-4fcb-9143-e6574cd6ec68"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "mkc",
+  "collectorNumber": "217",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NOXIOUS_REVIVAL: CardData = {
+  "scryfallId": "03ab584c-1f27-4452-89b4-3b93a2486d61",
+  "oracleId": "97cabeda-9fe3-490d-99b4-4c8d87c17157",
+  "name": "Noxious Revival",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Noxious Revival",
+      "manaCost": "{G/P}",
+      "typeLine": "Instant",
+      "oracleText": "({G/P} can be paid with either {G} or 2 life.)\nPut target card from a graveyard on top of its owner's library.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Wooden Cyclops",
+      "imageId": "03ab584c-1f27-4452-89b4-3b93a2486d61"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "1416",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NURGLE_S_CONSCRIPTION: CardData = {
+  "scryfallId": "076213d7-49d9-40a8-93d5-bf1429a8862a",
+  "oracleId": "967f0c23-7af2-4e86-9ebc-dc2f8856c7c5",
+  "name": "Nurgle's Conscription",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nurgle's Conscription",
+      "manaCost": "{4}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Put target creature card from an opponent's graveyard onto the battlefield tapped under your control, then exile that player's graveyard.",
+      "flavorText": "\"In the embrace of the great Nurgle, I am no longer afraid, for with His pestilential favour I have become that which I once most feared: Death.\"\n—Kulvain Hestarius of the Death Guard",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Ørjan Ruttenborg Svendsen",
+      "imageId": "076213d7-49d9-40a8-93d5-bf1429a8862a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "40k",
+  "collectorNumber": "44★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NYX_FLEECE_RAM: CardData = {
+  "scryfallId": "4797137e-8161-4510-9471-0907991954e6",
+  "oracleId": "5a20113c-7ea8-4edf-af9f-148ccd326a88",
+  "name": "Nyx-Fleece Ram",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nyx-Fleece Ram",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment Creature — Sheep",
+      "oracleText": "At the beginning of your upkeep, you gain 1 life.",
+      "flavorText": "The gods are fascinated by innocence, perhaps because it's a quality they themselves lack.",
+      "power": "0",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "4797137e-8161-4510-9471-0907991954e6"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "A25-26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OASIS_GARDENER: CardData = {
+  "scryfallId": "ee0dc663-4bfb-46d4-af79-d0143c799487",
+  "oracleId": "210a130c-d5d3-43bf-8a80-d796c37242e8",
+  "name": "Oasis Gardener",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Oasis Gardener",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Scarecrow",
+      "oracleText": "When this creature enters, you gain 2 life.\n{T}: Add one mana of any color.",
+      "flavorText": "\"I think the blasted thing's actually attracting *more* birds, but all the same, the garden's never looked better.\"\n—Jay Marigold, homesteader",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Kristina Carroll",
+      "imageId": "ee0dc663-4bfb-46d4-af79-d0143c799487"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "otj",
+  "collectorNumber": "246",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OCTOPROPHET: CardData = {
+  "scryfallId": "13becea1-e745-4c96-bfc2-6a277fb60ee1",
+  "oracleId": "af6cfc23-b64b-4c8a-94b4-69d2b01cb3b9",
+  "name": "Octoprophet",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Octoprophet",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Octopus",
+      "oracleText": "When this creature enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": "In every swirl of the tide, it sees the awakening of things yet to come.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Grzegorz Rutkowski",
+      "imageId": "13becea1-e745-4c96-bfc2-6a277fb60ee1"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "m20",
+  "collectorNumber": "70",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ODRIC_S_OUTRIDER: CardData = {
+  "scryfallId": "9016f837-cc19-43f1-adb9-96bdd3195407",
+  "oracleId": "a5a9a314-81a0-4b11-9cf9-daeaea98b33c",
+  "name": "Odric's Outrider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Odric's Outrider",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Whenever this creature or another creature you control dies, put a +1/+1 counter on target creature you control.",
+      "flavorText": "Terms like \"safe route\" and \"cleared district\" are a source of dark humor to the cathars who patrol the ruins of Thraben.",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Cristi Balanescu",
+      "imageId": "9016f837-cc19-43f1-adb9-96bdd3195407"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mid",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OGGYAR_BATTLE_SEER: CardData = {
+  "scryfallId": "a38329f1-af6e-47b8-86e4-f2a39e1edbf8",
+  "oracleId": "645005dd-3438-4b88-bb19-561f9679a022",
+  "name": "Oggyar Battle-Seer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Oggyar Battle-Seer",
+      "manaCost": "{3}{U}{R}",
+      "typeLine": "Creature — Ogre Shaman",
+      "oracleText": "Haste\n{T}: Scry 1.",
+      "flavorText": "\"May Ganathog bless us with bloody visions of glory restored!\"",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Karl Kopinski",
+      "imageId": "a38329f1-af6e-47b8-86e4-f2a39e1edbf8"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Haste",
+    "Scry"
+  ],
+  "setCode": "stx",
+  "collectorNumber": "209",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OGRE_ARSONIST: CardData = {
+  "scryfallId": "474f4537-905d-44f2-bc69-1e94c6727ad1",
+  "oracleId": "00af96af-5eae-4044-a2f7-a08cd0699d1e",
+  "name": "Ogre Arsonist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ogre Arsonist",
+      "manaCost": "{4}{R}",
+      "typeLine": "Creature — Ogre",
+      "oracleText": "When this creature enters, destroy target land.",
+      "flavorText": "\"All of Ravnica's looking for you, Dack, from the Wojek on down.\"\n—Maytov",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chris Rahn",
+      "imageId": "474f4537-905d-44f2-bc69-1e94c6727ad1"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "pidw",
+  "collectorNumber": "11",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OLIVIA_S_WRATH: CardData = {
+  "scryfallId": "3eb5cc8d-a198-43cd-a2bd-9c9414d815b2",
+  "oracleId": "9aebd891-c8c5-4309-a07b-6cab1b204172",
+  "name": "Olivia's Wrath",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Olivia's Wrath",
+      "manaCost": "{4}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each non-Vampire creature gets -X/-X until end of turn, where X is the number of Vampires you control.",
+      "flavorText": "\"These worthless cattle think they can sneak unnoticed into my wedding? Dispose of them.\"\n—Olivia Voldaren",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Néstor Ossandón Leal",
+      "imageId": "3eb5cc8d-a198-43cd-a2bd-9c9414d815b2"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "lcc",
+  "collectorNumber": "205",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -45415,6 +45971,22 @@ export const ENGINE_CARDS: CardData[] = [
   NIMBLEWRIGHT_SCHEMATIC,
   NIMRAISER_PALADIN,
   NINE_TAIL_WHITE_FOX,
+  NO_WITNESSES,
+  NOBLE_STAND,
+  NOBLE_STEEDS,
+  NOCTURNAL_RAID,
+  NOGGLE_ROBBER,
+  NORTH_POLE_GATES,
+  NOTION_RAIN,
+  NOXIOUS_REVIVAL,
+  NURGLE_S_CONSCRIPTION,
+  NYX_FLEECE_RAM,
+  OASIS_GARDENER,
+  OCTOPROPHET,
+  ODRIC_S_OUTRIDER,
+  OGGYAR_BATTLE_SEER,
+  OGRE_ARSONIST,
+  OLIVIA_S_WRATH,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

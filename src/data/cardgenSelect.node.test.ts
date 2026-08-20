@@ -803,6 +803,19 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Nissa's Revelation", 'script-raised prompt'],
   ['Nivix Barrier', 'combat target qualifier unenforced'],
   ['Nix', 'mana-spent memory'],
+  // D229 — Nullify's 'creature or Aura spell' is Mystic Denial's PROBED
+  // typed-spell compound hole verbatim; Ogre Shaman's cost discards at
+  // random (the RNG stub, Meteor Storm's shape); Noxious Grasp's "that's
+  // green or white" is Devout Decree's class.
+  ['Not Dead After All', 'quoted-ability temporary grant'],
+  ['Noxious Grasp', 'color target qualifier unenforced'],
+  ['Nuclear Fallout', 'rad counters'],
+  ['Nullify', 'spell target parse (noun list)'],
+  ['Nullmage Shepherd', 'tap-creatures cost'],
+  ["O'aka, Traveling Merchant", 'remove-counter cost'],
+  ['Oboro Breezecaller', 'return-permanent cost'],
+  ['Ogre Shaman', 'ctx.random'],
+  ["Oketra's Last Mercy", 'untap restriction'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
