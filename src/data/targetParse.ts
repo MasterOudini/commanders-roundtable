@@ -333,6 +333,9 @@ const NOUNS: readonly NounEntry[] = [
   // noun-list class) and `Banishment Decree` print them whole.
   { re: new RegExp(`^artifact,\\s*creature,\\s*or\\s+planeswalker${s}\\b`, 'i'), kinds: ['artifact', 'creature', 'planeswalker'] },
   { re: new RegExp(`^artifact,\\s*creature,\\s*or\\s+enchantment${s}\\b`, 'i'), kinds: ['artifact', 'creature', 'enchantment'] },
+  // D214: `Fracture` prints the fourth Icy list — probed missing, the same
+  // silent halving as the pair compounds.
+  { re: new RegExp(`^artifact,\\s*enchantment,\\s*or\\s+planeswalker${s}\\b`, 'i'), kinds: ['artifact', 'enchantment', 'planeswalker'] },
 
   // stack objects
   // ⚠️ `cardTypes` on a spell noun is enforced against the CAST FACE's types

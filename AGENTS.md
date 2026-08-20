@@ -5880,6 +5880,35 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the name-family table candidacy grows; prior items stand.
 
 
+- [x] **M6.4bc — Seventeen landed: the counter census, the conditional
+      fan, and the fourth Icy compound (2026-08-20):** **2,718 of 31,692
+      Commander-legal cards now execute completely, up from 2,701.**
+      `SHIPPED_SCRIPTS` 804 → 821; ledger 273. Decisions in **D214**.
+      ⚠️ **The fourth Icy compound was missing and the PROBE found it
+      before a test had to:** Fracture's "artifact, enchantment, or
+      planeswalker" halved to a confident artifact-only spec — caught at
+      classification, widened, landed with the batch.
+      **Firsts:** the COUNTER CENSUS (Flay Essence — the gain reads
+      every counter kind on the exiled permanent); the conditional fan
+      (Flames of the Raze-Boar — the 2-damage sweep fires only behind
+      my power-4 creature); the graveyard type census with the
+      Adventure arm (Frantic Firebolt, oc.layout); the hand-size debuff
+      (Flunk — 7 minus their hand); the +X/-X slide (Flowstone Slide);
+      the combat-count drain (Foul-Tongue Shriek); Flesh to Dust joins
+      the damnation tripwire (the EIGHTH client).
+      ⚠️ **Eight refusals, NO new classes.**
+      Fixtures 1,035 · botPool instant 462 / sorcery 312 / artifact 78 /
+      land 264 · ladder [2335, 2434, 4227, 6141, 7353] · batch.json
+      1,725 · botDeck: Adun reaches 1,531.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 899
+      files, 5,322 passed / 10 skipped · 500-seed gate
+      728.7 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D214): FOUR compound holes now — the
+      sweep-probe over every printed combination is overdue and cheap;
+      prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

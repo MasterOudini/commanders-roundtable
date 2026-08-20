@@ -7,6 +7,23 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { FLAMES_OF_THE_RAZE_BOAR_SCRIPT } from './cards/flamesOfTheRazeBoar';
+import { FLASHFIRES_SCRIPT } from './cards/flashfires';
+import { FLAY_ESSENCE_SCRIPT } from './cards/flayEssence';
+import { FLESH_TO_DUST_SCRIPT } from './cards/fleshToDust';
+import { FLICKER_OF_FATE_SCRIPT } from './cards/flickerOfFate';
+import { FLOW_OF_IDEAS_SCRIPT } from './cards/flowOfIdeas';
+import { FLOWSTONE_SLIDE_SCRIPT } from './cards/flowstoneSlide';
+import { FLUNK_SCRIPT } from './cards/flunk';
+import { FLYING_CARPET_SCRIPT } from './cards/flyingCarpet';
+import { FORCED_MARCH_SCRIPT } from './cards/forcedMarch';
+import { FORCED_RETREAT_SCRIPT } from './cards/forcedRetreat';
+import { FORUM_OF_AMITY_SCRIPT } from './cards/forumOfAmity';
+import { FOUL_PLAY_SCRIPT } from './cards/foulPlay';
+import { FOUL_TONGUE_SHRIEK_SCRIPT } from './cards/foulTongueShriek';
+import { FRACTURE_SCRIPT } from './cards/fracture';
+import { FRACTURING_GUST_SCRIPT } from './cards/fracturingGust';
+import { FRANTIC_FIREBOLT_SCRIPT } from './cards/franticFirebolt';
 import { FEAST_OF_FLESH_SCRIPT } from './cards/feastOfFlesh';
 import { FEED_THE_SWARM_SCRIPT } from './cards/feedTheSwarm';
 import { FEEDBACK_BOLT_SCRIPT } from './cards/feedbackBolt';
@@ -925,6 +942,23 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FLAMES_OF_THE_RAZE_BOAR_SCRIPT,
+  FLASHFIRES_SCRIPT,
+  FLAY_ESSENCE_SCRIPT,
+  FLESH_TO_DUST_SCRIPT,
+  FLICKER_OF_FATE_SCRIPT,
+  FLOW_OF_IDEAS_SCRIPT,
+  FLOWSTONE_SLIDE_SCRIPT,
+  FLUNK_SCRIPT,
+  FLYING_CARPET_SCRIPT,
+  FORCED_MARCH_SCRIPT,
+  FORCED_RETREAT_SCRIPT,
+  FORUM_OF_AMITY_SCRIPT,
+  FOUL_PLAY_SCRIPT,
+  FOUL_TONGUE_SHRIEK_SCRIPT,
+  FRACTURE_SCRIPT,
+  FRACTURING_GUST_SCRIPT,
+  FRANTIC_FIREBOLT_SCRIPT,
   FEAST_OF_FLESH_SCRIPT,
   FEED_THE_SWARM_SCRIPT,
   FEEDBACK_BOLT_SCRIPT,

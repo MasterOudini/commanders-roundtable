@@ -444,11 +444,13 @@ const POOL: Record<string, number> = {
   // Surveillance.
   // M6.4bb (D213): +11 instants, +8 sorceries, and Fields of Strife — a
   // TWENTY-card batch.
+  // M6.4bc (D214): +8 instants, +7 sorceries, Flying Carpet, and Forum of
+  // Amity.
   creature: 1570,
-  instant: 454,
-  sorcery: 305,
-  land: 263,
-  artifact: 77,
+  instant: 462,
+  sorcery: 312,
+  land: 264,
+  artifact: 78,
   enchantment: 32,
 };
 

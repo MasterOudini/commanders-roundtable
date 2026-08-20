@@ -604,6 +604,19 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Finishing Move', 'sticker mechanic'],
   ['Fire Prophecy', 'script-raised prompt'],
   ['Firespout', 'mana-spent memory'],
+  // D214 — Flashback grants a graveyard-cast permission (the same
+  // permission family as play-from-exile); Flatline and Fractalize SET
+  // base P/T; Forced Landing's 'with flying' is the silent keyword
+  // qualifier; Fold into Aether and Fortune's Favor hand the choice to
+  // the opponent.
+  ['Flashback', 'play-from-exile permission'],
+  ['Flatline', 'until-end-of-turn base P/T set'],
+  ['Flowstone Channeler', 'discard-cost chooser'],
+  ['Fold into Aether', 'opponent-chooses'],
+  ['Foray of Orcs', 'amass mechanic'],
+  ['Forced Landing', 'keyword target qualifier unenforced'],
+  ["Fortune's Favor", 'opponent-chooses'],
+  ['Fractalize', 'until-end-of-turn base P/T set'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

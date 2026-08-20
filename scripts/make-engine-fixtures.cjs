@@ -1332,6 +1332,25 @@ const WANTED = [
   'Flame Rift',
   'Flame Sweep',
   'Flame Wave',
+  // M6.4bc (D214) - batch 48: the flicker compound, the counter census,
+  // and the conditional fan.
+  'Flames of the Raze-Boar',
+  'Flashfires',
+  'Flay Essence',
+  'Flesh to Dust',
+  'Flicker of Fate',
+  'Flow of Ideas',
+  'Flowstone Slide',
+  'Flunk',
+  'Flying Carpet',
+  'Forced March',
+  'Forced Retreat',
+  'Forum of Amity',
+  'Foul Play',
+  'Foul-Tongue Shriek',
+  'Fracture',
+  'Fracturing Gust',
+  'Frantic Firebolt',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

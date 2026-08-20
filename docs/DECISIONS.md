@@ -14342,3 +14342,50 @@ Adun reaches 1,520.
 rather than found one test at a time — a five-minute probe over the
 remaining pairs closes it; the name-census idiom joins the name family's
 table candidacy; prior items stand.
+
+## D214 — M6.4bc: seventeen landed — the counter census, the conditional fan, and the fourth Icy compound (2026-08-20)
+
+**Coverage: 2,701 → 2,718 of 31,692 (+17).** `SHIPPED_SCRIPTS` 804 → 821;
+the ledger 265 → 273 (+8, no new classes); the pool 1,750 → 1,725;
+fixtures 1,035.
+
+⚠️ **The fourth Icy compound was missing and the probe found it BEFORE a
+test had to:** `Fracture`'s "artifact, enchantment, or planeswalker"
+halved to a confident `['artifact']` — the same silent narrowing as the
+pair compounds, caught at classification this time (the D206 idiom
+finally ahead of the failure). The compound joined D199's two and
+Fracture landed with the batch.
+
+**The firsts.** `Flay Essence` is the COUNTER CENSUS — the gain reads
+EVERY counter kind on the exiled permanent (reading arbitrary kinds is
+fine; only writing outside the +1/+1 vocabulary is barred).
+`Flames of the Raze-Boar` is the conditional fan: 4 at the target, then
+2 at each OTHER creature that player controls only if I control a
+power-4 creature — both arms pinned. `Frantic Firebolt`'s census walks
+my graveyard for instants, sorceries, and Adventure printings
+(`oc.layout`, Edgewall's idiom — a card matching twice counts once).
+`Flunk` reads 7-minus-their-hand (the empty hand fells a 6/6, the full
+hand blunts it to nothing). `Flowstone Slide` is the +X/-X board slide;
+`Flicker of Fate` the flicker compound; `Foul-Tongue Shriek` the
+combat-count drain cast in the attacker's own window; `Foul Play` the
+D139-ceilinged destroy paying the CASTER a Clue; `Fracturing Gust` the
+two-type wipe at 2 life apiece; `Forum of Amity` the surveil-land twin;
+`Flying Carpet` the flying grant on an artifact; plus Flashfires'
+Plains wipe, Forced March's X-bounded wipe, Forced Retreat's exact-text
+twin of Excommunicate, Flow of Ideas, Flesh to Dust (the EIGHTH
+damnation-tripwire client), and Flay Essence's exile.
+
+**Eight refusals, NO new classes:** Flashback's graveyard-cast
+permission, two base-P/T sets (Flatline, Fractalize), Flowstone
+Channeler's discard cost, two opponent-chooses, Foray of Orcs' amass,
+and Forced Landing's silent 'with flying' qualifier.
+
+**Measured after landing:** primitives complete 2,718 · blocked 28,974 ·
+scriptableToday 2,335 · ladder [2335, 2434, 4227, 6141, 7353] · tier3
+silentAfter 3,129 (+17 exact) · botPool instant 462 / sorcery 312 /
+artifact 78 / land 264 · fixtures 1,035 (70 tokens — none new) ·
+batch.json 1,725 · botDeck: Adun reaches 1,531.
+
+**Reportables:** the compound families (pairs and Icy triples) have now
+produced FOUR holes — the sweep-probe over every printed combination is
+overdue and cheap; prior items stand.
