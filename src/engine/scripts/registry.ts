@@ -7,6 +7,23 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { CHANDRAS_FURY_SCRIPT } from './cards/chandrasFury';
+import { CHANDRAS_OUTRAGE_SCRIPT } from './cards/chandrasOutrage';
+import { CHANNEL_THE_SUNS_SCRIPT } from './cards/channelTheSuns';
+import { CHAOTIC_BACKLASH_SCRIPT } from './cards/chaoticBacklash';
+import { CHASM_DRAKE_SCRIPT } from './cards/chasmDrake';
+import { CHILLING_TRAP_SCRIPT } from './cards/chillingTrap';
+import { CHROME_CAT_SCRIPT } from './cards/chromeCat';
+import { CHURNING_EDDY_SCRIPT } from './cards/churningEddy';
+import { CINDER_CLOUD_SCRIPT } from './cards/cinderCloud';
+import { CITYWATCH_SPHINX_SCRIPT } from './cards/citywatchSphinx';
+import { CITYWIDE_BUST_SCRIPT } from './cards/citywideBust';
+import { CLEANFALL_SCRIPT } from './cards/cleanfall';
+import { CLEANSING_BEAM_SCRIPT } from './cards/cleansingBeam';
+import { CLEAR_SHOT_SCRIPT } from './cards/clearShot';
+import { CLEAR_THE_LAND_SCRIPT } from './cards/clearTheLand';
+import { CLOUDKILL_SCRIPT } from './cards/cloudkill';
+import { CLOUDREADER_SPHINX_SCRIPT } from './cards/cloudreaderSphinx';
 import { BRONZE_WALRUS_SCRIPT } from './cards/bronzeWalrus';
 import { BURDEN_OF_GREED_SCRIPT } from './cards/burdenOfGreed';
 import { BURN_THE_IMPURE_SCRIPT } from './cards/burnTheImpure';
@@ -757,6 +774,23 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CHANDRAS_FURY_SCRIPT,
+  CHANDRAS_OUTRAGE_SCRIPT,
+  CHANNEL_THE_SUNS_SCRIPT,
+  CHAOTIC_BACKLASH_SCRIPT,
+  CHASM_DRAKE_SCRIPT,
+  CHILLING_TRAP_SCRIPT,
+  CHROME_CAT_SCRIPT,
+  CHURNING_EDDY_SCRIPT,
+  CINDER_CLOUD_SCRIPT,
+  CITYWATCH_SPHINX_SCRIPT,
+  CITYWIDE_BUST_SCRIPT,
+  CLEANFALL_SCRIPT,
+  CLEANSING_BEAM_SCRIPT,
+  CLEAR_SHOT_SCRIPT,
+  CLEAR_THE_LAND_SCRIPT,
+  CLOUDKILL_SCRIPT,
+  CLOUDREADER_SPHINX_SCRIPT,
   BRONZE_WALRUS_SCRIPT,
   BURDEN_OF_GREED_SCRIPT,
   BURN_THE_IMPURE_SCRIPT,

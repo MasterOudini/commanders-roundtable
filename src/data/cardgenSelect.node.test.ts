@@ -436,6 +436,17 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Captivating Gyre', 'up-to-N targeting'],
   ['Catastrophe', 'modal choice'],
   ['Cerebral Eruption', 'spell relocates itself on resolution'],
+  // D203 — Chaoslace SETS a color for the turn (no UEOT color carrier);
+  // Chronostutter inserts SECOND FROM THE TOP (the move event knows only
+  // top and bottom).
+  ["Chandra's Revolution", 'untap restriction'],
+  ['Chaoslace', 'UEOT color change'],
+  ['Chaotic Transformation', 'up-to-N targeting'],
+  ['Chelonian Tackle', 'up-to-N targeting'],
+  ['Chronostutter', 'library position placement'],
+  ['Claim the Precious', 'the Ring mechanic'],
+  ['Clash of Titans', 'spell target parse (second clause)'],
+  ['Clear a Path', 'keyword target qualifier unenforced'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

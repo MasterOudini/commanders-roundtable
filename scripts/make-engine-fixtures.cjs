@@ -1135,6 +1135,25 @@ const WANTED = [
   'Cerebral Download',
   'Certain Death',
   'Chain Reaction',
+  // M6.4ar (D203) - the first dies-surveil, the compound burn with the
+  // per-creature rider, the commander-MV wipe, and the batch.
+  "Chandra's Fury",
+  "Chandra's Outrage",
+  'Channel the Suns',
+  'Chaotic Backlash',
+  'Chasm Drake',
+  'Chilling Trap',
+  'Chrome Cat',
+  'Churning Eddy',
+  'Cinder Cloud',
+  'Citywatch Sphinx',
+  'Citywide Bust',
+  'Cleanfall',
+  'Cleansing Beam',
+  'Clear Shot',
+  'Clear the Land',
+  'Cloudkill',
+  'Cloudreader Sphinx',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

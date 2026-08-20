@@ -5545,6 +5545,35 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       stand.
 
 
+- [x] **M6.4ar — Seventeen landed: the first dies-ask (2026-08-20):**
+      **2,550 of 31,692 Commander-legal cards now execute completely, up
+      from 2,533.** `SHIPPED_SCRIPTS` 636 → 653; ledger 166; the
+      offerable pool an even 2,000. Decisions in **D203**.
+      **Firsts:** the DIES-ask (Citywatch Sphinx — death raises the
+      surveil; the scry/surveil trigger matrix now spans ETB, cast,
+      tapped, attacks, activated and DIES); the compound
+      player-or-planeswalker burn fanning 1 to that controller's board
+      (Chandra's Fury); the cross-zone commander-MV wipe (Cloudkill);
+      the choiceless reveal-sort whose SPELL taps what it lands (Clear
+      the Land — its test learned D200's padding fact from the other
+      side); the probed two-spec 'creature and land' bounce (Churning
+      Eddy); the Wizard-gated draw; the white-victim burn read BEFORE
+      the move.
+      ⚠️ **Eight refusals, TWO new classes:** UEOT color change
+      (Chaoslace) and library position placement (Chronostutter —
+      the move event knows top and bottom only). The second-clause
+      parse family holds FIVE cards.
+      Fixtures 863 · botPool 1,559/390/235 · ladder [2503, 2602, 4395,
+      6309, 7521] · batch.json 2,000.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 731
+      files, 4,471 passed / 10 skipped · 500-seed gate
+      720.5 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D203): the scry/surveil family table is
+      overdue by shape count; the second-clause widening by weight
+      (five cards); prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

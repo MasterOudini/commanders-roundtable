@@ -13772,3 +13772,47 @@ new) · batch.json 2,025.
 **Reportables:** the self-relocating resolution joins the structural
 tail; the activated-scry shape is a family-table candidate beside D196's
 scry-trigger lands (the Castle cycle prints five); prior items stand.
+
+## D203 — M6.4ar: seventeen landed — the first dies-ask, and the offerable pool at an even two thousand (2026-08-20)
+
+**Coverage: 2,533 → 2,550 of 31,692 (+17).** `SHIPPED_SCRIPTS` 636 → 653;
+the ledger 158 → 166; the pool 2,025 → 2,000 exactly.
+
+**The firsts.** `Citywatch Sphinx` is the first DIES-ask: the standard
+looks-back dies filter raising the D195 surveil — death now asks a
+question. `Chandra's Fury` reads the compound player-or-planeswalker
+target and fans 1 damage across THAT controller's creatures (the rider's
+owner is the player half or the planeswalker's controller).
+`Cloudkill` reads MY commander's mana value ACROSS ZONES — battlefield
+or command zone — through `commanderIds` (Slash the Ranks' read,
+D192). `Clear the Land` is the choiceless reveal-sort where the SPELL
+taps what it puts down (move + one PermanentsTapped batch) — and its
+test learned the D200 padding fact from the other side: the padded
+libraries are mostly BASICS, so the honest assertion is
+lands-plus-exiles-equals-ten, not "most are exiled". `Churning Eddy`'s
+"target creature and target land" probed to TWO clean specs — the
+mid-sentence 'and target' IS parsed when both phrases are full target
+clauses (what Fall of the Hammer's 'another target' is not).
+`Chilling Trap`'s Wizard-gated draw, `Cinder Cloud`'s white-victim
+burn (color and power read BEFORE the move), `Chaotic Backlash`'s
+white-or-blue count, `Chasm Drake`'s attack-grant, the radiance set at
+a flat 2, the numeric wipe (`Citywide Bust`), the Ambuscade twin
+(`Clear Shot`), WUBRG in one event (`Channel the Suns`), two more
+ETB scries and a Back to Nature twin.
+
+**Eight refusals, TWO new classes:** `Chaoslace` (a COLOR SET for the
+turn — no UEOT color carrier) and `Chronostutter` (library position
+placement — the move event knows top and bottom, not "second from the
+top"). Plus the untap restriction, two up-to-N, the Ring, the
+second-clause parse (Clash of Titans — the family's FIFTH card), and the
+keyword qualifier (Clear a Path, 'with defender').
+
+**Measured after landing:** primitives blocked 29,142 · scriptableToday
+2,503 · ladder [2503, 2602, 4395, 6309, 7521] · tier3 abilityText 17,128 /
+silentAfter 2,961 (+17 exact) · botPool creature 1,559 / instant 390 /
+sorcery 235 · fixtures 863 (70 tokens — none new).
+
+**Reportables:** the second-clause family at FIVE cards is the targeting
+queue's heaviest slice; the dies-ask completes the scry/surveil trigger
+matrix (ETB, cast, tapped, attacks, activated, DIES) — the family table
+is overdue by shape count; prior items stand.

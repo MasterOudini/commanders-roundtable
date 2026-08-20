@@ -26822,6 +26822,596 @@ export const CHAIN_REACTION: CardData = {
   "singleImage": true
 };
 
+export const CHANDRA_S_FURY: CardData = {
+  "scryfallId": "25335fee-d320-4622-bcf4-292400dee52b",
+  "oracleId": "eb16f188-fe12-4a13-9947-d43cd6ce270c",
+  "name": "Chandra's Fury",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chandra's Fury",
+      "manaCost": "{4}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Chandra's Fury deals 4 damage to target player or planeswalker and 1 damage to each creature that player or that planeswalker's controller controls.",
+      "flavorText": "\"I asked if they wanted to do things the easy way. I meant easy for me.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Volkan Baǵa",
+      "imageId": "25335fee-d320-4622-bcf4-292400dee52b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "m13",
+  "collectorNumber": "124",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHANDRA_S_OUTRAGE: CardData = {
+  "scryfallId": "1b3850f0-13ed-40c5-8423-8b196132a97a",
+  "oracleId": "47437865-0032-4f47-b0ab-034cc841bb84",
+  "name": "Chandra's Outrage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chandra's Outrage",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Chandra's Outrage deals 4 damage to target creature and 2 damage to that creature's controller.",
+      "flavorText": "Chandra never believed in using her \"inside voice.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "1b3850f0-13ed-40c5-8423-8b196132a97a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "m12",
+  "collectorNumber": "125",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHANNEL_THE_SUNS: CardData = {
+  "scryfallId": "7bf574c8-a7e0-482e-bb41-680454988097",
+  "oracleId": "d1b1be96-b2aa-4386-97d2-eb0a8cc47210",
+  "name": "Channel the Suns",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Channel the Suns",
+      "manaCost": "{3}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Add {W}{U}{B}{R}{G}.",
+      "flavorText": "To some the birth of the fifth sun was a sign of doom. To others it was a sign of salvation. But to all it was a sign.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Rob Alexander",
+      "imageId": "7bf574c8-a7e0-482e-bb41-680454988097"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "5dn",
+  "collectorNumber": "84",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHAOTIC_BACKLASH: CardData = {
+  "scryfallId": "c1f96c71-e585-4c99-b054-e53ab12b392c",
+  "oracleId": "be6cb3e6-7492-4e30-83a9-9bc413e50cdc",
+  "name": "Chaotic Backlash",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chaotic Backlash",
+      "manaCost": "{4}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Chaotic Backlash deals damage to target player equal to twice the number of white and/or blue permanents they control.",
+      "flavorText": "The concept of thoughtweft fascinates the Nighthearth cult. Imagine, bringing agony to an entire people by torturing just one.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Carl Frank",
+      "imageId": "c1f96c71-e585-4c99-b054-e53ab12b392c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "eve",
+  "collectorNumber": "49",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHASM_DRAKE: CardData = {
+  "scryfallId": "5e7e246d-92f8-4e6e-89fc-991b888fc1e8",
+  "oracleId": "e0f44bb8-f07b-416c-b767-87b9fe6461aa",
+  "name": "Chasm Drake",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chasm Drake",
+      "manaCost": "{4}{U}",
+      "typeLine": "Creature — Drake",
+      "oracleText": "Flying\nWhenever this creature attacks, target creature you control gains flying until end of turn.",
+      "flavorText": "\"Once he's got you, hold on. Fall from a drake and you'll suffer much worse than a bruise.\"\n—Garl, drake trainer",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Anthony Francisco",
+      "imageId": "5e7e246d-92f8-4e6e-89fc-991b888fc1e8"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "m12",
+  "collectorNumber": "48",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHILLING_TRAP: CardData = {
+  "scryfallId": "60f9adfd-a940-4d62-894b-84f17c693a10",
+  "oracleId": "7ac49129-7da2-4729-b48c-b6da279c212e",
+  "name": "Chilling Trap",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chilling Trap",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets -4/-0 until end of turn. If you control a Wizard, draw a card.",
+      "flavorText": "\"Serves you right for rushing ahead.\"\n—Kaliea, Sea Gate trapfinder",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "60f9adfd-a940-4d62-894b-84f17c693a10"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "znr",
+  "collectorNumber": "50",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHROME_CAT: CardData = {
+  "scryfallId": "85da50ba-2061-40f0-b3af-950b87f812cd",
+  "oracleId": "0e2f8758-7457-4b54-ae61-a9c68cea4a23",
+  "name": "Chrome Cat",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chrome Cat",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Cat",
+      "oracleText": "When this creature enters, scry 1.",
+      "flavorText": "\"I always say, 'If it's breathing, it's lying.' Luckily my friend here does neither.\"\n—Lord Xander",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Joe Slucher",
+      "imageId": "85da50ba-2061-40f0-b3af-950b87f812cd"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "snc",
+  "collectorNumber": "236",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHURNING_EDDY: CardData = {
+  "scryfallId": "bd28bc8e-842f-4788-92a0-3019e3c2385f",
+  "oracleId": "774e53b2-5aec-43e1-b4fe-8812b8430401",
+  "name": "Churning Eddy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Churning Eddy",
+      "manaCost": "{3}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Return target creature and target land to their owners' hands.",
+      "flavorText": "\"Magic is like the tide—both ebb, both flow, and both serve my whims.\"\n—Empress Llawan",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Thomas M. Baxa",
+      "imageId": "bd28bc8e-842f-4788-92a0-3019e3c2385f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "tor",
+  "collectorNumber": "32",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CINDER_CLOUD: CardData = {
+  "scryfallId": "1938cb88-5ff5-4bf2-8a15-26b8cb39d00c",
+  "oracleId": "f64ea1a7-0e10-4549-8056-25ebc2ce0175",
+  "name": "Cinder Cloud",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cinder Cloud",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature. If a white creature dies this way, Cinder Cloud deals damage to that creature's controller equal to the creature's power.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jock",
+      "imageId": "1938cb88-5ff5-4bf2-8a15-26b8cb39d00c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "MIR-165",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CITYWATCH_SPHINX: CardData = {
+  "scryfallId": "9b809f89-13c7-4236-86a5-60745defb271",
+  "oracleId": "a63e0c27-cea8-408a-8e57-2f077826c50f",
+  "name": "Citywatch Sphinx",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Citywatch Sphinx",
+      "manaCost": "{5}{U}",
+      "typeLine": "Creature — Sphinx",
+      "oracleText": "Flying\nWhen this creature dies, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": "All those who trade in questions must answer to the Dimir.",
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Magali Villeneuve",
+      "imageId": "9b809f89-13c7-4236-86a5-60745defb271"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying",
+    "Surveil"
+  ],
+  "setCode": "grn",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CITYWIDE_BUST: CardData = {
+  "scryfallId": "33d1a51a-abf0-458c-98ae-98fcf4063fd9",
+  "oracleId": "3ac01298-e45b-4ea0-8379-2074279716a4",
+  "name": "Citywide Bust",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Citywide Bust",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures with toughness 4 or greater.",
+      "flavorText": "\"Oh, you fellas are going to love the lockup. Excellent gruel. Very low ceilings.\"\n—Libuse, Boros sergeant",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Victor Adame Minguez",
+      "imageId": "33d1a51a-abf0-458c-98ae-98fcf4063fd9"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "c20",
+  "collectorNumber": "82",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLEANFALL: CardData = {
+  "scryfallId": "9897707f-9669-4d44-8607-cba569da73e0",
+  "oracleId": "826b1c93-4e5d-4436-8d59-2d7d970f609f",
+  "name": "Cleanfall",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cleanfall",
+      "manaCost": "{2}{W}",
+      "typeLine": "Sorcery — Arcane",
+      "oracleText": "Destroy all enchantments.",
+      "flavorText": "During the war, the rites of purification were still effective, but the kami, not the kitsune, chose what to cleanse.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Daren Bader",
+      "imageId": "9897707f-9669-4d44-8607-cba569da73e0"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "chk",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLEANSING_BEAM: CardData = {
+  "scryfallId": "63cbaab6-db0d-40bb-bdf4-aee6543d9f27",
+  "oracleId": "5c208258-f987-4d41-8eee-62e188d47ffb",
+  "name": "Cleansing Beam",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cleansing Beam",
+      "manaCost": "{4}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Radiance — Cleansing Beam deals 2 damage to target creature and each other creature that shares a color with it.",
+      "flavorText": "\"Justice is toothless without punishment. Righteousness cannot succeed without the suffering of the guilty.\"\n—Razia",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Pat Lee",
+      "imageId": "63cbaab6-db0d-40bb-bdf4-aee6543d9f27"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Radiance"
+  ],
+  "setCode": "rav",
+  "collectorNumber": "118",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLEAR_SHOT: CardData = {
+  "scryfallId": "12fa1d34-7e32-45b7-9f6f-68f152f75d1a",
+  "oracleId": "0b8defd2-8530-47d7-a0c6-27aa5162dff6",
+  "name": "Clear Shot",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Clear Shot",
+      "manaCost": "{2}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control gets +1/+1 until end of turn. It deals damage equal to its power to target creature you don't control.",
+      "flavorText": "\"What worked to bring down angels will do the same for these horrors.\"\n—Rem Karolus, Slayer of Eldrazi",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Craig J Spearing",
+      "imageId": "12fa1d34-7e32-45b7-9f6f-68f152f75d1a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "emn",
+  "collectorNumber": "152",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLEAR_THE_LAND: CardData = {
+  "scryfallId": "b87f3579-f314-4207-a02c-14e9cb269b47",
+  "oracleId": "4604c729-8d2d-4b2b-a95c-5245563637e6",
+  "name": "Clear the Land",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Clear the Land",
+      "manaCost": "{2}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each player reveals the top five cards of their library, puts all land cards revealed this way onto the battlefield tapped, and exiles the rest.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Bradley Williams",
+      "imageId": "b87f3579-f314-4207-a02c-14e9cb269b47"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "235",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLOUDKILL: CardData = {
+  "scryfallId": "7c71b2b8-f5ef-4885-9f8d-284fe335d184",
+  "oracleId": "1941239b-e131-4bde-b493-1c8c805b6a3c",
+  "name": "Cloudkill",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cloudkill",
+      "manaCost": "{4}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "All creatures get -X/-X until end of turn, where X is the greatest mana value of a commander you own on the battlefield or in the command zone.",
+      "flavorText": "As the acrid fumes drifted through the Lower City, even the vermin ceased to stir.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "David Szabo",
+      "imageId": "7c71b2b8-f5ef-4885-9f8d-284fe335d184"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "clb",
+  "collectorNumber": "121",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLOUDREADER_SPHINX: CardData = {
+  "scryfallId": "149d4f00-106b-4aa7-a667-6360d2e149e7",
+  "oracleId": "b5a4bf91-4d31-4557-9ec4-a96ff4d9be6b",
+  "name": "Cloudreader Sphinx",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cloudreader Sphinx",
+      "manaCost": "{4}{U}",
+      "typeLine": "Creature — Sphinx",
+      "oracleText": "Flying\nWhen this creature enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "149d4f00-106b-4aa7-a667-6360d2e149e7"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Scry",
+    "Flying"
+  ],
+  "setCode": "jmp",
+  "collectorNumber": "143",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -29979,6 +30569,23 @@ export const ENGINE_CARDS: CardData[] = [
   CEREBRAL_DOWNLOAD,
   CERTAIN_DEATH,
   CHAIN_REACTION,
+  CHANDRA_S_FURY,
+  CHANDRA_S_OUTRAGE,
+  CHANNEL_THE_SUNS,
+  CHAOTIC_BACKLASH,
+  CHASM_DRAKE,
+  CHILLING_TRAP,
+  CHROME_CAT,
+  CHURNING_EDDY,
+  CINDER_CLOUD,
+  CITYWATCH_SPHINX,
+  CITYWIDE_BUST,
+  CLEANFALL,
+  CLEANSING_BEAM,
+  CLEAR_SHOT,
+  CLEAR_THE_LAND,
+  CLOUDKILL,
+  CLOUDREADER_SPHINX,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
