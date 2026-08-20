@@ -5820,6 +5820,34 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       prior items stand.
 
 
+- [x] **M6.4ba — Fourteen landed: the conditional riders, and the range
+      the parser silently halves (2026-08-20):** **2,681 of 31,692
+      Commander-legal cards now execute completely, up from 2,667.**
+      `SHIPPED_SCRIPTS` 770 → 784; ledger 260. All 43 tests first-run
+      clean. Decisions in **D212**.
+      ⚠️ **The probe's finding:** "one or two target creatures" parses
+      CONFIDENT to exactly-two — the up-to family's parse hazard met in
+      the wild (Fancy Footwork, ledgered with the hazard named).
+      **Firsts:** the MV-conditioned destroy rider (Extinguish the
+      Light, pre-move read); the subtype-conditioned destroy (Eye
+      Gouge — Cyclops of One-Eyed Pass joins as the vanilla support
+      body); the bounce-then-conditional-scry (Fading Hope); the
+      on-your-turn scry pair (Fated Conflagration / Retribution — no
+      reminder text on either, the printed() guard caught the guess);
+      the one-count-three-clauses showdown (Fateful Showdown); the
+      destroy paying the victim's controller a Clue (Fateful Absence).
+      ⚠️ **Eleven refusals, TWO new classes:** temporary game-wide
+      trigger (False Cure), arbitrary counter kinds (Fate Transfer).
+      Fixtures 998 · botPool 1,570/443/297 · ladder [2372, 2471, 4264,
+      6178, 7390] · batch.json 1,775 · botDeck: Adun reaches 1,505.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 862
+      files, 5,134 passed / 10 skipped · 500-seed gate
+      743.3 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D212): the up-to-N parse hazard joins the
+      class dossier; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

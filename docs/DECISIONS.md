@@ -14236,3 +14236,56 @@ reaches 1,496.
 pool is still the loop's densest vein; the qualifier-widening
 convergence (keyword, color, per-arm) stands as the top targeting-layer
 item; prior items stand.
+
+## D212 — M6.4ba: fourteen landed — the conditional riders, and the range the parser silently halves (2026-08-20)
+
+**Coverage: 2,667 → 2,681 of 31,692 (+14).** `SHIPPED_SCRIPTS` 770 → 784;
+the ledger 249 → 260 (+11); the pool 1,800 → 1,775. All 43 new tests
+green on the FIRST run.
+
+⚠️ **THE PROBE'S FINDING: "one or two target creatures" parses CONFIDENT
+to exactly-two.** `Fancy Footwork` was probed before writing and its
+min/max came back 2/2 — the "one or" silently dropped, so the aim veil
+would DEMAND a second target where the card permits stopping at one.
+That is the up-to family's parse hazard met in the wild (a range
+narrowed while claiming confidence), and the card is ledgered under
+up-to-N with the hazard named — the eventual up-to-N enforcement work
+owns both the parse and the chooser.
+
+**The batch.** The conditional riders: `Extinguish the Light` reads the
+victim's MV pre-move (MV ≤ 3 pays 3 life, the MV-6 victim pays
+nothing); `Eye Gouge` reads the DERIVED subtype (a Cyclops is destroyed
+outright, a Bears lives at 1/1 — `Cyclops of One-Eyed Pass` joins the
+fixtures as the vanilla support body); `Fading Hope` bounces and asks
+the scry only under MV ≤ 3, the ask LAST both ways. The on-your-turn
+pair: `Fated Conflagration` and `Fated Retribution` gate their scry 2
+on the active player at resolution (neither prints reminder text — the
+first drafts guessed one and the printed() guard would have thrown).
+`Fateful Showdown` serves three clauses from ONE hand count — the burn,
+the whole-hand discard, and the equal redraw. `Fateful Absence` pays
+the victim's controller a Clue (Declaration in Stone's idiom);
+`Faerie Seer` is the ETB scry 2; `Fear of Surveillance` the
+attacks-surveil on an enchantment creature; `Eyeblight Massacre` the
+negated-subtype debuff (the Elf lives); `Famine` and `Fault Line` the
+sweep twins; `Fallow Earth` and `False Mourning` the top-of-library
+moves.
+
+**Eleven refusals, TWO new classes:** `False Cure` (TEMPORARY GAME-WIDE
+TRIGGER — a floating until-EOT triggered ability on the game, not a
+grant to a permanent) and `Fate Transfer` (ARBITRARY COUNTER KINDS —
+`CounterKind` is +1/+1 and -1/-1, the whole vocabulary; moving "all
+counters" would silently drop the rest). Plus Eye Spy's cross-library
+may-choice, Faerie Fencing's as-you-cast board snapshot, Fake Your Own
+Death's quoted grant, two phase skips, two opponent-chooses, and Fathom
+Trawl's ordered bottoming.
+
+**Measured after landing:** primitives complete 2,681 · blocked 29,011 ·
+scriptableToday 2,372 · ladder [2372, 2471, 4264, 6178, 7390] · tier3
+silentAfter 3,092 (+14 exact) · botPool creature 1,570 / instant 443 /
+sorcery 297 · fixtures 998 (70 tokens — none new) · batch.json 1,775 ·
+botDeck: Adun reaches 1,505.
+
+**Reportables:** the up-to-N parse hazard (a range confident at its
+maximum) joins the class's dossier — enforcement must fix the PARSE and
+the chooser together; the fixture file crosses one thousand next batch;
+prior items stand.

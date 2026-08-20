@@ -31551,6 +31551,530 @@ export const EXTINGUISH_ALL_HOPE: CardData = {
   "singleImage": true
 };
 
+export const EXTINGUISH_THE_LIGHT: CardData = {
+  "scryfallId": "01a51d08-f90e-4b72-8dce-fb2a6c72f181",
+  "oracleId": "6dbef43d-40d3-4894-86a5-d31a5026604e",
+  "name": "Extinguish the Light",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Extinguish the Light",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature or planeswalker. If its mana value was 3 or less, you gain 3 life.",
+      "flavorText": "Jaya did not want to die, but of all the things to die for, Dominaria felt right.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Ekaterina Burmak",
+      "imageId": "01a51d08-f90e-4b72-8dce-fb2a6c72f181"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dmu",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EYE_GOUGE: CardData = {
+  "scryfallId": "94d4eb34-0529-48a0-ac52-b57cead7b651",
+  "oracleId": "89661ef9-cb42-401a-ae45-b57bb8dac033",
+  "name": "Eye Gouge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Eye Gouge",
+      "manaCost": "{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets -1/-1 until end of turn. If it's a Cyclops, destroy it.",
+      "flavorText": "One chance. One throw. One perfect hit.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Tyler Jacobson",
+      "imageId": "94d4eb34-0529-48a0-ac52-b57cead7b651"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "bng",
+  "collectorNumber": "67",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EYEBLIGHT_MASSACRE: CardData = {
+  "scryfallId": "00652c09-c50c-40da-8f0f-86b5cc3f6c26",
+  "oracleId": "3b90dd70-798e-4dc4-99e7-b36d6823af2b",
+  "name": "Eyeblight Massacre",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Eyeblight Massacre",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Non-Elf creatures get -2/-2 until end of turn.",
+      "flavorText": "\"I've already seen so much evil, so much darkness. Why do you insist on adding more?\"\n—Nissa Revane, to Dwynen",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Igor Kieryluk",
+      "imageId": "00652c09-c50c-40da-8f0f-86b5cc3f6c26"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "khc",
+  "collectorNumber": "49",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FADING_HOPE: CardData = {
+  "scryfallId": "502beb34-279f-4c75-bb95-6b9aba94ab6f",
+  "oracleId": "64883ef2-c536-42e2-b52f-cfd1984fcdfd",
+  "name": "Fading Hope",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fading Hope",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return target creature to its owner's hand. If its mana value was 3 or less, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": "\"At least I won't become one of . . . those things.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Rovina Cai",
+      "imageId": "502beb34-279f-4c75-bb95-6b9aba94ab6f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "j25",
+  "collectorNumber": "310",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FAERIE_SEER: CardData = {
+  "scryfallId": "38af2854-c335-4010-8696-3b9ad1a46b34",
+  "oracleId": "b2e65e8b-5f08-4cc2-ab1d-00f8903dbea2",
+  "name": "Faerie Seer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Faerie Seer",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Faerie Wizard",
+      "oracleText": "Flying\nWhen this creature enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Colin Boyer",
+      "imageId": "38af2854-c335-4010-8696-3b9ad1a46b34"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Scry",
+    "Flying"
+  ],
+  "setCode": "j21",
+  "collectorNumber": "190",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FALLOW_EARTH: CardData = {
+  "scryfallId": "1482c390-69cf-484e-a06c-8d63f770c7de",
+  "oracleId": "05a4acfd-3bf3-4ec2-a28a-bc43ba7c6fbf",
+  "name": "Fallow Earth",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fallow Earth",
+      "manaCost": "{2}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put target land on top of its owner's library.",
+      "flavorText": "\". . . and when the farmer awoke the next morning, all the seeds from his field were once again in their sacks.\"\n—Afari, *Tales*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Janine Johnston",
+      "imageId": "1482c390-69cf-484e-a06c-8d63f770c7de"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "214",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FALSE_MOURNING: CardData = {
+  "scryfallId": "61bdfefb-f2e2-409c-b5e1-66d24ab3ee5d",
+  "oracleId": "31a331a0-3065-4ecb-9e6a-ab11e241833b",
+  "name": "False Mourning",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "False Mourning",
+      "manaCost": "{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put target card from your graveyard on top of your library.",
+      "flavorText": "Zhou Yu, Sun Ce, and other famous generals feigned their deaths in order to later surprise their opponents.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Koji",
+      "imageId": "61bdfefb-f2e2-409c-b5e1-66d24ab3ee5d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "134",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FAMINE: CardData = {
+  "scryfallId": "8d6c10ca-f6d6-4322-aa17-7e874cb10bb1",
+  "oracleId": "1f82fe6b-1ec7-400b-a80d-40921b359723",
+  "name": "Famine",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Famine",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Famine deals 3 damage to each creature and each player.",
+      "flavorText": "\"But it was a year of dearth. People were reduced to eating leaves of jujube trees. Corpses were seen everywhere in the countryside.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Sun Nan",
+      "imageId": "8d6c10ca-f6d6-4322-aa17-7e874cb10bb1"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "75",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FATED_CONFLAGRATION: CardData = {
+  "scryfallId": "66ea1aeb-bd42-4960-b40f-e7c2fd1efb5c",
+  "oracleId": "ac0a110a-0721-4aa6-a891-95e3fcc847df",
+  "name": "Fated Conflagration",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fated Conflagration",
+      "manaCost": "{1}{R}{R}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Fated Conflagration deals 5 damage to target creature or planeswalker. If it's your turn, scry 2.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Adam Paquette",
+      "imageId": "66ea1aeb-bd42-4960-b40f-e7c2fd1efb5c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "bng",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FATED_RETRIBUTION: CardData = {
+  "scryfallId": "8158b330-2868-4147-907e-4d86e44cfaad",
+  "oracleId": "28cfafdb-5014-44e3-9133-4554129c1aee",
+  "name": "Fated Retribution",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fated Retribution",
+      "manaCost": "{4}{W}{W}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy all creatures and planeswalkers. If it's your turn, scry 2.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jonas De Ro",
+      "imageId": "8158b330-2868-4147-907e-4d86e44cfaad"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "bng",
+  "collectorNumber": "11",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FATEFUL_ABSENCE: CardData = {
+  "scryfallId": "25bf1ab2-4d6b-4e81-b537-82889aab767d",
+  "oracleId": "35bba442-1aec-4d33-b502-4c580d61644b",
+  "name": "Fateful Absence",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fateful Absence",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature or planeswalker. Its controller investigates. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Eric Deschamps",
+      "imageId": "25bf1ab2-4d6b-4e81-b537-82889aab767d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "mid",
+  "collectorNumber": "328",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FATEFUL_SHOWDOWN: CardData = {
+  "scryfallId": "a19d5bdd-7f45-4ff1-bd1a-ac4e87572bcb",
+  "oracleId": "729b7ce8-7e7f-4db9-b3ce-67aba46a7b0d",
+  "name": "Fateful Showdown",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fateful Showdown",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Fateful Showdown deals damage to any target equal to the number of cards in your hand. Discard all the cards in your hand, then draw that many cards.",
+      "flavorText": "Tonight at the Grand Exhibition, witness Head Judge Tezzeret face off against the infamous renegade Pia Nalaar.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chris Rallis",
+      "imageId": "a19d5bdd-7f45-4ff1-bd1a-ac4e87572bcb"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "kld",
+  "collectorNumber": "114",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FAULT_LINE: CardData = {
+  "scryfallId": "cab4fd0e-9f84-4628-92a7-858ad8064531",
+  "oracleId": "ed743b88-0866-4f88-9f30-d49d2cf36b99",
+  "name": "Fault Line",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fault Line",
+      "manaCost": "{X}{R}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Fault Line deals X damage to each creature without flying and each player.",
+      "flavorText": "We live on the serpent's back.\n—Viashino saying",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "cab4fd0e-9f84-4628-92a7-858ad8064531"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "usg",
+  "collectorNumber": "185",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FEAR_OF_SURVEILLANCE: CardData = {
+  "scryfallId": "6e98559d-d9fd-4bdf-8df9-389eee756a3a",
+  "oracleId": "52478437-bb6c-48bb-855d-54a8a4d42d18",
+  "name": "Fear of Surveillance",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fear of Surveillance",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment Creature — Nightmare",
+      "oracleText": "Vigilance\nWhenever this creature attacks, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "Its unblinking gaze sees every flaw, every shame, every humiliating moment you wish you could forget.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jana Heidersdorf",
+      "imageId": "6e98559d-d9fd-4bdf-8df9-389eee756a3a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Surveil",
+    "Vigilance"
+  ],
+  "setCode": "dsk",
+  "collectorNumber": "11",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CYCLOPS_OF_ONE_EYED_PASS: CardData = {
+  "scryfallId": "71a25c69-8e57-4a44-955a-da1541bbe0fe",
+  "oracleId": "78922912-d7b9-47cc-8908-f44d7cc3fc4b",
+  "name": "Cyclops of One-Eyed Pass",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cyclops of One-Eyed Pass",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Creature — Cyclops",
+      "oracleText": "",
+      "flavorText": "The Champion armed herself to face the cyclops, heedless of her companions' despair. \"How will you defeat it with only one spear?\" asked young Althemone. The Champion raised her weapon. \"It has but one eye.\"\n—*The Theriad*",
+      "power": "5",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "71a25c69-8e57-4a44-955a-da1541bbe0fe"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "bng",
+  "collectorNumber": "90",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -34845,6 +35369,21 @@ export const ENGINE_CARDS: CardData[] = [
   EXPONENTIAL_GROWTH,
   EXSANGUINATE,
   EXTINGUISH_ALL_HOPE,
+  EXTINGUISH_THE_LIGHT,
+  EYE_GOUGE,
+  EYEBLIGHT_MASSACRE,
+  FADING_HOPE,
+  FAERIE_SEER,
+  FALLOW_EARTH,
+  FALSE_MOURNING,
+  FAMINE,
+  FATED_CONFLAGRATION,
+  FATED_RETRIBUTION,
+  FATEFUL_ABSENCE,
+  FATEFUL_SHOWDOWN,
+  FAULT_LINE,
+  FEAR_OF_SURVEILLANCE,
+  CYCLOPS_OF_ONE_EYED_PASS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

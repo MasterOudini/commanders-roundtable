@@ -576,6 +576,25 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Exhume', 'opponent-chooses'],
   ['Exorcise', 'spell target parse (noun list)'],
   ['Extinction', 'script-raised prompt'],
+  // D212 — Eye Spy is a may-choice over the TARGET's library (the scry
+  // machinery is single-library); Faerie Fencing reads the board AS YOU
+  // CAST; False Cure floats an until-EOT triggered ability on the GAME;
+  // Fate Transfer moves counters of kinds CounterKind cannot carry
+  // (+1/+1 and -1/-1 are the whole vocabulary — the rest would drop
+  // silently); Fancy Footwork PROBED: 'one or two target creatures'
+  // parses confident to exactly-two — the range is silently narrowed, the
+  // up-to family's parse hazard met in the wild.
+  ['Eye Spy', 'script-raised prompt'],
+  ['Fact or Fiction', 'opponent-chooses'],
+  ['Faerie Fencing', 'game-history memory'],
+  ['Fake Your Own Death', 'temporary non-keyword ability grant'],
+  ['False Cure', 'temporary game-wide trigger'],
+  ['False Peace', 'phase skipping'],
+  ['Fancy Footwork', 'up-to-N targeting'],
+  ['Fate Transfer', 'arbitrary counter kinds'],
+  ['Fateful Handoff', 'script-raised prompt'],
+  ['Fathom Trawl', 'script-raised prompt'],
+  ['Fatigue', 'phase skipping'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

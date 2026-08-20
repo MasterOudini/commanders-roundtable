@@ -1292,6 +1292,24 @@ const WANTED = [
   'Exponential Growth',
   'Exsanguinate',
   'Extinguish All Hope',
+  // M6.4ba (D212) - batch 46: the conditional riders, the ETB scry, and
+  // the hand-count showdown. Cyclops of One-Eyed Pass is a SUPPORT body
+  // for Eye Gouge's positive arm.
+  'Extinguish the Light',
+  'Eye Gouge',
+  'Eyeblight Massacre',
+  'Fading Hope',
+  'Faerie Seer',
+  'Fallow Earth',
+  'False Mourning',
+  'Famine',
+  'Fated Conflagration',
+  'Fated Retribution',
+  'Fateful Absence',
+  'Fateful Showdown',
+  'Fault Line',
+  'Fear of Surveillance',
+  'Cyclops of One-Eyed Pass',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

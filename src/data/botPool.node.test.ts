@@ -440,9 +440,11 @@ const POOL: Record<string, number> = {
   // M6.4ay (D210): +7 instants, +6 sorceries, Elvish Herder, and Elegant
   // Parlor — the 262nd land.
   // M6.4az (D211): +3 instants and +10 sorceries — a third all-spell batch.
-  creature: 1568,
-  instant: 435,
-  sorcery: 293,
+  // M6.4ba (D212): +8 instants, +4 sorceries, Faerie Seer, and Fear of
+  // Surveillance.
+  creature: 1570,
+  instant: 443,
+  sorcery: 297,
   land: 262,
   artifact: 77,
   enchantment: 32,

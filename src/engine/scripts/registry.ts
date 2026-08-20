@@ -7,6 +7,20 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { EXTINGUISH_THE_LIGHT_SCRIPT } from './cards/extinguishTheLight';
+import { EYE_GOUGE_SCRIPT } from './cards/eyeGouge';
+import { EYEBLIGHT_MASSACRE_SCRIPT } from './cards/eyeblightMassacre';
+import { FADING_HOPE_SCRIPT } from './cards/fadingHope';
+import { FAERIE_SEER_SCRIPT } from './cards/faerieSeer';
+import { FALLOW_EARTH_SCRIPT } from './cards/fallowEarth';
+import { FALSE_MOURNING_SCRIPT } from './cards/falseMourning';
+import { FAMINE_SCRIPT } from './cards/famine';
+import { FATED_CONFLAGRATION_SCRIPT } from './cards/fatedConflagration';
+import { FATED_RETRIBUTION_SCRIPT } from './cards/fatedRetribution';
+import { FATEFUL_ABSENCE_SCRIPT } from './cards/fatefulAbsence';
+import { FATEFUL_SHOWDOWN_SCRIPT } from './cards/fatefulShowdown';
+import { FAULT_LINE_SCRIPT } from './cards/faultLine';
+import { FEAR_OF_SURVEILLANCE_SCRIPT } from './cards/fearOfSurveillance';
 import { EPIC_CONFRONTATION_SCRIPT } from './cards/epicConfrontation';
 import { ESSENCE_BACKLASH_SCRIPT } from './cards/essenceBacklash';
 import { ESSENCE_DRAIN_SCRIPT } from './cards/essenceDrain';
@@ -891,6 +905,20 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  EXTINGUISH_THE_LIGHT_SCRIPT,
+  EYE_GOUGE_SCRIPT,
+  EYEBLIGHT_MASSACRE_SCRIPT,
+  FADING_HOPE_SCRIPT,
+  FAERIE_SEER_SCRIPT,
+  FALLOW_EARTH_SCRIPT,
+  FALSE_MOURNING_SCRIPT,
+  FAMINE_SCRIPT,
+  FATED_CONFLAGRATION_SCRIPT,
+  FATED_RETRIBUTION_SCRIPT,
+  FATEFUL_ABSENCE_SCRIPT,
+  FATEFUL_SHOWDOWN_SCRIPT,
+  FAULT_LINE_SCRIPT,
+  FEAR_OF_SURVEILLANCE_SCRIPT,
   EPIC_CONFRONTATION_SCRIPT,
   ESSENCE_BACKLASH_SCRIPT,
   ESSENCE_DRAIN_SCRIPT,
