@@ -5335,6 +5335,40 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       conditional mana production named; prior items stand.
 
 
+- [x] **M6.4al — seventeen landed, and the aim's keyword hole
+      (2026-08-20):** **2,441 of 31,692 Commander-legal cards now execute
+      completely, up from 2,424.** `SHIPPED_SCRIPTS` 557; ledger 115.
+      Decisions in **D197**.
+      ⚠️⚠️ **THE PULL IS THE HEADLINE:** `Aerial Predation`'s own negative
+      proved "with flying" is SILENTLY UNENFORCED at the aim — D139's
+      never-recorded shape for KEYWORD qualifiers: the host accepted a
+      grounded Bears for a flyer-only removal. Module deleted on its own
+      failing test; the keyword-qualifier widening (TargetSpec.keywords +
+      targetAllowed's derived check) is the named engine work.
+      **Firsts:** `Aetherize` — the combat-state wipe (all attackers home
+      mid-combat, through a real scripted declaration); `Anarchy` — the
+      color wipe (derived); `Anchor to the Aether` — a MOVE composed with
+      the D195 ask across TWO libraries, the reveal computed on a scratch
+      fold; `Amnesia` — the public reveal + computed forced discard;
+      `Alpha Brawl` — the melee (marks accumulate, the sweep kills);
+      `Ambuscade` — the bite reads power AFTER its own pump (logs 3 from a
+      2/2); `Akki Drillmaster` — the {T}-cost grant. Plus the Night's
+      Whisper text twins, Alabaster Mage's lifelink rider, Angelheart's
+      targeted ETB grant, Allied Strategies' Domain count.
+      ⚠️ **Eight refusals, THREE new classes:** keyword target qualifier
+      unenforced · up-to-N targeting (Allied Assault) · cast-time computed
+      target count (Aether Burst). The noun-list class holds TWO cards now.
+      Fixtures 764 · botPool 1,536/342/199 · ladder [2610, 2709, 4502,
+      6416, 7628] · batch.json 2,141 (exact) · **EIGHT joined the bot's
+      deck** (Adun 1,356).
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 632
+      files, 3,976 passed / 10 skipped · 500-seed gate
+      737.6 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D197): the keyword-qualifier widening is the
+      cheapest named slice (D139's playbook); up-to-N targeting; the
+      noun-list widening (two cards); prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

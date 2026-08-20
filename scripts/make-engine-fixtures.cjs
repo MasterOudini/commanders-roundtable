@@ -1020,6 +1020,26 @@ const WANTED = [
   // ask-not-last guard's own child (D195): scry-then-draw understood, the
   // life loss after the ask keeps it assisted.
   'Read the Bones',
+  // M6.4al (D197) - the Night's Whisper text twins, the first COLOR wipe,
+  // the spell scry-rider (Anchor), the melee (Alpha Brawl), and the batch.
+  "Ambition's Cost",
+  'Ancient Craving',
+  'Agonizing Syphon',
+  'Alabaster Mage',
+  'Akki Drillmaster',
+  'Aetherize',
+  'Airborne Aid',
+  'Anchor to the Aether',
+  'Amnesia',
+  'Aether Tradewinds',
+  'Anarchy',
+  'Aerial Predation',
+  'Aggressive Instinct',
+  'Ambuscade',
+  'Angelheart Protector',
+  'Alpha Brawl',
+  'An-Havva Inn',
+  'Allied Strategies',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

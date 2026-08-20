@@ -13403,3 +13403,57 @@ join the temp-grant family's named tail; conditional mana production is
 now a class with a name (the D124 mana-note family's engine half); the
 scry-trigger shape is a FAMILY-TABLE candidate (dozens of scry lands
 print the same two lines); prior items stand.
+
+
+## D197 — M6.4al: seventeen landed, and a targeting hole the batch's own test forced out (2026-08-20)
+
+**What was decided:** seventeen of 25 landed. **The headline is the pull:**
+`Aerial Predation`'s negative test proved that **"with flying" is SILENTLY
+UNENFORCED at the aim** — D139's exact shape for KEYWORD qualifiers: the
+qualifier matches no noun entry, so it is recorded nowhere (not enforced,
+not disclaimed, not visible), and the host accepted a grounded Grizzly
+Bears as a target for a flyer-only removal spell. The tsc-green module was
+DELETED on its own failing negative and the card ledgered under a NEW
+class, `keyword target qualifier unenforced` — the keyword-qualifier
+widening (TargetSpec.keywords + a derived check in targetAllowed, D139's
+playbook verbatim) is the named engine work.
+
+**The firsts:** `Aetherize` is the first COMBAT-STATE wipe (the set is
+`state.combat.attackers` at instant speed — the whole attack vanishes into
+its owner's hand mid-combat, driven through a real scripted declaration);
+`Anarchy` the first COLOR wipe (derived colors — the White Knight dies,
+the colorless Myr stands); `Anchor to the Aether` the first spell
+composing a MOVE with the D195 ask — the target tops ITS OWNER's library
+while the caster scries THEIR OWN, and the reveal is computed against a
+scratch fold because the revealed card may BE the creature just placed
+(two libraries, one resolve); `Amnesia` the first PUBLIC hand reveal with
+a computed forced discard (all nonlands, typed off the oracle — no choice
+anywhere); `Alpha Brawl` the melee (two DamageDealt waves in printed
+order — correct because damage MARKS and nothing dies until the sweep);
+`Ambuscade` reads the power AFTER its own +1/+0 (the bite logs 3 from a
+2/2); `Akki Drillmaster` the first {T}-cost grant. Plus the Night's
+Whisper text twins (`Ambition's Cost`/`Ancient Craving` — one text, two
+ids), `Agonizing Syphon`, `Alabaster Mage` (lifelink rider),
+`Airborne Aid`, `Aether Tradewinds` (its two-clause parse premise probed
+BEFORE drafting), `Aggressive Instinct`, `Angelheart Protector` (targeted
+ETB grant), `An-Havva Inn`, `Allied Strategies` (Domain, distinct basics).
+
+**Eight refusals, THREE new classes:** the keyword-qualifier hole above;
+`up-to-N targeting` (Allied Assault — the prompt machinery has no
+under-answer); `cast-time computed target count` (Aether Burst — "as you
+cast" is before any resolve exists). Plus opponent-chooses (Allure),
+per-owner prompts (Aetherspouts), the Oxford noun list (Aftershock —
+Bedevil's class), play-from-exile (Aminatou's Augury), a hand choice
+(Amass the Components). The ledger holds **115**.
+
+**Numbers:** `complete` 2,441 (2,424 + 17); `SHIPPED_SCRIPTS` 557;
+fixtures 764; botPool creature 1,536 / instant 342 / sorcery 199; ladder
+[2610, 2709, 4502, 6416, 7628]; `batch.json` at **2,141** (exact); tier3
+silentAfter 2,853. ⚠️ **EIGHT of the seventeen joined the bot's deck**
+(Agonizing Syphon, Aggressive Instinct, Ambuscade, Ambition's Cost,
+Ancient Craving, An-Havva Inn, Anarchy, Alpha Brawl — Adun reaches 1,356).
+
+**Reportables:** the keyword target-qualifier widening is the cheapest
+named engine slice (D139's playbook, one field + one check + the parse);
+up-to-N targeting joins the machinery list; the noun-list widening now has
+TWO ledgered cards (Bedevil, Aftershock); prior items stand.

@@ -23384,6 +23384,622 @@ export const READ_THE_BONES: CardData = {
   "singleImage": true
 };
 
+export const AMBITION_S_COST: CardData = {
+  "scryfallId": "0408be33-ad74-4e27-a722-e85302ba8055",
+  "oracleId": "84de4fec-2f38-4293-93d3-b3882c5aac14",
+  "name": "Ambition's Cost",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ambition's Cost",
+      "manaCost": "{3}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "You draw three cards and you lose 3 life.",
+      "flavorText": "\"Knowledge demands sacrifice.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Junko Taguchi",
+      "imageId": "0408be33-ad74-4e27-a722-e85302ba8055"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "118★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANCIENT_CRAVING: CardData = {
+  "scryfallId": "20631989-64e7-4ad7-adf7-660033f893e8",
+  "oracleId": "78725353-9274-420a-b722-add0f43c444e",
+  "name": "Ancient Craving",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ancient Craving",
+      "manaCost": "{3}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "You draw three cards and you lose 3 life.",
+      "flavorText": "Knowledge demands sacrifice.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Rob Alexander",
+      "imageId": "20631989-64e7-4ad7-adf7-660033f893e8"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "a25",
+  "collectorNumber": "79",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AGONIZING_SYPHON: CardData = {
+  "scryfallId": "0d8efd95-1c2f-4dd1-b70b-3cfb10ff3a28",
+  "oracleId": "11669fe5-9298-4e1a-a4f7-6a4598dbc8dd",
+  "name": "Agonizing Syphon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Agonizing Syphon",
+      "manaCost": "{3}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Agonizing Syphon deals 3 damage to any target and you gain 3 life.",
+      "flavorText": "\"Your death will take a mere moment, but it will feel like an eternity.\"\n—Vilis, Broker of Blood",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Seb McKinnon",
+      "imageId": "0d8efd95-1c2f-4dd1-b70b-3cfb10ff3a28"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "m20",
+  "collectorNumber": "83",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ALABASTER_MAGE: CardData = {
+  "scryfallId": "0ef65e86-3759-465d-862b-29516eed46e6",
+  "oracleId": "ea7a8acb-f01f-4a69-9b3c-954d8f0d3155",
+  "name": "Alabaster Mage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Alabaster Mage",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{1}{W}: Target creature you control gains lifelink until end of turn. (Damage dealt by the creature also causes its controller to gain that much life.)",
+      "flavorText": "\"We hold sacred the powers of light and life. Truth and honor are our greatest weapons.\"\n—Alabaster creed",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Izzy",
+      "imageId": "0ef65e86-3759-465d-862b-29516eed46e6"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "2xm",
+  "collectorNumber": "2",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AKKI_DRILLMASTER: CardData = {
+  "scryfallId": "7fb63254-5786-43fb-8ccd-132095a55e64",
+  "oracleId": "aa228a01-7de3-4539-9ebb-b3c546f72b41",
+  "name": "Akki Drillmaster",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Akki Drillmaster",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Goblin Shaman",
+      "oracleText": "{T}: Target creature gains haste until end of turn.",
+      "flavorText": "\"What part of 'hayaku ikee!' did you not understand?\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Alan Pollack",
+      "imageId": "7fb63254-5786-43fb-8ccd-132095a55e64"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "sok",
+  "collectorNumber": "92",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AETHERIZE: CardData = {
+  "scryfallId": "10d02d37-28ef-461b-9ab4-b17e81f9b85e",
+  "oracleId": "7c779721-cd1b-4696-9ae9-68ccc284ed2a",
+  "name": "Aetherize",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aetherize",
+      "manaCost": "{3}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return all attacking creatures to their owner's hand.",
+      "flavorText": "\"You can come back once you've learned some manners—and figured out how to reconstitute your physical forms.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Alexandre Honoré",
+      "imageId": "10d02d37-28ef-461b-9ab4-b17e81f9b85e"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "rvr",
+  "collectorNumber": "448",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AIRBORNE_AID: CardData = {
+  "scryfallId": "0aaa43b0-601f-4b99-a328-541b04d5696d",
+  "oracleId": "7f715f72-5444-4ab3-a6ca-3d5bfd0d4851",
+  "name": "Airborne Aid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Airborne Aid",
+      "manaCost": "{3}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw a card for each Bird on the battlefield.",
+      "flavorText": "\"We help our Southern Order comrades as much as we can. But the Cabal's insidious influence spreads, dividing our forces and leaving new arrivals to fend for themselves.\"\n—Commander Eesha",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Bradley Williams",
+      "imageId": "0aaa43b0-601f-4b99-a328-541b04d5696d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ons",
+  "collectorNumber": "62",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANCHOR_TO_THE_AETHER: CardData = {
+  "scryfallId": "15058f91-d266-4804-96af-fc050b6c8436",
+  "oracleId": "3e00326d-2bf4-4731-a6cd-1c015f94f553",
+  "name": "Anchor to the Aether",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Anchor to the Aether",
+      "manaCost": "{2}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put target creature on top of its owner's library. Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "15058f91-d266-4804-96af-fc050b6c8436"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "ori",
+  "collectorNumber": "44",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AMNESIA: CardData = {
+  "scryfallId": "23d6dbd3-652f-4dc3-9453-24299332938d",
+  "oracleId": "8345187a-a210-49d7-bdce-10fb2909e050",
+  "name": "Amnesia",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Amnesia",
+      "manaCost": "{3}{U}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player reveals their hand and discards all nonland cards.",
+      "flavorText": "\"When one has witnessed the unspeakable, 'tis sometimes better to forget.\"\n—Vervamon the Elder",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Mark Poole",
+      "imageId": "23d6dbd3-652f-4dc3-9453-24299332938d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "me1",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AETHER_TRADEWINDS: CardData = {
+  "scryfallId": "26fe4768-fe18-4698-885d-86f5ad150125",
+  "oracleId": "3a0dd318-9523-4740-b0aa-a911032e3851",
+  "name": "Aether Tradewinds",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aether Tradewinds",
+      "manaCost": "{2}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return target permanent you control and target permanent you don't control to their owners' hands.",
+      "flavorText": "Consulate engineers have developed safe methods of harvesting aether, but renegades aren't always so careful.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Lius Lasahido",
+      "imageId": "26fe4768-fe18-4698-885d-86f5ad150125"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "kld",
+  "collectorNumber": "38",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANARCHY: CardData = {
+  "scryfallId": "28d941da-b5cb-4b7e-84f2-ece883f89af3",
+  "oracleId": "b91ed762-9232-4b77-abf4-97f66637f49c",
+  "name": "Anarchy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Anarchy",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all white permanents.",
+      "flavorText": "\"The Shaman waved the staff, and the land itself went mad.\"\n—Disa the Restless, journal entry",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Phil Foglio",
+      "imageId": "28d941da-b5cb-4b7e-84f2-ece883f89af3"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ice",
+  "collectorNumber": "170",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AERIAL_PREDATION: CardData = {
+  "scryfallId": "3b405858-83eb-4939-b86d-4ba190fca048",
+  "oracleId": "6bac1495-16cf-4e1e-9126-482f85322c78",
+  "name": "Aerial Predation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aerial Predation",
+      "manaCost": "{2}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature with flying. You gain 2 life.",
+      "flavorText": "In the towering trees of the Samok Stand and the predators that guard them, the might of the Ravnican wild has returned.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "BD",
+      "imageId": "3b405858-83eb-4939-b86d-4ba190fca048"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ima",
+  "collectorNumber": "154",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AGGRESSIVE_INSTINCT: CardData = {
+  "scryfallId": "40ab4bcf-e6b9-4368-97d5-56862713a66a",
+  "oracleId": "d1c8f14b-7977-488a-8bd9-cefd6687f017",
+  "name": "Aggressive Instinct",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aggressive Instinct",
+      "manaCost": "{1}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control deals damage equal to its power to target creature you don't control.",
+      "flavorText": "\"Mowu was wary that day, as though he sensed the danger ahead.\"\n—Jiang Yanggu's travelogue",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Wolk Sheep",
+      "imageId": "40ab4bcf-e6b9-4368-97d5-56862713a66a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "gs1",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AMBUSCADE: CardData = {
+  "scryfallId": "4df71162-7e8f-47c5-aff4-59d82d8c674d",
+  "oracleId": "5e419975-e054-4c35-8845-a08589ebb08f",
+  "name": "Ambuscade",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ambuscade",
+      "manaCost": "{2}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control gets +1/+0 until end of turn. It deals damage equal to its power to target creature an opponent controls.",
+      "flavorText": "\"Spent a lifetime learning from predators. Picked up a few tricks.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "4df71162-7e8f-47c5-aff4-59d82d8c674d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "2x2",
+  "collectorNumber": "133",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANGELHEART_PROTECTOR: CardData = {
+  "scryfallId": "c06cc03f-da73-4ba5-96c9-618b497a7ea3",
+  "oracleId": "42aa599f-de2f-411a-8cf3-f5cfb40568b3",
+  "name": "Angelheart Protector",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Angelheart Protector",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "When this creature enters, target creature you control gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)",
+      "flavorText": "\"We shall persevere.\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Cristi Balanescu",
+      "imageId": "c06cc03f-da73-4ba5-96c9-618b497a7ea3"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "znr",
+  "collectorNumber": "3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ALPHA_BRAWL: CardData = {
+  "scryfallId": "e2ec168a-3e4f-4527-901a-bc28cc28d125",
+  "oracleId": "cfc023e0-9e9d-48ac-bfb5-74bfd5977dee",
+  "name": "Alpha Brawl",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Alpha Brawl",
+      "manaCost": "{6}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature an opponent controls deals damage equal to its power to each other creature that player controls, then each of those creatures deals damage equal to its power to that creature.",
+      "flavorText": "Being an alpha means proving it every full moon.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "e2ec168a-3e4f-4527-901a-bc28cc28d125"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 8,
+  "keywords": [],
+  "setCode": "dka",
+  "collectorNumber": "82",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AN_HAVVA_INN: CardData = {
+  "scryfallId": "eff4531f-d19d-44af-861a-33087197d21c",
+  "oracleId": "3cd72848-7b99-4d46-96f5-53f297c9d2a0",
+  "name": "An-Havva Inn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "An-Havva Inn",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "You gain X plus 1 life, where X is the number of green creatures on the battlefield.",
+      "flavorText": "\"The Inn was ever a steady source of good cheer and kindness. Greatly do I miss it, now that I am gone.\"\n—Ihsan's Shade",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "eff4531f-d19d-44af-861a-33087197d21c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "hml",
+  "collectorNumber": "82",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ALLIED_STRATEGIES: CardData = {
+  "scryfallId": "2dea7475-af87-4cee-bfdc-804351a632b5",
+  "oracleId": "a5ce2ccd-8c78-4749-8854-cb5fa5f4738e",
+  "name": "Allied Strategies",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Allied Strategies",
+      "manaCost": "{4}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Domain — Target player draws a card for each basic land type among lands they control.",
+      "flavorText": "Each commander looked at the others and wondered who would be first to break the alliance.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "2dea7475-af87-4cee-bfdc-804351a632b5"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Domain"
+  ],
+  "setCode": "dde",
+  "collectorNumber": "63",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -26441,6 +27057,24 @@ export const ENGINE_CARDS: CardData[] = [
   TOWERING_VIEWPOINT,
   A_I_M_SYNTHOIDS,
   READ_THE_BONES,
+  AMBITION_S_COST,
+  ANCIENT_CRAVING,
+  AGONIZING_SYPHON,
+  ALABASTER_MAGE,
+  AKKI_DRILLMASTER,
+  AETHERIZE,
+  AIRBORNE_AID,
+  ANCHOR_TO_THE_AETHER,
+  AMNESIA,
+  AETHER_TRADEWINDS,
+  ANARCHY,
+  AERIAL_PREDATION,
+  AGGRESSIVE_INSTINCT,
+  AMBUSCADE,
+  ANGELHEART_PROTECTOR,
+  ALPHA_BRAWL,
+  AN_HAVVA_INN,
+  ALLIED_STRATEGIES,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

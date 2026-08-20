@@ -345,6 +345,22 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['The Grey Havens', 'conditional mana production'],
   ['Towering Viewpoint', 'ability-word activated cost'],
   ['Abnormal Endurance', 'temporary non-keyword ability grant'],
+  // Batch M6.4al (D197) — eight refusals, TWO new classes found by the
+  // DRAFTS themselves. ⚠️ Aerial Predation's test proved 'with flying' is
+  // SILENTLY UNENFORCED at the aim — the D139 shape for KEYWORD qualifiers
+  // (the qualifier matches no noun entry, so it is recorded nowhere): its
+  // tsc-green module was DELETED on its own failing negative, and the
+  // keyword-qualifier widening is the named engine work. Allied Assault
+  // names UP-TO-N targeting (the prompt machinery has no under-answer);
+  // Aether Burst is its cast-time-computed sibling.
+  ['Allure of the Unknown', 'opponent-chooses'],
+  ['Aetherspouts', 'script-raised prompt'],
+  ['Aftershock', 'spell target parse (noun list)'],
+  ["Aminatou's Augury", 'play-from-exile permission'],
+  ['Amass the Components', 'script-raised prompt'],
+  ['Aether Burst', 'cast-time computed target count'],
+  ['Allied Assault', 'up-to-N targeting'],
+  ['Aerial Predation', 'keyword target qualifier unenforced'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

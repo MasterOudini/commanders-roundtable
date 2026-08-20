@@ -7,6 +7,23 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { AMBITIONS_COST_SCRIPT } from './cards/ambitionsCost';
+import { ANCIENT_CRAVING_SCRIPT } from './cards/ancientCraving';
+import { AGONIZING_SYPHON_SCRIPT } from './cards/agonizingSyphon';
+import { ALABASTER_MAGE_SCRIPT } from './cards/alabasterMage';
+import { AKKI_DRILLMASTER_SCRIPT } from './cards/akkiDrillmaster';
+import { AETHERIZE_SCRIPT } from './cards/aetherize';
+import { AIRBORNE_AID_SCRIPT } from './cards/airborneAid';
+import { ANCHOR_TO_THE_AETHER_SCRIPT } from './cards/anchorToTheAether';
+import { AMNESIA_SCRIPT } from './cards/amnesia';
+import { AETHER_TRADEWINDS_SCRIPT } from './cards/aetherTradewinds';
+import { ANARCHY_SCRIPT } from './cards/anarchy';
+import { AGGRESSIVE_INSTINCT_SCRIPT } from './cards/aggressiveInstinct';
+import { AMBUSCADE_SCRIPT } from './cards/ambuscade';
+import { ANGELHEART_PROTECTOR_SCRIPT } from './cards/angelheartProtector';
+import { ALPHA_BRAWL_SCRIPT } from './cards/alphaBrawl';
+import { AN_HAVVA_INN_SCRIPT } from './cards/anHavvaInn';
+import { ALLIED_STRATEGIES_SCRIPT } from './cards/alliedStrategies';
 import { TERMINATE_SCRIPT } from './cards/terminate';
 import { WRATH_OF_GOD_SCRIPT } from './cards/wrathOfGod';
 import { WAVE_OF_RECKONING_SCRIPT } from './cards/waveOfReckoning';
@@ -661,6 +678,23 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AMBITIONS_COST_SCRIPT,
+  ANCIENT_CRAVING_SCRIPT,
+  AGONIZING_SYPHON_SCRIPT,
+  ALABASTER_MAGE_SCRIPT,
+  AKKI_DRILLMASTER_SCRIPT,
+  AETHERIZE_SCRIPT,
+  AIRBORNE_AID_SCRIPT,
+  ANCHOR_TO_THE_AETHER_SCRIPT,
+  AMNESIA_SCRIPT,
+  AETHER_TRADEWINDS_SCRIPT,
+  ANARCHY_SCRIPT,
+  AGGRESSIVE_INSTINCT_SCRIPT,
+  AMBUSCADE_SCRIPT,
+  ANGELHEART_PROTECTOR_SCRIPT,
+  ALPHA_BRAWL_SCRIPT,
+  AN_HAVVA_INN_SCRIPT,
+  ALLIED_STRATEGIES_SCRIPT,
   TERMINATE_SCRIPT,
   WRATH_OF_GOD_SCRIPT,
   WAVE_OF_RECKONING_SCRIPT,
