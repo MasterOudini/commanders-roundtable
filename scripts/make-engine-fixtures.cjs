@@ -1601,6 +1601,27 @@ const WANTED = [
   "Nature's Ruin",
   'Nausea',
   'Nebelgast Beguiler',
+  // M6.4bq (D228) - batch 62: the leaves-battlefield scry, the
+  // self-or-subtype entry pairs, and the artifact enters-or-dies token.
+  'Nebelgast Herald',
+  'Need for Speed',
+  'Needle Storm',
+  'Nefarious Imp',
+  'Neighborhood Guardian',
+  'Network Disruptor',
+  'Neurok Replica',
+  'Neutralize the Guards',
+  'New Benalia',
+  'News Helicopter',
+  'Nighthawk, Dark Defender',
+  'Nightmarish End',
+  'Nightveil Sprite',
+  'Nim Replica',
+  'Nimble Innovator',
+  'Nimble Thopterist',
+  'Nimblewright Schematic',
+  'Nimraiser Paladin',
+  'Nine-Tail White Fox',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -1734,6 +1755,9 @@ const WANTED_TOKENS = [
   // M6.4bp (D227) - Murmuring Mystic's Bird Illusion, Myr Sire's Myr.
   { name: 'Bird Illusion', set: 'tgrn', cn: '3', key: 'BIRD_ILLUSION_TOKEN' },
   { name: 'Phyrexian Myr', set: 'tcmm', cn: '44', key: 'PHYREXIAN_MYR_TOKEN' },
+  // M6.4bq (D228) - News Helicopter's Citizen, the Schematic's Construct.
+  { name: 'Human Citizen', set: 'tspm', cn: '4', key: 'HUMAN_CITIZEN_TOKEN' },
+  { name: 'Construct', set: 'tclb', cn: '16', key: 'CONSTRUCT_TOKEN' },
 ];
 
 function constName(name) {

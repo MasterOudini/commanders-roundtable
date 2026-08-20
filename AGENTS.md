@@ -6325,6 +6325,39 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the aim-layer queue; prior items stand.
 
 
+- [x] **M6.4bq — Nineteen landed: the departure watcher, and three entry
+      pairs (2026-08-20):** **2,956 of 31,692 Commander-legal cards now
+      execute completely, up from 2,937.** `SHIPPED_SCRIPTS` 1,040 →
+      1,059; ledger 384. All 41 tests first-run green — the seventh such
+      batch. Decisions in **D228**.
+      **The firsts:** Nefarious Imp (the LEAVES watcher — looks back for
+      the mover's controller; its OWN exit counts, Brandywine's rule);
+      Nimblewright Schematic (the artifact enters-OR-dies token pair);
+      Nimraiser Paladin (the D139-floored graveyard return to HAND);
+      three SELF-OR-SUBTYPE entry pairs at once — Nebelgast Herald
+      (Spirits), Nighthawk (Heroes, the 67th legendary), Neighborhood
+      Guardian (power ≤2) — resolves inline twice (D178).
+      **Also:** Neutralize the Guards (one-player debuff, ask LAST);
+      New Benalia / Nightveil Sprite (scry land, attacks-surveil);
+      Needle Storm (flyers only — batch-mate Muse Drake the positive);
+      the two self-sac Replicas; Need for Speed's land-sac haste;
+      Network Disruptor; Nine-Tail White Fox; News Helicopter; Nimble
+      Innovator / Thopterist; Nightmarish End.
+      ⚠️ **Six refusals, ZERO new classes** — the combat-qualifier class
+      reaches THREE cards (Nivix Barrier).
+      Fixtures 1,281 (+2 token pins; the Thopter reused) · botPool
+      creature 1,626 / instant 540 / sorcery 397 / artifact 83 /
+      enchantment 37 / land 273 · ladder [2097, 2196, 3989, 5903,
+      7115] · batch.json 1,375 · botDeck: Adun reaches 1,661 from 67
+      legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,138
+      files, 6,465 passed / 10 skipped · 500-seed gate
+      744.0 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D228): the combat-qualifier widening at three
+      cards; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

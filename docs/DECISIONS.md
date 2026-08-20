@@ -15089,3 +15089,53 @@ batch.json 1,400 · botDeck: Adun reaches 1,652.
 **Reportables:** the typed-spell compound widening joins the aim-layer
 queue beside the numeric-exact and combat-qualifier families; prior
 items stand.
+
+## D228 — M6.4bq: nineteen landed — the departure watcher, and three entry pairs (2026-08-20)
+
+**Coverage: 2,937 → 2,956 of 31,692 (+19).** `SHIPPED_SCRIPTS` 1,040 →
+1,059; the ledger 378 → 384 (+6, ZERO new classes); the pool 1,400 →
+1,375; fixtures 1,260 → 1,281 (+19 cards, +2 token pins: News
+Helicopter's Human Citizen tspm 4 and the Schematic's Construct tclb
+16; Nimble Thopterist REUSES the pinned tafc-12 Thopter). All 41 tests
+green on the FIRST run — the seventh first-run-clean batch.
+
+**The firsts:** `Nefarious Imp` is the first LEAVES-the-battlefield
+watcher — the mover's controller is a fact about the board it left, so
+the def looks back, and the Imp's OWN exit counts (Brandywine's rule,
+deliberately no self-exclusion). `Nimblewright Schematic` is the
+artifact enters-OR-dies token pair on one printed line. `Nimraiser
+Paladin` returns a D139-floored creature card from the graveyard to
+HAND on an ETB trigger (the mv-6 Titan asserted refused at the
+answer). Three SELF-OR-SUBTYPE entry pairs land at once — `Nebelgast
+Herald` (Spirits, tapping an opponent's creature through the aim),
+`Nighthawk, Dark Defender` (Heroes, the 67th fully-executable
+legendary) and `Neighborhood Guardian` (power ≤2, Elemental Bond's
+threshold turned around) — each two defs with resolves inline twice
+(D178's tsc rule).
+
+**Also:** `Neutralize the Guards` debuffs one player's board with the
+surveil ask LAST; `New Benalia` and `Nightveil Sprite` extend the
+scry/surveil lands and attack-surveils; `Needle Storm` sweeps 4 over
+flyers only (batch-mate Muse Drake is the positive); `Neurok Replica`
+and `Nim Replica` pay mana AND themselves; `Need for Speed`
+sacrifices a LAND for the haste rider; `Network Disruptor` taps any
+permanent on entry; `Nine-Tail White Fox` draws on connecting;
+`News Helicopter`, `Nimble Innovator`, `Nimble Thopterist`,
+`Nightmarish End` round out the twins.
+
+**Six refusals, ZERO new classes:** Necromantic Selection exiles
+ITSELF mid-resolution (Cerebral Eruption's class); Nissa's Revelation
+puts a computed effect AFTER the scry ask (D195's Read-the-Bones
+rule); Nivix Barrier's 'target attacking creature' is the
+combat-qualifier class's THIRD card; plus exile-from-graveyard, the
+UEOT color change, and mana-spent memory.
+
+**Measured after landing:** primitives complete 2,956 · blocked 28,736 ·
+scriptableToday 2,097 · ladder [2097, 2196, 3989, 5903, 7115] · tier3
+silentAfter 3,367 / payable 5,086 · botPool creature 1,626 / instant
+540 / sorcery 397 / artifact 83 / enchantment 37 / land 273 ·
+batch.json 1,375 · botDeck: Adun reaches 1,661 from 67 legendaries.
+
+**Reportables:** the combat-qualifier class at three cards is due
+beside the numeric-exact and typed-spell-compound widenings; prior
+items stand.

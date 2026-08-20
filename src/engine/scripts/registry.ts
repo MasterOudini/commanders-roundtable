@@ -7,6 +7,25 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { NEBELGAST_HERALD_SCRIPT } from './cards/nebelgastHerald';
+import { NEED_FOR_SPEED_SCRIPT } from './cards/needForSpeed';
+import { NEEDLE_STORM_SCRIPT } from './cards/needleStorm';
+import { NEFARIOUS_IMP_SCRIPT } from './cards/nefariousImp';
+import { NEIGHBORHOOD_GUARDIAN_SCRIPT } from './cards/neighborhoodGuardian';
+import { NETWORK_DISRUPTOR_SCRIPT } from './cards/networkDisruptor';
+import { NEUROK_REPLICA_SCRIPT } from './cards/neurokReplica';
+import { NEUTRALIZE_THE_GUARDS_SCRIPT } from './cards/neutralizeTheGuards';
+import { NEW_BENALIA_SCRIPT } from './cards/newBenalia';
+import { NEWS_HELICOPTER_SCRIPT } from './cards/newsHelicopter';
+import { NIGHTHAWK_DARK_DEFENDER_SCRIPT } from './cards/nighthawkDarkDefender';
+import { NIGHTMARISH_END_SCRIPT } from './cards/nightmarishEnd';
+import { NIGHTVEIL_SPRITE_SCRIPT } from './cards/nightveilSprite';
+import { NIM_REPLICA_SCRIPT } from './cards/nimReplica';
+import { NIMBLE_INNOVATOR_SCRIPT } from './cards/nimbleInnovator';
+import { NIMBLE_THOPTERIST_SCRIPT } from './cards/nimbleThopterist';
+import { NIMBLEWRIGHT_SCHEMATIC_SCRIPT } from './cards/nimblewrightSchematic';
+import { NIMRAISER_PALADIN_SCRIPT } from './cards/nimraiserPaladin';
+import { NINE_TAIL_WHITE_FOX_SCRIPT } from './cards/nineTailWhiteFox';
 import { MULTANIS_PRESENCE_SCRIPT } from './cards/multanisPresence';
 import { MURMURING_MYSTIC_SCRIPT } from './cards/murmuringMystic';
 import { MUSCLE_BURST_SCRIPT } from './cards/muscleBurst';
@@ -1161,6 +1180,25 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  NEBELGAST_HERALD_SCRIPT,
+  NEED_FOR_SPEED_SCRIPT,
+  NEEDLE_STORM_SCRIPT,
+  NEFARIOUS_IMP_SCRIPT,
+  NEIGHBORHOOD_GUARDIAN_SCRIPT,
+  NETWORK_DISRUPTOR_SCRIPT,
+  NEUROK_REPLICA_SCRIPT,
+  NEUTRALIZE_THE_GUARDS_SCRIPT,
+  NEW_BENALIA_SCRIPT,
+  NEWS_HELICOPTER_SCRIPT,
+  NIGHTHAWK_DARK_DEFENDER_SCRIPT,
+  NIGHTMARISH_END_SCRIPT,
+  NIGHTVEIL_SPRITE_SCRIPT,
+  NIM_REPLICA_SCRIPT,
+  NIMBLE_INNOVATOR_SCRIPT,
+  NIMBLE_THOPTERIST_SCRIPT,
+  NIMBLEWRIGHT_SCHEMATIC_SCRIPT,
+  NIMRAISER_PALADIN_SCRIPT,
+  NINE_TAIL_WHITE_FOX_SCRIPT,
   MULTANIS_PRESENCE_SCRIPT,
   MURMURING_MYSTIC_SCRIPT,
   MUSCLE_BURST_SCRIPT,

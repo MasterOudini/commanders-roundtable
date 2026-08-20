@@ -791,6 +791,18 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Mystic Denial', 'spell target parse (noun list)'],
   ["Nahiri's Stoneblades", 'up-to-N targeting'],
   ['Natural Affinity', 'land animation'],
+  // D228 — Necromantic Selection EXILES ITSELF mid-resolution (Cerebral
+  // Eruption's class) and reanimates with a type-change; Nissa's
+  // Revelation puts a computed effect AFTER the scry ask (D195: an effect
+  // after an ask is dropped — Read the Bones' shape); Nivix Barrier's
+  // 'target attacking creature' is the combat-qualifier class's THIRD
+  // card.
+  ['Necromantic Selection', 'spell relocates itself on resolution'],
+  ['Night Soil', 'exile-from-graveyard cost'],
+  ['Nightcreep', 'UEOT color change'],
+  ["Nissa's Revelation", 'script-raised prompt'],
+  ['Nivix Barrier', 'combat target qualifier unenforced'],
+  ['Nix', 'mana-spent memory'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
