@@ -7,6 +7,21 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { AUGURY_OWL_SCRIPT } from './cards/auguryOwl';
+import { ARCHIVE_DRAGON_SCRIPT } from './cards/archiveDragon';
+import { AUTOMATIC_LIBRARIAN_SCRIPT } from './cards/automaticLibrarian';
+import { ARTIFICERS_ASSISTANT_SCRIPT } from './cards/artificersAssistant';
+import { ATTENTIVE_SUNSCRIBE_SCRIPT } from './cards/attentiveSunscribe';
+import { APPENDAGE_AMALGAM_SCRIPT } from './cards/appendageAmalgam';
+import { ARMAGEDDON_SCRIPT } from './cards/armageddon';
+import { AURA_BARBS_SCRIPT } from './cards/auraBarbs';
+import { ASPECT_OF_HYDRA_SCRIPT } from './cards/aspectOfHydra';
+import { ARMY_OF_ALLAH_SCRIPT } from './cards/armyOfAllah';
+import { AUSPICIOUS_ARRIVAL_SCRIPT } from './cards/auspiciousArrival';
+import { ASHEN_POWDER_SCRIPT } from './cards/ashenPowder';
+import { ARBOREA_PEGASUS_SCRIPT } from './cards/arboreaPegasus';
+import { APOCALYPSE_SCRIPT } from './cards/apocalypse';
+import { ARMS_OF_HADAR_SCRIPT } from './cards/armsOfHadar';
 import { AMBITIONS_COST_SCRIPT } from './cards/ambitionsCost';
 import { ANCIENT_CRAVING_SCRIPT } from './cards/ancientCraving';
 import { AGONIZING_SYPHON_SCRIPT } from './cards/agonizingSyphon';
@@ -678,6 +693,21 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AUGURY_OWL_SCRIPT,
+  ARCHIVE_DRAGON_SCRIPT,
+  AUTOMATIC_LIBRARIAN_SCRIPT,
+  ARTIFICERS_ASSISTANT_SCRIPT,
+  ATTENTIVE_SUNSCRIBE_SCRIPT,
+  APPENDAGE_AMALGAM_SCRIPT,
+  ARMAGEDDON_SCRIPT,
+  AURA_BARBS_SCRIPT,
+  ASPECT_OF_HYDRA_SCRIPT,
+  ARMY_OF_ALLAH_SCRIPT,
+  AUSPICIOUS_ARRIVAL_SCRIPT,
+  ASHEN_POWDER_SCRIPT,
+  ARBOREA_PEGASUS_SCRIPT,
+  APOCALYPSE_SCRIPT,
+  ARMS_OF_HADAR_SCRIPT,
   AMBITIONS_COST_SCRIPT,
   ANCIENT_CRAVING_SCRIPT,
   AGONIZING_SYPHON_SCRIPT,

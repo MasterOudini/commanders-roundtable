@@ -1040,6 +1040,25 @@ const WANTED = [
   'Alpha Brawl',
   'An-Havva Inn',
   'Allied Strategies',
+  // M6.4am (D198) - the ETB/cast/tap/attack scry-surveil trigger family, the
+  // land wipe, the stack-type counters, the devotion pump, and the batch.
+  'Augury Owl',
+  'Archive Dragon',
+  'Automatic Librarian',
+  "Artificer's Assistant",
+  'Attentive Sunscribe',
+  'Appendage Amalgam',
+  'Armageddon',
+  'Annul',
+  'Artifact Blast',
+  'Aura Barbs',
+  'Aspect of Hydra',
+  'Army of Allah',
+  'Auspicious Arrival',
+  'Ashen Powder',
+  'Arborea Pegasus',
+  'Apocalypse',
+  'Arms of Hadar',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

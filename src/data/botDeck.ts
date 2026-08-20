@@ -13,7 +13,7 @@
 // tutors, no recursion, because the engine runs none of those yet. That ceiling
 // is the honest state of the app and it rises as the engine's coverage does.
 //
-// commander: Adun Oakenshield (BGR), chosen from 65 fully-executable legendary creatures for reaching 1356 cards
+// commander: Adun Oakenshield (BGR), chosen from 65 fully-executable legendary creatures for reaching 1364 cards
 // mv 0–1: wanted 6, took 6
 // mv 2–2: wanted 14, took 14
 // mv 3–3: wanted 14, took 14
@@ -29,10 +29,10 @@ export const BOT_DECK = {
   main: [
   "Diregraf Ghoul",
   "Icehide Golem",
+  "Artifact Blast",
+  "Aspect of Hydra",
   "Assault Strobe",
   "Barrage of Expendables",
-  "Battlegrowth",
-  "Bloodtallow Candle",
   "Gifted Aetherborn",
   "Accelerate",
   "Aggressive Instinct",
@@ -56,31 +56,31 @@ export const BOT_DECK = {
   "Appetite for the Unnatural",
   "Arcane Encyclopedia",
   "Auger Spree",
+  "Aura Barbs",
   "Awaken the Bear",
   "Bathe in Dragonfire",
   "Bestow Greatness",
   "Birthing Boughs",
-  "Blight Rot",
   "Agonizing Syphon",
   "Ambition's Cost",
   "Anarchy",
   "Ancient Craving",
+  "Arms of Hadar",
   "Artisan's Sorrow",
+  "Ashen Powder",
   "Bake into a Pie",
   "Bee Sting",
   "Carrion Call",
   "Caustic Rain",
   "Concentrated Fire",
-  "Craterize",
-  "Damnation",
   "Gigantosaurus",
   "Doom Whisperer",
   "Terrian, World Tyrant",
   "Accelerated Mutation",
+  "Apocalypse",
   "Blood Rites",
   "Centaur Glade",
   "Chandra's Ignition",
-  "Cleansing Screech",
   "Yargle and Multani",
   "Quakestrider Ceratops",
   "Book of Rass",

@@ -665,6 +665,26 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
         },
       ],
     });
+    // CR 303.4g — an Aura SPELL enters attached to the object it targeted.
+    // ⚠️ This was MISSING: the resolved Aura sat unattached for exactly one
+    // sweep and SBA 704.5m binned it — measured live as "Ana casts Pacifism.
+    // Pacifism resolves. Pacifism dies." (D198), the cast path charging
+    // {1}{W} for a dead enchantment, ever since the sweep learned that an
+    // unattached Aura is illegal. AFTER the move, because the entry's
+    // `clearBattlefieldFields` resets `attachedTo`. A single-target Aura
+    // whose target went away never reaches here (fizzle, above); a
+    // player-enchanting Curse has no InstanceId to attach to and keeps
+    // today's outcome.
+    if (face?.isPermanent && face.typeLine.subtypes.includes('Aura')) {
+      const enchanted = obj.targets[0];
+      if (
+        enchanted &&
+        enchanted.kind === 'card' &&
+        state.cards[enchanted.id]?.zone.kind === 'battlefield'
+      ) {
+        events.push({ t: 'AttachmentChanged', card: obj.card, to: enchanted.id });
+      }
+    }
     events.push(narrated(`${obj.label} resolves.`, obj.controller, obj.identity));
     return emitted(events, rng);
   }

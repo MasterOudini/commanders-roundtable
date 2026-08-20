@@ -408,9 +408,9 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // where the prompt bar offers the counter clause as one logged click.
       // These count FACES over every printing, which is why they are an order of
       // magnitude larger than `botPool`'s distinct-name figures.
-      'effect:none': 16514,
+      'effect:none': 16501,
       'effect:partial': 5066,
-      'effect:auto': 2751,
+      'effect:auto': 2764,
       // ⚠️ 13,581 → 10,372 in M6.4b (D159): `Sacrifice this <type>` and War
       // Room's commanders'-colors life phrase became CHARGEABLE cost parts, so
       // 3,209 printings' ability lines stopped warning `nonManaCost`. The
@@ -465,7 +465,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       confident: 17330,
       free: 3510,
       enchant: 3536,
-      withUnenforced: 1379,
+      withUnenforced: 1300,
     });
     // ⚠️ M6.4b (D159) moved three of these over the whole 113,559-printing
     // database: `lines` +195 (the brace rule admits a long cost that opens

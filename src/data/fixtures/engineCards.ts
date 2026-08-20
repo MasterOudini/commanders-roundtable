@@ -24000,6 +24000,601 @@ export const ALLIED_STRATEGIES: CardData = {
   "singleImage": true
 };
 
+export const AUGURY_OWL: CardData = {
+  "scryfallId": "0743a840-d129-4d30-85dc-6fda3e0dac5c",
+  "oracleId": "44c5f8e1-d9b8-4067-a60a-1ecc8bd11145",
+  "name": "Augury Owl",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Augury Owl",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying\nWhen this creature enters, scry 3. (Look at the top three cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jim Nelson",
+      "imageId": "0743a840-d129-4d30-85dc-6fda3e0dac5c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Scry",
+    "Flying"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "PCA-14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARCHIVE_DRAGON: CardData = {
+  "scryfallId": "2979104f-7570-487c-8024-131d7ee3ab91",
+  "oracleId": "cddbd819-4895-4712-b44b-d6b51f3d8646",
+  "name": "Archive Dragon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Archive Dragon",
+      "manaCost": "{4}{U}{U}",
+      "typeLine": "Creature — Dragon Wizard",
+      "oracleText": "Flying\nWard {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nWhen this creature enters, scry 2.",
+      "flavorText": "\"Fascinating. It says here that dragons cannot read.\"",
+      "power": "4",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Tyler Walpole",
+      "imageId": "2979104f-7570-487c-8024-131d7ee3ab91"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Scry",
+    "Flying",
+    "Ward"
+  ],
+  "setCode": "woe",
+  "collectorNumber": "41",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AUTOMATIC_LIBRARIAN: CardData = {
+  "scryfallId": "6c3d7ece-0f57-4213-a0ab-a9d7c1536ebb",
+  "oracleId": "eb570331-35da-44b8-b711-ccf7444d8e39",
+  "name": "Automatic Librarian",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Automatic Librarian",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Construct",
+      "oracleText": "When this creature enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": "Enforcing absolute quiet with extreme prejudice since 3285 AR.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Alex Konstad",
+      "imageId": "6c3d7ece-0f57-4213-a0ab-a9d7c1536ebb"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "dmu",
+  "collectorNumber": "229",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARTIFICER_S_ASSISTANT: CardData = {
+  "scryfallId": "852ceabf-ce14-4fa9-90b5-895b5cb5ca7f",
+  "oracleId": "6191a7eb-04b5-47e6-a31f-43f9aa91d4d7",
+  "name": "Artificer's Assistant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Artificer's Assistant",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying\nWhenever you cast a historic spell, scry 1. (Artifacts, legendaries, and Sagas are historic. To scry 1, look at the top card of your library, then you may put that card on the bottom.)",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Chris Seaman",
+      "imageId": "852ceabf-ce14-4fa9-90b5-895b5cb5ca7f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Scry",
+    "Flying"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "DOM-44",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ATTENTIVE_SUNSCRIBE: CardData = {
+  "scryfallId": "ad1a0159-7f00-429c-9318-b028b1e03ba8",
+  "oracleId": "0f85714b-e731-45a3-aa65-8cd59cd48280",
+  "name": "Attentive Sunscribe",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Attentive Sunscribe",
+      "manaCost": "{1}{W}",
+      "typeLine": "Artifact Creature — Gnome",
+      "oracleText": "Whenever this creature becomes tapped, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": "Few humans are steady-handed enough to match a gnome's precision. Even the slightest change to a single line can wildly alter a glyph's meaning.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Devin Platts",
+      "imageId": "ad1a0159-7f00-429c-9318-b028b1e03ba8"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "lci",
+  "collectorNumber": "4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const APPENDAGE_AMALGAM: CardData = {
+  "scryfallId": "d16b3cf3-7b85-4153-b25a-e6b5fce725cf",
+  "oracleId": "9fb95813-05e5-4aa0-bab9-53d8a071fe6a",
+  "name": "Appendage Amalgam",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Appendage Amalgam",
+      "manaCost": "{2}{B}",
+      "typeLine": "Enchantment Creature — Horror",
+      "oracleText": "Flash\nWhenever this creature attacks, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "It moves with the speed of a spider but none of its skittering grace, scuttling to the sound of mucus-covered fingers.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Bartek Fedyczak",
+      "imageId": "d16b3cf3-7b85-4153-b25a-e6b5fce725cf"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Surveil",
+    "Flash"
+  ],
+  "setCode": "dsk",
+  "collectorNumber": "83",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARMAGEDDON: CardData = {
+  "scryfallId": "02c4edfa-7822-40bc-88d1-d051b3a64df1",
+  "oracleId": "c9ed8b01-959a-47d6-891e-0abbdccf6e4f",
+  "name": "Armageddon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Armageddon",
+      "manaCost": "{3}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all lands.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jesper Myrfors",
+      "imageId": "02c4edfa-7822-40bc-88d1-d051b3a64df1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "leb",
+  "collectorNumber": "2",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANNUL: CardData = {
+  "scryfallId": "11e495f7-0570-421c-a671-ce6eabcacb59",
+  "oracleId": "d08e9784-75f7-4164-ac48-d06160f8c56b",
+  "name": "Annul",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Annul",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target artifact or enchantment spell.",
+      "flavorText": "\"Murder of the living is tragic, but murder of the idea is unforgivable.\"\n—Janus, speaker of the synod",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "11e495f7-0570-421c-a671-ce6eabcacb59"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "wc04",
+  "collectorNumber": "ap29sb",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARTIFACT_BLAST: CardData = {
+  "scryfallId": "1506d99d-7b2e-4101-84a5-c950dadb263a",
+  "oracleId": "2d4aedc5-31c5-4281-98e1-b0c2233c3c8a",
+  "name": "Artifact Blast",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Artifact Blast",
+      "manaCost": "{R}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target artifact spell.",
+      "flavorText": "The first line of defense against Urza and Mishra, the Artifact Blast achieved widespread fame until an unlucky mage discovered it was useless on the devices the brothers had already created.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mark Poole",
+      "imageId": "1506d99d-7b2e-4101-84a5-c950dadb263a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "atq",
+  "collectorNumber": "22",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AURA_BARBS: CardData = {
+  "scryfallId": "132af2c2-2bae-4c05-9d61-a5777818a057",
+  "oracleId": "1aa8fdc3-efeb-450d-9540-2ef0efaf270d",
+  "name": "Aura Barbs",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aura Barbs",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant — Arcane",
+      "oracleText": "Each enchantment deals 2 damage to its controller, then each Aura attached to a creature deals 2 damage to the creature it's attached to.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Aleksi Briclot",
+      "imageId": "132af2c2-2bae-4c05-9d61-a5777818a057"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "bok",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ASPECT_OF_HYDRA: CardData = {
+  "scryfallId": "19353629-07be-47e2-a7d5-3a5e5e1120c8",
+  "oracleId": "d1580692-ca1c-4682-8cad-7ad380b39454",
+  "name": "Aspect of Hydra",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aspect of Hydra",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +X/+X until end of turn, where X is your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)",
+      "flavorText": "\"Even alone I outnumber you.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mark Winters",
+      "imageId": "19353629-07be-47e2-a7d5-3a5e5e1120c8"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "bng",
+  "collectorNumber": "117",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARMY_OF_ALLAH: CardData = {
+  "scryfallId": "3d170015-b125-49a6-a15e-8fd116bbcb14",
+  "oracleId": "3483946d-8645-4c22-b0ba-a65a44456324",
+  "name": "Army of Allah",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Army of Allah",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Attacking creatures get +2/+0 until end of turn.",
+      "flavorText": "On the day of victory no one is tired. —Arab proverb",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "3d170015-b125-49a6-a15e-8fd116bbcb14"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "arn",
+  "collectorNumber": "2",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AUSPICIOUS_ARRIVAL: CardData = {
+  "scryfallId": "49598c0a-3b3c-42a2-9358-ff072de9d9f2",
+  "oracleId": "b25d5b06-44cf-42bc-90dd-3b238f702361",
+  "name": "Auspicious Arrival",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Auspicious Arrival",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +2/+2 until end of turn. Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": "\"The Azorius are too obsessed with facts to see the truth that knits them together. They'll never solve this case unless I step in.\"\n—Alquist Proft, case notes",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Robin Olausson",
+      "imageId": "49598c0a-3b3c-42a2-9358-ff072de9d9f2"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "mkm",
+  "collectorNumber": "288",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ASHEN_POWDER: CardData = {
+  "scryfallId": "686aebd0-0d34-47e3-bbbd-ad08d2a3a864",
+  "oracleId": "d906965a-0f33-4d75-8abe-66f2cf4817b8",
+  "name": "Ashen Powder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ashen Powder",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put target creature card from an opponent's graveyard onto the battlefield under your control.",
+      "flavorText": "\"What you call decay, I call ripening. You'll gain no sustenance from this harvest.\"\n—Kaervek",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Geofrey Darrow",
+      "imageId": "686aebd0-0d34-47e3-bbbd-ad08d2a3a864"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "104",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARBOREA_PEGASUS: CardData = {
+  "scryfallId": "6bf942df-d30b-4d1b-8a46-bca4abaeb147",
+  "oracleId": "9a17452d-3adb-42ec-99f8-0083740cefa0",
+  "name": "Arborea Pegasus",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Arborea Pegasus",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Pegasus",
+      "oracleText": "Flying\nWhen this creature enters, target creature gets +1/+1 and gains flying until end of turn.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jeff Dee",
+      "imageId": "6bf942df-d30b-4d1b-8a46-bca4abaeb147"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "afr",
+  "collectorNumber": "299",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const APOCALYPSE: CardData = {
+  "scryfallId": "7ff23780-d183-4cca-ad0c-448ef325bf36",
+  "oracleId": "82c8f5dd-563d-4fd0-bd43-7ee2001d3777",
+  "name": "Apocalypse",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Apocalypse",
+      "manaCost": "{2}{R}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Exile all permanents. You discard your hand.",
+      "flavorText": "\"There is a future in which I can see only mist and a single shadow.\"\n—Oracle *en*-Vec",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Allen Williams",
+      "imageId": "7ff23780-d183-4cca-ad0c-448ef325bf36"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "tmp",
+  "collectorNumber": "162",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARMS_OF_HADAR: CardData = {
+  "scryfallId": "db1fd431-8f6d-4ca5-bc0c-53881c500da1",
+  "oracleId": "c15e5cb8-b94c-4157-9327-410e66606b82",
+  "name": "Arms of Hadar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Arms of Hadar",
+      "manaCost": "{3}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Creatures target player controls get -2/-2 until end of turn.",
+      "flavorText": "Burning slowly into annihilation, the elder evil Hadar grants fearsome powers to warlocks willing to help satiate its dark hunger.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Mirko Failoni",
+      "imageId": "db1fd431-8f6d-4ca5-bc0c-53881c500da1"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "clb",
+  "collectorNumber": "113",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -27075,6 +27670,23 @@ export const ENGINE_CARDS: CardData[] = [
   ALPHA_BRAWL,
   AN_HAVVA_INN,
   ALLIED_STRATEGIES,
+  AUGURY_OWL,
+  ARCHIVE_DRAGON,
+  AUTOMATIC_LIBRARIAN,
+  ARTIFICER_S_ASSISTANT,
+  ATTENTIVE_SUNSCRIBE,
+  APPENDAGE_AMALGAM,
+  ARMAGEDDON,
+  ANNUL,
+  ARTIFACT_BLAST,
+  AURA_BARBS,
+  ASPECT_OF_HYDRA,
+  ARMY_OF_ALLAH,
+  AUSPICIOUS_ARRIVAL,
+  ASHEN_POWDER,
+  ARBOREA_PEGASUS,
+  APOCALYPSE,
+  ARMS_OF_HADAR,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

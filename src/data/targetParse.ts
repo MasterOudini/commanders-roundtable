@@ -296,6 +296,17 @@ const s = '(?:s)?';
  * coverage it does not have.
  */
 const NOUNS: readonly NounEntry[] = [
+  // ⚠️ TYPED SPELLS FIRST, or the permanent compounds below eat the type list
+  // and silently DROP the word "spell" — measured (D198): "target artifact or
+  // enchantment spell" parsed confident to battlefield kinds
+  // ['artifact','enchantment'], so Annul's aim veil offered PERMANENTS for a
+  // counterspell. The type is ENFORCED: stack candidates carry the cast face's
+  // card types (both adapters), and `targetAllowed` checks `cardTypes` the same
+  // way it does for graveyard nouns (D138).
+  { re: new RegExp(`^artifact\\s+or\\s+enchantment\\s+spell${s}\\b`, 'i'), kinds: ['spell'], cardTypes: ['Artifact', 'Enchantment'] },
+  { re: new RegExp(`^artifact\\s+spell${s}\\b`, 'i'), kinds: ['spell'], cardTypes: ['Artifact'] },
+  { re: new RegExp(`^enchantment\\s+spell${s}\\b`, 'i'), kinds: ['spell'], cardTypes: ['Enchantment'] },
+
   // compound kinds
   { re: new RegExp(`^creature${s}\\s+or\\s+planeswalker${s}\\b`, 'i'), kinds: ['creature', 'planeswalker'] },
   { re: new RegExp(`^creature${s}\\s+or\\s+player${s}\\b`, 'i'), kinds: ['creature', 'player'] },
@@ -312,12 +323,18 @@ const NOUNS: readonly NounEntry[] = [
   { re: new RegExp(`^artifact,\\s*enchantment,\\s*or\\s+land${s}\\b`, 'i'), kinds: ['artifact', 'enchantment', 'land'] },
 
   // stack objects
-  { re: new RegExp(`^instant\\s+or\\s+sorcery\\s+spell${s}\\b`, 'i'), kinds: ['spell'] },
+  // ⚠️ `cardTypes` on a spell noun is enforced against the CAST FACE's types
+  // (D198): an activated or triggered ability on the stack carries none, so a
+  // typed-spell clause refuses it — which is also the correct CR answer.
+  { re: new RegExp(`^instant\\s+or\\s+sorcery\\s+spell${s}\\b`, 'i'), kinds: ['spell'], cardTypes: ['Instant', 'Sorcery'] },
   { re: new RegExp(`^instant\\s+or\\s+sorcery\\s+card${s}\\b`, 'i'), kinds: ['card'], zones: ['graveyard'], cardTypes: ['Instant', 'Sorcery'] },
   { re: new RegExp(`^activated\\s+or\\s+triggered\\s+abilit(?:y|ies)\\b`, 'i'), kinds: ['spell'] },
   { re: new RegExp(`^spell${s}\\s+or\\s+abilit(?:y|ies)\\b`, 'i'), kinds: ['spell'] },
   { re: new RegExp(`^spell${s}\\s+or\\s+permanent${s}\\b`, 'i'), kinds: ['spell', 'permanent'] },
-  { re: new RegExp(`^creature\\s+spell${s}\\b`, 'i'), kinds: ['spell'], unenforced: ['creature spell'] },
+  // Enforced since D198 the way "creature card" has been since D138 — same
+  // field, same predicate, one zone over. "noncreature" stays unenforced:
+  // a NEGATED type has no TargetSpec field (the D185 ledger class).
+  { re: new RegExp(`^creature\\s+spell${s}\\b`, 'i'), kinds: ['spell'], cardTypes: ['Creature'] },
   { re: new RegExp(`^noncreature\\s+spell${s}\\b`, 'i'), kinds: ['spell'], unenforced: ['noncreature spell'] },
   { re: new RegExp(`^spell${s}\\b`, 'i'), kinds: ['spell'] },
   { re: new RegExp(`^abilit(?:y|ies)\\b`, 'i'), kinds: ['spell'] },

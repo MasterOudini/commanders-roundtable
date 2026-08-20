@@ -627,17 +627,21 @@ export class ClientSession {
       for (const id of this.view.zones[`exile:${player}`] ?? []) push(id, 'exile');
     }
     for (const item of this.view.stack) {
+      /**
+       * ⚠️ A SPELL ON THE STACK HAS A MANA VALUE and 504 lines restrict on it
+       * (`Disdainful Stroke`) — AND CARD TYPES: "counter target artifact
+       * spell" restricts on those (D198), read from the FACE actually cast
+       * exactly as the host adapter reads them, or the veil lights up a spell
+       * the host then refuses. `instanceId` is null for an activated or
+       * triggered ability, which genuinely has neither.
+       */
+      const spellFace = item.instanceId ? this.faceFor(item.instanceId) : null;
       out.push({
         choice: { kind: 'stack', id: item.stackItemId },
         zone: 'stack',
         controller: item.controller,
         kinds: ['spell'],
-        types: [],
-        /**
-         * ⚠️ A SPELL ON THE STACK HAS A MANA VALUE and 504 lines restrict on it
-         * (`Disdainful Stroke`). `instanceId` is null for an activated or
-         * triggered ability, which genuinely has none.
-         */
+        types: spellFace?.typeLine.types ?? [],
         manaValue: item.instanceId
           ? (this.pool.oracle().byPrinting(this.view.cards[item.instanceId]?.card?.scryfallId ?? '')?.manaValue ?? null)
           : null,

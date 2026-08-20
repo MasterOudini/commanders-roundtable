@@ -361,6 +361,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Aether Burst', 'cast-time computed target count'],
   ['Allied Assault', 'up-to-N targeting'],
   ['Aerial Predation', 'keyword target qualifier unenforced'],
+  // D198
+  ['Animate Land', 'UEOT type change with P/T set'],
+  ['Approach of the Second Sun', 'game-history memory'],
+  ["Atraxa's Fall", 'spell target parse (noun list)'],
+  ['Assert Perfection', 'up-to-N targeting'],
+  ["Archaic's Agony", 'converge (cast-time mana-color memory)'],
+  ['Arcane Omens', 'converge (cast-time mana-color memory)'],
+  ["Ashnod's Intervention", 'temporary non-keyword ability grant'],
+  ['Artificial Evolution', 'text-changing effect (CR 612)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -5369,6 +5369,44 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       noun-list widening (two cards); prior items stand.
 
 
+- [x] **M6.4am — Fifteen landed, the typed-spell aim, and the Aura cast
+      path that killed its own spell (2026-08-20):** **2,467 of 31,692
+      Commander-legal cards now execute completely, up from 2,441** — 15
+      scripts + 11 VOCABULARY cards. `SHIPPED_SCRIPTS` 557 → 572; ledger
+      123. Decisions in **D198**.
+      ⚠️⚠️ **TWO ENGINE HOLES FOUND BY THE BATCH'S OWN PREMISE PROBES:**
+      "counter target artifact spell" parsed CONFIDENT to battlefield
+      kinds — the word "spell" silently dropped, the aim veil offering
+      PERMANENTS for a counterspell (fixed: typed-spell nouns with
+      ENFORCED cardTypes, both adapters carrying the CAST FACE's types,
+      the effect vocabulary admitting the wording only behind the
+      enforcement — D139's order; `Annul` and `Artifact Blast` land as
+      vocabulary cards, +9 more DB-wide); and **the Aura cast path was
+      DEAD** — CR 303.4g unimplemented, so every cast Aura resolved
+      unattached and the sweep binned it ("Ana casts Pacifism. Pacifism
+      resolves. Pacifism dies."), invisible because no test ever cast an
+      Aura and then looked at the Aura. Fixed at `resolveTop` after the
+      entry move; `auraAttach.test.ts` pins it.
+      **The scripts:** the scry/surveil ask on four more watcher shapes
+      (ETB ×3, historic cast, becomes-tapped, attacks-surveil); the land
+      wipe and the exile-all; devotion off the parsed ManaCost; the
+      combat-wide pump; Investigate; opponent-graveyard reanimation; the
+      targeted ETB pump+flying rider; the one-player board debuff.
+      ⚠️ **Eight refusals, FOUR new classes:** UEOT type change with P/T
+      set, game-history memory, converge (×2), text-changing effect (CR
+      612); the noun-list class holds THREE cards.
+      Fixtures 781 (70 tokens — none new) · botPool 1,543/357/203 · ladder
+      [2586, 2685, 4478, 6392, 7604] · batch.json 2,125 (rungs 1–2 ZERO) ·
+      **FIVE joined the bot's deck** (Adun reaches 1,364).
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 649
+      files, 4,062 passed / 10 skipped · 500-seed gate
+      784.6 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D198): the keyword target-qualifier widening is
+      the same move one field over; converge and the text-changer join the
+      structural tail; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

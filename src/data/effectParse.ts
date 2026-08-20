@@ -39,6 +39,12 @@ const NOUNS = [
   'creature an opponent controls',
   "creature you don't control",
   'creature you don’t control',
+  // ⚠️ The typed-spell forms sit ABOVE their permanent lookalikes and are
+  // admitted ONLY because `targetAllowed` enforces the type against the cast
+  // face (D198) — D139's order: enforce first, then admit the wording.
+  'artifact or enchantment spell',
+  'enchantment spell',
+  'artifact spell',
   'instant or sorcery spell',
   'artifact or enchantment',
   'creature or planeswalker',

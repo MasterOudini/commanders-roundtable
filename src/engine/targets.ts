@@ -26,6 +26,7 @@ import type { InstanceId, PlayerId } from './types/ids';
 import type { GameState, TargetChoice } from './types/state';
 import type { OracleDb, Protection, TargetKind, TargetSpec } from './types/oracle';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
+import { faceOf } from './oracle';
 import type { ScriptRegistry } from './scripts/registry';
 
 export type CandidateZone = 'battlefield' | 'graveyard' | 'exile' | 'stack' | 'player';
@@ -410,14 +411,18 @@ export function candidatesFromState(
   }
 
   for (const obj of state.stack) {
+    // ⚠️ **A SPELL ON THE STACK HAS CARD TYPES** — "counter target artifact
+    // spell" restricts on them (D198), and they come from the FACE ACTUALLY
+    // CAST (D155's rule; a modal DFC's back face is its own spell). An ability
+    // has none, so a typed-spell clause refuses it, which is the CR answer.
+    const spellCard = obj.card ? state.cards[obj.card] : null;
+    const spellOracle = spellCard ? deps.oracle.byPrinting(spellCard.printingId) : undefined;
     out.push({
       choice: { kind: 'stack', id: obj.id },
       zone: 'stack',
       controller: obj.controller,
       kinds: ['spell'],
-      // A spell on the stack and a player have no CARD types to restrict on;
-      // every clause that says "creature card" is about a graveyard or exile.
-      types: [],
+      types: spellOracle ? faceOf(spellOracle, obj.faceIndex).typeLine.types : [],
       /**
        * ⚠️ **A SPELL ON THE STACK DOES HAVE A MANA VALUE**, and 504 lines in the
        * format restrict on it — `Disdainful Stroke` is "Counter target spell
@@ -428,7 +433,7 @@ export function candidatesFromState(
        * ⚠️ From the PRINTING, not from `derive()`: a spell on the stack has no
        * derive entry at all. An ability (no `card`) genuinely has none.
        */
-      manaValue: obj.card ? (deps.oracle.byPrinting(state.cards[obj.card]?.printingId ?? '')?.manaValue ?? null) : null,
+      manaValue: spellOracle?.manaValue ?? null,
       power: null,
       toughness: null,
       // A stack object's own colours matter only for protection, and nothing

@@ -13457,3 +13457,94 @@ Ancient Craving, An-Havva Inn, Anarchy, Alpha Brawl — Adun reaches 1,356).
 named engine slice (D139's playbook, one field + one check + the parse);
 up-to-N targeting joins the machinery list; the noun-list widening now has
 TWO ledgered cards (Bedevil, Aftershock); prior items stand.
+
+## D198 — M6.4am: fifteen landed, the typed-spell aim, and the Aura cast path that killed its own spell (2026-08-20)
+
+**Coverage: 2,441 → 2,467 of 31,692 (+26 — 15 scripts + 11 vocabulary cards).**
+`SHIPPED_SCRIPTS` 557 → 572; the REFUSED ledger 115 → 123; the offerable
+pool 2,141 → 2,125.
+
+**The typed-spell target widening.** The batch's premise probe measured
+"Counter target artifact or enchantment spell." parsing CONFIDENT to
+battlefield kinds `['artifact','enchantment']` — the trailing word "spell"
+silently DROPPED by the permanent-noun compounds, so Annul's aim veil
+offered PERMANENTS for a counterspell. The fix is D139's order, enforce
+first then admit the wording:
+- `targetParse` gains typed-spell nouns ABOVE the permanent compounds
+  (`artifact or enchantment spell` / `artifact spell` / `enchantment
+  spell`), each `kinds:['spell']` with ENFORCED `cardTypes` — and the
+  existing `creature spell` / `instant or sorcery spell` entries upgrade
+  from unenforced to enforced `cardTypes` (D140's symmetry rule: two
+  readers of one qualifier shape may not behave differently).
+  `noncreature spell` stays unenforced — a negated type has no field.
+- BOTH candidate adapters now carry a stack spell's card types, read off
+  the FACE ACTUALLY CAST (D155's rule) — `targets.ts` from the oracle by
+  `obj.faceIndex`, `client.ts` through `faceFor`. An ability on the stack
+  carries none, so a typed-spell clause refuses it — also the CR answer.
+- `effectParse`'s noun list admits the three wordings ONLY behind that
+  enforcement. `Annul` and `Artifact Blast` land as VOCABULARY cards (no
+  script anywhere), and the widening finished 9 more cards DB-wide.
+Measured: targeting `withUnenforced` 1,379 → 1,300; `effect:auto` faces
+2,751 → 2,764. `typedSpellTargets.test.ts` proves the whole chain: Annul
+counters a held Sol Ring; a held CREATURE spell is REFUSED at the aim.
+
+**⚠️⚠️ THE AURA CAST PATH WAS DEAD, and the batch's own test found it.**
+Aura Barbs needed an attached Aura, and the probe measured the shipped
+flow: "Ana casts Pacifism. Pacifism resolves. **Pacifism dies.**" Nothing
+implements CR 303.4g — an Aura SPELL enters attached to what it targeted —
+so every cast Aura resolved unattached and SBA 704.5m binned it on the next
+sweep, the cast path charging mana for a dead enchantment, live since the
+sweep learned an unattached Aura is illegal. Invisible because NO TEST EVER
+CAST AN AURA AND THEN LOOKED AT THE AURA: Bramble Elemental's and Druid of
+Horns' tests assert only their own triggers, which fire either way — green
+over a dead aura, D128's green-over-nothing in test form. Fixed in
+`resolveTop` AFTER the entry move (the entry's `clearBattlefieldFields`
+resets `attachedTo`, so attach-then-move would be wiped); a single-target
+Aura whose target died never reaches it (fizzle, CR 608.2b); a
+player-enchanting Curse has no InstanceId to attach to and keeps today's
+outcome — a named limit, not a gap. `auraAttach.test.ts` pins the attach,
+the host-dies-drop, and the replay hash. Aura Barbs' test then drives the
+REAL flow: a cast Pacifism, and the Bears die of their own Aura.
+
+**The fifteen scripts.** The D195/D196 scry-surveil ask composed onto four
+more watcher shapes — ETB scry ×3 (`Augury Owl` at THREE, `Archive
+Dragon` behind two tier-2 keyword lines, `Automatic Librarian` with the
+short-library floor pinned), the HISTORIC cast filter paying a scry
+(`Artificer's Assistant`, Jhoira's filter verbatim), becomes-tapped
+(`Attentive Sunscribe`, Emmara's filter), and attacks-surveil
+(`Appendage Amalgam`, `toGraveyard: true` proven by the graveyard).
+Plus: `Armageddon` (the land wipe — Darksteel Citadel survives),
+`Apocalypse` (exile ALL — the indestructible one does NOT survive, exile
+is not destruction — then the caster's whole hand), `Aura Barbs` (two
+damage waves, controllers then hosts, per-source riders), `Aspect of
+Hydra` (devotion to green off the parsed ManaCost — `colored.G` plus
+G-hybrids, the UP face so a transformed back face contributes nothing),
+`Army of Allah` (per-attacker +2/+0 mid-combat), `Auspicious Arrival`
+(pump + Investigate on the reused Clue pin), `Ashen Powder` (reanimation
+out of an OPPONENT's graveyard under MY control — the own-graveyard
+negative pinned), `Arborea Pegasus` (targeted ETB pump + flying rider),
+`Arms of Hadar` (-2/-2 across one player's whole board).
+
+**Eight refusals, FOUR new classes:** `Animate Land` (UEOT type change
+with P/T set — no carrier), `Approach of the Second Sun` (game-history
+memory), `Archaic's Agony` + `Arcane Omens` (converge — cast-time
+mana-color memory), `Artificial Evolution` (text-changing effect, CR
+612). Plus `Atraxa's Fall` (the noun-list class's THIRD card),
+`Assert Perfection` (up-to-N), `Ashnod's Intervention` (quoted-ability
+temporary grant).
+
+**Measured after landing:** primitives blocked 29,225 · scriptableToday
+2,586 · ladder [2586, 2685, 4478, 6392, 7604] · tier3 abilityText 17,139 /
+silentAfter 2,879 (+26 = exactly the landed cards) · botPool auto 573 /
+assisted 1,721 / autoAnyFace 581 / creature 1,543 / instant 357 / sorcery
+203 · fixtures 764 → 781 (70 tokens, none new — the Clue reused) ·
+batch.json 2,125 (rungs 1–2 at ZERO: the user's decks and the fuzz pool
+are fully drained at current capability). ⚠️ **FIVE joined the bot's
+deck** (Artifact Blast, Aspect of Hydra, Aura Barbs, Arms of Hadar, Ashen
+Powder — Adun reaches 1,364).
+
+**Reportables:** the keyword target-qualifier widening stands as the
+cheapest named slice (D139's playbook — this batch widened the TYPE
+qualifier; the KEYWORD one is the same move one field over); the noun-list
+class holds three cards; converge and the text-changer join the structural
+tail; prior items stand.
