@@ -1117,6 +1117,24 @@ const WANTED = [
   'Breathe Your Last',
   'Brightflame',
   'Brightstone Ritual',
+  // M6.4aq (D202) - the first activated-scry land, the computed surveil
+  // with the thenDraw rider, the poison draw, and the batch.
+  'Bronze Walrus',
+  'Burden of Greed',
+  'Burn the Impure',
+  'Burning Cloak',
+  'Burning Fields',
+  'Calamitous Cave-In',
+  'Call to Heel',
+  'Caller of Gales',
+  'Calming Verse',
+  'Caress of Phyrexia',
+  'Case the Joint',
+  'Castle Vantress',
+  'Cavalry Drillmaster',
+  'Cerebral Download',
+  'Certain Death',
+  'Chain Reaction',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

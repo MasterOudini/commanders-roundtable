@@ -13724,3 +13724,51 @@ sorcery 222 · fixtures 830 (70 tokens — none new) · batch.json 2,050 ·
 stay the most-due engine seam; the second-clause/counted-list widening by
 weight; regeneration and the untap restriction join the structural tail
 with honest names; prior items stand.
+
+## D202 — M6.4aq: sixteen landed — the first activated scry, the computed surveil rider, and poison from a script (2026-08-20)
+
+**Coverage: 2,517 → 2,533 of 31,692 (+16).** `SHIPPED_SCRIPTS` 620 → 636;
+the ledger 149 → 158; the pool 2,050 → 2,025. All 48 new tests green on
+the FIRST run — the second consecutive first-run-clean batch.
+
+**The firsts.** `Castle Vantress` is the FIRST ACTIVATED SCRY: an
+ActivatedDef resolve emits the same reveal-then-ask pair a trigger does,
+through D159's seam, behind D135's enters-tapped condition and an
+engine-parsed mana line — three printed lines, one def claim, all three
+accounted. `Cerebral Download` is the first COMPUTED surveil riding
+`thenDraw` — surveil X (X = my artifacts) then draw three, the answer
+handler drawing past what the player just binned on the scratch fold, and
+the ZERO-artifact cast skipping the ask while still drawing (both
+branches pinned). `Caress of Phyrexia` is the first script writing
+POISON directly (`PoisonChanged`). `Case the Joint` reveals each
+player's library TOP to the caster only — the projection boundary
+(`revealedTo`) carrying cross-library information with no new machinery,
+computed on the post-draw scratch. `Calming Verse` is the two-wave wipe
+whose second wave is gated on a board query at resolution (both branches
+from one board shape). `Burn the Impure`'s infect rider reads the
+DERIVED keyword; `Bronze Walrus` pairs an ETB scry def with an
+engine-run mana line; `Calamitous Cave-In` counts battlefield Caves by
+derive and graveyard Cave CARDS by oracle face (the zero case stated
+honestly — no Cave fixture exists); plus the compound player-or-
+planeswalker burn, the pump-then-burn, the bounce-that-pays-its-
+controller, the mana-plus-tap grant, the targeted ETB first-strike rider,
+the kill-with-drain, and the count-is-the-batch board sweep
+(`Chain Reaction`).
+
+**Nine refusals, ONE new class:** `Cerebral Eruption` RETURNS ITSELF to
+hand mid-resolution when a land is revealed — `resolveTop` moves a
+resolved spell to the graveyard unconditionally AFTER the def, so a def
+cannot redirect the card's own exit ("spell relocates itself on
+resolution"). Plus two any-player/pile prompts, two computed target
+counts (X target artifacts), converge, up-to-N, a modal, and a floating
+tap-trigger grant.
+
+**Measured after landing:** primitives blocked 29,159 · scriptableToday
+2,520 · ladder [2520, 2619, 4412, 6326, 7538] · tier3 abilityText 17,132 /
+silentAfter 2,944 (+16 exact) · botPool creature 1,555 / instant 383 /
+land 260 (Castle Vantress) / sorcery 229 · fixtures 846 (70 tokens — none
+new) · batch.json 2,025.
+
+**Reportables:** the self-relocating resolution joins the structural
+tail; the activated-scry shape is a family-table candidate beside D196's
+scry-trigger lands (the Castle cycle prints five); prior items stand.

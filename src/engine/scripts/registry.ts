@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { BRONZE_WALRUS_SCRIPT } from './cards/bronzeWalrus';
+import { BURDEN_OF_GREED_SCRIPT } from './cards/burdenOfGreed';
+import { BURN_THE_IMPURE_SCRIPT } from './cards/burnTheImpure';
+import { BURNING_CLOAK_SCRIPT } from './cards/burningCloak';
+import { BURNING_FIELDS_SCRIPT } from './cards/burningFields';
+import { CALAMITOUS_CAVE_IN_SCRIPT } from './cards/calamitousCaveIn';
+import { CALL_TO_HEEL_SCRIPT } from './cards/callToHeel';
+import { CALLER_OF_GALES_SCRIPT } from './cards/callerOfGales';
+import { CALMING_VERSE_SCRIPT } from './cards/calmingVerse';
+import { CARESS_OF_PHYREXIA_SCRIPT } from './cards/caressOfPhyrexia';
+import { CASE_THE_JOINT_SCRIPT } from './cards/caseTheJoint';
+import { CASTLE_VANTRESS_SCRIPT } from './cards/castleVantress';
+import { CAVALRY_DRILLMASTER_SCRIPT } from './cards/cavalryDrillmaster';
+import { CEREBRAL_DOWNLOAD_SCRIPT } from './cards/cerebralDownload';
+import { CERTAIN_DEATH_SCRIPT } from './cards/certainDeath';
+import { CHAIN_REACTION_SCRIPT } from './cards/chainReaction';
 import { BOLTWAVE_SCRIPT } from './cards/boltwave';
 import { BOON_OF_BOSEIJU_SCRIPT } from './cards/boonOfBoseiju';
 import { BORROWING_ARROWS_SCRIPT } from './cards/borrowingArrows';
@@ -741,6 +757,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BRONZE_WALRUS_SCRIPT,
+  BURDEN_OF_GREED_SCRIPT,
+  BURN_THE_IMPURE_SCRIPT,
+  BURNING_CLOAK_SCRIPT,
+  BURNING_FIELDS_SCRIPT,
+  CALAMITOUS_CAVE_IN_SCRIPT,
+  CALL_TO_HEEL_SCRIPT,
+  CALLER_OF_GALES_SCRIPT,
+  CALMING_VERSE_SCRIPT,
+  CARESS_OF_PHYREXIA_SCRIPT,
+  CASE_THE_JOINT_SCRIPT,
+  CASTLE_VANTRESS_SCRIPT,
+  CAVALRY_DRILLMASTER_SCRIPT,
+  CEREBRAL_DOWNLOAD_SCRIPT,
+  CERTAIN_DEATH_SCRIPT,
+  CHAIN_REACTION_SCRIPT,
   BOLTWAVE_SCRIPT,
   BOON_OF_BOSEIJU_SCRIPT,
   BORROWING_ARROWS_SCRIPT,

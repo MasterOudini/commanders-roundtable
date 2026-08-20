@@ -5512,6 +5512,39 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       prior items stand.
 
 
+- [x] **M6.4aq — Sixteen landed: the first activated scry, the computed
+      surveil rider, and poison from a script (2026-08-20):** **2,533 of
+      31,692 Commander-legal cards now execute completely, up from
+      2,517.** `SHIPPED_SCRIPTS` 620 → 636; ledger 158. All 48 new tests
+      first-run clean — the second consecutive such batch. Decisions in
+      **D202**.
+      **Firsts:** `Castle Vantress` — the FIRST ACTIVATED SCRY (the
+      D195 ask through D159's seam, behind D135's condition and an
+      engine mana line: three printed lines, all accounted);
+      `Cerebral Download` — the computed surveil riding `thenDraw: 3`
+      (the zero-artifact cast skips the ask and still draws, both
+      branches pinned); `Caress of Phyrexia` — the first script POISON
+      (`PoisonChanged`); `Case the Joint` — each library's top
+      revealed to the caster only, on the post-draw scratch; the
+      two-wave conditionally-gated wipe (`Calming Verse`); the DERIVED
+      infect rider (`Burn the Impure`); the count-is-the-batch sweep
+      (`Chain Reaction`).
+      ⚠️ **Nine refusals, ONE new class:** `Cerebral Eruption`
+      relocates ITSELF mid-resolution — `resolveTop`'s graveyard move
+      is unconditional after the def, so a def cannot redirect the
+      card's own exit.
+      Fixtures 846 · botPool 1,555/383/229, land 260 · ladder [2520,
+      2619, 4412, 6326, 7538] · batch.json 2,025.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 714
+      files, 4,387 passed / 10 skipped · 500-seed gate
+      734.2 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D202): the activated-scry shape is a
+      family-table candidate (the Castle cycle prints five); the
+      self-relocating resolution joins the structural tail; prior items
+      stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

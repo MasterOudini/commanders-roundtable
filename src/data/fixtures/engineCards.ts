@@ -26278,6 +26278,550 @@ export const BRIGHTSTONE_RITUAL: CardData = {
   "singleImage": true
 };
 
+export const BRONZE_WALRUS: CardData = {
+  "scryfallId": "b2cfd2c0-2110-47f1-809e-487b9b0a1043",
+  "oracleId": "3fdc76b0-450a-4fcb-8a64-113edce67f3d",
+  "name": "Bronze Walrus",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bronze Walrus",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Walrus",
+      "oracleText": "When this creature enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)\n{T}: Add one mana of any color.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "James Paick",
+      "imageId": "b2cfd2c0-2110-47f1-809e-487b9b0a1043"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "clb",
+  "collectorNumber": "302",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BURDEN_OF_GREED: CardData = {
+  "scryfallId": "d37abcf5-f009-4258-bf32-b93b47cb71dc",
+  "oracleId": "a80c13db-949d-4784-8177-04aaa22b96b0",
+  "name": "Burden of Greed",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Burden of Greed",
+      "manaCost": "{3}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target player loses 1 life for each tapped artifact they control.",
+      "flavorText": "\"The one who dies with the most toys is still dead.\"\n—Geth, keeper of the Vault",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Vance Kovacs",
+      "imageId": "d37abcf5-f009-4258-bf32-b93b47cb71dc"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dst",
+  "collectorNumber": "38",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BURN_THE_IMPURE: CardData = {
+  "scryfallId": "b5641730-428d-4484-866e-ec1ac669537f",
+  "oracleId": "9503c801-eb6f-4f34-9062-c56105509b7b",
+  "name": "Burn the Impure",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Burn the Impure",
+      "manaCost": "{1}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Burn the Impure deals 3 damage to target creature. If that creature has infect, Burn the Impure deals 3 damage to that creature's controller.",
+      "flavorText": "Flame doesn't kneel to Phyrexia.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Nic Klein",
+      "imageId": "b5641730-428d-4484-866e-ec1ac669537f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mbs",
+  "collectorNumber": "59",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BURNING_CLOAK: CardData = {
+  "scryfallId": "55ffb660-7707-4650-8859-b44ebe0c33d6",
+  "oracleId": "4527c622-cebe-41eb-9178-4895cccffe99",
+  "name": "Burning Cloak",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Burning Cloak",
+      "manaCost": "{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature gets +2/+0 until end of turn. Burning Cloak deals 2 damage to that creature.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Scott M. Fischer",
+      "imageId": "55ffb660-7707-4650-8859-b44ebe0c33d6"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "POR-120",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BURNING_FIELDS: CardData = {
+  "scryfallId": "dee12f01-581e-4a3c-a8b5-41bef2516781",
+  "oracleId": "b3b58231-d532-423b-91d0-78d9c0f66f0f",
+  "name": "Burning Fields",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Burning Fields",
+      "manaCost": "{4}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Burning Fields deals 5 damage to target opponent or planeswalker.",
+      "flavorText": "\"In raiding and plundering, be like fire, in immovability like a mountain.\"\n—Sun Tzu, *Art of War* (trans. Giles)",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Yang Hong",
+      "imageId": "dee12f01-581e-4a3c-a8b5-41bef2516781"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "103",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CALAMITOUS_CAVE_IN: CardData = {
+  "scryfallId": "8341ddd9-aac1-4773-b8ce-51e35f696263",
+  "oracleId": "558135b3-babc-40b6-9d9d-57ab0965ee3d",
+  "name": "Calamitous Cave-In",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Calamitous Cave-In",
+      "manaCost": "{3}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Calamitous Cave-In deals X damage to each creature and each planeswalker, where X is the number of Caves you control plus the number of Cave cards in your graveyard.",
+      "flavorText": "\"For 'immortal conquerors,' these vampires seem very susceptible to being crushed by boulders.\"\n—Chara Rebal, bat rider",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Diego Gisbert",
+      "imageId": "8341ddd9-aac1-4773-b8ce-51e35f696263"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "lci",
+  "collectorNumber": "139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CALL_TO_HEEL: CardData = {
+  "scryfallId": "0206c951-e38f-43ae-b4d2-0c71b6ccf8b1",
+  "oracleId": "8ef3dd68-f6a1-43b9-8837-40b326019b1b",
+  "name": "Call to Heel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Call to Heel",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return target creature to its owner's hand. Its controller draws a card.",
+      "flavorText": "On Bant, a sigil is both a prize of honor and a bond of duty. The one who bears it may be called to fulfill that charge at any moment.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "0206c951-e38f-43ae-b4d2-0c71b6ccf8b1"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ala",
+  "collectorNumber": "32",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CALLER_OF_GALES: CardData = {
+  "scryfallId": "41bd76f3-299d-4bc0-a603-2cc7db7dac7b",
+  "oracleId": "86fd8f95-0f1c-42c0-a63e-567c59ce89c4",
+  "name": "Caller of Gales",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Caller of Gales",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Merfolk Wizard",
+      "oracleText": "{1}{U}, {T}: Target creature gains flying until end of turn.",
+      "flavorText": "\"Some merfolk choose to rest their fins in the water. I believe wisdom exists not only where we were born but where we were told not to go.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Alex Horley-Orlandelli",
+      "imageId": "41bd76f3-299d-4bc0-a603-2cc7db7dac7b"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "cn2",
+  "collectorNumber": "103",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CALMING_VERSE: CardData = {
+  "scryfallId": "ec38c856-dc21-450d-9aa6-da16c91a489a",
+  "oracleId": "c70ae479-0bd1-481c-885f-16bfa096cf58",
+  "name": "Calming Verse",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Calming Verse",
+      "manaCost": "{3}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all enchantments you don't control. Then if you control an untapped land, destroy all enchantments you control.",
+      "flavorText": "The chattering forest fell silent as the otherworldly song began.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "ec38c856-dc21-450d-9aa6-da16c91a489a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "pcy",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CARESS_OF_PHYREXIA: CardData = {
+  "scryfallId": "0eef764a-a84f-4d2d-a0ee-2af73643c76f",
+  "oracleId": "8253fcac-0c07-41e8-afa4-34021f9ef6f4",
+  "name": "Caress of Phyrexia",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Caress of Phyrexia",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player draws three cards, loses 3 life, and gets three poison counters.",
+      "flavorText": "\"I am weak. Make . . . me . . . ideal.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Karl Kopinski",
+      "imageId": "0eef764a-a84f-4d2d-a0ee-2af73643c76f"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "onc",
+  "collectorNumber": "92",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CASE_THE_JOINT: CardData = {
+  "scryfallId": "0f9edf04-681d-45f9-975f-704154040506",
+  "oracleId": "575d067a-83a0-49e7-8a74-e3e46a946c8c",
+  "name": "Case the Joint",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Case the Joint",
+      "manaCost": "{3}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Draw two cards, then look at the top card of each player's library.",
+      "flavorText": "Steel doors and iron bars are child's play for an Obscura operative.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Stella Spente",
+      "imageId": "0f9edf04-681d-45f9-975f-704154040506"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "snc",
+  "collectorNumber": "37",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CASTLE_VANTRESS: CardData = {
+  "scryfallId": "0a8b9d37-e89c-44ad-bd1b-51cb06ec3e0b",
+  "oracleId": "cdf41cf4-4e77-453d-be5b-0abbbd358934",
+  "name": "Castle Vantress",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Castle Vantress",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped unless you control an Island.\n{T}: Add {U}.\n{2}{U}{U}, {T}: Scry 2.",
+      "flavorText": "Without Vantress's knowledge, the realm would lose itself in darkness.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "John Avon",
+      "imageId": "0a8b9d37-e89c-44ad-bd1b-51cb06ec3e0b"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "eld",
+  "collectorNumber": "242",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CAVALRY_DRILLMASTER: CardData = {
+  "scryfallId": "27db546a-f117-41ad-a917-69e6086a43dd",
+  "oracleId": "d89bbfe7-e7ef-4f1c-a6b5-6d8ef4079daa",
+  "name": "Cavalry Drillmaster",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cavalry Drillmaster",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "When this creature enters, target creature gets +2/+0 and gains first strike until end of turn. (It deals combat damage before creatures without first strike.)",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "27db546a-f117-41ad-a917-69e6086a43dd"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "j22",
+  "collectorNumber": "165",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CEREBRAL_DOWNLOAD: CardData = {
+  "scryfallId": "4d3b5d73-694c-4f9a-8b4f-d8d8c58c8d65",
+  "oracleId": "f27889b9-40d9-4cc7-b8af-8716c53c44f5",
+  "name": "Cerebral Download",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cerebral Download",
+      "manaCost": "{4}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Surveil X, where X is the number of artifacts you control. Then draw three cards. (To surveil X, look at the top X cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": "All Uthros networks are routed through an ancient relic called a memory vessel, which converts data into thought.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Antonio José Manzanedo",
+      "imageId": "4d3b5d73-694c-4f9a-8b4f-d8d8c58c8d65"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "eoe",
+  "collectorNumber": "48",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CERTAIN_DEATH: CardData = {
+  "scryfallId": "4fe14b9b-4341-4a1b-96f1-5cb1bb253eba",
+  "oracleId": "1d4b8a31-6500-4e3d-bcaf-f6f184d7743e",
+  "name": "Certain Death",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Certain Death",
+      "manaCost": "{5}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target creature. Its controller loses 2 life and you gain 2 life.",
+      "flavorText": "Some spirits cling to one person, feasting on the growing fear until a final moment of all-consuming terror.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "4fe14b9b-4341-4a1b-96f1-5cb1bb253eba"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "j22",
+  "collectorNumber": "386",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHAIN_REACTION: CardData = {
+  "scryfallId": "0609ddd2-1e98-4fe3-855e-c0ba1c365369",
+  "oracleId": "086b2564-9114-4ba2-94fd-b490f98f38a7",
+  "name": "Chain Reaction",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chain Reaction",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Chain Reaction deals X damage to each creature, where X is the number of creatures on the battlefield.",
+      "flavorText": "\"We train for the improbable, like lightning striking the same place twice, or striking everywhere at once.\"\n—Nundari, Sea Gate militia captain",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Trevor Claxton",
+      "imageId": "0609ddd2-1e98-4fe3-855e-c0ba1c365369"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "scd",
+  "collectorNumber": "126",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -29419,6 +29963,22 @@ export const ENGINE_CARDS: CardData[] = [
   BREATHE_YOUR_LAST,
   BRIGHTFLAME,
   BRIGHTSTONE_RITUAL,
+  BRONZE_WALRUS,
+  BURDEN_OF_GREED,
+  BURN_THE_IMPURE,
+  BURNING_CLOAK,
+  BURNING_FIELDS,
+  CALAMITOUS_CAVE_IN,
+  CALL_TO_HEEL,
+  CALLER_OF_GALES,
+  CALMING_VERSE,
+  CARESS_OF_PHYREXIA,
+  CASE_THE_JOINT,
+  CASTLE_VANTRESS,
+  CAVALRY_DRILLMASTER,
+  CEREBRAL_DOWNLOAD,
+  CERTAIN_DEATH,
+  CHAIN_REACTION,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

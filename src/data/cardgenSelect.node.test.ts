@@ -423,6 +423,19 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Broken Dam', 'spell target parse (counted list)'],
   ['Broken Wings', 'keyword target qualifier unenforced'],
   ['Boneyard Parley', 'opponent-chooses'],
+  // D202 — Cerebral Eruption RETURNS ITSELF to hand mid-resolution when a
+  // land is revealed: resolveTop moves a resolved spell to the graveyard
+  // unconditionally after the def, so a def cannot redirect the card's own
+  // exit — a NEW structural class.
+  ['Browbeat', 'script-raised prompt'],
+  ['Bubbling Muck', 'temporary keyword/ability grant'],
+  ["Builder's Bane", 'cast-time computed target count'],
+  ['Burning of Xinye', 'script-raised prompt'],
+  ['By Force', 'cast-time computed target count'],
+  ['Cankerous Thirst', 'converge (cast-time mana-color memory)'],
+  ['Captivating Gyre', 'up-to-N targeting'],
+  ['Catastrophe', 'modal choice'],
+  ['Cerebral Eruption', 'spell relocates itself on resolution'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
