@@ -27412,6 +27412,460 @@ export const CLOUDREADER_SPHINX: CardData = {
   "singleImage": true
 };
 
+export const CLOUDSHIFT: CardData = {
+  "scryfallId": "12b1e18f-f781-498c-ba84-cdee49c24230",
+  "oracleId": "6879f5ce-7a1b-4606-bad1-885779b0d456",
+  "name": "Cloudshift",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cloudshift",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Exile target creature you control, then return that card to the battlefield under your control.",
+      "flavorText": "\"Even storm clouds bow to worship Avacyn.\"\n—Elder Rimheit",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "12b1e18f-f781-498c-ba84-cdee49c24230"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "a25",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COLLECTIVE_UNCONSCIOUS: CardData = {
+  "scryfallId": "1219978f-c269-4b59-9ec1-0e7bc83059fe",
+  "oracleId": "38abf769-e4ef-4b47-9c79-c8cda0b90f6c",
+  "name": "Collective Unconscious",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Collective Unconscious",
+      "manaCost": "{4}{G}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw a card for each creature you control.",
+      "flavorText": "\"The beasts of the wild are my senses. It is through their eyes that all knowledge shall come to me.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Andrew Goldhawk",
+      "imageId": "1219978f-c269-4b59-9ec1-0e7bc83059fe"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "scd",
+  "collectorNumber": "176",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COMBAT_PROFESSOR: CardData = {
+  "scryfallId": "24d8e9d2-8c5b-4f75-ac03-df23435f3404",
+  "oracleId": "1b59665f-23c7-4df9-8e71-f9b1a419063b",
+  "name": "Combat Professor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Combat Professor",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Bird Cleric",
+      "oracleText": "Flying\nAt the beginning of combat on your turn, target creature you control gets +1/+0 and gains vigilance until end of turn.",
+      "flavorText": "\"Before Yovus was cut down at Pranticle Peak, she performed which maneuver? Anyone? From the reading?\"",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Andrey Kuzinskiy",
+      "imageId": "24d8e9d2-8c5b-4f75-ac03-df23435f3404"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "j22",
+  "collectorNumber": "167",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COMMERCIAL_DISTRICT: CardData = {
+  "scryfallId": "3a9889ab-3527-414e-9c30-539f0608bd2b",
+  "oracleId": "b33656ae-3473-4223-845f-f9147f87678b",
+  "name": "Commercial District",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Commercial District",
+      "manaCost": "",
+      "typeLine": "Land — Mountain Forest",
+      "oracleText": "({T}: Add {R} or {G}.)\nThis land enters tapped.\nWhen this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Sergey Glushakov",
+      "imageId": "3a9889ab-3527-414e-9c30-539f0608bd2b"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "mkm",
+  "collectorNumber": "324",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COMPLEAT_DEVOTION: CardData = {
+  "scryfallId": "2bb29a69-3e42-4268-8026-f01072d7b56c",
+  "oracleId": "c2a6cfb7-e5bd-49c8-aa51-fd5203eca8b8",
+  "name": "Compleat Devotion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Compleat Devotion",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control gets +2/+2 until end of turn. If that creature has toxic, draw a card.",
+      "flavorText": "\"Elspeth, my friend, the Multiverse has answered my prayers to bring you here so that I may gather you into my pride and forever protect you.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Filipe Pagliuso",
+      "imageId": "2bb29a69-3e42-4268-8026-f01072d7b56c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "one",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONFRONT_THE_UNKNOWN: CardData = {
+  "scryfallId": "856c3be0-afe1-40c3-b84f-b50235246216",
+  "oracleId": "221240c5-3c97-438c-b906-2508eacf190f",
+  "name": "Confront the Unknown",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Confront the Unknown",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Investigate, then target creature gets +1/+1 until end of turn for each Clue you control. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "856c3be0-afe1-40c3-b84f-b50235246216"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "sir",
+  "collectorNumber": "190",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONGREGATE: CardData = {
+  "scryfallId": "4e5eefd2-d8ad-43b7-a5d9-6a2ad7f19b6e",
+  "oracleId": "d139294c-36bb-4a1e-800d-50c4a4ae9877",
+  "name": "Congregate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Congregate",
+      "manaCost": "{3}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Target player gains 2 life for each creature on the battlefield.",
+      "flavorText": "\"In the gathering there is strength for all who founder, renewal for all who languish, love for all who sing.\"\n—*Song of All*, canto 642",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "4e5eefd2-d8ad-43b7-a5d9-6a2ad7f19b6e"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "m15",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONSIGN_TO_THE_PIT: CardData = {
+  "scryfallId": "09991fad-4282-4a17-bfb1-03eaa13502df",
+  "oracleId": "b0c50079-5376-47ff-82c5-d52dbf49afdf",
+  "name": "Consign to the Pit",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Consign to the Pit",
+      "manaCost": "{5}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target creature. Consign to the Pit deals 2 damage to that creature's controller.",
+      "flavorText": "First your whole life flashes before your eyes. Then you have considerable time to reflect on every regret as you plummet.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Colin Boyer",
+      "imageId": "09991fad-4282-4a17-bfb1-03eaa13502df"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "rna",
+  "collectorNumber": "69",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONSUME_THE_MEEK: CardData = {
+  "scryfallId": "921ebea0-48bf-4338-9e84-2cd06ffe6f4b",
+  "oracleId": "c2555c38-1bfc-48c1-85aa-7e40117db78b",
+  "name": "Consume the Meek",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Consume the Meek",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy each creature with mana value 3 or less. They can't be regenerated.",
+      "flavorText": "\"Why does it destroy? It does, and to talk of reasons wastes time and breath.\"\n—Nirthu, lone missionary",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Chippy",
+      "imageId": "921ebea0-48bf-4338-9e84-2cd06ffe6f4b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "roe",
+  "collectorNumber": "100",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONSUMING_ASHES: CardData = {
+  "scryfallId": "54f96be9-60fc-4e2f-9172-4cc53c9a095a",
+  "oracleId": "9ef676f0-53c5-4efe-9341-e960d00dbc69",
+  "name": "Consuming Ashes",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Consuming Ashes",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Exile target creature. If it had mana value 3 or less, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": "The enforcer only got halfway through the arrest warrant before it—and he—went up in smoke.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Campbell White",
+      "imageId": "54f96be9-60fc-4e2f-9172-4cc53c9a095a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "otj",
+  "collectorNumber": "83",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONSUMING_CORRUPTION: CardData = {
+  "scryfallId": "9068b3a4-9130-42d8-a26b-52010b7daa8b",
+  "oracleId": "3bc0bd36-70be-4180-9fb3-b10ce054107b",
+  "name": "Consuming Corruption",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Consuming Corruption",
+      "manaCost": "{B}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Consuming Corruption deals X damage to target creature or planeswalker and you gain X life, where X is the number of Swamps you control.",
+      "flavorText": "While crossing the mire, Lort the Sneaky found the perfect shortcut to the end of his life.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Andrew Theophilopoulos",
+      "imageId": "9068b3a4-9130-42d8-a26b-52010b7daa8b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mh3",
+  "collectorNumber": "84",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONTRABAND_KINGPIN: CardData = {
+  "scryfallId": "4f1f4f01-a3eb-4ad7-8d4f-4122836fb3fb",
+  "oracleId": "680da572-6cd5-482a-b01d-32944566d8c4",
+  "name": "Contraband Kingpin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Contraband Kingpin",
+      "manaCost": "{U}{B}",
+      "typeLine": "Creature — Aetherborn Rogue",
+      "oracleText": "Lifelink\nWhenever an artifact you control enters, scry 1.",
+      "flavorText": "\"Don't waste my time with trifles. Bring me works of art, and I will make you rich.\"",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "U"
+      ],
+      "artist": "Anna Steinbauer",
+      "imageId": "4f1f4f01-a3eb-4ad7-8d4f-4122836fb3fb"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Lifelink",
+    "Scry"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "KLD-177",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CORROSIVE_GALE: CardData = {
+  "scryfallId": "04a13825-ab9b-4ffd-9b59-6198181891b9",
+  "oracleId": "6143073f-4110-4a37-bc0c-89fbda2fc839",
+  "name": "Corrosive Gale",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Corrosive Gale",
+      "manaCost": "{X}{G/P}",
+      "typeLine": "Sorcery",
+      "oracleText": "({G/P} can be paid with either {G} or 2 life.)\nCorrosive Gale deals X damage to each creature with flying.",
+      "flavorText": "\"Wipe Sheoldred's spies from the sky. She'll see the result of our vision soon enough.\"\n—Glissa",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "04a13825-ab9b-4ffd-9b59-6198181891b9"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "nph",
+  "collectorNumber": "107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -30586,6 +31040,19 @@ export const ENGINE_CARDS: CardData[] = [
   CLEAR_THE_LAND,
   CLOUDKILL,
   CLOUDREADER_SPHINX,
+  CLOUDSHIFT,
+  COLLECTIVE_UNCONSCIOUS,
+  COMBAT_PROFESSOR,
+  COMMERCIAL_DISTRICT,
+  COMPLEAT_DEVOTION,
+  CONFRONT_THE_UNKNOWN,
+  CONGREGATE,
+  CONSIGN_TO_THE_PIT,
+  CONSUME_THE_MEEK,
+  CONSUMING_ASHES,
+  CONSUMING_CORRUPTION,
+  CONTRABAND_KINGPIN,
+  CORROSIVE_GALE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

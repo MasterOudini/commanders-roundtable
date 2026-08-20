@@ -447,6 +447,22 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Claim the Precious', 'the Ring mechanic'],
   ['Clash of Titans', 'spell target parse (second clause)'],
   ['Clear a Path', 'keyword target qualifier unenforced'],
+  // D204 — Coalition Victory WINS the game (no win event; a win is not
+  // "every opponent loses" until the reasons enum says so); Contaminated
+  // Drink pays in RAD counters (no rad concept anywhere); Contest of Claws
+  // DISCOVERS (library iteration + a cast-or-hand choice).
+  ['Coalition Victory', 'win-the-game effect'],
+  ['Collected Conjuring', 'play-from-exile permission'],
+  ['Collision of Realms', 'ctx.random'],
+  ['Combo Attack', 'spell target parse (counted list)'],
+  ["Commander's Insight", 'game-history memory'],
+  ['Commando Raid', 'temporary keyword/ability grant'],
+  ['Commune with Lava', 'play-from-exile permission'],
+  ['Commune with the Gods', 'script-raised prompt'],
+  ['Conduct Electricity', 'up-to-N targeting'],
+  ['Consume Strength', 'spell target parse (second clause)'],
+  ['Contaminated Drink', 'rad counters'],
+  ['Contest of Claws', 'discover mechanic'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

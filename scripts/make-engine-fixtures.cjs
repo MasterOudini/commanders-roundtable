@@ -1154,6 +1154,21 @@ const WANTED = [
   'Clear the Land',
   'Cloudkill',
   'Cloudreader Sphinx',
+  // M6.4as (D204) - the first FLICKER, the artifact-entry scry watcher, the
+  // computed-condition ask, and the batch.
+  'Cloudshift',
+  'Collective Unconscious',
+  'Combat Professor',
+  'Commercial District',
+  'Compleat Devotion',
+  'Confront the Unknown',
+  'Congregate',
+  'Consign to the Pit',
+  'Consume the Meek',
+  'Consuming Ashes',
+  'Consuming Corruption',
+  'Contraband Kingpin',
+  'Corrosive Gale',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -5574,6 +5574,34 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       (five cards); prior items stand.
 
 
+- [x] **M6.4as — Thirteen landed: the first flicker (2026-08-20):**
+      **2,563 of 31,692 Commander-legal cards now execute completely, up
+      from 2,550.** `SHIPPED_SCRIPTS` 653 → 666; ledger 178. All 39 new
+      tests first-run clean. Decisions in **D204**.
+      **Firsts:** the FLICKER (Cloudshift — exile and straight back, the
+      entry funnel running on the return); BOTH arms of an
+      artifact-entry ask (Contraband Kingpin — card via CardsMoved,
+      token via TokenCreated, the token arm proven with the Tier-3
+      tool's own event); the CONDITIONED ask (Consuming Ashes — "if it
+      HAD mana value 3 or less" read before the exile, both branches);
+      the built-in-plus-def land (Commercial District); the DERIVED
+      toxic draw (Compleat Devotion); the self-counting Investigate
+      pump (Confront the Unknown); the mana-value wipe whose vacuous
+      regen clause joins the tripwire list (Consume the Meek).
+      ⚠️ **Twelve refusals, THREE new classes:** win-the-game effect,
+      rad counters, discover. Consume Strength probed — a
+      sentence-initial 'Another target' is STILL not a second spec (the
+      family's sixth card).
+      Fixtures 876 · botPool 1,561/397/238, land 261 · ladder [2490,
+      2589, 4382, 6296, 7508] · batch.json 1,975.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 744
+      files, 4,536 passed / 10 skipped · 500-seed gate
+      726.5 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D204): the second-clause widening at six
+      cards; the blink family opens on the flicker; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

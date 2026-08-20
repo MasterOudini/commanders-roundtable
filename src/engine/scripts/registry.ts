@@ -7,6 +7,19 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { CLOUDSHIFT_SCRIPT } from './cards/cloudshift';
+import { COLLECTIVE_UNCONSCIOUS_SCRIPT } from './cards/collectiveUnconscious';
+import { COMBAT_PROFESSOR_SCRIPT } from './cards/combatProfessor';
+import { COMMERCIAL_DISTRICT_SCRIPT } from './cards/commercialDistrict';
+import { COMPLEAT_DEVOTION_SCRIPT } from './cards/compleatDevotion';
+import { CONFRONT_THE_UNKNOWN_SCRIPT } from './cards/confrontTheUnknown';
+import { CONGREGATE_SCRIPT } from './cards/congregate';
+import { CONSIGN_TO_THE_PIT_SCRIPT } from './cards/consignToThePit';
+import { CONSUME_THE_MEEK_SCRIPT } from './cards/consumeTheMeek';
+import { CONSUMING_ASHES_SCRIPT } from './cards/consumingAshes';
+import { CONSUMING_CORRUPTION_SCRIPT } from './cards/consumingCorruption';
+import { CONTRABAND_KINGPIN_SCRIPT } from './cards/contrabandKingpin';
+import { CORROSIVE_GALE_SCRIPT } from './cards/corrosiveGale';
 import { CHANDRAS_FURY_SCRIPT } from './cards/chandrasFury';
 import { CHANDRAS_OUTRAGE_SCRIPT } from './cards/chandrasOutrage';
 import { CHANNEL_THE_SUNS_SCRIPT } from './cards/channelTheSuns';
@@ -774,6 +787,19 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CLOUDSHIFT_SCRIPT,
+  COLLECTIVE_UNCONSCIOUS_SCRIPT,
+  COMBAT_PROFESSOR_SCRIPT,
+  COMMERCIAL_DISTRICT_SCRIPT,
+  COMPLEAT_DEVOTION_SCRIPT,
+  CONFRONT_THE_UNKNOWN_SCRIPT,
+  CONGREGATE_SCRIPT,
+  CONSIGN_TO_THE_PIT_SCRIPT,
+  CONSUME_THE_MEEK_SCRIPT,
+  CONSUMING_ASHES_SCRIPT,
+  CONSUMING_CORRUPTION_SCRIPT,
+  CONTRABAND_KINGPIN_SCRIPT,
+  CORROSIVE_GALE_SCRIPT,
   CHANDRAS_FURY_SCRIPT,
   CHANDRAS_OUTRAGE_SCRIPT,
   CHANNEL_THE_SUNS_SCRIPT,

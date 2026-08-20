@@ -13816,3 +13816,48 @@ sorcery 235 · fixtures 863 (70 tokens — none new).
 queue's heaviest slice; the dies-ask completes the scry/surveil trigger
 matrix (ETB, cast, tapped, attacks, activated, DIES) — the family table
 is overdue by shape count; prior items stand.
+
+## D204 — M6.4as: thirteen landed — the first flicker, and both arms of an artifact-entry ask (2026-08-20)
+
+**Coverage: 2,550 → 2,563 of 31,692 (+13).** `SHIPPED_SCRIPTS` 653 → 666;
+the ledger 166 → 178 (+12); the pool 2,000 → 1,975. All 39 new tests green
+on the FIRST run.
+
+**The firsts.** `Cloudshift` is the first FLICKER: two moves in one
+resolve — battlefield to exile, exile straight back under my control —
+with the whole entry funnel running on the return. `Contraband Kingpin`
+watches "an artifact you control enters" with TWO defs (a card enters via
+CardsMoved, a token via TokenCreated — Soul Warden's rule), both raising
+the D195 scry; the token arm is proven with the Tier-3 token tool, whose
+TokenCreated is the arm's own event. `Consuming Ashes` is the first
+CONDITIONED ask — "if it HAD mana value 3 or less" read off the victim
+BEFORE the exile, the surveil raised only then (both branches pinned).
+`Commercial District` stacks D134's enters-tapped built-in under an ETB
+surveil def; `Compleat Devotion` reads DERIVED toxic for its draw
+(Bloated Contaminator proves the positive); `Confront the Unknown`
+counts the Clue it is ABOUT to make (+1 over the board count);
+`Consume the Meek` is the mana-value wipe (tokens are MV 0 and die; the
+vacuous regeneration clause joins the tripwire's client list);
+`Combat Professor` lands Blood Mist's begin-combat shape on a creature;
+plus the flying X-sweep with a Phyrexian cost left to the solver
+(`Corrosive Gale`), the Swamps-powered drain, the everyone-counts
+lifegain, the destroy-plus-burn, and the creatures-you-control draw.
+
+**Twelve refusals, THREE new classes:** `Coalition Victory` (a
+WIN-the-game effect — no win event exists, and a win is not "every
+opponent loses" until the loss reasons say so), `Contaminated Drink`
+(RAD counters — no rad concept anywhere), `Contest of Claws` (DISCOVER —
+library iteration plus a cast-or-hand choice). Plus `Consume Strength` —
+probed: a SENTENCE-INITIAL "Another target creature" is still not a
+second spec (the family's SIXTH card) — two play-from-exile permissions,
+ctx.random, a counted list, game-history memory, a quoted-ability grant,
+a script prompt, and an up-to-N.
+
+**Measured after landing:** primitives blocked 29,129 · scriptableToday
+2,490 · ladder [2490, 2589, 4382, 6296, 7508] · tier3 abilityText 17,125 /
+silentAfter 2,974 (+13 exact) · botPool creature 1,561 / instant 397 /
+land 261 / sorcery 238 · fixtures 876 (70 tokens — none new).
+
+**Reportables:** the second-clause family at SIX cards is the heaviest
+named parse slice; the flicker opens the blink family (its ETB re-trigger
+compositions are now testable); prior items stand.
