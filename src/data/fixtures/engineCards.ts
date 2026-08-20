@@ -33339,6 +33339,595 @@ export const FRANTIC_FIREBOLT: CardData = {
   "singleImage": true
 };
 
+export const FRANTIC_INVENTORY: CardData = {
+  "scryfallId": "5474d7e8-6b34-4d88-bb78-c43c24d5eb58",
+  "oracleId": "a7865331-4c53-46db-b2d7-7e5cb21b6b9d",
+  "name": "Frantic Inventory",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Frantic Inventory",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Draw a card, then draw cards equal to the number of cards named Frantic Inventory in your graveyard.",
+      "flavorText": "\"Another village, another angry mob. Why do I even bother unpacking?\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Aaron Miller",
+      "imageId": "5474d7e8-6b34-4d88-bb78-c43c24d5eb58"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m21",
+  "collectorNumber": "394",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FYNDHORN_BOW: CardData = {
+  "scryfallId": "65dd0a41-cc51-4728-b597-fdb2510accd8",
+  "oracleId": "d37fb8bf-d293-4ac3-b744-74e4caade975",
+  "name": "Fyndhorn Bow",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fyndhorn Bow",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "{3}, {T}: Target creature gains first strike until end of turn.",
+      "flavorText": "\"With a bow like this, the hunting is always good.\"\n—Taaveti of Kelsinko, Elvish Hunter",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Rob Alexander",
+      "imageId": "65dd0a41-cc51-4728-b597-fdb2510accd8"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ice",
+  "collectorNumber": "318",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GAEA_S_MIGHT: CardData = {
+  "scryfallId": "67e5adce-7735-4fa5-aa14-8dce012e9fcc",
+  "oracleId": "73b26f12-78eb-4d01-9dd6-ee643c7a80a8",
+  "name": "Gaea's Might",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gaea's Might",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Domain — Target creature gets +1/+1 until end of turn for each basic land type among lands you control.",
+      "flavorText": "With the Heart of Yavimaya aiding him, Multani didn't even strain at the load.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "67e5adce-7735-4fa5-aa14-8dce012e9fcc"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Domain"
+  ],
+  "setCode": "pls",
+  "collectorNumber": "81",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GALADHRIM_GUIDE: CardData = {
+  "scryfallId": "d766c2f2-b3ce-4a4a-92d3-db7e05b44273",
+  "oracleId": "9204de14-cbb6-40e5-9dcc-44cce3723e8e",
+  "name": "Galadhrim Guide",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Galadhrim Guide",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Elf Scout",
+      "oracleText": "When this creature enters, scry 2.",
+      "flavorText": "\"I shall lead you well, and the paths are smooth and straight.\"",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Inka Schulz",
+      "imageId": "d766c2f2-b3ce-4a4a-92d3-db7e05b44273"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "ltr",
+  "collectorNumber": "619",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GALE_FORCE: CardData = {
+  "scryfallId": "26c5c233-a373-4ac4-9b99-81ed97df1f9b",
+  "oracleId": "337b0807-94cb-48d0-b752-61fbd05560e4",
+  "name": "Gale Force",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gale Force",
+      "manaCost": "{4}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Gale Force deals 5 damage to each creature with flying.",
+      "flavorText": "Everything the kami had done, they did with more force. Gentle breezes became typhoons, rolling rivers turned to crushing rapids, and gentle growth became overnight masses of thorns and vines.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Lars Grant-West",
+      "imageId": "26c5c233-a373-4ac4-9b99-81ed97df1f9b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "chk",
+  "collectorNumber": "209",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GALE_SWOOPER: CardData = {
+  "scryfallId": "d2e3b99c-e48e-4f4d-ba7a-e9218137b432",
+  "oracleId": "1758e102-22da-4cb3-98d5-76f7501d026d",
+  "name": "Gale Swooper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gale Swooper",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Griffin",
+      "oracleText": "Flying\nWhen this creature enters, target creature gains flying until end of turn.",
+      "flavorText": "\"Be glad the griffin set you back on your feet when it was done with you. My goat wasn't so lucky.\"\n—Arram, goatherd",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "d2e3b99c-e48e-4f4d-ba7a-e9218137b432"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "m21",
+  "collectorNumber": "20",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GALVANIC_BOMBARDMENT: CardData = {
+  "scryfallId": "0b356415-b7a9-40b1-b7df-b36be8718a0c",
+  "oracleId": "13d8347f-adb9-41b5-a7b0-a6153bcf2d6c",
+  "name": "Galvanic Bombardment",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Galvanic Bombardment",
+      "manaCost": "{R}",
+      "typeLine": "Instant",
+      "oracleText": "Galvanic Bombardment deals X damage to target creature, where X is 2 plus the number of cards named Galvanic Bombardment in your graveyard.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Campbell White",
+      "imageId": "0b356415-b7a9-40b1-b7df-b36be8718a0c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "sir",
+  "collectorNumber": "157",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GATES_ABLAZE: CardData = {
+  "scryfallId": "2b574b44-01e1-4197-99bd-57e54aebc5ff",
+  "oracleId": "3b97bf8e-d5c4-4eae-a453-73456e0461a1",
+  "name": "Gates Ablaze",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gates Ablaze",
+      "manaCost": "{2}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Gates Ablaze deals X damage to each creature, where X is the number of Gates you control.",
+      "flavorText": "When the Izzet's spirit of invention extends to the city's infrastructure, the results are sometimes explosive.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Eytan Zana",
+      "imageId": "2b574b44-01e1-4197-99bd-57e54aebc5ff"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "rna",
+  "collectorNumber": "102",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GAZE_OF_ADAMARO: CardData = {
+  "scryfallId": "44cab92a-54d8-496c-8a97-7f3448f5b1e9",
+  "oracleId": "91a69925-1e9b-433a-ad58-88bfd3c4bc46",
+  "name": "Gaze of Adamaro",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gaze of Adamaro",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Instant — Arcane",
+      "oracleText": "Gaze of Adamaro deals damage to target player equal to the number of cards in that player's hand.",
+      "flavorText": "Wherever it looked, it saw destruction—the wake of its own gaze.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "44cab92a-54d8-496c-8a97-7f3448f5b1e9"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "sok",
+  "collectorNumber": "98",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GAZE_OF_GRANITE: CardData = {
+  "scryfallId": "1aca163e-abff-459f-9925-09dda212dce2",
+  "oracleId": "103d9ad0-d655-4bd5-a899-e9f8869e333d",
+  "name": "Gaze of Granite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gaze of Granite",
+      "manaCost": "{X}{B}{B}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy each nonland permanent with mana value X or less.",
+      "flavorText": "\"Show yourself, thief.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "1aca163e-abff-459f-9925-09dda212dce2"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pidw",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GEIST_OF_THE_ARCHIVES: CardData = {
+  "scryfallId": "0c826f99-3bb9-40b6-a96e-fa15216c9b01",
+  "oracleId": "345964ea-12b6-44be-b1a6-50178768b8f4",
+  "name": "Geist of the Archives",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Geist of the Archives",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Defender\nAt the beginning of your upkeep, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Lake Hurwitz",
+      "imageId": "0c826f99-3bb9-40b6-a96e-fa15216c9b01"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Defender",
+    "Scry"
+  ],
+  "setCode": "sir",
+  "collectorNumber": "72",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GERRARD_S_COMMAND: CardData = {
+  "scryfallId": "cdb56601-35dd-4b79-80d1-1dff785e32cd",
+  "oracleId": "de8ebe4b-d86d-478b-946e-f83e1409b63f",
+  "name": "Gerrard's Command",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gerrard's Command",
+      "manaCost": "{G}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Untap target creature. It gets +3/+3 until end of turn.",
+      "flavorText": "\"Unless you like the idea of becoming some goblin's lunch, get up and move!\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Roger Raupp",
+      "imageId": "cdb56601-35dd-4b79-80d1-1dff785e32cd"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dde",
+  "collectorNumber": "53",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GERRARD_S_WISDOM: CardData = {
+  "scryfallId": "71618fb4-22ab-4ef5-932d-69bf596a69d0",
+  "oracleId": "3e30e8f2-f437-4620-a3bc-dd9c29ae6570",
+  "name": "Gerrard's Wisdom",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gerrard's Wisdom",
+      "manaCost": "{2}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "You gain 2 life for each card in your hand.",
+      "flavorText": "A picture is worth a thousand swords.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Donato Giancola",
+      "imageId": "71618fb4-22ab-4ef5-932d-69bf596a69d0"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "7ed",
+  "collectorNumber": "16★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GHOUL_S_FEAST: CardData = {
+  "scryfallId": "6a0054c1-6510-41dd-8695-9bf50296b615",
+  "oracleId": "042e0533-faf4-475e-be7b-438d23c6e605",
+  "name": "Ghoul's Feast",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ghoul's Feast",
+      "manaCost": "{1}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +X/+0 until end of turn, where X is the number of creature cards in your graveyard.",
+      "flavorText": "Mercadians not wealthy enough to buy a tomb are thrown into a bog called \"the Ghoul's Larder.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Alan Pollack",
+      "imageId": "6a0054c1-6510-41dd-8695-9bf50296b615"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "137",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GIANT_S_IRE: CardData = {
+  "scryfallId": "046fa2db-4c73-401a-b9a4-b039554be625",
+  "oracleId": "73d175b3-f0dc-4599-8702-2967a8ead06a",
+  "name": "Giant's Ire",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Giant's Ire",
+      "manaCost": "{3}{R}",
+      "typeLine": "Kindred Sorcery — Giant",
+      "oracleText": "Giant's Ire deals 4 damage to target player or planeswalker. If you control a Giant, draw a card.",
+      "flavorText": "The only feeling greater than hurling something a mile is crushing something else with it that was really, really irritating you.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Alex Horley-Orlandelli",
+      "imageId": "046fa2db-4c73-401a-b9a4-b039554be625"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "lrw",
+  "collectorNumber": "170",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GLIDER_KIDS: CardData = {
+  "scryfallId": "0613afb5-4cee-4132-8adf-404767ed8d07",
+  "oracleId": "ff5ce28b-25be-4136-a7b2-8f25c08a6455",
+  "name": "Glider Kids",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Glider Kids",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Pilot Ally",
+      "oracleText": "Flying\nWhen this creature enters, scry 1. (Look at the top card of your library. You may put it on the bottom.)",
+      "flavorText": "The Fire Nation never expected the Earth Kingdom to take to the skies.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "ikeda_cpt",
+      "imageId": "0613afb5-4cee-4132-8adf-404767ed8d07"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Scry",
+    "Flying"
+  ],
+  "setCode": "tla",
+  "collectorNumber": "21",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AZORIUS_GUILDGATE: CardData = {
+  "scryfallId": "093bdc0f-bf04-48d3-91d1-28bc8a0f25be",
+  "oracleId": "ad1712d8-809f-410c-8b91-ffe6fb8a69a1",
+  "name": "Azorius Guildgate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Azorius Guildgate",
+      "manaCost": "",
+      "typeLine": "Land — Gate",
+      "oracleText": "This land enters tapped.\n{T}: Add {W} or {U}.",
+      "flavorText": "Enter the Senate, the seat of justice and the foundation of Ravnican society.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Drew Baker",
+      "imageId": "093bdc0f-bf04-48d3-91d1-28bc8a0f25be"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "c13",
+  "collectorNumber": "275",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -36685,6 +37274,23 @@ export const ENGINE_CARDS: CardData[] = [
   FRACTURE,
   FRACTURING_GUST,
   FRANTIC_FIREBOLT,
+  FRANTIC_INVENTORY,
+  FYNDHORN_BOW,
+  GAEA_S_MIGHT,
+  GALADHRIM_GUIDE,
+  GALE_FORCE,
+  GALE_SWOOPER,
+  GALVANIC_BOMBARDMENT,
+  GATES_ABLAZE,
+  GAZE_OF_ADAMARO,
+  GAZE_OF_GRANITE,
+  GEIST_OF_THE_ARCHIVES,
+  GERRARD_S_COMMAND,
+  GERRARD_S_WISDOM,
+  GHOUL_S_FEAST,
+  GIANT_S_IRE,
+  GLIDER_KIDS,
+  AZORIUS_GUILDGATE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

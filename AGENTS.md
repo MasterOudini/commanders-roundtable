@@ -5909,6 +5909,40 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       prior items stand.
 
 
+- [x] **M6.4bd — Sixteen landed: the self-name censuses, the Gate sweep,
+      and the upkeep scry (2026-08-20):** **2,734 of 31,692
+      Commander-legal cards now execute completely, up from 2,718.**
+      `SHIPPED_SCRIPTS` 821 → 837; ledger 282. Decisions in **D215**.
+      **Firsts:** the SELF-NAME censuses (Frantic Inventory draws 1+n,
+      Galvanic Bombardment burns 2+n off the caster's own graveyard);
+      the GATE census sweep (Gates Ablaze — the zero-Gate cast a true
+      no-op, Azorius Guildgate joining WANTED as the support body); the
+      first YOUR-upkeep scry (Geist of the Archives — the first ask
+      lands on turn 3, the opponent's upkeep passing silently); the
+      first Domain SpellDef (Gaea's Might); the ETB scry pair (Galadhrim
+      Guide 2 / Glider Kids 1); the flying-only sweep (Gale Force); the
+      X-bounded nonland wipe (Gaze of Granite); untap+pump in one
+      resolve (Gerrard's Command).
+      ⚠️ **Ghostly Flicker probed to a DOUBLE silent narrowing** (counted
+      triple compound → confident artifact-only) — refused, never
+      drafted.
+      ⚠️ **Two drafted mana costs were wrong and the tests caught both
+      at first run** (Giant's Ire {3}{R}, Ghoul's Feast {1}{B}) — costs
+      are read off the dump at classification now.
+      ⚠️ **Nine refusals, ONE new class:** copy effect (populate) — the
+      ledger's first CR 707 entry.
+      Fixtures 1,052 · botPool creature 1,574 / instant 468 / sorcery
+      317 / artifact 79 · ladder [2319, 2418, 4211, 6125, 7337] ·
+      batch.json 1,700 · botDeck: Adun reaches 1,541.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 915
+      files, 5,399 passed / 10 skipped · 500-seed gate
+      741.5 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D215): the second-clause family (eight) and
+      the counted-list widening top the targeting queue; the compound
+      sweep-probe stays overdue; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

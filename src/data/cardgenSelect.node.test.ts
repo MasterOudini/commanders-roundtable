@@ -617,6 +617,21 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Forced Landing', 'keyword target qualifier unenforced'],
   ["Fortune's Favor", 'opponent-chooses'],
   ['Fractalize', 'until-end-of-turn base P/T set'],
+  // D215 — Full Flowering populates (CR 707 copy machinery, a NEW class);
+  // Ghostly Flicker's 'two target artifacts, creatures, and/or lands you
+  // control' parses confident to min2/max2 kinds ['artifact'] controller
+  // 'any' — a DOUBLE silent narrowing (probed); Geosurge's mana is
+  // spend-restricted (The Grey Havens' pool-metadata gap); Fumble's
+  // reattach-to-another is the caster's pick.
+  ['Frost Breath', 'up-to-N targeting'],
+  ['Full Flowering', 'copy effect (populate)'],
+  ['Fumble', 'script-raised prompt'],
+  ["Galuf's Final Act", 'temporary non-keyword ability grant'],
+  ['Geosurge', 'conditional mana production'],
+  ['Ghostly Flicker', 'spell target parse (counted list)'],
+  ['Gift of Tusks', 'until-end-of-turn base P/T set'],
+  ['Glimpse of Nature', 'temporary game-wide trigger'],
+  ['Glimpse the Sun God', 'cast-time computed target count'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

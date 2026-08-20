@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { FRANTIC_INVENTORY_SCRIPT } from './cards/franticInventory';
+import { FYNDHORN_BOW_SCRIPT } from './cards/fyndhornBow';
+import { GAEAS_MIGHT_SCRIPT } from './cards/gaeasMight';
+import { GALADHRIM_GUIDE_SCRIPT } from './cards/galadhrimGuide';
+import { GALE_FORCE_SCRIPT } from './cards/galeForce';
+import { GALE_SWOOPER_SCRIPT } from './cards/galeSwooper';
+import { GALVANIC_BOMBARDMENT_SCRIPT } from './cards/galvanicBombardment';
+import { GATES_ABLAZE_SCRIPT } from './cards/gatesAblaze';
+import { GAZE_OF_ADAMARO_SCRIPT } from './cards/gazeOfAdamaro';
+import { GAZE_OF_GRANITE_SCRIPT } from './cards/gazeOfGranite';
+import { GEIST_OF_THE_ARCHIVES_SCRIPT } from './cards/geistOfTheArchives';
+import { GERRARDS_COMMAND_SCRIPT } from './cards/gerrardsCommand';
+import { GERRARDS_WISDOM_SCRIPT } from './cards/gerrardsWisdom';
+import { GHOULS_FEAST_SCRIPT } from './cards/ghoulsFeast';
+import { GIANTS_IRE_SCRIPT } from './cards/giantsIre';
+import { GLIDER_KIDS_SCRIPT } from './cards/gliderKids';
 import { FLAMES_OF_THE_RAZE_BOAR_SCRIPT } from './cards/flamesOfTheRazeBoar';
 import { FLASHFIRES_SCRIPT } from './cards/flashfires';
 import { FLAY_ESSENCE_SCRIPT } from './cards/flayEssence';
@@ -942,6 +958,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FRANTIC_INVENTORY_SCRIPT,
+  FYNDHORN_BOW_SCRIPT,
+  GAEAS_MIGHT_SCRIPT,
+  GALADHRIM_GUIDE_SCRIPT,
+  GALE_FORCE_SCRIPT,
+  GALE_SWOOPER_SCRIPT,
+  GALVANIC_BOMBARDMENT_SCRIPT,
+  GATES_ABLAZE_SCRIPT,
+  GAZE_OF_ADAMARO_SCRIPT,
+  GAZE_OF_GRANITE_SCRIPT,
+  GEIST_OF_THE_ARCHIVES_SCRIPT,
+  GERRARDS_COMMAND_SCRIPT,
+  GERRARDS_WISDOM_SCRIPT,
+  GHOULS_FEAST_SCRIPT,
+  GIANTS_IRE_SCRIPT,
+  GLIDER_KIDS_SCRIPT,
   FLAMES_OF_THE_RAZE_BOAR_SCRIPT,
   FLASHFIRES_SCRIPT,
   FLAY_ESSENCE_SCRIPT,

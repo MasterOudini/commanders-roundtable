@@ -1351,6 +1351,25 @@ const WANTED = [
   'Fracture',
   'Fracturing Gust',
   'Frantic Firebolt',
+  // M6.4bd (D215) - batch 49: the self-name censuses, the Gate sweep, and
+  // the upkeep scry.
+  'Frantic Inventory',
+  'Fyndhorn Bow',
+  "Gaea's Might",
+  'Galadhrim Guide',
+  'Gale Force',
+  'Gale Swooper',
+  'Galvanic Bombardment',
+  'Gates Ablaze',
+  'Gaze of Adamaro',
+  'Gaze of Granite',
+  'Geist of the Archives',
+  "Gerrard's Command",
+  "Gerrard's Wisdom",
+  "Ghoul's Feast",
+  "Giant's Ire",
+  'Glider Kids',
+  'Azorius Guildgate',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

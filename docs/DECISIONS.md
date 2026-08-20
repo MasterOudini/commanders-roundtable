@@ -14389,3 +14389,58 @@ batch.json 1,725 · botDeck: Adun reaches 1,531.
 **Reportables:** the compound families (pairs and Icy triples) have now
 produced FOUR holes — the sweep-probe over every printed combination is
 overdue and cheap; prior items stand.
+
+## D215 — M6.4bd: sixteen landed — the self-name censuses, the Gate sweep, and the upkeep scry (2026-08-20)
+
+**Coverage: 2,718 → 2,734 of 31,692 (+16).** `SHIPPED_SCRIPTS` 821 → 837;
+the ledger 273 → 282 (+9, ONE new class); the pool 1,725 → 1,700;
+fixtures 1,035 → 1,052 (+17: the sixteen plus `Azorius Guildgate` as the
+Gate-census support body — no new tokens).
+
+**The firsts.** `Frantic Inventory` and `Galvanic Bombardment` are the
+SELF-NAME censuses — the card counts its own name in its caster's
+graveyard (draws 1+n; damage 2+n) — and `Growth Cycle`'s shape next
+batch inherits them. `Gates Ablaze` is the first GATE-subtype census (X
+Gates → X to each creature; the zero-Gate cast is a true no-op, and the
+support Guildgate joined WANTED for it). `Geist of the Archives` is the
+first YOUR-upkeep scry — the activePlayer filter proven by the calendar:
+the first ask lands on TURN 3, the opponent's turn-2 upkeep passing
+silently. `Gaea's Might` is the first Domain consumer in a SpellDef
+(BASICS land-type count). `Fyndhorn Bow` grants first strike from an
+artifact's activated; `Gale Force` is the flying-ONLY sweep (Earthquake
+inverted); `Gaze of Granite` the X-bounded nonland wipe; `Gaze of
+Adamaro` the hand-size player burn; `Gerrard's Command` untap+pump in
+one resolve; `Gerrard's Wisdom` the hand-count gain (the cast spell
+never counts); `Ghoul's Feast` the graveyard creature-census pump;
+`Giant's Ire` the Giant-conditioned draw rider (Bulwark Giant already a
+fixture); `Galadhrim Guide` (scry 2, NO reminder) and `Glider Kids`
+(scry 1, 'put it' reminder) the ETB scry pair; `Gale Swooper` the
+targeted ETB flying grant.
+
+⚠️ **Ghostly Flicker probed to a DOUBLE silent narrowing** — 'two target
+artifacts, creatures, and/or lands you control' parses confident to
+min2/max2 kinds ['artifact'] controller 'any': the counted-list hazard
+AND the compound hole in one clause. Refused by probe, never drafted.
+
+⚠️ **Two drafted mana costs were wrong and the first test run caught
+both** — Giant's Ire is {3}{R} (drafted as {2}{R}), Ghoul's Feast {1}{B}
+(drafted as {B}). The lesson is mechanical: read `manaCost` off the
+dump/fixture at draft time the way oracle text already is; the D216
+port notes carry every cost pre-verified.
+
+**Nine refusals, ONE new class:** `Full Flowering` names 'copy effect
+(populate)' — the first CR 707 entry in the ledger. Plus Frost Breath
+(up-to-N), Fumble and Galuf's Final Act, Geosurge (spend-restricted
+mana — The Grey Havens' gap), Gift of Tusks (base P/T set), Glimpse of
+Nature (temporary game-wide trigger), Glimpse the Sun God (cast-time
+computed count), and Ghostly Flicker.
+
+**Measured after landing:** primitives complete 2,734 · blocked 28,958 ·
+scriptableToday 2,319 · ladder [2319, 2418, 4211, 6125, 7337] · tier3
+silentAfter 3,145 (+16 exact) · botPool creature 1,574 / instant 468 /
+sorcery 317 / artifact 79 / land 264 · batch.json 1,700 · botDeck: Adun
+reaches 1,541.
+
+**Reportables:** the second-clause family (eight) and the counted-list
+widening top the targeting queue; the compound sweep-probe stays
+overdue and cheap; prior items stand.
