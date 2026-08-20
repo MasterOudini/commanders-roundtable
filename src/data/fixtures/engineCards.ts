@@ -38662,6 +38662,569 @@ export const MASS_CALCIFY: CardData = {
   "singleImage": true
 };
 
+export const MASSIVE_RAID: CardData = {
+  "scryfallId": "8b16fbd8-fb62-4f75-92b3-a6295d95b327",
+  "oracleId": "032367fd-e869-463e-aa0f-65e3c6567e60",
+  "name": "Massive Raid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Massive Raid",
+      "manaCost": "{1}{R}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Massive Raid deals damage to any target equal to the number of creatures you control.",
+      "flavorText": "\"The Boros lack vision. Give them a convenient scapegoat and they'll be blind to the true threats.\"\n—Lazav",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "8b16fbd8-fb62-4f75-92b3-a6295d95b327"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "gtc",
+  "collectorNumber": "100",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MASTER_THE_WAY: CardData = {
+  "scryfallId": "704743a8-27d6-4db9-8fe1-f65f5f3a955f",
+  "oracleId": "909a10f5-a607-474f-8b8b-0176fd840650",
+  "name": "Master the Way",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Master the Way",
+      "manaCost": "{3}{U}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw a card. Master the Way deals damage to any target equal to the number of cards in your hand.",
+      "flavorText": "\"The Way has no beginning and no end. It is simply the path.\"\n—Narset, khan of the Jeskai",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "704743a8-27d6-4db9-8fe1-f65f5f3a955f"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ktk",
+  "collectorNumber": "188",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MASTER_S_REBUKE: CardData = {
+  "scryfallId": "7d42ca7c-5b36-45a9-b235-4f90e66f4377",
+  "oracleId": "e68ff836-6e51-4c3a-91e5-f0d649297245",
+  "name": "Master's Rebuke",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Master's Rebuke",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control deals damage equal to its power to target creature or planeswalker you don't control.",
+      "flavorText": "\"You have always been a promising student, but your arrogance far outstrips your prowess.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Francisco Miyara",
+      "imageId": "7d42ca7c-5b36-45a9-b235-4f90e66f4377"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "neo",
+  "collectorNumber": "202",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MATHEMAGICS: CardData = {
+  "scryfallId": "102d4882-9774-4370-aff3-370f7729d7dd",
+  "oracleId": "5f56a303-b3da-41df-a959-7823a87ee60c",
+  "name": "Mathemagics",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mathemagics",
+      "manaCost": "{X}{X}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player draws 2ˣ cards. (2⁰ = 1, 2¹ = 2, 2² = 4, 2³ = 8, 2⁴ = 16, 2⁵ = 32, and so on.)",
+      "flavorText": "\"Theory? Meet practice.\"\n—Tam, Quandrix second-year",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Liiga Smilshkalne",
+      "imageId": "102d4882-9774-4370-aff3-370f7729d7dd"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "sos",
+  "collectorNumber": "320",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MELT_TERRAIN: CardData = {
+  "scryfallId": "1d94a1d1-6d24-46e1-9568-42e1a810ad31",
+  "oracleId": "1c0940d6-9f0d-4d84-ab28-ff6595254675",
+  "name": "Melt Terrain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Melt Terrain",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target land. Melt Terrain deals 2 damage to that land's controller.",
+      "flavorText": "Just as the most finely wrought metal can warp and rust, so too does Mirrodin buckle under pressures from without and within.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "John Avon",
+      "imageId": "1d94a1d1-6d24-46e1-9568-42e1a810ad31"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "som",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MELTDOWN: CardData = {
+  "scryfallId": "173369d2-dc39-4bfe-a602-b47156570365",
+  "oracleId": "8fd85a54-f0c7-4e9f-a4b4-b9b513b98d95",
+  "name": "Meltdown",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Meltdown",
+      "manaCost": "{X}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy each artifact with mana value X or less.",
+      "flavorText": "Catastrophes happened so often at the mana rig that the viashino language had a special word to describe them.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Donato Giancola",
+      "imageId": "173369d2-dc39-4bfe-a602-b47156570365"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mh3",
+  "collectorNumber": "282",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MERCADIA_S_DOWNFALL: CardData = {
+  "scryfallId": "14507fe6-80a9-4ed4-bf3e-4656f3d377c0",
+  "oracleId": "2c1201b2-5036-4e68-b36d-cdaf54b4993d",
+  "name": "Mercadia's Downfall",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mercadia's Downfall",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Each attacking creature gets +1/+0 until end of turn for each nonbasic land defending player controls.",
+      "flavorText": "With an explosion that shook the foundation of the city, the *Weatherlight* burst from the underground hangar.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "14507fe6-80a9-4ed4-bf3e-4656f3d377c0"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "205",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MESA_CAVALIER: CardData = {
+  "scryfallId": "feeec740-7ffc-4f57-b52c-92209da91d69",
+  "oracleId": "898763f8-a333-43f5-9f66-52e2adbe5758",
+  "name": "Mesa Cavalier",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mesa Cavalier",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Flying\nWhen this creature enters, you gain 2 life.",
+      "flavorText": "In the fight to defeat Phyrexia, the courage of Benalish knights is matched only by that of their pegasus steeds.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "David Palumbo",
+      "imageId": "feeec740-7ffc-4f57-b52c-92209da91d69"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "dmu",
+  "collectorNumber": "26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MESSENGER_DRAKE: CardData = {
+  "scryfallId": "13dd3172-0b45-4dc8-adc6-9e0ba112e664",
+  "oracleId": "4c62dce6-dc1f-4d2d-95dd-295810ada6a6",
+  "name": "Messenger Drake",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Messenger Drake",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Creature — Drake",
+      "oracleText": "Flying\nWhen this creature dies, draw a card.",
+      "flavorText": "The more important the message, the larger the messenger.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Yeong-Hao Han",
+      "imageId": "13dd3172-0b45-4dc8-adc6-9e0ba112e664"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "m14",
+  "collectorNumber": "63",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MESSENGER_FALCONS: CardData = {
+  "scryfallId": "f088f625-9c72-4949-8e53-c2313397a197",
+  "oracleId": "01fda82a-227d-4e3d-8481-a13c3812392a",
+  "name": "Messenger Falcons",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Messenger Falcons",
+      "manaCost": "{2}{G/U}{W}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying\nWhen this creature enters, draw a card.",
+      "flavorText": "So many aven had died scouting the distant fronts that the knight-captains recruited Nayan falcons as couriers.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "U",
+        "W"
+      ],
+      "artist": "David Palumbo",
+      "imageId": "f088f625-9c72-4949-8e53-c2313397a197"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "arb",
+  "collectorNumber": "145",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const METAL_FATIGUE: CardData = {
+  "scryfallId": "9fa32494-24bc-44c7-81d4-7285bd1fe3c8",
+  "oracleId": "f817352a-908a-4cb5-8e10-feeb770540fc",
+  "name": "Metal Fatigue",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Metal Fatigue",
+      "manaCost": "{2}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Tap all artifacts.",
+      "flavorText": "The Auriok have fought the metal hordes for so long now that knowing how to cripple them has become an instinct.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Arnie Swekel",
+      "imageId": "9fa32494-24bc-44c7-81d4-7285bd1fe3c8"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dst",
+  "collectorNumber": "8",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const METICULOUS_ARCHIVE: CardData = {
+  "scryfallId": "170701a7-2c29-401e-a0be-178c9f469076",
+  "oracleId": "ccfb8b4d-651c-418a-aa19-cb23105b3f2f",
+  "name": "Meticulous Archive",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Meticulous Archive",
+      "manaCost": "",
+      "typeLine": "Land — Plains Island",
+      "oracleText": "({T}: Add {W} or {U}.)\nThis land enters tapped.\nWhen this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Sam Burley",
+      "imageId": "170701a7-2c29-401e-a0be-178c9f469076"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "pmkm",
+  "collectorNumber": "264p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const METROPOLIS_ANGEL: CardData = {
+  "scryfallId": "633c7e38-fdad-461c-9ecb-3e89d5b80f24",
+  "oracleId": "c29b592c-7115-4464-beba-e79f62691593",
+  "name": "Metropolis Angel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Metropolis Angel",
+      "manaCost": "{2}{W}{U}",
+      "typeLine": "Creature — Angel Soldier",
+      "oracleText": "Flying\nWhenever you attack with one or more creatures with counters on them, draw a card.",
+      "flavorText": "\"Angels are living proof that power does not always lead to corruption.\"\n—Elspeth",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Lie Setiawan",
+      "imageId": "633c7e38-fdad-461c-9ecb-3e89d5b80f24"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "snc",
+  "collectorNumber": "203",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIGHT_OF_ALARA: CardData = {
+  "scryfallId": "9514c013-bc11-4cc5-af8c-f82fd4098bcf",
+  "oracleId": "44570849-b2b0-47a8-9d77-f7c738896a0a",
+  "name": "Might of Alara",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Might of Alara",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Domain — Target creature gets +1/+1 until end of turn for each basic land type among lands you control.",
+      "flavorText": "The combined strength of all five planes spawned creations none had seen before.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "9514c013-bc11-4cc5-af8c-f82fd4098bcf"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Domain"
+  ],
+  "setCode": "con",
+  "collectorNumber": "85",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIGHT_OF_THE_ANCESTORS: CardData = {
+  "scryfallId": "54f82c95-8bc1-4df9-9120-86ffc059c7dd",
+  "oracleId": "5e4107ce-8450-4501-9cb3-a6344ef320f1",
+  "name": "Might of the Ancestors",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Might of the Ancestors",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "At the beginning of combat on your turn, target creature you control gets +2/+0 and gains vigilance until end of turn.",
+      "flavorText": "Malamet histories speak of a time when they were not yet confined to mortal bodies and existed as ferocity unrestrained.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Aldo Domínguez",
+      "imageId": "54f82c95-8bc1-4df9-9120-86ffc059c7dd"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "lci",
+  "collectorNumber": "23",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIGHT_OF_THE_MASSES: CardData = {
+  "scryfallId": "10465f4f-f4ff-45d8-bc97-3ec85e5eea70",
+  "oracleId": "f73416a8-40e5-4791-948f-147ef2221ee7",
+  "name": "Might of the Masses",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Might of the Masses",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +1/+1 until end of turn for each creature you control.",
+      "flavorText": "The Joraga elves never need ask a troll to leave their territory. They merely grant it their combined strength, and it can't resist embarking on a merry rampage.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "10465f4f-f4ff-45d8-bc97-3ec85e5eea70"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "roe",
+  "collectorNumber": "196",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -42162,6 +42725,22 @@ export const ENGINE_CARDS: CardData[] = [
   MARTYR_S_CRY,
   MASS_APPEAL,
   MASS_CALCIFY,
+  MASSIVE_RAID,
+  MASTER_THE_WAY,
+  MASTER_S_REBUKE,
+  MATHEMAGICS,
+  MELT_TERRAIN,
+  MELTDOWN,
+  MERCADIA_S_DOWNFALL,
+  MESA_CAVALIER,
+  MESSENGER_DRAKE,
+  MESSENGER_FALCONS,
+  METAL_FATIGUE,
+  METICULOUS_ARCHIVE,
+  METROPOLIS_ANGEL,
+  MIGHT_OF_ALARA,
+  MIGHT_OF_THE_ANCESTORS,
+  MIGHT_OF_THE_MASSES,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

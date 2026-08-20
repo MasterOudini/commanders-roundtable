@@ -14873,3 +14873,55 @@ reaches 1,615.
 **Reportables:** the combat-qualifier class joins the keyword/color
 qualifier convergence at the aim layer (D139's playbook, one field
 over); detain joins the structural tail; prior items stand.
+
+## D224 — M6.4bm: sixteen landed — the per-attacker combat pump reads each defender's board (2026-08-20)
+
+**Coverage: 2,869 → 2,885 of 31,692 (+16).** `SHIPPED_SCRIPTS` 972 → 988;
+the ledger 346 → 355 (+9, ZERO new classes); the pool 1,500 → 1,475;
+fixtures 1,189 → 1,205 (+16, no new tokens).
+
+**The headliner:** `Mercadia's Downfall` — the first PER-ATTACKER
+computed combat pump: each attacking creature's bonus is censused off
+its OWN defending player's nonbasic lands (Meriadoc's `DefenderRef`
+walked per attacker, a planeswalker defender resolving to its
+controller), so two attackers at two defenders can get two different
+numbers. The test gives the defender one nonbasic (Darksteel Citadel)
+and one basic Mountain — the hit is 2+1, the basic uncounted.
+
+**Also:** `Mathemagics` (2-to-the-X target draws — Exponential
+Growth's arithmetic on Braingeyser's shape, reminder text and all);
+`Master's Rebuke` and `Might of Alara` land Bite Down's and Gaea's
+Might's EXACT texts on second ids, each with a twin assert;
+`Master the Way` draws FIRST and burns for the hand INCLUDING the
+drawn card; `Massive Raid` / `Might of the Masses` are the creature
+census as burn and as pump; `Meltdown` bounds the artifact sweep by X;
+`Melt Terrain`'s recoil is its own sentence (an indestructible land
+still costs its controller 2); `Metal Fatigue` taps every artifact;
+`Meticulous Archive` extends the surveil lands; `Metropolis Angel`
+draws off any COUNTERED attacker (the instance fact, via
+ManualSetCounter in the test); `Might of the Ancestors` carries Blood
+Mist's targeted begin-combat trigger with +2/+0 AND the D194 vigilance
+rider in one entry; plus the Mesa Cavalier / Messenger Drake /
+Messenger Falcons ETB-and-dies twins.
+
+⚠️ **Two draft-time catches, both by the machinery:** the
+DeclareAttackers intent REFUSED bare instance ids at `tsc` (the typed
+{card, defender} pair named both test sites before a suite ran), and
+Metropolis Angel's hand-delta was measured BEFORE the walk to combat —
+the turn's own draw step inflated both variants by one, so the capture
+moved to after the advance, beside a comment naming the trap.
+
+**Nine refusals, ZERO new classes:** Meditate's whole-turn skip files
+under phase skipping; Mental Misstep is D220's numeric-EXACT hole
+verbatim ('mana value 1'); Meteor Storm's random-discard cost sits
+under ctx.random; plus the X-count control theft, cast-from-graveyard,
+regenerate, incubate, kicker memory, and a script-raised prompt.
+
+**Measured after landing:** primitives complete 2,885 · blocked 28,807 ·
+scriptableToday 2,168 · ladder [2168, 2267, 4060, 5974, 7186] · tier3
+silentAfter 3,296 (+16 exact) · botPool creature 1,592 / instant 530 /
+sorcery 379 / artifact 81 / enchantment 33 / land 270 · batch.json
+1,475 · botDeck: Adun reaches 1,622.
+
+**Reportables:** the numeric-exact widening (two ledger cards now);
+prior items stand.

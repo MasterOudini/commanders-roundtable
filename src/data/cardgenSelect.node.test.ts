@@ -740,6 +740,19 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Malicious Advice', 'cast-time computed target count'],
   ['Mana Vapors', 'untap restriction'],
   ['Manhole Missile', 'script-raised prompt'],
+  // D224 — Meditate SKIPS A WHOLE TURN (Empty City Ruse's flag family);
+  // Mental Misstep is D220's numeric-EXACT hole verbatim ('mana value 1');
+  // Meteor Storm's activation cost discards at random (the RNG stub and the
+  // discard-cost chooser in one printed line).
+  ['Mass Manipulation', 'cast-time computed target count'],
+  ['Meditate', 'phase skipping'],
+  ['Memory Plunder', 'play-from-exile permission'],
+  ['Mending Touch', 'regeneration'],
+  ['Mental Misstep', 'spell target parse (numeric exact)'],
+  ['Merciless Repurposing', 'incubate mechanic'],
+  ['Merfolk Falconer', 'kicker memory'],
+  ['Metamorphose', 'script-raised prompt'],
+  ['Meteor Storm', 'ctx.random'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

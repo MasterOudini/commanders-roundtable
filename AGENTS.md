@@ -6195,6 +6195,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       aim-layer convergence (D139's playbook); prior items stand.
 
 
+- [x] **M6.4bm — Sixteen landed: the per-attacker combat pump
+      (2026-08-20):** **2,885 of 31,692 Commander-legal cards now execute
+      completely, up from 2,869.** `SHIPPED_SCRIPTS` 972 → 988; ledger
+      355. Decisions in **D224**.
+      **The headliner: Mercadia's Downfall** — each attacker's bonus
+      censused off its OWN defending player's nonbasic lands (the
+      DefenderRef walked per attacker; a planeswalker defender resolves
+      to its controller).
+      **Also:** Mathemagics (2-to-the-X target draws); Master's Rebuke +
+      Might of Alara (Bite Down's and Gaea's Might's exact texts on
+      second ids); Master the Way (the burn counts the hand INCLUDING
+      its own draw); the census burn/pump pair; Meltdown's X-bounded
+      artifact sweep; Melt Terrain's unconditional recoil; Metal
+      Fatigue's artifact board tap; the Meticulous Archive surveil land;
+      Metropolis Angel's countered-attacker draw; Might of the
+      Ancestors' begin-combat +2/+0-and-vigilance.
+      ⚠️ **Two draft-time catches:** DeclareAttackers' typed pair failed
+      the bare-id drafts at tsc; the hand-delta capture moved BEHIND the
+      walk to combat (the turn's own draw inflated it).
+      ⚠️ **Nine refusals, ZERO new classes.**
+      Fixtures 1,205 · botPool creature 1,592 / instant 530 / sorcery
+      379 / enchantment 33 / land 270 · ladder [2168, 2267, 4060, 5974,
+      7186] · batch.json 1,475 · botDeck: Adun reaches 1,622.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,067
+      files, 6,144 passed / 10 skipped · 500-seed gate
+      740.8 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D224): the numeric-exact widening holds two
+      ledger cards; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

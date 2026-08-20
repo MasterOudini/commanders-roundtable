@@ -1523,6 +1523,24 @@ const WANTED = [
   "Martyr's Cry",
   'Mass Appeal',
   'Mass Calcify',
+  // M6.4bm (D224) - batch 58: the per-attacker combat pump, the 2-to-the-X
+  // draw, and the Bite Down / Gaea's Might text twins.
+  'Massive Raid',
+  'Master the Way',
+  "Master's Rebuke",
+  'Mathemagics',
+  'Melt Terrain',
+  'Meltdown',
+  "Mercadia's Downfall",
+  'Mesa Cavalier',
+  'Messenger Drake',
+  'Messenger Falcons',
+  'Metal Fatigue',
+  'Meticulous Archive',
+  'Metropolis Angel',
+  'Might of Alara',
+  'Might of the Ancestors',
+  'Might of the Masses',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

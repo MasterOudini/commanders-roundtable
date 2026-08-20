@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { MASSIVE_RAID_SCRIPT } from './cards/massiveRaid';
+import { MASTER_THE_WAY_SCRIPT } from './cards/masterTheWay';
+import { MASTERS_REBUKE_SCRIPT } from './cards/mastersRebuke';
+import { MATHEMAGICS_SCRIPT } from './cards/mathemagics';
+import { MELT_TERRAIN_SCRIPT } from './cards/meltTerrain';
+import { MELTDOWN_SCRIPT } from './cards/meltdown';
+import { MERCADIAS_DOWNFALL_SCRIPT } from './cards/mercadiasDownfall';
+import { MESA_CAVALIER_SCRIPT } from './cards/mesaCavalier';
+import { MESSENGER_DRAKE_SCRIPT } from './cards/messengerDrake';
+import { MESSENGER_FALCONS_SCRIPT } from './cards/messengerFalcons';
+import { METAL_FATIGUE_SCRIPT } from './cards/metalFatigue';
+import { METICULOUS_ARCHIVE_SCRIPT } from './cards/meticulousArchive';
+import { METROPOLIS_ANGEL_SCRIPT } from './cards/metropolisAngel';
+import { MIGHT_OF_ALARA_SCRIPT } from './cards/mightOfAlara';
+import { MIGHT_OF_THE_ANCESTORS_SCRIPT } from './cards/mightOfTheAncestors';
+import { MIGHT_OF_THE_MASSES_SCRIPT } from './cards/mightOfTheMasses';
 import { LUCID_DREAMS_SCRIPT } from './cards/lucidDreams';
 import { LUNAR_INSIGHT_SCRIPT } from './cards/lunarInsight';
 import { LUNGE_SCRIPT } from './cards/lunge';
@@ -1093,6 +1109,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MASSIVE_RAID_SCRIPT,
+  MASTER_THE_WAY_SCRIPT,
+  MASTERS_REBUKE_SCRIPT,
+  MATHEMAGICS_SCRIPT,
+  MELT_TERRAIN_SCRIPT,
+  MELTDOWN_SCRIPT,
+  MERCADIAS_DOWNFALL_SCRIPT,
+  MESA_CAVALIER_SCRIPT,
+  MESSENGER_DRAKE_SCRIPT,
+  MESSENGER_FALCONS_SCRIPT,
+  METAL_FATIGUE_SCRIPT,
+  METICULOUS_ARCHIVE_SCRIPT,
+  METROPOLIS_ANGEL_SCRIPT,
+  MIGHT_OF_ALARA_SCRIPT,
+  MIGHT_OF_THE_ANCESTORS_SCRIPT,
+  MIGHT_OF_THE_MASSES_SCRIPT,
   LUCID_DREAMS_SCRIPT,
   LUNAR_INSIGHT_SCRIPT,
   LUNGE_SCRIPT,
