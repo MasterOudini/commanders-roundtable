@@ -14773,3 +14773,53 @@ sorcery 365 / land 266 · batch.json 1,550 · botDeck: Adun reaches
 **Reportables:** the SpellDef discard ask opens the Mind-Rot-shaped
 family to scripts (any draw-then-discard or punish-discard wording
 with the ask last); prior items stand.
+
+## D222 — M6.4bk: fifteen landed — Legion's End composes three precedents in one resolve (2026-08-20)
+
+**Coverage: 2,839 → 2,854 of 31,692 (+15).** `SHIPPED_SCRIPTS` 942 → 957;
+the ledger 326 → 336 (+10, no new classes); the pool 1,550 → 1,525;
+fixtures 1,159 → 1,174 (+15, no new tokens). All 43 tests green on the
+FIRST run — the fifth first-run-clean batch in six.
+
+**The headliner:** `Legion's End` runs Declaration in Stone's name
+match, Echoing Decay's battlefield fan, and Hour of Glory's
+hand-reveal-and-exile in ONE resolve — the target, its battlefield
+twin, its hand twin, and its graveyard twin all leave for exile with
+the hand shown to every seat, and the bystander card stays. Three
+landed precedents, zero new machinery.
+
+**Also:** `Lightning Helix` (the classic, trivially). `Liturgy of
+Blood` pays {B}{B}{B} through an indestructible miss (CR 608.2c — the
+Myr survives and the mana still arrives). `Looming Spires` is the
+targeted ETB trigger on a LAND (tapped entry, then the ask, then the
++1/+1-and-first-strike answer). `Lavalanche` fans X off the TARGET's
+controller. `Lay Bare` counters and looks — the hand revealed to the
+CASTER alone (Gitaxian Probe's looking-is-not-choosing). `Leeches`
+drains the poison and returns it as damage. `Leave No Trace` is
+Radiance on a destroy (the red target and its red kin die, the blue
+enchantment is spared). `Lava Flow`'s creature-or-land compound holds
+both arms. `Last Breath`'s exile pays its victim's controller 4
+(unconditional rider). Plus Last Kiss, Life Burst's cross-graveyard
+namesake gain, Lush-Portico-family surveil/scry lands (Lorehold
+Campus at #a1, Lost Legion's ETB scry 2, Lothlórien Lookout's
+attacks-scry), and Marsh-Gas-era board math next batch.
+
+⚠️ **A diacritic quirk pinned:** 'Lothlórien Lookout' — constName
+strips the ó, so the fixture const is `LOTHL_RIEN_LOOKOUT` while the
+module keeps its ASCII filename and export. The port notes carry the
+rule for the next accented name.
+
+**Ten refusals, no new classes:** clash, the un-templated
+attacking-or-blocking modal, a computed threshold, two up-to-Ns, the
+keyword qualifier, the D204-probed second-clause negative (Leeching
+Bite's mid-sentence 'Another target'), the modified predicate, the
+indefinite color change, and the owner's top-or-bottom pick.
+
+**Measured after landing:** primitives complete 2,854 · blocked 28,838 ·
+scriptableToday 2,199 · ladder [2199, 2298, 4091, 6005, 7217] · tier3
+silentAfter 3,265 (+15 exact) · botPool creature 1,587 / instant 517 /
+sorcery 370 / land 268 · batch.json 1,525 · botDeck: Adun reaches
+1,608.
+
+**Reportables:** the composition ceiling keeps rising with zero new
+machinery — Legion's End is three precedents deep; prior items stand.

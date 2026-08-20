@@ -6136,6 +6136,36 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       Mind-Rot-shaped family to scripts; prior items stand.
 
 
+- [x] **M6.4bk — Fifteen landed: Legion's End composes three precedents
+      in one resolve (2026-08-20):** **2,854 of 31,692 Commander-legal
+      cards now execute completely, up from 2,839.** `SHIPPED_SCRIPTS`
+      942 → 957; ledger 336. All 43 tests first-run green — the fifth
+      such batch in six. Decisions in **D222**.
+      **The headliner: Legion's End** — Declaration in Stone's name
+      match + Echoing Decay's fan + Hour of Glory's hand exile in ONE
+      resolve: four namesakes leave three zones, the hand goes public,
+      the bystander stays. Zero new machinery.
+      **Also:** Lightning Helix; Liturgy of Blood (paid through an
+      indestructible miss); Looming Spires (the targeted ETB trigger
+      on a LAND); Lavalanche (X fanned off the target's controller);
+      Lay Bare (the look revealed to the CASTER alone); Leeches (the
+      poison drain); Leave No Trace (Radiance destroy); the surveil
+      and scry lands (Lush Portico, Lorehold Campus, Lost Legion,
+      Lothlórien Lookout).
+      ⚠️ **A diacritic quirk pinned:** constName strips the ó —
+      fixture const `LOTHL_RIEN_LOOKOUT`, ASCII filename and export.
+      ⚠️ **Ten refusals, no new classes.**
+      Fixtures 1,174 · botPool creature 1,587 / instant 517 / sorcery
+      370 / land 268 · ladder [2199, 2298, 4091, 6005, 7217] ·
+      batch.json 1,525 · botDeck: Adun reaches 1,608.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,036
+      files, 5,993 passed / 10 skipped · 500-seed gate
+      816.5 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D222): the composition ceiling keeps rising
+      with zero new machinery; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

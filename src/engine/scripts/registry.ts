@@ -7,6 +7,21 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { LAST_BREATH_SCRIPT } from './cards/lastBreath';
+import { LAST_KISS_SCRIPT } from './cards/lastKiss';
+import { LAVA_FLOW_SCRIPT } from './cards/lavaFlow';
+import { LAVALANCHE_SCRIPT } from './cards/lavalanche';
+import { LAY_BARE_SCRIPT } from './cards/layBare';
+import { LEAVE_NO_TRACE_SCRIPT } from './cards/leaveNoTrace';
+import { LEECHES_SCRIPT } from './cards/leeches';
+import { LEGIONS_END_SCRIPT } from './cards/legionsEnd';
+import { LIFE_BURST_SCRIPT } from './cards/lifeBurst';
+import { LIGHTNING_HELIX_SCRIPT } from './cards/lightningHelix';
+import { LITURGY_OF_BLOOD_SCRIPT } from './cards/liturgyOfBlood';
+import { LOOMING_SPIRES_SCRIPT } from './cards/loomingSpires';
+import { LOREHOLD_CAMPUS_SCRIPT } from './cards/loreholdCampus';
+import { LOST_LEGION_SCRIPT } from './cards/lostLegion';
+import { LOTHLORIEN_LOOKOUT_SCRIPT } from './cards/lothlorienLookout';
 import { JOKULHAUPS_SCRIPT } from './cards/jokulhaups';
 import { JOVIAL_EVIL_SCRIPT } from './cards/jovialEvil';
 import { JOYOUS_RESPITE_SCRIPT } from './cards/joyousRespite';
@@ -1063,6 +1078,21 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  LAST_BREATH_SCRIPT,
+  LAST_KISS_SCRIPT,
+  LAVA_FLOW_SCRIPT,
+  LAVALANCHE_SCRIPT,
+  LAY_BARE_SCRIPT,
+  LEAVE_NO_TRACE_SCRIPT,
+  LEECHES_SCRIPT,
+  LEGIONS_END_SCRIPT,
+  LIFE_BURST_SCRIPT,
+  LIGHTNING_HELIX_SCRIPT,
+  LITURGY_OF_BLOOD_SCRIPT,
+  LOOMING_SPIRES_SCRIPT,
+  LOREHOLD_CAMPUS_SCRIPT,
+  LOST_LEGION_SCRIPT,
+  LOTHLORIEN_LOOKOUT_SCRIPT,
   JOKULHAUPS_SCRIPT,
   JOVIAL_EVIL_SCRIPT,
   JOYOUS_RESPITE_SCRIPT,

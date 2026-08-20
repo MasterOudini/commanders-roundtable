@@ -1489,6 +1489,23 @@ const WANTED = [
   'Landbind Ritual',
   'Languish',
   "Laquatus's Creativity",
+  // M6.4bk (D222) - batch 56: Legion's End's triple composition,
+  // Lightning Helix, and the poison drain.
+  'Last Breath',
+  'Last Kiss',
+  'Lava Flow',
+  'Lavalanche',
+  'Lay Bare',
+  'Leave No Trace',
+  'Leeches',
+  "Legion's End",
+  'Life Burst',
+  'Lightning Helix',
+  'Liturgy of Blood',
+  'Looming Spires',
+  'Lorehold Campus',
+  'Lost Legion',
+  'Lothlórien Lookout',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

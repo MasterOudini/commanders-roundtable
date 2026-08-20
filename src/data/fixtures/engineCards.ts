@@ -37630,6 +37630,527 @@ export const LAQUATUS_S_CREATIVITY: CardData = {
   "singleImage": true
 };
 
+export const LAST_BREATH: CardData = {
+  "scryfallId": "12cca37a-7efd-4b01-bf96-15d0a032524d",
+  "oracleId": "e6fb4f0d-ce49-4913-a2ef-88365e4916cf",
+  "name": "Last Breath",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Last Breath",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Exile target creature with power 2 or less. Its controller gains 4 life.",
+      "flavorText": "He gasped in wonder even as his body crumbled away.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Christina Davis",
+      "imageId": "12cca37a-7efd-4b01-bf96-15d0a032524d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "2x2",
+  "collectorNumber": "15",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LAST_KISS: CardData = {
+  "scryfallId": "348f480f-8f68-4060-b964-f67515930549",
+  "oracleId": "bc59bf58-373d-4562-9a67-0721fcf2f098",
+  "name": "Last Kiss",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Last Kiss",
+      "manaCost": "{2}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Last Kiss deals 2 damage to target creature and you gain 2 life.",
+      "flavorText": "\"Romanticize it, glamorize it, call it what you will. To me, it will always be carnal, bloody murder.\"\n—Ayli, Kamsa cleric",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Vance Kovacs",
+      "imageId": "348f480f-8f68-4060-b964-f67515930549"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "roe",
+  "collectorNumber": "116",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LAVA_FLOW: CardData = {
+  "scryfallId": "89e825e4-98be-49f0-bc5e-c8988118dcef",
+  "oracleId": "91c0a76e-3992-437f-b85a-97b0b4adbb84",
+  "name": "Lava Flow",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lava Flow",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target creature or land.",
+      "flavorText": "People ran as never before at the thought of being buried and cremated at the same time.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mike Dringenberg",
+      "imageId": "89e825e4-98be-49f0-bc5e-c8988118dcef"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "por",
+  "collectorNumber": "138",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LAVALANCHE: CardData = {
+  "scryfallId": "749981d6-78e7-4f53-80a8-f211e61bd532",
+  "oracleId": "4475e9a7-4e94-4965-8e7e-211d40a98217",
+  "name": "Lavalanche",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lavalanche",
+      "manaCost": "{X}{B}{R}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Lavalanche deals X damage to target player or planeswalker and each creature that player or that planeswalker's controller controls.",
+      "flavorText": "Alara's burning blood cannot be contained by mere earth and stone.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G",
+        "R"
+      ],
+      "artist": "Steve Argyle",
+      "imageId": "749981d6-78e7-4f53-80a8-f211e61bd532"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "arb",
+  "collectorNumber": "118",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LAY_BARE: CardData = {
+  "scryfallId": "0454c2a8-b17d-4cdf-8562-9a28bc6cf0be",
+  "oracleId": "4d3ac460-79ac-4eef-9446-1b9fe0261556",
+  "name": "Lay Bare",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lay Bare",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target spell. Look at its controller's hand.",
+      "flavorText": "\"It's good to learn from your failures, but I prefer to learn from the failures of others.\"\n—Jace Beleren",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Chippy",
+      "imageId": "0454c2a8-b17d-4cdf-8562-9a28bc6cf0be"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "roe",
+  "collectorNumber": "74",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LEAVE_NO_TRACE: CardData = {
+  "scryfallId": "58466d46-7225-42ff-8471-6d489be32cf3",
+  "oracleId": "a9367efe-82f2-43e4-9692-205567be6a0c",
+  "name": "Leave No Trace",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Leave No Trace",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Radiance — Destroy target enchantment and each other enchantment that shares a color with it.",
+      "flavorText": "The magic of the Boros patrols the streets even when their soldiers do not.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Pat Lee",
+      "imageId": "58466d46-7225-42ff-8471-6d489be32cf3"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Radiance"
+  ],
+  "setCode": "rav",
+  "collectorNumber": "23",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LEECHES: CardData = {
+  "scryfallId": "90db206e-b254-476c-b2f3-1cd56bb5297d",
+  "oracleId": "0a265cb5-47c7-4e06-9030-602e17bedae5",
+  "name": "Leeches",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Leeches",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player loses all poison counters. Leeches deals that much damage to that player.",
+      "flavorText": "\"Where our potions and powders fail, perhaps nature will succeed.\"\n—Reyhan, Samite Alchemist",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Alan Rabinowitz",
+      "imageId": "90db206e-b254-476c-b2f3-1cd56bb5297d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "hml",
+  "collectorNumber": "9",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LEGION_S_END: CardData = {
+  "scryfallId": "097b02c7-ef0b-4c7f-893e-22e116f38bfd",
+  "oracleId": "7df8a8aa-1856-4fe6-a543-5de65da4f49f",
+  "name": "Legion's End",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Legion's End",
+      "manaCost": "{1}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Exile target creature an opponent controls with mana value 2 or less and all other creatures that player controls with the same name as that creature. Then that player reveals their hand and exiles all cards with that name from their hand and graveyard.",
+      "flavorText": "\"With a single word, they were unmade.\"\n—Krinnea, *Siege of the Bone Spire*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "David Palumbo",
+      "imageId": "097b02c7-ef0b-4c7f-893e-22e116f38bfd"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "pm20",
+  "collectorNumber": "106s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LIFE_BURST: CardData = {
+  "scryfallId": "7f8eee50-efd2-45fd-b815-051167ef4541",
+  "oracleId": "dc10544f-dd30-4d4a-b6e6-bbed7d1ed4a7",
+  "name": "Life Burst",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Life Burst",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Target player gains 4 life, then gains 4 life for each card named Life Burst in each graveyard.",
+      "flavorText": "As uplifting as a mystic's dreams.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Avon",
+      "imageId": "7f8eee50-efd2-45fd-b815-051167ef4541"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "30",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LIGHTNING_HELIX: CardData = {
+  "scryfallId": "1b2ecf55-c1cc-4b28-b7ce-e1b25305155e",
+  "oracleId": "800c258a-cfc4-4a54-a667-065ea8dea69e",
+  "name": "Lightning Helix",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lightning Helix",
+      "manaCost": "{R}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Lightning Helix deals 3 damage to any target and you gain 3 life.",
+      "flavorText": "Though less well-known than its army of soldiers, the Boros Legion's mage-priests are as respected by the innocent as they are hated by the ghosts of the guilty.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "1b2ecf55-c1cc-4b28-b7ce-e1b25305155e"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "rav",
+  "collectorNumber": "213",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LITURGY_OF_BLOOD: CardData = {
+  "scryfallId": "3532105d-c550-4c20-8465-a6a19169efbd",
+  "oracleId": "aabea4a2-5107-4abd-a0c7-ac0024d98ae0",
+  "name": "Liturgy of Blood",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Liturgy of Blood",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target creature. Add {B}{B}{B}.",
+      "flavorText": "\"You harbor such vast potential. It would be such a shame to let you die of old age.\"\n—Zul Ashur, lich lord",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "3532105d-c550-4c20-8465-a6a19169efbd"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "m14",
+  "collectorNumber": "104",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LOOMING_SPIRES: CardData = {
+  "scryfallId": "b88177a2-de41-417d-a8f1-07edf005b453",
+  "oracleId": "7d09b136-525f-49dd-a3a2-dfaca4e8e9a8",
+  "name": "Looming Spires",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Looming Spires",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, target creature gets +1/+1 and gains first strike until end of turn.\n{T}: Add {R}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Florian de Gesincourt",
+      "imageId": "b88177a2-de41-417d-a8f1-07edf005b453"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "bfz",
+  "collectorNumber": "238",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LOREHOLD_CAMPUS: CardData = {
+  "scryfallId": "b6ad08da-c9e8-4061-a4a6-032d6957a403",
+  "oracleId": "45773715-3f46-4671-b633-bf087e892e26",
+  "name": "Lorehold Campus",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lorehold Campus",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {R} or {W}.\n{4}, {T}: Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": "Mage-students obsessed with the secrets of the past choose Lorehold, the college of archaeomancy.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Titus Lunter",
+      "imageId": "b6ad08da-c9e8-4061-a4a6-032d6957a403"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "soc",
+  "collectorNumber": "384",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LOST_LEGION: CardData = {
+  "scryfallId": "2d6139d3-5397-4403-9c1e-312c11a7542b",
+  "oracleId": "b8f3b5b5-8835-400f-a626-94ff0a007e56",
+  "name": "Lost Legion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lost Legion",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Creature — Spirit Knight",
+      "oracleText": "When this creature enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": "Even death cannot diminish the persistence of the knights of Locthwain.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Anastasia Ovchinnikova",
+      "imageId": "2d6139d3-5397-4403-9c1e-312c11a7542b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "eld",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LOTHL_RIEN_LOOKOUT: CardData = {
+  "scryfallId": "4e3639c1-ebc3-4a0b-ab93-549e45aff0f7",
+  "oracleId": "ed839fae-3429-4ac5-997c-286d8e8cf05f",
+  "name": "Lothlórien Lookout",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lothlórien Lookout",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Elf Scout",
+      "oracleText": "Whenever this creature attacks, scry 1.",
+      "flavorText": "\"That was the custom of the Elves of Lórien, to dwell in the trees. Therefore they were called Galadhrim, the Tree-people.\"\n—Legolas",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Daniel Correia",
+      "imageId": "4e3639c1-ebc3-4a0b-ab93-549e45aff0f7"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "ltr",
+  "collectorNumber": "175",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -41100,6 +41621,21 @@ export const ENGINE_CARDS: CardData[] = [
   LANDBIND_RITUAL,
   LANGUISH,
   LAQUATUS_S_CREATIVITY,
+  LAST_BREATH,
+  LAST_KISS,
+  LAVA_FLOW,
+  LAVALANCHE,
+  LAY_BARE,
+  LEAVE_NO_TRACE,
+  LEECHES,
+  LEGION_S_END,
+  LIFE_BURST,
+  LIGHTNING_HELIX,
+  LITURGY_OF_BLOOD,
+  LOOMING_SPIRES,
+  LOREHOLD_CAMPUS,
+  LOST_LEGION,
+  LOTHL_RIEN_LOOKOUT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -710,6 +710,20 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Kruphix's Insight", 'script-raised prompt'],
   ['Lair Delve', 'script-raised prompt'],
   ['Larder Zombie', 'tap-creatures cost'],
+  // D222 — Lava Storm's attacking-or-blocking arm is an un-templated
+  // modal (Essence Filter's shape); Leeching Bite's mid-sentence
+  // 'Another target' is D204's PROBED negative; Lost in Space hands
+  // the top-or-bottom pick to the card's OWNER.
+  ['Lash Out', 'clash mechanic'],
+  ['Lava Storm', 'script-raised prompt'],
+  ['Lay Down Arms', 'computed target threshold'],
+  ['Lead Astray', 'up-to-N targeting'],
+  ['Leaf Arrow', 'keyword target qualifier unenforced'],
+  ['Leeching Bite', 'spell target parse (second clause)'],
+  ['Lethal Exploit', 'modified predicate'],
+  ['Lifelace', 'color change (indefinite)'],
+  ['Light of Judgment', 'up-to-N targeting'],
+  ['Lost in Space', 'script-raised prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
