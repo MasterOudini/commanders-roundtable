@@ -13861,3 +13861,65 @@ land 261 / sorcery 238 · fixtures 876 (70 tokens — none new).
 **Reportables:** the second-clause family at SIX cards is the heaviest
 named parse slice; the flicker opens the blink family (its ETB re-trigger
 compositions are now testable); prior items stand.
+
+## D205 — M6.4at: sixteen landed — the conditional counterspell, and the unregistered-batch failure shape (2026-08-20)
+
+**Coverage: 2,563 → 2,579 of 31,692 (+16).** `SHIPPED_SCRIPTS` 666 → 682;
+the ledger 178 → 187 (+9); the pool 1,975 → 1,950.
+
+**The firsts.** `Corrupted Resolve` is the first CONDITIONAL
+counterspell — "if its controller is poisoned" read at RESOLUTION off
+`players[p].poison`, and the no-poison branch is a genuine no-op: the
+spell resolves doing nothing, its victim stays on the stack (both
+branches pinned). `Crystal Ball` is the activated scry on an ARTIFACT —
+Castle Vantress's D202 shape minus the condition, and the {1},{T} line
+indexes #a0 because keyword lines never count (Advance Scout's rule).
+`Cruel Truths` pins the ASK-LAST ordering from the emitter's side: the
+flat life loss precedes the surveil ask in one resolve — commuting
+riders may run first, the ask must be the LAST event or the tail would
+be silently dropped (D195's rule, met by construction). `Cut a Deal`
+is the first each-opponent-draws-then-you-draw-per-drawer resolve.
+`Cruel Witness` watches noncreature casts and raises the D195 ask from
+a trigger; `Corrupt` drains for the Swamp count; `Crypt Incursion`
+exiles a graveyard's creature cards for 3 life each; `Culling Sun` is
+the MV≤3 wipe; `Cower in Fear` the opponents-only board debuff;
+`Cruel Bargain` pays ceil(life/2); plus the artifact wipe, the
+artifact/enchantment/land destroy, the haste grant, the sorcery draw,
+and `Crumble` — whose "can't be regenerated" clause joins the
+Damnation tripwire's client list.
+
+⚠️ **THE FAILURE SHAPE WORTH A NAME: a suppression test failing
+`expected undefined to be defined` means the module is NOT REGISTERED,
+not that the parse moved.** `land.cjs` validates every named module
+BEFORE writing and exits on the first failure having written NOTHING —
+this batch's first land call died on an export-name check, the retry
+registered only the one corrected module, and the other fifteen sat
+in-tree unregistered: ten spell suites then failed the registry half of
+the suppression predicate at once. A mass suppression failure's first
+question is "did land.cjs actually write?", answered by a probe of
+`parseEffects` modes (all ten were manual/assisted — the vocabulary had
+not moved at all).
+
+**Nine refusals, ONE new class:** `Cracked Earth Technique` (LAND
+ANIMATION — a type-changing continuous effect with counters and a
+delayed return, nothing the state can carry). Plus `Cosmic Hunger` —
+the second-clause family's SEVENTH card — a counted list
+(`Counterintelligence`), two play-from-exile permissions
+(`Counterlash`, `Counterpoint`), the keyword-LOSS direction
+(`Crash Landing` — flying's loss is D194's carrier in the direction it
+does not hold), a script-raised prompt (`Culling Ritual`), an
+opponent-chooses (`Curfew`), and a computed threshold whose bound the
+parse silently DROPS (`Cut Down` — landing it would destroy a 10/10).
+
+**Measured after landing:** primitives complete 2,579 · blocked 29,113 ·
+scriptableToday 2,474 · ladder [2474, 2573, 4366, 6280, 7492] · tier3
+abilityText 17,124 / silentAfter 2,990 (+16 exact) · botPool creature
+1,563 / instant 403 / sorcery 245 / artifact 76 / land 261 · fixtures
+892 (70 tokens — none new) · batch.json 1,950 · botDeck: Adun reaches
+1,436.
+
+**Reportables:** the second-clause family at SEVEN cards is the
+heaviest named parse slice and its widening is due; the scry/surveil
+trigger matrix now spans every shape (ETB, cast, tapped, attacks,
+activated, dies) — the family table is overdue by count; prior items
+stand.

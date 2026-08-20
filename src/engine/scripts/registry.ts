@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { CORRUPT_SCRIPT } from './cards/corrupt';
+import { CORRUPTED_RESOLVE_SCRIPT } from './cards/corruptedResolve';
+import { COSMIC_EPIPHANY_SCRIPT } from './cards/cosmicEpiphany';
+import { COWER_IN_FEAR_SCRIPT } from './cards/cowerInFear';
+import { CREEPING_CORROSION_SCRIPT } from './cards/creepingCorrosion';
+import { CREEPING_MOLD_SCRIPT } from './cards/creepingMold';
+import { CRIMSON_MAGE_SCRIPT } from './cards/crimsonMage';
+import { CRUEL_BARGAIN_SCRIPT } from './cards/cruelBargain';
+import { CRUEL_TRUTHS_SCRIPT } from './cards/cruelTruths';
+import { CRUEL_WITNESS_SCRIPT } from './cards/cruelWitness';
+import { CRUMBLE_SCRIPT } from './cards/crumble';
+import { CRUSHING_DISAPPOINTMENT_SCRIPT } from './cards/crushingDisappointment';
+import { CRYPT_INCURSION_SCRIPT } from './cards/cryptIncursion';
+import { CRYSTAL_BALL_SCRIPT } from './cards/crystalBall';
+import { CULLING_SUN_SCRIPT } from './cards/cullingSun';
+import { CUT_ADEAL_SCRIPT } from './cards/cutADeal';
 import { CLOUDSHIFT_SCRIPT } from './cards/cloudshift';
 import { COLLECTIVE_UNCONSCIOUS_SCRIPT } from './cards/collectiveUnconscious';
 import { COMBAT_PROFESSOR_SCRIPT } from './cards/combatProfessor';
@@ -787,6 +803,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CORRUPT_SCRIPT,
+  CORRUPTED_RESOLVE_SCRIPT,
+  COSMIC_EPIPHANY_SCRIPT,
+  COWER_IN_FEAR_SCRIPT,
+  CREEPING_CORROSION_SCRIPT,
+  CREEPING_MOLD_SCRIPT,
+  CRIMSON_MAGE_SCRIPT,
+  CRUEL_BARGAIN_SCRIPT,
+  CRUEL_TRUTHS_SCRIPT,
+  CRUEL_WITNESS_SCRIPT,
+  CRUMBLE_SCRIPT,
+  CRUSHING_DISAPPOINTMENT_SCRIPT,
+  CRYPT_INCURSION_SCRIPT,
+  CRYSTAL_BALL_SCRIPT,
+  CULLING_SUN_SCRIPT,
+  CUT_ADEAL_SCRIPT,
   CLOUDSHIFT_SCRIPT,
   COLLECTIVE_UNCONSCIOUS_SCRIPT,
   COMBAT_PROFESSOR_SCRIPT,

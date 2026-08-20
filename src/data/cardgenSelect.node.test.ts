@@ -463,6 +463,22 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Consume Strength', 'spell target parse (second clause)'],
   ['Contaminated Drink', 'rad counters'],
   ['Contest of Claws', 'discover mechanic'],
+  // D205 — Cosmic Hunger probed: 'another target creature, planeswalker,
+  // or battle' is the second-clause shape (the family's SEVENTH card);
+  // Cut Down probed: the SUM qualifier ('total power and toughness 5 or
+  // less') parses confident with the bound silently DROPPED — landing it
+  // would destroy a 10/10; Crash Landing needs the keyword LOSS direction
+  // the carrier does not hold; Cracked Earth Technique animates a land
+  // with counters and a delayed return.
+  ['Cosmic Hunger', 'spell target parse (second clause)'],
+  ['Counterintelligence', 'spell target parse (counted list)'],
+  ['Counterlash', 'play-from-exile permission'],
+  ['Counterpoint', 'play-from-exile permission'],
+  ['Cracked Earth Technique', 'land animation (type change)'],
+  ['Crash Landing', 'temporary keyword/ability grant'],
+  ['Culling Ritual', 'script-raised prompt'],
+  ['Curfew', 'opponent-chooses'],
+  ['Cut Down', 'computed target threshold'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

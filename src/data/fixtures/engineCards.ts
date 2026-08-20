@@ -27866,6 +27866,555 @@ export const CORROSIVE_GALE: CardData = {
   "singleImage": true
 };
 
+export const CORRUPT: CardData = {
+  "scryfallId": "0f7c6f6f-9516-4cfd-830f-5910a25bd1a2",
+  "oracleId": "a88a1c53-7de3-423a-a95a-24ed5666ab96",
+  "name": "Corrupt",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Corrupt",
+      "manaCost": "{5}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Corrupt deals damage to any target equal to the number of Swamps you control. You gain life equal to the damage dealt this way.",
+      "flavorText": "\"Most wise, most thoughtful, most powerful qadir,\" said the Gixian, \"we offer whatever help we may give in your illustrious name.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Julie Dillon",
+      "imageId": "0f7c6f6f-9516-4cfd-830f-5910a25bd1a2"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "bro",
+  "collectorNumber": "382",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CORRUPTED_RESOLVE: CardData = {
+  "scryfallId": "28432161-023b-4a98-b92a-55dc6d936cd1",
+  "oracleId": "87837a94-05db-48fe-b810-26d8f92cfc58",
+  "name": "Corrupted Resolve",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Corrupted Resolve",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target spell if its controller is poisoned.",
+      "flavorText": "\"Flesh is a sickness that infects Phyrexia.\"\n—Avaricta, Gitaxian sective",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "28432161-023b-4a98-b92a-55dc6d936cd1"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "nph",
+  "collectorNumber": "32",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COSMIC_EPIPHANY: CardData = {
+  "scryfallId": "2652d991-08b1-40ab-ab90-be91a0270463",
+  "oracleId": "fad32e19-2eda-46b7-8d3c-b95a7dbeabc2",
+  "name": "Cosmic Epiphany",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cosmic Epiphany",
+      "manaCost": "{4}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw cards equal to the number of instant and sorcery cards in your graveyard.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Eli Minaya",
+      "imageId": "2652d991-08b1-40ab-ab90-be91a0270463"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "prm",
+  "collectorNumber": "103406",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COWER_IN_FEAR: CardData = {
+  "scryfallId": "08e3cc81-2c08-4281-aa16-4c22f141f31d",
+  "oracleId": "f1519fe3-af13-4491-9020-4a8d8f474713",
+  "name": "Cower in Fear",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cower in Fear",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Creatures your opponents control get -1/-1 until end of turn.",
+      "flavorText": "\"You will fully understand fear when you discover it is the final thing you put your faith in.\"\n—Nicol Bolas",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "08e3cc81-2c08-4281-aa16-4c22f141f31d"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mm3",
+  "collectorNumber": "62",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CREEPING_CORROSION: CardData = {
+  "scryfallId": "05d5a7b3-18b6-4b1d-85cc-2253e605390c",
+  "oracleId": "33eefb22-51a6-4630-9bd2-0895997f6f33",
+  "name": "Creeping Corrosion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Creeping Corrosion",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all artifacts.",
+      "flavorText": "\"We will reveal the futility of their heresy by showing them how fragile their relics are.\"\n—Vorinclex, Voice of Hunger",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ryan Pancoast",
+      "imageId": "05d5a7b3-18b6-4b1d-85cc-2253e605390c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mbs",
+  "collectorNumber": "78",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CREEPING_MOLD: CardData = {
+  "scryfallId": "05613c39-d9cb-417d-b211-86ebdf66b760",
+  "oracleId": "59180e94-ccdf-4d9f-9a4a-fe55497d0d63",
+  "name": "Creeping Mold",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Creeping Mold",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target artifact, enchantment, or land.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Cliff Childs",
+      "imageId": "05613c39-d9cb-417d-b211-86ebdf66b760"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "klr",
+  "collectorNumber": "158",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRIMSON_MAGE: CardData = {
+  "scryfallId": "0f69ccfc-e2a9-40af-b8ab-85bffe62c0f4",
+  "oracleId": "d7bf23c4-172a-42fd-b826-3b074a588610",
+  "name": "Crimson Mage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crimson Mage",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "{R}: Target creature you control gains haste until end of turn. (It can attack and {T} this turn.)",
+      "flavorText": "\"We wield the fires of rage. War is our blood and destruction our birthright.\"\n—Crimson creed",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Izzy",
+      "imageId": "0f69ccfc-e2a9-40af-b8ab-85bffe62c0f4"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m12",
+  "collectorNumber": "129",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRUEL_BARGAIN: CardData = {
+  "scryfallId": "679aefa9-d68b-496c-8a03-bc14d7c9228b",
+  "oracleId": "dcf105c1-d37b-4e92-a420-9872a2187764",
+  "name": "Cruel Bargain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cruel Bargain",
+      "manaCost": "{B}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw four cards. You lose half your life, rounded up.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Adrian Smith",
+      "imageId": "679aefa9-d68b-496c-8a03-bc14d7c9228b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "vma",
+  "collectorNumber": "111",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRUEL_TRUTHS: CardData = {
+  "scryfallId": "6852b4d5-74e0-44ba-ba44-20aa91e3c4c8",
+  "oracleId": "2e68e3f7-b168-4541-b8a0-791a8a6ebde8",
+  "name": "Cruel Truths",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cruel Truths",
+      "manaCost": "{3}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Surveil 2, then draw two cards. You lose 2 life. (To surveil 2, look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": "\"Who are you to defy me? In my time, the sibsig knew their place.\"\n—Sidisi, to Nishang",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Fajareka Setiawan",
+      "imageId": "6852b4d5-74e0-44ba-ba44-20aa91e3c4c8"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "tdm",
+  "collectorNumber": "76",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRUEL_WITNESS: CardData = {
+  "scryfallId": "5bf2c686-efb0-46c7-b34e-c77987914b96",
+  "oracleId": "c1f1ca09-897a-434c-bbb1-e4ad4a1547aa",
+  "name": "Cruel Witness",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cruel Witness",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Creature — Bird Horror",
+      "oracleText": "Flying\nWhenever you cast a noncreature spell, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "\"I escaped, so why do I still feel like I'm being watched?\"\n—Gregel, militia leader",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Vincent Proce",
+      "imageId": "5bf2c686-efb0-46c7-b34e-c77987914b96"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying",
+    "Surveil"
+  ],
+  "setCode": "vow",
+  "collectorNumber": "55",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRUMBLE: CardData = {
+  "scryfallId": "06db0403-dce7-411b-8c3a-8a00b83e681c",
+  "oracleId": "8d6e39b0-a190-40a0-a8e1-ee82f477376f",
+  "name": "Crumble",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crumble",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target artifact. It can't be regenerated. That artifact's controller gains life equal to its mana value.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jesper Myrfors",
+      "imageId": "06db0403-dce7-411b-8c3a-8a00b83e681c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "4bb",
+  "collectorNumber": "239",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRUSHING_DISAPPOINTMENT: CardData = {
+  "scryfallId": "7fbe8cf1-11df-4ca4-9a6b-265193c49250",
+  "oracleId": "77a1958e-ee24-4305-9dad-da8372803be8",
+  "name": "Crushing Disappointment",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crushing Disappointment",
+      "manaCost": "{3}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Each player loses 2 life. You draw two cards.",
+      "flavorText": "Most students could barely endure Dean Embrose's scrutiny for a semester or two; Killian lived with it his entire life.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Andrey Kuzinskiy",
+      "imageId": "7fbe8cf1-11df-4ca4-9a6b-265193c49250"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "stx",
+  "collectorNumber": "68",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRYPT_INCURSION: CardData = {
+  "scryfallId": "a543d28b-2fef-42d6-b08f-e81009a307e4",
+  "oracleId": "ce00e0d0-c6f4-4fe8-97c3-7279b06d8fdb",
+  "name": "Crypt Incursion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crypt Incursion",
+      "manaCost": "{2}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Exile all creature cards from target player's graveyard. You gain 3 life for each card exiled this way.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "a543d28b-2fef-42d6-b08f-e81009a307e4"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pio",
+  "collectorNumber": "88",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRYSTAL_BALL: CardData = {
+  "scryfallId": "56dc98fb-a956-46f7-aca2-97929b4236ee",
+  "oracleId": "bd85fe4d-1d62-416f-ac2d-e287911c84e3",
+  "name": "Crystal Ball",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crystal Ball",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{1}, {T}: Scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": "It glints with arcane truths to those who know how to glimpse them.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Ron Spencer",
+      "imageId": "56dc98fb-a956-46f7-aca2-97929b4236ee"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "m11",
+  "collectorNumber": "203",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CULLING_SUN: CardData = {
+  "scryfallId": "5ec5a956-c846-46b6-91bd-37e4db542280",
+  "oracleId": "e41d9b3a-0712-4174-8c5c-224065a63b16",
+  "name": "Culling Sun",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Culling Sun",
+      "manaCost": "{2}{W}{W}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy each creature with mana value 3 or less.",
+      "flavorText": "\"Who truly runs this city? Look to the sky on hallowed days, and see whose sigil is stamped clearly onto the heavens.\"\n—Vuliev of the Ghost Council",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Daren Bader",
+      "imageId": "5ec5a956-c846-46b6-91bd-37e4db542280"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "gpt",
+  "collectorNumber": "109",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CUT_A_DEAL: CardData = {
+  "scryfallId": "088388a6-1cc3-4782-91af-504e70f40a97",
+  "oracleId": "8b5cffd5-5db3-4151-9275-d91387554412",
+  "name": "Cut a Deal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cut a Deal",
+      "manaCost": "{2}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each opponent draws a card, then you draw a card for each opponent who drew a card this way.",
+      "flavorText": "\"Enjoy your family, Richards. And remember every time you look at your wife and daughter that Doom saved them both . . . when you could not.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Nanna Marie Steffensen",
+      "imageId": "088388a6-1cc3-4782-91af-504e70f40a97"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "msc",
+  "collectorNumber": "127",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -31053,6 +31602,22 @@ export const ENGINE_CARDS: CardData[] = [
   CONSUMING_CORRUPTION,
   CONTRABAND_KINGPIN,
   CORROSIVE_GALE,
+  CORRUPT,
+  CORRUPTED_RESOLVE,
+  COSMIC_EPIPHANY,
+  COWER_IN_FEAR,
+  CREEPING_CORROSION,
+  CREEPING_MOLD,
+  CRIMSON_MAGE,
+  CRUEL_BARGAIN,
+  CRUEL_TRUTHS,
+  CRUEL_WITNESS,
+  CRUMBLE,
+  CRUSHING_DISAPPOINTMENT,
+  CRYPT_INCURSION,
+  CRYSTAL_BALL,
+  CULLING_SUN,
+  CUT_A_DEAL,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

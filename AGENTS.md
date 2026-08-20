@@ -5602,6 +5602,41 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       cards; the blink family opens on the flicker; prior items stand.
 
 
+- [x] **M6.4at — Sixteen landed: the conditional counterspell
+      (2026-08-20):** **2,579 of 31,692 Commander-legal cards now execute
+      completely, up from 2,563.** `SHIPPED_SCRIPTS` 666 → 682; ledger
+      187. Decisions in **D205**.
+      **Firsts:** the CONDITIONAL counterspell (Corrupted Resolve —
+      "if its controller is poisoned" read at resolution, the no-poison
+      branch a true no-op, both pinned); the activated scry on an
+      ARTIFACT (Crystal Ball — #a0, keyword lines never count); the
+      ask-LAST ordering pinned from the emitter's side (Cruel Truths —
+      life loss before the surveil ask in one resolve); the
+      each-opponent draw with the caster drawing per drawer (Cut a
+      Deal); the noncreature-cast surveil trigger (Cruel Witness); the
+      MV≤3 wipe (Culling Sun); ceil(life/2) (Cruel Bargain); Crumble
+      joins the Damnation tripwire's client list.
+      ⚠️ **The unregistered-batch failure shape named:** land.cjs
+      validates BEFORE writing and exits on the first failure having
+      written NOTHING — a mass suppression failure reading 'expected
+      undefined to be defined' means the modules never registered, and
+      the probe that settles it is parseEffects' modes.
+      ⚠️ **Nine refusals, ONE new class:** land animation (Cracked
+      Earth Technique). Cosmic Hunger is the second-clause family's
+      SEVENTH card; Cut Down's computed threshold parses confident with
+      the bound silently dropped.
+      Fixtures 892 · botPool 1,563/403/245, artifact 76 · ladder [2474,
+      2573, 4366, 6280, 7492] · batch.json 1,950 · botDeck: Adun
+      reaches 1,436.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 760
+      files, 4,616 passed / 10 skipped · 500-seed gate
+      712.8 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D205): the second-clause widening at seven
+      cards; the scry/surveil family table overdue by shape count;
+      prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

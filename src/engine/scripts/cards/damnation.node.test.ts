@@ -28,8 +28,8 @@ describe('the regeneration vacuity argument (Damnation, D192)', () => {
         // clients, not implementations. A new wipe with the clause joins
         // this list deliberately, with the D-entry updated beside it
         // (D192 Damnation · D196 Terminate, Wrath of God · D204 Consume the
-        // Meek).
-        if (['damnation.ts', 'terminate.ts', 'wrathOfGod.ts', 'consumeTheMeek.ts'].includes(entry.name)) continue;
+        // Meek · D205 Crumble).
+        if (['damnation.ts', 'terminate.ts', 'wrathOfGod.ts', 'consumeTheMeek.ts', 'crumble.ts'].includes(entry.name)) continue;
         if (/\bregenerat/i.test(readFileSync(p, 'utf8'))) offenders.push(p);
       }
     };

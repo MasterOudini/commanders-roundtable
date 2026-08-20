@@ -1169,6 +1169,24 @@ const WANTED = [
   'Consuming Corruption',
   'Contraband Kingpin',
   'Corrosive Gale',
+  // M6.4at (D205) - the conditional counter, the artifact activated-scry,
+  // the ask-with-a-commuting-rider, and the batch.
+  'Corrupt',
+  'Corrupted Resolve',
+  'Cosmic Epiphany',
+  'Cower in Fear',
+  'Creeping Corrosion',
+  'Creeping Mold',
+  'Crimson Mage',
+  'Cruel Bargain',
+  'Cruel Truths',
+  'Cruel Witness',
+  'Crumble',
+  'Crushing Disappointment',
+  'Crypt Incursion',
+  'Crystal Ball',
+  'Culling Sun',
+  'Cut a Deal',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
