@@ -724,6 +724,22 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Lifelace', 'color change (indefinite)'],
   ['Light of Judgment', 'up-to-N targeting'],
   ['Lost in Space', 'script-raised prompt'],
+  // D223 — Lyev Decree DETAINS (an until-your-next-turn restriction
+  // bundle, a NEW class); Malamet Brawler's 'target attacking creature'
+  // is the D161 Angelic Page pull finally ledgered (combat qualifiers
+  // are still unenforced at the aim, a NEW class); Make Your Move's
+  // trailing 'power 4 or greater' binds to the CREATURE arm only — a
+  // per-arm qualifier no spec can carry (Exorcise's shape).
+  ['Lyev Decree', 'detain mechanic'],
+  ["Mabel's Mettle", 'up-to-N targeting'],
+  ['Madcap Experiment', 'ctx.random'],
+  ["Mages' Contest", 'bidding mechanic'],
+  ['Magical Hack', 'text-changing effect (CR 612)'],
+  ['Make Your Move', 'spell target parse (noun list)'],
+  ['Malamet Brawler', 'combat target qualifier unenforced'],
+  ['Malicious Advice', 'cast-time computed target count'],
+  ['Mana Vapors', 'untap restriction'],
+  ['Manhole Missile', 'script-raised prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

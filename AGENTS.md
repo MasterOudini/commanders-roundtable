@@ -6166,6 +6166,35 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       with zero new machinery; prior items stand.
 
 
+- [x] **M6.4bl — Fifteen landed: the pool drain, and two new classes the
+      aim layer owes (2026-08-20):** **2,869 of 31,692 Commander-legal
+      cards now execute completely, up from 2,854.** `SHIPPED_SCRIPTS`
+      957 → 972; ledger 346. All 42 tests first-run green — the sixth
+      such batch in seven. Decisions in **D223**.
+      **The headliner: Mana Short** — the first POOL DRAIN: the target's
+      lands tapped in one batch AND their pool emptied
+      (`ManaPoolEmptied`, an event no script had emitted).
+      **Also:** Martyr's Cry (white exile paying EACH controller a draw
+      per own loss); Lys Alana Informant (enters-OR-dies surveil, one
+      shared resolve); Marrow Shards ({W/P} attacker sweep); Magmaquake
+      (X at nonflyers and planeswalkers); Lucid Dreams / Lunar Insight
+      (distinct-types and distinct-values censuses); Lunge's 2/2 split;
+      the Mana Geode scry and Lush Portico surveil lands.
+      ⚠️ **Ten refusals, TWO new classes:** detain (Lyev Decree) and the
+      combat target qualifier (Malamet Brawler — D161's Angelic Page
+      pull finally its own ledger row); Make Your Move's per-arm
+      qualifier files under the noun-list family (Exorcise's shape).
+      Fixtures 1,189 · botPool creature 1,588 / instant 524 / sorcery
+      375 / artifact 81 / land 269 · ladder [2184, 2283, 4076, 5990,
+      7202] · batch.json 1,500 · botDeck: Adun reaches 1,615.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,051
+      files, 6,065 passed / 10 skipped · 500-seed gate
+      740.9 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D223): the combat-qualifier class joins the
+      aim-layer convergence (D139's playbook); prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

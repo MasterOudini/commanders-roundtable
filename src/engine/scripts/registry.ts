@@ -7,6 +7,21 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { LUCID_DREAMS_SCRIPT } from './cards/lucidDreams';
+import { LUNAR_INSIGHT_SCRIPT } from './cards/lunarInsight';
+import { LUNGE_SCRIPT } from './cards/lunge';
+import { LUSH_PORTICO_SCRIPT } from './cards/lushPortico';
+import { LYS_ALANA_INFORMANT_SCRIPT } from './cards/lysAlanaInformant';
+import { MAGMAQUAKE_SCRIPT } from './cards/magmaquake';
+import { MAGNIFY_SCRIPT } from './cards/magnify';
+import { MAKE_OBSOLETE_SCRIPT } from './cards/makeObsolete';
+import { MANA_GEODE_SCRIPT } from './cards/manaGeode';
+import { MANA_SHORT_SCRIPT } from './cards/manaShort';
+import { MARROW_SHARDS_SCRIPT } from './cards/marrowShards';
+import { MARSH_GAS_SCRIPT } from './cards/marshGas';
+import { MARTYRS_CRY_SCRIPT } from './cards/martyrsCry';
+import { MASS_APPEAL_SCRIPT } from './cards/massAppeal';
+import { MASS_CALCIFY_SCRIPT } from './cards/massCalcify';
 import { LAST_BREATH_SCRIPT } from './cards/lastBreath';
 import { LAST_KISS_SCRIPT } from './cards/lastKiss';
 import { LAVA_FLOW_SCRIPT } from './cards/lavaFlow';
@@ -1078,6 +1093,21 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  LUCID_DREAMS_SCRIPT,
+  LUNAR_INSIGHT_SCRIPT,
+  LUNGE_SCRIPT,
+  LUSH_PORTICO_SCRIPT,
+  LYS_ALANA_INFORMANT_SCRIPT,
+  MAGMAQUAKE_SCRIPT,
+  MAGNIFY_SCRIPT,
+  MAKE_OBSOLETE_SCRIPT,
+  MANA_GEODE_SCRIPT,
+  MANA_SHORT_SCRIPT,
+  MARROW_SHARDS_SCRIPT,
+  MARSH_GAS_SCRIPT,
+  MARTYRS_CRY_SCRIPT,
+  MASS_APPEAL_SCRIPT,
+  MASS_CALCIFY_SCRIPT,
   LAST_BREATH_SCRIPT,
   LAST_KISS_SCRIPT,
   LAVA_FLOW_SCRIPT,

@@ -38151,6 +38151,517 @@ export const LOTHL_RIEN_LOOKOUT: CardData = {
   "singleImage": true
 };
 
+export const LUCID_DREAMS: CardData = {
+  "scryfallId": "98aeda3d-3741-4b80-bfef-63bcc599d75b",
+  "oracleId": "bd716715-15a4-4356-ad7e-c642fafbfd18",
+  "name": "Lucid Dreams",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lucid Dreams",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw X cards, where X is the number of card types among cards in your graveyard.",
+      "flavorText": "Never be afraid to look where others can't—or won't.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "98aeda3d-3741-4b80-bfef-63bcc599d75b"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "mh2",
+  "collectorNumber": "50",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LUNAR_INSIGHT: CardData = {
+  "scryfallId": "0a80f2eb-e34a-4f39-a831-d6fb42f6b4cc",
+  "oracleId": "56b4a2f7-2d35-4d05-8d26-4f9f16c5f9f5",
+  "name": "Lunar Insight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lunar Insight",
+      "manaCost": "{2}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw a card for each different mana value among nonland permanents you control.",
+      "flavorText": "\"When wolves howl at the moon, I can't help but wonder: Does it answer? What secrets might it share when humans aren't listening?\"\n—Elinor, philosopher",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Julie Dillon",
+      "imageId": "0a80f2eb-e34a-4f39-a831-d6fb42f6b4cc"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "fdn",
+  "collectorNumber": "310",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LUNGE: CardData = {
+  "scryfallId": "e9e43349-429c-43f7-b808-c4bf37370a9f",
+  "oracleId": "5e642112-9592-475f-ba03-d71544270cfa",
+  "name": "Lunge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lunge",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Lunge deals 2 damage to target creature and 2 damage to target player or planeswalker.",
+      "flavorText": "Cho-Arrim righteousness was no match for Benalish combat training.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dan Frazier",
+      "imageId": "e9e43349-429c-43f7-b808-c4bf37370a9f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "203",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LUSH_PORTICO: CardData = {
+  "scryfallId": "ab42ae1a-0c46-4364-b5f1-7688037e9acc",
+  "oracleId": "d51831b1-7394-456e-a1de-6787a59f5932",
+  "name": "Lush Portico",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lush Portico",
+      "manaCost": "",
+      "typeLine": "Land — Forest Plains",
+      "oracleText": "({T}: Add {G} or {W}.)\nThis land enters tapped.\nWhen this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Kamila Szutenberg",
+      "imageId": "ab42ae1a-0c46-4364-b5f1-7688037e9acc"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "pmkm",
+  "collectorNumber": "263p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LYS_ALANA_INFORMANT: CardData = {
+  "scryfallId": "a79649c4-559e-4306-a102-5fd8750629c7",
+  "oracleId": "b5058b5c-0359-42ec-ba9e-ae1371bb9c22",
+  "name": "Lys Alana Informant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lys Alana Informant",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Elf Scout",
+      "oracleText": "When this creature enters or dies, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "While they are no longer the dominant power on Lorwyn, elves still revel in looking down on others.",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Sidharth Chaturvedi",
+      "imageId": "a79649c4-559e-4306-a102-5fd8750629c7"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "ecl",
+  "collectorNumber": "181",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAGMAQUAKE: CardData = {
+  "scryfallId": "110773d4-d444-4d30-8715-a433185c7167",
+  "oracleId": "a52037df-0be1-4c99-b9eb-b033157af203",
+  "name": "Magmaquake",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Magmaquake",
+      "manaCost": "{X}{R}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Magmaquake deals X damage to each creature without flying and each planeswalker.",
+      "flavorText": "\"Where will you run when I punish you with the very ground you flee on?\"\n—Nicol Bolas",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Gabor Szikszai",
+      "imageId": "110773d4-d444-4d30-8715-a433185c7167"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "c19",
+  "collectorNumber": "148",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAGNIFY: CardData = {
+  "scryfallId": "7b9bb2c6-f1a6-42c3-a7cb-3a1a46854c9b",
+  "oracleId": "421c661a-24d9-4797-b538-2a4243825628",
+  "name": "Magnify",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Magnify",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "All creatures get +1/+1 until end of turn.",
+      "flavorText": "The seed torches' pollen gives off light, but the elves find it heightens their senses as well.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Michael Sutfin",
+      "imageId": "7b9bb2c6-f1a6-42c3-a7cb-3a1a46854c9b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "uds",
+  "collectorNumber": "111",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAKE_OBSOLETE: CardData = {
+  "scryfallId": "4ccfea22-a22e-4b2d-80b2-61d5218355fd",
+  "oracleId": "3ce755f5-855f-4b88-aa10-22f4ee76b28a",
+  "name": "Make Obsolete",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Make Obsolete",
+      "manaCost": "{2}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Creatures your opponents control get -1/-1 until end of turn.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Darek Zabrocki",
+      "imageId": "4ccfea22-a22e-4b2d-80b2-61d5218355fd"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "klr",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MANA_GEODE: CardData = {
+  "scryfallId": "17315a12-a7f8-45ba-ac3b-a62c789e75d0",
+  "oracleId": "0844f4e6-2b98-4d09-a5c5-92f0a3b6a517",
+  "name": "Mana Geode",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mana Geode",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "When this artifact enters, scry 1.\n{T}: Add one mana of any color.",
+      "flavorText": "\"I don't care if it's an all-powerful relic or a street vendor's lucky charm. If it brings you courage, wear it.\"\n—Saheeli Rai",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Raoul Vitale",
+      "imageId": "17315a12-a7f8-45ba-ac3b-a62c789e75d0"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "war",
+  "collectorNumber": "241",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MANA_SHORT: CardData = {
+  "scryfallId": "0fec5898-f288-4fb6-a2d3-2ea6d20594bf",
+  "oracleId": "48207d1c-448a-4e1b-974a-642dfea75933",
+  "name": "Mana Short",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mana Short",
+      "manaCost": "{2}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Tap all lands target player controls and that player loses all unspent mana.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Dameon Willich",
+      "imageId": "0fec5898-f288-4fb6-a2d3-2ea6d20594bf"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "3ed",
+  "collectorNumber": "67",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MARROW_SHARDS: CardData = {
+  "scryfallId": "53ca60ee-e54b-4a28-b6a6-7bf3503c35b4",
+  "oracleId": "be2ae8dc-afae-4bcf-8a97-08a2764d1148",
+  "name": "Marrow Shards",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Marrow Shards",
+      "manaCost": "{W/P}",
+      "typeLine": "Instant",
+      "oracleText": "({W/P} can be paid with either {W} or 2 life.)\nMarrow Shards deals 1 damage to each attacking creature.",
+      "flavorText": "\"We are a single entity. Dissenters must be sutured into the Orthodoxy.\"\n—Elesh Norn, Grand Cenobite",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Raymond Swanland",
+      "imageId": "53ca60ee-e54b-4a28-b6a6-7bf3503c35b4"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "nph",
+  "collectorNumber": "15",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MARSH_GAS: CardData = {
+  "scryfallId": "50124c73-990a-4ee8-a703-df955a9a10c4",
+  "oracleId": "08ae9f91-48c8-4721-a82d-063defc1b727",
+  "name": "Marsh Gas",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Marsh Gas",
+      "manaCost": "{B}",
+      "typeLine": "Instant",
+      "oracleText": "All creatures get -2/-0 until end of turn.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Douglas Shuler",
+      "imageId": "50124c73-990a-4ee8-a703-df955a9a10c4"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "4bb",
+  "collectorNumber": "146",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MARTYR_S_CRY: CardData = {
+  "scryfallId": "c9fb6ef0-0a57-4521-9401-92ad6c614af2",
+  "oracleId": "b636f17d-b54a-4a72-9a5e-ce13e7b4f00a",
+  "name": "Martyr's Cry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Martyr's Cry",
+      "manaCost": "{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Exile all white creatures. For each creature exiled this way, its controller draws a card.",
+      "flavorText": "\"It is only fitting that one such as I should die in pursuit of knowledge.\"\n—Vervamon the Elder",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jeff A. Menges",
+      "imageId": "c9fb6ef0-0a57-4521-9401-92ad6c614af2"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "me4",
+  "collectorNumber": "19",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MASS_APPEAL: CardData = {
+  "scryfallId": "dfe9ae51-fd2b-45ca-a780-725f51f897b2",
+  "oracleId": "aef067b4-cd9c-4f18-8c63-fbbc39b63376",
+  "name": "Mass Appeal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mass Appeal",
+      "manaCost": "{2}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw a card for each Human you control.",
+      "flavorText": "\"We have emerged triumphant from the darkness. Let our hard-won wisdom guide us to prosperity.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "dfe9ae51-fd2b-45ca-a780-725f51f897b2"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "avr",
+  "collectorNumber": "66",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MASS_CALCIFY: CardData = {
+  "scryfallId": "316a2d2f-ca94-463f-ada4-2b12bce6312f",
+  "oracleId": "3ab3996f-aa3f-4041-8634-8e197d51f108",
+  "name": "Mass Calcify",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mass Calcify",
+      "manaCost": "{5}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all nonwhite creatures.",
+      "flavorText": "The dead serve as their own tombstones.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Brandon Kitkouski",
+      "imageId": "316a2d2f-ca94-463f-ada4-2b12bce6312f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "m15",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -41636,6 +42147,21 @@ export const ENGINE_CARDS: CardData[] = [
   LOREHOLD_CAMPUS,
   LOST_LEGION,
   LOTHL_RIEN_LOOKOUT,
+  LUCID_DREAMS,
+  LUNAR_INSIGHT,
+  LUNGE,
+  LUSH_PORTICO,
+  LYS_ALANA_INFORMANT,
+  MAGMAQUAKE,
+  MAGNIFY,
+  MAKE_OBSOLETE,
+  MANA_GEODE,
+  MANA_SHORT,
+  MARROW_SHARDS,
+  MARSH_GAS,
+  MARTYR_S_CRY,
+  MASS_APPEAL,
+  MASS_CALCIFY,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

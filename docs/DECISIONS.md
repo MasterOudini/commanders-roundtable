@@ -14823,3 +14823,53 @@ sorcery 370 / land 268 · batch.json 1,525 · botDeck: Adun reaches
 
 **Reportables:** the composition ceiling keeps rising with zero new
 machinery — Legion's End is three precedents deep; prior items stand.
+
+## D223 — M6.4bl: fifteen landed — the pool drain, and two new classes the aim layer owes (2026-08-20)
+
+**Coverage: 2,854 → 2,869 of 31,692 (+15).** `SHIPPED_SCRIPTS` 957 → 972;
+the ledger 336 → 346 (+10, TWO new classes); the pool 1,525 → 1,500;
+fixtures 1,174 → 1,189 (+15, no new tokens). All 42 tests green on the
+FIRST run — the sixth first-run-clean batch in seven.
+
+**The headliner:** `Mana Short` is the first POOL DRAIN — every land the
+target player controls tapped in one batch AND their mana pool emptied
+(`ManaPoolEmptied`, the reducer's own EMPTY_POOL reset, an event no
+script had ever emitted). The test funds p2's pool mid-p1-main and
+watches both halves land.
+
+**Also:** `Martyr's Cry` exiles every white creature and pays EACH
+controller a draw per own loss (a counts Map, then per-seat drawEvents —
+the per-controller fan). `Lys Alana Informant` is the enters-OR-dies
+surveil (one shared surveilOne resolve, the dies arm looking back).
+`Marrow Shards` sweeps 1 at every ATTACKING creature off a {W/P}
+one-pip. `Magmaquake` fans X at every nonflyer AND every planeswalker.
+`Lucid Dreams` counts distinct card TYPES in the graveyard;
+`Lunar Insight` counts distinct mana VALUES (Golden Ratio's set idiom
+on draws). `Lunge` splits 2-and-2 across two targets. `Mana Geode`'s
+ETB scry and `Lush Portico`'s tapped-entry surveil extend both land
+families. Plus Magnify's board pump, Make Obsolete's board debuff,
+Marsh Gas's, Mass Appeal's Human census draw, and Mass Calcify's
+one-sided wipe.
+
+⚠️ **Two NEW classes, both aimed at the targeting layer:**
+`Lyev Decree` DETAINS (an until-your-next-turn restriction bundle —
+'detain mechanic'), and `Malamet Brawler`'s 'target attacking creature'
+finally ledgers D161's Angelic Page pull as its own class ('combat
+target qualifier unenforced' — the aim accepts a non-attacker today).
+`Make Your Move`'s trailing 'power 4 or greater' binds to the CREATURE
+arm only — a per-arm qualifier no TargetSpec can carry (Exorcise's
+shape), filed under the noun-list parse family.
+
+**Ten refusals in all:** the two new classes plus up-to-N, ctx.random,
+bidding, text-changing (CR 612), the noun-list per-arm qualifier,
+cast-time computed count, untap restriction, and a script-raised prompt.
+
+**Measured after landing:** primitives complete 2,869 · blocked 28,823 ·
+scriptableToday 2,184 · ladder [2184, 2283, 4076, 5990, 7202] · tier3
+silentAfter 3,280 (+15 exact) · botPool creature 1,588 / instant 524 /
+sorcery 375 / artifact 81 / land 269 · batch.json 1,500 · botDeck: Adun
+reaches 1,615.
+
+**Reportables:** the combat-qualifier class joins the keyword/color
+qualifier convergence at the aim layer (D139's playbook, one field
+over); detain joins the structural tail; prior items stand.

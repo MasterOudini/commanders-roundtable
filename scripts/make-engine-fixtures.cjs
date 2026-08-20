@@ -1506,6 +1506,23 @@ const WANTED = [
   'Lorehold Campus',
   'Lost Legion',
   'Lothlórien Lookout',
+  // M6.4bl (D223) - batch 57: the pool drain, the per-controller
+  // draws, and the enters-or-dies surveil.
+  'Lucid Dreams',
+  'Lunar Insight',
+  'Lunge',
+  'Lush Portico',
+  'Lys Alana Informant',
+  'Magmaquake',
+  'Magnify',
+  'Make Obsolete',
+  'Mana Geode',
+  'Mana Short',
+  'Marrow Shards',
+  'Marsh Gas',
+  "Martyr's Cry",
+  'Mass Appeal',
+  'Mass Calcify',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
