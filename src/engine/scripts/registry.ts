@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { PLANAR_CLEANSING_SCRIPT } from './cards/planarCleansing';
+import { PLANAR_DESPAIR_SCRIPT } from './cards/planarDespair';
+import { PLAY_WITH_FIRE_SCRIPT } from './cards/playWithFire';
+import { PLOW_UNDER_SCRIPT } from './cards/plowUnder';
+import { PLUMECREED_ESCORT_SCRIPT } from './cards/plumecreedEscort';
+import { PLUNDERING_PIRATE_SCRIPT } from './cards/plunderingPirate';
+import { POISON_THE_WELL_SCRIPT } from './cards/poisonTheWell';
+import { POLLUTED_DEAD_SCRIPT } from './cards/pollutedDead';
+import { POND_PROPHET_SCRIPT } from './cards/pondProphet';
+import { POUNCE_SCRIPT } from './cards/pounce';
+import { PRECINCT_CAPTAIN_SCRIPT } from './cards/precinctCaptain';
+import { PREENING_CHAMPION_SCRIPT } from './cards/preeningChampion';
+import { PRESCIENT_CHIMERA_SCRIPT } from './cards/prescientChimera';
+import { PRESENCE_OF_THE_WISE_SCRIPT } from './cards/presenceOfTheWise';
+import { PRETENDING_POXBEARERS_SCRIPT } from './cards/pretendingPoxbearers';
+import { PRICE_OF_PROGRESS_SCRIPT } from './cards/priceOfProgress';
 import { PHYREXIAN_DEFILER_SCRIPT } from './cards/phyrexianDefiler';
 import { PHYREXIAN_DENOUNCER_SCRIPT } from './cards/phyrexianDenouncer';
 import { PHYREXIAN_RECLAMATION_SCRIPT } from './cards/phyrexianReclamation';
@@ -1274,6 +1290,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PLANAR_CLEANSING_SCRIPT,
+  PLANAR_DESPAIR_SCRIPT,
+  PLAY_WITH_FIRE_SCRIPT,
+  PLOW_UNDER_SCRIPT,
+  PLUMECREED_ESCORT_SCRIPT,
+  PLUNDERING_PIRATE_SCRIPT,
+  POISON_THE_WELL_SCRIPT,
+  POLLUTED_DEAD_SCRIPT,
+  POND_PROPHET_SCRIPT,
+  POUNCE_SCRIPT,
+  PRECINCT_CAPTAIN_SCRIPT,
+  PREENING_CHAMPION_SCRIPT,
+  PRESCIENT_CHIMERA_SCRIPT,
+  PRESENCE_OF_THE_WISE_SCRIPT,
+  PRETENDING_POXBEARERS_SCRIPT,
+  PRICE_OF_PROGRESS_SCRIPT,
   PHYREXIAN_DEFILER_SCRIPT,
   PHYREXIAN_DENOUNCER_SCRIPT,
   PHYREXIAN_RECLAMATION_SCRIPT,

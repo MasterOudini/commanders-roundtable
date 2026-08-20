@@ -15379,3 +15379,53 @@ creature 1,666 / instant 558 / sorcery 415 / artifact 88 / enchantment
 **Reportables:** the keyword-qualifier widening (four ledger cards and
 counting); the prevention tripwire joins the damnation tripwire as the
 second vacuity contract; prior items stand.
+
+## D234 — M6.4bw: sixteen landed — the hexproof carrier ride, and the block that cannot be asked for (2026-08-21)
+
+**3,066 of 31,692 Commander-legal cards now execute completely, up from
+3,050.** `SHIPPED_SCRIPTS` 1,153 → 1,169; the REFUSED ledger holds 424
+(+9, TWO new classes).
+
+**The headliners:** `Plumecreed Escort` is the first targeted-grant
+ride for HEXPROOF on D194's carrier — the aim layer consults the
+granted keyword derived (D129's promise met from the grant side, the
+opponent-creature refusal pinned); `Play with Fire` branches its
+scry rider on the TARGET KIND (a player raises the ask, a creature
+does not — both pinned); `Plow Under` puts two lands on their OWN
+owners' library tops; `Planar Cleansing` is the nonland wipe;
+`Pounce` lands Prey Upon's exact text at instant speed; `Preening
+Champion` mints the blue-and-red Elemental on a pin matched to
+TOKEN_TABLE's OWN pick (tsoc 21 — never pin a token to a printing the
+table does not name); `Precinct Captain` pays a Soldier on
+connecting; `Prescient Chimera` scries on my instant and sorcery
+casts; `Price of Progress` taxes each player twice per nonbasic.
+
+⚠️ **One test-side failure, and the FIFTH pinned loop trap:** a
+defender with NO creatures is never asked to block — an
+`advanceUntil(declareBlockers)` against that board never matches and
+runs the game to its deck-out end, surfacing as a gameOver rejection
+two submits later. The blocks walk is now conditional on a blocker
+existing, and own-attack tests advance to turnNumber === 3 (summoning
+sickness). One draft tsc fix: a StackObject carries no printingId —
+the cast face reads via `ev.obj.card` → the instance.
+
+**Nine refusals, TWO new classes:** `Portcullis Vine` names the
+KEYWORD-PREDICATE SACRIFICE COST (predicateOf refuses lowercase
+'with' — a keyword predicate has no field), and `Powerleech` names
+the ACTIVATION-EVENT DISCRIMINATOR (the tapped arm is watchable; 'an
+opponent activates an artifact ability without {T}' has no event
+carrying the cost's shape). Plus Plummet — the keyword-qualifier
+class's FOURTH card — Plunge into Winter (up-to-N), Polymorph
+(ctx.random — the mid-resolve shuffle), Polymorphist's Jest (UEOT base
+P/T set), Portent of Calamity and Press the Enemy (script-raised
+prompt), Presumed Dead (temporary non-keyword ability grant).
+
+**Measured after landing:** primitives complete 3,066 · blocked 28,626 ·
+scriptableToday 1,987 · ladder [1987, 2086, 3879, 5793, 7005] · botPool
+creature 1,674 / instant 561 / sorcery 420 · fixtures 1,397 (80
+tokens — the Elemental new) · batch.json 1,225 · botDeck: Adun reaches
+1,727 from 68 legendaries.
+
+**Reportables:** the keyword-qualifier widening (four cards) stays the
+heaviest aim-layer debt; the two new cost/discriminator classes join
+their families; prior items stand.

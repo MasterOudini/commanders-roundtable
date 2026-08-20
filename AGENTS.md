@@ -6509,6 +6509,35 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       second vacuity contract; prior items stand.
 
 
+- [x] **M6.4bw — Sixteen landed: the hexproof ride, and the block that
+      cannot be asked for (2026-08-21):** **3,066 of 31,692
+      Commander-legal cards now execute completely, up from 3,050.**
+      `SHIPPED_SCRIPTS` 1,153 → 1,169; ledger 424. Decisions in **D234**.
+      **The headliners:** Plumecreed Escort (the first targeted HEXPROOF
+      grant on D194's carrier — the aim layer reads it derived);
+      Play with Fire (the scry rider branches on target KIND);
+      Plow Under (two lands to their owners' library tops); Pounce =
+      Prey Upon's exact text; Preening Champion (the UR Elemental pinned
+      to TOKEN_TABLE's own pick); Precinct Captain (connect → Soldier);
+      Prescient Chimera (cast-scry); Price of Progress (2× nonbasics
+      per player).
+      ⚠️ **The FIFTH loop trap pinned:** a defender with NO creatures is
+      never asked to block — walking to that prompt runs the game out.
+      The blocks walk is conditional now; own attacks advance to turn 3.
+      ⚠️ **Nine refusals, TWO new classes:** keyword-predicate sacrifice
+      cost (Portcullis Vine) and activation-event discriminator
+      (Powerleech); Plummet is the keyword-qualifier class's FOURTH.
+      Fixtures 1,397 (80 tokens) · botPool creature 1,674 / instant 561
+      / sorcery 420 · ladder [1987, 2086, 3879, 5793, 7005] · batch.json
+      1,225 · botDeck: Adun reaches 1,727.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,249
+      files, 6,947 passed / 10 skipped · 500-seed gate
+      781.1 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D234): the keyword-qualifier widening; prior
+      items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

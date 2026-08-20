@@ -1724,6 +1724,23 @@ const WANTED = [
   'Plague Wind',
   'Plagued Rusalka',
   'Planar Birth',
+  // D234 (M6.4bw)
+  'Planar Cleansing',
+  'Planar Despair',
+  'Play with Fire',
+  'Plow Under',
+  'Plumecreed Escort',
+  'Plundering Pirate',
+  'Poison the Well',
+  'Polluted Dead',
+  'Pond Prophet',
+  'Pounce',
+  'Precinct Captain',
+  'Preening Champion',
+  'Prescient Chimera',
+  'Presence of the Wise',
+  'Pretending Poxbearers',
+  'Price of Progress',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -1867,6 +1884,8 @@ const WANTED_TOKENS = [
   { name: 'Cat', set: 'tdmr', cn: '3', key: 'CAT_21_TOKEN' },
   { name: 'Spider', set: 'tmma', cn: '7', key: 'SPIDER_24_TOKEN' },
   { name: 'Wurm', set: 'tuma', cn: '7', key: 'WURM_66_TOKEN' },
+  // D234 (M6.4bw)
+  { name: 'Elemental', set: 'tsoc', cn: '21', key: 'ELEMENTAL_UR_TOKEN' },
 ];
 
 function constName(name) {

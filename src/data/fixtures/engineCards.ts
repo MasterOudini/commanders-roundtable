@@ -44915,6 +44915,574 @@ export const PLANAR_BIRTH: CardData = {
   "singleImage": true
 };
 
+export const PLANAR_CLEANSING: CardData = {
+  "scryfallId": "30ee0d57-e404-4599-9b6e-f8ab8a95f9fa",
+  "oracleId": "a98c2d81-4add-4292-bbdd-e1b69ff936d4",
+  "name": "Planar Cleansing",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Planar Cleansing",
+      "manaCost": "{3}{W}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all nonland permanents.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Michael Komarck",
+      "imageId": "30ee0d57-e404-4599-9b6e-f8ab8a95f9fa"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "m10",
+  "collectorNumber": "24",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PLANAR_DESPAIR: CardData = {
+  "scryfallId": "3a92d454-3f23-45bf-921f-25b0da4ce138",
+  "oracleId": "1ba36042-8902-4abb-a4ae-a8d26d81a0de",
+  "name": "Planar Despair",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Planar Despair",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Domain — All creatures get -1/-1 until end of turn for each basic land type among lands you control.",
+      "flavorText": "All of Dominaria recoiled as Yawgmoth and his retainers arrived.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Mike Sass",
+      "imageId": "3a92d454-3f23-45bf-921f-25b0da4ce138"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Domain"
+  ],
+  "setCode": "apc",
+  "collectorNumber": "50",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PLAY_WITH_FIRE: CardData = {
+  "scryfallId": "42901bec-a8d0-46a3-a710-bfb7bd87f155",
+  "oracleId": "5ffc1e77-152b-4a82-8ea8-2c79cc31d5ef",
+  "name": "Play with Fire",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Play with Fire",
+      "manaCost": "{R}",
+      "typeLine": "Instant",
+      "oracleText": "Play with Fire deals 2 damage to any target. If a player is dealt damage this way, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": "Devils find human dwellings to be oppressively cold, dark, and unburnt.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "42901bec-a8d0-46a3-a710-bfb7bd87f155"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "mid",
+  "collectorNumber": "390",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PLOW_UNDER: CardData = {
+  "scryfallId": "27128f26-0d89-4962-96e8-5fa343031a26",
+  "oracleId": "23b36aef-961f-4a78-9652-8594ad73102e",
+  "name": "Plow Under",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Plow Under",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put two target lands on top of their owners' libraries.",
+      "flavorText": "To renew the land, plow the land.\nTo destroy the land, do nothing.\n—Druids' saying",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Rob Alexander",
+      "imageId": "27128f26-0d89-4962-96e8-5fa343031a26"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "272",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PLUMECREED_ESCORT: CardData = {
+  "scryfallId": "f71320ed-2f30-49ce-bcb0-19aebba3f0e8",
+  "oracleId": "04669a6f-6299-465b-a26e-6cae37cdc081",
+  "name": "Plumecreed Escort",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Plumecreed Escort",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Bird Scout",
+      "oracleText": "Flash\nFlying\nWhen this creature enters, target creature you control gains hexproof until end of turn.",
+      "flavorText": "\"I defend Valley and its beauty. What better weapon to wield than beauty itself?\"",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Manuel Castañón",
+      "imageId": "f71320ed-2f30-49ce-bcb0-19aebba3f0e8"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying",
+    "Flash"
+  ],
+  "setCode": "blb",
+  "collectorNumber": "65",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PLUNDERING_PIRATE: CardData = {
+  "scryfallId": "5bb2552f-8370-4931-83e1-93706d51413a",
+  "oracleId": "3ab13412-1eaf-40c0-905d-8a3ca0c51be5",
+  "name": "Plundering Pirate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Plundering Pirate",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Orc Pirate",
+      "oracleText": "When this creature enters, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "\"Whatever it is, it set off a trap. It must be valuable!\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Francisco Miyara",
+      "imageId": "5bb2552f-8370-4931-83e1-93706d51413a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "lci",
+  "collectorNumber": "160",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const POISON_THE_WELL: CardData = {
+  "scryfallId": "cb86eeec-d50f-4823-86bd-35437926a6e4",
+  "oracleId": "a47ae84f-dcbc-4a60-9266-c1a02f92e7f8",
+  "name": "Poison the Well",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Poison the Well",
+      "manaCost": "{2}{B/R}{B/R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target land. Poison the Well deals 2 damage to that land's controller.",
+      "flavorText": "Wells that provide clean, unhaunted water are rare enough to be worth building an entire town around.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Zoltan Boros & Gabor Szikszai",
+      "imageId": "cb86eeec-d50f-4823-86bd-35437926a6e4"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "shm",
+  "collectorNumber": "193",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const POLLUTED_DEAD: CardData = {
+  "scryfallId": "036c1954-37d3-4787-8df8-f2d0dd39058a",
+  "oracleId": "5ffca600-5286-4086-9efe-c398babeb6ae",
+  "name": "Polluted Dead",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Polluted Dead",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "When this creature dies, destroy target land.",
+      "flavorText": "After the zombie attack, crops withered on the vine, and the thriving village became a ghost town almost overnight.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jason A. Engle",
+      "imageId": "036c1954-37d3-4787-8df8-f2d0dd39058a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "avr",
+  "collectorNumber": "116",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const POND_PROPHET: CardData = {
+  "scryfallId": "fb959e74-61ea-453d-bb9f-ad0183c0e1b1",
+  "oracleId": "6eabebdf-c1a3-4789-a67f-859f0957c5df",
+  "name": "Pond Prophet",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pond Prophet",
+      "manaCost": "{G/U}{G/U}",
+      "typeLine": "Creature — Frog Advisor",
+      "oracleText": "When this creature enters, draw a card.",
+      "flavorText": "\"The rainfall brings us news of the world around us. I've learned a lot, but most of all I've learned that it's very exciting out there!\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "U"
+      ],
+      "artist": "Simon Dominic",
+      "imageId": "fb959e74-61ea-453d-bb9f-ad0183c0e1b1"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "blb",
+  "collectorNumber": "229",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const POUNCE: CardData = {
+  "scryfallId": "052864bb-6f76-482a-961e-b427af135da0",
+  "oracleId": "f4126dac-add4-4d5f-bf52-6f74c7c6aa67",
+  "name": "Pounce",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pounce",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control fights target creature you don't control. (Each deals damage equal to its power to the other.)",
+      "flavorText": "The drive to hunt and feed is raw instinct for dinosaurs. The trick is simply to channel it in the right direction.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Lucas Graciano",
+      "imageId": "052864bb-6f76-482a-961e-b427af135da0"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Fight"
+  ],
+  "setCode": "j22",
+  "collectorNumber": "707",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PRECINCT_CAPTAIN: CardData = {
+  "scryfallId": "5f1f6178-4071-401f-bd0d-cac0c5967661",
+  "oracleId": "3c75234b-e367-46da-8454-be4315f9b9de",
+  "name": "Precinct Captain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Precinct Captain",
+      "manaCost": "{W}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "First strike\nWhenever this creature deals combat damage to a player, create a 1/1 white Soldier creature token.",
+      "flavorText": "\"In troubled times, we all need someone to watch our back.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "5f1f6178-4071-401f-bd0d-cac0c5967661"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "First strike"
+  ],
+  "setCode": "rtr",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PREENING_CHAMPION: CardData = {
+  "scryfallId": "44178ece-af31-4a94-88bc-c9ce43bb4573",
+  "oracleId": "e1c458ca-10f6-4da8-a93d-3adfb86fe97d",
+  "name": "Preening Champion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Preening Champion",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Bird Knight",
+      "oracleText": "Flying\nWhen this creature enters, create a 1/1 blue and red Elemental creature token.",
+      "flavorText": "On Kylem, the omens of impending invasion went largely unnoticed, drowned out by the everyday fanfare of Valor's Reach.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Alix Branwyn",
+      "imageId": "44178ece-af31-4a94-88bc-c9ce43bb4573"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "mom",
+  "collectorNumber": "73",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PRESCIENT_CHIMERA: CardData = {
+  "scryfallId": "f4bb655d-8d62-4a79-9a9d-7384d1cb2cc0",
+  "oracleId": "af199b80-d5d8-417a-97d5-459a5bd48b22",
+  "name": "Prescient Chimera",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Prescient Chimera",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Creature — Chimera",
+      "oracleText": "Flying\nWhenever you cast an instant or sorcery spell, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Daarken",
+      "imageId": "f4bb655d-8d62-4a79-9a9d-7384d1cb2cc0"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Scry",
+    "Flying"
+  ],
+  "setCode": "jmp",
+  "collectorNumber": "164",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PRESENCE_OF_THE_WISE: CardData = {
+  "scryfallId": "f6aedb5a-48f5-47db-9469-14075e2b9269",
+  "oracleId": "6728064e-1d4e-4d4f-a0ab-127c23478f3b",
+  "name": "Presence of the Wise",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Presence of the Wise",
+      "manaCost": "{2}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "You gain 2 life for each card in your hand.",
+      "flavorText": "\"Humbly I bow. Silently I wait. Deeply I listen.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "f6aedb5a-48f5-47db-9469-14075e2b9269"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "sok",
+  "collectorNumber": "23",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PRETENDING_POXBEARERS: CardData = {
+  "scryfallId": "d1af91a5-8681-4a05-910d-96f7a819bfaa",
+  "oracleId": "fefef024-3a05-4221-bb74-419ee08716e5",
+  "name": "Pretending Poxbearers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pretending Poxbearers",
+      "manaCost": "{1}{W/B}",
+      "typeLine": "Creature — Human Citizen Ally",
+      "oracleText": "When this creature dies, create a 1/1 white Ally creature token.",
+      "flavorText": "Pentapox, a deadly skin affliction bearing similarity to pentapus markings, was entirely fabricated—but the Fire Nation didn't know that.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Salvatorre Zee Yazzie",
+      "imageId": "d1af91a5-8681-4a05-910d-96f7a819bfaa"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tla",
+  "collectorNumber": "237",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PRICE_OF_PROGRESS: CardData = {
+  "scryfallId": "0860cd66-f18e-4254-965d-fa88878391c4",
+  "oracleId": "e9da499c-fa43-4e94-8395-5c030ff39502",
+  "name": "Price of Progress",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Price of Progress",
+      "manaCost": "{1}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Price of Progress deals damage to each player equal to twice the number of nonbasic lands that player controls.",
+      "flavorText": "Man versus nature is not a fair fight.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Richard Kane Ferguson",
+      "imageId": "0860cd66-f18e-4254-965d-fa88878391c4"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "td0",
+  "collectorNumber": "B23",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -47603,6 +48171,42 @@ export const WURM_66_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const ELEMENTAL_UR_TOKEN: CardData = {
+  "scryfallId": "222b8394-20e7-4808-8eec-cb048f548055",
+  "oracleId": "e1cab9f5-a094-4df4-9094-71bebf91956f",
+  "name": "Elemental",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Elemental",
+      "manaCost": "",
+      "typeLine": "Token Creature — Elemental",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Bram Sels",
+      "imageId": "222b8394-20e7-4808-8eec-cb048f548055"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tsoc",
+  "collectorNumber": "21",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -48906,6 +49510,22 @@ export const ENGINE_CARDS: CardData[] = [
   PLAGUE_WIND,
   PLAGUED_RUSALKA,
   PLANAR_BIRTH,
+  PLANAR_CLEANSING,
+  PLANAR_DESPAIR,
+  PLAY_WITH_FIRE,
+  PLOW_UNDER,
+  PLUMECREED_ESCORT,
+  PLUNDERING_PIRATE,
+  POISON_THE_WELL,
+  POLLUTED_DEAD,
+  POND_PROPHET,
+  POUNCE,
+  PRECINCT_CAPTAIN,
+  PREENING_CHAMPION,
+  PRESCIENT_CHIMERA,
+  PRESENCE_OF_THE_WISE,
+  PRETENDING_POXBEARERS,
+  PRICE_OF_PROGRESS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -48985,4 +49605,5 @@ export const ENGINE_CARDS: CardData[] = [
   CAT_21_TOKEN,
   SPIDER_24_TOKEN,
   WURM_66_TOKEN,
+  ELEMENTAL_UR_TOKEN,
 ];

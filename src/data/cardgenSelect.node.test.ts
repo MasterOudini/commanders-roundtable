@@ -851,6 +851,16 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Pistus Strike', 'keyword target qualifier unenforced'],
   ['Pit Fight', 'spell target parse (second clause)'],
   ['Plague Witch', 'discard-cost chooser'],
+  // D234 (M6.4bw)
+  ['Plummet', 'keyword target qualifier unenforced'],
+  ['Plunge into Winter', 'up-to-N targeting'],
+  ['Polymorph', 'ctx.random'],
+  ["Polymorphist's Jest", 'until-end-of-turn base P/T set'],
+  ['Portcullis Vine', 'keyword-predicate sacrifice cost'],
+  ['Portent of Calamity', 'script-raised prompt'],
+  ['Powerleech', 'activation-event discriminator'],
+  ['Press the Enemy', 'script-raised prompt'],
+  ['Presumed Dead', 'temporary non-keyword ability grant'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
