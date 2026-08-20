@@ -14925,3 +14925,55 @@ sorcery 379 / artifact 81 / enchantment 33 / land 270 · batch.json
 
 **Reportables:** the numeric-exact widening (two ledger cards now);
 prior items stand.
+
+## D225 — M6.4bn: fourteen landed — the shipped list passes one thousand, and the discard ask learns arithmetic (2026-08-20)
+
+**Coverage: 2,885 → 2,899 of 31,692 (+14).** `SHIPPED_SCRIPTS` 988 →
+**1,002 — PAST ONE THOUSAND**; the ledger 355 → 366 (+11, ZERO new
+classes); the pool 1,475 → 1,450; fixtures 1,205 → 1,220 (+15 — the
+fourteen plus Swiftfoot Boots, the Equipment Misthios's Fury's
+conditional reads).
+
+**The headliner:** `Mind Burst` — the computed-count discard ask, and
+the first resolve to carry D137's no-choice rule ITSELF: the count is
+one plus a Frantic-Inventory name census over EVERY graveyard, a hand
+no bigger than the count goes whole and CHOICELESSLY (CR 701.8a), and
+only a real choice raises Laquatus's chooseFromZone prompt. Its own
+test proves the choiceless branch with seven graveyard namesakes
+against a seven-card hand.
+
+**Also:** `Mind Funeral` reveals until FOUR land cards and mills the
+run (Destroy the Evidence's walk, typed off the oracle face — and its
+test re-met the Beast Hunt lesson: the reveal is asserted on the LOG,
+because the zone move cleared revealedTo). `Mm'menon, Uthros Exile`
+is Ivy Lane Denizen's targeted two-def pair filtered on ARTIFACT
+entrants — the token arm proven with the Tier-3 Treasure — and joins
+as the 66th fully-executable legendary. `Minister of Impediments` is
+the SIXTH oracle id on the Trapper tap (the hybrid-cost reminder line
+scrubs away, so the tap is #a0). `Mind Stone` and `Misty Palms
+Oasis` land sacrifice-draws at #a1 behind engine mana lines.
+`Minions' Murmurs` and `Monumental Corruption`-to-come bracket the
+census wheel; `Misfortune's Gain` pays the victim's OWNER read
+before the move (an indestructible miss still pays); `Mist Raven`
+is the targeted ETB bounce; `Misthios's Fury` conditions its recoil
+on a derived-SUBTYPE census (an Equipment anywhere on my board);
+`Mintstrosity` bakes a Food on dying; `Mind Spring` draws X;
+`Might of the Nephilim` doubles the target's own color count;
+`Military Intelligence` draws behind a two-attacker threshold.
+
+**Eleven refusals, ZERO new classes:** Minamo's Meddling reads SPLICE
+memory (the kicker family); Mind Grind's printed 'X can't be 0' is a
+cast-time restriction the engine cannot enforce — claiming the line
+unenforced would be the D122 silent-coverage lie; Minds Aglow's Join
+forces is a multiplayer payment chain; plus text-changing, two
+up-to-Ns, three script prompts, exile-from-graveyard,
+once-per-turn memory, and the untap restriction.
+
+**Measured after landing:** primitives complete 2,899 · blocked 28,793 ·
+scriptableToday 2,154 · ladder [2154, 2253, 4046, 5960, 7172] · tier3
+silentAfter 3,310 / payable 5,096 · botPool creature 1,596 / instant
+532 / sorcery 384 / artifact 82 / enchantment 34 / land 271 ·
+batch.json 1,450 · botDeck: Adun reaches 1,628 from 66 legendaries.
+
+**Reportables:** the discard-ask family now spans fixed, drawn and
+computed counts; prior items stand.

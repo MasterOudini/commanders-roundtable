@@ -7,6 +7,20 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { MIGHT_OF_THE_NEPHILIM_SCRIPT } from './cards/mightOfTheNephilim';
+import { MILITARY_INTELLIGENCE_SCRIPT } from './cards/militaryIntelligence';
+import { MIND_BURST_SCRIPT } from './cards/mindBurst';
+import { MIND_FUNERAL_SCRIPT } from './cards/mindFuneral';
+import { MIND_SPRING_SCRIPT } from './cards/mindSpring';
+import { MIND_STONE_SCRIPT } from './cards/mindStone';
+import { MINIONS_MURMURS_SCRIPT } from './cards/minionsMurmurs';
+import { MINISTER_OF_IMPEDIMENTS_SCRIPT } from './cards/ministerOfImpediments';
+import { MINTSTROSITY_SCRIPT } from './cards/mintstrosity';
+import { MISFORTUNES_GAIN_SCRIPT } from './cards/misfortunesGain';
+import { MIST_RAVEN_SCRIPT } from './cards/mistRaven';
+import { MISTHIOSS_FURY_SCRIPT } from './cards/misthiossFury';
+import { MISTY_PALMS_OASIS_SCRIPT } from './cards/mistyPalmsOasis';
+import { MMMENON_UTHROS_EXILE_SCRIPT } from './cards/mmmenonUthrosExile';
 import { MASSIVE_RAID_SCRIPT } from './cards/massiveRaid';
 import { MASTER_THE_WAY_SCRIPT } from './cards/masterTheWay';
 import { MASTERS_REBUKE_SCRIPT } from './cards/mastersRebuke';
@@ -1109,6 +1123,20 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MIGHT_OF_THE_NEPHILIM_SCRIPT,
+  MILITARY_INTELLIGENCE_SCRIPT,
+  MIND_BURST_SCRIPT,
+  MIND_FUNERAL_SCRIPT,
+  MIND_SPRING_SCRIPT,
+  MIND_STONE_SCRIPT,
+  MINIONS_MURMURS_SCRIPT,
+  MINISTER_OF_IMPEDIMENTS_SCRIPT,
+  MINTSTROSITY_SCRIPT,
+  MISFORTUNES_GAIN_SCRIPT,
+  MIST_RAVEN_SCRIPT,
+  MISTHIOSS_FURY_SCRIPT,
+  MISTY_PALMS_OASIS_SCRIPT,
+  MMMENON_UTHROS_EXILE_SCRIPT,
   MASSIVE_RAID_SCRIPT,
   MASTER_THE_WAY_SCRIPT,
   MASTERS_REBUKE_SCRIPT,

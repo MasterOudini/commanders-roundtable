@@ -6226,6 +6226,39 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ledger cards; prior items stand.
 
 
+- [x] **M6.4bn — Fourteen landed: the shipped list passes ONE THOUSAND
+      (2026-08-20):** **2,899 of 31,692 Commander-legal cards now execute
+      completely, up from 2,885.** `SHIPPED_SCRIPTS` 988 → **1,002**;
+      ledger 366. Decisions in **D225**.
+      **The headliner: Mind Burst** — the computed-count discard ask
+      carrying D137's no-choice rule in the resolve: a name census over
+      every graveyard sets the count, a hand it covers goes whole and
+      CHOICELESSLY (CR 701.8a, proven with seven namesakes), and only a
+      real choice raises the prompt.
+      **Also:** Mind Funeral (reveal-until-FOUR-lands — the reveal
+      asserted on the LOG, the Beast Hunt lesson re-met); Mm'menon
+      (Ivy Lane's targeted pair on ARTIFACT entrants, the 66th
+      legendary); Minister of Impediments (the SIXTH Trapper-tap id;
+      the reminder line scrubs to #a0); Mind Stone / Misty Palms
+      (#a1 sac-draws); Misfortune's Gain (the OWNER paid, pre-move);
+      Mist Raven (targeted ETB bounce); Misthios's Fury (the
+      Equipment-censused recoil); Mintstrosity; Mind Spring; Might of
+      the Nephilim; Military Intelligence; Minions' Murmurs.
+      ⚠️ **Eleven refusals, ZERO new classes** — Mind Grind's printed
+      'X can't be 0' is refused as a cast-permission condition:
+      claiming the line unenforced would be the D122 lie.
+      Fixtures 1,220 (+ Swiftfoot Boots) · botPool creature 1,596 /
+      instant 532 / sorcery 384 / artifact 82 / enchantment 34 / land
+      271 · ladder [2154, 2253, 4046, 5960, 7172] · batch.json 1,450 ·
+      botDeck: Adun reaches 1,628 from 66 legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,081
+      files, 6,212 passed / 10 skipped · 500-seed gate
+      727.6 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D225): the discard-ask family spans fixed,
+      drawn and computed counts; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

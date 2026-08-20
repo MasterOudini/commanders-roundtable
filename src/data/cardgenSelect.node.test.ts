@@ -753,6 +753,22 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Merfolk Falconer', 'kicker memory'],
   ['Metamorphose', 'script-raised prompt'],
   ['Meteor Storm', 'ctx.random'],
+  // D225 — Minamo's Meddling reads SPLICE memory (the kicker family's
+  // cast-time rider); Mind Grind's printed 'X can't be 0' is a cast-time
+  // restriction the engine cannot enforce — claiming the line unenforced
+  // would be the D122 silent-coverage lie; Minds Aglow's Join forces is a
+  // multiplayer payment prompt chain.
+  ["Minamo's Meddling", 'kicker memory'],
+  ['Mind Bend', 'text-changing effect (CR 612)'],
+  ['Mind Bomb', 'script-raised prompt'],
+  ['Mind Grind', 'cast-permission condition'],
+  ['Minds Aglow', 'script-raised prompt'],
+  ['Mines of Moria', 'exile-from-graveyard cost'],
+  ['Mischief and Mayhem', 'up-to-N targeting'],
+  ['Mischievous Mystic', 'once-per-turn trigger memory'],
+  ['Misinformation', 'up-to-N targeting'],
+  ['Misleading Motes', 'script-raised prompt'],
+  ['Misstep', 'untap restriction'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

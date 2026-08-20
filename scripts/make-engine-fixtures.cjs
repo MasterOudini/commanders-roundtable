@@ -1541,6 +1541,24 @@ const WANTED = [
   'Might of Alara',
   'Might of the Ancestors',
   'Might of the Masses',
+  // M6.4bn (D225) - batch 59: the computed discard ask, the
+  // reveal-until-four-lands mill, and the artifact-entry counter pair.
+  'Might of the Nephilim',
+  'Military Intelligence',
+  'Mind Burst',
+  'Mind Funeral',
+  'Mind Spring',
+  'Mind Stone',
+  "Minions' Murmurs",
+  'Minister of Impediments',
+  'Mintstrosity',
+  "Misfortune's Gain",
+  'Mist Raven',
+  "Misthios's Fury",
+  'Misty Palms Oasis',
+  "Mm'menon, Uthros Exile",
+  // Support body: the Equipment Misthios's Fury's conditional reads.
+  'Swiftfoot Boots',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

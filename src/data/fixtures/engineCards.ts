@@ -39225,6 +39225,521 @@ export const MIGHT_OF_THE_MASSES: CardData = {
   "singleImage": true
 };
 
+export const MIGHT_OF_THE_NEPHILIM: CardData = {
+  "scryfallId": "ca5c4a29-0650-4b9e-af6b-39bee19167ad",
+  "oracleId": "4fda9b70-8da5-4292-b05a-0a0e5a2ad809",
+  "name": "Might of the Nephilim",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Might of the Nephilim",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +2/+2 until end of turn for each of its colors.",
+      "flavorText": "\"Send a runner to Tin Street, and tell 'em the delivery has been . . . uh . . . held up.\"\n—Bonmod, caravan rear guard",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "ca5c4a29-0650-4b9e-af6b-39bee19167ad"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dis",
+  "collectorNumber": "88",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MILITARY_INTELLIGENCE: CardData = {
+  "scryfallId": "0a7d0a1e-4d80-4ae5-be07-38ab6d48df36",
+  "oracleId": "464bfcdb-a82b-4573-92a4-c5e463724fbe",
+  "name": "Military Intelligence",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Military Intelligence",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever you attack with two or more creatures, draw a card.",
+      "flavorText": "To know the battlefield is to anticipate the enemy. To know the enemy is to anticipate victory.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Craig J Spearing",
+      "imageId": "0a7d0a1e-4d80-4ae5-be07-38ab6d48df36"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "j22",
+  "collectorNumber": "322",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIND_BURST: CardData = {
+  "scryfallId": "c07889a1-1582-4f14-8925-fa21a1a5fd65",
+  "oracleId": "efc32c4a-ad84-400d-b79f-5861a3e4fa2f",
+  "name": "Mind Burst",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mind Burst",
+      "manaCost": "{1}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player discards X cards, where X is one plus the number of cards named Mind Burst in all graveyards.",
+      "flavorText": "As haunting as a zombie's curse.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Marc Fishman",
+      "imageId": "c07889a1-1582-4f14-8925-fa21a1a5fd65"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "148",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIND_FUNERAL: CardData = {
+  "scryfallId": "335168b9-bc12-4459-9b7e-56f568a8887a",
+  "oracleId": "cf5103c1-2590-4aed-b3ae-8a570f797738",
+  "name": "Mind Funeral",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mind Funeral",
+      "manaCost": "{1}{U}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target opponent reveals cards from the top of their library until four land cards are revealed. That player puts all cards revealed this way into their graveyard.",
+      "flavorText": "\"The soul is only as eternal as I say it is.\"\n—Sharuum the Hegemon",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "U"
+      ],
+      "artist": "rk post",
+      "imageId": "335168b9-bc12-4459-9b7e-56f568a8887a"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "arb",
+  "collectorNumber": "26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIND_SPRING: CardData = {
+  "scryfallId": "3efa29a6-64bc-4d0d-8522-b548bd18bc76",
+  "oracleId": "3428287b-cfd5-45bc-b5f9-1e3f5a425a68",
+  "name": "Mind Spring",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mind Spring",
+      "manaCost": "{X}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw X cards.",
+      "flavorText": "Fragments of thought refract and multiply, surging in a geyser of dizzying insight.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "3efa29a6-64bc-4d0d-8522-b548bd18bc76"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ddt",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIND_STONE: CardData = {
+  "scryfallId": "02a34135-0955-4045-9558-6e61338baaf0",
+  "oracleId": "c97361b5-af16-4a7b-af85-a429dbaf4ad2",
+  "name": "Mind Stone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mind Stone",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {C}.\n{1}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "\"What is mana but possibility, an idea not yet given form?\"\n—Jhoira, master artificer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Adam Rex",
+      "imageId": "02a34135-0955-4045-9558-6e61338baaf0"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "afc",
+  "collectorNumber": "211",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MINIONS_MURMURS: CardData = {
+  "scryfallId": "0c42fded-49e8-4c69-8ade-ba5e76e44b45",
+  "oracleId": "fd755ec1-6727-4165-a7fd-5d9b59754ada",
+  "name": "Minions' Murmurs",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Minions' Murmurs",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "You draw X cards and you lose X life, where X is the number of creatures you control.",
+      "flavorText": "\"They are quick to offer advice, those whose mistakes doomed them to undeath. How can I not listen to the wisdom of failure?\"\n—Ratadrabik of Urborg",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "0c42fded-49e8-4c69-8ade-ba5e76e44b45"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "tsr",
+  "collectorNumber": "124",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MINISTER_OF_IMPEDIMENTS: CardData = {
+  "scryfallId": "96aada87-a880-4d33-8694-9fbc74211755",
+  "oracleId": "5a51a0ee-bc81-4c42-bb17-a41cea957d9a",
+  "name": "Minister of Impediments",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Minister of Impediments",
+      "manaCost": "{2}{W/U}",
+      "typeLine": "Creature — Human Advisor",
+      "oracleText": "({W/U} can be paid with either {W} or {U}.)\n{T}: Tap target creature.",
+      "flavorText": "When it takes forever to learn all the rules, no time is left for breaking them.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Brian Hagan",
+      "imageId": "96aada87-a880-4d33-8694-9fbc74211755"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dis",
+  "collectorNumber": "144",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MINTSTROSITY: CardData = {
+  "scryfallId": "d902f154-6fe8-4b97-aa67-4d4696abf887",
+  "oracleId": "c8c88c33-b8df-4b19-b12c-79c9709af8f1",
+  "name": "Mintstrosity",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mintstrosity",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Horror",
+      "oracleText": "When this creature dies, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+      "flavorText": "If the sugary abominations of Sweettooth Village were ever under someone's control, that time is long past.",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "d902f154-6fe8-4b97-aa67-4d4696abf887"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Food"
+  ],
+  "setCode": "woe",
+  "collectorNumber": "100",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MISFORTUNE_S_GAIN: CardData = {
+  "scryfallId": "6f93d6da-ee3c-4823-a20b-75db832f1f9d",
+  "oracleId": "01b778d7-0965-48ab-a81f-e29f8a233d07",
+  "name": "Misfortune's Gain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Misfortune's Gain",
+      "manaCost": "{3}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target creature. Its owner gains 4 life.",
+      "flavorText": "The mourning families of commanders and generals were often given land, valuables, or money to compensate for their losses.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jiaming",
+      "imageId": "6f93d6da-ee3c-4823-a20b-75db832f1f9d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "me3",
+  "collectorNumber": "21",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIST_RAVEN: CardData = {
+  "scryfallId": "00c8543f-5c5d-4b1a-ad96-f154f1914608",
+  "oracleId": "12654457-3aae-4046-a976-8e41c3f78927",
+  "name": "Mist Raven",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mist Raven",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying\nWhen this creature enters, return target creature to its owner's hand.",
+      "flavorText": "\"When you see a raven, head for the hills. It knows when the ghost-tide is headed in.\"\n—Sved, fisherman of Nephalia",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "John Avon",
+      "imageId": "00c8543f-5c5d-4b1a-ad96-f154f1914608"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "mm3",
+  "collectorNumber": "43",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MISTHIOS_S_FURY: CardData = {
+  "scryfallId": "e34a45ab-793e-4198-8327-e13287e0b74c",
+  "oracleId": "e99c088e-1326-4844-b932-fb51802656f5",
+  "name": "Misthios's Fury",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Misthios's Fury",
+      "manaCost": "{1}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Misthios's Fury deals 3 damage to target creature. If you control an Equipment, Misthios's Fury also deals 2 damage to that creature's controller.",
+      "flavorText": "\"I'm tired of all this sneaking. Come out and face me!\"\n—Kassandra, Eagle Bearer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Allen Morris",
+      "imageId": "e34a45ab-793e-4198-8327-e13287e0b74c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "acr",
+  "collectorNumber": "291",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MISTY_PALMS_OASIS: CardData = {
+  "scryfallId": "7cc29ddb-8f44-4493-985d-2fac35f9f34d",
+  "oracleId": "dfd2c57a-4557-4df1-8f6f-da2cbd317f12",
+  "name": "Misty Palms Oasis",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Misty Palms Oasis",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {W} or {B}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+      "flavorText": "A shadow of its former self, a whisper of its eventual glory.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Andreas Rocha",
+      "imageId": "7cc29ddb-8f44-4493-985d-2fac35f9f34d"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tla",
+  "collectorNumber": "273",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MM_MENON_UTHROS_EXILE: CardData = {
+  "scryfallId": "5546c044-5826-48c3-9d28-866f3c3c5f2c",
+  "oracleId": "6c05b882-51d9-43d8-93b8-c3317590f76a",
+  "name": "Mm'menon, Uthros Exile",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mm'menon, Uthros Exile",
+      "manaCost": "{1}{U}{R}",
+      "typeLine": "Legendary Creature — Jellyfish Advisor",
+      "oracleText": "Flying\nWhenever an artifact you control enters, put a +1/+1 counter on target creature.",
+      "flavorText": "\"What crime did you commit that makes *me* your best option?\"\n—Tezzeret",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Fajareka Setiawan",
+      "imageId": "5546c044-5826-48c3-9d28-866f3c3c5f2c"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "eoe",
+  "collectorNumber": "221",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SWIFTFOOT_BOOTS: CardData = {
+  "scryfallId": "01ba455b-9cd4-4ba2-9bbf-d83b84dcc891",
+  "oracleId": "c8b143ad-43ec-4e0d-a440-e348daa31391",
+  "name": "Swiftfoot Boots",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Swiftfoot Boots",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.)\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Svetlin Velinov",
+      "imageId": "01ba455b-9cd4-4ba2-9bbf-d83b84dcc891"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "pw22",
+  "collectorNumber": "4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -42741,6 +43256,21 @@ export const ENGINE_CARDS: CardData[] = [
   MIGHT_OF_ALARA,
   MIGHT_OF_THE_ANCESTORS,
   MIGHT_OF_THE_MASSES,
+  MIGHT_OF_THE_NEPHILIM,
+  MILITARY_INTELLIGENCE,
+  MIND_BURST,
+  MIND_FUNERAL,
+  MIND_SPRING,
+  MIND_STONE,
+  MINIONS_MURMURS,
+  MINISTER_OF_IMPEDIMENTS,
+  MINTSTROSITY,
+  MISFORTUNE_S_GAIN,
+  MIST_RAVEN,
+  MISTHIOS_S_FURY,
+  MISTY_PALMS_OASIS,
+  MM_MENON_UTHROS_EXILE,
+  SWIFTFOOT_BOOTS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
