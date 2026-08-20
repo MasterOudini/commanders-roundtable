@@ -1277,6 +1277,21 @@ const WANTED = [
   'End the Festivities',
   'Engulf the Shore',
   'Enrage',
+  // M6.4az (D211) - batch 45: the drains, the counter-with-recoil, and the
+  // exponential pump.
+  'Epic Confrontation',
+  'Essence Backlash',
+  'Essence Drain',
+  'Essence Extraction',
+  'Essence Harvest',
+  'Eternal Flame',
+  'Evacuation',
+  'Evaporate',
+  'Excommunicate',
+  'Exotic Disease',
+  'Exponential Growth',
+  'Exsanguinate',
+  'Extinguish All Hope',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -559,6 +559,23 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['End of the Hunt', 'opponent-chooses'],
   ['Endless Detour', 'opponent-chooses'],
   ['Enshrined Memories', 'script-raised prompt'],
+  // D211 — Essence Filter's destroy-all OR destroy-nonwhite is a
+  // resolution choice the modal regex missed; Exorcise's power qualifier
+  // binds to the CREATURE arm only (a per-arm qualifier no spec can
+  // carry); Ethereal Ambush MANIFESTS (the morph family's face-down
+  // machinery); Ertai's Trickery reads whether the spell WAS KICKED.
+  ['Ensnared by the Mara', 'opponent-chooses'],
+  ['Entrancing Melody', 'computed target threshold'],
+  ['Epic Experiment', 'play-from-exile permission'],
+  ["Ertai's Trickery", 'kicker memory'],
+  ['Essence Filter', 'script-raised prompt'],
+  ['Ethereal Ambush', 'face-down (morph family)'],
+  ['Eureka', 'opponent-chooses'],
+  ['Exert Influence', 'converge (cast-time mana-color memory)'],
+  ['Exhaustion', 'untap restriction'],
+  ['Exhume', 'opponent-chooses'],
+  ['Exorcise', 'spell target parse (noun list)'],
+  ['Extinction', 'script-raised prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -5792,6 +5792,34 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       candidates; prior items stand.
 
 
+- [x] **M6.4az — Thirteen landed: the counter with recoil, the
+      pump-then-fight, and the exponential delta (2026-08-20):**
+      **2,667 of 31,692 Commander-legal cards now execute completely, up
+      from 2,654** — a third consecutive all-spell batch.
+      `SHIPPED_SCRIPTS` 757 → 770; ledger 249. Decisions in **D211**.
+      **Firsts:** the counter that burns for the countered spell's
+      PRINTED power (Essence Backlash — the cast face's basePower off
+      the stack); the pump-then-fight composition (Epic Confrontation —
+      Ambuscade's known-delta arithmetic on Prey Upon's fight); the
+      exponential delta (Exponential Growth — power × (2^X − 1) in one
+      entry); the Mountain-count burn with ceil recoil (Eternal Flame);
+      the greatest-power drain (Essence Harvest); the Domain drain
+      (Exotic Disease).
+      ⚠️ **Twelve refusals, ZERO new classes** — Essence Filter's
+      un-templated modal, Exorcise's per-arm qualifier, Ethereal
+      Ambush's manifest, Ertai's Trickery's kicker read.
+      Fixtures 983 · botPool instant 435 / sorcery 293 · ladder [2386,
+      2485, 4278, 6192, 7404] · batch.json 1,800 · botDeck: Adun reaches
+      1,496.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 848
+      files, 5,063 passed / 10 skipped · 500-seed gate
+      736.8 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D211): the spell pool stays the densest vein;
+      the qualifier-widening convergence tops the targeting queue;
+      prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

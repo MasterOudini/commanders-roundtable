@@ -31101,6 +31101,456 @@ export const ENRAGE: CardData = {
   "singleImage": true
 };
 
+export const EPIC_CONFRONTATION: CardData = {
+  "scryfallId": "02ac4e89-d5fa-4f1b-bd61-be15eb322f40",
+  "oracleId": "31123cb5-2dd5-4f2b-a2fd-8f87095972c6",
+  "name": "Epic Confrontation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Epic Confrontation",
+      "manaCost": "{1}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control gets +1/+2 until end of turn. It fights target creature you don't control. (Each deals damage equal to its power to the other.)",
+      "flavorText": "No matter the timeline, some legends will endure.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Wayne Reynolds",
+      "imageId": "02ac4e89-d5fa-4f1b-bd61-be15eb322f40"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Fight"
+  ],
+  "setCode": "a25",
+  "collectorNumber": "170",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ESSENCE_BACKLASH: CardData = {
+  "scryfallId": "a98609dc-ea90-4c7e-a191-5e5d0ba16847",
+  "oracleId": "f51ed0b4-c144-458e-b97c-618b9e1cf25d",
+  "name": "Essence Backlash",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Essence Backlash",
+      "manaCost": "{2}{U}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target creature spell. Essence Backlash deals damage equal to that spell's power to its controller.",
+      "flavorText": "\"The other guilds will learn the hard way not to interfere with our investigations.\"\n—Bori Andon, Izzet blastseeker",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Jung Park",
+      "imageId": "a98609dc-ea90-4c7e-a191-5e5d0ba16847"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "rtr",
+  "collectorNumber": "160",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ESSENCE_DRAIN: CardData = {
+  "scryfallId": "58df0c6d-3fd2-4d87-81e2-6640e6e75985",
+  "oracleId": "4bf5402f-7bba-4c0c-aebd-1b231768f2b2",
+  "name": "Essence Drain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Essence Drain",
+      "manaCost": "{4}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Essence Drain deals 3 damage to any target and you gain 3 life.",
+      "flavorText": "\"Life's essence is a nectar unlike any I tasted when I lived as a mortal.\"\n—Zul Ashur, lich lord",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jim Nelson",
+      "imageId": "58df0c6d-3fd2-4d87-81e2-6640e6e75985"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "m13",
+  "collectorNumber": "93",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ESSENCE_EXTRACTION: CardData = {
+  "scryfallId": "5f7d9c6a-ddd9-4391-b229-d9cf20931b27",
+  "oracleId": "14363df6-ac0f-476a-bbd8-ce351de0babf",
+  "name": "Essence Extraction",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Essence Extraction",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Essence Extraction deals 3 damage to target creature and you gain 3 life.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Min Yum",
+      "imageId": "5f7d9c6a-ddd9-4391-b229-d9cf20931b27"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "klr",
+  "collectorNumber": "83",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ESSENCE_HARVEST: CardData = {
+  "scryfallId": "7c3fac03-a019-4faa-bc1c-09e3a394fff7",
+  "oracleId": "ae9a398e-f3a7-4878-a14d-0f6c2dac3d83",
+  "name": "Essence Harvest",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Essence Harvest",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player loses X life and you gain X life, where X is the greatest power among creatures you control.",
+      "flavorText": "Captain Lewenheart uncovered evidence of a demon cult among the clergy. The Skirsdag never gave him a chance to prove his case.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Daarken",
+      "imageId": "7c3fac03-a019-4faa-bc1c-09e3a394fff7"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "avr",
+  "collectorNumber": "100",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ETERNAL_FLAME: CardData = {
+  "scryfallId": "d646feea-3c20-4737-8d20-ffad42258ced",
+  "oracleId": "b3119f27-45fd-4411-8a09-5f8d3cd8d927",
+  "name": "Eternal Flame",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Eternal Flame",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Eternal Flame deals X damage to target opponent or planeswalker and half X damage, rounded up, to you, where X is the number of Mountains you control.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mark Poole",
+      "imageId": "d646feea-3c20-4737-8d20-ffad42258ced"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "drk",
+  "collectorNumber": "61",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EVACUATION: CardData = {
+  "scryfallId": "0ba92987-0a10-42b6-a331-ec56f244c5eb",
+  "oracleId": "fdd94383-b573-439a-8e1c-925af887c5a6",
+  "name": "Evacuation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Evacuation",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return all creatures to their owners' hands.",
+      "flavorText": "Which is more unsettling: the roar of battle or the silence that follows?",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Rob Alexander",
+      "imageId": "0ba92987-0a10-42b6-a331-ec56f244c5eb"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "76★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EVAPORATE: CardData = {
+  "scryfallId": "a3c99939-4854-4e28-a142-4cb7f89fe898",
+  "oracleId": "3f9e3b79-6ecb-4741-a9f4-fd7d3545d5cf",
+  "name": "Evaporate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Evaporate",
+      "manaCost": "{2}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Evaporate deals 1 damage to each white and/or blue creature.",
+      "flavorText": "\"The body is a temple with a foundation of sand.\"\n—Autumn Willow",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Alan Rabinowitz",
+      "imageId": "a3c99939-4854-4e28-a142-4cb7f89fe898"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "hml",
+  "collectorNumber": "74",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EXCOMMUNICATE: CardData = {
+  "scryfallId": "12aad375-653e-47ed-b8e3-34dd90d43420",
+  "oracleId": "6c2cf22e-5dbb-4fa9-8ece-17069e6f1d7f",
+  "name": "Excommunicate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Excommunicate",
+      "manaCost": "{2}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put target creature on top of its owner's library.",
+      "flavorText": "\"Our law prohibits capital punishment. We believe even the gravest offenders have the chance to redeem themselves.\"\n—Torian Sha, soul warden",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Matt Stewart",
+      "imageId": "12aad375-653e-47ed-b8e3-34dd90d43420"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m10",
+  "collectorNumber": "10",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EXOTIC_DISEASE: CardData = {
+  "scryfallId": "4e9624e5-79a2-41de-997b-12d871d4be66",
+  "oracleId": "9480e142-289a-439d-b6a5-2666fb0e5be3",
+  "name": "Exotic Disease",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Exotic Disease",
+      "manaCost": "{4}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Domain — Target player loses X life and you gain X life, where X is the number of basic land types among lands you control.",
+      "flavorText": "\"Do not fear death. I shall release you from the eternal bonds and bring you glory.\"\n—Lord Dralnu",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "4e9624e5-79a2-41de-997b-12d871d4be66"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Domain"
+  ],
+  "setCode": "pls",
+  "collectorNumber": "43",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EXPONENTIAL_GROWTH: CardData = {
+  "scryfallId": "3770c40c-50da-4bb1-a8da-79772b1a5a1b",
+  "oracleId": "18616f70-e30c-4ff7-b62a-55939a96ca1b",
+  "name": "Exponential Growth",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Exponential Growth",
+      "manaCost": "{X}{X}{G}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Until end of turn, double target creature's power X times.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Izzy",
+      "imageId": "3770c40c-50da-4bb1-a8da-79772b1a5a1b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Double"
+  ],
+  "setCode": "prm",
+  "collectorNumber": "90136",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EXSANGUINATE: CardData = {
+  "scryfallId": "0878b541-a730-49db-b062-5a01656e269d",
+  "oracleId": "8164b1e8-3350-465e-8a17-75f57d326344",
+  "name": "Exsanguinate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Exsanguinate",
+      "manaCost": "{X}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each opponent loses X life. You gain life equal to the life lost this way.",
+      "flavorText": "Vampires don't consider patience a virtue nor gluttony a sin.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "0878b541-a730-49db-b062-5a01656e269d"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "som",
+  "collectorNumber": "61",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EXTINGUISH_ALL_HOPE: CardData = {
+  "scryfallId": "1888ac60-a885-43a7-8e95-9523a0213644",
+  "oracleId": "c7ca25f3-7a22-477b-8546-4c2597d5d1ff",
+  "name": "Extinguish All Hope",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Extinguish All Hope",
+      "manaCost": "{4}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all nonenchantment creatures.",
+      "flavorText": "Phenax, god of deception, offered the soldiers protection from every poison on Theros. He saw no need to mention that Pharika's poisons were drawn from Nyx.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Aaron J. Riley",
+      "imageId": "1888ac60-a885-43a7-8e95-9523a0213644"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "cmm",
+  "collectorNumber": "157",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -34382,6 +34832,19 @@ export const ENGINE_CARDS: CardData[] = [
   END_THE_FESTIVITIES,
   ENGULF_THE_SHORE,
   ENRAGE,
+  EPIC_CONFRONTATION,
+  ESSENCE_BACKLASH,
+  ESSENCE_DRAIN,
+  ESSENCE_EXTRACTION,
+  ESSENCE_HARVEST,
+  ETERNAL_FLAME,
+  EVACUATION,
+  EVAPORATE,
+  EXCOMMUNICATE,
+  EXOTIC_DISEASE,
+  EXPONENTIAL_GROWTH,
+  EXSANGUINATE,
+  EXTINGUISH_ALL_HOPE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

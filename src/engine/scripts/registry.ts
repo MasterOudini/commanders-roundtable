@@ -7,6 +7,19 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { EPIC_CONFRONTATION_SCRIPT } from './cards/epicConfrontation';
+import { ESSENCE_BACKLASH_SCRIPT } from './cards/essenceBacklash';
+import { ESSENCE_DRAIN_SCRIPT } from './cards/essenceDrain';
+import { ESSENCE_EXTRACTION_SCRIPT } from './cards/essenceExtraction';
+import { ESSENCE_HARVEST_SCRIPT } from './cards/essenceHarvest';
+import { ETERNAL_FLAME_SCRIPT } from './cards/eternalFlame';
+import { EVACUATION_SCRIPT } from './cards/evacuation';
+import { EVAPORATE_SCRIPT } from './cards/evaporate';
+import { EXCOMMUNICATE_SCRIPT } from './cards/excommunicate';
+import { EXOTIC_DISEASE_SCRIPT } from './cards/exoticDisease';
+import { EXPONENTIAL_GROWTH_SCRIPT } from './cards/exponentialGrowth';
+import { EXSANGUINATE_SCRIPT } from './cards/exsanguinate';
+import { EXTINGUISH_ALL_HOPE_SCRIPT } from './cards/extinguishAllHope';
 import { EARLY_HARVEST_SCRIPT } from './cards/earlyHarvest';
 import { EARTH_TREMOR_SCRIPT } from './cards/earthTremor';
 import { EARTHQUAKE_SCRIPT } from './cards/earthquake';
@@ -878,6 +891,19 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  EPIC_CONFRONTATION_SCRIPT,
+  ESSENCE_BACKLASH_SCRIPT,
+  ESSENCE_DRAIN_SCRIPT,
+  ESSENCE_EXTRACTION_SCRIPT,
+  ESSENCE_HARVEST_SCRIPT,
+  ETERNAL_FLAME_SCRIPT,
+  EVACUATION_SCRIPT,
+  EVAPORATE_SCRIPT,
+  EXCOMMUNICATE_SCRIPT,
+  EXOTIC_DISEASE_SCRIPT,
+  EXPONENTIAL_GROWTH_SCRIPT,
+  EXSANGUINATE_SCRIPT,
+  EXTINGUISH_ALL_HOPE_SCRIPT,
   EARLY_HARVEST_SCRIPT,
   EARTH_TREMOR_SCRIPT,
   EARTHQUAKE_SCRIPT,

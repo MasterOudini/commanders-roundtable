@@ -14192,3 +14192,47 @@ sorcery 283 / land 262 · fixtures 970 (70 tokens — none new) · batch.json
 **Reportables:** the name-family idiom now has FIVE shipped consumers and
 reads as a family-table candidate; the scry/surveil land cycle (Elegant
 Parlor's shape) prints ten twins — the same table; prior items stand.
+
+## D211 — M6.4az: thirteen landed — the counter with recoil, the pump-then-fight, and the exponential delta (2026-08-20)
+
+**Coverage: 2,654 → 2,667 of 31,692 (+13)** — a THIRD consecutive
+all-spell batch (3 instants, 10 sorceries). `SHIPPED_SCRIPTS` 757 → 770;
+the ledger 237 → 249 (+12, ZERO new classes); the pool 1,825 → 1,800.
+
+**The firsts.** `Essence Backlash` counters a CREATURE spell and burns
+its controller for the spell's PRINTED power — the cast face's
+`basePower`, read off the stack object where no derivation exists (a
+one-word port fix: `OracleFace` carries `basePower`, not `power`).
+`Epic Confrontation` composes the pump with the two-way fight: the
++1/+2 lands first and MY side's damage is the derived power plus a KNOWN
+1 (Ambuscade's arithmetic on Prey Upon's fight — the pumped 3/4 kills
+the 3/2 and survives the swing back). `Exponential Growth` carries
+"double power X times" as ONE computed delta — power × (2^X − 1) — the
+2/2 reading 8 at X=2 and back to 2 at cleanup. `Eternal Flame` deals
+its Mountain count forward and ceil(X/2) recoil at the caster in one
+DamageDealt. `Essence Harvest` drains for my greatest derived power;
+`Exotic Disease` is the Domain drain; `Exsanguinate` is Debt to the
+Deathless at 1×; `Evacuation`, `Evaporate` (the W-or-U color filter),
+`Excommunicate` (the top-of-library creature twin), `Essence Drain`,
+`Essence Extraction`, and `Extinguish All Hope` (the nonenchantment
+wipe) round out the batch.
+
+**Twelve refusals, ZERO new classes.** Of note: `Essence Filter`'s
+"destroy all enchantments OR all nonwhite enchantments" is a resolution
+choice the modal regex missed (script-raised prompt); `Exorcise`'s
+power qualifier binds to the CREATURE arm only — a per-arm qualifier no
+spec can carry (the noun-list class); `Ethereal Ambush` manifests
+(the morph family); `Ertai's Trickery` reads whether the spell WAS
+KICKED (kicker memory); `Eureka` and `Exhume` are opponent-chooses;
+`Exert Influence` is converge.
+
+**Measured after landing:** primitives complete 2,667 · blocked 29,025 ·
+scriptableToday 2,386 · ladder [2386, 2485, 4278, 6192, 7404] · tier3
+silentAfter 3,078 (+13 exact) · botPool instant 435 / sorcery 293 ·
+fixtures 983 (70 tokens — none new) · batch.json 1,800 · botDeck: Adun
+reaches 1,496.
+
+**Reportables:** three all-spell batches in a row say the D191 spell
+pool is still the loop's densest vein; the qualifier-widening
+convergence (keyword, color, per-arm) stands as the top targeting-layer
+item; prior items stand.
