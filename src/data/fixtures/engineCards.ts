@@ -47992,6 +47992,559 @@ export const REKI_THE_HISTORY_OF_KAMIGAWA: CardData = {
   "singleImage": true
 };
 
+export const RELIC_BARRIER: CardData = {
+  "scryfallId": "12d760d8-030e-47d0-a555-d88ee43d3d80",
+  "oracleId": "90cd8274-3f21-4b78-8910-dcaa5f8fe25d",
+  "name": "Relic Barrier",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Relic Barrier",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Tap target artifact.",
+      "flavorText": "Its transmissions are the word of Memnarch. It speaks, and metal bows.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Nottsuo",
+      "imageId": "12d760d8-030e-47d0-a555-d88ee43d3d80"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "5dn",
+  "collectorNumber": "147",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RELIQUARY_MONK: CardData = {
+  "scryfallId": "243e9386-2a7f-406a-9ed3-77d4bf1b50fd",
+  "oracleId": "a149ac31-b792-4fbe-903a-788bbdfd5e97",
+  "name": "Reliquary Monk",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reliquary Monk",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Monk Cleric",
+      "oracleText": "When this creature dies, destroy target artifact or enchantment.",
+      "flavorText": "A thing of Serra's realm exists only by the grace of her followers' faith.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Thomas M. Baxa",
+      "imageId": "243e9386-2a7f-406a-9ed3-77d4bf1b50fd"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "uds",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REMOVE_ENCHANTMENTS: CardData = {
+  "scryfallId": "bf2e3a8a-b386-474d-b8e9-4c2d56a2b742",
+  "oracleId": "fa879d99-3d2b-4a9a-a17f-d5ac109f8f44",
+  "name": "Remove Enchantments",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Remove Enchantments",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Return to your hand all enchantments you both own and control, all Auras you own attached to permanents you control, and all Auras you own attached to attacking creatures your opponents control. Then destroy all other enchantments you control, all other Auras attached to permanents you control, and all other Auras attached to attacking creatures your opponents control.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "bf2e3a8a-b386-474d-b8e9-4c2d56a2b742"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "leg",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RENDING_FLAME: CardData = {
+  "scryfallId": "51332c31-41df-4379-aa63-6a734a4df618",
+  "oracleId": "24ac7e7e-b60d-4965-91c1-7ea7e6387737",
+  "name": "Rending Flame",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rending Flame",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Rending Flame deals 5 damage to target creature or planeswalker. If that permanent is a Spirit, Rending Flame also deals 2 damage to that permanent's controller.",
+      "flavorText": "\"It is our duty to bring the Blessed Sleep to the dead, even if they resist that gift.\"\n—Grete, Order of Saint Traft",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Olena Richards",
+      "imageId": "51332c31-41df-4379-aa63-6a734a4df618"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "vow",
+  "collectorNumber": "175",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RENEWING_DAWN: CardData = {
+  "scryfallId": "e56300cb-6b44-47fe-9508-c33ad5670b4b",
+  "oracleId": "54ea46ea-7c83-44a9-85b0-eff9745c6ffa",
+  "name": "Renewing Dawn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Renewing Dawn",
+      "manaCost": "{1}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "You gain 2 life for each Mountain target opponent controls.",
+      "flavorText": "Dawn brings a new day, and a new day brings hope.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Avon",
+      "imageId": "e56300cb-6b44-47fe-9508-c33ad5670b4b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "por",
+  "collectorNumber": "23",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RENOWNED_WEAVER: CardData = {
+  "scryfallId": "240830be-53f8-4f46-a0fb-6ecc439d1349",
+  "oracleId": "562684ca-6e3c-47df-9e94-8ff772c25a96",
+  "name": "Renowned Weaver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Renowned Weaver",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "{1}{G}, Sacrifice this creature: Create a 1/3 green Spider enchantment creature token with reach. (It can block creatures with flying.)",
+      "flavorText": "\"You think your weaving as beautiful as mine? Let me show you the true meaning of the craft.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Yohann Schepacz",
+      "imageId": "240830be-53f8-4f46-a0fb-6ecc439d1349"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "jou",
+  "collectorNumber": "137",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REPAY_IN_KIND: CardData = {
+  "scryfallId": "6fde9404-b734-4f92-95eb-027443643d85",
+  "oracleId": "24b8177f-5697-4465-9305-cb84307972ae",
+  "name": "Repay in Kind",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Repay in Kind",
+      "manaCost": "{5}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each player's life total becomes the lowest life total among all players.",
+      "flavorText": "Sorin has gathered grudges for centuries, patiently awaiting the day he can exact the perfect vengeance.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Vance Kovacs",
+      "imageId": "6fde9404-b734-4f92-95eb-027443643d85"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "ROE-125",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REPEL: CardData = {
+  "scryfallId": "68ea14a6-539a-47eb-9147-a310be7b63fe",
+  "oracleId": "6e072b3a-7a83-4d77-bae3-72de0e646b81",
+  "name": "Repel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Repel",
+      "manaCost": "{3}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Put target creature on top of its owner's library.",
+      "flavorText": "\"I have a hunch we'll be seeing that one again soon.\"\n—Ambassador Laquatus",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "68ea14a6-539a-47eb-9147-a310be7b63fe"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "98",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REPENTANCE: CardData = {
+  "scryfallId": "3e28ac76-c671-4be1-bcfc-17f2d7bbe08f",
+  "oracleId": "9a345a67-0c6c-4f6f-b3c9-d525199cdbfa",
+  "name": "Repentance",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Repentance",
+      "manaCost": "{2}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature deals damage to itself equal to its power.",
+      "flavorText": "\"The cannon wasn't aimed at you!\" pleaded Vhati. \"I'm not sure which is more pathetic,\" replied Greven, \"your judgment or your aim.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "3e28ac76-c671-4be1-bcfc-17f2d7bbe08f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tmp",
+  "collectorNumber": "37",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REPRISAL: CardData = {
+  "scryfallId": "179f50be-6658-42f4-b9b9-c97c7d3f239a",
+  "oracleId": "fae90808-bafa-44d8-972a-17ded87576ee",
+  "name": "Reprisal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reprisal",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature with power 4 or greater. It can't be regenerated.",
+      "flavorText": "\"The meek shall fight as one, and they shall overcome even the greatest of foes.\"\n—Halvor Arensson, Kjeldoran Priest",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Randy Asplund-Faith",
+      "imageId": "179f50be-6658-42f4-b9b9-c97c7d3f239a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "all",
+  "collectorNumber": "13a",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REPUTABLE_MERCHANT: CardData = {
+  "scryfallId": "b7d0591e-7fb7-40ea-ba2a-cfe544d40216",
+  "oracleId": "62f09a5b-d7fb-44f4-9fab-719185b735ab",
+  "name": "Reputable Merchant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reputable Merchant",
+      "manaCost": "{2/W}{2/B}{2/G}",
+      "typeLine": "Creature — Human Citizen",
+      "oracleText": "When this creature enters or dies, put a +1/+1 counter on target creature you control.",
+      "flavorText": "\"Dried durian from the Marang River Valley! Candied cherries from the slopes of Cori! Genuine dragon scale cookware!\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G",
+        "W"
+      ],
+      "artist": "Craig J Spearing",
+      "imageId": "b7d0591e-7fb7-40ea-ba2a-cfe544d40216"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "tdm",
+  "collectorNumber": "217",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REQUIEM_ANGEL: CardData = {
+  "scryfallId": "5385925d-05ad-4f2e-bd2c-8de6c088ed05",
+  "oracleId": "59f10ddb-8287-4d2c-8c60-1080b108fa78",
+  "name": "Requiem Angel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Requiem Angel",
+      "manaCost": "{5}{W}",
+      "typeLine": "Creature — Angel",
+      "oracleText": "Flying\nWhenever another non-Spirit creature you control dies, create a 1/1 white Spirit creature token with flying.",
+      "flavorText": "When angels despair, what hope can remain for mortals?",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Eric Deschamps",
+      "imageId": "5385925d-05ad-4f2e-bd2c-8de6c088ed05"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "dka",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RESEARCH_THIEF: CardData = {
+  "scryfallId": "10ea3e92-0ace-4b98-9174-45516804fc30",
+  "oracleId": "ba5055ce-6809-47a4-bee6-fb97a5b60f8a",
+  "name": "Research Thief",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Research Thief",
+      "manaCost": "{4}{U}",
+      "typeLine": "Artifact Creature — Moonfolk Wizard",
+      "oracleText": "Flash\nFlying\nWhenever an artifact creature you control deals combat damage to a player, draw a card.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Cristi Balanescu",
+      "imageId": "10ea3e92-0ace-4b98-9174-45516804fc30"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying",
+    "Flash"
+  ],
+  "setCode": "nec",
+  "collectorNumber": "53",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RESOLUTE_REINFORCEMENTS: CardData = {
+  "scryfallId": "050b3d9a-0766-4efa-a244-b4d3e128c335",
+  "oracleId": "eaaed253-9b11-47e2-8624-0340ab2207f6",
+  "name": "Resolute Reinforcements",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Resolute Reinforcements",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, create a 1/1 white Soldier creature token.",
+      "flavorText": "Morale rarely survives the sudden appearance of a squad of Sursi skirmishers at an army's flank.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Billy Christian",
+      "imageId": "050b3d9a-0766-4efa-a244-b4d3e128c335"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flash"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "DMU-29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RESOLUTE_WATCHDOG: CardData = {
+  "scryfallId": "56d86909-b7f3-4a46-9904-e173853b79f1",
+  "oracleId": "ca2aee09-398d-4eaa-acbb-98663216185b",
+  "name": "Resolute Watchdog",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Resolute Watchdog",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Dog",
+      "oracleText": "Defender\n{1}, Sacrifice this creature: Target creature you control gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)",
+      "flavorText": "A friend in good times, a guardian in bad times, and a savior when all else fails.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Milivoj Ćeran",
+      "imageId": "56d86909-b7f3-4a46-9904-e173853b79f1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Defender"
+  ],
+  "setCode": "rna",
+  "collectorNumber": "19",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RETRACT: CardData = {
+  "scryfallId": "4e09a443-0a00-458a-b351-8cb188e9218c",
+  "oracleId": "31cefc9d-cc13-4b32-a1f8-edbcaf35aa3b",
+  "name": "Retract",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Retract",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return all artifacts you control to their owner's hand.",
+      "flavorText": "\"Secrets are meant to remain secret.\"\n—Memnarch",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Matt Cavotta",
+      "imageId": "4e09a443-0a00-458a-b351-8cb188e9218c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "dst",
+  "collectorNumber": "32",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -50820,6 +51373,42 @@ export const GREMLIN_11_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const SPIDER_13_TOKEN: CardData = {
+  "scryfallId": "7a0275af-708d-4c43-b226-c88cb9a8054c",
+  "oracleId": "10f7232b-3b49-4d4c-adea-8bdeb118d08a",
+  "name": "Spider",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Spider",
+      "manaCost": "",
+      "typeLine": "Token Enchantment Creature — Spider",
+      "oracleText": "Reach",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Yohann Schepacz",
+      "imageId": "7a0275af-708d-4c43-b226-c88cb9a8054c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Reach"
+  ],
+  "setCode": "tjou",
+  "collectorNumber": "5",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -52212,6 +52801,22 @@ export const ENGINE_CARDS: CardData[] = [
   REDUCE_TO_DREAMS,
   REFUSE_TO_YIELD,
   REKI_THE_HISTORY_OF_KAMIGAWA,
+  RELIC_BARRIER,
+  RELIQUARY_MONK,
+  REMOVE_ENCHANTMENTS,
+  RENDING_FLAME,
+  RENEWING_DAWN,
+  RENOWNED_WEAVER,
+  REPAY_IN_KIND,
+  REPEL,
+  REPENTANCE,
+  REPRISAL,
+  REPUTABLE_MERCHANT,
+  REQUIEM_ANGEL,
+  RESEARCH_THIEF,
+  RESOLUTE_REINFORCEMENTS,
+  RESOLUTE_WATCHDOG,
+  RETRACT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -52295,4 +52900,5 @@ export const ENGINE_CARDS: CardData[] = [
   CAT_11_TOKEN,
   ELEMENTAL_31_TOKEN,
   GREMLIN_11_TOKEN,
+  SPIDER_13_TOKEN,
 ];

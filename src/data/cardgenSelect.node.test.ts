@@ -892,6 +892,16 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Reknit', 'regeneration'],
   ['Release the Ants', 'clash mechanic'],
   ['Relentless Advance', 'amass mechanic'],
+  // D239 (M6.4cb)
+  ['Relentless Pursuit', 'script-raised prompt'],
+  ['Relic Crush', 'up-to-N targeting'],
+  ["Relic's Roar", 'until-end-of-turn base P/T set'],
+  ['Reminisce', 'ctx.random'],
+  ['Repel Calamity', 'spell target parse (numeric disjunction)'],
+  ['Research the Deep', 'clash mechanic'],
+  ['Resolute Strike', 'script-raised prompt'],
+  ['Restore', 'spell target parse (graveyard noun)'],
+  ['Retraced Image', 'script-raised prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

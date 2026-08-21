@@ -15616,3 +15616,51 @@ botDeck: Adun reaches 1,774 from 70 legendaries.
 
 **Reportables:** the mechanic-heavy letters will keep refusal counts
 high until the structural classes are built; prior items stand.
+
+## D239 — M6.4cb: sixteen landed — the six-clause Aura partition, and the graveyard noun that widened silently (2026-08-21)
+
+**3,155 of 31,692 Commander-legal cards execute completely, up from 3,139.**
+SHIPPED_SCRIPTS 1,242 → 1,258; the REFUSED ledger 451 → 460 (+9, TWO new
+classes). All 35 new tests green on the FIRST run — the fifteenth such batch.
+
+**The headliner: Remove Enchantments** — the most intricate deterministic
+partition a SpellDef has shipped: six printed clauses sorting every enchantment
+on the board into RETURNED (your own, not attached to an opponent's attacker)
+vs DESTROYED (everyone else's, plus your own Auras on attacking creatures you
+don't control), decided per object from `card.attachedTo` + the live combat
+attacker set. Zero new machinery — the composition ceiling again.
+
+**Also:** `Repay in Kind` (lowest life total found by folding LifeChanged
+deltas, everyone SET to it); `Repentance` (Inner Struggle's text — the
+self-bite family's FOURTH id); `Requiem Angel` (the first NEGATED-subtype
+dies watcher: every non-Spirit death pays a Spirit — its own token's death
+pays, a Spirit's does not); `Research Thief` (the artifact-CREATURE connect
+draw — the dealer's derived types must include both); `Reputable Merchant`
+(enters-or-dies targeted counter, resolve inline twice per D178);
+`Renowned Weaver` (a G Spider with reach from a creature-ENCHANTMENT body);
+`Rending Flame` (the compound player-or-planeswalker burn with a
+Spirit-conditional recoil read pre-move); `Reprisal` (the D139 power floor —
+damnation tripwire client FIFTEEN); `Resolute Watchdog` (self-sac
+indestructible grant on D194's carrier); `Relic Barrier` / `Retract` /
+`Repel` / `Renewing Dawn` (Mountain census) / `Reliquary Monk` /
+`Resolute Reinforcements`.
+
+⚠️ **The probe catches, two of them NEW classes:** `Restore` — "return
+target land card from a graveyard to the battlefield" parses with GY_NOUN
+blind to "land card", so the spec silently aims at BATTLEFIELD lands ('spell
+target parse (graveyard noun)'); `Repel Calamity` — "with mana value 4 or
+greater" beside a disjunction drops the numeric bound ('spell target parse
+(numeric disjunction)'). Plus script-raised prompts ×3, up-to-N, ctx.random,
+clash, and the until-end-of-turn base P/T set.
+
+Fixtures 1,473 → 1,490 (84 tokens — Spider tjou 5 new; the Spirit tmm2 5
+REUSED). botPool creature 1,709 / instant 584 / sorcery 438 / artifact 94 ·
+ladder [1898, 1997, 3790, 5704, 6916] · batch.json 1,100 · botDeck: Adun
+reaches 1,778 from 70 legendaries.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,338 files,
+7,315 passed / 10 skipped · 500-seed gate 754.9 s · build clean ·
+probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D239): the graveyard-noun and numeric-disjunction parse
+holes join the aim-layer queue beside the keyword qualifier; prior items stand.

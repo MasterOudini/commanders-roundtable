@@ -1818,6 +1818,23 @@ const WANTED = [
   'Reduce to Dreams',
   'Refuse to Yield',
   'Reki, the History of Kamigawa',
+  // D239 (M6.4cb)
+  'Relic Barrier',
+  'Reliquary Monk',
+  'Remove Enchantments',
+  'Rending Flame',
+  'Renewing Dawn',
+  'Renowned Weaver',
+  'Repay in Kind',
+  'Repel',
+  'Repentance',
+  'Reprisal',
+  'Reputable Merchant',
+  'Requiem Angel',
+  'Research Thief',
+  'Resolute Reinforcements',
+  'Resolute Watchdog',
+  'Retract',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -1969,6 +1986,8 @@ const WANTED_TOKENS = [
   { name: 'Elemental', set: 'tcmm', cn: '25', key: 'ELEMENTAL_31_TOKEN' },
   // D238 (M6.4ca)
   { name: 'Gremlin', set: 'tmh3', cn: '23', key: 'GREMLIN_11_TOKEN' },
+  // D239 (M6.4cb)
+  { name: 'Spider', set: 'tjou', cn: '5', key: 'SPIDER_13_TOKEN' },
 ];
 
 function constName(name) {

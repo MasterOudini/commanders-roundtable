@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { RELIC_BARRIER_SCRIPT } from './cards/relicBarrier';
+import { RELIQUARY_MONK_SCRIPT } from './cards/reliquaryMonk';
+import { REMOVE_ENCHANTMENTS_SCRIPT } from './cards/removeEnchantments';
+import { RENDING_FLAME_SCRIPT } from './cards/rendingFlame';
+import { RENEWING_DAWN_SCRIPT } from './cards/renewingDawn';
+import { RENOWNED_WEAVER_SCRIPT } from './cards/renownedWeaver';
+import { REPAY_IN_KIND_SCRIPT } from './cards/repayInKind';
+import { REPEL_SCRIPT } from './cards/repel';
+import { REPENTANCE_SCRIPT } from './cards/repentance';
+import { REPRISAL_SCRIPT } from './cards/reprisal';
+import { REPUTABLE_MERCHANT_SCRIPT } from './cards/reputableMerchant';
+import { REQUIEM_ANGEL_SCRIPT } from './cards/requiemAngel';
+import { RESEARCH_THIEF_SCRIPT } from './cards/researchThief';
+import { RESOLUTE_REINFORCEMENTS_SCRIPT } from './cards/resoluteReinforcements';
+import { RESOLUTE_WATCHDOG_SCRIPT } from './cards/resoluteWatchdog';
+import { RETRACT_SCRIPT } from './cards/retract';
 import { RAZORFIN_HUNTER_SCRIPT } from './cards/razorfinHunter';
 import { RAZORKIN_HORDECALLER_SCRIPT } from './cards/razorkinHordecaller';
 import { REANIMATE_SCRIPT } from './cards/reanimate';
@@ -1363,6 +1379,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  RELIC_BARRIER_SCRIPT,
+  RELIQUARY_MONK_SCRIPT,
+  REMOVE_ENCHANTMENTS_SCRIPT,
+  RENDING_FLAME_SCRIPT,
+  RENEWING_DAWN_SCRIPT,
+  RENOWNED_WEAVER_SCRIPT,
+  REPAY_IN_KIND_SCRIPT,
+  REPEL_SCRIPT,
+  REPENTANCE_SCRIPT,
+  REPRISAL_SCRIPT,
+  REPUTABLE_MERCHANT_SCRIPT,
+  REQUIEM_ANGEL_SCRIPT,
+  RESEARCH_THIEF_SCRIPT,
+  RESOLUTE_REINFORCEMENTS_SCRIPT,
+  RESOLUTE_WATCHDOG_SCRIPT,
+  RETRACT_SCRIPT,
   RAZORFIN_HUNTER_SCRIPT,
   RAZORKIN_HORDECALLER_SCRIPT,
   REANIMATE_SCRIPT,

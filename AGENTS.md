@@ -6653,6 +6653,32 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       counts high; prior items stand.
 
 
+- [x] **M6.4cb — Sixteen landed: the six-clause Aura partition
+      (2026-08-21):** **3,155 of 31,692 Commander-legal cards now execute
+      completely, up from 3,139.** `SHIPPED_SCRIPTS` 1,242 → 1,258; ledger
+      460 (+9, TWO new classes). All 35 tests FIRST-RUN green — the fifteenth
+      such batch. Decisions in **D239**.
+      **The headliners:** Remove Enchantments (six printed clauses partition
+      every enchantment on the board — returns vs destroys decided per object
+      from attachedTo + the live attacker set); Repay in Kind (everyone SET to
+      the lowest life); Requiem Angel (the first NEGATED-subtype dies watcher);
+      Repentance (the self-bite text's FOURTH id); Research Thief (the
+      artifact-creature connect draw); Reprisal (damnation client FIFTEEN).
+      ⚠️ **Two probe catches are NEW classes:** Restore's "land card" is
+      invisible to GY_NOUN (the spec silently aims at battlefield lands) and
+      Repel Calamity's numeric bound drops beside a disjunction.
+      ⚠️ **Nine refusals total.**
+      Fixtures 1,490 (84 tokens — Spider tjou 5 new) · botPool creature 1,709 /
+      instant 584 / sorcery 438 / artifact 94 · ladder [1898, 1997, 3790,
+      5704, 6916] · batch.json 1,100 · botDeck: Adun reaches 1,778.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,338
+      files, 7,315 passed / 10 skipped · 500-seed gate
+      754.9 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D239): the graveyard-noun and numeric-disjunction
+      parse holes join the aim-layer queue; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
