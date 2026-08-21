@@ -964,6 +964,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sleep', 'untap restriction'],
   ['Sleight of Mind', 'text-changing effect (CR 612)'],
   ['Slimy Dualleech', 'spell target parse (numeric after controller)'],
+  // D249 (M6.4cl)
+  ['Slip On the Ring', 'the Ring mechanic'],
+  ['Snap', 'up-to-N targeting'],
+  ['Snare Tactician', 'cycling mechanic'],
+  ['Soratami Mirror-Mage', 'return-permanent cost'],
+  ['Soratami Rainshaper', 'return-permanent cost'],
+  ['Soul Diviner', 'remove-counter cost'],
+  ['Soul Sear', 'temporary keyword/ability grant'],
+  ['Soul Shepherd', 'exile-from-graveyard cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

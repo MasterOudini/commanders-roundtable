@@ -7,6 +7,23 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SLINKING_SKIRGE_SCRIPT } from './cards/slinkingSkirge';
+import { SLITHERING_CRYPTID_SCRIPT } from './cards/slitheringCryptid';
+import { SLIVER_QUEEN_SCRIPT } from './cards/sliverQueen';
+import { SLOBAD_GOBLIN_TINKERER_SCRIPT } from './cards/slobadGoblinTinkerer';
+import { SMASH_TO_SMITHEREENS_SCRIPT } from './cards/smashToSmithereens';
+import { SMOKESPEW_INVOKER_SCRIPT } from './cards/smokespewInvoker';
+import { SMOTHER_SCRIPT } from './cards/smother';
+import { SNARLING_GOREHOUND_SCRIPT } from './cards/snarlingGorehound';
+import { SOARING_SEACLIFF_SCRIPT } from './cards/soaringSeacliff';
+import { SOKKA_LATERAL_STRATEGIST_SCRIPT } from './cards/sokkaLateralStrategist';
+import { SOLKANAR_THE_SWAMP_KING_SCRIPT } from './cards/solkanarTheSwampKing';
+import { SOLDIER_OF_THE_GREY_HOST_SCRIPT } from './cards/soldierOfTheGreyHost';
+import { SONGS_OF_THE_DAMNED_SCRIPT } from './cards/songsOfTheDamned';
+import { SOOTHING_BALM_SCRIPT } from './cards/soothingBalm';
+import { SORINS_THIRST_SCRIPT } from './cards/sorinsThirst';
+import { SORINS_VENGEANCE_SCRIPT } from './cards/sorinsVengeance';
+import { SOUL_FEAST_SCRIPT } from './cards/soulFeast';
 import { SINISTER_HIDEOUT_SCRIPT } from './cards/sinisterHideout';
 import { SINISTER_STARFISH_SCRIPT } from './cards/sinisterStarfish';
 import { SIP_OF_HEMLOCK_SCRIPT } from './cards/sipOfHemlock';
@@ -1551,6 +1568,23 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SLINKING_SKIRGE_SCRIPT,
+  SLITHERING_CRYPTID_SCRIPT,
+  SLIVER_QUEEN_SCRIPT,
+  SLOBAD_GOBLIN_TINKERER_SCRIPT,
+  SMASH_TO_SMITHEREENS_SCRIPT,
+  SMOKESPEW_INVOKER_SCRIPT,
+  SMOTHER_SCRIPT,
+  SNARLING_GOREHOUND_SCRIPT,
+  SOARING_SEACLIFF_SCRIPT,
+  SOKKA_LATERAL_STRATEGIST_SCRIPT,
+  SOLKANAR_THE_SWAMP_KING_SCRIPT,
+  SOLDIER_OF_THE_GREY_HOST_SCRIPT,
+  SONGS_OF_THE_DAMNED_SCRIPT,
+  SOOTHING_BALM_SCRIPT,
+  SORINS_THIRST_SCRIPT,
+  SORINS_VENGEANCE_SCRIPT,
+  SOUL_FEAST_SCRIPT,
   SINISTER_HIDEOUT_SCRIPT,
   SINISTER_STARFISH_SCRIPT,
   SIP_OF_HEMLOCK_SCRIPT,

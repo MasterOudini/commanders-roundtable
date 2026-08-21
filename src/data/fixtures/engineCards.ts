@@ -54536,6 +54536,611 @@ export const SLAYERS_STRONGHOLD: CardData = {
   "singleImage": true
 };
 
+export const SLINKING_SKIRGE: CardData = {
+  "scryfallId": "00522c4b-4e64-4403-96b1-df41afbe255f",
+  "oracleId": "82875793-b264-4ceb-8525-ef3b6d086072",
+  "name": "Slinking Skirge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slinking Skirge",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Phyrexian Imp",
+      "oracleText": "Flying\n{2}, Sacrifice this creature: Draw a card.",
+      "flavorText": "Davvol encouraged the skirges; they made excellent sentries and were quite edible if properly seasoned.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "00522c4b-4e64-4403-96b1-df41afbe255f"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "uds",
+  "collectorNumber": "71",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLITHERING_CRYPTID: CardData = {
+  "scryfallId": "6d35cb39-8832-4cf1-be73-8de49fbea529",
+  "oracleId": "f570bac8-9987-4963-af02-476d18abc847",
+  "name": "Slithering Cryptid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slithering Cryptid",
+      "manaCost": "{2}{G/U}",
+      "typeLine": "Creature — Fish Mutant",
+      "oracleText": "When this creature enters, create a Mutagen token. (It's an artifact with \"{1}, {T}, Sacrifice this token: Put a +1/+1 counter on target creature. Activate only as a sorcery.\")",
+      "flavorText": "\"The Slithery! He's snatches little kids an' keeps 'em in cages! He don't got no legs and just slithers.\"\n—Lita",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "U"
+      ],
+      "artist": "Nicholas Gregory",
+      "imageId": "6d35cb39-8832-4cf1-be73-8de49fbea529"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tmt",
+  "collectorNumber": "168",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLIVER_QUEEN: CardData = {
+  "scryfallId": "096cff82-28eb-4096-be1d-a02b9a56e682",
+  "oracleId": "b8376cca-ea96-478a-8e98-c4482031300a",
+  "name": "Sliver Queen",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sliver Queen",
+      "manaCost": "{W}{U}{B}{R}{G}",
+      "typeLine": "Legendary Creature — Sliver",
+      "oracleText": "{2}: Create a 1/1 colorless Sliver creature token.",
+      "flavorText": "Her children are ever part of her.",
+      "power": "7",
+      "toughness": "7",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "096cff82-28eb-4096-be1d-a02b9a56e682"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "tpr",
+  "collectorNumber": "211",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLOBAD_GOBLIN_TINKERER: CardData = {
+  "scryfallId": "0dce1a0c-66e9-469b-9d74-7b58fdde8ded",
+  "oracleId": "1f2d6cf4-b8f4-440f-ac08-ca47ada868ac",
+  "name": "Slobad, Goblin Tinkerer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slobad, Goblin Tinkerer",
+      "manaCost": "{1}{R}",
+      "typeLine": "Legendary Creature — Goblin Artificer",
+      "oracleText": "Sacrifice an artifact: Target artifact gains indestructible until end of turn.",
+      "flavorText": "\"I used to joke that he had been exiled for being too smart. Now I know why he never laughed.\"\n—Glissa Sunseeker",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "0dce1a0c-66e9-469b-9d74-7b58fdde8ded"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "brc",
+  "collectorNumber": "118",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SMASH_TO_SMITHEREENS: CardData = {
+  "scryfallId": "4daccff6-8395-4b11-a4ce-3576aa38bc09",
+  "oracleId": "e0583f29-c344-4b56-b0dc-bef1089a95c7",
+  "name": "Smash to Smithereens",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Smash to Smithereens",
+      "manaCost": "{1}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target artifact. Smash to Smithereens deals 3 damage to that artifact's controller.",
+      "flavorText": "\"All these old relics have one thing in common. Every last one of them is made of smithereens.\"\n—Zada of Slab Haven",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Darek Zabrocki",
+      "imageId": "4daccff6-8395-4b11-a4ce-3576aa38bc09"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "f16",
+  "collectorNumber": "3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SMOKESPEW_INVOKER: CardData = {
+  "scryfallId": "fea393a4-58c8-4a42-bd95-a3312504f2e2",
+  "oracleId": "a6df9679-1e4c-4791-855b-28bc2fa35b49",
+  "name": "Smokespew Invoker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Smokespew Invoker",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Zombie Mutant",
+      "oracleText": "{7}{B}: Target creature gets -3/-3 until end of turn.",
+      "flavorText": "The Mirari festers in its flesh.",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Thomas M. Baxa",
+      "imageId": "fea393a4-58c8-4a42-bd95-a3312504f2e2"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "lgn",
+  "collectorNumber": "81",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SMOTHER: CardData = {
+  "scryfallId": "09b4deea-c077-46ab-898f-41b3907ecf33",
+  "oracleId": "acdf9fb0-96eb-4520-bd4b-b6480c7c9b29",
+  "name": "Smother",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Smother",
+      "manaCost": "{1}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature with mana value 3 or less. It can't be regenerated.",
+      "flavorText": "\"Before I hire new recruits, I test how long they can hold their breath. You'd be surprised how often it comes up.\"\n—Zahr Gada, Halimar expedition leader",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Karl Kopinski",
+      "imageId": "09b4deea-c077-46ab-898f-41b3907ecf33"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "wwk",
+  "collectorNumber": "68",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SNARLING_GOREHOUND: CardData = {
+  "scryfallId": "93ab3e11-8584-406f-b9ae-9e1df4396cbc",
+  "oracleId": "d2b1c5eb-06f0-4ec4-9446-791faac099a7",
+  "name": "Snarling Gorehound",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Snarling Gorehound",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Dog",
+      "oracleText": "Menace\nWhenever another creature you control with power 2 or less enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "\"I'd offer your dog a treat, but I'm afraid I don't have any appendages to spare.\"\n—Alquist Proft, to Judith",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "John Tedrick",
+      "imageId": "93ab3e11-8584-406f-b9ae-9e1df4396cbc"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Surveil",
+    "Menace"
+  ],
+  "setCode": "mkm",
+  "collectorNumber": "105",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOARING_SEACLIFF: CardData = {
+  "scryfallId": "651a1a4f-bdaa-44d6-ac45-050894788063",
+  "oracleId": "a37544b6-0048-4213-8e40-76ba8a0b6d1b",
+  "name": "Soaring Seacliff",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soaring Seacliff",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, target creature gains flying until end of turn.\n{T}: Add {U}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Izzy",
+      "imageId": "651a1a4f-bdaa-44d6-ac45-050894788063"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "c20",
+  "collectorNumber": "315",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOKKA_LATERAL_STRATEGIST: CardData = {
+  "scryfallId": "1326c5db-4615-495f-8e30-376243d91352",
+  "oracleId": "427f8ef9-12b3-4fa0-b303-28153566b6dc",
+  "name": "Sokka, Lateral Strategist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sokka, Lateral Strategist",
+      "manaCost": "{1}{W/U}{W/U}",
+      "typeLine": "Legendary Creature — Human Warrior Ally",
+      "oracleText": "Vigilance\nWhenever Sokka and at least one other creature attack, draw a card.",
+      "flavorText": "\"That's called Sokka style. Learn it!\"",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Axel Sauerwald",
+      "imageId": "1326c5db-4615-495f-8e30-376243d91352"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "tla",
+  "collectorNumber": "241",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOL_KANAR_THE_SWAMP_KING: CardData = {
+  "scryfallId": "4c56d4b5-08fb-4547-91e2-6e5f8fae408d",
+  "oracleId": "b8aac8e8-4588-4cb9-8b95-5c4abab1c48b",
+  "name": "Sol'kanar the Swamp King",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sol'kanar the Swamp King",
+      "manaCost": "{2}{U}{B}{R}",
+      "typeLine": "Legendary Creature — Demon",
+      "oracleText": "Swampwalk (This creature can't be blocked as long as defending player controls a Swamp.)\nWhenever a player casts a black spell, you gain 1 life.",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R",
+        "U"
+      ],
+      "artist": "Richard Kane Ferguson",
+      "imageId": "4c56d4b5-08fb-4547-91e2-6e5f8fae408d"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R",
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Landwalk",
+    "Swampwalk"
+  ],
+  "setCode": "tsb",
+  "collectorNumber": "100",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOLDIER_OF_THE_GREY_HOST: CardData = {
+  "scryfallId": "62e960c5-729e-4732-afd6-20d08d62bcb3",
+  "oracleId": "a04c6059-d9e2-4b2b-9db5-f936d69da4d4",
+  "name": "Soldier of the Grey Host",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soldier of the Grey Host",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Spirit Soldier",
+      "oracleText": "Flash\nFlying\nWhen this creature enters, target creature gets +2/+0 until end of turn.",
+      "flavorText": "\"The Dead awaken; for the hour is come for the oathbreakers.\"\n—Malbeth the Seer",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Chris Cold",
+      "imageId": "62e960c5-729e-4732-afd6-20d08d62bcb3"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying",
+    "Flash"
+  ],
+  "setCode": "ltr",
+  "collectorNumber": "483",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SONGS_OF_THE_DAMNED: CardData = {
+  "scryfallId": "129166e5-d812-4bc1-821b-0526810a11f7",
+  "oracleId": "39419d29-47e7-4d71-953b-96a2e14ae964",
+  "name": "Songs of the Damned",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Songs of the Damned",
+      "manaCost": "{B}",
+      "typeLine": "Instant",
+      "oracleText": "Add {B} for each creature card in your graveyard.",
+      "flavorText": "Not wind, but the breath of the dead.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "129166e5-d812-4bc1-821b-0526810a11f7"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "me2",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOOTHING_BALM: CardData = {
+  "scryfallId": "96b8f4be-9f4d-4373-8141-a03518ecd38a",
+  "oracleId": "1f493e26-a556-4ca0-bb44-5408800ccf82",
+  "name": "Soothing Balm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soothing Balm",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Target player gains 5 life.",
+      "flavorText": "Orim taught Ta-Karnst and the other Cho-Arrim healers a far less invasive method of healing.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Scott M. Fischer",
+      "imageId": "96b8f4be-9f4d-4373-8141-a03518ecd38a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "48",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SORIN_S_THIRST: CardData = {
+  "scryfallId": "1f14a435-811d-4057-93a9-ce74aa852a09",
+  "oracleId": "ff27ff37-96c0-41af-8881-a078e884e67b",
+  "name": "Sorin's Thirst",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sorin's Thirst",
+      "manaCost": "{B}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Sorin's Thirst deals 2 damage to target creature and you gain 2 life.",
+      "flavorText": "\"All your steel won't protect you if your will is weak.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Karl Kopinski",
+      "imageId": "1f14a435-811d-4057-93a9-ce74aa852a09"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m12",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SORIN_S_VENGEANCE: CardData = {
+  "scryfallId": "2cb62846-c5da-4c7c-b0d7-9b677dce68d1",
+  "oracleId": "75d9c036-4f0d-4b55-b0a4-096ca84748ca",
+  "name": "Sorin's Vengeance",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sorin's Vengeance",
+      "manaCost": "{4}{B}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Sorin's Vengeance deals 10 damage to target player or planeswalker and you gain 10 life.",
+      "flavorText": "\"Cherish these last moments. Though your miserable life has come to nothing, I have given it a magnificent end.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jana Schirmer & Johannes Voss",
+      "imageId": "2cb62846-c5da-4c7c-b0d7-9b677dce68d1"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "m12",
+  "collectorNumber": "111",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOUL_FEAST: CardData = {
+  "scryfallId": "0963dbd8-6d02-4c84-8a4f-efe584c87f54",
+  "oracleId": "8186fd80-015f-470c-9e1c-cbf45764a057",
+  "name": "Soul Feast",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soul Feast",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player loses 4 life and you gain 4 life.",
+      "flavorText": "You are who you eat.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Adam Rex",
+      "imageId": "0963dbd8-6d02-4c84-8a4f-efe584c87f54"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "164★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -57546,6 +58151,36 @@ export const ANGEL_44_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const SLIVER_11_TOKEN: CardData = {
+  "scryfallId": "00f50b09-3253-46a5-8639-5bc90c84b8e1",
+  "oracleId": "9ac81d75-2bec-46ab-84e1-2fc893d45219",
+  "name": "Sliver",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Sliver",
+      "manaCost": "",
+      "typeLine": "Token Creature — Sliver",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Steve Ellis",
+      "imageId": "00f50b09-3253-46a5-8639-5bc90c84b8e1"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tcmm",
+  "collectorNumber": "57",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -59128,6 +59763,23 @@ export const ENGINE_CARDS: CardData[] = [
   SLAGDRILL_SCRAPPER,
   SLASH_OF_LIGHT,
   SLAYERS_STRONGHOLD,
+  SLINKING_SKIRGE,
+  SLITHERING_CRYPTID,
+  SLIVER_QUEEN,
+  SLOBAD_GOBLIN_TINKERER,
+  SMASH_TO_SMITHEREENS,
+  SMOKESPEW_INVOKER,
+  SMOTHER,
+  SNARLING_GOREHOUND,
+  SOARING_SEACLIFF,
+  SOKKA_LATERAL_STRATEGIST,
+  SOL_KANAR_THE_SWAMP_KING,
+  SOLDIER_OF_THE_GREY_HOST,
+  SONGS_OF_THE_DAMNED,
+  SOOTHING_BALM,
+  SORIN_S_THIRST,
+  SORIN_S_VENGEANCE,
+  SOUL_FEAST,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -59216,4 +59868,5 @@ export const ENGINE_CARDS: CardData[] = [
   BIRD_3_3_TOKEN,
   GRAVEBORN_TOKEN,
   ANGEL_44_TOKEN,
+  SLIVER_11_TOKEN,
 ];

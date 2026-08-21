@@ -32,8 +32,8 @@ describe('the regeneration vacuity argument (Damnation, D192)', () => {
         // D214 Flesh to Dust · D221 Jokulhaups · D231 Oxidize · D232
         // Perish · D233 Pillage, Plague Wind · D236 Putrefy · D239
         // Reprisal · D240 Retribution of the Meek · D245 Seeds of
-        // Innocence · D246 Shatterstorm).
-        if (['damnation.ts', 'terminate.ts', 'wrathOfGod.ts', 'consumeTheMeek.ts', 'crumble.ts', 'devourInShadow.ts', 'fissure.ts', 'fleshToDust.ts', 'jokulhaups.ts', 'oxidize.ts', 'perish.ts', 'pillage.ts', 'plagueWind.ts', 'putrefy.ts', 'reprisal.ts', 'retributionOfTheMeek.ts', 'seedsOfInnocence.ts', 'shatterstorm.ts'].includes(entry.name)) continue;
+        // Innocence · D246 Shatterstorm · D249 Smother).
+        if (['damnation.ts', 'terminate.ts', 'wrathOfGod.ts', 'consumeTheMeek.ts', 'crumble.ts', 'devourInShadow.ts', 'fissure.ts', 'fleshToDust.ts', 'jokulhaups.ts', 'oxidize.ts', 'perish.ts', 'pillage.ts', 'plagueWind.ts', 'putrefy.ts', 'reprisal.ts', 'retributionOfTheMeek.ts', 'seedsOfInnocence.ts', 'shatterstorm.ts', 'smother.ts'].includes(entry.name)) continue;
         if (/\bregenerat/i.test(readFileSync(p, 'utf8'))) offenders.push(p);
       }
     };

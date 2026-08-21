@@ -6955,6 +6955,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       modal DFCs are ordinary batch work now; prior items stand.
 
 
+- [x] **M6.4cl — Seventeen landed: the bot crowns the Sliver Queen
+      (2026-08-21):** **3,344 of 31,692 Commander-legal cards now execute
+      completely, up from 3,327** — the TWENTY-FIRST first-run-clean batch
+      (40 tests untouched), third in a row. `SHIPPED_SCRIPTS` 1,430 →
+      1,447; ledger 521 (+8, ONE new class). ONE new pin: Sliver 1/1
+      (tcmm 57, 89 tokens). Decisions in **D249**.
+      ⚠️⚠️ **THE BOT CHANGED ITS OWN COMMANDER — the second time in the
+      arc:** Sliver Queen (WUBRG) displaces Adun Oakenshield, **reaching
+      3,295 cards from 75 fully-executable legendaries** — a five-colour
+      identity excludes almost nothing. Nothing in the builder changed;
+      the pool did.
+      **The headliners:** Sliver Queen (the repeatable {2} Sliver on the
+      NEW pin); Snarling Gorehound (the derived power≤2 filter meets the
+      surveil ask — the token arm proven by the Queen's OWN product);
+      Sol'kanar (the any-player black-cast gain, proven with two
+      batch-mates); Smother (the mv≤3 floor refusing a Titan; damnation
+      client #19); Slobad (the mana-free chooser → indestructible grant);
+      Sokka (self-among-attackers at two); Songs of the Damned (the
+      census ritual); Soaring Seacliff (the flying-granting land).
+      ⚠️ **Eight refusals, ONE new class: the cycling mechanic** (Snare
+      Tactician — a cycling watcher has nothing to watch).
+      Fixtures 1,686 (89 tokens) · botPool creature 1,791 / instant 611 /
+      sorcery 482 / artifact 106 / enchantment 54 / land 300 · ladder
+      [1709, 1808, 3601, 5515, 6727] · batch.json 850.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,527
+      files, 8,087 passed / 10 skipped · 500-seed gate
+      759.5 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D249): the five-colour deck is identity-maximal —
+      future growth is pool-only; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

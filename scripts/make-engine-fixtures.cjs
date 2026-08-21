@@ -2018,6 +2018,23 @@ const WANTED = [
   'Slagdrill Scrapper',
   'Slash of Light',
   "Slayers' Stronghold",
+  'Slinking Skirge',
+  'Slithering Cryptid',
+  'Sliver Queen',
+  'Slobad, Goblin Tinkerer',
+  'Smash to Smithereens',
+  'Smokespew Invoker',
+  'Smother',
+  'Snarling Gorehound',
+  'Soaring Seacliff',
+  'Sokka, Lateral Strategist',
+  "Sol'kanar the Swamp King",
+  'Soldier of the Grey Host',
+  'Songs of the Damned',
+  'Soothing Balm',
+  "Sorin's Thirst",
+  "Sorin's Vengeance",
+  'Soul Feast',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -2177,6 +2194,7 @@ const WANTED_TOKENS = [
   // D245 (M6.4ch)
   { name: 'Graveborn', set: 'tcmm', cn: '38', key: 'GRAVEBORN_TOKEN' },
   { name: 'Angel', set: 'sld', cn: '1340', key: 'ANGEL_44_TOKEN' },
+  { name: 'Sliver', set: 'tcmm', cn: '57', key: 'SLIVER_11_TOKEN' },
 ];
 
 function constName(name) {

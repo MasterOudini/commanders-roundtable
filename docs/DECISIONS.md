@@ -16156,3 +16156,62 @@ clean · probe 124/124 · battery 130/130.**
 modal DFCs are now ordinary batch work (the spell-faced ones still wait on
 the face-keyed SpellDef ref, D187); the numeric-after-controller widening
 joins the qualifier family; prior items stand.
+
+## D249 — M6.4cl: seventeen landed — the bot crowns the Sliver Queen (2026-08-21)
+
+**3,344 of 31,692 Commander-legal cards execute completely, up from 3,327.**
+SHIPPED_SCRIPTS 1,430 → 1,447; ledger 513 → 521 (+8, ONE new class). ONE new
+token pin — **Sliver 1/1 colorless, tcmm 57** (tokens 88 → 89). The
+TWENTY-FIRST first-run-clean batch (40 tests untouched), third in a row.
+
+⚠️⚠️ **THE BOT CHANGED ITS OWN COMMANDER — the second time in the arc.**
+D160's regeneration swapped Jasmine Boreal for Adun Oakenshield; this one
+swaps Adun for **Sliver Queen (WUBRG), reaching 3,295 cards from 75
+fully-executable legendaries** — a five-colour identity excludes almost
+nothing, so the moment a five-colour commander became executable the deck
+builder took it. Nothing in the builder changed; the pool did.
+
+**The headliners:** `Sliver Queen` — the repeatable {2} Sliver on the NEW
+pin, two activations two DISTINCT tokens — and the crown (above).
+`Snarling Gorehound` — Neighborhood Guardian's derived power≤2 filter
+MEETS the surveil ask: two defs, and the TOKEN arm is proven by
+batch-mate Sliver Queen's OWN product (the 7/7 Queen's entry asks
+nothing; her 1/1 Sliver asks). `Sol'kanar the Swamp King` — the
+any-player BLACK-cast gain, the colour filter proven with two
+batch-mates (Smother pays the 1, Soothing Balm pays nothing). `Smother`
+— the D139 mv≤3 floor REFUSING a Grave Titan at the aim, and the
+damnation tripwire's NINETEENTH client ("It can't be regenerated." is
+vacuous and guarded). `Slobad, Goblin Tinkerer` — the mana-free chooser
+feeding a keyword-only indestructible grant on the carrier. `Sokka,
+Lateral Strategist` — Haazda Marshal's self-among-attackers at two.
+`Songs of the Damned` — the census RITUAL (graveyard creature cards
+typed off the ORACLE face, the dead Swamp counting nothing). `Soaring
+Seacliff` — the targeted-trigger land granting flying, its tapped entry
+asserted in the same game.
+
+**Also:** Slinking Skirge (the no-tap self-sac draw); Slithering Cryptid
+(the ETB Mutagen); Smash to Smithereens (Melt Terrain's rider order on an
+artifact); Smokespew Invoker ({7}{B} debuff); Soldier of the Grey Host
+(the ETB pump behind TWO keyword lines); Soothing Balm; Sorin's Thirst;
+Sorin's Vengeance (the ten-point compound); Soul Feast.
+
+⚠️ **Eight refusals, ONE new class: the cycling mechanic** (`Snare
+Tactician` — cycling is a hand-activated keyword action no engine concept
+models, so a cycling WATCHER has nothing to watch; D230's Ominous Sphinx
+comment named this half). Plus the Ring (Slip On the Ring), up-to-N
+(Snap), return-permanent ×2 (both Soratami), remove-counter (Soul
+Diviner), the temporary keyword/ability grant's LOSE direction (Soul
+Sear), exile-from-graveyard (Soul Shepherd).
+
+Fixtures 1,668 → 1,686 (89 tokens). botPool creature 1,791 / instant 611 /
+sorcery 482 / artifact 106 / enchantment 54 / land 300 · ladder [1709,
+1808, 3601, 5515, 6727] · batch.json 850 · botDeck: **Sliver Queen
+reaches 3,295 from 75 legendaries.**
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,527 files,
+8,087 passed / 10 skipped · 500-seed gate 759.5 s · build
+clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D249): the bot's five-colour deck is the widest it can
+ever get by identity — future growth is pool-only; the cycling mechanic
+joins the structural tail; prior items stand.
