@@ -7,6 +7,25 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SCEPTER_OF_INSIGHT_SCRIPT } from './cards/scepterOfInsight';
+import { SCORCH_THE_FIELDS_SCRIPT } from './cards/scorchTheFields';
+import { SCORCHED_RUSALKA_SCRIPT } from './cards/scorchedRusalka';
+import { SCOURED_BARRENS_SCRIPT } from './cards/scouredBarrens';
+import { SCOURING_SANDS_SCRIPT } from './cards/scouringSands';
+import { SCRAPHEAP_SCRIPT } from './cards/scrapheap';
+import { SCRAPYARD_SALVO_SCRIPT } from './cards/scrapyardSalvo';
+import { SCREAM_PUFF_SCRIPT } from './cards/screamPuff';
+import { SCRIBE_OF_THE_MINDFUL_SCRIPT } from './cards/scribeOfTheMindful';
+import { SCROLL_THIEF_SCRIPT } from './cards/scrollThief';
+import { SEA_GATE_ORACLE_SCRIPT } from './cards/seaGateOracle';
+import { SEAFLOOR_ORACLE_SCRIPT } from './cards/seafloorOracle';
+import { SEAL_OF_CLEANSING_SCRIPT } from './cards/sealOfCleansing';
+import { SEAL_OF_PRIMORDIUM_SCRIPT } from './cards/sealOfPrimordium';
+import { SEAL_OF_REMOVAL_SCRIPT } from './cards/sealOfRemoval';
+import { SEAL_OF_STRENGTH_SCRIPT } from './cards/sealOfStrength';
+import { SEARCH_WARRANT_SCRIPT } from './cards/searchWarrant';
+import { SEARCHLIGHT_COMPANION_SCRIPT } from './cards/searchlightCompanion';
+import { SEARING_FLESH_SCRIPT } from './cards/searingFlesh';
 import { SAILOR_OF_MEANS_SCRIPT } from './cards/sailorOfMeans';
 import { SALTFIELD_RECLUSE_SCRIPT } from './cards/saltfieldRecluse';
 import { SALVAGE_SCRIPT } from './cards/salvage';
@@ -1457,6 +1476,25 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SCEPTER_OF_INSIGHT_SCRIPT,
+  SCORCH_THE_FIELDS_SCRIPT,
+  SCORCHED_RUSALKA_SCRIPT,
+  SCOURED_BARRENS_SCRIPT,
+  SCOURING_SANDS_SCRIPT,
+  SCRAPHEAP_SCRIPT,
+  SCRAPYARD_SALVO_SCRIPT,
+  SCREAM_PUFF_SCRIPT,
+  SCRIBE_OF_THE_MINDFUL_SCRIPT,
+  SCROLL_THIEF_SCRIPT,
+  SEA_GATE_ORACLE_SCRIPT,
+  SEAFLOOR_ORACLE_SCRIPT,
+  SEAL_OF_CLEANSING_SCRIPT,
+  SEAL_OF_PRIMORDIUM_SCRIPT,
+  SEAL_OF_REMOVAL_SCRIPT,
+  SEAL_OF_STRENGTH_SCRIPT,
+  SEARCH_WARRANT_SCRIPT,
+  SEARCHLIGHT_COMPANION_SCRIPT,
+  SEARING_FLESH_SCRIPT,
   SAILOR_OF_MEANS_SCRIPT,
   SALTFIELD_RECLUSE_SCRIPT,
   SALVAGE_SCRIPT,

@@ -6807,6 +6807,34 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       read-at-classification rule; prior items stand.
 
 
+- [x] **M6.4cg — Nineteen landed: the trigger-raised library take
+      (2026-08-21):** **3,252 of 31,692 Commander-legal cards now execute
+      completely, up from 3,233** — the SEVENTEENTH first-run-clean batch
+      (40 tests untouched). `SHIPPED_SCRIPTS` 1,336 → 1,355; ledger 488
+      (+6, ONE new class). Zero new tokens or support bodies. Decisions in
+      **D244**.
+      **The headliners:** Sea Gate Oracle (the FIRST trigger-raised library
+      TAKE — the pick to hand, the other to the BOTTOM, single-card
+      choiceless); the FOUR-Seal cycle in one batch (Cleansing + Primordium
+      exact twins, Removal, Strength); Scrapheap (perItem #6 — the wipe
+      pays per corpse INCLUDING ITSELF, composed with shipped Ruinous
+      Ultimatum); Seafloor Oracle (perItem #7 — two Merfolk connect, two
+      draws, via D243's Rootwater Hunter); Scream Puff / Scroll Thief
+      (connect Food + draw); Searing Flesh (target OPPONENT enforced).
+      ⚠️ **Six refusals, ONE new class:** delayed trigger (Searing Blood —
+      CR 603.7 has no machinery).
+      Fixtures 1,590 (86 tokens) · botPool creature 1,750 / instant 593 /
+      sorcery 467 / artifact 99 / enchantment 53 / land 290 · ladder
+      [1801, 1900, 3693, 5607, 6819] · batch.json 975 · botDeck: Adun
+      reaches 1,829.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,435
+      files, 7,712 passed / 10 skipped · 500-seed gate
+      762.3 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D244): the delayed trigger joins the engine-work
+      list; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

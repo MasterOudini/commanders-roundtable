@@ -928,6 +928,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sanguine Sacrament', 'spell relocates itself on resolution'],
   ['Sanity Gnawers', 'ctx.random'],
   ['Scarblade Elite', 'exile-from-graveyard cost'],
+  // D244 (M6.4cg)
+  ['Schismotivate', 'spell target parse (second clause)'],
+  ['Scout the Borders', 'script-raised prompt'],
+  ["Sea God's Revenge", 'up-to-N targeting'],
+  ["Sea God's Scorn", 'up-to-N targeting'],
+  ["Sea Kings' Blessing", 'UEOT color change'],
+  ['Searing Blood', 'delayed trigger'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -15894,3 +15894,55 @@ clean · probe 124/124 · battery 130/130.**
 ⚠️ **Reportables** (D243): support-body costs join the read-at-
 classification rule; the ledger's cost-chooser classes keep absorbing;
 prior items stand.
+
+## D244 — M6.4cg: nineteen landed — the trigger-raised library take, the four Seals, and two more perItem consumers (2026-08-21)
+
+**3,252 of 31,692 Commander-legal cards execute completely, up from 3,233** —
+and the SEVENTEENTH first-run-clean batch (all 40 tests green untouched).
+SHIPPED_SCRIPTS 1,336 → 1,355; the REFUSED ledger 482 → 488 (+6, ONE new
+class). Zero new tokens, zero new support bodies.
+
+**The headliners:** `Sea Gate Oracle` — the FIRST trigger-raised library
+TAKE: D141's `chooseFromZone` ask ({zone:'library', rest:'bottom',
+count:1}) emitted from a resolve, the Sage Owl argument one prompt over; the
+pick goes to hand and the other to the BOTTOM, both pinned, and a
+single-card library takes choicelessly (CR 701.8a's shape). **The FOUR-Seal
+cycle in one batch** — Seal of Cleansing + Seal of Primordium as EXACT-text
+twins, Seal of Removal's bounce, Seal of Strength's pump: the whole
+crack-for-effect enchantment family at once. **TWO more perItem
+consumers:** `Scrapheap` (#6) — one gain per artifact-or-enchantment
+reaching MY graveyard from the battlefield, and its test composes shipped
+`Ruinous Ultimatum` for the one-batch wipe where the Scrapheap COUNTS ITS
+OWN CORPSE (three firings, +3); `Seafloor Oracle` (#7) — one draw per
+connecting Merfolk, proven with two of D243's own Rootwater Hunters.
+
+**Also:** Scream Puff (the connect Food behind Deathtouch) and Scroll Thief
+(the classic connect draw); Scribe of the Mindful (the self-sac graveyard
+return); Scorched Rusalka (Plagued Rusalka's chooser with the ping);
+Scorch the Fields (land destroy + the Human sweep that kills MY OWN Monk);
+Scouring Sands (the opponent-board sweep, ask LAST); Scrapyard Salvo (the
+artifact-graveyard census burn); Search Warrant (the public reveal + count
+gain); Searchlight Companion (the colorless Spirit on the committed tema-1
+pin); Searing Flesh (target OPPONENT enforced — the self-aim refused
+in-test); Scepter of Insight (the paid tap-draw); Scoured Barrens (the
+refuge).
+
+⚠️ **Six refusals, ONE new class:** `Searing Blood` names the DELAYED
+TRIGGER — "when that creature dies this turn" sets up a watcher for a
+future event scoped to a turn, and no machinery carries it (CR 603.7).
+Plus the second-clause family (Schismotivate), a script-raised prompt
+(Scout the Borders), up-to-N ×2 (both Sea Gods), and the UEOT color change
+(Sea Kings' Blessing).
+
+Fixtures 1,571 → 1,590 (86 tokens). botPool creature 1,750 / instant 593 /
+sorcery 467 / artifact 99 / enchantment 53 / land 290 · ladder [1801,
+1900, 3693, 5607, 6819] · batch.json 975 · botDeck: Adun reaches 1,829
+from 70 legendaries.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,435 files,
+7,712 passed / 10 skipped · 500-seed gate 762.3 s · build
+clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D244): the delayed trigger joins the engine-work list
+(CR 603.7 machinery); the perItem family now spans draws, blocks, deaths,
+attacks, graveyard intake and combat connects; prior items stand.

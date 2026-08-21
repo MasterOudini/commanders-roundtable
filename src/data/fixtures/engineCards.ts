@@ -51267,6 +51267,652 @@ export const SCEPTER_OF_DOMINANCE: CardData = {
   "singleImage": true
 };
 
+export const SCEPTER_OF_INSIGHT: CardData = {
+  "scryfallId": "8ac51021-e66c-4cd1-b54f-031b69d9699f",
+  "oracleId": "e2725411-a600-4ff3-94fb-5d52f5eda414",
+  "name": "Scepter of Insight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scepter of Insight",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Artifact",
+      "oracleText": "{3}{U}, {T}: Draw a card.",
+      "flavorText": "\"The road to truth has many branches, and so must the cane with which I walk it.\"\n—Voln the Elder",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Steven Belledin",
+      "imageId": "8ac51021-e66c-4cd1-b54f-031b69d9699f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "con",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCORCH_THE_FIELDS: CardData = {
+  "scryfallId": "05c4338d-e5c0-46b4-ab16-1f9aa97b4026",
+  "oracleId": "6f9bce77-f7f0-453b-86cd-1e6bd71980a3",
+  "name": "Scorch the Fields",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scorch the Fields",
+      "manaCost": "{4}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target land. Scorch the Fields deals 1 damage to each Human creature.",
+      "flavorText": "\"Your fields will turn as black as a ghoul's tongue and fire shall be your only harvest.\"\n—Minaldra, the Vizag Atum",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jaime Jones",
+      "imageId": "05c4338d-e5c0-46b4-ab16-1f9aa97b4026"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "dka",
+  "collectorNumber": "103",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCORCHED_RUSALKA: CardData = {
+  "scryfallId": "0332c184-476e-4320-b5c9-544a5e4f5ede",
+  "oracleId": "dd05fd8e-f25e-4b9e-b162-afea1b248282",
+  "name": "Scorched Rusalka",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scorched Rusalka",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "{R}, Sacrifice a creature: This creature deals 1 damage to target player or planeswalker.",
+      "flavorText": "Each small blaze she sets jogs her memory, letting her piece together the mystery of her own fiery end.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Luca Zontini",
+      "imageId": "0332c184-476e-4320-b5c9-544a5e4f5ede"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ddk",
+  "collectorNumber": "43",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCOURED_BARRENS: CardData = {
+  "scryfallId": "00538414-90f3-41da-b67e-d81cfa643de3",
+  "oracleId": "d37f858e-03c8-4594-9b92-cd03699a1591",
+  "name": "Scoured Barrens",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scoured Barrens",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {W} or {B}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Julian Kok Joon Wen",
+      "imageId": "00538414-90f3-41da-b67e-d81cfa643de3"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "neo",
+  "collectorNumber": "274",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCOURING_SANDS: CardData = {
+  "scryfallId": "273f25fc-9c9f-4b73-a28b-1461d8fcd443",
+  "oracleId": "f7f32fec-b384-4021-a69f-2dc9220ebc64",
+  "name": "Scouring Sands",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scouring Sands",
+      "manaCost": "{1}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Scouring Sands deals 1 damage to each creature your opponents control. Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": "When Purphoros cleans the ashes from his forge, entire cities vanish.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jonas De Ro",
+      "imageId": "273f25fc-9c9f-4b73-a28b-1461d8fcd443"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "bng",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCRAPHEAP: CardData = {
+  "scryfallId": "14aa4474-96a0-4c1d-a09d-73b9c1073b00",
+  "oracleId": "dfed42b8-b35e-4c70-9e75-25a4da158e76",
+  "name": "Scrapheap",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scrapheap",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "Whenever an artifact or enchantment is put into your graveyard from the battlefield, you gain 1 life.",
+      "flavorText": "Junk heaps have rats, but scrapheaps have goblins.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Bradley Williams",
+      "imageId": "14aa4474-96a0-4c1d-a09d-73b9c1073b00"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ulg",
+  "collectorNumber": "132",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCRAPYARD_SALVO: CardData = {
+  "scryfallId": "3a4874eb-635b-47f0-bbee-6bd8b26e2f10",
+  "oracleId": "f63894a8-318f-4cfb-9a17-359fb9153e74",
+  "name": "Scrapyard Salvo",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scrapyard Salvo",
+      "manaCost": "{1}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Scrapyard Salvo deals damage to target player or planeswalker equal to the number of artifact cards in your graveyard.",
+      "flavorText": "\"Squealstokers! Build me a glorious pile of Mirran metal. Then add yourselves to the pile.\"\n—Furnace boss, sector 11",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Austin Hsu",
+      "imageId": "3a4874eb-635b-47f0-bbee-6bd8b26e2f10"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "nph",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCREAM_PUFF: CardData = {
+  "scryfallId": "c62d0ae9-5a82-40bf-b8bb-9c2e2d55d458",
+  "oracleId": "b46ddf4b-7ed8-49c4-8828-f0fbbc023c1f",
+  "name": "Scream Puff",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scream Puff",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Horror",
+      "oracleText": "Deathtouch\nWhenever this creature deals combat damage to a player, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+      "flavorText": "Too much sugar is bad for your health.",
+      "power": "4",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nicholas Gregory",
+      "imageId": "c62d0ae9-5a82-40bf-b8bb-9c2e2d55d458"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Food",
+    "Deathtouch"
+  ],
+  "setCode": "woe",
+  "collectorNumber": "105",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCRIBE_OF_THE_MINDFUL: CardData = {
+  "scryfallId": "34ffaefe-1b9e-418d-9760-b7d546f03542",
+  "oracleId": "019a3229-dd1c-4f70-a8fb-e33dbc54df39",
+  "name": "Scribe of the Mindful",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scribe of the Mindful",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{1}, {T}, Sacrifice this creature: Return target instant or sorcery card from your graveyard to your hand.",
+      "flavorText": "\"The best answers solve more than one riddle.\"\n—Kefnet, god of knowledge",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Bastien L. Deharme",
+      "imageId": "34ffaefe-1b9e-418d-9760-b7d546f03542"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "akh",
+  "collectorNumber": "68",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCROLL_THIEF: CardData = {
+  "scryfallId": "108bcd95-7e9d-410a-abc4-c39cbfe62025",
+  "oracleId": "637c5583-4683-4ae4-8b4e-f5da42a772c7",
+  "name": "Scroll Thief",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scroll Thief",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Merfolk Rogue",
+      "oracleText": "Whenever this creature deals combat damage to a player, draw a card.",
+      "flavorText": "I've learned how to disable wards, pick locks, and decode the Agaran language—all before even reading the scroll!",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Alex Horley-Orlandelli",
+      "imageId": "108bcd95-7e9d-410a-abc4-c39cbfe62025"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ddi",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEA_GATE_ORACLE: CardData = {
+  "scryfallId": "1b35add6-630c-4b3a-bf30-8b0ed5d0550f",
+  "oracleId": "b333c194-d285-4dfb-984c-57b7e88393af",
+  "name": "Sea Gate Oracle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sea Gate Oracle",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "When this creature enters, look at the top two cards of your library. Put one of them into your hand and the other on the bottom of your library.",
+      "flavorText": "\"The secret entrance should be near.\"",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Daniel Ljunggren",
+      "imageId": "1b35add6-630c-4b3a-bf30-8b0ed5d0550f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ddm",
+  "collectorNumber": "10",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEAFLOOR_ORACLE: CardData = {
+  "scryfallId": "4316eacf-4b78-4b99-833c-53ecf49a0ae5",
+  "oracleId": "f9f719cb-7778-4109-bbd3-4504ee1b5f49",
+  "name": "Seafloor Oracle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Seafloor Oracle",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Creature — Merfolk Wizard",
+      "oracleText": "Whenever a Merfolk you control deals combat damage to a player, draw a card.",
+      "flavorText": "Where the light falls dim and blue on broken ships, secrets lie unclaimed.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Simon Dominic",
+      "imageId": "4316eacf-4b78-4b99-833c-53ecf49a0ae5"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "rix",
+  "collectorNumber": "51",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEAL_OF_CLEANSING: CardData = {
+  "scryfallId": "119d05de-5043-4fc3-ade4-78816cb75420",
+  "oracleId": "a75dbe70-7e3e-446f-9a76-9fbb414f2e7c",
+  "name": "Seal of Cleansing",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Seal of Cleansing",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Sacrifice this enchantment: Destroy target artifact or enchantment.",
+      "flavorText": "\"I am the purifier, the light that clears all shadows.\"\n—Seal inscription",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "119d05de-5043-4fc3-ade4-78816cb75420"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "wc00",
+  "collectorNumber": "nl18sb",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEAL_OF_PRIMORDIUM: CardData = {
+  "scryfallId": "0a98b47b-c35f-47ef-b686-07b3904f2854",
+  "oracleId": "f14dbb39-c9f9-4f64-b22a-38dba28f5b1e",
+  "name": "Seal of Primordium",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Seal of Primordium",
+      "manaCost": "{1}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Sacrifice this enchantment: Destroy target artifact or enchantment.",
+      "flavorText": "\"I am the simplifier, the root that drags all artifice to earth.\"\n—Seal inscription",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "0a98b47b-c35f-47ef-b686-07b3904f2854"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mm3",
+  "collectorNumber": "135",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEAL_OF_REMOVAL: CardData = {
+  "scryfallId": "487becfe-a9b1-4029-a487-2a32561570cb",
+  "oracleId": "f0801029-bcf7-4bdb-84bf-e88dcaa9dc03",
+  "name": "Seal of Removal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Seal of Removal",
+      "manaCost": "{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "Sacrifice this enchantment: Return target creature to its owner's hand.",
+      "flavorText": "\"I am the unraveler, the loosened thread that will not hold.\"\n—Seal inscription",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "487becfe-a9b1-4029-a487-2a32561570cb"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "nem",
+  "collectorNumber": "42",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEAL_OF_STRENGTH: CardData = {
+  "scryfallId": "078845ca-18aa-4c6c-9bbd-f7c4a7e09523",
+  "oracleId": "e41a68b3-e1cb-4f51-bd54-68882d2cc015",
+  "name": "Seal of Strength",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Seal of Strength",
+      "manaCost": "{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Sacrifice this enchantment: Target creature gets +3/+3 until end of turn.",
+      "flavorText": "When does majestic become ominous?",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Noah Bradley",
+      "imageId": "078845ca-18aa-4c6c-9bbd-f7c4a7e09523"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "EMA-184",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEARCH_WARRANT: CardData = {
+  "scryfallId": "d55f625a-6e9e-40ba-ae46-cf6bafc0a41b",
+  "oracleId": "27744033-5cb6-4d26-ad76-f4b4f1c0466c",
+  "name": "Search Warrant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Search Warrant",
+      "manaCost": "{W}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player reveals their hand. You gain life equal to the number of cards in that player's hand.",
+      "flavorText": "\"And would you care to explain why your satchel is radiating an aura of unstable energy?\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Steven Belledin",
+      "imageId": "d55f625a-6e9e-40ba-ae46-cf6bafc0a41b"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "rtr",
+  "collectorNumber": "193",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEARCHLIGHT_COMPANION: CardData = {
+  "scryfallId": "0b79b30e-e7aa-490e-b130-de7533e6e13b",
+  "oracleId": "426569c7-d868-4af1-bc83-5b5200532d17",
+  "name": "Searchlight Companion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Searchlight Companion",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Drone",
+      "oracleText": "Flying\nWhen this creature enters, create a 1/1 colorless Spirit creature token.",
+      "flavorText": "The merging of the spirit and material realms has resulted in some unusual friendships.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Rudy Siswanto",
+      "imageId": "0b79b30e-e7aa-490e-b130-de7533e6e13b"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "neo",
+  "collectorNumber": "258",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEARING_FLESH: CardData = {
+  "scryfallId": "d83db110-42e7-4823-a686-b83205faf503",
+  "oracleId": "d9cb5ae8-5594-46c4-9b77-4f9c6402bcd2",
+  "name": "Searing Flesh",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Searing Flesh",
+      "manaCost": "{6}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Searing Flesh deals 7 damage to target opponent or planeswalker.",
+      "flavorText": "Zemoo found out the hard way that \"inflammable\" and \"flammable\" mean the same thing.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "d83db110-42e7-4823-a686-b83205faf503"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "ons",
+  "collectorNumber": "225",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -55690,6 +56336,25 @@ export const ENGINE_CARDS: CardData[] = [
   SCALDING_DEVIL,
   SCAVENGER_FOLK,
   SCEPTER_OF_DOMINANCE,
+  SCEPTER_OF_INSIGHT,
+  SCORCH_THE_FIELDS,
+  SCORCHED_RUSALKA,
+  SCOURED_BARRENS,
+  SCOURING_SANDS,
+  SCRAPHEAP,
+  SCRAPYARD_SALVO,
+  SCREAM_PUFF,
+  SCRIBE_OF_THE_MINDFUL,
+  SCROLL_THIEF,
+  SEA_GATE_ORACLE,
+  SEAFLOOR_ORACLE,
+  SEAL_OF_CLEANSING,
+  SEAL_OF_PRIMORDIUM,
+  SEAL_OF_REMOVAL,
+  SEAL_OF_STRENGTH,
+  SEARCH_WARRANT,
+  SEARCHLIGHT_COMPANION,
+  SEARING_FLESH,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

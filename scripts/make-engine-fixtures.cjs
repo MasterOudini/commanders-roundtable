@@ -1919,6 +1919,26 @@ const WANTED = [
   'Scalding Devil',
   'Scavenger Folk',
   'Scepter of Dominance',
+  // D244 (M6.4cg)
+  'Scepter of Insight',
+  'Scorch the Fields',
+  'Scorched Rusalka',
+  'Scoured Barrens',
+  'Scouring Sands',
+  'Scrapheap',
+  'Scrapyard Salvo',
+  'Scream Puff',
+  'Scribe of the Mindful',
+  'Scroll Thief',
+  'Sea Gate Oracle',
+  'Seafloor Oracle',
+  'Seal of Cleansing',
+  'Seal of Primordium',
+  'Seal of Removal',
+  'Seal of Strength',
+  'Search Warrant',
+  'Searchlight Companion',
+  'Searing Flesh',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
