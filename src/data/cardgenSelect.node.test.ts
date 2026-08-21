@@ -861,6 +861,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Powerleech', 'activation-event discriminator'],
   ['Press the Enemy', 'script-raised prompt'],
   ['Presumed Dead', 'temporary non-keyword ability grant'],
+  // D235 (M6.4bx)
+  ['Primal Might', 'up-to-N targeting'],
+  ['Primal Surge', 'script-raised prompt'],
+  ['Prince Imrahil the Fair', 'once-per-turn trigger memory'],
+  ['Prismatic Lace', 'color change (indefinite)'],
+  ['Prying Questions', 'script-raised prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

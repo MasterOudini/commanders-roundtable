@@ -7,6 +7,26 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { PRIDE_GUARDIAN_SCRIPT } from './cards/prideGuardian';
+import { PRIDEFUL_PARENT_SCRIPT } from './cards/pridefulParent';
+import { PRIEST_OF_IROAS_SCRIPT } from './cards/priestOfIroas';
+import { PRIMAL_BELLOW_SCRIPT } from './cards/primalBellow';
+import { PRIMEVAL_LIGHT_SCRIPT } from './cards/primevalLight';
+import { PRIMORDIAL_PACHYDERM_SCRIPT } from './cards/primordialPachyderm';
+import { PRISM_RING_SCRIPT } from './cards/prismRing';
+import { PRISMARI_CAMPUS_SCRIPT } from './cards/prismariCampus';
+import { PRIZED_STATUE_SCRIPT } from './cards/prizedStatue';
+import { PRODIGAL_PYROMANCER_SCRIPT } from './cards/prodigalPyromancer';
+import { PRODIGAL_SORCERER_SCRIPT } from './cards/prodigalSorcerer';
+import { PROFANE_MEMENTO_SCRIPT } from './cards/profaneMemento';
+import { PROFANE_PRAYERS_SCRIPT } from './cards/profanePrayers';
+import { PROPHET_OF_THE_PEAK_SCRIPT } from './cards/prophetOfThePeak';
+import { PROSPERITY_SCRIPT } from './cards/prosperity';
+import { PROSPEROUS_PIRATES_SCRIPT } from './cards/prosperousPirates';
+import { PROTECTOR_OF_GONDOR_SCRIPT } from './cards/protectorOfGondor';
+import { PROVOKE_THE_TROLLS_SCRIPT } from './cards/provokeTheTrolls';
+import { PSEUDODRAGON_FAMILIAR_SCRIPT } from './cards/pseudodragonFamiliar';
+import { PSIONIC_BLAST_SCRIPT } from './cards/psionicBlast';
 import { PLANAR_CLEANSING_SCRIPT } from './cards/planarCleansing';
 import { PLANAR_DESPAIR_SCRIPT } from './cards/planarDespair';
 import { PLAY_WITH_FIRE_SCRIPT } from './cards/playWithFire';
@@ -1290,6 +1310,26 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PRIDE_GUARDIAN_SCRIPT,
+  PRIDEFUL_PARENT_SCRIPT,
+  PRIEST_OF_IROAS_SCRIPT,
+  PRIMAL_BELLOW_SCRIPT,
+  PRIMEVAL_LIGHT_SCRIPT,
+  PRIMORDIAL_PACHYDERM_SCRIPT,
+  PRISM_RING_SCRIPT,
+  PRISMARI_CAMPUS_SCRIPT,
+  PRIZED_STATUE_SCRIPT,
+  PRODIGAL_PYROMANCER_SCRIPT,
+  PRODIGAL_SORCERER_SCRIPT,
+  PROFANE_MEMENTO_SCRIPT,
+  PROFANE_PRAYERS_SCRIPT,
+  PROPHET_OF_THE_PEAK_SCRIPT,
+  PROSPERITY_SCRIPT,
+  PROSPEROUS_PIRATES_SCRIPT,
+  PROTECTOR_OF_GONDOR_SCRIPT,
+  PROVOKE_THE_TROLLS_SCRIPT,
+  PSEUDODRAGON_FAMILIAR_SCRIPT,
+  PSIONIC_BLAST_SCRIPT,
   PLANAR_CLEANSING_SCRIPT,
   PLANAR_DESPAIR_SCRIPT,
   PLAY_WITH_FIRE_SCRIPT,

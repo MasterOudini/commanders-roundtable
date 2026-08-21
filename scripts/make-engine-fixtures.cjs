@@ -1741,6 +1741,27 @@ const WANTED = [
   'Presence of the Wise',
   'Pretending Poxbearers',
   'Price of Progress',
+  // D235 (M6.4bx)
+  'Pride Guardian',
+  'Prideful Parent',
+  'Priest of Iroas',
+  'Primal Bellow',
+  'Primeval Light',
+  'Primordial Pachyderm',
+  'Prism Ring',
+  'Prismari Campus',
+  'Prized Statue',
+  'Prodigal Pyromancer',
+  'Prodigal Sorcerer',
+  'Profane Memento',
+  'Profane Prayers',
+  'Prophet of the Peak',
+  'Prosperity',
+  'Prosperous Pirates',
+  'Protector of Gondor',
+  'Provoke the Trolls',
+  'Pseudodragon Familiar',
+  'Psionic Blast',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -1886,6 +1907,8 @@ const WANTED_TOKENS = [
   { name: 'Wurm', set: 'tuma', cn: '7', key: 'WURM_66_TOKEN' },
   // D234 (M6.4bw)
   { name: 'Elemental', set: 'tsoc', cn: '21', key: 'ELEMENTAL_UR_TOKEN' },
+  // D235 (M6.4bx)
+  { name: 'Cat', set: 'tfdn', cn: '1', key: 'CAT_11_TOKEN' },
 ];
 
 function constName(name) {

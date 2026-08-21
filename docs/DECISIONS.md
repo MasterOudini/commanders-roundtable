@@ -15429,3 +15429,50 @@ tokens — the Elemental new) · batch.json 1,225 · botDeck: Adun reaches
 **Reportables:** the keyword-qualifier widening (four cards) stays the
 heaviest aim-layer debt; the two new cost/discriminator classes join
 their families; prior items stand.
+
+## D235 — M6.4bx: twenty landed — the third perItem consumer, and the choice a hand cannot make (2026-08-21)
+
+**3,086 of 31,692 Commander-legal cards now execute completely, up from
+3,066.** `SHIPPED_SCRIPTS` 1,169 → 1,189; the REFUSED ledger holds 429
+(+5, zero new classes). All 43 tests green on the FIRST run — the
+eleventh first-run-clean batch.
+
+**The headliners:** `Profane Memento` is the THIRD perItem consumer
+(D190) — a wipe filling an opponent's graveyard with three creature
+cards pays three, one firing per card, with the predicate written
+inline twice (D178) and the mover typed off the ORACLE face; `Prism
+Ring` lands Diamond Mare's two lines with "artifact" for "creature"
+(the built-in As-enters colour choice feeding the chosen-colour cast
+watcher — AnswerChooseColor in the test, on- and off-colour both
+pinned); the `Prodigal Pyromancer`/`Prodigal Sorcerer` pair puts ONE
+printed tap-ping text on two ids in a single batch (the Fisk
+precedent); `Prosperity` hands every player X cards off the stack
+object's xValue; `Prismari Campus` is the paid activated scry land;
+`Pride Guardian` gains on its own block through a real
+DeclareBlockers.
+
+**Also:** `Planar Despair`'s Domain sweep (domain 2 kills the 2/2 and
+leaves the 6/6 at 4/4); `Prized Statue`'s enters-or-dies Treasure
+pair; `Prosperous Pirates`' two DISTINCT Treasures; `Priest of
+Iroas` trading itself for an enchantment; `Provoke the Trolls`'
+creature-branch anger (+5/+0 to its own victim); `Prophet of the
+Peak`'s scry 2; `Pseudodragon Familiar`'s tapless flying grant;
+`Psionic Blast`'s printed recoil; `Protector of Gondor` and
+`Prideful Parent` on the Human Soldier and NEW Cat pins.
+
+**Five refusals, ZERO new classes — one PROBED:** `Prying Questions`
+is refused because the hand-zone chooseFromZone answer only DISCARDS —
+the awaiting has no destination for the CHOSEN card, so "puts a card
+from their hand on top of their library" cannot be asked (probe in the
+wanted-block). Plus Primal Might (up-to-N), Primal Surge and Prying
+Questions (script-raised prompt), Prince Imrahil the Fair
+(once-per-turn trigger memory), Prismatic Lace (color change).
+
+**Measured after landing:** primitives complete 3,086 · blocked 28,606 ·
+scriptableToday 1,967 · ladder [1967, 2066, 3859, 5773, 6985] · botPool
+creature 1,684 / instant 564 / sorcery 423 / artifact 91 / land 280 ·
+fixtures 1,418 (81 tokens — the Cat tfdn 1 new) · batch.json 1,200 ·
+botDeck: Adun reaches 1,737 from 68 legendaries.
+
+**Reportables:** the hand-ask destination (library-top) is a cheap
+widening of the D137 prompt when its family grows; prior items stand.

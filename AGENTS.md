@@ -6538,6 +6538,34 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       items stand.
 
 
+- [x] **M6.4bx — Twenty landed: the third perItem consumer
+      (2026-08-21):** **3,086 of 31,692 Commander-legal cards now execute
+      completely, up from 3,066.** `SHIPPED_SCRIPTS` 1,169 → 1,189;
+      ledger 429. All 43 tests FIRST-RUN green — the eleventh such batch.
+      Decisions in **D235**.
+      **The headliners:** Profane Memento (the THIRD perItem consumer —
+      one firing per creature card reaching an opponent's graveyard, a
+      wipe pays per corpse); Prism Ring (Diamond Mare's lines with
+      'artifact' for 'creature' — the chosen-colour contract on a second
+      card type); the Prodigal Pyromancer/Sorcerer pair (one tap-ping
+      text, two ids, one batch); Prosperity (each player draws X);
+      Prismari Campus (the paid activated scry land); Pride Guardian
+      (gains on its own block).
+      ⚠️ **Five refusals, ZERO new classes — Prying Questions PROBED:**
+      the hand chooseFromZone answer only discards; a hand→library-top
+      choice has no destination field.
+      Fixtures 1,418 (81 tokens — Cat tfdn 1 new) · botPool creature
+      1,684 / instant 564 / sorcery 423 / artifact 91 / land 280 ·
+      ladder [1967, 2066, 3859, 5773, 6985] · batch.json 1,200 ·
+      botDeck: Adun reaches 1,737.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,269
+      files, 7,030 passed / 10 skipped · 500-seed gate
+      751.4 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D235): the hand-ask destination widening; prior
+      items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
