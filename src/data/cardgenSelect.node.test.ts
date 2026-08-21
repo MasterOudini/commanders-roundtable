@@ -1024,6 +1024,18 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Struggle for Sanity', 'opponent-chooses'],
   ['Sudden Setback', 'opponent-chooses'],
   ['Sudden Storm', 'up-to-N targeting'],
+  // D255 (M6.4cr) — Suffer the Past was PROBED: 'X target cards' parses
+  // confident:FALSE with min 0 / max 99, a computed target COUNT. Worth
+  // noting that select.cjs's filter does NOT screen on `confident` (it
+  // checks kinds and unenforced only), so the card was still offered.
+  ['Suffer the Past', 'cast-time computed target count'],
+  ['Summary Dismissal', 'ability countering'],
+  ['Sundering Growth', 'copy effect (populate)'],
+  ['Sunfall', 'incubate mechanic'],
+  ['Supernatural Stamina', 'quoted-ability temporary grant'],
+  ['Suppress', 'delayed trigger'],
+  ['Survivor of Korlis', 'graveyard-activated ability'],
+  ['Sway of the Stars', 'ctx.random stub'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

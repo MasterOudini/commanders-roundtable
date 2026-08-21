@@ -7,6 +7,23 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SUFFOCATING_BLAST_SCRIPT } from './cards/suffocatingBlast';
+import { SULTAI_ASCENDANCY_SCRIPT } from './cards/sultaiAscendancy';
+import { SULTAI_BANNER_SCRIPT } from './cards/sultaiBanner';
+import { SULTAI_FLAYER_SCRIPT } from './cards/sultaiFlayer';
+import { SULTAI_SOOTHSAYER_SCRIPT } from './cards/sultaiSoothsayer';
+import { SUMMIT_SENTINEL_SCRIPT } from './cards/summitSentinel';
+import { SUN_BLESSED_PEAK_SCRIPT } from './cards/sunBlessedPeak';
+import { SUNDER_SCRIPT } from './cards/sunder';
+import { SUNDER_FROM_WITHIN_SCRIPT } from './cards/sunderFromWithin';
+import { SUNHOME_FORTRESS_OF_THE_LEGION_SCRIPT } from './cards/sunhomeFortressOfTheLegion';
+import { SUPERIOR_NUMBERS_SCRIPT } from './cards/superiorNumbers';
+import { SUPPLY_LINE_CRANES_SCRIPT } from './cards/supplyLineCranes';
+import { SURTR_FIERY_JOTUN_SCRIPT } from './cards/surtrFieryJotun';
+import { SUSTENANCE_SCRIPT } from './cards/sustenance';
+import { SWALLOWING_PLAGUE_SCRIPT } from './cards/swallowingPlague';
+import { SWELTER_SCRIPT } from './cards/swelter';
+import { SWIFT_KICK_SCRIPT } from './cards/swiftKick';
 import { STRANDS_OF_NIGHT_SCRIPT } from './cards/strandsOfNight';
 import { STREAM_OF_LIFE_SCRIPT } from './cards/streamOfLife';
 import { STREAM_OF_UNCONSCIOUSNESS_SCRIPT } from './cards/streamOfUnconsciousness';
@@ -1659,7 +1676,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * same file proves the check has TEETH by running it over the test registry,
  * whose scripts deliberately violate it.
  */
-export const SHIPPED_SCRIPTS: readonly CardScript[] = [  STRANDS_OF_NIGHT_SCRIPT,
+export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SUFFOCATING_BLAST_SCRIPT,
+  SULTAI_ASCENDANCY_SCRIPT,
+  SULTAI_BANNER_SCRIPT,
+  SULTAI_FLAYER_SCRIPT,
+  SULTAI_SOOTHSAYER_SCRIPT,
+  SUMMIT_SENTINEL_SCRIPT,
+  SUN_BLESSED_PEAK_SCRIPT,
+  SUNDER_SCRIPT,
+  SUNDER_FROM_WITHIN_SCRIPT,
+  SUNHOME_FORTRESS_OF_THE_LEGION_SCRIPT,
+  SUPERIOR_NUMBERS_SCRIPT,
+  SUPPLY_LINE_CRANES_SCRIPT,
+  SURTR_FIERY_JOTUN_SCRIPT,
+  SUSTENANCE_SCRIPT,
+  SWALLOWING_PLAGUE_SCRIPT,
+  SWELTER_SCRIPT,
+  SWIFT_KICK_SCRIPT,  STRANDS_OF_NIGHT_SCRIPT,
   STREAM_OF_LIFE_SCRIPT,
   STREAM_OF_UNCONSCIOUSNESS_SCRIPT,
   STRENGTH_OF_CEDARS_SCRIPT,

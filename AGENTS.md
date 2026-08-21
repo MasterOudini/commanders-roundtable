@@ -7143,6 +7143,46 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ENGINE gap, not a parse one; prior items stand.
 
 
+- [x] **M6.4cr — Seventeen landed: the two layers that disagree about a
+      target (2026-08-22):** **3,453 of 31,692 Commander-legal cards now
+      execute completely, up from 3,436.** `SHIPPED_SCRIPTS` 1,539 → 1,556;
+      ledger 562 (+8, ZERO new classes). Surtr makes the executable-legendary
+      pool **76**. Decisions in **D255**.
+      ⚠️⚠️ **The headline is a disagreement the engine has with itself,**
+      found by a test written to prove the opposite. Swift Kick aims at "you
+      control" and "you don't control"; the aim ACCEPTS a swapped answer
+      (`assignTargets` is a one-for-one matching that does not reorder), but
+      the spell then does NOTHING — the resolution re-check reads the specs
+      POSITIONALLY and fizzles. **Every multi-spec resolve must identify its
+      targets BY CONTROLLER, never by index.** Swift Kick now does, and its
+      test pins the measured behaviour. ⚠️ Skulduggery (shipped, D248) reads
+      positionally and is the named follow-up.
+      ⚠️ Two more corrections from the same test: `+1/+0` leaves toughness
+      alone, so a pumped 2/2 TRADES with a 2/2 (the fixture became a Titan,
+      whose derived 7 proves the pump landed right); and `put()` skewed a
+      hand baseline again — it moved behind the ask.
+      **Also:** Suffocating Blast (counter AND burn, two probed specs);
+      Sultai Soothsayer (the ETB library take with `rest: 'graveyard'`);
+      Sultai Flayer (the derived-TOUGHNESS dies filter, proven three ways);
+      Sunder; Superior Numbers; Surtr (the historic cast watcher that
+      targets); Sunhome (the double-strike grant land); Swelter.
+      ⚠️ **Eight refusals, ZERO new classes** — Suffer the Past PROBED
+      (`confident: false`, and `select.cjs` does not screen on that field).
+      ⚠️⚠️ **The gate went red once, on LOAD — the sixth instance:** a 20 s
+      test timeout on a unit leg of 1,435 s (usual ~730 s) while the next
+      batch was drafted alongside it; re-run idle and unchanged, **766 s and
+      green**. Drafting during a gate must stay LIGHT.
+      Fixtures 1,795 (89 tokens) · botPool creature 1,832 / instant 632 /
+      sorcery 510 / artifact 114 / enchantment 57 / land 308 · ladder [1600,
+      1699, 3492, 5406, 6618] · batch.json 700 · botDeck: Sliver Queen
+      reaches 3,404.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,636
+      files, 8,532 passed / 10 skipped · 500-seed gate
+      771.7 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D255): the aim/resolution target-order
+      disagreement; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

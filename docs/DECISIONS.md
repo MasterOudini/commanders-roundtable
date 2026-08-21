@@ -16491,3 +16491,80 @@ sorcery 506 / artifact 113 / enchantment 55 / land 306 · ladder [1617, 1716,
 `SpellCast` is an ENGINE gap, not a parse one — it blocks every "whenever you
 cast an Adventure spell" card and is worth settling before that family comes
 round again; prior items stand.
+
+## D255 — M6.4cr: seventeen landed — the two layers that disagree about a target (2026-08-22)
+
+**3,453 of 31,692 Commander-legal cards execute completely, up from 3,436.**
+SHIPPED_SCRIPTS 1,539 → 1,556; ledger 554 → 562 (+8, ZERO new classes — all
+eight verified against existing entries). Zero new tokens, zero new support
+bodies. `Surtr, Fiery Jötun` makes the bot's executable-legendary pool **76**.
+
+⚠️⚠️ **THE HEADLINE IS A DISAGREEMENT THE ENGINE HAS WITH ITSELF, found by a
+test written to prove the opposite.** `Swift Kick` aims at "target creature
+you control" and "target creature you don't control". Its first test asserted
+the engine would REFUSE a swapped answer. **It accepted it** — `assignTargets`
+is a one-for-one MATCHING (D102): it proves a legal assignment EXISTS and does
+not reorder the answer, so `obj.targets[0]` is simply whatever the player
+listed first. But the spell then did **nothing at all**: the resolution-time
+re-check (CR 608.2b) evidently reads the def's specs POSITIONALLY and fizzles
+the whole thing. Two layers, one answer, two verdicts.
+
+**The consequence for every multi-spec script: identify targets BY CONTROLLER,
+never by index.** Swift Kick now does, and its test submits the pair swapped
+and pins what actually happens (accepted at the aim, inert at resolution) —
+measured, not assumed. ⚠️ **`Skulduggery` (shipped, D248) reads
+positionally** and would pump the wrong creature on a swapped answer; it is
+correct for any in-order answer, and it is the named follow-up.
+
+⚠️ **Two more assumptions the engine corrected, both in Swift Kick's own
+test:** `+1/+0` leaves TOUGHNESS alone, so a pumped 2/2 fighting a 2/2 TRADES
+rather than surviving — the fixture became a Grave Titan, whose derived power
+of 7 is now what proves the pump landed on my side. And `put()` fetching from
+the opening hand skewed Sultai Soothsayer's hand-size baseline again (the D169
+counting trap, third customer): the baseline moved BEHIND the ask, where the
+card has left hand and graveyard and nothing has reached the hand yet.
+
+**The rest of the batch:** `Suffocating Blast` — counter AND burn in one
+resolve, two probed specs, driven against a REAL held cast. `Sultai
+Soothsayer` — the ETB library take with `rest: 'graveyard'` (Stargaze's ask
+raised from a trigger). `Sultai Flayer` — the dies watcher with a derived
+TOUGHNESS filter, proven three ways (my 2/2 pays nothing, an opponent's big
+creature pays nothing, my tough one pays 4). `Sunder` — mass land bounce to
+owners' hands. `Superior Numbers` — the two-sided census. `Surtr` — the
+historic cast watcher that TARGETS, proven with batch-mate Sultai Banner (an
+artifact) and a plain creature. `Sunhome` — the double-strike grant land.
+`Swelter` — the counted pair at 2 damage each. Plus Sultai Ascendancy (upkeep
+surveil 2), Sultai Banner (the THIRD Banner), Summit Sentinel, Sun-Blessed
+Peak, Sunder from Within, Supply-Line Cranes, Sustenance, Swallowing Plague.
+
+⚠️ **Eight refusals, ZERO new classes.** `Suffer the Past` was PROBED: "X
+target cards" parses `confident: false` with min 0 / max 99 — and note that
+`select.cjs`'s filter does NOT screen on `confident` (it checks kinds and
+unenforced only), so the card was offered anyway. Plus ability countering,
+populate, incubate, the quoted-ability grant, a delayed trigger, a
+graveyard-activated ability, and `Sway of the Stars` on the `ctx.random`
+stub (a SpellDef resolve cannot advance the seeded RNG — only `effectEvents`
+got D147's threading).
+
+⚠️⚠️ **AND THE GATE WENT RED ONCE, ON LOAD, AND THAT IS THE SIXTH TIME.**
+Round 103 failed with a single 20-second TEST TIMEOUT in the fuzz suite's
+projection-leak check, on a unit leg that took **1,435 s against its usual
+~730 s** — because the next batch was being drafted on the same machine
+throughout. Re-run idle, unchanged: **766 s and fully green.** D106's
+signature again (D138, D149, D151, D158). The standing rule stands and gains
+a clause: drafting during a gate is usually free, but it must stay LIGHT —
+a wall-clock failure is not a regression until it reproduces on a quiet
+machine.
+
+Fixtures 1,778 → 1,795 (89 tokens). botPool creature 1,832 / instant 632 /
+sorcery 510 / artifact 114 / enchantment 57 / land 308 · ladder [1600, 1699,
+3492, 5406, 6618] · batch.json 700 · botDeck: Sliver Queen reaches 3,404 from
+76 legendaries.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,636 files,
+8,532 passed / 10 skipped · 500-seed gate 771.7 s · build clean
+· probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D255): the aim/resolution target-order disagreement is an
+ENGINE inconsistency worth settling, and Skulduggery is a named positional
+reader; prior items stand.

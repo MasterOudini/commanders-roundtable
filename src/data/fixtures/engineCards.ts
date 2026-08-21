@@ -58282,6 +58282,600 @@ export const SUDDEN_INSIGHT: CardData = {
   "singleImage": true
 };
 
+export const SUFFOCATING_BLAST: CardData = {
+  "scryfallId": "c2a70297-2a7b-4a0c-ace5-cd61bfe6dafd",
+  "oracleId": "2a9d9433-7b0f-45a3-88aa-9fd7e410c224",
+  "name": "Suffocating Blast",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Suffocating Blast",
+      "manaCost": "{1}{U}{U}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target spell and Suffocating Blast deals 3 damage to target creature.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "c2a70297-2a7b-4a0c-ace5-cd61bfe6dafd"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "apc",
+  "collectorNumber": "124",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SULTAI_ASCENDANCY: CardData = {
+  "scryfallId": "2e109a29-29cb-4bee-a9ae-4293c7eaee69",
+  "oracleId": "06e92ab3-c781-4f32-9ada-09a388047067",
+  "name": "Sultai Ascendancy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sultai Ascendancy",
+      "manaCost": "{B}{G}{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "At the beginning of your upkeep, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G",
+        "U"
+      ],
+      "artist": "Eelis Kyttanen",
+      "imageId": "2e109a29-29cb-4bee-a9ae-4293c7eaee69"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "ktk",
+  "collectorNumber": "203y",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SULTAI_BANNER: CardData = {
+  "scryfallId": "1695cf35-8f7c-4674-bfd3-43520b13d084",
+  "oracleId": "93b139a5-2678-46a5-b8eb-45344ee3290a",
+  "name": "Sultai Banner",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sultai Banner",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {B}, {G}, or {U}.\n{B}{G}{U}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "Power to dominate, cruelty to rule.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "1695cf35-8f7c-4674-bfd3-43520b13d084"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ktk",
+  "collectorNumber": "225",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SULTAI_FLAYER: CardData = {
+  "scryfallId": "7f3b2ef3-551d-4782-8dce-a923c0e2965e",
+  "oracleId": "df621822-c811-40fa-99c1-ea9920bcd2e2",
+  "name": "Sultai Flayer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sultai Flayer",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Snake Shaman",
+      "oracleText": "Whenever a creature you control with toughness 4 or greater dies, you gain 4 life.",
+      "flavorText": "\"You can have the body, necromancer. I just want the skin.\"",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Izzy",
+      "imageId": "7f3b2ef3-551d-4782-8dce-a923c0e2965e"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ktk",
+  "collectorNumber": "152",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SULTAI_SOOTHSAYER: CardData = {
+  "scryfallId": "6482f1cc-87b2-4bfb-bc88-b895b837d5d8",
+  "oracleId": "5fe127e0-ee38-4f80-969b-13e84712a26f",
+  "name": "Sultai Soothsayer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sultai Soothsayer",
+      "manaCost": "{2}{B}{G}{U}",
+      "typeLine": "Creature — Snake Shaman",
+      "oracleText": "When this creature enters, look at the top four cards of your library. Put one of them into your hand and the rest into your graveyard.",
+      "flavorText": "The naga of the Sultai Brood made deals with dark forces to keep their power.",
+      "power": "2",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G",
+        "U"
+      ],
+      "artist": "Cynthia Sheppard",
+      "imageId": "6482f1cc-87b2-4bfb-bc88-b895b837d5d8"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "KTK-205",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUMMIT_SENTINEL: CardData = {
+  "scryfallId": "81251057-f270-4f05-9dc5-205c70e1f295",
+  "oracleId": "e7b88da3-7dd1-45f8-b555-98ad838b2917",
+  "name": "Summit Sentinel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Summit Sentinel",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Elemental Soldier",
+      "oracleText": "When this creature dies, draw a card.",
+      "flavorText": "No visitors make the ascent of Mount Tanufel without catching the eye of its rimekin guardians.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jake Murray",
+      "imageId": "81251057-f270-4f05-9dc5-205c70e1f295"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ecl",
+  "collectorNumber": "73",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUN_BLESSED_PEAK: CardData = {
+  "scryfallId": "ae04c862-095f-41d2-8aef-21036d5a0cdc",
+  "oracleId": "d188a397-c7d9-4f16-bc21-d9e1b5ffc951",
+  "name": "Sun-Blessed Peak",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sun-Blessed Peak",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {R} or {W}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+      "flavorText": "The sacred site of firebending's first spark.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Dom Lay",
+      "imageId": "ae04c862-095f-41d2-8aef-21036d5a0cdc"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tla",
+  "collectorNumber": "280",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUNDER: CardData = {
+  "scryfallId": "30053742-35e4-4ae0-a90e-d687a5f298d9",
+  "oracleId": "fddc93a2-912e-402a-9d0e-34f778e659ea",
+  "name": "Sunder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sunder",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return all lands to their owners' hands.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Titus Lunter",
+      "imageId": "30053742-35e4-4ae0-a90e-d687a5f298d9"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "mp2",
+  "collectorNumber": "36",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUNDER_FROM_WITHIN: CardData = {
+  "scryfallId": "46783ba7-6e23-43d0-b5aa-9a0ea75cfb67",
+  "oracleId": "09f75f28-09b9-4a6e-a1b0-671208d274d3",
+  "name": "Sunder from Within",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sunder from Within",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Sorcery — Arcane",
+      "oracleText": "Destroy target artifact or land.",
+      "flavorText": "Trapped for eons within the sacred gong, the kami boomed and clanged to a deafening tempo as they destroyed their erstwhile prison.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jeff Miracola",
+      "imageId": "46783ba7-6e23-43d0-b5aa-9a0ea75cfb67"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "sok",
+  "collectorNumber": "117",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUNHOME_FORTRESS_OF_THE_LEGION: CardData = {
+  "scryfallId": "12fc2aff-35e0-44e9-a976-70810d43634c",
+  "oracleId": "a9f8344c-1705-4254-81d6-aa05e0c69c29",
+  "name": "Sunhome, Fortress of the Legion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sunhome, Fortress of the Legion",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{2}{R}{W}, {T}: Target creature gains double strike until end of turn.",
+      "flavorText": "Sunhome—the stalwart shield, the towering sentinel, the seat of justice.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Martina Pilcerova",
+      "imageId": "12fc2aff-35e0-44e9-a976-70810d43634c"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "hop",
+  "collectorNumber": "138",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUPERIOR_NUMBERS: CardData = {
+  "scryfallId": "43d90914-ddfc-49c2-8e58-fdc3693040f2",
+  "oracleId": "b98177b5-599f-41b0-aa1e-4769d7005bbd",
+  "name": "Superior Numbers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Superior Numbers",
+      "manaCost": "{G}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Superior Numbers deals damage to target creature equal to the number of creatures you control in excess of the number of creatures target opponent controls.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Geofrey Darrow",
+      "imageId": "43d90914-ddfc-49c2-8e58-fdc3693040f2"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "244",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUPPLY_LINE_CRANES: CardData = {
+  "scryfallId": "764bd86e-4156-4c58-9ce0-ca3dffbc7298",
+  "oracleId": "bf3811b3-f3d2-4ffb-8019-e403a2cc1d81",
+  "name": "Supply-Line Cranes",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Supply-Line Cranes",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying\nWhen this creature enters, put a +1/+1 counter on target creature.",
+      "flavorText": "They are trained from hatching to deliver aid where it is needed most.",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Daniel Ljunggren",
+      "imageId": "764bd86e-4156-4c58-9ce0-ca3dffbc7298"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "jou",
+  "collectorNumber": "28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SURTR_FIERY_J_TUN: CardData = {
+  "scryfallId": "be38985c-f7a9-4885-9035-09390b4b754a",
+  "oracleId": "424084cf-418f-47b4-915f-b254c8adb3bd",
+  "name": "Surtr, Fiery Jötun",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Surtr, Fiery Jötun",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Legendary Creature — Giant God Warrior",
+      "oracleText": "Trample (This creature can deal excess combat damage to the player it's attacking.)\nWhenever you cast a historic spell, Surtr deals 3 damage to any target. (Artifacts, legendaries, and Sagas are historic.)",
+      "flavorText": "\"Do you falter, Lord of Asgard?\"",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Evan Shipard",
+      "imageId": "be38985c-f7a9-4885-9035-09390b4b754a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "acr",
+  "collectorNumber": "293",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUSTENANCE: CardData = {
+  "scryfallId": "5a61db44-80dc-4058-9c9d-65cd18e63fd4",
+  "oracleId": "d32a32d2-203d-4be1-8a33-e037747053c7",
+  "name": "Sustenance",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sustenance",
+      "manaCost": "{1}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "{1}, Sacrifice a land: Target creature gets +1/+1 until end of turn.",
+      "flavorText": "Like the dryads, the forest itself willingly gives up some of its life for the sake of the future.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Qiao Dafu",
+      "imageId": "5a61db44-80dc-4058-9c9d-65cd18e63fd4"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "278",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SWALLOWING_PLAGUE: CardData = {
+  "scryfallId": "ac549d51-3862-4eb0-9951-f13a8ba28822",
+  "oracleId": "91cac048-90ca-41bc-9177-56c78453c4a2",
+  "name": "Swallowing Plague",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Swallowing Plague",
+      "manaCost": "{X}{B}{B}",
+      "typeLine": "Sorcery — Arcane",
+      "oracleText": "Swallowing Plague deals X damage to target creature and you gain X life.",
+      "flavorText": "\"We are recalling all forces from the Takenuma Swamp. We lose men daily to kami attacks, and it seems our defeats only encourage them further.\"\n—General Takeno, letter to Lord Konda",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dave Dorman",
+      "imageId": "ac549d51-3862-4eb0-9951-f13a8ba28822"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "chk",
+  "collectorNumber": "146",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SWELTER: CardData = {
+  "scryfallId": "3b668202-7061-4391-92ae-742bc1643229",
+  "oracleId": "e1169108-1bc8-42ca-a056-a9358fba10cb",
+  "name": "Swelter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Swelter",
+      "manaCost": "{3}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Swelter deals 2 damage to each of two target creatures.",
+      "flavorText": "No circle has a beginning, but many have foreseeable ends.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Ben Thompson",
+      "imageId": "3b668202-7061-4391-92ae-742bc1643229"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "JUD-101",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SWIFT_KICK: CardData = {
+  "scryfallId": "2dc3120c-7e04-4c4a-af16-da264593a1d1",
+  "oracleId": "8c54fd75-e89f-490e-90dd-788f22b6e316",
+  "name": "Swift Kick",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Swift Kick",
+      "manaCost": "{3}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control gets +1/+0 until end of turn. It fights target creature you don't control.",
+      "flavorText": "Shintan sensed the malice in his opponent, but he did not strike until the orc's muscles tensed in preparation to throw the first punch.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mathias Kollros",
+      "imageId": "2dc3120c-7e04-4c4a-af16-da264593a1d1"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Fight"
+  ],
+  "setCode": "ktk",
+  "collectorNumber": "122",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -63013,6 +63607,23 @@ export const ENGINE_CARDS: CardData[] = [
   SUCCUMB_TO_TEMPTATION,
   SUDDEN_IMPACT,
   SUDDEN_INSIGHT,
+  SUFFOCATING_BLAST,
+  SULTAI_ASCENDANCY,
+  SULTAI_BANNER,
+  SULTAI_FLAYER,
+  SULTAI_SOOTHSAYER,
+  SUMMIT_SENTINEL,
+  SUN_BLESSED_PEAK,
+  SUNDER,
+  SUNDER_FROM_WITHIN,
+  SUNHOME_FORTRESS_OF_THE_LEGION,
+  SUPERIOR_NUMBERS,
+  SUPPLY_LINE_CRANES,
+  SURTR_FIERY_J_TUN,
+  SUSTENANCE,
+  SWALLOWING_PLAGUE,
+  SWELTER,
+  SWIFT_KICK,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

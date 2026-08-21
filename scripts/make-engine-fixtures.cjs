@@ -2127,6 +2127,23 @@ const WANTED = [
   'Succumb to Temptation',
   'Sudden Impact',
   'Sudden Insight',
+  'Suffocating Blast',
+  'Sultai Ascendancy',
+  'Sultai Banner',
+  'Sultai Flayer',
+  'Sultai Soothsayer',
+  'Summit Sentinel',
+  'Sun-Blessed Peak',
+  'Sunder',
+  'Sunder from Within',
+  'Sunhome, Fortress of the Legion',
+  'Superior Numbers',
+  'Supply-Line Cranes',
+  'Surtr, Fiery Jötun',
+  'Sustenance',
+  'Swallowing Plague',
+  'Swelter',
+  'Swift Kick',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
