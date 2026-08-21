@@ -1036,6 +1036,21 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Suppress', 'delayed trigger'],
   ['Survivor of Korlis', 'graveyard-activated ability'],
   ['Sway of the Stars', 'ctx.random stub'],
+
+  // D256 (M6.4cs) — ⚠️ up-to-N takes THREE more here and is comfortably the
+  // ledger's heaviest class. The counted-spec machinery (min/max, proven at
+  // 2 in D255's Swelter and at 6 in D217's Hex) is already half of its
+  // enforcement; what is missing is the CHOOSER that lets a player name
+  // fewer targets than the maximum.
+  ['Sylvan Paradise', 'UEOT color change'],
+  // NEW: "your party" is a board census over up-to-one-each of Cleric,
+  // Rogue, Warrior and Wizard. No party concept exists anywhere in the
+  // engine, and approximating it would miscount the damage on every board.
+  ['Synchronized Spellcraft', 'party mechanic'],
+  ['Synchronized Strike', 'up-to-N targeting'],
+  ['Take into Custody', 'untap restriction'],
+  ['Tandem Tactics', 'up-to-N targeting'],
+  ['Tandem Takedown', 'up-to-N targeting'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

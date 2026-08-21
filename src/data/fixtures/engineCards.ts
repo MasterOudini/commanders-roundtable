@@ -58876,6 +58876,651 @@ export const SWIFT_KICK: CardData = {
   "singleImage": true
 };
 
+export const SWIFT_SILENCE: CardData = {
+  "scryfallId": "a1c5f733-e126-4c22-b528-18bdb90b509b",
+  "oracleId": "ec45caf7-2051-463d-bf70-3dda671d6ce2",
+  "name": "Swift Silence",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Swift Silence",
+      "manaCost": "{2}{W}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Counter all other spells. Draw a card for each spell countered this way.",
+      "flavorText": "\"This world may not know peace, but in my presence you *will* know quiet.\"\n—Augustin IV",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "a1c5f733-e126-4c22-b528-18bdb90b509b"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "dis",
+  "collectorNumber": "132",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SWIFTWATER_CLIFFS: CardData = {
+  "scryfallId": "1a8e3d45-5449-4479-893e-8c0f8d4b0154",
+  "oracleId": "2f4ad084-2062-44c0-9975-15f100204531",
+  "name": "Swiftwater Cliffs",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Swiftwater Cliffs",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {U} or {R}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Eytan Zana",
+      "imageId": "1a8e3d45-5449-4479-893e-8c0f8d4b0154"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "frf",
+  "collectorNumber": "172",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SWIRLING_SANDSTORM: CardData = {
+  "scryfallId": "4d757ec3-c15f-4d6e-8e18-36ebae985448",
+  "oracleId": "dc5cb229-82c9-4a87-9a10-490350cbdfc0",
+  "name": "Swirling Sandstorm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Swirling Sandstorm",
+      "manaCost": "{3}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Threshold — Swirling Sandstorm deals 5 damage to each creature without flying if there are seven or more cards in your graveyard.",
+      "flavorText": "As dust swept out, vultures swept in.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Tony Szczudlo",
+      "imageId": "4d757ec3-c15f-4d6e-8e18-36ebae985448"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Threshold"
+  ],
+  "setCode": "jud",
+  "collectorNumber": "102",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SYLVAN_BRUSHSTRIDER: CardData = {
+  "scryfallId": "16482e12-7a8d-4999-8438-da227e6d1305",
+  "oracleId": "67a494dc-deac-43ee-9e47-20fae9788a9f",
+  "name": "Sylvan Brushstrider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sylvan Brushstrider",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "When this creature enters, you gain 2 life.",
+      "flavorText": "The mournful lowing of brushstriders warns of changing weather and ill winds.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "16482e12-7a8d-4999-8438-da227e6d1305"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "jmp",
+  "collectorNumber": "434",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SYLVAN_SAFEKEEPER: CardData = {
+  "scryfallId": "60d695b3-b02b-42c6-bf1b-9d97a8d82eae",
+  "oracleId": "bddf8f4a-3149-4dd6-a9e5-7747e7e45a1c",
+  "name": "Sylvan Safekeeper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sylvan Safekeeper",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "Sacrifice a land: Target creature you control gains shroud until end of turn. (It can't be the target of spells or abilities.)",
+      "flavorText": "\"He has been to the heart of the wood. Did you truly expect to wield power over him?\"\n—Oakhide druid",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Magali Villeneuve",
+      "imageId": "60d695b3-b02b-42c6-bf1b-9d97a8d82eae"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "cma",
+  "collectorNumber": "152",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SYLVOK_REPLICA: CardData = {
+  "scryfallId": "7caa3ce3-15a9-40ca-ad45-baff0f276483",
+  "oracleId": "97818ed4-3590-4a3b-92ce-716f9cfdc78e",
+  "name": "Sylvok Replica",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sylvok Replica",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Shaman",
+      "oracleText": "{G}, Sacrifice this creature: Destroy target artifact or enchantment.",
+      "flavorText": "All the zeal of the Sylvok with only a trace of their conservancy.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Zoltan Boros & Gabor Szikszai",
+      "imageId": "7caa3ce3-15a9-40ca-ad45-baff0f276483"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "som",
+  "collectorNumber": "210",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SYMBIOSIS: CardData = {
+  "scryfallId": "36b2d614-7f45-437a-95eb-2e4df6ebc1cf",
+  "oracleId": "787b494b-731b-4e99-8e46-157bc86f6eea",
+  "name": "Symbiosis",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Symbiosis",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Two target creatures each get +2/+2 until end of turn.",
+      "flavorText": "Although the elves of Argoth always considered them a nuisance, the pixies made fine allies during the war against the machines.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jeff Miracola",
+      "imageId": "36b2d614-7f45-437a-95eb-2e4df6ebc1cf"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "USG-275",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SYMBIOTIC_BEAST: CardData = {
+  "scryfallId": "78b93669-f0fb-48b6-b23d-b297dd394350",
+  "oracleId": "70ecc25b-2004-4a3c-80c3-6d97bf0711eb",
+  "name": "Symbiotic Beast",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Symbiotic Beast",
+      "manaCost": "{4}{G}{G}",
+      "typeLine": "Creature — Insect Beast",
+      "oracleText": "When this creature dies, create four 1/1 green Insect creature tokens.",
+      "flavorText": "The insects found a meal in the carrion of the beast's prey. The beast found a spiffy new hairstyle.",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Franz Vohwinkel",
+      "imageId": "78b93669-f0fb-48b6-b23d-b297dd394350"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "ONS-287",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SYMBIOTIC_ELF: CardData = {
+  "scryfallId": "33af35c6-7802-4366-ad20-1e330b4957ef",
+  "oracleId": "cfaa0d5d-d9f1-4586-a7b1-6576a58c0f1e",
+  "name": "Symbiotic Elf",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Symbiotic Elf",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Elf",
+      "oracleText": "When this creature dies, create two 1/1 green Insect creature tokens.",
+      "flavorText": "The elves arriving in Wirewood had no homes, let alone weapons, but they knew that the forest would always provide.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Wayne England",
+      "imageId": "33af35c6-7802-4366-ad20-1e330b4957ef"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ons",
+  "collectorNumber": "288",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SYMBIOTIC_WURM: CardData = {
+  "scryfallId": "592eeacb-9f9d-4072-9e68-7d21020da290",
+  "oracleId": "99e3b8ee-29e3-41de-af31-a4e8800c4619",
+  "name": "Symbiotic Wurm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Symbiotic Wurm",
+      "manaCost": "{5}{G}{G}{G}",
+      "typeLine": "Creature — Wurm",
+      "oracleText": "When this creature dies, create seven 1/1 green Insect creature tokens.",
+      "flavorText": "The insects keep the wurm's hide free from parasites. In return, the wurm doesn't eat the insects.",
+      "power": "7",
+      "toughness": "7",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Matt Cavotta",
+      "imageId": "592eeacb-9f9d-4072-9e68-7d21020da290"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 8,
+  "keywords": [],
+  "setCode": "wc03",
+  "collectorNumber": "pk289",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SYPHON_SOUL: CardData = {
+  "scryfallId": "2b329533-9d55-456f-8fb1-0ab97c4b3037",
+  "oracleId": "d47e55a6-7a16-4ed9-a94b-f1575588ee9e",
+  "name": "Syphon Soul",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Syphon Soul",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Syphon Soul deals 2 damage to each other player. You gain life equal to the damage dealt this way.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Melissa A. Benson",
+      "imageId": "2b329533-9d55-456f-8fb1-0ab97c4b3037"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "6ed",
+  "collectorNumber": "159",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TAIL_SLASH: CardData = {
+  "scryfallId": "91a59f12-8d1b-4378-abb8-e266d9b6cdba",
+  "oracleId": "69c51904-f758-4853-a86c-317c04462ea2",
+  "name": "Tail Slash",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tail Slash",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control deals damage equal to its power to target creature you don't control.",
+      "flavorText": "\"Kneel before a dragon and you will be spared when it turns to leave.\"\n—Yikaro, Atarka warrior",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Efrem Palacios",
+      "imageId": "91a59f12-8d1b-4378-abb8-e266d9b6cdba"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dtk",
+  "collectorNumber": "161",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TAKE_HEART: CardData = {
+  "scryfallId": "457eb507-bbbf-4064-bdb0-cfeefe2195df",
+  "oracleId": "2c5e30c3-0b9f-4d3e-af44-be7fcd34df25",
+  "name": "Take Heart",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Take Heart",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +2/+2 until end of turn. You gain 1 life for each attacking creature you control.",
+      "flavorText": "In the quiet before a battle, Boros soldiers whisper prayers that steady their nerves and focus their minds.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Lucas Graciano",
+      "imageId": "457eb507-bbbf-4064-bdb0-cfeefe2195df"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "jmp",
+  "collectorNumber": "134",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TAKE_INVENTORY: CardData = {
+  "scryfallId": "a3584150-4f09-4c15-b13e-707bd91b3004",
+  "oracleId": "925b3d1b-98cd-44f5-8aa0-e2b17df2808a",
+  "name": "Take Inventory",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Take Inventory",
+      "manaCost": "{1}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw a card, then draw cards equal to the number of cards named Take Inventory in your graveyard.",
+      "flavorText": "A place for everything, and everything in its place.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "a3584150-4f09-4c15-b13e-707bd91b3004"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "emn",
+  "collectorNumber": "76",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TAKEN_BY_NIGHTMARES: CardData = {
+  "scryfallId": "f858d83d-a13e-4ffa-a91d-d695e5e5d71a",
+  "oracleId": "e5557c9f-e4c2-41af-9fcc-371409e1dec6",
+  "name": "Taken by Nightmares",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Taken by Nightmares",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Exile target creature. If you control an enchantment, scry 2.",
+      "flavorText": "Dying in your sleep is never peaceful when Ashiok is involved.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Artur Treffner",
+      "imageId": "f858d83d-a13e-4ffa-a91d-d695e5e5d71a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "woe",
+  "collectorNumber": "112",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TANGLEBLOOM: CardData = {
+  "scryfallId": "1cb1a41b-bdac-4164-ad6a-ade034a4f1bf",
+  "oracleId": "87890f04-b831-4869-a7de-72789a466c71",
+  "name": "Tanglebloom",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tanglebloom",
+      "manaCost": "{1}",
+      "typeLine": "Artifact",
+      "oracleText": "{1}, {T}: You gain 1 life.",
+      "flavorText": "The bloom contains no seeds. It's meant only to nourish the forest's inhabitants.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Val Mayerik",
+      "imageId": "1cb1a41b-bdac-4164-ad6a-ade034a4f1bf"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "311★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TANGLESPAN_LOOKOUT: CardData = {
+  "scryfallId": "3bc5c32d-be0a-4a5f-a8c7-9767a895bc76",
+  "oracleId": "d6a767c2-8bc8-4686-899a-0ba3a525977a",
+  "name": "Tanglespan Lookout",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tanglespan Lookout",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Satyr",
+      "oracleText": "Whenever an Aura you control enters, draw a card.",
+      "flavorText": "\"The trolls have your scent, traveler. Hurry on, and let me take care of them.\"",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dmitry Burmak",
+      "imageId": "3bc5c32d-be0a-4a5f-a8c7-9767a895bc76"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "woe",
+  "collectorNumber": "188",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TANUFEL_RIMESPEAKER: CardData = {
+  "scryfallId": "b357022c-7cd5-4e82-a183-7144f5a84102",
+  "oracleId": "bf8de96b-0a75-4459-a123-dcf95e1b89f2",
+  "name": "Tanufel Rimespeaker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tanufel Rimespeaker",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Elemental Wizard",
+      "oracleText": "Whenever you cast a spell with mana value 4 or greater, draw a card.",
+      "flavorText": "\"A single snowflake can trigger an avalanche. A single insight can do the same.\"",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Lauren K. Cannon",
+      "imageId": "b357022c-7cd5-4e82-a183-7144f5a84102"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ecl",
+  "collectorNumber": "77",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TAR_PITCHER: CardData = {
+  "scryfallId": "30f40e38-2fcc-4927-9ce2-2080fa2d832c",
+  "oracleId": "e6991ab8-36f7-40c4-ad37-06e847d92664",
+  "name": "Tar Pitcher",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tar Pitcher",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Goblin Shaman",
+      "oracleText": "{T}, Sacrifice a Goblin: This creature deals 2 damage to any target.",
+      "flavorText": "\"Auntie Grub had caught a goat, a bleating doe that still squirmed in her arms. At the same time, her warren decided to share with her a sensory greeting of hot tar . . . .\"\n—A tale of Auntie Grub",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Omar Rayyan",
+      "imageId": "30f40e38-2fcc-4927-9ce2-2080fa2d832c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "evg",
+  "collectorNumber": "53",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -63624,6 +64269,25 @@ export const ENGINE_CARDS: CardData[] = [
   SWALLOWING_PLAGUE,
   SWELTER,
   SWIFT_KICK,
+  SWIFT_SILENCE,
+  SWIFTWATER_CLIFFS,
+  SWIRLING_SANDSTORM,
+  SYLVAN_BRUSHSTRIDER,
+  SYLVAN_SAFEKEEPER,
+  SYLVOK_REPLICA,
+  SYMBIOSIS,
+  SYMBIOTIC_BEAST,
+  SYMBIOTIC_ELF,
+  SYMBIOTIC_WURM,
+  SYPHON_SOUL,
+  TAIL_SLASH,
+  TAKE_HEART,
+  TAKE_INVENTORY,
+  TAKEN_BY_NIGHTMARES,
+  TANGLEBLOOM,
+  TANGLESPAN_LOOKOUT,
+  TANUFEL_RIMESPEAKER,
+  TAR_PITCHER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

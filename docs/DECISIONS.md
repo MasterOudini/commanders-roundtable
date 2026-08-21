@@ -16568,3 +16568,82 @@ sorcery 510 / artifact 114 / enchantment 57 / land 308 · ladder [1600, 1699,
 ⚠️ **Reportables** (D255): the aim/resolution target-order disagreement is an
 ENGINE inconsistency worth settling, and Skulduggery is a named positional
 reader; prior items stand.
+
+## D256 — M6.4cs: nineteen landed — seven Insects, and the disagreement reproduces (2026-08-22)
+
+**3,472 of 31,692 Commander-legal cards execute completely, up from 3,453.**
+SHIPPED_SCRIPTS 1,556 → 1,575; ledger 562 → 568 (+6, ONE new class). ZERO new
+token pins and ZERO new support bodies — the whole batch is built out of
+shapes already proven.
+
+**The headliner is scale on a shape the arc has had since D133.**
+`Symbiotic Wurm` makes **SEVEN** 1/1 Insects on one death — the largest token
+drop of the arc, past Hornet Queen's four (D180) — and it lands beside
+`Symbiotic Beast` at four and `Symbiotic Elf` at two. One printed shape at
+three sizes in ONE batch, each proving D164's allocator teeth at its own width
+(seven DISTINCT ids, not seven writes to one).
+
+⚠️⚠️ **AND D255's TWO-LAYER DISAGREEMENT REPRODUCED ON A SECOND CARD.**
+`Tail Slash` carries the same spec pair — "target creature you control" and
+"target creature you don't control" — and was written BY CONTROLLER from its
+first draft. Its test submits the pair swapped, and the measured outcome is
+identical to Swift Kick's: the aim **accepts** the answer and the spell then
+does **nothing**. That is the strongest evidence yet that the fizzle lives in
+the resolution-time re-check rather than in any one def's reading: this def
+never reads an index, and the swap still comes out inert. **The class now has
+two cards and one rule — identify targets by controller, never by index.**
+
+**The rest of the batch:** `Swift Silence` — the FIRST mass counter (every
+other spell on the stack dies and the caster draws one per kill; Swift Silence
+is still on the stack while it resolves, which is exactly the "other" it
+excludes, Rite of Flame's fact one verb over). `Swirling Sandstorm` — the
+THRESHOLD conditional, a seven-card graveyard census gating a flying-exempt
+sweep, proven at six and at seven. `Taken by Nightmares` — exile, then the
+scry ONLY behind an enchantment, with the ask emitted LAST (D195). `Take
+Inventory` — Frantic Inventory's self-name census on a second id.
+`Sylvan Safekeeper` — the mana-free LAND chooser granting shroud through
+D194's carrier. `Tanglespan Lookout` — the Aura-entry watcher, filtered on the
+SUBTYPE, in two defs. `Tar Pitcher` — the Goblin-predicate chooser with an
+any-target ping and no mana at all. `Sylvok Replica` — the self-sac destroy on
+the artifact-or-enchantment compound, both arms and the indestructible refusal.
+`Syphon Soul` — 2 to each other player where the GAIN is the total, so a
+three-seat table pays 4 rather than 2. `Take Heart` — the pump plus a gain
+censused off my declared attackers. Plus Swiftwater Cliffs, Sylvan
+Brushstrider, Symbiosis, and Tanglebloom.
+
+⚠️ **ONE test-side failure in the whole batch, and it is a keeper:** Swift
+Silence's first draft held two CREATURES on the stack, which the engine
+correctly refused — a sorcery-speed spell needs an EMPTY stack, so **stacking
+two spells at all means the one on top is cast at instant speed.** The second
+held spell became `Dark Ritual`. Everything else was green on its first run.
+
+⚠️ **Six refusals, ONE new class.** `Synchronized Spellcraft` names the PARTY
+mechanic — "your party" is a board census over up-to-one-each of Cleric, Rogue,
+Warrior and Wizard, and no party concept exists anywhere in the engine.
+⚠️ **up-to-N takes THREE more here** (Synchronized Strike, Tandem Tactics,
+Tandem Takedown) and is comfortably the ledger's heaviest class; the
+counted-spec machinery is already half of its enforcement, proven at 2 (D255's
+Swelter) and at 6 (D217's Hex). What is missing is the CHOOSER that lets a
+player name fewer targets than the maximum. Plus Sylvan Paradise (UEOT color
+change) and Take into Custody (untap restriction).
+
+Fixtures 1,795 → 1,814 (89 tokens, none new). botPool creature 1,841 / instant
+637 / sorcery 513 / artifact 115 / enchantment 57 / land 309 · ladder [1581,
+1680, 3473, 5387, 6599] · batch.json 675 · botDeck: Sliver Queen reaches
+**3,423** from 76 legendaries.
+
+⚠️ **A THIRD pin site was stale and the gate caught it**, not the sweep: the
+repin extracts diffs from the failure output, and `primitives.node.test.ts`
+pins `[1600, 1699]` a second time in the four-primitive multiplier test with
+`complete` beside it. The sweep's diff showed the numbers twice; the script
+replaced one. **Grep the file for the old value after a repin — a diff tells
+you what changed, not how many places say it.**
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,655 files,
+8,628 passed / 10 skipped · 500-seed gate 762.8 s · build clean ·
+probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D256): the party mechanic joins the structural tail;
+up-to-N is the ledger's heaviest class and its chooser is the named work; the
+aim/resolution target-order disagreement now has two shipped cards proving it
+and Skulduggery still reads positionally; prior items stand.

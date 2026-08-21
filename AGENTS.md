@@ -7183,6 +7183,50 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       disagreement; prior items stand.
 
 
+- [x] **M6.4cs — Nineteen landed: seven Insects, and the disagreement
+      reproduces (2026-08-22):** **3,472 of 31,692 Commander-legal cards now
+      execute completely, up from 3,453.** `SHIPPED_SCRIPTS` 1,556 → 1,575;
+      ledger 568 (+6, ONE new class). ZERO new tokens, ZERO new support
+      bodies. Decisions in **D256**.
+      **The headliner is scale:** `Symbiotic Wurm` makes **SEVEN** distinct
+      1/1 Insects on one death — the largest token drop of the arc, past
+      Hornet Queen's four — beside Symbiotic Beast at four and Symbiotic Elf
+      at two: one printed shape at three sizes in one batch.
+      ⚠️⚠️ **D255's two-layer disagreement REPRODUCED on a second card.**
+      `Tail Slash` carries the same spec pair and was written BY CONTROLLER
+      from its first draft; its test submits the pair swapped and gets the
+      identical measured outcome — the aim ACCEPTS and the spell does
+      NOTHING. A def that never reads an index still comes out inert, which
+      places the fizzle in the resolution re-check rather than in any one
+      resolve. **Two cards, one rule: identify targets by controller.**
+      **Also:** Swift Silence (the FIRST mass counter — every other spell on
+      the stack, one draw per kill); Swirling Sandstorm (the threshold
+      conditional, proven at six and seven); Taken by Nightmares (the
+      conditional scry, ask LAST); Take Inventory; Sylvan Safekeeper (the
+      mana-free LAND chooser granting shroud); Tanglespan Lookout (the
+      Aura-SUBTYPE entry pair); Tar Pitcher; Sylvok Replica; Syphon Soul (the
+      gain is the TOTAL — 4 at three seats); Take Heart.
+      ⚠️ **One test-side failure, and it is a keeper:** two sorcery-speed
+      creatures cannot stack, because the second needs an EMPTY stack —
+      stacking two spells at all means the top one is cast at instant speed.
+      ⚠️ **Six refusals, ONE new class** — the PARTY mechanic (Synchronized
+      Spellcraft). up-to-N takes three more and is the ledger's heaviest
+      class; its chooser is the named work.
+      ⚠️ **A THIRD pin site was stale and the GATE caught it, not the sweep** —
+      grep for the old value after a repin: a diff says what changed, not how
+      many places say it.
+      Fixtures 1,814 (89 tokens) · botPool creature 1,841 / instant 637 /
+      sorcery 513 / artifact 115 / enchantment 57 / land 309 · ladder [1581,
+      1680, 3473, 5387, 6599] · batch.json 675 · botDeck: Sliver Queen
+      reaches 3,423.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,655
+      files, 8,628 passed / 10 skipped · 500-seed gate
+      762.8 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D256): the party mechanic; up-to-N's chooser; the
+      target-order disagreement now has two shipped proofs; prior items
+      stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

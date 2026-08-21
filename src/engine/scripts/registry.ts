@@ -7,6 +7,25 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SWIFT_SILENCE_SCRIPT } from './cards/swiftSilence';
+import { SWIFTWATER_CLIFFS_SCRIPT } from './cards/swiftwaterCliffs';
+import { SWIRLING_SANDSTORM_SCRIPT } from './cards/swirlingSandstorm';
+import { SYLVAN_BRUSHSTRIDER_SCRIPT } from './cards/sylvanBrushstrider';
+import { SYLVAN_SAFEKEEPER_SCRIPT } from './cards/sylvanSafekeeper';
+import { SYLVOK_REPLICA_SCRIPT } from './cards/sylvokReplica';
+import { SYMBIOSIS_SCRIPT } from './cards/symbiosis';
+import { SYMBIOTIC_BEAST_SCRIPT } from './cards/symbioticBeast';
+import { SYMBIOTIC_ELF_SCRIPT } from './cards/symbioticElf';
+import { SYMBIOTIC_WURM_SCRIPT } from './cards/symbioticWurm';
+import { SYPHON_SOUL_SCRIPT } from './cards/syphonSoul';
+import { TAIL_SLASH_SCRIPT } from './cards/tailSlash';
+import { TAKE_HEART_SCRIPT } from './cards/takeHeart';
+import { TAKE_INVENTORY_SCRIPT } from './cards/takeInventory';
+import { TAKEN_BY_NIGHTMARES_SCRIPT } from './cards/takenByNightmares';
+import { TANGLEBLOOM_SCRIPT } from './cards/tanglebloom';
+import { TANGLESPAN_LOOKOUT_SCRIPT } from './cards/tanglespanLookout';
+import { TANUFEL_RIMESPEAKER_SCRIPT } from './cards/tanufelRimespeaker';
+import { TAR_PITCHER_SCRIPT } from './cards/tarPitcher';
 import { SUFFOCATING_BLAST_SCRIPT } from './cards/suffocatingBlast';
 import { SULTAI_ASCENDANCY_SCRIPT } from './cards/sultaiAscendancy';
 import { SULTAI_BANNER_SCRIPT } from './cards/sultaiBanner';
@@ -1677,6 +1696,25 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SWIFT_SILENCE_SCRIPT,
+  SWIFTWATER_CLIFFS_SCRIPT,
+  SWIRLING_SANDSTORM_SCRIPT,
+  SYLVAN_BRUSHSTRIDER_SCRIPT,
+  SYLVAN_SAFEKEEPER_SCRIPT,
+  SYLVOK_REPLICA_SCRIPT,
+  SYMBIOSIS_SCRIPT,
+  SYMBIOTIC_BEAST_SCRIPT,
+  SYMBIOTIC_ELF_SCRIPT,
+  SYMBIOTIC_WURM_SCRIPT,
+  SYPHON_SOUL_SCRIPT,
+  TAIL_SLASH_SCRIPT,
+  TAKE_HEART_SCRIPT,
+  TAKE_INVENTORY_SCRIPT,
+  TAKEN_BY_NIGHTMARES_SCRIPT,
+  TANGLEBLOOM_SCRIPT,
+  TANGLESPAN_LOOKOUT_SCRIPT,
+  TANUFEL_RIMESPEAKER_SCRIPT,
+  TAR_PITCHER_SCRIPT,
   SUFFOCATING_BLAST_SCRIPT,
   SULTAI_ASCENDANCY_SCRIPT,
   SULTAI_BANNER_SCRIPT,
