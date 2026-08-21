@@ -2110,6 +2110,23 @@ const WANTED = [
   'Storm Spirit',
   "Storm's Wrath",
   'Stormcaller of Keranos',
+  'Strands of Night',
+  'Stream of Life',
+  'Stream of Unconsciousness',
+  'Strength of Cedars',
+  'Strip Bare',
+  'Strip Mine',
+  'Striped Bears',
+  'Stroke of Genius',
+  'Stronghold Discipline',
+  'Structural Distortion',
+  'Student of Ojutai',
+  'Subjugate the Hobbits',
+  'Subterranean Cavern',
+  'Suburban Sanctuary',
+  'Succumb to Temptation',
+  'Sudden Impact',
+  'Sudden Insight',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

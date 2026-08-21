@@ -16430,3 +16430,64 @@ sorcery 502 / artifact 113 / enchantment 54 / land 303 · ladder [1634, 1733,
 ⚠️ **Reportables** (D253): the numeric-disjunction hole now holds TWO cards
 (Repel Calamity, Stern Scolding) and reads the same way both times — the
 bound after a disjunction is dropped without a trace; prior items stand.
+
+## D254 — M6.4cq: seventeen landed — the three-part cost, and an Adventure nobody can watch (2026-08-22)
+
+**3,436 of 31,692 Commander-legal cards execute completely, up from 3,419.**
+SHIPPED_SCRIPTS 1,522 → 1,539; ledger 546 → 554 (+8, ONE new class). Zero new
+tokens, zero new support bodies.
+
+**The headliner: `Strands of Night` — the deepest activation cost the engine
+has ever charged.** `{B}{B}, Pay 2 life, Sacrifice a Swamp:` is THREE cost
+components in one line, and the classification probe showed `activatedParse`
+reads the whole thing as a single activated ability. Its test proves every
+part is actually taken: the Swamp reaches the graveyard, life falls 40 → 38,
+and only then does the creature come back. The mana half (M3), the fixed-life
+half (D165) and the sacrifice chooser (D168) were each built years of
+decisions apart; this is the first card to spend all three at once.
+
+⚠️⚠️ **AND ONE CARD WAS DRAFTED, TESTED AND PULLED — the pull is the finding.**
+`Storyteller Pixie` watches "whenever you cast an Adventure spell". Its
+oracle is exactly right: layout `adventure`, face 0 `Creature`, face 1
+`Sorcery`. The cast of the Adventure half is ACCEPTED by the engine
+(`CastSpell` with `faceIndex: 1` returns ok). **But no `SpellCast` event is
+ever logged for it** — two separate diagnostics confirmed an empty cast log
+after the stack had settled — so a watcher has nothing to match on. The
+module and its test were deleted, the card unregistered, and the ledger entry
+NAMES WHAT WAS MEASURED rather than guessing at a cause:
+`'adventure-half cast unobserved'`. Edgewall Innkeeper (D173) is unaffected —
+it watches the CREATURE half, which casts normally.
+
+**Also:** `Subjugate the Hobbits` — mass theft with the COMMANDER exclusion
+read off `commanderIds` and a mana-value bound (the cheap creature changes
+hands, the six-drop stays). `Strip Bare` — the attachment walk pointed at ONE
+host: the worn Equipment dies, a loose spare on the same battlefield stands.
+`Structural Distortion` — the probed 'artifact or land' compound EXILED with
+the controller read before the move (exile is not destruction, so there is no
+indestructible check). `Stronghold Discipline` — each player pays their OWN
+creature count, all counted before any of the losses land. `Sudden Insight` —
+the DISTINCT-mana-value census. `Sudden Impact` — Storm Seeker's exact text
+on a second id, landed one batch after the first. `Student of Ojutai` — the
+NONCREATURE cast watcher, proven with two batch-mates. Plus Stream of Life,
+Stream of Unconsciousness (the Wizard-conditioned draw), Strength of Cedars,
+Strip Mine, Striped Bears, Stroke of Genius, Subterranean Cavern, Suburban
+Sanctuary, Succumb to Temptation.
+
+⚠️ **Eight refusals, ONE new class** (above). `Stream of Acid` was PROBED:
+"target land or nonblack creature" HALVES to a confident bare 'target land',
+dropping the negated-colour arm without a trace. Plus opponent-chooses ×3
+(Strategic Betrayal, Struggle for Sanity, Sudden Setback), up-to-N ×2 (Stream
+of Consciousness, Sudden Storm), and a discard-cost chooser.
+
+Fixtures 1,761 → 1,778 (89 tokens). botPool creature 1,827 / instant 629 /
+sorcery 506 / artifact 113 / enchantment 55 / land 306 · ladder [1617, 1716,
+3509, 5423, 6635] · batch.json 725 · botDeck: Sliver Queen reaches 3,387.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,619 files,
+8,461 passed / 10 skipped · 500-seed gate 751.1 s · build clean
+· probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D254): the Adventure-half cast emitting no observable
+`SpellCast` is an ENGINE gap, not a parse one — it blocks every "whenever you
+cast an Adventure spell" card and is worth settling before that family comes
+round again; prior items stand.

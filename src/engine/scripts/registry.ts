@@ -7,6 +7,23 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { STRANDS_OF_NIGHT_SCRIPT } from './cards/strandsOfNight';
+import { STREAM_OF_LIFE_SCRIPT } from './cards/streamOfLife';
+import { STREAM_OF_UNCONSCIOUSNESS_SCRIPT } from './cards/streamOfUnconsciousness';
+import { STRENGTH_OF_CEDARS_SCRIPT } from './cards/strengthOfCedars';
+import { STRIP_BARE_SCRIPT } from './cards/stripBare';
+import { STRIP_MINE_SCRIPT } from './cards/stripMine';
+import { STRIPED_BEARS_SCRIPT } from './cards/stripedBears';
+import { STROKE_OF_GENIUS_SCRIPT } from './cards/strokeOfGenius';
+import { STRONGHOLD_DISCIPLINE_SCRIPT } from './cards/strongholdDiscipline';
+import { STRUCTURAL_DISTORTION_SCRIPT } from './cards/structuralDistortion';
+import { STUDENT_OF_OJUTAI_SCRIPT } from './cards/studentOfOjutai';
+import { SUBJUGATE_THE_HOBBITS_SCRIPT } from './cards/subjugateTheHobbits';
+import { SUBTERRANEAN_CAVERN_SCRIPT } from './cards/subterraneanCavern';
+import { SUBURBAN_SANCTUARY_SCRIPT } from './cards/suburbanSanctuary';
+import { SUCCUMB_TO_TEMPTATION_SCRIPT } from './cards/succumbToTemptation';
+import { SUDDEN_IMPACT_SCRIPT } from './cards/suddenImpact';
+import { SUDDEN_INSIGHT_SCRIPT } from './cards/suddenInsight';
 import { STENCH_OF_DECAY_SCRIPT } from './cards/stenchOfDecay';
 import { STENSIA_BLOODHALL_SCRIPT } from './cards/stensiaBloodhall';
 import { STERLING_HOUND_SCRIPT } from './cards/sterlingHound';
@@ -1642,7 +1659,23 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * same file proves the check has TEETH by running it over the test registry,
  * whose scripts deliberately violate it.
  */
-export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+export const SHIPPED_SCRIPTS: readonly CardScript[] = [  STRANDS_OF_NIGHT_SCRIPT,
+  STREAM_OF_LIFE_SCRIPT,
+  STREAM_OF_UNCONSCIOUSNESS_SCRIPT,
+  STRENGTH_OF_CEDARS_SCRIPT,
+  STRIP_BARE_SCRIPT,
+  STRIP_MINE_SCRIPT,
+  STRIPED_BEARS_SCRIPT,
+  STROKE_OF_GENIUS_SCRIPT,
+  STRONGHOLD_DISCIPLINE_SCRIPT,
+  STRUCTURAL_DISTORTION_SCRIPT,
+  STUDENT_OF_OJUTAI_SCRIPT,
+  SUBJUGATE_THE_HOBBITS_SCRIPT,
+  SUBTERRANEAN_CAVERN_SCRIPT,
+  SUBURBAN_SANCTUARY_SCRIPT,
+  SUCCUMB_TO_TEMPTATION_SCRIPT,
+  SUDDEN_IMPACT_SCRIPT,
+  SUDDEN_INSIGHT_SCRIPT,
   STENCH_OF_DECAY_SCRIPT,
   STENSIA_BLOODHALL_SCRIPT,
   STERLING_HOUND_SCRIPT,

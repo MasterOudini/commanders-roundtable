@@ -57708,6 +57708,580 @@ export const STORMCALLER_OF_KERANOS: CardData = {
   "singleImage": true
 };
 
+export const STRANDS_OF_NIGHT: CardData = {
+  "scryfallId": "13382490-205e-4dcd-8524-2b17008b5237",
+  "oracleId": "0e8ae1f7-8926-414a-8434-db0b0f877505",
+  "name": "Strands of Night",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Strands of Night",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Enchantment",
+      "oracleText": "{B}{B}, Pay 2 life, Sacrifice a Swamp: Return target creature card from your graveyard to the battlefield.",
+      "flavorText": "\"I have seen the night torn into thin darkling strips and woven into shapes too bleak for dreams.\"\n—Crovax",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Patrick Kochakji",
+      "imageId": "13382490-205e-4dcd-8524-2b17008b5237"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "6ed",
+  "collectorNumber": "156",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STREAM_OF_LIFE: CardData = {
+  "scryfallId": "04ff34fb-7bc5-4484-ad73-067363a2cc16",
+  "oracleId": "9eb2912d-2130-49f2-9529-b58fa5a97a15",
+  "name": "Stream of Life",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stream of Life",
+      "manaCost": "{X}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player gains X life.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Andrew Goldhawk",
+      "imageId": "04ff34fb-7bc5-4484-ad73-067363a2cc16"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "282",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STREAM_OF_UNCONSCIOUSNESS: CardData = {
+  "scryfallId": "54ba05db-6b09-4b6a-b7fe-13c1e1058e25",
+  "oracleId": "7da64f81-64d0-4019-a208-9ee8b6782d85",
+  "name": "Stream of Unconsciousness",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stream of Unconsciousness",
+      "manaCost": "{U}",
+      "typeLine": "Kindred Instant — Wizard",
+      "oracleText": "Target creature gets -4/-0 until end of turn. If you control a Wizard, draw a card.",
+      "flavorText": "Dreams are tempting because one is so powerful in them. Dreams are dangerous because that power is a lie.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "54ba05db-6b09-4b6a-b7fe-13c1e1058e25"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mor",
+  "collectorNumber": "52",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STRENGTH_OF_CEDARS: CardData = {
+  "scryfallId": "85ab46f5-d3e1-403f-92e7-f40de51a3d4d",
+  "oracleId": "61b29c75-00d0-4ddb-9e27-cfd47302830e",
+  "name": "Strength of Cedars",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Strength of Cedars",
+      "manaCost": "{4}{G}",
+      "typeLine": "Instant — Arcane",
+      "oracleText": "Target creature gets +X/+X until end of turn, where X is the number of lands you control.",
+      "flavorText": "\"No sooner had the beast collapsed under the blows of Takeno's sword than the earth rippled and the creature rose again to face him.\"\n—*Battle of Akagi River: A Survivor's Tale*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "85ab46f5-d3e1-403f-92e7-f40de51a3d4d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "chk",
+  "collectorNumber": "245",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STRIP_BARE: CardData = {
+  "scryfallId": "51173fa1-7cd4-4093-982a-db0d46564a8a",
+  "oracleId": "957e8ded-90e7-4bc6-98c1-eb6af1fd0ce5",
+  "name": "Strip Bare",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Strip Bare",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy all Auras and Equipment attached to target creature.",
+      "flavorText": "\"All glamers lifted, all lies revealed, all flesh exposed.\"\n—Awylla, elvish safewright",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Ralph Horsley",
+      "imageId": "51173fa1-7cd4-4093-982a-db0d46564a8a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "shm",
+  "collectorNumber": "24",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STRIP_MINE: CardData = {
+  "scryfallId": "0c5060cb-b9ec-482d-a321-533c67805758",
+  "oracleId": "d21a89eb-7c5b-459a-acc7-12b20b13bf79",
+  "name": "Strip Mine",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Strip Mine",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{T}, Sacrifice this land: Destroy target land.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Gelon",
+      "imageId": "0c5060cb-b9ec-482d-a321-533c67805758"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "rin",
+  "collectorNumber": "174",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STRIPED_BEARS: CardData = {
+  "scryfallId": "0bf54365-56ae-485d-b931-784a4cf9d8f2",
+  "oracleId": "ac856e91-1b88-464b-9420-dc311ce814ea",
+  "name": "Striped Bears",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Striped Bears",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Bear",
+      "oracleText": "When this creature enters, draw a card.",
+      "flavorText": "\"The bear is never cautious—which is why it wasn't born a human.\"\n—Mirri of the *Weatherlight*",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Una Fricker",
+      "imageId": "0bf54365-56ae-485d-b931-784a4cf9d8f2"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "wth",
+  "collectorNumber": "140",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STROKE_OF_GENIUS: CardData = {
+  "scryfallId": "2a5b8542-f8b9-4b98-89ee-ce577b862bce",
+  "oracleId": "0cc6d683-366f-4ae4-be60-20ad9621fdaf",
+  "name": "Stroke of Genius",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stroke of Genius",
+      "manaCost": "{X}{2}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Target player draws X cards.",
+      "flavorText": "\"Every thought is a star illuminating the darkness. Inspiration comes from finding the constellations that link them.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Rovina Cai",
+      "imageId": "2a5b8542-f8b9-4b98-89ee-ce577b862bce"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dmr",
+  "collectorNumber": "67",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STRONGHOLD_DISCIPLINE: CardData = {
+  "scryfallId": "2509a386-0c11-425c-9946-ab4add1abfee",
+  "oracleId": "90e46d04-9d53-4a24-aff0-f8c61e1db97d",
+  "name": "Stronghold Discipline",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stronghold Discipline",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each player loses 1 life for each creature they control.",
+      "flavorText": "In Urborg, the instigators of each new rebellion are soaked in the blood of the last.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Daarken",
+      "imageId": "2509a386-0c11-425c-9946-ab4add1abfee"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "10e",
+  "collectorNumber": "181",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STRUCTURAL_DISTORTION: CardData = {
+  "scryfallId": "a7895890-a774-4c7c-9f15-78b8aadfd9ef",
+  "oracleId": "bf0b6800-8e6b-4ccd-8e4d-96e61342f981",
+  "name": "Structural Distortion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Structural Distortion",
+      "manaCost": "{3}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Exile target artifact or land. Structural Distortion deals 2 damage to that permanent's controller.",
+      "flavorText": "\"As Zendikar has bled, so will Innistrad. As I have wept, so will Sorin.\"\n—Nahiri",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jung Park",
+      "imageId": "a7895890-a774-4c7c-9f15-78b8aadfd9ef"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "soi",
+  "collectorNumber": "185",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STUDENT_OF_OJUTAI: CardData = {
+  "scryfallId": "3d06616c-a0df-4d2d-8bfc-9f59060d323b",
+  "oracleId": "0adcf8d2-6eb9-4679-8ad5-f28e2f4aba39",
+  "name": "Student of Ojutai",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Student of Ojutai",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Monk",
+      "oracleText": "Whenever you cast a noncreature spell, you gain 2 life.",
+      "flavorText": "\"Human enlightenment is a firefly that sparks in the night. Dragon enlightenment is a beacon that disperses all darkness.\"",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jason A. Engle",
+      "imageId": "3d06616c-a0df-4d2d-8bfc-9f59060d323b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dtk",
+  "collectorNumber": "40",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUBJUGATE_THE_HOBBITS: CardData = {
+  "scryfallId": "2dcbed19-dec0-4669-be28-1cc52462faf3",
+  "oracleId": "eb56141a-eb43-40e9-8ff1-e0ef5424f6a4",
+  "name": "Subjugate the Hobbits",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Subjugate the Hobbits",
+      "manaCost": "{5}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Gain control of each noncommander creature with mana value 3 or less.",
+      "flavorText": "\"This is worse than Mordor! Much worse, in a way. It comes home to you, as they say, because it is a home, and you remember it before it was all ruined.\"\n—Sam",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Chris Cold",
+      "imageId": "2dcbed19-dec0-4669-be28-1cc52462faf3"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "ltc",
+  "collectorNumber": "107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUBTERRANEAN_CAVERN: CardData = {
+  "scryfallId": "038bf500-e23a-4d38-9312-db1909e20353",
+  "oracleId": "d49a7525-eca5-48e1-b94b-d618a706fd02",
+  "name": "Subterranean Cavern",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Subterranean Cavern",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {B} or {G}.",
+      "flavorText": "\"Down here, I am no longer alone. I needed a kingdom, and they needed a king.\"\n—Mole Man, Harvey Elder",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "JB Casacop",
+      "imageId": "038bf500-e23a-4d38-9312-db1909e20353"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "msh",
+  "collectorNumber": "273",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUBURBAN_SANCTUARY: CardData = {
+  "scryfallId": "467df77a-a99c-4cfd-9af4-502eaa2eb2e3",
+  "oracleId": "6ef30340-a26d-49aa-bc86-0b8aa5252f87",
+  "name": "Suburban Sanctuary",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Suburban Sanctuary",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {G} or {W}.\n{4}, {T}: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "\"You are always welcome here, Peter.\"\n—Aunt May",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "David Frasheski",
+      "imageId": "467df77a-a99c-4cfd-9af4-502eaa2eb2e3"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "spm",
+  "collectorNumber": "185",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUCCUMB_TO_TEMPTATION: CardData = {
+  "scryfallId": "2974e18b-be17-4059-9f29-7afe1d1a51eb",
+  "oracleId": "c8e21bc4-ea57-46d6-9e7e-ad95e17ea0fd",
+  "name": "Succumb to Temptation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Succumb to Temptation",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Instant",
+      "oracleText": "You draw two cards and you lose 2 life.",
+      "flavorText": "\"Restraint is for the meek.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Winona Nelson",
+      "imageId": "2974e18b-be17-4059-9f29-7afe1d1a51eb"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "emn",
+  "collectorNumber": "107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUDDEN_IMPACT: CardData = {
+  "scryfallId": "06823e98-e0ea-490d-8a32-8e657d766f06",
+  "oracleId": "2bf65e7d-6d31-4ad6-93cd-623612d3175d",
+  "name": "Sudden Impact",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sudden Impact",
+      "manaCost": "{3}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Sudden Impact deals damage to target player equal to the number of cards in that player's hand.",
+      "flavorText": "\"Some say it's better to think before you act. While those people are considering all the options, that's usually when I kill them.\"\n—Dravus, lava mage",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Simon Bisley",
+      "imageId": "06823e98-e0ea-490d-8a32-8e657d766f06"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "222",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUDDEN_INSIGHT: CardData = {
+  "scryfallId": "06ec3c87-d5aa-4f8a-a9bf-ef4e38e21ad1",
+  "oracleId": "8e0b605f-2095-4189-8c71-9d1ac93db42e",
+  "name": "Sudden Insight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sudden Insight",
+      "manaCost": "{4}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Draw a card for each different mana value among nonland cards in your graveyard.",
+      "flavorText": "A lucky draw from the Deck of Many Things gave Voltusk an inexplicable flash of understanding that he spent the rest of his life trying to repeat.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "06ec3c87-d5aa-4f8a-a9bf-ef4e38e21ad1"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "afr",
+  "collectorNumber": "77",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -62422,6 +62996,23 @@ export const ENGINE_CARDS: CardData[] = [
   STORM_SPIRIT,
   STORM_S_WRATH,
   STORMCALLER_OF_KERANOS,
+  STRANDS_OF_NIGHT,
+  STREAM_OF_LIFE,
+  STREAM_OF_UNCONSCIOUSNESS,
+  STRENGTH_OF_CEDARS,
+  STRIP_BARE,
+  STRIP_MINE,
+  STRIPED_BEARS,
+  STROKE_OF_GENIUS,
+  STRONGHOLD_DISCIPLINE,
+  STRUCTURAL_DISTORTION,
+  STUDENT_OF_OJUTAI,
+  SUBJUGATE_THE_HOBBITS,
+  SUBTERRANEAN_CAVERN,
+  SUBURBAN_SANCTUARY,
+  SUCCUMB_TO_TEMPTATION,
+  SUDDEN_IMPACT,
+  SUDDEN_INSIGHT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

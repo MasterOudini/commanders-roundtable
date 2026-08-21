@@ -1007,6 +1007,23 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Stonerise Spirit', 'exile-from-graveyard cost'],
   ['Stormbind', 'random-discard cost'],
   ['Stormchaser Drake', 'becomes-targeted trigger'],
+  // D254 (M6.4cq) — Stream of Acid was PROBED: 'target land or nonblack
+  // creature' HALVES to a confident bare 'target land', dropping the
+  // negated-colour arm without a trace.
+  //
+  // ⚠️ Storyteller Pixie was DRAFTED, tested and PULLED. Its oracle is
+  // exactly right (layout `adventure`, face 0 Creature, face 1 Sorcery)
+  // and the cast of the Adventure half is ACCEPTED — but no `SpellCast`
+  // event is ever logged for it, so a watcher has nothing to match on.
+  // The class names what was measured, not a guess at the cause.
+  ['Storyteller Pixie', 'adventure-half cast unobserved'],
+  ['Strategic Betrayal', 'opponent-chooses'],
+  ['Stream of Acid', 'spell target parse (noun list)'],
+  ['Stream of Consciousness', 'up-to-N targeting'],
+  ['Stronghold Biologist', 'discard-cost chooser'],
+  ['Struggle for Sanity', 'opponent-chooses'],
+  ['Sudden Setback', 'opponent-chooses'],
+  ['Sudden Storm', 'up-to-N targeting'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

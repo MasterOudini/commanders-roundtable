@@ -7106,6 +7106,43 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       and reads the same way both times; prior items stand.
 
 
+- [x] **M6.4cq — Seventeen landed: the three-part cost, and an Adventure
+      nobody can watch (2026-08-22):** **3,436 of 31,692 Commander-legal
+      cards now execute completely, up from 3,419.** `SHIPPED_SCRIPTS`
+      1,522 → 1,539; ledger 554 (+8, ONE new class). Decisions in **D254**.
+      **The headliner: Strands of Night — the deepest activation cost the
+      engine has charged:** `{B}{B}, Pay 2 life, Sacrifice a Swamp` is three
+      components in one line, and the test proves every part is taken (the
+      Swamp dies, life 40 → 38, then the creature returns). The mana half,
+      the fixed-life half (D165) and the sacrifice chooser (D168) were built
+      decisions apart; this is the first card to spend all three at once.
+      ⚠️⚠️ **One card was drafted, tested and PULLED, and the pull is the
+      finding:** Storyteller Pixie's oracle is right (layout `adventure`,
+      face 1 `Sorcery`) and the Adventure-half cast is ACCEPTED, but **no
+      `SpellCast` event is ever logged for it** — two diagnostics confirmed
+      it — so a watcher has nothing to match. Ledgered as
+      `'adventure-half cast unobserved'`, naming what was measured rather
+      than a guessed cause. Edgewall Innkeeper is unaffected (it watches the
+      CREATURE half).
+      **Also:** Subjugate the Hobbits (mass theft, commander exclusion off
+      `commanderIds`); Strip Bare (the attachment walk at ONE host);
+      Structural Distortion (the probed compound EXILED); Stronghold
+      Discipline (each player pays their own count); Sudden Insight (the
+      distinct-mana-value census); Sudden Impact (Storm Seeker's text on a
+      second id); Student of Ojutai (the noncreature cast watcher).
+      ⚠️ **Eight refusals, ONE new class** — Stream of Acid PROBED and
+      refused ('land or nonblack creature' halves to bare 'target land').
+      Fixtures 1,778 (89 tokens) · botPool creature 1,827 / instant 629 /
+      sorcery 506 / artifact 113 / enchantment 55 / land 306 · ladder [1617,
+      1716, 3509, 5423, 6635] · batch.json 725 · botDeck: Sliver Queen
+      reaches 3,387.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,619
+      files, 8,461 passed / 10 skipped · 500-seed gate
+      751.1 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D254): the unobservable Adventure-half cast is an
+      ENGINE gap, not a parse one; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
