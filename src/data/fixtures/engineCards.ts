@@ -52568,6 +52568,624 @@ export const SERENE_HEART: CardData = {
   "singleImage": true
 };
 
+export const SERENE_OFFERING: CardData = {
+  "scryfallId": "6c0b3795-7f30-4c61-b5d8-f238055d6be1",
+  "oracleId": "6cef0548-6010-4781-8e83-431d014dd1da",
+  "name": "Serene Offering",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Serene Offering",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target enchantment. You gain life equal to its mana value.",
+      "flavorText": "\"A sacrifice made in peace is worth a dozen made in panic.\"\n—Orim, Samite healer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "6c0b3795-7f30-4c61-b5d8-f238055d6be1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tmp",
+  "collectorNumber": "40",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SERPENT_S_PASS: CardData = {
+  "scryfallId": "ad87bff5-9b8c-44e4-a6d3-8cc71be9640a",
+  "oracleId": "f715f701-a735-42ab-b31a-8e1bd04ac5ff",
+  "name": "Serpent's Pass",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Serpent's Pass",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {U} or {B}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+      "flavorText": "\"The Serpent's Pass? Only the truly desperate take that deadly route!\"\n—Ying, Earth Kingdom refugee",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Matteo Bassini",
+      "imageId": "ad87bff5-9b8c-44e4-a6d3-8cc71be9640a"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tla",
+  "collectorNumber": "279",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SERVO_SCHEMATIC: CardData = {
+  "scryfallId": "0acf747f-7ade-486c-b3b2-b48193a364fd",
+  "oracleId": "6b8c6104-c537-4025-83e2-e89c8668f3ba",
+  "name": "Servo Schematic",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Servo Schematic",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "When this artifact enters or is put into a graveyard from the battlefield, create a 1/1 colorless Servo artifact creature token.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Titus Lunter",
+      "imageId": "0acf747f-7ade-486c-b3b2-b48193a364fd"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "klr",
+  "collectorNumber": "270",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHADEWING_LAUREATE: CardData = {
+  "scryfallId": "64795a8b-8cf2-436e-8f95-9e8bb40c0d7d",
+  "oracleId": "53a17d4f-cdbc-4669-a30e-5d5a334cc3c0",
+  "name": "Shadewing Laureate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shadewing Laureate",
+      "manaCost": "{W}{W/B}{B}",
+      "typeLine": "Creature — Human Warlock",
+      "oracleText": "Flying\nWhenever another creature you control with flying dies, put a +1/+1 counter on target creature you control.",
+      "flavorText": "\"Would you prefer I destroy you using prose or verse?\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Igor Kieryluk",
+      "imageId": "64795a8b-8cf2-436e-8f95-9e8bb40c0d7d"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "stx",
+  "collectorNumber": "229",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHADOW_ALLEY_DENIZEN: CardData = {
+  "scryfallId": "985997ae-59bc-49d7-87ca-e63ed9706fdf",
+  "oracleId": "3dd2f3de-98cc-4263-bd16-b5803e48e892",
+  "name": "Shadow Alley Denizen",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shadow Alley Denizen",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Vampire Rogue",
+      "oracleText": "Whenever another black creature you control enters, target creature gains intimidate until end of turn. (It can't be blocked except by artifact creatures and/or creatures that share a color with it.)",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Cynthia Sheppard",
+      "imageId": "985997ae-59bc-49d7-87ca-e63ed9706fdf"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "gtc",
+  "collectorNumber": "76",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHADOWFEED: CardData = {
+  "scryfallId": "19ccd8c7-7472-47df-9d3e-1b5fb1431118",
+  "oracleId": "7681ea90-be9d-4a43-845e-ba051b438429",
+  "name": "Shadowfeed",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shadowfeed",
+      "manaCost": "{B}",
+      "typeLine": "Instant",
+      "oracleText": "Exile target card from a graveyard. You gain 3 life.",
+      "flavorText": "\"The future is a snake, devouring your life backwards through time. And when you die, believe me, it doesn't stop feeding.\"\n—Sedris, the Traitor King",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dave Kendall",
+      "imageId": "19ccd8c7-7472-47df-9d3e-1b5fb1431118"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ala",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHADOWS_VERDICT: CardData = {
+  "scryfallId": "24df3688-1c2b-4305-ad91-8eb9f37ebadc",
+  "oracleId": "83e99691-bc25-4b3e-b828-670ef2027592",
+  "name": "Shadows' Verdict",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shadows' Verdict",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Exile all creatures and planeswalkers with mana value 3 or less from the battlefield and all creature and planeswalker cards with mana value 3 or less from all graveyards.",
+      "flavorText": "The shadows of death fall over everyone in the end.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Lius Lasahido",
+      "imageId": "24df3688-1c2b-4305-ad91-8eb9f37ebadc"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "pznr",
+  "collectorNumber": "124s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHADOWSTORM: CardData = {
+  "scryfallId": "367c4ad6-973d-47ba-9431-312f9f2996f6",
+  "oracleId": "6e66e983-6349-428b-b511-8738c03ef8fc",
+  "name": "Shadowstorm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shadowstorm",
+      "manaCost": "{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Shadowstorm deals 2 damage to each creature with shadow.",
+      "flavorText": "\"You've not seen a storm until you've seen the kind that roars between worlds.\"\n—Lyna, Soltari emissary",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Adam Rex",
+      "imageId": "367c4ad6-973d-47ba-9431-312f9f2996f6"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "tmp",
+  "collectorNumber": "202",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHADOWY_BACKSTREET: CardData = {
+  "scryfallId": "27eae4ce-e0b3-482b-9136-6fc17333877e",
+  "oracleId": "216a2a92-9ca3-4ca3-8af7-686c13b04290",
+  "name": "Shadowy Backstreet",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shadowy Backstreet",
+      "manaCost": "",
+      "typeLine": "Land — Plains Swamp",
+      "oracleText": "({T}: Add {W} or {B}.)\nThis land enters tapped.\nWhen this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Sergey Glushakov",
+      "imageId": "27eae4ce-e0b3-482b-9136-6fc17333877e"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "mkm",
+  "collectorNumber": "330",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHAMAN_OF_SPRING: CardData = {
+  "scryfallId": "8e974df6-d78a-43ea-ada5-17c53fcca97b",
+  "oracleId": "b1ee0250-83ea-45a9-b5e5-3fa74bc7f26b",
+  "name": "Shaman of Spring",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shaman of Spring",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Elf Shaman",
+      "oracleText": "When this creature enters, draw a card.",
+      "flavorText": "Some shamanic sects advocate the different seasons, each working to preserve nature's cycles.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Johannes Voss",
+      "imageId": "8e974df6-d78a-43ea-ada5-17c53fcca97b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "m15",
+  "collectorNumber": "199",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHAMBLING_GOBLIN: CardData = {
+  "scryfallId": "3c0d2e09-e369-4454-914f-ca23da3d0933",
+  "oracleId": "9d8c39f2-ddb5-4b79-861a-e1e25f447c29",
+  "name": "Shambling Goblin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shambling Goblin",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Zombie Goblin",
+      "oracleText": "When this creature dies, target creature an opponent controls gets -1/-1 until end of turn.",
+      "flavorText": "\"The Kolaghan send them at us. We kill and raise them. They fight the next wave the Kolaghan send. It's a neat little cycle.\"\n—Asmala, Silumgar sorcerer",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Yeong-Hao Han",
+      "imageId": "3c0d2e09-e369-4454-914f-ca23da3d0933"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "cn2",
+  "collectorNumber": "148",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHATTER_THE_SKY: CardData = {
+  "scryfallId": "349ca9f3-f8d4-4fd3-b6dd-1a1d56ffd97c",
+  "oracleId": "2ffc7509-c7ce-44c4-a8cf-90ed161b5d10",
+  "name": "Shatter the Sky",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shatter the Sky",
+      "manaCost": "{2}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each player who controls a creature with power 4 or greater draws a card. Then destroy all creatures.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Bayard Wu",
+      "imageId": "349ca9f3-f8d4-4fd3-b6dd-1a1d56ffd97c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "thb",
+  "collectorNumber": "302",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHATTERED_ACOLYTE: CardData = {
+  "scryfallId": "dc0517ca-b271-49a1-a286-c20f4e5b9309",
+  "oracleId": "57f58d52-0014-4cac-94fc-668063cc147a",
+  "name": "Shattered Acolyte",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shattered Acolyte",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Dwarf Warlock",
+      "oracleText": "Lifelink\n{1}, Sacrifice this creature: Destroy target artifact or enchantment.",
+      "flavorText": "\"Just because Extus is gone doesn't mean the rest of us disappeared. We are here, and we are still seeking answers.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Ashly Lovett",
+      "imageId": "dc0517ca-b271-49a1-a286-c20f4e5b9309"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Lifelink"
+  ],
+  "setCode": "sos",
+  "collectorNumber": "31",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHATTERSTORM: CardData = {
+  "scryfallId": "0987461a-45c0-4956-8627-cd27a7e038d0",
+  "oracleId": "96ce2403-4607-440a-92ae-80aceb458c5d",
+  "name": "Shatterstorm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shatterstorm",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all artifacts. They can't be regenerated.",
+      "flavorText": "Chains of leaping fire and sizzling lightning laid waste the artificers' handiwork, sparing not a single device.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dan Frazier",
+      "imageId": "0987461a-45c0-4956-8627-cd27a7e038d0"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "atq",
+  "collectorNumber": "28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHIELD_MATE: CardData = {
+  "scryfallId": "b49261bb-66b5-4226-9001-02d045fbcbce",
+  "oracleId": "98e7bfd4-fcb6-47b1-ad0b-c54b85dc2a79",
+  "name": "Shield Mate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shield Mate",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Sacrifice this creature: Target creature gets +0/+4 until end of turn.",
+      "flavorText": "They bear weightier burdens than the shields they carry.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Randy Elliott",
+      "imageId": "b49261bb-66b5-4226-9001-02d045fbcbce"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "exo",
+  "collectorNumber": "19",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHIVAN_HELLKITE: CardData = {
+  "scryfallId": "03993ba0-cdf1-4170-ab4e-7d1378aede12",
+  "oracleId": "069be6a0-9545-4fdc-ad40-957fe307db7a",
+  "name": "Shivan Hellkite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shivan Hellkite",
+      "manaCost": "{5}{R}{R}",
+      "typeLine": "Creature — Dragon",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\n{1}{R}: This creature deals 1 damage to any target.",
+      "flavorText": "A dragon's scale can be carved into a mighty shield, provided you can procure a dragontooth to cut it.",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "03993ba0-cdf1-4170-ab4e-7d1378aede12"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "10e",
+  "collectorNumber": "231",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHOPKEEPER_S_BANE: CardData = {
+  "scryfallId": "97f7fbb9-228c-4a74-975b-38d3b6cecb32",
+  "oracleId": "e7572317-6bec-4fb0-81ac-76aec04f14ad",
+  "name": "Shopkeeper's Bane",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shopkeeper's Bane",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Badger Pest",
+      "oracleText": "Trample\nWhenever this creature attacks, you gain 2 life.",
+      "flavorText": "\"Pests really live up to their name!\"\n—Annia, disgruntled Ribtruss Town merchant",
+      "power": "4",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Filipe Pagliuso",
+      "imageId": "97f7fbb9-228c-4a74-975b-38d3b6cecb32"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "sos",
+  "collectorNumber": "159",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHORE_KEEPER: CardData = {
+  "scryfallId": "135d1145-8640-44e1-8079-45832fa2556d",
+  "oracleId": "9625773b-1976-49b3-88d2-93a4befb595c",
+  "name": "Shore Keeper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shore Keeper",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Trilobite",
+      "oracleText": "{7}{U}, {T}, Sacrifice this creature: Draw three cards.",
+      "flavorText": "Over their long life spans, the larger trilobites accumulate vast treasure troves in their guts.",
+      "power": "0",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "YW Tang",
+      "imageId": "135d1145-8640-44e1-8079-45832fa2556d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "xln",
+  "collectorNumber": "77",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -57067,6 +57685,24 @@ export const ENGINE_CARDS: CardData[] = [
   SENATE_GRIFFIN,
   SENTINEL_OF_THE_NAMELESS_CITY,
   SERENE_HEART,
+  SERENE_OFFERING,
+  SERPENT_S_PASS,
+  SERVO_SCHEMATIC,
+  SHADEWING_LAUREATE,
+  SHADOW_ALLEY_DENIZEN,
+  SHADOWFEED,
+  SHADOWS_VERDICT,
+  SHADOWSTORM,
+  SHADOWY_BACKSTREET,
+  SHAMAN_OF_SPRING,
+  SHAMBLING_GOBLIN,
+  SHATTER_THE_SKY,
+  SHATTERED_ACOLYTE,
+  SHATTERSTORM,
+  SHIELD_MATE,
+  SHIVAN_HELLKITE,
+  SHOPKEEPER_S_BANE,
+  SHORE_KEEPER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

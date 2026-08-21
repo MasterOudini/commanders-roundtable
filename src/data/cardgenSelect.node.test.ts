@@ -942,6 +942,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Selective Snare', 'cast-time computed target count'],
   ['Selesnya Evangel', 'tap-creatures cost'],
   ['Selhoff Entomber', 'discard-cost chooser'],
+  // D246 (M6.4ci)
+  ['Serpentine Ambush', 'until-end-of-turn base P/T set'],
+  ["Shade's Breath", 'temporary non-keyword ability grant'],
+  ['Shattered Wings', 'spell target parse (noun list)'],
+  ["Shinen of Flight's Wings", 'hand-activated ability'],
+  ["Shinen of Fury's Fire", 'hand-activated ability'],
+  ["Shinen of Stars' Light", 'hand-activated ability'],
+  ['Shoot Down', 'spell target parse (noun list)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

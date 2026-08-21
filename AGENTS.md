@@ -6866,6 +6866,35 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       wants the typed-cause design; prior items stand.
 
 
+- [x] **M6.4ci — Eighteen landed: the ledger crosses five hundred
+      (2026-08-21):** **3,289 of 31,692 Commander-legal cards now execute
+      completely, up from 3,271.** `SHIPPED_SCRIPTS` 1,374 → 1,392; **the
+      REFUSED ledger crosses FIVE HUNDRED (501)** (+7, ZERO new classes).
+      Zero new tokens or support bodies. Decisions in **D246**.
+      **The headliners:** Servo Schematic (the artifact enters-or-dies
+      token pair); Shadewing Laureate (the dies watcher with a DERIVED
+      keyword filter — a matcher reads what the aim layer's parse cannot);
+      Shadow Alley Denizen (the black-entry pair granting intimidate);
+      Shadows' Verdict (the two-zone MV exile sweep); Shatter the Sky
+      (per-player conditional draws BEFORE the wipe); Shadowstorm (the
+      shadow sweep — ⚠️ Dauthi Trapper GRANTS shadow but lacks it; no
+      fixture prints the keyword, so the positive COMPOSES the shipped
+      Dauthi Embrace grant); Shatterstorm (damnation client #18); Shadowy
+      Backstreet (the reminder-FIRST surveil land).
+      ⚠️ **Seven refusals, ZERO new classes** (the Shinen channel trio,
+      the noun-list hole ×2, the UEOT base P/T set, the non-keyword
+      grant).
+      Fixtures 1,628 (87 tokens) · botPool creature 1,765 / instant 599 /
+      sorcery 475 / artifact 103 / land 294 · ladder [1764, 1863, 3656,
+      5570, 6782] · batch.json 925 · botDeck: Adun reaches 1,851.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,472
+      files, 7,860 passed / 10 skipped · 500-seed gate
+      756.6 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D246): a printed-shadow support body joins the
+      wishlist; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

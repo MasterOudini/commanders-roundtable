@@ -1959,6 +1959,25 @@ const WANTED = [
   'Senate Griffin',
   'Sentinel of the Nameless City',
   'Serene Heart',
+  // D246 (M6.4ci)
+  'Serene Offering',
+  "Serpent's Pass",
+  'Servo Schematic',
+  'Shadewing Laureate',
+  'Shadow Alley Denizen',
+  'Shadowfeed',
+  "Shadows' Verdict",
+  'Shadowstorm',
+  'Shadowy Backstreet',
+  'Shaman of Spring',
+  'Shambling Goblin',
+  'Shatter the Sky',
+  'Shattered Acolyte',
+  'Shatterstorm',
+  'Shield Mate',
+  'Shivan Hellkite',
+  "Shopkeeper's Bane",
+  'Shore Keeper',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

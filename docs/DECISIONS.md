@@ -15997,3 +15997,54 @@ clean · probe 124/124 · battery 130/130.**
 ⚠️ **Reportables** (D245): the discriminator family (draw, scry, discard,
 activation, cast-zone) is five members wide — the typed-cause design is
 overdue by weight; prior items stand.
+
+## D246 — M6.4ci: eighteen landed — the ledger crosses five hundred (2026-08-21)
+
+**3,289 of 31,692 Commander-legal cards execute completely, up from 3,271.**
+SHIPPED_SCRIPTS 1,374 → 1,392; **the REFUSED ledger crosses FIVE HUNDRED:
+494 → 501** (+7, ZERO new classes). Zero new tokens, zero new support
+bodies.
+
+**The headliners:** `Servo Schematic` — the artifact enters-or-dies token
+pair (one Servo on entry, a second on death, one game). `Shadewing
+Laureate` — the dies watcher with a DERIVED keyword filter: a matcher
+reads `d.keywords.has('flying')` directly, where the AIM layer's parse
+cannot (D197's distinction made explicit — the grounded death asks
+nothing, the flyer's pays). `Shadow Alley Denizen` — the color-filtered
+entry pair granting intimidate on the D194 carrier, derived until cleanup.
+`Shadows' Verdict` — the two-zone MV-3 exile sweep (battlefield AND every
+graveyard behind one bar). `Shatter the Sky` — the conditional per-player
+draws read BEFORE the wipe (only the power-4 controller draws).
+`Shadowstorm` — the shadow-keyword sweep, and ⚠️ its first test taught a
+CLASSIFICATION fact: **Dauthi Trapper GRANTS shadow but does not have
+it** — no fixture prints the keyword at all, so the positive is proven by
+COMPOSING the shipped Dauthi Embrace grant (the granted Bears die, the
+plain Bears stand: the derived filter meeting the derived grant).
+`Shatterstorm` — the damnation tripwire's EIGHTEENTH client.
+`Shadowy Backstreet` — the reminder-FIRST surveil land (TEXT = split[2]).
+
+**Also:** Serene Offering (the MV-paid enchantment kill); Serpent's Pass
+(the three-line self-sac draw land); Shadowfeed (graveyard exile + 3);
+Shaman of Spring (the ETB-draw text's next id); Shambling Goblin (the
+dies-debuff with the opponent restriction enforced); Shattered Acolyte /
+Shield Mate / Shore Keeper (the self-sac utility row); Shivan Hellkite
+(the no-tap ping behind the reminder line); Shopkeeper's Bane (the
+self-attack gain).
+
+⚠️ **Seven refusals, ZERO new classes:** the UEOT base P/T set (Serpentine
+Ambush), the temporary non-keyword ability grant (Shade's Breath), the
+noun-list triple + flying hole ×2 (Shattered Wings, Shoot Down — Return to
+the Earth's exact probed shape), and the Shinen channel trio
+(hand-activated ability ×3).
+
+Fixtures 1,610 → 1,628 (87 tokens). botPool creature 1,765 / instant 599 /
+sorcery 475 / artifact 103 / land 294 · ladder [1764, 1863, 3656, 5570,
+6782] · batch.json 925 · botDeck: Adun reaches 1,851 from 71 legendaries.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,472 files,
+7,860 passed / 10 skipped · 500-seed gate 756.6 s · build
+clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D246): no fixture prints the shadow keyword — a
+printed-shadow body joins the support wishlist for future shadow
+consumers; the noun-list widening keeps absorbing; prior items stand.

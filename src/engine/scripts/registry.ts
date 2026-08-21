@@ -7,6 +7,24 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SERENE_OFFERING_SCRIPT } from './cards/sereneOffering';
+import { SERPENTS_PASS_SCRIPT } from './cards/serpentsPass';
+import { SERVO_SCHEMATIC_SCRIPT } from './cards/servoSchematic';
+import { SHADEWING_LAUREATE_SCRIPT } from './cards/shadewingLaureate';
+import { SHADOW_ALLEY_DENIZEN_SCRIPT } from './cards/shadowAlleyDenizen';
+import { SHADOWFEED_SCRIPT } from './cards/shadowfeed';
+import { SHADOWS_VERDICT_SCRIPT } from './cards/shadowsVerdict';
+import { SHADOWSTORM_SCRIPT } from './cards/shadowstorm';
+import { SHADOWY_BACKSTREET_SCRIPT } from './cards/shadowyBackstreet';
+import { SHAMAN_OF_SPRING_SCRIPT } from './cards/shamanOfSpring';
+import { SHAMBLING_GOBLIN_SCRIPT } from './cards/shamblingGoblin';
+import { SHATTER_THE_SKY_SCRIPT } from './cards/shatterTheSky';
+import { SHATTERED_ACOLYTE_SCRIPT } from './cards/shatteredAcolyte';
+import { SHATTERSTORM_SCRIPT } from './cards/shatterstorm';
+import { SHIELD_MATE_SCRIPT } from './cards/shieldMate';
+import { SHIVAN_HELLKITE_SCRIPT } from './cards/shivanHellkite';
+import { SHOPKEEPERS_BANE_SCRIPT } from './cards/shopkeepersBane';
+import { SHORE_KEEPER_SCRIPT } from './cards/shoreKeeper';
 import { SEASIDE_HAVEN_SCRIPT } from './cards/seasideHaven';
 import { SECRET_RENDEZVOUS_SCRIPT } from './cards/secretRendezvous';
 import { SEEDS_OF_INNOCENCE_SCRIPT } from './cards/seedsOfInnocence';
@@ -1495,6 +1513,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SERENE_OFFERING_SCRIPT,
+  SERPENTS_PASS_SCRIPT,
+  SERVO_SCHEMATIC_SCRIPT,
+  SHADEWING_LAUREATE_SCRIPT,
+  SHADOW_ALLEY_DENIZEN_SCRIPT,
+  SHADOWFEED_SCRIPT,
+  SHADOWS_VERDICT_SCRIPT,
+  SHADOWSTORM_SCRIPT,
+  SHADOWY_BACKSTREET_SCRIPT,
+  SHAMAN_OF_SPRING_SCRIPT,
+  SHAMBLING_GOBLIN_SCRIPT,
+  SHATTER_THE_SKY_SCRIPT,
+  SHATTERED_ACOLYTE_SCRIPT,
+  SHATTERSTORM_SCRIPT,
+  SHIELD_MATE_SCRIPT,
+  SHIVAN_HELLKITE_SCRIPT,
+  SHOPKEEPERS_BANE_SCRIPT,
+  SHORE_KEEPER_SCRIPT,
   SEASIDE_HAVEN_SCRIPT,
   SECRET_RENDEZVOUS_SCRIPT,
   SEEDS_OF_INNOCENCE_SCRIPT,
