@@ -15521,3 +15521,52 @@ from 68 legendaries.
 
 **Reportables:** the noun-list/compound sweep-probe keeps gaining
 weight; prior items stand.
+
+## D237 — M6.4bz: TWENTY-THREE landed — the record falls, and the ask reaches the target twice (2026-08-21)
+
+**3,127 of 31,692 Commander-legal cards now execute completely, up from
+3,104 — twenty-three scripts, THE NEW ARC RECORD** (the old record, 21,
+was D232's). `SHIPPED_SCRIPTS` 1,207 → 1,230; the REFUSED ledger holds
+438 — **+2, the smallest refusal count of any batch**, because the
+R-page is twin country. All 47 tests green on the FIRST run — the
+thirteenth first-run-clean batch.
+
+**The headliners:** `Rakdos's Return` composes the X burn with D137's
+computed discard ask at the TARGET — X damage lands first, then the
+target's discard-X ask, with BOTH CR 701.8a branches pinned (a hand of
+X or fewer goes whole and choicelessly; a bigger hand raises the
+prompt); `Ravenous Rats` raises the same ask from a targeted TRIGGER;
+`Rally the Righteous` spends Brightflame's radiance set on untaps and
+a pump (the off-colour bystander untouched); `Rakka Mar` is the
+repeatable token legend — the 69th fully-executable legendary — minting
+distinct hasty Elementals across turns; `Ravnica at War` exiles the
+multicoloured (DERIVED colors at two or more; exile ignores
+indestructible); `Rain of Blades` sweeps the declared attackers;
+`Rain of Daggers` bills its caster 2 per creature actually destroyed
+(the indestructible survivor costs nothing).
+
+**Also:** the `Rakdos` Cluestone/Locket pair (the sixth colour pair);
+`Ravenous Chupacabra` on the probed-enforced opponent spec;
+`Rakeclaw Gargantuan` behind D139's power-5 floor; `Rathi Trapper`
+(its OWN {B}, {T} text, not the eight-id Trapper line); `Raucous
+Theater` (the surveil land whose parenthesized mana line comes FIRST —
+TEXT is split[2]); `Ravages of War` (Armageddon's four words);
+`Rally of Wings`' untap-plus-flyer-pump; `Rapacious Dragon` and
+`Redcap Thief`... next batch; `Ravenous Baloth` eating ITSELF for 4
+(CR 113.7a) while a Bears is refused as not a Beast.
+
+⚠️ **One combat-math lesson pinned at draft time:** a 2/2 blocker at
++1/+1 still DIES to a 2/2 attacker — Rally's test uses a 1/1 attacker
+so the survival claim is real.
+
+**Two refusals, ZERO new classes:** Ranger's Firebrand (the Ring
+mechanic), Rats' Feast (cast-time computed target count).
+
+**Measured after landing:** primitives complete 3,127 · blocked 28,565 ·
+scriptableToday 1,926 · ladder [1926, 2025, 3818, 5732, 6944] · botPool
+creature 1,697 / instant 577 / sorcery 431 / artifact 93 / land 285 ·
+fixtures 1,460 (82 tokens — the hasty Elemental tcmm 25 new) ·
+batch.json 1,150 · botDeck: Adun reaches 1,765 from 69 legendaries.
+
+**Reportables:** the computed ask (damage-then-discard) is now a proven
+compose; prior items stand.

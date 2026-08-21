@@ -46784,6 +46784,798 @@ export const RAGE_SCARRED_BERSERKER: CardData = {
   "singleImage": true
 };
 
+export const RAIN_OF_BLADES: CardData = {
+  "scryfallId": "39600c44-df38-455a-a06d-1bcac7c519cb",
+  "oracleId": "c7d398a4-0eb3-43cc-9952-35f3b791aa7a",
+  "name": "Rain of Blades",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rain of Blades",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Rain of Blades deals 1 damage to each attacking creature.",
+      "flavorText": "Some say they are the weapons of heroes fallen in battle, eager for one last chance at glory.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Rob Alexander",
+      "imageId": "39600c44-df38-455a-a06d-1bcac7c519cb"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "35★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAIN_OF_DAGGERS: CardData = {
+  "scryfallId": "10d0d310-66dd-4732-9eac-a253fe6b9a47",
+  "oracleId": "e2048201-6dc9-4cf5-916f-1d867ae8dbdd",
+  "name": "Rain of Daggers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rain of Daggers",
+      "manaCost": "{4}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures target opponent controls. You lose 2 life for each creature destroyed this way.",
+      "flavorText": "Knives in the sky, cries in the air, and blood on the ground.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Melissa A. Benson",
+      "imageId": "10d0d310-66dd-4732-9eac-a253fe6b9a47"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "P02-85",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAIN_OF_EMBERS: CardData = {
+  "scryfallId": "2d5391a9-6c30-4f9b-b746-a4427a3e63fc",
+  "oracleId": "041e2a01-3652-46c1-a9d1-d38ae7ee0551",
+  "name": "Rain of Embers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rain of Embers",
+      "manaCost": "{1}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Rain of Embers deals 1 damage to each creature and each player.",
+      "flavorText": "There's plenty to talk about in the marketplaces of Ravnica, be it the latest feud between guilds or the terrible weather.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Tsutomu Kawade",
+      "imageId": "2d5391a9-6c30-4f9b-b746-a4427a3e63fc"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "rav",
+  "collectorNumber": "138",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAIN_OF_SALT: CardData = {
+  "scryfallId": "4792293a-e11d-4c5e-bbd9-6f09e69ee617",
+  "oracleId": "1219e330-01ac-405a-b75a-dd4298598167",
+  "name": "Rain of Salt",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rain of Salt",
+      "manaCost": "{4}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy two target lands.",
+      "flavorText": "Here, rain does not wash the land; it desiccates it.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Adam Rex",
+      "imageId": "4792293a-e11d-4c5e-bbd9-6f09e69ee617"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "usg",
+  "collectorNumber": "206",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAKDOS_CLUESTONE: CardData = {
+  "scryfallId": "9ef43817-1813-4608-8e3d-3c14321ab736",
+  "oracleId": "b4f0bda0-1051-4ab8-b254-891f427b33ad",
+  "name": "Rakdos Cluestone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rakdos Cluestone",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {B} or {R}.\n{B}{R}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "\"Burn. Bleed. Enjoy.\"\n—Cluestone inscription",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Raoul Vitale",
+      "imageId": "9ef43817-1813-4608-8e3d-3c14321ab736"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dgm",
+  "collectorNumber": "143",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAKDOS_LOCKET: CardData = {
+  "scryfallId": "4fd60d9b-2282-4b32-9bff-efb2bcf87d22",
+  "oracleId": "ab784412-0722-4501-9aa0-fd68d307f6fd",
+  "name": "Rakdos Locket",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rakdos Locket",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {B} or {R}.\n{B/R}{B/R}{B/R}{B/R}, {T}, Sacrifice this artifact: Draw two cards.",
+      "flavorText": "\"This trinket will gain you admittance to some painfully exclusive gatherings.\"\n—Exava, blood witch",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Sung Choi",
+      "imageId": "4fd60d9b-2282-4b32-9bff-efb2bcf87d22"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "rna",
+  "collectorNumber": "237",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAKDOS_S_RETURN: CardData = {
+  "scryfallId": "3ff35141-8ddc-4d5a-90d4-fb3f1be22c97",
+  "oracleId": "52d1d575-3e7f-4df1-8c89-aee0cac03aca",
+  "name": "Rakdos's Return",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rakdos's Return",
+      "manaCost": "{X}{B}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Rakdos's Return deals X damage to target opponent or planeswalker. That player or that planeswalker's controller discards X cards.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Daarken",
+      "imageId": "3ff35141-8ddc-4d5a-90d4-fb3f1be22c97"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "pio",
+  "collectorNumber": "393",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAKECLAW_GARGANTUAN: CardData = {
+  "scryfallId": "a158bb17-d2e0-416d-840a-5e25fb5ac5c1",
+  "oracleId": "8dbb4a8f-78e9-4ceb-824d-bb67bdf939db",
+  "name": "Rakeclaw Gargantuan",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rakeclaw Gargantuan",
+      "manaCost": "{2}{R}{G}{W}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "{1}: Target creature with power 5 or greater gains first strike until end of turn.",
+      "flavorText": "Naya teems with gargantuans, titanic monsters to whom both nature and civilization defer.",
+      "power": "5",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R",
+        "W"
+      ],
+      "artist": "Jesper Ejsing",
+      "imageId": "a158bb17-d2e0-416d-840a-5e25fb5ac5c1"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "c13",
+  "collectorNumber": "205",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAKKA_MAR: CardData = {
+  "scryfallId": "5d569b01-af52-41a6-9ce4-02ed2e057038",
+  "oracleId": "6d92f14b-470b-40bc-b294-f725d46f307e",
+  "name": "Rakka Mar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rakka Mar",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Legendary Creature — Human Shaman",
+      "oracleText": "Haste\n{R}, {T}: Create a 3/1 red Elemental creature token with haste.",
+      "flavorText": "\"The finest pawns are those with pawns of their own.\"\n—Nicol Bolas",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jason Chan",
+      "imageId": "5d569b01-af52-41a6-9ce4-02ed2e057038"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "con",
+  "collectorNumber": "71",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RALLY: CardData = {
+  "scryfallId": "e1e9f80e-5d75-45b7-9c66-c0f30996f4dc",
+  "oracleId": "274f8860-c8c3-4aeb-ba87-94a5139397d8",
+  "name": "Rally",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rally",
+      "manaCost": "{W}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Blocking creatures get +1/+1 until end of turn.",
+      "flavorText": "\"Stand your ground, troops! This shall be our finest hour!\"\n—General Jarkeld, the Arctic Fox, last words",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "e1e9f80e-5d75-45b7-9c66-c0f30996f4dc"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ice",
+  "collectorNumber": "48",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RALLY_OF_WINGS: CardData = {
+  "scryfallId": "6209f8ce-651a-450d-a7fb-37d09144e70a",
+  "oracleId": "984336a7-85bd-4549-9771-03a0c2367db0",
+  "name": "Rally of Wings",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rally of Wings",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Untap all creatures you control. Creatures you control with flying get +2/+2 until end of turn.",
+      "flavorText": "Even the clouds became a field of battle. Known as the Sky Theater, it saw the Eternals clash with squadrons of angels.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Magali Villeneuve",
+      "imageId": "6209f8ce-651a-450d-a7fb-37d09144e70a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "scd",
+  "collectorNumber": "30",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RALLY_THE_RIGHTEOUS: CardData = {
+  "scryfallId": "9da51b6c-2e27-4b41-8fb0-bd9f6ad47b19",
+  "oracleId": "5d4d064e-c4f4-4eca-955c-4539e66d230b",
+  "name": "Rally the Righteous",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rally the Righteous",
+      "manaCost": "{1}{R}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Radiance — Untap target creature and each other creature that shares a color with it. Those creatures get +2/+0 until end of turn.",
+      "flavorText": "Yuri took up the ragged Boros banner, and his brethren, inspired by the act, followed him back into the fight.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "9da51b6c-2e27-4b41-8fb0-bd9f6ad47b19"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Radiance"
+  ],
+  "setCode": "rav",
+  "collectorNumber": "222",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAPACIOUS_DRAGON: CardData = {
+  "scryfallId": "1098504a-977a-4733-a1ee-086461113a84",
+  "oracleId": "0944ec2e-1dd9-459f-8f1d-667242cf52fe",
+  "name": "Rapacious Dragon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rapacious Dragon",
+      "manaCost": "{4}{R}",
+      "typeLine": "Creature — Dragon",
+      "oracleText": "Flying\nWhen this creature enters, create two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "\"Surely it won't notice if I take—\"\n—Theria the Sly, last words",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Johan Grenier",
+      "imageId": "1098504a-977a-4733-a1ee-086461113a84"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying",
+    "Treasure"
+  ],
+  "setCode": "tdc",
+  "collectorNumber": "229",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RATH_S_EDGE: CardData = {
+  "scryfallId": "42681dce-5c63-4e56-955e-39f085ea6ae9",
+  "oracleId": "e10e84a7-d564-487a-ac64-5a001a45ee90",
+  "name": "Rath's Edge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rath's Edge",
+      "manaCost": "",
+      "typeLine": "Legendary Land",
+      "oracleText": "{T}: Add {C}.\n{4}, {T}, Sacrifice a land: Rath's Edge deals 1 damage to any target.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Ron Spencer",
+      "imageId": "42681dce-5c63-4e56-955e-39f085ea6ae9"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "nem",
+  "collectorNumber": "142",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RATHI_TRAPPER: CardData = {
+  "scryfallId": "a7449f03-fed0-4f8d-89ca-28182b6598f6",
+  "oracleId": "0920d6aa-eab7-4116-b2f8-b13080d5d7e3",
+  "name": "Rathi Trapper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rathi Trapper",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Rebel Rogue",
+      "oracleText": "{B}, {T}: Tap target creature.",
+      "flavorText": "Tangling vines, fetid murk, paralyzing poisons, and crawling dead. The swamp is nature's trap waiting to be exploited by unnatural minds.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "a7449f03-fed0-4f8d-89ca-28182b6598f6"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mma",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAUCOUS_THEATER: CardData = {
+  "scryfallId": "2faf0337-c7a3-45a0-bb14-c431526da2cd",
+  "oracleId": "04e5e84f-8fd4-43ab-8f9d-5b24646f7ae5",
+  "name": "Raucous Theater",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Raucous Theater",
+      "manaCost": "",
+      "typeLine": "Land — Swamp Mountain",
+      "oracleText": "({T}: Add {B} or {R}.)\nThis land enters tapped.\nWhen this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Sergey Glushakov",
+      "imageId": "2faf0337-c7a3-45a0-bb14-c431526da2cd"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "mkm",
+  "collectorNumber": "329",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAVAGES_OF_WAR: CardData = {
+  "scryfallId": "11dca9ba-b27f-4af8-9962-3794e743886f",
+  "oracleId": "265236d1-d96c-4424-835e-a0fe91c41170",
+  "name": "Ravages of War",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ravages of War",
+      "manaCost": "{3}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all lands.",
+      "flavorText": "\"Thorn bushes spring up wherever the army has passed. Lean years follow in the wake of a great war.\"\n—Lao Tzu, *Tao Te Ching* (trans. Feng and English)",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Fang Yue",
+      "imageId": "11dca9ba-b27f-4af8-9962-3794e743886f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAVAGING_HORDE: CardData = {
+  "scryfallId": "6278d679-fc54-4527-ab16-90735574ab9b",
+  "oracleId": "b775b83c-0c3d-437d-9d3c-1d5c9cd418a8",
+  "name": "Ravaging Horde",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ravaging Horde",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "When this creature enters, destroy target land.",
+      "flavorText": "Upon his return to the capitol after taking soldiers to loot a nearby peaceful town, the prime minister, Dong Zhou, boasted of it as a victory over bandits.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Liu Jianjian",
+      "imageId": "6278d679-fc54-4527-ab16-90735574ab9b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "118",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAVENOUS_BALOTH: CardData = {
+  "scryfallId": "2f48df6c-8d5d-4d8a-b98a-793f6a56184d",
+  "oracleId": "ee771e66-72f8-480f-9920-92c68ab93c3b",
+  "name": "Ravenous Baloth",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ravenous Baloth",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "Sacrifice a Beast: You gain 4 life.",
+      "flavorText": "\"All we know about the Krosan Forest we have learned from those few who made it out alive.\"\n—Elvish refugee",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Todd Lockwood",
+      "imageId": "2f48df6c-8d5d-4d8a-b98a-793f6a56184d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "jmp",
+  "collectorNumber": "424",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAVENOUS_CHUPACABRA: CardData = {
+  "scryfallId": "02551196-ecea-472f-9547-3c9658d0489e",
+  "oracleId": "7b459306-149b-4f43-abc1-2dd70c748c0e",
+  "name": "Ravenous Chupacabra",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ravenous Chupacabra",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Creature — Beast Horror",
+      "oracleText": "When this creature enters, destroy target creature an opponent controls.",
+      "flavorText": "Opening Orazca unleashed more horrors than just the Immortal Sun.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Daarken",
+      "imageId": "02551196-ecea-472f-9547-3c9658d0489e"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "rix",
+  "collectorNumber": "82",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAVENOUS_LINDWURM: CardData = {
+  "scryfallId": "9961e3fc-167e-4043-8510-cc5cf08d473e",
+  "oracleId": "3583ec24-4f26-45ea-8fb4-a45bdd7bfc79",
+  "name": "Ravenous Lindwurm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ravenous Lindwurm",
+      "manaCost": "{4}{G}{G}",
+      "typeLine": "Creature — Wurm",
+      "oracleText": "When this creature enters, you gain 4 life.",
+      "flavorText": "\"I'm no coward, but I'd sooner tangle with a rampaging Torga troll than a hungry lindwurm!\"\n—Yegar, Beskir warrior",
+      "power": "6",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Filip Burburan",
+      "imageId": "9961e3fc-167e-4043-8510-cc5cf08d473e"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "khm",
+  "collectorNumber": "187",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAVENOUS_RATS: CardData = {
+  "scryfallId": "03a8b556-6e18-46ee-80f8-cbd922e37432",
+  "oracleId": "2fa1bbfd-92b5-482c-b32d-4cdc286474c4",
+  "name": "Ravenous Rats",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ravenous Rats",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Rat",
+      "oracleText": "When this creature enters, target opponent discards a card.",
+      "flavorText": "Nothing is sacred to rats. Everything is simply another meal.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "03a8b556-6e18-46ee-80f8-cbd922e37432"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "10e",
+  "collectorNumber": "171",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAVNICA_AT_WAR: CardData = {
+  "scryfallId": "38ccbb8f-4f4a-435e-a87c-2b3851c0b037",
+  "oracleId": "0012bc78-e69d-4a67-a302-e5fe0dfd4407",
+  "name": "Ravnica at War",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ravnica at War",
+      "manaCost": "{3}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Exile all multicolored permanents.",
+      "flavorText": "The heart of Ravnica disappeared before anyone could strike a blow in its defense.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Adam Paquette",
+      "imageId": "38ccbb8f-4f4a-435e-a87c-2b3851c0b037"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "WAR-28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -49542,6 +50334,42 @@ export const CAT_11_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const ELEMENTAL_31_TOKEN: CardData = {
+  "scryfallId": "e4a9051b-f964-43f9-877b-ea4f17620ecb",
+  "oracleId": "00b266f8-10db-4778-b865-4189b1ab4d30",
+  "name": "Elemental",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Elemental",
+      "manaCost": "",
+      "typeLine": "Token Creature — Elemental",
+      "oracleText": "Haste",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "John Matson",
+      "imageId": "e4a9051b-f964-43f9-877b-ea4f17620ecb"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "tcmm",
+  "collectorNumber": "25",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -50899,6 +51727,29 @@ export const ENGINE_CARDS: CardData[] = [
   RACK_AND_RUIN,
   RADIATING_LIGHTNING,
   RAGE_SCARRED_BERSERKER,
+  RAIN_OF_BLADES,
+  RAIN_OF_DAGGERS,
+  RAIN_OF_EMBERS,
+  RAIN_OF_SALT,
+  RAKDOS_CLUESTONE,
+  RAKDOS_LOCKET,
+  RAKDOS_S_RETURN,
+  RAKECLAW_GARGANTUAN,
+  RAKKA_MAR,
+  RALLY,
+  RALLY_OF_WINGS,
+  RALLY_THE_RIGHTEOUS,
+  RAPACIOUS_DRAGON,
+  RATH_S_EDGE,
+  RATHI_TRAPPER,
+  RAUCOUS_THEATER,
+  RAVAGES_OF_WAR,
+  RAVAGING_HORDE,
+  RAVENOUS_BALOTH,
+  RAVENOUS_CHUPACABRA,
+  RAVENOUS_LINDWURM,
+  RAVENOUS_RATS,
+  RAVNICA_AT_WAR,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -50980,4 +51831,5 @@ export const ENGINE_CARDS: CardData[] = [
   WURM_66_TOKEN,
   ELEMENTAL_UR_TOKEN,
   CAT_11_TOKEN,
+  ELEMENTAL_31_TOKEN,
 ];

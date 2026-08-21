@@ -7,6 +7,29 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { RAIN_OF_BLADES_SCRIPT } from './cards/rainOfBlades';
+import { RAIN_OF_DAGGERS_SCRIPT } from './cards/rainOfDaggers';
+import { RAIN_OF_EMBERS_SCRIPT } from './cards/rainOfEmbers';
+import { RAIN_OF_SALT_SCRIPT } from './cards/rainOfSalt';
+import { RAKDOS_CLUESTONE_SCRIPT } from './cards/rakdosCluestone';
+import { RAKDOS_LOCKET_SCRIPT } from './cards/rakdosLocket';
+import { RAKDOSS_RETURN_SCRIPT } from './cards/rakdossReturn';
+import { RAKECLAW_GARGANTUAN_SCRIPT } from './cards/rakeclawGargantuan';
+import { RAKKA_MAR_SCRIPT } from './cards/rakkaMar';
+import { RALLY_SCRIPT } from './cards/rally';
+import { RALLY_OF_WINGS_SCRIPT } from './cards/rallyOfWings';
+import { RALLY_THE_RIGHTEOUS_SCRIPT } from './cards/rallyTheRighteous';
+import { RAPACIOUS_DRAGON_SCRIPT } from './cards/rapaciousDragon';
+import { RATHS_EDGE_SCRIPT } from './cards/rathsEdge';
+import { RATHI_TRAPPER_SCRIPT } from './cards/rathiTrapper';
+import { RAUCOUS_THEATER_SCRIPT } from './cards/raucousTheater';
+import { RAVAGES_OF_WAR_SCRIPT } from './cards/ravagesOfWar';
+import { RAVAGING_HORDE_SCRIPT } from './cards/ravagingHorde';
+import { RAVENOUS_BALOTH_SCRIPT } from './cards/ravenousBaloth';
+import { RAVENOUS_CHUPACABRA_SCRIPT } from './cards/ravenousChupacabra';
+import { RAVENOUS_LINDWURM_SCRIPT } from './cards/ravenousLindwurm';
+import { RAVENOUS_RATS_SCRIPT } from './cards/ravenousRats';
+import { RAVNICA_AT_WAR_SCRIPT } from './cards/ravnicaAtWar';
 import { PSYCHIC_BARRIER_SCRIPT } from './cards/psychicBarrier';
 import { PUBLIC_EXECUTION_SCRIPT } from './cards/publicExecution';
 import { PUNCTURE_BLAST_SCRIPT } from './cards/punctureBlast';
@@ -1328,6 +1351,29 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  RAIN_OF_BLADES_SCRIPT,
+  RAIN_OF_DAGGERS_SCRIPT,
+  RAIN_OF_EMBERS_SCRIPT,
+  RAIN_OF_SALT_SCRIPT,
+  RAKDOS_CLUESTONE_SCRIPT,
+  RAKDOS_LOCKET_SCRIPT,
+  RAKDOSS_RETURN_SCRIPT,
+  RAKECLAW_GARGANTUAN_SCRIPT,
+  RAKKA_MAR_SCRIPT,
+  RALLY_SCRIPT,
+  RALLY_OF_WINGS_SCRIPT,
+  RALLY_THE_RIGHTEOUS_SCRIPT,
+  RAPACIOUS_DRAGON_SCRIPT,
+  RATHS_EDGE_SCRIPT,
+  RATHI_TRAPPER_SCRIPT,
+  RAUCOUS_THEATER_SCRIPT,
+  RAVAGES_OF_WAR_SCRIPT,
+  RAVAGING_HORDE_SCRIPT,
+  RAVENOUS_BALOTH_SCRIPT,
+  RAVENOUS_CHUPACABRA_SCRIPT,
+  RAVENOUS_LINDWURM_SCRIPT,
+  RAVENOUS_RATS_SCRIPT,
+  RAVNICA_AT_WAR_SCRIPT,
   PSYCHIC_BARRIER_SCRIPT,
   PUBLIC_EXECUTION_SCRIPT,
   PUNCTURE_BLAST_SCRIPT,

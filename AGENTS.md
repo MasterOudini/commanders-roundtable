@@ -6594,6 +6594,36 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       stand.
 
 
+- [x] **M6.4bz — TWENTY-THREE landed: the record falls (2026-08-21):**
+      **3,127 of 31,692 Commander-legal cards now execute completely, up
+      from 3,104 — THE NEW ARC RECORD** (the old 21 was D232's).
+      `SHIPPED_SCRIPTS` 1,207 → 1,230; ledger 438 — +2, the smallest
+      refusal count of any batch. All 47 tests FIRST-RUN green — the
+      thirteenth such batch. Decisions in **D237**.
+      **The headliners:** Rakdos's Return (X burn + the computed discard
+      ask at the TARGET — both CR 701.8a branches pinned) and Ravenous
+      Rats (the same ask from a targeted trigger); Rally the Righteous
+      (the radiance set spent on untaps + a pump); Rakka Mar (the
+      repeatable token legend — the 69th); Ravnica at War (multicolored
+      exile-wipe, derived colours); Rain of Daggers (2 per creature
+      actually destroyed); Rathi Trapper (its OWN {B}, {T} text);
+      Raucous Theater (reminder-first line order — TEXT = split[2]).
+      ⚠️ **Combat-math lesson:** a 2/2 blocker at +1/+1 still dies to a
+      2/2 — Rally's test attacks with a 1/1.
+      ⚠️ **Two refusals, ZERO new classes** (the Ring; computed target
+      count).
+      Fixtures 1,460 (82 tokens — hasty Elemental new) · botPool
+      creature 1,697 / instant 577 / sorcery 431 / artifact 93 / land
+      285 · ladder [1926, 2025, 3818, 5732, 6944] · batch.json 1,150 ·
+      botDeck: Adun reaches 1,765 from 69 legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,310
+      files, 7,198 passed / 10 skipped · 500-seed gate
+      763.6 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D237): the damage-then-ask compose is proven;
+      prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

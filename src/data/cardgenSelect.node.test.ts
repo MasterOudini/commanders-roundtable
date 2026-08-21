@@ -875,6 +875,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Purge', 'spell target parse (noun list)'],
   ['Radiant Flames', 'converge (cast-time mana-color memory)'],
   ['Radiant Strike', 'spell target parse (noun list)'],
+  // D237 (M6.4bz)
+  ["Ranger's Firebrand", 'the Ring mechanic'],
+  ["Rats' Feast", 'cast-time computed target count'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -1781,6 +1781,30 @@ const WANTED = [
   'Rack and Ruin',
   'Radiating Lightning',
   'Rage-Scarred Berserker',
+  // D237 (M6.4bz)
+  'Rain of Blades',
+  'Rain of Daggers',
+  'Rain of Embers',
+  'Rain of Salt',
+  'Rakdos Cluestone',
+  'Rakdos Locket',
+  "Rakdos's Return",
+  'Rakeclaw Gargantuan',
+  'Rakka Mar',
+  'Rally',
+  'Rally of Wings',
+  'Rally the Righteous',
+  'Rapacious Dragon',
+  "Rath's Edge",
+  'Rathi Trapper',
+  'Raucous Theater',
+  'Ravages of War',
+  'Ravaging Horde',
+  'Ravenous Baloth',
+  'Ravenous Chupacabra',
+  'Ravenous Lindwurm',
+  'Ravenous Rats',
+  'Ravnica at War',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -1928,6 +1952,8 @@ const WANTED_TOKENS = [
   { name: 'Elemental', set: 'tsoc', cn: '21', key: 'ELEMENTAL_UR_TOKEN' },
   // D235 (M6.4bx)
   { name: 'Cat', set: 'tfdn', cn: '1', key: 'CAT_11_TOKEN' },
+  // D237 (M6.4bz)
+  { name: 'Elemental', set: 'tcmm', cn: '25', key: 'ELEMENTAL_31_TOKEN' },
 ];
 
 function constName(name) {
