@@ -7,6 +7,18 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { RAZORFIN_HUNTER_SCRIPT } from './cards/razorfinHunter';
+import { RAZORKIN_HORDECALLER_SCRIPT } from './cards/razorkinHordecaller';
+import { REANIMATE_SCRIPT } from './cards/reanimate';
+import { REBUKING_CEREMONY_SCRIPT } from './cards/rebukingCeremony';
+import { RECKLESS_ASSAULT_SCRIPT } from './cards/recklessAssault';
+import { RECKLESS_REVELER_SCRIPT } from './cards/recklessReveler';
+import { RECLAIM_SCRIPT } from './cards/reclaim';
+import { RECLAIMING_VINES_SCRIPT } from './cards/reclaimingVines';
+import { REDCAP_THIEF_SCRIPT } from './cards/redcapThief';
+import { REDUCE_TO_DREAMS_SCRIPT } from './cards/reduceToDreams';
+import { REFUSE_TO_YIELD_SCRIPT } from './cards/refuseToYield';
+import { REKI_THE_HISTORY_OF_KAMIGAWA_SCRIPT } from './cards/rekiTheHistoryOfKamigawa';
 import { RAIN_OF_BLADES_SCRIPT } from './cards/rainOfBlades';
 import { RAIN_OF_DAGGERS_SCRIPT } from './cards/rainOfDaggers';
 import { RAIN_OF_EMBERS_SCRIPT } from './cards/rainOfEmbers';
@@ -1351,6 +1363,18 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  RAZORFIN_HUNTER_SCRIPT,
+  RAZORKIN_HORDECALLER_SCRIPT,
+  REANIMATE_SCRIPT,
+  REBUKING_CEREMONY_SCRIPT,
+  RECKLESS_ASSAULT_SCRIPT,
+  RECKLESS_REVELER_SCRIPT,
+  RECLAIM_SCRIPT,
+  RECLAIMING_VINES_SCRIPT,
+  REDCAP_THIEF_SCRIPT,
+  REDUCE_TO_DREAMS_SCRIPT,
+  REFUSE_TO_YIELD_SCRIPT,
+  REKI_THE_HISTORY_OF_KAMIGAWA_SCRIPT,
   RAIN_OF_BLADES_SCRIPT,
   RAIN_OF_DAGGERS_SCRIPT,
   RAIN_OF_EMBERS_SCRIPT,

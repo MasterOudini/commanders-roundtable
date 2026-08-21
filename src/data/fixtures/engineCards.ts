@@ -47576,6 +47576,422 @@ export const RAVNICA_AT_WAR: CardData = {
   "singleImage": true
 };
 
+export const RAZORFIN_HUNTER: CardData = {
+  "scryfallId": "5159d6fd-87cf-455d-ae18-0300b68485b6",
+  "oracleId": "45baa5d1-79aa-4583-b938-0d5feaa5aa0c",
+  "name": "Razorfin Hunter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Razorfin Hunter",
+      "manaCost": "{U}{R}",
+      "typeLine": "Creature — Merfolk Goblin",
+      "oracleText": "{T}: This creature deals 1 damage to any target.",
+      "flavorText": "No one knew if they'd been lurking under the sea all along, or if they'd been created by the Phyrexian overlay.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "5159d6fd-87cf-455d-ae18-0300b68485b6"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "prm",
+  "collectorNumber": "62407",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAZORKIN_HORDECALLER: CardData = {
+  "scryfallId": "f7fb0f11-d1d0-4941-a1a7-a2db88f30394",
+  "oracleId": "3fc4bdf1-7da3-4f9f-806f-f82cd18ea65f",
+  "name": "Razorkin Hordecaller",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Razorkin Hordecaller",
+      "manaCost": "{4}{R}",
+      "typeLine": "Creature — Human Clown Berserker",
+      "oracleText": "Haste\nWhenever you attack, create a 1/1 red Gremlin creature token.",
+      "flavorText": "\"Know your place, pets! First blood is mine!\"",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "David Álvarez",
+      "imageId": "f7fb0f11-d1d0-4941-a1a7-a2db88f30394"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "dsk",
+  "collectorNumber": "152",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REANIMATE: CardData = {
+  "scryfallId": "04fc99dc-bfbe-4567-b791-6b1db96471ec",
+  "oracleId": "a044474a-cd72-4e9d-bd8d-a08f2de9cdc0",
+  "name": "Reanimate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reanimate",
+      "manaCost": "{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put target creature card from a graveyard onto the battlefield under your control. You lose life equal to that card's mana value.",
+      "flavorText": "\"You'd better be worth it.\"\n—Liliana Vess",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "04fc99dc-bfbe-4567-b791-6b1db96471ec"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "uma",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REBUKING_CEREMONY: CardData = {
+  "scryfallId": "5940ed12-5224-4aed-9edc-dd4190691ee9",
+  "oracleId": "ddd97b56-a80f-4515-9883-ae5fc1de0c5d",
+  "name": "Rebuking Ceremony",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rebuking Ceremony",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put two target artifacts on top of their owners' libraries.",
+      "flavorText": "From the Radix at the hub of the Tangle all the way out to the Edges of Forgetting, a Viridian elf's life is built around the temporary.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ittoku",
+      "imageId": "5940ed12-5224-4aed-9edc-dd4190691ee9"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "dst",
+  "collectorNumber": "82",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RECKLESS_ASSAULT: CardData = {
+  "scryfallId": "ff0f568e-4d3a-40a5-b72a-63040ec5402d",
+  "oracleId": "320820e4-3c7e-4e4d-b23c-63bf13a68e73",
+  "name": "Reckless Assault",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reckless Assault",
+      "manaCost": "{2}{B}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "{1}, Pay 2 life: This enchantment deals 1 damage to any target.",
+      "flavorText": "\"How will you fight an enemy that cares nothing for itself?\"\n—The Blind Seer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Jeff Easley",
+      "imageId": "ff0f568e-4d3a-40a5-b72a-63040ec5402d"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "inv",
+  "collectorNumber": "263",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RECKLESS_REVELER: CardData = {
+  "scryfallId": "188adefd-a808-4991-80be-53249c24df8f",
+  "oracleId": "17d3ceeb-c972-49bc-a530-cf67c49a7e19",
+  "name": "Reckless Reveler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reckless Reveler",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Satyr",
+      "oracleText": "{R}, Sacrifice this creature: Destroy target artifact.",
+      "flavorText": "\"The gods of Theros are born of the expectations and beliefs of mortals. If I have found godhood, what does that say about their true desires?\"\n—Xenagos, god of revels",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mike Sass",
+      "imageId": "188adefd-a808-4991-80be-53249c24df8f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "bng",
+  "collectorNumber": "106",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RECLAIM: CardData = {
+  "scryfallId": "045e9ca4-ece8-49c2-b022-fb61f4b8b635",
+  "oracleId": "797155cd-faf4-4321-8629-c8c352392748",
+  "name": "Reclaim",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reclaim",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Put target card from your graveyard on top of your library.",
+      "flavorText": "The wise pay as much attention to what they throw away as to what they keep.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Greg Hildebrandt & Tim Hildebrandt",
+      "imageId": "045e9ca4-ece8-49c2-b022-fb61f4b8b635"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "7ed",
+  "collectorNumber": "263",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RECLAIMING_VINES: CardData = {
+  "scryfallId": "18be4c1a-58d7-409e-b7e0-aadb5ccf814d",
+  "oracleId": "3ec3d99d-2c49-469a-81d5-f1609b6e49ca",
+  "name": "Reclaiming Vines",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reclaiming Vines",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target artifact, enchantment, or land.",
+      "flavorText": "\"This world tires of its long occupation.\"\n—Nissa Revane",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Bastien L. Deharme",
+      "imageId": "18be4c1a-58d7-409e-b7e0-aadb5ccf814d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "bfz",
+  "collectorNumber": "185",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REDCAP_THIEF: CardData = {
+  "scryfallId": "cda6bdeb-a0d6-46ca-ba8c-317ee0096416",
+  "oracleId": "e055bc6d-d395-4f85-8e15-3bce65b7fcca",
+  "name": "Redcap Thief",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Redcap Thief",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Goblin Rogue",
+      "oracleText": "When this creature enters, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "\"Shiny is best. Then sharp. Sharp is good. Anything else is basically trash.\"",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Vincent Christiaens",
+      "imageId": "cda6bdeb-a0d6-46ca-ba8c-317ee0096416"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "woe",
+  "collectorNumber": "147",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REDUCE_TO_DREAMS: CardData = {
+  "scryfallId": "10962b1b-4039-4d8a-88e0-fc67537920a9",
+  "oracleId": "85bac6ad-b63a-4068-a813-ad685966e171",
+  "name": "Reduce to Dreams",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reduce to Dreams",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Return all artifacts and enchantments to their owners' hands.",
+      "flavorText": "\"This world is a dream. We cling to our toys like children, but sooner or later we must learn to live without them.\"\n—Sensei Hisoka",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Daren Bader",
+      "imageId": "10962b1b-4039-4d8a-88e0-fc67537920a9"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "bok",
+  "collectorNumber": "49",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REFUSE_TO_YIELD: CardData = {
+  "scryfallId": "51713afd-40ae-4440-9da0-847cbe8c86bc",
+  "oracleId": "d05aeada-2a9f-464d-8a66-b6e90f43bae3",
+  "name": "Refuse to Yield",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Refuse to Yield",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +2/+7 until end of turn. Untap it.",
+      "flavorText": "Her opponent threw her through the window, so she retaliated by throwing the window through her opponent.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Josh Hass",
+      "imageId": "51713afd-40ae-4440-9da0-847cbe8c86bc"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "SNC-27",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REKI_THE_HISTORY_OF_KAMIGAWA: CardData = {
+  "scryfallId": "623ec8c3-9173-4dc8-bd93-0b22d852fa60",
+  "oracleId": "8a7d68ae-ac43-46a6-9dc8-d6b07cc0333c",
+  "name": "Reki, the History of Kamigawa",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reki, the History of Kamigawa",
+      "manaCost": "{2}{G}",
+      "typeLine": "Legendary Creature — Human Shaman",
+      "oracleText": "Whenever you cast a legendary spell, draw a card.",
+      "flavorText": "\"After his death, monks spent ten years transcribing the tattoos from Reki's body and gathering stories from those who spoke with him. Thus the volume you hold was written.\"\n—*The History of Kamigawa*",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "623ec8c3-9173-4dc8-bd93-0b22d852fa60"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "SOK-142",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -50370,6 +50786,40 @@ export const ELEMENTAL_31_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const GREMLIN_11_TOKEN: CardData = {
+  "scryfallId": "1af08a84-4a57-4c94-a290-31d93f79db83",
+  "oracleId": "071bbab8-e54f-43cd-b839-b7cd6bff9100",
+  "name": "Gremlin",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Gremlin",
+      "manaCost": "",
+      "typeLine": "Token Creature — Gremlin",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Tony Foti",
+      "imageId": "1af08a84-4a57-4c94-a290-31d93f79db83"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tmh3",
+  "collectorNumber": "23",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -51750,6 +52200,18 @@ export const ENGINE_CARDS: CardData[] = [
   RAVENOUS_LINDWURM,
   RAVENOUS_RATS,
   RAVNICA_AT_WAR,
+  RAZORFIN_HUNTER,
+  RAZORKIN_HORDECALLER,
+  REANIMATE,
+  REBUKING_CEREMONY,
+  RECKLESS_ASSAULT,
+  RECKLESS_REVELER,
+  RECLAIM,
+  RECLAIMING_VINES,
+  REDCAP_THIEF,
+  REDUCE_TO_DREAMS,
+  REFUSE_TO_YIELD,
+  REKI_THE_HISTORY_OF_KAMIGAWA,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -51832,4 +52294,5 @@ export const ENGINE_CARDS: CardData[] = [
   ELEMENTAL_UR_TOKEN,
   CAT_11_TOKEN,
   ELEMENTAL_31_TOKEN,
+  GREMLIN_11_TOKEN,
 ];

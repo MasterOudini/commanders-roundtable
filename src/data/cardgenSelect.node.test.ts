@@ -878,6 +878,20 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D237 (M6.4bz)
   ["Ranger's Firebrand", 'the Ring mechanic'],
   ["Rats' Feast", 'cast-time computed target count'],
+  // D238 (M6.4ca)
+  ['Ray of Ruin', 'spell target parse (noun list)'],
+  ['Reach of Shadows', 'color target qualifier unenforced'],
+  ['Reality Ripple', 'phasing'],
+  ['Reality Shift', 'face-down (morph family)'],
+  ['Reckless Impulse', 'play-from-exile permission'],
+  ['Recross the Paths', 'clash mechanic'],
+  ['Regenerate', 'regeneration'],
+  ['Reign of Terror', 'script-raised prompt'],
+  ['Reinforcements', 'up-to-N targeting'],
+  ['Reinterpret', 'script-raised prompt'],
+  ['Reknit', 'regeneration'],
+  ['Release the Ants', 'clash mechanic'],
+  ['Relentless Advance', 'amass mechanic'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

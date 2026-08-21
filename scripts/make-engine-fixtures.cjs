@@ -1805,6 +1805,19 @@ const WANTED = [
   'Ravenous Lindwurm',
   'Ravenous Rats',
   'Ravnica at War',
+  // D238 (M6.4ca)
+  'Razorfin Hunter',
+  'Razorkin Hordecaller',
+  'Reanimate',
+  'Rebuking Ceremony',
+  'Reckless Assault',
+  'Reckless Reveler',
+  'Reclaim',
+  'Reclaiming Vines',
+  'Redcap Thief',
+  'Reduce to Dreams',
+  'Refuse to Yield',
+  'Reki, the History of Kamigawa',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -1954,6 +1967,8 @@ const WANTED_TOKENS = [
   { name: 'Cat', set: 'tfdn', cn: '1', key: 'CAT_11_TOKEN' },
   // D237 (M6.4bz)
   { name: 'Elemental', set: 'tcmm', cn: '25', key: 'ELEMENTAL_31_TOKEN' },
+  // D238 (M6.4ca)
+  { name: 'Gremlin', set: 'tmh3', cn: '23', key: 'GREMLIN_11_TOKEN' },
 ];
 
 function constName(name) {

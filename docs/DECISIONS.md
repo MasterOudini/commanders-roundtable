@@ -15570,3 +15570,49 @@ batch.json 1,150 · botDeck: Adun reaches 1,765 from 69 legendaries.
 
 **Reportables:** the computed ask (damage-then-discard) is now a proven
 compose; prior items stand.
+
+## D238 — M6.4ca: twelve landed — the theft reanimation, and the letter that refuses (2026-08-21)
+
+**3,139 of 31,692 Commander-legal cards now execute completely, up from
+3,127.** `SHIPPED_SCRIPTS` 1,230 → 1,242; the REFUSED ledger holds 451
+(+13 — the refusal-heaviest batch since D201, because the Re- page is
+mechanic country: clash twice, regeneration twice, phasing, manifest,
+amass, the Ring's cousins). All 26 tests green on the FIRST run — the
+fourteenth first-run-clean batch. ONE new class: **'phasing'** (Reality
+Ripple — no phased-out state exists anywhere in the engine).
+
+**The headliners:** `Reanimate` is the THEFT reanimation — the
+battlefield move's `to.player` IS the controller (Nurgle's idiom made
+canonical: the 6-drop rises under MY control, owner still the opponent,
+and the bill is the printed mana value read before the move); `Reki,
+the History of Kamigawa` filters casts on the face's SUPERTYPE (a
+legendary cast draws, a plain Bears does not — the 70th
+fully-executable legendary watching for its own kind); `Razorfin
+Hunter` puts the Prodigal tap-ping text on its THIRD id; `Reclaiming
+Vines` rides the probed triple ('artifact, enchantment, or land' —
+ALL THREE arms enforced, each proven).
+
+**Also:** `Razorkin Hordecaller`'s you-attack Gremlin (attacking at
+turn 3 — the summoning-sickness idiom); `Rebuking Ceremony` (two
+artifacts to their OWN owners' library tops); `Reckless Assault`
+(the life-priced repeatable ping, twice in a turn for 4 life);
+`Reduce to Dreams` (the two-type bounce-wipe); `Refuse to Yield`
+(+2/+7 and stand up); `Reclaim` (graveyard card to library top);
+`Reckless Reveler` and `Redcap Thief` on committed lines.
+
+**Thirteen refusals — two PROBED:** Ray of Ruin's
+'creature, Vehicle, or nonbasic land' halves to bare 'target creature'
+(the subtype and negated-supertype arms both drop — the D216 Gravkill
+hole met again), and Reach of Shadows' "that's one or more colors" is
+silently dropped. Plus phasing (NEW), manifest (face-down family),
+play-from-exile, clash ×2, regeneration ×2, script-raised prompt ×2,
+up-to-N, amass.
+
+**Measured after landing:** primitives complete 3,139 · blocked 28,553 ·
+scriptableToday 1,914 · ladder [1914, 2013, 3806, 5720, 6932] · botPool
+creature 1,702 / instant 579 / sorcery 435 / enchantment 45 · fixtures
+1,473 (83 tokens — the Gremlin tmh3 23 new) · batch.json 1,125 ·
+botDeck: Adun reaches 1,774 from 70 legendaries.
+
+**Reportables:** the mechanic-heavy letters will keep refusal counts
+high until the structural classes are built; prior items stand.

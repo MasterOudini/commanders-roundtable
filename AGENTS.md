@@ -6624,6 +6624,35 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       prior items stand.
 
 
+- [x] **M6.4ca — Twelve landed: the theft reanimation (2026-08-21):**
+      **3,139 of 31,692 Commander-legal cards now execute completely, up
+      from 3,127.** `SHIPPED_SCRIPTS` 1,230 → 1,242; ledger 451 (+13 —
+      the Re- page is mechanic country; ONE new class: 'phasing'). All
+      26 tests FIRST-RUN green — the fourteenth such batch. Decisions in
+      **D238**.
+      **The headliners:** Reanimate (the THEFT reanimation — the
+      battlefield move's to.player IS the controller, the mv bill read
+      pre-move); Reki, the History of Kamigawa (the legendary-cast
+      supertype filter — the 70th legendary watching for its own kind);
+      Razorfin Hunter (the Prodigal text's THIRD id); Reclaiming Vines
+      (the probed triple, all three arms enforced); Razorkin
+      Hordecaller (you-attack Gremlin at turn 3); Rebuking Ceremony
+      (two artifacts to their OWN owners' tops).
+      ⚠️ **Thirteen refusals — Ray of Ruin's triple halves (the D216
+      subtype-member hole met again) and Reach of Shadows' colored-ness
+      qualifier drops; phasing is NEW.**
+      Fixtures 1,473 (83 tokens — Gremlin new) · botPool creature 1,702
+      / instant 579 / sorcery 435 / enchantment 45 · ladder [1914,
+      2013, 3806, 5720, 6932] · batch.json 1,125 · botDeck: Adun
+      reaches 1,774 from 70 legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,322
+      files, 7,248 passed / 10 skipped · 500-seed gate
+      751.3 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D238): the mechanic-heavy letters keep refusal
+      counts high; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
