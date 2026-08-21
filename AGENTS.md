@@ -6778,6 +6778,35 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the look-and-reorder family; prior items stand.
 
 
+- [x] **M6.4cf — Twenty-one landed: the vigilance-granting land
+      (2026-08-21):** **3,233 of 31,692 Commander-legal cards now execute
+      completely, up from 3,212.** `SHIPPED_SCRIPTS` 1,315 → 1,336; ledger
+      482 (+4, ZERO new classes) — the second consecutive zero-new-anything
+      batch. The offerable pool reads an even 1,000. Decisions in **D243**.
+      **The headliners:** Sandstone Bridge (the targeted-trigger LAND whose
+      +1/+1-and-vigilance grant rides D194's carrier, derived until
+      cleanup); Sanguimancy (the devotion census paying a draw AND a bill);
+      Savage Swipe (the EXACT power===2 condition told apart by two games);
+      Salvager of Secrets (ETB graveyard return — cardTypes REFUSE a
+      creature at the aim); Sandstorm (the attacker sweep cast MID-COMBAT
+      through Aetherize's predicate); Savage Mansion (the three-line
+      surveil land); Scepter of Dominance (tap-target-PERMANENT — a land
+      turns); Savage Gorilla (the off-color self-sac two-sentence resolve);
+      Salvage (the bare-card GY noun, placement top).
+      ⚠️ **One test-side failure — the D215 trap on a SUPPORT body:**
+      Captive Flame is {2}{R}; read support costs off the fixtures too.
+      ⚠️ **Four refusals, all existing classes.**
+      Fixtures 1,571 (86 tokens) · botPool creature 1,743 / instant 593 /
+      sorcery 462 / artifact 97 / land 289 · ladder [1820, 1919, 3712,
+      5626, 6838] · batch.json 1,000 · botDeck: Adun reaches 1,819.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,416
+      files, 7,634 passed / 10 skipped · 500-seed gate
+      786.7 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D243): support-body costs join the
+      read-at-classification rule; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

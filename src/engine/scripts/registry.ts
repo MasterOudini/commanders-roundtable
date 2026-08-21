@@ -7,6 +7,27 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SAILOR_OF_MEANS_SCRIPT } from './cards/sailorOfMeans';
+import { SALTFIELD_RECLUSE_SCRIPT } from './cards/saltfieldRecluse';
+import { SALVAGE_SCRIPT } from './cards/salvage';
+import { SALVAGER_OF_SECRETS_SCRIPT } from './cards/salvagerOfSecrets';
+import { SANDSTONE_BRIDGE_SCRIPT } from './cards/sandstoneBridge';
+import { SANDSTORM_SCRIPT } from './cards/sandstorm';
+import { SANGUIMANCY_SCRIPT } from './cards/sanguimancy';
+import { SANITATION_AUTOMATON_SCRIPT } from './cards/sanitationAutomaton';
+import { SARKHANS_RAGE_SCRIPT } from './cards/sarkhansRage';
+import { SATYR_ENCHANTER_SCRIPT } from './cards/satyrEnchanter';
+import { SATYR_GROVEDANCER_SCRIPT } from './cards/satyrGrovedancer';
+import { SAVAGE_GORILLA_SCRIPT } from './cards/savageGorilla';
+import { SAVAGE_MANSION_SCRIPT } from './cards/savageMansion';
+import { SAVAGE_SMASH_SCRIPT } from './cards/savageSmash';
+import { SAVAGE_SURGE_SCRIPT } from './cards/savageSurge';
+import { SAVAGE_SWIPE_SCRIPT } from './cards/savageSwipe';
+import { SAVAGE_TWISTER_SCRIPT } from './cards/savageTwister';
+import { SAVANNAH_SAGE_SCRIPT } from './cards/savannahSage';
+import { SCALDING_DEVIL_SCRIPT } from './cards/scaldingDevil';
+import { SCAVENGER_FOLK_SCRIPT } from './cards/scavengerFolk';
+import { SCEPTER_OF_DOMINANCE_SCRIPT } from './cards/scepterOfDominance';
 import { RUBBLEBELT_BOAR_SCRIPT } from './cards/rubblebeltBoar';
 import { RUGGED_HIGHLANDS_SCRIPT } from './cards/ruggedHighlands';
 import { RUINATION_SCRIPT } from './cards/ruination';
@@ -1436,6 +1457,27 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SAILOR_OF_MEANS_SCRIPT,
+  SALTFIELD_RECLUSE_SCRIPT,
+  SALVAGE_SCRIPT,
+  SALVAGER_OF_SECRETS_SCRIPT,
+  SANDSTONE_BRIDGE_SCRIPT,
+  SANDSTORM_SCRIPT,
+  SANGUIMANCY_SCRIPT,
+  SANITATION_AUTOMATON_SCRIPT,
+  SARKHANS_RAGE_SCRIPT,
+  SATYR_ENCHANTER_SCRIPT,
+  SATYR_GROVEDANCER_SCRIPT,
+  SAVAGE_GORILLA_SCRIPT,
+  SAVAGE_MANSION_SCRIPT,
+  SAVAGE_SMASH_SCRIPT,
+  SAVAGE_SURGE_SCRIPT,
+  SAVAGE_SWIPE_SCRIPT,
+  SAVAGE_TWISTER_SCRIPT,
+  SAVANNAH_SAGE_SCRIPT,
+  SCALDING_DEVIL_SCRIPT,
+  SCAVENGER_FOLK_SCRIPT,
+  SCEPTER_OF_DOMINANCE_SCRIPT,
   RUBBLEBELT_BOAR_SCRIPT,
   RUGGED_HIGHLANDS_SCRIPT,
   RUINATION_SCRIPT,

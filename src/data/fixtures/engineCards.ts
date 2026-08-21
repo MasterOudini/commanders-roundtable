@@ -50542,6 +50542,731 @@ export const SAGE_S_ROW_SAVANT: CardData = {
   "singleImage": true
 };
 
+export const SAILOR_OF_MEANS: CardData = {
+  "scryfallId": "10c1e6ad-1227-4049-89bf-69ace48c3076",
+  "oracleId": "c4efae03-99de-4439-925b-504602623bfd",
+  "name": "Sailor of Means",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sailor of Means",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Pirate",
+      "oracleText": "When this creature enters, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "The rising tide of Orazca's plunder lifted all ships.",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ryan Pancoast",
+      "imageId": "10c1e6ad-1227-4049-89bf-69ace48c3076"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "jmp",
+  "collectorNumber": "172",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SALTFIELD_RECLUSE: CardData = {
+  "scryfallId": "5ffed4e4-0f54-4ab1-8563-ac4be7ae8309",
+  "oracleId": "c87e056a-6067-49e6-b3f7-bba8234777de",
+  "name": "Saltfield Recluse",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Saltfield Recluse",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Rebel Cleric",
+      "oracleText": "{T}: Target creature gets -2/-0 until end of turn.",
+      "flavorText": "He remembers a past of light and healing. But he lives the bitter present—parching salt, scouring wind, and the withering heat of the desert.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Brian Despain",
+      "imageId": "5ffed4e4-0f54-4ab1-8563-ac4be7ae8309"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plc",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SALVAGE: CardData = {
+  "scryfallId": "c2bc771e-f473-4953-b565-2bdf5a6182b3",
+  "oracleId": "c01a090a-11e4-469e-aded-74203c06fef4",
+  "name": "Salvage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Salvage",
+      "manaCost": "{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put target card from your graveyard on top of your library.",
+      "flavorText": "\"What was taken shall be restored.\"\n—Arathel, elvish queen",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Keith Parkinson",
+      "imageId": "c2bc771e-f473-4953-b565-2bdf5a6182b3"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "P02-145",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SALVAGER_OF_SECRETS: CardData = {
+  "scryfallId": "3a55f484-5734-469c-8d41-95ce44473ec1",
+  "oracleId": "3e400e13-6cae-45e6-b5cc-5b5f9d74dec5",
+  "name": "Salvager of Secrets",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Salvager of Secrets",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Creature — Merfolk Wizard",
+      "oracleText": "When this creature enters, return target instant or sorcery card from your graveyard to your hand.",
+      "flavorText": "The greatest treasure of the deep is an echo from above.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Lars Grant-West",
+      "imageId": "3a55f484-5734-469c-8d41-95ce44473ec1"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "m19",
+  "collectorNumber": "70",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SANDSTONE_BRIDGE: CardData = {
+  "scryfallId": "c781e932-4605-47aa-add1-4ee62f4e7ead",
+  "oracleId": "08911e8e-cd67-4960-a927-958c33632469",
+  "name": "Sandstone Bridge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sandstone Bridge",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, target creature gets +1/+1 and gains vigilance until end of turn.\n{T}: Add {W}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Cliff Childs",
+      "imageId": "c781e932-4605-47aa-add1-4ee62f4e7ead"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "bfz",
+  "collectorNumber": "243",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SANDSTORM: CardData = {
+  "scryfallId": "1bc0400e-af61-4922-ba7d-7b9a99688262",
+  "oracleId": "7bb41690-f8ec-462a-ba29-be453eb86fca",
+  "name": "Sandstorm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sandstorm",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Sandstorm deals 1 damage to each attacking creature.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "1bc0400e-af61-4922-ba7d-7b9a99688262"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "rin",
+  "collectorNumber": "137",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SANGUIMANCY: CardData = {
+  "scryfallId": "fb129def-4055-4b12-9944-39406b451553",
+  "oracleId": "f0a85525-b174-41d9-8871-870af29d3480",
+  "name": "Sanguimancy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sanguimancy",
+      "manaCost": "{4}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "You draw X cards and you lose X life, where X is your devotion to black. (Each {B} in the mana costs of permanents you control counts toward your devotion to black.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dave Kendall",
+      "imageId": "fb129def-4055-4b12-9944-39406b451553"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "bng",
+  "collectorNumber": "81",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SANITATION_AUTOMATON: CardData = {
+  "scryfallId": "52608ba4-c47d-44e4-b624-dee2a3a42ae2",
+  "oracleId": "be2ab552-df82-49a0-8f0b-ee66de34e1a7",
+  "name": "Sanitation Automaton",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sanitation Automaton",
+      "manaCost": "{2}",
+      "typeLine": "Artifact Creature — Construct",
+      "oracleText": "When this creature enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "\"I am once again bursting with discarded theories. Disposal imminent.\"",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Mike Burns",
+      "imageId": "52608ba4-c47d-44e4-b624-dee2a3a42ae2"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "mkm",
+  "collectorNumber": "256",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SARKHAN_S_RAGE: CardData = {
+  "scryfallId": "457ed69d-2461-4b99-99f7-b28224a2f8e0",
+  "oracleId": "3313aa8f-6441-4daa-b8fa-e6144f60bea8",
+  "name": "Sarkhan's Rage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sarkhan's Rage",
+      "manaCost": "{4}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Sarkhan's Rage deals 5 damage to any target. If you control no Dragons, Sarkhan's Rage deals 2 damage to you.",
+      "flavorText": "The people of Tarkir speak of an ancient legend, of the dragon-man called Sarkhan who was greatest of all khans.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chris Rahn",
+      "imageId": "457ed69d-2461-4b99-99f7-b28224a2f8e0"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "j25",
+  "collectorNumber": "594",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SATYR_ENCHANTER: CardData = {
+  "scryfallId": "4f910c5b-3de9-40e8-a1d5-dfe6b3725404",
+  "oracleId": "aa321138-b1a7-4b8e-a2ca-b9ce65704e92",
+  "name": "Satyr Enchanter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Satyr Enchanter",
+      "manaCost": "{1}{G}{W}",
+      "typeLine": "Creature — Satyr Druid",
+      "oracleText": "Whenever you cast an enchantment spell, draw a card.",
+      "flavorText": "\"The threads of magic that protect this place were woven by my will.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Sidharth Chaturvedi",
+      "imageId": "4f910c5b-3de9-40e8-a1d5-dfe6b3725404"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "M19-223",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SATYR_GROVEDANCER: CardData = {
+  "scryfallId": "d46febca-f3c0-4467-aef4-4dfcdf3009fe",
+  "oracleId": "49f3bd5a-9c2a-45b8-aa10-9c6471028a0f",
+  "name": "Satyr Grovedancer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Satyr Grovedancer",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Satyr Shaman",
+      "oracleText": "When this creature enters, put a +1/+1 counter on target creature.",
+      "flavorText": "\"Some of my kin dance for themselves, without greater purpose. Nylea gives me purpose, and with it strength.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jason A. Engle",
+      "imageId": "d46febca-f3c0-4467-aef4-4dfcdf3009fe"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "jou",
+  "collectorNumber": "139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAVAGE_GORILLA: CardData = {
+  "scryfallId": "32ad3f87-9f25-455f-9933-3b0b0eaad467",
+  "oracleId": "6c876a57-c567-4d26-8ab6-a9c051e83ace",
+  "name": "Savage Gorilla",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Savage Gorilla",
+      "manaCost": "{4}{G}",
+      "typeLine": "Creature — Ape",
+      "oracleText": "{U}{B}, {T}, Sacrifice this creature: Target creature gets -3/-3 until end of turn. Draw a card.",
+      "flavorText": "These omnivorous gorillas have no qualms about a diet composed of equal parts fruit and Phyrexians.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dave Dorman",
+      "imageId": "32ad3f87-9f25-455f-9933-3b0b0eaad467"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "apc",
+  "collectorNumber": "85",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAVAGE_MANSION: CardData = {
+  "scryfallId": "855f59a5-17a8-4aca-8a4d-f98111eba14c",
+  "oracleId": "1af15c1d-a41c-44cc-9614-d72694dd26e8",
+  "name": "Savage Mansion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Savage Mansion",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {R} or {G}.\n{4}, {T}: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "Exotic trophies from victorious hunts adorn the walls of the Kravinoff estate.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "David Álvarez",
+      "imageId": "855f59a5-17a8-4aca-8a4d-f98111eba14c"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "spm",
+  "collectorNumber": "183",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAVAGE_SMASH: CardData = {
+  "scryfallId": "4b05cacb-1f62-46ca-90a0-202d4adcff2c",
+  "oracleId": "676c0315-1cb3-4d80-b136-16d88fd612cb",
+  "name": "Savage Smash",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Savage Smash",
+      "manaCost": "{1}{R}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control gets +2/+2 until end of turn. It fights target creature you don't control. (Each deals damage equal to its power to the other.)",
+      "flavorText": "Rolling Thunder! Angry Armadillo Assaults Architecture",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Magnus Jansson",
+      "imageId": "4b05cacb-1f62-46ca-90a0-202d4adcff2c"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Fight"
+  ],
+  "setCode": "otp",
+  "collectorNumber": "53",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAVAGE_SURGE: CardData = {
+  "scryfallId": "0fa74aae-e857-410c-8836-953c8623d0b0",
+  "oracleId": "0acbc9a6-0de0-4096-b35c-1a586a1312ea",
+  "name": "Savage Surge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Savage Surge",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +2/+2 until end of turn. Untap that creature.",
+      "flavorText": "Gruul warriors never need to be stirred to battle. They need only to be shown where the battle is.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "0fa74aae-e857-410c-8836-953c8623d0b0"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "rtr",
+  "collectorNumber": "133",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAVAGE_SWIPE: CardData = {
+  "scryfallId": "4fcc2675-e9b9-42a0-8827-8c18bf977c2d",
+  "oracleId": "c74c87f7-3120-4fd7-8735-1d7a7a429643",
+  "name": "Savage Swipe",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Savage Swipe",
+      "manaCost": "{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control gets +2/+2 until end of turn if its power is 2. Then it fights target creature you don't control. (Each deals damage equal to its power to the other.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "David Gaillet",
+      "imageId": "4fcc2675-e9b9-42a0-8827-8c18bf977c2d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Fight"
+  ],
+  "setCode": "j21",
+  "collectorNumber": "630",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAVAGE_TWISTER: CardData = {
+  "scryfallId": "025dfd44-f611-42e3-9e22-f630599f0591",
+  "oracleId": "5268518e-7631-4149-8eea-c2475b9b14df",
+  "name": "Savage Twister",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Savage Twister",
+      "manaCost": "{X}{R}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Savage Twister deals X damage to each creature.",
+      "flavorText": "\"Frozen, we watched the funnel pluck up three of the goats—pook! pook! pook!—before we ran for the wadi.\"\n—*Travelogue of Najat*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Bob Eggleton",
+      "imageId": "025dfd44-f611-42e3-9e22-f630599f0591"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "280†",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAVANNAH_SAGE: CardData = {
+  "scryfallId": "5b5fa4bb-e061-456f-808e-8d98b2c8abf5",
+  "oracleId": "7e6cfec7-3b54-43db-853a-27c164776a5f",
+  "name": "Savannah Sage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Savannah Sage",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Cat Cleric",
+      "oracleText": "When this creature enters, you gain 2 life.",
+      "flavorText": "\"Now is not the time for your light to fade.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Bayard Wu",
+      "imageId": "5b5fa4bb-e061-456f-808e-8d98b2c8abf5"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m20",
+  "collectorNumber": "284",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCALDING_DEVIL: CardData = {
+  "scryfallId": "bbe49a97-dac8-4273-b4dc-45cdf8f5a6e0",
+  "oracleId": "3bb1536f-06cc-433f-aeeb-afd528f9af03",
+  "name": "Scalding Devil",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scalding Devil",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Devil",
+      "oracleText": "{2}{R}: This creature deals 1 damage to target player or planeswalker.",
+      "flavorText": "Demons massacre. Devils annoy.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Erica Yang",
+      "imageId": "bbe49a97-dac8-4273-b4dc-45cdf8f5a6e0"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "avr",
+  "collectorNumber": "155",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCAVENGER_FOLK: CardData = {
+  "scryfallId": "437d244a-fde1-459c-927f-52087fd9080f",
+  "oracleId": "74f361f8-a0d8-4824-9380-61469d6a19cf",
+  "name": "Scavenger Folk",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scavenger Folk",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Human",
+      "oracleText": "{G}, {T}, Sacrifice this creature: Destroy target artifact.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dennis Detwiller",
+      "imageId": "437d244a-fde1-459c-927f-52087fd9080f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "me4",
+  "collectorNumber": "166",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCEPTER_OF_DOMINANCE: CardData = {
+  "scryfallId": "888bc7ca-f9fa-4da4-b466-b9dc273d5319",
+  "oracleId": "60bf80f9-78b1-4869-afd9-e769b1b0f5ea",
+  "name": "Scepter of Dominance",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scepter of Dominance",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Artifact",
+      "oracleText": "{W}, {T}: Tap target permanent.",
+      "flavorText": "\"Whether or not you will bow to me is not open to debate. The question is, will I ever let you rise?\"\n—Fridius, telemin master",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "888bc7ca-f9fa-4da4-b466-b9dc273d5319"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "con",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -54944,6 +55669,27 @@ export const ENGINE_CARDS: CardData[] = [
   SAGE_OF_LAT_NAM,
   SAGE_OWL,
   SAGE_S_ROW_SAVANT,
+  SAILOR_OF_MEANS,
+  SALTFIELD_RECLUSE,
+  SALVAGE,
+  SALVAGER_OF_SECRETS,
+  SANDSTONE_BRIDGE,
+  SANDSTORM,
+  SANGUIMANCY,
+  SANITATION_AUTOMATON,
+  SARKHAN_S_RAGE,
+  SATYR_ENCHANTER,
+  SATYR_GROVEDANCER,
+  SAVAGE_GORILLA,
+  SAVAGE_MANSION,
+  SAVAGE_SMASH,
+  SAVAGE_SURGE,
+  SAVAGE_SWIPE,
+  SAVAGE_TWISTER,
+  SAVANNAH_SAGE,
+  SCALDING_DEVIL,
+  SCAVENGER_FOLK,
+  SCEPTER_OF_DOMINANCE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

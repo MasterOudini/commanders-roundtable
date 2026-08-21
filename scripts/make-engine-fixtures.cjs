@@ -1897,6 +1897,28 @@ const WANTED = [
   'Sage of Lat-Nam',
   'Sage Owl',
   "Sage's Row Savant",
+  // D243 (M6.4cf)
+  'Sailor of Means',
+  'Saltfield Recluse',
+  'Salvage',
+  'Salvager of Secrets',
+  'Sandstone Bridge',
+  'Sandstorm',
+  'Sanguimancy',
+  'Sanitation Automaton',
+  "Sarkhan's Rage",
+  'Satyr Enchanter',
+  'Satyr Grovedancer',
+  'Savage Gorilla',
+  'Savage Mansion',
+  'Savage Smash',
+  'Savage Surge',
+  'Savage Swipe',
+  'Savage Twister',
+  'Savannah Sage',
+  'Scalding Devil',
+  'Scavenger Folk',
+  'Scepter of Dominance',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

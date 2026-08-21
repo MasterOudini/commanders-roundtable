@@ -15839,3 +15839,58 @@ clean · probe 124/124 · battery 130/130.**
 ⚠️ **Reportables** (D242): the trigger-raised orderCards ask opens the
 whole look-and-reorder trigger family; the keyword-qualifier widening keeps
 absorbing (Sagittars'); prior items stand.
+
+## D243 — M6.4cf: twenty-one landed — the vigilance-granting land, and devotion pays a bill (2026-08-21)
+
+**3,233 of 31,692 Commander-legal cards execute completely, up from 3,212.**
+SHIPPED_SCRIPTS 1,315 → 1,336; the REFUSED ledger 478 → 482 (+4, ZERO new
+classes) — the second consecutive zero-new-anything batch (no new tokens, no
+new support bodies, no new classes). The offerable pool reads an even
+**1,000**.
+
+**The headliners:** `Sandstone Bridge` — the targeted-trigger LAND whose
+grant RIDES: +1/+1 and vigilance on D194's carrier, the keyword derived
+until cleanup and gone after. `Sanguimancy` — the devotion census (Aspect
+of Hydra's parsed-ManaCost idiom: colored pips + hybrid halves) paying both
+a draw and a bill in one resolve. `Savage Swipe` — the EXACT power===2
+condition, told apart by two games: the Bears pump to 4, the Dreadmaw gets
+nothing and kills the victim anyway. `Salvager of Secrets` — the ETB
+graveyard return whose cardTypes REFUSE a creature card at the aim (the
+res.ok===false negative in the test). `Sandstorm` — the attacker sweep
+cast MID-COMBAT at instant speed through Aetherize's priority-window
+predicate. `Savage Mansion` — the three-line surveil land (TEXT =
+split[2] behind tapped + mana). `Scepter of Dominance` — tap-target-
+PERMANENT: the probed permanent kind turns a LAND. `Savage Gorilla` — the
+off-color {U}{B} self-sac with the two-sentence resolve (the debuff can
+miss; the draw still arrives). `Salvage` — the bare-card graveyard noun
+with zone AND controller enforced, placement top.
+
+**Also:** Sailor of Means (ETB Treasure); Saltfield Recluse (the
+tap-debuff); Sanitation Automaton (ETB surveil); Sarkhan's Rage (the
+no-Dragons recoil on the hit() helper — Boulderborn Dragon silences it);
+Satyr Enchanter (enchantment-cast draw); Satyr Grovedancer (ETB targeted
+counter); Savage Smash + Ruthless-family (Epic Confrontation's fight at
++2/+2); Savage Surge (pump-and-untap); Savage Twister (the plain X sweep);
+Savannah Sage (ETB gain); Scalding Devil (the no-tap ping); Scavenger Folk
+(self-sac artifact removal with the tap).
+
+⚠️ **One test-side failure — the D215 mana-cost trap on a SUPPORT body:**
+Captive Flame is {2}{R}, not the {1}{R} the test funded. Read support
+bodies' costs off the fixtures too, not only the batch's own.
+
+⚠️ **Four refusals, all existing classes:** Sandsower (tap-creatures cost),
+Sanguine Sacrament (spell relocates itself on resolution — Cerebral
+Eruption's class), Sanity Gnawers (ctx.random), Scarblade Elite
+(exile-from-graveyard cost).
+
+Fixtures 1,550 → 1,571 (86 tokens). botPool creature 1,743 / instant 593 /
+sorcery 462 / artifact 97 / land 289 · ladder [1820, 1919, 3712, 5626,
+6838] · batch.json 1,000 · botDeck: Adun reaches 1,819 from 70 legendaries.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,416 files,
+7,634 passed / 10 skipped · 500-seed gate 786.7 s · build
+clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D243): support-body costs join the read-at-
+classification rule; the ledger's cost-chooser classes keep absorbing;
+prior items stand.

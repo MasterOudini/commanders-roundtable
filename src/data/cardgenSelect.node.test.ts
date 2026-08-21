@@ -923,6 +923,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Royal Herbalist', 'exile-from-library cost'],
   ['Rummaging Goblin', 'discard-cost chooser'],
   ["Sagittars' Volley", 'keyword target qualifier unenforced'],
+  // D243 (M6.4cf)
+  ['Sandsower', 'tap-creatures cost'],
+  ['Sanguine Sacrament', 'spell relocates itself on resolution'],
+  ['Sanity Gnawers', 'ctx.random'],
+  ['Scarblade Elite', 'exile-from-graveyard cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
