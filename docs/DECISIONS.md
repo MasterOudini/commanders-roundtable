@@ -15664,3 +15664,62 @@ probe 124/124 · battery 130/130.**
 
 ⚠️ **Reportables** (D239): the graveyard-noun and numeric-disjunction parse
 holes join the aim-layer queue beside the keyword qualifier; prior items stand.
+
+## D240 — M6.4cc: sixteen landed — the mass theft reanimation, and the fourth perItem consumer (2026-08-21)
+
+**3,171 of 31,692 Commander-legal cards execute completely, up from 3,155.**
+SHIPPED_SCRIPTS 1,258 → 1,274; the REFUSED ledger 460 → 469 (+9, ONE new
+class). A ZERO-new-token, zero-new-support-body batch — every fixture the
+tests lean on was already in WANTED.
+
+**The headliners:** `Rise of the Dark Realms` — the MASS theft reanimation:
+every creature card from every graveyard in one simultaneous CardsMoved with
+`to.player` = the caster (Planar Birth's sweep composed with Reanimate's
+theft; owners stay printed, the entry funnel runs on each). `Righteous
+Cause` — the FOURTH perItem consumer: one firing per ATTACKING creature,
+any controller's, through D190's fan-out over AttackersDeclared. `Rite of
+Flame` — the ritual with the self-name census (the resolving copy is ON THE
+STACK and correctly absent from its own count). `Righteous Fury` — Guan
+Yu's tapped sweep paying Multani's per-kill bounty, where the tapped
+INDESTRUCTIBLE survivor pays NOTHING. `Rishadan Port` / `Rishadan
+Dockhand` — the tap-target-LAND actives, and a ref-numbering pair worth
+pinning: the Port's tap is #a1 behind its mana line (mana lines COUNT), the
+Dockhand's is #a0 behind Islandwalk (keyword lines never do). `Rimefur
+Reindeer` — the enchantment-entry watcher pair whose target clause's "an
+opponent controls" is ENFORCED (probed before drafting). `Risky Research` —
+Notion Rain's recoil-first surveil twin, LifeChanged for DamageDealt.
+
+**Also:** `Retribution of the Meek` (the power-4-or-greater sweep — the
+damnation tripwire's SIXTEENTH client); `Rewards of Diversity` (the
+opponent-multicolored cast watcher — Hero of Precinct One's colour count
+behind Insight's filter); `Ribbons of the Reikai` (Spirit census draw);
+`Ripchain Razorkin` (the land-predicate chooser draw); `Riptide` (tap all
+blue); `Riptide Crab` / `Rhox Oracle` / `Risky Shortcut` twins.
+
+⚠️ **One test-side failure, and it was a PINNED trap met again:** Rhox
+Oracle's first run measured the hand around a put() that had fetched the
+Oracle from the opening seven — hand→battlefield then draw nets zero. The
+fix is Gallant Citizen's staging idiom verbatim (through the graveyard, the
+baseline after). The engine was never wrong; the first-run-clean streak
+stays at fifteen.
+
+⚠️ **The probe catches:** Return to the Earth's triple compound parses
+CONFIDENT to `['artifact']` alone with the flying qualifier dropped (the
+noun-list family); Rewind's "Untap up to four lands" and Return to Dust's
+"up to one other target" file under up-to-N. ONE new class: 'indefinite
+continuous effect' (Riding the Dilu Horse's horsemanship "lasts
+indefinitely", Rise from the Grave's "black Zombie in addition") — a
+permanent-attached continuous effect with no duration has no carrier.
+
+Fixtures 1,490 → 1,506 (84 tokens — ZERO new). botPool creature 1,714 /
+instant 585 / sorcery 445 / enchantment 47 / land 286 · ladder [1882, 1981,
+3774, 5688, 6900] · batch.json 1,075 · botDeck: Adun reaches 1,785 from 70
+legendaries.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,354 files,
+7,381 passed / 10 skipped · 500-seed gate 773.6 s · build
+clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D240): the indefinite continuous effect is the
+structural tail's newest named class (two cards, one carrier design); the
+up-to-N chooser keeps absorbing; prior items stand.

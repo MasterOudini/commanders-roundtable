@@ -1835,6 +1835,23 @@ const WANTED = [
   'Resolute Reinforcements',
   'Resolute Watchdog',
   'Retract',
+  // D240 (M6.4cc)
+  'Retribution of the Meek',
+  'Rewards of Diversity',
+  'Rhox Oracle',
+  'Ribbons of the Reikai',
+  'Righteous Cause',
+  'Righteous Fury',
+  'Rimefur Reindeer',
+  'Ripchain Razorkin',
+  'Riptide',
+  'Riptide Crab',
+  'Rise of the Dark Realms',
+  'Rishadan Dockhand',
+  'Rishadan Port',
+  'Risky Research',
+  'Risky Shortcut',
+  'Rite of Flame',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

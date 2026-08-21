@@ -6679,6 +6679,38 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       parse holes join the aim-layer queue; prior items stand.
 
 
+- [x] **M6.4cc — Sixteen landed: the mass theft reanimation
+      (2026-08-21):** **3,171 of 31,692 Commander-legal cards now execute
+      completely, up from 3,155.** `SHIPPED_SCRIPTS` 1,258 → 1,274; ledger
+      469 (+9, ONE new class). ZERO new tokens, zero new support bodies.
+      Decisions in **D240**.
+      **The headliners:** Rise of the Dark Realms (every creature card from
+      every graveyard in ONE move batch, to.player = the caster — Planar
+      Birth's sweep composed with Reanimate's theft); Righteous Cause (the
+      FOURTH perItem consumer — one firing per attacker, any controller);
+      Rite of Flame (the self-name census ritual — the resolving copy is on
+      the stack and counts itself not); Righteous Fury (the tapped sweep
+      whose indestructible survivor pays NOTHING); Rishadan Port #a1 /
+      Dockhand #a0 (mana lines COUNT, keyword lines never do); Rimefur
+      Reindeer (the enchantment-entry pair, opponent restriction ENFORCED);
+      Risky Research (Notion Rain's recoil-first twin).
+      ⚠️ **One test-side failure — a pinned trap met again:** Rhox Oracle's
+      hand baseline raced a put() that fetched from the opening seven; fixed
+      with Gallant Citizen's graveyard staging. The engine was never wrong.
+      ⚠️ **Nine refusals, ONE new class:** 'indefinite continuous effect'
+      (Riding the Dilu Horse + Rise from the Grave — no duration, no
+      carrier). Return to the Earth's triple compound probe-halved.
+      Fixtures 1,506 (84 tokens) · botPool creature 1,714 / instant 585 /
+      sorcery 445 / enchantment 47 / land 286 · ladder [1882, 1981, 3774,
+      5688, 6900] · batch.json 1,075 · botDeck: Adun reaches 1,785.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,354
+      files, 7,381 passed / 10 skipped · 500-seed gate
+      773.6 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D240): the indefinite continuous effect joins the
+      structural tail; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

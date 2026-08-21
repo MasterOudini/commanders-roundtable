@@ -48545,6 +48545,557 @@ export const RETRACT: CardData = {
   "singleImage": true
 };
 
+export const RETRIBUTION_OF_THE_MEEK: CardData = {
+  "scryfallId": "860b8633-1bfc-426a-8666-5e6a584d4525",
+  "oracleId": "61f2083b-3018-43a4-8852-8e6d2a97d5d6",
+  "name": "Retribution of the Meek",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Retribution of the Meek",
+      "manaCost": "{2}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures with power 4 or greater. They can't be regenerated.",
+      "flavorText": "\"Tread upon the meek, and they shall wound your feet and make you crawl.\"\n—Asmira, Holy Avenger",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Nathalie Hertz",
+      "imageId": "860b8633-1bfc-426a-8666-5e6a584d4525"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "vis",
+  "collectorNumber": "19",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REWARDS_OF_DIVERSITY: CardData = {
+  "scryfallId": "04116b38-8fb1-47c6-b68d-060d0fc4a60d",
+  "oracleId": "064c5a14-c2f2-4b7a-8e0b-01b9995e8f89",
+  "name": "Rewards of Diversity",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rewards of Diversity",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever an opponent casts a multicolored spell, you gain 4 life.",
+      "flavorText": "\"Everything is in place. Nothing can happen that isn't part of my plan.\"\n—Urza",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Darrell Riche",
+      "imageId": "04116b38-8fb1-47c6-b68d-060d0fc4a60d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "inv",
+  "collectorNumber": "32",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RHOX_ORACLE: CardData = {
+  "scryfallId": "281f04d5-af45-4494-ac11-a605d3a06643",
+  "oracleId": "d26d1cce-3bcf-48d4-abce-8b12ca7b7432",
+  "name": "Rhox Oracle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rhox Oracle",
+      "manaCost": "{4}{G}",
+      "typeLine": "Creature — Rhino Monk",
+      "oracleText": "When this creature enters, draw a card.",
+      "flavorText": "\"The further into the future I look, the less certain my vision. Even now, the middle distance is obscured by fire.\"",
+      "power": "4",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "281f04d5-af45-4494-ac11-a605d3a06643"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "m19",
+  "collectorNumber": "198",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RIBBONS_OF_THE_REIKAI: CardData = {
+  "scryfallId": "e7a3b0da-026e-4ea9-8035-38c909e5f9a4",
+  "oracleId": "22b76ab7-9658-41a3-b8bb-fc02de0631a4",
+  "name": "Ribbons of the Reikai",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ribbons of the Reikai",
+      "manaCost": "{4}{U}",
+      "typeLine": "Sorcery — Arcane",
+      "oracleText": "Draw a card for each Spirit you control.",
+      "flavorText": "\"If wisdom is a river, then we cup our hands, reach in, and drink from it in sips. The kami, however, are like fish, swimming, breathing, surrounded in its presence.\"\n—Dosan the Falling Leaf",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Martina Pilcerova",
+      "imageId": "e7a3b0da-026e-4ea9-8035-38c909e5f9a4"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "bok",
+  "collectorNumber": "50",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RIGHTEOUS_CAUSE: CardData = {
+  "scryfallId": "6a10345d-d339-4b97-976d-68696e54867d",
+  "oracleId": "218f835b-4195-4ee8-a4ef-e5ba58fa5374",
+  "name": "Righteous Cause",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Righteous Cause",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever a creature attacks, you gain 1 life.",
+      "flavorText": "\"Until the world unites in vengeful fury and Phage is destroyed, I will not stay my hand.\"\n—Akroma, angelic avenger",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Scott M. Fischer",
+      "imageId": "6a10345d-d339-4b97-976d-68696e54867d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "cmd",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RIGHTEOUS_FURY: CardData = {
+  "scryfallId": "2631d2de-05ce-4fec-afb4-47568b76b30d",
+  "oracleId": "f0ff2c1c-702d-406b-a426-4282117afe8e",
+  "name": "Righteous Fury",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Righteous Fury",
+      "manaCost": "{4}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all tapped creatures. You gain 2 life for each creature destroyed this way.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "2631d2de-05ce-4fec-afb4-47568b76b30d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "me2",
+  "collectorNumber": "30",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RIMEFUR_REINDEER: CardData = {
+  "scryfallId": "60acc0b7-6842-44aa-a7cc-c5d315d90287",
+  "oracleId": "66dc3237-3543-4fc2-96f1-c8d1eff7c04c",
+  "name": "Rimefur Reindeer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rimefur Reindeer",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Elk",
+      "oracleText": "Whenever an enchantment you control enters, tap target creature an opponent controls.",
+      "flavorText": "Attracted by the quiet of Hylda's realm, reindeer herds moved in and made themselves at home near the palace of ice.",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Lucas Graciano",
+      "imageId": "60acc0b7-6842-44aa-a7cc-c5d315d90287"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "woe",
+  "collectorNumber": "27",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RIPCHAIN_RAZORKIN: CardData = {
+  "scryfallId": "effad662-3309-434c-addc-4394db1f359c",
+  "oracleId": "ce000c0b-db42-4569-855f-f4eae0431c09",
+  "name": "Ripchain Razorkin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ripchain Razorkin",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Human Berserker",
+      "oracleText": "Reach\n{2}{R}, Sacrifice a land: Draw a card.",
+      "flavorText": "\"Listen to that tasty squelch. Good hit, good hit! Come here now, little meatbag!\"",
+      "power": "5",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "David Szabo",
+      "imageId": "effad662-3309-434c-addc-4394db1f359c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Reach"
+  ],
+  "setCode": "dsk",
+  "collectorNumber": "154",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RIPTIDE: CardData = {
+  "scryfallId": "b0f11ae4-e30e-441d-bb64-439930d9997c",
+  "oracleId": "b4541f38-23c1-4f51-a35b-0b222cdaed2c",
+  "name": "Riptide",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Riptide",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Tap all blue creatures.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Randy Asplund-Faith",
+      "imageId": "b0f11ae4-e30e-441d-bb64-439930d9997c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "drk",
+  "collectorNumber": "35",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RIPTIDE_CRAB: CardData = {
+  "scryfallId": "7e42ae1d-62b4-4b19-aafc-f12bdd6fb8cc",
+  "oracleId": "8ae8a583-9843-474a-bd46-8090df883621",
+  "name": "Riptide Crab",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Riptide Crab",
+      "manaCost": "{1}{W}{U}",
+      "typeLine": "Creature — Crab",
+      "oracleText": "Vigilance\nWhen this creature dies, draw a card.",
+      "flavorText": "It sleeps with its claws open.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "David Martin",
+      "imageId": "7e42ae1d-62b4-4b19-aafc-f12bdd6fb8cc"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "inv",
+  "collectorNumber": "266",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RISE_OF_THE_DARK_REALMS: CardData = {
+  "scryfallId": "073f81e8-8c0c-4430-bd3e-95ed3625340f",
+  "oracleId": "e5223a09-f732-4747-8914-e6546ab0ef4c",
+  "name": "Rise of the Dark Realms",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rise of the Dark Realms",
+      "manaCost": "{7}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put all creature cards from all graveyards onto the battlefield under your control.",
+      "flavorText": "\"For every living person there are generations of dead. Which realm would you rather rule?\"\n—Liliana Vess",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Michael Komarck",
+      "imageId": "073f81e8-8c0c-4430-bd3e-95ed3625340f"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 9,
+  "keywords": [],
+  "setCode": "m14",
+  "collectorNumber": "111",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RISHADAN_DOCKHAND: CardData = {
+  "scryfallId": "4c0345b0-ec7b-4966-b088-019e8a494ae1",
+  "oracleId": "3d199876-09f3-4e14-8598-79f0ec2afafa",
+  "name": "Rishadan Dockhand",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rishadan Dockhand",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Merfolk",
+      "oracleText": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.)\n{1}, {T}: Tap target land.",
+      "flavorText": "It's not hard to find work in Rishada, so long as you've got a strong back and don't ask too many questions.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Manuel Castañón",
+      "imageId": "4c0345b0-ec7b-4966-b088-019e8a494ae1"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Landwalk",
+    "Islandwalk"
+  ],
+  "setCode": "pmh2",
+  "collectorNumber": "59s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RISHADAN_PORT: CardData = {
+  "scryfallId": "125de79a-2b28-45ac-a066-92a9b73c3cb8",
+  "oracleId": "f3e8dc56-2810-474e-a6a7-9c3555f94ae9",
+  "name": "Rishadan Port",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rishadan Port",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{1}, {T}: Tap target land.",
+      "flavorText": "Rishada is the gateway to free trade—but the key will cost you.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jerry Tiritilli",
+      "imageId": "125de79a-2b28-45ac-a066-92a9b73c3cb8"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "mb2",
+  "collectorNumber": "241",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RISKY_RESEARCH: CardData = {
+  "scryfallId": "1f8aa705-6177-42e9-95cb-e7f880c186e3",
+  "oracleId": "47d52cd7-d72f-455f-aad3-70f08d54691f",
+  "name": "Risky Research",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Risky Research",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Surveil 2, then draw two cards. You lose 2 life. (To surveil 2, look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": "\"Though others fear radiation, I alone am able to make it my servant!\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Rafater",
+      "imageId": "1f8aa705-6177-42e9-95cb-e7f880c186e3"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "spm",
+  "collectorNumber": "62",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RISKY_SHORTCUT: CardData = {
+  "scryfallId": "c80aa587-4445-43d7-abc0-654d94ff4cda",
+  "oracleId": "a7c55495-6aca-4d17-b61a-cab8fa38b9f4",
+  "name": "Risky Shortcut",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Risky Shortcut",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw two cards. Each player loses 2 life.",
+      "flavorText": "\"Don't think of it as cheating, think of it as track they forgot to lay out for us.\"\n—Rido, Endrider",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Ignatius Budi",
+      "imageId": "c80aa587-4445-43d7-abc0-654d94ff4cda"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dft",
+  "collectorNumber": "103",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RITE_OF_FLAME: CardData = {
+  "scryfallId": "10548126-2bac-435d-b7ee-cbfea97a40ea",
+  "oracleId": "8a2e53f9-8100-488f-8504-b59e9bd1cc29",
+  "name": "Rite of Flame",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rite of Flame",
+      "manaCost": "{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Add {R}{R}, then add {R} for each card named Rite of Flame in each graveyard.",
+      "flavorText": "As the flames engulfed her, Chandra opened her heart and offered up her greatest regrets to be consumed by the inferno.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Kieran Yanner",
+      "imageId": "10548126-2bac-435d-b7ee-cbfea97a40ea"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ss3",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -52817,6 +53368,22 @@ export const ENGINE_CARDS: CardData[] = [
   RESOLUTE_REINFORCEMENTS,
   RESOLUTE_WATCHDOG,
   RETRACT,
+  RETRIBUTION_OF_THE_MEEK,
+  REWARDS_OF_DIVERSITY,
+  RHOX_ORACLE,
+  RIBBONS_OF_THE_REIKAI,
+  RIGHTEOUS_CAUSE,
+  RIGHTEOUS_FURY,
+  RIMEFUR_REINDEER,
+  RIPCHAIN_RAZORKIN,
+  RIPTIDE,
+  RIPTIDE_CRAB,
+  RISE_OF_THE_DARK_REALMS,
+  RISHADAN_DOCKHAND,
+  RISHADAN_PORT,
+  RISKY_RESEARCH,
+  RISKY_SHORTCUT,
+  RITE_OF_FLAME,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

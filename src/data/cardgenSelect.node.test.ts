@@ -902,6 +902,16 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Resolute Strike', 'script-raised prompt'],
   ['Restore', 'spell target parse (graveyard noun)'],
   ['Retraced Image', 'script-raised prompt'],
+  // D240 (M6.4cc)
+  ['Return to Dust', 'up-to-N targeting'],
+  ['Return to the Earth', 'spell target parse (noun list)'],
+  ['Revelsong Horn', 'tap-creatures cost'],
+  ['Reviving Vapors', 'script-raised prompt'],
+  ['Rewind', 'up-to-N targeting'],
+  ['Ribbons of Night', 'mana-spent memory'],
+  ['Ridged Kusite', 'discard-cost chooser'],
+  ['Riding the Dilu Horse', 'indefinite continuous effect'],
+  ['Rise from the Grave', 'indefinite continuous effect'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

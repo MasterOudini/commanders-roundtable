@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { RETRIBUTION_OF_THE_MEEK_SCRIPT } from './cards/retributionOfTheMeek';
+import { REWARDS_OF_DIVERSITY_SCRIPT } from './cards/rewardsOfDiversity';
+import { RHOX_ORACLE_SCRIPT } from './cards/rhoxOracle';
+import { RIBBONS_OF_THE_REIKAI_SCRIPT } from './cards/ribbonsOfTheReikai';
+import { RIGHTEOUS_CAUSE_SCRIPT } from './cards/righteousCause';
+import { RIGHTEOUS_FURY_SCRIPT } from './cards/righteousFury';
+import { RIMEFUR_REINDEER_SCRIPT } from './cards/rimefurReindeer';
+import { RIPCHAIN_RAZORKIN_SCRIPT } from './cards/ripchainRazorkin';
+import { RIPTIDE_SCRIPT } from './cards/riptide';
+import { RIPTIDE_CRAB_SCRIPT } from './cards/riptideCrab';
+import { RISE_OF_THE_DARK_REALMS_SCRIPT } from './cards/riseOfTheDarkRealms';
+import { RISHADAN_DOCKHAND_SCRIPT } from './cards/rishadanDockhand';
+import { RISHADAN_PORT_SCRIPT } from './cards/rishadanPort';
+import { RISKY_RESEARCH_SCRIPT } from './cards/riskyResearch';
+import { RISKY_SHORTCUT_SCRIPT } from './cards/riskyShortcut';
+import { RITE_OF_FLAME_SCRIPT } from './cards/riteOfFlame';
 import { RELIC_BARRIER_SCRIPT } from './cards/relicBarrier';
 import { RELIQUARY_MONK_SCRIPT } from './cards/reliquaryMonk';
 import { REMOVE_ENCHANTMENTS_SCRIPT } from './cards/removeEnchantments';
@@ -1379,6 +1395,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  RETRIBUTION_OF_THE_MEEK_SCRIPT,
+  REWARDS_OF_DIVERSITY_SCRIPT,
+  RHOX_ORACLE_SCRIPT,
+  RIBBONS_OF_THE_REIKAI_SCRIPT,
+  RIGHTEOUS_CAUSE_SCRIPT,
+  RIGHTEOUS_FURY_SCRIPT,
+  RIMEFUR_REINDEER_SCRIPT,
+  RIPCHAIN_RAZORKIN_SCRIPT,
+  RIPTIDE_SCRIPT,
+  RIPTIDE_CRAB_SCRIPT,
+  RISE_OF_THE_DARK_REALMS_SCRIPT,
+  RISHADAN_DOCKHAND_SCRIPT,
+  RISHADAN_PORT_SCRIPT,
+  RISKY_RESEARCH_SCRIPT,
+  RISKY_SHORTCUT_SCRIPT,
+  RITE_OF_FLAME_SCRIPT,
   RELIC_BARRIER_SCRIPT,
   RELIQUARY_MONK_SCRIPT,
   REMOVE_ENCHANTMENTS_SCRIPT,
