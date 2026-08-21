@@ -16048,3 +16048,50 @@ clean · probe 124/124 · battery 130/130.**
 ⚠️ **Reportables** (D246): no fixture prints the shadow keyword — a
 printed-shadow body joins the support wishlist for future shadow
 consumers; the noun-list widening keeps absorbing; prior items stand.
+
+## D247 — M6.4cj: eighteen landed — the Angel pin and the two-spec sentence (2026-08-21)
+
+**3,307 of 31,692 Commander-legal cards execute completely, up from 3,289.**
+SHIPPED_SCRIPTS 1,392 → 1,410; ledger 501 → 508 (+7, ONE new class). ONE new
+token pin — **Angel 4/4 W flying, sld 1340** (tokens 87 → 88). The NINETEENTH
+first-run-clean batch: all 36 tests green untouched.
+
+**The headliners:** `Sigil of the Empty Throne` — the enchantment-cast
+watcher paying the NEW Angel pin (its test casts a real enchantment through
+the D198 Aura path's neighbourhood). `Shower of Sparks` — the plain
+two-target sentence PROBED to TWO confident specs (creature + player-or-
+planeswalker in one sentence — D241's boundary holding one page over).
+`Sick and Tired` — the counted pair each-debuffed, min2/max2 PROBED
+(Dust to Dust's machinery at a pair). `Sign in Blood` — the targeted
+draw-two-and-bill. `Silverchase Fox` — the self-sac EXILE: **exile is not
+destruction**, so there is deliberately NO indestructible check. The
+Simic `Cluestone`/`Locket` pair — the SEVENTH colour pair. `Simoon` —
+the target-OPPONENT board fan, the opponent restriction ENFORCED (probed).
+And a five-wide scry/surveil sweep: Shore Lurker (ETB surveil), Sigiled
+Skink (attacks-scry), Sigiled Starfish ({T} scry), Silver Raven (ETB
+scry), Silverquill Campus (the paid #a1 land).
+
+**Also:** Shrivel (the board -1/-1); the Shu Grain Caravan / Shu
+Soldier-Farmers ETB-gain pair; Silverback Shaman (dies-draw); Silent
+Attendant ({T}: gain 1).
+
+⚠️ **Seven refusals, ONE new class: the becomes-targeted trigger**
+(`Silverfur Partisan` — no def has ever consumed a TargetsChosen event;
+its bus semantics are unproven, so the refusal is conservative). Plus the
+temporary non-keyword grant (Shoving Match), the script-raised prompt
+(Show and Tell), the noun list (Shower of Arrows), the keyword qualifier
+(Shredding Winds), the untap-symbol cost (Silkbind Faerie), and the UEOT
+color change (Singe).
+
+Fixtures 1,628 → 1,647 (88 tokens). botPool creature 1,774 / instant 602 /
+sorcery 477 / artifact 105 / enchantment 54 / land 295 · ladder [1746,
+1845, 3638, 5552, 6764] · batch.json 900 · botDeck: Adun reaches 1,858
+from 71 legendaries.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,490 files,
+7,932 passed / 10 skipped · 500-seed gate 769.9 s · build
+clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D247): the becomes-targeted trigger joins the
+event-consumer wishlist; the keyword-qualifier widening keeps absorbing;
+prior items stand.

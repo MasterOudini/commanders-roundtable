@@ -53186,6 +53186,631 @@ export const SHORE_KEEPER: CardData = {
   "singleImage": true
 };
 
+export const SHORE_LURKER: CardData = {
+  "scryfallId": "bb353c27-e311-4677-9277-cab6820562ce",
+  "oracleId": "4288ba56-ddd0-4bd9-ba61-daf03e9f2d7f",
+  "name": "Shore Lurker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shore Lurker",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Merfolk Scout",
+      "oracleText": "Flying\nWhen this creature enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "\"The Dark Meanders contain nothing but refuse and the trinkets other merrow have left behind. I'm on the hunt for something new.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Tiffany Turrill",
+      "imageId": "bb353c27-e311-4677-9277-cab6820562ce"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying",
+    "Surveil"
+  ],
+  "setCode": "ecl",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHOWER_OF_SPARKS: CardData = {
+  "scryfallId": "490827a4-c2bc-44b3-b48e-993996d04d5c",
+  "oracleId": "a43500ed-4aa6-49de-8a6e-a1781301b108",
+  "name": "Shower of Sparks",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shower of Sparks",
+      "manaCost": "{R}",
+      "typeLine": "Instant",
+      "oracleText": "Shower of Sparks deals 1 damage to target creature and 1 damage to target player or planeswalker.",
+      "flavorText": "The viashino had learned how to operate the rig through trial and error—mostly error.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "490827a4-c2bc-44b3-b48e-993996d04d5c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "brb",
+  "collectorNumber": "71",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHRIVEL: CardData = {
+  "scryfallId": "47b2ffdd-f8a4-49e4-aab1-a8096ba2b7cb",
+  "oracleId": "1be478ee-87f3-4265-94d7-08521703c888",
+  "name": "Shrivel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shrivel",
+      "manaCost": "{1}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "All creatures get -1/-1 until end of turn.",
+      "flavorText": "\"Do not weep for the frail. Their time couldn't have been that far off.\"\n—Nathrac, plaguesower",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jung Park",
+      "imageId": "47b2ffdd-f8a4-49e4-aab1-a8096ba2b7cb"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m14",
+  "collectorNumber": "116",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHU_GRAIN_CARAVAN: CardData = {
+  "scryfallId": "7bf26eb7-8a31-4022-87bb-67394653f06a",
+  "oracleId": "587e9f15-1d79-458f-a073-229b828b2393",
+  "name": "Shu Grain Caravan",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shu Grain Caravan",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "When this creature enters, you gain 2 life.",
+      "flavorText": "Keeping a million-man army fed was no easy task. Grain and rice caravans were the lifeblood of the empire.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Li Wang",
+      "imageId": "7bf26eb7-8a31-4022-87bb-67394653f06a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHU_SOLDIER_FARMERS: CardData = {
+  "scryfallId": "53100324-b42f-4cd1-a5db-8a3b292d2da7",
+  "oracleId": "174cf7cd-3e8c-4f90-abc1-a78a0ce832d2",
+  "name": "Shu Soldier-Farmers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shu Soldier-Farmers",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "When this creature enters, you gain 4 life.",
+      "flavorText": "During Kongming's campaigns against the Wei, his Shu troops rotated from the battlefront to the fields every hundred days.",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Li Xiaohua",
+      "imageId": "53100324-b42f-4cd1-a5db-8a3b292d2da7"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "me3",
+  "collectorNumber": "26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SICK_AND_TIRED: CardData = {
+  "scryfallId": "8736f8a2-ee8d-49d2-883f-b22cbe3f3645",
+  "oracleId": "070d82db-0851-4f6d-8bf7-1a79c4c2cfee",
+  "name": "Sick and Tired",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sick and Tired",
+      "manaCost": "{2}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Two target creatures each get -1/-1 until end of turn.",
+      "flavorText": "The Phyrexians' only interest in organic life is discerning its weakness.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Val Mayerik",
+      "imageId": "8736f8a2-ee8d-49d2-883f-b22cbe3f3645"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ulg",
+  "collectorNumber": "66",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIGIL_OF_THE_EMPTY_THRONE: CardData = {
+  "scryfallId": "038b1aa1-60de-4047-a927-1a7e62209041",
+  "oracleId": "3b9b5b22-5a7d-4e37-a870-ca0f0efa4f36",
+  "name": "Sigil of the Empty Throne",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sigil of the Empty Throne",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever you cast an enchantment spell, create a 4/4 white Angel creature token with flying.",
+      "flavorText": "When Asha left Bant, she ensured that the world would have protection and order in her absence.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Cyril Van Der Haegen",
+      "imageId": "038b1aa1-60de-4047-a927-1a7e62209041"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "pca",
+  "collectorNumber": "11",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIGILED_SKINK: CardData = {
+  "scryfallId": "37f84b4d-82db-4e3a-a099-2e438c0a6418",
+  "oracleId": "4c17f6c3-48d3-4bd0-b0dd-76229d9c5b09",
+  "name": "Sigiled Skink",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sigiled Skink",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Lizard",
+      "oracleText": "Whenever this creature attacks, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": "The runes seem to come alive as it moves, rippling like slow flames across its scales.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Yeong-Hao Han",
+      "imageId": "37f84b4d-82db-4e3a-a099-2e438c0a6418"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "jou",
+  "collectorNumber": "111",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIGILED_STARFISH: CardData = {
+  "scryfallId": "36ad7c4d-fa1a-4440-b9a7-f722b07df870",
+  "oracleId": "94a4f70a-8aac-412a-99f0-933e3ff87fe0",
+  "name": "Sigiled Starfish",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sigiled Starfish",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Starfish",
+      "oracleText": "{T}: Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": "Kruphix hid the most dire prophecies about humankind where humans would never find them and tritons wouldn't care to read them.",
+      "power": "0",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "36ad7c4d-fa1a-4440-b9a7-f722b07df870"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "ORI-73",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIGN_IN_BLOOD: CardData = {
+  "scryfallId": "0bc5b585-6bff-4027-88fa-3eecc6d598f6",
+  "oracleId": "c6207f6a-a624-4754-88f5-dbe700c841ff",
+  "name": "Sign in Blood",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sign in Blood",
+      "manaCost": "{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player draws two cards and loses 2 life.",
+      "flavorText": "\"It's always my brightest students who make the worst decisions.\"\n—Shaile, Silverquill dean",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "0bc5b585-6bff-4027-88fa-3eecc6d598f6"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "gn3",
+  "collectorNumber": "61",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SILENT_ATTENDANT: CardData = {
+  "scryfallId": "56e90087-3738-40df-929b-d2f880264b55",
+  "oracleId": "4fa30e29-94c1-4537-bebd-dc7124e4ef71",
+  "name": "Silent Attendant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Silent Attendant",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{T}: You gain 1 life.",
+      "flavorText": "\"The answer to life should never be death; it should always be more life, wrapped tight around us like precious silks.\"",
+      "power": "0",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "56e90087-3738-40df-929b-d2f880264b55"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "usg",
+  "collectorNumber": "51",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SILVER_RAVEN: CardData = {
+  "scryfallId": "a671ec19-32f4-4fde-8ee0-1224471e79db",
+  "oracleId": "4da64806-8a1d-4926-a168-695df43309cf",
+  "name": "Silver Raven",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Silver Raven",
+      "manaCost": "{U}",
+      "typeLine": "Artifact Creature — Bird",
+      "oracleText": "Flying\nWhen this creature enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": "Wings take flight on whispered wind.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Joe Slucher",
+      "imageId": "a671ec19-32f4-4fde-8ee0-1224471e79db"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Scry",
+    "Flying"
+  ],
+  "setCode": "afr",
+  "collectorNumber": "74",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SILVERBACK_SHAMAN: CardData = {
+  "scryfallId": "49463346-99b6-422f-9577-34873dd13d36",
+  "oracleId": "fc011947-b496-400e-99b8-b368068ba79b",
+  "name": "Silverback Shaman",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Silverback Shaman",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Creature — Ape Shaman",
+      "oracleText": "Trample\nWhen this creature dies, draw a card.",
+      "flavorText": "The apes of Yavimaya draw strength from the spirits of their ancestors.",
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mathias Kollros",
+      "imageId": "49463346-99b6-422f-9577-34873dd13d36"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "j22",
+  "collectorNumber": "728",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SILVERCHASE_FOX: CardData = {
+  "scryfallId": "0a81bfab-3397-4562-8b82-5f24cef167e3",
+  "oracleId": "f277b082-dfc8-45c6-bab5-b63cd218224c",
+  "name": "Silverchase Fox",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Silverchase Fox",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Fox",
+      "oracleText": "{1}{W}, Sacrifice this creature: Exile target enchantment.",
+      "flavorText": "\"Be careful in your hunt. The clever little creature can steal your wards and lead you right into the werewolf's den.\"\n—Britta, midwife of Gatstaf",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "0a81bfab-3397-4562-8b82-5f24cef167e3"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "isd",
+  "collectorNumber": "31",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SILVERQUILL_CAMPUS: CardData = {
+  "scryfallId": "354efff0-aea5-4274-94d6-9fce02430255",
+  "oracleId": "2b65eb80-6fb7-429f-81f2-2fe125eba634",
+  "name": "Silverquill Campus",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Silverquill Campus",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {W} or {B}.\n{4}, {T}: Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": "Mage-students drawn to the power of language choose Silverquill, the college of eloquence.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Titus Lunter",
+      "imageId": "354efff0-aea5-4274-94d6-9fce02430255"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "soc",
+  "collectorNumber": "405",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIMIC_CLUESTONE: CardData = {
+  "scryfallId": "e3c47552-afed-463d-bd24-13eb1cd724fc",
+  "oracleId": "0b65050d-a9cd-4b6c-9114-af89bfa6682f",
+  "name": "Simic Cluestone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Simic Cluestone",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {G} or {U}.\n{G}{U}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "Simic symbols are among the most intricate and fragile, yet few vandalize them for fear of the strange lifeforms that might be released.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Raoul Vitale",
+      "imageId": "e3c47552-afed-463d-bd24-13eb1cd724fc"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dgm",
+  "collectorNumber": "145",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIMIC_LOCKET: CardData = {
+  "scryfallId": "29c65978-e5b0-428e-aace-f99768ca6106",
+  "oracleId": "c567fed8-df00-4579-901e-8754079105bf",
+  "name": "Simic Locket",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Simic Locket",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {G} or {U}.\n{G/U}{G/U}{G/U}{G/U}, {T}, Sacrifice this artifact: Draw two cards.",
+      "flavorText": "\"Like our guild itself, this locket can stand for many things. You must discern what it means for you.\"\n—Vannifar",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Yeong-Hao Han",
+      "imageId": "29c65978-e5b0-428e-aace-f99768ca6106"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "rna",
+  "collectorNumber": "240",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIMOON: CardData = {
+  "scryfallId": "193ae8e0-5c06-499c-95db-c0c2a8d36924",
+  "oracleId": "128e201a-f520-4917-a1a4-2f3836f1f92d",
+  "name": "Simoon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Simoon",
+      "manaCost": "{R}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Simoon deals 1 damage to each creature target opponent controls.",
+      "flavorText": "Hot wind whipped up as if the weather itself wanted to fight Phyrexians.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Tony Szczudlo",
+      "imageId": "193ae8e0-5c06-499c-95db-c0c2a8d36924"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "wc02",
+  "collectorNumber": "shh272sb",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -56160,6 +56785,42 @@ export const GRAVEBORN_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const ANGEL_44_TOKEN: CardData = {
+  "scryfallId": "089874c5-4f1e-4d03-a4c5-50f6ac0814dd",
+  "oracleId": "40c64f08-ab2f-4933-8e0e-d1a1c729008f",
+  "name": "Angel",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Angel",
+      "manaCost": "",
+      "typeLine": "Token Creature — Angel",
+      "oracleText": "Flying",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Scott M. Fischer",
+      "imageId": "089874c5-4f1e-4d03-a4c5-50f6ac0814dd"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "sld",
+  "collectorNumber": "1340",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -57703,6 +58364,24 @@ export const ENGINE_CARDS: CardData[] = [
   SHIVAN_HELLKITE,
   SHOPKEEPER_S_BANE,
   SHORE_KEEPER,
+  SHORE_LURKER,
+  SHOWER_OF_SPARKS,
+  SHRIVEL,
+  SHU_GRAIN_CARAVAN,
+  SHU_SOLDIER_FARMERS,
+  SICK_AND_TIRED,
+  SIGIL_OF_THE_EMPTY_THRONE,
+  SIGILED_SKINK,
+  SIGILED_STARFISH,
+  SIGN_IN_BLOOD,
+  SILENT_ATTENDANT,
+  SILVER_RAVEN,
+  SILVERBACK_SHAMAN,
+  SILVERCHASE_FOX,
+  SILVERQUILL_CAMPUS,
+  SIMIC_CLUESTONE,
+  SIMIC_LOCKET,
+  SIMOON,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -57790,4 +58469,5 @@ export const ENGINE_CARDS: CardData[] = [
   ASSASSIN_MENACE_TOKEN,
   BIRD_3_3_TOKEN,
   GRAVEBORN_TOKEN,
+  ANGEL_44_TOKEN,
 ];

@@ -1978,6 +1978,24 @@ const WANTED = [
   'Shivan Hellkite',
   "Shopkeeper's Bane",
   'Shore Keeper',
+  'Shore Lurker',
+  'Shower of Sparks',
+  'Shrivel',
+  'Shu Grain Caravan',
+  'Shu Soldier-Farmers',
+  'Sick and Tired',
+  'Sigil of the Empty Throne',
+  'Sigiled Skink',
+  'Sigiled Starfish',
+  'Sign in Blood',
+  'Silent Attendant',
+  'Silver Raven',
+  'Silverback Shaman',
+  'Silverchase Fox',
+  'Silverquill Campus',
+  'Simic Cluestone',
+  'Simic Locket',
+  'Simoon',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -2136,6 +2154,7 @@ const WANTED_TOKENS = [
   { name: 'Bird', set: 'tc19', cn: '2', key: 'BIRD_3_3_TOKEN' },
   // D245 (M6.4ch)
   { name: 'Graveborn', set: 'tcmm', cn: '38', key: 'GRAVEBORN_TOKEN' },
+  { name: 'Angel', set: 'sld', cn: '1340', key: 'ANGEL_44_TOKEN' },
 ];
 
 function constName(name) {

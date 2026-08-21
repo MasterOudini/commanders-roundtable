@@ -950,6 +950,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Shinen of Fury's Fire", 'hand-activated ability'],
   ["Shinen of Stars' Light", 'hand-activated ability'],
   ['Shoot Down', 'spell target parse (noun list)'],
+  // D247 (M6.4cj)
+  ['Shoving Match', 'temporary non-keyword ability grant'],
+  ['Show and Tell', 'script-raised prompt'],
+  ['Shower of Arrows', 'spell target parse (noun list)'],
+  ['Shredding Winds', 'keyword target qualifier unenforced'],
+  ['Silkbind Faerie', 'untap-symbol activation cost'],
+  ['Silverfur Partisan', 'becomes-targeted trigger'],
+  ['Singe', 'UEOT color change'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

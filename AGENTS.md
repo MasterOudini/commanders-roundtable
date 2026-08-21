@@ -6895,6 +6895,34 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       wishlist; prior items stand.
 
 
+- [x] **M6.4cj — Eighteen landed: the Angel pin and the two-spec sentence
+      (2026-08-21):** **3,307 of 31,692 Commander-legal cards now execute
+      completely, up from 3,289** — the NINETEENTH first-run-clean batch
+      (36 tests untouched). `SHIPPED_SCRIPTS` 1,392 → 1,410; ledger 508
+      (+7, ONE new class). ONE new pin: Angel 4/4 (sld 1340, 88 tokens).
+      Decisions in **D247**.
+      **The headliners:** Sigil of the Empty Throne (enchantment-cast pays
+      the NEW Angel); Shower of Sparks (the plain two-target sentence
+      PROBED to TWO confident specs); Sick and Tired (the counted pair
+      each-debuffed — min2/max2 probed); Sign in Blood (the targeted
+      draw-two-and-bill); Silverchase Fox (self-sac EXILE — exile is not
+      destruction, no indestructible check); the Simic Cluestone/Locket
+      pair (the SEVENTH); Simoon (the enforced target-opponent fan); a
+      five-wide scry/surveil sweep (Shore Lurker, Sigiled Skink, Sigiled
+      Starfish, Silver Raven, Silverquill Campus).
+      ⚠️ **Seven refusals, ONE new class: the becomes-targeted trigger**
+      (Silverfur Partisan — TargetsChosen has never been consumed).
+      Fixtures 1,647 (88 tokens) · botPool creature 1,774 / instant 602 /
+      sorcery 477 / artifact 105 / enchantment 54 / land 295 · ladder
+      [1746, 1845, 3638, 5552, 6764] · batch.json 900 · botDeck: Adun
+      reaches 1,858.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,490
+      files, 7,932 passed / 10 skipped · 500-seed gate
+      769.9 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D247): the becomes-targeted trigger joins the
+      wishlist; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

@@ -7,6 +7,24 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SHORE_LURKER_SCRIPT } from './cards/shoreLurker';
+import { SHOWER_OF_SPARKS_SCRIPT } from './cards/showerOfSparks';
+import { SHRIVEL_SCRIPT } from './cards/shrivel';
+import { SHU_GRAIN_CARAVAN_SCRIPT } from './cards/shuGrainCaravan';
+import { SHU_SOLDIER_FARMERS_SCRIPT } from './cards/shuSoldierFarmers';
+import { SICK_AND_TIRED_SCRIPT } from './cards/sickAndTired';
+import { SIGIL_OF_THE_EMPTY_THRONE_SCRIPT } from './cards/sigilOfTheEmptyThrone';
+import { SIGILED_SKINK_SCRIPT } from './cards/sigiledSkink';
+import { SIGILED_STARFISH_SCRIPT } from './cards/sigiledStarfish';
+import { SIGN_IN_BLOOD_SCRIPT } from './cards/signInBlood';
+import { SILENT_ATTENDANT_SCRIPT } from './cards/silentAttendant';
+import { SILVER_RAVEN_SCRIPT } from './cards/silverRaven';
+import { SILVERBACK_SHAMAN_SCRIPT } from './cards/silverbackShaman';
+import { SILVERCHASE_FOX_SCRIPT } from './cards/silverchaseFox';
+import { SILVERQUILL_CAMPUS_SCRIPT } from './cards/silverquillCampus';
+import { SIMIC_CLUESTONE_SCRIPT } from './cards/simicCluestone';
+import { SIMIC_LOCKET_SCRIPT } from './cards/simicLocket';
+import { SIMOON_SCRIPT } from './cards/simoon';
 import { SERENE_OFFERING_SCRIPT } from './cards/sereneOffering';
 import { SERPENTS_PASS_SCRIPT } from './cards/serpentsPass';
 import { SERVO_SCHEMATIC_SCRIPT } from './cards/servoSchematic';
@@ -1513,6 +1531,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SHORE_LURKER_SCRIPT,
+  SHOWER_OF_SPARKS_SCRIPT,
+  SHRIVEL_SCRIPT,
+  SHU_GRAIN_CARAVAN_SCRIPT,
+  SHU_SOLDIER_FARMERS_SCRIPT,
+  SICK_AND_TIRED_SCRIPT,
+  SIGIL_OF_THE_EMPTY_THRONE_SCRIPT,
+  SIGILED_SKINK_SCRIPT,
+  SIGILED_STARFISH_SCRIPT,
+  SIGN_IN_BLOOD_SCRIPT,
+  SILENT_ATTENDANT_SCRIPT,
+  SILVER_RAVEN_SCRIPT,
+  SILVERBACK_SHAMAN_SCRIPT,
+  SILVERCHASE_FOX_SCRIPT,
+  SILVERQUILL_CAMPUS_SCRIPT,
+  SIMIC_CLUESTONE_SCRIPT,
+  SIMIC_LOCKET_SCRIPT,
+  SIMOON_SCRIPT,
   SERENE_OFFERING_SCRIPT,
   SERPENTS_PASS_SCRIPT,
   SERVO_SCHEMATIC_SCRIPT,
