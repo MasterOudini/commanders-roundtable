@@ -2035,6 +2035,23 @@ const WANTED = [
   "Sorin's Thirst",
   "Sorin's Vengeance",
   'Soul Feast',
+  "Soul's Fire",
+  "Soul's Grace",
+  "Soul's Majesty",
+  'Soulknife Spy',
+  'Soulmender',
+  'Soulquake',
+  'Soulreaper of Mogis',
+  'Soulscour',
+  'Soulsworn Jury',
+  "Sovereign's Bite",
+  'Sparring Construct',
+  'Sparring Mummy',
+  'Spectacle Summit',
+  'Spectral Sailor',
+  'Spellkeeper Weird',
+  "Sphinx's Revelation",
+  'Spiderwig Boggart',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

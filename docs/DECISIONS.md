@@ -16215,3 +16215,58 @@ clean · probe 124/124 · battery 130/130.**
 ⚠️ **Reportables** (D249): the bot's five-colour deck is the widest it can
 ever get by identity — future growth is pool-only; the cycling mechanic
 joins the structural tail; prior items stand.
+
+## D250 — M6.4cm: seventeen landed — the self-sac counter, and the possessive that parses (2026-08-21)
+
+**3,361 of 31,692 Commander-legal cards execute completely, up from 3,344.**
+SHIPPED_SCRIPTS 1,447 → 1,464; ledger 521 → 529 (+8, TWO new classes). ZERO
+new tokens or support bodies.
+
+**The headliners:** `Soulsworn Jury` — the SELF-SAC COUNTER: Daring
+Apprentice's two-event pair (SpellCountered + moveFromStack) behind a
+sacrifice cost, the PROBED typed-spell aim ('creature spell' cardTypes
+enforced), driven against a REAL held creature cast — the Jury pays itself
+on the answer and the Bears dies uncast. `Soul's Fire` — the bite pointed
+ANYWHERE: TWO probed specs (my creature + any target), the Titan's 6 to
+the face with the biter's own derived riders. `Soul's Grace` /
+`Soul's Majesty` — the POSSESSIVE and mid-sentence power reads both
+probed confident ("target creature's power"; "the power of target
+creature you control" with the controller enforced). `Soulquake` — the
+TWO-ZONE mass bounce in ONE CardsMoved batch: battlefield creatures
+DERIVED, graveyard creature cards typed off the ORACLE face, everything
+to its owner's hand. `Soulscour` — destroy all NONARTIFACT permanents:
+lands die, the Sol Ring stands. `Sphinx's Revelation` — X gain + X draw
+off obj.xValue. `Sparring Construct` — the targeted DIES-trigger with
+the controller spec refused from the wrong side.
+
+**Also:** Soulknife Spy (Scroll Thief's connect draw — ⚠️ its test assumed
+a 1-power body and the ENGINE corrected it: the Spy connects for 3);
+Soulmender ({T}: gain 1); Soulreaper of Mogis (the chooser draw on an
+ENCHANTMENT CREATURE); Sovereign's Bite (the drain at three); Sparring
+Mummy (the ETB untap); Spectacle Summit (the paid surveil land WITHOUT a
+sacrifice — it survives tapped); Spectral Sailor (the no-tap draw twice
+in one turn behind two keyword lines); Spellkeeper Weird (the self-sac
+graveyard return, both cardTypes enforced); Spiderwig Boggart (the fear
+grant).
+
+⚠️ **Eight refusals, TWO new classes:** the CAST RESTRICTION EFFECT
+(`Sphinx's Decree` — a temporary prohibition on what opponents may cast;
+no continuous cast-gate exists and legal.ts consults no such state) and
+the FATESEAL MECHANIC (`Spin into Myth` — scry at an OPPONENT'S library;
+scryChoice is own-library by construction). Plus face-down (Soul
+Summons), ability-word cost (Spawnbinder Mage), numeric exact ×2 (Spell
+Blast, Spell Snare), script-raised prompt (Spellshift), discard-cost
+(Sphinx of the Chimes).
+
+Fixtures 1,686 → 1,703 (89 tokens). botPool creature 1,800 / instant 614 /
+sorcery 486 / artifact 106 / enchantment 54 / land 301 · ladder [1692,
+1791, 3584, 5498, 6710] · batch.json 825 · botDeck: Sliver Queen reaches
+3,312.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,544 files,
+8,155 passed / 10 skipped · 500-seed gate 734.2 s · build
+clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D250): the numeric-exact class holds FOUR cards (two
+joined this batch) — the equality comparison is D139's playbook one
+operator over; prior items stand.

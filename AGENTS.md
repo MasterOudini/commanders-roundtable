@@ -6986,6 +6986,34 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       future growth is pool-only; prior items stand.
 
 
+- [x] **M6.4cm — Seventeen landed: the self-sac counter, and the
+      possessive that parses (2026-08-21):** **3,361 of 31,692
+      Commander-legal cards now execute completely, up from 3,344.**
+      `SHIPPED_SCRIPTS` 1,447 → 1,464; ledger 529 (+8, TWO new classes).
+      Zero new tokens or supports. Decisions in **D250**.
+      **The headliners:** Soulsworn Jury (the SELF-SAC COUNTER — the
+      two-event pair behind a sacrifice cost, the probed typed-spell aim,
+      a REAL held cast countered); Soul's Fire (the bite pointed anywhere
+      — TWO probed specs); Soul's Grace / Soul's Majesty (the possessive
+      and mid-sentence power reads, both probed); Soulquake (the two-zone
+      mass bounce in ONE batch); Soulscour (all nonartifact permanents —
+      lands die, the Sol Ring stands); Sphinx's Revelation (X gain + X
+      draw); Sparring Construct (the targeted dies-trigger).
+      ⚠️ Soulknife Spy's test assumed a 1-power body — the ENGINE
+      corrected it (the Spy connects for 3).
+      ⚠️ **Eight refusals, TWO new classes:** cast restriction effect
+      (Sphinx's Decree) and fateseal mechanic (Spin into Myth).
+      Fixtures 1,703 (89 tokens) · botPool creature 1,800 / instant 614 /
+      sorcery 486 / artifact 106 / enchantment 54 / land 301 · ladder
+      [1692, 1791, 3584, 5498, 6710] · batch.json 825 · botDeck: Sliver
+      Queen reaches 3,312.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,544
+      files, 8,155 passed / 10 skipped · 500-seed gate
+      734.2 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D250): the numeric-exact class at four cards;
+      prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

@@ -7,6 +7,23 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SOULS_FIRE_SCRIPT } from './cards/soulsFire';
+import { SOULS_GRACE_SCRIPT } from './cards/soulsGrace';
+import { SOULS_MAJESTY_SCRIPT } from './cards/soulsMajesty';
+import { SOULKNIFE_SPY_SCRIPT } from './cards/soulknifeSpy';
+import { SOULMENDER_SCRIPT } from './cards/soulmender';
+import { SOULQUAKE_SCRIPT } from './cards/soulquake';
+import { SOULREAPER_OF_MOGIS_SCRIPT } from './cards/soulreaperOfMogis';
+import { SOULSCOUR_SCRIPT } from './cards/soulscour';
+import { SOULSWORN_JURY_SCRIPT } from './cards/soulswornJury';
+import { SOVEREIGNS_BITE_SCRIPT } from './cards/sovereignsBite';
+import { SPARRING_CONSTRUCT_SCRIPT } from './cards/sparringConstruct';
+import { SPARRING_MUMMY_SCRIPT } from './cards/sparringMummy';
+import { SPECTACLE_SUMMIT_SCRIPT } from './cards/spectacleSummit';
+import { SPECTRAL_SAILOR_SCRIPT } from './cards/spectralSailor';
+import { SPELLKEEPER_WEIRD_SCRIPT } from './cards/spellkeeperWeird';
+import { SPHINXS_REVELATION_SCRIPT } from './cards/sphinxsRevelation';
+import { SPIDERWIG_BOGGART_SCRIPT } from './cards/spiderwigBoggart';
 import { SLINKING_SKIRGE_SCRIPT } from './cards/slinkingSkirge';
 import { SLITHERING_CRYPTID_SCRIPT } from './cards/slitheringCryptid';
 import { SLIVER_QUEEN_SCRIPT } from './cards/sliverQueen';
@@ -1568,6 +1585,23 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SOULS_FIRE_SCRIPT,
+  SOULS_GRACE_SCRIPT,
+  SOULS_MAJESTY_SCRIPT,
+  SOULKNIFE_SPY_SCRIPT,
+  SOULMENDER_SCRIPT,
+  SOULQUAKE_SCRIPT,
+  SOULREAPER_OF_MOGIS_SCRIPT,
+  SOULSCOUR_SCRIPT,
+  SOULSWORN_JURY_SCRIPT,
+  SOVEREIGNS_BITE_SCRIPT,
+  SPARRING_CONSTRUCT_SCRIPT,
+  SPARRING_MUMMY_SCRIPT,
+  SPECTACLE_SUMMIT_SCRIPT,
+  SPECTRAL_SAILOR_SCRIPT,
+  SPELLKEEPER_WEIRD_SCRIPT,
+  SPHINXS_REVELATION_SCRIPT,
+  SPIDERWIG_BOGGART_SCRIPT,
   SLINKING_SKIRGE_SCRIPT,
   SLITHERING_CRYPTID_SCRIPT,
   SLIVER_QUEEN_SCRIPT,

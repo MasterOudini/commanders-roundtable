@@ -973,6 +973,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Soul Diviner', 'remove-counter cost'],
   ['Soul Sear', 'temporary keyword/ability grant'],
   ['Soul Shepherd', 'exile-from-graveyard cost'],
+  // D250 (M6.4cm)
+  ['Soul Summons', 'face-down (morph family)'],
+  ['Spawnbinder Mage', 'ability-word activated cost'],
+  ['Spell Blast', 'spell target parse (numeric exact)'],
+  ['Spell Snare', 'spell target parse (numeric exact)'],
+  ['Spellshift', 'script-raised prompt'],
+  ['Sphinx of the Chimes', 'discard-cost chooser'],
+  ["Sphinx's Decree", 'cast restriction effect'],
+  ['Spin into Myth', 'fateseal mechanic'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

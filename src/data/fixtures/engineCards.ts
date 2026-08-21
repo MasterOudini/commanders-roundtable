@@ -55141,6 +55141,591 @@ export const SOUL_FEAST: CardData = {
   "singleImage": true
 };
 
+export const SOUL_S_FIRE: CardData = {
+  "scryfallId": "11217e72-9009-40c7-a9eb-98e10b41667b",
+  "oracleId": "62d7ed6e-c386-477e-b155-982c3790f842",
+  "name": "Soul's Fire",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soul's Fire",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control deals damage equal to its power to any target.",
+      "flavorText": "An avatar he sculpts of anger and flame.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Wayne Reynolds",
+      "imageId": "11217e72-9009-40c7-a9eb-98e10b41667b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "uma",
+  "collectorNumber": "148",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOUL_S_GRACE: CardData = {
+  "scryfallId": "3d2e8701-f2c3-4cc1-ac81-ba1987d80fec",
+  "oracleId": "42946216-59e2-46dc-b770-5e604512f949",
+  "name": "Soul's Grace",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soul's Grace",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "You gain life equal to target creature's power.",
+      "flavorText": "An avatar he sculpts of fellowship and light.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "3d2e8701-f2c3-4cc1-ac81-ba1987d80fec"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ala",
+  "collectorNumber": "28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOUL_S_MAJESTY: CardData = {
+  "scryfallId": "50f6f3b7-96d6-489b-b55c-1304e627e190",
+  "oracleId": "50fd4cf3-c347-4eb9-ab15-a9b0c5ea8b0f",
+  "name": "Soul's Majesty",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soul's Majesty",
+      "manaCost": "{4}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw cards equal to the power of target creature you control.",
+      "flavorText": "An avatar he sculpts of wisdom and strength.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jesper Ejsing",
+      "imageId": "50f6f3b7-96d6-489b-b55c-1304e627e190"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "c17",
+  "collectorNumber": "158",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOULKNIFE_SPY: CardData = {
+  "scryfallId": "045c7c23-d418-42f0-b497-50c39e5321ad",
+  "oracleId": "813c0654-7e3b-435b-b7a5-148f0c36a4be",
+  "name": "Soulknife Spy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soulknife Spy",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Elf Rogue",
+      "oracleText": "Whenever this creature deals combat damage to a player, draw a card.",
+      "flavorText": "\"My psychic blade cuts the mind and severs thoughts. Even if you survive, you'll never remember I was here.\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Miguel Mercado",
+      "imageId": "045c7c23-d418-42f0-b497-50c39e5321ad"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "afr",
+  "collectorNumber": "75",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOULMENDER: CardData = {
+  "scryfallId": "1817d779-dfe9-4280-82da-54ae53bda3d6",
+  "oracleId": "41b1d850-2fda-490b-a4f6-0d9bfb37103c",
+  "name": "Soulmender",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soulmender",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{T}: You gain 1 life.",
+      "flavorText": "\"Healing is more art than magic. Well, there is still quite a bit of magic.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "James Ryman",
+      "imageId": "1817d779-dfe9-4280-82da-54ae53bda3d6"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "M15-35",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOULQUAKE: CardData = {
+  "scryfallId": "4b3a7470-b93e-4c3a-ab1c-0a4dd401e95a",
+  "oracleId": "0b9a477b-f2dd-47b2-8493-eb63f44a2688",
+  "name": "Soulquake",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soulquake",
+      "manaCost": "{3}{U}{U}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Return all creatures on the battlefield and all creature cards in graveyards to their owners' hands.",
+      "flavorText": "The Maelstrom sent a wave of raw mana through the battlefield, carrying off the fighting and fallen alike.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "U"
+      ],
+      "artist": "Warren Mahy",
+      "imageId": "4b3a7470-b93e-4c3a-ab1c-0a4dd401e95a"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "arb",
+  "collectorNumber": "30",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOULREAPER_OF_MOGIS: CardData = {
+  "scryfallId": "55e2f383-d2a0-4424-bf7a-79e82d6f691f",
+  "oracleId": "508ce3a9-9050-4494-9adf-7f9cd6cc2f9f",
+  "name": "Soulreaper of Mogis",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soulreaper of Mogis",
+      "manaCost": "{2}{B}",
+      "typeLine": "Enchantment Creature — Minotaur Shaman",
+      "oracleText": "{2}{B}, Sacrifice a creature: Draw a card.",
+      "flavorText": "\"We offer to Mogis the blood of the weak, and in return he makes us strong.\"",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dmitry Burmak",
+      "imageId": "55e2f383-d2a0-4424-bf7a-79e82d6f691f"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "thb",
+  "collectorNumber": "115",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOULSCOUR: CardData = {
+  "scryfallId": "6b431711-ac9d-4f05-af66-44f1ca5fabf1",
+  "oracleId": "d7644325-8a0f-4f40-bab6-518df7ac1d14",
+  "name": "Soulscour",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soulscour",
+      "manaCost": "{7}{W}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all nonartifact permanents.",
+      "flavorText": "\"I have seen the end of times, a future in which all our kind are torn from this world.\"\n—Ushanti, leonin shaman",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "6b431711-ac9d-4f05-af66-44f1ca5fabf1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 10,
+  "keywords": [],
+  "setCode": "dst",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOULSWORN_JURY: CardData = {
+  "scryfallId": "62ec3ac8-b2df-4dd3-8fd1-0580dec98652",
+  "oracleId": "06424141-2c26-4ee8-83c2-dac62e3d3540",
+  "name": "Soulsworn Jury",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soulsworn Jury",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Defender (This creature can't attack.)\n{1}{U}, Sacrifice this creature: Counter target creature spell.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Zoltan Boros & Gabor Szikszai",
+      "imageId": "62ec3ac8-b2df-4dd3-8fd1-0580dec98652"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Defender"
+  ],
+  "setCode": "psal",
+  "collectorNumber": "G43",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOVEREIGN_S_BITE: CardData = {
+  "scryfallId": "5326d251-bb91-4653-b1fa-44f14c4e0b88",
+  "oracleId": "13718d93-fe46-4a18-a511-88649ef1c9de",
+  "name": "Sovereign's Bite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sovereign's Bite",
+      "manaCost": "{1}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player loses 3 life and you gain 3 life.",
+      "flavorText": "\"You have given all to your kingdom, dear knight. Serenity shall be your prize.\"\n—Queen Lian",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Volkan Baǵa",
+      "imageId": "5326d251-bb91-4653-b1fa-44f14c4e0b88"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m19",
+  "collectorNumber": "120",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPARRING_CONSTRUCT: CardData = {
+  "scryfallId": "badc7db8-386e-4fb6-aefa-591e99747eb2",
+  "oracleId": "bc948e19-816b-4c13-a36b-73b3e0472dca",
+  "name": "Sparring Construct",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sparring Construct",
+      "manaCost": "{1}",
+      "typeLine": "Artifact Creature — Construct",
+      "oracleText": "When this creature dies, put a +1/+1 counter on target creature you control.",
+      "flavorText": "The trainers were a gift of gratitude from the wizards of Tolaria West to the knights of New Benalia for their aid during the Talas Incursion.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Mark Behm",
+      "imageId": "badc7db8-386e-4fb6-aefa-591e99747eb2"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "dom",
+  "collectorNumber": "232",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPARRING_MUMMY: CardData = {
+  "scryfallId": "337f8889-d814-4422-ac6e-1416e5e4d4d1",
+  "oracleId": "414c97a3-cf31-4145-a431-3b1ad4343947",
+  "name": "Sparring Mummy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sparring Mummy",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "When this creature enters, untap target creature.",
+      "flavorText": "Aspiring to earn their place in the afterlife, acolytes train every day against those who fell short of that glory.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Ryan Pancoast",
+      "imageId": "337f8889-d814-4422-ac6e-1416e5e4d4d1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "bbd",
+  "collectorNumber": "108",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPECTACLE_SUMMIT: CardData = {
+  "scryfallId": "a0a66f7b-eab4-45da-8895-c2c2c7eb05f8",
+  "oracleId": "33a4e73d-d93a-4b6f-88ff-cd53f20d178c",
+  "name": "Spectacle Summit",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spectacle Summit",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {U} or {R}.\n{2}{U}{R}, {T}: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "Shaped by both its own wild nature and the magic of visiting artists, the Muse and the surrounding landscape are a wonder to behold.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Andreas Zafiratos",
+      "imageId": "a0a66f7b-eab4-45da-8895-c2c2c7eb05f8"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "sos",
+  "collectorNumber": "262",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPECTRAL_SAILOR: CardData = {
+  "scryfallId": "03a49535-c5f3-4a6f-b333-7ac7bffdc9ae",
+  "oracleId": "a8fdbcdf-479d-4582-9ad5-9fbd4c740c29",
+  "name": "Spectral Sailor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spectral Sailor",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Spirit Pirate",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nFlying\n{3}{U}: Draw a card.",
+      "flavorText": "\"Any ship that sails on these mean seas for long is bound to pick up a ghost or two.\"\n—Admiral Beckett Brass",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Cristi Balanescu",
+      "imageId": "03a49535-c5f3-4a6f-b333-7ac7bffdc9ae"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Flying",
+    "Flash"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "164",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPELLKEEPER_WEIRD: CardData = {
+  "scryfallId": "74e42dad-5958-443f-a196-12b3f3e44213",
+  "oracleId": "91e09399-3f09-4323-8533-51536ecb7869",
+  "name": "Spellkeeper Weird",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spellkeeper Weird",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Weird",
+      "oracleText": "{2}, {T}, Sacrifice this creature: Return target instant or sorcery card from your graveyard to your hand.",
+      "flavorText": "They worked well as a team, but they knew it couldn't last forever.",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "James Paick",
+      "imageId": "74e42dad-5958-443f-a196-12b3f3e44213"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "war",
+  "collectorNumber": "69",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPHINX_S_REVELATION: CardData = {
+  "scryfallId": "0038ea4d-d0a6-44a4-bee6-24c03313d2bc",
+  "oracleId": "71d83fca-e40e-4d0e-956d-d0d6da9cc472",
+  "name": "Sphinx's Revelation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sphinx's Revelation",
+      "manaCost": "{X}{W}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "You gain X life and draw X cards.",
+      "flavorText": "\"Let the knowledge of absolute law inspire you to live a life of absolute order.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "0038ea4d-d0a6-44a4-bee6-24c03313d2bc"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mm3",
+  "collectorNumber": "187",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIDERWIG_BOGGART: CardData = {
+  "scryfallId": "88e77c10-b569-485f-ba3e-16ef0c57dd81",
+  "oracleId": "dd0bbf91-1826-42c7-82af-6820646fa003",
+  "name": "Spiderwig Boggart",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spiderwig Boggart",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Goblin Shaman",
+      "oracleText": "When this creature enters, target creature gains fear until end of turn. (It can't be blocked except by artifact creatures and/or black creatures.)",
+      "flavorText": "Auntie Flint was the first to pioneer the spiderwig, a mass of arachnids intended to be worn rather than eaten.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Larry MacDougall",
+      "imageId": "88e77c10-b569-485f-ba3e-16ef0c57dd81"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "lrw",
+  "collectorNumber": "141",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -59780,6 +60365,23 @@ export const ENGINE_CARDS: CardData[] = [
   SORIN_S_THIRST,
   SORIN_S_VENGEANCE,
   SOUL_FEAST,
+  SOUL_S_FIRE,
+  SOUL_S_GRACE,
+  SOUL_S_MAJESTY,
+  SOULKNIFE_SPY,
+  SOULMENDER,
+  SOULQUAKE,
+  SOULREAPER_OF_MOGIS,
+  SOULSCOUR,
+  SOULSWORN_JURY,
+  SOVEREIGN_S_BITE,
+  SPARRING_CONSTRUCT,
+  SPARRING_MUMMY,
+  SPECTACLE_SUMMIT,
+  SPECTRAL_SAILOR,
+  SPELLKEEPER_WEIRD,
+  SPHINX_S_REVELATION,
+  SPIDERWIG_BOGGART,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
