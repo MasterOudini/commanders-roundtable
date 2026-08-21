@@ -6711,6 +6711,41 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       structural tail; prior items stand.
 
 
+- [x] **M6.4cd — NINETEEN landed: the perItem death fan
+      (2026-08-21):** **3,190 of 31,692 Commander-legal cards now execute
+      completely, up from 3,171** — the second-largest batch of the arc.
+      `SHIPPED_SCRIPTS` 1,274 → 1,293; ledger 475 (+6, ONE new class).
+      Decisions in **D241**.
+      **The headliners:** Rotlung Reanimator (the FIFTH perItem consumer and
+      the FIRST on DEATHS — its test composes batch-mate Ritual of Soot: one
+      sweep, two dead Clerics, exactly TWO Zombies); Rocky Rebuke (the first
+      plain two-target sentence to parse: both specs confident, both
+      controllers ENFORCED — where "another target" still fails); Roar of
+      Reclamation (per-OWNER mass artifact reanimation); River's Rebuke (the
+      one-player nonland bounce); Roiling Terrain (the recoil census that
+      counts its own kill); Roku's Mastery (the X-conditioned scry ask);
+      Rooftop Bypass (nontoken-connect Assassin); Rolling Earthquake (the
+      horsemanship-exempt X fan + players); Ronom Unicorn = Felidar Cub's
+      text; Rootwater Hunter = the Prodigal text's FOURTH id.
+      ⚠️ **One test-side failure:** News Helicopter is a Construct, not a
+      Vehicle — the pool held NO Vehicle; Consulate Dreadnought joins WANTED
+      and proves the census 2 → 3. A PS pipeline mojibake in the same repair
+      re-confirmed D194's rule: Edit tool or node scripts ONLY.
+      ⚠️ **Six refusals, ONE new class:** expend mechanic (Roughshod Duo);
+      Roast's "without flying" probe-dropped (the keyword-qualifier class).
+      Fixtures 1,528 (86 tokens — Assassin tacr 4, Bird 3/3 tc19 2 new) ·
+      botPool creature 1,720 / instant 588 / sorcery 452 / artifact 95 /
+      enchantment 49 · ladder [1863, 1962, 3755, 5669, 6881] · batch.json
+      1,050 · botDeck: Adun reaches 1,797.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,373
+      files, 7,460 passed / 10 skipped · 500-seed gate
+      832.8 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D241): the two-target-sentence boundary is
+      measured from both sides; the expend mechanic joins the tail; prior
+      items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

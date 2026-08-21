@@ -49096,6 +49096,686 @@ export const RITE_OF_FLAME: CardData = {
   "singleImage": true
 };
 
+export const RITE_OF_THE_DRAGONCALLER: CardData = {
+  "scryfallId": "1fa981d3-4a41-4bf1-ba64-2cd7224a6059",
+  "oracleId": "5097f4e6-50af-4641-909f-db44abf0ce32",
+  "name": "Rite of the Dragoncaller",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rite of the Dragoncaller",
+      "manaCost": "{4}{R}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever you cast an instant or sorcery spell, create a 5/5 red Dragon creature token with flying.",
+      "flavorText": "They were summoned to usher in an age their summoner would never live to see.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Olivier Bernard",
+      "imageId": "1fa981d3-4a41-4bf1-ba64-2cd7224a6059"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "fdn",
+  "collectorNumber": "331",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RITUAL_OF_SOOT: CardData = {
+  "scryfallId": "0d1f84f3-4bd1-4505-a395-9933d1ad279e",
+  "oracleId": "29e9cf1c-a6bd-4bee-9000-ac1b4e19d6b0",
+  "name": "Ritual of Soot",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ritual of Soot",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures with mana value 3 or less.",
+      "flavorText": "Only the patrol's armor was found, so tainted with the acrid smell of sudden death that it could never be worn again.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dimitar Marinski",
+      "imageId": "0d1f84f3-4bd1-4505-a395-9933d1ad279e"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "pgrn",
+  "collectorNumber": "84s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RIVER_S_REBUKE: CardData = {
+  "scryfallId": "32ae984e-5d1e-4497-9a71-7406f78c09f3",
+  "oracleId": "c52cfb41-18f3-4e73-b5e7-d75baf74e578",
+  "name": "River's Rebuke",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "River's Rebuke",
+      "manaCost": "{4}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Return all nonland permanents target player controls to their owner's hand.",
+      "flavorText": "The waters that give the River Herald merfolk their name are sacred to their culture; they do not abide invaders to sail upon them.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Raymond Swanland",
+      "imageId": "32ae984e-5d1e-4497-9a71-7406f78c09f3"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "fdn",
+  "collectorNumber": "595",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROAD_RAGE: CardData = {
+  "scryfallId": "fca022de-0c7b-48ea-b3b5-af28987a5070",
+  "oracleId": "da052082-b440-4abb-9c69-05d4d13e5fd2",
+  "name": "Road Rage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Road Rage",
+      "manaCost": "{R}",
+      "typeLine": "Instant",
+      "oracleText": "Road Rage deals X damage to target creature or planeswalker, where X is 2 plus the number of Mounts and Vehicles you control.",
+      "flavorText": "Endriders learned the rules of the road on Gastal, which meant they didn't learn any rules at all.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Javier Charro",
+      "imageId": "fca022de-0c7b-48ea-b3b5-af28987a5070"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "dft",
+  "collectorNumber": "145",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROAR_OF_RECLAMATION: CardData = {
+  "scryfallId": "d560e242-44ef-4162-8589-965897e4cdad",
+  "oracleId": "a4372c4c-3577-43ca-a801-1f2bd1488a2f",
+  "name": "Roar of Reclamation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Roar of Reclamation",
+      "manaCost": "{5}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each player returns all artifact cards from their graveyard to the battlefield.",
+      "flavorText": "\"Yesterday's relics will determine the outcome of tomorrow's war.\"\n—Ushanti, leonin seer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Justin Sweet",
+      "imageId": "d560e242-44ef-4162-8589-965897e4cdad"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "5dn",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROC_EGG: CardData = {
+  "scryfallId": "1dca2c1f-3835-478b-860c-51b2036221b2",
+  "oracleId": "16dfd80a-9847-45b8-954f-2af9b7cfa21d",
+  "name": "Roc Egg",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Roc Egg",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Bird Egg",
+      "oracleText": "Defender (This creature can't attack.)\nWhen this creature dies, create a 3/3 white Bird creature token with flying.",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Paul Bonner",
+      "imageId": "1dca2c1f-3835-478b-860c-51b2036221b2"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Defender"
+  ],
+  "setCode": "m11",
+  "collectorNumber": "25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROCKSLIDE_AMBUSH: CardData = {
+  "scryfallId": "04e5faf1-25c9-46c0-88f2-c59e7b9c08c5",
+  "oracleId": "13958d6f-25f9-4a6c-a16c-e7a20e1b9117",
+  "name": "Rockslide Ambush",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rockslide Ambush",
+      "manaCost": "{1}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Rockslide Ambush deals damage to target creature equal to the number of Mountains you control.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Inoue Junichi",
+      "imageId": "04e5faf1-25c9-46c0-88f2-c59e7b9c08c5"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "121",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROCKY_REBUKE: CardData = {
+  "scryfallId": "52fd910f-6d42-41f5-a4be-f375aa254ea2",
+  "oracleId": "fd85db70-8616-42df-9dac-bad7923f88d7",
+  "name": "Rocky Rebuke",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rocky Rebuke",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control deals damage equal to its power to target creature an opponent controls.",
+      "flavorText": "\"I am the greatest Earthbender in the world; don't you two dunderheads ever forget it!\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Hokyoung Kim",
+      "imageId": "52fd910f-6d42-41f5-a4be-f375aa254ea2"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tla",
+  "collectorNumber": "193",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROD_OF_RUIN: CardData = {
+  "scryfallId": "0cb737b9-e526-47f7-806a-794cad54b23f",
+  "oracleId": "c29a04ab-4e14-45d8-a993-3fffd0e2f6eb",
+  "name": "Rod of Ruin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rod of Ruin",
+      "manaCost": "{4}",
+      "typeLine": "Artifact",
+      "oracleText": "{3}, {T}: This artifact deals 1 damage to any target.",
+      "flavorText": "The rod is a relic from ancient times . . . cruel, vicious, mean-spirited times.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Eric Deschamps",
+      "imageId": "0cb737b9-e526-47f7-806a-794cad54b23f"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "307",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROILING_TERRAIN: CardData = {
+  "scryfallId": "87d3a425-01d1-4001-92f9-8e297dd862b7",
+  "oracleId": "5e90f187-42fe-4f32-ad75-302e6709192d",
+  "name": "Roiling Terrain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Roiling Terrain",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target land, then Roiling Terrain deals damage to that land's controller equal to the number of land cards in that player's graveyard.",
+      "flavorText": "\"The trembling lands ruptured, leaving an open door for things from below to emerge.\"\n—Screed of the Mul Daya",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "87d3a425-01d1-4001-92f9-8e297dd862b7"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "wwk",
+  "collectorNumber": "88",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROKU_S_MASTERY: CardData = {
+  "scryfallId": "c6d9145b-cef7-4e39-8f62-0e5a6a1f08a3",
+  "oracleId": "e5659c45-e064-4690-b90a-24ffe3793d4d",
+  "name": "Roku's Mastery",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Roku's Mastery",
+      "manaCost": "{X}{R}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Roku's Mastery deals X damage to target creature. If X is 4 or more, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": "Though Avatar Roku mastered all four elements, nothing seemed to quell a brewing conflict like a sun-sized ball of fire.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jo Cordisco",
+      "imageId": "c6d9145b-cef7-4e39-8f62-0e5a6a1f08a3"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "tle",
+  "collectorNumber": "243",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROLLICK_OF_ABANDON: CardData = {
+  "scryfallId": "3f1a80c4-8119-437d-bf5b-549c5679c90a",
+  "oracleId": "ecda721d-ec5d-484b-a834-f4de96083b08",
+  "name": "Rollick of Abandon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rollick of Abandon",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "All creatures get +2/-2 until end of turn.",
+      "flavorText": "\"Embrace every moment, for it could be your last.\"\n—Xenagos, god of revels",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mathias Kollros",
+      "imageId": "3f1a80c4-8119-437d-bf5b-549c5679c90a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "jou",
+  "collectorNumber": "108",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROLLING_EARTHQUAKE: CardData = {
+  "scryfallId": "3c1bf210-ecdb-4b49-8504-51360c269e66",
+  "oracleId": "46b96552-830e-4732-9560-9872aeec858b",
+  "name": "Rolling Earthquake",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rolling Earthquake",
+      "manaCost": "{X}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Rolling Earthquake deals X damage to each creature without horsemanship and each player.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Yang Hong",
+      "imageId": "3c1bf210-ecdb-4b49-8504-51360c269e66"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "122",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RONOM_UNICORN: CardData = {
+  "scryfallId": "0810e22f-11fd-48a8-a057-2d80f3088691",
+  "oracleId": "3c6913cc-c543-45f8-ad3b-ccd282efa6f7",
+  "name": "Ronom Unicorn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ronom Unicorn",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Unicorn",
+      "oracleText": "Sacrifice this creature: Destroy target enchantment.",
+      "flavorText": "The aberrant magic of the Rimewind drew the unicorns back from the northern wastes to do battle once again.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "0810e22f-11fd-48a8-a057-2d80f3088691"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "uma",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROOFTOP_BYPASS: CardData = {
+  "scryfallId": "50aef0eb-5b11-49e8-b2b2-a9e0422f6e65",
+  "oracleId": "ba0d177f-c8e9-4db3-b5cf-40ed2b63e111",
+  "name": "Rooftop Bypass",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rooftop Bypass",
+      "manaCost": "{1}{U}{B}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever one or more nontoken creatures you control deal combat damage to a player, create a 1/1 black Assassin creature token with menace. (It can't be blocked except by two or more creatures.)",
+      "flavorText": "There is always a path.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "U"
+      ],
+      "artist": "Pablo Mendoza",
+      "imageId": "50aef0eb-5b11-49e8-b2b2-a9e0422f6e65"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "acr",
+  "collectorNumber": "298",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROOTWATER_HUNTER: CardData = {
+  "scryfallId": "760afcb4-ef19-498b-9208-e7593b8ae4dd",
+  "oracleId": "8e42ed82-8b56-46ad-a1ca-e29689a9d030",
+  "name": "Rootwater Hunter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rootwater Hunter",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Merfolk",
+      "oracleText": "{T}: This creature deals 1 damage to any target.",
+      "flavorText": "\"Bitter water, vicious wave;\nShadow-cold shallows, root-made maze.\nHome's angry embrace.\"\n—Rootwater Saga",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Brom",
+      "imageId": "760afcb4-ef19-498b-9208-e7593b8ae4dd"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tpr",
+  "collectorNumber": "63",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROTLUNG_REANIMATOR: CardData = {
+  "scryfallId": "87b29d1e-9c06-4ad1-8178-b3eaa212f6f1",
+  "oracleId": "de7f1725-833c-4784-94b1-7a33e36aec94",
+  "name": "Rotlung Reanimator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rotlung Reanimator",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Zombie Cleric",
+      "oracleText": "Whenever this creature or another Cleric dies, create a 2/2 black Zombie creature token.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Thomas M. Baxa",
+      "imageId": "87b29d1e-9c06-4ad1-8178-b3eaa212f6f1"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ons",
+  "collectorNumber": "164",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROTTENHEART_GHOUL: CardData = {
+  "scryfallId": "933f0504-c611-4557-b1e6-f5be72154805",
+  "oracleId": "f9535aa3-0c07-4fad-8dc9-9838a9ebd304",
+  "name": "Rottenheart Ghoul",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rottenheart Ghoul",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "When this creature dies, target player discards a card.",
+      "flavorText": "\"To die failing to save a loved one is just so sad—or, more to the point, pathetic.\"\n—Liliana Vess",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dave Kendall",
+      "imageId": "933f0504-c611-4557-b1e6-f5be72154805"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "soi",
+  "collectorNumber": "132",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROVING_HARPER: CardData = {
+  "scryfallId": "c6b0ed9c-9a99-4a50-80a9-396420a8dcf9",
+  "oracleId": "6474f6b3-4e8e-4056-a01c-2f5e5e59c8de",
+  "name": "Roving Harper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Roving Harper",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Elf Scout",
+      "oracleText": "When this creature enters, draw a card.",
+      "flavorText": "The Harpers value peaceful coexistence, historical preservation, and harmony with nature, and each day they spread their ideals a little farther.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Anastasia Ovchinnikova",
+      "imageId": "c6b0ed9c-9a99-4a50-80a9-396420a8dcf9"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "clb",
+  "collectorNumber": "40",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONSULATE_DREADNOUGHT: CardData = {
+  "scryfallId": "11eff338-1940-4684-94c7-ef90e56dea99",
+  "oracleId": "bc822c9a-633f-4830-9cb3-9af6a80622e4",
+  "name": "Consulate Dreadnought",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Consulate Dreadnought",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Vehicle",
+      "oracleText": "Crew 6 (Tap any number of creatures you control with total power 6 or more: This Vehicle becomes an artifact creature until end of turn.)",
+      "flavorText": "\"It's like they planted another Bastion right in the middle of the harbor.\"\n—Bes Tavani, Bomat merchant",
+      "power": "7",
+      "toughness": "11",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Cliff Childs",
+      "imageId": "11eff338-1940-4684-94c7-ef90e56dea99"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Crew"
+  ],
+  "setCode": "aer",
+  "collectorNumber": "146",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -51960,6 +52640,78 @@ export const SPIDER_13_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const ASSASSIN_MENACE_TOKEN: CardData = {
+  "scryfallId": "19cb2062-86f0-4ce3-b5fb-d3c310f36ec3",
+  "oracleId": "e3b8309b-bea0-4489-8063-6a228ff09ad0",
+  "name": "Assassin",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Assassin",
+      "manaCost": "",
+      "typeLine": "Token Creature — Assassin",
+      "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Rimas Valeikis",
+      "imageId": "19cb2062-86f0-4ce3-b5fb-d3c310f36ec3"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Menace"
+  ],
+  "setCode": "tacr",
+  "collectorNumber": "4",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const BIRD_3_3_TOKEN: CardData = {
+  "scryfallId": "5988dc9e-724f-4645-8769-b94c5ef631b9",
+  "oracleId": "9b6825f6-5944-47f0-b2f1-04fbcb12a1cb",
+  "name": "Bird",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Bird",
+      "manaCost": "",
+      "typeLine": "Token Creature — Bird",
+      "oracleText": "Flying",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jana Schirmer",
+      "imageId": "5988dc9e-724f-4645-8769-b94c5ef631b9"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "tc19",
+  "collectorNumber": "2",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -53384,6 +54136,26 @@ export const ENGINE_CARDS: CardData[] = [
   RISKY_RESEARCH,
   RISKY_SHORTCUT,
   RITE_OF_FLAME,
+  RITE_OF_THE_DRAGONCALLER,
+  RITUAL_OF_SOOT,
+  RIVER_S_REBUKE,
+  ROAD_RAGE,
+  ROAR_OF_RECLAMATION,
+  ROC_EGG,
+  ROCKSLIDE_AMBUSH,
+  ROCKY_REBUKE,
+  ROD_OF_RUIN,
+  ROILING_TERRAIN,
+  ROKU_S_MASTERY,
+  ROLLICK_OF_ABANDON,
+  ROLLING_EARTHQUAKE,
+  RONOM_UNICORN,
+  ROOFTOP_BYPASS,
+  ROOTWATER_HUNTER,
+  ROTLUNG_REANIMATOR,
+  ROTTENHEART_GHOUL,
+  ROVING_HARPER,
+  CONSULATE_DREADNOUGHT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -53468,4 +54240,6 @@ export const ENGINE_CARDS: CardData[] = [
   ELEMENTAL_31_TOKEN,
   GREMLIN_11_TOKEN,
   SPIDER_13_TOKEN,
+  ASSASSIN_MENACE_TOKEN,
+  BIRD_3_3_TOKEN,
 ];

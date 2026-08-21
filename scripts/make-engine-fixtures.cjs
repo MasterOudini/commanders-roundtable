@@ -1852,6 +1852,28 @@ const WANTED = [
   'Risky Research',
   'Risky Shortcut',
   'Rite of Flame',
+  // D241 (M6.4cd)
+  'Rite of the Dragoncaller',
+  'Ritual of Soot',
+  "River's Rebuke",
+  'Road Rage',
+  'Roar of Reclamation',
+  'Roc Egg',
+  'Rockslide Ambush',
+  'Rocky Rebuke',
+  'Rod of Ruin',
+  'Roiling Terrain',
+  "Roku's Mastery",
+  'Rollick of Abandon',
+  'Rolling Earthquake',
+  'Ronom Unicorn',
+  'Rooftop Bypass',
+  'Rootwater Hunter',
+  'Rotlung Reanimator',
+  'Rottenheart Ghoul',
+  'Roving Harper',
+  // D241 support: a Vehicle, for Road Rage's Mount-and-Vehicle census.
+  'Consulate Dreadnought',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -2005,6 +2027,9 @@ const WANTED_TOKENS = [
   { name: 'Gremlin', set: 'tmh3', cn: '23', key: 'GREMLIN_11_TOKEN' },
   // D239 (M6.4cb)
   { name: 'Spider', set: 'tjou', cn: '5', key: 'SPIDER_13_TOKEN' },
+  // D241 (M6.4cd)
+  { name: 'Assassin', set: 'tacr', cn: '4', key: 'ASSASSIN_MENACE_TOKEN' },
+  { name: 'Bird', set: 'tc19', cn: '2', key: 'BIRD_3_3_TOKEN' },
 ];
 
 function constName(name) {

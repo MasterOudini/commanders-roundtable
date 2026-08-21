@@ -912,6 +912,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ridged Kusite', 'discard-cost chooser'],
   ['Riding the Dilu Horse', 'indefinite continuous effect'],
   ['Rise from the Grave', 'indefinite continuous effect'],
+  // D241 (M6.4cd)
+  ['Rites of Reaping', 'spell target parse (second clause)'],
+  ['Roast', 'keyword target qualifier unenforced'],
+  ['Roiling Waters', 'up-to-N targeting'],
+  ['Rolling Spoil', 'mana-spent memory'],
+  ['Rookie Mistake', 'spell target parse (second clause)'],
+  ['Roughshod Duo', 'expend mechanic'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

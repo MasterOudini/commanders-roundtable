@@ -15723,3 +15723,63 @@ clean · probe 124/124 · battery 130/130.**
 ⚠️ **Reportables** (D240): the indefinite continuous effect is the
 structural tail's newest named class (two cards, one carrier design); the
 up-to-N chooser keeps absorbing; prior items stand.
+
+## D241 — M6.4cd: NINETEEN landed — the perItem death fan, and the two-target sentence that parses (2026-08-21)
+
+**3,190 of 31,692 Commander-legal cards execute completely, up from 3,171** —
+the second-largest batch of the arc (the record is D237's 23).
+SHIPPED_SCRIPTS 1,274 → 1,293; the REFUSED ledger 469 → 475 (+6, ONE new
+class).
+
+**The headliners:** `Rotlung Reanimator` — the FIFTH perItem consumer and
+the FIRST on DEATHS: one firing per dying Cleric, itself included, any
+controller's — and its test COMPOSES batch-mate `Ritual of Soot`: one sweep
+kills both Clerics and pays exactly TWO Zombies, arriving after the wipe.
+`Rocky Rebuke` — the first plain two-target sentence through the parser:
+"Target creature you control … target creature an opponent controls" probes
+to TWO CONFIDENT specs with BOTH controllers enforced, where a mid-sentence
+"another target" still fails (the second-clause family's boundary, measured
+from the passing side). `Roar of Reclamation` — the per-OWNER mass artifact
+reanimation (each player's Sol Ring rises under its own owner).
+`River's Rebuke` — the one-player nonland board bounce. `Roiling
+Terrain` — Melt Terrain's recoil where the census counts its own kill (+1
+exactly when the destroyed land's owner IS its controller). `Roku's
+Mastery` — the X-conditioned scry ask (X≥4 asks, X=2 does not, the ask
+LAST). `Rooftop Bypass` — the nontoken-connect batch paying one Assassin.
+`Rolling Earthquake` — the horsemanship-exempt X fan plus every player.
+
+**Also:** Rite of the Dragoncaller (Murmuring Mystic's filter paying Dragon
+Roost's 5/5); Ritual of Soot (Culling Sun's bar, the other wording); Roc Egg
+(the dies-hatch behind Defender); Rockslide Ambush (Mountain census burn);
+Rod of Ruin / Rootwater Hunter (the tap-ping on an artifact, and the
+Prodigal text's FOURTH id); Ronom Unicorn (Felidar Cub's exact text);
+Rollick of Abandon (the +2/-2 board slide); Rottenheart Ghoul (the dies
+targeted discard ask); Roving Harper (Rhox Oracle's text twin).
+
+⚠️ **One test-side failure — a CLASSIFICATION assumption, not a trap:**
+News Helicopter was assumed a Vehicle for Road Rage's census and is an
+Artifact Creature Construct; the pool held NO Vehicle at all.
+`Consulate Dreadnought` joins WANTED as the support body, and the census
+positive is proven 2 → 3 through it. ⚠️ And a SECOND D194 violation caught
+in the same repair: a PS5.1 string pipeline mojibaked the test's em-dash —
+the file was REWRITTEN via the Write tool, both copies verified clean.
+Repo files are edited by the Edit tool or node patch scripts ONLY.
+
+TWO new token pins, both verified against TOKEN_TABLE's own printingIds
+(Assassin-menace tacr 4, Bird 3/3 tc19 2); the Dragon 5/5 (tkhm 11) and
+Zombie 2/2 (tc14 16) are REUSES of committed pins. ONE new ledger class:
+'expend mechanic' (Roughshod Duo — mana-spent-per-turn memory).
+
+Fixtures 1,506 → 1,528 (86 tokens). botPool creature 1,720 / instant 588 /
+sorcery 452 / artifact 95 / enchantment 49 · ladder [1863, 1962, 3755,
+5669, 6881] · batch.json 1,050 · botDeck: Adun reaches 1,797 from 70
+legendaries.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,373 files,
+7,460 passed / 10 skipped · 500-seed gate 832.8 s · build
+clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D241): the two-target-sentence boundary is now measured
+from both sides — the widening should target the "another"/"Another"
+segmentation specifically; the expend mechanic joins the structural tail;
+prior items stand.

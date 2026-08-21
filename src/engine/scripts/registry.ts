@@ -7,6 +7,25 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { RITE_OF_THE_DRAGONCALLER_SCRIPT } from './cards/riteOfTheDragoncaller';
+import { RITUAL_OF_SOOT_SCRIPT } from './cards/ritualOfSoot';
+import { RIVERS_REBUKE_SCRIPT } from './cards/riversRebuke';
+import { ROAD_RAGE_SCRIPT } from './cards/roadRage';
+import { ROAR_OF_RECLAMATION_SCRIPT } from './cards/roarOfReclamation';
+import { ROC_EGG_SCRIPT } from './cards/rocEgg';
+import { ROCKSLIDE_AMBUSH_SCRIPT } from './cards/rockslideAmbush';
+import { ROCKY_REBUKE_SCRIPT } from './cards/rockyRebuke';
+import { ROD_OF_RUIN_SCRIPT } from './cards/rodOfRuin';
+import { ROILING_TERRAIN_SCRIPT } from './cards/roilingTerrain';
+import { ROKUS_MASTERY_SCRIPT } from './cards/rokusMastery';
+import { ROLLICK_OF_ABANDON_SCRIPT } from './cards/rollickOfAbandon';
+import { ROLLING_EARTHQUAKE_SCRIPT } from './cards/rollingEarthquake';
+import { RONOM_UNICORN_SCRIPT } from './cards/ronomUnicorn';
+import { ROOFTOP_BYPASS_SCRIPT } from './cards/rooftopBypass';
+import { ROOTWATER_HUNTER_SCRIPT } from './cards/rootwaterHunter';
+import { ROTLUNG_REANIMATOR_SCRIPT } from './cards/rotlungReanimator';
+import { ROTTENHEART_GHOUL_SCRIPT } from './cards/rottenheartGhoul';
+import { ROVING_HARPER_SCRIPT } from './cards/rovingHarper';
 import { RETRIBUTION_OF_THE_MEEK_SCRIPT } from './cards/retributionOfTheMeek';
 import { REWARDS_OF_DIVERSITY_SCRIPT } from './cards/rewardsOfDiversity';
 import { RHOX_ORACLE_SCRIPT } from './cards/rhoxOracle';
@@ -1395,6 +1414,25 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  RITE_OF_THE_DRAGONCALLER_SCRIPT,
+  RITUAL_OF_SOOT_SCRIPT,
+  RIVERS_REBUKE_SCRIPT,
+  ROAD_RAGE_SCRIPT,
+  ROAR_OF_RECLAMATION_SCRIPT,
+  ROC_EGG_SCRIPT,
+  ROCKSLIDE_AMBUSH_SCRIPT,
+  ROCKY_REBUKE_SCRIPT,
+  ROD_OF_RUIN_SCRIPT,
+  ROILING_TERRAIN_SCRIPT,
+  ROKUS_MASTERY_SCRIPT,
+  ROLLICK_OF_ABANDON_SCRIPT,
+  ROLLING_EARTHQUAKE_SCRIPT,
+  RONOM_UNICORN_SCRIPT,
+  ROOFTOP_BYPASS_SCRIPT,
+  ROOTWATER_HUNTER_SCRIPT,
+  ROTLUNG_REANIMATOR_SCRIPT,
+  ROTTENHEART_GHOUL_SCRIPT,
+  ROVING_HARPER_SCRIPT,
   RETRIBUTION_OF_THE_MEEK_SCRIPT,
   REWARDS_OF_DIVERSITY_SCRIPT,
   RHOX_ORACLE_SCRIPT,
