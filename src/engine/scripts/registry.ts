@@ -7,6 +7,28 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { RUBBLEBELT_BOAR_SCRIPT } from './cards/rubblebeltBoar';
+import { RUGGED_HIGHLANDS_SCRIPT } from './cards/ruggedHighlands';
+import { RUINATION_SCRIPT } from './cards/ruination';
+import { RUINOUS_GREMLIN_SCRIPT } from './cards/ruinousGremlin';
+import { RUINOUS_ULTIMATUM_SCRIPT } from './cards/ruinousUltimatum';
+import { RUMBLING_ROCKSLIDE_SCRIPT } from './cards/rumblingRockslide';
+import { RUMBLING_SENTRY_SCRIPT } from './cards/rumblingSentry';
+import { RUMMAGING_WIZARD_SCRIPT } from './cards/rummagingWizard';
+import { RUN_AGROUND_SCRIPT } from './cards/runAground';
+import { RUNE_SEALED_WALL_SCRIPT } from './cards/runeSealedWall';
+import { RUNEWING_SCRIPT } from './cards/runewing';
+import { RUSH_OF_BLOOD_SCRIPT } from './cards/rushOfBlood';
+import { RUSH_OF_KNOWLEDGE_SCRIPT } from './cards/rushOfKnowledge';
+import { RUTHLESS_PREDATION_SCRIPT } from './cards/ruthlessPredation';
+import { SHIELD_DEPLOYMENT_DRONE_SCRIPT } from './cards/shieldDeploymentDrone';
+import { SACRED_ARMORY_SCRIPT } from './cards/sacredArmory';
+import { SACRED_PREY_SCRIPT } from './cards/sacredPrey';
+import { SAGE_AVEN_SCRIPT } from './cards/sageAven';
+import { SAGE_OF_EPITYR_SCRIPT } from './cards/sageOfEpityr';
+import { SAGE_OF_LAT_NAM_SCRIPT } from './cards/sageOfLatNam';
+import { SAGE_OWL_SCRIPT } from './cards/sageOwl';
+import { SAGES_ROW_SAVANT_SCRIPT } from './cards/sagesRowSavant';
 import { RITE_OF_THE_DRAGONCALLER_SCRIPT } from './cards/riteOfTheDragoncaller';
 import { RITUAL_OF_SOOT_SCRIPT } from './cards/ritualOfSoot';
 import { RIVERS_REBUKE_SCRIPT } from './cards/riversRebuke';
@@ -1414,6 +1436,28 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  RUBBLEBELT_BOAR_SCRIPT,
+  RUGGED_HIGHLANDS_SCRIPT,
+  RUINATION_SCRIPT,
+  RUINOUS_GREMLIN_SCRIPT,
+  RUINOUS_ULTIMATUM_SCRIPT,
+  RUMBLING_ROCKSLIDE_SCRIPT,
+  RUMBLING_SENTRY_SCRIPT,
+  RUMMAGING_WIZARD_SCRIPT,
+  RUN_AGROUND_SCRIPT,
+  RUNE_SEALED_WALL_SCRIPT,
+  RUNEWING_SCRIPT,
+  RUSH_OF_BLOOD_SCRIPT,
+  RUSH_OF_KNOWLEDGE_SCRIPT,
+  RUTHLESS_PREDATION_SCRIPT,
+  SHIELD_DEPLOYMENT_DRONE_SCRIPT,
+  SACRED_ARMORY_SCRIPT,
+  SACRED_PREY_SCRIPT,
+  SAGE_AVEN_SCRIPT,
+  SAGE_OF_EPITYR_SCRIPT,
+  SAGE_OF_LAT_NAM_SCRIPT,
+  SAGE_OWL_SCRIPT,
+  SAGES_ROW_SAVANT_SCRIPT,
   RITE_OF_THE_DRAGONCALLER_SCRIPT,
   RITUAL_OF_SOOT_SCRIPT,
   RIVERS_REBUKE_SCRIPT,

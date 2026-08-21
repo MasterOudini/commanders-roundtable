@@ -919,6 +919,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Rolling Spoil', 'mana-spent memory'],
   ['Rookie Mistake', 'spell target parse (second clause)'],
   ['Roughshod Duo', 'expend mechanic'],
+  // D242 (M6.4ce)
+  ['Royal Herbalist', 'exile-from-library cost'],
+  ['Rummaging Goblin', 'discard-cost chooser'],
+  ["Sagittars' Volley", 'keyword target qualifier unenforced'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

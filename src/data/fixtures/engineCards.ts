@@ -49776,6 +49776,772 @@ export const CONSULATE_DREADNOUGHT: CardData = {
   "singleImage": true
 };
 
+export const RUBBLEBELT_BOAR: CardData = {
+  "scryfallId": "196bf114-e135-43f3-83d5-cb08ca766881",
+  "oracleId": "b815cbbd-d79f-4180-8204-504a15df7152",
+  "name": "Rubblebelt Boar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rubblebelt Boar",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Boar",
+      "oracleText": "When this creature enters, target creature gets +2/+0 until end of turn.",
+      "flavorText": "Some Gruul druids believe that boars are spawn of the great Ilharg, the mighty Raze-Boar who will one day rise and level the city.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Tomasz Jedruszek",
+      "imageId": "196bf114-e135-43f3-83d5-cb08ca766881"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "grn",
+  "collectorNumber": "114",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUGGED_HIGHLANDS: CardData = {
+  "scryfallId": "03fe37cc-a0be-4f7b-a243-584bca3a2315",
+  "oracleId": "6c922206-6e68-4dcd-9559-88da1074f2c4",
+  "name": "Rugged Highlands",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rugged Highlands",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {R} or {G}.",
+      "flavorText": "Defense laser emplacements are usually located at high altitude, where the rarified air does little to impede their range of destructive efficacy.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Oleg Shekhovtsov",
+      "imageId": "03fe37cc-a0be-4f7b-a243-584bca3a2315"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "40k",
+  "collectorNumber": "292★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUINATION: CardData = {
+  "scryfallId": "6330d925-96a8-47e1-855d-035ddc2af709",
+  "oracleId": "59dbc873-72d9-4e7b-9442-2c7b8e8523e1",
+  "name": "Ruination",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ruination",
+      "manaCost": "{3}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all nonbasic lands.",
+      "flavorText": "\"We have built a wall upon sand. The wall will vanish. The sand will remain.\"\n—Oracle *en*-Vec",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dermot Power",
+      "imageId": "6330d925-96a8-47e1-855d-035ddc2af709"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "cmd",
+  "collectorNumber": "134",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUINOUS_GREMLIN: CardData = {
+  "scryfallId": "88067bc3-6ec9-4a96-8077-817c57e032d0",
+  "oracleId": "b88d67c0-ef12-453c-8e58-6642650dffcc",
+  "name": "Ruinous Gremlin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ruinous Gremlin",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Gremlin",
+      "oracleText": "{2}{R}, Sacrifice this creature: Destroy target artifact.",
+      "flavorText": "City officials once sent twenty gleaming automatons to exterminate a nest of gremlins. They soon saw the error of their ways.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "88067bc3-6ec9-4a96-8077-817c57e032d0"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "kld",
+  "collectorNumber": "128",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUINOUS_ULTIMATUM: CardData = {
+  "scryfallId": "50c1d6ca-7789-46b5-bc89-85cc3915cb85",
+  "oracleId": "a6f38908-aa4f-4f99-a28e-85d11dab52e4",
+  "name": "Ruinous Ultimatum",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ruinous Ultimatum",
+      "manaCost": "{R}{R}{W}{W}{W}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all nonland permanents your opponents control.",
+      "flavorText": "\"Strike those abominations down. Let their names rot with their remains.\"\n—General Kudro",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R",
+        "W"
+      ],
+      "artist": "Chase Stone",
+      "imageId": "50c1d6ca-7789-46b5-bc89-85cc3915cb85"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R",
+    "W"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "iko",
+  "collectorNumber": "204",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUMBLING_ROCKSLIDE: CardData = {
+  "scryfallId": "4f06b53f-ec82-4d7f-bee3-6ca04583f023",
+  "oracleId": "0909cbce-b4a0-42bb-8a97-47eeb99606c0",
+  "name": "Rumbling Rockslide",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rumbling Rockslide",
+      "manaCost": "{3}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Rumbling Rockslide deals damage to target creature equal to the number of lands you control.",
+      "flavorText": "Sometimes an expedition reaches a natural conclusion. Sometimes it all just comes crashing down.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "4f06b53f-ec82-4d7f-bee3-6ca04583f023"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "lci",
+  "collectorNumber": "163",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUMBLING_SENTRY: CardData = {
+  "scryfallId": "4f93f3c9-b317-40c1-87f5-0038c09b646d",
+  "oracleId": "7126772a-d586-4859-81ec-46bbe9d1a678",
+  "name": "Rumbling Sentry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rumbling Sentry",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Creature — Giant",
+      "oracleText": "When this creature enters, scry 1.",
+      "flavorText": "\"To provoke the mountain is to invite the avalanche.\"\n—Perisophia the philosopher",
+      "power": "3",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Yongjae Choi",
+      "imageId": "4f93f3c9-b317-40c1-87f5-0038c09b646d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "thb",
+  "collectorNumber": "35",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUMMAGING_WIZARD: CardData = {
+  "scryfallId": "ad96e158-bf2b-4f3e-9692-0f79efdd94f5",
+  "oracleId": "99002f0c-762b-4714-afe3-5b011350aefd",
+  "name": "Rummaging Wizard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rummaging Wizard",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{2}{U}: Surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)",
+      "flavorText": "\"I've got everything you'd ever need right here. Just give me some time to find it.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jerry Tiritilli",
+      "imageId": "ad96e158-bf2b-4f3e-9692-0f79efdd94f5"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "ons",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUN_AGROUND: CardData = {
+  "scryfallId": "9ed573c6-2b95-4052-8b43-106cbaacb721",
+  "oracleId": "6ef9bf18-6b09-4398-a502-6867d999ab0c",
+  "name": "Run Aground",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Run Aground",
+      "manaCost": "{3}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Put target artifact or creature on top of its owner's library.",
+      "flavorText": "\"That's the first time I've seen the ground do the running.\"\n—Captain Brinely Rage",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Sara Winters",
+      "imageId": "9ed573c6-2b95-4052-8b43-106cbaacb721"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "xln",
+  "collectorNumber": "72",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUNE_SEALED_WALL: CardData = {
+  "scryfallId": "46674bd4-5160-44b2-bd2a-2da85c1e2697",
+  "oracleId": "74d31e99-ab48-483a-a62e-5b424b27d017",
+  "name": "Rune-Sealed Wall",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rune-Sealed Wall",
+      "manaCost": "{2}{U}",
+      "typeLine": "Artifact Creature — Wall",
+      "oracleText": "Defender\n{T}: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "\"If the giant, repelling wards aren't enough to keep out nosy visitors, the huge wall should help.\"\n—Kastigan, reclusive runecaster",
+      "power": "0",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Rockey Chen",
+      "imageId": "46674bd4-5160-44b2-bd2a-2da85c1e2697"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Surveil",
+    "Defender"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "745",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUNEWING: CardData = {
+  "scryfallId": "749961e6-b135-4629-ae9d-124de0d70db9",
+  "oracleId": "cc300649-ae50-47e7-ad0f-ffbdffddb989",
+  "name": "Runewing",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Runewing",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying\nWhen this creature dies, draw a card.",
+      "flavorText": "In the hands of the open-minded, a runewing quill writes wisdom of its own.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Martina Pilcerova",
+      "imageId": "749961e6-b135-4629-ae9d-124de0d70db9"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "rtr",
+  "collectorNumber": "48",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUSH_OF_BLOOD: CardData = {
+  "scryfallId": "a2884824-d138-47f2-913b-32cd475e9584",
+  "oracleId": "f0bacbf1-3c35-436e-b0bf-10613b60b726",
+  "name": "Rush of Blood",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rush of Blood",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +X/+0 until end of turn, where X is its power.",
+      "flavorText": "Sometimes it's not for sustenance or to feed the dependence. Sometimes it's just to feel again.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Cynthia Sheppard",
+      "imageId": "a2884824-d138-47f2-913b-32cd475e9584"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "avr",
+  "collectorNumber": "154",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUSH_OF_KNOWLEDGE: CardData = {
+  "scryfallId": "65b03b40-671f-4973-8d75-c3fa878ef603",
+  "oracleId": "34282c99-68ef-4855-b683-7bb205fa6374",
+  "name": "Rush of Knowledge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rush of Knowledge",
+      "manaCost": "{4}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw cards equal to the greatest mana value among permanents you control.",
+      "flavorText": "\"Limitless power is glorious until you gain limitless understanding.\"\n—Ixidor, reality sculptor",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Eric Peterson",
+      "imageId": "65b03b40-671f-4973-8d75-c3fa878ef603"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "scg",
+  "collectorNumber": "49",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUTHLESS_PREDATION: CardData = {
+  "scryfallId": "123f0c76-1fde-439e-a76d-eccf96f8d941",
+  "oracleId": "478e59b8-03ad-4f8e-8c18-6ab5ad77a6f8",
+  "name": "Ruthless Predation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ruthless Predation",
+      "manaCost": "{1}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control gets +1/+2 until end of turn. It fights target creature you don't control. (Each deals damage equal to its power to the other.)",
+      "flavorText": "In the Hunter Maze, today's apex predator is tomorrow's prey.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Pavel Kolomeyets",
+      "imageId": "123f0c76-1fde-439e-a76d-eccf96f8d941"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Fight"
+  ],
+  "setCode": "one",
+  "collectorNumber": "182",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const S_H_I_E_L_D_DEPLOYMENT_DRONE: CardData = {
+  "scryfallId": "c3d0f02f-dfaf-47b6-8053-514417f4dfe2",
+  "oracleId": "c1669020-8f81-471a-9083-7e9ce3e8f387",
+  "name": "S.H.I.E.L.D. Deployment Drone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "S.H.I.E.L.D. Deployment Drone",
+      "manaCost": "{2}{U}",
+      "typeLine": "Artifact Creature — Robot",
+      "oracleText": "Flying\nWhen this creature enters, create a 1/1 white Soldier creature token.",
+      "flavorText": "One of the core capabilities of S.H.I.E.L.D. is deploying agents anywhere within minutes.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Paulius Daščioras",
+      "imageId": "c3d0f02f-dfaf-47b6-8053-514417f4dfe2"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "msh",
+  "collectorNumber": "73",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SACRED_ARMORY: CardData = {
+  "scryfallId": "b05fde97-ab24-40c9-a1db-8844c3e62fc3",
+  "oracleId": "37d74df9-cf87-4b82-842a-3941064078fb",
+  "name": "Sacred Armory",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sacred Armory",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "{2}: Target creature gets +1/+0 until end of turn.",
+      "flavorText": "Arrive for worship. Leave for war.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Yeong-Hao Han",
+      "imageId": "b05fde97-ab24-40c9-a1db-8844c3e62fc3"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m15",
+  "collectorNumber": "228",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SACRED_PREY: CardData = {
+  "scryfallId": "e965d32c-3151-48e8-b256-0b7fa8a8a211",
+  "oracleId": "e24110e8-72cf-4dd0-bca0-665758daca88",
+  "name": "Sacred Prey",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sacred Prey",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Horse",
+      "oracleText": "Whenever this creature becomes blocked, you gain 1 life.",
+      "flavorText": "To see one is a good omen to the Cho-Arrim.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "e965d32c-3151-48e8-b256-0b7fa8a8a211"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "268",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAGE_AVEN: CardData = {
+  "scryfallId": "4c03afc5-7ca3-4ac6-a06e-091e2cce13a0",
+  "oracleId": "f57c6bfb-8dd4-429d-8ced-65145e2f7adb",
+  "name": "Sage Aven",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sage Aven",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Bird Wizard",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhen this creature enters, look at the top four cards of your library, then put them back in any order.",
+      "flavorText": "From their mountain aeries, aven scholars see far more than the distant horizon.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "4c03afc5-7ca3-4ac6-a06e-091e2cce13a0"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ons",
+  "collectorNumber": "111",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAGE_OF_EPITYR: CardData = {
+  "scryfallId": "8e2ea578-069e-4020-a762-d108a3e14861",
+  "oracleId": "ef893585-246c-4028-bd2b-14ac51ce29be",
+  "name": "Sage of Epityr",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sage of Epityr",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "When this creature enters, look at the top four cards of your library, then put them back in any order.",
+      "flavorText": "Clairvoyants across Dominaria were driven mad by the overload from the widening time rifts, while other random folk gained the gift of future sight.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "8e2ea578-069e-4020-a762-d108a3e14861"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "tsp",
+  "collectorNumber": "74",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAGE_OF_LAT_NAM: CardData = {
+  "scryfallId": "28ac8823-9bc0-4d15-a7ab-0d106167a0e5",
+  "oracleId": "f34be3cc-ff47-4415-a6a8-ed142891dc0c",
+  "name": "Sage of Lat-Nam",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sage of Lat-Nam",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Human Artificer",
+      "oracleText": "{T}, Sacrifice an artifact: Draw a card.",
+      "flavorText": "Within each device is a spark of its creator's soul. Within each sage is a lamp that awaits that spark.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Alan Pollack",
+      "imageId": "28ac8823-9bc0-4d15-a7ab-0d106167a0e5"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAGE_OWL: CardData = {
+  "scryfallId": "1ed89567-cb18-4e51-a978-eac81d112aa1",
+  "oracleId": "d47fc902-51f7-4ad1-8ee4-c973e32192b8",
+  "name": "Sage Owl",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sage Owl",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying\nWhen this creature enters, look at the top four cards of your library, then put them back in any order.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Mark Brill",
+      "imageId": "1ed89567-cb18-4e51-a978-eac81d112aa1"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "10e",
+  "collectorNumber": "104",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAGE_S_ROW_SAVANT: CardData = {
+  "scryfallId": "20ceccb4-c7c7-487e-8f74-2d89d2a86f34",
+  "oracleId": "6eaf5cdc-2843-4167-bd18-df4c2ac73ac0",
+  "name": "Sage's Row Savant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sage's Row Savant",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Vedalken Wizard",
+      "oracleText": "When this creature enters, scry 2.",
+      "flavorText": "The streets of Ravnica are full of former guild members now using their institutional skills for personal gain.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Bastien L. Deharme",
+      "imageId": "20ceccb4-c7c7-487e-8f74-2d89d2a86f34"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -54156,6 +54922,28 @@ export const ENGINE_CARDS: CardData[] = [
   ROTTENHEART_GHOUL,
   ROVING_HARPER,
   CONSULATE_DREADNOUGHT,
+  RUBBLEBELT_BOAR,
+  RUGGED_HIGHLANDS,
+  RUINATION,
+  RUINOUS_GREMLIN,
+  RUINOUS_ULTIMATUM,
+  RUMBLING_ROCKSLIDE,
+  RUMBLING_SENTRY,
+  RUMMAGING_WIZARD,
+  RUN_AGROUND,
+  RUNE_SEALED_WALL,
+  RUNEWING,
+  RUSH_OF_BLOOD,
+  RUSH_OF_KNOWLEDGE,
+  RUTHLESS_PREDATION,
+  S_H_I_E_L_D_DEPLOYMENT_DRONE,
+  SACRED_ARMORY,
+  SACRED_PREY,
+  SAGE_AVEN,
+  SAGE_OF_EPITYR,
+  SAGE_OF_LAT_NAM,
+  SAGE_OWL,
+  SAGE_S_ROW_SAVANT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

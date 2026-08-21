@@ -1874,6 +1874,29 @@ const WANTED = [
   'Roving Harper',
   // D241 support: a Vehicle, for Road Rage's Mount-and-Vehicle census.
   'Consulate Dreadnought',
+  // D242 (M6.4ce)
+  'Rubblebelt Boar',
+  'Rugged Highlands',
+  'Ruination',
+  'Ruinous Gremlin',
+  'Ruinous Ultimatum',
+  'Rumbling Rockslide',
+  'Rumbling Sentry',
+  'Rummaging Wizard',
+  'Run Aground',
+  'Rune-Sealed Wall',
+  'Runewing',
+  'Rush of Blood',
+  'Rush of Knowledge',
+  'Ruthless Predation',
+  'S.H.I.E.L.D. Deployment Drone',
+  'Sacred Armory',
+  'Sacred Prey',
+  'Sage Aven',
+  'Sage of Epityr',
+  'Sage of Lat-Nam',
+  'Sage Owl',
+  "Sage's Row Savant",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

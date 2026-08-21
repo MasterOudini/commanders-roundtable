@@ -6746,6 +6746,38 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       items stand.
 
 
+- [x] **M6.4ce — TWENTY-TWO landed: Sage Owl closes D142's loop
+      (2026-08-21):** **3,212 of 31,692 Commander-legal cards now execute
+      completely, up from 3,190** — one short of the record, the SIXTEENTH
+      first-run-clean batch (44 tests untouched). `SHIPPED_SCRIPTS`
+      1,293 → 1,315; ledger 478 (+3, ZERO new classes); zero new tokens,
+      zero new support bodies. Decisions in **D242**.
+      **The headliner:** Sage Owl — THE card D142 named ("one card script
+      away") — lands as the FIRST trigger-raised orderCards ask, and its
+      exact text lands on THREE ids in one batch (Sage Aven, Sage of
+      Epityr — the Fisk precedent tripled); the test pins that the answer's
+      first card ends ON TOP.
+      **Also:** Ruinous Ultimatum (the opponents-only nonland wipe);
+      Ruination (nonbasic land sweep — Darksteel Citadel survives as an
+      indestructible NONBASIC); Ruthless Predation = Epic Confrontation's
+      exact text; Rummaging Wizard / Rune-Sealed Wall (paid + tapped
+      activated surveils); Run Aground (the probed artifact-or-creature
+      compound, placement top); Rush of Knowledge (greatest-MV across
+      permanents); Sacred Prey (becomes-blocked via a real block); Rugged
+      Highlands (the refuge); the constName trap pinned
+      (S_H_I_E_L_D_DEPLOYMENT_DRONE — runs collapse to single underscores).
+      ⚠️ **Three refusals, all existing classes.**
+      Fixtures 1,550 (86 tokens) · botPool creature 1,733 / instant 590 /
+      sorcery 457 / artifact 96 / land 287 · ladder [1841, 1940, 3733,
+      5647, 6859] · batch.json 1,025 · botDeck: Adun reaches 1,806.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,395
+      files, 7,548 passed / 10 skipped · 500-seed gate
+      836.2 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D242): the trigger-raised orderCards ask opens
+      the look-and-reorder family; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

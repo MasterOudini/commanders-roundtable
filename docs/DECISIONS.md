@@ -15783,3 +15783,59 @@ clean · probe 124/124 · battery 130/130.**
 from both sides — the widening should target the "another"/"Another"
 segmentation specifically; the expend mechanic joins the structural tail;
 prior items stand.
+
+## D242 — M6.4ce: TWENTY-TWO landed — Sage Owl closes D142's loop, three ids at once (2026-08-21)
+
+**3,212 of 31,692 Commander-legal cards execute completely, up from 3,190** —
+one short of the arc record, and the SIXTEENTH first-run-clean batch (all 44
+tests green untouched). SHIPPED_SCRIPTS 1,293 → 1,315; the REFUSED ledger
+475 → 478 (+3, ZERO new classes) — zero new tokens, zero new support bodies:
+the drained-refusal signal at full strength.
+
+**The headliner is an arc closing at triple width:** `Sage Owl` — THE card
+D142 named the day the ordering prompt shipped ("one card script away, the
+effect being built already") — lands as the FIRST trigger-raised
+`orderCards` ask (D196's scry-trigger argument one prompt over: the
+resolve emits CardsRevealed-to-self plus the ask, destination 'top'), and
+its exact text lands on THREE ids in ONE batch: `Sage Aven` and `Sage of
+Epityr` beside it — the Fisk same-batch-twin precedent tripled. The test
+pins the answer's semantics: the first card of the answer ends ON TOP.
+
+**Also:** `Ruinous Ultimatum` (the opponents-only nonland wipe — the
+marquee wrath, their land and my board standing); `Ruination` (the
+nonbasic land sweep, where Darksteel Citadel survives as an indestructible
+NONBASIC — both filters proven independent); `Ruthless Predation` (Epic
+Confrontation's EXACT text — the pump-then-fight, second id);
+`Rummaging Wizard` / `Rune-Sealed Wall` (the paid and the tapped
+activated surveils — the Wall behind Defender at #a0); `Run Aground` (the
+PROBED artifact-or-creature compound — both kinds parse — with the
+placement-top move); `Rush of Knowledge` (the greatest-MV census across
+ALL my permanents); `Rush of Blood` (the single-target power doubling);
+`Sacred Prey` (becomes-blocked, through a real DeclareBlockers from the
+defender's seat); `Rugged Highlands` (the refuge — Jungle Hollow's exact
+lines, both halves proven); `Ruinous Gremlin` (self-sac artifact removal);
+`Rumbling Rockslide` / `Rockslide-family` census burns at 2-vs-3 lands;
+`S.H.I.E.L.D. Deployment Drone` (the ETB Soldier — and the constName trap
+pinned: runs of punctuation collapse to SINGLE underscores);
+`Sage of Lat-Nam` (the artifact-sacrifice draw); ETB scry twins
+(`Rumbling Sentry` 1, `Sage's Row Savant` 2); `Runewing` (dies-draw);
+`Rubblebelt Boar` / `Sacred Armory` (targeted pumps, triggered and
+activated).
+
+⚠️ **Three refusals, all existing classes:** Royal Herbalist
+(exile-from-library cost), Rummaging Goblin (discard-cost chooser),
+Sagittars' Volley (the keyword target qualifier — 'with flying' silently
+widens).
+
+Fixtures 1,528 → 1,550 (86 tokens — ZERO new). botPool creature 1,733 /
+instant 590 / sorcery 457 / artifact 96 / land 287 · ladder [1841, 1940,
+3733, 5647, 6859] · batch.json 1,025 · botDeck: Adun reaches 1,806 from 70
+legendaries.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,395 files,
+7,548 passed / 10 skipped · 500-seed gate 836.2 s · build
+clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D242): the trigger-raised orderCards ask opens the
+whole look-and-reorder trigger family; the keyword-qualifier widening keeps
+absorbing (Sagittars'); prior items stand.
