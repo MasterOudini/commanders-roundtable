@@ -15946,3 +15946,54 @@ clean · probe 124/124 · battery 130/130.**
 ⚠️ **Reportables** (D244): the delayed trigger joins the engine-work list
 (CR 603.7 machinery); the perItem family now spans draws, blocks, deaths,
 attacks, graveyard intake and combat connects; prior items stand.
+
+## D245 — M6.4ch: nineteen landed — Sek'Kuar takes a seat, and the wipe that pays its victims (2026-08-21)
+
+**3,271 of 31,692 Commander-legal cards execute completely, up from 3,252** —
+the EIGHTEENTH first-run-clean batch (all 38 tests green untouched), the
+second in a row. SHIPPED_SCRIPTS 1,355 → 1,374; the REFUSED ledger 482 →
+494 counting D244's +6 and this batch's +6 (ONE new class here). **The
+fully-executable legendary pool reads 71: Sek'Kuar, Deathkeeper joins.**
+
+**The headliners:** `Sek'Kuar, Deathkeeper` — the nontoken-controlled
+dies watcher paying the NEW Graveborn pin (tcmm 38), a LEGENDARY commander;
+its own token's death pays nothing, both sides pinned. `Seeds of
+Innocence` — the damnation tripwire's SEVENTEENTH client: the artifact
+wipe that PAYS each victim's controller its own mana values (Sol Ring's 1
+to me, Hedron Archive's 4 to them), with the indestructible artifact LAND
+surviving and paying nothing. `Seismic Wave` — TWO probed confident specs
+in one sentence (the any-target burn + the target-opponent nonartifact
+fan, on the hit() helper). `Seer of Stolen Sight` — my
+artifacts-or-creatures dying ask the surveil, the per-event batch as the
+printed "one or more". `Sentinel of the Nameless City` — the
+enters-or-attacks pair paying Maps. `Seaside Haven` — the Bird-predicate
+chooser paying a draw (Sage Owl pays the price).
+
+**Also:** the Selesnya Cluestone/Locket pair (the SIXTH colour pair);
+Secret Rendezvous (both sides draw three); Seeker of Skybreak (the {T}
+untap); Seer's Lantern (the paid scry at #a1); the Seismic family —
+Rupture and Shudder (nonflying sweeps at 2 and 1), Spike (land destroy +
+{R}{R} ritual), Strike (the Mountain census at 2-vs-3); Sejiri Refuge;
+Seller of Songbirds (the trtr-1 Bird); Senate Griffin (ETB scry); Serene
+Heart (the Aura sweep — the CAST Pacifism dies, the global enchantment and
+the host stand).
+
+⚠️ **Six refusals, ONE new class:** `Secrets of the Dead` names the
+CAST-ZONE DISCRIMINATOR — the SpellCast event does not record which zone
+the spell was cast from, so "cast a spell from your graveyard" cannot be
+watched (the discriminator family's fifth member). Plus discard-cost ×3
+(Seismic Assault, Seismic Mage, Selhoff Entomber), the cast-time computed
+target count (Selective Snare), and tap-creatures (Selesnya Evangel).
+
+Fixtures 1,590 → 1,610 (87 tokens — Graveborn tcmm 38 NEW). botPool
+creature 1,756 / instant 597 / sorcery 471 / artifact 102 / land 292 ·
+ladder [1782, 1881, 3674, 5588, 6800] · batch.json 950 · botDeck: Adun
+reaches 1,841 from 71 legendaries.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,454 files,
+7,788 passed / 10 skipped · 500-seed gate 764.2 s · build
+clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D245): the discriminator family (draw, scry, discard,
+activation, cast-zone) is five members wide — the typed-cause design is
+overdue by weight; prior items stand.

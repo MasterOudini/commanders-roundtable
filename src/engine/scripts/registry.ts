@@ -7,6 +7,25 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SEASIDE_HAVEN_SCRIPT } from './cards/seasideHaven';
+import { SECRET_RENDEZVOUS_SCRIPT } from './cards/secretRendezvous';
+import { SEEDS_OF_INNOCENCE_SCRIPT } from './cards/seedsOfInnocence';
+import { SEEKER_OF_SKYBREAK_SCRIPT } from './cards/seekerOfSkybreak';
+import { SEER_OF_STOLEN_SIGHT_SCRIPT } from './cards/seerOfStolenSight';
+import { SEERS_LANTERN_SCRIPT } from './cards/seersLantern';
+import { SEISMIC_RUPTURE_SCRIPT } from './cards/seismicRupture';
+import { SEISMIC_SHUDDER_SCRIPT } from './cards/seismicShudder';
+import { SEISMIC_SPIKE_SCRIPT } from './cards/seismicSpike';
+import { SEISMIC_STRIKE_SCRIPT } from './cards/seismicStrike';
+import { SEISMIC_WAVE_SCRIPT } from './cards/seismicWave';
+import { SEJIRI_REFUGE_SCRIPT } from './cards/sejiriRefuge';
+import { SEK_KUAR_DEATHKEEPER_SCRIPT } from './cards/sekKuarDeathkeeper';
+import { SELESNYA_CLUESTONE_SCRIPT } from './cards/selesnyaCluestone';
+import { SELESNYA_LOCKET_SCRIPT } from './cards/selesnyaLocket';
+import { SELLER_OF_SONGBIRDS_SCRIPT } from './cards/sellerOfSongbirds';
+import { SENATE_GRIFFIN_SCRIPT } from './cards/senateGriffin';
+import { SENTINEL_OF_THE_NAMELESS_CITY_SCRIPT } from './cards/sentinelOfTheNamelessCity';
+import { SERENE_HEART_SCRIPT } from './cards/sereneHeart';
 import { SCEPTER_OF_INSIGHT_SCRIPT } from './cards/scepterOfInsight';
 import { SCORCH_THE_FIELDS_SCRIPT } from './cards/scorchTheFields';
 import { SCORCHED_RUSALKA_SCRIPT } from './cards/scorchedRusalka';
@@ -1476,6 +1495,25 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SEASIDE_HAVEN_SCRIPT,
+  SECRET_RENDEZVOUS_SCRIPT,
+  SEEDS_OF_INNOCENCE_SCRIPT,
+  SEEKER_OF_SKYBREAK_SCRIPT,
+  SEER_OF_STOLEN_SIGHT_SCRIPT,
+  SEERS_LANTERN_SCRIPT,
+  SEISMIC_RUPTURE_SCRIPT,
+  SEISMIC_SHUDDER_SCRIPT,
+  SEISMIC_SPIKE_SCRIPT,
+  SEISMIC_STRIKE_SCRIPT,
+  SEISMIC_WAVE_SCRIPT,
+  SEJIRI_REFUGE_SCRIPT,
+  SEK_KUAR_DEATHKEEPER_SCRIPT,
+  SELESNYA_CLUESTONE_SCRIPT,
+  SELESNYA_LOCKET_SCRIPT,
+  SELLER_OF_SONGBIRDS_SCRIPT,
+  SENATE_GRIFFIN_SCRIPT,
+  SENTINEL_OF_THE_NAMELESS_CITY_SCRIPT,
+  SERENE_HEART_SCRIPT,
   SCEPTER_OF_INSIGHT_SCRIPT,
   SCORCH_THE_FIELDS_SCRIPT,
   SCORCHED_RUSALKA_SCRIPT,

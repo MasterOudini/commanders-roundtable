@@ -935,6 +935,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Sea God's Scorn", 'up-to-N targeting'],
   ["Sea Kings' Blessing", 'UEOT color change'],
   ['Searing Blood', 'delayed trigger'],
+  // D245 (M6.4ch)
+  ['Secrets of the Dead', 'cast-zone discriminator'],
+  ['Seismic Assault', 'discard-cost chooser'],
+  ['Seismic Mage', 'discard-cost chooser'],
+  ['Selective Snare', 'cast-time computed target count'],
+  ['Selesnya Evangel', 'tap-creatures cost'],
+  ['Selhoff Entomber', 'discard-cost chooser'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

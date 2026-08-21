@@ -6835,6 +6835,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       list; prior items stand.
 
 
+- [x] **M6.4ch — Nineteen landed: Sek'Kuar takes a seat
+      (2026-08-21):** **3,271 of 31,692 Commander-legal cards now execute
+      completely, up from 3,252** — the EIGHTEENTH first-run-clean batch
+      (38 tests untouched), the second in a row. `SHIPPED_SCRIPTS`
+      1,355 → 1,374; ledger 494 (+6, ONE new class). **The legendary pool
+      reads 71.** Decisions in **D245**.
+      **The headliners:** Sek'Kuar, Deathkeeper (the nontoken dies watcher
+      paying the NEW Graveborn pin — a commander; its own token's death
+      pays nothing); Seeds of Innocence (damnation client #17 — the wipe
+      that PAYS each victim's controller its mana values, the
+      indestructible artifact LAND exempt); Seismic Wave (TWO probed specs
+      in one sentence); Seer of Stolen Sight (my things dying ask the
+      surveil); Sentinel of the Nameless City (enters-or-attacks Maps);
+      Seaside Haven (the Bird-predicate chooser); the Selesnya
+      Cluestone/Locket pair; Serene Heart (the Aura sweep — the CAST
+      Pacifism dies, the global enchantment stands).
+      ⚠️ **Six refusals, ONE new class:** cast-zone discriminator (Secrets
+      of the Dead — SpellCast records no cast-from zone; the discriminator
+      family's FIFTH member).
+      Fixtures 1,610 (87 tokens — Graveborn tcmm 38 new) · botPool
+      creature 1,756 / instant 597 / sorcery 471 / artifact 102 / land
+      292 · ladder [1782, 1881, 3674, 5588, 6800] · batch.json 950 ·
+      botDeck: Adun reaches 1,841 from 71 legendaries.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,454
+      files, 7,788 passed / 10 skipped · 500-seed gate
+      764.2 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D245): the discriminator family at five members
+      wants the typed-cause design; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

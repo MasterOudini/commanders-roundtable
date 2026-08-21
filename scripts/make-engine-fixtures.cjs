@@ -1939,6 +1939,26 @@ const WANTED = [
   'Search Warrant',
   'Searchlight Companion',
   'Searing Flesh',
+  // D245 (M6.4ch)
+  'Seaside Haven',
+  'Secret Rendezvous',
+  'Seeds of Innocence',
+  'Seeker of Skybreak',
+  'Seer of Stolen Sight',
+  "Seer's Lantern",
+  'Seismic Rupture',
+  'Seismic Shudder',
+  'Seismic Spike',
+  'Seismic Strike',
+  'Seismic Wave',
+  'Sejiri Refuge',
+  "Sek'Kuar, Deathkeeper",
+  'Selesnya Cluestone',
+  'Selesnya Locket',
+  'Seller of Songbirds',
+  'Senate Griffin',
+  'Sentinel of the Nameless City',
+  'Serene Heart',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -2095,6 +2115,8 @@ const WANTED_TOKENS = [
   // D241 (M6.4cd)
   { name: 'Assassin', set: 'tacr', cn: '4', key: 'ASSASSIN_MENACE_TOKEN' },
   { name: 'Bird', set: 'tc19', cn: '2', key: 'BIRD_3_3_TOKEN' },
+  // D245 (M6.4ch)
+  { name: 'Graveborn', set: 'tcmm', cn: '38', key: 'GRAVEBORN_TOKEN' },
 ];
 
 function constName(name) {
