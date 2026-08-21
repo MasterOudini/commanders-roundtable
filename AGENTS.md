@@ -7014,6 +7014,33 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       prior items stand.
 
 
+- [x] **M6.4cn — Nineteen landed: the leanest classification of the arc
+      (2026-08-21):** **3,380 of 31,692 Commander-legal cards now execute
+      completely, up from 3,361.** `SHIPPED_SCRIPTS` 1,464 → 1,483; ledger
+      535 (+6, **ZERO new classes/tokens/supports** — the leanest
+      classification yet). Decisions in **D251**.
+      **The headliners:** Spire Owl (the Sage Owl text's FOURTH id —
+      trigger-raised orderCards); Spiteful Blow (the PROBED two-spec
+      creature-AND-land destroy); Spoils of Evil (the census ritual over a
+      target OPPONENT'S graveyard, restriction enforced); Spite of Mogis
+      (census damage first, scry ask LAST); Splash Portal (the flicker
+      with a four-subtype rider — ⚠️ Muse Drake is a DRAKE, not a Bird:
+      the fixture became batch-mate Spire Owl); Sprouting Thrinax (three
+      distinct Saprolings); Spinning Wheel (#a1 tap behind an any-color
+      line).
+      ⚠️ **Six refusals, ZERO new classes** — Spin Out probed (the D216
+      subtype-member halving, Gravkill's class).
+      Fixtures 1,722 (89 tokens) · botPool creature 1,810 / instant 615 /
+      sorcery 493 / artifact 107 / enchantment 54 / land 301 · ladder
+      [1673, 1772, 3565, 5479, 6691] · batch.json 800 · botDeck: Sliver
+      Queen reaches 3,331.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,563
+      files, 8,232 passed / 10 skipped · 500-seed gate
+      765.6 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D251): subtype identity joins the
+      read-off-the-dump rule; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

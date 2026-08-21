@@ -982,6 +982,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sphinx of the Chimes', 'discard-cost chooser'],
   ["Sphinx's Decree", 'cast restriction effect'],
   ['Spin into Myth', 'fateseal mechanic'],
+  // D251 (M6.4cn)
+  ['Spin Out', 'spell target parse (noun list)'],
+  ['Spinning Wheel Kick', 'cast-time computed target count'],
+  ['Spirit en-Dal', 'ability-word activated cost'],
+  ['Spoils of the Hunt', 'mana-spent memory'],
+  ['Spring Cleaning', 'clash mechanic'],
+  ['Spurred Wolverine', 'tap-creatures cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

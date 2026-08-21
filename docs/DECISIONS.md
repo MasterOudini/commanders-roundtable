@@ -16270,3 +16270,53 @@ clean · probe 124/124 · battery 130/130.**
 ⚠️ **Reportables** (D250): the numeric-exact class holds FOUR cards (two
 joined this batch) — the equality comparison is D139's playbook one
 operator over; prior items stand.
+
+## D251 — M6.4cn: nineteen landed — the leanest classification of the arc (2026-08-21)
+
+**3,380 of 31,692 Commander-legal cards execute completely, up from 3,361.**
+SHIPPED_SCRIPTS 1,464 → 1,483; ledger 529 → 535 (+6, **ZERO new classes,
+zero new tokens, zero new support bodies** — the leanest classification the
+arc has produced).
+
+**The headliners:** `Spire Owl` — the Sage Owl text's FOURTH id (the
+trigger-raised orderCards ask; the answer's first card ends on top).
+`Spiteful Blow` — the PROBED two-spec destroy: "target creature and
+target land" parses TWO confident specs with DIFFERENT nouns, both dying
+in one batch. `Spoils of Evil` — the census RITUAL over a target
+OPPONENT'S graveyard (the restriction probed and enforced): {C} and a
+life per artifact-or-creature card, typed off the ORACLE face, the dead
+Swamp counting nothing. `Spite of Mogis` — census damage FIRST, the scry
+ask LAST. `Splash Portal` — the flicker with a FOUR-subtype rider — ⚠️
+its first test taught a CLASSIFICATION fact: **Muse Drake is a DRAKE, not
+a Bird** — the fixture became batch-mate Spire Owl (a real Bird,
+unregistered in that suite so its own trigger stays silent). `Sprouting
+Thrinax` — three DISTINCT Saprolings on death. `Spinning Wheel` — the
+#a1 tap-target behind an any-color mana line.
+
+**Also:** Spinal Centipede (Sparring Construct's exact dies-counter text);
+Spined Megalodon (attacks-scry behind hexproof); the census burns
+(Spiraling Embers by hand size, Spire Barrage at the face, Spitting Earth
+at a creature — Mountains counted DERIVED); Spirited Companion (the ETB
+draw on an enchantment creature); Spiritual Guardian / Springmane Cervin
+(ETB gains); Splatter Goblin (the dies-debuff, opponent enforced); Spore
+Crawler (dies-draw); Spreading Rot (the land destroy billing its
+controller); Spyglass Siren (the ETB Map).
+
+⚠️ **Six refusals, ZERO new classes:** Spin Out PROBED — 'creature or
+Vehicle' HALVES confident to bare creature (the D216 subtype-member hole,
+Gravkill's noun-list class); Spinning Wheel Kick (computed target count);
+Spirit en-Dal (ability-word cost); Spoils of the Hunt (mana-spent
+memory); Spring Cleaning (clash); Spurred Wolverine (tap-creatures).
+
+Fixtures 1,703 → 1,722 (89 tokens). botPool creature 1,810 / instant 615 /
+sorcery 493 / artifact 107 / enchantment 54 / land 301 · ladder [1673,
+1772, 3565, 5479, 6691] · batch.json 800 · botDeck: Sliver Queen reaches
+3,331.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,563 files,
+8,232 passed / 10 skipped · 500-seed gate 765.6 s · build
+clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D251): subtype identity is a classification read —
+Drake ≠ Bird joins the read-off-the-dump rule (mana costs D215, P/T D250,
+type lines D241, subtypes now); prior items stand.

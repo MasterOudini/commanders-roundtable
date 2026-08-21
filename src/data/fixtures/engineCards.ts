@@ -55726,6 +55726,662 @@ export const SPIDERWIG_BOGGART: CardData = {
   "singleImage": true
 };
 
+export const SPINAL_CENTIPEDE: CardData = {
+  "scryfallId": "74d579fb-615a-43a6-a1c1-c535087abf2a",
+  "oracleId": "43d44a7f-829a-4f4d-9f71-2f4384ddd803",
+  "name": "Spinal Centipede",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spinal Centipede",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "When this creature dies, put a +1/+1 counter on target creature you control.",
+      "flavorText": "The Golgari adorn themselves with the exoskeletons of iridescent insects. It's only fair the insects do likewise.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Zezhou Chen",
+      "imageId": "74d579fb-615a-43a6-a1c1-c535087abf2a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "grn",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPINED_MEGALODON: CardData = {
+  "scryfallId": "04a70f78-0430-44af-b078-487b65af7682",
+  "oracleId": "3a124fe5-f525-43e5-9746-501c68a98330",
+  "name": "Spined Megalodon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spined Megalodon",
+      "manaCost": "{5}{U}{U}",
+      "typeLine": "Creature — Shark",
+      "oracleText": "Hexproof (This creature can't be the target of spells or abilities your opponents control.)\nWhenever this creature attacks, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "7",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Daniel Ljunggren",
+      "imageId": "04a70f78-0430-44af-b078-487b65af7682"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Hexproof",
+    "Scry"
+  ],
+  "setCode": "hbg",
+  "collectorNumber": "914",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPINNING_WHEEL: CardData = {
+  "scryfallId": "070ff479-9d87-4ab6-aaaa-e96b9df0bac4",
+  "oracleId": "e0935a0f-7087-40cd-a094-89f200da6ef0",
+  "name": "Spinning Wheel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spinning Wheel",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add one mana of any color.\n{5}, {T}: Tap target creature.",
+      "flavorText": "\"Though long forgotten, the wheel continued to turn, spinning fate from a dusty attic.\"\n—*Beyond the Great Henge*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Aaron Miller",
+      "imageId": "070ff479-9d87-4ab6-aaaa-e96b9df0bac4"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "eld",
+  "collectorNumber": "234",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIRALING_EMBERS: CardData = {
+  "scryfallId": "73503423-30d8-42bc-a697-6d986e4945c8",
+  "oracleId": "25a2f4c8-cdab-49a5-80fd-a75230829f3f",
+  "name": "Spiraling Embers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spiraling Embers",
+      "manaCost": "{3}{R}",
+      "typeLine": "Sorcery — Arcane",
+      "oracleText": "Spiraling Embers deals damage to any target equal to the number of cards in your hand.",
+      "flavorText": "The akki knew to stay indoors on the days the oni flew their kites.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chippy",
+      "imageId": "73503423-30d8-42bc-a697-6d986e4945c8"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "sok",
+  "collectorNumber": "116",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIRE_BARRAGE: CardData = {
+  "scryfallId": "6a8006d8-bcdb-4e1c-bdfa-1e7f46fe425b",
+  "oracleId": "ef84d5e2-5db7-40e7-af49-a2f6f494a8a4",
+  "name": "Spire Barrage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spire Barrage",
+      "manaCost": "{4}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Spire Barrage deals damage to any target equal to the number of Mountains you control.",
+      "flavorText": "Goblin lessons include the 2,071 tips for survival. Frek only remembered 2,070.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Ryan Pancoast",
+      "imageId": "6a8006d8-bcdb-4e1c-bdfa-1e7f46fe425b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ddi",
+  "collectorNumber": "71",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIRE_OWL: CardData = {
+  "scryfallId": "c66b2aa6-e891-4ae5-b6c9-1537b797c3ab",
+  "oracleId": "7fa1eca4-0db1-446b-b3cb-15a619ffa97b",
+  "name": "Spire Owl",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spire Owl",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying\nWhen this creature enters, look at the top four cards of your library, then put them back in any order.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Steve Firchow",
+      "imageId": "c66b2aa6-e891-4ae5-b6c9-1537b797c3ab"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "usg",
+  "collectorNumber": "98",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIRITED_COMPANION: CardData = {
+  "scryfallId": "5aa91a9e-2fe2-43bc-aa9c-cfb8a71829ff",
+  "oracleId": "9c5f0d91-9d86-4e66-94fd-4af93ad01838",
+  "name": "Spirited Companion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spirited Companion",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment Creature — Dog",
+      "oracleText": "When this creature enters, draw a card.",
+      "flavorText": "She formed a friendship with several playful spirits, and soon \"the pack\" was known as the source of much mischief in Eiganjo.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Ilse Gort",
+      "imageId": "5aa91a9e-2fe2-43bc-aa9c-cfb8a71829ff"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "neo",
+  "collectorNumber": "38",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIRITUAL_GUARDIAN: CardData = {
+  "scryfallId": "0dbea02f-9124-4e1a-8693-d988a0a3adae",
+  "oracleId": "d03860b4-c663-4230-9200-6b89fa849ae7",
+  "name": "Spiritual Guardian",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spiritual Guardian",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "When this creature enters, you gain 4 life.",
+      "flavorText": "Hope is born within.",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "0dbea02f-9124-4e1a-8693-d988a0a3adae"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "por",
+  "collectorNumber": "27",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPITE_OF_MOGIS: CardData = {
+  "scryfallId": "5676d255-707e-4621-a0df-3305f999f124",
+  "oracleId": "aab5f76b-1eb0-4fbc-ab01-593161083c16",
+  "name": "Spite of Mogis",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spite of Mogis",
+      "manaCost": "{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Spite of Mogis deals damage to target creature equal to the number of instant and sorcery cards in your graveyard. Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Vincent Proce",
+      "imageId": "5676d255-707e-4621-a0df-3305f999f124"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "jou",
+  "collectorNumber": "113",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPITEFUL_BLOW: CardData = {
+  "scryfallId": "fafaa798-e534-4cd0-b369-9e767a02fe3d",
+  "oracleId": "25a20f94-1703-4bcd-862d-f2db7014ba90",
+  "name": "Spiteful Blow",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spiteful Blow",
+      "manaCost": "{4}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target creature and target land.",
+      "flavorText": "\"Only a fool takes Phenax at his word. What do you expect from a god born of lies and betrayal?\"\n—Verenes, priest of Iroas",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jason Chan",
+      "imageId": "fafaa798-e534-4cd0-b369-9e767a02fe3d"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "jou",
+  "collectorNumber": "83",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPITTING_EARTH: CardData = {
+  "scryfallId": "084c7899-c6a9-4ea3-b801-400b71a72479",
+  "oracleId": "0c3bf4e1-d91e-4dd3-a800-e40971222c71",
+  "name": "Spitting Earth",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spitting Earth",
+      "manaCost": "{1}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Spitting Earth deals damage to target creature equal to the number of Mountains you control.",
+      "flavorText": "\"Within each of you is the strength of a landslide.\"\n—Kumano, to his pupils",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Michael Koelsch",
+      "imageId": "084c7899-c6a9-4ea3-b801-400b71a72479"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dd1",
+  "collectorNumber": "55",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPLASH_PORTAL: CardData = {
+  "scryfallId": "adbaa356-28ba-487f-930a-a957d9960ab0",
+  "oracleId": "29b537f5-4d9f-40ed-b38b-e8faa2b5af7d",
+  "name": "Splash Portal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Splash Portal",
+      "manaCost": "{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Exile target creature you control, then return it to the battlefield under its owner's control. If that creature is a Bird, Frog, Otter, or Rat, draw a card.",
+      "flavorText": "\"Don't ask me how it works. If I stopped long enough to question it, I'd lose my legs.\"\n—Lorb, frogfolk wizard",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Caio Monteiro",
+      "imageId": "adbaa356-28ba-487f-930a-a957d9960ab0"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "blb",
+  "collectorNumber": "74",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPLATTER_GOBLIN: CardData = {
+  "scryfallId": "5045027d-0ff4-484c-b4cb-e0b61885d428",
+  "oracleId": "a7cf5b74-123c-4def-a4aa-771ecd3be260",
+  "name": "Splatter Goblin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Splatter Goblin",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Phyrexian Goblin",
+      "oracleText": "When this creature dies, target creature an opponent controls gets -1/-1 until end of turn.",
+      "flavorText": "\"For some, perfection is but a single moment when form and purpose converge.\"\n—Rona",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Lars Grant-West",
+      "imageId": "5045027d-0ff4-484c-b4cb-e0b61885d428"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dmu",
+  "collectorNumber": "109",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPOILS_OF_EVIL: CardData = {
+  "scryfallId": "fd368eb6-72f0-42d4-afa5-3daa7de949ff",
+  "oracleId": "a40c52ee-4b45-4b14-8fbc-6529b42bfc9d",
+  "name": "Spoils of Evil",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spoils of Evil",
+      "manaCost": "{2}{B}",
+      "typeLine": "Instant",
+      "oracleText": "For each artifact or creature card in target opponent's graveyard, add {C} and you gain 1 life.",
+      "flavorText": "\"Virtue has its rewards, as does its opposite.\"\n—Lim-Dûl, the Necromancer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Quinton Hoover",
+      "imageId": "fd368eb6-72f0-42d4-afa5-3daa7de949ff"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ice",
+  "collectorNumber": "163",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPORE_CRAWLER: CardData = {
+  "scryfallId": "628dbc4c-3640-44a9-8439-873103989409",
+  "oracleId": "fa7c13c0-350b-4ed6-8c16-590d2b988184",
+  "name": "Spore Crawler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spore Crawler",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Fungus",
+      "oracleText": "When this creature dies, draw a card.",
+      "flavorText": "\"Remember to come back in a few years when that fungus has died off. Then we'll see what's in the chest.\"\n—Old Rutstein",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Nicholas Gregory",
+      "imageId": "628dbc4c-3640-44a9-8439-873103989409"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "vow",
+  "collectorNumber": "222",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPREADING_ROT: CardData = {
+  "scryfallId": "3007dd28-655a-47e3-9c01-6db2f5c213a4",
+  "oracleId": "3c1b95bd-a2fc-47cd-8940-e4af03bd3ce2",
+  "name": "Spreading Rot",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spreading Rot",
+      "manaCost": "{4}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target land. Its controller loses 2 life.",
+      "flavorText": "\"What is this foul presence that defies the sun's cleansing rays?\"\n—Itzama the Crested",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Yeong-Hao Han",
+      "imageId": "3007dd28-655a-47e3-9c01-6db2f5c213a4"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "XLN-125",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPRINGMANE_CERVIN: CardData = {
+  "scryfallId": "f5b0eac4-0262-4eed-97d4-0f2e6f06c8e1",
+  "oracleId": "4e964f31-c764-4af5-8c27-a46fd721fab4",
+  "name": "Springmane Cervin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Springmane Cervin",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Elk",
+      "oracleText": "When this creature enters, you gain 2 life.",
+      "flavorText": "Cervins feed on the mana-rich plants around the star arches, imbuing their bodies with extraordinary grace and vitality.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ilse Gort",
+      "imageId": "f5b0eac4-0262-4eed-97d4-0f2e6f06c8e1"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "stx",
+  "collectorNumber": "144",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPROUTING_THRINAX: CardData = {
+  "scryfallId": "123e398b-b965-4688-962f-12b2fca3002f",
+  "oracleId": "ea74e89e-0724-4744-a6c9-e35c415624fb",
+  "name": "Sprouting Thrinax",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sprouting Thrinax",
+      "manaCost": "{B}{R}{G}",
+      "typeLine": "Creature — Lizard",
+      "oracleText": "When this creature dies, create three 1/1 green Saproling creature tokens.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G",
+        "R"
+      ],
+      "artist": "Jarreau Wimberly",
+      "imageId": "123e398b-b965-4688-962f-12b2fca3002f"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ps11",
+  "collectorNumber": "176",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPYGLASS_SIREN: CardData = {
+  "scryfallId": "24643b00-9062-42bd-9ecd-f6990ddbca91",
+  "oracleId": "4ec9d9eb-14e2-47ea-88a2-d2394e363784",
+  "name": "Spyglass Siren",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spyglass Siren",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Siren Pirate",
+      "oracleText": "Flying\nWhen this creature enters, create a Map token. (It's an artifact with \"{1}, {T}, Sacrifice this token: Target creature you control explores. Activate only as a sorcery.\")",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "David Astruga",
+      "imageId": "24643b00-9062-42bd-9ecd-f6990ddbca91"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Flying",
+    "Explore"
+  ],
+  "setCode": "lci",
+  "collectorNumber": "405",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -60382,6 +61038,25 @@ export const ENGINE_CARDS: CardData[] = [
   SPELLKEEPER_WEIRD,
   SPHINX_S_REVELATION,
   SPIDERWIG_BOGGART,
+  SPINAL_CENTIPEDE,
+  SPINED_MEGALODON,
+  SPINNING_WHEEL,
+  SPIRALING_EMBERS,
+  SPIRE_BARRAGE,
+  SPIRE_OWL,
+  SPIRITED_COMPANION,
+  SPIRITUAL_GUARDIAN,
+  SPITE_OF_MOGIS,
+  SPITEFUL_BLOW,
+  SPITTING_EARTH,
+  SPLASH_PORTAL,
+  SPLATTER_GOBLIN,
+  SPOILS_OF_EVIL,
+  SPORE_CRAWLER,
+  SPREADING_ROT,
+  SPRINGMANE_CERVIN,
+  SPROUTING_THRINAX,
+  SPYGLASS_SIREN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

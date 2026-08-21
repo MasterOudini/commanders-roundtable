@@ -7,6 +7,25 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SPINAL_CENTIPEDE_SCRIPT } from './cards/spinalCentipede';
+import { SPINED_MEGALODON_SCRIPT } from './cards/spinedMegalodon';
+import { SPINNING_WHEEL_SCRIPT } from './cards/spinningWheel';
+import { SPIRALING_EMBERS_SCRIPT } from './cards/spiralingEmbers';
+import { SPIRE_BARRAGE_SCRIPT } from './cards/spireBarrage';
+import { SPIRE_OWL_SCRIPT } from './cards/spireOwl';
+import { SPIRITED_COMPANION_SCRIPT } from './cards/spiritedCompanion';
+import { SPIRITUAL_GUARDIAN_SCRIPT } from './cards/spiritualGuardian';
+import { SPITE_OF_MOGIS_SCRIPT } from './cards/spiteOfMogis';
+import { SPITEFUL_BLOW_SCRIPT } from './cards/spitefulBlow';
+import { SPITTING_EARTH_SCRIPT } from './cards/spittingEarth';
+import { SPLASH_PORTAL_SCRIPT } from './cards/splashPortal';
+import { SPLATTER_GOBLIN_SCRIPT } from './cards/splatterGoblin';
+import { SPOILS_OF_EVIL_SCRIPT } from './cards/spoilsOfEvil';
+import { SPORE_CRAWLER_SCRIPT } from './cards/sporeCrawler';
+import { SPREADING_ROT_SCRIPT } from './cards/spreadingRot';
+import { SPRINGMANE_CERVIN_SCRIPT } from './cards/springmaneCervin';
+import { SPROUTING_THRINAX_SCRIPT } from './cards/sproutingThrinax';
+import { SPYGLASS_SIREN_SCRIPT } from './cards/spyglassSiren';
 import { SOULS_FIRE_SCRIPT } from './cards/soulsFire';
 import { SOULS_GRACE_SCRIPT } from './cards/soulsGrace';
 import { SOULS_MAJESTY_SCRIPT } from './cards/soulsMajesty';
@@ -1585,6 +1604,25 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SPINAL_CENTIPEDE_SCRIPT,
+  SPINED_MEGALODON_SCRIPT,
+  SPINNING_WHEEL_SCRIPT,
+  SPIRALING_EMBERS_SCRIPT,
+  SPIRE_BARRAGE_SCRIPT,
+  SPIRE_OWL_SCRIPT,
+  SPIRITED_COMPANION_SCRIPT,
+  SPIRITUAL_GUARDIAN_SCRIPT,
+  SPITE_OF_MOGIS_SCRIPT,
+  SPITEFUL_BLOW_SCRIPT,
+  SPITTING_EARTH_SCRIPT,
+  SPLASH_PORTAL_SCRIPT,
+  SPLATTER_GOBLIN_SCRIPT,
+  SPOILS_OF_EVIL_SCRIPT,
+  SPORE_CRAWLER_SCRIPT,
+  SPREADING_ROT_SCRIPT,
+  SPRINGMANE_CERVIN_SCRIPT,
+  SPROUTING_THRINAX_SCRIPT,
+  SPYGLASS_SIREN_SCRIPT,
   SOULS_FIRE_SCRIPT,
   SOULS_GRACE_SCRIPT,
   SOULS_MAJESTY_SCRIPT,
