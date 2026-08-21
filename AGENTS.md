@@ -7041,6 +7041,40 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       read-off-the-dump rule; prior items stand.
 
 
+- [x] **M6.4co — TWENTY-THREE landed: the five-Staff family, and 3,400
+      crossed (2026-08-21):** **3,403 of 31,692 Commander-legal cards now
+      execute completely, up from 3,380** — the count CROSSES 3,400 on a
+      batch that TIES THE ARC RECORD (D237's 23). `SHIPPED_SCRIPTS` 1,483 →
+      **1,506, past fifteen hundred**; ledger 537 (+2, ZERO new
+      classes/tokens/supports). Decisions in **D252**.
+      **The headliner: the FIVE-STAFF TEXT FAMILY landed whole** — Death /
+      Flame / Mind / Sun / Wild Magus, one printed line each and THREE defs
+      apiece (colour cast, land-type CARD entry, land-type TOKEN entry); the
+      Death Magus carries the four-way matrix in one game, the other four
+      assert their own land arm, and the four were GENERATED from the Death
+      base so the five are provably one shape.
+      **Also:** Stargaze (the library take with `rest: 'graveyard'`, the
+      loss before the ask); Star of Extinction (20 to every creature and
+      planeswalker); Starfall (the enchantment-conditioned controller bill);
+      Stand United (the Ally-branched scry rider); Stabbing Pain (two
+      sentences, one target); Starfighter Pilot (becomes-tapped surveil);
+      the dies-counter family's THIRD id and the connect-draw family's THIRD.
+      ⚠️ Draft-time lesson: an inline `!== 41` life guard NARROWS the
+      literal type and makes a later `!== 42` a compile error — read through
+      a function to re-widen.
+      ⚠️ **Two refusals, ZERO new classes** (Square Up; Steal Strength — the
+      second-clause family's TENTH card).
+      Fixtures 1,745 (89 tokens) · botPool creature 1,818 / instant 618 /
+      sorcery 498 / artifact 113 / enchantment 54 / land 302 · ladder [1650,
+      1749, 3542, 5456, 6668] · batch.json 775 · botDeck: Sliver Queen
+      reaches 3,354.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,586
+      files, 8,326 passed / 10 skipped · 500-seed gate
+      722.4 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D252): the second-clause family at TEN cards is the
+      heaviest un-built targeting slice; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

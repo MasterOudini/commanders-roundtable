@@ -989,6 +989,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Spoils of the Hunt', 'mana-spent memory'],
   ['Spring Cleaning', 'clash mechanic'],
   ['Spurred Wolverine', 'tap-creatures cost'],
+  // D252 (M6.4co)
+  ['Square Up', 'until-end-of-turn base P/T set'],
+  ['Steal Strength', 'spell target parse (second clause)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

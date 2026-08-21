@@ -56382,6 +56382,775 @@ export const SPYGLASS_SIREN: CardData = {
   "singleImage": true
 };
 
+export const SQUALL: CardData = {
+  "scryfallId": "2fab5336-a020-4d08-87fd-d2534d98bee1",
+  "oracleId": "16fe0abe-04fa-4023-8ee0-043a076e78bb",
+  "name": "Squall",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Squall",
+      "manaCost": "{2}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Squall deals 2 damage to each creature with flying.",
+      "flavorText": "\"To-night the winds begin to rise . . . The rooks are blown about the skies . . . .\"\n—Alfred, Lord Tennyson, In Memoriam",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "2fab5336-a020-4d08-87fd-d2534d98bee1"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "me4",
+  "collectorNumber": "168",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SQUALL_DRIFTER: CardData = {
+  "scryfallId": "b3ecb728-4b54-47d0-bbef-d39e5f7d172f",
+  "oracleId": "63ec5617-0da6-4534-b502-34304b1ea02b",
+  "name": "Squall Drifter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Squall Drifter",
+      "manaCost": "{1}{W}",
+      "typeLine": "Snow Creature — Elemental",
+      "oracleText": "Flying\n{W}, {T}: Tap target creature.",
+      "flavorText": "\"The scouts claim the cold has malice, and a mind. I begin to believe them. Impassable drifts seem to appear before us at every turn.\"\n—Aevar Borg, northern guide, journal entry",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Joel Thomas",
+      "imageId": "b3ecb728-4b54-47d0-bbef-d39e5f7d172f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "csp",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STABBING_PAIN: CardData = {
+  "scryfallId": "89c31d9d-fd77-4275-b89c-f9b64073c54b",
+  "oracleId": "604ad5b3-7f11-455e-9442-65b7484238e5",
+  "name": "Stabbing Pain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stabbing Pain",
+      "manaCost": "{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets -1/-1 until end of turn. Tap that creature.",
+      "flavorText": "\"You can take the fight out of nearly any creature if you know where its soft spot is.\"\n—Guttor, flesh-warper",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Zoltan Boros & Gabor Szikszai",
+      "imageId": "89c31d9d-fd77-4275-b89c-f9b64073c54b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "m11",
+  "collectorNumber": "118",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STAFF_OF_ZEGON: CardData = {
+  "scryfallId": "397a16db-dcba-4fca-a58b-438e43d7d574",
+  "oracleId": "52c53132-146a-4912-8e0f-1d4d9937fff3",
+  "name": "Staff of Zegon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Staff of Zegon",
+      "manaCost": "{4}",
+      "typeLine": "Artifact",
+      "oracleText": "{3}, {T}: Target creature gets -2/-0 until end of turn.",
+      "flavorText": "Though Mishra was impressed by the staves Ashnod had created for Zegon's defense, he understood they only hinted at her full potential.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Mark Poole",
+      "imageId": "397a16db-dcba-4fca-a58b-438e43d7d574"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "me4",
+  "collectorNumber": "229",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STAFF_OF_THE_DEATH_MAGUS: CardData = {
+  "scryfallId": "624fe171-8bd8-4156-b40e-74e2a847d380",
+  "oracleId": "c3fda16e-fd56-434e-91ac-561ae0482f43",
+  "name": "Staff of the Death Magus",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Staff of the Death Magus",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "Whenever you cast a black spell or a Swamp you control enters, you gain 1 life.",
+      "flavorText": "A symbol of ambition in ruthless times.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "624fe171-8bd8-4156-b40e-74e2a847d380"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m14",
+  "collectorNumber": "219",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STAFF_OF_THE_FLAME_MAGUS: CardData = {
+  "scryfallId": "0fd137db-296a-4c17-ba46-8b189d96c1f9",
+  "oracleId": "fc71710a-8294-4370-89da-7ab1c2b38d19",
+  "name": "Staff of the Flame Magus",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Staff of the Flame Magus",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "Whenever you cast a red spell or a Mountain you control enters, you gain 1 life.",
+      "flavorText": "A symbol of passion in indifferent times.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "0fd137db-296a-4c17-ba46-8b189d96c1f9"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m15",
+  "collectorNumber": "233",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STAFF_OF_THE_MIND_MAGUS: CardData = {
+  "scryfallId": "cf76bee3-2b69-4c7b-9b7c-1a9f4bbcfde0",
+  "oracleId": "1466687f-cfe1-4e6e-ad8e-dca5e8e4c06d",
+  "name": "Staff of the Mind Magus",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Staff of the Mind Magus",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "Whenever you cast a blue spell or an Island you control enters, you gain 1 life.",
+      "flavorText": "A symbol of sagacity in bewildering times.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "cf76bee3-2b69-4c7b-9b7c-1a9f4bbcfde0"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m15",
+  "collectorNumber": "234",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STAFF_OF_THE_SUN_MAGUS: CardData = {
+  "scryfallId": "90a1f830-d19a-4ebf-9573-09b677693dd6",
+  "oracleId": "bd8bc927-e50a-4fab-9803-0602a841c7c2",
+  "name": "Staff of the Sun Magus",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Staff of the Sun Magus",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "Whenever you cast a white spell or a Plains you control enters, you gain 1 life.",
+      "flavorText": "A symbol of conviction in uncertain times.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "90a1f830-d19a-4ebf-9573-09b677693dd6"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m14",
+  "collectorNumber": "222",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STAFF_OF_THE_WILD_MAGUS: CardData = {
+  "scryfallId": "d207f03d-4c7b-444f-bf95-e63f7004d525",
+  "oracleId": "6bdff38d-0a52-42e5-86ea-edd7029b44f6",
+  "name": "Staff of the Wild Magus",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Staff of the Wild Magus",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "Whenever you cast a green spell or a Forest you control enters, you gain 1 life.",
+      "flavorText": "A symbol of ferocity in oppressive times.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "d207f03d-4c7b-444f-bf95-e63f7004d525"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m14",
+  "collectorNumber": "223",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STAND_UNITED: CardData = {
+  "scryfallId": "def589e7-f84a-4a13-a65a-130a687bc124",
+  "oracleId": "5a05ee6e-1812-4792-ad00-6df8fa4fd85f",
+  "name": "Stand United",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stand United",
+      "manaCost": "{1}{G/W}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +2/+2 until end of turn. If it's an Ally, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": "\"It's not about strength. Our technique is about using your opponent's force against them.\"\n—Suki",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Robin Har",
+      "imageId": "def589e7-f84a-4a13-a65a-130a687bc124"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "tle",
+  "collectorNumber": "149",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STAR_OF_EXTINCTION: CardData = {
+  "scryfallId": "021f57dc-80f3-4ede-99d5-4a44aade44e2",
+  "oracleId": "48220e6c-5752-46e0-9b7f-f0eef274d929",
+  "name": "Star of Extinction",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Star of Extinction",
+      "manaCost": "{5}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target land. Star of Extinction deals 20 damage to each creature and each planeswalker.",
+      "flavorText": "\"The visions haunt me. I see the end of the world, brought on by the search for the Immortal Sun.\"\n—Shaper Pashona",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chris Rahn",
+      "imageId": "021f57dc-80f3-4ede-99d5-4a44aade44e2"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "xln",
+  "collectorNumber": "161",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STARFALL: CardData = {
+  "scryfallId": "13921f0d-f163-4275-b025-045c1ccd99e5",
+  "oracleId": "b2c840a7-24b4-4ae3-a13f-ed524e18d488",
+  "name": "Starfall",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Starfall",
+      "manaCost": "{4}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Starfall deals 3 damage to target creature. If that creature is an enchantment, Starfall deals 3 damage to that creature's controller.",
+      "flavorText": "\"The most brilliant stars are not born of Nyx.\"\n—Rhexenor, Akroan flamespeaker",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chris Rahn",
+      "imageId": "13921f0d-f163-4275-b025-045c1ccd99e5"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "jou",
+  "collectorNumber": "114",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STARFIGHTER_PILOT: CardData = {
+  "scryfallId": "1e571246-aadc-4d1f-a284-9a529e150fe0",
+  "oracleId": "fd6afb5e-d99a-44a7-9af4-9f064da95d63",
+  "name": "Starfighter Pilot",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Starfighter Pilot",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Pilot",
+      "oracleText": "Whenever this creature becomes tapped, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "\"Brightstar-1 to FlightComm: Scopes are clear. The stars are yours.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Nathaniel Himawan",
+      "imageId": "1e571246-aadc-4d1f-a284-9a529e150fe0"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "eoe",
+  "collectorNumber": "38",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STARGAZE: CardData = {
+  "scryfallId": "5c9caa7b-0268-4606-a71d-82dff16e6418",
+  "oracleId": "db8b4869-f898-40ad-bbad-62390a02d1b1",
+  "name": "Stargaze",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stargaze",
+      "manaCost": "{X}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Look at twice X cards from the top of your library. Put X cards from among them into your hand and the rest into your graveyard. You lose X life.",
+      "flavorText": "\"I stay away from poems about the night. It's beautiful, yes, but somehow it always feels just a little bit hungry.\"\n—Abigale",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Paul Adam",
+      "imageId": "5c9caa7b-0268-4606-a71d-82dff16e6418"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "soa",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STARK_INDUSTRIES: CardData = {
+  "scryfallId": "fe3609d8-71a2-49d9-a3fa-25e0906a1a0e",
+  "oracleId": "52401cb4-1bce-4191-9220-0d93ea4108b8",
+  "name": "Stark Industries",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stark Industries",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {U} or {R}.",
+      "flavorText": "\"Good to see the new industrial-scale reactor is almost online. Too bad I'm already designing the next one.\"\n—Tony Stark",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Leon Tukker",
+      "imageId": "fe3609d8-71a2-49d9-a3fa-25e0906a1a0e"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "msh",
+  "collectorNumber": "272",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STARK_INDUSTRIES_EXECUTIVE: CardData = {
+  "scryfallId": "709ffd07-706c-471f-b74d-4637afa11686",
+  "oracleId": "7c07970d-063a-44a1-9761-b80aafa90dac",
+  "name": "Stark Industries Executive",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stark Industries Executive",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Human Advisor",
+      "oracleText": "{2}, {T}: Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "\"Tony's ideas are . . . expensive. Someone has to make sure we can put them into practice.\"\n—Pepper Potts",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Xabi Gaztelua",
+      "imageId": "709ffd07-706c-471f-b74d-4637afa11686"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "msh",
+  "collectorNumber": "153",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STARLIGHT: CardData = {
+  "scryfallId": "413c5a7e-e19d-4cbd-9279-88391b75c6c5",
+  "oracleId": "6237896e-f033-41b2-9943-670f1becb582",
+  "name": "Starlight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Starlight",
+      "manaCost": "{1}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "You gain 3 life for each black creature target opponent controls.",
+      "flavorText": "\"Even in the darkest night\nStars and angels still shine bright.\"\n—Onean children's rhyme",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Brian Despain",
+      "imageId": "413c5a7e-e19d-4cbd-9279-88391b75c6c5"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "7ed",
+  "collectorNumber": "49★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STARLIGHT_INVOKER: CardData = {
+  "scryfallId": "4c66afc4-3d6d-4ce7-acfc-a4ad34aa3e99",
+  "oracleId": "4d27a90b-dae4-48a0-9eb2-e199ff548867",
+  "name": "Starlight Invoker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Starlight Invoker",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Cleric Mutant",
+      "oracleText": "{7}{W}: You gain 5 life.",
+      "flavorText": "The Mirari glows in her eyes.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Glen Angus",
+      "imageId": "4c66afc4-3d6d-4ce7-acfc-a4ad34aa3e99"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "lgn",
+  "collectorNumber": "20",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STARVED_RUSALKA: CardData = {
+  "scryfallId": "25b4aec5-0a7d-4b1c-8819-ea675d415eac",
+  "oracleId": "0a57ac2e-276b-41ea-89f4-287f530114c6",
+  "name": "Starved Rusalka",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Starved Rusalka",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "{G}, Sacrifice a creature: You gain 1 life.",
+      "flavorText": "\"No more wretched fate is there than to waste away. If you are slain, your ghost may at least avenge itself upon your killer. But what release is there for one slain by Time?\"\n—Ilromov, traveling storyteller",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dany Orizio",
+      "imageId": "25b4aec5-0a7d-4b1c-8819-ea675d415eac"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "gpt",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STAUNCH_DEFENDERS: CardData = {
+  "scryfallId": "00d2c54f-a1f4-4015-a4f3-8cd360fa466d",
+  "oracleId": "ec8bf245-4b2c-432b-9b2a-8d7b9224258c",
+  "name": "Staunch Defenders",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Staunch Defenders",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "When this creature enters, you gain 4 life.",
+      "flavorText": "\"Hold your position! Leave doubt for the dying!\"\n—Tahngarth of the *Weatherlight*",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mark Poole",
+      "imageId": "00d2c54f-a1f4-4015-a4f3-8cd360fa466d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "6ed",
+  "collectorNumber": "45",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STEADFAST_SENTRY: CardData = {
+  "scryfallId": "8d92614e-05da-4b5c-a98b-addf8ab2de7b",
+  "oracleId": "e0f676ab-f859-4d4f-abe0-d033ffd3c396",
+  "name": "Steadfast Sentry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Steadfast Sentry",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Vigilance (Attacking doesn't cause this creature to tap.)\nWhen this creature dies, put a +1/+1 counter on target creature you control.",
+      "flavorText": "\"Get up, slugabeds! We've got company, and they're not dressed for a party!\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Bram Sels",
+      "imageId": "8d92614e-05da-4b5c-a98b-addf8ab2de7b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "m20",
+  "collectorNumber": "40",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STEALER_OF_SECRETS: CardData = {
+  "scryfallId": "02acbe9b-fac7-4135-8318-5f3dc93a9e58",
+  "oracleId": "8f9535f2-f00c-40d3-9997-d1c0ece15f9f",
+  "name": "Stealer of Secrets",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stealer of Secrets",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Rogue",
+      "oracleText": "Whenever this creature deals combat damage to a player, draw a card.",
+      "flavorText": "The Dimir would hire her, if only they knew where she lived. The Azorius would condemn her, if only they knew her name.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Michael C. Hayes",
+      "imageId": "02acbe9b-fac7-4135-8318-5f3dc93a9e58"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "w17",
+  "collectorNumber": "13",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STEAM_BLAST: CardData = {
+  "scryfallId": "144a1b4e-d960-4c3a-810b-11a0c78635ad",
+  "oracleId": "92f4bdfd-1c84-4541-bc46-2a65c39de717",
+  "name": "Steam Blast",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Steam Blast",
+      "manaCost": "{2}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Steam Blast deals 2 damage to each creature and each player.",
+      "flavorText": "The viashino knew of the cracked pipes but deliberately left them unmended to bolster the rig's defenses.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mike Raabe",
+      "imageId": "144a1b4e-d960-4c3a-810b-11a0c78635ad"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "usg",
+  "collectorNumber": "219",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -61057,6 +61826,29 @@ export const ENGINE_CARDS: CardData[] = [
   SPRINGMANE_CERVIN,
   SPROUTING_THRINAX,
   SPYGLASS_SIREN,
+  SQUALL,
+  SQUALL_DRIFTER,
+  STABBING_PAIN,
+  STAFF_OF_ZEGON,
+  STAFF_OF_THE_DEATH_MAGUS,
+  STAFF_OF_THE_FLAME_MAGUS,
+  STAFF_OF_THE_MIND_MAGUS,
+  STAFF_OF_THE_SUN_MAGUS,
+  STAFF_OF_THE_WILD_MAGUS,
+  STAND_UNITED,
+  STAR_OF_EXTINCTION,
+  STARFALL,
+  STARFIGHTER_PILOT,
+  STARGAZE,
+  STARK_INDUSTRIES,
+  STARK_INDUSTRIES_EXECUTIVE,
+  STARLIGHT,
+  STARLIGHT_INVOKER,
+  STARVED_RUSALKA,
+  STAUNCH_DEFENDERS,
+  STEADFAST_SENTRY,
+  STEALER_OF_SECRETS,
+  STEAM_BLAST,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

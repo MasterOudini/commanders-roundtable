@@ -7,6 +7,29 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SQUALL_SCRIPT } from './cards/squall';
+import { SQUALL_DRIFTER_SCRIPT } from './cards/squallDrifter';
+import { STABBING_PAIN_SCRIPT } from './cards/stabbingPain';
+import { STAFF_OF_THE_DEATH_MAGUS_SCRIPT } from './cards/staffOfTheDeathMagus';
+import { STAFF_OF_THE_FLAME_MAGUS_SCRIPT } from './cards/staffOfTheFlameMagus';
+import { STAFF_OF_THE_MIND_MAGUS_SCRIPT } from './cards/staffOfTheMindMagus';
+import { STAFF_OF_THE_SUN_MAGUS_SCRIPT } from './cards/staffOfTheSunMagus';
+import { STAFF_OF_THE_WILD_MAGUS_SCRIPT } from './cards/staffOfTheWildMagus';
+import { STAFF_OF_ZEGON_SCRIPT } from './cards/staffOfZegon';
+import { STAND_UNITED_SCRIPT } from './cards/standUnited';
+import { STAR_OF_EXTINCTION_SCRIPT } from './cards/starOfExtinction';
+import { STARFALL_SCRIPT } from './cards/starfall';
+import { STARFIGHTER_PILOT_SCRIPT } from './cards/starfighterPilot';
+import { STARGAZE_SCRIPT } from './cards/stargaze';
+import { STARK_INDUSTRIES_SCRIPT } from './cards/starkIndustries';
+import { STARK_INDUSTRIES_EXECUTIVE_SCRIPT } from './cards/starkIndustriesExecutive';
+import { STARLIGHT_SCRIPT } from './cards/starlight';
+import { STARLIGHT_INVOKER_SCRIPT } from './cards/starlightInvoker';
+import { STARVED_RUSALKA_SCRIPT } from './cards/starvedRusalka';
+import { STAUNCH_DEFENDERS_SCRIPT } from './cards/staunchDefenders';
+import { STEADFAST_SENTRY_SCRIPT } from './cards/steadfastSentry';
+import { STEALER_OF_SECRETS_SCRIPT } from './cards/stealerOfSecrets';
+import { STEAM_BLAST_SCRIPT } from './cards/steamBlast';
 import { SPINAL_CENTIPEDE_SCRIPT } from './cards/spinalCentipede';
 import { SPINED_MEGALODON_SCRIPT } from './cards/spinedMegalodon';
 import { SPINNING_WHEEL_SCRIPT } from './cards/spinningWheel';
@@ -1604,6 +1627,29 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SQUALL_SCRIPT,
+  SQUALL_DRIFTER_SCRIPT,
+  STABBING_PAIN_SCRIPT,
+  STAFF_OF_THE_DEATH_MAGUS_SCRIPT,
+  STAFF_OF_THE_FLAME_MAGUS_SCRIPT,
+  STAFF_OF_THE_MIND_MAGUS_SCRIPT,
+  STAFF_OF_THE_SUN_MAGUS_SCRIPT,
+  STAFF_OF_THE_WILD_MAGUS_SCRIPT,
+  STAFF_OF_ZEGON_SCRIPT,
+  STAND_UNITED_SCRIPT,
+  STAR_OF_EXTINCTION_SCRIPT,
+  STARFALL_SCRIPT,
+  STARFIGHTER_PILOT_SCRIPT,
+  STARGAZE_SCRIPT,
+  STARK_INDUSTRIES_SCRIPT,
+  STARK_INDUSTRIES_EXECUTIVE_SCRIPT,
+  STARLIGHT_SCRIPT,
+  STARLIGHT_INVOKER_SCRIPT,
+  STARVED_RUSALKA_SCRIPT,
+  STAUNCH_DEFENDERS_SCRIPT,
+  STEADFAST_SENTRY_SCRIPT,
+  STEALER_OF_SECRETS_SCRIPT,
+  STEAM_BLAST_SCRIPT,
   SPINAL_CENTIPEDE_SCRIPT,
   SPINED_MEGALODON_SCRIPT,
   SPINNING_WHEEL_SCRIPT,

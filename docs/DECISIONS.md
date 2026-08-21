@@ -16320,3 +16320,61 @@ clean · probe 124/124 · battery 130/130.**
 ⚠️ **Reportables** (D251): subtype identity is a classification read —
 Drake ≠ Bird joins the read-off-the-dump rule (mana costs D215, P/T D250,
 type lines D241, subtypes now); prior items stand.
+
+## D252 — M6.4co: TWENTY-THREE landed — the five-Staff family, and 3,400 crossed (2026-08-21)
+
+**3,403 of 31,692 Commander-legal cards execute completely, up from 3,380 —
+the count CROSSES THREE THOUSAND FOUR HUNDRED**, on a batch that TIES THE ARC
+RECORD (D237's 23). SHIPPED_SCRIPTS 1,483 → **1,506 — past FIFTEEN HUNDRED**;
+ledger 535 → 537 (+2, ZERO new classes, zero new tokens, zero new support
+bodies).
+
+**The headliner: the FIVE-STAFF TEXT FAMILY, landed whole in one batch.**
+`Staff of the Death / Flame / Mind / Sun / Wild Magus` print one line each —
+"Whenever you cast a «colour» spell or a «land type» you control enters, you
+gain 1 life" — and each needs **THREE defs**: the colour cast-watcher, the
+land-type CARD entry, and the land-type TOKEN entry (nothing in the printed
+line exempts a token land). The Death Magus carries the four-way matrix in
+one game — a black cast pays, a red cast does not, a Swamp entry pays, a
+Mountain entry does not — and the other four assert their own land arm; the
+four variants were GENERATED from the Death base by a node script, so the
+five are provably the same shape.
+
+**Also:** `Stargaze` — the SpellDef-raised library TAKE with
+`rest: 'graveyard'`: look at 2X, X to hand, the remainder binned, the life
+loss emitted BEFORE the ask (Demon's Due's order). `Star of Extinction` —
+destroy the land, then 20 damage to EVERY creature and planeswalker.
+`Starfall` — the controller bill conditioned on the victim being an
+ENCHANTMENT, read on the derived types before the damage lands (Spirited
+Companion the fixture, a plain Bears the negative). `Stand United` — the
+Ally-branched scry rider (Sokka the Ally; a Bears gets only the pump).
+`Stabbing Pain` — two sentences, ONE target: the anaphora resolves in a
+single pass, and the Bears ends a tapped 1/1. `Starfighter Pilot` — the
+becomes-tapped surveil. `Steadfast Sentry` is the dies-counter family's
+THIRD id and `Stealer of Secrets` the connect-draw family's THIRD; `Staunch
+Defenders` carries Spiritual Guardian's exact text; `Squall Drifter` puts
+the Trapper tap line on a SNOW creature. Plus Squall, Staff of Zegon,
+Stark Industries (the refuge), Stark Industries Executive (the priced
+Treasure), Starlight, Starlight Invoker, Starved Rusalka, Steam Blast.
+
+⚠️ **A draft-time TypeScript lesson worth keeping:** the Staff matrix test
+guards life inline four times, and an inline `!== 41` NARROWS the literal
+type — TypeScript then rejects the later `!== 42` as impossible ("types '41'
+and '42' have no overlap"). Reading through a `life(g)` function re-widens
+it. Nothing about the engine; entirely about how the assertion is written.
+
+⚠️ **Two refusals, ZERO new classes:** Square Up (until-end-of-turn base P/T
+set) and Steal Strength (the second-clause parse — a sentence-initial
+"Another target creature", Consume Strength's probed shape, and the family's
+TENTH card).
+
+Fixtures 1,722 → 1,745 (89 tokens). botPool creature 1,818 / instant 618 /
+sorcery 498 / artifact 113 / enchantment 54 / land 302 · ladder [1650, 1749,
+3542, 5456, 6668] · batch.json 775 · botDeck: Sliver Queen reaches 3,354.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,586 files,
+8,326 passed / 10 skipped · 500-seed gate 722.4 s · build clean
+· probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D252): the second-clause parse family is at TEN cards and
+is now the heaviest un-built targeting slice; prior items stand.
