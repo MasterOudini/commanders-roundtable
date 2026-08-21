@@ -6566,6 +6566,34 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       items stand.
 
 
+- [x] **M6.4by — Eighteen landed: counters with riders (2026-08-21):**
+      **3,104 of 31,692 Commander-legal cards now execute completely, up
+      from 3,086 — past thirty-one hundred.** `SHIPPED_SCRIPTS`
+      1,189 → 1,207; ledger 436. All 39 tests FIRST-RUN green — the
+      twelfth such batch. Decisions in **D236**.
+      **The headliners:** Psychic Barrier + Punish Ignorance (the
+      counter-with-riders family's typed and four-colour ends — the
+      countered CONTROLLER read before the SpellCountered); Public
+      Execution (the PROBED-ENFORCED 'an opponent controls' spec, victim
+      exempt from its own aftermath); Puncture Blast (the spell ITSELF
+      has wither — counters on creatures, life off players); Rabid Gnaw
+      (the biter's power read AFTER its own pump); Putrefy (damnation
+      client #14); Quandrix Campus + Racers' Ring (the paid-scry and
+      sac-draw lands).
+      ⚠️ **Seven refusals, ZERO new classes — two PROBED:** Purge and
+      Radiant Strike both compound-halve to bare 'artifact' (the
+      noun-list family; the sweep-probe gains weight).
+      Fixtures 1,436 (81 tokens) · botPool creature 1,688 / instant 573
+      / sorcery 425 / land 283 · ladder [1949, 2048, 3841, 5755, 6967] ·
+      batch.json 1,175 · botDeck: Adun reaches 1,749.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,287
+      files, 7,105 passed / 10 skipped · 500-seed gate
+      749.2 s · build clean · probe 124/124 · battery
+      130/130.**
+      ⚠️ **Reportables** (D236): the compound sweep-probe; prior items
+      stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

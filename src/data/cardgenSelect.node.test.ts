@@ -867,6 +867,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Prince Imrahil the Fair', 'once-per-turn trigger memory'],
   ['Prismatic Lace', 'color change (indefinite)'],
   ['Prying Questions', 'script-raised prompt'],
+  // D236 (M6.4by)
+  ['Psychic Trance', 'temporary non-keyword ability grant'],
+  ['Pulse of the Fields', 'spell relocates itself on resolution'],
+  ['Pulse of the Forge', 'spell relocates itself on resolution'],
+  ['Purelace', 'color change (indefinite)'],
+  ['Purge', 'spell target parse (noun list)'],
+  ['Radiant Flames', 'converge (cast-time mana-color memory)'],
+  ['Radiant Strike', 'spell target parse (noun list)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

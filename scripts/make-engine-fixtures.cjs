@@ -1762,6 +1762,25 @@ const WANTED = [
   'Provoke the Trolls',
   'Pseudodragon Familiar',
   'Psionic Blast',
+  // D236 (M6.4by)
+  'Psychic Barrier',
+  'Public Execution',
+  'Puncture Blast',
+  'Punish Ignorance',
+  'Punish the Enemy',
+  'Purify',
+  'Purple-Crystal Crab',
+  'Putrefy',
+  'Pym Technologies',
+  'Pyroclasm',
+  'Pyroclastic Elemental',
+  'Quagmire Druid',
+  'Quandrix Campus',
+  'Rabid Gnaw',
+  "Racers' Ring",
+  'Rack and Ruin',
+  'Radiating Lightning',
+  'Rage-Scarred Berserker',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

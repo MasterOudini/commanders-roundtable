@@ -7,6 +7,24 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { PSYCHIC_BARRIER_SCRIPT } from './cards/psychicBarrier';
+import { PUBLIC_EXECUTION_SCRIPT } from './cards/publicExecution';
+import { PUNCTURE_BLAST_SCRIPT } from './cards/punctureBlast';
+import { PUNISH_IGNORANCE_SCRIPT } from './cards/punishIgnorance';
+import { PUNISH_THE_ENEMY_SCRIPT } from './cards/punishTheEnemy';
+import { PURIFY_SCRIPT } from './cards/purify';
+import { PURPLE_CRYSTAL_CRAB_SCRIPT } from './cards/purpleCrystalCrab';
+import { PUTREFY_SCRIPT } from './cards/putrefy';
+import { PYM_TECHNOLOGIES_SCRIPT } from './cards/pymTechnologies';
+import { PYROCLASM_SCRIPT } from './cards/pyroclasm';
+import { PYROCLASTIC_ELEMENTAL_SCRIPT } from './cards/pyroclasticElemental';
+import { QUAGMIRE_DRUID_SCRIPT } from './cards/quagmireDruid';
+import { QUANDRIX_CAMPUS_SCRIPT } from './cards/quandrixCampus';
+import { RABID_GNAW_SCRIPT } from './cards/rabidGnaw';
+import { RACERS_RING_SCRIPT } from './cards/racersRing';
+import { RACK_AND_RUIN_SCRIPT } from './cards/rackAndRuin';
+import { RADIATING_LIGHTNING_SCRIPT } from './cards/radiatingLightning';
+import { RAGE_SCARRED_BERSERKER_SCRIPT } from './cards/rageScarredBerserker';
 import { PRIDE_GUARDIAN_SCRIPT } from './cards/prideGuardian';
 import { PRIDEFUL_PARENT_SCRIPT } from './cards/pridefulParent';
 import { PRIEST_OF_IROAS_SCRIPT } from './cards/priestOfIroas';
@@ -1310,6 +1328,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PSYCHIC_BARRIER_SCRIPT,
+  PUBLIC_EXECUTION_SCRIPT,
+  PUNCTURE_BLAST_SCRIPT,
+  PUNISH_IGNORANCE_SCRIPT,
+  PUNISH_THE_ENEMY_SCRIPT,
+  PURIFY_SCRIPT,
+  PURPLE_CRYSTAL_CRAB_SCRIPT,
+  PUTREFY_SCRIPT,
+  PYM_TECHNOLOGIES_SCRIPT,
+  PYROCLASM_SCRIPT,
+  PYROCLASTIC_ELEMENTAL_SCRIPT,
+  QUAGMIRE_DRUID_SCRIPT,
+  QUANDRIX_CAMPUS_SCRIPT,
+  RABID_GNAW_SCRIPT,
+  RACERS_RING_SCRIPT,
+  RACK_AND_RUIN_SCRIPT,
+  RADIATING_LIGHTNING_SCRIPT,
+  RAGE_SCARRED_BERSERKER_SCRIPT,
   PRIDE_GUARDIAN_SCRIPT,
   PRIDEFUL_PARENT_SCRIPT,
   PRIEST_OF_IROAS_SCRIPT,

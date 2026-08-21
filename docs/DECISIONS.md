@@ -15476,3 +15476,48 @@ botDeck: Adun reaches 1,737 from 68 legendaries.
 
 **Reportables:** the hand-ask destination (library-top) is a cheap
 widening of the D137 prompt when its family grows; prior items stand.
+
+## D236 — M6.4by: eighteen landed — counters with riders, and the compound the probe halved twice (2026-08-21)
+
+**3,104 of 31,692 Commander-legal cards now execute completely, up from
+3,086 — past thirty-one hundred.** `SHIPPED_SCRIPTS` 1,189 → 1,207;
+the REFUSED ledger holds 436 (+7, zero new classes). All 39 tests green
+on the FIRST run — the twelfth first-run-clean batch.
+
+**The headliners:** `Psychic Barrier` and `Punish Ignorance` land
+the counter-with-riders family's typed and four-colour ends (the
+countered spell's CONTROLLER is read before the SpellCountered — one
+loses 1, the other drains 3 and gains 3; both tests cast the victim
+from the OPPONENT'S seat on their turn and aim at the stack top);
+`Public Execution` rides the PROBED-ENFORCED 'an opponent controls'
+spec (my own creature is not a legal victim) and exempts the victim
+from its own -2/-0 aftermath; `Puncture Blast` is the spell that
+ITSELF has wither — creatures wear its 3 as -1/-1 counters while a
+player just loses life (the applyAs branch on target kind, the whole
+text incl. the reminder claimed per Marrow Shards); `Rabid Gnaw`
+reads the biter's power AFTER its own +1/+0.
+
+**Also:** `Rage-Scarred Berserker`'s pump-and-indestructible rider on
+D194's carrier; `Putrefy` (damnation tripwire client #14);
+`Quandrix Campus` beside Prismari's paid scry; `Racers' Ring`'s
+three-line self-sac draw; `Radiating Lightning`'s player-and-board
+fan (the mixed-target hit() helper — never a cast); `Purify`'s
+two-type wipe; `Pyroclasm`; `Pym Technologies`; the
+`Rakdos`-family stones next batch.
+
+**Seven refusals, ZERO new classes — two PROBED:** Purge's 'artifact
+creature or black creature' and Radiant Strike's 'artifact or tapped
+creature' BOTH parse confident to bare 'artifact' — modifier arms are
+silently dropped, the noun-list family's exact hole, two more cards for
+the compound sweep-probe. Plus Psychic Trance (temporary non-keyword
+ability grant), both Pulses (spell relocates itself), Purelace (color
+change), Radiant Flames (converge).
+
+**Measured after landing:** primitives complete 3,104 · blocked 28,588 ·
+scriptableToday 1,949 · ladder [1949, 2048, 3841, 5755, 6967] · botPool
+creature 1,688 / instant 573 / sorcery 425 / land 283 · fixtures 1,436
+(81 tokens — none new) · batch.json 1,175 · botDeck: Adun reaches 1,749
+from 68 legendaries.
+
+**Reportables:** the noun-list/compound sweep-probe keeps gaining
+weight; prior items stand.
