@@ -1996,6 +1996,28 @@ const WANTED = [
   'Simic Cluestone',
   'Simic Locket',
   'Simoon',
+  'Sinister Hideout',
+  'Sinister Starfish',
+  'Sip of Hemlock',
+  "Siren's Ruse",
+  // D248 support: a Pirate, for Siren's Ruse's conditional draw.
+  'Daring Buccaneer',
+  'Sizzle',
+  'Skarrg, the Rage Pits',
+  'Skinrender',
+  'Skirsdag Cultist',
+  'Skirsdag Flayer',
+  'Skred',
+  'Skulduggery',
+  'Skull Catapult',
+  'Skybeast Tracker',
+  'Skybridge Towers',
+  'Skyclave Cleric // Skyclave Basilica',
+  'Skyreaping',
+  'Skyscanner',
+  'Slagdrill Scrapper',
+  'Slash of Light',
+  "Slayers' Stronghold",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

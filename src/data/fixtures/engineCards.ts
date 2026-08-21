@@ -53811,6 +53811,731 @@ export const SIMOON: CardData = {
   "singleImage": true
 };
 
+export const SINISTER_HIDEOUT: CardData = {
+  "scryfallId": "23190d7e-5165-49bd-b307-bf81877d228d",
+  "oracleId": "80f08b47-a237-4efd-8d86-dfe35a816b0e",
+  "name": "Sinister Hideout",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sinister Hideout",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {U} or {B}.\n{4}, {T}: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "Under the sea it stands the hidden headquarters of the Master Planner and his band of strangely-garbed criminals.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Pavel Kolomeyets",
+      "imageId": "23190d7e-5165-49bd-b307-bf81877d228d"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "spm",
+  "collectorNumber": "184",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SINISTER_STARFISH: CardData = {
+  "scryfallId": "5f75b7f4-249c-4b10-a06d-6b7654cccc46",
+  "oracleId": "58321467-41d6-4419-bcb2-cd3e60f677b3",
+  "name": "Sinister Starfish",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sinister Starfish",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Starfish",
+      "oracleText": "{T}: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "\"Throw that one back. I don't like how it's looking at me.\"\n—Netos, Meletian fisherman",
+      "power": "0",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "5f75b7f4-249c-4b10-a06d-6b7654cccc46"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "mkc",
+  "collectorNumber": "140",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIP_OF_HEMLOCK: CardData = {
+  "scryfallId": "22051427-9b2a-4571-8c9f-ee84d8d0e4d1",
+  "oracleId": "861096be-dbb3-429e-820f-d82f6ed2aa24",
+  "name": "Sip of Hemlock",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sip of Hemlock",
+      "manaCost": "{4}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target creature. Its controller loses 2 life.",
+      "flavorText": "Conspirators poisoned the oracle not because her visions were wrong, but because they were right.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "22051427-9b2a-4571-8c9f-ee84d8d0e4d1"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "ths",
+  "collectorNumber": "106",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIREN_S_RUSE: CardData = {
+  "scryfallId": "8f389872-d1f4-4828-a527-e820a6f2ac21",
+  "oracleId": "58a55d14-b03b-4648-b168-ad35ff088b19",
+  "name": "Siren's Ruse",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Siren's Ruse",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Exile target creature you control, then return that card to the battlefield under its owner's control. If a Pirate was exiled this way, draw a card.",
+      "flavorText": "Deception and misdirection are the heart of the pirate's arsenal.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ben Maier",
+      "imageId": "8f389872-d1f4-4828-a527-e820a6f2ac21"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "xln",
+  "collectorNumber": "80",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DARING_BUCCANEER: CardData = {
+  "scryfallId": "1d413b88-8f5d-415f-bd07-169f6c175e6b",
+  "oracleId": "1e6f2997-a84b-4302-9d8b-ca4928961d24",
+  "name": "Daring Buccaneer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Daring Buccaneer",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Human Pirate",
+      "oracleText": "As an additional cost to cast this spell, reveal a Pirate card from your hand or pay {2}.",
+      "flavorText": "No ancient lore ties the pirates of the Brazen Coalition to the Immortal Sun. But it's a powerful ancient artifact in a city of gold—what's not to covet?",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jason Rainville",
+      "imageId": "1d413b88-8f5d-415f-bd07-169f6c175e6b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "rix",
+  "collectorNumber": "98",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIZZLE: CardData = {
+  "scryfallId": "5d39efe8-9676-4e82-8e5e-0ed2f4bcbcac",
+  "oracleId": "938cc97f-3908-401e-94cd-32004aff1ef1",
+  "name": "Sizzle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sizzle",
+      "manaCost": "{2}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Sizzle deals 3 damage to each opponent.",
+      "flavorText": "\"Of course you should fight fire with fire. You should fight *everything* with fire.\"\n—Jaya Ballard, task mage",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "5d39efe8-9676-4e82-8e5e-0ed2f4bcbcac"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "224★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKARRG_THE_RAGE_PITS: CardData = {
+  "scryfallId": "3340d094-fe13-4087-abba-27e8c9a7f3c7",
+  "oracleId": "92bac34e-2045-4331-842f-185711c1ac56",
+  "name": "Skarrg, the Rage Pits",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skarrg, the Rage Pits",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{R}{G}, {T}: Target creature gets +1/+1 and gains trample until end of turn.",
+      "flavorText": "\"This palace will be our fire-spit, and roasted prince our victory meal. Send in the torch-pigs!\"\n—Ghut Rak, Gruul guildmage",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Martina Pilcerova",
+      "imageId": "3340d094-fe13-4087-abba-27e8c9a7f3c7"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "pca",
+  "collectorNumber": "127",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKINRENDER: CardData = {
+  "scryfallId": "178bca8c-8686-414f-8c71-a582eecd273d",
+  "oracleId": "c5c225a6-6a5e-4905-9412-dad15ba645b4",
+  "name": "Skinrender",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skinrender",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Creature — Phyrexian Zombie",
+      "oracleText": "When this creature enters, put three -1/-1 counters on target creature.",
+      "flavorText": "\"Your creations are effective, Sheoldred, but we must unite the flesh, not merely flay it.\"\n—Elesh Norn, Grand Cenobite",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "David Rapoza",
+      "imageId": "178bca8c-8686-414f-8c71-a582eecd273d"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ecc",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKIRSDAG_CULTIST: CardData = {
+  "scryfallId": "66a20272-2151-4402-b79b-064c95dd26ad",
+  "oracleId": "a7fe5473-fae5-490e-8600-b7e497b9989e",
+  "name": "Skirsdag Cultist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skirsdag Cultist",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "{R}, {T}, Sacrifice a creature: This creature deals 2 damage to any target.",
+      "flavorText": "\"Within blood is life. Within life is fire. Within fire is the path to our masters' glory!\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "66a20272-2151-4402-b79b-064c95dd26ad"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ddk",
+  "collectorNumber": "53",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKIRSDAG_FLAYER: CardData = {
+  "scryfallId": "274976b0-2bb5-46e6-b62e-b50d80a77e28",
+  "oracleId": "38ea058d-f8cd-4bd9-9142-8f0d3d56d571",
+  "name": "Skirsdag Flayer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skirsdag Flayer",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{3}{B}, {T}, Sacrifice a Human: Destroy target creature.",
+      "flavorText": "Certain initiates into the Skirsdag cult take a vow of blindness, pledging obedience to none but demonkind.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Austin Hsu",
+      "imageId": "274976b0-2bb5-46e6-b62e-b50d80a77e28"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dka",
+  "collectorNumber": "74",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKRED: CardData = {
+  "scryfallId": "b3d6d42a-7607-4361-acc4-7f3cb956bfc9",
+  "oracleId": "026318be-e3dd-4d5c-bd77-53ce23a2e7cc",
+  "name": "Skred",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skred",
+      "manaCost": "{R}",
+      "typeLine": "Instant",
+      "oracleText": "Skred deals damage to target creature equal to the number of snow permanents you control.",
+      "flavorText": "\"This close to Rimewind Keep, no avalanche is nature's doing.\"\n—Ukoten, centaur chieftain",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "b3d6d42a-7607-4361-acc4-7f3cb956bfc9"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "csp",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKULDUGGERY: CardData = {
+  "scryfallId": "03709166-164a-4075-ad0d-ea3b516ab771",
+  "oracleId": "9100530e-2bd0-487e-a4eb-13dabd55b678",
+  "name": "Skulduggery",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skulduggery",
+      "manaCost": "{B}",
+      "typeLine": "Instant",
+      "oracleText": "Until end of turn, target creature you control gets +1/+1 and target creature an opponent controls gets -1/-1.",
+      "flavorText": "\"Why you yellow-bellied, loot-stealing, good-for-nothing, bottom-feeding, dog-faced, lily-livered...\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Miro Petrov",
+      "imageId": "03709166-164a-4075-ad0d-ea3b516ab771"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "otj",
+  "collectorNumber": "107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKULL_CATAPULT: CardData = {
+  "scryfallId": "4bce5e36-99f3-415f-9064-ea83c96eb8ef",
+  "oracleId": "eef931d8-4048-4c33-bd8c-0f67d1083ee6",
+  "name": "Skull Catapult",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skull Catapult",
+      "manaCost": "{4}",
+      "typeLine": "Artifact",
+      "oracleText": "{1}, {T}, Sacrifice a creature: This artifact deals 2 damage to any target.",
+      "flavorText": "\"Let any who doubt the evil of using the ancient devices look at this infernal machine. What manner of fiend would design such a sadistic device?\"\n—Sorine Relicbane, Soldevi heretic",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Bryon Wackwitz",
+      "imageId": "4bce5e36-99f3-415f-9064-ea83c96eb8ef"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "me2",
+  "collectorNumber": "219",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKYBEAST_TRACKER: CardData = {
+  "scryfallId": "a08da5c6-ebe7-4166-99d5-2aca5b0b529f",
+  "oracleId": "2c53a913-8a99-4a15-9c47-e79af026dc05",
+  "name": "Skybeast Tracker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skybeast Tracker",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Giant Archer",
+      "oracleText": "Reach\nWhenever you cast a spell with mana value 5 or greater, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+      "flavorText": "Cloud eaters, heaven tillers, beanstalk wurms—he favors prey worthy of a giant's appetite.",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Andreas Zafiratos",
+      "imageId": "a08da5c6-ebe7-4166-99d5-2aca5b0b529f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Reach",
+    "Food"
+  ],
+  "setCode": "woe",
+  "collectorNumber": "185",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKYBRIDGE_TOWERS: CardData = {
+  "scryfallId": "09ec5587-6e41-4707-8266-5587b9dcb57f",
+  "oracleId": "46466819-3c8b-4f7e-82c2-93cb0118a6e6",
+  "name": "Skybridge Towers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skybridge Towers",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {W} or {U}.\n{2}{W}{U}, {T}, Sacrifice this land: Draw a card.",
+      "flavorText": "New Capenna's districts are a series of tiers; wealth and power always rise to the top.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Muhammad Firdaus",
+      "imageId": "09ec5587-6e41-4707-8266-5587b9dcb57f"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "SNC-256",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKYCLAVE_CLERIC_SKYCLAVE_BASILICA: CardData = {
+  "scryfallId": "014027c4-7f9d-4096-b308-ea4be574c0d4",
+  "oracleId": "da9e3910-9a1c-43a9-9138-ca971b2bccae",
+  "name": "Skyclave Cleric // Skyclave Basilica",
+  "layout": "modal_dfc",
+  "faces": [
+    {
+      "name": "Skyclave Cleric",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Kor Cleric",
+      "oracleText": "When this creature enters, you gain 2 life.",
+      "flavorText": "\"Well, she can jump farther than I can.\"\n—Aelah, expedition cleric",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Johannes Voss",
+      "imageId": "014027c4-7f9d-4096-b308-ea4be574c0d4-0"
+    },
+    {
+      "name": "Skyclave Basilica",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {W}.",
+      "flavorText": "\"As points of no return go, it is quite epic.\"\n—Aelah, expedition cleric",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Johannes Voss",
+      "imageId": "014027c4-7f9d-4096-b308-ea4be574c0d4-1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "znr",
+  "collectorNumber": "40",
+  "commanderLegality": "legal",
+  "singleImage": false
+};
+
+export const SKYREAPING: CardData = {
+  "scryfallId": "40eb76b3-b527-4ed8-8ce3-d3de48562b6e",
+  "oracleId": "dcdc60ae-1858-4b51-8b64-58a4942bc3d7",
+  "name": "Skyreaping",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skyreaping",
+      "manaCost": "{1}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Skyreaping deals damage to each creature with flying equal to your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Seb McKinnon",
+      "imageId": "40eb76b3-b527-4ed8-8ce3-d3de48562b6e"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "bng",
+  "collectorNumber": "140",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKYSCANNER: CardData = {
+  "scryfallId": "bd2c1fb7-3c1d-49a9-b2c2-78ba2264df38",
+  "oracleId": "974f788a-039f-4310-a2fe-16b14a1e2d35",
+  "name": "Skyscanner",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skyscanner",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Thopter",
+      "oracleText": "Flying\nWhen this creature enters, draw a card.",
+      "flavorText": "The municipal senate makes extensive use of the thopters, mostly to gather dirt on rival senators.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Adam Paquette",
+      "imageId": "bd2c1fb7-3c1d-49a9-b2c2-78ba2264df38"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "m19",
+  "collectorNumber": "245",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLAGDRILL_SCRAPPER: CardData = {
+  "scryfallId": "155dcf54-8fdb-4715-97dc-4eb5d3d80d78",
+  "oracleId": "7f1edf4c-46a1-426d-8ce9-757a4c27367d",
+  "name": "Slagdrill Scrapper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slagdrill Scrapper",
+      "manaCost": "{R}",
+      "typeLine": "Artifact Creature — Robot Scout",
+      "oracleText": "{2}, {T}, Sacrifice another artifact or land: Draw a card.",
+      "flavorText": "\"Who cares if it rips the asteroid apart? We got what we needed.\"\n—Viya, Kav moxite baron",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Edgar Sánchez Hidalgo",
+      "imageId": "155dcf54-8fdb-4715-97dc-4eb5d3d80d78"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "eoe",
+  "collectorNumber": "160",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLASH_OF_LIGHT: CardData = {
+  "scryfallId": "da6d9529-3cb0-4adc-8209-b9b02db3bf54",
+  "oracleId": "3cc4d6f4-79b2-4210-84de-a0febf81eb67",
+  "name": "Slash of Light",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slash of Light",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Slash of Light deals damage equal to the number of creatures you control plus the number of Equipment you control to target creature.",
+      "flavorText": "The endless struggle that raged over two thousand years had ended, and peace prevailed once more.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Nathaniel Himawan",
+      "imageId": "da6d9529-3cb0-4adc-8209-b9b02db3bf54"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "fin",
+  "collectorNumber": "32",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLAYERS_STRONGHOLD: CardData = {
+  "scryfallId": "30d0754a-f7bb-4c13-b7e3-28046db48cc1",
+  "oracleId": "2de7367b-a5a4-43f4-8f8f-b931ea28150d",
+  "name": "Slayers' Stronghold",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slayers' Stronghold",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{R}{W}, {T}: Target creature gets +2/+0 and gains vigilance and haste until end of turn.",
+      "flavorText": "\"Today the No. 1 Reactor was bombed. The terrorist group Avalanche has claimed responsibility for the bombing.\"\n—President Shinra",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Randy Gallegos",
+      "imageId": "30d0754a-f7bb-4c13-b7e3-28046db48cc1"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "fic",
+  "collectorNumber": "424",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -58382,6 +59107,27 @@ export const ENGINE_CARDS: CardData[] = [
   SIMIC_CLUESTONE,
   SIMIC_LOCKET,
   SIMOON,
+  SINISTER_HIDEOUT,
+  SINISTER_STARFISH,
+  SIP_OF_HEMLOCK,
+  SIREN_S_RUSE,
+  DARING_BUCCANEER,
+  SIZZLE,
+  SKARRG_THE_RAGE_PITS,
+  SKINRENDER,
+  SKIRSDAG_CULTIST,
+  SKIRSDAG_FLAYER,
+  SKRED,
+  SKULDUGGERY,
+  SKULL_CATAPULT,
+  SKYBEAST_TRACKER,
+  SKYBRIDGE_TOWERS,
+  SKYCLAVE_CLERIC_SKYCLAVE_BASILICA,
+  SKYREAPING,
+  SKYSCANNER,
+  SLAGDRILL_SCRAPPER,
+  SLASH_OF_LIGHT,
+  SLAYERS_STRONGHOLD,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

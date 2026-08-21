@@ -16095,3 +16095,64 @@ clean · probe 124/124 · battery 130/130.**
 ⚠️ **Reportables** (D247): the becomes-targeted trigger joins the
 event-consumer wishlist; the keyword-qualifier widening keeps absorbing;
 prior items stand.
+
+## D248 — M6.4ck: twenty landed — the FIRST MDFC script (2026-08-21)
+
+**3,327 of 31,692 Commander-legal cards execute completely, up from 3,307.**
+SHIPPED_SCRIPTS 1,410 → 1,430; ledger 508 → 513 (+5, ONE new class). ZERO
+new tokens (the Food pin reused); ONE support body (Daring Buccaneer). The
+TWENTIETH first-run-clean batch: all 50 tests green untouched.
+
+**The headliner: `Skyclave Cleric // Skyclave Basilica` — THE FIRST MDFC
+SCRIPT.** The probe showed face 1 (the Basilica) carries ZERO unaccounted
+lines — the tapped entry is the D134 built-in and the mana line parses — so
+the whole card was ONE TriggerDef away. The ETB matcher reads the entering
+face OFF THE MOVE (`CardMove.faceIndex`, the field D155 put there because
+the funnel forced it), and the negative PLAYS the land back face through a
+real `PlayLand { faceIndex: 1 }`: it enters a TAPPED land (the built-in
+reading the entering face, exactly as D155 promised) and gains nobody
+anything. The selection's own multi-face filter had offered the card
+deliberately — it refuses only spell faces.
+
+⚠️ **The probe PULLED a card before a line was written — and named a NEW
+class:** `Slimy Dualleech`'s "target creature you control with power 2 or
+less" parses CONFIDENT with the numeric bound SILENTLY DROPPED — the spec
+text truncates to "target creature you control". D139 built
+numeric-then-controller; D140 fixed the graveyard branch; this is the THIRD
+order — controller-then-numeric — and it loses the qualifier. 'spell target
+parse (numeric after controller)' joins the aim-layer's qualifier family.
+
+**Also:** `Skulduggery` — the probed TWO-spec sentence with BOTH
+controllers enforced ("Until end of turn," in front does not break D241's
+boundary), one carrier entry each way. `Skirsdag Flayer` — the
+Human-predicate chooser paying with ITSELF (CR 113.7a). `Siren's Ruse` —
+the flicker with a conditional subtype rider read PRE-exile (Daring
+Buccaneer the Pirate; a Bears pays nothing). `Skred` — Dead of Winter's
+snow census pointed at one creature. `Skyreaping` — devotion fanned over
+the flying set. `Sip of Hemlock` — the destroy billing its controller
+through an indestructible miss (the Myr survives, the 2 still lands).
+`Skybeast Tracker` — the MV≥5 cast filter proven with two batch-mates
+(Sizzle pays nothing, Sip pays a Food). `Skarrg` / `Slayers' Stronghold` —
+activated grant lands at one and two keywords. Plus the surveil pair
+(Sinister Hideout #a1, Sinister Starfish #a0), Skinrender's three -1/-1
+counters, the Skirsdag Cultist / Skull Catapult chooser pings, Skybridge
+Towers' self-sac draw, Skyscanner's ETB draw, Slagdrill Scrapper's
+OR-predicate "another", and Slash of Light's creatures+Equipment census.
+
+⚠️ **Five refusals, ONE new class** (above). The rest: Sinister Concoction
+(discard-cost chooser — its cost also carries a MILL component nothing has
+ever charged), Skaab Wrangler (tap-creatures), Sleep (untap restriction),
+Sleight of Mind (text-changing, CR 612).
+
+Fixtures 1,647 → 1,668 (88 tokens). botPool creature 1,782 / instant 606 /
+sorcery 480 / artifact 106 / enchantment 54 / land 299 · ladder [1726,
+1825, 3618, 5532, 6744] · batch.json 875 · botDeck: Adun reaches 1,872.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,510 files,
+8,018 passed / 10 skipped · 500-seed gate 701.4 s · build
+clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D248): the MDFC door is OPEN — permanent-permanent
+modal DFCs are now ordinary batch work (the spell-faced ones still wait on
+the face-keyed SpellDef ref, D187); the numeric-after-controller widening
+joins the qualifier family; prior items stand.

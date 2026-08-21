@@ -958,6 +958,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Silkbind Faerie', 'untap-symbol activation cost'],
   ['Silverfur Partisan', 'becomes-targeted trigger'],
   ['Singe', 'UEOT color change'],
+  // D248 (M6.4ck)
+  ['Sinister Concoction', 'discard-cost chooser'],
+  ['Skaab Wrangler', 'tap-creatures cost'],
+  ['Sleep', 'untap restriction'],
+  ['Sleight of Mind', 'text-changing effect (CR 612)'],
+  ['Slimy Dualleech', 'spell target parse (numeric after controller)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

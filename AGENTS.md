@@ -6923,6 +6923,38 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       wishlist; prior items stand.
 
 
+- [x] **M6.4ck — Twenty landed: the FIRST MDFC script (2026-08-21):**
+      **3,327 of 31,692 Commander-legal cards now execute completely, up
+      from 3,307** — the TWENTIETH first-run-clean batch (50 tests
+      untouched). `SHIPPED_SCRIPTS` 1,410 → 1,430; ledger 513 (+5, ONE new
+      class). Zero new tokens; one support body. Decisions in **D248**.
+      **The headliner: Skyclave Cleric // Skyclave Basilica — THE FIRST
+      MDFC SCRIPT.** The probe showed the Basilica face fully
+      engine-accounted; the ETB matcher reads the entering face OFF THE
+      MOVE (`CardMove.faceIndex`, D155's field), and the negative PLAYS
+      the back face via `PlayLand { faceIndex: 1 }` — a tapped land, no
+      gain, both proven.
+      ⚠️ **The probe also PULLED a card and named a new class:** Slimy
+      Dualleech's controller-then-numeric qualifier order silently drops
+      the bound ('spell target parse (numeric after controller)' — the
+      third order, D139/D140's family).
+      **Also:** Skulduggery (the probed two-spec sentence, BOTH controllers
+      enforced); Skirsdag Flayer (pays with ITSELF, CR 113.7a); Siren's
+      Ruse (the flicker with a pre-exile Pirate rider); Skred (the snow
+      census); Skyreaping (devotion × flying); Sip of Hemlock (the bill
+      through an indestructible miss); Skybeast Tracker (the MV≥5 filter
+      proven with batch-mates); the Skarrg/Slayers' Stronghold grant lands.
+      Fixtures 1,668 (88 tokens) · botPool creature 1,782 / instant 606 /
+      sorcery 480 / artifact 106 / enchantment 54 / land 299 · ladder
+      [1726, 1825, 3618, 5532, 6744] · batch.json 875 · botDeck: Adun
+      reaches 1,872.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,510
+      files, 8,018 passed / 10 skipped · 500-seed gate
+      701.4 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D248): the MDFC door is open — permanent-permanent
+      modal DFCs are ordinary batch work now; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

@@ -7,6 +7,26 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SINISTER_HIDEOUT_SCRIPT } from './cards/sinisterHideout';
+import { SINISTER_STARFISH_SCRIPT } from './cards/sinisterStarfish';
+import { SIP_OF_HEMLOCK_SCRIPT } from './cards/sipOfHemlock';
+import { SIRENS_RUSE_SCRIPT } from './cards/sirensRuse';
+import { SIZZLE_SCRIPT } from './cards/sizzle';
+import { SKARRG_THE_RAGE_PITS_SCRIPT } from './cards/skarrgTheRagePits';
+import { SKINRENDER_SCRIPT } from './cards/skinrender';
+import { SKIRSDAG_CULTIST_SCRIPT } from './cards/skirsdagCultist';
+import { SKIRSDAG_FLAYER_SCRIPT } from './cards/skirsdagFlayer';
+import { SKRED_SCRIPT } from './cards/skred';
+import { SKULDUGGERY_SCRIPT } from './cards/skulduggery';
+import { SKULL_CATAPULT_SCRIPT } from './cards/skullCatapult';
+import { SKYBEAST_TRACKER_SCRIPT } from './cards/skybeastTracker';
+import { SKYBRIDGE_TOWERS_SCRIPT } from './cards/skybridgeTowers';
+import { SKYCLAVE_CLERIC_SCRIPT } from './cards/skyclaveCleric';
+import { SKYREAPING_SCRIPT } from './cards/skyreaping';
+import { SKYSCANNER_SCRIPT } from './cards/skyscanner';
+import { SLAGDRILL_SCRAPPER_SCRIPT } from './cards/slagdrillScrapper';
+import { SLASH_OF_LIGHT_SCRIPT } from './cards/slashOfLight';
+import { SLAYERS_STRONGHOLD_SCRIPT } from './cards/slayersStronghold';
 import { SHORE_LURKER_SCRIPT } from './cards/shoreLurker';
 import { SHOWER_OF_SPARKS_SCRIPT } from './cards/showerOfSparks';
 import { SHRIVEL_SCRIPT } from './cards/shrivel';
@@ -1531,6 +1551,26 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SINISTER_HIDEOUT_SCRIPT,
+  SINISTER_STARFISH_SCRIPT,
+  SIP_OF_HEMLOCK_SCRIPT,
+  SIRENS_RUSE_SCRIPT,
+  SIZZLE_SCRIPT,
+  SKARRG_THE_RAGE_PITS_SCRIPT,
+  SKINRENDER_SCRIPT,
+  SKIRSDAG_CULTIST_SCRIPT,
+  SKIRSDAG_FLAYER_SCRIPT,
+  SKRED_SCRIPT,
+  SKULDUGGERY_SCRIPT,
+  SKULL_CATAPULT_SCRIPT,
+  SKYBEAST_TRACKER_SCRIPT,
+  SKYBRIDGE_TOWERS_SCRIPT,
+  SKYCLAVE_CLERIC_SCRIPT,
+  SKYREAPING_SCRIPT,
+  SKYSCANNER_SCRIPT,
+  SLAGDRILL_SCRAPPER_SCRIPT,
+  SLASH_OF_LIGHT_SCRIPT,
+  SLAYERS_STRONGHOLD_SCRIPT,
   SHORE_LURKER_SCRIPT,
   SHOWER_OF_SPARKS_SCRIPT,
   SHRIVEL_SCRIPT,
