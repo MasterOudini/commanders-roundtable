@@ -7075,6 +7075,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       heaviest un-built targeting slice; prior items stand.
 
 
+- [x] **M6.4cp — Sixteen landed: the seven-card census, and the first
+      ordering to the BOTTOM (2026-08-22):** **3,419 of 31,692
+      Commander-legal cards now execute completely, up from 3,403** — the
+      TWENTY-SECOND first-run-clean batch (37 tests untouched).
+      `SHIPPED_SCRIPTS` 1,506 → 1,522; ledger 546 (+9, TWO new classes).
+      Decisions in **D253**.
+      **The headliner:** Stomping Slabs — the self-name census over a
+      SEVEN-card reveal, and the FIRST shipped def to order cards to
+      `destination: 'bottom'`; its positive seeds the library TOP with the
+      Tier-3 move (the library appends, `drawFromTop` takes from the END).
+      **Also:** Stonebound Mentor (the graveyard-EXIT watcher meeting the
+      scry ask — an opponent's exit asks nothing); Stern Dismissal / Stern
+      Proctor (the two probed compounds, both kinds carried); Stomp and Howl
+      (the probed two-spec destroy); Stench of Decay (negated-type debuff,
+      artifact creature exempt); Storm's Wrath; Storm Seeker (the TARGET's
+      hand, not the caster's); Stensia Bloodhall.
+      ⚠️ **Nine refusals, TWO new classes:** the attraction mechanic (Step
+      Right Up) and the exert cost (Steward of Solidarity). Stern Scolding
+      PROBED and refused — "power or toughness 2 or less" parses confident
+      with the bound dropped.
+      Fixtures 1,761 (89 tokens) · botPool creature 1,825 / instant 622 /
+      sorcery 502 / artifact 113 / enchantment 54 / land 303 · ladder [1634,
+      1733, 3526, 5440, 6652] · batch.json 750 · botDeck: Sliver Queen
+      reaches 3,370.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,602
+      files, 8,391 passed / 10 skipped · 500-seed gate
+      736.2 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D253): the numeric-disjunction hole holds TWO cards
+      and reads the same way both times; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

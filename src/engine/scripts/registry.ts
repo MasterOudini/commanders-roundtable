@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { STENCH_OF_DECAY_SCRIPT } from './cards/stenchOfDecay';
+import { STENSIA_BLOODHALL_SCRIPT } from './cards/stensiaBloodhall';
+import { STERLING_HOUND_SCRIPT } from './cards/sterlingHound';
+import { STERN_DISMISSAL_SCRIPT } from './cards/sternDismissal';
+import { STERN_PROCTOR_SCRIPT } from './cards/sternProctor';
+import { STINGING_BARRIER_SCRIPT } from './cards/stingingBarrier';
+import { STOLEN_GRAIN_SCRIPT } from './cards/stolenGrain';
+import { STOMP_AND_HOWL_SCRIPT } from './cards/stompAndHowl';
+import { STOMPING_SLABS_SCRIPT } from './cards/stompingSlabs';
+import { STONE_HAVEN_MEDIC_SCRIPT } from './cards/stoneHavenMedic';
+import { STONEBOUND_MENTOR_SCRIPT } from './cards/stoneboundMentor';
+import { STONEFURY_SCRIPT } from './cards/stonefury';
+import { STORM_SEEKER_SCRIPT } from './cards/stormSeeker';
+import { STORM_SPIRIT_SCRIPT } from './cards/stormSpirit';
+import { STORMS_WRATH_SCRIPT } from './cards/stormsWrath';
+import { STORMCALLER_OF_KERANOS_SCRIPT } from './cards/stormcallerOfKeranos';
 import { SQUALL_SCRIPT } from './cards/squall';
 import { SQUALL_DRIFTER_SCRIPT } from './cards/squallDrifter';
 import { STABBING_PAIN_SCRIPT } from './cards/stabbingPain';
@@ -1627,6 +1643,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  STENCH_OF_DECAY_SCRIPT,
+  STENSIA_BLOODHALL_SCRIPT,
+  STERLING_HOUND_SCRIPT,
+  STERN_DISMISSAL_SCRIPT,
+  STERN_PROCTOR_SCRIPT,
+  STINGING_BARRIER_SCRIPT,
+  STOLEN_GRAIN_SCRIPT,
+  STOMP_AND_HOWL_SCRIPT,
+  STOMPING_SLABS_SCRIPT,
+  STONE_HAVEN_MEDIC_SCRIPT,
+  STONEBOUND_MENTOR_SCRIPT,
+  STONEFURY_SCRIPT,
+  STORM_SEEKER_SCRIPT,
+  STORM_SPIRIT_SCRIPT,
+  STORMS_WRATH_SCRIPT,
+  STORMCALLER_OF_KERANOS_SCRIPT,
   SQUALL_SCRIPT,
   SQUALL_DRIFTER_SCRIPT,
   STABBING_PAIN_SCRIPT,

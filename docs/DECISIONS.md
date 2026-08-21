@@ -16378,3 +16378,55 @@ sorcery 498 / artifact 113 / enchantment 54 / land 302 · ladder [1650, 1749,
 
 ⚠️ **Reportables** (D252): the second-clause parse family is at TEN cards and
 is now the heaviest un-built targeting slice; prior items stand.
+
+## D253 — M6.4cp: sixteen landed — the seven-card census, and the first ordering to the BOTTOM (2026-08-22)
+
+**3,419 of 31,692 Commander-legal cards execute completely, up from 3,403.**
+SHIPPED_SCRIPTS 1,506 → 1,522; ledger 537 → 546 (+9, TWO new classes). Zero
+new tokens, zero new support bodies. The TWENTY-SECOND first-run-clean batch:
+all 37 tests green untouched.
+
+**The headliner:** `Stomping Slabs` — the self-name census over a SEVEN-card
+reveal, billing 7 to any target, and **the first shipped def to order cards
+to `destination: 'bottom'`** (D142 built both ends of that ask; only the top
+had ever been used). Its test proves the census BOTH ways, and the positive
+is deterministic rather than lucky: a second copy is moved onto the library
+**top** with the Tier-3 `ManualMoveCard` — the library APPENDS and
+`drawFromTop` takes from the END, so an appended card IS the top (D142's
+"the bottom is index 0", read from the other side).
+
+**Also:** `Stonebound Mentor` — the GRAVEYARD-EXIT watcher meeting the scry
+ask (Desecrated Tomb's filter, D171, one effect over): a card leaving MY
+graveyard asks, a card leaving an opponent's asks nothing, both proven in one
+game. `Stern Dismissal` and `Stern Proctor` — the two PROBED compounds:
+"creature or enchantment an opponent controls" carries BOTH kinds with the
+restriction enforced, and "artifact or enchantment" both kinds on an ETB.
+`Stomp and Howl` — the probed two-spec destroy (an artifact AND an
+enchantment, one batch). `Stench of Decay` — the negated-type board debuff,
+the artifact creature exempt. `Storm's Wrath` — 4 to every creature and
+planeswalker. `Storm Seeker` — the damage is the TARGET's hand, not the
+caster's (Spiraling Embers one pronoun over). `Stensia Bloodhall` — the
+priced ping land at #a1. Plus Sterling Hound (ETB surveil 2), Stinging
+Barrier, Stolen Grain, Stone Haven Medic, Stonefury, Storm Spirit,
+Stormcaller of Keranos.
+
+⚠️ **Nine refusals, TWO new classes:** the ATTRACTION MECHANIC (`Step Right
+Up` — an Attraction DECK is a zone this engine has no concept of) and the
+EXERT COST (`Steward of Solidarity` — an activation cost carrying a delayed
+untap restriction, and neither half exists). `Stern Scolding` was PROBED and
+refused: "creature spell with power or toughness 2 or less" parses CONFIDENT
+with `numeric` NULL — the bound is silently dropped, Repel Calamity's exact
+hole. Plus discard-cost, ability countering, play-from-exile,
+exile-from-graveyard, random-discard, and the becomes-targeted trigger.
+
+Fixtures 1,745 → 1,761 (89 tokens). botPool creature 1,825 / instant 622 /
+sorcery 502 / artifact 113 / enchantment 54 / land 303 · ladder [1634, 1733,
+3526, 5440, 6652] · batch.json 750 · botDeck: Sliver Queen reaches 3,370.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,602 files,
+8,391 passed / 10 skipped · 500-seed gate 736.2 s · build clean
+· probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D253): the numeric-disjunction hole now holds TWO cards
+(Repel Calamity, Stern Scolding) and reads the same way both times — the
+bound after a disjunction is dropped without a trace; prior items stand.

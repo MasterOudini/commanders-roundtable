@@ -57151,6 +57151,563 @@ export const STEAM_BLAST: CardData = {
   "singleImage": true
 };
 
+export const STENCH_OF_DECAY: CardData = {
+  "scryfallId": "b4b93845-f17a-4892-a1ce-a4630dced218",
+  "oracleId": "4d4fbb16-0421-4e9c-af9e-e2c12a11c4ed",
+  "name": "Stench of Decay",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stench of Decay",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Nonartifact creatures get -1/-1 until end of turn.",
+      "flavorText": "\"My lord, there is only so much I can do. This plague infests Krov worse than any other city.\"\n—Halvor Arensson, Kjeldoran Priest",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "b4b93845-f17a-4892-a1ce-a4630dced218"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "all",
+  "collectorNumber": "61b",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STENSIA_BLOODHALL: CardData = {
+  "scryfallId": "4c936ea7-8802-4ae7-9d85-4b873cbd56ce",
+  "oracleId": "8220c5fa-28dc-40d0-a38a-d8eefc2795d6",
+  "name": "Stensia Bloodhall",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stensia Bloodhall",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{3}{B}{R}, {T}: This land deals 2 damage to target player or planeswalker.",
+      "flavorText": "The revelry ends when the supply of fresh ingenues runs dry.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "John Avon",
+      "imageId": "4c936ea7-8802-4ae7-9d85-4b873cbd56ce"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "scd",
+  "collectorNumber": "320",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STERLING_HOUND: CardData = {
+  "scryfallId": "9e5bfcf5-6e5c-47fe-af6c-6b18938261c6",
+  "oracleId": "3178c1f9-f644-4926-ac9a-d40e4db79955",
+  "name": "Sterling Hound",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sterling Hound",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Dog",
+      "oracleText": "When this creature enters, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": "\"Beware of Cog\"\n—Prosperity courthouse sign",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Leon Tukker",
+      "imageId": "9e5bfcf5-6e5c-47fe-af6c-6b18938261c6"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "otj",
+  "collectorNumber": "249",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STERN_DISMISSAL: CardData = {
+  "scryfallId": "0aec4d0f-ba1e-45f8-9764-9bcc3fa50e51",
+  "oracleId": "319d5cf8-ab72-401e-b04e-c13a7a6c1aac",
+  "name": "Stern Dismissal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stern Dismissal",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return target creature or enchantment an opponent controls to its owner's hand.",
+      "flavorText": "Cities offer tribute to Ephara and carve her image into their walls, imploring her to protect them from the dangers of the wild.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Lie Setiawan",
+      "imageId": "0aec4d0f-ba1e-45f8-9764-9bcc3fa50e51"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "thb",
+  "collectorNumber": "68",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STERN_PROCTOR: CardData = {
+  "scryfallId": "7042fdc8-e2dd-4f9a-97b9-00d95c9eae74",
+  "oracleId": "5120bfdc-7201-420d-85a1-eeb4aba6632b",
+  "name": "Stern Proctor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stern Proctor",
+      "manaCost": "{U}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "When this creature enters, return target artifact or enchantment to its owner's hand.",
+      "flavorText": "\"I preferred the harsh tutors—they made mischief all the more fun.\"\n—Teferi, third-level student",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "7042fdc8-e2dd-4f9a-97b9-00d95c9eae74"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "usg",
+  "collectorNumber": "99",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STINGING_BARRIER: CardData = {
+  "scryfallId": "623558f6-3d09-43d3-acc5-700177c1ca67",
+  "oracleId": "b56f375f-35b3-4d96-9749-c059c2d29c8b",
+  "name": "Stinging Barrier",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stinging Barrier",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Creature — Wall",
+      "oracleText": "Defender (This creature can't attack.)\n{U}, {T}: This creature deals 1 damage to any target.",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Pat Lewis",
+      "imageId": "623558f6-3d09-43d3-acc5-700177c1ca67"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Defender"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "MMQ-107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STOLEN_GRAIN: CardData = {
+  "scryfallId": "1865c8f3-3dbb-4d50-bca8-5b289613c157",
+  "oracleId": "dc17836d-8edf-44bd-a9ee-346d6af25dbf",
+  "name": "Stolen Grain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stolen Grain",
+      "manaCost": "{4}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Stolen Grain deals 5 damage to target opponent or planeswalker. You gain 5 life.",
+      "flavorText": "At the battle of Guandu, Cao Cao defeated Yuan Shao by raiding his grain depot, leaving him with no way to feed his troops.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "LHQ",
+      "imageId": "1865c8f3-3dbb-4d50-bca8-5b289613c157"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "me3",
+  "collectorNumber": "75",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STOMP_AND_HOWL: CardData = {
+  "scryfallId": "be523140-7c68-4231-a692-7b3af417d858",
+  "oracleId": "7cc809ed-5ce1-40d1-896d-014ca8e2b5a6",
+  "name": "Stomp and Howl",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stomp and Howl",
+      "manaCost": "{2}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target artifact and target enchantment.",
+      "flavorText": "\"Mizzium may be impervious to fire, but obviously certain other things can . . . modify its form.\"\n—Ivos Koba, indrik handler",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "be523140-7c68-4231-a692-7b3af417d858"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dis",
+  "collectorNumber": "96",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STOMPING_SLABS: CardData = {
+  "scryfallId": "820f1acf-7f0c-4ee5-9f18-b5627aac7c81",
+  "oracleId": "b8780f7b-3093-4509-9cb9-afa9c5f218fa",
+  "name": "Stomping Slabs",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stomping Slabs",
+      "manaCost": "{2}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Reveal the top seven cards of your library, then put those cards on the bottom of your library in any order. If a card named Stomping Slabs was revealed this way, Stomping Slabs deals 7 damage to any target.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Alex Horley-Orlandelli",
+      "imageId": "820f1acf-7f0c-4ee5-9f18-b5627aac7c81"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mor",
+  "collectorNumber": "107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STONE_HAVEN_MEDIC: CardData = {
+  "scryfallId": "1dc063ea-15e9-4ac3-b9a3-32aaa8bc4f55",
+  "oracleId": "e4d6ed72-f40f-4e4a-bec0-19b1d4f99ebe",
+  "name": "Stone Haven Medic",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stone Haven Medic",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Kor Cleric",
+      "oracleText": "{W}, {T}: You gain 1 life.",
+      "flavorText": "\"These days, soldiers never stick around long enough for a proper healing. They just want me to knit them up so they can hurry back to the fight.\"",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Anna Steinbauer",
+      "imageId": "1dc063ea-15e9-4ac3-b9a3-32aaa8bc4f55"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "BFZ-51",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STONEBOUND_MENTOR: CardData = {
+  "scryfallId": "9c64e954-adfc-40a2-a3b2-85f1b4626976",
+  "oracleId": "7c4b4dd4-4a80-436a-8526-5c58c1751ccd",
+  "name": "Stonebound Mentor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stonebound Mentor",
+      "manaCost": "{1}{R}{W}",
+      "typeLine": "Creature — Spirit Advisor",
+      "oracleText": "Whenever one or more cards leave your graveyard, scry 1.",
+      "flavorText": "Quintorius beamed, his mind eager to absorb every historical fact the spirit wanted to divulge.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "9c64e954-adfc-40a2-a3b2-85f1b4626976"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "stx",
+  "collectorNumber": "239",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STONEFURY: CardData = {
+  "scryfallId": "6aa37f74-50dd-4013-b48a-c33f1dbfb3e1",
+  "oracleId": "577554de-78c3-4fa2-a866-06b80280bc97",
+  "name": "Stonefury",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stonefury",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Stonefury deals damage to target creature equal to the number of lands you control.",
+      "flavorText": "Akoum can make any intruder look small.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chris Rallis",
+      "imageId": "6aa37f74-50dd-4013-b48a-c33f1dbfb3e1"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "bfz",
+  "collectorNumber": "156",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STORM_SEEKER: CardData = {
+  "scryfallId": "20f5ba72-5549-4ba9-87da-b0979d92f56c",
+  "oracleId": "e694bf97-9deb-44f1-9d26-264b57596346",
+  "name": "Storm Seeker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Storm Seeker",
+      "manaCost": "{3}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Storm Seeker deals damage to target player equal to the number of cards in that player's hand.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mark Poole",
+      "imageId": "20f5ba72-5549-4ba9-87da-b0979d92f56c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "bchr",
+  "collectorNumber": "70",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STORM_SPIRIT: CardData = {
+  "scryfallId": "25f50a42-be59-4899-b193-88a84929018e",
+  "oracleId": "6a413d09-dd67-4c3e-b81b-7bfe8b864dc9",
+  "name": "Storm Spirit",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Storm Spirit",
+      "manaCost": "{3}{G}{W}{U}",
+      "typeLine": "Creature — Elemental Spirit",
+      "oracleText": "Flying\n{T}: This creature deals 2 damage to target creature.",
+      "flavorText": "\"Come to us, with your lightning. Come to us, with your thunder. Serve us with your strength, and smite our foes with your power.\"\n—Steinar Icefist, Balduvian shaman",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "U",
+        "W"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "25f50a42-be59-4899-b193-88a84929018e"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U",
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "me2",
+  "collectorNumber": "198",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STORM_S_WRATH: CardData = {
+  "scryfallId": "4bc9ecd2-7664-471b-90f2-2d0dd1acec80",
+  "oracleId": "eeb6f5eb-0e16-468e-9dfe-6ec8d8172f86",
+  "name": "Storm's Wrath",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Storm's Wrath",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Storm's Wrath deals 4 damage to each creature and each planeswalker.",
+      "flavorText": "Distant thunder rumbled, a dread forewarning of Keranos's displeasure.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Yeong-Hao Han",
+      "imageId": "4bc9ecd2-7664-471b-90f2-2d0dd1acec80"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "thb",
+  "collectorNumber": "157",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STORMCALLER_OF_KERANOS: CardData = {
+  "scryfallId": "d397bdc3-a866-45be-8740-185d9ccf29c4",
+  "oracleId": "16a66bbe-90f6-4c29-a69d-6ff254082956",
+  "name": "Stormcaller of Keranos",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stormcaller of Keranos",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "Haste\n{1}{U}: Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": "A prayer answered by Keranos is clear for all to witness.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Marco Nelor",
+      "imageId": "d397bdc3-a866-45be-8740-185d9ccf29c4"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Haste",
+    "Scry"
+  ],
+  "setCode": "bng",
+  "collectorNumber": "112",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -61849,6 +62406,22 @@ export const ENGINE_CARDS: CardData[] = [
   STEADFAST_SENTRY,
   STEALER_OF_SECRETS,
   STEAM_BLAST,
+  STENCH_OF_DECAY,
+  STENSIA_BLOODHALL,
+  STERLING_HOUND,
+  STERN_DISMISSAL,
+  STERN_PROCTOR,
+  STINGING_BARRIER,
+  STOLEN_GRAIN,
+  STOMP_AND_HOWL,
+  STOMPING_SLABS,
+  STONE_HAVEN_MEDIC,
+  STONEBOUND_MENTOR,
+  STONEFURY,
+  STORM_SEEKER,
+  STORM_SPIRIT,
+  STORM_S_WRATH,
+  STORMCALLER_OF_KERANOS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

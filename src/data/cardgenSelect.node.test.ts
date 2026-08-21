@@ -992,6 +992,21 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D252 (M6.4co)
   ['Square Up', 'until-end-of-turn base P/T set'],
   ['Steal Strength', 'spell target parse (second clause)'],
+  // D253 (M6.4cp) — Step Right Up opens an ATTRACTION DECK, a zone this
+  // engine has no concept of; Steward of Solidarity's EXERT is an
+  // activation cost carrying a delayed untap restriction, and neither
+  // half exists. Stern Scolding was PROBED: 'creature spell with power
+  // or toughness 2 or less' parses CONFIDENT with `numeric` NULL — the
+  // bound is silently dropped, Repel Calamity's exact hole.
+  ['Step Right Up', 'attraction mechanic'],
+  ['Stern Constable', 'discard-cost chooser'],
+  ['Stern Scolding', 'spell target parse (numeric disjunction)'],
+  ['Steward of Solidarity', 'exert cost'],
+  ['Stifle', 'ability countering'],
+  ['Stolen Goods', 'play-from-exile permission'],
+  ['Stonerise Spirit', 'exile-from-graveyard cost'],
+  ['Stormbind', 'random-discard cost'],
+  ['Stormchaser Drake', 'becomes-targeted trigger'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -2094,6 +2094,22 @@ const WANTED = [
   'Steadfast Sentry',
   'Stealer of Secrets',
   'Steam Blast',
+  'Stench of Decay',
+  'Stensia Bloodhall',
+  'Sterling Hound',
+  'Stern Dismissal',
+  'Stern Proctor',
+  'Stinging Barrier',
+  'Stolen Grain',
+  'Stomp and Howl',
+  'Stomping Slabs',
+  'Stone Haven Medic',
+  'Stonebound Mentor',
+  'Stonefury',
+  'Storm Seeker',
+  'Storm Spirit',
+  "Storm's Wrath",
+  'Stormcaller of Keranos',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
