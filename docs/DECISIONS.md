@@ -16728,3 +16728,80 @@ probe 124/124 · battery 130/130.**
 three batches and should be reached for whenever a printed shape repeats
 across ids; the planeswalker-damage gap (CR 306.8) is an ENGINE item, not a
 parse one; prior items stand.
+
+## D258 — M6.4cu: twenty landed — the Sphere cycle, and three shapes the compiler named (2026-08-23)
+
+**3,516 of 31,692 Commander-legal cards execute completely, up from 3,496.**
+SHIPPED_SCRIPTS 1,599 → 1,619; ledger 569 → 574 (+5, ZERO new classes). ZERO
+new token pins, ZERO new support bodies. **Sliver Queen now reaches 3,467 from
+77 fully-executable legendaries.**
+
+**The SPHERE LAND CYCLE — the third generated family in four batches.** The
+Autonomous Furnace (R), The Dross Pits (B), The Fair Basilica (W), The Hunter
+Maze (G): four oracle ids, one printed shape — enters tapped (D134's built-in),
+a mana line (the engine's), and `{1}{C}, {T}, Sacrifice this land: Draw a
+card` at #a1 — generated from one base by `gen-spheres.cjs`. D252's Staffs,
+D257's Temples, and now these; **the idiom has paid three times and should be
+reached for whenever a printed shape repeats across ids.**
+
+**The rest of the batch:** `Teshar, Ancestor's Apostle` — the historic cast
+watcher that REANIMATES, composing D183's historic filter, D171's script
+reanimation and D139's mana-value floor in one def, behind a flying keyword
+line the engine already enforces. `Tenderize` — the two-controller bite, the
+THIRD card written BY CONTROLLER from its first draft, and its swapped-answer
+case is now the **third independent reproduction** of D255's aim/resolution
+disagreement. `Testament Bearer` — Sultai Soothsayer's library take raised
+from a DIES trigger. `Thawbringer` — the enters-OR-dies pair meeting the
+surveil ask. `Thalakos Seer` — the LEAVES watcher, proven wider than "dies"
+by a bounce. `Terror Tide` — the graveyard permanent-card census as -X/-X.
+`Tendrils of Corruption` — the Swamp census spent as BOTH damage and life.
+`Terashi's Grasp` — the artifact-or-enchantment compound where an
+indestructible victim survives and pays NOTHING. `Territorial Hammerskull`,
+`Temporal Spring`, `Temur Banner` (the FOURTH), `Thallid Soothsayer`,
+`Thaumaturge's Familiar`, `Tenth District Guard`, `Teyo's Lightshield`,
+`Teroh's Faithful`.
+
+⚠️ **THREE TYPE ERRORS, AND ALL THREE WERE THE COMPILER TEACHING THE ENGINE'S
+OWN SHAPES.** (1) `ParsedTypeLine` is a STRUCTURE, not a string — it carries
+`supertypes`, `types`, `subtypes` and `raw`. Two modules tried to regex a
+rendered line for "Artifact"/"Legendary"/"Saga" and for the permanent types;
+the parsed form is strictly better and Teshar now asks
+`supertypes.includes('Legendary')` rather than matching a word boundary.
+(2) `CountersChanged` BATCHES: `changes: [{card, kind, delta}]`, never flat
+fields. (3) A node string-replace over a CRLF file silently matched NOTHING on
+two multi-line patterns while reporting success — the edits had to be redone
+against the real bytes. **A patch script that reports success without a
+per-swap count is a patch script that can do nothing quietly** (D149's lesson,
+in a new shape).
+
+⚠️ **AND THE SPHERE TESTS HIT D257's TRAP FROM A SECOND ANGLE.** The generated
+template played the land with `PlayLand`; auto-pass then carried the turn on
+and the NEXT intent was refused `notYourPriority` — where D257's Teetering
+Peaks lost an until-end-of-turn pump to cleanup, this lost priority outright.
+Same cause, two symptoms. **And a Sphere ENTERS TAPPED, so the `{T}` in its
+own cost cannot be paid until the land is straightened** — Foggy Bottom
+Swamp's shipped test says exactly that in its own comment. The template now
+MOVES the land, straightens it, and counts draws off the LOG's moves rather
+than hand size (D169). All four passed on the re-run.
+
+⚠️ **Five refusals, ZERO new classes — and THREE of the five are up-to-N**
+(Temporary Truce, Tempted by the Oriq, Terashi's Cry). That class took three
+in D256 as well: it is now far and away the ledger's heaviest, and **its
+CHOOSER is the single most overdue piece of named engine work in the arc.**
+The counted-spec machinery is already half of its enforcement, proven at 2
+(D255's Swelter) and at 6 (D217's Hex); what is missing is letting a player
+name FEWER targets than the maximum. Plus The Ring (The Black Breath) and the
+cast-zone discriminator (The Lost and the Damned).
+
+Fixtures 1,838 → 1,858 (89 tokens, none new). botPool creature 1,855 / instant
+640 / sorcery 522 / artifact 118 / land 324 · ladder [1537, 1636, 3429, 5343,
+6555] · batch.json 625 · botDeck: Sliver Queen reaches **3,467** from 77
+legendaries.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,699 files,
+8,842 passed / 10 skipped · 500-seed gate 735.2 s · build clean ·
+probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D258): up-to-N's chooser is the arc's most overdue engine
+work by weight; the aim/resolution target-order disagreement now has THREE
+shipped proofs and Skulduggery still reads positionally; prior items stand.

@@ -7,6 +7,26 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { TEMPORAL_SPRING_SCRIPT } from './cards/temporalSpring';
+import { TEMUR_BANNER_SCRIPT } from './cards/temurBanner';
+import { TENDERIZE_SCRIPT } from './cards/tenderize';
+import { TENDRILS_OF_CORRUPTION_SCRIPT } from './cards/tendrilsOfCorruption';
+import { TENTH_DISTRICT_GUARD_SCRIPT } from './cards/tenthDistrictGuard';
+import { TERASHIS_GRASP_SCRIPT } from './cards/terashisGrasp';
+import { TEROHS_FAITHFUL_SCRIPT } from './cards/terohsFaithful';
+import { TERRITORIAL_HAMMERSKULL_SCRIPT } from './cards/territorialHammerskull';
+import { TERROR_TIDE_SCRIPT } from './cards/terrorTide';
+import { TESHAR_ANCESTORS_APOSTLE_SCRIPT } from './cards/tesharAncestorsApostle';
+import { TESTAMENT_BEARER_SCRIPT } from './cards/testamentBearer';
+import { TEYOS_LIGHTSHIELD_SCRIPT } from './cards/teyosLightshield';
+import { THALAKOS_SEER_SCRIPT } from './cards/thalakosSeer';
+import { THALLID_SOOTHSAYER_SCRIPT } from './cards/thallidSoothsayer';
+import { THAUMATURGES_FAMILIAR_SCRIPT } from './cards/thaumaturgesFamiliar';
+import { THAWBRINGER_SCRIPT } from './cards/thawbringer';
+import { THE_AUTONOMOUS_FURNACE_SCRIPT } from './cards/theAutonomousFurnace';
+import { THE_DROSS_PITS_SCRIPT } from './cards/theDrossPits';
+import { THE_FAIR_BASILICA_SCRIPT } from './cards/theFairBasilica';
+import { THE_HUNTER_MAZE_SCRIPT } from './cards/theHunterMaze';
 import { TARPAN_SCRIPT } from './cards/tarpan';
 import { TASHAS_HIDEOUS_LAUGHTER_SCRIPT } from './cards/tashasHideousLaughter';
 import { TASTE_OF_BLOOD_SCRIPT } from './cards/tasteOfBlood';
@@ -1720,6 +1740,26 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  TEMPORAL_SPRING_SCRIPT,
+  TEMUR_BANNER_SCRIPT,
+  TENDERIZE_SCRIPT,
+  TENDRILS_OF_CORRUPTION_SCRIPT,
+  TENTH_DISTRICT_GUARD_SCRIPT,
+  TERASHIS_GRASP_SCRIPT,
+  TEROHS_FAITHFUL_SCRIPT,
+  TERRITORIAL_HAMMERSKULL_SCRIPT,
+  TERROR_TIDE_SCRIPT,
+  TESHAR_ANCESTORS_APOSTLE_SCRIPT,
+  TESTAMENT_BEARER_SCRIPT,
+  TEYOS_LIGHTSHIELD_SCRIPT,
+  THALAKOS_SEER_SCRIPT,
+  THALLID_SOOTHSAYER_SCRIPT,
+  THAUMATURGES_FAMILIAR_SCRIPT,
+  THAWBRINGER_SCRIPT,
+  THE_AUTONOMOUS_FURNACE_SCRIPT,
+  THE_DROSS_PITS_SCRIPT,
+  THE_FAIR_BASILICA_SCRIPT,
+  THE_HUNTER_MAZE_SCRIPT,
   TARPAN_SCRIPT,
   TASHAS_HIDEOUS_LAUGHTER_SCRIPT,
   TASTE_OF_BLOOD_SCRIPT,

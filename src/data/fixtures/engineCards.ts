@@ -60335,6 +60335,687 @@ export const TEMPORAL_MACHINATIONS: CardData = {
   "singleImage": true
 };
 
+export const TEMPORAL_SPRING: CardData = {
+  "scryfallId": "3e8f66e5-c77d-49f0-8f6e-48e80c59f925",
+  "oracleId": "1d7a4e9c-b3c9-421e-b5f4-82d51d7d5125",
+  "name": "Temporal Spring",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temporal Spring",
+      "manaCost": "{1}{G}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put target permanent on top of its owner's library.",
+      "flavorText": "One splash of the spring's water knocks you clear into last week.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "U"
+      ],
+      "artist": "John Matson",
+      "imageId": "3e8f66e5-c77d-49f0-8f6e-48e80c59f925"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "td0",
+  "collectorNumber": "A107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMUR_BANNER: CardData = {
+  "scryfallId": "9990bdff-c27a-447f-b530-d8b7614fe9a0",
+  "oracleId": "8a35f23d-f59a-4677-9736-035c60c22a2b",
+  "name": "Temur Banner",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temur Banner",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {G}, {U}, or {R}.\n{G}{U}{R}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "Savagery to survive, courage to triumph.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "9990bdff-c27a-447f-b530-d8b7614fe9a0"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ktk",
+  "collectorNumber": "226",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TENDERIZE: CardData = {
+  "scryfallId": "bc19807b-09e8-4923-abc3-d4bbe8cde5fc",
+  "oracleId": "a03fa584-ceb5-410c-9b80-f75d00215537",
+  "name": "Tenderize",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tenderize",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control deals damage equal to its power to target creature an opponent controls.",
+      "flavorText": "\"Get back, all ya'll! Stay away from me! I ain't safe, ya hear! Ain't no friend! I'm a monster!\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jo Cordisco",
+      "imageId": "bc19807b-09e8-4923-abc3-d4bbe8cde5fc"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tmt",
+  "collectorNumber": "133",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TENDRILS_OF_CORRUPTION: CardData = {
+  "scryfallId": "01dad575-72e7-4c94-9ccb-fa6761cb6246",
+  "oracleId": "84ee0da2-d886-4603-9aaa-bc5326a424d7",
+  "name": "Tendrils of Corruption",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tendrils of Corruption",
+      "manaCost": "{3}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Tendrils of Corruption deals X damage to target creature and you gain X life, where X is the number of Swamps you control.",
+      "flavorText": "Darkness doesn't always send its minions to do its dirty work.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Vance Kovacs",
+      "imageId": "01dad575-72e7-4c94-9ccb-fa6761cb6246"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "c14",
+  "collectorNumber": "166",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TENTH_DISTRICT_GUARD: CardData = {
+  "scryfallId": "829f959e-91cd-42ea-8644-ce828a304d01",
+  "oracleId": "83ce0859-cb88-45dd-8485-3317792235de",
+  "name": "Tenth District Guard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tenth District Guard",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "When this creature enters, target creature gets +0/+1 until end of turn.",
+      "flavorText": "\"The Tenth has always been my home. This city is constantly embroiled in one crisis or another, but I'm determined to protect my piece.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Craig J Spearing",
+      "imageId": "829f959e-91cd-42ea-8644-ce828a304d01"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "grn",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TERASHI_S_GRASP: CardData = {
+  "scryfallId": "44f0d818-b463-4ef7-93b4-1ae341b52e2c",
+  "oracleId": "d4738552-3a5e-43c5-a975-8b77618bacaf",
+  "name": "Terashi's Grasp",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Terashi's Grasp",
+      "manaCost": "{2}{W}",
+      "typeLine": "Sorcery — Arcane",
+      "oracleText": "Destroy target artifact or enchantment. You gain life equal to its mana value.",
+      "flavorText": "\"The jeweler, the potter, the smith . . . They all imbue a bit of their souls into their creations. The kami destroy that crafted mortal shell and absorb the soul within.\"\n—Noboru, master kitemaker",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mark Tedin",
+      "imageId": "44f0d818-b463-4ef7-93b4-1ae341b52e2c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mm2",
+  "collectorNumber": "37",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEROH_S_FAITHFUL: CardData = {
+  "scryfallId": "bff8cf45-c84f-49d7-ad3d-b5e046286cb3",
+  "oracleId": "875c96ce-f6e4-438b-929d-de53afdd99a1",
+  "name": "Teroh's Faithful",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Teroh's Faithful",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "When this creature enters, you gain 4 life.",
+      "flavorText": "The light of reason follows them even into battle.",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Tim Hildebrandt",
+      "imageId": "bff8cf45-c84f-49d7-ad3d-b5e046286cb3"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "tor",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TERRITORIAL_HAMMERSKULL: CardData = {
+  "scryfallId": "507fb744-c6dc-4ff2-a329-872bd8c4d39c",
+  "oracleId": "a690c1de-158a-4f33-a916-ed2a130f92eb",
+  "name": "Territorial Hammerskull",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Territorial Hammerskull",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Dinosaur",
+      "oracleText": "Whenever this creature attacks, tap target creature an opponent controls.",
+      "flavorText": "From the eyes up, it's solid bone and stubbornness.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Lars Grant-West",
+      "imageId": "507fb744-c6dc-4ff2-a329-872bd8c4d39c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "XLN-41",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TERROR_TIDE: CardData = {
+  "scryfallId": "0a281d2c-20b9-4887-a924-9be6c07b7629",
+  "oracleId": "12be58f4-1c12-4bca-8069-1f049cd8a90c",
+  "name": "Terror Tide",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Terror Tide",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Fathomless descent — All creatures get -X/-X until end of turn, where X is the number of permanent cards in your graveyard.",
+      "flavorText": "Those who go under rise again as cruel mockeries of their former selves, spewing foul water and keening with sorrow.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Brock Grossman",
+      "imageId": "0a281d2c-20b9-4887-a924-9be6c07b7629"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Fathomless descent"
+  ],
+  "setCode": "lci",
+  "collectorNumber": "127",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TESHAR_ANCESTOR_S_APOSTLE: CardData = {
+  "scryfallId": "0ec9ef7c-88de-4346-a8f9-44beda59fa68",
+  "oracleId": "d4193f50-33b5-4201-ba03-eb135eced7ff",
+  "name": "Teshar, Ancestor's Apostle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Teshar, Ancestor's Apostle",
+      "manaCost": "{3}{W}",
+      "typeLine": "Legendary Creature — Bird Cleric",
+      "oracleText": "Flying\nWhenever you cast a historic spell, return target creature card with mana value 3 or less from your graveyard to the battlefield. (Artifacts, legendaries, and Sagas are historic.)",
+      "flavorText": "\"The Ancestor saved us for a purpose.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Even Amundsen",
+      "imageId": "0ec9ef7c-88de-4346-a8f9-44beda59fa68"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "dmc",
+  "collectorNumber": "105",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TESTAMENT_BEARER: CardData = {
+  "scryfallId": "a5424859-628a-4c19-acd0-0c63c21c8338",
+  "oracleId": "ce0f6cd6-35d5-4f52-b81e-6d15e3bf916e",
+  "name": "Testament Bearer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Testament Bearer",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Phyrexian Warrior",
+      "oracleText": "When this creature dies, look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard.",
+      "flavorText": "She proudly carries the weight of Phyrexia's creed, both figuratively and literally.",
+      "power": "4",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Raluca Marinescu",
+      "imageId": "a5424859-628a-4c19-acd0-0c63c21c8338"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "one",
+  "collectorNumber": "111",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEYO_S_LIGHTSHIELD: CardData = {
+  "scryfallId": "dfffe235-98b1-43db-9461-1b2da5f0690e",
+  "oracleId": "f1305d49-e543-49e9-9b36-e56f93f63bc3",
+  "name": "Teyo's Lightshield",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Teyo's Lightshield",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Illusion",
+      "oracleText": "When this creature enters, put a +1/+1 counter on target creature you control.",
+      "flavorText": "Teyo gifted his shields to as many allies as possible, knowing he could not always be there to protect them himself.",
+      "power": "0",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Igor Kieryluk",
+      "imageId": "dfffe235-98b1-43db-9461-1b2da5f0690e"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "war",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THALAKOS_SEER: CardData = {
+  "scryfallId": "136a7d63-94ae-4d92-86ab-12bf9d78a803",
+  "oracleId": "1baec770-0785-4cbc-be18-83572fd8e9c1",
+  "name": "Thalakos Seer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thalakos Seer",
+      "manaCost": "{U}{U}",
+      "typeLine": "Creature — Thalakos Wizard",
+      "oracleText": "Shadow (This creature can block or be blocked by only creatures with shadow.)\nWhen this creature leaves the battlefield, draw a card.",
+      "flavorText": "\"You see our world when you shut your eyes so tightly that tiny shapes float before them.\"\n—Lyna, to Ertai",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "136a7d63-94ae-4d92-86ab-12bf9d78a803"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Shadow"
+  ],
+  "setCode": "tmp",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THALLID_SOOTHSAYER: CardData = {
+  "scryfallId": "204173b6-ae51-49ca-bd67-0703e882bf9e",
+  "oracleId": "eee801ea-e2dc-4b03-a9f9-e87566cb2ae8",
+  "name": "Thallid Soothsayer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thallid Soothsayer",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Fungus",
+      "oracleText": "{2}, Sacrifice a creature: Draw a card.",
+      "flavorText": "Some of the thallids that escaped into the fens of Urborg began emulating the Cabal's bloodsoaked rituals in their own peculiar way.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jason A. Engle",
+      "imageId": "204173b6-ae51-49ca-bd67-0703e882bf9e"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dom",
+  "collectorNumber": "107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THAUMATURGE_S_FAMILIAR: CardData = {
+  "scryfallId": "6a1858f5-16b8-4a58-8f31-b60f926fdbf8",
+  "oracleId": "74a1a484-7c35-466a-b097-9aaf6fc2073b",
+  "name": "Thaumaturge's Familiar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thaumaturge's Familiar",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Bird",
+      "oracleText": "Flying\nWhen this creature enters, scry 1.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Andrea Radeck",
+      "imageId": "6a1858f5-16b8-4a58-8f31-b60f926fdbf8"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Scry",
+    "Flying"
+  ],
+  "setCode": "j22",
+  "collectorNumber": "802",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THAWBRINGER: CardData = {
+  "scryfallId": "0b7f934f-8eb4-408b-a55f-245ec5cc4a8a",
+  "oracleId": "0863c4bc-1e3e-4ff9-8877-88d4021c85e5",
+  "name": "Thawbringer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thawbringer",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Insect Scout",
+      "oracleText": "When this creature enters or dies, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "\"We are as ice,\" their mentor once told them, \"Destined to shed our rigid form and nourish the grounds with our melting.\"",
+      "power": "4",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Olivier Bernard",
+      "imageId": "0b7f934f-8eb4-408b-a55f-245ec5cc4a8a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "eoe",
+  "collectorNumber": "211",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THE_AUTONOMOUS_FURNACE: CardData = {
+  "scryfallId": "c16f96f5-a2a6-4ac4-bdae-326cee92bf2e",
+  "oracleId": "e2dd05d5-312e-47f1-873e-c0741ee6ef4a",
+  "name": "The Autonomous Furnace",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "The Autonomous Furnace",
+      "manaCost": "",
+      "typeLine": "Land — Sphere",
+      "oracleText": "This land enters tapped.\n{T}: Add {R}.\n{1}{R}, {T}, Sacrifice this land: Draw a card.",
+      "flavorText": "In Urabrask's domain, mighty forges echo day and night with the clangor of the Great Work.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Muhammad Firdaus",
+      "imageId": "c16f96f5-a2a6-4ac4-bdae-326cee92bf2e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "one",
+  "collectorNumber": "247",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THE_DROSS_PITS: CardData = {
+  "scryfallId": "19d469f1-2219-4466-9f8a-769ee43e28db",
+  "oracleId": "8110fe69-c66c-4e2c-86ee-dcc8dc9a13d1",
+  "name": "The Dross Pits",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "The Dross Pits",
+      "manaCost": "",
+      "typeLine": "Land — Sphere",
+      "oracleText": "This land enters tapped.\n{T}: Add {B}.\n{1}{B}, {T}, Sacrifice this land: Draw a card.",
+      "flavorText": "In Sheoldred's domain, the Steel Thanes wage a never-ending war in her long shadow.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Martin de Diego Sádaba",
+      "imageId": "19d469f1-2219-4466-9f8a-769ee43e28db"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "one",
+  "collectorNumber": "251",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THE_FAIR_BASILICA: CardData = {
+  "scryfallId": "01d6ba55-7bc0-41c6-84be-8cd528e46a05",
+  "oracleId": "8618f8e8-fd86-47e3-905d-e6624b599b9b",
+  "name": "The Fair Basilica",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "The Fair Basilica",
+      "manaCost": "",
+      "typeLine": "Land — Sphere",
+      "oracleText": "This land enters tapped.\n{T}: Add {W}.\n{1}{W}, {T}, Sacrifice this land: Draw a card.",
+      "flavorText": "In Elesh Norn's domain, the gospel of unity is the highest law.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Marc Simonetti",
+      "imageId": "01d6ba55-7bc0-41c6-84be-8cd528e46a05"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "one",
+  "collectorNumber": "252",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THE_HUNTER_MAZE: CardData = {
+  "scryfallId": "6389c242-2139-4f12-af30-2b080a1c5e83",
+  "oracleId": "b0ea4975-a944-4585-8711-60f203cffa4a",
+  "name": "The Hunter Maze",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "The Hunter Maze",
+      "manaCost": "",
+      "typeLine": "Land — Sphere",
+      "oracleText": "This land enters tapped.\n{T}: Add {G}.\n{1}{G}, {T}, Sacrifice this land: Draw a card.",
+      "flavorText": "In Vorinclex's domain, only the mightiest survive, and all are prey in his endless hunt.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Alayna Danner",
+      "imageId": "6389c242-2139-4f12-af30-2b080a1c5e83"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "one",
+  "collectorNumber": "253",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -65126,6 +65807,26 @@ export const ENGINE_CARDS: CardData[] = [
   TEMPORAL_ADEPT,
   TEMPORAL_EDDY,
   TEMPORAL_MACHINATIONS,
+  TEMPORAL_SPRING,
+  TEMUR_BANNER,
+  TENDERIZE,
+  TENDRILS_OF_CORRUPTION,
+  TENTH_DISTRICT_GUARD,
+  TERASHI_S_GRASP,
+  TEROH_S_FAITHFUL,
+  TERRITORIAL_HAMMERSKULL,
+  TERROR_TIDE,
+  TESHAR_ANCESTOR_S_APOSTLE,
+  TESTAMENT_BEARER,
+  TEYO_S_LIGHTSHIELD,
+  THALAKOS_SEER,
+  THALLID_SOOTHSAYER,
+  THAUMATURGE_S_FAMILIAR,
+  THAWBRINGER,
+  THE_AUTONOMOUS_FURNACE,
+  THE_DROSS_PITS,
+  THE_FAIR_BASILICA,
+  THE_HUNTER_MAZE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

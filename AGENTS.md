@@ -7268,6 +7268,48 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ENGINE item; prior items stand.
 
 
+- [x] **M6.4cu — Twenty landed: the Sphere cycle, and three shapes the
+      compiler named (2026-08-23):** **3,516 of 31,692 Commander-legal cards
+      now execute completely, up from 3,496.** `SHIPPED_SCRIPTS` 1,599 →
+      1,619; ledger 574 (+5, ZERO new classes). ZERO new tokens or support
+      bodies. **Sliver Queen reaches 3,467 from 77 legendaries.** Decisions in
+      **D258**.
+      **The SPHERE LAND CYCLE — the THIRD generated family in four batches:**
+      four ids, one printed shape (enters tapped + a mana line + the #a1
+      sac-draw), generated from one base. After D252's Staffs and D257's
+      Temples, **the idiom has paid three times.**
+      **Also:** Teshar, Ancestor's Apostle (the historic cast watcher that
+      REANIMATES behind a mana-value floor — D183 + D171 + D139 in one def);
+      Tenderize (the two-controller bite, THIRD card written by controller,
+      and the THIRD independent reproduction of D255's disagreement);
+      Testament Bearer; Thawbringer; Thalakos Seer (LEAVES proven wider than
+      dies by a bounce); Terror Tide; Tendrils of Corruption; Terashi's Grasp.
+      ⚠️ **Three type errors, all the compiler teaching the engine's own
+      shapes:** `ParsedTypeLine` is a STRUCTURE (`supertypes`/`types`/
+      `subtypes`/`raw`), not a string to regex; `CountersChanged` BATCHES
+      (`changes: [{card, kind, delta}]`); and a node string-replace over a
+      CRLF file silently matched NOTHING while reporting success — **a patch
+      script without a per-swap count can do nothing quietly.**
+      ⚠️ **The Sphere tests hit D257's trap from a second angle:** a real
+      `PlayLand` let auto-pass carry the turn on and the next intent was
+      refused `notYourPriority` (D257 lost a pump to cleanup; this lost
+      priority). And a Sphere ENTERS TAPPED, so the `{T}` in its own cost
+      cannot be paid until it is straightened — Foggy Bottom Swamp's test
+      says so in its own comment. The template now MOVES the land and counts
+      draws off the LOG.
+      ⚠️ **Five refusals, ZERO new classes — THREE are up-to-N**, which took
+      three in D256 too: it is the ledger's heaviest class and **its CHOOSER
+      is the most overdue named engine work in the arc.**
+      Fixtures 1,858 (89 tokens) · botPool creature 1,855 / instant 640 /
+      sorcery 522 / artifact 118 / land 324 · ladder [1537, 1636, 3429, 5343,
+      6555] · batch.json 625.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,699
+      files, 8,842 passed / 10 skipped · 500-seed gate
+      735.2 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D258): up-to-N's chooser by weight; the target-order
+      disagreement now has THREE shipped proofs; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

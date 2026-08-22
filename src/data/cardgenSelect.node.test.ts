@@ -1058,6 +1058,18 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // 'During target player's next turn' is a DELAYED trigger (CR 603.7) with an
   // attack REQUIREMENT inside it — two unbuilt things in one sentence.
   ['Taunt', 'delayed trigger'],
+
+  // D258 (M6.4cu) — ZERO new classes, and THREE of the five are up-to-N.
+  // That class took three in D256 as well: it is now far and away the
+  // ledger's heaviest, and its CHOOSER is the single most overdue piece of
+  // named engine work in the arc. The counted-spec machinery is already half
+  // of its enforcement, proven at 2 (D255) and at 6 (D217); what is missing
+  // is letting a player name FEWER targets than the maximum.
+  ['Temporary Truce', 'up-to-N targeting'],
+  ['Tempted by the Oriq', 'up-to-N targeting'],
+  ["Terashi's Cry", 'up-to-N targeting'],
+  ['The Black Breath', 'the Ring'],
+  ['The Lost and the Damned', 'cast-zone discriminator'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
