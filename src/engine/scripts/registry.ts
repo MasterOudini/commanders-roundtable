@@ -7,6 +7,30 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { TARPAN_SCRIPT } from './cards/tarpan';
+import { TASHAS_HIDEOUS_LAUGHTER_SCRIPT } from './cards/tashasHideousLaughter';
+import { TASTE_OF_BLOOD_SCRIPT } from './cards/tasteOfBlood';
+import { TAXI_DRIVER_SCRIPT } from './cards/taxiDriver';
+import { TCRI_BUILDING_SCRIPT } from './cards/tcriBuilding';
+import { TEAM_TRANSMITTER_SCRIPT } from './cards/teamTransmitter';
+import { TECTONIC_HAZARD_SCRIPT } from './cards/tectonicHazard';
+import { TEETERING_PEAKS_SCRIPT } from './cards/teeteringPeaks';
+import { TELEMIN_PERFORMANCE_SCRIPT } from './cards/teleminPerformance';
+import { TELIM_TORS_DARTS_SCRIPT } from './cards/telimTorsDarts';
+import { TEMPEST_OF_LIGHT_SCRIPT } from './cards/tempestOfLight';
+import { TEMPLE_ACOLYTE_SCRIPT } from './cards/templeAcolyte';
+import { TEMPLE_OF_ABANDON_SCRIPT } from './cards/templeOfAbandon';
+import { TEMPLE_OF_DECEIT_SCRIPT } from './cards/templeOfDeceit';
+import { TEMPLE_OF_ENLIGHTENMENT_SCRIPT } from './cards/templeOfEnlightenment';
+import { TEMPLE_OF_EPIPHANY_SCRIPT } from './cards/templeOfEpiphany';
+import { TEMPLE_OF_MALADY_SCRIPT } from './cards/templeOfMalady';
+import { TEMPLE_OF_MYSTERY_SCRIPT } from './cards/templeOfMystery';
+import { TEMPLE_OF_PLENTY_SCRIPT } from './cards/templeOfPlenty';
+import { TEMPLE_OF_SILENCE_SCRIPT } from './cards/templeOfSilence';
+import { TEMPLE_OF_TRIUMPH_SCRIPT } from './cards/templeOfTriumph';
+import { TEMPORAL_ADEPT_SCRIPT } from './cards/temporalAdept';
+import { TEMPORAL_EDDY_SCRIPT } from './cards/temporalEddy';
+import { TEMPORAL_MACHINATIONS_SCRIPT } from './cards/temporalMachinations';
 import { SWIFT_SILENCE_SCRIPT } from './cards/swiftSilence';
 import { SWIFTWATER_CLIFFS_SCRIPT } from './cards/swiftwaterCliffs';
 import { SWIRLING_SANDSTORM_SCRIPT } from './cards/swirlingSandstorm';
@@ -1696,6 +1720,30 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  TARPAN_SCRIPT,
+  TASHAS_HIDEOUS_LAUGHTER_SCRIPT,
+  TASTE_OF_BLOOD_SCRIPT,
+  TAXI_DRIVER_SCRIPT,
+  TCRI_BUILDING_SCRIPT,
+  TEAM_TRANSMITTER_SCRIPT,
+  TECTONIC_HAZARD_SCRIPT,
+  TEETERING_PEAKS_SCRIPT,
+  TELEMIN_PERFORMANCE_SCRIPT,
+  TELIM_TORS_DARTS_SCRIPT,
+  TEMPEST_OF_LIGHT_SCRIPT,
+  TEMPLE_ACOLYTE_SCRIPT,
+  TEMPLE_OF_ABANDON_SCRIPT,
+  TEMPLE_OF_DECEIT_SCRIPT,
+  TEMPLE_OF_ENLIGHTENMENT_SCRIPT,
+  TEMPLE_OF_EPIPHANY_SCRIPT,
+  TEMPLE_OF_MALADY_SCRIPT,
+  TEMPLE_OF_MYSTERY_SCRIPT,
+  TEMPLE_OF_PLENTY_SCRIPT,
+  TEMPLE_OF_SILENCE_SCRIPT,
+  TEMPLE_OF_TRIUMPH_SCRIPT,
+  TEMPORAL_ADEPT_SCRIPT,
+  TEMPORAL_EDDY_SCRIPT,
+  TEMPORAL_MACHINATIONS_SCRIPT,
   SWIFT_SILENCE_SCRIPT,
   SWIFTWATER_CLIFFS_SCRIPT,
   SWIRLING_SANDSTORM_SCRIPT,

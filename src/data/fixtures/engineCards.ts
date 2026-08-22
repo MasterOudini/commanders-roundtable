@@ -59521,6 +59521,820 @@ export const TAR_PITCHER: CardData = {
   "singleImage": true
 };
 
+export const TARPAN: CardData = {
+  "scryfallId": "b1420ec5-367c-4514-86c5-3993bf339e37",
+  "oracleId": "b1e1ebc8-cd09-4280-a169-58ab7ece43ff",
+  "name": "Tarpan",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tarpan",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Horse",
+      "oracleText": "When this creature dies, you gain 1 life.",
+      "flavorText": "\"A good Tarpan will serve you, faithful and true. A bad one will kick you in the head.\"\n—General Jarkeld, the Arctic Fox",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Margaret Organ-Kean",
+      "imageId": "b1420ec5-367c-4514-86c5-3993bf339e37"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ice",
+  "collectorNumber": "267",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TASHA_S_HIDEOUS_LAUGHTER: CardData = {
+  "scryfallId": "0586e473-2745-4e5d-9543-644837ca18fb",
+  "oracleId": "e352f5b9-6406-4914-bc79-f24608be6bc9",
+  "name": "Tasha's Hideous Laughter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tasha's Hideous Laughter",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each opponent exiles cards from the top of their library until that player has exiled cards with total mana value 20 or greater.",
+      "flavorText": "The raging behir reared back, opened its terrible maw . . . and collapsed in a fit of horrifying giggles.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ilse Gort",
+      "imageId": "0586e473-2745-4e5d-9543-644837ca18fb"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pafr",
+  "collectorNumber": "78s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TASTE_OF_BLOOD: CardData = {
+  "scryfallId": "29268cef-da18-4c1d-9066-e0d513a61bf9",
+  "oracleId": "8e5026da-4859-4f30-824c-a49ac308e91a",
+  "name": "Taste of Blood",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Taste of Blood",
+      "manaCost": "{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Taste of Blood deals 1 damage to target player or planeswalker and you gain 1 life.",
+      "flavorText": "\"How blessed are some people, whose lives have no fears, no dreads, to whom sleep is a blessing that comes nightly, and brings nothing but sweet dreams.\"\n—Bram Stoker, *Dracula*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "29268cef-da18-4c1d-9066-e0d513a61bf9"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "m12",
+  "collectorNumber": "113",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TAXI_DRIVER: CardData = {
+  "scryfallId": "a80d3ed9-5e81-41b7-bb74-ab86cba841c8",
+  "oracleId": "a17a92f7-e95c-4d0e-a43e-7e6b41a59139",
+  "name": "Taxi Driver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Taxi Driver",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Human Pilot",
+      "oracleText": "{1}, {T}: Target creature gains haste until end of turn.",
+      "flavorText": "\"I got two speeds, buddy: fast and off duty.\"",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Néstor Ossandón Leal",
+      "imageId": "a80d3ed9-5e81-41b7-bb74-ab86cba841c8"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "spm",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TCRI_BUILDING: CardData = {
+  "scryfallId": "8817a1d6-ef39-4e7c-8277-74aea012803b",
+  "oracleId": "4139f40a-873b-4842-96a2-b7875de1c20a",
+  "name": "TCRI Building",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "TCRI Building",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {U} or {R}.",
+      "flavorText": "The light from the Translocation Matrix could be seen throughout the city. The utroms knew they only had a brief window to escape after its accidental activation.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Aenami",
+      "imageId": "8817a1d6-ef39-4e7c-8277-74aea012803b"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tmt",
+  "collectorNumber": "189",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEAM_TRANSMITTER: CardData = {
+  "scryfallId": "7a08a1b6-2319-4a1d-be13-411989dd2ac2",
+  "oracleId": "23714aed-0b26-4e21-b290-36c21815471c",
+  "name": "Team Transmitter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Team Transmitter",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "Whenever a Hero you control enters, you gain 1 life.\n{T}: Add one mana of any color.",
+      "flavorText": "No matter where they are or what they're doing, when the signal activates, the Avengers assemble.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Eglė Mosakaitė",
+      "imageId": "7a08a1b6-2319-4a1d-be13-411989dd2ac2"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "msc",
+  "collectorNumber": "573",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TECTONIC_HAZARD: CardData = {
+  "scryfallId": "5204c781-f568-4c7f-b3f7-ce4dd678689b",
+  "oracleId": "9097243a-39fa-4e18-8316-c0e57699c783",
+  "name": "Tectonic Hazard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tectonic Hazard",
+      "manaCost": "{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Tectonic Hazard deals 1 damage to each opponent and each creature they control.",
+      "flavorText": "\"The ground is on fire, the ceiling's made of spears, and I think a mushroom tried to curse me. Don't tell me not to panic!\"\n—Jino Grag, Brazen Coalition scout",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jarel Threat",
+      "imageId": "5204c781-f568-4c7f-b3f7-ce4dd678689b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "lci",
+  "collectorNumber": "169",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEETERING_PEAKS: CardData = {
+  "scryfallId": "ce85799d-f8f1-43d6-b8f5-0759723ebd1a",
+  "oracleId": "4a9437a6-4e61-48b6-8194-1c6ba6432250",
+  "name": "Teetering Peaks",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Teetering Peaks",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, target creature gets +2/+0 until end of turn.\n{T}: Add {R}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Kekai Kotaki",
+      "imageId": "ce85799d-f8f1-43d6-b8f5-0759723ebd1a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "f11",
+  "collectorNumber": "9",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TELEMIN_PERFORMANCE: CardData = {
+  "scryfallId": "3ac0f1fb-0ada-4b3c-b9bd-654ffc0a167d",
+  "oracleId": "4014f665-08a6-4ae0-b4d7-5a69d043af6a",
+  "name": "Telemin Performance",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Telemin Performance",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target opponent reveals cards from the top of their library until they reveal a creature card. That player puts all noncreature cards revealed this way into their graveyard, then you put the creature card onto the battlefield under your control.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Izzy",
+      "imageId": "3ac0f1fb-0ada-4b3c-b9bd-654ffc0a167d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "con",
+  "collectorNumber": "35",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TELIM_TOR_S_DARTS: CardData = {
+  "scryfallId": "59733b76-3b44-4543-8bb2-a160232cee27",
+  "oracleId": "0c978da4-9caa-4b4b-be52-889677962ec9",
+  "name": "Telim'Tor's Darts",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Telim'Tor's Darts",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "{2}, {T}: This artifact deals 1 damage to target player or planeswalker.",
+      "flavorText": "\"People laughed at my darts—once.\"\n—Telim'Tor",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Kev Walker",
+      "imageId": "59733b76-3b44-4543-8bb2-a160232cee27"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "321",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPEST_OF_LIGHT: CardData = {
+  "scryfallId": "1475f999-5a85-4177-aa30-15c51cf69812",
+  "oracleId": "9399ed27-31c7-4d6a-99eb-644b74e67344",
+  "name": "Tempest of Light",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tempest of Light",
+      "manaCost": "{2}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy all enchantments.",
+      "flavorText": "\"Let everything return to its true nature, so that destiny may takes its course.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Wayne England",
+      "imageId": "1475f999-5a85-4177-aa30-15c51cf69812"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "10e",
+  "collectorNumber": "51",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPLE_ACOLYTE: CardData = {
+  "scryfallId": "7be7cba2-5673-4bef-aa3d-cbfad8932610",
+  "oracleId": "17e4085e-af44-4ba8-af05-ccfe4b35f96a",
+  "name": "Temple Acolyte",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temple Acolyte",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "When this creature enters, you gain 3 life.",
+      "flavorText": "Young, yes. Inexperienced, yes. Weak? Don't count on it.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Lubov",
+      "imageId": "7be7cba2-5673-4bef-aa3d-cbfad8932610"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "p02",
+  "collectorNumber": "23",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPLE_OF_ABANDON: CardData = {
+  "scryfallId": "0203d093-a060-47d7-876b-e7ce8e444bc6",
+  "oracleId": "3baa8e38-ef93-435d-b63e-f781d5bfcc68",
+  "name": "Temple of Abandon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temple of Abandon",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {R} or {G}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Adam Paquette",
+      "imageId": "0203d093-a060-47d7-876b-e7ce8e444bc6"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "moc",
+  "collectorNumber": "430",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPLE_OF_DECEIT: CardData = {
+  "scryfallId": "0e3f19c8-ae36-4538-884f-89c75fbd6180",
+  "oracleId": "33b9b3bd-33ca-46f3-b8bb-a978bc3d1085",
+  "name": "Temple of Deceit",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temple of Deceit",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {U} or {B}.",
+      "flavorText": "\"No one's called it Satellite Five in ages. It's the Game Station now.\"\n—Lynda",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Eliz Roxs",
+      "imageId": "0e3f19c8-ae36-4538-884f-89c75fbd6180"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "who",
+  "collectorNumber": "524",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPLE_OF_ENLIGHTENMENT: CardData = {
+  "scryfallId": "01f23c1a-a0fe-4520-88ed-045aa4044567",
+  "oracleId": "89f43e27-790b-4ca1-8ba7-0882b31e0783",
+  "name": "Temple of Enlightenment",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temple of Enlightenment",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {W} or {U}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Piotr Dura",
+      "imageId": "01f23c1a-a0fe-4520-88ed-045aa4044567"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "698",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPLE_OF_EPIPHANY: CardData = {
+  "scryfallId": "00f8ec3c-d2cb-477c-a7e8-ff497df646d6",
+  "oracleId": "79f94050-d850-41ca-b1db-5ae0cf743f0a",
+  "name": "Temple of Epiphany",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temple of Epiphany",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {U} or {R}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Adam Paquette",
+      "imageId": "00f8ec3c-d2cb-477c-a7e8-ff497df646d6"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "m20",
+  "collectorNumber": "253",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPLE_OF_MALADY: CardData = {
+  "scryfallId": "01c9c7cb-4e2d-4dd1-a3ed-49caab45aacb",
+  "oracleId": "dc55421f-dee8-4263-9df0-2365df5f14bb",
+  "name": "Temple of Malady",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temple of Malady",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {B} or {G}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Titus Lunter",
+      "imageId": "01c9c7cb-4e2d-4dd1-a3ed-49caab45aacb"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "cmm",
+  "collectorNumber": "1043",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPLE_OF_MYSTERY: CardData = {
+  "scryfallId": "084b5170-b80b-46af-9879-f0bd2651e94b",
+  "oracleId": "7e26f0b7-20e6-46d5-8130-d98c14d6aa29",
+  "name": "Temple of Mystery",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temple of Mystery",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {G} or {U}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Piotr Dura",
+      "imageId": "084b5170-b80b-46af-9879-f0bd2651e94b"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "pm21",
+  "collectorNumber": "254s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPLE_OF_PLENTY: CardData = {
+  "scryfallId": "04dc78e1-50d8-493a-9c1f-9c1d95343fff",
+  "oracleId": "e521322b-0e83-458c-8936-7021a80ee279",
+  "name": "Temple of Plenty",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temple of Plenty",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {G} or {W}.",
+      "flavorText": "Kilika Temple is the temple of fire. Even the Cloister of Trials is engulfed in flames. Those who disobey the precepts and enter unsanctioned may forfeit their lives.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Racrufi",
+      "imageId": "04dc78e1-50d8-493a-9c1f-9c1d95343fff"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "fic",
+  "collectorNumber": "437",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPLE_OF_SILENCE: CardData = {
+  "scryfallId": "06505026-d3c1-41b9-a665-544351649402",
+  "oracleId": "e6e6fce8-0f6a-4b84-865e-d4e4a4182f9f",
+  "name": "Temple of Silence",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temple of Silence",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {W} or {B}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Adam Paquette",
+      "imageId": "06505026-d3c1-41b9-a665-544351649402"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "pm21",
+  "collectorNumber": "255p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPLE_OF_TRIUMPH: CardData = {
+  "scryfallId": "07e73142-a8c0-4bd5-8ab4-cd10e572a975",
+  "oracleId": "6f0d94d9-64bb-4175-83bc-301e8f79f54f",
+  "name": "Temple of Triumph",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temple of Triumph",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {R} or {W}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jason Felix",
+      "imageId": "07e73142-a8c0-4bd5-8ab4-cd10e572a975"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "otc",
+  "collectorNumber": "335",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPORAL_ADEPT: CardData = {
+  "scryfallId": "078e44c6-90bb-4294-9e0a-6194764af00c",
+  "oracleId": "fd9b5462-6578-4bf6-8026-23eaf5af3eee",
+  "name": "Temporal Adept",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temporal Adept",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{U}{U}{U}, {T}: Return target permanent to its owner's hand.",
+      "flavorText": "\"Of course she's at the head of her class. All of her classmates have disappeared.\"\n—Tolarian renegade",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Roger Raupp",
+      "imageId": "078e44c6-90bb-4294-9e0a-6194764af00c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "106",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPORAL_EDDY: CardData = {
+  "scryfallId": "3cab2147-d496-489b-aaf0-b354e31a6b45",
+  "oracleId": "3a35e772-2547-41a3-a2a2-125b48c23aa5",
+  "name": "Temporal Eddy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temporal Eddy",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put target creature or land on top of its owner's library.",
+      "flavorText": "As the temporal fractures spread and time itself slowly fell apart, visitors started to appear from across the past and future, and those native to the present began to disappear.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Wayne England",
+      "imageId": "3cab2147-d496-489b-aaf0-b354e31a6b45"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "tsp",
+  "collectorNumber": "85",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPORAL_MACHINATIONS: CardData = {
+  "scryfallId": "9ba8df17-ab81-4e28-b274-ad38aa2899b3",
+  "oracleId": "f0adab66-c3fe-4989-b7c8-ab7bdc7f0fd1",
+  "name": "Temporal Machinations",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Temporal Machinations",
+      "manaCost": "{2}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Return target creature to its owner's hand. If you control an artifact, draw a card.",
+      "flavorText": "The Cabal soldier blinked and found day had become night, he had a face full of thistle seeds, and the old man was nowhere to be seen.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "9ba8df17-ab81-4e28-b274-ad38aa2899b3"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dom",
+  "collectorNumber": "271",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -64288,6 +65102,30 @@ export const ENGINE_CARDS: CardData[] = [
   TANGLESPAN_LOOKOUT,
   TANUFEL_RIMESPEAKER,
   TAR_PITCHER,
+  TARPAN,
+  TASHA_S_HIDEOUS_LAUGHTER,
+  TASTE_OF_BLOOD,
+  TAXI_DRIVER,
+  TCRI_BUILDING,
+  TEAM_TRANSMITTER,
+  TECTONIC_HAZARD,
+  TEETERING_PEAKS,
+  TELEMIN_PERFORMANCE,
+  TELIM_TOR_S_DARTS,
+  TEMPEST_OF_LIGHT,
+  TEMPLE_ACOLYTE,
+  TEMPLE_OF_ABANDON,
+  TEMPLE_OF_DECEIT,
+  TEMPLE_OF_ENLIGHTENMENT,
+  TEMPLE_OF_EPIPHANY,
+  TEMPLE_OF_MALADY,
+  TEMPLE_OF_MYSTERY,
+  TEMPLE_OF_PLENTY,
+  TEMPLE_OF_SILENCE,
+  TEMPLE_OF_TRIUMPH,
+  TEMPORAL_ADEPT,
+  TEMPORAL_EDDY,
+  TEMPORAL_MACHINATIONS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -1051,6 +1051,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Take into Custody', 'untap restriction'],
   ['Tandem Tactics', 'up-to-N targeting'],
   ['Tandem Takedown', 'up-to-N targeting'],
+
+  // D257 (M6.4ct) — ONE refusal in twenty-five, the leanest classification
+  // of the arc. The TEMPLE CYCLE is why: nine lands of one printed shape cost
+  // one script and refuse nothing.
+  // 'During target player's next turn' is a DELAYED trigger (CR 603.7) with an
+  // attack REQUIREMENT inside it — two unbuilt things in one sentence.
+  ['Taunt', 'delayed trigger'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

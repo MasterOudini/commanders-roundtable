@@ -16647,3 +16647,84 @@ probe 124/124 · battery 130/130.**
 up-to-N is the ledger's heaviest class and its chooser is the named work; the
 aim/resolution target-order disagreement now has two shipped cards proving it
 and Skulduggery still reads positionally; prior items stand.
+
+## D257 — M6.4ct: TWENTY-FOUR landed — the Temple cycle, and a new arc record (2026-08-22)
+
+**3,496 of 31,692 Commander-legal cards execute completely, up from 3,472.**
+SHIPPED_SCRIPTS 1,575 → 1,599; ledger 568 → 569 (+1, ZERO new classes). ZERO
+new token pins, ZERO new support bodies.
+
+⚠️⚠️ **TWENTY-FOUR IS THE NEW ARC RECORD** — it takes it from the 23 D237 set
+and D252 tied — and **ONE refusal in twenty-five is the leanest classification
+of the arc** (the previous best was six). Both numbers have the same cause:
+**THE TEMPLE CYCLE.**
+
+**Nine scry lands, one printed shape, GENERATED from the shipped Temple of
+Malice base (D196) by `gen-temples.cjs`** — Abandon, Deceit, Enlightenment,
+Epiphany, Malady, Mystery, Plenty, Silence, Triumph. Each is three printed
+lines: enters tapped (D134's built-in), the ETB scry (this def), and a mana
+line (the engine's). This is the family-table shape **D196 named and D203
+called overdue by shape count**, landed whole — and it is the second generated
+family in two batches after D252's five Staffs. The generator IS the argument
+that the ten Temples are one script; nine hand-written near-copies would be
+nine chances to mistype one.
+
+**The rest of the batch:** `Telemin Performance` — the reveal-until composed
+with a THEFT: the noncreatures go to their owner's graveyard and the creature
+card arrives on MY battlefield, so the battlefield move's `to.player` is the
+CASTER (Mind Funeral's walk, D225, meeting Reanimate's ownership, D238).
+`Tasha's Hideous Laughter` — the first accumulate-until-a-BUDGET loop: each
+opponent exiles from the top until the TOTAL mana value they have exiled
+reaches 20, and the card that crosses the line is exiled too. `Tempest of
+Light` — Serene Heart's Aura sweep (D245) widened from the subtype to the
+whole card type. `Tectonic Hazard` — 1 to each opponent AND each creature
+they control. `Teetering Peaks` — Looming Spires' targeted ETB on a land that
+also enters tapped. `Temporal Eddy` / `Temporal Adept` / `Temporal
+Machinations` — the D213 compound onto a library top, the any-permanent
+bounce, and the artifact-conditioned draw. `Taxi Driver` — the {1}, {T} haste
+grant on D194's carrier. `TCRI Building` — Swiftwater Cliffs' EXACT printed
+text one batch later. Plus Tarpan, Temple Acolyte, Team Transmitter (the
+HERO-subtype entry pair), Taste of Blood and Telim'Tor's Darts.
+
+⚠️ **MEASURED WHILE DRAFTING, AND IT CORRECTED TWO TESTS BEFORE THEY WERE
+WRITTEN: damage to a PLANESWALKER is only MARKED in this engine and does NOT
+remove loyalty counters.** `applyDamage` writes `card.damage` for every card
+target, and SBA 4 only bins a walker already at loyalty ≤ 0 — CR 306.8's
+damage-removes-loyalty rule is unbuilt. Both planeswalker arms (Taste of
+Blood, Telim'Tor's Darts) assert `damage`, never a loyalty delta.
+
+⚠️ **One test-side failure, and it is a keeper about the HARNESS rather than
+the card:** Teetering Peaks' pump landed and then EXPIRED before the
+assertion, because a real `PlayLand` lets auto-pass run the turn out from
+under `settle()` and cleanup wipes `untilEndOfTurn`. The fix is the shipped
+twin's own idiom — **MOVE the land onto the battlefield instead of PLAYING
+it**: D134's entry funnel catches every path onto the battlefield (D145 proved
+it on a shock land), and Looming Spires' test (D222) does exactly this for
+exactly this reason. Its cleanup assertion also became turn-RELATIVE.
+
+⚠️⚠️ **AND THE HEREDOC ATE A BACKSLASH — INVARIANT 14, CAUGHT IN THE ACT.**
+The Temple generator was first written through a shell heredoc; the `\\n` in
+its printed-text template arrived as `\n`, which node then read as a REAL
+newline inside a single-quoted TS string. **The corruption was in the OUTPUT,
+not in the generator** — nine files of syntactically invalid TypeScript from a
+script that looked perfect. Rewritten with a file tool and regenerated clean.
+D154's rule is not folklore: **put a patch or generator script in a FILE and
+run `node <file>`.**
+
+⚠️ **ONE refusal:** `Taunt` — "During target player's next turn, creatures
+that player controls attack you if able" is a DELAYED trigger (CR 603.7) with
+an attack REQUIREMENT inside it, two unbuilt things in one sentence.
+
+Fixtures 1,814 → 1,838 (89 tokens, none new). botPool creature 1,845 / instant
+638 / sorcery 519 / artifact 117 / land 320 · ladder [1557, 1656, 3449, 5363,
+6575] · batch.json 650 · botDeck: Sliver Queen reaches **3,447** from 76
+legendaries.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,679 files,
+8,740 passed / 10 skipped · 500-seed gate 744.7 s · build clean ·
+probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D257): the generated-family idiom has now paid twice in
+three batches and should be reached for whenever a printed shape repeats
+across ids; the planeswalker-damage gap (CR 306.8) is an ENGINE item, not a
+parse one; prior items stand.

@@ -7227,6 +7227,47 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       stand.
 
 
+- [x] **M6.4ct — TWENTY-FOUR landed: the Temple cycle, and a new arc
+      record (2026-08-22):** **3,496 of 31,692 Commander-legal cards now
+      execute completely, up from 3,472.** `SHIPPED_SCRIPTS` 1,575 → 1,599;
+      ledger 569 (+1, ZERO new classes). ZERO new tokens or support bodies.
+      Decisions in **D257**.
+      ⚠️⚠️ **TWENTY-FOUR IS THE NEW ARC RECORD** (it takes it from D237's 23,
+      tied by D252) and **ONE refusal in twenty-five is the leanest
+      classification of the arc**. Both have the same cause: **the TEMPLE
+      CYCLE — nine scry lands, one printed shape, GENERATED from the shipped
+      Temple of Malice base**, the family-table shape D196 named and D203
+      called overdue. Second generated family in two batches (D252's Staffs).
+      **Also:** Telemin Performance (the reveal-until composed with a THEFT —
+      the creature lands under MY control); Tasha's Hideous Laughter (the
+      first accumulate-until-a-BUDGET loop, and a library of nothing but
+      lands is exiled WHOLE because mana value 0 never reaches 20); Tempest
+      of Light; Tectonic Hazard; Teetering Peaks; Temporal Eddy / Adept /
+      Machinations; Taxi Driver; TCRI Building (Swiftwater Cliffs' EXACT text
+      one batch later).
+      ⚠️ **MEASURED WHILE DRAFTING: damage to a PLANESWALKER is only MARKED
+      and does NOT remove loyalty counters** — `applyDamage` writes
+      `card.damage` and SBA 4 only bins a walker already at loyalty ≤ 0 (CR
+      306.8 unbuilt). Both planeswalker tests assert `damage`.
+      ⚠️ **One test-side failure, about the HARNESS:** a real `PlayLand` lets
+      auto-pass run the turn out and cleanup wipes an until-end-of-turn pump
+      before the assertion — MOVE the land instead (D134's funnel catches
+      every path; Looming Spires' test does the same for the same reason).
+      ⚠️⚠️ **The heredoc ate a backslash — INVARIANT 14, caught in the act:**
+      the generator's `\\n` became a real newline in the OUTPUT, producing
+      nine invalid TS files from a script that read perfectly. Rewritten with
+      a file tool. **Put generator scripts in a FILE and run `node <file>`.**
+      Fixtures 1,838 (89 tokens) · botPool creature 1,845 / instant 638 /
+      sorcery 519 / artifact 117 / land 320 · ladder [1557, 1656, 3449, 5363,
+      6575] · batch.json 650 · botDeck: Sliver Queen reaches 3,447.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,679
+      files, 8,740 passed / 10 skipped · 500-seed gate
+      744.7 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D257): reach for the generated-family idiom whenever
+      a printed shape repeats across ids; the planeswalker-damage gap is an
+      ENGINE item; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
