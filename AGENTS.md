@@ -7578,6 +7578,57 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       items stand.
 
 
+- [x] **M6.4da — Sixteen landed: the compound picture is complete, and only one
+      of three cases reads (2026-08-23):** **3,620 of 31,692 Commander-legal
+      cards now execute completely, up from 3,604.** `SHIPPED_SCRIPTS`
+      1,707 → 1,723; ledger 620 (+9, TWO new classes). ZERO new support bodies
+      or token pins, both verified before drafting. **Sliver Queen reaches
+      3,571 from 81 legendaries.** Decisions in **D264**.
+      ⚠️⚠️ **THE THIRD COMPOUND SHAPE, AND IT HALVES.** `Unsubstantiate`'s
+      "target spell or creature" → **`kinds: ['spell']`, `unenforced: []`**:
+      the CREATURE arm is SILENTLY DROPPED. The picture is now complete and
+      only one case of three reads — a list of card TYPES reads (D263), a list
+      naming a SUBTYPE halves (D216), a MIXED stack+permanent list halves
+      (this). ⚠️ **The two failures cost differently:** `TargetSpec.kinds` can
+      already hold `'spell'` AND `'creature'`, so the mixed case is a PARSER
+      gap with the field already there; the subtype case needs a NEW FIELD
+      first. Keep them apart when the aim-layer queue is scheduled.
+      ⚠️ **Undying Evil and Undying Malice are ONE gap wearing two faces:**
+      Malice grants a QUOTED triggered ability, Evil grants the KEYWORD
+      `undying` which is shorthand for that same ability. MEASURED: `undying`
+      is in neither the Tier-2 union nor D194's GRANTABLE map (twenty
+      keywords, all combat or targeting properties). One class name, because
+      that is one missing carrier.
+      ⚠️ **The ordering rule found its THIRD witness, sign reversed:** `Union
+      of the Third Path` draws then gains life equal to the hand INCLUDING the
+      drawn card, so the count is `hand.length + drawn`. D260's Tidy
+      Conclusion had to EXCLUDE what its first sentence removed; this must
+      INCLUDE what its first sentence added. Same missing door (D261).
+      **Also:** Undo (the counted pair, each creature to ITS OWN owner);
+      Unified Will (strictly-more census — ⚠️ the TIE case asserts on the LOG,
+      because a countered spell and a resolved one both end in the graveyard);
+      Unleash Fury (DOUBLE power — only a 6/6 tells it from a fixed pump);
+      Unleash Shell; Unlicensed Disintegration (the controller read BEFORE the
+      move — `clearBattlefieldFields` resets it to the OWNER); Up the
+      Beanstalk (one line, two defs); Unspeakable Symbol (three life a counter,
+      no mana); Universal Solvent + Unstable Obelisk as #a0/#a1 twins;
+      University Campus; Unwelcome Sprite; Uproot; Untamed Might; Urbis
+      Protector; Ursapine.
+      ⚠️ **Types clean on the first pass AND all 53 tests green on their first
+      run** — the first batch of the session with neither.
+      Fixtures 1,965 (1,875 by name + 90 tokens) · botPool artifact 127 /
+      creature 1,894 / enchantment 62 / instant 656 / land 335 / sorcery 546 ·
+      ladder [1433, 1532, 3325, 5239, 6451] · batch.json 475.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,803
+      files, 9,392 passed / 10 skipped · 500-seed gate
+      732.9 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D264): the mixed noun list is the cheapest of the
+      three compound repairs and needs no new field; the undying carrier would
+      close two ledger entries at once; `ctx.random`, up-to-N's chooser and
+      D261's 'a resolve cannot see its own effects' — now with THREE witnesses
+      — stay the named engine jobs; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

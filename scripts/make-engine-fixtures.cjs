@@ -2303,6 +2303,22 @@ const WANTED = [
   // fixture set held ZERO creatures with any of those six subtypes. Vanilla
   // on purpose — no text to account for.
   'Coral Eel',
+  'Undo',
+  'Unified Will',
+  'Union of the Third Path',
+  'Universal Solvent',
+  'University Campus',
+  'Unleash Fury',
+  'Unleash Shell',
+  'Unlicensed Disintegration',
+  'Unspeakable Symbol',
+  'Unstable Obelisk',
+  'Untamed Might',
+  'Unwelcome Sprite',
+  'Up the Beanstalk',
+  'Uproot',
+  'Urbis Protector',
+  'Ursapine',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

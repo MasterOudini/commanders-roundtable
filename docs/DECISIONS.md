@@ -17300,3 +17300,85 @@ needs a `TargetSpec` field before any of those cards can land; the ability-word
 cost is still the cheapest unbuilt class; up-to-N's chooser, 'a resolve cannot
 see its own effects' (D261) and `ctx.random` stay the named engine jobs; prior
 items stand.
+
+## D264 — M6.4da: sixteen landed — the compound picture is complete, and only one of three cases reads (2026-08-23)
+
+**3,620 of 31,692 Commander-legal cards execute completely, up from 3,604.**
+SHIPPED_SCRIPTS 1,707 → 1,723; ledger 611 → 620 (+9, TWO new classes). ZERO
+new support bodies, ZERO new token pins — both verified before drafting.
+**Sliver Queen reaches 3,571 from 81 legendaries.**
+
+⚠️⚠️ **THE THIRD COMPOUND SHAPE, AND IT HALVES.** `Unsubstantiate`'s "target
+spell or creature" comes back **`kinds: ['spell']` with `unenforced: []`** —
+the CREATURE arm is SILENTLY DROPPED. With D263's Twiddle and D216's Gravkill
+that completes a three-case picture, and only one case reads:
+
+| the printed noun list | result | measured in |
+|---|---|---|
+| a list of card TYPES | **reads** | D263 (`artifact, creature, or land`) |
+| a list naming a SUBTYPE | halves | D216 (`creature or Spacecraft`) |
+| a MIXED stack + permanent list | halves | D264 (`spell or creature`) |
+
+⚠️ The two failures are NOT equally expensive to fix. `TargetSpec.kinds` can
+already hold `'spell'` AND `'creature'`, so the mixed case is a PARSER gap —
+the field exists and nothing writes to it. The subtype case needs a NEW FIELD
+before any of those cards can land. Worth keeping apart when the aim-layer
+queue is next scheduled. NEW class **'mixed stack/permanent noun list'**.
+
+⚠️ **`Undying Evil` AND `Undying Malice` ARE ONE GAP WEARING TWO FACES.**
+Malice grants a QUOTED triggered ability ("When this creature dies, return
+it…" — D196's Abnormal Endurance class); Evil grants the KEYWORD `undying`,
+which is shorthand for that same ability. MEASURED: `undying` is in neither
+the Tier-2 Keyword union nor D194's `GRANTABLE` map, which holds twenty
+keywords and every one of them is a combat or targeting property rather than a
+triggered ability. Both are ledgered under ONE class name, because that is the
+truth — one missing carrier, not two. The other new class is `connive`
+(`Unstable Experiment`), which is blocked twice over: a script-raised discard
+prompt AND a counter conditioned on what was discarded, which is D261's
+post-ask rider.
+
+⚠️ **THE ORDERING RULE FOUND ITS THIRD WITNESS, AND THIS TIME THE SIGN IS
+REVERSED.** `Union of the Third Path` draws a card and then gains life equal
+to the hand — and the count INCLUDES the card just drawn. `ctx.state` is the
+pre-resolution board, so the hand has to be read as `hand.length + drawn`. In
+D260's Tidy Conclusion the census had to EXCLUDE what the first sentence
+removed; here it must INCLUDE what the first sentence added. Same missing
+engine door (D261 — a resolve cannot see its own effects), same manual fix,
+opposite direction. ⚠️ And the `+ drawn` is taken off the events this resolve
+actually emits rather than assumed: an empty library draws nothing.
+
+**The rest of the batch.** `Undo` is the counted pair (min 2 / max 2, D209's
+machinery) with each creature going to ITS OWN owner and one target refused.
+`Unified Will` counters only on a strictly larger creature count — and the tie
+case had to assert on the LOG, because a countered spell and a resolved one
+both end in the graveyard, so the zone proves nothing. `Unleash Fury` DOUBLES
+power, which only a 6/6 tells apart from a fixed pump. `Unleash Shell` hits a
+creature-or-planeswalker for 5 and its controller for 2 (damage to a walker is
+MARKED, D257). `Unlicensed Disintegration` bills the victim's controller only
+behind an artifact of mine, with the controller read BEFORE the move because
+`clearBattlefieldFields` resets it to the OWNER afterwards. `Up the Beanstalk`
+is one printed line and two defs. `Unspeakable Symbol` buys counters for three
+life apiece with no mana at all. Plus `Universal Solvent` and `Unstable
+Obelisk` as twins (#a0 and #a1 — a mana line counts as an ability),
+`University Campus`, `Unwelcome Sprite` (the cast watcher gated on an
+opponent's turn), `Uproot`, `Untamed Might`, `Urbis Protector`, `Ursapine`.
+
+⚠️ **Types clean on the first pass and all 53 tests green on their first run** —
+the first batch of the session with neither a type error nor a test-side
+failure.
+
+Fixtures 1,949 → 1,965 (1,875 by name + 90 tokens). botPool artifact 127 /
+creature 1,894 / enchantment 62 / instant 656 / land 335 / sorcery 546 ·
+ladder [1433, 1532, 3325, 5239, 6451] · batch.json 475 · botDeck: the header
+alone moved — **3,571 from 81 legendaries**.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,803 files,
+9,392 passed / 10 skipped · 500-seed gate 732.9 s · build clean ·
+probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D264): the mixed noun list is the cheapest of the three
+compound repairs and needs no new field; the subtype list needs one; the
+undying carrier would close two ledger entries at once and is the same shape
+as every other quoted-ability grant; `ctx.random`, up-to-N's chooser and
+D261's 'a resolve cannot see its own effects' — now with THREE witnesses —
+stay the named engine jobs; prior items stand.

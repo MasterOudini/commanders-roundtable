@@ -1196,6 +1196,34 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Twiddle', 'script-raised prompt'],
   ["Tymora's Invoker", 'ability-word activated cost'],
   ['Ultima', 'end the turn'],
+
+  // D264 (M6.4da) — TWO new classes, one of them a THIRD compound shape.
+  //
+  // ⚠️⚠️ `Unsubstantiate`'s "target spell or creature" comes back
+  // `kinds: ['spell']` with `unenforced: []` — the CREATURE arm is SILENTLY
+  // DROPPED. That completes a three-case picture, and only one case reads:
+  //   · a list of card TYPES           → READS  (D263 Twiddle, three members)
+  //   · a list naming a SUBTYPE        → HALVES (D216 Gravkill)
+  //   · a MIXED stack + permanent list → HALVES (this)
+  // The third is its own shape and is a PARSER gap rather than a missing
+  // field: `TargetSpec.kinds` can already hold 'spell' AND 'creature'. The
+  // subtype case cannot be fixed that cheaply — it needs a new field first.
+  //
+  // ⚠️ Undying Evil and Undying Malice are the SAME gap wearing two faces.
+  // Malice grants a QUOTED triggered ability (D196's Abnormal Endurance);
+  // Evil grants the KEYWORD `undying`, which is shorthand for that same
+  // ability. MEASURED: `undying` is in neither the Tier-2 Keyword union nor
+  // D194's GRANTABLE map (twenty keywords, all combat or targeting
+  // properties). One missing carrier, not two — so one class name.
+  ['Undertaker', 'discard-cost chooser'],
+  ['Undying Evil', 'quoted-ability temporary grant'],
+  ['Undying Malice', 'quoted-ability temporary grant'],
+  ['Unleash the Inferno', 'delayed trigger'],
+  ['Unlucky Drop', 'script-raised prompt'],
+  ['Unravel', 'mana-spent memory'],
+  ['Unstable Experiment', 'connive mechanic'],
+  ['Unsubstantiate', 'mixed stack/permanent noun list'],
+  ['Unwanted Remake', 'face-down (morph)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { UNDO_SCRIPT } from './cards/undo';
+import { UNIFIED_WILL_SCRIPT } from './cards/unifiedWill';
+import { UNION_OF_THE_THIRD_PATH_SCRIPT } from './cards/unionOfTheThirdPath';
+import { UNIVERSAL_SOLVENT_SCRIPT } from './cards/universalSolvent';
+import { UNIVERSITY_CAMPUS_SCRIPT } from './cards/universityCampus';
+import { UNLEASH_FURY_SCRIPT } from './cards/unleashFury';
+import { UNLEASH_SHELL_SCRIPT } from './cards/unleashShell';
+import { UNLICENSED_DISINTEGRATION_SCRIPT } from './cards/unlicensedDisintegration';
+import { UNSPEAKABLE_SYMBOL_SCRIPT } from './cards/unspeakableSymbol';
+import { UNSTABLE_OBELISK_SCRIPT } from './cards/unstableObelisk';
+import { UNTAMED_MIGHT_SCRIPT } from './cards/untamedMight';
+import { UNWELCOME_SPRITE_SCRIPT } from './cards/unwelcomeSprite';
+import { UP_THE_BEANSTALK_SCRIPT } from './cards/upTheBeanstalk';
+import { UPROOT_SCRIPT } from './cards/uproot';
+import { URBIS_PROTECTOR_SCRIPT } from './cards/urbisProtector';
+import { URSAPINE_SCRIPT } from './cards/ursapine';
 import { TURN_THE_TIDE_SCRIPT } from './cards/turnTheTide';
 import { TURN_TO_SLAG_SCRIPT } from './cards/turnToSlag';
 import { TURNTIMBER_ASCETIC_SCRIPT } from './cards/turntimberAscetic';
@@ -1828,6 +1844,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  UNDO_SCRIPT,
+  UNIFIED_WILL_SCRIPT,
+  UNION_OF_THE_THIRD_PATH_SCRIPT,
+  UNIVERSAL_SOLVENT_SCRIPT,
+  UNIVERSITY_CAMPUS_SCRIPT,
+  UNLEASH_FURY_SCRIPT,
+  UNLEASH_SHELL_SCRIPT,
+  UNLICENSED_DISINTEGRATION_SCRIPT,
+  UNSPEAKABLE_SYMBOL_SCRIPT,
+  UNSTABLE_OBELISK_SCRIPT,
+  UNTAMED_MIGHT_SCRIPT,
+  UNWELCOME_SPRITE_SCRIPT,
+  UP_THE_BEANSTALK_SCRIPT,
+  UPROOT_SCRIPT,
+  URBIS_PROTECTOR_SCRIPT,
+  URSAPINE_SCRIPT,
   TURN_THE_TIDE_SCRIPT,
   TURN_TO_SLAG_SCRIPT,
   TURNTIMBER_ASCETIC_SCRIPT,
