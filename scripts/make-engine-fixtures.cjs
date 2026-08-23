@@ -2257,6 +2257,26 @@ const WANTED = [
   'Tranquil Cove',
   'Tranquil Domain',
   'Tranquility',
+  "Trapfinder's Trick",
+  'Traverse Eternity',
+  'Treasure Dredger',
+  'Treasure Hunt',
+  'Treasure Trove',
+  'Treetop Freedom Fighters',
+  'Tremor',
+  'Tribal Flames',
+  'Trip Noose',
+  'Triumphant Chomp',
+  'Tropical Storm',
+  'Trumpet Blast',
+  'Tsunami',
+  'Tukatongue Thallid',
+  'Tuknir Deathlock',
+  'Tunnel Surveyor',
+  'Tura Kennerüd, Skyknight',
+  // ⚠️ SUPPORT BODY, not a landed card: D262's Trapfinder's Trick needs a
+  // card with the Trap subtype and the fixture set held ZERO of them.
+  'Pitfall Trap',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -2417,6 +2437,9 @@ const WANTED_TOKENS = [
   { name: 'Graveborn', set: 'tcmm', cn: '38', key: 'GRAVEBORN_TOKEN' },
   { name: 'Angel', set: 'sld', cn: '1340', key: 'ANGEL_44_TOKEN' },
   { name: 'Sliver', set: 'tcmm', cn: '57', key: 'SLIVER_11_TOKEN' },
+  // D262: Tunnel Surveyor's ENCHANTMENT creature token. Exactly one Glimmer
+  // printing exists in the database, so this pin cannot be the wrong reprint.
+  { name: 'Glimmer', set: 'tdsk', cn: '4', key: 'GLIMMER_TOKEN' },
 ];
 
 function constName(name) {

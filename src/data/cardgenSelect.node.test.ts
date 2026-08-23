@@ -1151,6 +1151,36 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Track Down', 'script-raised prompt'],
   ['Tradewind Rider', 'tap-creatures cost'],
   ['Transmogrify', 'ctx.random stub'],
+
+  // D262 (M6.4cy) — ZERO new classes, and the probe's best finding is a
+  // CORRECTION to the heaviest class in this table.
+  //
+  // ⚠️⚠️ **UP-TO-N IS NOT UNIFORMLY BROKEN.** `Trickster's Stratagem`'s "up to
+  // one target creature you control" parses **min 0 / max 1 with the
+  // controller ENFORCED** — correctly, in full. But `Trick Shot`'s "up to one
+  // other target creature token" comes back **min 1 / max 1** with the
+  // token-ness gone: it would REQUIRE a second target and accept a nontoken.
+  // So this class is a set of PARSE FAILURES rather than one missing feature —
+  // D212's Fancy Footwork read "one or two" as exactly-two, D261's Touch of
+  // Darkness read "one or more" as exactly-one, and this reads "up to one"
+  // right. **Probe each wording; do not assume the class.** The chooser is
+  // still owed for the forms that DO parse.
+  //
+  // ⚠️ The qualifier-drop tally is now three batches deep, and the two
+  // directions are not equally safe: D259's Thistledown Players DISCLOSED its
+  // negated type (`unenforced: [...]`, which D161's filter can refuse), while
+  // D261's Topple and this batch's Trip Wire drop theirs SILENTLY. Only a
+  // probe sees the silent kind.
+  // ⚠️ Trip Wire could not have been proven positively in any case: measured,
+  // NO fixture creature has horsemanship — only two shipped spells mention it.
+  ['Transmutation', 'until-end-of-turn power/toughness switch'],
+  ['Tribal Unity', 'script-raised prompt'],
+  ['Trick Shot', 'up-to-N targeting'],
+  ["Trickster's Stratagem", 'library position placement'],
+  ['Trip Wire', 'keyword target qualifier'],
+  ["Trostani's Judgment", 'copy effect (populate)'],
+  ['Truce', 'script-raised prompt'],
+  ['Tundra Fumarole', 'mana-spent memory'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

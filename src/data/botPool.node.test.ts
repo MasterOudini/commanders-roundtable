@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). Planeswalkers (loyalty costs) and battles are still
     // structurally out, and stay pinned at zero for the same reason the
     // enchantments were.
-    expect(r.poolByType['enchantment'] ?? 0).toBe(59);
+    expect(r.poolByType['enchantment'] ?? 0).toBe(60);
     expect(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -446,12 +446,12 @@ const POOL: Record<string, number> = {
   // TWENTY-card batch.
   // M6.4bc (D214): +8 instants, +7 sorceries, Flying Carpet, and Forum of
   // Amity.
-  creature: 1876,
-  instant: 644,
-  sorcery: 533,
+  creature: 1882,
+  instant: 645,
+  sorcery: 541,
   land: 331,
-  artifact: 123,
-  enchantment: 59,
+  artifact: 124,
+  enchantment: 60,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

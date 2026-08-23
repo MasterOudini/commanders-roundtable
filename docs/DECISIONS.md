@@ -17121,3 +17121,95 @@ witnesses across two batches (Too Greedily, Track Down, and D260's Tidy
 Conclusion) and is the best-value bounded job after `ctx.random`; `ctx.random`
 itself now blocks four named cards across two batches; up-to-N's chooser stays
 the heaviest unbuilt class; prior items stand.
+
+## D262 — M6.4cy: seventeen landed — the heaviest refusal class is not one thing (2026-08-23)
+
+**3,583 of 31,692 Commander-legal cards execute completely, up from 3,566.**
+SHIPPED_SCRIPTS 1,669 → 1,686; ledger 599 → 607 (+8, ZERO new classes). ONE new
+token pin and ONE new support body, both measured before being added. **Sliver
+Queen reaches 3,534 from 81 fully-executable legendaries** — TWO landed here.
+
+⚠️⚠️ **THE PROBE'S BEST FINDING IS A CORRECTION TO THE LEDGER'S HEAVIEST
+CLASS: "up to N" IS NOT UNIFORMLY BROKEN.** `Trickster's Stratagem`'s "up to
+one target creature you control" parses **min 0 / max 1 with the controller
+ENFORCED** — correctly, in full. `Trick Shot`'s "up to one **other** target
+creature **token**" comes back **min 1 / max 1** with the token-ness gone: it
+would REQUIRE a second target and accept a nontoken one. So `up-to-N
+targeting` — cited more often than any other entry in the REFUSED table — is a
+set of PARSE FAILURES rather than one missing feature. D212's Fancy Footwork
+read "one or two" as exactly-two; D261's Touch of Darkness read "one or more"
+as exactly-one; this reads "up to one" right. **Probe each wording; do not
+assume the class.** The chooser is still owed for the forms that DO parse, and
+that is now a smaller, better-defined job than the entry count suggested.
+
+⚠️ **THE QUALIFIER-DROP TALLY IS THREE BATCHES DEEP, AND THE TWO DIRECTIONS
+ARE NOT EQUALLY SAFE.** D259's Thistledown Players DISCLOSED its negated type
+(`unenforced: ['nonland']`), which D161's selection filter can refuse on its
+own. D261's Topple and this batch's `Trip Wire` ("target creature with
+horsemanship") drop theirs SILENTLY, with `unenforced: []` — invisible to
+every filter, and visible only to a probe. That asymmetry is the whole
+argument for probing before drafting rather than after a test fails.
+⚠️ Trip Wire could not have been proven positively in any case: measured, **no
+fixture creature has horsemanship** — only two shipped spells mention it.
+
+**The overlaps and the censuses.** `Tropical Storm` is X to each flyer and 1
+MORE to each blue creature, which is two independent clauses summed into one
+damage event: on one board a blue flyer takes X+1, a WHITE flyer takes X, a
+blue ground creature takes 1 and a green ground creature takes nothing — four
+answers, and the white flyer is the one that proves the clauses do not replace
+each other. `Triumphant Chomp` is max(2, greatest power among my Dinosaurs), so
+the census is a RAISE and never a gate: with no Dinosaur at all it still deals
+2, which is the branch a happy-path test would have missed. `Tribal Flames`
+counts basic land TYPES and not lands — three Mountains are ONE — and
+`Traverse Eternity` counts the greatest mana value among HISTORIC permanents,
+with a bigger nonhistoric Grave Titan proven not to raise it.
+
+**The rest:** `Treasure Hunt` — the run stops on the first NONLAND and
+INCLUDES it, so the test engineers the library top rather than hoping;
+`Trapfinder's Trick` — the public hand reveal plus a choiceless discard of
+every Trap, the subtype read off the oracle face because a card in hand has no
+derivation; `Treasure Dredger` — D254's three-part cost (mana, one life, the
+tap) with every part asserted; `Tsunami` — the subtype wipe on LANDS, D260's
+Tivadar's Crusade one card type over; `Trumpet Blast` cast mid-combat off a
+real declaration, with the creature that stayed home proving the filter;
+`Tukatongue Thallid`, killed by batch-mate `Tremor` so the death is a real one;
+`Treasure Trove`, `Trip Noose`, `Treetop Freedom Fighters`, `Tuknir Deathlock`
+and `Tura Kennerüd, Skyknight` — the two legendaries.
+
+⚠️ **The support bodies were measured, and this time the answer was not zero.**
+D260 and D261 both pinned nothing by reading the fixtures first; here the same
+check found **ZERO cards with the Trap subtype**, so `Pitfall Trap` was added
+deliberately as a body rather than discovered by a failing test. The Dinosaur
+census body (Colossal Dreadmaw) and Tsunami's Island were already pinned. One
+new TOKEN pin — `Glimmer` (`tdsk 4`) for `Tunnel Surveyor` — and the database
+holds exactly one Glimmer printing, so the pin cannot be the wrong reprint.
+
+⚠️ Two corrections the tooling made before any gate ran: the fixture const for
+an apostrophe name is **`TRAPFINDER_S_TRICK`**, not `TRAPFINDERS_TRICK` (D215's
+`GAEA_S_MIGHT` rule — the apostrophe becomes an underscore, exactly as a
+diacritic does); and `Tremor`'s test hit D232's oldest trap by putting a Mogg
+Raider under p2 while listing it only in p1's deck — **`put()` fetches from the
+NAMED player's own list.** The damnation tripwire also caught the word
+"regenerating" in a prose comment (D206's lesson: reword the comment, never
+widen the exclude list).
+
+⚠️ **D261 flagged a unit-leg wall time of 1,021 s and said the number to
+watch was whether the next idle run came back down. It did: 835.7 s at 1,766
+files, against 1,749.** So that was VARIANCE (D106) and not growth, which is
+what the flag was for — the answer arrived one batch later because the
+question was written down rather than diagnosed on the spot.
+
+Fixtures 1,908 → 1,927 (1,837 by name + 90 tokens). botPool artifact 124 /
+creature 1,882 / enchantment 60 / instant 645 / sorcery 541 · ladder [1470,
+1569, 3362, 5276, 6488] · batch.json 525 · botDeck: the header alone moved —
+**3,534 from 81 legendaries**.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,766 files,
+9,198 passed / 10 skipped · 500-seed gate 754.6 s · build clean ·
+probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D262): up-to-N's chooser is a smaller job than its entry
+count implied, and each wording needs its own probe; the silent qualifier drop
+is the aim layer's most dangerous shape and now has two witnesses in two
+batches; 'a resolve cannot see its own effects' (D261) and `ctx.random` stay
+the two best-value bounded engine jobs; prior items stand.

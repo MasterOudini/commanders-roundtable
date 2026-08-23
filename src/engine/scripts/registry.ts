@@ -7,6 +7,23 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { TRAPFINDERS_TRICK_SCRIPT } from './cards/trapfindersTrick';
+import { TRAVERSE_ETERNITY_SCRIPT } from './cards/traverseEternity';
+import { TREASURE_DREDGER_SCRIPT } from './cards/treasureDredger';
+import { TREASURE_HUNT_SCRIPT } from './cards/treasureHunt';
+import { TREASURE_TROVE_SCRIPT } from './cards/treasureTrove';
+import { TREETOP_FREEDOM_FIGHTERS_SCRIPT } from './cards/treetopFreedomFighters';
+import { TREMOR_SCRIPT } from './cards/tremor';
+import { TRIBAL_FLAMES_SCRIPT } from './cards/tribalFlames';
+import { TRIP_NOOSE_SCRIPT } from './cards/tripNoose';
+import { TRIUMPHANT_CHOMP_SCRIPT } from './cards/triumphantChomp';
+import { TROPICAL_STORM_SCRIPT } from './cards/tropicalStorm';
+import { TRUMPET_BLAST_SCRIPT } from './cards/trumpetBlast';
+import { TSUNAMI_SCRIPT } from './cards/tsunami';
+import { TUKATONGUE_THALLID_SCRIPT } from './cards/tukatongueThallid';
+import { TUKNIR_DEATHLOCK_SCRIPT } from './cards/tuknirDeathlock';
+import { TUNNEL_SURVEYOR_SCRIPT } from './cards/tunnelSurveyor';
+import { TURA_KENNERUD_SKYKNIGHT_SCRIPT } from './cards/turaKennerudSkyknight';
 import { TOLARIAN_WINDS_SCRIPT } from './cards/tolarianWinds';
 import { TOMBFIRE_SCRIPT } from './cards/tombfire';
 import { TOME_OF_THE_GUILDPACT_SCRIPT } from './cards/tomeOfTheGuildpact';
@@ -1790,6 +1807,23 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  TRAPFINDERS_TRICK_SCRIPT,
+  TRAVERSE_ETERNITY_SCRIPT,
+  TREASURE_DREDGER_SCRIPT,
+  TREASURE_HUNT_SCRIPT,
+  TREASURE_TROVE_SCRIPT,
+  TREETOP_FREEDOM_FIGHTERS_SCRIPT,
+  TREMOR_SCRIPT,
+  TRIBAL_FLAMES_SCRIPT,
+  TRIP_NOOSE_SCRIPT,
+  TRIUMPHANT_CHOMP_SCRIPT,
+  TROPICAL_STORM_SCRIPT,
+  TRUMPET_BLAST_SCRIPT,
+  TSUNAMI_SCRIPT,
+  TUKATONGUE_THALLID_SCRIPT,
+  TUKNIR_DEATHLOCK_SCRIPT,
+  TUNNEL_SURVEYOR_SCRIPT,
+  TURA_KENNERUD_SKYKNIGHT_SCRIPT,
   TOLARIAN_WINDS_SCRIPT,
   TOMBFIRE_SCRIPT,
   TOME_OF_THE_GUILDPACT_SCRIPT,

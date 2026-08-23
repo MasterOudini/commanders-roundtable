@@ -62719,6 +62719,628 @@ export const TRANQUILITY: CardData = {
   "singleImage": true
 };
 
+export const TRAPFINDER_S_TRICK: CardData = {
+  "scryfallId": "0c9dfda7-c034-478e-a52a-e4a272c7d160",
+  "oracleId": "9792ae99-7b3a-46cb-bd22-0b33c499ce1a",
+  "name": "Trapfinder's Trick",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Trapfinder's Trick",
+      "manaCost": "{1}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player reveals their hand and discards all Trap cards.",
+      "flavorText": "\"At some point, every trapfinder will lose a hunk of flesh. It's just a question of how much—and whether it'll grow back.\"\n—Arhana, Kazandu trapfinder",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Philip Straub",
+      "imageId": "0c9dfda7-c034-478e-a52a-e4a272c7d160"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "zen",
+  "collectorNumber": "73",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRAVERSE_ETERNITY: CardData = {
+  "scryfallId": "9c6c512b-adc8-4ce2-80e5-28a3b827d40f",
+  "oracleId": "ac5c2975-6a56-42c7-97c5-6a0e75c000bb",
+  "name": "Traverse Eternity",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Traverse Eternity",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw cards equal to the greatest mana value among historic permanents you control. (Artifacts, legendaries, and Sagas are historic.)",
+      "flavorText": "\"Know thine enemy. Admirable advice.\"\n—The Fourth Doctor",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jeremy Paillotin",
+      "imageId": "9c6c512b-adc8-4ce2-80e5-28a3b827d40f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "who",
+  "collectorNumber": "961",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TREASURE_DREDGER: CardData = {
+  "scryfallId": "c88df498-147c-4609-8a94-d8d10a87e37c",
+  "oracleId": "9a691e96-fb47-4c23-a063-3b287c51147b",
+  "name": "Treasure Dredger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Treasure Dredger",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Rogue",
+      "oracleText": "{1}, {T}, Pay 1 life: Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "The old miners' trail across Blacksnag Bog is littered with lost fortunes and the bones of those who searched for them.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nereida",
+      "imageId": "c88df498-147c-4609-8a94-d8d10a87e37c"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "otj",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TREASURE_HUNT: CardData = {
+  "scryfallId": "41dc258e-701f-4f9d-b3fd-fa073e0324e8",
+  "oracleId": "05079479-86a6-4041-a395-83d325b6ddb7",
+  "name": "Treasure Hunt",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Treasure Hunt",
+      "manaCost": "{1}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Reveal cards from the top of your library until you reveal a nonland card, then put all cards revealed this way into your hand.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "41dc258e-701f-4f9d-b3fd-fa073e0324e8"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "p11",
+  "collectorNumber": "4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TREASURE_TROVE: CardData = {
+  "scryfallId": "0607f0b1-e226-481a-917a-0ec6e4d4fce3",
+  "oracleId": "3c4a6b34-a9bb-426d-908c-7ae0011591df",
+  "name": "Treasure Trove",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Treasure Trove",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "{2}{U}{U}: Draw a card.",
+      "flavorText": "Karn and Hanna stood over the recovered Legacy artifacts like loving parents over sleeping children.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Michael Sutfin",
+      "imageId": "0607f0b1-e226-481a-917a-0ec6e4d4fce3"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "EXO-50",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TREETOP_FREEDOM_FIGHTERS: CardData = {
+  "scryfallId": "a9394200-7ffc-440f-8b5f-c08b7930133c",
+  "oracleId": "922176b8-7174-4248-92fb-b196ceb802c7",
+  "name": "Treetop Freedom Fighters",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Treetop Freedom Fighters",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Human Rebel Ally",
+      "oracleText": "Haste\nWhen this creature enters, create a 1/1 white Ally creature token.",
+      "flavorText": "\"The Fire Nation thinks they don't have to worry about a couple of kids hiding in the trees. Maybe they're right. Or maybe ... they're dead wrong.\"\n—Jet",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "AKAGI",
+      "imageId": "a9394200-7ffc-440f-8b5f-c08b7930133c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "tla",
+  "collectorNumber": "156",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TREMOR: CardData = {
+  "scryfallId": "0fef4049-8ec2-49c0-8a0a-1b057c558695",
+  "oracleId": "4281a153-665b-44cf-bcff-9cf88c14c2b5",
+  "name": "Tremor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tremor",
+      "manaCost": "{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Tremor deals 1 damage to each creature without flying.",
+      "flavorText": "Where do you run when the earth becomes your enemy?",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "0fef4049-8ec2-49c0-8a0a-1b057c558695"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "228★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRIBAL_FLAMES: CardData = {
+  "scryfallId": "07fafa53-1e22-43f5-abf3-bbab8130f84d",
+  "oracleId": "c82eda61-d195-49c9-8ff0-a78dfa650689",
+  "name": "Tribal Flames",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tribal Flames",
+      "manaCost": "{1}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Domain — Tribal Flames deals X damage to any target, where X is the number of basic land types among lands you control.",
+      "flavorText": "\"Fire is the universal language.\"\n—Jhoira, master artificer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "07fafa53-1e22-43f5-abf3-bbab8130f84d"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Domain"
+  ],
+  "setCode": "mma",
+  "collectorNumber": "138",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRIP_NOOSE: CardData = {
+  "scryfallId": "1b2b3dd8-cedb-4577-8897-967952dd3c13",
+  "oracleId": "456f2991-ab64-41bc-9bd1-a1b1e7993ed6",
+  "name": "Trip Noose",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Trip Noose",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "{2}, {T}: Tap target creature.",
+      "flavorText": "A taut slipknot trigger is the only thing standing between you and standing.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Randy Gallegos",
+      "imageId": "1b2b3dd8-cedb-4577-8897-967952dd3c13"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "shm",
+  "collectorNumber": "266",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRIUMPHANT_CHOMP: CardData = {
+  "scryfallId": "06b28139-efa7-4818-a012-cf8150692b43",
+  "oracleId": "d417f574-38a4-405c-83bb-49c5cf542648",
+  "name": "Triumphant Chomp",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Triumphant Chomp",
+      "manaCost": "{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Triumphant Chomp deals damage to target creature equal to 2 or the greatest power among Dinosaurs you control, whichever is greater.",
+      "flavorText": "With crunchy outer shells and juicy innards, cave crawlers quickly became a favorite snack of the Sun Empire's dinosaur companions.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Simon Dominic",
+      "imageId": "06b28139-efa7-4818-a012-cf8150692b43"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "lci",
+  "collectorNumber": "170",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TROPICAL_STORM: CardData = {
+  "scryfallId": "cd5f473c-e11e-4047-91f9-81b80f0a3562",
+  "oracleId": "9b3b0bef-cdbb-41c2-b8f1-ddda9903b43a",
+  "name": "Tropical Storm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tropical Storm",
+      "manaCost": "{X}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Tropical Storm deals X damage to each creature with flying and 1 additional damage to each blue creature.",
+      "flavorText": "\"After the storm, I found a sea turtle dying on the sands, a blade of grass driven through its shell.\"\n—*Travelogue of Najat*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Richard Kane Ferguson",
+      "imageId": "cd5f473c-e11e-4047-91f9-81b80f0a3562"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "246",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRUMPET_BLAST: CardData = {
+  "scryfallId": "4311547d-abed-4612-8fa2-1e1314f5d10e",
+  "oracleId": "d3b408e7-4d39-47a3-b00c-846903f8ae77",
+  "name": "Trumpet Blast",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Trumpet Blast",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Attacking creatures get +2/+0 until end of turn.",
+      "flavorText": "\"Do you hear that, Sarkhan? The glory of the horde! I made a legend from what you abandoned.\"\n—Zurgo, khan of the Mardu",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "4311547d-abed-4612-8fa2-1e1314f5d10e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "bbd",
+  "collectorNumber": "186",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TSUNAMI: CardData = {
+  "scryfallId": "0ab151ce-9468-4427-853b-4e0011d783fb",
+  "oracleId": "ef2b1565-7b02-4cab-9031-beb1701ee929",
+  "name": "Tsunami",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tsunami",
+      "manaCost": "{3}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all Islands.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Richard Thomas",
+      "imageId": "0ab151ce-9468-4427-853b-4e0011d783fb"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "5ed",
+  "collectorNumber": "334",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TUKATONGUE_THALLID: CardData = {
+  "scryfallId": "8e7e2570-f473-473d-9c67-dd753aafb6ae",
+  "oracleId": "c7dbd008-e941-497e-8305-80c53b1dffe2",
+  "name": "Tukatongue Thallid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tukatongue Thallid",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Fungus",
+      "oracleText": "When this creature dies, create a 1/1 green Saproling creature token.",
+      "flavorText": "Jund's thallids tried to disguise their deliciousness by covering themselves in spines harvested from the tukatongue tree.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Vance Kovacs",
+      "imageId": "8e7e2570-f473-473d-9c67-dd753aafb6ae"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "pc2",
+  "collectorNumber": "79",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TUKNIR_DEATHLOCK: CardData = {
+  "scryfallId": "5ab10b32-00b6-40b7-ad5e-ff2fd35951ef",
+  "oracleId": "0b6fa658-a344-4202-866b-e19997e32ff2",
+  "name": "Tuknir Deathlock",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tuknir Deathlock",
+      "manaCost": "{R}{R}{G}{G}",
+      "typeLine": "Legendary Creature — Human Wizard",
+      "oracleText": "Flying\n{R}{G}, {T}: Target creature gets +2/+2 until end of turn.",
+      "flavorText": "An explorer of the Æther, Tuknir often discovers himself in the most unusual physical realms.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Liz Danforth",
+      "imageId": "5ab10b32-00b6-40b7-ad5e-ff2fd35951ef"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "me3",
+  "collectorNumber": "184",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TUNNEL_SURVEYOR: CardData = {
+  "scryfallId": "12ee2690-f464-4a38-81e1-6dd2053a3327",
+  "oracleId": "7aae54a6-3011-4867-b5ee-21a2111aecc6",
+  "name": "Tunnel Surveyor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tunnel Surveyor",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Detective",
+      "oracleText": "When this creature enters, create a 1/1 white Glimmer enchantment creature token.",
+      "flavorText": "Though he needed to know what lay beyond the intersection, Harp couldn't suppress a shiver of disquiet as his glimmer disappeared into the darkness ahead.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "John Stanko",
+      "imageId": "12ee2690-f464-4a38-81e1-6dd2053a3327"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dsk",
+  "collectorNumber": "76",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TURA_KENNER_D_SKYKNIGHT: CardData = {
+  "scryfallId": "c839d302-bf85-4a30-a49a-dbbd48695b5c",
+  "oracleId": "4cb3a303-9ded-46d5-90e7-1cc1c65a75da",
+  "name": "Tura Kennerüd, Skyknight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tura Kennerüd, Skyknight",
+      "manaCost": "{2}{W}{U}{U}",
+      "typeLine": "Legendary Creature — Human Knight",
+      "oracleText": "Flying\nWhenever you cast an instant or sorcery spell, create a 1/1 white Soldier creature token.",
+      "flavorText": "\"The sky is my birthright. I dare you to try and take it from me.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Donato Giancola",
+      "imageId": "c839d302-bf85-4a30-a49a-dbbd48695b5c"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "dmu",
+  "collectorNumber": "224",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PITFALL_TRAP: CardData = {
+  "scryfallId": "109a4596-552a-45dc-88a6-41810d078d66",
+  "oracleId": "26e75f0b-3a02-4989-8429-b6276e98ac33",
+  "name": "Pitfall Trap",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pitfall Trap",
+      "manaCost": "{2}{W}",
+      "typeLine": "Instant — Trap",
+      "oracleText": "If exactly one creature is attacking, you may pay {W} rather than pay this spell's mana cost.\nDestroy target attacking creature without flying.",
+      "flavorText": "Each spike is poisoned—the trapmaker's idea of mercy.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Franz Vohwinkel",
+      "imageId": "109a4596-552a-45dc-88a6-41810d078d66"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mm3",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -65759,6 +66381,40 @@ export const SLIVER_11_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const GLIMMER_TOKEN: CardData = {
+  "scryfallId": "475c7449-2c95-4873-94de-68a5e06cdfb8",
+  "oracleId": "c18a5b24-7458-43c9-9a1f-186eb282c82e",
+  "name": "Glimmer",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Glimmer",
+      "manaCost": "",
+      "typeLine": "Token Enchantment Creature — Glimmer",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Michele Giorgi",
+      "imageId": "475c7449-2c95-4873-94de-68a5e06cdfb8"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tdsk",
+  "collectorNumber": "4",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -67580,6 +68236,24 @@ export const ENGINE_CARDS: CardData[] = [
   TRANQUIL_COVE,
   TRANQUIL_DOMAIN,
   TRANQUILITY,
+  TRAPFINDER_S_TRICK,
+  TRAVERSE_ETERNITY,
+  TREASURE_DREDGER,
+  TREASURE_HUNT,
+  TREASURE_TROVE,
+  TREETOP_FREEDOM_FIGHTERS,
+  TREMOR,
+  TRIBAL_FLAMES,
+  TRIP_NOOSE,
+  TRIUMPHANT_CHOMP,
+  TROPICAL_STORM,
+  TRUMPET_BLAST,
+  TSUNAMI,
+  TUKATONGUE_THALLID,
+  TUKNIR_DEATHLOCK,
+  TUNNEL_SURVEYOR,
+  TURA_KENNER_D_SKYKNIGHT,
+  PITFALL_TRAP,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -67669,4 +68343,5 @@ export const ENGINE_CARDS: CardData[] = [
   GRAVEBORN_TOKEN,
   ANGEL_44_TOKEN,
   SLIVER_11_TOKEN,
+  GLIMMER_TOKEN,
 ];

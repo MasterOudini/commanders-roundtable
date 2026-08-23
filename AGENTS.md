@@ -7460,6 +7460,66 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       heaviest unbuilt class; prior items stand.
 
 
+- [x] **M6.4cy — Seventeen landed: the heaviest refusal class is not one thing
+      (2026-08-23):** **3,583 of 31,692 Commander-legal cards now execute
+      completely, up from 3,566.** `SHIPPED_SCRIPTS` 1,669 → 1,686; ledger 607
+      (+8, ZERO new classes). ONE new token pin, ONE new support body, both
+      measured before being added. **Sliver Queen reaches 3,534 from 81
+      legendaries** — TWO landed here. Decisions in **D262**.
+      ⚠️⚠️ **The probe corrected the ledger's most-cited class: "up to N" is
+      NOT uniformly broken.** `Trickster's Stratagem`'s "up to one target
+      creature you control" parses **min 0 / max 1, controller ENFORCED** —
+      correctly, in full. `Trick Shot`'s "up to one OTHER target creature
+      TOKEN" comes back **min 1 / max 1** with the token-ness gone. So the
+      class is a set of PARSE FAILURES, not one missing feature (D212 read
+      "one or two" as exactly-two; D261 read "one or more" as exactly-one;
+      this reads "up to one" right). **Probe each wording.** The chooser is
+      still owed, but for a smaller and better-defined set than the entry
+      count implied.
+      ⚠️ **The qualifier-drop tally is three batches deep and the directions
+      are not equally safe:** D259's Thistledown DISCLOSED its negated type
+      (refusable by D161's filter); D261's Topple and this batch's Trip Wire
+      drop theirs SILENTLY (`unenforced: []`) — visible only to a probe.
+      ⚠️ Trip Wire could not be proven positively anyway: **no fixture
+      creature has horsemanship.**
+      **The overlaps and censuses:** Tropical Storm (X to flyers + 1 MORE to
+      blue — four answers on one board, and the WHITE flyer is what proves the
+      clauses do not replace each other); Triumphant Chomp (max(2, greatest
+      Dinosaur power) — the census RAISES and never gates, so the no-Dinosaur
+      branch is the one worth pinning); Tribal Flames (basic land TYPES, so
+      three Mountains are ONE); Traverse Eternity (greatest HISTORIC mana
+      value, with a bigger nonhistoric Titan proven not to raise it).
+      **Also:** Treasure Hunt (the run stops on the first NONLAND and INCLUDES
+      it); Trapfinder's Trick (public reveal + choiceless Trap discard, the
+      subtype read off the oracle face); Treasure Dredger (D254's three-part
+      cost, every part asserted); Tsunami (the subtype wipe on LANDS);
+      Trumpet Blast (cast mid-combat off a real declaration); Tukatongue
+      Thallid (killed by batch-mate Tremor, so the death is real); Treasure
+      Trove; Trip Noose; Treetop Freedom Fighters; Tuknir Deathlock; Tura
+      Kennerüd, Skyknight.
+      ⚠️ **The support-body check ran and this time the answer was NOT zero:**
+      the fixtures held **ZERO Trap-subtype cards**, so `Pitfall Trap` was
+      added deliberately rather than found by a failing test. Dinosaur and
+      Island bodies were already pinned. One new token — `Glimmer` (`tdsk 4`)
+      — and exactly one Glimmer printing exists, so the pin is unambiguous.
+      ⚠️ Two tooling corrections before any gate: an apostrophe const is
+      **`TRAPFINDER_S_TRICK`** (D215's `GAEA_S_MIGHT` rule — the apostrophe
+      becomes an underscore, as a diacritic does), and Tremor's test hit
+      D232's trap — **`put()` fetches from the NAMED player's own deck list.**
+      Fixtures 1,927 (1,837 by name + 90 tokens) · botPool artifact 124 /
+      creature 1,882 / enchantment 60 / instant 645 / sorcery 541 · ladder
+      [1470, 1569, 3362, 5276, 6488] · batch.json 525.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,766
+      files, 9,198 passed / 10 skipped · 500-seed gate
+      754.6 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D262): up-to-N's chooser is a smaller job than its
+      entry count implied and each wording needs its own probe; the SILENT
+      qualifier drop is the aim layer's most dangerous shape, now with two
+      witnesses in two batches; D261's 'a resolve cannot see its own effects'
+      and `ctx.random` stay the two best-value bounded engine jobs; prior
+      items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
