@@ -17458,3 +17458,85 @@ noun list (D264) needs no new field either; the subtype list does; the undying
 carrier would close two ledger entries; `ctx.random`, up-to-N's chooser and
 D261's 'a resolve cannot see its own effects' stay the named engine jobs;
 prior items stand.
+
+## D266 — M6.4dc: twenty-four landed — the first up-to-N card, and a record tied (2026-08-23)
+
+**3,662 of 31,692 Commander-legal cards execute completely, up from 3,638.**
+SHIPPED_SCRIPTS 1,741 → 1,765; ledger 627 → 628 (+1, ZERO new classes). ZERO
+new token pins, ZERO new support bodies. **Sliver Queen reaches 3,613 from 82
+legendaries.** ⚠️ **FIXTURES CROSSED TWO THOUSAND: 2,009.**
+
+⚠️ **24 OF 25 TIES THE ARC RECORD** (D257's 24), with the same single refusal.
+The V- page is almost entirely shapes the arc has already built, and the two
+cards that read as refusals both PROBED GREEN.
+
+⚠️⚠️ **THE FIRST UP-TO-N CARD THE ARC HAS LANDED.** `Vibrant Outburst`'s
+second clause, "Tap **up to one** target creature", probes as **min 0 / max
+1** — correctly, as a second spec beside its 'any target'. D262 found that
+`up-to-N targeting` is a set of PARSE FAILURES rather than one missing
+feature; this is the other half of that finding, and it changes what the
+50-entry class means: **the forms that DO parse are landable today, and the
+chooser is owed only for the forms that do not.** The test proves both legal
+answers — both targets, and the damage alone with the tap declined.
+
+⚠️ **The counted list is now proven at 2, 3 and 6.** `Violent Ultimatum`'s
+"three target permanents" parses **min 3 / max 3**; D209's Dust to Dust is the
+2 and D217's Hex is the 6. A two-target answer is REFUSED, which is the half
+of the machinery a happy-path test never sees.
+
+⚠️ **"Outlaw" is a subtype SET, and the card carries its own definition.**
+`Vial Smasher, Gleeful Grenadier` watches "another outlaw you control enters",
+and CR has no outlaw keyword — the five subtypes (Assassin, Mercenary, Pirate,
+Rogue, Warlock) are spelled out in the card's own reminder text and read off
+the derived subtypes. TWO defs for the one printed line (a card enters via
+`CardsMoved`, a token via `TokenCreated` — D158's rule), and the CardsMoved arm
+carries an is-it-me check that D265's Veil of Assimilation deliberately does
+not, because this line says "another". A Pirate fires it; a Bear does not; its
+own entry pays nothing.
+
+⚠️ **TWO GENERATED FAMILIES, the sixth and seventh times the idiom has paid.**
+`Viridian Corrupter` (behind Infect), `Viridian Shaman` and `Vithian
+Renegades` are one printed ETB-destroy-artifact line across three oracle ids —
+generated from a single base, with the shipped `Uktabi Orangutan` (D263) as
+the fourth member already in tree. `Vicious Hunger` (2 at a creature) and
+`Void Helix` (5 at any target) grew the damage-and-gain family D265 opened
+with Vampiric Feast and Vampiric Touch. The lesson keeps holding: **grow the
+generator, do not hand-write the next member.**
+
+**The rest of the batch.** `Villainous Wrath` counts the opponent's creatures
+BEFORE the wipe that is about to take them, in one resolve — `ctx.state` is
+pre-resolution, so the count is right there and nowhere later. `Victorious
+Destruction` bills the target's controller, read before the move (D264/D265's
+rule, third outing), and an indestructible target survives while STILL paying
+the life. `Vitu-Ghazi, the City-Tree` puts its Saproling at `#a1` because the
+mana line above counts as an ability. `Viscera Seer` is a sacrifice chooser
+(D168) with NO mana in the cost at all, paying a scry ask (D195). `Vinereap
+Mentor` makes a Food on the way in AND on the way out. `Virtue's Ruin` is the
+colour wipe, mine dying with theirs. `Virulent Emissary` and `Virtuous
+Variant` carry the 'another'/'you control' restrictions at the aim. Plus
+`Vial of Poison`, `Viashino Bladescout`, `Viashino Fangtail`, `Viridian
+Zealot`, `Vision Skeins`, `Vitalize`, `Vitalizing Cascade` (X=0 still gains
+the flat 3) and `Voice of the Provinces`.
+
+⚠️ **All 89 tests green on their FIRST run, the third batch running.** Types
+took two fixes, both worth naming: `ctx.query.controllerOf` returns
+`string | null`, so an ETB-token def must read `obj.controller` the way every
+other one does; and a `Record<string, number>` baseline indexes to
+`number | undefined`, so a two-field literal type is the honest annotation.
+
+Fixtures 1,985 → 2,009 (1,917 by name + 92 tokens). botPool artifact 129 /
+creature 1,916 / enchantment 63 / instant 663 / land 337 / sorcery 554 ·
+ladder [1391, 1490, 3283, 5197, 6409] · batch.json 425 · botDeck: the header
+alone moved — **3,613 from 82 legendaries**.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,845 files, 9,621 passed / 10 skipped ·
+500-seed gate 810.8 s · build clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D266): the up-to-N class is now known to be PARTLY
+landable, so the chooser's scope shrinks to the non-parsing forms and its
+priority with it; the keyword-qualifier silent drop (three witnesses, D261 /
+D262 / D265) is still the cheapest high-value aim-layer repair; the subtype
+noun list still needs a field where the mixed noun list does not; the undying
+carrier would close two ledger entries; `ctx.random` and 'a resolve cannot see
+its own effects' (three witnesses now — D260's exclude, D264's include,
+D266's read-first) stay the named engine jobs; prior items stand.

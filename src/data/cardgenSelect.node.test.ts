@@ -1244,6 +1244,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Vega, the Watcher', 'cast-zone discriminator'],
   ['Vertigo', 'keyword target qualifier'],
   ['Vex', 'script-raised prompt'],
+
+  // D266 (M6.4dc) — ZERO new classes, and the leanest batch of the arc:
+  // 24 of 25 landed. The one refusal is a cost verb, not a rules hole.
+  //
+  // ⚠️ `Voice of the Woods` pays "Tap five untapped Elves you control" —
+  // D168’s chooser has no tap-creatures verb, and it is a COUNTED,
+  // subtype-restricted tap at that. Nothing else about the card is hard: the
+  // 7/7 trample Elemental is an ordinary token line waiting on the cost.
+  ['Voice of the Woods', 'tap-creatures cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

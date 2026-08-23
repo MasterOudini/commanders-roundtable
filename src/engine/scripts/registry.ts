@@ -7,6 +7,30 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { VIAL_OF_POISON_SCRIPT } from './cards/vialOfPoison';
+import { VIAL_SMASHER_GLEEFUL_GRENADIER_SCRIPT } from './cards/vialSmasherGleefulGrenadier';
+import { VIASHINO_BLADESCOUT_SCRIPT } from './cards/viashinoBladescout';
+import { VIASHINO_FANGTAIL_SCRIPT } from './cards/viashinoFangtail';
+import { VIBRANT_OUTBURST_SCRIPT } from './cards/vibrantOutburst';
+import { VICIOUS_HUNGER_SCRIPT } from './cards/viciousHunger';
+import { VICTORIOUS_DESTRUCTION_SCRIPT } from './cards/victoriousDestruction';
+import { VILLAINOUS_WRATH_SCRIPT } from './cards/villainousWrath';
+import { VINEREAP_MENTOR_SCRIPT } from './cards/vinereapMentor';
+import { VIOLENT_ULTIMATUM_SCRIPT } from './cards/violentUltimatum';
+import { VIRIDIAN_CORRUPTER_SCRIPT } from './cards/viridianCorrupter';
+import { VIRIDIAN_SHAMAN_SCRIPT } from './cards/viridianShaman';
+import { VIRIDIAN_ZEALOT_SCRIPT } from './cards/viridianZealot';
+import { VIRTUES_RUIN_SCRIPT } from './cards/virtuesRuin';
+import { VIRTUOUS_VARIANT_SCRIPT } from './cards/virtuousVariant';
+import { VIRULENT_EMISSARY_SCRIPT } from './cards/virulentEmissary';
+import { VISCERA_SEER_SCRIPT } from './cards/visceraSeer';
+import { VISION_SKEINS_SCRIPT } from './cards/visionSkeins';
+import { VITALIZE_SCRIPT } from './cards/vitalize';
+import { VITALIZING_CASCADE_SCRIPT } from './cards/vitalizingCascade';
+import { VITHIAN_RENEGADES_SCRIPT } from './cards/vithianRenegades';
+import { VITU_GHAZI_THE_CITY_TREE_SCRIPT } from './cards/vituGhaziTheCityTree';
+import { VOICE_OF_THE_PROVINCES_SCRIPT } from './cards/voiceOfTheProvinces';
+import { VOID_HELIX_SCRIPT } from './cards/voidHelix';
 import { URZAS_FACTORY_SCRIPT } from './cards/urzasFactory';
 import { UTVARA_HELLKITE_SCRIPT } from './cards/utvaraHellkite';
 import { VALAKUT_INVOKER_SCRIPT } from './cards/valakutInvoker';
@@ -1862,6 +1886,30 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  VIAL_OF_POISON_SCRIPT,
+  VIAL_SMASHER_GLEEFUL_GRENADIER_SCRIPT,
+  VIASHINO_BLADESCOUT_SCRIPT,
+  VIASHINO_FANGTAIL_SCRIPT,
+  VIBRANT_OUTBURST_SCRIPT,
+  VICIOUS_HUNGER_SCRIPT,
+  VICTORIOUS_DESTRUCTION_SCRIPT,
+  VILLAINOUS_WRATH_SCRIPT,
+  VINEREAP_MENTOR_SCRIPT,
+  VIOLENT_ULTIMATUM_SCRIPT,
+  VIRIDIAN_CORRUPTER_SCRIPT,
+  VIRIDIAN_SHAMAN_SCRIPT,
+  VIRIDIAN_ZEALOT_SCRIPT,
+  VIRTUES_RUIN_SCRIPT,
+  VIRTUOUS_VARIANT_SCRIPT,
+  VIRULENT_EMISSARY_SCRIPT,
+  VISCERA_SEER_SCRIPT,
+  VISION_SKEINS_SCRIPT,
+  VITALIZE_SCRIPT,
+  VITALIZING_CASCADE_SCRIPT,
+  VITHIAN_RENEGADES_SCRIPT,
+  VITU_GHAZI_THE_CITY_TREE_SCRIPT,
+  VOICE_OF_THE_PROVINCES_SCRIPT,
+  VOID_HELIX_SCRIPT,
   URZAS_FACTORY_SCRIPT,
   UTVARA_HELLKITE_SCRIPT,
   VALAKUT_INVOKER_SCRIPT,

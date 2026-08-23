@@ -7681,6 +7681,65 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the undying carrier closes two ledger entries; `ctx.random`, up-to-N's
       chooser and D261's 'a resolve cannot see its own effects' stay the named
       engine jobs; prior items stand.
+- [x] **M6.4dc — Twenty-four landed: the first up-to-N card, and a record tied
+      (2026-08-23):** **3,662 of 31,692 Commander-legal cards now execute
+      completely, up from 3,638.** `SHIPPED_SCRIPTS` 1,741 → 1,765; ledger 628
+      (+1, ZERO new classes). ZERO new token pins, ZERO new support bodies.
+      **Sliver Queen reaches 3,613 from 82 legendaries.** ⚠️ **Fixtures crossed
+      TWO THOUSAND: 2,009.** Decisions in **D266**.
+      ⚠️ **24 of 25 TIES THE ARC RECORD** (D257's 24) with the same single
+      refusal: the V- page is almost all shapes the arc has built, and the two
+      cards that read as refusals both PROBED GREEN.
+      ⚠️⚠️ **THE FIRST UP-TO-N CARD.** `Vibrant Outburst`'s "Tap **up to one**
+      target creature" probes **min 0 / max 1**, correctly, as a second spec
+      beside its 'any target'. D262 found the class is a set of PARSE FAILURES
+      rather than one missing feature; this is the other half — **the forms
+      that DO parse are landable today, and the chooser is owed only for the
+      forms that do not.** The test proves BOTH legal answers: both targets,
+      and the damage alone with the tap declined.
+      ⚠️ **The counted list is proven at 2, 3 and 6.** `Violent Ultimatum`'s
+      "three target permanents" parses **min 3 / max 3** (D209's Dust to Dust
+      is the 2, D217's Hex the 6), and a TWO-target answer is REFUSED.
+      ⚠️ **"Outlaw" is a subtype SET the card defines itself.** `Vial Smasher,
+      Gleeful Grenadier` reads the five subtypes (Assassin, Mercenary, Pirate,
+      Rogue, Warlock) off its own reminder text and off derived subtypes — CR
+      has no outlaw keyword. TWO defs for one line (D158), and the CardsMoved
+      arm carries the is-it-me check D265's Veil of Assimilation deliberately
+      omits, because this line says "another".
+      ⚠️ **TWO GENERATED FAMILIES — the sixth and seventh times the idiom
+      pays.** Viridian Corrupter / Viridian Shaman / Vithian Renegades are one
+      ETB-destroy-artifact line across three ids (shipped Uktabi Orangutan,
+      D263, is the fourth member); Vicious Hunger and Void Helix grew D265's
+      damage-and-gain family. **Grow the generator, never hand-write the next
+      member.**
+      **Also:** Villainous Wrath (the opponent's creatures COUNTED before the
+      wipe that takes them — `ctx.state` is pre-resolution); Victorious
+      Destruction (the controller billed before the move, D264/D265's rule,
+      third outing — an indestructible target survives and STILL pays);
+      Vitu-Ghazi, the City-Tree (`#a1`: the mana line above counts); Viscera
+      Seer (a sacrifice chooser with NO mana in the cost, paying a scry ask);
+      Vinereap Mentor (Food in AND out); Virtue's Ruin (the colour wipe, mine
+      with theirs); Virulent Emissary; Virtuous Variant; Vial of Poison;
+      Viashino Bladescout; Viashino Fangtail; Viridian Zealot; Vision Skeins;
+      Vitalize; Vitalizing Cascade (X=0 still gains the flat 3); Voice of the
+      Provinces.
+      ⚠️ **All 89 tests green FIRST run**, the third batch running. Types took
+      two fixes worth naming: `ctx.query.controllerOf` returns
+      `string | null` (an ETB-token def reads `obj.controller`), and a
+      `Record<string, number>` baseline indexes to `number | undefined`.
+      Fixtures 2,009 (1,917 by name + 92 tokens) · botPool artifact 129 /
+      creature 1,916 / enchantment 63 / instant 663 / land 337 / sorcery 554 ·
+      ladder [1391, 1490, 3283, 5197, 6409] · batch.json 425.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,845 files, 9,621 passed / 10 skipped ·
+      500-seed gate 810.8 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D266): the up-to-N class is now known to be PARTLY
+      landable, shrinking the chooser's scope to the non-parsing forms and its
+      priority with it; the keyword-qualifier silent drop (three witnesses)
+      stays the cheapest high-value aim-layer repair; the subtype noun list
+      still needs a field where the mixed one does not; the undying carrier
+      closes two ledger entries; `ctx.random` and 'a resolve cannot see its own
+      effects' (three witnesses — D260 exclude, D264 include, D266 read-first)
+      stay the named engine jobs; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
