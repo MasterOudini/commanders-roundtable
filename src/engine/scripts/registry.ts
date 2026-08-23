@@ -7,6 +7,21 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { THRISS_NANTUKO_PRIMUS_SCRIPT } from './cards/thrissNantukoPrimus';
+import { THUNDER_OF_HOOVES_SCRIPT } from './cards/thunderOfHooves';
+import { THUNDERING_FALLS_SCRIPT } from './cards/thunderingFalls';
+import { THUNDEROUS_SNAPPER_SCRIPT } from './cards/thunderousSnapper';
+import { TIDE_SKIMMER_SCRIPT } from './cards/tideSkimmer';
+import { TIDEPOOL_TURTLE_SCRIPT } from './cards/tidepoolTurtle';
+import { TIDESPOUT_TYRANT_SCRIPT } from './cards/tidespoutTyrant';
+import { TIDY_CONCLUSION_SCRIPT } from './cards/tidyConclusion';
+import { TIMBERLAND_GUIDE_SCRIPT } from './cards/timberlandGuide';
+import { TIME_EBB_SCRIPT } from './cards/timeEbb';
+import { TIRELESS_MISSIONARIES_SCRIPT } from './cards/tirelessMissionaries';
+import { TITANS_GRAVE_SCRIPT } from './cards/titansGrave';
+import { TIVADARS_CRUSADE_SCRIPT } from './cards/tivadarsCrusade';
+import { TOCASIAS_DIG_SITE_SCRIPT } from './cards/tocasiasDigSite';
+import { TOIL_TO_RENOWN_SCRIPT } from './cards/toilToRenown';
 import { THE_SURGICAL_BAY_SCRIPT } from './cards/theSurgicalBay';
 import { THEFT_OF_DREAMS_SCRIPT } from './cards/theftOfDreams';
 import { THEIR_NAME_IS_DEATH_SCRIPT } from './cards/theirNameIsDeath';
@@ -1759,6 +1774,21 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  THRISS_NANTUKO_PRIMUS_SCRIPT,
+  THUNDER_OF_HOOVES_SCRIPT,
+  THUNDERING_FALLS_SCRIPT,
+  THUNDEROUS_SNAPPER_SCRIPT,
+  TIDE_SKIMMER_SCRIPT,
+  TIDEPOOL_TURTLE_SCRIPT,
+  TIDESPOUT_TYRANT_SCRIPT,
+  TIDY_CONCLUSION_SCRIPT,
+  TIMBERLAND_GUIDE_SCRIPT,
+  TIME_EBB_SCRIPT,
+  TIRELESS_MISSIONARIES_SCRIPT,
+  TITANS_GRAVE_SCRIPT,
+  TIVADARS_CRUSADE_SCRIPT,
+  TOCASIAS_DIG_SITE_SCRIPT,
+  TOIL_TO_RENOWN_SCRIPT,
   THE_SURGICAL_BAY_SCRIPT,
   THEFT_OF_DREAMS_SCRIPT,
   THEIR_NAME_IS_DEATH_SCRIPT,

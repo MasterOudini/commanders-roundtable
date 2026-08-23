@@ -2226,6 +2226,21 @@ const WANTED = [
   'Thrashing Brontodon',
   'Thraxodemon',
   'Three Tree Scribe',
+  'Thriss, Nantuko Primus',
+  'Thunder of Hooves',
+  'Thundering Falls',
+  'Thunderous Snapper',
+  'Tide Skimmer',
+  'Tidepool Turtle',
+  'Tidespout Tyrant',
+  'Tidy Conclusion',
+  'Timberland Guide',
+  'Time Ebb',
+  'Tireless Missionaries',
+  "Titan's Grave",
+  "Tivadar's Crusade",
+  "Tocasia's Dig Site",
+  'Toil to Renown',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

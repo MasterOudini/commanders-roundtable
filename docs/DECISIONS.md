@@ -16883,3 +16883,128 @@ probe 124/124 · battery 130/130.**
 ⚠️ **Reportables** (D259): a printed "deals damage" without the word COMBAT is
 a TWO-DEF card — sweep the shipped connect-triggers for the same wording;
 up-to-N's chooser stays the heaviest unbuilt class; prior items stand.
+
+## D260 — M6.4cw: fifteen landed — the census that reads the board its own first sentence left (2026-08-23)
+
+**3,550 of 31,692 Commander-legal cards execute completely, up from 3,535.**
+SHIPPED_SCRIPTS 1,638 → 1,653; ledger 580 → 590 (+10, ONE new class). ZERO new
+token pins, ZERO new support bodies. **Sliver Queen reaches 3,501 from 79
+fully-executable legendaries** — Thriss, Nantuko Primus is the 79th.
+
+⚠️ **FIFTEEN LAND AND TEN REFUSE — the most refusal-heavy batch since D238,
+and the reason is the letter rather than the pipeline.** The "Time" cards are
+almost entirely STRUCTURAL: extra turns, ending the turn, phasing, and three
+wheels that shuffle. Nothing about the loop changed; the alphabet handed it a
+page of mechanics.
+
+⚠️⚠️ **THE THREE WHEELS ARE REFUSED FOR ONE MEASURED REASON.** `Time
+Reversal`, `Time Spiral` and `Timetwister` each say "shuffles their hand and
+graveyard into their library". A shuffle needs an ORDER, and `LibraryShuffled`
+SETS the zone rather than permuting it (D115) — so the script must SUPPLY a
+permutation, which needs `ctx.random`, still a stub at all three `ScriptCtx`
+sites (D158's standing reportable, open since the first batch). The wheels
+this arc HAS landed — Dark Deal (D206), Peer Past the Veil (D232),
+Heartwarming Redemption (D217) — all discard and draw WITHOUT a shuffle, and
+that is exactly why they were landable and these are not. ⚠️ `Timetwister` is
+the honest one to record: its parenthetical puts it into its owner's
+graveyard, which IS `resolveTop`'s normal exit, so it is refused for the
+SHUFFLE alone and not for D202's self-relocation class.
+
+⚠️⚠️ **THE ORDERING CORRECTION, FOUND WHILE WRITING THE TEST.** `Tidy
+Conclusion` prints two sentences — "Destroy target creature. You gain 1 life
+for each artifact you control." — and the first draft censused `ctx.state`,
+which is the PRE-RESOLUTION state. Both sentences resolve in order, so an
+artifact creature of mine destroyed by this very spell is already in the
+graveyard when the census runs; counting it would pay a life for a permanent
+that no longer exists. The def skips the card it just destroyed, and the test
+is written to tell the two apart rather than to agree with either: my own
+`Blinding Souleater` plus a Sol Ring is **41, not 42**. The indestructible
+case is the other half of the same sentence — a Darksteel Myr survives and the
+life is still paid, because the gain is not tied to the destruction the way
+Terashi's Grasp's is (D258).
+
+**The headliners.** `Tidespout Tyrant` — the first cast-watcher whose payload
+is a TARGETED MOVE: every spell its controller casts bounces a permanent, and
+an opponent's cast asks nothing (both proven from the seat that cast).
+`Tide Skimmer` — the attacker count filtered by a DERIVED keyword, which is a
+matcher reading what the aim layer's parse can never see (D246's Shadewing
+idiom on a combat event); its third case is the point, a Grizzly Bears granted
+flying by the shipped `Thopter Architect` counting exactly as a printed flyer
+does. `Thunder of Hooves` — X censused off every Beast on the battlefield and
+fanned at each non-flying creature AND each player, with no Beasts a true
+no-op. `Thriss, Nantuko Primus` — the +5/+5 activated grant, the largest
+single pump the arc has shipped, ended by the next cleanup.
+
+**The lands.** `Thundering Falls` is the reminder-FIRST surveil land: its mana
+reminder is printed ABOVE the other two lines, so its trigger is `split[2]`
+and not `split[1]` (D237's Raucous Theater — the dump decides, never habit).
+`Titan's Grave` and `Tocasia's Dig Site` are the same activated surveil behind
+different first lines — one enters tapped and has to be straightened before
+the `{T}` in its own cost can be paid, one does not — and both defs sit at
+`#a1` because a MANA line counts as an ability and a keyword line never does.
+
+**The rest:** `Tivadar's Crusade` (the subtype wipe, proven on a Goblin of
+mine and a Goblin Warrior of theirs — the filter asks the subtype LIST, so a
+Goblin with a second creature type is still a Goblin); `Toil to Renown` (the
+tapped-permanent census, where an ARTIFACT CREATURE counts ONCE because the
+card asks for a count of permanents and not a sum per type — a per-type sum
+would say 5 where the test pins 4); `Time Ebb` (the library-top move whose
+noun is "creature", so a land is refused at the aim); `Tidepool Turtle` (the
+activated scry with no `{T}` in its cost, so it scries twice in one turn and
+never turns); `Timberland Guide` (the targeted ETB counter with no "you
+control", so an opponent's creature is a legal answer); `Thunderous Snapper`
+(the mana-value cast filter at 5, both sides in one game);
+`Tireless Missionaries`.
+
+⚠️ **The Beast body was already in the fixtures, and looking first is why this
+batch pinned ZERO new support bodies.** `Thunder of Hooves` needs a Beast to
+count and the recipe named none; a scan of the fixtures' type lines found
+`Aquus Steed`, a plain `Creature — Beast`, already pinned. The first draft had
+reached for `Krosan Tusker` and would have grown WANTED for nothing.
+
+⚠️ **D259's SWEEP IS DONE AND THE ANSWER IS CLEAN.** D259 closed by asking
+for a sweep of the shipped connect-triggers for a printed "deals damage"
+without the word COMBAT, since each such card is a TWO-DEF card and a
+combat-only watcher would under-fire on every ping with nothing failing.
+Measured over every shipped module that watches `CombatDamageDealt`:
+**fifteen watch it alone, and all fifteen print the word COMBAT in their own
+`printed()` text** — Belligerent Guest, Crimson Caravaneer, Drider, Eager
+Trufflesnout, Hoard Robber, Keeper of Fables, Nine-Tail White Fox, Precinct
+Captain, Research Thief, Rooftop Bypass, Scream Puff, Scroll Thief, Seafloor
+Oracle, Soulknife Spy, Stealer of Secrets. Nothing is under-firing, and
+Thieving Otter and Thieving Magpie remain the only two-def cards of the shape.
+The reportable is discharged with a measurement rather than left standing.
+
+⚠️ Invariant 14 collected another instance while that sweep was written: a
+`node -e` one-liner carrying a regex had its backslashes eaten by the shell
+and died on `Unterminated group`. The rule holds in both directions — a
+script with backslashes goes in a FILE, and a throwaway sweep is written
+without them.
+
+**All fifteen suites — 50 tests — green on their FIRST run: the TWENTY-THIRD
+first-run-clean batch**, and the first since D253. One type error, and it was
+mine rather than the engine's: an `InstanceId` import left behind in
+`tideSkimmer.test.ts` after its helper stopped returning ids.
+
+⚠️ **D255's load lesson collected a seventh data point, and this time it cost
+nothing.** The unit leg ran **865.5 s against the usual 730–770 s** because
+D261 was being dumped and classified beside it. Green throughout, and a
+duration is not a timeout — but the margin is the whole reason D255's run went
+red, so the rule stands: heavy drafting waits for the gate, and only writing
+happens alongside it.
+
+Fixtures 1,877 → 1,892 (89 tokens, none new). botPool creature 1,873 / instant
+642 / sorcery 529 / land 329 · ladder [1503, 1602, 3395, 5309, 6521] ·
+batch.json 575 · botDeck: the header alone moved — **3,501 from 79
+legendaries** — with no card displacing a slot on the curve.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,733 files,
+9,028 passed / 10 skipped · 500-seed gate 787.1 s · build clean ·
+probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D260): `ctx.random` now blocks THREE named cards in one
+batch and is the cheapest way to open the wheel family — it is bounded work
+with a measured payoff; extra turns joins the structural tail beside phasing
+and ending the turn; a two-sentence resolve whose second sentence censuses the
+board must be read in ORDER (Tidy Conclusion is the precedent); up-to-N's
+chooser stays the heaviest unbuilt class; prior items stand.

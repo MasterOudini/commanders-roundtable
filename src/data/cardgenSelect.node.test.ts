@@ -1084,6 +1084,39 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Thopter Foundry', 'token-predicate sacrifice cost'],
   ['Thoughtlace', 'indefinite color change'],
   ['Thraben Standard Bearer', 'discard-cost chooser'],
+
+  // D260 (M6.4cw) — the most refusal-heavy batch since D238, and the reason
+  // is the letter rather than the pipeline: the "Time" cards are almost all
+  // STRUCTURAL (extra turns, ending the turn, phasing) and three of them are
+  // wheels that SHUFFLE.
+  //
+  // ⚠️ The three wheels are refused for ONE measured reason. Time Reversal,
+  // Time Spiral and Timetwister each say "shuffles their hand and graveyard
+  // into their library", and `LibraryShuffled` SETS the zone rather than
+  // permuting it (D115) — so a script must SUPPLY a permutation, which needs
+  // `ctx.random`, still a stub at all three ScriptCtx sites (D158). The
+  // wheels this arc HAS landed (Dark Deal D206, Peer Past the Veil D232,
+  // Heartwarming Redemption D217) all discard and draw without a shuffle,
+  // which is exactly why they were landable and these are not.
+  // ⚠️ Timetwister is the honest one: its parenthetical puts it in its
+  // owner's graveyard, which IS `resolveTop`'s normal exit — so it is refused
+  // for the SHUFFLE alone, not for D202's self-relocation.
+  //
+  // ⚠️ Tidal Surge is refused TWICE over — "up to three target creatures"
+  // AND "without flying" (D197's keyword qualifier). It is ledgered under
+  // up-to-N, which is still the heaviest class in this table.
+  ['Tidal Surge', 'up-to-N targeting'],
+  ['Time and Tide', 'phasing'],
+  ['Time Reversal', 'ctx.random stub'],
+  ['Time Spiral', 'ctx.random stub'],
+  ['Time Stop', 'end the turn'],
+  // NEW: no turn-insertion machinery exists anywhere — `turn.ts` walks one
+  // turn at a time and nothing can splice another in after it.
+  ['Time Stretch', 'extra turns'],
+  ['Time Wipe', 'script-raised prompt'],
+  ['Timetwister', 'ctx.random stub'],
+  ["Titan's Revenge", 'clash mechanic'],
+  ['Together as One', 'converge'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

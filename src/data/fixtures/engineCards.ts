@@ -61673,6 +61673,524 @@ export const THREE_TREE_SCRIBE: CardData = {
   "singleImage": true
 };
 
+export const THRISS_NANTUKO_PRIMUS: CardData = {
+  "scryfallId": "ad9e647d-903f-4a77-a56c-cd5c0c2f12cf",
+  "oracleId": "19ed8616-5d27-4f21-88a9-2af7cf5034ca",
+  "name": "Thriss, Nantuko Primus",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thriss, Nantuko Primus",
+      "manaCost": "{5}{G}{G}",
+      "typeLine": "Legendary Creature — Insect Druid",
+      "oracleText": "{G}, {T}: Target creature gets +5/+5 until end of turn.",
+      "flavorText": "\"When you live for others, you live for yourself.\"",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "John Avon",
+      "imageId": "ad9e647d-903f-4a77-a56c-cd5c0c2f12cf"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "jud",
+  "collectorNumber": "134",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THUNDER_OF_HOOVES: CardData = {
+  "scryfallId": "9e4f796a-6831-4d83-824d-88fd2148b4c1",
+  "oracleId": "4b505a4c-ccc3-4461-bbc4-ad5d39f9b879",
+  "name": "Thunder of Hooves",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thunder of Hooves",
+      "manaCost": "{3}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Thunder of Hooves deals X damage to each creature without flying and each player, where X is the number of Beasts on the battlefield.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jim Nelson",
+      "imageId": "9e4f796a-6831-4d83-824d-88fd2148b4c1"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ons",
+  "collectorNumber": "242",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THUNDERING_FALLS: CardData = {
+  "scryfallId": "17260fff-b239-4af4-9306-3236ae3fa5a5",
+  "oracleId": "d2bcff58-7a8a-46ef-b6b3-39501d4c8e6e",
+  "name": "Thundering Falls",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thundering Falls",
+      "manaCost": "",
+      "typeLine": "Land — Island Mountain",
+      "oracleText": "({T}: Add {U} or {R}.)\nThis land enters tapped.\nWhen this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Grady Frederick",
+      "imageId": "17260fff-b239-4af4-9306-3236ae3fa5a5"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "mkm",
+  "collectorNumber": "269",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THUNDEROUS_SNAPPER: CardData = {
+  "scryfallId": "9576d4f1-47bb-45e0-803c-93fa2cdacbe5",
+  "oracleId": "f826ac35-7dde-414c-94ec-0bdfe04327b4",
+  "name": "Thunderous Snapper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thunderous Snapper",
+      "manaCost": "{G/U}{G/U}{G/U}{G/U}",
+      "typeLine": "Creature — Turtle Hydra",
+      "oracleText": "Whenever you cast a spell with mana value 5 or greater, draw a card.",
+      "flavorText": "While humans hear only a deafening roar, the fae hear music of breathtaking beauty.",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "U"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "9576d4f1-47bb-45e0-803c-93fa2cdacbe5"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "eld",
+  "collectorNumber": "215",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TIDE_SKIMMER: CardData = {
+  "scryfallId": "6364f909-bd0c-4dd6-a515-cb89bd3412d9",
+  "oracleId": "8d83dfb3-5662-4109-b465-bf5f257e58a5",
+  "name": "Tide Skimmer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tide Skimmer",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Drake",
+      "oracleText": "Flying\nWhenever you attack with two or more creatures with flying, draw a card.",
+      "flavorText": "Fishing boats often follow hunting drakes to find the largest schools of fish.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Joseph Meehan",
+      "imageId": "6364f909-bd0c-4dd6-a515-cb89bd3412d9"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "M21-79",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TIDEPOOL_TURTLE: CardData = {
+  "scryfallId": "c27587cd-e521-4b38-a513-dec780b6cc7f",
+  "oracleId": "ac2668a3-7a26-47b1-9ad4-56e23643de80",
+  "name": "Tidepool Turtle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tidepool Turtle",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Turtle",
+      "oracleText": "{2}{U}: Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": "Prized by wizards as a mobile scrying pool, it bears visions drawn from the depths of the sea.",
+      "power": "2",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Andrew Mar",
+      "imageId": "c27587cd-e521-4b38-a513-dec780b6cc7f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "j25",
+  "collectorNumber": "376",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TIDESPOUT_TYRANT: CardData = {
+  "scryfallId": "44865244-2b9f-4734-a4da-49613b23ee4d",
+  "oracleId": "331b44e4-cf08-44f4-8afd-a7374e5dc5ed",
+  "name": "Tidespout Tyrant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tidespout Tyrant",
+      "manaCost": "{5}{U}{U}{U}",
+      "typeLine": "Creature — Djinn",
+      "oracleText": "Flying\nWhenever you cast a spell, return target permanent to its owner's hand.",
+      "flavorText": "He unmakes the world in his own image.",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Dany Orizio",
+      "imageId": "44865244-2b9f-4734-a4da-49613b23ee4d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 8,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "dis",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TIDY_CONCLUSION: CardData = {
+  "scryfallId": "961e69e7-9afa-4c81-b726-8bd097485c0b",
+  "oracleId": "d73adc2e-c458-40a9-b10b-7d2133778717",
+  "name": "Tidy Conclusion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tidy Conclusion",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature. You gain 1 life for each artifact you control.",
+      "flavorText": "Aetherborn patrons use any means necessary to secure victory for their protégés.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Bastien L. Deharme",
+      "imageId": "961e69e7-9afa-4c81-b726-8bd097485c0b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "KLD-103",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TIMBERLAND_GUIDE: CardData = {
+  "scryfallId": "50965f7e-a4e2-41b7-8b81-4a2ffa9db123",
+  "oracleId": "bd8ba76f-d9e1-4c4d-83e1-6782fa3d01ba",
+  "name": "Timberland Guide",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Timberland Guide",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Human Scout",
+      "oracleText": "When this creature enters, put a +1/+1 counter on target creature.",
+      "flavorText": "\"Can you build a fire? Track a deer? Identify killer trees? Then you'll never survive Kessig without me.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "50965f7e-a4e2-41b7-8b81-4a2ffa9db123"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ima",
+  "collectorNumber": "187",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TIME_EBB: CardData = {
+  "scryfallId": "21446908-8f2d-4a05-910c-7521a231e8b7",
+  "oracleId": "30cc8f7b-3c28-40f5-8f8f-157e8212280b",
+  "name": "Time Ebb",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Time Ebb",
+      "manaCost": "{2}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Put target creature on top of its owner's library.",
+      "flavorText": "Like the tide, time both ebbs and flows.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Alan Rabinowitz",
+      "imageId": "21446908-8f2d-4a05-910c-7521a231e8b7"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "POR-75",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TIRELESS_MISSIONARIES: CardData = {
+  "scryfallId": "c47b7386-168f-4b8e-9a26-9da6d697a501",
+  "oracleId": "a730e699-834a-4aac-9b3b-29d6917fc9b3",
+  "name": "Tireless Missionaries",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tireless Missionaries",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "When this creature enters, you gain 3 life.",
+      "flavorText": "If they succeed in their holy work, their order will vanish into welcome obscurity, for there will be no more souls to redeem.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Dave Kendall",
+      "imageId": "c47b7386-168f-4b8e-9a26-9da6d697a501"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "m15",
+  "collectorNumber": "39",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TITAN_S_GRAVE: CardData = {
+  "scryfallId": "a9ab41c8-3ee2-4676-9b8b-20c34d9f5f21",
+  "oracleId": "595f0eb5-f521-4174-9c48-b89e85ea907c",
+  "name": "Titan's Grave",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Titan's Grave",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {B} or {G}.\n{2}{B}{G}, {T}: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "From the scattered skeleton of an ancient death grow the secrets of healing and prolonging life—or quietly ending it.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Lorenzo Lanfranconi",
+      "imageId": "a9ab41c8-3ee2-4676-9b8b-20c34d9f5f21"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "sos",
+  "collectorNumber": "266",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TIVADAR_S_CRUSADE: CardData = {
+  "scryfallId": "8b6da540-6803-47e5-9af0-7ae8e2f84b6c",
+  "oracleId": "5cf4d98e-f2f4-435b-a633-990b2e654f3a",
+  "name": "Tivadar's Crusade",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tivadar's Crusade",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all Goblins.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Dennis Detwiller",
+      "imageId": "8b6da540-6803-47e5-9af0-7ae8e2f84b6c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "drk",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TOCASIA_S_DIG_SITE: CardData = {
+  "scryfallId": "23d4b90c-95b1-4828-bc08-7067da0d5364",
+  "oracleId": "a91f93fd-e428-4a36-b1b3-604b47a34287",
+  "name": "Tocasia's Dig Site",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tocasia's Dig Site",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{3}, {T}: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "Sent by their noble parents to toughen up and learn something of the world's past, Urza and Mishra instead uncovered Terisiare's future.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Nadia Hurianova",
+      "imageId": "23d4b90c-95b1-4828-bc08-7067da0d5364"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "bro",
+  "collectorNumber": "266",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TOIL_TO_RENOWN: CardData = {
+  "scryfallId": "d54fd436-35eb-4207-9439-de652234dd50",
+  "oracleId": "c8323e46-c068-45e2-b6ba-7972b4af728a",
+  "name": "Toil to Renown",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Toil to Renown",
+      "manaCost": "{1}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "You gain 1 life for each tapped artifact, creature, and land you control.",
+      "flavorText": "The last survivor of her patrol, the warrior returned expecting disappointment and scorn. Instead she found gratitude. \"You are alive. That is reason to celebrate.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Larry MacDougall",
+      "imageId": "d54fd436-35eb-4207-9439-de652234dd50"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "shm",
+  "collectorNumber": "130",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -66503,6 +67021,21 @@ export const ENGINE_CARDS: CardData[] = [
   THRASHING_BRONTODON,
   THRAXODEMON,
   THREE_TREE_SCRIBE,
+  THRISS_NANTUKO_PRIMUS,
+  THUNDER_OF_HOOVES,
+  THUNDERING_FALLS,
+  THUNDEROUS_SNAPPER,
+  TIDE_SKIMMER,
+  TIDEPOOL_TURTLE,
+  TIDESPOUT_TYRANT,
+  TIDY_CONCLUSION,
+  TIMBERLAND_GUIDE,
+  TIME_EBB,
+  TIRELESS_MISSIONARIES,
+  TITAN_S_GRAVE,
+  TIVADAR_S_CRUSADE,
+  TOCASIA_S_DIG_SITE,
+  TOIL_TO_RENOWN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

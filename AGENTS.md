@@ -7351,6 +7351,58 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       chooser stays the heaviest unbuilt class; prior items stand.
 
 
+- [x] **M6.4cw — Fifteen landed: the census that reads the board its own first
+      sentence left (2026-08-23):** **3,550 of 31,692 Commander-legal cards now
+      execute completely, up from 3,535** — the TWENTY-THIRD first-run-clean
+      batch (50 tests untouched). `SHIPPED_SCRIPTS` 1,638 → 1,653; ledger 590
+      (+10, ONE new class). ZERO new tokens or support bodies. **Sliver Queen
+      reaches 3,501 from 79 legendaries.** Decisions in **D260**.
+      ⚠️ **FIFTEEN LAND / TEN REFUSE — the most refusal-heavy batch since
+      D238, and the letter is the reason:** the "Time" cards are almost all
+      structural (extra turns, ending the turn, phasing) and three are wheels
+      that SHUFFLE. `LibraryShuffled` SETS the zone rather than permuting it
+      (D115), so a script must SUPPLY a permutation — which needs `ctx.random`,
+      still a stub (D158). The wheels this arc landed (D206, D217, D232) all
+      discard and draw WITHOUT a shuffle. ⚠️ Timetwister is refused for the
+      shuffle ALONE: its parenthetical exit IS `resolveTop`'s normal one.
+      ⚠️⚠️ **The ordering correction, found while writing the test:** `Tidy
+      Conclusion`'s census is its SECOND sentence and must read the board the
+      FIRST left behind — `ctx.state` is pre-resolution, so an artifact
+      creature of mine destroyed by this very spell must not count itself. The
+      test tells the two apart rather than agreeing with either: 41, not 42.
+      **The headliners:** Tidespout Tyrant (the first cast-watcher whose
+      payload is a TARGETED MOVE); Tide Skimmer (the attacker count filtered by
+      a DERIVED keyword — a granted flyer counts, which the aim's parse can
+      never see); Thunder of Hooves (X censused off BEASTS, fanned at every
+      non-flyer and every player); Thriss, Nantuko Primus (the +5/+5 grant, the
+      79th executable legendary); Thundering Falls (the reminder-FIRST surveil
+      land — `split[2]`, D237); Titan's Grave + Tocasia's Dig Site (one
+      activated surveil behind two different first lines, both at `#a1`);
+      Tivadar's Crusade (the subtype wipe); Toil to Renown (the tapped-permanent
+      census, where an artifact creature counts ONCE); Time Ebb; Tidepool
+      Turtle; Timberland Guide; Thunderous Snapper; Tireless Missionaries.
+      ⚠️ **ZERO new support bodies because the fixtures were read first:**
+      Thunder of Hooves needs a Beast and the recipe named none — `Aquus Steed`
+      was already pinned, where the first draft would have grown WANTED for
+      nothing.
+      ⚠️ **D259's sweep is DONE and the answer is CLEAN:** of every shipped
+      module watching `CombatDamageDealt`, **fifteen watch it alone and all
+      fifteen print the word COMBAT** in their own `printed()` text — nothing
+      is under-firing, and Thieving Otter and Thieving Magpie stay the only
+      two-def cards of that shape. Discharged with a measurement.
+      Fixtures 1,892 (89 tokens) · botPool creature 1,873 / instant 642 /
+      sorcery 529 / land 329 · ladder [1503, 1602, 3395, 5309, 6521] ·
+      batch.json 575.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,733
+      files, 9,028 passed / 10 skipped · 500-seed gate
+      787.1 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D260): `ctx.random` blocks THREE named cards in one
+      batch and is the cheapest way to open the wheel family; extra turns joins
+      the structural tail; a two-sentence resolve that censuses must be read in
+      ORDER; up-to-N's chooser stays the heaviest unbuilt class; prior items
+      stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
