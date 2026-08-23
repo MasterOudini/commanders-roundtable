@@ -1253,6 +1253,21 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // subtype-restricted tap at that. Nothing else about the card is hard: the
   // 7/7 trample Elemental is an ordinary token line waiting on the cost.
   ['Voice of the Woods', 'tap-creatures cost'],
+
+  // D267 (M6.4dd) — ZERO new classes, and ZERO probes owed: every shape in
+  // the batch already had a shipped precedent, which is what a mature aim
+  // layer looks like on a page of ordinary cards.
+  //
+  // ⚠️ LEDGER HYGIENE, noticed here and worth paying the next time this file
+  // is opened for its own sake: `ctx.random` and `ctx.random stub` are ONE
+  // gap under TWO names. Mnemonic Nexus and Reminisce sit under the first,
+  // Sway of the Stars and Timetwister under the second, and all four wait on
+  // the same unwired RNG. Warp World below joins the larger name.
+  ['Voidslime', 'ability countering'],
+  ['Volcanic Spite', 'script-raised prompt'],
+  ['Waltz of Rage', 'play-from-exile permission'],
+  ['Wanderbrine Trapper', 'tap-creatures cost'],
+  ['Warp World', 'ctx.random'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

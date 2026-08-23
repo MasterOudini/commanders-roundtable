@@ -17540,3 +17540,94 @@ noun list still needs a field where the mixed noun list does not; the undying
 carrier would close two ledger entries; `ctx.random` and 'a resolve cannot see
 its own effects' (three witnesses now — D260's exclude, D264's include,
 D266's read-first) stay the named engine jobs; prior items stand.
+
+## D267 — M6.4dd: twenty landed — a batch that needed no probe at all (2026-08-23)
+
+**3,682 of 31,692 Commander-legal cards execute completely, up from 3,662.**
+SHIPPED_SCRIPTS 1,765 → 1,785; ledger 628 → 633 (+5, ZERO new classes). ZERO
+new token pins, ZERO new support bodies. **Sliver Queen reaches 3,633 from 82
+legendaries.**
+
+⚠️ **ZERO PROBES OWED, AND THAT IS THE FINDING.** Every shape in this batch
+already had a SHIPPED precedent, each checked by grep before a line was
+written: `'target player or planeswalker'` (Chandra's Magmutt, Feedback Bolt);
+`'target creature an opponent controls'` (Ambuscade, Bigfin Bouncer); a
+**TARGETED end-step trigger** (Luminarch Aspirant, Blood Mist, Combat
+Professor — all `StepBegan` + `parseTargetClauses`, and `Step` already carries
+`'end'`); `'Sacrifice a <SUBTYPE>'` (Arms Dealer's Goblin, Deadapult's Zombie,
+Deranged Outcast's Human, Bog Naughty's Food); Domain (Allied Strategies, Drag
+Down, Exotic Disease); `'all other <permanents> with the same name'` (Bile
+Blight, Echoing Calm); `'whenever an opponent casts a <colour> spell'`
+(Insight, Dragonlair Spider, Rewards of Diversity). **A batch that needs no
+probe is what a mature aim layer looks like on a page of ordinary cards** —
+the V/W boundary turned out to be unusually free of new nouns, and that is
+worth recording precisely because the last six batches each turned up
+something.
+
+⚠️ **THE DAMAGE-AND-GAIN FAMILY TAKES A FIFTH MEMBER.** `Warleader's Helix`
+(4 at any target, gain 4) joins Vampiric Feast (4/any, D265), Vampiric Touch
+(2/opponent, D265), Vicious Hunger (2/creature, D266) and Void Helix (5/any,
+D266) — **GENERATED** by growing D266's generator with one row plus a MANA
+column (it is the first member not castable off a single colour), never
+hand-written. Eighth time the generated-family idiom has paid.
+
+⚠️ **`land.cjs` CAUGHT THE APOSTROPHE TRAP BEFORE IT COST A GATE.** It derives
+the export name from the **FILE** name, so `warleadersHelix.ts` must export
+`WARLEADERS_HELIX_SCRIPT` — while the fixture const is `WARLEADER_S_HELIX`,
+because the fixture generator turns an apostrophe into `_S_`. The generator
+had named the export after the fixture, and `land.cjs` refused it BY NAME
+rather than letting a mis-registered module reach a gate. ⚠️ The fix went into
+the **GENERATOR** (a separate EXPORT column) and the file was regenerated —
+not hand-edited. D215 named this trap; it is now paid structurally, so the
+next apostrophe card in a generated family cannot repeat it.
+
+⚠️ **TWO MORE MEASUREMENTS.** Derived `power` and `toughness` are
+**`number | null`** — a non-creature has neither — so a test helper annotating
+them as `number` does not compile; two did. And **the bot pool has a SECOND
+enchantment pin site** (`botPool.node.test.ts:286`, the pool's own count
+beside the deck table): `Warmth` takes it 63 → 64. A label-anchored, counted
+repin found it; a bare-number sweep would have moved one of the two and
+silently left the other.
+
+**The rest of the batch.** `Wake of Destruction` is Echoing Calm's oracle NAME
+match one type over — the target land plus every other land sharing its
+printed name, any controller, so my own Islands go with theirs — and the name
+is read BEFORE any move, because a resolve cannot see its own effects (fourth
+outing). `Voltaic Servant` is Voltaic Key's untap moved onto a targeted
+end-step trigger. `Wall of Mulch` may eat ITSELF — "a Wall" is not "another" —
+and `Wall of Runes`, its batch-mate, is the other Wall its test uses.
+`Wandering Stream` counts TYPES and not lands, so two Islands are one type.
+`War Report` says "plus", not "or", so an artifact creature counts TWICE.
+`Volcanic Geyser` deals NOTHING at X=0 rather than a zero-amount entry.
+`Voyaging Satyr` and `Vulshok Sorcerer` are EXACT-TEXT TWINS of the shipped
+Blossom Dryad and Cunning Sparkmage, written to the same shape deliberately so
+a twin sweep finds a pair and not a divergence. Plus `Volcanic Rambler` (the
+planeswalker half asserts `damage`, never a loyalty delta — D257),
+`Voracious Varmint`, `Vulshok Heartstoker`, `Wakandan Drone Flock`,
+`Wakandan Shield Guard`, `Wanderbrine Preacher`, `Wanderwine Distracter`,
+`War Chariot`, `Warmth`.
+
+⚠️ **All 69 tests green on their FIRST run**, the fourth batch running.
+
+⚠️ **LEDGER HYGIENE, recorded in the ledger itself** for whoever opens it
+next: `ctx.random` and `ctx.random stub` are ONE gap under TWO names —
+Mnemonic Nexus and Reminisce under the first, Sway of the Stars and Timetwister
+under the second, all four waiting on the same unwired RNG. Warp World joins
+the larger name. Merge them the next time that file is opened for its own sake.
+
+Fixtures 2,009 → 2,029 (1,937 by name + 92 tokens). botPool artifact 131 /
+creature 1,928 / enchantment 64 / instant 666 / land 337 / sorcery 556 ·
+ladder [1371, 1470, 3263, 5177, 6389] · batch.json 400 · botDeck: the header
+alone moved — **3,633 from 82 legendaries**.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,865 files, 9,730 passed / 10 skipped ·
+500-seed gate 745.6 s · build clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D267): unchanged from D266 and none of them moved, which
+is itself the report — the up-to-N class is PARTLY landable (D266) so the
+chooser's scope is the non-parsing forms only; the keyword-qualifier silent
+drop (three witnesses) is still the cheapest high-value aim-layer repair; the
+subtype noun list still needs a field where the mixed one does not; the
+undying carrier closes two ledger entries; `ctx.random` (now under two ledger
+names that want merging) and 'a resolve cannot see its own effects' stay the
+named engine jobs; prior items stand.

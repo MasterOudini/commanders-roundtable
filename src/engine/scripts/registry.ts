@@ -7,6 +7,26 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { VOLCANIC_GEYSER_SCRIPT } from './cards/volcanicGeyser';
+import { VOLCANIC_RAMBLER_SCRIPT } from './cards/volcanicRambler';
+import { VOLTAIC_KEY_SCRIPT } from './cards/voltaicKey';
+import { VOLTAIC_SERVANT_SCRIPT } from './cards/voltaicServant';
+import { VORACIOUS_VARMINT_SCRIPT } from './cards/voraciousVarmint';
+import { VOYAGING_SATYR_SCRIPT } from './cards/voyagingSatyr';
+import { VULSHOK_HEARTSTOKER_SCRIPT } from './cards/vulshokHeartstoker';
+import { VULSHOK_SORCERER_SCRIPT } from './cards/vulshokSorcerer';
+import { WAKANDAN_DRONE_FLOCK_SCRIPT } from './cards/wakandanDroneFlock';
+import { WAKANDAN_SHIELD_GUARD_SCRIPT } from './cards/wakandanShieldGuard';
+import { WAKE_OF_DESTRUCTION_SCRIPT } from './cards/wakeOfDestruction';
+import { WALL_OF_MULCH_SCRIPT } from './cards/wallOfMulch';
+import { WALL_OF_RUNES_SCRIPT } from './cards/wallOfRunes';
+import { WANDERBRINE_PREACHER_SCRIPT } from './cards/wanderbrinePreacher';
+import { WANDERING_STREAM_SCRIPT } from './cards/wanderingStream';
+import { WANDERWINE_DISTRACTER_SCRIPT } from './cards/wanderwineDistracter';
+import { WAR_CHARIOT_SCRIPT } from './cards/warChariot';
+import { WAR_REPORT_SCRIPT } from './cards/warReport';
+import { WARLEADERS_HELIX_SCRIPT } from './cards/warleadersHelix';
+import { WARMTH_SCRIPT } from './cards/warmth';
 import { VIAL_OF_POISON_SCRIPT } from './cards/vialOfPoison';
 import { VIAL_SMASHER_GLEEFUL_GRENADIER_SCRIPT } from './cards/vialSmasherGleefulGrenadier';
 import { VIASHINO_BLADESCOUT_SCRIPT } from './cards/viashinoBladescout';
@@ -1886,6 +1906,26 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  VOLCANIC_GEYSER_SCRIPT,
+  VOLCANIC_RAMBLER_SCRIPT,
+  VOLTAIC_KEY_SCRIPT,
+  VOLTAIC_SERVANT_SCRIPT,
+  VORACIOUS_VARMINT_SCRIPT,
+  VOYAGING_SATYR_SCRIPT,
+  VULSHOK_HEARTSTOKER_SCRIPT,
+  VULSHOK_SORCERER_SCRIPT,
+  WAKANDAN_DRONE_FLOCK_SCRIPT,
+  WAKANDAN_SHIELD_GUARD_SCRIPT,
+  WAKE_OF_DESTRUCTION_SCRIPT,
+  WALL_OF_MULCH_SCRIPT,
+  WALL_OF_RUNES_SCRIPT,
+  WANDERBRINE_PREACHER_SCRIPT,
+  WANDERING_STREAM_SCRIPT,
+  WANDERWINE_DISTRACTER_SCRIPT,
+  WAR_CHARIOT_SCRIPT,
+  WAR_REPORT_SCRIPT,
+  WARLEADERS_HELIX_SCRIPT,
+  WARMTH_SCRIPT,
   VIAL_OF_POISON_SCRIPT,
   VIAL_SMASHER_GLEEFUL_GRENADIER_SCRIPT,
   VIASHINO_BLADESCOUT_SCRIPT,
