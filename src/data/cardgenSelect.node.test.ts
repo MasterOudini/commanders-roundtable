@@ -1224,6 +1224,26 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Unstable Experiment', 'connive mechanic'],
   ['Unsubstantiate', 'mixed stack/permanent noun list'],
   ['Unwanted Remake', 'face-down (morph)'],
+
+  // D265 (M6.4db) — ZERO new classes, and one refusal is the THIRD witness
+  // for the aim layer's most dangerous shape.
+  //
+  // ⚠️ `Vertigo`'s "target creature with flying" comes back
+  // `kinds: ['creature']` with `unenforced: []` — the keyword qualifier is
+  // SILENTLY DROPPED, exactly as in D261's Topple and D262's Trip Wire.
+  // THREE witnesses in five batches makes this the best-evidenced single gap
+  // in the aim layer: a disclosed qualifier (D259's Thistledown) can be
+  // refused by D161's filter on its own, but a dropped one is invisible to
+  // everything except a probe. ⚠️ Vertigo is refused twice over anyway — it
+  // also REMOVES a keyword until end of turn, and D194's carrier has no lose
+  // direction.
+  ["Urza's Ruinous Blast", 'cast-permission condition'],
+  ['Usher of the Fallen', 'once-per-turn memory'],
+  ['Vanguard Seraph', 'once-per-turn memory'],
+  ['Vault Robber', 'exile-from-graveyard cost'],
+  ['Vega, the Watcher', 'cast-zone discriminator'],
+  ['Vertigo', 'keyword target qualifier'],
+  ['Vex', 'script-raised prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

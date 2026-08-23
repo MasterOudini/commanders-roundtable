@@ -7,6 +7,24 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { URZAS_FACTORY_SCRIPT } from './cards/urzasFactory';
+import { UTVARA_HELLKITE_SCRIPT } from './cards/utvaraHellkite';
+import { VALAKUT_INVOKER_SCRIPT } from './cards/valakutInvoker';
+import { VALKYRIOR_SKYRIDER_SCRIPT } from './cards/valkyriorSkyrider';
+import { VALOROUS_CHARGE_SCRIPT } from './cards/valorousCharge';
+import { VALOROUS_STEED_SCRIPT } from './cards/valorousSteed';
+import { VAMPIRE_ENVOY_SCRIPT } from './cards/vampireEnvoy';
+import { VAMPIRIC_FEAST_SCRIPT } from './cards/vampiricFeast';
+import { VAMPIRIC_TOUCH_SCRIPT } from './cards/vampiricTouch';
+import { VAPOR_SNAG_SCRIPT } from './cards/vaporSnag';
+import { VEDALKEN_ARCHMAGE_SCRIPT } from './cards/vedalkenArchmage';
+import { VEDALKEN_MASTERMIND_SCRIPT } from './cards/vedalkenMastermind';
+import { VEDALKEN_MESMERIST_SCRIPT } from './cards/vedalkenMesmerist';
+import { VEIL_OF_ASSIMILATION_SCRIPT } from './cards/veilOfAssimilation';
+import { VENERABLE_MONK_SCRIPT } from './cards/venerableMonk';
+import { VERDANT_FORCE_SCRIPT } from './cards/verdantForce';
+import { VESSEL_OF_EPHEMERA_SCRIPT } from './cards/vesselOfEphemera';
+import { VETERANS_REFLEXES_SCRIPT } from './cards/veteransReflexes';
 import { UNDO_SCRIPT } from './cards/undo';
 import { UNIFIED_WILL_SCRIPT } from './cards/unifiedWill';
 import { UNION_OF_THE_THIRD_PATH_SCRIPT } from './cards/unionOfTheThirdPath';
@@ -1844,6 +1862,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  URZAS_FACTORY_SCRIPT,
+  UTVARA_HELLKITE_SCRIPT,
+  VALAKUT_INVOKER_SCRIPT,
+  VALKYRIOR_SKYRIDER_SCRIPT,
+  VALOROUS_CHARGE_SCRIPT,
+  VALOROUS_STEED_SCRIPT,
+  VAMPIRE_ENVOY_SCRIPT,
+  VAMPIRIC_FEAST_SCRIPT,
+  VAMPIRIC_TOUCH_SCRIPT,
+  VAPOR_SNAG_SCRIPT,
+  VEDALKEN_ARCHMAGE_SCRIPT,
+  VEDALKEN_MASTERMIND_SCRIPT,
+  VEDALKEN_MESMERIST_SCRIPT,
+  VEIL_OF_ASSIMILATION_SCRIPT,
+  VENERABLE_MONK_SCRIPT,
+  VERDANT_FORCE_SCRIPT,
+  VESSEL_OF_EPHEMERA_SCRIPT,
+  VETERANS_REFLEXES_SCRIPT,
   UNDO_SCRIPT,
   UNIFIED_WILL_SCRIPT,
   UNION_OF_THE_THIRD_PATH_SCRIPT,

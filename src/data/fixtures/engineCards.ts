@@ -64653,6 +64653,622 @@ export const URSAPINE: CardData = {
   "singleImage": true
 };
 
+export const URZA_S_FACTORY: CardData = {
+  "scryfallId": "410b0cf2-fc2b-4fdd-b12f-10a65f504166",
+  "oracleId": "5a620d20-f14e-43d0-8e57-c2a197e2ec51",
+  "name": "Urza's Factory",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Urza's Factory",
+      "manaCost": "",
+      "typeLine": "Land — Urza's",
+      "oracleText": "{T}: Add {C}.\n{7}, {T}: Create a 2/2 colorless Assembly-Worker artifact creature token.",
+      "flavorText": "\"Though their ideals are leagues apart, Urza's and Mishra's creations have a surprising harmony with one another.\"\n—Tocasia, journal entry",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Mark Tedin",
+      "imageId": "410b0cf2-fc2b-4fdd-b12f-10a65f504166"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "c13",
+  "collectorNumber": "331",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UTVARA_HELLKITE: CardData = {
+  "scryfallId": "05145c58-8317-4629-8573-9dff02e62c94",
+  "oracleId": "05a6a571-643e-429e-8e5c-1c3f8b0dc746",
+  "name": "Utvara Hellkite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Utvara Hellkite",
+      "manaCost": "{6}{R}{R}",
+      "typeLine": "Creature — Dragon",
+      "oracleText": "Flying\nWhenever a Dragon you control attacks, create a 6/6 red Dragon creature token with flying.",
+      "flavorText": null,
+      "power": "6",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "M.Matsumoto",
+      "imageId": "05145c58-8317-4629-8573-9dff02e62c94"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 8,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "rvr",
+  "collectorNumber": "431",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VALAKUT_INVOKER: CardData = {
+  "scryfallId": "178c66b8-c577-49c6-9efc-7bab740e66b6",
+  "oracleId": "17ed18cf-33e5-4861-8a36-8f7bb91971f9",
+  "name": "Valakut Invoker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Valakut Invoker",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "{8}: This creature deals 3 damage to any target.",
+      "flavorText": "\"As long as we have walked this world, we have known it as a harsh and unforgiving place.\"\n—*The Invokers' Tales*",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Joseph Meehan",
+      "imageId": "178c66b8-c577-49c6-9efc-7bab740e66b6"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "bfz",
+  "collectorNumber": "159",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VALKYRIOR_SKYRIDER: CardData = {
+  "scryfallId": "7b75958b-7b72-4c0f-a75e-5e62e3727a7d",
+  "oracleId": "ea0b0c71-4a1b-49aa-b4cd-db6c5d26b95e",
+  "name": "Valkyrior Skyrider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Valkyrior Skyrider",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — God Warrior Hero",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhen this creature enters, you gain 4 life.",
+      "flavorText": "For warriors of Asgard, there can be no more welcome sight than the Valkyries entering the fray atop their noble steeds.",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kevin Glint",
+      "imageId": "7b75958b-7b72-4c0f-a75e-5e62e3727a7d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "msc",
+  "collectorNumber": "525",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VALOROUS_CHARGE: CardData = {
+  "scryfallId": "67f61bdf-cbcd-4a63-8866-eb13ec9b351c",
+  "oracleId": "1f51fea2-ce19-44ef-a330-65cc0fafcd64",
+  "name": "Valorous Charge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Valorous Charge",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "White creatures get +2/+0 until end of turn.",
+      "flavorText": "Stand in the way of truth at your peril.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Douglas Shuler",
+      "imageId": "67f61bdf-cbcd-4a63-8866-eb13ec9b351c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "por",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VALOROUS_STEED: CardData = {
+  "scryfallId": "19e8e7dd-4bbb-48a7-9427-f7557d670f74",
+  "oracleId": "4b5f30a6-b0fb-4dcb-85d5-1db1bba73737",
+  "name": "Valorous Steed",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Valorous Steed",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Unicorn",
+      "oracleText": "Vigilance (Attacking doesn't cause this creature to tap.)\nWhen this creature enters, create a 2/2 white Knight creature token with vigilance.",
+      "flavorText": "A unicorn chooses only the most virtuous and noble of knights to be its companion.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Donato Giancola",
+      "imageId": "19e8e7dd-4bbb-48a7-9427-f7557d670f74"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "M21-42",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VAMPIRE_ENVOY: CardData = {
+  "scryfallId": "3ba8e7aa-9a87-410e-b846-5f5c910585cf",
+  "oracleId": "cfc50aef-b17b-4fc1-af07-fe43b89689b7",
+  "name": "Vampire Envoy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vampire Envoy",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Vampire Cleric Ally",
+      "oracleText": "Flying\nWhenever this creature becomes tapped, you gain 1 life.",
+      "flavorText": "\"Zendikar will fight until it has bled its last.\"",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Johannes Voss",
+      "imageId": "3ba8e7aa-9a87-410e-b846-5f5c910585cf"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ogw",
+  "collectorNumber": "92",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VAMPIRIC_FEAST: CardData = {
+  "scryfallId": "19500ffb-bfad-46d6-8a6e-d134405959c0",
+  "oracleId": "1980ca2e-a415-4de1-ac30-7055507e82a2",
+  "name": "Vampiric Feast",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vampiric Feast",
+      "manaCost": "{5}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Vampiric Feast deals 4 damage to any target and you gain 4 life.",
+      "flavorText": "It's not always gold the thief is after.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "D. Alexander Gregory",
+      "imageId": "19500ffb-bfad-46d6-8a6e-d134405959c0"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "por",
+  "collectorNumber": "114",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VAMPIRIC_TOUCH: CardData = {
+  "scryfallId": "231f7598-8c47-4828-8240-e2a545a7ac5b",
+  "oracleId": "b701378f-681b-4840-bd11-1a97c2a675f2",
+  "name": "Vampiric Touch",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vampiric Touch",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Vampiric Touch deals 2 damage to target opponent or planeswalker and you gain 2 life.",
+      "flavorText": "A touch, not comforting, but of death.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Zina Saunders",
+      "imageId": "231f7598-8c47-4828-8240-e2a545a7ac5b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "por",
+  "collectorNumber": "115",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VAPOR_SNAG: CardData = {
+  "scryfallId": "59f26d0a-e9f3-442f-b5c6-8016cf736432",
+  "oracleId": "a1408bae-ed5f-4837-a1a7-438dc30a2786",
+  "name": "Vapor Snag",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vapor Snag",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return target creature to its owner's hand. Its controller loses 1 life.",
+      "flavorText": "\"This creature is inadequate. Send it to the splicers for innovation.\"\n—Malcator, Executor of Synthesis",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Raymond Swanland",
+      "imageId": "59f26d0a-e9f3-442f-b5c6-8016cf736432"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mm2",
+  "collectorNumber": "66",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VEDALKEN_ARCHMAGE: CardData = {
+  "scryfallId": "508b3cb7-b434-4524-8ef0-7db7f7f22edd",
+  "oracleId": "568cf486-0261-4634-ac36-a6507101b2d0",
+  "name": "Vedalken Archmage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vedalken Archmage",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Creature — Vedalken Wizard",
+      "oracleText": "Whenever you cast an artifact spell, draw a card.",
+      "flavorText": "\"The Knowledge Pool knows. Memnarch understands.\"\n—Janus, speaker of the synod",
+      "power": "0",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "508b3cb7-b434-4524-8ef0-7db7f7f22edd"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "jmp",
+  "collectorNumber": "187",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VEDALKEN_MASTERMIND: CardData = {
+  "scryfallId": "582e7818-6062-466f-b8fb-6f1b8c019793",
+  "oracleId": "1ba85537-6dc2-459e-8850-619b41c0a881",
+  "name": "Vedalken Mastermind",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vedalken Mastermind",
+      "manaCost": "{U}{U}",
+      "typeLine": "Creature — Vedalken Wizard",
+      "oracleText": "{U}, {T}: Return target permanent you control to its owner's hand.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Darrell Riche",
+      "imageId": "582e7818-6062-466f-b8fb-6f1b8c019793"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "psal",
+  "collectorNumber": "H51",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VEDALKEN_MESMERIST: CardData = {
+  "scryfallId": "45fb53b4-9fff-43dd-ae5d-f3ec83e49076",
+  "oracleId": "f507f9ba-a7e9-4e45-86dc-8c60a72a6234",
+  "name": "Vedalken Mesmerist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vedalken Mesmerist",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Vedalken Wizard",
+      "oracleText": "Whenever this creature attacks, target creature an opponent controls gets -2/-0 until end of turn.",
+      "flavorText": "\"There's no need to sound the alarm. You are minding your post admirably. I am authorized. All is well.\"",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Zezhou Chen",
+      "imageId": "45fb53b4-9fff-43dd-ae5d-f3ec83e49076"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "rvr",
+  "collectorNumber": "65",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VEIL_OF_ASSIMILATION: CardData = {
+  "scryfallId": "1f9d8d87-e32f-4ad9-8d72-d1b88cd14510",
+  "oracleId": "3dd81e3e-e57a-4b6f-9043-bba0cebb3e90",
+  "name": "Veil of Assimilation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Veil of Assimilation",
+      "manaCost": "{1}{W}",
+      "typeLine": "Artifact",
+      "oracleText": "Whenever this artifact or another artifact you control enters, target creature you control gets +1/+1 and gains vigilance until end of turn.",
+      "flavorText": "\"Hear only harmony. See only glory. Speak only truth.\"\n—Atraxa",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Wayne Wu",
+      "imageId": "1f9d8d87-e32f-4ad9-8d72-d1b88cd14510"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "one",
+  "collectorNumber": "37",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VENERABLE_MONK: CardData = {
+  "scryfallId": "249c1078-6c7b-41c6-9eca-eb2509ea7253",
+  "oracleId": "5c5cfa6d-857f-44a9-80f7-46f016ef71e4",
+  "name": "Venerable Monk",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Venerable Monk",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Monk Cleric",
+      "oracleText": "When this creature enters, you gain 2 life.",
+      "flavorText": "Age wears the flesh but galvanizes the soul.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "D. Alexander Gregory",
+      "imageId": "249c1078-6c7b-41c6-9eca-eb2509ea7253"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "51★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VERDANT_FORCE: CardData = {
+  "scryfallId": "0a72a7ae-8c40-4c8e-8fb5-f5f2e1a71792",
+  "oracleId": "7a21ea22-3cd7-4c11-8895-5943c0d93a0d",
+  "name": "Verdant Force",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Verdant Force",
+      "manaCost": "{5}{G}{G}{G}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "At the beginning of each upkeep, create a 1/1 green Saproling creature token.",
+      "flavorText": "Left to itself, nature overflows any container, overthrows any restriction, and overreaches any boundary.",
+      "power": "7",
+      "toughness": "7",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "DiTerlizzi",
+      "imageId": "0a72a7ae-8c40-4c8e-8fb5-f5f2e1a71792"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 8,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "HOP-81",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VESSEL_OF_EPHEMERA: CardData = {
+  "scryfallId": "f4051020-688c-473a-9a08-b62f0fd75675",
+  "oracleId": "bfddc488-ab38-4e6d-8dfc-22bf1a8e03fa",
+  "name": "Vessel of Ephemera",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vessel of Ephemera",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "{2}{W}, Sacrifice this enchantment: Create two 1/1 white Spirit creature tokens with flying.",
+      "flavorText": "Geists seeking redemption must first be given the opportunity.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kieran Yanner",
+      "imageId": "f4051020-688c-473a-9a08-b62f0fd75675"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "soi",
+  "collectorNumber": "48",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VETERAN_S_REFLEXES: CardData = {
+  "scryfallId": "1ba8b52a-af98-4a7d-83e5-ab94e058d9a7",
+  "oracleId": "efee0ca0-0897-4972-99c4-432561b6e9f8",
+  "name": "Veteran's Reflexes",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Veteran's Reflexes",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +1/+1 until end of turn. Untap that creature.",
+      "flavorText": "\"Assume everything wants to kill you. At the very least, assume everything wants what's in your pack.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Scott Chou",
+      "imageId": "1ba8b52a-af98-4a7d-83e5-ab94e058d9a7"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "e02",
+  "collectorNumber": "5",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -67727,6 +68343,72 @@ export const GLIMMER_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const DRAGON_66_TOKEN: CardData = {
+  "scryfallId": "7c66280f-287b-4294-9984-32484de2568a",
+  "oracleId": "606c46d7-18a5-4cce-9975-029899b82b34",
+  "name": "Dragon",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Dragon",
+      "manaCost": "",
+      "typeLine": "Token Creature — Dragon",
+      "oracleText": "Flying",
+      "flavorText": null,
+      "power": "6",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "7c66280f-287b-4294-9984-32484de2568a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "tc17",
+  "collectorNumber": "7",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const ASSEMBLY_WORKER_TOKEN: CardData = {
+  "scryfallId": "e72daa68-0680-431c-a616-b3693fd58813",
+  "oracleId": "02e1a471-36b2-4d28-a323-f4ec3d095cb9",
+  "name": "Assembly-Worker",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Assembly-Worker",
+      "manaCost": "",
+      "typeLine": "Token Artifact Creature — Assembly-Worker",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Mark Tedin",
+      "imageId": "e72daa68-0680-431c-a616-b3693fd58813"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "ttsr",
+  "collectorNumber": "14",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -69604,6 +70286,24 @@ export const ENGINE_CARDS: CardData[] = [
   UPROOT,
   URBIS_PROTECTOR,
   URSAPINE,
+  URZA_S_FACTORY,
+  UTVARA_HELLKITE,
+  VALAKUT_INVOKER,
+  VALKYRIOR_SKYRIDER,
+  VALOROUS_CHARGE,
+  VALOROUS_STEED,
+  VAMPIRE_ENVOY,
+  VAMPIRIC_FEAST,
+  VAMPIRIC_TOUCH,
+  VAPOR_SNAG,
+  VEDALKEN_ARCHMAGE,
+  VEDALKEN_MASTERMIND,
+  VEDALKEN_MESMERIST,
+  VEIL_OF_ASSIMILATION,
+  VENERABLE_MONK,
+  VERDANT_FORCE,
+  VESSEL_OF_EPHEMERA,
+  VETERAN_S_REFLEXES,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -69694,4 +70394,6 @@ export const ENGINE_CARDS: CardData[] = [
   ANGEL_44_TOKEN,
   SLIVER_11_TOKEN,
   GLIMMER_TOKEN,
+  DRAGON_66_TOKEN,
+  ASSEMBLY_WORKER_TOKEN,
 ];

@@ -17382,3 +17382,79 @@ undying carrier would close two ledger entries at once and is the same shape
 as every other quoted-ability grant; `ctx.random`, up-to-N's chooser and
 D261's 'a resolve cannot see its own effects' — now with THREE witnesses —
 stay the named engine jobs; prior items stand.
+
+## D265 — M6.4db: eighteen landed — the filtered fan-out, and a third witness for the silent drop (2026-08-23)
+
+**3,638 of 31,692 Commander-legal cards execute completely, up from 3,620.**
+SHIPPED_SCRIPTS 1,723 → 1,741; ledger 620 → 627 (+7, ZERO new classes). TWO
+new token pins, ZERO new support bodies. **Sliver Queen reaches 3,589 from 81
+legendaries.**
+
+⚠️ **THE AIM LAYER'S SILENT DROP HAS A THIRD WITNESS.** `Vertigo`'s "target
+creature with flying" comes back `kinds: ['creature']` with **`unenforced:
+[]`** — the keyword qualifier gone with nothing recorded, exactly as in D261's
+Topple and D262's Trip Wire. Three in five batches makes this the
+best-evidenced single gap in the aim layer, and the asymmetry is what matters:
+a DISCLOSED qualifier (D259's Thistledown Players) can be refused by D161's
+selection filter on its own, while a DROPPED one is invisible to every filter
+and visible only to a probe. ⚠️ Vertigo is refused twice over in any case — it
+also REMOVES a keyword until end of turn, and D194's carrier has no lose
+direction.
+
+⚠️ **THE FILTERED perItem FAN-OUT.** `Utvara Hellkite` reads "whenever a
+DRAGON YOU CONTROL attacks", so the item list is the attack declaration
+FILTERED to my Dragons rather than all attackers — Righteous Cause (D240) is
+the unfiltered precedent and this is the same door one predicate over. The
+test is built to fail a single-firing def: the Hellkite attacks alone on turn
+3 and makes one Dragon, that token has been under my control since, and on
+turn 5 BOTH attack — **three tokens, not two.** A non-Dragon attacking beside
+it adds nothing.
+
+**The rest of the batch.** `Veil of Assimilation` is the self-inclusive
+ARTIFACT entry watcher in TWO defs (a card enters via `CardsMoved`, a token
+via `TokenCreated` — Soul Warden's rule, D158), and its token arm is proven
+with batch-mate `Urza's Factory`'s Assembly-Worker rather than a synthetic
+event. `Verdant Force` triggers on EACH upkeep, not just mine. `Vessel of
+Ephemera` makes two Spirits with distinct ids, which is D164's allocator
+staying load-bearing. `Valorous Charge` pumps every WHITE creature including
+the opponent's — the card names no controller. `Vapor Snag` bills the
+CONTROLLER, read before the move because `clearBattlefieldFields` resets the
+field to the OWNER (D264's rule, second outing). Plus `Valakut Invoker`,
+`Valkyrior Skyrider` and `Venerable Monk` (the last two GENERATED from one
+ETB-gain base — three oracle ids across three batches now share that printed
+shape), `Valorous Steed`, `Vampire Envoy`, `Vampiric Feast`, `Vampiric Touch`,
+`Vedalken Archmage`, `Vedalken Mastermind`, `Vedalken Mesmerist`,
+`Veteran's Reflexes`.
+
+⚠️ **Two new token pins, both looked up rather than guessed** — `Dragon`
+(`tc17 7`) and `Assembly-Worker` (`ttsr 14`). Finding them exposed that the
+card database's printing id lives on **`scryfallId`**, not `printingId`: the
+first lookup script matched nothing and reported it honestly rather than
+silently picking a reprint. `Knight`, `Spirit` and `Saproling` were verified
+already pinned.
+
+⚠️ **The stale-value sweep flagged `1723` and it was a FALSE POSITIVE** —
+`spells.assisted` happens to equal the old `SHIPPED_SCRIPTS` length. The diff
+had not moved it, so it stayed. That is the sweep working as intended: it
+surfaces a coincidence for a human look rather than swapping it (D256's
+lesson, which is about the opposite failure — a real third site the diff did
+not show).
+
+⚠️ **Types clean on the first pass AND all 56 tests green on their first run**,
+the second batch running.
+
+Fixtures 1,965 → 1,985 (1,893 by name + 92 tokens). botPool artifact 128 /
+creature 1,904 / enchantment 63 / instant 658 / land 336 / sorcery 549 ·
+ladder [1415, 1514, 3307, 5221, 6433] · batch.json 450 · botDeck: the header
+alone moved — **3,589 from 81 legendaries**.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,821 files,
+9,484 passed / 10 skipped · 500-seed gate 698.4 s · build clean ·
+probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D265): the keyword-qualifier widening now has three
+witnesses and is the cheapest high-value aim-layer repair left; the mixed
+noun list (D264) needs no new field either; the subtype list does; the undying
+carrier would close two ledger entries; `ctx.random`, up-to-N's chooser and
+D261's 'a resolve cannot see its own effects' stay the named engine jobs;
+prior items stand.

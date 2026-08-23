@@ -2319,6 +2319,24 @@ const WANTED = [
   'Uproot',
   'Urbis Protector',
   'Ursapine',
+  "Urza's Factory",
+  'Utvara Hellkite',
+  'Valakut Invoker',
+  'Valkyrior Skyrider',
+  'Valorous Charge',
+  'Valorous Steed',
+  'Vampire Envoy',
+  'Vampiric Feast',
+  'Vampiric Touch',
+  'Vapor Snag',
+  'Vedalken Archmage',
+  'Vedalken Mastermind',
+  'Vedalken Mesmerist',
+  'Veil of Assimilation',
+  'Venerable Monk',
+  'Verdant Force',
+  'Vessel of Ephemera',
+  "Veteran's Reflexes",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -2482,6 +2500,10 @@ const WANTED_TOKENS = [
   // D262: Tunnel Surveyor's ENCHANTMENT creature token. Exactly one Glimmer
   // printing exists in the database, so this pin cannot be the wrong reprint.
   { name: 'Glimmer', set: 'tdsk', cn: '4', key: 'GLIMMER_TOKEN' },
+  // D265: the 6/6 flying Dragon Utvara Hellkite makes per attacking Dragon,
+  // and Urza's Factory's Assembly-Worker.
+  { name: 'Dragon', set: 'tc17', cn: '7', key: 'DRAGON_66_TOKEN' },
+  { name: 'Assembly-Worker', set: 'ttsr', cn: '14', key: 'ASSEMBLY_WORKER_TOKEN' },
 ];
 
 function constName(name) {

@@ -7629,6 +7629,60 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       — stay the named engine jobs; prior items stand.
 
 
+- [x] **M6.4db — Eighteen landed: the filtered fan-out, and a third witness for
+      the silent drop (2026-08-23):** **3,638 of 31,692 Commander-legal cards
+      now execute completely, up from 3,620.** `SHIPPED_SCRIPTS` 1,723 → 1,741;
+      ledger 627 (+7, ZERO new classes). TWO new token pins, ZERO new support
+      bodies. **Sliver Queen reaches 3,589 from 81 legendaries.** Decisions in
+      **D265**.
+      ⚠️ **The aim layer's SILENT DROP has a THIRD witness.** `Vertigo`'s
+      "target creature with flying" → `kinds:['creature']`, **`unenforced:
+      []`** — the qualifier gone with nothing recorded, as in D261's Topple and
+      D262's Trip Wire. Three in five batches makes it the best-evidenced gap
+      in the aim layer, and the asymmetry is the point: a DISCLOSED qualifier
+      (D259's Thistledown) is refusable by D161's filter, a DROPPED one is
+      visible only to a probe. ⚠️ Vertigo is refused twice over — it also
+      REMOVES a keyword, and D194's carrier has no lose direction.
+      ⚠️ **The FILTERED perItem fan-out:** `Utvara Hellkite` reads "whenever a
+      DRAGON YOU CONTROL attacks", so the item list is the declaration filtered
+      to my Dragons (D240's Righteous Cause is the unfiltered precedent). The
+      test is built to fail a single-firing def — the Hellkite alone makes one
+      token on turn 3, then BOTH attack on turn 5 for **three, not two**.
+      **Also:** Veil of Assimilation (the self-inclusive ARTIFACT entry watcher
+      in TWO defs, its token arm proven with batch-mate Urza's Factory rather
+      than a synthetic event); Verdant Force (EACH upkeep, not just mine);
+      Vessel of Ephemera (two Spirits, DISTINCT ids — D164's allocator);
+      Valorous Charge (every WHITE creature, the opponent's included); Vapor
+      Snag (the CONTROLLER billed, read before the move — D264's rule, second
+      outing); Valakut Invoker; Valkyrior Skyrider + Venerable Monk (GENERATED
+      from one ETB-gain base); Valorous Steed; Vampire Envoy; Vampiric Feast;
+      Vampiric Touch; Vedalken Archmage; Vedalken Mastermind; Vedalken
+      Mesmerist; Veteran's Reflexes.
+      ⚠️ **Two new token pins, looked up rather than guessed** — Dragon
+      (`tc17 7`) and Assembly-Worker (`ttsr 14`). Finding them exposed that the
+      card database's printing id lives on **`scryfallId`**, not `printingId`;
+      the first lookup matched nothing and said so rather than silently picking
+      a reprint.
+      ⚠️ **The stale-value sweep flagged `1723` and it was a FALSE POSITIVE** —
+      `spells.assisted` happens to equal the old SHIPPED length, and the diff
+      had not moved it. The sweep surfacing a coincidence for a look is it
+      working, not failing.
+      ⚠️ **Types clean first pass AND all 56 tests green first run**, the second
+      batch running.
+      Fixtures 1,985 (1,893 by name + 92 tokens) · botPool artifact 128 /
+      creature 1,904 / enchantment 63 / instant 658 / land 336 / sorcery 549 ·
+      ladder [1415, 1514, 3307, 5221, 6433] · batch.json 450.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,821
+      files, 9,484 passed / 10 skipped · 500-seed gate
+      698.4 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D265): the keyword-qualifier widening has three
+      witnesses now and is the cheapest high-value aim-layer repair left; the
+      mixed noun list (D264) needs no new field either, the subtype list does;
+      the undying carrier closes two ledger entries; `ctx.random`, up-to-N's
+      chooser and D261's 'a resolve cannot see its own effects' stay the named
+      engine jobs; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
