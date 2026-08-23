@@ -1070,6 +1070,20 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Terashi's Cry", 'up-to-N targeting'],
   ['The Black Breath', 'the Ring'],
   ['The Lost and the Damned', 'cast-zone discriminator'],
+
+  // D259 (M6.4cv) — ONE new class, found by a PROBE rather than by a test.
+  // 'target nonland permanent' parses CONFIDENT to kinds:['permanent'] with
+  // unenforced:['nonland'] — the negated type is DISCLOSED rather than
+  // dropped, but disclosed is exactly what D161 refuses: the aim would let a
+  // LAND be untapped by a card that forbids it (Angelic Page, verbatim).
+  // Befoul holds the negated-COLOUR direction (D199) and Devout Decree the
+  // positive colour one (D208); nobody had probed a negated TYPE.
+  ['Thistledown Players', 'negated-type target qualifier'],
+  ['The Ring Goes South', 'the Ring'],
+  ['The Shire', 'tap-creatures cost'],
+  ['Thopter Foundry', 'token-predicate sacrifice cost'],
+  ['Thoughtlace', 'indefinite color change'],
+  ['Thraben Standard Bearer', 'discard-cost chooser'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

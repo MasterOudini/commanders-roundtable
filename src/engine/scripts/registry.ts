@@ -7,6 +7,25 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { THE_SURGICAL_BAY_SCRIPT } from './cards/theSurgicalBay';
+import { THEFT_OF_DREAMS_SCRIPT } from './cards/theftOfDreams';
+import { THEIR_NAME_IS_DEATH_SCRIPT } from './cards/theirNameIsDeath';
+import { THEODEN_KING_OF_ROHAN_SCRIPT } from './cards/theodenKingOfRohan';
+import { THERMOKARST_SCRIPT } from './cards/thermokarst';
+import { THIEVING_MAGPIE_SCRIPT } from './cards/thievingMagpie';
+import { THIEVING_OTTER_SCRIPT } from './cards/thievingOtter';
+import { THINK_TANK_SCRIPT } from './cards/thinkTank';
+import { THIRD_PATH_ICONOCLAST_SCRIPT } from './cards/thirdPathIconoclast';
+import { THIRD_PATH_SAVANT_SCRIPT } from './cards/thirdPathSavant';
+import { THOPTER_ARCHITECT_SCRIPT } from './cards/thopterArchitect';
+import { THORNWIND_FAERIES_SCRIPT } from './cards/thornwindFaeries';
+import { THORNWOOD_FALLS_SCRIPT } from './cards/thornwoodFalls';
+import { THOUGHTWEFT_GAMBIT_SCRIPT } from './cards/thoughtweftGambit';
+import { THOUGHTWEFT_LIEUTENANT_SCRIPT } from './cards/thoughtweftLieutenant';
+import { THRAN_VIGIL_SCRIPT } from './cards/thranVigil';
+import { THRASHING_BRONTODON_SCRIPT } from './cards/thrashingBrontodon';
+import { THRAXODEMON_SCRIPT } from './cards/thraxodemon';
+import { THREE_TREE_SCRIBE_SCRIPT } from './cards/threeTreeScribe';
 import { TEMPORAL_SPRING_SCRIPT } from './cards/temporalSpring';
 import { TEMUR_BANNER_SCRIPT } from './cards/temurBanner';
 import { TENDERIZE_SCRIPT } from './cards/tenderize';
@@ -1740,6 +1759,25 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  THE_SURGICAL_BAY_SCRIPT,
+  THEFT_OF_DREAMS_SCRIPT,
+  THEIR_NAME_IS_DEATH_SCRIPT,
+  THEODEN_KING_OF_ROHAN_SCRIPT,
+  THERMOKARST_SCRIPT,
+  THIEVING_MAGPIE_SCRIPT,
+  THIEVING_OTTER_SCRIPT,
+  THINK_TANK_SCRIPT,
+  THIRD_PATH_ICONOCLAST_SCRIPT,
+  THIRD_PATH_SAVANT_SCRIPT,
+  THOPTER_ARCHITECT_SCRIPT,
+  THORNWIND_FAERIES_SCRIPT,
+  THORNWOOD_FALLS_SCRIPT,
+  THOUGHTWEFT_GAMBIT_SCRIPT,
+  THOUGHTWEFT_LIEUTENANT_SCRIPT,
+  THRAN_VIGIL_SCRIPT,
+  THRASHING_BRONTODON_SCRIPT,
+  THRAXODEMON_SCRIPT,
+  THREE_TREE_SCRIBE_SCRIPT,
   TEMPORAL_SPRING_SCRIPT,
   TEMUR_BANNER_SCRIPT,
   TENDERIZE_SCRIPT,
