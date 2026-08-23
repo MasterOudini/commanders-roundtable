@@ -1117,6 +1117,40 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Timetwister', 'ctx.random stub'],
   ["Titan's Revenge", 'clash mechanic'],
   ['Together as One', 'converge'],
+
+  // D261 (M6.4cx) — ONE new class, and it is the same missing piece seen from
+  // two sides.
+  //
+  // ⚠️ `Too Greedily, Too Deep` reanimates a creature and then has it deal
+  // damage EQUAL TO ITS POWER. That power is the DERIVED power of a card that
+  // is not on the battlefield yet when the resolve runs: `ScriptCtx` is
+  // `{state, oracle, derive, options, ids, query, random}` and exposes NO
+  // reducer, so **a resolve cannot see its own effects.** Deriving the card in
+  // the graveyard gives base P/T and misses any anthem, which is silently
+  // wrong exactly when another card is on the board — D255's failure mode with
+  // better manners. NEW class 'post-entry computed value'.
+  // ⚠️ `Track Down` wants the same door from the prompt side: 'Scry 3, then
+  // reveal the top card — if it is a creature or land, draw' needs a rider
+  // evaluated AFTER the answer, and `thenDraw` is a fixed number. D195's
+  // handler folds a SCRATCH state for its own rider; a script has no such
+  // door. Ledgered under script-raised prompt, but it is the same engine item.
+  //
+  // ⚠️ Two refusals were settled by a PROBE rather than by a test. Topple's
+  // 'creature with the greatest power among creatures on the battlefield'
+  // comes back one confident spec with `unenforced: []` — the qualifier is
+  // SILENTLY DROPPED, which is the worse of the two directions and D200's
+  // Blazing Hope shape. And Touch of Darkness's 'One or more target creatures'
+  // parses min 1 / max 1, so the spell would take exactly one target where the
+  // card allows many — a second measured reason beside the colour change.
+  ['Toils of Night and Day', 'script-raised prompt'],
+  ['Tolarian Sentinel', 'discard-cost chooser'],
+  ['Too Greedily, Too Deep', 'post-entry computed value'],
+  ['Topple', 'computed target threshold'],
+  ['Tortured Existence', 'discard-cost chooser'],
+  ['Touch of Darkness', 'until-end-of-turn color change'],
+  ['Track Down', 'script-raised prompt'],
+  ['Tradewind Rider', 'tap-creatures cost'],
+  ['Transmogrify', 'ctx.random stub'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

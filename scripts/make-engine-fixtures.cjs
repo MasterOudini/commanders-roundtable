@@ -2241,6 +2241,22 @@ const WANTED = [
   "Tivadar's Crusade",
   "Tocasia's Dig Site",
   'Toil to Renown',
+  'Tolarian Winds',
+  'Tombfire',
+  'Tome of the Guildpact',
+  'Tome Raider',
+  'Torch Fiend',
+  'Torch the Witness',
+  'Torrent of Fire',
+  'Toucan-Puffin',
+  'Tower of Calamities',
+  'Tower of Champions',
+  'Tower of Eons',
+  'Tower of Fortunes',
+  'Tramway Station',
+  'Tranquil Cove',
+  'Tranquil Domain',
+  'Tranquility',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

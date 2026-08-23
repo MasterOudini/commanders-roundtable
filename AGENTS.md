@@ -7403,6 +7403,63 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       stand.
 
 
+- [x] **M6.4cx — Sixteen landed: the raw keyword list a script could always
+      reach (2026-08-23):** **3,566 of 31,692 Commander-legal cards now execute
+      completely, up from 3,550.** `SHIPPED_SCRIPTS` 1,653 → 1,669; ledger 599
+      (+9, ONE new class). ZERO new tokens or support bodies. **Sliver Queen
+      reaches 3,517 from 79 legendaries.** Decisions in **D261**.
+      ⚠️⚠️ **The headliner is a door open since M3 that nobody had walked
+      through.** `Tombfire` exiles "all cards with flashback", and flashback is
+      not a Tier-2 keyword — `OracleFace.keywords` is the narrowed union that
+      IS the scope boundary. But **`OracleCard.data` is the original `CardData`
+      carried through untouched**, so the RAW Scryfall keyword list is
+      reachable at `ctx.oracle.byPrinting(id).data.keywords`. ⚠️ The obvious
+      alternative — a regex over the printed text — is wrong in a way a test
+      might have missed: **Tombfire's own rules text contains the word
+      "flashback"**, so a Tombfire in the graveyard would have exiled itself.
+      Both halves pinned. ⚠️ Reading a keyword is not enforcing one: flashback
+      still does nothing here (D178), and the card is still fully executed.
+      ⚠️⚠️ **The new class is ONE missing piece seen from two sides: a resolve
+      cannot see its own effects.** `ScriptCtx` exposes no reducer, so `Too
+      Greedily, Too Deep` cannot read the power of a creature it is about to
+      reanimate (base P/T misses any anthem — D255's failure mode with better
+      manners), and `Track Down` cannot evaluate a rider after its own scry
+      ask. D260's Tidy Conclusion is the same fact a third way. Best-value
+      bounded engine job after `ctx.random`.
+      ⚠️ **Two refusals settled by PROBE, not by test:** Topple's "greatest
+      power among creatures on the battlefield" comes back with
+      `unenforced: []` — the qualifier is SILENTLY dropped; Touch of Darkness's
+      "one or more target creatures" parses min 1 / max 1.
+      ⚠️ **The four Towers are a COST family and were deliberately NOT
+      generated** — `{8}, {T}:` with four different payloads, where D252's
+      Staffs, D257's Temples and D258's Spheres all shared their PAYLOAD shape.
+      ⚠️ **Tramway Station IS a sixth Sphere**, landed by growing D258's
+      generator with a mana-line and sac-cost column.
+      **Also:** Tolarian Winds (the wheel with no shuffle — exactly the line
+      D260 drew); Torch the Witness (twice X, and a Clue only on EXCESS —
+      lethal is derived toughness minus marked damage, and its test pins the
+      exactly-lethal boundary rather than the happy case); Tome of the
+      Guildpact; Torrent of Fire; Torch Fiend; Tome Raider; Toucan-Puffin;
+      Tranquil Cove; and **Tranquil Domain + Tranquility as a PAIR** — the same
+      board, one sparing the Aura and one taking it, which is what makes the
+      negated subtype an assertion rather than a claim.
+      ⚠️ **The `printed()` guard earned its keep before a test ran:** Torch the
+      Witness was written without its Investigate reminder and the guard threw
+      at module init with the real text in the message. All 50 tests green on
+      their first actual run thereafter.
+      Fixtures 1,908 (89 tokens) · botPool artifact 123 / creature 1,876 /
+      instant 644 / land 331 / sorcery 533 · ladder [1487, 1586, 3379, 5293,
+      6505] · batch.json 550.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,749
+      files, 9,110 passed / 10 skipped · 500-seed gate
+      814.7 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D261): the raw-keyword read is a NEW IDIOM — every
+      "cards with `<mechanic keyword>`" card is now expressible; the
+      cannot-see-its-own-effects item has three witnesses across two batches;
+      `ctx.random` blocks four named cards; up-to-N's chooser stays the
+      heaviest unbuilt class; prior items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.

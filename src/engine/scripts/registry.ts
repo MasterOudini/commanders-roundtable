@@ -7,6 +7,22 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { TOLARIAN_WINDS_SCRIPT } from './cards/tolarianWinds';
+import { TOMBFIRE_SCRIPT } from './cards/tombfire';
+import { TOME_OF_THE_GUILDPACT_SCRIPT } from './cards/tomeOfTheGuildpact';
+import { TOME_RAIDER_SCRIPT } from './cards/tomeRaider';
+import { TORCH_FIEND_SCRIPT } from './cards/torchFiend';
+import { TORCH_THE_WITNESS_SCRIPT } from './cards/torchTheWitness';
+import { TORRENT_OF_FIRE_SCRIPT } from './cards/torrentOfFire';
+import { TOUCAN_PUFFIN_SCRIPT } from './cards/toucanPuffin';
+import { TOWER_OF_CALAMITIES_SCRIPT } from './cards/towerOfCalamities';
+import { TOWER_OF_CHAMPIONS_SCRIPT } from './cards/towerOfChampions';
+import { TOWER_OF_EONS_SCRIPT } from './cards/towerOfEons';
+import { TOWER_OF_FORTUNES_SCRIPT } from './cards/towerOfFortunes';
+import { TRAMWAY_STATION_SCRIPT } from './cards/tramwayStation';
+import { TRANQUIL_COVE_SCRIPT } from './cards/tranquilCove';
+import { TRANQUIL_DOMAIN_SCRIPT } from './cards/tranquilDomain';
+import { TRANQUILITY_SCRIPT } from './cards/tranquility';
 import { THRISS_NANTUKO_PRIMUS_SCRIPT } from './cards/thrissNantukoPrimus';
 import { THUNDER_OF_HOOVES_SCRIPT } from './cards/thunderOfHooves';
 import { THUNDERING_FALLS_SCRIPT } from './cards/thunderingFalls';
@@ -1774,6 +1790,22 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  TOLARIAN_WINDS_SCRIPT,
+  TOMBFIRE_SCRIPT,
+  TOME_OF_THE_GUILDPACT_SCRIPT,
+  TOME_RAIDER_SCRIPT,
+  TORCH_FIEND_SCRIPT,
+  TORCH_THE_WITNESS_SCRIPT,
+  TORRENT_OF_FIRE_SCRIPT,
+  TOUCAN_PUFFIN_SCRIPT,
+  TOWER_OF_CALAMITIES_SCRIPT,
+  TOWER_OF_CHAMPIONS_SCRIPT,
+  TOWER_OF_EONS_SCRIPT,
+  TOWER_OF_FORTUNES_SCRIPT,
+  TRAMWAY_STATION_SCRIPT,
+  TRANQUIL_COVE_SCRIPT,
+  TRANQUIL_DOMAIN_SCRIPT,
+  TRANQUILITY_SCRIPT,
   THRISS_NANTUKO_PRIMUS_SCRIPT,
   THUNDER_OF_HOOVES_SCRIPT,
   THUNDERING_FALLS_SCRIPT,

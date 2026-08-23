@@ -17008,3 +17008,116 @@ with a measured payoff; extra turns joins the structural tail beside phasing
 and ending the turn; a two-sentence resolve whose second sentence censuses the
 board must be read in ORDER (Tidy Conclusion is the precedent); up-to-N's
 chooser stays the heaviest unbuilt class; prior items stand.
+
+## D261 — M6.4cx: sixteen landed — the raw keyword list a script could always reach (2026-08-23)
+
+**3,566 of 31,692 Commander-legal cards execute completely, up from 3,550.**
+SHIPPED_SCRIPTS 1,653 → 1,669; ledger 590 → 599 (+9, ONE new class). ZERO new
+token pins, ZERO new support bodies. **Sliver Queen reaches 3,517 from 79
+fully-executable legendaries.**
+
+⚠️⚠️ **THE HEADLINE IS A DOOR THAT HAS BEEN OPEN SINCE M3 AND NOBODY HAD
+WALKED THROUGH IT.** `Tombfire` exiles "all cards with flashback" from a
+graveyard, and flashback is not a Tier-2 keyword: `OracleFace.keywords` is the
+narrowed union that IS the scope boundary, and it has no such member. But
+**`OracleCard.data` is the original `CardData`, carried through the ingest
+untouched** — the comment on that field says so, for the renderer's sake — so
+the RAW Scryfall keyword list is reachable from any script at
+`ctx.oracle.byPrinting(id).data.keywords`. That is the whole implementation.
+⚠️ The obvious alternative would have been a regex over the printed text, and
+it is WRONG in a way a test might not have caught: **Tombfire's own rules text
+contains the word "flashback"**, so a Tombfire sitting in the graveyard would
+have exiled itself. Its test pins both halves — the raw list holds
+`Flashback` for `Forbidden Alchemy` and does NOT hold it for Tombfire, whose
+text does.
+⚠️ **Reading a keyword is not claiming to enforce one.** The engine has no
+graveyard-cast path, so flashback still does nothing here (D178's class) and
+the cards printing it keep their own Tier-3 note. Tombfire is fully executed:
+it exiles exactly the cards the card names. The idiom opens every "cards with
+`<mechanic keyword>`" card the Tier-2 union cannot express.
+
+⚠️⚠️ **THE NEW CLASS IS ONE MISSING PIECE SEEN FROM TWO SIDES: A RESOLVE
+CANNOT SEE ITS OWN EFFECTS.** `ScriptCtx` is
+`{state, oracle, derive, options, ids, query, random}` and exposes no reducer.
+`Too Greedily, Too Deep` reanimates a creature and then has it deal damage
+equal to ITS POWER — the derived power of a card that is not on the
+battlefield yet when the resolve runs, so deriving it in the graveyard gives
+base P/T and misses any anthem. That is silently wrong exactly when another
+card is on the board, which is D255's failure mode with better manners.
+REFUSED under **'post-entry computed value'**. And `Track Down` wants the same
+door from the prompt side: "Scry 3, then reveal the top card — if it's a
+creature or land card, draw a card" needs a rider evaluated AFTER the answer,
+where `thenDraw` is a fixed number. D195's handler already folds a SCRATCH
+state for its own rider; a script has no such door. One engine item, two
+faces — and D260's Tidy Conclusion is the same fact a third way, where the
+workaround was to subtract by hand what the resolve could not observe.
+
+⚠️ **Two more refusals were settled by a PROBE rather than by a test.**
+`Topple`'s "creature with the greatest power among creatures on the
+battlefield" comes back as one confident spec with **`unenforced: []`** — the
+qualifier is SILENTLY DROPPED, which is the worse of the two directions and
+D200's Blazing Hope shape exactly. `Touch of Darkness`'s "One or more target
+creatures" parses **min 1 / max 1**, so the spell would take exactly one
+target where the card allows many: a second measured reason beside the colour
+change it was already refused for.
+
+⚠️ **THE FOUR TOWERS ARE A COST FAMILY AND WERE DELIBERATELY NOT GENERATED.**
+Tower of Calamities / Champions / Eons / Fortunes are four {4} artifacts whose
+entire text is `{8}, {T}:` and four DIFFERENT payloads — 12 damage, +6/+6,
+gain 10, draw four. The generator idiom has paid three times (D252's Staffs,
+D257's Temples, D258's Spheres) and every one of those shared its PAYLOAD
+SHAPE, which is what made a table honest; a table holding four different
+resolves is a worse copy of four modules. Hand-written, landed together.
+⚠️ **`Tramway Station`, by contrast, IS a sixth Sphere** — the same three
+printed lines with a coloured cost where the five shipped Spheres pay
+`{1}{C}` — so D258's generator grew two columns (the printed mana line and the
+printed sac cost) and emitted it. The table now carries the shape; the five
+shipped members were not touched.
+
+**The rest of the batch:** `Tolarian Winds` — the wheel WITHOUT a shuffle,
+which is exactly the line D260 drew: no permutation, so no `ctx.random`, so it
+lands where Time Reversal, Time Spiral and Timetwister could not. `Torch the
+Witness` — twice X, and a Clue only when the damage was EXCESS; lethal is the
+derived toughness minus the damage already marked (CR 120.4a) and the source
+is a SPELL, so deathtouch never enters the sum. Its test pins the boundary
+rather than the happy case: X=1 on a 2/2 is *exactly* lethal and investigates
+nothing. `Tome of the Guildpact` — Hero of Precinct One's multicolored filter
+(D179) on an artifact beside an engine mana line. `Torrent of Fire` — the
+greatest-mana-value census over MY permanents, with an opponent's Grave Titan
+proven not to raise it. `Torch Fiend`, `Tome Raider`, `Toucan-Puffin`,
+`Tranquil Cove`.
+⚠️ **`Tranquil Domain` and `Tranquility` landed as a PAIR on purpose:** the
+same board, one sparing the Aura and one taking it, is what makes the negated
+subtype an assertion rather than a claim. Both tests CAST the Pacifism rather
+than `put()`ting it — the aura-falls SBA bins an unattached Aura before any
+attach lands (D218), so a put() Aura would pass for the wrong reason.
+
+⚠️ **The `printed()` guard earned its keep before a single test ran.** The
+Torch the Witness module was written without the Investigate reminder text,
+and the guard threw at module init with the real text in the message —
+failing all four suites in that chunk on import rather than letting a
+half-right claim through. Corrected, all 50 tests were green on their first
+actual run.
+
+⚠️ The unit leg ran **1,021 s**, against 865 s in D260 and a 730–770 s usual.
+Sixteen more files do not explain an 18% jump, and unlike D260 nothing heavy
+ran beside it — only writing. Recorded as VARIANCE (D106) rather than
+diagnosed: green throughout, and the number to watch is whether the next
+idle-window run comes back down.
+
+Fixtures 1,892 → 1,908 (89 tokens, none new). botPool artifact 123 / creature
+1,876 / instant 644 / land 331 / sorcery 533 · ladder [1487, 1586, 3379, 5293,
+6505] · batch.json 550 · botDeck: the header alone moved — **3,517 from 79
+legendaries** — with no card displacing a slot on the curve.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,749 files,
+9,110 passed / 10 skipped · 500-seed gate 814.7 s · build clean ·
+probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D261): the raw-keyword read is a NEW IDIOM worth reaching
+for — every "cards with `<mechanic keyword>`" card is now expressible;
+'a resolve cannot see its own effects' is one named engine item with three
+witnesses across two batches (Too Greedily, Track Down, and D260's Tidy
+Conclusion) and is the best-value bounded job after `ctx.random`; `ctx.random`
+itself now blocks four named cards across two batches; up-to-N's chooser stays
+the heaviest unbuilt class; prior items stand.
