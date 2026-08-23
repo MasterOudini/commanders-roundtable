@@ -7,6 +7,25 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { WARPATH_SCRIPT } from './cards/warpath';
+import { WARPED_PHYSIQUE_SCRIPT } from './cards/warpedPhysique';
+import { WARREN_SOULTRADER_SCRIPT } from './cards/warrenSoultrader';
+import { WARTEYE_WITCH_SCRIPT } from './cards/warteyeWitch';
+import { WARY_THESPIAN_SCRIPT } from './cards/waryThespian';
+import { WARY_WATCHDOG_SCRIPT } from './cards/waryWatchdog';
+import { WATCHER_IN_THE_MIST_SCRIPT } from './cards/watcherInTheMist';
+import { WATCHFUL_AUTOMATON_SCRIPT } from './cards/watchfulAutomaton';
+import { WATCHFUL_GIANT_SCRIPT } from './cards/watchfulGiant';
+import { WATERFRONT_DISTRICT_SCRIPT } from './cards/waterfrontDistrict';
+import { WATERWHIRL_SCRIPT } from './cards/waterwhirl';
+import { WATERWIND_SCOUT_SCRIPT } from './cards/waterwindScout';
+import { WAVE_GOODBYE_SCRIPT } from './cards/waveGoodbye';
+import { WEAPONIZE_THE_MONSTERS_SCRIPT } from './cards/weaponizeTheMonsters';
+import { WEIGHT_OF_SPIRES_SCRIPT } from './cards/weightOfSpires';
+import { WEIRDING_SHAMAN_SCRIPT } from './cards/weirdingShaman';
+import { WELDING_SPARKS_SCRIPT } from './cards/weldingSparks';
+import { WELKIN_GUIDE_SCRIPT } from './cards/welkinGuide';
+import { WHALEBONE_GLIDER_SCRIPT } from './cards/whaleboneGlider';
 import { VOLCANIC_GEYSER_SCRIPT } from './cards/volcanicGeyser';
 import { VOLCANIC_RAMBLER_SCRIPT } from './cards/volcanicRambler';
 import { VOLTAIC_KEY_SCRIPT } from './cards/voltaicKey';
@@ -1906,6 +1925,25 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  WARPATH_SCRIPT,
+  WARPED_PHYSIQUE_SCRIPT,
+  WARREN_SOULTRADER_SCRIPT,
+  WARTEYE_WITCH_SCRIPT,
+  WARY_THESPIAN_SCRIPT,
+  WARY_WATCHDOG_SCRIPT,
+  WATCHER_IN_THE_MIST_SCRIPT,
+  WATCHFUL_AUTOMATON_SCRIPT,
+  WATCHFUL_GIANT_SCRIPT,
+  WATERFRONT_DISTRICT_SCRIPT,
+  WATERWHIRL_SCRIPT,
+  WATERWIND_SCOUT_SCRIPT,
+  WAVE_GOODBYE_SCRIPT,
+  WEAPONIZE_THE_MONSTERS_SCRIPT,
+  WEIGHT_OF_SPIRES_SCRIPT,
+  WEIRDING_SHAMAN_SCRIPT,
+  WELDING_SPARKS_SCRIPT,
+  WELKIN_GUIDE_SCRIPT,
+  WHALEBONE_GLIDER_SCRIPT,
   VOLCANIC_GEYSER_SCRIPT,
   VOLCANIC_RAMBLER_SCRIPT,
   VOLTAIC_KEY_SCRIPT,

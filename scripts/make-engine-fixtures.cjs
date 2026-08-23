@@ -2381,6 +2381,25 @@ const WANTED = [
   'War Report',
   "Warleader's Helix",
   'Warmth',
+  'Warpath',
+  'Warped Physique',
+  'Warren Soultrader',
+  'Warteye Witch',
+  'Wary Thespian',
+  'Wary Watchdog',
+  'Watcher in the Mist',
+  'Watchful Automaton',
+  'Watchful Giant',
+  'Waterfront District',
+  'Waterwhirl',
+  'Waterwind Scout',
+  'Wave Goodbye',
+  'Weaponize the Monsters',
+  'Weight of Spires',
+  'Weirding Shaman',
+  'Welding Sparks',
+  'Welkin Guide',
+  'Whalebone Glider',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -2548,6 +2567,11 @@ const WANTED_TOKENS = [
   // and Urza's Factory's Assembly-Worker.
   { name: 'Dragon', set: 'tc17', cn: '7', key: 'DRAGON_66_TOKEN' },
   { name: 'Assembly-Worker', set: 'ttsr', cn: '14', key: 'ASSEMBLY_WORKER_TOKEN' },
+  // D268: Weirding Shaman makes two of these. ⚠️ It was in TOKEN_TABLE but
+  // NOT here, and the two lists are not the same check: TOKEN_TABLE gives a
+  // script the printing to create, WANTED_TOKENS is what the TEST ORACLE
+  // knows. The tokens were created and then had no name to be counted by.
+  { name: 'Goblin Rogue', set: 'tznc', cn: '5', key: 'GOBLIN_ROGUE_TOKEN' },
 ];
 
 function constName(name) {

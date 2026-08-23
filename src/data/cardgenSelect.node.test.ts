@@ -1268,6 +1268,27 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Waltz of Rage', 'play-from-exile permission'],
   ['Wanderbrine Trapper', 'tap-creatures cost'],
   ['Warp World', 'ctx.random'],
+
+  // D268 (M6.4de) — ZERO new classes.
+  //
+  // ⚠️ The probe that came with this batch is worth reading beside D265:
+  // `Whalebone Glider`'s "target creature with power 3 or less" comes back
+  // with a STRUCTURED `numeric: {attr:"power", cmp:"atMost", value:3}` and
+  // `unenforced: []` — DISCLOSED AND ENFORCED — while a KEYWORD qualifier is
+  // silently dropped (D261 Topple, D262 Trip Wire, D265 Vertigo). The aim
+  // layer is NOT uniformly weak on qualifiers; it is weak on exactly one
+  // kind, and that narrows the repair considerably.
+  //
+  // ⚠️ And `Waterwhirl` measured "up to TWO target creatures" at min 0 /
+  // max 2, so up-to-N parses in the PLURAL as well as the singular (D266).
+  // Most of this ledger class is plural; the chooser is owed only for the
+  // forms that genuinely fail to parse.
+  ["Warriors' Lesson", 'quoted-ability temporary grant'],
+  ['Wash Out', 'script-raised prompt'],
+  ['Waterfront Bouncer', 'discard-cost chooser'],
+  ['Wavebreak Hippocamp', 'once-per-turn trigger memory'],
+  ['Weed Strangle', 'clash mechanic'],
+  ['West Coast Expansion', 'script-raised prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

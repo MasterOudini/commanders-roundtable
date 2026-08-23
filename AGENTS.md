@@ -7807,6 +7807,76 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       undying carrier closes two ledger entries; `ctx.random` (now under two
       ledger names that want merging) and 'a resolve cannot see its own
       effects' stay the named engine jobs; prior items stand.
+- [x] **M6.4de — Nineteen landed: up-to-N works in the plural, and one
+      qualifier kind is enforced (2026-08-23):** **3,701 of 31,692
+      Commander-legal cards now execute completely, up from 3,682.**
+      `SHIPPED_SCRIPTS` 1,785 → 1,804; ledger 639 (+6, ZERO new classes). ONE
+      new token pin, ZERO new support bodies. **Sliver Queen reaches 3,652 from
+      82 legendaries.** Decisions in **D268**.
+      ⚠️⚠️ **UP-TO-N WORKS IN THE PLURAL.** `Waterwhirl`'s "up to **two** target
+      creatures" probes **min 0 / max 2**, confident, `unenforced: []`. D266
+      measured the singular; this is the more valuable half, since most of the
+      fifty-entry class is plural. Together they settle D262's question: **the
+      class is a set of PARSE FAILURES, not one missing feature**, and the
+      chooser is owed only for the forms that genuinely fail to parse. The test
+      proves all three legal answers — two, one, and none.
+      ⚠️⚠️ **The aim layer is weak on EXACTLY ONE KIND of qualifier.**
+      `Whalebone Glider`'s "power 3 or less" returns a STRUCTURED
+      `numeric: {attr:'power', cmp:'atMost', value:3}` with `unenforced: []` —
+      disclosed AND enforced, so a 6/6 is refused at the aim. A KEYWORD
+      qualifier is silently dropped (D261/D262/D265). That narrows D265's
+      "cheapest high-value repair" from *all qualifiers* to *the keyword ones*.
+      ⚠️⚠️ **`TOKEN_TABLE` and `WANTED_TOKENS` ARE DIFFERENT LISTS, and only the
+      second is a pin.** This batch was classified "zero new tokens" on a grep
+      of `tokenTable.ts` — the wrong file. TOKEN_TABLE gives a SCRIPT the
+      printing to create; WANTED_TOKENS is what the TEST ORACLE knows. `Goblin
+      Rogue` was in the first and not the second, so Weirding Shaman made two
+      tokens `nameOf()` could not see. Fixed by looking the printing UP from
+      the id TOKEN_TABLE already held (`tznc 5`). **Grepping tokenTable.ts is
+      NOT a check that a token is pinned.**
+      ⚠️ **A false diagnosis, corrected:** the first reading was "an activated
+      ability does not resolve once its source has left" — plausible, since the
+      Shaman may eat itself. Wrong: sacrificing ANOTHER Goblin failed
+      identically. Isolate the variable before naming the cause.
+      ⚠️ **THREE family cases — the richest batch yet for Phase 2.6.** Wary
+      Thespian and Wary Watchdog have **byte-identical oracle text** on two ids
+      in the same batch (a true exact-text twin pair, generated from one base);
+      Watchful Giant twins D266's Voice of the Provinces; and **Waterfront
+      District is the TWENTIETH member of a dual-sac-land family whose first
+      nineteen were each hand-written** — generated, with the generator KEPT so
+      the twenty-first is a table row, not a file.
+      ⚠️ That generator's TEST was wrong first run and the engine named it: the
+      land ENTERS TAPPED, so its `{T}` cost cannot be paid on arrival
+      (`alreadyTapped`). Fixed IN THE GENERATOR, on the shipped family's own
+      test shape (enter from the graveyard, assert tapped, untap, activate;
+      draws counted from the LOG, sidestepping D232's put() trap).
+      **Also:** Warpath (Fight to the Death's combat set with damage — an
+      UNBLOCKED attacker takes nothing); Warren Soultrader (a TWO-part cost
+      with NO mana at all, and never itself); Warteye Witch (self-or-other
+      death in ONE def, looksBack carrying the self half); Wave Goodbye (each
+      creature WITHOUT a +1/+1 counter — a counter is the only save); Weight of
+      Spires (the TARGET controller's nonbasics, the two seats given different
+      counts so both readings cannot pass); Welding Sparks (3 PLUS my
+      artifacts, floor 3); Warped Physique (X read at resolution, spell already
+      gone from hand); Watcher in the Mist; Watchful Automaton; Waterwind
+      Scout; Weaponize the Monsters; Welkin Guide.
+      ⚠️ **All 69 tests green, the fifth batch running** — two fixed mid-port,
+      both because the engine reported the problem by name.
+      Fixtures 2,049 (1,956 by name + 93 tokens) · botPool artifact 132 /
+      creature 1,938 / enchantment 65 / instant 671 / land 338 / sorcery 557 ·
+      ladder [1352, 1451, 3244, 5158, 6370] · batch.json 375.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,884 files, 9,837 passed / 10 skipped ·
+      500-seed gate 743.8 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D268): up-to-N's chooser is owed only for non-parsing
+      forms (singular AND plural now measured working); the keyword-qualifier
+      drop is now known to be the ONLY weak qualifier kind, a smaller and
+      better-specified repair than D265 could state; the subtype noun list
+      still needs a field where the mixed one does not; the undying carrier
+      closes two ledger entries; `ctx.random` (two ledger names wanting a
+      merge, D267) and 'a resolve cannot see its own effects' stay the named
+      engine jobs; and **the family-table framework now has a twenty-member
+      family to point at** — the clearest Phase-2.6 justification the arc has
+      produced.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

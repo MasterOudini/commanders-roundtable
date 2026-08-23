@@ -66792,6 +66792,665 @@ export const WARMTH: CardData = {
   "singleImage": true
 };
 
+export const WARPATH: CardData = {
+  "scryfallId": "e031c819-1237-4911-8a1d-87d6095a5faa",
+  "oracleId": "413520c7-5227-406f-8861-e844c153e5b0",
+  "name": "Warpath",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Warpath",
+      "manaCost": "{3}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Warpath deals 3 damage to each blocking creature and each blocked creature.",
+      "flavorText": "Cho-Manno had never seen Mercadia City's forces fight so well. The magistrate must have hired a new hero.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "e031c819-1237-4911-8a1d-87d6095a5faa"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "226",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WARPED_PHYSIQUE: CardData = {
+  "scryfallId": "134802b2-7c5c-4eda-a879-b29bc06faaed",
+  "oracleId": "f45fdef0-15b1-472b-9485-465c49a48a85",
+  "name": "Warped Physique",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Warped Physique",
+      "manaCost": "{U}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +X/-X until end of turn, where X is the number of cards in your hand.",
+      "flavorText": "The Gruul seek unbounded strength. The Dimir deliver cruel irony.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "U"
+      ],
+      "artist": "Karl Kopinski",
+      "imageId": "134802b2-7c5c-4eda-a879-b29bc06faaed"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dgm",
+  "collectorNumber": "117",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WARREN_SOULTRADER: CardData = {
+  "scryfallId": "17fd4d15-413f-41c5-b3e0-71bbb52851bc",
+  "oracleId": "ace86e56-efde-4eb7-8815-71456a4c3abe",
+  "name": "Warren Soultrader",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Warren Soultrader",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Zombie Goblin Wizard",
+      "oracleText": "Pay 1 life, Sacrifice another creature: Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "\"The living take their souls for granted. The dead know what they're worth.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "17fd4d15-413f-41c5-b3e0-71bbb52851bc"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "mh3",
+  "collectorNumber": "414",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WARTEYE_WITCH: CardData = {
+  "scryfallId": "4626966f-0216-4af4-a760-59b19f729a31",
+  "oracleId": "594a57f6-7827-41c7-aa37-00b498720b16",
+  "name": "Warteye Witch",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Warteye Witch",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Goblin Shaman",
+      "oracleText": "Whenever this creature or another creature you control dies, scry 1.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "4626966f-0216-4af4-a760-59b19f729a31"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "j21",
+  "collectorNumber": "404",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WARY_THESPIAN: CardData = {
+  "scryfallId": "675b29bf-0b64-410f-9a92-c88e5615c27f",
+  "oracleId": "448cc829-1596-4aec-b180-c0c1e0566f6b",
+  "name": "Wary Thespian",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wary Thespian",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Cat Druid",
+      "oracleText": "When this creature enters or dies, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "The Cabaretti performance had veered off-script ... so how were the acrobats still moving in perfect unison?",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Billy Christian",
+      "imageId": "675b29bf-0b64-410f-9a92-c88e5615c27f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "mom",
+  "collectorNumber": "215",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WARY_WATCHDOG: CardData = {
+  "scryfallId": "25ed97f2-b47e-49b7-9b1a-694c4bbeca3b",
+  "oracleId": "7e063f60-876a-48fe-8bc6-9888180176d1",
+  "name": "Wary Watchdog",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wary Watchdog",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Dog",
+      "oracleText": "When this creature enters or dies, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "Valgavoth harbors a special loathing for dogs, whose mere presence provides a powerful antidote to the fear he craves.",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Olivier Bernard",
+      "imageId": "25ed97f2-b47e-49b7-9b1a-694c4bbeca3b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "dsk",
+  "collectorNumber": "206",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WATCHER_IN_THE_MIST: CardData = {
+  "scryfallId": "fb971f49-8898-444a-a17c-caeb1696c62a",
+  "oracleId": "e8c0fbea-a678-46b0-b385-e36f14c07672",
+  "name": "Watcher in the Mist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Watcher in the Mist",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nWhen this creature enters, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ryan Yee",
+      "imageId": "fb971f49-8898-444a-a17c-caeb1696c62a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying",
+    "Surveil"
+  ],
+  "setCode": "grn",
+  "collectorNumber": "59",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WATCHFUL_AUTOMATON: CardData = {
+  "scryfallId": "138b5fde-417d-4860-aca9-eae7f78b5768",
+  "oracleId": "6f5e6799-cb0f-4403-9c2a-69abeac08b79",
+  "name": "Watchful Automaton",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Watchful Automaton",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Construct",
+      "oracleText": "{2}{U}: Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": "\"Before we can destroy our enemies, we must find them. We must peer into every wretched hovel and every teeming market.\"\n—Baral, Chief of Compliance",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Eric Deschamps",
+      "imageId": "138b5fde-417d-4860-aca9-eae7f78b5768"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "aer",
+  "collectorNumber": "182",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WATCHFUL_GIANT: CardData = {
+  "scryfallId": "61a38f24-1eb3-4914-be1f-0b5f6d4b09d5",
+  "oracleId": "8239c63d-097a-449a-953a-cd480e594aa8",
+  "name": "Watchful Giant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Watchful Giant",
+      "manaCost": "{5}{W}",
+      "typeLine": "Creature — Giant Soldier",
+      "oracleText": "When this creature enters, create a 1/1 white Human creature token.",
+      "flavorText": "Loitering is not only illegal but unwise, since those who stay too long in one place are apt to be stepped on.",
+      "power": "3",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Grzegorz Rutkowski",
+      "imageId": "61a38f24-1eb3-4914-be1f-0b5f6d4b09d5"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "rna",
+  "collectorNumber": "30",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WATERFRONT_DISTRICT: CardData = {
+  "scryfallId": "aa8e3add-48d4-4330-9a5c-28f3f4defaf8",
+  "oracleId": "18b0b583-d17b-4c67-bc67-c4d9aad155c7",
+  "name": "Waterfront District",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Waterfront District",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {U} or {B}.\n{2}{U}{B}, {T}, Sacrifice this land: Draw a card.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Matteo Bassini",
+      "imageId": "aa8e3add-48d4-4330-9a5c-28f3f4defaf8"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "snc",
+  "collectorNumber": "357",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WATERWHIRL: CardData = {
+  "scryfallId": "9dd58503-d269-4756-a71c-a6a2bfb1658d",
+  "oracleId": "77636154-962f-4ca8-85e7-c0c9c0c3cd2d",
+  "name": "Waterwhirl",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Waterwhirl",
+      "manaCost": "{4}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return up to two target creatures to their owners' hands.",
+      "flavorText": "\"Be as water: untamed and unheld, yet inexorably flowing toward a greater goal.\"\n—Shensu, Riverwheel mystic",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Clint Cearley",
+      "imageId": "9dd58503-d269-4756-a71c-a6a2bfb1658d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "ktk",
+  "collectorNumber": "60",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WATERWIND_SCOUT: CardData = {
+  "scryfallId": "8a7738fb-0a1b-4010-b8c0-e1129739c765",
+  "oracleId": "db65f874-6bf3-4fdb-a977-10b01b7ee2e9",
+  "name": "Waterwind Scout",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Waterwind Scout",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Merfolk Scout",
+      "oracleText": "Flying\nWhen this creature enters, create a Map token. (It's an artifact with \"{1}, {T}, Sacrifice this token: Target creature you control explores. Activate only as a sorcery.\")",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Alix Branwyn",
+      "imageId": "8a7738fb-0a1b-4010-b8c0-e1129739c765"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying",
+    "Explore"
+  ],
+  "setCode": "lci",
+  "collectorNumber": "84",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WAVE_GOODBYE: CardData = {
+  "scryfallId": "1c6fb343-02f0-476f-ac3b-7880b11c447f",
+  "oracleId": "06ef46c6-00ba-40e6-b866-d0095ab83749",
+  "name": "Wave Goodbye",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wave Goodbye",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Return each creature without a +1/+1 counter on it to its owner's hand.",
+      "flavorText": "Whatever the tide brings in, the shapers can wash away.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Sam Hogg",
+      "imageId": "1c6fb343-02f0-476f-ac3b-7880b11c447f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "lcc",
+  "collectorNumber": "47",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WEAPONIZE_THE_MONSTERS: CardData = {
+  "scryfallId": "68bba622-a0ab-4c0e-88b1-9120690ea5a0",
+  "oracleId": "fa2154fb-6756-4cf8-85a6-68264fb7a0b2",
+  "name": "Weaponize the Monsters",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Weaponize the Monsters",
+      "manaCost": "{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "{2}, Sacrifice a creature: This enchantment deals 2 damage to any target.",
+      "flavorText": "Revenge is a path inevitably walked alone.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Magali Villeneuve",
+      "imageId": "68bba622-a0ab-4c0e-88b1-9120690ea5a0"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "iko",
+  "collectorNumber": "140",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WEIGHT_OF_SPIRES: CardData = {
+  "scryfallId": "d5f26a87-4562-450c-800b-7d4acc1ae17b",
+  "oracleId": "722324de-3e77-4a22-aa07-7f8a21be76c2",
+  "name": "Weight of Spires",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Weight of Spires",
+      "manaCost": "{R}",
+      "typeLine": "Instant",
+      "oracleText": "Weight of Spires deals damage to target creature equal to the number of nonbasic lands that creature's controller controls.",
+      "flavorText": "\"Finally, a good use for an Azorius courthouse.\"\n—Ghut Rak, Gruul guildmage",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Michael Sutfin",
+      "imageId": "d5f26a87-4562-450c-800b-7d4acc1ae17b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "dis",
+  "collectorNumber": "78",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WEIRDING_SHAMAN: CardData = {
+  "scryfallId": "fe1d40cc-2871-4a33-bc58-5250fd3d4f0e",
+  "oracleId": "ed8e0c38-64b1-48a5-9623-935d59ffaacc",
+  "name": "Weirding Shaman",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Weirding Shaman",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Goblin Shaman",
+      "oracleText": "{3}{B}, Sacrifice a Goblin: Create two 1/1 black Goblin Rogue creature tokens.",
+      "flavorText": "All boggarts have an auntie, but they don't all have a mum.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Matt Cavotta",
+      "imageId": "fe1d40cc-2871-4a33-bc58-5250fd3d4f0e"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mor",
+  "collectorNumber": "84",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WELDING_SPARKS: CardData = {
+  "scryfallId": "2ed0ceb6-f0cf-410d-977d-68889f4b9a4f",
+  "oracleId": "82db3a7e-ec3f-4f25-996e-9e1c23c86003",
+  "name": "Welding Sparks",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Welding Sparks",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Welding Sparks deals X damage to target creature, where X is 3 plus the number of artifacts you control.",
+      "flavorText": "\"The fires of invention burn in all of us. I fight for the freedom to unleash those flames.\"\n—Pia Nalaar",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Raymond Swanland",
+      "imageId": "2ed0ceb6-f0cf-410d-977d-68889f4b9a4f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "j22",
+  "collectorNumber": "623",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WELKIN_GUIDE: CardData = {
+  "scryfallId": "198363f2-1a19-4954-b527-6d10ac277719",
+  "oracleId": "0ce31ff1-6cfe-4b34-bd02-7d727934e754",
+  "name": "Welkin Guide",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Welkin Guide",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Bird Cleric",
+      "oracleText": "Flying\nWhen this creature enters, target creature gets +2/+2 and gains flying until end of turn.",
+      "flavorText": "\"Those talons really dig into your skin, but it's better than being dropped.\"\n—Rafiq of the Many",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "David Palumbo",
+      "imageId": "198363f2-1a19-4954-b527-6d10ac277719"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ala",
+  "collectorNumber": "30",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WHALEBONE_GLIDER: CardData = {
+  "scryfallId": "4b75adf0-9501-4776-a213-456c2b821070",
+  "oracleId": "a65fadeb-c9bc-409f-8e90-ff8e55485a4c",
+  "name": "Whalebone Glider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Whalebone Glider",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "{2}, {T}: Target creature with power 3 or less gains flying until end of turn.",
+      "flavorText": "\"It's no Ornithopter, but then I'm no Urza.\"\n—Arcum Dagsson, Soldevi Machinist",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Amy Weber",
+      "imageId": "4b75adf0-9501-4776-a213-456c2b821070"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ice",
+  "collectorNumber": "349",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -69932,6 +70591,40 @@ export const ASSEMBLY_WORKER_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const GOBLIN_ROGUE_TOKEN: CardData = {
+  "scryfallId": "17c0ae2b-1ae7-4e10-9e7b-6fdeda4355db",
+  "oracleId": "a0814e97-bf28-4ffb-b65d-845de3613065",
+  "name": "Goblin Rogue",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Goblin Rogue",
+      "manaCost": "",
+      "typeLine": "Token Creature — Goblin Rogue",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dave Kendall",
+      "imageId": "17c0ae2b-1ae7-4e10-9e7b-6fdeda4355db"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tznc",
+  "collectorNumber": "5",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -71871,6 +72564,25 @@ export const ENGINE_CARDS: CardData[] = [
   WAR_REPORT,
   WARLEADER_S_HELIX,
   WARMTH,
+  WARPATH,
+  WARPED_PHYSIQUE,
+  WARREN_SOULTRADER,
+  WARTEYE_WITCH,
+  WARY_THESPIAN,
+  WARY_WATCHDOG,
+  WATCHER_IN_THE_MIST,
+  WATCHFUL_AUTOMATON,
+  WATCHFUL_GIANT,
+  WATERFRONT_DISTRICT,
+  WATERWHIRL,
+  WATERWIND_SCOUT,
+  WAVE_GOODBYE,
+  WEAPONIZE_THE_MONSTERS,
+  WEIGHT_OF_SPIRES,
+  WEIRDING_SHAMAN,
+  WELDING_SPARKS,
+  WELKIN_GUIDE,
+  WHALEBONE_GLIDER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -71963,4 +72675,5 @@ export const ENGINE_CARDS: CardData[] = [
   GLIMMER_TOKEN,
   DRAGON_66_TOKEN,
   ASSEMBLY_WORKER_TOKEN,
+  GOBLIN_ROGUE_TOKEN,
 ];
