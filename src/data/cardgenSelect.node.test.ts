@@ -1181,6 +1181,21 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Trostani's Judgment", 'copy effect (populate)'],
   ['Truce', 'script-raised prompt'],
   ['Tundra Fumarole', 'mana-spent memory'],
+
+  // D263 (M6.4cz) — FOUR refusals, the leanest since D257's one, and ZERO new
+  // classes. The U- page is almost all shapes the arc has already built.
+  //
+  // ⚠️ Twiddle is refused for its CHOICE alone. Its aim PROBED clean: the
+  // TRIPLE compound 'target artifact, creature, or land' comes back one
+  // confident spec with all three kinds ENFORCED — the Icy noun-list idiom
+  // (D199/D214) holding at three members. Worth keeping beside D216's
+  // subtype-member compound, which HALVES: a list of card TYPES reads, a list
+  // naming a SUBTYPE does not. What refuses Twiddle is 'You MAY tap or
+  // untap' — a per-target choice, D261's Toils of Night and Day exactly.
+  ['Turn to Frog', 'until-end-of-turn type change with P/T set'],
+  ['Twiddle', 'script-raised prompt'],
+  ["Tymora's Invoker", 'ability-word activated cost'],
+  ['Ultima', 'end the turn'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

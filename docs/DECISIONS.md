@@ -17213,3 +17213,90 @@ count implied, and each wording needs its own probe; the silent qualifier drop
 is the aim layer's most dangerous shape and now has two witnesses in two
 batches; 'a resolve cannot see its own effects' (D261) and `ctx.random` stay
 the two best-value bounded engine jobs; prior items stand.
+
+## D263 — M6.4cz: twenty-one landed — a compound of types reads, a compound naming a subtype does not (2026-08-23)
+
+**3,604 of 31,692 Commander-legal cards execute completely, up from 3,583** —
+the second-largest batch of the arc, behind D257's twenty-four.
+SHIPPED_SCRIPTS 1,686 → 1,707; ledger 607 → 611 (**+4, the leanest refusal
+count since D257's one**, and ZERO new classes). ONE new support body, ZERO
+new token pins. **Sliver Queen reaches 3,555 from 81 legendaries.**
+
+⚠️ **THE PROBE'S FINDING IS A BOUNDARY, NOT A BUG.** `Twiddle`'s "target
+artifact, creature, or land" — a TRIPLE compound — comes back one confident
+spec with **all three kinds ENFORCED**. The Icy noun-list idiom (D199, widened
+in D214) holds at three members. That is worth recording next to D216's
+`Gravkill`, where "creature or Spacecraft" HALVES to creature-only: **a
+compound of card TYPES reads; a compound naming a SUBTYPE does not**, because
+`TargetSpec` has a `kinds` field and no subtype field. Two shapes that look
+alike in the printed text and are not alike at all in the parser.
+⚠️ So Twiddle is refused for its CHOICE alone — "You MAY tap or untap" is a
+decision per target, D261's Toils of Night and Day exactly — and not for its
+aim. Naming the right reason matters: the aim-layer queue does not grow.
+
+**Four refusals, all existing classes**, which is what a page of ordinary
+shapes looks like: `Turn to Frog` (UEOT type change with P/T set, D198 — it
+also strips all abilities, which is D151's carrier one duration on), `Twiddle`,
+`Tymora's Invoker` (the ability-word activated cost D178 called the cheapest
+class ever named, still owed), and `Ultima` (end the turn, D260's Time Stop).
+
+**The censuses and the ladders.** `Typhoon` deals each opponent THEIR OWN
+Island count, so only a three-seat board with different boards proves it — 2
+and 3 from one cast, and the caster untouched. `Ulvenwald Observer` walks a
+toughness ladder: 6 pays, 4 pays, 2 does not, and an opponent's 6/6 pays
+nothing because the clause says "you control". `Ugin's Insight` scries X where
+X is my greatest mana value and then draws three through `thenDraw` — and X=0
+raises NO ask and still draws, which is the branch a happy-path test would
+have missed. `Ultimate Alliance` counts my creatures; `Unagi's Spray` gates its
+draw on a SIX-subtype census, proven from both sides.
+
+**The compositions.** `Turn to Slag` deals 5 and destroys every Equipment
+attached to that creature, with a second Equipment on a different creature
+proving the attachment filter — and the attachment list is read off the
+pre-resolution board, which is correct here and is the same property D260's
+Tidy Conclusion and D261's Too Greedily both turned on in the other direction.
+`Undermine` counters and bills the countered spell's CONTROLLER 3 (D219's
+family). `Umbral Collar Zealot` pays a surveil with the OR-predicate 'another'
+chooser, and its own test proves the Zealot cannot eat itself.
+`Undercellar Myconid` is the enters-OR-dies pair on one printed line, both
+arms in one game.
+
+**The rest:** `Turn the Tide`; `Turntimber Ascetic` (Tireless Missionaries'
+text on a second id); `Turntimber Grove` (the targeted ETB pump on a land that
+enters tapped); `Twin-Silk Spider`; `Two-Headed Hellkite`; `Tyrant's Machine`
+(Trip Noose one cost over); `Uktabi Faerie` and `Uktabi Orangutan`; `Ulcerate`;
+`Undergrowth Leopard` (both arms of the compound, and a creature refused); and
+**`Undercity Sewers` + `Underground Mortuary`, generated from one base** — the
+reminder-FIRST surveil land whose trigger is `split[2]`, D260's Thundering
+Falls shape, now a third and fourth member.
+
+⚠️ **The support-body scan found one gap and no more.** `Unagi's Spray` needs a
+Fish, Octopus, Otter, Seal, Serpent or Whale, and the fixtures held **zero
+creatures with any of those six subtypes** — only three vanilla
+Commander-legal bodies exist at all — so `Coral Eel` was added deliberately.
+Everything else it needed (Swiftfoot Boots, Island, the Dinosaur and toughness
+ladders, the pinned 1/2 reach Spider and the Saproling) was already there.
+
+⚠️ Three corrections the tooling made, none of them the engine's: `moveFromStack`
+lives in **`effects.ts`**, not `loop.ts` (the shipped Illumination imports it
+from there); an unused `InstanceId` import; and Undermine's test needed the
+priority hand-over after the opponent's cast — **the caster RETAINS priority**,
+so a responder must wait for `s.priority.player === 'p1' && s.stack.length > 0`,
+which Illumination's shipped test does for exactly this reason.
+
+Fixtures 1,927 → 1,949 (1,859 by name + 90 tokens). botPool artifact 125 /
+creature 1,891 / instant 650 / land 334 / sorcery 544 · ladder [1449, 1548,
+3341, 5255, 6467] · batch.json 500 · tier3 `silentAfter` crosses **4,000** for
+the first time · botDeck: the header alone moved — **3,555 from 81
+legendaries**.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,787 files,
+9,307 passed / 10 skipped · 500-seed gate 744.0 s · build clean ·
+probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D263): the compound boundary is now measured in both
+directions — types read, subtypes do not — and a subtype-bearing noun list
+needs a `TargetSpec` field before any of those cards can land; the ability-word
+cost is still the cheapest unbuilt class; up-to-N's chooser, 'a resolve cannot
+see its own effects' (D261) and `ctx.random` stay the named engine jobs; prior
+items stand.

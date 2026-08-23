@@ -7,6 +7,27 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { TURN_THE_TIDE_SCRIPT } from './cards/turnTheTide';
+import { TURN_TO_SLAG_SCRIPT } from './cards/turnToSlag';
+import { TURNTIMBER_ASCETIC_SCRIPT } from './cards/turntimberAscetic';
+import { TURNTIMBER_GROVE_SCRIPT } from './cards/turntimberGrove';
+import { TWIN_SILK_SPIDER_SCRIPT } from './cards/twinSilkSpider';
+import { TWO_HEADED_HELLKITE_SCRIPT } from './cards/twoHeadedHellkite';
+import { TYPHOON_SCRIPT } from './cards/typhoon';
+import { TYRANTS_MACHINE_SCRIPT } from './cards/tyrantsMachine';
+import { UGINS_INSIGHT_SCRIPT } from './cards/uginsInsight';
+import { UKTABI_FAERIE_SCRIPT } from './cards/uktabiFaerie';
+import { UKTABI_ORANGUTAN_SCRIPT } from './cards/uktabiOrangutan';
+import { ULCERATE_SCRIPT } from './cards/ulcerate';
+import { ULTIMATE_ALLIANCE_SCRIPT } from './cards/ultimateAlliance';
+import { ULVENWALD_OBSERVER_SCRIPT } from './cards/ulvenwaldObserver';
+import { UMBRAL_COLLAR_ZEALOT_SCRIPT } from './cards/umbralCollarZealot';
+import { UNAGIS_SPRAY_SCRIPT } from './cards/unagisSpray';
+import { UNDERCELLAR_MYCONID_SCRIPT } from './cards/undercellarMyconid';
+import { UNDERCITY_SEWERS_SCRIPT } from './cards/undercitySewers';
+import { UNDERGROUND_MORTUARY_SCRIPT } from './cards/undergroundMortuary';
+import { UNDERGROWTH_LEOPARD_SCRIPT } from './cards/undergrowthLeopard';
+import { UNDERMINE_SCRIPT } from './cards/undermine';
 import { TRAPFINDERS_TRICK_SCRIPT } from './cards/trapfindersTrick';
 import { TRAVERSE_ETERNITY_SCRIPT } from './cards/traverseEternity';
 import { TREASURE_DREDGER_SCRIPT } from './cards/treasureDredger';
@@ -1807,6 +1828,27 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  TURN_THE_TIDE_SCRIPT,
+  TURN_TO_SLAG_SCRIPT,
+  TURNTIMBER_ASCETIC_SCRIPT,
+  TURNTIMBER_GROVE_SCRIPT,
+  TWIN_SILK_SPIDER_SCRIPT,
+  TWO_HEADED_HELLKITE_SCRIPT,
+  TYPHOON_SCRIPT,
+  TYRANTS_MACHINE_SCRIPT,
+  UGINS_INSIGHT_SCRIPT,
+  UKTABI_FAERIE_SCRIPT,
+  UKTABI_ORANGUTAN_SCRIPT,
+  ULCERATE_SCRIPT,
+  ULTIMATE_ALLIANCE_SCRIPT,
+  ULVENWALD_OBSERVER_SCRIPT,
+  UMBRAL_COLLAR_ZEALOT_SCRIPT,
+  UNAGIS_SPRAY_SCRIPT,
+  UNDERCELLAR_MYCONID_SCRIPT,
+  UNDERCITY_SEWERS_SCRIPT,
+  UNDERGROUND_MORTUARY_SCRIPT,
+  UNDERGROWTH_LEOPARD_SCRIPT,
+  UNDERMINE_SCRIPT,
   TRAPFINDERS_TRICK_SCRIPT,
   TRAVERSE_ETERNITY_SCRIPT,
   TREASURE_DREDGER_SCRIPT,

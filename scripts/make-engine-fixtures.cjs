@@ -2277,6 +2277,32 @@ const WANTED = [
   // ⚠️ SUPPORT BODY, not a landed card: D262's Trapfinder's Trick needs a
   // card with the Trap subtype and the fixture set held ZERO of them.
   'Pitfall Trap',
+  'Turn the Tide',
+  'Turn to Slag',
+  'Turntimber Ascetic',
+  'Turntimber Grove',
+  'Twin-Silk Spider',
+  'Two-Headed Hellkite',
+  'Typhoon',
+  "Tyrant's Machine",
+  "Ugin's Insight",
+  'Uktabi Faerie',
+  'Uktabi Orangutan',
+  'Ulcerate',
+  'Ultimate Alliance',
+  'Ulvenwald Observer',
+  'Umbral Collar Zealot',
+  "Unagi's Spray",
+  'Undercellar Myconid',
+  'Undercity Sewers',
+  'Underground Mortuary',
+  'Undergrowth Leopard',
+  'Undermine',
+  // ⚠️ SUPPORT BODY, not a landed card: D263's Unagi's Spray draws only if
+  // its caster controls a Fish/Octopus/Otter/Seal/Serpent/Whale, and the
+  // fixture set held ZERO creatures with any of those six subtypes. Vanilla
+  // on purpose — no text to account for.
+  'Coral Eel',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

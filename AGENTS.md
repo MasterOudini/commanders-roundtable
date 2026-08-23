@@ -7520,6 +7520,64 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       items stand.
 
 
+- [x] **M6.4cz — Twenty-one landed: a compound of types reads, a compound
+      naming a subtype does not (2026-08-23):** **3,604 of 31,692
+      Commander-legal cards now execute completely, up from 3,583** — the
+      SECOND-LARGEST batch of the arc, behind D257's twenty-four.
+      `SHIPPED_SCRIPTS` 1,686 → 1,707; ledger 611 (**+4, the leanest refusal
+      count since D257's one**, ZERO new classes). ONE new support body, ZERO
+      new token pins. **Sliver Queen reaches 3,555 from 81 legendaries.**
+      Decisions in **D263**.
+      ⚠️ **The probe's finding is a BOUNDARY, not a bug.** Twiddle's TRIPLE
+      compound 'target artifact, creature, or land' parses to one confident
+      spec with **all three kinds ENFORCED** — the Icy noun-list idiom (D199,
+      widened D214) holding at three members. Put that beside D216's Gravkill,
+      where 'creature or Spacecraft' HALVES: **a compound of card TYPES reads;
+      a compound naming a SUBTYPE does not**, because `TargetSpec` has `kinds`
+      and no subtype field. Two shapes that look alike in print and are not
+      alike in the parser. ⚠️ So Twiddle is refused for its CHOICE alone ('you
+      MAY tap or untap', D261's Toils) — the aim-layer queue does not grow.
+      **The censuses and ladders:** Typhoon (each opponent takes THEIR OWN
+      Island count — only a three-seat board proves it); Ulvenwald Observer
+      (toughness 6 pays, 4 pays, 2 does not, an opponent's 6/6 pays nothing);
+      Ugin's Insight (scry X then draw three via `thenDraw` — **X=0 raises NO
+      ask and still draws**, the branch a happy-path test misses); Ultimate
+      Alliance; Unagi's Spray (a SIX-subtype census gating the draw).
+      **The compositions:** Turn to Slag (5 damage + every Equipment attached
+      to that creature, with one on a DIFFERENT creature proving the filter);
+      Undermine (counter + a 3-life bill on the countered spell's CONTROLLER);
+      Umbral Collar Zealot (the OR-predicate 'another' chooser paying a
+      surveil — it cannot eat itself); Undercellar Myconid (enters-OR-dies,
+      both arms in one game).
+      **Also:** Turn the Tide; Turntimber Ascetic; Turntimber Grove;
+      Twin-Silk Spider; Two-Headed Hellkite; Tyrant's Machine; Uktabi Faerie;
+      Uktabi Orangutan; Ulcerate; Undergrowth Leopard; and **Undercity Sewers
+      + Underground Mortuary GENERATED from one base** — the reminder-FIRST
+      surveil land (`split[2]`, D260's Thundering Falls), now four members.
+      ⚠️ **The support-body scan found ONE gap and no more:** the fixtures held
+      **zero creatures with any of Unagi's six subtypes** (only three vanilla
+      Commander-legal bodies exist at all), so `Coral Eel` was added
+      deliberately. Everything else was already pinned.
+      ⚠️ Three tooling corrections, none the engine's: `moveFromStack` lives in
+      **`effects.ts`**, not `loop.ts`; an unused import; and **the caster
+      RETAINS priority after casting**, so a responder waits for
+      `s.priority.player === 'p1' && s.stack.length > 0` (Illumination's
+      shipped test does exactly this).
+      Fixtures 1,949 (1,859 by name + 90 tokens) · botPool artifact 125 /
+      creature 1,891 / instant 650 / land 334 / sorcery 544 · ladder [1449,
+      1548, 3341, 5255, 6467] · batch.json 500 · tier3 `silentAfter` crosses
+      **4,000**.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,787
+      files, 9,307 passed / 10 skipped · 500-seed gate
+      744.0 s · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D263): the compound boundary is measured in BOTH
+      directions now, and a subtype-bearing noun list needs a `TargetSpec`
+      field before any of those cards can land; the ability-word cost is still
+      the cheapest unbuilt class; up-to-N's chooser, D261's 'a resolve cannot
+      see its own effects' and `ctx.random` stay the named engine jobs; prior
+      items stand.
+
+
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
     return; nothing else below 32, and not DEL.
