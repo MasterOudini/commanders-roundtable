@@ -7877,6 +7877,86 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       engine jobs; and **the family-table framework now has a twenty-member
       family to point at** — the clearest Phase-2.6 justification the arc has
       produced.
+- [x] **M6.4df — Eighteen landed: the keyword-qualifier gap finally has a
+      price, and a second engine bug is pinned (2026-08-24):** **3,719 of
+      31,692 Commander-legal cards now execute completely, up from 3,701.**
+      `SHIPPED_SCRIPTS` 1,804 → 1,822; ledger 646 (+7, ZERO new classes). ZERO
+      new token pins, ZERO new support bodies. **Sliver Queen reaches 3,670
+      from 82 legendaries.** Decisions in **D269**.
+      ⚠️⚠️ **THE KEYWORD-QUALIFIER DROP NOW COSTS REAL CARDS.** `Wing Snare` is
+      a four-word destroy, `Wing Puncture` a fight with a filter, and both are
+      REFUSED because "target creature **with flying**" returns a bare
+      `text: "target creature"` with `unenforced: []`. Five distinct cards over
+      five batches now (D261 Topple, D262 Trip Wire, D265 Vertigo, these two).
+      ⚠️ **The contrast was measured in the SAME probe run:** "with power 3 or
+      less" returns a STRUCTURED `numeric: {attr, cmp, value}`. Not weak on
+      qualifiers generally — weak on the KEYWORD ones. **Either enforcing OR
+      merely disclosing them lands both cards** (D161's filter refuses a
+      disclosed qualifier on its own).
+      ⚠️ And concretely a second way: `Whirlwind` and `Windstorm` read the SAME
+      keyword RESOLVE-side and land perfectly. Same word, two fates; the only
+      difference is whether it sits in a target noun.
+      ⚠️⚠️ **A SECOND ENGINE BUG, PINNED BY A TEST.** D255 found the swapped
+      multi-spec fizzle on Swift Kick; `Wild Instincts` **reproduces it on a
+      second card**. Submit the same two legal targets in the OTHER order: the
+      aim layer ACCEPTS (no refusal) and the spell does NOTHING. `assignTargets`
+      is a one-for-one MATCHING (D102) that does not reorder; CR 608.2b's
+      re-check reads POSITIONALLY and fizzles. The card is correct either way
+      (its resolve reads BY CONTROLLER). **The test pins the MEASURED behaviour
+      and will go RED when the aim layer is fixed** — the signal to delete it.
+      ⚠️ **THE REFUGE FAMILY IS TWENTY-NINE MEMBERS; Wind-Scarred Crag is the
+      THIRTIETH** — and the first twenty-nine were each hand-written. That
+      beats D268's twenty-member dual-sac-land family and is now **the
+      strongest Phase-2.6 argument in the arc**. Generated, generator KEPT.
+      ⚠️ **The regeneration vacuity tripwire caught `Winds of Rath`,
+      correctly** — its printed line ends "They can't be regenerated." and
+      `damnation.node.test.ts` (D192) fails BY FILE NAME on any mention under
+      `src/engine/`. The card joins the ALLOWLIST, the deliberate path that
+      test describes: it is a CLIENT of the vacuity argument, not an
+      implementation. ⚠️ My first grep missed the tripwire because it searched
+      `src/engine/*.node.test.ts` — **a negative grep is only as good as its
+      path.**
+      ⚠️ **Two measurements from writing the tests:** an Aura dropped on by
+      `put()` is UNATTACHED, so SBA bins it before `ManualAttach` lands (dump:
+      `zone:'graveyard'`, `attachedTo` still set) and attach-then-move-back
+      trips an invariant — **CAST the Aura**, which is the game's own attach
+      path. And a generator emitting BACKTICKS and `${...}` must build with
+      **array joins and character constants**, not nested template literals.
+      ⚠️ **Gate 117 went RED once on LOAD (D106's SEVENTH instance).** The
+      fuzz projection-leak test failed at **26.3 s, then 23.4 s on retry**
+      against the `testTimeout: 20_000` inherited from `vite.config.ts` — a
+      TIMEOUT, not a leak — while D270 was being classified alongside it (a
+      full NDJSON parse plus repo-wide greps). ⚠️ Load or GROWTH matters: at
+      1,822 scripts the ceiling might genuinely need to move, but only after a
+      completed-and-equal run proves growth over hang. Re-run COMPLETELY IDLE
+      it **passed, and so did the whole gate**. The timeout stands;
+      **drafting during a gate must stay to file writes.**
+      **Also:** Whelming Wave (all creatures EXCEPT four subtypes the card
+      names, resolve-side); Whipflare (artifact creatures spared); Windfall
+      (every hand read BEFORE the discards, then all draw the greatest); Wing
+      Storm (per-player arithmetic — the seats take different amounts from one
+      resolve); Winds of Rath (only what an Aura is attached to survives, found
+      from the attacher's side); Windrider Patrol (`CombatDamageDealt` ALONE,
+      D259; its test advances past combat because `settle()` returns BEFORE
+      combat damage); Whip Sergeant; Whirlermaker; Whirlwind of Thought;
+      Whisper Agent; Wildheart Invoker; Willow-Wind; Wily Goblin; Wind Dancer.
+      ⚠️ **All 18 modules typechecked FIRST pass**; two tests needed a fix,
+      both found by isolating before naming a cause (D268's lesson applied).
+      Fixtures 2,067 (1,974 by name + 93 tokens) · botPool artifact 133 /
+      creature 1,945 / enchantment 66 / instant 672 / land 339 / sorcery 564 ·
+      ladder [1334, 1433, 3226, 5140, 6352] · batch.json 350.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,902 files, 9,939
+      passed / 10 skipped · 500-seed gate 860.3 s · build clean · probe
+      124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D269): the **keyword-qualifier repair is now the
+      clearest job on the list** — five witnesses, a measured contrast against
+      the numeric qualifier that works, and two ordinary cards refused for it
+      in this batch alone; **the positional multi-spec fizzle has a second
+      witness and a regression test**; up-to-N's chooser is owed only for
+      non-parsing forms (D266/D268); the subtype noun list still needs a field;
+      the undying carrier closes two ledger entries; `ctx.random` (two names
+      wanting a merge) stays; the family-table framework now has a
+      **thirty-member** family to point at.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

@@ -7,6 +7,24 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { WHELMING_WAVE_SCRIPT } from './cards/whelmingWave';
+import { WHIP_SERGEANT_SCRIPT } from './cards/whipSergeant';
+import { WHIPFLARE_SCRIPT } from './cards/whipflare';
+import { WHIRLERMAKER_SCRIPT } from './cards/whirlermaker';
+import { WHIRLWIND_SCRIPT } from './cards/whirlwind';
+import { WHIRLWIND_OF_THOUGHT_SCRIPT } from './cards/whirlwindOfThought';
+import { WHISPER_AGENT_SCRIPT } from './cards/whisperAgent';
+import { WILD_INSTINCTS_SCRIPT } from './cards/wildInstincts';
+import { WILDHEART_INVOKER_SCRIPT } from './cards/wildheartInvoker';
+import { WILLOW_WIND_SCRIPT } from './cards/willowWind';
+import { WILY_GOBLIN_SCRIPT } from './cards/wilyGoblin';
+import { WIND_DANCER_SCRIPT } from './cards/windDancer';
+import { WIND_SCARRED_CRAG_SCRIPT } from './cards/windScarredCrag';
+import { WINDFALL_SCRIPT } from './cards/windfall';
+import { WINDRIDER_PATROL_SCRIPT } from './cards/windriderPatrol';
+import { WINDS_OF_RATH_SCRIPT } from './cards/windsOfRath';
+import { WINDSTORM_SCRIPT } from './cards/windstorm';
+import { WING_STORM_SCRIPT } from './cards/wingStorm';
 import { WARPATH_SCRIPT } from './cards/warpath';
 import { WARPED_PHYSIQUE_SCRIPT } from './cards/warpedPhysique';
 import { WARREN_SOULTRADER_SCRIPT } from './cards/warrenSoultrader';
@@ -1925,6 +1943,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  WHELMING_WAVE_SCRIPT,
+  WHIP_SERGEANT_SCRIPT,
+  WHIPFLARE_SCRIPT,
+  WHIRLERMAKER_SCRIPT,
+  WHIRLWIND_SCRIPT,
+  WHIRLWIND_OF_THOUGHT_SCRIPT,
+  WHISPER_AGENT_SCRIPT,
+  WILD_INSTINCTS_SCRIPT,
+  WILDHEART_INVOKER_SCRIPT,
+  WILLOW_WIND_SCRIPT,
+  WILY_GOBLIN_SCRIPT,
+  WIND_DANCER_SCRIPT,
+  WIND_SCARRED_CRAG_SCRIPT,
+  WINDFALL_SCRIPT,
+  WINDRIDER_PATROL_SCRIPT,
+  WINDS_OF_RATH_SCRIPT,
+  WINDSTORM_SCRIPT,
+  WING_STORM_SCRIPT,
   WARPATH_SCRIPT,
   WARPED_PHYSIQUE_SCRIPT,
   WARREN_SOULTRADER_SCRIPT,

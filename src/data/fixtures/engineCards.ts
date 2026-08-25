@@ -67451,6 +67451,634 @@ export const WHALEBONE_GLIDER: CardData = {
   "singleImage": true
 };
 
+export const WHELMING_WAVE: CardData = {
+  "scryfallId": "a0221f1b-90ed-4dd1-9fdd-84791d30659d",
+  "oracleId": "e510eaaf-6497-480f-baa8-f4796b5f1086",
+  "name": "Whelming Wave",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Whelming Wave",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Return all creatures to their owners' hands except for Krakens, Leviathans, Octopuses, and Serpents.",
+      "flavorText": "\"I can see why this appeals to Thassa.\"\n—Kiora",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "a0221f1b-90ed-4dd1-9fdd-84791d30659d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ddo",
+  "collectorNumber": "44",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WHIP_SERGEANT: CardData = {
+  "scryfallId": "2e6b3f38-87c9-4cea-b9e5-b8fb42e64794",
+  "oracleId": "1e25c9bd-2a6a-4856-80e6-775847a2c89f",
+  "name": "Whip Sergeant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Whip Sergeant",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{R}: Target creature gains haste until end of turn. (It can attack this turn.)",
+      "flavorText": "Keldon soldiers learn to move faster than the whip.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "2e6b3f38-87c9-4cea-b9e5-b8fb42e64794"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pcy",
+  "collectorNumber": "107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WHIPFLARE: CardData = {
+  "scryfallId": "2d861171-8054-4fe3-b79c-97a8a19be645",
+  "oracleId": "a6b599db-8d45-4a11-9765-ae7eb235b4b2",
+  "name": "Whipflare",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Whipflare",
+      "manaCost": "{1}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Whipflare deals 2 damage to each nonartifact creature.",
+      "flavorText": "The slag-workers wasted no time in creating their own flare pulses to cleanse the area of the *incompleat*.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "2d861171-8054-4fe3-b79c-97a8a19be645"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "c16",
+  "collectorNumber": "140",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WHIRLERMAKER: CardData = {
+  "scryfallId": "3624a056-2af8-4e55-8e19-f26c03701945",
+  "oracleId": "bdf28770-0962-4317-822f-c187bc6706d1",
+  "name": "Whirlermaker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Whirlermaker",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{4}, {T}: Create a 1/1 colorless Thopter artifact creature token with flying.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Victor Adame Minguez",
+      "imageId": "3624a056-2af8-4e55-8e19-f26c03701945"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "klr",
+  "collectorNumber": "276",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WHIRLWIND: CardData = {
+  "scryfallId": "66f22827-d7fd-4e9b-b598-3a0e74576ec9",
+  "oracleId": "d3946df7-cb24-47c0-a8b0-1bdf95d99926",
+  "name": "Whirlwind",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Whirlwind",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures with flying.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "John Matson",
+      "imageId": "66f22827-d7fd-4e9b-b598-3a0e74576ec9"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "s99",
+  "collectorNumber": "150",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WHIRLWIND_OF_THOUGHT: CardData = {
+  "scryfallId": "053c43d3-db4a-4487-b127-87f55ccc695a",
+  "oracleId": "6467cbb7-1e4e-482d-a20f-6cb9fc0f1ad1",
+  "name": "Whirlwind of Thought",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Whirlwind of Thought",
+      "manaCost": "{1}{U}{R}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever you cast a noncreature spell, draw a card.",
+      "flavorText": "As Narset struggled to meditate, tiny dragonlings spiraled around her, conjuring thoughts of ancient clans.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U",
+        "W"
+      ],
+      "artist": "Bram Sels",
+      "imageId": "053c43d3-db4a-4487-b127-87f55ccc695a"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "piko",
+  "collectorNumber": "215p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WHISPER_AGENT: CardData = {
+  "scryfallId": "521d1016-6f80-49a2-a76b-59e86d3fae3e",
+  "oracleId": "2ed76a99-fe5c-4d68-b572-a30848055c8a",
+  "name": "Whisper Agent",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Whisper Agent",
+      "manaCost": "{1}{U/B}{U/B}",
+      "typeLine": "Creature — Human Rogue",
+      "oracleText": "Flash\nWhen this creature enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+      "flavorText": "He has a job to finish, and it's you.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "U"
+      ],
+      "artist": "Deruchenko Alexander",
+      "imageId": "521d1016-6f80-49a2-a76b-59e86d3fae3e"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Surveil",
+    "Flash"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "218",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WILD_INSTINCTS: CardData = {
+  "scryfallId": "58fafd9d-777f-4d88-ad93-63af6d7ef274",
+  "oracleId": "99d9d928-a426-431a-85ee-cdec86a283cd",
+  "name": "Wild Instincts",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wild Instincts",
+      "manaCost": "{3}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control gets +2/+2 until end of turn. It fights target creature an opponent controls. (Each deals damage equal to its power to the other.)",
+      "flavorText": "Nissa had only the space of a heartbeat to react, her instincts steering her blade.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Igor Kieryluk",
+      "imageId": "58fafd9d-777f-4d88-ad93-63af6d7ef274"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Fight"
+  ],
+  "setCode": "ori",
+  "collectorNumber": "206",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WILDHEART_INVOKER: CardData = {
+  "scryfallId": "143231b3-23c4-4c6d-8b58-e401e1ac6e29",
+  "oracleId": "ff8fb796-af5d-4d64-ab3c-7f2469dfa6bf",
+  "name": "Wildheart Invoker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wildheart Invoker",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Elf Shaman",
+      "oracleText": "{8}: Target creature gets +5/+5 and gains trample until end of turn. (It can deal excess combat damage to the player or planeswalker it's attacking.)",
+      "flavorText": "\"Life as we know it dangles on the brink of extinction. We must show the strength they would steal from us.\"\n—*The Invokers' Tales*",
+      "power": "4",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Erica Yang",
+      "imageId": "143231b3-23c4-4c6d-8b58-e401e1ac6e29"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "cmr",
+  "collectorNumber": "263",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WILLOW_WIND: CardData = {
+  "scryfallId": "0adc3bff-0eb1-40e9-b954-5515babd07a3",
+  "oracleId": "ee3fd92c-48e0-4651-aeda-7eb2c75acbb0",
+  "name": "Willow-Wind",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Willow-Wind",
+      "manaCost": "{4}{U}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Flying\nWhen this creature enters, scry 2.",
+      "flavorText": "The branches of the willow began to sway violently. Frodo called for help, but he could hardly hear his own voice: it was blown away from him by the willow-wind and drowned in a clamor of leaves.",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ignis Bruno",
+      "imageId": "0adc3bff-0eb1-40e9-b954-5515babd07a3"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Scry",
+    "Flying"
+  ],
+  "setCode": "ltr",
+  "collectorNumber": "76",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WILY_GOBLIN: CardData = {
+  "scryfallId": "a175b24c-c256-45a8-b24a-6b83e42d5efa",
+  "oracleId": "d27ffb4c-3a34-41aa-b464-6b897132c4ea",
+  "name": "Wily Goblin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wily Goblin",
+      "manaCost": "{R}{R}",
+      "typeLine": "Creature — Goblin Pirate",
+      "oracleText": "When this creature enters, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "Goblins climb and swing with ease, whether through a pirate ship's rigging or a tree's branches.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "a175b24c-c256-45a8-b24a-6b83e42d5efa"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "xln",
+  "collectorNumber": "174",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WIND_DANCER: CardData = {
+  "scryfallId": "314b5efa-c16f-4bcf-beed-bd0d77511a25",
+  "oracleId": "e9903d75-f71d-45d0-ac5f-955c0c227e02",
+  "name": "Wind Dancer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wind Dancer",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Faerie",
+      "oracleText": "Flying\n{T}: Target creature gains flying until end of turn.",
+      "flavorText": "The sky is her stage.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Rob Alexander",
+      "imageId": "314b5efa-c16f-4bcf-beed-bd0d77511a25"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "7ed",
+  "collectorNumber": "113",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WIND_SCARRED_CRAG: CardData = {
+  "scryfallId": "23c33230-d9bb-4cdc-913b-fa5ee64ee8cd",
+  "oracleId": "b0af0c54-2a59-4075-8543-d41ff20c4c87",
+  "name": "Wind-Scarred Crag",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wind-Scarred Crag",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {R} or {W}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Eytan Zana",
+      "imageId": "23c33230-d9bb-4cdc-913b-fa5ee64ee8cd"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "c19",
+  "collectorNumber": "285",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WINDFALL: CardData = {
+  "scryfallId": "011beb9f-0780-4b38-81ac-f1a9a0970303",
+  "oracleId": "08becc07-28bc-4a2f-a6b0-28a2998d2f50",
+  "name": "Windfall",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Windfall",
+      "manaCost": "{2}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Each player discards their hand, then draws cards equal to the greatest number of cards a player discarded this way.",
+      "flavorText": "\"To fill your mind with knowledge, we must start by emptying it.\"\n—Barrin, master wizard",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "011beb9f-0780-4b38-81ac-f1a9a0970303"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "cm2",
+  "collectorNumber": "55",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WINDRIDER_PATROL: CardData = {
+  "scryfallId": "104f48ab-abcd-4d47-9316-020a8a21377a",
+  "oracleId": "dea0f359-19a5-4aef-8c96-574eaa748a31",
+  "name": "Windrider Patrol",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Windrider Patrol",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Creature — Merfolk Wizard",
+      "oracleText": "Flying\nWhenever this creature deals combat damage to a player, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "104f48ab-abcd-4d47-9316-020a8a21377a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Scry",
+    "Flying"
+  ],
+  "setCode": "pio",
+  "collectorNumber": "80",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WINDS_OF_RATH: CardData = {
+  "scryfallId": "333bcdcd-fb78-4a87-bb72-2678ee89a2ee",
+  "oracleId": "a6fd90dc-0ec3-4dce-a77a-4d04f5e254bf",
+  "name": "Winds of Rath",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Winds of Rath",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all creatures that aren't enchanted. They can't be regenerated.",
+      "flavorText": "\"There shall be a vast shout and then a vaster silence.\"\n—Oracle *en*-Vec",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Drew Tucker",
+      "imageId": "333bcdcd-fb78-4a87-bb72-2678ee89a2ee"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "mkc",
+  "collectorNumber": "93",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WINDSTORM: CardData = {
+  "scryfallId": "154dc31c-ac9d-4b78-b92b-e7bacc532915",
+  "oracleId": "9969b822-2ead-4956-bac2-875ffd90e872",
+  "name": "Windstorm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Windstorm",
+      "manaCost": "{X}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Windstorm deals X damage to each creature with flying.",
+      "flavorText": "\"When the last dragon fell, its spirit escaped as a roar into the wind.\"\n—Temur tale",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jonas De Ro",
+      "imageId": "154dc31c-ac9d-4b78-b92b-e7bacc532915"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ktk",
+  "collectorNumber": "157",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WING_STORM: CardData = {
+  "scryfallId": "59e66be1-f18a-433f-8504-aa1e85e22023",
+  "oracleId": "c593f66d-0e9a-4d46-a9c6-ac7a70bf17ea",
+  "name": "Wing Storm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wing Storm",
+      "manaCost": "{2}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Wing Storm deals damage to each player equal to twice the number of creatures that player controls with flying.",
+      "flavorText": "A thousand wings beating as one can choke the sky itself.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "59e66be1-f18a-433f-8504-aa1e85e22023"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pcy",
+  "collectorNumber": "135",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -72583,6 +73211,24 @@ export const ENGINE_CARDS: CardData[] = [
   WELDING_SPARKS,
   WELKIN_GUIDE,
   WHALEBONE_GLIDER,
+  WHELMING_WAVE,
+  WHIP_SERGEANT,
+  WHIPFLARE,
+  WHIRLERMAKER,
+  WHIRLWIND,
+  WHIRLWIND_OF_THOUGHT,
+  WHISPER_AGENT,
+  WILD_INSTINCTS,
+  WILDHEART_INVOKER,
+  WILLOW_WIND,
+  WILY_GOBLIN,
+  WIND_DANCER,
+  WIND_SCARRED_CRAG,
+  WINDFALL,
+  WINDRIDER_PATROL,
+  WINDS_OF_RATH,
+  WINDSTORM,
+  WING_STORM,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -17733,3 +17733,130 @@ mixed one does not; the undying carrier closes two ledger entries;
 cannot see its own effects' stay the named engine jobs; and **the family-table
 framework now has a twenty-member family to point at**, which is the clearest
 Phase-2.6 justification the arc has produced.
+
+## D269 — M6.4df: eighteen landed — the keyword-qualifier gap finally has a price, and a second engine bug is pinned (2026-08-24)
+
+**3,719 of 31,692 Commander-legal cards execute completely, up from 3,701.**
+SHIPPED_SCRIPTS 1,804 → 1,822; ledger 639 → 646 (+7, ZERO new classes). ZERO
+new token pins, ZERO new support bodies. **Sliver Queen reaches 3,670 from 82
+legendaries.**
+
+⚠️⚠️ **THE KEYWORD-QUALIFIER DROP NOW COSTS REAL CARDS, AND THE CONTRAST SITS
+IN THE SAME PROBE RUN.** `Wing Snare` is a four-word destroy; `Wing Puncture`
+is a fight with a filter. Both are refused for one reason: **"target creature
+WITH FLYING" comes back as a bare `text: "target creature"` with
+`unenforced: []`** — the qualifier gone, nothing recorded. That is five
+distinct cards across five batches (D261's Topple, D262's Trip Wire, D265's
+Vertigo, and these two). Measured beside them in the same run: **"target
+creature with power 3 or less" returns a STRUCTURED
+`numeric: {attr, cmp, value}`.** The aim layer is not weak on qualifiers
+generally — it is weak on the KEYWORD ones. And either **enforcing** them or
+**merely disclosing** them would land both cards, because D161's selection
+filter can refuse a disclosed qualifier on its own. This is the
+best-evidenced, best-specified and now best-priced repair in the aim layer.
+
+⚠️ The batch makes the contrast concrete a second way: `Whirlwind` ("destroy
+all creatures with flying") and `Windstorm` ("X damage to each creature with
+flying") read the SAME keyword **resolve-side** and land perfectly. Same word,
+two fates; the only difference is whether it sits in a target noun.
+
+⚠️⚠️ **A SECOND ENGINE BUG, NOW PINNED BY A TEST.** D255 found that a swapped
+multi-spec answer is accepted and then fizzles; this **reproduces it on a
+second card**, so it is not one script's mistake. `Wild Instincts` aims at
+"target creature you control" and "target creature an opponent controls".
+Submit the same two legal targets in the OTHER order and the aim layer
+**ACCEPTS** the answer — `submit` returns ok, no refusal — and the spell then
+does **NOTHING**: no damage either way, no pump. `assignTargets` is a
+one-for-one MATCHING (D102) that proves a legal assignment exists without
+reordering; CR 608.2b's re-check then reads the specs POSITIONALLY and
+fizzles. ⚠️ The card is correct either way — its resolve reads BY CONTROLLER
+and would do the right thing if it ever ran. The test asserts the **measured**
+behaviour, so it is green today and goes **RED the moment the aim layer is
+fixed** — which is exactly when someone should delete it and fold the case
+into the happy path.
+
+⚠️ **THE REFUGE FAMILY IS TWENTY-NINE MEMBERS, AND `Wind-Scarred Crag` IS THE
+THIRTIETH.** The first twenty-nine were each hand-written: aimLabs,
+akoumRefuge, asgardianCitadel, avengersHangar, birninZanaPlaza,
+bloodfellCaves, blossomingSands, dimensionX, dismalBackwater, fiskTower,
+footHeadquarters, graypeltRefuge, hellsKitchen, illegitimateBusiness,
+jungleHollow, jwarIsleRefuge, kazanduRefuge, losDiablosMissileBase,
+mutantTown, pymTechnologies, ruggedHighlands, scouredBarrens, sejiriRefuge,
+starkIndustries, subterraneanCavern, swiftwaterCliffs, tcriBuilding,
+thornwoodFalls, tranquilCove. **That beats D268's twenty-member dual-sac-land
+family and is now the strongest Phase-2.6 argument in the arc.** The thirtieth
+is GENERATED and the generator is KEPT, so the thirty-first is a table row.
+
+⚠️ **THE REGENERATION VACUITY TRIPWIRE CAUGHT `Winds of Rath`, CORRECTLY.**
+Its printed line ends "They can't be regenerated.", and
+`damnation.node.test.ts` (D192) fails BY FILE NAME the day anything under
+`src/engine/` mentions regeneration. The card joins the ALLOWLIST — the
+deliberate path that test's own comment describes — because it is a CLIENT of
+the vacuity argument, not an implementation: the engine still has no
+regeneration anywhere. ⚠️ I nearly reworded my prose instead, and the reason I
+doubted the tripwire existed is worth recording: my first grep searched
+`src/engine/*.node.test.ts` and missed it, because the test lives at
+`src/engine/scripts/cards/damnation.node.test.ts`. **A negative grep result is
+only as good as its path.**
+
+⚠️ **TWO MEASUREMENTS FROM WRITING THE TESTS.** (1) An Aura dropped onto the
+battlefield by `put()` is UNATTACHED, so SBA bins it before any `ManualAttach`
+can land — the diagnostic dump showed `zone: 'graveyard'` with `attachedTo`
+still set — and attaching-then-moving-it-back trips an invariant. **Casting**
+the Aura is the game's own attach path and the only one that leaves a legal
+attachment; Winds of Rath's test does that, and asserts both the zone and the
+`attachedTo` before proceeding. (2) A generator emitting a file that itself
+contains BACKTICKS and `${...}` must build with **array joins and explicit
+character constants**, not nested template literals: the first refuge
+generator emitted a literal backslash before every backtick, twice over.
+
+⚠️ **GATE 117 WENT RED ONCE, ON LOAD — D106's SEVENTH INSTANCE, AND THIS ONE
+IS MEASURED ON BOTH SIDES.** The fuzz `never leaks a library into any
+projection` test failed at **26.3 s and again at 23.4 s on retry** against the
+`testTimeout: 20_000` it inherits from `vite.config.ts` — a TIMEOUT, not a
+leak — while D270 was being classified alongside the gate (a full card-NDJSON
+parse plus repo-wide greps). ⚠️ The distinction that mattered was **load
+versus growth**: at 1,822 scripts the test might genuinely need more than 20 s,
+in which case the ceiling should MOVE — but only, per this project's own rule,
+after a completed-and-equal run proves growth rather than hang. Re-run with
+the machine COMPLETELY IDLE it **passed, and the whole gate passed with it.**
+The timeout stands where it is; the lesson is D106's, now with a seventh
+witness: **drafting during a gate must stay to file writes — no NDJSON parses,
+no repo-wide greps.**
+
+**The rest of the batch.** `Whelming Wave` returns all creatures EXCEPT four
+subtypes the card names itself, read resolve-side off derived subtypes — a
+negated subtype LIST that needs none of the aim-layer field that noun is still
+owed. `Whipflare` spares artifact creatures. `Windfall` reads every hand
+BEFORE the discards (a resolve cannot see its own effects — fifth outing),
+then everyone draws the greatest count. `Wing Storm` is per-player arithmetic,
+so the two seats take different amounts from one resolve. `Winds of Rath`
+saves only what an Aura is attached to, found from the attacher's side because
+there is no `enchantedBy` field. `Windrider Patrol` is a connect trigger on
+`CombatDamageDealt` ALONE (D259: the printed line says "combat damage", so a
+second `DamageDealt` arm would over-fire), and its test advances past combat
+rather than settling, because `settle()` returns BEFORE combat damage (D232).
+Plus `Whip Sergeant`, `Whirlermaker`, `Whirlwind of Thought`, `Whisper Agent`,
+`Wildheart Invoker`, `Willow-Wind`, `Wily Goblin`, `Wind Dancer`.
+
+⚠️ **All 18 modules typechecked on the FIRST pass.** Two tests needed a fix,
+both found by isolating before naming a cause — the D268 lesson applied.
+
+Fixtures 2,049 → 2,067 (1,974 by name + 93 tokens). botPool artifact 133 /
+creature 1,945 / enchantment 66 / instant 672 / land 339 / sorcery 564 ·
+ladder [1334, 1433, 3226, 5140, 6352] · batch.json 350 · botDeck: the header
+alone moved — **3,670 from 82 legendaries**.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,902 files, 9,939 passed / 10
+skipped · 500-seed gate 860.3 s · build clean · probe 124/124 · battery
+130/130.**
+
+⚠️ **Reportables** (D269): the **keyword-qualifier repair is now the clearest
+job on the list** — five witnesses, a measured contrast against the numeric
+qualifier that works, and two ordinary cards refused for it in this batch
+alone; **the positional multi-spec fizzle has a second witness and a
+regression test** that will go red when it is fixed; up-to-N's chooser is owed
+only for non-parsing forms (D266/D268); the subtype noun list still needs a
+field where the mixed one does not; the undying carrier closes two ledger
+entries; `ctx.random` (two ledger names wanting a merge, D267) stays; and the
+family-table framework now has a **thirty-member** family to point at.

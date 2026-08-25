@@ -1289,6 +1289,33 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Wavebreak Hippocamp', 'once-per-turn trigger memory'],
   ['Weed Strangle', 'clash mechanic'],
   ['West Coast Expansion', 'script-raised prompt'],
+
+  // D269 (M6.4df) — ZERO new classes, and the batch where the
+  // keyword-qualifier gap finally has a PRICE.
+  //
+  // ⚠️⚠️ `Wing Snare` is a four-word destroy and `Wing Puncture` is a fight
+  // with a filter. Both are refused for one reason: "target creature WITH
+  // FLYING" comes back from the aim layer as a bare `text: "target
+  // creature"` with `unenforced: []` — the qualifier gone, nothing recorded.
+  // That is five distinct cards across five batches now (D261 Topple, D262
+  // Trip Wire, D265 Vertigo, and these two).
+  //
+  // ⚠️ And the CONTRAST was measured in the same probe run: "with power 3 or
+  // less" returns a STRUCTURED `numeric:{attr,cmp,value}`. The aim layer is
+  // NOT weak on qualifiers generally — it is weak on the KEYWORD ones, and
+  // either ENFORCING or merely DISCLOSING them would land both these cards
+  // (D161s filter can refuse a disclosed qualifier on its own).
+  //
+  // ⚠️ Batch-mates `Whirlwind` and `Windstorm` read the SAME keyword
+  // RESOLVE-side and land fine. Same word, two fates, and the difference is
+  // only whether it sits in a target noun.
+  ['Whisper, Blood Liturgist', 'multi-sacrifice cost'],
+  ['Widespread Brutality', 'amass mechanic'],
+  ['Wild Magic Surge', 'ctx.random'],
+  ['Winds of Change', 'ctx.random'],
+  ['Wing Puncture', 'keyword target qualifier'],
+  ['Wing Snare', 'keyword target qualifier'],
+  ['Winter Blast', 'cast-time computed target count'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
