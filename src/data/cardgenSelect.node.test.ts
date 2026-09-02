@@ -1366,6 +1366,36 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Zombie Infestation', 'discard-cost chooser'],
   ["Zoyowa's Justice", 'discover mechanic'],
   ['Zulaport Chainmage', 'tap-creatures cost'],
+
+  // D272 (M6.4di) — the alphabet WRAPS to A; TWO new classes.
+  //
+  // ⚠️ `suspend mechanic`: tier3.ts lists Suspend as UNENFORCED — no time
+  // counters, no upkeep removal, no free cast. Ancestral Vision has no mana
+  // cost at all, so without suspend the bot could never cast it.
+  // ⚠️ `UEOT type change`: Argent Mutation adds a TYPE until end of turn;
+  // untilEndOfTurn carries P/T and keywords only. The colour sibling is
+  // `UEOT color change` (Aphotic Wisps, below).
+  // ⚠️ Absorb Vis is refused for Basic landcycling, not its spell — the
+  // engine has no cycling at all (Snare Tactician's class).
+  // ⚠️ Aven Fateshaper wants an ORDERING prompt (look at four, put them
+  // back in any order): scryChoice would let the player BOTTOM them, which
+  // the card does not — the 'does not exist at all' half of the class (D270).
+  // ⚠️ Arrester's Admonition LANDS: Addendum needs no cast-time memory — a
+  // phase cannot end while the stack is non-empty (CR 500.2), so the resolve
+  // simply reads the phase it is in.
+  ['Abeyance', 'cast restriction effect'],
+  ['Abolish', 'cast-time alternative cost'],
+  ['Absorb Vis', 'cycling mechanic'],
+  ['Ancestral Vision', 'suspend mechanic'],
+  ['Apex of Power', 'play-from-exile permission'],
+  ['Aphotic Wisps', 'UEOT color change'],
+  ['Argent Mutation', 'UEOT type change'],
+  ['Arwen Undómiel', 'scry-surveil event discriminator'],
+  ['Aven Fateshaper', 'script-raised prompt'],
+  ["Baral's Expertise", 'up-to-N targeting'],
+  ["Benefactor's Draught", 'delayed trigger'],
+  ['Blazing Crescendo', 'play-from-exile permission'],
+  ['Blazing Shoal', 'cast-time alternative cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

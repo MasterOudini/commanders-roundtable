@@ -18034,3 +18034,85 @@ alone moved, 3,706 from 84 legendaries.
 
 **Verified:** `verify.cjs --full` — ALL FIVE GATES: 1,938 files, 10,137 passed / 10 skipped · 500-seed gate 713.3 s · build
 clean · probe 124/124 · battery 130/130.
+
+## D272 — M6.4di: twelve landed — the alphabet wraps, every suite green on the first run, and Addendum needs no memory (2026-09-02)
+
+**3,767 of 31,692 Commander-legal cards execute completely, up from 3,755.**
+SHIPPED_SCRIPTS 1,858 → 1,870; ledger 660 → 673 (+13, **TWO new classes**).
+ZERO new token pins, ZERO new support bodies. **Sliver Queen reaches 3,718
+from 84 legendaries**, and for the first time since D249 the **deck list
+moved**: Acrobatic Maneuver and Anchovy & Banana Pizza displace Army of Allah
+and Angel's Mercy.
+
+**The alphabet wrapped.** D271 ended at Zuran Spellcaster; the offline order
+restarted at `Abeyance` with 300 offerable cards, and this A–B batch is what
+the earlier A-batches left behind: **12 land / 13 refuse**, the leanest split
+since D258. The refusals are the ledger's usual walls (play-from-exile ×2,
+cast-time alternative cost ×2, up-to-N, delayed trigger, cast restriction,
+UEOT color change, scry-surveil event, script-raised prompt) plus two honest
+first entries: `suspend mechanic` (Ancestral Vision has **no mana cost at
+all** — without suspend the bot could never cast it; `tier3.ts` already lists
+Suspend as unenforced) and `UEOT type change` (Argent Mutation adds a TYPE
+until end of turn; `untilEndOfTurn` carries P/T and keywords only — the
+sibling of `UEOT color change`). Absorb Vis is refused for Basic landcycling,
+not for its spell: **the engine has no cycling at all.**
+
+⚠️ **EVERY SUITE GREEN ON THE FIRST RUN** — 12 files, 47 tests, zero test-side
+fixes — the first batch in the arc to do it. Not luck: every shape had a
+shipped precedent read BEFORE drafting (Cloudshift, Cluestone, Chupacabra,
+Daring Apprentice, Aura Fracture, Dazzling Angel, Headless Rider, Drown in
+Sorrow, Strands of Night), every `printed()` text was pasted from the dump,
+and the one open question was turned into a test.
+
+⚠️ **ADDENDUM NEEDS NO CAST-TIME MEMORY.** `Arrester's Admonition` draws only
+"if you cast this spell during your main phase", and the stack object
+remembers no phase — but it needs none: **a phase cannot end while the stack
+is non-empty (CR 500.2)**, so a spell resolves in the very phase it was cast
+in. "Cast during your main phase" is therefore identical to "resolving while I
+am the active player in a main phase", which the state says directly. The test
+casts it in my main phase (draw) and in the opponent's (no draw).
+
+⚠️ **THE REFUSAL CASE IS THE PROBE.** `Arenson's Aura` counters "target
+enchantment spell" — a TYPE qualifier on a STACK target, which nobody had
+shipped. The aim probe parses it structured (`kinds:[spell]`,
+`cardTypes:[Enchantment]`, `unenforced:[]`), and the test holds a creature
+spell on the stack and asserts the aim REFUSES it; had the Bears been accepted
+the card would have been refused under D208's rule, not shipped. Its other
+line proves "Sacrifice an enchantment" as a chooser cost with a second
+enchantment as the price.
+
+**A generated family, the fourth:** `gen-guildmages.cjs` emits Ana Disciple,
+Armorer Guildmage and Bant Battlemage from one table — three Wizards, two
+`{C}, {T}: Target creature … until end of turn.` lines each, each ability a
+Caller of Gales / Wyluli Wolf pump-or-grant. Six files from one script; edit
+the table, never the files.
+
+**The rest of the batch.** `Anchovy & Banana Pizza` is the FIRST Food CARD
+script: Chupacabra's targeted entry aimed at ANY creature, then the printed
+Food line as `#a0` (the trigger is not an activated ability). `Bishop of
+Wings` is Dazzling Angel's entry PAIR narrowed to Angels plus Headless Rider's
+looks-back dies watcher, tokens included, making the pool's flying Spirit.
+`Aether Spellbomb` bounces to the OWNER's hand or draws, either way spent at
+activation. `Acrobatic Maneuver` returns the flickered creature under its
+OWNER, then draws. `Blight Grenade` destroys first and sweeps −3/−3 over the
+survivors — the destroyed one is not in the sweep. `Blighted Shaman` sells a
+Swamp for +1/+1 and a creature for +2/+2 and refuses a creature as the Swamp.
+`Bargain`: the opponent draws, I gain 7, I am not a legal target.
+
+⚠️ **The pool is now 275.** At twelve landed from 25 offered the offline
+order runs dry around D283–D290, and from there every card needs an engine
+seam (D271's reportable, unchanged).
+
+⚠️ **A session restart wiped the scratchpad a THIRD time**, taking gate
+120's log and every doc and port script with it; the gate was re-run from
+scratch and the scripts rewritten from context. The repo and the H: drafts
+folder are the only two places that survive — nothing load-bearing may live
+only in the scratchpad.
+
+Fixtures 2,107 → 2,119 (2,015 by name + 97 tokens). botPool artifact 136 /
+creature 1,968 / enchantment 68 / instant 683 / land 340 / sorcery 572 —
+ladder [1286, 1385, 3178, 5092, 6304] — batch.json 275 — botDeck: header plus
+two deck swaps, 3,718 from 84 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 1,950 files, 10,208 passed / 10 skipped · 500-seed gate 705.0 s · build
+clean · probe 124/124 · battery 130/130.

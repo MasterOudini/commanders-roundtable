@@ -8067,6 +8067,63 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       D283 and Phase 1's engine unlocks become the loop's only road; the
       keyword-qualifier repair (D269) stays the clearest aim-layer job; prior
       items stand.
+- [x] **M6.4di — Twelve landed: the alphabet wraps, every suite green on the
+      first run, and Addendum needs no memory (2026-09-02):** **3,767 of
+      31,692 Commander-legal cards now execute completely, up from 3,755.**
+      `SHIPPED_SCRIPTS` 1,858 → 1,870; ledger 673 (+13, TWO new classes).
+      ZERO new token pins, ZERO new support bodies. **Sliver Queen reaches
+      3,718 from 84 legendaries; the deck LIST moved for the first time
+      since D249** (+Acrobatic Maneuver, +Anchovy & Banana Pizza; −Army of
+      Allah, −Angel's Mercy). Decisions in **D272**.
+      ⚠️ **The alphabet WRAPPED:** the offline order restarted at `Abeyance`
+      (300 offerable) and this A–B residue split **12 land / 13 refuse**, the
+      leanest since D258. Two honest first entries: `suspend mechanic`
+      (Ancestral Vision — no mana cost; `tier3.ts` lists Suspend unenforced)
+      and `UEOT type change` (Argent Mutation — `untilEndOfTurn` carries P/T
+      and keywords only). Absorb Vis is refused for Basic landcycling: **the
+      engine has no cycling at all.**
+      ⚠️ **EVERY SUITE GREEN ON THE FIRST RUN** — 12 files, 47 tests, zero
+      test-side fixes, the first batch in the arc to do it: every shape had
+      a shipped precedent read BEFORE drafting, every `printed()` text was
+      pasted from the dump, the one open question became a test.
+      ⚠️ **Addendum needs no cast-time memory:** a phase cannot end while the
+      stack is non-empty (CR 500.2), so `Arrester's Admonition` reads the
+      phase at RESOLUTION and that is exact (draw in my main, none in the
+      opponent's).
+      ⚠️ **The refusal case is the probe:** `Arenson's Aura`'s "target
+      enchantment spell" parses structured (`cardTypes:[Enchantment]` on a
+      stack target) and its test asserts a held CREATURE spell is REFUSED —
+      acceptance would have meant refusing the card (D208). Its other line
+      proves "Sacrifice an enchantment" as a chooser cost.
+      **Generated family (the fourth):** `gen-guildmages.cjs` → Ana Disciple,
+      Armorer Guildmage, Bant Battlemage (two `{C}, {T}:` pump-or-grant lines
+      each). **Also:** Anchovy & Banana Pizza (the FIRST Food CARD: targeted
+      entry + Food line as `#a0`); Bishop of Wings (Angel entry PAIR +
+      looks-back dies → flying Spirit); Aether Spellbomb (bounce to OWNER /
+      draw); Acrobatic Maneuver (flicker under the OWNER + draw); Blight
+      Grenade (destroy, then −3/−3 over the survivors); Blighted Shaman
+      (Swamp +1/+1, creature +2/+2, a creature refused as the Swamp);
+      Bargain. **Refused 13:** Abeyance, Abolish, Absorb Vis, Ancestral
+      Vision, Apex of Power, Aphotic Wisps, Argent Mutation, Arwen Undómiel,
+      Aven Fateshaper (an ORDERING prompt — scryChoice allows bottoming),
+      Baral's Expertise, Benefactor's Draught, Blazing Crescendo, Blazing
+      Shoal.
+      ⚠️ **The pool is now 275** — dry around D283–D290; then engine seams
+      only (D271).
+      ⚠️ **A session restart wiped the scratchpad a THIRD time** (gate 120's
+      log and every script); gate re-run, scripts rewritten from context.
+      Only the repo and the H: drafts folder survive.
+      Fixtures 2,119 (2,015 by name + 97 tokens) · botPool artifact 136 /
+      creature 1,968 / enchantment 68 / instant 683 / land 340 / sorcery 572 ·
+      ladder [1286, 1385, 3178, 5092, 6304] · batch.json 275.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,950 files, 10,208 passed / 10 skipped · 500-seed gate 705.0 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D272): the positional re-check (D271, three
+      witnesses) and the keyword-qualifier drop (D269, five) remain the two
+      measured engine repairs; the offerable pool ends within ~10 batches
+      and Phase 1's seams (spell-side prompts, up-to-N chooser, discard-cost
+      chooser, cycling, suspend-class keywords) are the road after it; the
+      guildmage generator can absorb any further `{C}, {T}:` two-liner.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

@@ -7,6 +7,18 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ACROBATIC_MANEUVER_SCRIPT } from './cards/acrobaticManeuver';
+import { AETHER_SPELLBOMB_SCRIPT } from './cards/aetherSpellbomb';
+import { ANA_DISCIPLE_SCRIPT } from './cards/anaDisciple';
+import { ANCHOVY_BANANA_PIZZA_SCRIPT } from './cards/anchovyBananaPizza';
+import { ARENSONS_AURA_SCRIPT } from './cards/arensonsAura';
+import { ARMORER_GUILDMAGE_SCRIPT } from './cards/armorerGuildmage';
+import { ARRESTERS_ADMONITION_SCRIPT } from './cards/arrestersAdmonition';
+import { BANT_BATTLEMAGE_SCRIPT } from './cards/bantBattlemage';
+import { BARGAIN_SCRIPT } from './cards/bargain';
+import { BISHOP_OF_WINGS_SCRIPT } from './cards/bishopOfWings';
+import { BLIGHT_GRENADE_SCRIPT } from './cards/blightGrenade';
+import { BLIGHTED_SHAMAN_SCRIPT } from './cards/blightedShaman';
 import { WRETCHED_BANQUET_SCRIPT } from './cards/wretchedBanquet';
 import { WRETCHED_DOLL_SCRIPT } from './cards/wretchedDoll';
 import { WRIGGLING_GRUB_SCRIPT } from './cards/wrigglingGrub';
@@ -1979,6 +1991,18 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ACROBATIC_MANEUVER_SCRIPT,
+  AETHER_SPELLBOMB_SCRIPT,
+  ANA_DISCIPLE_SCRIPT,
+  ANCHOVY_BANANA_PIZZA_SCRIPT,
+  ARENSONS_AURA_SCRIPT,
+  ARMORER_GUILDMAGE_SCRIPT,
+  ARRESTERS_ADMONITION_SCRIPT,
+  BANT_BATTLEMAGE_SCRIPT,
+  BARGAIN_SCRIPT,
+  BISHOP_OF_WINGS_SCRIPT,
+  BLIGHT_GRENADE_SCRIPT,
+  BLIGHTED_SHAMAN_SCRIPT,
   WRETCHED_BANQUET_SCRIPT,
   WRETCHED_DOLL_SCRIPT,
   WRIGGLING_GRUB_SCRIPT,

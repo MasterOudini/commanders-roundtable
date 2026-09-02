@@ -2454,6 +2454,18 @@ const WANTED = [
   'Zuko, Avatar Hunter',
   'Zuran Orb',
   'Zuran Spellcaster',
+  'Acrobatic Maneuver',
+  'Aether Spellbomb',
+  'Ana Disciple',
+  'Anchovy & Banana Pizza',
+  "Arenson's Aura",
+  'Armorer Guildmage',
+  "Arrester's Admonition",
+  'Bant Battlemage',
+  'Bargain',
+  'Bishop of Wings',
+  'Blight Grenade',
+  'Blighted Shaman',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -69320,6 +69320,421 @@ export const ZURAN_SPELLCASTER: CardData = {
   "singleImage": true
 };
 
+export const ACROBATIC_MANEUVER: CardData = {
+  "scryfallId": "655d23a2-0fdd-4691-84fe-33917f224884",
+  "oracleId": "1aa1cf50-ee79-4bef-826b-5f1a9e1aa1a5",
+  "name": "Acrobatic Maneuver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Acrobatic Maneuver",
+      "manaCost": "{2}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Exile target creature you control, then return that card to the battlefield under its owner's control.\nDraw a card.",
+      "flavorText": "Renegades find ever more creative ways to work around the Consulate's aether regulations.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Winona Nelson",
+      "imageId": "655d23a2-0fdd-4691-84fe-33917f224884"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "KLD-1",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AETHER_SPELLBOMB: CardData = {
+  "scryfallId": "48ef7938-7c68-4aeb-9403-4ab1af944a81",
+  "oracleId": "4b033a0a-c1ae-44d7-9662-72cbbfda024b",
+  "name": "Aether Spellbomb",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aether Spellbomb",
+      "manaCost": "{1}",
+      "typeLine": "Artifact",
+      "oracleText": "{U}, Sacrifice this artifact: Return target creature to its owner's hand.\n{1}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "\"Release that which was never caged.\"\n—Spellbomb inscription",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jim Nelson",
+      "imageId": "48ef7938-7c68-4aeb-9403-4ab1af944a81"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mma",
+  "collectorNumber": "196",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANA_DISCIPLE: CardData = {
+  "scryfallId": "7efe00f9-bf42-4d6f-9a22-b357b1c1e092",
+  "oracleId": "f543dfcd-015e-48bc-851d-08002d0241fa",
+  "name": "Ana Disciple",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ana Disciple",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{U}, {T}: Target creature gains flying until end of turn.\n{B}, {T}: Target creature gets -2/-0 until end of turn.",
+      "flavorText": "\"The blessings of Gaea alone are no longer enough.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Darrell Riche",
+      "imageId": "7efe00f9-bf42-4d6f-9a22-b357b1c1e092"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "apc",
+  "collectorNumber": "73",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANCHOVY_BANANA_PIZZA: CardData = {
+  "scryfallId": "44443ad2-ef8c-4106-ba1b-ee3fb6fd8b17",
+  "oracleId": "5f4834c7-cd63-420b-8492-ef127ffd4f45",
+  "name": "Anchovy & Banana Pizza",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Anchovy & Banana Pizza",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Artifact — Food",
+      "oracleText": "When this artifact enters, destroy target creature.\n{2}, {T}, Sacrifice this artifact: You gain 3 life.",
+      "flavorText": "\"Question: Do you like penicillin on your pizza?\"\n—Donatello",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Daniel Romanovsky",
+      "imageId": "44443ad2-ef8c-4106-ba1b-ee3fb6fd8b17"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "tmt",
+  "collectorNumber": "57",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARENSON_S_AURA: CardData = {
+  "scryfallId": "2d5afd37-6fe3-4a7f-b3a2-30dcc5c6a333",
+  "oracleId": "465843dc-57d0-46fd-ac47-238723034563",
+  "name": "Arenson's Aura",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Arenson's Aura",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "{W}, Sacrifice an enchantment: Destroy target enchantment.\n{3}{U}{U}: Counter target enchantment spell.",
+      "flavorText": "\"I have my faith, and I have my prayers. But if push comes to shove, I've also got a little something extra.\"\n—Halvor Arenson, Kjeldoran Priest",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Nicola Leonard",
+      "imageId": "2d5afd37-6fe3-4a7f-b3a2-30dcc5c6a333"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ptc",
+  "collectorNumber": "shr3sb",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARMORER_GUILDMAGE: CardData = {
+  "scryfallId": "e999fdc3-9269-44d7-9015-e16f5e5b73eb",
+  "oracleId": "7b75b74c-6003-4b34-bae3-2c9e2f880042",
+  "name": "Armorer Guildmage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Armorer Guildmage",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{B}, {T}: Target creature gets +1/+0 until end of turn.\n{G}, {T}: Target creature gets +0/+1 until end of turn.",
+      "flavorText": "Zhalfir's destiny rings in tempered steel.\n—Armorer Guild maxim",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Martin McKenna",
+      "imageId": "e999fdc3-9269-44d7-9015-e16f5e5b73eb"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "156",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARRESTER_S_ADMONITION: CardData = {
+  "scryfallId": "637c2d6a-e6b8-4dc5-81aa-da1b7384e006",
+  "oracleId": "ccfb612a-762d-41a7-bc3d-268c6abf8e85",
+  "name": "Arrester's Admonition",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Arrester's Admonition",
+      "manaCost": "{2}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return target creature to its owner's hand.\nAddendum — If you cast this spell during your main phase, draw a card.",
+      "flavorText": "Law is the voice of reason.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Lucas Graciano",
+      "imageId": "637c2d6a-e6b8-4dc5-81aa-da1b7384e006"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Addendum"
+  ],
+  "setCode": "rna",
+  "collectorNumber": "31",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BANT_BATTLEMAGE: CardData = {
+  "scryfallId": "2c597b1d-d8b5-4922-a3f2-1f173a73ea2a",
+  "oracleId": "92d8b956-87db-43e4-bbb5-436ba01b5714",
+  "name": "Bant Battlemage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bant Battlemage",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{G}, {T}: Target creature gains trample until end of turn.\n{U}, {T}: Target creature gains flying until end of turn.",
+      "flavorText": "\"A night attack will be easy. We'll make an air raid over the Akrasan border. Just get me some flint to light the war torches.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Donato Giancola",
+      "imageId": "2c597b1d-d8b5-4922-a3f2-1f173a73ea2a"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ala",
+  "collectorNumber": "5",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BARGAIN: CardData = {
+  "scryfallId": "44330e87-dcd7-428a-8981-ad7209e37f3d",
+  "oracleId": "a0dd88f6-6e36-40ce-bac2-a0db2b0117b6",
+  "name": "Bargain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bargain",
+      "manaCost": "{2}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target opponent draws a card.\nYou gain 7 life.",
+      "flavorText": "Bargaining with a goblin is like trading with a child; both believe they already own everything.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Phil Foglio",
+      "imageId": "44330e87-dcd7-428a-8981-ad7209e37f3d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "s99",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BISHOP_OF_WINGS: CardData = {
+  "scryfallId": "1cbdffab-b171-4e7c-906f-d04aa722cf40",
+  "oracleId": "af4684cf-f109-44be-adfb-7c551a36635e",
+  "name": "Bishop of Wings",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bishop of Wings",
+      "manaCost": "{W}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "Whenever an Angel you control enters, you gain 4 life.\nWhenever an Angel you control dies, create a 1/1 white Spirit creature token with flying.",
+      "flavorText": "\"Within every angel is a spirit of light that will fight as long as there is darkness.\"",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Matt Stewart",
+      "imageId": "1cbdffab-b171-4e7c-906f-d04aa722cf40"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "pm20",
+  "collectorNumber": "8s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLIGHT_GRENADE: CardData = {
+  "scryfallId": "88cdcf69-e04d-46ab-9cce-76f1fac5bc40",
+  "oracleId": "ae24b863-974c-4efa-ab41-23cfa1906c54",
+  "name": "Blight Grenade",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blight Grenade",
+      "manaCost": "{4}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target creature.\nAll creatures get -3/-3 until end of turn.",
+      "flavorText": "Blight grenades—which induce horrendous effects on their victims—have no impact on the Death Guard, who gladly use the devices in extreme close quarters with the enemy.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Alexey Kruglov",
+      "imageId": "88cdcf69-e04d-46ab-9cce-76f1fac5bc40"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "40k",
+  "collectorNumber": "31",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLIGHTED_SHAMAN: CardData = {
+  "scryfallId": "1d46c90a-215a-4897-94f8-52a02abf25c4",
+  "oracleId": "2f14e92d-307f-4854-b7ec-a2f6ce03dced",
+  "name": "Blighted Shaman",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blighted Shaman",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Cleric Shaman",
+      "oracleText": "{T}, Sacrifice a Swamp: Target creature gets +1/+1 until end of turn.\n{T}, Sacrifice a creature: Target creature gets +2/+2 until end of turn.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Ian Miller",
+      "imageId": "1d46c90a-215a-4897-94f8-52a02abf25c4"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "6ed",
+  "collectorNumber": "114",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -74646,6 +75061,18 @@ export const ENGINE_CARDS: CardData[] = [
   ZUKO_AVATAR_HUNTER,
   ZURAN_ORB,
   ZURAN_SPELLCASTER,
+  ACROBATIC_MANEUVER,
+  AETHER_SPELLBOMB,
+  ANA_DISCIPLE,
+  ANCHOVY_BANANA_PIZZA,
+  ARENSON_S_AURA,
+  ARMORER_GUILDMAGE,
+  ARRESTER_S_ADMONITION,
+  BANT_BATTLEMAGE,
+  BARGAIN,
+  BISHOP_OF_WINGS,
+  BLIGHT_GRENADE,
+  BLIGHTED_SHAMAN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
