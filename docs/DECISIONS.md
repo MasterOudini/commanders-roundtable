@@ -18298,3 +18298,59 @@ alone moved, 3,743 from 84 legendaries.
 
 **Verified:** `verify.cjs --full` — ALL FIVE GATES: 1,975 files, 10,352 passed / 10 skipped · 500-seed gate 718.6 s · build
 clean · probe 124/124 · battery 130/130.
+
+## D276 — M6.4dm: eight landed — 3,800 crossed, three combat watchers green first run, and a file name that hid an export (2026-09-02)
+
+**3,800 of 31,692 Commander-legal cards execute completely, up from 3,792.**
+SHIPPED_SCRIPTS 1,895 → 1,903; ledger 723 → 740 (+17, **ONE new class**).
+ONE new token pin (the blue Bird with flying AND vigilance, `tfic 4`), ZERO
+new support bodies. **Sliver Queen reaches 3,751 from 86 legendaries** — the
+legendary pool grew for the first time since D249, by Haliya and Hermes.
+
+⚠️ **THREE COMBAT WATCHERS, ALL GREEN ON THE FIRST RUN.** `Haliya, Ascendant
+Cadet` is Haazda Vigilante's enters-or-attacks counter PAIR beside Keeper of
+Fables' batch combat-damage watcher with the predicate asked of each damage
+SOURCE (a creature of mine carrying a +1/+1 counter) — the countered Bears
+connects for a card, Haliya's own counterless hit for nothing. `Hermes,
+Overseer of Elpis` makes a Bird on every noncreature cast (Cruel Witness's
+face read) and asks a scry 2 when ANY declared attacker is a Bird of mine — a
+batch match on `AttackersDeclared`. `Hydrolash` walks the combat declaration
+on the state (Trumpet Blast's) with the sign flipped: cast in my
+declare-attackers step the attacker swings for 0, cast with nobody attacking
+only the card comes.
+
+⚠️ **A FILE NAME THAT HID AN EXPORT.** `land.cjs` derives a module's export
+from its FILE name and splits camelCase only where a lowercase letter meets an
+uppercase one: `howToStartARiot.ts` derives `HOW_TO_START_ARIOT_SCRIPT`, and
+the draft exported `HOW_TO_START_A_RIOT_SCRIPT`. Registration refused the
+whole batch, tsc was clean, and the registry held nothing — D267's apostrophe
+trap in a new guise. The export is renamed to what the file derives; the
+fixture const (`HOW_TO_START_A_RIOT`) is untouched. **Check the derived name
+whenever a file name carries a one-letter word.**
+
+**The rest of the batch.** `Implement of Examination` and `Implement of
+Improvement` each carry a self-sacrifice activation AND a looks-back dies
+watcher, so one activation is the activation's effect plus the death's card —
+two cards, or 2 life and a card — exactly as the cards play. `How to Start a
+Riot` reads its two specs BY KIND (a creature gains menace; the targeted
+player's creatures get +2/+0; mine do not). `Healing Hands` aims 4 life at any
+player, me included. `Instant Ramen` is the Food-card shape with an entry draw
+behind the engine's Flash line.
+
+**Seventeen refused, one new class.** `Historian's Boon` fires off a SAGA's
+final chapter — the engine has no Sagas, lore counters or chapters: `saga
+chapter trigger`. Two exile-SELF costs (Hanged Executioner, Inquisitive
+Puppet) join Brittle Effigy's class; Jan Jansen's "a noncreature artifact" is
+Magmaw's negated-type sacrifice predicate; Inaction Injunction DETAINS; Icy
+Blast taps X targets. Plus discard-event discriminator, alternative cost ×2,
+suspend ×2, recover, up-to-N, play-from-exile ×2, hand-activated, P/T switch.
+
+⚠️ **The pool is now 175.**
+
+Fixtures 2,146 → 2,155 (2,048 by name + 100 tokens). botPool artifact 144 /
+creature 1,980 / enchantment 69 / instant 692 / land 340 / sorcery 575 —
+ladder [1253, 1352, 3145, 5059, 6271] — batch.json 175 — botDeck: the header
+alone moved, 3,751 from 86 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 1,983 files, 10,397 passed / 10 skipped · 500-seed gate 738.4 s · build
+clean · probe 124/124 · battery 130/130 idle (red on four DOM checks seconds after the fuzz leg - D270's load pattern).

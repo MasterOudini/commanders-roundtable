@@ -1481,6 +1481,32 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Gluttonous Guest', 'sacrifice-event discriminator'],
   ["Gollum's Bite", 'the Ring mechanic'],
   ['Grim Harvest', 'recover mechanic'],
+
+  // D276 (M6.4dm) — the G/H/I/J residue; ONE new class.
+  //
+  // ⚠️ Historian's Boon's second line fires off a SAGA's final chapter — the
+  // engine has no Sagas, no lore counters, no chapters: an honest first entry.
+  // ⚠️ Two exile-SELF costs (Hanged Executioner, Inquisitive Puppet) join
+  // Brittle Effigy's class; Jan Jansen's 'a noncreature artifact' is Magmaw's
+  // negated-type sacrifice predicate; Inaction Injunction DETAINS (Lyev
+  // Decree's class). Icy Blast taps X targets (cast-time computed count).
+  ['Guerrilla Tactics', 'discard-event discriminator'],
+  ['Gush', 'cast-time alternative cost'],
+  ['Hanged Executioner', 'exile-self cost'],
+  ['Heroes Remembered', 'suspend mechanic'],
+  ["Historian's Boon", 'saga chapter trigger'],
+  ['Hunting Triad', 'hand-activated ability'],
+  ['Hypergenesis', 'suspend mechanic'],
+  ['Icefall', 'recover mechanic'],
+  ['Icy Blast', 'cast-time computed target count'],
+  ["Illusionist's Stratagem", 'up-to-N targeting'],
+  ['Impossible Inferno', 'play-from-exile permission'],
+  ['Inaction Injunction', 'detain mechanic'],
+  ['Inquisitive Puppet', 'exile-self cost'],
+  ['Inside Out', 'until-end-of-turn power/toughness switch'],
+  ['Inspired Tinkering', 'play-from-exile permission'],
+  ['Invigorate', 'cast-time alternative cost'],
+  ['Jan Jansen, Chaos Crafter', 'negated-type sacrifice predicate'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

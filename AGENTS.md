@@ -8259,6 +8259,45 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       highest-value single seam (Force of Will, Foil, Gush, Cave-In, Ensnare
       …); `optional: true` (D274) and the unenforced-keyword family (D273)
       stand; the two measured aim-layer repairs (D269/D271) stand.
+- [x] **M6.4dm — Eight landed: 3,800 crossed, three combat watchers green
+      first run, and a file name that hid an export (2026-09-02):** **3,800
+      of 31,692 Commander-legal cards now execute completely, up from
+      3,792.** `SHIPPED_SCRIPTS` 1,895 → 1,903; ledger 740 (+17, ONE new
+      class). ONE new token pin (blue Bird flying+vigilance `tfic 4`), ZERO
+      new support bodies. **Sliver Queen reaches 3,751 from 86 legendaries**
+      (Haliya, Hermes — the first legendary growth since D249). Decisions in
+      **D276**.
+      ⚠️ **Three combat watchers green first run:** Haliya, Ascendant Cadet
+      (enters-or-attacks counter PAIR + a batch combat-damage watcher asking
+      each damage SOURCE for a +1/+1 counter); Hermes, Overseer of Elpis
+      (noncreature-cast Bird; scry 2 when ANY declared attacker is a Bird of
+      mine); Hydrolash (the combat declaration walked, sign flipped).
+      ⚠️ **A file name that hid an export:** `land.cjs` splits camelCase only
+      at lower→upper boundaries, so `howToStartARiot.ts` derives
+      `HOW_TO_START_ARIOT_SCRIPT` — the draft's `..._A_RIOT_SCRIPT` refused
+      the WHOLE batch's registration with tsc clean. Check the derived name
+      whenever a file name carries a one-letter word (D267's trap, new guise).
+      **Also:** Implement of Examination / Improvement (a self-sacrifice
+      activation AND a looks-back dies watcher: two cards, or 2 life + a
+      card, per activation); How to Start a Riot (two specs read BY KIND);
+      Healing Hands (any player, me included); Instant Ramen (Food shape with
+      an entry draw behind the engine's Flash). **Refused 17, one new
+      class:** `saga chapter trigger` (Historian's Boon); exile-self ×2
+      (Hanged Executioner, Inquisitive Puppet); Jan Jansen (negated-type
+      sacrifice predicate); Inaction Injunction (detain); Icy Blast (X
+      targets); Guerrilla Tactics, Gush, Heroes Remembered, Hunting Triad,
+      Hypergenesis, Icefall, Illusionist's Stratagem, Impossible Inferno,
+      Inside Out, Inspired Tinkering, Invigorate.
+      ⚠️ **The pool is now 175.**
+      Fixtures 2,155 (2,048 by name + 100 tokens) · botPool artifact 144 /
+      creature 1,980 / enchantment 69 / instant 692 / land 340 / sorcery 575 ·
+      ladder [1253, 1352, 3145, 5059, 6271] · batch.json 175.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,983 files, 10,397 passed / 10 skipped · 500-seed gate 738.4 s ·
+      build clean · probe 124/124 · battery 130/130 idle (red on four DOM checks seconds after the fuzz leg - D270's load pattern).**
+      ⚠️ **Reportables** (D276): the cast-time alternative cost (D275) and
+      `optional: true` (D274) remain the two highest-value live seams; the
+      unenforced-keyword family (D273) and the two measured aim-layer
+      repairs (D269/D271) stand; Sagas are a whole subsystem, not a script.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

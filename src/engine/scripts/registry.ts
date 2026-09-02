@@ -7,6 +7,14 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { HALIYA_ASCENDANT_CADET_SCRIPT } from './cards/haliyaAscendantCadet';
+import { HEALING_HANDS_SCRIPT } from './cards/healingHands';
+import { HERMES_OVERSEER_OF_ELPIS_SCRIPT } from './cards/hermesOverseerOfElpis';
+import { HOW_TO_START_ARIOT_SCRIPT } from './cards/howToStartARiot';
+import { HYDROLASH_SCRIPT } from './cards/hydrolash';
+import { IMPLEMENT_OF_EXAMINATION_SCRIPT } from './cards/implementOfExamination';
+import { IMPLEMENT_OF_IMPROVEMENT_SCRIPT } from './cards/implementOfImprovement';
+import { INSTANT_RAMEN_SCRIPT } from './cards/instantRamen';
 import { ELIXIR_OF_VITALITY_SCRIPT } from './cards/elixirOfVitality';
 import { FEED_THE_INFECTION_SCRIPT } from './cards/feedTheInfection';
 import { FILIGREE_FAMILIAR_SCRIPT } from './cards/filigreeFamiliar';
@@ -2016,6 +2024,14 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  HALIYA_ASCENDANT_CADET_SCRIPT,
+  HEALING_HANDS_SCRIPT,
+  HERMES_OVERSEER_OF_ELPIS_SCRIPT,
+  HOW_TO_START_ARIOT_SCRIPT,
+  HYDROLASH_SCRIPT,
+  IMPLEMENT_OF_EXAMINATION_SCRIPT,
+  IMPLEMENT_OF_IMPROVEMENT_SCRIPT,
+  INSTANT_RAMEN_SCRIPT,
   ELIXIR_OF_VITALITY_SCRIPT,
   FEED_THE_INFECTION_SCRIPT,
   FILIGREE_FAMILIAR_SCRIPT,

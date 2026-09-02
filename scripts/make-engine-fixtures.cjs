@@ -2491,6 +2491,14 @@ const WANTED = [
   'Grim Bauble',
   'Gruul Guildmage',
   'Guardian of Cloverdell',
+  'Haliya, Ascendant Cadet',
+  'Healing Hands',
+  'Hermes, Overseer of Elpis',
+  'How to Start a Riot',
+  'Hydrolash',
+  'Implement of Examination',
+  'Implement of Improvement',
+  'Instant Ramen',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -2679,6 +2687,10 @@ const WANTED_TOKENS = [
   // TOKEN_TABLE 'Kithkin Soldier|1/1|W|Creature|' resolves to tshm 1, looked
   // up by printing id; a different token from the G/W Kithkin above.
   { name: 'Kithkin Soldier', set: 'tshm', cn: '1', key: 'KITHKIN_SOLDIER_TOKEN' },
+  // Batch D276. The BLUE 1/1 Bird with flying AND vigilance (Hermes, Overseer
+  // of Elpis) — TOKEN_TABLE 'Bird|1/1|U|Creature|flying|vigilance' resolves to
+  // tfic 4, looked up by printing id; distinct from every Bird pinned above.
+  { name: 'Bird', set: 'tfic', cn: '4', key: 'BIRD_U_VIGILANCE_TOKEN' },
 ];
 
 function constName(name) {

@@ -70588,6 +70588,276 @@ export const GUARDIAN_OF_CLOVERDELL: CardData = {
   "singleImage": true
 };
 
+export const HALIYA_ASCENDANT_CADET: CardData = {
+  "scryfallId": "683d6eba-7f98-4105-b318-7f2290012f32",
+  "oracleId": "6846448b-d5a0-4ae0-bb11-ea7fa6ed2558",
+  "name": "Haliya, Ascendant Cadet",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Haliya, Ascendant Cadet",
+      "manaCost": "{2}{G}{W}{W}",
+      "typeLine": "Legendary Creature — Human Soldier",
+      "oracleText": "Whenever Haliya enters or attacks, put a +1/+1 counter on target creature you control.\nWhenever one or more creatures you control with +1/+1 counters on them deal combat damage to a player, draw a card.",
+      "flavorText": "\"By the eternal and everflowing light, I swear myself to this cause.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Justyna Dura",
+      "imageId": "683d6eba-7f98-4105-b318-7f2290012f32"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "eoe",
+  "collectorNumber": "218",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HEALING_HANDS: CardData = {
+  "scryfallId": "98498d68-e67b-4fda-aed3-05a4537f205a",
+  "oracleId": "3cc48835-3ac0-4774-b380-f9b21d2dc974",
+  "name": "Healing Hands",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Healing Hands",
+      "manaCost": "{2}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player gains 4 life.\nDraw a card.",
+      "flavorText": "The ethereal touch brings relief. The physical touch brings peace.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Josu Hernaiz",
+      "imageId": "98498d68-e67b-4fda-aed3-05a4537f205a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "ORI-17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HERMES_OVERSEER_OF_ELPIS: CardData = {
+  "scryfallId": "e04a05e5-7bff-46a4-aae1-6713977e6e30",
+  "oracleId": "63e2cba7-ec1a-44bf-b915-d2ae75851430",
+  "name": "Hermes, Overseer of Elpis",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hermes, Overseer of Elpis",
+      "manaCost": "{3}{U}",
+      "typeLine": "Legendary Creature — Elder Wizard",
+      "oracleText": "Whenever you cast a noncreature spell, create a 1/1 blue Bird creature token with flying and vigilance.\nWhenever you attack with one or more Birds, scry 2.",
+      "flavorText": "\"For us, there may be no higher purpose than to live for our world, but what of the other living beings out there?\"",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Darius Zablockis",
+      "imageId": "e04a05e5-7bff-46a4-aae1-6713977e6e30"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "fic",
+  "collectorNumber": "36",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HOW_TO_START_A_RIOT: CardData = {
+  "scryfallId": "23b3bf1e-ea85-47f5-8473-4d16615f68d7",
+  "oracleId": "268d0056-0d3e-438a-ab17-625a6f5ec68a",
+  "name": "How to Start a Riot",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "How to Start a Riot",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant — Lesson",
+      "oracleText": "Target creature gains menace until end of turn. (It can't be blocked except by two or more creatures.)\nCreatures target player controls get +2/+0 until end of turn.",
+      "flavorText": "\"Hey! RIOT!\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Robin Olausson",
+      "imageId": "23b3bf1e-ea85-47f5-8473-4d16615f68d7"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tla",
+  "collectorNumber": "140",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HYDROLASH: CardData = {
+  "scryfallId": "2e388f8a-d647-4d9c-a7e1-36f7fd63b45c",
+  "oracleId": "31279757-499a-4d52-aa81-76b6f1983b53",
+  "name": "Hydrolash",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hydrolash",
+      "manaCost": "{2}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Attacking creatures get -2/-0 until end of turn.\nDraw a card.",
+      "flavorText": "\"I don't need your mage-rings or your mana equations. I call, and the sea answers.\"\n—Keyta, rebel hydromancer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Clint Cearley",
+      "imageId": "2e388f8a-d647-4d9c-a7e1-36f7fd63b45c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "GNT-22",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IMPLEMENT_OF_EXAMINATION: CardData = {
+  "scryfallId": "5d3ed900-f88a-4288-9915-12035717a40a",
+  "oracleId": "0baf75b3-cc02-47cc-873a-8d5f17da0ec9",
+  "name": "Implement of Examination",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Implement of Examination",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{U}, Sacrifice this artifact: Draw a card.\nWhen this artifact is put into a graveyard from the battlefield, draw a card.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Darek Zabrocki",
+      "imageId": "5d3ed900-f88a-4288-9915-12035717a40a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "klr",
+  "collectorNumber": "244",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IMPLEMENT_OF_IMPROVEMENT: CardData = {
+  "scryfallId": "2cb8eb0c-d7fa-4229-ae65-1890c77b2c7c",
+  "oracleId": "a71b2ffb-6a62-4239-987f-ec82a358927f",
+  "name": "Implement of Improvement",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Implement of Improvement",
+      "manaCost": "{1}",
+      "typeLine": "Artifact",
+      "oracleText": "{W}, Sacrifice this artifact: You gain 2 life.\nWhen this artifact is put into a graveyard from the battlefield, draw a card.",
+      "flavorText": "A mystery in metal.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Kieran Yanner",
+      "imageId": "2cb8eb0c-d7fa-4229-ae65-1890c77b2c7c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "aer",
+  "collectorNumber": "158",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INSTANT_RAMEN: CardData = {
+  "scryfallId": "ef7011f4-fc08-4b15-973d-d15357cbe744",
+  "oracleId": "2283e409-c6c7-4de9-899b-2b3caea5f35e",
+  "name": "Instant Ramen",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Instant Ramen",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Food",
+      "oracleText": "Flash\nWhen this artifact enters, draw a card.\n{2}, {T}, Sacrifice this artifact: You gain 3 life.",
+      "flavorText": "\"It's not about finding the single best ingredient. It's about crafting that perfect blend of meat, egg, and shrimp. That harmony of flavors is key.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "David Astruga",
+      "imageId": "ef7011f4-fc08-4b15-973d-d15357cbe744"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Flash"
+  ],
+  "setCode": "fin",
+  "collectorNumber": "259",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -73969,6 +74239,43 @@ export const KITHKIN_SOLDIER_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const BIRD_U_VIGILANCE_TOKEN: CardData = {
+  "scryfallId": "023cebe4-ebe4-4398-9fd7-d3507660040a",
+  "oracleId": "4038cf0b-eb9b-4251-b4f1-da1e35700b07",
+  "name": "Bird",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Bird",
+      "manaCost": "",
+      "typeLine": "Token Creature — Bird",
+      "oracleText": "Flying, vigilance",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Constantin Marin",
+      "imageId": "023cebe4-ebe4-4398-9fd7-d3507660040a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Flying",
+    "Vigilance"
+  ],
+  "setCode": "tfic",
+  "collectorNumber": "4",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -76018,6 +76325,14 @@ export const ENGINE_CARDS: CardData[] = [
   GRIM_BAUBLE,
   GRUUL_GUILDMAGE,
   GUARDIAN_OF_CLOVERDELL,
+  HALIYA_ASCENDANT_CADET,
+  HEALING_HANDS,
+  HERMES_OVERSEER_OF_ELPIS,
+  HOW_TO_START_A_RIOT,
+  HYDROLASH,
+  IMPLEMENT_OF_EXAMINATION,
+  IMPLEMENT_OF_IMPROVEMENT,
+  INSTANT_RAMEN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -76117,4 +76432,5 @@ export const ENGINE_CARDS: CardData[] = [
   SOLDIER_22_R_TOKEN,
   KITHKIN_TOKEN,
   KITHKIN_SOLDIER_TOKEN,
+  BIRD_U_VIGILANCE_TOKEN,
 ];
