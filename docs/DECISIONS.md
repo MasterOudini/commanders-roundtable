@@ -18508,3 +18508,78 @@ alone moved, 3,780 from 90 legendaries.
 
 **Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,012 files, 10,552 passed / 10 skipped · 500-seed gate 760.2 s · build
 clean · probe 124/124 · battery 130/130.
+
+## D280 — M6.4dq: eight landed — a land, a fifth generator row, and the harness answering for the test (2026-09-02)
+
+**3,837 of 31,692 Commander-legal cards execute completely, up from 3,829.**
+SHIPPED_SCRIPTS 1,932 → 1,940; ledger 786 → 803 (+17, **ONE new class**).
+ZERO new token pins, ZERO new support bodies. **Sliver Queen reaches 3,788
+from 90 legendaries** (the header alone moved).
+
+⚠️ **THE FIRST LAND OF THE STRETCH.** `Seraph Sanctuary` is a land pinned
+like any other permanent: 1 life when it enters, 1 more whenever an Angel
+enters under my control, nothing for a non-Angel — both by `CardsMoved`, the
+mana line left to the engine. botPool land 340 → 341, the first move of that
+pin since the stretch began.
+
+**A generator grows its fifth row.** `Shaper Guildmage` ({W}, {T}: first
+strike; {B}, {T}: +1/+0) is one more row in `gen-guildmages.cjs`; the four
+shipped members regenerate byte-identical and the new one lands with the same
+until-cleanup proof (each grant on the target, gone at cleanup, the Wizard
+tapping for either).
+
+**Ferocious twice.** `Savage Punch` pumps my fighter +2/+2 BEFORE the fight
+when I control a power-4 creature: two 2/2s trade without it; with a 6/6 on
+my board my 2/2 is a 4/4 first and wins. `Shamanic Revelation` draws a card
+per creature I control and, Ferocious, gains 4 life per creature at power 4
+or more — three creatures are three cards, the one big one is 4 life, small
+creatures alone are cards and no life.
+
+**A cast-target watcher.** `Season of Growth` asks a scry 1 whenever a
+creature of mine enters, and reads `SpellCast`'s object targets: a spell of
+mine aimed at a creature I control draws, one aimed at theirs does not.
+
+**The rest.** `Shake the Foundations` marks every non-flier 1 (mine
+included), leaves the flier untouched, and draws. `Siege Veteran` aims a
++1/+1 counter at the beginning of my combat and makes a colorless Soldier
+artifact token when ANOTHER nontoken Soldier of mine dies — its own death is
+not "another". `Siege-Gang Commander` brings three red Goblins and sells one
+of them for 2 damage to any target.
+
+⚠️ **Two test-side lessons, no script changed.**
+1. `advanceUntil` answers the target asks it passes through: Siege Veteran's
+   turn-1 combat trigger was already answered when the test looked. Stop at
+   the FIRST ask and answer each yourself (counter 1, then 2).
+2. Count scries by `scryChoice` `AwaitingSet` events, never by
+   `CardsRevealed` — the game start logs a reveal and one scry logs two. And
+   `AwaitingSet` also CLEARS an ask (`awaiting: null`): guard before reading
+   its kind.
+
+**Refused 17, ONE new class.** `Rishkar's Expertise` ends with "you may cast
+a spell … without paying its mana cost" — a **free-cast permission** the
+resolve cannot grant (the cast stage owns costs); Baral's Expertise (D272)
+was refused for its up-to-N half first, the permission half now has its own
+name. Three MULTI-sacrifice costs in one batch (Ruthless Knave, Sai, Savvy
+Hunter) — the chooser takes exactly one permanent. Two more free spells
+(Rouse, Sickening Shoal) make **eleven cast-time alternative costs refused
+in five batches**. The rest: Rift Bolt and Shivan Meteor (suspend),
+Roilmage's Trick (converge), Sadistic Slash (mayhem), Saruman's Trickery
+(amass), Scrollshift and Send to Sleep (up-to-N targeting), Searing Barrage
+(mana-spent memory), Shapers of Nature (remove-counter cost), Shimmering
+Mirage (script-raised prompt), Shred Memory (transmute).
+
+Suites: 8 files / 28 tests — green after the two test rewrites above.
+
+Fixtures 2,184 → 2,192 (2,085 by name + 100 tokens) · botPool artifact 148 /
+creature 1,995 / enchantment 73 / instant 702 / land 341 / sorcery 578 ·
+ladder [1216, 1315, 3108, 5022, 6234] · batch.json 75 · botDeck: the header
+alone moved, 3,788 from 90 legendaries. **The pool is 75 — three batches
+left in the offline order.**
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,020 files, 10,596 passed / 10 skipped · 500-seed gate 734.8 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D280): the pool is 75 — Phase 1 reaches the loop within
+three batches; the cast-time alternative cost (eleven cards) is the first
+seam to build, the multi-sacrifice chooser (now three cards in one batch) and
+`optional: true` (D274) the next levers; prior items stand.

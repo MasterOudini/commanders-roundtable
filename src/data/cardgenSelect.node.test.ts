@@ -1582,6 +1582,33 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Resize', 'recover mechanic'],
   ['Restart Sequence', 'freerunning mechanic'],
   ['Reverent Silence', 'cast-time alternative cost'],
+
+  // D280 (M6.4dq) — the R/S residue; ONE new class.
+  //
+  // ⚠️ Rishkar's Expertise ends with 'you may cast a spell ... without paying
+  // its mana cost' — a FREE-CAST PERMISSION the resolve cannot grant (the
+  // cast stage owns costs). Baral's Expertise (D272) was refused for its
+  // up-to-N half first; the permission half now has its own name.
+  // ⚠️ Three MULTI-sacrifice costs in one batch (Ruthless Knave, Sai, Savvy
+  // Hunter: 'Sacrifice three Treasures / two artifacts / two Foods') — the
+  // chooser takes exactly one permanent.
+  ['Rift Bolt', 'suspend mechanic'],
+  ["Rishkar's Expertise", 'free-cast permission'],
+  ["Roilmage's Trick", 'converge (cast-time mana-color memory)'],
+  ['Rouse', 'cast-time alternative cost'],
+  ['Ruthless Knave', 'multi-sacrifice cost'],
+  ['Sadistic Slash', 'mayhem mechanic'],
+  ['Sai, Master Thopterist', 'multi-sacrifice cost'],
+  ["Saruman's Trickery", 'amass mechanic'],
+  ['Savvy Hunter', 'multi-sacrifice cost'],
+  ['Scrollshift', 'up-to-N targeting'],
+  ['Searing Barrage', 'mana-spent memory'],
+  ['Send to Sleep', 'up-to-N targeting'],
+  ['Shapers of Nature', 'remove-counter cost'],
+  ['Shimmering Mirage', 'script-raised prompt'],
+  ['Shivan Meteor', 'suspend mechanic'],
+  ['Shred Memory', 'transmute mechanic'],
+  ['Sickening Shoal', 'cast-time alternative cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

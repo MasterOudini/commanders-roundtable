@@ -7,6 +7,14 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SAVAGE_PUNCH_SCRIPT } from './cards/savagePunch';
+import { SEASON_OF_GROWTH_SCRIPT } from './cards/seasonOfGrowth';
+import { SERAPH_SANCTUARY_SCRIPT } from './cards/seraphSanctuary';
+import { SHAKE_THE_FOUNDATIONS_SCRIPT } from './cards/shakeTheFoundations';
+import { SHAMANIC_REVELATION_SCRIPT } from './cards/shamanicRevelation';
+import { SHAPER_GUILDMAGE_SCRIPT } from './cards/shaperGuildmage';
+import { SIEGE_VETERAN_SCRIPT } from './cards/siegeVeteran';
+import { SIEGE_GANG_COMMANDER_SCRIPT } from './cards/siegeGangCommander';
 import { PIA_AND_KIRAN_NALAAR_SCRIPT } from './cards/piaAndKiranNalaar';
 import { POTION_OF_HEALING_SCRIPT } from './cards/potionOfHealing';
 import { PRIZEFIGHT_SCRIPT } from './cards/prizefight';
@@ -2053,6 +2061,14 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SAVAGE_PUNCH_SCRIPT,
+  SEASON_OF_GROWTH_SCRIPT,
+  SERAPH_SANCTUARY_SCRIPT,
+  SHAKE_THE_FOUNDATIONS_SCRIPT,
+  SHAMANIC_REVELATION_SCRIPT,
+  SHAPER_GUILDMAGE_SCRIPT,
+  SIEGE_VETERAN_SCRIPT,
+  SIEGE_GANG_COMMANDER_SCRIPT,
   PIA_AND_KIRAN_NALAAR_SCRIPT,
   POTION_OF_HEALING_SCRIPT,
   PRIZEFIGHT_SCRIPT,

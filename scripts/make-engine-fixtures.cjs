@@ -2528,6 +2528,14 @@ const WANTED = [
   'Prosperous Innkeeper',
   'Ravaging Blaze',
   'Rending Vines',
+  'Savage Punch',
+  'Season of Growth',
+  'Seraph Sanctuary',
+  'Shake the Foundations',
+  'Shamanic Revelation',
+  'Shaper Guildmage',
+  'Siege Veteran',
+  'Siege-Gang Commander',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

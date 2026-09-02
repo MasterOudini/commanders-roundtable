@@ -71869,6 +71869,283 @@ export const RENDING_VINES: CardData = {
   "singleImage": true
 };
 
+export const SAVAGE_PUNCH: CardData = {
+  "scryfallId": "39db8020-86a6-4ff2-8715-654121c2f3a2",
+  "oracleId": "3ca58e01-21c6-4314-ab3d-280ba6f9f509",
+  "name": "Savage Punch",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Savage Punch",
+      "manaCost": "{1}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control fights target creature you don't control.\nFerocious — The creature you control gets +2/+2 until end of turn before it fights if you control a creature with power 4 or greater.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Wesley Burt",
+      "imageId": "39db8020-86a6-4ff2-8715-654121c2f3a2"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Ferocious",
+    "Fight"
+  ],
+  "setCode": "j22",
+  "collectorNumber": "723",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEASON_OF_GROWTH: CardData = {
+  "scryfallId": "5da608ff-6164-44f0-bb43-c5d26a9a6696",
+  "oracleId": "3f4e300a-ec5c-42f3-a97b-d58e62abe22b",
+  "name": "Season of Growth",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Season of Growth",
+      "manaCost": "{1}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever a creature you control enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\nWhenever you cast a spell that targets a creature you control, draw a card.",
+      "flavorText": "\"Awake, and lift your faces to the sun.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Randy Vargas",
+      "imageId": "5da608ff-6164-44f0-bb43-c5d26a9a6696"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "M20-191",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SERAPH_SANCTUARY: CardData = {
+  "scryfallId": "5ec09c30-b1bb-4380-9c4a-f57c25c67a2e",
+  "oracleId": "0b504dc6-61cc-4a72-907c-145fa4c72466",
+  "name": "Seraph Sanctuary",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Seraph Sanctuary",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "When this land enters, you gain 1 life.\nWhenever an Angel you control enters, you gain 1 life.\n{T}: Add {C}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Alayna Danner",
+      "imageId": "5ec09c30-b1bb-4380-9c4a-f57c25c67a2e"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "1292",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHAKE_THE_FOUNDATIONS: CardData = {
+  "scryfallId": "b5bd4bdd-3a2a-40d9-9f86-fefe0a462cd2",
+  "oracleId": "99eb5cda-684d-4f6c-bc34-1f03c8797150",
+  "name": "Shake the Foundations",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shake the Foundations",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Shake the Foundations deals 1 damage to each creature without flying.\nDraw a card.",
+      "flavorText": "A threefold calamity with a single will.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "b5bd4bdd-3a2a-40d9-9f86-fefe0a462cd2"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "rix",
+  "collectorNumber": "113",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHAMANIC_REVELATION: CardData = {
+  "scryfallId": "11347d20-2b14-41cb-a930-92e37fcd1b87",
+  "oracleId": "d1d171de-1c6d-4fb9-817a-9c689c709f3d",
+  "name": "Shamanic Revelation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shamanic Revelation",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Draw a card for each creature you control.\nFerocious — You gain 4 life for each creature you control with power 4 or greater.",
+      "flavorText": "「彼女が操る獣たちは、死の静寂を予告するような轟音をあげた。」\n――「多元宇宙の形而上史学」",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jed Henry",
+      "imageId": "11347d20-2b14-41cb-a930-92e37fcd1b87"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Ferocious"
+  ],
+  "setCode": "soa",
+  "collectorNumber": "122",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHAPER_GUILDMAGE: CardData = {
+  "scryfallId": "4a9304e1-f403-404d-9fe9-169da75e0d62",
+  "oracleId": "dfbce321-d3c1-4b76-a3fa-27f875015085",
+  "name": "Shaper Guildmage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shaper Guildmage",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{W}, {T}: Target creature gains first strike until end of turn.\n{B}, {T}: Target creature gets +1/+0 until end of turn.",
+      "flavorText": "Shape this world in Zhalfir's image.\n—Shaper Guild maxim",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "D. Alexander Gregory",
+      "imageId": "4a9304e1-f403-404d-9fe9-169da75e0d62"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U",
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "91",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIEGE_VETERAN: CardData = {
+  "scryfallId": "41525fb0-bab6-4ac6-a418-78825464b97b",
+  "oracleId": "4d4fc571-a859-4460-a3c7-3f76a671ab1b",
+  "name": "Siege Veteran",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Siege Veteran",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "At the beginning of combat on your turn, put a +1/+1 counter on target creature you control.\nWhenever another nontoken Soldier you control dies, create a 1/1 colorless Soldier artifact creature token.",
+      "flavorText": "\"Steady, recruit. We fight in the light of justice. We cast no shadow.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Darren Tan",
+      "imageId": "41525fb0-bab6-4ac6-a418-78825464b97b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pbro",
+  "collectorNumber": "25p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIEGE_GANG_COMMANDER: CardData = {
+  "scryfallId": "0befe0f5-ff7c-441a-9bb2-cbe919be10ad",
+  "oracleId": "ddc7f59a-bbb1-4ba1-82c8-6813fd191940",
+  "name": "Siege-Gang Commander",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Siege-Gang Commander",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Creature — Goblin",
+      "oracleText": "When this creature enters, create three 1/1 red Goblin creature tokens.\n{1}{R}, Sacrifice a Goblin: This creature deals 2 damage to any target.",
+      "flavorText": "\"Ready . . . uh . . . fire!\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Aaron Miller",
+      "imageId": "0befe0f5-ff7c-441a-9bb2-cbe919be10ad"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "blc",
+  "collectorNumber": "202",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -77373,6 +77650,14 @@ export const ENGINE_CARDS: CardData[] = [
   PROSPEROUS_INNKEEPER,
   RAVAGING_BLAZE,
   RENDING_VINES,
+  SAVAGE_PUNCH,
+  SEASON_OF_GROWTH,
+  SERAPH_SANCTUARY,
+  SHAKE_THE_FOUNDATIONS,
+  SHAMANIC_REVELATION,
+  SHAPER_GUILDMAGE,
+  SIEGE_VETERAN,
+  SIEGE_GANG_COMMANDER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

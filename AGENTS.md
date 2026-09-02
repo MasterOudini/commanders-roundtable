@@ -8410,6 +8410,44 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       reaches Phase 1 within four batches — the cast-time alternative cost
       (nine cards) is the first seam to build, `optional: true` (D274) the
       second lever; prior items stand.
+- [x] **M6.4dq — Eight landed: a land, a fifth generator row, and the
+      harness answering for the test (2026-09-02):** **3,837 of 31,692
+      Commander-legal cards now execute completely, up from 3,829.**
+      `SHIPPED_SCRIPTS` 1,932 → 1,940; ledger 803 (+17, ONE new class).
+      ZERO new token pins, ZERO new support bodies. **Sliver Queen reaches
+      3,788 from 90 legendaries.** Decisions in **D280**.
+      ⚠️ **The first LAND of the stretch:** `Seraph Sanctuary` (1 life on
+      entry, 1 per Angel entering) — botPool land 340 → 341.
+      **A generator's fifth row:** `Shaper Guildmage` in
+      `gen-guildmages.cjs`, the four shipped members byte-identical.
+      **Ferocious twice:** `Savage Punch` (+2/+2 BEFORE the fight with a
+      power-4 creature) and `Shamanic Revelation` (a card per creature, 4
+      life per power-4 creature). **A cast-target watcher:** `Season of
+      Growth` reads `SpellCast`'s targets — my spell at my creature draws.
+      **Also:** Shake the Foundations; Siege Veteran (combat counter;
+      ANOTHER nontoken Soldier dying is a Soldier token); Siege-Gang
+      Commander (three Goblins, one sold for 2).
+      ⚠️ **Two test-side lessons, no script changed:** `advanceUntil`
+      answers the target asks it passes through — stop at the FIRST ask;
+      count scries by `scryChoice` `AwaitingSet` events (never
+      `CardsRevealed`), and `AwaitingSet` also CLEARS an ask with
+      `awaiting: null`.
+      **Refused 17:** Rishkar's Expertise opens `free-cast permission`;
+      three multi-sacrifice costs (Ruthless Knave, Sai, Savvy Hunter); Rouse
+      and Sickening Shoal make eleven `cast-time alternative cost` refusals
+      in five batches; Rift Bolt, Roilmage's Trick, Sadistic Slash,
+      Saruman's Trickery, Scrollshift, Searing Barrage, Send to Sleep,
+      Shapers of Nature, Shimmering Mirage, Shivan Meteor, Shred Memory.
+      Suites 8 files / 28 tests.
+      Fixtures 2,192 (2,085 by name + 100 tokens) · botPool artifact 148 /
+      creature 1,995 / enchantment 73 / instant 702 / land 341 / sorcery 578 ·
+      ladder [1216, 1315, 3108, 5022, 6234] · batch.json 75.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,020 files, 10,596 passed / 10 skipped · 500-seed gate 734.8 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D280): the pool is 75 — Phase 1 within three
+      batches; the cast-time alternative cost (eleven cards) is the first
+      seam to build, the multi-sacrifice chooser and `optional: true` (D274)
+      the next levers; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
