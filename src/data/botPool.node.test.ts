@@ -447,8 +447,8 @@ const POOL: Record<string, number> = {
   // M6.4bc (D214): +8 instants, +7 sorceries, Flying Carpet, and Forum of
   // Amity.
   creature: 2005,
-  instant: 708,
-  sorcery: 582,
+  instant: 721,
+  sorcery: 586,
   land: 341,
   artifact: 154,
   enchantment: 75,

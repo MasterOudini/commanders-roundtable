@@ -8563,6 +8563,43 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       worth: the cast-time alternative cost (18), the discard-cost chooser
       (39), play-from-exile (22), the multi-sacrifice and remaining
       cost-chooser verbs; prior items stand.
+- [x] **M6.4du — Seventeen landed: Phase 1 reclaim 1, the up-to-N class was
+      stale for its single-clause shape, zero engine changes (2026-09-03):**
+      **3,882 of 31,692 Commander-legal cards now execute completely, up
+      from 3,865.** `SHIPPED_SCRIPTS` 1,968 → 1,985; ledger 833 (seventeen
+      rows DELETED as their cards landed, five re-classed, ONE new class).
+      ZERO token pins, ZERO support bodies, ZERO engine changes. **Sliver
+      Queen reaches 3,833 from 93 legendaries.** Decisions in **D284**.
+      ⚠️ **A class built on a wall that had fallen:** D197's "no
+      under-answer" refusal held 57 cards while the parser (0..N), the
+      validator (min..max) and `targetsStillLegal` (zero targets is not a
+      fizzle) all grew past it. `Dauntless Onslaught` proved the shape on
+      the first run with two, one, zero and three targets; sixteen followed,
+      **17 files / 75 tests green on the first run**.
+      ⚠️ **Walls that stand (probed):** a dropped noun-list half (Sea God's
+      Scorn), "one or two" read as two (Fancy Footwork, Hearts on Fire),
+      "without flying" dropped (Tidal Surge), plural "your opponents
+      control" dropped (Sea God's Revenge — new class `plural-controller
+      target qualifier unenforced`), and multi-clause cards whose optional
+      slot precedes a required one (positional spec mapping) — 35 remain.
+      **Landed:** Dauntless Onslaught, Nahiri's Stoneblades, Mischief and
+      Mayhem, Tandem Tactics, Lead Astray, Downpour, Terashi's Cry, Early
+      Frost, Repel the Darkness, Synchronized Strike, Join Forces, Into the
+      Void, Captivating Gyre, Dual Shot, Double Negative, Plunge into
+      Winter, Reinforcements.
+      **Reclaim mechanics:** batch.json BY NAME (`phase1/make-batch.cjs`),
+      ledger rows DELETED on landing; the select pool measures 0 throughout.
+      Fixtures 2,238 (2,130 by name + 101 tokens) · botPool artifact 154 /
+      creature 2,005 / enchantment 75 / instant 721 / land 341 / sorcery 586 ·
+      ladder [1171, 1270, 3063, 4977, 6189] · batch.json 17.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,065 files, 10,861 passed / 10 skipped · 500-seed gate 691.6 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D284): reclaim 2 is the reachable half of
+      `script-raised prompt` (targeted discards, Read the Bones, the
+      "put them back in any order" family via `orderCards`); then the seams
+      by measured worth: cast-time alternative cost (27), discard-cost
+      chooser (39), tap-creatures cost (28), opponent-chooses (24),
+      play-from-exile (23); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

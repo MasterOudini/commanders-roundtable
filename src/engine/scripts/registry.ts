@@ -7,6 +7,23 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { NAHIRIS_STONEBLADES_SCRIPT } from './cards/nahirisStoneblades';
+import { MISCHIEF_AND_MAYHEM_SCRIPT } from './cards/mischiefAndMayhem';
+import { TANDEM_TACTICS_SCRIPT } from './cards/tandemTactics';
+import { LEAD_ASTRAY_SCRIPT } from './cards/leadAstray';
+import { DOWNPOUR_SCRIPT } from './cards/downpour';
+import { TERASHIS_CRY_SCRIPT } from './cards/terashisCry';
+import { EARLY_FROST_SCRIPT } from './cards/earlyFrost';
+import { INTO_THE_VOID_SCRIPT } from './cards/intoTheVoid';
+import { CAPTIVATING_GYRE_SCRIPT } from './cards/captivatingGyre';
+import { DUAL_SHOT_SCRIPT } from './cards/dualShot';
+import { DOUBLE_NEGATIVE_SCRIPT } from './cards/doubleNegative';
+import { REPEL_THE_DARKNESS_SCRIPT } from './cards/repelTheDarkness';
+import { SYNCHRONIZED_STRIKE_SCRIPT } from './cards/synchronizedStrike';
+import { JOIN_FORCES_SCRIPT } from './cards/joinForces';
+import { PLUNGE_INTO_WINTER_SCRIPT } from './cards/plungeIntoWinter';
+import { REINFORCEMENTS_SCRIPT } from './cards/reinforcements';
+import { DAUNTLESS_ONSLAUGHT_SCRIPT } from './cards/dauntlessOnslaught';
 import { UNCOMFORTABLE_CHILL_SCRIPT } from './cards/uncomfortableChill';
 import { UNHINGE_SCRIPT } from './cards/unhinge';
 import { UNHOLY_HUNGER_SCRIPT } from './cards/unholyHunger';
@@ -2089,6 +2106,23 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  NAHIRIS_STONEBLADES_SCRIPT,
+  MISCHIEF_AND_MAYHEM_SCRIPT,
+  TANDEM_TACTICS_SCRIPT,
+  LEAD_ASTRAY_SCRIPT,
+  DOWNPOUR_SCRIPT,
+  TERASHIS_CRY_SCRIPT,
+  EARLY_FROST_SCRIPT,
+  INTO_THE_VOID_SCRIPT,
+  CAPTIVATING_GYRE_SCRIPT,
+  DUAL_SHOT_SCRIPT,
+  DOUBLE_NEGATIVE_SCRIPT,
+  REPEL_THE_DARKNESS_SCRIPT,
+  SYNCHRONIZED_STRIKE_SCRIPT,
+  JOIN_FORCES_SCRIPT,
+  PLUNGE_INTO_WINTER_SCRIPT,
+  REINFORCEMENTS_SCRIPT,
+  DAUNTLESS_ONSLAUGHT_SCRIPT,
   UNCOMFORTABLE_CHILL_SCRIPT,
   UNHINGE_SCRIPT,
   UNHOLY_HUNGER_SCRIPT,

@@ -2564,6 +2564,23 @@ const WANTED = [
   'Witching Well',
   'Trostani, Three Whispers',
   'Aragorn, the Uniter',
+  'Dauntless Onslaught',
+  "Nahiri's Stoneblades",
+  'Mischief and Mayhem',
+  'Tandem Tactics',
+  'Lead Astray',
+  'Downpour',
+  "Terashi's Cry",
+  'Early Frost',
+  'Into the Void',
+  'Captivating Gyre',
+  'Dual Shot',
+  'Double Negative',
+  'Repel the Darkness',
+  'Synchronized Strike',
+  'Join Forces',
+  'Plunge into Winter',
+  'Reinforcements',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -433,7 +433,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Burning of Xinye', 'script-raised prompt'],
   ['By Force', 'cast-time computed target count'],
   ['Cankerous Thirst', 'converge (cast-time mana-color memory)'],
-  ['Captivating Gyre', 'up-to-N targeting'],
   ['Catastrophe', 'modal choice'],
   ['Cerebral Eruption', 'spell relocates itself on resolution'],
   // D203 — Chaoslace SETS a color for the turn (no UEOT color carrier);
@@ -489,7 +488,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // gap.
   ['Cyber Conversion', 'face-down (morph family)'],
   ['Daring Demolition', 'spell target parse (noun list)'],
-  ['Dauntless Onslaught', 'up-to-N targeting'],
   ['Dawnglow Infusion', 'mana-spent memory'],
   ["Day's Undoing", 'end the turn'],
   ['Dead Reckoning', 'script-raised prompt'],
@@ -533,15 +531,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Do or Die', 'opponent-chooses'],
   ['Dominate', 'computed target threshold'],
   ["Donatello's Science Lesson", 'up-to-N targeting'],
-  ['Double Negative', 'up-to-N targeting'],
-  ['Downpour', 'up-to-N targeting'],
   ['Dragonclaw Strike', 'up-to-N targeting'],
   ['Drain Power', 'opponent-chooses'],
   ['Dreadful as the Storm', 'the Ring mechanic'],
   ['Dream Cache', 'script-raised prompt'],
   ['Dream Harvest', 'play-from-exile permission'],
   ["Dryad's Caress", 'mana-spent memory'],
-  ['Dual Shot', 'up-to-N targeting'],
   ['Dwarven Song', 'UEOT color change'],
   // D210 — Eliminate the Impossible clears SUSPECTED (no suspect concept
   // anywhere); Empty City Ruse SKIPS combat phases (no skip-phase
@@ -550,7 +545,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // order the caster picks — orderCards raised from a resolve; End of the
   // Hunt's greatest-MV can TIE and the opponent breaks it.
   ['Dwell on the Past', 'up-to-N targeting'],
-  ['Early Frost', 'up-to-N targeting'],
   ['Earth Rumble', 'land animation (type change)'],
   ['Eaten by Spiders', 'keyword target qualifier unenforced'],
   ['Eliminate the Impossible', 'suspect mechanic'],
@@ -590,7 +584,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Fake Your Own Death', 'temporary non-keyword ability grant'],
   ['False Cure', 'temporary game-wide trigger'],
   ['False Peace', 'phase skipping'],
-  ['Fancy Footwork', 'up-to-N targeting'],
+  ['Fancy Footwork', 'spell target parse (numeric disjunction)'],
   ['Fate Transfer', 'arbitrary counter kinds'],
   ['Fateful Handoff', 'script-raised prompt'],
   ['Fathom Trawl', 'script-raised prompt'],
@@ -652,7 +646,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Granite Shard's cycle-mate; Heaven's Gate is Chaoslace's class with
   // the up-to hazard on top.
   ['Heal the Scars', 'regeneration'],
-  ['Hearts on Fire', 'up-to-N targeting'],
+  ['Hearts on Fire', 'spell target parse (numeric disjunction)'],
   ['Heartwood Shard', 'alternative activation cost'],
   ['Heated Argument', 'script-raised prompt'],
   ["Heaven's Gate", 'UEOT color change'],
@@ -691,13 +685,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // confident with the EXACT-value qualifier silently dropped (D139
   // built or-less/or-greater only), the numeric family's fourth hole.
   ['Interpret the Signs', 'script-raised prompt'],
-  ['Into the Void', 'up-to-N targeting'],
   ['Invade the City', 'amass mechanic'],
   ['Ironhoof Boar', 'hand-activated ability'],
   ["Isildur's Fateful Strike", 'cast-permission condition'],
   ['Isolate', 'spell target parse (numeric exact)'],
   ['Isolation at Orthanc', 'library position placement'],
-  ['Join Forces', 'up-to-N targeting'],
   ['Joint Assault', 'soulbond pairing'],
   // D221 — Kaervek's Purge and Killing Glare bind their numeric
   // qualifier to the CAST X (Blazing Hope's computed threshold); Lair
@@ -717,7 +709,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Lash Out', 'clash mechanic'],
   ['Lava Storm', 'script-raised prompt'],
   ['Lay Down Arms', 'computed target threshold'],
-  ['Lead Astray', 'up-to-N targeting'],
   ['Leaf Arrow', 'keyword target qualifier unenforced'],
   ['Leeching Bite', 'spell target parse (second clause)'],
   ['Lethal Exploit', 'modified predicate'],
@@ -764,7 +755,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Mind Grind', 'cast-permission condition'],
   ['Minds Aglow', 'script-raised prompt'],
   ['Mines of Moria', 'exile-from-graveyard cost'],
-  ['Mischief and Mayhem', 'up-to-N targeting'],
   ['Mischievous Mystic', 'once-per-turn trigger memory'],
   ['Misinformation', 'up-to-N targeting'],
   ['Misleading Motes', 'script-raised prompt'],
@@ -789,7 +779,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Muse Vortex', 'play-from-exile permission'],
   ['Mutiny', 'spell target parse (second clause)'],
   ['Mystic Denial', 'spell target parse (noun list)'],
-  ["Nahiri's Stoneblades", 'up-to-N targeting'],
   ['Natural Affinity', 'land animation'],
   // D228 — Necromantic Selection EXILES ITSELF mid-resolution (Cerebral
   // Eruption's class) and reanimates with a type-change; Nissa's
@@ -853,7 +842,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Plague Witch', 'discard-cost chooser'],
   // D234 (M6.4bw)
   ['Plummet', 'keyword target qualifier unenforced'],
-  ['Plunge into Winter', 'up-to-N targeting'],
   ['Polymorph', 'ctx.random'],
   ["Polymorphist's Jest", 'until-end-of-turn base P/T set'],
   ['Portcullis Vine', 'keyword-predicate sacrifice cost'],
@@ -887,7 +875,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Recross the Paths', 'clash mechanic'],
   ['Regenerate', 'regeneration'],
   ['Reign of Terror', 'script-raised prompt'],
-  ['Reinforcements', 'up-to-N targeting'],
   ['Reinterpret', 'script-raised prompt'],
   ['Reknit', 'regeneration'],
   ['Release the Ants', 'clash mechanic'],
@@ -931,8 +918,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D244 (M6.4cg)
   ['Schismotivate', 'spell target parse (second clause)'],
   ['Scout the Borders', 'script-raised prompt'],
-  ["Sea God's Revenge", 'up-to-N targeting'],
-  ["Sea God's Scorn", 'up-to-N targeting'],
+  ["Sea God's Revenge", 'plural-controller target qualifier unenforced'],
+  ["Sea God's Scorn", 'spell target parse (noun list)'],
   ["Sea Kings' Blessing", 'UEOT color change'],
   ['Searing Blood', 'delayed trigger'],
   // D245 (M6.4ch)
@@ -1047,9 +1034,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Rogue, Warrior and Wizard. No party concept exists anywhere in the
   // engine, and approximating it would miscount the damage on every board.
   ['Synchronized Spellcraft', 'party mechanic'],
-  ['Synchronized Strike', 'up-to-N targeting'],
   ['Take into Custody', 'untap restriction'],
-  ['Tandem Tactics', 'up-to-N targeting'],
   ['Tandem Takedown', 'up-to-N targeting'],
 
   // D257 (M6.4ct) — ONE refusal in twenty-five, the leanest classification
@@ -1067,7 +1052,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // is letting a player name FEWER targets than the maximum.
   ['Temporary Truce', 'up-to-N targeting'],
   ['Tempted by the Oriq', 'up-to-N targeting'],
-  ["Terashi's Cry", 'up-to-N targeting'],
   ['The Black Breath', 'the Ring'],
   ['The Lost and the Damned', 'cast-zone discriminator'],
 
@@ -1105,7 +1089,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ⚠️ Tidal Surge is refused TWICE over — "up to three target creatures"
   // AND "without flying" (D197's keyword qualifier). It is ledgered under
   // up-to-N, which is still the heaviest class in this table.
-  ['Tidal Surge', 'up-to-N targeting'],
+  ['Tidal Surge', 'keyword target qualifier unenforced'],
   ['Time and Tide', 'phasing'],
   ['Time Reversal', 'ctx.random stub'],
   ['Time Spiral', 'ctx.random stub'],
@@ -1578,7 +1562,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Reforge the Soul', 'miracle mechanic'],
   ['Refresh', 'regeneration'],
   ['Refreshing Rain', 'cast-time alternative cost'],
-  ['Repel the Darkness', 'up-to-N targeting'],
   ['Resize', 'recover mechanic'],
   ['Restart Sequence', 'freerunning mechanic'],
   ['Reverent Silence', 'cast-time alternative cost'],

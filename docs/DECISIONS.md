@@ -18799,3 +18799,71 @@ before any engine work; what the existing prompts reach lands as ordinary
 batches. Then the seams by measured worth: the cast-time alternative cost
 (18), the discard-cost chooser (39), play-from-exile (22), multi-sacrifice
 and the remaining cost-chooser verbs; prior items stand.
+
+## D284 — M6.4du: seventeen landed — Phase 1 reclaim 1: the up-to-N class was stale for its single-clause shape, zero engine changes (2026-09-03)
+
+**3,882 of 31,692 Commander-legal cards execute completely, up from 3,865.**
+SHIPPED_SCRIPTS 1,968 → 1,985; ledger 850 → 833 (**seventeen rows DELETED**
+as their cards landed, five re-classed, ONE new class). ZERO new token pins,
+ZERO new support bodies, **ZERO engine changes**. **Sliver Queen reaches
+3,833 from 93 legendaries.**
+
+⚠️ **A class built on a wall that had fallen.** D197 refused `Allied
+Assault` because "the prompt machinery has no under-answer", and 56 cards
+followed it into `up-to-N targeting`. Since then the parser learned to read
+"up to two target creatures" as 0..2 with confidence, the validator learned
+to accept any count between a spec's minimum and maximum, and
+`targetsStillLegal` learned that a spell with ZERO chosen targets is not a
+fizzle — and nobody re-measured. Phase 1's step 0 did: `Dauntless
+Onslaught` was drafted as a real landing and passed on the first run with
+two targets, one, zero (a legal cast that resolves, no fizzle) and three
+(refused). Sixteen more of the same shape followed, **every suite green on
+the first run — 17 files / 75 tests**.
+
+**The walls that stand, measured by probe.** `Sea God's Scorn` loses the
+enchantment half of "creatures and/or enchantments" (noun list); `Fancy
+Footwork` and `Hearts on Fire` read "one or two" as exactly two (numeric
+disjunction); `Tidal Surge` drops "without flying" silently (the D197
+keyword-qualifier hole); `Sea God's Revenge` drops "your opponents control"
+in the plural — a new class, **plural-controller target qualifier
+unenforced**. And the multi-clause cards (Roiling Waters, Mabel's Mettle,
+the fight shapes) stay: `targetsStillLegal` maps target *i* to spec *i*, so
+an optional slot that precedes a required one shifts every later check.
+**35 up-to-N entries remain, all of that second kind.**
+
+**What landed.** Pumps: Dauntless Onslaught, Nahiri's Stoneblades, Mischief
+and Mayhem, Tandem Tactics (with 2 life whatever was named). Taps: Lead
+Astray, Downpour, Terashi's Cry, Early Frost (lands — a creature refused),
+Repel the Darkness (with a card either way). Untap-and-pump mid-combat:
+Synchronized Strike, Join Forces (the attack still lands for 8). Bounces:
+Into the Void, Captivating Gyre (mine and theirs, each to its owner). Dual
+Shot (one damage entry per creature; the 2/1 dies). Double Negative (two
+held spells cast back to back by the opponent holding priority, both
+countered; one alone lets the other resolve). Plunge into Winter (the draw
+rides the scry ask as `thenDraw` and is dealt by the answer handler).
+Reinforcements (three creature cards from my graveyard to the top of my
+library, an instant refused).
+
+**The reclaim mechanics.** `select.cjs` cannot offer a ledgered card, so a
+reclaim batch is written BY NAME: `phase1/make-batch.cjs` builds
+`batch.json` from a names list, and the batch's ledger script DELETES the
+landed rows (the stale-entry guard would fail the suite otherwise) and
+re-classes the probed walls honestly. The select pool measures 0 before and
+after.
+
+Fixtures 2,221 → 2,238 (2,130 by name + 101 tokens) · botPool artifact 154 /
+creature 2,005 / enchantment 75 / instant 721 / land 341 / sorcery 586 ·
+ladder [1171, 1270, 3063, 4977, 6189] · batch.json 17 (by name) · botDeck:
+3,833 from 93 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,065 files, 10,861 passed / 10 skipped · 500-seed gate 691.6 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D284): the audit continues — the `script-raised prompt`
+class (86) holds cards today's prompts already reach: four targeted discards
+(`chooseFromZone`), Read the Bones (`scryChoice` with `thenDraw`), and the
+"look at the top N, put them back in any order" family (`orderCards` is
+raisable over the library); those are reclaim 2. Then the seams by measured
+worth: the cast-time alternative cost (27), the discard-cost chooser (39),
+tap-creatures cost (28), opponent-chooses (24), play-from-exile (23); prior
+items stand.

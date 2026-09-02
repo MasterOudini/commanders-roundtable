@@ -73121,6 +73121,588 @@ export const ARAGORN_THE_UNITER: CardData = {
   "singleImage": true
 };
 
+export const DAUNTLESS_ONSLAUGHT: CardData = {
+  "scryfallId": "0da57140-ccd3-4729-a892-fe2bb719d410",
+  "oracleId": "ce29f71a-6662-4be4-9915-5a4be87288e0",
+  "name": "Dauntless Onslaught",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dauntless Onslaught",
+      "manaCost": "{2}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Up to two target creatures each get +2/+2 until end of turn.",
+      "flavorText": "\"The people of Akros must learn from our leonin adversaries. If we match their staunch ferocity with our superior faith, we cannot fail.\"\n—Cymede, queen of Akros",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Peter Mohrbacher",
+      "imageId": "0da57140-ccd3-4729-a892-fe2bb719d410"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ddo",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NAHIRI_S_STONEBLADES: CardData = {
+  "scryfallId": "0a14331e-8da5-4455-ac69-e510684e989c",
+  "oracleId": "769774f9-1d8d-406f-8b0c-2d6713e7ab3e",
+  "name": "Nahiri's Stoneblades",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nahiri's Stoneblades",
+      "manaCost": "{1}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Up to two target creatures each get +2/+0 until end of turn.",
+      "flavorText": "The ancient Planeswalkers Sorin and Nahiri battled across Ravnica, their blows cutting as deep as their grudge.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Micah Epstein",
+      "imageId": "0a14331e-8da5-4455-ac69-e510684e989c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "war",
+  "collectorNumber": "139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MISCHIEF_AND_MAYHEM: CardData = {
+  "scryfallId": "9daa44b4-5c30-41d8-b4d6-6219c5729a5f",
+  "oracleId": "831273d4-ced3-4659-b1f6-d5a0aeed3421",
+  "name": "Mischief and Mayhem",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mischief and Mayhem",
+      "manaCost": "{4}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Up to two target creatures each get +4/+4 until end of turn.",
+      "flavorText": "\"The false god Xenagos treats the whole world as his rollick site. If his whims are left unchecked, Theros will be reduced to rubble and ashes.\"\n—Elspeth",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "9daa44b4-5c30-41d8-b4d6-6219c5729a5f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "bng",
+  "collectorNumber": "126",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TANDEM_TACTICS: CardData = {
+  "scryfallId": "59abd105-7a7e-43de-aa45-7ca3d06935ad",
+  "oracleId": "e42cd4da-f049-4304-a16f-911769985e6c",
+  "name": "Tandem Tactics",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tandem Tactics",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Up to two target creatures each get +1/+2 until end of turn. You gain 2 life.",
+      "flavorText": "In times of infestation and war, Zendikar favors the blades that strike in unison.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "David Gaillet",
+      "imageId": "59abd105-7a7e-43de-aa45-7ca3d06935ad"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "BBD-112",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LEAD_ASTRAY: CardData = {
+  "scryfallId": "20a8fd2f-11fa-4879-be89-ea7833cf60d4",
+  "oracleId": "9e8e5ad4-05a3-4757-8797-c37bf49506d5",
+  "name": "Lead Astray",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lead Astray",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Tap up to two target creatures.",
+      "flavorText": "\"Never underestimate our enemy's strength, brutality, . . . or stupidity.\"\n—Commander Eesha",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Adam Rex",
+      "imageId": "20a8fd2f-11fa-4879-be89-ea7833cf60d4"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "jud",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DOWNPOUR: CardData = {
+  "scryfallId": "f220afb1-8638-4b54-b6af-0043b4cc1cef",
+  "oracleId": "78eb5fb1-cb91-4300-9056-4225a416aec0",
+  "name": "Downpour",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Downpour",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Tap up to three target creatures.",
+      "flavorText": "\"The sky holds vast oceans. They are at your fingertips if you know how to call them.\"\n—Talrand, sky summoner",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Eytan Zana",
+      "imageId": "f220afb1-8638-4b54-b6af-0043b4cc1cef"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m13",
+  "collectorNumber": "48",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TERASHI_S_CRY: CardData = {
+  "scryfallId": "7176139f-8a9a-4ee4-a56d-672fd09390e4",
+  "oracleId": "64212311-9d66-4c25-8cf0-88ae4cac132f",
+  "name": "Terashi's Cry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Terashi's Cry",
+      "manaCost": "{3}{W}",
+      "typeLine": "Sorcery — Arcane",
+      "oracleText": "Tap up to three target creatures.",
+      "flavorText": "\"The sun kami is terrible to behold. When its temper flares, best seek shade and pray for forgiveness.\"\n—Sensei Golden-Tail",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jim Murray",
+      "imageId": "7176139f-8a9a-4ee4-a56d-672fd09390e4"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "chk",
+  "collectorNumber": "47",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EARLY_FROST: CardData = {
+  "scryfallId": "5989d4c4-bfa4-4b07-ab64-65a3aee6144e",
+  "oracleId": "9f9cdbc2-d2f2-4390-8506-350fabf3f89a",
+  "name": "Early Frost",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Early Frost",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Tap up to three target lands.",
+      "flavorText": "Under its mists, the earth sleeps.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ben Thompson",
+      "imageId": "5989d4c4-bfa4-4b07-ab64-65a3aee6144e"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "5dn",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INTO_THE_VOID: CardData = {
+  "scryfallId": "236fbb72-3aea-4737-bf90-bd4d4e80b527",
+  "oracleId": "4d5a970b-dd36-4871-a2aa-36ba21917cdf",
+  "name": "Into the Void",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Into the Void",
+      "manaCost": "{3}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Return up to two target creatures to their owners' hands.",
+      "flavorText": "\"The cathars have their swords, the inquisitors their axes. I prefer the 'diplomatic' approach.\"\n—Terhold, archmage of Drunau",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Daarken",
+      "imageId": "236fbb72-3aea-4737-bf90-bd4d4e80b527"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ori",
+  "collectorNumber": "277",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CAPTIVATING_GYRE: CardData = {
+  "scryfallId": "a2bd5c34-fa7e-4fa8-a5b1-c3aa928cc834",
+  "oracleId": "41011f09-ad8a-4eea-aa52-d20a219bc94c",
+  "name": "Captivating Gyre",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Captivating Gyre",
+      "manaCost": "{4}{U}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Return up to three target creatures to their owners' hands.",
+      "flavorText": "\"That's enough of that.\"\n—Atemsis, All-Seeing",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Anthony Palumbo",
+      "imageId": "a2bd5c34-fa7e-4fa8-a5b1-c3aa928cc834"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "m20",
+  "collectorNumber": "51",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DUAL_SHOT: CardData = {
+  "scryfallId": "0bb504d2-d3de-4b09-9007-3d403fc9a216",
+  "oracleId": "e56056dc-637e-4229-ae2c-dfd06d24086b",
+  "name": "Dual Shot",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dual Shot",
+      "manaCost": "{R}",
+      "typeLine": "Instant",
+      "oracleText": "Dual Shot deals 1 damage to each of up to two target creatures.",
+      "flavorText": "\"Through me the rage of Tilonalli burns twice as bright.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Sara Winters",
+      "imageId": "0bb504d2-d3de-4b09-9007-3d403fc9a216"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "xln",
+  "collectorNumber": "141",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DOUBLE_NEGATIVE: CardData = {
+  "scryfallId": "2c7e3c58-3cda-4891-8b3d-33bb21568cf5",
+  "oracleId": "9fe57d74-0394-4263-a1b1-da9773b485a6",
+  "name": "Double Negative",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Double Negative",
+      "manaCost": "{U}{U}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Counter up to two target spells.",
+      "flavorText": "They feared each other for their differences but were absolutely terrified at their similarities.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "2c7e3c58-3cda-4891-8b3d-33bb21568cf5"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "arb",
+  "collectorNumber": "87",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REPEL_THE_DARKNESS: CardData = {
+  "scryfallId": "07ced55b-27e2-4549-90e4-31c9718e1395",
+  "oracleId": "47f5ea79-2bf2-4e17-9c6d-e1cbcd9d30d1",
+  "name": "Repel the Darkness",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Repel the Darkness",
+      "manaCost": "{2}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Tap up to two target creatures.\nDraw a card.",
+      "flavorText": "A boon to those who cannot see in the dark. A bane to those who live in it.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Scott Chou",
+      "imageId": "07ced55b-27e2-4549-90e4-31c9718e1395"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "uma",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SYNCHRONIZED_STRIKE: CardData = {
+  "scryfallId": "8e87d7bc-2a81-41b5-8d26-c0149bd822aa",
+  "oracleId": "59d9070c-dc60-420e-aa0e-32cfb97dfe88",
+  "name": "Synchronized Strike",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Synchronized Strike",
+      "manaCost": "{2}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Untap up to two target creatures. They each get +2/+2 until end of turn.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "David Palumbo",
+      "imageId": "8e87d7bc-2a81-41b5-8d26-c0149bd822aa"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "akr",
+  "collectorNumber": "222",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JOIN_FORCES: CardData = {
+  "scryfallId": "e4dce5e7-c864-4239-bab7-af6a3adcb731",
+  "oracleId": "6f8bf849-890e-4fc7-981f-37ff4b4fb844",
+  "name": "Join Forces",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Join Forces",
+      "manaCost": "{2}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Untap up to two target creatures. They each get +2/+2 until end of turn.",
+      "flavorText": "\"Okay—you take the sixteen ragers and the hulk on the right. I'll take the ten defilers and the plaguelord on the left. Ready?\"\n—Danitha, to Radha",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Aurore Folny",
+      "imageId": "e4dce5e7-c864-4239-bab7-af6a3adcb731"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dmu",
+  "collectorNumber": "21",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PLUNGE_INTO_WINTER: CardData = {
+  "scryfallId": "fe4aceba-f386-457c-bc68-6382eda46754",
+  "oracleId": "a272f15d-caa2-40e9-894f-19638bd5f375",
+  "name": "Plunge into Winter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Plunge into Winter",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Tap up to one target creature. Scry 1, then draw a card.",
+      "flavorText": "When Hylda froze Loch Larent to create her palace, some merfolk dove deep enough underwater to escape the chill. Others weren't so lucky.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Vincent Christiaens",
+      "imageId": "fe4aceba-f386-457c-bc68-6382eda46754"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "woe",
+  "collectorNumber": "22",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REINFORCEMENTS: CardData = {
+  "scryfallId": "36f250f5-e667-458d-aed7-3ead3f3db64b",
+  "oracleId": "ff27ff96-afd2-45df-b799-3046179e27c6",
+  "name": "Reinforcements",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reinforcements",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Put up to three target creature cards from your graveyard on top of your library.",
+      "flavorText": "\"Let them send their legions! I will show them that my truth is stronger than their swords.\"\n—General Varchild",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Diana Vick",
+      "imageId": "36f250f5-e667-458d-aed7-3ead3f3db64b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "me2",
+  "collectorNumber": "28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -78697,6 +79279,23 @@ export const ENGINE_CARDS: CardData[] = [
   WITCHING_WELL,
   TROSTANI_THREE_WHISPERS,
   ARAGORN_THE_UNITER,
+  DAUNTLESS_ONSLAUGHT,
+  NAHIRI_S_STONEBLADES,
+  MISCHIEF_AND_MAYHEM,
+  TANDEM_TACTICS,
+  LEAD_ASTRAY,
+  DOWNPOUR,
+  TERASHI_S_CRY,
+  EARLY_FROST,
+  INTO_THE_VOID,
+  CAPTIVATING_GYRE,
+  DUAL_SHOT,
+  DOUBLE_NEGATIVE,
+  REPEL_THE_DARKNESS,
+  SYNCHRONIZED_STRIKE,
+  JOIN_FORCES,
+  PLUNGE_INTO_WINTER,
+  REINFORCEMENTS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
