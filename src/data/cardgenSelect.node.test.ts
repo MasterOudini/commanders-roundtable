@@ -1396,6 +1396,35 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Benefactor's Draught", 'delayed trigger'],
   ['Blazing Crescendo', 'play-from-exile permission'],
   ['Blazing Shoal', 'cast-time alternative cost'],
+
+  // D273 (M6.4dj) — the B/C residue; FOUR new classes, all keywords the
+  // engine does not enforce yet select.cjs still offers: miracle, transmute
+  // (two cards), harmonize, recover. Each blocks a card whose OTHER lines
+  // would land today (D90: never half-execute).
+  //
+  // ⚠️ Clear the Mind shuffles a graveyard into a library — a SHUFFLE is
+  // randomness, and the spell seam does not thread rngAfter (api.ts): the
+  // ctx.random class, not a prompt.
+  // ⚠️ Chivalric Alliance: "whenever you attack with two or more creatures"
+  // WOULD land (AttackersDeclared batches its attackers, a count is a match
+  // question) — its discard-cost line is what refuses it.
+  ['Blooming Blast', 'gift mechanic'],
+  ['Bonfire of the Damned', 'miracle mechanic'],
+  ['Brainspoil', 'transmute mechanic'],
+  ['Bramble Wurm', 'graveyard-activated ability'],
+  ['Cabal Patriarch', 'exile-from-graveyard cost'],
+  ['Cat Collector', 'once-per-turn trigger memory'],
+  ['Cave-In', 'cast-time alternative cost'],
+  ['Cerulean Wisps', 'UEOT color change'],
+  ['Channeled Dragonfire', 'harmonize mechanic'],
+  ['Chivalric Alliance', 'discard-cost chooser'],
+  ['Clear the Mind', 'ctx.random'],
+  ['Clutch of the Undercity', 'transmute mechanic'],
+  ['Colossal Skyturtle', 'hand-activated ability'],
+  ['Compulsion', 'discard-cost chooser'],
+  ['Controvert', 'recover mechanic'],
+  ["Council's Deliberation", 'scry-surveil event discriminator'],
+  ['Crackleburr', 'tap-creatures cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

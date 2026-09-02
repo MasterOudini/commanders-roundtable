@@ -69735,6 +69735,277 @@ export const BLIGHTED_SHAMAN: CardData = {
   "singleImage": true
 };
 
+export const BLINDING_SPRAY: CardData = {
+  "scryfallId": "9b588355-c349-458d-aeb7-0e2780caa3f9",
+  "oracleId": "88ce2017-83a6-4b55-afba-371875bf2172",
+  "name": "Blinding Spray",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blinding Spray",
+      "manaCost": "{4}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Creatures your opponents control get -4/-0 until end of turn.\nDraw a card.",
+      "flavorText": "\"The stronger our enemies seem, the more vulnerable they are.\"\n—Sultai secret",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Wayne Reynolds",
+      "imageId": "9b588355-c349-458d-aeb7-0e2780caa3f9"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ktk",
+  "collectorNumber": "32",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLUR: CardData = {
+  "scryfallId": "77a43413-3ab0-4ef6-83de-192a11d48f00",
+  "oracleId": "00b36996-43c6-42a5-892c-c7c8864cf973",
+  "name": "Blur",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blur",
+      "manaCost": "{2}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Exile target creature you control, then return that card to the battlefield under its owner's control.\nDraw a card.",
+      "flavorText": "\"It's as much a trick of the mind as it is a trick of the eye.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Dave Greco",
+      "imageId": "77a43413-3ab0-4ef6-83de-192a11d48f00"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "clb",
+  "collectorNumber": "58",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BOROS_GUILDMAGE: CardData = {
+  "scryfallId": "072a1ff1-9c50-426a-a83c-817bde5beab7",
+  "oracleId": "266c2f49-82eb-48e9-a7ea-e0da787fa40e",
+  "name": "Boros Guildmage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Boros Guildmage",
+      "manaCost": "{R/W}{R/W}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{1}{R}: Target creature gains haste until end of turn.\n{1}{W}: Target creature gains first strike until end of turn.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "072a1ff1-9c50-426a-a83c-817bde5beab7"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "rav",
+  "collectorNumber": "242",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BRINE_SHAMAN: CardData = {
+  "scryfallId": "4b2dfbde-be23-42ea-be68-76e2c019c317",
+  "oracleId": "3e3e2f71-2159-4f83-a9c1-a67ecac8a711",
+  "name": "Brine Shaman",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Brine Shaman",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Cleric Shaman",
+      "oracleText": "{T}, Sacrifice a creature: Target creature gets +2/+2 until end of turn.\n{1}{U}{U}, Sacrifice a creature: Counter target creature spell.",
+      "flavorText": "\"The shamans of Marit Lage do her bidding in secret, but they do it gladly.\"\n—Halvor Arenson, Kjeldoran priest",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Cornelius Brudi",
+      "imageId": "4b2dfbde-be23-42ea-be68-76e2c019c317"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "me2",
+  "collectorNumber": "80",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CIRCUIT_MENDER: CardData = {
+  "scryfallId": "6c6fc201-9365-40be-bc59-f3715fd3d15d",
+  "oracleId": "1665ca9f-176d-40f1-a4e9-42da4f1236e9",
+  "name": "Circuit Mender",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Circuit Mender",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Insect",
+      "oracleText": "When this creature enters, you gain 2 life.\nWhen this creature leaves the battlefield, draw a card.",
+      "flavorText": "Inspired by industrious silkworms, its maker crafted it to restore the broken pieces of the world.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Hector Ortiz",
+      "imageId": "6c6fc201-9365-40be-bc59-f3715fd3d15d"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "j22",
+  "collectorNumber": "760",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLACHAN_FESTIVAL: CardData = {
+  "scryfallId": "324b5234-ffbf-4801-a475-8f693679ae2f",
+  "oracleId": "5396045d-744b-435e-8324-a1bfbb03449d",
+  "name": "Clachan Festival",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Clachan Festival",
+      "manaCost": "{2}{W}",
+      "typeLine": "Kindred Enchantment — Kithkin",
+      "oracleText": "When this enchantment enters, create two 1/1 green and white Kithkin creature tokens.\n{4}{W}: Create a 1/1 green and white Kithkin creature token.",
+      "flavorText": "Unmatched in their harmony, the troupe took home the festival's trophy with a stirring rendition of \"Dundoolin Downs.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kev Fang",
+      "imageId": "324b5234-ffbf-4801-a475-8f693679ae2f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ecl",
+  "collectorNumber": "10",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COGWORKER_S_PUZZLEKNOT: CardData = {
+  "scryfallId": "00d594df-c51b-4936-9af1-536dab1792ae",
+  "oracleId": "2065e9d0-c6e9-4270-898e-9822b532d467",
+  "name": "Cogworker's Puzzleknot",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cogworker's Puzzleknot",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "When this artifact enters, create a 1/1 colorless Servo artifact creature token.\n{1}{W}, Sacrifice this artifact: Create a 1/1 colorless Servo artifact creature token.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Cliff Childs",
+      "imageId": "00d594df-c51b-4936-9af1-536dab1792ae"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "kld",
+  "collectorNumber": "201",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONFIRM_SUSPICIONS: CardData = {
+  "scryfallId": "1d1463af-8f22-4771-af19-3799ffe706b8",
+  "oracleId": "a30d076b-c942-45e4-b943-3749ce955291",
+  "name": "Confirm Suspicions",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Confirm Suspicions",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target spell.\nInvestigate three times. (To investigate, create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": "Everyone has something to hide.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "David Gaillet",
+      "imageId": "1d1463af-8f22-4771-af19-3799ffe706b8"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "mkc",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -73049,6 +73320,39 @@ export const SOLDIER_22_R_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const KITHKIN_TOKEN: CardData = {
+  "scryfallId": "2ed11e1b-2289-48d2-8d96-ee7e590ecfd4",
+  "oracleId": "199a2ccc-f3e3-405e-a0eb-a97b964918d2",
+  "name": "Kithkin",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Kithkin",
+      "manaCost": "",
+      "typeLine": "Token Creature — Kithkin",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Jeff Laubenstein",
+      "imageId": "2ed11e1b-2289-48d2-8d96-ee7e590ecfd4"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tecl",
+  "collectorNumber": "7",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -75073,6 +75377,14 @@ export const ENGINE_CARDS: CardData[] = [
   BISHOP_OF_WINGS,
   BLIGHT_GRENADE,
   BLIGHTED_SHAMAN,
+  BLINDING_SPRAY,
+  BLUR,
+  BOROS_GUILDMAGE,
+  BRINE_SHAMAN,
+  CIRCUIT_MENDER,
+  CLACHAN_FESTIVAL,
+  COGWORKER_S_PUZZLEKNOT,
+  CONFIRM_SUSPICIONS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -75170,4 +75482,5 @@ export const ENGINE_CARDS: CardData[] = [
   GRIFFIN_22_TOKEN,
   ELEMENTAL_11_R_TOKEN,
   SOLDIER_22_R_TOKEN,
+  KITHKIN_TOKEN,
 ];

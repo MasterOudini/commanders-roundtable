@@ -8124,6 +8124,56 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       and Phase 1's seams (spell-side prompts, up-to-N chooser, discard-cost
       chooser, cycling, suspend-class keywords) are the road after it; the
       guildmage generator can absorb any further `{C}, {T}:` two-liner.
+- [x] **M6.4dj — Eight landed: four unenforced keywords get their names, and
+      the loop's scripts move to H: (2026-09-02):** **3,775 of 31,692
+      Commander-legal cards now execute completely, up from 3,767.**
+      `SHIPPED_SCRIPTS` 1,870 → 1,878; ledger 690 (+17, FOUR new classes).
+      ONE new token pin (G/W Kithkin, `tecl 7`), ZERO new support bodies.
+      **Sliver Queen reaches 3,726 from 84 legendaries.** Decisions in
+      **D273**.
+      ⚠️ **The B/C residue is mostly keywords the engine does not run:**
+      `miracle mechanic` (Bonfire of the Damned), `transmute mechanic`
+      (Brainspoil, Clutch of the Undercity), `harmonize mechanic` (Channeled
+      Dragonfire), `recover mechanic` (Controvert) — whole-card refusals
+      under D90. `Clear the Mind` is `ctx.random` (a SHUFFLE is randomness;
+      the spell seam threads no `rngAfter`). `Chivalric Alliance`'s
+      attack-count trigger WOULD land; its discard-cost line refuses it.
+      ⚠️ **Every suite green on the first run AGAIN** (8 files, 29 tests) —
+      the second batch in a row on the D272 recipe.
+      ⚠️ **THE LOOP'S SCRIPTS NOW LIVE ON H:** — a restart during D272's
+      close-out wiped the scratchpad a third time (gate 120's log and every
+      script); from D273 on, WANTED/ledger/repin scripts, the dump tool and
+      the recipe are in `.crt-m64-drafts\dNNN\`; the scratchpad holds gate
+      logs only. **A gate with no log is not a passed gate** — gate 120 was
+      re-run.
+      **Also:** Brine Shaman (typed "creature spell" stack target + a
+      creature-sacrifice price; the enchantment-spell refusal is the proof);
+      Circuit Mender (Thalakos Seer's looks-back LEAVES watcher — a bounce
+      draws too); Confirm Suspicions (counter + three Clues, never without the
+      counter); Clachan Festival (two Kithkin on entry, one per `{4}{W}`);
+      Cogworker's Puzzleknot (a Servo on entry, a second from a def whose
+      source is in the graveyard); Blur (Acrobatic Maneuver's EXACT text one
+      batch later); Blinding Spray (the opponents' creatures −4/−0 + draw);
+      Boros Guildmage (the guildmage family's hand specimen — mana-only, no
+      tap). **Refused 17:** Blooming Blast, Bonfire of the Damned, Brainspoil,
+      Bramble Wurm, Cabal Patriarch, Cat Collector, Cave-In, Cerulean Wisps,
+      Channeled Dragonfire, Chivalric Alliance, Clear the Mind, Clutch of the
+      Undercity, Colossal Skyturtle, Compulsion, Controvert, Council's
+      Deliberation, Crackleburr.
+      ⚠️ **The pool is now 250** — dry around D285–D295; then engine seams
+      only.
+      Fixtures 2,128 (2,023 by name + 98 tokens) · botPool artifact 137 /
+      creature 1,971 / enchantment 69 / instant 686 / land 340 / sorcery 572 ·
+      ladder [1278, 1377, 3170, 5084, 6296] · batch.json 250.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,958 files, 10,253 passed / 10 skipped · 500-seed gate 721.2 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D273): the unenforced-keyword classes (cycling,
+      suspend, miracle, transmute, harmonize, recover, freerunning, mayhem,
+      channel/reinforce as hand-activated) are now a named family worth ONE
+      engine design — "cast/activate from a zone other than the hand at an
+      alternative cost" — rather than eight separate refusals; the positional
+      re-check (D271) and the keyword-qualifier drop (D269) remain the two
+      measured repairs; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

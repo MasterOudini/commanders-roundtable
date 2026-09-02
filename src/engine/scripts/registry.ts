@@ -7,6 +7,14 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { BLINDING_SPRAY_SCRIPT } from './cards/blindingSpray';
+import { BLUR_SCRIPT } from './cards/blur';
+import { BOROS_GUILDMAGE_SCRIPT } from './cards/borosGuildmage';
+import { BRINE_SHAMAN_SCRIPT } from './cards/brineShaman';
+import { CIRCUIT_MENDER_SCRIPT } from './cards/circuitMender';
+import { CLACHAN_FESTIVAL_SCRIPT } from './cards/clachanFestival';
+import { COGWORKERS_PUZZLEKNOT_SCRIPT } from './cards/cogworkersPuzzleknot';
+import { CONFIRM_SUSPICIONS_SCRIPT } from './cards/confirmSuspicions';
 import { ACROBATIC_MANEUVER_SCRIPT } from './cards/acrobaticManeuver';
 import { AETHER_SPELLBOMB_SCRIPT } from './cards/aetherSpellbomb';
 import { ANA_DISCIPLE_SCRIPT } from './cards/anaDisciple';
@@ -1991,6 +1999,14 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BLINDING_SPRAY_SCRIPT,
+  BLUR_SCRIPT,
+  BOROS_GUILDMAGE_SCRIPT,
+  BRINE_SHAMAN_SCRIPT,
+  CIRCUIT_MENDER_SCRIPT,
+  CLACHAN_FESTIVAL_SCRIPT,
+  COGWORKERS_PUZZLEKNOT_SCRIPT,
+  CONFIRM_SUSPICIONS_SCRIPT,
   ACROBATIC_MANEUVER_SCRIPT,
   AETHER_SPELLBOMB_SCRIPT,
   ANA_DISCIPLE_SCRIPT,

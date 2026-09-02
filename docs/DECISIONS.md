@@ -18116,3 +18116,62 @@ two deck swaps, 3,718 from 84 legendaries.
 
 **Verified:** `verify.cjs --full` — ALL FIVE GATES: 1,950 files, 10,208 passed / 10 skipped · 500-seed gate 705.0 s · build
 clean · probe 124/124 · battery 130/130.
+
+## D273 — M6.4dj: eight landed — four unenforced keywords get their names, and the loop's scripts move to H: (2026-09-02)
+
+**3,775 of 31,692 Commander-legal cards execute completely, up from 3,767.**
+SHIPPED_SCRIPTS 1,870 → 1,878; ledger 673 → 690 (+17, **FOUR new classes**).
+ONE new token pin (the G/W Kithkin, `tecl 7`), ZERO new support bodies.
+**Sliver Queen reaches 3,726 from 84 legendaries.**
+
+**The B/C residue is mostly keywords the engine does not run.** Eight land,
+17 refuse, and four of the refusals open classes for keywords `select.cjs`
+keeps offering because their OTHER lines are scriptable: `miracle mechanic`
+(Bonfire of the Damned), `transmute mechanic` (Brainspoil, Clutch of the
+Undercity), `harmonize mechanic` (Channeled Dragonfire), `recover mechanic`
+(Controvert). Each is a whole-card refusal under D90 — the printed keyword is
+an ability the bot could not use. `Clear the Mind` is refused for a SHUFFLE:
+a shuffle is randomness and the spell seam threads no `rngAfter` (`api.ts`),
+so it is `ctx.random`, not a prompt. `Chivalric Alliance`'s "whenever you
+attack with two or more creatures" WOULD land (`AttackersDeclared` batches its
+attackers; a count is a match question) — its discard-cost line is what
+refuses it.
+
+⚠️ **EVERY SUITE GREEN ON THE FIRST RUN AGAIN** — 8 files, 29 tests, zero
+test-side fixes, the second batch in a row. Same recipe as D272: a shipped
+precedent read for every shape before drafting, every `printed()` text pasted
+from the dump, the one open question made into a test.
+
+⚠️ **THE LOOP'S SCRIPTS NOW LIVE ON H:.** A session restart during D272's
+close-out wiped the scratchpad for the third time in the arc, taking gate
+120's log and every doc and port script; from this batch on the WANTED /
+ledger / repin scripts, the dump tool and the recipe are written to
+`.crt-m64-drafts\dNNN\`, which survives, and the scratchpad holds only gate
+logs. **A gate with no log is not a passed gate** — gate 120 was re-run from
+scratch.
+
+**The rest of the batch.** `Brine Shaman` reuses D272's typed stack target
+for "target creature spell" with a creature-sacrifice price — its refusal case
+(an enchantment spell) is the proof. `Circuit Mender` is Thalakos Seer's
+looks-back LEAVES watcher (a bounce draws too) behind a self-entry gain.
+`Confirm Suspicions` counters and makes three Clues from one resolve, none of
+them without the counter (CR 608.2b). `Clachan Festival` makes two Kithkin on
+entry and one per `{4}{W}` — the batch's one token pin, looked up by printing
+id. `Cogworker's Puzzleknot` makes a Servo on entry and a second by a def
+whose source is already in the graveyard (D159). `Blur` is Acrobatic
+Maneuver's EXACT text one batch later. `Blinding Spray` is Drown in Sorrow's
+sweep narrowed to the opponents' creatures. `Boros Guildmage` is the guildmage
+family's hand-written specimen: mana-only costs, no tap, no summoning sickness
+— the generator's table assumes a `{T}`.
+
+⚠️ **The pool is now 250:** at eight to twelve landed from 25 offered, the
+offline order runs dry around D285–D295, and from there every card needs an
+engine seam (D271/D272, unchanged).
+
+Fixtures 2,119 → 2,128 (2,023 by name + 98 tokens). botPool artifact 137 /
+creature 1,971 / enchantment 69 / instant 686 / land 340 / sorcery 572 —
+ladder [1278, 1377, 3170, 5084, 6296] — batch.json 250 — botDeck: the header
+alone moved, 3,726 from 84 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 1,958 files, 10,253 passed / 10 skipped · 500-seed gate 721.2 s · build
+clean · probe 124/124 · battery 130/130.

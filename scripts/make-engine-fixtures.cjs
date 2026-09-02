@@ -2466,6 +2466,14 @@ const WANTED = [
   'Bishop of Wings',
   'Blight Grenade',
   'Blighted Shaman',
+  'Blinding Spray',
+  'Blur',
+  'Boros Guildmage',
+  'Brine Shaman',
+  'Circuit Mender',
+  'Clachan Festival',
+  "Cogworker's Puzzleknot",
+  'Confirm Suspicions',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -2647,6 +2655,9 @@ const WANTED_TOKENS = [
   { name: 'Griffin', set: 'ttsr', cn: '1', key: 'GRIFFIN_22_TOKEN' },
   { name: 'Elemental', set: 'tm20', cn: '7', key: 'ELEMENTAL_11_R_TOKEN' },
   { name: 'Soldier', set: 'ttle', cn: '2', key: 'SOLDIER_22_R_TOKEN' },
+  // Batch D273. The G/W 1/1 Kithkin (Clachan Festival) — TOKEN_TABLE
+  // 'Kithkin|1/1|GW|Creature|' resolves to tecl 7, looked up by printing id.
+  { name: 'Kithkin', set: 'tecl', cn: '7', key: 'KITHKIN_TOKEN' },
 ];
 
 function constName(name) {
