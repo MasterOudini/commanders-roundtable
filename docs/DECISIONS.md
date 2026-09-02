@@ -18239,3 +18239,62 @@ alone moved, 3,734 from 84 legendaries.
 
 **Verified:** `verify.cjs --full` — ALL FIVE GATES: 1,966 files, 10,301 passed / 10 skipped · 500-seed gate 726.1 s · build
 clean · probe 124/124 · battery 130/130.
+
+## D275 — M6.4dl: nine landed — four free spells refused in one batch, and a draw is one event however many cards (2026-09-02)
+
+**3,792 of 31,692 Commander-legal cards execute completely, up from 3,783.**
+SHIPPED_SCRIPTS 1,886 → 1,895; ledger 707 → 723 (+16, **THREE new
+classes**). ONE new token pin (the WHITE Kithkin Soldier, `tshm 1` — not
+D273's green-white Kithkin), ZERO new support bodies. **Sliver Queen reaches
+3,743 from 84 legendaries.**
+
+⚠️ **FOUR FREE SPELLS IN ONE BATCH.** Ensnare, Foil, Force of Vigor and
+Force of Will all carry a cast-time alternative cost, and all four are refused
+for it — the class now holds the format's most-played counterspell. It is the
+single most valuable seam the pool still names: an alternative cost is a
+cast-stage choice, one prompt at the cast rather than a resolve-side ask.
+
+⚠️ **A DRAW IS ONE EVENT HOWEVER MANY CARDS.** `Feed the Infection` ("draw
+three") and `Futurist Forge` ("draw two") both read 1 on the first run because
+`drawEvents` batches a multi-card draw into ONE `CardsMoved` event and the
+test helper counted EVENTS. The engine was right; the helper now counts MOVES.
+Two test-side fixes — the first-run-green streak ends at three, on a counting
+helper and not on a card.
+
+**The enters-tapped funnel holds for artifacts through `put()`.** `Elixir of
+Vitality` asserts it arrives tapped when placed straight onto the battlefield
+(D134's funnel catches every path, as it did for the Sphere lands), then sells
+itself for 4 life on the tap or 8 for eight mana more.
+
+**The rest of the batch.** `Guardian of Cloverdell` makes three Kithkin
+Soldiers and sells one for a life — a creature-SUBTYPE sacrifice chooser (Arms
+Dealer's Goblin), with the Treefolk refused as the price. `Feed the
+Infection`'s Corrupted rider reads each opponent's poison off the player
+state: two counters are nothing, three cost 3 life. `Fountain of Renewal` is
+Nyx-Fleece Ram's upkeep gain (mine, never the opponent's) with a Cluestone way
+out. `Grim Bauble` aims its entry at an opponent's creature and surveils from
+an activation. `Gruul Guildmage` sells a land to bolt a player or planeswalker
+with the Guildmage as the damage source, and its reminder-only first line — a
+hybrid-mana note — is counted complete without a claim, as Noxious Revival's
+was. `Golgari Guildmage` pays a creature to return a creature card to HAND and
+puts a counter for five. `Filigree Familiar` draws when it DIES and not when
+it is bounced. `Futurist Forge` draws on entry and two more for its sacrifice.
+
+**Sixteen refused, three new classes.** `Fire Nation Occupation`'s Soldier
+token carries FIREBENDING, a keyword the engine has no notion of. `Garbage
+Fire` is a DRAFT-MATTERS card: outside a draft its noted number is nothing.
+`Ghostfire` "is colorless" — a characteristic-defining static on a SPELL,
+which no `StaticDef` has ever applied from the stack. `Exterminatus` needs the
+keyword LOSS direction and is filed with Crash Landing. Plus cycling,
+keyword-predicate sacrifice cost, three hand-activated (Reinforce, Channel
+×2), sacrifice-event discriminator, the Ring, recover.
+
+⚠️ **The pool is now 200.**
+
+Fixtures 2,136 → 2,146 (2,040 by name + 99 tokens). botPool artifact 141 /
+creature 1,978 / enchantment 69 / instant 690 / land 340 / sorcery 574 —
+ladder [1261, 1360, 3153, 5067, 6279] — batch.json 200 — botDeck: the header
+alone moved, 3,743 from 84 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 1,975 files, 10,352 passed / 10 skipped · 500-seed gate 718.6 s · build
+clean · probe 124/124 · battery 130/130.

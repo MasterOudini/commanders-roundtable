@@ -8219,6 +8219,46 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       that are optional triggers rather than resolve-side asks; graveyard-
       zone watchers are proven; the unenforced-keyword family (D273) and the
       two measured aim-layer repairs (D269/D271) stand.
+- [x] **M6.4dl — Nine landed: four free spells refused in one batch, and a
+      draw is one event however many cards (2026-09-02):** **3,792 of 31,692
+      Commander-legal cards now execute completely, up from 3,783.**
+      `SHIPPED_SCRIPTS` 1,886 → 1,895; ledger 723 (+16, THREE new classes).
+      ONE new token pin (WHITE Kithkin Soldier `tshm 1`), ZERO new support
+      bodies. **Sliver Queen reaches 3,743 from 84 legendaries.** Decisions
+      in **D275**.
+      ⚠️ **Four free spells in one batch** (Ensnare, Foil, Force of Vigor,
+      Force of Will) all refused for `cast-time alternative cost` — the
+      class now holds Force of Will; an alternative cost is ONE cast-stage
+      prompt and the most valuable seam the pool still names.
+      ⚠️ **A draw is one event however many cards:** `drawEvents` batches a
+      multi-card draw into ONE `CardsMoved`; count MOVES, never events (Feed
+      the Infection, Futurist Forge — two test-side fixes, the first-run
+      streak ends at three on a helper, not a card).
+      **The enters-tapped funnel holds for artifacts through `put()`**
+      (Elixir of Vitality asserts it). **Also:** Guardian of Cloverdell
+      (three Kithkin Soldiers; a creature-SUBTYPE sacrifice chooser, the
+      Treefolk refused); Feed the Infection (Corrupted reads poison ≥3 off
+      the player state); Fountain of Renewal (Nyx-Fleece Ram's upkeep + a
+      Cluestone way out); Grim Bauble (opponent-creature entry aim; surveil
+      from an activation); Gruul Guildmage (land-sac bolt with the Guildmage
+      as source; its reminder-only first line counts complete unclaimed);
+      Golgari Guildmage; Filigree Familiar (DIES draws, a bounce does not);
+      Futurist Forge. **Refused 16, three new classes:** `firebending
+      mechanic` (Fire Nation Occupation), `draft-matters` (Garbage Fire),
+      `color-defining static` (Ghostfire); Exterminatus filed under the
+      temporary-grant class for the LOSS direction; plus Fiery Fall,
+      Flamewright, Fowl Strike, Ghost-Lit Nourisher, Ghost-Lit Redeemer,
+      Gluttonous Guest, Gollum's Bite, Grim Harvest.
+      ⚠️ **The pool is now 200.**
+      Fixtures 2,146 (2,040 by name + 99 tokens) · botPool artifact 141 /
+      creature 1,978 / enchantment 69 / instant 690 / land 340 / sorcery 574 ·
+      ladder [1261, 1360, 3153, 5067, 6279] · batch.json 200.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,975 files, 10,352 passed / 10 skipped · 500-seed gate 718.6 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D275): the cast-time alternative cost is now the
+      highest-value single seam (Force of Will, Foil, Gush, Cave-In, Ensnare
+      …); `optional: true` (D274) and the unenforced-keyword family (D273)
+      stand; the two measured aim-layer repairs (D269/D271) stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

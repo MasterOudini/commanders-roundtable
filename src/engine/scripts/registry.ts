@@ -7,6 +7,15 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ELIXIR_OF_VITALITY_SCRIPT } from './cards/elixirOfVitality';
+import { FEED_THE_INFECTION_SCRIPT } from './cards/feedTheInfection';
+import { FILIGREE_FAMILIAR_SCRIPT } from './cards/filigreeFamiliar';
+import { FOUNTAIN_OF_RENEWAL_SCRIPT } from './cards/fountainOfRenewal';
+import { FUTURIST_FORGE_SCRIPT } from './cards/futuristForge';
+import { GOLGARI_GUILDMAGE_SCRIPT } from './cards/golgariGuildmage';
+import { GRIM_BAUBLE_SCRIPT } from './cards/grimBauble';
+import { GRUUL_GUILDMAGE_SCRIPT } from './cards/gruulGuildmage';
+import { GUARDIAN_OF_CLOVERDELL_SCRIPT } from './cards/guardianOfCloverdell';
 import { CREEPING_CHILL_SCRIPT } from './cards/creepingChill';
 import { CREMATE_SCRIPT } from './cards/cremate';
 import { CUNNING_STRIKE_SCRIPT } from './cards/cunningStrike';
@@ -2007,6 +2016,15 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ELIXIR_OF_VITALITY_SCRIPT,
+  FEED_THE_INFECTION_SCRIPT,
+  FILIGREE_FAMILIAR_SCRIPT,
+  FOUNTAIN_OF_RENEWAL_SCRIPT,
+  FUTURIST_FORGE_SCRIPT,
+  GOLGARI_GUILDMAGE_SCRIPT,
+  GRIM_BAUBLE_SCRIPT,
+  GRUUL_GUILDMAGE_SCRIPT,
+  GUARDIAN_OF_CLOVERDELL_SCRIPT,
   CREEPING_CHILL_SCRIPT,
   CREMATE_SCRIPT,
   CUNNING_STRIKE_SCRIPT,

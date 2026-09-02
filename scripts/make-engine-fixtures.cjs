@@ -2482,6 +2482,15 @@ const WANTED = [
   'Dispatch',
   'Dream Fracture',
   'Drogskol Cavalry',
+  'Elixir of Vitality',
+  'Feed the Infection',
+  'Filigree Familiar',
+  'Fountain of Renewal',
+  'Futurist Forge',
+  'Golgari Guildmage',
+  'Grim Bauble',
+  'Gruul Guildmage',
+  'Guardian of Cloverdell',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -2666,6 +2675,10 @@ const WANTED_TOKENS = [
   // Batch D273. The G/W 1/1 Kithkin (Clachan Festival) — TOKEN_TABLE
   // 'Kithkin|1/1|GW|Creature|' resolves to tecl 7, looked up by printing id.
   { name: 'Kithkin', set: 'tecl', cn: '7', key: 'KITHKIN_TOKEN' },
+  // Batch D275. The WHITE 1/1 Kithkin Soldier (Guardian of Cloverdell) —
+  // TOKEN_TABLE 'Kithkin Soldier|1/1|W|Creature|' resolves to tshm 1, looked
+  // up by printing id; a different token from the G/W Kithkin above.
+  { name: 'Kithkin Soldier', set: 'tshm', cn: '1', key: 'KITHKIN_SOLDIER_TOKEN' },
 ];
 
 function constName(name) {

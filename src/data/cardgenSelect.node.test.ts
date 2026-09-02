@@ -1450,6 +1450,37 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Earthbrawn', 'hand-activated ability'],
   ["Electro's Bolt", 'mayhem mechanic'],
   ['Elemental Masterpiece', 'hand-activated ability'],
+
+  // D275 (M6.4dl) — the E/F/G residue; THREE new classes.
+  //
+  // ⚠️ Four FREE-SPELL alternative costs in one batch (Ensnare, Foil, Force
+  // of Vigor, Force of Will) — the cast-time alternative cost class keeps
+  // growing and now holds the format's most-played counterspell.
+  // ⚠️ Exterminatus needs the keyword LOSS direction (indestructible, until
+  // end of turn) — filed with Crash Landing under the temporary grant class,
+  // whose comment already names the direction as missing.
+  // ⚠️ Fire Nation Occupation's Soldier token carries FIREBENDING, a keyword
+  // the engine has no notion of; the card would make tokens that half-work.
+  // ⚠️ Garbage Fire is a DRAFT-MATTERS card: outside a draft its noted number
+  // is nothing, and the engine has no draft.
+  // ⚠️ Ghostfire "is colorless" — a characteristic-defining static on a
+  // SPELL, which no StaticDef has ever applied from the stack.
+  ['Ensnare', 'cast-time alternative cost'],
+  ['Exterminatus', 'temporary keyword/ability grant'],
+  ['Fiery Fall', 'cycling mechanic'],
+  ['Fire Nation Occupation', 'firebending mechanic'],
+  ['Flamewright', 'keyword-predicate sacrifice cost'],
+  ['Foil', 'cast-time alternative cost'],
+  ['Force of Vigor', 'cast-time alternative cost'],
+  ['Force of Will', 'cast-time alternative cost'],
+  ['Fowl Strike', 'hand-activated ability'],
+  ['Garbage Fire', 'draft-matters'],
+  ['Ghost-Lit Nourisher', 'hand-activated ability'],
+  ['Ghost-Lit Redeemer', 'hand-activated ability'],
+  ['Ghostfire', 'color-defining static'],
+  ['Gluttonous Guest', 'sacrifice-event discriminator'],
+  ["Gollum's Bite", 'the Ring mechanic'],
+  ['Grim Harvest', 'recover mechanic'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

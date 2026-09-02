@@ -70286,6 +70286,308 @@ export const DROGSKOL_CAVALRY: CardData = {
   "singleImage": true
 };
 
+export const ELIXIR_OF_VITALITY: CardData = {
+  "scryfallId": "60450239-6055-4561-9f8c-565b4e4d9cb1",
+  "oracleId": "635cc10e-ca25-49a2-af44-3b064263a254",
+  "name": "Elixir of Vitality",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elixir of Vitality",
+      "manaCost": "{4}",
+      "typeLine": "Artifact",
+      "oracleText": "This artifact enters tapped.\n{T}, Sacrifice this artifact: You gain 4 life.\n{8}, {T}, Sacrifice this artifact: You gain 8 life.",
+      "flavorText": "\"Eternal life or your money back.\"\n—Unnamed Suq'Ata merchant, deceased",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Douglas Shuler",
+      "imageId": "60450239-6055-4561-9f8c-565b4e4d9cb1"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "300",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FEED_THE_INFECTION: CardData = {
+  "scryfallId": "9f013a1a-d4b9-4380-9802-c299ee6c4492",
+  "oracleId": "405a2cf9-62a0-460c-bf2a-ce4c351b61ce",
+  "name": "Feed the Infection",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Feed the Infection",
+      "manaCost": "{3}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "You draw three cards and you lose 3 life.\nCorrupted — Each opponent who has three or more poison counters loses 3 life.",
+      "flavorText": "They wished to become vital parts of the Dross Pits. Azax-Azog granted their request.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jason A. Engle",
+      "imageId": "9f013a1a-d4b9-4380-9802-c299ee6c4492"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Corrupted"
+  ],
+  "setCode": "one",
+  "collectorNumber": "93",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FILIGREE_FAMILIAR: CardData = {
+  "scryfallId": "2859f9d8-40eb-4db4-b2ed-49d4724f93dc",
+  "oracleId": "b544f690-e4bf-4a5b-984d-9256518fd574",
+  "name": "Filigree Familiar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Filigree Familiar",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Fox",
+      "oracleText": "When this creature enters, you gain 2 life.\nWhen this creature dies, draw a card.",
+      "flavorText": "\"It's the must-have gift for everyone on your list. Get one for yourself, too!\"\n—Chammi, curio vendor",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Izzy",
+      "imageId": "2859f9d8-40eb-4db4-b2ed-49d4724f93dc"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "GNT-52",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FOUNTAIN_OF_RENEWAL: CardData = {
+  "scryfallId": "26894980-8961-4479-85dd-5f01c899718b",
+  "oracleId": "df024c55-c008-48ec-a1a5-02ce336e3de6",
+  "name": "Fountain of Renewal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fountain of Renewal",
+      "manaCost": "{1}",
+      "typeLine": "Artifact",
+      "oracleText": "At the beginning of your upkeep, you gain 1 life.\n{3}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "Entrepreneurs have attempted to sell the water, but to no avail. Whatever magic it contains disappears upon bottling.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Adam Paquette",
+      "imageId": "26894980-8961-4479-85dd-5f01c899718b"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "m19",
+  "collectorNumber": "235",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FUTURIST_FORGE: CardData = {
+  "scryfallId": "a50feebf-c660-43f1-9fae-75294703b346",
+  "oracleId": "0e5f97b5-bb8c-4688-a141-5db4d4eeccf0",
+  "name": "Futurist Forge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Futurist Forge",
+      "manaCost": "{1}{U}",
+      "typeLine": "Artifact",
+      "oracleText": "When this artifact enters, draw a card.\n{3}{U}, Sacrifice this artifact: Draw two cards.",
+      "flavorText": "\"You saw what I built in a cave. Imagine what I can do here.\"\n—Tony Stark",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Arthur Yuan",
+      "imageId": "a50feebf-c660-43f1-9fae-75294703b346"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "msh",
+  "collectorNumber": "55",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOLGARI_GUILDMAGE: CardData = {
+  "scryfallId": "342ad189-b221-493c-b2c1-73b63246ab47",
+  "oracleId": "46dad873-11f5-4269-8ec2-f126419fbd7d",
+  "name": "Golgari Guildmage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Golgari Guildmage",
+      "manaCost": "{B/G}{B/G}",
+      "typeLine": "Creature — Elf Shaman",
+      "oracleText": "{4}{B}, Sacrifice a creature: Return target creature card from your graveyard to your hand.\n{4}{G}: Put a +1/+1 counter on target creature.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Zoltan Boros & Gabor Szikszai",
+      "imageId": "342ad189-b221-493c-b2c1-73b63246ab47"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "clu",
+  "collectorNumber": "194",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRIM_BAUBLE: CardData = {
+  "scryfallId": "9bfdf60a-6f67-4872-8961-d63776b192c3",
+  "oracleId": "431d6a2b-e22c-4921-a5f1-dd672f764f78",
+  "name": "Grim Bauble",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Grim Bauble",
+      "manaCost": "{B}",
+      "typeLine": "Artifact",
+      "oracleText": "When this artifact enters, target creature an opponent controls gets -2/-2 until end of turn.\n{2}{B}, {T}, Sacrifice this artifact: Surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Wero Gallo",
+      "imageId": "9bfdf60a-6f67-4872-8961-d63776b192c3"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Surveil"
+  ],
+  "setCode": "dft",
+  "collectorNumber": "88",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRUUL_GUILDMAGE: CardData = {
+  "scryfallId": "80c29287-d32e-4f7d-8602-240921314804",
+  "oracleId": "75645b1f-0e12-4a05-b47f-0d2e2616c3ca",
+  "name": "Gruul Guildmage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gruul Guildmage",
+      "manaCost": "{R/G}{R/G}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "({R/G} can be paid with either {R} or {G}.)\n{3}{R}, Sacrifice a land: This creature deals 2 damage to target player or planeswalker.\n{3}{G}: Target creature gets +2/+2 until end of turn.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "80c29287-d32e-4f7d-8602-240921314804"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "rvr",
+  "collectorNumber": "189",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GUARDIAN_OF_CLOVERDELL: CardData = {
+  "scryfallId": "311c5f1d-7e3b-4397-b05b-f20bde2dc164",
+  "oracleId": "27d6b1fb-ce53-45d6-a601-9f5b9ee7ab2f",
+  "name": "Guardian of Cloverdell",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Guardian of Cloverdell",
+      "manaCost": "{5}{G}{G}",
+      "typeLine": "Creature — Treefolk Shaman",
+      "oracleText": "When this creature enters, create three 1/1 white Kithkin Soldier creature tokens.\n{G}, Sacrifice a Kithkin: You gain 1 life.",
+      "flavorText": "Although they're protective of all creatures, many treefolk are especially fond of the empathic kithkin.",
+      "power": "4",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jesper Ejsing",
+      "imageId": "311c5f1d-7e3b-4397-b05b-f20bde2dc164"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "lrw",
+  "collectorNumber": "216",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -73633,6 +73935,40 @@ export const KITHKIN_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const KITHKIN_SOLDIER_TOKEN: CardData = {
+  "scryfallId": "061cb705-695a-4f65-adbf-869ebb4eb946",
+  "oracleId": "caf4a0d2-64de-42df-a88e-bb0d3f34e207",
+  "name": "Kithkin Soldier",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Kithkin Soldier",
+      "manaCost": "",
+      "typeLine": "Token Creature — Kithkin Soldier",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "061cb705-695a-4f65-adbf-869ebb4eb946"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tshm",
+  "collectorNumber": "1",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -75673,6 +76009,15 @@ export const ENGINE_CARDS: CardData[] = [
   DISPATCH,
   DREAM_FRACTURE,
   DROGSKOL_CAVALRY,
+  ELIXIR_OF_VITALITY,
+  FEED_THE_INFECTION,
+  FILIGREE_FAMILIAR,
+  FOUNTAIN_OF_RENEWAL,
+  FUTURIST_FORGE,
+  GOLGARI_GUILDMAGE,
+  GRIM_BAUBLE,
+  GRUUL_GUILDMAGE,
+  GUARDIAN_OF_CLOVERDELL,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -75771,4 +76116,5 @@ export const ENGINE_CARDS: CardData[] = [
   ELEMENTAL_11_R_TOKEN,
   SOLDIER_22_R_TOKEN,
   KITHKIN_TOKEN,
+  KITHKIN_SOLDIER_TOKEN,
 ];
