@@ -18583,3 +18583,69 @@ clean · probe 124/124 · battery 130/130.
 three batches; the cast-time alternative cost (eleven cards) is the first
 seam to build, the multi-sacrifice chooser (now three cards in one batch) and
 `optional: true` (D274) the next levers; prior items stand.
+
+## D281 — M6.4dr: nine landed — a hand looked at, a Fateful hour, an Addendum, and a Citizen for a Treasure (2026-09-02)
+
+**3,846 of 31,692 Commander-legal cards execute completely, up from 3,837.**
+SHIPPED_SCRIPTS 1,940 → 1,949; ledger 803 → 819 (+16, **ONE new class**).
+ONE new token pin (the green-white 1/1 Citizen, tsnc 12 — the 101st token),
+ZERO new support bodies. **Sliver Queen reaches 3,797 from 90 legendaries**
+(the header alone moved). The widest split since D278.
+
+**Two conditions read at resolution.** `Spell Snuff` counters the held spell
+and then reads my life for its Fateful hour: at 40 no card, at 5 the card —
+the counter first, the draw as the rider, the moved spell's owner read off
+the card. `Sphinx's Insight` draws two and reads the turn for its Addendum:
+my main phase is 2 life, the opponent's main phase is not. The read is exact
+because a spell resolves in the phase it was cast in; nothing on the stack
+survives a phase change.
+
+**Two spells that look and count.** `Sorcerous Sight` reveals the whole of
+the target opponent's hand to me (`CardsRevealed`, every card, to me alone)
+and draws; I am not a legal target. `Stensia Banquet` counts my Vampires by
+DERIVED subtype — two Vampires and a bear are 2 damage to the opponent or a
+planeswalker, no Vampires are no damage — and draws either way.
+
+**A Citizen for a Treasure.** `Stimulus Package` makes two Treasures on
+entry and sells one of them (the D168 chooser by subtype, no mana asked) for
+a 1/1 green-white Citizen — the first Citizen pin, tsnc 12, looked up
+through `TOKEN_TABLE` by printing id.
+
+**The rest.** `Spare Supplies` enters tapped (the engine's line), draws on
+entry, and later draws again for {2}, the tap and itself. `Staff of Nin`
+draws at my upkeep beside the draw step's card — two in my turn 3, none in
+the opponent's turn — and taps to ping any target. `Stormscape Apprentice`
+taps a creature for {W} and drains a player for {B}. `Sunbeam Spellbomb` is
+5 life for {W} or a card for {1}, itself the price either way.
+
+⚠️ **Eight of nine files green on the first run.** Stensia Banquet's test
+paid {1}{R} for a {2}{R} spell — my slip, test-side, the script untouched.
+
+**Refused 16, ONE new class.** `Skullport Merchant`'s price is "another
+creature OR a Treasure" — a **compound sacrifice predicate** the chooser
+cannot express (one noun per cost). `Silver Scrutiny` may be cast as though
+it had flash when X is small (cast-permission condition). Three more free
+spells (Snapback, Soul Spike, Submerge) make **fourteen cast-time
+alternative costs refused in six batches**; Sram's Expertise joins the
+free-cast permission class D280 opened. The rest: Skullmead Cauldron
+(discard-cost chooser), Skyscribing (hand-activated ability), Skystrike
+Officer (tap-creatures cost), Snakeform and Suit Up (until-end-of-turn type
+change with P/T set), Soul of Zendikar (graveyard-activated ability), SP//dr
+Piloted by Peni (modified predicate), Spiritualize (temporary game-wide
+trigger), Starfall Invocation (gift), Sun's Bounty (recover).
+
+Suites: 9 files / 32 tests.
+
+Fixtures 2,192 → 2,202 (2,094 by name + 101 tokens) · botPool artifact 151 /
+creature 1,996 / enchantment 74 / instant 704 / land 341 / sorcery 580 ·
+ladder [1207, 1306, 3099, 5013, 6225] · batch.json 50 · botDeck: the header
+alone moved, 3,797 from 90 legendaries. **The pool is 50 — D282 is drawn
+from it and one batch remains after that; then Phase 1.**
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,029 files, 10,646 passed / 10 skipped · 500-seed gate 717.0 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D281): the pool is 50 — two batches to Phase 1; the
+cast-time alternative cost (fourteen cards) is the first seam to build, the
+sacrifice chooser's compound and multi-permanent forms the next, `optional:
+true` (D274) the lever after; prior items stand.

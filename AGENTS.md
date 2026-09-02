@@ -8448,6 +8448,43 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       batches; the cast-time alternative cost (eleven cards) is the first
       seam to build, the multi-sacrifice chooser and `optional: true` (D274)
       the next levers; prior items stand.
+- [x] **M6.4dr — Nine landed: a hand looked at, a Fateful hour, an Addendum,
+      and a Citizen for a Treasure (2026-09-02):** **3,846 of 31,692
+      Commander-legal cards now execute completely, up from 3,837.**
+      `SHIPPED_SCRIPTS` 1,940 → 1,949; ledger 819 (+16, ONE new class). ONE
+      new token pin (the GW 1/1 Citizen, tsnc 12 — the 101st token), ZERO
+      new support bodies. **Sliver Queen reaches 3,797 from 90
+      legendaries.** Decisions in **D281**.
+      ⚠️ **Two conditions read at resolution:** `Spell Snuff` (counter, then
+      Fateful hour at 5 life) and `Sphinx's Insight` (Addendum — 2 life
+      only in MY main phase; a spell resolves in the phase it was cast in).
+      **Two that look and count:** `Sorcerous Sight` (the whole hand
+      revealed to me, then a card) and `Stensia Banquet` (Vampires by
+      DERIVED subtype → damage to an opponent or planeswalker).
+      **A Citizen for a Treasure:** `Stimulus Package` (two Treasures on
+      entry; one sold through the D168 chooser for the first Citizen).
+      **Also:** Spare Supplies (enters tapped, two draws); Staff of Nin
+      (upkeep draw beside the draw step; the tap pings); Stormscape
+      Apprentice; Sunbeam Spellbomb.
+      ⚠️ **Eight of nine files green on the first run** — Stensia Banquet's
+      test paid {1}{R} for a {2}{R} spell (test-side).
+      **Refused 16:** Skullport Merchant opens `compound sacrifice
+      predicate` ("another creature OR a Treasure"); Silver Scrutiny
+      (cast-permission condition); Snapback, Soul Spike, Submerge make
+      fourteen `cast-time alternative cost` refusals in six batches; Sram's
+      Expertise (free-cast permission); Skullmead Cauldron, Skyscribing,
+      Skystrike Officer, Snakeform, Soul of Zendikar, SP//dr Piloted by
+      Peni, Spiritualize, Starfall Invocation, Suit Up, Sun's Bounty.
+      Suites 9 files / 32 tests.
+      Fixtures 2,202 (2,094 by name + 101 tokens) · botPool artifact 151 /
+      creature 1,996 / enchantment 74 / instant 704 / land 341 / sorcery 580 ·
+      ladder [1207, 1306, 3099, 5013, 6225] · batch.json 50.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,029 files, 10,646 passed / 10 skipped · 500-seed gate 717.0 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D281): the pool is 50 — two batches to Phase 1;
+      the cast-time alternative cost (fourteen cards) is the first seam to
+      build, the sacrifice chooser's compound and multi-permanent forms the
+      next, `optional: true` (D274) the lever after; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

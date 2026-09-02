@@ -1609,6 +1609,29 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Shivan Meteor', 'suspend mechanic'],
   ['Shred Memory', 'transmute mechanic'],
   ['Sickening Shoal', 'cast-time alternative cost'],
+
+  // D281 (M6.4dr) — the S residue; ONE new class.
+  //
+  // ⚠️ Skullport Merchant's price is 'another creature OR a Treasure' — a
+  // compound the sacrifice chooser cannot express (one noun per cost).
+  // ⚠️ Silver Scrutiny may be cast AS THOUGH IT HAD FLASH when X is small:
+  // a cast-timing permission, the cast stage's business.
+  ['Silver Scrutiny', 'cast-permission condition'],
+  ['Skullmead Cauldron', 'discard-cost chooser'],
+  ['Skullport Merchant', 'compound sacrifice predicate'],
+  ['Skyscribing', 'hand-activated ability'],
+  ['Skystrike Officer', 'tap-creatures cost'],
+  ['Snakeform', 'until-end-of-turn type change with P/T set'],
+  ['Snapback', 'cast-time alternative cost'],
+  ['Soul of Zendikar', 'graveyard-activated ability'],
+  ['Soul Spike', 'cast-time alternative cost'],
+  ['SP//dr, Piloted by Peni', 'modified predicate'],
+  ['Spiritualize', 'temporary game-wide trigger'],
+  ["Sram's Expertise", 'free-cast permission'],
+  ['Starfall Invocation', 'gift mechanic'],
+  ['Submerge', 'cast-time alternative cost'],
+  ['Suit Up', 'until-end-of-turn type change with P/T set'],
+  ["Sun's Bounty", 'recover mechanic'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -2536,6 +2536,15 @@ const WANTED = [
   'Shaper Guildmage',
   'Siege Veteran',
   'Siege-Gang Commander',
+  'Sorcerous Sight',
+  'Spare Supplies',
+  'Spell Snuff',
+  "Sphinx's Insight",
+  'Staff of Nin',
+  'Stensia Banquet',
+  'Stimulus Package',
+  'Stormscape Apprentice',
+  'Sunbeam Spellbomb',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -2728,6 +2737,9 @@ const WANTED_TOKENS = [
   // of Elpis) — TOKEN_TABLE 'Bird|1/1|U|Creature|flying|vigilance' resolves to
   // tfic 4, looked up by printing id; distinct from every Bird pinned above.
   { name: 'Bird', set: 'tfic', cn: '4', key: 'BIRD_U_VIGILANCE_TOKEN' },
+  // Batch D281. The green-white 1/1 Citizen (Stimulus Package) — TOKEN_TABLE
+  // 'Citizen|1/1|GW|Creature|' resolves to tsnc 12, looked up by printing id.
+  { name: 'Citizen', set: 'tsnc', cn: '12', key: 'CITIZEN_GW_TOKEN' },
 ];
 
 function constName(name) {

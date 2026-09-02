@@ -72146,6 +72146,314 @@ export const SIEGE_GANG_COMMANDER: CardData = {
   "singleImage": true
 };
 
+export const SORCEROUS_SIGHT: CardData = {
+  "scryfallId": "77f0f292-3ca0-4b71-be46-f85726c5da08",
+  "oracleId": "20370c3b-231f-4d9d-8b6e-f1eb25fa4b5d",
+  "name": "Sorcerous Sight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sorcerous Sight",
+      "manaCost": "{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Look at target opponent's hand.\nDraw a card.",
+      "flavorText": "Do not react; anticipate.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Kaja Foglio",
+      "imageId": "77f0f292-3ca0-4b71-be46-f85726c5da08"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "POR-68",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPARE_SUPPLIES: CardData = {
+  "scryfallId": "a53baf25-1782-427b-a9dd-fc9b8dc6444f",
+  "oracleId": "088fb5dc-65eb-42bf-8a32-76fa6b79b79f",
+  "name": "Spare Supplies",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spare Supplies",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "This artifact enters tapped.\nWhen this artifact enters, draw a card.\n{2}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "\"It's better to carry a little extra weight than to find yourself halfway down a baloth's throat with no knife.\"\n—Doral, Bala Ged guide",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jason Felix",
+      "imageId": "a53baf25-1782-427b-a9dd-fc9b8dc6444f"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "znr",
+  "collectorNumber": "254",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPELL_SNUFF: CardData = {
+  "scryfallId": "efadce19-07f4-47af-abc0-a436bafcdd65",
+  "oracleId": "19f3ec61-f334-4708-ad93-04ebe15c1798",
+  "name": "Spell Snuff",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spell Snuff",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target spell.\nFateful hour — If you have 5 or less life, draw a card.",
+      "flavorText": "\"Good night.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Nic Klein",
+      "imageId": "efadce19-07f4-47af-abc0-a436bafcdd65"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Fateful hour"
+  ],
+  "setCode": "mh1",
+  "collectorNumber": "70",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPHINX_S_INSIGHT: CardData = {
+  "scryfallId": "d71c2435-0312-4279-a9e1-fab7432756b7",
+  "oracleId": "01f675c3-d1c4-45c8-8a2e-75f535db3025",
+  "name": "Sphinx's Insight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sphinx's Insight",
+      "manaCost": "{2}{W}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Draw two cards.\nAddendum — If you cast this spell during your main phase, you gain 2 life.",
+      "flavorText": "\"Do not think me blind to your true mission...or your true master, Grand Arbiter.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Scott Murphy",
+      "imageId": "d71c2435-0312-4279-a9e1-fab7432756b7"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Addendum"
+  ],
+  "setCode": "rna",
+  "collectorNumber": "209",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STAFF_OF_NIN: CardData = {
+  "scryfallId": "4eca883f-4e6e-4ccc-ad69-a706e24ee151",
+  "oracleId": "48d9f488-4ebb-4fdb-a568-6930fc2f5416",
+  "name": "Staff of Nin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Staff of Nin",
+      "manaCost": "{6}",
+      "typeLine": "Artifact",
+      "oracleText": "At the beginning of your upkeep, draw a card.\n{T}: This artifact deals 1 damage to any target.",
+      "flavorText": "\"I have attuned the staff to your screams so that only I may benefit from your pain.\"\n—Volux, disciple of Nin",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Dan Murayama Scott",
+      "imageId": "4eca883f-4e6e-4ccc-ad69-a706e24ee151"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "cm2",
+  "collectorNumber": "221",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STENSIA_BANQUET: CardData = {
+  "scryfallId": "828db19a-ca0d-4b82-a4b6-451125865093",
+  "oracleId": "089e7086-3f8e-4b10-a660-fcf4fc99604e",
+  "name": "Stensia Banquet",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stensia Banquet",
+      "manaCost": "{2}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Stensia Banquet deals damage to target opponent or planeswalker equal to the number of Vampires you control.\nDraw a card.",
+      "flavorText": "\"We can't win a war on an empty stomach, can we?\"\n—Olivia Voldaren",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Greg Opalinski",
+      "imageId": "828db19a-ca0d-4b82-a4b6-451125865093"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "emn",
+  "collectorNumber": "144",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STIMULUS_PACKAGE: CardData = {
+  "scryfallId": "ecbe7459-8613-4ab8-84dc-deab19c08511",
+  "oracleId": "ce76d17e-d536-46f0-98e2-3e1b1b4f61a4",
+  "name": "Stimulus Package",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stimulus Package",
+      "manaCost": "{2}{R}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "When this enchantment enters, create two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")\nSacrifice a Treasure: Create a 1/1 green and white Citizen creature token.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Robin Olausson",
+      "imageId": "ecbe7459-8613-4ab8-84dc-deab19c08511"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "snc",
+  "collectorNumber": "225",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STORMSCAPE_APPRENTICE: CardData = {
+  "scryfallId": "1eb42f39-9187-44e4-aa34-14ab31977199",
+  "oracleId": "cf2bacd3-b1ac-4863-b9c7-1e0a8d4854f3",
+  "name": "Stormscape Apprentice",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stormscape Apprentice",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{W}, {T}: Tap target creature.\n{B}, {T}: Target player loses 1 life.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "D. Alexander Gregory",
+      "imageId": "1eb42f39-9187-44e4-aa34-14ab31977199"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U",
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "inv",
+  "collectorNumber": "75",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUNBEAM_SPELLBOMB: CardData = {
+  "scryfallId": "d23ffdb7-9f8e-4376-9431-cf1c1814f2c4",
+  "oracleId": "014c94d8-2c39-4d33-902b-fa2398406fd5",
+  "name": "Sunbeam Spellbomb",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sunbeam Spellbomb",
+      "manaCost": "{1}",
+      "typeLine": "Artifact",
+      "oracleText": "{W}, Sacrifice this artifact: You gain 5 life.\n{1}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "\"Cure that which was never ill.\"\n—Spellbomb inscription",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jim Nelson",
+      "imageId": "d23ffdb7-9f8e-4376-9431-cf1c1814f2c4"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mrd",
+  "collectorNumber": "250",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -75564,6 +75872,42 @@ export const BIRD_U_VIGILANCE_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const CITIZEN_GW_TOKEN: CardData = {
+  "scryfallId": "3f03e9fe-cb71-498e-bf16-5af6af37a192",
+  "oracleId": "ffbc4833-01db-45f8-b8b4-c2e2c8235d0c",
+  "name": "Citizen",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Citizen",
+      "manaCost": "",
+      "typeLine": "Token Creature — Citizen",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Maria Poliakova",
+      "imageId": "3f03e9fe-cb71-498e-bf16-5af6af37a192"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tsnc",
+  "collectorNumber": "12",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -77658,6 +78002,15 @@ export const ENGINE_CARDS: CardData[] = [
   SHAPER_GUILDMAGE,
   SIEGE_VETERAN,
   SIEGE_GANG_COMMANDER,
+  SORCEROUS_SIGHT,
+  SPARE_SUPPLIES,
+  SPELL_SNUFF,
+  SPHINX_S_INSIGHT,
+  STAFF_OF_NIN,
+  STENSIA_BANQUET,
+  STIMULUS_PACKAGE,
+  STORMSCAPE_APPRENTICE,
+  SUNBEAM_SPELLBOMB,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -77758,4 +78111,5 @@ export const ENGINE_CARDS: CardData[] = [
   KITHKIN_TOKEN,
   KITHKIN_SOLDIER_TOKEN,
   BIRD_U_VIGILANCE_TOKEN,
+  CITIZEN_GW_TOKEN,
 ];

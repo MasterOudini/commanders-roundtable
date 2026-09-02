@@ -7,6 +7,15 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SORCEROUS_SIGHT_SCRIPT } from './cards/sorcerousSight';
+import { SPARE_SUPPLIES_SCRIPT } from './cards/spareSupplies';
+import { SPELL_SNUFF_SCRIPT } from './cards/spellSnuff';
+import { SPHINXS_INSIGHT_SCRIPT } from './cards/sphinxsInsight';
+import { STAFF_OF_NIN_SCRIPT } from './cards/staffOfNin';
+import { STENSIA_BANQUET_SCRIPT } from './cards/stensiaBanquet';
+import { STIMULUS_PACKAGE_SCRIPT } from './cards/stimulusPackage';
+import { STORMSCAPE_APPRENTICE_SCRIPT } from './cards/stormscapeApprentice';
+import { SUNBEAM_SPELLBOMB_SCRIPT } from './cards/sunbeamSpellbomb';
 import { SAVAGE_PUNCH_SCRIPT } from './cards/savagePunch';
 import { SEASON_OF_GROWTH_SCRIPT } from './cards/seasonOfGrowth';
 import { SERAPH_SANCTUARY_SCRIPT } from './cards/seraphSanctuary';
@@ -2061,6 +2070,15 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SORCEROUS_SIGHT_SCRIPT,
+  SPARE_SUPPLIES_SCRIPT,
+  SPELL_SNUFF_SCRIPT,
+  SPHINXS_INSIGHT_SCRIPT,
+  STAFF_OF_NIN_SCRIPT,
+  STENSIA_BANQUET_SCRIPT,
+  STIMULUS_PACKAGE_SCRIPT,
+  STORMSCAPE_APPRENTICE_SCRIPT,
+  SUNBEAM_SPELLBOMB_SCRIPT,
   SAVAGE_PUNCH_SCRIPT,
   SEASON_OF_GROWTH_SCRIPT,
   SERAPH_SANCTUARY_SCRIPT,
