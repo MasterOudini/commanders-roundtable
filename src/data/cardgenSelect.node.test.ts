@@ -1316,6 +1316,39 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Wing Puncture', 'keyword target qualifier'],
   ['Wing Snare', 'keyword target qualifier'],
   ['Winter Blast', 'cast-time computed target count'],
+
+  // D270 (M6.4dg) — TWO NEW CLASSES, the first since D265, and a finding
+  // about the LARGEST class that changes how it should be read.
+  //
+  // ⚠️ `script-raised prompt` (75 entries) SPLITS IN TWO once you read the
+  // engine instead of the class name. `chooseFromZone` IS raisable straight
+  // from a spell resolve — Laquatus’s Creativity (D221), Mind Burst, Rakdos’s
+  // Return, Ravenous Rats and Rottenheart Ghoul all do it — so "discard N" /
+  // "choose N from a zone" cards LAND TODAY (Wistful Thinking, this batch).
+  // `chooseColor` EXISTS as an Awaiting kind with its own AnswerChooseColor
+  // intent, but is raised ONLY by the engine’s ETB path, gated on a face’s
+  // `choosesColorOnEntry` (triggers.ts ~1041): a RESOLVE cannot reach it. So
+  // a colour or TYPE choice stays refused (Witch’s Vengeance below), and
+  // D268’s Wash Out was refused CORRECTLY — checked, because the existence
+  // of chooseColor made it look like a miss. The class is therefore "asks
+  // that exist but only the engine may raise" PLUS "asks that do not exist",
+  // and the first half is one door, not a prompt system. Re-read the 75
+  // entries against that split before estimating the work.
+  //
+  // ⚠️ Worldsoul’s Rage is refused for a DIFFERENT reason than the class
+  // name suggests: chooseFromZone takes ONE zone, and the card chooses from
+  // hand AND graveyard at once.
+  //
+  // ⚠️ `day/night tracking`: nothing in state.ts tracks it. `control-a-player`:
+  // decision ownership for a whole turn is a feature, not a script. Both are
+  // honest first entries.
+  ["Witch's Vengeance", 'script-raised prompt'],
+  ['Wolf Strike', 'day/night tracking'],
+  ['Word of Binding', 'cast-time computed target count'],
+  ["Worldsoul's Rage", 'script-raised prompt'],
+  ['Worst Fears', 'control-a-player'],
+  ['Wrap in Vigor', 'regeneration'],
+  ["Wrenn's Resolve", 'play-from-exile permission'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

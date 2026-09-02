@@ -7,6 +7,24 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { WIREWOOD_PRIDE_SCRIPT } from './cards/wirewoodPride';
+import { WISECRACK_SCRIPT } from './cards/wisecrack';
+import { WISTFUL_SELKIE_SCRIPT } from './cards/wistfulSelkie';
+import { WISTFUL_THINKING_SCRIPT } from './cards/wistfulThinking';
+import { WITS_END_SCRIPT } from './cards/witsEnd';
+import { WITHERBLOOM_CAMPUS_SCRIPT } from './cards/witherbloomCampus';
+import { WITHERING_GAZE_SCRIPT } from './cards/witheringGaze';
+import { WITHERING_TORMENT_SCRIPT } from './cards/witheringTorment';
+import { WITNESS_OF_TOMORROWS_SCRIPT } from './cards/witnessOfTomorrows';
+import { WOJEK_SIREN_SCRIPT } from './cards/wojekSiren';
+import { WOODLAND_LIEGE_SCRIPT } from './cards/woodlandLiege';
+import { WORD_OF_UNDOING_SCRIPT } from './cards/wordOfUndoing';
+import { WORDS_OF_WISDOM_SCRIPT } from './cards/wordsOfWisdom';
+import { WORLDFIRE_SCRIPT } from './cards/worldfire';
+import { WORTHY_KNIGHT_SCRIPT } from './cards/worthyKnight';
+import { WRACK_WITH_MADNESS_SCRIPT } from './cards/wrackWithMadness';
+import { WRECKAGE_WICKERFOLK_SCRIPT } from './cards/wreckageWickerfolk';
+import { WRECKING_BALL_SCRIPT } from './cards/wreckingBall';
 import { WHELMING_WAVE_SCRIPT } from './cards/whelmingWave';
 import { WHIP_SERGEANT_SCRIPT } from './cards/whipSergeant';
 import { WHIPFLARE_SCRIPT } from './cards/whipflare';
@@ -1943,6 +1961,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  WIREWOOD_PRIDE_SCRIPT,
+  WISECRACK_SCRIPT,
+  WISTFUL_SELKIE_SCRIPT,
+  WISTFUL_THINKING_SCRIPT,
+  WITS_END_SCRIPT,
+  WITHERBLOOM_CAMPUS_SCRIPT,
+  WITHERING_GAZE_SCRIPT,
+  WITHERING_TORMENT_SCRIPT,
+  WITNESS_OF_TOMORROWS_SCRIPT,
+  WOJEK_SIREN_SCRIPT,
+  WOODLAND_LIEGE_SCRIPT,
+  WORD_OF_UNDOING_SCRIPT,
+  WORDS_OF_WISDOM_SCRIPT,
+  WORLDFIRE_SCRIPT,
+  WORTHY_KNIGHT_SCRIPT,
+  WRACK_WITH_MADNESS_SCRIPT,
+  WRECKAGE_WICKERFOLK_SCRIPT,
+  WRECKING_BALL_SCRIPT,
   WHELMING_WAVE_SCRIPT,
   WHIP_SERGEANT_SCRIPT,
   WHIPFLARE_SCRIPT,

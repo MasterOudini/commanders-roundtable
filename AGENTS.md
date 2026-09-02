@@ -7957,6 +7957,64 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the undying carrier closes two ledger entries; `ctx.random` (two names
       wanting a merge) stays; the family-table framework now has a
       **thirty-member** family to point at.
+- [x] **M6.4dg — Eighteen landed: the largest ledger class splits in two, and
+      two new classes open (2026-08-24):** **3,737 of 31,692 Commander-legal
+      cards now execute completely, up from 3,719.** `SHIPPED_SCRIPTS`
+      1,822 → 1,840; ledger 653 (+7, **TWO new classes** — the first since
+      D265). ZERO new token pins, ZERO new support bodies. **Sliver Queen
+      reaches 3,688 from 82 legendaries.** Decisions in **D270**.
+      ⚠️⚠️ **`script-raised prompt` (75 entries) SPLITS IN TWO once you read
+      the engine instead of the class name.** `chooseFromZone` IS raisable
+      from a spell resolve (Laquatus's Creativity D221, Mind Burst, Rakdos's
+      Return, Ravenous Rats, Rottenheart Ghoul) — so "discard N" cards land
+      TODAY (`Wistful Thinking`). `chooseColor` EXISTS with its own
+      `AnswerChooseColor` intent but is raised ONLY by the engine's ETB path,
+      gated on `choosesColorOnEntry` — a resolve cannot reach it (`Witch's
+      Vengeance` stays refused, and D268's `Wash Out` was refused CORRECTLY,
+      checked). **The first half is one door, not a prompt system.** Re-read
+      the 75 against that split before estimating.
+      ⚠️ **TWO NEW CLASSES, the first since D265:** `day/night tracking`
+      (Wolf Strike) and `control-a-player` (Worst Fears). The ledger looked
+      closed for four batches; it is not.
+      ⚠️ **Three test-side lessons, measured:** (1) `put()` onto the
+      battlefield resolves an ETB INSIDE ITS OWN PUMP — a baseline read after
+      it has already absorbed the draw (Selkie, Woodland Liege; stage through
+      the graveyard, Wall of Omens' shape). (2) A defender with NO creatures
+      is never asked to block (D232) — waiting on `declareBlockers` runs the
+      budget out and the game ENDS underneath the test (`Wisecrack` hit
+      `gameOver`); p1 already holds priority in declare-attackers. (3) A
+      resolving sorcery is still on the STACK while it exiles the graveyards
+      (CR 608.2n) — `Worldfire` survives its own sweep, as the real card
+      famously does; the test asserts the survivor BY NAME.
+      ⚠️ **Radiance is an ability word:** `Wojek Siren` probes to ONE target
+      creature; the colour-sharing spread is resolve-side.
+      **Also:** Wirewood Pride (Elves on BOTH seats); Wit's End (a whole HAND,
+      no ask — the contrast with Wistful Thinking's COUNT); Withering Gaze (a
+      green Forest scores TWICE — "and", not "or"); Withering Torment (I pay
+      2 either way); Word of Undoing (WHITE Auras I OWN, read from the
+      attacher's side, CAST not hand-placed); Worthy Knight (Knight read off
+      the cast face); Worldfire (life BECOMES 1 — absolute, not a loss);
+      Witherbloom Campus (`#a1`); Wistful Selkie; Witness of Tomorrows;
+      Woodland Liege; Words of Wisdom; Wrack with Madness; Wreckage
+      Wickerfolk; Wrecking Ball.
+      ⚠️ **All 18 modules typechecked FIRST pass; every `printed()` guard
+      probe-verified BEFORE a test was written.** Four test-side fixes, all
+      found by isolating first.
+      ⚠️ **The battery went RED once, on two DOM-timing checks, seconds after
+      the 720 s fuzz leg finished** — re-run idle, **130/130**. Recorded, not
+      dismissed: it is gate 117's load timeout (D269) one leg over. A live-UI
+      battery is load-sensitive; let the gate's workers wind down first.
+      Fixtures 2,085 (1,992 by name + 93 tokens) · botPool artifact 133 /
+      creature 1,950 / enchantment 66 / instant 679 / land 340 / sorcery 569 ·
+      ladder [1316, 1415, 3208, 5122, 6334] · batch.json 325.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,920 files, 10,044 passed / 10 skipped · 500-seed gate 720.3 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D270): re-read `script-raised prompt` against the
+      exists-but-engine-only / does-not-exist split — the first half is a
+      single door for resolves; the keyword-qualifier repair stays the
+      clearest aim-layer job (D269); the positional multi-spec fizzle has its
+      regression test (D269); the two new classes are honest first entries;
+      the Campus cycle is a generator candidate; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

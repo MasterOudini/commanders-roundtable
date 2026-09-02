@@ -17860,3 +17860,101 @@ only for non-parsing forms (D266/D268); the subtype noun list still needs a
 field where the mixed one does not; the undying carrier closes two ledger
 entries; `ctx.random` (two ledger names wanting a merge, D267) stays; and the
 family-table framework now has a **thirty-member** family to point at.
+
+## D270 — M6.4dg: eighteen landed — the largest ledger class splits in two, and two new classes open (2026-08-24)
+
+**3,737 of 31,692 Commander-legal cards execute completely, up from 3,719.**
+SHIPPED_SCRIPTS 1,822 → 1,840; ledger 646 → 653 (+7, **TWO new classes** —
+the first since D265). ZERO new token pins, ZERO new support bodies. **Sliver
+Queen reaches 3,688 from 82 legendaries.**
+
+⚠️⚠️ **THE LARGEST LEDGER CLASS IS SHARPER THAN ITS NAME.** `script-raised
+prompt` holds 75 entries, and classifying this batch split it cleanly in two
+by **reading the engine rather than the class name**:
+
+- `chooseFromZone` **IS raisable straight from a spell resolve** — Laquatus's
+  Creativity (D221), Mind Burst, Rakdos's Return, Ravenous Rats and
+  Rottenheart Ghoul all do it. So "discard N" and "choose N from a zone" cards
+  **land today**; `Wistful Thinking` lands on exactly that.
+- `chooseColor` **exists** as an Awaiting kind with its own
+  `AnswerChooseColor` intent — but it is raised **only** by the engine's ETB
+  path, gated on a face's `choosesColorOnEntry` (`triggers.ts` ~1041). A
+  resolve cannot reach it. So a colour or TYPE choice stays refused
+  (`Witch's Vengeance`), and **D268's `Wash Out` was refused correctly** —
+  checked, because the existence of `chooseColor` made it look like a miss.
+
+The class is therefore *"asks that exist but only the engine may raise"* plus
+*"asks that do not exist at all"*, and **the first half is one door, not a
+prompt system.** Re-read the 75 entries against that split before anyone
+estimates the work.
+
+⚠️ **TWO NEW LEDGER CLASSES, the first since D265:** `day/night tracking`
+(`Wolf Strike` — nothing in `state.ts` tracks it) and `control-a-player`
+(`Worst Fears` — decision ownership for a whole turn is a feature, not a
+script). D266 through D269 added none, which made the ledger look closed; it
+is not.
+
+⚠️ **THREE TEST-SIDE LESSONS, ALL MEASURED.** (1) `put()` straight onto the
+battlefield resolves an ETB trigger **inside its own pump**, so a baseline read
+after it has already absorbed the draw — `Wistful Selkie` and `Woodland Liege`
+both raced their own measurement until staged through the graveyard on Wall of
+Omens' shape. (2) **A defender with NO creatures is never asked to block**
+(D232), so waiting on a `declareBlockers` ask runs the budget out and plays the
+game to its END underneath the test: `Wisecrack`'s attacking case hit
+`gameOver` on the very next submit. p1 already holds priority in the
+declare-attackers step, and the creature is attacking there. (3) **A resolving
+sorcery is still on the STACK while it exiles the graveyards** (CR 608.2n) and
+only goes to the graveyard afterwards — so `Worldfire` is the one card that
+survives its own sweep, which the real card is famous for. The first cut
+asserted an empty graveyard and was wrong; the test now asserts the survivor
+**by name**.
+
+⚠️ **RADIANCE is an ability word.** `Wojek Siren`'s "Radiance — Target
+creature and each other creature that shares a color with it" was the batch's
+one shape with no shipped precedent; the probe parses it to ONE target
+creature, and the colour-sharing spread is resolve-side. A colourless target
+pumps alone.
+
+**The rest of the batch.** `Wirewood Pride` counts Elves on BOTH seats — the
+card names no controller. `Wit's End` discards a whole HAND and raises no ask,
+the deliberate contrast with Wistful Thinking's COUNT. `Withering Gaze` scores
+a green Forest TWICE ("and", not "or" — D267's War Report reading).
+`Withering Torment` bills ME 2 whether or not the destroy lands. `Word of
+Undoing` returns the creature and every WHITE Aura I OWN on it, read from the
+attacher's side and CAST rather than hand-placed (D269). `Worthy Knight` reads
+the Knight subtype off the cast face. `Worldfire` sets every life total TO 1 —
+an absolute, not a loss. `Witherbloom Campus` is a Campus-cycle land at `#a1`.
+Plus `Wistful Selkie`, `Witness of Tomorrows`, `Woodland Liege`, `Words of
+Wisdom`, `Wrack with Madness` (Wisecrack's shared body), `Wreckage
+Wickerfolk`, `Wrecking Ball`.
+
+⚠️ **All 18 modules typechecked on the FIRST pass, and every `printed()`
+guard was verified against the real fixture by a probe BEFORE a test was
+written.** Four tests needed a fix — all four test-side, all four found by
+isolating first.
+
+⚠️ **THE BATTERY WENT RED ONCE, ON TWO DOM CHECKS, IMMEDIATELY AFTER THE
+FUZZ LEG.** "every permanent on the WHOLE board is rendered in the DOM — 2
+permanents over 1 slots, 1 rendered" and "the game stops only where this
+player could actually act" — both timing-sensitive UI assertions, both run
+seconds after a 720 s fuzz gate had finished. Re-run with nothing else on the
+machine: **130/130.** It is recorded here rather than treated as noise
+because it is the same shape as gate 117's timeout (D269) one leg over: a
+live-UI battery is load-sensitive too, and should not be launched until the
+gate's worker processes have wound down.
+
+Fixtures 2,067 → 2,085 (1,992 by name + 93 tokens). botPool artifact 133 /
+creature 1,950 / enchantment 66 / instant 679 / land 340 / sorcery 569 ·
+ladder [1316, 1415, 3208, 5122, 6334] · batch.json 325 · botDeck: the header
+alone moved — **3,688 from 82 legendaries**.
+
+**Verified: verify.cjs --full — ALL FIVE GATES: 1,920 files, 10,044 passed / 10 skipped · 500-seed gate 720.3 s · build clean
+· probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D270): **the `script-raised prompt` class should be
+re-read against the exists-but-engine-only / does-not-exist split** — the
+first half is a single door for resolves; the keyword-qualifier repair stays
+the clearest aim-layer job (D269); the positional multi-spec fizzle has its
+regression test (D269); two new classes (`day/night`, `control-a-player`) are
+honest first entries and not yet worth building; the Campus land cycle is a
+generator candidate once its members' texts are confirmed; prior items stand.

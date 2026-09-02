@@ -68079,6 +68079,631 @@ export const WING_STORM: CardData = {
   "singleImage": true
 };
 
+export const WIREWOOD_PRIDE: CardData = {
+  "scryfallId": "2270bc46-b95f-48c6-9827-c067fa2dc00f",
+  "oracleId": "ff19f10c-777c-4688-b1ab-99e53afaf629",
+  "name": "Wirewood Pride",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wirewood Pride",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +X/+X until end of turn, where X is the number of Elves on the battlefield.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dave Dorman",
+      "imageId": "2270bc46-b95f-48c6-9827-c067fa2dc00f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "psal",
+  "collectorNumber": "B55",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WISECRACK: CardData = {
+  "scryfallId": "01aab371-0e31-4bf0-a4ef-f18b58c11971",
+  "oracleId": "e9c9a445-4386-4616-ad00-f08064d73dcd",
+  "name": "Wisecrack",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wisecrack",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature deals damage equal to its power to itself. If that creature is attacking, Wisecrack deals 2 damage to that creature's controller.",
+      "flavorText": "\"I support your right to bear arms, Grizzly, but this is getting ridiculous.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Wayne Reynolds",
+      "imageId": "01aab371-0e31-4bf0-a4ef-f18b58c11971"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "msc",
+  "collectorNumber": "813",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WISTFUL_SELKIE: CardData = {
+  "scryfallId": "1d3e6feb-3d78-4463-9315-5ba27ab33733",
+  "oracleId": "4503d0fb-842d-49f1-9769-8509ff0f2ce1",
+  "name": "Wistful Selkie",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wistful Selkie",
+      "manaCost": "{G/U}{G/U}{G/U}",
+      "typeLine": "Creature — Merfolk Wizard",
+      "oracleText": "When this creature enters, draw a card.",
+      "flavorText": "Selkies call to a sea they never swam, in a tongue they never spoke, with a song they never learned.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "U"
+      ],
+      "artist": "Mark Tedin",
+      "imageId": "1d3e6feb-3d78-4463-9315-5ba27ab33733"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "eve",
+  "collectorNumber": "165",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WISTFUL_THINKING: CardData = {
+  "scryfallId": "d5031831-49ee-4c54-9200-448b8953f915",
+  "oracleId": "a936b84c-c350-4a1f-b4a7-86316f11c67f",
+  "name": "Wistful Thinking",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wistful Thinking",
+      "manaCost": "{2}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player draws two cards, then discards four cards.",
+      "flavorText": "\"To probe the wonders of the multiverse, to gaze upon worlds unspoiled by blade or spell . . . it's enough to make one weep for the possibilities denied.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Brian Despain",
+      "imageId": "d5031831-49ee-4c54-9200-448b8953f915"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plc",
+  "collectorNumber": "53",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WIT_S_END: CardData = {
+  "scryfallId": "68f8e20c-6d8e-45a1-aabd-176d8df843db",
+  "oracleId": "97f11aed-7a5c-4a14-8c2c-5c230c1f05b4",
+  "name": "Wit's End",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wit's End",
+      "manaCost": "{5}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player discards their hand.",
+      "flavorText": "\"Some images are so powerful that one glance burns them into your mind forever. Come, let us gaze on nothingness.\"\n—Szadek",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "68f8e20c-6d8e-45a1-aabd-176d8df843db"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "dis",
+  "collectorNumber": "58",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WITHERBLOOM_CAMPUS: CardData = {
+  "scryfallId": "7346fb2e-754e-47de-b33d-eb089b357ee4",
+  "oracleId": "6cd58a88-6434-4c55-bf93-a739b5ed9bc1",
+  "name": "Witherbloom Campus",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Witherbloom Campus",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {B} or {G}.\n{4}, {T}: Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+      "flavorText": "Mage-students fascinated by the energies of life and death choose Witherbloom, the college of essence studies.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Alayna Danner",
+      "imageId": "7346fb2e-754e-47de-b33d-eb089b357ee4"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "stx",
+  "collectorNumber": "275",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WITHERING_GAZE: CardData = {
+  "scryfallId": "0e952a48-9e60-4fce-8423-7f0bafd29bb1",
+  "oracleId": "9225016d-adfd-43c6-99cd-d41a7e0d35d6",
+  "name": "Withering Gaze",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Withering Gaze",
+      "manaCost": "{2}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target opponent reveals their hand. You draw a card for each Forest and green card in it.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Scott M. Fischer",
+      "imageId": "0e952a48-9e60-4fce-8423-7f0bafd29bb1"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "por",
+  "collectorNumber": "78",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WITHERING_TORMENT: CardData = {
+  "scryfallId": "06d44ada-f98e-405f-89d3-ac1002bfb854",
+  "oracleId": "ffce81c5-1b58-4882-a4e7-6f8d7cb170de",
+  "name": "Withering Torment",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Withering Torment",
+      "manaCost": "{2}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature or enchantment. You lose 2 life.",
+      "flavorText": "\"Hell is real, Richards. I will show you!\"\n—Doctor Doom",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "John Tyler Christopher",
+      "imageId": "06d44ada-f98e-405f-89d3-ac1002bfb854"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "msc",
+  "collectorNumber": "162",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WITNESS_OF_TOMORROWS: CardData = {
+  "scryfallId": "64cd9d60-826c-4b35-9684-dccb0880399e",
+  "oracleId": "b46adfcd-fd7a-40c5-85f4-1cfee43a4c48",
+  "name": "Witness of Tomorrows",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Witness of Tomorrows",
+      "manaCost": "{4}{U}",
+      "typeLine": "Enchantment Creature — Sphinx",
+      "oracleText": "Flying\n{3}{U}: Scry 1.",
+      "flavorText": "\"As the future slips its way into the present, it ceases to be my concern.\"",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "64cd9d60-826c-4b35-9684-dccb0880399e"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Scry",
+    "Flying"
+  ],
+  "setCode": "thb",
+  "collectorNumber": "82",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WOJEK_SIREN: CardData = {
+  "scryfallId": "a55c0d7d-2325-4d7e-b449-c8fdcf988ec0",
+  "oracleId": "164b21ce-834b-4ec2-9094-33e51a46f9ef",
+  "name": "Wojek Siren",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wojek Siren",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Radiance — Target creature and each other creature that shares a color with it get +1/+1 until end of turn.",
+      "flavorText": "It is the call to arms, the call to fury, the call to blood.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Zoltan Boros & Gabor Szikszai",
+      "imageId": "a55c0d7d-2325-4d7e-b449-c8fdcf988ec0"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Radiance"
+  ],
+  "setCode": "rav",
+  "collectorNumber": "37",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WOODLAND_LIEGE: CardData = {
+  "scryfallId": "e4369919-780f-460e-bbac-db3bba05e01f",
+  "oracleId": "df63e124-1542-48d6-b255-cf45855f1e93",
+  "name": "Woodland Liege",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Woodland Liege",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Elf Druid Noble",
+      "oracleText": "Whenever a Beast you control enters, draw a card.",
+      "flavorText": "\"Your human laws mean nothing here. Plead your case before the tribunal of the wilds.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Marta Nael",
+      "imageId": "e4369919-780f-460e-bbac-db3bba05e01f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "j25",
+  "collectorNumber": "27",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WORD_OF_UNDOING: CardData = {
+  "scryfallId": "22b04476-5a5d-4843-a948-82db209c4218",
+  "oracleId": "2597a1ee-fe9e-44b5-a5e3-d34332c6c123",
+  "name": "Word of Undoing",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Word of Undoing",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return target creature and all white Auras you own attached to it to their owners' hands.",
+      "flavorText": "\"It was in Urza's journals that I finally found the secret at the core of the summonings.\"\n—Journal, author unknown",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Christopher Rush",
+      "imageId": "22b04476-5a5d-4843-a948-82db209c4218"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ice",
+  "collectorNumber": "108",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WORDS_OF_WISDOM: CardData = {
+  "scryfallId": "c0199cfb-5e44-40f0-b9cf-71473155eb94",
+  "oracleId": "cff1b9bb-2a4c-4522-94a4-a674f942e376",
+  "name": "Words of Wisdom",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Words of Wisdom",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "You draw two cards, then each other player draws a card.",
+      "flavorText": "Knowledge can't be kept in a bottle or sealed in a box. It yearns to be spread and shared.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Eric Peterson",
+      "imageId": "c0199cfb-5e44-40f0-b9cf-71473155eb94"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "114",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WORLDFIRE: CardData = {
+  "scryfallId": "2ef3d4b5-0453-4bf0-b018-23b0c3b9ae11",
+  "oracleId": "ae0b8c13-0a71-4a60-bf9f-6e2da9503e9c",
+  "name": "Worldfire",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Worldfire",
+      "manaCost": "{6}{R}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Exile all permanents. Exile all cards from all hands and graveyards. Each player's life total becomes 1.",
+      "flavorText": "Even the smallest spark may set a world ablaze.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Izzy",
+      "imageId": "2ef3d4b5-0453-4bf0-b018-23b0c3b9ae11"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 9,
+  "keywords": [],
+  "setCode": "m13",
+  "collectorNumber": "158",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WORTHY_KNIGHT: CardData = {
+  "scryfallId": "0a0d32a5-3cdd-42af-a42e-0b6b45918798",
+  "oracleId": "37733e29-3ade-4bfd-89c9-efd13b548a53",
+  "name": "Worthy Knight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Worthy Knight",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Whenever you cast a Knight spell, create a 1/1 white Human creature token.",
+      "flavorText": "Every Ardenvale aspirant must step through the flame. Their honor determines whether they burn or shine.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Yongjae Choi",
+      "imageId": "0a0d32a5-3cdd-42af-a42e-0b6b45918798"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "peld",
+  "collectorNumber": "36p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WRACK_WITH_MADNESS: CardData = {
+  "scryfallId": "4f27ee20-b5c5-4867-b832-9cdade0eda03",
+  "oracleId": "c93c647e-0b9e-4a50-a519-42862d21a0f1",
+  "name": "Wrack with Madness",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wrack with Madness",
+      "manaCost": "{3}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature deals damage to itself equal to its power.",
+      "flavorText": "The skathul, spirits consumed by revenge, fester and seethe while looking for weak minds to assault.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Todd Lockwood",
+      "imageId": "4f27ee20-b5c5-4867-b832-9cdade0eda03"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dka",
+  "collectorNumber": "107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WRECKAGE_WICKERFOLK: CardData = {
+  "scryfallId": "aeff3db7-81ac-4c51-9954-bc1dbcb8c4e3",
+  "oracleId": "8ba5af76-2485-4fd6-bd2e-fe90d1f2691c",
+  "name": "Wreckage Wickerfolk",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wreckage Wickerfolk",
+      "manaCost": "{1}{B}",
+      "typeLine": "Artifact Creature — Scarecrow",
+      "oracleText": "Flying\nWhen this creature enters, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Johan Grenier",
+      "imageId": "aeff3db7-81ac-4c51-9954-bc1dbcb8c4e3"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying",
+    "Surveil"
+  ],
+  "setCode": "dft",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WRECKING_BALL: CardData = {
+  "scryfallId": "1182e0cf-475e-4cb9-a00a-c9a4032f51e4",
+  "oracleId": "0a1b0910-3b0c-4aa3-b47f-8eb069122743",
+  "name": "Wrecking Ball",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wrecking Ball",
+      "manaCost": "{2}{B}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature or land.",
+      "flavorText": "Rakdos festivals almost leave enough rubble in their wake to hide the bodies.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Ron Spears",
+      "imageId": "1182e0cf-475e-4cb9-a00a-c9a4032f51e4"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dis",
+  "collectorNumber": "139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -73229,6 +73854,24 @@ export const ENGINE_CARDS: CardData[] = [
   WINDS_OF_RATH,
   WINDSTORM,
   WING_STORM,
+  WIREWOOD_PRIDE,
+  WISECRACK,
+  WISTFUL_SELKIE,
+  WISTFUL_THINKING,
+  WIT_S_END,
+  WITHERBLOOM_CAMPUS,
+  WITHERING_GAZE,
+  WITHERING_TORMENT,
+  WITNESS_OF_TOMORROWS,
+  WOJEK_SIREN,
+  WOODLAND_LIEGE,
+  WORD_OF_UNDOING,
+  WORDS_OF_WISDOM,
+  WORLDFIRE,
+  WORTHY_KNIGHT,
+  WRACK_WITH_MADNESS,
+  WRECKAGE_WICKERFOLK,
+  WRECKING_BALL,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
