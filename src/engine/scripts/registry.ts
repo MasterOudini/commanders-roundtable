@@ -7,6 +7,13 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { UNCOMFORTABLE_CHILL_SCRIPT } from './cards/uncomfortableChill';
+import { UNHINGE_SCRIPT } from './cards/unhinge';
+import { UNHOLY_HUNGER_SCRIPT } from './cards/unholyHunger';
+import { WITCH_HUNTER_SCRIPT } from './cards/witchHunter';
+import { WITCHING_WELL_SCRIPT } from './cards/witchingWell';
+import { TROSTANI_THREE_WHISPERS_SCRIPT } from './cards/trostaniThreeWhispers';
+import { ARAGORN_THE_UNITER_SCRIPT } from './cards/aragornTheUniter';
 import { SUPPLY_DROP_SCRIPT } from './cards/supplyDrop';
 import { SWEETTOOTH_WITCH_SCRIPT } from './cards/sweettoothWitch';
 import { TEFERIS_CARE_SCRIPT } from './cards/teferisCare';
@@ -2082,6 +2089,13 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  UNCOMFORTABLE_CHILL_SCRIPT,
+  UNHINGE_SCRIPT,
+  UNHOLY_HUNGER_SCRIPT,
+  WITCH_HUNTER_SCRIPT,
+  WITCHING_WELL_SCRIPT,
+  TROSTANI_THREE_WHISPERS_SCRIPT,
+  ARAGORN_THE_UNITER_SCRIPT,
   SUPPLY_DROP_SCRIPT,
   SWEETTOOTH_WITCH_SCRIPT,
   TEFERIS_CARE_SCRIPT,

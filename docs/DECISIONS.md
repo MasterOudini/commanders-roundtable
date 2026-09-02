@@ -18721,3 +18721,81 @@ moves to Phase 1 by the plan — the cast-time alternative cost (seventeen
 cards) first, then the script-raised prompt (the ledger's largest class),
 the discard-cost chooser, and the multi-sacrifice chooser; prior items
 stand.
+
+## D283 — M6.4dt: seven landed — four colour-keyed cast watchers, a scry that must reveal first, and the offline order is EMPTY (2026-09-03)
+
+**3,865 of 31,692 Commander-legal cards execute completely, up from 3,858.**
+SHIPPED_SCRIPTS 1,961 → 1,968; ledger 832 → 850 (+18, **ZERO new classes**).
+ZERO new token pins (the white Human Soldier was pinned), ZERO new support
+bodies. **Sliver Queen reaches 3,816 from 93 legendaries** (Trostani and
+Aragorn join).
+
+⚠️ **THE OFFLINE ORDER IS EMPTY.** `select.cjs` now prints **0 of 0**: every
+card a script can express today has shipped or sits in the REFUSED ledger
+with its wall named, and `batch.json` holds nothing. The select test's
+"there is always something to script" assertion is repinned to the measured
+zero, with the note that a non-empty pool from here on means a ledger entry
+went stale unnoticed. **Phase 1 — the engine seams — begins with the next
+commit.**
+
+**Four colour-keyed cast watchers.** `Aragorn, the Uniter` reads the cast
+face's colours (Tome of the Guildpact's read, D261) and fires a line per
+colour the spell carries: white makes a Human Soldier, blue scries 2, red
+aims 3 damage at an opponent, green aims +4/+4 at a creature. `Sphinx's
+Insight` — white AND blue — fires both, and its own Addendum still pays.
+
+⚠️ **A scry that must reveal first.** `Witching Well`'s entry and Aragorn's
+blue line raise `scryChoice` from a script — and the first cut raised the
+ask WITHOUT revealing the top cards, so the answer handler (which validates
+against what is revealed to the player) accepted an empty answer and the
+scry did nothing. The engine's own scry reveals the top N first (the top is
+the END of the library array); so does Season of Growth's helper; now so do
+these. Measure a script-raised scry by the cards revealed at the ask, never
+by the ask alone.
+
+**The rest.** `Trostani, Three Whispers` grants deathtouch, vigilance and
+double strike for three separate prices with no tap — the hybrid {G/W} paid
+with either colour. `Witch Hunter` pings a player or planeswalker for the
+tap and, for three mana and the tap, bounces a creature an opponent controls
+(my own refused). `Unhinge` has the target player choose the card they
+discard (`chooseFromZone`, the ask LAST after my draw, D195) and asks nothing
+of an empty hand. `Unholy Hunger` destroys a creature and counts instants
+and sorceries in my graveyard by cast face for 2 life. `Uncomfortable Chill`
+takes 2 power from every creature my opponents control until cleanup.
+
+⚠️ **Two draft-side lessons.** Four type errors on the first port: a colour
+and a keyword parameter typed as `string` where the engine has unions —
+derive the type from the event or the face
+(`NonNullable<Extract<EventBody, {t}>['keywords']>[number]`,
+`ReturnType<typeof faceOf>['colors'][number]`) rather than import a name
+that may not be exported. And the scry reveal above.
+
+**Refused 18, ZERO new classes.** Three Harmonize spells (Unending Whisper,
+Ureni's Rebuff, Wild Ride) and Zenith Festival (play-from-exile first); two
+Cleave (Wash Away, Winged Portent); Escape Detection (freerunning); Baleful
+Mastery makes **eighteen cast-time alternative costs refused in eight
+batches**. The rest: Unexplained Vision (mana-spent memory — Adamant),
+Verdant Rebirth (quoted-ability temporary grant), Viridescent Wisps (UEOT
+color change), Vivify (type change with P/T set), Wheel of Fate (suspend),
+Yahenni's Expertise (free-cast permission), Zhalfirin Shapecraft (base P/T
+set), Code of Constraint (untap restriction), Dissection Practice (up-to-N
+targeting), Fountainport (token-predicate sacrifice cost).
+
+Suites: 7 files / 27 tests.
+
+Fixtures 2,214 → 2,221 (2,113 by name + 101 tokens) · botPool artifact 154 /
+creature 2,005 / enchantment 75 / instant 708 / land 341 / sorcery 582 ·
+ladder [1188, 1287, 3080, 4994, 6206] · batch.json 0 · botDeck: 3,816 from
+93 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,048 files, 10,752 passed / 10 skipped · 500-seed gate 737.8 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D283): **Phase 1 begins.** Step 0 is an AUDIT, not a seam:
+the ledger's largest class, `script-raised prompt` (86 entries), was half
+reachable already when D270 measured it — `chooseFromZone` is raised from
+scripts today — so its entries are re-read against the prompts that exist
+before any engine work; what the existing prompts reach lands as ordinary
+batches. Then the seams by measured worth: the cast-time alternative cost
+(18), the discard-cost chooser (39), play-from-exile (22), multi-sacrifice
+and the remaining cost-chooser verbs; prior items stand.

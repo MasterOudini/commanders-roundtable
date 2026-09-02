@@ -8521,6 +8521,48 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the cast-time alternative cost (seventeen cards) first, then the
       script-raised prompt (the ledger's largest class), the discard-cost
       chooser and the multi-sacrifice chooser; prior items stand.
+- [x] **M6.4dt — Seven landed: four colour-keyed cast watchers, a scry that
+      must reveal first, and the offline order is EMPTY (2026-09-03):**
+      **3,865 of 31,692 Commander-legal cards now execute completely, up
+      from 3,858.** `SHIPPED_SCRIPTS` 1,961 → 1,968; ledger 850 (+18, ZERO
+      new classes). ZERO new token pins, ZERO new support bodies. **Sliver
+      Queen reaches 3,816 from 93 legendaries.** Decisions in **D283**.
+      ⚠️ **THE OFFLINE ORDER IS EMPTY:** `select.cjs` prints 0 of 0 and
+      `batch.json` holds nothing; the select test's non-empty assertion is
+      repinned to the measured zero. **Phase 1 begins with the next
+      commit.**
+      **Four colour-keyed cast watchers:** `Aragorn, the Uniter` fires a
+      line per colour of the cast face (a white-and-blue spell fires two).
+      ⚠️ **A scry that must reveal first:** a script-raised `scryChoice`
+      reveals the top N (the END of the library array) BEFORE the ask, or
+      the answer handler accepts an empty answer (Witching Well, Aragorn).
+      **Also:** Trostani, Three Whispers (three keyword grants, a hybrid
+      price); Witch Hunter (player-or-planeswalker ping; opponent-only
+      bounce); Unhinge (targeted discard by `chooseFromZone`, ask last);
+      Unholy Hunger (spell mastery by cast face); Uncomfortable Chill.
+      ⚠️ **Draft-side lessons:** derive colour and keyword parameter types
+      from the event or the face instead of importing a name; four type
+      errors on the first port.
+      **Refused 18, zero new classes:** Unending Whisper, Ureni's Rebuff,
+      Wild Ride (harmonize); Zenith Festival (play-from-exile); Wash Away,
+      Winged Portent (cleave); Escape Detection (freerunning); Baleful
+      Mastery makes eighteen `cast-time alternative cost` refusals in eight
+      batches; Unexplained Vision, Verdant Rebirth, Viridescent Wisps,
+      Vivify, Wheel of Fate, Yahenni's Expertise, Zhalfirin Shapecraft,
+      Code of Constraint, Dissection Practice, Fountainport.
+      Suites 7 files / 27 tests.
+      Fixtures 2,221 (2,113 by name + 101 tokens) · botPool artifact 154 /
+      creature 2,005 / enchantment 75 / instant 708 / land 341 / sorcery 582 ·
+      ladder [1188, 1287, 3080, 4994, 6206] · batch.json 0.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,048 files, 10,752 passed / 10 skipped · 500-seed gate 737.8 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D283): Phase 1 begins. Step 0 is an AUDIT of the
+      ledger's largest class (`script-raised prompt`, 86 entries, half of
+      it reachable through `chooseFromZone` since D270) — what today's
+      prompts reach lands as ordinary batches; then the seams by measured
+      worth: the cast-time alternative cost (18), the discard-cost chooser
+      (39), play-from-exile (22), the multi-sacrifice and remaining
+      cost-chooser verbs; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

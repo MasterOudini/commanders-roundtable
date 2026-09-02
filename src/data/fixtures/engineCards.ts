@@ -72869,6 +72869,258 @@ export const TRANQUIL_PATH: CardData = {
   "singleImage": true
 };
 
+export const UNCOMFORTABLE_CHILL: CardData = {
+  "scryfallId": "41f859c3-957b-45ce-9813-2a9917c44307",
+  "oracleId": "d6596336-8177-4475-95b9-a21858563276",
+  "name": "Uncomfortable Chill",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Uncomfortable Chill",
+      "manaCost": "{2}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Creatures your opponents control get -2/-0 until end of turn.\nDraw a card.",
+      "flavorText": "\"Tormented screams are like snowflakes: no two are quite the same.\"\n—Pedor, ice witch",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Andrew Mar",
+      "imageId": "41f859c3-957b-45ce-9813-2a9917c44307"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "j25",
+  "collectorNumber": "111",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UNHINGE: CardData = {
+  "scryfallId": "b89deafd-cb7c-4da7-ab9b-8f795554a705",
+  "oracleId": "cb1ae4f2-4fec-4cac-8992-616af82e0ade",
+  "name": "Unhinge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Unhinge",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player discards a card.\nDraw a card.",
+      "flavorText": "\"Don't let your mind wander—it might not come back.\"\n—Braids, dementia summoner",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Keith Garletts",
+      "imageId": "b89deafd-cb7c-4da7-ab9b-8f795554a705"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tor",
+  "collectorNumber": "87",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UNHOLY_HUNGER: CardData = {
+  "scryfallId": "5994b7b0-3bca-480b-b265-ed269f15c17e",
+  "oracleId": "ed8d8eb5-fbc8-4b7f-9b75-53ab118e72de",
+  "name": "Unholy Hunger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Unholy Hunger",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature.\nSpell mastery — If there are two or more instant and/or sorcery cards in your graveyard, you gain 2 life.",
+      "flavorText": "Liliana viewed the attention of the angels as a testament to her power. Even so, they were an annoyance.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Lius Lasahido",
+      "imageId": "5994b7b0-3bca-480b-b265-ed269f15c17e"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Spell mastery"
+  ],
+  "setCode": "ori",
+  "collectorNumber": "125",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WITCH_HUNTER: CardData = {
+  "scryfallId": "4dc64378-3495-42d7-bf14-faa969f62583",
+  "oracleId": "5fc1f04a-2c39-4b3a-b62e-6e30c3d8a583",
+  "name": "Witch Hunter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Witch Hunter",
+      "manaCost": "{2}{W}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{T}: This creature deals 1 damage to target player or planeswalker.\n{1}{W}{W}, {T}: Return target creature an opponent controls to its owner's hand.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jesper Myrfors",
+      "imageId": "4dc64378-3495-42d7-bf14-faa969f62583"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "chr",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WITCHING_WELL: CardData = {
+  "scryfallId": "62d3132f-f897-4a7a-9de4-c6388e83f5ad",
+  "oracleId": "baadfc17-42fd-4771-aabe-027ef7b3bf69",
+  "name": "Witching Well",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Witching Well",
+      "manaCost": "{U}",
+      "typeLine": "Artifact",
+      "oracleText": "When this artifact enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)\n{3}{U}, Sacrifice this artifact: Draw two cards.",
+      "flavorText": "It was built by the Witch of Lochmere. Most of the wishes it grants are its own.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "John Avon",
+      "imageId": "62d3132f-f897-4a7a-9de4-c6388e83f5ad"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "eld",
+  "collectorNumber": "74",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TROSTANI_THREE_WHISPERS: CardData = {
+  "scryfallId": "0efe1969-e30c-4f07-90b0-3d9699a09f1b",
+  "oracleId": "5c90b951-826e-4595-aacc-958904f3f794",
+  "name": "Trostani, Three Whispers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Trostani, Three Whispers",
+      "manaCost": "{G}{G/W}{W}",
+      "typeLine": "Legendary Creature — Dryad",
+      "oracleText": "{1}{G}: Target creature gains deathtouch until end of turn.\n{G/W}: Target creature gains vigilance until end of turn.\n{2}{W}: Target creature gains double strike until end of turn.",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Ionomycin",
+      "imageId": "0efe1969-e30c-4f07-90b0-3d9699a09f1b"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mkm",
+  "collectorNumber": "388",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARAGORN_THE_UNITER: CardData = {
+  "scryfallId": "0598a6d7-135e-464d-aa0e-5e2ece9e658f",
+  "oracleId": "3f31c423-d45c-4c3e-b7d4-ca125be0f92c",
+  "name": "Aragorn, the Uniter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aragorn, the Uniter",
+      "manaCost": "{R}{G}{W}{U}",
+      "typeLine": "Legendary Creature — Human Noble",
+      "oracleText": "Whenever you cast a white spell, create a 1/1 white Human Soldier creature token.\nWhenever you cast a blue spell, scry 2.\nWhenever you cast a red spell, Aragorn deals 3 damage to target opponent.\nWhenever you cast a green spell, target creature gets +4/+4 until end of turn.",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "artist": "Javier Charro",
+      "imageId": "0598a6d7-135e-464d-aa0e-5e2ece9e658f"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R",
+    "U",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Scry"
+  ],
+  "setCode": "pltr",
+  "collectorNumber": "192s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -78438,6 +78690,13 @@ export const ENGINE_CARDS: CardData[] = [
   TO_ARMS,
   TOPPLE_THE_STATUE,
   TRANQUIL_PATH,
+  UNCOMFORTABLE_CHILL,
+  UNHINGE,
+  UNHOLY_HUNGER,
+  WITCH_HUNTER,
+  WITCHING_WELL,
+  TROSTANI_THREE_WHISPERS,
+  ARAGORN_THE_UNITER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

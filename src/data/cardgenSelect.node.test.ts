@@ -1655,6 +1655,29 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Treason of Isengard', 'amass mechanic'],
   ['Twisted Image', 'until-end-of-turn power/toughness switch'],
   ['Twitch', 'script-raised prompt'],
+
+  // D283 (M6.4dt) — the U-Z residue plus the tail of the offline order; the
+  // LAST batch the order can offer. ZERO new classes: every wall here was
+  // already named. Four Harmonize spells in one batch; three Cleave/
+  // Freerunning alternative costs beside Baleful Mastery.
+  ['Unending Whisper', 'harmonize mechanic'],
+  ['Unexplained Vision', 'mana-spent memory'],
+  ["Ureni's Rebuff", 'harmonize mechanic'],
+  ['Verdant Rebirth', 'quoted-ability temporary grant'],
+  ['Viridescent Wisps', 'UEOT color change'],
+  ['Vivify', 'until-end-of-turn type change with P/T set'],
+  ['Wash Away', 'cleave mechanic'],
+  ['Wheel of Fate', 'suspend mechanic'],
+  ['Wild Ride', 'harmonize mechanic'],
+  ['Winged Portent', 'cleave mechanic'],
+  ["Yahenni's Expertise", 'free-cast permission'],
+  ['Zenith Festival', 'play-from-exile permission'],
+  ['Zhalfirin Shapecraft', 'until-end-of-turn base P/T set'],
+  ['Baleful Mastery', 'cast-time alternative cost'],
+  ['Code of Constraint', 'untap restriction'],
+  ['Dissection Practice', 'up-to-N targeting'],
+  ['Escape Detection', 'freerunning mechanic'],
+  ['Fountainport', 'token-predicate sacrifice cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
@@ -1728,7 +1751,12 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
 
   test('reads the whole database and ranks what is scriptable', async () => {
     all = await select();
-    expect(all.length).toBeGreaterThan(0);
+    // ⚠️ D283 (M6.4dt) EMPTIED THE OFFLINE ORDER: every scriptable-today card
+    // has shipped or sits in the REFUSED ledger, so the pool measures ZERO.
+    // Phase 1's engine seams drain ledger classes back into this pool; the
+    // pin moves the moment the first one lands. Until then a non-empty pool
+    // here would mean a ledger entry went stale unnoticed.
+    expect(all.length).toBe(0);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect(all.every((c) => c.lines > 0)).toBe(true);

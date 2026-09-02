@@ -2557,6 +2557,13 @@ const WANTED = [
   'To Arms!',
   'Topple the Statue',
   'Tranquil Path',
+  'Uncomfortable Chill',
+  'Unhinge',
+  'Unholy Hunger',
+  'Witch Hunter',
+  'Witching Well',
+  'Trostani, Three Whispers',
+  'Aragorn, the Uniter',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
