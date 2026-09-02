@@ -8375,6 +8375,41 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the cast-time alternative cost (seven cards, D275–D277) and
       `optional: true` (D274) remain the two highest-value live seams; prior
       items stand.
+- [x] **M6.4dp — Seven landed: poison from a script, X off the stack, and a
+      pool of one hundred (2026-09-02):** **3,829 of 31,692 Commander-legal
+      cards now execute completely, up from 3,822.** `SHIPPED_SCRIPTS`
+      1,925 → 1,932; ledger 786 (+18, TWO new classes). ZERO new token pins,
+      ZERO new support bodies. **Sliver Queen reaches 3,780 from 90
+      legendaries** (Pia and Kiran). Decisions in **D279**.
+      ⚠️ **The leanest split since D258 and the pool is ONE HUNDRED** — four
+      batches left in the offline order. Nine free spells refused in four
+      batches (`cast-time alternative cost`, now with Sneak). Two honest
+      first entries: `plot mechanic` (Plan the Heist), `opening-hand
+      reveal` (Providence).
+      ⚠️ **Three reads the engine already offered:** `Prologue to Phyresis`
+      is the first script to emit `PoisonChanged`; `Ravaging Blaze` reads X
+      off the stack object with a Spell-mastery rider counting graveyard
+      instants/sorceries by cast face; `Rending Vines` reads a target's mana
+      value (`cmc`) against my hand at resolution.
+      **Also:** Prizefight (Swift Kick's fight + a Treasure that comes
+      regardless); Pia and Kiran Nalaar (two Thopters; any ARTIFACT sold
+      for a ping); Prosperous Innkeeper (Dazzling Angel's line behind an
+      entry Treasure); Potion of Healing. **Refused 18:** Plan the Heist,
+      Plunder, Prosperous Partnership, Providence, Psychic Purge,
+      Quickchange, Rally for the Throne, Raphael's Technique, Rat King,
+      Ray Fillet, Reality Anchor, Reforge the Soul, Refresh, Refreshing
+      Rain, Repel the Darkness, Resize, Restart Sequence, Reverent Silence.
+      ⚠️ **Every suite green on the first run** (7 files / 24 tests) — the
+      sixth such batch in seven.
+      Fixtures 2,184 (2,077 by name + 100 tokens) · botPool artifact 148 /
+      creature 1,992 / enchantment 72 / instant 701 / land 340 / sorcery 576 ·
+      ladder [1224, 1323, 3116, 5030, 6242] · batch.json 100.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,012 files, 10,552 passed / 10 skipped · 500-seed gate 760.2 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D279): with the offerable pool at 100 the loop
+      reaches Phase 1 within four batches — the cast-time alternative cost
+      (nine cards) is the first seam to build, `optional: true` (D274) the
+      second lever; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

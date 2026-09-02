@@ -1554,6 +1554,34 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Open the Way', 'ctx.random'],
   ['Path of Peril', 'cleave mechanic'],
   ['Phthisis', 'suspend mechanic'],
+
+  // D279 (M6.4dp) — the P/Q/R residue; TWO new classes.
+  //
+  // ⚠️ Plan the Heist PLOTS (exile from hand, cast free on a later turn) —
+  // an alternative cast from exile the engine has no notion of. Providence
+  // is revealed from the OPENING HAND, before any turn: no hook exists.
+  // ⚠️ Raphael's Technique's SNEAK is an alternative cost with a combat
+  // condition — it files with the cast-time alternative costs, the ninth
+  // free-spell refusal in four batches. Rat King's "Sacrifice a token" is
+  // Hardened Tactician's line (token-predicate sacrifice cost).
+  ['Plan the Heist', 'plot mechanic'],
+  ['Plunder', 'suspend mechanic'],
+  ['Prosperous Partnership', 'tap-creatures cost'],
+  ['Providence', 'opening-hand reveal'],
+  ['Psychic Purge', 'discard-event discriminator'],
+  ['Quickchange', 'script-raised prompt'],
+  ['Rally for the Throne', 'mana-spent memory'],
+  ["Raphael's Technique", 'cast-time alternative cost'],
+  ['Rat King, Pale Piper', 'token-predicate sacrifice cost'],
+  ['Ray Fillet, Man Ray', 'remove-counter cost'],
+  ['Reality Anchor', 'temporary keyword/ability grant'],
+  ['Reforge the Soul', 'miracle mechanic'],
+  ['Refresh', 'regeneration'],
+  ['Refreshing Rain', 'cast-time alternative cost'],
+  ['Repel the Darkness', 'up-to-N targeting'],
+  ['Resize', 'recover mechanic'],
+  ['Restart Sequence', 'freerunning mechanic'],
+  ['Reverent Silence', 'cast-time alternative cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

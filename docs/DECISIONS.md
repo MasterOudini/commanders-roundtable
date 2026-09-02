@@ -18461,3 +18461,50 @@ alone moved, 3,773 from 89 legendaries.
 
 **Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,005 files, 10,514 passed / 10 skipped · 500-seed gate 706.2 s · build
 clean · probe 124/124 · battery 130/130.
+
+## D279 — M6.4dp: seven landed — poison from a script, X off the stack, and a pool of one hundred (2026-09-02)
+
+**3,829 of 31,692 Commander-legal cards execute completely, up from 3,822.**
+SHIPPED_SCRIPTS 1,925 → 1,932; ledger 768 → 786 (+18, **TWO new classes**).
+ZERO new token pins, ZERO new support bodies. **Sliver Queen reaches 3,780
+from 90 legendaries** (Pia and Kiran join).
+
+⚠️ **THE LEANEST SPLIT SINCE D258, AND THE POOL IS ONE HUNDRED.** Seven land,
+eighteen refuse: the P/Q/R residue was mostly walls the ledger already names.
+Three more free spells (Raphael's Technique's SNEAK, Refreshing Rain,
+Reverent Silence) make **nine cast-time alternative costs refused in four
+batches**. Two honest first entries: `plot mechanic` (Plan the Heist exiles
+itself to be cast free later) and `opening-hand reveal` (Providence is
+revealed before any turn exists). At 7–14 landed per 25 the offline order
+has **four batches left**.
+
+⚠️ **THREE READS THE ENGINE ALREADY OFFERED.** `Prologue to Phyresis` is the
+first script to emit `PoisonChanged` directly — until now poison arrived only
+through infect and toxic damage — one event per opponent still in the game.
+`Ravaging Blaze` reads X off the stack object (Blaze's `xValue`) and adds its
+Spell-mastery rider by counting instants and sorceries in my graveyard by
+cast face, the controller read BEFORE the damage lands. `Rending Vines`
+reads the target's mana value (the oracle record's `cmc`) against my hand at
+resolution — the spell is on the stack, not in the hand, so the count is the
+cards still held; the test empties the hand by manual moves to prove the
+survival case.
+
+**The rest of the batch.** `Prizefight` is Swift Kick's by-controller fight
+with a Treasure that comes regardless — a spell with one legal target still
+resolves (CR 608.2b) and the Treasure asks nothing of the targets. `Pia and
+Kiran Nalaar` make two colourless Thopters and sell any ARTIFACT for a ping
+(Arenson's enchantment chooser one type over), the Bears refused as the
+price. `Prosperous Innkeeper` carries Dazzling Angel's exact second line
+behind an entry Treasure. `Potion of Healing` draws on entry and sells itself
+for 3 life.
+
+⚠️ **Every suite green on the first run** — 7 files, 24 tests — the sixth
+such batch in seven.
+
+Fixtures 2,177 → 2,184 (2,077 by name + 100 tokens). botPool artifact 148 /
+creature 1,992 / enchantment 72 / instant 701 / land 340 / sorcery 576 —
+ladder [1224, 1323, 3116, 5030, 6242] — batch.json 100 — botDeck: the header
+alone moved, 3,780 from 90 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,012 files, 10,552 passed / 10 skipped · 500-seed gate 760.2 s · build
+clean · probe 124/124 · battery 130/130.

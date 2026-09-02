@@ -2521,6 +2521,13 @@ const WANTED = [
   'Pelakka Wurm',
   'Pendulum of Patterns',
   'Phyrexian Plaguelord',
+  'Pia and Kiran Nalaar',
+  'Potion of Healing',
+  'Prizefight',
+  'Prologue to Phyresis',
+  'Prosperous Innkeeper',
+  'Ravaging Blaze',
+  'Rending Vines',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -7,6 +7,13 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { PIA_AND_KIRAN_NALAAR_SCRIPT } from './cards/piaAndKiranNalaar';
+import { POTION_OF_HEALING_SCRIPT } from './cards/potionOfHealing';
+import { PRIZEFIGHT_SCRIPT } from './cards/prizefight';
+import { PROLOGUE_TO_PHYRESIS_SCRIPT } from './cards/prologueToPhyresis';
+import { PROSPEROUS_INNKEEPER_SCRIPT } from './cards/prosperousInnkeeper';
+import { RAVAGING_BLAZE_SCRIPT } from './cards/ravagingBlaze';
+import { RENDING_VINES_SCRIPT } from './cards/rendingVines';
 import { NAYA_BATTLEMAGE_SCRIPT } from './cards/nayaBattlemage';
 import { NECROGEN_SPELLBOMB_SCRIPT } from './cards/necrogenSpellbomb';
 import { NIGHTSCAPE_MASTER_SCRIPT } from './cards/nightscapeMaster';
@@ -2046,6 +2053,13 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PIA_AND_KIRAN_NALAAR_SCRIPT,
+  POTION_OF_HEALING_SCRIPT,
+  PRIZEFIGHT_SCRIPT,
+  PROLOGUE_TO_PHYRESIS_SCRIPT,
+  PROSPEROUS_INNKEEPER_SCRIPT,
+  RAVAGING_BLAZE_SCRIPT,
+  RENDING_VINES_SCRIPT,
   NAYA_BATTLEMAGE_SCRIPT,
   NECROGEN_SPELLBOMB_SCRIPT,
   NIGHTSCAPE_MASTER_SCRIPT,

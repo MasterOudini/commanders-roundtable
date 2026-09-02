@@ -13,7 +13,7 @@
 // tutors, no recursion, because the engine runs none of those yet. That ceiling
 // is the honest state of the app and it rises as the engine's coverage does.
 //
-// commander: Sliver Queen (BGRUW), chosen from 89 fully-executable legendary creatures for reaching 3773 cards
+// commander: Sliver Queen (BGRUW), chosen from 90 fully-executable legendary creatures for reaching 3780 cards
 // mv 0–1: wanted 6, took 6
 // mv 2–2: wanted 14, took 14
 // mv 3–3: wanted 14, took 14
