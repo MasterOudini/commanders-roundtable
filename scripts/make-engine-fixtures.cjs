@@ -2545,6 +2545,18 @@ const WANTED = [
   'Stimulus Package',
   'Stormscape Apprentice',
   'Sunbeam Spellbomb',
+  'Supply Drop',
+  'Sweettooth Witch',
+  "Teferi's Care",
+  'Tempting Witch',
+  'The Immortal Weapons',
+  'Thornscape Apprentice',
+  'Thragtusk',
+  'Thunderscape Apprentice',
+  "Tinker's Tote",
+  'To Arms!',
+  'Topple the Statue',
+  'Tranquil Path',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

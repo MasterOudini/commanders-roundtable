@@ -72454,6 +72454,421 @@ export const SUNBEAM_SPELLBOMB: CardData = {
   "singleImage": true
 };
 
+export const SUPPLY_DROP: CardData = {
+  "scryfallId": "82a5d3e9-bada-448b-894d-9d4e7e0463c7",
+  "oracleId": "9594b8e0-a176-447a-a52e-e1a77175b748",
+  "name": "Supply Drop",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Supply Drop",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "Flash\nWhen this artifact enters, target creature you control gets +2/+2 until end of turn.\n{4}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "New armaments, fresh provisions, and best of all, dry socks.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Brian Valeza",
+      "imageId": "82a5d3e9-bada-448b-894d-9d4e7e0463c7"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Flash"
+  ],
+  "setCode": "bro",
+  "collectorNumber": "250",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SWEETTOOTH_WITCH: CardData = {
+  "scryfallId": "a6bdb984-06f8-4bca-a943-17fe5db97682",
+  "oracleId": "635b854d-de71-4c85-9755-8c97bf3cba36",
+  "name": "Sweettooth Witch",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sweettooth Witch",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Human Warlock",
+      "oracleText": "When this creature enters, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")\n{2}, Sacrifice a Food: Target player loses 2 life.",
+      "flavorText": "\"Try some pie! Your brother helped make it, and he really poured his heart into it.\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Konstantin Porubov",
+      "imageId": "a6bdb984-06f8-4bca-a943-17fe5db97682"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Food"
+  ],
+  "setCode": "woe",
+  "collectorNumber": "111",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEFERI_S_CARE: CardData = {
+  "scryfallId": "031b1cc1-4468-4bc5-85c0-c22dce131225",
+  "oracleId": "6c5c7b26-9cd6-4f29-bbb2-a0745153ee5d",
+  "name": "Teferi's Care",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Teferi's Care",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "{W}, Sacrifice an enchantment: Destroy target enchantment.\n{3}{U}{U}: Counter target enchantment spell.",
+      "flavorText": "\"If I do nothing else, I will protect my people.\"\n—Teferi",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Scott Bailey",
+      "imageId": "031b1cc1-4468-4bc5-85c0-c22dce131225"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "inv",
+  "collectorNumber": "43",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEMPTING_WITCH: CardData = {
+  "scryfallId": "8adbd4a5-3171-495a-a540-0ecf280b77fc",
+  "oracleId": "82284fe4-ecb3-4b27-bb03-27290ad15b17",
+  "name": "Tempting Witch",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tempting Witch",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Human Warlock",
+      "oracleText": "When this creature enters, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")\n{2}, {T}, Sacrifice a Food: Target player loses 3 life.",
+      "flavorText": "\"Murder clad in crimson beauty,\nAn end to life and love and duty.\"\n—Barrow witch incantation",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Mila Pesic",
+      "imageId": "8adbd4a5-3171-495a-a540-0ecf280b77fc"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Food"
+  ],
+  "setCode": "jmp",
+  "collectorNumber": "283",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THE_IMMORTAL_WEAPONS: CardData = {
+  "scryfallId": "40295a9b-3a5a-402e-8baf-546cdad223b0",
+  "oracleId": "760d6cb2-5d8a-495c-9853-f96a1efa5775",
+  "name": "The Immortal Weapons",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "The Immortal Weapons",
+      "manaCost": "{4}{R}",
+      "typeLine": "Legendary Creature — Human Warrior Hero",
+      "oracleText": "When The Immortal Weapons enter, return target instant or sorcery card from your graveyard to your hand.\nWhenever you cast a noncreature spell, target creature gets +2/+0 and gains menace until end of turn. (It can't be blocked except by two or more creatures.)",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "David Palumbo",
+      "imageId": "40295a9b-3a5a-402e-8baf-546cdad223b0"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "msc",
+  "collectorNumber": "547",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THORNSCAPE_APPRENTICE: CardData = {
+  "scryfallId": "505da522-73a8-4232-ae1a-d3365f3e598f",
+  "oracleId": "ebb68e03-b2a5-4c5c-8e3b-968cd241d1f0",
+  "name": "Thornscape Apprentice",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thornscape Apprentice",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{R}, {T}: Target creature gains first strike until end of turn.\n{W}, {T}: Tap target creature.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "505da522-73a8-4232-ae1a-d3365f3e598f"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R",
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "inv",
+  "collectorNumber": "215",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THRAGTUSK: CardData = {
+  "scryfallId": "28667c8b-d02c-4e57-a050-1549207b65d1",
+  "oracleId": "0dd0e91a-d16b-4718-8d11-1a3fcf8e0753",
+  "name": "Thragtusk",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thragtusk",
+      "manaCost": "{4}{G}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "When this creature enters, you gain 5 life.\nWhen this creature leaves the battlefield, create a 3/3 green Beast creature token.",
+      "flavorText": "\"Always carry two spears.\"\n—Mokgar, Kalonian hunter",
+      "power": "5",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "28667c8b-d02c-4e57-a050-1549207b65d1"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "m13",
+  "collectorNumber": "193",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THUNDERSCAPE_APPRENTICE: CardData = {
+  "scryfallId": "75a0b075-5414-48d3-a2b1-47dc20213e96",
+  "oracleId": "34e325f0-b66f-44b9-a25c-da88357dbac4",
+  "name": "Thunderscape Apprentice",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thunderscape Apprentice",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{B}, {T}: Target player loses 1 life.\n{G}, {T}: Target creature gets +1/+1 until end of turn.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "D. Alexander Gregory",
+      "imageId": "75a0b075-5414-48d3-a2b1-47dc20213e96"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "inv",
+  "collectorNumber": "174",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TINKER_S_TOTE: CardData = {
+  "scryfallId": "8321857e-7977-46dd-8357-d732312e5261",
+  "oracleId": "cd1e6225-31b7-4a70-81ab-681abe860328",
+  "name": "Tinker's Tote",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tinker's Tote",
+      "manaCost": "{2}{W}",
+      "typeLine": "Artifact",
+      "oracleText": "When this artifact enters, create two 1/1 colorless Gnome artifact creature tokens.\n{W}, Sacrifice this artifact: You gain 3 life.",
+      "flavorText": "Never leave home without a gnome.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Julia Metzger",
+      "imageId": "8321857e-7977-46dd-8357-d732312e5261"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "lci",
+  "collectorNumber": "40",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TO_ARMS: CardData = {
+  "scryfallId": "27fa347b-4025-4330-a56e-46411618eac8",
+  "oracleId": "90c97fc4-597c-45cf-96c6-3ba9558ede0d",
+  "name": "To Arms!",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "To Arms!",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Untap all creatures you control.\nDraw a card.",
+      "flavorText": "\"The call came, spell-borne through mortar and stone to the ear of every soldier. The call came, and the advantage was ours.\"\n—Lodusz, captain of the watch",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Aleksi Briclot",
+      "imageId": "27fa347b-4025-4330-a56e-46411618eac8"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "GPT-20",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TOPPLE_THE_STATUE: CardData = {
+  "scryfallId": "2829fa40-92e4-4017-aacd-9d9feae04aa2",
+  "oracleId": "3883f5de-92bf-4692-80e5-f03365bf7112",
+  "name": "Topple the Statue",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Topple the Statue",
+      "manaCost": "{2}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Tap target permanent. If it's an artifact, destroy it.\nDraw a card.",
+      "flavorText": "Bolas cared little when his statue fell, thinking it a useful distraction, underestimating the surge of resolve it gave his opponents.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Sidharth Chaturvedi",
+      "imageId": "2829fa40-92e4-4017-aacd-9d9feae04aa2"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "war",
+  "collectorNumber": "35",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRANQUIL_PATH: CardData = {
+  "scryfallId": "2da8c059-3309-49a5-ae97-c048aefc922f",
+  "oracleId": "a9595011-8ddb-403a-ba35-5a79d346557e",
+  "name": "Tranquil Path",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tranquil Path",
+      "manaCost": "{4}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy all enchantments.\nDraw a card.",
+      "flavorText": "Freyalise bought the planeswalkers the time they needed by clearing a path through the misshapen hell of Phyrexia.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "John Avon",
+      "imageId": "2da8c059-3309-49a5-ae97-c048aefc922f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "apc",
+  "collectorNumber": "89",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -78011,6 +78426,18 @@ export const ENGINE_CARDS: CardData[] = [
   STIMULUS_PACKAGE,
   STORMSCAPE_APPRENTICE,
   SUNBEAM_SPELLBOMB,
+  SUPPLY_DROP,
+  SWEETTOOTH_WITCH,
+  TEFERI_S_CARE,
+  TEMPTING_WITCH,
+  THE_IMMORTAL_WEAPONS,
+  THORNSCAPE_APPRENTICE,
+  THRAGTUSK,
+  THUNDERSCAPE_APPRENTICE,
+  TINKER_S_TOTE,
+  TO_ARMS,
+  TOPPLE_THE_STATUE,
+  TRANQUIL_PATH,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

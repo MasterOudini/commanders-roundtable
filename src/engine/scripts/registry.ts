@@ -7,6 +7,18 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SUPPLY_DROP_SCRIPT } from './cards/supplyDrop';
+import { SWEETTOOTH_WITCH_SCRIPT } from './cards/sweettoothWitch';
+import { TEFERIS_CARE_SCRIPT } from './cards/teferisCare';
+import { TEMPTING_WITCH_SCRIPT } from './cards/temptingWitch';
+import { THE_IMMORTAL_WEAPONS_SCRIPT } from './cards/theImmortalWeapons';
+import { THORNSCAPE_APPRENTICE_SCRIPT } from './cards/thornscapeApprentice';
+import { THRAGTUSK_SCRIPT } from './cards/thragtusk';
+import { THUNDERSCAPE_APPRENTICE_SCRIPT } from './cards/thunderscapeApprentice';
+import { TINKERS_TOTE_SCRIPT } from './cards/tinkersTote';
+import { TO_ARMS_SCRIPT } from './cards/toArms';
+import { TOPPLE_THE_STATUE_SCRIPT } from './cards/toppleTheStatue';
+import { TRANQUIL_PATH_SCRIPT } from './cards/tranquilPath';
 import { SORCEROUS_SIGHT_SCRIPT } from './cards/sorcerousSight';
 import { SPARE_SUPPLIES_SCRIPT } from './cards/spareSupplies';
 import { SPELL_SNUFF_SCRIPT } from './cards/spellSnuff';
@@ -2070,6 +2082,18 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SUPPLY_DROP_SCRIPT,
+  SWEETTOOTH_WITCH_SCRIPT,
+  TEFERIS_CARE_SCRIPT,
+  TEMPTING_WITCH_SCRIPT,
+  THE_IMMORTAL_WEAPONS_SCRIPT,
+  THORNSCAPE_APPRENTICE_SCRIPT,
+  THRAGTUSK_SCRIPT,
+  THUNDERSCAPE_APPRENTICE_SCRIPT,
+  TINKERS_TOTE_SCRIPT,
+  TO_ARMS_SCRIPT,
+  TOPPLE_THE_STATUE_SCRIPT,
+  TRANQUIL_PATH_SCRIPT,
   SORCEROUS_SIGHT_SCRIPT,
   SPARE_SUPPLIES_SCRIPT,
   SPELL_SNUFF_SCRIPT,

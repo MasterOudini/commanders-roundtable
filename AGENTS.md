@@ -8485,6 +8485,42 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the cast-time alternative cost (fourteen cards) is the first seam to
       build, the sacrifice chooser's compound and multi-permanent forms the
       next, `optional: true` (D274) the lever after; prior items stand.
+- [x] **M6.4ds — Twelve landed: a Beast by any door, Flash left to the
+      engine, a typed counter, and a pool of one batch (2026-09-02):**
+      **3,858 of 31,692 Commander-legal cards now execute completely, up
+      from 3,846.** `SHIPPED_SCRIPTS` 1,949 → 1,961; ledger 832 (+13, ONE
+      new class). ZERO new token pins, ZERO new support bodies. **Sliver
+      Queen reaches 3,809 from 91 legendaries.** Decisions in **D282**.
+      ⚠️ **A Beast by any door:** `Thragtusk`'s leaves-the-battlefield
+      token (looks-back over `CardsMoved`, graveyard or exile alike).
+      **Flash left to the engine:** `Supply Drop` claims only its entry pump
+      and its sale; cast on the opponent's turn in the test.
+      **A typed counter and a cast watcher:** `Teferi's Care` ("target
+      enchantment spell" = a stack target filtered by card type) and `The
+      Immortal Weapons` (graveyard target with a type filter; +2/+0 AND
+      menace on each noncreature cast).
+      **Also:** Sweettooth Witch and Tempting Witch (Food sold by subtype);
+      Thornscape and Thunderscape Apprentice; Tinker's Tote; To Arms!
+      (untap mid-combat); Topple the Statue (destroy by DERIVED type);
+      Tranquil Path (all enchantments in one `CardsMoved`).
+      ⚠️ **Every suite green on the first run** (12 files / 41 tests); all
+      nine probed target specs confident.
+      **Refused 13:** Surgical Suite // Hospital Room opens `room
+      mechanic`; Sunscour, Thwart, Tidal Bore make seventeen `cast-time
+      alternative cost` refusals in seven batches; Swarming of Moria,
+      Treason of Isengard (amass); Sylvan Bounty, Traumatic Visions
+      (cycling); Teysa, Orzhov Scion; The Underworld Cookbook; Thunderblade
+      Charge; Twisted Image; Twitch.
+      Fixtures 2,214 (2,106 by name + 101 tokens) · botPool artifact 153 /
+      creature 2,002 / enchantment 75 / instant 706 / land 341 / sorcery 581 ·
+      ladder [1195, 1294, 3087, 5001, 6213] · batch.json 25.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,041 files, 10,711 passed / 10 skipped · 500-seed gate 717.4 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D282): the pool is ONE batch — after D283 the
+      offline order is empty and the loop moves to Phase 1 by the plan:
+      the cast-time alternative cost (seventeen cards) first, then the
+      script-raised prompt (the ledger's largest class), the discard-cost
+      chooser and the multi-sacrifice chooser; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

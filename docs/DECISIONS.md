@@ -18649,3 +18649,75 @@ clean · probe 124/124 · battery 130/130.
 cast-time alternative cost (fourteen cards) is the first seam to build, the
 sacrifice chooser's compound and multi-permanent forms the next, `optional:
 true` (D274) the lever after; prior items stand.
+
+## D282 — M6.4ds: twelve landed — a Beast by any door, Flash left to the engine, a typed counter, and a pool of one batch (2026-09-02)
+
+**3,858 of 31,692 Commander-legal cards execute completely, up from 3,846.**
+SHIPPED_SCRIPTS 1,949 → 1,961; ledger 819 → 832 (+13, **ONE new class**).
+ZERO new token pins (Food, Beast and Gnome were already pinned), ZERO new
+support bodies. **Sliver Queen reaches 3,809 from 91 legendaries** (The
+Immortal Weapons is the ninety-first). The widest batch since D269.
+
+**A Beast by any door.** `Thragtusk` gains 5 on entry and makes its 3/3
+Beast whenever it LEAVES the battlefield — graveyard or exile alike — a
+looks-back trigger over `CardsMoved` with `from` battlefield, the token to
+the controller the trigger remembers.
+
+**Flash left to the engine.** `Supply Drop`'s first line is a keyword the
+engine already enforces (`keywords.ts` names it), so the script claims only
+the other two: the entry aims +2/+2 at a creature I control until cleanup,
+and four mana, the tap and the Drop buy a card. The test casts it in the
+opponent's main phase and the pump still lands.
+
+**A typed counter and a cast watcher.** `Teferi's Care` sells one of my
+enchantments (Arenson's chooser by type) to destroy an enchantment, and
+counters "target enchantment spell" — the parser reads that as a stack
+target filtered by card type, measured before the port. `The Immortal
+Weapons` returns an instant or sorcery from my graveyard on entry (a
+graveyard-zone target with a type filter) and, whenever I cast a noncreature
+spell, aims +2/+0 AND menace at a creature until cleanup — the keyword rides
+`PtModifiedUntilEndOfTurn` beside the numbers; a creature spell aims
+nothing.
+
+**Two witches, two apprentices.** `Sweettooth Witch` and `Tempting Witch`
+each cook a Food on entry and sell it through the D168 chooser by subtype —
+2 life off a player for two mana, 3 for two mana and the tap. `Thornscape
+Apprentice` ({R}: first strike; {W}: tap) and `Thunderscape Apprentice`
+({B}: lose 1; {G}: +1/+1) are the two-line tap-Wizard shape by hand.
+
+**The rest.** `Tinker's Tote` brings two colourless Gnomes and sells itself
+for 3 life. `To Arms!` untaps every tapped creature of mine mid-combat and
+draws — the attack still connects. `Topple the Statue` taps the target
+permanent, destroys it if it is an artifact by DERIVED type, and draws
+either way. `Tranquil Path` destroys every enchantment on the board in one
+`CardsMoved`, mine included, and draws.
+
+⚠️ **Every suite green on the first run** — 12 files / 41 tests — and all
+nine probed target specs parsed confident.
+
+**Refused 13, ONE new class.** `Surgical Suite // Hospital Room` is a
+**room**: two doors on one enchantment, each unlocked for its own cost as a
+sorcery, each half live only while unlocked — a permanent with a per-face
+lock the engine has no state for. Three more free spells (Sunscour, Thwart,
+Tidal Bore) make **seventeen cast-time alternative costs refused in seven
+batches**. The rest: Swarming of Moria and Treason of Isengard (amass),
+Sylvan Bounty and Traumatic Visions (basic landcycling — cycling mechanic),
+Teysa, Orzhov Scion (three white creatures — multi-sacrifice cost), The
+Underworld Cookbook (discard-cost chooser), Thunderblade Charge (free-cast
+permission), Twisted Image (until-end-of-turn power/toughness switch),
+Twitch (the caster chooses tap or untap — script-raised prompt).
+
+Fixtures 2,202 → 2,214 (2,106 by name + 101 tokens) · botPool artifact 153 /
+creature 2,002 / enchantment 75 / instant 706 / land 341 / sorcery 581 ·
+ladder [1195, 1294, 3087, 5001, 6213] · batch.json 25 · botDeck: 3,809 from
+91 legendaries. **The pool is ONE batch: D283 is the last the offline order
+can offer; after it, Phase 1 — the engine seams.**
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,041 files, 10,711 passed / 10 skipped · 500-seed gate 717.4 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D282): after D283 the offline order is EMPTY and the loop
+moves to Phase 1 by the plan — the cast-time alternative cost (seventeen
+cards) first, then the script-raised prompt (the ledger's largest class),
+the discard-cost chooser, and the multi-sacrifice chooser; prior items
+stand.

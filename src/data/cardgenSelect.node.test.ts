@@ -1632,6 +1632,29 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Submerge', 'cast-time alternative cost'],
   ['Suit Up', 'until-end-of-turn type change with P/T set'],
   ["Sun's Bounty", 'recover mechanic'],
+
+  // D282 (M6.4ds) — the S/T residue; ONE new class.
+  //
+  // ⚠️ Surgical Suite // Hospital Room is a ROOM: two doors on one
+  // enchantment, each unlocked for its own cost as a sorcery, each half
+  // live only while unlocked — a permanent with a per-face lock the engine
+  // has no state for.
+  // ⚠️ Twitch and Tidal Bore let the caster CHOOSE tap or untap at
+  // resolution (script-raised prompt); Tidal Bore is refused for its
+  // alternative cost first.
+  ['Sunscour', 'cast-time alternative cost'],
+  ['Surgical Suite // Hospital Room', 'room mechanic'],
+  ['Swarming of Moria', 'amass mechanic'],
+  ['Sylvan Bounty', 'cycling mechanic'],
+  ['Teysa, Orzhov Scion', 'multi-sacrifice cost'],
+  ['The Underworld Cookbook', 'discard-cost chooser'],
+  ['Thunderblade Charge', 'free-cast permission'],
+  ['Thwart', 'cast-time alternative cost'],
+  ['Tidal Bore', 'cast-time alternative cost'],
+  ['Traumatic Visions', 'cycling mechanic'],
+  ['Treason of Isengard', 'amass mechanic'],
+  ['Twisted Image', 'until-end-of-turn power/toughness switch'],
+  ['Twitch', 'script-raised prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
