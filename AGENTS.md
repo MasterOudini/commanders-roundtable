@@ -8015,6 +8015,58 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       clearest aim-layer job (D269); the positional multi-spec fizzle has its
       regression test (D269); the two new classes are honest first entries;
       the Campus cycle is a generator candidate; prior items stand.
+- [x] **M6.4dh — Eighteen landed: the positional fizzle is not a same-kind
+      bug, and the alphabet ends (2026-09-02):** **3,755 of 31,692
+      Commander-legal cards now execute completely, up from 3,737.**
+      `SHIPPED_SCRIPTS` 1,840 → 1,858; ledger 660 (+7, ONE new class). FOUR
+      new token pins (the first since D268), ZERO new support bodies.
+      **Sliver Queen reaches 3,706 from 84 legendaries.** The END of the
+      alphabet (W/Y/Z); the offline order WRAPS — D272 opens at `Abeyance`
+      with **300 offerable left**. Decisions in **D271**.
+      ⚠️⚠️ **THE POSITIONAL FIZZLE IS KIND-AGNOSTIC.** `Wrong Turn` aims at
+      "target opponent" + "target creature" — DIFFERENT kinds, resolve reads
+      BY KIND — and the swapped answer is still ACCEPTED by the aim layer and
+      then FIZZLED by CR 608.2b's re-check (spec 0 vs `targets[0]`). Third
+      witness (Swift Kick D255, Wild Instincts D269), and it widens the
+      finding: ANY multi-spec spell fizzles on an out-of-order answer; reading
+      by kind in the resolve cannot save it. `wrongTurn.test.ts` pins the
+      MEASURED behaviour and goes RED when the re-check is repaired. The
+      repair is one place: read specs by ASSIGNMENT, never by index.
+      ⚠️ **The engine was right and my memory was wrong:** `Zenith Flare`'s
+      first test named Disdainful Stroke a cycler — the dump says it has NO
+      keywords; Unearth is the ONLY fixture cycler, listed TWICE (put() draws
+      from the LISTED deck, D232). Read fixture facts off the dump.
+      ⚠️ **Four new token pins:** Worm teve 6, Griffin ttsr 1, Elemental
+      tm20 7, Soldier ttle 2 — tokens 93 → 97; `WANTED_TOKENS` is the pin,
+      never `TOKEN_TABLE` (D268, applied correctly).
+      **Also:** Zeriam, Golden Wind (PER connecting Griffin, the D265 Utvara
+      idiom); Wretched Banquet (least power on the WHOLE battlefield); Zuran
+      Orb (a land for 2 life, no mana anywhere; a creature refused); Zuran
+      Spellcaster; Wretched Doll; Wriggling Grub; Wyluli Wolf; Yavimaya
+      Sapherd; Yeva's Forcemage; Young Pyromancer; Youthful Scholar; Zarichi
+      Tiger; Zealous Lorecaster; Zephyr Charge; Zoo Escapees; Zuko Avatar
+      Hunter. **Refused 7:** Zagoth Mamba opens `mutate mechanic`; Zero Point
+      Ballad (a resolve cannot see its own effects); Yawgmoth's Vile Offering;
+      Zenith Seeker; Zombie Infestation; Zoyowa's Justice; Zulaport Chainmage.
+      ⚠️ **All 18 modules typechecked FIRST pass.** Two test-side fixes,
+      both by isolating first.
+      ⚠️ **THE POOL IS NOW THE STORY:** 300 offerable against a ledger of
+      660 — at 18–20 a batch the offline order runs dry around D283, and from
+      there EVERY further card needs an engine seam. Clearest, both measured:
+      the positional re-check (3 witnesses) and the keyword-qualifier drop
+      (D269, 5 witnesses); largest buildable classes `up-to-N targeting` (44)
+      and `script-raised prompt` (76).
+      Fixtures 2,107 (2,003 by name + 97 tokens) · botPool artifact 134 /
+      creature 1,963 / enchantment 67 / instant 681 / land 340 / sorcery 570 ·
+      ladder [1298, 1397, 3190, 5104, 6316] · batch.json 300.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,938 files, 10,137 passed / 10 skipped · 500-seed gate 713.3 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D271): the positional re-check is a measured,
+      kind-agnostic, three-witness engine bug with a red-on-repair pin — the
+      cheapest correctness fix on the board; the offerable pool ends around
+      D283 and Phase 1's engine unlocks become the loop's only road; the
+      keyword-qualifier repair (D269) stays the clearest aim-layer job; prior
+      items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

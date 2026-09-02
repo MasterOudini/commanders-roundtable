@@ -2436,6 +2436,24 @@ const WANTED = [
   'Wrack with Madness',
   'Wreckage Wickerfolk',
   'Wrecking Ball',
+  'Wretched Banquet',
+  'Wretched Doll',
+  'Wriggling Grub',
+  'Wrong Turn',
+  'Wyluli Wolf',
+  'Yavimaya Sapherd',
+  "Yeva's Forcemage",
+  'Young Pyromancer',
+  'Youthful Scholar',
+  'Zarichi Tiger',
+  'Zealous Lorecaster',
+  'Zenith Flare',
+  'Zephyr Charge',
+  'Zeriam, Golden Wind',
+  'Zoo Escapees',
+  'Zuko, Avatar Hunter',
+  'Zuran Orb',
+  'Zuran Spellcaster',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -2608,6 +2626,15 @@ const WANTED_TOKENS = [
   // script the printing to create, WANTED_TOKENS is what the TEST ORACLE
   // knows. The tokens were created and then had no name to be counted by.
   { name: 'Goblin Rogue', set: 'tznc', cn: '5', key: 'GOBLIN_ROGUE_TOKEN' },
+  // D271: four at once. Worm (Wriggling Grub) and Griffin (Zeriam) were in
+  // TOKEN_TABLE but not here - the D268 miss, caught at classification this
+  // time. The mono-R Elemental (Young Pyromancer) and the 2/2 R Soldier
+  // (Zuko) have rows above for OTHER printings of the same name; a name
+  // grep says "pinned" and is wrong - the PRINTING is what the oracle knows.
+  { name: 'Worm', set: 'teve', cn: '6', key: 'WORM_BG_TOKEN' },
+  { name: 'Griffin', set: 'ttsr', cn: '1', key: 'GRIFFIN_22_TOKEN' },
+  { name: 'Elemental', set: 'tm20', cn: '7', key: 'ELEMENTAL_11_R_TOKEN' },
+  { name: 'Soldier', set: 'ttle', cn: '2', key: 'SOLDIER_22_R_TOKEN' },
 ];
 
 function constName(name) {

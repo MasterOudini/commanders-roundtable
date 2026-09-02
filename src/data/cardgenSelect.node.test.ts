@@ -1349,6 +1349,23 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Worst Fears', 'control-a-player'],
   ['Wrap in Vigor', 'regeneration'],
   ["Wrenn's Resolve", 'play-from-exile permission'],
+
+  // D271 (M6.4dh) — the END of the alphabet (W/Y/Z), ONE new class.
+  //
+  // ⚠️ `mutate mechanic`: nothing in the engine stacks a mutating creature
+  // or fires "whenever this creature mutates". An honest first entry.
+  //
+  // ⚠️ Zero Point Ballad is refused for the CHOICE, not the wipe: "return a
+  // creature card put into a graveyard THIS WAY" picks among a subset the
+  // resolve itself just created — a resolve cannot see its own effects, and
+  // chooseFromZone has no way to say "only the ones I just binned".
+  ["Yawgmoth's Vile Offering", 'cast-permission condition'],
+  ['Zagoth Mamba', 'mutate mechanic'],
+  ['Zenith Seeker', 'discard-event discriminator'],
+  ['Zero Point Ballad', 'script-raised prompt'],
+  ['Zombie Infestation', 'discard-cost chooser'],
+  ["Zoyowa's Justice", 'discover mechanic'],
+  ['Zulaport Chainmage', 'tap-creatures cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

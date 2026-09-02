@@ -7,6 +7,24 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { WRETCHED_BANQUET_SCRIPT } from './cards/wretchedBanquet';
+import { WRETCHED_DOLL_SCRIPT } from './cards/wretchedDoll';
+import { WRIGGLING_GRUB_SCRIPT } from './cards/wrigglingGrub';
+import { WRONG_TURN_SCRIPT } from './cards/wrongTurn';
+import { WYLULI_WOLF_SCRIPT } from './cards/wyluliWolf';
+import { YAVIMAYA_SAPHERD_SCRIPT } from './cards/yavimayaSapherd';
+import { YEVAS_FORCEMAGE_SCRIPT } from './cards/yevasForcemage';
+import { YOUNG_PYROMANCER_SCRIPT } from './cards/youngPyromancer';
+import { YOUTHFUL_SCHOLAR_SCRIPT } from './cards/youthfulScholar';
+import { ZARICHI_TIGER_SCRIPT } from './cards/zarichiTiger';
+import { ZEALOUS_LORECASTER_SCRIPT } from './cards/zealousLorecaster';
+import { ZENITH_FLARE_SCRIPT } from './cards/zenithFlare';
+import { ZEPHYR_CHARGE_SCRIPT } from './cards/zephyrCharge';
+import { ZERIAM_GOLDEN_WIND_SCRIPT } from './cards/zeriamGoldenWind';
+import { ZOO_ESCAPEES_SCRIPT } from './cards/zooEscapees';
+import { ZUKO_AVATAR_HUNTER_SCRIPT } from './cards/zukoAvatarHunter';
+import { ZURAN_ORB_SCRIPT } from './cards/zuranOrb';
+import { ZURAN_SPELLCASTER_SCRIPT } from './cards/zuranSpellcaster';
 import { WIREWOOD_PRIDE_SCRIPT } from './cards/wirewoodPride';
 import { WISECRACK_SCRIPT } from './cards/wisecrack';
 import { WISTFUL_SELKIE_SCRIPT } from './cards/wistfulSelkie';
@@ -1961,6 +1979,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  WRETCHED_BANQUET_SCRIPT,
+  WRETCHED_DOLL_SCRIPT,
+  WRIGGLING_GRUB_SCRIPT,
+  WRONG_TURN_SCRIPT,
+  WYLULI_WOLF_SCRIPT,
+  YAVIMAYA_SAPHERD_SCRIPT,
+  YEVAS_FORCEMAGE_SCRIPT,
+  YOUNG_PYROMANCER_SCRIPT,
+  YOUTHFUL_SCHOLAR_SCRIPT,
+  ZARICHI_TIGER_SCRIPT,
+  ZEALOUS_LORECASTER_SCRIPT,
+  ZENITH_FLARE_SCRIPT,
+  ZEPHYR_CHARGE_SCRIPT,
+  ZERIAM_GOLDEN_WIND_SCRIPT,
+  ZOO_ESCAPEES_SCRIPT,
+  ZUKO_AVATAR_HUNTER_SCRIPT,
+  ZURAN_ORB_SCRIPT,
+  ZURAN_SPELLCASTER_SCRIPT,
   WIREWOOD_PRIDE_SCRIPT,
   WISECRACK_SCRIPT,
   WISTFUL_SELKIE_SCRIPT,

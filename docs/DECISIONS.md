@@ -17958,3 +17958,79 @@ the clearest aim-layer job (D269); the positional multi-spec fizzle has its
 regression test (D269); two new classes (`day/night`, `control-a-player`) are
 honest first entries and not yet worth building; the Campus land cycle is a
 generator candidate once its members' texts are confirmed; prior items stand.
+
+## D271 — M6.4dh: eighteen landed — the positional fizzle is not a same-kind bug, and the alphabet ends (2026-09-02)
+
+**3,755 of 31,692 Commander-legal cards execute completely, up from 3,737.**
+SHIPPED_SCRIPTS 1,840 → 1,858; ledger 653 → 660 (+7, **ONE new class**).
+**FOUR new token pins** (the first since D268), ZERO new support bodies.
+**Sliver Queen reaches 3,706 from 84 legendaries.** D271 is the **end of the
+alphabet** — W/Y/Z — and the offline order now **wraps**: D272 opens at
+`Abeyance` with **300 offerable cards left**.
+
+⚠️⚠️ **THE POSITIONAL FIZZLE IS NOT A SAME-KIND PROBLEM.** `Wrong Turn` aims
+at "target opponent" and "target creature" — two specs of **different kinds**,
+and its resolve reads them **by kind**, the D255 discipline. So the swapped
+answer was expected to be safe, and the test was written to prove it.
+**Measured:** the aim layer ACCEPTS `[creature, player]`, and then CR 608.2b's
+re-check reads spec 0 against `targets[0]`, finds a creature where it wants a
+player, and **fizzles the whole spell**. Nothing happens. That is the **third
+witness** after Swift Kick (D255) and Wild Instincts (D269), and it widens the
+finding: the re-check is positional *regardless of kind*, so **any multi-spec
+spell fizzles on an out-of-order answer**, and reading targets by kind in the
+resolve cannot save it. `wrongTurn.test.ts` pins the measured behaviour —
+accepted, then no control change — and **goes red the day the re-check is
+repaired.** The repair is one place: the re-check must read specs by
+**assignment** (the matching `assignTargets` already computed), never by index.
+
+⚠️ **THE ENGINE WAS RIGHT AND MY MEMORY WAS WRONG.** `Zenith Flare` counts
+cycling cards off the raw keyword list (Tombfire's idiom, D261). Its first test
+named Disdainful Stroke as a cycler and read X=1 where it expected 2. The dump
+says Disdainful Stroke has **no keywords at all**, and Unearth is the **only**
+fixture that cycles — so the test lists Unearth TWICE in the deck (`put()`
+draws from the LISTED deck, D232) and keeps Disdainful Stroke as the
+must-not-count INSTANT, proving the discriminator is the keyword and not the
+card type. Read fixture facts off the dump, never off memory.
+
+⚠️ **FOUR NEW TOKEN PINS after three batches of none:** Worm (teve 6), Griffin
+(ttsr 1), Elemental (tm20 7), Soldier (ttle 2). The token filter moves
+93 → 97. `WANTED_TOKENS` is the pin, never `TOKEN_TABLE` — D268's lesson,
+applied correctly this time, and it found all four.
+
+**The rest of the batch.** `Zeriam, Golden Wind` fans out PER connecting
+Griffin (the D265 Utvara idiom, a `ScriptCtx` helper). `Wretched Banquet` dies
+only if its power is the LEAST on the whole battlefield — a minimum over every
+creature, not over my own. `Zuran Orb` sells a land for 2 life with no mana
+anywhere in the cost and refuses a creature as the sacrifice. `Zuran
+Spellcaster` pings a player or marks a creature past summoning sickness. Plus
+Wretched Doll, Wriggling Grub, Wyluli Wolf, Yavimaya Sapherd, Yeva's Forcemage,
+Young Pyromancer, Youthful Scholar, Zarichi Tiger, Zealous Lorecaster, Zephyr
+Charge, Zoo Escapees, Zuko Avatar Hunter.
+
+**Seven refused, one new class.** `Zagoth Mamba` opens `mutate mechanic` —
+nothing stacks a mutating creature or fires on it. `Zero Point Ballad` is
+refused for the CHOICE, not the wipe: "return a creature card put into a
+graveyard this way" picks among a subset the resolve itself just created, and
+a resolve cannot see its own effects. Also Yawgmoth's Vile Offering
+(cast-permission condition), Zenith Seeker (discard-event discriminator),
+Zombie Infestation (discard-cost chooser), Zoyowa's Justice (discover),
+Zulaport Chainmage (tap-creatures cost).
+
+All 18 modules typechecked on the FIRST pass. Two test-side fixes, both found
+by isolating first: one became the measured pin above, the other was the
+fixture pick.
+
+⚠️ **THE POOL IS NOW THE STORY.** 300 offerable cards remain against a ledger
+of 660; at 18–20 landed per batch the offline order runs dry around D283, and
+from there **every further card needs an engine seam**. The two clearest are
+already measured: the positional re-check (three witnesses) and the
+keyword-qualifier drop (D269, five witnesses). `up-to-N targeting` (44) and
+`script-raised prompt` (76) are the largest buildable classes.
+
+Fixtures 2,085 → 2,107 (2,003 by name + 97 tokens). botPool artifact 134 /
+creature 1,963 / enchantment 67 / instant 681 / land 340 / sorcery 570 —
+ladder [1298, 1397, 3190, 5104, 6316] — batch.json 300 — botDeck: the header
+alone moved, 3,706 from 84 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 1,938 files, 10,137 passed / 10 skipped · 500-seed gate 713.3 s · build
+clean · probe 124/124 · battery 130/130.
