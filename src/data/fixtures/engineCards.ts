@@ -70006,6 +70006,286 @@ export const CONFIRM_SUSPICIONS: CardData = {
   "singleImage": true
 };
 
+export const CREEPING_CHILL: CardData = {
+  "scryfallId": "6c5a3731-cc69-4bd2-acd7-1507c71623d3",
+  "oracleId": "dc0d4e58-db39-4a05-b27c-452180c86d47",
+  "name": "Creeping Chill",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Creeping Chill",
+      "manaCost": "{3}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Creeping Chill deals 3 damage to each opponent and you gain 3 life.\nWhen Creeping Chill is put into your graveyard from your library, you may exile it. If you do, Creeping Chill deals 3 damage to each opponent and you gain 3 life.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Wisnu Tan",
+      "imageId": "6c5a3731-cc69-4bd2-acd7-1507c71623d3"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "rvr",
+  "collectorNumber": "453",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CREMATE: CardData = {
+  "scryfallId": "013d5260-f906-4f6a-97ed-725197743b60",
+  "oracleId": "c6a2e410-b182-48d1-aeb2-bc8de27e9cd2",
+  "name": "Cremate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cremate",
+      "manaCost": "{B}",
+      "typeLine": "Instant",
+      "oracleText": "Exile target card from a graveyard.\nDraw a card.",
+      "flavorText": "\"Without a body, the soul is helpless to fight the terms of our contracts.\"\n—Somhaur, Orzhov pontiff",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Cynthia Sheppard",
+      "imageId": "013d5260-f906-4f6a-97ed-725197743b60"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "rtr",
+  "collectorNumber": "59",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CUNNING_STRIKE: CardData = {
+  "scryfallId": "e4991f81-3190-4d33-bf09-9d5387cbec11",
+  "oracleId": "a01491b7-89c8-4d6e-a516-431440ff3e88",
+  "name": "Cunning Strike",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cunning Strike",
+      "manaCost": "{3}{U}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Cunning Strike deals 2 damage to target creature and 2 damage to target player or planeswalker.\nDraw a card.",
+      "flavorText": "\"The opponent who blocks the path, becomes the path.\"\n—Shu Yun, the Silent Tempest",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Clint Cearley",
+      "imageId": "e4991f81-3190-4d33-bf09-9d5387cbec11"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "frf",
+  "collectorNumber": "150",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEGA_DISCIPLE: CardData = {
+  "scryfallId": "fb9cd7d9-8aad-4607-890c-9c8efe016a92",
+  "oracleId": "c6c53277-daad-4aa3-b29a-11378d550651",
+  "name": "Dega Disciple",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dega Disciple",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{B}, {T}: Target creature gets -2/-0 until end of turn.\n{R}, {T}: Target creature gets +2/+0 until end of turn.",
+      "flavorText": "\"There is no true equity of power. There is only more and less.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Alan Pollack",
+      "imageId": "fb9cd7d9-8aad-4607-890c-9c8efe016a92"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R",
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "apc",
+  "collectorNumber": "4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DISCIPLE_OF_TEVESH_SZAT: CardData = {
+  "scryfallId": "8f99ec07-8af7-4e80-9f0e-fa304a94d4b4",
+  "oracleId": "3a09c951-9861-4e95-acf1-5ce1a3778493",
+  "name": "Disciple of Tevesh Szat",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Disciple of Tevesh Szat",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{T}: Target creature gets -1/-1 until end of turn.\n{4}{B}{B}, {T}, Sacrifice this creature: Target creature gets -6/-6 until end of turn.",
+      "flavorText": "\"You pray to Freyalise, but she cannot hear your pleas. It is Tevesh Szat who will claim your soul.\"",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "8f99ec07-8af7-4e80-9f0e-fa304a94d4b4"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "csp",
+  "collectorNumber": "55",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DISPATCH: CardData = {
+  "scryfallId": "06bafa7d-1915-487a-96c8-b8aeafed20d4",
+  "oracleId": "133c99c0-3652-410f-8100-68015a47af9f",
+  "name": "Dispatch",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dispatch",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Tap target creature.\nMetalcraft — If you control three or more artifacts, exile that creature.",
+      "flavorText": "Venser wondered if it could still be called a teleportation spell if the destination is oblivion.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Erica Yang",
+      "imageId": "06bafa7d-1915-487a-96c8-b8aeafed20d4"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Metalcraft"
+  ],
+  "setCode": "nec",
+  "collectorNumber": "83",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DREAM_FRACTURE: CardData = {
+  "scryfallId": "1a5c7858-a57d-449d-8c1f-420d9129c17e",
+  "oracleId": "c5843d13-855f-41dd-ac13-3c7f7e18bb39",
+  "name": "Dream Fracture",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dream Fracture",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target spell. Its controller draws a card.\nDraw a card.",
+      "flavorText": "\"Creation is a paradox. It hatches from its opposite.\"\n—Olka, Mistmeadow witch",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "1a5c7858-a57d-449d-8c1f-420d9129c17e"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "cns",
+  "collectorNumber": "95",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DROGSKOL_CAVALRY: CardData = {
+  "scryfallId": "1a5c6454-67fa-4afb-885e-5cdd595c57ab",
+  "oracleId": "a8bac5a8-5a60-4f7a-a4d6-cb922da92472",
+  "name": "Drogskol Cavalry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drogskol Cavalry",
+      "manaCost": "{5}{W}{W}",
+      "typeLine": "Creature — Spirit Knight",
+      "oracleText": "Flying\nWhenever another Spirit you control enters, you gain 2 life.\n{3}{W}: Create a 1/1 white Spirit creature token with flying.",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Igor Kieryluk",
+      "imageId": "1a5c6454-67fa-4afb-885e-5cdd595c57ab"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "psoi",
+  "collectorNumber": "15s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -75385,6 +75665,14 @@ export const ENGINE_CARDS: CardData[] = [
   CLACHAN_FESTIVAL,
   COGWORKER_S_PUZZLEKNOT,
   CONFIRM_SUSPICIONS,
+  CREEPING_CHILL,
+  CREMATE,
+  CUNNING_STRIKE,
+  DEGA_DISCIPLE,
+  DISCIPLE_OF_TEVESH_SZAT,
+  DISPATCH,
+  DREAM_FRACTURE,
+  DROGSKOL_CAVALRY,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -18175,3 +18175,67 @@ alone moved, 3,726 from 84 legendaries.
 
 **Verified:** `verify.cjs --full` — ALL FIVE GATES: 1,958 files, 10,253 passed / 10 skipped · 500-seed gate 721.2 s · build
 clean · probe 124/124 · battery 130/130.
+
+## D274 — M6.4dk: eight landed — the first optional trigger and the first graveyard watcher, both measured (2026-09-02)
+
+**3,783 of 31,692 Commander-legal cards execute completely, up from 3,775.**
+SHIPPED_SCRIPTS 1,878 → 1,886; ledger 690 → 707 (+17, **THREE new classes**).
+ZERO new token pins, ZERO new support bodies. **Sliver Queen reaches 3,734
+from 84 legendaries.**
+
+⚠️⚠️ **CREEPING CHILL OPENS TWO DOORS, AND THE TEST MEASURES BOTH.** It is
+the **first script def with `optional: true`** — the flag has been on
+`TriggerDef` since M3 and D128 built the `optionalTrigger` prompt for it, but
+no script had ever set it. Milled from the library the card ASKS: accepting
+exiles it, deals 3 to each opponent and gains 3; declining leaves it in the
+graveyard with no `DamageDealt` on the log; a discard from the HAND asks
+nothing at all ("from your library"). It is also the **first watcher whose
+active zone is the graveyard** — the def is asked of the post-event state,
+where the card already sits, so no `looksBack`. And the coverage accounting
+accepted a **spell def claiming line 1 beside a trigger def claiming line 2**
+— a spell with a non-spell ability, split per printed line, counted complete.
+All three are new idioms: **every "when X, you may Y" trigger in the ledger's
+prompt classes is worth re-reading against `optional: true`.**
+
+⚠️ **Positional is exact when the re-check enforces it.** `Cunning Strike`
+aims at a creature and then a player or planeswalker; a planeswalker is a
+card too, so "by kind" cannot tell the two specs apart. The resolve reads
+them IN SPEC ORDER, and that is correct rather than fragile, because CR
+608.2b's positional re-check (D255/D271) fizzles any out-of-order answer
+before the resolve runs — only spec-ordered answers ever reach it.
+
+**The guildmage generator grew by a row.** `Dega Disciple` is the family's
+fourth member: one row in `d272/gen-guildmages.cjs`, regenerated, and the
+three shipped members came out byte-identical — the growth path D258 asked
+for, proven.
+
+**The rest of the batch.** `Dispatch` taps and, at three artifacts, exiles
+(Metalcraft counted off derived types at resolution). `Dream Fracture`
+counters and the countered spell's CONTROLLER draws, read off the stack object
+before it dies, then I draw. `Drogskol Cavalry`'s activation makes a flying
+Spirit that is itself "another Spirit entering" — a token and 2 life per
+activation, as the card plays. `Disciple of Tevesh Szat` taps for −1/−1 or
+pays six mana, a tap and itself for −6/−6. `Cremate` exiles a card from ANY
+graveyard and draws.
+
+⚠️ **One tsc catch, then every suite green on the first run** — the third
+batch in a row (8 files, 32 tests). `put()` refuses the library zone, so the
+mill is staged hand → top of library → graveyard by manual moves.
+
+**Seventeen refused, three new classes.** `Death Spark` reads the ORDER of a
+graveyard ("a creature card directly above it"), which no zone in `state.ts`
+tracks — `graveyard-order condition`. Freerunning (Distract the Guards, Eagle
+Vision) and Mayhem (Electro's Bolt) join the unenforced-keyword family D273
+named. Plus suspend ×2, untap restriction, tap-creatures cost, text-changing
+effect, regeneration, opponent-chooses, amass, miracle, cast-time alternative
+cost, transmute, hand-activated ×2.
+
+⚠️ **The pool is now 225.**
+
+Fixtures 2,128 → 2,136 (2,031 by name + 98 tokens). botPool artifact 137 /
+creature 1,974 / enchantment 69 / instant 690 / land 340 / sorcery 573 —
+ladder [1270, 1369, 3162, 5076, 6288] — batch.json 225 — botDeck: the header
+alone moved, 3,734 from 84 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 1,966 files, 10,301 passed / 10 skipped · 500-seed gate 726.1 s · build
+clean · probe 124/124 · battery 130/130.

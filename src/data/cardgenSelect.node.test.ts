@@ -1425,6 +1425,31 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Controvert', 'recover mechanic'],
   ["Council's Deliberation", 'scry-surveil event discriminator'],
   ['Crackleburr', 'tap-creatures cost'],
+
+  // D274 (M6.4dk) — the C/D/E residue; THREE new classes. Freerunning and
+  // Mayhem are alternative/graveyard casts the engine does not enforce;
+  // Death Spark reads the ORDER of a graveyard ("a creature card directly
+  // above it"), which no zone in state.ts tracks as a stack of cards.
+  //
+  // ⚠️ Crystal Spray is a text-changing effect (CR 612); Crippling Chill is
+  // the untap restriction; Dash Hopes is opponent-chooses on a CAST trigger.
+  ['Crashing Footfalls', 'suspend mechanic'],
+  ['Crippling Chill', 'untap restriction'],
+  ['Crookclaw Elder', 'tap-creatures cost'],
+  ['Crystal Spray', 'text-changing effect (CR 612)'],
+  ['Dark Dabbling', 'regeneration'],
+  ['Dash Hopes', 'opponent-chooses'],
+  ['Death Spark', 'graveyard-order condition'],
+  ['Deceive the Messenger', 'amass mechanic'],
+  ['Devastation Tide', 'miracle mechanic'],
+  ['Disrupting Shoal', 'cast-time alternative cost'],
+  ['Distract the Guards', 'freerunning mechanic'],
+  ['Divine Congregation', 'suspend mechanic'],
+  ['Dizzy Spell', 'transmute mechanic'],
+  ['Eagle Vision', 'freerunning mechanic'],
+  ['Earthbrawn', 'hand-activated ability'],
+  ["Electro's Bolt", 'mayhem mechanic'],
+  ['Elemental Masterpiece', 'hand-activated ability'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

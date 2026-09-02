@@ -172,8 +172,8 @@ describe.skipIf(!HAVE_DB)('the committed engine fixtures still match the real ca
    * missing cards as fixtures so their `printed()` guards and per-card tests
    * could run against DB-guarded records rather than paraphrases (D15b).
    */
-  test('there are 2,128 fixtures: 2,023 taken by name, 98 tokens pinned by printing', () => {
-    expect(ENGINE_CARDS).toHaveLength(2128);
+  test('there are 2,136 fixtures: 2,031 taken by name, 98 tokens pinned by printing', () => {
+    expect(ENGINE_CARDS).toHaveLength(2136);
     expect(ENGINE_CARDS.filter((c) => c.layout === 'token')).toHaveLength(98);
   });
 

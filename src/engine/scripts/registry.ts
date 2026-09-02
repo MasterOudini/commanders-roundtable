@@ -7,6 +7,14 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { CREEPING_CHILL_SCRIPT } from './cards/creepingChill';
+import { CREMATE_SCRIPT } from './cards/cremate';
+import { CUNNING_STRIKE_SCRIPT } from './cards/cunningStrike';
+import { DEGA_DISCIPLE_SCRIPT } from './cards/degaDisciple';
+import { DISCIPLE_OF_TEVESH_SZAT_SCRIPT } from './cards/discipleOfTeveshSzat';
+import { DISPATCH_SCRIPT } from './cards/dispatch';
+import { DREAM_FRACTURE_SCRIPT } from './cards/dreamFracture';
+import { DROGSKOL_CAVALRY_SCRIPT } from './cards/drogskolCavalry';
 import { BLINDING_SPRAY_SCRIPT } from './cards/blindingSpray';
 import { BLUR_SCRIPT } from './cards/blur';
 import { BOROS_GUILDMAGE_SCRIPT } from './cards/borosGuildmage';
@@ -1999,6 +2007,14 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CREEPING_CHILL_SCRIPT,
+  CREMATE_SCRIPT,
+  CUNNING_STRIKE_SCRIPT,
+  DEGA_DISCIPLE_SCRIPT,
+  DISCIPLE_OF_TEVESH_SZAT_SCRIPT,
+  DISPATCH_SCRIPT,
+  DREAM_FRACTURE_SCRIPT,
+  DROGSKOL_CAVALRY_SCRIPT,
   BLINDING_SPRAY_SCRIPT,
   BLUR_SCRIPT,
   BOROS_GUILDMAGE_SCRIPT,

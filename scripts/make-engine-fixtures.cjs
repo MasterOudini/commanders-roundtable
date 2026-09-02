@@ -2474,6 +2474,14 @@ const WANTED = [
   'Clachan Festival',
   "Cogworker's Puzzleknot",
   'Confirm Suspicions',
+  'Creeping Chill',
+  'Cremate',
+  'Cunning Strike',
+  'Dega Disciple',
+  'Disciple of Tevesh Szat',
+  'Dispatch',
+  'Dream Fracture',
+  'Drogskol Cavalry',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
