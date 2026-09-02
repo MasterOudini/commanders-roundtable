@@ -18354,3 +18354,56 @@ alone moved, 3,751 from 86 legendaries.
 
 **Verified:** `verify.cjs --full` — ALL FIVE GATES: 1,983 files, 10,397 passed / 10 skipped · 500-seed gate 738.4 s · build
 clean · probe 124/124 · battery 130/130 idle (red on four DOM checks seconds after the fuzz leg - D270's load pattern).
+
+## D277 — M6.4dn: eight landed — a commander sent home by a plain move, and the first planeswalker the pool offered (2026-09-02)
+
+**3,808 of 31,692 Commander-legal cards execute completely, up from 3,800.**
+SHIPPED_SCRIPTS 1,903 → 1,911; ledger 740 → 757 (+17, **TWO new classes**).
+ZERO new token pins, ZERO new support bodies. **Sliver Queen reaches 3,759
+from 87 legendaries** (Jolene joins).
+
+⚠️ **A COMMANDER GOES HOME BY A PLAIN MOVE.** `Leadership Vacuum` returns
+every commander the targeted player controls to the command zone, and it
+needed no seam: the command zone is a real `CardsMoved` destination, a
+commander is a real flag on the card (`isCommander`, beside the player's
+`commanderIds`), and the harness seats a default commander in every game. The
+test lifts both commanders onto the battlefield by hand, aims at the opponent,
+and finds theirs in the command zone and mine still standing. The move goes
+straight to the zone rather than through the CR 903.9 replacement prompt —
+the card says "returns", not "would be put".
+
+⚠️ **THE FIRST PLANESWALKER THE POOL OFFERED.** `Kiora, Behemoth Beckoner`
+carries a loyalty ability the engine has never charged (`botPool` pins
+planeswalkers at zero) — `planeswalker loyalty ability` opens as a class.
+`Lantern Flare`'s CLEAVE opens another; Path of Peril takes it next batch.
+Three CONDITIONAL free casts (Lethargy Trap, Massacre, Mogg Salvage) join the
+cast-time alternative cost class after D275's four: **seven free spells
+refused in three batches.**
+
+**The rest of the batch.** `Jolene, Plundering Pugilist` makes a Treasure
+when any declared attacker of mine has power 4 or more and sells that
+Treasure for a ping — an ARTIFACT-subtype sacrifice chooser (Guardian of
+Cloverdell's Kithkin one type over), the Spellbomb refused as the price.
+`Laid to Rest` reads a dying creature's +1/+1 counter from the pre-event
+state (`looksBack`) and a Human's subtype the same way; a countered Human
+pays both. `Lossarnach Captain` is Théoden's self-or-Human entry PAIR aimed
+at an opponent's creature to TAP, and its upkeep Human Soldier is itself a
+Human entering, so each upkeep asks again. `Marker Beetles` is Festering
+Goblin's targeted dies watcher behind a self-sacrifice draw: one activation
+is a card AND a pump. `Might of the Old Ways` counts DISTINCT powers with the
+target's +2 already applied — "then" means after the pump. `Last Caress`
+aimed at myself cancels the life and keeps the card. `Jund Battlemage` drains
+or makes a Saproling.
+
+⚠️ **Every suite green on the first run** — 8 files, 30 tests — the fourth
+such batch in five.
+
+⚠️ **The pool is now 150.**
+
+Fixtures 2,155 → 2,163 (2,056 by name + 100 tokens). botPool artifact 144 /
+creature 1,984 / enchantment 70 / instant 694 / land 340 / sorcery 576 —
+ladder [1245, 1344, 3137, 5051, 6263] — batch.json 150 — botDeck: the header
+alone moved, 3,759 from 87 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 1,991 files, 10,443 passed / 10 skipped · 500-seed gate 705.3 s · build
+clean · probe 124/124 · battery 130/130.

@@ -1507,6 +1507,34 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Inspired Tinkering', 'play-from-exile permission'],
   ['Invigorate', 'cast-time alternative cost'],
   ['Jan Jansen, Chaos Crafter', 'negated-type sacrifice predicate'],
+
+  // D277 (M6.4dn) — the J/K/L/M residue; TWO new classes.
+  //
+  // ⚠️ Kiora, Behemoth Beckoner is the FIRST planeswalker the pool offered:
+  // its loyalty ability (−1: untap) is an activation shape the engine has
+  // never charged (botPool pins planeswalkers at zero). Lantern Flare is
+  // CLEAVE — a bracketed-text alternative cost.
+  // ⚠️ Manamorphose adds two mana "in any combination of colors": a colour
+  // choice a resolve cannot raise (D270 — chooseColor is engine-only).
+  // ⚠️ Three conditional FREE casts (Lethargy Trap, Massacre, Mogg Salvage)
+  // join the cast-time alternative cost class after D275's four.
+  ["Katara's Reversal", 'up-to-N targeting'],
+  ['Kiora, Behemoth Beckoner', 'planeswalker loyalty ability'],
+  ['Krovikan Rot', 'recover mechanic'],
+  ['Lantern Flare', 'cleave mechanic'],
+  ["Laquatus's Disdain", 'cast-zone discriminator'],
+  ['Learn from the Past', 'ctx.random'],
+  ['Lethargy Trap', 'cast-time alternative cost'],
+  ['Mammoth Bellow', 'harmonize mechanic'],
+  ['Manamorphose', 'script-raised prompt'],
+  ['Massacre', 'cast-time alternative cost'],
+  ['Mental Journey', 'cycling mechanic'],
+  ['Metrognome', 'discard-event discriminator'],
+  ['Mind Transfer Protocol', 'until-end-of-turn type change with P/T set'],
+  ['Mindstab', 'suspend mechanic'],
+  ["Mjölnir's Might", 'play-from-exile permission'],
+  ['Mnemonic Sphere', 'hand-activated ability'],
+  ['Mogg Salvage', 'cast-time alternative cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

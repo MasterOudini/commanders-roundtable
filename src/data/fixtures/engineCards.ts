@@ -70858,6 +70858,288 @@ export const INSTANT_RAMEN: CardData = {
   "singleImage": true
 };
 
+export const JOLENE_PLUNDERING_PUGILIST: CardData = {
+  "scryfallId": "fe30b5c8-4889-4350-bb1d-3e2a67d9dfb2",
+  "oracleId": "fb8efd6e-b8f8-4da8-ac65-5b745c02d2bb",
+  "name": "Jolene, Plundering Pugilist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jolene, Plundering Pugilist",
+      "manaCost": "{1}{R}{G}",
+      "typeLine": "Legendary Creature — Human Mercenary",
+      "oracleText": "Whenever you attack with one or more creatures with power 4 or greater, create a Treasure token.\n{1}{R}, Sacrifice a Treasure: Jolene deals 1 damage to any target.",
+      "flavorText": "\"So, are we doing this the easy way or the fun way?\"",
+      "power": "4",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Andreas Zafiratos",
+      "imageId": "fe30b5c8-4889-4350-bb1d-3e2a67d9dfb2"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "otj",
+  "collectorNumber": "210",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JUND_BATTLEMAGE: CardData = {
+  "scryfallId": "ee8c962f-11b0-48f7-bbba-a2212e41990f",
+  "oracleId": "d2567448-f8a5-4bf3-9804-f5aac3b645ce",
+  "name": "Jund Battlemage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jund Battlemage",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "{B}, {T}: Target player loses 1 life.\n{G}, {T}: Create a 1/1 green Saproling creature token.",
+      "flavorText": "\"Of your blood I will make my mead, an offering to the thirsty jungle.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Vance Kovacs",
+      "imageId": "ee8c962f-11b0-48f7-bbba-a2212e41990f"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ala",
+  "collectorNumber": "106",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LAID_TO_REST: CardData = {
+  "scryfallId": "141f7948-3140-40f2-95dd-ab6c79f2a821",
+  "oracleId": "ae6dc45c-b8c9-4cbf-892f-8c00f4199aaf",
+  "name": "Laid to Rest",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Laid to Rest",
+      "manaCost": "{3}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever a Human you control dies, draw a card.\nWhenever a creature you control with a +1/+1 counter on it dies, you gain 2 life.",
+      "flavorText": "\"We are not here to mourn their loss. We are here to celebrate their lives.\"\n—Vesna, Dawnhart witch",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Colin Boyer",
+      "imageId": "141f7948-3140-40f2-95dd-ab6c79f2a821"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "vow",
+  "collectorNumber": "207",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LAST_CARESS: CardData = {
+  "scryfallId": "12317075-92a2-4b3a-a694-3b764132beaf",
+  "oracleId": "620b13cf-b8ea-48b7-8300-3c48390e32e3",
+  "name": "Last Caress",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Last Caress",
+      "manaCost": "{2}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player loses 1 life and you gain 1 life.\nDraw a card.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Eric Peterson",
+      "imageId": "12317075-92a2-4b3a-a694-3b764132beaf"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "apc",
+  "collectorNumber": "41",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LEADERSHIP_VACUUM: CardData = {
+  "scryfallId": "4fa953a9-171c-4532-a352-40ce27eed3c4",
+  "oracleId": "5f9dd005-1648-451e-b888-69ef81331c95",
+  "name": "Leadership Vacuum",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Leadership Vacuum",
+      "manaCost": "{2}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Target player returns each commander they control from the battlefield to the command zone.\nDraw a card.",
+      "flavorText": "\"While they scramble to fill the sudden vacancy at the top, we strike.\"\n—Sedris, the Traitor King",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Johan Grenier",
+      "imageId": "4fa953a9-171c-4532-a352-40ce27eed3c4"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "c19",
+  "collectorNumber": "9",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LOSSARNACH_CAPTAIN: CardData = {
+  "scryfallId": "08b78cd2-7c52-4dcd-b063-1ac5e96420d4",
+  "oracleId": "1251691e-3c4c-4e45-9f59-f156852f2268",
+  "name": "Lossarnach Captain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lossarnach Captain",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "First strike\nWhenever this creature or another Human you control enters, tap target creature an opponent controls.\nAt the beginning of your upkeep, create a 1/1 white Human Soldier creature token.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Justine Cruz",
+      "imageId": "08b78cd2-7c52-4dcd-b063-1ac5e96420d4"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "First strike"
+  ],
+  "setCode": "ltc",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MARKER_BEETLES: CardData = {
+  "scryfallId": "5cbd3c78-197a-40b9-94d1-bbb1ec1e64b1",
+  "oracleId": "4b1614fd-2810-4d4d-a0d6-934f27adbe65",
+  "name": "Marker Beetles",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Marker Beetles",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "When this creature dies, target creature gets +1/+1 until end of turn.\n{2}, Sacrifice this creature: Draw a card.",
+      "flavorText": "In case of emergency, crush bug.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "5cbd3c78-197a-40b9-94d1-bbb1ec1e64b1"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "uds",
+  "collectorNumber": "112",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIGHT_OF_THE_OLD_WAYS: CardData = {
+  "scryfallId": "6a853679-e9dd-4c05-8688-248de8f12760",
+  "oracleId": "266d3f06-c982-4427-b421-7520e5da5c2e",
+  "name": "Might of the Old Ways",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Might of the Old Ways",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +2/+2 until end of turn.\nCoven — Then if you control three or more creatures with different powers, draw a card.",
+      "flavorText": "Brimming with power from their disrupted ritual, the Dawnhart witches lashed out at the werewolf intruders.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Zezhou Chen",
+      "imageId": "6a853679-e9dd-4c05-8688-248de8f12760"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Coven"
+  ],
+  "setCode": "mid",
+  "collectorNumber": "189",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -76333,6 +76615,14 @@ export const ENGINE_CARDS: CardData[] = [
   IMPLEMENT_OF_EXAMINATION,
   IMPLEMENT_OF_IMPROVEMENT,
   INSTANT_RAMEN,
+  JOLENE_PLUNDERING_PUGILIST,
+  JUND_BATTLEMAGE,
+  LAID_TO_REST,
+  LAST_CARESS,
+  LEADERSHIP_VACUUM,
+  LOSSARNACH_CAPTAIN,
+  MARKER_BEETLES,
+  MIGHT_OF_THE_OLD_WAYS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

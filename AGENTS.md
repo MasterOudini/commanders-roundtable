@@ -8298,6 +8298,46 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       `optional: true` (D274) remain the two highest-value live seams; the
       unenforced-keyword family (D273) and the two measured aim-layer
       repairs (D269/D271) stand; Sagas are a whole subsystem, not a script.
+- [x] **M6.4dn — Eight landed: a commander sent home by a plain move, and
+      the first planeswalker the pool offered (2026-09-02):** **3,808 of
+      31,692 Commander-legal cards now execute completely, up from 3,800.**
+      `SHIPPED_SCRIPTS` 1,903 → 1,911; ledger 757 (+17, TWO new classes).
+      ZERO new token pins, ZERO new support bodies. **Sliver Queen reaches
+      3,759 from 87 legendaries** (Jolene). Decisions in **D277**.
+      ⚠️ **A commander goes home by a plain move:** `Leadership Vacuum`
+      needed no seam — the command zone is a `CardsMoved` destination,
+      `isCommander` is on the card, `commanderIds` on the player, and the
+      harness seats a default commander per game. Straight to the zone, not
+      through the CR 903.9 prompt ("returns", not "would be put").
+      ⚠️ **The first planeswalker the pool offered** (Kiora, Behemoth
+      Beckoner) opens `planeswalker loyalty ability`; Lantern Flare opens
+      `cleave mechanic`. Three conditional free casts join the cast-time
+      alternative cost class — **seven free spells refused in three
+      batches.**
+      **Also:** Jolene, Plundering Pugilist (Treasure on a power-4+ attack;
+      an ARTIFACT-subtype sacrifice chooser, the Spellbomb refused); Laid to
+      Rest (a dying creature's counter and subtype read pre-event); Lossarnach
+      Captain (Théoden's self-or-Human pair aimed to TAP; the upkeep Human
+      Soldier re-asks); Marker Beetles (targeted dies pump + self-sacrifice
+      draw, both per activation); Might of the Old Ways (Coven counts
+      DISTINCT powers after the pump); Last Caress; Jund Battlemage.
+      **Refused 17:** Katara's Reversal, Kiora, Krovikan Rot, Lantern Flare,
+      Laquatus's Disdain, Learn from the Past, Lethargy Trap, Mammoth
+      Bellow, Manamorphose, Massacre, Mental Journey, Metrognome, Mind
+      Transfer Protocol, Mindstab, Mjölnir's Might, Mnemonic Sphere, Mogg
+      Salvage.
+      ⚠️ **Every suite green on the first run** (8 files / 30 tests) — the
+      fourth such batch in five. ⚠️ **The pool is now 150.**
+      Fixtures 2,163 (2,056 by name + 100 tokens) · botPool artifact 144 /
+      creature 1,984 / enchantment 70 / instant 694 / land 340 / sorcery 576 ·
+      ladder [1245, 1344, 3137, 5051, 6263] · batch.json 150.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 1,991 files, 10,443 passed / 10 skipped · 500-seed gate 705.3 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D277): the cast-time alternative cost is now SEVEN
+      cards deep in three batches — the single most valuable seam; loyalty
+      abilities are a subsystem the pool has begun to offer; prior items
+      (optional triggers, unenforced keywords, the two aim-layer repairs)
+      stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

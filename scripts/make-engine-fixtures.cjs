@@ -2499,6 +2499,14 @@ const WANTED = [
   'Implement of Examination',
   'Implement of Improvement',
   'Instant Ramen',
+  'Jolene, Plundering Pugilist',
+  'Jund Battlemage',
+  'Laid to Rest',
+  'Last Caress',
+  'Leadership Vacuum',
+  'Lossarnach Captain',
+  'Marker Beetles',
+  'Might of the Old Ways',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -7,6 +7,14 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { JOLENE_PLUNDERING_PUGILIST_SCRIPT } from './cards/jolenePlunderingPugilist';
+import { JUND_BATTLEMAGE_SCRIPT } from './cards/jundBattlemage';
+import { LAID_TO_REST_SCRIPT } from './cards/laidToRest';
+import { LAST_CARESS_SCRIPT } from './cards/lastCaress';
+import { LEADERSHIP_VACUUM_SCRIPT } from './cards/leadershipVacuum';
+import { LOSSARNACH_CAPTAIN_SCRIPT } from './cards/lossarnachCaptain';
+import { MARKER_BEETLES_SCRIPT } from './cards/markerBeetles';
+import { MIGHT_OF_THE_OLD_WAYS_SCRIPT } from './cards/mightOfTheOldWays';
 import { HALIYA_ASCENDANT_CADET_SCRIPT } from './cards/haliyaAscendantCadet';
 import { HEALING_HANDS_SCRIPT } from './cards/healingHands';
 import { HERMES_OVERSEER_OF_ELPIS_SCRIPT } from './cards/hermesOverseerOfElpis';
@@ -2024,6 +2032,14 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  JOLENE_PLUNDERING_PUGILIST_SCRIPT,
+  JUND_BATTLEMAGE_SCRIPT,
+  LAID_TO_REST_SCRIPT,
+  LAST_CARESS_SCRIPT,
+  LEADERSHIP_VACUUM_SCRIPT,
+  LOSSARNACH_CAPTAIN_SCRIPT,
+  MARKER_BEETLES_SCRIPT,
+  MIGHT_OF_THE_OLD_WAYS_SCRIPT,
   HALIYA_ASCENDANT_CADET_SCRIPT,
   HEALING_HANDS_SCRIPT,
   HERMES_OVERSEER_OF_ELPIS_SCRIPT,
