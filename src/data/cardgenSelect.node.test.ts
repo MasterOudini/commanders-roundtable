@@ -1535,6 +1535,25 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Mjölnir's Might", 'play-from-exile permission'],
   ['Mnemonic Sphere', 'hand-activated ability'],
   ['Mogg Salvage', 'cast-time alternative cost'],
+
+  // D278 (M6.4do) — the M/N/O/P residue; ZERO new classes, and the leanest
+  // refusal count since D257 (11 of 25).
+  //
+  // ⚠️ Nighthaze grants SWAMPWALK until end of turn — landwalk is not on
+  // effectParse's grantable list, so it files with the temporary grants.
+  // ⚠️ Olórin's Searing Light makes each OPPONENT pick among tied greatest
+  // powers: opponent-chooses.
+  ['Mordor Muster', 'amass mechanic'],
+  ['Muddle the Mixture', 'transmute mechanic'],
+  ['Narcissism', 'discard-cost chooser'],
+  ['Nighthaze', 'temporary keyword/ability grant'],
+  ['Niveous Wisps', 'UEOT color change'],
+  ['Nocturnal Hunger', 'gift mechanic'],
+  ['Nourishing Shoal', 'cast-time alternative cost'],
+  ["Olórin's Searing Light", 'opponent-chooses'],
+  ['Open the Way', 'ctx.random'],
+  ['Path of Peril', 'cleave mechanic'],
+  ['Phthisis', 'suspend mechanic'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

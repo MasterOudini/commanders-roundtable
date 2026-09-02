@@ -8338,6 +8338,43 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       abilities are a subsystem the pool has begun to offer; prior items
       (optional triggers, unenforced keywords, the two aim-layer repairs)
       stand.
+- [x] **M6.4do — Fourteen landed: the largest batch since D269, with zero
+      new classes and every suite green first run (2026-09-02):** **3,822
+      of 31,692 Commander-legal cards now execute completely, up from
+      3,808.** `SHIPPED_SCRIPTS` 1,911 → 1,925; ledger 768 (+11, ZERO new
+      classes). ZERO new token pins, ZERO new support bodies. **Sliver Queen
+      reaches 3,773 from 89 legendaries** (Niv-Mizzet, Pashalik Mons).
+      Decisions in **D278**.
+      ⚠️ **Fourteen of twenty-five, zero new classes** — the richest offer
+      since D269; all 14 suites green first run (43 tests), the fifth such
+      batch in six.
+      ⚠️ **Three firsts inside shipped seams:** `Omen of the Sea` uses the
+      `scryChoice` ask's `thenDraw` (scry 2, THEN draw — honoured by the
+      engine after the answer); `Necrogen Spellbomb` puts `chooseFromZone`
+      to the TARGETED player from an ACTIVATED ability; `Niv-Mizzet, the
+      Firemind` is a per-item `DrewCards` watcher WITH a target (the draw
+      step's own draw fires it).
+      **Also:** Pack Attack (X = DISTINCT players among the declaration's
+      defenders); Pashalik Mons (the Goblin sacrifice fires his own dies
+      ping); Nutrient Block (indestructible Food that still dies when EATEN);
+      Peek (the whole hand revealed to me alone); Orcish Cannonade (both
+      hits in one DamageDealt); Omen of the Dead; Nightscape Master; Naya
+      Battlemage; Phyrexian Plaguelord; Pelakka Wurm; Pendulum of Patterns.
+      **Refused 11:** Mordor Muster, Muddle the Mixture, Narcissism,
+      Nighthaze (swampwalk → temporary grant), Niveous Wisps, Nocturnal
+      Hunger, Nourishing Shoal, Olórin's Searing Light (opponent-chooses),
+      Open the Way, Path of Peril, Phthisis.
+      ⚠️ **The pool is now 125.**
+      Fixtures 2,177 (2,070 by name + 100 tokens) · botPool artifact 147 /
+      creature 1,990 / enchantment 72 / instant 697 / land 340 / sorcery 576 ·
+      ladder [1231, 1330, 3123, 5037, 6249] · batch.json 125.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,005 files, 10,514 passed / 10 skipped · 500-seed gate 706.2 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D278): the offerable pool is 125 — five more
+      batches at most before the loop must turn to Phase 1's engine seams;
+      the cast-time alternative cost (seven cards, D275–D277) and
+      `optional: true` (D274) remain the two highest-value live seams; prior
+      items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

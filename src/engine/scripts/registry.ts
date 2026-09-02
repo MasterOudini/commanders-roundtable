@@ -7,6 +7,20 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { NAYA_BATTLEMAGE_SCRIPT } from './cards/nayaBattlemage';
+import { NECROGEN_SPELLBOMB_SCRIPT } from './cards/necrogenSpellbomb';
+import { NIGHTSCAPE_MASTER_SCRIPT } from './cards/nightscapeMaster';
+import { NIV_MIZZET_THE_FIREMIND_SCRIPT } from './cards/nivMizzetTheFiremind';
+import { NUTRIENT_BLOCK_SCRIPT } from './cards/nutrientBlock';
+import { OMEN_OF_THE_DEAD_SCRIPT } from './cards/omenOfTheDead';
+import { OMEN_OF_THE_SEA_SCRIPT } from './cards/omenOfTheSea';
+import { ORCISH_CANNONADE_SCRIPT } from './cards/orcishCannonade';
+import { PACK_ATTACK_SCRIPT } from './cards/packAttack';
+import { PASHALIK_MONS_SCRIPT } from './cards/pashalikMons';
+import { PEEK_SCRIPT } from './cards/peek';
+import { PELAKKA_WURM_SCRIPT } from './cards/pelakkaWurm';
+import { PENDULUM_OF_PATTERNS_SCRIPT } from './cards/pendulumOfPatterns';
+import { PHYREXIAN_PLAGUELORD_SCRIPT } from './cards/phyrexianPlaguelord';
 import { JOLENE_PLUNDERING_PUGILIST_SCRIPT } from './cards/jolenePlunderingPugilist';
 import { JUND_BATTLEMAGE_SCRIPT } from './cards/jundBattlemage';
 import { LAID_TO_REST_SCRIPT } from './cards/laidToRest';
@@ -2032,6 +2046,20 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  NAYA_BATTLEMAGE_SCRIPT,
+  NECROGEN_SPELLBOMB_SCRIPT,
+  NIGHTSCAPE_MASTER_SCRIPT,
+  NIV_MIZZET_THE_FIREMIND_SCRIPT,
+  NUTRIENT_BLOCK_SCRIPT,
+  OMEN_OF_THE_DEAD_SCRIPT,
+  OMEN_OF_THE_SEA_SCRIPT,
+  ORCISH_CANNONADE_SCRIPT,
+  PACK_ATTACK_SCRIPT,
+  PASHALIK_MONS_SCRIPT,
+  PEEK_SCRIPT,
+  PELAKKA_WURM_SCRIPT,
+  PENDULUM_OF_PATTERNS_SCRIPT,
+  PHYREXIAN_PLAGUELORD_SCRIPT,
   JOLENE_PLUNDERING_PUGILIST_SCRIPT,
   JUND_BATTLEMAGE_SCRIPT,
   LAID_TO_REST_SCRIPT,

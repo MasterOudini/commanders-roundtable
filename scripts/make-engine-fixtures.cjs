@@ -2507,6 +2507,20 @@ const WANTED = [
   'Lossarnach Captain',
   'Marker Beetles',
   'Might of the Old Ways',
+  'Naya Battlemage',
+  'Necrogen Spellbomb',
+  'Nightscape Master',
+  'Niv-Mizzet, the Firemind',
+  'Nutrient Block',
+  'Omen of the Dead',
+  'Omen of the Sea',
+  'Orcish Cannonade',
+  'Pack Attack',
+  'Pashalik Mons',
+  'Peek',
+  'Pelakka Wurm',
+  'Pendulum of Patterns',
+  'Phyrexian Plaguelord',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

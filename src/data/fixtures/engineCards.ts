@@ -71140,6 +71140,490 @@ export const MIGHT_OF_THE_OLD_WAYS: CardData = {
   "singleImage": true
 };
 
+export const NAYA_BATTLEMAGE: CardData = {
+  "scryfallId": "4fe73f62-2e80-4d5f-b7b5-c54c895a3e4d",
+  "oracleId": "db4d2580-50f4-4986-8091-769b4d2f6d72",
+  "name": "Naya Battlemage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Naya Battlemage",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "{R}, {T}: Target creature gets +2/+0 until end of turn.\n{W}, {T}: Tap target creature.",
+      "flavorText": "\"I have trained in all three schools of magic.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Steve Argyle",
+      "imageId": "4fe73f62-2e80-4d5f-b7b5-c54c895a3e4d"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ala",
+  "collectorNumber": "142",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NECROGEN_SPELLBOMB: CardData = {
+  "scryfallId": "0950bfe7-2600-4e01-8f54-f03a5c023520",
+  "oracleId": "34993bd9-53bf-46b2-bc20-b6daf82382d9",
+  "name": "Necrogen Spellbomb",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Necrogen Spellbomb",
+      "manaCost": "{1}",
+      "typeLine": "Artifact",
+      "oracleText": "{B}, Sacrifice this artifact: Target player discards a card.\n{1}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "\"Forget that which was never known.\"\n—Spellbomb inscription",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jim Nelson",
+      "imageId": "0950bfe7-2600-4e01-8f54-f03a5c023520"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mrd",
+  "collectorNumber": "216",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NIGHTSCAPE_MASTER: CardData = {
+  "scryfallId": "d86174b8-dd9e-4ece-bc23-4f9ac50bccd3",
+  "oracleId": "e5f9bd6b-0aa6-4f61-b101-ec194af6d632",
+  "name": "Nightscape Master",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nightscape Master",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Creature — Zombie Wizard",
+      "oracleText": "{U}{U}, {T}: Return target creature to its owner's hand.\n{R}{R}, {T}: This creature deals 2 damage to target creature.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Andrew Goldhawk",
+      "imageId": "d86174b8-dd9e-4ece-bc23-4f9ac50bccd3"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R",
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "inv",
+  "collectorNumber": "113",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NIV_MIZZET_THE_FIREMIND: CardData = {
+  "scryfallId": "015dff89-2996-49a1-b33a-f8a1159f384e",
+  "oracleId": "959acb66-84ca-4535-bca2-ad591895735e",
+  "name": "Niv-Mizzet, the Firemind",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Niv-Mizzet, the Firemind",
+      "manaCost": "{2}{U}{U}{R}{R}",
+      "typeLine": "Legendary Creature — Dragon Wizard",
+      "oracleText": "Flying\nWhenever you draw a card, Niv-Mizzet deals 1 damage to any target.\n{T}: Draw a card.",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Todd Lockwood",
+      "imageId": "015dff89-2996-49a1-b33a-f8a1159f384e"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "prm",
+  "collectorNumber": "32583",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NUTRIENT_BLOCK: CardData = {
+  "scryfallId": "a26064bb-c568-4ed6-86db-3aab69b050db",
+  "oracleId": "04a0382f-7e4e-4450-ae70-18999379d875",
+  "name": "Nutrient Block",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nutrient Block",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Food",
+      "oracleText": "Indestructible (Effects that say \"destroy\" don't destroy this artifact.)\n{2}, {T}, Sacrifice this artifact: You gain 3 life.\nWhen this artifact is put into a graveyard from the battlefield, draw a card.",
+      "flavorText": "\"What flavor do you want, Sami? Bland, dense, or vanilla?\"\n—Tannuk",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Francisco Miyara",
+      "imageId": "a26064bb-c568-4ed6-86db-3aab69b050db"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Indestructible"
+  ],
+  "setCode": "eoe",
+  "collectorNumber": "243",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OMEN_OF_THE_DEAD: CardData = {
+  "scryfallId": "8023fc44-fb8e-420d-a68c-b45912c4e5bd",
+  "oracleId": "0aa9ee99-69a8-452b-a0d5-001384bdff3c",
+  "name": "Omen of the Dead",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Omen of the Dead",
+      "manaCost": "{B}",
+      "typeLine": "Enchantment",
+      "oracleText": "Flash\nWhen this enchantment enters, return target creature card from your graveyard to your hand.\n{2}{B}, Sacrifice this enchantment: Scry 2.",
+      "flavorText": "\"My time will come, when life's frantic striving will fade into the boundless quiet of death.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Piotr Dura",
+      "imageId": "8023fc44-fb8e-420d-a68c-b45912c4e5bd"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Flash",
+    "Scry"
+  ],
+  "setCode": "thb",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OMEN_OF_THE_SEA: CardData = {
+  "scryfallId": "8f8a1e35-75f1-4739-b06b-bbda69ba78d6",
+  "oracleId": "41960d32-ddb5-42be-94b2-3a2e77ca148d",
+  "name": "Omen of the Sea",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Omen of the Sea",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this enchantment enters, scry 2, then draw a card.\n{2}{U}, Sacrifice this enchantment: Scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "flavorText": "\"My time will come, when the rising tide will surge above the tallest mountain.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Piotr Dura",
+      "imageId": "8f8a1e35-75f1-4739-b06b-bbda69ba78d6"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flash",
+    "Scry"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "THB-58",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ORCISH_CANNONADE: CardData = {
+  "scryfallId": "0afae574-aa96-4500-9882-a4b10337b6f5",
+  "oracleId": "af224f6f-cedd-498f-a08e-7be0db5a11b7",
+  "name": "Orcish Cannonade",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Orcish Cannonade",
+      "manaCost": "{1}{R}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Orcish Cannonade deals 2 damage to any target and 3 damage to you.\nDraw a card.",
+      "flavorText": "\"No ready! No aim! Just fire!\"\n—Scarback Plagg, orcish captain",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chris Seaman",
+      "imageId": "0afae574-aa96-4500-9882-a4b10337b6f5"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tsr",
+  "collectorNumber": "178",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PACK_ATTACK: CardData = {
+  "scryfallId": "e2ef30c5-a6a6-4cd9-805f-dc6f66f28997",
+  "oracleId": "84b385cd-9dfd-4513-af3c-20fc1cc8fea0",
+  "name": "Pack Attack",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pack Attack",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Attacking creatures get +X/+0 until end of turn, where X is the number of players being attacked.\nDraw a card.",
+      "flavorText": "Kobold tactics rarely account for little things like diplomacy, mercy, or surrender.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Andrea Radeck",
+      "imageId": "e2ef30c5-a6a6-4cd9-805f-dc6f66f28997"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "clb",
+  "collectorNumber": "190",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PASHALIK_MONS: CardData = {
+  "scryfallId": "11616853-34b1-4bb1-9590-461e12970ec3",
+  "oracleId": "bdb94ccd-1bb5-4bb7-9539-e1b1c97c19c5",
+  "name": "Pashalik Mons",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pashalik Mons",
+      "manaCost": "{2}{R}",
+      "typeLine": "Legendary Creature — Goblin Warrior",
+      "oracleText": "Whenever Pashalik Mons or another Goblin you control dies, Pashalik Mons deals 1 damage to any target.\n{3}{R}, Sacrifice a Goblin: Create two 1/1 red Goblin creature tokens.",
+      "flavorText": "The thunderhead that leads in the storm.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Even Amundsen",
+      "imageId": "11616853-34b1-4bb1-9590-461e12970ec3"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mh1",
+  "collectorNumber": "138",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PEEK: CardData = {
+  "scryfallId": "11d971b3-5d68-4491-9099-24c7743f48c4",
+  "oracleId": "873abbf4-c9b5-4b8f-8cd0-613cf3b9b1d5",
+  "name": "Peek",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Peek",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Look at target player's hand.\nDraw a card.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Adam Rex",
+      "imageId": "11d971b3-5d68-4491-9099-24c7743f48c4"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "aa3",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PELAKKA_WURM: CardData = {
+  "scryfallId": "00906b47-6316-4e00-bbf5-b801ab583f4f",
+  "oracleId": "d36075c2-de66-4202-9217-b1102a2bc14b",
+  "name": "Pelakka Wurm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pelakka Wurm",
+      "manaCost": "{4}{G}{G}{G}",
+      "typeLine": "Creature — Wurm",
+      "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nWhen this creature enters, you gain 7 life.\nWhen this creature dies, draw a card.",
+      "flavorText": "It eats what it wants to eat—which is anything that moves.",
+      "power": "7",
+      "toughness": "7",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Daniel Ljunggren",
+      "imageId": "00906b47-6316-4e00-bbf5-b801ab583f4f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "m19",
+  "collectorNumber": "192",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PENDULUM_OF_PATTERNS: CardData = {
+  "scryfallId": "7ad452a4-be42-4d2f-a161-2b327f423b9c",
+  "oracleId": "992075d5-f413-4896-b75e-7bb2d589c50e",
+  "name": "Pendulum of Patterns",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pendulum of Patterns",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "When this artifact enters, you gain 3 life.\n{5}, {T}, Sacrifice this artifact: Draw a card.",
+      "flavorText": "Its elaborate designs reveal secrets of aether's flow.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Raoul Vitale",
+      "imageId": "7ad452a4-be42-4d2f-a161-2b327f423b9c"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m19",
+  "collectorNumber": "288",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PHYREXIAN_PLAGUELORD: CardData = {
+  "scryfallId": "141fc77c-0515-4f7a-a0e7-1cf632019cc6",
+  "oracleId": "aff9e844-9e03-490b-b44f-10d385738cc6",
+  "name": "Phyrexian Plaguelord",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Phyrexian Plaguelord",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Creature — Phyrexian Carrier",
+      "oracleText": "{T}, Sacrifice this creature: Target creature gets -4/-4 until end of turn.\nSacrifice a creature: Target creature gets -1/-1 until end of turn.",
+      "flavorText": "\"The final stage of the illness: delirium, convulsions, and death.\"\n—Phyrexian progress notes",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "141fc77c-0515-4f7a-a0e7-1cf632019cc6"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "td2",
+  "collectorNumber": "48",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -76623,6 +77107,20 @@ export const ENGINE_CARDS: CardData[] = [
   LOSSARNACH_CAPTAIN,
   MARKER_BEETLES,
   MIGHT_OF_THE_OLD_WAYS,
+  NAYA_BATTLEMAGE,
+  NECROGEN_SPELLBOMB,
+  NIGHTSCAPE_MASTER,
+  NIV_MIZZET_THE_FIREMIND,
+  NUTRIENT_BLOCK,
+  OMEN_OF_THE_DEAD,
+  OMEN_OF_THE_SEA,
+  ORCISH_CANNONADE,
+  PACK_ATTACK,
+  PASHALIK_MONS,
+  PEEK,
+  PELAKKA_WURM,
+  PENDULUM_OF_PATTERNS,
+  PHYREXIAN_PLAGUELORD,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -18407,3 +18407,57 @@ alone moved, 3,759 from 87 legendaries.
 
 **Verified:** `verify.cjs --full` — ALL FIVE GATES: 1,991 files, 10,443 passed / 10 skipped · 500-seed gate 705.3 s · build
 clean · probe 124/124 · battery 130/130.
+
+## D278 — M6.4do: fourteen landed — the largest batch since D269, with zero new classes and every suite green first run (2026-09-02)
+
+**3,822 of 31,692 Commander-legal cards execute completely, up from 3,808.**
+SHIPPED_SCRIPTS 1,911 → 1,925; ledger 757 → 768 (+11, **ZERO new classes**).
+ZERO new token pins, ZERO new support bodies. **Sliver Queen reaches 3,773
+from 89 legendaries** (Niv-Mizzet and Pashalik Mons join).
+
+⚠️ **FOURTEEN OF TWENTY-FIVE, ZERO NEW CLASSES.** The M/N/O/P residue was the
+richest offer since D269: fourteen cards whose every line had a shipped
+idiom, and eleven refusals that all fell into named classes. Every one of the
+fourteen suites was green on the first run — 43 tests — the fifth such batch
+in six.
+
+⚠️ **THREE FIRSTS INSIDE SHIPPED SEAMS.** `Omen of the Sea` is the first
+script to use the `scryChoice` ask's `thenDraw`: scry 2, THEN draw, and the
+engine draws the kept top card after the answer — "then" honoured without a
+second event. `Necrogen Spellbomb` puts the `chooseFromZone` ask to the
+TARGETED player from an ACTIVATED ability (Wistful Thinking did it from a
+spell): the opponent picks the card they discard. `Niv-Mizzet, the Firemind`
+is a per-item `DrewCards` watcher WITH a target — one aimed firing per card
+drawn, the draw step's own draw included, sourced from Niv-Mizzet's derived
+self.
+
+**The rest of the batch.** `Pack Attack` reads X off the combat declaration
+on the state: the DISTINCT players among the attackers' defenders, a
+planeswalker standing for its controller; cast with nobody attacking, X is 0
+and only the card comes. `Pashalik Mons` sacrifices a Goblin to make two, and
+that sacrifice fires his own dies watcher — a ping aimed at the opponent in
+the same activation. `Nutrient Block` is an indestructible Food that still
+goes to the graveyard when EATEN (a sacrifice is not a destruction) and pays
+a card through its dies watcher. `Peek` reveals the opponent's whole hand to
+me alone (Gitaxian Probe's shape). `Orcish Cannonade` carries both hits in
+one `DamageDealt`. `Omen of the Dead` aims its entry at a creature card in my
+graveyard and scries from its sacrifice. `Nightscape Master` bounces or
+burns; `Naya Battlemage` pumps or taps; `Phyrexian Plaguelord` shrinks by
+−4/−4 for the tap and itself, or −1/−1 for a creature and no mana; `Pelakka
+Wurm` and `Pendulum of Patterns` are entry-gain shapes.
+
+**Eleven refused, zero new classes.** `Nighthaze` grants SWAMPWALK — landwalk
+is not on the grantable list, so it files with the temporary grants.
+`Olórin's Searing Light` lets each opponent pick among tied greatest powers.
+Plus amass, transmute, discard-cost chooser, UEOT color change, gift,
+alternative cost, ctx.random (a random order), cleave, suspend.
+
+⚠️ **The pool is now 125.**
+
+Fixtures 2,163 → 2,177 (2,070 by name + 100 tokens). botPool artifact 147 /
+creature 1,990 / enchantment 72 / instant 697 / land 340 / sorcery 576 —
+ladder [1231, 1330, 3123, 5037, 6249] — batch.json 125 — botDeck: the header
+alone moved, 3,773 from 89 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,005 files, 10,514 passed / 10 skipped · 500-seed gate 706.2 s · build
+clean · probe 124/124 · battery 130/130.
