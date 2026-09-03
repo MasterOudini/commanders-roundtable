@@ -76143,6 +76143,613 @@ export const PRIMAL_MIGHT: CardData = {
   "singleImage": true
 };
 
+export const PLUMMET: CardData = {
+  "scryfallId": "0343ff6c-e50c-45d9-b78c-9d8bc7f2bafd",
+  "oracleId": "85bde6ac-3dd4-4946-8b57-24f57e3eae2b",
+  "name": "Plummet",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Plummet",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature with flying.",
+      "flavorText": "\"A creature of stone was never meant to fly. And I see the Ulvenwald agrees with me.\"\n—Halana, Kessig ranger",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Nicholas Gregory",
+      "imageId": "0343ff6c-e50c-45d9-b78c-9d8bc7f2bafd"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dbl",
+  "collectorNumber": "193",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WING_SNARE: CardData = {
+  "scryfallId": "04a0b4ae-0820-48a8-ba8d-a07eccfe90da",
+  "oracleId": "61ce6ec1-79d8-4dc9-ab2d-1623ed1459c1",
+  "name": "Wing Snare",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wing Snare",
+      "manaCost": "{2}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target creature with flying.",
+      "flavorText": "\"We are the hands of the great trees, reaching out to ensnare what threatens their branches.\"\n—Elvish hunter",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Daren Bader",
+      "imageId": "04a0b4ae-0820-48a8-ba8d-a07eccfe90da"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "288★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROAST: CardData = {
+  "scryfallId": "1ba2e9a8-fcbb-4328-b475-36730182b765",
+  "oracleId": "b5e60a85-2f31-47ec-a95b-2e69b2d2c00e",
+  "name": "Roast",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Roast",
+      "manaCost": "{1}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Roast deals 5 damage to target creature without flying.",
+      "flavorText": "\"Intruders in the lands of Atarka have but two choices: be consumed by fire, or be consumed by maw.\"\n—Ulnok, Atarka shaman",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "1ba2e9a8-fcbb-4328-b475-36730182b765"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dtk",
+  "collectorNumber": "151",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEFENESTRATE: CardData = {
+  "scryfallId": "88ce5cb9-7a29-4e4c-8bdb-4d3847067b33",
+  "oracleId": "caf840e8-c1d3-4570-8542-432a765c09ff",
+  "name": "Defenestrate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Defenestrate",
+      "manaCost": "{2}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature without flying.",
+      "flavorText": "The chaplain would perhaps have found some small comfort had he known that the replacement window would be named in his honor.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Darek Zabrocki",
+      "imageId": "88ce5cb9-7a29-4e4c-8bdb-4d3847067b33"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dbl",
+  "collectorNumber": "95",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLEAR_A_PATH: CardData = {
+  "scryfallId": "3738b0d1-06c0-4d6d-a307-478d994ff36e",
+  "oracleId": "05a1575c-8d08-4845-8ae0-85e0aba55637",
+  "name": "Clear a Path",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Clear a Path",
+      "manaCost": "{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target creature with defender.",
+      "flavorText": "\"Why do guards always look surprised when we bash them?\" asked Ruric. \"I think they expect a bribe,\" said Thar.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Karl Kopinski",
+      "imageId": "3738b0d1-06c0-4d6d-a307-478d994ff36e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "m15",
+  "collectorNumber": "136",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRIP_WIRE: CardData = {
+  "scryfallId": "4eb1e16f-002e-4a81-ba41-cfe41f3a9071",
+  "oracleId": "5751df7a-aa9a-4a27-b7ab-445ec4bcbdee",
+  "name": "Trip Wire",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Trip Wire",
+      "manaCost": "{2}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target creature with horsemanship.",
+      "flavorText": "Trip wire, hooked poles, and sunken pits were commonly used to unhorse riders during the Three Kingdoms period.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Hong Yan",
+      "imageId": "4eb1e16f-002e-4a81-ba41-cfe41f3a9071"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "156",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LEAF_ARROW: CardData = {
+  "scryfallId": "2d531ba4-df99-41e4-9dd3-a27a420ad63c",
+  "oracleId": "d3d67bf0-2e9e-463f-8df8-990ab906fdec",
+  "name": "Leaf Arrow",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Leaf Arrow",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Leaf Arrow deals 3 damage to target creature with flying.",
+      "flavorText": "\"Those who think the trees shall remain bystanders throughout this conflict shall be sorely mistaken.\"\n—Sutina, Speaker of the Tajuru",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Eric Deschamps",
+      "imageId": "2d531ba4-df99-41e4-9dd3-a27a420ad63c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "roe",
+  "collectorNumber": "194",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PIERCE_THE_SKY: CardData = {
+  "scryfallId": "df491512-ba8a-4ba5-ad42-338190201170",
+  "oracleId": "7e4504c1-4349-408d-8fdf-0c44efdd3f56",
+  "name": "Pierce the Sky",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pierce the Sky",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Pierce the Sky deals 7 damage to target creature with flying.",
+      "flavorText": "Llanowar elves conceal their ballistae in the upper canopy of the forest, ready to clear the skies of any intruder.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "df491512-ba8a-4ba5-ad42-338190201170"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dom",
+  "collectorNumber": "176",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHREDDING_WINDS: CardData = {
+  "scryfallId": "33f36143-85b6-412c-8c79-053728b45c25",
+  "oracleId": "9f914186-082e-4a85-a1cc-e9788074637b",
+  "name": "Shredding Winds",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shredding Winds",
+      "manaCost": "{2}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Shredding Winds deals 7 damage to target creature with flying.",
+      "flavorText": "\"Enemies of the wood! Your presence here is a slap in Nylea's face. Do not be surprised if she slaps back.\"\n—Telphe, druid of Nylea",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "33f36143-85b6-412c-8c79-053728b45c25"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ths",
+  "collectorNumber": "178",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FELL_THE_PHEASANT: CardData = {
+  "scryfallId": "33d3cc84-7cb6-4de2-9018-4695a3b1e099",
+  "oracleId": "c78c8f7d-45fd-46c0-9ed4-4d0e85aada2e",
+  "name": "Fell the Pheasant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fell the Pheasant",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Fell the Pheasant deals 5 damage to target creature with flying. Create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+      "flavorText": "\"A keen eye and steady hand are essential for defeating most foes, including hunger.\"\n—Syr Grenphire, knight of Garenbrig",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "33d3cc84-7cb6-4de2-9018-4695a3b1e099"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Food"
+  ],
+  "setCode": "eld",
+  "collectorNumber": "153",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ETTERCAP_WEB_SHOT: CardData = {
+  "scryfallId": "71928338-88d8-4c85-9f1a-a20a146ace5b",
+  "oracleId": "e0b5b3af-af89-4b91-8b55-947ec095d6f2",
+  "name": "Ettercap // Web Shot",
+  "layout": "adventure",
+  "faces": [
+    {
+      "name": "Ettercap",
+      "manaCost": "{4}{G}",
+      "typeLine": "Creature — Spider Beast",
+      "oracleText": "Reach",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Olivier Bernard",
+      "imageId": "71928338-88d8-4c85-9f1a-a20a146ace5b"
+    },
+    {
+      "name": "Web Shot",
+      "manaCost": "{2}{G}",
+      "typeLine": "Instant — Adventure",
+      "oracleText": "Destroy target creature with flying. (Then exile this card. You may cast the creature later from exile.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Olivier Bernard",
+      "imageId": "71928338-88d8-4c85-9f1a-a20a146ace5b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Reach"
+  ],
+  "setCode": "hbg",
+  "collectorNumber": "211",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COLLISION_COLOSSUS: CardData = {
+  "scryfallId": "9bd15da6-2b86-4dba-951d-318c7d9a5dde",
+  "oracleId": "197ce21b-3387-4e76-a49c-04b9c371c031",
+  "name": "Collision // Colossus",
+  "layout": "split",
+  "faces": [
+    {
+      "name": "Collision",
+      "manaCost": "{1}{R/G}",
+      "typeLine": "Instant",
+      "oracleText": "Collision deals 6 damage to target creature with flying.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jason Rainville",
+      "imageId": "9bd15da6-2b86-4dba-951d-318c7d9a5dde"
+    },
+    {
+      "name": "Colossus",
+      "manaCost": "{R}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +4/+2 and gains trample until end of turn.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jason Rainville",
+      "imageId": "9bd15da6-2b86-4dba-951d-318c7d9a5dde"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "rna",
+  "collectorNumber": "223",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EATEN_BY_SPIDERS: CardData = {
+  "scryfallId": "0efea1b1-f212-4b97-98dd-922f85ab191f",
+  "oracleId": "d4c04cec-3a0d-4e86-95ed-8d367fe7220d",
+  "name": "Eaten by Spiders",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Eaten by Spiders",
+      "manaCost": "{2}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature with flying and all Equipment attached to that creature.",
+      "flavorText": "After sampling many victims, the spider developed a preference for the undead and their accoutrements.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "0efea1b1-f212-4b97-98dd-922f85ab191f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "avr",
+  "collectorNumber": "177",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FORCED_LANDING: CardData = {
+  "scryfallId": "5cb319a7-564c-4748-82cf-c26ab110c32c",
+  "oracleId": "a787b18d-d33f-41ea-a0f8-f05e272d06eb",
+  "name": "Forced Landing",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Forced Landing",
+      "manaCost": "{1}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Put target creature with flying on the bottom of its owner's library.",
+      "flavorText": "The druid knew only one spell, a charm to encourage rapid plant growth. When airborne Eternals invaded her arboretum, she had to get creative.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "5cb319a7-564c-4748-82cf-c26ab110c32c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "war",
+  "collectorNumber": "161",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PISTUS_STRIKE: CardData = {
+  "scryfallId": "1a2918d6-50f7-4bc1-aef2-930a5c84be8d",
+  "oracleId": "138f9daa-19d4-4290-94a7-09e00dbcebb0",
+  "name": "Pistus Strike",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pistus Strike",
+      "manaCost": "{2}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature with flying. Its controller gets a poison counter.",
+      "flavorText": "\"Even a nuisance such as the pistus fly has a purpose in our new world.\"\n—Glissa",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jaime Jones",
+      "imageId": "1a2918d6-50f7-4bc1-aef2-930a5c84be8d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mbs",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAGITTARS_VOLLEY: CardData = {
+  "scryfallId": "d3104cad-e684-4bd7-b26b-5aa862f7a2b3",
+  "oracleId": "d4c4c7d7-744a-4548-adad-a5fc4fb3f586",
+  "name": "Sagittars' Volley",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sagittars' Volley",
+      "manaCost": "{2}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target creature with flying. Sagittars' Volley deals 1 damage to each creature with flying your opponents control.",
+      "flavorText": "\"My bowstring hums in tune with the song of the Worldsoul.\"\n—Alcarus, Selesnya sagittar",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "d3104cad-e684-4bd7-b26b-5aa862f7a2b3"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "rna",
+  "collectorNumber": "138",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WING_PUNCTURE: CardData = {
+  "scryfallId": "05a5188b-9ae3-4ca0-8289-b8a266a9073b",
+  "oracleId": "5de32ec7-3085-4b6b-a52e-5a1b3fdf07d3",
+  "name": "Wing Puncture",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wing Puncture",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature you control deals damage equal to its power to target creature with flying.",
+      "flavorText": "\"If I were the air, I wouldn't taunt the ground. It has the weight advantage.\"\n—Konnos, Sylvok sage",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "jD",
+      "imageId": "05a5188b-9ae3-4ca0-8289-b8a266a9073b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "som",
+  "collectorNumber": "133",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -81807,6 +82414,23 @@ export const ENGINE_CARDS: CardData[] = [
   RELIC_CRUSH,
   CHELONIAN_TACKLE,
   PRIMAL_MIGHT,
+  PLUMMET,
+  WING_SNARE,
+  ROAST,
+  DEFENESTRATE,
+  CLEAR_A_PATH,
+  TRIP_WIRE,
+  LEAF_ARROW,
+  PIERCE_THE_SKY,
+  SHREDDING_WINDS,
+  FELL_THE_PHEASANT,
+  ETTERCAP_WEB_SHOT,
+  COLLISION_COLOSSUS,
+  EATEN_BY_SPIDERS,
+  FORCED_LANDING,
+  PISTUS_STRIKE,
+  SAGITTARS_VOLLEY,
+  WING_PUNCTURE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

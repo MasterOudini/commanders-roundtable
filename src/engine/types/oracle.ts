@@ -195,6 +195,17 @@ export interface NumericRestriction {
   readonly value: number;
 }
 
+/**
+ * A KEYWORD restriction on a target clause (D289) — "with flying", "without
+ * flying", "with defender". `word` is the DERIVED keyword the engine tracks
+ * (`TIER2_KEYWORDS`), never the printed spelling: "first strike" is stored as
+ * 'firstStrike'. `present` is false for "without".
+ */
+export interface KeywordRestriction {
+  readonly word: Keyword;
+  readonly present: boolean;
+}
+
 export type TargetZone = 'graveyard' | 'exile';
 
 /**
@@ -248,6 +259,19 @@ export interface TargetSpec {
    */
   readonly numeric: NumericRestriction | null;
   /**
+   * A KEYWORD restriction — "with flying", "without flying", "with defender".
+   * `null` when the clause names none.
+   *
+   * ⚠️ **THE SAME SILENT DROP D139 CLOSED, ONE QUALIFIER OVER (D289).** Before
+   * this "Destroy target creature with flying" parsed to `kinds:['creature'],
+   * unenforced:[]` with `text` reading "target creature" — the words matched
+   * nothing, so nothing was recorded, so `tier3.ts` had nothing to say and a
+   * script claiming the line would have destroyed a ground creature. Five
+   * ledger witnesses (Topple, Trip Wire, Vertigo, Wing Snare, Wing Puncture).
+   * Checked by `targetAllowed` against the candidate's DERIVED keywords.
+   */
+  readonly keyword: KeywordRestriction | null;
+  /**
    * The clause EXACTLY as printed, sliced out of the oracle text — never
    * re-worded. It is what the prompt bar says. A paraphrase would be a second
    * rules text that drifts from Scryfall's the moment Wizards rewords something,
@@ -273,6 +297,7 @@ export const FREE_TARGET: TargetSpec = {
   zones: [],
   cardTypes: [],
   numeric: null,
+  keyword: null,
   text: '',
   confident: false,
   unenforced: [],

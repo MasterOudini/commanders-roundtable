@@ -616,6 +616,10 @@ export class ClientSession {
         power: cv.power,
         toughness: cv.toughness,
         colors: face.colors,
+        // ⚠️ PRINTED keywords, exactly as `hexproof` below reads them: the view
+        // carries no derived keyword list, so a granted flying disagrees with
+        // the host here the same way a granted hexproof already does (D289).
+        keywords: face.keywords,
         hexproof: face.keywords.includes('hexproof'),
         shroud: face.keywords.includes('shroud'),
         protection: face.protection,
@@ -648,6 +652,7 @@ export class ClientSession {
         power: null,
         toughness: null,
         colors: [],
+        keywords: [],
         hexproof: false,
         shroud: false,
         protection: { colors: [], fromEverything: false, other: [] },
@@ -665,6 +670,7 @@ export class ClientSession {
         power: null,
         toughness: null,
         colors: [],
+        keywords: [],
         hexproof: false,
         shroud: false,
         protection: { colors: [], fromEverything: false, other: [] },

@@ -335,7 +335,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Amass the Components', 'script-raised prompt'],
   ['Aether Burst', 'cast-time computed target count'],
   ['Allied Assault', 'up-to-N targeting'],
-  ['Aerial Predation', 'keyword target qualifier unenforced'],
   // D198
   ['Animate Land', 'UEOT type change with P/T set'],
   ['Approach of the Second Sun', 'game-history memory'],
@@ -389,7 +388,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Breaking Point', 'script-raised prompt'],
   ['Brilliant Ultimatum', 'opponent-chooses'],
   ['Broken Dam', 'spell target parse (counted list)'],
-  ['Broken Wings', 'keyword target qualifier unenforced'],
+  ['Broken Wings', 'spell target parse (noun list)'],
   ['Boneyard Parley', 'opponent-chooses'],
   // D202 — Cerebral Eruption RETURNS ITSELF to hand mid-resolution when a
   // land is revealed: resolveTop moves a resolved spell to the graveyard
@@ -412,7 +411,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Chronostutter', 'library position placement'],
   ['Claim the Precious', 'the Ring mechanic'],
   ['Clash of Titans', 'spell target parse (second clause)'],
-  ['Clear a Path', 'keyword target qualifier unenforced'],
   // D204 — Coalition Victory WINS the game (no win event; a win is not
   // "every opponent loses" until the reasons enum says so); Contaminated
   // Drink pays in RAD counters (no rad concept anywhere); Contest of Claws
@@ -470,7 +468,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Debt of Loyalty', 'regeneration'],
   ['Decision Paralysis', 'up-to-N targeting'],
   ['Decompose', 'up-to-N targeting'],
-  ['Defenestrate', 'keyword target qualifier unenforced'],
   ['Defensive Maneuvers', 'script-raised prompt'],
   ['Defiling Tears', 'temporary non-keyword ability grant'],
   ['Demonic Gifts', 'temporary non-keyword ability grant'],
@@ -512,7 +509,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Hunt's greatest-MV can TIE and the opponent breaks it.
   ['Dwell on the Past', 'up-to-N targeting'],
   ['Earth Rumble', 'land animation (type change)'],
-  ['Eaten by Spiders', 'keyword target qualifier unenforced'],
   ['Eliminate the Impossible', 'suspect mechanic'],
   ['Elven Farsight', 'script-raised prompt'],
   ['Empty City Ruse', 'phase skipping'],
@@ -573,7 +569,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Flatline', 'until-end-of-turn base P/T set'],
   ['Fold into Aether', 'opponent-chooses'],
   ['Foray of Orcs', 'amass mechanic'],
-  ['Forced Landing', 'keyword target qualifier unenforced'],
   ["Fortune's Favor", 'opponent-chooses'],
   ['Fractalize', 'until-end-of-turn base P/T set'],
   // D215 — Full Flowering populates (CR 707 copy machinery, a NEW class);
@@ -673,7 +668,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Lash Out', 'clash mechanic'],
   ['Lava Storm', 'script-raised prompt'],
   ['Lay Down Arms', 'computed target threshold'],
-  ['Leaf Arrow', 'keyword target qualifier unenforced'],
   ['Leeching Bite', 'spell target parse (second clause)'],
   ['Lethal Exploit', 'modified predicate'],
   ['Lifelace', 'color change (indefinite)'],
@@ -793,13 +787,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Pegasus Refuge', 'discard-cost chooser'],
   // D233 (M6.4bv)
   ['Pieces of the Puzzle', 'script-raised prompt'],
-  ['Pierce the Sky', 'keyword target qualifier unenforced'],
-  ['Pinion Feast', 'keyword target qualifier unenforced'],
+  ['Pinion Feast', 'bolster tie choice'],
   ['Piracy', 'tap-permission grant'],
-  ['Pistus Strike', 'keyword target qualifier unenforced'],
   ['Pit Fight', 'spell target parse (second clause)'],
   // D234 (M6.4bw)
-  ['Plummet', 'keyword target qualifier unenforced'],
   ['Polymorph', 'ctx.random'],
   ["Polymorphist's Jest", 'until-end-of-turn base P/T set'],
   ['Portcullis Vine', 'keyword-predicate sacrifice cost'],
@@ -855,14 +846,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Rise from the Grave', 'indefinite continuous effect'],
   // D241 (M6.4cd)
   ['Rites of Reaping', 'spell target parse (second clause)'],
-  ['Roast', 'keyword target qualifier unenforced'],
   ['Roiling Waters', 'up-to-N targeting'],
   ['Rolling Spoil', 'mana-spent memory'],
   ['Rookie Mistake', 'spell target parse (second clause)'],
   ['Roughshod Duo', 'expend mechanic'],
   // D242 (M6.4ce)
   ['Royal Herbalist', 'exile-from-library cost'],
-  ["Sagittars' Volley", 'keyword target qualifier unenforced'],
   // D243 (M6.4cf)
   ['Sanguine Sacrament', 'spell relocates itself on resolution'],
   ['Sanity Gnawers', 'ctx.random'],
@@ -889,7 +878,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Shoving Match', 'temporary non-keyword ability grant'],
   ['Show and Tell', 'script-raised prompt'],
   ['Shower of Arrows', 'spell target parse (noun list)'],
-  ['Shredding Winds', 'keyword target qualifier unenforced'],
   ['Silkbind Faerie', 'untap-symbol activation cost'],
   ['Silverfur Partisan', 'becomes-targeted trigger'],
   ['Singe', 'UEOT color change'],
@@ -1101,7 +1089,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Tribal Unity', 'script-raised prompt'],
   ['Trick Shot', 'up-to-N targeting'],
   ["Trickster's Stratagem", 'library position placement'],
-  ['Trip Wire', 'keyword target qualifier'],
   ["Trostani's Judgment", 'copy effect (populate)'],
   ['Truce', 'script-raised prompt'],
   ['Tundra Fumarole', 'mana-spent memory'],
@@ -1165,7 +1152,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Vanguard Seraph', 'once-per-turn memory'],
   ['Vault Robber', 'exile-from-graveyard cost'],
   ['Vega, the Watcher', 'cast-zone discriminator'],
-  ['Vertigo', 'keyword target qualifier'],
+  ['Vertigo', 'temporary keyword loss'],
   ['Vex', 'script-raised prompt'],
 
   // D266 (M6.4dc) — ZERO new classes, and the leanest batch of the arc:
@@ -1234,8 +1221,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Widespread Brutality', 'amass mechanic'],
   ['Wild Magic Surge', 'ctx.random'],
   ['Winds of Change', 'ctx.random'],
-  ['Wing Puncture', 'keyword target qualifier'],
-  ['Wing Snare', 'keyword target qualifier'],
   ['Winter Blast', 'cast-time computed target count'],
 
   // D270 (M6.4dg) — TWO NEW CLASSES, the first since D265, and a finding
@@ -1667,7 +1652,11 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // Phase 1's engine seams drain ledger classes back into this pool; the
     // pin moves the moment the first one lands. Until then a non-empty pool
     // here would mean a ledger entry went stale unnoticed.
-    expect(all.length).toBe(0);
+    // D289: the keyword-qualifier seam made 22 cards scriptable that the
+    // ledger never saw ("target creature with flying" now parses, so the
+    // rest of each card is the only thing left). They are the next batch;
+    // the pin follows the measurement and falls back as they land.
+    expect(all.length).toBe(22);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect(all.every((c) => c.lines > 0)).toBe(true);

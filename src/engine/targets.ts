@@ -24,7 +24,7 @@
 import type { ColorLetter } from '../data/cardTypes';
 import type { InstanceId, PlayerId } from './types/ids';
 import type { GameState, TargetChoice } from './types/state';
-import type { OracleDb, Protection, TargetKind, TargetSpec } from './types/oracle';
+import type { Keyword, OracleDb, Protection, TargetKind, TargetSpec } from './types/oracle';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
 import { faceOf } from './oracle';
 import type { ScriptRegistry } from './scripts/registry';
@@ -71,6 +71,13 @@ export interface TargetCandidate {
   readonly power: number | null;
   readonly toughness: number | null;
   readonly colors: readonly ColorLetter[];
+  /**
+   * The keywords it HAS, derived (D289) — what "target creature with flying"
+   * and "without flying" restrict on. A player or a spell on the stack has
+   * none. Derived, not printed, for the reason `power` is: a Bears wearing
+   * flying is a flyer, and refusing it would block a legal choice.
+   */
+  readonly keywords: readonly Keyword[];
   readonly hexproof: boolean;
   readonly shroud: boolean;
   readonly protection: Protection;
@@ -120,6 +127,12 @@ export function targetAllowed(
   if (!spec.kinds.some((k) => c.kinds.includes(k))) return false;
   if (spec.controller === 'you' && c.controller !== src.controller) return false;
   if (spec.controller === 'opponent' && c.controller === src.controller) return false;
+
+  // ⚠️ The keyword qualifier (D289): "with flying" admits only a candidate whose
+  // DERIVED keywords include it, "without flying" only one whose do not. A
+  // player or a spell has none, so "with flying" refuses both — as `kinds`
+  // already does — and "without flying" would admit them if `kinds` did not.
+  if (spec.keyword && c.keywords.includes(spec.keyword.word) !== spec.keyword.present) return false;
 
   /**
    * ⚠️ **THE ZONE, WHICH THIS PREDICATE IGNORED UNTIL D138.** `TargetSpec.zones`
@@ -398,6 +411,7 @@ export function candidatesFromState(
       power: d.power,
       toughness: d.toughness,
       colors: d.colors,
+      keywords: [...d.keywords],
       hexproof: d.keywords.has('hexproof'),
       shroud: d.keywords.has('shroud'),
       protection: d.protection,
@@ -440,6 +454,7 @@ export function candidatesFromState(
       // targeting the stack has protection. Left empty rather than derived,
       // because a spell on the stack has no `derive()` entry.
       colors: [],
+      keywords: [],
       hexproof: false,
       shroud: false,
       protection: { colors: [], fromEverything: false, other: [] },
@@ -458,6 +473,7 @@ export function candidatesFromState(
       power: null,
       toughness: null,
       colors: [],
+      keywords: [],
       hexproof: false,
       shroud: false,
       protection: { colors: [], fromEverything: false, other: [] },

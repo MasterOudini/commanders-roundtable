@@ -8752,6 +8752,46 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       D288); then exile-from-graveyard (15), remove-counter (7),
       return-permanent (6), random-discard (4, needs `ctx.random`) and the
       prompt continuation seam; prior items stand.
+- [x] **M6.4dz — THE KEYWORD TARGET QUALIFIER: "target creature with
+      flying" read, enforced on derived keywords, and only then admitted;
+      eighteen cards (2026-09-03):** **3,972 of 31,692 Commander-legal
+      cards now execute completely, up from 3,954.** `SHIPPED_SCRIPTS`
+      2,057 → 2,062; ledger 746 (fifteen rows DELETED, three re-classed).
+      ZERO token pins, ZERO support bodies. **Sliver Queen reaches 3,921
+      from 94 legendaries.** **The select pool refills: 22 cards the ledger
+      never saw are offerable.** Decisions in **D289**.
+      ⚠️ **Measured first:** 328 printings / 335 clauses carry "target
+      <noun> with/without <keyword>" (flying 291, defender 15, trample 8,
+      first strike 7, haste 6, shadow 5, horsemanship 3); ZERO were counted
+      complete (no silent widening had shipped); 13 distinct cards flip
+      when the qualifier is consumed, 11 with no script.
+      ⚠️ **The seam (D139's shape and order — enforce, then admit):**
+      `TargetSpec.keyword {word: Keyword, present}`; `readController` reads
+      `with|without <word>` (recursing; only `KEYWORD_SET` words; "with
+      flying or reach" left alone — a list read as its first word would
+      refuse a legal reach creature); `TargetCandidate.keywords` DERIVED on
+      the host (a Bears wearing flying is a flyer), PRINTED on the client
+      like its `hexproof`; `targetAllowed` enforces; `effectParse`'s target
+      macro admits the same list — `effect:auto` 2,778 → 2,830.
+      **Landed:** eleven with NO script (Plummet, Wing Snare, Roast,
+      Defenestrate, Clear a Path, Trip Wire, Leaf Arrow, Pierce the Sky,
+      Shredding Winds, Aerial Predation, Fell the Pheasant), two multi-face
+      (Ettercap // Web Shot, Collision // Colossus), five scripted (Eaten
+      by Spiders, Forced Landing, Pistus Strike, Sagittars' Volley, Wing
+      Puncture). Re-classed: Broken Wings (noun list), Pinion Feast
+      (bolster tie choice), Vertigo (temporary keyword loss). Tests:
+      targetKeyword.test.ts 10 + 5 suites / 21, green first run.
+      Fixtures 2,326 (2,218 by name + 101 tokens) · botPool artifact 158 /
+      creature 2,053 / enchantment 87 / instant 737 / land 342 / sorcery 595 ·
+      ladder [1108, 1209, 2998, 4911, 6122] · tier3 `payable` 5,098 ·
+      batch.json 18 · select pool 22.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,143 files, 11,255 passing / 10 skipped · 500-seed gate 707.1 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D289): the 22 offerable cards are the next batch;
+      a keyword LIST qualifier ("with flying or reach") as a list spec; a
+      derived keyword list on `CardView` for the client's aim veil; then the
+      "another" split, the up-to-N residue, the remaining cost verbs and the
+      prompt continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

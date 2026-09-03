@@ -408,9 +408,13 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // where the prompt bar offers the counter clause as one logged click.
       // These count FACES over every printing, which is why they are an order of
       // magnitude larger than `botPool`'s distinct-name figures.
-      'effect:none': 16480,
-      'effect:partial': 5073,
-      'effect:auto': 2778,
+      'effect:none': 16413,
+      'effect:partial': 5088,
+      // D289: the target macro admits the KEYWORD qualifier ("with flying",
+      // "without flying") now that TargetSpec.keyword is enforced, so 52 more
+      // faces read whole (Plummet, Wing Snare, Roast, Defenestrate, ...), 67
+      // leave "none" and 15 become partial.
+      'effect:auto': 2830,
       // ⚠️ 13,581 → 10,372 in M6.4b (D159): `Sacrifice this <type>` and War
       // Room's commanders'-colors life phrase became CHARGEABLE cost parts, so
       // 3,209 printings' ability lines stopped warning `nonManaCost`. The

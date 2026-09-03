@@ -28,7 +28,8 @@ import type {
   TargetSpec,
   TargetZone,
 } from '../engine/types/oracle';
-import { FREE_TARGET } from '../engine/types/oracle';
+import { FREE_TARGET, KEYWORD_SET } from '../engine/types/oracle';
+import type { Keyword, KeywordRestriction } from '../engine/types/oracle';
 // ⚠️ Type-only, and deliberately so: `oracleParse` imports THIS module, so a
 // value import would close a runtime cycle. Types are erased, so this is not one.
 import type { Warn } from './oracleParse';
@@ -423,12 +424,25 @@ const ADJECTIVE_RE =
 
 const CONTROLLER_WINDOW = 40;
 
+/**
+ * The DERIVED keyword a printed qualifier names, or null when it names one the
+ * engine does not track (D289). "first strike" and "double strike" are the two
+ * whose derived spelling differs from print; everything else is the word itself.
+ */
+function keywordMember(raw: string): Keyword | null {
+  const w = raw.toLowerCase().replace(/\s+/g, ' ').trim();
+  const member = w === 'first strike' ? 'firstStrike' : w === 'double strike' ? 'doubleStrike' : w;
+  return KEYWORD_SET.has(member) ? (member as Keyword) : null;
+}
+
 interface ControllerResult {
   readonly controller: TargetController | null;
   /** The zone the clause names, when it names one (D138). */
   readonly zones: readonly TargetZone[] | null;
   /** The numeric restriction the clause names, when it names one (D139). */
   readonly numeric: NumericRestriction | null;
+  /** The keyword restriction the clause names, when it names one (D289). */
+  readonly keyword: KeywordRestriction | null;
   /** Where the printed clause ends. */
   readonly end: number;
 }
@@ -460,6 +474,36 @@ function readController(after: string, from: number): ControllerResult {
    * `targetParse` is never allowed to be wrong in.
    */
   /**
+   * ⚠️ **THE KEYWORD QUALIFIER (D289).** "target creature with flying" used to
+   * match NOTHING in this reader: the spec ended at the noun, `text` read
+   * "target creature" and `unenforced` stayed EMPTY — the D139 failure one
+   * qualifier over, "not merely unenforced, dropped silently", witnessed five
+   * times in the ledger (Topple, Trip Wire, Vertigo, Wing Snare, Wing
+   * Puncture). Read here it becomes a structured restriction `targetAllowed`
+   * checks against the candidate's DERIVED keywords, and `text` quotes the
+   * card. Only a keyword the engine derives is admitted (`KEYWORD_SET`); "with
+   * power 4 or greater" and "with a +1/+1 counter on it" fall through to the
+   * readers below unchanged, and "with flying or reach" is left alone too — a
+   * list read as its first word would REFUSE a legal reach creature, the one
+   * direction this file may never be wrong in. Recurses like the others, so
+   * "with flying you control" keeps both.
+   */
+  const kw = searchable.match(/^\s+(with|without)\s+(first strike|double strike|[a-z]+)\b(?!\s+or\b)/i);
+  if (kw) {
+    const word = keywordMember(kw[2] ?? '');
+    if (word !== null) {
+      const rest = readController(after, from + (kw[0]?.length ?? 0));
+      return {
+        controller: rest.controller,
+        zones: rest.zones,
+        numeric: rest.numeric,
+        keyword: { word, present: (kw[1] ?? '').toLowerCase() === 'with' },
+        end: rest.end,
+      };
+    }
+  }
+
+  /**
    * ⚠️ **THE NUMERIC QUALIFIER IS READ FIRST, because it comes first in print.**
    * "target creature with power 4 or greater you control" puts it between the
    * noun and the controller phrase, so a reader that looked for "you control"
@@ -487,6 +531,7 @@ function readController(after: string, from: number): ControllerResult {
       controller: rest.controller,
       zones: rest.zones,
       numeric: Number.isFinite(value) ? { attr, cmp, value } : null,
+      keyword: rest.keyword,
       end: rest.end,
     };
   }
@@ -512,23 +557,24 @@ function readController(after: string, from: number): ControllerResult {
       controller: whose === 'your' ? 'you' : whose === 'a' ? null : 'opponent',
       zones: ['graveyard'],
       numeric: rest.numeric,
+      keyword: rest.keyword,
       end: rest.end,
     };
   }
 
   const you = searchable.match(/^\s+you\s+control\b/i);
-  if (you) return { controller: 'you', zones: null, numeric: null, end: from + (you[0]?.length ?? 0) };
+  if (you) return { controller: 'you', zones: null, numeric: null, keyword: null, end: from + (you[0]?.length ?? 0) };
 
   const opp = searchable.match(/^\s+an\s+opponent\s+controls\b/i);
-  if (opp) return { controller: 'opponent', zones: null, numeric: null, end: from + (opp[0]?.length ?? 0) };
+  if (opp) return { controller: 'opponent', zones: null, numeric: null, keyword: null, end: from + (opp[0]?.length ?? 0) };
 
   const notYou = searchable.match(/^\s+you\s+don(?:'|’)?t\s+control\b/i);
-  if (notYou) return { controller: 'opponent', zones: null, numeric: null, end: from + (notYou[0]?.length ?? 0) };
+  if (notYou) return { controller: 'opponent', zones: null, numeric: null, keyword: null, end: from + (notYou[0]?.length ?? 0) };
 
   const other = searchable.match(/^\s+another\s+player\s+controls\b/i);
-  if (other) return { controller: 'opponent', zones: null, numeric: null, end: from + (other[0]?.length ?? 0) };
+  if (other) return { controller: 'opponent', zones: null, numeric: null, keyword: null, end: from + (other[0]?.length ?? 0) };
 
-  return { controller: null, zones: null, numeric: null, end: from };
+  return { controller: null, zones: null, numeric: null, keyword: null, end: from };
 }
 
 // ── the clause parser ────────────────────────────────────────────────────────
@@ -571,6 +617,7 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
         zones: [],
         cardTypes: [],
         numeric: null,
+        keyword: null,
         text: text.slice(start >= 0 ? start : at, at + word.length),
         confident: true,
         unenforced: [],
@@ -617,6 +664,7 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
       zones: ctl.zones ?? entry.zones ?? [],
       cardTypes: entry.cardTypes ?? [],
       numeric: ctl.numeric,
+      keyword: ctl.keyword,
       text: text.slice(count.start, ctl.end).trim(),
       confident: count.confident,
       unenforced,
@@ -671,6 +719,7 @@ export function parseEnchant(text: string, warn: Warn = NOOP_WARN): TargetSpec |
     zones: ctl.zones ?? entry.zones ?? [],
     cardTypes: entry.cardTypes ?? [],
     numeric: ctl.numeric,
+    keyword: ctl.keyword,
     text: (m[0] ?? '').trim(),
     confident: true,
     unenforced,

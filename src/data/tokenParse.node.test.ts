@@ -185,12 +185,15 @@ describe.skipIf(!HAVE_DB)('the token resolver, over the real database', () => {
       cardsFullyResolved: r.cardsFullyResolved,
     }).toEqual({
       tokenPrintings: 3290,
-      cards: 911,
-      lines: 944,
-      parsed: 278,
-      unique: 256,
+      // D289: one card (Fell the Pheasant) reads whole through the widened
+      // target macro, so its token line leaves this bucket - the one-card
+      // move primitives records as token 911 -> 910.
+      cards: 910,
+      lines: 943,
+      parsed: 277,
+      unique: 255,
       noMatch: 22,
-      cardsFullyResolved: 242,
+      cardsFullyResolved: 241,
     });
   });
 

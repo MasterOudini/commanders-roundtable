@@ -2652,6 +2652,23 @@ const WANTED = [
   'Relic Crush',
   'Chelonian Tackle',
   'Primal Might',
+  'Plummet',
+  'Wing Snare',
+  'Roast',
+  'Defenestrate',
+  'Clear a Path',
+  'Trip Wire',
+  'Leaf Arrow',
+  'Pierce the Sky',
+  'Shredding Winds',
+  'Fell the Pheasant',
+  'Ettercap // Web Shot',
+  'Collision // Colossus',
+  'Eaten by Spiders',
+  'Forced Landing',
+  'Pistus Strike',
+  "Sagittars' Volley",
+  'Wing Puncture',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

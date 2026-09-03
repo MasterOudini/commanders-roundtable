@@ -89,7 +89,16 @@ const NOUNS = [
  * ⚠️ Digits only, matching `NumericRestriction`'s own vocabulary; "with mana
  * value X or less" is not a number known at parse time.
  */
-const QUALIFIER = '(?: with (?:mana value|converted mana cost|power|toughness) \\d+ or (?:less|greater|more))?';
+/**
+ * ⚠️ And the KEYWORD qualifier (D289), admitted for the same reason and in the
+ * same order: `TargetSpec.keyword` exists and `targetAllowed` enforces it on
+ * DERIVED keywords, so "Destroy target creature with flying." may now be read
+ * as the destroy it is. The list is `TIER2_KEYWORDS` in print spelling; a
+ * word outside it keeps the sentence unread, as before.
+ */
+const KEYWORD_QUALIFIER =
+  ' with(?:out)? (?:flying|reach|trample|vigilance|haste|lifelink|deathtouch|first strike|double strike|menace|defender|indestructible|flash|fear|intimidate|skulk|shadow|horsemanship|hexproof|shroud|infect|wither|toxic)';
+const QUALIFIER = `(?: with (?:mana value|converted mana cost|power|toughness) \\d+ or (?:less|greater|more)|${KEYWORD_QUALIFIER})?`;
 const TARGET = `(?:any target|target (?:${NOUNS})${QUALIFIER})`;
 const NUM = '(?:\\d+)';
 

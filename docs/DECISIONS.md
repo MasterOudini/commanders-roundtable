@@ -19181,3 +19181,103 @@ Misinformation; Chaotic Transformation; Temporary Truce; Tempted by the
 Oriq; Baral's Expertise); then the remaining cost verbs (exile-from-
 graveyard 15, remove-counter 7, return-permanent 6, random-discard 4 behind
 `ctx.random`) and the prompt continuation seam; prior items stand.
+
+## D289 — M6.4dz: THE KEYWORD TARGET QUALIFIER — "target creature with flying" read, enforced on derived keywords, and only then admitted; eighteen cards (2026-09-03)
+
+**3,972 of 31,692 Commander-legal cards execute completely, up from 3,954.**
+SHIPPED_SCRIPTS 2,057 → 2,062; ledger 761 → 746 (**fifteen rows DELETED**,
+three re-classed to the wall each still has). ZERO new token pins, ZERO new
+support bodies. **Sliver Queen reaches 3,921 from 94 legendaries.** Five
+engine-side files change, and **the select pool is no longer empty: 22
+cards the ledger never saw are offerable** — the parser seam's second
+dividend.
+
+**The gap, measured before it was built.** The ledger had named it five
+times over five batches (Topple D261, Trip Wire D262, Vertigo D265, Wing
+Snare and Wing Puncture D269): "target creature WITH FLYING" came back from
+the aim layer as `text: "target creature"`, `unenforced: []` — the
+qualifier gone and NOTHING recorded, D139's failure ("not merely
+unenforced, dropped silently") one qualifier over. A probe over the whole
+database put a size on it: **328 printings / 335 clauses** carry "target
+<noun> with/without <keyword>" — flying 291 (with 199, without 92),
+defender 15, trample 8, first strike 7, haste 6, shadow 5, horsemanship 3 —
+and **zero of those cards were counted complete** (no silent widening had
+shipped, because `effectParse` refused the sentence). Stripping the
+qualifier in the probe made **13 distinct cards** complete, 11 of them with
+no script at all.
+
+**The seam, in D139's shape and D139's order — enforce first, then admit.**
+
+- `TargetSpec.keyword: { word: Keyword, present: boolean } | null` beside
+  `numeric`; `word` is the DERIVED member ("first strike" is stored as
+  `firstStrike`), `present` is false for "without".
+- `targetParse.ts` `readController` gains a `with|without <word>` branch
+  that recurses like the numeric and zone readers ("with flying you
+  control" keeps both) and extends the clause's printed span, so the
+  prompt bar now quotes "target creature with flying". Only a word in
+  `KEYWORD_SET` is admitted; "with power 4 or greater" and "with a +1/+1
+  counter on it" fall through unchanged, and **"with flying or reach" is
+  left alone** — a list read as its first word would REFUSE a legal reach
+  creature, the one direction the parser may never be wrong in.
+- `TargetCandidate.keywords` (derived, like `power`: a Bears wearing flying
+  IS a flyer, CR 613) on the host's three builders; `targetAllowed` refuses
+  a candidate whose keywords disagree with the clause. The client's three
+  builders carry PRINTED keywords, exactly as its `hexproof` already does —
+  the view has no derived keyword list, so a granted flying disagrees
+  there the way a granted hexproof already did (a reportable, not new).
+- `effectParse.ts`'s target macro admits the same keyword list — **only
+  because the restriction is now enforced**, the exact move D138 refused
+  for "with mana value 3 or less" and D139 then made. Across the database
+  `effect:auto` 2,778 → 2,830, `effect:none` 16,480 → 16,413,
+  `effect:partial` 5,073 → 5,088; the bot pool's auto spells 574 → 586.
+
+**The eighteen.** Eleven read whole with NO SCRIPT — Plummet, Wing Snare,
+Roast, Defenestrate, Clear a Path (defender), Trip Wire (horsemanship),
+Leaf Arrow, Pierce the Sky, Shredding Winds, Aerial Predation, Fell the
+Pheasant — plus the two multi-face cards whose flying face now reads,
+Ettercap // Web Shot and Collision // Colossus. Five are scripted on the
+new spec: Eaten by Spiders (the flyer and its worn Greaves die, the spare
+Greaves stand), Forced Landing (to the BOTTOM of its owner's library),
+Pistus Strike (a poison counter to the flyer's controller), Sagittars'
+Volley (1 to each other flyer my opponents control, mine untouched), Wing
+Puncture (Tail Slash's bite where the bitten must fly; roles by what each
+target IS, never by index). Every suite pins the refusal: a ground creature
+named for a flying clause is refused at the aim, and the mirror for
+"without".
+
+**Three stay in the ledger, honestly re-classed:** Broken Wings ("target
+artifact, enchantment, or creature with flying" — a noun list the parser
+does not read, and the qualifier binds one alternative only), Pinion Feast
+(Bolster's least-toughness tie is the controller's choice — a script-raised
+prompt), Vertigo ("loses flying until end of turn" — no lose-direction on
+the temporary keyword carrier, D194).
+
+**Tests:** `src/engine/targetKeyword.test.ts` (10: the parse shapes, the
+list guard, the `effectParse` admission, and Plummet / Defenestrate / Roast
+run from the ORACLE alone with no script registered) + 5 card suites / 21
+tests, all green on the first run. The D32 parse-report pins and every
+coverage pin are re-pinned with the reasoning — including the token
+resolver's five (one card, Fell the Pheasant, now reads whole and leaves its
+bucket), which gate 138 caught because the two token report tests were not
+in the data sweep; they are now, and gate 139 is the run that lands.
+
+Fixtures 2,309 → 2,326 (2,218 by name + 101 tokens) · botPool artifact 158
+/ creature 2,053 / enchantment 87 / instant 737 / land 342 / sorcery 595 ·
+ladder [1108, 1209, 2998, 4911, 6122] · scriptable-today 1,099 → 1,108 ·
+tier3 `payable` 5,098 (unchanged) · batch.json 18 (by name) · botDeck:
+3,921 from 94 legendaries · **select pool 0 → 22**.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,143 files, 11,255 passing / 10 skipped · 500-seed gate 707.1 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D289): the 22 offerable cards are the next batch (Air
+Servant, Bamboo Grove Archer, Centaur Archer, Cephalid Retainer, Dauthi
+Cutthroat, Dromoka Dunecaster, Elvish Skysweeper, Flood, Grapeshot
+Catapult, Landroval, Horizon Witness, Merfolk Seastalkers, Ogre Gatecrasher,
+Pileated Provisioner, Plumecreed Mentor, Roc Charger, Seedpod Squire,
+Skyshroud Archer, Skyway Sniper, Spire Mangler, Storm Front, Trusted
+Pegasus, Predator, Flagship); a keyword LIST qualifier ("with flying or
+reach") is the next parser widening, as a list spec; the client's printed-
+keyword approximation wants a derived keyword list on `CardView`; then the
+"another" split, the up-to-N residue, the remaining cost verbs and the
+prompt continuation seam; prior items stand.

@@ -7,6 +7,11 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { WING_PUNCTURE_SCRIPT } from './cards/wingPuncture';
+import { PISTUS_STRIKE_SCRIPT } from './cards/pistusStrike';
+import { SAGITTARS_VOLLEY_SCRIPT } from './cards/sagittarsVolley';
+import { EATEN_BY_SPIDERS_SCRIPT } from './cards/eatenBySpiders';
+import { FORCED_LANDING_SCRIPT } from './cards/forcedLanding';
 import { ASSERT_PERFECTION_SCRIPT } from './cards/assertPerfection';
 import { BIONIC_BLOW_SCRIPT } from './cards/bionicBlow';
 import { CHELONIAN_TACKLE_SCRIPT } from './cards/chelonianTackle';
@@ -2178,6 +2183,11 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  WING_PUNCTURE_SCRIPT,
+  PISTUS_STRIKE_SCRIPT,
+  SAGITTARS_VOLLEY_SCRIPT,
+  EATEN_BY_SPIDERS_SCRIPT,
+  FORCED_LANDING_SCRIPT,
   ASSERT_PERFECTION_SCRIPT,
   BIONIC_BLOW_SCRIPT,
   CHELONIAN_TACKLE_SCRIPT,
