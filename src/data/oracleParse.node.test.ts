@@ -408,8 +408,8 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // where the prompt bar offers the counter clause as one logged click.
       // These count FACES over every printing, which is why they are an order of
       // magnitude larger than `botPool`'s distinct-name figures.
-      'effect:none': 15724,
-      'effect:partial': 5375,
+      'effect:none': 15693,
+      'effect:partial': 5374,
       // D289: the target macro admits the KEYWORD qualifier ("with flying",
       // "without flying") now that TargetSpec.keyword is enforced, so 52 more
       // faces read whole (Plummet, Wing Snare, Roast, Defenestrate, ...), 67
@@ -420,7 +420,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // supertypes, tapped, token) are admitted by the target macro, so 152
       // more faces read whole - Doom Blade, Negate, Go for the Throat, Utter
       // End and kin.
-      'effect:auto': 3232, // D295: four sentences read (you lose / its controller loses, draws / can't be regenerated)
+      'effect:auto': 3264, // D297: subtype nouns and lists read; D295: four sentences
       // ⚠️ 13,581 → 10,372 in M6.4b (D159): `Sacrifice this <type>` and War
       // Room's commanders'-colors life phrase became CHARGEABLE cost parts, so
       // 3,209 printings' ability lines stopped warning `nonManaCost`. The
@@ -443,7 +443,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // D293: a qualifier after a noun LIST binds one alternative in print, so
       // such a clause is free aim now instead of a narrowed read of its first
       // noun (+35); the six new lists take the other direction.
-      'target:unparsedClause': 1290,
+      'target:unparsedClause': 1281,
       'typeLine:unknownType': 729,
       'protection:unenforced': 677,
       // ⚠️ 629 → 540 when "any TYPE" started parsing (D116): 89 of these were
@@ -461,7 +461,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // D288: "up to X OTHER target ..." now reaches the up-to branch (four
       // clauses), so their unknown X is honestly counted here instead of
       // silently reading as exactly one.
-      'target:unparsedCount': 555,
+      'target:unparsedCount': 554,
       'ward:nonManaCost': 151,
       'mana:variableAmount': 88,
       'target:unparsedEnchant': 14,
@@ -484,8 +484,8 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
     expect(report.targets).toEqual({
       facesWithSpecs: 19757,
       specs: 20840,
-      confident: 17404,
-      free: 3436,
+      confident: 17420,
+      free: 3420,
       enchant: 3536,
       // D288 admits "other" into the up-to window without recording it as
       // unenforced — the declaration-wide distinctness check enforces it —
@@ -494,7 +494,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // they leave the unenforced record on 144 specs.
       // D294: the enforced adjectives leave the unenforced record - 964 specs
       // were held here by a word the engine could already check.
-      withUnenforced: 192,
+      withUnenforced: 237, // D297: 166 subtype words enforced; 208 unread "with ..." qualifiers now RECORDED (D138) instead of dropped
     });
     // ⚠️ M6.4b (D159) moved three of these over the whole 113,559-printing
     // database: `lines` +195 (the brace rule admits a long cost that opens

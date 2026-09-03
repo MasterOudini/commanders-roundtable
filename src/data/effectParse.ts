@@ -73,6 +73,20 @@ const NOUNS = [
   'nonland permanent',
   'noncreature spell',
   'creature spell',
+  // ⚠️ D297: subtype nouns and one list, admitted ONLY because `targetParse`
+  // enforces the subtype (`restrict.subtypesAll`) and the list per alternative.
+  'artifact creature',
+  'creature or vehicle',
+  'equipment you control',
+  'equipment',
+  'vehicle',
+  'aura',
+  'wall',
+  'plains',
+  'island',
+  'swamp',
+  'mountain',
+  'forest',
   'planeswalker',
   'enchantment',
   'permanent',
@@ -117,7 +131,8 @@ const QUALIFIER = `(?: with (?:mana value|converted mana cost|power|toughness) \
  * D139 and D289: enforce first, then admit the wording.
  */
 const ADJECTIVE =
-  '(?:(?:non(?:artifact|creature|enchantment|land|planeswalker|battle|white|blue|black|red|green|legendary|basic|snow|token)|white|blue|black|red|green|colorless|multicolored|monocolored|tapped|untapped|legendary|basic|snow|token)\\s+)*';
+  // D297: `non-[a-z]+` is the HYPHENATED subtype negation ("non-Elf"), enforced by targetParse.
+  '(?:(?:non(?:artifact|creature|enchantment|land|planeswalker|battle|white|blue|black|red|green|legendary|basic|snow|token)|non-[a-z]+|white|blue|black|red|green|colorless|multicolored|monocolored|tapped|untapped|legendary|basic|snow|token)\\s+)*';
 const TARGET = `(?:any target|target ${ADJECTIVE}(?:${NOUNS})${QUALIFIER})`;
 const NUM = '(?:\\d+)';
 

@@ -7,6 +7,30 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ARBOR_ELF_SCRIPT } from './cards/arborElf';
+import { ALI_BABA_SCRIPT } from './cards/aliBaba';
+import { AVACYNIAN_PRIEST_SCRIPT } from './cards/avacynianPriest';
+import { SIGARDIAN_PRIEST_SCRIPT } from './cards/sigardianPriest';
+import { STERLING_KEYKEEPER_SCRIPT } from './cards/sterlingKeykeeper';
+import { BLASTER_MAGE_SCRIPT } from './cards/blasterMage';
+import { CHANDLER_SCRIPT } from './cards/chandler';
+import { DWARVEN_DEMOLITION_TEAM_SCRIPT } from './cards/dwarvenDemolitionTeam';
+import { GOBLIN_DIGGING_TEAM_SCRIPT } from './cards/goblinDiggingTeam';
+import { GOBLIN_MASONS_SCRIPT } from './cards/goblinMasons';
+import { HAAZDA_EXONERATOR_SCRIPT } from './cards/haazdaExonerator';
+import { RUSTSPORE_RAM_SCRIPT } from './cards/rustsporeRam';
+import { VOLTAIC_CONSTRUCT_SCRIPT } from './cards/voltaicConstruct';
+import { LOTUSGUARD_DISCIPLE_SCRIPT } from './cards/lotusguardDisciple';
+import { CRYOCLASM_SCRIPT } from './cards/cryoclasm';
+import { PEAK_ERUPTION_SCRIPT } from './cards/peakEruption';
+import { CHOKING_SANDS_SCRIPT } from './cards/chokingSands';
+import { WORD_OF_BLASTING_SCRIPT } from './cards/wordOfBlasting';
+import { NISSAS_DEFEAT_SCRIPT } from './cards/nissasDefeat';
+import { EMBIGGEN_SCRIPT } from './cards/embiggen';
+import { TURN_TO_DUST_SCRIPT } from './cards/turnToDust';
+import { UNFORGE_SCRIPT } from './cards/unforge';
+import { MAGNETIC_THEFT_SCRIPT } from './cards/magneticTheft';
+import { AURA_FINESSE_SCRIPT } from './cards/auraFinesse';
 import { CAO_REN_WEI_COMMANDER_SCRIPT } from './cards/caoRenWeiCommander';
 import { DREAD_REAPER_SCRIPT } from './cards/dreadReaper';
 import { EVISCERATOR_SCRIPT } from './cards/eviscerator';
@@ -2344,6 +2368,30 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ARBOR_ELF_SCRIPT,
+  ALI_BABA_SCRIPT,
+  AVACYNIAN_PRIEST_SCRIPT,
+  SIGARDIAN_PRIEST_SCRIPT,
+  STERLING_KEYKEEPER_SCRIPT,
+  BLASTER_MAGE_SCRIPT,
+  CHANDLER_SCRIPT,
+  DWARVEN_DEMOLITION_TEAM_SCRIPT,
+  GOBLIN_DIGGING_TEAM_SCRIPT,
+  GOBLIN_MASONS_SCRIPT,
+  HAAZDA_EXONERATOR_SCRIPT,
+  RUSTSPORE_RAM_SCRIPT,
+  VOLTAIC_CONSTRUCT_SCRIPT,
+  LOTUSGUARD_DISCIPLE_SCRIPT,
+  CRYOCLASM_SCRIPT,
+  PEAK_ERUPTION_SCRIPT,
+  CHOKING_SANDS_SCRIPT,
+  WORD_OF_BLASTING_SCRIPT,
+  NISSAS_DEFEAT_SCRIPT,
+  EMBIGGEN_SCRIPT,
+  TURN_TO_DUST_SCRIPT,
+  UNFORGE_SCRIPT,
+  MAGNETIC_THEFT_SCRIPT,
+  AURA_FINESSE_SCRIPT,
   CAO_REN_WEI_COMMANDER_SCRIPT,
   DREAD_REAPER_SCRIPT,
   EVISCERATOR_SCRIPT,

@@ -9036,6 +9036,47 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       graveyard-return adjective slot, the modal seam (42), the "another"
       split, the by-name sacrifice cost, the remaining cost verbs, the
       prompt continuation seam; prior items stand.
+- [x] **M6.4eh — THE LIST SEAM: a printed target list whose alternatives
+      differ is read piece by piece, and a candidate is admitted when some
+      alternative admits it (2026-09-04):** **4,273 of 31,692
+      Commander-legal cards now execute completely, up from 4,235
+      (+38).** `SHIPPED_SCRIPTS` 2,223 → 2,247 (+24, the second
+      wave); ledger 808 → 801 (ten rows deleted because the seam closed their gap, three added). Fixtures 2,541. ZERO
+      token pins, ZERO support bodies. **Select pool 0 → 27 → 0.**
+      Decisions in **D297**.
+      ⚠️ **Measured first:** 948 incomplete cards carry a list clause
+      the table could not say (a qualifier binding the last alternative, a
+      subtype on one, an adjective on one or each) in some 150 shapes;
+      8 by the probe's rough rewrite (15 measured once built) would read whole with the clause enforced.
+      ⚠️ **The seam (D139's order):** `TargetAlternative` (kinds, ALL-of card
+      types and subtypes, own restrict, keyword, numeric) +
+      `TargetSpec.alternatives` (null wherever the table speaks);
+      `TargetCandidate.subtypes` on both adapters; `alternativeAllows` in
+      `targetAllowed` (some alternative admits; controller/zones/CR clause-
+      wide); `readList`/`readPiece` in targetParse, tried ONLY where the
+      table would leave free aim, falling back on any piece it cannot place.
+      Subtypes are enforced on a clause too (the nine subtype nouns via
+      `restrict.subtypesAll`; hyphenated "non-Elf" via `subtypesNone`;
+      "artifact creature" one noun). THREE HOLES CLOSED: a list PREFIX the
+      table matched dropped the rest silently (now read or REFUSED); "spell"
+      distributes over "creature or Aura spell"; an unread "with …"
+      qualifier is RECORDED as unenforced (D138) instead of dropped — which
+      is why `withUnenforced` rises. Report `unparsedClause` 1,290
+      → 1,281, `withUnenforced` 192 → 237 (166 subtype words enforced, 208 unread qualifiers now recorded), `effect:auto`
+      3,232 → 3,264. Second wave: 27 offerable → 14 table rows (a
+      CAST Aura scaffold), 10 spell rows (seven new ops incl. ATTACH), 3
+      refused.
+      **Landed:** 14 auto flips (10 lists, 4 subtypes) and 24 scripts for the 27 the seam made offerable — 38 net (Shoot the Sheriff's "non-outlaw" is a batch word and stays recorded) — Bounce Off, Broken Wings, Daring Demolition, Exorcise, Make Your Move, Return to the Earth, Shattered Wings, Shoot Down, Shower of Arrows, Spin Out (lists); Eyeblight's Ending, Rend Flesh, Tunnel, Walk the Plank (subtypes). Tests: targetAlternatives.test.ts
+      (parses, the validator over hand-built candidates, live proofs Broken
+      Wings / Bounce Off from the oracle).
+      Fixtures 2,541 (2,433 by name + 101 tokens) · botPool artifact 165 / creature 2,165 / enchantment 103 / instant 854 / land 351 / sorcery 635 · auto 666 / assisted 1,810 / autoAnyFace 674 ·
+      ladder [909, 1015, 2797, 4712, 5923] · batch.json 38 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,333 files, 12,220 passed / 11 skipped ·
+      500-seed gate, 6 shards, 211.5 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D297): the graveyard-return adjective and type slot (Revive, Reborn Hope, and the 'sorcery / instant / Goblin / Zombie card from your graveyard' nouns the probe counted); the graveyard-return adjective slot;
+      the modal seam (42); the "another" split; the by-name sacrifice cost;
+      the remaining cost verbs; the prompt continuation seam; prior items
+      stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

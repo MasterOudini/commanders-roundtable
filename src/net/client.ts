@@ -624,6 +624,7 @@ export class ClientSession {
         // with the host exactly.
         combat: { attacking: cv.attacking !== null, blocking: cv.blocking.length > 0 },
         supertypes: face.typeLine.supertypes,
+        subtypes: face.typeLine.subtypes,
         tapped: cv.tapped,
         isToken: cv.isToken,
         hexproof: face.keywords.includes('hexproof'),
@@ -662,6 +663,7 @@ export class ClientSession {
         keywords: [],
         combat: { attacking: false, blocking: false },
         supertypes: spellFace?.typeLine.supertypes ?? [],
+        subtypes: spellFace?.typeLine.subtypes ?? [],
         tapped: false,
         isToken: false,
         hexproof: false,
@@ -684,6 +686,7 @@ export class ClientSession {
         keywords: [],
         combat: { attacking: false, blocking: false },
         supertypes: [],
+        subtypes: [],
         tapped: false,
         isToken: false,
         hexproof: false,

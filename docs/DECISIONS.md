@@ -19843,3 +19843,120 @@ Liliana's Defeat, Broken Wings…), the graveyard-return adjective slot
 (Revive, Reborn Hope), the modal seam (42), the "another" split, the by-name
 sacrifice cost, the remaining cost verbs, the prompt continuation seam;
 prior items stand.
+
+## D297 — M6.4eh: THE LIST SEAM — a printed target list whose alternatives differ is read piece by piece, and a candidate is admitted when some alternative admits it (2026-09-04)
+
+**4,273 of 31,692 Commander-legal cards execute completely, up from
+4,235 (+38).** SHIPPED_SCRIPTS 2,223 → **2,247** (+24, the second
+wave); REFUSED ledger 808 → **801** (ten rows deleted because the seam closed their gap, three added). Fixtures 2,514 →
+2,541 (2,433 by name + 101 tokens — three proof spells and the wave). ZERO
+new token pins, ZERO new support bodies. Four engine-side files change.
+**Select pool 0 → 27 → 0.**
+
+**The gap, measured before it was built.** A `TargetSpec` was ONE set of
+restrictions over a union of kinds, so a printed list whose alternatives
+DIFFER could not be said: a qualifier that binds the last alternative
+("artifact, enchantment, or creature WITH FLYING" — D293's guard left it free
+aim, and free aim is refused), a subtype on one alternative ("creature or
+VEHICLE" — the noun table's subtype words sat in `unenforced`), an adjective
+on one or each ("artifact creature or BLACK creature", "MULTICOLORED
+creature or MULTICOLORED enchantment"). The sizing probe (`zz-probe-d297`,
+gate-free): 948 incomplete cards carry such a clause, in some 150
+distinct shapes; 8 by the probe's rough rewrite (15 measured once built) would read whole if the clause alone were enforced.
+
+**The seam, in D139's order — enforce first, then admit.**
+
+- `TargetAlternative { kinds, cardTypes (ALL-of: "artifact creature" is
+  both), subtypes (ALL-of), restrict, keyword, numeric }` and
+  `TargetSpec.alternatives: readonly TargetAlternative[] | null` — null
+  everywhere the table already speaks (every existing spec is byte-identical
+  in meaning), set only for a list the table cannot say. `kinds` stays the
+  union, so the prompt and the legal-target layers read it as before.
+- `TargetCandidate.subtypes` on both adapters — a card's DERIVED subtypes, a
+  spell's from the face actually cast, a player's none.
+- `targetAllowed`: after the CR checks and the clause-wide controller, a spec
+  with alternatives admits iff SOME alternative admits (`alternativeAllows`:
+  kind, all card types, all subtypes, its own adjectives, the keyword or
+  number bound to it). The D294 adjective block became `restrictAllows`,
+  shared by a clause and an alternative.
+- `targetParse`: `readList` — tried only where the table would leave the
+  clause free aim (no noun entry, or D293's guard): the remainder up to the
+  sentence end split on ", " / " or " / " and/or " into two or more pieces
+  (none containing another `target`); each piece through `readPiece` — its
+  own leading adjectives (D294's absorber; the clause's leading adjective
+  binds the FIRST piece), then ONE head noun: a plain kind, "artifact
+  creature", a subtype noun (Vehicle, Spacecraft, Aura, Equipment, Wall, the
+  five basic land types), a typed spell, "spell"; the trailing qualifier
+  (keyword / number, and the clause-wide controller and zone) read off the
+  LAST piece by `readController`, exactly as a single noun's is. A piece the
+  reader cannot place — a second noun, a qualifier inside a non-final piece
+  ("creature with flying or artifact"), a combat role — makes the whole list
+  fall back to the table, so nothing regresses.
+- **Subtypes enforced on a clause too** — the same candidate field serves
+  the noun table's nine subtype nouns (Equipment, Vehicle, Aura, Wall, the
+  five basic land types: `restrict.subtypesAll`, no longer `unenforced`)
+  and the hyphenated negation ("non-Elf", "non-Human": `subtypesNone` —
+  hyphenated is always a subtype in print; "non-outlaw", a batch word,
+  stays recorded). "artifact creature" is ONE noun now (a creature with the
+  Artifact type — the bare `artifact` entry used to read its first word).
+- **Three holes closed on the way.** (1) The table matching a PREFIX of a
+  list ("creature" of "creature or Vehicle") dropped the rest silently —
+  the D207/D213 hole one shape over; a dangling alternative is now handed
+  to the list reader, and a dangling " or " it cannot read is REFUSED
+  rather than dropped. (2) In "creature or Aura spell" the noun "spell"
+  distributes over the list (two SPELL alternatives, not a permanent and a
+  spell). (3) A "with …" qualifier the controller reader could not read
+  ("with a +1/+1 counter on it") was dropped silently — neither enforced
+  nor disclosed — so the card counted as complete over a restriction
+  nothing checked; it is RECORDED as unenforced now (D138), which is why
+  `withUnenforced` RISES even as 166 subtype words leave it.
+- The effect parser's noun list admits 'artifact creature', 'creature or Vehicle', 'Equipment (you control)', 'Vehicle', 'Aura', 'Wall', the five basic land types, and the hyphenated 'non-X' — the shapes the parser now
+  enforces that the report measured; a word the target parser leaves
+  unenforced is still not admitted.
+
+Report: `targets.unparsedClause` 1,290 → 1,281,
+`withUnenforced` 192 → 237 (166 subtype words enforced, 208 unread qualifiers now recorded), `effect:auto` 3,232 → 3,264.
+
+**The second wave — 27 the seam made offerable.** The sweep measured the
+pool at 27 (subtype-noun activations, list spells with riders): 14 table
+rows (`d297/rows-c.cjs` through D295's generator — Arbor Elf untaps a
+Forest, Ali Baba taps a Wall, two Priests tap a non-Human, Chandler an
+artifact creature, Haazda Exonerator an Aura the test CASTS onto its host
+since an unattached Aura dies to the SBA, Rustspore Ram an Equipment,
+Lotusguard Disciple's "creature or Vehicle" grant…), 10 spell rows
+(`d297/rows-spells-b.cjs`, seven new ops: damage to a target's controller,
+conditional on nonbasic, equal to its mana value, to an Equipment's host;
+a draw on a subtype; Embiggen's pump by type count; Turn to Dust's mana;
+Magnetic Theft's and Aura Finesse's ATTACH through `AttachmentChanged`),
+and three refused (two re-attach an Aura to a permanent of the caster's
+choosing — a script-raised prompt; Volcanic Eruption's X Mountains).
+
+**Tests:** `src/engine/targetAlternatives.test.ts` (the parse of each
+measured shape — the qualifier on the last piece, a subtype piece, an
+adjective per piece, a typed spell, three pieces; what the table already
+says stays as it was and what neither can say stays free aim; the
+validator over hand-built candidates — a flier admitted and a ground
+creature refused by the flying piece while an artifact needs no flying, a
+Vehicle admitted and a plain artifact refused, "artifact creature or black
+creature" both ways; and live proofs from the ORACLE with no script —
+Broken Wings refuses the ground Bears, destroys the flying Nighthawk and an
+artifact; Bounce Off refuses Sol Ring and bounces Consulate Dreadnought).
+
+Two D293 pins that said what the parser could not do then ("creature or
+Vehicle" not widened; a qualifier after a list leaves free aim) now say what
+it does; Word of Blasting joins the D192 tripwire's client list.
+
+**Landed:** 14 auto flips (10 lists, 4 subtypes) and 24 scripts for the 27 the seam made offerable — 38 net (Shoot the Sheriff's "non-outlaw" is a batch word and stays recorded) — Bounce Off, Broken Wings, Daring Demolition, Exorcise, Make Your Move, Return to the Earth, Shattered Wings, Shoot Down, Shower of Arrows, Spin Out (lists); Eyeblight's Ending, Rend Flesh, Tunnel, Walk the Plank (subtypes). The ledger classes "list qualifier binds
+one alternative", "subtype list alternative" and "list with adjective
+alternative" lost their ten rows (Bounce Off, Broken Wings, Daring Demolition, Exorcise, Make Your Move, Return to the Earth, Shattered Wings, Shoot Down, Shower of Arrows, Spin Out — all whole now).
+
+Fixtures 2,541 (2,433 by name + 101 tokens) · botPool artifact 165 / creature 2,165 / enchantment 103 / instant 854 / land 351 / sorcery 635 · auto 666 / assisted 1,810 / autoAnyFace 674 · ladder
+[909, 1015, 2797, 4712, 5923] · batch.json 38 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,333 files, 12,220 passed / 11 skipped ·
+500-seed gate, 6 shards, 211.5 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D297): the graveyard-return adjective and type slot (Revive, Reborn Hope, and the 'sorcery / instant / Goblin / Zombie card from your graveyard' nouns the probe counted); the graveyard-return adjective slot (Revive,
+Reborn Hope); the modal seam (42); the "another" split; the by-name
+sacrifice cost; the remaining cost verbs; the prompt continuation seam;
+prior items stand.

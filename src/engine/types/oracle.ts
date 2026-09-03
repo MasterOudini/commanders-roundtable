@@ -229,11 +229,31 @@ export interface TargetRestrictions {
   readonly typesNone?: readonly string[];
   readonly supertypesAny?: readonly string[];
   readonly supertypesNone?: readonly string[];
+  /** D297 - a subtype the candidate must carry ("target Wall", "Equipment you control") / must not ("non-Elf creature"), derived. */
+  readonly subtypesAll?: readonly string[];
+  readonly subtypesNone?: readonly string[];
   readonly tapped?: boolean;
   readonly token?: boolean;
 }
 
 export type TargetZone = 'graveyard' | 'exile';
+
+/**
+ * D297 - ONE alternative of a printed target list whose alternatives differ:
+ * "artifact, enchantment, or creature WITH FLYING" (the qualifier binds the
+ * last), "creature or VEHICLE" (a subtype on one), "artifact creature or
+ * BLACK creature" (an adjective on each). A candidate is admitted when SOME
+ * alternative admits it. `cardTypes` and `subtypes` here are ALL-of ("artifact
+ * creature" is both), unlike the clause-wide ANY-of `TargetSpec.cardTypes`.
+ */
+export interface TargetAlternative {
+  readonly kinds: readonly TargetKind[];
+  readonly cardTypes: readonly string[];
+  readonly subtypes: readonly string[];
+  readonly restrict: TargetRestrictions | null;
+  readonly keyword: KeywordRestriction | null;
+  readonly numeric: NumericRestriction | null;
+}
 
 /**
  * ONE target clause, as printed. A face has zero or more.
@@ -307,6 +327,13 @@ export interface TargetSpec {
   /** The clause's enforced adjectives (D294), or `null` when it prints none the engine checks. */
   readonly restrict: TargetRestrictions | null;
   /**
+   * D297 - set only for a printed list whose alternatives differ; `kinds` is
+   * then their union and the clause-wide `cardTypes`/`numeric`/`keyword`/
+   * `restrict` are empty, each alternative carrying its own. Null = the
+   * clause's own fields apply, exactly as before.
+   */
+  readonly alternatives: readonly TargetAlternative[] | null;
+  /**
    * The clause EXACTLY as printed, sliced out of the oracle text — never
    * re-worded. It is what the prompt bar says. A paraphrase would be a second
    * rules text that drifts from Scryfall's the moment Wizards rewords something,
@@ -335,6 +362,7 @@ export const FREE_TARGET: TargetSpec = {
   keyword: null,
   combatRole: null,
   restrict: null,
+  alternatives: null,
   text: '',
   confident: false,
   unenforced: [],

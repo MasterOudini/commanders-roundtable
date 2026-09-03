@@ -24,7 +24,7 @@
 import type { ColorLetter } from '../data/cardTypes';
 import type { InstanceId, PlayerId } from './types/ids';
 import type { GameState, TargetChoice } from './types/state';
-import type { Keyword, OracleDb, Protection, TargetKind, TargetSpec } from './types/oracle';
+import type { Keyword, OracleDb, Protection, TargetAlternative, TargetKind, TargetRestrictions, TargetSpec } from './types/oracle';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
 import { faceOf } from './oracle';
 import type { ScriptRegistry } from './scripts/registry';
@@ -82,6 +82,8 @@ export interface TargetCandidate {
   readonly combat: { readonly attacking: boolean; readonly blocking: boolean };
   /** Derived supertypes, tapped-ness and token-ness (D294) — what an enforced adjective restricts on. */
   readonly supertypes: readonly string[];
+  /** D297 - derived subtypes (a Vehicle, an Aura, a Forest), for a list alternative that names one. */
+  readonly subtypes: readonly string[];
   readonly tapped: boolean;
   readonly isToken: boolean;
   readonly hexproof: boolean;
@@ -117,6 +119,44 @@ export function untargetableByRule(src: TargetingSource, c: TargetCandidate): bo
 }
 
 /** Does this candidate satisfy this clause? */
+/** The D294 adjective restrictions, checked the same way for a clause and for one list alternative. */
+function restrictAllows(r: TargetRestrictions, c: TargetCandidate): boolean {
+  if (r.colorsAny && !r.colorsAny.some((col) => c.colors.includes(col))) return false;
+  if (r.colorsNone && r.colorsNone.some((col) => c.colors.includes(col))) return false;
+  if (r.colorCount === 'zero' && c.colors.length !== 0) return false;
+  if (r.colorCount === 'one' && c.colors.length !== 1) return false;
+  if (r.colorCount === 'many' && c.colors.length < 2) return false;
+  if (r.typesNone && r.typesNone.some((t) => c.types.includes(t))) return false;
+  if (r.supertypesAny && !r.supertypesAny.some((t) => c.supertypes.includes(t))) return false;
+  if (r.supertypesNone && r.supertypesNone.some((t) => c.supertypes.includes(t))) return false;
+  if (r.tapped !== undefined && c.tapped !== r.tapped) return false;
+  if (r.token !== undefined && c.isToken !== r.token) return false;
+  // D297: subtypes, derived like the supertypes above.
+  if (r.subtypesAll && r.subtypesAll.some((t) => !c.subtypes.includes(t))) return false;
+  if (r.subtypesNone && r.subtypesNone.some((t) => c.subtypes.includes(t))) return false;
+  return true;
+}
+
+/**
+ * D297 - one alternative of a printed list admits the candidate: its kind, ALL
+ * of its card types and subtypes ("artifact creature", "Vehicle"), its own
+ * adjectives, and the qualifier that binds it ("creature with flying").
+ */
+function alternativeAllows(a: TargetAlternative, c: TargetCandidate): boolean {
+  if (!a.kinds.some((k) => c.kinds.includes(k))) return false;
+  if (a.cardTypes.some((t) => !c.types.includes(t))) return false;
+  if (a.subtypes.some((t) => !c.subtypes.includes(t))) return false;
+  if (a.restrict !== null && !restrictAllows(a.restrict, c)) return false;
+  if (a.keyword && c.keywords.includes(a.keyword.word) !== a.keyword.present) return false;
+  if (a.numeric) {
+    const actual = a.numeric.attr === 'power' ? c.power : a.numeric.attr === 'toughness' ? c.toughness : c.manaValue;
+    if (actual === null) return false;
+    if (a.numeric.cmp === 'atMost' && actual > a.numeric.value) return false;
+    if (a.numeric.cmp === 'atLeast' && actual < a.numeric.value) return false;
+  }
+  return true;
+}
+
 export function targetAllowed(
   spec: TargetSpec,
   src: TargetingSource,
@@ -149,19 +189,14 @@ export function targetAllowed(
 
   // ⚠️ The enforced adjectives (D294): colours, negated types, supertypes,
   // tapped, token — each read off the candidate the way `power` is, derived.
-  const r = spec.restrict;
-  if (r !== null) {
-    if (r.colorsAny && !r.colorsAny.some((col) => c.colors.includes(col))) return false;
-    if (r.colorsNone && r.colorsNone.some((col) => c.colors.includes(col))) return false;
-    if (r.colorCount === 'zero' && c.colors.length !== 0) return false;
-    if (r.colorCount === 'one' && c.colors.length !== 1) return false;
-    if (r.colorCount === 'many' && c.colors.length < 2) return false;
-    if (r.typesNone && r.typesNone.some((t) => c.types.includes(t))) return false;
-    if (r.supertypesAny && !r.supertypesAny.some((t) => c.supertypes.includes(t))) return false;
-    if (r.supertypesNone && r.supertypesNone.some((t) => c.supertypes.includes(t))) return false;
-    if (r.tapped !== undefined && c.tapped !== r.tapped) return false;
-    if (r.token !== undefined && c.isToken !== r.token) return false;
-  }
+  if (spec.restrict !== null && !restrictAllows(spec.restrict, c)) return false;
+
+  // ⚠️ D297: a printed LIST whose alternatives differ ("artifact, enchantment,
+  // or creature with flying", "creature or Vehicle") is admitted iff SOME
+  // alternative admits the candidate. The CR checks, the controller and the
+  // zones above and below stay clause-wide; such a spec's own kind list is
+  // the union and its qualifier fields are empty, so those checks pass through.
+  if (spec.alternatives !== null && !spec.alternatives.some((a) => alternativeAllows(a, c))) return false;
 
   /**
    * ⚠️ **THE ZONE, WHICH THIS PREDICATE IGNORED UNTIL D138.** `TargetSpec.zones`
@@ -445,6 +480,7 @@ export function candidatesFromState(
       keywords: [...d.keywords],
       combat: { attacking: attacking.has(id), blocking: blocking.has(id) },
       supertypes: d.typeLine.supertypes,
+      subtypes: d.typeLine.subtypes,
       tapped: card.tapped,
       isToken: card.isToken,
       hexproof: d.keywords.has('hexproof'),
@@ -495,6 +531,7 @@ export function candidatesFromState(
       // ⚠️ A spell on the stack keeps its card types AND supertypes for "target
       // noncreature spell" / "target legendary spell" (D294).
       supertypes: spellOracle ? faceOf(spellOracle, obj.faceIndex).typeLine.supertypes : [],
+      subtypes: spellOracle ? faceOf(spellOracle, obj.faceIndex).typeLine.subtypes : [],
       tapped: false,
       isToken: false,
       hexproof: false,
@@ -518,6 +555,7 @@ export function candidatesFromState(
       keywords: [],
       combat: { attacking: false, blocking: false },
       supertypes: [],
+      subtypes: [],
       tapped: false,
       isToken: false,
       hexproof: false,

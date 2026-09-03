@@ -89,20 +89,24 @@ describe('noun lists are READ (D293)', () => {
     expect(spec?.cardTypes).toEqual(['Creature', 'Sorcery']);
   });
 
-  test('a list with a SUBTYPE alternative is not widened: "creature or Vehicle" still reads only the creature', () => {
-    // The spec has no subtype field, so the Vehicle alternative waits on a
-    // subtype seam; until then the clause narrows to the creature noun and the
-    // effect parser refuses the sentence, so no card ships over it.
+  test('a list with a SUBTYPE alternative is read per alternative since D297: "creature or Vehicle"', () => {
+    // D293 pinned that the Vehicle alternative was NOT widened (the spec had no
+    // subtype field). D297 gave it one: the clause is the union of kinds, the
+    // Vehicle alternative carries its subtype, and the effect parser admits it.
     const [spec] = parseTargetClauses('Destroy target creature or Vehicle.');
-    expect(spec?.kinds).toEqual(['creature']);
-    expect(parseEffects('Destroy target creature or Vehicle.', 'x', true).mode).not.toBe('auto');
+    expect(spec?.kinds).toEqual(['creature', 'artifact']);
+    expect(spec?.alternatives?.[1]?.subtypes).toEqual(['Vehicle']);
+    expect(parseEffects('Destroy target creature or Vehicle.', 'x', true).mode).toBe('auto');
   });
 
-  test('a qualifier after a list binds one alternative in print, so the clause stays free aim (mana value excepted)', () => {
+  test('a qualifier after a list binds one alternative in print - read as that alternative\'s own since D297 (mana value stays clause-wide)', () => {
     const [flying] = parseTargetClauses('Destroy target artifact, enchantment, or creature with flying.');
-    expect(flying?.kinds).toEqual([]);
+    expect(flying?.kinds).toEqual(['artifact', 'enchantment', 'creature']);
+    expect(flying?.alternatives?.[2]?.keyword).toEqual({ word: 'flying', present: true });
+    expect(flying?.alternatives?.[0]?.keyword).toBeNull();
     const [power] = parseTargetClauses('Destroy target artifact, enchantment, or creature with power 4 or greater.');
-    expect(power?.kinds).toEqual([]);
+    expect(power?.kinds).toEqual(['artifact', 'enchantment', 'creature']);
+    expect(power?.alternatives?.[2]?.numeric).toEqual({ attr: 'power', cmp: 'atLeast', value: 4 });
     const [mv] = parseTargetClauses('Destroy target artifact or enchantment with mana value 3 or less.');
     expect(mv?.kinds).toEqual(['artifact', 'enchantment']);
     expect(mv?.numeric).toEqual({ attr: 'manaValue', cmp: 'atMost', value: 3 });

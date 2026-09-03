@@ -83194,6 +83194,918 @@ export const PRIEST_OF_THE_BLOOD_RITE: CardData = {
   "singleImage": true
 };
 
+export const BROKEN_WINGS: CardData = {
+  "scryfallId": "055d6cad-5373-49db-94f9-eaf7903d5a56",
+  "oracleId": "5e316864-d55c-496f-8f46-773567896864",
+  "name": "Broken Wings",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Broken Wings",
+      "manaCost": "{2}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target artifact, enchantment, or creature with flying.",
+      "flavorText": "\"Fynn climbed the highest peak and waited, still and silent, until the falling snow had hidden him entirely. When the great eagle flew past, the hunter's aim was true.\"\n—Saga of the Wisdom Seeker",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Lars Grant-West",
+      "imageId": "055d6cad-5373-49db-94f9-eaf7903d5a56"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "gn3",
+  "collectorNumber": "90",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BOUNCE_OFF: CardData = {
+  "scryfallId": "7b3c8dda-2405-4879-8dd1-e790a833c42d",
+  "oracleId": "d9c29e6e-5949-4599-bf74-b9539e753f76",
+  "name": "Bounce Off",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bounce Off",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return target creature or Vehicle to its owner's hand.",
+      "flavorText": "Control lost is adventure gained.\n—Keelhauler proverb",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Deruchenko Alexander",
+      "imageId": "7b3c8dda-2405-4879-8dd1-e790a833c42d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "dft",
+  "collectorNumber": "39",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TUNNEL: CardData = {
+  "scryfallId": "7b379eeb-4d7e-4421-8fc4-b5255eb373f5",
+  "oracleId": "80559618-9dd9-4987-b3bc-1a1b5537bbc5",
+  "name": "Tunnel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tunnel",
+      "manaCost": "{R}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target Wall. It can't be regenerated.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dan Frazier",
+      "imageId": "7b379eeb-4d7e-4421-8fc4-b5255eb373f5"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "3ed",
+  "collectorNumber": "181",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARBOR_ELF: CardData = {
+  "scryfallId": "3178e55c-7e49-4621-906a-a66e5656e276",
+  "oracleId": "4567a528-75f0-4ea6-b927-3a500caf76ac",
+  "name": "Arbor Elf",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Arbor Elf",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Elf Druid",
+      "oracleText": "{T}: Untap target Forest.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "rk post",
+      "imageId": "3178e55c-7e49-4621-906a-a66e5656e276"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "pw21",
+  "collectorNumber": "1",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ALI_BABA: CardData = {
+  "scryfallId": "28072866-ed5a-4e68-b8cb-efefc84ac4fa",
+  "oracleId": "ef3fdfea-330d-4948-94ec-67e344b48086",
+  "name": "Ali Baba",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ali Baba",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Human Rogue",
+      "oracleText": "{R}: Tap target Wall.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Julie Baroh",
+      "imageId": "28072866-ed5a-4e68-b8cb-efefc84ac4fa"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ren",
+  "collectorNumber": "71",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AVACYNIAN_PRIEST: CardData = {
+  "scryfallId": "08a47828-a79a-4189-9eef-2a5fc5125b61",
+  "oracleId": "df7e296d-96de-4280-a4d8-49189544b9e3",
+  "name": "Avacynian Priest",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Avacynian Priest",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{1}, {T}: Tap target non-Human creature.",
+      "flavorText": "Moorlanders speak in awe of the priests' talent for arriving just in time to drive off the wicked things that prowl the ravished parish.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "08a47828-a79a-4189-9eef-2a5fc5125b61"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "isd",
+  "collectorNumber": "4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIGARDIAN_PRIEST: CardData = {
+  "scryfallId": "ec46cd18-b224-4002-bdb7-61cc7b067de2",
+  "oracleId": "f2e22c9d-b0ec-42bb-a520-3c36df546ba0",
+  "name": "Sigardian Priest",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sigardian Priest",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{1}, {T}: Tap target non-Human creature.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "J.P. Targete",
+      "imageId": "ec46cd18-b224-4002-bdb7-61cc7b067de2"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "sir",
+  "collectorNumber": "44",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STERLING_KEYKEEPER: CardData = {
+  "scryfallId": "019d539f-04c2-43f1-8677-6d6fbb0e94f7",
+  "oracleId": "f893d3d6-efef-4394-8e15-e01deed72b4f",
+  "name": "Sterling Keykeeper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sterling Keykeeper",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Mercenary",
+      "oracleText": "{2}, {T}: Tap target non-Mount creature.",
+      "flavorText": "\"If you don't want to tell me where the stash is, you'd best start getting comfy in there. You just let me know when you've changed your mind.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "David Astruga",
+      "imageId": "019d539f-04c2-43f1-8677-6d6fbb0e94f7"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "otj",
+  "collectorNumber": "32",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLASTER_MAGE: CardData = {
+  "scryfallId": "801b0fd1-bbb2-47c0-a4c3-4129a67473b9",
+  "oracleId": "e5b35b54-77d9-4cb0-86a1-efc8e49aea09",
+  "name": "Blaster Mage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blaster Mage",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Human Spellshaper",
+      "oracleText": "{R}, {T}, Discard a card: Destroy target Wall.",
+      "flavorText": "\"Don't get up. I'll show myself out.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "George Pratt",
+      "imageId": "801b0fd1-bbb2-47c0-a4c3-4129a67473b9"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "175",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHANDLER: CardData = {
+  "scryfallId": "4dd3a8e3-9a90-44f4-996c-57242d3c47a5",
+  "oracleId": "520abf49-7631-4e7f-889e-547ccc8c3b95",
+  "name": "Chandler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chandler",
+      "manaCost": "{4}{R}",
+      "typeLine": "Legendary Creature — Human Rogue",
+      "oracleText": "{R}{R}{R}, {T}: Destroy target artifact creature.",
+      "flavorText": "\"Never brag about the latest wonder you've created, students. Chandler might be listening.\"\n—Reveka, Wizard Savant",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Douglas Shuler",
+      "imageId": "4dd3a8e3-9a90-44f4-996c-57242d3c47a5"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "hml",
+  "collectorNumber": "69",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DWARVEN_DEMOLITION_TEAM: CardData = {
+  "scryfallId": "03482c9c-1f25-4d73-9243-17462ea37ac4",
+  "oracleId": "caf3c6ec-d17e-497c-8fe7-6f818ce93f96",
+  "name": "Dwarven Demolition Team",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dwarven Demolition Team",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Dwarf",
+      "oracleText": "{T}: Destroy target Wall.",
+      "flavorText": "Foolishly, Najib retreated to his castle at El-Abar; the next morning he was dead. In just one night, the dwarven forces had reduced the mighty walls to mere rubble.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Kev Brockschmidt",
+      "imageId": "03482c9c-1f25-4d73-9243-17462ea37ac4"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "lea",
+  "collectorNumber": "142",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_DIGGING_TEAM: CardData = {
+  "scryfallId": "1e0b7474-637d-4b08-827e-701c6de4157f",
+  "oracleId": "8408f2a1-e321-43f5-a7d1-1911eba9d706",
+  "name": "Goblin Digging Team",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Digging Team",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Goblin",
+      "oracleText": "{T}, Sacrifice this creature: Destroy target Wall.",
+      "flavorText": "\"From down here we can make the whole wall collapse!\"\n\"Uh, yeah, boss, but how do we get out?\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Phil Foglio",
+      "imageId": "1e0b7474-637d-4b08-827e-701c6de4157f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ath",
+  "collectorNumber": "31",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_MASONS: CardData = {
+  "scryfallId": "124070d9-c362-4053-a405-9438b1cfac02",
+  "oracleId": "cfec9d17-2d11-4b89-8b30-84bd25a38466",
+  "name": "Goblin Masons",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Masons",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Goblin",
+      "oracleText": "When this creature dies, destroy target Wall.",
+      "flavorText": "\"Goblins build with true zeal—and anything else within arm's reach.\"",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "DiTerlizzi",
+      "imageId": "124070d9-c362-4053-a405-9438b1cfac02"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "uds",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HAAZDA_EXONERATOR: CardData = {
+  "scryfallId": "87ca97f2-cf38-4d68-80a9-f4e890271e5c",
+  "oracleId": "6df2e8c9-d87e-4f0d-a3d3-b8eee5cdafd0",
+  "name": "Haazda Exonerator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Haazda Exonerator",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{T}, Sacrifice this creature: Destroy target Aura.",
+      "flavorText": "\"This aura threatens the sanctity of your soul. Wrenching it free won't be easy on either of us. If you're ready, we'll begin.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "87ca97f2-cf38-4d68-80a9-f4e890271e5c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "dis",
+  "collectorNumber": "11",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUSTSPORE_RAM: CardData = {
+  "scryfallId": "5d23449c-4439-4425-ad53-84168a94b1ce",
+  "oracleId": "a45b3934-1c9b-4cff-98b1-c9ac2f7759ea",
+  "name": "Rustspore Ram",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rustspore Ram",
+      "manaCost": "{4}",
+      "typeLine": "Artifact Creature — Sheep",
+      "oracleText": "When this creature enters, destroy target Equipment.",
+      "flavorText": "Where herds have passed, the dented ground is lined with piles of rust.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Arnie Swekel",
+      "imageId": "5d23449c-4439-4425-ad53-84168a94b1ce"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mrd",
+  "collectorNumber": "235",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VOLTAIC_CONSTRUCT: CardData = {
+  "scryfallId": "a1ca55ec-d262-40d8-b654-40e177bcfd6e",
+  "oracleId": "f5677831-6ca9-4c7b-b02d-f44079c3f663",
+  "name": "Voltaic Construct",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Voltaic Construct",
+      "manaCost": "{4}",
+      "typeLine": "Artifact Creature — Golem Construct",
+      "oracleText": "{2}: Untap target artifact creature.",
+      "flavorText": "The undead may outlast the living, but those who have never lived outlast them both.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jeff Easley",
+      "imageId": "a1ca55ec-d262-40d8-b654-40e177bcfd6e"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dst",
+  "collectorNumber": "156",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LOTUSGUARD_DISCIPLE: CardData = {
+  "scryfallId": "80645651-3804-481f-8f8f-ade762a011e1",
+  "oracleId": "1139ee31-cb6e-4ae6-a08b-252c46b2db97",
+  "name": "Lotusguard Disciple",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lotusguard Disciple",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Bird Cleric",
+      "oracleText": "Flying\nWhen this creature enters, target creature or Vehicle gains lifelink and indestructible until end of turn.",
+      "flavorText": "\"No one dies under my watch.\"\n—Sektem, Lotusguard veteran",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Josiah \"Jo\" Cameron",
+      "imageId": "80645651-3804-481f-8f8f-ade762a011e1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "dft",
+  "collectorNumber": "21",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRYOCLASM: CardData = {
+  "scryfallId": "6a892711-a1a4-4402-957f-92077d00320d",
+  "oracleId": "77c14618-ced1-4a46-a7fd-06cb2f7f38ff",
+  "name": "Cryoclasm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cryoclasm",
+      "manaCost": "{2}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target Plains or Island. Cryoclasm deals 3 damage to that land's controller.",
+      "flavorText": "The people of Terisiare had come to live on frozen fields as though on solid ground. Nothing reminded them of the difference more clearly than the rifts brought on by the Thaw.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Zoltan Boros & Gabor Szikszai",
+      "imageId": "6a892711-a1a4-4402-957f-92077d00320d"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "csp",
+  "collectorNumber": "79",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PEAK_ERUPTION: CardData = {
+  "scryfallId": "ed0a00f7-aee0-4ab2-bab6-bc0949176a7a",
+  "oracleId": "f34eb8a9-63af-452b-8957-8587bf4fd956",
+  "name": "Peak Eruption",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Peak Eruption",
+      "manaCost": "{2}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target Mountain. Peak Eruption deals 3 damage to that land's controller.",
+      "flavorText": "\"Early olive buds? A good omen. Flock of crows? Not so good. Mountain exploding? Bad. Very, very bad.\"\n—Hira, street oracle",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Adam Paquette",
+      "imageId": "ed0a00f7-aee0-4ab2-bab6-bc0949176a7a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ths",
+  "collectorNumber": "132",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHOKING_SANDS: CardData = {
+  "scryfallId": "2211a86b-24d6-4db6-9621-3f84c7f94cc4",
+  "oracleId": "3bcb7436-f7d9-4bb0-81be-7a3db9d8329f",
+  "name": "Choking Sands",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Choking Sands",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target non-Swamp land. If that land was nonbasic, Choking Sands deals 2 damage to the land's controller.",
+      "flavorText": "\"The people wiped the sand from their eyes and cursed—and left the barren land to the hyenas and vipers.\"\n—Afari, *Tales*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Roger Raupp",
+      "imageId": "2211a86b-24d6-4db6-9621-3f84c7f94cc4"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "wc97",
+  "collectorNumber": "js113",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WORD_OF_BLASTING: CardData = {
+  "scryfallId": "06dc1c22-ef39-4f5f-a8af-4267a3d5db6f",
+  "oracleId": "8b391f24-992f-4cc0-ac4d-31456983fc03",
+  "name": "Word of Blasting",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Word of Blasting",
+      "manaCost": "{1}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target Wall. It can't be regenerated. Word of Blasting deals damage equal to that Wall's mana value to the Wall's controller.",
+      "flavorText": "\"Walls? What walls?\"\n—Jaya Ballard, task mage",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Ken Meyer, Jr.",
+      "imageId": "06dc1c22-ef39-4f5f-a8af-4267a3d5db6f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "5ed",
+  "collectorNumber": "276",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NISSA_S_DEFEAT: CardData = {
+  "scryfallId": "86089a5c-fa5a-4c51-ac15-4eb3b0824349",
+  "oracleId": "5f808e3b-6b69-4b46-8a92-36d960527acc",
+  "name": "Nissa's Defeat",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nissa's Defeat",
+      "manaCost": "{2}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target Forest, green enchantment, or green planeswalker. If that permanent was a Nissa planeswalker, draw a card.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Kieran Yanner",
+      "imageId": "86089a5c-fa5a-4c51-ac15-4eb3b0824349"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pa1",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EMBIGGEN: CardData = {
+  "scryfallId": "1b759c27-9fb6-4c23-adc1-f6d3f3a0eb52",
+  "oracleId": "8b7335e2-0e79-4406-84c1-d6b707cb72c3",
+  "name": "Embiggen",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Embiggen",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Until end of turn, target non-Brushwagg creature gets +1/+1 for each supertype, card type, and subtype it has.",
+      "flavorText": "\"Flea circus? No, flee circus!\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Tyler Walpole",
+      "imageId": "1b759c27-9fb6-4c23-adc1-f6d3f3a0eb52"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "unf",
+  "collectorNumber": "137",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TURN_TO_DUST: CardData = {
+  "scryfallId": "fcfcb643-bbd1-419a-b1a8-daae1062c8bc",
+  "oracleId": "56828166-eaa3-4711-91b6-401a3e3b733f",
+  "name": "Turn to Dust",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Turn to Dust",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target Equipment. Add {G}.",
+      "flavorText": "Mirrodin's inhabitants must be prepared for anything—including suddenly being unprepared.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Wayne England",
+      "imageId": "fcfcb643-bbd1-419a-b1a8-daae1062c8bc"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mrd",
+  "collectorNumber": "137",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UNFORGE: CardData = {
+  "scryfallId": "d369a3da-3424-4984-a50a-59fd9c3d689e",
+  "oracleId": "fa360a9d-3cff-4833-9ce2-b2f53d26127f",
+  "name": "Unforge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Unforge",
+      "manaCost": "{2}{R}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target Equipment. If that Equipment was attached to a creature, Unforge deals 2 damage to that creature.",
+      "flavorText": "Compared to the fire of the forge, the strength of steel is nothing.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "d369a3da-3424-4984-a50a-59fd9c3d689e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dst",
+  "collectorNumber": "71",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAGNETIC_THEFT: CardData = {
+  "scryfallId": "de0c1e37-fedc-43d9-97fd-b797c6c2fbbe",
+  "oracleId": "9b22cc97-003f-4227-acdc-7a0857674b67",
+  "name": "Magnetic Theft",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Magnetic Theft",
+      "manaCost": "{R}",
+      "typeLine": "Instant",
+      "oracleText": "Attach target Equipment to target creature. (Control of the Equipment doesn't change.)",
+      "flavorText": "Among the Vulshok, the most prized blades are those that killed their original owners.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dave Dorman",
+      "imageId": "de0c1e37-fedc-43d9-97fd-b797c6c2fbbe"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "5dn",
+  "collectorNumber": "74",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AURA_FINESSE: CardData = {
+  "scryfallId": "0e398a02-1456-4fae-be75-4231c968bf47",
+  "oracleId": "445c46d1-b571-4fe9-92cc-2873242d748f",
+  "name": "Aura Finesse",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aura Finesse",
+      "manaCost": "{U}",
+      "typeLine": "Instant",
+      "oracleText": "Attach target Aura you control to target creature.\nDraw a card.",
+      "flavorText": "\"Although armor and auras can be similar, the brains required to use them are worlds apart.\"\n—Zilan, Makindi auramancer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "0e398a02-1456-4fae-be75-4231c968bf47"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "roe",
+  "collectorNumber": "54",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -89063,6 +89975,33 @@ export const ENGINE_CARDS: CardData[] = [
   KAVU_LAIR,
   HISSING_MIASMA,
   PRIEST_OF_THE_BLOOD_RITE,
+  BROKEN_WINGS,
+  BOUNCE_OFF,
+  TUNNEL,
+  ARBOR_ELF,
+  ALI_BABA,
+  AVACYNIAN_PRIEST,
+  SIGARDIAN_PRIEST,
+  STERLING_KEYKEEPER,
+  BLASTER_MAGE,
+  CHANDLER,
+  DWARVEN_DEMOLITION_TEAM,
+  GOBLIN_DIGGING_TEAM,
+  GOBLIN_MASONS,
+  HAAZDA_EXONERATOR,
+  RUSTSPORE_RAM,
+  VOLTAIC_CONSTRUCT,
+  LOTUSGUARD_DISCIPLE,
+  CRYOCLASM,
+  PEAK_ERUPTION,
+  CHOKING_SANDS,
+  WORD_OF_BLASTING,
+  NISSA_S_DEFEAT,
+  EMBIGGEN,
+  TURN_TO_DUST,
+  UNFORGE,
+  MAGNETIC_THEFT,
+  AURA_FINESSE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

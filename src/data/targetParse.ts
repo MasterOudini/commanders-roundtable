@@ -23,6 +23,7 @@
 
 import type {
   NumericRestriction,
+  TargetAlternative,
   TargetController,
   TargetKind,
   TargetSpec,
@@ -290,13 +291,15 @@ interface MutableRestrict {
   supertypesNone: string[];
   tapped: boolean | null;
   token: boolean | null;
+  subtypesAll: string[];
+  subtypesNone: string[];
 }
 
 const COLOR_WORD: Readonly<Record<string, ColorLetter>> = { white: 'W', blue: 'U', black: 'B', red: 'R', green: 'G' };
 const TYPE_WORD: Readonly<Record<string, string>> = { artifact: 'Artifact', creature: 'Creature', enchantment: 'Enchantment', land: 'Land', planeswalker: 'Planeswalker', battle: 'Battle' };
 
 function emptyRestrict(): MutableRestrict {
-  return { colorsAny: [], colorsNone: [], colorCount: null, typesNone: [], supertypesAny: [], supertypesNone: [], tapped: null, token: null };
+  return { colorsAny: [], colorsNone: [], colorCount: null, typesNone: [], supertypesAny: [], supertypesNone: [], tapped: null, token: null, subtypesAll: [], subtypesNone: [] };
 }
 
 /**
@@ -334,6 +337,21 @@ function absorbAdjective(r: MutableRestrict, raw: string): boolean {
     r.supertypesAny.push(w.charAt(0).toUpperCase() + w.slice(1));
     return true;
   }
+  // D297: the HYPHENATED negation is always a subtype in print ("non-Elf",
+  // "non-Human", "non-Aura"; types and colours print unhyphenated), and the
+  // candidate carries its derived subtypes - enforced, capitalised as printed.
+  const hy = raw.match(/^non-([A-Za-z]+)$/);
+  if (hy) {
+    const base = (hy[1] ?? '').toLowerCase();
+    // "outlaw" (and "party") are BATCH words for several subtypes, not a subtype
+    // - as a subtype exclusion they would enforce nothing; they stay recorded.
+    const batchWord = base === 'outlaw' || base === 'outlaws' || base === 'party';
+    if (!batchWord && !COLOR_WORD[base] && !TYPE_WORD[base] && base !== 'legendary' && base !== 'basic' && base !== 'snow' && base !== 'token') {
+      const sub = hy[1] ?? '';
+      r.subtypesNone.push(sub.charAt(0).toUpperCase() + sub.slice(1));
+      return true;
+    }
+  }
   const neg = w.match(/^non-?(\w+)$/);
   if (neg) {
     const base = neg[1] ?? '';
@@ -364,6 +382,8 @@ function finishRestrict(r: MutableRestrict, entry: TargetRestrictions | undefine
     supertypesNone?: readonly string[];
     tapped?: boolean;
     token?: boolean;
+    subtypesAll?: readonly string[];
+    subtypesNone?: readonly string[];
   } = { ...(entry ?? {}) };
   if (r.colorsAny.length > 0) out.colorsAny = [...(out.colorsAny ?? []), ...r.colorsAny];
   if (r.colorsNone.length > 0) out.colorsNone = [...(out.colorsNone ?? []), ...r.colorsNone];
@@ -373,6 +393,8 @@ function finishRestrict(r: MutableRestrict, entry: TargetRestrictions | undefine
   if (r.supertypesNone.length > 0) out.supertypesNone = [...(out.supertypesNone ?? []), ...r.supertypesNone];
   if (r.tapped !== null) out.tapped = r.tapped;
   if (r.token !== null) out.token = r.token;
+  if (r.subtypesAll.length > 0) out.subtypesAll = [...(out.subtypesAll ?? []), ...r.subtypesAll];
+  if (r.subtypesNone.length > 0) out.subtypesNone = [...(out.subtypesNone ?? []), ...r.subtypesNone];
   return Object.keys(out).length > 0 ? out : null;
 }
 
@@ -507,6 +529,10 @@ const NOUNS: readonly NounEntry[] = [
   { re: new RegExp(`^creature${s}\\b`, 'i'), kinds: ['creature'] },
   { re: new RegExp(`^planeswalker${s}\\b`, 'i'), kinds: ['planeswalker'] },
   { re: new RegExp(`^battle${s}\\b`, 'i'), kinds: ['battle'] },
+  // D297: "artifact creature" is a CREATURE that is an artifact - both enforced
+  // (`cardTypes` of one is all-of); the bare `artifact` entry below used to read
+  // only its first word.
+  { re: new RegExp(`^artifact\\s+creature${s}\\b`, 'i'), kinds: ['creature'], cardTypes: ['Artifact'] },
   { re: new RegExp(`^artifact${s}\\b`, 'i'), kinds: ['artifact'] },
   { re: new RegExp(`^enchantment${s}\\b`, 'i'), kinds: ['enchantment'] },
   { re: new RegExp(`^land${s}\\b`, 'i'), kinds: ['land'] },
@@ -514,23 +540,25 @@ const NOUNS: readonly NounEntry[] = [
   { re: new RegExp(`^opponent${s}\\b`, 'i'), kinds: ['player'], controller: 'opponent' },
   { re: new RegExp(`^player${s}\\b`, 'i'), kinds: ['player'] },
 
-  // Common subtypes that ARE a card type underneath. The TYPE is enforced and
-  // the subtype is not, which is the same trade the adjective stripper makes.
+  // Common subtypes that ARE a card type underneath. Both are ENFORCED since
+  // D297: the type through `kinds`, the subtype through `restrict.subtypesAll`
+  // against the candidate's derived subtypes (before D297 the subtype sat in
+  // `unenforced`, the same trade the adjective stripper used to make).
   //
   // ⚠️ The basic land types are here because of Auras, not spells: `Enchant
   // Forest` (Utopia Sprawl), `Enchant Mountain` (the Genju cycle) and `Enchant
   // Wall` (Animate Wall) are real Commander cards whose whole target clause is a
   // subtype. Without these they fell to free aim and, worse, tripped the
   // "a free spec never demands a target" invariant, since an Aura genuinely does.
-  { re: new RegExp(`^equipment${s}\\b`, 'i'), kinds: ['artifact'], unenforced: ['Equipment'] },
-  { re: new RegExp(`^vehicle${s}\\b`, 'i'), kinds: ['artifact'], unenforced: ['Vehicle'] },
-  { re: new RegExp(`^aura${s}\\b`, 'i'), kinds: ['enchantment'], unenforced: ['Aura'] },
-  { re: new RegExp(`^wall${s}\\b`, 'i'), kinds: ['creature'], unenforced: ['Wall'] },
-  { re: new RegExp(`^plains\\b`, 'i'), kinds: ['land'], unenforced: ['Plains'] },
-  { re: new RegExp(`^island${s}\\b`, 'i'), kinds: ['land'], unenforced: ['Island'] },
-  { re: new RegExp(`^swamp${s}\\b`, 'i'), kinds: ['land'], unenforced: ['Swamp'] },
-  { re: new RegExp(`^mountain${s}\\b`, 'i'), kinds: ['land'], unenforced: ['Mountain'] },
-  { re: new RegExp(`^forest${s}\\b`, 'i'), kinds: ['land'], unenforced: ['Forest'] },
+  { re: new RegExp(`^equipment${s}\\b`, 'i'), kinds: ['artifact'], restrict: { subtypesAll: ['Equipment'] } },
+  { re: new RegExp(`^vehicle${s}\\b`, 'i'), kinds: ['artifact'], restrict: { subtypesAll: ['Vehicle'] } },
+  { re: new RegExp(`^aura${s}\\b`, 'i'), kinds: ['enchantment'], restrict: { subtypesAll: ['Aura'] } },
+  { re: new RegExp(`^wall${s}\\b`, 'i'), kinds: ['creature'], restrict: { subtypesAll: ['Wall'] } },
+  { re: new RegExp(`^plains\\b`, 'i'), kinds: ['land'], restrict: { subtypesAll: ['Plains'] } },
+  { re: new RegExp(`^island${s}\\b`, 'i'), kinds: ['land'], restrict: { subtypesAll: ['Island'] } },
+  { re: new RegExp(`^swamp${s}\\b`, 'i'), kinds: ['land'], restrict: { subtypesAll: ['Swamp'] } },
+  { re: new RegExp(`^mountain${s}\\b`, 'i'), kinds: ['land'], restrict: { subtypesAll: ['Mountain'] } },
+  { re: new RegExp(`^forest${s}\\b`, 'i'), kinds: ['land'], restrict: { subtypesAll: ['Forest'] } },
 ];
 
 /**
@@ -724,6 +752,143 @@ const TARGET_RE = /\btargets?\b/gi;
  *
  * Pass ONE line at a time (see `splitAbilityLines`), not a whole face.
  */
+// ── D297: a printed list whose alternatives differ ─────────────────────────
+
+/** The subtype nouns a list piece may name; each IS a card type underneath. */
+const PIECE_SUBTYPES: Readonly<Record<string, { readonly kind: TargetKind; readonly subtype: string }>> = {
+  equipment: { kind: 'artifact', subtype: 'Equipment' },
+  vehicle: { kind: 'artifact', subtype: 'Vehicle' },
+  spacecraft: { kind: 'artifact', subtype: 'Spacecraft' },
+  aura: { kind: 'enchantment', subtype: 'Aura' },
+  wall: { kind: 'creature', subtype: 'Wall' },
+  plains: { kind: 'land', subtype: 'Plains' },
+  island: { kind: 'land', subtype: 'Island' },
+  swamp: { kind: 'land', subtype: 'Swamp' },
+  mountain: { kind: 'land', subtype: 'Mountain' },
+  forest: { kind: 'land', subtype: 'Forest' },
+};
+const PIECE_KINDS: ReadonlySet<string> = new Set(['creature', 'artifact', 'enchantment', 'land', 'planeswalker', 'battle', 'permanent', 'player']);
+const PIECE_SPELL_TYPES: ReadonlySet<string> = new Set(['creature', 'artifact', 'enchantment', 'instant', 'sorcery']);
+
+interface PieceRead {
+  readonly alternative: TargetAlternative;
+  /** Where the piece's noun ends, relative to the piece's own start. */
+  readonly nounEnd: number;
+}
+
+/**
+ * One piece of a list: leading adjectives (into the piece's own restriction,
+ * or recorded as unenforced exactly as a clause would), then ONE head noun -
+ * a plain kind, "artifact creature", a subtype noun, a typed spell, "spell".
+ * Anything else (a second noun, a combat role, a controller phrase inside a
+ * non-final piece) makes the whole list fall back to the table.
+ */
+function readPiece(piece: string, restrict: MutableRestrict, unenforced: string[], last: boolean): PieceRead | null {
+  let rest = piece;
+  let consumed = 0;
+  for (;;) {
+    const adj = rest.match(ADJECTIVE_RE);
+    if (!adj) break;
+    const word = (adj[1] ?? '').trim();
+    if (!absorbAdjective(restrict, word)) unenforced.push(word);
+    rest = rest.slice(adj[0].length);
+    consumed += adj[0].length;
+  }
+  const own = finishRestrict(restrict, undefined);
+  let m: RegExpMatchArray | null;
+  let alternative: TargetAlternative | null = null;
+  if ((m = rest.match(/^artifact\s+creatures?\b/i))) {
+    alternative = { kinds: ['creature'], cardTypes: ['Artifact'], subtypes: [], restrict: own, keyword: null, numeric: null };
+  } else if ((m = rest.match(/^(creature|artifact|enchantment|instant|sorcery|aura)\s+spells?\b/i))) {
+    const w = (m[1] ?? '').toLowerCase();
+    alternative = w === 'aura'
+      ? { kinds: ['spell'], cardTypes: [], subtypes: ['Aura'], restrict: own, keyword: null, numeric: null }
+      : { kinds: ['spell'], cardTypes: [w.charAt(0).toUpperCase() + w.slice(1)], subtypes: [], restrict: own, keyword: null, numeric: null };
+  } else if ((m = rest.match(/^spells?\b/i))) {
+    alternative = { kinds: ['spell'], cardTypes: [], subtypes: [], restrict: own, keyword: null, numeric: null };
+  } else if ((m = rest.match(/^(equipment|vehicle|spacecraft|aura|wall|plains|island|swamp|mountain|forest)s?\b/i))) {
+    const sub = PIECE_SUBTYPES[(m[1] ?? '').toLowerCase()];
+    if (!sub) return null;
+    alternative = { kinds: [sub.kind], cardTypes: [], subtypes: [sub.subtype], restrict: own, keyword: null, numeric: null };
+  } else if ((m = rest.match(/^(creature|artifact|enchantment|land|planeswalker|battle|permanent|player)s?\b/i))) {
+    const w = (m[1] ?? '').toLowerCase();
+    if (!PIECE_KINDS.has(w)) return null;
+    alternative = { kinds: [w as TargetKind], cardTypes: [], subtypes: [], restrict: own, keyword: null, numeric: null };
+  }
+  if (!alternative || !m) return null;
+  const nounEnd = consumed + m[0].length;
+  // A non-final piece must end at its noun: "creature with flying or artifact" is not read here.
+  if (!last && rest.slice(m[0].length).trim().length > 0) return null;
+  void PIECE_SPELL_TYPES;
+  return { alternative, nounEnd };
+}
+
+interface ListRead {
+  readonly alternatives: readonly TargetAlternative[];
+  readonly kinds: readonly TargetKind[];
+  readonly ctl: ControllerResult;
+  readonly unenforced: readonly string[];
+}
+
+/**
+ * D297. The remainder after `target` (its leading adjectives already absorbed
+ * into `firstRestrict`) read as a LIST: pieces split on ", " / " or " / " and/or "
+ * up to the sentence end, two or more of them, none containing another
+ * `target`; each piece through `readPiece`; the trailing qualifier (keyword /
+ * numeric, and the clause-wide controller and zone) read off the LAST piece by
+ * `readController`, exactly as a single noun's is. Null = not a list this
+ * reader can say; the caller falls back to the table, so nothing regresses.
+ */
+function readList(clean: string, cursor: number, firstRestrict: MutableRestrict, unenforcedSoFar: readonly string[]): ListRead | null {
+  const tail = clean.slice(cursor);
+  const stop = tail.search(/[.;\n]/);
+  const sentence = stop >= 0 ? tail.slice(0, stop) : tail;
+  // A qualifier's own " or " ("power 4 or greater", "mana value 3 or less") is
+  // not a list delimiter: the list region ends where the trailing qualifier
+  // begins, and that qualifier is read off the last piece below.
+  const qualAt = sentence.search(/\s+(?:with|without|you\s+control|you\s+don't\s+control|you\s+don\u2019t\s+control|an\s+opponent\s+controls|that)\b/i);
+  const region = qualAt >= 0 ? sentence.slice(0, qualAt) : sentence;
+  const parts = region.split(/,\s*(?:or\s+|and\/or\s+)?|\s+(?:or|and\/or)\s+/i);
+  if (parts.length < 2) return null;
+  if (parts.some((p) => /\btarget\b/i.test(p) || p.trim().length === 0)) return null;
+  const alternatives: TargetAlternative[] = [];
+  const unenforced = [...unenforcedSoFar];
+  let pos = cursor;
+  let ctl: ControllerResult | null = null;
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i] ?? '';
+    const last = i === parts.length - 1;
+    const start = clean.indexOf(part, pos);
+    if (start < 0) return null;
+    const piece = readPiece(part, i === 0 ? firstRestrict : emptyRestrict(), unenforced, last);
+    if (!piece) return null;
+    if (last) {
+      ctl = readController(clean, start + piece.nounEnd);
+      alternatives.push({ ...piece.alternative, keyword: ctl.keyword, numeric: ctl.numeric });
+    } else {
+      alternatives.push(piece.alternative);
+    }
+    pos = start + part.length;
+  }
+  if (!ctl) return null;
+  // "creature or Aura spell": the noun "spell" distributes over the list, so an
+  // earlier bare type word is a SPELL of that type, not a permanent.
+  const lastAlt = alternatives[alternatives.length - 1];
+  if (lastAlt && lastAlt.kinds.length === 1 && lastAlt.kinds[0] === 'spell') {
+    for (let i = 0; i < alternatives.length - 1; i++) {
+      const a = alternatives[i];
+      if (!a || a.kinds.length !== 1 || a.kinds[0] === 'spell') return null;
+      const k = a.kinds[0];
+      const type = k === 'creature' ? 'Creature' : k === 'artifact' ? 'Artifact' : k === 'enchantment' ? 'Enchantment' : k === 'land' ? 'Land' : k === 'planeswalker' ? 'Planeswalker' : null;
+      if (!type) return null;
+      alternatives[i] = { ...a, kinds: ['spell'], cardTypes: a.cardTypes.includes(type) ? a.cardTypes : [...a.cardTypes, type] };
+    }
+  }
+  const kinds: TargetKind[] = [];
+  for (const a of alternatives) for (const k of a.kinds) if (!kinds.includes(k)) kinds.push(k);
+  return { alternatives, kinds, ctl, unenforced };
+}
+
 export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): TargetSpec[] {
   if (!text) return [];
   const clean = scrub(text);
@@ -758,6 +923,7 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
         keyword: null,
         combatRole: null,
         restrict: null,
+        alternatives: null,
         text: text.slice(start >= 0 ? start : at, at + word.length),
         confident: true,
         unenforced: [],
@@ -786,8 +952,38 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
       cursor += adj[0].length;
     }
 
+    // D297: a list the table cannot say (no entry, or a qualifier bound to one
+    // alternative) is read piece by piece into `alternatives` - tried only
+    // where the table would otherwise leave the clause free aim.
+    const asList = (): TargetSpec | null => {
+      const list = readList(clean, cursor, restrict, unenforced);
+      if (!list) return null;
+      return {
+        min: count.min,
+        max: count.max,
+        kinds: list.kinds,
+        controller: list.ctl.controller ?? 'any',
+        zones: list.ctl.zones ?? [],
+        cardTypes: [],
+        numeric: null,
+        keyword: null,
+        combatRole: null,
+        restrict: null,
+        alternatives: list.alternatives,
+        text: text.slice(count.start, list.ctl.end).trim(),
+        confident: count.confident,
+        unenforced: list.unenforced,
+      };
+    };
+
     const entry = NOUNS.find((n) => n.re.test(rest));
     if (!entry) {
+      const listSpec = asList();
+      if (listSpec) {
+        out.push(listSpec);
+        if (!count.confident) warn('target:unparsedCount');
+        continue;
+      }
       warn('target:unparsedClause');
       out.push({ ...FREE_TARGET, text: text.slice(count.start, Math.min(text.length, at + 40)).trim() });
       continue;
@@ -820,9 +1016,45 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
     // in. Such a clause stays free aim (and so refused by `engineComplete`);
     // mana value is the exception, being a property of every alternative.
     if (entry.kinds.length > 1 && (ctl.keyword !== null || (ctl.numeric !== null && ctl.numeric.attr !== 'manaValue'))) {
+      // D297: the qualifier binds the LAST alternative - said exactly by a list spec.
+      const listSpec = asList();
+      if (listSpec) {
+        out.push(listSpec);
+        if (!count.confident) warn('target:unparsedCount');
+        continue;
+      }
       warn('target:unparsedClause');
       out.push({ ...FREE_TARGET, text: text.slice(count.start, Math.min(text.length, at + 40)).trim() });
       continue;
+    }
+    // D297: the table read a PREFIX of a printed list ("creature" of "creature
+    // or Vehicle") and the rest would be dropped silently - the D207/D213 hole
+    // one shape over. A dangling alternative is read as a list; a dangling
+    // " or " the reader cannot place is REFUSED rather than dropped (free aim
+    // only ever allows, never blocks); a dangling comma falls through, since
+    // "Exile target creature, then return it" is not a list.
+    const tailAfter = clean.slice(ctl.end);
+    // D297: a "with ..." qualifier the reader could NOT read is recorded as
+    // unenforced (D138) - it used to be dropped silently, which admitted any
+    // creature to "target creature with a +1/+1 counter on it".
+    if (ctl.keyword === null && ctl.numeric === null) {
+      const unread = tailAfter.match(/^\s+(with(?:out)?\s+[^.;\n]*?)(?=\s+(?:or|and)\s+target\b|[.;\n]|$)/i);
+      if (unread) unenforced.push((unread[1] ?? '').trim());
+    }
+    const danglingOr = /^\s+(?:or|and\/or)\s+/i.test(tailAfter);
+    const danglingComma = /^\s*,\s*/.test(tailAfter);
+    if (danglingOr || danglingComma) {
+      const listSpec = asList();
+      if (listSpec) {
+        out.push(listSpec);
+        if (!count.confident) warn('target:unparsedCount');
+        continue;
+      }
+      if (danglingOr) {
+        warn('target:unparsedClause');
+        out.push({ ...FREE_TARGET, text: text.slice(count.start, Math.min(text.length, at + 40)).trim() });
+        continue;
+      }
     }
     const controller: TargetController = ctl.controller ?? entry.controller ?? 'any';
 
@@ -837,6 +1069,7 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
       keyword: ctl.keyword,
       combatRole: entry.combatRole ?? suffixRole,
       restrict: finishRestrict(restrict, entry.restrict),
+      alternatives: null,
       text: text.slice(count.start, ctl.end).trim(),
       confident: count.confident,
       unenforced,
@@ -896,6 +1129,7 @@ export function parseEnchant(text: string, warn: Warn = NOOP_WARN): TargetSpec |
     keyword: ctl.keyword,
     combatRole: entry.combatRole ?? null,
     restrict: finishRestrict(restrict, entry.restrict),
+    alternatives: null,
     text: (m[0] ?? '').trim(),
     confident: true,
     unenforced,

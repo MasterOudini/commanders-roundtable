@@ -380,7 +380,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // player a choice.
   ["Bontu's Last Reckoning", 'untap restriction'],
   ['Boon of Erebos', 'regeneration'],
-  ['Bounce Off', 'subtype list alternative'],
   ['Bounty of Skemfar', 'script-raised prompt'],
   ['Brainsurge', 'script-raised prompt'],
   ['Brawl', 'temporary keyword/ability grant'],
@@ -388,7 +387,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Breaking Point', 'script-raised prompt'],
   ['Brilliant Ultimatum', 'opponent-chooses'],
   ['Broken Dam', 'spell target parse (counted list)'],
-  ['Broken Wings', 'list qualifier binds one alternative'],
   ['Boneyard Parley', 'opponent-chooses'],
   // D202 — Cerebral Eruption RETURNS ITSELF to hand mid-resolution when a
   // land is revealed: resolveTop moves a resolved spell to the graveyard
@@ -452,7 +450,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // without the UEOT bound — and it can aim at a SPELL's color, a second
   // gap.
   ['Cyber Conversion', 'face-down (morph family)'],
-  ['Daring Demolition', 'subtype list alternative'],
   ['Dawnglow Infusion', 'mana-spent memory'],
   ["Day's Undoing", 'end the turn'],
   ['Dead Reckoning', 'script-raised prompt'],
@@ -530,7 +527,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Exert Influence', 'converge (cast-time mana-color memory)'],
   ['Exhaustion', 'untap restriction'],
   ['Exhume', 'opponent-chooses'],
-  ['Exorcise', 'list qualifier binds one alternative'],
   ['Extinction', 'script-raised prompt'],
   // D212 — Eye Spy is a may-choice over the TARGET's library (the scry
   // machinery is single-library); Faerie Fencing reads the board AS YOU
@@ -683,7 +679,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Madcap Experiment', 'ctx.random'],
   ["Mages' Contest", 'bidding mechanic'],
   ['Magical Hack', 'text-changing effect (CR 612)'],
-  ['Make Your Move', 'list qualifier binds one alternative'],
   ['Malamet Brawler', 'combat target qualifier unenforced'],
   ['Malicious Advice', 'cast-time computed target count'],
   ['Mana Vapors', 'untap restriction'],
@@ -837,7 +832,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Retraced Image', 'script-raised prompt'],
   // D240 (M6.4cc)
   ['Return to Dust', 'up-to-N targeting'],
-  ['Return to the Earth', 'list qualifier binds one alternative'],
   ['Reviving Vapors', 'script-raised prompt'],
   ['Rewind', 'up-to-N targeting'],
   ['Ribbons of Night', 'mana-spent memory'],
@@ -868,15 +862,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D246 (M6.4ci)
   ['Serpentine Ambush', 'until-end-of-turn base P/T set'],
   ["Shade's Breath", 'temporary non-keyword ability grant'],
-  ['Shattered Wings', 'list qualifier binds one alternative'],
   ["Shinen of Flight's Wings", 'hand-activated ability'],
   ["Shinen of Fury's Fire", 'hand-activated ability'],
   ["Shinen of Stars' Light", 'hand-activated ability'],
-  ['Shoot Down', 'list qualifier binds one alternative'],
   // D247 (M6.4cj)
   ['Shoving Match', 'temporary non-keyword ability grant'],
   ['Show and Tell', 'script-raised prompt'],
-  ['Shower of Arrows', 'list qualifier binds one alternative'],
   ['Silkbind Faerie', 'untap-symbol activation cost'],
   ['Silverfur Partisan', 'becomes-targeted trigger'],
   ['Singe', 'UEOT color change'],
@@ -904,7 +895,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Sphinx's Decree", 'cast restriction effect'],
   ['Spin into Myth', 'fateseal mechanic'],
   // D251 (M6.4cn)
-  ['Spin Out', 'subtype list alternative'],
   ['Spinning Wheel Kick', 'cast-time computed target count'],
   ['Spirit en-Dal', 'ability-word activated cost'],
   ['Spoils of the Hunt', 'mana-spent memory'],
@@ -1692,6 +1682,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Murderous Betrayal', 'pay-half-life cost'],
   ['Zombie Assassin', 'exile-from-graveyard cost'],
   ['Viscerid Drone', 'multi-sacrifice cost'],
+
+  // D297 (M6.4eh) — the list/subtype seam made 27 cards offerable: 24 landed
+  // (14 table rows, 10 spells); two re-attach an Aura to a permanent of the
+  // caster's choosing (a script-raised prompt), one destroys X Mountains.
+  ['Enchantment Alteration', 'script-raised prompt'],
+  ['Aura Graft', 'script-raised prompt'],
+  ['Volcanic Eruption', 'cast-time computed target count'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
