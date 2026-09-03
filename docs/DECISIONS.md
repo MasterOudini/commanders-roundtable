@@ -19425,3 +19425,96 @@ veil; the "another" split; the up-to-N residue; the remaining cost verbs
 (exile-from-graveyard 15, remove-counter 7, return-permanent 6,
 random-discard 4 behind `ctx.random`); the prompt continuation seam; prior
 items stand.
+
+## D292 — M6.4ec: the combat-role seam's dividend — thirty-seven of the fifty-four cards it made offerable, twenty-five of them from ONE generator table (2026-09-03)
+
+**4,065 of 31,692 Commander-legal cards execute completely, up from 4,028.**
+SHIPPED_SCRIPTS 2,083 → 2,120; ledger 747 → 764 (**seventeen rows ADDED**
+for the refusals; none deleted — these cards were never ledgered). ZERO new
+token pins, ZERO new support bodies, ZERO engine edits. **The select pool
+returns to 0.** Sliver Queen reaches 4,013 from 97 legendaries (Lady Caleria
+and Tor Wauki join).
+
+**Where the batch came from.** D291 enforced "target attacking creature" and
+`select.cjs` printed 54 cards the ledger had never held. They sort by shape:
+twenty-five activated abilities on the new spec that differ only in cost,
+role, amount and effect kind; eleven instants with computed amounts; one
+enchantment with a step trigger; and seventeen the engine cannot pay for.
+
+**The first table-driven family.** The twenty-five activated cards are
+emitted from ONE table (`d292/gen.cjs` on H:) — a row per card holding the
+verbatim printed text, the line index, the kind (pump / damage / destroy /
+exile), the combat role, an optional keyword, the mana symbols, and the cost
+shape ({T}, a self-sacrifice, "Sacrifice a Forest", "Tap two untapped
+Soldiers") — into a module in the shipped shapes (Glare of Subdual's tap,
+Centaur Archer's damage, Dauthi Cutthroat's destroy) and a suite that
+attacks or is blocked on turn 3, activates, aims at the right creature,
+proves the effect and the cost, and proves the refusal of the wrong role
+(and of the wrong keyword where the clause has one). `printed()` still
+guards every module at load, `lineClaims` accounting is unchanged per card,
+and every suite is a real game — exactly the shape the full-coverage plan
+asked for (family tables + a hand-written specimen: the twelve hand-written
+cards are the specimens). Angelic Page, Anointer of Champions, Elven
+Fortress, Infantry Veteran, Kithkin Daggerdare, Kithkin Shielddare, Rabid
+Rats, Serra Advocate, Sword Dancer, Elven Palisade (D168's chooser pays "a
+Forest"), Quicksand (a land: its second ability sacrifices it), Aven Archer,
+Crimson Manticore, Crossbow Infantry, D'Avenant Archer, Elite Archers,
+Femeref Archers (an attacker WITH flying), Heavy Ballista, Lady Caleria,
+Sacellum Archers, Tor Wauki, Catapult Squad (D286's tap-two-Soldiers cost),
+Dauthi Jackal, Mine Bearer, Skyshooter (attacking or blocking WITH flying,
+sacrificing itself).
+
+**The twelve by hand.** Chastise (destroy, gain its power), Condemn (bottom
+of its owner's library, its controller gains its toughness), Whisk Away (top
+of its owner's library), Soul Nova (exile with every attached Equipment),
+Armed Response (damage = my Equipment), Divine Retribution (damage = the
+attackers, off the live combat), Outflank (damage = my creatures), Focus
+Fire (2 plus my creatures and Spacecraft), Razor Rings (4 damage and the
+EXCESS as life: 4 less the remaining toughness), Unified Strike (exile only
+if power ≤ the Soldiers on the battlefield — one Soldier keeps a 2-power
+attacker, two exile it), Aang's Defense (my BLOCKING creature on THEIR turn:
++2/+2 and a draw), Nahiri's Machinations (a beginning-of-combat trigger
+granting indestructible, and a ping on a blocking creature).
+
+**Seventeen refused, honestly.** Eleven BLOODRUSH cards (Ghor-Clan
+Rampager, Rubblebelt Maaka, Scab-Clan Charger, Scorchwalker, Skarrg
+Goliath, Skinbrand Goblin, Slaughterhorn, Viashino Shanktail, Wasteland
+Viper, Wrecking Ogre, Zhur-Taa Swine) are hand-activated, the Channel shape
+D290 refused; the two Traps (Pitfall Trap, Slingbow Trap) offer a cast-time
+alternative cost; Enduring Victory bolsters (a tie is a choice); Dissension
+in the Ranks says "another target blocking creature" (the "another" split);
+Sandstone Deadfall sacrifices "two lands and this artifact" (the
+multi-sacrifice cost); and Lieutenant Kirtar sacrifices ITSELF BY NAME —
+"{1}{W}, Sacrifice Lieutenant Kirtar" is a cost the reader does not price,
+measured at the port when the engine refused to offer it. A new class,
+`self-sacrifice by name (cost)`, holds it.
+
+**Tests:** 37 files / 112 tests. Four lessons from the port, all recorded
+in the generator: every combat scaffold needs `holdEverywhere` (without it
+the engine passes priority straight through combat and the wait never
+matches — the D291 suites had escaped it only because a trigger's target
+prompt stopped the game); lethal damage puts the target in the graveyard,
+where no damage is kept; a self-sacrifice cost leaves nothing to assert as
+tapped; and `land.cjs` derives a module's export name from its FILE name,
+so `aangsDefense.ts` must export `AANGS_DEFENSE_SCRIPT` (the fixture stays
+`AANG_S_DEFENSE`) — the registry step had refused the whole batch on that
+rule and the first sweep showed it plainly: only the select pool had moved.
+
+Fixtures 2,348 → 2,384 (2,276 by name + 101 tokens) · botPool artifact 159
+/ creature 2,093 / enchantment 92 / instant 783 / land 343 / sorcery 595 ·
+ladder [1015, 1116, 2905, 4818, 6029] · tier3 `payable` 5,085 → 5,059 (the
+twenty-six landed activated lines) · batch.json 37 (by name) · botDeck:
+4,013 from 97 legendaries · select pool 54 → 0.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,202 files, 11,552 passing / 10 skipped · 500-seed gate 754.4 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D292): the noun-list widening (measured by the D292 probe:
+"creature or Vehicle" 12, "artifact, enchantment, or creature" 11,
+"creature, planeswalker, or battle" 5, "spell or nonland permanent" 4,
+"creature or Spacecraft" 3, "creature, planeswalker, or player" 3, "spell or
+creature" 3 — NOUNS-table entries, enforce then admit); the "another" split
+for spells (five flip: Rites of Reaping, Leeching Bite, Consume Strength,
+Steal Strength, Schismotivate); the self-sacrifice-by-name cost (a tiny
+parser widening); the keyword LIST qualifier; the remaining cost verbs; the
+prompt continuation seam; prior items stand.

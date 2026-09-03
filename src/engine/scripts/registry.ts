@@ -7,6 +7,43 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ANGELIC_PAGE_SCRIPT } from './cards/angelicPage';
+import { ANOINTER_OF_CHAMPIONS_SCRIPT } from './cards/anointerOfChampions';
+import { ELVEN_FORTRESS_SCRIPT } from './cards/elvenFortress';
+import { INFANTRY_VETERAN_SCRIPT } from './cards/infantryVeteran';
+import { KITHKIN_DAGGERDARE_SCRIPT } from './cards/kithkinDaggerdare';
+import { KITHKIN_SHIELDDARE_SCRIPT } from './cards/kithkinShielddare';
+import { RABID_RATS_SCRIPT } from './cards/rabidRats';
+import { SERRA_ADVOCATE_SCRIPT } from './cards/serraAdvocate';
+import { SWORD_DANCER_SCRIPT } from './cards/swordDancer';
+import { ELVEN_PALISADE_SCRIPT } from './cards/elvenPalisade';
+import { QUICKSAND_SCRIPT } from './cards/quicksand';
+import { AVEN_ARCHER_SCRIPT } from './cards/avenArcher';
+import { CRIMSON_MANTICORE_SCRIPT } from './cards/crimsonManticore';
+import { CROSSBOW_INFANTRY_SCRIPT } from './cards/crossbowInfantry';
+import { D_AVENANT_ARCHER_SCRIPT } from './cards/dAvenantArcher';
+import { ELITE_ARCHERS_SCRIPT } from './cards/eliteArchers';
+import { FEMEREF_ARCHERS_SCRIPT } from './cards/femerefArchers';
+import { HEAVY_BALLISTA_SCRIPT } from './cards/heavyBallista';
+import { LADY_CALERIA_SCRIPT } from './cards/ladyCaleria';
+import { SACELLUM_ARCHERS_SCRIPT } from './cards/sacellumArchers';
+import { TOR_WAUKI_SCRIPT } from './cards/torWauki';
+import { CATAPULT_SQUAD_SCRIPT } from './cards/catapultSquad';
+import { DAUTHI_JACKAL_SCRIPT } from './cards/dauthiJackal';
+import { MINE_BEARER_SCRIPT } from './cards/mineBearer';
+import { SKYSHOOTER_SCRIPT } from './cards/skyshooter';
+import { CHASTISE_SCRIPT } from './cards/chastise';
+import { CONDEMN_SCRIPT } from './cards/condemn';
+import { WHISK_AWAY_SCRIPT } from './cards/whiskAway';
+import { SOUL_NOVA_SCRIPT } from './cards/soulNova';
+import { ARMED_RESPONSE_SCRIPT } from './cards/armedResponse';
+import { DIVINE_RETRIBUTION_SCRIPT } from './cards/divineRetribution';
+import { OUTFLANK_SCRIPT } from './cards/outflank';
+import { FOCUS_FIRE_SCRIPT } from './cards/focusFire';
+import { RAZOR_RINGS_SCRIPT } from './cards/razorRings';
+import { UNIFIED_STRIKE_SCRIPT } from './cards/unifiedStrike';
+import { AANGS_DEFENSE_SCRIPT } from './cards/aangsDefense';
+import { NAHIRIS_MACHINATIONS_SCRIPT } from './cards/nahirisMachinations';
 import { ROC_CHARGER_SCRIPT } from './cards/rocCharger';
 import { TRUSTED_PEGASUS_SCRIPT } from './cards/trustedPegasus';
 import { LANDROVAL_HORIZON_WITNESS_SCRIPT } from './cards/landrovalHorizonWitness';
@@ -2204,6 +2241,43 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ANGELIC_PAGE_SCRIPT,
+  ANOINTER_OF_CHAMPIONS_SCRIPT,
+  ELVEN_FORTRESS_SCRIPT,
+  INFANTRY_VETERAN_SCRIPT,
+  KITHKIN_DAGGERDARE_SCRIPT,
+  KITHKIN_SHIELDDARE_SCRIPT,
+  RABID_RATS_SCRIPT,
+  SERRA_ADVOCATE_SCRIPT,
+  SWORD_DANCER_SCRIPT,
+  ELVEN_PALISADE_SCRIPT,
+  QUICKSAND_SCRIPT,
+  AVEN_ARCHER_SCRIPT,
+  CRIMSON_MANTICORE_SCRIPT,
+  CROSSBOW_INFANTRY_SCRIPT,
+  D_AVENANT_ARCHER_SCRIPT,
+  ELITE_ARCHERS_SCRIPT,
+  FEMEREF_ARCHERS_SCRIPT,
+  HEAVY_BALLISTA_SCRIPT,
+  LADY_CALERIA_SCRIPT,
+  SACELLUM_ARCHERS_SCRIPT,
+  TOR_WAUKI_SCRIPT,
+  CATAPULT_SQUAD_SCRIPT,
+  DAUTHI_JACKAL_SCRIPT,
+  MINE_BEARER_SCRIPT,
+  SKYSHOOTER_SCRIPT,
+  CHASTISE_SCRIPT,
+  CONDEMN_SCRIPT,
+  WHISK_AWAY_SCRIPT,
+  SOUL_NOVA_SCRIPT,
+  ARMED_RESPONSE_SCRIPT,
+  DIVINE_RETRIBUTION_SCRIPT,
+  OUTFLANK_SCRIPT,
+  FOCUS_FIRE_SCRIPT,
+  RAZOR_RINGS_SCRIPT,
+  UNIFIED_STRIKE_SCRIPT,
+  AANGS_DEFENSE_SCRIPT,
+  NAHIRIS_MACHINATIONS_SCRIPT,
   ROC_CHARGER_SCRIPT,
   TRUSTED_PEGASUS_SCRIPT,
   LANDROVAL_HORIZON_WITNESS_SCRIPT,

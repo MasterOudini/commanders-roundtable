@@ -8860,6 +8860,53 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       keyword list on `CardView`; the "another" split; the up-to-N residue;
       the remaining cost verbs; the prompt continuation seam; prior items
       stand.
+- [x] **M6.4ec — the combat-role seam's dividend: thirty-seven of the
+      fifty-four cards it made offerable, twenty-five of them from ONE
+      generator table (2026-09-03):** **4,065 of 31,692 Commander-legal
+      cards now execute completely, up from 4,028.** `SHIPPED_SCRIPTS`
+      2,083 → 2,120; ledger 764 (seventeen rows ADDED, none deleted). ZERO
+      token pins, ZERO support bodies, ZERO engine edits. **The select pool
+      returns to 0.** Sliver Queen 4,013 from 97 legendaries. Decisions in
+      **D292**.
+      ⚠️ **The first table-driven family:** 25 activated cards (tap /
+      damage / destroy / exile on an attacking or blocking creature) emitted
+      from one table on H: (`d292/gen.cjs`) — verbatim text, line, kind,
+      role, keyword, mana, cost shape — into shipped-shape modules and real
+      combat suites (attack or be blocked on turn 3, activate, aim, prove
+      the effect, the cost and the refusal). `printed()` and per-line
+      accounting unchanged per card. The twelve hand-written cards are the
+      specimens.
+      **Landed:** Angelic Page, Anointer of Champions, Elven Fortress,
+      Infantry Veteran, Kithkin Daggerdare, Kithkin Shielddare, Rabid Rats,
+      Serra Advocate, Sword Dancer, Elven Palisade, Quicksand, Aven Archer,
+      Crimson Manticore, Crossbow Infantry, D'Avenant Archer, Elite
+      Archers, Femeref Archers, Heavy Ballista, Lady Caleria, Sacellum
+      Archers, Tor Wauki, Catapult Squad, Dauthi Jackal, Mine Bearer,
+      Skyshooter (generated); Chastise, Condemn, Whisk Away, Soul Nova,
+      Armed Response, Divine Retribution, Outflank, Focus Fire, Razor
+      Rings, Unified Strike, Aang's Defense, Nahiri's Machinations (by
+      hand). Tests 37 files / 112.
+      ⚠️ **Refused (17):** eleven Bloodrush (hand-activated), two Traps
+      (cast-time alternative cost), Enduring Victory (bolster tie),
+      Dissension in the Ranks ("another" split), Sandstone Deadfall
+      (multi-sacrifice), Lieutenant Kirtar (self-sacrifice BY NAME — a new
+      cost class, measured at the port).
+      ⚠️ **Port lessons:** combat scaffolds need `holdEverywhere`; lethal
+      damage leaves no damage to read; `land.cjs` derives the export name
+      from the FILE name (`aangsDefense.ts` → `AANGS_DEFENSE_SCRIPT`) and
+      refuses the whole batch otherwise — the first sweep moved only the
+      select pool and said so.
+      Fixtures 2,384 (2,276 by name + 101 tokens) · botPool artifact 159 /
+      creature 2,093 / enchantment 92 / instant 783 / land 343 / sorcery 595 ·
+      ladder [1015, 1116, 2905, 4818, 6029] · tier3 `payable` 5,059 ·
+      batch.json 37 · select pool 0.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,202 files, 11,552 passing / 10 skipped · 500-seed gate 754.4 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D292): the noun-list widening (measured: "creature
+      or Vehicle" 12, "artifact, enchantment, or creature" 11, and five
+      smaller lists); the "another" split for spells (five flip); the
+      self-sacrifice-by-name cost; the keyword LIST qualifier; the remaining
+      cost verbs; the prompt continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

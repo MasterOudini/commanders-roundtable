@@ -1589,6 +1589,40 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // KEYWORD half; the combat-role half is the next qualifier seam (a
   // `TargetCandidate.attacking`/`blocking` pair read off `state.combat`).
   ['Bamboo Grove Archer', 'hand-activated ability'],
+
+  // D292 (M6.4ec) — the 54 cards D291's combat-role seam made offerable: 38
+  // landed, sixteen refused.
+  //
+  // ⚠️ Eleven are BLOODRUSH — "{cost}, Discard this card: target attacking
+  // creature gets +N/+N" is an ability activated from the HAND, the Channel
+  // shape D290 refused for Bamboo Grove Archer; they join that class.
+  // ⚠️ The two Traps offer an alternative cost at cast time ("you may pay {W}
+  // rather than pay this spell's mana cost") — the cast-time class.
+  // ⚠️ `Enduring Victory` bolsters (a least-toughness tie is the controller's
+  // choice — a script-raised prompt); `Dissension in the Ranks` says
+  // "another target blocking creature" (the "another" split, d292/design.md);
+  // `Sandstone Deadfall` sacrifices "two lands and this artifact" (the
+  // multi-sacrifice cost).
+  ['Ghor-Clan Rampager', 'hand-activated ability'],
+  ['Rubblebelt Maaka', 'hand-activated ability'],
+  ['Scab-Clan Charger', 'hand-activated ability'],
+  ['Scorchwalker', 'hand-activated ability'],
+  ['Skarrg Goliath', 'hand-activated ability'],
+  ['Skinbrand Goblin', 'hand-activated ability'],
+  ['Slaughterhorn', 'hand-activated ability'],
+  ['Viashino Shanktail', 'hand-activated ability'],
+  ['Wasteland Viper', 'hand-activated ability'],
+  ['Wrecking Ogre', 'hand-activated ability'],
+  ['Zhur-Taa Swine', 'hand-activated ability'],
+  ['Pitfall Trap', 'cast-time alternative cost'],
+  ['Slingbow Trap', 'cast-time alternative cost'],
+  ['Enduring Victory', 'bolster tie choice'],
+  ['Dissension in the Ranks', 'spell target parse (second clause)'],
+  ['Sandstone Deadfall', 'multi-sacrifice cost'],
+  // ⚠️ `Lieutenant Kirtar` sacrifices ITSELF BY NAME ("Sacrifice Lieutenant
+  // Kirtar:"); the cost reader prices "Sacrifice this creature" and not the
+  // printed-name form, so the ability is never offered - measured at the port.
+  ['Lieutenant Kirtar', 'self-sacrifice by name (cost)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
@@ -1671,10 +1705,9 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // 18 of them and ledgered the other 4, so it is empty again — and a
     // non-empty pool from here means either a new seam paid out or a ledger
     // entry went stale.
-    // D291: the combat-role seam made 54 cards scriptable that the ledger
-    // never saw ("target attacking creature" parses now). They are the next
-    // batch; the pin follows the measurement and falls back as they land.
-    expect(all.length).toBe(54);
+    // D291 refilled this pool with 54 cards the ledger never saw; D292 landed
+    // 37 of them and ledgered the other 17, so it is empty again.
+    expect(all.length).toBe(0);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect(all.every((c) => c.lines > 0)).toBe(true);

@@ -77524,6 +77524,1245 @@ export const TRUSTED_PEGASUS: CardData = {
   "singleImage": true
 };
 
+export const ELVEN_FORTRESS: CardData = {
+  "scryfallId": "091b5ed4-91f5-47c1-b1a1-5443f7346078",
+  "oracleId": "29f34e18-2102-4ded-912f-4ac3e9e6744c",
+  "name": "Elven Fortress",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elven Fortress",
+      "manaCost": "{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "{1}{G}: Target blocking creature gets +0/+1 until end of turn.",
+      "flavorText": "\"The size of the obvious Fortress walls often misled foes. Actually, the Elves enchanted the forest itself to provide the first line of defense with tangling vines and stinging thorns.\"\n—*Sarpadian Empires, vol. III*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Randy Asplund-Faith",
+      "imageId": "091b5ed4-91f5-47c1-b1a1-5443f7346078"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "fem",
+  "collectorNumber": "65b",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INFANTRY_VETERAN: CardData = {
+  "scryfallId": "0350470b-feea-4e15-bdf0-850b71dbeea6",
+  "oracleId": "42798e2b-9a5c-4f93-8f77-b7bb7a916d07",
+  "name": "Infantry Veteran",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Infantry Veteran",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{T}: Target attacking creature gets +1/+1 until end of turn.",
+      "flavorText": "\"The true dishonor for a soldier is surviving the war.\"\n—Telim'Tor",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Christopher Rush",
+      "imageId": "0350470b-feea-4e15-bdf0-850b71dbeea6"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "vis",
+  "collectorNumber": "9",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KITHKIN_DAGGERDARE: CardData = {
+  "scryfallId": "90d0d7fd-a580-41af-8e9d-fee74094ec47",
+  "oracleId": "b4fd5a3f-3aec-4336-9dcd-6971c117515a",
+  "name": "Kithkin Daggerdare",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kithkin Daggerdare",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Kithkin Soldier",
+      "oracleText": "{G}, {T}: Target attacking creature gets +2/+2 until end of turn.",
+      "flavorText": "The kith dance their elaborate reels not merely to celebrate the events of their lives but to form an unbreakable bond of loyalty with their kin, a bond stronger than the fear of death itself.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "90d0d7fd-a580-41af-8e9d-fee74094ec47"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "lrw",
+  "collectorNumber": "223",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KITHKIN_SHIELDDARE: CardData = {
+  "scryfallId": "7e5102a7-2147-4e22-b683-c08b4a725617",
+  "oracleId": "0734272d-5cce-476d-a663-fbf0bd7cd3a7",
+  "name": "Kithkin Shielddare",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kithkin Shielddare",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Kithkin Soldier",
+      "oracleText": "{W}, {T}: Target blocking creature gets +2/+2 until end of turn.",
+      "flavorText": "The nova glyph is a potent symbol. A shield embossed with it can resist the force of even the most determined giant.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "7e5102a7-2147-4e22-b683-c08b4a725617"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "shm",
+  "collectorNumber": "10",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RABID_RATS: CardData = {
+  "scryfallId": "ed8c028e-6656-47ef-97fb-de99f8833d5f",
+  "oracleId": "0f2504b0-bd5a-4b61-b8bb-c8b20aa1e26e",
+  "name": "Rabid Rats",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rabid Rats",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Rat",
+      "oracleText": "{T}: Target blocking creature gets -1/-1 until end of turn.",
+      "flavorText": "Every sentence in Volrath's prisons ends the same way.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Matthew D. Wilson",
+      "imageId": "ed8c028e-6656-47ef-97fb-de99f8833d5f"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "sth",
+  "collectorNumber": "67",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SERRA_ADVOCATE: CardData = {
+  "scryfallId": "1f05d654-f3d1-4965-9d89-9848d6fc2123",
+  "oracleId": "4c67292a-7fcc-4646-8a06-99a7b4b3e005",
+  "name": "Serra Advocate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Serra Advocate",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Angel",
+      "oracleText": "Flying\n{T}: Target attacking or blocking creature gets +2/+2 until end of turn.",
+      "flavorText": "An angel's blessing prepares a soldier for war better than a thousand military drills.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Matthew D. Wilson",
+      "imageId": "1f05d654-f3d1-4965-9d89-9848d6fc2123"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "7ed",
+  "collectorNumber": "41★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SWORD_DANCER: CardData = {
+  "scryfallId": "25917af7-a35c-47fe-8374-952aaf865252",
+  "oracleId": "9ae49b45-a38f-4bd6-aa08-b5a5da6e75a1",
+  "name": "Sword Dancer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sword Dancer",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Rebel",
+      "oracleText": "{W}{W}: Target attacking creature gets -1/-0 until end of turn.",
+      "flavorText": "Most soldiers think of the sword as a weapon. In the hands of Zho monks, swords are also the strongest of shields.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Roger Raupp",
+      "imageId": "25917af7-a35c-47fe-8374-952aaf865252"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "53★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELVEN_PALISADE: CardData = {
+  "scryfallId": "1f90181d-deb8-40ff-8ab5-591fdbe53f73",
+  "oracleId": "0fb94fa4-2aff-4636-ac1b-ed39dc9451a6",
+  "name": "Elven Palisade",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elven Palisade",
+      "manaCost": "{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Sacrifice a Forest: Target attacking creature gets -3/-0 until end of turn.",
+      "flavorText": "\"Volrath is not the only one who can shape this world to serve him.\"\n—Eladamri, Lord of Leaves",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "1f90181d-deb8-40ff-8ab5-591fdbe53f73"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "EXO-109",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const QUICKSAND: CardData = {
+  "scryfallId": "11370658-8d80-4d2f-afa5-ec6df6dee369",
+  "oracleId": "ef2bb4fa-f292-4d19-aaa4-cfbe445caf45",
+  "name": "Quicksand",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Quicksand",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{T}, Sacrifice this land: Target attacking creature without flying gets -1/-2 until end of turn.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Roger Raupp",
+      "imageId": "11370658-8d80-4d2f-afa5-ec6df6dee369"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "vis",
+  "collectorNumber": "166",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AVEN_ARCHER: CardData = {
+  "scryfallId": "4d174892-c192-4667-94fb-9f8dbcc6c5eb",
+  "oracleId": "914ce8f6-5e92-436d-8541-1c72da8577dc",
+  "name": "Aven Archer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aven Archer",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Creature — Bird Soldier Archer",
+      "oracleText": "Flying\n{2}{W}, {T}: This creature deals 2 damage to target attacking or blocking creature.",
+      "flavorText": "Aimed by the eyes of eagles, their arrows never miss the mark.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "4d174892-c192-4667-94fb-9f8dbcc6c5eb"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ody",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRIMSON_MANTICORE: CardData = {
+  "scryfallId": "47785679-8daf-4f52-82ef-4ccaa636b67e",
+  "oracleId": "35d4e500-28c8-44c9-990f-3aa25ed5dd14",
+  "name": "Crimson Manticore",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crimson Manticore",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Creature — Manticore",
+      "oracleText": "Flying\n{R}, {T}: This creature deals 1 damage to target attacking or blocking creature.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Daniel Gelon",
+      "imageId": "47785679-8daf-4f52-82ef-4ccaa636b67e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "4bb",
+  "collectorNumber": "183",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CROSSBOW_INFANTRY: CardData = {
+  "scryfallId": "002b75fc-c4ba-40fa-9758-8a550e68043b",
+  "oracleId": "dd99d791-3305-4195-ad12-96d958a28764",
+  "name": "Crossbow Infantry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crossbow Infantry",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Soldier Archer",
+      "oracleText": "{T}: This creature deals 1 damage to target attacking or blocking creature.",
+      "flavorText": "\"He can split a marshfly in two from halfway across the range.\"\n—Onean sergeant",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "James Bernardin",
+      "imageId": "002b75fc-c4ba-40fa-9758-8a550e68043b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "12★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const D_AVENANT_ARCHER: CardData = {
+  "scryfallId": "0c02cbcf-e83b-48f9-87bd-9a1e6b50d7cd",
+  "oracleId": "81bc4a5e-812f-4809-b6df-271c3c22f4fc",
+  "name": "D'Avenant Archer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "D'Avenant Archer",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier Archer",
+      "oracleText": "{T}: This creature deals 1 damage to target attacking or blocking creature.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Douglas Shuler",
+      "imageId": "0c02cbcf-e83b-48f9-87bd-9a1e6b50d7cd"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "bchr",
+  "collectorNumber": "5",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELITE_ARCHERS: CardData = {
+  "scryfallId": "03dc7a7b-ec69-406f-82c5-9af54ac1e9a3",
+  "oracleId": "2230ec18-4dcf-435e-b495-1905cb94e8b8",
+  "name": "Elite Archers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elite Archers",
+      "manaCost": "{5}{W}",
+      "typeLine": "Creature — Human Soldier Archer",
+      "oracleText": "{T}: This creature deals 3 damage to target attacking or blocking creature.",
+      "flavorText": "They fletch their arrows with the feathers of angels.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Dan Frazier",
+      "imageId": "03dc7a7b-ec69-406f-82c5-9af54ac1e9a3"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "7ed",
+  "collectorNumber": "15",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FEMEREF_ARCHERS: CardData = {
+  "scryfallId": "5ed8a169-1f32-486c-9dfb-aa13fcf3c984",
+  "oracleId": "b5867796-5898-4a75-a75a-c802407ab338",
+  "name": "Femeref Archers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Femeref Archers",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Human Archer",
+      "oracleText": "{T}: This creature deals 4 damage to target attacking creature with flying.",
+      "flavorText": "\"Bet you can't put it through the eye.\"\n\"Left or right?\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Gary Ruddell",
+      "imageId": "5ed8a169-1f32-486c-9dfb-aa13fcf3c984"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "7ed",
+  "collectorNumber": "244",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HEAVY_BALLISTA: CardData = {
+  "scryfallId": "5b6e66f3-8a2e-4b68-b483-7cb6923bd9f9",
+  "oracleId": "b4219836-c802-49e2-9a66-f03ca8f13895",
+  "name": "Heavy Ballista",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Heavy Ballista",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{T}: This creature deals 2 damage to target attacking or blocking creature.",
+      "flavorText": "\"Soldiers wear down and enemies collapse—but the ballista never tires.\"\n—Ballista captain",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "5b6e66f3-8a2e-4b68-b483-7cb6923bd9f9"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "7ed",
+  "collectorNumber": "19★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LADY_CALERIA: CardData = {
+  "scryfallId": "84b9a2b7-6ff7-4a81-86ae-64cc77c23030",
+  "oracleId": "74284bbc-b011-4e16-b8d5-7ddacc77f9d7",
+  "name": "Lady Caleria",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lady Caleria",
+      "manaCost": "{3}{G}{G}{W}{W}",
+      "typeLine": "Legendary Creature — Elf Archer",
+      "oracleText": "{T}: Lady Caleria deals 3 damage to target attacking or blocking creature.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Bryon Wackwitz",
+      "imageId": "84b9a2b7-6ff7-4a81-86ae-64cc77c23030"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "me3",
+  "collectorNumber": "157",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SACELLUM_ARCHERS: CardData = {
+  "scryfallId": "160335df-8377-4f72-9d3f-4b1492bd23ea",
+  "oracleId": "3b9117a1-cd2d-4478-beda-1049e0b0f8eb",
+  "name": "Sacellum Archers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sacellum Archers",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Elf Archer",
+      "oracleText": "{R}{W}, {T}: This creature deals 2 damage to target attacking or blocking creature.",
+      "flavorText": "\"Our arrows are aimed not at the sacred behemoths but at those who dare to dream of such a trophy.\"",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "160335df-8377-4f72-9d3f-4b1492bd23ea"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "con",
+  "collectorNumber": "89",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TOR_WAUKI: CardData = {
+  "scryfallId": "241a4854-e62c-4be4-a9cc-1e14db4eede9",
+  "oracleId": "9439dfa0-daf8-4dac-af32-755fc2984126",
+  "name": "Tor Wauki",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tor Wauki",
+      "manaCost": "{2}{B}{B}{R}",
+      "typeLine": "Legendary Creature — Human Archer",
+      "oracleText": "{T}: Tor Wauki deals 2 damage to target attacking or blocking creature.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Randy Asplund-Faith",
+      "imageId": "241a4854-e62c-4be4-a9cc-1e14db4eede9"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "leg",
+  "collectorNumber": "265",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CATAPULT_SQUAD: CardData = {
+  "scryfallId": "75a71d29-29eb-43c4-b0f3-457435e8f629",
+  "oracleId": "f1ff7a67-1add-4de1-bc25-62f63626c43a",
+  "name": "Catapult Squad",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Catapult Squad",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Tap two untapped Soldiers you control: This creature deals 2 damage to target attacking or blocking creature.",
+      "flavorText": "Together they could hit anything between the heavens and the horizon.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "75a71d29-29eb-43c4-b0f3-457435e8f629"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ons",
+  "collectorNumber": "11",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAUTHI_JACKAL: CardData = {
+  "scryfallId": "37b3667e-c7e5-4304-bc73-5b3ec7ac224a",
+  "oracleId": "8847b057-8896-4c72-a11f-3c183b1cc60e",
+  "name": "Dauthi Jackal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dauthi Jackal",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Dauthi Jackal",
+      "oracleText": "Shadow (This creature can block or be blocked by only creatures with shadow.)\n{B}{B}, Sacrifice this creature: Destroy target blocking creature.",
+      "flavorText": "\"All dauthi are jackals, regardless of breed.\"\n—Lyna, soltari emissary",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Adam Rex",
+      "imageId": "37b3667e-c7e5-4304-bc73-5b3ec7ac224a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Shadow"
+  ],
+  "setCode": "tpr",
+  "collectorNumber": "95",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LIEUTENANT_KIRTAR: CardData = {
+  "scryfallId": "475ba0c3-237e-4349-85e9-c31b016f609b",
+  "oracleId": "ad39e859-e4a6-49cc-b738-4578a5250538",
+  "name": "Lieutenant Kirtar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lieutenant Kirtar",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Legendary Creature — Bird Soldier",
+      "oracleText": "Flying\n{1}{W}, Sacrifice Lieutenant Kirtar: Exile target attacking creature.",
+      "flavorText": "\"His strengths are pride, devotion, and ambition. His weaknesses are the same.\"\n—Pianna, nomad captain",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "475ba0c3-237e-4349-85e9-c31b016f609b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "dmr",
+  "collectorNumber": "12",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MINE_BEARER: CardData = {
+  "scryfallId": "a8151510-2445-4244-b851-ab332b908170",
+  "oracleId": "19fba3c8-3363-4f2f-a2fb-01e59a77447c",
+  "name": "Mine Bearer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mine Bearer",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{T}, Sacrifice this creature: Destroy target attacking creature.",
+      "flavorText": "\"The Keldons may have explosive tempers, but *I* have explosives.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "D. Alexander Gregory",
+      "imageId": "a8151510-2445-4244-b851-ab332b908170"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pcy",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKYSHOOTER: CardData = {
+  "scryfallId": "f56f195e-a80c-4447-8d3f-cc1259035d1b",
+  "oracleId": "9c5a3407-e3e6-4f5f-9c24-6f24c19e1a2e",
+  "name": "Skyshooter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skyshooter",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Centaur Archer",
+      "oracleText": "Reach (This creature can block creatures with flying.)\n{T}, Sacrifice this creature: Destroy target attacking or blocking creature with flying.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jerry Tiritilli",
+      "imageId": "f56f195e-a80c-4447-8d3f-cc1259035d1b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Reach"
+  ],
+  "setCode": "ody",
+  "collectorNumber": "270",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHASTISE: CardData = {
+  "scryfallId": "1169dab7-8f4c-474d-9289-42765a275376",
+  "oracleId": "b7553f3f-5de1-409c-a184-e12e40f017ab",
+  "name": "Chastise",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chastise",
+      "manaCost": "{3}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target attacking creature. You gain life equal to its power.",
+      "flavorText": "\"Why do we pray to the Ancestor? Because She listens.\"\n—Mystic elder",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "1169dab7-8f4c-474d-9289-42765a275376"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "jud",
+  "collectorNumber": "8",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONDEMN: CardData = {
+  "scryfallId": "02aa86ac-bb56-48b4-98a6-dc04024d6c28",
+  "oracleId": "377d31b5-0a48-4d5b-91bd-b5a62d4f7899",
+  "name": "Condemn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Condemn",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Put target attacking creature on the bottom of its owner's library. Its controller gains life equal to its toughness.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Daren Bader",
+      "imageId": "02aa86ac-bb56-48b4-98a6-dc04024d6c28"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "td2",
+  "collectorNumber": "22",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WHISK_AWAY: CardData = {
+  "scryfallId": "5b5d96a9-11dd-44cc-baf1-bab298ae03f0",
+  "oracleId": "ac141fe0-328a-4d9b-8048-b0c47f399587",
+  "name": "Whisk Away",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Whisk Away",
+      "manaCost": "{2}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Put target attacking or blocking creature on top of its owner's library.",
+      "flavorText": "The maneuvers of the Abzan formation intrigued Ojutai in both their complexity and their futility.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "5b5d96a9-11dd-44cc-baf1-bab298ae03f0"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "frf",
+  "collectorNumber": "57",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOUL_NOVA: CardData = {
+  "scryfallId": "f862682d-cbf3-4c35-83d0-76883b0ac105",
+  "oracleId": "30dc2a1a-c17e-4e95-9dd8-d0e9be1dcd77",
+  "name": "Soul Nova",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soul Nova",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Exile target attacking creature and all Equipment attached to it.",
+      "flavorText": "Within seconds, the nim was consumed in blinding sunfire. Afterwards, only a puddle of molten iron remained.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Keith Garletts",
+      "imageId": "f862682d-cbf3-4c35-83d0-76883b0ac105"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "mrd",
+  "collectorNumber": "25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARMED_RESPONSE: CardData = {
+  "scryfallId": "7029fac9-ef8a-499f-aa42-c145b6b528ae",
+  "oracleId": "0258a606-1625-402e-b0c4-ffca06779b5e",
+  "name": "Armed Response",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Armed Response",
+      "manaCost": "{2}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Armed Response deals damage to target attacking creature equal to the number of Equipment you control.",
+      "flavorText": "Raksha watched as the goblins continued to pour onto the Razor Fields. \"They just don't know when to stop, do they?\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Doug Chaffee",
+      "imageId": "7029fac9-ef8a-499f-aa42-c145b6b528ae"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "5dn",
+  "collectorNumber": "2",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DIVINE_RETRIBUTION: CardData = {
+  "scryfallId": "75629aa3-426e-4e25-a7ab-71e03436e061",
+  "oracleId": "b08b348c-cf74-4aea-ab88-38201e04e42c",
+  "name": "Divine Retribution",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Divine Retribution",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Divine Retribution deals damage to target attacking creature equal to the number of attacking creatures.",
+      "flavorText": "\"To the undiscerning eye, justice and vengeance can look the same.\"\n—Rashida Scalebane",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Charles Gillespie",
+      "imageId": "75629aa3-426e-4e25-a7ab-71e03436e061"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "12",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OUTFLANK: CardData = {
+  "scryfallId": "663e0208-81c3-4a76-bcc2-bc59cf8ca649",
+  "oracleId": "c3436d70-230c-4bda-b7da-935a270f135f",
+  "name": "Outflank",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Outflank",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Outflank deals damage to target attacking or blocking creature equal to the number of creatures you control.",
+      "flavorText": "\"With the drum of hooves and a flash of blades, the monster's terrifying roar changed to a cry of fear.\"\n—*Legend of the Gilded Knights*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Victor Adame Minguez",
+      "imageId": "663e0208-81c3-4a76-bcc2-bc59cf8ca649"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "eld",
+  "collectorNumber": "23",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FOCUS_FIRE: CardData = {
+  "scryfallId": "a9ddfcbc-0f84-4315-aaa3-ca54ff64d7de",
+  "oracleId": "6c4514be-fda7-45e8-83fe-04d49e2b932c",
+  "name": "Focus Fire",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Focus Fire",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Focus Fire deals X damage to target attacking or blocking creature, where X is 2 plus the number of creatures and/or Spacecraft you control.",
+      "flavorText": "\"We are the arrows of Sunsolde's Quiver.\"\n—*Declaration of Fleet Purpose*, Axiom 2",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Borja Pindado",
+      "imageId": "a9ddfcbc-0f84-4315-aaa3-ca54ff64d7de"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "eoe",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAZOR_RINGS: CardData = {
+  "scryfallId": "878571d5-cc25-45a7-aab1-25f01c173c77",
+  "oracleId": "eb5afbd7-4d21-4449-9204-eeb4ebf6a72a",
+  "name": "Razor Rings",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Razor Rings",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Razor Rings deals 4 damage to target attacking or blocking creature. You gain life equal to the excess damage dealt this way.",
+      "flavorText": "\"There's someone in there! He's bending the vines!\"\n—Sokka",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Norikatsu Miyoshi",
+      "imageId": "878571d5-cc25-45a7-aab1-25f01c173c77"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tle",
+  "collectorNumber": "272",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UNIFIED_STRIKE: CardData = {
+  "scryfallId": "29906eca-0823-4cd6-890f-e5b93cc50a11",
+  "oracleId": "4649991c-4f2c-49c8-9e18-d0ae36328553",
+  "name": "Unified Strike",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Unified Strike",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Exile target attacking creature if its power is less than or equal to the number of Soldiers on the battlefield.",
+      "flavorText": "The tall, reedy grass of the Daru Plains rustles loudly in the winds, a perfect cover for any ambush.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Dave Dorman",
+      "imageId": "29906eca-0823-4cd6-890f-e5b93cc50a11"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ons",
+  "collectorNumber": "58",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AANG_S_DEFENSE: CardData = {
+  "scryfallId": "0dbb9439-6a4c-482a-83e7-5d6aa80d0cbd",
+  "oracleId": "92b617f9-6e6b-42a0-9c45-6ff5f6193051",
+  "name": "Aang's Defense",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aang's Defense",
+      "manaCost": "{W}",
+      "typeLine": "Instant",
+      "oracleText": "Target blocking creature you control gets +2/+2 until end of turn.\nDraw a card.",
+      "flavorText": "\"I guess you've never fought an Airbender before.\"\n—Aang",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jo Cordisco",
+      "imageId": "0dbb9439-6a4c-482a-83e7-5d6aa80d0cbd"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "tle",
+  "collectorNumber": "266",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NAHIRI_S_MACHINATIONS: CardData = {
+  "scryfallId": "a9ba0f1c-8641-4f5a-8f2e-f969fc7a058a",
+  "oracleId": "b119e0de-6af4-4b5b-9920-187f0a414231",
+  "name": "Nahiri's Machinations",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nahiri's Machinations",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "At the beginning of combat on your turn, target creature you control gains indestructible until end of turn.\n{1}{R}: This enchantment deals 1 damage to target blocking creature.",
+      "flavorText": "\"Sorin, I'm going to take everything from you.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Lake Hurwitz",
+      "imageId": "a9ba0f1c-8641-4f5a-8f2e-f969fc7a058a"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "soi",
+  "collectorNumber": "28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -83227,6 +84466,42 @@ export const ENGINE_CARDS: CardData[] = [
   LANDROVAL_HORIZON_WITNESS,
   ROC_CHARGER,
   TRUSTED_PEGASUS,
+  ELVEN_FORTRESS,
+  INFANTRY_VETERAN,
+  KITHKIN_DAGGERDARE,
+  KITHKIN_SHIELDDARE,
+  RABID_RATS,
+  SERRA_ADVOCATE,
+  SWORD_DANCER,
+  ELVEN_PALISADE,
+  QUICKSAND,
+  AVEN_ARCHER,
+  CRIMSON_MANTICORE,
+  CROSSBOW_INFANTRY,
+  D_AVENANT_ARCHER,
+  ELITE_ARCHERS,
+  FEMEREF_ARCHERS,
+  HEAVY_BALLISTA,
+  LADY_CALERIA,
+  SACELLUM_ARCHERS,
+  TOR_WAUKI,
+  CATAPULT_SQUAD,
+  DAUTHI_JACKAL,
+  LIEUTENANT_KIRTAR,
+  MINE_BEARER,
+  SKYSHOOTER,
+  CHASTISE,
+  CONDEMN,
+  WHISK_AWAY,
+  SOUL_NOVA,
+  ARMED_RESPONSE,
+  DIVINE_RETRIBUTION,
+  OUTFLANK,
+  FOCUS_FIRE,
+  RAZOR_RINGS,
+  UNIFIED_STRIKE,
+  AANG_S_DEFENSE,
+  NAHIRI_S_MACHINATIONS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
