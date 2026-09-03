@@ -74384,6 +74384,1523 @@ export const WANDERBRINE_TRAPPER: CardData = {
   "singleImage": true
 };
 
+export const CHARGING_STRIFEKNIGHT: CardData = {
+  "scryfallId": "9940d992-1ba1-40ec-9b93-17d773452c4b",
+  "oracleId": "b0b9a7c1-f515-4627-a050-b595d6641611",
+  "name": "Charging Strifeknight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Charging Strifeknight",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Spirit Knight",
+      "oracleText": "Haste\n{T}, Discard a card: Draw a card.",
+      "flavorText": "His spirit has led this charge for centuries, unaware—or perhaps uncaring—of the way the fields have changed.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Antonio José Manzanedo",
+      "imageId": "9940d992-1ba1-40ec-9b93-17d773452c4b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "sos",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_PICKER: CardData = {
+  "scryfallId": "6d8f1f06-dde5-41f2-923c-67d1d4d13fab",
+  "oracleId": "efc0aa25-9ac2-4a25-956c-fff39ef536be",
+  "name": "Goblin Picker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Picker",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Goblin",
+      "oracleText": "{R}, {T}, Discard a card: Draw a card.",
+      "flavorText": "Countless generations of Shivan goblins have worked on the Mana Rig, giving them an unparalleled eye for useful relics.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Vladimir Krisetskiy",
+      "imageId": "6d8f1f06-dde5-41f2-923c-67d1d4d13fab"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dmu",
+  "collectorNumber": "128",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAD_PROPHET: CardData = {
+  "scryfallId": "172383d9-9135-4daa-a647-9d76435d3158",
+  "oracleId": "91081181-aec6-47de-b8ef-241a2f4fe880",
+  "name": "Mad Prophet",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mad Prophet",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Human Shaman",
+      "oracleText": "Haste\n{T}, Discard a card: Draw a card.",
+      "flavorText": "\"There's no heron in the moon! It's a shrew, a five-legged shrew, with a voice like whispering thunder!\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Wayne Reynolds",
+      "imageId": "172383d9-9135-4daa-a647-9d76435d3158"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "avr",
+  "collectorNumber": "146",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OREAD_OF_MOUNTAIN_S_BLAZE: CardData = {
+  "scryfallId": "0f9bb73a-5b4e-4c9b-b0a6-8e531dc27394",
+  "oracleId": "ebbcbaa4-9dc2-4098-b6a2-393375d86f16",
+  "name": "Oread of Mountain's Blaze",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Oread of Mountain's Blaze",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment Creature — Nymph",
+      "oracleText": "{2}{R}, Discard a card: Draw a card.",
+      "flavorText": "\"Flame-wrapped, she dances a burning swath amid the clouds.\"\n—Psemilla, Meletian poet",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Yigit Koroglu",
+      "imageId": "0f9bb73a-5b4e-4c9b-b0a6-8e531dc27394"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "thb",
+  "collectorNumber": "146",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COMPULSION: CardData = {
+  "scryfallId": "2d1f56e8-55cb-4b81-9946-9f0f813e3d4a",
+  "oracleId": "3fafb6b2-5cae-45b6-8550-3ff8daa02802",
+  "name": "Compulsion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Compulsion",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "{1}{U}, Discard a card: Draw a card.\n{1}{U}, Sacrifice this enchantment: Draw a card.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "2d1f56e8-55cb-4b81-9946-9f0f813e3d4a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tor",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEEPWOOD_DRUMMER: CardData = {
+  "scryfallId": "acbed0f5-2ac0-48d8-b5ab-b4cd7176fde2",
+  "oracleId": "b2bbb4e5-05b1-49e5-ad02-7384e115e06b",
+  "name": "Deepwood Drummer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deepwood Drummer",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Human Spellshaper",
+      "oracleText": "{G}, {T}, Discard a card: Target creature gets +2/+2 until end of turn.",
+      "flavorText": "His drums echo Deepwood's heartbeat.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ron Spears",
+      "imageId": "acbed0f5-2ac0-48d8-b5ab-b4cd7176fde2"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "239",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PLAGUE_WITCH: CardData = {
+  "scryfallId": "7a1e3438-dbee-473a-8556-d4e28b939266",
+  "oracleId": "532ab335-4873-405b-84b3-c447207172b5",
+  "name": "Plague Witch",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Plague Witch",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Elf Spellshaper",
+      "oracleText": "{B}, {T}, Discard a card: Target creature gets -1/-1 until end of turn.",
+      "flavorText": "\"I can ail what cures you.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nelson DeCastro",
+      "imageId": "7a1e3438-dbee-473a-8556-d4e28b939266"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ema",
+  "collectorNumber": "103",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RIDGED_KUSITE: CardData = {
+  "scryfallId": "51b27919-6b36-49f2-a6df-d63e5db6de0b",
+  "oracleId": "a0c3c26e-e9e8-424d-922e-a692bb479ebd",
+  "name": "Ridged Kusite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ridged Kusite",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Horror Spellshaper",
+      "oracleText": "{1}{B}, {T}, Discard a card: Target creature gets +1/+0 and gains first strike until end of turn.",
+      "flavorText": "\"It offers but a taste of the power that the shadows have to offer. But even that is a heady wine indeed.\"\n—Ratadrabik of Urborg",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "rk post",
+      "imageId": "51b27919-6b36-49f2-a6df-d63e5db6de0b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "plc",
+  "collectorNumber": "78",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BALLOON_PEDDLER: CardData = {
+  "scryfallId": "c34963e6-850e-4ce4-b04f-5e623ce5b73f",
+  "oracleId": "10f182a7-ffa3-4128-8b2e-e05b97f92e00",
+  "name": "Balloon Peddler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Balloon Peddler",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Spellshaper",
+      "oracleText": "{U}, {T}, Discard a card: Target creature gains flying until end of turn.",
+      "flavorText": "The market festival turned out to be the high point of Jaffy's visit.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "c34963e6-850e-4ce4-b04f-5e623ce5b73f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "59",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLOWSTONE_CHANNELER: CardData = {
+  "scryfallId": "9f10fa1c-2c7b-49ba-87b6-3b652b65704d",
+  "oracleId": "91818ad0-b22a-423c-bed6-a285f2f8c9d4",
+  "name": "Flowstone Channeler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Flowstone Channeler",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Human Spellshaper",
+      "oracleText": "{1}{R}, {T}, Discard a card: Target creature gets +1/-1 and gains haste until end of turn.",
+      "flavorText": "With the evincars gone, flowstone became erratic and wild, a source of power for mages more desperate than wise.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Alan Pollack",
+      "imageId": "9f10fa1c-2c7b-49ba-87b6-3b652b65704d"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tsp",
+  "collectorNumber": "155",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WATERFRONT_BOUNCER: CardData = {
+  "scryfallId": "8dbdce9e-94fa-4ed5-9b97-d2026cffe7cb",
+  "oracleId": "b53a8cde-494c-43d0-8d08-7bdfe2e84064",
+  "name": "Waterfront Bouncer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Waterfront Bouncer",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Merfolk Spellshaper",
+      "oracleText": "{U}, {T}, Discard a card: Return target creature to its owner's hand.",
+      "flavorText": "Closing time comes earlier to some than to others.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "8dbdce9e-94fa-4ed5-9b97-d2026cffe7cb"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "114",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TOLARIAN_SENTINEL: CardData = {
+  "scryfallId": "2e97ec8b-6163-41ff-9e6f-af091a7c529e",
+  "oracleId": "bef15918-c0e7-4f6d-a589-f91f3fa11ef1",
+  "name": "Tolarian Sentinel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tolarian Sentinel",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Human Spellshaper",
+      "oracleText": "Flying\n{U}, {T}, Discard a card: Return target permanent you control to its owner's hand.",
+      "flavorText": "\"It is not just our people I try to rescue. It is our culture, and our hope that we can return to greatness.\"",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Thomas M. Baxa",
+      "imageId": "2e97ec8b-6163-41ff-9e6f-af091a7c529e"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "tsp",
+  "collectorNumber": "87",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KRIS_MAGE: CardData = {
+  "scryfallId": "4389fbcd-182a-4cac-b14f-aa971948cf8e",
+  "oracleId": "d53623b0-f7d8-401f-a8f1-80034f6f20df",
+  "name": "Kris Mage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kris Mage",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Human Spellshaper",
+      "oracleText": "{R}, {T}, Discard a card: This creature deals 1 damage to any target.",
+      "flavorText": "Her blade draws blood without ever touching its target.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Matthew D. Wilson",
+      "imageId": "4389fbcd-182a-4cac-b14f-aa971948cf8e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "195",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FODDER_TOSSER: CardData = {
+  "scryfallId": "fd401525-b874-4af2-99a3-c2c83e22547e",
+  "oracleId": "feb34b5a-d51e-42d7-90c6-c5c84ff00c4e",
+  "name": "Fodder Tosser",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fodder Tosser",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}, Discard a card: This artifact deals 2 damage to target player or planeswalker.",
+      "flavorText": "\"In event of siege, load copiously with: hot oil, cannonballs, caltrops, rubble, old swords, mess-hall leftovers, chamber pots, broken chairs, salt, cousin Furt . . .\"\n—Trebuchet instructions",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Gabor Szikszai",
+      "imageId": "fd401525-b874-4af2-99a3-c2c83e22547e"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mh2",
+  "collectorNumber": "226",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SELHOFF_ENTOMBER: CardData = {
+  "scryfallId": "f2b5131e-95f4-403e-83ca-1981dad2aaa0",
+  "oracleId": "3b97794a-3aaa-45a6-9cad-f1b768615b6d",
+  "name": "Selhoff Entomber",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Selhoff Entomber",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "{T}, Discard a creature card: Draw a card.",
+      "flavorText": "It knows one fundamental truth: bodies belong in graves.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "f2b5131e-95f4-403e-83ca-1981dad2aaa0"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dbl",
+  "collectorNumber": "343",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEISMIC_MAGE: CardData = {
+  "scryfallId": "9524432a-3186-4c7b-a780-28bdbe36053f",
+  "oracleId": "a1f7e43a-f126-47d8-bd59-339ae052e81b",
+  "name": "Seismic Mage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Seismic Mage",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Human Spellshaper",
+      "oracleText": "{2}{R}, {T}, Discard a card: Destroy target land.",
+      "flavorText": "The ground shakes when he walks. His customers shake if they're late with his fee.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "9524432a-3186-4c7b-a780-28bdbe36053f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "211",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STRONGHOLD_BIOLOGIST: CardData = {
+  "scryfallId": "6215a5d9-d6d2-4f9f-8a0c-a65d1afd956a",
+  "oracleId": "1e2c4508-54ad-45c2-b35f-678f8c376b27",
+  "name": "Stronghold Biologist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stronghold Biologist",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Spellshaper",
+      "oracleText": "{U}{U}, {T}, Discard a card: Counter target creature spell.",
+      "flavorText": "He twists the laws of nature until they scream.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "6215a5d9-d6d2-4f9f-8a0c-a65d1afd956a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "nem",
+  "collectorNumber": "45",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEVOUT_WITNESS: CardData = {
+  "scryfallId": "48ca7aeb-09db-4409-9ba2-c5c5500ad72f",
+  "oracleId": "83647f5b-2b0f-4f9d-83c5-75c52460f35b",
+  "name": "Devout Witness",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Devout Witness",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Spellshaper",
+      "oracleText": "{1}{W}, {T}, Discard a card: Destroy target artifact or enchantment.",
+      "flavorText": "The Cho-Arrim fought Mercadia's decadence with more than just swords.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Don Hazeltine",
+      "imageId": "48ca7aeb-09db-4409-9ba2-c5c5500ad72f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UNDERTAKER: CardData = {
+  "scryfallId": "e99bb258-7b05-4c70-8a67-d7a5709a60ff",
+  "oracleId": "a8ffbf6d-44e9-44e4-846c-4f894078130e",
+  "name": "Undertaker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Undertaker",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Spellshaper",
+      "oracleText": "{B}, {T}, Discard a card: Return target creature card from your graveyard to your hand.",
+      "flavorText": "The weight of death is heavy but not immovable.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jeff Easley",
+      "imageId": "e99bb258-7b05-4c70-8a67-d7a5709a60ff"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tsb",
+  "collectorNumber": "53",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TORTURED_EXISTENCE: CardData = {
+  "scryfallId": "1754b92b-d6f9-4503-af01-dee03f72a048",
+  "oracleId": "fa9dfcf7-069c-4441-9ea0-133de47ecada",
+  "name": "Tortured Existence",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tortured Existence",
+      "manaCost": "{B}",
+      "typeLine": "Enchantment",
+      "oracleText": "{B}, Discard a creature card: Return target creature card from your graveyard to your hand.",
+      "flavorText": "\"There are terrors lurking in the unseen corners of us all.\"\n—Crovax",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Keith Parkinson",
+      "imageId": "1754b92b-d6f9-4503-af01-dee03f72a048"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "sth",
+  "collectorNumber": "74",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NARCISSISM: CardData = {
+  "scryfallId": "eea658dd-7567-4b93-88a4-08b4ffb3dad7",
+  "oracleId": "59cd56d2-42f3-44de-b1b8-a5f9105dcaa8",
+  "name": "Narcissism",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Narcissism",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "{G}, Discard a card: Target creature gets +2/+2 until end of turn.\n{G}, Sacrifice this enchantment: Target creature gets +2/+2 until end of turn.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "eea658dd-7567-4b93-88a4-08b4ffb3dad7"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tor",
+  "collectorNumber": "134",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ZOMBIE_INFESTATION: CardData = {
+  "scryfallId": "12fd6d4d-203b-4a2e-8726-1533fe74e475",
+  "oracleId": "bdce1af0-3643-4e77-88f9-320206a191d4",
+  "name": "Zombie Infestation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Zombie Infestation",
+      "manaCost": "{1}{B}",
+      "typeLine": "Enchantment",
+      "oracleText": "Discard two cards: Create a 2/2 black Zombie creature token.",
+      "flavorText": "The nomads' funeral pyres are more practical than ceremonial.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Thomas M. Baxa",
+      "imageId": "12fd6d4d-203b-4a2e-8726-1533fe74e475"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "ODY-170",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THRABEN_STANDARD_BEARER: CardData = {
+  "scryfallId": "0229a5ce-196b-494e-bc6f-a71daedf05cc",
+  "oracleId": "679d5a1d-8da8-4142-924b-97b359f55309",
+  "name": "Thraben Standard Bearer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thraben Standard Bearer",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{1}{W}, {T}, Discard a card: Create a 1/1 white Human Soldier creature token.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Volkan Baǵa",
+      "imageId": "0229a5ce-196b-494e-bc6f-a71daedf05cc"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "j21",
+  "collectorNumber": "150",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THE_UNDERWORLD_COOKBOOK: CardData = {
+  "scryfallId": "039d62b0-3309-4424-a2ea-5a0d88d4bd72",
+  "oracleId": "37d5c720-d090-44bc-91df-0a7bab79a03e",
+  "name": "The Underworld Cookbook",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "The Underworld Cookbook",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Book",
+      "oracleText": "{T}, Discard a card: Create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")\n{4}, {T}, Sacrifice this artifact: Return target creature card from your graveyard to your hand.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Joe Slucher",
+      "imageId": "039d62b0-3309-4424-a2ea-5a0d88d4bd72"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Food"
+  ],
+  "setCode": "mh2",
+  "collectorNumber": "240",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INSOLENT_NEONATE: CardData = {
+  "scryfallId": "05abbb39-10f8-4015-b81b-028dfc88afa3",
+  "oracleId": "a9a1d92d-150b-48e1-b41b-dd746b7c1626",
+  "name": "Insolent Neonate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Insolent Neonate",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Vampire",
+      "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nDiscard a card, Sacrifice this creature: Draw a card.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Deruchenko Alexander",
+      "imageId": "05abbb39-10f8-4015-b81b-028dfc88afa3"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Menace"
+  ],
+  "setCode": "sir",
+  "collectorNumber": "165",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MASKED_MEOWER: CardData = {
+  "scryfallId": "2e918a9c-4d06-489e-9a7c-a56f7ded7c0e",
+  "oracleId": "a0037ff8-64db-45dd-bba1-db5c49095083",
+  "name": "Masked Meower",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Masked Meower",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Spider Cat Hero",
+      "oracleText": "Haste\nDiscard a card, Sacrifice this creature: Draw a card.",
+      "flavorText": "Neither criminals nor veterinarians had much luck pinning down the uncatchable Spider-Cat.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Narendra Bintara Adi",
+      "imageId": "2e918a9c-4d06-489e-9a7c-a56f7ded7c0e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "msc",
+  "collectorNumber": "807",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEISMIC_ASSAULT: CardData = {
+  "scryfallId": "14363cc7-ef76-41ad-9307-8ab3ed469a23",
+  "oracleId": "8ad4f2fe-6d98-4279-a331-3817d40ae46d",
+  "name": "Seismic Assault",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Seismic Assault",
+      "manaCost": "{R}{R}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "Discard a land card: This enchantment deals 2 damage to any target.",
+      "flavorText": "Earth arms itself with fire.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "14363cc7-ef76-41ad-9307-8ab3ed469a23"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "10e",
+  "collectorNumber": "228",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const APHETTO_GRIFTER: CardData = {
+  "scryfallId": "3a7a7bf3-1b0c-415d-9c57-73ac55b1f915",
+  "oracleId": "d9d7b7a9-5107-4720-9f92-b49e372372b8",
+  "name": "Aphetto Grifter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aphetto Grifter",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "Tap two untapped Wizards you control: Tap target permanent.",
+      "flavorText": "Aphetto con artists started working in pairs to make it less likely they'd be the victims of con artists.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "3a7a7bf3-1b0c-415d-9c57-73ac55b1f915"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ons",
+  "collectorNumber": "65",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CATAPULT_MASTER: CardData = {
+  "scryfallId": "544df614-277e-43dd-8611-3ec1e1747f57",
+  "oracleId": "02da2145-0edb-44be-8622-360182a8c25a",
+  "name": "Catapult Master",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Catapult Master",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Tap five untapped Soldiers you control: Exile target creature.",
+      "flavorText": "\"There's no 'I' in 'team,' but there's a 'we' in 'weapon.'\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "544df614-277e-43dd-8611-3ec1e1747f57"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ddf",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEVOUT_CHAPLAIN: CardData = {
+  "scryfallId": "4be0f70c-6bee-4208-8111-735b2fa31b4d",
+  "oracleId": "1e575a82-e128-4637-87cd-f075654bc41b",
+  "name": "Devout Chaplain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Devout Chaplain",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{T}, Tap two untapped Humans you control: Exile target artifact or enchantment.",
+      "flavorText": "\"By Avacyn's decree, we shall cleanse these relics of their demonic past.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Lucas Graciano",
+      "imageId": "4be0f70c-6bee-4208-8111-735b2fa31b4d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "c20",
+  "collectorNumber": "87",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HAND_OF_JUSTICE: CardData = {
+  "scryfallId": "162ea8d8-314e-4504-9724-a7f77caac130",
+  "oracleId": "af8eb20a-dfa2-49a4-892b-26d7e276fcd2",
+  "name": "Hand of Justice",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hand of Justice",
+      "manaCost": "{5}{W}",
+      "typeLine": "Creature — Avatar",
+      "oracleText": "{T}, Tap three untapped white creatures you control: Destroy target creature.",
+      "flavorText": "\"The Hand of Justice will come to cleanse the world if we are true.\"\n—Oliver Farrel",
+      "power": "2",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Melissa A. Benson",
+      "imageId": "162ea8d8-314e-4504-9724-a7f77caac130"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "prm",
+  "collectorNumber": "223",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KEEPER_OF_THE_NINE_GALES: CardData = {
+  "scryfallId": "ebe22587-662c-4f43-adbc-a614f5680636",
+  "oracleId": "39c4357b-6093-486b-8131-041a3f89af75",
+  "name": "Keeper of the Nine Gales",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Keeper of the Nine Gales",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Bird Wizard",
+      "oracleText": "Flying\n{T}, Tap two untapped Birds you control: Return target permanent to its owner's hand.",
+      "flavorText": "\"You cannot fight the storm.\"",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jim Nelson",
+      "imageId": "ebe22587-662c-4f43-adbc-a614f5680636"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "LGN-42",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRADEWIND_RIDER: CardData = {
+  "scryfallId": "09412374-3645-4644-952e-2beaefb3104b",
+  "oracleId": "d0314da0-da24-4f6e-b1f6-0d50617bcaaa",
+  "name": "Tradewind Rider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tradewind Rider",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\n{T}, Tap two untapped creatures you control: Return target permanent to its owner's hand.",
+      "flavorText": "It is said that the wind will blow the world past if you wait long enough.",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "John Matson",
+      "imageId": "09412374-3645-4644-952e-2beaefb3104b"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "tmp",
+  "collectorNumber": "98",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NULLMAGE_SHEPHERD: CardData = {
+  "scryfallId": "11f2a6de-1598-4dd9-81a0-9a4f3dd4de0b",
+  "oracleId": "4dcfd397-9d29-420c-8fd8-c7c2a99de122",
+  "name": "Nullmage Shepherd",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nullmage Shepherd",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Elf Shaman",
+      "oracleText": "Tap four untapped creatures you control: Destroy target artifact or enchantment.",
+      "flavorText": "The shepherds work in secret, seeking out abominations against nature and returning them to earth and dust.",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Stephen Tappin",
+      "imageId": "11f2a6de-1598-4dd9-81a0-9a4f3dd4de0b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "rav",
+  "collectorNumber": "174",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANCESTOR_S_PROPHET: CardData = {
+  "scryfallId": "4d9ff386-5fcc-484a-abd2-d135f522c41e",
+  "oracleId": "274ce6b0-af29-4afc-873b-b4126a67bd81",
+  "name": "Ancestor's Prophet",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ancestor's Prophet",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "Tap five untapped Clerics you control: You gain 10 life.",
+      "flavorText": "\"We have faced horrors of war and terrors beyond imagining. We will overcome the uncertainties of this new life.\"",
+      "power": "1",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "4d9ff386-5fcc-484a-abd2-d135f522c41e"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "ONS-3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DWARVEN_BLOODBOILER: CardData = {
+  "scryfallId": "4d67bace-4125-421f-8c65-628268c72fb9",
+  "oracleId": "cbbca098-0b33-4693-8ea7-a2005b79af3d",
+  "name": "Dwarven Bloodboiler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dwarven Bloodboiler",
+      "manaCost": "{R}{R}{R}",
+      "typeLine": "Creature — Dwarf",
+      "oracleText": "Tap an untapped Dwarf you control: Target creature gets +2/+0 until end of turn.",
+      "flavorText": "His battle cry unleashes an avalanche of dwarves.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Arnie Swekel",
+      "imageId": "4d67bace-4125-421f-8c65-628268c72fb9"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "JUD-84",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SANDSOWER: CardData = {
+  "scryfallId": "43472fbe-d4f6-41b5-9928-965336d44a8f",
+  "oracleId": "1dce1f39-eacb-4d29-899b-55569284c7ed",
+  "name": "Sandsower",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sandsower",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Tap three untapped creatures you control: Tap target creature.",
+      "flavorText": "It drifts through the streets as a breeze of collective sighs, wilting the bustle with dreams and heavy eyelids.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "43472fbe-d4f6-41b5-9928-965336d44a8f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "rav",
+  "collectorNumber": "28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKAAB_WRANGLER: CardData = {
+  "scryfallId": "9771d9e8-97d5-44af-8612-dc5c44d65ceb",
+  "oracleId": "8de2ce5a-9345-4d2b-a248-868268f36836",
+  "name": "Skaab Wrangler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skaab Wrangler",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "Tap three untapped creatures you control: Tap target creature.",
+      "flavorText": "After Uda's hat boutique in Selhoff was destroyed by werewolves, she relocated outside of town and took up a new type of sewing.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Billy Christian",
+      "imageId": "9771d9e8-97d5-44af-8612-dc5c44d65ceb"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mid",
+  "collectorNumber": "75",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPURRED_WOLVERINE: CardData = {
+  "scryfallId": "46d7aaea-226b-4820-8db2-89dcdcbcc557",
+  "oracleId": "245b62a8-b606-4106-87c3-a60ce3e16906",
+  "name": "Spurred Wolverine",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spurred Wolverine",
+      "manaCost": "{4}{R}",
+      "typeLine": "Creature — Wolverine Beast",
+      "oracleText": "Tap two untapped Beasts you control: Target creature gains first strike until end of turn.",
+      "flavorText": "After a few painful experiences, goblins learned not to pick their noses around the beasts.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Daren Bader",
+      "imageId": "46d7aaea-226b-4820-8db2-89dcdcbcc557"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ons",
+  "collectorNumber": "237",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SELESNYA_EVANGEL: CardData = {
+  "scryfallId": "07901048-cddf-4307-bd52-5387190e66ff",
+  "oracleId": "4a2fea39-99d6-4766-9f2c-0a63925349cb",
+  "name": "Selesnya Evangel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Selesnya Evangel",
+      "manaCost": "{G}{W}",
+      "typeLine": "Creature — Elf Shaman",
+      "oracleText": "{1}, {T}, Tap an untapped creature you control: Create a 1/1 green Saproling creature token.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Rob Alexander",
+      "imageId": "07901048-cddf-4307-bd52-5387190e66ff"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "psal",
+  "collectorNumber": "J55",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LARDER_ZOMBIE: CardData = {
+  "scryfallId": "a7c0dcac-f3d4-4d6e-9c6e-9295bb1cd47f",
+  "oracleId": "61ab4548-5da9-4351-87e7-a3afc93d4bf5",
+  "name": "Larder Zombie",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Larder Zombie",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "Defender\nTap three untapped creatures you control: Surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)",
+      "flavorText": "The cathars arrived at the abandoned lab to find many of the unfinished projects gnawing on one another.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "E. M. Gist",
+      "imageId": "a7c0dcac-f3d4-4d6e-9c6e-9295bb1cd47f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Surveil",
+    "Defender"
+  ],
+  "setCode": "mid",
+  "collectorNumber": "58",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PROSPEROUS_PARTNERSHIP: CardData = {
+  "scryfallId": "183d29ca-dee2-4229-a235-43c29840d149",
+  "oracleId": "a40de3b1-b24b-4da4-b550-9ac9838aecba",
+  "name": "Prosperous Partnership",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Prosperous Partnership",
+      "manaCost": "{1}{R}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "When this enchantment enters, create two 1/1 green and white Citizen creature tokens.\nTap three untapped creatures you control: Create a Treasure token.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Evyn Fong",
+      "imageId": "183d29ca-dee2-4229-a235-43c29840d149"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "prm",
+  "collectorNumber": "99887",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKYSTRIKE_OFFICER: CardData = {
+  "scryfallId": "07d01c40-d5fe-4dc5-9358-02dac8542509",
+  "oracleId": "862798c6-1c38-4bb9-b4a1-3ef1fcf8f7f7",
+  "name": "Skystrike Officer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skystrike Officer",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Flying\nWhenever this creature attacks, create a 1/1 colorless Soldier artifact creature token.\nTap three untapped Soldiers you control: Draw a card.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Diego Gisbert",
+      "imageId": "07d01c40-d5fe-4dc5-9358-02dac8542509"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "bro",
+  "collectorNumber": "317",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CROOKCLAW_ELDER: CardData = {
+  "scryfallId": "8ced7275-3935-4bba-877d-81282bd171fd",
+  "oracleId": "9b851461-d258-41c4-bd0a-d24d5f1be6b2",
+  "name": "Crookclaw Elder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crookclaw Elder",
+      "manaCost": "{5}{U}",
+      "typeLine": "Creature — Bird Wizard",
+      "oracleText": "Flying\nTap two untapped Birds you control: Draw a card.\nTap two untapped Wizards you control: Target creature gains flying until end of turn.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "8ced7275-3935-4bba-877d-81282bd171fd"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "lgn",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -79997,6 +81514,50 @@ export const ENGINE_CARDS: CardData[] = [
   DIVERSIONARY_TACTICS,
   REVELSONG_HORN,
   WANDERBRINE_TRAPPER,
+  CHARGING_STRIFEKNIGHT,
+  GOBLIN_PICKER,
+  MAD_PROPHET,
+  OREAD_OF_MOUNTAIN_S_BLAZE,
+  COMPULSION,
+  DEEPWOOD_DRUMMER,
+  PLAGUE_WITCH,
+  RIDGED_KUSITE,
+  BALLOON_PEDDLER,
+  FLOWSTONE_CHANNELER,
+  WATERFRONT_BOUNCER,
+  TOLARIAN_SENTINEL,
+  KRIS_MAGE,
+  FODDER_TOSSER,
+  SELHOFF_ENTOMBER,
+  SEISMIC_MAGE,
+  STRONGHOLD_BIOLOGIST,
+  DEVOUT_WITNESS,
+  UNDERTAKER,
+  TORTURED_EXISTENCE,
+  NARCISSISM,
+  ZOMBIE_INFESTATION,
+  THRABEN_STANDARD_BEARER,
+  THE_UNDERWORLD_COOKBOOK,
+  INSOLENT_NEONATE,
+  MASKED_MEOWER,
+  SEISMIC_ASSAULT,
+  APHETTO_GRIFTER,
+  CATAPULT_MASTER,
+  DEVOUT_CHAPLAIN,
+  HAND_OF_JUSTICE,
+  KEEPER_OF_THE_NINE_GALES,
+  TRADEWIND_RIDER,
+  NULLMAGE_SHEPHERD,
+  ANCESTOR_S_PROPHET,
+  DWARVEN_BLOODBOILER,
+  SANDSOWER,
+  SKAAB_WRANGLER,
+  SPURRED_WOLVERINE,
+  SELESNYA_EVANGEL,
+  LARDER_ZOMBIE,
+  PROSPEROUS_PARTNERSHIP,
+  SKYSTRIKE_OFFICER,
+  CROOKCLAW_ELDER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

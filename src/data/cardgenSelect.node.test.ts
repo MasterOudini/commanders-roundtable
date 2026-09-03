@@ -106,8 +106,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Random-discard cost — and `ctx.random` is still a stub (D161).
   ['Amok', 'random-discard cost'],
   // Tap-N-untapped-creatures costs (D161).
-  ["Ancestor's Prophet", 'tap-creatures cost'],
-  ['Aphetto Grifter', 'tap-creatures cost'],
   // Exile-from-library cost (D161).
   ['Arc-Slogger', 'exile-from-library cost'],
   // "For the first time each turn" needs per-turn trigger memory the engine
@@ -138,9 +136,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // (CardsMoved to exile instead of graveyard); named cheap, not built yet.
   ['Brittle Effigy', 'exile-self cost'],
   ['Cabal Surgeon', 'exile-from-graveyard cost'],
-  ['Catapult Master', 'tap-creatures cost'],
   // Batch 10 (D167).
-  ['Charging Strifeknight', 'discard-cost chooser'],
   // "Your second spell each turn" is Axgard's per-turn trigger memory one
   // count over (D167).
   ['Clarion Spirit', 'once-per-turn trigger memory'],
@@ -160,12 +156,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // A dies-trigger raising the TARGET OPPONENT's discard prompt (D160's
   // class, Corrupt Court Official's dies-twin).
   // M6.4o (D171) — batch 13's five refusals, all existing classes.
-  ['Deepwood Drummer', 'discard-cost chooser'],
   // "{4}{B}, Sacrifice this creature: Target player discards two cards" —
   // the resolve must raise the target's chooseFromZone, which a script
   // cannot do (D160's class).
-  ['Devout Chaplain', 'tap-creatures cost'],
-  ['Devout Witness', 'discard-cost chooser'],
   // M6.4p (D172) — batch 14's seven refusals. Dragon Broodmother is a NEW
   // class: its token carries DEVOUR, an as-enters sacrifice choice on the
   // created permanent that nothing can raise. Dromad Purebred is the
@@ -177,7 +170,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dread Rider', 'exile-from-graveyard cost'],
   ['Dromad Purebred', 'per-damage-entry trigger granularity'],
   ['Dune Diviner', 'tap-permanents cost'],
-  ['Dwarven Bloodboiler', 'tap-creatures cost'],
   // M6.4r (D174) — batch 16's two refusals. Ezio watches a CLASS of
   // creatures deal combat damage, so two simultaneous Assassins are two
   // instances batched into one event (Aya's class, dealer side widened).
@@ -190,7 +182,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Firja, Judge of Valor', 'once-per-turn trigger memory'],
   ['Floodbringer', 'return-permanent cost'],
   ['Flooded Shoreline', 'return-permanent cost'],
-  ['Fodder Tosser', 'discard-cost chooser'],
   // Batch 18 (D176) — all three existing classes.
   ['Ghirapur Aether Grid', 'tap-permanents cost'],
   // Batch 19 (D177) — TWO NEW classes. Multi-sacrifice: D168's
@@ -198,7 +189,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Goblins" has no carrier. Sacrifice-event discriminator: `EventCause`
   // has no sacrifice kind AND `matches` receives the event BODY, so a
   // "whenever you sacrifice" watcher would over-fire on every death.
-  ['Goblin Picker', 'discard-cost chooser'],
   ['Goblin Warrens', 'multi-sacrifice cost'],
   ['Goldmaw Champion', 'once-per-turn trigger memory'],
   ['Graf Mole', 'sacrifice-event discriminator'],
@@ -224,7 +214,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // bare CardsMoved library→hand, indistinguishable from an Impulse-take or
   // a manual wrench move, and `matches` receives the event BODY — the
   // sacrifice-event discriminator (Graf Mole, D177) one event over.
-  ['Hand of Justice', 'tap-creatures cost'],
   ['Hardened Tactician', 'token-predicate sacrifice cost'],
   ['Hatchet Bully', 'put-counter cost'],
   // (Horizon Chimera's draw-event-discriminator entry DRAINED here when
@@ -246,7 +235,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // tracks no per-turn draw identity at all (the draw-event discriminator's
   // sibling: there is not even a draw EVENT, let alone a memory of which
   // card came last).
-  ['Insolent Neonate', 'discard-cost chooser'],
   ['Ion Storm', 'remove-counter cost'],
   ["Jandor's Ring", 'last-drawn-card memory cost'],
   // Batch 24 (D183): three existing classes and ONE new one. `Jolly
@@ -255,14 +243,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // raises, records or fulfils one).
   ['Jolly Gerbils', 'gift mechanic'],
   ['Jori En, Ruin Diver', 'once-per-turn trigger memory'],
-  ['Keeper of the Nine Gales', 'tap-creatures cost'],
   ['Keldon Arsonist', 'multi-sacrifice cost'],
   // Batch 25 (D184): five refusals, ZERO new classes — every one an
   // existing named gap, which is the ledger's drainage doing its job.
   ['Kessig Wolfrider', 'exile-from-graveyard cost'],
   ['Korozda Gorgon', 'remove-counter cost'],
   ['Krark-Clan Engineers', 'multi-sacrifice cost'],
-  ['Kris Mage', 'discard-cost chooser'],
   // Batch 26 (D185): FOUR new classes. `Lullmage's Familiar` needs kicker
   // (a cast-time additional-cost choice nothing records); `Lurking
   // Chupacabra` needs explore; `Magmaw` sacrifices "a NONLAND permanent"
@@ -278,7 +264,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Lifetap', 'per-tap-entry trigger granularity'],
   ['Linden, the Steadfast Queen', 'per-tap-entry trigger granularity'],
   ['Lyla, Holographic Assistant', 'draw-event discriminator'],
-  ['Mad Prophet', 'discard-cost chooser'],
   ['Mad Ratter', 'draw-event discriminator'],
   ['Mage il-Vec', 'random-discard cost'],
   // Batch 27 (D186), five refusals and TWO new classes. Matoya names the
@@ -288,7 +273,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // {Q} UNTAP-SYMBOL ACTIVATION COST: the source must be tapped and untaps
   // as the price, which no parse reads and no charge path pays. Meloku is
   // the return-permanent cost's third entry (D175's class).
-  ['Masked Meower', 'discard-cost chooser'],
   ['Matoya, Archon Elder', 'scry-surveil event discriminator'],
   ['Meloku the Clouded Mirror', 'return-permanent cost'],
   ['Merrow Grimeblotter', 'untap-symbol activation cost'],
@@ -369,7 +353,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // creatures' parses to max 1 (a COUNTED list, probed) — a silent
   // narrowing; Biomantic Mastery's mid-sentence 'another target player' is
   // Fall of the Hammer's shape one kind over.
-  ['Balloon Peddler', 'discard-cost chooser'],
   ['Band Together', 'up-to-N targeting'],
   ['Bar the Gate', 'dungeon/venture mechanic'],
   ['Befoul', 'negated-color target qualifier'],
@@ -592,7 +575,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // the opponent.
   ['Flashback', 'play-from-exile permission'],
   ['Flatline', 'until-end-of-turn base P/T set'],
-  ['Flowstone Channeler', 'discard-cost chooser'],
   ['Fold into Aether', 'opponent-chooses'],
   ['Foray of Orcs', 'amass mechanic'],
   ['Forced Landing', 'keyword target qualifier unenforced'],
@@ -688,7 +670,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Killing Glare', 'computed target threshold'],
   ["Kruphix's Insight", 'script-raised prompt'],
   ['Lair Delve', 'script-raised prompt'],
-  ['Larder Zombie', 'tap-creatures cost'],
   // D222 — Lava Storm's attacking-or-blocking arm is an un-templated
   // modal (Essence Filter's shape); Leeching Bite's mid-sentence
   // 'Another target' is D204's PROBED negative; Lost in Space hands
@@ -786,7 +767,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Noxious Grasp', 'color target qualifier unenforced'],
   ['Nuclear Fallout', 'rad counters'],
   ['Nullify', 'spell target parse (noun list)'],
-  ['Nullmage Shepherd', 'tap-creatures cost'],
   ["O'aka, Traveling Merchant", 'remove-counter cost'],
   ['Oboro Breezecaller', 'return-permanent cost'],
   ['Ogre Shaman', 'ctx.random'],
@@ -801,7 +781,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ondu War Cleric', 'tap-creatures cost'],
   ['Open the Vaults', 'script-raised prompt'],
   ['Order of Whiteclay', 'untap-symbol activation cost'],
-  ["Oread of Mountain's Blaze", 'discard-cost chooser'],
   ['Organ Grinder', 'exile-from-graveyard cost'],
   // D231 — Oust puts the creature SECOND from the top (Chronostutter's
   // class: the move event knows top and bottom only); Over the Top's mass
@@ -824,7 +803,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Piracy', 'tap-permission grant'],
   ['Pistus Strike', 'keyword target qualifier unenforced'],
   ['Pit Fight', 'spell target parse (second clause)'],
-  ['Plague Witch', 'discard-cost chooser'],
   // D234 (M6.4bw)
   ['Plummet', 'keyword target qualifier unenforced'],
   ['Polymorph', 'ctx.random'],
@@ -880,7 +858,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Reviving Vapors', 'script-raised prompt'],
   ['Rewind', 'up-to-N targeting'],
   ['Ribbons of Night', 'mana-spent memory'],
-  ['Ridged Kusite', 'discard-cost chooser'],
   ['Riding the Dilu Horse', 'indefinite continuous effect'],
   ['Rise from the Grave', 'indefinite continuous effect'],
   // D241 (M6.4cd)
@@ -894,7 +871,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Royal Herbalist', 'exile-from-library cost'],
   ["Sagittars' Volley", 'keyword target qualifier unenforced'],
   // D243 (M6.4cf)
-  ['Sandsower', 'tap-creatures cost'],
   ['Sanguine Sacrament', 'spell relocates itself on resolution'],
   ['Sanity Gnawers', 'ctx.random'],
   ['Scarblade Elite', 'exile-from-graveyard cost'],
@@ -907,11 +883,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Searing Blood', 'delayed trigger'],
   // D245 (M6.4ch)
   ['Secrets of the Dead', 'cast-zone discriminator'],
-  ['Seismic Assault', 'discard-cost chooser'],
-  ['Seismic Mage', 'discard-cost chooser'],
   ['Selective Snare', 'cast-time computed target count'],
-  ['Selesnya Evangel', 'tap-creatures cost'],
-  ['Selhoff Entomber', 'discard-cost chooser'],
   // D246 (M6.4ci)
   ['Serpentine Ambush', 'until-end-of-turn base P/T set'],
   ["Shade's Breath", 'temporary non-keyword ability grant'],
@@ -930,7 +902,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Singe', 'UEOT color change'],
   // D248 (M6.4ck)
   ['Sinister Concoction', 'discard-cost chooser'],
-  ['Skaab Wrangler', 'tap-creatures cost'],
   ['Sleep', 'untap restriction'],
   ['Sleight of Mind', 'text-changing effect (CR 612)'],
   ['Slimy Dualleech', 'spell target parse (numeric after controller)'],
@@ -958,7 +929,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Spirit en-Dal', 'ability-word activated cost'],
   ['Spoils of the Hunt', 'mana-spent memory'],
   ['Spring Cleaning', 'clash mechanic'],
-  ['Spurred Wolverine', 'tap-creatures cost'],
   // D252 (M6.4co)
   ['Square Up', 'until-end-of-turn base P/T set'],
   ['Steal Strength', 'spell target parse (second clause)'],
@@ -989,7 +959,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Strategic Betrayal', 'opponent-chooses'],
   ['Stream of Acid', 'spell target parse (noun list)'],
   ['Stream of Consciousness', 'up-to-N targeting'],
-  ['Stronghold Biologist', 'discard-cost chooser'],
   ['Struggle for Sanity', 'opponent-chooses'],
   ['Sudden Setback', 'opponent-chooses'],
   ['Sudden Storm', 'up-to-N targeting'],
@@ -1049,7 +1018,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['The Shire', 'tap-creatures cost'],
   ['Thopter Foundry', 'token-predicate sacrifice cost'],
   ['Thoughtlace', 'indefinite color change'],
-  ['Thraben Standard Bearer', 'discard-cost chooser'],
 
   // D260 (M6.4cw) — the most refusal-heavy batch since D238, and the reason
   // is the letter rather than the pipeline: the "Time" cards are almost all
@@ -1109,13 +1077,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // parses min 1 / max 1, so the spell would take exactly one target where the
   // card allows many — a second measured reason beside the colour change.
   ['Toils of Night and Day', 'script-raised prompt'],
-  ['Tolarian Sentinel', 'discard-cost chooser'],
   ['Too Greedily, Too Deep', 'post-entry computed value'],
   ['Topple', 'computed target threshold'],
-  ['Tortured Existence', 'discard-cost chooser'],
   ['Touch of Darkness', 'until-end-of-turn color change'],
   ['Track Down', 'script-raised prompt'],
-  ['Tradewind Rider', 'tap-creatures cost'],
   ['Transmogrify', 'ctx.random stub'],
 
   // D262 (M6.4cy) — ZERO new classes, and the probe's best finding is a
@@ -1181,7 +1146,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ability. MEASURED: `undying` is in neither the Tier-2 Keyword union nor
   // D194's GRANTABLE map (twenty keywords, all combat or targeting
   // properties). One missing carrier, not two — so one class name.
-  ['Undertaker', 'discard-cost chooser'],
   ['Undying Evil', 'quoted-ability temporary grant'],
   ['Undying Malice', 'quoted-ability temporary grant'],
   ['Unleash the Inferno', 'delayed trigger'],
@@ -1250,7 +1214,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // forms that genuinely fail to parse.
   ["Warriors' Lesson", 'quoted-ability temporary grant'],
   ['Wash Out', 'script-raised prompt'],
-  ['Waterfront Bouncer', 'discard-cost chooser'],
   ['Wavebreak Hippocamp', 'once-per-turn trigger memory'],
   ['Weed Strangle', 'clash mechanic'],
   ['West Coast Expansion', 'script-raised prompt'],
@@ -1328,7 +1291,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Zagoth Mamba', 'mutate mechanic'],
   ['Zenith Seeker', 'discard-event discriminator'],
   ['Zero Point Ballad', 'script-raised prompt'],
-  ['Zombie Infestation', 'discard-cost chooser'],
   ["Zoyowa's Justice", 'discover mechanic'],
   ['Zulaport Chainmage', 'tap-creatures cost'],
 
@@ -1385,7 +1347,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Clear the Mind', 'ctx.random'],
   ['Clutch of the Undercity', 'transmute mechanic'],
   ['Colossal Skyturtle', 'hand-activated ability'],
-  ['Compulsion', 'discard-cost chooser'],
   ['Controvert', 'recover mechanic'],
   ["Council's Deliberation", 'scry-surveil event discriminator'],
   ['Crackleburr', 'tap-creatures cost'],
@@ -1399,7 +1360,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // the untap restriction; Dash Hopes is opponent-chooses on a CAST trigger.
   ['Crashing Footfalls', 'suspend mechanic'],
   ['Crippling Chill', 'untap restriction'],
-  ['Crookclaw Elder', 'tap-creatures cost'],
   ['Crystal Spray', 'text-changing effect (CR 612)'],
   ['Dark Dabbling', 'regeneration'],
   ['Dash Hopes', 'opponent-chooses'],
@@ -1509,7 +1469,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // powers: opponent-chooses.
   ['Mordor Muster', 'amass mechanic'],
   ['Muddle the Mixture', 'transmute mechanic'],
-  ['Narcissism', 'discard-cost chooser'],
   ['Nighthaze', 'temporary keyword/ability grant'],
   ['Niveous Wisps', 'UEOT color change'],
   ['Nocturnal Hunger', 'gift mechanic'],
@@ -1530,7 +1489,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Hardened Tactician's line (token-predicate sacrifice cost).
   ['Plan the Heist', 'plot mechanic'],
   ['Plunder', 'suspend mechanic'],
-  ['Prosperous Partnership', 'tap-creatures cost'],
   ['Providence', 'opening-hand reveal'],
   ['Psychic Purge', 'discard-event discriminator'],
   ['Quickchange', 'script-raised prompt'],
@@ -1582,7 +1540,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Silver Scrutiny', 'cast-permission condition'],
   ['Skullport Merchant', 'compound sacrifice predicate'],
   ['Skyscribing', 'hand-activated ability'],
-  ['Skystrike Officer', 'tap-creatures cost'],
   ['Snakeform', 'until-end-of-turn type change with P/T set'],
   ['Snapback', 'cast-time alternative cost'],
   ['Soul of Zendikar', 'graveyard-activated ability'],
@@ -1609,7 +1566,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Swarming of Moria', 'amass mechanic'],
   ['Sylvan Bounty', 'cycling mechanic'],
   ['Teysa, Orzhov Scion', 'multi-sacrifice cost'],
-  ['The Underworld Cookbook', 'discard-cost chooser'],
   ['Thunderblade Charge', 'free-cast permission'],
   ['Thwart', 'cast-time alternative cost'],
   ['Tidal Bore', 'cast-time alternative cost'],

@@ -7,6 +7,50 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ANCESTORS_PROPHET_SCRIPT } from './cards/ancestorsProphet';
+import { APHETTO_GRIFTER_SCRIPT } from './cards/aphettoGrifter';
+import { BALLOON_PEDDLER_SCRIPT } from './cards/balloonPeddler';
+import { CATAPULT_MASTER_SCRIPT } from './cards/catapultMaster';
+import { CHARGING_STRIFEKNIGHT_SCRIPT } from './cards/chargingStrifeknight';
+import { COMPULSION_SCRIPT } from './cards/compulsion';
+import { CROOKCLAW_ELDER_SCRIPT } from './cards/crookclawElder';
+import { DEEPWOOD_DRUMMER_SCRIPT } from './cards/deepwoodDrummer';
+import { DEVOUT_CHAPLAIN_SCRIPT } from './cards/devoutChaplain';
+import { DEVOUT_WITNESS_SCRIPT } from './cards/devoutWitness';
+import { DWARVEN_BLOODBOILER_SCRIPT } from './cards/dwarvenBloodboiler';
+import { FLOWSTONE_CHANNELER_SCRIPT } from './cards/flowstoneChanneler';
+import { FODDER_TOSSER_SCRIPT } from './cards/fodderTosser';
+import { GOBLIN_PICKER_SCRIPT } from './cards/goblinPicker';
+import { HAND_OF_JUSTICE_SCRIPT } from './cards/handOfJustice';
+import { INSOLENT_NEONATE_SCRIPT } from './cards/insolentNeonate';
+import { KEEPER_OF_THE_NINE_GALES_SCRIPT } from './cards/keeperOfTheNineGales';
+import { KRIS_MAGE_SCRIPT } from './cards/krisMage';
+import { LARDER_ZOMBIE_SCRIPT } from './cards/larderZombie';
+import { MAD_PROPHET_SCRIPT } from './cards/madProphet';
+import { MASKED_MEOWER_SCRIPT } from './cards/maskedMeower';
+import { NARCISSISM_SCRIPT } from './cards/narcissism';
+import { NULLMAGE_SHEPHERD_SCRIPT } from './cards/nullmageShepherd';
+import { OREAD_OF_MOUNTAINS_BLAZE_SCRIPT } from './cards/oreadOfMountainsBlaze';
+import { PLAGUE_WITCH_SCRIPT } from './cards/plagueWitch';
+import { PROSPEROUS_PARTNERSHIP_SCRIPT } from './cards/prosperousPartnership';
+import { RIDGED_KUSITE_SCRIPT } from './cards/ridgedKusite';
+import { SANDSOWER_SCRIPT } from './cards/sandsower';
+import { SEISMIC_ASSAULT_SCRIPT } from './cards/seismicAssault';
+import { SEISMIC_MAGE_SCRIPT } from './cards/seismicMage';
+import { SELESNYA_EVANGEL_SCRIPT } from './cards/selesnyaEvangel';
+import { SELHOFF_ENTOMBER_SCRIPT } from './cards/selhoffEntomber';
+import { SKAAB_WRANGLER_SCRIPT } from './cards/skaabWrangler';
+import { SKYSTRIKE_OFFICER_SCRIPT } from './cards/skystrikeOfficer';
+import { SPURRED_WOLVERINE_SCRIPT } from './cards/spurredWolverine';
+import { STRONGHOLD_BIOLOGIST_SCRIPT } from './cards/strongholdBiologist';
+import { THE_UNDERWORLD_COOKBOOK_SCRIPT } from './cards/theUnderworldCookbook';
+import { THRABEN_STANDARD_BEARER_SCRIPT } from './cards/thrabenStandardBearer';
+import { TOLARIAN_SENTINEL_SCRIPT } from './cards/tolarianSentinel';
+import { TORTURED_EXISTENCE_SCRIPT } from './cards/torturedExistence';
+import { TRADEWIND_RIDER_SCRIPT } from './cards/tradewindRider';
+import { UNDERTAKER_SCRIPT } from './cards/undertaker';
+import { WATERFRONT_BOUNCER_SCRIPT } from './cards/waterfrontBouncer';
+import { ZOMBIE_INFESTATION_SCRIPT } from './cards/zombieInfestation';
 import { RUMMAGING_GOBLIN_SCRIPT } from './cards/rummagingGoblin';
 import { SKULLMEAD_CAULDRON_SCRIPT } from './cards/skullmeadCauldron';
 import { PEACE_OF_MIND_SCRIPT } from './cards/peaceOfMind';
@@ -2127,6 +2171,50 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ANCESTORS_PROPHET_SCRIPT,
+  APHETTO_GRIFTER_SCRIPT,
+  BALLOON_PEDDLER_SCRIPT,
+  CATAPULT_MASTER_SCRIPT,
+  CHARGING_STRIFEKNIGHT_SCRIPT,
+  COMPULSION_SCRIPT,
+  CROOKCLAW_ELDER_SCRIPT,
+  DEEPWOOD_DRUMMER_SCRIPT,
+  DEVOUT_CHAPLAIN_SCRIPT,
+  DEVOUT_WITNESS_SCRIPT,
+  DWARVEN_BLOODBOILER_SCRIPT,
+  FLOWSTONE_CHANNELER_SCRIPT,
+  FODDER_TOSSER_SCRIPT,
+  GOBLIN_PICKER_SCRIPT,
+  HAND_OF_JUSTICE_SCRIPT,
+  INSOLENT_NEONATE_SCRIPT,
+  KEEPER_OF_THE_NINE_GALES_SCRIPT,
+  KRIS_MAGE_SCRIPT,
+  LARDER_ZOMBIE_SCRIPT,
+  MAD_PROPHET_SCRIPT,
+  MASKED_MEOWER_SCRIPT,
+  NARCISSISM_SCRIPT,
+  NULLMAGE_SHEPHERD_SCRIPT,
+  OREAD_OF_MOUNTAINS_BLAZE_SCRIPT,
+  PLAGUE_WITCH_SCRIPT,
+  PROSPEROUS_PARTNERSHIP_SCRIPT,
+  RIDGED_KUSITE_SCRIPT,
+  SANDSOWER_SCRIPT,
+  SEISMIC_ASSAULT_SCRIPT,
+  SEISMIC_MAGE_SCRIPT,
+  SELESNYA_EVANGEL_SCRIPT,
+  SELHOFF_ENTOMBER_SCRIPT,
+  SKAAB_WRANGLER_SCRIPT,
+  SKYSTRIKE_OFFICER_SCRIPT,
+  SPURRED_WOLVERINE_SCRIPT,
+  STRONGHOLD_BIOLOGIST_SCRIPT,
+  THE_UNDERWORLD_COOKBOOK_SCRIPT,
+  THRABEN_STANDARD_BEARER_SCRIPT,
+  TOLARIAN_SENTINEL_SCRIPT,
+  TORTURED_EXISTENCE_SCRIPT,
+  TRADEWIND_RIDER_SCRIPT,
+  UNDERTAKER_SCRIPT,
+  WATERFRONT_BOUNCER_SCRIPT,
+  ZOMBIE_INFESTATION_SCRIPT,
   RUMMAGING_GOBLIN_SCRIPT,
   SKULLMEAD_CAULDRON_SCRIPT,
   PEACE_OF_MIND_SCRIPT,

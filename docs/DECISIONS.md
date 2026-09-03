@@ -19022,3 +19022,64 @@ the two classes; the cost-chooser verbs still unbuilt are exile-from-
 graveyard (15), remove-counter (7), return-permanent (6), random-discard
 (4, needs `ctx.random`), reveal, put-counter and the {Q} untap symbol. Then
 the prompt continuation seam; prior items stand.
+
+## D287 — M6.4dx: the cost-chooser seam's second batch — forty-four discard-cost and tap-cost cards, ZERO engine changes (2026-09-03)
+
+**3,947 of 31,692 Commander-legal cards execute completely, up from 3,903.**
+SHIPPED_SCRIPTS 2,006 → 2,050; ledger 812 → 768 (**forty-four rows DELETED**
+as their cards landed). ZERO new token pins, ZERO new support bodies, ZERO
+engine edits — every card rides D286's `discardCost` / `tapCost` seam as
+built. **Sliver Queen reaches 3,898 from 94 legendaries.**
+
+**What this batch proves.** D286 shipped the seam on twelve cards and said
+the two ledger classes were drainable; this is the drain. Forty-four cards
+whose only wall was "a cost the engine could not charge" land with scripts
+of the plainest shape — `activated [{ref, text, resolve}]` — because the
+cost is priced by the parser, offered by `legal.ts`, validated and charged
+by the host, and the script only ever sees the resolution. The largest
+batch since the family sweeps, and the cheapest per card.
+
+**The forty-four.** Discard (27): Charging Strifeknight, Goblin Picker, Mad
+Prophet, Oread of Mountain's Blaze, Compulsion, Deepwood Drummer, Plague
+Witch, Ridged Kusite, Balloon Peddler, Flowstone Channeler, Waterfront
+Bouncer, Tolarian Sentinel, Kris Mage, Fodder Tosser, Selhoff Entomber,
+Seismic Mage, Stronghold Biologist, Devout Witness, Undertaker, Tortured
+Existence, Narcissism, Zombie Infestation, Thraben Standard Bearer, The
+Underworld Cookbook, Insolent Neonate, Masked Meower, Seismic Assault (a
+LAND card pays; a creature card is refused). Tap (17): Aphetto Grifter,
+Catapult Master (five Soldiers: the Master and four fixture Soldiers),
+Devout Chaplain, Hand of Justice, Keeper of the Nine Gales, Tradewind Rider,
+Nullmage Shepherd, Ancestor's Prophet (five Clerics from the fixtures),
+Dwarven Bloodboiler, Sandsower, Skaab Wrangler, Spurred Wolverine, Selesnya
+Evangel, Larder Zombie, Prosperous Partnership, Skystrike Officer, Crookclaw
+Elder. Each suite pins the charge (the card leaves the hand / the creatures
+tap in the cost batch), the refusal (wrong card, wrong count, the source
+itself where "another" says so) and the offer rule (no candidates, no
+offer), then the resolution.
+
+**Tests:** 44 files / 109 tests. One slip at port time, worth its lesson: a
+single module's `printed()` guard threw at registry import — Larder Zombie's
+Surveil reminder text reads "You may put that card into your graveyard",
+not "put it" — and because the shipped registry imports every module, ALL
+forty-four suites failed at load with that one name in the error. The guard
+did exactly what D90 asks: it named the card, the text was re-read, the
+module corrected; nothing else moved. (And one test carried an unused
+import; `tsc` refused it before any suite ran.)
+
+Fixtures 2,258 → 2,302 (2,194 by name + 101 tokens) · botPool artifact 158 /
+creature 2,052 / enchantment 87 / instant 721 / land 342 / sorcery 587 ·
+ladder [1106, 1205, 2998, 4912, 6124] · tier3 `payable` 5,142 → 5,098 (the
+44 landed lines leave the unscripted-payable count; the seam's +315 stands)
+· batch.json 44 (by name) · botDeck: 3,898 from 94 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,130 files, 11,169 passing / 10 skipped · 500-seed gate 719.2 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D287): what is left in the two classes is the residue D286
+named (phrases the predicate reader cannot place), to be re-measured at the
+next ledger histogram. Next is the multi-clause up-to-N fix (drafted with
+seven cards): resolution-time target legality checked by clause SEARCH, not
+position, and "up to one other target" read as 0..1; then the remaining
+cost verbs (exile-from-graveyard 15, remove-counter 7, return-permanent 6,
+random-discard 4 behind `ctx.random`) and the prompt continuation seam;
+prior items stand.

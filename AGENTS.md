@@ -8670,6 +8670,45 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       remove-counter (7), return-permanent (6), random-discard (4, needs
       `ctx.random`), reveal, put-counter and {Q}; then the prompt
       continuation seam; prior items stand.
+- [x] **M6.4dx — the cost-chooser seam's second batch: forty-four
+      discard-cost and tap-cost cards, ZERO engine changes (2026-09-03):**
+      **3,947 of 31,692 Commander-legal cards now execute completely, up
+      from 3,903.** `SHIPPED_SCRIPTS` 2,006 → 2,050; ledger 768
+      (forty-four rows DELETED). ZERO token pins, ZERO support bodies, ZERO
+      engine edits. **Sliver Queen reaches 3,898 from 94 legendaries.**
+      Decisions in **D287**.
+      ⚠️ **The drain D286 promised:** every card rides `discardCost` /
+      `tapCost` as built — the parser prices the cost, `legal.ts` offers
+      it, the host charges it, the script sees only the resolution. The
+      largest batch since the family sweeps and the cheapest per card.
+      **Landed:** 27 discard (Charging Strifeknight, Goblin Picker, Mad
+      Prophet, Oread of Mountain's Blaze, Compulsion, Deepwood Drummer,
+      Plague Witch, Ridged Kusite, Balloon Peddler, Flowstone Channeler,
+      Waterfront Bouncer, Tolarian Sentinel, Kris Mage, Fodder Tosser,
+      Selhoff Entomber, Seismic Mage, Stronghold Biologist, Devout Witness,
+      Undertaker, Tortured Existence, Narcissism, Zombie Infestation,
+      Thraben Standard Bearer, The Underworld Cookbook, Insolent Neonate,
+      Masked Meower, Seismic Assault) and 17 tap (Aphetto Grifter, Catapult
+      Master, Devout Chaplain, Hand of Justice, Keeper of the Nine Gales,
+      Tradewind Rider, Nullmage Shepherd, Ancestor's Prophet, Dwarven
+      Bloodboiler, Sandsower, Skaab Wrangler, Spurred Wolverine, Selesnya
+      Evangel, Larder Zombie, Prosperous Partnership, Skystrike Officer,
+      Crookclaw Elder). Tests 44 files / 109 tests.
+      ⚠️ **Lesson:** one module's `printed()` throw at registry import
+      fails EVERY suite — the error names the card (Larder Zombie's Surveil
+      reminder reads "put that card", not "put it"); re-read, correct, done.
+      Fixtures 2,302 (2,194 by name + 101 tokens) · botPool artifact 158 /
+      creature 2,052 / enchantment 87 / instant 721 / land 342 / sorcery 587 ·
+      ladder [1106, 1205, 2998, 4912, 6124] · tier3 `payable` 5,098 ·
+      batch.json 44.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,130 files, 11,169 passing / 10 skipped · 500-seed gate 719.2 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D287): the two classes hold only D286's
+      unplaceable residue (re-measure at the next histogram); next the
+      multi-clause up-to-N fix (drafted, seven cards: legality by clause
+      SEARCH, "up to one other" = 0..1), then exile-from-graveyard (15),
+      remove-counter (7), return-permanent (6), random-discard (4, needs
+      `ctx.random`) and the prompt continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
