@@ -78895,6 +78895,178 @@ export const OPPOSITION: CardData = {
   "singleImage": true
 };
 
+export const DOOM_BLADE: CardData = {
+  "scryfallId": "077d5ca8-2a94-4d79-9314-c5ca2aa4d14b",
+  "oracleId": "59e7f2ae-4535-4191-98be-3e65b6b2befa",
+  "name": "Doom Blade",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Doom Blade",
+      "manaCost": "{1}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target nonblack creature.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Chippy",
+      "imageId": "077d5ca8-2a94-4d79-9314-c5ca2aa4d14b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m12",
+  "collectorNumber": "95",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NEGATE: CardData = {
+  "scryfallId": "026c499d-3d5b-4f65-a824-f78f146b82ef",
+  "oracleId": "3407fe41-fdd3-4119-8f70-4bc4590a379f",
+  "name": "Negate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Negate",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target noncreature spell.",
+      "flavorText": "\"Eventually, everything returns to silence.\"\n—Zarra, lullmage",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ryan Pancoast",
+      "imageId": "026c499d-3d5b-4f65-a824-f78f146b82ef"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ogw",
+  "collectorNumber": "59",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GO_FOR_THE_THROAT: CardData = {
+  "scryfallId": "0c375c43-1dfd-401c-ab7b-a89da7d1be0b",
+  "oracleId": "2f092562-9e17-43cd-aeb8-d0567f99363e",
+  "name": "Go for the Throat",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Go for the Throat",
+      "manaCost": "{1}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target nonartifact creature.",
+      "flavorText": "\"Pray that night is upon us, for if this twilight is the work of the Necrons, we are all dead men.\"\n—Address by Lieutenant Krakow prior to the Bloodmoon Massacres",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nikola Matkovic",
+      "imageId": "0c375c43-1dfd-401c-ab7b-a89da7d1be0b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "40k",
+  "collectorNumber": "201★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UTTER_END: CardData = {
+  "scryfallId": "09c10024-99f5-47d8-b74f-11d7f8511de4",
+  "oracleId": "cba94732-1f1f-4ffd-9aba-45db990043fa",
+  "name": "Utter End",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Utter End",
+      "manaCost": "{2}{W}{B}",
+      "typeLine": "Instant",
+      "oracleText": "Exile target nonland permanent.",
+      "flavorText": "\"I came seeking a challenge. All I found was you.\"\n—Zurgo, khan of the Mardu",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Mark Winters",
+      "imageId": "09c10024-99f5-47d8-b74f-11d7f8511de4"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "c16",
+  "collectorNumber": "226",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DISPERSE: CardData = {
+  "scryfallId": "0ae239b2-1596-4906-9711-1d180a246d35",
+  "oracleId": "9d8fe3f8-5027-4f9e-999e-e277caa96478",
+  "name": "Disperse",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Disperse",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return target nonland permanent to its owner's hand.",
+      "flavorText": "Gryffid scowled at the sky. A perfect day for the hunt tainted by clouds. He wished them gone. High above, the clouds looked down, scowled, and made a wish of their own.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Steve Ellis",
+      "imageId": "0ae239b2-1596-4906-9711-1d180a246d35"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mor",
+  "collectorNumber": "31",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -84638,6 +84810,11 @@ export const ENGINE_CARDS: CardData[] = [
   UNSUBSTANTIATE,
   ICY_MANIPULATOR,
   OPPOSITION,
+  DOOM_BLADE,
+  NEGATE,
+  GO_FOR_THE_THROAT,
+  UTTER_END,
+  DISPERSE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

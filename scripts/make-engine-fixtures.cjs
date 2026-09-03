@@ -2731,6 +2731,11 @@ const WANTED = [
   'Unsubstantiate',
   'Icy Manipulator',
   'Opposition',
+  'Doom Blade',
+  'Negate',
+  'Go for the Throat',
+  'Utter End',
+  'Disperse',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

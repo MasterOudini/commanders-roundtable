@@ -8937,6 +8937,44 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       "another" split; the self-sacrifice-by-name cost; the keyword LIST
       qualifier; the remaining cost verbs; the prompt continuation seam;
       prior items stand.
+- [x] **M6.4ee — THE ADJECTIVE SEAM: the adjectives a target clause prints
+      and the engine can check are enforced, then admitted; forty-five cards
+      read whole, Doom Blade and Negate among them (2026-09-03):** **4,113
+      of 31,692 Commander-legal cards now execute completely, up from
+      4,068.** `SHIPPED_SCRIPTS` 2,122 and ledger 763 unchanged (no scripts,
+      nothing ledgered). ZERO token pins, ZERO support bodies. **Sliver Queen
+      reaches 4,060 from 97 legendaries. The select pool refills with 137
+      cards — the next batch.** Decisions in **D294**.
+      ⚠️ **Measured first:** 798 cards print an adjective after "target"
+      (nonland 307, noncreature 82, tapped 68, nonblack 60, legendary 40 …);
+      46 read whole when it is enforced; the modal seam (355 spells, 42 with
+      every mode readable) and the per-alternative seam were sized in the
+      same probe and lost on worth per line.
+      ⚠️ **The seam (D139's order):** `TargetSpec.restrict` (colours, colour
+      count, negated types, supertypes, tapped, token); the adjective loop
+      absorbs what it can enforce and records the rest; "noncreature spell"
+      is enforced; `TargetCandidate` gains derived supertypes / tapped /
+      isToken on both adapters; `targetAllowed` checks; the effect macro
+      admits exactly the enforced set. Report: `effect:auto` 2,855 → 3,007;
+      `withUnenforced` 1,156 → 192.
+      **Landed:** 45 auto flips (43 named — Doom Blade, Go for the Throat,
+      Negate, Utter End, Cast Down, Disperse, Vanishing Verse, Ultimate
+      Price, Assassinate, Ceremonious Rejection, Saltblast, Vengeance … ).
+      Stay blocked, stated: Revive / Reborn Hope (the graveyard-return
+      pattern has no adjective slot), Radiant Purge (per-alternative).
+      Tests: targetAdjectives.test.ts 13 (five live proofs from the oracle);
+      targets.test.ts's "nonblack" pin rewritten.
+      Fixtures 2,393 (2,285 by name + 101 tokens) · botPool artifact 160 /
+      creature 2,094 / enchantment 93 / instant 810 / land 343 / sorcery 613 ·
+      ladder [1026, 1130, 2912, 4825, 6035] · tier3 `payable` 5,057 ·
+      batch.json 43 · select pool 137.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,206 files, 11,586 passed / 10 skipped · 500-seed gate 768.2 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D294): the 137 offerable cards; an adjective slot
+      for the graveyard-return patterns; the per-alternative list seam
+      (engine half drafted); the modal seam (42); the "another" split; the
+      self-sacrifice-by-name cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

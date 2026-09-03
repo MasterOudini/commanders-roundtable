@@ -408,15 +408,19 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // where the prompt bar offers the counter clause as one logged click.
       // These count FACES over every printing, which is why they are an order of
       // magnitude larger than `botPool`'s distinct-name figures.
-      'effect:none': 16366,
-      'effect:partial': 5110,
+      'effect:none': 16083,
+      'effect:partial': 5241,
       // D289: the target macro admits the KEYWORD qualifier ("with flying",
       // "without flying") now that TargetSpec.keyword is enforced, so 52 more
       // faces read whole (Plummet, Wing Snare, Roast, Defenestrate, ...), 67
       // leave "none" and 15 become partial.
       // D293: six noun lists ("artifact, enchantment, or creature" and kin) are
       // read by the target parser and admitted by the effect parser.
-      'effect:auto': 2855,
+      // D294: the adjectives the engine enforces (colours, negated types,
+      // supertypes, tapped, token) are admitted by the target macro, so 152
+      // more faces read whole - Doom Blade, Negate, Go for the Throat, Utter
+      // End and kin.
+      'effect:auto': 3007,
       // ⚠️ 13,581 → 10,372 in M6.4b (D159): `Sacrifice this <type>` and War
       // Room's commanders'-colors life phrase became CHARGEABLE cost parts, so
       // 3,209 printings' ability lines stopped warning `nonManaCost`. The
@@ -488,7 +492,9 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // so nothing moves here.
       // D291: "attacking" / "blocking" are enforced (TargetSpec.combatRole), so
       // they leave the unenforced record on 144 specs.
-      withUnenforced: 1156,
+      // D294: the enforced adjectives leave the unenforced record - 964 specs
+      // were held here by a word the engine could already check.
+      withUnenforced: 192,
     });
     // ⚠️ M6.4b (D159) moved three of these over the whole 113,559-printing
     // database: `lines` +195 (the brace rule admits a long cost that opens

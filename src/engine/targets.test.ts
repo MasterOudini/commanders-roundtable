@@ -98,11 +98,19 @@ describe('the target parser', () => {
     expect(specs[0]?.min).toBe(0);
   });
 
-  /** The kind is enforced; the adjective is recorded and said on the card. */
+  /** The kind is enforced; an adjective the engine cannot check is recorded and said on the card. */
   test('an adjective it cannot check is recorded rather than guessed at', () => {
+    const spec = parseTargetClauses('Destroy target modified creature.')[0];
+    expect(spec?.kinds).toEqual(['creature']);
+    expect(spec?.unenforced).toContain('modified');
+  });
+
+  /** D294: a colour the engine CAN check is a restriction, not a recorded word. */
+  test('an adjective it can check becomes a restriction (D294)', () => {
     const spec = parseTargetClauses('Destroy target nonblack creature.')[0];
     expect(spec?.kinds).toEqual(['creature']);
-    expect(spec?.unenforced).toContain('nonblack');
+    expect(spec?.restrict).toEqual({ colorsNone: ['B'] });
+    expect(spec?.unenforced).toEqual([]);
   });
 });
 

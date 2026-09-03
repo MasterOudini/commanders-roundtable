@@ -214,6 +214,25 @@ export interface KeywordRestriction {
  */
 export type CombatRole = 'attacking' | 'blocking' | 'attackingOrBlocking';
 
+/**
+ * The ADJECTIVES of a target clause the engine enforces (D294) — "nonblack
+ * creature", "tapped creature", "legendary creature", "nonland permanent",
+ * "noncreature spell", "nontoken creature". Every field is optional; an
+ * absent field restricts nothing. Until D294 these words sat in `unenforced`
+ * and every such card was refused, though a candidate already carries the
+ * facts to check them.
+ */
+export interface TargetRestrictions {
+  readonly colorsAny?: readonly ColorLetter[];
+  readonly colorsNone?: readonly ColorLetter[];
+  readonly colorCount?: 'zero' | 'one' | 'many';
+  readonly typesNone?: readonly string[];
+  readonly supertypesAny?: readonly string[];
+  readonly supertypesNone?: readonly string[];
+  readonly tapped?: boolean;
+  readonly token?: boolean;
+}
+
 export type TargetZone = 'graveyard' | 'exile';
 
 /**
@@ -285,6 +304,8 @@ export interface TargetSpec {
    * listed these words in `unenforced` and every such card was refused.
    */
   readonly combatRole: CombatRole | null;
+  /** The clause's enforced adjectives (D294), or `null` when it prints none the engine checks. */
+  readonly restrict: TargetRestrictions | null;
   /**
    * The clause EXACTLY as printed, sliced out of the oracle text — never
    * re-worded. It is what the prompt bar says. A paraphrase would be a second
@@ -313,6 +334,7 @@ export const FREE_TARGET: TargetSpec = {
   numeric: null,
   keyword: null,
   combatRole: null,
+  restrict: null,
   text: '',
   confident: false,
   unenforced: [],

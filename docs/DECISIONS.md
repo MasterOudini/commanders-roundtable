@@ -19585,3 +19585,97 @@ Spacecraft, Equipment, Aura, Wall — the noun table's unenforced subtype
 words are the same seam); the "another" split for spells (five flip); the
 self-sacrifice-by-name cost; the keyword LIST qualifier; the remaining
 cost verbs; the prompt continuation seam; prior items stand.
+
+## D294 — M6.4ee: THE ADJECTIVE SEAM — the adjectives a target clause prints and the engine can check are enforced, then admitted; forty-five cards read whole, Doom Blade and Negate among them (2026-09-03)
+
+**4,113 of 31,692 Commander-legal cards execute completely, up from 4,068.**
+SHIPPED_SCRIPTS 2,122 (unchanged — every one of the forty-five reads whole
+with no script); ledger 763 (unchanged; none of them was ever ledgered).
+ZERO new token pins, ZERO new support bodies. Five engine-side files
+change. Sliver Queen reaches 4,060 from 97 legendaries. **And the select
+pool refills with 137 cards** whose only wall was an adjective — the next
+batch, the largest offline pool since the select tool was written.
+
+**The gap, measured before it was built.** The target parser has SEEN
+adjectives all along: `ADJECTIVE_RE` strips "nonblack", "tapped",
+"legendary", "nonland", "token" and the rest so the head noun is reachable,
+and records each in `unenforced` — which makes `engineComplete` refuse the
+card, correctly, since nothing checked the word. But a candidate already
+carries the facts to check most of them: its colours, its types, its
+supertypes, whether it is tapped, whether it is a token. The probe over the
+database: **798 cards** print such an adjective after "target" (nonland
+307, noncreature 82, tapped 68, nonblack 60, legendary 40, nonbasic 29,
+nontoken 27, the five colours ~20 each, nonlegendary 20, token 13,
+nonartifact 12, multicolored 11, snow 10, untapped 8, basic 6, colorless 5,
+monocolored 5, and a tail); stripping them made **46 read whole with no
+script** — and they are staples: Doom Blade, Go for the Throat, Negate,
+Utter End, Cast Down, Disperse, Vanishing Verse, Ultimate Price, Assassinate,
+Ceremonious Rejection, Saltblast, Vengeance, Take Vengeance. The same probe
+sized the modal seam (355 "Choose one" spells, 42 with every mode readable)
+and the per-alternative list seam (a few dozen); the adjectives won on
+worth per line changed.
+
+**The seam, in D139's order — enforce first, then admit.**
+
+- `TargetSpec.restrict: TargetRestrictions | null` — `colorsAny`,
+  `colorsNone`, `colorCount` (colorless / monocolored / multicolored),
+  `typesNone` (nonartifact, noncreature, nonenchantment, nonland,
+  nonplaneswalker, nonbattle), `supertypesAny` / `supertypesNone`
+  (legendary, basic, snow and their negations), `tapped`, `token`.
+- The parser's adjective loop absorbs each word it can enforce into the
+  restriction and leaves the rest ("modified", "historic", "enchanted",
+  "equipped", "kicked", "other", "blocked", "face-down"…) in `unenforced`
+  exactly as before; `parseEnchant` does the same for Auras ("Enchant
+  nonblack creature"). The noun table's "noncreature spell" becomes a spell
+  restricted to non-Creature types and stops listing itself as unenforced.
+- `TargetCandidate` gains derived `supertypes`, `tapped` and `isToken` on
+  both adapters (a spell on the stack keeps its supertypes for "target
+  legendary spell"); `targetAllowed` checks every restriction after the CR,
+  kind and controller checks.
+- The effect parser's target macro admits exactly the enforced adjective
+  set — a word the target parser leaves unenforced is not admitted, or a
+  card would read whole over a restriction nothing checks.
+
+Across the database the parse report moves as it should: `effect:auto`
+2,855 → 3,007, `effect:none` 16,366 → 16,083, `effect:partial` 5,110 →
+5,241; `targets.withUnenforced` **1,156 → 192** — 964 specs had been held
+there by a word the engine could already check.
+
+**The forty-five.** Forty-three named by the probe read whole with no script
+(the sweep counted forty-five; the two unnamed were flips the probe's
+pattern did not reach). Three of the probe's 46 stay blocked for stated
+reasons: Revive and Reborn Hope return a "green" / "multicolored" CARD from a
+graveyard — the effect parser's return-from-graveyard pattern has no
+adjective slot (a later widening); Radiant Purge's "multicolored creature or
+multicolored enchantment" is a per-alternative restriction (the alternatives
+seam, drafted).
+
+**Tests:** `src/engine/targetAdjectives.test.ts` (13: each adjective family
+to its restriction, "noncreature spell" with nothing unenforced, an
+uncheckable adjective still recorded, the clause text, the effect parser's
+admission and refusal, and five live proofs cast from the ORACLE with no
+script — Doom Blade refuses the black Nighthawk and destroys the green Bears,
+Go for the Throat refuses the artifact creature, Utter End and Disperse
+refuse a land, Negate counters a held enchantment spell and refuses a held
+creature spell). `targets.test.ts`'s pin that "nonblack" is recorded rather
+than checked is rewritten: "modified" carries that point now, and
+"nonblack" is asserted as the restriction it is.
+
+Fixtures 2,388 → 2,393 (2,285 by name + 101 tokens — the five staples for the
+proofs) · botPool artifact 160 / creature 2,094 / enchantment 93 / instant
+810 / land 343 / sorcery 613 · auto spells 594 → 632 · ladder [1026, 1130,
+2912, 4825, 6035] · tier3 `payable` 5,057, `fourOrMore` 127 → 118 (the
+notes shrink) · batch.json 43 (by name) · botDeck: 4,060 from 97
+legendaries · **select pool 0 → 137**.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,206 files, 11,586 passed / 10 skipped · 500-seed gate 768.2 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D294): the 137 offerable cards are the next batch (dump,
+classify, generate where a table fits); an adjective slot for the
+return-from-graveyard patterns (Revive, Reborn Hope); the per-alternative
+list seam (engine half drafted and dry-verified; Radiant Purge, Broken Wings,
+"creature or Vehicle"); the modal seam (42 spells with every mode readable —
+a mode-choice prompt); the "another" split; the self-sacrifice-by-name
+cost; the remaining cost verbs; the prompt continuation seam; prior items
+stand.

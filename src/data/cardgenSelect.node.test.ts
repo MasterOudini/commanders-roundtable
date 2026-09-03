@@ -1704,9 +1704,10 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // 18 of them and ledgered the other 4, so it is empty again — and a
     // non-empty pool from here means either a new seam paid out or a ledger
     // entry went stale.
-    // D293 read six more noun lists; the two cards that became script-only
-    // (Icy Manipulator, Opposition) landed in the same batch.
-    expect(all.length).toBe(0);
+    // D294 enforced the adjectives the engine can check, and 137 cards whose
+    // only wall was such a word became script-only - the next batch; the pin
+    // follows the measurement and falls back as they land.
+    expect(all.length).toBe(137);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect(all.every((c) => c.lines > 0)).toBe(true);

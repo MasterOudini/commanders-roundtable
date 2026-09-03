@@ -80,6 +80,10 @@ export interface TargetCandidate {
   readonly keywords: readonly Keyword[];
   /** Its role in the CURRENT combat (D291); both false outside combat. */
   readonly combat: { readonly attacking: boolean; readonly blocking: boolean };
+  /** Derived supertypes, tapped-ness and token-ness (D294) — what an enforced adjective restricts on. */
+  readonly supertypes: readonly string[];
+  readonly tapped: boolean;
+  readonly isToken: boolean;
   readonly hexproof: boolean;
   readonly shroud: boolean;
   readonly protection: Protection;
@@ -142,6 +146,22 @@ export function targetAllowed(
   if (spec.combatRole === 'attacking' && !c.combat.attacking) return false;
   if (spec.combatRole === 'blocking' && !c.combat.blocking) return false;
   if (spec.combatRole === 'attackingOrBlocking' && !c.combat.attacking && !c.combat.blocking) return false;
+
+  // ⚠️ The enforced adjectives (D294): colours, negated types, supertypes,
+  // tapped, token — each read off the candidate the way `power` is, derived.
+  const r = spec.restrict;
+  if (r !== null) {
+    if (r.colorsAny && !r.colorsAny.some((col) => c.colors.includes(col))) return false;
+    if (r.colorsNone && r.colorsNone.some((col) => c.colors.includes(col))) return false;
+    if (r.colorCount === 'zero' && c.colors.length !== 0) return false;
+    if (r.colorCount === 'one' && c.colors.length !== 1) return false;
+    if (r.colorCount === 'many' && c.colors.length < 2) return false;
+    if (r.typesNone && r.typesNone.some((t) => c.types.includes(t))) return false;
+    if (r.supertypesAny && !r.supertypesAny.some((t) => c.supertypes.includes(t))) return false;
+    if (r.supertypesNone && r.supertypesNone.some((t) => c.supertypes.includes(t))) return false;
+    if (r.tapped !== undefined && c.tapped !== r.tapped) return false;
+    if (r.token !== undefined && c.isToken !== r.token) return false;
+  }
 
   /**
    * ⚠️ **THE ZONE, WHICH THIS PREDICATE IGNORED UNTIL D138.** `TargetSpec.zones`
@@ -424,6 +444,9 @@ export function candidatesFromState(
       colors: d.colors,
       keywords: [...d.keywords],
       combat: { attacking: attacking.has(id), blocking: blocking.has(id) },
+      supertypes: d.typeLine.supertypes,
+      tapped: card.tapped,
+      isToken: card.isToken,
       hexproof: d.keywords.has('hexproof'),
       shroud: d.keywords.has('shroud'),
       protection: d.protection,
@@ -468,6 +491,11 @@ export function candidatesFromState(
       colors: [],
       keywords: [],
       combat: { attacking: false, blocking: false },
+      // ⚠️ A spell on the stack keeps its card types AND supertypes for "target
+      // noncreature spell" / "target legendary spell" (D294).
+      supertypes: spellOracle ? faceOf(spellOracle, obj.faceIndex).typeLine.supertypes : [],
+      tapped: false,
+      isToken: false,
       hexproof: false,
       shroud: false,
       protection: { colors: [], fromEverything: false, other: [] },
@@ -488,6 +516,9 @@ export function candidatesFromState(
       colors: [],
       keywords: [],
       combat: { attacking: false, blocking: false },
+      supertypes: [],
+      tapped: false,
+      isToken: false,
       hexproof: false,
       shroud: false,
       protection: { colors: [], fromEverything: false, other: [] },

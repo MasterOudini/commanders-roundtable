@@ -110,7 +110,15 @@ const NOUNS = [
 const KEYWORD_QUALIFIER =
   ' with(?:out)? (?:flying|reach|trample|vigilance|haste|lifelink|deathtouch|first strike|double strike|menace|defender|indestructible|flash|fear|intimidate|skulk|shadow|horsemanship|hexproof|shroud|infect|wither|toxic)';
 const QUALIFIER = `(?: with (?:mana value|converted mana cost|power|toughness) \\d+ or (?:less|greater|more)|${KEYWORD_QUALIFIER})?`;
-const TARGET = `(?:any target|target (?:${NOUNS})${QUALIFIER})`;
+/**
+ * ⚠️ The adjectives the TARGETING layer enforces since D294 — and ONLY those
+ * (a word the target parser leaves unenforced must not be admitted here, or
+ * a card would read whole over a restriction nothing checks). Same order as
+ * D139 and D289: enforce first, then admit the wording.
+ */
+const ADJECTIVE =
+  '(?:(?:non(?:artifact|creature|enchantment|land|planeswalker|battle|white|blue|black|red|green|legendary|basic|snow|token)|white|blue|black|red|green|colorless|multicolored|monocolored|tapped|untapped|legendary|basic|snow|token)\\s+)*';
+const TARGET = `(?:any target|target ${ADJECTIVE}(?:${NOUNS})${QUALIFIER})`;
 const NUM = '(?:\\d+)';
 
 const WORD_NUMBERS: Readonly<Record<string, number>> = {

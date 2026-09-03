@@ -29,7 +29,9 @@ import type {
   TargetZone,
 } from '../engine/types/oracle';
 import { FREE_TARGET, KEYWORD_SET } from '../engine/types/oracle';
-import type { CombatRole, Keyword, KeywordRestriction } from '../engine/types/oracle';
+import type { CombatRole, Keyword, KeywordRestriction, TargetRestrictions } from '../engine/types/oracle';
+/** The colour letter type, derived — `types/oracle` keeps it local (as D283 found). */
+type ColorLetter = NonNullable<TargetRestrictions['colorsAny']>[number];
 // ⚠️ Type-only, and deliberately so: `oracleParse` imports THIS module, so a
 // value import would close a runtime cycle. Types are erased, so this is not one.
 import type { Warn } from './oracleParse';
@@ -277,6 +279,103 @@ function readCount(before: string, at: number): CountResult {
 
 // ── the noun table ───────────────────────────────────────────────────────────
 
+// ── the adjectives the engine ENFORCES (D294) ──────────────────────────
+
+interface MutableRestrict {
+  colorsAny: ColorLetter[];
+  colorsNone: ColorLetter[];
+  colorCount: 'zero' | 'one' | 'many' | null;
+  typesNone: string[];
+  supertypesAny: string[];
+  supertypesNone: string[];
+  tapped: boolean | null;
+  token: boolean | null;
+}
+
+const COLOR_WORD: Readonly<Record<string, ColorLetter>> = { white: 'W', blue: 'U', black: 'B', red: 'R', green: 'G' };
+const TYPE_WORD: Readonly<Record<string, string>> = { artifact: 'Artifact', creature: 'Creature', enchantment: 'Enchantment', land: 'Land', planeswalker: 'Planeswalker', battle: 'Battle' };
+
+function emptyRestrict(): MutableRestrict {
+  return { colorsAny: [], colorsNone: [], colorCount: null, typesNone: [], supertypesAny: [], supertypesNone: [], tapped: null, token: null };
+}
+
+/**
+ * Absorb one printed adjective into the restriction the engine will check.
+ * Returns false for a word the engine cannot check yet ("modified", "historic",
+ * "enchanted", "other" ...), which stays in `unenforced` exactly as before.
+ */
+function absorbAdjective(r: MutableRestrict, raw: string): boolean {
+  const w = raw.toLowerCase().replace('colourless', 'colorless').replace('multicoloured', 'multicolored');
+  if (COLOR_WORD[w]) {
+    r.colorsAny.push(COLOR_WORD[w] as ColorLetter);
+    return true;
+  }
+  if (w === 'colorless') {
+    r.colorCount = 'zero';
+    return true;
+  }
+  if (w === 'multicolored') {
+    r.colorCount = 'many';
+    return true;
+  }
+  if (w === 'monocolored') {
+    r.colorCount = 'one';
+    return true;
+  }
+  if (w === 'tapped' || w === 'untapped') {
+    r.tapped = w === 'tapped';
+    return true;
+  }
+  if (w === 'token' || w === 'nontoken') {
+    r.token = w === 'token';
+    return true;
+  }
+  if (w === 'legendary' || w === 'basic' || w === 'snow') {
+    r.supertypesAny.push(w.charAt(0).toUpperCase() + w.slice(1));
+    return true;
+  }
+  const neg = w.match(/^non-?(\w+)$/);
+  if (neg) {
+    const base = neg[1] ?? '';
+    if (COLOR_WORD[base]) {
+      r.colorsNone.push(COLOR_WORD[base] as ColorLetter);
+      return true;
+    }
+    if (TYPE_WORD[base]) {
+      r.typesNone.push(TYPE_WORD[base] as string);
+      return true;
+    }
+    if (base === 'legendary' || base === 'basic' || base === 'snow') {
+      r.supertypesNone.push(base.charAt(0).toUpperCase() + base.slice(1));
+      return true;
+    }
+  }
+  return false;
+}
+
+/** The immutable restriction, merged with a noun entry's own, or null when nothing was absorbed. */
+function finishRestrict(r: MutableRestrict, entry: TargetRestrictions | undefined): TargetRestrictions | null {
+  const out: {
+    colorsAny?: readonly ColorLetter[];
+    colorsNone?: readonly ColorLetter[];
+    colorCount?: 'zero' | 'one' | 'many';
+    typesNone?: readonly string[];
+    supertypesAny?: readonly string[];
+    supertypesNone?: readonly string[];
+    tapped?: boolean;
+    token?: boolean;
+  } = { ...(entry ?? {}) };
+  if (r.colorsAny.length > 0) out.colorsAny = [...(out.colorsAny ?? []), ...r.colorsAny];
+  if (r.colorsNone.length > 0) out.colorsNone = [...(out.colorsNone ?? []), ...r.colorsNone];
+  if (r.colorCount !== null) out.colorCount = r.colorCount;
+  if (r.typesNone.length > 0) out.typesNone = [...(out.typesNone ?? []), ...r.typesNone];
+  if (r.supertypesAny.length > 0) out.supertypesAny = [...(out.supertypesAny ?? []), ...r.supertypesAny];
+  if (r.supertypesNone.length > 0) out.supertypesNone = [...(out.supertypesNone ?? []), ...r.supertypesNone];
+  if (r.tapped !== null) out.tapped = r.tapped;
+  if (r.token !== null) out.token = r.token;
+  return Object.keys(out).length > 0 ? out : null;
+}
+
 interface NounEntry {
   /** Regex source, anchored at the start of the post-`target ` remainder. */
   readonly re: RegExp;
@@ -296,6 +395,8 @@ interface NounEntry {
   readonly unenforced?: readonly string[];
   /** The combat role the noun requires (D291) — enforced, so never also in `unenforced`. */
   readonly combatRole?: CombatRole;
+  /** Restrictions the noun itself carries (D294) — "noncreature spell" is a spell that is not a creature. */
+  readonly restrict?: TargetRestrictions;
 }
 
 /** Optional plural, so `target creatures` matches `creature`. */
@@ -370,10 +471,11 @@ const NOUNS: readonly NounEntry[] = [
   { re: new RegExp(`^spell${s}\\s+or\\s+abilit(?:y|ies)\\b`, 'i'), kinds: ['spell'] },
   { re: new RegExp(`^spell${s}\\s+or\\s+permanent${s}\\b`, 'i'), kinds: ['spell', 'permanent'] },
   // Enforced since D198 the way "creature card" has been since D138 — same
-  // field, same predicate, one zone over. "noncreature" stays unenforced:
+  // field, same predicate, one zone over. "noncreature" is ENFORCED since D294
+  // (`restrict.typesNone` against the cast face's types):
   // a NEGATED type has no TargetSpec field (the D185 ledger class).
   { re: new RegExp(`^creature\\s+spell${s}\\b`, 'i'), kinds: ['spell'], cardTypes: ['Creature'] },
-  { re: new RegExp(`^noncreature\\s+spell${s}\\b`, 'i'), kinds: ['spell'], unenforced: ['noncreature spell'] },
+  { re: new RegExp(`^noncreature\\s+spell${s}\\b`, 'i'), kinds: ['spell'], restrict: { typesNone: ['Creature'] } },
   { re: new RegExp(`^spell${s}\\b`, 'i'), kinds: ['spell'] },
   { re: new RegExp(`^abilit(?:y|ies)\\b`, 'i'), kinds: ['spell'] },
 
@@ -655,6 +757,7 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
         numeric: null,
         keyword: null,
         combatRole: null,
+        restrict: null,
         text: text.slice(start >= 0 ? start : at, at + word.length),
         confident: true,
         unenforced: [],
@@ -671,10 +774,14 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
     const consumed = after.length - rest.length;
     let cursor = at + word.length + consumed;
     const unenforced: string[] = [...count.unenforced];
+    // ⚠️ D294: an adjective the engine can check becomes a RESTRICTION; the
+    // rest stay recorded as unenforced, exactly as before.
+    const restrict = emptyRestrict();
     for (;;) {
       const adj = rest.match(ADJECTIVE_RE);
       if (!adj) break;
-      unenforced.push((adj[1] ?? '').trim());
+      const word = (adj[1] ?? '').trim();
+      if (!absorbAdjective(restrict, word)) unenforced.push(word);
       rest = rest.slice(adj[0].length);
       cursor += adj[0].length;
     }
@@ -714,6 +821,7 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
       numeric: ctl.numeric,
       keyword: ctl.keyword,
       combatRole: entry.combatRole ?? null,
+      restrict: finishRestrict(restrict, entry.restrict),
       text: text.slice(count.start, ctl.end).trim(),
       confident: count.confident,
       unenforced,
@@ -744,10 +852,12 @@ export function parseEnchant(text: string, warn: Warn = NOOP_WARN): TargetSpec |
 
   let rest = (m[1] ?? '').replace(/^\s+/, '');
   const unenforced: string[] = [];
+  const restrict = emptyRestrict();
   for (;;) {
     const adj = rest.match(ADJECTIVE_RE);
     if (!adj) break;
-    unenforced.push((adj[1] ?? '').trim());
+    const word = (adj[1] ?? '').trim();
+    if (!absorbAdjective(restrict, word)) unenforced.push(word);
     rest = rest.slice(adj[0].length);
   }
 
@@ -770,6 +880,7 @@ export function parseEnchant(text: string, warn: Warn = NOOP_WARN): TargetSpec |
     numeric: ctl.numeric,
     keyword: ctl.keyword,
     combatRole: entry.combatRole ?? null,
+    restrict: finishRestrict(restrict, entry.restrict),
     text: (m[0] ?? '').trim(),
     confident: true,
     unenforced,
