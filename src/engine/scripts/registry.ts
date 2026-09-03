@@ -7,6 +7,13 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ASSERT_PERFECTION_SCRIPT } from './cards/assertPerfection';
+import { BIONIC_BLOW_SCRIPT } from './cards/bionicBlow';
+import { CHELONIAN_TACKLE_SCRIPT } from './cards/chelonianTackle';
+import { DONATELLOS_SCIENCE_LESSON_SCRIPT } from './cards/donatellosScienceLesson';
+import { MABELS_METTLE_SCRIPT } from './cards/mabelsMettle';
+import { PRIMAL_MIGHT_SCRIPT } from './cards/primalMight';
+import { RELIC_CRUSH_SCRIPT } from './cards/relicCrush';
 import { ANCESTORS_PROPHET_SCRIPT } from './cards/ancestorsProphet';
 import { APHETTO_GRIFTER_SCRIPT } from './cards/aphettoGrifter';
 import { BALLOON_PEDDLER_SCRIPT } from './cards/balloonPeddler';
@@ -2171,6 +2178,13 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ASSERT_PERFECTION_SCRIPT,
+  BIONIC_BLOW_SCRIPT,
+  CHELONIAN_TACKLE_SCRIPT,
+  DONATELLOS_SCIENCE_LESSON_SCRIPT,
+  MABELS_METTLE_SCRIPT,
+  PRIMAL_MIGHT_SCRIPT,
+  RELIC_CRUSH_SCRIPT,
   ANCESTORS_PROPHET_SCRIPT,
   APHETTO_GRIFTER_SCRIPT,
   BALLOON_PEDDLER_SCRIPT,

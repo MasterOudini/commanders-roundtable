@@ -911,16 +911,24 @@ function targetsStillLegal(
   const specs = specsOverride ?? face?.targets ?? [];
   const candidates = candidatesFromState(state, deps);
   const src = { controller: obj.controller, colors: face?.colors ?? [] };
-  return obj.targets.some((target, i) => {
+  return obj.targets.some((target) => {
     const candidate = candidates.find(
       (c) => c.choice.kind === target.kind && c.choice.id === target.id,
     );
     if (!candidate) return false;
-    const spec = specs[i];
+    // ⚠️ NOT `specs[i]` (D288). Targets are a flat list that the validator
+    // assigned to clauses by SEARCH (`assignTargets`), never by position —
+    // so a spell whose optional clause precedes a required one ("up to two
+    // target creatures … Target player draws two cards") cast with zero
+    // creatures used to have its player checked against the creature clause
+    // and fizzle. CR 608.2b asks whether the target is still legal for the
+    // clause it answers; the answer is "some clause of this object admits
+    // it" — the same kind-and-restriction test, over every clause.
     // No parsed clause (a free-aim card, or an ability) still gets the CR
     // restrictions — shroud and protection do not stop applying because the
     // parser could not read the sentence.
-    return spec ? targetAllowed(spec, src, candidate) : !untargetableByRule(src, candidate);
+    if (specs.length === 0) return !untargetableByRule(src, candidate);
+    return specs.some((spec) => targetAllowed(spec, src, candidate));
   });
 }
 

@@ -2,22 +2,15 @@
 // its boosted power. The targets are identified BY CONTROLLER, never by
 // index (D255).
 //
-// ⚠️⚠️ AND THIS FILE PINS A REAL ENGINE BUG, MEASURED HERE.
-// D255 found it on Swift Kick; this reproduces it on a second card, so it is
-// not one script's mistake. Submit the SAME two legal targets in the OTHER
-// order and:
-//   · the aim layer ACCEPTS the answer — `submit` returns ok, no refusal;
-//   · the spell then does NOTHING — zero damage, no pump.
-// `assignTargets` is a one-for-one MATCHING (D102): it proves a legal
-// assignment EXISTS and does NOT reorder the answer. CR 608.2b's re-check
-// then reads the specs POSITIONALLY, finds "you control" pointing at the
-// opponent's creature, and fizzles the whole spell.
-//
-// The card is correct either way — the resolve below reads by controller and
-// would do the right thing if it ever ran. The bug is that it does not run.
-// The test asserts the MEASURED behaviour rather than the rules-correct one,
-// so it goes green today and goes RED the moment the aim layer is fixed —
-// which is exactly when someone should come back and delete this comment.
+// ⚠️ THIS FILE PINNED A REAL ENGINE BUG, MEASURED HERE, UNTIL D288 FIXED IT.
+// D255 found it on Swift Kick; this reproduced it on a second card. Submit
+// the SAME two legal targets in the OTHER order and the aim layer ACCEPTED
+// the answer while CR 608.2b's re-check read the specs POSITIONALLY, found
+// "you control" pointing at the opponent's creature, and fizzled the whole
+// spell. `assignTargets` is a one-for-one MATCHING (D102) that does not
+// reorder; since D288 the re-check asks the same question by clause SEARCH,
+// so both orders resolve — and the resolve reads by controller, so both
+// orders resolve RIGHT. The swapped case now lives in the happy path.
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
@@ -84,16 +77,11 @@ describe('Wild Instincts', () => {
     expect(g.state.cards[mine]?.zone.kind).toBe('graveyard');
   });
 
-  test('⚠️ MEASURED BUG: a SWAPPED answer is accepted and then does nothing', () => {
+  test('a SWAPPED answer is accepted and resolves the same way (D288)', () => {
     const { g, mine, theirs, accepted } = cast('theirsFirst');
-    // The aim layer raises no objection...
     expect(accepted).toBe(true);
-    // ...and then the spell fizzles entirely: no damage either way, no pump.
-    expect(g.state.cards[theirs]?.damage ?? 0).toBe(0);
-    expect(g.state.cards[mine]?.zone.kind).toBe('battlefield');
-    // ⚠️ CR says both orders are the same legal assignment. When the aim layer
-    // is fixed this test SHOULD go red — that is the signal to delete it and
-    // fold the case into the happy path above.
+    expect(g.state.cards[theirs]?.damage).toBe(4);
+    expect(g.state.cards[mine]?.zone.kind).toBe('graveyard');
   });
 
   test('the suppression predicate holds (D187)', () => {

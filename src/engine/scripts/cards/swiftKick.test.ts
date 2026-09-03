@@ -62,17 +62,17 @@ describe('Swift Kick', () => {
     expect(derive(g.state, ORACLE, g.deps.scripts, mine).power).toBe(7);
   });
 
-  // ⚠️ MEASURED, not assumed: the AIM accepts a swapped answer —
-  // `assignTargets` is a one-for-one matching and finds the legal
-  // assignment — but the spell then does NOTHING, so the resolution-time
-  // re-check (CR 608.2b) evidently reads the specs POSITIONALLY and
-  // fizzles. Two layers disagree about the same answer. The resolve here
-  // reads CONTROLLERS regardless, so it can never pump the wrong side;
-  // this test pins the engine behaviour that made that necessary.
-  test('a swapped answer is accepted at the aim and then does nothing', () => {
+  // ⚠️ D288: until then this case pinned a MEASURED engine bug — the aim
+  // accepted the swapped answer and the resolution-time re-check (CR
+  // 608.2b) read the specs POSITIONALLY and fizzled the spell. The re-check
+  // now asks whether SOME clause admits each target, the same search the
+  // aim used, so the swapped answer resolves — and because this resolve
+  // reads CONTROLLERS, it resolves RIGHT.
+  test('a swapped answer is accepted and resolves with the roles read by controller (D288)', () => {
     const { g, mine, theirs } = kicked(true);
-    expect(g.state.cards[theirs]?.zone.kind).toBe('battlefield');
-    expect(derive(g.state, ORACLE, g.deps.scripts, mine).power).toBe(6);
+    expect(g.state.cards[theirs]?.zone.kind).toBe('graveyard');
+    expect(g.state.cards[mine]?.zone.kind).toBe('battlefield');
+    expect(derive(g.state, ORACLE, g.deps.scripts, mine).power).toBe(7);
   });
 
   test('replays to the same hash', () => {

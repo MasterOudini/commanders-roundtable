@@ -1,16 +1,14 @@
 // `Wrong Turn` — the target OPPONENT gains control of the target creature.
 //
-// ⚠️⚠️ THIS FILE PINS D255's ENGINE BUG A THIRD TIME, AND WIDENS IT. The two
-// specs here differ by KIND (player, then creature), and the resolve reads
-// them by kind — so I expected a reordered answer to be safe. MEASURED: it is
-// not. Submit [creature, player] and the aim layer ACCEPTS the answer, then
-// CR 608.2b's positional re-check reads spec 0 ("target opponent") against
-// targets[0] (a creature), finds no match, and FIZZLES the whole spell. The
-// controller stays put and nothing happens. So the positional fizzle is not a
-// same-kind problem (Swift Kick D255, Wild Instincts D269): it hits ANY
-// multi-spec spell whose answer arrives out of spec order. The card is
-// correct either way; the test asserts the MEASURED behaviour so it goes RED
-// the day the re-check is fixed, which is when this comment should go.
+// ⚠️ THIS FILE PINNED D255's ENGINE BUG A THIRD TIME, AND WIDENED IT, UNTIL
+// D288 FIXED IT. The two specs here differ by KIND (player, then creature),
+// and the resolve reads them by kind — yet a reordered answer [creature,
+// player] was ACCEPTED at the aim and then FIZZLED, because CR 608.2b's
+// re-check read spec 0 ("target opponent") against targets[0] (a creature).
+// So the positional fizzle was never a same-kind problem: it hit ANY
+// multi-spec spell whose answer arrived out of spec order. Since D288 the
+// re-check asks whether SOME clause admits each target, and both orders
+// resolve; the reordered case now lives in the happy path.
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
@@ -67,15 +65,11 @@ describe('Wrong Turn', () => {
     expect(g.state.cards[bears]?.owner).toBe('p1');
   });
 
-  test('⚠️ MEASURED BUG: the reordered answer is accepted and then does NOTHING', () => {
+  test('the reordered answer is accepted and resolves the same way (D288)', () => {
     const { g, bears, accepted } = cast('cardFirst');
-    // The aim layer raises no objection...
     expect(accepted).toBe(true);
-    // ...and then the positional re-check fizzles the spell: no control change.
-    expect(g.state.cards[bears]?.controller).toBe('p1');
-    // ⚠️ The specs differ by KIND here, so this is NOT the same-kind ambiguity
-    // of D255/D269 — it is the re-check reading POSITIONALLY regardless. When
-    // that is fixed this test SHOULD go red; fold it into the happy path.
+    expect(g.state.cards[bears]?.controller).toBe('p2');
+    expect(g.state.cards[bears]?.owner).toBe('p1');
   });
 
   test('the suppression predicate holds (D187)', () => {

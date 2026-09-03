@@ -193,7 +193,16 @@ const COUNT_WINDOW = 32;
 function readCount(before: string, at: number): CountResult {
   const window = before.slice(Math.max(0, at - COUNT_WINDOW), at);
 
-  const upTo = window.match(/\bup\s+to\s+(\w+)\s+$/i);
+  // ⚠️ "up to one OTHER target creature" (D288): the word between the count
+  // and "target" is admitted so the count reads 0..N. "other" is NOT an
+  // unenforced word: `validateTargets` refuses the same choice twice across
+  // the whole declaration, every clause included, so the second pick can
+  // never be the first — the restriction holds by construction. That is
+  // exact for a spell, where "other" can only point at an earlier target of
+  // the same spell; on a permanent's ability it can mean "not this
+  // permanent", which a script claiming that line keeps out itself (the
+  // "another" branch below says the same of its word).
+  const upTo = window.match(/\bup\s+to\s+(\w+)\s+(?:other\s+)?$/i);
   if (upTo) {
     const raw = upTo[1] ?? '';
     const n = wordCount(raw);

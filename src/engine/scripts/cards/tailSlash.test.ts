@@ -1,13 +1,13 @@
 // `Tail Slash` — the two-controller bite, written by CONTROLLER from the
 // first draft (D255).
 //
-// ⚠️ The second case submits the pair SWAPPED and pins what the ENGINE
-// actually does with it — the same measurement D255 took on Swift Kick: the
-// AIM accepts the answer (`assignTargets` is a one-for-one matching, D102,
+// ⚠️ The second case submits the pair SWAPPED. Until D288 it pinned what the
+// ENGINE did with it — the same measurement D255 took on Swift Kick: the
+// AIM accepted the answer (`assignTargets` is a one-for-one matching, D102,
 // which proves a legal assignment exists without reordering it) and the
-// spell then does NOTHING, because the resolution-time re-check (CR 608.2b)
-// evidently reads the def's specs POSITIONALLY and fizzles. Two layers, one
-// answer, two verdicts — recorded, not assumed.
+// resolution-time re-check (CR 608.2b) read the specs POSITIONALLY and
+// fizzled. Since D288 the re-check asks the same question by clause SEARCH,
+// so the swapped answer resolves — by CONTROLLER, so it resolves right.
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
@@ -60,9 +60,9 @@ describe('Tail Slash', () => {
     expect(g.state.cards[mine]?.zone.kind).toBe('battlefield');
   });
 
-  test('a swapped answer is accepted at the aim and then does nothing', () => {
+  test('a swapped answer is accepted and resolves with the roles read by controller (D288)', () => {
     const { g, mine, theirs } = slashed(true);
-    expect(g.state.cards[theirs]?.zone.kind).toBe('battlefield');
+    expect(g.state.cards[theirs]?.zone.kind).toBe('graveyard');
     expect(g.state.cards[mine]?.zone.kind).toBe('battlefield');
   });
 

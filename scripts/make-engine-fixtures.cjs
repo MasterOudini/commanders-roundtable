@@ -2645,6 +2645,13 @@ const WANTED = [
   'Prosperous Partnership',
   'Skystrike Officer',
   'Crookclaw Elder',
+  "Donatello's Science Lesson",
+  "Mabel's Mettle",
+  'Assert Perfection',
+  'Bionic Blow',
+  'Relic Crush',
+  'Chelonian Tackle',
+  'Primal Might',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

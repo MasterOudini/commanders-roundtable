@@ -75901,6 +75901,248 @@ export const CROOKCLAW_ELDER: CardData = {
   "singleImage": true
 };
 
+export const DONATELLO_S_SCIENCE_LESSON: CardData = {
+  "scryfallId": "d7f0365f-ec72-4472-9506-6cc3e490b2e2",
+  "oracleId": "cd61a01c-dfe1-4c1e-8063-7f90fcd0c452",
+  "name": "Donatello's Science Lesson",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Donatello's Science Lesson",
+      "manaCost": "{2}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Tap up to two target creatures. Up to two target players each draw a card.",
+      "flavorText": "Now it is the shell who does the shocking.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Anthony Devine",
+      "imageId": "d7f0365f-ec72-4472-9506-6cc3e490b2e2"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tmc",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MABEL_S_METTLE: CardData = {
+  "scryfallId": "5cfcf83f-089c-4e35-855e-b61b98bb1cd8",
+  "oracleId": "c657626f-7444-4c26-842c-dda9b9656fa3",
+  "name": "Mabel's Mettle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mabel's Mettle",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +2/+2 until end of turn. Up to one other target creature gets +1/+1 until end of turn.",
+      "flavorText": "\"You stole a child from its nest,\" Mabel accused. \"The only calamity I see here is you.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Johan Grenier",
+      "imageId": "5cfcf83f-089c-4e35-855e-b61b98bb1cd8"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "blb",
+  "collectorNumber": "21",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ASSERT_PERFECTION: CardData = {
+  "scryfallId": "6995b308-5582-4ca1-ab10-a536d5ca0a6d",
+  "oracleId": "ecf574a5-6410-466d-a726-732134f904b2",
+  "name": "Assert Perfection",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Assert Perfection",
+      "manaCost": "{1}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control gets +1/+0 until end of turn. It deals damage equal to its power to up to one target creature an opponent controls.",
+      "flavorText": "Some elves still cling to the old ways of treating outsiders.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Matt Stewart",
+      "imageId": "6995b308-5582-4ca1-ab10-a536d5ca0a6d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ecl",
+  "collectorNumber": "164",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BIONIC_BLOW: CardData = {
+  "scryfallId": "956773a9-b604-46de-b7c4-28b8de49950a",
+  "oracleId": "27683e43-7c3f-45b3-8ca4-968428000315",
+  "name": "Bionic Blow",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bionic Blow",
+      "manaCost": "{X}{R}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control gets +X/+0 until end of turn. Then it deals damage equal to its power to up to one other target creature.",
+      "flavorText": "\"Spider-Man pulls his punches. I don't.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Julia Vasilyeva",
+      "imageId": "956773a9-b604-46de-b7c4-28b8de49950a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "msc",
+  "collectorNumber": "680",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RELIC_CRUSH: CardData = {
+  "scryfallId": "01c924b2-3b10-4bb0-b51d-122bfdd298aa",
+  "oracleId": "92381398-94f6-471f-874a-b5894e6f9487",
+  "name": "Relic Crush",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Relic Crush",
+      "manaCost": "{4}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Destroy target artifact or enchantment and up to one other target artifact or enchantment.",
+      "flavorText": "There are many ruins, but there used to be many more.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Steven Belledin",
+      "imageId": "01c924b2-3b10-4bb0-b51d-122bfdd298aa"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "zen",
+  "collectorNumber": "179",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHELONIAN_TACKLE: CardData = {
+  "scryfallId": "a82a4d8c-4105-4923-85a2-ef58241f725c",
+  "oracleId": "8c1c519a-6edd-4204-b825-b0feca5afa42",
+  "name": "Chelonian Tackle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chelonian Tackle",
+      "manaCost": "{2}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control gets +0/+10 until end of turn. Then it fights up to one target creature an opponent controls. (Each deals damage equal to its power to the other.)",
+      "flavorText": "\"Scurrids to climb the tower, cervins to cross the stadium, and turtles to win the game.\"\n—Quandrix Mage Tower tactics",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Lorenzo Mastroianni",
+      "imageId": "a82a4d8c-4105-4923-85a2-ef58241f725c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Fight"
+  ],
+  "setCode": "sos",
+  "collectorNumber": "142",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PRIMAL_MIGHT: CardData = {
+  "scryfallId": "0b61676e-6911-4d34-bbaf-2a63ee83310d",
+  "oracleId": "58d7b8b3-ac47-4805-8259-4ba8e70d7dc3",
+  "name": "Primal Might",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Primal Might",
+      "manaCost": "{X}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target creature you control gets +X/+X until end of turn. Then it fights up to one target creature you don't control. (Each deals damage equal to its power to the other.)",
+      "flavorText": "The shaman looked at the world through Ghalta's eyes and understood that everything else was his prey.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Randy Vargas",
+      "imageId": "0b61676e-6911-4d34-bbaf-2a63ee83310d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Fight"
+  ],
+  "setCode": "pm21",
+  "collectorNumber": "197p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -81558,6 +81800,13 @@ export const ENGINE_CARDS: CardData[] = [
   PROSPEROUS_PARTNERSHIP,
   SKYSTRIKE_OFFICER,
   CROOKCLAW_ELDER,
+  DONATELLO_S_SCIENCE_LESSON,
+  MABEL_S_METTLE,
+  ASSERT_PERFECTION,
+  BIONIC_BLOW,
+  RELIC_CRUSH,
+  CHELONIAN_TACKLE,
+  PRIMAL_MIGHT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

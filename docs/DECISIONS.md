@@ -19083,3 +19083,101 @@ position, and "up to one other target" read as 0..1; then the remaining
 cost verbs (exile-from-graveyard 15, remove-counter 7, return-permanent 6,
 random-discard 4 behind `ctx.random`) and the prompt continuation seam;
 prior items stand.
+
+## D288 — M6.4dy: ENGINE FIX 2 — resolution-time target legality by clause SEARCH, and "up to N other target" read as 0..N; seven cards (2026-09-03)
+
+**3,954 of 31,692 Commander-legal cards execute completely, up from 3,947.**
+SHIPPED_SCRIPTS 2,050 → 2,057; ledger 768 → 761 (**seven rows DELETED** as
+their cards landed). ZERO new token pins, ZERO new support bodies. **Sliver
+Queen reaches 3,905 from 94 legendaries.** Two engine files change, four
+swaps, and a whole class of multi-clause spells stops fizzling.
+
+**The bug (D284 named it, this fixes it).** `targetsStillLegal` in `loop.ts`
+checked the target at index *i* against the spec at index *i*. The validator
+never assigned that way — `assignTargets` places each chosen target into the
+first clause that admits it, by SEARCH — so a spell whose OPTIONAL clause
+precedes a required one ("Tap up to one target creature. Up to two target
+players each draw a card") cast with zero creatures had its player checked
+against the creature clause at resolution and fizzled, after the very same
+declaration had been accepted at cast. CR 608.2b asks whether each target is
+still legal for the clause it answers; the resolution check now asks "does
+SOME clause of this object admit it" — the same kind-and-restriction test,
+over every clause. A face with no parsed clauses keeps the CR restrictions
+(shroud, protection) exactly as before. The callback's index parameter goes
+with the bug; nothing else in the function moves.
+
+**The parser widening.** `readCount`'s `up to` window stopped at the word
+"other", so "up to one OTHER target creature" (Mabel's Mettle, Relic Crush,
+Bionic Blow) read as exactly one — a single-target cast of any of them was
+refused at declaration. The word is now admitted between the count and
+"target" and the clause reads 0..N. Across the database four more clauses
+reach the branch with an unknown X ("up to X other target creatures") and are
+counted honestly in the parse report (`target:unparsedCount` 551 → 555 — they
+used to read as exactly one, silently); nothing else in the report moves.
+
+⚠️ **"Other" holds by construction — measured, not assumed.** The first
+draft of the widening recorded "other" in `unenforced`, mirroring the
+"another" branch. The data sweep refused it by name: `engineComplete` treats
+any unenforced word as a restriction the bot would ignore, and Bionic Blow,
+Mabel's Mettle and Relic Crush stayed out of the count with the clause
+quoted. Reading the validator settled it: `validateTargets` refuses the same
+choice twice across the WHOLE declaration, every clause included, so the
+second pick can never be the first and "other" is enforced by the engine
+itself. The record was dropped, the pin returned to 1,300, and Mabel's
+Mettle carries the test — the same creature named for both clauses is
+refused. That is exact for a spell, where "other" can only point at an
+earlier target of the same spell; on a permanent's ability it can mean "not
+this permanent", which a script claiming that line keeps out itself — the
+comment in the parser says so. (The "another" branch is a different word: its comment says the
+engine cannot exclude the SOURCE from the candidate list — "another target
+creature" on a permanent's ability means "not this permanent", which the
+distinctness check does not cover. In a spell's clause "another" refers to
+the earlier target and IS covered. Splitting the two readings is a small
+validator seam for a later batch — measured first, not changed here.)
+
+**The seven.** Donatello's Science Lesson (a creature and two players answer
+two different clauses; zero targets is a legal cast that resolves; the clause
+that got no creature still resolves for the players), Mabel's Mettle (+2/+2
+then up to one other +1/+1; one target is a legal cast; the same creature
+twice is refused), Assert Perfection (+1/+0, then the pumped power to up to
+one other creature: 3 to a Nighthawk, which dies), Bionic Blow (X = 2: +2/+0
+and 4 damage), Relic Crush (an artifact or enchantment and up to one other;
+one target is a legal cast), Chelonian Tackle (+0/+10 then a fight), Primal
+Might (X = 2: +2/+2 then a fight at 4). Every suite has the "only the
+required target" case that used to fizzle or be refused.
+
+**Tests:** 7 files / 31 tests, all green on the first run after the patch.
+`src/engine/targets.test.ts` unchanged and green; the D32/D79 report pinned
+with the reasoning.
+
+⚠️ **Five suites went red on purpose.** Swift Kick (D255), Tail Slash
+(D256), Tenderize, Wild Instincts (D269) and Wrong Turn each carried a test
+that PINNED the positional fizzle as a measured bug — "when the re-check is
+fixed this test SHOULD go red; fold it into the happy path" — and gate 136
+turned exactly those five red and nothing else. Each is folded as its
+comment asked: the swapped or reordered answer is accepted AND resolves,
+with the roles read by controller or kind (the D255 convention every such
+resolve already follows). A comment-only refinement in `targetParse.ts`
+landed after that gate with `tsc` and the parser tests re-run; gate 137 is
+the run that lands.
+
+Fixtures 2,302 → 2,309 (2,201 by name + 101 tokens) · botPool artifact 158 /
+creature 2,052 / enchantment 87 / instant 724 / land 342 / sorcery 591 ·
+ladder [1099, 1198, 2991, 4905, 6117] · tier3 `payable` 5,098 (unchanged) ·
+batch.json 7 (by name) · botDeck: 3,905 from 94 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,137 files, 11,214 passing / 10 skipped · 500-seed gate 689.7 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D288): the "another" split above (source-relative on
+abilities — a validator seam; clause-relative in spells — already enforced;
+measure both before building); the up-to-N residue (Roiling Waters / Sea God's Revenge — a plural
+controller; Band Together / Tandem Takedown — which target is "another";
+Dragonclaw Strike — twobrid mana; the flicker three; the token-predicate
+pair; Light of Judgment; Return to Dust; Katara's Reversal; the untap
+restriction four; Fancy Footwork / Hearts on Fire; Sea God's Scorn; Tidal
+Surge; Decompose; Dwell on the Past / Stream of Consciousness;
+Misinformation; Chaotic Transformation; Temporary Truce; Tempted by the
+Oriq; Baral's Expertise); then the remaining cost verbs (exile-from-
+graveyard 15, remove-counter 7, return-permanent 6, random-discard 4 behind
+`ctx.random`) and the prompt continuation seam; prior items stand.

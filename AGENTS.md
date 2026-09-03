@@ -8709,6 +8709,49 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       SEARCH, "up to one other" = 0..1), then exile-from-graveyard (15),
       remove-counter (7), return-permanent (6), random-discard (4, needs
       `ctx.random`) and the prompt continuation seam; prior items stand.
+- [x] **M6.4dy — ENGINE FIX 2: resolution-time target legality by clause
+      SEARCH, and "up to N other target" read as 0..N; seven cards
+      (2026-09-03):** **3,954 of 31,692 Commander-legal cards now execute
+      completely, up from 3,947.** `SHIPPED_SCRIPTS` 2,050 → 2,057; ledger
+      761 (seven rows DELETED). ZERO token pins, ZERO support bodies.
+      **Sliver Queen reaches 3,905 from 94 legendaries.** Decisions in
+      **D288**.
+      ⚠️ **The fix:** `loop.ts` `targetsStillLegal` checked target *i*
+      against spec *i*; the validator assigns by SEARCH, so an optional
+      clause before a required one fizzled at resolution what it accepted
+      at cast. Now "some clause of this object admits it" (CR 608.2b), over
+      every clause; no-clause faces keep the CR restrictions.
+      ⚠️ **The widening:** `readCount`'s `up to` window admits "other", so
+      "up to one other target creature" reads 0..1 (four "up to X other"
+      clauses now honestly counted: `target:unparsedCount` 551 → 555).
+      ⚠️ **"Other" holds by construction — measured:** the first draft
+      recorded it as unenforced and the sweep refused three cards BY NAME;
+      `validateTargets` refuses the same choice twice across the whole
+      declaration, so the record was dropped (withUnenforced stays 1,300)
+      and Mabel's Mettle tests the refusal. The "another" branch is a
+      different word — source-relative on abilities ("not this permanent",
+      which distinctness does not cover; a small validator seam) and
+      clause-relative in spells (already enforced) — measured for later,
+      not changed here.
+      **Landed:** Donatello's Science Lesson, Mabel's Mettle, Assert
+      Perfection, Bionic Blow, Relic Crush, Chelonian Tackle, Primal Might.
+      Tests 7 files / 31 tests, green first run.
+      ⚠️ **Five pinned-bug suites went red as they said they would** (Swift
+      Kick, Tail Slash, Tenderize, Wild Instincts, Wrong Turn: the swapped
+      answer used to fizzle) and are folded into their happy paths — the
+      swapped answer resolves, roles read by controller / kind (D255).
+      Fixtures 2,309 (2,201 by name + 101 tokens) · botPool artifact 158 /
+      creature 2,052 / enchantment 87 / instant 724 / land 342 / sorcery 591 ·
+      ladder [1099, 1198, 2991, 4905, 6117] · tier3 `payable` 5,098 ·
+      batch.json 7.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,137 files, 11,214 passing / 10 skipped · 500-seed gate 689.7 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D288): the "another" split (measure first); the
+      up-to-N residue (plural controller, which-is-another, twobrid mana,
+      flicker, token predicates, untap restrictions and the rest named in
+      D288); then exile-from-graveyard (15), remove-counter (7),
+      return-permanent (6), random-discard (4, needs `ctx.random`) and the
+      prompt continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

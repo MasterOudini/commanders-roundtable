@@ -1,11 +1,10 @@
 // `Tenderize` — the two-controller bite, third card in the class.
 //
-// ⚠️ The swapped case pins the SAME measured engine behaviour D255 found on
-// Swift Kick and D256 reproduced on Tail Slash: the aim ACCEPTS a swapped
-// answer (assignTargets is a one-for-one matching that does not reorder) and
-// the spell then does NOTHING, because the resolution-time re-check reads the
-// def's specs POSITIONALLY. This resolve never touches an index, so a third
-// inert result is more evidence the fizzle is the engine's, not the script's.
+// ⚠️ The swapped case pinned the SAME measured engine behaviour D255 found on
+// Swift Kick and D256 reproduced on Tail Slash — the aim ACCEPTED a swapped
+// answer and the positional resolution-time re-check fizzled it — until D288
+// made the re-check a clause SEARCH. This resolve never touches an index, so
+// the swapped answer now resolves right, by controller.
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
@@ -60,9 +59,9 @@ describe('Tenderize', () => {
     expect(g.state.cards[mine]?.zone.kind).toBe('battlefield');
   });
 
-  test('a swapped answer is accepted at the aim and then does nothing', () => {
+  test('a swapped answer is accepted and resolves with the roles read by controller (D288)', () => {
     const { g, mine, theirs } = bitten(true);
-    expect(g.state.cards[theirs]?.zone.kind).toBe('battlefield');
+    expect(g.state.cards[theirs]?.zone.kind).toBe('graveyard');
     expect(g.state.cards[mine]?.zone.kind).toBe('battlefield');
   });
 

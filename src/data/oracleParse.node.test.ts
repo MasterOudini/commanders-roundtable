@@ -443,7 +443,10 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // 549 → 551 in M6.4b (D159): two long-cost lines reclassified
       // sentence→activated by the brace rule carry a count clause the parser
       // declines to guess — invisible to targeting before, honestly counted now.
-      'target:unparsedCount': 551,
+      // D288: "up to X OTHER target ..." now reaches the up-to branch (four
+      // clauses), so their unknown X is honestly counted here instead of
+      // silently reading as exactly one.
+      'target:unparsedCount': 555,
       'ward:nonManaCost': 151,
       'mana:variableAmount': 88,
       'target:unparsedEnchant': 14,
@@ -469,6 +472,9 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       confident: 17330,
       free: 3510,
       enchant: 3536,
+      // D288 admits "other" into the up-to window without recording it as
+      // unenforced — the declaration-wide distinctness check enforces it —
+      // so nothing moves here.
       withUnenforced: 1300,
     });
     // ⚠️ M6.4b (D159) moved three of these over the whole 113,559-printing

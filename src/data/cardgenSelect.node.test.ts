@@ -340,7 +340,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Animate Land', 'UEOT type change with P/T set'],
   ['Approach of the Second Sun', 'game-history memory'],
   ["Atraxa's Fall", 'spell target parse (noun list)'],
-  ['Assert Perfection', 'up-to-N targeting'],
   ["Archaic's Agony", 'converge (cast-time mana-color memory)'],
   ['Arcane Omens', 'converge (cast-time mana-color memory)'],
   ["Ashnod's Intervention", 'temporary non-keyword ability grant'],
@@ -367,7 +366,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Birthday Escape needs the Ring (no tempted-by-the-Ring concept
   // anywhere); Bleeding Edge needs AMASS (counter + type change + a
   // conditional token in one word).
-  ['Bionic Blow', 'up-to-N targeting'],
   ['Birthday Escape', 'the Ring mechanic'],
   ['Blatant Thievery', 'cast-time computed target count'],
   ['Blazing Hope', 'computed target threshold'],
@@ -411,7 +409,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Chandra's Revolution", 'untap restriction'],
   ['Chaoslace', 'UEOT color change'],
   ['Chaotic Transformation', 'up-to-N targeting'],
-  ['Chelonian Tackle', 'up-to-N targeting'],
   ['Chronostutter', 'library position placement'],
   ['Claim the Precious', 'the Ring mechanic'],
   ['Clash of Titans', 'spell target parse (second clause)'],
@@ -500,7 +497,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // second card.
   ['Do or Die', 'opponent-chooses'],
   ['Dominate', 'computed target threshold'],
-  ["Donatello's Science Lesson", 'up-to-N targeting'],
   ['Dragonclaw Strike', 'up-to-N targeting'],
   ['Drain Power', 'opponent-chooses'],
   ['Dreadful as the Storm', 'the Ring mechanic'],
@@ -690,7 +686,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // trailing 'power 4 or greater' binds to the CREATURE arm only — a
   // per-arm qualifier no spec can carry (Exorcise's shape).
   ['Lyev Decree', 'detain mechanic'],
-  ["Mabel's Mettle", 'up-to-N targeting'],
   ['Madcap Experiment', 'ctx.random'],
   ["Mages' Contest", 'bidding mechanic'],
   ['Magical Hack', 'text-changing effect (CR 612)'],
@@ -813,7 +808,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Press the Enemy', 'script-raised prompt'],
   ['Presumed Dead', 'temporary non-keyword ability grant'],
   // D235 (M6.4bx)
-  ['Primal Might', 'up-to-N targeting'],
   ['Primal Surge', 'script-raised prompt'],
   ['Prince Imrahil the Fair', 'once-per-turn trigger memory'],
   ['Prismatic Lace', 'color change (indefinite)'],
@@ -844,7 +838,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Relentless Advance', 'amass mechanic'],
   // D239 (M6.4cb)
   ['Relentless Pursuit', 'script-raised prompt'],
-  ['Relic Crush', 'up-to-N targeting'],
   ["Relic's Roar", 'until-end-of-turn base P/T set'],
   ['Reminisce', 'ctx.random'],
   ['Repel Calamity', 'spell target parse (numeric disjunction)'],
