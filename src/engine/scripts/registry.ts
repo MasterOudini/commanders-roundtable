@@ -7,6 +7,24 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { AIR_SERVANT_SCRIPT } from './cards/airServant';
+import { CENTAUR_ARCHER_SCRIPT } from './cards/centaurArcher';
+import { CEPHALID_RETAINER_SCRIPT } from './cards/cephalidRetainer';
+import { DAUTHI_CUTTHROAT_SCRIPT } from './cards/dauthiCutthroat';
+import { DROMOKA_DUNECASTER_SCRIPT } from './cards/dromokaDunecaster';
+import { ELVISH_SKYSWEEPER_SCRIPT } from './cards/elvishSkysweeper';
+import { FLOOD_SCRIPT } from './cards/flood';
+import { GRAPESHOT_CATAPULT_SCRIPT } from './cards/grapeshotCatapult';
+import { MERFOLK_SEASTALKERS_SCRIPT } from './cards/merfolkSeastalkers';
+import { OGRE_GATECRASHER_SCRIPT } from './cards/ogreGatecrasher';
+import { PILEATED_PROVISIONER_SCRIPT } from './cards/pileatedProvisioner';
+import { PLUMECREED_MENTOR_SCRIPT } from './cards/plumecreedMentor';
+import { SEEDPOD_SQUIRE_SCRIPT } from './cards/seedpodSquire';
+import { SKYSHROUD_ARCHER_SCRIPT } from './cards/skyshroudArcher';
+import { SKYWAY_SNIPER_SCRIPT } from './cards/skywaySniper';
+import { SPIRE_MANGLER_SCRIPT } from './cards/spireMangler';
+import { STORM_FRONT_SCRIPT } from './cards/stormFront';
+import { PREDATOR_FLAGSHIP_SCRIPT } from './cards/predatorFlagship';
 import { WING_PUNCTURE_SCRIPT } from './cards/wingPuncture';
 import { PISTUS_STRIKE_SCRIPT } from './cards/pistusStrike';
 import { SAGITTARS_VOLLEY_SCRIPT } from './cards/sagittarsVolley';
@@ -2183,6 +2201,24 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AIR_SERVANT_SCRIPT,
+  CENTAUR_ARCHER_SCRIPT,
+  CEPHALID_RETAINER_SCRIPT,
+  DAUTHI_CUTTHROAT_SCRIPT,
+  DROMOKA_DUNECASTER_SCRIPT,
+  ELVISH_SKYSWEEPER_SCRIPT,
+  FLOOD_SCRIPT,
+  GRAPESHOT_CATAPULT_SCRIPT,
+  MERFOLK_SEASTALKERS_SCRIPT,
+  OGRE_GATECRASHER_SCRIPT,
+  PILEATED_PROVISIONER_SCRIPT,
+  PLUMECREED_MENTOR_SCRIPT,
+  SEEDPOD_SQUIRE_SCRIPT,
+  SKYSHROUD_ARCHER_SCRIPT,
+  SKYWAY_SNIPER_SCRIPT,
+  SPIRE_MANGLER_SCRIPT,
+  STORM_FRONT_SCRIPT,
+  PREDATOR_FLAGSHIP_SCRIPT,
   WING_PUNCTURE_SCRIPT,
   PISTUS_STRIKE_SCRIPT,
   SAGITTARS_VOLLEY_SCRIPT,

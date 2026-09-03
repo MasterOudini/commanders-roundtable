@@ -1,5 +1,12 @@
 // `Haazda Vigilante` — the enters arm AND the attacks arm each pay a
 // counter, and the power-2-or-less restriction is the spec's.
+//
+// ⚠️ D290: that restriction was DROPPED by the parser from the day this
+// card landed — "with power 2 or less" sits AFTER "you control", and the
+// controller reader returned without reading on — so the attacks arm here
+// used to accept the very Bears the enters arm had grown to 3/3. The
+// controller branches recurse now; the 3-power Bears is refused and a fresh
+// 2/2 takes the second counter, which is what the card says.
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
@@ -19,7 +26,7 @@ function settle(g: Game): void {
 function board(): { g: Game; vigilante: InstanceId; bears: InstanceId } {
   const g = startedGame({
     players: 2,
-    decks: [[VIGILANTE, BEARS], []],
+    decks: [[VIGILANTE, BEARS, BEARS], []],
     scripts: createRegistry([HAAZDA_VIGILANTE_SCRIPT]),
   });
   const bears = put(g, 'p1', BEARS);
@@ -32,9 +39,11 @@ function board(): { g: Game; vigilante: InstanceId; bears: InstanceId } {
 }
 
 describe('Haazda Vigilante', () => {
-  test('the enters arm pays a counter, and the attacks arm pays another', () => {
+  test('the enters arm pays a counter; the attacks arm refuses the 3/3 it made and pays a fresh 2/2', () => {
     const { g, vigilante, bears } = board();
     expect(g.state.cards[bears]?.counters['+1/+1']).toBe(1);
+    const fresh = put(g, 'p1', BEARS);
+    settle(g);
     advanceUntil(
       g,
       (s) => s.turn.turnNumber === 3 && s.priority.awaiting?.kind === 'declareAttackers',
@@ -48,9 +57,12 @@ describe('Haazda Vigilante', () => {
       }),
     );
     advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);
-    must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));
+    // D290: the Bears is a 3/3 now — "with power 2 or less" refuses it.
+    expect(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }).ok).toBe(false);
+    must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: fresh }] }));
     settle(g);
-    expect(g.state.cards[bears]?.counters['+1/+1']).toBe(2);
+    expect(g.state.cards[fresh]?.counters['+1/+1']).toBe(1);
+    expect(g.state.cards[bears]?.counters['+1/+1']).toBe(1);
   });
 
   test('replays to the same hash', () => {

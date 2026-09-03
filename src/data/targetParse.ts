@@ -451,6 +451,20 @@ interface ControllerResult {
  * ⚠️ `you don't control` maps to `'opponent'` and that is EXACT in Commander:
  * there are no teammates, so "not mine" and "an opponent's" are the same set.
  */
+/**
+ * A controller phrase, then WHATEVER FOLLOWS IT (D290). The four controller
+ * branches used to return without recursing, so "target creature you control
+ * without flying" kept the controller and DROPPED the keyword — silently, the
+ * D139 failure in the one ordering D289 did not cover (its keyword branch
+ * recursed into a controller, not the reverse). Three D290 trigger cards hit
+ * it and their refusal tests caught it. The rest of the clause is read by the
+ * same reader; a second controller phrase after the first is nonsense no card
+ * prints, so the first wins.
+ */
+function withController(controller: TargetController, rest: ControllerResult): ControllerResult {
+  return { controller, zones: rest.zones, numeric: rest.numeric, keyword: rest.keyword, end: rest.end };
+}
+
 function readController(after: string, from: number): ControllerResult {
   const window = after.slice(from, from + CONTROLLER_WINDOW);
   const stop = window.search(/[.;\n]/);
@@ -563,16 +577,16 @@ function readController(after: string, from: number): ControllerResult {
   }
 
   const you = searchable.match(/^\s+you\s+control\b/i);
-  if (you) return { controller: 'you', zones: null, numeric: null, keyword: null, end: from + (you[0]?.length ?? 0) };
+  if (you) return withController('you', readController(after, from + (you[0]?.length ?? 0)));
 
   const opp = searchable.match(/^\s+an\s+opponent\s+controls\b/i);
-  if (opp) return { controller: 'opponent', zones: null, numeric: null, keyword: null, end: from + (opp[0]?.length ?? 0) };
+  if (opp) return withController('opponent', readController(after, from + (opp[0]?.length ?? 0)));
 
   const notYou = searchable.match(/^\s+you\s+don(?:'|’)?t\s+control\b/i);
-  if (notYou) return { controller: 'opponent', zones: null, numeric: null, keyword: null, end: from + (notYou[0]?.length ?? 0) };
+  if (notYou) return withController('opponent', readController(after, from + (notYou[0]?.length ?? 0)));
 
   const other = searchable.match(/^\s+another\s+player\s+controls\b/i);
-  if (other) return { controller: 'opponent', zones: null, numeric: null, keyword: null, end: from + (other[0]?.length ?? 0) };
+  if (other) return withController('opponent', readController(after, from + (other[0]?.length ?? 0)));
 
   return { controller: null, zones: null, numeric: null, keyword: null, end: from };
 }

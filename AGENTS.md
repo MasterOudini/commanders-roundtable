@@ -8792,6 +8792,42 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       derived keyword list on `CardView` for the client's aim veil; then the
       "another" split, the up-to-N residue, the remaining cost verbs and the
       prompt continuation seam; prior items stand.
+- [x] **M6.4ea — the keyword seam's dividend: eighteen of the twenty-two
+      cards it made offerable, and the one parser fix their tests forced
+      (2026-09-03):** **3,990 of 31,692 Commander-legal cards now execute
+      completely, up from 3,972.** `SHIPPED_SCRIPTS` 2,062 → 2,080; ledger
+      750 (four rows ADDED for the refusals, none deleted). ZERO token
+      pins, ZERO support bodies. **The select pool returns to 0.** Sliver
+      Queen 3,939 from 94. Decisions in **D290**.
+      ⚠️ **The parser fix:** `readController`'s controller branches now
+      RECURSE, so a qualifier written after "you control" is read ("target
+      creature you control without flying" kept the controller and dropped
+      the keyword — silently — until three refusal tests went red at the
+      port). No report pin moved. It also corrected a SHIPPED card: Haazda
+      Vigilante's "with power 2 or less" after "you control" had been
+      dropped since it landed; its test aimed at a 3-power Bears, went red
+      in gate 140, and was rewritten to prove the refusal.
+      **Landed (activated):** Air Servant, Cephalid Retainer, Dromoka
+      Dunecaster, Flood, Merfolk Seastalkers, Storm Front (tap), Centaur
+      Archer, Grapeshot Catapult, Skyway Sniper (1 damage), Skyshroud
+      Archer (-1/-1), Dauthi Cutthroat (destroy WITH SHADOW), Elvish
+      Skysweeper (sacrifice, destroy), Predator, Flagship (lift then
+      destroy — the derived-keyword pairing, tested). **(triggered):** Ogre
+      Gatecrasher (ETB, WITH DEFENDER), Pileated Provisioner, Spire
+      Mangler, Seedpod Squire (attacks), Plumecreed Mentor (self or another
+      flyer entering, card or token). Tests 18 files / 54.
+      ⚠️ **Refused:** Bamboo Grove Archer (Channel — hand-activated);
+      Landroval, Roc Charger, Trusted Pegasus ("target ATTACKING creature":
+      `unenforced: ['attacking']`, no combat-role field — the next
+      qualifier seam; new class `attacking-creature target qualifier`).
+      Fixtures 2,345 (2,237 by name + 101 tokens) · botPool artifact 159 / creature 2,068 / enchantment 89 / instant 737 / land 342 / sorcery 595 ·
+      ladder [1090, 1191, 2980, 4893, 6104] · tier3 `payable` 5,085 (the thirteen landed activated lines) · batch.json 18 · select pool 0.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,161 files, 11,346 passing / 10 skipped · 500-seed gate 701.1 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D290): the combat-role qualifier seam (probe
+      drafted, measure first); then the keyword LIST qualifier, the
+      "another" split, the up-to-N residue, the remaining cost verbs and
+      the prompt continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

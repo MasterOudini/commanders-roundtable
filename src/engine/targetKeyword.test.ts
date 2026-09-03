@@ -44,6 +44,16 @@ describe('the keyword qualifier is READ (D289)', () => {
     expect(spec?.text).toBe('target creature with flying you control');
   });
 
+  test('a qualifier AFTER the controller phrase is read too (D290)', () => {
+    const [kw] = parseTargetClauses('Put a +1/+1 counter on target creature you control without flying.');
+    expect(kw?.controller).toBe('you');
+    expect(kw?.keyword).toEqual({ word: 'flying', present: false });
+    expect(kw?.text).toBe('target creature you control without flying');
+    const [num] = parseTargetClauses("Destroy target creature you don't control with power 4 or greater.");
+    expect(num?.controller).toBe('opponent');
+    expect(num?.numeric).toEqual({ attr: 'power', cmp: 'atLeast', value: 4 });
+  });
+
   test('the numeric reader is untouched, in either order', () => {
     const [spec] = parseTargetClauses('Destroy target creature with power 4 or greater.');
     expect(spec?.keyword).toBeNull();

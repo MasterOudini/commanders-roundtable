@@ -1574,6 +1574,24 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dissection Practice', 'up-to-N targeting'],
   ['Escape Detection', 'freerunning mechanic'],
   ['Fountainport', 'token-predicate sacrifice cost'],
+
+  // D290 (M6.4ea) — the 22 cards D289's keyword seam made offerable: 18
+  // landed, four refused.
+  //
+  // ⚠️ `Bamboo Grove Archer` is a Channel — "{4}{G}, Discard this card:" is
+  // an ability activated from the HAND, which the engine's activated seam
+  // (battlefield only) does not offer. The class exists; it joins it.
+  //
+  // ⚠️ `Landroval`, `Roc Charger` and `Trusted Pegasus` all say "target
+  // ATTACKING creature without flying": the noun table reads "attacking
+  // creature" with `unenforced: ['attacking']`, and no shipped script
+  // targets one — the validator has no combat-role field. D289 enforced the
+  // KEYWORD half; the combat-role half is the next qualifier seam (a
+  // `TargetCandidate.attacking`/`blocking` pair read off `state.combat`).
+  ['Bamboo Grove Archer', 'hand-activated ability'],
+  ['Landroval, Horizon Witness', 'attacking-creature target qualifier'],
+  ['Roc Charger', 'attacking-creature target qualifier'],
+  ['Trusted Pegasus', 'attacking-creature target qualifier'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
@@ -1652,11 +1670,11 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // Phase 1's engine seams drain ledger classes back into this pool; the
     // pin moves the moment the first one lands. Until then a non-empty pool
     // here would mean a ledger entry went stale unnoticed.
-    // D289: the keyword-qualifier seam made 22 cards scriptable that the
-    // ledger never saw ("target creature with flying" now parses, so the
-    // rest of each card is the only thing left). They are the next batch;
-    // the pin follows the measurement and falls back as they land.
-    expect(all.length).toBe(22);
+    // D289 refilled this pool with 22 cards the ledger never saw; D290 landed
+    // 18 of them and ledgered the other 4, so it is empty again — and a
+    // non-empty pool from here means either a new seam paid out or a ledger
+    // entry went stale.
+    expect(all.length).toBe(0);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect(all.every((c) => c.lines > 0)).toBe(true);

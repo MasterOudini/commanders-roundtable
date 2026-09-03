@@ -19281,3 +19281,85 @@ reach") is the next parser widening, as a list spec; the client's printed-
 keyword approximation wants a derived keyword list on `CardView`; then the
 "another" split, the up-to-N residue, the remaining cost verbs and the
 prompt continuation seam; prior items stand.
+
+## D290 — M6.4ea: the keyword seam's dividend — eighteen of the twenty-two cards it made offerable, and the one parser fix their tests forced (2026-09-03)
+
+**3,990 of 31,692 Commander-legal cards execute completely, up from 3,972.**
+SHIPPED_SCRIPTS 2,062 → 2,080; ledger 746 → 750 (**four rows ADDED** for
+the refusals; none deleted — these cards were never ledgered, the select
+pool had simply never seen them). ZERO new token pins, ZERO new support
+bodies; ONE parser fix, forced by three refusal tests (below). **The select
+pool returns to 0.** Sliver Queen reaches 3,939 from 94 legendaries.
+
+⚠️ **The parser fix.** Three of the eighteen say "target creature you
+control without flying" (Pileated Provisioner, Seedpod Squire) or "…you
+control with flying" (Spire Mangler), and their refusal tests went RED at
+the port: the wrong creature was accepted. `readController`'s four
+CONTROLLER branches returned without recursing, so a qualifier written
+AFTER the controller phrase was dropped silently — D139's failure in the one
+ordering D289 did not cover (its keyword branch recursed into a controller,
+never the reverse; "with power 4 or greater" after "you control" had the
+same hole). Every controller branch now reads the rest of the clause
+through the same reader, so both orderings keep both restrictions and the
+prompt bar quotes the whole clause. No report pin moved. The tests that
+caught it are the batch's own — which is the reason every suite pins the
+refusal of the wrong target, not only the acceptance of the right one.
+And the fix reached back into a SHIPPED card: Haazda Vigilante's "target
+creature you control with power 2 or less" had lost its "power 2 or less"
+the same way since it landed, and its own test — which put a counter on a
+Bears and then aimed the attacks arm at the now 3-power Bears — went red in
+gate 140 exactly as it should: the engine now refuses that target. The test
+was rewritten to prove the refusal and to aim at a creature the card can
+actually name. The parse report carries no pin for "qualifier after
+controller", so the suite is the only measure; it found one.
+
+**Where the batch came from.** D289 taught the parser "with flying" and
+`select.cjs` printed 22 cards the ledger had never held — every one blocked
+on a per-card script and nothing else, every one a keyword-qualified target
+the aim layer used to drop silently. This batch is those cards, in the
+classic loop: dump, classify, draft, port, gate. The largest offline batch
+since the select pool emptied at D283.
+
+**The eighteen.** Activated on the new spec: Air Servant (tap a flyer),
+Cephalid Retainer, Dromoka Dunecaster, Flood, Merfolk Seastalkers (tap a
+creature WITHOUT flying), Storm Front (tap a flyer), Centaur Archer,
+Grapeshot Catapult, Skyway Sniper (1 damage to a flyer), Skyshroud Archer
+(-1/-1 to a flyer), Dauthi Cutthroat (destroy a creature WITH SHADOW — the
+first qualifier beyond flying), Elvish Skysweeper (D168's sacrifice cost,
+then destroy a flyer), Predator, Flagship (two abilities: lift a creature
+into the air, then destroy it — the destroy reads DERIVED keywords, so the
+pairing the card was printed for works, and the test proves the Bears is
+refused until it is lifted). Triggered: Ogre Gatecrasher (ETB, destroy a
+creature WITH DEFENDER), Pileated Provisioner (ETB, a +1/+1 counter on a
+creature I control without flying), Spire Mangler (ETB, +2/+0 on a flyer I
+control), Seedpod Squire (attacks: +1/+1 on a ground creature I control),
+Plumecreed Mentor (itself or another flyer of mine entering, card or token,
+puts the counter — the entering creature's flying is DERIVED at match time).
+Every suite pins the refusal of the wrong keyword and the acceptance of the
+right one.
+
+**Four refused, honestly.** Bamboo Grove Archer is a Channel — an ability
+activated from the HAND, which the activated seam (battlefield only) does not
+offer; it joins the existing class. Landroval, Horizon Witness, Roc Charger
+and Trusted Pegasus all say "target ATTACKING creature without flying": the
+noun table reads "attacking creature" with `unenforced: ['attacking']` and
+no shipped script targets one — the validator has no combat-role field.
+D289 enforced the keyword half; the combat-role half is the next qualifier
+seam (`TargetCandidate.attacking/blocking` off `state.combat`, and the
+client's `CardView` already carries both marks). A new class,
+`attacking-creature target qualifier`, holds the three.
+
+**Tests:** 18 files / 54 tests. Fifteen files were green on the first run; three (Pileated Provisioner, Seedpod Squire, Spire Mangler) went red on their refusal test and forced the parser fix above, then all eighteen were green.
+
+Fixtures 2,326 → 2,345 (2,237 by name + 101 tokens; Bamboo Grove Archer is
+a defender fixture for Ogre Gatecrasher's test) · botPool artifact 159 / creature 2,068 / enchantment 89 / instant 737 / land 342 / sorcery 595 ·
+ladder [1090, 1191, 2980, 4893, 6104] · tier3 `payable` 5,085 (the thirteen landed activated lines) · batch.json 18 (by name) · botDeck:
+3,939 from 94 legendaries · select pool 22 → 0.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,161 files, 11,346 passing / 10 skipped · 500-seed gate 701.1 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D290): the combat-role qualifier seam (measure first — the
+probe is drafted); then the keyword LIST qualifier, the "another" split,
+the up-to-N residue, the remaining cost verbs and the prompt continuation
+seam; prior items stand.
