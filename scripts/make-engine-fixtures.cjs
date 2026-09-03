@@ -2727,6 +2727,10 @@ const WANTED = [
   'Unified Strike',
   "Aang's Defense",
   "Nahiri's Machinations",
+  'Mystic Denial',
+  'Unsubstantiate',
+  'Icy Manipulator',
+  'Opposition',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -330,7 +330,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Aether Burst is its cast-time-computed sibling.
   ['Allure of the Unknown', 'opponent-chooses'],
   ['Aetherspouts', 'script-raised prompt'],
-  ['Aftershock', 'spell target parse (noun list)'],
+  ['Aftershock', 'unread effect sentence'],
   ["Aminatou's Augury", 'play-from-exile permission'],
   ['Amass the Components', 'script-raised prompt'],
   ['Aether Burst', 'cast-time computed target count'],
@@ -338,7 +338,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D198
   ['Animate Land', 'UEOT type change with P/T set'],
   ['Approach of the Second Sun', 'game-history memory'],
-  ["Atraxa's Fall", 'spell target parse (noun list)'],
+  ["Atraxa's Fall", 'list qualifier binds one alternative'],
   ["Archaic's Agony", 'converge (cast-time mana-color memory)'],
   ['Arcane Omens', 'converge (cast-time mana-color memory)'],
   ["Ashnod's Intervention", 'temporary non-keyword ability grant'],
@@ -380,7 +380,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // player a choice.
   ["Bontu's Last Reckoning", 'untap restriction'],
   ['Boon of Erebos', 'regeneration'],
-  ['Bounce Off', 'spell target parse (noun list)'],
+  ['Bounce Off', 'subtype list alternative'],
   ['Bounty of Skemfar', 'script-raised prompt'],
   ['Brainsurge', 'script-raised prompt'],
   ['Brawl', 'temporary keyword/ability grant'],
@@ -388,7 +388,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Breaking Point', 'script-raised prompt'],
   ['Brilliant Ultimatum', 'opponent-chooses'],
   ['Broken Dam', 'spell target parse (counted list)'],
-  ['Broken Wings', 'spell target parse (noun list)'],
+  ['Broken Wings', 'list qualifier binds one alternative'],
   ['Boneyard Parley', 'opponent-chooses'],
   // D202 — Cerebral Eruption RETURNS ITSELF to hand mid-resolution when a
   // land is revealed: resolveTop moves a resolved spell to the graveyard
@@ -452,7 +452,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // without the UEOT bound — and it can aim at a SPELL's color, a second
   // gap.
   ['Cyber Conversion', 'face-down (morph family)'],
-  ['Daring Demolition', 'spell target parse (noun list)'],
+  ['Daring Demolition', 'subtype list alternative'],
   ['Dawnglow Infusion', 'mana-spent memory'],
   ["Day's Undoing", 'end the turn'],
   ['Dead Reckoning', 'script-raised prompt'],
@@ -530,7 +530,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Exert Influence', 'converge (cast-time mana-color memory)'],
   ['Exhaustion', 'untap restriction'],
   ['Exhume', 'opponent-chooses'],
-  ['Exorcise', 'spell target parse (noun list)'],
+  ['Exorcise', 'list qualifier binds one alternative'],
   ['Extinction', 'script-raised prompt'],
   // D212 — Eye Spy is a may-choice over the TARGET's library (the scry
   // machinery is single-library); Faerie Fencing reads the board AS YOU
@@ -597,7 +597,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Glorious Gale', 'the Ring mechanic'],
   ['Goblin Game', 'physical item choice'],
   ['Graven Lore', 'mana-spent memory'],
-  ['Gravkill', 'spell target parse (noun list)'],
+  ['Gravkill', 'subtype list alternative'],
   ['Grisly Salvage', 'script-raised prompt'],
   // D217 — Hoarder's Greed CLASHES (reveal + each player's top/bottom
   // choice + compare + a repeat loop, a NEW class); 'one or two target
@@ -683,7 +683,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Madcap Experiment', 'ctx.random'],
   ["Mages' Contest", 'bidding mechanic'],
   ['Magical Hack', 'text-changing effect (CR 612)'],
-  ['Make Your Move', 'spell target parse (noun list)'],
+  ['Make Your Move', 'list qualifier binds one alternative'],
   ['Malamet Brawler', 'combat target qualifier unenforced'],
   ['Malicious Advice', 'cast-time computed target count'],
   ['Mana Vapors', 'untap restriction'],
@@ -734,7 +734,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // bottoms in a random order (the RNG stub).
   ['Muse Vortex', 'play-from-exile permission'],
   ['Mutiny', 'spell target parse (second clause)'],
-  ['Mystic Denial', 'spell target parse (noun list)'],
   ['Natural Affinity', 'land animation'],
   // D228 — Necromantic Selection EXILES ITSELF mid-resolution (Cerebral
   // Eruption's class) and reanimates with a type-change; Nissa's
@@ -755,7 +754,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Not Dead After All', 'quoted-ability temporary grant'],
   ['Noxious Grasp', 'color target qualifier unenforced'],
   ['Nuclear Fallout', 'rad counters'],
-  ['Nullify', 'spell target parse (noun list)'],
+  ['Nullify', 'subtype list alternative'],
   ["O'aka, Traveling Merchant", 'remove-counter cost'],
   ['Oboro Breezecaller', 'return-permanent cost'],
   ['Ogre Shaman', 'ctx.random'],
@@ -808,14 +807,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Pulse of the Fields', 'spell relocates itself on resolution'],
   ['Pulse of the Forge', 'spell relocates itself on resolution'],
   ['Purelace', 'color change (indefinite)'],
-  ['Purge', 'spell target parse (noun list)'],
+  ['Purge', 'list with adjective alternative'],
   ['Radiant Flames', 'converge (cast-time mana-color memory)'],
-  ['Radiant Strike', 'spell target parse (noun list)'],
+  ['Radiant Strike', 'list with adjective alternative'],
   // D237 (M6.4bz)
   ["Ranger's Firebrand", 'the Ring mechanic'],
   ["Rats' Feast", 'cast-time computed target count'],
   // D238 (M6.4ca)
-  ['Ray of Ruin', 'spell target parse (noun list)'],
+  ['Ray of Ruin', 'subtype list alternative'],
   ['Reach of Shadows', 'color target qualifier unenforced'],
   ['Reality Ripple', 'phasing'],
   ['Reality Shift', 'face-down (morph family)'],
@@ -838,7 +837,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Retraced Image', 'script-raised prompt'],
   // D240 (M6.4cc)
   ['Return to Dust', 'up-to-N targeting'],
-  ['Return to the Earth', 'spell target parse (noun list)'],
+  ['Return to the Earth', 'list qualifier binds one alternative'],
   ['Reviving Vapors', 'script-raised prompt'],
   ['Rewind', 'up-to-N targeting'],
   ['Ribbons of Night', 'mana-spent memory'],
@@ -860,7 +859,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Schismotivate', 'spell target parse (second clause)'],
   ['Scout the Borders', 'script-raised prompt'],
   ["Sea God's Revenge", 'plural-controller target qualifier unenforced'],
-  ["Sea God's Scorn", 'spell target parse (noun list)'],
+  ["Sea God's Scorn", 'list with and/or'],
   ["Sea Kings' Blessing", 'UEOT color change'],
   ['Searing Blood', 'delayed trigger'],
   // D245 (M6.4ch)
@@ -869,15 +868,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D246 (M6.4ci)
   ['Serpentine Ambush', 'until-end-of-turn base P/T set'],
   ["Shade's Breath", 'temporary non-keyword ability grant'],
-  ['Shattered Wings', 'spell target parse (noun list)'],
+  ['Shattered Wings', 'list qualifier binds one alternative'],
   ["Shinen of Flight's Wings", 'hand-activated ability'],
   ["Shinen of Fury's Fire", 'hand-activated ability'],
   ["Shinen of Stars' Light", 'hand-activated ability'],
-  ['Shoot Down', 'spell target parse (noun list)'],
+  ['Shoot Down', 'list qualifier binds one alternative'],
   // D247 (M6.4cj)
   ['Shoving Match', 'temporary non-keyword ability grant'],
   ['Show and Tell', 'script-raised prompt'],
-  ['Shower of Arrows', 'spell target parse (noun list)'],
+  ['Shower of Arrows', 'list qualifier binds one alternative'],
   ['Silkbind Faerie', 'untap-symbol activation cost'],
   ['Silverfur Partisan', 'becomes-targeted trigger'],
   ['Singe', 'UEOT color change'],
@@ -905,7 +904,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Sphinx's Decree", 'cast restriction effect'],
   ['Spin into Myth', 'fateseal mechanic'],
   // D251 (M6.4cn)
-  ['Spin Out', 'spell target parse (noun list)'],
+  ['Spin Out', 'subtype list alternative'],
   ['Spinning Wheel Kick', 'cast-time computed target count'],
   ['Spirit en-Dal', 'ability-word activated cost'],
   ['Spoils of the Hunt', 'mana-spent memory'],
@@ -938,7 +937,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // The class names what was measured, not a guess at the cause.
   ['Storyteller Pixie', 'adventure-half cast unobserved'],
   ['Strategic Betrayal', 'opponent-chooses'],
-  ['Stream of Acid', 'spell target parse (noun list)'],
+  ['Stream of Acid', 'list with adjective alternative'],
   ['Stream of Consciousness', 'up-to-N targeting'],
   ['Struggle for Sanity', 'opponent-chooses'],
   ['Sudden Setback', 'opponent-chooses'],
@@ -1705,8 +1704,8 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // 18 of them and ledgered the other 4, so it is empty again — and a
     // non-empty pool from here means either a new seam paid out or a ledger
     // entry went stale.
-    // D291 refilled this pool with 54 cards the ledger never saw; D292 landed
-    // 37 of them and ledgered the other 17, so it is empty again.
+    // D293 read six more noun lists; the two cards that became script-only
+    // (Icy Manipulator, Opposition) landed in the same batch.
     expect(all.length).toBe(0);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.

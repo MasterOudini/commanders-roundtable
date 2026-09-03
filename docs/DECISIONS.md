@@ -19518,3 +19518,70 @@ for spells (five flip: Rites of Reaping, Leeching Bite, Consume Strength,
 Steal Strength, Schismotivate); the self-sacrifice-by-name cost (a tiny
 parser widening); the keyword LIST qualifier; the remaining cost verbs; the
 prompt continuation seam; prior items stand.
+
+## D293 — M6.4ed: THE NOUN-LIST WIDENING — six target lists the parser did not read, enforced then admitted; three cards (2026-09-03)
+
+**4,068 of 31,692 Commander-legal cards execute completely, up from
+4,065.** SHIPPED_SCRIPTS 2,120 → 2,122 (two scripted, one reads whole with no script); ledger 764 →
+763 (Mystic Denial DELETED; nineteen rows of the noun-list class re-classed to the wall each still has — `subtype list alternative` 6, `list qualifier binds one alternative` 8, `list with adjective alternative` 3, `list with and/or` 1, `unread effect sentence` 1). ZERO new token pins, ZERO new support bodies. Two
+parser files change. Sliver Queen reaches 4,016 from 97
+legendaries.
+
+**The gap, measured before it was built.** The D292 probe listed every
+printed noun LIST after "target" on a spell face that the target parser did
+not read, with counts: "creature or Vehicle" 12, "artifact, enchantment, or
+creature" 11, "creature, planeswalker, or battle" 5, "spell or nonland
+permanent" 4, "creature, planeswalker, or player" 3, "creature or
+Spacecraft" 3, "spell or creature" 3, "land or nonblack creature" 2,
+"creature, enchantment, or planeswalker" 1, "creature or sorcery spell" 1.
+Until now such a clause matched the FIRST noun only ("target creature or
+Vehicle" read as "target creature") — a narrowing, the safe direction, and
+the effect parser refused the sentence, so no card shipped over it; the
+ledger's `spell target parse (noun list)` class held twenty.
+
+**The seam, in D139's order — enforce first, then admit.** Six entries join
+the target parser's noun table, each the UNION of its kinds with nothing
+unenforced: "artifact, enchantment, or creature", "creature, planeswalker,
+or battle", "creature, planeswalker, or player", "creature, enchantment, or
+planeswalker", "spell or creature", and the typed-spell "creature or
+sorcery spell" (kinds spell, card types Creature and Sorcery, D198's shape).
+The effect parser's noun list gains five of the six strings, so those
+sentences read whole — and "artifact, creature, or land" (24 spells,
+Aftershock's list) joins both tables too. **"Spell or creature" is enforced
+but NOT admitted:** the live proof for Unsubstantiate aimed at a held
+creature spell let the spell resolve — the automatic "return to its owner's
+hand" has no path for an object on the stack — so admitting that sentence
+would have shipped a half-executing card (D90); it waits on a stack-aware
+bounce or a script, and the test pins the withholding. **Four lists stay
+out on purpose:** "creature or Vehicle" and
+"creature or Spacecraft" name a SUBTYPE alternative the spec cannot say (it
+has no subtype field; a widened entry would admit any artifact), and "spell
+or nonland permanent" / "land or nonblack creature" carry an adjective the
+parser lists as unenforced — those wait on a subtype seam and the adjective
+work. **And one guard the lists made necessary:** a qualifier after a list
+binds its LAST alternative only in print — "artifact, enchantment, or
+creature with flying" means the creature must fly, not the artifact — which
+one spec cannot say; read as a single restriction over the union it would
+refuse an artifact for not flying, the one direction the parser may never
+be wrong in. Such a clause now stays free aim (so `engineComplete` keeps
+refusing the card, Broken Wings among them); mana value is the exception,
+being a property of every alternative. Across the database the parse report moves in three measured passes: `effect:auto` 2,830 → 2,855 (+31 for the lists, −6 when "spell or creature" was withheld), `effect:none` 16,413 → 16,366, `effect:partial` 5,088 → 5,110 (Aftershock's list alone moves eleven faces from none to partial); `target:unparsedClause` 1,255 → 1,290 and `free` 3,410 → 3,436 as the guard turns list-plus-qualifier clauses from a narrowed read of their first noun into honest free aim, `confident` 17,430 → 17,404.
+
+**The cards.** Mystic Denial reads whole with no script ("Counter target creature or sorcery spell"). Icy Manipulator ("{1}, {T}: Tap target artifact, creature, or land") and Opposition ("Tap an untapped creature you control: Tap target artifact, creature, or land") became script-only the moment their list parsed and are scripted here — Glare of Subdual's tap, and D286's tap-creature chooser paying Opposition. Unsubstantiate waits on a stack-aware bounce; Aftershock's list reads but its "deals 3 damage to you" has no pattern yet.
+
+**Tests:** `src/engine/targetLists.test.ts` (9 tests: each list to its
+kinds with nothing unenforced, the typed-spell form, the Vehicle list still
+narrowing, and the effect parser's admission). Two card suites / 7 tests: Icy Manipulator taps their creature, then a land, and refuses a player (the list names none); Opposition's untapped Bears pays to tap their land. Mystic Denial's live proofs — a held creature spell countered, a held enchantment spell refused — sit in targetLists.test.ts, cast from the oracle with no script registered.
+
+Fixtures 2,388 (2,280 by name + 101 tokens) · botPool artifact 160 / creature 2,093 / enchantment 93 / instant 784 / land 343 / sorcery 595 · ladder [1014, 1115, 2904, 4817, 6028] · tier3 `payable` 5,057 ·
+batch.json 3 (by name) · botDeck: 4,016 from 97
+legendaries · select pool 0 (two cards became offerable mid-batch and were landed in it).
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,205 files, 11,573 passing / 10 skipped · 500-seed gate 759.5 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D293): a SUBTYPE restriction on target specs (Vehicle,
+Spacecraft, Equipment, Aura, Wall — the noun table's unenforced subtype
+words are the same seam); the "another" split for spells (five flip); the
+self-sacrifice-by-name cost; the keyword LIST qualifier; the remaining
+cost verbs; the prompt continuation seam; prior items stand.

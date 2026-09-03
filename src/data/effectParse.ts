@@ -35,6 +35,17 @@ const NOOP_WARN: Warn = () => undefined;
  * by `creature`.
  */
 const NOUNS = [
+  // ⚠️ D293: admitted only because `targetParse` now reads the same lists.
+  'artifact, enchantment, or creature',
+  'artifact, creature, or land',
+  'creature, planeswalker, or battle',
+  'creature, planeswalker, or player',
+  'creature, enchantment, or planeswalker',
+  // ⚠️ NOT "spell or creature" (D293): the target parser reads it, but the
+  // auto bounce has no path for a SPELL on the stack — Unsubstantiate aimed at
+  // a held creature spell let it resolve. Admitting the sentence would ship a
+  // half-executing card; it waits on a stack-aware bounce (or a script).
+  'creature or sorcery spell',
   'attacking or blocking creature',
   'creature an opponent controls',
   "creature you don't control",

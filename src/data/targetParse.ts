@@ -321,6 +321,8 @@ const NOUNS: readonly NounEntry[] = [
 
   // compound kinds
   { re: new RegExp(`^creature${s}\\s+or\\s+planeswalker${s}\\b`, 'i'), kinds: ['creature', 'planeswalker'] },
+  // D293: "target spell or creature" — a spell on the stack or a creature permanent.
+  { re: new RegExp(`^spell${s}\\s+or\\s+creature${s}\\b`, 'i'), kinds: ['spell', 'creature'] },
   { re: new RegExp(`^creature${s}\\s+or\\s+player${s}\\b`, 'i'), kinds: ['creature', 'player'] },
   { re: new RegExp(`^player${s}\\s+or\\s+planeswalker${s}\\b`, 'i'), kinds: ['player', 'planeswalker'] },
   { re: new RegExp(`^opponent${s}\\s+or\\s+planeswalker${s}\\b`, 'i'), kinds: ['player', 'planeswalker'], controller: 'opponent' },
@@ -343,6 +345,14 @@ const NOUNS: readonly NounEntry[] = [
   { re: new RegExp(`^artifact,\\s*enchantment,\\s*or\\s+land${s}\\b`, 'i'), kinds: ['artifact', 'enchantment', 'land'] },
   // D199: two more of Icy's shape — `Bedevil` (ledgered since D192 as the
   // noun-list class) and `Banishment Decree` print them whole.
+  // ⚠️ D293: the lists the format prints and the table did not read (measured by
+  // the D292 probe: 11 + 5 + 3 + 1 spells). Longest first; a list whose
+  // alternatives carry a subtype or an unenforced adjective is NOT here.
+  { re: new RegExp(`^artifact,\\s*enchantment,\\s*or\\s+creature${s}\\b`, 'i'), kinds: ['artifact', 'enchantment', 'creature'] },
+  { re: new RegExp(`^artifact,\\s*creature,\\s*or\\s+land${s}\\b`, 'i'), kinds: ['artifact', 'creature', 'land'] },
+  { re: new RegExp(`^creature,\\s*planeswalker,\\s*or\\s+battle${s}\\b`, 'i'), kinds: ['creature', 'planeswalker', 'battle'] },
+  { re: new RegExp(`^creature,\\s*planeswalker,\\s*or\\s+player${s}\\b`, 'i'), kinds: ['creature', 'planeswalker', 'player'] },
+  { re: new RegExp(`^creature,\\s*enchantment,\\s*or\\s+planeswalker${s}\\b`, 'i'), kinds: ['creature', 'enchantment', 'planeswalker'] },
   { re: new RegExp(`^artifact,\\s*creature,\\s*or\\s+planeswalker${s}\\b`, 'i'), kinds: ['artifact', 'creature', 'planeswalker'] },
   { re: new RegExp(`^artifact,\\s*creature,\\s*or\\s+enchantment${s}\\b`, 'i'), kinds: ['artifact', 'creature', 'enchantment'] },
   // D214: `Fracture` prints the fourth Icy list — probed missing, the same
@@ -353,6 +363,7 @@ const NOUNS: readonly NounEntry[] = [
   // ⚠️ `cardTypes` on a spell noun is enforced against the CAST FACE's types
   // (D198): an activated or triggered ability on the stack carries none, so a
   // typed-spell clause refuses it — which is also the correct CR answer.
+  { re: new RegExp(`^creature\\s+or\\s+sorcery\\s+spell${s}\\b`, 'i'), kinds: ['spell'], cardTypes: ['Creature', 'Sorcery'] },
   { re: new RegExp(`^instant\\s+or\\s+sorcery\\s+spell${s}\\b`, 'i'), kinds: ['spell'], cardTypes: ['Instant', 'Sorcery'] },
   { re: new RegExp(`^instant\\s+or\\s+sorcery\\s+card${s}\\b`, 'i'), kinds: ['card'], zones: ['graveyard'], cardTypes: ['Instant', 'Sorcery'] },
   { re: new RegExp(`^activated\\s+or\\s+triggered\\s+abilit(?:y|ies)\\b`, 'i'), kinds: ['spell'] },
@@ -680,6 +691,17 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
 
     // ── controller
     const ctl = readController(clean, cursor + nounLen);
+    // ⚠️ D293: a qualifier after a noun LIST binds its LAST alternative only in
+    // print ("artifact, enchantment, or creature with flying"), which the spec
+    // cannot say — read as one restriction over the union it would refuse an
+    // artifact for not flying, the one direction this file may never be wrong
+    // in. Such a clause stays free aim (and so refused by `engineComplete`);
+    // mana value is the exception, being a property of every alternative.
+    if (entry.kinds.length > 1 && (ctl.keyword !== null || (ctl.numeric !== null && ctl.numeric.attr !== 'manaValue'))) {
+      warn('target:unparsedClause');
+      out.push({ ...FREE_TARGET, text: text.slice(count.start, Math.min(text.length, at + 40)).trim() });
+      continue;
+    }
     const controller: TargetController = ctl.controller ?? entry.controller ?? 'any';
 
     out.push({

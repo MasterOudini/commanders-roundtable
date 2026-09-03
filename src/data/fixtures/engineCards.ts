@@ -78763,6 +78763,138 @@ export const NAHIRI_S_MACHINATIONS: CardData = {
   "singleImage": true
 };
 
+export const MYSTIC_DENIAL: CardData = {
+  "scryfallId": "1296ddc4-300d-44f6-95d8-1b392613d379",
+  "oracleId": "d2bd23a6-4f77-4d6e-bf8f-339cb7a4184d",
+  "name": "Mystic Denial",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mystic Denial",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Counter target creature or sorcery spell.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Kang Yu",
+      "imageId": "1296ddc4-300d-44f6-95d8-1b392613d379"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "49",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UNSUBSTANTIATE: CardData = {
+  "scryfallId": "2dc0bafd-debc-4b62-9fe0-56b4aad02484",
+  "oracleId": "c387f46f-ad91-4964-8dc6-acefe537fe3c",
+  "name": "Unsubstantiate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Unsubstantiate",
+      "manaCost": "{1}{U}",
+      "typeLine": "Instant",
+      "oracleText": "Return target spell or creature to its owner's hand.",
+      "flavorText": "\"Nicely done, Jace. You always were good at disappearing acts.\"\n—Liliana Vess",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Victor Adame Minguez",
+      "imageId": "2dc0bafd-debc-4b62-9fe0-56b4aad02484"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m21",
+  "collectorNumber": "82",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ICY_MANIPULATOR: CardData = {
+  "scryfallId": "01e70418-53a6-431c-a539-75c76567a5d2",
+  "oracleId": "3608f1f7-8dc5-4dd1-ae91-c830e1de9529",
+  "name": "Icy Manipulator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Icy Manipulator",
+      "manaCost": "{4}",
+      "typeLine": "Artifact",
+      "oracleText": "{1}, {T}: Tap target artifact, creature, or land.",
+      "flavorText": "In fire there is the spark of chaos and destruction, the seed of life. In ice there is perfect tranquility, perfect order, and the silence of death.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Douglas Shuler",
+      "imageId": "01e70418-53a6-431c-a539-75c76567a5d2"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "f05",
+  "collectorNumber": "12",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OPPOSITION: CardData = {
+  "scryfallId": "07574b6a-de37-42a4-8584-2e3f440315be",
+  "oracleId": "bf0b252d-1295-44e4-bac3-113b5732a2a9",
+  "name": "Opposition",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Opposition",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "Tap an untapped creature you control: Tap target artifact, creature, or land.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "07574b6a-de37-42a4-8584-2e3f440315be"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mp2",
+  "collectorNumber": "35",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -84502,6 +84634,10 @@ export const ENGINE_CARDS: CardData[] = [
   UNIFIED_STRIKE,
   AANG_S_DEFENSE,
   NAHIRI_S_MACHINATIONS,
+  MYSTIC_DENIAL,
+  UNSUBSTANTIATE,
+  ICY_MANIPULATOR,
+  OPPOSITION,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

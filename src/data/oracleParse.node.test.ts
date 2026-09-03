@@ -408,13 +408,15 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // where the prompt bar offers the counter clause as one logged click.
       // These count FACES over every printing, which is why they are an order of
       // magnitude larger than `botPool`'s distinct-name figures.
-      'effect:none': 16413,
-      'effect:partial': 5088,
+      'effect:none': 16366,
+      'effect:partial': 5110,
       // D289: the target macro admits the KEYWORD qualifier ("with flying",
       // "without flying") now that TargetSpec.keyword is enforced, so 52 more
       // faces read whole (Plummet, Wing Snare, Roast, Defenestrate, ...), 67
       // leave "none" and 15 become partial.
-      'effect:auto': 2830,
+      // D293: six noun lists ("artifact, enchantment, or creature" and kin) are
+      // read by the target parser and admitted by the effect parser.
+      'effect:auto': 2855,
       // ⚠️ 13,581 → 10,372 in M6.4b (D159): `Sacrifice this <type>` and War
       // Room's commanders'-colors life phrase became CHARGEABLE cost parts, so
       // 3,209 printings' ability lines stopped warning `nonManaCost`. The
@@ -434,7 +436,10 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       'target:modalUnion': 2751,
       // D291: "attacking or blocking creature" used to lose its first word to
       // ADJECTIVE_RE and fall to free aim; the combat-role nouns parse now.
-      'target:unparsedClause': 1255,
+      // D293: a qualifier after a noun LIST binds one alternative in print, so
+      // such a clause is free aim now instead of a narrowed read of its first
+      // noun (+35); the six new lists take the other direction.
+      'target:unparsedClause': 1290,
       'typeLine:unknownType': 729,
       'protection:unenforced': 677,
       // ⚠️ 629 → 540 when "any TYPE" started parsing (D116): 89 of these were
@@ -475,8 +480,8 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
     expect(report.targets).toEqual({
       facesWithSpecs: 19757,
       specs: 20840,
-      confident: 17430,
-      free: 3410,
+      confident: 17404,
+      free: 3436,
       enchant: 3536,
       // D288 admits "other" into the up-to window without recording it as
       // unenforced — the declaration-wide distinctness check enforces it —

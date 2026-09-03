@@ -7,6 +7,8 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ICY_MANIPULATOR_SCRIPT } from './cards/icyManipulator';
+import { OPPOSITION_SCRIPT } from './cards/opposition';
 import { ANGELIC_PAGE_SCRIPT } from './cards/angelicPage';
 import { ANOINTER_OF_CHAMPIONS_SCRIPT } from './cards/anointerOfChampions';
 import { ELVEN_FORTRESS_SCRIPT } from './cards/elvenFortress';
@@ -2241,6 +2243,8 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ICY_MANIPULATOR_SCRIPT,
+  OPPOSITION_SCRIPT,
   ANGELIC_PAGE_SCRIPT,
   ANOINTER_OF_CHAMPIONS_SCRIPT,
   ELVEN_FORTRESS_SCRIPT,

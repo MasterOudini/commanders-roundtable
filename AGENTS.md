@@ -8907,6 +8907,36 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       smaller lists); the "another" split for spells (five flip); the
       self-sacrifice-by-name cost; the keyword LIST qualifier; the remaining
       cost verbs; the prompt continuation seam; prior items stand.
+- [x] **M6.4ed — THE NOUN-LIST WIDENING: six target lists the parser did
+      not read, enforced then admitted; three cards (2026-09-03):**
+      **4,068 of 31,692 Commander-legal cards now execute completely,
+      up from 4,065.** `SHIPPED_SCRIPTS` 2,120 → 2,122; ledger 763.
+      ZERO token pins, ZERO support bodies. **Sliver Queen reaches
+      4,016 from 97 legendaries.** Decisions in **D293**.
+      ⚠️ **Measured first (the D292 probe):** ten printed lists, counted;
+      six are pure unions of kinds and join both noun tables ("artifact,
+      enchantment, or creature" 11, "creature, planeswalker, or battle" 5,
+      "creature, planeswalker, or player" 3, "spell or creature" 3,
+      "creature, enchantment, or planeswalker" 1, "creature or sorcery
+      spell" 1); four stay out — the SUBTYPE alternatives (Vehicle,
+      Spacecraft) and the unenforced-adjective ones (nonland, nonblack).
+      ⚠️ **Guard:** a qualifier after a list binds its last alternative
+      only ("…or creature with flying"), which one spec cannot say — such a
+      clause stays free aim (refused); mana value excepted. ⚠️ **"Spell or
+      creature" enforced but NOT admitted:** the live proof showed the auto
+      bounce has no stack path (Unsubstantiate let a held spell resolve);
+      withheld until a stack-aware bounce or a script. "artifact, creature,
+      or land" (24 spells) joins both tables too. The parse report moves in three measured passes: `effect:auto` 2,830 → 2,855 (+31 for the lists, −6 when "spell or creature" was withheld), `effect:none` 16,413 → 16,366, `effect:partial` 5,088 → 5,110 (Aftershock's list alone moves eleven faces from none to partial); `target:unparsedClause` 1,255 → 1,290 and `free` 3,410 → 3,436 as the guard turns list-plus-qualifier clauses from a narrowed read of their first noun into honest free aim, `confident` 17,430 → 17,404
+      **Landed:** Mystic Denial reads whole with no script ("Counter target creature or sorcery spell"). Icy Manipulator ("{1}, {T}: Tap target artifact, creature, or land") and Opposition ("Tap an untapped creature you control: Tap target artifact, creature, or land") became script-only the moment their list parsed and are scripted here — Glare of Subdual's tap, and D286's tap-creature chooser paying Opposition. Unsubstantiate waits on a stack-aware bounce; Aftershock's list reads but its "deals 3 damage to you" has no pattern yet.
+      Tests: targetLists.test.ts 9 tests. Two card suites / 7 tests: Icy Manipulator taps their creature, then a land, and refuses a player (the list names none); Opposition's untapped Bears pays to tap their land. Mystic Denial's live proofs — a held creature spell countered, a held enchantment spell refused — sit in targetLists.test.ts, cast from the oracle with no script registered.
+      Fixtures 2,388 (2,280 by name + 101 tokens) · botPool artifact 160 / creature 2,093 / enchantment 93 / instant 784 / land 343 / sorcery 595 · ladder [1014, 1115, 2904, 4817, 6028] · tier3
+      `payable` 5,057 · batch.json 3 · select pool 0 (two cards became offerable mid-batch and were landed in it).
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,205 files, 11,573 passing / 10 skipped · 500-seed gate 759.5 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D293): a SUBTYPE restriction on target specs; the
+      "another" split; the self-sacrifice-by-name cost; the keyword LIST
+      qualifier; the remaining cost verbs; the prompt continuation seam;
+      prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
