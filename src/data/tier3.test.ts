@@ -211,10 +211,15 @@ describe('a permanent’s text, which the app does not run', () => {
     // (D196) and is silent now; Read the Bones took over — the ask-not-last
     // guard's own child (D195): scry-then-draw is understood, and the life
     // loss AFTER the ask keeps it honestly assisted.
+    // ⚠️ Read the Bones SHIPPED in D285 (its scry is a script's now, the life
+    // paid in the same resolution) and is silent; Forbidden Alchemy takes over
+    // the assisted post — the look is offered, the flashback is the player's
+    // (and said as its own note beside the assisted one).
     expect(what(C.LIGHTNING_BOLT)).toEqual([]);
     expect(what(C.COUNTERSPELL)).toEqual([]);
     expect(what(C.SWORDS_TO_PLOWSHARES)).toEqual([]);
-    expect(what(C.READ_THE_BONES)).toEqual(['Part of its effect']);
+    expect(what(C.READ_THE_BONES)).toEqual([]);
+    expect(what(C.FORBIDDEN_ALCHEMY)).toEqual(['Part of its effect', 'Flashback']);
     expect(what(C.CULTIVATE)).toEqual(['Its effect']);
   });
 

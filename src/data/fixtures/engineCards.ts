@@ -73703,6 +73703,285 @@ export const REINFORCEMENTS: CardData = {
   "singleImage": true
 };
 
+export const ABYSSAL_HORROR: CardData = {
+  "scryfallId": "10dd1b9b-95db-4aa8-bfea-36b95e7a6613",
+  "oracleId": "6b60422a-765b-4168-a37b-68109103385a",
+  "name": "Abyssal Horror",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Abyssal Horror",
+      "manaCost": "{4}{B}{B}",
+      "typeLine": "Creature — Horror",
+      "oracleText": "Flying\nWhen this creature enters, target player discards two cards.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "rk post",
+      "imageId": "10dd1b9b-95db-4aa8-bfea-36b95e7a6613"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "s99",
+  "collectorNumber": "63",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CORRUPT_COURT_OFFICIAL: CardData = {
+  "scryfallId": "4692610e-d64c-438e-b5ad-0cf67fd57f1f",
+  "oracleId": "ec84201d-757f-4a7a-b3a2-85ccd5ee81ae",
+  "name": "Corrupt Court Official",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Corrupt Court Official",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Advisor",
+      "oracleText": "When this creature enters, target opponent discards a card.",
+      "flavorText": "\"Bring out the Wheel of Punishment!\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Norikatsu Miyoshi",
+      "imageId": "4692610e-d64c-438e-b5ad-0cf67fd57f1f"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tla",
+  "collectorNumber": "92",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEADBRIDGE_SHAMAN: CardData = {
+  "scryfallId": "08c9df3b-875a-41ee-bd49-d739dda1ceb5",
+  "oracleId": "a57389ad-7f2a-47a6-8ae6-2821503cbb28",
+  "name": "Deadbridge Shaman",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deadbridge Shaman",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Elf Shaman",
+      "oracleText": "When this creature dies, target opponent discards a card.",
+      "flavorText": "Ending her life won't end the infestation.",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "08c9df3b-875a-41ee-bd49-d739dda1ceb5"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "EMA-85",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEMENTIA_BAT: CardData = {
+  "scryfallId": "72ae22c3-2dea-463e-894a-188657849909",
+  "oracleId": "95c76175-e3a6-4bf4-a8da-d1179851efe5",
+  "name": "Dementia Bat",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dementia Bat",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Phyrexian Bat",
+      "oracleText": "Flying\n{4}{B}, Sacrifice this creature: Target player discards two cards.",
+      "flavorText": "\"When terror outweighs all other thoughts, they will understand that I am the true Father of Machines.\"\n—Azax-Azog, the Demon Thane",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Daarken",
+      "imageId": "72ae22c3-2dea-463e-894a-188657849909"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "nph",
+  "collectorNumber": "55",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GILT_LEAF_SEER: CardData = {
+  "scryfallId": "0b4cc889-9bc1-48dd-b1d1-95daa73b8fbe",
+  "oracleId": "eab27405-f590-40b7-ad7c-0e6c52410c0a",
+  "name": "Gilt-Leaf Seer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gilt-Leaf Seer",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Elf Shaman",
+      "oracleText": "{G}, {T}: Look at the top two cards of your library, then put them back in any order.",
+      "flavorText": "Desmera blinded her seers so that her beauty would be the last image burned in their memories. The act only deepened their insight.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Darrell Riche",
+      "imageId": "0b4cc889-9bc1-48dd-b1d1-95daa73b8fbe"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "lrw",
+  "collectorNumber": "215",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HALIMAR_DEPTHS: CardData = {
+  "scryfallId": "29479ab2-c492-479c-82ba-441703b27c0c",
+  "oracleId": "42d121a2-5266-483a-ab16-e0a8073cd6a3",
+  "name": "Halimar Depths",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Halimar Depths",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\nWhen this land enters, look at the top three cards of your library, then put them back in any order.\n{T}: Add {U}.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Volkan Baǵa",
+      "imageId": "29479ab2-c492-479c-82ba-441703b27c0c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "c18",
+  "collectorNumber": "253",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INKFATHOM_DIVERS: CardData = {
+  "scryfallId": "758a8ca6-1fc1-454a-a2be-9745ac964eb7",
+  "oracleId": "dbdf3c82-b0fc-479c-acce-f7e60be3a2b1",
+  "name": "Inkfathom Divers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Inkfathom Divers",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Creature — Merfolk Soldier",
+      "oracleText": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.)\nWhen this creature enters, look at the top four cards of your library, then put them back in any order.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Steven Belledin",
+      "imageId": "758a8ca6-1fc1-454a-a2be-9745ac964eb7"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Landwalk",
+    "Islandwalk"
+  ],
+  "setCode": "ddt",
+  "collectorNumber": "8",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AVEN_FATESHAPER: CardData = {
+  "scryfallId": "7a4b41c4-0d14-4b9c-8e0c-a626ba6b104d",
+  "oracleId": "739d93c4-8d7b-4a54-bb6e-1d283e333392",
+  "name": "Aven Fateshaper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aven Fateshaper",
+      "manaCost": "{6}{U}",
+      "typeLine": "Creature — Bird Wizard",
+      "oracleText": "Flying\nWhen this creature enters, look at the top four cards of your library, then put them back in any order.\n{4}{U}: Look at the top four cards of your library, then put them back in any order.",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Anthony S. Waters",
+      "imageId": "7a4b41c4-0d14-4b9c-8e0c-a626ba6b104d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ons",
+  "collectorNumber": "69",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -79296,6 +79575,14 @@ export const ENGINE_CARDS: CardData[] = [
   JOIN_FORCES,
   PLUNGE_INTO_WINTER,
   REINFORCEMENTS,
+  ABYSSAL_HORROR,
+  CORRUPT_COURT_OFFICIAL,
+  DEADBRIDGE_SHAMAN,
+  DEMENTIA_BAT,
+  GILT_LEAF_SEER,
+  HALIMAR_DEPTHS,
+  INKFATHOM_DIVERS,
+  AVEN_FATESHAPER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

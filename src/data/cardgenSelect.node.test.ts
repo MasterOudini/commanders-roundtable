@@ -101,7 +101,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ledger's largest — was BUILT in D168 (`ActivateAbility.sacrifice`) and its
   // entries deleted the same day, so those cards re-enter the offer stream.
   // A script cannot raise ANOTHER player's prompt from resolve (D160).
-  ['Abyssal Horror', 'script-raised prompt'],
   // The "modified" predicate (D160).
   ['Akki Ember-Keeper', 'modified predicate'],
   // Random-discard cost — and `ctx.random` is still a stub (D161).
@@ -154,7 +153,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // "target opponent discards a card" from a trigger's resolve is the
   // script-raised prompt class (D160) — the caster's script asking ANOTHER
   // player's hidden-zone question.
-  ['Corrupt Court Official', 'script-raised prompt'],
   // Batch 12 (D170).
   // "Whenever a Dinosaur you control deals combat damage" — NOT self-only,
   // so `CombatDamageDealt`'s per-event batching under-fires it on
@@ -162,13 +160,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Curious Altisaur', 'per-damage-entry trigger granularity'],
   // A dies-trigger raising the TARGET OPPONENT's discard prompt (D160's
   // class, Corrupt Court Official's dies-twin).
-  ['Deadbridge Shaman', 'script-raised prompt'],
   // M6.4o (D171) — batch 13's five refusals, all existing classes.
   ['Deepwood Drummer', 'discard-cost chooser'],
   // "{4}{B}, Sacrifice this creature: Target player discards two cards" —
   // the resolve must raise the target's chooseFromZone, which a script
   // cannot do (D160's class).
-  ['Dementia Bat', 'script-raised prompt'],
   ['Devout Chaplain', 'tap-creatures cost'],
   ['Devout Witness', 'discard-cost chooser'],
   ['Diversionary Tactics', 'tap-creatures cost'],
@@ -199,7 +195,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Fodder Tosser', 'discard-cost chooser'],
   // Batch 18 (D176) — all three existing classes.
   ['Ghirapur Aether Grid', 'tap-permanents cost'],
-  ['Gilt-Leaf Seer', 'script-raised prompt'],
   ['Glare of Subdual', 'tap-creatures cost'],
   // Batch 19 (D177) — TWO NEW classes. Multi-sacrifice: D168's
   // `ActivateAbility.sacrifice` names ONE permanent, so "Sacrifice two
@@ -221,7 +216,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Grim Lavamancer', 'exile-from-graveyard cost'],
   ['Hagi Mob', 'once-per-turn trigger memory'],
   ['Half-Elf Monk', 'ability-word activated cost'],
-  ['Halimar Depths', 'script-raised prompt'],
   ['Halo Scarab', 'graveyard-activated ability'],
   // Batch 21 (D179): one existing class and THREE new ones. `Hardened
   // Tactician` pays with "a token" — predicatesOf models card types and
@@ -250,7 +244,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Icebind Pillar', 'snow activation cost'],
   ['Illuminated Folio', 'reveal-cost chooser'],
   ['Infernal Tribute', 'token-predicate sacrifice cost'],
-  ['Inkfathom Divers', 'script-raised prompt'],
   // Batch 23 (D182): two existing classes and ONE new one. `Jandor's Ring`
   // pays by discarding "the last card you drew this turn" — the engine
   // tracks no per-turn draw identity at all (the draw-event discriminator's
@@ -322,7 +315,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // widening past the parser — now with two named cards waiting on it.
   ['Brainstorm', 'script-raised prompt'],
   ['Chaos Warp', 'ctx.random'],
-  ['Read the Bones', 'script-raised prompt'],
   ['Electrodominance', 'script-raised prompt'],
   ['Day of Black Sun', 'temporary keyword/ability grant'],
   ['Stinging Study', 'script-raised prompt'],
@@ -1375,7 +1367,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Aphotic Wisps', 'UEOT color change'],
   ['Argent Mutation', 'UEOT type change'],
   ['Arwen Undómiel', 'scry-surveil event discriminator'],
-  ['Aven Fateshaper', 'script-raised prompt'],
   ["Baral's Expertise", 'up-to-N targeting'],
   ["Benefactor's Draught", 'delayed trigger'],
   ['Blazing Crescendo', 'play-from-exile permission'],

@@ -2581,6 +2581,14 @@ const WANTED = [
   'Join Forces',
   'Plunge into Winter',
   'Reinforcements',
+  'Abyssal Horror',
+  'Corrupt Court Official',
+  'Deadbridge Shaman',
+  'Dementia Bat',
+  'Gilt-Leaf Seer',
+  'Halimar Depths',
+  'Inkfathom Divers',
+  'Aven Fateshaper',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

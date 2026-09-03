@@ -8600,6 +8600,35 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       by measured worth: cast-time alternative cost (27), discard-cost
       chooser (39), tap-creatures cost (28), opponent-chooses (24),
       play-from-exile (23); prior items stand.
+- [x] **M6.4dv — Nine landed: Phase 1 reclaim 2, script-raised prompts the
+      engine already answers, zero engine changes (2026-09-03):** **3,891
+      of 31,692 Commander-legal cards now execute completely, up from
+      3,882.** `SHIPPED_SCRIPTS` 1,985 → 1,994; ledger 824 (nine rows
+      DELETED as their cards landed). ZERO token pins, ZERO support bodies,
+      ZERO engine changes. **Sliver Queen reaches 3,842 from 93
+      legendaries.** Decisions in **D285**.
+      ⚠️ **The class's founding wall had fallen:** `chooseFromZone` has been
+      script-raisable since D221 — the four targeted discards (Abyssal
+      Horror, Corrupt Court Official, Deadbridge Shaman, Dementia Bat) land;
+      `Read the Bones` rides `scryChoice`'s `thenDraw`; the look-and-reorder
+      family (Gilt-Leaf Seer, Halimar Depths, Inkfathom Divers, Aven
+      Fateshaper) raises `orderCards` after revealing the top N — the answer
+      is top-first and clears the reveal itself.
+      ⚠️ **Every suite green on the first run** (9 files / 26 tests).
+      ⚠️ **Port lesson:** `Read the Bones` was already a fixture — check the
+      const before adding a WANTED name (2,246 = eight new, not nine).
+      **Still in the class (~77):** option prompts with a continuation —
+      tap-or-untap, modal, colour/type choices, "may" for spells,
+      reveal-and-pick, owner's-choice placement, each-player choices.
+      Fixtures 2,246 (2,138 by name + 101 tokens) · botPool artifact 154 /
+      creature 2,012 / enchantment 75 / instant 721 / land 342 / sorcery 587 ·
+      ladder [1162, 1261, 3054, 4968, 6180] · batch.json 9.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,074 files, 10,905 passed / 10 skipped · 500-seed gate 722.5 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D285): the reclaims are done; next by measured
+      worth are the cost-chooser verbs in the D168 pattern — `discardCost`
+      (39) and `tapCost` (28) — then the prompt continuation seam; prior
+      items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

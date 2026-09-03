@@ -7,6 +7,15 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ABYSSAL_HORROR_SCRIPT } from './cards/abyssalHorror';
+import { CORRUPT_COURT_OFFICIAL_SCRIPT } from './cards/corruptCourtOfficial';
+import { DEADBRIDGE_SHAMAN_SCRIPT } from './cards/deadbridgeShaman';
+import { DEMENTIA_BAT_SCRIPT } from './cards/dementiaBat';
+import { READ_THE_BONES_SCRIPT } from './cards/readTheBones';
+import { GILT_LEAF_SEER_SCRIPT } from './cards/giltLeafSeer';
+import { HALIMAR_DEPTHS_SCRIPT } from './cards/halimarDepths';
+import { INKFATHOM_DIVERS_SCRIPT } from './cards/inkfathomDivers';
+import { AVEN_FATESHAPER_SCRIPT } from './cards/avenFateshaper';
 import { NAHIRIS_STONEBLADES_SCRIPT } from './cards/nahirisStoneblades';
 import { MISCHIEF_AND_MAYHEM_SCRIPT } from './cards/mischiefAndMayhem';
 import { TANDEM_TACTICS_SCRIPT } from './cards/tandemTactics';
@@ -2106,6 +2115,15 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ABYSSAL_HORROR_SCRIPT,
+  CORRUPT_COURT_OFFICIAL_SCRIPT,
+  DEADBRIDGE_SHAMAN_SCRIPT,
+  DEMENTIA_BAT_SCRIPT,
+  READ_THE_BONES_SCRIPT,
+  GILT_LEAF_SEER_SCRIPT,
+  HALIMAR_DEPTHS_SCRIPT,
+  INKFATHOM_DIVERS_SCRIPT,
+  AVEN_FATESHAPER_SCRIPT,
   NAHIRIS_STONEBLADES_SCRIPT,
   MISCHIEF_AND_MAYHEM_SCRIPT,
   TANDEM_TACTICS_SCRIPT,

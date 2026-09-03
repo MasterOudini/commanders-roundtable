@@ -18867,3 +18867,69 @@ raisable over the library); those are reclaim 2. Then the seams by measured
 worth: the cast-time alternative cost (27), the discard-cost chooser (39),
 tap-creatures cost (28), opponent-chooses (24), play-from-exile (23); prior
 items stand.
+
+## D285 — M6.4dv: nine landed — Phase 1 reclaim 2: script-raised prompts the engine already answers, zero engine changes (2026-09-03)
+
+**3,891 of 31,692 Commander-legal cards execute completely, up from 3,882.**
+SHIPPED_SCRIPTS 1,985 → 1,994; ledger 833 → 824 (**nine rows DELETED** as
+their cards landed). ZERO new token pins, ZERO new support bodies, **ZERO
+engine changes**. **Sliver Queen reaches 3,842 from 93 legendaries.**
+
+⚠️ **The class's founding wall had fallen too.** `script-raised prompt`
+opened with `Abyssal Horror` because a script could not raise ANOTHER
+player's prompt from resolve (D160). Laquatus's Creativity raised
+`chooseFromZone` from a spell in D221, and D270 measured that half the class
+was reachable; the audit landed that half's cleanest members. **Targeted
+discards:** Abyssal Horror (the class's first entry — two cards, one for a
+one-card hand, nothing for an empty one), Corrupt Court Official (an
+opponent, myself refused), Deadbridge Shaman (a looks-back dies trigger;
+exile is not dying), Dementia Bat (a self-sacrifice activation). **Read the
+Bones:** scry 2 revealed first, the two draws riding the ask as `thenDraw`
+and dealt by the answer handler, the 2 life paid in the same resolution.
+**The look-and-reorder family** through `orderCards` raised from a script
+after a `CardsRevealed` of the top N: Gilt-Leaf Seer (two), Halimar Depths
+(three, entering tapped), Inkfathom Divers (four, Islandwalk the engine's),
+Aven Fateshaper (four on entry and four again for five mana). The answer
+lists the cards top-first and clears the reveal itself; one shown card has
+one order and skips the ask.
+
+⚠️ **Every suite green on the first run — 9 files / 26 tests.**
+
+**Two port-side lessons from one card.** `Read the Bones` was ALREADY a
+fixture (the tier-3 disclosure test's specimen of a spell the app only PARTLY
+runs), so the batch's WANTED line declared `READ_THE_BONES` twice and tsc
+refused the fixture file — check the const before adding a name; an existing
+fixture is fine to script against. And once it shipped, its "Part of its
+effect" note vanished and the first gate failed on that one pin: the
+assisted post passes to `Forbidden Alchemy` (the look is offered, the
+flashback is the player's), chosen from the six fixture spells a probe found
+still assisted. Fixtures 2,238 → 2,246: eight new names, not nine.
+
+**What the class still holds** — about 77 cards that need a script-raised
+OPTION prompt with a continuation: tap-or-untap (Twiddle, Twitch, Toils of
+Night and Day), modal choices (Lava Storm, Essence Filter, Reign of Terror),
+colour and creature-type choices (Quickchange, Wash Out, Extinction, Tribal
+Unity, Witch's Vengeance, Defensive Maneuvers, Manamorphose), "may" choices
+for spells (Dead Reckoning, Eye Spy, Fire Prophecy, Manhole Missile,
+Volcanic Spite, Heated Argument, Hypothesizzle, Resolute Strike),
+reveal-and-pick (Commune with the Gods and its kin, Reviving Vapors),
+owner's-choice placement (Aetherspouts, Lost in Space, Misleading Motes,
+Unlucky Drop) and each-player choices (Browbeat, Breaking Point, Mind Bomb,
+Minds Aglow, Truce). That is the Phase 1 prompt seam; the cost-chooser verbs
+come first by measured worth.
+
+Fixtures 2,238 → 2,246 (2,138 by name + 101 tokens) · botPool artifact 154 /
+creature 2,012 / enchantment 75 / instant 721 / land 342 / sorcery 587 ·
+ladder [1162, 1261, 3054, 4968, 6180] · batch.json 9 (by name) · botDeck:
+3,842 from 93 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,074 files, 10,905 passed / 10 skipped · 500-seed gate 722.5 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D285): the reclaims are done; the next landings need
+engine work. First by measured worth: the cost-chooser verbs in the D168
+pattern — `discardCost` (39 cards: "Discard a card", "Discard a land card",
+"Discard two cards") and `tapCost` (28: "Tap N untapped <creatures> you
+control") — parsed beside `sacrificeCost`, offered by `legal.ts`, named on
+the `ActivateAbility` intent, validated and charged in the cost batch. Then
+the prompt continuation seam; prior items stand.
