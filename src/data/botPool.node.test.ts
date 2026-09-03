@@ -159,7 +159,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
 
   test('reads the whole database', async () => {
     r = await run();
-    expect(r.printings).toBeGreaterThan(100_000);
+    expect.soft(r.printings).toBeGreaterThan(100_000);
     if (!REPORT) return;
     const pool = Object.values(r.poolByType).reduce((a, b) => a + b, 0);
     const rows = (Object.keys(r.byType) as Bucket[])
@@ -199,7 +199,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * typed by the FIRST face. Anything else lands somewhere else entirely.
    */
   test('D90 reproduces: 6,975 Commander-legal instants and sorceries', () => {
-    expect(r.spells.total).toBe(6975);
+    expect.soft(r.spells.total).toBe(6975);
   });
 
   /**
@@ -240,9 +240,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * verified identical across isolated and full-suite runs.
    */
   test('D90 does not reproduce, and the vocabulary keeps moving it: 632 auto, 1,775 assisted (D199)', () => {
-    expect(r.spells.auto).toBe(632);
-    expect(r.spells.assisted).toBe(1775);
-    expect(r.spells.autoAnyFace).toBe(640);
+    expect.soft(r.spells.auto).toBe(632);
+    expect.soft(r.spells.assisted).toBe(1775);
+    expect.soft(r.spells.autoAnyFace).toBe(640);
   });
 
   /**
@@ -252,13 +252,13 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * there prints 6,975 (names) and 12,500 (printings) in adjacent rows.
    */
   test('D116 is a PRINTINGS count, not a distinct-name one', () => {
-    expect(r.legalLandPrintings).toBe(12500);
-    expect(r.byType['land']).toBe(1114);
+    expect.soft(r.legalLandPrintings).toBe(12500);
+    expect.soft(r.byType['land']).toBe(1114);
   });
 
   test('the pool is what it is', () => {
-    expect(r.poolByType).toEqual(POOL);
-    expect(r.distinct).toBe(31692);
+    expect.soft(r.poolByType).toEqual(POOL);
+    expect.soft(r.distinct).toBe(31692);
   });
 
   /**
@@ -283,9 +283,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). Planeswalkers (loyalty costs) and battles are still
     // structurally out, and stay pinned at zero for the same reason the
     // enchantments were.
-    expect(r.poolByType['enchantment'] ?? 0).toBe(93);
-    expect(r.poolByType['planeswalker'] ?? 0).toBe(0);
-    expect(r.poolByType['battle'] ?? 0).toBe(0);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(93);
+    expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(0);
+    expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
 
   test('the committed deck still passes the predicate', () => {
@@ -294,7 +294,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     for (const name of [BOT_DECK.commander, ...BOT_DECK.main]) {
       if (!byName.has(name)) missing.push(name);
     }
-    expect(missing).toEqual([]);
+    expect.soft(missing).toEqual([]);
   });
 
   /**
@@ -315,9 +315,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
       { cardDataUpdatedAt: null },
     );
     const errors = report.issues.filter((x) => x.severity === 'error');
-    expect(errors.map((e) => `${e.code}: ${e.message}`)).toEqual([]);
-    expect(report.counts.total).toBe(100);
-    expect(report.ok).toBe(true);
+    expect.soft(errors.map((e) => `${e.code}: ${e.message}`)).toEqual([]);
+    expect.soft(report.counts.total).toBe(100);
+    expect.soft(report.ok).toBe(true);
   });
 
   /**
@@ -343,7 +343,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    */
   test('regenerating botDeck.ts would change nothing', () => {
     const deck = buildBotDeck(r.pool);
-    expect(deck).not.toBeNull();
+    expect.soft(deck).not.toBeNull();
     if (!deck) return;
     const path = join(process.cwd(), 'src', 'data', 'botDeck.ts');
     const onDisk = readFileSync(path, 'utf8');
@@ -351,12 +351,12 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // and `render` builds with `\n`, so a raw comparison fails on every line of
     // a file that is otherwise identical.
     const norm = (s: string): string => s.split('\r\n').join('\n');
-    expect(norm(render(deck))).toBe(norm(onDisk));
+    expect.soft(norm(render(deck))).toBe(norm(onDisk));
   });
 
   test.skipIf(!WRITE)('writes src/data/botDeck.ts', () => {
     const deck = buildBotDeck(r.pool);
-    expect(deck).not.toBeNull();
+    expect.soft(deck).not.toBeNull();
     if (!deck) return;
     writeFileSync(join(process.cwd(), 'src', 'data', 'botDeck.ts'), render(deck), 'utf8');
     // eslint-disable-next-line no-console
@@ -369,7 +369,7 @@ describe.skipIf(HAVE_DB)('the bot pool, measured', () => {
   test('SKIPPED — no card database', () => {
     // eslint-disable-next-line no-console
     console.warn(`No card database at ${NDJSON}. Run: node electron/cardsvc-worker.cjs --sync`);
-    expect(HAVE_DB).toBe(false);
+    expect.soft(HAVE_DB).toBe(false);
   });
 });
 

@@ -8975,6 +8975,24 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       (engine half drafted); the modal seam (42); the "another" split; the
       self-sacrifice-by-name cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4ef — THE GATE ON ALL THE CORES: the 500-seed fuzz gate sharded
+      over the machine, and the measured pins reported in one pass
+      (2026-09-03):** **4,113 of 31,692 — unchanged; no card lands here.**
+      User-approved (two of four options; a full gate every second batch and
+      helper-agent drafting were DECLINED and are not in force). Decisions in
+      **D296**.
+      ⚠️ **Sharding:** `CRT_FUZZ_SHARD="i/W"` runs seeds ≡ i (mod W), asserts
+      every per-seed hash as before, writes seeds + counters to
+      `CRT_FUZZ_OUT`; `CRT_FUZZ_AGGREGATE=<dir>` asserts an EXACT partition of
+      [0, 500) (a hidden shard fails it — proven) and the canary floors over
+      the union, in the one `assertFloors` both modes call. `verify.cjs
+      --full` runs 6 shards concurrently (`--fuzz-shards W`), then the
+      aggregate. Measured 250.0 s wall vs 768.2 s single-process.
+      ⚠️ **Soft pins:** 76 `expect(` → `expect.soft(` in the five MEASURED
+      suites only; guards keep hard expects.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,206 files, 11,586 passed / 11 skipped ·
+      500-seed gate, 6 shards, 250.0 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D296): D295 next; D294's list stands.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

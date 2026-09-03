@@ -1,4 +1,6 @@
 import { describe, expect, test } from 'vitest';
+import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
 import { Game } from './game';
 import { checkInvariants } from './invariants';
 import { legalActions } from './legal';
@@ -45,6 +47,27 @@ import type { GameState } from './types/state';
 
 const SEEDS = Number(process.env.CRT_FUZZ_SEEDS ?? 60);
 const INTENTS = Number(process.env.CRT_FUZZ_INTENTS ?? 200);
+
+/**
+ * D296 — the gate SHARDED over the machine's cores. `CRT_FUZZ_SHARD="i/W"` runs
+ * the seeds ≡ i (mod W) and writes its seeds + totals to `CRT_FUZZ_OUT`;
+ * `CRT_FUZZ_AGGREGATE=<dir>` reads every shard file, asserts the seed sets are an
+ * EXACT partition of [0, SEEDS), sums them, and asserts the canary floors over
+ * the UNION. Per-seed properties (every hash equal) are asserted inside each
+ * shard exactly as before; the floors are stated in ONE place, `assertFloors`.
+ */
+const SHARD = parseShard(process.env.CRT_FUZZ_SHARD);
+const AGGREGATE = process.env.CRT_FUZZ_AGGREGATE ?? null;
+
+function parseShard(spec: string | undefined): { readonly i: number; readonly w: number } | null {
+  if (!spec) return null;
+  const m = /^(\d+)\/(\d+)$/.exec(spec);
+  if (!m) throw new Error(`CRT_FUZZ_SHARD must be "i/W", got "${spec}"`);
+  const i = Number(m[1]);
+  const w = Number(m[2]);
+  if (!(w >= 1) || !(i >= 0) || i >= w) throw new Error(`CRT_FUZZ_SHARD out of range: "${spec}"`);
+  return { i, w };
+}
 
 /**
  * ⚠️⚠️ **THE CANARY-STAPLES TABLE (D193)** — the structural end of the
@@ -817,101 +840,85 @@ describe('the fuzz pool covers every shipped script', () => {
     expect(dealt.has(HUMILITY_SCRIPT.name)).toBe(false);
   });
 });
-describe('replay-equivalence fuzzer — THE GATE', () => {
-  test(
-    `${SEEDS} seeds × ${INTENTS} random legal intents replay to an identical hash`,
-    () => {
-      const runs: Run[] = [];
-      for (let seed = 0; seed < SEEDS; seed++) runs.push(runOne(seed));
+/** The per-run counters the gate sums (D296: in one list, so a shard and the union agree). */
+const TOTAL_KEYS = [
+  'accepted',
+  'events',
+  'turns',
+  'targetPrompts',
+  'targetsChosen',
+  'enteredWithCounters',
+  'transformedIntoPlaneswalker',
+  'peeked',
+  'triggersFired',
+  'activatedRun',
+  'optionalTaken',
+  'optionalDeclined',
+  'layer6Sources',
+  'ptCountersWritten',
+  'tokensCreated',
+  'tokensNamed',
+  'enteredTapped',
+  'entersPaid',
+  'discardsChosen',
+  'cardsDiscarded',
+  'triggerTargetsChosen',
+  'triggersFizzled',
+  'diesTriggers',
+  'replacementChoices',
+  'scryChoices',
+  'entersDeclined',
+] as const;
+type TotalKey = (typeof TOTAL_KEYS)[number] | 'finished';
+type Totals = Record<TotalKey, number>;
 
-      const totals = runs.reduce(
-        (a, r) => ({
-          accepted: a.accepted + r.accepted,
-          events: a.events + r.events,
-          turns: a.turns + r.turns,
-          finished: a.finished + (r.finished ? 1 : 0),
-          targetPrompts: a.targetPrompts + r.targetPrompts,
-          targetsChosen: a.targetsChosen + r.targetsChosen,
-          enteredWithCounters: a.enteredWithCounters + r.enteredWithCounters,
-          transformedIntoPlaneswalker: a.transformedIntoPlaneswalker + r.transformedIntoPlaneswalker,
-          peeked: a.peeked + r.peeked,
-          triggersFired: a.triggersFired + r.triggersFired,
-          activatedRun: a.activatedRun + r.activatedRun,
-          optionalTaken: a.optionalTaken + r.optionalTaken,
-          optionalDeclined: a.optionalDeclined + r.optionalDeclined,
-          layer6Sources: a.layer6Sources + r.layer6Sources,
-          ptCountersWritten: a.ptCountersWritten + r.ptCountersWritten,
-          tokensCreated: a.tokensCreated + r.tokensCreated,
-          tokensNamed: a.tokensNamed + r.tokensNamed,
-          enteredTapped: a.enteredTapped + r.enteredTapped,
-          entersPaid: a.entersPaid + r.entersPaid,
-          discardsChosen: a.discardsChosen + r.discardsChosen,
-          cardsDiscarded: a.cardsDiscarded + r.cardsDiscarded,
-          triggerTargetsChosen: a.triggerTargetsChosen + r.triggerTargetsChosen,
-          triggersFizzled: a.triggersFizzled + r.triggersFizzled,
-          diesTriggers: a.diesTriggers + r.diesTriggers,
-          replacementChoices: a.replacementChoices + r.replacementChoices,
-          scryChoices: a.scryChoices + r.scryChoices,
-          entersDeclined: a.entersDeclined + r.entersDeclined,
-        }),
-        {
-          accepted: 0,
-          events: 0,
-          turns: 0,
-          finished: 0,
-          targetPrompts: 0,
-          targetsChosen: 0,
-          enteredWithCounters: 0,
-          transformedIntoPlaneswalker: 0,
-          peeked: 0,
-          triggersFired: 0,
-          activatedRun: 0,
-          optionalTaken: 0,
-          optionalDeclined: 0,
-          layer6Sources: 0,
-          ptCountersWritten: 0,
-          tokensCreated: 0,
-          tokensNamed: 0,
-          enteredTapped: 0,
-          entersPaid: 0,
-          discardsChosen: 0,
-          cardsDiscarded: 0,
-          triggerTargetsChosen: 0,
-          triggersFizzled: 0,
-          diesTriggers: 0,
-          replacementChoices: 0,
-          scryChoices: 0,
-          entersDeclined: 0,
-        },
-      );
-      // eslint-disable-next-line no-console
-      console.log(
-        `fuzz: ${SEEDS} seeds · ${totals.accepted} accepted intents · ${totals.events} events · ` +
-          `${totals.turns} turns · ${totals.finished} games finished · ` +
-          `${totals.targetPrompts} target prompts · ${totals.targetsChosen} declared · ` +
-          `${totals.enteredWithCounters} entered with counters · ` +
-          `${totals.transformedIntoPlaneswalker} transformed into a planeswalker · ` +
-          `${totals.peeked} library peeks · ` +
-          `${totals.triggersFired} triggered abilities · ` +
-          `${totals.activatedRun} activated abilities resolved by script · ` +
-          `${totals.optionalTaken} may-triggers taken / ${totals.optionalDeclined} declined · ` +
-          `${totals.layer6Sources} layer-6 sources on a battlefield · ` +
-          `${totals.ptCountersWritten} +1/+1 or -1/-1 counters written by the rules · ` +
-          `${totals.tokensCreated} tokens created by the rules (${totals.tokensNamed} the oracle can name) · ` +
-          `${totals.enteredTapped} permanents entered tapped · ` +
-          `${totals.entersPaid} paid life to enter untapped / ${totals.entersDeclined} declined · ` +
-          `${totals.discardsChosen} discards chosen, ${totals.cardsDiscarded} moves of hand→graveyard`,
-      );
+function zeroTotals(): Totals {
+  const t = {} as Totals;
+  for (const k of TOTAL_KEYS) t[k] = 0;
+  t.finished = 0;
+  return t;
+}
 
+function sumRuns(runs: readonly Run[]): Totals {
+  const t = zeroTotals();
+  for (const r of runs) {
+    for (const k of TOTAL_KEYS) t[k] += r[k];
+    t.finished += r.finished ? 1 : 0;
+  }
+  return t;
+}
+
+function addTotals(a: Totals, b: Totals): Totals {
+  const t = zeroTotals();
+  for (const k of TOTAL_KEYS) t[k] = a[k] + b[k];
+  t.finished = a.finished + b.finished;
+  return t;
+}
+
+/** A shard writes what it ran; the aggregate run reads every shard back. */
+function writeShard(runs: readonly Run[], totals: Totals): void {
+  const out = process.env.CRT_FUZZ_OUT;
+  if (!out) throw new Error('CRT_FUZZ_SHARD needs CRT_FUZZ_OUT');
+  mkdirSync(dirname(out), { recursive: true });
+  writeFileSync(out, JSON.stringify({ seeds: runs.map((r) => r.seed), totals }, null, 2));
+}
+
+/**
+ * THE CANARY FLOORS, over `seeds` runs — the whole gate (500) or the union of
+ * its shards. A fuzzer that silently did nothing would pass the hash check;
+ * these are what say it did something. Every comment below is the reason a
+ * floor is where it is; none of them moved in D296.
+ */
+function assertFloors(totals: Totals, seeds: number): void {
       // A fuzzer that silently did nothing would pass. These are the canaries.
-      expect(totals.accepted).toBeGreaterThan(SEEDS * 50);
-      expect(totals.events).toBeGreaterThan(SEEDS * 300);
-      expect(totals.turns).toBeGreaterThan(SEEDS * 2);
+      expect(totals.accepted).toBeGreaterThan(seeds * 50);
+      expect(totals.events).toBeGreaterThan(seeds * 300);
+      expect(totals.turns).toBeGreaterThan(seeds * 2);
       // ⚠️ TARGETING PATH CANARIES. Without these, a regression that stopped
       // emitting the prompt — or a harness that answered every one by
       // cancelling — leaves the whole gate green while the feature is dead.
-      expect(totals.targetPrompts).toBeGreaterThan(SEEDS);
-      expect(totals.targetsChosen).toBeGreaterThan(SEEDS);
+      expect(totals.targetPrompts).toBeGreaterThan(seeds);
+      expect(totals.targetsChosen).toBeGreaterThan(seeds);
       // ⚠️ THE ENTRY-COUNTER CANARY. The hash equality above is only evidence
       // about a rule the run actually EXERCISED, and until Grist and the Siege
       // joined `DECK` this gate could not put a planeswalker on a battlefield at
@@ -922,7 +929,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       // reliability (measured 0 at 60 while the same commit's 500-seed run
       // held 30), exactly the profile that gate-sized the transform canary
       // below and the dies canary before D175's re-weight.
-      if (SEEDS >= 500) expect(totals.enteredWithCounters).toBeGreaterThan(0);
+      if (seeds >= 500) expect(totals.enteredWithCounters).toBeGreaterThan(0);
       // ⚠️ THE TRANSFORM CANARY, and it needed a new INTENT as well as a new
       // card: `manualIntentFor` had no `ManualFlipFace` case at all, so no seed
       // could turn a permanent over however many faces it had. Same `> 0`
@@ -935,7 +942,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       // the 60-seed default while staying comfortable at 500: measured 0 at 60
       // and green at 500 on the same commit. A `> 0` that is a coin flip at the
       // default is a check that fails for reasons unrelated to what it tests.
-      if (SEEDS >= 500) expect(totals.transformedIntoPlaneswalker).toBeGreaterThan(0);
+      if (seeds >= 500) expect(totals.transformedIntoPlaneswalker).toBeGreaterThan(0);
       // ⚠️ THE PEEK CANARY. The leak test above now asserts a BOUNDARY —
       // a library card may reach a projection only when it is revealed to
       // that viewer — and an assertion about a boundary nothing crosses is
@@ -954,7 +961,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       // Gate-size only, like the dies-trigger canary: reaching one takes
       // drawing the artifact or land, playing it, affording the activation and
       // the fuzzer choosing it, which is a coin flip across 60 arbitrary seeds.
-      if (SEEDS >= 500) expect(totals.activatedRun).toBeGreaterThan(0);
+      if (seeds >= 500) expect(totals.activatedRun).toBeGreaterThan(0);
       // ⚠️ BOTH ANSWERS, separately. One canary over "was the prompt raised"
       // would stay green with a driver that only ever declined, and declining
       // runs no script at all — so the accept path, which is the entire point of
@@ -998,7 +1005,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       // coin flip; it flipped in D176's second gate run, one run after the
       // entry-counter canary did (the same batch-18 DECK dilution took both).
       // `cardsDiscarded` stays at every size: cleanup discards keep it ~93/500.
-      if (SEEDS >= 500) expect(totals.discardsChosen).toBeGreaterThan(0);
+      if (seeds >= 500) expect(totals.discardsChosen).toBeGreaterThan(0);
       expect(totals.cardsDiscarded).toBeGreaterThan(0);
       // ⚠️ THE TARGETED-TRIGGER CANARY. Before D147 `drainTriggers` built every
       // stack object with `targets: []`, so this whole path — the prompt, the
@@ -1016,7 +1023,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       // at the 60-seed default is a coin flip on which 60 arbitrary games come
       // up, and this one and the Jace transform both went to 0 at 60 while the
       // 500-seed gate stayed green on the same commit.
-      if (SEEDS >= 500) expect(totals.diesTriggers).toBeGreaterThan(0);
+      if (seeds >= 500) expect(totals.diesTriggers).toBeGreaterThan(0);
       // ⚠️ THE CR 616 CANARY. The funnel suspends only when TWO replacements
       // apply to one event, which needs both cards on one battlefield and a
       // counter being put — so this is the one number that says the
@@ -1041,12 +1048,46 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       // be a coin-flip gate; asserting it at 500 and saying the rate is the
       // honest form. `battery-anim.cjs prompts` covers both branches with real
       // clicks either way, which is the coverage that does not depend on luck.
-      if (SEEDS >= 500) expect(totals.replacementChoices).toBeGreaterThan(0);
+      if (seeds >= 500) expect(totals.replacementChoices).toBeGreaterThan(0);
       // ⚠️ THE SCRY CANARY (D195): Preordain is a staple in every pool, {U} is
       // affordable, and the prompt is answered by the driver's no-op scry —
       // so at gate size the effect that stops and asks must have stopped and
       // asked somewhere.
-      if (SEEDS >= 500) expect(totals.scryChoices).toBeGreaterThan(0);
+      if (seeds >= 500) expect(totals.scryChoices).toBeGreaterThan(0);
+}
+
+describe('replay-equivalence fuzzer — THE GATE', () => {
+  test.skipIf(AGGREGATE !== null)(
+    `${SEEDS} seeds × ${INTENTS} random legal intents replay to an identical hash`,
+    () => {
+      const runs: Run[] = [];
+      for (let seed = SHARD?.i ?? 0; seed < SEEDS; seed += SHARD?.w ?? 1) runs.push(runOne(seed));
+
+      const totals = sumRuns(runs);
+      // eslint-disable-next-line no-console
+      console.log(
+        `fuzz: ${runs.length} seeds${SHARD ? ` (shard ${SHARD.i}/${SHARD.w})` : ''} · ${totals.accepted} accepted intents · ${totals.events} events · ` +
+          `${totals.turns} turns · ${totals.finished} games finished · ` +
+          `${totals.targetPrompts} target prompts · ${totals.targetsChosen} declared · ` +
+          `${totals.enteredWithCounters} entered with counters · ` +
+          `${totals.transformedIntoPlaneswalker} transformed into a planeswalker · ` +
+          `${totals.peeked} library peeks · ` +
+          `${totals.triggersFired} triggered abilities · ` +
+          `${totals.activatedRun} activated abilities resolved by script · ` +
+          `${totals.optionalTaken} may-triggers taken / ${totals.optionalDeclined} declined · ` +
+          `${totals.layer6Sources} layer-6 sources on a battlefield · ` +
+          `${totals.ptCountersWritten} +1/+1 or -1/-1 counters written by the rules · ` +
+          `${totals.tokensCreated} tokens created by the rules (${totals.tokensNamed} the oracle can name) · ` +
+          `${totals.enteredTapped} permanents entered tapped · ` +
+          `${totals.entersPaid} paid life to enter untapped / ${totals.entersDeclined} declined · ` +
+          `${totals.discardsChosen} discards chosen, ${totals.cardsDiscarded} moves of hand→graveyard`,
+      );
+
+      if (SHARD) {
+        writeShard(runs, totals);
+      } else {
+        assertFloors(totals, SEEDS);
+      }
     },
     // ⚠️ A HANG CATCHER, NOT A PERF REFEREE (D133's testTimeout rule). The
     // wall grows with the arc's whole point — more scripts mean richer games
@@ -1137,5 +1178,37 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       expect(checkInvariants(game.state)).toEqual([]);
       expect(stateHash(replay(game.log, game.seed))).toBe(game.hash());
     }
+  });
+});
+
+
+describe('the sharded gate adds up (D296)', () => {
+  test.skipIf(AGGREGATE === null)('every seed ran exactly once across the shards, and the floors hold over the union', () => {
+    const dir = AGGREGATE as string;
+    const files = readdirSync(dir)
+      .filter((f) => /^shard-\d+\.json$/.test(f))
+      .sort();
+    expect(files.length).toBeGreaterThan(0);
+    const seen = new Map<number, string>();
+    let sum = zeroTotals();
+    for (const f of files) {
+      const shard = JSON.parse(readFileSync(join(dir, f), 'utf8')) as { seeds: number[]; totals: Totals };
+      for (const s of shard.seeds) {
+        expect(seen.has(s), `seed ${s} ran in both ${seen.get(s)} and ${f}`).toBe(false);
+        seen.set(s, f);
+      }
+      sum = addTotals(sum, shard.totals);
+    }
+    const missing: number[] = [];
+    for (let s = 0; s < SEEDS; s++) if (!seen.has(s)) missing.push(s);
+    expect(missing).toEqual([]);
+    expect(seen.size).toBe(SEEDS);
+    // eslint-disable-next-line no-console
+    console.log(
+      `fuzz (union of ${files.length} shards): ${SEEDS} seeds · ${sum.accepted} accepted intents · ${sum.events} events · ` +
+        `${sum.turns} turns · ${sum.finished} games finished · ${sum.targetPrompts} target prompts · ` +
+        `${sum.triggersFired} triggered abilities · ${sum.activatedRun} activated abilities resolved by script`,
+    );
+    assertFloors(sum, SEEDS);
   });
 });

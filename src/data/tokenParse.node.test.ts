@@ -128,7 +128,7 @@ describe.skipIf(!HAVE_DB)('the token resolver, over the real database', () => {
 
   test('reads the whole database', async () => {
     r = await run();
-    expect(r.tokenPrintings).toBeGreaterThan(1000);
+    expect.soft(r.tokenPrintings).toBeGreaterThan(1000);
     if (!REPORT) return;
     // eslint-disable-next-line no-console
     console.log(
@@ -154,7 +154,7 @@ describe.skipIf(!HAVE_DB)('the token resolver, over the real database', () => {
    * counted printings and reported 328 ambiguities that were nothing of the kind.
    */
   test('every description that resolves, resolves to exactly one token', () => {
-    expect(r.ambiguous).toBe(0);
+    expect.soft(r.ambiguous).toBe(0);
   });
 
   /**
@@ -175,7 +175,7 @@ describe.skipIf(!HAVE_DB)('the token resolver, over the real database', () => {
    * the ones already here.
    */
   test('the resolver is worth what it is worth', () => {
-    expect({
+    expect.soft({
       tokenPrintings: r.tokenPrintings,
       cards: r.cards,
       lines: r.lines,
@@ -206,7 +206,7 @@ describe.skipIf(!HAVE_DB)('the token resolver, over the real database', () => {
    * is the same 7.8% before and after D153 widened the population.
    */
   test('the misses are few, and they are the database', () => {
-    expect(r.noMatch).toBe(22);
+    expect.soft(r.noMatch).toBe(22);
   });
 });
 
@@ -214,6 +214,6 @@ describe.skipIf(HAVE_DB)('the token resolver, over the real database', () => {
   test('SKIPPED — no card database', () => {
     // eslint-disable-next-line no-console
     console.warn(`No card database at ${NDJSON}. Run: node electron/cardsvc-worker.cjs --sync`);
-    expect(HAVE_DB).toBe(false);
+    expect.soft(HAVE_DB).toBe(false);
   });
 });

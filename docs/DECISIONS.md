@@ -19679,3 +19679,56 @@ list seam (engine half drafted and dry-verified; Radiant Purge, Broken Wings,
 a mode-choice prompt); the "another" split; the self-sacrifice-by-name
 cost; the remaining cost verbs; the prompt continuation seam; prior items
 stand.
+
+## D296 — M6.4ef: THE GATE ON ALL THE CORES — the 500-seed fuzz gate sharded over the machine, and the measured pins reported in one pass; nothing a gate proves is weakened (2026-09-03)
+
+**4,113 of 31,692 — unchanged; this decision lands no card.** SHIPPED_SCRIPTS
+2,122, ledger 763, fixtures 2,393, select pool 137 — all unchanged. What
+changes is how long a batch waits on its own verification, at the user's
+explicit approval of two of four options offered (the other two — a full
+gate every second batch, and parallel drafting by helper agents — were
+declined and are NOT in force).
+
+**Why.** Measured over the eight batches of 2026-09-03 (D286–D294): a batch's
+gate takes ~30 min (unit ~17–20 + fuzz ~12) and runs in the background, but
+while it runs the loop may only write files — no vitest, no NDJSON parse — so
+every probe that decides the NEXT batch waits for it. And each measured-pin
+suite stops at its first failing `expect`, so re-pinning after a batch takes
+three sweep passes (~8 min) to see every moved number. Neither cost is the
+authoring, which dominates; both were pure waiting.
+
+**1. The fuzz gate sharded (`src/engine/fuzz.node.test.ts`,
+`scripts/cardgen/verify.cjs`).** The gate's 500 seeds are independent games,
+so `CRT_FUZZ_SHARD="i/W"` runs the seeds ≡ i (mod W) — every per-seed
+property (each game replays to an identical hash) asserted inside the shard
+exactly as before — and writes its seeds and counters to `CRT_FUZZ_OUT`.
+`CRT_FUZZ_AGGREGATE=<dir>` then reads every shard file, asserts the seed
+sets are an EXACT partition of [0, 500) (no gap, no duplicate — a missing
+shard fails it, proven in the smoke), sums the counters, and asserts the
+canary floors over the UNION. The floors moved into ONE function,
+`assertFloors(totals, seeds)`, with every one of their comments; none of
+them changed, and the unsharded run (the 60-seed default) calls the same
+function. `verify.cjs --full` spawns W shards concurrently (default 6 of
+this machine's 8 cores; `--fuzz-shards W`), prints each shard's own `fuzz:`
+line and the wall, then runs the aggregate. The 3,600 s hang-catcher is now
+per shard, which is stricter. Measured: 250.0 s wall for 500 seeds over 6
+shards, against 768.2 s for the same seeds in one process.
+
+**2. Soft pins (`src/data/{primitives,tier3,botPool,tokenParse,cardgenSelect}.node.test.ts`).**
+76 `expect(` call sites in the five MEASURED suites become `expect.soft(` — a
+failing soft expect still fails its test, it just does not stop it, so one
+sweep now reports every moved number. The three GUARD suites
+(shippedScripts, engineCards, tokenTable) keep hard expects: a guard should
+stop at the first lie.
+
+**Not changed, and said so:** the gate order, the per-batch cadence (every
+batch still runs all five gates before it lands), the ceiling rule, the
+battery and probe.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,206 files, 11,586 passed / 11 skipped ·
+500-seed gate, 6 shards, 250.0 s wall · build clean · probe 124/124 · battery 130/130. Smoke before it:
+60 seeds in 3 shards + aggregate green (60 s wall); the aggregate FAILS
+with a shard file hidden; the unsharded 60-seed default green, 113.4 s.
+
+**Reportables** (D296): D295 (the 137 offerable cards — 54 generated from
+one table, the spells after the wall probe); then D294's list stands.

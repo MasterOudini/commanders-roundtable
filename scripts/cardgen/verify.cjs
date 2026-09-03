@@ -13,11 +13,19 @@
 // seconds; the fuzz gate takes ~450 s and there is no point spending it on a
 // batch that does not compile.
 
-const { spawnSync } = require('node:child_process');
+const { spawn, spawnSync } = require('node:child_process');
+const { mkdtempSync, openSync, readFileSync } = require('node:fs');
+const { tmpdir } = require('node:os');
 const { join } = require('node:path');
 
 const root = join(__dirname, '..', '..');
 const full = process.argv.includes('--full');
+// D296: --full runs the 500-seed gate as W concurrent SHARDS (default 6 of this
+// machine's 8 cores) and then one aggregate run that asserts the seed sets
+// partition [0, 500) exactly and the canary floors hold over the union.
+const shardsArg = process.argv.indexOf('--fuzz-shards');
+const SHARDS = shardsArg >= 0 ? Number(process.argv[shardsArg + 1]) : 6;
+if (!(SHARDS >= 1)) throw new Error('--fuzz-shards needs a positive count');
 const npx = 'npx';
 
 /**
@@ -53,9 +61,51 @@ const GATES = [
     cmd: [npx, ['vitest', 'run', 'src/engine/fuzz.node.test.ts']],
     env: full ? { CRT_FUZZ_SEEDS: '500' } : undefined,
     slow: true,
+    sharded: true,
   },
 ];
 
+/** The fuzz gate at --full: W shards concurrently, then the aggregate. Returns an exit status. */
+async function runSharded(gate) {
+  const dir = mkdtempSync(join(tmpdir(), 'crt-fuzz-'));
+  const t0 = Date.now();
+  console.log(`   ${SHARDS} shards of 500 seeds, concurrently (logs in ${dir})`);
+  const [cmd, args] = gate.cmd;
+  const codes = await Promise.all(
+    Array.from({ length: SHARDS }, (_, i) => {
+      const log = openSync(join(dir, `shard-${i}.log`), 'w');
+      return new Promise((resolve) => {
+        const child = spawn(cmd, args, {
+          cwd: root,
+          stdio: ['ignore', log, log],
+          shell: process.platform === 'win32',
+          env: { ...process.env, ...(gate.env ?? {}), CRT_FUZZ_SHARD: `${i}/${SHARDS}`, CRT_FUZZ_OUT: join(dir, `shard-${i}.json`) },
+        });
+        child.on('exit', (code) => resolve(code ?? 1));
+        child.on('error', () => resolve(1));
+      });
+    }),
+  );
+  const wall = ((Date.now() - t0) / 1000).toFixed(1);
+  for (let i = 0; i < SHARDS; i++) {
+    const text = readFileSync(join(dir, `shard-${i}.log`), 'utf8');
+    const line = text.split(/\r?\n/).find((l) => l.includes('fuzz: '));
+    console.log(`   shard ${i}: ${codes[i] === 0 ? 'ok' : 'FAILED'}${line ? ' · ' + line.trim() : ''}`);
+    if (codes[i] !== 0) console.error(text.split(/\r?\n/).slice(-40).join('\n'));
+  }
+  console.log(`   shards done in ${wall} s wall`);
+  if (codes.some((c) => c !== 0)) return 1;
+  console.log('   aggregate: the seed partition and the canary floors over the union');
+  const r = spawnSync(cmd, args, {
+    cwd: root,
+    stdio: 'inherit',
+    shell: process.platform === 'win32',
+    env: { ...process.env, ...(gate.env ?? {}), CRT_FUZZ_AGGREGATE: dir },
+  });
+  return r.status ?? 1;
+}
+
+async function main() {
 let failed = 0;
 for (const gate of GATES) {
   if (gate.slow && !full) {
@@ -65,13 +115,16 @@ for (const gate of GATES) {
   }
   console.log(`   catches: ${gate.catches}`);
   const [cmd, args] = gate.cmd;
-  const r = spawnSync(cmd, args, {
-    cwd: root,
-    stdio: 'inherit',
-    shell: process.platform === 'win32',
-    env: { ...process.env, ...(gate.env ?? {}) },
-  });
-  if (r.status !== 0) {
+  const status =
+    gate.sharded && full
+      ? await runSharded(gate)
+      : (spawnSync(cmd, args, {
+          cwd: root,
+          stdio: 'inherit',
+          shell: process.platform === 'win32',
+          env: { ...process.env, ...(gate.env ?? {}) },
+        }).status ?? 1);
+  if (status !== 0) {
     failed++;
     console.error(`   FAILED: ${gate.name}`);
     // ⚠️ Keep going. A batch usually fails several gates for one reason, and
@@ -87,3 +140,6 @@ if (failed === 0) {
 }
 console.error(`${failed} of ${GATES.length} gates FAILED — nothing lands.`);
 process.exit(1);
+}
+
+main();

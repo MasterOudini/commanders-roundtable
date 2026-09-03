@@ -1707,23 +1707,23 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // D294 enforced the adjectives the engine can check, and 137 cards whose
     // only wall was such a word became script-only - the next batch; the pin
     // follows the measurement and falls back as they land.
-    expect(all.length).toBe(137);
+    expect.soft(all.length).toBe(137);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
-    expect(all.every((c) => c.lines > 0)).toBe(true);
+    expect.soft(all.every((c) => c.lines > 0)).toBe(true);
   }, 600_000);
 
   test('the ordering puts the user’s own cards first', () => {
     const rungs = all.map((c) => c.rung);
-    expect([...rungs].sort((a, b) => a - b)).toEqual(rungs);
+    expect.soft([...rungs].sort((a, b) => a - b)).toEqual(rungs);
   });
 
   test('the REFUSED ledger holds only cards still waiting on their named gap', () => {
     // A name here means: delete that ledger entry — its class was built.
-    expect(staleRefusals).toEqual([]);
+    expect.soft(staleRefusals).toEqual([]);
     // And nothing refused leaks into the ranking.
     const offered = new Set(all.map((c) => c.name));
-    for (const name of REFUSED.keys()) expect(offered.has(name)).toBe(false);
+    for (const name of REFUSED.keys()) expect.soft(offered.has(name)).toBe(false);
   });
 
   test('and writes the batch when asked', () => {
@@ -1744,7 +1744,7 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
       ),
       'utf8',
     );
-    expect(existsSync(EMIT)).toBe(true);
+    expect.soft(existsSync(EMIT)).toBe(true);
   });
 });
 
@@ -1753,6 +1753,6 @@ describe.skipIf(HAVE_DB)('the next batch to script', () => {
   test('SKIPPED — no card database', () => {
     // eslint-disable-next-line no-console
     console.warn(`No card database at ${NDJSON}. Run: node electron/cardsvc-worker.cjs --sync`);
-    expect(HAVE_DB).toBe(false);
+    expect.soft(HAVE_DB).toBe(false);
   });
 });

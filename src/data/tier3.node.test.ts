@@ -307,7 +307,7 @@ describe.skipIf(!HAVE_DB)('what the Tier-3 disclosure now says, measured', () =>
 
   test('reads the whole database', async () => {
     r = await run();
-    expect(r.printings).toBeGreaterThan(100_000);
+    expect.soft(r.printings).toBeGreaterThan(100_000);
     if (!REPORT) return;
     const pc = (n: number): string => `${((100 * n) / r.distinct).toFixed(1)}%`;
     // eslint-disable-next-line no-console
@@ -351,7 +351,7 @@ describe.skipIf(!HAVE_DB)('what the Tier-3 disclosure now says, measured', () =>
 
   /** The same population `botPool.node.test.ts` measures, so the two are comparable. */
   test('the same 31,692 cards botPool counts', () => {
-    expect(r.distinct).toBe(31692);
+    expect.soft(r.distinct).toBe(31692);
   });
 
   /**
@@ -362,7 +362,7 @@ describe.skipIf(!HAVE_DB)('what the Tier-3 disclosure now says, measured', () =>
    * line accounting.
    */
   test('nothing the engine runs completely carries a note', () => {
-    expect(r.completeButNoted).toEqual([]);
+    expect.soft(r.completeButNoted).toEqual([]);
   });
 
   /**
@@ -371,7 +371,7 @@ describe.skipIf(!HAVE_DB)('what the Tier-3 disclosure now says, measured', () =>
    * one per run. Measured on the 2026-07-27 release (113,559 printings).
    */
   test('the numbers are what D122 records', () => {
-    expect({
+    expect.soft({
       permanents: r.permanents,
       abilityText: r.abilityText,
       payable: r.payable,
@@ -397,9 +397,9 @@ describe.skipIf(!HAVE_DB)('what the Tier-3 disclosure now says, measured', () =>
    * exact failure `tier3.test.ts`'s first test exists to prevent.
    */
   test('the note is neither universal nor extinct', () => {
-    expect(r.abilityText).toBeGreaterThan(1_000);
-    expect(r.abilityText).toBeLessThan(r.permanents);
-    expect(r.silentAfter).toBeGreaterThan(1_000);
+    expect.soft(r.abilityText).toBeGreaterThan(1_000);
+    expect.soft(r.abilityText).toBeLessThan(r.permanents);
+    expect.soft(r.silentAfter).toBeGreaterThan(1_000);
   });
 
   /**
@@ -416,7 +416,7 @@ describe.skipIf(!HAVE_DB)('what the Tier-3 disclosure now says, measured', () =>
    * so the next kind of note added has to look at this number.
    */
   test('the longest note list is still panel-sized', () => {
-    expect({ maxNotes: r.maxNotes, fourOrMore: r.fourOrMore }).toEqual({ maxNotes: 6, fourOrMore: 118 });
+    expect.soft({ maxNotes: r.maxNotes, fourOrMore: r.fourOrMore }).toEqual({ maxNotes: 6, fourOrMore: 118 });
   });
 
   /**
@@ -426,8 +426,8 @@ describe.skipIf(!HAVE_DB)('what the Tier-3 disclosure now says, measured', () =>
    * silent is a keyword line D68 decided not to name.
    */
   test('no part-run mana line is left unsaid', () => {
-    expect(r.residualManaLine).toBe(0);
-    expect(r.residual).toBe(r.residualKeyword);
+    expect.soft(r.residualManaLine).toBe(0);
+    expect.soft(r.residual).toBe(r.residualKeyword);
   });
 });
 
@@ -436,7 +436,7 @@ describe.skipIf(HAVE_DB)('what the Tier-3 disclosure now says, measured', () => 
   test('SKIPPED — no card database', () => {
     // eslint-disable-next-line no-console
     console.warn(`No card database at ${NDJSON}. Run: node electron/cardsvc-worker.cjs --sync`);
-    expect(HAVE_DB).toBe(false);
+    expect.soft(HAVE_DB).toBe(false);
   });
 });
 

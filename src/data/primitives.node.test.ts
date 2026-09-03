@@ -216,7 +216,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
 
   test('reads the whole database', async () => {
     r = await run();
-    expect(r.distinct).toBeGreaterThan(30_000);
+    expect.soft(r.distinct).toBeGreaterThan(30_000);
     if (!REPORT) return;
 
     const order = ([...Object.entries(r.reach)] as [Primitive, number][])
@@ -266,8 +266,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
    * work.
    */
   test('the classifier discriminates', () => {
-    expect(r.reach['scriptable'] ?? 0).toBeGreaterThan(100);
-    expect(r.blocked).toBeGreaterThan(20_000);
+    expect.soft(r.reach['scriptable'] ?? 0).toBeGreaterThan(100);
+    expect.soft(r.blocked).toBeGreaterThan(20_000);
     const residue = (r.reach['unclassified'] ?? 0) / r.blocked;
     // ⚠️ **45.1% → 49.5% IN D153, AND THE RISE WAS THE CORRECTION SHOWING**:
     // 1,898 of the lines the `optional` pre-filter had been swallowing are
@@ -279,7 +279,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // "how much of this report is a black box" — the residue is now split by
     // `residueKind`, and what actually needs bounding is the part that split
     // cannot name. Both are asserted, and the second is the one that matters.
-    expect(residue, 'unclassified share of blocked cards').toBeLessThan(0.52);
+    expect.soft(residue, 'unclassified share of blocked cards').toBeLessThan(0.52);
   });
 
   /**
@@ -292,7 +292,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
    * under every primitive it needs and is an upper bound.
    */
   test('the build order is what it is', () => {
-    expect({
+    expect.soft({
       distinct: r.distinct,
       complete: r.complete,
       blocked: r.blocked,
@@ -375,8 +375,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect(steps.map((s) => s.unlocked)).toEqual([1026, 1130, 2912, 4825, 6035]);
-    expect(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1026, 1130, 2912, 4825, 6035]);
+    expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
   /**
@@ -403,8 +403,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // eslint-disable-next-line no-console
     if (REPORT) console.log(`
 replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
-    expect(split.unclaimed).toBe(0);
-    expect(Object.values(split).reduce((a, b) => a + b, 0)).toBe(r.soleNeed['replacement'] ?? 0);
+    expect.soft(split.unclaimed).toBe(0);
+    expect.soft(Object.values(split).reduce((a, b) => a + b, 0)).toBe(r.soleNeed['replacement'] ?? 0);
     // ⚠️⚠️ **ASSERTED IN D153 BECAUSE IT HAD BEEN REPORTING ZERO.** `isLand` read
     // `/<backspace>Land<backspace>/` — a regex that matches nothing — which is
     // D129's patch-script bug (`\b` written as a literal BACKSPACE) surviving in
@@ -416,7 +416,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // ⚠️ And it survived because `tappedLands` was PRINTED and never asserted.
     // That is the same failure as `BUILT` itself, one file over: a figure nobody
     // checks is a figure that can be wrong for as long as nobody looks.
-    expect(tappedLands).toBe(16);
+    expect.soft(tappedLands).toBe(16);
   });
 
   /**
@@ -462,11 +462,11 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       else split.unclaimed++;
       if (card.layer6Lines.some((t) => TEMPORARY.test(t))) temporary++;
     }
-    expect(split).toEqual({ grant: 981, anthem: 258, restriction: 229, conditional: 138, unclaimed: 0 });
+    expect.soft(split).toEqual({ grant: 981, anthem: 258, restriction: 229, conditional: 138, unclaimed: 0 });
     // ⚠️ THE NUMBER THAT KEEPS `layer6` OUT OF `BUILT`. Asserted here rather than
     // written in the comment above, because D129's reason lived in a comment and
     // stayed there for twenty-four decisions after D147 closed it.
-    expect(temporary).toBe(773);
+    expect.soft(temporary).toBe(773);
   });
 
   /**
@@ -499,7 +499,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     }
     // ⚠️ THE SPELLS are the only part that could move `complete` — and every one
     // of them still needs the resolver.
-    expect(byOwner).toEqual({ spell: 315, permanent: 594 });
+    expect.soft(byOwner).toEqual({ spell: 315, permanent: 594 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -511,7 +511,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // ⚠️ Every bucket ROSE again in D153, and NOT because anything was unbuilt:
     // the `optional` pre-filter had been hiding 199 token lines, so those cards
     // were being counted as blocked on a yes/no. Same row, read honestly.
-    expect(byKind).toEqual({
+    expect.soft(byKind).toEqual({
       copy: 101,
       predefined: 147,
       withAbilities: 272,
@@ -547,8 +547,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect(steps.map((s) => s.unlocked)).toEqual([1026, 1130]);
-    expect(r.complete).toBe(4113);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1026, 1130]);
+    expect.soft(r.complete).toBe(4113);
   });
 });
 
@@ -569,24 +569,24 @@ describe('a "you may" line is only `optional` if that is all it needs', () => {
   const of = (text: string): Primitive => primitiveFor({ text, kind: 'sentence' }, 'Test Card');
 
   test('the yes/no is all that is missing', () => {
-    expect(of('When this creature dies, you may draw a card.')).toBe('optional');
+    expect.soft(of('When this creature dies, you may draw a card.')).toBe('optional');
   });
 
   test('and when it is not, the line says what it is really waiting on', () => {
-    expect(
+    expect.soft(
       of('When this creature enters, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.'),
     ).toBe('effect:search');
-    expect(of('At the beginning of your upkeep, you may put a quest counter on this enchantment.')).toBe(
+    expect.soft(of('At the beginning of your upkeep, you may put a quest counter on this enchantment.')).toBe(
       'effect:counter',
     );
-    expect(of('When this creature enters, you may sacrifice a land. If you do, draw a card.')).toBe(
+    expect.soft(of('When this creature enters, you may sacrifice a land. If you do, draw a card.')).toBe(
       'effect:sacrifice',
     );
   });
 
   /** A "may" over an effect nothing here reads is residue, not a built primitive. */
   test('and an unreadable one is residue rather than a tick', () => {
-    expect(of('When this creature enters, you may exile target card from a graveyard.')).toBe('unclassified');
+    expect.soft(of('When this creature enters, you may exile target card from a graveyard.')).toBe('unclassified');
   });
 });
 
@@ -611,30 +611,30 @@ describe('a spell face is scriptable by the seam unless the line is structural (
     primitiveFor({ text, kind: 'sentence' }, 'Test Card', spellFace);
 
   test('an unreadable-but-expressible spell line is scriptable — Fruition, the shipped proof', () => {
-    expect(of('You gain 1 life for each Forest on the battlefield.', true)).toBe('scriptable');
+    expect.soft(of('You gain 1 life for each Forest on the battlefield.', true)).toBe('scriptable');
   });
 
   test('the SAME line on a permanent face is untouched — nothing moves for permanents', () => {
-    expect(of('You gain 1 life for each Forest on the battlefield.', false)).toBe('unclassified');
+    expect.soft(of('You gain 1 life for each Forest on the battlefield.', false)).toBe('unclassified');
   });
 
   test('a structural line never comes out scriptable, spell face or not', () => {
     // A modal spell gives the player a choice no SpellDef v1 raises.
-    expect(of('Choose one —', true)).not.toBe('scriptable');
+    expect.soft(of('Choose one —', true)).not.toBe('scriptable');
     // Randomness in resolution: ctx.random is not wired through the seam.
-    expect(of('Flip a coin.', true)).not.toBe('scriptable');
+    expect.soft(of('Flip a coin.', true)).not.toBe('scriptable');
     // A payment question in resolution is a prompt, not an effect.
-    expect(of('Counter target spell unless its controller pays {3}.', true)).not.toBe('scriptable');
+    expect.soft(of('Counter target spell unless its controller pays {3}.', true)).not.toBe('scriptable');
   });
 
   test('a RULES row caught above keeps its claim — only the residue spills', () => {
-    expect(
+    expect.soft(
       of('You may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.', true),
     ).toBe('effect:search');
   });
 
   test('scrubbed quoted text (the double-space gap, D132) is refused', () => {
-    expect(of('Create a 1/1 white Bird creature token with flying and  .', true)).not.toBe('scriptable');
+    expect.soft(of('Create a 1/1 white Bird creature token with flying and  .', true)).not.toBe('scriptable');
   });
 });
 
@@ -655,7 +655,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
 
   test('reads it', async () => {
     rr = await run();
-    expect(rr.blocked).toBeGreaterThan(20_000);
+    expect.soft(rr.blocked).toBeGreaterThan(20_000);
   }, 600_000);
 
   /**
@@ -666,7 +666,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
    * effect vocabulary rather than a trigger primitive.
    */
   test('the residue splits into named families', () => {
-    expect(rr.residue).toEqual({
+    expect.soft(rr.residue).toEqual({
       activatedCost: 3044,
       triggeredShell: 2308,
       damage: 839,
@@ -697,14 +697,14 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
   test('and what is left genuinely unnamed is under a third of it', () => {
     const total = Object.values(rr.residue).reduce((a, b) => a + b, 0);
     const unnamed = (rr.residue['other'] ?? 0) / total;
-    expect(unnamed, 'unnamed share of the residue').toBeLessThan(0.32);
-    expect(unnamed).toBeGreaterThan(0.2);
+    expect.soft(unnamed, 'unnamed share of the residue').toBeLessThan(0.32);
+    expect.soft(unnamed).toBeGreaterThan(0.2);
   });
 });
 describe.skipIf(HAVE_DB)('what each primitive is worth', () => {
   test('SKIPPED — no card database', () => {
     // eslint-disable-next-line no-console
     console.warn(`No card database at ${NDJSON}. Run: node electron/cardsvc-worker.cjs --sync`);
-    expect(HAVE_DB).toBe(false);
+    expect.soft(HAVE_DB).toBe(false);
   });
 });
