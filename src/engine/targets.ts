@@ -78,6 +78,8 @@ export interface TargetCandidate {
    * flying is a flyer, and refusing it would block a legal choice.
    */
   readonly keywords: readonly Keyword[];
+  /** Its role in the CURRENT combat (D291); both false outside combat. */
+  readonly combat: { readonly attacking: boolean; readonly blocking: boolean };
   readonly hexproof: boolean;
   readonly shroud: boolean;
   readonly protection: Protection;
@@ -133,6 +135,13 @@ export function targetAllowed(
   // player or a spell has none, so "with flying" refuses both — as `kinds`
   // already does — and "without flying" would admit them if `kinds` did not.
   if (spec.keyword && c.keywords.includes(spec.keyword.word) !== spec.keyword.present) return false;
+
+  // ⚠️ The combat-role qualifier (D291): read off the live combat, so outside
+  // combat "target attacking creature" admits nothing — the CR answer, and the
+  // reason such a clause only ever sits on a combat trigger or an instant.
+  if (spec.combatRole === 'attacking' && !c.combat.attacking) return false;
+  if (spec.combatRole === 'blocking' && !c.combat.blocking) return false;
+  if (spec.combatRole === 'attackingOrBlocking' && !c.combat.attacking && !c.combat.blocking) return false;
 
   /**
    * ⚠️ **THE ZONE, WHICH THIS PREDICATE IGNORED UNTIL D138.** `TargetSpec.zones`
@@ -395,6 +404,8 @@ export function candidatesFromState(
   cache: DeriveCache = makeDeriveCache(state),
 ): TargetCandidate[] {
   const out: TargetCandidate[] = [];
+  const attacking = new Set<InstanceId>((state.combat?.attackers ?? []).map((a) => a.card));
+  const blocking = new Set<InstanceId>((state.combat?.blockers ?? []).map((b) => b.card));
 
   const pushCard = (id: InstanceId, zone: CandidateZone): void => {
     const card = state.cards[id];
@@ -412,6 +423,7 @@ export function candidatesFromState(
       toughness: d.toughness,
       colors: d.colors,
       keywords: [...d.keywords],
+      combat: { attacking: attacking.has(id), blocking: blocking.has(id) },
       hexproof: d.keywords.has('hexproof'),
       shroud: d.keywords.has('shroud'),
       protection: d.protection,
@@ -455,6 +467,7 @@ export function candidatesFromState(
       // because a spell on the stack has no `derive()` entry.
       colors: [],
       keywords: [],
+      combat: { attacking: false, blocking: false },
       hexproof: false,
       shroud: false,
       protection: { colors: [], fromEverything: false, other: [] },
@@ -474,6 +487,7 @@ export function candidatesFromState(
       toughness: null,
       colors: [],
       keywords: [],
+      combat: { attacking: false, blocking: false },
       hexproof: false,
       shroud: false,
       protection: { colors: [], fromEverything: false, other: [] },

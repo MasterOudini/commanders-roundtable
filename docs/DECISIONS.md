@@ -19363,3 +19363,65 @@ clean · probe 124/124 · battery 130/130.
 probe is drafted); then the keyword LIST qualifier, the "another" split,
 the up-to-N residue, the remaining cost verbs and the prompt continuation
 seam; prior items stand.
+
+## D291 — M6.4eb: THE COMBAT-ROLE TARGET QUALIFIER — "target attacking creature" read and enforced against the live combat; thirty-eight cards (2026-09-03)
+
+**4,028 of 31,692 Commander-legal cards execute completely, up from
+3,990.** SHIPPED_SCRIPTS 2,080 → 2,083; ledger 750 → 747 (**three
+rows DELETED** — the D290 refusals land). ZERO new token pins, ZERO new
+support bodies. Four engine-side files change. Sliver Queen reaches
+3,976 from 95 legendaries (Landroval joins).
+
+**The gap, measured before it was built.** D290 refused three cards on it
+and named the seam; the probe sized it over the whole database (deduped by
+name): **314 distinct cards / 317 clauses** say
+"target attacking / blocking / attacking or blocking creature" (attacking 204, attacking or blocking 92, blocking 21);
+**zero were counted complete** — the noun table listed the words in
+`unenforced`, so `engineComplete` refused every one, honestly. Stripping
+the words in the probe made **36 cards** complete — 35 held up in the sweep;
+the two-faced Razorgrass Ambush // Razorgrass Field keeps a line on its
+other face — all 35 of them with no script at all, because `effectParse`'s NOUNS
+already carried the phrases and only the unenforced word held them back.
+
+**The seam, in D289's shape.**
+
+- `TargetSpec.combatRole: 'attacking' | 'blocking' | 'attackingOrBlocking'
+  | null` beside `keyword`. The three noun-table entries set it and DROP
+  their `unenforced` word — the D138 rule: a thing now checked must not
+  stay disclosed as unchecked.
+- `TargetCandidate.combat: { attacking, blocking }` read off `state.combat`
+  on the host (both false outside combat, so such a clause admits nothing
+  outside combat — the CR answer, and the reason the wording only ever
+  sits on a combat trigger or an instant). The client fills it from
+  `CardView.attacking` / `.blocking`, which the projection already carried
+  — the first qualifier whose two adapters agree exactly.
+- `targetAllowed` refuses a candidate whose role disagrees with the clause.
+- Nothing in `effectParse` changes: its NOUNS already admitted the phrases,
+  so the spells that use them read whole the moment the restriction is
+  enforced. Across the database the parse report moves as the seam predicts: `target:unparsedClause` 1,459 -> 1,255 ("attacking or blocking creature" used to lose its first word to the adjective list and fall to free aim), `confident` 17,330 -> 17,430, `free` 3,510 -> 3,410, `withUnenforced` 1,300 -> 1,156; `effect:auto` does not move, because the effect parser had admitted the phrases all along and only the unenforced word held the cards back.
+
+**The cards.** Roc Charger and Trusted Pegasus (whenever it attacks, an
+ATTACKING ground creature gains flying — the combat role D291's, the
+keyword D289's, the grant the temporary keyword carrier's; a creature that
+stayed home is refused, and so is the attacking flyer) and Landroval,
+Horizon Witness (the trigger counts my attackers on the same player: two
+fire it, one does not). Thirty-five more read whole with NO script the moment the role is enforced — Sudden Strike, Gallantry, Run Amok, Aang's Defense, Immolating Glare, Silverstrike, Bright Reprisal, Sandblast, Righteousness, Divine Verdict, Cosmium Blast, Kill Shot, Puncturing Light, Smashing Spree, Impeccable Timing, Dragon's Presence, Rebuke, Vanquish, Second Thoughts, Hamato Ninpō, Divine Arrow, Wanderer's Intervention, Gideon's Reproach, Furious Resistance, Piercing Light, Captain's Defense, Not on My Watch, Searing Light, Aliban's Tower, Joust Through, Righteous Blow, Slash of Talons, Terashi's Verdict, Arrows of Justice, Neck Snap — thirty-five in all; the probe's strip approximation over-counted the two-faced Razorgrass Ambush // Razorgrass Field, whose other face still holds a line, so it stays blocked.
+
+**Tests:** `src/engine/targetCombatRole.test.ts` (5 tests: the three
+roles, a role composed with a keyword, and the `effectParse` admission) +
+3 card suites / 9 tests. The seam's own parse tests went RED on the first run: ADJECTIVE_RE listed "attacking" and "blocking", so the clause builder stripped them as unenforced adjectives before the noun table ran - the noun entries were dead code, and "attacking or blocking creature" even fell to free aim. The two words left the adjective list and every test, the three card suites included, went green.
+
+Fixtures 2,345 → 2,348 (2,240 by name + 101 tokens) · botPool artifact 159 / creature 2,071 / enchantment 89 / instant 772 / land 342 / sorcery 595 · ladder [1052, 1153, 2942, 4855, 6066] · tier3
+`payable` 5,085 (unchanged); notes shrink now that "attacking" is checked (fourOrMore 131 -> 126) · batch.json 38 (by name) · botDeck: 3,976 from 95 legendaries (Landroval
+joins) · **select pool 0 → 54** (cards the ledger never saw, script-only
+now that the role parses: the next batch).
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,165 files, 11,366 passing / 10 skipped · 500-seed gate 758.6 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D291): the keyword LIST qualifier ("with flying or reach")
+as a list spec; a derived keyword list on `CardView` for the client's aim
+veil; the "another" split; the up-to-N residue; the remaining cost verbs
+(exile-from-graveyard 15, remove-counter 7, return-permanent 6,
+random-discard 4 behind `ctx.random`); the prompt continuation seam; prior
+items stand.

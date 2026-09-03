@@ -620,6 +620,9 @@ export class ClientSession {
         // carries no derived keyword list, so a granted flying disagrees with
         // the host here the same way a granted hexproof already does (D289).
         keywords: face.keywords,
+        // The view already projects both marks (D291), so this one agrees
+        // with the host exactly.
+        combat: { attacking: cv.attacking !== null, blocking: cv.blocking.length > 0 },
         hexproof: face.keywords.includes('hexproof'),
         shroud: face.keywords.includes('shroud'),
         protection: face.protection,
@@ -653,6 +656,7 @@ export class ClientSession {
         toughness: null,
         colors: [],
         keywords: [],
+        combat: { attacking: false, blocking: false },
         hexproof: false,
         shroud: false,
         protection: { colors: [], fromEverything: false, other: [] },
@@ -671,6 +675,7 @@ export class ClientSession {
         toughness: null,
         colors: [],
         keywords: [],
+        combat: { attacking: false, blocking: false },
         hexproof: false,
         shroud: false,
         protection: { colors: [], fromEverything: false, other: [] },

@@ -432,7 +432,9 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       'activated:nonManaCost': 7447,
       'activated:loyalty': 4635,
       'target:modalUnion': 2751,
-      'target:unparsedClause': 1459,
+      // D291: "attacking or blocking creature" used to lose its first word to
+      // ADJECTIVE_RE and fall to free aim; the combat-role nouns parse now.
+      'target:unparsedClause': 1255,
       'typeLine:unknownType': 729,
       'protection:unenforced': 677,
       // ⚠️ 629 → 540 when "any TYPE" started parsing (D116): 89 of these were
@@ -473,13 +475,15 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
     expect(report.targets).toEqual({
       facesWithSpecs: 19757,
       specs: 20840,
-      confident: 17330,
-      free: 3510,
+      confident: 17430,
+      free: 3410,
       enchant: 3536,
       // D288 admits "other" into the up-to window without recording it as
       // unenforced — the declaration-wide distinctness check enforces it —
       // so nothing moves here.
-      withUnenforced: 1300,
+      // D291: "attacking" / "blocking" are enforced (TargetSpec.combatRole), so
+      // they leave the unenforced record on 144 specs.
+      withUnenforced: 1156,
     });
     // ⚠️ M6.4b (D159) moved three of these over the whole 113,559-printing
     // database: `lines` +195 (the brace rule admits a long cost that opens

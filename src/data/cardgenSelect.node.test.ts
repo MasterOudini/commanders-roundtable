@@ -1589,9 +1589,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // KEYWORD half; the combat-role half is the next qualifier seam (a
   // `TargetCandidate.attacking`/`blocking` pair read off `state.combat`).
   ['Bamboo Grove Archer', 'hand-activated ability'],
-  ['Landroval, Horizon Witness', 'attacking-creature target qualifier'],
-  ['Roc Charger', 'attacking-creature target qualifier'],
-  ['Trusted Pegasus', 'attacking-creature target qualifier'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
@@ -1674,7 +1671,10 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // 18 of them and ledgered the other 4, so it is empty again — and a
     // non-empty pool from here means either a new seam paid out or a ledger
     // entry went stale.
-    expect(all.length).toBe(0);
+    // D291: the combat-role seam made 54 cards scriptable that the ledger
+    // never saw ("target attacking creature" parses now). They are the next
+    // batch; the pin follows the measurement and falls back as they land.
+    expect(all.length).toBe(54);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect(all.every((c) => c.lines > 0)).toBe(true);

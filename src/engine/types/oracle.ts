@@ -206,6 +206,14 @@ export interface KeywordRestriction {
   readonly present: boolean;
 }
 
+/**
+ * A COMBAT-ROLE restriction on a target clause (D291) — "target attacking
+ * creature", "target blocking creature", "target attacking or blocking
+ * creature". Checked against the current combat: outside combat nothing
+ * holds a role, so such a clause admits nothing, which is the CR answer.
+ */
+export type CombatRole = 'attacking' | 'blocking' | 'attackingOrBlocking';
+
 export type TargetZone = 'graveyard' | 'exile';
 
 /**
@@ -272,6 +280,12 @@ export interface TargetSpec {
    */
   readonly keyword: KeywordRestriction | null;
   /**
+   * A COMBAT-ROLE restriction — "attacking", "blocking", "attacking or
+   * blocking". `null` when the clause names none. Until D291 the noun table
+   * listed these words in `unenforced` and every such card was refused.
+   */
+  readonly combatRole: CombatRole | null;
+  /**
    * The clause EXACTLY as printed, sliced out of the oracle text — never
    * re-worded. It is what the prompt bar says. A paraphrase would be a second
    * rules text that drifts from Scryfall's the moment Wizards rewords something,
@@ -298,6 +312,7 @@ export const FREE_TARGET: TargetSpec = {
   cardTypes: [],
   numeric: null,
   keyword: null,
+  combatRole: null,
   text: '',
   confident: false,
   unenforced: [],

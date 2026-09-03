@@ -8828,6 +8828,38 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       drafted, measure first); then the keyword LIST qualifier, the
       "another" split, the up-to-N residue, the remaining cost verbs and
       the prompt continuation seam; prior items stand.
+- [x] **M6.4eb — THE COMBAT-ROLE TARGET QUALIFIER: "target attacking
+      creature" read and enforced against the live combat; thirty-eight cards
+      (2026-09-03):** **4,028 of 31,692 Commander-legal cards now
+      execute completely, up from 3,990.** `SHIPPED_SCRIPTS` 2,080 →
+      2,083; ledger 747 (three rows DELETED). ZERO token pins,
+      ZERO support bodies. **Sliver Queen reaches 3,976 from 95 legendaries
+      (Landroval joins).** Decisions in **D291**.
+      ⚠️ **Measured first:** 314 distinct cards / 317
+      clauses (attacking 204, attacking or blocking 92, blocking 21); zero
+      counted complete; 36 flip in the probe, 35 hold up in the sweep (the
+      two-faced Razorgrass Ambush // Razorgrass Field keeps a line on its
+      other face), all 35 with no script.
+      ⚠️ **The seam (D289's shape):** `TargetSpec.combatRole` from the
+      three noun-table entries (their `unenforced` words DROPPED — D138);
+      `TargetCandidate.combat {attacking, blocking}` off `state.combat`
+      (host) and `CardView.attacking/.blocking` (client, already
+      projected — the two adapters agree exactly); `targetAllowed`
+      enforces; `effectParse` unchanged (its NOUNS already carried the
+      phrases). The parse report moves as the seam predicts: `target:unparsedClause` 1,459 -> 1,255 ("attacking or blocking creature" used to lose its first word to the adjective list and fall to free aim), `confident` 17,330 -> 17,430, `free` 3,510 -> 3,410, `withUnenforced` 1,300 -> 1,156; `effect:auto` does not move, because the effect parser had admitted the phrases all along and only the unenforced word held the cards back
+      **Landed:** Roc Charger, Trusted Pegasus, Landroval, Horizon Witness
+      (attack triggers lifting an ATTACKING ground creature; Landroval
+      counts my attackers on one player). Thirty-five more read whole with NO script the moment the role is enforced — Sudden Strike, Gallantry, Run Amok, Aang's Defense, Immolating Glare, Silverstrike, Bright Reprisal, Sandblast, Righteousness, Divine Verdict, Cosmium Blast, Kill Shot, Puncturing Light, Smashing Spree, Impeccable Timing, Dragon's Presence, Rebuke, Vanquish, Second Thoughts, Hamato Ninpō, Divine Arrow, Wanderer's Intervention, Gideon's Reproach, Furious Resistance, Piercing Light, Captain's Defense, Not on My Watch, Searing Light, Aliban's Tower, Joust Through, Righteous Blow, Slash of Talons, Terashi's Verdict, Arrows of Justice, Neck Snap — thirty-five in all; the probe's strip approximation over-counted the two-faced Razorgrass Ambush // Razorgrass Field, whose other face still holds a line, so it stays blocked. Tests:
+      targetCombatRole.test.ts 5 tests + 3 suites / 9 tests.
+      Fixtures 2,348 (2,240 by name + 101 tokens) · botPool artifact 159 / creature 2,071 / enchantment 89 / instant 772 / land 342 / sorcery 595 · ladder [1052, 1153, 2942, 4855, 6066] · tier3
+      `payable` 5,085 (unchanged); notes shrink now that "attacking" is checked (fourOrMore 131 -> 126) · batch.json 38 · **select pool 0 → 54** (the next
+      batch).
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,165 files, 11,366 passing / 10 skipped · 500-seed gate 758.6 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D291): the keyword LIST qualifier; a derived
+      keyword list on `CardView`; the "another" split; the up-to-N residue;
+      the remaining cost verbs; the prompt continuation seam; prior items
+      stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

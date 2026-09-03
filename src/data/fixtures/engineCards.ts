@@ -77416,6 +77416,114 @@ export const BAMBOO_GROVE_ARCHER: CardData = {
   "singleImage": true
 };
 
+export const LANDROVAL_HORIZON_WITNESS: CardData = {
+  "scryfallId": "5684483b-9a6a-499b-a5e1-e2815ee03cdb",
+  "oracleId": "467c9fe6-d1d3-4242-bc0c-e522b4f21d56",
+  "name": "Landroval, Horizon Witness",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Landroval, Horizon Witness",
+      "manaCost": "{4}{W}",
+      "typeLine": "Legendary Creature — Bird Noble",
+      "oracleText": "Flying\nWhenever two or more creatures you control attack a player, target attacking creature without flying gains flying until end of turn.",
+      "flavorText": "He passed over Udûn and Gorgoroth and saw all the land in ruin and tumult beneath him, and before him Mount Doom blazing, pouring out its fire.",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Tedrick",
+      "imageId": "5684483b-9a6a-499b-a5e1-e2815ee03cdb"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ltr",
+  "collectorNumber": "21",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROC_CHARGER: CardData = {
+  "scryfallId": "4932c635-b729-4348-92de-2c1b207ea460",
+  "oracleId": "67789c0c-3f05-4b0b-a56d-0757ac801d22",
+  "name": "Roc Charger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Roc Charger",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying\nWhenever this creature attacks, target attacking creature without flying gains flying until end of turn.",
+      "flavorText": "Rocs' innate fearlessness makes them ideal mounts for emergency response.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Titus Lunter",
+      "imageId": "4932c635-b729-4348-92de-2c1b207ea460"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "grn",
+  "collectorNumber": "24",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRUSTED_PEGASUS: CardData = {
+  "scryfallId": "4ef0fcc8-a7be-4239-9a63-92e0c647de35",
+  "oracleId": "18729459-8669-4c56-a78d-fd5982c3b2ac",
+  "name": "Trusted Pegasus",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Trusted Pegasus",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Pegasus",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhenever this creature attacks, target attacking creature without flying gains flying until end of turn.",
+      "flavorText": "\"Would you give your life to save this world?\" Gideon murmured. The pegasus snorted and spread wide its mighty wings.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Chris Rahn",
+      "imageId": "4ef0fcc8-a7be-4239-9a63-92e0c647de35"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "77",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -83116,6 +83224,9 @@ export const ENGINE_CARDS: CardData[] = [
   STORM_FRONT,
   PREDATOR_FLAGSHIP,
   BAMBOO_GROVE_ARCHER,
+  LANDROVAL_HORIZON_WITNESS,
+  ROC_CHARGER,
+  TRUSTED_PEGASUS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

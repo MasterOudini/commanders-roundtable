@@ -2688,6 +2688,9 @@ const WANTED = [
   'Storm Front',
   'Predator, Flagship',
   'Bamboo Grove Archer',
+  'Landroval, Horizon Witness',
+  'Roc Charger',
+  'Trusted Pegasus',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

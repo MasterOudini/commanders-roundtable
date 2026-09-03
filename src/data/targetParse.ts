@@ -29,7 +29,7 @@ import type {
   TargetZone,
 } from '../engine/types/oracle';
 import { FREE_TARGET, KEYWORD_SET } from '../engine/types/oracle';
-import type { Keyword, KeywordRestriction } from '../engine/types/oracle';
+import type { CombatRole, Keyword, KeywordRestriction } from '../engine/types/oracle';
 // ⚠️ Type-only, and deliberately so: `oracleParse` imports THIS module, so a
 // value import would close a runtime cycle. Types are erased, so this is not one.
 import type { Warn } from './oracleParse';
@@ -294,6 +294,8 @@ interface NounEntry {
   readonly cardTypes?: readonly string[];
   /** Printed words this entry knowingly does not enforce. */
   readonly unenforced?: readonly string[];
+  /** The combat role the noun requires (D291) — enforced, so never also in `unenforced`. */
+  readonly combatRole?: CombatRole;
 }
 
 /** Optional plural, so `target creatures` matches `creature`. */
@@ -365,9 +367,12 @@ const NOUNS: readonly NounEntry[] = [
   { re: new RegExp(`^abilit(?:y|ies)\\b`, 'i'), kinds: ['spell'] },
 
   // combat states — the kind is enforced, the state is not
-  { re: new RegExp(`^attacking\\s+or\\s+blocking\\s+creature${s}\\b`, 'i'), kinds: ['creature'], unenforced: ['attacking or blocking'] },
-  { re: new RegExp(`^attacking\\s+creature${s}\\b`, 'i'), kinds: ['creature'], unenforced: ['attacking'] },
-  { re: new RegExp(`^blocking\\s+creature${s}\\b`, 'i'), kinds: ['creature'], unenforced: ['blocking'] },
+  // ⚠️ ENFORCED since D291 (`TargetSpec.combatRole`, checked by `targetAllowed`
+  // against the live combat), so the words leave `unenforced` — a thing now
+  // checked must not stay disclosed as unchecked (the D138 rule).
+  { re: new RegExp(`^attacking\\s+or\\s+blocking\\s+creature${s}\\b`, 'i'), kinds: ['creature'], combatRole: 'attackingOrBlocking' },
+  { re: new RegExp(`^attacking\\s+creature${s}\\b`, 'i'), kinds: ['creature'], combatRole: 'attacking' },
+  { re: new RegExp(`^blocking\\s+creature${s}\\b`, 'i'), kinds: ['creature'], combatRole: 'blocking' },
 
   // cards in known zones
   { re: new RegExp(`^creature\\s+card${s}\\b`, 'i'), kinds: ['card'], cardTypes: ['Creature'] },
@@ -418,9 +423,15 @@ const NOUNS: readonly NounEntry[] = [
 /**
  * Adjectives the parser can SEE and cannot CHECK. Stripped so the head noun is
  * reachable, and recorded verbatim so `tier3.ts` can say what is not enforced.
+ *
+ * ⚠️ NOT `attacking` or `blocking` (D291): those are the combat-role nouns'
+ * first words. Listed here they were stripped BEFORE the noun table ran, so
+ * the "attacking creature" entries were dead code and "attacking or blocking
+ * creature" lost its first word and fell to free aim. They are enforced now
+ * (`TargetSpec.combatRole`); `blocked` and `unblocked` stay unenforced.
  */
 const ADJECTIVE_RE =
-  /^(non-?\w+|tapped|untapped|legendary|basic|nonbasic|white|blue|black|red|green|colorless|colourless|multicolored|multicoloured|monocolored|face-up|face-down|token|other|snow|historic|modified|enchanted|equipped|kicked|attacking|blocking|blocked|unblocked)\s+/i;
+  /^(non-?\w+|tapped|untapped|legendary|basic|nonbasic|white|blue|black|red|green|colorless|colourless|multicolored|multicoloured|monocolored|face-up|face-down|token|other|snow|historic|modified|enchanted|equipped|kicked|blocked|unblocked)\s+/i;
 
 const CONTROLLER_WINDOW = 40;
 
@@ -632,6 +643,7 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
         cardTypes: [],
         numeric: null,
         keyword: null,
+        combatRole: null,
         text: text.slice(start >= 0 ? start : at, at + word.length),
         confident: true,
         unenforced: [],
@@ -679,6 +691,7 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
       cardTypes: entry.cardTypes ?? [],
       numeric: ctl.numeric,
       keyword: ctl.keyword,
+      combatRole: entry.combatRole ?? null,
       text: text.slice(count.start, ctl.end).trim(),
       confident: count.confident,
       unenforced,
@@ -734,6 +747,7 @@ export function parseEnchant(text: string, warn: Warn = NOOP_WARN): TargetSpec |
     cardTypes: entry.cardTypes ?? [],
     numeric: ctl.numeric,
     keyword: ctl.keyword,
+    combatRole: entry.combatRole ?? null,
     text: (m[0] ?? '').trim(),
     confident: true,
     unenforced,

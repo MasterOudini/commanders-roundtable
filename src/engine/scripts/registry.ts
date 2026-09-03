@@ -7,6 +7,9 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ROC_CHARGER_SCRIPT } from './cards/rocCharger';
+import { TRUSTED_PEGASUS_SCRIPT } from './cards/trustedPegasus';
+import { LANDROVAL_HORIZON_WITNESS_SCRIPT } from './cards/landrovalHorizonWitness';
 import { AIR_SERVANT_SCRIPT } from './cards/airServant';
 import { CENTAUR_ARCHER_SCRIPT } from './cards/centaurArcher';
 import { CEPHALID_RETAINER_SCRIPT } from './cards/cephalidRetainer';
@@ -2201,6 +2204,9 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ROC_CHARGER_SCRIPT,
+  TRUSTED_PEGASUS_SCRIPT,
+  LANDROVAL_HORIZON_WITNESS_SCRIPT,
   AIR_SERVANT_SCRIPT,
   CENTAUR_ARCHER_SCRIPT,
   CEPHALID_RETAINER_SCRIPT,
