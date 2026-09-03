@@ -213,12 +213,47 @@ export function effectResult(
       }
 
       case 'loseLife': {
-        if (aim?.kind !== 'player') break;
-        const p = state.players[aim.id];
+        // D295: `self` is the controller ("You lose 3 life."); otherwise the aimed player.
+        const who = effect.self ? controller : aim?.kind === 'player' ? aim.id : null;
+        if (!who) break;
+        const p = state.players[who];
         if (!p) break;
-        out.push({ t: 'LifeChanged', player: aim.id, delta: -effect.amount, to: p.life - effect.amount });
+        out.push({ t: 'LifeChanged', player: who, delta: -effect.amount, to: p.life - effect.amount });
         break;
       }
+
+      /**
+       * D295 - the TARGET'S CONTROLLER. The aim is a permanent or a spell on
+       * the stack; `state` is the snapshot BEFORE this batch applies, so the
+       * permanent the previous sentence destroyed still answers for its
+       * controller (CR 608.2h - last known information).
+       */
+      case 'controllerLosesLife':
+      case 'controllerDraws': {
+        // "Its" is the spell's FIRST target (the sentence before named it); the
+        // sentence itself consumes no target slot, so `aim` is null here.
+        const first = aimOf(state, obj.targets[0]);
+        const who =
+          first?.kind === 'card'
+            ? state.cards[first.id]?.controller
+            : first?.kind === 'stack'
+              ? state.stack.find((s) => s.id === first.id)?.controller
+              : undefined;
+        if (!who) break;
+        if (effect.kind === 'controllerDraws') {
+          out.push(...drawEvents(state, who, effect.amount));
+          break;
+        }
+        const p = state.players[who];
+        if (!p) break;
+        out.push({ t: 'LifeChanged', player: who, delta: -effect.amount, to: p.life - effect.amount });
+        break;
+      }
+
+      case 'noop':
+        // D295 - the D192 vacuity sentence (named in `effectParse`): a restriction
+        // on a mechanism this engine does not have, so nothing happens - by design.
+        break;
 
       /**
        * CR 701.8a — and THE PLAYER CHOOSES, which is why this case can produce

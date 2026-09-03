@@ -393,6 +393,51 @@ const RULES: readonly Rule[] = [
       return n === null ? null : { ...BASE, amount: n };
     },
   },
+  /** D295. `Anguished Unmaking` - "You lose 3 life." - the controller, like `gainLife`. */
+  {
+    kind: 'loseLife',
+    re: new RegExp(`^you lose (${NUM}) life\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      return n === null ? null : { ...BASE, amount: n, targetIndex: -1, self: true };
+    },
+  },
+  /**
+   * D295. `Hideous End` - "Destroy target nonblack creature. Its controller
+   * loses 2 life." and `Countersquall` - "Counter target noncreature spell.
+   * Its controller loses 2 life." The aim is the FIRST target (the sentence
+   * before named it); the player is its controller at resolution.
+   */
+  {
+    kind: 'controllerLosesLife',
+    re: new RegExp(`^its controller loses (${NUM}) life\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      // Consumes NO target of its own (`parseEffects` renumbers the ones that
+      // do); the resolver reads the spell's FIRST target itself.
+      return n === null ? null : { ...BASE, amount: n, targetIndex: -1, self: true };
+    },
+  },
+  /** D295. `Introduction to Annihilation` - "Its controller draws a card." */
+  {
+    kind: 'controllerDraws',
+    re: /^its controller draws (a|one|two|three) cards?\.$/i,
+    build: (m) => {
+      const n = num(m[1]);
+      return n === null ? null : { ...BASE, amount: n, targetIndex: -1, self: true };
+    },
+  },
+  /**
+   * D295. "It can't be regenerated." / "They can't be regenerated." - a
+   * restriction on a mechanism the engine does not have (nothing regenerates,
+   * ever), so the sentence is whole by construction. `self` so the resolver
+   * never narrates a missing target for it.
+   */
+  {
+    kind: 'noop',
+    re: /^(?:it|they) can't be regenerated\.$/i,
+    build: () => ({ ...BASE, targetIndex: -1, self: true }),
+  },
   /**
    * M6.3c. `Battlegrowth` — "Put a +1/+1 counter on target creature." — and
    * `Scar`, which is the same sentence with `-1/-1` and can kill through the

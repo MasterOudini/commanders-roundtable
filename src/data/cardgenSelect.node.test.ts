@@ -1622,6 +1622,76 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Kirtar:"); the cost reader prices "Sacrifice this creature" and not the
   // printed-name form, so the ability is never offered - measured at the port.
   ['Lieutenant Kirtar', 'self-sacrifice by name (cost)'],
+
+  // D295 (M6.4eg) — the 137 cards D294's adjective seam made offerable: the
+  // activated/triggered families landed from one table, the spells by hand or
+  // by a parser sentence, and these refused for a stated structural reason.
+  //
+  // ⚠️ Five offer an alternative cost at cast time (Fierce Guardianship,
+  // Snuff Out, Spinning Darkness, cleave, spell mastery); two are forecast
+  // (an ability activated from the HAND); four let the OWNER or an OPPONENT
+  // choose (top-or-bottom, "of an opponent's choice"); one grants play-from-
+  // exile; amass, the Ring, cloak, manifest dread, incubate and airbend are
+  // mechanics the engine does not have; two restrict ONE alternative of a
+  // list ("black creature or black planeswalker" — the per-alternative seam);
+  // Ohran Yeti pays {S}; Null Brooch discards a whole HAND as a cost; Squirming
+  // Emergence bounds its target by a COUNT the parser cannot read; two spells
+  // SET characteristics (a Frog/Octopus, an artifact creature with P/T = MV);
+  // Unexpectedly Absent places a card at an INDEX inside a library. Four
+  // spells count X targets and Repeal reads X into a qualifier (cast-time
+  // numbers); two remember the colours of mana spent (converge); two grant a
+  // QUOTED ability; Rhino's Rampage has a reflexive trigger; Venser's
+  // Diffusion lists "suspended card"; Premature Burial needs the turn a
+  // permanent entered; Lunatic Pandora sacrifices itself BY NAME; Unwind
+  // untaps "up to three lands" of the caster's choosing.
+  ['Fierce Guardianship', 'cast-time alternative cost'],
+  ['Snuff Out', 'cast-time alternative cost'],
+  ['Spinning Darkness', 'cast-time alternative cost'],
+  ["Alchemist's Retrieval", 'cast-time alternative cost'],
+  ['Swift Reckoning', 'cast-time alternative cost'],
+  ['Govern the Guildless', 'hand-activated ability'],
+  ['Piercing Rays', 'hand-activated ability'],
+  ['Volcanic Offering', 'opponent-chooses'],
+  ['Desynchronize', 'opponent-chooses'],
+  ['Run Out of Town', 'opponent-chooses'],
+  ['Vanish from Sight', 'opponent-chooses'],
+  ['Suspend Aggression', 'play-from-exile permission'],
+  ['Callous Dismissal', 'amass mechanic'],
+  ['Soothing of Sméagol', 'the Ring mechanic'],
+  ['Radiant Purge', 'list with adjective alternative'],
+  ["Liliana's Defeat", 'list with adjective alternative'],
+  ['Ohran Yeti', 'snow activation cost'],
+  ['Null Brooch', 'discard-hand cost'],
+  ['Unexplained Absence', 'cloak mechanic'],
+  ['Unnerving Grasp', 'manifest dread mechanic'],
+  ['Excise the Imperfect', 'incubate mechanic'],
+  ['Airbending Lesson', 'airbend mechanic'],
+  ['Squirming Emergence', 'spell target parse (computed numeric bound)'],
+  ['Mercurial Transformation', 'characteristic-setting effect'],
+  ["Karn's Touch", 'characteristic-setting effect'],
+  ['Unexpectedly Absent', 'library position placement'],
+  ['Distorting Wake', 'cast-time computed target count'],
+  ['Gridlock', 'cast-time computed target count'],
+  ['Dregs of Sorrow', 'cast-time computed target count'],
+  ['Avalanche', 'cast-time computed target count'],
+  ['Prismatic Ending', 'converge (cast-time mana-color memory)'],
+  ['Mythos of Nethroi', 'converge (cast-time mana-color memory)'],
+  ['Banishing Knack', 'quoted-ability temporary grant'],
+  ['Retraction Helix', 'quoted-ability temporary grant'],
+  ["Rhino's Rampage", 'reflexive trigger'],
+  ['Repeal', 'cast-time X in target qualifier'],
+  ["Venser's Diffusion", 'unparseable list alternative (suspended card)'],
+  ['Premature Burial', 'entry-turn memory'],
+  ['Lunatic Pandora', 'self-sacrifice by name (cost)'],
+  ['Unwind', 'script-raised prompt'],
+  // ...and of the 29 cards the four D295 sentences made offerable in turn,
+  // five: a becomes-targeted trigger, a delayed trigger ("this turn"), a cost
+  // of HALF a life total, an exile-from-graveyard cost, a two-part sacrifice.
+  ['Tethered Skirge', 'becomes-targeted trigger'],
+  ["Mage Hunters' Onslaught", 'delayed trigger'],
+  ['Murderous Betrayal', 'pay-half-life cost'],
+  ['Zombie Assassin', 'exile-from-graveyard cost'],
+  ['Viscerid Drone', 'multi-sacrifice cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
@@ -1704,10 +1774,9 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // 18 of them and ledgered the other 4, so it is empty again — and a
     // non-empty pool from here means either a new seam paid out or a ledger
     // entry went stale.
-    // D294 enforced the adjectives the engine can check, and 137 cards whose
-    // only wall was such a word became script-only - the next batch; the pin
-    // follows the measurement and falls back as they land.
-    expect.soft(all.length).toBe(137);
+    // D295 landed or ledgered all 137 D294 offerables - and the 29 its own four
+    // sentences made offerable in turn. The pool is measured at zero.
+    expect.soft(all.length).toBe(0);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

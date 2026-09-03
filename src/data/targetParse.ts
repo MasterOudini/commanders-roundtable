@@ -795,9 +795,24 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
     const nounMatch = rest.match(entry.re);
     const nounLen = nounMatch?.[0].length ?? 0;
     if (entry.unenforced) unenforced.push(...entry.unenforced);
+    // D295: the combat role printed as a SUFFIX - "creature that's attacking
+    // or blocking" (Gideon's Defeat). Read and enforced exactly like D291's
+    // adjective form; until now it was dropped silently and a creature that
+    // stayed home was accepted.
+    const suffix = rest.slice(nounLen).match(/^\s+that(?:'s|\s+is)\s+(attacking or blocking|attacking|blocking)\b/i);
+    const suffixLen = suffix?.[0].length ?? 0;
+    const suffixWord = suffix?.[1]?.toLowerCase() ?? null;
+    const suffixRole =
+      suffixWord === 'attacking or blocking'
+        ? ('attackingOrBlocking' as const)
+        : suffixWord === 'attacking'
+          ? ('attacking' as const)
+          : suffixWord === 'blocking'
+            ? ('blocking' as const)
+            : null;
 
     // ── controller
-    const ctl = readController(clean, cursor + nounLen);
+    const ctl = readController(clean, cursor + nounLen + suffixLen);
     // ⚠️ D293: a qualifier after a noun LIST binds its LAST alternative only in
     // print ("artifact, enchantment, or creature with flying"), which the spec
     // cannot say — read as one restriction over the union it would refuse an
@@ -820,7 +835,7 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
       cardTypes: entry.cardTypes ?? [],
       numeric: ctl.numeric,
       keyword: ctl.keyword,
-      combatRole: entry.combatRole ?? null,
+      combatRole: entry.combatRole ?? suffixRole,
       restrict: finishRestrict(restrict, entry.restrict),
       text: text.slice(count.start, ctl.end).trim(),
       confident: count.confident,

@@ -8993,6 +8993,49 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,206 files, 11,586 passed / 11 skipped ·
       500-seed gate, 6 shards, 250.0 s wall · build clean · probe 124/124 · battery 130/130.**
       ⚠️ **Reportables** (D296): D295 next; D294's list stands.
+- [x] **M6.4eg — THE ADJECTIVE HARVEST: the 137 cards D294 made offerable and
+      the 29 its own sentences made offerable in turn — 113 scripts from two
+      tables and two hands, four sentences the parser now reads, two engine
+      holes the suites found, 45 refused; the pool returns to zero
+      (2026-09-03):** **4,235 of 31,692 Commander-legal cards now
+      execute completely, up from 4,113 (+122).** `SHIPPED_SCRIPTS`
+      2,122 → **2,223** (+113 landed, 12 RETIRED under D187's predicate:
+      the sentences read Terminate, Infernal Grasp, Vapor Snag, Undermine and
+      eight more whole, so their defs would duplicate the vocabulary); ledger
+      763 → **808** (+45). The D192 tripwire gained the ten D295 scripts
+      carrying the clause in TEXT.
+      ZERO token pins, ZERO support bodies. **Sliver Queen reaches 4,181
+      from 100 legendaries. Select pool 137 → 29 → 0.** Decisions
+      in **D295**.
+      ⚠️ **Sorted first:** the wall probe named every card's blocking line;
+      the sentence probe measured four sentences over the database. Buckets:
+      55 activated/triggered from ONE table (`d295/gen.cjs`), 33 spells from
+      ONE table (`d295/gen-spells.cjs`), Stalking Assassin by hand, 8 whole
+      after a sentence, 40 refused; then the second wave of 29 — 15 table
+      rows, Pit Trap, 8 hand triggers on the bus's PER-ITEM mode (D185), 5
+      refused.
+      ⚠️ **The sentences (enforce first):** `loseLife` learns `self`;
+      `controllerLosesLife` / `controllerDraws` address the spell's FIRST
+      target's controller and consume NO target slot (`parseEffects`
+      renumbers the ones that do); "It/They can't be regenerated." is a
+      claimed `noop`. Report `effect:auto` 3,007 → 3,232.
+      ⚠️ **Two holes fixed:** a spell on the stack had no COLOURS on either
+      adapter (every coloured-spell counter refused — seven suites red at
+      once); "creature that's attacking or blocking" dropped its combat role
+      SILENTLY (Gideon's Defeat accepted a creature at home). Both now read
+      from the face / the suffix.
+      **Tests:** 113 suites + `sentenceWidenings.test.ts`.
+      Fixtures 2,514 (2,406 by name + 101 tokens) · botPool artifact
+      165 / creature 2,151 / enchantment 103 / instant
+      839 / land 351 / sorcery 626 · ladder [933, 1037, 2819, 4734, 5944] · tier3
+      `payable` 5,002 · batch.json 121 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,308 files, 12,085 passed / 11 skipped ·
+      500-seed gate, 6 shards, 219.4 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D295): the pool is 0 — next is a SEAM by measured
+      worth: the per-alternative list seam (engine half drafted), the
+      graveyard-return adjective slot, the modal seam (42), the "another"
+      split, the by-name sacrifice cost, the remaining cost verbs, the
+      prompt continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

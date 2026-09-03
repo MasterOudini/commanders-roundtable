@@ -13,7 +13,7 @@
 // tutors, no recursion, because the engine runs none of those yet. That ceiling
 // is the honest state of the app and it rises as the engine's coverage does.
 //
-// commander: Sliver Queen (BGRUW), chosen from 97 fully-executable legendary creatures for reaching 4060 cards
+// commander: Sliver Queen (BGRUW), chosen from 100 fully-executable legendary creatures for reaching 4181 cards
 // mv 0–1: wanted 6, took 6
 // mv 2–2: wanted 14, took 14
 // mv 3–3: wanted 14, took 14
@@ -60,7 +60,7 @@ export const BOT_DECK = {
   "An-Havva Inn",
   "Anchor to the Aether",
   "Angelic Blessing",
-  "Appetite for the Unnatural",
+  "Anguished Unmaking",
   "Fleetfoot Dancer",
   "Acid Rain",
   "Advent of the Wurm",
@@ -78,9 +78,9 @@ export const BOT_DECK = {
   "Fusion Elemental",
   "Terrian, World Tyrant",
   "Accelerated Mutation",
+  "Aether Gale",
   "Allied Strategies",
   "Ancestral Memories",
-  "Angelic Edict",
   "Yargle and Multani",
   "Quakestrider Ceratops",
   "Amnesia",
@@ -109,6 +109,7 @@ export const BOT_DECK = {
   "Blackcleave Cliffs",
   "Bleeding Woods",
   "Blighted Cataract",
+  "Blinkmoth Well",
   "Blood Crypt",
   "Bloodfell Caves",
   "Blooming Marsh",
@@ -125,6 +126,5 @@ export const BOT_DECK = {
   "Castle Vantress",
   "Cinder Barrens",
   "Cinder Glade",
-  "Clifftop Retreat",
   ],
 } as const;

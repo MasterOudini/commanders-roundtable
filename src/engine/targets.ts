@@ -485,10 +485,11 @@ export function candidatesFromState(
       manaValue: spellOracle?.manaValue ?? null,
       power: null,
       toughness: null,
-      // A stack object's own colours matter only for protection, and nothing
-      // targeting the stack has protection. Left empty rather than derived,
-      // because a spell on the stack has no `derive()` entry.
-      colors: [],
+      // ⚠️ A SPELL ON THE STACK HAS COLOURS - "counter target green spell"
+      // restricts on them (D294's `colorsAny`, found empty here by D295's
+      // counter suites). From the face actually cast, like its types; an
+      // ability has none.
+      colors: spellOracle ? faceOf(spellOracle, obj.faceIndex).colors : [],
       keywords: [],
       combat: { attacking: false, blocking: false },
       // ⚠️ A spell on the stack keeps its card types AND supertypes for "target

@@ -19732,3 +19732,114 @@ with a shard file hidden; the unsharded 60-seed default green, 113.4 s.
 
 **Reportables** (D296): D295 (the 137 offerable cards — 54 generated from
 one table, the spells after the wall probe); then D294's list stands.
+
+## D295 — M6.4eg: THE ADJECTIVE HARVEST — the 137 cards D294 made offerable, and the 29 its own sentences made offerable in turn: 113 scripts from two tables and two hands, four sentences the parser now reads, two engine holes the suites found, 45 refused for a stated reason; the pool returns to zero (2026-09-03)
+
+**4,235 of 31,692 Commander-legal cards execute completely, up from
+4,113 (+122).** SHIPPED_SCRIPTS 2,122 → **2,223** (+113 landed, 12
+RETIRED — below); REFUSED ledger 763 → **808** (+45). Fixtures 2,393 → 2,514 (2,406 by name +
+101 tokens; +121). ZERO new token pins, ZERO new support bodies. Sliver
+Queen reaches 4,181 from 100 legendaries. **The select pool
+goes 137 → 29 → 0.**
+
+**The 137, sorted before anything was written.** The wall probe
+(`zz-probe-d295`, gate-free) named the blocking line of every offerable
+card, and the sentence probe (`zz-probe-d295b`) measured four sentences the
+effect parser did not read across the whole database:
+
+| bucket | cards | how |
+|---|---|---|
+| activated / triggered with an adjective target | 55 | ONE table row each (`d295/gen.cjs`, D292's generator widened: pump / damage / destroy / exile / tap / untap / counter; enters / dies / attacks triggers; costs parsed from the text — tap, self-sacrifice, sacrifice-a-creature/-a-land, pay life, tap-creatures, discard) |
+| spells with a rider the parser cannot read | 33 | ONE table row each (`d295/gen-spells.cjs`: a `spell` def in aangsDefense's shape; ops for life equal to a stat, a controller's draw or loss, same-name sweeps, fights, domain, a scry after a bounce, a shuffle through `ctx.random`, six targets by count) |
+| two abilities on one card | 1 | by hand (Stalking Assassin) |
+| whole after ONE sentence | 8 | the four sentences below — no script |
+| refused, stated | 40 | the ledger, by class |
+
+**The four sentences (enforce first, then admit — D139).** "You lose N
+life." (`loseLife` learns `self`, like `gainLife`); "Its controller loses N
+life." and "Its controller draws a card." (two new kinds addressed to the
+spell's FIRST target — a permanent's or a held spell's controller, read from
+the state snapshot before the batch applies, so the permanent the previous
+sentence destroyed still answers, CR 608.2h; they consume NO target slot of
+their own, because `parseEffects` renumbers every sentence that does — the
+first draft pointed one target too far and the live proofs caught it);
+"It/They can't be regenerated." (a claimed no-op: nothing regenerates in
+this engine, so the restriction is whole by construction — "Regenerate
+target creature." stays refused). Measured over the database: regenerate 98
+mentions / 4 whole, you-lose 28 / 3, controller-loses 8 / 2,
+controller-draws 8 / 1 — 10 cards read whole with no script. Report:
+`effect:auto` 3,007 → 3,232, `effect:none` 16,083 → 15,724,
+`effect:partial` 5,241 → 5,375.
+
+**Two engine holes the suites found, both fixed here.** (1) A spell on the
+stack had NO COLOURS on either candidate adapter ("matter only for
+protection"), so D294's `colorsAny` refused every green spell for Deathgrip
+— seven counter suites went red at once; both adapters now read the colours
+from the face actually cast, like its types. (2) "creature that's attacking
+or blocking" — the combat role printed as a SUFFIX — was dropped SILENTLY
+by the clause builder, and Gideon's Defeat accepted a creature that stayed
+home; the suffix is read and enforced like D291's adjective form. Both are
+the direction this file may never be wrong in: accepting a target the card
+refuses.
+
+**The second wave — 29 more the sentences made offerable.** The sweep
+measured the pool at 29 after the first wave (cards whose only unscripted
+line had been "you lose N life" or "can't be regenerated"): 15 more table
+rows (`rows-b.cjs` — eight "when this enters, you lose N life", two "at the
+beginning of your upkeep", three destroys, a self-sacrificing Seal, a
+discard-cost Assassin), Pit Trap from D292's combat-role table, eight by
+hand using the bus's PER-ITEM mode (D185: `perItem` + `obj.item` — Wretched
+Anurid, Poisonbelly Ogre and Kavu Lair once per entering creature or token,
+Hissing Miasma once per attacker, Dross Harvester once per dying creature;
+Delusions of Mediocrity, Ebon Drake, Priest of the Blood Rite's Demon), and
+five refused (a becomes-targeted trigger, a delayed trigger, a
+half-your-life cost, an exile-from-graveyard cost, a two-part sacrifice).
+
+**Twelve scripts retired — D187's predicate.** A spell def is shipped only
+where the vocabulary does not read the card whole, and each carries a test
+that says so. The four sentences read the whole text of Terminate, Infernal
+Grasp, Vapor Snag, Undermine, Dream Fracture, Oxidize, Flesh to Dust,
+Glissa's Scorn, Ulcerate, Withering Torment, Despoil and Call to Heel — the
+first gate run went red on exactly those twelve suppression tests — so the
+defs would now duplicate the vocabulary and are retired (`d295/retire-12.cjs`:
+module, suite and both registry lines each); the cards stay complete, run
+from the oracle. The D192 tripwire (no engine source names the mechanism
+behind "can't be regenerated") gained the ten D295 scripts that carry the
+clause in their TEXT, per its own rule, and the two engine comments the
+widening added no longer name the mechanic — a real shield in `effects.ts`
+would still trip it.
+
+**Refused (45), by reason.** Five cast-time alternative costs; two forecast
+(hand-activated); four owner/opponent choices; play-from-exile; amass, the
+Ring, cloak, manifest dread, incubate, airbend; two per-alternative
+restrictions (Radiant Purge, Liliana's Defeat — the alternatives seam); {S};
+whole-hand and half-life costs; a target bounded by a count; two
+characteristic-setting spells; a library index; four X-target counts and
+Repeal's X qualifier; two converge; two quoted-ability grants; a reflexive
+trigger; "suspended card"; entry-turn memory; a by-name self-sacrifice;
+"untap up to three lands"; a becomes-targeted trigger; a delayed trigger; an
+exile-from-graveyard cost; a two-part sacrifice.
+
+**Tests:** 113 suites (each: the named target accepted and the effect or
+rider lands; a permanent the adjective excludes REFUSED; replay equal — the
+counters at a held spell, the combat rows in a real attack, the scry
+answered, the per-item triggers counted twice) + `sentenceWidenings.test.ts`
+(the four parses, the combat-role suffix, "Regenerate target creature."
+still refused, five live proofs from the oracle).
+
+Fixtures 2,514 (2,406 by name + 101 tokens) · botPool artifact 165 /
+creature 2,151 / enchantment 103 / instant 839 / land
+351 / sorcery 626 · auto 658 / assisted 1,803 / autoAnyFace
+666 · ladder [933, 1037, 2819, 4734, 5944] · tier3 `payable` 5,002, `fourOrMore`
+118 · batch.json 121 (by name) · botDeck 4,181 from
+100 · select pool 137 → 0.
+
+**Verified:** `verify.cjs --full` (sharded, D296) — ALL FIVE GATES: 2,308 files, 12,085 passed / 11 skipped ·
+500-seed gate, 6 shards, 219.4 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D295): the pool is 0 — the next batch is a SEAM by measured
+worth: the per-alternative list seam (engine half drafted; Radiant Purge,
+Liliana's Defeat, Broken Wings…), the graveyard-return adjective slot
+(Revive, Reborn Hope), the modal seam (42), the "another" split, the by-name
+sacrifice cost, the remaining cost verbs, the prompt continuation seam;
+prior items stand.

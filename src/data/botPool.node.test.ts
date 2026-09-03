@@ -239,10 +239,10 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * the pins have been swapped; the measurement itself is deterministic and was
    * verified identical across isolated and full-suite runs.
    */
-  test('D90 does not reproduce, and the vocabulary keeps moving it: 632 auto, 1,775 assisted (D199)', () => {
-    expect.soft(r.spells.auto).toBe(632);
-    expect.soft(r.spells.assisted).toBe(1775);
-    expect.soft(r.spells.autoAnyFace).toBe(640);
+  test('D90 does not reproduce, and the vocabulary keeps moving it: 658 auto, 1,803 assisted (D199)', () => {
+    expect.soft(r.spells.auto).toBe(658);
+    expect.soft(r.spells.assisted).toBe(1803);
+    expect.soft(r.spells.autoAnyFace).toBe(666);
   });
 
   /**
@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). Planeswalkers (loyalty costs) and battles are still
     // structurally out, and stay pinned at zero for the same reason the
     // enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(93);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(103);
     expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -446,12 +446,12 @@ const POOL: Record<string, number> = {
   // TWENTY-card batch.
   // M6.4bc (D214): +8 instants, +7 sorceries, Flying Carpet, and Forum of
   // Amity.
-  creature: 2094,
-  instant: 810,
-  sorcery: 613,
-  land: 343,
-  artifact: 160,
-  enchantment: 93,
+  creature: 2151,
+  instant: 839,
+  sorcery: 626,
+  land: 351,
+  artifact: 165,
+  enchantment: 103,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

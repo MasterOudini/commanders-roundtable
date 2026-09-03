@@ -364,6 +364,22 @@ export type EffectKind =
   | 'draw'
   | 'gainLife'
   | 'loseLife'
+  /**
+   * D295 - a sentence about the TARGET'S CONTROLLER ("Its controller loses 2
+   * life.", "Its controller draws a card."): the aim is the target of the
+   * sentence before, and the player is whoever controls it at resolution -
+   * read from the state BEFORE the batch applies, so the permanent the first
+   * sentence destroys is still there to ask.
+   */
+  | 'controllerLosesLife'
+  | 'controllerDraws'
+  /**
+   * D295 - a printed restriction on a mechanism this engine does not have at
+   * all (the D192 vacuity argument as a parser rule; `effectParse` names the
+   * sentence). It forbids something that cannot happen, so the card is whole
+   * without it - read as a sentence so the line is CLAIMED, never skipped.
+   */
+  | 'noop'
   | 'putCounters'
   | 'removeCounters'
   | 'createToken'

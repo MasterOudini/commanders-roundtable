@@ -32,8 +32,12 @@ describe('the regeneration vacuity argument (Damnation, D192)', () => {
         // D214 Flesh to Dust · D221 Jokulhaups · D231 Oxidize · D232
         // Perish · D233 Pillage, Plague Wind · D236 Putrefy · D239
         // Reprisal · D240 Retribution of the Meek · D245 Seeds of
-        // Innocence · D246 Shatterstorm · D249 Smother · D269 Winds of Rath).
-        if (['damnation.ts', 'terminate.ts', 'wrathOfGod.ts', 'consumeTheMeek.ts', 'crumble.ts', 'devourInShadow.ts', 'fissure.ts', 'fleshToDust.ts', 'jokulhaups.ts', 'oxidize.ts', 'perish.ts', 'pillage.ts', 'plagueWind.ts', 'putrefy.ts', 'reprisal.ts', 'retributionOfTheMeek.ts', 'seedsOfInnocence.ts', 'shatterstorm.ts', 'smother.ts', 'windsOfRath.ts'].includes(entry.name)) continue;
+        // Innocence · D246 Shatterstorm · D249 Smother · D269 Winds of Rath ·
+        // D295 Dark Hatchling, Murderous Spoils, Notorious Assassin, Phyrexian
+        // Bloodstock, Pit Trap, Plague Spores, Seal of Doom, Sever Soul,
+        // Vendetta, Visara the Dreadful - since D295 the sentence itself reads
+        // as a claimed no-op in `effectParse`; these scripts carry it in TEXT).
+        if (['damnation.ts', 'terminate.ts', 'wrathOfGod.ts', 'consumeTheMeek.ts', 'crumble.ts', 'devourInShadow.ts', 'fissure.ts', 'fleshToDust.ts', 'jokulhaups.ts', 'oxidize.ts', 'perish.ts', 'pillage.ts', 'plagueWind.ts', 'putrefy.ts', 'reprisal.ts', 'retributionOfTheMeek.ts', 'seedsOfInnocence.ts', 'shatterstorm.ts', 'smother.ts', 'windsOfRath.ts', 'darkHatchling.ts', 'murderousSpoils.ts', 'notoriousAssassin.ts', 'phyrexianBloodstock.ts', 'pitTrap.ts', 'plagueSpores.ts', 'sealOfDoom.ts', 'severSoul.ts', 'vendetta.ts', 'visaraTheDreadful.ts'].includes(entry.name)) continue;
         if (/\bregenerat/i.test(readFileSync(p, 'utf8'))) offenders.push(p);
       }
     };

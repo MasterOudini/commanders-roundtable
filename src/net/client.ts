@@ -657,7 +657,8 @@ export class ClientSession {
           : null,
         power: null,
         toughness: null,
-        colors: [],
+        // D295: a spell's colours, read exactly as the host adapter reads them.
+        colors: spellFace?.colors ?? [],
         keywords: [],
         combat: { attacking: false, blocking: false },
         supertypes: spellFace?.typeLine.supertypes ?? [],
