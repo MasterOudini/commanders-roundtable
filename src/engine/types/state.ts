@@ -370,6 +370,10 @@ export interface PendingCast {
    * untouched.
    */
   readonly sacrifice?: InstanceId;
+  /** The cards a "Discard N" cost chose (D286); charged in the cost batch. */
+  readonly discard?: readonly InstanceId[];
+  /** The permanents a "Tap N untapped …" cost chose (D286); tapped in the cost batch. */
+  readonly tap?: readonly InstanceId[];
 }
 
 export interface PendingTrigger {

@@ -32,6 +32,10 @@ export interface AbilityOption {
    * legal action at pick time (`GameLayer`); this flag only routes the click.
    */
   readonly needsSacrifice: boolean;
+  /** A "Discard N" cost (D286): N, or 0 when the ability has none. */
+  readonly needsDiscard: number;
+  /** A "Tap N untapped …" cost (D286): N, or 0 when the ability has none. */
+  readonly needsTap: number;
 }
 
 /**
@@ -57,6 +61,8 @@ export function abilityOptionsFor(legal: readonly LegalAction[], card: string): 
       name: a.label,
       affordable: a.affordable,
       needsSacrifice: (a.sacrificeCandidates?.length ?? 0) > 0,
+      needsDiscard: a.discardCandidates && a.discardCount ? a.discardCount : 0,
+      needsTap: a.tapCandidates && a.tapCount ? a.tapCount : 0,
     });
   }
   return out.sort((x, y) => x.abilityIndex - y.abilityIndex);

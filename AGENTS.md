@@ -8629,6 +8629,47 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       worth are the cost-chooser verbs in the D168 pattern — `discardCost`
       (39) and `tapCost` (28) — then the prompt continuation seam; prior
       items stand.
+- [x] **M6.4dw — THE COST-CHOOSER SEAM: discard-cost and tap-cost choosers in
+      the D168 pattern, engine and client, with their first twelve cards
+      (2026-09-03):** **3,903 of 31,692 Commander-legal cards now execute
+      completely, up from 3,891.** `SHIPPED_SCRIPTS` 1,994 → 2,006; ledger
+      812 (twelve rows DELETED). ZERO token pins, ZERO support bodies.
+      **Sliver Queen reaches 3,854 from 94 legendaries.** Decisions in
+      **D286**.
+      ⚠️ **The first Phase 1 engine seam:** `activatedParse.ts` prices
+      `discardCost {count, any}` and `tapCost {count, another, any}` beside
+      `sacrificeCost` (plural nouns read back to the singular; unplaceable
+      phrases stay unpaid); `legal.ts` offers only with a registered def AND
+      enough candidates and carries them on the offer; `ActivateAbility`
+      names the picks (`discard`, `tap`), the host re-validates (four new
+      rejection reasons), carries them on the pending cast and charges them
+      in the cost batch; `tier3.ts` disclaims; the fuzz driver picks at
+      random; the client's `costPick` mode is the sacrifice pick N times
+      over, hand or battlefield.
+      ⚠️ **Rulings:** tapping OTHER permanents as a cost ignores summoning
+      sickness (CR 302.6) — Azami taps herself the turn she enters; the
+      offer is re-measured per activation.
+      ⚠️ **Measured:** tier3 `payable` +315 across the database (4,827 →
+      5,142); the parse report's `activated:nonManaCost` 8,572 → 7,447 and
+      `payable` 29,933 → 31,058 (1,125 lines, D168's mirror shape) — the
+      two classes are drainable, 44 more cards drafted.
+      **Landed:** Rummaging Goblin, Skullmead Cauldron, Peace of Mind,
+      Mental Discipline, Molten Vortex, Stern Constable; Azami, Lady of
+      Scrolls, Glare of Subdual, Kyren Negotiations, Diversionary Tactics,
+      Revelsong Horn, Wanderbrine Trapper. Tests 12 files / 43 tests.
+      ⚠️ **Test-side lessons:** `clearSickness` advances into the opponent's
+      turn — use "turn 3, no ask up"; a `settle` at game start can step the
+      turn — re-anchor priority before activating.
+      Fixtures 2,258 (2,150 by name + 101 tokens) · botPool artifact 156 /
+      creature 2,016 / enchantment 81 / instant 721 / land 342 / sorcery 587 ·
+      ladder [1150, 1249, 3042, 4956, 6168] · batch.json 12.
+      **Verified: `verify.cjs --full` — ALL FIVE GATES: 2,086 files, 10,972 passing / 10 skipped · 500-seed gate 702.7 s ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D286): the seam's second batch (44 drafted) drains
+      the two classes; the unbuilt cost verbs are exile-from-graveyard (15),
+      remove-counter (7), return-permanent (6), random-discard (4, needs
+      `ctx.random`), reveal, put-counter and {Q}; then the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

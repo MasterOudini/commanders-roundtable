@@ -2589,6 +2589,18 @@ const WANTED = [
   'Halimar Depths',
   'Inkfathom Divers',
   'Aven Fateshaper',
+  'Rummaging Goblin',
+  'Skullmead Cauldron',
+  'Peace of Mind',
+  'Mental Discipline',
+  'Molten Vortex',
+  'Stern Constable',
+  'Azami, Lady of Scrolls',
+  'Glare of Subdual',
+  'Kyren Negotiations',
+  'Diversionary Tactics',
+  'Revelsong Horn',
+  'Wanderbrine Trapper',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

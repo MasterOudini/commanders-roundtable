@@ -73982,6 +73982,408 @@ export const AVEN_FATESHAPER: CardData = {
   "singleImage": true
 };
 
+export const RUMMAGING_GOBLIN: CardData = {
+  "scryfallId": "254391a3-c12a-4944-9da5-ae166094480f",
+  "oracleId": "2055eb91-ee36-4752-a6dc-581eaef335c8",
+  "name": "Rummaging Goblin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rummaging Goblin",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Goblin Rogue",
+      "oracleText": "{T}, Discard a card: Draw a card.",
+      "flavorText": "To a goblin, value is based on the four S's: shiny, stabby, smelly, and super smelly.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Karl Kopinski",
+      "imageId": "254391a3-c12a-4944-9da5-ae166094480f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "cmr",
+  "collectorNumber": "198",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKULLMEAD_CAULDRON: CardData = {
+  "scryfallId": "1d8567c5-d068-42bb-a593-3849e65e29c0",
+  "oracleId": "b6864a26-9c13-4c6d-b0e0-d5b5ed9864e8",
+  "name": "Skullmead Cauldron",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skullmead Cauldron",
+      "manaCost": "{4}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: You gain 1 life.\n{T}, Discard a card: You gain 3 life.",
+      "flavorText": "Once tasted, the flavor of skullmead lingers in the throat, a secret brand of guilt for those who partake in forbidden pleasures.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Martina Pilcerova",
+      "imageId": "1d8567c5-d068-42bb-a593-3849e65e29c0"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dis",
+  "collectorNumber": "167",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PEACE_OF_MIND: CardData = {
+  "scryfallId": "36e37aa2-d898-47f5-9679-5717bfa25688",
+  "oracleId": "4f8c5fd7-f280-4b0c-bb84-6ff9b258c50f",
+  "name": "Peace of Mind",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Peace of Mind",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "{W}, Discard a card: You gain 3 life.",
+      "flavorText": "Not all minds touched by the Eldrazi turn to raging psychosis. Some simply withdraw from this world into memories of a better one.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "36e37aa2-d898-47f5-9679-5717bfa25688"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "emn",
+  "collectorNumber": "36",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MENTAL_DISCIPLINE: CardData = {
+  "scryfallId": "5e9ffd83-b5c9-46b4-bc5a-172ca34ddc79",
+  "oracleId": "b22080d6-a9ed-4bdd-a604-058e0e3e9463",
+  "name": "Mental Discipline",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mental Discipline",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "{1}{U}, Discard a card: Draw a card.",
+      "flavorText": "Barrin drowned his doubts about Urza's project by delving ever deeper into its details.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "5e9ffd83-b5c9-46b4-bc5a-172ca34ddc79"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "uds",
+  "collectorNumber": "37",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MOLTEN_VORTEX: CardData = {
+  "scryfallId": "d99fd073-c249-4cd2-9d71-be417c88c493",
+  "oracleId": "da5ee877-143e-4f53-ad20-1bc527a8fff8",
+  "name": "Molten Vortex",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Molten Vortex",
+      "manaCost": "{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "{R}, Discard a land card: This enchantment deals 2 damage to any target.",
+      "flavorText": "If you can't take the heat . . . well, that's going to be a problem.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Philip Straub",
+      "imageId": "d99fd073-c249-4cd2-9d71-be417c88c493"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ori",
+  "collectorNumber": "156",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STERN_CONSTABLE: CardData = {
+  "scryfallId": "4f0f87d4-5fed-415c-918a-c3546697a3da",
+  "oracleId": "eb3f493a-a5d6-4b9b-9ea0-3c295a67f730",
+  "name": "Stern Constable",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stern Constable",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{T}, Discard a card: Tap target creature.",
+      "flavorText": "\"I'm sure you have a story. Everyone has a story. You can tell it to the bars.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "4f0f87d4-5fed-415c-918a-c3546697a3da"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "soi",
+  "collectorNumber": "39",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AZAMI_LADY_OF_SCROLLS: CardData = {
+  "scryfallId": "0ad06ad7-0545-4c6f-9b10-4a27fa2e827c",
+  "oracleId": "0f8b97fe-3e5e-47c2-9a9d-7f77482aa159",
+  "name": "Azami, Lady of Scrolls",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Azami, Lady of Scrolls",
+      "manaCost": "{2}{U}{U}{U}",
+      "typeLine": "Legendary Creature — Human Wizard",
+      "oracleText": "Tap an untapped Wizard you control: Draw a card.",
+      "flavorText": "\"Choices belong to those with the luxuries of time and distance. We have neither. I recommend we proceed with the plan to destroy all shrines of the kami.\"\n—Lady Azami, letter to Sensei Hisoka",
+      "power": "0",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ittoku",
+      "imageId": "0ad06ad7-0545-4c6f-9b10-4a27fa2e827c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "c17",
+  "collectorNumber": "82",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GLARE_OF_SUBDUAL: CardData = {
+  "scryfallId": "0d192c2a-7a6e-42bd-92e5-6de36c993862",
+  "oracleId": "bcfc112e-0482-4616-8ca9-32338a37fa82",
+  "name": "Glare of Subdual",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Glare of Subdual",
+      "manaCost": "{2}{G}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Tap an untapped creature you control: Tap target artifact or creature.",
+      "flavorText": "The righteous light of Selesnya is channeled through the devout, striking out to blind the nonbelievers.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Zoltan Boros & Gabor Szikszai",
+      "imageId": "0d192c2a-7a6e-42bd-92e5-6de36c993862"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "gk1",
+  "collectorNumber": "112",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KYREN_NEGOTIATIONS: CardData = {
+  "scryfallId": "0c263a17-bbc2-433e-93f8-72e57b818322",
+  "oracleId": "50090188-651d-4402-968f-3f6bf9276029",
+  "name": "Kyren Negotiations",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kyren Negotiations",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "Tap an untapped creature you control: This enchantment deals 1 damage to target player or planeswalker.",
+      "flavorText": "Kyren goblins always speak in questions and never allow wrong answers.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Scott Hampton",
+      "imageId": "0c263a17-bbc2-433e-93f8-72e57b818322"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "198",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DIVERSIONARY_TACTICS: CardData = {
+  "scryfallId": "1e5061e4-a76d-4a7c-b196-96c81f94e0e5",
+  "oracleId": "880367e4-50b9-49d0-b596-d462d9b42855",
+  "name": "Diversionary Tactics",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Diversionary Tactics",
+      "manaCost": "{3}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Tap two untapped creatures you control: Tap target creature.",
+      "flavorText": "\"It's the oldest trick in the book,\" said Guff. \"And I ought to know—I wrote it.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jerry Tiritilli",
+      "imageId": "1e5061e4-a76d-4a7c-b196-96c81f94e0e5"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "apc",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REVELSONG_HORN: CardData = {
+  "scryfallId": "10a4801c-fa69-47a0-bdfa-f5f110fd0976",
+  "oracleId": "d80d87f5-af9e-404b-88e3-7a4b419dc32c",
+  "name": "Revelsong Horn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Revelsong Horn",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "{1}, {T}, Tap an untapped creature you control: Target creature gets +1/+1 until end of turn.",
+      "flavorText": "A deflated sigh breathed into the horn emerges as an inspiring melody.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Franz Vohwinkel",
+      "imageId": "10a4801c-fa69-47a0-bdfa-f5f110fd0976"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "shm",
+  "collectorNumber": "261",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WANDERBRINE_TRAPPER: CardData = {
+  "scryfallId": "f4c134ed-adbf-4e88-80e0-75c176ce94c3",
+  "oracleId": "915d70ac-46ce-41d0-a137-f17e7aaea87d",
+  "name": "Wanderbrine Trapper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wanderbrine Trapper",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Merfolk Scout",
+      "oracleText": "{1}, {T}, Tap another untapped creature you control: Tap target creature an opponent controls.",
+      "flavorText": "Merrow nets snare struggling prey and panicking foe alike.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Iris Compiet",
+      "imageId": "f4c134ed-adbf-4e88-80e0-75c176ce94c3"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ecl",
+  "collectorNumber": "42",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -79583,6 +79985,18 @@ export const ENGINE_CARDS: CardData[] = [
   HALIMAR_DEPTHS,
   INKFATHOM_DIVERS,
   AVEN_FATESHAPER,
+  RUMMAGING_GOBLIN,
+  SKULLMEAD_CAULDRON,
+  PEACE_OF_MIND,
+  MENTAL_DISCIPLINE,
+  MOLTEN_VORTEX,
+  STERN_CONSTABLE,
+  AZAMI_LADY_OF_SCROLLS,
+  GLARE_OF_SUBDUAL,
+  KYREN_NEGOTIATIONS,
+  DIVERSIONARY_TACTICS,
+  REVELSONG_HORN,
+  WANDERBRINE_TRAPPER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

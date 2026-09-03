@@ -108,7 +108,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Tap-N-untapped-creatures costs (D161).
   ["Ancestor's Prophet", 'tap-creatures cost'],
   ['Aphetto Grifter', 'tap-creatures cost'],
-  ['Azami, Lady of Scrolls', 'tap-creatures cost'],
   // Exile-from-library cost (D161).
   ['Arc-Slogger', 'exile-from-library cost'],
   // "For the first time each turn" needs per-turn trigger memory the engine
@@ -167,7 +166,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // cannot do (D160's class).
   ['Devout Chaplain', 'tap-creatures cost'],
   ['Devout Witness', 'discard-cost chooser'],
-  ['Diversionary Tactics', 'tap-creatures cost'],
   // M6.4p (D172) — batch 14's seven refusals. Dragon Broodmother is a NEW
   // class: its token carries DEVOUR, an as-enters sacrifice choice on the
   // created permanent that nothing can raise. Dromad Purebred is the
@@ -195,7 +193,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Fodder Tosser', 'discard-cost chooser'],
   // Batch 18 (D176) — all three existing classes.
   ['Ghirapur Aether Grid', 'tap-permanents cost'],
-  ['Glare of Subdual', 'tap-creatures cost'],
   // Batch 19 (D177) — TWO NEW classes. Multi-sacrifice: D168's
   // `ActivateAbility.sacrifice` names ONE permanent, so "Sacrifice two
   // Goblins" has no carrier. Sacrifice-event discriminator: `EventCause`
@@ -266,7 +263,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Korozda Gorgon', 'remove-counter cost'],
   ['Krark-Clan Engineers', 'multi-sacrifice cost'],
   ['Kris Mage', 'discard-cost chooser'],
-  ['Kyren Negotiations', 'tap-creatures cost'],
   // Batch 26 (D185): FOUR new classes. `Lullmage's Familiar` needs kicker
   // (a cast-time additional-cost choice nothing records); `Lurking
   // Chupacabra` needs explore; `Magmaw` sacrifices "a NONLAND permanent"
@@ -295,7 +291,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Masked Meower', 'discard-cost chooser'],
   ['Matoya, Archon Elder', 'scry-surveil event discriminator'],
   ['Meloku the Clouded Mirror', 'return-permanent cost'],
-  ['Mental Discipline', 'discard-cost chooser'],
   ['Merrow Grimeblotter', 'untap-symbol activation cost'],
   // Wave 1 / M6.4ag (D192) — the first SpellDef batch's nine refusals.
   // Brainstorm, the scry cantrips, Electrodominance and Stinging Study all
@@ -757,7 +752,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // attacking creature' is Malamet Brawler's class's second card.
   ['Mnemonic Nexus', 'ctx.random'],
   ['Molder', 'spell target parse (numeric exact)'],
-  ['Molten Vortex', 'discard-cost chooser'],
   ['Moonlace', 'color change (indefinite)'],
   ['Moorland Haunt', 'exile-from-graveyard cost'],
   ['Morbius the Living Vampire', 'graveyard-activated ability'],
@@ -822,7 +816,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D232 (M6.4bu)
   ['Part Water', 'cast-time computed target count'],
   ['Patrol Signaler', 'untap-symbol activation cost'],
-  ['Peace of Mind', 'discard-cost chooser'],
   ['Pegasus Refuge', 'discard-cost chooser'],
   // D233 (M6.4bv)
   ['Pieces of the Puzzle', 'script-raised prompt'],
@@ -884,7 +877,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D240 (M6.4cc)
   ['Return to Dust', 'up-to-N targeting'],
   ['Return to the Earth', 'spell target parse (noun list)'],
-  ['Revelsong Horn', 'tap-creatures cost'],
   ['Reviving Vapors', 'script-raised prompt'],
   ['Rewind', 'up-to-N targeting'],
   ['Ribbons of Night', 'mana-spent memory'],
@@ -900,7 +892,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Roughshod Duo', 'expend mechanic'],
   // D242 (M6.4ce)
   ['Royal Herbalist', 'exile-from-library cost'],
-  ['Rummaging Goblin', 'discard-cost chooser'],
   ["Sagittars' Volley", 'keyword target qualifier unenforced'],
   // D243 (M6.4cf)
   ['Sandsower', 'tap-creatures cost'],
@@ -978,7 +969,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // or toughness 2 or less' parses CONFIDENT with `numeric` NULL — the
   // bound is silently dropped, Repel Calamity's exact hole.
   ['Step Right Up', 'attraction mechanic'],
-  ['Stern Constable', 'discard-cost chooser'],
   ['Stern Scolding', 'spell target parse (numeric disjunction)'],
   ['Steward of Solidarity', 'exert cost'],
   ['Stifle', 'ability countering'],
@@ -1242,7 +1232,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Voidslime', 'ability countering'],
   ['Volcanic Spite', 'script-raised prompt'],
   ['Waltz of Rage', 'play-from-exile permission'],
-  ['Wanderbrine Trapper', 'tap-creatures cost'],
   ['Warp World', 'ctx.random'],
 
   // D268 (M6.4de) — ZERO new classes.
@@ -1591,7 +1580,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ⚠️ Silver Scrutiny may be cast AS THOUGH IT HAD FLASH when X is small:
   // a cast-timing permission, the cast stage's business.
   ['Silver Scrutiny', 'cast-permission condition'],
-  ['Skullmead Cauldron', 'discard-cost chooser'],
   ['Skullport Merchant', 'compound sacrifice predicate'],
   ['Skyscribing', 'hand-activated ability'],
   ['Skystrike Officer', 'tap-creatures cost'],

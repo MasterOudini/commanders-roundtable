@@ -494,12 +494,25 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       // at random so the chooser is exercised across the gate's games.
       const sacs = chosen.sacrificeCandidates;
       const sac = sacs && sacs.length > 0 ? sacs[p.below(sacs.length)] : undefined;
+      // D286: a discard- or tap-cost ability arrives with its candidates and
+      // its count; pick that many at random the same way.
+      const pickN = <T>(pool: readonly T[] | undefined, n: number | undefined): readonly T[] | undefined => {
+        if (!pool || n === undefined || pool.length < n) return undefined;
+        const left = [...pool];
+        const out: T[] = [];
+        while (out.length < n) out.push(left.splice(p.below(left.length), 1)[0] as T);
+        return out;
+      };
+      const discards = pickN(chosen.discardCandidates, chosen.discardCount);
+      const taps = pickN(chosen.tapCandidates, chosen.tapCount);
       return {
         t: 'ActivateAbility',
         player: holder,
         card: chosen.card,
         abilityIndex: chosen.abilityIndex,
         ...(sac !== undefined ? { sacrifice: sac } : {}),
+        ...(discards !== undefined ? { discard: discards } : {}),
+        ...(taps !== undefined ? { tap: taps } : {}),
       };
     }
   }

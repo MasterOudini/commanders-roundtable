@@ -421,7 +421,11 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // the CHOOSER cost — 1,800 printings' lines moved, and `payable` below
       // grew by exactly the same 1,800, the two sides of one reclassification.
       // Same def gate: chargeable is not offerable.
-      'activated:nonManaCost': 8572,
+      // ⚠️ 8,572 → 7,447 in M6.4dw (D286): `Discard N [<predicate>] card(s)`
+      // and `Tap N untapped <predicate> you control` became the DISCARD and
+      // TAP choosers — 1,125 lines moved, and `payable` below grew by the
+      // same 1,125. Same def gate again.
+      'activated:nonManaCost': 7447,
       'activated:loyalty': 4635,
       'target:modalUnion': 2751,
       'target:unparsedClause': 1459,
@@ -478,7 +482,9 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       lines: 43140,
       // ⚠️ 28,133 → 29,933 in M6.4k (D168): the sacrifice-cost chooser's
       // 1,800 lines — the exact mirror of `nonManaCost`'s fall above.
-      payable: 29933,
+      // ⚠️ 29,933 → 31,058 in M6.4dw (D286): the discard and tap choosers'
+      // 1,125 lines — the mirror of `nonManaCost`'s second fall.
+      payable: 31058,
       // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
       manaAbility: 11582,
       targeted: 11081,

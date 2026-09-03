@@ -90,6 +90,29 @@ export function onVeilPick(choice: TargetChoice): void {
     return;
   }
 
+  // The cost pick (D286) is N picks: the cards a "Discard N" cost takes or
+  // the permanents a "Tap N untapped …" cost taps. TIER 1 like the
+  // sacrifice: the picks ride the intent and the host re-validates them, so
+  // a stale click costs a refusal message and never a card.
+  if (mode.kind === 'costPick') {
+    if (choice.kind !== 'card' || mode.chosen.includes(choice.id)) return;
+    const chosen = [...mode.chosen, choice.id];
+    if (chosen.length < mode.count) {
+      table.setMode({ ...mode, chosen });
+      return;
+    }
+    useAim.getState().reset();
+    table.setMode({ kind: 'idle' });
+    session.submit({
+      t: 'ActivateAbility',
+      player: table.viewer,
+      card: mode.card,
+      abilityIndex: mode.abilityIndex,
+      ...(mode.verb === 'discard' ? { discard: chosen } : { tap: chosen }),
+    });
+    return;
+  }
+
   // Attaching is one pick: the host. ⚠️ It goes out as `ManualAttach`, a Tier-3
   // tool — the engine moves the attachment and logs it, and the equip COST and
   // its sorcery-speed timing remain the player's, because `Equip {2}` is not an
@@ -152,11 +175,36 @@ export function beginAimFrom(cardId: string): void {
  */
 export function startActivation(
   card: string,
-  ability: { readonly abilityIndex: number; readonly name: string; readonly needsSacrifice: boolean },
+  ability: {
+    readonly abilityIndex: number;
+    readonly name: string;
+    readonly needsSacrifice: boolean;
+    readonly needsDiscard?: number;
+    readonly needsTap?: number;
+  },
 ): void {
   const table = useTable.getState();
   if (ability.needsSacrifice) {
     table.setMode({ kind: 'sacrifice', card, abilityIndex: ability.abilityIndex, name: ability.name });
+    beginAimFrom(card);
+    return;
+  }
+  // A discard or tap cost (D286) is picked BEFORE the engine is asked, the
+  // sacrifice pick N times over; an ability with targets as well submits the
+  // picks alone and lets the host raise its targets prompt.
+  const needsDiscard = ability.needsDiscard ?? 0;
+  const needsTap = ability.needsTap ?? 0;
+  if (needsDiscard > 0 || needsTap > 0) {
+    const verb = needsDiscard > 0 ? 'discard' : 'tap';
+    table.setMode({
+      kind: 'costPick',
+      card,
+      abilityIndex: ability.abilityIndex,
+      name: ability.name,
+      verb,
+      count: verb === 'discard' ? needsDiscard : needsTap,
+      chosen: [],
+    });
     beginAimFrom(card);
     return;
   }

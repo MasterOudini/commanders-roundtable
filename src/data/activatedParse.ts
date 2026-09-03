@@ -67,6 +67,33 @@ export interface ActivatedParseInput {
  * Returns `[]` for the common case — a vanilla creature, a basic land — which is
  * what keeps this cheap across a 113,559-card ingest.
  */
+/** "a" / "an" / "one" … "five" → the number of cards or permanents a cost names. */
+const COUNT_WORDS: Readonly<Record<string, number>> = {
+  a: 1, an: 1, another: 1, one: 1, two: 2, three: 3, four: 4, five: 5,
+};
+
+/**
+ * A plural predicate noun back to the singular `predicateOf` reads: "Clerics"
+ * → "Cleric", "creatures" → "creature", "Elves" → "Elf". ⚠️ Only the LAST word
+ * is touched and only when the count is plural; a noun the table and the
+ * trailing-s rule both miss reaches `predicatesOf` unchanged and is refused
+ * there, never widened.
+ */
+const PLURAL_NOUNS: Readonly<Record<string, string>> = {
+  elves: 'Elf', dwarves: 'Dwarf', wolves: 'Wolf', allies: 'Ally', zombies: 'Zombie',
+  faeries: 'Faerie', mercenaries: 'Mercenary', foxes: 'Fox', sphinxes: 'Sphinx',
+  merfolk: 'Merfolk', kavu: 'Kavu', elk: 'Elk', mice: 'Mouse', werewolves: 'Werewolf',
+};
+function singularNoun(phrase: string, plural: boolean): string {
+  if (!plural) return phrase;
+  const words = phrase.trim().split(/\s+/);
+  const last = words[words.length - 1] ?? '';
+  const lower = last.toLowerCase();
+  const single = PLURAL_NOUNS[lower] ?? (lower.endsWith('s') ? last.slice(0, -1) : last);
+  words[words.length - 1] = single;
+  return words.join(' ');
+}
+
 export function parseActivatedAbilities(
   input: ActivatedParseInput,
   warn: Warn = NOOP_WARN,
@@ -94,6 +121,8 @@ export function parseActivatedAbilities(
     let lifeCostCommanderColors = false;
     let sacrificesSelf = false;
     let sacrificeCost: ActivatedAbility['sacrificeCost'] = null;
+    let discardCost: ActivatedAbility['discardCost'] = null;
+    let tapCost: ActivatedAbility['tapCost'] = null;
     let isLoyalty = false;
 
     for (const part of parts) {
@@ -158,6 +187,44 @@ export function parseActivatedAbilities(
           continue;
         }
       }
+      // ⚠️ The DISCARD chooser (D286): "Discard a card" / "Discard two cards"
+      // / "Discard a land card" — a decision, priced by letting the activation
+      // name the cards (`ActivateAbility.discard`). "a card" is ANY card
+      // (`any: null`); a typed card goes through `predicatesOf` with the word
+      // "card(s)" stripped, and a phrase it cannot place ("a nonland card",
+      // "two nonland cards with the same name") stays in `unpaidCosts`.
+      const disc = /^discard (a|an|one|two|three|four) (.+)$/i.exec(part.trim());
+      if (disc && discardCost === null) {
+        const count = COUNT_WORDS[(disc[1] ?? '').toLowerCase()] ?? 0;
+        const rest = (disc[2] ?? '').trim();
+        if (count > 0 && /^cards?$/i.test(rest)) {
+          discardCost = { count, any: null };
+          continue;
+        }
+        const stripped = rest.replace(/\s+cards?$/i, '');
+        if (count > 0 && stripped !== rest) {
+          const any = predicatesOf(singularNoun(stripped, count > 1));
+          if (any !== null) {
+            discardCost = { count, any };
+            continue;
+          }
+        }
+      }
+      // ⚠️ The TAP chooser (D286): "Tap an untapped creature you control" /
+      // "Tap two untapped Wizards you control" / "Tap another untapped
+      // creature you control" — the activation names the permanents
+      // (`ActivateAbility.tap`). Anchored both ends; the plural noun is
+      // read back to the singular before `predicatesOf`.
+      const tapm = /^tap (a|an|another|one|two|three|four|five) untapped (.+) you control$/i.exec(part.trim());
+      if (tapm && tapCost === null) {
+        const word = (tapm[1] ?? '').toLowerCase();
+        const count = COUNT_WORDS[word] ?? 0;
+        const any = count > 0 ? predicatesOf(singularNoun((tapm[2] ?? '').trim(), count > 1)) : null;
+        if (any !== null) {
+          tapCost = { count, another: word === 'another', any };
+          continue;
+        }
+      }
       unpaidCosts.push(part);
     }
 
@@ -185,6 +252,8 @@ export function parseActivatedAbilities(
       lifeCostCommanderColors,
       sacrificesSelf,
       sacrificeCost,
+      discardCost,
+      tapCost,
       unpaidCosts,
       payable,
       isManaAbility,

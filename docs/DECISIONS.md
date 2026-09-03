@@ -18933,3 +18933,92 @@ pattern — `discardCost` (39 cards: "Discard a card", "Discard a land card",
 control") — parsed beside `sacrificeCost`, offered by `legal.ts`, named on
 the `ActivateAbility` intent, validated and charged in the cost batch. Then
 the prompt continuation seam; prior items stand.
+
+## D286 — M6.4dw: THE COST-CHOOSER SEAM — discard-cost and tap-cost choosers in the D168 pattern, engine and client, with their first twelve cards (2026-09-03)
+
+**3,903 of 31,692 Commander-legal cards execute completely, up from 3,891.**
+SHIPPED_SCRIPTS 1,994 → 2,006; ledger 824 → 812 (**twelve rows DELETED** as
+their cards landed). ZERO new token pins, ZERO new support bodies. **Sliver
+Queen reaches 3,854 from 94 legendaries** (Azami joins).
+
+⚠️ **THE FIRST PHASE 1 ENGINE SEAM.** Two cost verbs the ledger held 67
+cards behind, built exactly where D168 built the sacrifice chooser and one
+verb over each time:
+
+- `activatedParse.ts` prices "Discard a card" / "Discard two cards" /
+  "Discard a land card" as `discardCost {count, any}` (`any` null for a bare
+  card, a predicate list for a typed one, the word "card(s)" stripped) and
+  "Tap N untapped <predicate> you control" / "Tap another untapped creature
+  you control" as `tapCost {count, another, any}`, a plural noun read back to
+  the singular the predicate reader knows ("Clerics" → "Cleric", "Elves" →
+  "Elf"; only the last word, only for plural counts). A phrase the reader
+  cannot place ("a nonland card", "two nonland cards with the same name")
+  stays in `unpaidCosts` — refused, never widened.
+- `legal.ts` offers such an ability only when the def is registered AND
+  enough candidates exist (a cost you cannot pay is not offered), and puts
+  the candidates and the count on the offer: `discardCandidatesFor` (the
+  hand, by predicate) and `tapCandidatesFor` (controlled, untapped, by
+  predicate, `another` dropping the source).
+- The `ActivateAbility` intent names the picks (`discard`, `tap`); the host
+  re-validates count, distinctness and membership against the same candidate
+  lists (four new rejection reasons), carries them on the pending cast so a
+  targets prompt cannot lose them, and charges them in the cost batch beside
+  the sacrifice — hand-to-graveyard moves, one `PermanentsTapped` — so
+  discard watchers and tap watchers see them like any other.
+- `tier3.ts` disclaims an unscripted ability with either cost the way it
+  disclaims a sacrifice-cost one; the fuzz driver picks the count at random
+  from the offer's candidates; the client gains a `costPick` table mode — the
+  D168 sacrifice pick, N picks over, over hand cards or battlefield
+  permanents (the aim veil already anchors both), the candidates re-read off
+  the live legal action on every pick, the prompt bar counting down.
+
+**Two rulings baked in.** Summoning sickness does not restrict tapping OTHER
+permanents as a cost — CR 302.6 covers only the source's own tap symbol — so
+`Azami, Lady of Scrolls` taps herself the turn she enters (the classic
+ruling, now a test). And the offer rule is measured per activation: once
+Azami is tapped the ability leaves the legal set; `Diversionary Tactics`
+with one untapped creature is never offered.
+
+⚠️ **Measured across the whole database.** The parser now prices every such
+line, so tier3's `payable` moves by **+315** (4,827 → 5,142) in one commit,
+and the parse report's two pins move as mirror images over all 113,559
+printings: `activated:nonManaCost` 8,572 → 7,447 and `payable` 29,933 →
+31,058 — the **1,125 lines** whose discard or tap cost is now a chargeable
+price, exactly the shape D168's 1,800 took. The first gate caught both pins;
+they are re-pinned with the measured numbers and the reasoning, as D32 asks.
+This is why the two ledger classes are now drainable: 44 more cards are
+drafted for the next batch.
+
+**The twelve.** Discard: Rummaging Goblin (the card leaves my hand in the
+cost batch and I draw; nothing named or a card not in my hand is refused; an
+empty hand means no offer), Skullmead Cauldron (two abilities, only the
+second discards), Peace of Mind (twice in a turn), Mental Discipline (the
+hand ends the same size), Molten Vortex (a LAND card pays, a creature card
+does not, no land means no offer; 2 to the opponent or to a creature), Stern
+Constable (the discard rides the pending through the targets prompt). Tap:
+Azami, Lady of Scrolls (herself; a bear is not a Wizard), Glare of Subdual (a
+tapped bear cannot pay again), Kyren Negotiations (two creatures are two
+activations), Diversionary Tactics (count two; one named is refused),
+Revelsong Horn (the tapped creature may be the target), Wanderbrine Trapper
+("another": the Trapper itself is refused; my own creature is refused as the
+target).
+
+**Tests:** 12 files / 43 tests. Nine files green on the first run; four
+needed test-side fixes with two lessons: the harness's `clearSickness`
+advances to the NEXT turn — the opponent's — so "turn 3, no ask up" is the
+way to a creature's untap; and a `settle` right after game start can step
+the turn, so re-anchor priority explicitly before activating.
+
+Fixtures 2,246 → 2,258 (2,150 by name + 101 tokens) · botPool artifact 156 /
+creature 2,016 / enchantment 81 / instant 721 / land 342 / sorcery 587 ·
+ladder [1150, 1249, 3042, 4956, 6168] · batch.json 12 (by name) · botDeck:
+3,854 from 94 legendaries.
+
+**Verified:** `verify.cjs --full` — ALL FIVE GATES: 2,086 files, 10,972 passing / 10 skipped · 500-seed gate 702.7 s · build
+clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D286): the seam's second batch (44 cards, drafted) drains
+the two classes; the cost-chooser verbs still unbuilt are exile-from-
+graveyard (15), remove-counter (7), return-permanent (6), random-discard
+(4, needs `ctx.random`), reveal, put-counter and the {Q} untap symbol. Then
+the prompt continuation seam; prior items stand.

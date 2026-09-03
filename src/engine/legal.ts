@@ -79,6 +79,12 @@ export type LegalAction =
        * one in `sacrifice`.
        */
       readonly sacrificeCandidates?: readonly InstanceId[];
+      /** A "Discard N" cost (D286): the hand cards that may pay it, and N. */
+      readonly discardCandidates?: readonly InstanceId[];
+      readonly discardCount?: number;
+      /** A "Tap N untapped …" cost (D286): the permanents that may pay it, and N. */
+      readonly tapCandidates?: readonly InstanceId[];
+      readonly tapCount?: number;
     }
   | { readonly t: 'PassPriority' };
 
@@ -217,6 +223,32 @@ export function legalActions(
         );
         if (sacCandidates.length === 0) continue;
       }
+      // ⚠️ The DISCARD and TAP choosers (D286): the same def gate, and "a cost
+      // you cannot pay is not offered" — fewer candidates than the count, no
+      // offer.
+      let discardCandidates: readonly InstanceId[] | null = null;
+      if (ability.discardCost) {
+        if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        discardCandidates = discardCandidatesFor(
+          state,
+          (cid) => derive(state, oracle, scripts, cid, context.cache),
+          player,
+          ability.discardCost,
+        );
+        if (discardCandidates.length < ability.discardCost.count) continue;
+      }
+      let tapCandidates: readonly InstanceId[] | null = null;
+      if (ability.tapCost) {
+        if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        tapCandidates = tapCandidatesFor(
+          state,
+          (cid) => derive(state, oracle, scripts, cid, context.cache),
+          player,
+          id,
+          ability.tapCost,
+        );
+        if (tapCandidates.length < ability.tapCost.count) continue;
+      }
       if (ability.requiresTap && inst.tapped) continue;
       if (ability.requiresUntap && !inst.tapped) continue;
       if (ability.requiresTap && !readyToTap(state, d, inst)) continue;
@@ -245,6 +277,10 @@ export function legalActions(
         effectText: ability.effectText,
         label: d.name,
         ...(sacCandidates ? { sacrificeCandidates: sacCandidates } : {}),
+        ...(discardCandidates && ability.discardCost
+          ? { discardCandidates, discardCount: ability.discardCost.count }
+          : {}),
+        ...(tapCandidates && ability.tapCost ? { tapCandidates, tapCount: ability.tapCost.count } : {}),
       });
     }
   }
@@ -309,6 +345,65 @@ export function sacrificeCandidatesFor(
         p.colors.every((c) => chars.colors.includes(c)),
     );
     if (hit) out.push(id);
+  }
+  return out;
+}
+
+type PredicateChars = {
+  readonly typeLine: { readonly supertypes: readonly string[]; readonly types: readonly string[]; readonly subtypes: readonly string[] };
+  readonly colors: readonly string[];
+};
+
+function predicateHit(
+  any: readonly NonNullable<ActivatedAbility['sacrificeCost']>['any'][number][],
+  chars: PredicateChars,
+): boolean {
+  return any.some(
+    (p) =>
+      p.supertypes.every((t) => chars.typeLine.supertypes.includes(t)) &&
+      p.types.every((t) => chars.typeLine.types.includes(t)) &&
+      p.subtypes.every((t) => chars.typeLine.subtypes.includes(t)) &&
+      p.colors.every((c) => chars.colors.includes(c)),
+  );
+}
+
+/**
+ * The hand cards that may pay a "Discard N …" cost (D286): every card for
+ * "a card", the predicate's matches for a typed card. Offered and
+ * re-validated from this one list.
+ */
+export function discardCandidatesFor(
+  state: GameState,
+  deriveOf: (id: InstanceId) => PredicateChars,
+  player: PlayerId,
+  cost: NonNullable<ActivatedAbility['discardCost']>,
+): readonly InstanceId[] {
+  const out: InstanceId[] = [];
+  for (const id of state.zones.hand[player] ?? []) {
+    if (cost.any === null || predicateHit(cost.any, deriveOf(id))) out.push(id);
+  }
+  return out;
+}
+
+/**
+ * The permanents that may pay a "Tap N untapped <predicate> you control"
+ * cost (D286): controlled, untapped, matching; `another` drops the source.
+ * ⚠️ No summoning-sickness check — CR 302.6 restricts only a creature's OWN
+ * {T}, and this cost taps OTHER permanents (Springleaf Drum's rule).
+ */
+export function tapCandidatesFor(
+  state: GameState,
+  deriveOf: (id: InstanceId) => PredicateChars,
+  player: PlayerId,
+  selfId: InstanceId,
+  cost: NonNullable<ActivatedAbility['tapCost']>,
+): readonly InstanceId[] {
+  const out: InstanceId[] = [];
+  for (const id of state.zones.battlefield) {
+    const inst = state.cards[id];
+    if (!inst || inst.controller !== player || inst.tapped) continue;
+    if (cost.another && id === selfId) continue;
+    if (predicateHit(cost.any, deriveOf(id))) out.push(id);
   }
   return out;
 }

@@ -73,6 +73,16 @@ export type Intent =
        * against `sacrificeCandidatesFor` — a client's word is not a rule.
        */
       readonly sacrifice?: InstanceId;
+      /**
+       * Which cards pay a "Discard N cards" cost (D286) — exactly `count`,
+       * re-validated by the host against `discardCandidatesFor`.
+       */
+      readonly discard?: readonly InstanceId[];
+      /**
+       * Which permanents pay a "Tap N untapped <predicate> you control" cost
+       * (D286) — exactly `count`, re-validated against `tapCandidatesFor`.
+       */
+      readonly tap?: readonly InstanceId[];
     }
   | { readonly t: 'ChooseTargets'; readonly player: PlayerId; readonly targets: readonly TargetChoice[] }
   | { readonly t: 'ChooseX'; readonly player: PlayerId; readonly x: number }
@@ -257,6 +267,10 @@ export type RejectReason =
   | 'stalePaymentPlan'
   | 'needsSacrifice'
   | 'illegalSacrifice'
+  | 'needsDiscard'
+  | 'illegalDiscard'
+  | 'needsTap'
+  | 'illegalTap'
   | 'invalidPaymentPlan'
   | 'landDropUsed'
   | 'notALand'

@@ -14,7 +14,14 @@ import {
   validateBlockDeclaration,
 } from './combat';
 import { derive, makeDeriveCache } from './derive';
-import { activatedDefRegistered, canActAtSorcerySpeed, castableFaces, sacrificeCandidatesFor } from './legal';
+import {
+  activatedDefRegistered,
+  canActAtSorcerySpeed,
+  castableFaces,
+  discardCandidatesFor,
+  sacrificeCandidatesFor,
+  tapCandidatesFor,
+} from './legal';
 import { buildPaymentProblem, costStringOf, manaSourcesOf, wardTaxFrom } from './mana';
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
@@ -649,6 +656,52 @@ function activateAbility(
       return reject('illegalSacrifice', `That permanent cannot pay ${face.name}'s "${ability.costText}" cost.`);
     }
   }
+  // ⚠️ The DISCARD chooser (D286): the def gate, then the CHOICE — exactly
+  // `count` distinct hand cards, re-validated against the list `legal.ts`
+  // offered by (a client's word is not a rule, D139).
+  if (ability.discardCost) {
+    if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+      return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
+    }
+    const picks = intent.discard ?? [];
+    const want = ability.discardCost.count;
+    if (picks.length !== want) {
+      return reject('needsDiscard', `${face.name}'s cost discards ${want} card${want === 1 ? '' : 's'} — say which.`);
+    }
+    if (new Set(picks).size !== picks.length) return reject('noSuchCard', 'You named the same card twice.');
+    const legalDiscards = discardCandidatesFor(
+      state,
+      (cid: InstanceId) => derive(state, deps.oracle, deps.scripts, cid),
+      intent.player,
+      ability.discardCost,
+    );
+    if (!picks.every((c) => legalDiscards.includes(c))) {
+      return reject('illegalDiscard', `Those cards cannot pay ${face.name}'s "${ability.costText}" cost.`);
+    }
+  }
+  // ⚠️ The TAP chooser (D286): the same gate and the same re-validation,
+  // over untapped permanents the player controls.
+  if (ability.tapCost) {
+    if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+      return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
+    }
+    const picks = intent.tap ?? [];
+    const want = ability.tapCost.count;
+    if (picks.length !== want) {
+      return reject('needsTap', `${face.name}'s cost taps ${want} untapped permanent${want === 1 ? '' : 's'} you control — say which.`);
+    }
+    if (new Set(picks).size !== picks.length) return reject('noSuchCard', 'You named the same permanent twice.');
+    const legalTaps = tapCandidatesFor(
+      state,
+      (cid: InstanceId) => derive(state, deps.oracle, deps.scripts, cid),
+      intent.player,
+      intent.card,
+      ability.tapCost,
+    );
+    if (!picks.every((c) => legalTaps.includes(c))) {
+      return reject('illegalTap', `Those permanents cannot pay ${face.name}'s "${ability.costText}" cost.`);
+    }
+  }
   if (ability.requiresTap && card.tapped) return reject('alreadyTapped', `${face.name} is already tapped.`);
   if (ability.requiresUntap && !card.tapped) return reject('notUntapped', `${face.name} must be tapped for that.`);
   if (ability.sorceryOnly && !canActAtSorcerySpeed(state, intent.player)) {
@@ -691,6 +744,8 @@ function activateAbility(
     // lose it (D168); an `Awaiting` blocks every intent in the gap, so the
     // validated choice cannot go stale either.
     ...(ability.sacrificeCost && intent.sacrifice ? { sacrifice: intent.sacrifice } : {}),
+    ...(ability.discardCost && intent.discard ? { discard: [...intent.discard] } : {}),
+    ...(ability.tapCost && intent.tap ? { tap: [...intent.tap] } : {}),
     // An ability is a chit, not a card on the stack. See D155.
     faceIndex: 0,
     // ⚠️ Records where the permanent IS, and is never used to move it — an
@@ -1083,6 +1138,45 @@ function finishAbility(
     events.push(
       narrated(
         n`${who(state, pending.player)} ${vb(pending.player, 'sacrifices', 'sacrifice')} ${chosenName}.`,
+        pending.player,
+        identity,
+      ),
+    );
+  }
+  // ⚠️ The CHOSEN discard (D286): charged in the cost batch through the
+  // ordinary hand→graveyard move, so discard-event watchers see it like any
+  // other discard. Re-checked here because the targets prompt may have sat
+  // between the choice and the charge.
+  if (ability.discardCost && pending.discard && pending.discard.length > 0) {
+    const moves: { card: InstanceId; from: { kind: 'hand'; player: PlayerId }; to: { kind: 'graveyard'; player: PlayerId } }[] = [];
+    for (const chosen of pending.discard) {
+      const inst = state.cards[chosen];
+      if (!inst || inst.zone.kind !== 'hand' || inst.zone.player !== pending.player) {
+        return reject('noSuchCard', 'A card chosen for the discard is no longer in your hand.');
+      }
+      moves.push({ card: chosen, from: { kind: 'hand', player: pending.player }, to: { kind: 'graveyard', player: inst.owner } });
+    }
+    events.push({ t: 'CardsMoved', moves });
+    events.push(
+      narrated(
+        n`${who(state, pending.player)} ${vb(pending.player, 'discards', 'discard')} ${moves.length} card${moves.length === 1 ? '' : 's'}.`,
+        pending.player,
+        identity,
+      ),
+    );
+  }
+  // ⚠️ The CHOSEN taps (D286): one `PermanentsTapped` in the cost batch.
+  if (ability.tapCost && pending.tap && pending.tap.length > 0) {
+    for (const chosen of pending.tap) {
+      const inst = state.cards[chosen];
+      if (!inst || inst.zone.kind !== 'battlefield' || inst.tapped || inst.controller !== pending.player) {
+        return reject('noSuchCard', 'A permanent chosen to tap is no longer untapped under your control.');
+      }
+    }
+    events.push({ t: 'PermanentsTapped', cards: [...pending.tap] });
+    events.push(
+      narrated(
+        n`${who(state, pending.player)} ${vb(pending.player, 'taps', 'tap')} ${pending.tap.length} permanent${pending.tap.length === 1 ? '' : 's'}.`,
         pending.player,
         identity,
       ),

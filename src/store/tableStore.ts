@@ -134,6 +134,22 @@ export type TableMode =
       readonly abilityIndex: number;
       /** Shown in the prompt: the ability's own label. */
       readonly name: string;
+    }
+  /**
+   * Naming the N cards or permanents a "Discard N" / "Tap N untapped …" cost
+   * takes (D286) — the sacrifice pick, N picks over, and TIER 1 like it: the
+   * picks ride the `ActivateAbility` intent and the host re-validates them
+   * against the same candidate lists `legal.ts` offered by. Candidates are
+   * re-read off the CURRENT legal action on every pick (`GameLayer`).
+   */
+  | {
+      readonly kind: 'costPick';
+      readonly card: string;
+      readonly abilityIndex: number;
+      readonly name: string;
+      readonly verb: 'discard' | 'tap';
+      readonly count: number;
+      readonly chosen: readonly string[];
     };
 
 export interface NumberRequest {
@@ -461,7 +477,7 @@ export const useTable = create<TableUi>((set, get) => ({
     // to drop the aim with it — the same reason the pending blocker does. The
     // sacrifice pick pins its tail to the ability's source (D168), so it backs
     // out the same way.
-    if (mode.kind === 'attach' || mode.kind === 'sacrifice') {
+    if (mode.kind === 'attach' || mode.kind === 'sacrifice' || mode.kind === 'costPick') {
       useAim.getState().reset();
       set({ mode: { kind: 'idle' } });
       return;

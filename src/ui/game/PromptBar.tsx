@@ -309,7 +309,9 @@ export function PromptBar() {
                 ? `Where does ${mode.name} go?`
                 : mode.kind === 'sacrifice'
                   ? `Choose what ${mode.name} sacrifices`
-                  : describe(awaiting, priority, seats, viewer)}
+                  : mode.kind === 'costPick'
+                    ? `${mode.verb === 'discard' ? 'Discard' : 'Tap'} ${mode.count - mode.chosen.length} more for ${mode.name}`
+                    : describe(awaiting, priority, seats, viewer)}
         </p>
         {/* ⚠️ THE HONESTY LINE, and it is not decoration. `tier3.ts` established
             that a category the app does not enforce has to be SAID on the card;

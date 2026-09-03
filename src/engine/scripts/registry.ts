@@ -7,6 +7,18 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { RUMMAGING_GOBLIN_SCRIPT } from './cards/rummagingGoblin';
+import { SKULLMEAD_CAULDRON_SCRIPT } from './cards/skullmeadCauldron';
+import { PEACE_OF_MIND_SCRIPT } from './cards/peaceOfMind';
+import { MENTAL_DISCIPLINE_SCRIPT } from './cards/mentalDiscipline';
+import { MOLTEN_VORTEX_SCRIPT } from './cards/moltenVortex';
+import { STERN_CONSTABLE_SCRIPT } from './cards/sternConstable';
+import { AZAMI_LADY_OF_SCROLLS_SCRIPT } from './cards/azamiLadyOfScrolls';
+import { GLARE_OF_SUBDUAL_SCRIPT } from './cards/glareOfSubdual';
+import { KYREN_NEGOTIATIONS_SCRIPT } from './cards/kyrenNegotiations';
+import { DIVERSIONARY_TACTICS_SCRIPT } from './cards/diversionaryTactics';
+import { REVELSONG_HORN_SCRIPT } from './cards/revelsongHorn';
+import { WANDERBRINE_TRAPPER_SCRIPT } from './cards/wanderbrineTrapper';
 import { ABYSSAL_HORROR_SCRIPT } from './cards/abyssalHorror';
 import { CORRUPT_COURT_OFFICIAL_SCRIPT } from './cards/corruptCourtOfficial';
 import { DEADBRIDGE_SHAMAN_SCRIPT } from './cards/deadbridgeShaman';
@@ -2115,6 +2127,18 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  RUMMAGING_GOBLIN_SCRIPT,
+  SKULLMEAD_CAULDRON_SCRIPT,
+  PEACE_OF_MIND_SCRIPT,
+  MENTAL_DISCIPLINE_SCRIPT,
+  MOLTEN_VORTEX_SCRIPT,
+  STERN_CONSTABLE_SCRIPT,
+  AZAMI_LADY_OF_SCROLLS_SCRIPT,
+  GLARE_OF_SUBDUAL_SCRIPT,
+  KYREN_NEGOTIATIONS_SCRIPT,
+  DIVERSIONARY_TACTICS_SCRIPT,
+  REVELSONG_HORN_SCRIPT,
+  WANDERBRINE_TRAPPER_SCRIPT,
   ABYSSAL_HORROR_SCRIPT,
   CORRUPT_COURT_OFFICIAL_SCRIPT,
   DEADBRIDGE_SHAMAN_SCRIPT,

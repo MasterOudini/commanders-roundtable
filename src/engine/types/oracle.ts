@@ -496,6 +496,31 @@ export interface ActivatedAbility {
     readonly any: readonly import('../../data/replacementParse').PermanentPredicate[];
   } | null;
   /**
+   * `Discard a card` / `Discard two cards` / `Discard a land card` — a discard
+   * the player CHOOSES (D286, the D168 shape one verb over): chargeable once
+   * the activation names the cards (`ActivateAbility.discard`). `any` is
+   * `null` for "a card" (any card) and a predicate list for a typed card;
+   * `legal.ts` offers the ability only when the def is registered AND the
+   * hand holds at least `count` candidates. Wordings the predicate reader
+   * cannot place ("a nonland card", "two cards with the same name") stay in
+   * `unpaidCosts`.
+   */
+  readonly discardCost: {
+    readonly count: number;
+    readonly any: readonly import('../../data/replacementParse').PermanentPredicate[] | null;
+  } | null;
+  /**
+   * `Tap N untapped <predicate> you control` — a tap the player CHOOSES
+   * (D286), named by `ActivateAbility.tap`; `another` excludes the source
+   * ("Tap another untapped creature you control"). Summoning sickness does
+   * not apply: CR 302.6 covers only the permanent's own {T}.
+   */
+  readonly tapCost: {
+    readonly count: number;
+    readonly another: boolean;
+    readonly any: readonly import('../../data/replacementParse').PermanentPredicate[];
+  } | null;
+  /**
    * `Sacrifice this <type>` — a SELF-sacrifice: deterministic, no chooser, so
    * the engine can charge it (D159). ⚠️ Chargeable is not offerable: a
    * destructive cost is OFFERED only when the game's registry carries an

@@ -69,6 +69,20 @@ export function GameLayer({
       setTargets(candidates.map((id) => ({ kind: 'card' as const, id })));
       return;
     }
+    // The cost pick (D286): the candidates come off the CURRENT legal action
+    // too, minus what is already chosen, so a card that left the hand or a
+    // permanent that got tapped mid-pick stops being clickable.
+    if (mode.kind === 'costPick') {
+      const live = legal.find(
+        (a) => a.t === 'ActivateAbility' && a.card === mode.card && a.abilityIndex === mode.abilityIndex,
+      );
+      const pool =
+        live?.t === 'ActivateAbility'
+          ? ((mode.verb === 'discard' ? live.discardCandidates : live.tapCandidates) ?? [])
+          : [];
+      setTargets(pool.filter((id) => !mode.chosen.includes(id)).map((id) => ({ kind: 'card' as const, id })));
+      return;
+    }
     // Blocking is the same overlay with a different legal set, and it has TWO
     // stages: pick one of your creatures, then pick what it blocks.
     //
@@ -132,7 +146,11 @@ export function GameLayer({
     <>
       <AimVeil
         active={
-          mode.kind === 'targeting' || mode.kind === 'blockers' || mode.kind === 'attach' || mode.kind === 'sacrifice'
+          mode.kind === 'targeting' ||
+          mode.kind === 'blockers' ||
+          mode.kind === 'attach' ||
+          mode.kind === 'sacrifice' ||
+          mode.kind === 'costPick'
         }
         legalTargets={targets}
         chosenIds={chosenIdsFor(mode)}
