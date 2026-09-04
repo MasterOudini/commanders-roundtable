@@ -238,6 +238,9 @@ const COMPLETE: readonly [string, CardData][] = [
   ['Avacyn, Angel of Hope', fx.AVACYN_ANGEL_OF_HOPE],
   // D304: the Aura seam - the Enchant line is the engine's own, the restriction a CombatDef.
   ['Pacifism', fx.PACIFISM],
+  // D305: the Equipment seam - Equip {0} is the engine's own activated ability (synthesized
+  // by activatedParse, attached by resolveAbility), the haste-and-shroud static a row.
+  ['Lightning Greaves', fx.LIGHTNING_GREAVES],
 ];
 
 /**
@@ -249,7 +252,6 @@ const COMPLETE: readonly [string, CardData][] = [
 const INCOMPLETE: readonly [string, CardData, string][] = [
   ['Krenko, Mob Boss', fx.KRENKO_MOB_BOSS, 'a PAYABLE activated ability whose effect never happens'],
   ['Kess, Dissident Mage', fx.KESS_DISSIDENT_MAGE, 'a static ability, and there is no layer for it'],
-  ['Lightning Greaves', fx.LIGHTNING_GREAVES, 'equip has no colon, so it is not even an ability line'],
   ['Tarmogoyf', fx.TARMOGOYF, 'a characteristic-defining ability'],
   ['Ancient Tomb', fx.ANCIENT_TOMB, 'the mana is fine; the 2 damage on the SAME LINE is not'],
   ['Boros Garrison', fx.BOROS_GARRISON, 'enters tapped, which applyReplacements does not do'],

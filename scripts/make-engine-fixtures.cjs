@@ -3684,6 +3684,78 @@ const WANTED = [
   'Sheltering Boughs',
   "Squire's Devotion",
   'Wolfkin Bond',
+  // D305 - the Equipment rows (Equip + the statics and restrictions of the equipped creature).
+  "Accorder's Shield",
+  "Aeronaut's Wings",
+  'Barbed Battlegear',
+  'Basilisk Collar',
+  'Behemoth Sledge',
+  'Bladed Pinions',
+  'Bone Saw',
+  'Bonesplitter',
+  'Boots of Speed',
+  "Brawler's Plate",
+  'Bronze Sword',
+  "Cathar's Shield",
+  'Chariot of Victory',
+  'Chitinous Cloak',
+  'Cloak of the Bat',
+  'Cobbled Wings',
+  'Crystal Slipper',
+  "Cultist's Staff",
+  'Darksteel Axe',
+  'Darksteel Plate',
+  'Experimental Armor',
+  'Fireshrieker',
+  'Fleetfeather Sandals',
+  'Gorgon Flail',
+  "Gorgon's Head",
+  'Greataxe',
+  'Greatsword',
+  'Hard-Won Jitte',
+  'Haunted Cloak',
+  'Honed Khopesh',
+  'Jackhammer',
+  'Kite Shield',
+  'Kitesail',
+  'Kor Halberd',
+  'Leonin Scimitar',
+  'Loxodon Warhammer',
+  "Marauder's Axe",
+  'Mask of Avacyn',
+  'Neurok Hoversail',
+  'No-Dachi',
+  "Ogre's Cleaver",
+  'Peregrine Mask',
+  "Ranger's Longbow",
+  'Riot Gear',
+  'Short Bow',
+  'Short Sword',
+  'Shuko',
+  'Slagwurm Armor',
+  'Spidersilk Net',
+  'Strider Harness',
+  'Sword of Vengeance',
+  'Torch Gauntlet',
+  'Trusty Machete',
+  "Vanquisher's Axe",
+  "Veteran's Sidearm",
+  'Vibranium Energy Daggers',
+  'Viridian Claw',
+  'Vulshok Battlegear',
+  'Vulshok Morningstar',
+  "Warlord's Axe",
+  // D305 - the Equipment rows (Equip + the statics and restrictions of the equipped creature).
+  '+2 Mace',
+  // D305 part C - the Equipment trigger rows (the equipped creature dying / attacking / hitting a player, the ETB).
+  'Gilded Pinions',
+  'Glimmerlight',
+  'Gold Pan',
+  'Goldvein Pick',
+  'Moonsilver Spear',
+  'Prying Blade',
+  'Skullclamp',
+  'Sylvok Lifestaff',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -3897,6 +3969,10 @@ const WANTED_TOKENS = [
 function constName(name) {
   return name
     .replace(/\/\//g, ' ')
+    // D305: a leading sign is a word ("+2 Mace" -> PLUS_2_MACE), so the
+    // constant never starts with a digit. The row generators mirror this.
+    .replace(/^\+/, 'plus ')
+    .replace(/^-/, 'minus ')
     .replace(/[^A-Za-z0-9]+/g, '_')
     .replace(/^_+|_+$/g, '')
     .toUpperCase();

@@ -51,6 +51,13 @@ function costParts(costText: string): string[] {
 
 /** Is this whole part payable in mana symbols alone? */
 const MANA_ONLY_RE = /^(?:\{[^}]+\}\s*)+$/;
+/**
+ * D305 - "Equip {N}" and nothing else on the line (reminder text aside). A typed
+ * equip ("Equip Knight {1}"), a non-mana equip cost ("Equip-Sacrifice a
+ * creature") and Reconfigure stay where they were: Tier 3, by name.
+ */
+const EQUIP_RE = /^Equip ((?:\{[^}]+\})+)$/;
+const EQUIP_EFFECT = 'Attach this Equipment to target creature you control.';
 
 export interface ActivatedParseInput {
   readonly oracleText: string;
@@ -110,6 +117,41 @@ export function parseActivatedAbilities(
 
   const out: ActivatedAbility[] = [];
   for (const line of splitAbilityLines(oracleText, isPermanent)) {
+    // ⚠️ D305 - THE EQUIPMENT SEAM. "Equip {N}" prints no colon, so the splitter
+    // files it as static; it IS an activated ability (CR 702.6a) whose cost the
+    // engine can charge. Synthesized HERE, in print order, so `#a<index>` counts
+    // it exactly where the card prints it and no other ability's ref moves.
+    // ⚠️ Asked of the reminder-stripped text WHATEVER the splitter said: the
+    // reminder "({3}: Attach to target creature you control. ...)" carries a
+    // colon, so the splitter files the printed line as an activated ability
+    // with the cost "Equip {3} ({3}" - and that reading must never win.
+    const printed = line.text.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const equip = EQUIP_RE.exec(printed);
+    if (equip) {
+      const equipCost = parseCost(equip[1] ?? '', warn);
+      out.push({
+        index: out.length,
+        costText: equip[1] ?? '',
+        effectText: EQUIP_EFFECT,
+        manaCost: equipCost,
+        requiresTap: false,
+        requiresUntap: false,
+        lifeCost: 0,
+        lifeCostCommanderColors: false,
+        sacrificesSelf: false,
+        sacrificeCost: null,
+        discardCost: null,
+        tapCost: null,
+        unpaidCosts: equipCost === null ? [equip[1] ?? ''] : [],
+        payable: equipCost !== null,
+        isManaAbility: false,
+        isLoyalty: false,
+        sorceryOnly: true,
+        targets: parseTargetClauses(EQUIP_EFFECT, warn),
+        equip: { line: printed },
+      });
+      continue;
+    }
     if (line.kind !== 'activated') continue;
 
     const parts = costParts(line.costText);

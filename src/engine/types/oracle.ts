@@ -657,6 +657,13 @@ export interface ActivatedAbility {
   /** `Activate only as a sorcery`. */
   readonly sorceryOnly: boolean;
   readonly targets: readonly TargetSpec[];
+  /**
+   * D305 - THE EQUIPMENT SEAM. Set on the ability `activatedParse` synthesizes
+   * for an "Equip {N}" line (CR 702.6a: "{N}: Attach this permanent to target
+   * creature you control. Activate only as a sorcery."), carrying the printed
+   * line so the accounting can find it. `resolveAbility` attaches natively.
+   */
+  readonly equip?: { readonly line: string };
 }
 
 export interface OracleFace {

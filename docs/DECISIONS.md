@@ -20566,3 +20566,98 @@ Fixtures 3,335 · botPool artifact 176 / creature 2,781 / enchantment 249 / inst
 **Reportables** (D304): the Equipment seam (Equip 504 lines, 'Equipped creature gets +N/+N' 158 - the next structural family: an engine-native Equip activation, then rows like these); Enchant land / permanent / artifact rows; the Aura ETB and enchanted-dies heads (143 / 41) with the generator's payloads; 'Enchanted creature doesn't untap' (48); 'You control enchanted creature' (25); Curses when a player can host an attachment; the modal seam (42); the "another" split;
 the by-name sacrifice cost; the remaining cost verbs; the prompt
 continuation seam; prior items stand.
+
+## D305 — M6.4ep: THE EQUIPMENT SEAM, part 1 — Equip {N} is the engine's own activated ability, the equipped creature's statics and restrictions as derived rows; 71 scripts (2026-09-04)
+
+**5,197 of 31,692 Commander-legal cards execute completely, up from
+5,126 (+71).** SHIPPED_SCRIPTS 3,009 → **3,080**; REFUSED ledger 900
+→ **907** (+7: the Equipment the pool offered whose trigger payload the generator does not read yet - a targeted destroy or tap (Argentum Armor, Meteor Sword, Ultima Weapon, Skateboard), a scry (Goggles of Night), and heads over combat damage to a creature or to a player or battle (Giant Skewer, Beamtown Beatstick)). Fixtures 3,333 → 3,404 (3,288 by name + 109 tokens: the wave's 71 Equipment; the trigger rows' tokens (an Angel, a Glimmer, Treasures) were pinned already). ZERO
+new token pins; four support bodies (the parser, the resolution, the
+state-based check, the accounting), one classifier shape. **Select pool 0 →
+0.**
+
+**The gap, measured before it was built.** D304's structural probe put
+Equip second among the format's structural lines: "Equip {N}" on 504
+blocked cards, "Equipped creature gets +N/+N" on 158, "Equipped creature
+has …" on 65 — the second family after the Auras whose whole shape the
+engine already half-ran. The Equipment probe (`zz-probe-d305`, gate-free):
+592 Commander-legal Equipment, every one incomplete; 538 print a mana Equip line. By their blocker lines: an equipped-creature P/T static 161, P/T and a keyword 94, a keyword grant 48, an Equipment ETB 64 (27 of them 'attach it to target creature you control'), 'whenever equipped creature attacks' 43, 'deals combat damage to a player' 35, living weapon 19, a typed or non-mana Equip 21, 'can't be blocked' 7. 78 Equipment whose every other line is the Equip line plus a row static, 90 with the enters-attached trigger. One card prints its Equip line before a colon ability (Mjolnir, Hammer of Thor) and no shipped script sits on any Equipment, so no ability ref moves.
+
+**The seam.** Equip prints no colon, so the line splitter never filed it as
+an activated ability and it stayed Tier 3 by construction (D122's own
+example: "equip has no colon, so it is not even an ability line"). It IS
+one — CR 702.6a: "{N}: Attach this permanent to target creature you
+control. Activate only as a sorcery." — and the engine could already charge
+a mana cost, target a creature you control (D147 / D159), hold a
+sorcery-speed restriction and keep an attachment (CR 704.5n). Four files:
+
+- `src/data/activatedParse.ts`: an "Equip {N}" line (mana symbols only;
+  reminder text aside) is SYNTHESIZED as an activated ability in print
+  order — sorcery-speed, one target "creature you control", the mana cost —
+  so `#a<index>` counts it exactly where the card prints it and no other
+  ability's ref moves. "Equip Knight {1}", "Equip—Sacrifice a creature" and
+  Reconfigure stay Tier 3 by name. `ActivatedAbility.equip` carries the
+  printed line.
+- `src/engine/loop.ts`: `resolveAbility` attaches NATIVELY when no def
+  claims the ability — to the chosen creature if the clause still admits it
+  (CR 608.2b, asked of the ability's own targets), else nothing.
+- `src/engine/sba.ts`: CR 301.5c — an Equipment on a permanent that stopped
+  being a creature becomes unattached (704.5n), beside the host-gone case.
+- `src/data/engineComplete.ts` / `tier3.ts` / `primitives.ts`: the
+  synthesized ability makes the Equip line the engine's own (asked of the
+  parser that decided it, D134), the disclosure says nothing about it, the
+  classifier files it scriptable; `equipLineShape` — "Equipped creature gets
+  +N/+N [and has KW]", "has KW…", "can't block", "can't be blocked".
+
+The generator (`d305/gen-equip.cjs`): `StaticDef`s / a `CombatDef` whose
+one candidate is the attached creature (D304's shape, one attachment over),
+and suites that equip Grizzly Bears through the engine's own ability (the
+host reads the static, the Cyclops does not), move it to Coral Eel, refuse
+the opponent's creature and the opponent's turn, leave it unattached when
+the host dies, refuse the block or the blocker under a restriction, and
+replay. Lightning Greaves — in the fuzz DECK since M6.1 — ships.
+
+- **The port's three catches:** the reminder text "({3}: Attach to target
+  creature you control. …)" carries a colon, so the line splitter files the
+  printed line as an activated ability with the cost "Equip {3} ({3}" — the
+  synthesis asks the reminder-stripped text now whatever the splitter said;
+  "+2 Mace" named a module and a fixture constant starting with a digit — a
+  leading sign is a word now (`plus2Mace`, `PLUS_2_MACE`), in the generators
+  and in `make-engine-fixtures` alike; a toughness penalty (Barbed
+  Battlegear, +4/-1) would kill the 2/1 Eel the move test re-equips, so that
+  test skips it.
+- **Part C:** the triggers over the equipped creature (dying, attacking,
+  dealing combat damage to a player) and the Equipment's own ETB, with a
+  draw, life or a token payload — Skullclamp, Sylvok Lifestaff, Goldvein
+  Pick, Prying Blade, Moonsilver Spear, Glimmerlight, Gold Pan, Gilded
+  Pinions.
+- **Refused by name:** +7: the Equipment the pool offered whose trigger payload the generator does not read yet - a targeted destroy or tap (Argentum Armor, Meteor Sword, Ultima Weapon, Skateboard), a scry (Goggles of Night), and heads over combat damage to a creature or to a player or battle (Giant Skewer, Beamtown Beatstick).
+- **Not this decision:** typed and non-mana Equip costs; "When this
+  Equipment enters, attach it to target creature you control" (91 — a
+  targeted trigger, next); "Whenever equipped creature attacks / deals
+  combat damage to a player" (43 / 35 — heads over the attachment); Living
+  weapon; Reconfigure; Fortify.
+
+No spell def collided: an Equipment's text is no spell's, so nothing was retired by D187's rule.
+
+Report: `effect:auto` 3,572 → 3,572, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** `src/data/equipSeam.test.ts` (the synthesized ability and its
+index, the refused forms, the accounting and the disclosure on Lightning
+Greaves, the classifier, the row shapes); `src/engine/equip.test.ts`
+(Lightning Greaves equips, moves, is refused at instant speed and on the
+opponent's creature, stays when the host dies, replays); 71
+suites.
+
+**Landed:** 71 scripts and no auto flip (complete moved by exactly the wave: an Equipment's other lines still need their defs). One wave: 71 rows off the pool the synthesized Equip opened (a P/T static 33 - +2 Mace, Barbed Battlegear, Bone Saw, Bonesplitter ...; P/T and a keyword 21 - Accorder's Shield, Aeronaut's Wings, Behemoth Sledge, Boots of Speed ...; a keyword grant 17 - Basilisk Collar, Bladed Pinions, Chariot of Victory, Cloak of the Bat ...; a combat restriction 0 - ; 2 equip for {0}).
+
+Fixtures 3,404 · botPool artifact 247 / creature 2,781 / enchantment 249 / instant 882 / land 356 / sorcery 682 - auto 762 / assisted 1,946 / autoAnyFace 771 · ladder [1006, 1139, 2868, 4735, 5999] · batch.json
+71 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,177 files, 16,639 passing / 11 skipped ·
+500-seed gate, 6 shards, 285.0 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D305): 'When this Equipment enters, attach it to target creature you control' (91 - a targeted trigger over the attachment); 'Whenever equipped creature attacks / deals combat damage to a player' heads (43 / 35); typed and non-mana Equip costs; Living weapon; Reconfigure; the Aura tail (enchanted-dies, the Aura heads, doesn't-untap, you-control-enchanted); the modal seam (42); the "another" split;
+the by-name sacrifice cost; the remaining cost verbs; the prompt
+continuation seam; prior items stand.

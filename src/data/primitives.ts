@@ -568,6 +568,26 @@ export function auraLineShape(text: string): boolean {
   return AURA_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
 }
 
+/**
+ * D305 - THE EQUIPMENT SEAM. "Equip {N}" the engine runs (a synthesized
+ * activated ability, see `activatedParse`), and the lines about the EQUIPPED
+ * creature a row can emit: a P/T modifier, a keyword grant, both, "can't
+ * block", "can't be blocked" - the candidate is whatever the Equipment is
+ * attached to.
+ */
+const EQUIP_MANA_LINE = /^Equip (?:\{[^}]+\})+$/;
+const EQUIPPED_LINE = new RegExp(`^Equipped creature (?:gets ${ONESHOT_PT}(?: and has ${AURA_KWS})?|has ${AURA_KWS}|can't block|can't be blocked)\\.$`);
+
+/** Is this printed line an Equip the engine runs (D305)? */
+export function equipLineRuns(text: string): boolean {
+  return EQUIP_MANA_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
+}
+
+/** Is this printed line an equipped-creature static or restriction a row can emit (D305)? */
+export function equipLineShape(text: string): boolean {
+  return EQUIPPED_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
+}
+
 export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace = false): Primitive {
   const text = line.text;
 
@@ -578,6 +598,9 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
     const spec = parseEnchant(text);
     return spec !== null && enchantSpecRuns(spec) ? 'scriptable' : 'keyword:aura';
   }
+  // D305 - an Equip line with a mana cost is the engine's own (see
+  // `equipLineRuns`); a typed or non-mana equip stays `keyword:equip`.
+  if (/^equip\b/i.test(text)) return equipLineRuns(text) ? 'scriptable' : 'keyword:equip';
 
   // A keyword ability is not a sentence — check the shape before reading it as
   // one. See `KEYWORD_LINES`.
@@ -628,6 +651,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   if (oneShotCounterShape(text, cardName)) return 'scriptable';
   // D304: an enchanted-creature static or combat restriction an Aura row can emit (see `auraLineShape`).
   if (auraLineShape(text)) return 'scriptable';
+  // D305: an equipped-creature static or restriction an Equipment row can emit (see `equipLineShape`).
+  if (equipLineShape(text)) return 'scriptable';
 
   for (const [primitive, re] of RULES) if (re.test(text)) return primitive;
 

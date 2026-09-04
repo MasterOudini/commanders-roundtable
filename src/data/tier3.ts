@@ -266,6 +266,9 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
   }
   for (const ability of abilities) {
     if (ability.isManaAbility) continue;
+    // D305 - the synthesized Equip is the engine's own (offer, charge, attach):
+    // no note, exactly as a mana ability.
+    if (ability.equip !== undefined) continue;
 
     // ⚠️ A SHIPPED `ActivatedDef` RUNS THIS ABILITY COMPLETELY (D159) — cost
     // charged by the engine, effect resolved by the script — so the card owes
@@ -322,6 +325,9 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     // (the cast aims by it, CR 704.5m keeps it): the same predicate the
     // accounting asks, so an accepted card carries no note here.
     if (raw.trim().toLowerCase() === 'enchant' && enchantRuns(card, faceIndex)) continue;
+    // D305 - an Equip the engine runs (the synthesized ability, see
+    // `activatedParse`) is no note either.
+    if (raw.trim().toLowerCase() === 'equip' && abilities.some((a) => a.equip !== undefined)) continue;
     const how = NAMED[raw.trim().toLowerCase()];
     if (how) add(raw, how);
   }

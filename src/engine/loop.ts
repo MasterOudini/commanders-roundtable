@@ -847,6 +847,18 @@ export function resolveAbility(
   if (adef && obj.source !== null) {
     events.push(...adef.resolve(scriptCtxFor(state, deps), obj.source, obj));
   }
+  // ⚠️ D305 - THE EQUIPMENT SEAM. Equip resolves NATIVELY (CR 702.6a): the
+  // Equipment attaches to the chosen creature if the ability's own clause still
+  // admits it (CR 608.2b - a creature you control, asked again now), else
+  // nothing. No def: the ability is the parser's, like a mana ability.
+  if (!adef && obj.kind === 'activated' && obj.source !== null && obj.abilityRef && srcFace) {
+    const at = obj.abilityRef.indexOf('#a');
+    const ability = at >= 0 ? srcFace.activated[Number(obj.abilityRef.slice(at + 2))] : undefined;
+    const target = obj.targets[0];
+    if (ability?.equip && target && target.kind === 'card' && targetsStillLegal(state, deps, obj, srcFace, ability.targets)) {
+      events.push({ t: 'AttachmentChanged', card: obj.source, to: target.id });
+    }
+  }
   if (answer !== null) {
     events.push(
       narrated(

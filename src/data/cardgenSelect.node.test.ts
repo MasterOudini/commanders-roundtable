@@ -1823,6 +1823,16 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Corrupted Roots', 'an Aura line outside the row shapes (Enchant Forest or Plains)'],
   ['Favor of the Woods', 'an Aura line outside the row shapes (Whenever enchanted creature blocks, you gain N l)'],
   ['Reach for the Sky', 'an Aura line outside the row shapes (When this Aura is put into a graveyard from the )'],
+
+  // D303 (M6.4en) — the counter one-shot pool: the heads outside the library,
+  // the per-item counters on an entering object, the costs no row charges.
+  ['Giant\'s Skewer', 'an Equipment line outside the row shapes (Whenever equipped creature deals combat damage t)'],
+  ['Argentum Armor', 'an Equipment trigger payload outside the row kinds (destroy target permanent.)'],
+  ['Beamtown Beatstick', 'an Equipment line outside the row shapes (Whenever equipped creature deals combat damage t)'],
+  ['Goggles of Night', 'an Equipment trigger payload outside the row kinds (scry N, then draw a card.)'],
+  ['Meteor Sword', 'an Equipment trigger payload outside the row kinds (destroy target permanent.)'],
+  ['Ultima Weapon', 'an Equipment trigger payload outside the row kinds (destroy target creature an opponent controls)'],
+  ['Skateboard', 'an Equipment trigger payload outside the row kinds (tap target permanent.)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

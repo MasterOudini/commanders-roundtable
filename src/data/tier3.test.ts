@@ -146,9 +146,13 @@ describe('a permanent’s text, which the app does not run', () => {
     // card the engine runs completely must say nothing. Lightning Greaves
     // below still carries the test's point.
     expect(what(C.AVACYN_ANGEL_OF_HOPE)).toEqual([]);
-    // Lightning Greaves grants haste and shroud to the equipped creature, and
-    // `Equip {0}` is the keyword loop's business.
-    expect(what(C.LIGHTNING_GREAVES)).toEqual(['Its ability text', 'Equip']);
+    // Emblem of the Warmind grants haste to your creatures - an enforced
+    // keyword, an unrun static (refused by name in D304): said. Its Enchant
+    // line is the engine's own since D304 and is not.
+    expect(what(C.EMBLEM_OF_THE_WARMIND)).toEqual(['Its ability text']);
+    // Lightning Greaves ships since D305: `Equip {0}` is the engine's own
+    // activated ability and the haste-and-shroud static a row - silent.
+    expect(what(C.LIGHTNING_GREAVES)).toEqual([]);
   });
 
   test('an Aura’s unrun text is said; an Enchant the engine enforces is not, a Curse’s still is (D304)', () => {

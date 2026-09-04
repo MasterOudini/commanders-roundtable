@@ -413,6 +413,11 @@ function linesUnaccounted(
     if (face.choosesColorOnEntry && parseChoosesColorOnEntry(line)) continue;
     // D304 - an Enchant line the engine RUNS (see `enchantLineRuns`).
     if (enchantLineRuns(line, face)) continue;
+    // D305 - an Equip line the engine RUNS: `activatedParse` synthesized the
+    // ability (a mana cost, the sorcery-speed attach), the offer and the charge
+    // are the activated seam's, the attach is `resolveAbility`'s own. Asked of
+    // the parser that decided it (D134), never re-read here.
+    if (face.activated.some((a) => a.equip !== undefined && a.equip.line === line)) continue;
     if (isKeywordLine(line, face)) continue;
     // ⚠️ `mana` outranks `activated`, because a mana ability never reaches the
     // stack (CR 605) and is never offered by `ActivateAbility` — so the note that

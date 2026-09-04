@@ -111675,6 +111675,2259 @@ export const WOLFKIN_BOND: CardData = {
   "singleImage": true
 };
 
+export const ACCORDER_S_SHIELD: CardData = {
+  "scryfallId": "3b06e292-43ef-4def-b6a6-9b7816cc8599",
+  "oracleId": "dd70d439-bd60-43d1-ac26-13b744cc4a37",
+  "name": "Accorder's Shield",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Accorder's Shield",
+      "manaCost": "{0}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +0/+3 and has vigilance. (Attacking doesn't cause it to tap.)\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Alan Pollack",
+      "imageId": "3b06e292-43ef-4def-b6a6-9b7816cc8599"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "ea3",
+  "collectorNumber": "19",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AERONAUT_S_WINGS: CardData = {
+  "scryfallId": "fcc65821-e4e7-471c-941c-9d3e25ae8bb9",
+  "oracleId": "e3bad2e2-1024-4261-b3d7-82a6998416fd",
+  "name": "Aeronaut's Wings",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aeronaut's Wings",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+0 and has flying.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "Volunteers rarely questioned why the airborne battalion always seemed to be recruiting.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Leon Tukker",
+      "imageId": "fcc65821-e4e7-471c-941c-9d3e25ae8bb9"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "bro",
+  "collectorNumber": "231",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BARBED_BATTLEGEAR: CardData = {
+  "scryfallId": "03b80b2f-8d07-4ad3-9b20-4ba0fe9f37a2",
+  "oracleId": "b81fed36-07c4-4903-b5b4-24e62d2ce239",
+  "name": "Barbed Battlegear",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Barbed Battlegear",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +4/-1.\nEquip {2}",
+      "flavorText": "\"One need only look at the inhabitants of this world to see that they are forged halfway to perfection. All they need is a whisper of the Glorious Word.\"\n—Urabrask the Hidden",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Steve Argyle",
+      "imageId": "03b80b2f-8d07-4ad3-9b20-4ba0fe9f37a2"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "som",
+  "collectorNumber": "139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BASILISK_COLLAR: CardData = {
+  "scryfallId": "0225d038-bba4-4965-8f90-5d9d2e6dcf70",
+  "oracleId": "f5f4dd28-f4ae-4d39-b9b8-6ebfd63c93fe",
+  "name": "Basilisk Collar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Basilisk Collar",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature has deathtouch and lifelink. (Any amount of damage it deals to a creature is enough to destroy it. Damage dealt by this creature also causes you to gain that much life.)\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Craig J Spearing",
+      "imageId": "0225d038-bba4-4965-8f90-5d9d2e6dcf70"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "clb",
+  "collectorNumber": "595",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BEHEMOTH_SLEDGE: CardData = {
+  "scryfallId": "0053d366-fc35-443b-a8dd-4ab0c3362c81",
+  "oracleId": "00573e77-8ff6-4acb-8683-8827d965288f",
+  "name": "Behemoth Sledge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Behemoth Sledge",
+      "manaCost": "{1}{G}{W}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+2 and has trample and lifelink.\nEquip {3}",
+      "flavorText": "A popular weapon with the muscular crowd.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Campbell White",
+      "imageId": "0053d366-fc35-443b-a8dd-4ab0c3362c81"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "pip",
+  "collectorNumber": "211",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLADED_PINIONS: CardData = {
+  "scryfallId": "bf479c90-c791-4152-a8e6-fd3123f698df",
+  "oracleId": "c8cdc08a-975b-475f-8e30-85d61f6f3a9b",
+  "name": "Bladed Pinions",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bladed Pinions",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature has flying and first strike.\nEquip {2}",
+      "flavorText": "Lacking trained pterons, the Auriok had to rely on other measures to gain the upper hand in the skies.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Steve Argyle",
+      "imageId": "bf479c90-c791-4152-a8e6-fd3123f698df"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "som",
+  "collectorNumber": "140",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BONE_SAW: CardData = {
+  "scryfallId": "3011f0dd-fab4-453d-9956-b715a5f0ea02",
+  "oracleId": "16e555f2-5aa8-4100-a036-eed48db0e84a",
+  "name": "Bone Saw",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bone Saw",
+      "manaCost": "{0}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+0.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"When metal instruments are scarce, a saw constructed from the subject's femur will suffice for a craniectomy.\"\n—Ashnod, research notes",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Pete Venters",
+      "imageId": "3011f0dd-fab4-453d-9956-b715a5f0ea02"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "brr",
+  "collectorNumber": "70",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BONESPLITTER: CardData = {
+  "scryfallId": "3f4a16c3-0c10-4c91-901e-2bea4f5dcdca",
+  "oracleId": "452e3f5f-ce17-4682-966b-5cc100210aee",
+  "name": "Bonesplitter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bonesplitter",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+0.\nEquip {1}",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Darrell Riche",
+      "imageId": "3f4a16c3-0c10-4c91-901e-2bea4f5dcdca"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "prm",
+  "collectorNumber": "36272",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BOOTS_OF_SPEED: CardData = {
+  "scryfallId": "8467a75f-5013-47c4-ba53-967cb1a593b4",
+  "oracleId": "6f6601bc-cb12-4054-9027-e4a0ebdae1a3",
+  "name": "Boots of Speed",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Boots of Speed",
+      "manaCost": "{R}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+0 and has haste.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "Click your heels and become the wind.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chris Rallis",
+      "imageId": "8467a75f-5013-47c4-ba53-967cb1a593b4"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "AFR-133",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BRAWLER_S_PLATE: CardData = {
+  "scryfallId": "da0a017e-eb8e-4f92-91f7-7d980461e284",
+  "oracleId": "9249adf2-8607-424f-a73b-fcddaf124af9",
+  "name": "Brawler's Plate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Brawler's Plate",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+2 and has trample. (It can deal excess combat damage to the player or planeswalker it's attacking.)\nEquip {4} ({4}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jung Park",
+      "imageId": "da0a017e-eb8e-4f92-91f7-7d980461e284"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "ori",
+  "collectorNumber": "224",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BRONZE_SWORD: CardData = {
+  "scryfallId": "0b33162d-8d8f-4312-b31e-04ce86e3b914",
+  "oracleId": "14691783-1246-45ed-a439-c86d7b5eef62",
+  "name": "Bronze Sword",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bronze Sword",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+0.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "Every strike of the smith's hammer infuses a sword with the determination of its creator.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Kev Walker",
+      "imageId": "0b33162d-8d8f-4312-b31e-04ce86e3b914"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "thb",
+  "collectorNumber": "232",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CATHAR_S_SHIELD: CardData = {
+  "scryfallId": "61c18ffa-ffff-4dc4-9db0-d5f183c35e17",
+  "oracleId": "b270d091-ea4c-4dfd-9c50-48b45bbc396e",
+  "name": "Cathar's Shield",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cathar's Shield",
+      "manaCost": "{0}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +0/+3 and has vigilance.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"A leader can inspire courage, but it is the smiths and healers who truly keep hope alive.\"\n—Thalia, heretic cathar",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Mark Zug",
+      "imageId": "61c18ffa-ffff-4dc4-9db0-d5f183c35e17"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "emn",
+  "collectorNumber": "192",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHARIOT_OF_VICTORY: CardData = {
+  "scryfallId": "c2dd03d2-05ef-4929-b973-3dbe49fc7592",
+  "oracleId": "5a40339d-7821-4f37-a957-1a6ebdd993e0",
+  "name": "Chariot of Victory",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chariot of Victory",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature has first strike, trample, and haste.\nEquip {1}",
+      "flavorText": "The greatest heroes are the first to stand, the first to take up arms, and the first to meet the enemy.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "John Stanko",
+      "imageId": "c2dd03d2-05ef-4929-b973-3dbe49fc7592"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "jou",
+  "collectorNumber": "159",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHITINOUS_CLOAK: CardData = {
+  "scryfallId": "15e54603-af67-497f-afe0-88cfa4d00095",
+  "oracleId": "d5487098-fd24-49af-9634-4827a5c2eac4",
+  "name": "Chitinous Cloak",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chitinous Cloak",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+2 and has menace. (It can't be blocked except by two or more creatures.)\nEquip {3}",
+      "flavorText": "\"If we're going to survive, we have to use every tool at our disposal. Especially the disgusting ones.\"\n—Ryza, Oran-Rief scout",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Chris Rahn",
+      "imageId": "15e54603-af67-497f-afe0-88cfa4d00095"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "ogw",
+  "collectorNumber": "163",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLOAK_OF_THE_BAT: CardData = {
+  "scryfallId": "04d7fc41-fe0e-4db2-806a-aa04ac8bb2c9",
+  "oracleId": "ecd28e2a-e172-4f4c-8416-b9a0d97ee497",
+  "name": "Cloak of the Bat",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cloak of the Bat",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature has flying and haste.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Dominik Mayer",
+      "imageId": "04d7fc41-fe0e-4db2-806a-aa04ac8bb2c9"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "hbg",
+  "collectorNumber": "256",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COBBLED_WINGS: CardData = {
+  "scryfallId": "24abd762-e533-491a-97b6-aed40c214e9d",
+  "oracleId": "8d8682f3-9ef3-4aa7-9ea6-8a2ce09bff6f",
+  "name": "Cobbled Wings",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cobbled Wings",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature has flying.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "For the necro-alchemist, any puzzle can be solved with intelligence and harvested body parts.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Matt Stewart",
+      "imageId": "24abd762-e533-491a-97b6-aed40c214e9d"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "isd",
+  "collectorNumber": "219",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRYSTAL_SLIPPER: CardData = {
+  "scryfallId": "9f738ca6-5254-4dbc-9f59-854e81c8dac2",
+  "oracleId": "8c2d2888-38be-41f9-aaf2-8337e87d2aed",
+  "name": "Crystal Slipper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crystal Slipper",
+      "manaCost": "{1}{R}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+0 and has haste.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"After the death of her mother, Cassia found that things that appear fragile can be very strong indeed.\"\n—*Beyond the Great Henge*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "9f738ca6-5254-4dbc-9f59-854e81c8dac2"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "eld",
+  "collectorNumber": "119",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CULTIST_S_STAFF: CardData = {
+  "scryfallId": "8da8c523-44e8-43e7-8431-28dbed1015ac",
+  "oracleId": "3e211792-2656-4bee-80ac-60eac0c45c2d",
+  "name": "Cultist's Staff",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cultist's Staff",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+2.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "The head of the staff doubles as a brand to anoint the newly inducted.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Adam Paquette",
+      "imageId": "8da8c523-44e8-43e7-8431-28dbed1015ac"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "emn",
+  "collectorNumber": "194",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DARKSTEEL_AXE: CardData = {
+  "scryfallId": "091da355-a253-443b-ad97-1908bd1a40ab",
+  "oracleId": "3b7ea3ac-ac0a-40aa-b743-d153e1c47d8c",
+  "name": "Darksteel Axe",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Darksteel Axe",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Indestructible (Effects that say \"destroy\" don't destroy this Equipment.)\nEquipped creature gets +2/+0.\nEquip {2}",
+      "flavorText": "Heavier than it looks, tricky to wield, guaranteed to last.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "091da355-a253-443b-ad97-1908bd1a40ab"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Indestructible",
+    "Equip"
+  ],
+  "setCode": "ima",
+  "collectorNumber": "214",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DARKSTEEL_PLATE: CardData = {
+  "scryfallId": "3f99fb1e-99a6-4c83-98eb-7bff23996a7f",
+  "oracleId": "b5b4cf54-ed5e-42d0-9d98-5fec76b0b0b8",
+  "name": "Darksteel Plate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Darksteel Plate",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Indestructible\nEquipped creature has indestructible.\nEquip {2}",
+      "flavorText": "\"If there can be no victory, then I will fight forever.\"\n—Koth of the Hammer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "3f99fb1e-99a6-4c83-98eb-7bff23996a7f"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Indestructible",
+    "Equip"
+  ],
+  "setCode": "2x2",
+  "collectorNumber": "304",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EXPERIMENTAL_ARMOR: CardData = {
+  "scryfallId": "6cca2a1d-8319-4217-a5b1-7988d41e8c04",
+  "oracleId": "f7ed3cd6-d138-4c12-93bb-91629492a5fa",
+  "name": "Experimental Armor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Experimental Armor",
+      "manaCost": "{2}{R}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+1 and has flying and haste. (It can't be blocked except by creatures with flying or reach. It can attack and {T} as soon as it comes under your control.)\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Kevin Glint",
+      "imageId": "6cca2a1d-8319-4217-a5b1-7988d41e8c04"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "msc",
+  "collectorNumber": "543",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FIRESHRIEKER: CardData = {
+  "scryfallId": "1b4d0d12-5bd6-4d2f-8913-fe690c441104",
+  "oracleId": "a02e1ca7-23c5-41e3-a744-72fc9e9dd8ba",
+  "name": "Fireshrieker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fireshrieker",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature has double strike. (It deals both first-strike and regular combat damage.)\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Christopher Moeller",
+      "imageId": "1b4d0d12-5bd6-4d2f-8913-fe690c441104"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "cmr",
+  "collectorNumber": "462",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLEETFEATHER_SANDALS: CardData = {
+  "scryfallId": "2222f499-09f9-45a6-8255-9de79df76f1c",
+  "oracleId": "9811d1fa-1398-49a2-bcbe-0e40d9779ef1",
+  "name": "Fleetfeather Sandals",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fleetfeather Sandals",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature has flying and haste.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"The gods gave us no wings to fly, but they gave us an even greater gift: imagination.\"\n—Daxos of Meletis",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Steve Prescott",
+      "imageId": "2222f499-09f9-45a6-8255-9de79df76f1c"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "ths",
+  "collectorNumber": "216",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GORGON_FLAIL: CardData = {
+  "scryfallId": "034d19a7-3579-4ffd-9ff1-67f0f898b30d",
+  "oracleId": "91dab3e2-039e-4db9-94e3-1146bced18ed",
+  "name": "Gorgon Flail",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gorgon Flail",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+1 and has deathtouch. (Any amount of damage it deals to a creature is enough to destroy that creature.)\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Lars Grant-West",
+      "imageId": "034d19a7-3579-4ffd-9ff1-67f0f898b30d"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "M10-211",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GORGON_S_HEAD: CardData = {
+  "scryfallId": "d745dd92-9f7a-44a4-a27f-2ff17753db1c",
+  "oracleId": "190cdc23-fa05-475f-b853-471ca0f21b71",
+  "name": "Gorgon's Head",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gorgon's Head",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature has deathtouch.\nEquip {2}",
+      "flavorText": "\"You slew the gorgon? Show me.\"\n—King Igalus, last words",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Michael C. Hayes",
+      "imageId": "d745dd92-9f7a-44a4-a27f-2ff17753db1c"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "bng",
+  "collectorNumber": "158",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GREATAXE: CardData = {
+  "scryfallId": "e840aef6-eec4-40dd-bbc4-6fd0b2b57805",
+  "oracleId": "843f3373-b8ef-416c-9163-aa1aa6b4a51d",
+  "name": "Greataxe",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Greataxe",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +4/+0.\nEquip {5} ({5}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"If you're so mighty, scaled one, then why are you dead?\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Kari Christensen",
+      "imageId": "e840aef6-eec4-40dd-bbc4-6fd0b2b57805"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "afr",
+  "collectorNumber": "245",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GREATSWORD: CardData = {
+  "scryfallId": "63b4041d-7c95-4cb9-a18b-6568db05942b",
+  "oracleId": "51024f9a-6c6e-4555-a156-92b32255a0c9",
+  "name": "Greatsword",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Greatsword",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +3/+0.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "The only blow that matters is the killing blow.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Nic Klein",
+      "imageId": "63b4041d-7c95-4cb9-a18b-6568db05942b"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "m12",
+  "collectorNumber": "209",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HARD_WON_JITTE: CardData = {
+  "scryfallId": "5d3dc219-f024-49de-b88d-dc1e9e84184c",
+  "oracleId": "ab433d41-e801-405c-81f7-06fa6640797d",
+  "name": "Hard-Won Jitte",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hard-Won Jitte",
+      "manaCost": "{1}{R}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature has double strike.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "It was fitting that the most dangerous turtle bore a weapon of peace.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Kim Sokol",
+      "imageId": "5d3dc219-f024-49de-b88d-dc1e9e84184c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "tmt",
+  "collectorNumber": "91",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HAUNTED_CLOAK: CardData = {
+  "scryfallId": "19ece771-d628-45e7-882d-a35f625d2e55",
+  "oracleId": "74fc88d5-19c3-4516-9a06-e9573d659caa",
+  "name": "Haunted Cloak",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Haunted Cloak",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature has vigilance, trample, and haste.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "Bear the weight of so many spirits and you'll surrender civility and restraint to savagery and instinct.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Volkan Baǵa",
+      "imageId": "19ece771-d628-45e7-882d-a35f625d2e55"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "cmr",
+  "collectorNumber": "463",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HONED_KHOPESH: CardData = {
+  "scryfallId": "c7d80b98-baa2-48ea-9611-96e64d7cb950",
+  "oracleId": "f2142c41-ff66-4276-b426-fd945ed9b0f6",
+  "name": "Honed Khopesh",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Honed Khopesh",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+1.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "Blades and bravery go hand in hand.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Aaron Miller",
+      "imageId": "c7d80b98-baa2-48ea-9611-96e64d7cb950"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "akh",
+  "collectorNumber": "230",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JACKHAMMER: CardData = {
+  "scryfallId": "d74ba9fe-2dcb-4da7-ba64-cd932edb5b24",
+  "oracleId": "f73d89ec-05c9-4998-a24b-bc675b04ec16",
+  "name": "Jackhammer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jackhammer",
+      "manaCost": "{1}{R}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+0.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"Subtlety is overrated.\"\n—Mr. Orfeo, the Boulder",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "John Severin Brassell",
+      "imageId": "d74ba9fe-2dcb-4da7-ba64-cd932edb5b24"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "snc",
+  "collectorNumber": "111",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KITE_SHIELD: CardData = {
+  "scryfallId": "1a00d1e1-aaa4-4f4d-a887-1e477820d2c6",
+  "oracleId": "24f9c64a-6ce6-41cd-948e-11554d7f17fb",
+  "name": "Kite Shield",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kite Shield",
+      "manaCost": "{0}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +0/+3.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"To my sword I owe my glory, but to my shield I owe my life.\"\n—Sarlena, paladin of the Northern Verge",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jim Pavelec",
+      "imageId": "1a00d1e1-aaa4-4f4d-a887-1e477820d2c6"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "m12",
+  "collectorNumber": "210",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KITESAIL: CardData = {
+  "scryfallId": "217a05a7-557f-4879-8fd1-d6c003f1751e",
+  "oracleId": "b079f9db-974d-4525-a894-57b754ba9dcc",
+  "name": "Kitesail",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kitesail",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+0 and has flying.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "Kitesailing is a way of life—and without practice, the end of it.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Cyril Van Der Haegen",
+      "imageId": "217a05a7-557f-4879-8fd1-d6c003f1751e"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "wwk",
+  "collectorNumber": "126",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KOR_HALBERD: CardData = {
+  "scryfallId": "a4705327-ada6-4575-82fc-351e183d060e",
+  "oracleId": "450e84c7-afbe-4b30-a3e9-1dff968a5200",
+  "name": "Kor Halberd",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kor Halberd",
+      "manaCost": "{W}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+1 and has vigilance.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "An ancient weapon for a modern war.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Bastien L. Deharme",
+      "imageId": "a4705327-ada6-4575-82fc-351e183d060e"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "mom",
+  "collectorNumber": "27",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LEONIN_SCIMITAR: CardData = {
+  "scryfallId": "7f30adfa-2581-47ca-946f-d1a193523be3",
+  "oracleId": "cde26d69-f3e7-4dd0-a53b-cd0ec812d717",
+  "name": "Leonin Scimitar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Leonin Scimitar",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+1.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"Every scratch tells a story, and every notch has a name. Four generations have held this blade. You shall not disappoint them.\"\n—Initiation of Laena, skyhunter",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Doug Chaffee",
+      "imageId": "7f30adfa-2581-47ca-946f-d1a193523be3"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "j22",
+  "collectorNumber": "782",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LOXODON_WARHAMMER: CardData = {
+  "scryfallId": "08417d60-0896-40b4-8dab-f36c65df67df",
+  "oracleId": "dba35ac5-7ad3-488a-a006-6b9a1d54eea5",
+  "name": "Loxodon Warhammer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Loxodon Warhammer",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +3/+0 and has trample and lifelink.\nEquip {3}",
+      "flavorText": "\"A crafter must imbue her weapon with part of her soul—something the Phyrexians are incapable of doing.\"\n—Melira, sylvok outcast",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jeremy Jarvis",
+      "imageId": "08417d60-0896-40b4-8dab-f36c65df67df"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "c17",
+  "collectorNumber": "216",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MARAUDER_S_AXE: CardData = {
+  "scryfallId": "49d8aa8a-3e87-42ac-9c79-2baec771c1ef",
+  "oracleId": "5d0e49fa-5dfb-48c2-af97-fdfb788d5f40",
+  "name": "Marauder's Axe",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Marauder's Axe",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+0.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "A sharp axe solves most problems.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Mitchell Malloy",
+      "imageId": "49d8aa8a-3e87-42ac-9c79-2baec771c1ef"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "jmp",
+  "collectorNumber": "473",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MASK_OF_AVACYN: CardData = {
+  "scryfallId": "0aa1b193-c80e-4026-bd82-f16314e14431",
+  "oracleId": "ab66f8a8-eb3d-4c2d-95e9-26a53c66b237",
+  "name": "Mask of Avacyn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mask of Avacyn",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+2 and has hexproof. (It can't be the target of spells or abilities your opponents control.)\nEquip {3}",
+      "flavorText": "It hides the face and protects the soul.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "James Paick",
+      "imageId": "0aa1b193-c80e-4026-bd82-f16314e14431"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "cmr",
+  "collectorNumber": "466",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NEUROK_HOVERSAIL: CardData = {
+  "scryfallId": "0fa5790b-5388-4bf9-9caa-44d8cbb64708",
+  "oracleId": "3cc02a23-93b7-445a-9c3e-0e4942ef927b",
+  "name": "Neurok Hoversail",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Neurok Hoversail",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature has flying.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Alan Pollack",
+      "imageId": "0fa5790b-5388-4bf9-9caa-44d8cbb64708"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "mrd",
+  "collectorNumber": "218",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NO_DACHI: CardData = {
+  "scryfallId": "6c6061a8-d27f-4258-9e95-cd12365c4248",
+  "oracleId": "417312f8-16ca-47a7-b991-906788691700",
+  "name": "No-Dachi",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "No-Dachi",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+0 and has first strike.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "Not keen-edged enough for cutting armor, the no-dachi slew by folding its victim rapidly and violently under the weight of its impact.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Christopher Rush",
+      "imageId": "6c6061a8-d27f-4258-9e95-cd12365c4248"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "chk",
+  "collectorNumber": "264",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OGRE_S_CLEAVER: CardData = {
+  "scryfallId": "ec319380-bede-49e8-9d0c-473688033601",
+  "oracleId": "e32c2ed2-be8b-497c-8b94-9c104f203b49",
+  "name": "Ogre's Cleaver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ogre's Cleaver",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +5/+0.\nEquip {5}",
+      "flavorText": "She adopted the weapon of the slave-lord Kazuul, and with it, all his cruelty.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Adi Granov",
+      "imageId": "ec319380-bede-49e8-9d0c-473688033601"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "roe",
+  "collectorNumber": "220",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PEREGRINE_MASK: CardData = {
+  "scryfallId": "9196f43e-f905-4e83-8e47-9d8fd53a4c9f",
+  "oracleId": "a742308c-4047-487f-b95b-0fa5bec2f09a",
+  "name": "Peregrine Mask",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Peregrine Mask",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature has defender, flying, and first strike.\nEquip {2}",
+      "flavorText": "The mask confers both the prowess of a falcon and its loyalty.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "9196f43e-f905-4e83-8e47-9d8fd53a4c9f"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "rav",
+  "collectorNumber": "268",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RANGER_S_LONGBOW: CardData = {
+  "scryfallId": "34c99b32-353c-4930-a6ee-3fb44cf70253",
+  "oracleId": "4b9abe7f-050f-4d0a-bc01-f442164f95de",
+  "name": "Ranger's Longbow",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ranger's Longbow",
+      "manaCost": "{1}{G}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+1 and has reach.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "With the right weapon, a fearsome beholder is nothing more than a big floating bullseye.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Marcela Medeiros",
+      "imageId": "34c99b32-353c-4930-a6ee-3fb44cf70253"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "afr",
+  "collectorNumber": "203",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RIOT_GEAR: CardData = {
+  "scryfallId": "d3be1289-76f9-40b3-9387-b76a8b8d8797",
+  "oracleId": "3e150025-51c2-4b92-970c-a89e83210e68",
+  "name": "Riot Gear",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Riot Gear",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+2.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "Any meeting between guilds requires proper equipment.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jack Wang",
+      "imageId": "d3be1289-76f9-40b3-9387-b76a8b8d8797"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "gtc",
+  "collectorNumber": "236",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHORT_BOW: CardData = {
+  "scryfallId": "51d8b72b-fa8f-48d3-bddc-d3ce9b8ba2ea",
+  "oracleId": "ce5f5ff9-13f7-41eb-ada0-7f73de42acef",
+  "name": "Short Bow",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Short Bow",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+1 and has vigilance and reach.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "Take heart. Take aim. Take them down.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Zara Alfonso",
+      "imageId": "51d8b72b-fa8f-48d3-bddc-d3ce9b8ba2ea"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "blb",
+  "collectorNumber": "248",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHORT_SWORD: CardData = {
+  "scryfallId": "973c166e-3e93-4ed5-b4c5-84dc158a8e4f",
+  "oracleId": "e842a4e5-ea0b-43ae-9ed8-93e30f4e7b8a",
+  "name": "Short Sword",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Short Sword",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+1.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"Sometimes the only difference between a martyr and a hero is a sword.\"\n—Captain Sisay, *Memoirs*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "John Severin Brassell",
+      "imageId": "973c166e-3e93-4ed5-b4c5-84dc158a8e4f"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "m21",
+  "collectorNumber": "236",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHUKO: CardData = {
+  "scryfallId": "a47456b8-cef8-4085-90b1-92788e16fd27",
+  "oracleId": "8abe0577-8fdb-4e4a-a871-01b21732c961",
+  "name": "Shuko",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shuko",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+0.\nEquip {0} ({0}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"One scratch on a wall meant safe passage, two that the target had already been raided, and three warned of a trap.\"\n—*Weaponry of Kamigawa*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Greg Hildebrandt",
+      "imageId": "a47456b8-cef8-4085-90b1-92788e16fd27"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "bok",
+  "collectorNumber": "159",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLAGWURM_ARMOR: CardData = {
+  "scryfallId": "0a4bce36-a67a-4bae-8337-c5631a2679b8",
+  "oracleId": "20b60c93-124b-42c8-93fb-63bbd1888658",
+  "name": "Slagwurm Armor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slagwurm Armor",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +0/+6.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery. This card enters unattached and stays on the battlefield if the creature leaves.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Justin Sweet",
+      "imageId": "0a4bce36-a67a-4bae-8337-c5631a2679b8"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "psal",
+  "collectorNumber": "L43",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIDERSILK_NET: CardData = {
+  "scryfallId": "1f75f13e-43e6-4118-83a3-0446c2089d84",
+  "oracleId": "04979f18-1ba8-47a3-a078-ab6b84bfac72",
+  "name": "Spidersilk Net",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spidersilk Net",
+      "manaCost": "{0}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +0/+2 and has reach. (It can block creatures with flying.)\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Zoltan Boros & Gabor Szikszai",
+      "imageId": "1f75f13e-43e6-4118-83a3-0446c2089d84"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "zen",
+  "collectorNumber": "206",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STRIDER_HARNESS: CardData = {
+  "scryfallId": "47c90f49-d1eb-420e-bfb6-b834a496860d",
+  "oracleId": "bd4ad383-8c40-4dda-bc9c-ba8a001d6882",
+  "name": "Strider Harness",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Strider Harness",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+1 and has haste.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"Sometimes being fast is as important as being smart.\"\n—Ryza, Oran-Rief scout",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Kev Walker",
+      "imageId": "47c90f49-d1eb-420e-bfb6-b834a496860d"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "ogw",
+  "collectorNumber": "167",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SWORD_OF_VENGEANCE: CardData = {
+  "scryfallId": "032af060-4d49-4a0a-8841-9eb2d45a4b77",
+  "oracleId": "e366afb3-c447-4bde-b358-41c8568142d5",
+  "name": "Sword of Vengeance",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sword of Vengeance",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+0 and has first strike, vigilance, trample, and haste.\nEquip {3}",
+      "flavorText": "When wielded by a true believer, it matters little whether the sword is a relic or a replica.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Dan Murayama Scott",
+      "imageId": "032af060-4d49-4a0a-8841-9eb2d45a4b77"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "cmr",
+  "collectorNumber": "475",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TORCH_GAUNTLET: CardData = {
+  "scryfallId": "dfcf9a88-c5f8-4c26-a2ee-d2827e9a31d8",
+  "oracleId": "07fdc0b0-7131-411d-b0a8-f667165a64b8",
+  "name": "Torch Gauntlet",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Torch Gauntlet",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+0.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"Good morning, children. Please open your aether valves and ignite your gauntlets.\"\n—Rakib, Ghirapur schoolteacher",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Igor Kieryluk",
+      "imageId": "dfcf9a88-c5f8-4c26-a2ee-d2827e9a31d8"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "kld",
+  "collectorNumber": "237",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRUSTY_MACHETE: CardData = {
+  "scryfallId": "38ce00cf-77b7-4173-a1ac-7fefa97d9493",
+  "oracleId": "394fae8f-3757-4e08-b97c-5d7c451f4e72",
+  "name": "Trusty Machete",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Trusty Machete",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+1.\nEquip {2}",
+      "flavorText": "\"Until this expedition is done, that blade is your guardian, your liberator, and your best friend all rolled into one.\"\n—Yon Basrel, Oran-Rief survivalist",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Raymond Swanland",
+      "imageId": "38ce00cf-77b7-4173-a1ac-7fefa97d9493"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "ZEN-209",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VANQUISHER_S_AXE: CardData = {
+  "scryfallId": "aef37244-deb9-464e-ab8c-4308369ae09b",
+  "oracleId": "fbdd3ba9-d799-476b-87bc-a689d8e3cff9",
+  "name": "Vanquisher's Axe",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vanquisher's Axe",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+0.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "When a Keldon takes a trophy from an enemy, it's usually something they can use to kill more enemies.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Joe Slucher",
+      "imageId": "aef37244-deb9-464e-ab8c-4308369ae09b"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "dmu",
+  "collectorNumber": "240",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VETERAN_S_SIDEARM: CardData = {
+  "scryfallId": "9c1b3e7d-0fd8-4324-be7b-382e75ae9c17",
+  "oracleId": "f038c11e-b070-40fd-9d0f-e031f7bc2bd2",
+  "name": "Veteran's Sidearm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Veteran's Sidearm",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+1.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"I've broken three swords, eighteen lances, and countless shields, but this little blade has survived every battle, just like I have.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Aaron Miller",
+      "imageId": "9c1b3e7d-0fd8-4324-be7b-382e75ae9c17"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "ori",
+  "collectorNumber": "242",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VIBRANIUM_ENERGY_DAGGERS: CardData = {
+  "scryfallId": "4fe5952d-f50f-443a-b960-657fc4bc1965",
+  "oracleId": "be0b86fc-8450-41d4-9836-6de11cecb857",
+  "name": "Vibranium Energy Daggers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vibranium Energy Daggers",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Indestructible (Effects that say \"destroy\" don't destroy this Equipment.)\nEquipped creature gets +2/+2.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"These daggers can penetrate adamantium and disrupt nervous systems. What chance have you?\"\n—T'Challa, the Black Panther",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Irvin Rodriguez",
+      "imageId": "4fe5952d-f50f-443a-b960-657fc4bc1965"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Indestructible",
+    "Equip"
+  ],
+  "setCode": "msh",
+  "collectorNumber": "254",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VIRIDIAN_CLAW: CardData = {
+  "scryfallId": "2154e3c6-ab69-4661-b1ef-a50cc0f6f763",
+  "oracleId": "11ba27f4-decf-4447-9808-0d58844655cf",
+  "name": "Viridian Claw",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Viridian Claw",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+0 and has first strike.\nEquip {1}",
+      "flavorText": "\"Phyrexians can't corrupt what they can't get close enough to touch.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Marc Simonetti",
+      "imageId": "2154e3c6-ab69-4661-b1ef-a50cc0f6f763"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "mbs",
+  "collectorNumber": "143",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VULSHOK_BATTLEGEAR: CardData = {
+  "scryfallId": "13e731de-32e9-4dae-804f-9b962b457cf3",
+  "oracleId": "708df587-3b13-42cb-8341-f476ab4cbe45",
+  "name": "Vulshok Battlegear",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vulshok Battlegear",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +3/+3.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Kevin Dobler",
+      "imageId": "13e731de-32e9-4dae-804f-9b962b457cf3"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "mrd",
+  "collectorNumber": "272",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VULSHOK_MORNINGSTAR: CardData = {
+  "scryfallId": "033aa2cd-531c-4594-a7eb-b3cbeb2c5a3c",
+  "oracleId": "12a8adc4-927f-4314-b2ef-9c647ace68d5",
+  "name": "Vulshok Morningstar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vulshok Morningstar",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+2.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "David Martin",
+      "imageId": "033aa2cd-531c-4594-a7eb-b3cbeb2c5a3c"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "ddi",
+  "collectorNumber": "66",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WARLORD_S_AXE: CardData = {
+  "scryfallId": "41ab6393-df29-475b-b56d-c56eb95de05d",
+  "oracleId": "ebe43cc6-42fe-44f6-b198-ef0212bf82cb",
+  "name": "Warlord's Axe",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Warlord's Axe",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +3/+1.\nEquip {4} ({4}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "To split wood with it would be sacrilege. This tool has but one purpose, and that is war.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Franz Vohwinkel",
+      "imageId": "41ab6393-df29-475b-b56d-c56eb95de05d"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "m11",
+  "collectorNumber": "220",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PLUS_2_MACE: CardData = {
+  "scryfallId": "e882c9f9-bf30-46b6-bedc-379d2c80e5cb",
+  "oracleId": "629fe1be-272d-465f-b9b1-2ce177410f13",
+  "name": "+2 Mace",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "+2 Mace",
+      "manaCost": "{1}{W}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +2/+2.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "The weight of this magic weapon falls heavy on the wicked.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jarel Threat",
+      "imageId": "e882c9f9-bf30-46b6-bedc-379d2c80e5cb"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "afr",
+  "collectorNumber": "1",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GILDED_PINIONS: CardData = {
+  "scryfallId": "dca8554a-f74c-4d2d-95b6-ef6e74431d7c",
+  "oracleId": "8a7c3718-74a1-4f26-8e06-0e17db4b0077",
+  "name": "Gilded Pinions",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gilded Pinions",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "When this Equipment enters, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\nEquipped creature has flying.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Irina Nordsol",
+      "imageId": "dca8554a-f74c-4d2d-95b6-ef6e74431d7c"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Treasure",
+    "Equip"
+  ],
+  "setCode": "snc",
+  "collectorNumber": "238",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GLIMMERLIGHT: CardData = {
+  "scryfallId": "1071691c-5c65-42d4-ac96-d302185ca678",
+  "oracleId": "8fd88b98-9899-4bc0-a4b7-7ef6fba36dfd",
+  "name": "Glimmerlight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Glimmerlight",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "When this Equipment enters, create a 1/1 white Glimmer enchantment creature token.\nEquipped creature gets +1/+1.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "Hope and reliable lighting are in short supply in the House. Glimmers provide both.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Wero Gallo",
+      "imageId": "1071691c-5c65-42d4-ac96-d302185ca678"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "dsk",
+  "collectorNumber": "249",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOLD_PAN: CardData = {
+  "scryfallId": "dc098aae-3d9b-453b-a37e-e102f81a8311",
+  "oracleId": "91415d12-b13d-4b5c-bb60-6ec6f4fdde6e",
+  "name": "Gold Pan",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gold Pan",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "When this Equipment enters, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\nEquipped creature gets +1/+1.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Gaboleps",
+      "imageId": "dc098aae-3d9b-453b-a37e-e102f81a8311"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Treasure",
+    "Equip"
+  ],
+  "setCode": "otj",
+  "collectorNumber": "242",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOLDVEIN_PICK: CardData = {
+  "scryfallId": "9bf5e4ad-a6e9-4b7c-a1ec-8246d3a3b6ca",
+  "oracleId": "c1624d10-8838-4af8-aea1-a96c0fe6fd6b",
+  "name": "Goldvein Pick",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goldvein Pick",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+1.\nWhenever equipped creature deals combat damage to a player, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Dan Murayama Scott",
+      "imageId": "9bf5e4ad-a6e9-4b7c-a1ec-8246d3a3b6ca"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Treasure",
+    "Equip"
+  ],
+  "setCode": "khm",
+  "collectorNumber": "239",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MOONSILVER_SPEAR: CardData = {
+  "scryfallId": "0b5efb85-1e5f-40ba-97b1-0ef6ac680330",
+  "oracleId": "d99bcf62-db93-40db-8844-3d0af0756a0c",
+  "name": "Moonsilver Spear",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Moonsilver Spear",
+      "manaCost": "{4}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature has first strike.\nWhenever equipped creature attacks, create a 4/4 white Angel creature token with flying.\nEquip {4}",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "James Paick",
+      "imageId": "0b5efb85-1e5f-40ba-97b1-0ef6ac680330"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "avr",
+  "collectorNumber": "217",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PRYING_BLADE: CardData = {
+  "scryfallId": "ad45720e-2870-414d-8119-8e48c5600d3b",
+  "oracleId": "5fe86083-1009-4de2-b186-f817ad1cc4e4",
+  "name": "Prying Blade",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Prying Blade",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+0.\nWhenever equipped creature deals combat damage to a player, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Aaron Miller",
+      "imageId": "ad45720e-2870-414d-8119-8e48c5600d3b"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Treasure",
+    "Equip"
+  ],
+  "setCode": "xln",
+  "collectorNumber": "244",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKULLCLAMP: CardData = {
+  "scryfallId": "005dae9a-dddc-4a11-95bb-cce319edcce4",
+  "oracleId": "65986c1b-8e51-4604-b685-d82fa7d1263a",
+  "name": "Skullclamp",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skullclamp",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/-1.\nWhenever equipped creature dies, draw two cards.\nEquip {1}",
+      "flavorText": "The mind is a beautiful bounty encased in an annoying bone container.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daniel Ljunggren",
+      "imageId": "005dae9a-dddc-4a11-95bb-cce319edcce4"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "c14",
+  "collectorNumber": "268",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SYLVOK_LIFESTAFF: CardData = {
+  "scryfallId": "abbc5ae5-8e8b-4106-844f-2d49d2a51ed9",
+  "oracleId": "e69b8388-1311-427f-9300-42badd5338ff",
+  "name": "Sylvok Lifestaff",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sylvok Lifestaff",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+0.\nWhenever equipped creature dies, you gain 3 life.\nEquip {1}",
+      "flavorText": "The druid's lifestaff connects her to generations of bygone Sylvok.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Martina Pilcerova",
+      "imageId": "abbc5ae5-8e8b-4106-844f-2d49d2a51ed9"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "som",
+  "collectorNumber": "209",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -118615,6 +120868,75 @@ export const ENGINE_CARDS: CardData[] = [
   SHELTERING_BOUGHS,
   SQUIRE_S_DEVOTION,
   WOLFKIN_BOND,
+  ACCORDER_S_SHIELD,
+  AERONAUT_S_WINGS,
+  BARBED_BATTLEGEAR,
+  BASILISK_COLLAR,
+  BEHEMOTH_SLEDGE,
+  BLADED_PINIONS,
+  BONE_SAW,
+  BONESPLITTER,
+  BOOTS_OF_SPEED,
+  BRAWLER_S_PLATE,
+  BRONZE_SWORD,
+  CATHAR_S_SHIELD,
+  CHARIOT_OF_VICTORY,
+  CHITINOUS_CLOAK,
+  CLOAK_OF_THE_BAT,
+  COBBLED_WINGS,
+  CRYSTAL_SLIPPER,
+  CULTIST_S_STAFF,
+  DARKSTEEL_AXE,
+  DARKSTEEL_PLATE,
+  EXPERIMENTAL_ARMOR,
+  FIRESHRIEKER,
+  FLEETFEATHER_SANDALS,
+  GORGON_FLAIL,
+  GORGON_S_HEAD,
+  GREATAXE,
+  GREATSWORD,
+  HARD_WON_JITTE,
+  HAUNTED_CLOAK,
+  HONED_KHOPESH,
+  JACKHAMMER,
+  KITE_SHIELD,
+  KITESAIL,
+  KOR_HALBERD,
+  LEONIN_SCIMITAR,
+  LOXODON_WARHAMMER,
+  MARAUDER_S_AXE,
+  MASK_OF_AVACYN,
+  NEUROK_HOVERSAIL,
+  NO_DACHI,
+  OGRE_S_CLEAVER,
+  PEREGRINE_MASK,
+  RANGER_S_LONGBOW,
+  RIOT_GEAR,
+  SHORT_BOW,
+  SHORT_SWORD,
+  SHUKO,
+  SLAGWURM_ARMOR,
+  SPIDERSILK_NET,
+  STRIDER_HARNESS,
+  SWORD_OF_VENGEANCE,
+  TORCH_GAUNTLET,
+  TRUSTY_MACHETE,
+  VANQUISHER_S_AXE,
+  VETERAN_S_SIDEARM,
+  VIBRANIUM_ENERGY_DAGGERS,
+  VIRIDIAN_CLAW,
+  VULSHOK_BATTLEGEAR,
+  VULSHOK_MORNINGSTAR,
+  WARLORD_S_AXE,
+  PLUS_2_MACE,
+  GILDED_PINIONS,
+  GLIMMERLIGHT,
+  GOLD_PAN,
+  GOLDVEIN_PICK,
+  MOONSILVER_SPEAR,
+  PRYING_BLADE,
+  SKULLCLAMP,
+  SYLVOK_LIFESTAFF,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

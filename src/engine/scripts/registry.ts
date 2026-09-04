@@ -7,6 +7,77 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { GILDED_PINIONS_SCRIPT } from './cards/gildedPinions';
+import { GLIMMERLIGHT_SCRIPT } from './cards/glimmerlight';
+import { GOLD_PAN_SCRIPT } from './cards/goldPan';
+import { GOLDVEIN_PICK_SCRIPT } from './cards/goldveinPick';
+import { MOONSILVER_SPEAR_SCRIPT } from './cards/moonsilverSpear';
+import { PRYING_BLADE_SCRIPT } from './cards/pryingBlade';
+import { SKULLCLAMP_SCRIPT } from './cards/skullclamp';
+import { SYLVOK_LIFESTAFF_SCRIPT } from './cards/sylvokLifestaff';
+import { PLUS2_MACE_SCRIPT } from './cards/plus2Mace';
+import { ACCORDERS_SHIELD_SCRIPT } from './cards/accordersShield';
+import { AERONAUTS_WINGS_SCRIPT } from './cards/aeronautsWings';
+import { BARBED_BATTLEGEAR_SCRIPT } from './cards/barbedBattlegear';
+import { BASILISK_COLLAR_SCRIPT } from './cards/basiliskCollar';
+import { BEHEMOTH_SLEDGE_SCRIPT } from './cards/behemothSledge';
+import { BLADED_PINIONS_SCRIPT } from './cards/bladedPinions';
+import { BONE_SAW_SCRIPT } from './cards/boneSaw';
+import { BONESPLITTER_SCRIPT } from './cards/bonesplitter';
+import { BOOTS_OF_SPEED_SCRIPT } from './cards/bootsOfSpeed';
+import { BRAWLERS_PLATE_SCRIPT } from './cards/brawlersPlate';
+import { BRONZE_SWORD_SCRIPT } from './cards/bronzeSword';
+import { CATHARS_SHIELD_SCRIPT } from './cards/catharsShield';
+import { CHARIOT_OF_VICTORY_SCRIPT } from './cards/chariotOfVictory';
+import { CHITINOUS_CLOAK_SCRIPT } from './cards/chitinousCloak';
+import { CLOAK_OF_THE_BAT_SCRIPT } from './cards/cloakOfTheBat';
+import { COBBLED_WINGS_SCRIPT } from './cards/cobbledWings';
+import { CRYSTAL_SLIPPER_SCRIPT } from './cards/crystalSlipper';
+import { CULTISTS_STAFF_SCRIPT } from './cards/cultistsStaff';
+import { DARKSTEEL_AXE_SCRIPT } from './cards/darksteelAxe';
+import { DARKSTEEL_PLATE_SCRIPT } from './cards/darksteelPlate';
+import { EXPERIMENTAL_ARMOR_SCRIPT } from './cards/experimentalArmor';
+import { FIRESHRIEKER_SCRIPT } from './cards/fireshrieker';
+import { FLEETFEATHER_SANDALS_SCRIPT } from './cards/fleetfeatherSandals';
+import { GORGON_FLAIL_SCRIPT } from './cards/gorgonFlail';
+import { GORGONS_HEAD_SCRIPT } from './cards/gorgonsHead';
+import { GREATAXE_SCRIPT } from './cards/greataxe';
+import { GREATSWORD_SCRIPT } from './cards/greatsword';
+import { HARD_WON_JITTE_SCRIPT } from './cards/hardWonJitte';
+import { HAUNTED_CLOAK_SCRIPT } from './cards/hauntedCloak';
+import { HONED_KHOPESH_SCRIPT } from './cards/honedKhopesh';
+import { JACKHAMMER_SCRIPT } from './cards/jackhammer';
+import { KITE_SHIELD_SCRIPT } from './cards/kiteShield';
+import { KITESAIL_SCRIPT } from './cards/kitesail';
+import { KOR_HALBERD_SCRIPT } from './cards/korHalberd';
+import { LEONIN_SCIMITAR_SCRIPT } from './cards/leoninScimitar';
+import { LIGHTNING_GREAVES_SCRIPT } from './cards/lightningGreaves';
+import { LOXODON_WARHAMMER_SCRIPT } from './cards/loxodonWarhammer';
+import { MARAUDERS_AXE_SCRIPT } from './cards/maraudersAxe';
+import { MASK_OF_AVACYN_SCRIPT } from './cards/maskOfAvacyn';
+import { NEUROK_HOVERSAIL_SCRIPT } from './cards/neurokHoversail';
+import { NO_DACHI_SCRIPT } from './cards/noDachi';
+import { OGRES_CLEAVER_SCRIPT } from './cards/ogresCleaver';
+import { PEREGRINE_MASK_SCRIPT } from './cards/peregrineMask';
+import { RANGERS_LONGBOW_SCRIPT } from './cards/rangersLongbow';
+import { RIOT_GEAR_SCRIPT } from './cards/riotGear';
+import { SHORT_BOW_SCRIPT } from './cards/shortBow';
+import { SHORT_SWORD_SCRIPT } from './cards/shortSword';
+import { SHUKO_SCRIPT } from './cards/shuko';
+import { SLAGWURM_ARMOR_SCRIPT } from './cards/slagwurmArmor';
+import { SPIDERSILK_NET_SCRIPT } from './cards/spidersilkNet';
+import { STRIDER_HARNESS_SCRIPT } from './cards/striderHarness';
+import { SWIFTFOOT_BOOTS_SCRIPT } from './cards/swiftfootBoots';
+import { SWORD_OF_VENGEANCE_SCRIPT } from './cards/swordOfVengeance';
+import { TORCH_GAUNTLET_SCRIPT } from './cards/torchGauntlet';
+import { TRUSTY_MACHETE_SCRIPT } from './cards/trustyMachete';
+import { VANQUISHERS_AXE_SCRIPT } from './cards/vanquishersAxe';
+import { VETERANS_SIDEARM_SCRIPT } from './cards/veteransSidearm';
+import { VIBRANIUM_ENERGY_DAGGERS_SCRIPT } from './cards/vibraniumEnergyDaggers';
+import { VIRIDIAN_CLAW_SCRIPT } from './cards/viridianClaw';
+import { VULSHOK_BATTLEGEAR_SCRIPT } from './cards/vulshokBattlegear';
+import { VULSHOK_MORNINGSTAR_SCRIPT } from './cards/vulshokMorningstar';
+import { WARLORDS_AXE_SCRIPT } from './cards/warlordsAxe';
 import { ANGELIC_GIFT_SCRIPT } from './cards/angelicGift';
 import { CARTOUCHE_OF_KNOWLEDGE_SCRIPT } from './cards/cartoucheOfKnowledge';
 import { CARTOUCHE_OF_SOLIDARITY_SCRIPT } from './cards/cartoucheOfSolidarity';
@@ -3130,6 +3201,77 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GILDED_PINIONS_SCRIPT,
+  GLIMMERLIGHT_SCRIPT,
+  GOLD_PAN_SCRIPT,
+  GOLDVEIN_PICK_SCRIPT,
+  MOONSILVER_SPEAR_SCRIPT,
+  PRYING_BLADE_SCRIPT,
+  SKULLCLAMP_SCRIPT,
+  SYLVOK_LIFESTAFF_SCRIPT,
+  PLUS2_MACE_SCRIPT,
+  ACCORDERS_SHIELD_SCRIPT,
+  AERONAUTS_WINGS_SCRIPT,
+  BARBED_BATTLEGEAR_SCRIPT,
+  BASILISK_COLLAR_SCRIPT,
+  BEHEMOTH_SLEDGE_SCRIPT,
+  BLADED_PINIONS_SCRIPT,
+  BONE_SAW_SCRIPT,
+  BONESPLITTER_SCRIPT,
+  BOOTS_OF_SPEED_SCRIPT,
+  BRAWLERS_PLATE_SCRIPT,
+  BRONZE_SWORD_SCRIPT,
+  CATHARS_SHIELD_SCRIPT,
+  CHARIOT_OF_VICTORY_SCRIPT,
+  CHITINOUS_CLOAK_SCRIPT,
+  CLOAK_OF_THE_BAT_SCRIPT,
+  COBBLED_WINGS_SCRIPT,
+  CRYSTAL_SLIPPER_SCRIPT,
+  CULTISTS_STAFF_SCRIPT,
+  DARKSTEEL_AXE_SCRIPT,
+  DARKSTEEL_PLATE_SCRIPT,
+  EXPERIMENTAL_ARMOR_SCRIPT,
+  FIRESHRIEKER_SCRIPT,
+  FLEETFEATHER_SANDALS_SCRIPT,
+  GORGON_FLAIL_SCRIPT,
+  GORGONS_HEAD_SCRIPT,
+  GREATAXE_SCRIPT,
+  GREATSWORD_SCRIPT,
+  HARD_WON_JITTE_SCRIPT,
+  HAUNTED_CLOAK_SCRIPT,
+  HONED_KHOPESH_SCRIPT,
+  JACKHAMMER_SCRIPT,
+  KITE_SHIELD_SCRIPT,
+  KITESAIL_SCRIPT,
+  KOR_HALBERD_SCRIPT,
+  LEONIN_SCIMITAR_SCRIPT,
+  LIGHTNING_GREAVES_SCRIPT,
+  LOXODON_WARHAMMER_SCRIPT,
+  MARAUDERS_AXE_SCRIPT,
+  MASK_OF_AVACYN_SCRIPT,
+  NEUROK_HOVERSAIL_SCRIPT,
+  NO_DACHI_SCRIPT,
+  OGRES_CLEAVER_SCRIPT,
+  PEREGRINE_MASK_SCRIPT,
+  RANGERS_LONGBOW_SCRIPT,
+  RIOT_GEAR_SCRIPT,
+  SHORT_BOW_SCRIPT,
+  SHORT_SWORD_SCRIPT,
+  SHUKO_SCRIPT,
+  SLAGWURM_ARMOR_SCRIPT,
+  SPIDERSILK_NET_SCRIPT,
+  STRIDER_HARNESS_SCRIPT,
+  SWIFTFOOT_BOOTS_SCRIPT,
+  SWORD_OF_VENGEANCE_SCRIPT,
+  TORCH_GAUNTLET_SCRIPT,
+  TRUSTY_MACHETE_SCRIPT,
+  VANQUISHERS_AXE_SCRIPT,
+  VETERANS_SIDEARM_SCRIPT,
+  VIBRANIUM_ENERGY_DAGGERS_SCRIPT,
+  VIRIDIAN_CLAW_SCRIPT,
+  VULSHOK_BATTLEGEAR_SCRIPT,
+  VULSHOK_MORNINGSTAR_SCRIPT,
+  WARLORDS_AXE_SCRIPT,
   ANGELIC_GIFT_SCRIPT,
   CARTOUCHE_OF_KNOWLEDGE_SCRIPT,
   CARTOUCHE_OF_SOLIDARITY_SCRIPT,

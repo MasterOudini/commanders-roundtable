@@ -148,7 +148,16 @@ export function checkStateBasedActions(
       doomed.add(id);
       continue;
     }
-    if (attachmentIllegal) {
+    // D305 - CR 301.5c: an Equipment attached to a permanent that is not a
+    // creature (the host stopped being one) becomes unattached (CR 704.5n).
+    const equipOnNonCreature =
+      !isAura &&
+      d.typeLine.subtypes.includes('Equipment') &&
+      host !== undefined &&
+      host !== null &&
+      host.zone.kind === 'battlefield' &&
+      !derive(state, oracle, scripts, host.id, cache).typeLine.types.includes('Creature');
+    if (attachmentIllegal || equipOnNonCreature) {
       actions.push({ t: 'equipmentUnattaches', card: id });
       detachments.push(id);
       continue;
