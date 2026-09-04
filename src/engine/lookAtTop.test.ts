@@ -64,10 +64,12 @@ describe('the sentence (CR 701.16)', () => {
    * carries Flashback, which this vocabulary has no word for, so it stays
    * `assisted` — the prompt bar offers the understood half as one logged click.
    */
-  test('the graveyard form is read, on a card that still needs help', () => {
+  // D307: its flashback line is the engine's own now (no clause), so the look
+  // is the whole effect with the ask last - the card runs whole, 'auto'.
+  test('the graveyard form is read, on a card that runs whole since D307', () => {
     const face = ORACLE.byName('Forbidden Alchemy')?.faces[0];
     expect(face?.effects[0]).toMatchObject({ kind: 'lookAtTop', amount: 4, look: { take: 1, rest: 'graveyard' } });
-    expect(face?.effectMode).toBe('assisted');
+    expect(face?.effectMode).toBe('auto');
   });
 
   /**

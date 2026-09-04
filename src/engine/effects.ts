@@ -199,9 +199,10 @@ export function effectResult(
         if (!victim) break;
         out.push({ t: 'SpellCountered', stackId: victim.id });
         // A countered SPELL goes to its owner's graveyard; an ability just ceases.
+        // D307 - a spell cast by flashback goes to exile instead (CR 702.34a).
         if (victim.card) {
           const vc = state.cards[victim.card];
-          if (vc) out.push(moveFromStack(victim.card, 'graveyard', vc.owner));
+          if (vc) out.push(moveFromStack(victim.card, victim.castFrom?.kind === 'graveyard' ? 'exile' : 'graveyard', vc.owner));
         }
         out.push(narrated(`${obj.label} counters ${victim.label}.`, obj.controller, obj.identity));
         break;
@@ -651,7 +652,7 @@ function moveTo(card: InstanceId, kind: 'graveyard' | 'exile' | 'hand', player: 
 
 // ⚠️ Exported since D170 (the `drawEvents` precedent): a card script that
 // counters a spell must move the card by THE one rule, not a copy of it.
-export function moveFromStack(card: InstanceId, kind: 'graveyard', player: PlayerId): EventBody {
+export function moveFromStack(card: InstanceId, kind: 'graveyard' | 'exile', player: PlayerId): EventBody {
   return {
     t: 'CardsMoved',
     moves: [{ card, from: { kind: 'stack', player: null }, to: { kind, player } }],

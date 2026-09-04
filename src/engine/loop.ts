@@ -607,9 +607,12 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
       // CR 608.2b — a spell whose targets are all illegal is removed from the
       // stack and does nothing. It goes to the graveyard, not to exile.
       events.push({ t: 'SpellFizzled', stackId: obj.id });
+      // D307 - a spell cast by flashback leaves the stack to EXILE, whichever
+      // way it leaves (CR 702.34a).
+      const fizzleTo = obj.castFrom?.kind === 'graveyard' ? { kind: 'exile' as const, player: card.owner } : { kind: 'graveyard' as const, player: card.owner };
       events.push({
         t: 'CardsMoved',
-        moves: [{ card: obj.card, from: { kind: 'stack', player: null }, to: { kind: 'graveyard', player: card.owner } }],
+        moves: [{ card: obj.card, from: { kind: 'stack', player: null }, to: fizzleTo }],
       });
       events.push(
         narrated(`${obj.label} is countered on resolution — no legal targets.`, obj.controller, obj.identity),
@@ -619,7 +622,10 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
 
     const to = face?.isPermanent
       ? { kind: 'battlefield' as const, player: obj.controller }
-      : { kind: 'graveyard' as const, player: card.owner };
+      : obj.castFrom?.kind === 'graveyard'
+        ? // D307 - flashback: exiled instead of put anywhere else (CR 702.34a).
+          { kind: 'exile' as const, player: card.owner }
+        : { kind: 'graveyard' as const, player: card.owner };
     events.push({ t: 'StackResolved', stackId: obj.id, card: obj.card, to, targets: obj.targets, controller: obj.controller });
     // ⚠️ THE EFFECT RUNS BEFORE THE CARD MOVES. A spell is still on the stack
     // while it resolves (CR 608.2), so its own text can point at the board it is

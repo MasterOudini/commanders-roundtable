@@ -230,7 +230,12 @@ describe('a permanent’s text, which the app does not run', () => {
     expect(what(C.COUNTERSPELL)).toEqual([]);
     expect(what(C.SWORDS_TO_PLOWSHARES)).toEqual([]);
     expect(what(C.READ_THE_BONES)).toEqual([]);
-    expect(what(C.FORBIDDEN_ALCHEMY)).toEqual(['Part of its effect', 'Flashback']);
+    // ⚠️ Forbidden Alchemy is SILENT since D307: its flashback is the engine's
+    // own (cast from the graveyard for {6}{B}, exiled after), and with the
+    // flashback line no longer read as a clause its look is the whole effect -
+    // the ask is last, so the face reads auto. The assisted post is vacant
+    // until a fixture with a genuinely partial body takes it.
+    expect(what(C.FORBIDDEN_ALCHEMY)).toEqual([]);
     expect(what(C.CULTIVATE)).toEqual(['Its effect']);
   });
 

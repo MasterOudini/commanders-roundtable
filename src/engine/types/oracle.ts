@@ -702,6 +702,13 @@ export interface OracleFace {
   /** `ward {2}`, enforced as a cast-time tax when an opponent targets this. */
   readonly wardCost: ManaCost | null;
   /**
+   * D307 - THE FLASHBACK SEAM. The mana cost of the face's "Flashback {N}"
+   * line, or null: cast from its owner's GRAVEYARD for this cost instead of
+   * its mana cost, and exiled if it would leave the stack (CR 702.34a).
+   * "Flashback-<other cost>" stays null.
+   */
+  readonly flashbackCost: ManaCost | null;
+  /**
    * `ward—Pay 3 life`, as a life tax. 0 when there is none.
    *
    * ⚠️ A SEPARATE FIELD, not a degenerate `ManaCost`. D33 unified Phyrexian mana

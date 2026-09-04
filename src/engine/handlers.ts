@@ -406,7 +406,10 @@ function prepareCast(
     return { error: reject('notCastable', `${face.name} cannot be cast.`) };
   }
   const from: ZoneRef = { kind: card.zone.kind, player: card.zone.player };
-  if (from.kind !== 'hand' && from.kind !== 'command') {
+  // D307 - FLASHBACK: the graveyard is a place to cast from when the face
+  // prints a flashback cost the engine can pay (CR 702.34a).
+  const flashback = from.kind === 'graveyard' && face.flashbackCost !== null;
+  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback) {
     return { error: reject('wrongZone', `${face.name} is not somewhere you can cast it from.`) };
   }
   if (from.player !== player) return { error: reject('wrongZone', 'That is not your card.') };
@@ -426,7 +429,9 @@ function prepareCast(
   }
   const tax = from.kind === 'command' && card.isCommander ? 2 * card.commanderCastCount : 0;
   const ward = wardTaxFor(state, deps, player, targets);
-  const problem = buildPaymentProblem(face.manaCost, xValue, ward.mana, tax, ward.life);
+  // D307 - a flashback cast pays the FLASHBACK cost instead of the mana cost.
+  const cost = flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
+  const problem = buildPaymentProblem(cost, xValue, ward.mana, tax, ward.life);
   return { problem, face, tax, from, identity: oracleCard.colorIdentity };
 }
 

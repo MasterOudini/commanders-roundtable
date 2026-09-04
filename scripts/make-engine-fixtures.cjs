@@ -3763,6 +3763,10 @@ const WANTED = [
   'Improvised Armor',
   'Savage Hunger',
   'Sicken',
+  // D307 - the flashback seam test cards (two flashback spells, one that pays life, a counter).
+  'Feeling of Dread',
+  'Beast Attack',
+  'Deep Analysis',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

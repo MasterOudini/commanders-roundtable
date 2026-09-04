@@ -20741,3 +20741,79 @@ Fixtures 3,409 · botPool artifact 252 / creature 2,810 / enchantment 252 / inst
 **Reportables** (D306): the cycling triggers ('When you cycle this card' 24, 'Whenever you cycle or discard a card' 5) as a head over the discard event; the typed landcyclings once a library-search prompt carries them; the next keyword yields - flashback (88 pure: a cast from the graveyard for an alternative cost, exiled on leaving the stack), morph (53), convoke (52), crew (38), the native keyword triggers (prowess 37, exalted 23, bushido 15, persist / undying, evolve); the modal seam (42); the "another" split;
 the by-name sacrifice cost; the remaining cost verbs; the prompt
 continuation seam; prior items stand.
+
+## D307 — M6.4er: THE FLASHBACK SEAM — Flashback {N} casts from the graveyard for that cost and exiles on leaving the stack, the engine's own; 51 cards complete with no script (2026-09-04)
+
+**5,359 of 31,692 Commander-legal cards execute completely, up from
+5,308 (+51).** SHIPPED_SCRIPTS 3,083 → **3,083**; REFUSED ledger 954
+→ **992** (+38: the flashback spells the pool offered whose other sentences the vocabulary does not read yet - their flashback runs (Momentary Blink, Past in Flames, Devil's Play, Sever the Bloodline, Seize the Day, Echo of Eons ...)). Fixtures 3,409 → 3,412 (3,296 by name + 109 tokens: the seam's test cards (Feeling of Dread, Beast Attack, Deep Analysis; Counterspell was one already)). ZERO
+new token pins; five support bodies (the ingest, the offer, the cast, the
+three stack exits, the accounting) and the vocabulary's exclusion, one
+classifier shape. **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** D306's keyword probe put
+flashback second among the keyword yields: 184 blocked cards print a
+flashback line, 88 of them with nothing else unread (17 more pay life or
+another dash cost). The pure 88 are spells whose bodies the vocabulary already reads - Feeling of Dread (tap up to two target creatures), Beast Attack (a 4/4 Beast) and their kin - and the fixtures' own Deep Analysis pays life for its flashback and stays where it was.
+
+**The seam.** Flashback is a cast from the GRAVEYARD for an alternative
+cost, and the card leaves the stack to exile (CR 702.34a). The engine could
+already cast from two zones (the hand, the command zone), price a cast from
+a face's mana cost, and route a resolving spell to its graveyard; the
+graveyard as a place to cast from, the flashback cost as the price, and
+exile as the exit are the whole seam:
+
+- `src/engine/types/oracle.ts` / `src/data/oracleParse.ts`:
+  `OracleFace.flashbackCost` — `parseFlashback` reads "Flashback {N}" on
+  its own line (reminder text aside) as a mana cost; a dash cost
+  ("Flashback—Pay 3 life.") stays null and Tier 3 by name. Instants and
+  sorceries only.
+- `src/engine/legal.ts`: a card in your graveyard with a flashback cost is
+  offered as a `CastSpell` from there, at its own speed; `castAction`
+  prices a graveyard cast at the flashback cost.
+- `src/engine/handlers.ts`: `castSetup` admits the graveyard when the face
+  prints a flashback cost the engine can pay, and prices the cast at it;
+  `castFrom` records the zone on the stack object as it always did.
+- `src/engine/loop.ts` / `src/engine/effects.ts`: a spell whose `castFrom`
+  is the graveyard leaves the stack to EXILE, whichever way it leaves —
+  resolution, fizzle (CR 608.2b), or a counter (`moveFromStack` widened to
+  exile). A cancelled cast returns to the graveyard as before.
+- `src/data/effectParse.ts`: the Flashback line is no effect clause —
+  dropped beside the Cycling line, so the spell's own sentences decide its
+  mode.
+- `src/data/engineComplete.ts` / `tier3.ts` / `primitives.ts`: the parsed
+  cost makes the Flashback line the engine's own, the disclosure says
+  nothing about it, the classifier files it scriptable.
+
+No generator: a spell whose only unread line was its flashback line is
+COMPLETE by the accounting alone, and the fuzz gate casts from graveyards
+on every seed once a cycler or a resolved spell lands there.
+
+- **Refused by name:** +38: the flashback spells the pool offered whose other sentences the vocabulary does not read yet - their flashback runs (Momentary Blink, Past in Flames, Devil's Play, Sever the Bloodline, Seize the Day, Echo of Eons ...).
+- **Not this decision:** the dash costs ("Flashback—Pay 3 life",
+  "—Sacrifice a creature", "—Discard a card": 17); flashback on a
+  permanent-shaped spell; the other graveyard casts (Escape, Jump-start,
+  Unearth, Encore — the same zone, each its own price and exit).
+
+No spell def collided: a flashback line is no spell's sentence - the vocabulary drops it beside the cycling line - so nothing was retired by D187's rule.
+
+Report: `effect:auto` 3,659 → 3,884, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** `src/data/flashbackSeam.test.ts` (the cost read, the dash cost
+refused, the accounting and the disclosure on Feeling of Dread / Beast
+Attack / Deep Analysis, the classifier); `src/engine/flashback.test.ts`
+(Beast Attack cast from the graveyard for {2}{G}{G}{G} makes its Beast and
+is exiled, a countered flashback spell is exiled, the game replays).
+
+**Landed:** no script and 51 AUTO FLIPS - the flashback spells whose only unread line was their flashback line completed by the accounting alone, and 225 faces read auto once the flashback line is no clause (effect:auto 3,659 -> 3,884). No wave of rows: the seam's own flips are the landing (Feeling of Dread, Beast Attack, Momentary Blink's readable kin ...), and the bot's own deck took 22 instants and 29 sorceries more on the same sweep.
+
+Fixtures 3,412 · botPool artifact 252 / creature 2,810 / enchantment 252 / instant 934 / land 392 / sorcery 719 - auto 851 / assisted 1,857 / autoAnyFace 860 · ladder [1092, 1229, 2968, 4860, 6155] · batch.json
+0 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,184 files, 16,668 passing / 11 skipped ·
+500-seed gate, 6 shards, 307.4 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D307): the other graveyard casts on the same zone (Escape 32 dash lines, Jump-start 10, Unearth 15, Encore 11, Retrace 13 - each its own price and exit); the flashback dash costs (17); then the next keyword yields - morph (53), convoke (52), crew (38), the native keyword triggers (prowess 37, exalted 23, bushido 15); the modal seam (42); the "another" split;
+the by-name sacrifice cost; the remaining cost verbs; the prompt
+continuation seam; prior items stand.

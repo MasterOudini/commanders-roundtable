@@ -114109,6 +114109,115 @@ export const SICKEN: CardData = {
   "singleImage": true
 };
 
+export const FEELING_OF_DREAD: CardData = {
+  "scryfallId": "005f90cb-3fed-443a-8ba6-f42e060787d2",
+  "oracleId": "269208e1-353c-4334-941a-2177f6665fba",
+  "name": "Feeling of Dread",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Feeling of Dread",
+      "manaCost": "{1}{W}",
+      "typeLine": "Instant",
+      "oracleText": "Tap up to two target creatures.\nFlashback {1}{U} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Stanko",
+      "imageId": "005f90cb-3fed-443a-8ba6-f42e060787d2"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flashback"
+  ],
+  "setCode": "sis",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BEAST_ATTACK: CardData = {
+  "scryfallId": "011f805f-3ebb-4748-a5de-8a10b5f47dcd",
+  "oracleId": "3f5acd90-199c-4ed3-9c8a-eeac4670d876",
+  "name": "Beast Attack",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Beast Attack",
+      "manaCost": "{2}{G}{G}{G}",
+      "typeLine": "Instant",
+      "oracleText": "Create a 4/4 green Beast creature token.\nFlashback {2}{G}{G}{G} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ciruelo",
+      "imageId": "011f805f-3ebb-4748-a5de-8a10b5f47dcd"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flashback"
+  ],
+  "setCode": "dds",
+  "collectorNumber": "43",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEEP_ANALYSIS: CardData = {
+  "scryfallId": "01479ce7-4617-4c7c-93f2-cf8c9c5e1dac",
+  "oracleId": "579cbd92-797f-4cdf-91ed-fca7a523eae5",
+  "name": "Deep Analysis",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deep Analysis",
+      "manaCost": "{3}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Target player draws two cards.\nFlashback—{1}{U}, Pay 3 life. (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+      "flavorText": "\"The specimen seems to be broken.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jesper Ejsing",
+      "imageId": "01479ce7-4617-4c7c-93f2-cf8c9c5e1dac"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flashback"
+  ],
+  "setCode": "cmm",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -121123,6 +121232,9 @@ export const ENGINE_CARDS: CardData[] = [
   IMPROVISED_ARMOR,
   SAVAGE_HUNGER,
   SICKEN,
+  FEELING_OF_DREAD,
+  BEAST_ATTACK,
+  DEEP_ANALYSIS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

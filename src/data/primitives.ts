@@ -596,6 +596,19 @@ export function cyclingLineRuns(text: string): boolean {
   return CYCLING_MANA_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
 }
 
+/**
+ * D307 - THE FLASHBACK SEAM. "Flashback {N}" the engine runs (cast from the
+ * graveyard for that cost, exiled on leaving the stack). Measured over the
+ * database before it was built: 184 blocked cards print a flashback line, 88
+ * of them with nothing else unread - the second keyword yield in the format.
+ */
+const FLASHBACK_MANA_LINE = /^Flashback (?:\{[^}]+\})+$/;
+
+/** Is this printed line a Flashback the engine runs (D307)? */
+export function flashbackLineRuns(text: string): boolean {
+  return FLASHBACK_MANA_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
+}
+
 /** Is this printed line an equipped-creature static or restriction a row can emit (D305)? */
 export function equipLineShape(text: string): boolean {
   return EQUIPPED_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
@@ -617,6 +630,9 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // D306 - a Cycling line with a mana cost is the engine's own (see
   // `cyclingLineRuns`); a landcycling or a non-mana cycling stays `keyword:altCost`.
   if (/^cycling\b/i.test(text)) return cyclingLineRuns(text) ? 'scriptable' : 'keyword:altCost';
+  // D307 - a Flashback line with a mana cost is the engine's own (see
+  // `flashbackLineRuns`); a dash cost stays `keyword:altCost`.
+  if (/^flashback\b/i.test(text)) return flashbackLineRuns(text) ? 'scriptable' : 'keyword:altCost';
 
   // A keyword ability is not a sentence — check the shape before reading it as
   // one. See `KEYWORD_LINES`.

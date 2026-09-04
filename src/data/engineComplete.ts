@@ -421,6 +421,9 @@ function linesUnaccounted(
     // D306 - a Cycling line the engine RUNS (the synthesized ability: offered
     // from the hand, the discard charged, the draw resolved natively).
     if (face.activated.some((a) => a.cycling !== undefined && a.cycling.line === line)) continue;
+    // D307 - a Flashback line the engine RUNS (cast from the graveyard for
+    // that cost, exiled on leaving the stack). Asked of the parser that read it.
+    if (face.flashbackCost !== null && /^Flashback (?:\{[^}]+\})+$/.test(line)) continue;
     if (isKeywordLine(line, face)) continue;
     // ⚠️ `mana` outranks `activated`, because a mana ability never reaches the
     // stack (CR 605) and is never offered by `ActivateAbility` — so the note that

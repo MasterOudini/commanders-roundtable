@@ -315,8 +315,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // scale — 19 of 25, the six refusals named — 1,742 → 1,761. M6.4d
       // (D161): thirteen more, and the selection taught two refusal shapes —
       // 1,761 → 1,774.
-      complete: 5308,
-      blocked: 26384,
+      complete: 5359,
+      blocked: 26333,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -325,7 +325,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1054,
+      scriptableToday: 1092,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -336,9 +336,9 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
-      layer6: 1460,
-      counter: 1494,
-      token: 921,
+      layer6: 1462,
+      counter: 1504,
+      token: 945,
     });
   });
 
@@ -375,7 +375,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1054, 1191, 2928, 4810, 6079]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1092, 1229, 2968, 4860, 6155]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -462,11 +462,11 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       else split.unclaimed++;
       if (card.layer6Lines.some((t) => TEMPORARY.test(t))) temporary++;
     }
-    expect.soft(split).toEqual({ grant: 861, anthem: 167, restriction: 279, conditional: 153, unclaimed: 0 });
+    expect.soft(split).toEqual({ grant: 863, anthem: 167, restriction: 279, conditional: 153, unclaimed: 0 });
     // ⚠️ THE NUMBER THAT KEEPS `layer6` OUT OF `BUILT`. Asserted here rather than
     // written in the comment above, because D129's reason lived in a comment and
     // stayed there for twenty-four decisions after D147 closed it.
-    expect.soft(temporary).toBe(583);
+    expect.soft(temporary).toBe(585);
   });
 
   /**
@@ -499,7 +499,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     }
     // ⚠️ THE SPELLS are the only part that could move `complete` — and every one
     // of them still needs the resolver.
-    expect.soft(byOwner).toEqual({ spell: 311, permanent: 610 });
+    expect.soft(byOwner).toEqual({ spell: 335, permanent: 610 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -512,11 +512,11 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // the `optional` pre-filter had been hiding 199 token lines, so those cards
     // were being counted as blocked on a yes/no. Same row, read honestly.
     expect.soft(byKind).toEqual({
-      copy: 105,
+      copy: 111,
       predefined: 144,
-      withAbilities: 277,
-      variable: 75,
-      plain: 320,
+      withAbilities: 288,
+      variable: 77,
+      plain: 325,
       unclaimed: 0,
     });
   });
@@ -547,8 +547,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1054, 1191]);
-    expect.soft(r.complete).toBe(5308);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1092, 1229]);
+    expect.soft(r.complete).toBe(5359);
   });
 });
 

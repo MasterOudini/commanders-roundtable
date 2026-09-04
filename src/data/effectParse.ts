@@ -878,7 +878,7 @@ export function parseEffects(
   // decide its mode. Reminder text is already scrubbed at this point.
   const clean = scrub(selfRef(oracleText, cardName))
     .split('\n')
-    .filter((l) => !/^Cycling (?:\{[^}]+\})+\s*$/.test(l.trim()))
+    .filter((l) => !/^(?:Cycling|Flashback) (?:\{[^}]+\})+\s*$/.test(l.trim()))
     .join('\n');
   const clauses = clausesOf(clean);
   if (clauses.length === 0) return { effects: [], mode: 'manual' };

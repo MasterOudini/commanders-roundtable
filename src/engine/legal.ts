@@ -152,6 +152,18 @@ export function legalActions(
     }
   }
 
+  // ⚠️ D307 - FLASHBACK: a card in your graveyard with a flashback cost is
+  // castable from there for that cost (CR 702.34a), at its own speed.
+  for (const id of state.zones.graveyard[player] ?? []) {
+    const card = cardFor(state, oracle, id);
+    if (!card) continue;
+    for (const faceIndex of castableFaces(card)) {
+      if (faceOf(card, faceIndex).flashbackCost === null) continue;
+      const action = castAction(state, oracle, id, faceIndex, { kind: 'graveyard', player }, context, sorcerySpeed);
+      if (action) out.push(action);
+    }
+  }
+
   // The command zone. A commander is castable from here at sorcery speed (or
   // any time with flash), with the tax folded into the cost.
   for (const id of state.zones.command[player] ?? []) {
@@ -468,9 +480,12 @@ function castAction(
 
   const tax = from.kind === 'command' && inst.isCommander ? 2 * inst.commanderCastCount : 0;
   const hasX = face.manaCost.xCount > 0;
+  // D307 - from the graveyard the cost is the FLASHBACK cost (CR 702.34a).
+  const cost = from.kind === 'graveyard' ? face.flashbackCost : face.manaCost;
+  if (cost === null) return null;
   // X is priced at 0 for the affordability flag: a card with X is castable for
   // X=0, and greying it out because X=5 is unaffordable would be a lie.
-  const problem = buildPaymentProblem(face.manaCost, 0, [], tax);
+  const problem = buildPaymentProblem(cost, 0, [], tax);
   return {
     t: 'CastSpell',
     card: id,

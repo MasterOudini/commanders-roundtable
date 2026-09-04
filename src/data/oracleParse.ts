@@ -404,6 +404,19 @@ export function parseWard(oracleText: string, warn: Warn = NOOP_WARN): ManaCost 
  * price is wrong is precisely the "confidently wrong" failure the Tier-2/Tier-3
  * line exists to prevent.
  */
+/**
+ * D307 - "Flashback {N}" on its own line (reminder text aside), read as a mana
+ * cost. A dash cost ("Flashback-Pay 3 life.") is null: the engine cannot pay it.
+ */
+export function parseFlashback(oracleText: string, warn: Warn = NOOP_WARN): ManaCost | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const m = /^Flashback ((?:\{[^}]+\})+)$/.exec(line);
+    if (m) return parseManaCost(m[1] ?? '', warn);
+  }
+  return null;
+}
+
 export function parseWardLife(oracleText: string, warn: Warn = NOOP_WARN): number {
   const text = oracleText ?? '';
   if (!/\bward\b/i.test(text)) return 0;
@@ -703,6 +716,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const landwalk = parseLandwalk(face.oracleText);
   const wardCost = parseWard(face.oracleText, warn);
   const wardLife = parseWardLife(face.oracleText, warn);
+  const flashbackCost = isPermanent ? null : parseFlashback(face.oracleText, warn);
   const toxicAmount = keywords.includes('toxic') ? parseToxic(face.oracleText) : 0;
   const producesMana = parseManaProduction(face, typeLine, warn);
   // ⚠️ Abilities are parsed BEFORE spell targets and are handed `producesMana`,
@@ -759,6 +773,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     isLand,
     instantSpeed: typeLine.types.includes('Instant') || keywords.includes('flash'),
     wardCost,
+    flashbackCost,
     wardLife,
     toxicAmount,
     targets,
