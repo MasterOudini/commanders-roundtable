@@ -872,6 +872,12 @@ export function resolveAbility(
     }
     // D306 - CYCLING resolves natively: draw a card (the discard was the cost).
     if (ability?.cycling !== undefined) events.push(...drawEvents(state, obj.controller, 1));
+    // D311 - CREW resolves natively: the Vehicle is an artifact creature until
+    // end of turn (CR 702.122a), carried by the same until-end-of-turn list a
+    // pump rides on, cleared by the same cleanup.
+    if (ability?.crew !== undefined && state.cards[obj.source]?.zone.kind === 'battlefield') {
+      events.push({ t: 'PtModifiedUntilEndOfTurn', card: obj.source, power: 0, toughness: 0, types: ['Artifact', 'Creature'] });
+    }
   }
   if (answer !== null) {
     events.push(

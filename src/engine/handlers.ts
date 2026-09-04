@@ -764,12 +764,18 @@ function activateAbility(
   // ⚠️ The TAP chooser (D286): the same gate and the same re-validation,
   // over untapped permanents the player controls.
   if (ability.tapCost) {
-    if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+    if (ability.crew === undefined && !activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
       return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
     }
     const picks = intent.tap ?? [];
     const want = ability.tapCost.count;
-    if (picks.length !== want) {
+    if (ability.tapCost.powerAtLeast !== undefined) {
+      // D311 - crew: any number of the candidates, their power adding up to N.
+      const power = picks.reduce((sum, c) => sum + (derive(state, deps.oracle, deps.scripts, c).power ?? 0), 0);
+      if (picks.length === 0 || power < ability.tapCost.powerAtLeast) {
+        return reject('needsTap', `${face.name}'s crew taps untapped creatures you control with total power ${ability.tapCost.powerAtLeast} or more — say which.`);
+      }
+    } else if (picks.length !== want) {
       return reject('needsTap', `${face.name}'s cost taps ${want} untapped permanent${want === 1 ? '' : 's'} you control — say which.`);
     }
     if (new Set(picks).size !== picks.length) return reject('noSuchCard', 'You named the same permanent twice.');

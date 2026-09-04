@@ -535,7 +535,9 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
         return out;
       };
       const discards = pickN(chosen.discardCandidates, chosen.discardCount);
-      const taps = pickN(chosen.tapCandidates, chosen.tapCount);
+      // D311 - a crew offer names the power to reach: tap every candidate
+      // (any number is legal), the count-shaped costs pick exactly N.
+      const taps = chosen.tapPower !== undefined ? [...(chosen.tapCandidates ?? [])] : pickN(chosen.tapCandidates, chosen.tapCount);
       return {
         t: 'ActivateAbility',
         player: holder,

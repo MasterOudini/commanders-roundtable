@@ -504,12 +504,12 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
     // the effect, `legal.ts`'s gate), `targeted` +50 (target clauses inside
     // the newly admitted lines).
     expect(report.activated).toEqual({
-      lines: 44345,
+      lines: 44874, // D311: the 529 synthesized Crew abilities
       // ⚠️ 28,133 → 29,933 in M6.4k (D168): the sacrifice-cost chooser's
       // 1,800 lines — the exact mirror of `nonManaCost`'s fall above.
       // ⚠️ 29,933 → 31,058 in M6.4dw (D286): the discard and tap choosers'
       // 1,125 lines — the mirror of `nonManaCost`'s second fall.
-      payable: 33841,
+      payable: 34370,
       // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
       manaAbility: 11582,
       targeted: 12269,

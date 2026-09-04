@@ -88,6 +88,8 @@ export type LegalAction =
       /** A "Tap N untapped …" cost (D286): the permanents that may pay it, and N. */
       readonly tapCandidates?: readonly InstanceId[];
       readonly tapCount?: number;
+      /** D311 - crew: the total POWER the chosen taps must reach (tapCount is 0 then). */
+      readonly tapPower?: number;
     }
   | {
       /** D309 - turn a face-down permanent face up for its morph cost (a special action). */
@@ -307,7 +309,8 @@ export function legalActions(
       }
       let tapCandidates: readonly InstanceId[] | null = null;
       if (ability.tapCost) {
-        if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        // D311 - crew's effect is the engine's own: no def to wait for.
+        if (ability.crew === undefined && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
         tapCandidates = tapCandidatesFor(
           state,
           (cid) => derive(state, oracle, scripts, cid, context.cache),
@@ -316,6 +319,11 @@ export function legalActions(
           ability.tapCost,
         );
         if (tapCandidates.length < ability.tapCost.count) continue;
+        // D311 - crew: the candidates must be able to reach the power together.
+        if (ability.tapCost.powerAtLeast !== undefined) {
+          const reach = tapCandidates.reduce((sum, cid) => sum + (derive(state, oracle, scripts, cid, context.cache).power ?? 0), 0);
+          if (reach < ability.tapCost.powerAtLeast) continue;
+        }
       }
       if (ability.requiresTap && inst.tapped) continue;
       if (ability.requiresUntap && !inst.tapped) continue;
@@ -348,7 +356,9 @@ export function legalActions(
         ...(discardCandidates && ability.discardCost
           ? { discardCandidates, discardCount: ability.discardCost.count }
           : {}),
-        ...(tapCandidates && ability.tapCost ? { tapCandidates, tapCount: ability.tapCost.count } : {}),
+        ...(tapCandidates && ability.tapCost
+          ? { tapCandidates, tapCount: ability.tapCost.count, ...(ability.tapCost.powerAtLeast !== undefined ? { tapPower: ability.tapCost.powerAtLeast } : {}) }
+          : {}),
       });
     }
   }

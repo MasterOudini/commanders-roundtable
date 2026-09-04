@@ -3815,6 +3815,9 @@ const WANTED = [
   'Mothdust Changeling',
   // D310 - the characteristic-defining keyword test cards (two changelings, a devoid Eldrazi).
   'Vestige of Emrakul',
+  // D311 - the crew seam test cards (three pure Vehicles).
+  'Sky Skiff',
+  "Cultivator's Caravan",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

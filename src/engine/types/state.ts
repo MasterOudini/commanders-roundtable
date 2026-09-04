@@ -824,6 +824,8 @@ export interface GameState {
      * `derive.ts`, cleared by the same `UntilEndOfTurnEnded` as the P/T.
      */
     readonly keywords?: readonly Keyword[];
+    /** D311 - card types gained until end of turn (a crewed Vehicle). Read at layer 4. */
+    readonly types?: readonly string[];
   }[];
   readonly pendingTriggers: readonly PendingTrigger[];
   readonly winners: readonly PlayerId[];

@@ -144,6 +144,14 @@ function computeDerived(
     if (mod.card !== inst.id || mod.keywords === undefined) continue;
     for (const k of mod.keywords) chars.keywords.add(k);
   }
+  // D311 - layer 4: card types gained until end of turn (a crewed Vehicle is
+  // an artifact creature; CR 702.122a).
+  for (const mod of state.untilEndOfTurn) {
+    if (mod.card !== inst.id || mod.types === undefined) continue;
+    const types = [...chars.typeLine.types];
+    for (const t of mod.types) if (!types.includes(t)) types.push(t);
+    chars.typeLine = { ...chars.typeLine, types };
+  }
   applyStatics(state, oracle, scripts, inst, chars, 'type', cache);
   applyStatics(state, oracle, scripts, inst, chars, 'color', cache);
 

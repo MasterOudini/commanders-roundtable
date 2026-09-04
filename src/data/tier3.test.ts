@@ -179,7 +179,8 @@ describe('a permanent’s text, which the app does not run', () => {
    */
   test('a bare keyword line raises no ability-text note', () => {
     expect(what(C.THRASIOS_TRITON_HERO)).toEqual(['Its “{4}” ability']);
-    expect(what(C.SHORIKAI_GENESIS_ENGINE)).toEqual(['Its “{1}, {T}” ability', 'Crew']);
+    // D311 - its Crew is the engine's own now; only the draw ability is left to note.
+    expect(what(C.SHORIKAI_GENESIS_ENGINE)).toEqual(['Its “{1}, {T}” ability']);
     // A ward that is a decision is named as a ward, once, and not twice.
     expect(what(withText(C.GRIZZLY_BEARS, 'Ward—Discard a card.', ['Ward']))).toEqual(['Ward']);
   });

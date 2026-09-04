@@ -650,6 +650,11 @@ export interface ActivatedAbility {
     readonly count: number;
     readonly another: boolean;
     readonly any: readonly import('../../data/replacementParse').PermanentPredicate[];
+    /**
+     * D311 - CREW: "any number" of the candidates whose POWER adds up to at
+     * least this, instead of a count. The count is 0 when this is set.
+     */
+    readonly powerAtLeast?: number;
   } | null;
   /**
    * `Sacrifice this <type>` — a SELF-sacrifice: deterministic, no chooser, so
@@ -684,6 +689,13 @@ export interface ActivatedAbility {
    * resolved natively (`resolveAbility`).
    */
   readonly cycling?: { readonly line: string };
+  /**
+   * D311 - THE CREW SEAM. The synthesized "Crew N" ability (CR 702.122a): tap
+   * any number of untapped creatures you control with total power N or more,
+   * and the Vehicle becomes an artifact creature until end of turn. `line`
+   * is the printed line it accounts for.
+   */
+  readonly crew?: { readonly line: string; readonly power: number };
 }
 
 export interface OracleFace {

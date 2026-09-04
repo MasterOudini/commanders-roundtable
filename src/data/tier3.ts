@@ -271,6 +271,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (ability.equip !== undefined) continue;
     // D306 - the synthesized Cycling is the engine's own: no note.
     if (ability.cycling !== undefined) continue;
+    // D311 - crew resolves natively: the tap chooser charges it, the engine animates.
+    if (ability.crew !== undefined) continue;
 
     // ⚠️ A SHIPPED `ActivatedDef` RUNS THIS ABILITY COMPLETELY (D159) — cost
     // charged by the engine, effect resolved by the script — so the card owes
@@ -332,6 +334,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (raw.trim().toLowerCase() === 'equip' && abilities.some((a) => a.equip !== undefined)) continue;
     // D306 - a Cycling the engine runs is no note either.
     if (raw.trim().toLowerCase() === 'cycling' && abilities.some((a) => a.cycling !== undefined)) continue;
+    // D311 - a Crew the engine runs is no note either.
+    if (raw.trim().toLowerCase() === 'crew' && abilities.some((a) => a.crew !== undefined)) continue;
     // D307 - a Flashback the engine runs (a mana cost, read by parseFlashback) is no note.
     if (raw.trim().toLowerCase() === 'flashback' && !isPermanentType(parseTypeLine(card.faces[faceIndex]?.typeLine ?? '')) && parseFlashback(card.faces[faceIndex]?.oracleText ?? '') !== null) continue;
     // D309 - a Morph / Megamorph the engine runs (a mana cost, read by parseMorph) is no note.

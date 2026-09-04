@@ -917,6 +917,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
             // Spread-conditional so an event with no keywords appends the
             // exact pre-D194 entry — hash-identical replays.
             ...(body.keywords !== undefined ? { keywords: body.keywords } : {}),
+            ...(body.types !== undefined ? { types: body.types } : {}),
           },
         ],
       };

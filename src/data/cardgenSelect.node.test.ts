@@ -1997,6 +1997,28 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Witness the End', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Kozilek\'s Return', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Ugin\'s Binding', 'a spell line outside the vocabulary (its devoid runs)'],
+
+  // D311 (M6.4ev) — the crew pool: the Vehicles whose other
+  // lines the vocabulary does not read yet - their crew runs.
+  ['Bomat Bazaar Barge', 'an enters trigger outside the vocabulary (its crew runs)'],
+  ['Broadcast Rambler', 'an enters trigger outside the vocabulary (its crew runs)'],
+  ['Burner Rocket', 'an enters trigger outside the vocabulary (its crew runs)'],
+  ['Captain America\'s Motorcycle', 'an enters trigger outside the vocabulary (its crew runs)'],
+  ['Careening Mine Cart', 'a combat trigger outside the vocabulary (its crew runs)'],
+  ['Enchanted Carriage', 'an enters trigger outside the vocabulary (its crew runs)'],
+  ['Fire Nation Warship', 'a Vehicle line outside the vocabulary (its crew runs)'],
+  ['High-Speed Hoverbike', 'an enters trigger outside the vocabulary (its crew runs)'],
+  ['Hulldrifter', 'an enters trigger outside the vocabulary (its crew runs)'],
+  ['Magitek Armor', 'an enters trigger outside the vocabulary (its crew runs)'],
+  ['Rangers\' Aetherhive', 'a Vehicle line outside the vocabulary (its crew runs)'],
+  ['Ribskiff', 'an enters trigger outside the vocabulary (its crew runs)'],
+  ['Rover Blades', 'a Vehicle line outside the vocabulary (its crew runs)'],
+  ['S.H.I.E.L.D. Helicarrier', 'an enters trigger outside the vocabulary (its crew runs)'],
+  ['Silent Submersible', 'a combat trigger outside the vocabulary (its crew runs)'],
+  ['Spotcycle Scouter', 'an enters trigger outside the vocabulary (its crew runs)'],
+  ['Thopter Fabricator', 'a Vehicle line outside the vocabulary (its crew runs)'],
+  ['Turtle Blimp', 'an enters trigger outside the vocabulary (its crew runs)'],
+  ['Veloheart Bike', 'an enters trigger outside the vocabulary (its crew runs)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

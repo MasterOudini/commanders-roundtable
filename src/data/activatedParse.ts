@@ -66,6 +66,9 @@ const EQUIP_EFFECT = 'Attach this Equipment to target creature you control.';
  */
 const CYCLING_RE = /^Cycling ((?:\{[^}]+\})+)$/;
 const CYCLING_EFFECT = 'Draw a card.';
+// D311 - THE CREW SEAM: "Crew N" on its own line (reminder text aside).
+const CREW_RE = /^Crew (\d+)$/;
+const CREW_EFFECT = 'This Vehicle becomes an artifact creature until end of turn.';
 
 export interface ActivatedParseInput {
   readonly oracleText: string;
@@ -188,6 +191,37 @@ export function parseActivatedAbilities(
         sorceryOnly: false,
         targets: [],
         cycling: { line: printed },
+      });
+      continue;
+    }
+    // D311 - THE CREW SEAM: "Crew N" is an activated ability with no mana in
+    // its cost - tap any number of untapped creatures you control with total
+    // power N or more (CR 702.122a) - and the engine's own effect: the Vehicle
+    // is an artifact creature until end of turn. Instant speed, no targets.
+    const crewLine = CREW_RE.exec(printed);
+    if (crewLine) {
+      const power = Number(crewLine[1] ?? '0');
+      const crewAny = predicatesOf('creature');
+      out.push({
+        index: out.length,
+        costText: `Crew ${power}`,
+        effectText: CREW_EFFECT,
+        manaCost: parseCost('{0}', warn),
+        requiresTap: false,
+        requiresUntap: false,
+        lifeCost: 0,
+        lifeCostCommanderColors: false,
+        sacrificesSelf: false,
+        sacrificeCost: null,
+        discardCost: null,
+        tapCost: crewAny === null ? null : { count: 0, another: true, any: crewAny, powerAtLeast: power },
+        unpaidCosts: crewAny === null ? [`Crew ${power}`] : [],
+        payable: crewAny !== null,
+        isManaAbility: false,
+        isLoyalty: false,
+        sorceryOnly: false,
+        targets: [],
+        crew: { line: printed, power },
       });
       continue;
     }

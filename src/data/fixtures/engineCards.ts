@@ -115730,6 +115730,71 @@ export const VESTIGE_OF_EMRAKUL: CardData = {
   "singleImage": true
 };
 
+export const SKY_SKIFF: CardData = {
+  "scryfallId": "78852608-f36c-4e26-b2ab-75ecd97d2787",
+  "oracleId": "f2c43b85-8c42-4b23-84c2-bec8d6230039",
+  "name": "Sky Skiff",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sky Skiff",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Vehicle",
+      "oracleText": "Flying\nCrew 1 (Tap any number of creatures you control with total power 1 or more: This Vehicle becomes an artifact creature until end of turn.)",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Richard Wright",
+      "imageId": "78852608-f36c-4e26-b2ab-75ecd97d2787"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Flying",
+    "Crew"
+  ],
+  "setCode": "klr",
+  "collectorNumber": "271",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CULTIVATOR_S_CARAVAN: CardData = {
+  "scryfallId": "249aa94c-85ab-4606-aa2c-c902bd83ac21",
+  "oracleId": "c1eb530c-dd36-40ae-8617-6bb6969565e1",
+  "name": "Cultivator's Caravan",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cultivator's Caravan",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Vehicle",
+      "oracleText": "{T}: Add one mana of any color.\nCrew 3 (Tap any number of creatures you control with total power 3 or more: This Vehicle becomes an artifact creature until end of turn.)",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Mark Zug",
+      "imageId": "249aa94c-85ab-4606-aa2c-c902bd83ac21"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Crew"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "670",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -122789,6 +122854,8 @@ export const ENGINE_CARDS: CardData[] = [
   BLINDING_DRONE,
   MOTHDUST_CHANGELING,
   VESTIGE_OF_EMRAKUL,
+  SKY_SKIFF,
+  CULTIVATOR_S_CARAVAN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

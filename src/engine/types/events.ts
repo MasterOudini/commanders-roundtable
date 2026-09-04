@@ -401,6 +401,8 @@ export type EventBody =
        * ("gains flying until end of turn") carries power 0 / toughness 0.
        */
       readonly keywords?: readonly Keyword[];
+      /** D311 - card types GAINED until end of turn (crew: Artifact, Creature). Read at layer 4. */
+      readonly types?: readonly string[];
     }
   /** Cleanup, CR 514.2. Every until-end-of-turn modifier ends at once. */
   | { readonly t: 'UntilEndOfTurnEnded' }

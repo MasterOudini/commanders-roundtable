@@ -421,6 +421,9 @@ function linesUnaccounted(
     // D306 - a Cycling line the engine RUNS (the synthesized ability: offered
     // from the hand, the discard charged, the draw resolved natively).
     if (face.activated.some((a) => a.cycling !== undefined && a.cycling.line === line)) continue;
+    // D311 - a Crew line the engine RUNS (the synthesized ability: the tap
+    // chooser charged by power, the Vehicle animated natively).
+    if (face.activated.some((a) => a.crew !== undefined && a.crew.line === line)) continue;
     // D307 - a Flashback line the engine RUNS (cast from the graveyard for
     // that cost, exiled on leaving the stack). Asked of the parser that read it.
     if (face.flashbackCost !== null && /^Flashback (?:\{[^}]+\})+$/.test(line)) continue;

@@ -450,7 +450,7 @@ const POOL: Record<string, number> = {
   instant: 934,
   sorcery: 719,
   land: 394,
-  artifact: 252,
+  artifact: 270,
   enchantment: 252,
 };
 

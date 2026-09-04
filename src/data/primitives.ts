@@ -622,6 +622,19 @@ export function morphLineRuns(text: string): boolean {
   return MORPH_MANA_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
 }
 
+/**
+ * D311 - THE CREW SEAM. "Crew N" the engine runs (tap creatures with total
+ * power N or more, the Vehicle an artifact creature until end of turn).
+ * Measured over the database before it was built: 172 blocked Vehicles print
+ * a crew line, 37 of them with nothing else unread.
+ */
+const CREW_LINE = /^Crew \d+$/;
+
+/** Is this printed line a Crew the engine runs (D311)? */
+export function crewLineRuns(text: string): boolean {
+  return CREW_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
+}
+
 /** Is this printed line an equipped-creature static or restriction a row can emit (D305)? */
 export function equipLineShape(text: string): boolean {
   return EQUIPPED_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
@@ -646,6 +659,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // D307 - a Flashback line with a mana cost is the engine's own (see
   // `flashbackLineRuns`); a dash cost stays `keyword:altCost`.
   if (/^flashback\b/i.test(text)) return flashbackLineRuns(text) ? 'scriptable' : 'keyword:altCost';
+  // D311 - a Crew line is the engine's own (see `crewLineRuns`).
+  if (/^crew\b/i.test(text)) return crewLineRuns(text) ? 'scriptable' : 'keyword:other';
   // D309 - a Morph / Megamorph line with a mana cost is the engine's own (see
   // `morphLineRuns`); a dash cost stays `keyword:altCost`.
   if (/^(?:morph|megamorph)\b/i.test(text)) return morphLineRuns(text) ? 'scriptable' : 'keyword:altCost';

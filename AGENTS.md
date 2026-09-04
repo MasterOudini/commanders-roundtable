@@ -9542,6 +9542,40 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D310): crew (38 pure) once the tap-creatures cost chooser sums power; convoke (52) as a payment-plan source; the turned-face-up triggers (49); the dash morph costs; the other graveyard casts (Escape, Jump-start, Unearth, Encore, Retrace); the cycling triggers head; echo once a pay-or-else prompt exists; the modal seam (42); the "another"
       split; the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4ev — THE CREW SEAM: Crew N taps creatures with total power N or
+      more and the Vehicle is an artifact creature until end of turn, the
+      engine's own ability; 18 cards complete with no script
+      (2026-09-04):** **5,522 of 31,692 Commander-legal cards now execute
+      completely, up from 5,504 (+18).** `SHIPPED_SCRIPTS`
+      3,108; ledger 1,074 (+19: the Vehicles whose OTHER line the vocabulary does not read yet - their crew runs: 13 enters triggers (tokens, draws, a scry, a targeted pump: Enchanted Carriage, Hulldrifter, Bomat Bazaar Barge, Turtle Blimp, Spotcycle Scouter, Burner Rocket ...), 2 combat triggers (Careening Mine Cart, Silent Submersible), 4 other lines (Rangers' Aetherhive, Thopter Fabricator, Fire Nation Warship, Rover Blades)). Fixtures 3,456
+      (3,340 by name + 109 tokens: the seam's test Vehicles (Sky Skiff, Consulate Dreadnought; Cultivator's Caravan was one already)). ZERO token pins; nine support bodies, no new intent.
+      **Select pool 0.** Decisions in **D311**.
+      ⚠️ **Measured first:** d311/probe-crew.json over the database: 172 blocked Vehicles print a Crew line (Crew 2 on 70, Crew 1 on 44, Crew 3 on 39, Crew 4 on 12, Crew 6 on 4, Crew 5 on 2, Crew 8 on 1), every one with a printed P/T, and 37 of them (Sky Skiff, Consulate Dreadnought, Cultivator Caravan, Aradara Express, Sleek Schooner ...) have nothing else unread; the rest print attack triggers and enters-crewed clauses next.
+      ⚠️ **The seam:** `activatedParse.ts` synthesizes "Crew N" as an
+      activated ability in print order — no mana, a tap cost over creatures
+      with `powerAtLeast: N` (count 0), the effect "This Vehicle becomes an
+      artifact creature until end of turn", `crew: {line, power}`;
+      `legal.ts` offers it without a def when the untapped creatures can
+      reach the power together (`tapPower` on the offer); `handlers.ts` sums
+      the named taps' derived power; `loop.ts` resolves a
+      `PtModifiedUntilEndOfTurn` with `types: [Artifact, Creature]` — the
+      carrier, the reducer and the event learn `types`, `derive.ts` reads
+      them at layer 4, the cleanup ends it; the fuzz gate crews by tapping
+      every candidate; the accounting, the disclosure and the classifier
+      treat the line as the engine's own. No generator. NOT this decision:
+      the Vehicles' other lines, the bot choosing which creatures to crew
+      with, saddle and station. Refused by name: +19: the Vehicles whose OTHER line the vocabulary does not read yet - their crew runs: 13 enters triggers (tokens, draws, a scry, a targeted pump: Enchanted Carriage, Hulldrifter, Bomat Bazaar Barge, Turtle Blimp, Spotcycle Scouter, Burner Rocket ...), 2 combat triggers (Careening Mine Cart, Silent Submersible), 4 other lines (Rangers' Aetherhive, Thopter Fabricator, Fire Nation Warship, Rover Blades).
+      Nothing retired. Report `effect:auto` 3,884 → 3,884,
+      `withUnenforced` 280 → 280.
+      **Landed:** 18 AUTO FLIPS with no script - the Vehicles whose Crew line was the last line the accounting refused (the probe's 37 pure Vehicles less the 19 whose other line is scriptable but unshipped, ledgered by name). No wave of rows: the seam's own flips are the landing, and the bot's own deck took 18 artifacts more on the same sweep (Air Response Unit among them). Tests: crewSeam.test.ts +
+      crew.test.ts.
+      Fixtures 3,456 · botPool artifact 270 / creature 2,953 / enchantment 252 / instant 934 / land 394 / sorcery 719 - auto 851 / assisted 1,857 / autoAnyFace 860 · ladder [1174, 1317, 3100, 5032, 6384] · batch.json
+      0 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,216 files, 16,822 passing / 11 skipped ·
+      500-seed gate, 6 shards, 315.5 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D311): the Vehicles other lines (the attack triggers, the enters-crewed ETBs, the becomes-crewed heads over the crew resolution); convoke (52) as a payment-plan source; the turned-face-up triggers (49); the other graveyard casts; the cycling triggers head; echo once a pay-or-else prompt exists; the modal seam (42); the "another"
+      split; the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
