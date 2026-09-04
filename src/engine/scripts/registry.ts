@@ -7,6 +7,15 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { PHYREXIAN_ARENA_SCRIPT } from './cards/phyrexianArena';
+import { STONYBROOK_SCHOOLMASTER_SCRIPT } from './cards/stonybrookSchoolmaster';
+import { DUSK_LEGION_ZEALOT_SCRIPT } from './cards/duskLegionZealot';
+import { PHYREXIAN_RAGER_SCRIPT } from './cards/phyrexianRager';
+import { AUDACIOUS_THIEF_SCRIPT } from './cards/audaciousThief';
+import { TITHEBEARER_GIANT_SCRIPT } from './cards/tithebearerGiant';
+import { BALEFUL_FORCE_SCRIPT } from './cards/balefulForce';
+import { LUMINOUS_ANGEL_SCRIPT } from './cards/luminousAngel';
+import { NOVICE_OCCULTIST_SCRIPT } from './cards/noviceOccultist';
 import { ARC_RUNNER_SCRIPT } from './cards/arcRunner';
 import { ARCHWING_DRAGON_SCRIPT } from './cards/archwingDragon';
 import { BALL_LIGHTNING_SCRIPT } from './cards/ballLightning';
@@ -3318,6 +3327,15 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PHYREXIAN_ARENA_SCRIPT,
+  STONYBROOK_SCHOOLMASTER_SCRIPT,
+  DUSK_LEGION_ZEALOT_SCRIPT,
+  PHYREXIAN_RAGER_SCRIPT,
+  AUDACIOUS_THIEF_SCRIPT,
+  TITHEBEARER_GIANT_SCRIPT,
+  BALEFUL_FORCE_SCRIPT,
+  LUMINOUS_ANGEL_SCRIPT,
+  NOVICE_OCCULTIST_SCRIPT,
   ARC_RUNNER_SCRIPT,
   ARCHWING_DRAGON_SCRIPT,
   BALL_LIGHTNING_SCRIPT,

@@ -21279,3 +21279,66 @@ Fixtures 3,550 · botPool artifact 270 / creature 3,064 / enchantment 253 / inst
 **Reportables** (D313): the payloads the generator still refuses (N damage to any target, loot, tokens on a trigger, gain that much life, target creature can not block, each opponent discards), the heads still outside it (each upkeep, turned face up, attacks and is not blocked, becomes the target), the classifier learning the new heads so the pool offers them; convoke and improvise; the other graveyard casts; the cycling triggers head; the modal seam (42); the "another" split;
 the by-name sacrifice cost; the remaining cost verbs; the prompt
 continuation seam; prior items stand.
+
+## D314 — M6.4ex: THE TRIGGER HEADS, PART 2 — seven more heads and six more payloads in the one-shot generator, a you-may payload an optional trigger; 9 cards land as generated rows (2026-09-04)
+
+**5,660 of 31,692 Commander-legal cards execute completely, up from
+5,651 (+9).** SHIPPED_SCRIPTS 3,197 → **3,206**;
+REFUSED ledger 1,093 → **1,093** (none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty). Fixtures
+3,550 → 3,560 (3,443 by name + 110 tokens: the 9 rowed cards and the Merfolk Wizard token Stonybrook Schoolmaster makes (the first token pin on a trigger row)). ZERO new token pins; no engine change
+— one generator, one row maker, one candidate probe. **Select pool 0 →
+0.**
+
+**The gap, measured before it was built.** the D314 candidate probe over the database after D313: 20 blocked single-face permanents whose every unread line the extended grammar reads (the enters draw-and-lose 8, the upkeep mills 6 and counters 4, the end-step sacrifices 4, the upkeep tokens 2 ...); the mass behind them is other heads and payloads - not a trigger at all 11,438, an Aura enters 129, an Equipment enters 89, a modal choose-one 94, a land enters 58, when you cast this spell 42, each end step 41, enters or attacks 81, the monarch 35, energy 33, equipped creature attacks 32.
+
+**The rows.** D313 put seven more heads and six more payloads into the
+generator and the probe cells said where the next mass was: a token made by
+a trigger, a counter on the creature that just entered, the heads every
+player shares, the face-up head the morph seam opened.
+
+- `d314/make-rows4.cjs`: a token payload on a TRIGGER (the same `tokenKeyOf`
+  the activated rows use; `TOKEN_TABLE` must know the key, and the token
+  printing is pinned as a fixture through `token-pins-needed-d314.json` +
+  `add-token-pins-d314.cjs`, because the fuzz gate names a created token only
+  then); a +1/+1 counter on the entering creature under the two enters heads
+  (the per-item fan-out, D190: the def names the entering creatures, the
+  resolution reads `obj.item`); two more heads — "At the beginning of each
+  upkeep" (`StepBegan`, any player) and "When this creature is turned face
+  up" (the `FaceDownSet` the morph seam emits); three more payloads — "you
+  draw a card and you lose N life", "you lose N life", untap itself.
+- `d314/gen-oneshot4.cjs`: the same one module + one suite per row; the token
+  const named by the line for a trigger, the per-item def carrying its
+  `perItem`, the enters-head tests keeping the Bears they put to read its
+  counter, the each-upkeep test waiting for the opponent's upkeep, the
+  face-up test flipping the card by hand twice.
+- Rows land BY NAME from the candidate probe (every blocked single-face
+  permanent whose EVERY unread line the grammar reads); the classifier does
+  not learn the heads this decision, so the select pool stays 0.
+
+- **Refused by name:** none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty.
+- **Not this decision:** the payloads the generator still refuses (N damage to
+  any target, loot, "you gain that much life", "target creature can't block
+  this turn", each opponent discards, target player mills N), the heads still
+  outside it (becomes the target of a spell or ability, attacks and isn't
+  blocked, enchanted creature dies, equipped creature attacks), the
+  classifier's head library.
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** one generated suite per row (9 suites), each ability in
+its own game; the generator's own heads proven by the rows that use them.
+
+**Landed:** no auto flips (no engine change) and 9 generated rows - the 20 candidates less the 11 the row maker still refuses (three morph lines, two damage payloads, two untap-it under a block head, an exile and a discard cost, a land-graveyard head, a cost line). The wave IS the landing: 9 rows - the draw-and-lose cards (Phyrexian Arena's upkeep, Phyrexian Rager's and Dusk Legion Zealot's and Tithebearer Giant's enters, Audacious Thief's attack, Baleful Force's upkeep, Novice Occultist's death), the token triggers (Stonybrook Schoolmaster's Merfolk Wizard, Luminous Angel's Spirit); the bot's own deck took 8 creatures and an enchantment more.
+
+Fixtures 3,560 · botPool artifact 270 / creature 3,072 / enchantment 254 / instant 947 / land 394 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1193, 1325, 3101, 5029, 6387] · batch.json
+9 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,316 files, 17,240 passing / 11 skipped ·
+500-seed gate, 6 shards, 320.2 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D314): the payloads still refused (N damage to any target, loot, gain that much life, a target creature can not block, each opponent discards, target player mills), the heads still outside (becomes the target of a spell or ability, attacks and is not blocked, enchanted creature dies, equipped creature attacks); the classifier learning the new heads; convoke and improvise; the other graveyard casts; the modal seam (42); the "another" split;
+the by-name sacrifice cost; the remaining cost verbs; the prompt
+continuation seam; prior items stand.

@@ -119154,6 +119154,314 @@ export const VIASHINO_SANDSPRINTER: CardData = {
   "singleImage": true
 };
 
+export const PHYREXIAN_ARENA: CardData = {
+  "scryfallId": "0784b6f0-9ebf-43d2-ba0f-a6bc93ba0c48",
+  "oracleId": "ee579a32-a048-4335-b966-231ba731cdea",
+  "name": "Phyrexian Arena",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Phyrexian Arena",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Enchantment",
+      "oracleText": "At the beginning of your upkeep, you draw a card and you lose 1 life.",
+      "flavorText": "A spark of resistance against a tide of corruption.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "0784b6f0-9ebf-43d2-ba0f-a6bc93ba0c48"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "fdn",
+  "collectorNumber": "180",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STONYBROOK_SCHOOLMASTER: CardData = {
+  "scryfallId": "16f83052-78d4-46d2-a0fa-72c198f9aa0b",
+  "oracleId": "7ef67bae-4af3-47b9-95d2-08f3c5a0b39d",
+  "name": "Stonybrook Schoolmaster",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stonybrook Schoolmaster",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Merfolk Wizard",
+      "oracleText": "Whenever this creature becomes tapped, you may create a 1/1 blue Merfolk Wizard creature token.",
+      "flavorText": "Merrow schools rarely form by design. They come together naturally as eager learners surround the wisest teachers.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Quinton Hoover & Val Mayerik",
+      "imageId": "16f83052-78d4-46d2-a0fa-72c198f9aa0b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "MOR-25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DUSK_LEGION_ZEALOT: CardData = {
+  "scryfallId": "1908d03c-e8ed-43c7-bcae-194d826a152b",
+  "oracleId": "ea2dce18-195e-4681-a687-f9819edaf9fc",
+  "name": "Dusk Legion Zealot",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dusk Legion Zealot",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Vampire Soldier",
+      "oracleText": "When this creature enters, you draw a card and you lose 1 life.",
+      "flavorText": "Once they reached Orazca, the Legion's explorers ransacked tombs and temples, hunting for the Immortal Sun.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Winona Nelson",
+      "imageId": "1908d03c-e8ed-43c7-bcae-194d826a152b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "RIX-70",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PHYREXIAN_RAGER: CardData = {
+  "scryfallId": "1db97152-afd5-4190-8bf1-1276b0fcf005",
+  "oracleId": "e409c9be-0c9a-43c3-adb4-8c47afc1d551",
+  "name": "Phyrexian Rager",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Phyrexian Rager",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Phyrexian Horror",
+      "oracleText": "When this creature enters, you draw a card and you lose 1 life.",
+      "flavorText": "It takes no prisoners, but it keeps the choicest bits for Phyrexia.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Mark Tedin",
+      "imageId": "1db97152-afd5-4190-8bf1-1276b0fcf005"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dmr",
+  "collectorNumber": "99",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AUDACIOUS_THIEF: CardData = {
+  "scryfallId": "367edbdb-cce8-4372-8e63-7a3e142f1078",
+  "oracleId": "5905c55a-f1d1-4021-a9af-f85b02ae21f3",
+  "name": "Audacious Thief",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Audacious Thief",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Human Rogue",
+      "oracleText": "Whenever this creature attacks, you draw a card and you lose 1 life.",
+      "flavorText": "\"Skill, imagination, smarts: none of it matters unless you have the nerve to use it.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dmitry Burmak",
+      "imageId": "367edbdb-cce8-4372-8e63-7a3e142f1078"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "M20-84",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TITHEBEARER_GIANT: CardData = {
+  "scryfallId": "3c305ccb-62f5-496a-a205-e818e34ead82",
+  "oracleId": "475aaf7c-b0f8-40f3-ad91-3e7d414de933",
+  "name": "Tithebearer Giant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tithebearer Giant",
+      "manaCost": "{5}{B}",
+      "typeLine": "Creature — Giant Warrior",
+      "oracleText": "When this creature enters, you draw a card and you lose 1 life.",
+      "flavorText": "\"I've always said full war chests win wars, but I didn't mean by bashing enemy skulls with them.\"\n—Teysa",
+      "power": "4",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Wisnu Tan",
+      "imageId": "3c305ccb-62f5-496a-a205-e818e34ead82"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "war",
+  "collectorNumber": "107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BALEFUL_FORCE: CardData = {
+  "scryfallId": "3dff363d-7e9f-4764-a9ee-ec2f23239df6",
+  "oracleId": "f26fa9e4-f528-4e22-8f7c-329fc3b633e4",
+  "name": "Baleful Force",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Baleful Force",
+      "manaCost": "{5}{B}{B}{B}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "At the beginning of each upkeep, you draw a card and you lose 1 life.",
+      "flavorText": "\"As with any malevolent being, the trick is knowing how long you can afford to keep it in your service.\"\n—Liliana Vess",
+      "power": "7",
+      "toughness": "7",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Eytan Zana",
+      "imageId": "3dff363d-7e9f-4764-a9ee-ec2f23239df6"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 8,
+  "keywords": [],
+  "setCode": "c13",
+  "collectorNumber": "70",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LUMINOUS_ANGEL: CardData = {
+  "scryfallId": "61834f64-3114-44ee-9947-ae35504ae220",
+  "oracleId": "8d7cf56c-94fd-47d8-9e0f-cd3163688983",
+  "name": "Luminous Angel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Luminous Angel",
+      "manaCost": "{4}{W}{W}{W}",
+      "typeLine": "Creature — Angel",
+      "oracleText": "Flying\nAt the beginning of your upkeep, you may create a 1/1 white Spirit creature token with flying.",
+      "flavorText": "\"The spread of evil's destruction shall always be matched by the rise of the noble fallen.\"",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jason Chan",
+      "imageId": "61834f64-3114-44ee-9947-ae35504ae220"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ddc",
+  "collectorNumber": "12",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NOVICE_OCCULTIST: CardData = {
+  "scryfallId": "a541ac79-a969-42b4-b989-f6e37572ec90",
+  "oracleId": "e51f5b41-5465-4b1d-b96a-544762657ca5",
+  "name": "Novice Occultist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Novice Occultist",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "When this creature dies, you draw a card and you lose 1 life.",
+      "flavorText": "All across Gavony, in shuttered bedrooms and locked barns, young people seek the answers their elders failed to provide.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Zara Alfonso",
+      "imageId": "a541ac79-a969-42b4-b989-f6e37572ec90"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mid",
+  "collectorNumber": "117",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -122866,6 +123174,40 @@ export const ROBOT_1_1_FLYING_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const MERFOLK_WIZARD_1_1_U_CREATURE_TOKEN: CardData = {
+  "scryfallId": "526da544-23dd-42b8-8c00-c3609eea4489",
+  "oracleId": "224debbd-6073-4455-accf-bcf3c9674c72",
+  "name": "Merfolk Wizard",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Merfolk Wizard",
+      "manaCost": "",
+      "typeLine": "Token Creature — Merfolk Wizard",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Mark Poole",
+      "imageId": "526da544-23dd-42b8-8c00-c3609eea4489"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tlrw",
+  "collectorNumber": "4",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -126309,6 +126651,15 @@ export const ENGINE_CARDS: CardData[] = [
   VIASHINO_CUTTHROAT,
   WEATHERSEED_TREEFOLK,
   VIASHINO_SANDSPRINTER,
+  PHYREXIAN_ARENA,
+  STONYBROOK_SCHOOLMASTER,
+  DUSK_LEGION_ZEALOT,
+  PHYREXIAN_RAGER,
+  AUDACIOUS_THIEF,
+  TITHEBEARER_GIANT,
+  BALEFUL_FORCE,
+  LUMINOUS_ANGEL,
+  NOVICE_OCCULTIST,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -126418,4 +126769,5 @@ export const ENGINE_CARDS: CardData[] = [
   MYR_1_1_TOKEN,
   WARRIOR_1_1_VIGILANCE_TOKEN,
   ROBOT_1_1_FLYING_TOKEN,
+  MERFOLK_WIZARD_1_1_U_CREATURE_TOKEN,
 ];

@@ -3915,6 +3915,16 @@ const WANTED = [
   'Viashino Cutthroat',
   'Weatherseed Treefolk',
   'Viashino Sandsprinter',
+  // D314 - the trigger-head rows, part 3 (tokens and per-item counters on triggers, two more heads, three more payloads).
+  'Phyrexian Arena',
+  'Stonybrook Schoolmaster',
+  'Dusk Legion Zealot',
+  'Phyrexian Rager',
+  'Audacious Thief',
+  'Tithebearer Giant',
+  'Baleful Force',
+  'Luminous Angel',
+  'Novice Occultist',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -4123,6 +4133,8 @@ const WANTED_TOKENS = [
   // checked against TOKEN_TABLE's printingIds first; the fuzz gate's own catch.
   { name: 'Warrior', set: 'tdmc', cn: '4', key: 'WARRIOR_1_1_VIGILANCE_TOKEN' },
   { name: 'Robot', set: 'tspm', cn: '6', key: 'ROBOT_1_1_FLYING_TOKEN' },
+  // D314 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Merfolk Wizard', set: 'tlrw', cn: '4', key: 'MERFOLK_WIZARD_1_1_U_CREATURE_TOKEN' },
 ];
 
 function constName(name) {
