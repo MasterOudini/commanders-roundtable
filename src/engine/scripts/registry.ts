@@ -7,6 +7,20 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { EVERNIGHT_SHADE_SCRIPT } from './cards/evernightShade';
+import { JHESSIAN_THIEF_SCRIPT } from './cards/jhessianThief';
+import { INGENIOUS_SKAAB_SCRIPT } from './cards/ingeniousSkaab';
+import { RHOX_BODYGUARD_SCRIPT } from './cards/rhoxBodyguard';
+import { KITCHEN_FINKS_SCRIPT } from './cards/kitchenFinks';
+import { RESTLESS_APPARITION_SCRIPT } from './cards/restlessApparition';
+import { SEEKER_OF_THE_WAY_SCRIPT } from './cards/seekerOfTheWay';
+import { BURNING_SHIELD_ASKARI_SCRIPT } from './cards/burningShieldAskari';
+import { SEARING_SPEAR_ASKARI_SCRIPT } from './cards/searingSpearAskari';
+import { FEMEREF_KNIGHT_SCRIPT } from './cards/femerefKnight';
+import { ZHALFIRIN_KNIGHT_SCRIPT } from './cards/zhalfirinKnight';
+import { SIGHTED_CASTE_SORCERER_SCRIPT } from './cards/sightedCasteSorcerer';
+import { PYREHEART_WOLF_SCRIPT } from './cards/pyreheartWolf';
+import { JESKAI_SAGE_SCRIPT } from './cards/jeskaiSage';
 import { IMPROVISED_ARMOR_SCRIPT } from './cards/improvisedArmor';
 import { SAVAGE_HUNGER_SCRIPT } from './cards/savageHunger';
 import { SICKEN_SCRIPT } from './cards/sicken';
@@ -3204,6 +3218,20 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  EVERNIGHT_SHADE_SCRIPT,
+  JHESSIAN_THIEF_SCRIPT,
+  INGENIOUS_SKAAB_SCRIPT,
+  RHOX_BODYGUARD_SCRIPT,
+  KITCHEN_FINKS_SCRIPT,
+  RESTLESS_APPARITION_SCRIPT,
+  SEEKER_OF_THE_WAY_SCRIPT,
+  BURNING_SHIELD_ASKARI_SCRIPT,
+  SEARING_SPEAR_ASKARI_SCRIPT,
+  FEMEREF_KNIGHT_SCRIPT,
+  ZHALFIRIN_KNIGHT_SCRIPT,
+  SIGHTED_CASTE_SORCERER_SCRIPT,
+  PYREHEART_WOLF_SCRIPT,
+  JESKAI_SAGE_SCRIPT,
   IMPROVISED_ARMOR_SCRIPT,
   SAVAGE_HUNGER_SCRIPT,
   SICKEN_SCRIPT,

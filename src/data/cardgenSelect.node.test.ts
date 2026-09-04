@@ -1925,6 +1925,25 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Tracker\'s Instincts', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Traitor\'s Clutch', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Volcanic Spray', 'a spell line outside the vocabulary (its flashback runs)'],
+
+  // D308 (M6.4es) — the keyword-trigger pool: the carriers whose other
+  // lines the vocabulary does not read yet - their keyword trigger runs.
+  ['Dawnray Archer', 'a creature line outside the vocabulary (its exalted runs)'],
+  ['Geralf\'s Messenger', 'a creature line outside the vocabulary (its undying runs)'],
+  ['Glen Elendra Archmage', 'a creature line outside the vocabulary (its persist runs)'],
+  ['Kithkin Spellduster', 'a creature line outside the vocabulary (its persist runs)'],
+  ['Lightshell Duo', 'a creature line outside the vocabulary (its prowess runs)'],
+  ['Lotus-Eye Mystics', 'a creature line outside the vocabulary (its prowess runs)'],
+  ['Meticulous Artisan', 'a creature line outside the vocabulary (its prowess runs)'],
+  ['Mistfire Adept', 'a creature line outside the vocabulary (its prowess runs)'],
+  ['Monastery Mentor', 'a creature line outside the vocabulary (its prowess runs)'],
+  ['Pinnacle Monk // Mystic Peak', 'a creature line outside the vocabulary (its prowess runs)'],
+  ['Pollywog Prodigy', 'a creature line outside the vocabulary (its evolve runs)'],
+  ['Qasali Pridemage', 'a creature line outside the vocabulary (its exalted runs)'],
+  ['Ray Fillet, Wave Warrior', 'a creature line outside the vocabulary (its evolve runs)'],
+  ['Shipwreck Dowser', 'a creature line outside the vocabulary (its prowess runs)'],
+  ['Woodfall Primus', 'a creature line outside the vocabulary (its persist runs)'],
+  ['River Kelpie', 'a creature line outside the vocabulary (its persist runs)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

@@ -56,6 +56,15 @@ export const TIER2_KEYWORDS = [
   'infect',
   'wither',
   'toxic',
+  // D308 - THE KEYWORD-TRIGGER SEAM: keywords that ARE triggered abilities, run
+  // from one table (`keywordTriggers.ts`) for every permanent that carries them.
+  'prowess',
+  'exalted',
+  'bushido',
+  'flanking',
+  'persist',
+  'undying',
+  'evolve',
 ] as const;
 
 export type Keyword = (typeof TIER2_KEYWORDS)[number];

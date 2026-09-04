@@ -14,6 +14,7 @@
 import { derive, makeDeriveCache } from './derive';
 import { faceOf } from './oracle';
 import type { ScriptRegistry } from './scripts/registry';
+import { KEYWORD_TRIGGERS } from './keywordTriggers';
 import type { CardMove, EventBody, GameEvent } from './types/events';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
 import { isAskedCondition, type EntersTappedCondition } from '../data/replacementParse';
@@ -810,7 +811,8 @@ export function collectTriggers(
   oracle: OracleDb,
   scripts: ScriptRegistry,
 ): PendingTrigger[] {
-  if (scripts.size === 0) return [];
+  // ⚠️ No early return on an empty registry any more (D308): the keyword
+  // triggers below run with no scripts at all.
   const out: PendingTrigger[] = [];
   let n = after.eventCount * 1000;
 
@@ -943,6 +945,40 @@ export function collectTriggers(
             // ⚠️ Copied, never looked up again: `PendingTrigger` is part of
             // `GameState`, which replays with no registry in reach.
             specs: def.targets ?? [],
+            ...(item !== undefined ? { item } : {}),
+          });
+        }
+      }
+    }
+  }
+  // ⚠️ D308 - THE KEYWORD-TRIGGER SEAM. A keyword ability that IS a trigger
+  // (prowess, exalted, bushido, flanking, persist, undying, evolve) runs from
+  // one table for every permanent whose DERIVED keywords carry it - printed or
+  // granted - with no script per card. The same walk as the defs above: the
+  // event's kind, the battlefield (before the event for a looks-back one),
+  // CR 613's silence, the entry's own `matches`, one firing per item.
+  for (const event of applied) {
+    for (const [keyword, kt] of KEYWORD_TRIGGERS) {
+      if (kt.event !== event.body.t) continue;
+      const look = kt.looksBack === true;
+      const state = look ? before : after;
+      const ctx = ctxOf(look);
+      for (const id of idsOf(look)) {
+        const card = state.cards[id];
+        if (!card || card.zone.kind !== 'battlefield') continue;
+        if (!hasAbilities(state, oracle, scripts, id)) continue;
+        if (!ctx.derive(id).keywords.has(keyword)) continue;
+        if (!kt.matches(ctx, id, event.body)) continue;
+        const items: readonly (InstanceId | undefined)[] = kt.perItem ? kt.perItem(ctx, id, event.body) : [undefined];
+        for (const item of items) {
+          out.push({
+            id: `t${n++}`,
+            source: id,
+            controller: card.controller,
+            abilityRef: `${card.oracleId}#kw:${keyword}`,
+            label: kt.label(ctx, id),
+            optional: false,
+            specs: [],
             ...(item !== undefined ? { item } : {}),
           });
         }

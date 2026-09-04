@@ -38,6 +38,17 @@ const CANON: Readonly<Record<string, Keyword>> = {
   infect: 'infect',
   wither: 'wither',
   toxic: 'toxic',
+  // ⚠️ D308 - keywords that ARE triggered abilities, run natively from
+  // `keywordTriggers.ts` for every permanent whose derived keywords carry
+  // them. In the canon, so the accounting counts the printed line as the
+  // engine's own and the derive carries a granted one.
+  prowess: 'prowess',
+  exalted: 'exalted',
+  bushido: 'bushido',
+  flanking: 'flanking',
+  persist: 'persist',
+  undying: 'undying',
+  evolve: 'evolve',
 };
 
 export function canonicalKeyword(raw: string): Keyword | null {

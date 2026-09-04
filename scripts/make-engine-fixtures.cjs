@@ -3767,6 +3767,31 @@ const WANTED = [
   'Feeling of Dread',
   'Beast Attack',
   'Deep Analysis',
+  // D308 - the keyword-trigger seam test cards (prowess, exalted, bushido, flanking, persist, undying, evolve).
+  'Monastery Swiftspear',
+  'Akrasan Squire',
+  'Kitsune Blademaster',
+  'Fallen Askari',
+  'Safehold Elite',
+  'Young Wolf',
+  'Cloudfin Raptor',
+  // D308 - the second wave: the pool carriers whose other line the one-shot generator rows, and Jeskai Sage by hand.
+  'Evernight Shade',
+  'Jhessian Thief',
+  'Ingenious Skaab',
+  'Rhox Bodyguard',
+  'Monastery Mentor',
+  'Kitchen Finks',
+  'Restless Apparition',
+  'Meticulous Artisan',
+  'Seeker of the Way',
+  'Burning Shield Askari',
+  'Searing Spear Askari',
+  'Femeref Knight',
+  'Zhalfirin Knight',
+  'Sighted-Caste Sorcerer',
+  'Pyreheart Wolf',
+  'Jeskai Sage',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

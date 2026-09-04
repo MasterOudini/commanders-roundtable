@@ -20817,3 +20817,87 @@ Fixtures 3,412 · botPool artifact 252 / creature 2,810 / enchantment 252 / inst
 **Reportables** (D307): the other graveyard casts on the same zone (Escape 32 dash lines, Jump-start 10, Unearth 15, Encore 11, Retrace 13 - each its own price and exit); the flashback dash costs (17); then the next keyword yields - morph (53), convoke (52), crew (38), the native keyword triggers (prowess 37, exalted 23, bushido 15); the modal seam (42); the "another" split;
 the by-name sacrifice cost; the remaining cost verbs; the prompt
 continuation seam; prior items stand.
+
+## D308 — M6.4es: THE KEYWORD-TRIGGER SEAM — prowess, exalted, bushido, flanking, persist, undying and evolve run from one native table for every permanent that carries them; 70 cards complete with no script (2026-09-04)
+
+**5,443 of 31,692 Commander-legal cards execute completely, up from
+5,359 (+84).** SHIPPED_SCRIPTS 3,083 → **3,097**; REFUSED ledger 992
+→ **1,008** (+16: the pool's carriers whose other line the vocabulary does not read yet - their keyword runs (Glen Elendra Archmage, Woodfall Primus, Shipwreck Dowser, Pinnacle Monk, Pollywog Prodigy, Lotus-Eye Mystics, Lightshell Duo, River Kelpie, Geralf's Messenger, Qasali Pridemage, Kithkin Spellduster, Ray Fillet, Dawnray Archer, Mistfire Adept, Monastery Mentor, Meticulous Artisan)). Fixtures 3,412 → 3,435 (3,319 by name + 109 tokens: the seven keyword test cards (Monastery Swiftspear, Akrasan Squire, Kitsune Blademaster, Fallen Askari, Safehold Elite, Young Wolf, Cloudfin Raptor) and the second wave's 14). ZERO
+new token pins; one new engine file and four support bodies (the keyword
+canon, the bus, the resolution, the ingest), no classifier change.
+**Select pool 0 → 0.**
+
+**The gap, measured before it was built.** D306's keyword probe ranked the
+pure keyword cards by yield; after cycling (D306) and flashback (D307), the
+next seven are keywords that ARE triggered abilities: prowess (79 lines, 37
+pure), exalted (23 pure), bushido (15), persist (13), flanking (10),
+undying (10), evolve (9). In D306 keyword probe terms (d306/probe-keywords.json): 244 blocked cards print one of the seven (prowess 79, exalted 35, bushido 35, flanking 27, persist 24, undying 22, evolve 22 lines), 117 of them with nothing else unread (prowess 37, exalted 23, bushido 15, persist 13, flanking 10, undying 10, evolve 9), and for 113 the keyword line is the ONLY line the accounting refuses.
+
+**The seam.** Until now a keyword the engine did not run stayed a Tier-3
+note, and a keyword trigger needed a script per card (D302's heads read
+"Whenever you cast a noncreature spell" off the printed line, one row
+each). But a keyword ability has no printed line to claim beyond its name,
+and its rules text is the same on every card: the trigger belongs to the
+KEYWORD, not the card.
+
+- `src/engine/keywordTriggers.ts` (NEW): `KEYWORD_TRIGGERS`, one entry per
+  keyword — the event, `matches`, an optional per-item fan-out, the label,
+  `resolve` — the same `ScriptCtx` and `TriggerDef` contract a card's def
+  has: prowess (a noncreature spell you cast: +1/+1 until end of turn, CR
+  702.108a), exalted (a creature you control attacks alone: it gets +1/+1,
+  CR 702.83a), bushido N (blocks or becomes blocked: +N/+N, the N read off
+  the printed text at resolution, CR 702.46a), flanking (each blocker
+  without flanking gets -1/-1, CR 702.25a), persist / undying (dies with no
+  -1/-1 / +1/+1 counter: returns under its owner's control with one, CR
+  702.79a / 702.93a), evolve (a bigger creature you control enters: a +1/+1
+  counter, the intervening "if" asked again on resolution, CR 702.100a).
+- `src/engine/triggers.ts`: `collectTriggers` walks the table beside the
+  scripts' defs — the event's kind, the battlefield (before the event for a
+  looks-back entry), CR 613's silence (`hasAbilities`), the DERIVED
+  keywords (printed or granted), the entry's own `matches`, one firing per
+  item; the `abilityRef` is `<oracleId>#kw:<keyword>`. The early return on
+  an empty registry is gone: the keyword triggers run with no scripts at
+  all.
+- `src/engine/loop.ts`: `triggerDefFor` resolves a `#kw:` ref through
+  `keywordTriggerDef` before asking the registry.
+- `src/engine/types/oracle.ts` / `src/engine/keywords.ts`: the seven join
+  `TIER2_KEYWORDS` and the canon, so Scryfall's tags land on the face, the
+  derive carries them (and a granted one), the accounting counts the
+  printed line as the engine's own, the disclosure says nothing, and the
+  classifier no longer sees the line.
+
+No generator: a creature whose only unread line was one of the seven is
+COMPLETE by the accounting alone, and every fuzz seed that deals one fires
+the table.
+
+- **Refused by name:** +16: the pool's carriers whose other line the vocabulary does not read yet - their keyword runs (Glen Elendra Archmage, Woodfall Primus, Shipwreck Dowser, Pinnacle Monk, Pollywog Prodigy, Lotus-Eye Mystics, Lightshell Duo, River Kelpie, Geralf's Messenger, Qasali Pridemage, Kithkin Spellduster, Ray Fillet, Dawnray Archer, Mistfire Adept, Monastery Mentor, Meticulous Artisan).
+- **Not this decision:** the keywords with a chooser or a memory (renown's
+  "renowned", mentor's target, modular's target, devour, exploit,
+  bloodthirst, soulshift); battle cry (a trigger, but it pumps OTHER
+  attackers — next); the amount-carrying keywords beyond bushido (rampage
+  N, afflict N).
+
+Nothing retired: the D302 rows that read a printed prowess-shaped sentence stay (their lines are printed text, not the keyword).
+
+Report: `effect:auto` 3,884 → 3,884, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** `src/engine/keywordTriggers.test.ts` (prowess on Monastery
+Swiftspear, exalted on Akrasan Squire alone and not with two attackers,
+bushido 1 on Kitsune Blademaster blocked, flanking on Fallen Askari
+shrinking its blocker, persist on Safehold Elite returning once with a
+-1/-1 counter, undying on Young Wolf returning with a +1/+1 counter, evolve
+on Cloudfin Raptor for a bigger entrant and not a smaller one; every game
+replays).
+
+**Landed:** 70 AUTO FLIPS with no script - the carriers whose keyword line was the last line the accounting refused - and a second wave of 14 scripts. The second wave, the pool the seam opened: 13 one-shot rows over the carriers' OTHER line (the activated keyword grants - Burning Shield Askari, Searing Spear Askari, Femeref Knight, Zhalfirin Knight, Sighted-Caste Sorcerer; the activated pumps - Evernight Shade, Ingenious Skaab, Restless Apparition; the ETB life - Rhox Bodyguard, Kitchen Finks; Jhessian Thief's combat-damage draw; Seeker of the Way's lifelink on a noncreature cast; Pyreheart Wolf's menace on attack) and Jeskai Sage by hand (dies: draw a card); every one complete because its keyword line is the engine's own now.
+
+Fixtures 3,435 · botPool artifact 252 / creature 2,893 / enchantment 252 / instant 934 / land 393 / sorcery 719 - auto 851 / assisted 1,857 / autoAnyFace 860 · ladder [1108, 1248, 3002, 4904, 6203] · batch.json
+14 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,199 files, 16,744 passing / 11 skipped ·
+500-seed gate, 6 shards, 312.2 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D308): the next keyword yields from the same table - battle cry, rampage N, afflict N, then the chooser keywords (mentor, modular, soulshift) once a targeted keyword trigger carries a spec; the other graveyard casts (Escape, Jump-start, Unearth, Encore, Retrace); the flashback dash costs (17); the cycling triggers head; morph (53) and convoke (52) and crew (38); the modal seam (42); the "another" split;
+the by-name sacrifice cost; the remaining cost verbs; the prompt
+continuation seam; prior items stand.

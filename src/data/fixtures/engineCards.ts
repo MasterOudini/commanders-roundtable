@@ -114218,6 +114218,847 @@ export const DEEP_ANALYSIS: CardData = {
   "singleImage": true
 };
 
+export const MONASTERY_SWIFTSPEAR: CardData = {
+  "scryfallId": "3c9899a8-f5b0-427f-ac87-09fc8afe0f23",
+  "oracleId": "dafd2713-d1bc-474b-b390-d2ff20b5375e",
+  "name": "Monastery Swiftspear",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Monastery Swiftspear",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Human Monk",
+      "oracleText": "Haste\nProwess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)",
+      "flavorText": "\"No sign of movement. Looks like we've got the element of sur—\"\n—Gaiza, Mardu raider",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Eric Velhagen",
+      "imageId": "3c9899a8-f5b0-427f-ac87-09fc8afe0f23"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Prowess",
+    "Haste"
+  ],
+  "setCode": "2x2",
+  "collectorNumber": "362",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AKRASAN_SQUIRE: CardData = {
+  "scryfallId": "59fdc045-b938-4321-aec3-51685cbbaa52",
+  "oracleId": "2b8ef83b-1a1d-4299-ab69-e9e296bb224d",
+  "name": "Akrasan Squire",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Akrasan Squire",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)",
+      "flavorText": "Bant's armies are primarily composed of members of the Mortar caste, loyal commoners who haven't yet earned a sigil.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Todd Lockwood",
+      "imageId": "59fdc045-b938-4321-aec3-51685cbbaa52"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Exalted"
+  ],
+  "setCode": "ala",
+  "collectorNumber": "1",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KITSUNE_BLADEMASTER: CardData = {
+  "scryfallId": "63546561-9980-4380-a7e6-4c85d7a35907",
+  "oracleId": "2db73fff-1a89-4006-945d-a244ff2f0bef",
+  "name": "Kitsune Blademaster",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kitsune Blademaster",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Fox Samurai",
+      "oracleText": "First strike\nBushido 1 (Whenever this creature blocks or becomes blocked, it gets +1/+1 until end of turn.)",
+      "flavorText": "Those kitsune trained in the blade preferred to fight with a blade-catching jitte in the off hand, buying them just enough time to deliver the first deadly cut.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Keith Garletts",
+      "imageId": "63546561-9980-4380-a7e6-4c85d7a35907"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Bushido",
+    "First strike"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "CHK-25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FALLEN_ASKARI: CardData = {
+  "scryfallId": "00107210-313f-49c1-84ff-92628f75b764",
+  "oracleId": "4956008e-d912-48ba-9b82-176258281060",
+  "name": "Fallen Askari",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fallen Askari",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Flanking (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.)\nThis creature can't block.",
+      "flavorText": "In troubled times, there are few greater sorrows than a wayward savior.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Adrian Smith",
+      "imageId": "00107210-313f-49c1-84ff-92628f75b764"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flanking"
+  ],
+  "setCode": "vis",
+  "collectorNumber": "59",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAFEHOLD_ELITE: CardData = {
+  "scryfallId": "14dee5be-94fd-4b5d-9265-edd1b58c8026",
+  "oracleId": "68ca91ba-31fb-47e0-9b32-e4f3504cbbca",
+  "name": "Safehold Elite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Safehold Elite",
+      "manaCost": "{1}{G/W}",
+      "typeLine": "Creature — Elf Scout",
+      "oracleText": "Persist (When this creature dies, if it had no -1/-1 counters on it, return it to the battlefield under its owner's control with a -1/-1 counter on it.)",
+      "flavorText": "\"I refuse to die—not at the hands of one such as you.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Richard Whitters",
+      "imageId": "14dee5be-94fd-4b5d-9265-edd1b58c8026"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Persist"
+  ],
+  "setCode": "shm",
+  "collectorNumber": "239",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const YOUNG_WOLF: CardData = {
+  "scryfallId": "00c08222-4c57-4bd4-9ec7-d4efae8e76bb",
+  "oracleId": "8b492764-10b6-4506-be11-22daa9220a91",
+  "name": "Young Wolf",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Young Wolf",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Wolf",
+      "oracleText": "Undying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner's control with a +1/+1 counter on it.)",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ryan Pancoast",
+      "imageId": "00c08222-4c57-4bd4-9ec7-d4efae8e76bb"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Undying"
+  ],
+  "setCode": "sis",
+  "collectorNumber": "58",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLOUDFIN_RAPTOR: CardData = {
+  "scryfallId": "013bedfc-6916-49f3-b6bf-de81ec00d4a1",
+  "oracleId": "cb0e1afa-fd9e-4bf9-bcb1-6e8110d6e2ff",
+  "name": "Cloudfin Raptor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cloudfin Raptor",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Bird Mutant",
+      "oracleText": "Flying\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Maxime Minard",
+      "imageId": "013bedfc-6916-49f3-b6bf-de81ec00d4a1"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Flying",
+    "Evolve"
+  ],
+  "setCode": "rvr",
+  "collectorNumber": "310",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EVERNIGHT_SHADE: CardData = {
+  "scryfallId": "1091fadf-97c4-4f87-8466-6a1246a72226",
+  "oracleId": "9af1b6c4-295f-41d2-b3a0-0863798330d4",
+  "name": "Evernight Shade",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Evernight Shade",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Shade",
+      "oracleText": "{B}: This creature gets +1/+1 until end of turn.\nUndying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner's control with a +1/+1 counter on it.)",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nic Klein",
+      "imageId": "1091fadf-97c4-4f87-8466-6a1246a72226"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Undying"
+  ],
+  "setCode": "avr",
+  "collectorNumber": "101",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JHESSIAN_THIEF: CardData = {
+  "scryfallId": "1227fb31-2780-48e2-9790-4a7e9a413f75",
+  "oracleId": "b917c3aa-2d54-49e0-924a-dfd02eaf4b2d",
+  "name": "Jhessian Thief",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jhessian Thief",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Rogue",
+      "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhenever this creature deals combat damage to a player, draw a card.",
+      "flavorText": "\"Where's the fun in an escape if it's not at least a little daring?\"",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Miles Johnston",
+      "imageId": "1227fb31-2780-48e2-9790-4a7e9a413f75"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Prowess"
+  ],
+  "setCode": "ima",
+  "collectorNumber": "61",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INGENIOUS_SKAAB: CardData = {
+  "scryfallId": "19d6ed0b-40ba-407d-94de-05a705e79b95",
+  "oracleId": "9107ece7-a263-4203-ab09-069193cc4902",
+  "name": "Ingenious Skaab",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ingenious Skaab",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Zombie Horror",
+      "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\n{U}: This creature gets +1/-1 until end of turn.",
+      "flavorText": "Heads and shoulders above the rest.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jesper Ejsing",
+      "imageId": "19d6ed0b-40ba-407d-94de-05a705e79b95"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Prowess"
+  ],
+  "setCode": "emn",
+  "collectorNumber": "66",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RHOX_BODYGUARD: CardData = {
+  "scryfallId": "1e9f43c8-9df6-49df-b145-4a19bc55e8f4",
+  "oracleId": "34bd39ed-4058-4c65-ba5f-9ac5cf7c166a",
+  "name": "Rhox Bodyguard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rhox Bodyguard",
+      "manaCost": "{3}{G}{W}",
+      "typeLine": "Creature — Rhino Monk Soldier",
+      "oracleText": "Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\nWhen this creature enters, you gain 3 life.",
+      "flavorText": "An enlightened soul caged in a body made for battle.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Sal Villagran",
+      "imageId": "1e9f43c8-9df6-49df-b145-4a19bc55e8f4"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Exalted"
+  ],
+  "setCode": "con",
+  "collectorNumber": "122",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MONASTERY_MENTOR: CardData = {
+  "scryfallId": "2343e69d-f30e-4826-953c-fbf31c6079e6",
+  "oracleId": "3979067a-9c68-443d-a85f-d9f07be880b9",
+  "name": "Monastery Mentor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Monastery Mentor",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Monk",
+      "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhenever you cast a noncreature spell, create a 1/1 white Monk creature token with prowess.",
+      "flavorText": "\"Speak little. Do much.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Magali Villeneuve",
+      "imageId": "2343e69d-f30e-4826-953c-fbf31c6079e6"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Prowess"
+  ],
+  "setCode": "tdc",
+  "collectorNumber": "125",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KITCHEN_FINKS: CardData = {
+  "scryfallId": "4c14ca74-fc08-46ea-926f-82d987f6798e",
+  "oracleId": "5470dcfa-4eff-43da-abf7-19922841f719",
+  "name": "Kitchen Finks",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kitchen Finks",
+      "manaCost": "{1}{G/W}{G/W}",
+      "typeLine": "Creature — Ouphe",
+      "oracleText": "When this creature enters, you gain 2 life.\nPersist (When this creature dies, if it had no -1/-1 counters on it, return it to the battlefield under its owner's control with a -1/-1 counter on it.)",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Larry MacDougall",
+      "imageId": "4c14ca74-fc08-46ea-926f-82d987f6798e"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Persist"
+  ],
+  "setCode": "f09",
+  "collectorNumber": "3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RESTLESS_APPARITION: CardData = {
+  "scryfallId": "70aea782-f054-41bc-8681-7e2246e6f3fd",
+  "oracleId": "fbd6dda7-ccee-4640-805d-78a9d60f45ef",
+  "name": "Restless Apparition",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Restless Apparition",
+      "manaCost": "{W/B}{W/B}{W/B}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "{W/B}{W/B}{W/B}: This creature gets +3/+3 until end of turn.\nPersist (When this creature dies, if it had no -1/-1 counters on it, return it to the battlefield under its owner's control with a -1/-1 counter on it.)",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Jeff Easley",
+      "imageId": "70aea782-f054-41bc-8681-7e2246e6f3fd"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Persist"
+  ],
+  "setCode": "mm2",
+  "collectorNumber": "196",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const METICULOUS_ARTISAN: CardData = {
+  "scryfallId": "baf4c9dd-0546-41ac-a7ba-0bc312fef31e",
+  "oracleId": "2b2b3b16-389c-4581-b889-b8a2e76f83a2",
+  "name": "Meticulous Artisan",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Meticulous Artisan",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Djinn Artificer",
+      "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhen this creature enters, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "\"It isn't about expression or results. Doing the thing is itself the point.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Anna Pavleeva",
+      "imageId": "baf4c9dd-0546-41ac-a7ba-0bc312fef31e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Prowess",
+    "Treasure"
+  ],
+  "setCode": "tdm",
+  "collectorNumber": "112",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEEKER_OF_THE_WAY: CardData = {
+  "scryfallId": "0186d255-2fd6-4261-9c4c-394d4417d396",
+  "oracleId": "e206842f-139b-490d-bc10-d365705ac720",
+  "name": "Seeker of the Way",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Seeker of the Way",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Warrior",
+      "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhenever you cast a noncreature spell, this creature gains lifelink until end of turn.",
+      "flavorText": "\"I don't know where my destiny lies, but I know it isn't here.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Magali Villeneuve",
+      "imageId": "0186d255-2fd6-4261-9c4c-394d4417d396"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Prowess"
+  ],
+  "setCode": "prm",
+  "collectorNumber": "57576",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BURNING_SHIELD_ASKARI: CardData = {
+  "scryfallId": "486547cd-d2e7-4c46-9f7b-81c4267d65cc",
+  "oracleId": "042fd95a-5e85-4ce5-bb68-066a295c54fb",
+  "name": "Burning Shield Askari",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Burning Shield Askari",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Flanking (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.)\n{R}{R}: This creature gains first strike until end of turn.",
+      "flavorText": "\"Any day that I ride my horse up to my ankles in the remains of my enemies is a good day.\"\n—Akin, seasoned askari",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dan Frazier",
+      "imageId": "486547cd-d2e7-4c46-9f7b-81c4267d65cc"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flanking"
+  ],
+  "setCode": "mir",
+  "collectorNumber": "162",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SEARING_SPEAR_ASKARI: CardData = {
+  "scryfallId": "5cf66916-7f6b-412f-acd6-f96ad4539a46",
+  "oracleId": "d3c68573-95b1-4db5-bbea-363b86f713c1",
+  "name": "Searing Spear Askari",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Searing Spear Askari",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Flanking (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.)\n{1}{R}: This creature gains menace until end of turn. (It can't be blocked except by two or more creatures.)",
+      "flavorText": "When the other soldiers of Zhalfir fall, the askaris will yet stand.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Richard Kane Ferguson",
+      "imageId": "5cf66916-7f6b-412f-acd6-f96ad4539a46"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flanking"
+  ],
+  "setCode": "mir",
+  "collectorNumber": "191",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FEMEREF_KNIGHT: CardData = {
+  "scryfallId": "915a2e07-b449-4d94-93e3-e756e891c542",
+  "oracleId": "4365521e-996d-4eca-bbc9-b0988fa973ae",
+  "name": "Femeref Knight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Femeref Knight",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Flanking (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.)\n{W}: This creature gains vigilance until end of turn.",
+      "flavorText": "\"I will return / with lizard skins for your sandals. Paint your eyes black and wait for me.\"\n—\"Love Song of Night and Day\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Tony Roberts",
+      "imageId": "915a2e07-b449-4d94-93e3-e756e891c542"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flanking"
+  ],
+  "setCode": "mir",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ZHALFIRIN_KNIGHT: CardData = {
+  "scryfallId": "bb5b0fcb-c170-4d12-8761-de833e944e2f",
+  "oracleId": "a534f06e-dae4-4d1a-96e9-7693bbb21e12",
+  "name": "Zhalfirin Knight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Zhalfirin Knight",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Flanking (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.)\n{W}{W}: This creature gains first strike until end of turn.",
+      "flavorText": "\"You returned a warrior. . . . Your hair was cut, your eye tattooed with the red triangle of war.\"\n—\"Love Song of Night and Day\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Bolton",
+      "imageId": "bb5b0fcb-c170-4d12-8761-de833e944e2f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flanking"
+  ],
+  "setCode": "pmei",
+  "collectorNumber": "1996-2",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIGHTED_CASTE_SORCERER: CardData = {
+  "scryfallId": "d07e2d4c-a33b-42b1-9576-2269d137a868",
+  "oracleId": "f9921c9e-3248-488d-ad7b-8b064c5387e7",
+  "name": "Sighted-Caste Sorcerer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sighted-Caste Sorcerer",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Wizard Sorcerer",
+      "oracleText": "Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\n{U}: This creature gains shroud until end of turn. (It can't be the target of spells or abilities.)",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Chris Rahn",
+      "imageId": "d07e2d4c-a33b-42b1-9576-2269d137a868"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Exalted"
+  ],
+  "setCode": "ala",
+  "collectorNumber": "26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PYREHEART_WOLF: CardData = {
+  "scryfallId": "969a3348-2ca0-4b42-a200-cc4880d6b0bd",
+  "oracleId": "b97ccb69-e76c-4962-91ca-c7fd857140e8",
+  "name": "Pyreheart Wolf",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pyreheart Wolf",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Wolf",
+      "oracleText": "Whenever this creature attacks, creatures you control gain menace until end of turn. (They can't be blocked except by two or more creatures.)\nUndying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner's control with a +1/+1 counter on it.)",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Lars Grant-West",
+      "imageId": "969a3348-2ca0-4b42-a200-cc4880d6b0bd"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Undying"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "DKA-101",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JESKAI_SAGE: CardData = {
+  "scryfallId": "59faca44-2a97-4202-8840-314b5ddabece",
+  "oracleId": "b79d4b17-482e-415b-a63b-1f97a55e7583",
+  "name": "Jeskai Sage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jeskai Sage",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Human Monk",
+      "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhen this creature dies, draw a card.",
+      "flavorText": "\"The one who conquers the mind is greater than the one who conquers the world.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Craig J Spearing",
+      "imageId": "59faca44-2a97-4202-8840-314b5ddabece"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Prowess"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "FRF-38",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -121235,6 +122076,29 @@ export const ENGINE_CARDS: CardData[] = [
   FEELING_OF_DREAD,
   BEAST_ATTACK,
   DEEP_ANALYSIS,
+  MONASTERY_SWIFTSPEAR,
+  AKRASAN_SQUIRE,
+  KITSUNE_BLADEMASTER,
+  FALLEN_ASKARI,
+  SAFEHOLD_ELITE,
+  YOUNG_WOLF,
+  CLOUDFIN_RAPTOR,
+  EVERNIGHT_SHADE,
+  JHESSIAN_THIEF,
+  INGENIOUS_SKAAB,
+  RHOX_BODYGUARD,
+  MONASTERY_MENTOR,
+  KITCHEN_FINKS,
+  RESTLESS_APPARITION,
+  METICULOUS_ARTISAN,
+  SEEKER_OF_THE_WAY,
+  BURNING_SHIELD_ASKARI,
+  SEARING_SPEAR_ASKARI,
+  FEMEREF_KNIGHT,
+  ZHALFIRIN_KNIGHT,
+  SIGHTED_CASTE_SORCERER,
+  PYREHEART_WOLF,
+  JESKAI_SAGE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

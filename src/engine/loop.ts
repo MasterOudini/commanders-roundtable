@@ -15,6 +15,7 @@
 import { assignBlockerDamage, creaturesInCombat, canAttack, legalDefenders, needsFirstStrikeSubstep, resolveCombatDamage } from './combat';
 import { derive, makeDeriveCache } from './derive';
 import { drawEvents, drewCardsMarker, effectResult } from './effects';
+import { keywordTriggerDef } from './keywordTriggers';
 import { candidatesFromState, minimumLegalTargets, targetAllowed, untargetableByRule, type TargetingSource } from './targets';
 import { checkGameOver, checkStateBasedActions } from './sba';
 import { emitted, type Emitted } from './log';
@@ -734,6 +735,9 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
 /** The `TriggerDef` behind a stack object, or undefined for anything else. */
 function triggerDefFor(deps: EngineDeps, obj: StackObject): TriggerDef | undefined {
   if (!obj.abilityRef) return undefined;
+  // D308 - a keyword trigger's ref names the keyword, not a script's def.
+  const kw = keywordTriggerDef(obj.abilityRef);
+  if (kw) return kw;
   const script = deps.scripts.get(obj.abilityRef.slice(0, obj.abilityRef.indexOf('#')));
   return script?.triggers?.find((t) => `${script.oracleId}#${t.abilityId}` === obj.abilityRef);
 }
