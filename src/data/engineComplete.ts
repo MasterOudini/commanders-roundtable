@@ -424,6 +424,9 @@ function linesUnaccounted(
     // D307 - a Flashback line the engine RUNS (cast from the graveyard for
     // that cost, exiled on leaving the stack). Asked of the parser that read it.
     if (face.flashbackCost !== null && /^Flashback (?:\{[^}]+\})+$/.test(line)) continue;
+    // D309 - a Morph / Megamorph line the engine RUNS (cast face down for {3},
+    // turned face up for the cost). Asked of the parser that read it.
+    if (face.morphCost !== null && /^(?:Morph|Megamorph) (?:\{[^}]+\})+$/.test(line)) continue;
     if (isKeywordLine(line, face)) continue;
     // ⚠️ `mana` outranks `activated`, because a mana ability never reaches the
     // stack (CR 605) and is never offered by `ActivateAbility` — so the note that

@@ -35,7 +35,7 @@
 
 import type { CardData, CardFace } from './cardTypes';
 import { canonicalKeyword } from '../engine/keywords';
-import { parseFlashback, parseManaCost, parseManaProduction, parseTypeLine } from './oracleParse';
+import { parseFlashback, parseManaCost, parseManaProduction, parseMorph, parseTypeLine } from './oracleParse';
 import { isPermanentType } from './oracleParse';
 import { parseEnchant, parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities } from './activatedParse';
@@ -334,6 +334,14 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (raw.trim().toLowerCase() === 'cycling' && abilities.some((a) => a.cycling !== undefined)) continue;
     // D307 - a Flashback the engine runs (a mana cost, read by parseFlashback) is no note.
     if (raw.trim().toLowerCase() === 'flashback' && !isPermanentType(parseTypeLine(card.faces[faceIndex]?.typeLine ?? '')) && parseFlashback(card.faces[faceIndex]?.oracleText ?? '') !== null) continue;
+    // D309 - a Morph / Megamorph the engine runs (a mana cost, read by parseMorph) is no note.
+    if (
+      (raw.trim().toLowerCase() === 'morph' || raw.trim().toLowerCase() === 'megamorph') &&
+      isPermanentType(parseTypeLine(card.faces[faceIndex]?.typeLine ?? '')) &&
+      parseMorph(card.faces[faceIndex]?.oracleText ?? '') !== null
+    ) {
+      continue;
+    }
     const how = NAMED[raw.trim().toLowerCase()];
     if (how) add(raw, how);
   }

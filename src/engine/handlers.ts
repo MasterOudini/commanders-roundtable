@@ -25,6 +25,7 @@ import {
 import { buildPaymentProblem, costStringOf, manaSourcesOf, wardTaxFrom } from './mana';
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
+import { parseManaCost } from '../data/oracleParse';
 import { suggestPayment, solveInputFor, validatePlan } from './payment';
 import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle } from './rng';
@@ -79,6 +80,8 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
       return chooseTargets(state, intent, deps);
     case 'PayCast':
       return payCast(state, intent, deps);
+    case 'TurnFaceUp':
+      return turnFaceUp(state, intent, deps);
     case 'CancelPendingCast':
       return cancelPendingCast(state, intent.player);
     case 'TapForMana':
@@ -346,7 +349,12 @@ interface CastSetup {
   readonly tax: number;
   readonly from: ZoneRef;
   readonly identity: readonly import('../data/cardTypes').ColorLetter[];
+  /** D309 - a face-down (morph) cast: {3}, a nameless colorless 2/2. */
+  readonly faceDown?: boolean;
 }
+
+/** D309 - the cost of casting any card face down (CR 702.37a). */
+const MORPH_CAST_COST = parseManaCost('{3}');
 
 /**
  * Ward, charged as a CAST-TIME TAX. CR 702.21a, simplified deliberately.
@@ -396,13 +404,20 @@ function prepareCast(
   faceIndex: number,
   xValue: number,
   targets: readonly TargetChoice[] = [],
+  faceDown = false,
 ): CastSetup | { error: HandleResult } {
   const card = state.cards[cardId];
   if (!card) return { error: reject('noSuchCard', 'That card is not in the game.') };
   const oracleCard = deps.oracle.byPrinting(card.printingId);
   if (!oracleCard) return { error: reject('noSuchCard', 'That card is not in the card database.') };
   const face = faceOf(oracleCard, faceIndex);
-  if (face.manaCost === null || face.isLand) {
+  // D309 - THE MORPH SEAM: cast face down as a 2/2 for {3} (CR 702.37a) - a
+  // creature spell at sorcery speed, from the hand, no targets, whatever the
+  // card's own cost or type (Zoetic Cavern is a land).
+  if (faceDown && (face.morphCost === null || card.zone.kind !== 'hand' || faceIndex !== 0)) {
+    return { error: reject('notCastable', `${face.name} cannot be cast face down from there.`) };
+  }
+  if (!faceDown && (face.manaCost === null || face.isLand)) {
     return { error: reject('notCastable', `${face.name} cannot be cast.`) };
   }
   const from: ZoneRef = { kind: card.zone.kind, player: card.zone.player };
@@ -416,7 +431,7 @@ function prepareCast(
   if (from.kind === 'command' && !card.isCommander) {
     return { error: reject('notCastable', 'Only a commander can be cast from the command zone.') };
   }
-  if (!face.instantSpeed && !canActAtSorcerySpeed(state, player)) {
+  if ((faceDown || !face.instantSpeed) && !canActAtSorcerySpeed(state, player)) {
     return {
       error: reject(
         'timingRestriction',
@@ -430,9 +445,61 @@ function prepareCast(
   const tax = from.kind === 'command' && card.isCommander ? 2 * card.commanderCastCount : 0;
   const ward = wardTaxFor(state, deps, player, targets);
   // D307 - a flashback cast pays the FLASHBACK cost instead of the mana cost.
-  const cost = flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
+  const cost = faceDown ? MORPH_CAST_COST : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
+  if (cost === null) return { error: reject('notCastable', `${face.name} cannot be cast.`) };
   const problem = buildPaymentProblem(cost, xValue, ward.mana, tax, ward.life);
-  return { problem, face, tax, from, identity: oracleCard.colorIdentity };
+  // A face-down spell has no color identity to show (CR 708.2).
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown };
+}
+
+// D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
+// action (CR 702.37c, 708.7): any time you have priority, pay the morph cost
+// and it turns face up - no stack, nothing to respond to. A megamorph adds a
+// +1/+1 counter as it turns (CR 702.37e). The payment is the same staged plan a
+// cast pays with, checked by the same validator.
+function turnFaceUp(state: GameState, intent: Extract<Intent, { t: 'TurnFaceUp' }>, deps: EngineDeps): HandleResult {
+  const card = state.cards[intent.card];
+  if (!card) return reject('noSuchCard', 'That card is not in the game.');
+  if (card.zone.kind !== 'battlefield' || card.controller !== intent.player) {
+    return reject('wrongZone', 'That is not a permanent you control.');
+  }
+  if (!card.faceDown) return reject('notCastable', 'That permanent is already face up.');
+  const oracleCard = deps.oracle.byPrinting(card.printingId);
+  if (!oracleCard) return reject('noSuchCard', 'That card is not in the card database.');
+  const face = faceOf(oracleCard, card.faceIndex);
+  if (face.morphCost === null) return reject('notCastable', `${face.name} has no morph cost the engine can charge.`);
+  if (state.priority.player !== intent.player || state.priority.awaiting !== null) {
+    return reject('notYourPriority', 'You do not have priority.');
+  }
+  if (state.pendingCast) return reject('wrongCastStage', 'Finish or cancel the spell you are already casting.');
+  const problem = buildPaymentProblem(face.morphCost, 0, [], 0);
+  const solve = solveInputFor(state, deps.oracle, deps.scripts, intent.player);
+  const chosen = intent.plan ?? suggestPayment(solve, problem);
+  if (!chosen) return reject('cannotAfford', `You cannot pay ${face.morphCostText ?? 'the morph cost'} to turn ${face.name} face up.`);
+  const verdict = validatePlan(state, deps.oracle, deps.scripts, intent.player, problem, chosen);
+  if (verdict === 'stale') return reject('stalePaymentPlan', 'The board changed while you were paying. Try again.');
+  if (verdict === 'invalid') return reject('invalidPaymentPlan', 'That payment does not cover the cost.');
+  const events: EventBody[] = [];
+  events.push(
+    ...payEvents(state, deps, intent.player, chosen, {
+      problem,
+      face,
+      tax: 0,
+      from: { kind: 'battlefield', player: intent.player },
+      identity: oracleCard.colorIdentity,
+    }),
+  );
+  events.push({ t: 'FaceDownSet', card: intent.card, faceDown: false });
+  if (face.megamorph) events.push({ t: 'CountersChanged', changes: [{ card: intent.card, kind: '+1/+1', delta: 1 }] });
+  events.push(
+    narrated(
+      n`${who(state, intent.player)} ${vb(intent.player, 'turns', 'turn')} ${face.name} face up.`,
+      intent.player,
+      oracleCard.colorIdentity,
+    ),
+  );
+  events.push(...retainPriority(intent.player, state.stack.length));
+  return accept(events);
 }
 
 function castSpell(
@@ -460,6 +527,7 @@ function castSpell(
     faceIndex,
     intent.xValue ?? 0,
     intent.targets ?? [],
+    intent.faceDown === true,
   );
   if ('error' in setup) return setup.error;
 
@@ -468,8 +536,8 @@ function castSpell(
   // targets IS X, and asking for targets first makes those cards unaskable.
   // `PendingCast` lives in GAME STATE, which is what makes "Bob dropped while
   // choosing" recoverable rather than fatal.
-  const needsX = !!setup.face.manaCost && setup.face.manaCost.xCount > 0 && intent.xValue === undefined;
-  const needsTargets = setup.face.targets.length > 0 && intent.targets === undefined;
+  const needsX = !setup.faceDown && !!setup.face.manaCost && setup.face.manaCost.xCount > 0 && intent.xValue === undefined;
+  const needsTargets = !setup.faceDown && setup.face.targets.length > 0 && intent.targets === undefined;
 
   /**
    * ⚠️ **INLINE TARGETS WERE NEVER CHECKED, AND THE HOST IS THE ONLY AUTHORITY**
@@ -487,7 +555,7 @@ function castSpell(
    */
   // D299: the clause each pick answers, fixed here and carried onto the spell.
   let targetSlots: readonly number[] | undefined;
-  if (intent.targets !== undefined && setup.face.targets.length > 0) {
+  if (!setup.faceDown && intent.targets !== undefined && setup.face.targets.length > 0) {
     const verdict = validateTargets(
       setup.face.targets,
       { controller: intent.player, colors: setup.face.colors },
@@ -1035,6 +1103,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
           from: setup.from,
           to: { kind: 'stack', player: null },
           ...(args.faceIndex === 0 ? {} : { faceIndex: args.faceIndex }),
+          ...(setup.faceDown ? { faceDown: true } : {}),
         },
       ],
     },
@@ -1054,11 +1123,12 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...(args.targetSlots !== undefined ? { targetSlots: args.targetSlots } : {}),
     modes: [],
     xValue: args.xValue > 0 ? args.xValue : null,
-    label: setup.face.name,
+    label: setup.faceDown ? 'a face-down creature' : setup.face.name,
     identity: setup.identity,
     taxApplied: setup.tax,
     isCommanderCast: setup.from.kind === 'command',
     castFrom: setup.from,
+    ...(setup.faceDown ? { faceDown: true as const } : {}),
   };
   events.push({ t: 'SpellCast', obj });
   if (setup.from.kind === 'command' && card?.isCommander) {
@@ -1070,7 +1140,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
   }
   events.push(
     narrated(
-      n`${who(state, args.player)} ${vb(args.player, 'casts', 'cast')} ${setup.face.name}${setup.tax > 0 ? ` (commander tax {${setup.tax}})` : ''}.`,
+      n`${who(state, args.player)} ${vb(args.player, 'casts', 'cast')} ${setup.faceDown ? 'a face-down creature' : setup.face.name}${setup.tax > 0 ? ` (commander tax {${setup.tax}})` : ''}.`,
       args.player,
       setup.identity,
     ),

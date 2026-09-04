@@ -609,6 +609,19 @@ export function flashbackLineRuns(text: string): boolean {
   return FLASHBACK_MANA_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
 }
 
+/**
+ * D309 - THE MORPH SEAM. "Morph {N}" / "Megamorph {N}" the engine runs (cast
+ * face down as a 2/2 for {3}, turned face up for the cost). Measured over the
+ * database before it was built: 184 blocked cards print a morph line, 172 with
+ * a mana cost, 65 of them with nothing else unread.
+ */
+const MORPH_MANA_LINE = /^(?:Morph|Megamorph) (?:\{[^}]+\})+$/;
+
+/** Is this printed line a Morph the engine runs (D309)? */
+export function morphLineRuns(text: string): boolean {
+  return MORPH_MANA_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
+}
+
 /** Is this printed line an equipped-creature static or restriction a row can emit (D305)? */
 export function equipLineShape(text: string): boolean {
   return EQUIPPED_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
@@ -633,6 +646,9 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // D307 - a Flashback line with a mana cost is the engine's own (see
   // `flashbackLineRuns`); a dash cost stays `keyword:altCost`.
   if (/^flashback\b/i.test(text)) return flashbackLineRuns(text) ? 'scriptable' : 'keyword:altCost';
+  // D309 - a Morph / Megamorph line with a mana cost is the engine's own (see
+  // `morphLineRuns`); a dash cost stays `keyword:altCost`.
+  if (/^(?:morph|megamorph)\b/i.test(text)) return morphLineRuns(text) ? 'scriptable' : 'keyword:altCost';
 
   // A keyword ability is not a sentence — check the shape before reading it as
   // one. See `KEYWORD_LINES`.

@@ -669,6 +669,8 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
           from: { kind: 'stack', player: null },
           to,
           ...(obj.faceIndex === 0 ? {} : { faceIndex: obj.faceIndex }),
+          // D309 - a face-down spell resolves into a face-down permanent (CR 708.4).
+          ...(obj.faceDown ? { faceDown: true } : {}),
         },
       ],
     });

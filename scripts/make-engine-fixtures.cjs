@@ -3792,6 +3792,11 @@ const WANTED = [
   'Sighted-Caste Sorcerer',
   'Pyreheart Wolf',
   'Jeskai Sage',
+  // D309 - the morph seam test cards (two pure morphs, a first-strike morph, a megamorph).
+  'Woolly Loxodon',
+  'Glacial Stalker',
+  'Battering Craghorn',
+  'Aerie Bowmasters',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

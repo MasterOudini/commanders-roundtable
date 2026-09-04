@@ -51,6 +51,19 @@ export type Intent =
       readonly xValue?: number;
       readonly targets?: readonly TargetChoice[];
       readonly plan?: PaymentPlan;
+      /** D309 - cast face down as a 2/2 for {3} (morph, CR 702.37a). */
+      readonly faceDown?: boolean;
+    }
+  /**
+   * D309 - THE MORPH SEAM: turning a face-down permanent you control face up
+   * for its morph cost - a special action any time you have priority (CR
+   * 702.37c), no stack, nothing to respond to.
+   */
+  | {
+      readonly t: 'TurnFaceUp';
+      readonly player: PlayerId;
+      readonly card: InstanceId;
+      readonly plan?: PaymentPlan;
     }
   /**
    * Activating a non-mana ability of a permanent you control. Mana abilities go

@@ -115059,6 +115059,152 @@ export const JESKAI_SAGE: CardData = {
   "singleImage": true
 };
 
+export const WOOLLY_LOXODON: CardData = {
+  "scryfallId": "18ea1434-16c4-4b1a-8728-806360131587",
+  "oracleId": "b588df7a-64d8-449e-b573-13badc8cdf56",
+  "name": "Woolly Loxodon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Woolly Loxodon",
+      "manaCost": "{5}{G}{G}",
+      "typeLine": "Creature — Elephant Warrior",
+      "oracleText": "Morph {5}{G} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+      "flavorText": "Even among the hardiest warriors of the Temur, loxodons are respected for their adaptation to the mountain snows.",
+      "power": "6",
+      "toughness": "7",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Karla Ortiz",
+      "imageId": "18ea1434-16c4-4b1a-8728-806360131587"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Morph"
+  ],
+  "setCode": "a25",
+  "collectorNumber": "195",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GLACIAL_STALKER: CardData = {
+  "scryfallId": "8821c7b9-702b-416f-b006-941ad57f9e11",
+  "oracleId": "49d06291-c8cb-4e22-b178-d0598582b2ee",
+  "name": "Glacial Stalker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Glacial Stalker",
+      "manaCost": "{5}{U}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Morph {4}{U} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+      "flavorText": "\"Have you spent a winter high in the mountains, where the ice walks and speaks to the wind? It is not a place for those who have not learned respect.\"\n—Ulnok, Temur shaman",
+      "power": "4",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Daarken",
+      "imageId": "8821c7b9-702b-416f-b006-941ad57f9e11"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Morph"
+  ],
+  "setCode": "ktk",
+  "collectorNumber": "41",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BATTERING_CRAGHORN: CardData = {
+  "scryfallId": "69786e07-1b2c-4af9-82f1-222fb9fb4e85",
+  "oracleId": "a084bca4-fe72-443e-adf4-ab5456c7e699",
+  "name": "Battering Craghorn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Battering Craghorn",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Creature — Goat Beast",
+      "oracleText": "First strike\nMorph {1}{R}{R} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+      "flavorText": "Their skeletons can be found all over Skirk Ridge, tangled in each other's horns.",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Matt Cavotta",
+      "imageId": "69786e07-1b2c-4af9-82f1-222fb9fb4e85"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Morph",
+    "First strike"
+  ],
+  "setCode": "arc",
+  "collectorNumber": "30",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AERIE_BOWMASTERS: CardData = {
+  "scryfallId": "2cc81518-773d-4d03-af15-360fe18752d1",
+  "oracleId": "43ace4d5-9006-4bad-bd17-3d368c20564d",
+  "name": "Aerie Bowmasters",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aerie Bowmasters",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Dog Archer",
+      "oracleText": "Reach (This creature can block creatures with flying.)\nMegamorph {5}{G} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its megamorph cost and put a +1/+1 counter on it.)",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Matt Stewart",
+      "imageId": "2cc81518-773d-4d03-af15-360fe18752d1"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Reach",
+    "Megamorph"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "DTK-170",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -122099,6 +122245,10 @@ export const ENGINE_CARDS: CardData[] = [
   SIGHTED_CASTE_SORCERER,
   PYREHEART_WOLF,
   JESKAI_SAGE,
+  WOOLLY_LOXODON,
+  GLACIAL_STALKER,
+  BATTERING_CRAGHORN,
+  AERIE_BOWMASTERS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

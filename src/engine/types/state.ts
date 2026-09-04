@@ -265,6 +265,8 @@ export interface StackObject {
   readonly isCommanderCast: boolean;
   /** Where the card came from, so a fizzle/counter can send it home. */
   readonly castFrom: ZoneRef | null;
+  /** D309 - cast face down (morph): a nameless colorless 2/2 creature spell. */
+  readonly faceDown?: true;
   /**
    * The ITEM a per-item fan-out firing is about (D190), carried from
    * `PendingTrigger.item` so `resolve` can read which drawn card / dealer /
@@ -369,6 +371,8 @@ export interface PendingCast {
   readonly lifePaid: number;
   readonly isCommanderCast: boolean;
   readonly taxApplied: number;
+  /** D309 - a face-down (morph) cast. */
+  readonly faceDown?: true;
   /** The modal DFC face being cast, carried to the `StackObject`. See D155. */
   readonly faceIndex: number;
   /**

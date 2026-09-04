@@ -718,6 +718,15 @@ export interface OracleFace {
    */
   readonly flashbackCost: ManaCost | null;
   /**
+   * D309 - THE MORPH SEAM. "Morph {N}" / "Megamorph {N}" as a mana cost (CR
+   * 702.37): cast face down as a 2/2 for {3}, turned face up for this. Null
+   * when the card has none or prints a dash cost. Permanents only.
+   */
+  readonly morphCost: ManaCost | null;
+  /** The printed morph cost ("{1}{R}{R}"), for the offer's label; null with no morph cost. */
+  readonly morphCostText: string | null;
+  readonly megamorph: boolean;
+  /**
    * `ward—Pay 3 life`, as a life tax. 0 when there is none.
    *
    * ⚠️ A SEPARATE FIELD, not a degenerate `ManaCost`. D33 unified Phyrexian mana

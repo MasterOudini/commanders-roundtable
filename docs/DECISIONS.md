@@ -20901,3 +20901,92 @@ Fixtures 3,435 · botPool artifact 252 / creature 2,893 / enchantment 252 / inst
 **Reportables** (D308): the next keyword yields from the same table - battle cry, rampage N, afflict N, then the chooser keywords (mentor, modular, soulshift) once a targeted keyword trigger carries a spec; the other graveyard casts (Escape, Jump-start, Unearth, Encore, Retrace); the flashback dash costs (17); the cycling triggers head; morph (53) and convoke (52) and crew (38); the modal seam (42); the "another" split;
 the by-name sacrifice cost; the remaining cost verbs; the prompt
 continuation seam; prior items stand.
+
+## D309 — M6.4et: THE MORPH SEAM — Morph {N} casts any card face down as a nameless colorless 2/2 for {3} and turns it face up for the cost, the engine's own; 38 cards complete with no script (2026-09-04)
+
+**5,481 of 31,692 Commander-legal cards execute completely, up from
+5,443 (+38).** SHIPPED_SCRIPTS 3,097 → **3,097**; REFUSED ledger
+1,008 → **1,035** (+27: the morph creatures whose OTHER line the vocabulary does not read yet - their morph runs: 18 turned-face-up triggers (Aphetto Exterminator, Daru Sanctifier, Echo Tracer, Master of Pearls, Voidmage Apprentice, Skinthinner, Stratus Dancer ...), 7 activated lines (Whipcorder, Gravel Slinger, Fledgling Mawcor, Voidmage Prodigy ...), Grinning Demon's upkeep, Grim Haruspex's dies watcher, Lumithread Field's anthem). Fixtures 3,435 → 3,439 (3,323 by name + 109 tokens: the seam's four test cards (Woolly Loxodon, Glacial Stalker, Battering Craghorn, Aerie Bowmasters)).
+ZERO new token pins; eleven support bodies (the ingest, the two offers, the
+cast, the special action, the resolution, the derive, the accounting, the
+disclosure, the classifier), one intent. **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** D306's keyword probe put morph
+first among the keyword yields still standing; measured again by d309/probe-morph.json: 184 blocked cards print a morph line - 141 Morph and 31 Megamorph with a mana cost, 12 with a dash cost - and 65 of them (12 megamorphs) have nothing else unread; 49 more carry a turned-face-up trigger.
+
+**The seam.** A face-down permanent already existed in the engine as a
+manual tool (`ManualSetFaceDown`, the `FaceDownSet` event, the derive's 2/2
+branch, the projection's hidden printing). Morph is the RULE that puts it
+there and takes it away again (CR 702.37, 708):
+
+- `src/engine/types/oracle.ts` / `src/data/oracleParse.ts`:
+  `OracleFace.morphCost` / `morphCostText` / `megamorph` — `parseMorph` reads
+  "Morph {N}" or "Megamorph {N}" on its own line as a mana cost; a dash cost
+  stays null and Tier 3 by name. Permanents only (Zoetic Cavern is a land
+  that morphs).
+- `src/engine/legal.ts`: every card in hand with a morph cost is ALSO
+  offered as a `CastSpell` with `faceDown: true` — a creature spell for {3},
+  sorcery speed, no targets, offered before the land check; every face-down
+  permanent you control whose card prints a morph cost is offered as
+  `TurnFaceUp` any time you have priority.
+- `src/engine/handlers.ts`: `prepareCast` prices a face-down cast at {3}
+  (no X, no targets, no color identity to show), the hand-to-stack move and
+  the stack object carry `faceDown`; `turnFaceUp` is a special action — pay
+  the morph cost through the same staged plan and validator a cast uses,
+  `FaceDownSet` false, a +1/+1 counter for a megamorph, priority retained,
+  no stack.
+- `src/engine/loop.ts`: the resolved face-down spell enters the battlefield
+  face down (the move carries the flag; the reducer already read it). A
+  countered or fizzled one reaches the graveyard face up.
+- `src/engine/derive.ts`: the face-down branch covers the STACK too (a
+  counter aimed at a noncreature spell, a prowess trigger, both see a
+  creature spell with no name and no color), and it has NO ABILITIES — the
+  one flag every reader already honoured through CR 613's silence: the
+  trigger bus, the replacement funnel, the combat restrictions, the
+  activated offers. A static from a face-down source is skipped.
+- `src/data/engineComplete.ts` / `tier3.ts` / `primitives.ts`: the parsed
+  cost makes the Morph line the engine's own, the disclosure says nothing,
+  the classifier files it scriptable.
+- `src/engine/fuzz.node.test.ts`: the gate casts a face-down offer face
+  down and takes an affordable `TurnFaceUp`, so every seed that deals a
+  morph exercises both.
+
+No generator: a permanent whose only unread line was its morph line is
+COMPLETE by the accounting alone.
+
+- **Refused by name:** +27: the morph creatures whose OTHER line the vocabulary does not read yet - their morph runs: 18 turned-face-up triggers (Aphetto Exterminator, Daru Sanctifier, Echo Tracer, Master of Pearls, Voidmage Apprentice, Skinthinner, Stratus Dancer ...), 7 activated lines (Whipcorder, Gravel Slinger, Fledgling Mawcor, Voidmage Prodigy ...), Grinning Demon's upkeep, Grim Haruspex's dies watcher, Lumithread Field's anthem.
+- **Not this decision:** the dash morph costs (12: reveal a card, discard,
+  sacrifice, pay life); the "When this creature is turned face up" triggers
+  (49 cards — a head over `FaceDownSet` next); the bot playing face down
+  (its policies still cast every card face up: `previewCast` prices the
+  face, and a face-down offer it cannot pay for is skipped); manifest,
+  disguise and cloak (face-down cousins with their own costs and ward).
+
+Nothing retired.
+
+Report: `effect:auto` 3,884 → 3,884, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** `src/data/morphSeam.test.ts` (parseMorph reads the cost and the
+megamorph flag and refuses a dash cost; Woolly Loxodon, Glacial Stalker,
+Battering Craghorn and Aerie Bowmasters complete by the accounting alone;
+the disclosure silent; the classifier); `src/engine/morph.test.ts` (cast
+face down for {3}: a nameless colorless 2/2 with no keywords and no
+abilities, offered by `legalActions`; turned face up for {1}{R}{R}
+Battering Craghorn is a 3/1 first striker again; Aerie Bowmasters turns up
+with its +1/+1 counter; the special action refused face up, unpaid, by the
+other player; a countered face-down spell reaches the graveyard face up; a
+face-down spell on the stack is a nameless colorless creature spell; instant
+speed and the graveyard refused; the games replay).
+
+**Landed:** 38 AUTO FLIPS with no script - the morph permanents whose morph line was the last line the accounting refused (the probe's 65 pure carriers less the 27 whose other line is scriptable but unshipped, ledgered by name). No wave of rows: the seam's own flips are the landing, and the bot's own deck took 37 creatures and a land (Zoetic Cavern) more on the same sweep.
+
+Fixtures 3,439 · botPool artifact 252 / creature 2,930 / enchantment 252 / instant 934 / land 394 / sorcery 719 - auto 851 / assisted 1,857 / autoAnyFace 860 · ladder [1135, 1277, 3040, 4950, 6252] · batch.json
+0 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,201 files, 16,755 passing / 11 skipped ·
+500-seed gate, 6 shards, 313.5 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D309): the turned-face-up triggers (49) as a head over FaceDownSet; the dash morph costs; manifest / disguise / cloak; the bot playing face down; then convoke (52 pure) and crew (38) once the tap-creatures cost chooser exists; the other graveyard casts (Escape, Jump-start, Unearth, Encore, Retrace); the cycling triggers head; the modal seam (42); the "another" split;
+the by-name sacrifice cost; the remaining cost verbs; the prompt
+continuation seam; prior items stand.

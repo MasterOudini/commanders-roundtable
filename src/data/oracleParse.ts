@@ -417,6 +417,22 @@ export function parseFlashback(oracleText: string, warn: Warn = NOOP_WARN): Mana
   return null;
 }
 
+/**
+ * D309 - "Morph {N}" / "Megamorph {N}" on its own line (reminder text aside),
+ * as a mana cost; a dash cost ("Morph—Discard a card.") is null.
+ */
+export function parseMorph(oracleText: string, warn: Warn = NOOP_WARN): { cost: ManaCost; mega: boolean; text: string } | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const m = /^(Morph|Megamorph) ((?:\{[^}]+\})+)$/.exec(line);
+    if (m) {
+      const cost = parseManaCost(m[2] ?? '', warn);
+      return cost ? { cost, mega: m[1] === 'Megamorph', text: m[2] ?? '' } : null;
+    }
+  }
+  return null;
+}
+
 export function parseWardLife(oracleText: string, warn: Warn = NOOP_WARN): number {
   const text = oracleText ?? '';
   if (!/\bward\b/i.test(text)) return 0;
@@ -717,6 +733,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const wardCost = parseWard(face.oracleText, warn);
   const wardLife = parseWardLife(face.oracleText, warn);
   const flashbackCost = isPermanent ? null : parseFlashback(face.oracleText, warn);
+  const morph = isPermanent ? parseMorph(face.oracleText, warn) : null;
   const toxicAmount = keywords.includes('toxic') ? parseToxic(face.oracleText) : 0;
   const producesMana = parseManaProduction(face, typeLine, warn);
   // ⚠️ Abilities are parsed BEFORE spell targets and are handed `producesMana`,
@@ -774,6 +791,9 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     instantSpeed: typeLine.types.includes('Instant') || keywords.includes('flash'),
     wardCost,
     flashbackCost,
+    morphCost: morph?.cost ?? null,
+    morphCostText: morph?.text ?? null,
+    megamorph: morph?.mega ?? false,
     wardLife,
     toxicAmount,
     targets,

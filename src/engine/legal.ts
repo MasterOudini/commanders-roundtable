@@ -7,6 +7,7 @@
 // and the drift shows up as a card that lights up but cannot be cast.
 
 import { faceOf } from './oracle';
+import { parseManaCost } from '../data/oracleParse';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
 import { buildPaymentProblem, costStringOf, manaSourcesOf } from './mana';
 import { affordable, solveInputFor, type SolveInput } from './payment';
@@ -33,6 +34,8 @@ export type LegalAction =
       readonly tax: number;
       readonly hasX: boolean;
       readonly label: string;
+      /** D309 - the face-down (morph) cast: a 2/2 for {3}. */
+      readonly faceDown?: true;
     }
   | {
       readonly t: 'TapForMana';
@@ -86,7 +89,18 @@ export type LegalAction =
       readonly tapCandidates?: readonly InstanceId[];
       readonly tapCount?: number;
     }
+  | {
+      /** D309 - turn a face-down permanent face up for its morph cost (a special action). */
+      readonly t: 'TurnFaceUp';
+      readonly card: InstanceId;
+      readonly affordable: boolean;
+      readonly costText: string;
+      readonly label: string;
+    }
   | { readonly t: 'PassPriority' };
+
+/** D309 - the cost of casting any card face down (CR 702.37a). */
+const MORPH_CAST_COST = parseManaCost('{3}');
 
 /**
  * Which faces of a card can be cast or played independently.
@@ -143,6 +157,24 @@ export function legalActions(
     if (!card) continue;
     for (const faceIndex of castableFaces(card)) {
       const face = faceOf(card, faceIndex);
+      // D309 - THE MORPH SEAM: a card with a morph cost the engine can charge is
+      // also castable FACE DOWN as a 2/2 for {3} (CR 702.37a) - a creature
+      // spell, so sorcery speed, no targets, whatever the card is (Zoetic
+      // Cavern is a land). Offered before the land check for that reason.
+      if (faceIndex === 0 && face.morphCost !== null && sorcerySpeed) {
+        out.push({
+          t: 'CastSpell',
+          card: id,
+          faceIndex,
+          from: { kind: 'hand', player },
+          affordable: affordable(context.solve, buildPaymentProblem(MORPH_CAST_COST, 0, [], 0)),
+          isCommanderCast: false,
+          tax: 0,
+          hasX: false,
+          label: `${face.name} (face down)`,
+          faceDown: true,
+        });
+      }
       if (face.isLand) {
         if (canLand) out.push({ t: 'PlayLand', card: id, faceIndex, label: face.name });
         continue;
@@ -321,6 +353,24 @@ export function legalActions(
     }
   }
 
+  // D309 - THE MORPH SEAM: a face-down permanent you control whose card prints
+  // a morph cost the engine can charge may be turned face up any time you have
+  // priority (CR 702.37c) - a special action, no stack.
+  for (const id of state.zones.battlefield) {
+    const inst = state.cards[id];
+    if (!inst || !inst.faceDown || inst.controller !== player || inst.phasedOut) continue;
+    const card = cardFor(state, oracle, id);
+    if (!card) continue;
+    const face = faceOf(card, inst.faceIndex);
+    if (face.morphCost === null) continue;
+    out.push({
+      t: 'TurnFaceUp',
+      card: id,
+      affordable: affordable(context.solve, buildPaymentProblem(face.morphCost, 0, [], 0)),
+      costText: face.morphCostText ?? '',
+      label: `Turn ${face.name} face up`,
+    });
+  }
   out.push({ t: 'PassPriority' });
   return out;
 }

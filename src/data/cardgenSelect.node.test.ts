@@ -1944,6 +1944,36 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Shipwreck Dowser', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Woodfall Primus', 'a creature line outside the vocabulary (its persist runs)'],
   ['River Kelpie', 'a creature line outside the vocabulary (its persist runs)'],
+
+  // D309 (M6.4et) — the morph pool: the morph creatures whose other
+  // lines the vocabulary does not read yet - their morph runs.
+  ['Aphetto Alchemist', 'an activated line outside the vocabulary (its morph runs)'],
+  ['Aphetto Exterminator', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Daru Sanctifier', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Defender of the Order', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Dwarven Blastminer', 'an activated line outside the vocabulary (its morph runs)'],
+  ['Echo Tracer', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Fledgling Mawcor', 'an activated line outside the vocabulary (its morph runs)'],
+  ['Gravel Slinger', 'an activated line outside the vocabulary (its morph runs)'],
+  ['Grim Haruspex', 'a dies watcher over other creatures (its morph runs)'],
+  ['Grinning Demon', 'an upkeep trigger (its morph runs)'],
+  ['Kolaghan Stormsinger', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Lumithread Field', 'a static anthem on a morph enchantment (its morph runs)'],
+  ['Master of Pearls', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Mistfire Weaver', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Monastery Loremaster', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Nantuko Vigilante', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Patron of the Wild', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Ponyback Brigade', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Shaleskin Plower', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Skinthinner', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Stratus Dancer', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Venomspout Brackus', 'an activated line outside the vocabulary (its morph runs)'],
+  ['Voidmage Apprentice', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Voidmage Prodigy', 'an activated line outside the vocabulary (its morph runs)'],
+  ['Whipcorder', 'an activated line outside the vocabulary (its morph runs)'],
+  ['Wingbeat Warrior', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+  ['Woodcloaker', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

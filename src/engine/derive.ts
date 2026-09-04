@@ -197,7 +197,10 @@ function computeDerived(
 function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics {
   // CR 708.2: a face-down permanent is a 2/2 creature with no name, no mana
   // cost and no abilities — a genuinely different object, not a hidden one.
-  if (inst.faceDown && inst.zone.kind === 'battlefield') {
+  // D309 - on the STACK as well: a face-down spell is a 2/2 creature spell with
+  // no name and no color (CR 708.2), which is what a counter aimed at
+  // "noncreature spell" and a prowess trigger must see.
+  if (inst.faceDown && (inst.zone.kind === 'battlefield' || inst.zone.kind === 'stack')) {
     return {
       name: '',
       typeLine: FACE_DOWN_TYPE,
@@ -207,7 +210,11 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
       loyalty: null,
       defense: null,
       keywords: new Set<Keyword>(),
-      hasAbilities: true,
+      // ⚠️ D309 - NO ABILITIES (CR 708.2). This one flag is what every reader
+      // of a permanent's abilities already honours (CR 613's silence): the
+      // trigger bus, the replacement funnel, the combat restrictions, the
+      // activated offers. A face-down Hystrodon draws nothing.
+      hasAbilities: false,
       protection: NO_PROTECTION,
       landwalk: [],
       toxicAmount: 0,
@@ -446,6 +453,8 @@ function staticSourcesFor(
   for (const sourceId of state.zones.battlefield) {
     const source = state.cards[sourceId];
     if (!source) continue;
+    // D309 - a face-down source grants nothing (CR 708.2).
+    if (source.faceDown) continue;
     for (const { script, def } of defs) {
       if (source.oracleId !== script.oracleId) continue;
       if (!def.activeZones.includes(source.zone.kind)) continue;

@@ -494,7 +494,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   const holder = state.priority.player;
   if (!holder) return null;
   const actions = legalActions(state, ORACLE, SCRIPTS, holder);
-  const usable = actions.filter((a) => a.t !== 'CastSpell' || a.affordable);
+  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp') || a.affordable);
   const chosen = p.pick(usable);
   if (!chosen) return { t: 'PassPriority', player: holder };
   switch (chosen.t) {
@@ -504,7 +504,11 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       // modal DFC's land half however many were dealt.
       return { t: 'PlayLand', player: holder, card: chosen.card, faceIndex: chosen.faceIndex };
     case 'CastSpell':
-      return { t: 'CastSpell', player: holder, card: chosen.card };
+      // D309 - a face-down (morph) offer is cast face down, for {3}.
+      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}) };
+    case 'TurnFaceUp':
+      // D309 - the special action: pay the morph cost, turn it face up.
+      return { t: 'TurnFaceUp', player: holder, card: chosen.card };
     case 'TapForMana':
       return {
         t: 'TapForMana',
