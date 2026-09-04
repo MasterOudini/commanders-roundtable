@@ -65,6 +65,9 @@ export const TIER2_KEYWORDS = [
   'persist',
   'undying',
   'evolve',
+  // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
+  'changeling',
+  'devoid',
 ] as const;
 
 export type Keyword = (typeof TIER2_KEYWORDS)[number];
@@ -824,6 +827,12 @@ export interface OracleDb {
   /** Exact name, case-folded by the caller's own rules. Test/setup convenience. */
   byName(name: string): OracleCard | undefined;
   readonly size: number;
+  /**
+   * D310 - every creature subtype the database prints, for changeling (CR
+   * 702.73a: "every creature type"). Computed once at ingest from the creature
+   * faces; the derive hands a changeling all of them.
+   */
+  readonly creatureTypes: ReadonlySet<string>;
 }
 
 /** Characteristics after the layer pipeline. Never stored — always recomputed. */

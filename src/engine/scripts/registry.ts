@@ -7,6 +7,17 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { MISTWALKER_SCRIPT } from './cards/mistwalker';
+import { PROPHET_OF_DISTORTION_SCRIPT } from './cards/prophetOfDistortion';
+import { SLAUGHTER_DRONE_SCRIPT } from './cards/slaughterDrone';
+import { MAW_OF_KOZILEK_SCRIPT } from './cards/mawOfKozilek';
+import { WAR_SPIKE_CHANGELING_SCRIPT } from './cards/warSpikeChangeling';
+import { GHOSTLY_CHANGELING_SCRIPT } from './cards/ghostlyChangeling';
+import { MOONGLOVE_CHANGELING_SCRIPT } from './cards/moongloveChangeling';
+import { KOZILEKS_SHRIEKER_SCRIPT } from './cards/kozileksShrieker';
+import { HAVOC_SOWER_SCRIPT } from './cards/havocSower';
+import { BLINDING_DRONE_SCRIPT } from './cards/blindingDrone';
+import { MOTHDUST_CHANGELING_SCRIPT } from './cards/mothdustChangeling';
 import { EVERNIGHT_SHADE_SCRIPT } from './cards/evernightShade';
 import { JHESSIAN_THIEF_SCRIPT } from './cards/jhessianThief';
 import { INGENIOUS_SKAAB_SCRIPT } from './cards/ingeniousSkaab';
@@ -3218,6 +3229,17 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MISTWALKER_SCRIPT,
+  PROPHET_OF_DISTORTION_SCRIPT,
+  SLAUGHTER_DRONE_SCRIPT,
+  MAW_OF_KOZILEK_SCRIPT,
+  WAR_SPIKE_CHANGELING_SCRIPT,
+  GHOSTLY_CHANGELING_SCRIPT,
+  MOONGLOVE_CHANGELING_SCRIPT,
+  KOZILEKS_SHRIEKER_SCRIPT,
+  HAVOC_SOWER_SCRIPT,
+  BLINDING_DRONE_SCRIPT,
+  MOTHDUST_CHANGELING_SCRIPT,
   EVERNIGHT_SHADE_SCRIPT,
   JHESSIAN_THIEF_SCRIPT,
   INGENIOUS_SKAAB_SCRIPT,

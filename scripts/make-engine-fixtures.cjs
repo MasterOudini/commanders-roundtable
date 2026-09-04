@@ -3797,6 +3797,24 @@ const WANTED = [
   'Glacial Stalker',
   'Battering Craghorn',
   'Aerie Bowmasters',
+  // D310 - the characteristic-defining keyword test cards (two changelings, a devoid Eldrazi).
+  'Woodland Changeling',
+  'Avian Changeling',
+  'Eldrazi Devastator',
+  // D310 - the second wave: the pool carriers whose other line the one-shot generator rows.
+  'Mistwalker',
+  'Prophet of Distortion',
+  'Slaughter Drone',
+  'Maw of Kozilek',
+  'War-Spike Changeling',
+  'Ghostly Changeling',
+  'Moonglove Changeling',
+  "Kozilek's Shrieker",
+  'Havoc Sower',
+  'Blinding Drone',
+  'Mothdust Changeling',
+  // D310 - the characteristic-defining keyword test cards (two changelings, a devoid Eldrazi).
+  'Vestige of Emrakul',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

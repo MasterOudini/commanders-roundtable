@@ -49,6 +49,9 @@ const CANON: Readonly<Record<string, Keyword>> = {
   persist: 'persist',
   undying: 'undying',
   evolve: 'evolve',
+  // D310 - characteristic-defining keywords the derive reads at layer 1.
+  changeling: 'changeling',
+  devoid: 'devoid',
 };
 
 export function canonicalKeyword(raw: string): Keyword | null {

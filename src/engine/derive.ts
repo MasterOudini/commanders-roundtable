@@ -194,6 +194,13 @@ function computeDerived(
   return finish(chars, manaValue, produces);
 }
 
+/** D310 - a changeling's type line: its own subtypes, then every creature type the database prints. */
+function everyCreatureType(t: ParsedTypeLine, oracle: OracleDb): ParsedTypeLine {
+  const extra: string[] = [];
+  for (const sub of oracle.creatureTypes) if (!t.subtypes.includes(sub)) extra.push(sub);
+  return extra.length === 0 ? t : { ...t, subtypes: [...t.subtypes, ...extra] };
+}
+
 function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics {
   // CR 708.2: a face-down permanent is a 2/2 creature with no name, no mana
   // cost and no abilities — a genuinely different object, not a hidden one.
@@ -243,8 +250,11 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
   const face = faceOf(card, inst.faceIndex);
   return {
     name: face.name,
-    typeLine: face.typeLine,
-    colors: [...face.colors] as ColorLetter[],
+    // D310 - changeling: every creature type, a characteristic-defining
+    // ability applied in layer 1 (CR 702.73a, 604.3).
+    typeLine: face.keywords.includes('changeling') ? everyCreatureType(face.typeLine, oracle) : face.typeLine,
+    // D310 - devoid: colorless, a characteristic-defining ability (CR 702.116a).
+    colors: face.keywords.includes('devoid') ? [] : ([...face.colors] as ColorLetter[]),
     power: face.basePower,
     toughness: face.baseToughness,
     loyalty: face.baseLoyalty,

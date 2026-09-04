@@ -1974,6 +1974,29 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Whipcorder', 'an activated line outside the vocabulary (its morph runs)'],
   ['Wingbeat Warrior', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Woodcloaker', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
+
+  // D310 (M6.4eu) — the changeling / devoid pool: the carriers whose other
+  // lines the vocabulary does not read yet - their changeling or devoid runs.
+  ['Blades of Velis Vel', 'a spell line outside the vocabulary (its changeling runs)'],
+  ['Chomping Changeling', 'a creature line outside the vocabulary (its changeling runs)'],
+  ['Complete Disregard', 'a spell line outside the vocabulary (its devoid runs)'],
+  ['Cryptic Cruiser', 'a creature line outside the vocabulary (its devoid runs)'],
+  ['Ego Erasure', 'a spell line outside the vocabulary (its changeling runs)'],
+  ['Flayer Drone', 'a creature line outside the vocabulary (its devoid runs)'],
+  ['Forerunner of Slaughter', 'a creature line outside the vocabulary (its devoid runs)'],
+  ['Gladewalker Ritualist', 'a creature line outside the vocabulary (its changeling runs)'],
+  ['Grip of Desolation', 'a spell line outside the vocabulary (its devoid runs)'],
+  ['Guardian Gladewalker', 'a creature line outside the vocabulary (its changeling runs)'],
+  ['Irregular Cohort', 'a creature line outside the vocabulary (its changeling runs)'],
+  ['Nameless Inversion', 'a spell line outside the vocabulary (its changeling runs)'],
+  ['Oblivion Strike', 'a spell line outside the vocabulary (its devoid runs)'],
+  ['Reality Hemorrhage', 'a spell line outside the vocabulary (its devoid runs)'],
+  ['Shields of Velis Vel', 'a spell line outside the vocabulary (its changeling runs)'],
+  ['Snapping Voidcraw', 'a mana ability beside a draw the rows maker skips (its devoid runs)'],
+  ['Unnatural Endurance', 'a spell line outside the vocabulary (its devoid runs)'],
+  ['Witness the End', 'a spell line outside the vocabulary (its devoid runs)'],
+  ['Kozilek\'s Return', 'a spell line outside the vocabulary (its devoid runs)'],
+  ['Ugin\'s Binding', 'a spell line outside the vocabulary (its devoid runs)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

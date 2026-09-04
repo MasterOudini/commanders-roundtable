@@ -43,6 +43,7 @@ class MapOracleDb implements OracleDb {
   private readonly byPrintingMap = new Map<PrintingId, OracleCard>();
   private readonly byOracleMap = new Map<OracleId, OracleCard>();
   private readonly byNameMap = new Map<string, OracleCard>();
+  readonly creatureTypes: ReadonlySet<string>;
 
   constructor(cards: readonly OracleCard[]) {
     for (const card of cards) {
@@ -57,6 +58,17 @@ class MapOracleDb implements OracleDb {
         if (!this.byNameMap.has(fk)) this.byNameMap.set(fk, card);
       }
     }
+    // D310 - the catalogue of creature types, for changeling: every subtype a
+    // creature face prints, in first-seen order (the order only matters for
+    // the state hash, and it is a function of the same ingest every time).
+    const types = new Set<string>();
+    for (const card of cards) {
+      for (const face of card.faces) {
+        if (!face.typeLine.types.includes('Creature')) continue;
+        for (const sub of face.typeLine.subtypes) types.add(sub);
+      }
+    }
+    this.creatureTypes = types;
   }
 
   byPrinting(id: PrintingId): OracleCard | undefined {

@@ -115205,6 +115205,531 @@ export const AERIE_BOWMASTERS: CardData = {
   "singleImage": true
 };
 
+export const WOODLAND_CHANGELING: CardData = {
+  "scryfallId": "5970fdca-4c7b-49a1-9804-e3f4aee5a340",
+  "oracleId": "338f0ab6-f744-4e5a-a358-05e71b93758d",
+  "name": "Woodland Changeling",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Woodland Changeling",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Shapeshifter",
+      "oracleText": "Changeling (This card is every creature type.)",
+      "flavorText": "Changelings cannot resist the draw of a new shape, even if doing so would be in their best interests.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Franz Vohwinkel",
+      "imageId": "5970fdca-4c7b-49a1-9804-e3f4aee5a340"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Changeling"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "LRW-242",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AVIAN_CHANGELING: CardData = {
+  "scryfallId": "1fe4fba9-5ff4-4e4b-be28-2849fa3c7003",
+  "oracleId": "767c1f97-03de-474d-9112-e7521ba3b3f3",
+  "name": "Avian Changeling",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Avian Changeling",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Shapeshifter",
+      "oracleText": "Changeling (This card is every creature type.)\nFlying",
+      "flavorText": "Today it flies with the flock. Tomorrow it may wake to find them gone, its body in an unfamiliar form.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "1fe4fba9-5ff4-4e4b-be28-2849fa3c7003"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Changeling",
+    "Flying"
+  ],
+  "setCode": "mma",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELDRAZI_DEVASTATOR: CardData = {
+  "scryfallId": "04b13e32-01b9-4a86-a3df-ca8b784c6a6c",
+  "oracleId": "bc08ac66-969c-4905-a2d6-16ff565be475",
+  "name": "Eldrazi Devastator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Eldrazi Devastator",
+      "manaCost": "{8}",
+      "typeLine": "Creature — Eldrazi",
+      "oracleText": "Trample",
+      "flavorText": "\"No matter how big your champion, theirs is bigger. No matter how great your numbers, theirs are greater. No matter how voracious your appetite, they are hungrier. That is why the Eldrazi will win.\"\n—Kalitas, thrall of Ulamog",
+      "power": "8",
+      "toughness": "9",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Joseph Meehan",
+      "imageId": "04b13e32-01b9-4a86-a3df-ca8b784c6a6c"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 8,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "bfz",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MISTWALKER: CardData = {
+  "scryfallId": "024c2a7c-6f1d-4242-9740-96128ceb0e5f",
+  "oracleId": "ceb302df-d67e-4e5d-aca0-f53bcdea658d",
+  "name": "Mistwalker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mistwalker",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Shapeshifter",
+      "oracleText": "Changeling (This card is every creature type.)\nFlying\n{1}{U}: This creature gets +1/-1 until end of turn.",
+      "flavorText": "\"To escape Littjara, follow a bird.\"\n—Tuskeri folklore",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "024c2a7c-6f1d-4242-9740-96128ceb0e5f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Changeling",
+    "Flying"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "KHM-68",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PROPHET_OF_DISTORTION: CardData = {
+  "scryfallId": "03ee2d7e-50ee-4f5a-b787-cf9669a892f3",
+  "oracleId": "6bc82093-0246-4c60-bf30-0b605bef01cd",
+  "name": "Prophet of Distortion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Prophet of Distortion",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Eldrazi Drone",
+      "oracleText": "Devoid (This card has no color.)\n{3}{C}: Draw a card. ({C} represents colorless mana.)",
+      "flavorText": "It doesn't twist words. It twists worlds.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Lius Lasahido",
+      "imageId": "03ee2d7e-50ee-4f5a-b787-cf9669a892f3"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Devoid"
+  ],
+  "setCode": "ogw",
+  "collectorNumber": "46",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLAUGHTER_DRONE: CardData = {
+  "scryfallId": "275b1185-49aa-45ae-8e2d-12aa469a7d77",
+  "oracleId": "047e09c0-cbd9-45ba-9729-bf35ebe24e69",
+  "name": "Slaughter Drone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slaughter Drone",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Eldrazi Drone",
+      "oracleText": "Devoid (This card has no color.)\n{C}: This creature gains deathtouch until end of turn. (Any amount of damage it deals to a creature is enough to destroy it. {C} represents colorless mana.)",
+      "flavorText": "It kills what is, making way for what should not be.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Dan Murayama Scott",
+      "imageId": "275b1185-49aa-45ae-8e2d-12aa469a7d77"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Devoid"
+  ],
+  "setCode": "ogw",
+  "collectorNumber": "79",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAW_OF_KOZILEK: CardData = {
+  "scryfallId": "48669993-ad68-499e-8f2e-bc5c651b4b28",
+  "oracleId": "11b529f0-e365-4500-b54a-44e2ac6e709f",
+  "name": "Maw of Kozilek",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Maw of Kozilek",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Eldrazi Drone",
+      "oracleText": "Devoid (This card has no color.)\n{C}: This creature gets +2/-2 until end of turn. ({C} represents colorless mana.)",
+      "flavorText": "\"The Eldrazi make worse than ruins—they make a world where not even ruins stand.\"\n—Gideon Jura",
+      "power": "2",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daarken",
+      "imageId": "48669993-ad68-499e-8f2e-bc5c651b4b28"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Devoid"
+  ],
+  "setCode": "ogw",
+  "collectorNumber": "99",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WAR_SPIKE_CHANGELING: CardData = {
+  "scryfallId": "523500d3-5614-4be8-95c7-d63ca279c1b1",
+  "oracleId": "b6ddb093-1fff-4648-b7a1-141a3875599c",
+  "name": "War-Spike Changeling",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "War-Spike Changeling",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Shapeshifter",
+      "oracleText": "Changeling (This card is every creature type.)\n{R}: This creature gains first strike until end of turn.",
+      "flavorText": "\"Aren't there boggarts enough in Lorwyn? Couldn't it turn into a sheep? Or a sunflower?\"\n—Olly of Goldmeadow",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mark Poole",
+      "imageId": "523500d3-5614-4be8-95c7-d63ca279c1b1"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Changeling"
+  ],
+  "setCode": "mma",
+  "collectorNumber": "139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GHOSTLY_CHANGELING: CardData = {
+  "scryfallId": "63e2df81-11d2-4ca5-a3ec-38efdc2630d4",
+  "oracleId": "4e779540-e667-457e-9071-4cbbd777d9a9",
+  "name": "Ghostly Changeling",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ghostly Changeling",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Shapeshifter",
+      "oracleText": "Changeling (This card is every creature type.)\n{1}{B}: This creature gets +1/+1 until end of turn.",
+      "flavorText": "In desolate places, changelings may take the shape of fancies, or memories, or fears.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Chuck Lukacs",
+      "imageId": "63e2df81-11d2-4ca5-a3ec-38efdc2630d4"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Changeling"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "MM2-83",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MOONGLOVE_CHANGELING: CardData = {
+  "scryfallId": "6955348b-70e9-49c3-9343-9becf977abe8",
+  "oracleId": "61b74f82-39f3-4618-b8e7-292058421d1b",
+  "name": "Moonglove Changeling",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Moonglove Changeling",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Shapeshifter",
+      "oracleText": "Changeling (This card is every creature type.)\n{B}: This creature gains deathtouch until end of turn. (Any amount of damage it deals to a creature is enough to destroy that creature.)",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Wayne England",
+      "imageId": "6955348b-70e9-49c3-9343-9becf977abe8"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Changeling"
+  ],
+  "setCode": "mor",
+  "collectorNumber": "67",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KOZILEK_S_SHRIEKER: CardData = {
+  "scryfallId": "a384cd5b-2c6c-4969-bb62-a017e2fc9794",
+  "oracleId": "b2b5683b-f8ea-4af6-b847-953ab4a267c4",
+  "name": "Kozilek's Shrieker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kozilek's Shrieker",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Eldrazi Drone",
+      "oracleText": "Devoid (This card has no color.)\n{C}: This creature gets +1/+0 and gains menace until end of turn. (It can't be blocked except by two or more creatures. {C} represents colorless mana.)",
+      "flavorText": "Listen to the sound of defeat.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jason Felix",
+      "imageId": "a384cd5b-2c6c-4969-bb62-a017e2fc9794"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Devoid"
+  ],
+  "setCode": "ogw",
+  "collectorNumber": "73",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HAVOC_SOWER: CardData = {
+  "scryfallId": "f8585871-24a2-41d7-ae12-29aabfbc9ccc",
+  "oracleId": "098e6926-4a6a-4bbb-96bc-1f35cc7982ae",
+  "name": "Havoc Sower",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Havoc Sower",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Eldrazi Drone",
+      "oracleText": "Devoid (This card has no color.)\n{1}{C}: This creature gets +2/+1 until end of turn. ({C} represents colorless mana.)",
+      "flavorText": "It grew with a terrible swiftness.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Svetlin Velinov",
+      "imageId": "f8585871-24a2-41d7-ae12-29aabfbc9ccc"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Devoid"
+  ],
+  "setCode": "ogw",
+  "collectorNumber": "71",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLINDING_DRONE: CardData = {
+  "scryfallId": "4eb60957-0811-40c3-a92b-cce3e6a94745",
+  "oracleId": "c924e240-02a0-46b5-b004-d5c42db277ec",
+  "name": "Blinding Drone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blinding Drone",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Eldrazi Drone",
+      "oracleText": "Devoid (This card has no color.)\n{C}, {T}: Tap target creature. ({C} represents colorless mana.)",
+      "flavorText": "\"Zendikar's true gods have risen. Whether in reverence or agony, all the world will kneel.\"\n—Ayli, high priest of the Eternal Pilgrims",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Lake Hurwitz",
+      "imageId": "4eb60957-0811-40c3-a92b-cce3e6a94745"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Devoid"
+  ],
+  "setCode": "ogw",
+  "collectorNumber": "41",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MOTHDUST_CHANGELING: CardData = {
+  "scryfallId": "18acffb1-c1e8-4729-a350-64823b2f9d29",
+  "oracleId": "52237e6b-19f6-405c-a668-545c4ccb1b6d",
+  "name": "Mothdust Changeling",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mothdust Changeling",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Shapeshifter",
+      "oracleText": "Changeling (This card is every creature type.)\nTap an untapped creature you control: This creature gains flying until end of turn.",
+      "flavorText": "\"Ever seen a changeling fly into a lantern?\"\n—Calydd, kithkin farmer",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Shelly Wan",
+      "imageId": "18acffb1-c1e8-4729-a350-64823b2f9d29"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Changeling"
+  ],
+  "setCode": "mma",
+  "collectorNumber": "53",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VESTIGE_OF_EMRAKUL: CardData = {
+  "scryfallId": "a5d84986-64a1-4bd1-a4f6-3eb147aca357",
+  "oracleId": "55187899-c445-48e9-80b9-235eaf42f803",
+  "name": "Vestige of Emrakul",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vestige of Emrakul",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Eldrazi Drone",
+      "oracleText": "Devoid (This card has no color.)\nTrample",
+      "flavorText": "Emrakul has not been seen in months. Though her brood's numbers have dwindled in her absence, each drone is still a deadly threat.",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Tyler Jacobson",
+      "imageId": "a5d84986-64a1-4bd1-a4f6-3eb147aca357"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Devoid",
+    "Trample"
+  ],
+  "setCode": "bfz",
+  "collectorNumber": "136",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -122249,6 +122774,21 @@ export const ENGINE_CARDS: CardData[] = [
   GLACIAL_STALKER,
   BATTERING_CRAGHORN,
   AERIE_BOWMASTERS,
+  WOODLAND_CHANGELING,
+  AVIAN_CHANGELING,
+  ELDRAZI_DEVASTATOR,
+  MISTWALKER,
+  PROPHET_OF_DISTORTION,
+  SLAUGHTER_DRONE,
+  MAW_OF_KOZILEK,
+  WAR_SPIKE_CHANGELING,
+  GHOSTLY_CHANGELING,
+  MOONGLOVE_CHANGELING,
+  KOZILEK_S_SHRIEKER,
+  HAVOC_SOWER,
+  BLINDING_DRONE,
+  MOTHDUST_CHANGELING,
+  VESTIGE_OF_EMRAKUL,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -292,6 +292,12 @@ export function parseKeywords(card: CardData, faceIndex: number, warn: Warn = NO
     }
     if (!out.includes(kw)) out.push(kw);
   }
+  // D310 - the characteristic-defining keywords are read off the printed line
+  // too: Scryfall's keywords[] omits Devoid on some printings (Eldrazi
+  // Devastator lists only Trample), exactly as it omits which landwalk.
+  for (const [kw, re] of [['devoid', /^devoid\b/m], ['changeling', /^changeling\b/m]] as const) {
+    if (re.test(text) && !out.includes(kw)) out.push(kw);
+  }
   // ⚠️ The `keywords:noneTier2` warning is NOT raised here — see `parseFace`.
   // Raising it from this function was a measurement bug, and a large one: it
   // fires on "no keyword STRING canonicalised", but landwalk, protection and

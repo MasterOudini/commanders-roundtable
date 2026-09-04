@@ -9512,6 +9512,36 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D309): the turned-face-up triggers (49) as a head over FaceDownSet; the dash morph costs; manifest / disguise / cloak; the bot playing face down; then convoke (52 pure) and crew (38) once the tap-creatures cost chooser exists; the other graveyard casts (Escape, Jump-start, Unearth, Encore, Retrace); the cycling triggers head; the modal seam (42); the "another"
       split; the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4eu — THE CHARACTERISTIC-DEFINING KEYWORDS: Changeling is every
+      creature type and Devoid is colorless in the derive's first layer, the
+      engine's own; 12 cards complete with no script (2026-09-04):**
+      **5,504 of 31,692 Commander-legal cards now execute completely, up
+      from 5,481 (+23).** `SHIPPED_SCRIPTS` 3,108; ledger
+      1,055 (+20: the changeling and devoid carriers whose OTHER line the vocabulary does not read yet - their keyword runs: 12 spells (the Velis Vel Kindred instants, Nameless Inversion, Ego Erasure, Reality Hemorrhage, Oblivion Strike, Complete Disregard, Grip of Desolation, Witness the End, Unnatural Endurance, Ugin's Binding, Kozilek's Return), 7 creatures with a targeted or named trigger (Forerunner of Slaughter, Cryptic Cruiser, Guardian Gladewalker, Irregular Cohort, Flayer Drone, Gladewalker Ritualist, Chomping Changeling), and Snapping Voidcraw's mana ability beside its draw). Fixtures 3,454 (3,338 by name + 109 tokens: the seam's test cards (Woodland Changeling, Avian Changeling, Vestige of Emrakul - the dataset prints no Devoid line on Eldrazi Devastator, which stays a fixture) and the second wave's 11). ZERO token
+      pins; four support bodies, no classifier change. **Select pool 0.**
+      Decisions in **D310**.
+      ⚠️ **Measured first:** d310/probe-cda.json over the database: 62 blocked cards print Changeling, 24 of them with nothing else unread (Woodland Changeling, Avian Changeling, Mistwalker, Universal Automaton, the Velis Vel spells ...), and 131 print Devoid, 19 of them pure (Prophet of Distortion, Forerunner of Slaughter, Slaughter Drone, Kozilek Return ...); every devoid card Scryfall colors are already empty, so the derive rule is the belt to the data braces; the rest of the devoid cards print Ingest (9) and the Eldrazi Scion ETBs (8) next.
+      ⚠️ **The seam:** a characteristic-defining ability is part of what the
+      object IS, applied in layer 1 (CR 604.3): changeling and devoid join
+      `TIER2_KEYWORDS` and the canon; `OracleDb.creatureTypes` (every subtype
+      a creature face prints, computed once at ingest in `engine/oracle.ts`)
+      is the catalogue; `derive.ts` layer 1 hands a changeling its own
+      subtypes and then every creature type (`everyCreatureType`) and a
+      devoid card no color — every reader of subtypes and colors is
+      downstream and needs nothing. No generator. NOT this decision: granted
+      changeling (a layer-4 effect), Kindred changeling spells. Refused by
+      name: +20: the changeling and devoid carriers whose OTHER line the vocabulary does not read yet - their keyword runs: 12 spells (the Velis Vel Kindred instants, Nameless Inversion, Ego Erasure, Reality Hemorrhage, Oblivion Strike, Complete Disregard, Grip of Desolation, Witness the End, Unnatural Endurance, Ugin's Binding, Kozilek's Return), 7 creatures with a targeted or named trigger (Forerunner of Slaughter, Cryptic Cruiser, Guardian Gladewalker, Irregular Cohort, Flayer Drone, Gladewalker Ritualist, Chomping Changeling), and Snapping Voidcraw's mana ability beside its draw.
+      Nothing retired (the Tier-3 note for changeling is unreachable now and stays in the table). Report `effect:auto` 3,884 → 3,884,
+      `withUnenforced` 280 → 280.
+      **Landed:** 12 AUTO FLIPS with no script - the carriers whose Changeling or Devoid line was the last line the accounting refused - and a second wave of 11 scripts. The second wave, the pool the seam opened: 11 one-shot rows over the carriers' OTHER line (the activated pumps and grants - Mistwalker, Maw of Kozilek, Ghostly Changeling, Havoc Sower, Kozilek's Shrieker, Slaughter Drone, Moonglove Changeling, War-Spike Changeling, Mothdust Changeling's tap-a-creature flying; Prophet of Distortion's draw; Blinding Drone's tap), every one complete because its keyword line is the engine's own now. Tests: cdaSeam.test.ts +
+      cdaKeywords.test.ts.
+      Fixtures 3,454 · botPool artifact 252 / creature 2,953 / enchantment 252 / instant 934 / land 394 / sorcery 719 - auto 851 / assisted 1,857 / autoAnyFace 860 · ladder [1155, 1298, 3074, 4991, 6322] · batch.json
+      11 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,214 files, 16,815 passing / 11 skipped ·
+      500-seed gate, 6 shards, 306.9 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D310): crew (38 pure) once the tap-creatures cost chooser sums power; convoke (52) as a payment-plan source; the turned-face-up triggers (49); the dash morph costs; the other graveyard casts (Escape, Jump-start, Unearth, Encore, Retrace); the cycling triggers head; echo once a pay-or-else prompt exists; the modal seam (42); the "another"
+      split; the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

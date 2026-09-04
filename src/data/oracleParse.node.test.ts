@@ -402,7 +402,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
    */
   test('the measured coverage matches the numbers pinned in D32', () => {
     expect(report.warnings).toEqual({
-      'keywords:noneTier2': 23123, // D308: prowess, exalted, bushido, flanking, persist, undying, evolve are Tier 2 now
+      'keywords:noneTier2': 22748, // D310: changeling and devoid are Tier 2 now; D308: prowess, exalted, bushido, flanking, persist, undying, evolve are Tier 2 now
       // ⚠️ M6.3c moved all three (D130): the counter vocabulary took 115 FACES
       // out of "understood nothing" — 17 to fully understood and 98 to partly,
       // where the prompt bar offers the counter clause as one logged click.
