@@ -9077,6 +9077,39 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the modal seam (42); the "another" split; the by-name sacrifice cost;
       the remaining cost verbs; the prompt continuation seam; prior items
       stand.
+- [x] **M6.4ei — THE GRAVEYARD-RETURN SLOT: a card returned from a graveyard
+      may be named by its type and its adjectives (2026-09-04):**
+      **4,320 of 31,692 Commander-legal cards now execute completely,
+      up from 4,273 (+47).** `SHIPPED_SCRIPTS` 2,275; ledger
+      803 (+2). Fixtures 2,574 (three token pins gate 149
+      demanded). ZERO support bodies. **Select pool 0.** Decisions in
+      **D298**.
+      ⚠️ **Measured first:** 386 incomplete cards print a
+      graveyard-return sentence in some 60 noun shapes; 49 by the probe's rough rewrite - 15 measured once built, the counted returns waiting would read
+      whole with the noun enforced.
+      ⚠️ **The seam (D139's order):** targetParse reads the typed card nouns
+      (artifact / enchantment / land / planeswalker / battle / instant /
+      sorcery card → `cardTypes`, like "creature card" since D138) and a
+      comma between two adjectives, a SUBTYPE card noun and a card LIST;
+      effectParse's graveyard noun gains D294's adjective prefix, the typed
+      nouns, the measured subtype cards and lists, and "permanent card"
+      (enforced since D147) — "historic card" still refused. Report
+      `effect:auto` 3,264 → 3,340,
+      `withUnenforced` 237 → 237.
+      ⚠️ **Gate 149 caught an unpinned token** — one seed in 500 derived
+      Titania's Elemental nameless (D133's rot class): three token printings
+      pinned; `src/data/tokenPins.node.test.ts` fails BY KEY when a shipped
+      script's `tokenRef` printing is not a fixture.
+      **Landed:** 15 auto flips and 28 scripts for the 33 the slot made offerable - 47 net — Aether Helix, Argivian Find, Argivian Restoration, Boggart Birth Rite, Deja Vu, Emergency Weld, Nature's Spiral, Obzedat's Aid, Reborn Hope, Reconstruction, Refurbish, Revive, Revive the Shire, Ritual of Restoration, Sage's Knowledge. The sweep measured the pool at 33 after the slot (activations and triggers that return a typed card from a graveyard): 23 table rows through D295's generator, which gained the graveyard kinds `returnToHand` / `reanimate`, graveyard-zone targets, and a named sacrifice fodder (`d298/rows-gy.cjs` - Buried Ruin, Argivian Archaeologist, Auriok Salvagers' MV-1 artifact, Disciple of the Sun's MV-3 permanent, Ghen's sacrificed enchantment, Groundskeeper's basic land, Hanna's list, Warden of the Eye's doubly-negated card...); five by hand (Harnessed Snubhorn's combat-damage trigger, Loran's per-legendary trigger, Titania's land-death Elemental, Go-Shintai's Shrine token, Trading Post's four costs); three whole after the effect parser's ADJECTIVE macro learned the comma print puts between two adjectives (Terror, Power Word Kill, Victim of Night - the target parser reads it since this decision); two refused (an attacks-alone trigger, a three-creature sacrifice). Tests:
+      graveyardNouns.test.ts (parses, admissions, live proofs Revive /
+      Reborn Hope from the oracle).
+      Fixtures 2,574 (2,463 by name + 104 tokens) · botPool artifact 168 / creature 2,188 / enchantment 103 / instant 859 / land 353 / sorcery 649 - auto 685 / assisted 1,819 / autoAnyFace 693 ·
+      ladder [907, 1028, 2814, 4731, 5941] · batch.json 43 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,363 files, 12,370 passed / 11 skipped ·
+      500-seed gate, 6 shards, 206.8 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D298): the counted-targets seam - a sentence applied to EVERY target of its clause ('up to two target creature cards', 'two target creatures': the stack object records no per-clause slots yet), measured at 29 graveyard returns alone; the modal seam (42); the "another"
+      split; the by-name sacrifice cost; the remaining cost verbs; the
+      prompt continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

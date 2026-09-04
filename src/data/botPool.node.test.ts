@@ -239,10 +239,10 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * the pins have been swapped; the measurement itself is deterministic and was
    * verified identical across isolated and full-suite runs.
    */
-  test('D90 does not reproduce, and the vocabulary keeps moving it: 666 auto, 1,810 assisted (D199)', () => {
-    expect.soft(r.spells.auto).toBe(666);
-    expect.soft(r.spells.assisted).toBe(1810);
-    expect.soft(r.spells.autoAnyFace).toBe(674);
+  test('D90 does not reproduce, and the vocabulary keeps moving it: 685 auto, 1,819 assisted (D199)', () => {
+    expect.soft(r.spells.auto).toBe(685);
+    expect.soft(r.spells.assisted).toBe(1819);
+    expect.soft(r.spells.autoAnyFace).toBe(693);
   });
 
   /**
@@ -446,11 +446,11 @@ const POOL: Record<string, number> = {
   // TWENTY-card batch.
   // M6.4bc (D214): +8 instants, +7 sorceries, Flying Carpet, and Forum of
   // Amity.
-  creature: 2165,
-  instant: 854,
-  sorcery: 635,
-  land: 351,
-  artifact: 165,
+  creature: 2188,
+  instant: 859,
+  sorcery: 649,
+  land: 353,
+  artifact: 168,
   enchantment: 103,
 };
 

@@ -13,7 +13,7 @@
 // tutors, no recursion, because the engine runs none of those yet. That ceiling
 // is the honest state of the app and it rises as the engine's coverage does.
 //
-// commander: Sliver Queen (BGRUW), chosen from 101 fully-executable legendary creatures for reaching 4219 cards
+// commander: Go-Shintai of Life's Origin (BGRUW), chosen from 106 fully-executable legendary creatures for reaching 4265 cards
 // mv 0–1: wanted 6, took 6
 // mv 2–2: wanted 14, took 14
 // mv 3–3: wanted 14, took 14
@@ -25,7 +25,7 @@
 // main: 99 cards
 
 export const BOT_DECK = {
-  commander: "Sliver Queen",
+  commander: "Go-Shintai of Life's Origin",
   main: [
   "Aegis Turtle",
   "Battlefield Raptor",
@@ -79,8 +79,8 @@ export const BOT_DECK = {
   "Terrian, World Tyrant",
   "Accelerated Mutation",
   "Aether Gale",
+  "Aether Helix",
   "Allied Strategies",
-  "Ancestral Memories",
   "Yargle and Multani",
   "Quakestrider Ceratops",
   "Amnesia",
@@ -121,10 +121,10 @@ export const BOT_DECK = {
   "Botanical Sanctum",
   "Bountiful Promenade",
   "Breeding Pool",
+  "Buried Ruin",
   "Canopy Vista",
   "Castle Ardenvale",
   "Castle Vantress",
   "Cinder Barrens",
-  "Cinder Glade",
   ],
 } as const;

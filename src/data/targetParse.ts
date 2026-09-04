@@ -415,6 +415,8 @@ interface NounEntry {
   readonly cardTypes?: readonly string[];
   /** Printed words this entry knowingly does not enforce. */
   readonly unenforced?: readonly string[];
+  /** D298: the noun is "<Subtype> card"; the subtype is read off the match into `restrict.subtypesAll`. */
+  readonly subtypeCard?: boolean;
   /** The combat role the noun requires (D291) — enforced, so never also in `unenforced`. */
   readonly combatRole?: CombatRole;
   /** Restrictions the noun itself carries (D294) — "noncreature spell" is a spell that is not a creature. */
@@ -511,6 +513,16 @@ const NOUNS: readonly NounEntry[] = [
 
   // cards in known zones
   { re: new RegExp(`^creature\\s+card${s}\\b`, 'i'), kinds: ['card'], cardTypes: ['Creature'] },
+  // D298: the other typed card nouns, enforced exactly like "creature card"
+  // (the type against the card in its zone). "instant or sorcery card" sits
+  // above with its pair.
+  { re: new RegExp(`^artifact\\s+card${s}\\b`, 'i'), kinds: ['card'], cardTypes: ['Artifact'] },
+  { re: new RegExp(`^enchantment\\s+card${s}\\b`, 'i'), kinds: ['card'], cardTypes: ['Enchantment'] },
+  { re: new RegExp(`^land\\s+card${s}\\b`, 'i'), kinds: ['card'], cardTypes: ['Land'] },
+  { re: new RegExp(`^planeswalker\\s+card${s}\\b`, 'i'), kinds: ['card'], cardTypes: ['Planeswalker'] },
+  { re: new RegExp(`^battle\\s+card${s}\\b`, 'i'), kinds: ['card'], cardTypes: ['Battle'] },
+  { re: new RegExp(`^instant\\s+card${s}\\b`, 'i'), kinds: ['card'], cardTypes: ['Instant'] },
+  { re: new RegExp(`^sorcery\\s+card${s}\\b`, 'i'), kinds: ['card'], cardTypes: ['Sorcery'] },
   // ⚠️ "Permanent card" is a card of any PERMANENT type (CR 110.4a), and
   // `cardTypes` is ANY-of — so the six types ARE the restriction, exactly.
   // Until D147 this sat in `unenforced`, which is `tier3.ts`'s way of printing
@@ -523,6 +535,10 @@ const NOUNS: readonly NounEntry[] = [
     kinds: ['card'],
     cardTypes: ['Artifact', 'Battle', 'Creature', 'Enchantment', 'Land', 'Planeswalker'],
   },
+  // D298: a SUBTYPE card noun - capitalised in print ("Zombie card", "Goblin
+  // card"; a type or an adjective never is mid-sentence) - enforced through
+  // `restrict.subtypesAll` against the card's derived subtypes (D297).
+  { re: new RegExp(`^[A-Z][a-z]+\\s+card${s}\\b`), kinds: ['card'], subtypeCard: true },
   { re: new RegExp(`^card${s}\\b`, 'i'), kinds: ['card'] },
 
   // plain kinds
@@ -572,7 +588,8 @@ const NOUNS: readonly NounEntry[] = [
  * (`TargetSpec.combatRole`); `blocked` and `unblocked` stay unenforced.
  */
 const ADJECTIVE_RE =
-  /^(non-?\w+|tapped|untapped|legendary|basic|nonbasic|white|blue|black|red|green|colorless|colourless|multicolored|multicoloured|monocolored|face-up|face-down|token|other|snow|historic|modified|enchanted|equipped|kicked|blocked|unblocked)\s+/i;
+  // D298: a comma between two adjectives ("noncreature, nonland card") is print.
+  /^(non-?\w+|tapped|untapped|legendary|basic|nonbasic|white|blue|black|red|green|colorless|colourless|multicolored|multicoloured|monocolored|face-up|face-down|token|other|snow|historic|modified|enchanted|equipped|kicked|blocked|unblocked),?\s+/i;
 
 const CONTROLLER_WINDOW = 40;
 
@@ -804,6 +821,10 @@ function readPiece(piece: string, restrict: MutableRestrict, unenforced: string[
     alternative = w === 'aura'
       ? { kinds: ['spell'], cardTypes: [], subtypes: ['Aura'], restrict: own, keyword: null, numeric: null }
       : { kinds: ['spell'], cardTypes: [w.charAt(0).toUpperCase() + w.slice(1)], subtypes: [], restrict: own, keyword: null, numeric: null };
+  } else if ((m = rest.match(/^(creature|artifact|enchantment|land|planeswalker|instant|sorcery)\s+cards?\b/i))) {
+    // D298: a typed CARD piece ("artifact or enchantment card" - "card" distributes, below).
+    const w = (m[1] ?? '').toLowerCase();
+    alternative = { kinds: ['card'], cardTypes: [w.charAt(0).toUpperCase() + w.slice(1)], subtypes: [], restrict: own, keyword: null, numeric: null };
   } else if ((m = rest.match(/^spells?\b/i))) {
     alternative = { kinds: ['spell'], cardTypes: [], subtypes: [], restrict: own, keyword: null, numeric: null };
   } else if ((m = rest.match(/^(equipment|vehicle|spacecraft|aura|wall|plains|island|swamp|mountain|forest)s?\b/i))) {
@@ -874,6 +895,17 @@ function readList(clean: string, cursor: number, firstRestrict: MutableRestrict,
   // "creature or Aura spell": the noun "spell" distributes over the list, so an
   // earlier bare type word is a SPELL of that type, not a permanent.
   const lastAlt = alternatives[alternatives.length - 1];
+  // D298: "artifact or enchantment card" - "card" distributes exactly as "spell" does.
+  if (lastAlt && lastAlt.kinds.length === 1 && lastAlt.kinds[0] === 'card') {
+    for (let i = 0; i < alternatives.length - 1; i++) {
+      const a = alternatives[i];
+      if (!a || a.kinds.length !== 1 || a.kinds[0] === 'card' || a.kinds[0] === 'spell' || a.kinds[0] === 'player') return null;
+      const k = a.kinds[0];
+      const type = k === 'creature' ? 'Creature' : k === 'artifact' ? 'Artifact' : k === 'enchantment' ? 'Enchantment' : k === 'land' ? 'Land' : k === 'planeswalker' ? 'Planeswalker' : null;
+      if (!type) return null;
+      alternatives[i] = { ...a, kinds: ['card'], cardTypes: a.cardTypes.includes(type) ? a.cardTypes : [...a.cardTypes, type] };
+    }
+  }
   if (lastAlt && lastAlt.kinds.length === 1 && lastAlt.kinds[0] === 'spell') {
     for (let i = 0; i < alternatives.length - 1; i++) {
       const a = alternatives[i];
@@ -1043,14 +1075,17 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
     }
     const danglingOr = /^\s+(?:or|and\/or)\s+/i.test(tailAfter);
     const danglingComma = /^\s*,\s*/.test(tailAfter);
-    if (danglingOr || danglingComma) {
+    // D298: "artifact or enchantment CARD" - the table read the type list as
+    // permanents and dropped "card"; the list reader distributes "card".
+    const danglingCard = !entry.kinds.includes('card') && /^\s+cards?\b/i.test(tailAfter);
+    if (danglingOr || danglingComma || danglingCard) {
       const listSpec = asList();
       if (listSpec) {
         out.push(listSpec);
         if (!count.confident) warn('target:unparsedCount');
         continue;
       }
-      if (danglingOr) {
+      if (danglingOr || danglingCard) {
         warn('target:unparsedClause');
         out.push({ ...FREE_TARGET, text: text.slice(count.start, Math.min(text.length, at + 40)).trim() });
         continue;
@@ -1068,7 +1103,7 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
       numeric: ctl.numeric,
       keyword: ctl.keyword,
       combatRole: entry.combatRole ?? suffixRole,
-      restrict: finishRestrict(restrict, entry.restrict),
+      restrict: finishRestrict(restrict, entry.subtypeCard ? { subtypesAll: [(nounMatch?.[0] ?? '').split(/\s+/)[0] ?? ''] } : entry.restrict),
       alternatives: null,
       text: text.slice(count.start, ctl.end).trim(),
       confident: count.confident,

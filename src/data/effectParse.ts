@@ -132,7 +132,8 @@ const QUALIFIER = `(?: with (?:mana value|converted mana cost|power|toughness) \
  */
 const ADJECTIVE =
   // D297: `non-[a-z]+` is the HYPHENATED subtype negation ("non-Elf"), enforced by targetParse.
-  '(?:(?:non(?:artifact|creature|enchantment|land|planeswalker|battle|white|blue|black|red|green|legendary|basic|snow|token)|non-[a-z]+|white|blue|black|red|green|colorless|multicolored|monocolored|tapped|untapped|legendary|basic|snow|token)\\s+)*';
+  // D298: a comma between two adjectives ("nonartifact, nonblack creature") is print; the target parser reads it.
+  '(?:(?:non(?:artifact|creature|enchantment|land|planeswalker|battle|white|blue|black|red|green|legendary|basic|snow|token)|non-[a-z]+|white|blue|black|red|green|colorless|multicolored|monocolored|tapped|untapped|legendary|basic|snow|token),?\\s+)*';
 const TARGET = `(?:any target|target ${ADJECTIVE}(?:${NOUNS})${QUALIFIER})`;
 const NUM = '(?:\\d+)';
 
@@ -245,7 +246,14 @@ const COUNT = '(?:a|one|two|three|four|five|six|seven|\\d+)';
  * noun entry still marks itself `unenforced`, so admitting it here would execute
  * a restriction nothing checks.
  */
-const GY_NOUN = '(?:card|creature card|instant or sorcery card)' + QUALIFIER;
+// D298: the adjectives D294 enforces (with the comma print puts between two of
+// them - "noncreature, nonland card") and the typed nouns the target parser
+// reads now; "permanent card" is still deliberately absent (see above).
+const GY_ADJECTIVE = ADJECTIVE.replace(/\\s\+\)\*$/, ',?\\s+)*');
+// "permanent card" has been ENFORCED since D147 (six types, any-of); the note
+// above that kept it out was stale. The two subtype cards and the two card
+// lists are the measured shapes (d298/probe-gy.json), enforced by D297/D298.
+const GY_NOUN = `${GY_ADJECTIVE}(?:artifact or enchantment card|artifact or creature card|instant or sorcery card|permanent card|creature card|artifact card|enchantment card|land card|planeswalker card|instant card|sorcery card|zombie card|goblin card|card)` + QUALIFIER;
 
 function counterKindOf(raw: string | undefined): CounterKind | null {
   if (raw === '+1/+1' || raw === '-1/-1') return raw;

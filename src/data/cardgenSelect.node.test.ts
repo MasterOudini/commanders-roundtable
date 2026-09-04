@@ -1689,6 +1689,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Enchantment Alteration', 'script-raised prompt'],
   ['Aura Graft', 'script-raised prompt'],
   ['Volcanic Eruption', 'cast-time computed target count'],
+
+  // D298 (M6.4ei) — the graveyard-return slot made 33 cards offerable: 31 landed
+  // (23 table rows, 5 by hand, 3 whole after the adjective comma); one triggers
+  // on attacking ALONE (a combat condition the bus does not read), one
+  // sacrifices THREE creatures as a cost.
+  ['Ironsoul Enforcer', 'attacks-alone trigger'],
+  ['Turntimber Sower', 'multi-sacrifice cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

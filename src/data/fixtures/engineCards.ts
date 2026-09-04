@@ -84106,6 +84106,1037 @@ export const AURA_FINESSE: CardData = {
   "singleImage": true
 };
 
+export const REVIVE: CardData = {
+  "scryfallId": "0dbd99aa-af0a-489d-9be1-d3aaa0a1f5a4",
+  "oracleId": "51991d28-137e-4690-a674-d852b904bd1a",
+  "name": "Revive",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Revive",
+      "manaCost": "{1}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Return target green card from your graveyard to your hand.",
+      "flavorText": "Even what is lost beyond recall returns when coaxed by a dryad's hand.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Matthew D. Wilson",
+      "imageId": "0dbd99aa-af0a-489d-9be1-d3aaa0a1f5a4"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "276",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REBORN_HOPE: CardData = {
+  "scryfallId": "59038868-6278-4d8c-a107-35aa85b5648f",
+  "oracleId": "683d8deb-2ab4-4c65-9a23-f4e733f06ba2",
+  "name": "Reborn Hope",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reborn Hope",
+      "manaCost": "{G}{W}",
+      "typeLine": "Sorcery",
+      "oracleText": "Return target multicolored card from your graveyard to your hand.",
+      "flavorText": "\"In darkness is kindled the fiercest hope.\"\n—Hadran, sunseeder of Naya",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Warren Mahy",
+      "imageId": "59038868-6278-4d8c-a107-35aa85b5648f"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "arb",
+  "collectorNumber": "76",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BURIED_RUIN: CardData = {
+  "scryfallId": "011bc5b7-c4d5-4c4c-af0d-aa0853d63f3a",
+  "oracleId": "3644f316-f9a3-46c9-9b1e-747f86cf4ead",
+  "name": "Buried Ruin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Buried Ruin",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{2}, {T}, Sacrifice this land: Return target artifact card from your graveyard to your hand.",
+      "flavorText": "History has buried its treasures deep.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Franz Vohwinkel",
+      "imageId": "011bc5b7-c4d5-4c4c-af0d-aa0853d63f3a"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "jmp",
+  "collectorNumber": "491",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARCHAEOMENDER: CardData = {
+  "scryfallId": "22bb8779-ac19-43d6-b818-86eb8ee2f87d",
+  "oracleId": "5a4553fc-f945-4094-b231-2d378ed6609e",
+  "name": "Archaeomender",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Archaeomender",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "When this creature enters, return target artifact card from your graveyard to your hand.",
+      "flavorText": "\"Just as a broken relic can be mended, a shattered history can be made whole.\"",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Miranda Meeks",
+      "imageId": "22bb8779-ac19-43d6-b818-86eb8ee2f87d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "jmp",
+  "collectorNumber": "9",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARGIVIAN_ARCHAEOLOGIST: CardData = {
+  "scryfallId": "0e765567-4f45-4571-aa20-0d127fc522e0",
+  "oracleId": "4b889ec0-6130-4e31-bb02-03fdabd28bee",
+  "name": "Argivian Archaeologist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Argivian Archaeologist",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Creature — Human Artificer",
+      "oracleText": "{W}{W}, {T}: Return target artifact card from your graveyard to your hand.",
+      "flavorText": "Fascinated by the lore of ancient struggles, the archaeologist searches incessantly for remnants of an earlier, more powerful era.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Amy Weber",
+      "imageId": "0e765567-4f45-4571-aa20-0d127fc522e0"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "me1",
+  "collectorNumber": "3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AURIOK_SALVAGERS: CardData = {
+  "scryfallId": "09c9cd1b-9260-4f98-ac7a-25bb5ae3e06d",
+  "oracleId": "db2f3a06-f75e-4689-b147-9820aebb30e2",
+  "name": "Auriok Salvagers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Auriok Salvagers",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{1}{W}: Return target artifact card with mana value 1 or less from your graveyard to your hand.",
+      "flavorText": "\"Memnarch or the vedalken salvage most of the large machines, leaving us only scraps. Scraps are enough.\"",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "09c9cd1b-9260-4f98-ac7a-25bb5ae3e06d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "5dn",
+  "collectorNumber": "4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DISCIPLE_OF_THE_SUN: CardData = {
+  "scryfallId": "ad9723a1-7c5f-49ea-a8c6-24ee572d839f",
+  "oracleId": "3ea41848-7a11-4608-88c1-7a6e76e812ca",
+  "name": "Disciple of the Sun",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Disciple of the Sun",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "Lifelink\nWhen this creature enters, return target permanent card with mana value 3 or less from your graveyard to your hand.",
+      "flavorText": "Heart of a titan, faith as bright as the dawn.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Eric Deschamps",
+      "imageId": "ad9723a1-7c5f-49ea-a8c6-24ee572d839f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Lifelink"
+  ],
+  "setCode": "mh2",
+  "collectorNumber": "11",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DOWSING_SHAMAN: CardData = {
+  "scryfallId": "31a2a6d8-52de-4796-b299-69b586fa0b92",
+  "oracleId": "c9cb34df-75b1-4dda-8f22-daadf59c5332",
+  "name": "Dowsing Shaman",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dowsing Shaman",
+      "manaCost": "{4}{G}",
+      "typeLine": "Creature — Centaur Shaman",
+      "oracleText": "{2}{G}, {T}: Return target enchantment card from your graveyard to your hand.",
+      "flavorText": "He combs the streets looking for the lost light, the discarded enigmas of the city.",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Wayne Reynolds",
+      "imageId": "31a2a6d8-52de-4796-b299-69b586fa0b92"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "pca",
+  "collectorNumber": "63",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELVISH_REGROWER: CardData = {
+  "scryfallId": "2694e3cd-26ed-4a10-ae55-fb84d7800253",
+  "oracleId": "adac526d-1a85-431a-a302-0a4b8f4a0c44",
+  "name": "Elvish Regrower",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elvish Regrower",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Elf Druid",
+      "oracleText": "When this creature enters, return target permanent card from your graveyard to your hand.",
+      "flavorText": "\"There you are, little friends! You've been sleeping for a long time, but it's time to wake up now.\"",
+      "power": "4",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "2694e3cd-26ed-4a10-ae55-fb84d7800253"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "fdn",
+  "collectorNumber": "104",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GHEN_ARCANUM_WEAVER: CardData = {
+  "scryfallId": "46c0b8a4-32a8-4a6d-b996-7187abd230ec",
+  "oracleId": "6ac59552-9562-492c-aea4-4d64bad58e3e",
+  "name": "Ghen, Arcanum Weaver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ghen, Arcanum Weaver",
+      "manaCost": "{R}{W}{B}",
+      "typeLine": "Legendary Creature — Human Wizard",
+      "oracleText": "{R}{W}{B}, {T}, Sacrifice an enchantment: Return target enchantment card from your graveyard to the battlefield.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R",
+        "W"
+      ],
+      "artist": "Kieran Yanner",
+      "imageId": "46c0b8a4-32a8-4a6d-b996-7187abd230ec"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "prm",
+  "collectorNumber": "86340",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOLGARI_FINDBROKER: CardData = {
+  "scryfallId": "26413356-327c-494b-a895-0a0ddd466242",
+  "oracleId": "e5456b35-d7a9-4717-90df-c6c46f1ec437",
+  "name": "Golgari Findbroker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Golgari Findbroker",
+      "manaCost": "{B}{B}{G}{G}",
+      "typeLine": "Creature — Elf Shaman",
+      "oracleText": "When this creature enters, return target permanent card from your graveyard to your hand.",
+      "flavorText": "\"We gather the past from surface dwellers and sell it right back to them.\"",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Bram Sels",
+      "imageId": "26413356-327c-494b-a895-0a0ddd466242"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "khc",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRIFFIN_DREAMFINDER: CardData = {
+  "scryfallId": "b569fadd-d9ca-4b0d-bee2-9d45574e56f0",
+  "oracleId": "ca5d5cbf-fc4f-43dd-a2af-767f277dfef9",
+  "name": "Griffin Dreamfinder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Griffin Dreamfinder",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Creature — Griffin",
+      "oracleText": "Flying\nWhen this creature enters, return target enchantment card from your graveyard to your hand.",
+      "flavorText": "Some griffins are able to pluck mystic auras from the Æther that are hidden from other mortals.",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Adam Paquette",
+      "imageId": "b569fadd-d9ca-4b0d-bee2-9d45574e56f0"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "bng",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GROUNDSKEEPER: CardData = {
+  "scryfallId": "30444f88-5a7e-46bc-ab0c-17e62fae2457",
+  "oracleId": "f2c19fba-9b06-461f-bb5e-e827ba41204d",
+  "name": "Groundskeeper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Groundskeeper",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Human Druid",
+      "oracleText": "{1}{G}: Return target basic land card from your graveyard to your hand.",
+      "flavorText": "\"While the church thinks in terms of legacies, others think in terms of eternities.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Anthony Palumbo",
+      "imageId": "30444f88-5a7e-46bc-ab0c-17e62fae2457"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "eoc",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HANNA_SHIP_S_NAVIGATOR: CardData = {
+  "scryfallId": "16352af7-c001-41e8-8052-cd98997aebbb",
+  "oracleId": "3b008c71-e2a0-4f56-83d3-655c5dd58e0e",
+  "name": "Hanna, Ship's Navigator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hanna, Ship's Navigator",
+      "manaCost": "{1}{W}{U}",
+      "typeLine": "Legendary Creature — Human Artificer",
+      "oracleText": "{1}{W}{U}, {T}: Return target artifact or enchantment card from your graveyard to your hand.",
+      "flavorText": "\"I never thought I'd spend my life fighting. I'm a maker, not a destroyer.\"",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Chris Rallis",
+      "imageId": "16352af7-c001-41e8-8052-cd98997aebbb"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "2xm",
+  "collectorNumber": "200",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LEONIN_SQUIRE: CardData = {
+  "scryfallId": "5a5320ff-1fe6-492a-b27f-86a84a1768ed",
+  "oracleId": "fa19c9d7-fe93-4e93-a5ef-9af9c6cd1a5e",
+  "name": "Leonin Squire",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Leonin Squire",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Cat Soldier",
+      "oracleText": "When this creature enters, return target artifact card with mana value 1 or less from your graveyard to your hand.",
+      "flavorText": "\"I may be kha, but without my soldiers, my people, I am nothing.\"\n—Raksha Golden Cub",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "5a5320ff-1fe6-492a-b27f-86a84a1768ed"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "5dn",
+  "collectorNumber": "9",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MONK_IDEALIST: CardData = {
+  "scryfallId": "00a9bcaf-47ea-406e-ac51-e68ba181214a",
+  "oracleId": "1f47ff5a-dd93-46de-a1ca-b412631218bf",
+  "name": "Monk Idealist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Monk Idealist",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Monk Cleric",
+      "oracleText": "When this creature enters, return target enchantment card from your graveyard to your hand.",
+      "flavorText": "\"Belief is the strongest mortar.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Daren Bader",
+      "imageId": "00a9bcaf-47ea-406e-ac51-e68ba181214a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "c15",
+  "collectorNumber": "76",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PETRIFIED_FIELD: CardData = {
+  "scryfallId": "0e386ba8-3621-4e55-9326-e239341142ef",
+  "oracleId": "c4bc5bc4-e589-42c5-91fa-2ebc96448e85",
+  "name": "Petrified Field",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Petrified Field",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{T}, Sacrifice this land: Return target land card from your graveyard to your hand.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "WFlemming Illustration",
+      "imageId": "0e386ba8-3621-4e55-9326-e239341142ef"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "eos",
+  "collectorNumber": "77",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PROTOMATTER_POWDER: CardData = {
+  "scryfallId": "273e2198-5549-4e82-8580-8769284d729d",
+  "oracleId": "22d57bc8-e473-47c5-8e48-c0fb98e66948",
+  "name": "Protomatter Powder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Protomatter Powder",
+      "manaCost": "{2}{U}",
+      "typeLine": "Artifact",
+      "oracleText": "{4}{W}, {T}, Sacrifice this artifact: Return target artifact card from your graveyard to the battlefield.",
+      "flavorText": "\"There is no such thing as scrap metal. All such material can be repaired with the proper bonding agent.\"\n—Quennus, metallurgeon",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Francis Tsai",
+      "imageId": "273e2198-5549-4e82-8580-8769284d729d"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ala",
+  "collectorNumber": "53",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RESTORATION_GEARSMITH: CardData = {
+  "scryfallId": "1534ad62-597b-4cc3-ae63-1d3385a752ac",
+  "oracleId": "447c7fe0-6ec7-4163-9d9c-f08f0a4c7109",
+  "name": "Restoration Gearsmith",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Restoration Gearsmith",
+      "manaCost": "{2}{W}{B}",
+      "typeLine": "Creature — Human Artificer",
+      "oracleText": "When this creature enters, return target artifact or creature card from your graveyard to your hand.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "John Severin Brassell",
+      "imageId": "1534ad62-597b-4cc3-ae63-1d3385a752ac"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "klr",
+  "collectorNumber": "205",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROOTWATER_DIVER: CardData = {
+  "scryfallId": "a6315323-cf82-46c0-b164-e6ea1bf809f4",
+  "oracleId": "4145c153-1ee3-4583-8a60-8471959656eb",
+  "name": "Rootwater Diver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rootwater Diver",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Merfolk",
+      "oracleText": "{T}, Sacrifice this creature: Return target artifact card from your graveyard to your hand.",
+      "flavorText": "\"Drop a dagger into the murky deep and the merfolk will cut your throat with it.\"\n—Skyshroud saying",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "a6315323-cf82-46c0-b164-e6ea1bf809f4"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "tmp",
+  "collectorNumber": "81",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SALVAGE_SCOUT: CardData = {
+  "scryfallId": "5909e77e-a930-4713-bca4-c6b265238c17",
+  "oracleId": "502e991c-f4de-4095-adac-cb0c25e44a7c",
+  "name": "Salvage Scout",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Salvage Scout",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Scout",
+      "oracleText": "{W}, Sacrifice this creature: Return target artifact card from your graveyard to your hand.",
+      "flavorText": "\"I'm not saying it's dangerous work. I'm just saying don't sign up if you have plans for your seventieth birthday.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Randis Albion",
+      "imageId": "5909e77e-a930-4713-bca4-c6b265238c17"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "som",
+  "collectorNumber": "19",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKULL_OF_ORM: CardData = {
+  "scryfallId": "2b5943e3-2c41-4d52-8e38-f5b60db6af7d",
+  "oracleId": "67601399-089b-44fe-82db-c319729c75bf",
+  "name": "Skull of Orm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skull of Orm",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{5}, {T}: Return target enchantment card from your graveyard to your hand.",
+      "flavorText": "Though lifeless, the skull still possessed a strange power over the flow of magic.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Daren Bader",
+      "imageId": "2b5943e3-2c41-4d52-8e38-f5b60db6af7d"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "313★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRAGIC_POET: CardData = {
+  "scryfallId": "294aa7fc-12be-4722-b288-de14a28919b2",
+  "oracleId": "97bdfbe0-7048-4157-8a58-5b17410750ab",
+  "name": "Tragic Poet",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tragic Poet",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human",
+      "oracleText": "{T}, Sacrifice this creature: Return target enchantment card from your graveyard to your hand.",
+      "flavorText": "\"I would weep, but my tears have been stolen; I would shout, but my voice has been taken. Thus, I write.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Quinton Hoover",
+      "imageId": "294aa7fc-12be-4722-b288-de14a28919b2"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ulg",
+  "collectorNumber": "24",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRUSTY_PACKBEAST: CardData = {
+  "scryfallId": "0fcfe1b5-e35b-4a23-8ca8-4dee2ef94f32",
+  "oracleId": "12c7289f-da53-403a-a607-227f43c7e171",
+  "name": "Trusty Packbeast",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Trusty Packbeast",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "When this creature enters, return target artifact card from your graveyard to your hand.",
+      "flavorText": "\"Margaret has traveled with me to the end of the world and back.\"\n—Hewen Frit, merchant",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Stanko",
+      "imageId": "0fcfe1b5-e35b-4a23-8ca8-4dee2ef94f32"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "cmr",
+  "collectorNumber": "53",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WARDEN_OF_THE_EYE: CardData = {
+  "scryfallId": "04135bf7-2bcf-4a92-80f0-6d5eefca551b",
+  "oracleId": "5342ce88-4afc-431c-814a-054e5fca4b9e",
+  "name": "Warden of the Eye",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Warden of the Eye",
+      "manaCost": "{2}{U}{R}{W}",
+      "typeLine": "Creature — Djinn Wizard",
+      "oracleText": "When this creature enters, return target noncreature, nonland card from your graveyard to your hand.",
+      "flavorText": "The wardens guard the sacred documents of Tarkir's history, though they are forbidden to read the words.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U",
+        "W"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "04135bf7-2bcf-4a92-80f0-6d5eefca551b"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ktk",
+  "collectorNumber": "212",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HARNESSED_SNUBHORN: CardData = {
+  "scryfallId": "00d20243-0771-4dae-b225-4379de6be35a",
+  "oracleId": "e1dd9dca-cb5f-46b4-b16d-a61ae651d653",
+  "name": "Harnessed Snubhorn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Harnessed Snubhorn",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Dinosaur",
+      "oracleText": "Vigilance\nWhenever this creature deals combat damage to a player, return target artifact or enchantment card from your graveyard to the battlefield.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Quintin Gleim",
+      "imageId": "00d20243-0771-4dae-b225-4379de6be35a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "mat",
+  "collectorNumber": "103",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LORAN_DISCIPLE_OF_HISTORY: CardData = {
+  "scryfallId": "9998f898-1f08-481b-8505-b890f0fec5e0",
+  "oracleId": "9d1f232c-e904-46f6-a4b7-24ca2ede711c",
+  "name": "Loran, Disciple of History",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Loran, Disciple of History",
+      "manaCost": "{3}{W}",
+      "typeLine": "Legendary Creature — Human Artificer",
+      "oracleText": "Whenever Loran or another legendary creature you control enters, return target artifact card from your graveyard to your hand.",
+      "flavorText": "Urza and Mishra may have been Tocasia's most famous students, but Loran was the true heir to her legacy.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Cristi Balanescu",
+      "imageId": "9998f898-1f08-481b-8505-b890f0fec5e0"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "bro",
+  "collectorNumber": "13",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TITANIA_PROTECTOR_OF_ARGOTH: CardData = {
+  "scryfallId": "1027da0a-8e6c-4e36-9d99-f295d085e94b",
+  "oracleId": "d0ade00d-a496-441d-9b7e-7dc033d3292c",
+  "name": "Titania, Protector of Argoth",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Titania, Protector of Argoth",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Legendary Creature — Elemental",
+      "oracleText": "When Titania enters, return target land card from your graveyard to the battlefield.\nWhenever a land you control is put into a graveyard from the battlefield, create a 5/3 green Elemental creature token.",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Magali Villeneuve",
+      "imageId": "1027da0a-8e6c-4e36-9d99-f295d085e94b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "pz1",
+  "collectorNumber": "89",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GO_SHINTAI_OF_LIFE_S_ORIGIN: CardData = {
+  "scryfallId": "4e9a1f19-6ee3-49fb-a08d-4048ee7c1e34",
+  "oracleId": "6dbcd542-ddb0-434e-b8ee-3e31e1a8b051",
+  "name": "Go-Shintai of Life's Origin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Go-Shintai of Life's Origin",
+      "manaCost": "{3}{G}",
+      "typeLine": "Legendary Enchantment Creature — Shrine",
+      "oracleText": "{W}{U}{B}{R}{G}, {T}: Return target enchantment card from your graveyard to the battlefield.\nWhenever Go-Shintai of Life's Origin or another nontoken Shrine you control enters, create a 1/1 colorless Shrine enchantment creature token.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Yuko Shimizu",
+      "imageId": "4e9a1f19-6ee3-49fb-a08d-4048ee7c1e34"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "1825",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRADING_POST: CardData = {
+  "scryfallId": "03499a72-e865-46ff-bcb2-75e53e4b600e",
+  "oracleId": "63788566-e25a-44bb-bb55-197e1b93b3e8",
+  "name": "Trading Post",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Trading Post",
+      "manaCost": "{4}",
+      "typeLine": "Artifact",
+      "oracleText": "{1}, {T}, Discard a card: You gain 4 life.\n{1}, {T}, Pay 1 life: Create a 0/1 white Goat creature token.\n{1}, {T}, Sacrifice a creature: Return target artifact card from your graveyard to your hand.\n{1}, {T}, Sacrifice an artifact: Draw a card.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "L.A. Draws",
+      "imageId": "03499a72-e865-46ff-bcb2-75e53e4b600e"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "msc",
+  "collectorNumber": "224",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -87560,6 +88591,106 @@ export const CITIZEN_GW_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const DEMON_B_5_5_FLYING_TOKEN: CardData = {
+  "scryfallId": "14259948-5427-401f-b510-f5b705445e50",
+  "oracleId": "0045c5fa-3229-4050-b139-5712fa24b308",
+  "name": "Demon",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Demon",
+      "manaCost": "",
+      "typeLine": "Token Creature — Demon",
+      "oracleText": "Flying",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "14259948-5427-401f-b510-f5b705445e50"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "tori",
+  "collectorNumber": "4",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const ELEMENTAL_G_5_3_TOKEN: CardData = {
+  "scryfallId": "0b0229d7-8635-4509-b141-12787af32855",
+  "oracleId": "12b8b246-e66a-42cd-9439-582b39fd5f2c",
+  "name": "Elemental",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Elemental",
+      "manaCost": "",
+      "typeLine": "Token Creature — Elemental",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "0b0229d7-8635-4509-b141-12787af32855"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "teoc",
+  "collectorNumber": "7",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const SHRINE_1_1_TOKEN: CardData = {
+  "scryfallId": "41648b36-154c-4907-8571-9461e45a9e00",
+  "oracleId": "bd176056-cc4b-4de5-a583-c17d80761afc",
+  "name": "Shrine",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Shrine",
+      "manaCost": "",
+      "typeLine": "Token Enchantment Creature — Shrine",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Dani Pendergast",
+      "imageId": "41648b36-154c-4907-8571-9461e45a9e00"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "1835",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -90002,6 +91133,36 @@ export const ENGINE_CARDS: CardData[] = [
   UNFORGE,
   MAGNETIC_THEFT,
   AURA_FINESSE,
+  REVIVE,
+  REBORN_HOPE,
+  BURIED_RUIN,
+  ARCHAEOMENDER,
+  ARGIVIAN_ARCHAEOLOGIST,
+  AURIOK_SALVAGERS,
+  DISCIPLE_OF_THE_SUN,
+  DOWSING_SHAMAN,
+  ELVISH_REGROWER,
+  GHEN_ARCANUM_WEAVER,
+  GOLGARI_FINDBROKER,
+  GRIFFIN_DREAMFINDER,
+  GROUNDSKEEPER,
+  HANNA_SHIP_S_NAVIGATOR,
+  LEONIN_SQUIRE,
+  MONK_IDEALIST,
+  PETRIFIED_FIELD,
+  PROTOMATTER_POWDER,
+  RESTORATION_GEARSMITH,
+  ROOTWATER_DIVER,
+  SALVAGE_SCOUT,
+  SKULL_OF_ORM,
+  TRAGIC_POET,
+  TRUSTY_PACKBEAST,
+  WARDEN_OF_THE_EYE,
+  HARNESSED_SNUBHORN,
+  LORAN_DISCIPLE_OF_HISTORY,
+  TITANIA_PROTECTOR_OF_ARGOTH,
+  GO_SHINTAI_OF_LIFE_S_ORIGIN,
+  TRADING_POST,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -90103,4 +91264,7 @@ export const ENGINE_CARDS: CardData[] = [
   KITHKIN_SOLDIER_TOKEN,
   BIRD_U_VIGILANCE_TOKEN,
   CITIZEN_GW_TOKEN,
+  DEMON_B_5_5_FLYING_TOKEN,
+  ELEMENTAL_G_5_3_TOKEN,
+  SHRINE_1_1_TOKEN,
 ];

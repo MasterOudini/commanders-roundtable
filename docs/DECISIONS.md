@@ -19960,3 +19960,87 @@ Fixtures 2,541 (2,433 by name + 101 tokens) · botPool artifact 165 / creature 2
 Reborn Hope); the modal seam (42); the "another" split; the by-name
 sacrifice cost; the remaining cost verbs; the prompt continuation seam;
 prior items stand.
+
+## D298 — M6.4ei: THE GRAVEYARD-RETURN SLOT — a card returned from a graveyard may now be named by its type and its adjectives; the effect parser admits exactly what the target parser enforces (2026-09-04)
+
+**4,320 of 31,692 Commander-legal cards execute completely, up from
+4,273 (+47).** SHIPPED_SCRIPTS 2,247 → **2,275**; REFUSED ledger 801
+→ **803** (+2). Fixtures 2,541 → 2,574 (2,463 by name + 104
+tokens — the two proof spells, the second wave's 28 cards, and the three
+token pins gate 149 demanded). ZERO new support bodies. Two parser files
+change. **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** The effect parser's graveyard
+noun was CLOSED to three forms — `card`, `creature card`, `instant or
+sorcery card` — with no adjective slot, so "Return target GREEN card from
+your graveyard to your hand" (Revive, refused in D294 for exactly this) and
+"target SORCERY card", "target noncreature, nonland card" stayed
+unreadable even though the target parser could enforce most of them. The
+sizing probe (`zz-probe-d298`, gate-free): 386 incomplete cards
+print a graveyard-return sentence, in some 60 noun shapes; 49 by the probe's rough rewrite - 15 measured once built, the counted returns waiting would
+read whole with the noun phrase enforced.
+
+**The seam, in D139's order — enforce first, then admit.**
+
+- `targetParse`: the typed card nouns — artifact, enchantment, land,
+  planeswalker, battle, instant, sorcery `card` — enforced exactly like
+  "creature card" has been since D138 (`cardTypes` against the card in its
+  zone); the adjective before "card" was already D294's (colours, negated
+  types, supertypes, token), and a COMMA between two adjectives
+  ("noncreature, nonland card") is read as print puts it.
+- A SUBTYPE card noun — "Zombie card", "Goblin card", capitalised in print
+  as a type or an adjective never is mid-sentence — is read into
+  `restrict.subtypesAll` (D297's field); a card LIST — "artifact or
+  enchantment card", "artifact or creature card" — is read piece by piece
+  through D297's reader, "card" distributing over the pieces exactly as
+  "spell" does.
+- `effectParse`: the graveyard noun gains the same adjective prefix (with
+  the comma), the typed nouns, the two measured subtype cards, the two
+  measured card lists — and "permanent card", ENFORCED since D147 (six
+  types, any-of) but kept out by a note that had gone stale. "historic
+  card" and an unmeasured "Elf card" are still refused — a word the target
+  parser leaves unenforced, or a shape not yet measured, is not admitted.
+- **Not this decision:** the COUNTED returns — "Return up to two target
+  creature cards from your graveyard to your hand" (29 cards print the
+  plural, 9 would read whole) — need the vocabulary's consumer to apply a
+  sentence to EVERY target of its clause, and the stack object records no
+  per-clause target slots; that is the counted-targets seam, measured here
+  and left for its own decision.
+- **The fuzz gate caught a rot the unit suites cannot:** the first gate run
+  went red on ONE token in 500 seeds — `tokensNamed 404 ≠ tokensCreated
+  405`. Three token printings that shipped scripts create (Priest of the
+  Blood Rite's Demon, D295; Titania's Elemental and Go-Shintai's Shrine,
+  here) were in the TOKEN_TABLE but not PINNED as token fixtures, so the
+  fixture oracle the fuzz plays with could not name them and the token
+  derived to a nameless 0/0 (D133's rot class exactly). The three are pinned
+  now (fixtures 2,571 → 2,574, tokens 101 → 104), and a new tripwire
+  (`src/data/tokenPins.node.test.ts`) scans every shipped script's
+  `tokenRef('…')` and fails BY KEY when a printing is not pinned — the unit
+  suite will say it before the fuzz gate has to.
+- **A slip recorded:** D297's commit message went out with an em dash, a
+  middle dot and a pair of double quotes inside a measured value — `set -e`
+  ignores a failing `! grep`, so the landing script's guards had never
+  guarded anything. From D298 the guards exit, and the docs filler folds
+  the punctuation to ASCII before the guards run.
+
+Report: `effect:auto` 3,264 → 3,340, `effect:none` 15,693 →
+15,617, `withUnenforced` 237 → 237.
+
+**Tests:** `src/engine/graveyardNouns.test.ts` (the parse of the coloured,
+typed and doubly-negated nouns; the effect parser admitting exactly those
+and refusing "historic card" / "Elf card"; live proofs from the ORACLE
+with no script — Revive refuses the black Nighthawk in the graveyard and
+returns the green Bears; Reborn Hope refuses the monocoloured Bears and
+returns the multicoloured Lady Caleria).
+
+**Landed:** 15 auto flips and 28 scripts for the 33 the slot made offerable - 47 net — Aether Helix, Argivian Find, Argivian Restoration, Boggart Birth Rite, Deja Vu, Emergency Weld, Nature's Spiral, Obzedat's Aid, Reborn Hope, Reconstruction, Refurbish, Revive, Revive the Shire, Ritual of Restoration, Sage's Knowledge. The sweep measured the pool at 33 after the slot (activations and triggers that return a typed card from a graveyard): 23 table rows through D295's generator, which gained the graveyard kinds `returnToHand` / `reanimate`, graveyard-zone targets, and a named sacrifice fodder (`d298/rows-gy.cjs` - Buried Ruin, Argivian Archaeologist, Auriok Salvagers' MV-1 artifact, Disciple of the Sun's MV-3 permanent, Ghen's sacrificed enchantment, Groundskeeper's basic land, Hanna's list, Warden of the Eye's doubly-negated card...); five by hand (Harnessed Snubhorn's combat-damage trigger, Loran's per-legendary trigger, Titania's land-death Elemental, Go-Shintai's Shrine token, Trading Post's four costs); three whole after the effect parser's ADJECTIVE macro learned the comma print puts between two adjectives (Terror, Power Word Kill, Victim of Night - the target parser reads it since this decision); two refused (an attacks-alone trigger, a three-creature sacrifice).
+
+Fixtures 2,574 · botPool artifact 168 / creature 2,188 / enchantment 103 / instant 859 / land 353 / sorcery 649 - auto 685 / assisted 1,819 / autoAnyFace 693 · ladder [907, 1028, 2814, 4731, 5941] · batch.json 43 ·
+select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,363 files, 12,370 passed / 11 skipped ·
+500-seed gate, 6 shards, 206.8 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D298): the counted-targets seam - a sentence applied to EVERY target of its clause ('up to two target creature cards', 'two target creatures': the stack object records no per-clause slots yet), measured at 29 graveyard returns alone; the modal seam (42); the "another" split;
+the by-name sacrifice cost; the remaining cost verbs; the prompt
+continuation seam; prior items stand.

@@ -2884,6 +2884,36 @@ const WANTED = [
   'Unforge',
   'Magnetic Theft',
   'Aura Finesse',
+  'Revive',
+  'Reborn Hope',
+  'Buried Ruin',
+  'Archaeomender',
+  'Argivian Archaeologist',
+  'Auriok Salvagers',
+  'Disciple of the Sun',
+  'Dowsing Shaman',
+  'Elvish Regrower',
+  'Ghen, Arcanum Weaver',
+  'Golgari Findbroker',
+  'Griffin Dreamfinder',
+  'Groundskeeper',
+  "Hanna, Ship's Navigator",
+  'Leonin Squire',
+  'Monk Idealist',
+  'Petrified Field',
+  'Protomatter Powder',
+  'Restoration Gearsmith',
+  'Rootwater Diver',
+  'Salvage Scout',
+  'Skull of Orm',
+  'Tragic Poet',
+  'Trusty Packbeast',
+  'Warden of the Eye',
+  'Harnessed Snubhorn',
+  'Loran, Disciple of History',
+  'Titania, Protector of Argoth',
+  "Go-Shintai of Life's Origin",
+  'Trading Post',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -3079,6 +3109,11 @@ const WANTED_TOKENS = [
   // Batch D281. The green-white 1/1 Citizen (Stimulus Package) — TOKEN_TABLE
   // 'Citizen|1/1|GW|Creature|' resolves to tsnc 12, looked up by printing id.
   { name: 'Citizen', set: 'tsnc', cn: '12', key: 'CITIZEN_GW_TOKEN' },
+  // D298: the three tokens shipped scripts create (Priest of the Blood Rite, Titania,
+  // Go-Shintai of Life's Origin) that gate 149's fuzz aggregate could not name.
+  { name: 'Demon', set: 'tori', cn: '4', key: 'DEMON_B_5_5_FLYING_TOKEN' },
+  { name: 'Elemental', set: 'teoc', cn: '7', key: 'ELEMENTAL_G_5_3_TOKEN' },
+  { name: 'Shrine', set: 'sld', cn: '1835', key: 'SHRINE_1_1_TOKEN' },
 ];
 
 function constName(name) {

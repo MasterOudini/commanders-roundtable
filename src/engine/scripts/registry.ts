@@ -7,6 +7,34 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { BURIED_RUIN_SCRIPT } from './cards/buriedRuin';
+import { ARCHAEOMENDER_SCRIPT } from './cards/archaeomender';
+import { ARGIVIAN_ARCHAEOLOGIST_SCRIPT } from './cards/argivianArchaeologist';
+import { AURIOK_SALVAGERS_SCRIPT } from './cards/auriokSalvagers';
+import { DISCIPLE_OF_THE_SUN_SCRIPT } from './cards/discipleOfTheSun';
+import { DOWSING_SHAMAN_SCRIPT } from './cards/dowsingShaman';
+import { ELVISH_REGROWER_SCRIPT } from './cards/elvishRegrower';
+import { GHEN_ARCANUM_WEAVER_SCRIPT } from './cards/ghenArcanumWeaver';
+import { GOLGARI_FINDBROKER_SCRIPT } from './cards/golgariFindbroker';
+import { GRIFFIN_DREAMFINDER_SCRIPT } from './cards/griffinDreamfinder';
+import { GROUNDSKEEPER_SCRIPT } from './cards/groundskeeper';
+import { HANNA_SHIPS_NAVIGATOR_SCRIPT } from './cards/hannaShipsNavigator';
+import { LEONIN_SQUIRE_SCRIPT } from './cards/leoninSquire';
+import { MONK_IDEALIST_SCRIPT } from './cards/monkIdealist';
+import { PETRIFIED_FIELD_SCRIPT } from './cards/petrifiedField';
+import { PROTOMATTER_POWDER_SCRIPT } from './cards/protomatterPowder';
+import { RESTORATION_GEARSMITH_SCRIPT } from './cards/restorationGearsmith';
+import { ROOTWATER_DIVER_SCRIPT } from './cards/rootwaterDiver';
+import { SALVAGE_SCOUT_SCRIPT } from './cards/salvageScout';
+import { SKULL_OF_ORM_SCRIPT } from './cards/skullOfOrm';
+import { TRAGIC_POET_SCRIPT } from './cards/tragicPoet';
+import { TRUSTY_PACKBEAST_SCRIPT } from './cards/trustyPackbeast';
+import { WARDEN_OF_THE_EYE_SCRIPT } from './cards/wardenOfTheEye';
+import { HARNESSED_SNUBHORN_SCRIPT } from './cards/harnessedSnubhorn';
+import { LORAN_DISCIPLE_OF_HISTORY_SCRIPT } from './cards/loranDiscipleOfHistory';
+import { TITANIA_PROTECTOR_OF_ARGOTH_SCRIPT } from './cards/titaniaProtectorOfArgoth';
+import { GO_SHINTAI_OF_LIFES_ORIGIN_SCRIPT } from './cards/goShintaiOfLifesOrigin';
+import { TRADING_POST_SCRIPT } from './cards/tradingPost';
 import { ARBOR_ELF_SCRIPT } from './cards/arborElf';
 import { ALI_BABA_SCRIPT } from './cards/aliBaba';
 import { AVACYNIAN_PRIEST_SCRIPT } from './cards/avacynianPriest';
@@ -2368,6 +2396,34 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BURIED_RUIN_SCRIPT,
+  ARCHAEOMENDER_SCRIPT,
+  ARGIVIAN_ARCHAEOLOGIST_SCRIPT,
+  AURIOK_SALVAGERS_SCRIPT,
+  DISCIPLE_OF_THE_SUN_SCRIPT,
+  DOWSING_SHAMAN_SCRIPT,
+  ELVISH_REGROWER_SCRIPT,
+  GHEN_ARCANUM_WEAVER_SCRIPT,
+  GOLGARI_FINDBROKER_SCRIPT,
+  GRIFFIN_DREAMFINDER_SCRIPT,
+  GROUNDSKEEPER_SCRIPT,
+  HANNA_SHIPS_NAVIGATOR_SCRIPT,
+  LEONIN_SQUIRE_SCRIPT,
+  MONK_IDEALIST_SCRIPT,
+  PETRIFIED_FIELD_SCRIPT,
+  PROTOMATTER_POWDER_SCRIPT,
+  RESTORATION_GEARSMITH_SCRIPT,
+  ROOTWATER_DIVER_SCRIPT,
+  SALVAGE_SCOUT_SCRIPT,
+  SKULL_OF_ORM_SCRIPT,
+  TRAGIC_POET_SCRIPT,
+  TRUSTY_PACKBEAST_SCRIPT,
+  WARDEN_OF_THE_EYE_SCRIPT,
+  HARNESSED_SNUBHORN_SCRIPT,
+  LORAN_DISCIPLE_OF_HISTORY_SCRIPT,
+  TITANIA_PROTECTOR_OF_ARGOTH_SCRIPT,
+  GO_SHINTAI_OF_LIFES_ORIGIN_SCRIPT,
+  TRADING_POST_SCRIPT,
   ARBOR_ELF_SCRIPT,
   ALI_BABA_SCRIPT,
   AVACYNIAN_PRIEST_SCRIPT,
