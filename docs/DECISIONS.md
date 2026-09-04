@@ -20044,3 +20044,85 @@ select pool 0.
 **Reportables** (D298): the counted-targets seam - a sentence applied to EVERY target of its clause ('up to two target creature cards', 'two target creatures': the stack object records no per-clause slots yet), measured at 29 graveyard returns alone; the modal seam (42); the "another" split;
 the by-name sacrifice cost; the remaining cost verbs; the prompt
 continuation seam; prior items stand.
+
+## D299 — M6.4ej: THE COUNTED-TARGETS SEAM — a spell's clause runs once per pick; the stack object records the clause each declared target answers; "up to one", "up to two", "two", "any number of" target sentences are admitted (2026-09-04)
+
+**4,369 of 31,692 Commander-legal cards execute completely, up from
+4,320 (+49).** SHIPPED_SCRIPTS 2,275 → **2,287**; REFUSED ledger 803
+→ **809** (+7, -1: Tidal Surge left it as a card the seam made whole). Fixtures 2,574 → 2,603 (2,492 by name + 104 tokens: the four proof spells and the wave's 25).
+ZERO new token pins, ZERO new support bodies. **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** The vocabulary's consumer aimed
+sentence i at `obj.targets[i]` — ONE pick per clause, positionally — so a
+counted clause could not be admitted at all: "Destroy up to two target
+creatures" would have destroyed the first pick and forgotten the second, and
+"up to one target creature" declared with no target would have shifted every
+later clause onto the wrong pick. The sizing probe (`zz-probe-d299`,
+gate-free): **1,238 incomplete cards** print a counted target sentence —
+"up to one target creature" 325, "up to two target creatures" 165, "any
+number of target creatures" 76, "two target creatures" 65, "up to one target
+artifact" 58, "X target creatures" 36, "up to three target creatures" 31 …
+— and **14 would read whole** with the count read as one target, plus the
+29 counted graveyard returns D298 measured (9 whole). Small by the flip
+count, large by shape: the count is ONE of the walls in front of more than
+four hundred "up to one target …" cards, and it is the wall the parser owns.
+
+**The seam, in D139's order — record first, then admit.**
+
+- `validateTargets` already SEARCHED for the clause each pick answers
+  (`assignTargets`, brute force over ≤ 4 clauses) and threw the answer away.
+  It now returns it, and the cast records it: `StackObject.targetSlots` —
+  the clause index of each entry of `targets`, same length — fixed on the
+  pending cast when the declaration is validated (a cast that carried its
+  targets up front, or the `chooseTargets` stage) and carried onto the spell.
+  `TargetChoice[]` stays FLAT (its shape crosses the wire, D293's reason);
+  the slots are a parallel engine-side field. Abilities, triggers, the
+  assisted path and every log written before this decision have no slots
+  and are read exactly as before — clause i at `targets[i]`.
+- `effectResult` runs ONE STEP PER (CLAUSE, PICK): a counted clause's body
+  runs once per pick it was assigned, a bare clause once, a `self` clause
+  once with no aim. A clause whose picks have all left still narrates "no
+  legal target left" (D137's four hours); an OPTIONAL clause ("up to one",
+  "any number of") the player declared no target for is skipped without a
+  word — choosing none was legal, nothing was lost. The switch body did not
+  change; the loop above it did. The controller-addressed sentences (D295)
+  read "its" from clause 0's first pick through the same lookup.
+- `effectParse`: `TARGET` and the two graveyard-return rules admit a COUNT
+  in front of "target" — "up to one", "up to two", "up to three", "two",
+  "three", "any number of", each optionally behind "each of" — and the noun
+  in the plural print uses ("creatures", "creature cards"). `parseEffects`
+  marks the "up to" / "any number of" clauses `optional`. `targetParse` read
+  every one of these counts already (0..N, N..N); nothing changed there.
+- **Retired, by D187's rule:** 13 - Double Negative, Downpour, Dual Shot, Dust to Dust, Early Frost, Into the Core, Jagged Lightning, Lead Astray, Plunge into Winter, Repel the Darkness, Terashi's Cry, Vibrant Outburst, Violent Ultimatum — shipped spell defs whose text the
+  vocabulary now reads whole ("Tap up to two target creatures", "Counter up
+  to two target spells" …). A spell def exists only where the vocabulary
+  cannot; when it catches up, the def and its suite go, and the oracle runs
+  the card with no script (the D187 suppression test said so, red in gate
+  150's first run).
+- **Not this decision:** "X target creatures" (the count is X — `readCount`
+  leaves the spec unconfident and the parser refuses it, as before), "up to
+  N OTHER target" (D288's other-word on a permanent), "one or two target
+  creatures", "divided as you choose among", and the follow-up sentences
+  that address the picks as a group ("those creatures gain haste", "they
+  can't be regenerated") — each measured, each its own rule.
+
+Report: `effect:auto` 3,340 → 3,451, `effect:none` 15,617 →
+15,377, `withUnenforced` 237 → 237.
+
+**Tests:** `src/engine/countedTargets.test.ts` — the parse (the counted and
+plural shapes admitted, `optional` set on "up to", "X target" and "one or
+two" refused); the slots recorded on the pending cast and the spell; the
+live proofs from the ORACLE with no script (Tidal Surge taps two picks of one clause and refuses a flier; Explosive Entry declared with no target touches nothing, and a creature declared alone lands in the SECOND clause; Badlands Revival's land card alone answers the hand clause; Lethal Protection's mandatory clause runs alone). The D138 refusal pin
+for "Return up to two target creature cards" moves to an admission.
+
+**Landed:** 24 auto flips and 25 scripts for the 32 the seam made offerable - 49 net (and 13 spell defs retired, their cards complete by the vocabulary now: 2,275 + 25 - 13 = 2,287 scripts) — Ardenvale Tactician // Dizzying Swoop, Badlands Revival, Cruel Revival, Death's Duet, Dirgur Island Dragon // Skimming Strike, Dutiful Return, Essence Capture, Explosive Entry, Fight On!, Gird for Battle, Lethal Protection, March of the Returned, Morbid Plunder, Mutant Chain Reaction, Pull from the Grave, Reap What Is Sown, Regenesis, Soul Salvage, Spider Food, The Art of Tea, Tidal Surge, Trap Essence, True Ancestry, Urborg Uprising. The sweep measured the pool at 32 after the seam (activations and triggers whose target clause carries a count): 21 table rows through a generator built for the count (`d299/gen-counted.cjs` - the resolve runs ONCE PER PICK over `obj.targets`; the suite declares every pick, asserts each, refuses the wrong one beside a legal companion when the count needs two; three trigger shapes join the table: the beginning of combat, combat damage to a player, a spell cast on an opponent's turn) - Armaggon's three creatures, Argothian Elder's two lands, Wave Elemental's three non-fliers, Font of Return's three creature cards, Gavony Silversmith's two counters, Zephyr Winder's combat-damage untap, Nightmare Sower's and Dream Spoilers' opponent's-turn casts, Wild Pack Squad's and Agent Bishop's beginning of combat...; four by hand (Dubious Delicacy's three abilities, Blood Fountain's Blood token and two-card return, Curious Farm Animals' death gain and sacrifice destroy, Spider-Man 2099's bounce and batched combat-damage draw); seven refused (a graveyard-activated ability, an expend trigger, two Rooms, a forecast, an exert cost, a corrupted cast-time condition).
+
+Fixtures 2,603 · botPool artifact 170 / creature 2,211 / enchantment 104 / instant 866 / land 354 / sorcery 664 - auto 728 / assisted 1,884 / autoAnyFace 736 · ladder [912, 1035, 2823, 4733, 5940] · batch.json
+49 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,376 files, 12,429 passed / 11 skipped ·
+500-seed gate, 6 shards, 211.9 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D299): the static seam - the classifier files every layer-6 line under `layer6` before asking whether a `StaticDef` already expresses it (grants 979 / anthems 258 / conditional 138 by sole need; the ladder's +1,788 rung), so the shapes a static-row generator can emit are measured, admitted as scriptable, and landed in waves; the modal seam (42); the "another" split;
+the by-name sacrifice cost; the remaining cost verbs; the prompt
+continuation seam; prior items stand.

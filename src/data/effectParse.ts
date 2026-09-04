@@ -134,7 +134,13 @@ const ADJECTIVE =
   // D297: `non-[a-z]+` is the HYPHENATED subtype negation ("non-Elf"), enforced by targetParse.
   // D298: a comma between two adjectives ("nonartifact, nonblack creature") is print; the target parser reads it.
   '(?:(?:non(?:artifact|creature|enchantment|land|planeswalker|battle|white|blue|black|red|green|legendary|basic|snow|token)|non-[a-z]+|white|blue|black|red|green|colorless|multicolored|monocolored|tapped|untapped|legendary|basic|snow|token),?\\s+)*';
-const TARGET = `(?:any target|target ${ADJECTIVE}(?:${NOUNS})${QUALIFIER})`;
+// D299: a COUNTED clause — "up to one", "up to two", "up to three", "two",
+// "three", "any number of", each of them optionally behind "each of" — with its
+// noun in the plural print uses. The target parser reads the same count into
+// the spec (0..N / N..N); the consumer runs the clause once per pick. "X" stays
+// out: the count is not known at parse time and the spec is left unconfident.
+const COUNTED = '(?:(?:each of )?(?:up to (?:one|two|three)|two|three|any number of) )?';
+const TARGET = `(?:any target|${COUNTED}target ${ADJECTIVE}(?:${NOUNS})s?${QUALIFIER})`;
 const NUM = '(?:\\d+)';
 
 const WORD_NUMBERS: Readonly<Record<string, number>> = {
@@ -253,7 +259,7 @@ const GY_ADJECTIVE = ADJECTIVE.replace(/\\s\+\)\*$/, ',?\\s+)*');
 // "permanent card" has been ENFORCED since D147 (six types, any-of); the note
 // above that kept it out was stale. The two subtype cards and the two card
 // lists are the measured shapes (d298/probe-gy.json), enforced by D297/D298.
-const GY_NOUN = `${GY_ADJECTIVE}(?:artifact or enchantment card|artifact or creature card|instant or sorcery card|permanent card|creature card|artifact card|enchantment card|land card|planeswalker card|instant card|sorcery card|zombie card|goblin card|card)` + QUALIFIER;
+const GY_NOUN = `${GY_ADJECTIVE}(?:artifact or enchantment card|artifact or creature card|instant or sorcery card|permanent card|creature card|artifact card|enchantment card|land card|planeswalker card|instant card|sorcery card|zombie card|goblin card|card)s?` + QUALIFIER;
 
 function counterKindOf(raw: string | undefined): CounterKind | null {
   if (raw === '+1/+1' || raw === '-1/-1') return raw;
@@ -591,12 +597,12 @@ const RULES: readonly Rule[] = [
    */
   {
     kind: 'returnFromGraveyard',
-    re: new RegExp(`^return target ${GY_NOUN} from your graveyard to your hand\\.$`, 'i'),
+    re: new RegExp(`^return ${COUNTED}target ${GY_NOUN} from your graveyard to your hand\\.$`, 'i'),
     build: () => ({ ...BASE }),
   },
   {
     kind: 'reanimate',
-    re: new RegExp(`^return target ${GY_NOUN} from your graveyard to the battlefield\\.$`, 'i'),
+    re: new RegExp(`^return ${COUNTED}target ${GY_NOUN} from your graveyard to the battlefield\\.$`, 'i'),
     build: () => ({ ...BASE }),
   },
   /**
@@ -745,6 +751,9 @@ function sentences(text: string): string[] {
  */
 const MAX_SPAN = 2;
 
+/** D299: the counts a clause may be declared with NO target for. */
+const OPTIONAL_COUNT = /\b(?:up to (?:one|two|three)|any number of) target\b/i;
+
 /** One clause of a face: the text it covers, and what it was understood as. */
 interface Clause {
   readonly text: string;
@@ -839,7 +848,9 @@ export function parseEffects(
     const spec = clause.spec;
     if (!spec) continue;
     understood++;
-    effects.push(spec.targetIndex === -1 ? spec : { ...spec, targetIndex: nextTarget++ });
+    // D299: an "up to N" / "any number of" clause may be declared with no target.
+    const optional = OPTIONAL_COUNT.test(clause.text);
+    effects.push(spec.targetIndex === -1 ? spec : { ...spec, targetIndex: nextTarget++, ...(optional ? { optional: true as const } : {}) });
   }
 
   if (understood === 0) {

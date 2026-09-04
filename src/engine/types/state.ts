@@ -249,6 +249,14 @@ export interface StackObject {
   readonly source: InstanceId | null;
   readonly abilityRef: AbilityRef | null;
   readonly targets: readonly TargetChoice[];
+  /**
+   * D299: which target CLAUSE each entry of `targets` answers — an index into
+   * the face's `targets` specs, the same length as `targets`, fixed when the
+   * declaration was validated so a counted or optional clause finds ITS picks
+   * at resolution. Absent on abilities, triggers, the assisted path and older
+   * logs, where the consumer aims clause i at `targets[i]` as it always has.
+   */
+  readonly targetSlots?: readonly number[];
   readonly modes: readonly number[];
   readonly xValue: number | null;
   readonly label: string;
@@ -374,6 +382,8 @@ export interface PendingCast {
   readonly discard?: readonly InstanceId[];
   /** The permanents a "Tap N untapped …" cost chose (D286); tapped in the cost batch. */
   readonly tap?: readonly InstanceId[];
+  /** D299: the clause each declared target answers, carried to the `StackObject`. */
+  readonly targetSlots?: readonly number[];
 }
 
 export interface PendingTrigger {

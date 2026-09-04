@@ -480,6 +480,8 @@ function castSpell(
    * the seam a test driver uses, which is how a suite can go green on casts no
    * player could make.
    */
+  // D299: the clause each pick answers, fixed here and carried onto the spell.
+  let targetSlots: readonly number[] | undefined;
   if (intent.targets !== undefined && setup.face.targets.length > 0) {
     const verdict = validateTargets(
       setup.face.targets,
@@ -489,6 +491,7 @@ function castSpell(
       candidatesFromState(state, deps),
     );
     if (!verdict.ok) return reject('illegalTarget', verdict.message);
+    targetSlots = verdict.assignment;
   }
 
   if (needsX || needsTargets) {
@@ -504,6 +507,7 @@ function castSpell(
       abilityRef: null,
       modes: [],
       targets: intent.targets ?? [],
+      ...(targetSlots !== undefined ? { targetSlots } : {}),
       xValue: intent.xValue ?? null,
       problem: setup.problem,
       paidSoFar: EMPTY_POOL,
@@ -548,6 +552,7 @@ function castSpell(
     faceIndex,
     xValue: intent.xValue ?? 0,
     targets: intent.targets ?? [],
+    ...(targetSlots !== undefined ? { targetSlots } : {}),
     ...(intent.plan !== undefined ? { plan: intent.plan } : {}),
     setup,
   });
@@ -922,7 +927,7 @@ function chooseTargets(
   return finishFromPending(
     state,
     deps,
-    { ...pending, targets: intent.targets, problem, stage: 'pay' },
+    { ...pending, targets: intent.targets, ...(verdict.assignment !== undefined ? { targetSlots: verdict.assignment } : {}), problem, stage: 'pay' },
     face,
     oracleCard.colorIdentity,
     {
@@ -987,6 +992,8 @@ interface CompleteArgs {
   faceIndex: number;
   xValue: number;
   targets: readonly import('./types/state').TargetChoice[];
+  /** D299: the clause each target answers (see `StackObject.targetSlots`). */
+  targetSlots?: readonly number[];
   plan?: import('./types/mana').PaymentPlan;
   setup: CastSetup;
 }
@@ -1035,6 +1042,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     source: null,
     abilityRef: null,
     targets: args.targets,
+    ...(args.targetSlots !== undefined ? { targetSlots: args.targetSlots } : {}),
     modes: [],
     xValue: args.xValue > 0 ? args.xValue : null,
     label: setup.face.name,
@@ -1293,6 +1301,7 @@ function finishFromPending(
     source: null,
     abilityRef: null,
     targets: pending.targets,
+    ...(pending.targetSlots !== undefined ? { targetSlots: pending.targetSlots } : {}),
     modes: pending.modes,
     xValue: pending.xValue,
     label: face.name,

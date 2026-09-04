@@ -529,6 +529,12 @@ export interface EffectSpec {
   /** Applies to the caster rather than to a target. `You gain 3 life`. */
   readonly self: boolean;
   /**
+   * D299: the clause reads "up to N" / "any number of" — declaring NO target
+   * for it is legal, and the consumer skips the clause silently rather than
+   * narrating a lost target. Absent on every other clause.
+   */
+  readonly optional?: true;
+  /**
    * `discard` only: the cards are chosen AT RANDOM rather than by their owner.
    *
    * ⚠️ **A DIFFERENT EFFECT, not a flag on a shared one, in every way that

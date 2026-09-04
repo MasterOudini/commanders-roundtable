@@ -186,7 +186,9 @@ describe('returning it (CR 400.7)', () => {
 
   /**
    * ⚠️ **FOUR SHAPES SIT ONE CLAUSE PAST THIS VOCABULARY** and each is a
-   * different rule: a COUNT ("up to two target creature cards"), a NUMERIC
+   * different rule: a COUNT ("up to two target creature cards" — admitted in
+   * D299, when the consumer learned to run a clause once per pick; see
+   * countedTargets.test.ts), a NUMERIC
    * restriction ("with mana value 3 or less" — `TargetSpec` has no field for
    * it), and the two battlefield qualifiers ("tapped", "under your control").
    * Every one of them CONTAINS a sentence this vocabulary reads, which is what
@@ -198,7 +200,6 @@ describe('returning it (CR 400.7)', () => {
    */
   test('a sentence with one more clause in it is refused', () => {
     for (const text of [
-      'Return up to two target creature cards from your graveyard to your hand.',
       'Return target creature card from your graveyard to the battlefield tapped.',
       'Return target creature card from your graveyard to the battlefield under your control.',
     ]) {

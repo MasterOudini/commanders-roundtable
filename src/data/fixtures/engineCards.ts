@@ -85137,6 +85137,1016 @@ export const TRADING_POST: CardData = {
   "singleImage": true
 };
 
+export const TIDAL_SURGE: CardData = {
+  "scryfallId": "5d9ecba0-3d9d-4383-a45c-103300442799",
+  "oracleId": "be738992-77fe-498d-b219-e5da4ce5bf07",
+  "name": "Tidal Surge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tidal Surge",
+      "manaCost": "{1}{U}",
+      "typeLine": "Sorcery",
+      "oracleText": "Tap up to three target creatures without flying.",
+      "flavorText": "Four little goblins, trapped by the sea. One teased a serpent, and then there were three.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Phil Foglio",
+      "imageId": "5d9ecba0-3d9d-4383-a45c-103300442799"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "p02",
+  "collectorNumber": "56",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EXPLOSIVE_ENTRY: CardData = {
+  "scryfallId": "7ba639ff-fe82-4ac3-9fb4-eac168bef053",
+  "oracleId": "57544b37-fd5d-4da5-bbb6-7b4a09501dd1",
+  "name": "Explosive Entry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Explosive Entry",
+      "manaCost": "{1}{R}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy up to one target artifact. Put a +1/+1 counter on up to one target creature.",
+      "flavorText": "Kaito and Tamiyo charged headlong into Jin-Gitaxias's secret lab, unaware that the praetor was eagerly awaiting their arrival.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Marta Nael",
+      "imageId": "7ba639ff-fe82-4ac3-9fb4-eac168bef053"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "neo",
+  "collectorNumber": "139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BADLANDS_REVIVAL: CardData = {
+  "scryfallId": "8d3ef971-cdd4-410c-97c3-df98e4f02ab2",
+  "oracleId": "a61267d2-2cc7-4208-a365-581d56b92e1c",
+  "name": "Badlands Revival",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Badlands Revival",
+      "manaCost": "{3}{B}{G}",
+      "typeLine": "Sorcery",
+      "oracleText": "Return up to one target creature card from your graveyard to the battlefield. Return up to one target permanent card from your graveyard to your hand.",
+      "flavorText": "The cactusfolk were a young culture, but they already knew the pains of death and joys of birth.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Carlos Palma Cruchaga",
+      "imageId": "8d3ef971-cdd4-410c-97c3-df98e4f02ab2"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "otj",
+  "collectorNumber": "194",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LETHAL_PROTECTION: CardData = {
+  "scryfallId": "d98f0e44-f5c7-4e08-8a4a-d0280f22d132",
+  "oracleId": "49a7c053-81e9-47b7-af5c-c62cd0389ed4",
+  "name": "Lethal Protection",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lethal Protection",
+      "manaCost": "{3}{B}",
+      "typeLine": "Sorcery",
+      "oracleText": "Destroy target creature. Return up to one target creature card from your graveyard to your hand.",
+      "flavorText": "Venom's favorite crime was punishment.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Néstor Ossandón Leal",
+      "imageId": "d98f0e44-f5c7-4e08-8a4a-d0280f22d132"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "spe",
+  "collectorNumber": "10",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARMAGGON_FUTURE_SHARK: CardData = {
+  "scryfallId": "00436b30-d342-4c1d-81af-8f305bf53c86",
+  "oracleId": "e2a35850-92c5-40ab-8697-2e995819d7ac",
+  "name": "Armaggon, Future Shark",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Armaggon, Future Shark",
+      "manaCost": "{6}{B}{B}",
+      "typeLine": "Legendary Creature — Shark Horror Mutant",
+      "oracleText": "Flash\nWhen Armaggon enters, destroy up to three target creatures.",
+      "flavorText": "\"I am ancient efficiency. I am evolution's future. I am mutation come full, vicious circle!\"",
+      "power": "9",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Mathias Kollros",
+      "imageId": "00436b30-d342-4c1d-81af-8f305bf53c86"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 8,
+  "keywords": [
+    "Flash"
+  ],
+  "setCode": "tmt",
+  "collectorNumber": "264",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROCK_SOLDIERS: CardData = {
+  "scryfallId": "0fada65d-fd8d-4be9-b2bb-ea5cac78fdd7",
+  "oracleId": "0217da8e-e74f-4f5c-ab75-f17600f94405",
+  "name": "Rock Soldiers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rock Soldiers",
+      "manaCost": "{3}{R}",
+      "typeLine": "Artifact Creature — Elemental Soldier",
+      "oracleText": "When this creature enters, destroy up to one target noncreature artifact.",
+      "flavorText": "Catching enemies between a rock and a hard place.",
+      "power": "4",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Miklós Ligeti",
+      "imageId": "0fada65d-fd8d-4be9-b2bb-ea5cac78fdd7"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "tmt",
+  "collectorNumber": "107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BALOTH_NULL: CardData = {
+  "scryfallId": "100855e6-ac3e-481f-a462-afb5fcb5d476",
+  "oracleId": "55a0a40c-cb40-469d-9bf3-9c33b378f4f7",
+  "name": "Baloth Null",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Baloth Null",
+      "manaCost": "{4}{B}{G}",
+      "typeLine": "Creature — Zombie Beast",
+      "oracleText": "When this creature enters, return up to two target creature cards from your graveyard to your hand.",
+      "flavorText": "\"Humans use pigs to hunt for mushrooms, don't they? It's like that.\"\n—Harak, Malakir bloodwitch",
+      "power": "4",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Jakub Kasper",
+      "imageId": "100855e6-ac3e-481f-a462-afb5fcb5d476"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "a25",
+  "collectorNumber": "197",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WAVE_ELEMENTAL: CardData = {
+  "scryfallId": "111ee762-72cb-43e3-88a1-6f1f0b9ee66e",
+  "oracleId": "d8eed5f7-8724-45c7-b6fc-dcfcc400f09a",
+  "name": "Wave Elemental",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wave Elemental",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "{U}, {T}, Sacrifice this creature: Tap up to three target creatures without flying.",
+      "flavorText": "\"Consider the wave: how weak the mother yet how strong the child.\"\n—Tywanna, Shaper Guildmage",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Zak Plucinski",
+      "imageId": "111ee762-72cb-43e3-88a1-6f1f0b9ee66e"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "102",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ZEPHYR_WINDER: CardData = {
+  "scryfallId": "14456a8e-016c-4407-8410-c490db3f5ea9",
+  "oracleId": "13c4437e-48a9-4c51-9b76-9e83e3ec362f",
+  "name": "Zephyr Winder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Zephyr Winder",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Flying\nWhenever this creature deals combat damage to a player, untap up to one target creature.",
+      "flavorText": "It twines through the roiling cloudscape feeding on the energies of nascent storms.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jana Schirmer",
+      "imageId": "14456a8e-016c-4407-8410-c490db3f5ea9"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "mom",
+  "collectorNumber": "328",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GAVONY_SILVERSMITH: CardData = {
+  "scryfallId": "1e67d8e3-3784-45ad-8a10-4421b203d7c2",
+  "oracleId": "a0ee4faa-1ab0-4b4f-a564-ee2358500daf",
+  "name": "Gavony Silversmith",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gavony Silversmith",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "When this creature enters, put a +1/+1 counter on each of up to two target creatures.",
+      "flavorText": "More than heat and the strength of his arm, it was his faith that gave the blade its unyielding edge.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Volkan Baǵa",
+      "imageId": "1e67d8e3-3784-45ad-8a10-4421b203d7c2"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dbl",
+  "collectorNumber": "21",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIDER_BYTE_WEB_WARDEN: CardData = {
+  "scryfallId": "210ae606-12a4-453b-bfb4-73ca9c22b8b5",
+  "oracleId": "845472ca-3fcb-4bcd-953c-96eb8d914af9",
+  "name": "Spider-Byte, Web Warden",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spider-Byte, Web Warden",
+      "manaCost": "{2}{U}",
+      "typeLine": "Legendary Creature — Spider Avatar Hero",
+      "oracleText": "When Spider-Byte enters, return up to one target nonland permanent to its owner's hand.",
+      "flavorText": "\"What better place for a virtual spider than a worldwide web?\"\n—Spider-Byte, Margo Kess",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Thanh Tuấn",
+      "imageId": "210ae606-12a4-453b-bfb4-73ca9c22b8b5"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "spm",
+  "collectorNumber": "44",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BILE_VIAL_BOGGART: CardData = {
+  "scryfallId": "2c0fcf98-1f3c-4cff-9234-7f3d0c8b22e9",
+  "oracleId": "5a651557-ce08-46ba-aecd-0e4fbfdef3c0",
+  "name": "Bile-Vial Boggart",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bile-Vial Boggart",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Goblin Assassin",
+      "oracleText": "When this creature dies, put a -1/-1 counter on up to one target creature.",
+      "flavorText": "It took years to finesse his potion of necroskitter slime and bogslither teeth. Finally, *he* would prank the fae.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "2c0fcf98-1f3c-4cff-9234-7f3d0c8b22e9"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ecl",
+  "collectorNumber": "87",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARGOTHIAN_ELDER: CardData = {
+  "scryfallId": "2d94ef28-3bfd-45d1-8d20-df9215089f6d",
+  "oracleId": "b57f06e4-da97-4473-9fbf-f66e9129502a",
+  "name": "Argothian Elder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Argothian Elder",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Elf Druid",
+      "oracleText": "{T}: Untap two target lands.",
+      "flavorText": "Sharpen your ears\n—Elvish expression meaning \"grow wiser\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "DiTerlizzi",
+      "imageId": "2d94ef28-3bfd-45d1-8d20-df9215089f6d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "USG-233",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NIGHTMARE_SOWER: CardData = {
+  "scryfallId": "35dfa0f9-faf3-4a85-b02d-0c5830783511",
+  "oracleId": "4121b7d9-5fbe-40e2-a2a6-d7633f423b5f",
+  "name": "Nightmare Sower",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nightmare Sower",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Faerie Assassin",
+      "oracleText": "Flying, lifelink\nWhenever you cast a spell during an opponent's turn, put a -1/-1 counter on up to one target creature.",
+      "flavorText": "The fae giggled and the nightmare took root.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Tommy Arnold",
+      "imageId": "35dfa0f9-faf3-4a85-b02d-0c5830783511"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying",
+    "Lifelink"
+  ],
+  "setCode": "ecl",
+  "collectorNumber": "114",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROAMING_GHOSTLIGHT: CardData = {
+  "scryfallId": "469a2b07-1ab4-450b-a29a-35b8907bfc65",
+  "oracleId": "0d5eb0b9-9b08-4d26-b141-a9d612a680a6",
+  "name": "Roaming Ghostlight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Roaming Ghostlight",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nWhen this creature enters, return up to one target non-Spirit creature to its owner's hand.",
+      "flavorText": "Some who die senseless deaths return as formless spirits, seeking answers where there are none.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Zezhou Chen",
+      "imageId": "469a2b07-1ab4-450b-a29a-35b8907bfc65"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "96",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DREAM_SPOILERS: CardData = {
+  "scryfallId": "4efd1963-fe71-42c1-8ad7-53fd80145ca6",
+  "oracleId": "07c3e91c-3593-4797-b7be-ef4fb2913cef",
+  "name": "Dream Spoilers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dream Spoilers",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Faerie Warlock",
+      "oracleText": "Flying\nWhenever you cast a spell during an opponent's turn, up to one target creature an opponent controls gets -1/-1 until end of turn.",
+      "flavorText": "The Wicked Slumber saved Eldraine from Phyrexia's grasp, but instead of fading when the invasion ended, it continued to spread.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jodie Muir",
+      "imageId": "4efd1963-fe71-42c1-8ad7-53fd80145ca6"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "woe",
+  "collectorNumber": "85",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NEBELGAST_INTRUDER: CardData = {
+  "scryfallId": "6c801346-0052-4f4b-a497-1567a34679fb",
+  "oracleId": "4c591977-f2af-4a6e-a0be-3dfb45a3598b",
+  "name": "Nebelgast Intruder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nebelgast Intruder",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flash\nFlying\nWhen this creature enters, up to one target creature an opponent controls gets -2/-0 until end of turn.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Volkan Baǵa",
+      "imageId": "6c801346-0052-4f4b-a497-1567a34679fb"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying",
+    "Flash"
+  ],
+  "setCode": "mid",
+  "collectorNumber": "64",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WAR_MACHINE_JAMES_RHODES: CardData = {
+  "scryfallId": "78bb5ed6-bb29-49a9-be0d-d9934f00dddd",
+  "oracleId": "0a512e55-793e-4936-bd27-80d749f4657e",
+  "name": "War Machine, James Rhodes",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "War Machine, James Rhodes",
+      "manaCost": "{3}{W/U}",
+      "typeLine": "Legendary Artifact Creature — Human Hero",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhenever War Machine attacks, tap up to one target creature.",
+      "flavorText": "\"Stay down, there's a hundred more where that came from.\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Paolo Rivera",
+      "imageId": "78bb5ed6-bb29-49a9-be0d-d9934f00dddd"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "msc",
+  "collectorNumber": "572",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WILD_PACK_SQUAD: CardData = {
+  "scryfallId": "7b0eda7c-e44d-4d9b-9042-4a1eb8c4ed4a",
+  "oracleId": "294b2aa7-cb46-46bd-8241-69b26d73aa2d",
+  "name": "Wild Pack Squad",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wild Pack Squad",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Mercenary",
+      "oracleText": "At the beginning of combat on your turn, up to one target creature gains first strike and vigilance until end of turn.",
+      "flavorText": "Silver Sable doesn't accept second best.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Tyler Christopher",
+      "imageId": "7b0eda7c-e44d-4d9b-9042-4a1eb8c4ed4a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "spm",
+  "collectorNumber": "23",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AGENT_BISHOP_MAN_IN_BLACK: CardData = {
+  "scryfallId": "9c769202-178c-442a-a9e2-aa08b5ae5c9a",
+  "oracleId": "f33217cc-175f-45e8-bc69-801f41cb4495",
+  "name": "Agent Bishop, Man in Black",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Agent Bishop, Man in Black",
+      "manaCost": "{2}{W}",
+      "typeLine": "Legendary Creature — Human Soldier",
+      "oracleText": "At the beginning of combat on your turn, put a +1/+1 counter on each of up to two target creatures.",
+      "flavorText": "\"Utroms . . . Triceratons . . . there's little difference to me. I help one destroy the other, pick up the pieces, then get them the hell off of my planet.\"",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Adrián Rodríguez Pérez",
+      "imageId": "9c769202-178c-442a-a9e2-aa08b5ae5c9a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tmt",
+  "collectorNumber": "2",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STORM_SHAKER_OF_SKIES: CardData = {
+  "scryfallId": "9eadf356-105e-4a17-ab06-075ca662e963",
+  "oracleId": "5d936655-8e46-4e30-8f9c-4fa1a4d34a17",
+  "name": "Storm, Shaker of Skies",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Storm, Shaker of Skies",
+      "manaCost": "{4}{G}{G}",
+      "typeLine": "Legendary Creature — Mutant Hero",
+      "oracleText": "Flying\nWhen Storm enters, destroy up to one target artifact, enchantment, or creature with flying.",
+      "flavorText": "\"While storms are pliable things . . . at heart, they are indomitable.\"",
+      "power": "4",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Craig Elliott",
+      "imageId": "9eadf356-105e-4a17-ab06-075ca662e963"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "msc",
+  "collectorNumber": "733",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANT_MAN_S_AIR_FORCE: CardData = {
+  "scryfallId": "a94723d0-2137-41f6-87a1-6a33e1d50d1b",
+  "oracleId": "5d7eea87-b60f-4ab9-b485-30aadda0cd79",
+  "name": "Ant-Man's Air Force",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ant-Man's Air Force",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhenever this creature attacks, up to one target creature gets -1/-0 until end of turn.",
+      "flavorText": "\"Cavalry incoming! Swat them if you dare!\"\n—Ant-Man, Hank Pym",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ioannis Fiore",
+      "imageId": "a94723d0-2137-41f6-87a1-6a33e1d50d1b"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "msc",
+  "collectorNumber": "759",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PEERLESS_ROPEMASTER: CardData = {
+  "scryfallId": "ae044509-2f31-4506-a124-0e445b7181a2",
+  "oracleId": "d7aaffed-a143-49d6-a516-b9bc8b503aee",
+  "name": "Peerless Ropemaster",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Peerless Ropemaster",
+      "manaCost": "{4}{U}",
+      "typeLine": "Creature — Human Rogue",
+      "oracleText": "When this creature enters, return up to one target tapped creature to its owner's hand.",
+      "flavorText": "\"Murder someone and you'll have a gaggle of folks lining up for revenge. Humiliate them, and they won't dare bother you again.\"",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Wayne Wu",
+      "imageId": "ae044509-2f31-4506-a124-0e445b7181a2"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "otj",
+  "collectorNumber": "60",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FONT_OF_RETURN: CardData = {
+  "scryfallId": "c13eacff-0fd1-4e2e-8213-5bf5fff973c8",
+  "oracleId": "b8805aa6-fa5f-4c70-ad90-8502611bef5a",
+  "name": "Font of Return",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Font of Return",
+      "manaCost": "{1}{B}",
+      "typeLine": "Enchantment",
+      "oracleText": "{3}{B}, Sacrifice this enchantment: Return up to three target creature cards from your graveyard to your hand.",
+      "flavorText": "Drink deep, and death will recoil from you.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Daarken",
+      "imageId": "c13eacff-0fd1-4e2e-8213-5bf5fff973c8"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "jou",
+  "collectorNumber": "71",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WINTERMOON_MESA: CardData = {
+  "scryfallId": "f07144a6-6e47-4315-8353-f8958f014f41",
+  "oracleId": "a4a6f95e-856c-4eb5-82ba-b2406be22b23",
+  "name": "Wintermoon Mesa",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wintermoon Mesa",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {C}.\n{2}, {T}, Sacrifice this land: Tap two target lands.",
+      "flavorText": "Dark is light and day is night When the winter moon shines.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Tom Wänerstrand",
+      "imageId": "f07144a6-6e47-4315-8353-f8958f014f41"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "pcy",
+  "collectorNumber": "143",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DUBIOUS_DELICACY: CardData = {
+  "scryfallId": "153265b4-0ca4-4245-9226-dd1a083ec91c",
+  "oracleId": "697b8045-0edb-4f7b-a933-4d41ec2b53d5",
+  "name": "Dubious Delicacy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dubious Delicacy",
+      "manaCost": "{2}{B}",
+      "typeLine": "Artifact — Food",
+      "oracleText": "Flash\nWhen this artifact enters, up to one target creature gets -3/-3 until end of turn.\n{2}, {T}, Sacrifice this artifact: You gain 3 life.\n{2}, {T}, Sacrifice this artifact: Target opponent loses 3 life.",
+      "flavorText": "It's an acquired taste.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Tianxing Xu",
+      "imageId": "153265b4-0ca4-4245-9226-dd1a083ec91c"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flash"
+  ],
+  "setCode": "eoe",
+  "collectorNumber": "96",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLOOD_FOUNTAIN: CardData = {
+  "scryfallId": "1b0c4931-3260-411a-9c7d-b67c87e7aecc",
+  "oracleId": "abfa5753-8c02-4e2f-8f98-b0636907293a",
+  "name": "Blood Fountain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blood Fountain",
+      "manaCost": "{B}",
+      "typeLine": "Artifact",
+      "oracleText": "When this artifact enters, create a Blood token. (It's an artifact with \"{1}, {T}, Discard a card, Sacrifice this token: Draw a card.\")\n{3}{B}, {T}, Sacrifice this artifact: Return up to two target creature cards from your graveyard to your hand.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Evyn Fong",
+      "imageId": "1b0c4931-3260-411a-9c7d-b67c87e7aecc"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "j25",
+  "collectorNumber": "407",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CURIOUS_FARM_ANIMALS: CardData = {
+  "scryfallId": "2402d759-84b6-41d2-ad78-9333974e9222",
+  "oracleId": "e451b5aa-5832-42b3-8d72-f67e126a529f",
+  "name": "Curious Farm Animals",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Curious Farm Animals",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Boar Elk Bird Ox",
+      "oracleText": "When this creature dies, you gain 3 life.\n{2}, Sacrifice this creature: Destroy up to one target artifact or enchantment.",
+      "flavorText": "Earth Kingdom cuisine offers a stunning array of unique meats, like chicken-pork, deer-pork, and beef-pork.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Di Giovanni",
+      "imageId": "2402d759-84b6-41d2-ad78-9333974e9222"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "tla",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIDER_MAN_2099_MIGUEL_O_HARA: CardData = {
+  "scryfallId": "eca05fe2-f203-4e7c-ae90-41f1f2ae94cb",
+  "oracleId": "c0280d66-699f-4139-828b-a0f79ae2d20d",
+  "name": "Spider-Man 2099, Miguel O'Hara",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spider-Man 2099, Miguel O'Hara",
+      "manaCost": "{4}{U}",
+      "typeLine": "Legendary Creature — Spider Human Hero",
+      "oracleText": "When Spider-Man 2099 enters, return up to one target creature to its owner's hand.\nWhenever one or more creatures you control deal combat damage to a player, draw a card.",
+      "flavorText": "\"Lyla, did it work? Are we in the Heroic Age?\"",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Thanh Tuấn",
+      "imageId": "eca05fe2-f203-4e7c-ae90-41f1f2ae94cb"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "spe",
+  "collectorNumber": "8",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -91163,6 +92173,35 @@ export const ENGINE_CARDS: CardData[] = [
   TITANIA_PROTECTOR_OF_ARGOTH,
   GO_SHINTAI_OF_LIFE_S_ORIGIN,
   TRADING_POST,
+  TIDAL_SURGE,
+  EXPLOSIVE_ENTRY,
+  BADLANDS_REVIVAL,
+  LETHAL_PROTECTION,
+  ARMAGGON_FUTURE_SHARK,
+  ROCK_SOLDIERS,
+  BALOTH_NULL,
+  WAVE_ELEMENTAL,
+  ZEPHYR_WINDER,
+  GAVONY_SILVERSMITH,
+  SPIDER_BYTE_WEB_WARDEN,
+  BILE_VIAL_BOGGART,
+  ARGOTHIAN_ELDER,
+  NIGHTMARE_SOWER,
+  ROAMING_GHOSTLIGHT,
+  DREAM_SPOILERS,
+  NEBELGAST_INTRUDER,
+  WAR_MACHINE_JAMES_RHODES,
+  WILD_PACK_SQUAD,
+  AGENT_BISHOP_MAN_IN_BLACK,
+  STORM_SHAKER_OF_SKIES,
+  ANT_MAN_S_AIR_FORCE,
+  PEERLESS_ROPEMASTER,
+  FONT_OF_RETURN,
+  WINTERMOON_MESA,
+  DUBIOUS_DELICACY,
+  BLOOD_FOUNTAIN,
+  CURIOUS_FARM_ANIMALS,
+  SPIDER_MAN_2099_MIGUEL_O_HARA,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

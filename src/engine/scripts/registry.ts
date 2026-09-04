@@ -7,6 +7,31 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ARMAGGON_FUTURE_SHARK_SCRIPT } from './cards/armaggonFutureShark';
+import { ROCK_SOLDIERS_SCRIPT } from './cards/rockSoldiers';
+import { BALOTH_NULL_SCRIPT } from './cards/balothNull';
+import { GAVONY_SILVERSMITH_SCRIPT } from './cards/gavonySilversmith';
+import { SPIDER_BYTE_WEB_WARDEN_SCRIPT } from './cards/spiderByteWebWarden';
+import { ROAMING_GHOSTLIGHT_SCRIPT } from './cards/roamingGhostlight';
+import { NEBELGAST_INTRUDER_SCRIPT } from './cards/nebelgastIntruder';
+import { STORM_SHAKER_OF_SKIES_SCRIPT } from './cards/stormShakerOfSkies';
+import { PEERLESS_ROPEMASTER_SCRIPT } from './cards/peerlessRopemaster';
+import { BILE_VIAL_BOGGART_SCRIPT } from './cards/bileVialBoggart';
+import { WAR_MACHINE_JAMES_RHODES_SCRIPT } from './cards/warMachineJamesRhodes';
+import { ANT_MANS_AIR_FORCE_SCRIPT } from './cards/antMansAirForce';
+import { ZEPHYR_WINDER_SCRIPT } from './cards/zephyrWinder';
+import { WILD_PACK_SQUAD_SCRIPT } from './cards/wildPackSquad';
+import { AGENT_BISHOP_MAN_IN_BLACK_SCRIPT } from './cards/agentBishopManInBlack';
+import { NIGHTMARE_SOWER_SCRIPT } from './cards/nightmareSower';
+import { DREAM_SPOILERS_SCRIPT } from './cards/dreamSpoilers';
+import { WAVE_ELEMENTAL_SCRIPT } from './cards/waveElemental';
+import { ARGOTHIAN_ELDER_SCRIPT } from './cards/argothianElder';
+import { FONT_OF_RETURN_SCRIPT } from './cards/fontOfReturn';
+import { WINTERMOON_MESA_SCRIPT } from './cards/wintermoonMesa';
+import { DUBIOUS_DELICACY_SCRIPT } from './cards/dubiousDelicacy';
+import { CURIOUS_FARM_ANIMALS_SCRIPT } from './cards/curiousFarmAnimals';
+import { BLOOD_FOUNTAIN_SCRIPT } from './cards/bloodFountain';
+import { SPIDER_MAN2099_SCRIPT } from './cards/spiderMan2099';
 import { BURIED_RUIN_SCRIPT } from './cards/buriedRuin';
 import { ARCHAEOMENDER_SCRIPT } from './cards/archaeomender';
 import { ARGIVIAN_ARCHAEOLOGIST_SCRIPT } from './cards/argivianArchaeologist';
@@ -312,18 +337,10 @@ import { AVEN_FATESHAPER_SCRIPT } from './cards/avenFateshaper';
 import { NAHIRIS_STONEBLADES_SCRIPT } from './cards/nahirisStoneblades';
 import { MISCHIEF_AND_MAYHEM_SCRIPT } from './cards/mischiefAndMayhem';
 import { TANDEM_TACTICS_SCRIPT } from './cards/tandemTactics';
-import { LEAD_ASTRAY_SCRIPT } from './cards/leadAstray';
-import { DOWNPOUR_SCRIPT } from './cards/downpour';
-import { TERASHIS_CRY_SCRIPT } from './cards/terashisCry';
-import { EARLY_FROST_SCRIPT } from './cards/earlyFrost';
 import { INTO_THE_VOID_SCRIPT } from './cards/intoTheVoid';
 import { CAPTIVATING_GYRE_SCRIPT } from './cards/captivatingGyre';
-import { DUAL_SHOT_SCRIPT } from './cards/dualShot';
-import { DOUBLE_NEGATIVE_SCRIPT } from './cards/doubleNegative';
-import { REPEL_THE_DARKNESS_SCRIPT } from './cards/repelTheDarkness';
 import { SYNCHRONIZED_STRIKE_SCRIPT } from './cards/synchronizedStrike';
 import { JOIN_FORCES_SCRIPT } from './cards/joinForces';
-import { PLUNGE_INTO_WINTER_SCRIPT } from './cards/plungeIntoWinter';
 import { REINFORCEMENTS_SCRIPT } from './cards/reinforcements';
 import { DAUNTLESS_ONSLAUGHT_SCRIPT } from './cards/dauntlessOnslaught';
 import { UNCOMFORTABLE_CHILL_SCRIPT } from './cards/uncomfortableChill';
@@ -531,12 +548,10 @@ import { VIAL_OF_POISON_SCRIPT } from './cards/vialOfPoison';
 import { VIAL_SMASHER_GLEEFUL_GRENADIER_SCRIPT } from './cards/vialSmasherGleefulGrenadier';
 import { VIASHINO_BLADESCOUT_SCRIPT } from './cards/viashinoBladescout';
 import { VIASHINO_FANGTAIL_SCRIPT } from './cards/viashinoFangtail';
-import { VIBRANT_OUTBURST_SCRIPT } from './cards/vibrantOutburst';
 import { VICIOUS_HUNGER_SCRIPT } from './cards/viciousHunger';
 import { VICTORIOUS_DESTRUCTION_SCRIPT } from './cards/victoriousDestruction';
 import { VILLAINOUS_WRATH_SCRIPT } from './cards/villainousWrath';
 import { VINEREAP_MENTOR_SCRIPT } from './cards/vinereapMentor';
-import { VIOLENT_ULTIMATUM_SCRIPT } from './cards/violentUltimatum';
 import { VIRIDIAN_CORRUPTER_SCRIPT } from './cards/viridianCorrupter';
 import { VIRIDIAN_SHAMAN_SCRIPT } from './cards/viridianShaman';
 import { VIRIDIAN_ZEALOT_SCRIPT } from './cards/viridianZealot';
@@ -1367,7 +1382,6 @@ import { LAQUATUSS_CREATIVITY_SCRIPT } from './cards/laquatussCreativity';
 import { INSPIRATION_SCRIPT } from './cards/inspiration';
 import { INSPIRED_ULTIMATUM_SCRIPT } from './cards/inspiredUltimatum';
 import { INSPIRIT_SCRIPT } from './cards/inspirit';
-import { INTO_THE_CORE_SCRIPT } from './cards/intoTheCore';
 import { INUNDATE_SCRIPT } from './cards/inundate';
 import { INVIGORATING_FALLS_SCRIPT } from './cards/invigoratingFalls';
 import { INVINCIBLE_HYMN_SCRIPT } from './cards/invincibleHymn';
@@ -1379,7 +1393,6 @@ import { IRON_LANCE_SCRIPT } from './cards/ironLance';
 import { IRRADIATE_SCRIPT } from './cards/irradiate';
 import { IXALLIS_KEEPER_SCRIPT } from './cards/ixallisKeeper';
 import { JADED_RESPONSE_SCRIPT } from './cards/jadedResponse';
-import { JAGGED_LIGHTNING_SCRIPT } from './cards/jaggedLightning';
 import { HYSTERICAL_BLINDNESS_SCRIPT } from './cards/hystericalBlindness';
 import { ICATIAN_SCOUT_SCRIPT } from './cards/icatianScout';
 import { ICEQUAKE_SCRIPT } from './cards/icequake';
@@ -1554,7 +1567,6 @@ import { DRAG_TO_THE_BOTTOM_SCRIPT } from './cards/dragToTheBottom';
 import { DRAMATIC_REVERSAL_SCRIPT } from './cards/dramaticReversal';
 import { DROWN_IN_SORROW_SCRIPT } from './cards/drownInSorrow';
 import { DRY_SPELL_SCRIPT } from './cards/drySpell';
-import { DUST_TO_DUST_SCRIPT } from './cards/dustToDust';
 import { DWARVEN_CATAPULT_SCRIPT } from './cards/dwarvenCatapult';
 import { DESTROY_THE_EVIDENCE_SCRIPT } from './cards/destroyTheEvidence';
 import { DESTRUCTIVE_REVELRY_SCRIPT } from './cards/destructiveRevelry';
@@ -2396,6 +2408,31 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ARMAGGON_FUTURE_SHARK_SCRIPT,
+  ROCK_SOLDIERS_SCRIPT,
+  BALOTH_NULL_SCRIPT,
+  GAVONY_SILVERSMITH_SCRIPT,
+  SPIDER_BYTE_WEB_WARDEN_SCRIPT,
+  ROAMING_GHOSTLIGHT_SCRIPT,
+  NEBELGAST_INTRUDER_SCRIPT,
+  STORM_SHAKER_OF_SKIES_SCRIPT,
+  PEERLESS_ROPEMASTER_SCRIPT,
+  BILE_VIAL_BOGGART_SCRIPT,
+  WAR_MACHINE_JAMES_RHODES_SCRIPT,
+  ANT_MANS_AIR_FORCE_SCRIPT,
+  ZEPHYR_WINDER_SCRIPT,
+  WILD_PACK_SQUAD_SCRIPT,
+  AGENT_BISHOP_MAN_IN_BLACK_SCRIPT,
+  NIGHTMARE_SOWER_SCRIPT,
+  DREAM_SPOILERS_SCRIPT,
+  WAVE_ELEMENTAL_SCRIPT,
+  ARGOTHIAN_ELDER_SCRIPT,
+  FONT_OF_RETURN_SCRIPT,
+  WINTERMOON_MESA_SCRIPT,
+  DUBIOUS_DELICACY_SCRIPT,
+  CURIOUS_FARM_ANIMALS_SCRIPT,
+  BLOOD_FOUNTAIN_SCRIPT,
+  SPIDER_MAN2099_SCRIPT,
   BURIED_RUIN_SCRIPT,
   ARCHAEOMENDER_SCRIPT,
   ARGIVIAN_ARCHAEOLOGIST_SCRIPT,
@@ -2701,18 +2738,10 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   NAHIRIS_STONEBLADES_SCRIPT,
   MISCHIEF_AND_MAYHEM_SCRIPT,
   TANDEM_TACTICS_SCRIPT,
-  LEAD_ASTRAY_SCRIPT,
-  DOWNPOUR_SCRIPT,
-  TERASHIS_CRY_SCRIPT,
-  EARLY_FROST_SCRIPT,
   INTO_THE_VOID_SCRIPT,
   CAPTIVATING_GYRE_SCRIPT,
-  DUAL_SHOT_SCRIPT,
-  DOUBLE_NEGATIVE_SCRIPT,
-  REPEL_THE_DARKNESS_SCRIPT,
   SYNCHRONIZED_STRIKE_SCRIPT,
   JOIN_FORCES_SCRIPT,
-  PLUNGE_INTO_WINTER_SCRIPT,
   REINFORCEMENTS_SCRIPT,
   DAUNTLESS_ONSLAUGHT_SCRIPT,
   UNCOMFORTABLE_CHILL_SCRIPT,
@@ -2920,12 +2949,10 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   VIAL_SMASHER_GLEEFUL_GRENADIER_SCRIPT,
   VIASHINO_BLADESCOUT_SCRIPT,
   VIASHINO_FANGTAIL_SCRIPT,
-  VIBRANT_OUTBURST_SCRIPT,
   VICIOUS_HUNGER_SCRIPT,
   VICTORIOUS_DESTRUCTION_SCRIPT,
   VILLAINOUS_WRATH_SCRIPT,
   VINEREAP_MENTOR_SCRIPT,
-  VIOLENT_ULTIMATUM_SCRIPT,
   VIRIDIAN_CORRUPTER_SCRIPT,
   VIRIDIAN_SHAMAN_SCRIPT,
   VIRIDIAN_ZEALOT_SCRIPT,
@@ -3755,7 +3782,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   INSPIRATION_SCRIPT,
   INSPIRED_ULTIMATUM_SCRIPT,
   INSPIRIT_SCRIPT,
-  INTO_THE_CORE_SCRIPT,
   INUNDATE_SCRIPT,
   INVIGORATING_FALLS_SCRIPT,
   INVINCIBLE_HYMN_SCRIPT,
@@ -3767,7 +3793,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   IRRADIATE_SCRIPT,
   IXALLIS_KEEPER_SCRIPT,
   JADED_RESPONSE_SCRIPT,
-  JAGGED_LIGHTNING_SCRIPT,
   HYSTERICAL_BLINDNESS_SCRIPT,
   ICATIAN_SCOUT_SCRIPT,
   ICEQUAKE_SCRIPT,
@@ -3942,7 +3967,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   DRAMATIC_REVERSAL_SCRIPT,
   DROWN_IN_SORROW_SCRIPT,
   DRY_SPELL_SCRIPT,
-  DUST_TO_DUST_SCRIPT,
   DWARVEN_CATAPULT_SCRIPT,
   DESTROY_THE_EVIDENCE_SCRIPT,
   DESTRUCTIVE_REVELRY_SCRIPT,

@@ -335,7 +335,10 @@ export function assignTargets(
   return place(0) ? assignment : null;
 }
 
-export type TargetVerdict = { readonly ok: true } | { readonly ok: false; readonly message: string };
+export type TargetVerdict =
+  /** D299: `assignment[i]` is the clause (spec index) choice i answers; absent when there are no clauses. */
+  | { readonly ok: true; readonly assignment?: readonly number[] }
+  | { readonly ok: false; readonly message: string };
 
 /**
  * Validate a whole declaration. Messages are written from the player's side and
@@ -381,7 +384,8 @@ export function validateTargets(
     return { ok: false, message: `${label} takes at most ${max === 1 ? 'one target' : `${max} targets`}.` };
   }
 
-  if (assignTargets(specs, src, choices, candidateOf) === null) {
+  const assignment = assignTargets(specs, src, choices, candidateOf);
+  if (assignment === null) {
     const wanted = specs.map((s) => s.text).filter((t) => t !== '').join(', ');
     return {
       ok: false,
@@ -390,7 +394,8 @@ export function validateTargets(
         : `${label} targets ${wanted} — that choice doesn't fit.`,
     };
   }
-  return { ok: true };
+  // D299: the clause each pick answers rides back so the cast can record it.
+  return { ok: true, assignment };
 }
 
 function untargetableMessage(src: TargetingSource, c: TargetCandidate, label: string): string {

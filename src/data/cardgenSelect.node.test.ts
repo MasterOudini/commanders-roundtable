@@ -1009,7 +1009,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ⚠️ Tidal Surge is refused TWICE over — "up to three target creatures"
   // AND "without flying" (D197's keyword qualifier). It is ledgered under
   // up-to-N, which is still the heaviest class in this table.
-  ['Tidal Surge', 'keyword target qualifier unenforced'],
   ['Time and Tide', 'phasing'],
   ['Time Reversal', 'ctx.random stub'],
   ['Time Spiral', 'ctx.random stub'],
@@ -1696,6 +1695,18 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // sacrifices THREE creatures as a cost.
   ['Ironsoul Enforcer', 'attacks-alone trigger'],
   ['Turntimber Sower', 'multi-sacrifice cost'],
+
+  // D299 (M6.4ej) — the counted-targets seam made 32 cards offerable: 25 landed
+  // (21 table rows, 4 by hand); one activates from the graveyard, one triggers
+  // on EXPEND, two are Rooms with doors, one is a forecast ability activated
+  // from the hand, one exerts as a cost, one reads poison counters as it is cast.
+  ['Soul of Innistrad', 'graveyard-activated ability'],
+  ['Trailtracker Scout', 'expend trigger'],
+  ['Bottomless Pool // Locker Room', 'Room doors'],
+  ['Grand Entryway // Elegant Rotunda', 'Room doors'],
+  ['Proclamation of Rebirth', 'forecast (hand-activated ability)'],
+  ['Hope Tender', 'exert cost'],
+  ['Geth\'s Summons', 'cast-time poison condition (corrupted)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

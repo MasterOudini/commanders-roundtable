@@ -9110,6 +9110,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D298): the counted-targets seam - a sentence applied to EVERY target of its clause ('up to two target creature cards', 'two target creatures': the stack object records no per-clause slots yet), measured at 29 graveyard returns alone; the modal seam (42); the "another"
       split; the by-name sacrifice cost; the remaining cost verbs; the
       prompt continuation seam; prior items stand.
+- [x] **M6.4ej — THE COUNTED-TARGETS SEAM: a spell's clause runs once per
+      pick, and the stack object records the clause each declared target
+      answers (2026-09-04):** **4,369 of 31,692 Commander-legal cards
+      now execute completely, up from 4,320 (+49).** `SHIPPED_SCRIPTS`
+      2,287; ledger 809 (+7, -1: Tidal Surge left it as a card the seam made whole). Fixtures 2,603
+      (2,492 by name + 104 tokens: the four proof spells and the wave's 25). ZERO token pins, ZERO support bodies. **Select pool
+      0.** Decisions in **D299**.
+      ⚠️ **Measured first:** 1,238 incomplete cards print a counted target
+      sentence ("up to one target creature" 325, "up to two" 165, "any
+      number of" 76, "two target creatures" 65 …); 14 would read whole with
+      the count read as one target, plus D298's 29 counted graveyard returns.
+      ⚠️ **The seam (D139's order):** `validateTargets` returns the clause
+      assignment `assignTargets` already computed; the cast records it as
+      `StackObject.targetSlots` (pending cast → spell; abilities, triggers,
+      the assisted path and older logs stay positional). `effectResult` runs
+      ONE STEP PER (CLAUSE, PICK) — a lost target still narrates, an
+      `optional` ("up to") clause declared with no target skips silently.
+      `effectParse`'s TARGET and graveyard rules admit "up to one / two /
+      three", "two", "three", "any number of", "each of" and the plural
+      noun; "X target" stays refused. Retired by D187's rule: 13 - Double Negative, Downpour, Dual Shot, Dust to Dust, Early Frost, Into the Core, Jagged Lightning, Lead Astray, Plunge into Winter, Repel the Darkness, Terashi's Cry, Vibrant Outburst, Violent Ultimatum
+      (the vocabulary reads them whole now). Report `effect:auto` 3,340 →
+      3,451, `withUnenforced` 237 → 237.
+      **Landed:** 24 auto flips and 25 scripts for the 32 the seam made offerable - 49 net (and 13 spell defs retired, their cards complete by the vocabulary now: 2,275 + 25 - 13 = 2,287 scripts) — Ardenvale Tactician // Dizzying Swoop, Badlands Revival, Cruel Revival, Death's Duet, Dirgur Island Dragon // Skimming Strike, Dutiful Return, Essence Capture, Explosive Entry, Fight On!, Gird for Battle, Lethal Protection, March of the Returned, Morbid Plunder, Mutant Chain Reaction, Pull from the Grave, Reap What Is Sown, Regenesis, Soul Salvage, Spider Food, The Art of Tea, Tidal Surge, Trap Essence, True Ancestry, Urborg Uprising. The sweep measured the pool at 32 after the seam (activations and triggers whose target clause carries a count): 21 table rows through a generator built for the count (`d299/gen-counted.cjs` - the resolve runs ONCE PER PICK over `obj.targets`; the suite declares every pick, asserts each, refuses the wrong one beside a legal companion when the count needs two; three trigger shapes join the table: the beginning of combat, combat damage to a player, a spell cast on an opponent's turn) - Armaggon's three creatures, Argothian Elder's two lands, Wave Elemental's three non-fliers, Font of Return's three creature cards, Gavony Silversmith's two counters, Zephyr Winder's combat-damage untap, Nightmare Sower's and Dream Spoilers' opponent's-turn casts, Wild Pack Squad's and Agent Bishop's beginning of combat...; four by hand (Dubious Delicacy's three abilities, Blood Fountain's Blood token and two-card return, Curious Farm Animals' death gain and sacrifice destroy, Spider-Man 2099's bounce and batched combat-damage draw); seven refused (a graveyard-activated ability, an expend trigger, two Rooms, a forecast, an exert cost, a corrupted cast-time condition). Tests:
+      countedTargets.test.ts (parses, slots, live proofs Tidal Surge taps two picks of one clause and refuses a flier; Explosive Entry declared with no target touches nothing, and a creature declared alone lands in the SECOND clause; Badlands Revival's land card alone answers the hand clause; Lethal Protection's mandatory clause runs alone).
+      Fixtures 2,603 · botPool artifact 170 / creature 2,211 / enchantment 104 / instant 866 / land 354 / sorcery 664 - auto 728 / assisted 1,884 / autoAnyFace 736 · ladder [912, 1035, 2823, 4733, 5940] · batch.json
+      49 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,376 files, 12,429 passed / 11 skipped ·
+      500-seed gate, 6 shards, 211.9 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D299): the static seam - the classifier files every layer-6 line under `layer6` before asking whether a `StaticDef` already expresses it (grants 979 / anthems 258 / conditional 138 by sole need; the ladder's +1,788 rung), so the shapes a static-row generator can emit are measured, admitted as scriptable, and landed in waves; the modal seam (42); the "another"
+      split; the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

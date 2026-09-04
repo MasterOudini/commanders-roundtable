@@ -45,6 +45,19 @@ function aimOf(state: GameState, choice: TargetChoice | undefined): Aim | null {
 }
 
 /**
+ * The picks clause `clause` of `obj`'s face is aimed at (D299): the entries of
+ * `targets` the cast assigned to it when it recorded `targetSlots`, else the
+ * one at `targets[clause]` — abilities, triggers, the assisted path and every
+ * log written before slots existed, read exactly as before.
+ */
+function picksFor(obj: StackObject, clause: number): readonly TargetChoice[] {
+  const slots = obj.targetSlots;
+  if (slots !== undefined) return obj.targets.filter((_, k) => slots[k] === clause);
+  const one = obj.targets[clause];
+  return one === undefined ? [] : [one];
+}
+
+/**
  * Every event one resolving object's effects produce.
  *
  * ⚠️ A clause whose target has gone is SKIPPED, not guessed at. CR 608.2b only
@@ -90,8 +103,30 @@ export function effectResult(
   // One allocator for every instance this resolution creates. See `createToken`.
   let nextInstance = state.counters.instance;
 
+  /**
+   * D299 — ONE STEP PER (CLAUSE, PICK). A counted clause ("destroy up to two
+   * target creatures") runs its body once per pick, a bare clause once, a
+   * `self` clause once with no aim. A clause whose picks have all left runs
+   * once as `missing` so the narration below still says so; an OPTIONAL
+   * clause ("up to one") the player declared no target for is not missing
+   * anything — it was legal to choose none — and is skipped without a word.
+   */
+  const steps: { effect: EffectSpec; aim: Aim | null; missing: boolean }[] = [];
   for (const effect of effects) {
-    const aim = effect.self ? null : aimOf(state, obj.targets[effect.targetIndex]);
+    if (effect.self) {
+      steps.push({ effect, aim: null, missing: false });
+      continue;
+    }
+    const picks = picksFor(obj, effect.targetIndex);
+    const aims = picks.map((c) => aimOf(state, c)).filter((a): a is Aim => a !== null);
+    if (aims.length === 0) {
+      if (!(effect.optional === true && picks.length === 0)) steps.push({ effect, aim: null, missing: true });
+      continue;
+    }
+    for (const aim of aims) steps.push({ effect, aim, missing: false });
+  }
+
+  for (const { effect, aim, missing } of steps) {
     /**
      * ⚠️ **A SKIPPED CLAUSE SAYS SO.** CR 608.2b is right that the spell still
      * resolves when only SOME of its targets are gone — only an all-illegal
@@ -107,7 +142,7 @@ export function effectResult(
      *
      * A CARD is the subject, so no parts and no person (see the file header).
      */
-    if (!effect.self && !aim) {
+    if (missing) {
       out.push(
         narrated(
           `${obj.label} — no legal target left for “${effect.text}”`,
@@ -232,7 +267,7 @@ export function effectResult(
       case 'controllerDraws': {
         // "Its" is the spell's FIRST target (the sentence before named it); the
         // sentence itself consumes no target slot, so `aim` is null here.
-        const first = aimOf(state, obj.targets[0]);
+        const first = aimOf(state, picksFor(obj, 0)[0]);
         const who =
           first?.kind === 'card'
             ? state.cards[first.id]?.controller
