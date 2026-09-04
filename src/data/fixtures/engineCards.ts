@@ -103009,6 +103009,2300 @@ export const THAUMATOG: CardData = {
   "singleImage": true
 };
 
+export const AVEN_WIND_MAGE: CardData = {
+  "scryfallId": "1b12dfc1-81f2-44b2-baa2-73cc21363978",
+  "oracleId": "ad5f9a18-89a5-4bcb-9cd7-5399ffd252d3",
+  "name": "Aven Wind Mage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aven Wind Mage",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Bird Wizard",
+      "oracleText": "Flying\nWhenever you cast an instant or sorcery spell, this creature gets +1/+1 until end of turn.",
+      "flavorText": "\"My skill sharpens with each beat of my wings.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Lius Lasahido",
+      "imageId": "1b12dfc1-81f2-44b2-baa2-73cc21363978"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "m19",
+  "collectorNumber": "45",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BEAST_KIN_RANGER: CardData = {
+  "scryfallId": "0102e0be-5783-4825-9489-713b1b1df0b2",
+  "oracleId": "db794af5-ba2e-4b10-b213-e481e8a50432",
+  "name": "Beast-Kin Ranger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Beast-Kin Ranger",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Elf Ranger",
+      "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nWhenever another creature you control enters, this creature gets +1/+0 until end of turn.",
+      "flavorText": "\"We smelled you coming from a mile away, outsider.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Alexander Mokhov",
+      "imageId": "0102e0be-5783-4825-9489-713b1b1df0b2"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "100",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BENALISH_VETERAN: CardData = {
+  "scryfallId": "09a5603a-88c8-4b0c-b091-6d97e873859a",
+  "oracleId": "5da2e5c7-ec04-4f1f-bb2f-7572f877393c",
+  "name": "Benalish Veteran",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Benalish Veteran",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Whenever this creature attacks, it gets +1/+1 until end of turn.",
+      "flavorText": "\"One day I will rest and join my comrades in the afterlife, but not while scum like you still sully this world.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Steven Belledin",
+      "imageId": "09a5603a-88c8-4b0c-b091-6d97e873859a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m12",
+  "collectorNumber": "10",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BORDERLAND_MARAUDER: CardData = {
+  "scryfallId": "0ff958ec-ceae-424b-8f9c-3d8f581f1119",
+  "oracleId": "11fd2650-2150-4e62-8b64-e820d734a231",
+  "name": "Borderland Marauder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Borderland Marauder",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Human Warrior",
+      "oracleText": "Whenever this creature attacks, it gets +2/+0 until end of turn.",
+      "flavorText": "Though she is rightly feared, there are relatively few tales of her deeds in battle, for few survive her raids.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Scott M. Fischer",
+      "imageId": "0ff958ec-ceae-424b-8f9c-3d8f581f1119"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ema",
+  "collectorNumber": "120",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BRAMBLE_CREEPER: CardData = {
+  "scryfallId": "74148e2e-ac21-414a-9b6c-410988d7fdd0",
+  "oracleId": "33416979-2a3b-4184-818c-6a4e9ccb4580",
+  "name": "Bramble Creeper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bramble Creeper",
+      "manaCost": "{4}{G}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Whenever this creature attacks, it gets +5/+0 until end of turn.",
+      "flavorText": "\"I've seen the fully grown ones tear a baloth to gory ribbons in seconds.\"\n—Kivi, thornberry harvester",
+      "power": "0",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "74148e2e-ac21-414a-9b6c-410988d7fdd0"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "m10",
+  "collectorNumber": "171",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BRAZEN_WOLVES: CardData = {
+  "scryfallId": "15f94348-6c9a-4d0e-975c-618b4a540ad4",
+  "oracleId": "0b5a3d7b-6b2c-4e91-8218-2b957277855c",
+  "name": "Brazen Wolves",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Brazen Wolves",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Wolf",
+      "oracleText": "Whenever this creature attacks, it gets +2/+0 until end of turn.",
+      "flavorText": "With fewer patrols about, Kessig's roads have become prime hunting grounds.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "15f94348-6c9a-4d0e-975c-618b4a540ad4"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "j22",
+  "collectorNumber": "507",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BRONZEBEAK_MOA: CardData = {
+  "scryfallId": "291c0ebc-d489-42c7-8d8a-9216c333412f",
+  "oracleId": "16f03175-9c57-4058-9c9d-9c4936e4c324",
+  "name": "Bronzebeak Moa",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bronzebeak Moa",
+      "manaCost": "{2}{G}{W}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Whenever another creature you control enters, this creature gets +3/+3 until end of turn.",
+      "flavorText": "They fight for their home with more loyalty than any conscript.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "James Ryman",
+      "imageId": "291c0ebc-d489-42c7-8d8a-9216c333412f"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dgm",
+  "collectorNumber": "60",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BRUSHWAGG: CardData = {
+  "scryfallId": "6c20edc3-5ad0-42c1-a5ec-3e680fb03297",
+  "oracleId": "33a981ac-878d-4257-936f-55b4e6543c12",
+  "name": "Brushwagg",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Brushwagg",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Creature — Brushwagg",
+      "oracleText": "Whenever this creature blocks or becomes blocked, it gets -2/+2 until end of turn.",
+      "flavorText": "\"Defiantly, the young cyclops popped the brushwagg into his mouth. His cheeks suddenly puffed, his eye bulged, and he was forced to agree with his elder.\"\n—Afari, *Tales*",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ian Miller",
+      "imageId": "6c20edc3-5ad0-42c1-a5ec-3e680fb03297"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "208",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CATHAR_S_COMPANION: CardData = {
+  "scryfallId": "0291a964-1117-4fbd-9193-9719b273c348",
+  "oracleId": "668f646b-94f0-4f1a-badd-2d69b559d8a2",
+  "name": "Cathar's Companion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cathar's Companion",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Dog",
+      "oracleText": "Whenever you cast a noncreature spell, this creature gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)",
+      "flavorText": "\"Unwavering and loyal, they represent stability in uncertain times.\"\n—Rem Karolus, Slayer of Angels",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "0291a964-1117-4fbd-9193-9719b273c348"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "jmp",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHARGING_BANDITS: CardData = {
+  "scryfallId": "1721ee11-c7ee-4878-b2ab-4f090e0c5def",
+  "oracleId": "0c67133b-be15-47d7-8cf6-79987a42044d",
+  "name": "Charging Bandits",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Charging Bandits",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Human Rogue",
+      "oracleText": "Whenever this creature attacks, it gets +2/+0 until end of turn.",
+      "flavorText": "The fear in their victims' eyes is their most cherished reward.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dermot Power",
+      "imageId": "1721ee11-c7ee-4878-b2ab-4f090e0c5def"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "por",
+  "collectorNumber": "84",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHARGING_GRIFFIN: CardData = {
+  "scryfallId": "88637cc0-3b2a-402c-b491-26fcc2d21fb8",
+  "oracleId": "1c99a5cc-d974-4a4b-a03b-a78bfe738ed7",
+  "name": "Charging Griffin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Charging Griffin",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Griffin",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhenever this creature attacks, it gets +1/+1 until end of turn.",
+      "flavorText": "Four claws, two wings, one beak, no fear.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Erica Yang",
+      "imageId": "88637cc0-3b2a-402c-b491-26fcc2d21fb8"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "m14",
+  "collectorNumber": "13",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHARGING_PALADIN: CardData = {
+  "scryfallId": "0521088b-3198-459c-aa9f-fe1102c69bfc",
+  "oracleId": "6cccf44e-c05e-4239-b643-54b559c98552",
+  "name": "Charging Paladin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Charging Paladin",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Whenever this creature attacks, it gets +0/+3 until end of turn.",
+      "flavorText": "A true warrior's thoughts are of victory, not death.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "0521088b-3198-459c-aa9f-fe1102c69bfc"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "s99",
+  "collectorNumber": "12",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHUB_TOAD: CardData = {
+  "scryfallId": "0d977294-051a-4e6d-b2ba-c04494474aac",
+  "oracleId": "a0daace2-92fc-4c7d-b497-94b4ba775559",
+  "name": "Chub Toad",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chub Toad",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Frog",
+      "oracleText": "Whenever this creature blocks or becomes blocked, it gets +2/+2 until end of turn.",
+      "flavorText": "Chub toad, chub toad\nAt the door.\nRun away quick\nOr you'll run no more.\n—Traditional children's rhyme",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Daniel Gelon",
+      "imageId": "0d977294-051a-4e6d-b2ba-c04494474aac"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "5ed",
+  "collectorNumber": "283",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRACKLING_CYCLOPS: CardData = {
+  "scryfallId": "6e5b899a-52f7-471b-ad50-4fa6566758fd",
+  "oracleId": "16ab9451-f3da-4f61-8e2b-d9c84e0e5428",
+  "name": "Crackling Cyclops",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crackling Cyclops",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Cyclops Wizard",
+      "oracleText": "Whenever you cast a noncreature spell, this creature gets +3/+0 until end of turn.",
+      "flavorText": "What he lacks in depth perception, he makes up for in charged potential.",
+      "power": "0",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "6e5b899a-52f7-471b-ad50-4fa6566758fd"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "fdn",
+  "collectorNumber": "83",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CROSSROADS_WATCHER: CardData = {
+  "scryfallId": "6d62fcbb-f1a0-46ce-a4af-2a33bcc3ac8e",
+  "oracleId": "ab5f8b8c-e3f7-4265-bbc6-814bbfd4693a",
+  "name": "Crossroads Watcher",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crossroads Watcher",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Kithkin Ranger",
+      "oracleText": "Trample\nWhenever another creature you control enters, this creature gets +1/+0 until end of turn.",
+      "flavorText": "\"Voices in the deep wood, and none of them familiar. Let's take a look, Squeakwing.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Aurore Folny",
+      "imageId": "6d62fcbb-f1a0-46ce-a4af-2a33bcc3ac8e"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "ecl",
+  "collectorNumber": "173",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CUNNING_BREEZEDANCER: CardData = {
+  "scryfallId": "b0957d7e-6b38-48ff-a996-5c3cbcfdbfc0",
+  "oracleId": "ba997e44-fc80-4463-ad3f-6497be26df0f",
+  "name": "Cunning Breezedancer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cunning Breezedancer",
+      "manaCost": "{4}{W}{U}",
+      "typeLine": "Creature — Dragon",
+      "oracleText": "Flying\nWhenever you cast a noncreature spell, this creature gets +2/+2 until end of turn.",
+      "flavorText": "\"That which is beautiful in form can also be deadly.\"\n—Ishai, Ojutai dragonspeaker",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Todd Lockwood",
+      "imageId": "b0957d7e-6b38-48ff-a996-5c3cbcfdbfc0"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "DTK-215",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEEPROOT_WARRIOR: CardData = {
+  "scryfallId": "7c1a1963-ec46-4ed3-9be1-e4cc09687922",
+  "oracleId": "2af1930c-a5f2-4e7e-910f-e84458b051ac",
+  "name": "Deeproot Warrior",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deeproot Warrior",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Merfolk Warrior",
+      "oracleText": "Whenever this creature becomes blocked, it gets +1/+1 until end of turn.",
+      "flavorText": "\"We breathe from our soul and bones to give strength to the jungle. The jungle breathes from its roots and rivers to give strength to us.\"\n—Shaper Falani",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "7c1a1963-ec46-4ed3-9be1-e4cc09687922"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "xln",
+  "collectorNumber": "186",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEEPWOOD_WOLVERINE: CardData = {
+  "scryfallId": "db9a9a76-741a-4ba3-bd4b-0eb87d678253",
+  "oracleId": "ca8060a7-30e7-49a4-a720-da5b995dd31f",
+  "name": "Deepwood Wolverine",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deepwood Wolverine",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Wolverine",
+      "oracleText": "Whenever this creature becomes blocked, it gets +2/+0 until end of turn.",
+      "flavorText": "The jhovalls are depleting its food sources, the Mercadians are eroding its home, and you're wondering why it's angry?",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ray Lago",
+      "imageId": "db9a9a76-741a-4ba3-bd4b-0eb87d678253"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "242",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DROMOSAUR: CardData = {
+  "scryfallId": "65de0b43-64df-44dc-850c-25f48d6ab53b",
+  "oracleId": "4576cc5b-7b3a-41a7-9b84-acadf2d4adf5",
+  "name": "Dromosaur",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dromosaur",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Dinosaur",
+      "oracleText": "Whenever this creature blocks or becomes blocked, it gets +2/-2 until end of turn.",
+      "flavorText": "They say dromosaurs are frightened of dogs, even little ones. There are no dogs in Shiv. Not even little ones.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Ciruelo",
+      "imageId": "65de0b43-64df-44dc-850c-25f48d6ab53b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "usg",
+  "collectorNumber": "182",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DWARVEN_BERSERKER: CardData = {
+  "scryfallId": "7bc734e9-fb09-4094-94b6-76c0458649e9",
+  "oracleId": "cc43507a-ca61-45ae-ac0a-4ddb851c27ef",
+  "name": "Dwarven Berserker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dwarven Berserker",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Dwarf Berserker",
+      "oracleText": "Whenever this creature becomes blocked, it gets +3/+0 and gains trample until end of turn.",
+      "flavorText": "\"I may be small, but I can kick *your* butt.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Douglas Shuler",
+      "imageId": "7bc734e9-fb09-4094-94b6-76c0458649e9"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "wth",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ESCAPED_NULL: CardData = {
+  "scryfallId": "7364dbe9-ee9a-4dcc-b058-4e669c75f060",
+  "oracleId": "8bc17c50-f4c9-46dd-9294-3036ed46de91",
+  "name": "Escaped Null",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Escaped Null",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Zombie Berserker",
+      "oracleText": "Lifelink\nWhenever this creature blocks or becomes blocked, it gets +5/+0 until end of turn.",
+      "flavorText": "Left masterless by Kozilek, it wandered the wilds, raving in its ceaseless hunger.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Ryan Pancoast",
+      "imageId": "7364dbe9-ee9a-4dcc-b058-4e669c75f060"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Lifelink"
+  ],
+  "setCode": "roe",
+  "collectorNumber": "109",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FESTIVAL_CRASHER: CardData = {
+  "scryfallId": "3307187c-853a-419e-bea1-25aecb9584fe",
+  "oracleId": "e6ddea98-b23f-44de-a63d-5d5dfad60e71",
+  "name": "Festival Crasher",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Festival Crasher",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Devil",
+      "oracleText": "Whenever you cast an instant or sorcery spell, this creature gets +2/+0 until end of turn.",
+      "flavorText": "So many candles. So many flammables. So little time.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Milivoj Ćeran",
+      "imageId": "3307187c-853a-419e-bea1-25aecb9584fe"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dbl",
+  "collectorNumber": "140",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FIRE_URCHIN: CardData = {
+  "scryfallId": "02530654-03f7-4a42-91f6-f7e0cda71286",
+  "oracleId": "4000e119-3372-431c-bc3a-0db0639311ce",
+  "name": "Fire Urchin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fire Urchin",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Trample\nWhenever you cast an instant or sorcery spell, this creature gets +1/+0 until end of turn.",
+      "flavorText": "Rain runoff in the Smelting District is known to spontaneously burst into flame.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Deruchenko Alexander",
+      "imageId": "02530654-03f7-4a42-91f6-f7e0cda71286"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "133",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLOWSTONE_CHARGER: CardData = {
+  "scryfallId": "c57abdab-d99c-418c-818d-b06a8722d733",
+  "oracleId": "a19e0a7f-d356-4d2c-8414-70a40ce18674",
+  "name": "Flowstone Charger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Flowstone Charger",
+      "manaCost": "{2}{R}{W}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "Whenever this creature attacks, it gets +3/-3 until end of turn.",
+      "flavorText": "A mane of flowstone and a mien of fury.",
+      "power": "2",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "John Gallagher",
+      "imageId": "c57abdab-d99c-418c-818d-b06a8722d733"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "apc",
+  "collectorNumber": "99",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FOLK_OF_AN_HAVVA: CardData = {
+  "scryfallId": "4118c563-08a7-4654-973e-ab9c454f00f9",
+  "oracleId": "86002526-ed3d-47e5-9f2a-55c4fa220ce8",
+  "name": "Folk of An-Havva",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Folk of An-Havva",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Human",
+      "oracleText": "Whenever this creature blocks, it gets +2/+0 until end of turn.",
+      "flavorText": "\"There are those who accept being told what to do, what to think, and what to say. Then there are the Folk of An-Havva.\"\n—Reyhan, Samite Alchemist",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Julie Baroh",
+      "imageId": "4118c563-08a7-4654-973e-ab9c454f00f9"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "hml",
+  "collectorNumber": "87b",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FRENZIED_DEVILS: CardData = {
+  "scryfallId": "88d78649-c893-42db-96e2-2ecc63b7305e",
+  "oracleId": "4c912e9a-21f9-4058-b28c-43f319e35d09",
+  "name": "Frenzied Devils",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Frenzied Devils",
+      "manaCost": "{4}{R}",
+      "typeLine": "Creature — Devil",
+      "oracleText": "Haste\nWhenever you cast a noncreature spell, this creature gets +2/+2 until end of turn.",
+      "flavorText": "\"Devils need no reason to stir up chaos. The chaos itself is their reward.\"\n—Rem Karolus, Fiendslayer",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Andrey Kuzinskiy",
+      "imageId": "88d78649-c893-42db-96e2-2ecc63b7305e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "dbl",
+  "collectorNumber": "426",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GIANT_BADGER: CardData = {
+  "scryfallId": "10e9dd66-8580-4c96-9ab9-cc392dc6ee74",
+  "oracleId": "a4109138-5d69-4510-a228-7c1f88c0c8c0",
+  "name": "Giant Badger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Giant Badger",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Creature — Badger",
+      "oracleText": "Whenever this creature blocks, it gets +2/+2 until end of turn.",
+      "flavorText": "Disturb a sleeping badger and the snapping of your bones will awaken the countryside.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Lars Grant-West",
+      "imageId": "10e9dd66-8580-4c96-9ab9-cc392dc6ee74"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "253",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_ELITE_INFANTRY: CardData = {
+  "scryfallId": "12b9c6b8-9f87-41f1-9e81-b5995e3ed6b7",
+  "oracleId": "a6a8861c-b6fe-45a6-86e4-9160c36362ff",
+  "name": "Goblin Elite Infantry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Elite Infantry",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Goblin Warrior",
+      "oracleText": "Whenever this creature blocks or becomes blocked, it gets -1/-1 until end of turn.",
+      "flavorText": "They talk a good fight.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Robert Bliss",
+      "imageId": "12b9c6b8-9f87-41f1-9e81-b5995e3ed6b7"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mir",
+  "collectorNumber": "177",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRACEFUL_CAT: CardData = {
+  "scryfallId": "b42ba8bf-9fc1-4d57-9c80-42491d18d929",
+  "oracleId": "69fffad0-6469-4623-9977-347143fa7289",
+  "name": "Graceful Cat",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Graceful Cat",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Cat",
+      "oracleText": "Whenever this creature attacks, it gets +1/+1 until end of turn.",
+      "flavorText": "Though they are held in high regard as symbols of the god Oketra, cats often lack her sense of solidarity.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Stanko",
+      "imageId": "b42ba8bf-9fc1-4d57-9c80-42491d18d929"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "akh",
+  "collectorNumber": "273",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRIFFIN_PROTECTOR: CardData = {
+  "scryfallId": "0e6cb8ea-0dbf-45f8-b1e9-bd219de3fb69",
+  "oracleId": "2d91cf05-fc39-4d76-8c95-62738b57e0a0",
+  "name": "Griffin Protector",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Griffin Protector",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Griffin",
+      "oracleText": "Flying\nWhenever another creature you control enters, this creature gets +1/+1 until end of turn.",
+      "flavorText": "The drums of war stir the hearts of all who fight for righteousness.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "0e6cb8ea-0dbf-45f8-b1e9-bd219de3fb69"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "a25",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HERD_GNARR: CardData = {
+  "scryfallId": "9cf4fd75-34b1-4afa-b8cd-777dfc9e6376",
+  "oracleId": "89cf4d99-64e9-4e5c-9edc-ea077a193332",
+  "name": "Herd Gnarr",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Herd Gnarr",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "Whenever another creature you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": "Long ago, the solitary gnarr was a sign of good luck. Now they have become wild pack hunters, a sign of impending danger.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Daren Bader",
+      "imageId": "9cf4fd75-34b1-4afa-b8cd-777dfc9e6376"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "tsp",
+  "collectorNumber": "200",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HOLLOW_DOGS: CardData = {
+  "scryfallId": "520fcafe-0c4a-49ca-8138-57a60506b0cd",
+  "oracleId": "16aa2e9e-bfe8-4b40-a1db-bb1da2ede849",
+  "name": "Hollow Dogs",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hollow Dogs",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Phyrexian Zombie Dog",
+      "oracleText": "Whenever this creature attacks, it gets +2/+0 until end of turn.",
+      "flavorText": "A hollow dog is never empty. It is filled with thirst for the hunt.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jeff Miracola",
+      "imageId": "520fcafe-0c4a-49ca-8138-57a60506b0cd"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HUNGRY_SPRIGGAN: CardData = {
+  "scryfallId": "8be81b15-eb12-452b-8fdd-bde64807f422",
+  "oracleId": "f80c8533-b29c-49ae-a241-ef4b73a9e327",
+  "name": "Hungry Spriggan",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hungry Spriggan",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Goblin Warrior",
+      "oracleText": "Trample\nWhenever this creature attacks, it gets +3/+3 until end of turn.",
+      "flavorText": "If a spriggan's eyes are larger than its stomach, it has ways to remedy the situation.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Drew Tucker",
+      "imageId": "8be81b15-eb12-452b-8fdd-bde64807f422"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "shm",
+  "collectorNumber": "120",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ICHORCLAW_MYR: CardData = {
+  "scryfallId": "06ad4974-d806-4417-883a-2e622e909a7b",
+  "oracleId": "8462a2fa-944b-4fff-a161-10345690b56f",
+  "name": "Ichorclaw Myr",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ichorclaw Myr",
+      "manaCost": "{2}",
+      "typeLine": "Artifact Creature — Phyrexian Myr",
+      "oracleText": "Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)\nWhenever this creature becomes blocked, it gets +2/+2 until end of turn.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Eric Deschamps",
+      "imageId": "06ad4974-d806-4417-883a-2e622e909a7b"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Infect"
+  ],
+  "setCode": "onc",
+  "collectorNumber": "133",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JUKAI_TRAINEE: CardData = {
+  "scryfallId": "164e663f-6a67-4a10-a737-33ea533a9316",
+  "oracleId": "cb9fa34d-1d5f-461c-acad-bc573d41ceb2",
+  "name": "Jukai Trainee",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jukai Trainee",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Human Samurai",
+      "oracleText": "Whenever this creature blocks or becomes blocked, it gets +1/+1 until end of turn.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ebila",
+      "imageId": "164e663f-6a67-4a10-a737-33ea533a9316"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "neo",
+  "collectorNumber": "326",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KILN_FIEND: CardData = {
+  "scryfallId": "0c584268-67c3-411b-a26c-aee3adf23872",
+  "oracleId": "eac8c196-8477-4b79-9875-21afa1e61708",
+  "name": "Kiln Fiend",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kiln Fiend",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Elemental Beast",
+      "oracleText": "Whenever you cast an instant or sorcery spell, this creature gets +3/+0 until end of turn.",
+      "flavorText": "It traps an explosion within its stony skin.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Adi Granov",
+      "imageId": "0c584268-67c3-411b-a26c-aee3adf23872"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "roe",
+  "collectorNumber": "153",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KILN_WALKER: CardData = {
+  "scryfallId": "91678632-ebe6-41b6-9250-cd3ffd63663b",
+  "oracleId": "ca868ac4-6144-402e-ae23-629628d02883",
+  "name": "Kiln Walker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kiln Walker",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Phyrexian Construct",
+      "oracleText": "Whenever this creature attacks, it gets +3/+0 until end of turn.",
+      "flavorText": "If it possesses an ability to understand and appreciate life, it has never shown it.",
+      "power": "0",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Volkan Baǵa",
+      "imageId": "91678632-ebe6-41b6-9250-cd3ffd63663b"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "nph",
+  "collectorNumber": "142",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KRUIN_STRIKER: CardData = {
+  "scryfallId": "24da0851-c349-4b2c-bedf-21e3c2d35922",
+  "oracleId": "3e261fa8-1256-4525-8115-5880758338fe",
+  "name": "Kruin Striker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kruin Striker",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Human Warrior",
+      "oracleText": "Whenever another creature you control enters, this creature gets +1/+0 and gains trample until end of turn. (It can deal excess combat damage to the player or planeswalker it's attacking.)",
+      "flavorText": "Unhappy with the creation of the wolfir, Rorica broke with her order and led a crusade against the \"reformed werewolves.\"",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "24da0851-c349-4b2c-bedf-21e3c2d35922"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "2x2",
+  "collectorNumber": "114",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LLANOWAR_STALKER: CardData = {
+  "scryfallId": "e2d714d8-0e9b-4761-a0ef-3429b4e2f5b7",
+  "oracleId": "90d375fa-0487-4990-9a98-260f9ee28d2a",
+  "name": "Llanowar Stalker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Llanowar Stalker",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Elf Warrior",
+      "oracleText": "Whenever another creature you control enters, this creature gets +1/+0 until end of turn.",
+      "flavorText": "If you spot one elf in Llanowar, it's likely there's another with a knife at your back.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Fariba Khamseh",
+      "imageId": "e2d714d8-0e9b-4761-a0ef-3429b4e2f5b7"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "dmu",
+  "collectorNumber": "171",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LOPORRIT_SCOUT: CardData = {
+  "scryfallId": "a182bc66-bfda-4bf5-bd12-3de5dba60945",
+  "oracleId": "24630190-a630-4dd3-a8f7-82f129c881e3",
+  "name": "Loporrit Scout",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Loporrit Scout",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Rabbit Scout",
+      "oracleText": "Whenever another creature you control enters, this creature gets +1/+1 until end of turn.",
+      "flavorText": "\"I've come to realize that it's important to put down the book every now and then, and experience some adventures for myself.\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Andrea Radeck",
+      "imageId": "a182bc66-bfda-4bf5-bd12-3de5dba60945"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "fin",
+  "collectorNumber": "192",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LURKING_NIGHTSTALKER: CardData = {
+  "scryfallId": "002715a3-b84f-40ba-8fa9-6b2854626f4d",
+  "oracleId": "8c17f48b-467e-4953-85d0-221cef5b3bff",
+  "name": "Lurking Nightstalker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lurking Nightstalker",
+      "manaCost": "{B}{B}",
+      "typeLine": "Creature — Nightstalker",
+      "oracleText": "Whenever this creature attacks, it gets +2/+0 until end of turn.",
+      "flavorText": "The shadows know.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "002715a3-b84f-40ba-8fa9-6b2854626f4d"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "p02",
+  "collectorNumber": "77",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MERCURIAL_GEISTS: CardData = {
+  "scryfallId": "478673f0-e146-496f-bcf0-7fccc6566947",
+  "oracleId": "1f6bff6c-a2f0-4ed7-8169-acb4d31a7187",
+  "name": "Mercurial Geists",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mercurial Geists",
+      "manaCost": "{2}{U}{R}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nWhenever you cast an instant or sorcery spell, this creature gets +3/+0 until end of turn.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Lake Hurwitz",
+      "imageId": "478673f0-e146-496f-bcf0-7fccc6566947"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "sir",
+  "collectorNumber": "236",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MINOTAUR_SKULLCLEAVER: CardData = {
+  "scryfallId": "6854c913-d4bd-42f7-901c-f3c25be5c4b2",
+  "oracleId": "dd36aea8-9f1c-4daf-86f6-ab9307279ce7",
+  "name": "Minotaur Skullcleaver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Minotaur Skullcleaver",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Minotaur Berserker",
+      "oracleText": "Haste\nWhen this creature enters, it gets +2/+0 until end of turn.",
+      "flavorText": "\"Their only dreams are of full stomachs.\"\n—Kleon the Iron-Booted",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Phill Simmer",
+      "imageId": "6854c913-d4bd-42f7-901c-f3c25be5c4b2"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "ths",
+  "collectorNumber": "130",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NORWOOD_WARRIOR: CardData = {
+  "scryfallId": "6f7ddf0a-1081-4ae0-ab91-b052153bab4c",
+  "oracleId": "b3ae1481-9fa7-45dd-bbf5-de2d815c4227",
+  "name": "Norwood Warrior",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Norwood Warrior",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Elf Warrior",
+      "oracleText": "Whenever this creature becomes blocked, it gets +1/+1 until end of turn.",
+      "flavorText": "\"The woods hold peace for those who desire it, but those who seek battle will find me.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "6f7ddf0a-1081-4ae0-ab91-b052153bab4c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "p02",
+  "collectorNumber": "140",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAGING_GORILLA: CardData = {
+  "scryfallId": "07c284ce-33b8-4fb2-9dd9-4c477bedc774",
+  "oracleId": "1dd6df3f-eac4-4f30-b832-4a3f3a97632f",
+  "name": "Raging Gorilla",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Raging Gorilla",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Ape",
+      "oracleText": "Whenever this creature blocks or becomes blocked, it gets +2/-2 until end of turn.",
+      "flavorText": "\"Every temper tantrum makes another angry gorilla.\"\n—Femeref children's myth",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Tom Kyffin",
+      "imageId": "07c284ce-33b8-4fb2-9dd9-4c477bedc774"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "vis",
+  "collectorNumber": "90",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAVENOUS_SKIRGE: CardData = {
+  "scryfallId": "d0b6e655-e05e-44b5-9c7f-9dbbc66e6e28",
+  "oracleId": "b8ae71b3-8ee7-49a0-87ea-7e938166ccb3",
+  "name": "Ravenous Skirge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ravenous Skirge",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Phyrexian Imp",
+      "oracleText": "Flying\nWhenever this creature attacks, it gets +2/+0 until end of turn.",
+      "flavorText": "Hunger is a kind of madness—and here, all madness flourishes.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "d0b6e655-e05e-44b5-9c7f-9dbbc66e6e28"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "usg",
+  "collectorNumber": "152",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAZORCLAW_BEAR: CardData = {
+  "scryfallId": "08c0cdbe-ca74-4edc-96ea-6db8eefe99d8",
+  "oracleId": "3ee07899-e6d6-4dcf-8596-4d2420690d7c",
+  "name": "Razorclaw Bear",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Razorclaw Bear",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Bear",
+      "oracleText": "Whenever this creature becomes blocked, it gets +2/+2 until end of turn.",
+      "flavorText": "One razorclaw is three bears too many.\n—Elvish saying",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "08c0cdbe-ca74-4edc-96ea-6db8eefe99d8"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "p02",
+  "collectorNumber": "142",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RECKLESS_PANGOLIN: CardData = {
+  "scryfallId": "4662c681-fcc9-4fc8-a598-b068208132fd",
+  "oracleId": "1f384f19-7fb4-4120-8001-5b401b4debbd",
+  "name": "Reckless Pangolin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reckless Pangolin",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Pangolin",
+      "oracleText": "Whenever this creature attacks, it gets +1/+1 until end of turn.",
+      "flavorText": "\"A pangolin's power grows with its speed. Strike when you have the chance!\"\n—Jiang Yanggu's travelogue",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Wolk Sheep",
+      "imageId": "4662c681-fcc9-4fc8-a598-b068208132fd"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "gs1",
+  "collectorNumber": "26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROOT_SPIDER: CardData = {
+  "scryfallId": "407d67b0-d496-401b-8844-8e3ea2fd2046",
+  "oracleId": "d8fe0115-5d98-4251-a48c-5e849430a445",
+  "name": "Root Spider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Root Spider",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Spider",
+      "oracleText": "Whenever this creature blocks, it gets +1/+0 and gains first strike until end of turn.",
+      "flavorText": "\"They're not half as fierce if they don't see you coming.\"\n—Devin, Faerie Noble",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mike Kimble",
+      "imageId": "407d67b0-d496-401b-8844-8e3ea2fd2046"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "hml",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROYAL_TROOPER: CardData = {
+  "scryfallId": "1dc22489-6754-4418-a991-7046c14a0934",
+  "oracleId": "e31510d5-b74e-4a8d-94e8-8bd098cac3c7",
+  "name": "Royal Trooper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Royal Trooper",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Whenever this creature blocks, it gets +2/+2 until end of turn.",
+      "flavorText": "\"Fortune does not side with the faint-hearted.\"\n—Sophocles, *Phaedra*",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Scott M. Fischer",
+      "imageId": "1dc22489-6754-4418-a991-7046c14a0934"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "s99",
+  "collectorNumber": "25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHU_DEFENDER: CardData = {
+  "scryfallId": "ee57a9ab-c385-4a51-aff7-6a654f5d7611",
+  "oracleId": "0b6625cb-4177-45bd-ba99-2af43dfd6f46",
+  "name": "Shu Defender",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shu Defender",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Whenever this creature blocks, it gets +0/+2 until end of turn.",
+      "flavorText": "Confronting Cao Cao's army at Steepslope Bridge, Zhang Fei bellowed, \"I am Zhang Fei of Yan! Who dares fight me to the death?\" Cao Cao's army cowered and fled.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Sun Nan",
+      "imageId": "ee57a9ab-c385-4a51-aff7-6a654f5d7611"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "20",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKY_THEATER_STRIX: CardData = {
+  "scryfallId": "98902dd9-f21c-4419-8205-4b9d6592bf28",
+  "oracleId": "99e96711-90ea-4f6b-a92d-d8ddd06e8750",
+  "name": "Sky Theater Strix",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sky Theater Strix",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying\nWhenever you cast a noncreature spell, this creature gets +1/+0 until end of turn.",
+      "flavorText": "Courier owls joined the fray, attacking the Dreadhorde with a viciousness usually reserved for mail thieves.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Chris Seaman",
+      "imageId": "98902dd9-f21c-4419-8205-4b9d6592bf28"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "war",
+  "collectorNumber": "67",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLASHING_TIGER: CardData = {
+  "scryfallId": "4fbedd66-457a-4e1c-a9f3-fa37dec81c7a",
+  "oracleId": "c07a86de-ec29-478c-b6cb-057eb9d3e126",
+  "name": "Slashing Tiger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slashing Tiger",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Cat",
+      "oracleText": "Whenever this creature becomes blocked, it gets +2/+2 until end of turn.",
+      "flavorText": "\"Unless you enter the tiger's lair, you cannot get hold of the tiger's cubs.\"\n—Sun Tzu, *Art of War* (trans. Giles)",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Yang Jun Kwon",
+      "imageId": "4fbedd66-457a-4e1c-a9f3-fa37dec81c7a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "145",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLINKING_GIANT: CardData = {
+  "scryfallId": "b259c6cd-43c8-415e-baca-b31e2374631f",
+  "oracleId": "6d86dcaa-2295-4f4d-ada7-216f96138d81",
+  "name": "Slinking Giant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slinking Giant",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Creature — Giant Rogue",
+      "oracleText": "Wither (This deals damage to creatures in the form of -1/-1 counters.)\nWhenever this creature blocks or becomes blocked, it gets -3/-0 until end of turn.",
+      "flavorText": "\"I need a better hiding place.\"",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dave Kendall",
+      "imageId": "b259c6cd-43c8-415e-baca-b31e2374631f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Wither"
+  ],
+  "setCode": "shm",
+  "collectorNumber": "106",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SNORTING_GAHR: CardData = {
+  "scryfallId": "e568503e-a886-4c8b-9d46-8520c2cdda48",
+  "oracleId": "3e7f67d6-db12-4034-b8e3-9c9d401c8f57",
+  "name": "Snorting Gahr",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Snorting Gahr",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Rhino Beast",
+      "oracleText": "Whenever this creature becomes blocked, it gets +2/+2 until end of turn.",
+      "flavorText": "There's little advantage to surprising the gahr.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Andrew Goldhawk",
+      "imageId": "e568503e-a886-4c8b-9d46-8520c2cdda48"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mmq",
+  "collectorNumber": "272",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOLTARI_TROOPER: CardData = {
+  "scryfallId": "1bc2cfc0-bc62-4a36-a30b-77c6912be2e9",
+  "oracleId": "501109bb-3406-41d8-9433-a100e494f938",
+  "name": "Soltari Trooper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soltari Trooper",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Soltari Soldier",
+      "oracleText": "Shadow (This creature can block or be blocked by only creatures with shadow.)\nWhenever this creature attacks, it gets +1/+1 until end of turn.",
+      "flavorText": "\"Dauthi blood is soltari wine.\"\n—Soltari Tales of Life",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "1bc2cfc0-bc62-4a36-a30b-77c6912be2e9"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Shadow"
+  ],
+  "setCode": "tpr",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STEADFAST_CATHAR: CardData = {
+  "scryfallId": "5e1b65a7-d385-428b-986c-a0d9283a5f75",
+  "oracleId": "00895741-f94f-4d80-8ca4-c436bf3c8d56",
+  "name": "Steadfast Cathar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Steadfast Cathar",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Whenever this creature attacks, it gets +0/+2 until end of turn.",
+      "flavorText": "\"The most resolute soldiers will press forward in the face of overwhelming odds.\"\n—Gideon Jura",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "5e1b65a7-d385-428b-986c-a0d9283a5f75"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "emn",
+  "collectorNumber": "44",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUSTAINER_OF_THE_REALM: CardData = {
+  "scryfallId": "1fd2d5e4-cdf8-4baa-96fb-2beef5bcc244",
+  "oracleId": "2c99d52d-f909-4494-aeee-937ae779fd4a",
+  "name": "Sustainer of the Realm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sustainer of the Realm",
+      "manaCost": "{2}{W}{W}",
+      "typeLine": "Creature — Angel",
+      "oracleText": "Flying\nWhenever this creature blocks, it gets +0/+2 until end of turn.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "1fd2d5e4-cdf8-4baa-96fb-2beef5bcc244"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "j21",
+  "collectorNumber": "146",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TOWN_SENTRY: CardData = {
+  "scryfallId": "e5e9db36-0592-4e59-951a-d9d6c1522b99",
+  "oracleId": "ec1ac4df-b031-43b4-a2de-ca58a1599053",
+  "name": "Town Sentry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Town Sentry",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Whenever this creature blocks, it gets +0/+2 until end of turn.",
+      "flavorText": "\"So he gots a sword. Big deal.\"\n\"Yeah, it's a big deal—it's a big sword!\"\n—Two goblins outside the gates of Trokin",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Bradley Williams",
+      "imageId": "e5e9db36-0592-4e59-951a-d9d6c1522b99"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "p02",
+  "collectorNumber": "25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRAINED_CHEETAH: CardData = {
+  "scryfallId": "ab242eab-5cab-41a0-bcf8-93a6919e4558",
+  "oracleId": "dad3b459-725e-4bf5-bf7a-bd89866ea8c4",
+  "name": "Trained Cheetah",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Trained Cheetah",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Cat",
+      "oracleText": "Whenever this creature becomes blocked, it gets +1/+1 until end of turn.",
+      "flavorText": "\"[King Mulu's cheetahs] came riding on the winds, charging, with fangs bared and claws flexed.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Fang Yue",
+      "imageId": "ab242eab-5cab-41a0-bcf8-93a6919e4558"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "154",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VIASHINO_FIRSTBLADE: CardData = {
+  "scryfallId": "1cb0c21c-bdf1-478a-9ad8-6c6bda6ffb0f",
+  "oracleId": "766e277c-983e-488c-a885-c03c3c0d3357",
+  "name": "Viashino Firstblade",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Viashino Firstblade",
+      "manaCost": "{1}{R}{W}",
+      "typeLine": "Creature — Lizard Soldier",
+      "oracleText": "Haste\nWhen this creature enters, it gets +2/+2 until end of turn.",
+      "flavorText": "\"All that steel doesn't make them slower. It makes them bolder.\"\n—Tajic, Blade of the Legion",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Matt Stewart",
+      "imageId": "1cb0c21c-bdf1-478a-9ad8-6c6bda6ffb0f"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "dgm",
+  "collectorNumber": "113",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VICIOUS_KAVU: CardData = {
+  "scryfallId": "31e9e629-7c25-4d45-aa35-9ba5f95b43cb",
+  "oracleId": "236fbf12-f908-4918-babb-1558e767cbe3",
+  "name": "Vicious Kavu",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vicious Kavu",
+      "manaCost": "{1}{B}{R}",
+      "typeLine": "Creature — Kavu",
+      "oracleText": "Whenever this creature attacks, it gets +2/+0 until end of turn.",
+      "flavorText": "As battle raged in Shiv, a strange new ally appeared from below the ravaged ground.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "31e9e629-7c25-4d45-aa35-9ba5f95b43cb"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "inv",
+  "collectorNumber": "284",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WEE_DRAGONAUTS: CardData = {
+  "scryfallId": "0e53568d-7e00-43c0-8bf7-041a6bd5c6a9",
+  "oracleId": "e9e56b1d-5ad2-4807-8c4c-1a1a6a25ecbf",
+  "name": "Wee Dragonauts",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wee Dragonauts",
+      "manaCost": "{1}{U}{R}",
+      "typeLine": "Creature — Faerie Wizard",
+      "oracleText": "Flying\nWhenever you cast an instant or sorcery spell, this creature gets +2/+0 until end of turn.",
+      "flavorText": "\"The blazekite is a simple concept, really-just a vehicular application of dragscoop ionics and electropropulsion magnetronics.\"\n—Juzba, Izzet tinker",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "0e53568d-7e00-43c0-8bf7-041a6bd5c6a9"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "prm",
+  "collectorNumber": "35174",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WEI_AMBUSH_FORCE: CardData = {
+  "scryfallId": "9b241ba4-cff5-48ce-83bd-d70fb5e20ff4",
+  "oracleId": "2d1446f4-cf71-4798-b921-8f6824350319",
+  "name": "Wei Ambush Force",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wei Ambush Force",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Whenever this creature attacks, it gets +2/+0 until end of turn.",
+      "flavorText": "The battle of Puyang marked the beginning of the end for Lu Bu. He lost the city—and later his life—to Cao Cao.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Ku Xueming",
+      "imageId": "9b241ba4-cff5-48ce-83bd-d70fb5e20ff4"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "85",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ZHAO_ZILONG_TIGER_GENERAL: CardData = {
+  "scryfallId": "2d16cf1d-a7c3-4038-a648-299c1bedae99",
+  "oracleId": "22aa8e7f-b30d-49e2-b99e-9232e1a3bcf3",
+  "name": "Zhao Zilong, Tiger General",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Zhao Zilong, Tiger General",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Legendary Creature — Human Soldier Warrior",
+      "oracleText": "Horsemanship (This creature can't be blocked except by creatures with horsemanship.)\nWhenever Zhao Zilong blocks, it gets +1/+1 until end of turn.",
+      "flavorText": "Zhao Zilong was a brave and noble warrior. Twice he rescued Liu Bei's son, Liu Shan.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Quan Xuejun",
+      "imageId": "2d16cf1d-a7c3-4038-a648-299c1bedae99"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Horsemanship"
+  ],
+  "setCode": "ptk",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FORTRESS_CYCLOPS: CardData = {
+  "scryfallId": "39f835f0-abba-402c-bdae-be03ad3fb658",
+  "oracleId": "7790bd6c-75e2-4abd-87ab-e1c15f1d53ab",
+  "name": "Fortress Cyclops",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fortress Cyclops",
+      "manaCost": "{3}{R}{W}",
+      "typeLine": "Creature — Cyclops Soldier",
+      "oracleText": "Whenever this creature attacks, it gets +3/+0 until end of turn.\nWhenever this creature blocks, it gets +0/+3 until end of turn.",
+      "flavorText": "\"They think they tamed him, but he will always be a wild titan, a force of nature.\"\n—Nedja, Gruul shaman",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Maciej Kuciara",
+      "imageId": "39f835f0-abba-402c-bdae-be03ad3fb658"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "gtc",
+  "collectorNumber": "164",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -109638,6 +111932,72 @@ export const ENGINE_CARDS: CardData[] = [
   LITHATOG,
   PHANTATOG,
   THAUMATOG,
+  AVEN_WIND_MAGE,
+  BEAST_KIN_RANGER,
+  BENALISH_VETERAN,
+  BORDERLAND_MARAUDER,
+  BRAMBLE_CREEPER,
+  BRAZEN_WOLVES,
+  BRONZEBEAK_MOA,
+  BRUSHWAGG,
+  CATHAR_S_COMPANION,
+  CHARGING_BANDITS,
+  CHARGING_GRIFFIN,
+  CHARGING_PALADIN,
+  CHUB_TOAD,
+  CRACKLING_CYCLOPS,
+  CROSSROADS_WATCHER,
+  CUNNING_BREEZEDANCER,
+  DEEPROOT_WARRIOR,
+  DEEPWOOD_WOLVERINE,
+  DROMOSAUR,
+  DWARVEN_BERSERKER,
+  ESCAPED_NULL,
+  FESTIVAL_CRASHER,
+  FIRE_URCHIN,
+  FLOWSTONE_CHARGER,
+  FOLK_OF_AN_HAVVA,
+  FRENZIED_DEVILS,
+  GIANT_BADGER,
+  GOBLIN_ELITE_INFANTRY,
+  GRACEFUL_CAT,
+  GRIFFIN_PROTECTOR,
+  HERD_GNARR,
+  HOLLOW_DOGS,
+  HUNGRY_SPRIGGAN,
+  ICHORCLAW_MYR,
+  JUKAI_TRAINEE,
+  KILN_FIEND,
+  KILN_WALKER,
+  KRUIN_STRIKER,
+  LLANOWAR_STALKER,
+  LOPORRIT_SCOUT,
+  LURKING_NIGHTSTALKER,
+  MERCURIAL_GEISTS,
+  MINOTAUR_SKULLCLEAVER,
+  NORWOOD_WARRIOR,
+  RAGING_GORILLA,
+  RAVENOUS_SKIRGE,
+  RAZORCLAW_BEAR,
+  RECKLESS_PANGOLIN,
+  ROOT_SPIDER,
+  ROYAL_TROOPER,
+  SHU_DEFENDER,
+  SKY_THEATER_STRIX,
+  SLASHING_TIGER,
+  SLINKING_GIANT,
+  SNORTING_GAHR,
+  SOLTARI_TROOPER,
+  STEADFAST_CATHAR,
+  SUSTAINER_OF_THE_REALM,
+  TOWN_SENTRY,
+  TRAINED_CHEETAH,
+  VIASHINO_FIRSTBLADE,
+  VICIOUS_KAVU,
+  WEE_DRAGONAUTS,
+  WEI_AMBUSH_FORCE,
+  ZHAO_ZILONG_TIGER_GENERAL,
+  FORTRESS_CYCLOPS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

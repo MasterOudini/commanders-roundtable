@@ -1777,6 +1777,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Battershield Warrior', 'boast (once-per-turn memory)'],
   ['Myrkul\'s Invoker', 'ability-word cost'],
   ['Sanctum Spirit', 'historic discard cost'],
+
+  // D302 (M6.4em) — the triggered one-shot pool: the heads outside the library,
+  // the keywords outside the grantable map, the costs no row charges.
+  ['Sanctifier of Souls', 'cost no table row charges (Exile a creature card from your graveyar)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

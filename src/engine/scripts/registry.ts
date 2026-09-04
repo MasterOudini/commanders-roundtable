@@ -7,6 +7,72 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { AVEN_WIND_MAGE_SCRIPT } from './cards/avenWindMage';
+import { BEAST_KIN_RANGER_SCRIPT } from './cards/beastKinRanger';
+import { BENALISH_VETERAN_SCRIPT } from './cards/benalishVeteran';
+import { BORDERLAND_MARAUDER_SCRIPT } from './cards/borderlandMarauder';
+import { BRAMBLE_CREEPER_SCRIPT } from './cards/brambleCreeper';
+import { BRAZEN_WOLVES_SCRIPT } from './cards/brazenWolves';
+import { BRONZEBEAK_MOA_SCRIPT } from './cards/bronzebeakMoa';
+import { BRUSHWAGG_SCRIPT } from './cards/brushwagg';
+import { CATHARS_COMPANION_SCRIPT } from './cards/catharsCompanion';
+import { CHARGING_BANDITS_SCRIPT } from './cards/chargingBandits';
+import { CHARGING_GRIFFIN_SCRIPT } from './cards/chargingGriffin';
+import { CHARGING_PALADIN_SCRIPT } from './cards/chargingPaladin';
+import { CHUB_TOAD_SCRIPT } from './cards/chubToad';
+import { CRACKLING_CYCLOPS_SCRIPT } from './cards/cracklingCyclops';
+import { CROSSROADS_WATCHER_SCRIPT } from './cards/crossroadsWatcher';
+import { CUNNING_BREEZEDANCER_SCRIPT } from './cards/cunningBreezedancer';
+import { DEEPROOT_WARRIOR_SCRIPT } from './cards/deeprootWarrior';
+import { DEEPWOOD_WOLVERINE_SCRIPT } from './cards/deepwoodWolverine';
+import { DROMOSAUR_SCRIPT } from './cards/dromosaur';
+import { DWARVEN_BERSERKER_SCRIPT } from './cards/dwarvenBerserker';
+import { ESCAPED_NULL_SCRIPT } from './cards/escapedNull';
+import { FESTIVAL_CRASHER_SCRIPT } from './cards/festivalCrasher';
+import { FIRE_URCHIN_SCRIPT } from './cards/fireUrchin';
+import { FLOWSTONE_CHARGER_SCRIPT } from './cards/flowstoneCharger';
+import { FOLK_OF_AN_HAVVA_SCRIPT } from './cards/folkOfAnHavva';
+import { FRENZIED_DEVILS_SCRIPT } from './cards/frenziedDevils';
+import { GIANT_BADGER_SCRIPT } from './cards/giantBadger';
+import { GOBLIN_ELITE_INFANTRY_SCRIPT } from './cards/goblinEliteInfantry';
+import { GRACEFUL_CAT_SCRIPT } from './cards/gracefulCat';
+import { GRIFFIN_PROTECTOR_SCRIPT } from './cards/griffinProtector';
+import { HERD_GNARR_SCRIPT } from './cards/herdGnarr';
+import { HOLLOW_DOGS_SCRIPT } from './cards/hollowDogs';
+import { HUNGRY_SPRIGGAN_SCRIPT } from './cards/hungrySpriggan';
+import { ICHORCLAW_MYR_SCRIPT } from './cards/ichorclawMyr';
+import { JUKAI_TRAINEE_SCRIPT } from './cards/jukaiTrainee';
+import { KILN_FIEND_SCRIPT } from './cards/kilnFiend';
+import { KILN_WALKER_SCRIPT } from './cards/kilnWalker';
+import { KRUIN_STRIKER_SCRIPT } from './cards/kruinStriker';
+import { LLANOWAR_STALKER_SCRIPT } from './cards/llanowarStalker';
+import { LOPORRIT_SCOUT_SCRIPT } from './cards/loporritScout';
+import { LURKING_NIGHTSTALKER_SCRIPT } from './cards/lurkingNightstalker';
+import { MERCURIAL_GEISTS_SCRIPT } from './cards/mercurialGeists';
+import { MINOTAUR_SKULLCLEAVER_SCRIPT } from './cards/minotaurSkullcleaver';
+import { NORWOOD_WARRIOR_SCRIPT } from './cards/norwoodWarrior';
+import { RAGING_GORILLA_SCRIPT } from './cards/ragingGorilla';
+import { RAVENOUS_SKIRGE_SCRIPT } from './cards/ravenousSkirge';
+import { RAZORCLAW_BEAR_SCRIPT } from './cards/razorclawBear';
+import { RECKLESS_PANGOLIN_SCRIPT } from './cards/recklessPangolin';
+import { ROOT_SPIDER_SCRIPT } from './cards/rootSpider';
+import { ROYAL_TROOPER_SCRIPT } from './cards/royalTrooper';
+import { SHU_DEFENDER_SCRIPT } from './cards/shuDefender';
+import { SKY_THEATER_STRIX_SCRIPT } from './cards/skyTheaterStrix';
+import { SLASHING_TIGER_SCRIPT } from './cards/slashingTiger';
+import { SLINKING_GIANT_SCRIPT } from './cards/slinkingGiant';
+import { SNORTING_GAHR_SCRIPT } from './cards/snortingGahr';
+import { SOLTARI_TROOPER_SCRIPT } from './cards/soltariTrooper';
+import { STEADFAST_CATHAR_SCRIPT } from './cards/steadfastCathar';
+import { SUSTAINER_OF_THE_REALM_SCRIPT } from './cards/sustainerOfTheRealm';
+import { TOWN_SENTRY_SCRIPT } from './cards/townSentry';
+import { TRAINED_CHEETAH_SCRIPT } from './cards/trainedCheetah';
+import { VIASHINO_FIRSTBLADE_SCRIPT } from './cards/viashinoFirstblade';
+import { VICIOUS_KAVU_SCRIPT } from './cards/viciousKavu';
+import { WEE_DRAGONAUTS_SCRIPT } from './cards/weeDragonauts';
+import { WEI_AMBUSH_FORCE_SCRIPT } from './cards/weiAmbushForce';
+import { ZHAO_ZILONG_TIGER_GENERAL_SCRIPT } from './cards/zhaoZilongTigerGeneral';
+import { FORTRESS_CYCLOPS_SCRIPT } from './cards/fortressCyclops';
 import { CONCLAVE_GUILDMAGE_SCRIPT } from './cards/conclaveGuildmage';
 import { CROWD_FAVORITES_SCRIPT } from './cards/crowdFavorites';
 import { SARCOMITE_MYR_SCRIPT } from './cards/sarcomiteMyr';
@@ -2887,6 +2953,72 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AVEN_WIND_MAGE_SCRIPT,
+  BEAST_KIN_RANGER_SCRIPT,
+  BENALISH_VETERAN_SCRIPT,
+  BORDERLAND_MARAUDER_SCRIPT,
+  BRAMBLE_CREEPER_SCRIPT,
+  BRAZEN_WOLVES_SCRIPT,
+  BRONZEBEAK_MOA_SCRIPT,
+  BRUSHWAGG_SCRIPT,
+  CATHARS_COMPANION_SCRIPT,
+  CHARGING_BANDITS_SCRIPT,
+  CHARGING_GRIFFIN_SCRIPT,
+  CHARGING_PALADIN_SCRIPT,
+  CHUB_TOAD_SCRIPT,
+  CRACKLING_CYCLOPS_SCRIPT,
+  CROSSROADS_WATCHER_SCRIPT,
+  CUNNING_BREEZEDANCER_SCRIPT,
+  DEEPROOT_WARRIOR_SCRIPT,
+  DEEPWOOD_WOLVERINE_SCRIPT,
+  DROMOSAUR_SCRIPT,
+  DWARVEN_BERSERKER_SCRIPT,
+  ESCAPED_NULL_SCRIPT,
+  FESTIVAL_CRASHER_SCRIPT,
+  FIRE_URCHIN_SCRIPT,
+  FLOWSTONE_CHARGER_SCRIPT,
+  FOLK_OF_AN_HAVVA_SCRIPT,
+  FRENZIED_DEVILS_SCRIPT,
+  GIANT_BADGER_SCRIPT,
+  GOBLIN_ELITE_INFANTRY_SCRIPT,
+  GRACEFUL_CAT_SCRIPT,
+  GRIFFIN_PROTECTOR_SCRIPT,
+  HERD_GNARR_SCRIPT,
+  HOLLOW_DOGS_SCRIPT,
+  HUNGRY_SPRIGGAN_SCRIPT,
+  ICHORCLAW_MYR_SCRIPT,
+  JUKAI_TRAINEE_SCRIPT,
+  KILN_FIEND_SCRIPT,
+  KILN_WALKER_SCRIPT,
+  KRUIN_STRIKER_SCRIPT,
+  LLANOWAR_STALKER_SCRIPT,
+  LOPORRIT_SCOUT_SCRIPT,
+  LURKING_NIGHTSTALKER_SCRIPT,
+  MERCURIAL_GEISTS_SCRIPT,
+  MINOTAUR_SKULLCLEAVER_SCRIPT,
+  NORWOOD_WARRIOR_SCRIPT,
+  RAGING_GORILLA_SCRIPT,
+  RAVENOUS_SKIRGE_SCRIPT,
+  RAZORCLAW_BEAR_SCRIPT,
+  RECKLESS_PANGOLIN_SCRIPT,
+  ROOT_SPIDER_SCRIPT,
+  ROYAL_TROOPER_SCRIPT,
+  SHU_DEFENDER_SCRIPT,
+  SKY_THEATER_STRIX_SCRIPT,
+  SLASHING_TIGER_SCRIPT,
+  SLINKING_GIANT_SCRIPT,
+  SNORTING_GAHR_SCRIPT,
+  SOLTARI_TROOPER_SCRIPT,
+  STEADFAST_CATHAR_SCRIPT,
+  SUSTAINER_OF_THE_REALM_SCRIPT,
+  TOWN_SENTRY_SCRIPT,
+  TRAINED_CHEETAH_SCRIPT,
+  VIASHINO_FIRSTBLADE_SCRIPT,
+  VICIOUS_KAVU_SCRIPT,
+  WEE_DRAGONAUTS_SCRIPT,
+  WEI_AMBUSH_FORCE_SCRIPT,
+  ZHAO_ZILONG_TIGER_GENERAL_SCRIPT,
+  FORTRESS_CYCLOPS_SCRIPT,
   CONCLAVE_GUILDMAGE_SCRIPT,
   CROWD_FAVORITES_SCRIPT,
   SARCOMITE_MYR_SCRIPT,

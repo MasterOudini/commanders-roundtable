@@ -20335,3 +20335,65 @@ Fixtures 3,090 · botPool artifact 176 / creature 2,653 / enchantment 135 / inst
 **Reportables** (D301): the one-shot seam, part 2 - the TRIGGERED self-pumps (188 cards: 'whenever this creature attacks, it gets +2/+0 until end of turn' 39, 'when this creature enters' 31, 'whenever another creature you control enters' 11, 'whenever you cast a noncreature spell' 10 ...) through the trigger-head library the part-B generator now carries, and the ten heads outside it; the modal seam (42); the "another" split;
 the by-name sacrifice cost; the remaining cost verbs; the prompt
 continuation seam; prior items stand.
+
+## D302 — M6.4em: THE ONE-SHOT SEAM, part 2 — the triggered self-pumps: eleven trigger heads in the generator's library, 66 derived scripts (2026-09-04)
+
+**4,949 of 31,692 Commander-legal cards execute completely, up from
+4,883 (+66).** SHIPPED_SCRIPTS 2,766 → **2,832**; REFUSED ledger 863
+→ **864** (+1: Sanctifier of Souls, an exile-from-graveyard cost). Fixtures 3,090 → 3,156 (3,042 by name + 107 tokens: the wave's 66 cards). ZERO
+new token pins, ZERO new support bodies; one classifier shape. **Select
+pool 0 → 0.**
+
+**The gap, measured before it was built.** D301's probe left the TRIGGERED
+self-pumps standing: **188 cards** whose only unaccounted line is "Whenever
+this creature attacks, it gets +2/+0 until end of turn" and its kin — by
+head, attacks 39, enters 31, another creature you control enters 11, you
+cast a noncreature spell 10, an instant or sorcery spell 9, becomes blocked
+9, blocks or becomes blocked 8, blocks 8, then a long tail of heads no
+library reads yet (blocks a creature with flying, attacks while saddled, a
+spell that targets this creature, you gain life, you cycle or discard …).
+The vocabulary's mass pump (D301) had already made the triggered MASS pumps
+expressible and part B landed the ones under a library head; the self-pump
+payload is not the vocabulary's ("it gets +2/+0" names no target), so these
+were still filed under `layer6`.
+
+**The seam.** `primitives.ts`: `oneShotTriggerShape(line, cardName)` — a
+line whose head is one of ELEVEN the generator library reads (enters,
+attacks, another creature enters, a creature enters, you cast a noncreature
+/ an instant or sorcery spell, you or another Human enters, you attack,
+blocks, becomes blocked, blocks or becomes blocked) and whose payload is "~
+/ it gets +N/+N", "gains <kw>" or both until end of turn — asked beside
+D301's activated shape. The generator (`d301/gen-oneshot2.cjs`) gained the
+three combat-block heads (`BlockersDeclared`, the blocker or the attacker
+being this permanent) and the suites that fire them — the card attacks on
+its third turn and the opponent's Cyclops blocks it, or the Cyclops attacks
+on its own turn and the card blocks; the pump is read in the declare-blockers
+step, before damage, and its end is checked the turn after. The rows are
+derived from the select pool exactly as in part B.
+
+- **Refused by name:** +1: Sanctifier of Souls, an exile-from-graveyard cost — the heads outside the library (none reached the pool - the shape admits the eleven library heads only, so the tail heads (blocks a creature with flying 6, attacks while saddled 5, a spell that targets this creature 4, you gain life 4, you cycle or discard 5 ...) stay filed under layer6 until their library entry earns its place),
+  the keywords outside the GRANTABLE map, a cost no row charges.
+- **Not this decision:** the tail heads (a library entry each, when their
+  count earns it); the conditional statics; the "another" split.
+
+No spell def collided: a triggered self-pump is no spell's text, so nothing was retired by D187's rule.
+
+Report: `effect:auto` 3,572 → 3,572, `effect:none` 15,115 →
+15,115, `withUnenforced` 237 → 237.
+
+**Tests:** `src/data/oneShotTriggers.test.ts` (the eleven heads admitted
+with a self-pump payload; a mass payload, a tail head and a static refused);
+66 suites (the trigger fired, the pump read, the end at cleanup,
+the replay hash).
+
+**Landed:** 66 scripts and no auto flip (a trigger needs a script). The sweep measured the pool at 67 after the shape (the first cut had read 2 - the engine's selfRef never lowercases the mid-sentence 'this creature' a trigger prints, so the heads read the printed self-words now): 66 derived rows - attacks 20 (Lurking Nightstalker, Charging Paladin, Borderland Marauder, Brazen Wolves ...), blocks 9 and becomes blocked 9 and blocks-or-becomes-blocked 8 (Bramble Creeper, Chub Toad, Giant Badger, Shu Defender, Town Sentry, Griffin Protector ...), another creature entering 8 (Beast-Kin Ranger, Herd Gnarr ...), an instant or sorcery cast 6 (Fire Urchin, Wee Dragonauts, Kiln Fiend ...), a noncreature spell cast 5 (Cathar's Companion, Mercurial Geists ...), entering 2. One refused: Sanctifier of Souls exiles a creature card from the graveyard as a cost.
+
+Fixtures 3,156 · botPool artifact 176 / creature 2,719 / enchantment 135 / instant 882 / land 355 / sorcery 682 - auto 762 / assisted 1,946 / autoAnyFace 771 · ladder [966, 1092, 2576, 4488, 5701] · batch.json
+66 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,924 files, 15,209 passed / 11 skipped ·
+500-seed gate, 6 shards, 264.4 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D302): the counter seam, part 1 - the ladder's `effect:counter` rung is +1,912: 'put a +1/+1 counter on this creature' behind a cost or a library head, '~ enters with N +1/+1 counters', 'put a +1/+1 counter on each creature you control' - self counters and mass counters the same rows and heads express (measure by sentence first, D130's rule); the modal seam (42); the "another" split;
+the by-name sacrifice cost; the remaining cost verbs; the prompt
+continuation seam; prior items stand.

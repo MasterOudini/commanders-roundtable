@@ -499,6 +499,25 @@ const ONESHOT_SELF = new RegExp(`^~ (?:gets ${ONESHOT_PT}|gains ${ONESHOT_KW}(?:
 const ONESHOT_MASS = new RegExp(`^(?:All creatures|Creatures you control|Other creatures you control) (?:get ${ONESHOT_PT}|gain ${ONESHOT_KW}(?: and ${ONESHOT_KW})?|get ${ONESHOT_PT} and gain ${ONESHOT_KW}(?: and ${ONESHOT_KW})?) until end of turn\\.$`);
 const ONESHOT_COST = /^(?:\{|Sacrifice |Pay |Discard |Tap )/;
 
+/**
+ * D302 - the TRIGGERED one-shots. A head the generator library reads (enters,
+ * attacks, another creature enters, a creature enters, you cast a noncreature /
+ * an instant or sorcery spell, you or another Human enters, you attack) with a
+ * self-pump payload. "it" is print for the permanent itself in a trigger.
+ */
+const ONESHOT_SELF_WORD = '(?:~|this creature|this permanent|this artifact|this enchantment)';
+const ONESHOT_PUMP = `(?:gets ${ONESHOT_PT}|gains ${ONESHOT_KW}(?: and ${ONESHOT_KW})?|gets ${ONESHOT_PT} and gains ${ONESHOT_KW}(?: and ${ONESHOT_KW})?) until end of turn\\.`;
+const ONESHOT_SELF_HEADS = `(?:When ${ONESHOT_SELF_WORD} enters|Whenever ${ONESHOT_SELF_WORD} attacks|Whenever ${ONESHOT_SELF_WORD} blocks or becomes blocked|Whenever ${ONESHOT_SELF_WORD} becomes blocked|Whenever ${ONESHOT_SELF_WORD} blocks)`;
+const ONESHOT_OTHER_HEADS = '(?:Whenever another creature you control enters|Whenever a creature you control enters|Whenever you cast a noncreature spell|Whenever you cast an instant or sorcery spell|Whenever (?:~|[A-Z][a-z]+) or another Human you control enters|Whenever you attack)';
+const ONESHOT_TRIGGER = new RegExp(`^${ONESHOT_SELF_HEADS}, (?:~|it|this creature) ${ONESHOT_PUMP}$`);
+const ONESHOT_TRIGGER_OTHER = new RegExp(`^${ONESHOT_OTHER_HEADS}, (?:~|this creature) ${ONESHOT_PUMP}$`);
+
+/** Is this printed line a triggered one-shot self-pump a table row can emit (D302)? */
+export function oneShotTriggerShape(line: string, cardName: string): boolean {
+  const text = selfRef(line, cardName).replace(/\s*\([^)]*\)\s*$/, '');
+  return ONESHOT_TRIGGER.test(text) || ONESHOT_TRIGGER_OTHER.test(text);
+}
+
 /** Is this printed line an activated one-shot pump a table row can emit (D301)? */
 export function oneShotRowShape(line: string, cardName: string): boolean {
   const colon = line.indexOf(': ');
@@ -554,6 +573,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   if (staticRowShape(text)) return 'scriptable';
   // D301: an activated one-shot pump a table row can emit (see `oneShotRowShape`).
   if (oneShotRowShape(text, cardName)) return 'scriptable';
+  // D302: a triggered one-shot self-pump under a library head (see `oneShotTriggerShape`).
+  if (oneShotTriggerShape(text, cardName)) return 'scriptable';
 
   for (const [primitive, re] of RULES) if (re.test(text)) return primitive;
 

@@ -9219,6 +9219,35 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D301): the one-shot seam, part 2 - the TRIGGERED self-pumps (188 cards: 'whenever this creature attacks, it gets +2/+0 until end of turn' 39, 'when this creature enters' 31, 'whenever another creature you control enters' 11, 'whenever you cast a noncreature spell' 10 ...) through the trigger-head library the part-B generator now carries, and the ten heads outside it; the modal seam (42); the "another"
       split; the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4em — THE ONE-SHOT SEAM, part 2: the triggered self-pumps through
+      eleven library heads; 66 derived scripts (2026-09-04):**
+      **4,949 of 31,692 Commander-legal cards now execute completely,
+      up from 4,883 (+66).** `SHIPPED_SCRIPTS` 2,832; ledger
+      864 (+1: Sanctifier of Souls, an exile-from-graveyard cost). Fixtures 3,156 (3,042 by name + 107 tokens: the wave's 66 cards). ZERO token
+      pins, ZERO support bodies. **Select pool 0.** Decisions in
+      **D302**.
+      ⚠️ **Measured first:** 188 triggered self-pumps by D301's probe
+      (attacks 39, enters 31, another creature enters 11, cast noncreature
+      10, cast instant/sorcery 9, becomes blocked 9, blocks or becomes
+      blocked 8, blocks 8, then the tail).
+      ⚠️ **The seam:** `primitives.ts` `oneShotTriggerShape` (a library
+      head + "~ / it gets +N/+N / gains <kw> until end of turn"), beside
+      D301's activated shape; `d301/gen-oneshot2.cjs` gained the three
+      combat-block heads (`BlockersDeclared`) and their suites (the card
+      attacks and is blocked / the opponent attacks and it blocks; the pump
+      read in the declare-blockers step). Rows derived from the pool as in
+      part B. Refused by name: +1: Sanctifier of Souls, an exile-from-graveyard cost (none reached the pool - the shape admits the eleven library heads only, so the tail heads (blocks a creature with flying 6, attacks while saddled 5, a spell that targets this creature 4, you gain life 4, you cycle or discard 5 ...) stay filed under layer6 until their library entry earns its place). No spell def collided: a triggered self-pump is no spell's text, so nothing was retired by D187's rule. Report
+      `effect:auto` 3,572 → 3,572, `withUnenforced` 237 →
+      237.
+      **Landed:** 66 scripts and no auto flip (a trigger needs a script). The sweep measured the pool at 67 after the shape (the first cut had read 2 - the engine's selfRef never lowercases the mid-sentence 'this creature' a trigger prints, so the heads read the printed self-words now): 66 derived rows - attacks 20 (Lurking Nightstalker, Charging Paladin, Borderland Marauder, Brazen Wolves ...), blocks 9 and becomes blocked 9 and blocks-or-becomes-blocked 8 (Bramble Creeper, Chub Toad, Giant Badger, Shu Defender, Town Sentry, Griffin Protector ...), another creature entering 8 (Beast-Kin Ranger, Herd Gnarr ...), an instant or sorcery cast 6 (Fire Urchin, Wee Dragonauts, Kiln Fiend ...), a noncreature spell cast 5 (Cathar's Companion, Mercurial Geists ...), entering 2. One refused: Sanctifier of Souls exiles a creature card from the graveyard as a cost. Tests: oneShotTriggers.test.ts +
+      66 suites.
+      Fixtures 3,156 · botPool artifact 176 / creature 2,719 / enchantment 135 / instant 882 / land 355 / sorcery 682 - auto 762 / assisted 1,946 / autoAnyFace 771 · ladder [966, 1092, 2576, 4488, 5701] · batch.json
+      66 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,924 files, 15,209 passed / 11 skipped ·
+      500-seed gate, 6 shards, 264.4 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D302): the counter seam, part 1 - the ladder's `effect:counter` rung is +1,912: 'put a +1/+1 counter on this creature' behind a cost or a library head, '~ enters with N +1/+1 counters', 'put a +1/+1 counter on each creature you control' - self counters and mass counters the same rows and heads express (measure by sentence first, D130's rule); the modal seam (42); the "another"
+      split; the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
