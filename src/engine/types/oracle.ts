@@ -742,6 +742,13 @@ export interface OracleFace {
   readonly morphCostText: string | null;
   readonly megamorph: boolean;
   /**
+   * D312 - THE COST-REDUCTION SEAM. The printed generic reductions the engine
+   * prices from the board at cast time (affinity, "costs {N} less to cast for
+   * each ... you control / for each ... card in your graveyard / if you
+   * control a ..."). Empty when there are none the engine can price.
+   */
+  readonly costReductions: readonly import('../../data/costParse').CostReduction[];
+  /**
    * `ward—Pay 3 life`, as a life tax. 0 when there is none.
    *
    * ⚠️ A SEPARATE FIELD, not a degenerate `ManaCost`. D33 unified Phyrexian mana

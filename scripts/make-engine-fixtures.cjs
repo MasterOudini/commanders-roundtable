@@ -3818,6 +3818,12 @@ const WANTED = [
   // D311 - the crew seam test cards (three pure Vehicles).
   'Sky Skiff',
   "Cultivator's Caravan",
+  // D312 - the cost-reduction seam test cards (two affinity artifacts, a graveyard-counting Terror, a Wizard-priced counter, an Equipment Vehicle).
+  'Frogmite',
+  'Myr Enforcer',
+  'Tolarian Terror',
+  "Wizard's Retort",
+  'Rover Blades',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -430,6 +430,9 @@ function linesUnaccounted(
     // D309 - a Morph / Megamorph line the engine RUNS (cast face down for {3},
     // turned face up for the cost). Asked of the parser that read it.
     if (face.morphCost !== null && /^(?:Morph|Megamorph) (?:\{[^}]+\})+$/.test(line)) continue;
+    // D312 - a cost-reduction line the engine PRICES at cast time (affinity,
+    // "costs {N} less ..."). Asked of the parser that read it.
+    if (face.costReductions.some((r) => r.line === line)) continue;
     if (isKeywordLine(line, face)) continue;
     // ⚠️ `mana` outranks `activated`, because a mana ability never reaches the
     // stack (CR 605) and is never offered by `ActivateAbility` — so the note that

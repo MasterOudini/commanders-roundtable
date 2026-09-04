@@ -9576,6 +9576,41 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D311): the Vehicles other lines (the attack triggers, the enters-crewed ETBs, the becomes-crewed heads over the crew resolution); convoke (52) as a payment-plan source; the turned-face-up triggers (49); the other graveyard casts; the cycling triggers head; echo once a pay-or-else prompt exists; the modal seam (42); the "another"
       split; the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4ew — THE COST-REDUCTION SEAM: affinity and the generic costs-less
+      lines the board answers are priced into the cast by the engine;
+      40 cards complete with no script (2026-09-04):** **5,562
+      of 31,692 Commander-legal cards now execute completely, up from
+      5,522 (+40).** `SHIPPED_SCRIPTS` 3,108; ledger 1,093
+      (+19: the carriers whose OTHER line the vocabulary does not read yet - their reduction is priced: 8 spells (Allies at Last, Blinkmoth Infusion, Neonate's Rush, Polliwallop, Rebel Salvo, Visions of Villainy, Voyage Home, Chill of the Grave), 5 enters triggers (Academy Journeymage, Mistmeadow Council, Salt Road Packbeast, Thought Monitor, Valkyrie Aerial Unit), 6 other permanent lines (Furnace Hellkite, Millicent, Scale and Tooth of Chiss-Goria, Slag Strider, The Circle of Loyalty)). Fixtures 3,461 (3,345 by name + 109 tokens: the seam's test cards (Frogmite, Myr Enforcer, Tolarian Terror, Wizard's Retort) and Rover Blades). ZERO token pins; two new
+      modules, seven support bodies, no new intent. **Select pool 0.**
+      Decisions in **D312**.
+      ⚠️ **Measured first:** d312/probe-cost.json over the database: 184 blocked cards print a costs-less line (178 of them generic: {1} on 96, {2} on 54, {3} on 26) and 40 an Affinity line (artifacts 37); 115 and 40 of them have nothing else unread; the tails the engine can price from the board - for each ... you control, for each ... card in your graveyard, if you control a ... - beside the ones it cannot (a party, a memory of the turn, a target).
+      ⚠️ **The seam:** CR 601.2f as the commander tax with the other sign.
+      `data/costParse.ts` reads "Affinity for <permanents>" and "This spell
+      costs {N} less to cast for each <permanent> you control / for each
+      <type> card in your graveyard / if you control a <permanent>" into
+      `OracleFace.costReductions` (the same `predicatesOf` the choosers use;
+      a colour, a memory of the turn, a target, a party stay unparsed);
+      `engine/costs.ts` `castReduction` sums them from the state; `mana.ts`
+      clamps the generic part at zero; `legal.ts` `castAction` and
+      `handlers.ts` `prepareCast` fold the reduction into the tax — the offer's
+      tax is what the client's preview prices, so preview, offer and charge
+      agree by construction (D53); `effectParse.ts` drops a priced line from a
+      spell's clauses; the accounting, the disclosure and the classifier treat
+      it as the engine's own. No generator. NOT this decision: reductions that
+      read the turn or the targets, a party, a colour; convoke / improvise /
+      delve; cost increases. Refused by name: +19: the carriers whose OTHER line the vocabulary does not read yet - their reduction is priced: 8 spells (Allies at Last, Blinkmoth Infusion, Neonate's Rush, Polliwallop, Rebel Salvo, Visions of Villainy, Voyage Home, Chill of the Grave), 5 enters triggers (Academy Journeymage, Mistmeadow Council, Salt Road Packbeast, Thought Monitor, Valkyrie Aerial Unit), 6 other permanent lines (Furnace Hellkite, Millicent, Scale and Tooth of Chiss-Goria, Slag Strider, The Circle of Loyalty).
+      Nothing retired. Report `effect:auto` 3,884 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** 40 AUTO FLIPS with no script - the cards whose priced reduction line was the last line the accounting refused (the affinity artifacts, the Wizard-priced counters and draws, the graveyard-counted Terrors ...), and 34 spells reading auto once the line is no clause (effect:auto 3,884 -> 3,918). No wave of rows: the seam's own flips are the landing, and the bot's own deck took 23 creatures, 13 instants and 4 sorceries more on the same sweep (auto 851 -> 868). Tests: costSeam.test.ts +
+      costReduction.test.ts.
+      Fixtures 3,461 · botPool artifact 270 / creature 2,976 / enchantment 252 / instant 947 / land 394 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1193, 1337, 3122, 5058, 6416] · batch.json
+      0 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,218 files, 16,833 passing / 11 skipped ·
+      500-seed gate, 6 shards, 314.2 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D312): the reductions that read the turn (a creature died, a spell cast) once the turn memory exists; the ones that read the targets at cast; convoke and improvise as payment-plan sources; the Vehicles other lines; the turned-face-up triggers; the other graveyard casts; the cycling triggers head; the modal seam (42); the "another"
+      split; the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

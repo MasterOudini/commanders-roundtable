@@ -29,6 +29,7 @@ import type {
 } from '../engine/types/oracle';
 import { NO_PROTECTION } from '../engine/types/oracle';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
+import { parseCostReductions } from './costParse';
 import { parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities } from './activatedParse';
 import { parseEffects } from './effectParse';
@@ -740,6 +741,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const wardLife = parseWardLife(face.oracleText, warn);
   const flashbackCost = isPermanent ? null : parseFlashback(face.oracleText, warn);
   const morph = isPermanent ? parseMorph(face.oracleText, warn) : null;
+  const costReductions = parseCostReductions(face.oracleText);
   const toxicAmount = keywords.includes('toxic') ? parseToxic(face.oracleText) : 0;
   const producesMana = parseManaProduction(face, typeLine, warn);
   // ⚠️ Abilities are parsed BEFORE spell targets and are handed `producesMana`,
@@ -800,6 +802,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     morphCost: morph?.cost ?? null,
     morphCostText: morph?.text ?? null,
     megamorph: morph?.mega ?? false,
+    costReductions,
     wardLife,
     toxicAmount,
     targets,

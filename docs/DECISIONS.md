@@ -21135,3 +21135,79 @@ Fixtures 3,456 · botPool artifact 270 / creature 2,953 / enchantment 252 / inst
 **Reportables** (D311): the Vehicles other lines (the attack triggers, the enters-crewed ETBs, the becomes-crewed heads over the crew resolution); convoke (52) as a payment-plan source; the turned-face-up triggers (49); the other graveyard casts; the cycling triggers head; echo once a pay-or-else prompt exists; the modal seam (42); the "another" split;
 the by-name sacrifice cost; the remaining cost verbs; the prompt
 continuation seam; prior items stand.
+
+## D312 — M6.4ew: THE COST-REDUCTION SEAM — affinity and the generic costs-less lines the board answers are priced into the cast by the engine; 40 cards complete with no script (2026-09-04)
+
+**5,562 of 31,692 Commander-legal cards execute completely, up from
+5,522 (+40).** SHIPPED_SCRIPTS 3,108 → **3,108**;
+REFUSED ledger 1,074 → **1,093** (+19: the carriers whose OTHER line the vocabulary does not read yet - their reduction is priced: 8 spells (Allies at Last, Blinkmoth Infusion, Neonate's Rush, Polliwallop, Rebel Salvo, Visions of Villainy, Voyage Home, Chill of the Grave), 5 enters triggers (Academy Journeymage, Mistmeadow Council, Salt Road Packbeast, Thought Monitor, Valkyrie Aerial Unit), 6 other permanent lines (Furnace Hellkite, Millicent, Scale and Tooth of Chiss-Goria, Slag Strider, The Circle of Loyalty)). Fixtures
+3,456 → 3,461 (3,345 by name + 109 tokens: the seam's test cards (Frogmite, Myr Enforcer, Tolarian Terror, Wizard's Retort) and Rover Blades). ZERO new token pins; two new modules
+and seven support bodies (the ingest, the payment problem, the offer, the
+cast, the vocabulary, the accounting, the disclosure), no new intent, one
+classifier rule. **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** d312/probe-cost.json over the database: 184 blocked cards print a costs-less line (178 of them generic: {1} on 96, {2} on 54, {3} on 26) and 40 an Affinity line (artifacts 37); 115 and 40 of them have nothing else unread; the tails the engine can price from the board - for each ... you control, for each ... card in your graveyard, if you control a ... - beside the ones it cannot (a party, a memory of the turn, a target).
+
+**The seam.** CR 601.2f: a cost reduction is applied to the generic component
+of a spell's cost as it is cast, never below zero, and never a decision when
+the board alone answers it. The engine already had ONE generic adjustment
+folded into every payment problem — the commander tax — and the client's
+preview already priced the offer's tax (D53). A reduction is that adjustment
+with the other sign:
+
+- `src/data/costParse.ts` (NEW): `parseCostReductionLine` reads "Affinity
+  for <permanents>", "This spell costs {N} less to cast for each <permanent>
+  you control", "... for each <type> card in your graveyard", "... if you
+  control a <permanent>" into a `CostReduction` the board can answer
+  (`predicatesOf`, the same predicate the tap and sacrifice choosers use); a
+  colour, a memory of the turn, a target, a party stay unparsed.
+  `OracleFace.costReductions` carries them.
+- `src/engine/costs.ts` (NEW): `castReduction` sums them from the state — the
+  permanents you control that match (derived), the cards of the type in your
+  graveyard, whether you control one — for one player and one face.
+- `src/engine/mana.ts`: `buildPaymentProblem` clamps the generic part at
+  zero, so a reduction can empty it and never overdraw it.
+- `src/engine/legal.ts` / `handlers.ts`: `castAction` and `prepareCast` fold
+  the reduction into the tax (a negative one); the offer's tax is what the
+  client's preview prices, so the preview, the offer and the charge agree by
+  construction. A face-down cast reduces nothing.
+- `src/data/effectParse.ts`: a priced reduction line is no clause of the
+  spell — Wizard's Retort is its counter alone, auto.
+- `src/data/engineComplete.ts` / `tier3.ts` / `primitives.ts`: the parsed
+  line is the engine's own, the disclosure says nothing (an Affinity keyword
+  too), the classifier files it scriptable.
+
+No generator: a card whose only unread line was a priced reduction is
+COMPLETE by the accounting alone.
+
+- **Refused by name:** +19: the carriers whose OTHER line the vocabulary does not read yet - their reduction is priced: 8 spells (Allies at Last, Blinkmoth Infusion, Neonate's Rush, Polliwallop, Rebel Salvo, Visions of Villainy, Voyage Home, Chill of the Grave), 5 enters triggers (Academy Journeymage, Mistmeadow Council, Salt Road Packbeast, Thought Monitor, Valkyrie Aerial Unit), 6 other permanent lines (Furnace Hellkite, Millicent, Scale and Tooth of Chiss-Goria, Slag Strider, The Circle of Loyalty).
+- **Not this decision:** the reductions that read the turn (a creature died,
+  a spell cast, life gained), the targets at cast ("if it targets a tapped
+  creature"), a party, a colour ({G} less); convoke, improvise and delve
+  (payment-plan sources, not adjustments); cost INCREASES ("costs {1} more").
+
+Nothing retired.
+
+Report: `effect:auto` 3,884 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** `src/data/costSeam.test.ts` (the four shapes parse and the rest
+refuse; Frogmite, Myr Enforcer, Tolarian Terror and Wizard's Retort complete
+by the accounting alone; the disclosure silent; the Retort's clauses are its
+counter alone; the classifier); `src/engine/costReduction.test.ts` (Frogmite
+is {2} with two artifacts and free with four, the offer's tax carrying the
+reduction; six artifacts reduce no further than zero; Tolarian Terror is
+{3}{U} with three spells in the graveyard; Wizard's Retort is one less beside
+a Wizard and full price without; the games replay).
+
+**Landed:** 40 AUTO FLIPS with no script - the cards whose priced reduction line was the last line the accounting refused (the affinity artifacts, the Wizard-priced counters and draws, the graveyard-counted Terrors ...), and 34 spells reading auto once the line is no clause (effect:auto 3,884 -> 3,918). No wave of rows: the seam's own flips are the landing, and the bot's own deck took 23 creatures, 13 instants and 4 sorceries more on the same sweep (auto 851 -> 868).
+
+Fixtures 3,461 · botPool artifact 270 / creature 2,976 / enchantment 252 / instant 947 / land 394 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1193, 1337, 3122, 5058, 6416] · batch.json
+0 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,218 files, 16,833 passing / 11 skipped ·
+500-seed gate, 6 shards, 314.2 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D312): the reductions that read the turn (a creature died, a spell cast) once the turn memory exists; the ones that read the targets at cast; convoke and improvise as payment-plan sources; the Vehicles other lines; the turned-face-up triggers; the other graveyard casts; the cycling triggers head; the modal seam (42); the "another" split;
+the by-name sacrifice cost; the remaining cost verbs; the prompt
+continuation seam; prior items stand.

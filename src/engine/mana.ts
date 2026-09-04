@@ -290,6 +290,10 @@ export function buildPaymentProblem(
 
   fold(base);
   for (const extra of additional) fold(extra);
+  // D312 - a cost reduction rides on the same generic adjustment the commander
+  // tax does (a negative one); it can empty the generic part, never go below
+  // it (CR 601.2f: reductions apply to the generic component only).
+  generic = Math.max(0, generic);
 
   let totalMana = colorless + generic;
   for (const c of COLORS) totalMana += colored[c];

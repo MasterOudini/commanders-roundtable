@@ -26,6 +26,7 @@ import { buildPaymentProblem, costStringOf, manaSourcesOf, wardTaxFrom } from '.
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
 import { parseManaCost } from '../data/oracleParse';
+import { castReduction } from './costs';
 import { suggestPayment, solveInputFor, validatePlan } from './payment';
 import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle } from './rng';
@@ -442,7 +443,11 @@ function prepareCast(
   if (state.priority.player !== player) {
     return { error: reject('notYourPriority', 'You do not have priority.') };
   }
-  const tax = from.kind === 'command' && card.isCommander ? 2 * card.commanderCastCount : 0;
+  // D312 - the generic reductions the board grants, folded into the tax the
+  // way the offer folds them (a face-down cast has no printed text to reduce).
+  const tax =
+    (from.kind === 'command' && card.isCommander ? 2 * card.commanderCastCount : 0) -
+    (faceDown ? 0 : castReduction(state, deps.oracle, deps.scripts, player, face));
   const ward = wardTaxFor(state, deps, player, targets);
   // D307 - a flashback cast pays the FLASHBACK cost instead of the mana cost.
   const cost = faceDown ? MORPH_CAST_COST : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;

@@ -115795,6 +115795,174 @@ export const CULTIVATOR_S_CARAVAN: CardData = {
   "singleImage": true
 };
 
+export const FROGMITE: CardData = {
+  "scryfallId": "0665de15-bfd3-4b08-9712-dfcc7907607a",
+  "oracleId": "a927fd33-f183-48d9-b582-55d379d70e13",
+  "name": "Frogmite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Frogmite",
+      "manaCost": "{4}",
+      "typeLine": "Artifact Creature — Frog",
+      "oracleText": "Affinity for artifacts (This spell costs {1} less to cast for each artifact you control.)",
+      "flavorText": "At first, vedalken observers thought blinkmoths naturally avoided certain places. Then they realized those places were frogmite feeding grounds.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Terese Nielsen",
+      "imageId": "0665de15-bfd3-4b08-9712-dfcc7907607a"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [
+    "Affinity"
+  ],
+  "setCode": "ddf",
+  "collectorNumber": "51",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MYR_ENFORCER: CardData = {
+  "scryfallId": "38a45c99-e258-434c-aa42-a09f6debffe2",
+  "oracleId": "2d8e1054-654f-42e8-8c29-12c3cf13a3eb",
+  "name": "Myr Enforcer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Myr Enforcer",
+      "manaCost": "{7}",
+      "typeLine": "Artifact Creature — Myr",
+      "oracleText": "Affinity for artifacts (This spell costs {1} less to cast for each artifact you control.)",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jim Murray",
+      "imageId": "38a45c99-e258-434c-aa42-a09f6debffe2"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 7,
+  "keywords": [
+    "Affinity"
+  ],
+  "setCode": "j21",
+  "collectorNumber": "749",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TOLARIAN_TERROR: CardData = {
+  "scryfallId": "2569d4f3-55ed-4f99-9592-34c7df0aab72",
+  "oracleId": "b9d0f2e1-62c2-44fd-ad38-471daf17bb0a",
+  "name": "Tolarian Terror",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tolarian Terror",
+      "manaCost": "{6}{U}",
+      "typeLine": "Creature — Serpent",
+      "oracleText": "This spell costs {1} less to cast for each instant and sorcery card in your graveyard.\nWard {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)",
+      "flavorText": "Afterward, a number of treatises on sea serpent morphology were swiftly revised.",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Vincent Christiaens",
+      "imageId": "2569d4f3-55ed-4f99-9592-34c7df0aab72"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Ward"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "167",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WIZARD_S_RETORT: CardData = {
+  "scryfallId": "2b5483a6-1948-4452-861a-e5b815a57e2a",
+  "oracleId": "b828251c-86a9-454f-9852-d0876d0f5153",
+  "name": "Wizard's Retort",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wizard's Retort",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Instant",
+      "oracleText": "This spell costs {1} less to cast if you control a Wizard.\nCounter target spell.",
+      "flavorText": "\"The second mage learned to dissipate blasts of lightning. Threat and response: thus did the study of magic progress.\"\n—Naban, dean of iteration",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Grzegorz Rutkowski",
+      "imageId": "2b5483a6-1948-4452-861a-e5b815a57e2a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "DOM-75",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROVER_BLADES: CardData = {
+  "scryfallId": "5a3b07b7-8d51-428e-a399-61da45529c8f",
+  "oracleId": "0394846e-bc27-4d67-988e-b08a389690de",
+  "name": "Rover Blades",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rover Blades",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment Vehicle",
+      "oracleText": "Double strike\nEquipped creature has double strike.\nEquip {4}\nCrew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn. Creatures can't be attached to other permanents.)",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Eduardo Francisco",
+      "imageId": "5a3b07b7-8d51-428e-a399-61da45529c8f"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Crew",
+    "Equip",
+    "Double strike"
+  ],
+  "setCode": "dft",
+  "collectorNumber": "331",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -122856,6 +123024,11 @@ export const ENGINE_CARDS: CardData[] = [
   VESTIGE_OF_EMRAKUL,
   SKY_SKIFF,
   CULTIVATOR_S_CARAVAN,
+  FROGMITE,
+  MYR_ENFORCER,
+  TOLARIAN_TERROR,
+  WIZARD_S_RETORT,
+  ROVER_BLADES,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

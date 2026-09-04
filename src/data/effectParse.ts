@@ -26,6 +26,7 @@ import type { Warn } from './oracleParse';
 import { scrub } from './targetParse';
 import { parseTokenClause, specKey } from './tokenParse';
 import { TOKEN_TABLE } from './tokenTable';
+import { parseCostReductionLine } from './costParse';
 
 const NOOP_WARN: Warn = () => undefined;
 
@@ -876,7 +877,13 @@ export function parseEffects(
   // ability the engine runs from the hand (`activatedParse` synthesizes it), not
   // an effect clause of the spell: dropped here so the face's own sentences
   // decide its mode. Reminder text is already scrubbed at this point.
-  const clean = scrub(selfRef(oracleText, cardName))
+  // D312 - a reduction line the engine prices is no clause of the spell either,
+  // dropped on the PRINTED line before the scrub changes its shape.
+  const priced = oracleText
+    .split('\n')
+    .filter((l) => parseCostReductionLine(l) === null)
+    .join('\n');
+  const clean = scrub(selfRef(priced, cardName))
     .split('\n')
     .filter((l) => !/^(?:Cycling|Flashback) (?:\{[^}]+\})+\s*$/.test(l.trim()))
     .join('\n');

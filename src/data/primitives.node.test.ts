@@ -315,8 +315,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // scale — 19 of 25, the six refusals named — 1,742 → 1,761. M6.4d
       // (D161): thirteen more, and the selection taught two refusal shapes —
       // 1,761 → 1,774.
-      complete: 5522,
-      blocked: 26170,
+      complete: 5562,
+      blocked: 26130,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -325,20 +325,20 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1174,
+      scriptableToday: 1193,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
       // of which 169 genuinely needed nothing but the yes/no. It led D127's table
       // at 2,012 and is in fact the second SMALLEST row. See D153 and
       // `primitiveFor`.
-      optional: 135,
+      optional: 136,
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
-      layer6: 1501,
-      counter: 1539,
-      token: 988,
+      layer6: 1502,
+      counter: 1542,
+      token: 991,
     });
   });
 
@@ -375,7 +375,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1174, 1317, 3100, 5032, 6384]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1193, 1337, 3122, 5058, 6416]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -462,11 +462,11 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       else split.unclaimed++;
       if (card.layer6Lines.some((t) => TEMPORARY.test(t))) temporary++;
     }
-    expect.soft(split).toEqual({ grant: 885, anthem: 174, restriction: 288, conditional: 154, unclaimed: 0 });
+    expect.soft(split).toEqual({ grant: 886, anthem: 174, restriction: 288, conditional: 154, unclaimed: 0 });
     // ⚠️ THE NUMBER THAT KEEPS `layer6` OUT OF `BUILT`. Asserted here rather than
     // written in the comment above, because D129's reason lived in a comment and
     // stayed there for twenty-four decisions after D147 closed it.
-    expect.soft(temporary).toBe(604);
+    expect.soft(temporary).toBe(605);
   });
 
   /**
@@ -499,7 +499,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     }
     // ⚠️ THE SPELLS are the only part that could move `complete` — and every one
     // of them still needs the resolver.
-    expect.soft(byOwner).toEqual({ spell: 340, permanent: 648 });
+    expect.soft(byOwner).toEqual({ spell: 342, permanent: 649 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -514,9 +514,9 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     expect.soft(byKind).toEqual({
       copy: 114,
       predefined: 147,
-      withAbilities: 305,
+      withAbilities: 306,
       variable: 79,
-      plain: 343,
+      plain: 345,
       unclaimed: 0,
     });
   });
@@ -547,8 +547,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1174, 1317]);
-    expect.soft(r.complete).toBe(5522);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1193, 1337]);
+    expect.soft(r.complete).toBe(5562);
   });
 });
 

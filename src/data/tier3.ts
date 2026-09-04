@@ -36,6 +36,7 @@
 import type { CardData, CardFace } from './cardTypes';
 import { canonicalKeyword } from '../engine/keywords';
 import { parseFlashback, parseManaCost, parseManaProduction, parseMorph, parseTypeLine } from './oracleParse';
+import { parseCostReductions } from './costParse';
 import { isPermanentType } from './oracleParse';
 import { parseEnchant, parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities } from './activatedParse';
@@ -336,6 +337,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (raw.trim().toLowerCase() === 'cycling' && abilities.some((a) => a.cycling !== undefined)) continue;
     // D311 - a Crew the engine runs is no note either.
     if (raw.trim().toLowerCase() === 'crew' && abilities.some((a) => a.crew !== undefined)) continue;
+    // D312 - an Affinity the engine prices is no note either.
+    if (raw.trim().toLowerCase() === 'affinity' && parseCostReductions(card.faces[faceIndex]?.oracleText ?? '').some((r) => r.kind === 'affinity')) continue;
     // D307 - a Flashback the engine runs (a mana cost, read by parseFlashback) is no note.
     if (raw.trim().toLowerCase() === 'flashback' && !isPermanentType(parseTypeLine(card.faces[faceIndex]?.typeLine ?? '')) && parseFlashback(card.faces[faceIndex]?.oracleText ?? '') !== null) continue;
     // D309 - a Morph / Megamorph the engine runs (a mana cost, read by parseMorph) is no note.

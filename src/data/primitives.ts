@@ -31,6 +31,7 @@ import { parseEffects, selfRef } from './effectParse';
 import { enchantSpecRuns, unaccountedLines, type UnaccountedLine } from './engineComplete';
 import { parseTypeLine } from './oracleParse';
 import { parseEnchant } from './targetParse';
+import { parseCostReductionLine } from './costParse';
 
 /**
  * The primitives the M6 brief names, plus the two the data added.
@@ -635,6 +636,17 @@ export function crewLineRuns(text: string): boolean {
   return CREW_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
 }
 
+/**
+ * D312 - THE COST-REDUCTION SEAM. A generic reduction the engine prices at
+ * cast time (affinity, "costs {N} less to cast for each ... you control / for
+ * each ... card in your graveyard / if you control a ..."). Measured over the
+ * database before it was built: 184 blocked cards print a "costs less" line
+ * and 40 an affinity line, 115 + 40 of them with nothing else unread.
+ */
+export function costReductionLineRuns(text: string): boolean {
+  return parseCostReductionLine(text) !== null;
+}
+
 /** Is this printed line an equipped-creature static or restriction a row can emit (D305)? */
 export function equipLineShape(text: string): boolean {
   return EQUIPPED_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
@@ -661,6 +673,10 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   if (/^flashback\b/i.test(text)) return flashbackLineRuns(text) ? 'scriptable' : 'keyword:altCost';
   // D311 - a Crew line is the engine's own (see `crewLineRuns`).
   if (/^crew\b/i.test(text)) return crewLineRuns(text) ? 'scriptable' : 'keyword:other';
+  // D312 - a generic cost reduction the engine prices is the engine's own; the
+  // rest of the family (a colour, a memory, a target) keeps its bucket.
+  if (/^affinity for\b/i.test(text)) return costReductionLineRuns(text) ? 'scriptable' : 'keyword:altCost';
+  if (/^this spell costs \{\d+\} less to cast\b/i.test(text) && costReductionLineRuns(text)) return 'scriptable';
   // D309 - a Morph / Megamorph line with a mana cost is the engine's own (see
   // `morphLineRuns`); a dash cost stays `keyword:altCost`.
   if (/^(?:morph|megamorph)\b/i.test(text)) return morphLineRuns(text) ? 'scriptable' : 'keyword:altCost';

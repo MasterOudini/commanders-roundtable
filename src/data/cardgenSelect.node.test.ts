@@ -2019,6 +2019,28 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Thopter Fabricator', 'a Vehicle line outside the vocabulary (its crew runs)'],
   ['Turtle Blimp', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Veloheart Bike', 'an enters trigger outside the vocabulary (its crew runs)'],
+
+  // D312 (M6.4ew) — the cost-reduction pool: the carriers whose other
+  // lines the vocabulary does not read yet - their reduction is priced.
+  ['Academy Journeymage', 'an enters trigger outside the vocabulary (its reduction is priced)'],
+  ['Allies at Last', 'a spell line outside the vocabulary (its reduction is priced)'],
+  ['Blinkmoth Infusion', 'a spell line outside the vocabulary (its reduction is priced)'],
+  ['Furnace Hellkite', 'a permanent line outside the vocabulary (its reduction is priced)'],
+  ['Millicent, Restless Revenant', 'a permanent line outside the vocabulary (its reduction is priced)'],
+  ['Mistmeadow Council', 'an enters trigger outside the vocabulary (its reduction is priced)'],
+  ['Neonate\'s Rush', 'a spell line outside the vocabulary (its reduction is priced)'],
+  ['Polliwallop', 'a spell line outside the vocabulary (its reduction is priced)'],
+  ['Rebel Salvo', 'a spell line outside the vocabulary (its reduction is priced)'],
+  ['Salt Road Packbeast', 'an enters trigger outside the vocabulary (its reduction is priced)'],
+  ['Scale of Chiss-Goria', 'a permanent line outside the vocabulary (its reduction is priced)'],
+  ['Slag Strider', 'a permanent line outside the vocabulary (its reduction is priced)'],
+  ['Thought Monitor', 'an enters trigger outside the vocabulary (its reduction is priced)'],
+  ['Tooth of Chiss-Goria', 'a permanent line outside the vocabulary (its reduction is priced)'],
+  ['Valkyrie Aerial Unit', 'an enters trigger outside the vocabulary (its reduction is priced)'],
+  ['Visions of Villainy', 'a spell line outside the vocabulary (its reduction is priced)'],
+  ['Voyage Home', 'a spell line outside the vocabulary (its reduction is priced)'],
+  ['Chill of the Grave', 'a spell line outside the vocabulary (its reduction is priced)'],
+  ['The Circle of Loyalty', 'a permanent line outside the vocabulary (its reduction is priced)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

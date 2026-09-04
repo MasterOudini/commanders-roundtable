@@ -8,6 +8,7 @@
 
 import { faceOf } from './oracle';
 import { parseManaCost } from '../data/oracleParse';
+import { castReduction } from './costs';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
 import { buildPaymentProblem, costStringOf, manaSourcesOf } from './mana';
 import { affordable, solveInputFor, type SolveInput } from './payment';
@@ -181,7 +182,7 @@ export function legalActions(
         if (canLand) out.push({ t: 'PlayLand', card: id, faceIndex, label: face.name });
         continue;
       }
-      const action = castAction(state, oracle, id, faceIndex, { kind: 'hand', player }, context, sorcerySpeed);
+      const action = castAction(state, oracle, scripts, id, faceIndex, { kind: 'hand', player }, context, sorcerySpeed);
       if (action) out.push(action);
     }
   }
@@ -193,7 +194,7 @@ export function legalActions(
     if (!card) continue;
     for (const faceIndex of castableFaces(card)) {
       if (faceOf(card, faceIndex).flashbackCost === null) continue;
-      const action = castAction(state, oracle, id, faceIndex, { kind: 'graveyard', player }, context, sorcerySpeed);
+      const action = castAction(state, oracle, scripts, id, faceIndex, { kind: 'graveyard', player }, context, sorcerySpeed);
       if (action) out.push(action);
     }
   }
@@ -204,7 +205,7 @@ export function legalActions(
     const card = cardFor(state, oracle, id);
     if (!card) continue;
     for (const faceIndex of castableFaces(card)) {
-      const action = castAction(state, oracle, id, faceIndex, { kind: 'command', player }, context, sorcerySpeed);
+      const action = castAction(state, oracle, scripts, id, faceIndex, { kind: 'command', player }, context, sorcerySpeed);
       if (action) out.push(action);
     }
   }
@@ -523,6 +524,7 @@ function cardFor(state: GameState, oracle: OracleDb, id: InstanceId): OracleCard
 function castAction(
   state: GameState,
   oracle: OracleDb,
+  scripts: ScriptRegistry,
   id: InstanceId,
   faceIndex: number,
   from: ZoneRef,
@@ -538,7 +540,12 @@ function castAction(
   if (from.kind === 'command' && !inst.isCommander) return null;
   if (!face.instantSpeed && !sorcerySpeed) return null;
 
-  const tax = from.kind === 'command' && inst.isCommander ? 2 * inst.commanderCastCount : 0;
+  // D312 - the generic reductions the board grants this cast are folded into
+  // the same adjustment the commander tax rides on: the offer's `tax` is what
+  // the client's preview prices, so the two agree by construction (D53).
+  const tax =
+    (from.kind === 'command' && inst.isCommander ? 2 * inst.commanderCastCount : 0) -
+    castReduction(state, oracle, scripts, from.player ?? inst.controller, face, ctx.cache);
   const hasX = face.manaCost.xCount > 0;
   // D307 - from the graveyard the cost is the FLASHBACK cost (CR 702.34a).
   const cost = from.kind === 'graveyard' ? face.flashbackCost : face.manaCost;
