@@ -7,6 +7,95 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ARC_RUNNER_SCRIPT } from './cards/arcRunner';
+import { ARCHWING_DRAGON_SCRIPT } from './cards/archwingDragon';
+import { BALL_LIGHTNING_SCRIPT } from './cards/ballLightning';
+import { ENDLESS_COCKROACHES_SCRIPT } from './cards/endlessCockroaches';
+import { FLEETING_EFFIGY_SCRIPT } from './cards/fleetingEffigy';
+import { GLITTERFANG_SCRIPT } from './cards/glitterfang';
+import { GROUNDBREAKER_SCRIPT } from './cards/groundbreaker';
+import { IMMORTAL_PHOENIX_SCRIPT } from './cards/immortalPhoenix';
+import { MORTUS_STRIDER_SCRIPT } from './cards/mortusStrider';
+import { PUTREFAX_SCRIPT } from './cards/putrefax';
+import { SHIVAN_PHOENIX_SCRIPT } from './cards/shivanPhoenix';
+import { SPARK_ELEMENTAL_SCRIPT } from './cards/sparkElemental';
+import { SPARK_TROOPER_SCRIPT } from './cards/sparkTrooper';
+import { VIASHINO_CUTTHROAT_SCRIPT } from './cards/viashinoCutthroat';
+import { VIASHINO_SANDSCOUT_SCRIPT } from './cards/viashinoSandscout';
+import { VIASHINO_SANDSPRINTER_SCRIPT } from './cards/viashinoSandsprinter';
+import { VIASHINO_SANDSTALKER_SCRIPT } from './cards/viashinoSandstalker';
+import { WEATHERSEED_TREEFOLK_SCRIPT } from './cards/weatherseedTreefolk';
+import { UNRULY_MOB_SCRIPT } from './cards/unrulyMob';
+import { FORSAKEN_DRIFTERS_SCRIPT } from './cards/forsakenDrifters';
+import { SHADOWMAGE_INFILTRATOR_SCRIPT } from './cards/shadowmageInfiltrator';
+import { FALLOWSAGE_SCRIPT } from './cards/fallowsage';
+import { NIGHT_MARKET_LOOKOUT_SCRIPT } from './cards/nightMarketLookout';
+import { GORING_CERATOPS_SCRIPT } from './cards/goringCeratops';
+import { INFECTIOUS_HORROR_SCRIPT } from './cards/infectiousHorror';
+import { SAPRAZZAN_HEIR_SCRIPT } from './cards/saprazzanHeir';
+import { SKIRMISH_RHINO_SCRIPT } from './cards/skirmishRhino';
+import { SIEGE_RHINO_SCRIPT } from './cards/siegeRhino';
+import { SCREECHING_SKAAB_SCRIPT } from './cards/screechingSkaab';
+import { EPICURE_OF_BLOOD_SCRIPT } from './cards/epicureOfBlood';
+import { VENOMIZED_CAT_SCRIPT } from './cards/venomizedCat';
+import { DROGSKOL_SHIELDMATE_SCRIPT } from './cards/drogskolShieldmate';
+import { GAVONY_UNHALLOWED_SCRIPT } from './cards/gavonyUnhallowed';
+import { ROT_SHAMBLER_SCRIPT } from './cards/rotShambler';
+import { ELAS_IL_KOR_SADISTIC_PILGRIM_SCRIPT } from './cards/elasIlKorSadisticPilgrim';
+import { EARTHSHAKER_GIANT_SCRIPT } from './cards/earthshakerGiant';
+import { MARAUDING_BLIGHT_PRIEST_SCRIPT } from './cards/maraudingBlightPriest';
+import { AVEN_FISHER_SCRIPT } from './cards/avenFisher';
+import { SULTAI_SKULLKEEPER_SCRIPT } from './cards/sultaiSkullkeeper';
+import { END_RAZE_FORERUNNERS_SCRIPT } from './cards/endRazeForerunners';
+import { TATTERED_MUMMY_SCRIPT } from './cards/tatteredMummy';
+import { VICIOUS_CONQUISTADOR_SCRIPT } from './cards/viciousConquistador';
+import { LABORATORY_BRUTE_SCRIPT } from './cards/laboratoryBrute';
+import { HARBINGER_OF_NIGHT_SCRIPT } from './cards/harbingerOfNight';
+import { EXCAVATION_MOLE_SCRIPT } from './cards/excavationMole';
+import { BOLT_HOUND_SCRIPT } from './cards/boltHound';
+import { DEATHS_HEAD_BUZZARD_SCRIPT } from './cards/deathsHeadBuzzard';
+import { MYSTERIOS_PHANTASM_SCRIPT } from './cards/mysteriosPhantasm';
+import { CORPSE_KNIGHT_SCRIPT } from './cards/corpseKnight';
+import { PULSE_TRACKER_SCRIPT } from './cards/pulseTracker';
+import { ETCHED_FAMILIAR_SCRIPT } from './cards/etchedFamiliar';
+import { GLIDEDIVE_DUO_SCRIPT } from './cards/glidediveDuo';
+import { NOCTURNAL_FEEDER_SCRIPT } from './cards/nocturnalFeeder';
+import { VAMPIRE_SPAWN_SCRIPT } from './cards/vampireSpawn';
+import { SNEERING_SHADEWRITER_SCRIPT } from './cards/sneeringShadewriter';
+import { SYR_ALIN_THE_LIONS_CLAW_SCRIPT } from './cards/syrAlinTheLionsClaw';
+import { WAILING_GHOUL_SCRIPT } from './cards/wailingGhoul';
+import { DRANAS_EMISSARY_SCRIPT } from './cards/dranasEmissary';
+import { PSYCHIC_MEMBRANE_SCRIPT } from './cards/psychicMembrane';
+import { BLISTERGRUB_SCRIPT } from './cards/blistergrub';
+import { RUSHWOOD_ELEMENTAL_SCRIPT } from './cards/rushwoodElemental';
+import { CLIFFHAVEN_VAMPIRE_SCRIPT } from './cards/cliffhavenVampire';
+import { HAVOC_DEMON_SCRIPT } from './cards/havocDemon';
+import { BROTHERHOOD_PATRIARCH_SCRIPT } from './cards/brotherhoodPatriarch';
+import { DOGGED_PURSUIT_SCRIPT } from './cards/doggedPursuit';
+import { OCULUS_SCRIPT } from './cards/oculus';
+import { SYMBIOTE_SPAWN_SCRIPT } from './cards/symbioteSpawn';
+import { PLAGUE_DOGS_SCRIPT } from './cards/plagueDogs';
+import { GUARDIAN_KIRIN_SCRIPT } from './cards/guardianKirin';
+import { VICTORYS_ENVOY_SCRIPT } from './cards/victorysEnvoy';
+import { CHAMBERED_NAUTILUS_SCRIPT } from './cards/chamberedNautilus';
+import { VETERAN_OF_THE_DEPTHS_SCRIPT } from './cards/veteranOfTheDepths';
+import { NECROMANCERS_ASSISTANT_SCRIPT } from './cards/necromancersAssistant';
+import { DRELNOCH_SCRIPT } from './cards/drelnoch';
+import { SURVEILLING_SPRITE_SCRIPT } from './cards/surveillingSprite';
+import { THUNDERING_CERATOK_SCRIPT } from './cards/thunderingCeratok';
+import { VENOMOUS_HIEROPHANT_SCRIPT } from './cards/venomousHierophant';
+import { SOLTARI_CHAMPION_SCRIPT } from './cards/soltariChampion';
+import { BURROWING_RAZORMAW_SCRIPT } from './cards/burrowingRazormaw';
+import { NEUROK_COMMANDO_SCRIPT } from './cards/neurokCommando';
+import { SANGUINE_SYPHONER_SCRIPT } from './cards/sanguineSyphoner';
+import { MINESHAFT_SPIDER_SCRIPT } from './cards/mineshaftSpider';
+import { SCREAMING_PHANTOM_SCRIPT } from './cards/screamingPhantom';
+import { SCARBLADE_SCOUT_SCRIPT } from './cards/scarbladeScout';
+import { LOXODON_SERGEANT_SCRIPT } from './cards/loxodonSergeant';
+import { DEATHCAP_MARIONETTE_SCRIPT } from './cards/deathcapMarionette';
+import { ARMORED_SKAAB_SCRIPT } from './cards/armoredSkaab';
+import { DAGGERFANG_DUO_SCRIPT } from './cards/daggerfangDuo';
+import { SPIRIT_OF_MALEVOLENCE_SCRIPT } from './cards/spiritOfMalevolence';
 import { MISTWALKER_SCRIPT } from './cards/mistwalker';
 import { PROPHET_OF_DISTORTION_SCRIPT } from './cards/prophetOfDistortion';
 import { SLAUGHTER_DRONE_SCRIPT } from './cards/slaughterDrone';
@@ -3229,6 +3318,95 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ARC_RUNNER_SCRIPT,
+  ARCHWING_DRAGON_SCRIPT,
+  BALL_LIGHTNING_SCRIPT,
+  ENDLESS_COCKROACHES_SCRIPT,
+  FLEETING_EFFIGY_SCRIPT,
+  GLITTERFANG_SCRIPT,
+  GROUNDBREAKER_SCRIPT,
+  IMMORTAL_PHOENIX_SCRIPT,
+  MORTUS_STRIDER_SCRIPT,
+  PUTREFAX_SCRIPT,
+  SHIVAN_PHOENIX_SCRIPT,
+  SPARK_ELEMENTAL_SCRIPT,
+  SPARK_TROOPER_SCRIPT,
+  VIASHINO_CUTTHROAT_SCRIPT,
+  VIASHINO_SANDSCOUT_SCRIPT,
+  VIASHINO_SANDSPRINTER_SCRIPT,
+  VIASHINO_SANDSTALKER_SCRIPT,
+  WEATHERSEED_TREEFOLK_SCRIPT,
+  UNRULY_MOB_SCRIPT,
+  FORSAKEN_DRIFTERS_SCRIPT,
+  SHADOWMAGE_INFILTRATOR_SCRIPT,
+  FALLOWSAGE_SCRIPT,
+  NIGHT_MARKET_LOOKOUT_SCRIPT,
+  GORING_CERATOPS_SCRIPT,
+  INFECTIOUS_HORROR_SCRIPT,
+  SAPRAZZAN_HEIR_SCRIPT,
+  SKIRMISH_RHINO_SCRIPT,
+  SIEGE_RHINO_SCRIPT,
+  SCREECHING_SKAAB_SCRIPT,
+  EPICURE_OF_BLOOD_SCRIPT,
+  VENOMIZED_CAT_SCRIPT,
+  DROGSKOL_SHIELDMATE_SCRIPT,
+  GAVONY_UNHALLOWED_SCRIPT,
+  ROT_SHAMBLER_SCRIPT,
+  ELAS_IL_KOR_SADISTIC_PILGRIM_SCRIPT,
+  EARTHSHAKER_GIANT_SCRIPT,
+  MARAUDING_BLIGHT_PRIEST_SCRIPT,
+  AVEN_FISHER_SCRIPT,
+  SULTAI_SKULLKEEPER_SCRIPT,
+  END_RAZE_FORERUNNERS_SCRIPT,
+  TATTERED_MUMMY_SCRIPT,
+  VICIOUS_CONQUISTADOR_SCRIPT,
+  LABORATORY_BRUTE_SCRIPT,
+  HARBINGER_OF_NIGHT_SCRIPT,
+  EXCAVATION_MOLE_SCRIPT,
+  BOLT_HOUND_SCRIPT,
+  DEATHS_HEAD_BUZZARD_SCRIPT,
+  MYSTERIOS_PHANTASM_SCRIPT,
+  CORPSE_KNIGHT_SCRIPT,
+  PULSE_TRACKER_SCRIPT,
+  ETCHED_FAMILIAR_SCRIPT,
+  GLIDEDIVE_DUO_SCRIPT,
+  NOCTURNAL_FEEDER_SCRIPT,
+  VAMPIRE_SPAWN_SCRIPT,
+  SNEERING_SHADEWRITER_SCRIPT,
+  SYR_ALIN_THE_LIONS_CLAW_SCRIPT,
+  WAILING_GHOUL_SCRIPT,
+  DRANAS_EMISSARY_SCRIPT,
+  PSYCHIC_MEMBRANE_SCRIPT,
+  BLISTERGRUB_SCRIPT,
+  RUSHWOOD_ELEMENTAL_SCRIPT,
+  CLIFFHAVEN_VAMPIRE_SCRIPT,
+  HAVOC_DEMON_SCRIPT,
+  BROTHERHOOD_PATRIARCH_SCRIPT,
+  DOGGED_PURSUIT_SCRIPT,
+  OCULUS_SCRIPT,
+  SYMBIOTE_SPAWN_SCRIPT,
+  PLAGUE_DOGS_SCRIPT,
+  GUARDIAN_KIRIN_SCRIPT,
+  VICTORYS_ENVOY_SCRIPT,
+  CHAMBERED_NAUTILUS_SCRIPT,
+  VETERAN_OF_THE_DEPTHS_SCRIPT,
+  NECROMANCERS_ASSISTANT_SCRIPT,
+  DRELNOCH_SCRIPT,
+  SURVEILLING_SPRITE_SCRIPT,
+  THUNDERING_CERATOK_SCRIPT,
+  VENOMOUS_HIEROPHANT_SCRIPT,
+  SOLTARI_CHAMPION_SCRIPT,
+  BURROWING_RAZORMAW_SCRIPT,
+  NEUROK_COMMANDO_SCRIPT,
+  SANGUINE_SYPHONER_SCRIPT,
+  MINESHAFT_SPIDER_SCRIPT,
+  SCREAMING_PHANTOM_SCRIPT,
+  SCARBLADE_SCOUT_SCRIPT,
+  LOXODON_SERGEANT_SCRIPT,
+  DEATHCAP_MARIONETTE_SCRIPT,
+  ARMORED_SKAAB_SCRIPT,
+  DAGGERFANG_DUO_SCRIPT,
+  SPIRIT_OF_MALEVOLENCE_SCRIPT,
   MISTWALKER_SCRIPT,
   PROPHET_OF_DISTORTION_SCRIPT,
   SLAUGHTER_DRONE_SCRIPT,

@@ -21211,3 +21211,71 @@ Fixtures 3,461 · botPool artifact 270 / creature 2,976 / enchantment 252 / inst
 **Reportables** (D312): the reductions that read the turn (a creature died, a spell cast) once the turn memory exists; the ones that read the targets at cast; convoke and improvise as payment-plan sources; the Vehicles other lines; the turned-face-up triggers; the other graveyard casts; the cycling triggers head; the modal seam (42); the "another" split;
 the by-name sacrifice cost; the remaining cost verbs; the prompt
 continuation seam; prior items stand.
+
+## D313 — M6.4ex: THE TRIGGER HEADS, PART 2 — seven more heads and six more payloads in the one-shot generator, a you-may payload an optional trigger; 89 cards land as generated rows (2026-09-04)
+
+**5,651 of 31,692 Commander-legal cards execute completely, up from
+5,562 (+89).** SHIPPED_SCRIPTS 3,108 → **3,197**;
+REFUSED ledger 1,093 → **1,093** (none this decision - the rows landed by name from the candidate probe, none of them was in the ledger, and the pool the classifier offers stays empty). Fixtures
+3,461 → 3,550 (3,434 by name + 109 tokens: the 89 rowed cards). ZERO new token pins; no engine change
+— one generator, one row maker, one candidate probe. **Select pool 0 →
+0.**
+
+**The gap, measured before it was built.** d313/probe-heads.json over the database: 5,528 blocked permanents have exactly ONE unread line and it is a trigger - the heads: this creature enters 1,223, your upkeep 309, this creature attacks 283, this creature dies 228, your end step 166, combat damage to a player 124, combat on your turn 97, each upkeep 47, turned face up 42 ...; the payloads: a +1/+1 counter on it 78, it gets +N/+N 63, you may draw a card 44, each opponent loses N and you gain N 28, N damage to any target 27, you may gain N 26, loot 21, sacrifice it 20, mill N 18, each opponent loses N 18, return it to hand 17 ....
+
+**The rows.** D301's part-B generator reads a card's whole text as row
+abilities and proves each in its own game; its head library stopped at the
+enters / attacks / cast / block / combat-damage / life-gain heads and its
+payloads at the pumps, counters, a card, N life, a tap, a bounce, a token.
+The probe's cells say where the next mass is:
+
+- `d313/make-rows3.cjs`: seven more heads — "When this creature dies"
+  (looks back, CR 603.10), "At the beginning of your upkeep", "At the
+  beginning of your end step", "At the beginning of the end step", "At the
+  beginning of combat on your turn" (`StepBegan`, the active player the
+  controller where the head says "your"), "Whenever another creature you
+  control dies" (looks back), "Whenever this creature becomes tapped"
+  (`PermanentsTapped`); six more payloads — draw N, each opponent loses N
+  life, each opponent loses N and you gain N, sacrifice itself, return itself
+  to its owner's hand, mill N (the top of a library is the END of the array,
+  as `drawFromTop` reads it); and "you may <payload>" as the same payload on
+  an OPTIONAL trigger (CR 603.5).
+- `d313/gen-oneshot3.cjs`: the same one module + one suite per row; every
+  new head fired in the test (a manual death, the next upkeep, the end step,
+  the beginning of combat, a Bear's death, a manual tap), every new payload
+  asserted (the opponent's life, the hand, the graveyard, the zone), an
+  optional trigger answered yes at its prompt, the pump's end at cleanup, the
+  replay hash.
+- Rows land BY NAME from the candidate probe (every blocked single-face
+  permanent whose EVERY unread line the grammar reads); the classifier does
+  not learn the heads this decision, so the select pool stays 0 and
+  `scriptableToday` does not move — `complete` does. The REFUSED rows of the
+  cards that now ship are removed.
+
+- **Refused by name:** none this decision - the rows landed by name from the candidate probe, none of them was in the ledger, and the pool the classifier offers stays empty.
+- **Not this decision:** the payloads the generator still refuses (N damage
+  to any target, loot, a token on a trigger, "you gain that much life",
+  "target creature can't block this turn", each opponent discards), the
+  heads still outside it (each player's upkeep, turned face up, attacks and
+  isn't blocked, becomes the target of a spell or ability), the classifier's
+  head library.
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** one generated suite per row (89 suites), each ability in
+its own game; the generator's own heads proven by the rows that use them.
+
+**Landed:** no auto flips (no engine change) and 89 generated rows - the 95 candidates less the 6 the row maker still refuses (Rumbleweed's cost line, Blistering Firecat's morph line, a dies-then-return under another head ...). The wave IS the landing: 89 rows over the new heads and payloads - 31 enters-mill (Screeching Skaab, Armored Skaab ...), 10 end-step sacrifices (Ball Lightning, Spark Elemental ...), 6 end-step returns (Viashino Sandstalker ...), 6 another-creature-dies counters (Unruly Mob ...), 6 upkeep mills, 6 enters drains (Skirmish Rhino, Siege Rhino ...), 5 dies-returns (Endless Cockroaches, Shivan Phoenix ...), the rest across the heads; the bot's own deck took 88 creatures and an enchantment more.
+
+Fixtures 3,550 · botPool artifact 270 / creature 3,064 / enchantment 253 / instant 947 / land 394 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1193, 1327, 3103, 5031, 6389] · batch.json
+89 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,307 files, 17,204 passing / 11 skipped ·
+500-seed gate, 6 shards, 304.7 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D313): the payloads the generator still refuses (N damage to any target, loot, tokens on a trigger, gain that much life, target creature can not block, each opponent discards), the heads still outside it (each upkeep, turned face up, attacks and is not blocked, becomes the target), the classifier learning the new heads so the pool offers them; convoke and improvise; the other graveyard casts; the cycling triggers head; the modal seam (42); the "another" split;
+the by-name sacrifice cost; the remaining cost verbs; the prompt
+continuation seam; prior items stand.

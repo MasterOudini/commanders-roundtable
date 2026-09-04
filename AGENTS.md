@@ -9611,6 +9611,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D312): the reductions that read the turn (a creature died, a spell cast) once the turn memory exists; the ones that read the targets at cast; convoke and improvise as payment-plan sources; the Vehicles other lines; the turned-face-up triggers; the other graveyard casts; the cycling triggers head; the modal seam (42); the "another"
       split; the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4ex — THE TRIGGER HEADS, PART 2: seven more heads and six more
+      payloads in the one-shot generator, a you-may payload an optional
+      trigger; 89 cards land as generated rows (2026-09-04):**
+      **5,651 of 31,692 Commander-legal cards now execute completely, up
+      from 5,562 (+89).** `SHIPPED_SCRIPTS` 3,197; ledger
+      1,093 (none this decision - the rows landed by name from the candidate probe, none of them was in the ledger, and the pool the classifier offers stays empty). Fixtures 3,550 (3,434 by name + 109 tokens: the 89 rowed cards). ZERO token
+      pins; no engine change. **Select pool 0.** Decisions in **D313**.
+      ⚠️ **Measured first:** d313/probe-heads.json over the database: 5,528 blocked permanents have exactly ONE unread line and it is a trigger - the heads: this creature enters 1,223, your upkeep 309, this creature attacks 283, this creature dies 228, your end step 166, combat damage to a player 124, combat on your turn 97, each upkeep 47, turned face up 42 ...; the payloads: a +1/+1 counter on it 78, it gets +N/+N 63, you may draw a card 44, each opponent loses N and you gain N 28, N damage to any target 27, you may gain N 26, loot 21, sacrifice it 20, mill N 18, each opponent loses N 18, return it to hand 17 ....
+      ⚠️ **The rows:** `d313/make-rows3.cjs` + `gen-oneshot3.cjs` (from D301's
+      part B) — heads dies (looks back), your upkeep, your end step, the end
+      step, combat on your turn (`StepBegan` + the active player), another
+      creature you control dies (looks back), becomes tapped; payloads draw N,
+      each opponent loses N, drain, sacrifice itself, return itself, mill N
+      (the top of a library is the END of the array); "you may" as an
+      OPTIONAL trigger answered at its prompt. One module + one suite per
+      row, every ability in its own game. Rows land BY NAME from the
+      candidate probe; the classifier does not learn the heads yet, so the
+      pool stays 0 and only `complete` moves; the REFUSED rows of the cards
+      that now ship are removed. NOT this decision: the payloads and heads
+      the generator still refuses, the classifier's head library. Refused by
+      name: none this decision - the rows landed by name from the candidate probe, none of them was in the ledger, and the pool the classifier offers stays empty.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips (no engine change) and 89 generated rows - the 95 candidates less the 6 the row maker still refuses (Rumbleweed's cost line, Blistering Firecat's morph line, a dies-then-return under another head ...). The wave IS the landing: 89 rows over the new heads and payloads - 31 enters-mill (Screeching Skaab, Armored Skaab ...), 10 end-step sacrifices (Ball Lightning, Spark Elemental ...), 6 end-step returns (Viashino Sandstalker ...), 6 another-creature-dies counters (Unruly Mob ...), 6 upkeep mills, 6 enters drains (Skirmish Rhino, Siege Rhino ...), 5 dies-returns (Endless Cockroaches, Shivan Phoenix ...), the rest across the heads; the bot's own deck took 88 creatures and an enchantment more. Tests: one generated suite per row.
+      Fixtures 3,550 · botPool artifact 270 / creature 3,064 / enchantment 253 / instant 947 / land 394 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1193, 1327, 3103, 5031, 6389] · batch.json
+      89 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,307 files, 17,204 passing / 11 skipped ·
+      500-seed gate, 6 shards, 304.7 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D313): the payloads the generator still refuses (N damage to any target, loot, tokens on a trigger, gain that much life, target creature can not block, each opponent discards), the heads still outside it (each upkeep, turned face up, attacks and is not blocked, becomes the target), the classifier learning the new heads so the pool offers them; convoke and improvise; the other graveyard casts; the cycling triggers head; the modal seam (42); the "another"
+      split; the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
