@@ -27,7 +27,7 @@
 // that is lying about something.
 
 import type { CardData } from './cardTypes';
-import { parseEffects } from './effectParse';
+import { parseEffects, selfRef } from './effectParse';
 import { unaccountedLines, type UnaccountedLine } from './engineComplete';
 import { parseTypeLine } from './oracleParse';
 
@@ -479,6 +479,34 @@ export function staticRowShape(text: string): boolean {
   return STATIC_ROW_SHAPES.some((re) => re.test(text));
 }
 
+/**
+ * D301 - THE ONE-SHOT SEAM. An ACTIVATED line whose effect is a pump or keyword
+ * grant until end of turn on the permanent itself or on the controller's
+ * creatures (or all creatures) is a table row (d301/gen-oneshot.cjs): the
+ * engine charges the printed cost, the def emits D194's carrier. `L6_GRANT`
+ * and `L6_ANTHEM` had filed these under `layer6` - they are not statics, and
+ * the probe over the database counted 627 cards whose every blocker was one
+ * (280 activated on the permanent itself, 45 on its creatures). Triggered
+ * one-shots stay where they are until their heads are measured.
+ *
+ * ⚠️ The classifier cannot see whether the COST is chargeable; a card with a
+ * cost no table row can pay (a random discard, a graveyard activation, a
+ * counter removed) is offered and refused by name into the ledger.
+ */
+const ONESHOT_KW = '(?:flying|trample|vigilance|haste|lifelink|deathtouch|first strike|double strike|menace|hexproof|indestructible|reach|defender|shroud)';
+const ONESHOT_PT = '[+-]\\d+/[+-]\\d+';
+const ONESHOT_SELF = new RegExp(`^~ (?:gets ${ONESHOT_PT}|gains ${ONESHOT_KW}(?: and ${ONESHOT_KW})?|gets ${ONESHOT_PT} and gains ${ONESHOT_KW}(?: and ${ONESHOT_KW})?) until end of turn\\.$`);
+const ONESHOT_MASS = new RegExp(`^(?:All creatures|Creatures you control|Other creatures you control) (?:get ${ONESHOT_PT}|gain ${ONESHOT_KW}(?: and ${ONESHOT_KW})?|get ${ONESHOT_PT} and gain ${ONESHOT_KW}(?: and ${ONESHOT_KW})?) until end of turn\\.$`);
+const ONESHOT_COST = /^(?:\{|Sacrifice |Pay |Discard |Tap )/;
+
+/** Is this printed line an activated one-shot pump a table row can emit (D301)? */
+export function oneShotRowShape(line: string, cardName: string): boolean {
+  const colon = line.indexOf(': ');
+  if (colon <= 0 || !ONESHOT_COST.test(line) || /^(?:When|Whenever|At )/.test(line)) return false;
+  const effect = selfRef(line.slice(colon + 2), cardName).replace(/\s*\([^)]*\)\s*$/, '');
+  return ONESHOT_SELF.test(effect) || ONESHOT_MASS.test(effect);
+}
+
 /** What one unaccounted line is waiting on. */
 export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace = false): Primitive {
   const text = line.text;
@@ -524,6 +552,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // D300: a static a table row can emit is scriptable - asked BEFORE the rows,
   // because `LAYER6` would otherwise file it (see `staticRowShape`).
   if (staticRowShape(text)) return 'scriptable';
+  // D301: an activated one-shot pump a table row can emit (see `oneShotRowShape`).
+  if (oneShotRowShape(text, cardName)) return 'scriptable';
 
   for (const [primitive, re] of RULES) if (re.test(text)) return primitive;
 

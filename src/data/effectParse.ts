@@ -396,6 +396,43 @@ const RULES: readonly Rule[] = [
       return n === null || d === null ? null : { ...BASE, amount: n, thenDraw: d, targetIndex: -1, self: true };
     },
   },
+  /**
+   * D301 - the MASS pump: the subject is "creatures you control", so the clause
+   * consumes no target slot and the consumer walks the board. The same three
+   * shapes as the targeted pump above; the same closed keyword map.
+   */
+  {
+    kind: 'massPump',
+    re: new RegExp(`^creatures you control get ([+-]${NUM})/([+-]${NUM}) until end of turn\\.$`, 'i'),
+    build: (m) => {
+      const p = Number(m[1]);
+      const t = Number(m[2]);
+      return Number.isFinite(p) && Number.isFinite(t) ? { ...BASE, power: p, toughness: t, targetIndex: -1, self: true } : null;
+    },
+  },
+  {
+    kind: 'massPump',
+    re: new RegExp(
+      `^creatures you control get ([+-]${NUM})/([+-]${NUM}) and gain (${KW})(?: and (${KW}))? until end of turn\\.$`,
+      'i',
+    ),
+    build: (m) => {
+      const p = Number(m[1]);
+      const t = Number(m[2]);
+      const kws = grantedKeywords(m[3], m[4]);
+      return Number.isFinite(p) && Number.isFinite(t) && kws !== null
+        ? { ...BASE, power: p, toughness: t, keywords: kws, targetIndex: -1, self: true }
+        : null;
+    },
+  },
+  {
+    kind: 'massPump',
+    re: new RegExp(`^creatures you control gain (${KW})(?: and (${KW}))? until end of turn\\.$`, 'i'),
+    build: (m) => {
+      const kws = grantedKeywords(m[1], m[2]);
+      return kws !== null ? { ...BASE, keywords: kws, targetIndex: -1, self: true } : null;
+    },
+  },
   { kind: 'tap', re: new RegExp(`^tap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   { kind: 'untap', re: new RegExp(`^untap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   {

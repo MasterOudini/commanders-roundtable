@@ -387,6 +387,13 @@ export type EffectKind =
   | 'counter'
   | 'bounce'
   | 'pump'
+  /**
+   * D301 - "Creatures you control get +N/+N [and gain KW] until end of turn":
+   * a self clause (no target) the consumer applies to EVERY creature its
+   * controller controls as the board derives at resolution - D194's carrier,
+   * one entry per creature, all ending at cleanup.
+   */
+  | 'massPump'
   | 'tap'
   | 'untap'
   | 'draw'

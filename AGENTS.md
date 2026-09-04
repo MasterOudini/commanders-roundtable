@@ -9181,6 +9181,44 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D300): the one-shots L6_GRANT mis-files as layer-6 - '{R}: ~ gains flying until end of turn' (60+ cards), 'creatures you control get +1/+1 until end of turn' (25), 'creatures you control gain <kw> until end of turn' - activations and triggers a self-pump / mass-pump row can express, then the conditional statics ('as long as', 187: threshold, metalcraft, delirium, 'as long as you control a Forest', 'during your turn'); the modal seam (42); the "another"
       split; the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4el — THE ONE-SHOT SEAM, part 1: the vocabulary reads "creatures
+      you control get +N/+N until end of turn"; the classifier stops filing
+      activated self- and mass-pumps under layer 6; 351 derived
+      scripts land (2026-09-04):** **4,883 of 31,692 Commander-legal
+      cards now execute completely, up from 4,497 (+386).**
+      `SHIPPED_SCRIPTS` 2,766; ledger 863 (+51). Fixtures
+      3,090 (2,976 by name + 107 tokens: the wave's 351 cards, Charge and Overrun). ZERO token pins, ZERO support bodies. **Select
+      pool 0.** Decisions in **D301**.
+      ⚠️ **Measured first:** 627 incomplete cards have nothing but one-shot
+      pumps and grants in the way (activated on itself 280, triggered on
+      itself 188, mass activated 45, mass triggered 60, 49 spells);
+      `L6_GRANT` / `L6_ANTHEM` had filed them all under `layer6`.
+      ⚠️ **The seam (D139's order):** `effectParse` **`massPump`** (a self
+      clause; the consumer walks the controller's creatures as the board
+      derives, one D194 carrier each); `primitives.ts` `oneShotRowShape` (an
+      activated line whose effect is "~ gets +N/+N / gains <kw>" or the same
+      on "creatures you control" / "other …" / "all creatures", the keyword
+      slot the GRANTABLE map); `d301/make-oneshot-rows.cjs` DERIVES the rows
+      (cost → mana incl. hybrid/Phyrexian first colour, {T}, sacrifice self
+      / a named fodder, pay life, discard, tap a creature, {0}) and
+      `d301/gen-oneshot.cjs` emits one def per printed ability with a suite
+      per ability (derive, the cost's mark, ends at cleanup, replay). The
+      classifier cannot see a cost: +51 refused by name (snow, {Q},
+      random discard, graveyard activation, counters, two-type sacrifice,
+      a by-name sacrifice, an adventure, four second lines). NOT this
+      decision: the triggered one-shots (248 - part 2's trigger-head
+      library), scoped mass pumps, keywords outside the map. No shipped spell def collided: the mass pump's 35 flips had no scripts, so nothing was retired by D187's rule.
+      Report `effect:auto` 3,451 → 3,572, `withUnenforced` 237 →
+      237.
+      **Landed:** 35 auto flips (Charge, Overrun, Crash Through, Overcome, Warlord's Fury, Righteous Charge, Vitalizing Wind, Solidarity, Tower Defense ...) and 351 scripts - 386 net. The sweep measured the pool at 279 after the classifier shape, then at 105 more once the vocabulary's mass pump made triggered mass pumps and word-cost activations expressible: part A, 278 derived rows (Drifting Shade's {B}, Fiery Hellhound's {R}, Relentless Hunter's trample, Crashing Drawbridge's haste, Bone Flute's all-creatures -1/-0, Water Servant's two abilities ...); part B, 80 derived rows over word costs and the trigger-head library (Atog and Megatog sacrificing an artifact, Nantuko Husk a creature, Trenching Steed a land, Noose Constrictor discarding, Bramblesnap tapping a creature, Wall of Blood paying life; Ampryn Tactician and Flame-Kin Zealot on entering, Dauntless Veteran and Inspiring Unicorn on attacking, Goldnight Commander on another creature entering, Soulblade Djinn and Strongarm Monk on a noncreature spell, Balmor on an instant or sorcery, Erkenbrand and Beregond on a Human entering, Lionheart Glimmer on attacking; the seven guildmage-shaped cards re-landed whole with their second ability - a tap, a token, a draw, a life gain, a bounce). Refused by name (51): snow mana, {Q}, random discards, graveyard activations, counters removed, two-type sacrifices, a by-name sacrifice, an adventure, a Boast, an ability-word cost, a historic discard, alternative-cost and hand-activated spells, two planeswalkers, ten trigger heads outside the library, two token-beside-pump triggers, and four second lines the engine cannot run. Tests: massPump.test.ts (parse,
+      shape, Charge / Overrun proofs) + 351 suites.
+      Fixtures 3,090 · botPool artifact 176 / creature 2,653 / enchantment 135 / instant 882 / land 355 / sorcery 682 - auto 762 / assisted 1,946 / autoAnyFace 771 · ladder [964, 1090, 2577, 4489, 5702] · batch.json
+      386 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,857 files, 14,876 passed / 11 skipped ·
+      500-seed gate, 6 shards, 260.7 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D301): the one-shot seam, part 2 - the TRIGGERED self-pumps (188 cards: 'whenever this creature attacks, it gets +2/+0 until end of turn' 39, 'when this creature enters' 31, 'whenever another creature you control enters' 11, 'whenever you cast a noncreature spell' 10 ...) through the trigger-head library the part-B generator now carries, and the ten heads outside it; the modal seam (42); the "another"
+      split; the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

@@ -221,6 +221,24 @@ export function effectResult(
         break;
       }
 
+      case 'massPump': {
+        // D301 - every creature the controller controls, as the board derives
+        // NOW (a Levitation-granted type counts; a face-down 2/2 is a creature).
+        // One carrier entry per creature, the same shape the targeted pump emits.
+        for (const inst of Object.values(state.cards)) {
+          if (inst.zone.kind !== 'battlefield' || inst.controller !== controller) continue;
+          if (!derive(state, deps.oracle, deps.scripts, inst.id, cache).typeLine.types.includes('Creature')) continue;
+          out.push({
+            t: 'PtModifiedUntilEndOfTurn',
+            card: inst.id,
+            power: effect.power,
+            toughness: effect.toughness,
+            ...(effect.keywords.length > 0 ? { keywords: effect.keywords } : {}),
+          });
+        }
+        break;
+      }
+
       case 'tap': {
         if (aim?.kind !== 'card') break;
         if (state.cards[aim.id]?.tapped) break;

@@ -1715,6 +1715,68 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Samut, Tyrant Smasher', 'planeswalker loyalty ability'],
   ['Invasion of Belenon // Belenon War Anthem', 'battle (siege, defeat, transform)'],
   ['Sylvan Anthem', 'script-raised scry prompt'],
+
+  // D301 (M6.4el) — the one-shot seam offered the activated self / mass pumps;
+  // the classifier cannot see a COST, so the ones no table row can charge are
+  // refused by name (snow mana, the {Q} symbol, a random discard, a graveyard
+  // activation, a counter removed, a two-type sacrifice), with the four whose
+  // second line the engine cannot run and one adventure.
+  ['Diamond Faerie', 'snow mana cost'],
+  ['Boreal Griffin', 'snow mana cost'],
+  ['Frost Raptor', 'snow mana cost'],
+  ['Grim Draugr', 'snow mana cost'],
+  ['Hailstorm Valkyrie', 'snow mana cost'],
+  ['Chilling Shade', 'snow mana cost'],
+  ['Merrow Wavebreakers', 'untap-symbol cost'],
+  ['Safehold Sentry', 'untap-symbol cost'],
+  ['Duergar Mine-Captain', 'untap-symbol cost'],
+  ['Frenetic Ogre', 'random discard cost'],
+  ['Canyon Drake', 'random discard cost'],
+  ['Pardic Swordsmith', 'random discard cost'],
+  ['Soul of Theros', 'graveyard-activated ability'],
+  ['Nephalia Moondrakes', 'graveyard-activated ability'],
+  ['Scarred Vinebreeder', 'exile-from-graveyard cost'],
+  ['Quillspike', 'remove-counter cost'],
+  ['Rift Elemental', 'remove-counter cost'],
+  ['Skophos Warleader', 'multi-type sacrifice cost'],
+  ['Orc General', 'multi-type sacrifice cost'],
+  ['Oakhame Ranger // Bring Back', 'adventure (two faces)'],
+  ['Reaper of the Wilds', 'script-raised scry prompt'],
+  ['Merfolk Coralsmith', 'script-raised scry prompt'],
+  ['Thorn Lieutenant', 'becomes-the-target trigger'],
+  ['Castle Embereth', 'conditional enters-tapped'],
+  ['Goro-Goro and Satoru', 'entered-this-turn combat-damage trigger'],
+  ['Spectacular Spider-Man', 'by-name sacrifice cost'],
+
+  // D301 part B — the pool the classifier offered beyond the probe: the trigger
+  // heads the generator library does not read yet, the token-beside-pump
+  // combinations, the costs no row charges, the alternative-cost spells, the
+  // hand-activated abilities and the planeswalkers.
+  ['Appa, the Vigilant', 'trigger head outside the library'],
+  ['Dwarven Strike Force', 'random discard cost'],
+  ['Glimmer Bairn', 'token-predicate sacrifice cost'],
+  ['Harbin, Vanguard Aviator', 'trigger head outside the library'],
+  ['Hero of the Games', 'trigger head outside the library'],
+  ['Hero of the Pride', 'trigger head outside the library'],
+  ['Hero of the Winds', 'trigger head outside the library'],
+  ['Pardic Lancer', 'random discard cost'],
+  ['Wildfire Elemental', 'trigger head outside the library'],
+  ['Cloudgoat Ranger', 'token trigger beside a one-shot pump (combined def)'],
+  ['Flawless Maneuver', 'alternative cost'],
+  ['Gateway Shade', 'Gate tap cost'],
+  ['Hardened Academic', 'trigger head outside the library'],
+  ['Hero of the Nyxborn', 'token trigger beside a one-shot pump (combined def)'],
+  ['Invasion Tactics', 'trigger head outside the library'],
+  ['Ramosian Rally', 'alternative cost'],
+  ['Saradoc, Master of Buckland', 'trigger head outside the library'],
+  ['Steeling Stance', 'forecast (hand-activated ability)'],
+  ['Swell of Courage', 'reinforce (hand-activated ability)'],
+  ['Thalia\'s Geistcaller', 'trigger head outside the library'],
+  ['Garruk Wildspeaker', 'planeswalker loyalty ability'],
+  ['Garruk Wildspeaker // Garruk Wildspeaker', 'planeswalker loyalty ability'],
+  ['Battershield Warrior', 'boast (once-per-turn memory)'],
+  ['Myrkul\'s Invoker', 'ability-word cost'],
+  ['Sanctum Spirit', 'historic discard cost'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
