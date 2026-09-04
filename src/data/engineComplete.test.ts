@@ -234,6 +234,8 @@ const COMPLETE: readonly [string, CardData][] = [
   ['Common Crook', fx.COMMON_CROOK],
   ['Conclave Cavalier', fx.CONCLAVE_CAVALIER],
   ['Conscripted Infantry', fx.CONSCRIPTED_INFANTRY],
+  // D300: the static seam shipped 'Other permanents you control have indestructible'.
+  ['Avacyn, Angel of Hope', fx.AVACYN_ANGEL_OF_HOPE],
 ];
 
 /**
@@ -252,7 +254,6 @@ const INCOMPLETE: readonly [string, CardData, string][] = [
   ['Boros Garrison', fx.BOROS_GARRISON, 'enters tapped, which applyReplacements does not do'],
   ['Cultivate', fx.CULTIVATE, 'a sorcery searching a library — outside the closed vocabulary'],
   ['Grist, the Hunger Tide', fx.GRIST_THE_HUNGER_TIDE, 'loyalty abilities'],
-  ['Avacyn, Angel of Hope', fx.AVACYN_ANGEL_OF_HOPE, 'a static ability granting indestructible'],
 ];
 
 describe('engineCompleteness', () => {

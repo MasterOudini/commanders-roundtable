@@ -1707,6 +1707,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Proclamation of Rebirth', 'forecast (hand-activated ability)'],
   ['Hope Tender', 'exert cost'],
   ['Geth\'s Summons', 'cast-time poison condition (corrupted)'],
+
+  // D300 (M6.4ek) — the static seam made the pure anthems and grants offerable
+  // (table rows, token-making rows, hand modules for the combined defs); one is a
+  // planeswalker (loyalty abilities are not charged), one a battle, one scries
+  // from a trigger (a script cannot raise the scry prompt).
+  ['Samut, Tyrant Smasher', 'planeswalker loyalty ability'],
+  ['Invasion of Belenon // Belenon War Anthem', 'battle (siege, defeat, transform)'],
+  ['Sylvan Anthem', 'script-raised scry prompt'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

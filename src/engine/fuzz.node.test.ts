@@ -15,7 +15,6 @@ import {
   LEVITATION_SCRIPT,
   BRANCHING_EVOLUTION_SCRIPT,
   HARDENED_SCALES_SCRIPT,
-  KNIGHTHOOD_SCRIPT,
   KWENDE_SCRIPT,
   HUMILITY_SCRIPT,
 } from './testing/cardScripts';
@@ -240,11 +239,15 @@ const SCRIPTS = createRegistry([
   // stays out — it is the teeth below.
   AJANIS_MANTRA,
   AJANIS_PRIDEMATE,
-  LEVITATION_SCRIPT,
+  // ⚠️ `Levitation` SHIPS since D300 (`cards/levitation`, a derived static row) -
+  // the testing copy would be the duplicate the throw below refuses; the pair
+  // with Gravity Sphere still orders the same grant on the same layer.
   GRAVITY_SPHERE_SCRIPT,
   HARDENED_SCALES_SCRIPT,
   BRANCHING_EVOLUTION_SCRIPT,
-  KNIGHTHOOD_SCRIPT,
+  // ⚠️ `Knighthood` SHIPS since D300 (`cards/knighthood`, a derived static row) -
+  // the testing copy that stood in for it here would be the duplicate the
+  // throw below refuses. Kwende still reads the same grant off the same layer.
   KWENDE_SCRIPT,
   // ⚠️ Every shipped script, BY CONSTRUCTION — the registered-here half of
   // the guard below is now impossible to forget. The duplicate-oracleId

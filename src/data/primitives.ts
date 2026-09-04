@@ -448,6 +448,37 @@ const SPELL_STRUCTURAL: readonly RegExp[] = [
   /\bspend only\b/i,
 ];
 
+/**
+ * D300 - THE STATIC SEAM. A layer-6 line in one of these shapes is a `StaticDef`
+ * a table row emits (d300/gen-static.cjs, in the shape of the engine's own
+ * `Levitation`): a pure keyword GRANT or P/T ANTHEM over a scope of
+ *   [All |Other ][Colour | Multicolored | Subtype ](creatures|permanents)[ you control]
+ * and nothing else in the sentence. Until this the classifier filed EVERY
+ * layer-6 line under `layer6` before asking whether a static could express
+ * it, so no such card ever reached the select pool. Measured first (the
+ * probe over the database): 1,780 incomplete cards have only layer-6
+ * blockers, and these two shapes are the whole text of the first wave.
+ *
+ * ⚠️ The adjective slot is a COLOUR, "Multicolored" or a creature SUBTYPE and
+ * nothing else: "Attacking creatures you control", "Nontoken creatures",
+ * "Legendary creatures" are conditions, not scopes, and stay `layer6` until a
+ * row can express the condition. "Colorless" stays out until a colorless
+ * creature fixture can prove it.
+ */
+const STATIC_KW = '(?:flying|trample|vigilance|haste|lifelink|deathtouch|first strike|double strike|menace|hexproof|indestructible|reach|defender|shroud|flash)';
+const STATIC_KWS = `${STATIC_KW}(?:(?:, | and |, and )${STATIC_KW})*`;
+const STATIC_ADJ = '(?:White|Blue|Black|Red|Green|Multicolored|(?!Non|Attacking|Blocking|Token|Legendary|Tapped|Untapped|Enchanted|Equipped|Snow|Basic|Face|Artifact|Enchantment|Land|Creature|Colorless|Commander|Modified|Historic|Outlaw|Party|Monocolored)[A-Z][a-z]+)';
+const STATIC_HEAD = `^(?:All |Other |)(?:${STATIC_ADJ} )?(?:[Cc]reatures|[Pp]ermanents)(?: you control)?`;
+const STATIC_ROW_SHAPES: readonly RegExp[] = [
+  new RegExp(`${STATIC_HEAD} have ${STATIC_KWS}\\.$`),
+  new RegExp(`${STATIC_HEAD} get [+-]\\d+/[+-]\\d+(?: and have ${STATIC_KWS})?\\.$`),
+];
+
+/** Is this printed line a static a table row can emit (D300)? */
+export function staticRowShape(text: string): boolean {
+  return STATIC_ROW_SHAPES.some((re) => re.test(text));
+}
+
 /** What one unaccounted line is waiting on. */
 export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace = false): Primitive {
   const text = line.text;
@@ -489,6 +520,10 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
     const rest = withoutMay(text);
     if (rest !== '' && expressible(effectOf(rest), cardName)) return 'optional';
   }
+
+  // D300: a static a table row can emit is scriptable - asked BEFORE the rows,
+  // because `LAYER6` would otherwise file it (see `staticRowShape`).
+  if (staticRowShape(text)) return 'scriptable';
 
   for (const [primitive, re] of RULES) if (re.test(text)) return primitive;
 

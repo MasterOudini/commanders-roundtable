@@ -140,10 +140,12 @@ describe('a permanent’s text, which the app does not run', () => {
 
   test('a static ability is said even when it grants an ENFORCED keyword', () => {
     // ⚠️ Avacyn's own flying/vigilance/indestructible are enforced; the
-    // indestructible she gives every other permanent is not (D82 — a granted
-    // keyword needs a layer-6 script). Quiet about the first, loud about the
-    // second, on the same card.
-    expect(what(C.AVACYN_ANGEL_OF_HOPE)).toEqual(['Its ability text']);
+    // indestructible she gives every other permanent was not (D82 — a granted
+    // keyword needs a layer-6 script) — until D300 shipped that static. Her
+    // note is SILENT now, which is the silence hook keeping invariant 9: a
+    // card the engine runs completely must say nothing. Lightning Greaves
+    // below still carries the test's point.
+    expect(what(C.AVACYN_ANGEL_OF_HOPE)).toEqual([]);
     // Lightning Greaves grants haste and shroud to the equipped creature, and
     // `Equip {0}` is the keyword loop's business.
     expect(what(C.LIGHTNING_GREAVES)).toEqual(['Its ability text', 'Equip']);

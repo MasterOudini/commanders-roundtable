@@ -20126,3 +20126,116 @@ Fixtures 2,603 · botPool artifact 170 / creature 2,211 / enchantment 104 / inst
 **Reportables** (D299): the static seam - the classifier files every layer-6 line under `layer6` before asking whether a `StaticDef` already expresses it (grants 979 / anthems 258 / conditional 138 by sole need; the ladder's +1,788 rung), so the shapes a static-row generator can emit are measured, admitted as scriptable, and landed in waves; the modal seam (42); the "another" split;
 the by-name sacrifice cost; the remaining cost verbs; the prompt
 continuation seam; prior items stand.
+
+## D300 — M6.4ek: THE STATIC SEAM — the classifier admits the layer-6 anthems and keyword grants a static row expresses, the rows are DERIVED from the database, and the first shipped `StaticDef`s land: 128 scripts in one wave (2026-09-04)
+
+**4,497 of 31,692 Commander-legal cards execute completely, up from
+4,369 (+128).** SHIPPED_SCRIPTS 2,287 → **2,415**; REFUSED ledger 809
+→ **812** (+3). Fixtures 2,603 → 2,733 (2,619 by name + 107 tokens: the wave's 128 cards, their helper creatures, three token pins). Three
+token pins (the Splicers' Phyrexian Golem, Hammer of Purphoros's Golem, Myr
+Matrix's Myr). ZERO new support bodies; one classifier file changes. **Select pool 0 →
+0.**
+
+**The gap, measured before it was built.** The primitive ladder had said it
+for a hundred decisions: `[912, 1035, 2823, …]` — building `layer6` unlocks
+**+1,788** cards, the largest rung by far. The engine has had CR 613 layers
+and a `StaticDef` API since M6.3, and `Levitation` has proven a layer-6
+grant since D129 — but NO shipped script ever carried a static, because the
+classifier filed EVERY layer-6 line under `layer6` before asking whether a
+static could express it, so no such card ever reached the select pool. The
+sizing probes (`zz-probe-d300`, `-b`, gate-free): **1,780 incomplete cards
+have only layer-6 blockers** (grant 1,126 / anthem 326 / restriction 270 /
+conditional 187 by the classifier's own split); **118 of them are pure
+anthems or grants** over a scope a row can name — `[All | Other ][Colour |
+Multicolored | Subtype ](creatures | permanents)[ you control]` with `get
++N/+N`, `have <keywords>`, or both — 99 as the card's whole unaccounted
+text, 12 beside a second line the vocabulary already reads, 7 unrowable
+(a "Commander creatures" scope, a battle's back face). The same regexes
+also showed the classifier's `L6_GRANT` catching ONE-SHOTS — "{R}: ~ gains
+flying until end of turn" (60+ cards), "creatures you control get +1/+1
+until end of turn" (25) — activations and triggers a script already
+expresses and a row generator could take next.
+
+**The seam, in D139's order — the shape first, then the classifier, then
+the rows.**
+
+- `primitives.ts`: `staticRowShape(text)` — the two shapes above, the
+  adjective slot a colour, "Multicolored" or a capitalised creature
+  SUBTYPE and nothing else (a negative lookahead keeps "Attacking",
+  "Nontoken", "Legendary", "Commander", "Colorless" and every "Non-" word
+  out: those are conditions, not scopes). `primitiveFor` asks it BEFORE the
+  `RULES` rows, so a matching line is `scriptable` and its card is offered.
+- `d300/gen-static.cjs`: one module + one suite per row, in `Levitation`'s
+  exact shape — `appliesTo` reads the candidate's built `chars` (its type
+  line with layer 4 applied, its colours) and NEVER derives it (D129's
+  stack-overflow lesson, in the API's own words); a grant modifies
+  `chars.keywords` on layer `'ability'`, an anthem `power`/`toughness` on
+  `'ptModify'`, and "get +1/+1 and have vigilance" is TWO statics, one per
+  layer, because CR 613 keeps ability-adding and P/T-modifying apart. The
+  suite proves the reach on the permanent the scope names, the miss on one
+  it does not, the end when the source leaves, and the replay hash.
+- **The rows are derived, not typed** (`d300/make-static-rows.cjs`): each
+  pure card's line is parsed into kind, scope and parameters; the `yes`
+  and `no` permanents are picked from the FIXTURE creatures by the scope
+  (vanilla first; a subtype with no vanilla member — Slivers, Kobolds — is
+  served by a text-bearing creature that becomes a fixture, since without a
+  script its text does nothing), with a toughness guard so an anthem that
+  lowers toughness is not proven on a creature it would kill (Flowstone
+  Surge found it). The printed text is copied verbatim and `printed()`
+  guards every module at load, exactly as every hand-written script does.
+- Four rows carry a SECOND, token-making def through the generator's
+  `extra` (Captain of the Watch's three Soldiers, Fortifying Provisions's
+  Food, Mobilization's activation, Hammer of Purphoros's land-sacrifice
+  activation); nine combined cards are hand modules — the Splicers (whose
+  own Golem tokens are the Golems they reach), Fires of Yavimaya, Angelic
+  Shield, Escarpment Fortress's attack-count draw, Diregraf Captain's and
+  Judith's per-item dies triggers (D185's fan-out, a target each), Reaper
+  King's per-item enters trigger.
+- **The classifier offered 16 more than the probe had seen** — "All Sliver
+  creatures get +1/+1", "Bad Moon", "Night of Souls' Betrayal", "Other
+  Griffin creatures get +1/+1": anthems WITHOUT "you control", which
+  `L6_ANTHEM` never filed under `layer6` at all (it wants the phrase), so
+  they had sat in the residue and outside the layer-6-only probe. The
+  sweep's pool count said 16 where the rule says 0; they were derived and
+  landed the same way (13 rows, Lord of the Undead, Aven Brigadier's two
+  anthems and Myr Matrix by hand, one Myr token pin). A seam's admission is
+  measured by the classifier it changes, not by the bucket it was aimed at.
+- **Not this decision:** the conditions dressed as scopes ("Attacking
+  creatures you control have double strike", 11; "Nontoken", "Legendary",
+  "Commander creatures" — a scope the engine reads off the command zone);
+  the CONDITIONAL statics ("as long as", 187 — threshold, metalcraft,
+  delirium, "as long as you control a Forest", "during your turn"); the
+  RESTRICTIONS ("can't block" 33, "can't be blocked" 18 — `CombatDef`
+  exists and none ships); "Colorless creatures" (no colourless creature
+  fixture to prove it on); and the one-shots `L6_GRANT` mis-files.
+
+Report: `effect:auto` 3,451 → 3,451, `effect:none` 15,377 →
+15,377, `withUnenforced` 237 → 237.
+
+**Tests:** `src/data/staticShapes.test.ts` (the shapes admitted and the
+conditions, one-shots and colourless scope refused); 128 suites
+(reach / miss / leave / replay; the token counts; the hand proofs). Gate
+151's first run moved two pins and found one collision: `engineComplete.test.ts`
+had held Avacyn, Angel of Hope INCOMPLETE for "a static ability granting
+indestructible" since D90 — she now sits in its COMPLETE list, the same
+card with the opposite verdict pinned; `tier3.test.ts` had her disclosure
+say "Its ability text" — it is SILENT now, the silence hook keeping
+invariant 9; and the fuzz gate refused to build its registry, because the
+TESTING `Knighthood` and `Levitation` scripts (the CR 613.8 dependency
+pair's and the CR 613.7 ordering pair's grants, D129) and the shipped
+`knighthood` and `levitation` rows are the same cards — the testing copies
+left the fuzz's list, the shipped rows carry both pairs (the same grants on
+the same layer; the `LAYER6_ORACLES` canary keys on the oracle id, which
+did not change).
+
+**Landed:** 128 scripts and no auto flip (a static needs a script): 112 derived rows (99 from the layer-6 probe, 13 the classifier offered beyond it), 4 token rows, 12 by hand. The rows: Glorious Anthem and its kin ("Creatures you control get +1/+1", 11), the Sliver hive ("All Sliver creatures have flying / get +1/+1", 18), the lords ("Other Zombie / Elf / Goblin / Merfolk / Kobold / Warrior / Soldier creatures you control get +1/+1 [and have <kw>]", 30), the tribal grants ("Golem / Knight / Cleric creatures have vigilance" ...), the colour anthems (Bad Moon, Dread of Night, Bloodmark Mentor, the Liege-shaped "Other green creatures you control get +1/+1"), Levitation's own kind ("Creatures you control have flying / haste / trample", 14), Avacyn's and Privileged Position's "Other permanents you control have indestructible / hexproof", Concordant Crossroads and Mass Hysteria ("All creatures have haste", proven on both sides of the table), Night of Souls' Betrayal and Kaervek ("All / Other creatures get -1/-1", proven on a creature that survives it). Token rows: Captain of the Watch, Fortifying Provisions, Mobilization, Hammer of Purphoros. By hand: the three Splicers, Fires of Yavimaya, Angelic Shield, Escarpment Fortress, Diregraf Captain, Judith, Reaper King, Lord of the Undead, Aven Brigadier, Myr Matrix. Refused: Samut (loyalty), Invasion of Belenon (a battle), Sylvan Anthem (a scry from a trigger).
+
+Fixtures 2,733 · botPool artifact 173 / creature 2,307 / enchantment 133 / instant 866 / land 354 / sorcery 664 - auto 728 / assisted 1,884 / autoAnyFace 736 · ladder [915, 1040, 2712, 4622, 5829] · batch.json
+128 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,505 files, 13,085 passed / 11 skipped ·
+500-seed gate, 6 shards, 252.2 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D300): the one-shots L6_GRANT mis-files as layer-6 - '{R}: ~ gains flying until end of turn' (60+ cards), 'creatures you control get +1/+1 until end of turn' (25), 'creatures you control gain <kw> until end of turn' - activations and triggers a self-pump / mass-pump row can express, then the conditional statics ('as long as', 187: threshold, metalcraft, delirium, 'as long as you control a Forest', 'during your turn'); the modal seam (42); the "another" split;
+the by-name sacrifice cost; the remaining cost verbs; the prompt
+continuation seam; prior items stand.

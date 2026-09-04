@@ -86147,6 +86147,4433 @@ export const SPIDER_MAN_2099_MIGUEL_O_HARA: CardData = {
   "singleImage": true
 };
 
+export const AANG_AIR_NOMAD: CardData = {
+  "scryfallId": "c7818c58-47f1-4031-8f7f-80b4b8c75530",
+  "oracleId": "e46b2ac6-97d6-48f2-aba3-cd92f8e092c6",
+  "name": "Aang, Air Nomad",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aang, Air Nomad",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Legendary Creature — Human Avatar Ally",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nVigilance (Attacking doesn't cause this creature to tap.)\nOther creatures you control have vigilance.",
+      "flavorText": "Monk Gyatso taught Aang many things, most importantly to live with joy.",
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jinho Bae",
+      "imageId": "c7818c58-47f1-4031-8f7f-80b4b8c75530"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying",
+    "Vigilance"
+  ],
+  "setCode": "pmei",
+  "collectorNumber": "2025-25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AGGRESSIVE_MAMMOTH: CardData = {
+  "scryfallId": "323f3c76-5e79-43e6-ae78-f555810edbc3",
+  "oracleId": "032b5fc4-5aca-41b6-9bf6-2c1ed0018968",
+  "name": "Aggressive Mammoth",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aggressive Mammoth",
+      "manaCost": "{3}{G}{G}{G}",
+      "typeLine": "Creature — Elephant",
+      "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nOther creatures you control have trample.",
+      "flavorText": "\"Approach from behind. That way, if it does charge, at least you aren't in front of it.\"\n—Vivien Reid",
+      "power": "8",
+      "toughness": "8",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Filip Burburan",
+      "imageId": "323f3c76-5e79-43e6-ae78-f555810edbc3"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "m19",
+  "collectorNumber": "302",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AKROMA_S_DEVOTED: CardData = {
+  "scryfallId": "798893df-e720-471d-822d-50284de23efd",
+  "oracleId": "d264903b-d23e-48c8-95f1-cb1606a705a2",
+  "name": "Akroma's Devoted",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Akroma's Devoted",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "Cleric creatures have vigilance.",
+      "flavorText": "Akroma asked for only one thing from her troops: unwavering, unconditional loyalty.",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Dave Dorman",
+      "imageId": "798893df-e720-471d-822d-50284de23efd"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "lgn",
+  "collectorNumber": "2",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANTHEM_OF_CHAMPIONS: CardData = {
+  "scryfallId": "0a5a589b-30d5-44af-8059-56278f5db1af",
+  "oracleId": "f1d8e9a6-1903-4be5-8609-1009a463f393",
+  "name": "Anthem of Champions",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Anthem of Champions",
+      "manaCost": "{G}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control get +1/+1.",
+      "flavorText": "Setessa is protected by four warrior factions, each named for an animal. United, they can repel any threat to their polis.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Chris Rallis",
+      "imageId": "0a5a589b-30d5-44af-8059-56278f5db1af"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "pfdn",
+  "collectorNumber": "116s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BATTERING_SLIVER: CardData = {
+  "scryfallId": "7f65a72b-d24c-4016-befc-91018a1b62e1",
+  "oracleId": "4adf959b-2e09-47ff-a1b1-b889348735b8",
+  "name": "Battering Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Battering Sliver",
+      "manaCost": "{5}{R}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures have trample.",
+      "flavorText": "Covered with hard shell-like plates, these slivers burrow through solid rock to carve out new nests for their hives.",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "7f65a72b-d24c-4016-befc-91018a1b62e1"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "tsr",
+  "collectorNumber": "154",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BATTLE_SLIVER: CardData = {
+  "scryfallId": "68490b8c-e9d1-4f5c-9001-750be0e0569f",
+  "oracleId": "d513e5df-31b0-4756-bf47-403460d0068e",
+  "name": "Battle Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Battle Sliver",
+      "manaCost": "{4}{R}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control get +2/+0.",
+      "flavorText": "\"One emitted a strange series of buzzing clicks and guttural commands, then clawed arms emerged from all of them. Is there no limit to their adaptations?\"\n—Hastric, Thunian scout",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "68490b8c-e9d1-4f5c-9001-750be0e0569f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "m14",
+  "collectorNumber": "128",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BATTLEGROUND_GEIST: CardData = {
+  "scryfallId": "129905ef-5b3b-4860-923c-109a7d7cad80",
+  "oracleId": "2450d35b-7d87-4885-b396-f8e1d3ac0b22",
+  "name": "Battleground Geist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Battleground Geist",
+      "manaCost": "{4}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nOther Spirit creatures you control get +1/+0.",
+      "flavorText": "Not content to nudge vases and chill drawing rooms, some geists muster spectral armies to claw at the hearts of the living.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Clint Cearley",
+      "imageId": "129905ef-5b3b-4860-923c-109a7d7cad80"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "isd",
+  "collectorNumber": "45",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BELLIGERENT_SLIVER: CardData = {
+  "scryfallId": "03fcb1c5-7fad-43df-901f-6389ee886340",
+  "oracleId": "7d54a535-e924-47c7-81db-e04df1c3f44e",
+  "name": "Belligerent Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Belligerent Sliver",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control have menace. (They can't be blocked except by two or more creatures.)",
+      "flavorText": "\"The slivers became adept at provoking a fear response in other species.\"\n—Hastric, Thunian scout",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Raymond Swanland",
+      "imageId": "03fcb1c5-7fad-43df-901f-6389ee886340"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "636",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BENALISH_MARSHAL: CardData = {
+  "scryfallId": "6dd1a7fc-5dbd-4ed2-9b02-9fd5c55bb629",
+  "oracleId": "2cc439e8-d112-44e6-bc5a-6e99333c519a",
+  "name": "Benalish Marshal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Benalish Marshal",
+      "manaCost": "{W}{W}{W}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Other creatures you control get +1/+1.",
+      "flavorText": "\"Some aspire to climb the mountain of Honor. The Benalish are born upon its peak, and from there ascend among the stars.\"\n—*History of Benalia*",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "6dd1a7fc-5dbd-4ed2-9b02-9fd5c55bb629"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dom",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLESSED_ORATOR: CardData = {
+  "scryfallId": "379777a4-5704-4b5a-9916-7bab4d82eeab",
+  "oracleId": "c0856fea-cbdc-427b-ae00-bfd9311f284f",
+  "name": "Blessed Orator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blessed Orator",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "Other creatures you control get +0/+1.",
+      "flavorText": "\"He spoke with the tongue of Angels; we fought with the strength of lions.\"\n—Handel, infantry soldier",
+      "power": "1",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "379777a4-5704-4b5a-9916-7bab4d82eeab"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "6★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLOODMARK_MENTOR: CardData = {
+  "scryfallId": "6322a389-44cc-4a3d-bd39-93c156640f8e",
+  "oracleId": "8c22b218-cf40-47af-8c11-73c581a43390",
+  "name": "Bloodmark Mentor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bloodmark Mentor",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Goblin Warrior",
+      "oracleText": "Red creatures you control have first strike.",
+      "flavorText": "Boggarts divide the world into two categories: things you can eat, and things you have to chase down and pummel before you can eat.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dave Allsop",
+      "imageId": "6322a389-44cc-4a3d-bd39-93c156640f8e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "shm",
+  "collectorNumber": "83",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLUR_SLIVER: CardData = {
+  "scryfallId": "63227937-86cc-45e0-9e9e-8c7ab80cbaef",
+  "oracleId": "e0f05979-daba-43eb-b356-24284e7ca99c",
+  "name": "Blur Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blur Sliver",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control have haste. (They can attack and {T} as soon as they come under your control.)",
+      "flavorText": "They move in a synchronized swarm, turning entire squads into heaps of bloody rags and bones in an instant.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Daarken",
+      "imageId": "63227937-86cc-45e0-9e9e-8c7ab80cbaef"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m14",
+  "collectorNumber": "129",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BONESCYTHE_SLIVER: CardData = {
+  "scryfallId": "73419af6-7df0-48d5-b6f4-e621c75a1acd",
+  "oracleId": "1d95ad32-768f-40a1-a461-e0562326b2b7",
+  "name": "Bonescythe Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bonescythe Sliver",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control have double strike. (They deal both first-strike and regular combat damage.)",
+      "flavorText": "\"Their appendages are sharper than our swords and quicker than our bows.\"\n—Hastric, Thunian scout",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Brad Rigney",
+      "imageId": "73419af6-7df0-48d5-b6f4-e621c75a1acd"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "pdp14",
+  "collectorNumber": "1",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHIEF_OF_THE_EDGE: CardData = {
+  "scryfallId": "28822a9a-97fa-4784-ad97-072fcfc7b9ed",
+  "oracleId": "636a9364-54a6-4f67-ad96-731646e8bde7",
+  "name": "Chief of the Edge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chief of the Edge",
+      "manaCost": "{W}{B}",
+      "typeLine": "Creature — Human Warrior",
+      "oracleText": "Other Warrior creatures you control get +1/+0.",
+      "flavorText": "\"We are the swift, the strong, the blade's sharp shriek! Fear nothing, and strike!\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "David Palumbo",
+      "imageId": "28822a9a-97fa-4784-ad97-072fcfc7b9ed"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ktk",
+  "collectorNumber": "169",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHIEF_OF_THE_SCALE: CardData = {
+  "scryfallId": "a227b8cc-cbe5-4955-ad1b-a354704a82e8",
+  "oracleId": "32e4de02-8437-4ffc-acc9-a3736652d282",
+  "name": "Chief of the Scale",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chief of the Scale",
+      "manaCost": "{W}{B}",
+      "typeLine": "Creature — Human Warrior",
+      "oracleText": "Other Warrior creatures you control get +0/+1.",
+      "flavorText": "\"We are the shield unbroken. If we fall today, we will die well, and our trees will bear our names in honor.\"",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "David Palumbo",
+      "imageId": "a227b8cc-cbe5-4955-ad1b-a354704a82e8"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ktk",
+  "collectorNumber": "170",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLEAVING_SLIVER: CardData = {
+  "scryfallId": "023dd90c-eb55-4876-94c9-b8058c80e82d",
+  "oracleId": "9b33059c-c862-4452-8609-14a0e2551fb3",
+  "name": "Cleaving Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cleaving Sliver",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control get +2/+0.",
+      "flavorText": "When it wriggled closer to a thrum of slivers, their talons hardened and glinted in the sun. One took a playful swipe at a tree trunk, and its new blade cut clean through.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "David Gaillet",
+      "imageId": "023dd90c-eb55-4876-94c9-b8058c80e82d"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "cmm",
+  "collectorNumber": "877",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLOUDSHREDDER_SLIVER: CardData = {
+  "scryfallId": "27933191-dad6-43d5-b02e-a94ad8033f2f",
+  "oracleId": "f943c005-9b77-411a-b522-1182e22724e1",
+  "name": "Cloudshredder Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cloudshredder Sliver",
+      "manaCost": "{R}{W}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control have flying and haste.",
+      "flavorText": "Forked tails rustled. Talons clicked. A lone sliver streaked overhead like jagged lightning, and the hive thundered.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Filip Burburan",
+      "imageId": "27933191-dad6-43d5-b02e-a94ad8033f2f"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mh1",
+  "collectorNumber": "195",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COLLECTIVE_BLESSING: CardData = {
+  "scryfallId": "53c84c4d-e6d6-4eac-9d14-5b6cba914c3d",
+  "oracleId": "7f7049e8-49ed-46da-89f7-1e40aefb3b0c",
+  "name": "Collective Blessing",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Collective Blessing",
+      "manaCost": "{3}{G}{G}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control get +3/+3.",
+      "flavorText": "Senators of Azorius often hired agents to spy on the Selesnya. They were told to record every spore and root they saw, as each could become a deadly foe.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "53c84c4d-e6d6-4eac-9d14-5b6cba914c3d"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "rtr",
+  "collectorNumber": "150",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONCORDANT_CROSSROADS: CardData = {
+  "scryfallId": "13cfca5f-e25a-432e-8679-54704eeeecc8",
+  "oracleId": "ff01b408-6d17-40a3-9efd-a1b341ec1307",
+  "name": "Concordant Crossroads",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Concordant Crossroads",
+      "manaCost": "{G}",
+      "typeLine": "World Enchantment",
+      "oracleText": "All creatures have haste.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Amy Weber",
+      "imageId": "13cfca5f-e25a-432e-8679-54704eeeecc8"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "chr",
+  "collectorNumber": "60",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRUCIBLE_OF_FIRE: CardData = {
+  "scryfallId": "38a2d4ba-7bd0-4852-aad3-dfdaf5368e3e",
+  "oracleId": "0c572396-4e53-4c86-9b04-f41341dcea05",
+  "name": "Crucible of Fire",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crucible of Fire",
+      "manaCost": "{3}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "Dragon creatures you control get +3/+3.",
+      "flavorText": "\"The dragon is a perfect marriage of power and the will to use it.\"\n—Sarkhan Vol",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dominick Domingo",
+      "imageId": "38a2d4ba-7bd0-4852-aad3-dfdaf5368e3e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ala",
+  "collectorNumber": "96",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CYCLOPS_OF_ETERNAL_FURY: CardData = {
+  "scryfallId": "44a92b7a-7119-45b3-b9ed-5dbf5abca818",
+  "oracleId": "f7875f87-d774-4811-a4a7-349ec01bf95b",
+  "name": "Cyclops of Eternal Fury",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cyclops of Eternal Fury",
+      "manaCost": "{4}{R}{R}",
+      "typeLine": "Enchantment Creature — Cyclops",
+      "oracleText": "Creatures you control have haste.",
+      "flavorText": "\"The anger that festers inside this one is contagious.\"\n—Anthousa of Setessa",
+      "power": "5",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Matt Stewart",
+      "imageId": "44a92b7a-7119-45b3-b9ed-5dbf5abca818"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "jou",
+  "collectorNumber": "92",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DICTATE_OF_HELIOD: CardData = {
+  "scryfallId": "5e298ca2-7c14-4d34-b058-eb5501b297d0",
+  "oracleId": "b989279c-665d-4f15-afc1-adf3872a4851",
+  "name": "Dictate of Heliod",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dictate of Heliod",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Flash\nCreatures you control get +2/+2.",
+      "flavorText": "\"In our war Heliod gave mortals some favor, yet other times he withheld aid. Are we still no more than game pieces to him?\"\n—Polyxene the Doubter",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "5e298ca2-7c14-4d34-b058-eb5501b297d0"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flash"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "DDO-8",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DROGSKOL_CAPTAIN: CardData = {
+  "scryfallId": "3775ac37-048d-4d02-8c7e-b2b7c4ce7d2c",
+  "oracleId": "c33604ac-636a-43ad-9efe-8d7b3a28bf81",
+  "name": "Drogskol Captain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drogskol Captain",
+      "manaCost": "{1}{W}{U}",
+      "typeLine": "Creature — Spirit Soldier",
+      "oracleText": "Flying\nOther Spirit creatures you control get +1/+1 and have hexproof. (They can't be the targets of spells or abilities your opponents control.)",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Cristi Balanescu",
+      "imageId": "3775ac37-048d-4d02-8c7e-b2b7c4ce7d2c"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "sis",
+  "collectorNumber": "60",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FELHIDE_PETRIFIER: CardData = {
+  "scryfallId": "4d6cce01-a0cb-4059-a0ad-fbf7d9b998b8",
+  "oracleId": "1ad604ed-c645-4f94-8c5f-8e0ce66a85ff",
+  "name": "Felhide Petrifier",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Felhide Petrifier",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Minotaur Warrior",
+      "oracleText": "Deathtouch\nOther Minotaur creatures you control have deathtouch.",
+      "flavorText": "It's common practice among minotaurs to collect the heads of their victims as trophies. Sometimes the trophies prove more than ornamental.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "James Ryman",
+      "imageId": "4d6cce01-a0cb-4059-a0ad-fbf7d9b998b8"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Deathtouch"
+  ],
+  "setCode": "jou",
+  "collectorNumber": "70",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FERVOR: CardData = {
+  "scryfallId": "53834370-845c-4677-b665-e556eae8f9de",
+  "oracleId": "8e0cea9c-3110-4728-9378-76849e33bb90",
+  "name": "Fervor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fervor",
+      "manaCost": "{2}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control have haste. (They can attack and {T} as soon as they come under your control.)",
+      "flavorText": "The intensity of their glare was soon surpassed by the intensity of their attack.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Wayne England",
+      "imageId": "53834370-845c-4677-b665-e556eae8f9de"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "7ed",
+  "collectorNumber": "181",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FIELD_MARSHAL: CardData = {
+  "scryfallId": "0b81e16f-8e5c-42e2-9d4e-220eb3b4aa38",
+  "oracleId": "1c0a53fc-8037-46e3-90ea-cb8b73631a83",
+  "name": "Field Marshal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Field Marshal",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Other Soldier creatures get +1/+1 and have first strike. (They deal combat damage before creatures without first strike.)",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Frank Frazetta",
+      "imageId": "0b81e16f-8e5c-42e2-9d4e-220eb3b4aa38"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "1168",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FIRE_NATION_S_CONQUEST: CardData = {
+  "scryfallId": "44bd7972-c32b-4c39-9be9-5f81918786b7",
+  "oracleId": "8893af49-2f90-4aed-bcaf-905bb9e8ed8f",
+  "name": "Fire Nation's Conquest",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fire Nation's Conquest",
+      "manaCost": "{2}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control get +1/+0.",
+      "flavorText": "\"Come out, Avatar! You can't hide from me forever.\"\n—Zuko",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Eduardo Francisco",
+      "imageId": "44bd7972-c32b-4c39-9be9-5f81918786b7"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tle",
+  "collectorNumber": "281",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLOWSTONE_SURGE: CardData = {
+  "scryfallId": "bc450922-0bbf-46c4-9955-79f4d41ee488",
+  "oracleId": "fb1755a0-3334-419b-8cb5-5a3ac7fa5b13",
+  "name": "Flowstone Surge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Flowstone Surge",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control get +1/-1.",
+      "flavorText": "The army was never at a loss for weapons; Crovax was their forge.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Scott Hampton",
+      "imageId": "bc450922-0bbf-46c4-9955-79f4d41ee488"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "nem",
+  "collectorNumber": "85",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FURY_SLIVER: CardData = {
+  "scryfallId": "0000579f-7b35-4ed3-b44c-db2a538066fe",
+  "oracleId": "44623693-51d6-49ad-8cd7-140505caf02f",
+  "name": "Fury Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fury Sliver",
+      "manaCost": "{5}{R}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures have double strike.",
+      "flavorText": "\"A rift opened, and our arrows were abruptly stilled. To move was to push the world. But the sliver's claw still twitched, red wounds appeared in Thed's chest, and ribbons of blood hung in the air.\"\n—Adom Capashen, Benalish hero",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "0000579f-7b35-4ed3-b44c-db2a538066fe"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "tsp",
+  "collectorNumber": "157",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GAEA_S_ANTHEM: CardData = {
+  "scryfallId": "43febc63-597d-4392-b8ea-a00841148c45",
+  "oracleId": "3754dce0-3e97-406f-8807-a4942a222c41",
+  "name": "Gaea's Anthem",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gaea's Anthem",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control get +1/+1.",
+      "flavorText": "\"To those who can hear it, Gaea's battle song brings power as swift as sunlight and as enduring as the deep roots of the forest.\"\n—Gamelen, Citanul elder",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "43febc63-597d-4392-b8ea-a00841148c45"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tsr",
+  "collectorNumber": "204",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GALERIDER_SLIVER: CardData = {
+  "scryfallId": "425f5d1b-9989-4fd1-88e2-6c3108aefa0b",
+  "oracleId": "1ad78038-44f9-4599-84db-fc1a87d9ed45",
+  "name": "Galerider Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Galerider Sliver",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control have flying.",
+      "flavorText": "Masters of adaptation, galeriders serve multiple purposes useful to the hive. When they're not patrolling their territories, their majestic wings serve to circulate cool air through the vast hive chambers.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "James Zapata",
+      "imageId": "425f5d1b-9989-4fd1-88e2-6c3108aefa0b"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "m14",
+  "collectorNumber": "57",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GALLOWS_WARDEN: CardData = {
+  "scryfallId": "15947b20-8c8e-42ed-9599-8b180a382d21",
+  "oracleId": "06157e34-dbe1-4936-a718-3b1d70726794",
+  "name": "Gallows Warden",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gallows Warden",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nOther Spirit creatures you control get +0/+1.",
+      "flavorText": "The spirit cares nothing for the crimes or triumphs of the slain. It shelters all beneath its stormy cloak.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "15947b20-8c8e-42ed-9599-8b180a382d21"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "isd",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GLASS_OF_THE_GUILDPACT: CardData = {
+  "scryfallId": "d1022d41-c1d0-42bf-b3e5-d6fb02d47119",
+  "oracleId": "a967921c-cfd4-422c-a08b-42cdd80f89c0",
+  "name": "Glass of the Guildpact",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Glass of the Guildpact",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "Multicolored creatures you control get +1/+1.",
+      "flavorText": "\"Counterbalanced forces sustain this city. No faction above others. A beautiful idea.\"\n—Emmara",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Dimitar Marinski",
+      "imageId": "d1022d41-c1d0-42bf-b3e5-d6fb02d47119"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "rna",
+  "collectorNumber": "233",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GLORIOUS_ANTHEM: CardData = {
+  "scryfallId": "043067b1-a7a8-4213-bf3d-290d9cb2651b",
+  "oracleId": "e3886fe8-9b76-4613-8891-4ec74657c087",
+  "name": "Glorious Anthem",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Glorious Anthem",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control get +1/+1.",
+      "flavorText": "Once heard, the battle song of an angel becomes part of the listener forever.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Raymond Swanland",
+      "imageId": "043067b1-a7a8-4213-bf3d-290d9cb2651b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pjjt",
+  "collectorNumber": "1N08",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_CHIEFTAIN: CardData = {
+  "scryfallId": "06c6c448-13c6-4453-965e-6576035aa738",
+  "oracleId": "368b4052-174e-4458-a6e6-eaf8093aa0fe",
+  "name": "Goblin Chieftain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Chieftain",
+      "manaCost": "{1}{R}{R}",
+      "typeLine": "Creature — Goblin",
+      "oracleText": "Haste (This creature can attack and {T} as soon as it comes under your control.)\nOther Goblin creatures you control get +1/+1 and have haste.",
+      "flavorText": "*Goblin_Welder:* #blessed\n*Thrun_TheLastTroll:* #gross",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jakub Kasper & Scott Okumura",
+      "imageId": "06c6c448-13c6-4453-965e-6576035aa738"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "sld",
+  "collectorNumber": "1615",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_WAR_DRUMS: CardData = {
+  "scryfallId": "2232386e-986d-41b5-8b70-e086264f3277",
+  "oracleId": "29c21edd-781b-448e-824a-17bc8b8f4077",
+  "name": "Goblin War Drums",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin War Drums",
+      "manaCost": "{2}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control have menace. (They can't be blocked except by two or more creatures.)",
+      "flavorText": "The War Drums enabled Goblin and Orcish armies to crush the sparsely defended Dwarven cities.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "2232386e-986d-41b5-8b70-e086264f3277"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "fem",
+  "collectorNumber": "58c",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GROUNDSHAKER_SLIVER: CardData = {
+  "scryfallId": "712f0ce4-9189-4c75-9c2b-d370bce89052",
+  "oracleId": "106e343f-c6f4-4155-ad01-63e482d4d38e",
+  "name": "Groundshaker Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Groundshaker Sliver",
+      "manaCost": "{6}{G}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control have trample. (A creature with trample can deal excess combat damage to the player or planeswalker it's attacking.)",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Chase Stone",
+      "imageId": "712f0ce4-9189-4c75-9c2b-d370bce89052"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "m14",
+  "collectorNumber": "177",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HEART_SLIVER: CardData = {
+  "scryfallId": "27a83ab6-0d15-49e4-90e3-b3a2a095c632",
+  "oracleId": "6dd1f375-e8f2-4725-8fbd-9750c4860820",
+  "name": "Heart Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Heart Sliver",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures have haste.",
+      "flavorText": "Gerrard looked all around for the source of the mysterious pulse, and at that moment the slivers boiled forth from the crevasses.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "27a83ab6-0d15-49e4-90e3-b3a2a095c632"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tmp",
+  "collectorNumber": "182",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HERALD_OF_DROMOKA: CardData = {
+  "scryfallId": "8987b2af-66d6-4271-a139-37e544cdec62",
+  "oracleId": "dae8dc90-8047-434c-9e3a-a2eaa6aba575",
+  "name": "Herald of Dromoka",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Herald of Dromoka",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Warrior",
+      "oracleText": "Vigilance\nOther Warrior creatures you control have vigilance.",
+      "flavorText": "The trumpeters of Arashin are ever alert in their watch over the Great Aerie.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "8987b2af-66d6-4271-a139-37e544cdec62"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "dtk",
+  "collectorNumber": "22",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HONOR_OF_THE_PURE: CardData = {
+  "scryfallId": "229c83e2-ff37-4ae2-9b0e-564197f35b78",
+  "oracleId": "eb4188bb-62df-4309-bde1-f66318fe2f05",
+  "name": "Honor of the Pure",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Honor of the Pure",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "White creatures you control get +1/+1.",
+      "flavorText": "Juntos, los soldados eran como una espada dorada, cortando a los enemigos y dañando la oscuridad.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "229c83e2-ff37-4ae2-9b0e-564197f35b78"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ps11",
+  "collectorNumber": "11",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HORNED_SLIVER: CardData = {
+  "scryfallId": "101c69f7-d786-4973-bbd2-e3fbff360f73",
+  "oracleId": "64553181-9852-459f-a6e0-54ce188dd937",
+  "name": "Horned Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Horned Sliver",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures have trample.",
+      "flavorText": "A bristling wave of slivers broke against the *Weatherlight*'s timbers.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Allen Williams",
+      "imageId": "101c69f7-d786-4973-bbd2-e3fbff360f73"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "TMP-234",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JACQUES_LE_VERT: CardData = {
+  "scryfallId": "6fde1e41-bb06-457e-8c61-4a41535e3a73",
+  "oracleId": "c030ca14-33cb-40b3-a1f5-b6d0cb0efd49",
+  "name": "Jacques le Vert",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jacques le Vert",
+      "manaCost": "{1}{R}{G}{W}",
+      "typeLine": "Legendary Creature — Human Warrior",
+      "oracleText": "Green creatures you control get +0/+2.",
+      "flavorText": "Abandoning his sword to return to the lush forest of Pendelhaven, Jacques le Vert devoted his life to protecting the creatures of his homeland.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R",
+        "W"
+      ],
+      "artist": "Andi Rusu",
+      "imageId": "6fde1e41-bb06-457e-8c61-4a41535e3a73"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "me1",
+  "collectorNumber": "147",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KAYSA: CardData = {
+  "scryfallId": "8e04a31e-24b6-4d54-90c3-3f37d457131b",
+  "oracleId": "0fd18a9b-c112-4e48-8fd7-e53fe4500943",
+  "name": "Kaysa",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kaysa",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Legendary Creature — Elf Druid",
+      "oracleText": "Green creatures you control get +1/+1.",
+      "flavorText": "Kaysa speaks as the elder druid, but Yavimaya recognizes only one voice: its own.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "8e04a31e-24b6-4d54-90c3-3f37d457131b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "me2",
+  "collectorNumber": "170",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KHENRA_CHARIOTEER: CardData = {
+  "scryfallId": "8ab1454e-3c69-4450-bd4c-934af2ff2bcb",
+  "oracleId": "e75bc5df-f4a4-45af-a6fd-2711b98dd521",
+  "name": "Khenra Charioteer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Khenra Charioteer",
+      "manaCost": "{1}{R}{G}",
+      "typeLine": "Creature — Jackal Warrior",
+      "oracleText": "Trample\nOther creatures you control have trample.",
+      "flavorText": "\"We do not swerve.\"\n—Tah-crop charioteer motto",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Chris Rallis",
+      "imageId": "8ab1454e-3c69-4450-bd4c-934af2ff2bcb"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "akh",
+  "collectorNumber": "201",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KINSBAILE_CAVALIER: CardData = {
+  "scryfallId": "1470087d-ca8e-460a-a419-81888c114f2b",
+  "oracleId": "e21ed0d0-26b1-4ffe-971a-babf37f4492c",
+  "name": "Kinsbaile Cavalier",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kinsbaile Cavalier",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Kithkin Knight",
+      "oracleText": "Knight creatures you control have double strike.",
+      "flavorText": "The thoughtweft guides his hands with the will of an entire clachan, so his strikes land ever true.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Nathanna Erica",
+      "imageId": "1470087d-ca8e-460a-a419-81888c114f2b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "spg",
+  "collectorNumber": "130",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KNIGHT_EXEMPLAR: CardData = {
+  "scryfallId": "129e61c0-3ea1-49c5-bed4-9f6db17f7847",
+  "oracleId": "ecb198fc-5663-4380-b2da-ad54421e966d",
+  "name": "Knight Exemplar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Knight Exemplar",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "First strike (This creature deals combat damage before creatures without first strike.)\nOther Knight creatures you control get +1/+1 and have indestructible. (Damage and effects that say \"destroy\" don't destroy them.)",
+      "flavorText": "\"If you think you are brave enough to walk the path of honor, follow me into the dragon's den.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jason Chan",
+      "imageId": "129e61c0-3ea1-49c5-bed4-9f6db17f7847"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "First strike"
+  ],
+  "setCode": "ddg",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KOBOLD_DRILL_SERGEANT: CardData = {
+  "scryfallId": "2e918e64-66dd-4037-ba1a-1c569a9907f7",
+  "oracleId": "a6409aa6-035c-4859-8135-90d34d67f72c",
+  "name": "Kobold Drill Sergeant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kobold Drill Sergeant",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Kobold Soldier",
+      "oracleText": "Other Kobold creatures you control get +0/+1 and have trample.",
+      "flavorText": "\"Joining this army is easy, boy. Just survive your first battle.\"",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Julie Baroh",
+      "imageId": "2e918e64-66dd-4037-ba1a-1c569a9907f7"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "me3",
+  "collectorNumber": "104",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KOBOLD_OVERLORD: CardData = {
+  "scryfallId": "0861cb0a-277f-49fe-b263-b044f0117cdd",
+  "oracleId": "5839bc83-868e-402a-9233-ad3d2871ac6d",
+  "name": "Kobold Overlord",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kobold Overlord",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Kobold",
+      "oracleText": "First strike\nOther Kobold creatures you control have first strike.",
+      "flavorText": "\"One for all, all for one; we strike first, and then you're done!\"\n—Oath of the Kobold Musketeers",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Julie Baroh",
+      "imageId": "0861cb0a-277f-49fe-b263-b044f0117cdd"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "First strike"
+  ],
+  "setCode": "me3",
+  "collectorNumber": "105",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KOBOLD_TASKMASTER: CardData = {
+  "scryfallId": "1b9c63eb-8d4e-4d8b-8637-308459ef036b",
+  "oracleId": "372f2534-25dc-4ff3-9891-31ee42b33345",
+  "name": "Kobold Taskmaster",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kobold Taskmaster",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Kobold",
+      "oracleText": "Other Kobold creatures you control get +1/+0.",
+      "flavorText": "The Taskmaster knows that there is no cure for the common Kobold.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Randy Asplund-Faith",
+      "imageId": "1b9c63eb-8d4e-4d8b-8637-308459ef036b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "leg",
+  "collectorNumber": "156",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KONGMING_SLEEPING_DRAGON: CardData = {
+  "scryfallId": "299a0baf-6112-467b-8df1-3bf1796a5e60",
+  "oracleId": "21e9e1a9-5d6d-473e-adab-6a1e8e2b0ebd",
+  "name": "Kongming, \"Sleeping Dragon\"",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kongming, \"Sleeping Dragon\"",
+      "manaCost": "{2}{W}{W}",
+      "typeLine": "Legendary Creature — Human Advisor",
+      "oracleText": "Other creatures you control get +1/+1.",
+      "flavorText": "\"Such a lord as this—all virtues' height—Had never been, nor ever was again.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Gao Yan",
+      "imageId": "299a0baf-6112-467b-8df1-3bf1796a5e60"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "vma",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LANCER_SLIVER: CardData = {
+  "scryfallId": "07df4003-ce8c-43cb-82f5-45c99cc65150",
+  "oracleId": "8ca33b31-4707-40d0-b4ed-cbe625793122",
+  "name": "Lancer Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lancer Sliver",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control have first strike.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Lucas Graciano",
+      "imageId": "07df4003-ce8c-43cb-82f5-45c99cc65150"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "j21",
+  "collectorNumber": "102",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LORD_OF_THE_UNREAL: CardData = {
+  "scryfallId": "2e726977-ad9f-47c0-b48c-6618eaf6c1ed",
+  "oracleId": "cc60181a-5eeb-4d66-9876-3194bac1e7a7",
+  "name": "Lord of the Unreal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lord of the Unreal",
+      "manaCost": "{U}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "Illusion creatures you control get +1/+1 and have hexproof. (They can't be the targets of spells or abilities your opponents control.)",
+      "flavorText": "\"The dream does not end until I say so.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jason Chan",
+      "imageId": "2e726977-ad9f-47c0-b48c-6618eaf6c1ed"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "j25",
+  "collectorNumber": "322",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MADRUSH_CYCLOPS: CardData = {
+  "scryfallId": "21d4fd58-2052-4f97-b634-f89e2139d980",
+  "oracleId": "f45a2a66-04cc-4622-9c70-f2dfc1391bb1",
+  "name": "Madrush Cyclops",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Madrush Cyclops",
+      "manaCost": "{1}{B}{R}{G}",
+      "typeLine": "Creature — Cyclops Warrior",
+      "oracleText": "Creatures you control have haste.",
+      "flavorText": "Death comes in the blink of an eye.",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G",
+        "R"
+      ],
+      "artist": "Wayne Reynolds",
+      "imageId": "21d4fd58-2052-4f97-b634-f89e2139d980"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "arb",
+  "collectorNumber": "119",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MASS_HYSTERIA: CardData = {
+  "scryfallId": "1431354a-fcfa-4f67-a822-6dcc4d13ac3f",
+  "oracleId": "4500131b-7417-4f30-a1b0-97d51b2e6458",
+  "name": "Mass Hysteria",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mass Hysteria",
+      "manaCost": "{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "All creatures have haste.",
+      "flavorText": "The sooner you see the whites of their eyes, the sooner you'll spill the red of their blood.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Adam Rex",
+      "imageId": "1431354a-fcfa-4f67-a822-6dcc4d13ac3f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "mrd",
+  "collectorNumber": "99",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAZE_ABOMINATION: CardData = {
+  "scryfallId": "dd84659f-4209-42a2-800a-61706470ce54",
+  "oracleId": "eaa72823-413e-474e-a926-aebb0a78ff31",
+  "name": "Maze Abomination",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Maze Abomination",
+      "manaCost": "{5}{B}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.)\nMulticolored creatures you control have deathtouch.",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Yeong-Hao Han",
+      "imageId": "dd84659f-4209-42a2-800a-61706470ce54"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Deathtouch"
+  ],
+  "setCode": "dgm",
+  "collectorNumber": "26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAZE_BEHEMOTH: CardData = {
+  "scryfallId": "0a7c9678-dea7-4219-bac0-9e1cef531f54",
+  "oracleId": "d54c258f-1914-449a-857d-11f9478bff63",
+  "name": "Maze Behemoth",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Maze Behemoth",
+      "manaCost": "{5}{G}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Trample\nMulticolored creatures you control have trample.",
+      "flavorText": "It returned to the leylines as quickly as it had appeared, leaving only broken bodies to mark its passage.",
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Yeong-Hao Han",
+      "imageId": "0a7c9678-dea7-4219-bac0-9e1cef531f54"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "dgm",
+  "collectorNumber": "43",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAZE_GLIDER: CardData = {
+  "scryfallId": "d1d20281-49c0-4fd0-91f2-390506ac33f6",
+  "oracleId": "2388a064-ae84-4eac-b1d9-819a40052d12",
+  "name": "Maze Glider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Maze Glider",
+      "manaCost": "{5}{U}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Flying\nMulticolored creatures you control have flying.",
+      "flavorText": "The pattern of the Implicit Maze extends in more than two dimensions.",
+      "power": "3",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Yeong-Hao Han",
+      "imageId": "d1d20281-49c0-4fd0-91f2-390506ac33f6"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "dgm",
+  "collectorNumber": "13",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAZE_RUSHER: CardData = {
+  "scryfallId": "864d2eb8-e27f-4f84-9725-d2ae6446e217",
+  "oracleId": "f6ef6ac6-bf1f-41ed-bd3f-a3806a76a336",
+  "name": "Maze Rusher",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Maze Rusher",
+      "manaCost": "{5}{R}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Haste\nMulticolored creatures you control have haste.",
+      "flavorText": "\"The maze seems to fight us at every turn, resisting our efforts to solve it.\"\n—Niv-Mizzet",
+      "power": "6",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Yeong-Hao Han",
+      "imageId": "864d2eb8-e27f-4f84-9725-d2ae6446e217"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "dgm",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAZE_SENTINEL: CardData = {
+  "scryfallId": "7a977e2d-a2bc-42d1-be7d-36a822c6a66e",
+  "oracleId": "635360cd-0114-47d1-8a98-e6a3678652a8",
+  "name": "Maze Sentinel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Maze Sentinel",
+      "manaCost": "{5}{W}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Vigilance\nMulticolored creatures you control have vigilance.",
+      "flavorText": "The route has been known for millennia, but only by those with no means to tell it.",
+      "power": "3",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Yeong-Hao Han",
+      "imageId": "7a977e2d-a2bc-42d1-be7d-36a822c6a66e"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "dgm",
+  "collectorNumber": "4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MEGANTIC_SLIVER: CardData = {
+  "scryfallId": "3ddea611-856c-41e4-909a-80826f3dfca1",
+  "oracleId": "52e8ec03-23ed-43a0-bce2-ad0cd5c4d737",
+  "name": "Megantic Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Megantic Sliver",
+      "manaCost": "{5}{G}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control get +3/+3.",
+      "flavorText": "Even the thrums, the lowliest of slivers, become deadly in its presence.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Lucas Graciano",
+      "imageId": "3ddea611-856c-41e4-909a-80826f3dfca1"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "pm14",
+  "collectorNumber": "185★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NYLEA_S_FORERUNNER: CardData = {
+  "scryfallId": "2cf2b6be-80a8-4464-a909-8cc658196a14",
+  "oracleId": "bf0948b7-f7af-4d99-a8aa-ea7e6a69232d",
+  "name": "Nylea's Forerunner",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nylea's Forerunner",
+      "manaCost": "{4}{G}",
+      "typeLine": "Enchantment Creature — Beast",
+      "oracleText": "Trample\nOther creatures you control have trample.",
+      "flavorText": "Where its feet tread, the thunder of many others will follow.",
+      "power": "5",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Christopher Burdett",
+      "imageId": "2cf2b6be-80a8-4464-a909-8cc658196a14"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "thb",
+  "collectorNumber": "186",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OATHSWORN_GIANT: CardData = {
+  "scryfallId": "2c342b0f-a8a5-4991-a0a2-fd75b54e1de2",
+  "oracleId": "d3828907-1321-40ca-9531-30401e82a6b8",
+  "name": "Oathsworn Giant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Oathsworn Giant",
+      "manaCost": "{4}{W}{W}",
+      "typeLine": "Creature — Giant Soldier",
+      "oracleText": "Vigilance\nOther creatures you control get +0/+2 and have vigilance.",
+      "flavorText": "The town stands on his ancestors' former burial grounds. Even with the graves long gone, he continues his determined vigil.",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Daren Bader",
+      "imageId": "2c342b0f-a8a5-4991-a0a2-fd75b54e1de2"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "rav",
+  "collectorNumber": "27",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PHERES_BAND_WARCHIEF: CardData = {
+  "scryfallId": "8456730a-607c-44c0-b18e-0df8f35b0634",
+  "oracleId": "79bc9b71-5b04-46b8-a9de-9e9f17936f29",
+  "name": "Pheres-Band Warchief",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pheres-Band Warchief",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Centaur Warrior",
+      "oracleText": "Vigilance, trample\nOther Centaur creatures you control get +1/+1 and have vigilance and trample.",
+      "flavorText": "The renowned warchiefs of Pheres Band fight with the might of minotaurs and the sagacity of sphinxes.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "James Ryman",
+      "imageId": "8456730a-607c-44c0-b18e-0df8f35b0634"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Vigilance",
+    "Trample"
+  ],
+  "setCode": "jou",
+  "collectorNumber": "135",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const POWER_BOOST: CardData = {
+  "scryfallId": "b562c7d0-60f6-4db3-a427-f553aefdd86d",
+  "oracleId": "fed58ccc-db56-4094-8b56-bd29b00e9327",
+  "name": "Power Boost",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Power Boost",
+      "manaCost": "{2}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control get +1/+0.",
+      "flavorText": "Daredevil could feel his enemies fall back as the Scarlet Witch's energy surged around him. He didn't give them time to retreat.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mateus Manhanini",
+      "imageId": "b562c7d0-60f6-4db3-a427-f553aefdd86d"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "msc",
+  "collectorNumber": "852",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PREDATORY_SLIVER: CardData = {
+  "scryfallId": "06206a5b-ea4b-4b15-b61f-e0543077d4fb",
+  "oracleId": "6b589e70-9c1d-48dd-a597-479959e692bf",
+  "name": "Predatory Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Predatory Sliver",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control get +1/+1.",
+      "flavorText": "No matter how much the slivers change, their collective might remains.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mathias Kollros",
+      "imageId": "06206a5b-ea4b-4b15-b61f-e0543077d4fb"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "654",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PRIMAL_RAGE: CardData = {
+  "scryfallId": "c3a0b1fb-9c4b-4f54-9f98-13832c1beec2",
+  "oracleId": "d6464ee4-23fc-4d68-bbda-3b53772015d1",
+  "name": "Primal Rage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Primal Rage",
+      "manaCost": "{1}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control have trample. (A creature with trample can deal excess combat damage to the player or planeswalker it's attacking.)",
+      "flavorText": "Ferocity and cunning accounted for half the victory. Gravity accounted for the rest.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "c3a0b1fb-9c4b-4f54-9f98-13832c1beec2"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "10e",
+  "collectorNumber": "286★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PRIVILEGED_POSITION: CardData = {
+  "scryfallId": "05961dad-9fe6-409f-8bfd-c6176072e9b1",
+  "oracleId": "abd62af0-c17d-4f62-af15-9ea83037b990",
+  "name": "Privileged Position",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Privileged Position",
+      "manaCost": "{2}{G/W}{G/W}{G/W}",
+      "typeLine": "Enchantment",
+      "oracleText": "({G/W} can be paid with either {G} or {W}.)\nOther permanents you control have hexproof. (They can't be the targets of spells or abilities your opponents control.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Mike Mayhew",
+      "imageId": "05961dad-9fe6-409f-8bfd-c6176072e9b1"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "mar",
+  "collectorNumber": "92",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAGE_REFLECTION: CardData = {
+  "scryfallId": "1900c0b1-b2b0-4561-ae63-ab7cd4c54580",
+  "oracleId": "03fb26b1-6d9c-455b-9b2f-a052a9222db7",
+  "name": "Rage Reflection",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rage Reflection",
+      "manaCost": "{4}{R}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control have double strike.",
+      "flavorText": "Vengeance is a dish best served twice.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Terese Nielsen & Ron Spencer",
+      "imageId": "1900c0b1-b2b0-4561-ae63-ab7cd4c54580"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "dpa",
+  "collectorNumber": "52",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAGEBLOOD_SHAMAN: CardData = {
+  "scryfallId": "568a31c0-799b-48b6-a91c-95d176b22670",
+  "oracleId": "2608f905-a678-4e40-9e73-cf1c42ec880d",
+  "name": "Rageblood Shaman",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rageblood Shaman",
+      "manaCost": "{1}{R}{R}",
+      "typeLine": "Creature — Minotaur Shaman",
+      "oracleText": "Trample\nOther Minotaur creatures you control get +1/+1 and have trample.",
+      "flavorText": "\"I see a spark of pure rage. Soon that spark will spread from the depths of Kragma. Soon its fire will engulf the polis.\"\n—Hira, street oracle",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mike Bierek",
+      "imageId": "568a31c0-799b-48b6-a91c-95d176b22670"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "jmp",
+  "collectorNumber": "357",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REFLEX_SLIVER: CardData = {
+  "scryfallId": "2e14da2f-0e35-4586-8435-de0859aad060",
+  "oracleId": "80e4e857-3f7e-4344-bf41-64d3b32f328f",
+  "name": "Reflex Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reflex Sliver",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures have haste.",
+      "flavorText": "\"This sliver comes into the world a perfect predator. It's ready to hunt and devour its first meal within seconds of hatching.\"\n—Rukarumel, field journal",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Luca Zontini",
+      "imageId": "2e14da2f-0e35-4586-8435-de0859aad060"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "tsr",
+  "collectorNumber": "226",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RHOX_PIKEMASTER: CardData = {
+  "scryfallId": "b3684a28-e819-4909-912e-dec4a9cf1b11",
+  "oracleId": "8866d33e-8159-4e10-8b11-914c12a0918f",
+  "name": "Rhox Pikemaster",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rhox Pikemaster",
+      "manaCost": "{2}{W}{W}",
+      "typeLine": "Creature — Rhino Soldier",
+      "oracleText": "First strike (This creature deals combat damage before creatures without first strike.)\nOther Soldier creatures you control have first strike.",
+      "flavorText": "When the rhoxes charge, everyone else knows which way to run.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "b3684a28-e819-4909-912e-dec4a9cf1b11"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "First strike"
+  ],
+  "setCode": "m10",
+  "collectorNumber": "26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROUGHSHOD_MENTOR: CardData = {
+  "scryfallId": "2e7dd7ac-2821-40ac-8251-0ad8d6510989",
+  "oracleId": "ec43fb64-122d-4fc5-9fe0-b7913373f7a4",
+  "name": "Roughshod Mentor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Roughshod Mentor",
+      "manaCost": "{5}{G}",
+      "typeLine": "Creature — Giant Warrior",
+      "oracleText": "Green creatures you control have trample.",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Steven Belledin",
+      "imageId": "2e7dd7ac-2821-40ac-8251-0ad8d6510989"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "ps11",
+  "collectorNumber": "157",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SENTINEL_SLIVER: CardData = {
+  "scryfallId": "527b5f67-3b96-40c1-adba-444f28d2bcf7",
+  "oracleId": "1d0f1186-be6c-45c3-9703-f0c1e13892fb",
+  "name": "Sentinel Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sentinel Sliver",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control have vigilance. (Attacking doesn't cause them to tap.)",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Maciej Kuciara",
+      "imageId": "527b5f67-3b96-40c1-adba-444f28d2bcf7"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "j21",
+  "collectorNumber": "128",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SERRA_S_BLESSING: CardData = {
+  "scryfallId": "2794cca9-3df0-4864-8a98-4de71a2bcf17",
+  "oracleId": "49cdd05c-feeb-4c24-9d88-069f5d2e08c3",
+  "name": "Serra's Blessing",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Serra's Blessing",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control have vigilance. (Attacking doesn't cause them to tap.)",
+      "flavorText": "\"I have seen your strength imbued in angels' wings, and I have felt your sorrow rain down on the ruins brought by the Lord of the Wastes.\"\n—Hanna, *Weatherlight* navigator",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Rebecca Guay",
+      "imageId": "2794cca9-3df0-4864-8a98-4de71a2bcf17"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "wth",
+  "collectorNumber": "25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SERRA_S_GUARDIAN: CardData = {
+  "scryfallId": "1a1d95b9-aa18-41e2-b972-93fda25e0b11",
+  "oracleId": "c50cd7e7-8d53-44af-ac96-3e104587bdb3",
+  "name": "Serra's Guardian",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Serra's Guardian",
+      "manaCost": "{4}{W}{W}",
+      "typeLine": "Creature — Angel",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nVigilance (Attacking doesn't cause this creature to tap.)\nOther creatures you control have vigilance.",
+      "flavorText": "She watches over the city just as Serra watches over all.",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Magali Villeneuve",
+      "imageId": "1a1d95b9-aa18-41e2-b972-93fda25e0b11"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying",
+    "Vigilance"
+  ],
+  "setCode": "m19",
+  "collectorNumber": "284",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLIVER_HIVELORD: CardData = {
+  "scryfallId": "0a1b117d-f2bf-4bf0-b70c-d45e252e1456",
+  "oracleId": "e4fe33e7-b952-4152-8c83-81d948756d2f",
+  "name": "Sliver Hivelord",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sliver Hivelord",
+      "manaCost": "{W}{U}{B}{R}{G}",
+      "typeLine": "Legendary Creature — Sliver",
+      "oracleText": "Sliver creatures you control have indestructible. (Damage and effects that say \"destroy\" don't destroy them.)",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "artist": "Thomas M. Baxa",
+      "imageId": "0a1b117d-f2bf-4bf0-b70c-d45e252e1456"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "276",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIDERSILK_ARMOR: CardData = {
+  "scryfallId": "5a1fa28a-ebde-4001-9f12-da52ca00eb12",
+  "oracleId": "ad73e5eb-197c-45a3-9d20-a406ba126c79",
+  "name": "Spidersilk Armor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spidersilk Armor",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control get +0/+1 and have reach. (They can block creatures with flying.)",
+      "flavorText": "It hardly weighs anything, but it takes all day to remove.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Scott Hampton",
+      "imageId": "5a1fa28a-ebde-4001-9f12-da52ca00eb12"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "MMQ-273",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPINNERET_SLIVER: CardData = {
+  "scryfallId": "7f86e30d-d9e8-48f7-8bd1-f2645f0ab3f4",
+  "oracleId": "fbdec63e-0679-47e9-b82a-daa56df50481",
+  "name": "Spinneret Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spinneret Sliver",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures have reach.",
+      "flavorText": "Each new generation of slivers evolves to assimilate the strengths of the prey upon which their progenitors fed.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Michael Sutfin",
+      "imageId": "7f86e30d-d9e8-48f7-8bd1-f2645f0ab3f4"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tsr",
+  "collectorNumber": "230",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPITTING_SLIVER: CardData = {
+  "scryfallId": "cd07649e-c7fc-44f7-ab23-0fb935aff8c7",
+  "oracleId": "8415a482-3957-4c00-9015-99defc049877",
+  "name": "Spitting Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spitting Sliver",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures have first strike.",
+      "flavorText": "\"Our lances' reach had been our saving grace in our fight against the hive. Now even that advantage is taken from us.\"\n—Adom Capashen, Benalish knight",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Steve Ellis",
+      "imageId": "cd07649e-c7fc-44f7-ab23-0fb935aff8c7"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "plc",
+  "collectorNumber": "80",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STEELFORM_SLIVER: CardData = {
+  "scryfallId": "93e1b472-c73a-47fe-bbbe-dbebca635d2e",
+  "oracleId": "ae58e71c-b617-404f-a5dc-5e6a487f2675",
+  "name": "Steelform Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Steelform Sliver",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control get +0/+1.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Chase Stone",
+      "imageId": "93e1b472-c73a-47fe-bbbe-dbebca635d2e"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "j21",
+  "collectorNumber": "144",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STRIKING_SLIVER: CardData = {
+  "scryfallId": "4ee9254b-3d98-4477-a82e-1450cf3ee96e",
+  "oracleId": "6a15599d-8b00-4e0f-ac0c-d05f07c1e50d",
+  "name": "Striking Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Striking Sliver",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control have first strike. (They deal combat damage before creatures without first strike.)",
+      "flavorText": "You're too busy recoiling in fear to realize that it's already hit you.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Maciej Kuciara",
+      "imageId": "4ee9254b-3d98-4477-a82e-1450cf3ee96e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "m14",
+  "collectorNumber": "157",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STROMKIRK_CAPTAIN: CardData = {
+  "scryfallId": "2f053406-d2e4-4443-81f1-025e3b27c65a",
+  "oracleId": "599c3fd6-3309-4b5d-adec-9c4062848ad5",
+  "name": "Stromkirk Captain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stromkirk Captain",
+      "manaCost": "{1}{B}{R}",
+      "typeLine": "Creature — Vampire Soldier",
+      "oracleText": "First strike\nOther Vampire creatures you control get +1/+1 and have first strike.",
+      "flavorText": "\"No longer can we allow our human populations to be mindlessly slaughtered by ghouls. Slay all who trespass.\"\n—Runo Stromkirk",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Jana Schirmer & Johannes Voss",
+      "imageId": "2f053406-d2e4-4443-81f1-025e3b27c65a"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "First strike"
+  ],
+  "setCode": "voc",
+  "collectorNumber": "157",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUNRISE_SOVEREIGN: CardData = {
+  "scryfallId": "9bface8b-1bdc-4b4b-b0b5-b584731bced8",
+  "oracleId": "c9abbb90-e3ae-4e7c-87ca-06ebebf65edb",
+  "name": "Sunrise Sovereign",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sunrise Sovereign",
+      "manaCost": "{5}{R}",
+      "typeLine": "Creature — Giant Warrior",
+      "oracleText": "Other Giant creatures you control get +2/+2 and have trample.",
+      "flavorText": "A hundred generations has he mentored, a hundred armies has he crushed beneath his feet, yet only a hundred words has he ever spoken, each more revered than a hundred books.",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "William O'Connor",
+      "imageId": "9bface8b-1bdc-4b4b-b0b5-b584731bced8"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "c15",
+  "collectorNumber": "166",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SYNCHRONOUS_SLIVER: CardData = {
+  "scryfallId": "c02fa57b-4b7f-46e1-b2b5-6b1a9e9d1643",
+  "oracleId": "b90e2fb8-9b09-4d95-a8a2-5287b5f18132",
+  "name": "Synchronous Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Synchronous Sliver",
+      "manaCost": "{4}{U}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures have vigilance.",
+      "flavorText": "\"With a twitch of its muscles, its timeline forks. Then, just as quickly, its two selves reintegrate. Causality, strangely, seems not to mind.\"\n—Rukarumel, field journal",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "E. M. Gist",
+      "imageId": "c02fa57b-4b7f-46e1-b2b5-6b1a9e9d1643"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "plc",
+  "collectorNumber": "48",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SYPHON_SLIVER: CardData = {
+  "scryfallId": "3d222985-759c-4fdc-82ba-d970ef789b35",
+  "oracleId": "61f18560-8f26-4d7b-a6f8-ec388766123b",
+  "name": "Syphon Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Syphon Sliver",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control have lifelink. (Damage dealt by a Sliver creature you control also causes you to gain that much life.)",
+      "flavorText": "The hive knows no fear or mercy, only hunger.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "3d222985-759c-4fdc-82ba-d970ef789b35"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "cmm",
+  "collectorNumber": "870",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TALON_SLIVER: CardData = {
+  "scryfallId": "f186c4b1-b7ec-46eb-a961-257411b401b0",
+  "oracleId": "74910702-e385-48f7-a6b3-064ebed08be7",
+  "name": "Talon Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Talon Sliver",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures have first strike.",
+      "flavorText": "\"Keep them at sword's length!\" Gerrard's order fell flat as each sliver's talon suddenly grew longer. \"Hold on—break out the polearms!\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mike Raabe",
+      "imageId": "f186c4b1-b7ec-46eb-a961-257411b401b0"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tmp",
+  "collectorNumber": "50",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THE_WALLS_OF_BA_SING_SE: CardData = {
+  "scryfallId": "086b6003-6d90-426b-809e-ea837d868290",
+  "oracleId": "af7d7da5-aff5-48e1-901a-f81257a85f71",
+  "name": "The Walls of Ba Sing Se",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "The Walls of Ba Sing Se",
+      "manaCost": "{8}",
+      "typeLine": "Legendary Artifact Creature — Wall",
+      "oracleText": "Defender\nOther permanents you control have indestructible.",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "30",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Ben Hill",
+      "imageId": "086b6003-6d90-426b-809e-ea837d868290"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 8,
+  "keywords": [
+    "Defender"
+  ],
+  "setCode": "tla",
+  "collectorNumber": "329",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRUE_CONVICTION: CardData = {
+  "scryfallId": "1879adda-c2a7-4e5e-99db-31024e75b585",
+  "oracleId": "fc299c1c-50f3-492a-b6b8-a3664bb72ab7",
+  "name": "True Conviction",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "True Conviction",
+      "manaCost": "{3}{W}{W}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control have double strike and lifelink.",
+      "flavorText": "\"Now light our darkest hour.\"\n—Rodimus Prime",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Volta Creation",
+      "imageId": "1879adda-c2a7-4e5e-99db-31024e75b585"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "1082",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TUKTUK_RUBBLEFORT: CardData = {
+  "scryfallId": "02eedf9d-e26c-405c-aee5-1b3493dc5e9b",
+  "oracleId": "48dab180-4ffd-4b39-9f5a-6bdc017a1eae",
+  "name": "Tuktuk Rubblefort",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tuktuk Rubblefort",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Wall",
+      "oracleText": "Defender, reach\nCreatures you control have haste.",
+      "flavorText": "As with everything else, goblins believe fortifications benefit from as many spiky bits as possible.",
+      "power": "0",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Nicholas Gregory",
+      "imageId": "02eedf9d-e26c-405c-aee5-1b3493dc5e9b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Reach",
+    "Defender"
+  ],
+  "setCode": "znr",
+  "collectorNumber": "173",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TWO_HEADED_SLIVER: CardData = {
+  "scryfallId": "1fd73d00-feb0-4ec6-8031-6af5b334bba3",
+  "oracleId": "be857d6e-5bf2-491b-ab46-963b4d45adee",
+  "name": "Two-Headed Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Two-Headed Sliver",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures have menace. (They can't be blocked except by two or more creatures.)",
+      "flavorText": "When a species becomes so dominant that no other can compete, evolution gets creative.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Raoul Vitale",
+      "imageId": "1fd73d00-feb0-4ec6-8031-6af5b334bba3"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "cmm",
+  "collectorNumber": "883",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VENOM_SLIVER: CardData = {
+  "scryfallId": "115537f3-0e1d-4c92-b496-8e6aabba15ca",
+  "oracleId": "ffe05d4b-0ec9-4319-bb11-1366dc091224",
+  "name": "Venom Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Venom Sliver",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "Sliver creatures you control have deathtouch. (Any amount of damage a creature with deathtouch deals to a creature is enough to destroy it.)",
+      "flavorText": "\"We attacked with arrows dipped in poison. The slivers that did not die began to change.\"\n—Hastric, Thunian scout",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dave Kendall",
+      "imageId": "115537f3-0e1d-4c92-b496-8e6aabba15ca"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "M15-205",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VETERAN_ARMORER: CardData = {
+  "scryfallId": "026aaea6-ed4f-4505-9779-7c28ff6c2284",
+  "oracleId": "1b1214e9-1581-4008-b3d4-8b7af6b092fd",
+  "name": "Veteran Armorer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Veteran Armorer",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Other creatures you control get +0/+1.",
+      "flavorText": "\"Give me a sword and I'll kill a few enemies. But give me a hammer and a fiery forge, and I'll turn the tide of battle.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "026aaea6-ed4f-4505-9779-7c28ff6c2284"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "mma",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VETERAN_ARMORSMITH: CardData = {
+  "scryfallId": "42f506b5-2e24-47fd-a41e-1e834ce48cd1",
+  "oracleId": "fcb34e92-f991-401c-a494-c2919083bf9e",
+  "name": "Veteran Armorsmith",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Veteran Armorsmith",
+      "manaCost": "{W}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Other Soldier creatures you control get +0/+1.",
+      "flavorText": "\"Courage is a proud and gleaming shield. It does not bend or hide from sight. To fight with courage, we must forge in steel.\"",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Michael Komarck",
+      "imageId": "42f506b5-2e24-47fd-a41e-1e834ce48cd1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m10",
+  "collectorNumber": "38",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VETERAN_SWORDSMITH: CardData = {
+  "scryfallId": "c50e0950-e1ef-4c5c-b758-e707ef026d54",
+  "oracleId": "cc71b6c4-09d4-423b-a134-2f2f2fd7b533",
+  "name": "Veteran Swordsmith",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Veteran Swordsmith",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Other Soldier creatures you control get +1/+0.",
+      "flavorText": "\"Truth is a straight, keen edge. There are no soft angles or rounded edges. To fight for truth, we must forge in steel.\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Michael Komarck",
+      "imageId": "c50e0950-e1ef-4c5c-b758-e707ef026d54"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m10",
+  "collectorNumber": "39",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WINGED_SLIVER: CardData = {
+  "scryfallId": "03aa58b4-dbc2-414e-aa7a-f09360d59b3c",
+  "oracleId": "24e96682-14ca-4a62-a920-2d686c8a5dbf",
+  "name": "Winged Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Winged Sliver",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures have flying.",
+      "flavorText": "\"Everything around here has cut a deal with gravity.\"\n—Gerrard of the *Weatherlight*",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Anthony S. Waters",
+      "imageId": "03aa58b4-dbc2-414e-aa7a-f09360d59b3c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tmp",
+  "collectorNumber": "106",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WIZENED_CENN: CardData = {
+  "scryfallId": "585f1c8e-6898-4def-8e3f-d45cd263f776",
+  "oracleId": "b5905ef3-6565-462f-a015-2bb5b5b09eff",
+  "name": "Wizened Cenn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wizened Cenn",
+      "manaCost": "{W}{W}",
+      "typeLine": "Creature — Kithkin Cleric",
+      "oracleText": "Other Kithkin creatures you control get +1/+1.",
+      "flavorText": "\"Thoughtweft binds us together as one, part of an intricate pattern that would unravel if even one thread came loose.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "585f1c8e-6898-4def-8e3f-d45cd263f776"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "lrw",
+  "collectorNumber": "49",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CAPTAIN_OF_THE_WATCH: CardData = {
+  "scryfallId": "6e201980-e220-44dc-beab-ad13c20332bd",
+  "oracleId": "9f2af06d-8fb7-4276-bb92-3559a6d1fa18",
+  "name": "Captain of the Watch",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Captain of the Watch",
+      "manaCost": "{4}{W}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Vigilance (Attacking doesn't cause this creature to tap.)\nOther Soldier creatures you control get +1/+1 and have vigilance.\nWhen this creature enters, create three 1/1 white Soldier creature tokens.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "6e201980-e220-44dc-beab-ad13c20332bd"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "ddo",
+  "collectorNumber": "3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FORTIFYING_PROVISIONS: CardData = {
+  "scryfallId": "58b98563-88b6-49a1-b467-a24e7a985f72",
+  "oracleId": "f00dc657-4695-497d-aad3-af7b6a3ccf94",
+  "name": "Fortifying Provisions",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fortifying Provisions",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control get +0/+1.\nWhen this enchantment enters, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+      "flavorText": "\"To the king, to the Circle, and to the realm! And to not dying.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Scott Murphy",
+      "imageId": "58b98563-88b6-49a1-b467-a24e7a985f72"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Food"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "ELD-13",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HAMMER_OF_PURPHOROS: CardData = {
+  "scryfallId": "3f867f61-676e-40b3-8e22-e60d0606c733",
+  "oracleId": "212d058b-69c6-4dc2-8c93-bdfe26dc2ffe",
+  "name": "Hammer of Purphoros",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hammer of Purphoros",
+      "manaCost": "{1}{R}{R}",
+      "typeLine": "Legendary Enchantment Artifact",
+      "oracleText": "Creatures you control have haste.\n{2}{R}, {T}, Sacrifice a land: Create a 3/3 colorless Golem enchantment artifact creature token.",
+      "flavorText": "All the world is Purphoros's anvil.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Yeong-Hao Han",
+      "imageId": "3f867f61-676e-40b3-8e22-e60d0606c733"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ths",
+  "collectorNumber": "124",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MOBILIZATION: CardData = {
+  "scryfallId": "653cc07b-0f53-4b5b-9c5f-885b8b4a6e5f",
+  "oracleId": "6b8119e9-a9a9-4349-be32-adcb84b8eb79",
+  "name": "Mobilization",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mobilization",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Soldier creatures have vigilance.\n{2}{W}: Create a 1/1 white Soldier creature token.",
+      "flavorText": "Newcomers to Otaria find themselves at the bottom of the heap. In the pits, they at least have the chance to climb atop a heap of bodies.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "653cc07b-0f53-4b5b-9c5f-885b8b4a6e5f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ons",
+  "collectorNumber": "44",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FIRES_OF_YAVIMAYA: CardData = {
+  "scryfallId": "0d4d0211-136e-4362-bf7c-b7e9499584bf",
+  "oracleId": "e23d6f3b-0e18-423b-943b-15db7837255b",
+  "name": "Fires of Yavimaya",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fires of Yavimaya",
+      "manaCost": "{1}{R}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control have haste.\nSacrifice this enchantment: Target creature gets +2/+2 until end of turn.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Val Mayerik",
+      "imageId": "0d4d0211-136e-4362-bf7c-b7e9499584bf"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "arc",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANGELIC_SHIELD: CardData = {
+  "scryfallId": "5aaa3e4e-4e08-4df2-9e0c-66e15a10fec4",
+  "oracleId": "05b020fd-21be-495d-ae45-7de3b1224e6d",
+  "name": "Angelic Shield",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Angelic Shield",
+      "manaCost": "{W}{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control get +0/+1.\nSacrifice this enchantment: Return target creature to its owner's hand.",
+      "flavorText": "\"If only an angel's wings could shelter us all.\"\n—Barrin",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Adam Rex",
+      "imageId": "5aaa3e4e-4e08-4df2-9e0c-66e15a10fec4"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "inv",
+  "collectorNumber": "228",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ESCARPMENT_FORTRESS: CardData = {
+  "scryfallId": "c11c9e60-fc14-48fe-bca9-b74f82301835",
+  "oracleId": "5c3f45cb-d2f0-4dac-b124-18e8f6d7e2dc",
+  "name": "Escarpment Fortress",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Escarpment Fortress",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Wall",
+      "oracleText": "Defender (This creature can't attack.)\nReach (This creature can block creatures with flying.)\nOther creatures you control get +1/+0.\nWhenever you attack with two or more creatures, draw a card.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Vaigintas Pakenis",
+      "imageId": "c11c9e60-fc14-48fe-bca9-b74f82301835"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Reach",
+    "Defender"
+  ],
+  "setCode": "acr",
+  "collectorNumber": "278",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DIREGRAF_CAPTAIN: CardData = {
+  "scryfallId": "0e5f41eb-609b-4882-af9e-904daa717484",
+  "oracleId": "70de24d9-c585-4bf6-ac2c-c5b4b7aa298c",
+  "name": "Diregraf Captain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Diregraf Captain",
+      "manaCost": "{1}{U}{B}",
+      "typeLine": "Creature — Zombie Soldier",
+      "oracleText": "Deathtouch\nOther Zombie creatures you control get +1/+1.\nWhenever another Zombie you control dies, target opponent loses 1 life.",
+      "flavorText": "Though its mind has long since rotted away, it wields a sword with deadly skill.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "U"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "0e5f41eb-609b-4882-af9e-904daa717484"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Deathtouch"
+  ],
+  "setCode": "dka",
+  "collectorNumber": "135",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JUDITH_THE_SCOURGE_DIVA: CardData = {
+  "scryfallId": "0a1b14a8-c194-49d3-ab6c-1db377b69495",
+  "oracleId": "c01516e0-eec3-4370-b935-7674982e8850",
+  "name": "Judith, the Scourge Diva",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Judith, the Scourge Diva",
+      "manaCost": "{1}{B}{R}",
+      "typeLine": "Legendary Creature — Human Shaman",
+      "oracleText": "Other creatures you control get +1/+0.\nWhenever a nontoken creature you control dies, Judith deals 1 damage to any target.",
+      "flavorText": "She protected Ravnica with the same things that thrilled her fans: courage, charisma, and a grand assortment of spiked chains.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Benjamin Ee",
+      "imageId": "0a1b14a8-c194-49d3-ab6c-1db377b69495"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mul",
+  "collectorNumber": "45",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REAPER_KING: CardData = {
+  "scryfallId": "1b3463a8-79f6-4fec-afd6-ad8c412d648c",
+  "oracleId": "70034860-5198-421f-871d-7c1676337b6e",
+  "name": "Reaper King",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reaper King",
+      "manaCost": "{2/W}{2/U}{2/B}{2/R}{2/G}",
+      "typeLine": "Legendary Artifact Creature — Scarecrow",
+      "oracleText": "({2/W} can be paid with any two mana or with {W}. This card's mana value is 10.)\nOther Scarecrow creatures you control get +1/+1.\nWhenever another Scarecrow you control enters, destroy target permanent.",
+      "flavorText": "It's harvest time.",
+      "power": "6",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "artist": "Justine Jones",
+      "imageId": "1b3463a8-79f6-4fec-afd6-ad8c412d648c"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+  ],
+  "cmc": 10,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "9",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAUL_SPLICER: CardData = {
+  "scryfallId": "2b2ec926-2a1d-4b8f-94d8-0286b03e808a",
+  "oracleId": "b0d0c534-8bd2-4801-aadd-dcc9c92d6ec3",
+  "name": "Maul Splicer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Maul Splicer",
+      "manaCost": "{6}{G}",
+      "typeLine": "Creature — Phyrexian Human Artificer",
+      "oracleText": "When this creature enters, create two 3/3 colorless Phyrexian Golem artifact creature tokens.\nGolem creatures you control have trample.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Erica Yang",
+      "imageId": "2b2ec926-2a1d-4b8f-94d8-0286b03e808a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 7,
+  "keywords": [],
+  "setCode": "prm",
+  "collectorNumber": "40084",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SENSOR_SPLICER: CardData = {
+  "scryfallId": "2d308c11-cc8d-4fa6-bbe1-357b164733ad",
+  "oracleId": "9676da93-1e17-4f6c-b610-a242b78c71ab",
+  "name": "Sensor Splicer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sensor Splicer",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Phyrexian Artificer",
+      "oracleText": "When this creature enters, create a 3/3 colorless Phyrexian Golem artifact creature token.\nGolem creatures you control have vigilance.",
+      "flavorText": "With clarity of vision comes clarity of function.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Izzy",
+      "imageId": "2d308c11-cc8d-4fa6-bbe1-357b164733ad"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "2x2",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WING_SPLICER: CardData = {
+  "scryfallId": "6694873a-0b0c-4e9e-b9fc-249e80a09cca",
+  "oracleId": "7fbf6afc-8a16-447b-bdef-b7d0b640f76c",
+  "name": "Wing Splicer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wing Splicer",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Phyrexian Human Artificer",
+      "oracleText": "When this creature enters, create a 3/3 colorless Phyrexian Golem artifact creature token.\nGolem creatures you control have flying.",
+      "flavorText": "\"Progress is our great inheritance, perfection our ultimate destination.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "6694873a-0b0c-4e9e-b9fc-249e80a09cca"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "mm3",
+  "collectorNumber": "57",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRIMSON_KOBOLDS: CardData = {
+  "scryfallId": "13696657-aeef-4add-9a3b-8137fce01fe3",
+  "oracleId": "93fdcc49-e3c8-4f8c-a3bc-064c6392b4ca",
+  "name": "Crimson Kobolds",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crimson Kobolds",
+      "manaCost": "{0}",
+      "typeLine": "Creature — Kobold",
+      "oracleText": "",
+      "flavorText": "\"Kobolds are harmless.\" —Bearand the Bold, epitaph",
+      "power": "0",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Anson Maddocks",
+      "imageId": "13696657-aeef-4add-9a3b-8137fce01fe3"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "leg",
+  "collectorNumber": "139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STRAW_SOLDIERS: CardData = {
+  "scryfallId": "8ae5ba21-eb8e-4663-bfd8-3e19a0c10774",
+  "oracleId": "8138a9d7-63cb-4d40-ac9e-1a9b10766113",
+  "name": "Straw Soldiers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Straw Soldiers",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Scarecrow Soldier",
+      "oracleText": "",
+      "flavorText": "The overnight appearance of miles of \"armed\" Wu forts at Guangling frightened a much vaster Wei force into fleeing for their lives.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Cai Tingting",
+      "imageId": "8ae5ba21-eb8e-4663-bfd8-3e19a0c10774"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "54",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SINEW_SLIVER: CardData = {
+  "scryfallId": "000edc61-b3ae-49e3-87f4-0250fa6a4501",
+  "oracleId": "ffff90c3-63c4-4dee-a21d-6b2b113f4f80",
+  "name": "Sinew Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sinew Sliver",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures get +1/+1.",
+      "flavorText": "As the muscle cords of the creature twitched, Hanna saw an unsettling unanimity in the others' rippling flesh. She didn't know what it meant, but she urged Sisay to keep the ship at a safe distance.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Steven Belledin",
+      "imageId": "000edc61-b3ae-49e3-87f4-0250fa6a4501"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tsr",
+  "collectorNumber": "44",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIGHT_SLIVER: CardData = {
+  "scryfallId": "0122c2d9-7d4b-41a7-b39d-21b52e76e94e",
+  "oracleId": "92f5f80c-de1a-44e8-93f1-e405241c1e82",
+  "name": "Might Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Might Sliver",
+      "manaCost": "{4}{G}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures get +2/+2.",
+      "flavorText": "\"The colossal thing rumbled over the ridge, tree husks crumbling before it. The ones we were already fighting howled as it came, their muscles suddenly surging, and we knew it was time to flee.\"\n—Llanach, Skyshroud ranger",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jeff Miracola",
+      "imageId": "0122c2d9-7d4b-41a7-b39d-21b52e76e94e"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "h09",
+  "collectorNumber": "23",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NIGHT_OF_SOULS_BETRAYAL: CardData = {
+  "scryfallId": "015f8c38-5d0e-4bdb-a705-24313dcece99",
+  "oracleId": "916bd025-c44f-49c9-8d76-4b7b2f9a8ba3",
+  "name": "Night of Souls' Betrayal",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Night of Souls' Betrayal",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Legendary Enchantment",
+      "oracleText": "All creatures get -1/-1.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "015f8c38-5d0e-4bdb-a705-24313dcece99"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ha6",
+  "collectorNumber": "4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BAD_MOON: CardData = {
+  "scryfallId": "061bd134-9d82-4118-959a-3be169ec1f9b",
+  "oracleId": "fc5d3341-cbce-49e5-93cc-8add92479dca",
+  "name": "Bad Moon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bad Moon",
+      "manaCost": "{1}{B}",
+      "typeLine": "Enchantment",
+      "oracleText": "Black creatures get +1/+1.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Gary Leach",
+      "imageId": "061bd134-9d82-4118-959a-3be169ec1f9b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "DDD-48",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KAERVEK_THE_SPITEFUL: CardData = {
+  "scryfallId": "0b183940-ceab-400e-ac17-e06b053e9e99",
+  "oracleId": "b338d879-189d-4b74-9d63-42920fdb9855",
+  "name": "Kaervek, the Spiteful",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kaervek, the Spiteful",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Legendary Creature — Human Warlock",
+      "oracleText": "Other creatures get -1/-1.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Daarken",
+      "imageId": "0b183940-ceab-400e-ac17-e06b053e9e99"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "prm",
+  "collectorNumber": "82014",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANABA_SPIRIT_CRAFTER: CardData = {
+  "scryfallId": "0bb37d02-3e99-433a-ad3a-3c1fce50f0f0",
+  "oracleId": "e9bee79c-144f-41e4-a53d-17df8381f691",
+  "name": "Anaba Spirit Crafter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Anaba Spirit Crafter",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Creature — Minotaur Shaman",
+      "oracleText": "Minotaur creatures get +1/+0.",
+      "flavorText": "\"The Spirit Crafters sing of all our people. They sing of those lost, of those found, and of those who are yet to be.\"\n—Onatah, Anaba Shaman",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Anson Maddocks",
+      "imageId": "0bb37d02-3e99-433a-ad3a-3c1fce50f0f0"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "me3",
+  "collectorNumber": "87",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BONESPLITTER_SLIVER: CardData = {
+  "scryfallId": "29672365-f059-4ff2-93c5-437b9ab01297",
+  "oracleId": "a0f6834c-faa9-4d90-adad-847a8b337fe6",
+  "name": "Bonesplitter Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bonesplitter Sliver",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures get +2/+0.",
+      "flavorText": "As the time streams grew more and more unstable, Dominaria's creatures struggled to adapt. The intense pressures led to many dead ends but also to lethal new forms that appeared as suddenly as the ashen rains.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dany Orizio",
+      "imageId": "29672365-f059-4ff2-93c5-437b9ab01297"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "tsr",
+  "collectorNumber": "155",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLADE_SLIVER: CardData = {
+  "scryfallId": "34a90477-4870-4d82-a5da-43f8405a0d39",
+  "oracleId": "110e5695-a9df-4201-9230-99f6abe9978f",
+  "name": "Blade Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blade Sliver",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures get +1/+0.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "David Martin",
+      "imageId": "34a90477-4870-4d82-a5da-43f8405a0d39"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "psal",
+  "collectorNumber": "D3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MUSCLE_SLIVER: CardData = {
+  "scryfallId": "510a8590-48f5-40ee-a0c8-77238055a937",
+  "oracleId": "06e0459f-d691-4470-884a-27c09b6612d2",
+  "name": "Muscle Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Muscle Sliver",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures get +1/+1.",
+      "flavorText": "The air was filled with the cracks and snaps of flesh hardening as the new sliver joined the battle.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Richard Kane Ferguson",
+      "imageId": "510a8590-48f5-40ee-a0c8-77238055a937"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "TMP-238",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WATCHER_SLIVER: CardData = {
+  "scryfallId": "7d72a950-82ed-4e7b-9e18-b8231a2ebea7",
+  "oracleId": "9a538bd7-e665-4896-95df-bbab1e28f75e",
+  "name": "Watcher Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Watcher Sliver",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures get +0/+2.",
+      "flavorText": "\"I have spied them, wandering and watching—but for what? I fear they watch for us.\"\n—Yonat of Amrou",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Liz Danforth",
+      "imageId": "7d72a950-82ed-4e7b-9e18-b8231a2ebea7"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "tsp",
+  "collectorNumber": "45",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PLATED_SLIVER: CardData = {
+  "scryfallId": "82846d31-4981-4ef1-85c3-703569146a84",
+  "oracleId": "89d9641c-84a4-41df-af1f-5b552305e895",
+  "name": "Plated Sliver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Plated Sliver",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Sliver",
+      "oracleText": "All Sliver creatures get +0/+1.",
+      "flavorText": "Overcoming extinction has only made the slivers more determined to live.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "82846d31-4981-4ef1-85c3-703569146a84"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "lgn",
+  "collectorNumber": "19",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DREAD_OF_NIGHT: CardData = {
+  "scryfallId": "a4105fb4-ab13-4a34-810b-1d294c5a6eee",
+  "oracleId": "b431a73b-cf4c-4154-810f-82b7c6099e66",
+  "name": "Dread of Night",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dread of Night",
+      "manaCost": "{B}",
+      "typeLine": "Enchantment",
+      "oracleText": "White creatures get -1/-1.",
+      "flavorText": "\"These moonless, foreign skies keep me in thrall. Dark whispers echo in the night, and I cannot resist.\"\n—Selenia, dark angel",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Richard Thomas",
+      "imageId": "a4105fb4-ab13-4a34-810b-1d294c5a6eee"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "6ed",
+  "collectorNumber": "122",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ZUBERI_GOLDEN_FEATHER: CardData = {
+  "scryfallId": "c1b24a80-b5e1-484f-9e21-886cb6b5db48",
+  "oracleId": "5a43b164-61a4-4dcb-9397-45356ad4260e",
+  "name": "Zuberi, Golden Feather",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Zuberi, Golden Feather",
+      "manaCost": "{4}{W}",
+      "typeLine": "Legendary Creature — Griffin",
+      "oracleText": "Flying\nOther Griffin creatures get +1/+1.",
+      "flavorText": "\"If the griffins tell of their gods, perhaps they speak of feathers bright as the Sun.\"\n—Afari, *Tales*",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Alan Rabinowitz",
+      "imageId": "c1b24a80-b5e1-484f-9e21-886cb6b5db48"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "mir",
+  "collectorNumber": "51",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LORD_OF_THE_UNDEAD: CardData = {
+  "scryfallId": "026f006b-0ecc-4cb4-acb1-1c4fa3cbdfe3",
+  "oracleId": "7714af0e-41d9-4609-967f-27233b46055f",
+  "name": "Lord of the Undead",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lord of the Undead",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "Other Zombie creatures get +1/+1.\n{1}{B}, {T}: Return target Zombie card from your graveyard to your hand.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Skinner",
+      "imageId": "026f006b-0ecc-4cb4-acb1-1c4fa3cbdfe3"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "spg",
+  "collectorNumber": "98",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AVEN_BRIGADIER: CardData = {
+  "scryfallId": "da24ef56-8d54-4146-97e9-4abded807545",
+  "oracleId": "910ae0ca-257d-4b45-b039-f26e7b2f3d5c",
+  "name": "Aven Brigadier",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aven Brigadier",
+      "manaCost": "{3}{W}{W}{W}",
+      "typeLine": "Creature — Bird Soldier",
+      "oracleText": "Flying\nOther Bird creatures get +1/+1.\nOther Soldier creatures get +1/+1.",
+      "flavorText": "He represents what little pride the Order has left.",
+      "power": "3",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "da24ef56-8d54-4146-97e9-4abded807545"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ons",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MYR_MATRIX: CardData = {
+  "scryfallId": "4a1af62e-d566-4f39-a467-244602c9240b",
+  "oracleId": "46a07fdd-0ca3-4654-9caa-a88fae80c414",
+  "name": "Myr Matrix",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Myr Matrix",
+      "manaCost": "{5}",
+      "typeLine": "Artifact",
+      "oracleText": "Indestructible (Effects that say \"destroy\" don't destroy this artifact.)\nMyr creatures get +1/+1.\n{5}: Create a 1/1 colorless Myr artifact creature token.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Mark Tedin",
+      "imageId": "4a1af62e-d566-4f39-a467-244602c9240b"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 5,
+  "keywords": [
+    "Indestructible"
+  ],
+  "setCode": "dst",
+  "collectorNumber": "132",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -89701,6 +94128,96 @@ export const SHRINE_1_1_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const PHYREXIAN_GOLEM_3_3_TOKEN: CardData = {
+  "scryfallId": "46161339-7173-4265-9691-106be5536b2d",
+  "oracleId": "2dc8033c-8ad9-4888-8705-efeda938ebf0",
+  "name": "Phyrexian Golem",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Phyrexian Golem",
+      "manaCost": "",
+      "typeLine": "Token Artifact Creature — Phyrexian Golem",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Volkan Baǵa",
+      "imageId": "46161339-7173-4265-9691-106be5536b2d"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tblc",
+  "collectorNumber": "38",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const GOLEM_3_3_ENCHANTMENT_TOKEN: CardData = {
+  "scryfallId": "1fb69a6d-b02d-46f1-af7b-cfd8a2363ed2",
+  "oracleId": "d1683ad9-cad0-4e22-8313-701276e7dbaf",
+  "name": "Golem",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Golem",
+      "manaCost": "",
+      "typeLine": "Token Enchantment Artifact Creature — Golem",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Yeong-Hao Han",
+      "imageId": "1fb69a6d-b02d-46f1-af7b-cfd8a2363ed2"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "j13",
+  "collectorNumber": "9",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const MYR_1_1_TOKEN: CardData = {
+  "scryfallId": "159ba2ca-1972-4bf8-9dbd-8bed5f33bfb7",
+  "oracleId": "bf690282-125f-431c-a363-39f6772324c8",
+  "name": "Myr",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Myr",
+      "manaCost": "",
+      "typeLine": "Token Artifact Creature — Myr",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Ryan Pancoast",
+      "imageId": "159ba2ca-1972-4bf8-9dbd-8bed5f33bfb7"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tm3c",
+  "collectorNumber": "25",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -92202,6 +96719,133 @@ export const ENGINE_CARDS: CardData[] = [
   BLOOD_FOUNTAIN,
   CURIOUS_FARM_ANIMALS,
   SPIDER_MAN_2099_MIGUEL_O_HARA,
+  AANG_AIR_NOMAD,
+  AGGRESSIVE_MAMMOTH,
+  AKROMA_S_DEVOTED,
+  ANTHEM_OF_CHAMPIONS,
+  BATTERING_SLIVER,
+  BATTLE_SLIVER,
+  BATTLEGROUND_GEIST,
+  BELLIGERENT_SLIVER,
+  BENALISH_MARSHAL,
+  BLESSED_ORATOR,
+  BLOODMARK_MENTOR,
+  BLUR_SLIVER,
+  BONESCYTHE_SLIVER,
+  CHIEF_OF_THE_EDGE,
+  CHIEF_OF_THE_SCALE,
+  CLEAVING_SLIVER,
+  CLOUDSHREDDER_SLIVER,
+  COLLECTIVE_BLESSING,
+  CONCORDANT_CROSSROADS,
+  CRUCIBLE_OF_FIRE,
+  CYCLOPS_OF_ETERNAL_FURY,
+  DICTATE_OF_HELIOD,
+  DROGSKOL_CAPTAIN,
+  FELHIDE_PETRIFIER,
+  FERVOR,
+  FIELD_MARSHAL,
+  FIRE_NATION_S_CONQUEST,
+  FLOWSTONE_SURGE,
+  FURY_SLIVER,
+  GAEA_S_ANTHEM,
+  GALERIDER_SLIVER,
+  GALLOWS_WARDEN,
+  GLASS_OF_THE_GUILDPACT,
+  GLORIOUS_ANTHEM,
+  GOBLIN_CHIEFTAIN,
+  GOBLIN_WAR_DRUMS,
+  GROUNDSHAKER_SLIVER,
+  HEART_SLIVER,
+  HERALD_OF_DROMOKA,
+  HONOR_OF_THE_PURE,
+  HORNED_SLIVER,
+  JACQUES_LE_VERT,
+  KAYSA,
+  KHENRA_CHARIOTEER,
+  KINSBAILE_CAVALIER,
+  KNIGHT_EXEMPLAR,
+  KOBOLD_DRILL_SERGEANT,
+  KOBOLD_OVERLORD,
+  KOBOLD_TASKMASTER,
+  KONGMING_SLEEPING_DRAGON,
+  LANCER_SLIVER,
+  LORD_OF_THE_UNREAL,
+  MADRUSH_CYCLOPS,
+  MASS_HYSTERIA,
+  MAZE_ABOMINATION,
+  MAZE_BEHEMOTH,
+  MAZE_GLIDER,
+  MAZE_RUSHER,
+  MAZE_SENTINEL,
+  MEGANTIC_SLIVER,
+  NYLEA_S_FORERUNNER,
+  OATHSWORN_GIANT,
+  PHERES_BAND_WARCHIEF,
+  POWER_BOOST,
+  PREDATORY_SLIVER,
+  PRIMAL_RAGE,
+  PRIVILEGED_POSITION,
+  RAGE_REFLECTION,
+  RAGEBLOOD_SHAMAN,
+  REFLEX_SLIVER,
+  RHOX_PIKEMASTER,
+  ROUGHSHOD_MENTOR,
+  SENTINEL_SLIVER,
+  SERRA_S_BLESSING,
+  SERRA_S_GUARDIAN,
+  SLIVER_HIVELORD,
+  SPIDERSILK_ARMOR,
+  SPINNERET_SLIVER,
+  SPITTING_SLIVER,
+  STEELFORM_SLIVER,
+  STRIKING_SLIVER,
+  STROMKIRK_CAPTAIN,
+  SUNRISE_SOVEREIGN,
+  SYNCHRONOUS_SLIVER,
+  SYPHON_SLIVER,
+  TALON_SLIVER,
+  THE_WALLS_OF_BA_SING_SE,
+  TRUE_CONVICTION,
+  TUKTUK_RUBBLEFORT,
+  TWO_HEADED_SLIVER,
+  VENOM_SLIVER,
+  VETERAN_ARMORER,
+  VETERAN_ARMORSMITH,
+  VETERAN_SWORDSMITH,
+  WINGED_SLIVER,
+  WIZENED_CENN,
+  CAPTAIN_OF_THE_WATCH,
+  FORTIFYING_PROVISIONS,
+  HAMMER_OF_PURPHOROS,
+  MOBILIZATION,
+  FIRES_OF_YAVIMAYA,
+  ANGELIC_SHIELD,
+  ESCARPMENT_FORTRESS,
+  DIREGRAF_CAPTAIN,
+  JUDITH_THE_SCOURGE_DIVA,
+  REAPER_KING,
+  MAUL_SPLICER,
+  SENSOR_SPLICER,
+  WING_SPLICER,
+  CRIMSON_KOBOLDS,
+  STRAW_SOLDIERS,
+  SINEW_SLIVER,
+  MIGHT_SLIVER,
+  NIGHT_OF_SOULS_BETRAYAL,
+  BAD_MOON,
+  KAERVEK_THE_SPITEFUL,
+  ANABA_SPIRIT_CRAFTER,
+  BONESPLITTER_SLIVER,
+  BLADE_SLIVER,
+  MUSCLE_SLIVER,
+  WATCHER_SLIVER,
+  PLATED_SLIVER,
+  DREAD_OF_NIGHT,
+  ZUBERI_GOLDEN_FEATHER,
+  LORD_OF_THE_UNDEAD,
+  AVEN_BRIGADIER,
+  MYR_MATRIX,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -92306,4 +96950,7 @@ export const ENGINE_CARDS: CardData[] = [
   DEMON_B_5_5_FLYING_TOKEN,
   ELEMENTAL_G_5_3_TOKEN,
   SHRINE_1_1_TOKEN,
+  PHYREXIAN_GOLEM_3_3_TOKEN,
+  GOLEM_3_3_ENCHANTMENT_TOKEN,
+  MYR_1_1_TOKEN,
 ];
