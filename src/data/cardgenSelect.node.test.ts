@@ -1781,6 +1781,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D302 (M6.4em) — the triggered one-shot pool: the heads outside the library,
   // the keywords outside the grantable map, the costs no row charges.
   ['Sanctifier of Souls', 'cost no table row charges (Exile a creature card from your graveyar)'],
+
+  // D303 (M6.4en) — the counter one-shot pool: the or-typed sacrifice costs,
+  // an exile-from-graveyard cost, a conditional enters-tapped replacement.
+  ['Abandoned Air Temple', 'a conditional enters-tapped replacement'],
+  ['Bartolomé del Presidio', 'cost no table row charges (Sacrifice another creature or artifact)'],
+  ['Hammerhead, Maggia Boss', 'cost no table row charges (Sacrifice another creature or artifact)'],
+  ['Dreadmalkin', 'cost no table row charges (Sacrifice another creature or planeswalker)'],
+  ['Malevolent Noble', 'cost no table row charges (Sacrifice an artifact or another creature)'],
+  ['Tome Shredder', 'cost no table row charges (Exile an instant or sorcery card from your grave)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

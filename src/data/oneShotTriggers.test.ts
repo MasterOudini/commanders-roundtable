@@ -28,8 +28,13 @@ describe('the triggered one-shot shape (D302)', () => {
   test('a mass payload, a tail head and a static are not this shape', () => {
     expect(oneShotTriggerShape('Whenever this creature attacks, creatures you control get +1/+1 until end of turn.', 'X')).toBe(false);
     expect(oneShotTriggerShape('Whenever this creature blocks a creature with flying, it gets +1/+1 until end of turn.', 'X')).toBe(false);
-    expect(oneShotTriggerShape('Whenever you gain life, this creature gets +1/+1 until end of turn.', 'X')).toBe(false);
+    expect(oneShotTriggerShape('Whenever you cycle or discard a card, this creature gets +1/+1 until end of turn.', 'X')).toBe(false);
     expect(oneShotTriggerShape('Creatures you control have haste.', 'X')).toBe(false);
     expect(oneShotTriggerShape('{R}: This creature gets +1/+0 until end of turn.', 'X')).toBe(false);
+  });
+
+  test('the combat-damage-to-a-player and you-gain-life heads read a self-pump (D303)', () => {
+    expect(oneShotTriggerShape('Whenever this creature deals combat damage to a player, it gets +1/+1 until end of turn.', 'X')).toBe(true);
+    expect(oneShotTriggerShape('Whenever you gain life, this creature gets +1/+1 until end of turn.', 'X')).toBe(true);
   });
 });

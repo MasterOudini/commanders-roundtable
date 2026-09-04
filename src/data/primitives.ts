@@ -507,8 +507,8 @@ const ONESHOT_COST = /^(?:\{|Sacrifice |Pay |Discard |Tap )/;
  */
 const ONESHOT_SELF_WORD = '(?:~|this creature|this permanent|this artifact|this enchantment)';
 const ONESHOT_PUMP = `(?:gets ${ONESHOT_PT}|gains ${ONESHOT_KW}(?: and ${ONESHOT_KW})?|gets ${ONESHOT_PT} and gains ${ONESHOT_KW}(?: and ${ONESHOT_KW})?) until end of turn\\.`;
-const ONESHOT_SELF_HEADS = `(?:When ${ONESHOT_SELF_WORD} enters|Whenever ${ONESHOT_SELF_WORD} attacks|Whenever ${ONESHOT_SELF_WORD} blocks or becomes blocked|Whenever ${ONESHOT_SELF_WORD} becomes blocked|Whenever ${ONESHOT_SELF_WORD} blocks)`;
-const ONESHOT_OTHER_HEADS = '(?:Whenever another creature you control enters|Whenever a creature you control enters|Whenever you cast a noncreature spell|Whenever you cast an instant or sorcery spell|Whenever (?:~|[A-Z][a-z]+) or another Human you control enters|Whenever you attack)';
+const ONESHOT_SELF_HEADS = `(?:When ${ONESHOT_SELF_WORD} enters|Whenever ${ONESHOT_SELF_WORD} attacks|Whenever ${ONESHOT_SELF_WORD} blocks or becomes blocked|Whenever ${ONESHOT_SELF_WORD} becomes blocked|Whenever ${ONESHOT_SELF_WORD} blocks|Whenever ${ONESHOT_SELF_WORD} deals combat damage to a player)`;
+const ONESHOT_OTHER_HEADS = '(?:Whenever another creature you control enters|Whenever a creature you control enters|Whenever you cast a noncreature spell|Whenever you cast an instant or sorcery spell|Whenever (?:~|[A-Z][a-z]+) or another Human you control enters|Whenever you attack|Whenever you gain life)';
 const ONESHOT_TRIGGER = new RegExp(`^${ONESHOT_SELF_HEADS}, (?:~|it|this creature) ${ONESHOT_PUMP}$`);
 const ONESHOT_TRIGGER_OTHER = new RegExp(`^${ONESHOT_OTHER_HEADS}, (?:~|this creature) ${ONESHOT_PUMP}$`);
 
@@ -516,6 +516,29 @@ const ONESHOT_TRIGGER_OTHER = new RegExp(`^${ONESHOT_OTHER_HEADS}, (?:~|this cre
 export function oneShotTriggerShape(line: string, cardName: string): boolean {
   const text = selfRef(line, cardName).replace(/\s*\([^)]*\)\s*$/, '');
   return ONESHOT_TRIGGER.test(text) || ONESHOT_TRIGGER_OTHER.test(text);
+}
+
+/**
+ * D303 - THE COUNTER SEAM, part 1. The engine keeps two counter kinds (+1/+1,
+ * -1/-1); a line that puts a few of them on THIS permanent or on each creature
+ * (its controller's, others, all) behind a cost or a library head is a table
+ * row (d301/gen-oneshot2.cjs). "it" names this permanent only under a head
+ * about this permanent - under "a creature you control enters" it is the
+ * entering creature, a per-item row no generator emits yet.
+ */
+const COUNTER_N = '(?:a|an|one|two|three|four|five)';
+const COUNTER_KIND = '(?:\\+1/\\+1|-1/-1)';
+const COUNTER_MASS = '(?:creature you control|other creature you control|creature)';
+const COUNTER_ACTIVATED = new RegExp(`^[Pp]ut ${COUNTER_N} ${COUNTER_KIND} counters? on (?:${ONESHOT_SELF_WORD}|each ${COUNTER_MASS})\\.$`);
+const COUNTER_TRIGGER_SELF = new RegExp(`^${ONESHOT_SELF_HEADS}, [Pp]ut ${COUNTER_N} ${COUNTER_KIND} counters? on (?:~|it|this creature|each ${COUNTER_MASS})\\.$`);
+const COUNTER_TRIGGER_OTHER = new RegExp(`^${ONESHOT_OTHER_HEADS}, [Pp]ut ${COUNTER_N} ${COUNTER_KIND} counters? on (?:~|this creature|each ${COUNTER_MASS})\\.$`);
+
+/** Is this printed line a counter one-shot a table row can emit (D303)? */
+export function oneShotCounterShape(line: string, cardName: string): boolean {
+  const text = selfRef(line, cardName).replace(/\s*\([^)]*\)\s*$/, '');
+  const colon = text.indexOf(': ');
+  if (colon > 0 && ONESHOT_COST.test(text) && !/^(?:When|Whenever|At )/.test(text)) return COUNTER_ACTIVATED.test(text.slice(colon + 2));
+  return COUNTER_TRIGGER_SELF.test(text) || COUNTER_TRIGGER_OTHER.test(text);
 }
 
 /** Is this printed line an activated one-shot pump a table row can emit (D301)? */
@@ -575,6 +598,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   if (oneShotRowShape(text, cardName)) return 'scriptable';
   // D302: a triggered one-shot self-pump under a library head (see `oneShotTriggerShape`).
   if (oneShotTriggerShape(text, cardName)) return 'scriptable';
+  // D303: a counter one-shot on this permanent or each creature (see `oneShotCounterShape`).
+  if (oneShotCounterShape(text, cardName)) return 'scriptable';
 
   for (const [primitive, re] of RULES) if (re.test(text)) return primitive;
 

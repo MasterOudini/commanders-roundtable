@@ -10,7 +10,6 @@ import { nextBelow, seedRng, shuffle, type RngState } from './rng';
 import { createRegistry, SHIPPED_SCRIPTS } from './scripts/registry';
 import {
   AJANIS_MANTRA,
-  AJANIS_PRIDEMATE,
   GRAVITY_SPHERE_SCRIPT,
   LEVITATION_SCRIPT,
   BRANCHING_EVOLUTION_SCRIPT,
@@ -238,7 +237,9 @@ const SCRIPTS = createRegistry([
   // CR 616 replacement pair, and the CR 613.8 dependency pair. `Humility`
   // stays out — it is the teeth below.
   AJANIS_MANTRA,
-  AJANIS_PRIDEMATE,
+  // ⚠️ `Ajani's Pridemate` SHIPS since D303 (`cards/ajanisPridemate`, a derived
+  // counter row under the you-gain-life head) - the testing copy that stood in
+  // for it here (D130) would be the duplicate the throw below refuses.
   // ⚠️ `Levitation` SHIPS since D300 (`cards/levitation`, a derived static row) -
   // the testing copy would be the duplicate the throw below refuses; the pair
   // with Gravity Sphere still orders the same grant on the same layer.

@@ -13,7 +13,7 @@
 // tutors, no recursion, because the engine runs none of those yet. That ceiling
 // is the honest state of the app and it rises as the engine's coverage does.
 //
-// commander: Go-Shintai of Life's Origin (BGRUW), chosen from 129 fully-executable legendary creatures for reaching 4890 cards
+// commander: Go-Shintai of Life's Origin (BGRUW), chosen from 138 fully-executable legendary creatures for reaching 4955 cards
 // mv 0–1: wanted 6, took 6
 // mv 2–2: wanted 14, took 14
 // mv 3–3: wanted 14, took 14
@@ -50,6 +50,7 @@ export const BOT_DECK = {
   "Vampire Nighthawk",
   "Force of Savagery",
   "Absorb",
+  "Abzan Ascendancy",
   "Abzan Banner",
   "Acidic Soil",
   "Acrobatic Maneuver",
@@ -60,7 +61,6 @@ export const BOT_DECK = {
   "An-Havva Inn",
   "Anchor to the Aether",
   "Angelic Blessing",
-  "Anguished Unmaking",
   "Fleetfoot Dancer",
   "Acid Rain",
   "Advent of the Wurm",

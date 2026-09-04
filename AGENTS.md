@@ -9248,6 +9248,49 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D302): the counter seam, part 1 - the ladder's `effect:counter` rung is +1,912: 'put a +1/+1 counter on this creature' behind a cost or a library head, '~ enters with N +1/+1 counters', 'put a +1/+1 counter on each creature you control' - self counters and mass counters the same rows and heads express (measure by sentence first, D130's rule); the modal seam (42); the "another"
       split; the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4en — THE COUNTER SEAM, part 1: +1/+1 and -1/-1 counters on the
+      permanent itself or on each creature, behind a cost or a library head;
+      two heads more; 65 scripts (2026-09-04):** **5,014 of
+      31,692 Commander-legal cards now execute completely, up from 4,949
+      (+65).** `SHIPPED_SCRIPTS` 2,897; ledger 870
+      (+6: four or-typed sacrifice costs - Bartolome del Presidio, Hammerhead, Maggia Boss, Malevolent Noble, Dreadmalkin (Sacrifice another creature or artifact / or planeswalker, an artifact or another creature - no row charges an either-type sacrifice); an exile-from-graveyard cost (Tome Shredder); a conditional enters-tapped replacement (Abandoned Air Temple, enters tapped unless you control a basic land)). Fixtures 3,220 (3,106 by name + 107 tokens: the wave's 65 cards less the one already a fixture). ZERO token pins, ZERO
+      support bodies. **Select pool 0.** Decisions in **D303**.
+      ⚠️ **Measured first:** the ladder's `effect:counter` rung is +1,912;
+      the probe: 170 cards carry a counter line as their ONLY blocker (26,743 keep another; 3,309 print one at all) - self counters under a trigger 126, behind a cost 28, mass counters under a trigger 8, spell mass counters 5, enters-with 3; by shape over the 3,309, self +1/+1 counters lead (trigger 194, activated 35), then charge 33, oil 12, mass +1/+1 on each creature you control 16, loyalty 5, the rest single digits; by head, you gain life 21 and deals combat damage to a player 16 lead the tail - both entered the library this decision.
+      ⚠️ **The seam:** `primitives.ts` `oneShotCounterShape` (an activated
+      effect or a library-head payload putting one to five +1/+1 / -1/-1
+      counters on this permanent or on each creature - its controller's,
+      each other, all; "it" is this permanent only under a self head) and
+      two library heads more for the pump and counter shapes alike:
+      "Whenever ~ deals combat damage to a player" (self head,
+      `CombatDamageDealt`) and "Whenever you gain life" (other head,
+      `LifeChanged`). `d301/gen-oneshot2.cjs` kinds `selfCounter` /
+      `massCounter` (`CountersChanged`), a draw payload under a head, three
+      rules: a mana line is no row but keeps its ability index (Blighted
+      Cataract's precedent); a double striker's combat-damage trigger fires
+      twice (Markov Blademaster); a -1/-1 mass counter reads off Grizzly
+      Bears, not the 2/1 Eel it kills (Soul Snuffers). Two hand modules over
+      dies watchers: Abzan Ascendancy (nontoken creature of yours -> Spirit),
+      Skyclave Shadowcat (a countered creature of yours -> draw; `looksBack`).
+      ⚠️ **The gap the first cut missed, again:** the activated branch read
+      "on ~" only - `selfRef` never lowercases the "this creature" a cost's
+      effect prints; the first pool read 24, the fixed shape 52 more (D302's
+      lesson, one colon over). NOT this decision: "enters with N counters" (a
+      ReplacementDef - none ships), the tail heads, other counter kinds, the
+      per-item counter on an entering object. The fuzz list: the testing
+      `Ajani's Pridemate` (D130) left it - the shipped row is the same
+      oracleId (gate 154 caught it; 155 green). Refused by name: +6: four or-typed sacrifice costs - Bartolome del Presidio, Hammerhead, Maggia Boss, Malevolent Noble, Dreadmalkin (Sacrifice another creature or artifact / or planeswalker, an artifact or another creature - no row charges an either-type sacrifice); an exile-from-graveyard cost (Tome Shredder); a conditional enters-tapped replacement (Abandoned Air Temple, enters tapped unless you control a basic land).
+      No spell def collided: a counter one-shot is no spell's text, so nothing was retired by D187's rule. Report `effect:auto` 3,572 → 3,572, `withUnenforced`
+      237 → 237.
+      **Landed:** 65 scripts and no auto flip (a counter one-shot needs a script). The wave in three parts and two hands: part A 19 rows off the first pool of 24, part B 42 off the 52 the printed self-words and the two heads opened, part C 2 (Gavony Township, Slith Strider - the mana line kept its index, a draw payload under a head), and two hand modules over dies watchers (Abzan Ascendancy, Skyclave Shadowcat). By head: behind a cost 24 (Ant-Man, Scott Lang, Aron, Benalia's Ruin, Jenara, Asura of War, Bloodflow Connoisseur ...); you gaining life 13 (Archangel of Thune, Ajani's Pridemate, Blood Researcher, Bloodbond Vampire ...); combat damage to a player 10 (Borborygmos, Erdwal Ripper, Falkenrath Marauders, Heirs of Stromkirk ...); a noncreature spell cast 6 (Boar-q-pine, Deeproot Champion, Pyroceratops, Spellgorger Weird ...); entering 6 (Katara, Heroic Healer, Ridgescale Tusker, Soul Snuffers, Supply Runners ...); an instant or sorcery cast 2 (Electrostatic Infantry, Pyre Hound); a creature entering 1 (Cathars' Crusade); attacking 1 (Leatherhead, Iron Gator); becoming blocked 1 (Slith Strider). Six refused by name. Tests: oneShotCounters.test.ts +
+      oneShotTriggers.test.ts (the two heads) + 65 suites.
+      Fixtures 3,220 · botPool artifact 176 / creature 2,781 / enchantment 137 / instant 882 / land 356 / sorcery 682 - auto 762 / assisted 1,946 / autoAnyFace 771 · ladder [972, 1098, 2593, 4424, 5637] · batch.json
+      65 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 2,990 files, 15,482 passing / 11 skipped ·
+      500-seed gate, 6 shards, 262.2 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D303): the tail heads by count ('you draw your second card each turn' 9, 'you cast a creature spell', 'another creature dies' ...) - a library entry each when its count earns it; 'enters with N +1/+1 counters' (a ReplacementDef); the per-item counter on the entering object; the vocabulary's massCounter for spells (5); the or-typed sacrifice cost (four names wait on it); the modal seam (42); the "another"
+      split; the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
