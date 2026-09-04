@@ -583,6 +583,19 @@ export function equipLineRuns(text: string): boolean {
   return EQUIP_MANA_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
 }
 
+/**
+ * D306 - THE CYCLING SEAM. "Cycling {N}" the engine runs (a synthesized
+ * activated ability from the hand, see `activatedParse`). Measured over the
+ * database before it was built: 297 blocked cards print a cycling line, 166
+ * of them with nothing else unread - the largest keyword yield in the format.
+ */
+const CYCLING_MANA_LINE = /^Cycling (?:\{[^}]+\})+$/;
+
+/** Is this printed line a Cycling the engine runs (D306)? */
+export function cyclingLineRuns(text: string): boolean {
+  return CYCLING_MANA_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
+}
+
 /** Is this printed line an equipped-creature static or restriction a row can emit (D305)? */
 export function equipLineShape(text: string): boolean {
   return EQUIPPED_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
@@ -601,6 +614,9 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // D305 - an Equip line with a mana cost is the engine's own (see
   // `equipLineRuns`); a typed or non-mana equip stays `keyword:equip`.
   if (/^equip\b/i.test(text)) return equipLineRuns(text) ? 'scriptable' : 'keyword:equip';
+  // D306 - a Cycling line with a mana cost is the engine's own (see
+  // `cyclingLineRuns`); a landcycling or a non-mana cycling stays `keyword:altCost`.
+  if (/^cycling\b/i.test(text)) return cyclingLineRuns(text) ? 'scriptable' : 'keyword:altCost';
 
   // A keyword ability is not a sentence — check the shape before reading it as
   // one. See `KEYWORD_LINES`.

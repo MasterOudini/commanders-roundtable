@@ -239,10 +239,10 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * the pins have been swapped; the measurement itself is deterministic and was
    * verified identical across isolated and full-suite runs.
    */
-  test('D90 does not reproduce, and the vocabulary keeps moving it: 762 auto, 1,946 assisted (D199)', () => {
-    expect.soft(r.spells.auto).toBe(762);
-    expect.soft(r.spells.assisted).toBe(1946);
-    expect.soft(r.spells.autoAnyFace).toBe(771);
+  test('D90 does not reproduce, and the vocabulary keeps moving it: 800 auto, 1,908 assisted (D199, D306)', () => {
+    expect.soft(r.spells.auto).toBe(800);
+    expect.soft(r.spells.assisted).toBe(1908);
+    expect.soft(r.spells.autoAnyFace).toBe(809);
   });
 
   /**
@@ -274,7 +274,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * becomes non-zero is a day worth noticing — and because a bug once made this
    * read 9 enchantments (see `clauseAccounted`'s substring note).
    */
-  test('enchantments execute now - 249 after the Aura seam; planeswalkers and battles still none', () => {
+  test('enchantments execute now - 252 after the cycling seam; planeswalkers and battles still none', () => {
     // ⚠️ This pinned exact ZEROES from M6.1 until M6.4c (D160), "because the
     // day one becomes non-zero is a day worth noticing" — `Ajani's Welcome`
     // was that day; `Captive Flame` (D166) and `Centaur Glade` (D167 — an
@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). Planeswalkers (loyalty costs) and battles are still
     // structurally out, and stay pinned at zero for the same reason the
     // enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(249);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(252);
     expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -446,12 +446,12 @@ const POOL: Record<string, number> = {
   // TWENTY-card batch.
   // M6.4bc (D214): +8 instants, +7 sorceries, Flying Carpet, and Forum of
   // Amity.
-  creature: 2781,
-  instant: 882,
-  sorcery: 682,
-  land: 356,
-  artifact: 247,
-  enchantment: 249,
+  creature: 2810,
+  instant: 912,
+  sorcery: 690,
+  land: 392,
+  artifact: 252,
+  enchantment: 252,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

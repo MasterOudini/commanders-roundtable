@@ -664,6 +664,14 @@ export interface ActivatedAbility {
    * line so the accounting can find it. `resolveAbility` attaches natively.
    */
   readonly equip?: { readonly line: string };
+  /**
+   * D306 - THE CYCLING SEAM. Set on the ability `activatedParse` synthesizes
+   * for a "Cycling {N}" line (CR 702.29a: "{N}, Discard this card: Draw a
+   * card."), carrying the printed line. Offered from the HAND at instant speed
+   * (`legal.ts`), the discard charged as the cost (`handlers.ts`), the draw
+   * resolved natively (`resolveAbility`).
+   */
+  readonly cycling?: { readonly line: string };
 }
 
 export interface OracleFace {

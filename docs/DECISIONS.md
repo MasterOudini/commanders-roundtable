@@ -20661,3 +20661,83 @@ Fixtures 3,404 · botPool artifact 247 / creature 2,781 / enchantment 249 / inst
 **Reportables** (D305): 'When this Equipment enters, attach it to target creature you control' (91 - a targeted trigger over the attachment); 'Whenever equipped creature attacks / deals combat damage to a player' heads (43 / 35); typed and non-mana Equip costs; Living weapon; Reconfigure; the Aura tail (enchanted-dies, the Aura heads, doesn't-untap, you-control-enchanted); the modal seam (42); the "another" split;
 the by-name sacrifice cost; the remaining cost verbs; the prompt
 continuation seam; prior items stand.
+
+## D306 — M6.4eq: THE CYCLING SEAM — Cycling {N} is the engine's own activated ability from the hand, the discard its cost, the draw its own resolution; 108 cards complete with no script (2026-09-04)
+
+**5,308 of 31,692 Commander-legal cards execute completely, up from
+5,197 (+111).** SHIPPED_SCRIPTS 3,080 → **3,083**; REFUSED ledger 907
+→ **954** (+47, the cyclers the pool offered whose other text the engine still cannot run - their cycling does: 26 spells with a sentence outside the vocabulary (Akroma's Vengeance, Starstorm, Decree of Justice's kin ...), 17 with a 'When you cycle this card' trigger (Decree of Pain, Slice and Dice, Renewed Faith ...), three with a cycle-or-discard head (Curator of Mysteries, Drannith Healer, Drannith Stinger), one ETB beside its cycling line (Migrating Ketradon)). Fixtures 3,404 → 3,409 (3,293 by name + 109 tokens: the seam's two test cards (Lonely Sandbar, Spark Spray) and the three cycling Auras). ZERO
+new token pins; five support bodies (the parser, the offer, the charge, the
+resolution, the accounting) and the vocabulary's one exclusion, one
+classifier shape. **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** The keyword probe
+(`zz-probe-d306`, gate-free) over the 26,495 incomplete cards: of the 26,495 incomplete cards, 4,325 carry a keyword line among their blockers and 1,721 need nothing but keyword lines; by keyword, cycling leads (297 blocked lines, 166 pure cards, 159 needing cycling alone), then flashback 184 / 88, morph 141 / 53, convoke 102 / 52, crew 172 / 38, prowess 79 / 37, echo 47 / 33, madness 58 / 28, changeling 62 / 27, cascade 40 / 23, exalted 35 / 23, foretell 51 / 23, devoid 131 / 22; the greedy curve: cycling alone frees 159, with flashback 247, with morph 300, with convoke 350.
+
+**The seam.** Cycling prints no colon, so the line splitter never filed it
+as an activated ability, and it is activated from the HAND — a zone the
+activated seam never offered from. It IS an activated ability (CR 702.29a:
+"{N}, Discard this card: Draw a card.") whose whole cost the engine can
+charge — the mana, and the discard of the card itself, a deterministic
+price exactly like the self-sacrifice D159 charges. Seven files:
+
+- `src/data/activatedParse.ts`: a "Cycling {N}" line (mana symbols only;
+  reminder text aside — its own reminder carries a colon) is SYNTHESIZED as
+  an activated ability in print order: no target, no timing restriction,
+  the mana cost; `ActivatedAbility.cycling` carries the printed line. The
+  typed landcyclings ("Basic landcycling {2}", "Forestcycling {1}") search
+  a library and stay Tier 3 by name until a search prompt carries them.
+- `src/engine/legal.ts`: offered from the HAND at instant speed, beside the
+  cast offers — the same `ActivateAbility` action, affordability asked of
+  the same solver.
+- `src/engine/handlers.ts`: activated only from your hand; the discard is
+  paid in the cost batch through the ordinary hand → graveyard move, so
+  discard watchers see it like any other discard and the source sits in the
+  graveyard before anything can respond.
+- `src/engine/loop.ts`: `resolveAbility` draws the card natively when no
+  def claims the ability, reading `obj.controller` (the source is in a
+  graveyard by then — Hedron Archive's lesson, D159).
+- `src/data/effectParse.ts`: on an instant or sorcery the cycling line is
+  not an effect clause — dropped before the clauses are split, so the
+  spell's own sentences decide its mode (Spark Spray reads auto again).
+- `src/data/engineComplete.ts` / `tier3.ts` / `primitives.ts`: the
+  synthesized ability makes the Cycling line the engine's own (asked of the
+  parser that decided it), the disclosure says nothing about it, the
+  classifier files it scriptable.
+
+No generator of its own: a card whose only unread line was its cycling
+line is COMPLETE by the accounting alone (three Auras that cycle — Savage
+Hunger, Improvised Armor, Sicken — went through D304's Aura rows, whose
+keyword-line list learned the engine-run Cycling), and the fuzz gate exercises the
+ability on every seed from the first turn (a hand full of cyclers is a hand
+full of offers).
+
+- **Refused by name:** +47, the cyclers the pool offered whose other text the engine still cannot run - their cycling does: 26 spells with a sentence outside the vocabulary (Akroma's Vengeance, Starstorm, Decree of Justice's kin ...), 17 with a 'When you cycle this card' trigger (Decree of Pain, Slice and Dice, Renewed Faith ...), three with a cycle-or-discard head (Curator of Mysteries, Drannith Healer, Drannith Stinger), one ETB beside its cycling line (Migrating Ketradon).
+- **Not this decision:** the typed landcyclings (a library search, 60
+  lines); "Cycling—<other cost>" (2); the cycling triggers ("When you cycle
+  this card", 24; "Whenever you cycle or discard a card", 5) — a head over
+  the new discard event, next.
+
+No spell def collided: a cycling line is no spell's sentence - the vocabulary drops it now - so nothing was retired by D187's rule.
+
+Report: `effect:auto` 3,572 → 3,659, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** `src/data/cyclingSeam.test.ts` (the synthesized ability and its
+index on a land and on a spell, the refused forms, the accounting and the
+disclosure on Lonely Sandbar / Spark Spray / Unearth, the classifier);
+`src/engine/cycle.test.ts` (Lonely Sandbar cycles from the hand on the
+opponent's turn — the card to the graveyard as the cost, a card drawn — is
+refused from the battlefield, replays).
+
+**Landed:** 3 scripts and 108 AUTO FLIPS - the cyclers whose only unread line was their cycling line completed by the accounting alone, and 38 spells moved from assisted to auto once the vocabulary read past the cycling line. No wave of rows: the seam's own flips are the landing (the cycling lands - Lonely Sandbar, Barren Moor, Blasted Landscape, Canyon Slough ... - and the cycling creatures and spells whose other text the engine already ran), plus three Auras that cycle through D304's rows (Savage Hunger, Improvised Armor, Sicken). The bot's own deck refilled with cyclers on the same sweep.
+
+Fixtures 3,409 · botPool artifact 252 / creature 2,810 / enchantment 252 / instant 912 / land 392 / sorcery 690 - auto 800 / assisted 1,908 / autoAnyFace 809 · ladder [1054, 1191, 2928, 4810, 6079] · batch.json
+3 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,182 files, 16,662 passing / 11 skipped ·
+500-seed gate, 6 shards, 312.9 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D306): the cycling triggers ('When you cycle this card' 24, 'Whenever you cycle or discard a card' 5) as a head over the discard event; the typed landcyclings once a library-search prompt carries them; the next keyword yields - flashback (88 pure: a cast from the graveyard for an alternative cost, exiled on leaving the stack), morph (53), convoke (52), crew (38), the native keyword triggers (prowess 37, exalted 23, bushido 15, persist / undying, evolve); the modal seam (42); the "another" split;
+the by-name sacrifice cost; the remaining cost verbs; the prompt
+continuation seam; prior items stand.

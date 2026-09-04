@@ -418,6 +418,9 @@ function linesUnaccounted(
     // are the activated seam's, the attach is `resolveAbility`'s own. Asked of
     // the parser that decided it (D134), never re-read here.
     if (face.activated.some((a) => a.equip !== undefined && a.equip.line === line)) continue;
+    // D306 - a Cycling line the engine RUNS (the synthesized ability: offered
+    // from the hand, the discard charged, the draw resolved natively).
+    if (face.activated.some((a) => a.cycling !== undefined && a.cycling.line === line)) continue;
     if (isKeywordLine(line, face)) continue;
     // ⚠️ `mana` outranks `activated`, because a mana ability never reaches the
     // stack (CR 605) and is never offered by `ActivateAbility` — so the note that

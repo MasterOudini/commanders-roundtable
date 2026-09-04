@@ -872,7 +872,14 @@ export function parseEffects(
 ): ParsedEffects {
   if (!isInstantOrSorcery || !oracleText) return { effects: [], mode: 'manual' };
 
-  const clean = scrub(selfRef(oracleText, cardName));
+  // D306 - a "Cycling {N}" line on an instant or sorcery is an activated
+  // ability the engine runs from the hand (`activatedParse` synthesizes it), not
+  // an effect clause of the spell: dropped here so the face's own sentences
+  // decide its mode. Reminder text is already scrubbed at this point.
+  const clean = scrub(selfRef(oracleText, cardName))
+    .split('\n')
+    .filter((l) => !/^Cycling (?:\{[^}]+\})+\s*$/.test(l.trim()))
+    .join('\n');
   const clauses = clausesOf(clean);
   if (clauses.length === 0) return { effects: [], mode: 'manual' };
 

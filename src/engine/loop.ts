@@ -14,7 +14,7 @@
 
 import { assignBlockerDamage, creaturesInCombat, canAttack, legalDefenders, needsFirstStrikeSubstep, resolveCombatDamage } from './combat';
 import { derive, makeDeriveCache } from './derive';
-import { drewCardsMarker, effectResult } from './effects';
+import { drawEvents, drewCardsMarker, effectResult } from './effects';
 import { candidatesFromState, minimumLegalTargets, targetAllowed, untargetableByRule, type TargetingSource } from './targets';
 import { checkGameOver, checkStateBasedActions } from './sba';
 import { emitted, type Emitted } from './log';
@@ -858,6 +858,8 @@ export function resolveAbility(
     if (ability?.equip && target && target.kind === 'card' && targetsStillLegal(state, deps, obj, srcFace, ability.targets)) {
       events.push({ t: 'AttachmentChanged', card: obj.source, to: target.id });
     }
+    // D306 - CYCLING resolves natively: draw a card (the discard was the cost).
+    if (ability?.cycling !== undefined) events.push(...drawEvents(state, obj.controller, 1));
   }
   if (answer !== null) {
     events.push(

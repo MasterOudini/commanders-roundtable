@@ -7,6 +7,9 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { IMPROVISED_ARMOR_SCRIPT } from './cards/improvisedArmor';
+import { SAVAGE_HUNGER_SCRIPT } from './cards/savageHunger';
+import { SICKEN_SCRIPT } from './cards/sicken';
 import { GILDED_PINIONS_SCRIPT } from './cards/gildedPinions';
 import { GLIMMERLIGHT_SCRIPT } from './cards/glimmerlight';
 import { GOLD_PAN_SCRIPT } from './cards/goldPan';
@@ -3201,6 +3204,9 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  IMPROVISED_ARMOR_SCRIPT,
+  SAVAGE_HUNGER_SCRIPT,
+  SICKEN_SCRIPT,
   GILDED_PINIONS_SCRIPT,
   GLIMMERLIGHT_SCRIPT,
   GOLD_PAN_SCRIPT,

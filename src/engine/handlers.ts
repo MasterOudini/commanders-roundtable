@@ -627,6 +627,10 @@ function activateAbility(
   const face = faceOf(oracleCard, card.faceIndex);
   const ability = face.activated[intent.abilityIndex];
   if (!ability) return reject('notCastable', 'That permanent has no such ability.');
+  // D306 - cycling is activated from the hand and nowhere else (CR 702.29a).
+  if (ability.cycling !== undefined && (card.zone.kind !== 'hand' || card.zone.player !== intent.player)) {
+    return reject('wrongZone', 'Cycling is activated from your hand.');
+  }
   if (ability.isManaAbility) {
     return reject('notAManaAbility', 'That is a mana ability — tap it for mana instead.');
   }
@@ -755,7 +759,7 @@ function activateAbility(
     faceIndex: 0,
     // ⚠️ Records where the permanent IS, and is never used to move it — an
     // ability leaves its source on the battlefield.
-    from: { kind: 'battlefield', player: intent.player },
+    from: ability.cycling !== undefined ? { kind: 'hand', player: intent.player } : { kind: 'battlefield', player: intent.player },
     stackId,
     stage: needsTargets ? 'targets' : 'pay',
     kind: 'ability',
@@ -1185,6 +1189,27 @@ function finishAbility(
     events.push(
       narrated(
         n`${who(state, pending.player)} ${vb(pending.player, 'taps', 'tap')} ${pending.tap.length} permanent${pending.tap.length === 1 ? '' : 's'}.`,
+        pending.player,
+        identity,
+      ),
+    );
+  }
+  // ⚠️ D306 - THE CYCLING DISCARD IS THE COST (CR 702.29a), paid here in the
+  // cost batch through the ordinary hand->graveyard move, so discard watchers
+  // see it like any other discard and the source sits in its owner's graveyard
+  // before anything can respond - `resolveAbility` reads `obj.controller`.
+  if (ability.cycling !== undefined) {
+    const src = state.cards[pending.card];
+    if (!src || src.zone.kind !== 'hand' || src.zone.player !== pending.player) {
+      return reject('noSuchCard', 'The card being cycled is no longer in your hand.');
+    }
+    events.push({
+      t: 'CardsMoved',
+      moves: [{ card: pending.card, from: { kind: 'hand', player: pending.player }, to: { kind: 'graveyard', player: src.owner } }],
+    });
+    events.push(
+      narrated(
+        n`${who(state, pending.player)} ${vb(pending.player, 'cycles', 'cycle')} ${face.name}.`,
         pending.player,
         identity,
       ),

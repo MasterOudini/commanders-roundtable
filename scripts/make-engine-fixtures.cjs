@@ -3756,6 +3756,13 @@ const WANTED = [
   'Prying Blade',
   'Skullclamp',
   'Sylvok Lifestaff',
+  // D306 - the cycling seam test cards (a land that cycles for {U}, an instant that cycles for {1}).
+  'Lonely Sandbar',
+  'Spark Spray',
+  // D306 - the Aura that cycles (Savage Hunger).
+  'Improvised Armor',
+  'Savage Hunger',
+  'Sicken',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

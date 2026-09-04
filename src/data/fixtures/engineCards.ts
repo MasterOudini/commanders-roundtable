@@ -113928,6 +113928,187 @@ export const SYLVOK_LIFESTAFF: CardData = {
   "singleImage": true
 };
 
+export const LONELY_SANDBAR: CardData = {
+  "scryfallId": "001908da-70cc-4a53-9372-eb75c0721442",
+  "oracleId": "765863c8-1be0-4bb1-9e9c-db7701cffde3",
+  "name": "Lonely Sandbar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lonely Sandbar",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {U}.\nCycling {U} ({U}, Discard this card: Draw a card.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Heather Hudson",
+      "imageId": "001908da-70cc-4a53-9372-eb75c0721442"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Cycling"
+  ],
+  "setCode": "sld",
+  "collectorNumber": "2161",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPARK_SPRAY: CardData = {
+  "scryfallId": "0027e323-4f5a-412b-868d-6fb3a0c8050a",
+  "oracleId": "c37f1921-7ac3-4185-8579-1dfdfe647ea2",
+  "name": "Spark Spray",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spark Spray",
+      "manaCost": "{R}",
+      "typeLine": "Instant",
+      "oracleText": "Spark Spray deals 1 damage to any target.\nCycling {R} ({R}, Discard this card: Draw a card.)",
+      "flavorText": "It's the only kind of shower goblins will tolerate.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "0027e323-4f5a-412b-868d-6fb3a0c8050a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Cycling"
+  ],
+  "setCode": "vma",
+  "collectorNumber": "188",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IMPROVISED_ARMOR: CardData = {
+  "scryfallId": "8d7d5d79-73d8-4f1a-9dda-4de5f41539d9",
+  "oracleId": "aca7c0a7-b365-421e-aeb0-49d3a9873e4f",
+  "name": "Improvised Armor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Improvised Armor",
+      "manaCost": "{3}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+5.\nCycling {3} ({3}, Discard this card: Draw a card.)",
+      "flavorText": "\"I trust what I make for myself. Do you trust more what is made for you by another?\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Alan Pollack",
+      "imageId": "8d7d5d79-73d8-4f1a-9dda-4de5f41539d9"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant",
+    "Cycling"
+  ],
+  "setCode": "ons",
+  "collectorNumber": "40",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAVAGE_HUNGER: CardData = {
+  "scryfallId": "0367fac8-6990-4544-ac7d-ed363b55a9cf",
+  "oracleId": "0e608f48-d3a6-422c-839d-f06bb8a32014",
+  "name": "Savage Hunger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Savage Hunger",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+0 and has trample.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Trevor Claxton",
+      "imageId": "0367fac8-6990-4544-ac7d-ed363b55a9cf"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant",
+    "Cycling"
+  ],
+  "setCode": "ala",
+  "collectorNumber": "147",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SICKEN: CardData = {
+  "scryfallId": "aa1beb5d-0ef2-4013-932b-5e4a5d0af559",
+  "oracleId": "5208a5f2-eebe-4adc-8f29-543b60116817",
+  "name": "Sicken",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sicken",
+      "manaCost": "{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets -1/-1.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+      "flavorText": "Urza dared to attack Phyrexia. Slowly, it retaliated.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "aa1beb5d-0ef2-4013-932b-5e4a5d0af559"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant",
+    "Cycling"
+  ],
+  "setCode": "usg",
+  "collectorNumber": "156",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -120937,6 +121118,11 @@ export const ENGINE_CARDS: CardData[] = [
   PRYING_BLADE,
   SKULLCLAMP,
   SYLVOK_LIFESTAFF,
+  LONELY_SANDBAR,
+  SPARK_SPRAY,
+  IMPROVISED_ARMOR,
+  SAVAGE_HUNGER,
+  SICKEN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

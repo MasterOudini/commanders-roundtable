@@ -58,6 +58,14 @@ const MANA_ONLY_RE = /^(?:\{[^}]+\}\s*)+$/;
  */
 const EQUIP_RE = /^Equip ((?:\{[^}]+\})+)$/;
 const EQUIP_EFFECT = 'Attach this Equipment to target creature you control.';
+/**
+ * D306 - "Cycling {N}" and nothing else on the line (reminder text aside). The
+ * typed landcyclings ("Basic landcycling {2}", "Forestcycling {1}") search a
+ * library and stay where they were - Tier 3, by name - until a search prompt
+ * carries them.
+ */
+const CYCLING_RE = /^Cycling ((?:\{[^}]+\})+)$/;
+const CYCLING_EFFECT = 'Draw a card.';
 
 export interface ActivatedParseInput {
   readonly oracleText: string;
@@ -149,6 +157,37 @@ export function parseActivatedAbilities(
         sorceryOnly: true,
         targets: parseTargetClauses(EQUIP_EFFECT, warn),
         equip: { line: printed },
+      });
+      continue;
+    }
+    // ⚠️ D306 - THE CYCLING SEAM. "Cycling {N}" is an activated ability from
+    // the HAND (CR 702.29a) whose cost - the mana and the discard of the card
+    // itself - the engine charges; synthesized in print order like Equip, from
+    // the reminder-stripped text (the reminder "({2}, Discard this card: Draw a
+    // card.)" carries a colon too).
+    const cycling = CYCLING_RE.exec(printed);
+    if (cycling) {
+      const cyclingCost = parseCost(cycling[1] ?? '', warn);
+      out.push({
+        index: out.length,
+        costText: cycling[1] ?? '',
+        effectText: CYCLING_EFFECT,
+        manaCost: cyclingCost,
+        requiresTap: false,
+        requiresUntap: false,
+        lifeCost: 0,
+        lifeCostCommanderColors: false,
+        sacrificesSelf: false,
+        sacrificeCost: null,
+        discardCost: null,
+        tapCost: null,
+        unpaidCosts: cyclingCost === null ? [cycling[1] ?? ''] : [],
+        payable: cyclingCost !== null,
+        isManaAbility: false,
+        isLoyalty: false,
+        sorceryOnly: false,
+        targets: [],
+        cycling: { line: printed },
       });
       continue;
     }

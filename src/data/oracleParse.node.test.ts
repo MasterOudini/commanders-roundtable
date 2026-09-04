@@ -409,7 +409,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // These count FACES over every printing, which is why they are an order of
       // magnitude larger than `botPool`'s distinct-name figures.
       'effect:none': 15115,
-      'effect:partial': 5644,
+      'effect:partial': 5557,
       // D289: the target macro admits the KEYWORD qualifier ("with flying",
       // "without flying") now that TargetSpec.keyword is enforced, so 52 more
       // faces read whole (Plummet, Wing Snare, Roast, Defenestrate, ...), 67
@@ -420,7 +420,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // supertypes, tapped, token) are admitted by the target macro, so 152
       // more faces read whole - Doom Blade, Negate, Go for the Throat, Utter
       // End and kin.
-      'effect:auto': 3572, // D301: the mass pump; D299: the counted-targets seam; D298: the graveyard-return slot; D297: subtype nouns and lists; D295: four sentences
+      'effect:auto': 3659, // D306: a spell's cycling line is no clause; D301: the mass pump; D299: the counted-targets seam; D298: the graveyard-return slot; D297: subtype nouns and lists; D295: four sentences
       // ⚠️ 13,581 → 10,372 in M6.4b (D159): `Sacrifice this <type>` and War
       // Room's commanders'-colors life phrase became CHARGEABLE cost parts, so
       // 3,209 printings' ability lines stopped warning `nonManaCost`. The
@@ -435,7 +435,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // and `Tap N untapped <predicate> you control` became the DISCARD and
       // TAP choosers — 1,125 lines moved, and `payable` below grew by the
       // same 1,125. Same def gate again.
-      'activated:nonManaCost': 6932,
+      'activated:nonManaCost': 5869,
       'activated:loyalty': 4635,
       'target:modalUnion': 2751,
       // D291: "attacking or blocking creature" used to lose its first word to
@@ -504,12 +504,12 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
     // the effect, `legal.ts`'s gate), `targeted` +50 (target clauses inside
     // the newly admitted lines).
     expect(report.activated).toEqual({
-      lines: 44328,
+      lines: 44345,
       // ⚠️ 28,133 → 29,933 in M6.4k (D168): the sacrifice-cost chooser's
       // 1,800 lines — the exact mirror of `nonManaCost`'s fall above.
       // ⚠️ 29,933 → 31,058 in M6.4dw (D286): the discard and tap choosers'
       // 1,125 lines — the mirror of `nonManaCost`'s second fall.
-      payable: 32761,
+      payable: 33841,
       // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
       manaAbility: 11582,
       targeted: 12269,

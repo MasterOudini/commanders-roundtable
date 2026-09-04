@@ -186,6 +186,30 @@ export function legalActions(
   // only to attacking (CR 302.6). The expression comes from `combat.canAttack`
   // rather than being re-derived, for the reason `tier3.ts` states about second
   // heuristics: two copies of "is this creature ready" would eventually disagree.
+  // ⚠️ D306 - CYCLING is activated from the HAND, at instant speed (CR
+  // 702.29a): every card in hand with a synthesized cycling ability whose mana
+  // the engine can charge is offered here, exactly like a battlefield ability.
+  for (const id of state.zones.hand[player] ?? []) {
+    const card = cardFor(state, oracle, id);
+    if (!card) continue;
+    const inst = state.cards[id];
+    if (!inst) continue;
+    const face = faceOf(card, inst.faceIndex);
+    for (const ability of face.activated) {
+      if (ability.cycling === undefined || !ability.payable) continue;
+      const problem = buildPaymentProblem(ability.manaCost, 0, [], 0, 0);
+      out.push({
+        t: 'ActivateAbility',
+        card: id,
+        abilityIndex: ability.index,
+        affordable: affordable(context.solve, problem),
+        requiresTap: false,
+        costText: ability.costText,
+        effectText: ability.effectText,
+        label: face.name,
+      });
+    }
+  }
   for (const id of state.zones.battlefield) {
     const inst = state.cards[id];
     if (!inst || inst.controller !== player || inst.phasedOut) continue;
