@@ -37,10 +37,10 @@ import type { CardData, CardFace } from './cardTypes';
 import { canonicalKeyword } from '../engine/keywords';
 import { parseManaCost, parseManaProduction, parseTypeLine } from './oracleParse';
 import { isPermanentType } from './oracleParse';
-import { parseSpellTargets } from './targetParse';
+import { parseEnchant, parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities } from './activatedParse';
 import { parseEffects } from './effectParse';
-import { SHIPPED_ACTIVATED_REFS, SHIPPED_SPELL_ORACLES, unaccountedLines } from './engineComplete';
+import { enchantSpecRuns, SHIPPED_ACTIVATED_REFS, SHIPPED_SPELL_ORACLES, unaccountedLines } from './engineComplete';
 
 export interface Tier3Note {
   /** Short label, e.g. "Crew". */
@@ -318,11 +318,26 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
 
   for (const raw of card.keywords) {
     if (canonicalKeyword(raw) !== null) continue;
+    // D304 - an Aura's Enchant is the engine's own when its spec is enforced
+    // (the cast aims by it, CR 704.5m keeps it): the same predicate the
+    // accounting asks, so an accepted card carries no note here.
+    if (raw.trim().toLowerCase() === 'enchant' && enchantRuns(card, faceIndex)) continue;
     const how = NAMED[raw.trim().toLowerCase()];
     if (how) add(raw, how);
   }
 
   return notes;
+}
+
+/** D304 - does this face print an Enchant line whose spec the engine enforces? */
+function enchantRuns(card: CardData, faceIndex: number): boolean {
+  const text = card.faces[faceIndex]?.oracleText ?? '';
+  return text.split('\n').some((line) => {
+    const t = line.trim();
+    if (!/^enchant\b/i.test(t)) return false;
+    const spec = parseEnchant(t);
+    return spec !== null && enchantSpecRuns(spec);
+  });
 }
 
 /**

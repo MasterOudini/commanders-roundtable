@@ -236,6 +236,8 @@ const COMPLETE: readonly [string, CardData][] = [
   ['Conscripted Infantry', fx.CONSCRIPTED_INFANTRY],
   // D300: the static seam shipped 'Other permanents you control have indestructible'.
   ['Avacyn, Angel of Hope', fx.AVACYN_ANGEL_OF_HOPE],
+  // D304: the Aura seam - the Enchant line is the engine's own, the restriction a CombatDef.
+  ['Pacifism', fx.PACIFISM],
 ];
 
 /**
@@ -247,7 +249,6 @@ const COMPLETE: readonly [string, CardData][] = [
 const INCOMPLETE: readonly [string, CardData, string][] = [
   ['Krenko, Mob Boss', fx.KRENKO_MOB_BOSS, 'a PAYABLE activated ability whose effect never happens'],
   ['Kess, Dissident Mage', fx.KESS_DISSIDENT_MAGE, 'a static ability, and there is no layer for it'],
-  ['Pacifism', fx.PACIFISM, 'an Aura granting a restriction nothing enforces'],
   ['Lightning Greaves', fx.LIGHTNING_GREAVES, 'equip has no colon, so it is not even an ability line'],
   ['Tarmogoyf', fx.TARMOGOYF, 'a characteristic-defining ability'],
   ['Ancient Tomb', fx.ANCIENT_TOMB, 'the mana is fine; the 2 damage on the SAME LINE is not'],

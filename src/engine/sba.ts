@@ -7,7 +7,10 @@
 // creature's killer already gone. The `derive` cache is built once for the whole
 // pass for the same reason.
 
-import { derive, hasLethalDamage, makeDeriveCache } from './derive';
+import type { ColorLetter } from '../data/cardTypes';
+import { derive, hasLethalDamage, makeDeriveCache, type DeriveCache } from './derive';
+import { faceOf } from './oracle';
+import { candidateFor, specAdmits } from './targets';
 import type { ScriptRegistry } from './scripts/registry';
 import type { EventBody, SbaAction } from './types/events';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
@@ -133,7 +136,13 @@ export function checkStateBasedActions(
     const isAura = d.typeLine.subtypes.includes('Aura');
     const host = card.attachedTo === null ? null : state.cards[card.attachedTo];
     const attachmentIllegal = card.attachedTo !== null && (!host || host.zone.kind !== 'battlefield');
-    if (isAura && (card.attachedTo === null || attachmentIllegal)) {
+    // D304 - CR 704.5m's other half: an Aura attached to an object its own
+    // Enchant ability no longer admits (a "creature you control" the opponent
+    // took, a creature that stopped being one, a host that gained protection
+    // from the Aura's colour) falls off too. See `enchantAdmits`.
+    const enchantIllegal =
+      isAura && host !== undefined && host !== null && host.zone.kind === 'battlefield' && !enchantAdmits(state, oracle, scripts, cache, card, d.colors, host.id);
+    if (isAura && (card.attachedTo === null || attachmentIllegal || enchantIllegal)) {
       actions.push({ t: 'auraFalls', card: id });
       moves.push({ card: id, from: battlefield, to: graveyard });
       doomed.add(id);
@@ -290,6 +299,32 @@ function findLegendChoice(
  * at once the game is a DRAW, which `winners: []` expresses without a special
  * "draw" flag that three other places would have to check.
  */
+/**
+ * D304 - does the Aura's own Enchant ability still admit its host? Asked of the
+ * SAME spec the cast targeted with (`parseSpellTargets` reads an Aura's Enchant
+ * line into its one target), through `specAdmits` - the targeting predicate
+ * minus hexproof and shroud, which restrict TARGETING and never an attachment
+ * already made (CR 702.11b, 702.18b) - plus protection, which does unattach
+ * (CR 702.16e). A free-aim spec (nothing read) admits anything, as at the cast.
+ */
+function enchantAdmits(
+  state: GameState,
+  oracle: OracleDb,
+  scripts: ScriptRegistry,
+  cache: DeriveCache,
+  aura: NonNullable<GameState['cards'][InstanceId]>,
+  auraColors: readonly ColorLetter[],
+  hostId: InstanceId,
+): boolean {
+  const printing = oracle.byPrinting(aura.printingId);
+  const spec = printing ? faceOf(printing, aura.faceIndex).targets[0] : undefined;
+  if (!spec || spec.kinds.length === 0) return true;
+  const host = candidateFor(state, { oracle, scripts }, hostId, 'battlefield', cache);
+  if (!host) return false;
+  if (host.protection.fromEverything || host.protection.colors.some((col) => auraColors.includes(col))) return false;
+  return specAdmits(spec, { controller: aura.controller, colors: auraColors }, host);
+}
+
 export function checkGameOver(state: GameState): EventBody[] {
   if (state.gamePhase !== 'playing') return [];
   const alive = state.seating.filter((id) => !(state.players[id]?.hasLost ?? true));

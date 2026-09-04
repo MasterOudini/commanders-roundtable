@@ -494,7 +494,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // they leave the unenforced record on 144 specs.
       // D294: the enforced adjectives leave the unenforced record - 964 specs
       // were held here by a word the engine could already check.
-      withUnenforced: 237, // D297: 166 subtype words enforced; 208 unread "with ..." qualifiers now RECORDED (D138) instead of dropped
+      withUnenforced: 280, // D297: 166 subtype words enforced; 208 unread "with ..." qualifiers now RECORDED (D138) instead of dropped; D304: an Enchant line's unread tail too
     });
     // ⚠️ M6.4b (D159) moved three of these over the whole 113,559-printing
     // database: `lines` +195 (the brace rule admits a long cost that opens

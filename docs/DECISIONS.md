@@ -20485,3 +20485,84 @@ Fixtures 3,220 · botPool artifact 176 / creature 2,781 / enchantment 137 / inst
 **Reportables** (D303): the tail heads by count ('you draw your second card each turn' 9, 'you cast a creature spell', 'another creature dies' ...) - a library entry each when its count earns it; 'enters with N +1/+1 counters' (a ReplacementDef); the per-item counter on the entering object; the vocabulary's massCounter for spells (5); the or-typed sacrifice cost (four names wait on it); the modal seam (42); the "another" split;
 the by-name sacrifice cost; the remaining cost verbs; the prompt
 continuation seam; prior items stand.
+
+## D304 — M6.4eo: THE AURA SEAM, part 1 — the Enchant line is the engine's own, CR 704.5m's other half, the enchanted creature's statics and restrictions as derived rows; 112 scripts (2026-09-04)
+
+**5,126 of 31,692 Commander-legal cards execute completely, up from
+5,014 (+112).** SHIPPED_SCRIPTS 2,897 → **3,009**; REFUSED ledger 870
+→ **900** (+30: the Auras the pool offered whose other line is outside the row shapes - the Aura ETB and enchanted-dies heads with payloads the generator does not read yet (a counter on a target, a tap, discards, scry, surveil, graveyard tokens), the put-into-a-graveyard and attacks-or-blocks heads, two sacrifice-to-draw activations, an anthem on an Aura (Emblem of the Warmind), Enchant artifact / creature or Vehicle / Forest or Plains / creature with another Aura attached, one multi-face). Fixtures 3,220 → 3,335 (3,219 by name + 109 tokens: the wave's 112 Auras, the seam's four test cards (two already fixtures), and two token pins for the Aura ETB tokens - a vigilant Warrior and a flying Robot, the fuzz gate's own catch). Two token
+pins (a vigilant Warrior, a flying Robot — the fuzz gate's own catch); three support bodies (targets, sba, the accounting), one
+classifier shape. **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** Three probes, gate-free, over
+the 26,678 incomplete cards. (1) The unread SENTENCES: 24,934 single-face
+blocked cards; the vocabulary's tail is long — 11,983 distinct unread
+sentences, the top 5 free 186 cards, the top 40 free 737, the top 300 free
+2,018 — and 14,794 of the cards carry a line no vocabulary rule fixes at
+all. (2) The STRUCTURAL families, by a card's first such line: other
+4,939, an unknown trigger head 2,597, a static 2,030, a keyword mechanic
+1,668, an Aura's Enchant line 1,185, a cost 802, a combat restriction 499,
+Equip 395. The single largest structural line in the format: "Enchant
+creature", 871 cards. (3) The AURAS: 1,214 Commander-legal Auras, every one incomplete because the accounting refused the Enchant line itself; by their blocker lines, Enchant creature 871, an enchanted-creature P/T static 158, an Aura ETB 143, a P/T-and-keyword static 97, a keyword grant 55, Enchant creature you control 54, does-not-untap 48, Enchant player 42, enchanted-dies 41, you-control-enchanted 25, can-t-attack-or-block 20; 129 Auras whose every other line is the Enchant line plus one of the row statics, 134 with the restrictions.
+
+**The seam.** The engine already ran an Aura's Enchant ability — the cast
+aims by the spec `parseSpellTargets` reads off the line, CR 303.4g attaches
+the resolved Aura, SBA 704.5m drops one whose host left — and the
+accounting refused the line anyway, so every Aura in the format was
+incomplete by construction. Four files:
+
+- `src/data/engineComplete.ts`: `enchantSpecRuns` / `enchantLineRuns` — an
+  Enchant line whose ONE spec the targeting layer fully decides (kinds read,
+  nothing unenforced, never a player: an Aura on a player has no InstanceId
+  to attach to) is the engine's own, exactly as a mana line is.
+- `src/engine/targets.ts`: `specAdmits`, the spec's half of `targetAllowed`
+  without hexproof / shroud / protection (they restrict TARGETING, never an
+  attachment already made — CR 702.11b, 702.18b); `candidateFor`, the
+  one-card body of `candidatesFromState`, exported. Byte-identical behaviour
+  for every existing caller.
+- `src/engine/sba.ts`: CR 704.5m's OTHER half — on every state-based pass
+  the Aura's own spec is asked of its host (plus protection, which does
+  unattach, CR 702.16e): "Enchant creature you control" admits the creature
+  the opponent took no more than it did at the cast, and the Aura falls off.
+- `src/data/primitives.ts`: the same enforced Enchant line is scriptable
+  (the rest stay `keyword:aura`); `auraLineShape` — "Enchanted creature gets
+  +N/+N [and has KW]", "has KW…", "can't attack or block / attack / block".
+
+The generator (`d304/gen-aura.cjs`): each row a module whose `StaticDef`s
+(layer `ptModify` / `ability`) and `CombatDef` have ONE candidate —
+whatever the Aura is attached to — and a suite that casts the Aura on
+Grizzly Bears (the host reads the static, the Cyclops does not), refuses
+the opponent's creature as a host for "creature you control", drops the
+Aura when the host dies, refuses the host's attack / block under a
+restriction, and replays. The first `CombatDef`s to SHIP: Pacifism's kin.
+
+- **Refused by name:** +30: the Auras the pool offered whose other line is outside the row shapes - the Aura ETB and enchanted-dies heads with payloads the generator does not read yet (a counter on a target, a tap, discards, scry, surveil, graveyard tokens), the put-into-a-graveyard and attacks-or-blocks heads, two sacrifice-to-draw activations, an anthem on an Aura (Emblem of the Warmind), Enchant artifact / creature or Vehicle / Forest or Plains / creature with another Aura attached, one multi-face.
+- **Not this decision:** Enchant land / permanent / artifact rows
+  ("Enchanted land has …" is a mana grant); "Enchanted creature doesn't
+  untap" (48); "You control enchanted creature" (25, a control static); the
+  Aura ETB and enchanted-dies heads (143 / 41); Curses (Enchant player);
+  Equipment (the next structural family: Equip 504 lines, "Equipped
+  creature gets" 158).
+
+No spell def collided: an Aura's text is no spell's, so nothing was retired by D187's rule.
+
+Report: `effect:auto` 3,572 → 3,572, `effect:none` 15,115 →
+15,115, `withUnenforced` 237 → 280.
+
+**Tests:** `src/data/auraSeam.test.ts` (the enforced specs, a player and an
+unread clause refused; the accounting's verdict on Unholy Strength and
+Curse of Shallow Graves; the classifier; the row shapes);
+`src/engine/auraAttachment.test.ts` (Emblem of the Warmind stays on your
+creature, falls off when the opponent takes it); 112 suites.
+
+**Landed:** 112 scripts and no auto flip (complete moved by exactly the wave: an Aura's other lines still need their defs). The wave in two parts: part A 91 rows off the pool of 142 the accounting opened (a P/T static 45 - Boon of Emrakul, Chant of the Skifsang, Clinging Darkness, Dead Weight ...; P/T and a keyword 40 - Arcane Flight, Aspect of Gorgon, Candlelight Vigil, Epic Proportions ...; a keyword grant 22 - Alexi's Cloak, Asha's Favor, Battle Mastery, Buoyancy ...; a combat restriction 5 - Bound in Silence, Detained by Legionnaires, Luminous Bonds, Pacifism, Pious Interdiction), part B 21 more once the shapes widened (Enchant creature you control 3, an opponent's creature 0, a green creature 0; the Aura's own ETB: a draw 11, life 3, tokens 6 - Angelic Gift, Cartouche of Knowledge, Cartouche of Solidarity, Chosen by Heliod, Dark Favor ...). Thirty refused by name.
+
+Fixtures 3,335 · botPool artifact 176 / creature 2,781 / enchantment 249 / instant 882 / land 356 / sorcery 682 - auto 762 / assisted 1,946 / autoAnyFace 771 · ladder [999, 1130, 2799, 4653, 5881] · batch.json
+112 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,104 files, 16,052 passing / 11 skipped ·
+500-seed gate, 6 shards, 352.4 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D304): the Equipment seam (Equip 504 lines, 'Equipped creature gets +N/+N' 158 - the next structural family: an engine-native Equip activation, then rows like these); Enchant land / permanent / artifact rows; the Aura ETB and enchanted-dies heads (143 / 41) with the generator's payloads; 'Enchanted creature doesn't untap' (48); 'You control enchanted creature' (25); Curses when a player can host an attachment; the modal seam (42); the "another" split;
+the by-name sacrifice cost; the remaining cost verbs; the prompt
+continuation seam; prior items stand.

@@ -107565,6 +107565,4116 @@ export const SKYCLAVE_SHADOWCAT: CardData = {
   "singleImage": true
 };
 
+export const UNHOLY_STRENGTH: CardData = {
+  "scryfallId": "0030407c-9aa0-49ad-b2d6-cde0adbd9d09",
+  "oracleId": "090d88a9-7f2d-4bd1-a30a-7c48d05068be",
+  "name": "Unholy Strength",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Unholy Strength",
+      "manaCost": "{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+1.",
+      "flavorText": "\"I don't *feel* any different.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Gary Ruddell",
+      "imageId": "0030407c-9aa0-49ad-b2d6-cde0adbd9d09"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "7ed",
+  "collectorNumber": "168",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CURSE_OF_SHALLOW_GRAVES: CardData = {
+  "scryfallId": "02f6c39a-8f65-45b9-b632-8d101fb9646a",
+  "oracleId": "dc66dbed-f979-4ad1-b5f9-08538886167f",
+  "name": "Curse of Shallow Graves",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Curse of Shallow Graves",
+      "manaCost": "{2}{B}",
+      "typeLine": "Enchantment — Aura Curse",
+      "oracleText": "Enchant player\nWhenever a player attacks enchanted player with one or more creatures, that attacking player may create a tapped 2/2 black Zombie creature token.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Karla Ortiz",
+      "imageId": "02f6c39a-8f65-45b9-b632-8d101fb9646a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "C13-71",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EMBLEM_OF_THE_WARMIND: CardData = {
+  "scryfallId": "03ab2a41-315b-439c-b02c-f12335fc903a",
+  "oracleId": "86e88219-0f8e-405d-8439-c3b4acf11330",
+  "name": "Emblem of the Warmind",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Emblem of the Warmind",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature you control\nCreatures you control have haste.",
+      "flavorText": "\"It takes but one spark to ignite a parched forest. Our hearts, I fear, are too dry for this new visitor.\"\n—Elek Longbeard",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "03ab2a41-315b-439c-b02c-f12335fc903a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "fut",
+  "collectorNumber": "112",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ALEXI_S_CLOAK: CardData = {
+  "scryfallId": "457a5613-d1d4-4112-8484-f40120079b7b",
+  "oracleId": "e52eb1a6-fff1-4a47-b434-31a74d76231c",
+  "name": "Alexi's Cloak",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Alexi's Cloak",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nEnchanted creature has shroud. (It can't be the target of spells or abilities.)",
+      "flavorText": "\"Doesn't look like much, does it?\"\n—Alexi, zephyr mage",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Alan Rabinowitz",
+      "imageId": "457a5613-d1d4-4112-8484-f40120079b7b"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "pcy",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARCANE_FLIGHT: CardData = {
+  "scryfallId": "09fbb1c0-ba57-4a5a-8ad6-77fbc6aeeec9",
+  "oracleId": "40eee955-bec6-455a-addf-68cdb84c76b9",
+  "name": "Arcane Flight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Arcane Flight",
+      "manaCost": "{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has flying.",
+      "flavorText": "The Tolarian Academies are known for their magical research, powerful sorcerers, and accidental destruction of ecosystems.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "09fbb1c0-ba57-4a5a-8ad6-77fbc6aeeec9"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "dom",
+  "collectorNumber": "43",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ASHA_S_FAVOR: CardData = {
+  "scryfallId": "28b817f7-ae05-4d31-8a2c-29d8082b4132",
+  "oracleId": "97e7ada6-dee1-4bb3-a42d-38a61d946bd4",
+  "name": "Asha's Favor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Asha's Favor",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has flying, first strike, and vigilance.",
+      "flavorText": "As his new wings lifted him high above Bant, Taric felt his earthly aspirations transform into heavenly resolve.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Donato Giancola",
+      "imageId": "28b817f7-ae05-4d31-8a2c-29d8082b4132"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "First strike",
+    "Enchant"
+  ],
+  "setCode": "con",
+  "collectorNumber": "2",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ASPECT_OF_GORGON: CardData = {
+  "scryfallId": "be8956d0-5502-415d-bead-d8bbddf9871d",
+  "oracleId": "4b65276e-7d03-4700-834c-48178fe98353",
+  "name": "Aspect of Gorgon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aspect of Gorgon",
+      "manaCost": "{2}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+3 and has deathtouch. (Any amount of damage it deals to a creature is enough to destroy it.)",
+      "flavorText": "\"My adopted children are loved no less.\"\n—Pharika, god of affliction",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Willian Murai",
+      "imageId": "be8956d0-5502-415d-bead-d8bbddf9871d"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "jou",
+  "collectorNumber": "60",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BATTLE_MASTERY: CardData = {
+  "scryfallId": "0c0e3cab-3d01-4e8b-bb28-20d45acccdbf",
+  "oracleId": "a06c7c1a-8534-40fb-8bb8-59f8f2530567",
+  "name": "Battle Mastery",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Battle Mastery",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has double strike. (It deals both first-strike and regular combat damage.)",
+      "flavorText": "\"There is elegance in all the Ojutai do—even their killing.\"\n—Kirada, Silumgar enforcer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Viktor Titov",
+      "imageId": "0c0e3cab-3d01-4e8b-bb28-20d45acccdbf"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "dtk",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BOON_OF_EMRAKUL: CardData = {
+  "scryfallId": "24bb97c6-d2ff-459f-986e-73e30534d865",
+  "oracleId": "20d30d4d-cf38-41fe-a2ce-8327f7c87c01",
+  "name": "Boon of Emrakul",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Boon of Emrakul",
+      "manaCost": "{2}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +3/-3.",
+      "flavorText": "All around Emrakul, life re-formed in her image.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "24bb97c6-d2ff-459f-986e-73e30534d865"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "emn",
+  "collectorNumber": "81",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BOUND_IN_SILENCE: CardData = {
+  "scryfallId": "41a0a78e-08cc-4eb0-8891-6c3eec5b595b",
+  "oracleId": "b8cee34a-710d-4c09-b475-0e4754eccd66",
+  "name": "Bound in Silence",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bound in Silence",
+      "manaCost": "{2}{W}",
+      "typeLine": "Kindred Enchantment — Rebel Aura",
+      "oracleText": "Enchant creature\nEnchanted creature can't attack or block.",
+      "flavorText": "A fight put off forever is already won.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "William Simpson",
+      "imageId": "41a0a78e-08cc-4eb0-8891-6c3eec5b595b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "tsr",
+  "collectorNumber": "10",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BUOYANCY: CardData = {
+  "scryfallId": "b208dad2-a412-45fd-b19a-d370426ef5b8",
+  "oracleId": "f4e4060d-bfff-4991-9ae5-8f848304cd1e",
+  "name": "Buoyancy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Buoyancy",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nEnchanted creature has flying.",
+      "flavorText": "Saprazzan merfolk become legged on land, but some find it quicker to bring the water with them.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jeff Miracola",
+      "imageId": "b208dad2-a412-45fd-b19a-d370426ef5b8"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "mmq",
+  "collectorNumber": "63",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CANDLELIGHT_VIGIL: CardData = {
+  "scryfallId": "0a6ebdae-7625-4fa9-9231-cd459d47332c",
+  "oracleId": "7153bf15-53f8-445e-acbb-35b4f4b3d551",
+  "name": "Candlelight Vigil",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Candlelight Vigil",
+      "manaCost": "{3}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +3/+2 and has vigilance.",
+      "flavorText": "Selesnya guildmages do not sleep so the rest of the conclave can.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Alexander Forssberg",
+      "imageId": "0a6ebdae-7625-4fa9-9231-cd459d47332c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "GRN-3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHANT_OF_THE_SKIFSANG: CardData = {
+  "scryfallId": "6e604b2e-f257-465d-9342-6eb55b2334c5",
+  "oracleId": "5c902588-b16e-4679-b89e-7b11c928061f",
+  "name": "Chant of the Skifsang",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chant of the Skifsang",
+      "manaCost": "{2}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets -13/-0.",
+      "flavorText": "The skifsang, seafarers of Nephalia, craft spells like other sailors craft nets—making them strong enough to snare even the deadliest catch.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "6e604b2e-f257-465d-9342-6eb55b2334c5"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "dka",
+  "collectorNumber": "31",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLINGING_DARKNESS: CardData = {
+  "scryfallId": "2a939a4e-5a9e-454f-8716-cee7470f05e2",
+  "oracleId": "5ad3abf3-1ae5-4c4c-9950-ba7bff0d75ad",
+  "name": "Clinging Darkness",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Clinging Darkness",
+      "manaCost": "{1}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets -4/-1.",
+      "flavorText": "There's an experience worse than blindness—it's the certainty that your vision is perfect and the horror that there's no world around you to see.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Glen Angus",
+      "imageId": "2a939a4e-5a9e-454f-8716-cee7470f05e2"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "rav",
+  "collectorNumber": "80",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEAD_WEIGHT: CardData = {
+  "scryfallId": "16f465ae-581d-458e-93dd-1eb7a38d512f",
+  "oracleId": "b1804304-fac1-4b19-a48d-6ade9407972a",
+  "name": "Dead Weight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dead Weight",
+      "manaCost": "{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets -2/-2.",
+      "flavorText": "All things considered, his first day on patrol could have gone better.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Lake Hurwitz",
+      "imageId": "16f465ae-581d-458e-93dd-1eb7a38d512f"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "GRN-67",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEBILITATING_INJURY: CardData = {
+  "scryfallId": "09b2b263-34db-4961-bf41-1eaaba3701da",
+  "oracleId": "52eab77d-9a07-4e14-8872-72681d3b3d0e",
+  "name": "Debilitating Injury",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Debilitating Injury",
+      "manaCost": "{1}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets -2/-2.",
+      "flavorText": "\"If weakness does not exist within the Temur then we shall force it upon them.\"\n—Sidisi, khan of the Sultai",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "09b2b263-34db-4961-bf41-1eaaba3701da"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "ktk",
+  "collectorNumber": "68",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEFENSIVE_STANCE: CardData = {
+  "scryfallId": "d0670653-d4fe-4fac-b769-d19ca4698c97",
+  "oracleId": "19959b6d-eb8f-4273-94c8-65210e1998ab",
+  "name": "Defensive Stance",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Defensive Stance",
+      "manaCost": "{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets -1/+1.",
+      "flavorText": "\"It isn't for fighting. It's for when the fighting's gone bad.\"\n—Kara Vrist, Mirran resistance",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "d0670653-d4fe-4fac-b769-d19ca4698c97"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "nph",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DETAINED_BY_LEGIONNAIRES: CardData = {
+  "scryfallId": "fe06e87f-8915-4fc2-81fd-168a371dc407",
+  "oracleId": "d59488b5-1118-4276-b862-11e860c7c32a",
+  "name": "Detained by Legionnaires",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Detained by Legionnaires",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature can't attack or block.",
+      "flavorText": "\"Sleep? I never sleep. I just wait. In the shadows. And I will kill you all. Everyone who sniffed the air that day in Siwa.\"\n—Bayek of Siwa",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Néstor Ossandón Leal",
+      "imageId": "fe06e87f-8915-4fc2-81fd-168a371dc407"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "acr",
+  "collectorNumber": "277",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DIVINE_TRANSFORMATION: CardData = {
+  "scryfallId": "5b3994c6-8e84-4d06-ab46-fb5f061cc34d",
+  "oracleId": "292e7135-8804-43f2-a486-51ef97b83f77",
+  "name": "Divine Transformation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Divine Transformation",
+      "manaCost": "{2}{W}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +3/+3.",
+      "flavorText": "Glory surged through her and radiance surrounded her. All things were possible with the blessing of the Divine.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "NéNé Thomas",
+      "imageId": "5b3994c6-8e84-4d06-ab46-fb5f061cc34d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "5ed",
+  "collectorNumber": "28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ENFEEBLEMENT: CardData = {
+  "scryfallId": "4adaf0bf-b26d-4166-8809-431283690de7",
+  "oracleId": "42b2db4c-4a1d-436f-9eeb-53a04db46c58",
+  "name": "Enfeeblement",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Enfeeblement",
+      "manaCost": "{B}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature (Target a creature as you cast this. This card enters attached to that creature.)\nEnchanted creature gets -2/-2.",
+      "flavorText": "\"If it is weak, either kill it or ignore it. Anything else honors it.\"\n—Kaervek",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "John Bolton",
+      "imageId": "4adaf0bf-b26d-4166-8809-431283690de7"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "9ed",
+  "collectorNumber": "127",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EPIC_PROPORTIONS: CardData = {
+  "scryfallId": "3783bbed-5ae8-4d62-b39e-99136c42eeb6",
+  "oracleId": "ad8edfdf-6915-4fc2-9226-3aae95951935",
+  "name": "Epic Proportions",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Epic Proportions",
+      "manaCost": "{4}{G}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nEnchanted creature gets +5/+5 and has trample.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jesper Ejsing",
+      "imageId": "3783bbed-5ae8-4d62-b39e-99136c42eeb6"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "anb",
+  "collectorNumber": "93",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ETERNAL_WARRIOR: CardData = {
+  "scryfallId": "0d6d9f13-2ccb-49c0-913d-e40512a28193",
+  "oracleId": "dab28bc6-3b2a-444f-b596-0a8d95d6d28c",
+  "name": "Eternal Warrior",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Eternal Warrior",
+      "manaCost": "{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has vigilance.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Anson Maddocks",
+      "imageId": "0d6d9f13-2ccb-49c0-913d-e40512a28193"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "4bb",
+  "collectorNumber": "190",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FEAST_OF_THE_UNICORN: CardData = {
+  "scryfallId": "096e41d6-79c3-463f-ae63-872c3d8729a7",
+  "oracleId": "274d89b8-1e59-4992-9299-dc793b7f6752",
+  "name": "Feast of the Unicorn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Feast of the Unicorn",
+      "manaCost": "{3}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +4/+0.",
+      "flavorText": "\"Some delicacies are not to be savored, save by the callous.\"\n—Baron Sengir",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dennis Detwiller",
+      "imageId": "096e41d6-79c3-463f-ae63-872c3d8729a7"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "hml",
+  "collectorNumber": "47a",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FEEBLENESS: CardData = {
+  "scryfallId": "1ba2660d-b661-4266-b7e5-07bb8b72bce6",
+  "oracleId": "a1a7757f-7e9b-4b5b-b9df-e98d8918caac",
+  "name": "Feebleness",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Feebleness",
+      "manaCost": "{1}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nEnchanted creature gets -2/-1.",
+      "flavorText": "Just a small touch of magic can harness the debilitating power of Urborg's poisonous winds.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "1ba2660d-b661-4266-b7e5-07bb8b72bce6"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "tsp",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FERAL_INVOCATION: CardData = {
+  "scryfallId": "190ad379-1a0f-4598-b5b1-453955846597",
+  "oracleId": "5b3c069b-5bed-4b70-b04c-b7143a4a6e96",
+  "name": "Feral Invocation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Feral Invocation",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nEnchanted creature gets +2/+2.",
+      "flavorText": "Nylea's sacred lynx guards those who honor the Nessian Wood and hunts those who don't.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mathias Kollros",
+      "imageId": "190ad379-1a0f-4598-b5b1-453955846597"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "jmp",
+  "collectorNumber": "396",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLAMING_SWORD: CardData = {
+  "scryfallId": "17ecd9ff-8c30-4e17-8cff-dd40d653c4af",
+  "oracleId": "05c62f91-2a5b-4cba-8e66-78fb370ea409",
+  "name": "Flaming Sword",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Flaming Sword",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nEnchanted creature gets +1/+0 and has first strike.",
+      "flavorText": "\"It's not Talruum crystal, but I must admit—it gets the job done.\"\n—Tahngarth",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "17ecd9ff-8c30-4e17-8cff-dd40d653c4af"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "mmq",
+  "collectorNumber": "190",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLIGHT: CardData = {
+  "scryfallId": "025b9662-0727-4054-85be-bcf83fb49e12",
+  "oracleId": "6a4068b0-fb4f-429c-a94e-47849f3eb7ef",
+  "name": "Flight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Flight",
+      "manaCost": "{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has flying.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Anson Maddocks",
+      "imageId": "025b9662-0727-4054-85be-bcf83fb49e12"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "4bb",
+  "collectorNumber": "72",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FRANTIC_STRENGTH: CardData = {
+  "scryfallId": "bbd9d35d-7fd0-4193-9f7e-b8a59fae4ac5",
+  "oracleId": "5dbe4648-f4c9-4d26-98f5-58a7e53b149d",
+  "name": "Frantic Strength",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Frantic Strength",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nEnchanted creature gets +2/+2 and has trample.",
+      "flavorText": "With his friends dead and his weapons broken, Taros seized the only thing he could to defend himself.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Flavio Greco Paglia",
+      "imageId": "bbd9d35d-7fd0-4193-9f7e-b8a59fae4ac5"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "dsk",
+  "collectorNumber": "179",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FRENZIED_RAGE: CardData = {
+  "scryfallId": "f9ca9c16-5720-4531-88ea-48b48d189479",
+  "oracleId": "1a04c31c-f5e4-43ff-a5b5-207426b8dca6",
+  "name": "Frenzied Rage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Frenzied Rage",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+1 and has menace. (It can't be blocked except by two or more creatures.)",
+      "flavorText": "\"The heat in our hearts sometimes rises to the surface.\"\n—Valduk, keeper of the Flame",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Simon Dominic",
+      "imageId": "f9ca9c16-5720-4531-88ea-48b48d189479"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "dom",
+  "collectorNumber": "124",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FURIOUS_STRENGTH: CardData = {
+  "scryfallId": "8abeabbd-215b-4f25-908d-5650862835be",
+  "oracleId": "efefb339-bb7c-4b26-abed-8434f955122b",
+  "name": "Furious Strength",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Furious Strength",
+      "manaCost": "{2}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has menace. (It can't be blocked except by two or more creatures.)",
+      "flavorText": "\"Time for my closing argument!\"\n—She-Hulk, Jennifer Walters",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mark Spears",
+      "imageId": "8abeabbd-215b-4f25-908d-5650862835be"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "msc",
+  "collectorNumber": "544",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GIANT_SPECTACLE: CardData = {
+  "scryfallId": "7c425337-6f1f-494e-a7ae-7d533d7a0b4e",
+  "oracleId": "97e34c3a-070e-406a-8505-657f4d57def8",
+  "name": "Giant Spectacle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Giant Spectacle",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+1 and has menace.",
+      "flavorText": "The giant-decorating contest at the migration festival is a tradition that may have started as a dare.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "7c425337-6f1f-494e-a7ae-7d533d7a0b4e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "kld",
+  "collectorNumber": "116",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GIANT_STRENGTH: CardData = {
+  "scryfallId": "2bb10423-c909-49cf-9914-fea84700d6fc",
+  "oracleId": "db85ba13-f00d-4cdd-99e1-22a4d39c8837",
+  "name": "Giant Strength",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Giant Strength",
+      "manaCost": "{R}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Justin Hampton",
+      "imageId": "2bb10423-c909-49cf-9914-fea84700d6fc"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "ren",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GIFT_OF_GRANITE: CardData = {
+  "scryfallId": "d7b5231b-aed9-4b88-aba5-43e57a705dc5",
+  "oracleId": "e1abac67-ae07-4bb2-a048-7e41e0fc0371",
+  "name": "Gift of Granite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gift of Granite",
+      "manaCost": "{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nEnchanted creature gets +0/+2.",
+      "flavorText": "The blessing adds both protection to the recipient and weightlessness to the stone.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Hideaki Takamura",
+      "imageId": "d7b5231b-aed9-4b88-aba5-43e57a705dc5"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "fut",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GIFT_OF_ORZHOVA: CardData = {
+  "scryfallId": "2a1ab59d-2151-494b-a244-49a7d9a3f56a",
+  "oracleId": "dcb6d317-5c55-4973-8e3d-2e98211dc30e",
+  "name": "Gift of Orzhova",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gift of Orzhova",
+      "manaCost": "{1}{W/B}{W/B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has flying and lifelink.",
+      "flavorText": "\"Remember by whose gift you ascend.\"\n—Milana, Orzhov prelate",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Johannes Voss",
+      "imageId": "2a1ab59d-2151-494b-a244-49a7d9a3f56a"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "MM3-209",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_WAR_PAINT: CardData = {
+  "scryfallId": "4388e57e-0c87-4d66-a862-58261d76c5ac",
+  "oracleId": "67ca79d7-9064-4605-8625-b1cfe5cb1b45",
+  "name": "Goblin War Paint",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin War Paint",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has haste.",
+      "flavorText": "War paint made from kolya fruit heightens senses and lessens fear. Unfortunately, fear is usually what keeps you alive.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Austin Hsu",
+      "imageId": "4388e57e-0c87-4d66-a862-58261d76c5ac"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "zen",
+  "collectorNumber": "129",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GREEL_S_CARESS: CardData = {
+  "scryfallId": "5b25ce3f-fab3-40f8-8a16-fe580f3d97a5",
+  "oracleId": "e9e0b78e-07d5-4603-8e3b-27274148d1a1",
+  "name": "Greel's Caress",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Greel's Caress",
+      "manaCost": "{1}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nEnchanted creature gets -3/-0.",
+      "flavorText": "Greel's grin is far less loathsome than his touch.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Chippy",
+      "imageId": "5b25ce3f-fab3-40f8-8a16-fe580f3d97a5"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "pcy",
+  "collectorNumber": "67",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GUARD_DUTY: CardData = {
+  "scryfallId": "584687fd-59e1-46cb-aca2-3104349407d9",
+  "oracleId": "3b20e187-c200-40a0-8db2-481f0bf90168",
+  "name": "Guard Duty",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Guard Duty",
+      "manaCost": "{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has defender.",
+      "flavorText": "\"I was told these were standard issue. Do I look standard to you?\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Karl Kopinski",
+      "imageId": "584687fd-59e1-46cb-aca2-3104349407d9"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "ima",
+  "collectorNumber": "22",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HARDENED_SCALE_ARMOR: CardData = {
+  "scryfallId": "54c4cb29-3eb9-4a24-a91a-896802c78aef",
+  "oracleId": "9eb58db8-7934-485c-8606-fb1a6cc60d42",
+  "name": "Hardened-Scale Armor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hardened-Scale Armor",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +3/+3.",
+      "flavorText": "A pangolin's scales are resistant to all sorts of damage and weaponry. Desire for them threatens to drive the pangolin to extinction.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Tan Yan Yao",
+      "imageId": "54c4cb29-3eb9-4a24-a91a-896802c78aef"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "pz2",
+  "collectorNumber": "70787",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HERO_S_RESOLVE: CardData = {
+  "scryfallId": "71a0f233-895e-4072-8339-c9448110d3e8",
+  "oracleId": "1854a99d-f8c7-45b3-83a2-98ae1c5b5b09",
+  "name": "Hero's Resolve",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hero's Resolve",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+5.",
+      "flavorText": "\"Destiny, chance, fate, fortune—they're all just ways of claiming your successes without claiming your failures.\"\n—Gerrard of the *Weatherlight*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "71a0f233-895e-4072-8339-c9448110d3e8"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "6ed",
+  "collectorNumber": "24",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HOLY_STRENGTH: CardData = {
+  "scryfallId": "096eacf4-16bb-47d5-b229-c46cbe6a73f7",
+  "oracleId": "9357de36-f8be-4f49-b2c8-9fe9eaf82b07",
+  "name": "Holy Strength",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Holy Strength",
+      "manaCost": "{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+2.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Anson Maddocks",
+      "imageId": "096eacf4-16bb-47d5-b229-c46cbe6a73f7"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "sum",
+  "collectorNumber": "24",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IMMOLATION: CardData = {
+  "scryfallId": "276332a0-19e3-4b78-a6da-9656c569d85f",
+  "oracleId": "9f40ad89-3767-4837-a078-f2dcfaf368df",
+  "name": "Immolation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Immolation",
+      "manaCost": "{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/-2.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Scott Kirschner",
+      "imageId": "276332a0-19e3-4b78-a6da-9656c569d85f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "ren",
+  "collectorNumber": "89",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IMPOSING_VISAGE: CardData = {
+  "scryfallId": "24a256b0-e25b-43c6-9f7a-2ad76b268d22",
+  "oracleId": "6f67058b-ed14-4e3c-9af3-d61570870e36",
+  "name": "Imposing Visage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Imposing Visage",
+      "manaCost": "{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has menace. (It can't be blocked except by two or more creatures.)",
+      "flavorText": "With the horrible mask, Lagfrak the Low terrorized the countryside. But then he met Il-Chunt, the mask's model . . . .",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "24a256b0-e25b-43c6-9f7a-2ad76b268d22"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "5ed",
+  "collectorNumber": "241",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INDOMITABLE_WILL: CardData = {
+  "scryfallId": "47772a34-c72f-44e8-b272-4ef2d2af5c82",
+  "oracleId": "cca60afe-b044-4401-8322-170aa015873c",
+  "name": "Indomitable Will",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Indomitable Will",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nEnchanted creature gets +1/+2.",
+      "flavorText": "\"Charge bravely. Fight selflessly. Act honorably. Iroas will watch over you.\"\n—Verenis, priest of Iroas",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Micah Epstein",
+      "imageId": "47772a34-c72f-44e8-b272-4ef2d2af5c82"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "thb",
+  "collectorNumber": "25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KNIGHT_S_PLEDGE: CardData = {
+  "scryfallId": "4e786d0e-d6bf-4c6b-b989-28ca1ed53e2e",
+  "oracleId": "63604320-68de-415e-b1f9-dd0f85c5d8a3",
+  "name": "Knight's Pledge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Knight's Pledge",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Magali Villeneuve",
+      "imageId": "4e786d0e-d6bf-4c6b-b989-28ca1ed53e2e"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "oana",
+  "collectorNumber": "5",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LANCE: CardData = {
+  "scryfallId": "176ab231-1f22-4e04-b46c-480a67527a3b",
+  "oracleId": "5960dd01-6797-4c73-b48a-f637b9c288cc",
+  "name": "Lance",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lance",
+      "manaCost": "{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has first strike.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Rob Alexander",
+      "imageId": "176ab231-1f22-4e04-b46c-480a67527a3b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "cei",
+  "collectorNumber": "28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LIFELINK: CardData = {
+  "scryfallId": "a8e207d4-9930-4aff-a7c8-b53bd1b5d566",
+  "oracleId": "4fe8316a-9cff-43e9-a1d5-993a0c9daf3a",
+  "name": "Lifelink",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lifelink",
+      "manaCost": "{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has lifelink. (Damage dealt by the creature also causes its controller to gain that much life.)",
+      "flavorText": "The spoils of war are not measured only in gold and silver.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "a8e207d4-9930-4aff-a7c8-b53bd1b5d566"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "m12",
+  "collectorNumber": "24",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LIGHTNING_TALONS: CardData = {
+  "scryfallId": "5a7e5dd8-2c7d-4dc1-b991-ce90d8e86b43",
+  "oracleId": "4a2a7eca-3477-4858-9dab-ba80d4d704cd",
+  "name": "Lightning Talons",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lightning Talons",
+      "manaCost": "{2}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +3/+0 and has first strike. (It deals combat damage before creatures without first strike.)",
+      "flavorText": "\"The victim was either clawed to death or struck by lightning. Possibly both.\"\n—Pel Javya, Wojek investigator",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "5a7e5dd8-2c7d-4dc1-b991-ce90d8e86b43"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "bbd",
+  "collectorNumber": "180",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LUMINOUS_BONDS: CardData = {
+  "scryfallId": "2ca3a547-ef22-4b87-b90f-e8ffb42f73ac",
+  "oracleId": "2c006a63-0550-4a87-a5fe-f4247857271c",
+  "name": "Luminous Bonds",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Luminous Bonds",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature can't attack or block.",
+      "flavorText": "\"Your part in this fight is done, vampire. Get used to your thirst.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Steve Argyle",
+      "imageId": "2ca3a547-ef22-4b87-b90f-e8ffb42f73ac"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "rix",
+  "collectorNumber": "12",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MADCAP_SKILLS: CardData = {
+  "scryfallId": "67ef2667-40f6-4c1c-af81-3e45d2437d5f",
+  "oracleId": "4a9dc9ef-a603-467a-aeed-32cc111394b0",
+  "name": "Madcap Skills",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Madcap Skills",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +3/+0 and has menace.",
+      "flavorText": "The larger the crowd, the harder it is for them to run away.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Anthony Palumbo",
+      "imageId": "67ef2667-40f6-4c1c-af81-3e45d2437d5f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "gtc",
+  "collectorNumber": "98",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAGEFIRE_WINGS: CardData = {
+  "scryfallId": "be18c2d9-60c4-454b-b6c7-7c22ed2985fb",
+  "oracleId": "ea8c4a7d-f7fb-4620-b3a4-ae8280dd60d9",
+  "name": "Magefire Wings",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Magefire Wings",
+      "manaCost": "{U}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+0 and has flying.",
+      "flavorText": "Giving a thing wings does not take away its fear of flight—or its fear of fire, for that matter.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "Zoltan Boros & Gabor Szikszai",
+      "imageId": "be18c2d9-60c4-454b-b6c7-7c22ed2985fb"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "arb",
+  "collectorNumber": "88",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAGETA_S_BOON: CardData = {
+  "scryfallId": "22db8a3b-413d-4f4d-b103-f50fc0415e9b",
+  "oracleId": "e3e5b12c-2103-4b40-83d8-6d5449179b6f",
+  "name": "Mageta's Boon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mageta's Boon",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nEnchanted creature gets +1/+2.",
+      "flavorText": "When the Lion roars, his cubs grow stronger.\n—Kipamu saying",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Bradley Williams",
+      "imageId": "22db8a3b-413d-4f4d-b103-f50fc0415e9b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "pcy",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAGGOT_THERAPY: CardData = {
+  "scryfallId": "6ab963aa-2304-4ee6-a8c7-c485c5133b40",
+  "oracleId": "ab4887e6-f71b-462d-9243-9ebe54da98f4",
+  "name": "Maggot Therapy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Maggot Therapy",
+      "manaCost": "{2}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nEnchanted creature gets +2/-2.",
+      "flavorText": "\"If this is the cure, I'd hate to see the disease.\"\n—Orim",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jeff Easley",
+      "imageId": "6ab963aa-2304-4ee6-a8c7-c485c5133b40"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "mmq",
+  "collectorNumber": "145",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MANTLE_OF_WEBS: CardData = {
+  "scryfallId": "3b09e36a-ad53-44ae-8586-2b658e3c533c",
+  "oracleId": "7549206e-22a9-4d56-b3bc-f6f2f5e87e8a",
+  "name": "Mantle of Webs",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mantle of Webs",
+      "manaCost": "{1}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+3 and has reach. (It can block creatures with flying.)",
+      "flavorText": "\"Why does everything the Golgari touch end up sticky?\"\n—Arrester Lavinia, Tenth Precinct",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mathias Kollros",
+      "imageId": "3b09e36a-ad53-44ae-8586-2b658e3c533c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "ori",
+  "collectorNumber": "187",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MARK_OF_THE_VAMPIRE: CardData = {
+  "scryfallId": "150090cc-27ac-4d18-b6e6-3ddaa40c822e",
+  "oracleId": "af942d30-a191-4306-846d-6c26755ca3e6",
+  "name": "Mark of the Vampire",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mark of the Vampire",
+      "manaCost": "{3}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has lifelink.",
+      "flavorText": "\"My 'condition' is a trial. The weak are consumed by it. The strong transcend it.\"\n—Sorin Markov",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Winona Nelson",
+      "imageId": "150090cc-27ac-4d18-b6e6-3ddaa40c822e"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "uma",
+  "collectorNumber": "105",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MARKED_BY_HONOR: CardData = {
+  "scryfallId": "332380e9-ed94-4b6b-a0f1-7f05d13dbc5b",
+  "oracleId": "aa5a7940-976d-4d96-9ddf-1c3891885c7e",
+  "name": "Marked by Honor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Marked by Honor",
+      "manaCost": "{3}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has vigilance. (Attacking doesn't cause it to tap.)",
+      "flavorText": "Stand your post for duty. Stand your ground for honor.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "David Palumbo",
+      "imageId": "332380e9-ed94-4b6b-a0f1-7f05d13dbc5b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "M15-17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MESSENGER_S_SPEED: CardData = {
+  "scryfallId": "93d7f033-217f-4fb3-a57b-e32291257ec8",
+  "oracleId": "aa21315d-4da9-4bbd-9604-c406b83c0db2",
+  "name": "Messenger's Speed",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Messenger's Speed",
+      "manaCost": "{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has trample and haste.",
+      "flavorText": "\"He outran arrows. He outran even the archers' insults.\"\n—Bayma, storyteller of Lagonna Band",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Clint Cearley",
+      "imageId": "93d7f033-217f-4fb3-a57b-e32291257ec8"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "ths",
+  "collectorNumber": "129",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIRE_S_GRASP: CardData = {
+  "scryfallId": "0ae0c536-612d-4916-a8da-5aaaf14218b1",
+  "oracleId": "1009d2a2-a145-46e1-ba14-7a42735062fc",
+  "name": "Mire's Grasp",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mire's Grasp",
+      "manaCost": "{1}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets -3/-3.",
+      "flavorText": "Those caught attempting to escape the Underworld spend the rest of their existence trapped in the Mire of Punishment.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Chris Rallis",
+      "imageId": "0ae0c536-612d-4916-a8da-5aaaf14218b1"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "thb",
+  "collectorNumber": "106",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MYTHIC_PROPORTIONS: CardData = {
+  "scryfallId": "829069cf-7e63-4443-b679-65ad15d6ca5e",
+  "oracleId": "e03322a0-e477-4223-969e-27f6772e3d6d",
+  "name": "Mythic Proportions",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mythic Proportions",
+      "manaCost": "{4}{G}{G}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +8/+8 and has trample.",
+      "flavorText": "The blood of Krosa turns rational beings into primal forces.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jim Nelson",
+      "imageId": "829069cf-7e63-4443-b679-65ad15d6ca5e"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "ons",
+  "collectorNumber": "274",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NIMBUS_WINGS: CardData = {
+  "scryfallId": "5dae4042-8806-437c-8fc1-2d6996ff38c6",
+  "oracleId": "0f35e73b-6a38-4185-a7d3-d237d67ba1cd",
+  "name": "Nimbus Wings",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nimbus Wings",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+2 and has flying.",
+      "flavorText": "Explorers may find ways into the Sky Ruin, but they find its secrets well protected by shifting hedrons and Roil winds.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Chris Rahn",
+      "imageId": "5dae4042-8806-437c-8fc1-2d6996ff38c6"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "zen",
+  "collectorNumber": "28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OAKENFORM: CardData = {
+  "scryfallId": "0bf71f42-6e42-46c0-9e8f-394d2c4519ee",
+  "oracleId": "b254fefb-11d2-4369-ae5c-0c3bd48ae580",
+  "name": "Oakenform",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Oakenform",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +3/+3.",
+      "flavorText": "\"When the beast cloaks itself in the mighty oak, what good is a bow? When the oak wraps itself around the snarling beast, what good is a hatchet?\"\n—Dionus, elvish archdruid",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Wayne Reynolds",
+      "imageId": "0bf71f42-6e42-46c0-9e8f-394d2c4519ee"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "m19",
+  "collectorNumber": "191",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ONE_WITH_THE_WIND: CardData = {
+  "scryfallId": "2a897196-85d0-4e49-a617-b30fb33b145a",
+  "oracleId": "9203bee0-718a-4ede-9556-5521417c4080",
+  "name": "One With the Wind",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "One With the Wind",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has flying.",
+      "flavorText": "\"River and sea, jungle and sky. Water flows freely between the two halves of the world. We are creatures of the water.\"\n—Shaper Tuvasa",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Naomi Baker",
+      "imageId": "2a897196-85d0-4e49-a617-b30fb33b145a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "j22",
+  "collectorNumber": "330",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PIN_TO_THE_EARTH: CardData = {
+  "scryfallId": "c04e6915-39b0-4fbc-9114-2ecf371b6f72",
+  "oracleId": "605624ee-b7ca-4728-993f-e13b18cc57f3",
+  "name": "Pin to the Earth",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pin to the Earth",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets -6/-0.",
+      "flavorText": "\"Mortal strength, like mortal hope, is so easily crushed.\"\n—Thassa, god of the sea",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "c04e6915-39b0-4fbc-9114-2ecf371b6f72"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "jou",
+  "collectorNumber": "45",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PRIMAL_FRENZY: CardData = {
+  "scryfallId": "f5e2d822-09d0-42e5-ad91-67c66e947b3d",
+  "oracleId": "705b4da3-d463-4808-b79c-dc0c1830945a",
+  "name": "Primal Frenzy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Primal Frenzy",
+      "manaCost": "{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has trample.",
+      "flavorText": "\"Don't dismiss its anger as mindless fury. I assure you, it has purpose.\"\n—Seton, centaur druid",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Alex Horley-Orlandelli",
+      "imageId": "f5e2d822-09d0-42e5-ad91-67c66e947b3d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "ody",
+  "collectorNumber": "262",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PRIMAL_VISITATION: CardData = {
+  "scryfallId": "2dd518e8-047a-4df0-a0b8-ba116d048fa8",
+  "oracleId": "3d95e8b1-0ddb-4bd3-b4cc-de55b6f8c403",
+  "name": "Primal Visitation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Primal Visitation",
+      "manaCost": "{3}{R}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +3/+3 and has haste.",
+      "flavorText": "Gruul shamans believe all sentient beings have the soul of savagery inside them, an animal form clawing to escape.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "2dd518e8-047a-4df0-a0b8-ba116d048fa8"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "gtc",
+  "collectorNumber": "187",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PRODIGIOUS_GROWTH: CardData = {
+  "scryfallId": "106dff77-dff9-4687-9c4b-600d58886c19",
+  "oracleId": "15d63e5d-dc4d-4e5f-8043-78039a49732b",
+  "name": "Prodigious Growth",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Prodigious Growth",
+      "manaCost": "{4}{G}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +7/+7 and has trample.",
+      "flavorText": "\"Look how cute it is now!\"\n—Vivien Reid",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "106dff77-dff9-4687-9c4b-600d58886c19"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "pm19",
+  "collectorNumber": "194s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REFLEXES: CardData = {
+  "scryfallId": "05f91d14-b409-44b6-bdfd-44427855373a",
+  "oracleId": "dc87b0a5-3d9d-44eb-b415-b022acd63cf1",
+  "name": "Reflexes",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reflexes",
+      "manaCost": "{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature (Target a creature as you cast this. This card enters attached to that creature.)\nEnchanted creature has first strike. (It deals combat damage before creatures without first strike.)",
+      "flavorText": "\"Be as fast as lightning, and you will be just as deadly.\"\n—Combat trainer",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Donato Giancola",
+      "imageId": "05f91d14-b409-44b6-bdfd-44427855373a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "7ed",
+  "collectorNumber": "213★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RIOT_SPIKES: CardData = {
+  "scryfallId": "63d0f909-9906-4ff7-9b10-9d817f20d8a9",
+  "oracleId": "3df676fe-c4f8-41c0-9743-781090bdc547",
+  "name": "Riot Spikes",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Riot Spikes",
+      "manaCost": "{B/R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "({B/R} can be paid with either {B} or {R}.)\nEnchant creature\nEnchanted creature gets +2/-1.",
+      "flavorText": "Most auramancers would have let the spikes hover just above the skin. Having the spikes rip through the skin from beneath was a touch added by Rakdos himself.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "63d0f909-9906-4ff7-9b10-9d817f20d8a9"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "dis",
+  "collectorNumber": "146",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROBE_OF_MIRRORS: CardData = {
+  "scryfallId": "110b92c8-6bc3-4b2d-b71d-d04db8c3b465",
+  "oracleId": "093a20e5-ff14-41c7-b16c-1f745ddf6942",
+  "name": "Robe of Mirrors",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Robe of Mirrors",
+      "manaCost": "{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature (Target a creature as you cast this. This card enters attached to that creature.)\nEnchanted creature has shroud. (It can't be the target of spells or abilities.)",
+      "flavorText": "\"Some say you cannot hit what you cannot see. I prefer that you hit what I want you to see.\"\n—Arcanis the Omnipotent",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "110b92c8-6bc3-4b2d-b71d-d04db8c3b465"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "10e",
+  "collectorNumber": "101★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SANGRITE_BACKLASH: CardData = {
+  "scryfallId": "fa56b15e-d02d-4306-82a6-ced778fee90f",
+  "oracleId": "03220765-8a9d-4d4a-88d5-98df975ce13c",
+  "name": "Sangrite Backlash",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sangrite Backlash",
+      "manaCost": "{B/G}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +3/-3.",
+      "flavorText": "\"Sangrite is the dragon's beating heart. Little wonder, then, that so many fools' chests burst trying to contain it.\"\n—Sarkhan Vol",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G",
+        "R"
+      ],
+      "artist": "Cyril Van Der Haegen",
+      "imageId": "fa56b15e-d02d-4306-82a6-ced778fee90f"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G",
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "arb",
+  "collectorNumber": "139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SENSORY_DEPRIVATION: CardData = {
+  "scryfallId": "454739db-a3d6-45e8-849a-287438c36627",
+  "oracleId": "0006faf6-7a61-426c-9034-579f2cfcfa83",
+  "name": "Sensory Deprivation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sensory Deprivation",
+      "manaCost": "{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets -3/-0.",
+      "flavorText": "They call it \"stitcher's anesthesia,\" a spell to deaden the senses while the mad doctors begin their grisly work.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Steven Belledin",
+      "imageId": "454739db-a3d6-45e8-849a-287438c36627"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "isd",
+  "collectorNumber": "74",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SERRA_S_EMBRACE: CardData = {
+  "scryfallId": "06573466-dd60-4cab-acdc-9287daf232cf",
+  "oracleId": "6d6ba936-4a15-4c40-aaa6-71605fb732d1",
+  "name": "Serra's Embrace",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Serra's Embrace",
+      "manaCost": "{2}{W}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has flying and vigilance. (Attacking doesn't cause it to tap.)",
+      "flavorText": "\"With one breath, the newborn angel took to the air . . . and the world sighed.\"\n—*The Book of Serra*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Ciruelo",
+      "imageId": "06573466-dd60-4cab-acdc-9287daf232cf"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "7ed",
+  "collectorNumber": "43★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIEGECRAFT: CardData = {
+  "scryfallId": "145ca8f0-5eb2-49f7-a49f-bbcd3bb10dd1",
+  "oracleId": "a49a9418-72d1-4ab1-89d9-a1f65ae23d35",
+  "name": "Siegecraft",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Siegecraft",
+      "manaCost": "{3}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+4.",
+      "flavorText": "\"They thought their fortress impregnable . . . until we marched up with ours, and blocked out the sun.\"\n—Golran, dragonscale captain",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Viktor Titov",
+      "imageId": "145ca8f0-5eb2-49f7-a49f-bbcd3bb10dd1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "KTK-23",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLIMEBIND: CardData = {
+  "scryfallId": "20f2b109-0d13-41a2-ba76-d75e417b39e8",
+  "oracleId": "87aa2cbe-841c-40ff-9b1c-b259b4cc631e",
+  "name": "Slimebind",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slimebind",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nEnchanted creature gets -4/-0.",
+      "flavorText": "\"Relax. It's quite harmless. And it will dissolve completely in a month or two.\"\n—Navona, Simic field tester",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Mark Behm",
+      "imageId": "20f2b109-0d13-41a2-ba76-d75e417b39e8"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "j25",
+  "collectorNumber": "360",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPECTRAL_FLIGHT: CardData = {
+  "scryfallId": "f7149f2a-6917-4ad7-8035-c7a1babd4d4b",
+  "oracleId": "d127d1e6-f3a6-4f68-bea5-d7b4123476e5",
+  "name": "Spectral Flight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spectral Flight",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has flying.",
+      "flavorText": "\"The church looks down on binding spirits into armor, but now I can look down on them.\"\n—Dierk, geistmage",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "f7149f2a-6917-4ad7-8035-c7a1babd4d4b"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "isd",
+  "collectorNumber": "79",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPITEFUL_MOTIVES: CardData = {
+  "scryfallId": "592d7349-d066-49b0-9920-c1ec1595e00d",
+  "oracleId": "a8f259b5-ef01-4f30-baa1-1b2a5419e61e",
+  "name": "Spiteful Motives",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spiteful Motives",
+      "manaCost": "{3}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nEnchanted creature gets +3/+0 and has first strike.",
+      "flavorText": "Having infiltrated the Lunarch Council, the Skirsdag await the perfect moment to strike.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Marco Nelor",
+      "imageId": "592d7349-d066-49b0-9920-c1ec1595e00d"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "soi",
+  "collectorNumber": "183",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STONESKIN: CardData = {
+  "scryfallId": "16b9fdaa-9da9-48ff-b271-e6a41aabf073",
+  "oracleId": "6d1d53e3-60ee-40a1-89a5-0648760cd83f",
+  "name": "Stoneskin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stoneskin",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nEnchanted creature gets +0/+10.",
+      "flavorText": "\"Ooh, nice shot! I almost felt that one.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jake Murray",
+      "imageId": "16b9fdaa-9da9-48ff-b271-e6a41aabf073"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "clb",
+  "collectorNumber": "45",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SWASHBUCKLING: CardData = {
+  "scryfallId": "01ed59b1-968b-4297-9e98-42d940f9478c",
+  "oracleId": "4992144f-7a36-4f30-9e8a-4355288b50c5",
+  "name": "Swashbuckling",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Swashbuckling",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has haste.",
+      "flavorText": "The pirates of the Brazen Coalition are the descendants of those displaced by the Legion of Dusk, and they are eager for vengeance.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Josu Hernaiz",
+      "imageId": "01ed59b1-968b-4297-9e98-42d940f9478c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "xln",
+  "collectorNumber": "167",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TIGER_CLAWS: CardData = {
+  "scryfallId": "0146a689-4817-4849-a90d-4cc64566960d",
+  "oracleId": "2ef8ebc9-4f95-42f8-86e6-85eff0b8f021",
+  "name": "Tiger Claws",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tiger Claws",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nEnchanted creature gets +1/+1 and has trample.",
+      "flavorText": "Cho-Arrim martial artists emulate the beasts of their home.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Adam Rex",
+      "imageId": "0146a689-4817-4849-a90d-4cc64566960d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "mmq",
+  "collectorNumber": "279",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TORMENT: CardData = {
+  "scryfallId": "fe74a415-ea8f-4f16-8889-ae649f1483b2",
+  "oracleId": "b53ec6e6-fcc9-4471-88c5-7ad0fbd7bbea",
+  "name": "Torment",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Torment",
+      "manaCost": "{1}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets -3/-0.",
+      "flavorText": "\"Volrath has killed me. All that remains of me is the scar!\"\n—Tahngarth",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "fe74a415-ea8f-4f16-8889-ae649f1483b2"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "sth",
+  "collectorNumber": "73",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TORPOR_DUST: CardData = {
+  "scryfallId": "8840551f-d43a-487f-a960-9b220dec5df4",
+  "oracleId": "da1ca3ec-8bef-4b7e-896e-4d50e8cffbe5",
+  "name": "Torpor Dust",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Torpor Dust",
+      "manaCost": "{2}{U/B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nEnchanted creature gets -3/-0.",
+      "flavorText": "\"Some folk these days are too restless to dream the dreams we need. We need to teach them to stop and catch their breath.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "U"
+      ],
+      "artist": "Jesper Ejsing",
+      "imageId": "8840551f-d43a-487f-a960-9b220dec5df4"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "shm",
+  "collectorNumber": "177",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TWINBLADE_BLESSING: CardData = {
+  "scryfallId": "ecf01cbe-9fcb-4f35-bc6b-2280620b06ff",
+  "oracleId": "b3e1674f-dba1-4570-9990-e5dc643e237d",
+  "name": "Twinblade Blessing",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Twinblade Blessing",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nEnchanted creature has double strike. (It deals both first-strike and regular combat damage.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Miro Petrov",
+      "imageId": "ecf01cbe-9fcb-4f35-bc6b-2280620b06ff"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TWISTED_EXPERIMENT: CardData = {
+  "scryfallId": "64e37889-7dc0-476b-8b99-8f06881d352c",
+  "oracleId": "4066d4df-d98f-44cd-bf25-ebb5e9d9ddeb",
+  "name": "Twisted Experiment",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Twisted Experiment",
+      "manaCost": "{1}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +3/-1.",
+      "flavorText": "Gatha showed remarkable prowess in increasing his subjects' stature. Their lifespans, however, were another matter.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "rk post",
+      "imageId": "64e37889-7dc0-476b-8b99-8f06881d352c"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "uds",
+  "collectorNumber": "74",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UNFLINCHING_COURAGE: CardData = {
+  "scryfallId": "1f3670a1-b5ec-4d28-988f-e1ad1b04cf1d",
+  "oracleId": "0e969a27-1609-4ab4-b0db-46b1af8066a9",
+  "name": "Unflinching Courage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Unflinching Courage",
+      "manaCost": "{1}{G}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has trample and lifelink. (Damage dealt by the creature also causes its controller to gain that much life.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Mike Bierek",
+      "imageId": "1f3670a1-b5ec-4d28-988f-e1ad1b04cf1d"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "pio",
+  "collectorNumber": "250",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UNTAMED_HUNGER: CardData = {
+  "scryfallId": "038af935-6d08-4a6b-9464-91bfbbe2137b",
+  "oracleId": "550abd9b-9aae-4812-9bc0-7f131d6dcde8",
+  "name": "Untamed Hunger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Untamed Hunger",
+      "manaCost": "{2}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+1 and has menace. (It can't be blocked except by two or more creatures.)",
+      "flavorText": "\"Mindlessness is not weakness. When we are lost to hunger we are unstoppable.\"\n—Drana, Kalastria bloodchief",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Willian Murai",
+      "imageId": "038af935-6d08-4a6b-9464-91bfbbe2137b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "OGW-91",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VIGILANCE: CardData = {
+  "scryfallId": "d24dc353-abc9-430a-a7f5-5da3b38cd411",
+  "oracleId": "70570170-be76-4c56-9151-c4b6e253f462",
+  "name": "Vigilance",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vigilance",
+      "manaCost": "{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has vigilance. (Attacking doesn't cause it to tap.)",
+      "flavorText": "\"Put a spear in a peasant's hands, and you have an expendable troop. Put a purpose in his heart, and you win a warrior.\"\n—Sensei Golden-Tail",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Tsutomu Kawade",
+      "imageId": "d24dc353-abc9-430a-a7f5-5da3b38cd411"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "chk",
+  "collectorNumber": "49",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WEAKNESS: CardData = {
+  "scryfallId": "16137fa6-1b5c-49e7-ad79-dda4b7019a59",
+  "oracleId": "f07a24c0-bf3c-4733-9473-c6be3b16950e",
+  "name": "Weakness",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Weakness",
+      "manaCost": "{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets -2/-1.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Douglas Shuler",
+      "imageId": "16137fa6-1b5c-49e7-ad79-dda4b7019a59"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "leb",
+  "collectorNumber": "135",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WEB: CardData = {
+  "scryfallId": "00012bd8-ed68-4978-a22d-f450c8a6e048",
+  "oracleId": "5aa12aff-db3c-4be5-822b-3afdf536b33e",
+  "name": "Web",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Web",
+      "manaCost": "{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature (Target a creature as you cast this. This card enters attached to that creature.)\nEnchanted creature gets +0/+2 and has reach. (It can block creatures with flying.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Rob Alexander",
+      "imageId": "00012bd8-ed68-4978-a22d-f450c8a6e048"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "3ed",
+  "collectorNumber": "229",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WEIGHT_OF_THE_UNDERWORLD: CardData = {
+  "scryfallId": "839dcbcb-1061-4cba-a2f7-e7b01531c6a0",
+  "oracleId": "b960d17b-3679-4dc5-9a5d-c8e7fd81fa9a",
+  "name": "Weight of the Underworld",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Weight of the Underworld",
+      "manaCost": "{3}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets -3/-2.",
+      "flavorText": "Proud Alkmenos, who would not bow to Erebos in death, is now bowed by his own hubris for all eternity.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Wesley Burt",
+      "imageId": "839dcbcb-1061-4cba-a2f7-e7b01531c6a0"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "ORI-126",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WINGS_OF_AESTHIR: CardData = {
+  "scryfallId": "00341664-d848-44d2-ba06-21a6ae8e6788",
+  "oracleId": "06413d87-d119-4c04-93d5-5ced7ad4a858",
+  "name": "Wings of Aesthir",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wings of Aesthir",
+      "manaCost": "{W}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+0 and has flying and first strike.",
+      "flavorText": "\"For those of courage, even the sky holds no limit.\"\n—Arnjlot Olasson, sky mage",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "00341664-d848-44d2-ba06-21a6ae8e6788"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "me2",
+  "collectorNumber": "199",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WINGS_OF_HOPE: CardData = {
+  "scryfallId": "be0d2402-f1ef-4a71-ac01-c7099c4ce54c",
+  "oracleId": "c1df6359-edf4-48cf-b8d1-6240ac291cf7",
+  "name": "Wings of Hope",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wings of Hope",
+      "manaCost": "{W}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+3 and has flying.",
+      "flavorText": "Urza knew Phyrexians would come through the air and sent his soldiers to greet them.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Wayne England",
+      "imageId": "be0d2402-f1ef-4a71-ac01-c7099c4ce54c"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "inv",
+  "collectorNumber": "289",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ZEPHID_S_EMBRACE: CardData = {
+  "scryfallId": "34aaaff7-6214-4c80-bbbc-7d844113ef45",
+  "oracleId": "2f8b07ef-9d00-4eb6-a395-b5033aa3f80e",
+  "name": "Zephid's Embrace",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Zephid's Embrace",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has flying and shroud. (It can't be the target of spells or abilities.)",
+      "flavorText": "Spells will shun you, as will everyone else.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Daren Bader",
+      "imageId": "34aaaff7-6214-4c80-bbbc-7d844113ef45"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "USG-114",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ZEPHYR_NET: CardData = {
+  "scryfallId": "817b8996-388f-4704-a4c8-ef99d4701805",
+  "oracleId": "cd510cf2-df54-4024-919b-e4377cdb2be1",
+  "name": "Zephyr Net",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Zephyr Net",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has defender and flying.",
+      "flavorText": "Faeries hang beings that interest them as ornaments in the sky, each clique competing to outshine the prize of the last.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "817b8996-388f-4704-a4c8-ef99d4701805"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "lrw",
+  "collectorNumber": "98",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANGELIC_GIFT: CardData = {
+  "scryfallId": "27534f38-5c21-4bad-84eb-0145a5ea682e",
+  "oracleId": "e5e04968-d9b7-4bd5-b826-be9502360cd3",
+  "name": "Angelic Gift",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Angelic Gift",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, draw a card.\nEnchanted creature has flying.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Josu Hernaiz",
+      "imageId": "27534f38-5c21-4bad-84eb-0145a5ea682e"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "bbd",
+  "collectorNumber": "88",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CARTOUCHE_OF_KNOWLEDGE: CardData = {
+  "scryfallId": "20c806dc-a1f5-463d-93c9-58f37002bb2e",
+  "oracleId": "488696c2-b0c7-49be-a5a1-e833b6fd8751",
+  "name": "Cartouche of Knowledge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cartouche of Knowledge",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura Cartouche",
+      "oracleText": "Enchant creature you control\nWhen this Aura enters, draw a card.\nEnchanted creature gets +1/+1 and has flying.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Kieran Yanner",
+      "imageId": "20c806dc-a1f5-463d-93c9-58f37002bb2e"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "akr",
+  "collectorNumber": "51",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CARTOUCHE_OF_SOLIDARITY: CardData = {
+  "scryfallId": "1ef605df-6dc5-4c1d-9cc3-14353ad15989",
+  "oracleId": "b9176173-c4a1-45ae-8f34-bd6b31c141fe",
+  "name": "Cartouche of Solidarity",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cartouche of Solidarity",
+      "manaCost": "{W}",
+      "typeLine": "Enchantment — Aura Cartouche",
+      "oracleText": "Enchant creature you control\nWhen this Aura enters, create a 1/1 white Warrior creature token with vigilance.\nEnchanted creature gets +1/+1 and has first strike. (It deals combat damage before creatures without first strike.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kieran Yanner",
+      "imageId": "1ef605df-6dc5-4c1d-9cc3-14353ad15989"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "AKH-7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHOSEN_BY_HELIOD: CardData = {
+  "scryfallId": "d730d496-ace5-4a83-9d66-6f9c5fd24d3f",
+  "oracleId": "f6475b40-e694-4aac-a25c-bbd48d45127d",
+  "name": "Chosen by Heliod",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Chosen by Heliod",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, draw a card.\nEnchanted creature gets +0/+2.",
+      "flavorText": "\"Training and studies aid a soldier in meager amounts. The gods do the rest.\"\n—Brigone, soldier of Meletis",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "d730d496-ace5-4a83-9d66-6f9c5fd24d3f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "j25",
+  "collectorNumber": "181",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DARK_FAVOR: CardData = {
+  "scryfallId": "5aae919b-7da6-42b1-84b4-fbc2971dad1e",
+  "oracleId": "c1f4a440-638a-4e3e-8a3e-af4a4a73ec91",
+  "name": "Dark Favor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dark Favor",
+      "manaCost": "{1}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, you lose 1 life.\nEnchanted creature gets +3/+1.",
+      "flavorText": "When he began to curse what he held holy, his strength grew unrivaled.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Allen Williams",
+      "imageId": "5aae919b-7da6-42b1-84b4-fbc2971dad1e"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "m13",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DIPLOMATIC_IMMUNITY: CardData = {
+  "scryfallId": "fb1e610e-a4a2-460b-8e4c-13674badbce3",
+  "oracleId": "f1a3153c-0200-4ff2-b7d5-48d23920bb3c",
+  "name": "Diplomatic Immunity",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Diplomatic Immunity",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nShroud (A permanent with shroud can't be the target of spells or abilities.)\nEnchanted creature has shroud.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "fb1e610e-a4a2-460b-8e4c-13674badbce3"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Shroud",
+    "Enchant"
+  ],
+  "setCode": "mmq",
+  "collectorNumber": "75",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DIVINE_FAVOR: CardData = {
+  "scryfallId": "1f44e053-95c2-410f-b35d-8ea3e3607e82",
+  "oracleId": "bffa18c3-642c-4239-b425-238599007976",
+  "name": "Divine Favor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Divine Favor",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, you gain 3 life.\nEnchanted creature gets +1/+3.",
+      "flavorText": "With an armory of light, even the squire may champion her people.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Allen Williams",
+      "imageId": "1f44e053-95c2-410f-b35d-8ea3e3607e82"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "m12",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FEATHER_OF_FLIGHT: CardData = {
+  "scryfallId": "9fb41503-8632-4bf1-9bfe-6d9b9993c337",
+  "oracleId": "c61b05b8-00f1-4371-9856-c65852b4ca02",
+  "name": "Feather of Flight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Feather of Flight",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nWhen this Aura enters, draw a card.\nEnchanted creature gets +1/+0 and has flying.",
+      "flavorText": "As he grasped the glowing feather, the lizard's heart soared, and the rest of him quickly followed.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Borja Pindado",
+      "imageId": "9fb41503-8632-4bf1-9bfe-6d9b9993c337"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "blb",
+  "collectorNumber": "13",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FISTS_OF_IRONWOOD: CardData = {
+  "scryfallId": "7193c00f-0398-485c-974d-346ee59cd4c7",
+  "oracleId": "2f6a5278-23bf-47b2-a2b9-dfff7d96f3dd",
+  "name": "Fists of Ironwood",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fists of Ironwood",
+      "manaCost": "{1}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, create two 1/1 green Saproling creature tokens.\nEnchanted creature has trample.",
+      "flavorText": "Saprolings add the three and the four to the \"one-two punch.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Glen Angus",
+      "imageId": "7193c00f-0398-485c-974d-346ee59cd4c7"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "rav",
+  "collectorNumber": "164",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLIGHT_OF_FANCY: CardData = {
+  "scryfallId": "2e948c4e-99c9-49a1-880b-1385f2ca1c3f",
+  "oracleId": "cd20a2a4-5e5e-420d-9420-651bce511f76",
+  "name": "Flight of Fancy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Flight of Fancy",
+      "manaCost": "{3}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, draw two cards.\nEnchanted creature has flying.",
+      "flavorText": "The view from above is an inspiration to the newly winged.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Glen Angus",
+      "imageId": "2e948c4e-99c9-49a1-880b-1385f2ca1c3f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "RAV-49",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FROG_TONGUE: CardData = {
+  "scryfallId": "3941e799-a254-423e-90bb-091dbe56ca6a",
+  "oracleId": "861c5374-a8e7-4684-9a1b-e6ce3b98e4a2",
+  "name": "Frog Tongue",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Frog Tongue",
+      "manaCost": "{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, draw a card.\nEnchanted creature has reach. (It can block creatures with flying.)",
+      "flavorText": "\"But *why* can't I get one?\" sniveled Squee. \"All da bugs here got wings.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Phil Foglio",
+      "imageId": "3941e799-a254-423e-90bb-091dbe56ca6a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "tmp",
+  "collectorNumber": "228",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FUTURE_FLIGHT: CardData = {
+  "scryfallId": "62a8b9a4-86cd-4fb3-bda6-a044a79cc6fd",
+  "oracleId": "bfd5b48a-698e-4ade-afb0-954ba288f9a7",
+  "name": "Future Flight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Future Flight",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, draw two cards.\nEnchanted creature gets +2/+0 and has flying. (It can't be blocked except by creatures with flying or reach.)",
+      "flavorText": "\"Knowledge of the future can be a burden, but I'm not one to be weighed down.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Lie Setiawan",
+      "imageId": "62a8b9a4-86cd-4fb3-bda6-a044a79cc6fd"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "spe",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KNIGHTLY_VALOR: CardData = {
+  "scryfallId": "122d821f-c8dd-4a3c-a6d7-b42fe5491f02",
+  "oracleId": "9ba6cec6-97bf-4a83-9ffa-77e187d0945b",
+  "name": "Knightly Valor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Knightly Valor",
+      "manaCost": "{4}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, create a 2/2 white Knight creature token with vigilance. (Attacking doesn't cause it to tap.)\nEnchanted creature gets +2/+2 and has vigilance.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Matt Stewart",
+      "imageId": "122d821f-c8dd-4a3c-a6d7-b42fe5491f02"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "rtr",
+  "collectorNumber": "13",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PIOUS_INTERDICTION: CardData = {
+  "scryfallId": "670b9645-ce34-41eb-a527-4af3e13c3a54",
+  "oracleId": "e6762a65-5c88-4652-ac3d-b9de220634c7",
+  "name": "Pious Interdiction",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pious Interdiction",
+      "manaCost": "{3}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, you gain 2 life.\nEnchanted creature can't attack or block.",
+      "flavorText": "\"Ours is the true and righteous path. You will bow before our might.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Lake Hurwitz",
+      "imageId": "670b9645-ce34-41eb-a527-4af3e13c3a54"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "xln",
+  "collectorNumber": "26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROBOTICS_MASTERY: CardData = {
+  "scryfallId": "b5ed3c76-946a-4140-8c7b-2011e72a7d54",
+  "oracleId": "855318cb-9382-4183-87c7-93bdfac86431",
+  "name": "Robotics Mastery",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Robotics Mastery",
+      "manaCost": "{4}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nWhen this Aura enters, create two 1/1 colorless Robot artifact creature tokens with flying.\nEnchanted creature gets +2/+2.",
+      "flavorText": "Mendel Stromm didn't just seek revenge. He engineered it.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Domenico Cava",
+      "imageId": "b5ed3c76-946a-4140-8c7b-2011e72a7d54"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "msc",
+  "collectorNumber": "786",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCAVENGED_WEAPONRY: CardData = {
+  "scryfallId": "4e8072a9-2699-4c6c-9556-67d91bd67a4b",
+  "oracleId": "2d3010d5-5c21-4342-ad79-a737b6731230",
+  "name": "Scavenged Weaponry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scavenged Weaponry",
+      "manaCost": "{2}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, draw a card.\nEnchanted creature gets +1/+1.",
+      "flavorText": "\"The Phyrexians have progressed,\" admired Urza. \"Their parts are interchangeable.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Alan Pollack",
+      "imageId": "4e8072a9-2699-4c6c-9556-67d91bd67a4b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "inv",
+  "collectorNumber": "123",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCOURGEMARK: CardData = {
+  "scryfallId": "ed36a150-a686-4fa6-8364-8be262ad7d98",
+  "oracleId": "66efb37f-9eab-4ff4-a1d4-65fe9ca7332b",
+  "name": "Scourgemark",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scourgemark",
+      "manaCost": "{1}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, draw a card.\nEnchanted creature gets +1/+0.",
+      "flavorText": "To members of the cult of Erebos, gold-infused tattoos symbolize the inevitable grasp of the god of death.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Franz Vohwinkel",
+      "imageId": "ed36a150-a686-4fa6-8364-8be262ad7d98"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "ths",
+  "collectorNumber": "105",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SETESSAN_TRAINING: CardData = {
+  "scryfallId": "1947f64a-5ca0-4dda-8bbd-8472e72ecf18",
+  "oracleId": "3ff3b9c4-80ec-44d9-99ec-6fea3a86468b",
+  "name": "Setessan Training",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Setessan Training",
+      "manaCost": "{1}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature you control\nWhen this Aura enters, draw a card.\nEnchanted creature gets +1/+0 and has trample. (It can deal excess combat damage to the player or planeswalker it's attacking.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Scott Murphy",
+      "imageId": "1947f64a-5ca0-4dda-8bbd-8472e72ecf18"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "m21",
+  "collectorNumber": "205",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHELTERING_BOUGHS: CardData = {
+  "scryfallId": "915dd4c2-0e9f-440c-8e4c-80db351a5eba",
+  "oracleId": "b6bde4eb-15f0-4e6e-9d25-459a2f75ccf2",
+  "name": "Sheltering Boughs",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sheltering Boughs",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, draw a card.\nEnchanted creature gets +1/+3.",
+      "flavorText": "\"We're not at odds with the woods. How could we be, when we share so many enemies?\"\n—Marel, Dawnhart witch",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Anato Finnstark",
+      "imageId": "915dd4c2-0e9f-440c-8e4c-80db351a5eba"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "vow",
+  "collectorNumber": "218",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SQUIRE_S_DEVOTION: CardData = {
+  "scryfallId": "91de07da-564d-42f3-987d-a2321c3216bc",
+  "oracleId": "4770ad4a-a346-4108-8f61-a077155d4bd1",
+  "name": "Squire's Devotion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Squire's Devotion",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has lifelink.\nWhen this Aura enters, create a 1/1 white Vampire creature token with lifelink.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Winona Nelson",
+      "imageId": "91de07da-564d-42f3-987d-a2321c3216bc"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "rix",
+  "collectorNumber": "25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WOLFKIN_BOND: CardData = {
+  "scryfallId": "2c419a2b-4389-49bc-91f1-a613ffcbfa0b",
+  "oracleId": "49e22e88-d4d9-4781-81e3-bf77b76b132b",
+  "name": "Wolfkin Bond",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wolfkin Bond",
+      "manaCost": "{4}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, create a 2/2 green Wolf creature token.\nEnchanted creature gets +2/+2.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Lindsey Look",
+      "imageId": "2c419a2b-4389-49bc-91f1-a613ffcbfa0b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "m20",
+  "collectorNumber": "203",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -111209,6 +115319,74 @@ export const MYR_1_1_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const WARRIOR_1_1_VIGILANCE_TOKEN: CardData = {
+  "scryfallId": "1d7b1dfa-14a2-4e4e-baf2-e06672651db1",
+  "oracleId": "4bd91cb2-be86-4950-8b84-7b330a8a61b9",
+  "name": "Warrior",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Warrior",
+      "manaCost": "",
+      "typeLine": "Token Creature — Warrior",
+      "oracleText": "Vigilance",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Magali Villeneuve",
+      "imageId": "1d7b1dfa-14a2-4e4e-baf2-e06672651db1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "tdmc",
+  "collectorNumber": "4",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const ROBOT_1_1_FLYING_TOKEN: CardData = {
+  "scryfallId": "15796c4b-6041-4e0a-bc4f-0518d165549e",
+  "oracleId": "de6c0dfb-e627-4060-86cf-3c76eb5c065e",
+  "name": "Robot",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Robot",
+      "manaCost": "",
+      "typeLine": "Token Artifact Creature — Robot",
+      "oracleText": "Flying",
+      "flavorText": "\"Another thematic robot built specifically to kill me? I'm flattered.\"\n—Spider-Man",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Kevin Glint",
+      "imageId": "15796c4b-6041-4e0a-bc4f-0518d165549e"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "tspm",
+  "collectorNumber": "6",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -114324,6 +118502,119 @@ export const ENGINE_CARDS: CardData[] = [
   SLITH_STRIDER,
   ABZAN_ASCENDANCY,
   SKYCLAVE_SHADOWCAT,
+  UNHOLY_STRENGTH,
+  CURSE_OF_SHALLOW_GRAVES,
+  EMBLEM_OF_THE_WARMIND,
+  ALEXI_S_CLOAK,
+  ARCANE_FLIGHT,
+  ASHA_S_FAVOR,
+  ASPECT_OF_GORGON,
+  BATTLE_MASTERY,
+  BOON_OF_EMRAKUL,
+  BOUND_IN_SILENCE,
+  BUOYANCY,
+  CANDLELIGHT_VIGIL,
+  CHANT_OF_THE_SKIFSANG,
+  CLINGING_DARKNESS,
+  DEAD_WEIGHT,
+  DEBILITATING_INJURY,
+  DEFENSIVE_STANCE,
+  DETAINED_BY_LEGIONNAIRES,
+  DIVINE_TRANSFORMATION,
+  ENFEEBLEMENT,
+  EPIC_PROPORTIONS,
+  ETERNAL_WARRIOR,
+  FEAST_OF_THE_UNICORN,
+  FEEBLENESS,
+  FERAL_INVOCATION,
+  FLAMING_SWORD,
+  FLIGHT,
+  FRANTIC_STRENGTH,
+  FRENZIED_RAGE,
+  FURIOUS_STRENGTH,
+  GIANT_SPECTACLE,
+  GIANT_STRENGTH,
+  GIFT_OF_GRANITE,
+  GIFT_OF_ORZHOVA,
+  GOBLIN_WAR_PAINT,
+  GREEL_S_CARESS,
+  GUARD_DUTY,
+  HARDENED_SCALE_ARMOR,
+  HERO_S_RESOLVE,
+  HOLY_STRENGTH,
+  IMMOLATION,
+  IMPOSING_VISAGE,
+  INDOMITABLE_WILL,
+  KNIGHT_S_PLEDGE,
+  LANCE,
+  LIFELINK,
+  LIGHTNING_TALONS,
+  LUMINOUS_BONDS,
+  MADCAP_SKILLS,
+  MAGEFIRE_WINGS,
+  MAGETA_S_BOON,
+  MAGGOT_THERAPY,
+  MANTLE_OF_WEBS,
+  MARK_OF_THE_VAMPIRE,
+  MARKED_BY_HONOR,
+  MESSENGER_S_SPEED,
+  MIRE_S_GRASP,
+  MYTHIC_PROPORTIONS,
+  NIMBUS_WINGS,
+  OAKENFORM,
+  ONE_WITH_THE_WIND,
+  PIN_TO_THE_EARTH,
+  PRIMAL_FRENZY,
+  PRIMAL_VISITATION,
+  PRODIGIOUS_GROWTH,
+  REFLEXES,
+  RIOT_SPIKES,
+  ROBE_OF_MIRRORS,
+  SANGRITE_BACKLASH,
+  SENSORY_DEPRIVATION,
+  SERRA_S_EMBRACE,
+  SIEGECRAFT,
+  SLIMEBIND,
+  SPECTRAL_FLIGHT,
+  SPITEFUL_MOTIVES,
+  STONESKIN,
+  SWASHBUCKLING,
+  TIGER_CLAWS,
+  TORMENT,
+  TORPOR_DUST,
+  TWINBLADE_BLESSING,
+  TWISTED_EXPERIMENT,
+  UNFLINCHING_COURAGE,
+  UNTAMED_HUNGER,
+  VIGILANCE,
+  WEAKNESS,
+  WEB,
+  WEIGHT_OF_THE_UNDERWORLD,
+  WINGS_OF_AESTHIR,
+  WINGS_OF_HOPE,
+  ZEPHID_S_EMBRACE,
+  ZEPHYR_NET,
+  ANGELIC_GIFT,
+  CARTOUCHE_OF_KNOWLEDGE,
+  CARTOUCHE_OF_SOLIDARITY,
+  CHOSEN_BY_HELIOD,
+  DARK_FAVOR,
+  DIPLOMATIC_IMMUNITY,
+  DIVINE_FAVOR,
+  FEATHER_OF_FLIGHT,
+  FISTS_OF_IRONWOOD,
+  FLIGHT_OF_FANCY,
+  FROG_TONGUE,
+  FUTURE_FLIGHT,
+  KNIGHTLY_VALOR,
+  PIOUS_INTERDICTION,
+  ROBOTICS_MASTERY,
+  SCAVENGED_WEAPONRY,
+  SCOURGEMARK,
+  SETESSAN_TRAINING,
+  SHELTERING_BOUGHS,
+  SQUIRE_S_DEVOTION,
+  WOLFKIN_BOND,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -114431,4 +118722,6 @@ export const ENGINE_CARDS: CardData[] = [
   PHYREXIAN_GOLEM_3_3_TOKEN,
   GOLEM_3_3_ENCHANTMENT_TOKEN,
   MYR_1_1_TOKEN,
+  WARRIOR_1_1_VIGILANCE_TOKEN,
+  ROBOT_1_1_FLYING_TOKEN,
 ];

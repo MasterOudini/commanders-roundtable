@@ -36,12 +36,12 @@
 // refuses to let an `activated` def claim a line.
 
 import type { CardData } from './cardTypes';
-import type { OracleFace } from '../engine/types/oracle';
+import type { OracleFace, TargetSpec } from '../engine/types/oracle';
 import type { CardScript } from '../engine/scripts/api';
 import { SHIPPED_SCRIPTS } from '../engine/scripts/registry';
 import { parseFace, parseProtection, parseWard, parseWardLife } from './oracleParse';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
-import { scrub, splitAbilityLines } from './targetParse';
+import { parseEnchant, scrub, splitAbilityLines } from './targetParse';
 import { parseEntersTappedLine, parseChoosesColorOnEntry } from './replacementParse';
 
 export interface Completeness {
@@ -337,6 +337,25 @@ function isPrintedKeywordLine(line: string, printed: readonly string[]): boolean
  * answer underneath: a card this reports nothing for is a card `tier3.ts` stays
  * silent about, which is the invariant at the bottom of this file.
  */
+/**
+ * D304 - THE AURA SEAM. An Enchant spec the engine ENFORCES: kinds it read,
+ * nothing left unenforced, and never a player (an Aura on a player has no
+ * InstanceId to attach to - the cast keeps today's outcome). The cast aims by
+ * the spec and CR 704.5m's state-based check asks it of the host on every pass
+ * (`sba.ts`), so the line is the engine's own, exactly as a mana line is.
+ */
+export function enchantSpecRuns(spec: TargetSpec): boolean {
+  return spec.kinds.length > 0 && spec.unenforced.length === 0 && !spec.kinds.includes('player');
+}
+
+/** D304 - the Enchant line of an Aura whose one target is a spec the engine enforces. */
+export function enchantLineRuns(line: string, face: OracleFace): boolean {
+  if (!/^enchant\b/i.test(line)) return false;
+  if (parseEnchant(line) === null) return false;
+  const spec = face.targets.length === 1 ? face.targets[0] : undefined;
+  return spec !== undefined && enchantSpecRuns(spec);
+}
+
 function linesUnaccounted(
   rawText: string,
   face: OracleFace,
@@ -392,6 +411,8 @@ function linesUnaccounted(
     // second regex here would eventually accept "choose a creature type", which
     // the engine asks nobody about and nothing reads.
     if (face.choosesColorOnEntry && parseChoosesColorOnEntry(line)) continue;
+    // D304 - an Enchant line the engine RUNS (see `enchantLineRuns`).
+    if (enchantLineRuns(line, face)) continue;
     if (isKeywordLine(line, face)) continue;
     // ⚠️ `mana` outranks `activated`, because a mana ability never reaches the
     // stack (CR 605) and is never offered by `ActivateAbility` — so the note that

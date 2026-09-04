@@ -28,8 +28,9 @@
 
 import type { CardData } from './cardTypes';
 import { parseEffects, selfRef } from './effectParse';
-import { unaccountedLines, type UnaccountedLine } from './engineComplete';
+import { enchantSpecRuns, unaccountedLines, type UnaccountedLine } from './engineComplete';
 import { parseTypeLine } from './oracleParse';
+import { parseEnchant } from './targetParse';
 
 /**
  * The primitives the M6 brief names, plus the two the data added.
@@ -550,8 +551,33 @@ export function oneShotRowShape(line: string, cardName: string): boolean {
 }
 
 /** What one unaccounted line is waiting on. */
+/**
+ * D304 - THE AURA SEAM. A line about the ENCHANTED creature an Aura row can
+ * emit: a P/T modifier, a keyword grant, both, or a combat restriction (a
+ * `CombatDef`) - the candidate is whatever the Aura is attached to. Measured
+ * over the database before it was built: 1,214 Commander-legal Auras, every
+ * one incomplete because the accounting refused the Enchant line itself; 129
+ * whose every other blocker line is one of these shapes, 134 with the
+ * restrictions.
+ */
+const AURA_KWS = `${ONESHOT_KW}(?:(?:, | and |, and )${ONESHOT_KW})*`;
+const AURA_LINE = new RegExp(`^Enchanted creature (?:gets ${ONESHOT_PT}(?: and has ${AURA_KWS})?|has ${AURA_KWS}|can't (?:attack or block|attack|block))\\.$`);
+
+/** Is this printed line an enchanted-creature static or restriction an Aura row can emit (D304)? */
+export function auraLineShape(text: string): boolean {
+  return AURA_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
+}
+
 export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace = false): Primitive {
   const text = line.text;
+
+  // D304 - an Enchant line whose spec the engine enforces is the engine's own
+  // (see `enchantSpecRuns`); the rest stay `keyword:aura` (a player, a clause
+  // nothing read).
+  if (/^enchant\b/i.test(text)) {
+    const spec = parseEnchant(text);
+    return spec !== null && enchantSpecRuns(spec) ? 'scriptable' : 'keyword:aura';
+  }
 
   // A keyword ability is not a sentence — check the shape before reading it as
   // one. See `KEYWORD_LINES`.
@@ -600,6 +626,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   if (oneShotTriggerShape(text, cardName)) return 'scriptable';
   // D303: a counter one-shot on this permanent or each creature (see `oneShotCounterShape`).
   if (oneShotCounterShape(text, cardName)) return 'scriptable';
+  // D304: an enchanted-creature static or combat restriction an Aura row can emit (see `auraLineShape`).
+  if (auraLineShape(text)) return 'scriptable';
 
   for (const [primitive, re] of RULES) if (re.test(text)) return primitive;
 

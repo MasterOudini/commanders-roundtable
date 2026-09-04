@@ -151,8 +151,13 @@ describe('a permanent’s text, which the app does not run', () => {
     expect(what(C.LIGHTNING_GREAVES)).toEqual(['Its ability text', 'Equip']);
   });
 
-  test('an Aura’s restriction is said; its Enchant clause stays the keyword loop’s', () => {
-    expect(what(C.PACIFISM)).toEqual(['Its ability text', 'Enchant']);
+  test('an Aura’s unrun text is said; an Enchant the engine enforces is not, a Curse’s still is (D304)', () => {
+    // Pacifism ships since D304: the Enchant line is the engine's own (the cast
+    // aims by it, CR 704.5m keeps it), the restriction a CombatDef - no note.
+    expect(what(C.PACIFISM)).toEqual([]);
+    // Curse of Shallow Graves enchants a PLAYER, which the engine cannot attach
+    // to: its text is unrun and the Enchant clause stays the keyword loop's.
+    expect(what(C.CURSE_OF_SHALLOW_GRAVES)).toEqual(['Its ability text', 'Enchant']);
   });
 
   test('a replacement effect on a permanent is said', () => {

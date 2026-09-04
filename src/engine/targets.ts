@@ -165,7 +165,18 @@ export function targetAllowed(
   // ⚠️ Checked BEFORE the free-aim early-out. "The engine does not know what this
   // card can target" never means "the engine forgets that shroud exists".
   if (untargetableByRule(src, c)) return false;
+  return specAdmits(spec, src, c);
+}
 
+/**
+ * D304 - the SPEC's half of `targetAllowed`, without the targeting rules
+ * (hexproof, shroud, protection). CR 704.5m asks exactly this of an Aura's
+ * host on every state-based pass: "Enchant creature you control" admits the
+ * creature the opponent now controls no more than it did at the cast, while
+ * hexproof on the host changes nothing about an attachment already made
+ * (CR 702.11b). Protection is asked beside it by the caller (CR 702.16e).
+ */
+export function specAdmits(spec: TargetSpec, src: TargetingSource, c: TargetCandidate): boolean {
   // Free aim: the parser could not read the clause, so anything the player
   // points at is accepted rather than narrowed on a guess.
   if (spec.kinds.length === 0) return true;
@@ -458,40 +469,56 @@ export interface HostTargetDeps {
  * list that included hidden cards would be a redaction leak in the one place the
  * UI is guaranteed to render.
  */
+/**
+ * ONE card as a target candidate - the body `candidatesFromState` builds per
+ * card, exported (D304) so the state-based check of an Aura's attachment can
+ * ask the same predicate of the same candidate the cast targeted. Null for a
+ * card that is not there or is phased out, exactly as the walk skips them.
+ */
+export function candidateFor(
+  state: GameState,
+  deps: HostTargetDeps,
+  id: InstanceId,
+  zone: CandidateZone,
+  cache: DeriveCache = makeDeriveCache(state),
+): TargetCandidate | null {
+  const card = state.cards[id];
+  if (!card) return null;
+  if (card.phasedOut) return null;
+  const attacking = (state.combat?.attackers ?? []).some((a) => a.card === id);
+  const blocking = (state.combat?.blockers ?? []).some((b) => b.card === id);
+  const d = derive(state, deps.oracle, deps.scripts, id, cache);
+  return {
+    choice: { kind: 'card', id },
+    zone,
+    controller: card.controller,
+    kinds: kindsFromTypes(d.typeLine.types, zone),
+    types: d.typeLine.types,
+    manaValue: deps.oracle.byPrinting(card.printingId)?.manaValue ?? null,
+    power: d.power,
+    toughness: d.toughness,
+    colors: d.colors,
+    keywords: [...d.keywords],
+    combat: { attacking, blocking },
+    supertypes: d.typeLine.supertypes,
+    subtypes: d.typeLine.subtypes,
+    tapped: card.tapped,
+    isToken: card.isToken,
+    hexproof: d.keywords.has('hexproof'),
+    shroud: d.keywords.has('shroud'),
+    protection: d.protection,
+  };
+}
+
 export function candidatesFromState(
   state: GameState,
   deps: HostTargetDeps,
   cache: DeriveCache = makeDeriveCache(state),
 ): TargetCandidate[] {
   const out: TargetCandidate[] = [];
-  const attacking = new Set<InstanceId>((state.combat?.attackers ?? []).map((a) => a.card));
-  const blocking = new Set<InstanceId>((state.combat?.blockers ?? []).map((b) => b.card));
-
   const pushCard = (id: InstanceId, zone: CandidateZone): void => {
-    const card = state.cards[id];
-    if (!card) return;
-    if (card.phasedOut) return;
-    const d = derive(state, deps.oracle, deps.scripts, id, cache);
-    out.push({
-      choice: { kind: 'card', id },
-      zone,
-      controller: card.controller,
-      kinds: kindsFromTypes(d.typeLine.types, zone),
-      types: d.typeLine.types,
-      manaValue: deps.oracle.byPrinting(card.printingId)?.manaValue ?? null,
-      power: d.power,
-      toughness: d.toughness,
-      colors: d.colors,
-      keywords: [...d.keywords],
-      combat: { attacking: attacking.has(id), blocking: blocking.has(id) },
-      supertypes: d.typeLine.supertypes,
-      subtypes: d.typeLine.subtypes,
-      tapped: card.tapped,
-      isToken: card.isToken,
-      hexproof: d.keywords.has('hexproof'),
-      shroud: d.keywords.has('shroud'),
-      protection: d.protection,
-    });
+    const c = candidateFor(state, deps, id, zone, cache);
+    if (c) out.push(c);
   };
 
   for (const id of state.zones.battlefield) pushCard(id, 'battlefield');

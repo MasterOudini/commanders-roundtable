@@ -1152,6 +1152,12 @@ export function parseEnchant(text: string, warn: Warn = NOOP_WARN): TargetSpec |
   const nounLen = rest.match(entry.re)?.[0].length ?? 0;
   const ctl = readController(rest, nounLen);
   if (entry.unenforced) unenforced.push(...entry.unenforced);
+  // D304 - whatever follows the noun and its controller clause is a restriction
+  // nothing reads ("Enchant creature that was dealt damage this turn" parsed as
+  // a plain creature Aura before this line). Recorded as unenforced, so the
+  // accounting, the classifier and the disclosure all refuse it the same way.
+  const tail = rest.slice(ctl.end).trim();
+  if (tail !== '') unenforced.push(tail);
 
   return {
     min: 1,

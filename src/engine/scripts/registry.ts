@@ -7,6 +7,118 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ANGELIC_GIFT_SCRIPT } from './cards/angelicGift';
+import { CARTOUCHE_OF_KNOWLEDGE_SCRIPT } from './cards/cartoucheOfKnowledge';
+import { CARTOUCHE_OF_SOLIDARITY_SCRIPT } from './cards/cartoucheOfSolidarity';
+import { CHOSEN_BY_HELIOD_SCRIPT } from './cards/chosenByHeliod';
+import { DARK_FAVOR_SCRIPT } from './cards/darkFavor';
+import { DIPLOMATIC_IMMUNITY_SCRIPT } from './cards/diplomaticImmunity';
+import { DIVINE_FAVOR_SCRIPT } from './cards/divineFavor';
+import { FEATHER_OF_FLIGHT_SCRIPT } from './cards/featherOfFlight';
+import { FISTS_OF_IRONWOOD_SCRIPT } from './cards/fistsOfIronwood';
+import { FLIGHT_OF_FANCY_SCRIPT } from './cards/flightOfFancy';
+import { FROG_TONGUE_SCRIPT } from './cards/frogTongue';
+import { FUTURE_FLIGHT_SCRIPT } from './cards/futureFlight';
+import { KNIGHTLY_VALOR_SCRIPT } from './cards/knightlyValor';
+import { PIOUS_INTERDICTION_SCRIPT } from './cards/piousInterdiction';
+import { ROBOTICS_MASTERY_SCRIPT } from './cards/roboticsMastery';
+import { SCAVENGED_WEAPONRY_SCRIPT } from './cards/scavengedWeaponry';
+import { SCOURGEMARK_SCRIPT } from './cards/scourgemark';
+import { SETESSAN_TRAINING_SCRIPT } from './cards/setessanTraining';
+import { SHELTERING_BOUGHS_SCRIPT } from './cards/shelteringBoughs';
+import { SQUIRES_DEVOTION_SCRIPT } from './cards/squiresDevotion';
+import { WOLFKIN_BOND_SCRIPT } from './cards/wolfkinBond';
+import { ALEXIS_CLOAK_SCRIPT } from './cards/alexisCloak';
+import { ARCANE_FLIGHT_SCRIPT } from './cards/arcaneFlight';
+import { ASHAS_FAVOR_SCRIPT } from './cards/ashasFavor';
+import { ASPECT_OF_GORGON_SCRIPT } from './cards/aspectOfGorgon';
+import { BATTLE_MASTERY_SCRIPT } from './cards/battleMastery';
+import { BOON_OF_EMRAKUL_SCRIPT } from './cards/boonOfEmrakul';
+import { BOUND_IN_SILENCE_SCRIPT } from './cards/boundInSilence';
+import { BUOYANCY_SCRIPT } from './cards/buoyancy';
+import { CANDLELIGHT_VIGIL_SCRIPT } from './cards/candlelightVigil';
+import { CHANT_OF_THE_SKIFSANG_SCRIPT } from './cards/chantOfTheSkifsang';
+import { CLINGING_DARKNESS_SCRIPT } from './cards/clingingDarkness';
+import { DEAD_WEIGHT_SCRIPT } from './cards/deadWeight';
+import { DEBILITATING_INJURY_SCRIPT } from './cards/debilitatingInjury';
+import { DEFENSIVE_STANCE_SCRIPT } from './cards/defensiveStance';
+import { DETAINED_BY_LEGIONNAIRES_SCRIPT } from './cards/detainedByLegionnaires';
+import { DIVINE_TRANSFORMATION_SCRIPT } from './cards/divineTransformation';
+import { ENFEEBLEMENT_SCRIPT } from './cards/enfeeblement';
+import { EPIC_PROPORTIONS_SCRIPT } from './cards/epicProportions';
+import { ETERNAL_WARRIOR_SCRIPT } from './cards/eternalWarrior';
+import { FEAST_OF_THE_UNICORN_SCRIPT } from './cards/feastOfTheUnicorn';
+import { FEEBLENESS_SCRIPT } from './cards/feebleness';
+import { FERAL_INVOCATION_SCRIPT } from './cards/feralInvocation';
+import { FLAMING_SWORD_SCRIPT } from './cards/flamingSword';
+import { FLIGHT_SCRIPT } from './cards/flight';
+import { FRANTIC_STRENGTH_SCRIPT } from './cards/franticStrength';
+import { FRENZIED_RAGE_SCRIPT } from './cards/frenziedRage';
+import { FURIOUS_STRENGTH_SCRIPT } from './cards/furiousStrength';
+import { GIANT_SPECTACLE_SCRIPT } from './cards/giantSpectacle';
+import { GIANT_STRENGTH_SCRIPT } from './cards/giantStrength';
+import { GIFT_OF_GRANITE_SCRIPT } from './cards/giftOfGranite';
+import { GIFT_OF_ORZHOVA_SCRIPT } from './cards/giftOfOrzhova';
+import { GOBLIN_WAR_PAINT_SCRIPT } from './cards/goblinWarPaint';
+import { GREELS_CARESS_SCRIPT } from './cards/greelsCaress';
+import { GUARD_DUTY_SCRIPT } from './cards/guardDuty';
+import { HARDENED_SCALE_ARMOR_SCRIPT } from './cards/hardenedScaleArmor';
+import { HEROS_RESOLVE_SCRIPT } from './cards/herosResolve';
+import { HOLY_STRENGTH_SCRIPT } from './cards/holyStrength';
+import { IMMOLATION_SCRIPT } from './cards/immolation';
+import { IMPOSING_VISAGE_SCRIPT } from './cards/imposingVisage';
+import { INDOMITABLE_WILL_SCRIPT } from './cards/indomitableWill';
+import { KNIGHTS_PLEDGE_SCRIPT } from './cards/knightsPledge';
+import { LANCE_SCRIPT } from './cards/lance';
+import { LIFELINK_SCRIPT } from './cards/lifelink';
+import { LIGHTNING_TALONS_SCRIPT } from './cards/lightningTalons';
+import { LUMINOUS_BONDS_SCRIPT } from './cards/luminousBonds';
+import { MADCAP_SKILLS_SCRIPT } from './cards/madcapSkills';
+import { MAGEFIRE_WINGS_SCRIPT } from './cards/magefireWings';
+import { MAGETAS_BOON_SCRIPT } from './cards/magetasBoon';
+import { MAGGOT_THERAPY_SCRIPT } from './cards/maggotTherapy';
+import { MANTLE_OF_WEBS_SCRIPT } from './cards/mantleOfWebs';
+import { MARK_OF_THE_VAMPIRE_SCRIPT } from './cards/markOfTheVampire';
+import { MARKED_BY_HONOR_SCRIPT } from './cards/markedByHonor';
+import { MESSENGERS_SPEED_SCRIPT } from './cards/messengersSpeed';
+import { MIRES_GRASP_SCRIPT } from './cards/miresGrasp';
+import { MYTHIC_PROPORTIONS_SCRIPT } from './cards/mythicProportions';
+import { NIMBUS_WINGS_SCRIPT } from './cards/nimbusWings';
+import { OAKENFORM_SCRIPT } from './cards/oakenform';
+import { ONE_WITH_THE_WIND_SCRIPT } from './cards/oneWithTheWind';
+import { PACIFISM_SCRIPT } from './cards/pacifism';
+import { PIN_TO_THE_EARTH_SCRIPT } from './cards/pinToTheEarth';
+import { PRIMAL_FRENZY_SCRIPT } from './cards/primalFrenzy';
+import { PRIMAL_VISITATION_SCRIPT } from './cards/primalVisitation';
+import { PRODIGIOUS_GROWTH_SCRIPT } from './cards/prodigiousGrowth';
+import { REFLEXES_SCRIPT } from './cards/reflexes';
+import { RIOT_SPIKES_SCRIPT } from './cards/riotSpikes';
+import { ROBE_OF_MIRRORS_SCRIPT } from './cards/robeOfMirrors';
+import { SANGRITE_BACKLASH_SCRIPT } from './cards/sangriteBacklash';
+import { SENSORY_DEPRIVATION_SCRIPT } from './cards/sensoryDeprivation';
+import { SERRAS_EMBRACE_SCRIPT } from './cards/serrasEmbrace';
+import { SIEGECRAFT_SCRIPT } from './cards/siegecraft';
+import { SLIMEBIND_SCRIPT } from './cards/slimebind';
+import { SPECTRAL_FLIGHT_SCRIPT } from './cards/spectralFlight';
+import { SPITEFUL_MOTIVES_SCRIPT } from './cards/spitefulMotives';
+import { STONESKIN_SCRIPT } from './cards/stoneskin';
+import { SWASHBUCKLING_SCRIPT } from './cards/swashbuckling';
+import { TIGER_CLAWS_SCRIPT } from './cards/tigerClaws';
+import { TORMENT_SCRIPT } from './cards/torment';
+import { TORPOR_DUST_SCRIPT } from './cards/torporDust';
+import { TWINBLADE_BLESSING_SCRIPT } from './cards/twinbladeBlessing';
+import { TWISTED_EXPERIMENT_SCRIPT } from './cards/twistedExperiment';
+import { UNFLINCHING_COURAGE_SCRIPT } from './cards/unflinchingCourage';
+import { UNHOLY_STRENGTH_SCRIPT } from './cards/unholyStrength';
+import { UNTAMED_HUNGER_SCRIPT } from './cards/untamedHunger';
+import { VIGILANCE_SCRIPT } from './cards/vigilance';
+import { WEAKNESS_SCRIPT } from './cards/weakness';
+import { WEB_SCRIPT } from './cards/web';
+import { WEIGHT_OF_THE_UNDERWORLD_SCRIPT } from './cards/weightOfTheUnderworld';
+import { WINGS_OF_AESTHIR_SCRIPT } from './cards/wingsOfAesthir';
+import { WINGS_OF_HOPE_SCRIPT } from './cards/wingsOfHope';
+import { ZEPHIDS_EMBRACE_SCRIPT } from './cards/zephidsEmbrace';
+import { ZEPHYR_NET_SCRIPT } from './cards/zephyrNet';
 import { GAVONY_TOWNSHIP_SCRIPT } from './cards/gavonyTownship';
 import { SLITH_STRIDER_SCRIPT } from './cards/slithStrider';
 import { ABZAN_ASCENDANCY_SCRIPT } from './cards/abzanAscendancy';
@@ -3018,6 +3130,118 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ANGELIC_GIFT_SCRIPT,
+  CARTOUCHE_OF_KNOWLEDGE_SCRIPT,
+  CARTOUCHE_OF_SOLIDARITY_SCRIPT,
+  CHOSEN_BY_HELIOD_SCRIPT,
+  DARK_FAVOR_SCRIPT,
+  DIPLOMATIC_IMMUNITY_SCRIPT,
+  DIVINE_FAVOR_SCRIPT,
+  FEATHER_OF_FLIGHT_SCRIPT,
+  FISTS_OF_IRONWOOD_SCRIPT,
+  FLIGHT_OF_FANCY_SCRIPT,
+  FROG_TONGUE_SCRIPT,
+  FUTURE_FLIGHT_SCRIPT,
+  KNIGHTLY_VALOR_SCRIPT,
+  PIOUS_INTERDICTION_SCRIPT,
+  ROBOTICS_MASTERY_SCRIPT,
+  SCAVENGED_WEAPONRY_SCRIPT,
+  SCOURGEMARK_SCRIPT,
+  SETESSAN_TRAINING_SCRIPT,
+  SHELTERING_BOUGHS_SCRIPT,
+  SQUIRES_DEVOTION_SCRIPT,
+  WOLFKIN_BOND_SCRIPT,
+  ALEXIS_CLOAK_SCRIPT,
+  ARCANE_FLIGHT_SCRIPT,
+  ASHAS_FAVOR_SCRIPT,
+  ASPECT_OF_GORGON_SCRIPT,
+  BATTLE_MASTERY_SCRIPT,
+  BOON_OF_EMRAKUL_SCRIPT,
+  BOUND_IN_SILENCE_SCRIPT,
+  BUOYANCY_SCRIPT,
+  CANDLELIGHT_VIGIL_SCRIPT,
+  CHANT_OF_THE_SKIFSANG_SCRIPT,
+  CLINGING_DARKNESS_SCRIPT,
+  DEAD_WEIGHT_SCRIPT,
+  DEBILITATING_INJURY_SCRIPT,
+  DEFENSIVE_STANCE_SCRIPT,
+  DETAINED_BY_LEGIONNAIRES_SCRIPT,
+  DIVINE_TRANSFORMATION_SCRIPT,
+  ENFEEBLEMENT_SCRIPT,
+  EPIC_PROPORTIONS_SCRIPT,
+  ETERNAL_WARRIOR_SCRIPT,
+  FEAST_OF_THE_UNICORN_SCRIPT,
+  FEEBLENESS_SCRIPT,
+  FERAL_INVOCATION_SCRIPT,
+  FLAMING_SWORD_SCRIPT,
+  FLIGHT_SCRIPT,
+  FRANTIC_STRENGTH_SCRIPT,
+  FRENZIED_RAGE_SCRIPT,
+  FURIOUS_STRENGTH_SCRIPT,
+  GIANT_SPECTACLE_SCRIPT,
+  GIANT_STRENGTH_SCRIPT,
+  GIFT_OF_GRANITE_SCRIPT,
+  GIFT_OF_ORZHOVA_SCRIPT,
+  GOBLIN_WAR_PAINT_SCRIPT,
+  GREELS_CARESS_SCRIPT,
+  GUARD_DUTY_SCRIPT,
+  HARDENED_SCALE_ARMOR_SCRIPT,
+  HEROS_RESOLVE_SCRIPT,
+  HOLY_STRENGTH_SCRIPT,
+  IMMOLATION_SCRIPT,
+  IMPOSING_VISAGE_SCRIPT,
+  INDOMITABLE_WILL_SCRIPT,
+  KNIGHTS_PLEDGE_SCRIPT,
+  LANCE_SCRIPT,
+  LIFELINK_SCRIPT,
+  LIGHTNING_TALONS_SCRIPT,
+  LUMINOUS_BONDS_SCRIPT,
+  MADCAP_SKILLS_SCRIPT,
+  MAGEFIRE_WINGS_SCRIPT,
+  MAGETAS_BOON_SCRIPT,
+  MAGGOT_THERAPY_SCRIPT,
+  MANTLE_OF_WEBS_SCRIPT,
+  MARK_OF_THE_VAMPIRE_SCRIPT,
+  MARKED_BY_HONOR_SCRIPT,
+  MESSENGERS_SPEED_SCRIPT,
+  MIRES_GRASP_SCRIPT,
+  MYTHIC_PROPORTIONS_SCRIPT,
+  NIMBUS_WINGS_SCRIPT,
+  OAKENFORM_SCRIPT,
+  ONE_WITH_THE_WIND_SCRIPT,
+  PACIFISM_SCRIPT,
+  PIN_TO_THE_EARTH_SCRIPT,
+  PRIMAL_FRENZY_SCRIPT,
+  PRIMAL_VISITATION_SCRIPT,
+  PRODIGIOUS_GROWTH_SCRIPT,
+  REFLEXES_SCRIPT,
+  RIOT_SPIKES_SCRIPT,
+  ROBE_OF_MIRRORS_SCRIPT,
+  SANGRITE_BACKLASH_SCRIPT,
+  SENSORY_DEPRIVATION_SCRIPT,
+  SERRAS_EMBRACE_SCRIPT,
+  SIEGECRAFT_SCRIPT,
+  SLIMEBIND_SCRIPT,
+  SPECTRAL_FLIGHT_SCRIPT,
+  SPITEFUL_MOTIVES_SCRIPT,
+  STONESKIN_SCRIPT,
+  SWASHBUCKLING_SCRIPT,
+  TIGER_CLAWS_SCRIPT,
+  TORMENT_SCRIPT,
+  TORPOR_DUST_SCRIPT,
+  TWINBLADE_BLESSING_SCRIPT,
+  TWISTED_EXPERIMENT_SCRIPT,
+  UNFLINCHING_COURAGE_SCRIPT,
+  UNHOLY_STRENGTH_SCRIPT,
+  UNTAMED_HUNGER_SCRIPT,
+  VIGILANCE_SCRIPT,
+  WEAKNESS_SCRIPT,
+  WEB_SCRIPT,
+  WEIGHT_OF_THE_UNDERWORLD_SCRIPT,
+  WINGS_OF_AESTHIR_SCRIPT,
+  WINGS_OF_HOPE_SCRIPT,
+  ZEPHIDS_EMBRACE_SCRIPT,
+  ZEPHYR_NET_SCRIPT,
   GAVONY_TOWNSHIP_SCRIPT,
   SLITH_STRIDER_SCRIPT,
   ABZAN_ASCENDANCY_SCRIPT,
