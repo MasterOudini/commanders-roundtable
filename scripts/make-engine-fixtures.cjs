@@ -4556,6 +4556,22 @@ const WANTED = [
   'Cephalid Aristocrat',
   'Warden of the Woods',
   // D326 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D327 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Grove of the Guardian',
+  'Thallid Germinator',
+  'Thallid Devourer',
+  'Voice of the Woods',
+  'Siege Zombie',
+  'Ghirapur Aether Grid',
+  'Cryptbreaker',
+  'Elvish Farmer',
+  'Deathspore Thallid',
+  'Mycologist',
+  'Untethered Express',
+  'Vitaspore Thallid',
+  'Psychotrope Thallid',
+  'Altar Golem',
+  // D327 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -4786,6 +4802,9 @@ const WANTED_TOKENS = [
   // D323 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Rebel', set: 'tfic', cn: '7', key: 'REBEL_2_2_R_CREATURE_TOKEN' },
   { name: 'Phyrexian Germ', set: 'tcmm', cn: '16', key: 'PHYREXIAN_GERM_TOKEN' },
+  // D327 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Elemental', set: 'trtr', cn: '12', key: 'ELEMENTAL_8_8_GW_CREATURE_VIGILANCE_TOKEN' },
+  { name: 'Elemental', set: 'tdd1', cn: 'T1', key: 'ELEMENTAL_7_7_G_CREATURE_TRAMPLE_TOKEN' },
 ];
 
 function constName(name) {

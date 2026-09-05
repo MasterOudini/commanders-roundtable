@@ -140682,6 +140682,478 @@ export const WARDEN_OF_THE_WOODS: CardData = {
   "singleImage": true
 };
 
+export const GROVE_OF_THE_GUARDIAN: CardData = {
+  "scryfallId": "0079326b-ef87-49b8-9772-9134fb5deb3e",
+  "oracleId": "f746612a-fbed-44ca-b2cc-5928e10cf4bb",
+  "name": "Grove of the Guardian",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Grove of the Guardian",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{3}{G}{W}, {T}, Tap two untapped creatures you control, Sacrifice this land: Create an 8/8 green and white Elemental creature token with vigilance.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Christine Choi",
+      "imageId": "0079326b-ef87-49b8-9772-9134fb5deb3e"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "gk1",
+  "collectorNumber": "124",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THALLID_GERMINATOR: CardData = {
+  "scryfallId": "0d670693-efa6-4ad0-93cd-5dd899e16020",
+  "oracleId": "262bc269-3e70-46ae-b0a3-5f8030a6971a",
+  "name": "Thallid Germinator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thallid Germinator",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Fungus",
+      "oracleText": "At the beginning of your upkeep, put a spore counter on this creature.\nRemove three spore counters from this creature: Create a 1/1 green Saproling creature token.\nSacrifice a Saproling: Target creature gets +1/+1 until end of turn.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Tom Wänerstrand",
+      "imageId": "0d670693-efa6-4ad0-93cd-5dd899e16020"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "psal",
+  "collectorNumber": "J43",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THALLID_DEVOURER: CardData = {
+  "scryfallId": "1a392801-bdc8-4342-8cdd-48f874e22afa",
+  "oracleId": "b7326fd9-7648-4db3-b506-61a7de8a4094",
+  "name": "Thallid Devourer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thallid Devourer",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Creature — Fungus",
+      "oracleText": "At the beginning of your upkeep, put a spore counter on this creature.\nRemove three spore counters from this creature: Create a 1/1 green Saproling creature token.\nSacrifice a Saproling: This creature gets +1/+2 until end of turn.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "1a392801-bdc8-4342-8cdd-48f874e22afa"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "me2",
+  "collectorNumber": "181",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VOICE_OF_THE_WOODS: CardData = {
+  "scryfallId": "1ebb4668-eebf-4b7e-ae29-75fff5963868",
+  "oracleId": "12da8ba3-ca60-44c8-8627-1b4af2a2c4a3",
+  "name": "Voice of the Woods",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Voice of the Woods",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Creature — Elf",
+      "oracleText": "Tap five untapped Elves you control: Create a 7/7 green Elemental creature token with trample. (It can deal excess combat damage to the player or planeswalker it's attacking.)",
+      "flavorText": "The ritual of making draws upon the elves' memories and pasts. And elves have long memories and ancient pasts.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "1ebb4668-eebf-4b7e-ae29-75fff5963868"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ons",
+  "collectorNumber": "297",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIEGE_ZOMBIE: CardData = {
+  "scryfallId": "2262ed52-9532-4b39-aece-fd78fe75c832",
+  "oracleId": "a7756bc2-26ce-4044-a322-a898af8a393d",
+  "name": "Siege Zombie",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Siege Zombie",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "Tap three untapped creatures you control: Each opponent loses 1 life.",
+      "flavorText": "A barricade only buys time. So the wealthy buy more barricades.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "2262ed52-9532-4b39-aece-fd78fe75c832"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "dbl",
+  "collectorNumber": "121",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GHIRAPUR_AETHER_GRID: CardData = {
+  "scryfallId": "2e4a0c29-a759-465f-9136-9d709b6f30fc",
+  "oracleId": "05d75b10-4f20-4083-af27-f85c6e207fd0",
+  "name": "Ghirapur Aether Grid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ghirapur Aether Grid",
+      "manaCost": "{2}{R}",
+      "typeLine": "Enchantment",
+      "oracleText": "Tap two untapped artifacts you control: This enchantment deals 1 damage to any target.",
+      "flavorText": "The city of Ghirapur is a living thing, and living things defend themselves.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Cynthia Sheppard",
+      "imageId": "2e4a0c29-a759-465f-9136-9d709b6f30fc"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ori",
+  "collectorNumber": "148",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRYPTBREAKER: CardData = {
+  "scryfallId": "31699dde-756d-49f1-9384-cdb9f210294c",
+  "oracleId": "16f75a65-d067-4f79-81b9-833c373cf4d2",
+  "name": "Cryptbreaker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cryptbreaker",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "{1}{B}, {T}, Discard a card: Create a 2/2 black Zombie creature token.\nTap three untapped Zombies you control: You draw a card and you lose 1 life.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Darek Zabrocki",
+      "imageId": "31699dde-756d-49f1-9384-cdb9f210294c"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ha1",
+  "collectorNumber": "6",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELVISH_FARMER: CardData = {
+  "scryfallId": "40a9710e-b2f8-4746-8640-d450f58a6e49",
+  "oracleId": "91fe1075-e170-4575-ae28-8d692f051637",
+  "name": "Elvish Farmer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elvish Farmer",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Elf",
+      "oracleText": "At the beginning of your upkeep, put a spore counter on this creature.\nRemove three spore counters from this creature: Create a 1/1 green Saproling creature token.\nSacrifice a Saproling: You gain 2 life.",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Richard Kane Ferguson",
+      "imageId": "40a9710e-b2f8-4746-8640-d450f58a6e49"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "fem",
+  "collectorNumber": "66",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEATHSPORE_THALLID: CardData = {
+  "scryfallId": "44ee5ee3-11f8-4a4e-bfa3-10ff45ed6d1b",
+  "oracleId": "3a2a6904-219a-4d16-b11a-1e0e2826814e",
+  "name": "Deathspore Thallid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deathspore Thallid",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Zombie Fungus",
+      "oracleText": "At the beginning of your upkeep, put a spore counter on this creature.\nRemove three spore counters from this creature: Create a 1/1 green Saproling creature token.\nSacrifice a Saproling: Target creature gets -1/-1 until end of turn.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Randy Elliott",
+      "imageId": "44ee5ee3-11f8-4a4e-bfa3-10ff45ed6d1b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tsp",
+  "collectorNumber": "102",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MYCOLOGIST: CardData = {
+  "scryfallId": "56d8e9fa-e241-4a11-99b8-ffced81eb38b",
+  "oracleId": "af0bf083-0624-4ccd-b282-a35937e925fe",
+  "name": "Mycologist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mycologist",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Druid",
+      "oracleText": "At the beginning of your upkeep, put a spore counter on this creature.\nRemove three spore counters from this creature: Create a 1/1 green Saproling creature token.\nSacrifice a Saproling: You gain 2 life.",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "56d8e9fa-e241-4a11-99b8-ffced81eb38b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plc",
+  "collectorNumber": "27",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UNTETHERED_EXPRESS: CardData = {
+  "scryfallId": "67a27473-bd70-49a5-9985-70350282fc79",
+  "oracleId": "652f049d-770e-4bd7-b65f-fe56e618366a",
+  "name": "Untethered Express",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Untethered Express",
+      "manaCost": "{4}",
+      "typeLine": "Artifact — Vehicle",
+      "oracleText": "Trample\nWhenever this Vehicle attacks, put a +1/+1 counter on it.\nCrew 1 (Tap any number of creatures you control with total power 1 or more: This Vehicle becomes an artifact creature until end of turn.)",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "James Ryman",
+      "imageId": "67a27473-bd70-49a5-9985-70350282fc79"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [
+    "Crew",
+    "Trample"
+  ],
+  "setCode": "klr",
+  "collectorNumber": "274",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VITASPORE_THALLID: CardData = {
+  "scryfallId": "cad14bc9-b90e-48e0-9e72-173874dab6bc",
+  "oracleId": "8940f80b-9c8d-48c0-97c0-c18d77797911",
+  "name": "Vitaspore Thallid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vitaspore Thallid",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Fungus",
+      "oracleText": "At the beginning of your upkeep, put a spore counter on this creature.\nRemove three spore counters from this creature: Create a 1/1 green Saproling creature token.\nSacrifice a Saproling: Target creature gains haste until end of turn.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "cad14bc9-b90e-48e0-9e72-173874dab6bc"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plc",
+  "collectorNumber": "143",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PSYCHOTROPE_THALLID: CardData = {
+  "scryfallId": "e2803fdc-2ae1-438c-b5b1-559817e85fdb",
+  "oracleId": "384c61f2-17ed-4c7a-8722-e0a05e9dcaf9",
+  "name": "Psychotrope Thallid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Psychotrope Thallid",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Fungus",
+      "oracleText": "At the beginning of your upkeep, put a spore counter on this creature.\nRemove three spore counters from this creature: Create a 1/1 green Saproling creature token.\n{1}, Sacrifice a Saproling: Draw a card.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dave Kendall",
+      "imageId": "e2803fdc-2ae1-438c-b5b1-559817e85fdb"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "plc",
+  "collectorNumber": "137",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ALTAR_GOLEM: CardData = {
+  "scryfallId": "fed81c72-743d-4d2a-97a6-22f5651e15d5",
+  "oracleId": "ac143b8e-f993-4989-8833-e26dc9faffa4",
+  "name": "Altar Golem",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Altar Golem",
+      "manaCost": "{7}",
+      "typeLine": "Artifact Creature — Golem",
+      "oracleText": "Trample\nAltar Golem's power and toughness are each equal to the number of creatures on the battlefield.\nThis creature doesn't untap during your untap step.\nTap five untapped creatures you control: Untap this creature.",
+      "flavorText": null,
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Rob Alexander",
+      "imageId": "fed81c72-743d-4d2a-97a6-22f5651e15d5"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 7,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "eve",
+  "collectorNumber": "166",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -144876,6 +145348,80 @@ export const PHYREXIAN_GERM_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const ELEMENTAL_8_8_GW_CREATURE_VIGILANCE_TOKEN: CardData = {
+  "scryfallId": "b64c5f80-4676-4860-be0e-20bcf2227405",
+  "oracleId": "3edbadbb-2efb-43a9-aad5-8d1019d1ab6e",
+  "name": "Elemental",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Elemental",
+      "manaCost": "",
+      "typeLine": "Token Creature — Elemental",
+      "oracleText": "Vigilance",
+      "flavorText": null,
+      "power": "8",
+      "toughness": "8",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Yeong-Hao Han",
+      "imageId": "b64c5f80-4676-4860-be0e-20bcf2227405"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "trtr",
+  "collectorNumber": "12",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const ELEMENTAL_7_7_G_CREATURE_TRAMPLE_TOKEN: CardData = {
+  "scryfallId": "5e37e5ee-d860-4a81-951b-d03bcea9feff",
+  "oracleId": "ab19c684-94c6-4491-8a6b-7f31dddadae6",
+  "name": "Elemental",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Elemental",
+      "manaCost": "",
+      "typeLine": "Token Creature — Elemental",
+      "oracleText": "Trample",
+      "flavorText": null,
+      "power": "7",
+      "toughness": "7",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Anthony S. Waters",
+      "imageId": "5e37e5ee-d860-4a81-951b-d03bcea9feff"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "tdd1",
+  "collectorNumber": "T1",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -148932,6 +149478,20 @@ export const ENGINE_CARDS: CardData[] = [
   ILLUSIONARY_SERVANT,
   CEPHALID_ARISTOCRAT,
   WARDEN_OF_THE_WOODS,
+  GROVE_OF_THE_GUARDIAN,
+  THALLID_GERMINATOR,
+  THALLID_DEVOURER,
+  VOICE_OF_THE_WOODS,
+  SIEGE_ZOMBIE,
+  GHIRAPUR_AETHER_GRID,
+  CRYPTBREAKER,
+  ELVISH_FARMER,
+  DEATHSPORE_THALLID,
+  MYCOLOGIST,
+  UNTETHERED_EXPRESS,
+  VITASPORE_THALLID,
+  PSYCHOTROPE_THALLID,
+  ALTAR_GOLEM,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -149055,4 +149615,6 @@ export const ENGINE_CARDS: CardData[] = [
   WURM_6_6_G_CREATURE_TOKEN,
   REBEL_2_2_R_CREATURE_TOKEN,
   PHYREXIAN_GERM_TOKEN,
+  ELEMENTAL_8_8_GW_CREATURE_VIGILANCE_TOKEN,
+  ELEMENTAL_7_7_G_CREATURE_TRAMPLE_TOKEN,
 ];

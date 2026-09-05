@@ -7,6 +7,20 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { GROVE_OF_THE_GUARDIAN_SCRIPT } from './cards/groveOfTheGuardian';
+import { THALLID_GERMINATOR_SCRIPT } from './cards/thallidGerminator';
+import { THALLID_DEVOURER_SCRIPT } from './cards/thallidDevourer';
+import { VOICE_OF_THE_WOODS_SCRIPT } from './cards/voiceOfTheWoods';
+import { SIEGE_ZOMBIE_SCRIPT } from './cards/siegeZombie';
+import { GHIRAPUR_AETHER_GRID_SCRIPT } from './cards/ghirapurAetherGrid';
+import { CRYPTBREAKER_SCRIPT } from './cards/cryptbreaker';
+import { ELVISH_FARMER_SCRIPT } from './cards/elvishFarmer';
+import { DEATHSPORE_THALLID_SCRIPT } from './cards/deathsporeThallid';
+import { MYCOLOGIST_SCRIPT } from './cards/mycologist';
+import { UNTETHERED_EXPRESS_SCRIPT } from './cards/untetheredExpress';
+import { VITASPORE_THALLID_SCRIPT } from './cards/vitasporeThallid';
+import { PSYCHOTROPE_THALLID_SCRIPT } from './cards/psychotropeThallid';
+import { ALTAR_GOLEM_SCRIPT } from './cards/altarGolem';
 import { PHANTASMAL_BEAR_SCRIPT } from './cards/phantasmalBear';
 import { THORN_LIEUTENANT_SCRIPT } from './cards/thornLieutenant';
 import { ADVENTURERS_AIRSHIP_SCRIPT } from './cards/adventurersAirship';
@@ -3933,6 +3947,20 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GROVE_OF_THE_GUARDIAN_SCRIPT,
+  THALLID_GERMINATOR_SCRIPT,
+  THALLID_DEVOURER_SCRIPT,
+  VOICE_OF_THE_WOODS_SCRIPT,
+  SIEGE_ZOMBIE_SCRIPT,
+  GHIRAPUR_AETHER_GRID_SCRIPT,
+  CRYPTBREAKER_SCRIPT,
+  ELVISH_FARMER_SCRIPT,
+  DEATHSPORE_THALLID_SCRIPT,
+  MYCOLOGIST_SCRIPT,
+  UNTETHERED_EXPRESS_SCRIPT,
+  VITASPORE_THALLID_SCRIPT,
+  PSYCHOTROPE_THALLID_SCRIPT,
+  ALTAR_GOLEM_SCRIPT,
   PHANTASMAL_BEAR_SCRIPT,
   THORN_LIEUTENANT_SCRIPT,
   ADVENTURERS_AIRSHIP_SCRIPT,

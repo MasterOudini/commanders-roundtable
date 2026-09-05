@@ -315,8 +315,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // scale — 19 of 25, the six refusals named — 1,742 → 1,761. M6.4d
       // (D161): thirteen more, and the selection taught two refusal shapes —
       // 1,761 → 1,774.
-      complete: 6365,
-      blocked: 25327,
+      complete: 6379,
+      blocked: 25313,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -325,7 +325,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1131,
+      scriptableToday: 1129,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -337,8 +337,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
       layer6: 1422,
-      counter: 1500,
-      token: 985,
+      counter: 1499,
+      token: 984,
     });
   });
 
@@ -375,7 +375,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1131, 1256, 2948, 4829, 6180]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1129, 1254, 2946, 4819, 6169]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -499,7 +499,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     }
     // ⚠️ THE SPELLS are the only part that could move `complete` — and every one
     // of them still needs the resolver.
-    expect.soft(byOwner).toEqual({ spell: 342, permanent: 643 });
+    expect.soft(byOwner).toEqual({ spell: 342, permanent: 642 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -514,7 +514,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     expect.soft(byKind).toEqual({
       copy: 114,
       predefined: 148,
-      withAbilities: 304,
+      withAbilities: 303,
       variable: 79,
       plain: 340,
       unclaimed: 0,
@@ -547,8 +547,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1131, 1256]);
-    expect.soft(r.complete).toBe(6365);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1129, 1254]);
+    expect.soft(r.complete).toBe(6379);
   });
 });
 
@@ -667,7 +667,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
    */
   test('the residue splits into named families', () => {
     expect.soft(rr.residue).toEqual({
-      activatedCost: 2550,
+      activatedCost: 2547,
       triggeredShell: 2151,
       damage: 777,
       exile: 929,
@@ -680,7 +680,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
       cantBeCountered: 109,
       gainControl: 66,
       wardHexproofGrant: 46,
-      other: 3251,
+      other: 3249,
     });
   });
 

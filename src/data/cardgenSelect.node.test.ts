@@ -181,7 +181,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Floodbringer', 'return-permanent cost'],
   ['Flooded Shoreline', 'return-permanent cost'],
   // Batch 18 (D176) — all three existing classes.
-  ['Ghirapur Aether Grid', 'tap-permanents cost'],
   // Batch 19 (D177) — TWO NEW classes. Multi-sacrifice: D168's
   // `ActivateAbility.sacrifice` names ONE permanent, so "Sacrifice two
   // Goblins" has no carrier. Sacrifice-event discriminator: `EventCause`
@@ -212,7 +211,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // bare CardsMoved library→hand, indistinguishable from an Impulse-take or
   // a manual wrench move, and `matches` receives the event BODY — the
   // sacrifice-event discriminator (Graf Mole, D177) one event over.
-  ['Hardened Tactician', 'token-predicate sacrifice cost'],
   ['Hatchet Bully', 'put-counter cost'],
   // (Horizon Chimera's draw-event-discriminator entry DRAINED here when
   // D189's `DrewCards` + D190's per-item fan-out shipped it — the
@@ -1141,7 +1139,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D168’s chooser has no tap-creatures verb, and it is a COUNTED,
   // subtype-restricted tap at that. Nothing else about the card is hard: the
   // 7/7 trample Elemental is an ordinary token line waiting on the cost.
-  ['Voice of the Woods', 'tap-creatures cost'],
 
   // D267 (M6.4dd) — ZERO new classes, and ZERO probes owed: every shape in
   // the batch already had a shipped precedent, which is what a mature aim
@@ -1552,7 +1549,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Code of Constraint', 'untap restriction'],
   ['Dissection Practice', 'up-to-N targeting'],
   ['Escape Detection', 'freerunning mechanic'],
-  ['Fountainport', 'token-predicate sacrifice cost'],
 
   // D290 (M6.4ea) — the 22 cards D289's keyword seam made offerable: 18
   // landed, four refused.
@@ -1738,7 +1734,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // hand-activated abilities and the planeswalkers.
   ['Appa, the Vigilant', 'trigger head outside the library'],
   ['Dwarven Strike Force', 'random discard cost'],
-  ['Glimmer Bairn', 'token-predicate sacrifice cost'],
   ['Harbin, Vanguard Aviator', 'trigger head outside the library'],
   ['Pardic Lancer', 'random discard cost'],
   ['Wildfire Elemental', 'trigger head outside the library'],
@@ -1982,6 +1977,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // maker still refuses: a tap-a-Gate cost, a two-type destroy.
   ['Heap Gate', 'a cost the row maker cannot charge (tap an untapped Gate you control)'],
   ['Urn of Godfire', 'a payload outside the row grammar (destroy target creature or enchantment)'],
+
+  // D327 (M6.4fl) - the sacrifice-a-token cost the engine does not charge: its chooser reads
+  // types, subtypes and colours, and a token is none of them.
+  ['Fountainport', 'a cost the engine does not charge (sacrifice a token - no token predicate in the sacrifice chooser)'],
+  ['Glimmer Bairn', 'a cost the engine does not charge (sacrifice a token - no token predicate in the sacrifice chooser)'],
+  ['Hardened Tactician', 'a cost the engine does not charge (sacrifice a token - no token predicate in the sacrifice chooser)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
