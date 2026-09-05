@@ -1667,7 +1667,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ...and of the 29 cards the four D295 sentences made offerable in turn,
   // five: a becomes-targeted trigger, a delayed trigger ("this turn"), a cost
   // of HALF a life total, an exile-from-graveyard cost, a two-part sacrifice.
-  ['Tethered Skirge', 'becomes-targeted trigger'],
   ["Mage Hunters' Onslaught", 'delayed trigger'],
   ['Murderous Betrayal', 'pay-half-life cost'],
   ['Zombie Assassin', 'exile-from-graveyard cost'],
@@ -1731,7 +1730,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Orc General', 'multi-type sacrifice cost'],
   ['Oakhame Ranger // Bring Back', 'adventure (two faces)'],
   ['Reaper of the Wilds', 'script-raised scry prompt'],
-  ['Thorn Lieutenant', 'becomes-the-target trigger'],
   ['Goro-Goro and Satoru', 'entered-this-turn combat-damage trigger'],
 
   // D301 part B — the pool the classifier offered beyond the probe: the trigger
@@ -1959,7 +1957,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Broadcast Rambler', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Burner Rocket', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Captain America\'s Motorcycle', 'an enters trigger outside the vocabulary (its crew runs)'],
-  ['Careening Mine Cart', 'a combat trigger outside the vocabulary (its crew runs)'],
   ['Fire Nation Warship', 'a Vehicle line outside the vocabulary (its crew runs)'],
   ['High-Speed Hoverbike', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Rangers\' Aetherhive', 'a Vehicle line outside the vocabulary (its crew runs)'],

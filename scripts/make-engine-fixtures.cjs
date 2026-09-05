@@ -4529,6 +4529,33 @@ const WANTED = [
   'Conduit Pylons',
   'Hidden Grotto',
   'Surveillance Room',
+  // D326 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Phantasmal Bear',
+  'Thorn Lieutenant',
+  "Adventurer's Airship",
+  'Tethered Skirge',
+  'Phantasmal Dragon',
+  'Mirozel',
+  'Skulking Fugitive',
+  'Segmented Wurm',
+  'Tar Pit Warrior',
+  'Skulking Ghost',
+  'Mossdog',
+  'Cactarantula',
+  'Ballista Charger',
+  'Gossamer Phantasm',
+  'Phantasmal Shieldback',
+  'Phantasmal Abomination',
+  'Frost Walker',
+  'Phantom Beast',
+  'Careening Mine Cart',
+  'Petrahydrox',
+  'Phantasmal Dreadmaw',
+  'Skulking Knight',
+  'Illusionary Servant',
+  'Cephalid Aristocrat',
+  'Warden of the Woods',
+  // D326 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

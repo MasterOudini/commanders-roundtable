@@ -7,6 +7,31 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { PHANTASMAL_BEAR_SCRIPT } from './cards/phantasmalBear';
+import { THORN_LIEUTENANT_SCRIPT } from './cards/thornLieutenant';
+import { ADVENTURERS_AIRSHIP_SCRIPT } from './cards/adventurersAirship';
+import { TETHERED_SKIRGE_SCRIPT } from './cards/tetheredSkirge';
+import { PHANTASMAL_DRAGON_SCRIPT } from './cards/phantasmalDragon';
+import { MIROZEL_SCRIPT } from './cards/mirozel';
+import { SKULKING_FUGITIVE_SCRIPT } from './cards/skulkingFugitive';
+import { SEGMENTED_WURM_SCRIPT } from './cards/segmentedWurm';
+import { TAR_PIT_WARRIOR_SCRIPT } from './cards/tarPitWarrior';
+import { SKULKING_GHOST_SCRIPT } from './cards/skulkingGhost';
+import { MOSSDOG_SCRIPT } from './cards/mossdog';
+import { CACTARANTULA_SCRIPT } from './cards/cactarantula';
+import { BALLISTA_CHARGER_SCRIPT } from './cards/ballistaCharger';
+import { GOSSAMER_PHANTASM_SCRIPT } from './cards/gossamerPhantasm';
+import { PHANTASMAL_SHIELDBACK_SCRIPT } from './cards/phantasmalShieldback';
+import { PHANTASMAL_ABOMINATION_SCRIPT } from './cards/phantasmalAbomination';
+import { FROST_WALKER_SCRIPT } from './cards/frostWalker';
+import { PHANTOM_BEAST_SCRIPT } from './cards/phantomBeast';
+import { CAREENING_MINE_CART_SCRIPT } from './cards/careeningMineCart';
+import { PETRAHYDROX_SCRIPT } from './cards/petrahydrox';
+import { PHANTASMAL_DREADMAW_SCRIPT } from './cards/phantasmalDreadmaw';
+import { SKULKING_KNIGHT_SCRIPT } from './cards/skulkingKnight';
+import { ILLUSIONARY_SERVANT_SCRIPT } from './cards/illusionaryServant';
+import { CEPHALID_ARISTOCRAT_SCRIPT } from './cards/cephalidAristocrat';
+import { WARDEN_OF_THE_WOODS_SCRIPT } from './cards/wardenOfTheWoods';
 import { CONDUIT_PYLONS_SCRIPT } from './cards/conduitPylons';
 import { HIDDEN_GROTTO_SCRIPT } from './cards/hiddenGrotto';
 import { SURVEILLANCE_ROOM_SCRIPT } from './cards/surveillanceRoom';
@@ -3908,6 +3933,31 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PHANTASMAL_BEAR_SCRIPT,
+  THORN_LIEUTENANT_SCRIPT,
+  ADVENTURERS_AIRSHIP_SCRIPT,
+  TETHERED_SKIRGE_SCRIPT,
+  PHANTASMAL_DRAGON_SCRIPT,
+  MIROZEL_SCRIPT,
+  SKULKING_FUGITIVE_SCRIPT,
+  SEGMENTED_WURM_SCRIPT,
+  TAR_PIT_WARRIOR_SCRIPT,
+  SKULKING_GHOST_SCRIPT,
+  MOSSDOG_SCRIPT,
+  CACTARANTULA_SCRIPT,
+  BALLISTA_CHARGER_SCRIPT,
+  GOSSAMER_PHANTASM_SCRIPT,
+  PHANTASMAL_SHIELDBACK_SCRIPT,
+  PHANTASMAL_ABOMINATION_SCRIPT,
+  FROST_WALKER_SCRIPT,
+  PHANTOM_BEAST_SCRIPT,
+  CAREENING_MINE_CART_SCRIPT,
+  PETRAHYDROX_SCRIPT,
+  PHANTASMAL_DREADMAW_SCRIPT,
+  SKULKING_KNIGHT_SCRIPT,
+  ILLUSIONARY_SERVANT_SCRIPT,
+  CEPHALID_ARISTOCRAT_SCRIPT,
+  WARDEN_OF_THE_WOODS_SCRIPT,
   CONDUIT_PYLONS_SCRIPT,
   HIDDEN_GROTTO_SCRIPT,
   SURVEILLANCE_ROOM_SCRIPT,
