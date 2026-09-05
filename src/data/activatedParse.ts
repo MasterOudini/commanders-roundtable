@@ -152,6 +152,7 @@ export function parseActivatedAbilities(
         sacrificesSelf: false,
         sacrificeCost: null,
         discardCost: null,
+        removeCounterCost: null,
         tapCost: null,
         unpaidCosts: equipCost === null ? [equip[1] ?? ''] : [],
         payable: equipCost !== null,
@@ -183,6 +184,7 @@ export function parseActivatedAbilities(
         sacrificesSelf: false,
         sacrificeCost: null,
         discardCost: null,
+        removeCounterCost: null,
         tapCost: null,
         unpaidCosts: cyclingCost === null ? [cycling[1] ?? ''] : [],
         payable: cyclingCost !== null,
@@ -214,6 +216,7 @@ export function parseActivatedAbilities(
         sacrificesSelf: false,
         sacrificeCost: null,
         discardCost: null,
+        removeCounterCost: null,
         tapCost: crewAny === null ? null : { count: 0, another: true, any: crewAny, powerAtLeast: power },
         unpaidCosts: crewAny === null ? [`Crew ${power}`] : [],
         payable: crewAny !== null,
@@ -238,6 +241,7 @@ export function parseActivatedAbilities(
     let sacrificeCost: ActivatedAbility['sacrificeCost'] = null;
     let discardCost: ActivatedAbility['discardCost'] = null;
     let tapCost: ActivatedAbility['tapCost'] = null;
+    let removeCounterCost: ActivatedAbility['removeCounterCost'] = null;
     let isLoyalty = false;
 
     for (const part of parts) {
@@ -340,6 +344,23 @@ export function parseActivatedAbilities(
           continue;
         }
       }
+      // ⚠️ The REMOVE-A-COUNTER cost (D319): "Remove a +1/+1 counter from this
+      // creature" / "Remove two charge counters from this artifact" - SELF only
+      // and a fixed count, so it is deterministic (no chooser): a PRICE the
+      // engine can take, offered only while the permanent carries the counters.
+      // "from a creature you control" is a decision and stays unpaid; "X" stays
+      // unpaid (a computed cost the engine cannot compute). Chargeable is not
+      // offerable: the def gate in `legal.ts` and `handlers.ts` still refuses an
+      // undef'd ability (D159's rule).
+      const rc = /^remove (a|an|one|two|three|four|five) ([^ ]+) counters? from this [a-z]+$/i.exec(part.trim());
+      if (rc && removeCounterCost === null) {
+        const count = COUNT_WORDS[(rc[1] ?? '').toLowerCase()] ?? 0;
+        const kind = rc[2] ?? '';
+        if (count > 0 && kind !== '') {
+          removeCounterCost = { kind, count };
+          continue;
+        }
+      }
       unpaidCosts.push(part);
     }
 
@@ -369,6 +390,7 @@ export function parseActivatedAbilities(
       sacrificeCost,
       discardCost,
       tapCost,
+      removeCounterCost,
       unpaidCosts,
       payable,
       isManaAbility,

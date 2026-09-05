@@ -9791,6 +9791,42 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D318): the remove-a-counter cost verb (the Spike family, ten rows waiting, and the ledger's eight), the variable enters-with-X counters (45), the tap-N-creatures and exile-from-graveyard costs, the target effects and damage payloads, the heads still outside (one or more cards put into a graveyard, sacrifice a token, a second card each turn); the mass behind - regenerate, any-colour mana, the modal choose-one, convoke, attacks each combat if able, can not be countered; the classifier learning the kinds; the modal seam; the "another" split;
       the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4fd — THE REMOVE-A-COUNTER COST: the cost verb in the engine, and two
+      target payloads in the one-shot generator; 8 cards land as
+      generated rows (2026-09-05):**
+      **5,869 of 31,692 Commander-legal cards now execute completely, up
+      from 5,861 (+8).** `SHIPPED_SCRIPTS` 3,415; ledger
+      1,093 (none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty). Fixtures 3,769 (3,650 by name + 112 tokens: the 8 rowed cards; no token pin). ONE engine
+      seam, five files. **Select pool 0.** Decisions in **D319**.
+      ⚠️ **Measured first:** the D319 candidate probe over the database after D318: 72 blocked single-face permanents whose every unread line the widened grammar reads - 37 with a static or combat line, 35 within the D316 grammar (enters with counters 13, the count CDA 10, can not attack or block alone 5); the engine seam is what the probe cannot see - it reads effects, the row maker charges the cost - and after it 641 more printed activated abilities are payable; the mass behind the candidates: regenerate 99, any-colour mana 80, a modal choose-one 64, enchanted creature has 55, convoke 50, attacks each combat if able 46, can not be countered 46, enters with X counters 45, when you cast this spell 42, enchant player 42, heroic 41, a Spirit or Arcane spell 40, a look at the top card 39, loot 39, start your engines 38, the monarch 36, enchanted land has 35, energy 33, equipped creature attacks 32, threshold 32.
+      ⚠️ **The seam:** "Remove a +1/+1 counter from this creature" is SELF only
+      and a fixed count — deterministic, no chooser — so a price the engine
+      takes (D159's distinction): `ActivatedAbility.removeCounterCost`
+      (`src/engine/types/oracle.ts`), the cost piece in
+      `src/data/activatedParse.ts` ("from a creature you control" and "Remove
+      X" stay unpaid), offered by `src/engine/legal.ts` only with a registered
+      def and only while the counters are there, re-checked and charged by
+      `src/engine/handlers.ts` beside the self-sacrifice, worded by
+      `src/data/tier3.ts` with the other def-gated costs;
+      `src/engine/removeCounterCost.test.ts`.
+      ⚠️ **The rows:** `d319/make-rows9.cjs` + `gen-oneshot9.cjs` (from D318) —
+      the cost piece on activated lines; two activated payloads, a target
+      creature's pump and counters on a target creature (the opponent's Cyclops
+      in the test). A remove-counter row's test puts the counters on by hand
+      first and reads the count and P/T relative to the moment before the
+      activation. Rows land BY NAME; the classifier does not learn the kinds
+      yet, so the pool stays 0 and only `complete` moves. NOT this decision:
+      the classifier learning the remove-a-counter cost and the target payloads (641 abilities are payable now that its scriptable primitive does not know), the remove-a-counter chooser (from a creature you control), the variable enters-with-X counters (45), the tap-N-creatures and exile-from-graveyard costs, the damage and destroy payloads, the heads still outside (one or more cards put into a graveyard, sacrifice a token, a second card each turn); the mass behind - regenerate, any-colour mana, the modal choose-one, convoke, attacks each combat if able, can not be countered. Refused by name: none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips and 8 generated rows - the 72 candidates less the 64 the row maker still refuses (seventeen lines outside both grammars - enters with X counters, morph, can not attack or block alone, toxic, a cost line, an anthem; the remove-a-counter chooser (from a creature you control, two), the tap-N-creatures, exile-from-graveyard, sacrifice-a-choice and return-a-land costs; the damage and destroy payloads; eight heads outside the library; the untap-it, Lander, surveil and scry payloads); the engine change itself makes 641 more printed activated abilities payable (oracleParse activated:nonManaCost 5,869 -> 5,228; D79 payable 34,370 -> 35,011; tier3 payable 4,561 -> 4,680), which the classifier counts as scriptable lines the row grammar has not read yet. The wave IS the landing: 8 rows - the Spike family (Spike Worker, Spike Feeder, Spike Colony, Spike Drone, Spike Soldier: two counters on entry, a counter moved to a target creature for {2} and a counter, Spike Feeder's two life, Spike Soldier's +2/+2), Barkhide Troll's hexproof for a counter, Salt Road Quartermasters, and Mindless Automaton's discard-for-a-counter and two-counters-for-a-card; the bot's own deck took 8 creatures more. Tests: one generated suite per row.
+      Fixtures 3,769 · botPool artifact 272 / creature 3,265 / enchantment 257 / instant 947 / land 405 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1193, 1323, 3034, 4942, 6295] · batch.json
+      8 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,527 files, 18,143 passing / 11 skipped ·
+      500-seed gate, 6 shards, 346.7 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D319): the classifier learning the remove-a-counter cost and the target payloads (641 abilities are payable now that its scriptable primitive does not know), the remove-a-counter chooser (from a creature you control), the variable enters-with-X counters (45), the tap-N-creatures and exile-from-graveyard costs, the damage and destroy payloads, the heads still outside (one or more cards put into a graveyard, sacrifice a token, a second card each turn); the mass behind - regenerate, any-colour mana, the modal choose-one, convoke, attacks each combat if able, can not be countered; the modal seam; the "another" split;
+      the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

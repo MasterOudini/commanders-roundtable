@@ -326,6 +326,12 @@ export function legalActions(
           if (reach < ability.tapCost.powerAtLeast) continue;
         }
       }
+      // ⚠️ The REMOVE-A-COUNTER cost (D319): the same def gate, and "a cost you
+      // cannot pay is not offered" - fewer counters than the count, no offer.
+      if (ability.removeCounterCost) {
+        if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        if ((inst.counters[ability.removeCounterCost.kind] ?? 0) < ability.removeCounterCost.count) continue;
+      }
       if (ability.requiresTap && inst.tapped) continue;
       if (ability.requiresUntap && !inst.tapped) continue;
       if (ability.requiresTap && !readyToTap(state, d, inst)) continue;

@@ -4130,6 +4130,15 @@ const WANTED = [
   // D318 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
   'Faithful Watchdog',
   'Adaptive Shimmerer',
+  // D319 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Spike Worker',
+  'Spike Feeder',
+  'Spike Colony',
+  'Barkhide Troll',
+  'Salt Road Quartermasters',
+  'Mindless Automaton',
+  'Spike Drone',
+  'Spike Soldier',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

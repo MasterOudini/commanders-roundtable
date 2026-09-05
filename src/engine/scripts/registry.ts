@@ -7,6 +7,14 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SPIKE_WORKER_SCRIPT } from './cards/spikeWorker';
+import { SPIKE_FEEDER_SCRIPT } from './cards/spikeFeeder';
+import { SPIKE_COLONY_SCRIPT } from './cards/spikeColony';
+import { BARKHIDE_TROLL_SCRIPT } from './cards/barkhideTroll';
+import { SALT_ROAD_QUARTERMASTERS_SCRIPT } from './cards/saltRoadQuartermasters';
+import { MINDLESS_AUTOMATON_SCRIPT } from './cards/mindlessAutomaton';
+import { SPIKE_DRONE_SCRIPT } from './cards/spikeDrone';
+import { SPIKE_SOLDIER_SCRIPT } from './cards/spikeSoldier';
 import { FAITHFUL_WATCHDOG_SCRIPT } from './cards/faithfulWatchdog';
 import { ADAPTIVE_SHIMMERER_SCRIPT } from './cards/adaptiveShimmerer';
 import { RECONNAISSANCE_MISSION_SCRIPT } from './cards/reconnaissanceMission';
@@ -3528,6 +3536,14 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SPIKE_WORKER_SCRIPT,
+  SPIKE_FEEDER_SCRIPT,
+  SPIKE_COLONY_SCRIPT,
+  BARKHIDE_TROLL_SCRIPT,
+  SALT_ROAD_QUARTERMASTERS_SCRIPT,
+  MINDLESS_AUTOMATON_SCRIPT,
+  SPIKE_DRONE_SCRIPT,
+  SPIKE_SOLDIER_SCRIPT,
   FAITHFUL_WATCHDOG_SCRIPT,
   ADAPTIVE_SHIMMERER_SCRIPT,
   RECONNAISSANCE_MISSION_SCRIPT,

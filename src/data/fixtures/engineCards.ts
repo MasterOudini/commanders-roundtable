@@ -126516,6 +126516,274 @@ export const ADAPTIVE_SHIMMERER: CardData = {
   "singleImage": true
 };
 
+export const SPIKE_WORKER: CardData = {
+  "scryfallId": "0775bce7-5464-4212-a0bd-b959fe5f1b21",
+  "oracleId": "d7fcf43a-191f-4f44-aade-0cf89079a0c5",
+  "name": "Spike Worker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spike Worker",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Spike",
+      "oracleText": "This creature enters with two +1/+1 counters on it.\n{2}, Remove a +1/+1 counter from this creature: Put a +1/+1 counter on target creature.",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "0",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Daniel Gelon",
+      "imageId": "0775bce7-5464-4212-a0bd-b959fe5f1b21"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "brb",
+  "collectorNumber": "80",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIKE_FEEDER: CardData = {
+  "scryfallId": "090a5f1f-9a1a-4e93-8c33-a0204c2917d5",
+  "oracleId": "5b147eab-39dd-4c2a-8f59-d778037788aa",
+  "name": "Spike Feeder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spike Feeder",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Creature — Spike",
+      "oracleText": "This creature enters with two +1/+1 counters on it.\n{2}, Remove a +1/+1 counter from this creature: Put a +1/+1 counter on target creature.\nRemove a +1/+1 counter from this creature: You gain 2 life.",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "0",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "090a5f1f-9a1a-4e93-8c33-a0204c2917d5"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "tpr",
+  "collectorNumber": "196",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIKE_COLONY: CardData = {
+  "scryfallId": "0a6156cc-9dde-4590-bc8b-adfd470cddce",
+  "oracleId": "15902a15-090a-44e6-b8d2-59e0f26ed46f",
+  "name": "Spike Colony",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spike Colony",
+      "manaCost": "{4}{G}",
+      "typeLine": "Creature — Spike",
+      "oracleText": "This creature enters with four +1/+1 counters on it.\n{2}, Remove a +1/+1 counter from this creature: Put a +1/+1 counter on target creature.",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "0",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Douglas Shuler",
+      "imageId": "0a6156cc-9dde-4590-bc8b-adfd470cddce"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "brb",
+  "collectorNumber": "77",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BARKHIDE_TROLL: CardData = {
+  "scryfallId": "0cfd2e76-ad64-42ff-a6a2-c4cf1bec5932",
+  "oracleId": "b7d231eb-255d-4505-89a9-0c6824622209",
+  "name": "Barkhide Troll",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Barkhide Troll",
+      "manaCost": "{G}{G}",
+      "typeLine": "Creature — Troll",
+      "oracleText": "This creature enters with a +1/+1 counter on it.\n{1}, Remove a +1/+1 counter from this creature: This creature gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Grzegorz Rutkowski",
+      "imageId": "0cfd2e76-ad64-42ff-a6a2-c4cf1bec5932"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "m20",
+  "collectorNumber": "165",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SALT_ROAD_QUARTERMASTERS: CardData = {
+  "scryfallId": "4076bf6b-c8b1-49ef-8f23-afaf7a234e2d",
+  "oracleId": "9398fbb4-a2b9-4ae4-9e0f-2553eb570501",
+  "name": "Salt Road Quartermasters",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Salt Road Quartermasters",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "This creature enters with two +1/+1 counters on it.\n{2}{G}, Remove a +1/+1 counter from this creature: Put a +1/+1 counter on target creature.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Anthony Palumbo",
+      "imageId": "4076bf6b-c8b1-49ef-8f23-afaf7a234e2d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "dtk",
+  "collectorNumber": "199",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MINDLESS_AUTOMATON: CardData = {
+  "scryfallId": "49e81c3a-663d-414f-9a4f-95c0e55b1aa1",
+  "oracleId": "e7441107-57b1-4e88-a9d8-3eb7c338ef07",
+  "name": "Mindless Automaton",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mindless Automaton",
+      "manaCost": "{4}",
+      "typeLine": "Artifact Creature — Construct",
+      "oracleText": "This creature enters with two +1/+1 counters on it.\n{1}, Discard a card: Put a +1/+1 counter on this creature.\nRemove two +1/+1 counters from this creature: Draw a card.",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "0",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Brian Snõddy",
+      "imageId": "49e81c3a-663d-414f-9a4f-95c0e55b1aa1"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ema",
+  "collectorNumber": "227",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIKE_DRONE: CardData = {
+  "scryfallId": "5d45a3d3-a114-496e-b575-504179a297cc",
+  "oracleId": "dd6d15c0-c294-42c9-a6cf-57b0b5d40823",
+  "name": "Spike Drone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spike Drone",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Spike Drone",
+      "oracleText": "This creature enters with a +1/+1 counter on it.\n{2}, Remove a +1/+1 counter from this creature: Put a +1/+1 counter on target creature.",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "0",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Charles Gillespie",
+      "imageId": "5d45a3d3-a114-496e-b575-504179a297cc"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "tmp",
+  "collectorNumber": "258",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPIKE_SOLDIER: CardData = {
+  "scryfallId": "aa45664c-ac39-40f8-9f56-cf25ed60a84a",
+  "oracleId": "a34d1845-e02f-4795-b445-d73366c2baea",
+  "name": "Spike Soldier",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spike Soldier",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Spike Soldier",
+      "oracleText": "This creature enters with three +1/+1 counters on it.\n{2}, Remove a +1/+1 counter from this creature: Put a +1/+1 counter on target creature.\nRemove a +1/+1 counter from this creature: This creature gets +2/+2 until end of turn.",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "0",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Randy Elliott",
+      "imageId": "aa45664c-ac39-40f8-9f56-cf25ed60a84a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "sth",
+  "collectorNumber": "119",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -133981,6 +134249,14 @@ export const ENGINE_CARDS: CardData[] = [
   MOGG_SENTRY,
   FAITHFUL_WATCHDOG,
   ADAPTIVE_SHIMMERER,
+  SPIKE_WORKER,
+  SPIKE_FEEDER,
+  SPIKE_COLONY,
+  BARKHIDE_TROLL,
+  SALT_ROAD_QUARTERMASTERS,
+  MINDLESS_AUTOMATON,
+  SPIKE_DRONE,
+  SPIKE_SOLDIER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

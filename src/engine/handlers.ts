@@ -795,6 +795,15 @@ function activateAbility(
       return reject('illegalTap', `Those permanents cannot pay ${face.name}'s "${ability.costText}" cost.`);
     }
   }
+  // ⚠️ The REMOVE-A-COUNTER cost (D319): the def gate, then the counters must be there.
+  if (ability.removeCounterCost) {
+    if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+      return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
+    }
+    if ((card.counters[ability.removeCounterCost.kind] ?? 0) < ability.removeCounterCost.count) {
+      return reject('notCastable', `${face.name} does not have the counters its "${ability.costText}" cost removes.`);
+    }
+  }
   if (ability.requiresTap && card.tapped) return reject('alreadyTapped', `${face.name} is already tapped.`);
   if (ability.requiresUntap && !card.tapped) return reject('notUntapped', `${face.name} must be tapped for that.`);
   if (ability.sorceryOnly && !canActAtSorcerySpeed(state, intent.player)) {
@@ -1317,6 +1326,25 @@ function finishAbility(
     events.push(
       narrated(
         n`${who(state, pending.player)} ${vb(pending.player, 'sacrifices', 'sacrifice')} ${face.name}.`,
+        pending.player,
+        identity,
+      ),
+    );
+  }
+
+  // D319 - the counters come off as the cost is paid (CR 601.2h), beside the
+  // self-sacrifice: deterministic, so no chooser rode the pending.
+  if (ability.removeCounterCost) {
+    const src = state.cards[pending.card];
+    if (!src) return reject('noSuchCard', 'That permanent is not in the game.');
+    const { kind, count } = ability.removeCounterCost;
+    if ((src.counters[kind] ?? 0) < count) {
+      return reject('notCastable', `${face.name} no longer has the counters its "${ability.costText}" cost removes.`);
+    }
+    events.push({ t: 'CountersChanged', changes: [{ card: pending.card, kind, delta: -count }] });
+    events.push(
+      narrated(
+        n`${who(state, pending.player)} ${vb(pending.player, 'removes', 'remove')} ${count} ${kind} counter${count === 1 ? '' : 's'} from ${face.name}.`,
         pending.player,
         identity,
       ),

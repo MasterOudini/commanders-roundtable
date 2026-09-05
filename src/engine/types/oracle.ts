@@ -666,6 +666,13 @@ export interface ActivatedAbility {
    */
   readonly sacrificesSelf: boolean;
   /** Cost components the engine cannot charge, verbatim: `Sacrifice a creature`, `+1`. */
+  /**
+   * D319 - "Remove a +1/+1 counter from this creature": SELF only and a fixed
+   * count, deterministic, so a price the engine takes (offered only while the
+   * counters are there, and only with a registered def). "from a creature you
+   * control" is a decision and stays in `unpaidCosts`; so does "X".
+   */
+  readonly removeCounterCost: { readonly kind: string; readonly count: number } | null;
   readonly unpaidCosts: readonly string[];
   readonly payable: boolean;
   /** CR 605 — does NOT use the stack. */

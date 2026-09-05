@@ -288,7 +288,7 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     // this card there is no script, so the app will not offer the ability at
     // all, and the note says the manual route rather than promising a charge
     // that `legal.ts` refuses to make.
-    if (ability.sacrificesSelf || ability.sacrificeCost || ability.discardCost || ability.tapCost) {
+    if (ability.sacrificesSelf || ability.sacrificeCost || ability.discardCost || ability.tapCost || ability.removeCounterCost) {
       add(
         abilityNoteLabel(ability.costText),
         'pay that cost with the manual tools, then apply the effect at the table',
