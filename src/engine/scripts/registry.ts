@@ -7,6 +7,27 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { CAPASHEN_STANDARD_SCRIPT } from './cards/capashenStandard';
+import { MANTLE_OF_THE_WOLF_SCRIPT } from './cards/mantleOfTheWolf';
+import { ROGUES_GLOVES_SCRIPT } from './cards/roguesGloves';
+import { RANCOR_SCRIPT } from './cards/rancor';
+import { SLUGGISHNESS_SCRIPT } from './cards/sluggishness';
+import { WURMWEAVER_COIL_SCRIPT } from './cards/wurmweaverCoil';
+import { CESSATION_SCRIPT } from './cards/cessation';
+import { BRILLIANT_HALO_SCRIPT } from './cards/brilliantHalo';
+import { AUDACITY_SCRIPT } from './cards/audacity';
+import { STRATUS_WALK_SCRIPT } from './cards/stratusWalk';
+import { LAUNCH_SCRIPT } from './cards/launch';
+import { MARK_OF_FURY_SCRIPT } from './cards/markOfFury';
+import { ILLUMINATED_WINGS_SCRIPT } from './cards/illuminatedWings';
+import { AIR_BLADDER_SCRIPT } from './cards/airBladder';
+import { ASPECT_OF_MONGOOSE_SCRIPT } from './cards/aspectOfMongoose';
+import { DESPONDENCY_SCRIPT } from './cards/despondency';
+import { REACH_FOR_THE_SKY_SCRIPT } from './cards/reachForTheSky';
+import { GRIFFIN_GUIDE_SCRIPT } from './cards/griffinGuide';
+import { ROVER_BLADES_SCRIPT } from './cards/roverBlades';
+import { SHARD_OF_BROKEN_GLASS_SCRIPT } from './cards/shardOfBrokenGlass';
+import { ELEPHANT_GUIDE_SCRIPT } from './cards/elephantGuide';
 import { SPECTACULAR_SPIDER_MAN_SCRIPT } from './cards/spectacularSpiderMan';
 import { SCALE_OF_CHISS_GORIA_SCRIPT } from './cards/scaleOfChissGoria';
 import { AYULAS_INFLUENCE_SCRIPT } from './cards/ayulasInfluence';
@@ -3599,6 +3620,27 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CAPASHEN_STANDARD_SCRIPT,
+  MANTLE_OF_THE_WOLF_SCRIPT,
+  ROGUES_GLOVES_SCRIPT,
+  RANCOR_SCRIPT,
+  SLUGGISHNESS_SCRIPT,
+  WURMWEAVER_COIL_SCRIPT,
+  CESSATION_SCRIPT,
+  BRILLIANT_HALO_SCRIPT,
+  AUDACITY_SCRIPT,
+  STRATUS_WALK_SCRIPT,
+  LAUNCH_SCRIPT,
+  MARK_OF_FURY_SCRIPT,
+  ILLUMINATED_WINGS_SCRIPT,
+  AIR_BLADDER_SCRIPT,
+  ASPECT_OF_MONGOOSE_SCRIPT,
+  DESPONDENCY_SCRIPT,
+  REACH_FOR_THE_SKY_SCRIPT,
+  GRIFFIN_GUIDE_SCRIPT,
+  ROVER_BLADES_SCRIPT,
+  SHARD_OF_BROKEN_GLASS_SCRIPT,
+  ELEPHANT_GUIDE_SCRIPT,
   SPECTACULAR_SPIDER_MAN_SCRIPT,
   SCALE_OF_CHISS_GORIA_SCRIPT,
   AYULAS_INFLUENCE_SCRIPT,

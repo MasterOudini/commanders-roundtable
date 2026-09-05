@@ -9891,6 +9891,44 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D321): the Aura and Equipment statics (enchanted or equipped creature gets +N/+N or has a keyword - 79 and 77 leftover lines, the largest readable mass now that the leftover probe sees them, with the attach test), the costs the row maker cannot charge (a random discard on ctx.random, {Q}, snow mana, exile-from-graveyard, the remove-a-counter chooser, sacrifice-a-choice, tap-N-creatures), the untap-it payloads, the counts outside the vocabulary (other creature you control, died this turn); the mass behind - the modal choose-one, regenerate, any-colour mana, convoke, attacks each combat if able, can not be countered; the classifier learning the grammar; the modal seam; the "another" split;
       the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4fg — THE ATTACHED STATICS: an Aura's or an Equipment's static on the
+      creature it is attached to, as generated rows; 21 cards land as
+      generated rows (2026-09-05):**
+      **5,953 of 31,692 Commander-legal cards now execute completely, up
+      from 5,932 (+21).** `SHIPPED_SCRIPTS` 3,499; ledger
+      1,051 (9 rows retired by name - Auras and an Equipment the ledger held for a named gap that the attached grammar now reads whole (Capashen Standard, Mantle of the Wolf, Griffin Guide, Wurmweaver Coil, Audacity, Elephant Guide, Illuminated Wings, Reach for the Sky, Rover Blades); the pool stays empty). Fixtures 3,860 (3,732 by name + 121 tokens: the 21 rowed cards and two token pins (Elephant Guide's Elephant, Wurmweaver Coil's Wurm)). No engine
+      change. **Select pool 0.** Decisions in **D322**.
+      ⚠️ **Measured first:** the leftover probe over the database after D321: 122 blocked single-face permanents whose every leftover line the grammar reads (78 in the trigger and activated grammar, 27 with a static or combat line, 17 Auras); the lines the covered cards carry: activated self pumps 25, tokens 17, draws 11, the count CDA 9, the variable enters-with counters 9, target pumps 8, the Aura's graveyard bounce 7, enchanted keywords 6, enchanted pumps 5, enchanted pumps with a keyword 3, enchanted combat restrictions 2; the diagnostic behind the 478 incomplete Auras and Equipment with a readable static: an Equipment that attaches itself on entry 32, equipped creature deals combat damage 26, living weapon 12, the Aura's graveyard head 11, For Mirrodin! 9, umbra armor 8, the Aura's enters draw 6, and the long tail; the mass behind the candidates: a modal choose-one 276 leftover lines, regenerate 100, any-colour mana 70, enchanted creature has 55, convoke 50, attacks each combat if able 46, enters with X counters 43, can not be countered 43, enchant player 42, a look at the top card 38, start your engines 38, your second card each turn 37, the monarch 35, loot 35, enchanted land has 34, energy 33.
+      ⚠️ **The rows:** `d322/make-rows12.cjs` + `gen-oneshot12.cjs` (from D321)
+      — "Enchanted / Equipped creature gets +N/+N [and has K]" and "has K" as
+      `StaticDef`s at the P/T and ability layers that `appliesTo` the
+      permanent's `attachedTo` (Accorder's Shield's shape), "Enchanted creature
+      can't attack or block" as a `CombatDef` (Pacifism's shape), "can block
+      only creatures with flying" as its `blocksOnlyFlying` mode; the heads
+      `equippedCreatureCombatDamagePlayer` and `auraToGraveyard` (Rancor's
+      return to hand — `bounceSelf` from the graveyard like `dies`); "Sacrifice
+      this Aura / Equipment / Vehicle" as the self-sacrifice cost; an Aura row
+      carries its printed cost and is cast onto a Grizzly Bears put down before
+      turn 3, an Equipment row the Equip line's index and cost and is equipped
+      onto it; the Bears is read. TRAPS: an Aura moved onto the battlefield by
+      hand is unattached and binned by the state-based action, so an Aura
+      row's other abilities enter by casting it too; an attached-combat row
+      keeps a Coral Eel that can still attack or block or the declaration
+      prompt is skipped (game over); an enters payload on a hand-start row
+      costs the hand one card. Rows land BY NAME from the leftover probe;
+      the classifier does not learn the kinds yet, so the pool stays 0 and only
+      `complete` moves. The ledger remover reads double-quoted names now. NOT
+      this decision: the Equipment that attaches itself on entry (an enters trigger with a target and an attach event, 32), the remaining attached heads and statics (equipped creature deals combat damage payloads, the quoted abilities enchanted creatures have, enchanted land has), living weapon and For Mirrodin! (a germ token that attaches), the costs the row maker cannot charge (a random discard on ctx.random, {Q}, snow mana, exile-from-graveyard, the remove-a-counter chooser, sacrifice-a-choice, tap-N-creatures); the mass behind - the modal choose-one, regenerate, any-colour mana, convoke, attacks each combat if able, can not be countered. Refused by name: 9 rows retired by name - Auras and an Equipment the ledger held for a named gap that the attached grammar now reads whole (Capashen Standard, Mantle of the Wolf, Griffin Guide, Wurmweaver Coil, Audacity, Elephant Guide, Illuminated Wings, Reach for the Sky, Rover Blades); the pool stays empty.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips and 21 generated rows in two passes - four with the attached statics alone, then seventeen once the grammar also read the Aura's own graveyard head, the equipped-creature combat-damage head, the enchanted-creature blocks-only-fliers restriction and Sacrifice this Aura as the self-sacrifice - the 122 candidates less the 105 the row maker still refuses (eight lines outside both grammars; the costs it cannot charge - a random discard, {Q}, {S}, exile a creature card or this card or two cards from your graveyard, the remove-a-counter chooser, sacrifice another creature or artifact, a token, return a land, tap N untapped creatures; the untap-it payloads; two counts outside the vocabulary). The wave IS the landing: 21 rows - the Auras that return to hand from the graveyard (Rancor, Brilliant Halo, Mantle of the Wolf, Audacity, Launch, Aspect of Mongoose, Despondency, Reach for the Sky), the ones that hold the creature back (Sluggishness, Cessation, Air Bladder and Stratus Walk's blocks-only-fliers), the ones that draw (Capashen Standard, Illuminated Wings, Stratus Walk's enters), Mark of Fury's end-step return, Wurmweaver Coil's Wurm for a sacrifice, the Guides whose creature dies into a token (Elephant Guide, Griffin Guide), and the Equipment - Rover Blades, Shard of Broken Glass's mill on attack, Rogue's Gloves' draw when the equipped creature connects; the bot's own deck took 18 enchantments and 3 artifacts more. Tests: one generated suite per row.
+      Fixtures 3,860 · botPool artifact 286 / creature 3,313 / enchantment 277 / instant 947 / land 407 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1151, 1278, 2983, 4878, 6230] · batch.json
+      21 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,611 files, 18,519 passing / 11 skipped ·
+      500-seed gate, 6 shards, 355.4 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D322): the Equipment that attaches itself on entry (an enters trigger with a target and an attach event, 32), the remaining attached heads and statics (equipped creature deals combat damage payloads, the quoted abilities enchanted creatures have, enchanted land has), living weapon and For Mirrodin! (a germ token that attaches), the costs the row maker cannot charge (a random discard on ctx.random, {Q}, snow mana, exile-from-graveyard, the remove-a-counter chooser, sacrifice-a-choice, tap-N-creatures); the mass behind - the modal choose-one, regenerate, any-colour mana, convoke, attacks each combat if able, can not be countered; the modal seam; the "another" split;
+      the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

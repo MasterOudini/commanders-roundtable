@@ -4206,6 +4206,29 @@ const WANTED = [
   'Snapping Voidcraw',
   'Pegasus Refuge',
   'Tooth of Chiss-Goria',
+  // D322 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Griffin Guide',
+  'Shard of Broken Glass',
+  'Elephant Guide',
+  // D322 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D322 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Capashen Standard',
+  'Mantle of the Wolf',
+  "Rogue's Gloves",
+  'Rancor',
+  'Sluggishness',
+  'Wurmweaver Coil',
+  'Cessation',
+  'Brilliant Halo',
+  'Audacity',
+  'Stratus Walk',
+  'Launch',
+  'Mark of Fury',
+  'Illuminated Wings',
+  'Air Bladder',
+  'Aspect of Mongoose',
+  'Despondency',
+  'Reach for the Sky',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -4429,6 +4452,10 @@ const WANTED_TOKENS = [
   { name: 'Bear', set: 'mpr', cn: '7', key: 'BEAR_2_2_G_CREATURE_TOKEN' },
   { name: 'Citizen', set: 'tuma', cn: '1', key: 'CITIZEN_1_1_W_CREATURE_TOKEN' },
   { name: 'Pegasus', set: 'tkhc', cn: '3', key: 'PEGASUS_1_1_W_CREATURE_FLYING_TOKEN' },
+  // D322 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Elephant', set: 'tonc', cn: '14', key: 'ELEPHANT_3_3_G_CREATURE_TOKEN' },
+  // D322 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Wurm', set: 'tgk2', cn: '8', key: 'WURM_6_6_G_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

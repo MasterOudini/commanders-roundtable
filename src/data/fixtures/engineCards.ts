@@ -128988,6 +128988,720 @@ export const TOOTH_OF_CHISS_GORIA: CardData = {
   "singleImage": true
 };
 
+export const GRIFFIN_GUIDE: CardData = {
+  "scryfallId": "344c8ece-80d7-4efc-badb-985fecb11761",
+  "oracleId": "c5323a43-82de-4340-8578-b3ffcc66f8fa",
+  "name": "Griffin Guide",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Griffin Guide",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has flying.\nWhen enchanted creature dies, create a 2/2 white Griffin creature token with flying.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Jim Nelson",
+      "imageId": "344c8ece-80d7-4efc-badb-985fecb11761"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "TSR-19",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHARD_OF_BROKEN_GLASS: CardData = {
+  "scryfallId": "7a4924d7-f787-474b-beca-3b369903485c",
+  "oracleId": "c6c2f370-fc33-4907-975c-a07af3dc664d",
+  "name": "Shard of Broken Glass",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shard of Broken Glass",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Equipped creature gets +1/+0.\nWhenever equipped creature attacks, you may mill two cards.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Franz Vohwinkel",
+      "imageId": "7a4924d7-f787-474b-beca-3b369903485c"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip",
+    "Mill"
+  ],
+  "setCode": "soi",
+  "collectorNumber": "262",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELEPHANT_GUIDE: CardData = {
+  "scryfallId": "7d3a7226-f574-430e-9b8f-4e531a21540f",
+  "oracleId": "c138bd7f-8751-4e96-b54a-d5082e1a491f",
+  "name": "Elephant Guide",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elephant Guide",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +3/+3.\nWhen enchanted creature dies, create a 3/3 green Elephant creature token.",
+      "flavorText": "Nature's strength outlives the strong.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jim Nelson",
+      "imageId": "7d3a7226-f574-430e-9b8f-4e531a21540f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "jud",
+  "collectorNumber": "111",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CAPASHEN_STANDARD: CardData = {
+  "scryfallId": "16665386-405e-48c9-8c69-c21b03931c2f",
+  "oracleId": "75510429-41bb-409e-b6fe-04a8bb174c6b",
+  "name": "Capashen Standard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Capashen Standard",
+      "manaCost": "{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+1.\n{2}, Sacrifice this Aura: Draw a card.",
+      "flavorText": "Benalia has no need for peacocks to serve as symbols of vanity. The Capashens strut more proudly than any bird.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Todd Lockwood",
+      "imageId": "16665386-405e-48c9-8c69-c21b03931c2f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "uds",
+  "collectorNumber": "4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MANTLE_OF_THE_WOLF: CardData = {
+  "scryfallId": "168614ac-0126-47f6-a491-5a57490c74a7",
+  "oracleId": "cd69b2c7-2be7-4915-9d17-4fd400ace6b8",
+  "name": "Mantle of the Wolf",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mantle of the Wolf",
+      "manaCost": "{3}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +4/+4.\nWhen this Aura is put into a graveyard from the battlefield, create two 2/2 green Wolf creature tokens.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Simon Dominic",
+      "imageId": "168614ac-0126-47f6-a491-5a57490c74a7"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "thb",
+  "collectorNumber": "327",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROGUE_S_GLOVES: CardData = {
+  "scryfallId": "1c3c7d24-7d5c-49de-b9f8-35c6d6c8c52a",
+  "oracleId": "308d7868-49f9-47a3-a7b1-4b0332d610f1",
+  "name": "Rogue's Gloves",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rogue's Gloves",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Whenever equipped creature deals combat damage to a player, you may draw a card.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "Thievery requires subtlety, from the beginning of the heist to the end.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Cyril Van Der Haegen",
+      "imageId": "1c3c7d24-7d5c-49de-b9f8-35c6d6c8c52a"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "m19",
+  "collectorNumber": "243",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RANCOR: CardData = {
+  "scryfallId": "1d86ea97-0d7a-42ee-9d46-1c0dd10474c7",
+  "oracleId": "9d2d6479-531c-4ce1-b52b-00e36fa63b64",
+  "name": "Rancor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rancor",
+      "manaCost": "{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+0 and has trample.\nWhen this Aura is put into a graveyard from the battlefield, return it to its owner's hand.",
+      "flavorText": "Rancorous Ruth, Malefic Maud, and Irate Ida formed the core of Maud's Muggers, Freeside's most terrifying villains.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Andrea Piparo",
+      "imageId": "1d86ea97-0d7a-42ee-9d46-1c0dd10474c7"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "pip",
+  "collectorNumber": "733",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLUGGISHNESS: CardData = {
+  "scryfallId": "2ba91431-3fcd-4b44-ae7b-a69eb18efd5f",
+  "oracleId": "39eb4062-68a0-4f64-a9cc-79be87fd8173",
+  "name": "Sluggishness",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sluggishness",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature can't block.\nWhen this Aura is put into a graveyard from the battlefield, return it to its owner's hand.",
+      "flavorText": "Vark decided to lie down and think of a good excuse to quit working.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "2ba91431-3fcd-4b44-ae7b-a69eb18efd5f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "ulg",
+  "collectorNumber": "92",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WURMWEAVER_COIL: CardData = {
+  "scryfallId": "37a71160-aa29-4662-8d7b-590771b42635",
+  "oracleId": "83419229-c266-4022-8297-d1b05ec5ee20",
+  "name": "Wurmweaver Coil",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wurmweaver Coil",
+      "manaCost": "{4}{G}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant green creature\nEnchanted creature gets +6/+6.\n{G}{G}{G}, Sacrifice this Aura: Create a 6/6 green Wurm creature token.",
+      "flavorText": "Some use magic to spy through walls. Others use it to crush them.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mitch Cotie",
+      "imageId": "37a71160-aa29-4662-8d7b-590771b42635"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "rvr",
+  "collectorNumber": "161",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CESSATION: CardData = {
+  "scryfallId": "3a113f0c-8249-427b-979b-10898ec66a3a",
+  "oracleId": "a8b3a35e-0172-4f7b-b50f-571e59d7ca5f",
+  "name": "Cessation",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cessation",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature can't attack.\nWhen this Aura is put into a graveyard from the battlefield, return it to its owner's hand.",
+      "flavorText": "\"The face of Light will shine upon them, and they will know war no more.\"\n—*Song of All*, canto 918",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "3a113f0c-8249-427b-979b-10898ec66a3a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "ulg",
+  "collectorNumber": "4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BRILLIANT_HALO: CardData = {
+  "scryfallId": "3d454961-1ab3-442b-935d-68c25b56aea0",
+  "oracleId": "8f68f6d5-1953-4ccd-8af0-7d0a69139556",
+  "name": "Brilliant Halo",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Brilliant Halo",
+      "manaCost": "{1}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+2.\nWhen this Aura is put into a graveyard from the battlefield, return it to its owner's hand.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "3d454961-1ab3-442b-935d-68c25b56aea0"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "usg",
+  "collectorNumber": "5",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AUDACITY: CardData = {
+  "scryfallId": "40b0813a-38cf-4a07-81d6-91d24af8b549",
+  "oracleId": "4eb8d877-ee46-4bbe-99da-fee9e238ca58",
+  "name": "Audacity",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Audacity",
+      "manaCost": "{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+0 and has trample. (It can deal excess combat damage to the player or planeswalker it's attacking.)\nWhen this Aura is put into a graveyard from the battlefield, draw a card.",
+      "flavorText": "Bravery outlives the brave.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Rudy Siswanto",
+      "imageId": "40b0813a-38cf-4a07-81d6-91d24af8b549"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "bro",
+  "collectorNumber": "169",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STRATUS_WALK: CardData = {
+  "scryfallId": "44744725-6ba7-40bd-b25b-788a1032ecf4",
+  "oracleId": "eda37caa-d676-460a-804b-3ba9d8a8d044",
+  "name": "Stratus Walk",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stratus Walk",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, draw a card.\nEnchanted creature has flying. (It can't be blocked except by creatures with flying or reach.)\nEnchanted creature can block only creatures with flying.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Aaron Miller",
+      "imageId": "44744725-6ba7-40bd-b25b-788a1032ecf4"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "bng",
+  "collectorNumber": "52",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LAUNCH: CardData = {
+  "scryfallId": "58f78667-b3ab-44af-89df-9e9332dc5485",
+  "oracleId": "9e3b373f-05f5-44df-9568-bd1f8039aa54",
+  "name": "Launch",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Launch",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has flying.\nWhen this Aura is put into a graveyard from the battlefield, return it to its owner's hand.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Val Mayerik",
+      "imageId": "58f78667-b3ab-44af-89df-9e9332dc5485"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "usg",
+  "collectorNumber": "82",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MARK_OF_FURY: CardData = {
+  "scryfallId": "5b21b2f4-a05d-477b-8a39-632f7ff7f5f5",
+  "oracleId": "1c350891-8810-4c14-b8ea-84486864637b",
+  "name": "Mark of Fury",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mark of Fury",
+      "manaCost": "{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has haste.\nAt the beginning of the end step, return this Aura to its owner's hand.",
+      "flavorText": "Many Keldon warriors bear the mark of intentional insanity.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Thomas M. Baxa",
+      "imageId": "5b21b2f4-a05d-477b-8a39-632f7ff7f5f5"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "uds",
+  "collectorNumber": "93",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ILLUMINATED_WINGS: CardData = {
+  "scryfallId": "7f98e703-a0d3-497f-840a-aa026b02d47f",
+  "oracleId": "7a22389a-34e7-4726-a551-f6fbc225cefe",
+  "name": "Illuminated Wings",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Illuminated Wings",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has flying.\n{2}, Sacrifice this Aura: Draw a card.",
+      "flavorText": "For a moment, Urza thought not of war and destruction, but of the freedom of the skies.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Jim Nelson",
+      "imageId": "7f98e703-a0d3-497f-840a-aa026b02d47f"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "uds",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AIR_BLADDER: CardData = {
+  "scryfallId": "a7363c6f-53a3-4f41-b451-8120bc24f1ee",
+  "oracleId": "25c8a3b0-c393-4fc6-a373-808cd8e9850c",
+  "name": "Air Bladder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Air Bladder",
+      "manaCost": "{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has flying.\nEnchanted creature can block only creatures with flying.",
+      "flavorText": "Random mutations among Rootwater merfolk were common—and disturbing.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Donato Giancola",
+      "imageId": "a7363c6f-53a3-4f41-b451-8120bc24f1ee"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "nem",
+  "collectorNumber": "28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ASPECT_OF_MONGOOSE: CardData = {
+  "scryfallId": "b3eb61f4-627b-4f42-85aa-eb676a035fbd",
+  "oracleId": "dcc55415-216e-4e18-83d6-43f301359f84",
+  "name": "Aspect of Mongoose",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aspect of Mongoose",
+      "manaCost": "{1}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has shroud. (It can't be the target of spells or abilities.)\nWhen this Aura is put into a graveyard from the battlefield, return it to its owner's hand.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dave Dorman",
+      "imageId": "b3eb61f4-627b-4f42-85aa-eb676a035fbd"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "tsp",
+  "collectorNumber": "191",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DESPONDENCY: CardData = {
+  "scryfallId": "d25a67dd-baeb-49e6-ba35-61ff0e2ed318",
+  "oracleId": "a68ac1ba-f51e-446c-abf0-7a2bd4d65a8c",
+  "name": "Despondency",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Despondency",
+      "manaCost": "{1}{B}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets -2/-0.\nWhen this Aura is put into a graveyard from the battlefield, return it to its owner's hand.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "D. Alexander Gregory",
+      "imageId": "d25a67dd-baeb-49e6-ba35-61ff0e2ed318"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "USG-129",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REACH_FOR_THE_SKY: CardData = {
+  "scryfallId": "eb871985-a11b-4dfe-b0e3-898888c86277",
+  "oracleId": "68930fb6-d833-40cf-8917-1a1bf60edbe3",
+  "name": "Reach for the Sky",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reach for the Sky",
+      "manaCost": "{3}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nEnchanted creature gets +3/+2 and has reach.\nWhen this Aura is put into a graveyard from the battlefield, draw a card.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Villarrte",
+      "imageId": "eb871985-a11b-4dfe-b0e3-898888c86277"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "otj",
+  "collectorNumber": "178",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -133046,6 +133760,74 @@ export const PEGASUS_1_1_W_CREATURE_FLYING_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const ELEPHANT_3_3_G_CREATURE_TOKEN: CardData = {
+  "scryfallId": "0305cc06-f0c2-4ac1-8717-9720cb97d269",
+  "oracleId": "079c46cc-feb0-4998-8593-c8b739afdb82",
+  "name": "Elephant",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Elephant",
+      "manaCost": "",
+      "typeLine": "Token Creature — Elephant",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Lars Grant-West",
+      "imageId": "0305cc06-f0c2-4ac1-8717-9720cb97d269"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tonc",
+  "collectorNumber": "14",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const WURM_6_6_G_CREATURE_TOKEN: CardData = {
+  "scryfallId": "1f5a1c01-a461-495e-87cc-f2202c3f349a",
+  "oracleId": "46a55586-cc9a-443c-b458-e628afc3c587",
+  "name": "Wurm",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Wurm",
+      "manaCost": "",
+      "typeLine": "Token Creature — Wurm",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "6",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mitch Cotie",
+      "imageId": "1f5a1c01-a461-495e-87cc-f2202c3f349a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tgk2",
+  "collectorNumber": "8",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -136767,6 +137549,26 @@ export const ENGINE_CARDS: CardData[] = [
   SNAPPING_VOIDCRAW,
   PEGASUS_REFUGE,
   TOOTH_OF_CHISS_GORIA,
+  GRIFFIN_GUIDE,
+  SHARD_OF_BROKEN_GLASS,
+  ELEPHANT_GUIDE,
+  CAPASHEN_STANDARD,
+  MANTLE_OF_THE_WOLF,
+  ROGUE_S_GLOVES,
+  RANCOR,
+  SLUGGISHNESS,
+  WURMWEAVER_COIL,
+  CESSATION,
+  BRILLIANT_HALO,
+  AUDACITY,
+  STRATUS_WALK,
+  LAUNCH,
+  MARK_OF_FURY,
+  ILLUMINATED_WINGS,
+  AIR_BLADDER,
+  ASPECT_OF_MONGOOSE,
+  DESPONDENCY,
+  REACH_FOR_THE_SKY,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -136886,4 +137688,6 @@ export const ENGINE_CARDS: CardData[] = [
   BEAR_2_2_G_CREATURE_TOKEN,
   CITIZEN_1_1_W_CREATURE_TOKEN,
   PEGASUS_1_1_W_CREATURE_FLYING_TOKEN,
+  ELEPHANT_3_3_G_CREATURE_TOKEN,
+  WURM_6_6_G_CREATURE_TOKEN,
 ];
