@@ -7,6 +7,48 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SPECTACULAR_SPIDER_MAN_SCRIPT } from './cards/spectacularSpiderMan';
+import { SCALE_OF_CHISS_GORIA_SCRIPT } from './cards/scaleOfChissGoria';
+import { AYULAS_INFLUENCE_SCRIPT } from './cards/ayulasInfluence';
+import { FURNACE_HELLKITE_SCRIPT } from './cards/furnaceHellkite';
+import { WHIPCORDER_SCRIPT } from './cards/whipcorder';
+import { ABANDONED_AIR_TEMPLE_SCRIPT } from './cards/abandonedAirTemple';
+import { CASTLE_EMBERETH_SCRIPT } from './cards/castleEmbereth';
+import { ICATIAN_CRIER_SCRIPT } from './cards/icatianCrier';
+import { SNAPPING_VOIDCRAW_SCRIPT } from './cards/snappingVoidcraw';
+import { PEGASUS_REFUGE_SCRIPT } from './cards/pegasusRefuge';
+import { TOOTH_OF_CHISS_GORIA_SCRIPT } from './cards/toothOfChissGoria';
+import { ENCHANTED_CARRIAGE_SCRIPT } from './cards/enchantedCarriage';
+import { DROMAD_PUREBRED_SCRIPT } from './cards/dromadPurebred';
+import { THOUGHT_MONITOR_SCRIPT } from './cards/thoughtMonitor';
+import { HULLDRIFTER_SCRIPT } from './cards/hulldrifter';
+import { HERO_OF_THE_GAMES_SCRIPT } from './cards/heroOfTheGames';
+import { BROODSTAR_SCRIPT } from './cards/broodstar';
+import { DEBRIS_BEETLE_SCRIPT } from './cards/debrisBeetle';
+import { BOMAT_BAZAAR_BARGE_SCRIPT } from './cards/bomatBazaarBarge';
+import { IRREGULAR_COHORT_SCRIPT } from './cards/irregularCohort';
+import { HYSTRODON_SCRIPT } from './cards/hystrodon';
+import { RIBSKIFF_SCRIPT } from './cards/ribskiff';
+import { MONASTERY_MENTOR_SCRIPT } from './cards/monasteryMentor';
+import { DEFENDER_OF_THE_ORDER_SCRIPT } from './cards/defenderOfTheOrder';
+import { MASTER_OF_PEARLS_SCRIPT } from './cards/masterOfPearls';
+import { S_HIELDHELICARRIER_SCRIPT } from './cards/sHIELDHelicarrier';
+import { MYSTIC_OF_THE_HIDDEN_WAY_SCRIPT } from './cards/mysticOfTheHiddenWay';
+import { MAGITEK_ARMOR_SCRIPT } from './cards/magitekArmor';
+import { TURTLE_BLIMP_SCRIPT } from './cards/turtleBlimp';
+import { GRINNING_DEMON_SCRIPT } from './cards/grinningDemon';
+import { PALADIN_OF_PREDATION_SCRIPT } from './cards/paladinOfPredation';
+import { HERO_OF_THE_WINDS_SCRIPT } from './cards/heroOfTheWinds';
+import { HERO_OF_THE_PRIDE_SCRIPT } from './cards/heroOfThePride';
+import { VELOHEART_BIKE_SCRIPT } from './cards/veloheartBike';
+import { HERO_OF_THE_NYXBORN_SCRIPT } from './cards/heroOfTheNyxborn';
+import { SALT_ROAD_PACKBEAST_SCRIPT } from './cards/saltRoadPackbeast';
+import { MIGRATING_KETRADON_SCRIPT } from './cards/migratingKetradon';
+import { ASCENDING_AVEN_SCRIPT } from './cards/ascendingAven';
+import { CHARGING_SLATEBACK_SCRIPT } from './cards/chargingSlateback';
+import { MISTMEADOW_COUNCIL_SCRIPT } from './cards/mistmeadowCouncil';
+import { BLISTERING_FIRECAT_SCRIPT } from './cards/blisteringFirecat';
+import { RUMBLEWEED_SCRIPT } from './cards/rumbleweed';
 import { SATYR_HOPLITE_SCRIPT } from './cards/satyrHoplite';
 import { PHALANX_LEADER_SCRIPT } from './cards/phalanxLeader';
 import { TRITON_FORTUNE_HUNTER_SCRIPT } from './cards/tritonFortuneHunter';
@@ -3557,6 +3599,48 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SPECTACULAR_SPIDER_MAN_SCRIPT,
+  SCALE_OF_CHISS_GORIA_SCRIPT,
+  AYULAS_INFLUENCE_SCRIPT,
+  FURNACE_HELLKITE_SCRIPT,
+  WHIPCORDER_SCRIPT,
+  ABANDONED_AIR_TEMPLE_SCRIPT,
+  CASTLE_EMBERETH_SCRIPT,
+  ICATIAN_CRIER_SCRIPT,
+  SNAPPING_VOIDCRAW_SCRIPT,
+  PEGASUS_REFUGE_SCRIPT,
+  TOOTH_OF_CHISS_GORIA_SCRIPT,
+  ENCHANTED_CARRIAGE_SCRIPT,
+  DROMAD_PUREBRED_SCRIPT,
+  THOUGHT_MONITOR_SCRIPT,
+  HULLDRIFTER_SCRIPT,
+  HERO_OF_THE_GAMES_SCRIPT,
+  BROODSTAR_SCRIPT,
+  DEBRIS_BEETLE_SCRIPT,
+  BOMAT_BAZAAR_BARGE_SCRIPT,
+  IRREGULAR_COHORT_SCRIPT,
+  HYSTRODON_SCRIPT,
+  RIBSKIFF_SCRIPT,
+  MONASTERY_MENTOR_SCRIPT,
+  DEFENDER_OF_THE_ORDER_SCRIPT,
+  MASTER_OF_PEARLS_SCRIPT,
+  S_HIELDHELICARRIER_SCRIPT,
+  MYSTIC_OF_THE_HIDDEN_WAY_SCRIPT,
+  MAGITEK_ARMOR_SCRIPT,
+  TURTLE_BLIMP_SCRIPT,
+  GRINNING_DEMON_SCRIPT,
+  PALADIN_OF_PREDATION_SCRIPT,
+  HERO_OF_THE_WINDS_SCRIPT,
+  HERO_OF_THE_PRIDE_SCRIPT,
+  VELOHEART_BIKE_SCRIPT,
+  HERO_OF_THE_NYXBORN_SCRIPT,
+  SALT_ROAD_PACKBEAST_SCRIPT,
+  MIGRATING_KETRADON_SCRIPT,
+  ASCENDING_AVEN_SCRIPT,
+  CHARGING_SLATEBACK_SCRIPT,
+  MISTMEADOW_COUNCIL_SCRIPT,
+  BLISTERING_FIRECAT_SCRIPT,
+  RUMBLEWEED_SCRIPT,
   SATYR_HOPLITE_SCRIPT,
   PHALANX_LEADER_SCRIPT,
   TRITON_FORTUNE_HUNTER_SCRIPT,

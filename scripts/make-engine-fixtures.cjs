@@ -4163,6 +4163,49 @@ const WANTED = [
   'Setessan Oathsworn',
   // D320 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
   'Giant Growth',
+  // D321 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Enchanted Carriage',
+  'Dromad Purebred',
+  'Thought Monitor',
+  'Hulldrifter',
+  'Hero of the Games',
+  'Broodstar',
+  'Debris Beetle',
+  'Bomat Bazaar Barge',
+  'Irregular Cohort',
+  'Hystrodon',
+  'Ribskiff',
+  'Defender of the Order',
+  'Master of Pearls',
+  'S.H.I.E.L.D. Helicarrier',
+  'Mystic of the Hidden Way',
+  'Magitek Armor',
+  'Turtle Blimp',
+  'Grinning Demon',
+  'Paladin of Predation',
+  'Hero of the Winds',
+  'Hero of the Pride',
+  'Veloheart Bike',
+  'Hero of the Nyxborn',
+  'Salt Road Packbeast',
+  'Migrating Ketradon',
+  'Ascending Aven',
+  'Charging Slateback',
+  'Mistmeadow Council',
+  'Blistering Firecat',
+  'Rumbleweed',
+  // D321 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D321 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Scale of Chiss-Goria',
+  "Ayula's Influence",
+  'Furnace Hellkite',
+  'Whipcorder',
+  'Abandoned Air Temple',
+  'Castle Embereth',
+  'Icatian Crier',
+  'Snapping Voidcraw',
+  'Pegasus Refuge',
+  'Tooth of Chiss-Goria',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -4378,6 +4421,14 @@ const WANTED_TOKENS = [
   { name: 'Elemental', set: 'tznc', cn: '8', key: 'ELEMENTAL_2_2_G_CREATURE_TOKEN' },
   // D320 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Cat Soldier', set: 'tbng', cn: '2', key: 'CAT_SOLDIER_1_1_W_CREATURE_VIGILANCE_TOKEN' },
+  // D321 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Mouse', set: 'twoe', cn: '4', key: 'MOUSE_1_1_W_CREATURE_TOKEN' },
+  { name: 'Monk', set: 'wmom', cn: '1', key: 'MONK_1_1_W_CREATURE_PROWESS_TOKEN' },
+  { name: 'Mutant', set: 'ttmt', cn: '7', key: 'MUTANT_2_2_R_CREATURE_TOKEN' },
+  // D321 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Bear', set: 'mpr', cn: '7', key: 'BEAR_2_2_G_CREATURE_TOKEN' },
+  { name: 'Citizen', set: 'tuma', cn: '1', key: 'CITIZEN_1_1_W_CREATURE_TOKEN' },
+  { name: 'Pegasus', set: 'tkhc', cn: '3', key: 'PEGASUS_1_1_W_CREATURE_FLYING_TOKEN' },
 ];
 
 function constName(name) {

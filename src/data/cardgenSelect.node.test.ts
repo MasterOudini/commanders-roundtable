@@ -117,7 +117,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Aya of Alexandria', 'per-damage-entry trigger granularity'],
   // Discard-a-card-as-cost chooser — the hand-side sibling of the sacrifice
   // chooser (D163).
-  ["Ayula's Influence", 'discard-cost chooser'],
   // Batch 7 (D164).
   // Exile-N-cards-from-your-graveyard as a COST is a chooser over a public
   // zone nothing charges yet — the graveyard sibling of the sacrifice
@@ -168,7 +167,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dragonborn Champion', 'per-damage-entry trigger granularity'],
   ['Draugr Recruiter', 'once-per-turn trigger memory'],
   ['Dread Rider', 'exile-from-graveyard cost'],
-  ['Dromad Purebred', 'per-damage-entry trigger granularity'],
   ['Dune Diviner', 'tap-permanents cost'],
   // M6.4r (D174) — batch 16's two refusals. Ezio watches a CLASS of
   // creatures deal combat damage, so two simultaneous Assassins are two
@@ -226,7 +224,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // hand that share a colour — the discard-cost chooser's shape over a
   // hidden zone plus a constraint the prompt would have to validate.
   // `Infernal Tribute` is Hardened Tactician's NONTOKEN mirror.
-  ['Icatian Crier', 'discard-cost chooser'],
   ['Icebind Pillar', 'snow activation cost'],
   ['Illuminated Folio', 'reveal-cost chooser'],
   ['Infernal Tribute', 'token-predicate sacrifice cost'],
@@ -778,7 +775,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D232 (M6.4bu)
   ['Part Water', 'cast-time computed target count'],
   ['Patrol Signaler', 'untap-symbol activation cost'],
-  ['Pegasus Refuge', 'discard-cost chooser'],
   // D233 (M6.4bv)
   ['Pieces of the Puzzle', 'script-raised prompt'],
   ['Pinion Feast', 'bolster tie choice'],
@@ -1744,9 +1740,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Reaper of the Wilds', 'script-raised scry prompt'],
   ['Merfolk Coralsmith', 'script-raised scry prompt'],
   ['Thorn Lieutenant', 'becomes-the-target trigger'],
-  ['Castle Embereth', 'conditional enters-tapped'],
   ['Goro-Goro and Satoru', 'entered-this-turn combat-damage trigger'],
-  ['Spectacular Spider-Man', 'by-name sacrifice cost'],
 
   // D301 part B — the pool the classifier offered beyond the probe: the trigger
   // heads the generator library does not read yet, the token-beside-pump
@@ -1756,16 +1750,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dwarven Strike Force', 'random discard cost'],
   ['Glimmer Bairn', 'token-predicate sacrifice cost'],
   ['Harbin, Vanguard Aviator', 'trigger head outside the library'],
-  ['Hero of the Games', 'trigger head outside the library'],
-  ['Hero of the Pride', 'trigger head outside the library'],
-  ['Hero of the Winds', 'trigger head outside the library'],
   ['Pardic Lancer', 'random discard cost'],
   ['Wildfire Elemental', 'trigger head outside the library'],
   ['Cloudgoat Ranger', 'token trigger beside a one-shot pump (combined def)'],
   ['Flawless Maneuver', 'alternative cost'],
   ['Gateway Shade', 'Gate tap cost'],
   ['Hardened Academic', 'trigger head outside the library'],
-  ['Hero of the Nyxborn', 'token trigger beside a one-shot pump (combined def)'],
   ['Invasion Tactics', 'trigger head outside the library'],
   ['Ramosian Rally', 'alternative cost'],
   ['Saradoc, Master of Buckland', 'trigger head outside the library'],
@@ -1784,7 +1774,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D303 (M6.4en) — the counter one-shot pool: the or-typed sacrifice costs,
   // an exile-from-graveyard cost, a conditional enters-tapped replacement.
-  ['Abandoned Air Temple', 'a conditional enters-tapped replacement'],
   ['Bartolomé del Presidio', 'cost no table row charges (Sacrifice another creature or artifact)'],
   ['Hammerhead, Maggia Boss', 'cost no table row charges (Sacrifice another creature or artifact)'],
   ['Dreadmalkin', 'cost no table row charges (Sacrifice another creature or planeswalker)'],
@@ -1852,7 +1841,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hampering Snare', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Hush', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Inferno Jet', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Migrating Ketradon', 'a one-shot ETB beside an engine-run cycling line (the one-shot rows skip it next)'],
   ['Pest Control', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Pursue Glory', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Rapid Decay', 'a spell line outside the vocabulary (its cycling runs)'],
@@ -1936,7 +1924,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Lotus-Eye Mystics', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Meticulous Artisan', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Mistfire Adept', 'a creature line outside the vocabulary (its prowess runs)'],
-  ['Monastery Mentor', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Pinnacle Monk // Mystic Peak', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Pollywog Prodigy', 'a creature line outside the vocabulary (its evolve runs)'],
   ['Qasali Pridemage', 'a creature line outside the vocabulary (its exalted runs)'],
@@ -1950,16 +1937,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Aphetto Alchemist', 'an activated line outside the vocabulary (its morph runs)'],
   ['Aphetto Exterminator', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Daru Sanctifier', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
-  ['Defender of the Order', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Dwarven Blastminer', 'an activated line outside the vocabulary (its morph runs)'],
   ['Echo Tracer', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Fledgling Mawcor', 'an activated line outside the vocabulary (its morph runs)'],
   ['Gravel Slinger', 'an activated line outside the vocabulary (its morph runs)'],
   ['Grim Haruspex', 'a dies watcher over other creatures (its morph runs)'],
-  ['Grinning Demon', 'an upkeep trigger (its morph runs)'],
   ['Kolaghan Stormsinger', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Lumithread Field', 'a static anthem on a morph enchantment (its morph runs)'],
-  ['Master of Pearls', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Mistfire Weaver', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Monastery Loremaster', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Nantuko Vigilante', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
@@ -1971,7 +1955,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Venomspout Brackus', 'an activated line outside the vocabulary (its morph runs)'],
   ['Voidmage Apprentice', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Voidmage Prodigy', 'an activated line outside the vocabulary (its morph runs)'],
-  ['Whipcorder', 'an activated line outside the vocabulary (its morph runs)'],
   ['Wingbeat Warrior', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Woodcloaker', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
 
@@ -1987,12 +1970,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Gladewalker Ritualist', 'a creature line outside the vocabulary (its changeling runs)'],
   ['Grip of Desolation', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Guardian Gladewalker', 'a creature line outside the vocabulary (its changeling runs)'],
-  ['Irregular Cohort', 'a creature line outside the vocabulary (its changeling runs)'],
   ['Nameless Inversion', 'a spell line outside the vocabulary (its changeling runs)'],
   ['Oblivion Strike', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Reality Hemorrhage', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Shields of Velis Vel', 'a spell line outside the vocabulary (its changeling runs)'],
-  ['Snapping Voidcraw', 'a mana ability beside a draw the rows maker skips (its devoid runs)'],
   ['Unnatural Endurance', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Witness the End', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Kozilek\'s Return', 'a spell line outside the vocabulary (its devoid runs)'],
@@ -2000,42 +1981,28 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D311 (M6.4ev) — the crew pool: the Vehicles whose other
   // lines the vocabulary does not read yet - their crew runs.
-  ['Bomat Bazaar Barge', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Broadcast Rambler', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Burner Rocket', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Captain America\'s Motorcycle', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Careening Mine Cart', 'a combat trigger outside the vocabulary (its crew runs)'],
-  ['Enchanted Carriage', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Fire Nation Warship', 'a Vehicle line outside the vocabulary (its crew runs)'],
   ['High-Speed Hoverbike', 'an enters trigger outside the vocabulary (its crew runs)'],
-  ['Hulldrifter', 'an enters trigger outside the vocabulary (its crew runs)'],
-  ['Magitek Armor', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Rangers\' Aetherhive', 'a Vehicle line outside the vocabulary (its crew runs)'],
-  ['Ribskiff', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Rover Blades', 'a Vehicle line outside the vocabulary (its crew runs)'],
-  ['S.H.I.E.L.D. Helicarrier', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Silent Submersible', 'a combat trigger outside the vocabulary (its crew runs)'],
   ['Spotcycle Scouter', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Thopter Fabricator', 'a Vehicle line outside the vocabulary (its crew runs)'],
-  ['Turtle Blimp', 'an enters trigger outside the vocabulary (its crew runs)'],
-  ['Veloheart Bike', 'an enters trigger outside the vocabulary (its crew runs)'],
 
   // D312 (M6.4ew) — the cost-reduction pool: the carriers whose other
   // lines the vocabulary does not read yet - their reduction is priced.
   ['Academy Journeymage', 'an enters trigger outside the vocabulary (its reduction is priced)'],
   ['Allies at Last', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Blinkmoth Infusion', 'a spell line outside the vocabulary (its reduction is priced)'],
-  ['Furnace Hellkite', 'a permanent line outside the vocabulary (its reduction is priced)'],
   ['Millicent, Restless Revenant', 'a permanent line outside the vocabulary (its reduction is priced)'],
-  ['Mistmeadow Council', 'an enters trigger outside the vocabulary (its reduction is priced)'],
   ['Neonate\'s Rush', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Polliwallop', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Rebel Salvo', 'a spell line outside the vocabulary (its reduction is priced)'],
-  ['Salt Road Packbeast', 'an enters trigger outside the vocabulary (its reduction is priced)'],
-  ['Scale of Chiss-Goria', 'a permanent line outside the vocabulary (its reduction is priced)'],
   ['Slag Strider', 'a permanent line outside the vocabulary (its reduction is priced)'],
-  ['Thought Monitor', 'an enters trigger outside the vocabulary (its reduction is priced)'],
-  ['Tooth of Chiss-Goria', 'a permanent line outside the vocabulary (its reduction is priced)'],
   ['Valkyrie Aerial Unit', 'an enters trigger outside the vocabulary (its reduction is priced)'],
   ['Visions of Villainy', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Voyage Home', 'a spell line outside the vocabulary (its reduction is priced)'],

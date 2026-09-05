@@ -282,7 +282,10 @@ export function parseActivatedAbilities(
       // (D159). "Sacrifice a creature" is a decision and stays unpaid, exactly
       // the ward distinction D68 drew. ⚠️ Chargeable is not offerable — see
       // `ActivatedAbility.sacrificesSelf` and `legal.ts`'s def gate.
-      if (/^sacrifice this [a-z]+$/i.test(part.trim())) {
+      // D321 - "Sacrifice this creature" on a newer printing, "Sacrifice Spectacular
+      // Spider-Man" on an older one: the same deterministic price.
+      const sacSelfAlt = selfName ? '|' + selfName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') : '';
+      if (new RegExp('^sacrifice (?:this [a-z]+' + sacSelfAlt + ')$', 'i').test(part.trim())) {
         sacrificesSelf = true;
         continue;
       }

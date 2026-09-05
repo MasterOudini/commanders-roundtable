@@ -21727,3 +21727,59 @@ Fixtures 3,792 · botPool artifact 272 / creature 3,286 / enchantment 257 / inst
 **Reportables** (D320): the variable enters-with counts outside the vocabulary (other creature you control, creature that died this turn - a turn memory, a Gate, Wizards, Illusions), the remove-a-counter chooser, the tap-N-creatures and exile-from-graveyard costs, the target and damage payloads, the heads still outside (one or more cards put into a graveyard, sacrifice a token, a second card each turn); the mass behind - regenerate, any-colour mana, the modal choose-one, convoke, attacks each combat if able, can not be countered; the classifier learning the heads, the kinds and the costs; the modal seam; the "another" split; the
 by-name sacrifice cost; the remaining cost verbs; the prompt continuation
 seam; prior items stand.
+
+## D321 — M6.4ff: THE LEFTOVER ROWS — the row maker reads only the lines nothing runs; the leftover probe replaces the classifier's blocker list; 42 cards land as generated rows (2026-09-05)
+
+**5,932 of 31,692 Commander-legal cards execute completely, up from
+5,890 (+42).** SHIPPED_SCRIPTS 3,436 → **3,478**;
+REFUSED ledger 1,093 → **1,060** (33 rows retired by name - cards the ledger held for a named gap that the leftover probe and the row grammar now read whole (Broodstar, Debris Beetle, Hystrodon, the morph creatures, Rumbleweed among them); the pool stays empty). Fixtures
+3,792 → 3,838 (3,712 by name + 119 tokens: the 42 rowed cards and six token pins (Monastery Mentor's Monk, a Mouse, a Mutant, and - after the 60-seed canary caught them unpinned - the Bear, Citizen and Pegasus the activated rows make)). No engine change — the probe and the
+row maker changed what they LOOK AT, not what they read. **Select pool 0 →
+0.**
+
+**The gap, measured before it was built.** the leftover probe over the database after D320: 154 blocked single-face permanents whose every LEFTOVER line the grammar reads (114 in the trigger and activated grammar, 32 with a static or combat line, 6 Auras, 2 Equipment) - against 97 under the classifier's blocker list, which counted the engine's own lines (a mana ability, a keyword, an equip, enters tapped) as blockers; the lines the covered cards carry: activated self pumps 27, tokens 20, draws 12, target pumps 10, the count CDA 10, the variable enters-with counters 9, enters tokens 7; the mass behind them: a modal choose-one 276 leftover lines, regenerate 100, any-colour mana 70, enchanted creature has 55, convoke 50, attacks each combat if able 46, enters with X counters 43, can not be countered 43, enchant player 42, a look at the top card 38, start your engines 38, your second card each turn 37, the monarch 35, loot 35, enchanted land has 34, energy 33, does not untap 31, enter as a copy 31, threshold 31, blocks or becomes blocked by 30.
+
+**The seam, in the tooling.** Every candidate probe from D313 to D320 took a
+card's blockers from the classifier — every line whose primitive is not
+"scriptable" — which counts the lines the ENGINE runs (a mana ability, a
+keyword, an equip, "enters tapped") as blockers, so a card with a readable
+trigger beside a two-colour mana ability or a Cycling line was refused for the
+line the engine already ran; the row maker then walked every printed line and
+refused what it could not read. `engineCompleteness(card).leftover` is the
+exact list of lines nothing runs and no script claims:
+
+- `d321/zz-probe-d321c.node.test.ts`: the blockers are the leftover lines,
+  each written out with its printed line index and, for an activated line, the
+  engine's ability index (matched against the parsed face's cost and effect
+  text); the Equip line's index and text beside them.
+- `d321/make-rows11.cjs`: rows ONLY those lines, the ability index taken from
+  the probe rather than counted — every earlier skip (keyword lines, mono and
+  dual mana abilities, enters-tapped, Equip) is gone with the walk that needed
+  it. A generated script still claims every line it rows and nothing else; the
+  accounting sees the engine's lines plus the claimed ones.
+- `d321/gen-oneshot11.cjs`: unchanged from D320 but the name.
+- Rows land BY NAME; the classifier does not learn the grammar this decision,
+  so the select pool stays 0 and only `complete` moves.
+
+- **Refused by name:** 33 rows retired by name - cards the ledger held for a named gap that the leftover probe and the row grammar now read whole (Broodstar, Debris Beetle, Hystrodon, the morph creatures, Rumbleweed among them); the pool stays empty.
+- **Not this decision:** the Aura and Equipment statics (enchanted or equipped creature gets +N/+N or has a keyword - 79 and 77 leftover lines, the largest readable mass now that the leftover probe sees them, with the attach test), the costs the row maker cannot charge (a random discard on ctx.random, {Q}, snow mana, exile-from-graveyard, the remove-a-counter chooser, sacrifice-a-choice, tap-N-creatures), the untap-it payloads, the counts outside the vocabulary (other creature you control, died this turn); the mass behind - the modal choose-one, regenerate, any-colour mana, convoke, attacks each combat if able, can not be countered; the classifier learning the grammar.
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** one generated suite per row (42 suites), each ability in
+its own game.
+
+**Landed:** no auto flips and 42 generated rows in two passes - 31 trigger and static rows, then 11 activated rows once the probe parsed each face for its ability indices (the NDJSON record carries none) - the 154 candidates less the 112 the row maker still refuses (fifteen lines outside both grammars; the costs it cannot charge - a random discard, {Q}, {S}, exile a creature card or this card or two cards from your graveyard, the remove-a-counter chooser, sacrifice another creature or artifact, a token, two Goblins, return a land, tap N untapped creatures or Kithkin or Elves or Zombies, a Gate or a Desert; the untap-it payloads; two counts outside the vocabulary); the self-sacrifice piece reading the card's own name makes 139 more printed activated abilities payable (oracleParse activated:nonManaCost 5,138 -> 4,999). The first gate run failed its 60-seed canary (54 of 60 tokens named): the row maker pinned a token's printing only under a trigger, and three activated token makers shipped unpinned - the pins are added and the row maker checks activated tokens too. The wave IS the landing: 42 rows - the vehicles and artifacts whose only unread line was an enters trigger or a token maker beside an engine-run crew, cycling or mana line (Enchanted Carriage, Dromad Purebred, Thought Monitor, Hulldrifter, Bomat Bazaar Barge, Ribskiff, S.H.I.E.L.D. Helicarrier, Magitek Armor, Turtle Blimp, Veloheart Bike, Salt Road Packbeast, Migrating Ketradon), the Theros heroes (Hero of the Games, Hero of the Winds, Hero of the Pride, Hero of the Nyxborn), Monastery Mentor's Monks, the morph creatures whose face-up trigger is a pump (Hystrodon, Mystic of the Hidden Way, Ascending Aven, Charging Slateback, Blistering Firecat), Grinning Demon, Paladin of Predation, Master of Pearls, Defender of the Order, Irregular Cohort, Broodstar, Debris Beetle, Mistmeadow Council, Rumbleweed, and the activated pass - Spectacular Spider-Man's sacrifice, the Chiss-Goria pair, Ayula's Influence, Furnace Hellkite, Whipcorder, Abandoned Air Temple, Castle Embereth, Icatian Crier, Snapping Voidcraw, Pegasus Refuge; the bot's own deck took 27 creatures, 11 artifacts, 2 enchantments and 2 lands more.
+
+Fixtures 3,838 · botPool artifact 283 / creature 3,313 / enchantment 259 / instant 947 / land 407 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1160, 1288, 2993, 4888, 6240] · batch.json
+42 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,590 files, 18,415 passing / 11 skipped ·
+500-seed gate, 6 shards, 348.5 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D321): the Aura and Equipment statics (enchanted or equipped creature gets +N/+N or has a keyword - 79 and 77 leftover lines, the largest readable mass now that the leftover probe sees them, with the attach test), the costs the row maker cannot charge (a random discard on ctx.random, {Q}, snow mana, exile-from-graveyard, the remove-a-counter chooser, sacrifice-a-choice, tap-N-creatures), the untap-it payloads, the counts outside the vocabulary (other creature you control, died this turn); the mass behind - the modal choose-one, regenerate, any-colour mana, convoke, attacks each combat if able, can not be countered; the classifier learning the grammar; the modal seam; the "another" split; the
+by-name sacrifice cost; the remaining cost verbs; the prompt continuation
+seam; prior items stand.
