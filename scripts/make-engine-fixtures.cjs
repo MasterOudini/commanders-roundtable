@@ -4301,6 +4301,31 @@ const WANTED = [
   'Deep-Slumber Titan',
   'Innocence Kami',
   'Liege of the Axe',
+  // D324 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Endless One',
+  'Mikaeus, the Lunarch',
+  'Silkbind Faerie',
+  'Nimbus Swimmer',
+  'Shivan Devastator',
+  'Squad Captain',
+  'Farmstead Gleaner',
+  'Maja, Bretagard Protector',
+  'Shifting Wall',
+  'Dreg Recycler',
+  'Bartolomé del Presidio',
+  'Hammerhead, Maggia Boss',
+  'Ivy Elemental',
+  'Dreadmalkin',
+  'Lumithread Field',
+  'Acolyte of Aclazotz',
+  'Merrow Wavebreakers',
+  'Patrol Signaler',
+  'Merrow Grimeblotter',
+  'Safehold Sentry',
+  'Pterafractyl',
+  // D324 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D324 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  "Akroma's Memorial",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

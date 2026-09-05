@@ -272,7 +272,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // the return-permanent cost's third entry (D175's class).
   ['Matoya, Archon Elder', 'scry-surveil event discriminator'],
   ['Meloku the Clouded Mirror', 'return-permanent cost'],
-  ['Merrow Grimeblotter', 'untap-symbol activation cost'],
   // Wave 1 / M6.4ag (D192) — the first SpellDef batch's nine refusals.
   // Brainstorm, the scry cantrips, Electrodominance and Stinging Study all
   // need a resolve that can ASK (hand choice + ordering, scry decisions, a
@@ -774,7 +773,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Painful Truths', 'converge (cast-time mana-color memory)'],
   // D232 (M6.4bu)
   ['Part Water', 'cast-time computed target count'],
-  ['Patrol Signaler', 'untap-symbol activation cost'],
   // D233 (M6.4bv)
   ['Pieces of the Puzzle', 'script-raised prompt'],
   ['Pinion Feast', 'bolster tie choice'],
@@ -864,7 +862,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D247 (M6.4cj)
   ['Shoving Match', 'temporary non-keyword ability grant'],
   ['Show and Tell', 'script-raised prompt'],
-  ['Silkbind Faerie', 'untap-symbol activation cost'],
   ['Silverfur Partisan', 'becomes-targeted trigger'],
   ['Singe', 'UEOT color change'],
   // D248 (M6.4ck)
@@ -1723,8 +1720,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Grim Draugr', 'snow mana cost'],
   ['Hailstorm Valkyrie', 'snow mana cost'],
   ['Chilling Shade', 'snow mana cost'],
-  ['Merrow Wavebreakers', 'untap-symbol cost'],
-  ['Safehold Sentry', 'untap-symbol cost'],
   ['Duergar Mine-Captain', 'untap-symbol cost'],
   ['Frenetic Ogre', 'random discard cost'],
   ['Canyon Drake', 'random discard cost'],
@@ -1774,15 +1769,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D303 (M6.4en) — the counter one-shot pool: the or-typed sacrifice costs,
   // an exile-from-graveyard cost, a conditional enters-tapped replacement.
-  ['Bartolomé del Presidio', 'cost no table row charges (Sacrifice another creature or artifact)'],
-  ['Hammerhead, Maggia Boss', 'cost no table row charges (Sacrifice another creature or artifact)'],
-  ['Dreadmalkin', 'cost no table row charges (Sacrifice another creature or planeswalker)'],
   ['Malevolent Noble', 'cost no table row charges (Sacrifice an artifact or another creature)'],
   ['Tome Shredder', 'cost no table row charges (Exile an instant or sorcery card from your grave)'],
 
   // D303 (M6.4en) — the counter one-shot pool: the heads outside the library,
   // the per-item counters on an entering object, the costs no row charges.
-  ['Emblem of the Warmind', 'an Aura line outside the row shapes (Creatures you control have haste.)'],
   ['Ancestral Vengeance', 'an Aura line outside the row shapes (When this Aura enters, put a +N/+N counter on ta)'],
   ['Chime of Night', 'an Aura line outside the row shapes (When this Aura is put into a graveyard from the )'],
   ['Bequeathal', 'an Aura line outside the row shapes (When enchanted creature dies, you draw two cards)'],
@@ -1935,7 +1926,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Gravel Slinger', 'an activated line outside the vocabulary (its morph runs)'],
   ['Grim Haruspex', 'a dies watcher over other creatures (its morph runs)'],
   ['Kolaghan Stormsinger', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
-  ['Lumithread Field', 'a static anthem on a morph enchantment (its morph runs)'],
   ['Mistfire Weaver', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Monastery Loremaster', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Nantuko Vigilante', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],

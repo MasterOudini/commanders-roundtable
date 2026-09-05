@@ -9971,6 +9971,43 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D323): the anthem and keyword-grant statics the probe reads and the generator does not (creatures you control get +N/+N / have K), the costs the row maker cannot charge (a random discard on ctx.random, {Q}, snow mana, exile-from-graveyard, a counter from another creature, sacrifice-a-choice, tap-N-creatures), the counts outside the vocabulary (other creature you control, died this turn, a named creature); the mass behind - the modal choose-one, regenerate, any-colour mana, the quoted abilities enchanted creatures and lands have, convoke, attacks each combat if able, can not be countered, the monarch and energy, the second card and second spell each turn; the modal seam; the "another" split;
       the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4fi — THE X COUNTERS AND THE ANTHEMS: enters with X counters, the anthem
+      and keyword-grant statics, the untap-symbol cost, as generated rows;
+      22 cards land as generated rows (2026-09-05):**
+      **6,044 of 31,692 Commander-legal cards now execute completely, up
+      from 6,022 (+22).** `SHIPPED_SCRIPTS` 3,590; ledger
+      1,041 (10 rows retired by name - the untap-symbol and anthem cards the ledger held for a cost or a static the rows now read (Merrow Grimeblotter, Patrol Signaler, Silkbind Faerie, Merrow Wavebreakers, Safehold Sentry, Bartolome del Presidio, Hammerhead, Dreadmalkin, Emblem of the Warmind, Lumithread Field); the pool stays empty). Fixtures 3,953 (3,823 by name + 123 tokens: the 22 rowed cards and Akroma's Memorial, taken for the tier3 wording test; no token pin moved). No engine
+      change. **Select pool 0.** Decisions in **D324**.
+      ⚠️ **Measured first:** the leftover probe over the database after D323: 111 blocked single-face permanents whose every leftover line the grammar reads (74 in the trigger and activated grammar, 35 with a static or combat line, 2 Auras); the lines the covered cards carry: activated self pumps 25, tokens 16, the count CDA 9, self counters 9, the variable enters-with counters 9, draws 9, enters with X counters 7, target pumps 8, can not attack or block alone 5, life 4, target counters 4; across the whole blocked mass the lines this decision reads: enters with X counters 43, keyword grants 23, anthems 17; the mass behind the candidates: a modal choose-one 276 leftover lines, regenerate 100, any-colour mana with an extra cost 70, enchanted creature has 60, convoke 50, attacks each combat if able 46, can not be countered 43, enchant player 42, a look at the top card 38, start your engines 38, your second card each turn 37, the monarch 35, loot 35, enchanted land has 34, energy 33, enter as a copy 31, blocks or becomes blocked by 30, can not attack unless 28, your second spell each turn 26, the graveyard returns 25 and 25.
+      ⚠️ **The rows:** `d324/make-rows14.cjs` + `gen-oneshot14.cjs` (from D323)
+      — "~ enters with X +1/+1 counters on it" as a `ReplacementDef` on the
+      entering card (CR 614.12) reading the cast's X off the stack object the
+      spell still is (CR 608.2), cast in the test with X = 2; "Creatures you
+      control / Other creatures you control get +N/+N [and have K]" as
+      `StaticDef`s at the P/T and ability layers over the controller's
+      battlefield creatures (the Eel is read, the Cyclops is not; a row whose
+      anthem would shift another proof is refused); the `{Q}` cost the engine
+      already charged (tapped by hand first, read untapped after); "other
+      creature(s) you control" in the count vocabulary; "Sacrifice another
+      creature or artifact" charged with the Bears. TRAP: an X row moved onto
+      the battlefield by hand has no X — a 0/0 the SBA bins (Mikaeus); its
+      other abilities enter it by casting with X = 2, and a self-counter
+      proof on any enters-with row reads cnt0-relative; the tier3 wording test's
+      said-static example moved from Emblem of the Warmind (a row now) to
+      Akroma's Memorial (a fixture taken for it). Rows land BY NAME from the
+      leftover probe; the classifier does not learn the kinds yet, so the pool
+      stays 0 and only `complete` moves. NOT this decision: the mana abilities with an extra cost the engine taps but never charges (a mana ability with {1}, a sacrifice or a life payment beside the {T}: 70 any-colour lines and more), can not be countered (a static the counter effect consults, 43), the monarch (a player state the end step and combat damage read, 35), the costs the row maker cannot charge (a random discard on ctx.random, snow mana, exile-from-graveyard, a counter from another creature, tap-N-creatures), the counts outside the vocabulary (died this turn, a named creature, Gates and subtypes without a fixture), attacks or blocks alone (a declaration requirement); the mass behind - the modal choose-one, regenerate, the quoted abilities enchanted creatures and lands have, convoke, attacks each combat if able, the second card and second spell each turn. Refused by
+      name: 10 rows retired by name - the untap-symbol and anthem cards the ledger held for a cost or a static the rows now read (Merrow Grimeblotter, Patrol Signaler, Silkbind Faerie, Merrow Wavebreakers, Safehold Sentry, Bartolome del Presidio, Hammerhead, Dreadmalkin, Emblem of the Warmind, Lumithread Field); the pool stays empty.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips and 22 generated rows in one pass, one fix - the 111 candidates less the 89 the row maker still refuses (the costs it cannot charge, 65: a random discard, {S}, exile a creature card or this card or two cards from your graveyard, a +1/+1 counter from another creature, sacrifice a token, return a land, tap N untapped creatures or Kithkin or Elves or Zombies, a Gate or a Desert; 15 counts outside the vocabulary; five lines the probe reads and the generator does not - attacks or blocks alone; one historic discard; one enchanted-creature payload after the Aura was sacrificed; one self payload the test damage kills). The wave IS the landing: 22 rows - the X creatures (Endless One, Mikaeus, the Lunarch, Nimbus Swimmer, Shivan Devastator, Shifting Wall, Ivy Elemental, Pterafractyl), the untap-symbol cards (Merrow Wavebreakers, Safehold Sentry, Silkbind Faerie, Patrol Signaler, Merrow Grimeblotter, Farmstead Gleaner), the anthems (Emblem of the Warmind, Lumithread Field, Maja, Bretagard Protector), Squad Captain's count of its other creatures, Dreg Recycler's and Acolyte of Aclazotz's sacrifice of another creature or artifact, and the counter cards (Bartolome del Presidio, Hammerhead, Maggia Boss, Dreadmalkin); the bot's own deck took 20 creatures and 2 enchantments more. Tests: one generated suite per row.
+      Fixtures 3,953 · botPool artifact 312 / creature 3,341 / enchantment 314 / instant 947 / land 407 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1141, 1268, 2963, 4850, 6201] · batch.json
+      22 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,702 files, 18,952 passing / 11 skipped ·
+      500-seed gate, 6 shards, 365.4 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D324): the mana abilities with an extra cost the engine taps but never charges (a mana ability with {1}, a sacrifice or a life payment beside the {T}: 70 any-colour lines and more), can not be countered (a static the counter effect consults, 43), the monarch (a player state the end step and combat damage read, 35), the costs the row maker cannot charge (a random discard on ctx.random, snow mana, exile-from-graveyard, a counter from another creature, tap-N-creatures), the counts outside the vocabulary (died this turn, a named creature, Gates and subtypes without a fixture), attacks or blocks alone (a declaration requirement); the mass behind - the modal choose-one, regenerate, the quoted abilities enchanted creatures and lands have, convoke, attacks each combat if able, the second card and second spell each turn; the modal seam; the "another" split;
+      the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

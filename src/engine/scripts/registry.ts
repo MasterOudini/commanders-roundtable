@@ -7,6 +7,28 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ENDLESS_ONE_SCRIPT } from './cards/endlessOne';
+import { EMBLEM_OF_THE_WARMIND_SCRIPT } from './cards/emblemOfTheWarmind';
+import { MIKAEUS_THE_LUNARCH_SCRIPT } from './cards/mikaeusTheLunarch';
+import { SILKBIND_FAERIE_SCRIPT } from './cards/silkbindFaerie';
+import { NIMBUS_SWIMMER_SCRIPT } from './cards/nimbusSwimmer';
+import { SHIVAN_DEVASTATOR_SCRIPT } from './cards/shivanDevastator';
+import { SQUAD_CAPTAIN_SCRIPT } from './cards/squadCaptain';
+import { FARMSTEAD_GLEANER_SCRIPT } from './cards/farmsteadGleaner';
+import { MAJA_BRETAGARD_PROTECTOR_SCRIPT } from './cards/majaBretagardProtector';
+import { SHIFTING_WALL_SCRIPT } from './cards/shiftingWall';
+import { DREG_RECYCLER_SCRIPT } from './cards/dregRecycler';
+import { BARTOLOM_DEL_PRESIDIO_SCRIPT } from './cards/bartolomDelPresidio';
+import { HAMMERHEAD_MAGGIA_BOSS_SCRIPT } from './cards/hammerheadMaggiaBoss';
+import { IVY_ELEMENTAL_SCRIPT } from './cards/ivyElemental';
+import { DREADMALKIN_SCRIPT } from './cards/dreadmalkin';
+import { LUMITHREAD_FIELD_SCRIPT } from './cards/lumithreadField';
+import { ACOLYTE_OF_ACLAZOTZ_SCRIPT } from './cards/acolyteOfAclazotz';
+import { MERROW_WAVEBREAKERS_SCRIPT } from './cards/merrowWavebreakers';
+import { PATROL_SIGNALER_SCRIPT } from './cards/patrolSignaler';
+import { MERROW_GRIMEBLOTTER_SCRIPT } from './cards/merrowGrimeblotter';
+import { SAFEHOLD_SENTRY_SCRIPT } from './cards/safeholdSentry';
+import { PTERAFRACTYL_SCRIPT } from './cards/pterafractyl';
 import { LEONIN_BATTLEMAGE_SCRIPT } from './cards/leoninBattlemage';
 import { LURKING_ROPER_SCRIPT } from './cards/lurkingRoper';
 import { FAMISHED_PALADIN_SCRIPT } from './cards/famishedPaladin';
@@ -3689,6 +3711,28 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ENDLESS_ONE_SCRIPT,
+  EMBLEM_OF_THE_WARMIND_SCRIPT,
+  MIKAEUS_THE_LUNARCH_SCRIPT,
+  SILKBIND_FAERIE_SCRIPT,
+  NIMBUS_SWIMMER_SCRIPT,
+  SHIVAN_DEVASTATOR_SCRIPT,
+  SQUAD_CAPTAIN_SCRIPT,
+  FARMSTEAD_GLEANER_SCRIPT,
+  MAJA_BRETAGARD_PROTECTOR_SCRIPT,
+  SHIFTING_WALL_SCRIPT,
+  DREG_RECYCLER_SCRIPT,
+  BARTOLOM_DEL_PRESIDIO_SCRIPT,
+  HAMMERHEAD_MAGGIA_BOSS_SCRIPT,
+  IVY_ELEMENTAL_SCRIPT,
+  DREADMALKIN_SCRIPT,
+  LUMITHREAD_FIELD_SCRIPT,
+  ACOLYTE_OF_ACLAZOTZ_SCRIPT,
+  MERROW_WAVEBREAKERS_SCRIPT,
+  PATROL_SIGNALER_SCRIPT,
+  MERROW_GRIMEBLOTTER_SCRIPT,
+  SAFEHOLD_SENTRY_SCRIPT,
+  PTERAFRACTYL_SCRIPT,
   LEONIN_BATTLEMAGE_SCRIPT,
   LURKING_ROPER_SCRIPT,
   FAMISHED_PALADIN_SCRIPT,

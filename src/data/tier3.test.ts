@@ -147,9 +147,13 @@ describe('a permanent’s text, which the app does not run', () => {
     // below still carries the test's point.
     expect(what(C.AVACYN_ANGEL_OF_HOPE)).toEqual([]);
     // Emblem of the Warmind grants haste to your creatures - an enforced
-    // keyword, an unrun static (refused by name in D304): said. Its Enchant
-    // line is the engine's own since D304 and is not.
-    expect(what(C.EMBLEM_OF_THE_WARMIND)).toEqual(['Its ability text']);
+    // keyword, an unrun static (refused by name in D304): said - until D324
+    // rowed the anthem. Silent now, like Avacyn.
+    expect(what(C.EMBLEM_OF_THE_WARMIND)).toEqual([]);
+    // Akroma's Memorial grants five enforced keywords AND protection from two
+    // colours - a grant the row grammar does not read, so nothing runs the
+    // static and the note says it. This is the test's point now.
+    expect(what(C.AKROMA_S_MEMORIAL)).toEqual(['Its ability text']);
     // Lightning Greaves ships since D305: `Equip {0}` is the engine's own
     // activated ability and the haste-and-shroud static a row - silent.
     expect(what(C.LIGHTNING_GREAVES)).toEqual([]);
