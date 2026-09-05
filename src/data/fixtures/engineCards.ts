@@ -126234,6 +126234,288 @@ export const BATTLEFIELD_PERCHER: CardData = {
   "singleImage": true
 };
 
+export const RECONNAISSANCE_MISSION: CardData = {
+  "scryfallId": "009f7603-a6a3-461b-bc73-810db1ab2898",
+  "oracleId": "11bf211c-95a3-4e7f-bd08-13f979d54e73",
+  "name": "Reconnaissance Mission",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reconnaissance Mission",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever a creature you control deals combat damage to a player, you may draw a card.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+      "flavorText": "\"We've reached the xenos HQ. Transmitting coordinates now.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Billy Christian",
+      "imageId": "009f7603-a6a3-461b-bc73-810db1ab2898"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Cycling"
+  ],
+  "setCode": "40k",
+  "collectorNumber": "193",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TAUREAN_MAULER: CardData = {
+  "scryfallId": "05ed6360-0208-4b93-8d1f-a77d786282c3",
+  "oracleId": "fd5ee26c-cc54-4dc0-b611-5cda14354a5e",
+  "name": "Taurean Mauler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Taurean Mauler",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Shapeshifter",
+      "oracleText": "Changeling (This card is every creature type.)\nWhenever an opponent casts a spell, you may put a +1/+1 counter on this creature.",
+      "flavorText": "The power of a waterfall. The fury of an avalanche. The intellect of a gale-force wind.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dominick Domingo",
+      "imageId": "05ed6360-0208-4b93-8d1f-a77d786282c3"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Changeling"
+  ],
+  "setCode": "arc",
+  "collectorNumber": "49",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AGENT_13_SHARON_CARTER: CardData = {
+  "scryfallId": "107cb521-9806-47dc-92d8-b43112b63caa",
+  "oracleId": "ddf7201a-6672-416d-be6b-202dafbeccab",
+  "name": "Agent 13, Sharon Carter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Agent 13, Sharon Carter",
+      "manaCost": "{2}{W}",
+      "typeLine": "Legendary Creature — Human Spy Hero",
+      "oracleText": "Whenever a creature you control attacks alone, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": "\"Coulson, I'm in, but the intel was wrong. No, no extraction. This is bigger than we thought!\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Michael MacRae",
+      "imageId": "107cb521-9806-47dc-92d8-b43112b63caa"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "msh",
+  "collectorNumber": "1",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MANAGORGER_HYDRA: CardData = {
+  "scryfallId": "11944685-56b1-42e4-b9b8-fc468c81e9a6",
+  "oracleId": "b3f2265b-dd65-4b74-8b74-35ee0b147617",
+  "name": "Managorger Hydra",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Managorger Hydra",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Hydra",
+      "oracleText": "Trample\nWhenever a player casts a spell, put a +1/+1 counter on this creature.",
+      "flavorText": "\"Whoever said two heads are better than one never met a hydra before.\"\n—Crocodile Jackson, legendary cowboy",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Crocodile Jackson",
+      "imageId": "11944685-56b1-42e4-b9b8-fc468c81e9a6"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "sld",
+  "collectorNumber": "306",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLIND_CREEPER: CardData = {
+  "scryfallId": "2c509d5a-e47d-47dd-997d-dbe0e2767dea",
+  "oracleId": "02d4c3a8-c733-45c1-bca5-51eed47c9230",
+  "name": "Blind Creeper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blind Creeper",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Zombie Beast",
+      "oracleText": "Whenever a player casts a spell, this creature gets -1/-1 until end of turn.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "2c509d5a-e47d-47dd-997d-dbe0e2767dea"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "psal",
+  "collectorNumber": "F29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MOGG_SENTRY: CardData = {
+  "scryfallId": "56100dd7-250d-4a3a-b719-b25fc73873dc",
+  "oracleId": "ac6f490b-6cf7-4afc-910e-4c8b51fcb2de",
+  "name": "Mogg Sentry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mogg Sentry",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Goblin Warrior",
+      "oracleText": "Whenever an opponent casts a spell, this creature gets +2/+2 until end of turn.",
+      "flavorText": "Nothing makes a mogg madder than having to wake up.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "56100dd7-250d-4a3a-b719-b25fc73873dc"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "204",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FAITHFUL_WATCHDOG: CardData = {
+  "scryfallId": "b9afac99-a094-41a8-8323-90dec29691c4",
+  "oracleId": "139fb542-89fd-4b9e-87e6-ec925bcca93a",
+  "name": "Faithful Watchdog",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Faithful Watchdog",
+      "manaCost": "{G}{W}",
+      "typeLine": "Creature — Dog",
+      "oracleText": "Vigilance\nThis creature enters with three +1/+1 counters on it.",
+      "flavorText": "Though its official designation was Third Battalion Patrol Hound 7, the soldiers dubbed their new companion Lord Fancy-Paws.",
+      "power": "0",
+      "toughness": "0",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Samuel Perin",
+      "imageId": "b9afac99-a094-41a8-8323-90dec29691c4"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "mh3",
+  "collectorNumber": "185",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ADAPTIVE_SHIMMERER: CardData = {
+  "scryfallId": "d8a2e243-e446-46c6-8a37-e26620951c41",
+  "oracleId": "8003ca2d-0c1d-47c1-bcd1-4609615c7a82",
+  "name": "Adaptive Shimmerer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Adaptive Shimmerer",
+      "manaCost": "{5}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "Flash\nThis creature enters with three +1/+1 counters on it.",
+      "flavorText": "\"You sure you want to see what emerges? You might not like it. It definitely won't like you.\"\n—Kinnan, bonder prodigy",
+      "power": "0",
+      "toughness": "0",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jason Felix",
+      "imageId": "d8a2e243-e446-46c6-8a37-e26620951c41"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 5,
+  "keywords": [
+    "Flash"
+  ],
+  "setCode": "iko",
+  "collectorNumber": "1",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -133691,6 +133973,14 @@ export const ENGINE_CARDS: CardData[] = [
   HARMONIOUS_GROVESTRIDER,
   ICECAVE_CRASHER,
   BATTLEFIELD_PERCHER,
+  RECONNAISSANCE_MISSION,
+  TAUREAN_MAULER,
+  AGENT_13_SHARON_CARTER,
+  MANAGORGER_HYDRA,
+  BLIND_CREEPER,
+  MOGG_SENTRY,
+  FAITHFUL_WATCHDOG,
+  ADAPTIVE_SHIMMERER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -21524,3 +21524,78 @@ Fixtures 3,753 · botPool artifact 272 / creature 3,250 / enchantment 256 / inst
 **Reportables** (D317): the enters-with-counters replacement (83 lines; the ReplacementDef seam has no shipped script yet), the Aura and Equipment statics (enchanted or equipped creature gets +N/+N or has a keyword, with the attach test), can not attack or block alone, the count phrases outside the vocabulary (Zombies plus Zombie cards, the chosen colour, creatures named ~), the costs the row maker cannot charge, the target effects and damage payloads; the mass behind - regenerate, any-colour mana, the modal choose-one, convoke, attacks each combat if able, can not be countered; the classifier learning the kinds; the modal seam; the "another" split; the
 by-name sacrifice cost; the remaining cost verbs; the prompt continuation
 seam; prior items stand.
+
+## D318 — M6.4fc: THE TRIGGER HEADS, PART 5 — eight more heads in the one-shot generator, and the entering card's own replacements (CR 614.12) for the enters-with-counters rows; 8 cards land as generated rows (2026-09-05)
+
+**5,861 of 31,692 Commander-legal cards execute completely, up from
+5,853 (+8).** SHIPPED_SCRIPTS 3,399 → **3,407**;
+REFUSED ledger 1,093 → **1,093** (none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty). Fixtures
+3,753 → 3,761 (3,642 by name + 112 tokens: the 8 rowed cards; no token pin (Agent 13's Clue was already pinned)). ONE engine change, eleven lines in the
+replacement funnel (below). **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** the D318 candidate probe over the database after D317: 80 blocked single-face permanents whose every unread line the widened grammar reads - 39 with a static or combat line, 41 within the D316 grammar (the new heads' lines among them: a creature you control deals combat damage to a player 3, a player casts a spell 3, an opponent casts a spell 2, is dealt damage 1, attacks or blocks 1, a creature you control attacks alone 1; enters with counters 15, the count CDA 10, can not attack or block alone 5); the mass behind them: regenerate 99, any-colour mana 80, a modal choose-one 64, enchanted creature has 55, convoke 50, attacks each combat if able 46, can not be countered 46, enters with X counters 45, when you cast this spell 42, enchant player 42, heroic 41, a Spirit or Arcane spell 40, a look at the top card 39, loot 39, start your engines 38, the monarch 36, enchanted land has 35, energy 33, equipped creature attacks 32, threshold 32.
+
+**The rows.** D317's candidate probe ranked the heads still outside the
+library; eight of them are the engine's own events with no new plumbing:
+
+- `d318/make-rows8.cjs`: "Whenever this creature attacks and isn't blocked"
+  (`BlockersDeclared` read against the combat record: it attacked, no block
+  names it), "deals combat damage to a creature" (`CombatDamageDealt` with a
+  card target), "Whenever a creature you control deals combat damage to a
+  player", "Whenever this creature is dealt damage" — TWO defs on one printed
+  line, one over `CombatDamageDealt` and one over `DamageDealt`, because the
+  engine emits combat and noncombat damage as two events — "attacks or blocks"
+  as two defs (an attacks def and a blocks def), "Whenever a creature you
+  control attacks alone", "Whenever a player casts a spell" and "Whenever an
+  opponent casts a spell" (`SpellCast`). A self payload under a damage head
+  needs the creature to survive the test's damage: the row maker refuses it
+  below toughness 2 (the blocking 1/1 Goblin) or 4 (the Lightning Bolt).
+- `d318/gen-oneshot8.cjs`: the not-blocked row attacks and the opponent
+  declares no block; the two damage rows attack into the opponent's 1/1 Goblin
+  (combat damage both ways) or take a Lightning Bolt held in hand from the
+  baseline on; the opponent casts a Bears of its own in its fourth-turn main
+  phase; the player-casts head reuses the cast-a-spell flow, the
+  creature-attacks-alone head the attacks-alone flow, the creature-combat-
+  damage head the combat-damage flow.
+- **The seam — CR 614.12.** A permanent's OWN replacement effects that modify
+  how it enters ("enters with two +1/+1 counters") apply from its own
+  abilities as it enters, as though it were already on the battlefield. The
+  funnel (`applicableTo`, `src/engine/triggers.ts`) offered an event only to
+  the battlefield's permanents, so a `ReplacementDef` on the entering card
+  itself never ran — the reason no shipped script carried one. It now offers a
+  `CardsMoved` event to the entering cards' own defs too (after the
+  battlefield's, in move order; the same `used` key keeps each def to one
+  application, CR 614.5). Proven in `src/engine/entersWith.test.ts` on a
+  testing script for Grizzly Bears (cast, it is a 4/4 with two counters at
+  once; a Bears already there is not re-offered; the replay hash holds).
+- The row kind on it: "~ enters with N +1/+1 counters on it" is a
+  `ReplacementDef` (the same `CardsMoved` plus a `CountersChanged`); its test
+  holds the card in hand and CASTS it for its printed cost (X, hybrid and
+  Phyrexian costs are refused). The Spike family beside it still waits on the
+  remove-a-counter cost verb.
+- Rows land BY NAME from the candidate probe; the classifier does not learn
+  the heads this decision, so the select pool stays 0 and only `complete`
+  moves.
+
+- **Refused by name:** none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty.
+- **Not this decision:** the remove-a-counter cost verb (the Spike family, ten rows waiting, and the ledger's eight), the variable enters-with-X counters (45), the tap-N-creatures and exile-from-graveyard costs, the target effects and damage payloads, the heads still outside (one or more cards put into a graveyard, sacrifice a token, a second card each turn); the mass behind - regenerate, any-colour mana, the modal choose-one, convoke, attacks each combat if able, can not be countered; the classifier learning the kinds.
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** one generated suite per row (8 suites), each ability in
+its own game; the generator's own heads proven by the rows that use them.
+
+**Landed:** no auto flips (the engine change offers a def no shipped script carried) and 8 generated rows - the 80 candidates less the 72 the row maker still refuses (seventeen lines outside both grammars - enters with X counters, morph, can not attack or block alone, toxic, a cost line, an anthem; eleven remove-a-counter costs, the Spike family; the tap-N-creatures, exile-from-graveyard, sacrifice-a-choice and return-a-land costs; the target effects and damage payloads; eight heads outside the library; the untap-it, Lander, surveil and scry payloads). The wave IS the landing: 8 rows - Reconnaissance Mission's draw when a creature you control connects, Taurean Mauler's and Mogg Sentry's answers to an opponent's spell, Managorger Hydra's and Blind Creeper's to any player's, Agent 13's Clue when a creature attacks alone, and the first enters-with rows - Faithful Watchdog's one counter and Adaptive Shimmerer's three; the bot's own deck took 7 creatures and an enchantment more.
+
+Fixtures 3,761 · botPool artifact 272 / creature 3,257 / enchantment 257 / instant 947 / land 405 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1193, 1323, 3034, 4950, 6303] · batch.json
+8 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,518 files, 18,093 passing / 11 skipped ·
+500-seed gate, 6 shards, 354.8 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D318): the remove-a-counter cost verb (the Spike family, ten rows waiting, and the ledger's eight), the variable enters-with-X counters (45), the tap-N-creatures and exile-from-graveyard costs, the target effects and damage payloads, the heads still outside (one or more cards put into a graveyard, sacrifice a token, a second card each turn); the mass behind - regenerate, any-colour mana, the modal choose-one, convoke, attacks each combat if able, can not be countered; the classifier learning the kinds; the modal seam; the "another" split; the
+by-name sacrifice cost; the remaining cost verbs; the prompt continuation
+seam; prior items stand.

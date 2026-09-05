@@ -7,6 +7,14 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { FAITHFUL_WATCHDOG_SCRIPT } from './cards/faithfulWatchdog';
+import { ADAPTIVE_SHIMMERER_SCRIPT } from './cards/adaptiveShimmerer';
+import { RECONNAISSANCE_MISSION_SCRIPT } from './cards/reconnaissanceMission';
+import { TAUREAN_MAULER_SCRIPT } from './cards/taureanMauler';
+import { AGENT13_SHARON_CARTER_SCRIPT } from './cards/agent13SharonCarter';
+import { MANAGORGER_HYDRA_SCRIPT } from './cards/managorgerHydra';
+import { BLIND_CREEPER_SCRIPT } from './cards/blindCreeper';
+import { MOGG_SENTRY_SCRIPT } from './cards/moggSentry';
 import { FALLEN_ASKARI_SCRIPT } from './cards/fallenAskari';
 import { INVISIBLE_STALKER_SCRIPT } from './cards/invisibleStalker';
 import { CRUSADER_OF_ODRIC_SCRIPT } from './cards/crusaderOfOdric';
@@ -3520,6 +3528,14 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FAITHFUL_WATCHDOG_SCRIPT,
+  ADAPTIVE_SHIMMERER_SCRIPT,
+  RECONNAISSANCE_MISSION_SCRIPT,
+  TAUREAN_MAULER_SCRIPT,
+  AGENT13_SHARON_CARTER_SCRIPT,
+  MANAGORGER_HYDRA_SCRIPT,
+  BLIND_CREEPER_SCRIPT,
+  MOGG_SENTRY_SCRIPT,
   FALLEN_ASKARI_SCRIPT,
   INVISIBLE_STALKER_SCRIPT,
   CRUSADER_OF_ODRIC_SCRIPT,

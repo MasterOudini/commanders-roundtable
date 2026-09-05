@@ -4120,6 +4120,16 @@ const WANTED = [
   'Harmonious Grovestrider',
   'Icecave Crasher',
   'Battlefield Percher',
+  // D318 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Reconnaissance Mission',
+  'Taurean Mauler',
+  'Agent 13, Sharon Carter',
+  'Managorger Hydra',
+  'Blind Creeper',
+  'Mogg Sentry',
+  // D318 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Faithful Watchdog',
+  'Adaptive Shimmerer',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

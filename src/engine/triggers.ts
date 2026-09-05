@@ -151,6 +151,31 @@ function applicableTo(
       out.push({ key, sourceId, def });
     }
   }
+  // ⚠️ CR 614.12 (D318) — a permanent's OWN replacement effects that modify how it
+  // enters ("enters with two +1/+1 counters") apply from its own abilities as it
+  // enters, as though it were already on the battlefield. Until D318 the funnel
+  // offered an event only to the battlefield's permanents, so a ReplacementDef on
+  // the entering card itself never ran — the reason no shipped script carried
+  // one. Offered AFTER the battlefield's, in move order; the same `used` key
+  // keeps each def to one application per event (CR 614.5).
+  if (ev.t === 'CardsMoved') {
+    for (const move of ev.moves) {
+      if (move.to.kind !== 'battlefield' || move.from.kind === 'battlefield') continue;
+      const sourceId = move.card;
+      if (state.zones.battlefield.includes(sourceId)) continue;
+      const source = state.cards[sourceId];
+      if (!source) continue;
+      for (const { script, def } of defs) {
+        if (source.oracleId !== script.oracleId) continue;
+        if (!def.activeZones.includes('battlefield')) continue;
+        if (!hasAbilities(state, oracle, scripts, sourceId)) continue;
+        const key = `${sourceId}#${def.abilityId}`;
+        if (used.has(key)) continue;
+        if (!def.applies(readonlyCtx(state, oracle, scripts, cache), sourceId, ev)) continue;
+        out.push({ key, sourceId, def });
+      }
+    }
+  }
   return out;
 }
 
