@@ -474,10 +474,46 @@ function poolKey(p: ManaPool): string {
 }
 
 function outputKey(o: ManaProduction): string {
-  return `${o.requiresTap}|${o.conditional}|${o.anyColor ? `${o.anyColor.scope}:${o.anyColor.amount}` : '-'}|${o.outputs.map((x) => poolKey(x.mana)).join(',')}`;
+  return `${o.requiresTap}|${o.conditional}|${o.anyColor ? `${o.anyColor.scope}:${o.anyColor.amount}` : '-'}|${o.outputs.map((x) => poolKey(x.mana)).join(',')}|${o.extraCost ? `${o.extraCost.mana?.raw ?? ''}/${o.extraCost.life}/${o.extraCost.sacrificeSelf ? 's' : ''}` : '-'}`;
 }
 
 /** Text that makes the amount or usability of the mana unknowable to the engine. */
+/**
+ * D325 - the activation cost beside the {T}, when every piece is one the engine
+ * charges at the tap: mana symbols (from the pool), "Pay N life", the
+ * permanent's own sacrifice ("Sacrifice this artifact", "Sacrifice ~", the
+ * card's printed name). Null when any piece is something else - tap another
+ * creature, discard, exile, a counter - and the line stays conditional.
+ */
+function chargeablePieces(cost: string, name: string): { readonly mana: ManaCost | null; readonly life: number; readonly sacrificeSelf: boolean } | null {
+  const short = (name.split(',')[0] ?? name).toLowerCase();
+  let mana: ManaCost | null = null;
+  let life = 0;
+  let sacrificeSelf = false;
+  for (const raw of cost.split(',')) {
+    const piece = raw.trim();
+    if (piece === '' || piece === '{T}') continue;
+    if (/^(?:\{[WUBRGC]\}|\{\d+\})+$/i.test(piece)) {
+      if (mana !== null) return null;
+      mana = parseManaCost(piece);
+      continue;
+    }
+    const lifeMatch = /^Pay (\d+) life$/i.exec(piece);
+    if (lifeMatch) {
+      life += Number(lifeMatch[1]);
+      continue;
+    }
+    const lower = piece.toLowerCase();
+    if (/^sacrifice (?:this (?:artifact|creature|permanent|land|enchantment|token)|~)$/.test(lower) || lower === `sacrifice ${name.toLowerCase()}` || lower === `sacrifice ${short}`) {
+      sacrificeSelf = true;
+      continue;
+    }
+    return null;
+  }
+  if (mana === null && life === 0 && !sacrificeSelf) return null;
+  return { mana, life, sacrificeSelf };
+}
+
 const CONDITIONAL_RE =
   /\b(if\b|unless\b|only\b|for each\b|equal to\b|that much\b|X\b|Activate only\b|as long as\b|instead\b|choose\b|reveal\b|whenever\b|when\b|at the beginning\b)/i;
 
@@ -517,6 +553,7 @@ export function parseManaProduction(
         anyColor: null,
         requiresTap: true,
         conditional: false,
+        extraCost: null,
         text: `{T}: Add {${sym}}. (${sub})`,
         // Intrinsic — it belongs to no line of text. Tundra's oracle text is
         // literally the empty string.
@@ -580,7 +617,13 @@ export function parseManaProduction(
     // or a life payment is a decision the player must make. Marked conditional,
     // so it stays MANUALLY tappable. This is the Tier-2/Tier-3 line, stated.
     const extraCost = cost.replace(/\{T\}/g, '').replace(/[,\s]/g, '') !== '';
-    const conditional = extraCost || CONDITIONAL_RE.test(effect) || /\bonly\b/i.test(line);
+    // D325 - the pieces beside the {T} the engine charges at the tap: mana from
+    // the pool, a life payment, the permanent's own sacrifice. Any other piece
+    // (tap another creature, discard, exile) keeps the line conditional - tapped
+    // by hand, the extra cost the player's, exactly as before.
+    const charged = extraCost ? chargeablePieces(cost, face.name) : null;
+    const unchargedExtra = extraCost && charged === null;
+    const conditional = unchargedExtra || CONDITIONAL_RE.test(effect) || /\bonly\b/i.test(line);
 
     // "Add one mana of any color", "Add two mana of any one color".
     // ⚠️ "any TYPE" as well as "any color". Reflecting Pool, Horizon of Progress
@@ -606,7 +649,8 @@ export function parseManaProduction(
         // NOT conditional: the engine knows the chosen colour exactly, the same
         // way it knows a commander's identity. Before the choice is answered it
         // resolves to the empty set and the source simply offers nothing.
-        conditional: extraCost,
+        conditional: unchargedExtra,
+        extraCost: charged,
         text: printed,
         line: lineIndex,
       });
@@ -648,7 +692,8 @@ export function parseManaProduction(
         // An identity-scoped land (Command Tower) is NOT conditional: the engine
         // knows the controller's commander identity exactly. Nor is a
         // board-scoped one — it knows what is on the battlefield exactly too.
-        conditional: scope === 'all' ? conditional : extraCost,
+        conditional: scope === 'all' ? conditional : unchargedExtra,
+        extraCost: charged,
         text: printed,
         line: lineIndex,
       });
@@ -694,7 +739,7 @@ export function parseManaProduction(
       warn('mana:noUsableOutput');
       continue;
     }
-    push({ outputs, anyColor: null, requiresTap, conditional, text: printed, line: lineIndex });
+    push({ outputs, anyColor: null, requiresTap, conditional, extraCost: charged, text: printed, line: lineIndex });
   }
 
   return out;

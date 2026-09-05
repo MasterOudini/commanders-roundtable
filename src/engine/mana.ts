@@ -18,7 +18,7 @@ import {
   type ManaSymbolKey,
   type PaymentProblem,
 } from './types/mana';
-import type { ManaOutput, OracleDb } from './types/oracle';
+import type { ManaOutput, ManaProduction, OracleDb } from './types/oracle';
 import type { GameState } from './types/state';
 
 /** One tappable mana ability, with its `anyColor` already expanded. */
@@ -28,6 +28,8 @@ export interface ManaSource {
   readonly outputs: readonly ManaOutput[];
   readonly requiresTap: boolean;
   readonly conditional: boolean;
+  /** D325 - the cost beside the {T} the tap charges; absent or null for a plain source. */
+  readonly extraCost?: ManaProduction['extraCost'];
   /**
    * Spend the LEAST flexible source first. A basic Forest is 0; an any-colour
    * creature is 6. This is what makes an auto-tap suggestion *good* rather than
@@ -86,7 +88,7 @@ export function manaSourcesOf(
   oracle: OracleDb,
   scripts: ScriptRegistry,
   player: PlayerId,
-  opts: { includeConditional?: boolean; includeTapped?: boolean; cache?: DeriveCache } = {},
+  opts: { includeConditional?: boolean; includeTapped?: boolean; includeCostly?: boolean; cache?: DeriveCache } = {},
 ): ManaSource[] {
   const identity = state.players[player]?.identity ?? [];
   // ⚠️ TWO PASSES, because a land can be defined by the other lands. Reflecting
@@ -107,6 +109,9 @@ export function manaSourcesOf(
     const d = derive(state, oracle, scripts, id, opts.cache);
     for (const prod of d.producesMana) {
       if (prod.conditional && !opts.includeConditional) continue;
+      // D325 - a source with a cost beside the {T} is never auto-tapped (the solver would have
+      // to price mana against mana); the tap-by-hand menu and the handler ask for it by name.
+      if (prod.extraCost && !opts.includeCostly) continue;
       if (prod.requiresTap && card.tapped && !opts.includeTapped) continue;
       // Summoning sickness stops a creature using a {T} ability. CR 302.6 —
       // and it is the single most common "why can't I tap this" question.
@@ -133,6 +138,7 @@ export function manaSourcesOf(
         outputs,
         requiresTap: prod.requiresTap,
         conditional: prod.conditional,
+        extraCost: prod.extraCost ?? null,
         flexibilityRank: rankOf(d, outputs),
       });
     }
@@ -445,6 +451,27 @@ export function spendFromPool(pool: ManaPool, p: ConcreteProblem): ManaPool | nu
 
 export function poolAsPool(spend: Record<ManaSymbolKey, number>): ManaPool {
   return { W: spend.W, U: spend.U, B: spend.B, R: spend.R, G: spend.G, C: spend.C };
+}
+
+/**
+ * D325 - can the player pay a mana ability's cost beside the {T} right now, and
+ * with what? The mana comes out of the POOL (a Signet needs its {1} floating
+ * first - the solver never prices mana against mana), the life off the total
+ * (a player may pay life they have, CR 119.4). Null when it cannot be paid.
+ */
+export function extraCostSpend(state: GameState, player: PlayerId, extra: NonNullable<ManaProduction['extraCost']>): { readonly mana: ManaPool | null; readonly life: number } | null {
+  const me = state.players[player];
+  if (!me) return null;
+  if (extra.life > 0 && me.life < extra.life) return null;
+  let mana: ManaPool | null = null;
+  if (extra.mana) {
+    const concrete = hybridCombinations(buildPaymentProblem(extra.mana, 0, [], 0, 0))[0];
+    if (!concrete) return null;
+    const spend = spendFromPool(me.pool, concrete);
+    if (!spend) return null;
+    mana = spend;
+  }
+  return { mana, life: extra.life };
 }
 
 export { EMPTY_POOL, poolTotal };

@@ -22,7 +22,7 @@ import {
   sacrificeCandidatesFor,
   tapCandidatesFor,
 } from './legal';
-import { buildPaymentProblem, costStringOf, manaSourcesOf, wardTaxFrom } from './mana';
+import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom } from './mana';
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
 import { parseManaCost } from '../data/oracleParse';
@@ -1514,6 +1514,7 @@ function tapForMana(
   }
   const sources = manaSourcesOf(state, deps.oracle, deps.scripts, intent.player, {
     includeConditional: true,
+    includeCostly: true,
   });
   const source = sources.find(
     (s) => s.card === intent.card && s.abilityIndex === intent.abilityIndex,
@@ -1523,9 +1524,21 @@ function tapForMana(
   if (!output) return reject('notAManaAbility', 'That is not one of its mana options.');
   const card = state.cards[intent.card];
   if (source.requiresTap && card?.tapped) return reject('alreadyTapped', 'That permanent is already tapped.');
+  // D325 - the cost beside the {T}, charged at the tap: mana from the pool, life, the
+  // permanent's own sacrifice. Not payable now: refused, like an unaffordable spell.
+  const extra = source.extraCost ? extraCostSpend(state, intent.player, source.extraCost) : null;
+  if (source.extraCost && !extra) return reject('cannotAfford', 'That mana ability has a cost you cannot pay right now.');
 
   const events: EventBody[] = [];
   if (source.requiresTap) events.push({ t: 'PermanentsTapped', cards: [intent.card] });
+  if (extra?.mana) events.push({ t: 'ManaSpent', player: intent.player, mana: extra.mana });
+  if (extra && extra.life > 0) {
+    const me = state.players[intent.player];
+    if (me) events.push({ t: 'LifeChanged', player: intent.player, delta: -extra.life, to: me.life - extra.life });
+  }
+  if (source.extraCost?.sacrificeSelf && card) {
+    events.push({ t: 'CardsMoved', moves: [{ card: intent.card, from: { kind: 'battlefield', player: card.controller }, to: { kind: 'graveyard', player: card.owner } }] });
+  }
   events.push({ t: 'ManaAdded', player: intent.player, mana: output.mana, source: intent.card });
 
   // ⚠️ THE LOG SAID NOTHING ABOUT THIS UNTIL NOW, and it was the loudest silence

@@ -10,7 +10,7 @@ import { faceOf } from './oracle';
 import { parseManaCost } from '../data/oracleParse';
 import { castReduction } from './costs';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
-import { buildPaymentProblem, costStringOf, manaSourcesOf } from './mana';
+import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf } from './mana';
 import { affordable, solveInputFor, type SolveInput } from './payment';
 import { isMainPhase } from './turn';
 import type { ScriptRegistry } from './scripts/registry';
@@ -214,8 +214,13 @@ export function legalActions(
   // listed too, because the player may know something the engine cannot.
   for (const source of manaSourcesOf(state, oracle, scripts, player, {
     includeConditional: true,
+    includeCostly: true,
     cache: context.cache,
   })) {
+    // D325 - a source with a cost beside the {T} is offered only while that cost can be
+    // paid now (the pool covers the mana, the life is there): the tap charges it, so an
+    // unpayable one is not on the menu.
+    if (source.extraCost && !extraCostSpend(state, player, source.extraCost)) continue;
     const d = derive(state, oracle, scripts, source.card, context.cache);
     out.push({
       t: 'TapForMana',

@@ -133,6 +133,15 @@ export interface ManaProduction {
    * wrong — which is the Tier-2/Tier-3 boundary made explicit.
    */
   readonly conditional: boolean;
+  /**
+   * D325 - the cost beside the {T} the engine CHARGES when the ability is
+   * tapped by hand: mana from the pool ({1}, {G}), a life payment, the
+   * permanent's own sacrifice. Null when there is none. A piece the engine
+   * cannot charge (tap another creature, discard, exile a card) leaves the
+   * line `conditional` instead, exactly as before - tapped by hand, the
+   * extra cost the player's.
+   */
+  readonly extraCost?: { readonly mana: ManaCost | null; readonly life: number; readonly sacrificeSelf: boolean } | null;
   readonly text: string;
   /**
    * Index of the oracle-text line this was parsed from, or null for the

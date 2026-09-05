@@ -190,10 +190,10 @@ describe.skipIf(!HAVE_DB)('the token resolver, over the real database', () => {
       // move primitives records as token 911 -> 910.
       cards: 985,
       lines: 1023,
-      parsed: 271,
-      unique: 249,
+      parsed: 270,
+      unique: 248,
       noMatch: 22,
-      cardsFullyResolved: 235,
+      cardsFullyResolved: 234,
     });
   });
 

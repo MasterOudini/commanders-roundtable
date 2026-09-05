@@ -22006,3 +22006,91 @@ Fixtures 3,953 · botPool artifact 312 / creature 3,341 / enchantment 314 / inst
 **Reportables** (D324): the mana abilities with an extra cost the engine taps but never charges (a mana ability with {1}, a sacrifice or a life payment beside the {T}: 70 any-colour lines and more), can not be countered (a static the counter effect consults, 43), the monarch (a player state the end step and combat damage read, 35), the costs the row maker cannot charge (a random discard on ctx.random, snow mana, exile-from-graveyard, a counter from another creature, tap-N-creatures), the counts outside the vocabulary (died this turn, a named creature, Gates and subtypes without a fixture), attacks or blocks alone (a declaration requirement); the mass behind - the modal choose-one, regenerate, the quoted abilities enchanted creatures and lands have, convoke, attacks each combat if able, the second card and second spell each turn; the modal seam; the "another" split; the
 by-name sacrifice cost; the remaining cost verbs; the prompt continuation
 seam; prior items stand.
+
+## D325 — M6.4fj: THE MANA ABILITIES WITH AN EXTRA COST — the engine charges a mana ability's cost beside the {T} (mana, life, its own sacrifice) and the accounting counts the line as run; 296 cards land — 197 as generated rows, the rest with no script at all (2026-09-05)
+
+**6,340 of 31,692 Commander-legal cards execute completely, up from
+6,044 (+296).** SHIPPED_SCRIPTS 3,590 → **3,787**;
+REFUSED ledger 1,041 → **1,043** (2 rows added by name - the two cards the seam made offerable that the row maker still refuses, Heap Gate (a tap-a-Gate cost) and Urn of Godfire (a two-type destroy); none retired (none of the 197 was ledgered); the pool is empty). Fixtures
+3,953 → 4,152 (4,022 by name + 123 tokens: the 197 rowed cards, the four cards the engine test reads (Rakdos Signet, Mana Confluence, Lotus Petal, Springleaf Drum) and the Sol Ring and Hissing Miasma the new heads put down; no token pin moved). **An engine change** — five counted
+swaps (`d325/apply-mana-extra-cost.cjs`) — and the wave it uncovered:
+197 generated rows. **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** the scoping probe over the blocked permanents before the change: 87 leftover lines were a mana ability with a piece beside the {T} the engine never charged, 56 cards would be complete on that alone (the shapes: a {N} beside the tap 59, pay 1 life 10, tap an untapped creature 8, a coloured symbol 4, pay 2 life 2); two other seams measured beside it - can not be countered would complete 11, attacks each combat if able 25, the monarch 0. Then the leftover probe over the database after the engine change: 326 blocked single-face permanents whose every leftover line the extended grammar reads (287 in the trigger and activated grammar, 32 with a static or combat line, 5 Auras, 2 Equipment) - the pingers first: an enters damage 28, a dies damage 8, an activated damage 7, damage to each opponent 8 activated and 11 triggered, loot 23 activated and 10 on entry, the activated self return 14, the activated untap 9, the artifact draws 6, the scry lands 6; the mass behind the candidates: a modal choose-one 276 leftover lines, regenerate 102, enchanted creature has 60, convoke 50, attacks each combat if able 46, can not be countered 43, enchant player 42, a look at the top card 38, start your engines 38, your second card each turn 37, the monarch 35, enchanted land has 34.
+
+**The seam.** The engine had always TAPPED a mana ability whose cost has a
+piece beside the {T} and never charged the piece: `Rakdos Signet` handed over
+{B}{R} for nothing, `Mana Confluence` cost no life, `Lotus Petal` stayed on
+the battlefield. `parseManaProduction` marked every such line `conditional`
+for exactly that reason, `tier3.ts` said so ("any other cost … on that line is
+yours"), and `engineComplete` left the line unrun — 87 leftover lines on the
+blocked permanents, the first blocker on 70 cards. Now:
+
+- `ManaProduction.extraCost` (`types/oracle.ts`): the pieces beside the {T}
+  the tap charges — mana from the pool ({1}, {G}), a life payment, the
+  permanent's own sacrifice ("Sacrifice this artifact", the printed name).
+  `chargeablePieces()` in `oracleParse.ts` reads them; any other piece (tap
+  another creature, discard, exile, a counter) keeps the line `conditional`
+  exactly as before — tapped by hand, the extra cost the player's.
+- `manaSourcesOf` (`mana.ts`) takes `includeCostly`: a costly source is NEVER
+  a solver source (the solver would have to price mana against mana), and
+  `extraCostSpend()` answers "payable now, with what" — the mana out of the
+  pool (a Signet needs its {1} floating first), the life off the total.
+- `legalActions` offers a costly source only while it is payable; the
+  `TapForMana` handler charges it — `ManaSpent`, `LifeChanged`, the
+  `CardsMoved` to the graveyard — before the `ManaAdded`, and refuses an
+  unpayable one (`cannotAfford`), like an unaffordable spell.
+- The accounting needed no change: a charged line is no longer conditional,
+  so `modelled` takes it. The disclosure's note now names only the lines still
+  left — the untapped-creature and discard pieces, the spend restrictions.
+- `src/engine/manaExtraCost.test.ts`: the Signet is never auto-tapped, is
+  offered only once its {1} is in the pool, and takes it; Mana Confluence
+  costs the life; Lotus Petal goes to the graveyard; Springleaf Drum
+  (tap an untapped creature) stays conditional and by hand, to the letter.
+
+**The wave.** With the mana lines run, the leftover probe over the database
+read 326 blocked permanents whose every remaining line a row could carry —
+and most of those lines were ones no generator had yet: the pingers. So the
+D326 grammar was brought forward (`d325/make-rows15.cjs` + `gen-oneshot15.cjs`
++ `gen15-extras.cjs`, from D324): "~ deals N damage to any target / target
+creature / target player / target opponent / each opponent" as a `DamageDealt`
+the resolve builds the way `effects.ts` does (deathtouch, lifelink, infect,
+wither and toxic read off the source; a targeted trigger declares
+`parseTargetClauses(line)` and the test answers the prompt with the Cyclops or
+the opponent); counters of ANY kind (charge, spore, ki …) on itself, a target,
+each creature, the entering creature; "scry N" raising the engine's own
+`scryChoice` prompt and "draw a card, then discard a card" as the draw then
+the `chooseFromZone` prompt `effects.ts` raises; the artifact tokens beside the
+Clue (Food, Treasure, Blood, Gold, Map); "Return this creature to its owner's
+hand" and "Untap this creature" on an activated line; the graveyard head on
+any permanent (Chromatic Star); seven heads — this or another creature enters,
+an artifact enters, you cast an artifact spell, a creature you control dies,
+constellation, inspired (becomes untapped), the upkeep of the enchanted
+creature's controller — and the Enrage and Alliance ability words on theirs.
+One lesson: a line split into two triggers (Enrage — combat and noncombat
+damage) that both make a token declared its token constant twice; one per
+line now.
+
+- **Refused by name:** 2 rows added by name - the two cards the seam made offerable that the row maker still refuses, Heap Gate (a tap-a-Gate cost) and Urn of Godfire (a two-type destroy); none retired (none of the 197 was ledgered); the pool is empty.
+- **Not this decision:** can not be countered (a static flag the counter effect consults, 11 cards whole), attacks each combat if able (a declaration requirement, 25), the remaining mana pieces (tap an untapped creature you control 8, a discard 1 - chooser costs on a mana ability), the costs the row maker cannot charge (a random discard on ctx.random, snow mana, exile-from-graveyard, a counter from another creature, tap-N-creatures, a token, a Gate), the counts outside the vocabulary (died this turn, a named creature, subtypes without a fixture), the Vehicle attacks head (a crew in the test), the destroy payloads with a two-type target; the mass behind - the modal choose-one, regenerate, the quoted abilities enchanted creatures and lands have, convoke, the monarch and energy, the second card and second spell each turn.
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** the engine test above (four cases, replay hashes); the mana, payment
+and parser suites green; one generated suite per row (197 suites),
+each ability in its own game.
+
+**Landed:** no auto flips; 99 cards complete on the seam alone (their only unrun line was the mana ability the engine now charges) and 197 generated rows in three passes - 194 on the grammar, less one token constant declared twice, then the eight red suites (the Bears a row reads twice, the prompt wrappers under a combat head, a token maker the test damage kills, the inspired head's draw step, the fixtures the new heads put that may sit in the opening hand), then surveil beside scry for the three lands the seam had made offerable - the 326 candidates less the 132 the row maker still refuses (the costs it cannot charge, 107; 15 counts outside the vocabulary; five lines the probe reads and the generator does not; two self payloads the test damage kills; one historic discard; one Aura payload after a sacrifice). The wave IS the landing: 197 rows - the pingers (Lion Heart, Nebula Dragon, Tyrant of Kher Ridges, Flametongue Kavu, Sparkmage Apprentice, Pyre Spawn, Mudbutton Torchrunner, Perilous Myr, Goblin Sharpshooter, Gelectrode, Guttersnipe, Thermo-Alchemist, Electrostatic Field, Shivan Gorge, Kessig Flamebreather, Firebrand Archer, Raging Regisaur and the rest of the damage rows), the looters (Merfolk Looter, Thought Courier, Erratic Visionary, Desolate Lighthouse, Quicksilver Fisher, Owl Familiar, Locke Cole, Zephyr Boots), the self-returners (Blinking Spirit, Fleeting Image, Thalakos Scout, Skywing Aven), the untappers (Morphling, Basalt Monolith, Grim Monolith, Vigilant Drake), the canopy lands and the prisms the seam opened (Horizon Canopy, Silent Clearing, Waterlogged Grove, Sunbaked Canyon, Fiery Islet, Nurturing Peatland, Prophetic Prism, Kaleidostone, Golden Egg, Arcum's Astrolabe, Energy Refractor, Omni-Cheese Pizza), the scry and surveil lands (Crystal Grotto, Rumble Arena, Conduit Pylons, Hidden Grotto, Surveillance Room), the Thallids and their spore counters, the Enrage dinosaurs (Raptor Hatchling, Overgrown Armasaur, Snapping Sailback, Ravenous Daggertooth), the constellation, inspired and artifact heads (Eidolon of Blossoms, Sphinx's Disciple, Oreskos Sun Guide, Salivating Gremlins, Phalanx Vanguard) and Dark Prophecy; the bot's own deck took 177 creatures, 68 lands, 42 artifacts and 9 enchantments more.
+
+Fixtures 4,152 · botPool artifact 354 / creature 3,518 / enchantment 323 / instant 947 / land 475 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1134, 1261, 2953, 4836, 6187] · batch.json
+197 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,900 files, 19,805 passing / 11 skipped ·
+500-seed gate, 6 shards, 361.2 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D325): can not be countered (a static flag the counter effect consults, 11 cards whole), attacks each combat if able (a declaration requirement, 25), the remaining mana pieces (tap an untapped creature you control 8, a discard 1 - chooser costs on a mana ability), the costs the row maker cannot charge (a random discard on ctx.random, snow mana, exile-from-graveyard, a counter from another creature, tap-N-creatures, a token, a Gate), the counts outside the vocabulary (died this turn, a named creature, subtypes without a fixture), the Vehicle attacks head (a crew in the test), the destroy payloads with a two-type target; the mass behind - the modal choose-one, regenerate, the quoted abilities enchanted creatures and lands have, convoke, the monarch and energy, the second card and second spell each turn; the modal seam; the "another" split; the
+by-name sacrifice cost; the remaining cost verbs; the prompt continuation
+seam; prior items stand.

@@ -313,7 +313,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['The Last Agni Kai', 'rule-changing (mana persistence)'],
   ['Act on Impulse', 'play-from-exile permission'],
   ["Animist's Awakening", 'ctx.random'],
-  ['The Grey Havens', 'conditional mana production'],
   ['Towering Viewpoint', 'ability-word activated cost'],
   ['Abnormal Endurance', 'temporary non-keyword ability grant'],
   // Batch M6.4al (D197) — eight refusals, TWO new classes found by the
@@ -978,7 +977,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // positive colour one (D208); nobody had probed a negated TYPE.
   ['Thistledown Players', 'negated-type target qualifier'],
   ['The Ring Goes South', 'the Ring'],
-  ['The Shire', 'tap-creatures cost'],
   ['Thopter Foundry', 'token-predicate sacrifice cost'],
   ['Thoughtlace', 'indefinite color change'],
 
@@ -1733,7 +1731,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Orc General', 'multi-type sacrifice cost'],
   ['Oakhame Ranger // Bring Back', 'adventure (two faces)'],
   ['Reaper of the Wilds', 'script-raised scry prompt'],
-  ['Merfolk Coralsmith', 'script-raised scry prompt'],
   ['Thorn Lieutenant', 'becomes-the-target trigger'],
   ['Goro-Goro and Satoru', 'entered-this-turn combat-damage trigger'],
 
@@ -1784,8 +1781,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Failed Conversion', 'an Aura line outside the row shapes (When enchanted creature dies, surveil N.)'],
   ['Contaminated Bond', 'an Aura line outside the row shapes (Whenever enchanted creature attacks or blocks, i)'],
   ['Luminous Wake', 'an Aura line outside the row shapes (Whenever enchanted creature attacks or blocks, y)'],
-  ['Most Wanted', 'an Aura line outside the row shapes (When enchanted creature dies, create two Treasur)'],
-  ['Gift of Strands', 'an Aura line outside the row shapes (When this Aura enters, scry N.)'],
   ['Viridian Harvest', 'an Aura line outside the row shapes (Enchant artifact)'],
   ['Mists of Littjara', 'an Aura line outside the row shapes (Enchant creature or Vehicle)'],
   ['Sinister Possession', 'an Aura line outside the row shapes (Whenever enchanted creature attacks or blocks, i)'],
@@ -1905,7 +1900,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Kithkin Spellduster', 'a creature line outside the vocabulary (its persist runs)'],
   ['Lightshell Duo', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Lotus-Eye Mystics', 'a creature line outside the vocabulary (its prowess runs)'],
-  ['Meticulous Artisan', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Mistfire Adept', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Pinnacle Monk // Mystic Peak', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Pollywog Prodigy', 'a creature line outside the vocabulary (its evolve runs)'],
@@ -1922,7 +1916,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Daru Sanctifier', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Dwarven Blastminer', 'an activated line outside the vocabulary (its morph runs)'],
   ['Echo Tracer', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
-  ['Fledgling Mawcor', 'an activated line outside the vocabulary (its morph runs)'],
   ['Gravel Slinger', 'an activated line outside the vocabulary (its morph runs)'],
   ['Grim Haruspex', 'a dies watcher over other creatures (its morph runs)'],
   ['Kolaghan Stormsinger', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
@@ -1971,7 +1964,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['High-Speed Hoverbike', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Rangers\' Aetherhive', 'a Vehicle line outside the vocabulary (its crew runs)'],
   ['Silent Submersible', 'a combat trigger outside the vocabulary (its crew runs)'],
-  ['Spotcycle Scouter', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Thopter Fabricator', 'a Vehicle line outside the vocabulary (its crew runs)'],
 
   // D312 (M6.4ew) — the cost-reduction pool: the carriers whose other
@@ -1983,12 +1975,16 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Neonate\'s Rush', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Polliwallop', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Rebel Salvo', 'a spell line outside the vocabulary (its reduction is priced)'],
-  ['Slag Strider', 'a permanent line outside the vocabulary (its reduction is priced)'],
   ['Valkyrie Aerial Unit', 'an enters trigger outside the vocabulary (its reduction is priced)'],
   ['Visions of Villainy', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Voyage Home', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Chill of the Grave', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['The Circle of Loyalty', 'a permanent line outside the vocabulary (its reduction is priced)'],
+
+  // D325 (M6.4fj) - the two cards the mana-ability seam made offerable that the row
+  // maker still refuses: a tap-a-Gate cost, a two-type destroy.
+  ['Heap Gate', 'a cost the row maker cannot charge (tap an untapped Gate you control)'],
+  ['Urn of Godfire', 'a payload outside the row grammar (destroy target creature or enchantment)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

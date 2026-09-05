@@ -511,7 +511,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // 1,125 lines — the mirror of `nonManaCost`'s second fall.
       payable: 35240,
       // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
-      manaAbility: 11582,
+      manaAbility: 11584,
       targeted: 12269,
     });
   });
