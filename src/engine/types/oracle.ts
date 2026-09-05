@@ -648,6 +648,8 @@ export interface ActivatedAbility {
   readonly discardCost: {
     readonly count: number;
     readonly any: readonly import('../../data/replacementParse').PermanentPredicate[] | null;
+    /** D328 - "Discard a card at random": no choice to price; `finishAbility` draws the cards off the seeded rng. */
+    readonly atRandom: boolean;
   } | null;
   /**
    * `Tap N untapped <predicate> you control` — a tap the player CHOOSES
@@ -689,6 +691,8 @@ export interface ActivatedAbility {
   readonly isLoyalty: boolean;
   /** `Activate only as a sorcery`. */
   readonly sorceryOnly: boolean;
+  /** D328 - `Activate only once each turn` (CR 602.5b): refused and unoffered once `TurnState.activations` counts it. */
+  readonly oncePerTurn: boolean;
   readonly targets: readonly TargetSpec[];
   /**
    * D305 - THE EQUIPMENT SEAM. Set on the ability `activatedParse` synthesizes

@@ -7,6 +7,71 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { TWINBLADE_SLASHER_SCRIPT } from './cards/twinbladeSlasher';
+import { CALL_THE_BLOODLINE_SCRIPT } from './cards/callTheBloodline';
+import { GHOR_CLAN_BLOODSCALE_SCRIPT } from './cards/ghorClanBloodscale';
+import { STALKING_DRONE_SCRIPT } from './cards/stalkingDrone';
+import { GLIMMER_BAIRN_SCRIPT } from './cards/glimmerBairn';
+import { ROOTWALLA_SCRIPT } from './cards/rootwalla';
+import { BLOODSOAKED_ALTAR_SCRIPT } from './cards/bloodsoakedAltar';
+import { MAGE_IL_VEC_SCRIPT } from './cards/mageIlVec';
+import { FRILLED_SANDWALLA_SCRIPT } from './cards/frilledSandwalla';
+import { DEFIANT_SALVAGER_SCRIPT } from './cards/defiantSalvager';
+import { FRENETIC_OGRE_SCRIPT } from './cards/freneticOgre';
+import { STARNHEIM_MEMENTO_SCRIPT } from './cards/starnheimMemento';
+import { FAULT_RIDERS_SCRIPT } from './cards/faultRiders';
+import { CAPTIVATING_CAVE_SCRIPT } from './cards/captivatingCave';
+import { KNIGHT_OF_THE_SKYWARD_EYE_SCRIPT } from './cards/knightOfTheSkywardEye';
+import { BEETLEFORM_MAGE_SCRIPT } from './cards/beetleformMage';
+import { SNARLING_WOLF_SCRIPT } from './cards/snarlingWolf';
+import { CANYON_DRAKE_SCRIPT } from './cards/canyonDrake';
+import { CORAL_HELM_SCRIPT } from './cards/coralHelm';
+import { FOUNTAINPORT_SCRIPT } from './cards/fountainport';
+import { SINISTER_MONOLITH_SCRIPT } from './cards/sinisterMonolith';
+import { FIRE_DRAKE_SCRIPT } from './cards/fireDrake';
+import { MINDFUL_BIOMANCER_SCRIPT } from './cards/mindfulBiomancer';
+import { SAVAGEBORN_HYDRA_SCRIPT } from './cards/savagebornHydra';
+import { CAVE_OF_TEMPTATION_SCRIPT } from './cards/caveOfTemptation';
+import { ERSTWHILE_TROOPER_SCRIPT } from './cards/erstwhileTrooper';
+import { SETESSAN_GRIFFIN_SCRIPT } from './cards/setessanGriffin';
+import { DAI_LI_CENSOR_SCRIPT } from './cards/daiLiCensor';
+import { VORACIOUS_NULL_SCRIPT } from './cards/voraciousNull';
+import { CRADLE_OF_THE_ACCURSED_SCRIPT } from './cards/cradleOfTheAccursed';
+import { PARDIC_SWORDSMITH_SCRIPT } from './cards/pardicSwordsmith';
+import { STORMBIND_SCRIPT } from './cards/stormbind';
+import { DIRE_WOLF_PROWLER_SCRIPT } from './cards/direWolfProwler';
+import { PLATED_ROOTWALLA_SCRIPT } from './cards/platedRootwalla';
+import { NOVICE_DISSECTOR_SCRIPT } from './cards/noviceDissector';
+import { SAVAGE_KNUCKLEBLADE_SCRIPT } from './cards/savageKnuckleblade';
+import { SEPULCHER_GHOUL_SCRIPT } from './cards/sepulcherGhoul';
+import { AMOK_SCRIPT } from './cards/amok';
+import { DRAKE_HATCHLING_SCRIPT } from './cards/drakeHatchling';
+import { ICE_CREAM_KITTY_SCRIPT } from './cards/iceCreamKitty';
+import { LIGHTNING_WOLF_SCRIPT } from './cards/lightningWolf';
+import { CUTTHROAT_CONTENDER_SCRIPT } from './cards/cutthroatContender';
+import { VOLRATHS_GARDENS_SCRIPT } from './cards/volrathsGardens';
+import { INTREPID_TENDERFOOT_SCRIPT } from './cards/intrepidTenderfoot';
+import { WOLFSBANE_HIGHLAND_HERO_SCRIPT } from './cards/wolfsbaneHighlandHero';
+import { AZIMAET_DRAKE_SCRIPT } from './cards/azimaetDrake';
+import { HARDENED_TACTICIAN_SCRIPT } from './cards/hardenedTactician';
+import { KRAVENS_CATS_SCRIPT } from './cards/kravensCats';
+import { DWARVEN_STRIKE_FORCE_SCRIPT } from './cards/dwarvenStrikeForce';
+import { VIASHINO_SLAUGHTERMASTER_SCRIPT } from './cards/viashinoSlaughtermaster';
+import { GRASPING_DUNES_SCRIPT } from './cards/graspingDunes';
+import { PUTRID_LEECH_SCRIPT } from './cards/putridLeech';
+import { CUTTHROAT_CENTURION_SCRIPT } from './cards/cutthroatCenturion';
+import { BRAVE_KIN_DUO_SCRIPT } from './cards/braveKinDuo';
+import { IMPLEMENT_OF_FEROCITY_SCRIPT } from './cards/implementOfFerocity';
+import { INNER_DEMONS_GANGSTERS_SCRIPT } from './cards/innerDemonsGangsters';
+import { AKKI_AVALANCHERS_SCRIPT } from './cards/akkiAvalanchers';
+import { ATMOSPHERE_SURGEON_SCRIPT } from './cards/atmosphereSurgeon';
+import { SPITTING_DRAKE_SCRIPT } from './cards/spittingDrake';
+import { OGRE_SHAMAN_SCRIPT } from './cards/ogreShaman';
+import { PULSATING_ILLUSION_SCRIPT } from './cards/pulsatingIllusion';
+import { FRILLED_OCULUS_SCRIPT } from './cards/frilledOculus';
+import { WILD_AESTHIR_SCRIPT } from './cards/wildAesthir';
+import { PARDIC_LANCER_SCRIPT } from './cards/pardicLancer';
+import { DARKTHICKET_WOLF_SCRIPT } from './cards/darkthicketWolf';
 import { GROVE_OF_THE_GUARDIAN_SCRIPT } from './cards/groveOfTheGuardian';
 import { THALLID_GERMINATOR_SCRIPT } from './cards/thallidGerminator';
 import { THALLID_DEVOURER_SCRIPT } from './cards/thallidDevourer';
@@ -3947,6 +4012,71 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  TWINBLADE_SLASHER_SCRIPT,
+  CALL_THE_BLOODLINE_SCRIPT,
+  GHOR_CLAN_BLOODSCALE_SCRIPT,
+  STALKING_DRONE_SCRIPT,
+  GLIMMER_BAIRN_SCRIPT,
+  ROOTWALLA_SCRIPT,
+  BLOODSOAKED_ALTAR_SCRIPT,
+  MAGE_IL_VEC_SCRIPT,
+  FRILLED_SANDWALLA_SCRIPT,
+  DEFIANT_SALVAGER_SCRIPT,
+  FRENETIC_OGRE_SCRIPT,
+  STARNHEIM_MEMENTO_SCRIPT,
+  FAULT_RIDERS_SCRIPT,
+  CAPTIVATING_CAVE_SCRIPT,
+  KNIGHT_OF_THE_SKYWARD_EYE_SCRIPT,
+  BEETLEFORM_MAGE_SCRIPT,
+  SNARLING_WOLF_SCRIPT,
+  CANYON_DRAKE_SCRIPT,
+  CORAL_HELM_SCRIPT,
+  FOUNTAINPORT_SCRIPT,
+  SINISTER_MONOLITH_SCRIPT,
+  FIRE_DRAKE_SCRIPT,
+  MINDFUL_BIOMANCER_SCRIPT,
+  SAVAGEBORN_HYDRA_SCRIPT,
+  CAVE_OF_TEMPTATION_SCRIPT,
+  ERSTWHILE_TROOPER_SCRIPT,
+  SETESSAN_GRIFFIN_SCRIPT,
+  DAI_LI_CENSOR_SCRIPT,
+  VORACIOUS_NULL_SCRIPT,
+  CRADLE_OF_THE_ACCURSED_SCRIPT,
+  PARDIC_SWORDSMITH_SCRIPT,
+  STORMBIND_SCRIPT,
+  DIRE_WOLF_PROWLER_SCRIPT,
+  PLATED_ROOTWALLA_SCRIPT,
+  NOVICE_DISSECTOR_SCRIPT,
+  SAVAGE_KNUCKLEBLADE_SCRIPT,
+  SEPULCHER_GHOUL_SCRIPT,
+  AMOK_SCRIPT,
+  DRAKE_HATCHLING_SCRIPT,
+  ICE_CREAM_KITTY_SCRIPT,
+  LIGHTNING_WOLF_SCRIPT,
+  CUTTHROAT_CONTENDER_SCRIPT,
+  VOLRATHS_GARDENS_SCRIPT,
+  INTREPID_TENDERFOOT_SCRIPT,
+  WOLFSBANE_HIGHLAND_HERO_SCRIPT,
+  AZIMAET_DRAKE_SCRIPT,
+  HARDENED_TACTICIAN_SCRIPT,
+  KRAVENS_CATS_SCRIPT,
+  DWARVEN_STRIKE_FORCE_SCRIPT,
+  VIASHINO_SLAUGHTERMASTER_SCRIPT,
+  GRASPING_DUNES_SCRIPT,
+  PUTRID_LEECH_SCRIPT,
+  CUTTHROAT_CENTURION_SCRIPT,
+  BRAVE_KIN_DUO_SCRIPT,
+  IMPLEMENT_OF_FEROCITY_SCRIPT,
+  INNER_DEMONS_GANGSTERS_SCRIPT,
+  AKKI_AVALANCHERS_SCRIPT,
+  ATMOSPHERE_SURGEON_SCRIPT,
+  SPITTING_DRAKE_SCRIPT,
+  OGRE_SHAMAN_SCRIPT,
+  PULSATING_ILLUSION_SCRIPT,
+  FRILLED_OCULUS_SCRIPT,
+  WILD_AESTHIR_SCRIPT,
+  PARDIC_LANCER_SCRIPT,
+  DARKTHICKET_WOLF_SCRIPT,
   GROVE_OF_THE_GUARDIAN_SCRIPT,
   THALLID_GERMINATOR_SCRIPT,
   THALLID_DEVOURER_SCRIPT,

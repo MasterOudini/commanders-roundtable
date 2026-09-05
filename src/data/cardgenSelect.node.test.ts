@@ -104,7 +104,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // The "modified" predicate (D160).
   ['Akki Ember-Keeper', 'modified predicate'],
   // Random-discard cost — and `ctx.random` is still a stub (D161).
-  ['Amok', 'random-discard cost'],
   // Tap-N-untapped-creatures costs (D161).
   // Exile-from-library cost (D161).
   ['Arc-Slogger', 'exile-from-library cost'],
@@ -143,7 +142,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // artifact sibling (D167).
   ['Clock of Omens', 'tap-permanents cost'],
   // Batch 11 (D169).
-  ['Coral Helm', 'random-discard cost'],
   // "target opponent discards a card" from a trigger's resolve is the
   // script-raised prompt class (D160) — the caster's script asking ANOTHER
   // player's hidden-zone question.
@@ -260,7 +258,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Linden, the Steadfast Queen', 'per-tap-entry trigger granularity'],
   ['Lyla, Holographic Assistant', 'draw-event discriminator'],
   ['Mad Ratter', 'draw-event discriminator'],
-  ['Mage il-Vec', 'random-discard cost'],
   // Batch 27 (D186), five refusals and TWO new classes. Matoya names the
   // SCRY/SURVEIL EVENT DISCRIMINATOR: no event marks a scry — the peek is a
   // Tier-3 reveal and scry/surveil are UI MODES on it (D114), so "whenever
@@ -745,7 +742,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Nullify', 'subtype list alternative'],
   ["O'aka, Traveling Merchant", 'remove-counter cost'],
   ['Oboro Breezecaller', 'return-permanent cost'],
-  ['Ogre Shaman', 'ctx.random'],
   ["Oketra's Last Mercy", 'untap restriction'],
   // D230 — Ominous Sphinx names the DISCARD-EVENT DISCRIMINATOR: a
   // discard is a bare hand-to-graveyard CardsMoved indistinguishable from
@@ -904,7 +900,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Stifle', 'ability countering'],
   ['Stolen Goods', 'play-from-exile permission'],
   ['Stonerise Spirit', 'exile-from-graveyard cost'],
-  ['Stormbind', 'random-discard cost'],
   ['Stormchaser Drake', 'becomes-targeted trigger'],
   // D254 (M6.4cq) — Stream of Acid was PROBED: 'target land or nonblack
   // creature' HALVES to a confident bare 'target land', dropping the
@@ -1714,9 +1709,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hailstorm Valkyrie', 'snow mana cost'],
   ['Chilling Shade', 'snow mana cost'],
   ['Duergar Mine-Captain', 'untap-symbol cost'],
-  ['Frenetic Ogre', 'random discard cost'],
-  ['Canyon Drake', 'random discard cost'],
-  ['Pardic Swordsmith', 'random discard cost'],
   ['Soul of Theros', 'graveyard-activated ability'],
   ['Nephalia Moondrakes', 'graveyard-activated ability'],
   ['Scarred Vinebreeder', 'exile-from-graveyard cost'],
@@ -1733,9 +1725,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // combinations, the costs no row charges, the alternative-cost spells, the
   // hand-activated abilities and the planeswalkers.
   ['Appa, the Vigilant', 'trigger head outside the library'],
-  ['Dwarven Strike Force', 'random discard cost'],
   ['Harbin, Vanguard Aviator', 'trigger head outside the library'],
-  ['Pardic Lancer', 'random discard cost'],
   ['Wildfire Elemental', 'trigger head outside the library'],
   ['Cloudgoat Ranger', 'token trigger beside a one-shot pump (combined def)'],
   ['Flawless Maneuver', 'alternative cost'],
@@ -1980,9 +1970,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D327 (M6.4fl) - the sacrifice-a-token cost the engine does not charge: its chooser reads
   // types, subtypes and colours, and a token is none of them.
-  ['Fountainport', 'a cost the engine does not charge (sacrifice a token - no token predicate in the sacrifice chooser)'],
-  ['Glimmer Bairn', 'a cost the engine does not charge (sacrifice a token - no token predicate in the sacrifice chooser)'],
-  ['Hardened Tactician', 'a cost the engine does not charge (sacrifice a token - no token predicate in the sacrifice chooser)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

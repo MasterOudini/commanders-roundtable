@@ -106,6 +106,7 @@ export function emptyState(seed = 'unseeded'): GameState {
       step: 'untap',
       turnBasedActionsDone: false,
       cleanupNeedsRepeat: false,
+      activations: {},
     },
     priority: {
       player: null,

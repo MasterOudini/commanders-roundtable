@@ -10115,6 +10115,39 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D327): activate only once each turn (a per-turn memory on the turn state, a parser flag, the handler and the offers - 18 lines), the random discard cost (the parser's atRandom, the handler drawing on the seeded rng at payment - 10), sacrifice a token (a token predicate in the sacrifice chooser - 3), can not be countered (a flag the counter effect consults, 11 cards), the exile-from-graveyard and return-a-land costs, the counts outside the vocabulary (died this turn, a named creature, subtypes without a fixture), attacks or blocks alone and attacks each combat if able (declaration requirements); the mass behind - the modal choose-one, regenerate, the quoted abilities enchanted creatures and lands have, convoke, the monarch and energy, the second card and second spell each turn; the modal seam; the "another" split;
       the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4fm — ONCE EACH TURN, AT RANDOM, A TOKEN: the engine charges "activate
+      only once each turn", a random discard and "sacrifice a token", and the rows
+      that follow; 65 cards land, 65 as generated rows (2026-09-05):**
+      **6,444 of 31,692 Commander-legal cards now execute completely, up
+      from 6,379 (+65).** `SHIPPED_SCRIPTS` 3,891; ledger
+      1,016 (13 rows retired by name - the once-each-turn pumps, the random discards and the three token sacrifices the ledger held for a cost or a limit the engine charges now (Fountainport, Glimmer Bairn, Hardened Tactician among them); the count is MEASURED this decision (the REFUSED map's size) - the carried figure of 1,038 had drifted 9 above the map). Fixtures 4,258 (4,125 by name + 126 tokens: the 65 rowed cards (64 new by name) and one token pin (Call the Bloodline's 1/1 lifelink Vampire Knight)). An ENGINE change
+      (three seams, one patch) and the wave behind them (65 generated
+      rows). **Select pool 0.** Decisions in **D328**.
+      ⚠️ **Measured first:** the leftover probe over the database after D327, with the activation limits stripped off the payload (they were not part of it): 191 blocked single-face permanents whose every leftover line the grammar reads (135 before the strip); the row maker took 65 and refused 126 - 99 for costs it still cannot price (exile this card from your graveyard 15, a creature card from your graveyard 7, two or three cards from your graveyard 6 - an activation from the graveyard the engine does not offer; snow mana 9; remove a +1/+1 counter from a creature you control 5; tap an untapped Gate 3; return a land you control 3; sacrifice a Desert 3) and 15 for counts outside the vocabulary.
+      ⚠️ **The seams:** `ActivatedAbility.oncePerTurn` + `TurnState.activations`
+      (each `source|abilityRef` counted on `AbilityPutOnStack`, cleared by
+      `TurnBegan`; the handler refuses a second activation, `legalActions`
+      stops offering it); `discardCost.atRandom` (the activation names no card;
+      `finishAbility` draws the discard off the seeded rng at payment, the rng
+      on the accept as a coin flip's is); `PermanentPredicate.token`
+      (`predicatesOf('token')`, the sacrifice chooser checks `isToken`). The row
+      maker (`d328/make-rows18.cjs` + `gen-oneshot18.cjs`, from D327) strips the
+      once-each-turn / sorcery-only sentence and marks the row, reads a random
+      discard as a cost with no fixture, keeps the Saproling fodder for
+      "sacrifice a token"; the suites prove the second activation refused, the
+      hand one lighter, the token gone. NOT this decision: the graveyard-exile costs (exile this card / a creature card / two or three cards from your graveyard - 28 lines; an activation from the graveyard the engine does not offer), snow mana ({S} - 9), remove a counter from another permanent (6), tap an untapped Gate or Desert (4), return a land you control (3), the counts outside the vocabulary (15); then can not be countered (11 whole cards), the monarch, attacks each combat if able, the modal seam (42), the another split. Refused by
+      name: 13 rows retired by name - the once-each-turn pumps, the random discards and the three token sacrifices the ledger held for a cost or a limit the engine charges now (Fountainport, Glimmer Bairn, Hardened Tactician among them); the count is MEASURED this decision (the REFUSED map's size) - the carried figure of 1,038 had drifted 9 above the map.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips and 65 generated rows in two passes - 65 on the first with two suites red (Bloodsoaked Altar: one Grizzly Bears in the deck served both the discard and the sacrifice, so the discard's put moved the fodder off the battlefield; Ice Cream Kitty: another creature or token read as ONE token predicate), 65 green on the second (one more deck copy for a fixture a discard shares with a fodder or a tapper - fix-gen18-1; the token word read per or-alternative - apply-token-alternatives.cjs). The wave IS the landing: 65 rows - 33 activate-only-once-each-turn pumps and counters (Twinblade Slasher, Rootwalla, Putrid Leech, Savage Knuckleblade, Kraven's Cats, Wolfsbane, Highland Hero among them), 19 sorcery-speed activations the row maker had refused for the sentence alone (Bloodsoaked Altar, Ice Cream Kitty, Savageborn Hydra, Volrath's Gardens, Intrepid Tenderfoot), the 10 random discards (Mage il-Vec, Frenetic Ogre, Canyon Drake, Coral Helm, Pardic Swordsmith, Stormbind, Amok, Dwarven Strike Force, Ogre Shaman, Pardic Lancer) and the three token sacrifices D327 ledgered (Fountainport, Glimmer Bairn, Hardened Tactician); 41 of the 75 abilities are self pumps, then counters on a target (6), tokens (5), self counters (4), target pumps (4), damage (3), draws (3). Tests: the parser test; one generated
+      suite per row.
+      Fixtures 4,258 · botPool artifact 363 / creature 3,602 / enchantment 328 / instant 947 / land 481 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1116, 1241, 2928, 4791, 6138] · batch.json
+      65 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,005 files, 20,295 passing / 11 skipped ·
+      500-seed gate, 6 shards, 408.5 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D328): the graveyard-exile costs (exile this card / a creature card / two or three cards from your graveyard - 28 lines; an activation from the graveyard the engine does not offer), snow mana ({S} - 9), remove a counter from another permanent (6), tap an untapped Gate or Desert (4), return a land you control (3), the counts outside the vocabulary (15); then can not be countered (11 whole cards), the monarch, attacks each combat if able, the modal seam (42), the another split; the modal seam; the "another" split;
+      the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

@@ -709,6 +709,11 @@ function activateAbility(
   if (ability.cycling !== undefined && (card.zone.kind !== 'hand' || card.zone.player !== intent.player)) {
     return reject('wrongZone', 'Cycling is activated from your hand.');
   }
+  // D328 - CR 602.5b: "Activate only once each turn" is refused the second
+  // time this turn (`legal.ts` stops offering it the same way).
+  if (ability.oncePerTurn && (state.turn.activations[`${intent.card}|${oracleCard.oracleId}#a${intent.abilityIndex}`] ?? 0) >= 1) {
+    return reject('timingRestriction', `${face.name}'s "${ability.costText}" ability was activated this turn already.`);
+  }
   if (ability.isManaAbility) {
     return reject('notAManaAbility', 'That is a mana ability — tap it for mana instead.');
   }
@@ -750,6 +755,13 @@ function activateAbility(
     if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
       return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
     }
+  }
+  // D328 - a random discard names no card: the hand must hold enough, and
+  // `finishAbility` draws them off the seeded rng when the cost is paid.
+  if (ability.discardCost?.atRandom && (state.zones.hand[intent.player] ?? []).length < ability.discardCost.count) {
+    return reject('cannotAfford', `You cannot pay ${ability.costText} for ${face.name}.`);
+  }
+  if (ability.discardCost && !ability.discardCost.atRandom) {
     const picks = intent.discard ?? [];
     const want = ability.discardCost.count;
     if (picks.length !== want) {
@@ -1198,6 +1210,9 @@ function finishAbility(
 
   const events: EventBody[] = [...lead];
   events.push({ t: 'AwaitingSet', awaiting: null });
+  // D328 - a random discard draws off the seeded rng; the rng after rides
+  // the accept exactly as a coin flip's does, so the log replays.
+  let rngAfter: Parameters<typeof accept>[1];
   events.push(
     ...payEvents(state, deps, pending.player, chosen, {
       problem: pending.problem,
@@ -1254,7 +1269,28 @@ function finishAbility(
   // ordinary hand→graveyard move, so discard-event watchers see it like any
   // other discard. Re-checked here because the targets prompt may have sat
   // between the choice and the charge.
-  if (ability.discardCost && pending.discard && pending.discard.length > 0) {
+  // D328 - "Discard a card at random": the seeded rng picks, at payment.
+  if (ability.discardCost?.atRandom) {
+    const held = state.zones.hand[pending.player] ?? [];
+    if (held.length < ability.discardCost.count) return reject('cannotAfford', `You cannot pay ${ability.costText} for ${face.name}.`);
+    const drawn = shuffle(state.rng, held);
+    rngAfter = drawn.next;
+    const moves: { card: InstanceId; from: { kind: 'hand'; player: PlayerId }; to: { kind: 'graveyard'; player: PlayerId } }[] = [];
+    for (const chosen of drawn.value.slice(0, ability.discardCost.count)) {
+      const inst = state.cards[chosen];
+      if (!inst) return reject('noSuchCard', 'A card in your hand is not in the game.');
+      moves.push({ card: chosen, from: { kind: 'hand', player: pending.player }, to: { kind: 'graveyard', player: inst.owner } });
+    }
+    events.push({ t: 'CardsMoved', moves });
+    events.push(
+      narrated(
+        n`${who(state, pending.player)} ${vb(pending.player, 'discards', 'discard')} ${moves.length} card${moves.length === 1 ? '' : 's'} at random.`,
+        pending.player,
+        identity,
+      ),
+    );
+  }
+  if (ability.discardCost && !ability.discardCost.atRandom && pending.discard && pending.discard.length > 0) {
     const moves: { card: InstanceId; from: { kind: 'hand'; player: PlayerId }; to: { kind: 'graveyard'; player: PlayerId } }[] = [];
     for (const chosen of pending.discard) {
       const inst = state.cards[chosen];
@@ -1381,7 +1417,7 @@ function finishAbility(
     ),
   );
   events.push(...retainPriority(pending.player, state.stack.length + 1));
-  return accept(events);
+  return accept(events, rngAfter);
 }
 
 interface FinishOpts {

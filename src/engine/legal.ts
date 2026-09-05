@@ -275,6 +275,8 @@ export function legalActions(
     if (!d.hasAbilities) continue;
     for (const ability of face.activated) {
       if (ability.isManaAbility || ability.isLoyalty || !ability.payable) continue;
+      // D328 - CR 602.5b: activated this turn already, not offered again.
+      if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
       // ⚠️ A DESTRUCTIVE COST IS OFFERED ONLY WHEN A SCRIPT WILL RUN THE EFFECT
       // (D159). Charging mana for nothing is D122's disclosed status quo;
       // eating the permanent for nothing is not. Asked of the GAME'S registry,
@@ -450,7 +452,9 @@ export function sacrificeCandidatesFor(
         p.supertypes.every((t) => chars.typeLine.supertypes.includes(t)) &&
         p.types.every((t) => chars.typeLine.types.includes(t)) &&
         p.subtypes.every((t) => chars.typeLine.subtypes.includes(t)) &&
-        p.colors.every((c) => chars.colors.includes(c)),
+        p.colors.every((c) => chars.colors.includes(c)) &&
+        // D328 - "Sacrifice a token": the instance, not its characteristics.
+        (p.token !== true || state.cards[id]?.isToken === true),
     );
     if (hit) out.push(id);
   }
@@ -471,7 +475,9 @@ function predicateHit(
       p.supertypes.every((t) => chars.typeLine.supertypes.includes(t)) &&
       p.types.every((t) => chars.typeLine.types.includes(t)) &&
       p.subtypes.every((t) => chars.typeLine.subtypes.includes(t)) &&
-      p.colors.every((c) => chars.colors.includes(c)),
+      p.colors.every((c) => chars.colors.includes(c)) &&
+      // D328 - a token predicate is priced by the sacrifice chooser alone.
+      p.token !== true,
   );
 }
 

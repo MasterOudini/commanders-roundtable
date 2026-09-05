@@ -34,6 +34,8 @@ export interface PermanentPredicate {
   readonly types: readonly string[];
   readonly subtypes: readonly string[];
   readonly colors: readonly ColorLetter[];
+  /** D328 - the sacrifice chooser only: the permanent must be a token (`CardInstance.isToken`). */
+  readonly token?: boolean;
 }
 
 /**

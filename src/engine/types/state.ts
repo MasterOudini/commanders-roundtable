@@ -757,6 +757,8 @@ export interface TurnState {
   readonly turnBasedActionsDone: boolean;
   /** CR 514.3a — an SBA or trigger during cleanup means another cleanup, with priority. */
   readonly cleanupNeedsRepeat: boolean;
+  /** D328 - CR 602.5b: how many times each `source|abilityRef` was activated this turn; cleared by `TurnBegan`. */
+  readonly activations: Readonly<Record<string, number>>;
 }
 
 /** One rendered narration line. Mirrors `src/view/types.ts` `LogEntry`. */

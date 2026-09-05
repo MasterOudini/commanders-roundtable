@@ -26,6 +26,8 @@ import {
   type GameState,
   type NarrationLine,
   type PlayerState,
+  type StackObject,
+  type TurnState,
   type Zones,
 } from './types/state';
 
@@ -54,6 +56,17 @@ function withPlayer(state: GameState, id: PlayerId, patch: Partial<PlayerState>)
   const player = state.players[id];
   if (!player) return state;
   return { ...state, players: { ...state.players, [id]: { ...player, ...patch } } };
+}
+
+/**
+ * D328 - CR 602.5b "activate only once each turn": count the activation on
+ * the turn, keyed by the source permanent and the ability it activated. A
+ * spell, a triggered ability or an ability with no source is not counted.
+ */
+function recordActivation(turn: TurnState, obj: StackObject): TurnState {
+  if (obj.kind !== 'activated' || obj.source === null || obj.abilityRef === null) return turn;
+  const key = `${obj.source}|${obj.abilityRef}`;
+  return { ...turn, activations: { ...turn.activations, [key]: (turn.activations[key] ?? 0) + 1 } };
 }
 
 function withCard(state: GameState, id: InstanceId, patch: Partial<CardInstance>): GameState {
@@ -247,6 +260,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
           step: 'untap',
           turnBasedActionsDone: false,
           cleanupNeedsRepeat: false,
+          activations: {},
         },
         priority: {
           player: null,
@@ -613,6 +627,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
           step: 'untap',
           turnBasedActionsDone: false,
           cleanupNeedsRepeat: false,
+          activations: {},
         },
         priority: { ...state.priority, passedSinceLastAction: [], player: null },
       };
@@ -722,6 +737,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
         ...state,
         stack: [...state.stack, body.obj],
         pendingCast: null,
+        turn: recordActivation(state.turn, body.obj),
         priority: {
           ...state.priority,
           passedSinceLastAction: [],

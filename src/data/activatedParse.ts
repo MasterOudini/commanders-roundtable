@@ -26,7 +26,7 @@ import type { ActivatedAbility, ManaProduction } from '../engine/types/oracle';
 import type { ManaCost } from '../engine/types/mana';
 import type { Warn } from './oracleParse';
 import { parseTargetClauses, splitAbilityLines } from './targetParse';
-import { predicatesOf } from './replacementParse';
+import { predicatesOf, type PermanentPredicate } from './replacementParse';
 
 const NOOP_WARN: Warn = () => undefined;
 
@@ -37,6 +37,31 @@ const LOYALTY_RE = /^[+−-]?(?:\d+|X)$/;
 const LIFE_RE = /\bpay\s+(\d+)\s+life\b/i;
 
 const SORCERY_ONLY_RE = /\bactivate\s+(?:this\s+ability\s+)?only\s+as\s+a\s+sorcery\b/i;
+/** D328 - CR 602.5b. Read the way `SORCERY_ONLY_RE` is; enforced by `TurnState.activations`. */
+const ONCE_PER_TURN_RE = /\bactivate\s+(?:this\s+ability\s+)?only\s+once\s+each\s+turn\b/i;
+
+/**
+ * D328 - "Sacrifice a token" / "a creature token" / "another creature or
+ * token": the word the sacrifice chooser reads off the INSTANCE (`isToken`),
+ * beside whatever predicate the words before it make - per alternative,
+ * split on "or" the way `predicatesOf` splits. Only the sacrifice cost
+ * reads the word; `predicateOf` itself still refuses it, so no other
+ * reader widens.
+ */
+function tokenPredicates(phrase: string): readonly PermanentPredicate[] | null {
+  const out: PermanentPredicate[] = [];
+  for (const alt of phrase.split(/\bor\b/).map((p) => p.trim()).filter((p) => p !== '')) {
+    const tok = /^(?:(?:a|an|another)\s+)?(?:(.+)\s+)?tokens?$/i.exec(alt);
+    const base: readonly PermanentPredicate[] | null = tok
+      ? tok[1] === undefined
+        ? [{ supertypes: [], types: [], subtypes: [], colors: [] }]
+        : predicatesOf(tok[1].trim())
+      : predicatesOf(alt);
+    if (base === null) return null;
+    out.push(...(tok ? base.map((p) => ({ ...p, token: true })) : base));
+  }
+  return out.length === 0 ? null : out;
+}
 
 /**
  * Split a cost string on commas that separate cost components, not commas
@@ -161,6 +186,7 @@ export function parseActivatedAbilities(
         isManaAbility: false,
         isLoyalty: false,
         sorceryOnly: true,
+        oncePerTurn: false,
         targets: parseTargetClauses(EQUIP_EFFECT, warn),
         equip: { line: printed },
       });
@@ -193,6 +219,7 @@ export function parseActivatedAbilities(
         isManaAbility: false,
         isLoyalty: false,
         sorceryOnly: false,
+        oncePerTurn: false,
         targets: [],
         cycling: { line: printed },
       });
@@ -225,6 +252,7 @@ export function parseActivatedAbilities(
         isManaAbility: false,
         isLoyalty: false,
         sorceryOnly: false,
+        oncePerTurn: false,
         targets: [],
         crew: { line: printed, power },
       });
@@ -302,10 +330,13 @@ export function parseActivatedAbilities(
       if (sac && sacrificeCost === null) {
         const another = (sac[1] ?? '').toLowerCase() === 'another';
         const rest = (sac[2] ?? '').trim();
+        // D328 - "a token" / "a creature token" / "another creature or token" (`tokenPredicates`).
         const any =
           /^permanents?$/i.test(rest)
             ? [{ supertypes: [], types: [], subtypes: [], colors: [] }]
-            : predicatesOf(rest);
+            : /\btokens?$/i.test(rest)
+              ? tokenPredicates(rest)
+              : predicatesOf(rest);
         if (any !== null) {
           sacrificeCost = { another, any };
           continue;
@@ -322,14 +353,20 @@ export function parseActivatedAbilities(
         const count = COUNT_WORDS[(disc[1] ?? '').toLowerCase()] ?? 0;
         const rest = (disc[2] ?? '').trim();
         if (count > 0 && /^cards?$/i.test(rest)) {
-          discardCost = { count, any: null };
+          discardCost = { count, any: null, atRandom: false };
+          continue;
+        }
+        // D328 - "Discard a card at random": no choice to price; the engine
+        // draws the cards off the seeded rng when the cost is paid.
+        if (count > 0 && /^cards? at random$/i.test(rest)) {
+          discardCost = { count, any: null, atRandom: true };
           continue;
         }
         const stripped = rest.replace(/\s+cards?$/i, '');
         if (count > 0 && stripped !== rest) {
           const any = predicatesOf(singularNoun(stripped, count > 1));
           if (any !== null) {
-            discardCost = { count, any };
+            discardCost = { count, any, atRandom: false };
             continue;
           }
         }
@@ -403,6 +440,7 @@ export function parseActivatedAbilities(
       isManaAbility,
       isLoyalty,
       sorceryOnly: SORCERY_ONLY_RE.test(line.text),
+      oncePerTurn: ONCE_PER_TURN_RE.test(line.text),
       // The same clause parser the spell path uses — one grammar, not two.
       // Measured: 6,082 ability lines contain a target clause.
       targets: parseTargetClauses(line.effectText, warn),
