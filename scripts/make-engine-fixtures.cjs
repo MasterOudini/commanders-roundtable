@@ -4139,6 +4139,30 @@ const WANTED = [
   'Mindless Automaton',
   'Spike Drone',
   'Spike Soldier',
+  // D320 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Satyr Hoplite',
+  'Phalanx Leader',
+  'Triton Fortune Hunter',
+  'Wingsteed Rider',
+  'Akroan Skyguard',
+  'Brigone, Soldier of Meletis',
+  'Centaur Battlemaster',
+  'Sire of the Storm',
+  'Staunch-Hearted Warrior',
+  'Lagonna-Band Trailblazer',
+  'Scaled Hulk',
+  'Kami of the Hunt',
+  'Anax and Cymede',
+  'Fabled Hero',
+  'Dawnbringer Charioteers',
+  'Vanguard of Brimaz',
+  'War-Wing Siren',
+  'Setessan Battle Priest',
+  'Pheres-Band Thunderhoof',
+  'Kami of Tattered Shoji',
+  'Setessan Oathsworn',
+  // D320 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Giant Growth',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -4352,6 +4376,8 @@ const WANTED_TOKENS = [
   // D317 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Beast', set: 'tc21', cn: '11', key: 'BEAST_4_4_G_CREATURE_TOKEN' },
   { name: 'Elemental', set: 'tznc', cn: '8', key: 'ELEMENTAL_2_2_G_CREATURE_TOKEN' },
+  // D320 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Cat Soldier', set: 'tbng', cn: '2', key: 'CAT_SOLDIER_1_1_W_CREATURE_VIGILANCE_TOKEN' },
 ];
 
 function constName(name) {

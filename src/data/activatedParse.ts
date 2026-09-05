@@ -77,6 +77,8 @@ export interface ActivatedParseInput {
   readonly producesMana: readonly ManaProduction[];
   /** From `parseManaCost`, applied to the mana part of each cost. */
   readonly parseCost: (raw: string, warn?: Warn) => ManaCost | null;
+  /** D320 - the face's short name, which an older printing uses where a newer one says "this creature". */
+  readonly selfName?: string;
 }
 
 /**
@@ -116,7 +118,7 @@ export function parseActivatedAbilities(
   input: ActivatedParseInput,
   warn: Warn = NOOP_WARN,
 ): ActivatedAbility[] {
-  const { oracleText, isPermanent, producesMana, parseCost } = input;
+  const { oracleText, isPermanent, producesMana, parseCost, selfName } = input;
   if (!oracleText) return [];
 
   // ⚠️ Asked, not guessed. A null `line` is an intrinsic land-type ability, which
@@ -352,7 +354,9 @@ export function parseActivatedAbilities(
       // unpaid (a computed cost the engine cannot compute). Chargeable is not
       // offerable: the def gate in `legal.ts` and `handlers.ts` still refuses an
       // undef'd ability (D159's rule).
-      const rc = /^remove (a|an|one|two|three|four|five) ([^ ]+) counters? from this [a-z]+$/i.exec(part.trim());
+      // D320 - "from this creature" on a newer printing, "from Brigone" on an older one.
+      const selfAlt = selfName ? '|' + selfName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') : '';
+      const rc = new RegExp('^remove (a|an|one|two|three|four|five) ([^ ]+) counters? from (?:this [a-z]+' + selfAlt + ')$', 'i').exec(part.trim());
       if (rc && removeCounterCost === null) {
         const count = COUNT_WORDS[(rc[1] ?? '').toLowerCase()] ?? 0;
         const kind = rc[2] ?? '';

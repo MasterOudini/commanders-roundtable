@@ -21666,3 +21666,64 @@ Fixtures 3,769 · botPool artifact 272 / creature 3,265 / enchantment 257 / inst
 **Reportables** (D319): the classifier learning the remove-a-counter cost and the target payloads (641 abilities are payable now that its scriptable primitive does not know), the remove-a-counter chooser (from a creature you control), the variable enters-with-X counters (45), the tap-N-creatures and exile-from-graveyard costs, the damage and destroy payloads, the heads still outside (one or more cards put into a graveyard, sacrifice a token, a second card each turn); the mass behind - regenerate, any-colour mana, the modal choose-one, convoke, attacks each combat if able, can not be countered; the modal seam; the "another" split; the
 by-name sacrifice cost; the remaining cost verbs; the prompt continuation
 seam; prior items stand.
+
+## D320 — M6.4fe: THE TRIGGER HEADS, PART 6 — five more heads (one from the stack) and the variable enters-with counters in the one-shot generator; 21 cards land as generated rows (2026-09-05)
+
+**5,890 of 31,692 Commander-legal cards execute completely, up from
+5,869 (+21).** SHIPPED_SCRIPTS 3,415 → **3,436**;
+REFUSED ledger 1,093 → **1,093** (none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty). Fixtures
+3,769 → 3,792 (3,672 by name + 113 tokens: the 21 rowed cards, the Giant Growth the heroic tests cast, and the 1/1 Cat Soldier token Phalanx Leader's kin make). One parser touch: D319's
+remove-a-counter cost also reads the card's own short name ("Remove a +1/+1
+counter from Brigone", the older printings' wording — `ActivatedParseInput.selfName`,
+handed down by the ingest); otherwise one row maker, one generator, one
+candidate probe. **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** the D320 candidate probe over the database after D319: 97 blocked single-face permanents whose every unread line the widened grammar reads - 38 with a static or combat line, 59 within the trigger grammar (the new lines among them: heroic 21, the variable enters-with counters 21, a Spirit or Arcane spell 5, equipped creature attacks 1); the mass behind them: regenerate 100, any-colour mana 80, a modal choose-one 64, enchanted creature has 55, convoke 50, attacks each combat if able 46, can not be countered 46, enters with X counters 45, enchant player 42, a look at the top card 39, loot 39, start your engines 38, the monarch 36, enchanted land has 35, energy 33, threshold 32, does not untap 31, a restricted any-colour mana 31, enter as a copy 31, blocks or becomes blocked by 30, your second card each turn 29.
+
+**The rows.**
+
+- `d320/make-rows10.cjs`: five more heads — "When you cast this spell" (the
+  first trigger a generated row carries in the STACK zone: `activeZones:
+  ['stack']`, `SpellCast` naming the card itself), "Heroic — Whenever you cast
+  a spell that targets this creature" (`SpellCast` whose targets name it),
+  "Whenever you cast a Spirit or Arcane spell" (the spell's subtypes),
+  "Whenever equipped creature attacks" (`AttackersDeclared` against the
+  Equipment's `attachedTo`; the Equip line the engine charges is recorded
+  with its index and cost), "When enchanted creature dies" (looks back
+  through the Aura's `attachedTo`); and "~ enters with a +1/+1 counter on it
+  for each <count>" as a `ReplacementDef` over D317's count vocabulary, the
+  singular phrase read back to the plural ("creature you control" →
+  "creatures you control").
+- `d320/gen-oneshot10.cjs`: the cast-this-spell and enchanted-creature rows
+  start in hand and are cast for their printed cost (the Aura onto the Bears,
+  which is then killed by hand); the heroic row is aimed at by a Giant Growth
+  (now a fixture) held in hand from the baseline; the Spirit head casts a
+  Cloud Spirit; the equipped head equips the Bears and attacks with it; a
+  variable enters-with row enters with exactly the one counted object put
+  down before it (the hand: the baseline less the card itself).
+- Rows land BY NAME from the candidate probe; the classifier does not learn
+  the heads this decision, so the select pool stays 0 and only `complete`
+  moves.
+
+- **Refused by name:** none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty.
+- **Not this decision:** the variable enters-with counts outside the vocabulary (other creature you control, creature that died this turn - a turn memory, a Gate, Wizards, Illusions), the remove-a-counter chooser, the tap-N-creatures and exile-from-graveyard costs, the target and damage payloads, the heads still outside (one or more cards put into a graveyard, sacrifice a token, a second card each turn); the mass behind - regenerate, any-colour mana, the modal choose-one, convoke, attacks each combat if able, can not be countered; the classifier learning the heads, the kinds and the costs.
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** one generated suite per row (21 suites), each ability in
+its own game; the generator's own heads proven by the rows that use them.
+
+**Landed:** no auto flips and 21 generated rows - the 97 candidates less the 76 the row maker still refuses (eighteen lines outside both grammars - can not attack or block alone, morph, crew, affinity, toxic, an anthem, an Equipment static, a colour choice on entry, a cost line; the variable enters-with counts outside the vocabulary - other creature you control, creature that died this turn, a Gate, Wizards, Illusions, the chosen colour, mana spent, different mana costs; the remove-a-counter chooser, the tap-N-creatures, exile-from-graveyard, sacrifice-a-choice and return-a-land costs; the target and damage payloads; the heads still outside; the untap-it, Lander, surveil and scry payloads); the self-name cost reference makes 90 more printed activated abilities payable (oracleParse activated:nonManaCost 5,228 -> 5,138). The wave IS the landing: 21 rows - sixteen heroic creatures (Satyr Hoplite, Phalanx Leader, Triton Fortune Hunter, Wingsteed Rider, Akroan Skyguard, Brigone with its draw for a counter, Centaur Battlemaster, Staunch-Hearted Warrior, Lagonna-Band Trailblazer, Anax and Cymede, Fabled Hero, Dawnbringer Charioteers, Vanguard of Brimaz, War-Wing Siren, Setessan Battle Priest, Pheres-Band Thunderhoof, Setessan Oathsworn) and four Spirit-or-Arcane triggers (Sire of the Storm, Scaled Hulk, Kami of the Hunt, Kami of Tattered Shoji); the bot's own deck took 21 creatures more.
+
+Fixtures 3,792 · botPool artifact 272 / creature 3,286 / enchantment 257 / instant 947 / land 405 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1193, 1322, 3031, 4926, 6278] · batch.json
+21 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,548 files, 18,233 passing / 11 skipped ·
+500-seed gate, 6 shards, 341.2 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D320): the variable enters-with counts outside the vocabulary (other creature you control, creature that died this turn - a turn memory, a Gate, Wizards, Illusions), the remove-a-counter chooser, the tap-N-creatures and exile-from-graveyard costs, the target and damage payloads, the heads still outside (one or more cards put into a graveyard, sacrifice a token, a second card each turn); the mass behind - regenerate, any-colour mana, the modal choose-one, convoke, attacks each combat if able, can not be countered; the classifier learning the heads, the kinds and the costs; the modal seam; the "another" split; the
+by-name sacrifice cost; the remaining cost verbs; the prompt continuation
+seam; prior items stand.

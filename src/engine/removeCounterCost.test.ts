@@ -48,6 +48,20 @@ describe('D319 - the remove-a-counter cost, parsed', () => {
     expect(a?.payable).toBe(false);
   });
 
+  test('an older printing names the card itself: "from Brigone" (D320)', () => {
+    const [a] = parseActivatedAbilities({
+      oracleText: '{T}, Remove a +1/+1 counter from Brigone: Draw a card.',
+      isPermanent: true,
+      producesMana: [],
+      parseCost: (raw) => parseManaCost(raw),
+      selfName: 'Brigone',
+    });
+    expect(a?.removeCounterCost).toEqual({ kind: '+1/+1', count: 1 });
+    expect(a?.payable).toBe(true);
+    const [other] = parse('{T}, Remove a +1/+1 counter from Brigone: Draw a card.');
+    expect(other?.removeCounterCost).toBeNull();
+  });
+
   test('a plain mana ability stays what it was', () => {
     const [a] = parse('{T}: Add {G}.');
     expect(a?.removeCounterCost).toBeNull();

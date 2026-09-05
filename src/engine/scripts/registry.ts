@@ -7,6 +7,27 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SATYR_HOPLITE_SCRIPT } from './cards/satyrHoplite';
+import { PHALANX_LEADER_SCRIPT } from './cards/phalanxLeader';
+import { TRITON_FORTUNE_HUNTER_SCRIPT } from './cards/tritonFortuneHunter';
+import { WINGSTEED_RIDER_SCRIPT } from './cards/wingsteedRider';
+import { AKROAN_SKYGUARD_SCRIPT } from './cards/akroanSkyguard';
+import { BRIGONE_SOLDIER_OF_MELETIS_SCRIPT } from './cards/brigoneSoldierOfMeletis';
+import { CENTAUR_BATTLEMASTER_SCRIPT } from './cards/centaurBattlemaster';
+import { SIRE_OF_THE_STORM_SCRIPT } from './cards/sireOfTheStorm';
+import { STAUNCH_HEARTED_WARRIOR_SCRIPT } from './cards/staunchHeartedWarrior';
+import { LAGONNA_BAND_TRAILBLAZER_SCRIPT } from './cards/lagonnaBandTrailblazer';
+import { SCALED_HULK_SCRIPT } from './cards/scaledHulk';
+import { KAMI_OF_THE_HUNT_SCRIPT } from './cards/kamiOfTheHunt';
+import { ANAX_AND_CYMEDE_SCRIPT } from './cards/anaxAndCymede';
+import { FABLED_HERO_SCRIPT } from './cards/fabledHero';
+import { DAWNBRINGER_CHARIOTEERS_SCRIPT } from './cards/dawnbringerCharioteers';
+import { VANGUARD_OF_BRIMAZ_SCRIPT } from './cards/vanguardOfBrimaz';
+import { WAR_WING_SIREN_SCRIPT } from './cards/warWingSiren';
+import { SETESSAN_BATTLE_PRIEST_SCRIPT } from './cards/setessanBattlePriest';
+import { PHERES_BAND_THUNDERHOOF_SCRIPT } from './cards/pheresBandThunderhoof';
+import { KAMI_OF_TATTERED_SHOJI_SCRIPT } from './cards/kamiOfTatteredShoji';
+import { SETESSAN_OATHSWORN_SCRIPT } from './cards/setessanOathsworn';
 import { SPIKE_WORKER_SCRIPT } from './cards/spikeWorker';
 import { SPIKE_FEEDER_SCRIPT } from './cards/spikeFeeder';
 import { SPIKE_COLONY_SCRIPT } from './cards/spikeColony';
@@ -3536,6 +3557,27 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SATYR_HOPLITE_SCRIPT,
+  PHALANX_LEADER_SCRIPT,
+  TRITON_FORTUNE_HUNTER_SCRIPT,
+  WINGSTEED_RIDER_SCRIPT,
+  AKROAN_SKYGUARD_SCRIPT,
+  BRIGONE_SOLDIER_OF_MELETIS_SCRIPT,
+  CENTAUR_BATTLEMASTER_SCRIPT,
+  SIRE_OF_THE_STORM_SCRIPT,
+  STAUNCH_HEARTED_WARRIOR_SCRIPT,
+  LAGONNA_BAND_TRAILBLAZER_SCRIPT,
+  SCALED_HULK_SCRIPT,
+  KAMI_OF_THE_HUNT_SCRIPT,
+  ANAX_AND_CYMEDE_SCRIPT,
+  FABLED_HERO_SCRIPT,
+  DAWNBRINGER_CHARIOTEERS_SCRIPT,
+  VANGUARD_OF_BRIMAZ_SCRIPT,
+  WAR_WING_SIREN_SCRIPT,
+  SETESSAN_BATTLE_PRIEST_SCRIPT,
+  PHERES_BAND_THUNDERHOOF_SCRIPT,
+  KAMI_OF_TATTERED_SHOJI_SCRIPT,
+  SETESSAN_OATHSWORN_SCRIPT,
   SPIKE_WORKER_SCRIPT,
   SPIKE_FEEDER_SCRIPT,
   SPIKE_COLONY_SCRIPT,

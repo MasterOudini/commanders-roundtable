@@ -748,7 +748,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   // so "is this line a mana ability?" is answered by matching line index against
   // the parser that already decided it — never by a second heuristic here.
   const activated = parseActivatedAbilities(
-    { oracleText: face.oracleText, isPermanent, producesMana, parseCost: parseManaCost },
+    { oracleText: face.oracleText, isPermanent, producesMana, parseCost: parseManaCost, selfName: face.name.split(',')[0] ?? face.name },
     warn,
   );
   const targets = parseSpellTargets(face.oracleText, isPermanent, warn);

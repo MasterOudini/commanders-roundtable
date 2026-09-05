@@ -126784,6 +126784,802 @@ export const SPIKE_SOLDIER: CardData = {
   "singleImage": true
 };
 
+export const SATYR_HOPLITE: CardData = {
+  "scryfallId": "06c44f69-bd56-45ee-96ba-ea33a3c33680",
+  "oracleId": "ee7dc820-10ee-429a-a1ef-ecd6a11f5608",
+  "name": "Satyr Hoplite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Satyr Hoplite",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Satyr Soldier",
+      "oracleText": "Heroic — Whenever you cast a spell that targets this creature, put a +1/+1 counter on this creature.",
+      "flavorText": "\"Xenagos has become what he once despised: a tyrant and an oppressor.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "06c44f69-bd56-45ee-96ba-ea33a3c33680"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Heroic"
+  ],
+  "setCode": "j25",
+  "collectorNumber": "595",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PHALANX_LEADER: CardData = {
+  "scryfallId": "0c6c2458-edb7-4822-866b-ca1b2ea7a8e8",
+  "oracleId": "857db7e0-254a-4920-a71d-9bab6555342f",
+  "name": "Phalanx Leader",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Phalanx Leader",
+      "manaCost": "{W}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Heroic — Whenever you cast a spell that targets this creature, put a +1/+1 counter on each creature you control.",
+      "flavorText": "His soldiers etch his words on the insides of their shields, their inspiration always in sight during battle.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "David Palumbo",
+      "imageId": "0c6c2458-edb7-4822-866b-ca1b2ea7a8e8"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Heroic"
+  ],
+  "setCode": "ths",
+  "collectorNumber": "26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRITON_FORTUNE_HUNTER: CardData = {
+  "scryfallId": "1173ff96-998c-4fe7-9b28-602d990e0339",
+  "oracleId": "f84637f0-1a04-4fd1-85d9-8e8f5d444800",
+  "name": "Triton Fortune Hunter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Triton Fortune Hunter",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Merfolk Soldier",
+      "oracleText": "Heroic — Whenever you cast a spell that targets this creature, draw a card.",
+      "flavorText": "\"Thassa has blessed me with power and insight. I am careful not to disappoint her.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Clint Cearley",
+      "imageId": "1173ff96-998c-4fe7-9b28-602d990e0339"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Heroic"
+  ],
+  "setCode": "ths",
+  "collectorNumber": "69",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WINGSTEED_RIDER: CardData = {
+  "scryfallId": "160696ef-3bf4-4036-9128-20adb18afddd",
+  "oracleId": "9c46adaa-ab39-4c0a-99bd-935b6c4f732f",
+  "name": "Wingsteed Rider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wingsteed Rider",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Flying\nHeroic — Whenever you cast a spell that targets this creature, put a +1/+1 counter on this creature.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Cynthia Sheppard",
+      "imageId": "160696ef-3bf4-4036-9128-20adb18afddd"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying",
+    "Heroic"
+  ],
+  "setCode": "pio",
+  "collectorNumber": "283",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AKROAN_SKYGUARD: CardData = {
+  "scryfallId": "193042de-1e02-4ea5-8866-61bbe3291d5b",
+  "oracleId": "f4e8be6f-2a1f-47b2-a4d8-7e576e25ab60",
+  "name": "Akroan Skyguard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Akroan Skyguard",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Flying\nHeroic — Whenever you cast a spell that targets this creature, put a +1/+1 counter on this creature.",
+      "flavorText": "\"Trust me. When you have earned a god's favor, you'll know.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mark Winters",
+      "imageId": "193042de-1e02-4ea5-8866-61bbe3291d5b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying",
+    "Heroic"
+  ],
+  "setCode": "j25",
+  "collectorNumber": "159",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BRIGONE_SOLDIER_OF_MELETIS: CardData = {
+  "scryfallId": "20ecadef-8aa3-4bca-8744-adbc809083c3",
+  "oracleId": "f328dfb1-0737-478b-bd40-dfcb9a35e5a5",
+  "name": "Brigone, Soldier of Meletis",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Brigone, Soldier of Meletis",
+      "manaCost": "{1}{W}",
+      "typeLine": "Legendary Creature — Human Soldier",
+      "oracleText": "Vigilance\nHeroic — Whenever you cast a spell that targets Brigone, put a +1/+1 counter on Brigone.\n{T}, Remove a +1/+1 counter from Brigone: Draw a card.",
+      "flavorText": "\"Gods, guide my hand!\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Daisuke Tatsuma",
+      "imageId": "20ecadef-8aa3-4bca-8744-adbc809083c3"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Vigilance",
+    "Heroic"
+  ],
+  "setCode": "j25",
+  "collectorNumber": "30",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CENTAUR_BATTLEMASTER: CardData = {
+  "scryfallId": "2975a0b4-7436-4588-8f79-c001a291c459",
+  "oracleId": "4b854749-f3a5-4199-bbfa-83090b8ccc25",
+  "name": "Centaur Battlemaster",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Centaur Battlemaster",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Creature — Centaur Warrior",
+      "oracleText": "Heroic — Whenever you cast a spell that targets this creature, put three +1/+1 counters on this creature.",
+      "flavorText": "\"A herd is only as strong as its weakest. Our weakest just killed his third minotaur raider—today.\"\n—Braulios of Pheres Band",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "2975a0b4-7436-4588-8f79-c001a291c459"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Heroic"
+  ],
+  "setCode": "ths",
+  "collectorNumber": "154",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIRE_OF_THE_STORM: CardData = {
+  "scryfallId": "2e76d003-2d15-43d7-9cbb-e00564d0cabf",
+  "oracleId": "68f1db12-82fb-4bf1-908d-db38fd67efe5",
+  "name": "Sire of the Storm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sire of the Storm",
+      "manaCost": "{4}{U}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nWhenever you cast a Spirit or Arcane spell, you may draw a card.",
+      "flavorText": "This storm blows gales through the dreams of men.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Arnie Swekel",
+      "imageId": "2e76d003-2d15-43d7-9cbb-e00564d0cabf"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "chk",
+  "collectorNumber": "85",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STAUNCH_HEARTED_WARRIOR: CardData = {
+  "scryfallId": "3485eb83-f83c-4776-b164-abd72f3c9547",
+  "oracleId": "aa6244fb-e1f1-4b53-b530-a8c9d0712a5b",
+  "name": "Staunch-Hearted Warrior",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Staunch-Hearted Warrior",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Human Warrior",
+      "oracleText": "Heroic — Whenever you cast a spell that targets this creature, put two +1/+1 counters on this creature.",
+      "flavorText": "As soon as she faces a monster, she begins composing its epitaph.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "3485eb83-f83c-4776-b164-abd72f3c9547"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Heroic"
+  ],
+  "setCode": "ths",
+  "collectorNumber": "179",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LAGONNA_BAND_TRAILBLAZER: CardData = {
+  "scryfallId": "38a6f533-6acb-4c24-ae9d-fe4977230156",
+  "oracleId": "09cc0faa-71d7-428b-9fc4-5ba09e244e89",
+  "name": "Lagonna-Band Trailblazer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lagonna-Band Trailblazer",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Centaur Scout",
+      "oracleText": "Heroic — Whenever you cast a spell that targets this creature, put a +1/+1 counter on it.",
+      "flavorText": "Go forth with honor, return with glory.",
+      "power": "0",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "James Zapata",
+      "imageId": "38a6f533-6acb-4c24-ae9d-fe4977230156"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Heroic"
+  ],
+  "setCode": "jou",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCALED_HULK: CardData = {
+  "scryfallId": "3b27457e-2c40-4983-9680-b7292db4c668",
+  "oracleId": "ce4570eb-f637-45d1-afbc-f11357c09bf9",
+  "name": "Scaled Hulk",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scaled Hulk",
+      "manaCost": "{5}{G}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Whenever you cast a Spirit or Arcane spell, this creature gets +2/+2 until end of turn.",
+      "flavorText": "\"Say, what rhymes with 'run for your lives'?\"\n—Ku-Ku, akki poet",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Arnie Swekel",
+      "imageId": "3b27457e-2c40-4983-9680-b7292db4c668"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "bok",
+  "collectorNumber": "143",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KAMI_OF_THE_HUNT: CardData = {
+  "scryfallId": "5ace3c4e-3287-4975-b4d0-91f009c0cf5b",
+  "oracleId": "96e68c7a-f187-4aa6-998c-238e7c833809",
+  "name": "Kami of the Hunt",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kami of the Hunt",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Whenever you cast a Spirit or Arcane spell, this creature gets +1/+1 until end of turn.",
+      "flavorText": "\"Don't worry, Jiro. The kami would never attack us this close to home . . . . Jiro?\"\n—Hoto, temple guardian, last words",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Alex Horley-Orlandelli",
+      "imageId": "5ace3c4e-3287-4975-b4d0-91f009c0cf5b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "chk",
+  "collectorNumber": "219",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ANAX_AND_CYMEDE: CardData = {
+  "scryfallId": "63cb977e-bd42-43b1-83d1-124e7a413aca",
+  "oracleId": "9c4219db-1a7a-4d61-bb8b-7998cfed1faf",
+  "name": "Anax and Cymede",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Anax and Cymede",
+      "manaCost": "{1}{R}{W}",
+      "typeLine": "Legendary Creature — Human Soldier",
+      "oracleText": "First strike, vigilance\nHeroic — Whenever you cast a spell that targets Anax and Cymede, creatures you control get +1/+1 and gain trample until end of turn.",
+      "flavorText": "Akros's greatest heroes are also its royalty.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "W"
+      ],
+      "artist": "Willian Murai",
+      "imageId": "63cb977e-bd42-43b1-83d1-124e7a413aca"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Vigilance",
+    "Heroic",
+    "First strike"
+  ],
+  "setCode": "ths",
+  "collectorNumber": "186",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FABLED_HERO: CardData = {
+  "scryfallId": "642d9a5c-5697-4747-adce-5a71bcf1c086",
+  "oracleId": "f9fd9b1c-4c00-4db7-bbfe-7fd5d8bb9258",
+  "name": "Fabled Hero",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fabled Hero",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Double strike\nHeroic — Whenever you cast a spell that targets this creature, put a +1/+1 counter on it.",
+      "flavorText": "\"You. Poet. Be sure to write this down.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Aaron Miller",
+      "imageId": "642d9a5c-5697-4747-adce-5a71bcf1c086"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Heroic",
+    "Double strike"
+  ],
+  "setCode": "ths",
+  "collectorNumber": "12",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAWNBRINGER_CHARIOTEERS: CardData = {
+  "scryfallId": "7f33c690-cf24-436e-b632-2d7b538c6170",
+  "oracleId": "29263d48-cb28-478b-a99e-5a18dbc924f0",
+  "name": "Dawnbringer Charioteers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dawnbringer Charioteers",
+      "manaCost": "{2}{W}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Flying, lifelink\nHeroic — Whenever you cast a spell that targets this creature, put a +1/+1 counter on this creature.",
+      "flavorText": "\"Nyx may belong to the gods, but the skies of Theros are ours.\"",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Volkan Baǵa",
+      "imageId": "7f33c690-cf24-436e-b632-2d7b538c6170"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying",
+    "Lifelink",
+    "Heroic"
+  ],
+  "setCode": "prm",
+  "collectorNumber": "52332",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VANGUARD_OF_BRIMAZ: CardData = {
+  "scryfallId": "892e59df-95ea-490a-8207-ef735faed307",
+  "oracleId": "4a4f6e85-df16-49a4-8fc6-149a28c2cb42",
+  "name": "Vanguard of Brimaz",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vanguard of Brimaz",
+      "manaCost": "{W}{W}",
+      "typeLine": "Creature — Cat Soldier",
+      "oracleText": "Vigilance\nHeroic — Whenever you cast a spell that targets this creature, create a 1/1 white Cat Soldier creature token with vigilance.",
+      "flavorText": "\"The humans and their gods never blessed me. Only the pride deserves my allegiance.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "892e59df-95ea-490a-8207-ef735faed307"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Vigilance",
+    "Heroic"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "BNG-29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WAR_WING_SIREN: CardData = {
+  "scryfallId": "8d88c942-3a69-4975-a08d-80405a549beb",
+  "oracleId": "0e49ec18-f979-4168-b7df-7728f3fe442e",
+  "name": "War-Wing Siren",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "War-Wing Siren",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Siren Soldier",
+      "oracleText": "Flying\nHeroic — Whenever you cast a spell that targets this creature, put a +1/+1 counter on this creature.",
+      "flavorText": "Once she sang sailors to their doom. Now she leads them to glory.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Magali Villeneuve",
+      "imageId": "8d88c942-3a69-4975-a08d-80405a549beb"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying",
+    "Heroic"
+  ],
+  "setCode": "jou",
+  "collectorNumber": "57",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SETESSAN_BATTLE_PRIEST: CardData = {
+  "scryfallId": "9c9cfa33-dcec-4b34-9218-c08ad932d27b",
+  "oracleId": "e2886098-0309-4da5-b2e5-a06af5cfe5b8",
+  "name": "Setessan Battle Priest",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Setessan Battle Priest",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "Heroic — Whenever you cast a spell that targets this creature, you gain 2 life.",
+      "flavorText": "\"Your god teaches you only how to kill. Karametra teaches me to defend what I hold dear. That is why I will prevail.\"",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Wesley Burt",
+      "imageId": "9c9cfa33-dcec-4b34-9218-c08ad932d27b"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Heroic"
+  ],
+  "setCode": "ths",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PHERES_BAND_THUNDERHOOF: CardData = {
+  "scryfallId": "a19a2e8e-9d8f-4537-838c-ac60e09d78bf",
+  "oracleId": "651a1f3d-d6f0-4a38-a776-bceba698127b",
+  "name": "Pheres-Band Thunderhoof",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pheres-Band Thunderhoof",
+      "manaCost": "{4}{G}",
+      "typeLine": "Creature — Centaur Warrior",
+      "oracleText": "Heroic — Whenever you cast a spell that targets this creature, put two +1/+1 counters on this creature.",
+      "flavorText": "\"Flesh and bone or star and shadow. It makes no difference to my club.\"",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "a19a2e8e-9d8f-4537-838c-ac60e09d78bf"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Heroic"
+  ],
+  "setCode": "jou",
+  "collectorNumber": "134",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KAMI_OF_TATTERED_SHOJI: CardData = {
+  "scryfallId": "dc6deb57-4ee3-4716-8644-28283704f994",
+  "oracleId": "a7cb1da6-e56a-42b6-8087-cf822783373f",
+  "name": "Kami of Tattered Shoji",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kami of Tattered Shoji",
+      "manaCost": "{4}{W}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Whenever you cast a Spirit or Arcane spell, this creature gains flying until end of turn.",
+      "flavorText": "It remembered all the shadows lantern-cast upon its paper wings, and sometimes those silhouettes played across its shape again, acting out silent tragedies.",
+      "power": "2",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Shishizaru",
+      "imageId": "dc6deb57-4ee3-4716-8644-28283704f994"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "bok",
+  "collectorNumber": "11",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SETESSAN_OATHSWORN: CardData = {
+  "scryfallId": "e5579755-4718-406a-bba6-27f1f2811e59",
+  "oracleId": "78d5f882-5d17-4228-b9b5-d460ab2bef08",
+  "name": "Setessan Oathsworn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Setessan Oathsworn",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Creature — Satyr Warrior",
+      "oracleText": "Heroic — Whenever you cast a spell that targets this creature, put two +1/+1 counters on this creature.",
+      "flavorText": "\"Setessa is not the city of my birth, but it is the place I fight for, and the place I'm willing to die for. Does that not make it my home?\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Scott Murphy",
+      "imageId": "e5579755-4718-406a-bba6-27f1f2811e59"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Heroic"
+  ],
+  "setCode": "bng",
+  "collectorNumber": "138",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GIANT_GROWTH: CardData = {
+  "scryfallId": "06ec9e8b-4bd8-4caf-a559-6514b7ab4ca4",
+  "oracleId": "5748ebf1-24e3-499d-ab7c-c2cebd462a24",
+  "name": "Giant Growth",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Giant Growth",
+      "manaCost": "{G}",
+      "typeLine": "Instant",
+      "oracleText": "Target creature gets +3/+3 until end of turn.",
+      "flavorText": "\"Sometimes Mowu is content to gnaw on a bone. Sometimes he wants the whole skeleton.\"\n—Jiang Yanggu",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dmitry Burmak",
+      "imageId": "06ec9e8b-4bd8-4caf-a559-6514b7ab4ca4"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "war",
+  "collectorNumber": "162",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -130598,6 +131394,42 @@ export const ELEMENTAL_2_2_G_CREATURE_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const CAT_SOLDIER_1_1_W_CREATURE_VIGILANCE_TOKEN: CardData = {
+  "scryfallId": "921d6192-6b6d-4aa1-be80-bc0b9f503e33",
+  "oracleId": "53c009a1-b9b6-43d6-8543-77688fedf8ae",
+  "name": "Cat Soldier",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Cat Soldier",
+      "manaCost": "",
+      "typeLine": "Token Creature — Cat Soldier",
+      "oracleText": "Vigilance",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Scott Chou",
+      "imageId": "921d6192-6b6d-4aa1-be80-bc0b9f503e33"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "tbng",
+  "collectorNumber": "2",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -134257,6 +135089,28 @@ export const ENGINE_CARDS: CardData[] = [
   MINDLESS_AUTOMATON,
   SPIKE_DRONE,
   SPIKE_SOLDIER,
+  SATYR_HOPLITE,
+  PHALANX_LEADER,
+  TRITON_FORTUNE_HUNTER,
+  WINGSTEED_RIDER,
+  AKROAN_SKYGUARD,
+  BRIGONE_SOLDIER_OF_MELETIS,
+  CENTAUR_BATTLEMASTER,
+  SIRE_OF_THE_STORM,
+  STAUNCH_HEARTED_WARRIOR,
+  LAGONNA_BAND_TRAILBLAZER,
+  SCALED_HULK,
+  KAMI_OF_THE_HUNT,
+  ANAX_AND_CYMEDE,
+  FABLED_HERO,
+  DAWNBRINGER_CHARIOTEERS,
+  VANGUARD_OF_BRIMAZ,
+  WAR_WING_SIREN,
+  SETESSAN_BATTLE_PRIEST,
+  PHERES_BAND_THUNDERHOOF,
+  KAMI_OF_TATTERED_SHOJI,
+  SETESSAN_OATHSWORN,
+  GIANT_GROWTH,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -134369,4 +135223,5 @@ export const ENGINE_CARDS: CardData[] = [
   MERFOLK_WIZARD_1_1_U_CREATURE_TOKEN,
   BEAST_4_4_G_CREATURE_TOKEN,
   ELEMENTAL_2_2_G_CREATURE_TOKEN,
+  CAT_SOLDIER_1_1_W_CREATURE_VIGILANCE_TOKEN,
 ];
