@@ -9929,6 +9929,48 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D322): the Equipment that attaches itself on entry (an enters trigger with a target and an attach event, 32), the remaining attached heads and statics (equipped creature deals combat damage payloads, the quoted abilities enchanted creatures have, enchanted land has), living weapon and For Mirrodin! (a germ token that attaches), the costs the row maker cannot charge (a random discard on ctx.random, {Q}, snow mana, exile-from-graveyard, the remove-a-counter chooser, sacrifice-a-choice, tap-N-creatures); the mass behind - the modal choose-one, regenerate, any-colour mana, convoke, attacks each combat if able, can not be countered; the modal seam; the "another" split;
       the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4fh — THE ATTACH PAYLOADS: an Equipment that attaches itself on entry,
+      the Aura's tap and pump on the enchanted creature, the germ keywords, the
+      untap-step replacement and threshold, as generated rows; 69 cards
+      land as generated rows (2026-09-05):**
+      **6,022 of 31,692 Commander-legal cards now execute completely, up
+      from 5,953 (+69).** `SHIPPED_SCRIPTS` 3,568; ledger
+      1,051 (no rows retired - none of the 69 was ledgered; the pool stays empty). Fixtures 3,931 (3,801 by name + 123 tokens: the 69 rowed cards and two token pins - the Phyrexian Germ of living weapon, pinned by name to its lowest-numbered printing, and the Rebel of For Mirrodin!). No engine
+      change. **Select pool 0.** Decisions in **D323**.
+      ⚠️ **Measured first:** the leftover probe over the database after D322: 173 blocked single-face permanents whose every leftover line the grammar reads (86 in the trigger and activated grammar, 30 Auras, 26 Equipment, 31 with a static or combat line); the lines the covered cards carry: activated self pumps 25, tokens 16, the Aura's pump on the enchanted creature 13 activated and 10 on entry, equipped pumps 13, enchanted pumps 13, the enchanted creature that does not untap 12, the Equipment that attaches itself on entry 11, equipped pumps with a keyword 11, the Aura that taps the creature 10, the count CDA 9, the variable enters-with counters 9, living weapon 9, target pumps 8, For Mirrodin! 6, the permanent that does not untap 4; the mass behind the candidates: a modal choose-one 276 leftover lines, regenerate 100, any-colour mana 70, enchanted creature has 60, convoke 50, attacks each combat if able 46, enters with X counters 43, can not be countered 43, enchant player 42, a look at the top card 38, start your engines 38, your second card each turn 37, the monarch 35, loot 35, enchanted land has 34, energy 33, enter as a copy 31, blocks or becomes blocked by 30, can not attack unless 28, your second spell each turn 26, the graveyard returns 25 and 25.
+      ⚠️ **The rows:** `d323/make-rows13.cjs` + `gen-oneshot13.cjs` (from D322)
+      — "When this Equipment enters, attach it to target creature you control"
+      as a targeted `TriggerDef` (`targets: parseTargetClauses(line)`) resolving
+      to one `AttachmentChanged`; "tap enchanted creature" and "enchanted
+      creature gets +N/+N / gains K until end of turn" through `attachedTo`;
+      "Living weapon" / "For Mirrodin!" as a `TokenCreated` (a Phyrexian Germ
+      pinned by name, the Rebel from `TOKEN_TABLE`) then an `AttachmentChanged`
+      in one resolve; "doesn't untap during your untap step" (this permanent,
+      the enchanted creature) as a `ReplacementDef` on `PermanentsUntapped` in
+      the controller's untap step (CR 614.1); threshold as `StaticDef`s gated on
+      the graveyard count; the head "Whenever enchanted creature deals combat
+      damage to a player". Every Aura row is CAST onto the Bears in every test
+      (its printed cost rides every ability; it must read "Enchant creature").
+      TRAPS: an enchanted-creature payload after the Aura was sacrificed as a
+      cost, or after the Aura or the creature left, needs last known
+      information the resolve lacks — refused; a permanent that never untaps
+      (or entered tapped) is untapped by hand before a test attacks or blocks
+      with it, or the declaration prompt is skipped (game over); an Aura pump
+      that empties the 2/2 Bears sends both to the graveyard — the proof is
+      the graves. Second pass: the row maker reads "untap it" under the self
+      heads. Rows land BY NAME from the leftover probe; the classifier does not learn
+      the kinds yet, so the pool stays 0 and only `complete` moves. NOT this
+      decision: the anthem and keyword-grant statics the probe reads and the generator does not (creatures you control get +N/+N / have K), the costs the row maker cannot charge (a random discard on ctx.random, {Q}, snow mana, exile-from-graveyard, a counter from another creature, sacrifice-a-choice, tap-N-creatures), the counts outside the vocabulary (other creature you control, died this turn, a named creature); the mass behind - the modal choose-one, regenerate, any-colour mana, the quoted abilities enchanted creatures and lands have, convoke, attacks each combat if able, can not be countered, the monarch and energy, the second card and second spell each turn. Refused by name: no rows retired - none of the 69 was ledgered; the pool stays empty.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips and 69 generated rows in two passes - 62 on the new grammar, then 8 more once the row maker read the untap-it payloads the probe already read, less Briar Shield, whose pump after sacrificing the Aura needs last known information the resolve does not have - the 173 candidates less the 104 the row maker still refuses (the costs it cannot charge, 76: a random discard, {Q}, {S}, exile a creature card or this card or two cards from your graveyard, a +1/+1 counter from another creature, sacrifice another creature or artifact, a token, return a land, tap N untapped creatures or Kithkin or Elves or Zombies, a Gate or a Desert; 16 counts outside the vocabulary; eight lines the probe reads and the generator does not - attacks or blocks alone, an anthem, a keyword grant; one historic discard). The wave IS the landing: 69 rows - the Equipment that attaches itself on entry (Utility Knife, Maul of the Skyclaves, Paladin's Shield, Scavenged Blade, Bramble Armor, Cliffhaven Kitesail, Dueling Rapier, Mechanical Glider, Meltstrider's Gear, Malamet Scythe, Mirran Banesplitter), the living-weapon and For Mirrodin! germs (Flayer Husk, Skinwing, Necropouncer, Batterbone, Sickleslicer, Mandibular Kite, Drossclaw, Sylvok Battle-Chair, Barbed Batterfist, Colossal Dreadmask, Strandwalker, Vulshok Splitter, Goldwarden's Helm, Mirran Bardiche, Dragonwing Glider), the Auras that tap and hold the creature (Claustrophobia, Capture Sphere, Sleep Paralysis, Charmed Sleep, Waterknot, Containment Protocol, Starlight Snare, Mystic Restraints, Castaway's Despair, Paralyzing Grasp, Eternity Snare, Bonds of Quicksilver, Colossification, Curse of Chains, Burden of Guilt), the Auras that pump the creature for a turn (Firebreathing, Shiv's Embrace, Shadow Lance, Flowstone Blade, Flowstone Embrace, Armor of Faith, Blessing, Holy Armor, Stonehands, Fiery Mantle, Super Speed, Accelerated Evolution, Cradle of Safety, Fire-Rim Form, Fae Flight, Starlit Mantle, Gilt-Leaf's Embrace, Military Discipline, Aquitect's Defenses, Aspect of Manticore), and the creatures that untap themselves (Deep-Slumber Titan, Lurking Roper, Famished Paladin, Silkenfist Fighter, Silkenfist Order, Leonin Battlemage, Innocence Kami, Liege of the Axe); the bot's own deck took 35 enchantments, 26 artifacts and 8 creatures more. Tests: one generated suite per row.
+      Fixtures 3,931 · botPool artifact 312 / creature 3,321 / enchantment 312 / instant 947 / land 407 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1151, 1278, 2973, 4868, 6220] · batch.json
+      69 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,680 files, 18,856 passing / 11 skipped ·
+      500-seed gate, 6 shards, 367.1 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D323): the anthem and keyword-grant statics the probe reads and the generator does not (creatures you control get +N/+N / have K), the costs the row maker cannot charge (a random discard on ctx.random, {Q}, snow mana, exile-from-graveyard, a counter from another creature, sacrifice-a-choice, tap-N-creatures), the counts outside the vocabulary (other creature you control, died this turn, a named creature); the mass behind - the modal choose-one, regenerate, any-colour mana, the quoted abilities enchanted creatures and lands have, convoke, attacks each combat if able, can not be countered, the monarch and energy, the second card and second spell each turn; the modal seam; the "another" split;
+      the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

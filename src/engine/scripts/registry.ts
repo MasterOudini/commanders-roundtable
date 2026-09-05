@@ -7,6 +7,75 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { LEONIN_BATTLEMAGE_SCRIPT } from './cards/leoninBattlemage';
+import { LURKING_ROPER_SCRIPT } from './cards/lurkingRoper';
+import { FAMISHED_PALADIN_SCRIPT } from './cards/famishedPaladin';
+import { SILKENFIST_FIGHTER_SCRIPT } from './cards/silkenfistFighter';
+import { SILKENFIST_ORDER_SCRIPT } from './cards/silkenfistOrder';
+import { DEEP_SLUMBER_TITAN_SCRIPT } from './cards/deepSlumberTitan';
+import { INNOCENCE_KAMI_SCRIPT } from './cards/innocenceKami';
+import { LIEGE_OF_THE_AXE_SCRIPT } from './cards/liegeOfTheAxe';
+import { SHADOW_LANCE_SCRIPT } from './cards/shadowLance';
+import { FIREBREATHING_SCRIPT } from './cards/firebreathing';
+import { CLAUSTROPHOBIA_SCRIPT } from './cards/claustrophobia';
+import { SHIVS_EMBRACE_SCRIPT } from './cards/shivsEmbrace';
+import { FLOWSTONE_BLADE_SCRIPT } from './cards/flowstoneBlade';
+import { ETERNITY_SNARE_SCRIPT } from './cards/eternitySnare';
+import { ARMOR_OF_FAITH_SCRIPT } from './cards/armorOfFaith';
+import { BLESSING_SCRIPT } from './cards/blessing';
+import { UTILITY_KNIFE_SCRIPT } from './cards/utilityKnife';
+import { COLOSSIFICATION_SCRIPT } from './cards/colossification';
+import { FLAYER_HUSK_SCRIPT } from './cards/flayerHusk';
+import { MAUL_OF_THE_SKYCLAVES_SCRIPT } from './cards/maulOfTheSkyclaves';
+import { CAPTURE_SPHERE_SCRIPT } from './cards/captureSphere';
+import { HOLY_ARMOR_SCRIPT } from './cards/holyArmor';
+import { CURSE_OF_CHAINS_SCRIPT } from './cards/curseOfChains';
+import { SUPER_SPEED_SCRIPT } from './cards/superSpeed';
+import { ACCELERATED_EVOLUTION_SCRIPT } from './cards/acceleratedEvolution';
+import { SLEEP_PARALYSIS_SCRIPT } from './cards/sleepParalysis';
+import { CRADLE_OF_SAFETY_SCRIPT } from './cards/cradleOfSafety';
+import { PALADINS_SHIELD_SCRIPT } from './cards/paladinsShield';
+import { MIRRAN_BARDICHE_SCRIPT } from './cards/mirranBardiche';
+import { CHARMED_SLEEP_SCRIPT } from './cards/charmedSleep';
+import { SCAVENGED_BLADE_SCRIPT } from './cards/scavengedBlade';
+import { FIRE_RIM_FORM_SCRIPT } from './cards/fireRimForm';
+import { SKINWING_SCRIPT } from './cards/skinwing';
+import { PARALYZING_GRASP_SCRIPT } from './cards/paralyzingGrasp';
+import { WATERKNOT_SCRIPT } from './cards/waterknot';
+import { NECROPOUNCER_SCRIPT } from './cards/necropouncer';
+import { FAE_FLIGHT_SCRIPT } from './cards/faeFlight';
+import { DRAGONWING_GLIDER_SCRIPT } from './cards/dragonwingGlider';
+import { BATTERBONE_SCRIPT } from './cards/batterbone';
+import { CONTAINMENT_PROTOCOL_SCRIPT } from './cards/containmentProtocol';
+import { BRAMBLE_ARMOR_SCRIPT } from './cards/brambleArmor';
+import { BURDEN_OF_GUILT_SCRIPT } from './cards/burdenOfGuilt';
+import { SICKLESLICER_SCRIPT } from './cards/sickleslicer';
+import { STARLIT_MANTLE_SCRIPT } from './cards/starlitMantle';
+import { CLIFFHAVEN_KITESAIL_SCRIPT } from './cards/cliffhavenKitesail';
+import { MANDIBULAR_KITE_SCRIPT } from './cards/mandibularKite';
+import { DROSSCLAW_SCRIPT } from './cards/drossclaw';
+import { SYLVOK_BATTLE_CHAIR_SCRIPT } from './cards/sylvokBattleChair';
+import { GILT_LEAFS_EMBRACE_SCRIPT } from './cards/giltLeafsEmbrace';
+import { STARLIGHT_SNARE_SCRIPT } from './cards/starlightSnare';
+import { BARBED_BATTERFIST_SCRIPT } from './cards/barbedBatterfist';
+import { STONEHANDS_SCRIPT } from './cards/stonehands';
+import { MILITARY_DISCIPLINE_SCRIPT } from './cards/militaryDiscipline';
+import { MYSTIC_RESTRAINTS_SCRIPT } from './cards/mysticRestraints';
+import { COLOSSAL_DREADMASK_SCRIPT } from './cards/colossalDreadmask';
+import { DUELING_RAPIER_SCRIPT } from './cards/duelingRapier';
+import { AQUITECTS_DEFENSES_SCRIPT } from './cards/aquitectsDefenses';
+import { MECHANICAL_GLIDER_SCRIPT } from './cards/mechanicalGlider';
+import { CASTAWAYS_DESPAIR_SCRIPT } from './cards/castawaysDespair';
+import { BONDS_OF_QUICKSILVER_SCRIPT } from './cards/bondsOfQuicksilver';
+import { FIERY_MANTLE_SCRIPT } from './cards/fieryMantle';
+import { STRANDWALKER_SCRIPT } from './cards/strandwalker';
+import { MELTSTRIDERS_GEAR_SCRIPT } from './cards/meltstridersGear';
+import { MALAMET_SCYTHE_SCRIPT } from './cards/malametScythe';
+import { MIRRAN_BANESPLITTER_SCRIPT } from './cards/mirranBanesplitter';
+import { VULSHOK_SPLITTER_SCRIPT } from './cards/vulshokSplitter';
+import { FLOWSTONE_EMBRACE_SCRIPT } from './cards/flowstoneEmbrace';
+import { GOLDWARDENS_HELM_SCRIPT } from './cards/goldwardensHelm';
+import { ASPECT_OF_MANTICORE_SCRIPT } from './cards/aspectOfManticore';
 import { CAPASHEN_STANDARD_SCRIPT } from './cards/capashenStandard';
 import { MANTLE_OF_THE_WOLF_SCRIPT } from './cards/mantleOfTheWolf';
 import { ROGUES_GLOVES_SCRIPT } from './cards/roguesGloves';
@@ -3620,6 +3689,75 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  LEONIN_BATTLEMAGE_SCRIPT,
+  LURKING_ROPER_SCRIPT,
+  FAMISHED_PALADIN_SCRIPT,
+  SILKENFIST_FIGHTER_SCRIPT,
+  SILKENFIST_ORDER_SCRIPT,
+  DEEP_SLUMBER_TITAN_SCRIPT,
+  INNOCENCE_KAMI_SCRIPT,
+  LIEGE_OF_THE_AXE_SCRIPT,
+  SHADOW_LANCE_SCRIPT,
+  FIREBREATHING_SCRIPT,
+  CLAUSTROPHOBIA_SCRIPT,
+  SHIVS_EMBRACE_SCRIPT,
+  FLOWSTONE_BLADE_SCRIPT,
+  ETERNITY_SNARE_SCRIPT,
+  ARMOR_OF_FAITH_SCRIPT,
+  BLESSING_SCRIPT,
+  UTILITY_KNIFE_SCRIPT,
+  COLOSSIFICATION_SCRIPT,
+  FLAYER_HUSK_SCRIPT,
+  MAUL_OF_THE_SKYCLAVES_SCRIPT,
+  CAPTURE_SPHERE_SCRIPT,
+  HOLY_ARMOR_SCRIPT,
+  CURSE_OF_CHAINS_SCRIPT,
+  SUPER_SPEED_SCRIPT,
+  ACCELERATED_EVOLUTION_SCRIPT,
+  SLEEP_PARALYSIS_SCRIPT,
+  CRADLE_OF_SAFETY_SCRIPT,
+  PALADINS_SHIELD_SCRIPT,
+  MIRRAN_BARDICHE_SCRIPT,
+  CHARMED_SLEEP_SCRIPT,
+  SCAVENGED_BLADE_SCRIPT,
+  FIRE_RIM_FORM_SCRIPT,
+  SKINWING_SCRIPT,
+  PARALYZING_GRASP_SCRIPT,
+  WATERKNOT_SCRIPT,
+  NECROPOUNCER_SCRIPT,
+  FAE_FLIGHT_SCRIPT,
+  DRAGONWING_GLIDER_SCRIPT,
+  BATTERBONE_SCRIPT,
+  CONTAINMENT_PROTOCOL_SCRIPT,
+  BRAMBLE_ARMOR_SCRIPT,
+  BURDEN_OF_GUILT_SCRIPT,
+  SICKLESLICER_SCRIPT,
+  STARLIT_MANTLE_SCRIPT,
+  CLIFFHAVEN_KITESAIL_SCRIPT,
+  MANDIBULAR_KITE_SCRIPT,
+  DROSSCLAW_SCRIPT,
+  SYLVOK_BATTLE_CHAIR_SCRIPT,
+  GILT_LEAFS_EMBRACE_SCRIPT,
+  STARLIGHT_SNARE_SCRIPT,
+  BARBED_BATTERFIST_SCRIPT,
+  STONEHANDS_SCRIPT,
+  MILITARY_DISCIPLINE_SCRIPT,
+  MYSTIC_RESTRAINTS_SCRIPT,
+  COLOSSAL_DREADMASK_SCRIPT,
+  DUELING_RAPIER_SCRIPT,
+  AQUITECTS_DEFENSES_SCRIPT,
+  MECHANICAL_GLIDER_SCRIPT,
+  CASTAWAYS_DESPAIR_SCRIPT,
+  BONDS_OF_QUICKSILVER_SCRIPT,
+  FIERY_MANTLE_SCRIPT,
+  STRANDWALKER_SCRIPT,
+  MELTSTRIDERS_GEAR_SCRIPT,
+  MALAMET_SCYTHE_SCRIPT,
+  MIRRAN_BANESPLITTER_SCRIPT,
+  VULSHOK_SPLITTER_SCRIPT,
+  FLOWSTONE_EMBRACE_SCRIPT,
+  GOLDWARDENS_HELM_SCRIPT,
+  ASPECT_OF_MANTICORE_SCRIPT,
   CAPASHEN_STANDARD_SCRIPT,
   MANTLE_OF_THE_WOLF_SCRIPT,
   ROGUES_GLOVES_SCRIPT,

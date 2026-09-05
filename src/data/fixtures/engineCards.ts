@@ -129702,6 +129702,2476 @@ export const REACH_FOR_THE_SKY: CardData = {
   "singleImage": true
 };
 
+export const SHADOW_LANCE: CardData = {
+  "scryfallId": "02b5590f-d964-49cb-8e2e-94b067112c8e",
+  "oracleId": "f1a2a78c-2794-4bc9-9b06-49306378ef69",
+  "name": "Shadow Lance",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shadow Lance",
+      "manaCost": "{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature has first strike.\n{1}{B}: Enchanted creature gets +2/+2 until end of turn.",
+      "flavorText": "Shadow lances are crafted from harvested souls. The more wicked the sinner, the keener the blade.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Hideaki Takamura",
+      "imageId": "02b5590f-d964-49cb-8e2e-94b067112c8e"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "gpt",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FIREBREATHING: CardData = {
+  "scryfallId": "02f32589-aff5-4abf-9045-86c9dd174026",
+  "oracleId": "8603bf74-faab-4910-8e45-0f2e3b318efb",
+  "name": "Firebreathing",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Firebreathing",
+      "manaCost": "{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\n{R}: Enchanted creature gets +1/+0 until end of turn.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dan Frazier",
+      "imageId": "02f32589-aff5-4abf-9045-86c9dd174026"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "fbb",
+  "collectorNumber": "151",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLAUSTROPHOBIA: CardData = {
+  "scryfallId": "05846389-4ee3-4e41-a6dd-0809bfc299f8",
+  "oracleId": "62d8c8c8-bc24-42f2-9e2e-9efd08e47bb1",
+  "name": "Claustrophobia",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Claustrophobia",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, tap enchanted creature.\nEnchanted creature doesn't untap during its controller's untap step.",
+      "flavorText": "Six feet of earth muffled his cries.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ryan Pancoast",
+      "imageId": "05846389-4ee3-4e41-a6dd-0809bfc299f8"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "gn2",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SHIV_S_EMBRACE: CardData = {
+  "scryfallId": "06a3db8d-0743-4ee3-9124-95fe95e31824",
+  "oracleId": "e41162bf-1a4f-4e69-870a-faf9836c56d5",
+  "name": "Shiv's Embrace",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Shiv's Embrace",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has flying.\n{R}: Enchanted creature gets +1/+0 until end of turn.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dave Kendall",
+      "imageId": "06a3db8d-0743-4ee3-9124-95fe95e31824"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "j21",
+  "collectorNumber": "511",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLOWSTONE_BLADE: CardData = {
+  "scryfallId": "08ffbdce-bf74-4366-a4c5-422e3d5c92b4",
+  "oracleId": "77a77622-dc5b-4ff2-a98b-732d44c8856e",
+  "name": "Flowstone Blade",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Flowstone Blade",
+      "manaCost": "{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\n{R}: Enchanted creature gets +1/-1 until end of turn.",
+      "flavorText": "\"Remember the fable of the elf who came upon a cave of gold. In trying to free the largest piece, she was crushed by its weight.\"\n—Karn",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Allen Williams",
+      "imageId": "08ffbdce-bf74-4366-a4c5-422e3d5c92b4"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "cns",
+  "collectorNumber": "143",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ETERNITY_SNARE: CardData = {
+  "scryfallId": "095ccd82-4898-4506-84dc-87da136470c6",
+  "oracleId": "b9bd1833-d4f9-46c0-bb94-331c456193fc",
+  "name": "Eternity Snare",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Eternity Snare",
+      "manaCost": "{5}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, draw a card.\nEnchanted creature doesn't untap during its controller's untap step.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Min Yum",
+      "imageId": "095ccd82-4898-4506-84dc-87da136470c6"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "j22",
+  "collectorNumber": "292",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARMOR_OF_FAITH: CardData = {
+  "scryfallId": "0bdb3c08-aa9e-45d4-ae82-00019aee03b6",
+  "oracleId": "1c482b20-b423-48ef-b162-53960d43b4f7",
+  "name": "Armor of Faith",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Armor of Faith",
+      "manaCost": "{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+1.\n{W}: Enchanted creature gets +0/+1 until end of turn.",
+      "flavorText": "\"Keep your chain mail, warrior. I have my own form of protection.\"\n—Halvor Arenson, Kjeldoran priest",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Anson Maddocks",
+      "imageId": "0bdb3c08-aa9e-45d4-ae82-00019aee03b6"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "5ed",
+  "collectorNumber": "8",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLESSING: CardData = {
+  "scryfallId": "15b04f9b-e71d-468a-bea6-d20a69b4db01",
+  "oracleId": "5c84d8da-2bfb-4618-89a0-7d9ed604e854",
+  "name": "Blessing",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blessing",
+      "manaCost": "{W}{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\n{W}: Enchanted creature gets +1/+1 until end of turn.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Julie Baroh",
+      "imageId": "15b04f9b-e71d-468a-bea6-d20a69b4db01"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "4bb",
+  "collectorNumber": "9",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UTILITY_KNIFE: CardData = {
+  "scryfallId": "1e5c781d-cd89-4671-8fbe-fae82c33357b",
+  "oracleId": "b546c78c-5180-46c3-8594-b9d5ad9c3988",
+  "name": "Utility Knife",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Utility Knife",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "When this Equipment enters, attach it to target creature you control.\nEquipped creature gets +1/+1.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"Hold on a second, I have just the thing.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Craig J Spearing",
+      "imageId": "1e5c781d-cd89-4671-8fbe-fae82c33357b"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "znr",
+  "collectorNumber": "256",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COLOSSIFICATION: CardData = {
+  "scryfallId": "204a4e55-58c5-4671-986c-0a14d74f5c4a",
+  "oracleId": "05c5ee65-651b-4bfb-b57f-305026507135",
+  "name": "Colossification",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Colossification",
+      "manaCost": "{5}{G}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, tap enchanted creature.\nEnchanted creature gets +20/+20.",
+      "flavorText": "\"Turns out the case of the flattened outpost and the case of the missing kitten *were* related.\"\n—Endris, Drannith magistrate",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Johan Grenier",
+      "imageId": "204a4e55-58c5-4671-986c-0a14d74f5c4a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "piko",
+  "collectorNumber": "148s",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLAYER_HUSK: CardData = {
+  "scryfallId": "20b394f9-644d-426e-801b-110774092018",
+  "oracleId": "5cfdfcac-57fb-4507-a97a-cccbac2d1327",
+  "name": "Flayer Husk",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Flayer Husk",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.)\nEquipped creature gets +1/+1.\nEquip {2}",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Igor Kieryluk",
+      "imageId": "20b394f9-644d-426e-801b-110774092018"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip",
+    "Living weapon"
+  ],
+  "setCode": "2xm",
+  "collectorNumber": "256",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAUL_OF_THE_SKYCLAVES: CardData = {
+  "scryfallId": "213dd8d4-4be1-40ce-88a2-962056903282",
+  "oracleId": "088a1f56-198c-41a1-b244-ec1c7a771041",
+  "name": "Maul of the Skyclaves",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Maul of the Skyclaves",
+      "manaCost": "{2}{W}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "When this Equipment enters, attach it to target creature you control.\nEquipped creature gets +2/+2 and has flying and first strike.(It deals combat damage before creatures without first strike.)\nEquip {2}{W}{W}",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Joseph Meehan",
+      "imageId": "213dd8d4-4be1-40ce-88a2-962056903282"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "j25",
+  "collectorNumber": "223",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CAPTURE_SPHERE: CardData = {
+  "scryfallId": "24cd21f5-94fd-4609-9e6a-d052aa81fe57",
+  "oracleId": "2dc59566-10cb-468a-b6a2-17d6c0186e6d",
+  "name": "Capture Sphere",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Capture Sphere",
+      "manaCost": "{3}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nWhen this Aura enters, tap enchanted creature.\nEnchanted creature doesn't untap during its controller's untap step.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Mark Behm",
+      "imageId": "24cd21f5-94fd-4609-9e6a-d052aa81fe57"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "2x2",
+  "collectorNumber": "42",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HOLY_ARMOR: CardData = {
+  "scryfallId": "250d5927-0890-423b-afbc-a8f5628de793",
+  "oracleId": "912164c2-b4d4-42e3-a10e-903b8c7b2e6d",
+  "name": "Holy Armor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Holy Armor",
+      "manaCost": "{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +0/+2.\n{W}: Enchanted creature gets +0/+1 until end of turn.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Melissa A. Benson",
+      "imageId": "250d5927-0890-423b-afbc-a8f5628de793"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "ced",
+  "collectorNumber": "24",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CURSE_OF_CHAINS: CardData = {
+  "scryfallId": "26146dec-135b-4b4e-9d85-dcc1df9b5a09",
+  "oracleId": "be951382-5173-4fb6-9dda-2c5f7fddc863",
+  "name": "Curse of Chains",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Curse of Chains",
+      "manaCost": "{1}{W/U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nAt the beginning of each upkeep, tap enchanted creature.",
+      "flavorText": "The giant's real punishment was the fleeting moment when he was allowed to stand before being dragged down to his knees again.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Drew Tucker",
+      "imageId": "26146dec-135b-4b4e-9d85-dcc1df9b5a09"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "183",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUPER_SPEED: CardData = {
+  "scryfallId": "2aa2e596-e5e0-4c60-8eea-14adda1cdaae",
+  "oracleId": "88923ca1-a793-42f0-b9f8-ed9ff9c1185d",
+  "name": "Super Speed",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Super Speed",
+      "manaCost": "{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nWhen this Aura enters, enchanted creature gains first strike until end of turn.\nEnchanted creature gets +1/+0 and has haste.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Nereida",
+      "imageId": "2aa2e596-e5e0-4c60-8eea-14adda1cdaae"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "msh",
+  "collectorNumber": "154",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ACCELERATED_EVOLUTION: CardData = {
+  "scryfallId": "2b13c4de-241c-4c34-a140-0b599c61226d",
+  "oracleId": "6401d0ae-4635-497d-91ef-ce2eabefb893",
+  "name": "Accelerated Evolution",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Accelerated Evolution",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature you control\nWhen this Aura enters, enchanted creature gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)\nEnchanted creature gets +2/+2.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Erikas Perl",
+      "imageId": "2b13c4de-241c-4c34-a140-0b599c61226d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "msc",
+  "collectorNumber": "711",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLEEP_PARALYSIS: CardData = {
+  "scryfallId": "2babef35-27ab-45aa-88cd-f21dccae5125",
+  "oracleId": "5a8bd4a4-8b10-4eef-8341-28be2afa2c00",
+  "name": "Sleep Paralysis",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sleep Paralysis",
+      "manaCost": "{3}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, tap enchanted creature.\nEnchanted creature doesn't untap during its controller's untap step.",
+      "flavorText": "Sleep doesn't always mean rest.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Josu Hernaiz",
+      "imageId": "2babef35-27ab-45aa-88cd-f21dccae5125"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "m20",
+  "collectorNumber": "75",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRADLE_OF_SAFETY: CardData = {
+  "scryfallId": "2d5f8a35-e37c-4b49-8fbc-897c6ce3ce77",
+  "oracleId": "e0717287-9bff-446b-838d-6fc0adccc768",
+  "name": "Cradle of Safety",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cradle of Safety",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature you control\nWhen this Aura enters, enchanted creature gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)\nEnchanted creature gets +1/+1.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "2d5f8a35-e37c-4b49-8fbc-897c6ce3ce77"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "dbl",
+  "collectorNumber": "321",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PALADIN_S_SHIELD: CardData = {
+  "scryfallId": "2e13b103-202f-41d7-a855-a6807e5fb4b7",
+  "oracleId": "dc548b03-ef5f-40df-8311-35d4cf26f3c5",
+  "name": "Paladin's Shield",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Paladin's Shield",
+      "manaCost": "{1}{W}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control.\nEquipped creature gets +0/+2.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Alayna Danner",
+      "imageId": "2e13b103-202f-41d7-a855-a6807e5fb4b7"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Equip",
+    "Flash"
+  ],
+  "setCode": "afr",
+  "collectorNumber": "30",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIRRAN_BARDICHE: CardData = {
+  "scryfallId": "3006ea5a-5391-41eb-b0c8-092741dca2eb",
+  "oracleId": "1fd04d9e-cf89-49ba-a932-5d278f65bf77",
+  "name": "Mirran Bardiche",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mirran Bardiche",
+      "manaCost": "{4}{W}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "For Mirrodin! (When this Equipment enters, create a 2/2 red Rebel creature token, then attach this to it.)\nEquipped creature gets +2/+1 and has vigilance.\nEquip {3}{W} ({3}{W}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Julian Kok Joon Wen",
+      "imageId": "3006ea5a-5391-41eb-b0c8-092741dca2eb"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "For Mirrodin!",
+    "Equip"
+  ],
+  "setCode": "one",
+  "collectorNumber": "22",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHARMED_SLEEP: CardData = {
+  "scryfallId": "3052b051-be90-4ac9-8411-321d0a08eb50",
+  "oracleId": "cb33edaf-b604-48b8-8b9c-d6e462a8bebb",
+  "name": "Charmed Sleep",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Charmed Sleep",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, tap enchanted creature.\nEnchanted creature doesn't untap during its controller's untap step.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "3052b051-be90-4ac9-8411-321d0a08eb50"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "hbg",
+  "collectorNumber": "112",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCAVENGED_BLADE: CardData = {
+  "scryfallId": "3280f0d0-de0d-4f87-a6ef-c941cb7c9784",
+  "oracleId": "2e7b4df3-7c36-469f-8db8-b3081a2c5691",
+  "name": "Scavenged Blade",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scavenged Blade",
+      "manaCost": "{1}{R}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "When this Equipment enters, attach it to target creature you control.\nEquipped creature gets +2/+0.\nEquip {2}{R} ({2}{R}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Antonio José Manzanedo",
+      "imageId": "3280f0d0-de0d-4f87-a6ef-c941cb7c9784"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "znr",
+  "collectorNumber": "157",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FIRE_RIM_FORM: CardData = {
+  "scryfallId": "32dc1bf4-a135-449f-848f-361a5360fae1",
+  "oracleId": "89fb21dc-4cf2-4c9a-b0ae-cc6e10277fb6",
+  "name": "Fire-Rim Form",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fire-Rim Form",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nWhen this Aura enters, enchanted creature gains first strike until end of turn.\nEnchanted creature gets +2/+0.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Filipe Pagliuso",
+      "imageId": "32dc1bf4-a135-449f-848f-361a5360fae1"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "tdm",
+  "collectorNumber": "107",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKINWING: CardData = {
+  "scryfallId": "3c65e0ff-7dab-4090-8a99-f42d486728c9",
+  "oracleId": "100c877d-4cce-4b96-8f21-a4f8a43e7d84",
+  "name": "Skinwing",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skinwing",
+      "manaCost": "{4}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.)\nEquipped creature gets +2/+2 and has flying.\nEquip {6}",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Igor Kieryluk",
+      "imageId": "3c65e0ff-7dab-4090-8a99-f42d486728c9"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [
+    "Equip",
+    "Living weapon"
+  ],
+  "setCode": "2xm",
+  "collectorNumber": "288",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PARALYZING_GRASP: CardData = {
+  "scryfallId": "3dfd97b3-d83e-406f-af45-40eec6347462",
+  "oracleId": "c1459d75-2bc2-4dae-8c7e-4e759a4dffc9",
+  "name": "Paralyzing Grasp",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Paralyzing Grasp",
+      "manaCost": "{2}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature doesn't untap during its controller's untap step.",
+      "flavorText": "\"Obviously, the Firemind's mission is worth more than a few goblins.\"\n—Pelener, chamberlain of Niv-Mizzet",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Scott Chou",
+      "imageId": "3dfd97b3-d83e-406f-af45-40eec6347462"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "rtr",
+  "collectorNumber": "46",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WATERKNOT: CardData = {
+  "scryfallId": "4d53c5ec-eb0b-48cc-b244-99cb42d61b4a",
+  "oracleId": "002100cd-1ab1-44da-93a0-1269d47a712a",
+  "name": "Waterknot",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Waterknot",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, tap enchanted creature.\nEnchanted creature doesn't untap during its controller's untap step.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Wayne Reynolds",
+      "imageId": "4d53c5ec-eb0b-48cc-b244-99cb42d61b4a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "anb",
+  "collectorNumber": "40",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NECROPOUNCER: CardData = {
+  "scryfallId": "4ed51dbc-bbec-4c78-a71e-26322a8d2439",
+  "oracleId": "9e33b295-fab8-42c7-be43-baf9c17d063f",
+  "name": "Necropouncer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Necropouncer",
+      "manaCost": "{6}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.)\nEquipped creature gets +3/+1 and has haste.\nEquip {2}",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Cos Koniotis",
+      "imageId": "4ed51dbc-bbec-4c78-a71e-26322a8d2439"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 6,
+  "keywords": [
+    "Equip",
+    "Living weapon"
+  ],
+  "setCode": "nph",
+  "collectorNumber": "147",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FAE_FLIGHT: CardData = {
+  "scryfallId": "51724cc6-edf7-490d-8039-b11b91ae1eb4",
+  "oracleId": "d3912c82-37f8-456e-ba49-65c7f5b39d13",
+  "name": "Fae Flight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fae Flight",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nWhen this Aura enters, enchanted creature gains hexproof until end of turn.\nEnchanted creature gets +1/+0 and has flying.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Pablo Mendoza",
+      "imageId": "51724cc6-edf7-490d-8039-b11b91ae1eb4"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "mkm",
+  "collectorNumber": "295",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRAGONWING_GLIDER: CardData = {
+  "scryfallId": "5456b036-231e-4a64-b060-0709f5254664",
+  "oracleId": "4cd4c6da-a84e-4cba-893b-799a7cb5c411",
+  "name": "Dragonwing Glider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dragonwing Glider",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "For Mirrodin! (When this Equipment enters, create a 2/2 red Rebel creature token, then attach this to it.)\nEquipped creature gets +2/+2 and has flying and haste.\nEquip {3}{R}{R}",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Andreas Zafiratos",
+      "imageId": "5456b036-231e-4a64-b060-0709f5254664"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "For Mirrodin!",
+    "Equip"
+  ],
+  "setCode": "one",
+  "collectorNumber": "128",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BATTERBONE: CardData = {
+  "scryfallId": "5a148abb-e9fd-469c-b18b-9def75d3b783",
+  "oracleId": "389d459d-446a-4b84-82b2-a30fe6ced11f",
+  "name": "Batterbone",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Batterbone",
+      "manaCost": "{2}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.)\nEquipped creature gets +1/+1 and has vigilance and lifelink.\nEquip {5}",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Nicholas Gregory",
+      "imageId": "5a148abb-e9fd-469c-b18b-9def75d3b783"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Equip",
+    "Living weapon"
+  ],
+  "setCode": "j21",
+  "collectorNumber": "735",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONTAINMENT_PROTOCOL: CardData = {
+  "scryfallId": "5a92ec45-3eb5-4212-bdbd-073cbd0299d7",
+  "oracleId": "d33c7ea2-4d17-4cdb-aa58-c25c57836297",
+  "name": "Containment Protocol",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Containment Protocol",
+      "manaCost": "{2}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, tap enchanted creature.\nEnchanted creature doesn't untap during its controller's untap step.",
+      "flavorText": "\"What else can we do? No prison could hold Tokka, and she'll hurt someone if we let her out to play.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Brian Valeza",
+      "imageId": "5a92ec45-3eb5-4212-bdbd-073cbd0299d7"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "tmc",
+  "collectorNumber": "108",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BRAMBLE_ARMOR: CardData = {
+  "scryfallId": "5ad0667a-c704-4934-8a85-5a2f0530f723",
+  "oracleId": "25328cab-c7c0-4c55-99bb-a4149f6c511a",
+  "name": "Bramble Armor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bramble Armor",
+      "manaCost": "{1}{G}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "When this Equipment enters, attach it to target creature you control.\nEquipped creature gets +2/+1.\nEquip {4} ({4}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Alessandra Pisano",
+      "imageId": "5ad0667a-c704-4934-8a85-5a2f0530f723"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "dbl",
+  "collectorNumber": "455",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BURDEN_OF_GUILT: CardData = {
+  "scryfallId": "5b9c20f6-e90f-4a21-b432-dd1e8d4458e0",
+  "oracleId": "1ae88ba6-4973-45d1-a251-4d924ab4bc73",
+  "name": "Burden of Guilt",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Burden of Guilt",
+      "manaCost": "{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\n{1}: Tap enchanted creature.",
+      "flavorText": "\"Grab an axe and defend the gate! Your despair is an extravagance we can ill afford.\"\n—Thalia, Knight-Cathar",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Stanko",
+      "imageId": "5b9c20f6-e90f-4a21-b432-dd1e8d4458e0"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "DKA-4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SICKLESLICER: CardData = {
+  "scryfallId": "62f449cc-461e-4e89-8cd2-83e539bb40f4",
+  "oracleId": "7a004a4b-b53b-4b8e-86f5-528c1082e146",
+  "name": "Sickleslicer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sickleslicer",
+      "manaCost": "{3}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.)\nEquipped creature gets +2/+2.\nEquip {4}",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jason Felix",
+      "imageId": "62f449cc-461e-4e89-8cd2-83e539bb40f4"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Equip",
+    "Living weapon"
+  ],
+  "setCode": "2xm",
+  "collectorNumber": "287",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STARLIT_MANTLE: CardData = {
+  "scryfallId": "655f3f26-9cf6-48b1-863c-257d047e4125",
+  "oracleId": "8a7643e4-b824-441a-bbe6-349fc7a3e11e",
+  "name": "Starlit Mantle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Starlit Mantle",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature you control\nWhen this Aura enters, enchanted creature gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)\nEnchanted creature gets +1/+1.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Chris Rahn",
+      "imageId": "655f3f26-9cf6-48b1-863c-257d047e4125"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "j25",
+  "collectorNumber": "366",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLIFFHAVEN_KITESAIL: CardData = {
+  "scryfallId": "6b21b1dc-a0a7-44c6-8412-4a9330fb3de8",
+  "oracleId": "68fb8f21-4403-4829-8826-f2418664197e",
+  "name": "Cliffhaven Kitesail",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cliffhaven Kitesail",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "When this Equipment enters, attach it to target creature you control.\nEquipped creature has flying.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "Made from canvas, wood, and hope.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Caroline Gariba",
+      "imageId": "6b21b1dc-a0a7-44c6-8412-4a9330fb3de8"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "j25",
+  "collectorNumber": "748",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MANDIBULAR_KITE: CardData = {
+  "scryfallId": "6b922f71-18e6-4a74-b792-d477d4a1deca",
+  "oracleId": "bca9f65e-ea7a-4b8d-ab0f-c2672fa967f0",
+  "name": "Mandibular Kite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mandibular Kite",
+      "manaCost": "{W}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.)\nEquipped creature gets +1/+1 and has flying.\nEquip {3}{W}",
+      "flavorText": "The Machine Orthodoxy finds skin impure, and will not sully their creations with impure material.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Bruno Biazotto",
+      "imageId": "6b922f71-18e6-4a74-b792-d477d4a1deca"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Equip",
+    "Living weapon"
+  ],
+  "setCode": "mh3",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DROSSCLAW: CardData = {
+  "scryfallId": "70e68656-3204-4bb5-9f31-8036083fcba6",
+  "oracleId": "cda1ac77-3986-4600-9835-b0c0063ecc2f",
+  "name": "Drossclaw",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drossclaw",
+      "manaCost": "{1}{B}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.)\nEquipped creature gets +1/+1.\nWhenever equipped creature attacks, each opponent loses 1 life.\nEquip {2}",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Néstor Ossandón Leal",
+      "imageId": "70e68656-3204-4bb5-9f31-8036083fcba6"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Equip",
+    "Living weapon"
+  ],
+  "setCode": "mh3",
+  "collectorNumber": "89",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SYLVOK_BATTLE_CHAIR: CardData = {
+  "scryfallId": "71c1a1d0-5616-42f8-a59c-42c1ccd48d26",
+  "oracleId": "2f6c21a1-d618-497c-bfde-c0f2e1014d99",
+  "name": "Sylvok Battle-Chair",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sylvok Battle-Chair",
+      "manaCost": "{4}{G}{G}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "For Mirrodin! (When this Equipment enters, create a 2/2 red Rebel creature token, then attach this to it.)\nEquipped creature gets +4/+4 and has trample.\nEquip {5}{G}{G}",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Alexander Mokhov",
+      "imageId": "71c1a1d0-5616-42f8-a59c-42c1ccd48d26"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "For Mirrodin!",
+    "Equip"
+  ],
+  "setCode": "one",
+  "collectorNumber": "184",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GILT_LEAF_S_EMBRACE: CardData = {
+  "scryfallId": "739e5ab5-d562-407a-906e-c5c5173ad325",
+  "oracleId": "5eb8bb1d-7567-4c24-913b-463b5fe463c4",
+  "name": "Gilt-Leaf's Embrace",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gilt-Leaf's Embrace",
+      "manaCost": "{2}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nWhen this Aura enters, enchanted creature gains trample and indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it. If its toughness is 0 or less, it still dies.)\nEnchanted creature gets +2/+0.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Volkan Baǵa",
+      "imageId": "739e5ab5-d562-407a-906e-c5c5173ad325"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "ecl",
+  "collectorNumber": "177",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STARLIGHT_SNARE: CardData = {
+  "scryfallId": "74fb19b2-4f6c-4cbd-8756-a7eb5c7c9ef6",
+  "oracleId": "f0691d46-5bf4-4617-8a0a-19d17afb7219",
+  "name": "Starlight Snare",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Starlight Snare",
+      "manaCost": "{2}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, tap enchanted creature.\nEnchanted creature doesn't untap during its controller's untap step.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Borja Pindado",
+      "imageId": "74fb19b2-4f6c-4cbd-8756-a7eb5c7c9ef6"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "514",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BARBED_BATTERFIST: CardData = {
+  "scryfallId": "85e160f7-a641-4d39-8b47-7e27478d9e84",
+  "oracleId": "93c2b91d-7d4e-483c-a11f-4a525f881503",
+  "name": "Barbed Batterfist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Barbed Batterfist",
+      "manaCost": "{1}{R}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "For Mirrodin! (When this Equipment enters, create a 2/2 red Rebel creature token, then attach this to it.)\nEquipped creature gets +1/-1.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"Finally, a safe way to punch the rotters in the face.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "85e160f7-a641-4d39-8b47-7e27478d9e84"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "For Mirrodin!",
+    "Equip"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "ONE-121",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STONEHANDS: CardData = {
+  "scryfallId": "888746d8-6322-4554-8acb-ce88eba55c51",
+  "oracleId": "8beccaff-d30f-4164-a264-cb7119cee4f1",
+  "name": "Stonehands",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stonehands",
+      "manaCost": "{2}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +0/+2.\n{R}: Enchanted creature gets +1/+0 until end of turn.",
+      "flavorText": "\"Trust in the power of stone. Stone is strong; stone shatters swords; stone breaks bones. Trust in stone.\"\n—Lovisa Coldeyes, Balduvian chieftain",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dan Frazier",
+      "imageId": "888746d8-6322-4554-8acb-ce88eba55c51"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "me2",
+  "collectorNumber": "151",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MILITARY_DISCIPLINE: CardData = {
+  "scryfallId": "94778e17-87c4-4765-b2f0-40455069f2c4",
+  "oracleId": "c910c1c0-2b78-4e0f-bb55-e0581b2e07e8",
+  "name": "Military Discipline",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Military Discipline",
+      "manaCost": "{W}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nWhen this Aura enters, enchanted creature gains first strike until end of turn.\nEnchanted creature gets +1/+0.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Francisco Miyara",
+      "imageId": "94778e17-87c4-4765-b2f0-40455069f2c4"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "bro",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MYSTIC_RESTRAINTS: CardData = {
+  "scryfallId": "96cc4428-3f86-4359-927d-4009ada52c5d",
+  "oracleId": "efb91243-2617-495f-adb0-1c26a669fb80",
+  "name": "Mystic Restraints",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mystic Restraints",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nWhen this Aura enters, tap enchanted creature.\nEnchanted creature doesn't untap during its controller's untap step.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Christopher Rush",
+      "imageId": "96cc4428-3f86-4359-927d-4009ada52c5d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "chk",
+  "collectorNumber": "76",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COLOSSAL_DREADMASK: CardData = {
+  "scryfallId": "98164430-64c1-465f-b786-45753c965f44",
+  "oracleId": "1244902e-1a4e-4d3c-9a55-9be4602e3d2d",
+  "name": "Colossal Dreadmask",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Colossal Dreadmask",
+      "manaCost": "{4}{G}{G}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.)\nEquipped creature gets +6/+6 and has trample.\nEquip {3}{G}{G}",
+      "flavorText": "No legs to quake, no lungs to bellow, but if you see its teeth, it's still too late.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Caio Monteiro",
+      "imageId": "98164430-64c1-465f-b786-45753c965f44"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Equip",
+    "Living weapon"
+  ],
+  "setCode": "mh3",
+  "collectorNumber": "148",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DUELING_RAPIER: CardData = {
+  "scryfallId": "99d01b5c-6b86-4153-8939-24503cbdb76a",
+  "oracleId": "7ceec1fd-4af5-40d4-9d17-424e21889d64",
+  "name": "Dueling Rapier",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dueling Rapier",
+      "manaCost": "{R}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control.\nEquipped creature gets +2/+0.\nEquip {4} ({4}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Anna Podedworna",
+      "imageId": "99d01b5c-6b86-4153-8939-24503cbdb76a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Equip",
+    "Flash"
+  ],
+  "setCode": "hbg",
+  "collectorNumber": "179",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AQUITECT_S_DEFENSES: CardData = {
+  "scryfallId": "9af9a907-fd2e-4ae0-ac7b-529074b79a14",
+  "oracleId": "b9dee727-8ad8-42e0-93c6-5ef91d3f7309",
+  "name": "Aquitect's Defenses",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aquitect's Defenses",
+      "manaCost": "{1}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature you control\nWhen this Aura enters, enchanted creature gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)\nEnchanted creature gets +1/+2.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ioannis Fiore",
+      "imageId": "9af9a907-fd2e-4ae0-ac7b-529074b79a14"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "ecl",
+  "collectorNumber": "44",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MECHANICAL_GLIDER: CardData = {
+  "scryfallId": "9deda16b-ce26-4228-9bc2-28b7358d3f7c",
+  "oracleId": "d53d1805-c4ec-4b42-a226-3cd78cd2be84",
+  "name": "Mechanical Glider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mechanical Glider",
+      "manaCost": "{1}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "When this Equipment enters, attach it to target creature you control.\nEquipped creature has flying. (It can't be blocked except by creatures with flying or reach.)\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Salvatorre Zee Yazzie",
+      "imageId": "9deda16b-ce26-4228-9bc2-28b7358d3f7c"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "tle",
+  "collectorNumber": "256",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CASTAWAY_S_DESPAIR: CardData = {
+  "scryfallId": "b3a26ba9-84b8-4f54-918c-f75d4cacad0b",
+  "oracleId": "9dc4b172-da33-40c0-ab29-d68807dbe93f",
+  "name": "Castaway's Despair",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Castaway's Despair",
+      "manaCost": "{3}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nWhen this Aura enters, tap enchanted creature.\nEnchanted creature doesn't untap during its controller's untap step.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Chris Rahn",
+      "imageId": "b3a26ba9-84b8-4f54-918c-f75d4cacad0b"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "xln",
+  "collectorNumber": "281",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BONDS_OF_QUICKSILVER: CardData = {
+  "scryfallId": "c071dca0-fccb-48b8-b65a-74741b12e3f0",
+  "oracleId": "03ce87f1-cdda-4121-8c0a-988642053055",
+  "name": "Bonds of Quicksilver",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bonds of Quicksilver",
+      "manaCost": "{3}{U}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nEnchanted creature doesn't untap during its controller's untap step.",
+      "flavorText": "The sea's reach extends beyond its shores.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Steven Belledin",
+      "imageId": "c071dca0-fccb-48b8-b65a-74741b12e3f0"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "som",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FIERY_MANTLE: CardData = {
+  "scryfallId": "c41deea2-c12f-40cd-8fc4-47227c762f42",
+  "oracleId": "1b553ed4-12eb-4a53-8e1f-d47ec92b1d65",
+  "name": "Fiery Mantle",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fiery Mantle",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\n{R}: Enchanted creature gets +1/+0 until end of turn.\nWhen this Aura is put into a graveyard from the battlefield, return it to its owner's hand.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Bob Eggleton",
+      "imageId": "c41deea2-c12f-40cd-8fc4-47227c762f42"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "usg",
+  "collectorNumber": "186",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STRANDWALKER: CardData = {
+  "scryfallId": "d0d7ff8f-7733-4323-8575-c50b3e730dbc",
+  "oracleId": "55a4b186-c6d4-4b08-bf45-481429693948",
+  "name": "Strandwalker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Strandwalker",
+      "manaCost": "{5}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.)\nEquipped creature gets +2/+4 and has reach.\nEquip {4}",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Igor Kieryluk",
+      "imageId": "d0d7ff8f-7733-4323-8575-c50b3e730dbc"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 5,
+  "keywords": [
+    "Equip",
+    "Living weapon"
+  ],
+  "setCode": "mbs",
+  "collectorNumber": "137",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MELTSTRIDER_S_GEAR: CardData = {
+  "scryfallId": "d75629cb-91e2-46fa-9c80-6feb29e1ceb8",
+  "oracleId": "1d6742a3-592b-4e67-8cc6-56e2962ad7c7",
+  "name": "Meltstrider's Gear",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Meltstrider's Gear",
+      "manaCost": "{G}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "When this Equipment enters, attach it to target creature you control.\nEquipped creature gets +2/+1 and has reach.\nEquip {5} ({5}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "Meltstriders are the bleeding edge of Evendo's frontier thaw.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Camille Alquier",
+      "imageId": "d75629cb-91e2-46fa-9c80-6feb29e1ceb8"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Equip"
+  ],
+  "setCode": "eoe",
+  "collectorNumber": "198",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MALAMET_SCYTHE: CardData = {
+  "scryfallId": "df6776a4-cc01-46a3-90df-04e1e3ba513c",
+  "oracleId": "99c5630e-cc04-4203-9006-3bc6a6807762",
+  "name": "Malamet Scythe",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Malamet Scythe",
+      "manaCost": "{2}{G}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control.\nEquipped creature gets +2/+2.\nEquip {4} ({4}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Hristo D. Chukov",
+      "imageId": "df6776a4-cc01-46a3-90df-04e1e3ba513c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Equip",
+    "Flash"
+  ],
+  "setCode": "lci",
+  "collectorNumber": "200",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIRRAN_BANESPLITTER: CardData = {
+  "scryfallId": "ee4d00b8-1373-47b2-9be5-2199e0b12540",
+  "oracleId": "aeaf3ce8-6bdf-4a90-8b81-cdbce0f3bb12",
+  "name": "Mirran Banesplitter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mirran Banesplitter",
+      "manaCost": "{R}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control.\nEquipped creature gets +2/+0.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chris Seaman",
+      "imageId": "ee4d00b8-1373-47b2-9be5-2199e0b12540"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Equip",
+    "Flash"
+  ],
+  "setCode": "mom",
+  "collectorNumber": "154",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VULSHOK_SPLITTER: CardData = {
+  "scryfallId": "f05078dd-b928-4b3f-9636-f299ebac180b",
+  "oracleId": "6253f9d4-83ff-4a0b-b465-e9f9a565f664",
+  "name": "Vulshok Splitter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vulshok Splitter",
+      "manaCost": "{3}{R}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "For Mirrodin! (When this Equipment enters, create a 2/2 red Rebel creature token, then attach this to it.)\nEquipped creature gets +2/+0.\nEquip {2}{R} ({2}{R}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"Not my style, but it'll get the job done.\"\n—Nahiri",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Kai Carpenter",
+      "imageId": "f05078dd-b928-4b3f-9636-f299ebac180b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "For Mirrodin!",
+    "Equip"
+  ],
+  "setCode": "one",
+  "collectorNumber": "156",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLOWSTONE_EMBRACE: CardData = {
+  "scryfallId": "f3969cc7-92b9-45cd-9a4f-d94c2178a04d",
+  "oracleId": "18a45b81-1946-4be6-8f2c-8c21d11c86f8",
+  "name": "Flowstone Embrace",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Flowstone Embrace",
+      "manaCost": "{1}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\n{T}: Enchanted creature gets +2/-2 until end of turn.",
+      "flavorText": "\"The seventh symbol, the Mark of Stone, stores the power of ancient Rath.\"\n—*Tome of Elemental Mastery*",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Vance Kovacs",
+      "imageId": "f3969cc7-92b9-45cd-9a4f-d94c2178a04d"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "fut",
+  "collectorNumber": "113",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOLDWARDEN_S_HELM: CardData = {
+  "scryfallId": "f4057210-ef07-4496-94c8-95c3b807c23c",
+  "oracleId": "4c35f41a-55e4-49ca-b211-f57d7b1b90f6",
+  "name": "Goldwarden's Helm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goldwarden's Helm",
+      "manaCost": "{2}{W}",
+      "typeLine": "Artifact — Equipment",
+      "oracleText": "For Mirrodin! (When this Equipment enters, create a 2/2 red Rebel creature token, then attach this to it.)\nEquipped creature gets +0/+1.\nEquip {1}{W} ({1}{W}: Attach to target creature you control. Equip only as a sorcery.)",
+      "flavorText": "\"My mother wore this into battle against the first Phyrexians. Now I wear it in her honor.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Vincent Christiaens",
+      "imageId": "f4057210-ef07-4496-94c8-95c3b807c23c"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "For Mirrodin!",
+    "Equip"
+  ],
+  "setCode": "one",
+  "collectorNumber": "13",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ASPECT_OF_MANTICORE: CardData = {
+  "scryfallId": "f67d0091-1925-44a5-89f3-21c2afd5665c",
+  "oracleId": "899f3758-bb06-4f9c-81eb-7a9002f03245",
+  "name": "Aspect of Manticore",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aspect of Manticore",
+      "manaCost": "{2}{R}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Flash\nEnchant creature\nWhen this Aura enters, enchanted creature gains first strike until end of turn.\nEnchanted creature gets +2/+0.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Tomasz Jedruszek",
+      "imageId": "f67d0091-1925-44a5-89f3-21c2afd5665c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Enchant",
+    "Flash"
+  ],
+  "setCode": "thb",
+  "collectorNumber": "127",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LEONIN_BATTLEMAGE: CardData = {
+  "scryfallId": "02c14e05-8c50-44de-8cd4-5b3a11ecdb30",
+  "oracleId": "7c0e4731-d384-4f63-a36c-b571d8f79922",
+  "name": "Leonin Battlemage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Leonin Battlemage",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Cat Wizard",
+      "oracleText": "{T}: Target creature gets +1/+1 until end of turn.\nWhenever you cast a spell, you may untap this creature.",
+      "flavorText": "The strongest of the pride are measured not by the steel in their hands but by the steel in their souls.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Stephen Tappin",
+      "imageId": "02c14e05-8c50-44de-8cd4-5b3a11ecdb30"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dst",
+  "collectorNumber": "5",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LURKING_ROPER: CardData = {
+  "scryfallId": "2361ba1d-c6fb-42cf-9ce9-5683a0c31bb9",
+  "oracleId": "61f3e964-6bea-4543-992e-3e36404bf628",
+  "name": "Lurking Roper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lurking Roper",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Horror",
+      "oracleText": "This creature doesn't untap during your untap step.\nWhenever you gain life, untap this creature.",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Andrew Mar",
+      "imageId": "2361ba1d-c6fb-42cf-9ce9-5683a0c31bb9"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "hbg",
+  "collectorNumber": "216",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FAMISHED_PALADIN: CardData = {
+  "scryfallId": "26293356-0bb7-4da4-9e0e-3ff4e8417a65",
+  "oracleId": "f80df9c4-f682-4a70-81fe-03c7c5c256e1",
+  "name": "Famished Paladin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Famished Paladin",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Vampire Knight",
+      "oracleText": "This creature doesn't untap during your untap step.\nWhenever you gain life, untap this creature.",
+      "flavorText": "Loyal to his queen, slave to his thirst.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Tommy Arnold",
+      "imageId": "26293356-0bb7-4da4-9e0e-3ff4e8417a65"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "RIX-8",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SILKENFIST_FIGHTER: CardData = {
+  "scryfallId": "3480efc4-1078-4c63-a94c-d00a7507f6b1",
+  "oracleId": "bf5ceba2-9def-4ff4-9291-740ca90c1c4d",
+  "name": "Silkenfist Fighter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Silkenfist Fighter",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Kor Soldier",
+      "oracleText": "Whenever this creature becomes blocked, untap it.",
+      "flavorText": "Simple wooden staff\nMade from life, protecting life,\nStronger than cold steel.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mark Brill",
+      "imageId": "3480efc4-1078-4c63-a94c-d00a7507f6b1"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "nem",
+  "collectorNumber": "19",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SILKENFIST_ORDER: CardData = {
+  "scryfallId": "93741517-90ed-46fe-a505-fe6299f188bf",
+  "oracleId": "5cca974b-1a6c-485f-adc0-81d2b7dca286",
+  "name": "Silkenfist Order",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Silkenfist Order",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Creature — Kor Soldier",
+      "oracleText": "Whenever this creature becomes blocked, untap it.",
+      "flavorText": "Hands weave life and death;\nIntertwining spirits knit\nTapestries and shrouds.",
+      "power": "3",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Greg Hildebrandt & Tim Hildebrandt",
+      "imageId": "93741517-90ed-46fe-a505-fe6299f188bf"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "nem",
+  "collectorNumber": "20",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEEP_SLUMBER_TITAN: CardData = {
+  "scryfallId": "cbe3a68e-c29e-48a8-a2d7-49c8bff3dd8a",
+  "oracleId": "d8f2c12c-d463-42dc-95f1-2daf68f99873",
+  "name": "Deep-Slumber Titan",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deep-Slumber Titan",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Creature — Giant Warrior",
+      "oracleText": "This creature enters tapped.\nThis creature doesn't untap during your untap step.\nWhenever this creature is dealt damage, untap it.",
+      "flavorText": "Do not disturb.",
+      "power": "7",
+      "toughness": "7",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "cbe3a68e-c29e-48a8-a2d7-49c8bff3dd8a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "shm",
+  "collectorNumber": "89",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const INNOCENCE_KAMI: CardData = {
+  "scryfallId": "df62efbb-2313-4667-82e6-3b474d998ef5",
+  "oracleId": "dc9b963e-eae7-4919-a5a9-16aad04e4b22",
+  "name": "Innocence Kami",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Innocence Kami",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "{W}, {T}: Tap target creature.\nWhenever you cast a Spirit or Arcane spell, untap this creature.",
+      "flavorText": "Her voice was light, her substance music.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "df62efbb-2313-4667-82e6-3b474d998ef5"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "chk",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LIEGE_OF_THE_AXE: CardData = {
+  "scryfallId": "eb518bf0-17ad-4bbf-b922-42ee76ffcbea",
+  "oracleId": "d838969a-b219-4964-bc7e-df0348392bbe",
+  "name": "Liege of the Axe",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Liege of the Axe",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Vigilance\nMorph {1}{W} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)\nWhen this creature is turned face up, untap it.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "eb518bf0-17ad-4bbf-b922-42ee76ffcbea"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Vigilance",
+    "Morph"
+  ],
+  "setCode": "lgn",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -133828,6 +136298,74 @@ export const WURM_6_6_G_CREATURE_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const REBEL_2_2_R_CREATURE_TOKEN: CardData = {
+  "scryfallId": "6afbbdad-aeed-428a-b840-c33f59a18d0b",
+  "oracleId": "a10bb51d-a921-4f22-bb2f-677aedd2a062",
+  "name": "Rebel",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Rebel",
+      "manaCost": "",
+      "typeLine": "Token Creature — Rebel",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Anthony Devine",
+      "imageId": "6afbbdad-aeed-428a-b840-c33f59a18d0b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tfic",
+  "collectorNumber": "7",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const PHYREXIAN_GERM_TOKEN: CardData = {
+  "scryfallId": "fc375fe9-e8aa-4b7d-b439-a67c0b61beaf",
+  "oracleId": "a1c2af93-83c0-4974-b4db-abf95981d4e3",
+  "name": "Phyrexian Germ",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Phyrexian Germ",
+      "manaCost": "",
+      "typeLine": "Token Creature — Phyrexian Germ",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "0",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Igor Kieryluk",
+      "imageId": "fc375fe9-e8aa-4b7d-b439-a67c0b61beaf"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tcmm",
+  "collectorNumber": "16",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -137569,6 +140107,75 @@ export const ENGINE_CARDS: CardData[] = [
   ASPECT_OF_MONGOOSE,
   DESPONDENCY,
   REACH_FOR_THE_SKY,
+  SHADOW_LANCE,
+  FIREBREATHING,
+  CLAUSTROPHOBIA,
+  SHIV_S_EMBRACE,
+  FLOWSTONE_BLADE,
+  ETERNITY_SNARE,
+  ARMOR_OF_FAITH,
+  BLESSING,
+  UTILITY_KNIFE,
+  COLOSSIFICATION,
+  FLAYER_HUSK,
+  MAUL_OF_THE_SKYCLAVES,
+  CAPTURE_SPHERE,
+  HOLY_ARMOR,
+  CURSE_OF_CHAINS,
+  SUPER_SPEED,
+  ACCELERATED_EVOLUTION,
+  SLEEP_PARALYSIS,
+  CRADLE_OF_SAFETY,
+  PALADIN_S_SHIELD,
+  MIRRAN_BARDICHE,
+  CHARMED_SLEEP,
+  SCAVENGED_BLADE,
+  FIRE_RIM_FORM,
+  SKINWING,
+  PARALYZING_GRASP,
+  WATERKNOT,
+  NECROPOUNCER,
+  FAE_FLIGHT,
+  DRAGONWING_GLIDER,
+  BATTERBONE,
+  CONTAINMENT_PROTOCOL,
+  BRAMBLE_ARMOR,
+  BURDEN_OF_GUILT,
+  SICKLESLICER,
+  STARLIT_MANTLE,
+  CLIFFHAVEN_KITESAIL,
+  MANDIBULAR_KITE,
+  DROSSCLAW,
+  SYLVOK_BATTLE_CHAIR,
+  GILT_LEAF_S_EMBRACE,
+  STARLIGHT_SNARE,
+  BARBED_BATTERFIST,
+  STONEHANDS,
+  MILITARY_DISCIPLINE,
+  MYSTIC_RESTRAINTS,
+  COLOSSAL_DREADMASK,
+  DUELING_RAPIER,
+  AQUITECT_S_DEFENSES,
+  MECHANICAL_GLIDER,
+  CASTAWAY_S_DESPAIR,
+  BONDS_OF_QUICKSILVER,
+  FIERY_MANTLE,
+  STRANDWALKER,
+  MELTSTRIDER_S_GEAR,
+  MALAMET_SCYTHE,
+  MIRRAN_BANESPLITTER,
+  VULSHOK_SPLITTER,
+  FLOWSTONE_EMBRACE,
+  GOLDWARDEN_S_HELM,
+  ASPECT_OF_MANTICORE,
+  LEONIN_BATTLEMAGE,
+  LURKING_ROPER,
+  FAMISHED_PALADIN,
+  SILKENFIST_FIGHTER,
+  SILKENFIST_ORDER,
+  DEEP_SLUMBER_TITAN,
+  INNOCENCE_KAMI,
+  LIEGE_OF_THE_AXE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -137690,4 +140297,6 @@ export const ENGINE_CARDS: CardData[] = [
   PEGASUS_1_1_W_CREATURE_FLYING_TOKEN,
   ELEPHANT_3_3_G_CREATURE_TOKEN,
   WURM_6_6_G_CREATURE_TOKEN,
+  REBEL_2_2_R_CREATURE_TOKEN,
+  PHYREXIAN_GERM_TOKEN,
 ];
