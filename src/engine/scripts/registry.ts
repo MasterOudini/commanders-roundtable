@@ -7,6 +7,157 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { FALLEN_ASKARI_SCRIPT } from './cards/fallenAskari';
+import { INVISIBLE_STALKER_SCRIPT } from './cards/invisibleStalker';
+import { CRUSADER_OF_ODRIC_SCRIPT } from './cards/crusaderOfOdric';
+import { NEZUMI_CUTTHROAT_SCRIPT } from './cards/nezumiCutthroat';
+import { CLOUD_ELEMENTAL_SCRIPT } from './cards/cloudElemental';
+import { GROVE_RUMBLER_SCRIPT } from './cards/groveRumbler';
+import { BLIGHTED_AGENT_SCRIPT } from './cards/blightedAgent';
+import { SIGHTLESS_GHOUL_SCRIPT } from './cards/sightlessGhoul';
+import { EMERIA_ANGEL_SCRIPT } from './cards/emeriaAngel';
+import { BATTLE_SQUADRON_SCRIPT } from './cards/battleSquadron';
+import { SPINELESS_THUG_SCRIPT } from './cards/spinelessThug';
+import { HORDE_OF_BOGGARTS_SCRIPT } from './cards/hordeOfBoggarts';
+import { SCAVENGING_SCARAB_SCRIPT } from './cards/scavengingScarab';
+import { VAMPIRE_INTERLOPER_SCRIPT } from './cards/vampireInterloper';
+import { SPLINTERFRIGHT_SCRIPT } from './cards/splinterfright';
+import { PLASMA_ELEMENTAL_SCRIPT } from './cards/plasmaElemental';
+import { REGAL_BUNNICORN_SCRIPT } from './cards/regalBunnicorn';
+import { FLEET_FOOTED_MONK_SCRIPT } from './cards/fleetFootedMonk';
+import { STORMBOUND_GEIST_SCRIPT } from './cards/stormboundGeist';
+import { NIGHTMARE_SCRIPT } from './cards/nightmare';
+import { SNAPPING_GNARLID_SCRIPT } from './cards/snappingGnarlid';
+import { BEAST_OF_BURDEN_SCRIPT } from './cards/beastOfBurden';
+import { HULKING_OGRE_SCRIPT } from './cards/hulkingOgre';
+import { SLITHER_BLADE_SCRIPT } from './cards/slitherBlade';
+import { YELLOW_SCARVES_GENERAL_SCRIPT } from './cards/yellowScarvesGeneral';
+import { TIDAL_KRAKEN_SCRIPT } from './cards/tidalKraken';
+import { GOBLIN_RAIDER_SCRIPT } from './cards/goblinRaider';
+import { CARRION_FEEDER_SCRIPT } from './cards/carrionFeeder';
+import { SPOREMOUND_SCRIPT } from './cards/sporemound';
+import { IRON_BARB_HELLION_SCRIPT } from './cards/ironBarbHellion';
+import { HULKING_CYCLOPS_SCRIPT } from './cards/hulkingCyclops';
+import { VAPORKIN_SCRIPT } from './cards/vaporkin';
+import { DROVE_OF_ELVES_SCRIPT } from './cards/droveOfElves';
+import { KYREN_GLIDER_SCRIPT } from './cards/kyrenGlider';
+import { TERRITORIAL_BALOTH_SCRIPT } from './cards/territorialBaloth';
+import { BRUSHFIRE_ELEMENTAL_SCRIPT } from './cards/brushfireElemental';
+import { REVENANT_SCRIPT } from './cards/revenant';
+import { CROWD_OF_CINDERS_SCRIPT } from './cards/crowdOfCinders';
+import { STEEL_LEAF_CHAMPION_SCRIPT } from './cards/steelLeafChampion';
+import { YOUNG_WEI_RECRUITS_SCRIPT } from './cards/youngWeiRecruits';
+import { MARO_SCRIPT } from './cards/maro';
+import { WAVE_WING_ELEMENTAL_SCRIPT } from './cards/waveWingElemental';
+import { PHANTOM_WARRIOR_SCRIPT } from './cards/phantomWarrior';
+import { OUTLAND_BOAR_SCRIPT } from './cards/outlandBoar';
+import { DREADWURM_SCRIPT } from './cards/dreadwurm';
+import { TERRAVORE_SCRIPT } from './cards/terravore';
+import { CLOUD_SPIRIT_SCRIPT } from './cards/cloudSpirit';
+import { RAMPAGING_BALOTHS_SCRIPT } from './cards/rampagingBaloths';
+import { BALOTH_WOODCRASHER_SCRIPT } from './cards/balothWoodcrasher';
+import { PROWLING_FELIDAR_SCRIPT } from './cards/prowlingFelidar';
+import { DUSKMANTLE_OPERATIVE_SCRIPT } from './cards/duskmantleOperative';
+import { HEEDLESS_ONE_SCRIPT } from './cards/heedlessOne';
+import { FLEDGLING_GRIFFIN_SCRIPT } from './cards/fledglingGriffin';
+import { JHESSIAN_INFILTRATOR_SCRIPT } from './cards/jhessianInfiltrator';
+import { OGRE_TASKMASTER_SCRIPT } from './cards/ogreTaskmaster';
+import { ZENDIKARS_ROIL_SCRIPT } from './cards/zendikarsRoil';
+import { MIST_CLOAKED_HERALD_SCRIPT } from './cards/mistCloakedHerald';
+import { RECKLESS_ONE_SCRIPT } from './cards/recklessOne';
+import { SCYTHE_LEOPARD_SCRIPT } from './cards/scytheLeopard';
+import { KELDON_WARLORD_SCRIPT } from './cards/keldonWarlord';
+import { DAKKON_BLACKBLADE_SCRIPT } from './cards/dakkonBlackblade';
+import { CANOPY_BALOTH_SCRIPT } from './cards/canopyBaloth';
+import { AESTHIR_GLIDER_SCRIPT } from './cards/aesthirGlider';
+import { TERRITORIAL_SCYTHECAT_SCRIPT } from './cards/territorialScythecat';
+import { PSYCHOSIS_CRAWLER_SCRIPT } from './cards/psychosisCrawler';
+import { CANYON_JERBOA_SCRIPT } from './cards/canyonJerboa';
+import { AKOUM_HELLHOUND_SCRIPT } from './cards/akoumHellhound';
+import { AMROU_KITHKIN_SCRIPT } from './cards/amrouKithkin';
+import { TRITON_SHORESTALKER_SCRIPT } from './cards/tritonShorestalker';
+import { DAGGERCLAW_IMP_SCRIPT } from './cards/daggerclawImp';
+import { DRIFT_OF_THE_DEAD_SCRIPT } from './cards/driftOfTheDead';
+import { MAKINDI_SLIDERUNNER_SCRIPT } from './cards/makindiSliderunner';
+import { TATTERED_HAUNTER_SCRIPT } from './cards/tatteredHaunter';
+import { MOLIMO_MARO_SORCERER_SCRIPT } from './cards/molimoMaroSorcerer';
+import { BONEYARD_WURM_SCRIPT } from './cards/boneyardWurm';
+import { HAGRA_CROCODILE_SCRIPT } from './cards/hagraCrocodile';
+import { ONDU_GREATHORN_SCRIPT } from './cards/onduGreathorn';
+import { VINELASHER_KUDZU_SCRIPT } from './cards/vinelasherKudzu';
+import { WELKIN_TERN_SCRIPT } from './cards/welkinTern';
+import { YELLOW_SCARVES_TROOPS_SCRIPT } from './cards/yellowScarvesTroops';
+import { CLOUD_SPRITE_SCRIPT } from './cards/cloudSprite';
+import { LATCH_SEEKER_SCRIPT } from './cards/latchSeeker';
+import { JADDI_OFFSHOOT_SCRIPT } from './cards/jaddiOffshoot';
+import { CLOUD_DJINN_SCRIPT } from './cards/cloudDjinn';
+import { STORM_FLEET_SPRINTER_SCRIPT } from './cards/stormFleetSprinter';
+import { PYGMY_PYROSAUR_SCRIPT } from './cards/pygmyPyrosaur';
+import { GILTGROVE_STALKER_SCRIPT } from './cards/giltgroveStalker';
+import { SKYCLAVE_GEOPEDE_SCRIPT } from './cards/skyclaveGeopede';
+import { CRAVEN_GIANT_SCRIPT } from './cards/cravenGiant';
+import { LORD_OF_EXTINCTION_SCRIPT } from './cards/lordOfExtinction';
+import { WINDRIDER_EEL_SCRIPT } from './cards/windriderEel';
+import { CLOUD_DRAGON_SCRIPT } from './cards/cloudDragon';
+import { BELOVED_PRINCESS_SCRIPT } from './cards/belovedPrincess';
+import { GEIST_HONORED_MONK_SCRIPT } from './cards/geistHonoredMonk';
+import { ELFSWORN_GIANT_SCRIPT } from './cards/elfswornGiant';
+import { JUNGLE_LION_SCRIPT } from './cards/jungleLion';
+import { GUDUL_LURKER_SCRIPT } from './cards/gudulLurker';
+import { GOLDMEADOW_DODGER_SCRIPT } from './cards/goldmeadowDodger';
+import { HULKING_GOBLIN_SCRIPT } from './cards/hulkingGoblin';
+import { GOBLIN_GLIDER_SCRIPT } from './cards/goblinGlider';
+import { RISHADAN_AIRSHIP_SCRIPT } from './cards/rishadanAirship';
+import { DUNGROVE_ELDER_SCRIPT } from './cards/dungroveElder';
+import { AZORIUS_KNIGHT_ARBITER_SCRIPT } from './cards/azoriusKnightArbiter';
+import { PLATED_GEOPEDE_SCRIPT } from './cards/platedGeopede';
+import { SKYWINDER_DRAKE_SCRIPT } from './cards/skywinderDrake';
+import { GREATER_SANDWURM_SCRIPT } from './cards/greaterSandwurm';
+import { HEDRON_SCRABBLER_SCRIPT } from './cards/hedronScrabbler';
+import { EUMIDIAN_TERRABOTANIST_SCRIPT } from './cards/eumidianTerrabotanist';
+import { METATHRAN_SOLDIER_SCRIPT } from './cards/metathranSoldier';
+import { SQUELCHING_LEECHES_SCRIPT } from './cards/squelchingLeeches';
+import { STEPPE_LYNX_SCRIPT } from './cards/steppeLynx';
+import { ELUSIVE_KRASIS_SCRIPT } from './cards/elusiveKrasis';
+import { SCRAPSKIN_DRAKE_SCRIPT } from './cards/scrapskinDrake';
+import { ARLINNS_WOLF_SCRIPT } from './cards/arlinnsWolf';
+import { LONG_FINNED_SKYWHALE_SCRIPT } from './cards/longFinnedSkywhale';
+import { FLORA_COLOSSUS_SCRIPT } from './cards/floraColossus';
+import { KAZANDU_NECTARPOT_SCRIPT } from './cards/kazanduNectarpot';
+import { WANDERLIGHT_SPIRIT_SCRIPT } from './cards/wanderlightSpirit';
+import { STRATOZEPPELID_SCRIPT } from './cards/stratozeppelid';
+import { COGNIVORE_SCRIPT } from './cards/cognivore';
+import { KITHKIN_RABBLE_SCRIPT } from './cards/kithkinRabble';
+import { ASHENMOOR_GOUGER_SCRIPT } from './cards/ashenmoorGouger';
+import { REMNANT_ELEMENTAL_SCRIPT } from './cards/remnantElemental';
+import { YELLOW_SCARVES_CAVALRY_SCRIPT } from './cards/yellowScarvesCavalry';
+import { SCION_OF_THE_WILD_SCRIPT } from './cards/scionOfTheWild';
+import { BURROWGUARD_MENTOR_SCRIPT } from './cards/burrowguardMentor';
+import { VALAKUT_PREDATOR_SCRIPT } from './cards/valakutPredator';
+import { CLOUD_PIRATES_SCRIPT } from './cards/cloudPirates';
+import { SNAPPING_CREEPER_SCRIPT } from './cards/snappingCreeper';
+import { FAERIE_SWARM_SCRIPT } from './cards/faerieSwarm';
+import { GLOOMWIDOW_SCRIPT } from './cards/gloomwidow';
+import { SLAG_FIEND_SCRIPT } from './cards/slagFiend';
+import { PHANTOM_NINJA_SCRIPT } from './cards/phantomNinja';
+import { BELLIGERENT_WHIPTAIL_SCRIPT } from './cards/belligerentWhiptail';
+import { NIGHTSHADE_STINGER_SCRIPT } from './cards/nightshadeStinger';
+import { CANTIVORE_SCRIPT } from './cards/cantivore';
+import { GEYSER_GLIDER_SCRIPT } from './cards/geyserGlider';
+import { ENRAGED_CERATOK_SCRIPT } from './cards/enragedCeratok';
+import { HEDRON_ROVER_SCRIPT } from './cards/hedronRover';
+import { STURMGEIST_SCRIPT } from './cards/sturmgeist';
+import { HOVERGUARD_OBSERVER_SCRIPT } from './cards/hoverguardObserver';
+import { CRAVEN_KNIGHT_SCRIPT } from './cards/cravenKnight';
+import { GEYSERFIELD_STALKER_SCRIPT } from './cards/geyserfieldStalker';
+import { STRONGHOLD_ZEPPELIN_SCRIPT } from './cards/strongholdZeppelin';
+import { BELBES_PERCHER_SCRIPT } from './cards/belbesPercher';
+import { COVERT_OPERATIVE_SCRIPT } from './cards/covertOperative';
+import { SAZHS_CHOCOBO_SCRIPT } from './cards/sazhsChocobo';
+import { TALAS_WARRIOR_SCRIPT } from './cards/talasWarrior';
+import { HARMONIOUS_GROVESTRIDER_SCRIPT } from './cards/harmoniousGrovestrider';
+import { ICECAVE_CRASHER_SCRIPT } from './cards/icecaveCrasher';
+import { BATTLEFIELD_PERCHER_SCRIPT } from './cards/battlefieldPercher';
 import { DINING_ROOM_SCRIPT } from './cards/diningRoom';
 import { SKULL_PROPHET_SCRIPT } from './cards/skullProphet';
 import { KITCHEN_SCRIPT } from './cards/kitchen';
@@ -3369,6 +3520,157 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FALLEN_ASKARI_SCRIPT,
+  INVISIBLE_STALKER_SCRIPT,
+  CRUSADER_OF_ODRIC_SCRIPT,
+  NEZUMI_CUTTHROAT_SCRIPT,
+  CLOUD_ELEMENTAL_SCRIPT,
+  GROVE_RUMBLER_SCRIPT,
+  BLIGHTED_AGENT_SCRIPT,
+  SIGHTLESS_GHOUL_SCRIPT,
+  EMERIA_ANGEL_SCRIPT,
+  BATTLE_SQUADRON_SCRIPT,
+  SPINELESS_THUG_SCRIPT,
+  HORDE_OF_BOGGARTS_SCRIPT,
+  SCAVENGING_SCARAB_SCRIPT,
+  VAMPIRE_INTERLOPER_SCRIPT,
+  SPLINTERFRIGHT_SCRIPT,
+  PLASMA_ELEMENTAL_SCRIPT,
+  REGAL_BUNNICORN_SCRIPT,
+  FLEET_FOOTED_MONK_SCRIPT,
+  STORMBOUND_GEIST_SCRIPT,
+  NIGHTMARE_SCRIPT,
+  SNAPPING_GNARLID_SCRIPT,
+  BEAST_OF_BURDEN_SCRIPT,
+  HULKING_OGRE_SCRIPT,
+  SLITHER_BLADE_SCRIPT,
+  YELLOW_SCARVES_GENERAL_SCRIPT,
+  TIDAL_KRAKEN_SCRIPT,
+  GOBLIN_RAIDER_SCRIPT,
+  CARRION_FEEDER_SCRIPT,
+  SPOREMOUND_SCRIPT,
+  IRON_BARB_HELLION_SCRIPT,
+  HULKING_CYCLOPS_SCRIPT,
+  VAPORKIN_SCRIPT,
+  DROVE_OF_ELVES_SCRIPT,
+  KYREN_GLIDER_SCRIPT,
+  TERRITORIAL_BALOTH_SCRIPT,
+  BRUSHFIRE_ELEMENTAL_SCRIPT,
+  REVENANT_SCRIPT,
+  CROWD_OF_CINDERS_SCRIPT,
+  STEEL_LEAF_CHAMPION_SCRIPT,
+  YOUNG_WEI_RECRUITS_SCRIPT,
+  MARO_SCRIPT,
+  WAVE_WING_ELEMENTAL_SCRIPT,
+  PHANTOM_WARRIOR_SCRIPT,
+  OUTLAND_BOAR_SCRIPT,
+  DREADWURM_SCRIPT,
+  TERRAVORE_SCRIPT,
+  CLOUD_SPIRIT_SCRIPT,
+  RAMPAGING_BALOTHS_SCRIPT,
+  BALOTH_WOODCRASHER_SCRIPT,
+  PROWLING_FELIDAR_SCRIPT,
+  DUSKMANTLE_OPERATIVE_SCRIPT,
+  HEEDLESS_ONE_SCRIPT,
+  FLEDGLING_GRIFFIN_SCRIPT,
+  JHESSIAN_INFILTRATOR_SCRIPT,
+  OGRE_TASKMASTER_SCRIPT,
+  ZENDIKARS_ROIL_SCRIPT,
+  MIST_CLOAKED_HERALD_SCRIPT,
+  RECKLESS_ONE_SCRIPT,
+  SCYTHE_LEOPARD_SCRIPT,
+  KELDON_WARLORD_SCRIPT,
+  DAKKON_BLACKBLADE_SCRIPT,
+  CANOPY_BALOTH_SCRIPT,
+  AESTHIR_GLIDER_SCRIPT,
+  TERRITORIAL_SCYTHECAT_SCRIPT,
+  PSYCHOSIS_CRAWLER_SCRIPT,
+  CANYON_JERBOA_SCRIPT,
+  AKOUM_HELLHOUND_SCRIPT,
+  AMROU_KITHKIN_SCRIPT,
+  TRITON_SHORESTALKER_SCRIPT,
+  DAGGERCLAW_IMP_SCRIPT,
+  DRIFT_OF_THE_DEAD_SCRIPT,
+  MAKINDI_SLIDERUNNER_SCRIPT,
+  TATTERED_HAUNTER_SCRIPT,
+  MOLIMO_MARO_SORCERER_SCRIPT,
+  BONEYARD_WURM_SCRIPT,
+  HAGRA_CROCODILE_SCRIPT,
+  ONDU_GREATHORN_SCRIPT,
+  VINELASHER_KUDZU_SCRIPT,
+  WELKIN_TERN_SCRIPT,
+  YELLOW_SCARVES_TROOPS_SCRIPT,
+  CLOUD_SPRITE_SCRIPT,
+  LATCH_SEEKER_SCRIPT,
+  JADDI_OFFSHOOT_SCRIPT,
+  CLOUD_DJINN_SCRIPT,
+  STORM_FLEET_SPRINTER_SCRIPT,
+  PYGMY_PYROSAUR_SCRIPT,
+  GILTGROVE_STALKER_SCRIPT,
+  SKYCLAVE_GEOPEDE_SCRIPT,
+  CRAVEN_GIANT_SCRIPT,
+  LORD_OF_EXTINCTION_SCRIPT,
+  WINDRIDER_EEL_SCRIPT,
+  CLOUD_DRAGON_SCRIPT,
+  BELOVED_PRINCESS_SCRIPT,
+  GEIST_HONORED_MONK_SCRIPT,
+  ELFSWORN_GIANT_SCRIPT,
+  JUNGLE_LION_SCRIPT,
+  GUDUL_LURKER_SCRIPT,
+  GOLDMEADOW_DODGER_SCRIPT,
+  HULKING_GOBLIN_SCRIPT,
+  GOBLIN_GLIDER_SCRIPT,
+  RISHADAN_AIRSHIP_SCRIPT,
+  DUNGROVE_ELDER_SCRIPT,
+  AZORIUS_KNIGHT_ARBITER_SCRIPT,
+  PLATED_GEOPEDE_SCRIPT,
+  SKYWINDER_DRAKE_SCRIPT,
+  GREATER_SANDWURM_SCRIPT,
+  HEDRON_SCRABBLER_SCRIPT,
+  EUMIDIAN_TERRABOTANIST_SCRIPT,
+  METATHRAN_SOLDIER_SCRIPT,
+  SQUELCHING_LEECHES_SCRIPT,
+  STEPPE_LYNX_SCRIPT,
+  ELUSIVE_KRASIS_SCRIPT,
+  SCRAPSKIN_DRAKE_SCRIPT,
+  ARLINNS_WOLF_SCRIPT,
+  LONG_FINNED_SKYWHALE_SCRIPT,
+  FLORA_COLOSSUS_SCRIPT,
+  KAZANDU_NECTARPOT_SCRIPT,
+  WANDERLIGHT_SPIRIT_SCRIPT,
+  STRATOZEPPELID_SCRIPT,
+  COGNIVORE_SCRIPT,
+  KITHKIN_RABBLE_SCRIPT,
+  ASHENMOOR_GOUGER_SCRIPT,
+  REMNANT_ELEMENTAL_SCRIPT,
+  YELLOW_SCARVES_CAVALRY_SCRIPT,
+  SCION_OF_THE_WILD_SCRIPT,
+  BURROWGUARD_MENTOR_SCRIPT,
+  VALAKUT_PREDATOR_SCRIPT,
+  CLOUD_PIRATES_SCRIPT,
+  SNAPPING_CREEPER_SCRIPT,
+  FAERIE_SWARM_SCRIPT,
+  GLOOMWIDOW_SCRIPT,
+  SLAG_FIEND_SCRIPT,
+  PHANTOM_NINJA_SCRIPT,
+  BELLIGERENT_WHIPTAIL_SCRIPT,
+  NIGHTSHADE_STINGER_SCRIPT,
+  CANTIVORE_SCRIPT,
+  GEYSER_GLIDER_SCRIPT,
+  ENRAGED_CERATOK_SCRIPT,
+  HEDRON_ROVER_SCRIPT,
+  STURMGEIST_SCRIPT,
+  HOVERGUARD_OBSERVER_SCRIPT,
+  CRAVEN_KNIGHT_SCRIPT,
+  GEYSERFIELD_STALKER_SCRIPT,
+  STRONGHOLD_ZEPPELIN_SCRIPT,
+  BELBES_PERCHER_SCRIPT,
+  COVERT_OPERATIVE_SCRIPT,
+  SAZHS_CHOCOBO_SCRIPT,
+  TALAS_WARRIOR_SCRIPT,
+  HARMONIOUS_GROVESTRIDER_SCRIPT,
+  ICECAVE_CRASHER_SCRIPT,
+  BATTLEFIELD_PERCHER_SCRIPT,
   DINING_ROOM_SCRIPT,
   SKULL_PROPHET_SCRIPT,
   KITCHEN_SCRIPT,

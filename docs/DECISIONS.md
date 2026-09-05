@@ -21461,3 +21461,66 @@ Fixtures 3,602 · botPool artifact 272 / creature 3,100 / enchantment 255 / inst
 **Reportables** (D316): the costs the row maker cannot charge (tap two or three untapped creatures, an Ally, exile from the graveyard, exile this creature, sacrifice an artifact or creature), the target effects (a target creature's pump, trample, counters), the damage payloads, the ability-word activated lines (Boast, Exhaust, Cohort, Channel), the heads still outside (one or more cards put into the graveyard, sacrifice a token, deals combat damage to a creature); the mass behind - the Aura and Equipment enters heads, landfall, the modal choose-one, regenerate, any-colour mana, the can-not-block and can-not-be-blocked statics, convoke, enters with counters; the classifier learning the heads; the modal seam; the "another" split; the
 by-name sacrifice cost; the remaining cost verbs; the prompt continuation
 seam; prior items stand.
+
+## D317 — M6.4fb: THE STATIC ROWS — the card's own combat restrictions, the count P/T CDA and the landfall head in the one-shot generator; 151 cards land as generated rows (2026-09-05)
+
+**5,853 of 31,692 Commander-legal cards execute completely, up from
+5,702 (+151).** SHIPPED_SCRIPTS 3,248 → **3,399**;
+REFUSED ledger 1,093 → **1,093** (none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty). Fixtures
+3,602 → 3,753 (3,634 by name + 112 tokens: the 151 rowed cards and two token pins the landfall rows need (the 4/4 Beast of Rampaging Baloths, the 2/2 Elemental of Sporemound and Zendikar's Roil)). No engine change — the generator
+learned two def kinds the engine already consults (`CombatDef.canBlock`,
+`StaticDef` at layer `cda`) and one more head. **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** the D317 candidate probe over the database after D316: 224 blocked single-face permanents whose every unread line the widened grammar reads - 152 with a static or combat line, 72 within the D316 grammar (lines the covered cards carry: the count CDA 44, can not block 31, landfall pumps 27, blocks only fliers 23, can not be blocked 20, enters with counters 15, can not be blocked by power 14, landfall tokens 6, landfall counters 5, landfall life 4); the mass behind them: regenerate 99, any-colour mana 80, a modal choose-one 64, enchanted creature has 55, convoke 50, attacks each combat if able 46, can not be countered 46, enters with X counters 45, when you cast this spell 42, enchant player 42, heroic 41, a Spirit or Arcane spell 40, a look at the top card 39, loot 39, start your engines 38, the monarch 36, enchanted land has 35, energy 33, equipped creature attacks 32, threshold 32.
+
+**The rows.** Every generated row so far was a trigger or an activation with
+a resolve; the first static rows are the defs with NO resolve — the engine
+asks them a question:
+
+- `d317/make-rows7.cjs`: five static line kinds — "~ can't block", "~ can't
+  be blocked", "~ can block only creatures with flying", "~ can't be blocked
+  by creatures with power N or less / greater" (a `CombatDef` whose `canBlock`
+  answers the engine's question), and "~'s power and toughness are each equal
+  to the number of X" (a `StaticDef` at layer `cda`, CR 604.3 / 613.2a) over a
+  count vocabulary — cards in your hand; (creature | land | instant |
+  artifact | enchantment) cards in your graveyard or in all graveyards;
+  (white … green | snow | nonland | non-Wall) permanents / creatures / lands /
+  artifacts / enchantments / basic-land types / Elves / Goblins / Zombies you
+  control or on the battlefield — each with the fixture that adds one more.
+  The landfall head ("Landfall — Whenever a land you control enters", with or
+  without the ability word); the enters head on "this Aura" / "this
+  Equipment"; Equip takes its ability index. The count is read off the PRINTED
+  faces: a count is not a characteristic, and deriving the counted objects
+  from inside a derive would recurse when two counters count each other.
+- `d317/gen-oneshot7.cjs` + `gen7-extras.cjs`: a combat row's test attacks or
+  is attacked beside a Grizzly Bears that CAN block or be blocked (the engine
+  skips the declare-blockers prompt when no legal block exists — the first
+  port's 142 game-overs), then proves the refused block; a count row reads its
+  power, adds one counted object, and reads one higher; a landfall row puts a
+  Forest from the padded library onto the battlefield.
+- Rows land BY NAME from the candidate probe; the classifier does not learn
+  the kinds this decision, so the select pool stays 0 and only `complete`
+  moves.
+
+- **Refused by name:** none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty.
+- **Not this decision:** the enters-with-counters replacement (83 lines; the ReplacementDef seam has no shipped script yet), the Aura and Equipment statics (enchanted or equipped creature gets +N/+N or has a keyword, with the attach test), can not attack or block alone, the count phrases outside the vocabulary (Zombies plus Zombie cards, the chosen colour, creatures named ~), the costs the row maker cannot charge, the target effects and damage payloads; the mass behind - regenerate, any-colour mana, the modal choose-one, convoke, attacks each combat if able, can not be countered; the classifier learning the kinds.
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** one generated suite per row (151 suites), each ability in
+its own game; the generator's own kinds proven by the rows that use them.
+
+**Landed:** no auto flips (no engine change) and 151 generated rows - the 224 candidates less the 73 the row maker still refuses (fifteen enters-with-counters lines and five can-not-attack-or-block-alone lines outside the row grammar, six morph lines, the costs it cannot charge - tap two or three untapped creatures, Spirits or Zombies, exile two cards or this card from the graveyard, exile this creature or a spell, sacrifice an artifact or creature, return a land - the target and damage payloads, seven heads outside the library, the untap-it, Lander, surveil and scry payloads, two ability-word activated lines, a toxic line, a cost line, an anthem beside a refused line). The wave IS the landing: 151 rows - 34 count creatures (Crusader of Odric, Nightmare, Maro, Terravore, Lord of Extinction, Molimo, Splinterfright, Drove of Elves ...), 28 that can not block, 18 that can not be blocked, 21 that block only fliers, 12 that can not be blocked by power (Fleet-Footed Monk and its kin), 27 landfall pumps (Steppe Lynx, Plated Geopede, Grove Rumbler, Snapping Gnarlid ...), five landfall tokens (Rampaging Baloths, Sporemound, Zendikar's Roil, Emeria Angel, Elfsworn Giant), four landfall counters and three landfall life gains, and six D316-grammar leftovers; the bot's own deck took 150 creatures and an enchantment more.
+
+Fixtures 3,753 · botPool artifact 272 / creature 3,250 / enchantment 256 / instant 947 / land 405 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1193, 1324, 3035, 4955, 6308] · batch.json
+151 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,509 files, 17,795 passing / 11 skipped ·
+500-seed gate, 6 shards, 330.8 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D317): the enters-with-counters replacement (83 lines; the ReplacementDef seam has no shipped script yet), the Aura and Equipment statics (enchanted or equipped creature gets +N/+N or has a keyword, with the attach test), can not attack or block alone, the count phrases outside the vocabulary (Zombies plus Zombie cards, the chosen colour, creatures named ~), the costs the row maker cannot charge, the target effects and damage payloads; the mass behind - regenerate, any-colour mana, the modal choose-one, convoke, attacks each combat if able, can not be countered; the classifier learning the kinds; the modal seam; the "another" split; the
+by-name sacrifice cost; the remaining cost verbs; the prompt continuation
+seam; prior items stand.

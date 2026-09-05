@@ -120941,6 +120941,5299 @@ export const BILLIARD_ROOM: CardData = {
   "singleImage": true
 };
 
+export const INVISIBLE_STALKER: CardData = {
+  "scryfallId": "0013620d-8e17-4246-86bf-71eafd51b806",
+  "oracleId": "1a137a67-4156-45c8-aae9-838f688e12bd",
+  "name": "Invisible Stalker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Invisible Stalker",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Human Rogue",
+      "oracleText": "Hexproof (This creature can't be the target of spells or abilities your opponents control.)\nThis creature can't be blocked.",
+      "flavorText": "\"All that concerns me is the vampires' sense of smell and those freezing Nephalian nights.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Bud Cook",
+      "imageId": "0013620d-8e17-4246-86bf-71eafd51b806"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Hexproof"
+  ],
+  "setCode": "isd",
+  "collectorNumber": "60",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRUSADER_OF_ODRIC: CardData = {
+  "scryfallId": "009029c2-26b9-498f-8765-e91c2e1f3aee",
+  "oracleId": "ea384b0d-3091-4d50-b15f-1f6763647b7c",
+  "name": "Crusader of Odric",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crusader of Odric",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Crusader of Odric's power and toughness are each equal to the number of creatures you control.",
+      "flavorText": "\"We are Odric's sword. We strike without fear, for his mind has divined how our foe will be slain.\"",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Michael Komarck",
+      "imageId": "009029c2-26b9-498f-8765-e91c2e1f3aee"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "fdn",
+  "collectorNumber": "569",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NEZUMI_CUTTHROAT: CardData = {
+  "scryfallId": "0095c374-5edf-41c2-b597-f6e18b348170",
+  "oracleId": "a323a3af-8a74-433c-8994-707a09ef3a0c",
+  "name": "Nezumi Cutthroat",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nezumi Cutthroat",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Rat Warrior",
+      "oracleText": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\nThis creature can't block.",
+      "flavorText": "\"These nezumi, they disgust me. The things they will do for money no other thinking creature would consider. This, of course, makes them useful beyond words.\"\n—Meloku the Clouded Mirror",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "0095c374-5edf-41c2-b597-f6e18b348170"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Fear"
+  ],
+  "setCode": "phuk",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLOUD_ELEMENTAL: CardData = {
+  "scryfallId": "00d20c94-0597-4444-8b8a-8f500a2bda32",
+  "oracleId": "0b751cc7-3a19-4207-9e64-83e18d279588",
+  "name": "Cloud Elemental",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cloud Elemental",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": "\"You know you've angered the gods when the clouds turn against you.\"\n—Sisay, Captain of the *Weatherlight*",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Adam Rex",
+      "imageId": "00d20c94-0597-4444-8b8a-8f500a2bda32"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "wc97",
+  "collectorNumber": "pm29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GROVE_RUMBLER: CardData = {
+  "scryfallId": "012b8eff-cdf3-423e-ae17-72a909e7ebd3",
+  "oracleId": "5dcbed75-bafc-492a-85a1-44f3ff06fa78",
+  "name": "Grove Rumbler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Grove Rumbler",
+      "manaCost": "{2}{R}{G}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Trample\nLandfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": "\"The land will not wait for the enemy to arrive.\"\n—Nissa Revane",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Greg Opalinski",
+      "imageId": "012b8eff-cdf3-423e-ae17-72a909e7ebd3"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Trample",
+    "Landfall"
+  ],
+  "setCode": "bfz",
+  "collectorNumber": "211",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLIGHTED_AGENT: CardData = {
+  "scryfallId": "01842079-5c70-4e87-a1c5-c814a44ba0f5",
+  "oracleId": "e48ea9ea-64bc-4f1c-a424-592d48569244",
+  "name": "Blighted Agent",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blighted Agent",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Phyrexian Human Rogue",
+      "oracleText": "Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)\nThis creature can't be blocked.",
+      "flavorText": "~svu,DYrbreLh,SQurYBYm MEvtYctm FcCEt,cYpL. |DelrEAt kyyts,Rportt.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Anthony Francisco",
+      "imageId": "01842079-5c70-4e87-a1c5-c814a44ba0f5"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Infect"
+  ],
+  "setCode": "sld",
+  "collectorNumber": "1203",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SIGHTLESS_GHOUL: CardData = {
+  "scryfallId": "018bd4ae-cdea-410d-9ce6-6a70f12de966",
+  "oracleId": "8791adf7-16b5-4692-9eaa-0d0c58867d9d",
+  "name": "Sightless Ghoul",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sightless Ghoul",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Zombie Soldier",
+      "oracleText": "This creature can't block.\nUndying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner's control with a +1/+1 counter on it.)",
+      "flavorText": "It blindly marches on Thraben's gates, guided by its master's direful will.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "018bd4ae-cdea-410d-9ce6-6a70f12de966"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Undying"
+  ],
+  "setCode": "dka",
+  "collectorNumber": "73",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EMERIA_ANGEL: CardData = {
+  "scryfallId": "01967a0c-bd2c-4dba-9c62-e6f955c017e3",
+  "oracleId": "ea6616e4-db8d-4905-80f8-cb0162906850",
+  "name": "Emeria Angel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Emeria Angel",
+      "manaCost": "{2}{W}{W}",
+      "typeLine": "Creature — Angel",
+      "oracleText": "Flying\nLandfall — Whenever a land you control enters, you may create a 1/1 white Bird creature token with flying.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Steve Argyle",
+      "imageId": "01967a0c-bd2c-4dba-9c62-e6f955c017e3"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Landfall",
+    "Flying"
+  ],
+  "setCode": "dci",
+  "collectorNumber": "35",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BATTLE_SQUADRON: CardData = {
+  "scryfallId": "01c3c73d-03e8-4afc-bbfd-08fc87808012",
+  "oracleId": "5783e71e-2497-4241-9d1a-8bced4745b1d",
+  "name": "Battle Squadron",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Battle Squadron",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Creature — Goblin",
+      "oracleText": "Flying\nBattle Squadron's power and toughness are each equal to the number of creatures you control.",
+      "flavorText": "The goblins made an unruly pile with military precision.",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mark Tedin",
+      "imageId": "01c3c73d-03e8-4afc-bbfd-08fc87808012"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ddt",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HORDE_OF_BOGGARTS: CardData = {
+  "scryfallId": "023562bf-da7d-486d-93fc-60353f55b8a7",
+  "oracleId": "1229b82f-fc50-4259-83c6-31f706ac2303",
+  "name": "Horde of Boggarts",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Horde of Boggarts",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Goblin",
+      "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nHorde of Boggarts's power and toughness are each equal to the number of red permanents you control.",
+      "flavorText": "Strategies don't come easily to the boggarts' feral minds, but full-on assault hasn't failed them yet.",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "023562bf-da7d-486d-93fc-60353f55b8a7"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Menace"
+  ],
+  "setCode": "shm",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCAVENGING_SCARAB: CardData = {
+  "scryfallId": "023603c1-3f1e-42d1-81e1-535547ef6ee0",
+  "oracleId": "3ce2f3ad-23b3-40fe-bb31-25dbe9d1150d",
+  "name": "Scavenging Scarab",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scavenging Scarab",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "This creature can't block.",
+      "flavorText": "The beetles feed not on the flesh of corpses but on the metal, grinding out the iron and steel to add to their own bulky shells.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jeff Easley",
+      "imageId": "023603c1-3f1e-42d1-81e1-535547ef6ee0"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "dst",
+  "collectorNumber": "51",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VAMPIRE_INTERLOPER: CardData = {
+  "scryfallId": "02572f39-fc1f-4f10-ad7b-c7c92ffb31db",
+  "oracleId": "b753d7dd-4c6b-4472-a009-671572f927eb",
+  "name": "Vampire Interloper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vampire Interloper",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Vampire Scout",
+      "oracleText": "Flying\nThis creature can't block.",
+      "flavorText": "The Voldaren have begun demanding blood offerings from the villagers in their territory. Their agents arrive from the sky to collect the ceremonial bowls in eerie silence.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "James Ryman",
+      "imageId": "02572f39-fc1f-4f10-ad7b-c7c92ffb31db"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "dbl",
+  "collectorNumber": "125",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPLINTERFRIGHT: CardData = {
+  "scryfallId": "032ac9fc-b8b3-43f1-8579-62171ca976cf",
+  "oracleId": "e54c6fa9-59ca-47dc-9354-91681228371e",
+  "name": "Splinterfright",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Splinterfright",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Trample\nSplinterfright's power and toughness are each equal to the number of creature cards in your graveyard.\nAt the beginning of your upkeep, mill two cards. (Put the top two cards of your library into your graveyard.)",
+      "flavorText": null,
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Eric Deschamps",
+      "imageId": "032ac9fc-b8b3-43f1-8579-62171ca976cf"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Trample",
+    "Mill"
+  ],
+  "setCode": "2x2",
+  "collectorNumber": "159",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PLASMA_ELEMENTAL: CardData = {
+  "scryfallId": "035a8a69-1e48-4c44-b407-cc8acc8ba94c",
+  "oracleId": "419c501f-c107-4166-b56d-631672f2a5cc",
+  "name": "Plasma Elemental",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Plasma Elemental",
+      "manaCost": "{5}{U}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "This creature can't be blocked.",
+      "flavorText": "\"I watched a ship sail right through it. I thought it was harmless . . . until I saw what it had done to the crew.\"\n—Bruenna, Neurok leader",
+      "power": "4",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "035a8a69-1e48-4c44-b407-cc8acc8ba94c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "5dn",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REGAL_BUNNICORN: CardData = {
+  "scryfallId": "03c7d409-90e7-44d7-a8c6-4eda35fbcc83",
+  "oracleId": "efd93428-88a5-4f7b-95f3-1d6eec069a4c",
+  "name": "Regal Bunnicorn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Regal Bunnicorn",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Rabbit Unicorn",
+      "oracleText": "Regal Bunnicorn's power and toughness are each equal to the number of nonland permanents you control.",
+      "flavorText": "\"It's entirely peaceful, as long as you don't try to pet it, pen it, take its food, take its hide, sit on its grass, or dress it up in colorful garb for human holidays.\"\n—Sturwynn, Boundary Lands ranger",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Ilse Gort",
+      "imageId": "03c7d409-90e7-44d7-a8c6-4eda35fbcc83"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "woe",
+  "collectorNumber": "25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLEET_FOOTED_MONK: CardData = {
+  "scryfallId": "03cd972d-1cc1-4fb1-9b4e-a88ea115cf7f",
+  "oracleId": "a6a26261-1915-4699-a2e9-cca43b39a3eb",
+  "name": "Fleet-Footed Monk",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fleet-Footed Monk",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Monk",
+      "oracleText": "This creature can't be blocked by creatures with power 2 or greater.",
+      "flavorText": "\"Hesitation is for the faithless. My belief lends me speed.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "D. Alexander Gregory",
+      "imageId": "03cd972d-1cc1-4fb1-9b4e-a88ea115cf7f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "por",
+  "collectorNumber": "15",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STORMBOUND_GEIST: CardData = {
+  "scryfallId": "040eddb0-fca2-41eb-ab07-c48d49385973",
+  "oracleId": "b5027d79-83e9-437a-baae-03cc3a13a608",
+  "name": "Stormbound Geist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stormbound Geist",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.\nUndying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner's control with a +1/+1 counter on it.)",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "040eddb0-fca2-41eb-ab07-c48d49385973"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying",
+    "Undying"
+  ],
+  "setCode": "dka",
+  "collectorNumber": "51",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NIGHTMARE: CardData = {
+  "scryfallId": "052022ff-795f-4f50-a45c-91cf8be9fbe9",
+  "oracleId": "375932e6-1b3e-48dc-8154-9b664c3add34",
+  "name": "Nightmare",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nightmare",
+      "manaCost": "{5}{B}",
+      "typeLine": "Creature — Nightmare Horse",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nNightmare's power and toughness are each equal to the number of Swamps you control.",
+      "flavorText": "The thunder of its hooves beats dreams into despair.",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Vance Kovacs",
+      "imageId": "052022ff-795f-4f50-a45c-91cf8be9fbe9"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "w17",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SNAPPING_GNARLID: CardData = {
+  "scryfallId": "0568675d-8aa8-4809-9ccd-5f1676b2453f",
+  "oracleId": "eeba70f5-336c-46e6-90db-50818f88e8a5",
+  "name": "Snapping Gnarlid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Snapping Gnarlid",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gets +1/+1 until end of turn.",
+      "flavorText": "All of Zendikar's beings sense the upheaval that accompanies the Eldrazi.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "0568675d-8aa8-4809-9ccd-5f1676b2453f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "BFZ-190",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BEAST_OF_BURDEN: CardData = {
+  "scryfallId": "06578d72-50e9-468d-96d2-c0cbda14961a",
+  "oracleId": "67389ccc-dacc-4ce3-a9a2-f551a0d6e9d3",
+  "name": "Beast of Burden",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Beast of Burden",
+      "manaCost": "{6}",
+      "typeLine": "Artifact Creature — Golem",
+      "oracleText": "Beast of Burden's power and toughness are each equal to the number of creatures on the battlefield.",
+      "flavorText": "\"If it is meant to be nothing but a machine,\" Karn finally asked Jhoira, \"why did Urza build it to be like me?\"",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Ron Spears",
+      "imageId": "06578d72-50e9-468d-96d2-c0cbda14961a"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "ulg",
+  "collectorNumber": "122",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HULKING_OGRE: CardData = {
+  "scryfallId": "0676d39e-229f-480b-874e-ff0cb8e335d8",
+  "oracleId": "a95aa9ba-fa61-4a3d-a493-1ea790bd20ad",
+  "name": "Hulking Ogre",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hulking Ogre",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Ogre",
+      "oracleText": "This creature can't block.",
+      "flavorText": "\"The Keldons' ogre campaign provided more body parts than my meager facility could properly use.\"\n—Gatha, Tolarian renegade",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Greg Hildebrandt & Tim Hildebrandt",
+      "imageId": "0676d39e-229f-480b-874e-ff0cb8e335d8"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "uds",
+  "collectorNumber": "87",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLITHER_BLADE: CardData = {
+  "scryfallId": "06b56909-65b3-479f-8e52-d025641f4a8e",
+  "oracleId": "5a55641b-0818-4418-a2e5-44157056353c",
+  "name": "Slither Blade",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slither Blade",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Snake Rogue",
+      "oracleText": "This creature can't be blocked.",
+      "flavorText": "Some naga initiates move as silently as the suns' reflections on the water.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Zezhou Chen",
+      "imageId": "06b56909-65b3-479f-8e52-d025641f4a8e"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "znc",
+  "collectorNumber": "36",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const YELLOW_SCARVES_GENERAL: CardData = {
+  "scryfallId": "06e98691-6227-41f2-a3f4-3131b07a3a6f",
+  "oracleId": "6fbade4d-502d-45d7-a79e-3fd9e3e7ccdf",
+  "name": "Yellow Scarves General",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Yellow Scarves General",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Horsemanship (This creature can't be blocked except by creatures with horsemanship.)\nThis creature can't block.",
+      "flavorText": "Zhang Jue, leader of the Yellow Scarves rebellion, was a Taoist master and tutored his soldiers in those arts.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chen Weidong",
+      "imageId": "06e98691-6227-41f2-a3f4-3131b07a3a6f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Horsemanship"
+  ],
+  "setCode": "ptk",
+  "collectorNumber": "126",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TIDAL_KRAKEN: CardData = {
+  "scryfallId": "08147258-2319-49d5-bfb1-cc4f817d9c72",
+  "oracleId": "104a8f76-d178-4a33-bb59-e8767da3d982",
+  "name": "Tidal Kraken",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tidal Kraken",
+      "manaCost": "{5}{U}{U}{U}",
+      "typeLine": "Creature — Kraken",
+      "oracleText": "This creature can't be blocked.",
+      "flavorText": "To merfolk, pirates are a nuisance. To pirates, merfolk are a threat. To the kraken, they're both appetizers.",
+      "power": "6",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "08147258-2319-49d5-bfb1-cc4f817d9c72"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 8,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "108",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_RAIDER: CardData = {
+  "scryfallId": "0837dd6a-d413-40a4-a684-ec637a4f3d4a",
+  "oracleId": "7f11c830-fced-40db-8c02-b3c54f3e4372",
+  "name": "Goblin Raider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Raider",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Goblin Warrior",
+      "oracleText": "This creature can't block.",
+      "flavorText": "He's smart for a goblin. He can do *two* things: hit *and* run.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "0837dd6a-d413-40a4-a684-ec637a4f3d4a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "191",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CARRION_FEEDER: CardData = {
+  "scryfallId": "083f4ccc-9cfc-44b1-af77-304b65bd878b",
+  "oracleId": "a1cc5e37-b09a-4b7f-afd5-77c1c35aa425",
+  "name": "Carrion Feeder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Carrion Feeder",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "This creature can't block.\nSacrifice a creature: Put a +1/+1 counter on this creature.",
+      "flavorText": "Stinking of rot, it leaps between gravestones in search of its next meal.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "083f4ccc-9cfc-44b1-af77-304b65bd878b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "dde",
+  "collectorNumber": "2",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPOREMOUND: CardData = {
+  "scryfallId": "092bfc5f-8002-43da-8e70-c19fccfe54ac",
+  "oracleId": "1be56a3d-a6c0-4b65-ae71-3d90ceefc6c0",
+  "name": "Sporemound",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sporemound",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Creature — Fungus",
+      "oracleText": "Landfall — Whenever a land you control enters, create a 1/1 green Saproling creature token.",
+      "flavorText": "\"If you threaten its territory, it produces spores. Actually, no matter what you do, it produces spores.\"\n—Hadi Kasten, Calla Dale naturalist",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "092bfc5f-8002-43da-8e70-c19fccfe54ac"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "cmr",
+  "collectorNumber": "437",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const IRON_BARB_HELLION: CardData = {
+  "scryfallId": "0937a4f2-6b41-4ea3-8f20-6fded04492ce",
+  "oracleId": "6ec9f9a9-9e66-4d81-ae22-dc0de596acd5",
+  "name": "Iron-Barb Hellion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Iron-Barb Hellion",
+      "manaCost": "{5}{R}",
+      "typeLine": "Creature — Hellion Beast",
+      "oracleText": "Haste\nThis creature can't block.",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Doug Chaffee",
+      "imageId": "0937a4f2-6b41-4ea3-8f20-6fded04492ce"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "psal",
+  "collectorNumber": "K4",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HULKING_CYCLOPS: CardData = {
+  "scryfallId": "0966fa96-2453-4555-8a90-8e4b7a393038",
+  "oracleId": "04936918-7ef3-42fa-b0cd-87d18cb69d2c",
+  "name": "Hulking Cyclops",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hulking Cyclops",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Creature — Cyclops",
+      "oracleText": "This creature can't block.",
+      "flavorText": "Anyone can get around a cyclops, but few can stand in its way.",
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "0966fa96-2453-4555-8a90-8e4b7a393038"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "6ed",
+  "collectorNumber": "189",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VAPORKIN: CardData = {
+  "scryfallId": "09b661a5-359b-4f21-b1b6-aa0988810b4d",
+  "oracleId": "169e415a-9ff6-43bb-bb68-fc49e69f95a8",
+  "name": "Vaporkin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vaporkin",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": "\"Mists are carefree. They drift where they will, unencumbered by rocks and river beds.\"\n—Thrasios, triton hero",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Seb McKinnon",
+      "imageId": "09b661a5-359b-4f21-b1b6-aa0988810b4d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ths",
+  "collectorNumber": "72",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DROVE_OF_ELVES: CardData = {
+  "scryfallId": "0b557581-0bd9-4e4e-a33e-75cf1043ef11",
+  "oracleId": "3ba81fbe-2c53-495b-9a2b-f124475bd71b",
+  "name": "Drove of Elves",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drove of Elves",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Elf",
+      "oracleText": "Hexproof\nDrove of Elves's power and toughness are each equal to the number of green permanents you control.",
+      "flavorText": "\"The light of beauty protects our journeys through darkness.\"",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Larry MacDougall",
+      "imageId": "0b557581-0bd9-4e4e-a33e-75cf1043ef11"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Hexproof"
+  ],
+  "setCode": "dpa",
+  "collectorNumber": "57",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KYREN_GLIDER: CardData = {
+  "scryfallId": "0bc55e01-342e-4856-937e-14561b8d165b",
+  "oracleId": "6ae3a901-9f9a-4a99-94db-22c38fda7aef",
+  "name": "Kyren Glider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kyren Glider",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Goblin",
+      "oracleText": "Flying\nThis creature can't block.",
+      "flavorText": "Mercadia's Kyren goblins are the opposite of Dominarian goblins: they're smart and cowardly.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Daren Bader",
+      "imageId": "0bc55e01-342e-4856-937e-14561b8d165b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "mmq",
+  "collectorNumber": "196",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TERRITORIAL_BALOTH: CardData = {
+  "scryfallId": "0c3d4afc-5bb7-4159-9a11-f9c989dd9043",
+  "oracleId": "f772e767-a931-4891-94eb-d92a8ca7f8c1",
+  "name": "Territorial Baloth",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Territorial Baloth",
+      "manaCost": "{4}{G}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": "It knows nothing of Eldrazi or Planeswalkers, just that there are new intruders in its territory.",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Matt Stewart",
+      "imageId": "0c3d4afc-5bb7-4159-9a11-f9c989dd9043"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "bfz",
+  "collectorNumber": "196",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BRUSHFIRE_ELEMENTAL: CardData = {
+  "scryfallId": "0d0954df-07f0-430d-90ee-d1fe40af546f",
+  "oracleId": "b33a7ec6-b22b-41cf-9312-65add1529b51",
+  "name": "Brushfire Elemental",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Brushfire Elemental",
+      "manaCost": "{R}{G}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Haste\nThis creature can't be blocked by creatures with power 2 or less.\nLandfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Roman Kuteynikov",
+      "imageId": "0d0954df-07f0-430d-90ee-d1fe40af546f"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Haste",
+    "Landfall"
+  ],
+  "setCode": "znr",
+  "collectorNumber": "311",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REVENANT: CardData = {
+  "scryfallId": "0da40601-b6a3-47ca-b5b6-8fdbdf81f3d4",
+  "oracleId": "05fc62d3-9b3c-409a-a623-9f81f395a5a0",
+  "name": "Revenant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Revenant",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nRevenant's power and toughness are each equal to the number of creature cards in your graveyard.",
+      "flavorText": "\"Not again.\"\n—Hans",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "0da40601-b6a3-47ca-b5b6-8fdbdf81f3d4"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "sth",
+  "collectorNumber": "68",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CROWD_OF_CINDERS: CardData = {
+  "scryfallId": "0dd88305-d57b-4e77-aec9-f0a3ace42c37",
+  "oracleId": "fc071117-08aa-47c3-ae4a-4b6c630befa3",
+  "name": "Crowd of Cinders",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crowd of Cinders",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\nCrowd of Cinders's power and toughness are each equal to the number of black permanents you control.",
+      "flavorText": "They envy the life-giving heat so much that they tear it from those who still possess it.",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Carl Frank",
+      "imageId": "0dd88305-d57b-4e77-aec9-f0a3ace42c37"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Fear"
+  ],
+  "setCode": "shm",
+  "collectorNumber": "63",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STEEL_LEAF_CHAMPION: CardData = {
+  "scryfallId": "0edb24fe-5299-4594-b060-d0a610ba2436",
+  "oracleId": "666af637-9282-4121-962a-048e528f9221",
+  "name": "Steel Leaf Champion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Steel Leaf Champion",
+      "manaCost": "{G}{G}{G}",
+      "typeLine": "Creature — Elf Knight",
+      "oracleText": "This creature can't be blocked by creatures with power 2 or less.",
+      "flavorText": "One eye open to see the truth of the world. One eye covered to gaze at the goddess within.",
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Chris Rahn",
+      "imageId": "0edb24fe-5299-4594-b060-d0a610ba2436"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "pdom",
+  "collectorNumber": "182p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const YOUNG_WEI_RECRUITS: CardData = {
+  "scryfallId": "11431c4c-b0bb-4747-a34a-4a90238ec9c6",
+  "oracleId": "cdada8f0-d001-485c-a245-5e1c1ab748ab",
+  "name": "Young Wei Recruits",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Young Wei Recruits",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "This creature can't block.",
+      "flavorText": "\"To send the common people to war untrained is to throw them away.\"\n—Confucius, *The Analects* (trans. Lau)",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Li Youliang",
+      "imageId": "11431c4c-b0bb-4747-a34a-4a90238ec9c6"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MARO: CardData = {
+  "scryfallId": "11528f4f-35b7-457d-8b83-1954bd3289c3",
+  "oracleId": "ef32258a-d567-4fbc-ab85-8c00080f5b36",
+  "name": "Maro",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Maro",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Maro's power and toughness are each equal to the number of cards in your hand.",
+      "flavorText": "No two draw the same Maro.",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mark Rosewater, Age 54½",
+      "imageId": "11528f4f-35b7-457d-8b83-1954bd3289c3"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "sld",
+  "collectorNumber": "719",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WAVE_WING_ELEMENTAL: CardData = {
+  "scryfallId": "11b45809-87fc-409d-942a-1f31f68d27ac",
+  "oracleId": "35044f8a-c8e0-41ae-ba61-43109e51f7e8",
+  "name": "Wave-Wing Elemental",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wave-Wing Elemental",
+      "manaCost": "{5}{U}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Flying\nLandfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": "\"Do you see? All of Tazeem strains at its tether.\"\n—Noyan Dar, Tazeem roilmage",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "John Severin Brassell",
+      "imageId": "11b45809-87fc-409d-942a-1f31f68d27ac"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Landfall",
+    "Flying"
+  ],
+  "setCode": "bfz",
+  "collectorNumber": "88",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PHANTOM_WARRIOR: CardData = {
+  "scryfallId": "11cbdf06-f6b5-4bd8-80bf-6d7e57649684",
+  "oracleId": "23745133-e5e2-4ce3-b94a-73d0d3d8a013",
+  "name": "Phantom Warrior",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Phantom Warrior",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Creature — Illusion Warrior",
+      "oracleText": "This creature can't be blocked.",
+      "flavorText": "\"Only when I saw my enemy walk through all my defenses, untouchable as the moon in the sky, did I truly know what it is to be afraid.\"\n—King Ixes",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Anna Podedworna",
+      "imageId": "11cbdf06-f6b5-4bd8-80bf-6d7e57649684"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m20",
+  "collectorNumber": "316",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OUTLAND_BOAR: CardData = {
+  "scryfallId": "135912b3-978b-4a9b-8758-7b138b190232",
+  "oracleId": "fdb109f6-d185-4d1e-92b9-768e77562f55",
+  "name": "Outland Boar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Outland Boar",
+      "manaCost": "{2}{R}{G}",
+      "typeLine": "Creature — Boar",
+      "oracleText": "This creature can't be blocked by creatures with power 2 or less.",
+      "flavorText": "The vibrant forest of Peema is awash with aether. Its animals are stronger, faster, and more aggressive than their counterparts elsewhere.",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "Winona Nelson",
+      "imageId": "135912b3-978b-4a9b-8758-7b138b190232"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "aer",
+  "collectorNumber": "132",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DREADWURM: CardData = {
+  "scryfallId": "14faa1da-4ab4-40e0-9b47-796948e082fc",
+  "oracleId": "9feb7600-f844-4573-bcb7-d6b34473517b",
+  "name": "Dreadwurm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dreadwurm",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Wurm Horror",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Anato Finnstark",
+      "imageId": "14faa1da-4ab4-40e0-9b47-796948e082fc"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "ZNR-297",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TERRAVORE: CardData = {
+  "scryfallId": "150ee46e-b8f9-4b8b-be7d-7886bd67b662",
+  "oracleId": "f44fb61a-9aa5-4178-b958-5115d62a7f50",
+  "name": "Terravore",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Terravore",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Creature — Lhurgoyf",
+      "oracleText": "Trample\nTerravore's power and toughness are each equal to the number of land cards in all graveyards.",
+      "flavorText": null,
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jim Nelson",
+      "imageId": "150ee46e-b8f9-4b8b-be7d-7886bd67b662"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "ha2",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLOUD_SPIRIT: CardData = {
+  "scryfallId": "15275909-38f7-4209-a9da-cb583fabe922",
+  "oracleId": "9e1a6481-f460-4551-96e8-30b289f2cb92",
+  "name": "Cloud Spirit",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cloud Spirit",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": "Clouds are the soil, dreams are the crop.\n—Kor saying",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Randy Gallegos",
+      "imageId": "15275909-38f7-4209-a9da-cb583fabe922"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "STH-26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAMPAGING_BALOTHS: CardData = {
+  "scryfallId": "15a1bd44-5091-4650-a5c6-6f35ae0d75ba",
+  "oracleId": "2d3e6549-6cc6-434f-a189-ba3b55e64c34",
+  "name": "Rampaging Baloths",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rampaging Baloths",
+      "manaCost": "{4}{G}{G}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "Trample\nLandfall — Whenever a land you control enters, create a 4/4 green Beast creature token.",
+      "flavorText": "\"When the land is angry, so are they.\"\n—Nissa Revane",
+      "power": "6",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "15a1bd44-5091-4650-a5c6-6f35ae0d75ba"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Trample",
+    "Landfall"
+  ],
+  "setCode": "c14",
+  "collectorNumber": "212",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BALOTH_WOODCRASHER: CardData = {
+  "scryfallId": "15f58182-86c7-4e1a-8a28-00063a6ca778",
+  "oracleId": "faaf9975-74df-4e9d-be0c-19a446cd507c",
+  "name": "Baloth Woodcrasher",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Baloth Woodcrasher",
+      "manaCost": "{4}{G}{G}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gets +4/+4 and gains trample until end of turn. (It can deal excess combat damage to the player or planeswalker it's attacking.)",
+      "flavorText": "Its insatiable hunger quickly depletes a region of prey. It must migrate from place to place to feed its massive bulk.",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Zoltan Boros & Gabor Szikszai",
+      "imageId": "15f58182-86c7-4e1a-8a28-00063a6ca778"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "ZEN-157",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PROWLING_FELIDAR: CardData = {
+  "scryfallId": "165610b6-809c-4913-8149-28b85ee799ee",
+  "oracleId": "ed26f6bf-fcd6-4cf4-9b65-a492cb79f2df",
+  "name": "Prowling Felidar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Prowling Felidar",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Cat Beast",
+      "oracleText": "Vigilance\nLandfall — Whenever a land you control enters, put a +1/+1 counter on this creature.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Tyler Smith",
+      "imageId": "165610b6-809c-4913-8149-28b85ee799ee"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Vigilance",
+    "Landfall"
+  ],
+  "setCode": "prm",
+  "collectorNumber": "83682",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DUSKMANTLE_OPERATIVE: CardData = {
+  "scryfallId": "16eb5a6b-5e69-497c-a0c9-4165ad0f5d0b",
+  "oracleId": "7734ee04-1d99-4807-be68-b889e75a7551",
+  "name": "Duskmantle Operative",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Duskmantle Operative",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Rogue",
+      "oracleText": "This creature can't be blocked by creatures with power 4 or greater.",
+      "flavorText": "Gideon eyed the Dimir emissary warily. \"Could your agents slip inside Bolas's citadel?\" The figure met his gaze with icy resolve. \"We already have.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Anna Steinbauer",
+      "imageId": "16eb5a6b-5e69-497c-a0c9-4165ad0f5d0b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "war",
+  "collectorNumber": "88",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HEEDLESS_ONE: CardData = {
+  "scryfallId": "16f8f90e-3fd6-40b8-a49d-358221d1a7b7",
+  "oracleId": "c4ec45e9-1a4d-42a0-beca-e4dcdfc88fa3",
+  "name": "Heedless One",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Heedless One",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Elf Avatar",
+      "oracleText": "Trample\nHeedless One's power and toughness are each equal to the number of Elves on the battlefield.",
+      "flavorText": "\"Channel your vitality through me.\"",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "16f8f90e-3fd6-40b8-a49d-358221d1a7b7"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "dd1",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLEDGLING_GRIFFIN: CardData = {
+  "scryfallId": "1739550d-3bd8-421b-b2a9-95dd3bff2ce2",
+  "oracleId": "314748a6-4e7f-4afb-b77e-5ef366e02b90",
+  "name": "Fledgling Griffin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fledgling Griffin",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Griffin",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gains flying until end of turn.",
+      "flavorText": "\"We're making progress, but its desire to explore still far exceeds its ability.\"\n—Amadi, Halimar griffin-master",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Christopher Moeller",
+      "imageId": "1739550d-3bd8-421b-b2a9-95dd3bff2ce2"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "wwk",
+  "collectorNumber": "5",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JHESSIAN_INFILTRATOR: CardData = {
+  "scryfallId": "1761d867-2eb0-406b-b175-97a90c457844",
+  "oracleId": "6ec8dc98-adc7-4fc3-94e5-31037235ceab",
+  "name": "Jhessian Infiltrator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jhessian Infiltrator",
+      "manaCost": "{G}{U}",
+      "typeLine": "Creature — Human Rogue",
+      "oracleText": "This creature can't be blocked.",
+      "flavorText": "The Jhessian navy makes successful raids on Valeron's coastal towns thanks to their spies planted during peacetime.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "U"
+      ],
+      "artist": "Donato Giancola",
+      "imageId": "1761d867-2eb0-406b-b175-97a90c457844"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ala",
+  "collectorNumber": "174",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OGRE_TASKMASTER: CardData = {
+  "scryfallId": "1765dee9-ab94-4ca5-9cd7-cf8e228fdd68",
+  "oracleId": "5604f04e-fd72-41bf-906f-eb89d4a3475d",
+  "name": "Ogre Taskmaster",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ogre Taskmaster",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Ogre",
+      "oracleText": "This creature can't block.",
+      "flavorText": "Ogres learn how to smash stuff even before they learn how to walk.",
+      "power": "4",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dany Orizio",
+      "imageId": "1765dee9-ab94-4ca5-9cd7-cf8e228fdd68"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "8ed",
+  "collectorNumber": "205",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ZENDIKAR_S_ROIL: CardData = {
+  "scryfallId": "180aa3d6-8475-4c98-a140-af736a9c135e",
+  "oracleId": "a842cc2b-52eb-4dc5-86c6-6575c2ed913d",
+  "name": "Zendikar's Roil",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Zendikar's Roil",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Landfall — Whenever a land you control enters, create a 2/2 green Elemental creature token.",
+      "flavorText": "\"I was wrong. Zendikar isn't after me. It isn't after any of us. It's not evil or vengeful. It's magnificent . . . but it's in pain.\"\n—Nissa Revane",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Sam Burley",
+      "imageId": "180aa3d6-8475-4c98-a140-af736a9c135e"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "jmp",
+  "collectorNumber": "448",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIST_CLOAKED_HERALD: CardData = {
+  "scryfallId": "18c1368e-114b-4618-922b-1d824ba0d1d5",
+  "oracleId": "74255add-2894-4c31-81c1-d38873fa325f",
+  "name": "Mist-Cloaked Herald",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mist-Cloaked Herald",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Merfolk Warrior",
+      "oracleText": "This creature can't be blocked.",
+      "flavorText": "With matchless stealth, the River Heralds fought a running battle against the three enemy forces.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Anthony Palumbo",
+      "imageId": "18c1368e-114b-4618-922b-1d824ba0d1d5"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "rix",
+  "collectorNumber": "43",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RECKLESS_ONE: CardData = {
+  "scryfallId": "19617614-2ef4-4a13-9b4a-af842594d336",
+  "oracleId": "6c8a8a7a-ee4f-4005-b6a2-fc418e396748",
+  "name": "Reckless One",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reckless One",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Goblin Avatar",
+      "oracleText": "Haste\nReckless One's power and toughness are each equal to the number of Goblins on the battlefield.",
+      "flavorText": "\"Release chaos with me!\"",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "19617614-2ef4-4a13-9b4a-af842594d336"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "dd1",
+  "collectorNumber": "48",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCYTHE_LEOPARD: CardData = {
+  "scryfallId": "1a4d78be-63d4-4139-b5c1-6d7fd02de711",
+  "oracleId": "ab539b16-d2a0-404d-8ad3-7ff33f2f1abe",
+  "name": "Scythe Leopard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scythe Leopard",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Cat",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gets +1/+1 until end of turn.",
+      "flavorText": "Eldrazi are not the leopard's preferred prey, but they are better than no prey at all.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Winona Nelson",
+      "imageId": "1a4d78be-63d4-4139-b5c1-6d7fd02de711"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "pbfz",
+  "collectorNumber": "188",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KELDON_WARLORD: CardData = {
+  "scryfallId": "1f3ffeba-7c53-4c3c-ba22-f8a6b6d75a2c",
+  "oracleId": "acc869f8-dcbe-4d57-baa0-3eef4aceb251",
+  "name": "Keldon Warlord",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Keldon Warlord",
+      "manaCost": "{2}{R}{R}",
+      "typeLine": "Creature — Human Barbarian",
+      "oracleText": "Keldon Warlord's power and toughness are each equal to the number of non-Wall creatures you control.",
+      "flavorText": null,
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Kev Brockschmidt",
+      "imageId": "1f3ffeba-7c53-4c3c-ba22-f8a6b6d75a2c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "30a",
+  "collectorNumber": "156",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAKKON_BLACKBLADE: CardData = {
+  "scryfallId": "235bbf86-02ad-497b-b698-e60930bbde9c",
+  "oracleId": "1aa78e3b-bf7e-4645-9521-4b3537c93f46",
+  "name": "Dakkon Blackblade",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dakkon Blackblade",
+      "manaCost": "{2}{W}{U}{U}{B}",
+      "typeLine": "Legendary Creature — Human Warrior",
+      "oracleText": "Dakkon Blackblade's power and toughness are each equal to the number of lands you control.",
+      "flavorText": "\"My power is as vast as the plains, my strength is that of mountains. Each wave that crashes upon the shore thunders like blood in my veins.\"\n—Dakkon Blackblade, Memoirs",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "U",
+        "W"
+      ],
+      "artist": "Richard Kane Ferguson",
+      "imageId": "235bbf86-02ad-497b-b698-e60930bbde9c"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U",
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "me1",
+  "collectorNumber": "143",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CANOPY_BALOTH: CardData = {
+  "scryfallId": "255ec689-7865-4c54-a1a7-d1817661db48",
+  "oracleId": "4493828f-144f-49cf-9fd2-61de86e632ec",
+  "name": "Canopy Baloth",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Canopy Baloth",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dominik Mayer",
+      "imageId": "255ec689-7865-4c54-a1a7-d1817661db48"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "ZNR-304",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AESTHIR_GLIDER: CardData = {
+  "scryfallId": "25afd4a7-4253-4a4e-a105-e92f64460faa",
+  "oracleId": "99dcde0b-4f4d-4d7a-89aa-8a89c256e38f",
+  "name": "Aesthir Glider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Aesthir Glider",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Bird Construct",
+      "oracleText": "Flying\nThis creature can't block.",
+      "flavorText": "An ancient device recovered from a thawing glacier high in the Karplusan mountains.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "James Paick",
+      "imageId": "25afd4a7-4253-4a4e-a105-e92f64460faa"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "dom",
+  "collectorNumber": "209",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TERRITORIAL_SCYTHECAT: CardData = {
+  "scryfallId": "262ab852-b066-4e69-8d33-32755197ba96",
+  "oracleId": "75d38954-6148-4d95-bf4b-cb82efcbe8df",
+  "name": "Territorial Scythecat",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Territorial Scythecat",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Cat",
+      "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nLandfall — Whenever a land you control enters, put a +1/+1 counter on this creature.",
+      "flavorText": "Standing between a scythecat and its prey makes you the appetizer.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Wisnu Tan",
+      "imageId": "262ab852-b066-4e69-8d33-32755197ba96"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Trample",
+    "Landfall"
+  ],
+  "setCode": "j25",
+  "collectorNumber": "723",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PSYCHOSIS_CRAWLER: CardData = {
+  "scryfallId": "26719c8b-2783-4f97-a961-725b52091bb7",
+  "oracleId": "2876e74f-a242-4995-9702-0b737a1ab67a",
+  "name": "Psychosis Crawler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Psychosis Crawler",
+      "manaCost": "{5}",
+      "typeLine": "Artifact Creature — Phyrexian Horror",
+      "oracleText": "Psychosis Crawler's power and toughness are each equal to the number of cards in your hand.\nWhenever you draw a card, each opponent loses 1 life.",
+      "flavorText": "\"If that brain can't figure out the secret of the serum, then add more brains.\"\n—Rhmir, Hand of the Augur",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Stephan Martiniere",
+      "imageId": "26719c8b-2783-4f97-a961-725b52091bb7"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "cn2",
+  "collectorNumber": "215",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CANYON_JERBOA: CardData = {
+  "scryfallId": "26b3938e-ebd7-4668-be3a-422c02ff5b08",
+  "oracleId": "254d4918-de40-4ac4-b542-f5c67a5e21eb",
+  "name": "Canyon Jerboa",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Canyon Jerboa",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Mouse",
+      "oracleText": "Landfall — Whenever a land you control enters, creatures you control get +1/+1 until end of turn.",
+      "flavorText": "\"Move, you wretched thing! You're scaring the hurdas!\"\n—Bruse Tarl, Goma Fada nomad",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Antonio José Manzanedo",
+      "imageId": "26b3938e-ebd7-4668-be3a-422c02ff5b08"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "znr",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AKOUM_HELLHOUND: CardData = {
+  "scryfallId": "2755a83a-8d3e-415c-b2d8-3e1a707ec621",
+  "oracleId": "05074b68-6b31-4f9f-b3ec-bffe3e7eab47",
+  "name": "Akoum Hellhound",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Akoum Hellhound",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Elemental Dog",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Pascal Blanché",
+      "imageId": "2755a83a-8d3e-415c-b2d8-3e1a707ec621"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "prm",
+  "collectorNumber": "83690",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AMROU_KITHKIN: CardData = {
+  "scryfallId": "278d86b4-8d62-4932-a66d-062971295631",
+  "oracleId": "79644192-8f99-4d04-b151-6f74a4dbda0a",
+  "name": "Amrou Kithkin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Amrou Kithkin",
+      "manaCost": "{W}{W}",
+      "typeLine": "Creature — Kithkin",
+      "oracleText": "This creature can't be blocked by creatures with power 3 or greater.",
+      "flavorText": "Quick and agile, Amrou Kithkin can usually escape from even the most fearsome opponents.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Quinton Hoover",
+      "imageId": "278d86b4-8d62-4932-a66d-062971295631"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "me3",
+  "collectorNumber": "3",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRITON_SHORESTALKER: CardData = {
+  "scryfallId": "2cb1a356-99f8-4264-8162-5fecc3583b7c",
+  "oracleId": "71a60247-17e5-44bd-9fed-f7d550b09ef3",
+  "name": "Triton Shorestalker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Triton Shorestalker",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Merfolk Rogue",
+      "oracleText": "This creature can't be blocked.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "2cb1a356-99f8-4264-8162-5fecc3583b7c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "pa1",
+  "collectorNumber": "1",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAGGERCLAW_IMP: CardData = {
+  "scryfallId": "2d285981-f342-4679-a199-cf5d003407e8",
+  "oracleId": "689c5a47-24ec-4cbf-bc93-ebb492732cad",
+  "name": "Daggerclaw Imp",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Daggerclaw Imp",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Imp",
+      "oracleText": "Flying\nThis creature can't block.",
+      "flavorText": "The Simic use the claws as scalpels, while the Rakdos use them for tattooing and torture. The Gruul use them to pick their teeth after lunching on the rest of the carcass.",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "2d285981-f342-4679-a199-cf5d003407e8"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "gpt",
+  "collectorNumber": "48",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRIFT_OF_THE_DEAD: CardData = {
+  "scryfallId": "2d96224a-178d-4d41-bc6a-b5ccfd27ed2f",
+  "oracleId": "bcea5e7e-655d-48ea-871e-28ca49e5c574",
+  "name": "Drift of the Dead",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drift of the Dead",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Wall",
+      "oracleText": "Defender (This creature can't attack.)\nDrift of the Dead's power and toughness are each equal to the number of snow lands you control.",
+      "flavorText": "\"Take their dead, and entomb them in the snow. Risen, they shall serve a new purpose.\"\n—Lim-Dûl, the Necromancer",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "2d96224a-178d-4d41-bc6a-b5ccfd27ed2f"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Defender"
+  ],
+  "setCode": "me2",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAKINDI_SLIDERUNNER: CardData = {
+  "scryfallId": "2df12b9f-2f39-470d-b3c7-76c3228aecc2",
+  "oracleId": "4754e9c6-1790-4c01-87c2-3a16ce7e65f5",
+  "name": "Makindi Sliderunner",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Makindi Sliderunner",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "Trample\nLandfall — Whenever a land you control enters, this creature gets +1/+1 until end of turn.",
+      "flavorText": "After a battle, it breaks the hillsides into manageable pieces to prepare for next time.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Matt Stewart",
+      "imageId": "2df12b9f-2f39-470d-b3c7-76c3228aecc2"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Trample",
+    "Landfall"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "BFZ-148",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TATTERED_HAUNTER: CardData = {
+  "scryfallId": "310f7352-d1a3-47fe-86b0-60ca9ed3f2e3",
+  "oracleId": "754a72fd-e837-44f7-9bd7-5bf55ee8134c",
+  "name": "Tattered Haunter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tattered Haunter",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "310f7352-d1a3-47fe-86b0-60ca9ed3f2e3"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "sir",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MOLIMO_MARO_SORCERER: CardData = {
+  "scryfallId": "321f68b5-42ad-4f71-8df4-78075bf68ce5",
+  "oracleId": "b87a2d20-4e9f-4256-9d24-80c38515119e",
+  "name": "Molimo, Maro-Sorcerer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Molimo, Maro-Sorcerer",
+      "manaCost": "{4}{G}{G}{G}",
+      "typeLine": "Legendary Creature — Elemental Sorcerer",
+      "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nMolimo's power and toughness are each equal to the number of lands you control.",
+      "flavorText": "\"My mind is the spread of the canopy. My heart is the embrace of the roots. I am deathless Llanowar, its fury and its peace.\"",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "321f68b5-42ad-4f71-8df4-78075bf68ce5"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "cmr",
+  "collectorNumber": "430",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BONEYARD_WURM: CardData = {
+  "scryfallId": "3342096a-24bf-4f66-911e-d8a0c856f722",
+  "oracleId": "6e5f908a-f4f1-4718-ac39-34176e401756",
+  "name": "Boneyard Wurm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Boneyard Wurm",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Wurm",
+      "oracleText": "Boneyard Wurm's power and toughness are each equal to the number of creature cards in your graveyard.",
+      "flavorText": "The only thing it likes more than discovering a pit of bones is adding to it.",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Austin Hsu",
+      "imageId": "3342096a-24bf-4f66-911e-d8a0c856f722"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "pw11",
+  "collectorNumber": "84",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HAGRA_CROCODILE: CardData = {
+  "scryfallId": "3394a7a2-8f1a-4f07-843a-77db62de49bd",
+  "oracleId": "8bca3213-d8e1-4915-bd9a-9a291cdec1cd",
+  "name": "Hagra Crocodile",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hagra Crocodile",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Crocodile",
+      "oracleText": "This creature can't block.\nLandfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": "The creatures of Zendikar are opportunists, eating whatever is available to them. Like goblins. Or boats.",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Daren Bader",
+      "imageId": "3394a7a2-8f1a-4f07-843a-77db62de49bd"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "zen",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ONDU_GREATHORN: CardData = {
+  "scryfallId": "33f7e1dc-ad84-41af-8ca0-6ffb3d7d645a",
+  "oracleId": "9d061ec5-1edf-46e7-9e6a-4ddc9ced4114",
+  "name": "Ondu Greathorn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ondu Greathorn",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "First strike\nLandfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": "\"May your horns get lodged in an Eldrazi's bony face, ornery brute!\"\n—Bruse Tarl, Goma Fada nomad",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Aaron Miller",
+      "imageId": "33f7e1dc-ad84-41af-8ca0-6ffb3d7d645a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "First strike",
+    "Landfall"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "BFZ-40",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VINELASHER_KUDZU: CardData = {
+  "scryfallId": "34955f52-521f-466c-9025-c117f6162e97",
+  "oracleId": "62204fac-a367-475c-bfb9-80a87af2d2f1",
+  "name": "Vinelasher Kudzu",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vinelasher Kudzu",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Plant",
+      "oracleText": "Landfall — Whenever a land you control enters, put a +1/+1 counter on this creature.",
+      "flavorText": "It grows to hate you.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mark Tedin",
+      "imageId": "34955f52-521f-466c-9025-c117f6162e97"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "rav",
+  "collectorNumber": "189",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WELKIN_TERN: CardData = {
+  "scryfallId": "357931d0-8ba6-4857-9db9-7f42d81514a5",
+  "oracleId": "010c660a-a67b-48f0-a63a-15470eb89f69",
+  "name": "Welkin Tern",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Welkin Tern",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nThis creature can block only creatures with flying.",
+      "flavorText": "\"The sky hedrons are covered with tern nests. It's as though the birds have given up on the land altogether.\"\n—Ilori, merfolk falconer",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Austin Hsu",
+      "imageId": "357931d0-8ba6-4857-9db9-7f42d81514a5"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "zen",
+  "collectorNumber": "76",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const YELLOW_SCARVES_TROOPS: CardData = {
+  "scryfallId": "3ca36a8d-ca44-485e-a219-85814f160c4d",
+  "oracleId": "fcfa5671-a7b1-4170-9c72-f18a9eccfa31",
+  "name": "Yellow Scarves Troops",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Yellow Scarves Troops",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "This creature can't block.",
+      "flavorText": "Over 500,000 commoners followed Zhang Jue, General of Heaven, in his attempt to overthrow the corrupt Han dynasty.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chen Weidong",
+      "imageId": "3ca36a8d-ca44-485e-a219-85814f160c4d"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ptk",
+  "collectorNumber": "127",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLOUD_SPRITE: CardData = {
+  "scryfallId": "3d14352c-ac8c-45b5-b930-63822408ba3d",
+  "oracleId": "283433cb-9466-4b40-8af9-30934654d43b",
+  "name": "Cloud Sprite",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cloud Sprite",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Faerie",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nThis creature can block only creatures with flying.",
+      "flavorText": "The delicate sprites carry messages for Saprazzans, but they refuse to land in Mercadia City's filthy markets.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "3d14352c-ac8c-45b5-b930-63822408ba3d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "mmq",
+  "collectorNumber": "67",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LATCH_SEEKER: CardData = {
+  "scryfallId": "3e4e7589-9cee-4d57-8648-ce733781bfb2",
+  "oracleId": "4c1f62a8-d905-48aa-aba1-4bcb522a7ef6",
+  "name": "Latch Seeker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Latch Seeker",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "This creature can't be blocked.",
+      "flavorText": "It seeks a tomb that will hold it, a coffin that will give it rest.",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Vincent Proce",
+      "imageId": "3e4e7589-9cee-4d57-8648-ce733781bfb2"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "avr",
+  "collectorNumber": "63",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JADDI_OFFSHOOT: CardData = {
+  "scryfallId": "3ed79f15-beeb-4157-a567-eac0772f950a",
+  "oracleId": "20faefbd-059c-4aae-81e3-31683bf9f7bf",
+  "name": "Jaddi Offshoot",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jaddi Offshoot",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Plant",
+      "oracleText": "Defender\nLandfall — Whenever a land you control enters, you gain 1 life.",
+      "flavorText": "On Murasa, even the trees grow trees.",
+      "power": "0",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Daarken",
+      "imageId": "3ed79f15-beeb-4157-a567-eac0772f950a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Defender",
+    "Landfall"
+  ],
+  "setCode": "tdc",
+  "collectorNumber": "260",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLOUD_DJINN: CardData = {
+  "scryfallId": "4198dad6-ef91-4bee-99aa-9b7b1ecc0a96",
+  "oracleId": "4914d38d-ed6b-4531-b72c-06f0968c44e9",
+  "name": "Cloud Djinn",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cloud Djinn",
+      "manaCost": "{5}{U}",
+      "typeLine": "Creature — Djinn",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": "As elusive as the footprint of a djinn\n—Suq'Ata expression",
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Mike Dringenberg",
+      "imageId": "4198dad6-ef91-4bee-99aa-9b7b1ecc0a96"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "WTH-36",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STORM_FLEET_SPRINTER: CardData = {
+  "scryfallId": "41ad8525-7618-4c2b-8037-46f53dd42ee0",
+  "oracleId": "8d244f4a-1d62-4697-81c7-fbc4de874add",
+  "name": "Storm Fleet Sprinter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Storm Fleet Sprinter",
+      "manaCost": "{1}{U}{R}",
+      "typeLine": "Creature — Human Pirate",
+      "oracleText": "Haste\nThis creature can't be blocked.",
+      "flavorText": "\"Charge like a red-hot cannonball straight to your target. You slow down, you sink.\"\n—Captain Lannery Storm",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R",
+        "U"
+      ],
+      "artist": "G-host Lee",
+      "imageId": "41ad8525-7618-4c2b-8037-46f53dd42ee0"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "rix",
+  "collectorNumber": "172",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PYGMY_PYROSAUR: CardData = {
+  "scryfallId": "42e01129-254c-4a16-9f11-21a7a9c66f32",
+  "oracleId": "667c39bc-92d6-4fee-bced-95f0e1f21455",
+  "name": "Pygmy Pyrosaur",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pygmy Pyrosaur",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Lizard",
+      "oracleText": "This creature can't block.\n{R}: This creature gets +1/+0 until end of turn.",
+      "flavorText": "Do not judge a lizard by its size.\n—Ghitu proverb",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Dan Frazier",
+      "imageId": "42e01129-254c-4a16-9f11-21a7a9c66f32"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "7ed",
+  "collectorNumber": "208",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GILTGROVE_STALKER: CardData = {
+  "scryfallId": "47963f87-d5c2-4e5b-8dff-b25735182841",
+  "oracleId": "2be3969b-a427-47be-a49c-47b98e3d6b5f",
+  "name": "Giltgrove Stalker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Giltgrove Stalker",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Merfolk Warrior",
+      "oracleText": "This creature can't be blocked by creatures with power 2 or less.",
+      "flavorText": "\"The only gold I need is the sheltering shimmer of the trees.\"",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Chris Seaman",
+      "imageId": "47963f87-d5c2-4e5b-8dff-b25735182841"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "rix",
+  "collectorNumber": "131",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKYCLAVE_GEOPEDE: CardData = {
+  "scryfallId": "490f3d74-6144-4cbc-80ed-37cfcdbd159a",
+  "oracleId": "e00d601f-ac73-47a6-8920-779d71b482c9",
+  "name": "Skyclave Geopede",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skyclave Geopede",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "Trample\nLandfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Lorenzo Lanfranconi",
+      "imageId": "490f3d74-6144-4cbc-80ed-37cfcdbd159a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Trample",
+    "Landfall"
+  ],
+  "setCode": "znr",
+  "collectorNumber": "301",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRAVEN_GIANT: CardData = {
+  "scryfallId": "4a2e1c12-f848-43b4-9505-851c66a509f1",
+  "oracleId": "3ebd9c8d-c840-4c2e-ace6-352a68d1c20f",
+  "name": "Craven Giant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Craven Giant",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Giant",
+      "oracleText": "This creature can't block.",
+      "flavorText": "\"The best armor is to keep out of range.\"\n—Italian proverb",
+      "power": "4",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "4a2e1c12-f848-43b4-9505-851c66a509f1"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "por",
+  "collectorNumber": "121",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LORD_OF_EXTINCTION: CardData = {
+  "scryfallId": "4aaf4d64-b5ef-44ae-b25a-7a5ea8f72170",
+  "oracleId": "ea5e3401-bd6c-47bb-a52a-8eec5f09455d",
+  "name": "Lord of Extinction",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lord of Extinction",
+      "manaCost": "{3}{B}{G}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Lord of Extinction's power and toughness are each equal to the number of cards in all graveyards.",
+      "flavorText": "The forlorn cries of the dead combine to make its laugh.",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Izzy",
+      "imageId": "4aaf4d64-b5ef-44ae-b25a-7a5ea8f72170"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "tdc",
+  "collectorNumber": "295",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WINDRIDER_EEL: CardData = {
+  "scryfallId": "4b19497f-b917-416c-b8d9-fe105f96f280",
+  "oracleId": "9a3b16ae-210b-4d9b-83db-2801edfba394",
+  "name": "Windrider Eel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Windrider Eel",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Fish",
+      "oracleText": "Flying\nLandfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": "\"The best spot to hook one is right behind the gills.\"\n—Rana Cloudwake, kor skyfisher",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Austin Hsu",
+      "imageId": "4b19497f-b917-416c-b8d9-fe105f96f280"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Landfall",
+    "Flying"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "E01-30",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLOUD_DRAGON: CardData = {
+  "scryfallId": "4bb7fb59-65c0-4af6-9d3a-79cd6602d004",
+  "oracleId": "3c46f309-69ae-43b1-adf6-bdb26599c1f4",
+  "name": "Cloud Dragon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cloud Dragon",
+      "manaCost": "{5}{U}",
+      "typeLine": "Creature — Illusion Dragon",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "John Avon",
+      "imageId": "4bb7fb59-65c0-4af6-9d3a-79cd6602d004"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "por",
+  "collectorNumber": "45",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BELOVED_PRINCESS: CardData = {
+  "scryfallId": "4c6ee4eb-70b2-4f99-9d54-5caf2d3713be",
+  "oracleId": "682cbf2a-2723-4590-ae52-7c5d8b2573cf",
+  "name": "Beloved Princess",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Beloved Princess",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Noble",
+      "oracleText": "Lifelink\nThis creature can't be blocked by creatures with power 3 or greater.",
+      "flavorText": "Sometimes a gentle slipper can travel where an armored boot's been denied.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Howard Lyon",
+      "imageId": "4c6ee4eb-70b2-4f99-9d54-5caf2d3713be"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Lifelink"
+  ],
+  "setCode": "eld",
+  "collectorNumber": "7",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GEIST_HONORED_MONK: CardData = {
+  "scryfallId": "4d09ef1d-3552-43a3-91c7-0d14c0f06780",
+  "oracleId": "e5deac0b-4417-42cc-b145-db0afe34f6e0",
+  "name": "Geist-Honored Monk",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Geist-Honored Monk",
+      "manaCost": "{3}{W}{W}",
+      "typeLine": "Creature — Human Monk",
+      "oracleText": "Vigilance\nGeist-Honored Monk's power and toughness are each equal to the number of creatures you control.\nWhen this creature enters, create two 1/1 white Spirit creature tokens with flying.",
+      "flavorText": null,
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Clint Cearley",
+      "imageId": "4d09ef1d-3552-43a3-91c7-0d14c0f06780"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "khc",
+  "collectorNumber": "25",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELFSWORN_GIANT: CardData = {
+  "scryfallId": "5128a5be-ffa6-4998-8488-872d80b24cb2",
+  "oracleId": "f6abdf34-cfdc-465c-b067-cdebb659406e",
+  "name": "Elfsworn Giant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elfsworn Giant",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Creature — Giant",
+      "oracleText": "Reach (This creature can block creatures with flying.)\nLandfall — Whenever a land you control enters, create a 1/1 green Elf Warrior creature token.",
+      "flavorText": "He upheld his vow to the elves by watching their woods and blazing their trails.",
+      "power": "5",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dave Dorman",
+      "imageId": "5128a5be-ffa6-4998-8488-872d80b24cb2"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Reach",
+    "Landfall"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "103",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JUNGLE_LION: CardData = {
+  "scryfallId": "5195b93e-846d-4021-beb8-879988661f9a",
+  "oracleId": "45b42694-9ee8-44f3-9de3-aa2c0f1b6a13",
+  "name": "Jungle Lion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jungle Lion",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Cat",
+      "oracleText": "This creature can't block.",
+      "flavorText": "The lion's only loyalty is to its hunger.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Janine Johnston",
+      "imageId": "5195b93e-846d-4021-beb8-879988661f9a"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "POR-171",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GUDUL_LURKER: CardData = {
+  "scryfallId": "52bc6720-0f16-4e8a-a2e5-b1714bd68991",
+  "oracleId": "bde976c6-afed-44bb-8e3d-4103289dff5e",
+  "name": "Gudul Lurker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gudul Lurker",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Salamander",
+      "oracleText": "This creature can't be blocked.\nMegamorph {U} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its megamorph cost and put a +1/+1 counter on it.)",
+      "flavorText": "The small are mostly ignored by dragons.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Christopher Burdett",
+      "imageId": "52bc6720-0f16-4e8a-a2e5-b1714bd68991"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Megamorph"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "DTK-56",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOLDMEADOW_DODGER: CardData = {
+  "scryfallId": "5305b5c6-2af6-4b5c-9a57-0a2d2628e2f4",
+  "oracleId": "e120f341-4445-4b96-9777-2290471832bf",
+  "name": "Goldmeadow Dodger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goldmeadow Dodger",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Kithkin Rogue",
+      "oracleText": "This creature can't be blocked by creatures with power 4 or greater.",
+      "flavorText": "\"I've gotten close enough to a giant to smell his breath, but none has ever so much as spotted me. I wonder how long my record can extend?\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Omar Rayyan",
+      "imageId": "5305b5c6-2af6-4b5c-9a57-0a2d2628e2f4"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "lrw",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HULKING_GOBLIN: CardData = {
+  "scryfallId": "53eefcb7-9c43-4fca-9bb0-200257c7da8c",
+  "oracleId": "1451b623-8214-4d81-9436-62dbe8b79539",
+  "name": "Hulking Goblin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hulking Goblin",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Goblin",
+      "oracleText": "This creature can't block.",
+      "flavorText": "The bigger they are, the harder they avoid work.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "53eefcb7-9c43-4fca-9bb0-200257c7da8c"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "vma",
+  "collectorNumber": "174",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_GLIDER: CardData = {
+  "scryfallId": "5ad2736f-e48e-49e6-87ec-cfba1d643114",
+  "oracleId": "72bce821-46f0-40eb-abdb-575d4305b8fd",
+  "name": "Goblin Glider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Glider",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Goblin",
+      "oracleText": "Flying\nThis creature can't block.",
+      "flavorText": "The goblins call the gliders \"death from above.\" Everyone else calls them \"clods in the clouds.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "5ad2736f-e48e-49e6-87ec-cfba1d643114"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "s99",
+  "collectorNumber": "102",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RISHADAN_AIRSHIP: CardData = {
+  "scryfallId": "5d8e596b-f5ef-405a-8910-c5d0b5c8c0fc",
+  "oracleId": "3c4661da-db2e-4834-9bba-d9a5592465d2",
+  "name": "Rishadan Airship",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rishadan Airship",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Human Pirate",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": "The view is truly spectacular—as long as you don't look at Rishada itself.",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "5d8e596b-f5ef-405a-8910-c5d0b5c8c0fc"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "mmq",
+  "collectorNumber": "91",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DUNGROVE_ELDER: CardData = {
+  "scryfallId": "5dac6967-e4db-40c1-9556-0a85f5422dd4",
+  "oracleId": "32083c9f-04c6-4b6f-9e24-cc8f3cae3e3e",
+  "name": "Dungrove Elder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dungrove Elder",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Treefolk",
+      "oracleText": "Hexproof (This creature can't be the target of spells or abilities your opponents control.)\nDungrove Elder's power and toughness are each equal to the number of Forests you control.",
+      "flavorText": "All the trees of the forest are his army, and every leaf his shield.",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Matt Stewart",
+      "imageId": "5dac6967-e4db-40c1-9556-0a85f5422dd4"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Hexproof"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "M12-171",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const AZORIUS_KNIGHT_ARBITER: CardData = {
+  "scryfallId": "60befc28-2ab8-4b59-a33f-0328c5d2f995",
+  "oracleId": "9adc1435-3094-427d-88f8-91d55c5a924d",
+  "name": "Azorius Knight-Arbiter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Azorius Knight-Arbiter",
+      "manaCost": "{3}{W}{U}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Vigilance\nThis creature can't be blocked.",
+      "flavorText": "Thanks to the magic in his Writ of Passage, alms beasts lumbered aside, anarchs bowed their heads, and even Rakdos acrobats rolled their spikewheels out of his way.",
+      "power": "2",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U",
+        "W"
+      ],
+      "artist": "Even Amundsen",
+      "imageId": "60befc28-2ab8-4b59-a33f-0328c5d2f995"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "rna",
+  "collectorNumber": "154",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PLATED_GEOPEDE: CardData = {
+  "scryfallId": "612f3d00-2859-4709-94dc-97546395d22d",
+  "oracleId": "d1efc4fd-2978-4434-8fdf-ddc05484ebb1",
+  "name": "Plated Geopede",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Plated Geopede",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "First strike\nLandfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": "\"Kor armorers buy the scales and claws. Elf oracles buy the rest.\"\n—Nablus, North Hada trapper",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Eric Deschamps",
+      "imageId": "612f3d00-2859-4709-94dc-97546395d22d"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "First strike",
+    "Landfall"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "ZEN-141",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKYWINDER_DRAKE: CardData = {
+  "scryfallId": "628213e9-bde9-43fd-a0d9-8c7fb17be879",
+  "oracleId": "e894ccf5-fc71-48bd-bca5-cfeb05315f42",
+  "name": "Skywinder Drake",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skywinder Drake",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Drake",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": "It's so light and fragile that it can glide where the air is thinnest.",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Dan Murayama Scott",
+      "imageId": "628213e9-bde9-43fd-a0d9-8c7fb17be879"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "m12",
+  "collectorNumber": "75",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GREATER_SANDWURM: CardData = {
+  "scryfallId": "6411d177-45fd-4193-8414-0f7e7846d2b9",
+  "oracleId": "d1dfed64-6e88-44c2-b479-9a2d072e4be7",
+  "name": "Greater Sandwurm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Greater Sandwurm",
+      "manaCost": "{5}{G}{G}",
+      "typeLine": "Creature — Wurm",
+      "oracleText": "This creature can't be blocked by creatures with power 2 or less.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+      "flavorText": "A sandwurm can lie in wait beneath the sands for years until the slightest tremor alerts it to the presence of prey.",
+      "power": "7",
+      "toughness": "7",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Steven Belledin",
+      "imageId": "6411d177-45fd-4193-8414-0f7e7846d2b9"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Cycling"
+  ],
+  "setCode": "akh",
+  "collectorNumber": "168",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HEDRON_SCRABBLER: CardData = {
+  "scryfallId": "6422e062-0ce1-4239-8c2d-06449627a55a",
+  "oracleId": "180d9c48-6d6c-4d20-965a-0ee2ad57f99b",
+  "name": "Hedron Scrabbler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hedron Scrabbler",
+      "manaCost": "{2}",
+      "typeLine": "Artifact Creature — Construct",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gets +1/+1 until end of turn.",
+      "flavorText": "\"I don't care when the hedrons awoke. *Why* is the question that really matters.\"\n—Anowon, the Ruin Sage",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jason Felix",
+      "imageId": "6422e062-0ce1-4239-8c2d-06449627a55a"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "zen",
+  "collectorNumber": "204",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EUMIDIAN_TERRABOTANIST: CardData = {
+  "scryfallId": "64fb2981-86ed-478a-89cd-c6bb078a5bc7",
+  "oracleId": "92226fd2-ad93-4722-89a0-ca88ea03e1b4",
+  "name": "Eumidian Terrabotanist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Eumidian Terrabotanist",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Insect Druid",
+      "oracleText": "Landfall — Whenever a land you control enters, you gain 1 life.",
+      "flavorText": "To plant the seeds of the other is to cultivate the self.\n—Eumidian aphorism",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Loïc Canavaggia",
+      "imageId": "64fb2981-86ed-478a-89cd-c6bb078a5bc7"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "eoe",
+  "collectorNumber": "180",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const METATHRAN_SOLDIER: CardData = {
+  "scryfallId": "650d40d0-78ec-4b6e-8ea0-28d43ce175d5",
+  "oracleId": "b723fcec-f208-4397-a178-e1e47b729cf1",
+  "name": "Metathran Soldier",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Metathran Soldier",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Metathran Soldier",
+      "oracleText": "This creature can't be blocked.",
+      "flavorText": "Just as Serra crafted angels of light and faith, Urza constructed an army of sorcery and power to resist the coming invasion.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "650d40d0-78ec-4b6e-8ea0-28d43ce175d5"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "uds",
+  "collectorNumber": "39",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SQUELCHING_LEECHES: CardData = {
+  "scryfallId": "694a0e92-8e5c-404e-a8bb-52139884e41a",
+  "oracleId": "662a2158-4176-4b4a-be6a-13f4501d22f9",
+  "name": "Squelching Leeches",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Squelching Leeches",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Creature — Leech",
+      "oracleText": "Squelching Leeches's power and toughness are each equal to the number of Swamps you control.",
+      "flavorText": "Setting foot in their muck is an open invitation.",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Svetlin Velinov",
+      "imageId": "694a0e92-8e5c-404e-a8bb-52139884e41a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "ddr",
+  "collectorNumber": "62",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STEPPE_LYNX: CardData = {
+  "scryfallId": "6dff6978-a794-4f4c-9039-594b15e7dbfe",
+  "oracleId": "b16cef02-dcf8-4866-ac42-6ee929ddbea2",
+  "name": "Steppe Lynx",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Steppe Lynx",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Cat",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": "Nothing quickens the predator's blood like the unfamiliar scents of new hunting grounds and the mewling cries of new prey.",
+      "power": "0",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Nic Klein",
+      "imageId": "6dff6978-a794-4f4c-9039-594b15e7dbfe"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "j22",
+  "collectorNumber": "251",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ELUSIVE_KRASIS: CardData = {
+  "scryfallId": "738e45f3-f143-439f-8fc9-9266b907a508",
+  "oracleId": "b876101b-7b18-48d7-9c8c-aaa6b1b5c199",
+  "name": "Elusive Krasis",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Elusive Krasis",
+      "manaCost": "{1}{G}{U}",
+      "typeLine": "Creature — Fish Mutant",
+      "oracleText": "This creature can't be blocked.\nEvolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "U"
+      ],
+      "artist": "Wesley Burt",
+      "imageId": "738e45f3-f143-439f-8fc9-9266b907a508"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Evolve"
+  ],
+  "setCode": "gk2",
+  "collectorNumber": "116",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCRAPSKIN_DRAKE: CardData = {
+  "scryfallId": "740fc68d-1f08-4e9e-a797-427dcd7733ba",
+  "oracleId": "910e8269-6001-479a-ab2e-5a935569c33c",
+  "name": "Scrapskin Drake",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scrapskin Drake",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Zombie Drake",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nThis creature can block only creatures with flying.",
+      "flavorText": "\"The cathars killed my skaabs down below. Let's see how high their swords can reach.\"\n—Ludevic, necro-alchemist",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "740fc68d-1f08-4e9e-a797-427dcd7733ba"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ddq",
+  "collectorNumber": "47",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARLINN_S_WOLF: CardData = {
+  "scryfallId": "747223a5-c669-4d0e-a062-265eb47710cd",
+  "oracleId": "fe4c0f02-c5fd-4cd5-9f80-0936e3875f1c",
+  "name": "Arlinn's Wolf",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Arlinn's Wolf",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Wolf",
+      "oracleText": "This creature can't be blocked by creatures with power 2 or less.",
+      "flavorText": "\"If you don't speak wolf, allow me to translate: 'One step closer and I'll rip out your throat.'\"\n—Arlinn Kord",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Kimonas Theodossiou",
+      "imageId": "747223a5-c669-4d0e-a062-265eb47710cd"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "war",
+  "collectorNumber": "151",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LONG_FINNED_SKYWHALE: CardData = {
+  "scryfallId": "772e9472-c710-474e-b8e9-54662330a592",
+  "oracleId": "a8287efd-23ca-498b-90f1-c76099919fa4",
+  "name": "Long-Finned Skywhale",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Long-Finned Skywhale",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Creature — Whale",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": "The aethersphere is home to the most wondrous beings on all of Kaladesh, although the dangers of traversing it mean that not much is known of them.",
+      "power": "4",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Cliff Childs",
+      "imageId": "772e9472-c710-474e-b8e9-54662330a592"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "kld",
+  "collectorNumber": "54",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLORA_COLOSSUS: CardData = {
+  "scryfallId": "79543a40-2943-41c0-8def-773dbf4ce196",
+  "oracleId": "04dce348-be42-443a-a88d-c47436ba2ec4",
+  "name": "Flora Colossus",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Flora Colossus",
+      "manaCost": "{5}{G}{G}",
+      "typeLine": "Creature — Treefolk",
+      "oracleText": "Hexproof (This creature can't be the target of spells or abilities your opponents control.)\nFlora Colossus's power and toughness are each equal to the number of lands you control.",
+      "flavorText": "\"You mean there was a *whole planet* of Groots out there?\"\n—Rocket Raccoon",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Riccardo Federici",
+      "imageId": "79543a40-2943-41c0-8def-773dbf4ce196"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Hexproof"
+  ],
+  "setCode": "msc",
+  "collectorNumber": "561",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KAZANDU_NECTARPOT: CardData = {
+  "scryfallId": "796b5899-97e5-4682-aac8-51378f0c904e",
+  "oracleId": "263b526c-8b81-44ee-a7c4-5c24bf9b42a4",
+  "name": "Kazandu Nectarpot",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kazandu Nectarpot",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "Landfall — Whenever a land you control enters, you gain 1 life.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Daniel Lieske",
+      "imageId": "796b5899-97e5-4682-aac8-51378f0c904e"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "znr",
+  "collectorNumber": "306",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WANDERLIGHT_SPIRIT: CardData = {
+  "scryfallId": "7bb3ce5d-330d-427e-a053-8cc4eeb2941b",
+  "oracleId": "7b4c2dcf-86f4-409d-90c3-8fe83966cac0",
+  "name": "Wanderlight Spirit",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wanderlight Spirit",
+      "manaCost": "{2}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": "The towers and catwalks of the Voldaren fortress are lit by the lanterns of geists endlessly seeking a way out.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Andrew Mar",
+      "imageId": "7bb3ce5d-330d-427e-a053-8cc4eeb2941b"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "vow",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STRATOZEPPELID: CardData = {
+  "scryfallId": "7ccfc49d-2a07-4088-a288-ba7be4da7bc2",
+  "oracleId": "f20640db-c5d4-4e00-9903-a33ff4f7820d",
+  "name": "Stratozeppelid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stratozeppelid",
+      "manaCost": "{4}{U}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": "The \"Days of Darkness\" mark the stratozeppelids' annual migration, when for five days they blot out the sun and trumpet their passing.",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Ittoku",
+      "imageId": "7ccfc49d-2a07-4088-a288-ba7be4da7bc2"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "gpt",
+  "collectorNumber": "36",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COGNIVORE: CardData = {
+  "scryfallId": "7de76ff6-d065-4db1-b28d-4a4ccb1cc0fa",
+  "oracleId": "8b4aae48-be01-4b42-8d32-45071650da03",
+  "name": "Cognivore",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cognivore",
+      "manaCost": "{6}{U}{U}",
+      "typeLine": "Creature — Lhurgoyf",
+      "oracleText": "Flying\nCognivore's power and toughness are each equal to the number of instant cards in all graveyards.",
+      "flavorText": null,
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Adam Rex",
+      "imageId": "7de76ff6-d065-4db1-b28d-4a4ccb1cc0fa"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 8,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "ody",
+  "collectorNumber": "77",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KITHKIN_RABBLE: CardData = {
+  "scryfallId": "7f9a0afa-50e6-4bce-b261-4559fd31295e",
+  "oracleId": "17386f88-dbf0-47ae-91d1-6b1aaceee05f",
+  "name": "Kithkin Rabble",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kithkin Rabble",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Kithkin",
+      "oracleText": "Vigilance\nKithkin Rabble's power and toughness are each equal to the number of white permanents you control.",
+      "flavorText": "If even the slightest hint of panic enters the thoughtweft, bakers, potters, and even medics drop their spoons and salves to take up arms.",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Omar Rayyan",
+      "imageId": "7f9a0afa-50e6-4bce-b261-4559fd31295e"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "shm",
+  "collectorNumber": "9",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ASHENMOOR_GOUGER: CardData = {
+  "scryfallId": "80c7931f-e979-4f43-81dd-c34166526f87",
+  "oracleId": "eaedc09f-43b8-42db-a645-0ac3baf1de12",
+  "name": "Ashenmoor Gouger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ashenmoor Gouger",
+      "manaCost": "{B/R}{B/R}{B/R}",
+      "typeLine": "Creature — Elemental Warrior",
+      "oracleText": "This creature can't block.",
+      "flavorText": "After his hands had crumbled away, leaving only wickedly sharp points, he decided his only purpose was war.",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Matt Cavotta",
+      "imageId": "80c7931f-e979-4f43-81dd-c34166526f87"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "shm",
+  "collectorNumber": "180",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REMNANT_ELEMENTAL: CardData = {
+  "scryfallId": "830d5532-3b24-470e-912f-f0f5df1cb530",
+  "oracleId": "69e8333a-bddf-49e2-9c39-3dc46fec81e0",
+  "name": "Remnant Elemental",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Remnant Elemental",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Reach\nLandfall — Whenever a land you control enters, this creature gets +2/+0 until end of turn.",
+      "flavorText": "Even until Exodus Day, those in power on Kavaron refused to acknowledge that the planet was trying to tell them something.",
+      "power": "0",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Nereida",
+      "imageId": "830d5532-3b24-470e-912f-f0f5df1cb530"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Reach",
+    "Landfall"
+  ],
+  "setCode": "eoe",
+  "collectorNumber": "155",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const YELLOW_SCARVES_CAVALRY: CardData = {
+  "scryfallId": "84460666-4f6b-422c-b20e-dc1651c66e15",
+  "oracleId": "8ff7e8e9-11b4-4a77-a423-70777f00482b",
+  "name": "Yellow Scarves Cavalry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Yellow Scarves Cavalry",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "Horsemanship (This creature can't be blocked except by creatures with horsemanship.)\nThis creature can't block.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Chen Weidong",
+      "imageId": "84460666-4f6b-422c-b20e-dc1651c66e15"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Horsemanship"
+  ],
+  "setCode": "ptk",
+  "collectorNumber": "125",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCION_OF_THE_WILD: CardData = {
+  "scryfallId": "85a78413-17e3-4652-91b4-708aa66a50ca",
+  "oracleId": "8aaa2217-012e-4e34-ba44-4986d7ee9ece",
+  "name": "Scion of the Wild",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scion of the Wild",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Creature — Avatar",
+      "oracleText": "Scion of the Wild's power and toughness are each equal to the number of creatures you control.",
+      "flavorText": "It has a hundred thousand extinctions to avenge.",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "85a78413-17e3-4652-91b4-708aa66a50ca"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "10e",
+  "collectorNumber": "295",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BURROWGUARD_MENTOR: CardData = {
+  "scryfallId": "87138ace-3594-499e-bad5-ec76148613ea",
+  "oracleId": "f293da27-e42d-4e87-8b61-d3c27e4c6d71",
+  "name": "Burrowguard Mentor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Burrowguard Mentor",
+      "manaCost": "{G}{W}",
+      "typeLine": "Creature — Rabbit Soldier",
+      "oracleText": "Trample\nBurrowguard Mentor's power and toughness are each equal to the number of creatures you control.",
+      "flavorText": "\"On your paws! I've been fighting in these fields for more seasons than you've had hot dinners!\"",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Dmitry Burmak",
+      "imageId": "87138ace-3594-499e-bad5-ec76148613ea"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "blb",
+  "collectorNumber": "206",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VALAKUT_PREDATOR: CardData = {
+  "scryfallId": "88318272-8192-4d6d-a22a-eca87abb480d",
+  "oracleId": "b86a5d90-0820-46cb-b43c-c03a423a3a9f",
+  "name": "Valakut Predator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Valakut Predator",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": "\"Whatever volcanoes dream of, it seems like they always wake up grumpy.\"\n—Raff Slugeater, goblin shortcutter",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "88318272-8192-4d6d-a22a-eca87abb480d"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "bfz",
+  "collectorNumber": "160",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLOUD_PIRATES: CardData = {
+  "scryfallId": "88425a48-7b03-4ecf-88cd-d72ef98ca814",
+  "oracleId": "d334aa85-3470-4f5d-9cbc-b88bf991a5af",
+  "name": "Cloud Pirates",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cloud Pirates",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Human Pirate",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Phil Foglio",
+      "imageId": "88425a48-7b03-4ecf-88cd-d72ef98ca814"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "por",
+  "collectorNumber": "46d",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SNAPPING_CREEPER: CardData = {
+  "scryfallId": "8860c3d5-8b93-4c52-b374-8814fb8546bd",
+  "oracleId": "bb4e1340-da63-46b8-a5e3-79dfedec3e78",
+  "name": "Snapping Creeper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Snapping Creeper",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Plant",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gains vigilance until end of turn.",
+      "flavorText": "Its vast network of roots and vines keeps it aware of distant dangers.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Cyril Van Der Haegen",
+      "imageId": "8860c3d5-8b93-4c52-b374-8814fb8546bd"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "wwk",
+  "collectorNumber": "112",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FAERIE_SWARM: CardData = {
+  "scryfallId": "90598bb2-d96c-4f74-864b-1947b7d39e58",
+  "oracleId": "d7178feb-29ce-45d9-a970-2c6003779a00",
+  "name": "Faerie Swarm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Faerie Swarm",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Faerie",
+      "oracleText": "Flying\nFaerie Swarm's power and toughness are each equal to the number of blue permanents you control.",
+      "flavorText": "Untouched by the Aurora, Oona's faeries greeted the night like any other day.",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Zoltan Boros & Gabor Szikszai",
+      "imageId": "90598bb2-d96c-4f74-864b-1947b7d39e58"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "shm",
+  "collectorNumber": "37",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GLOOMWIDOW: CardData = {
+  "scryfallId": "99bda306-1e37-4359-a649-fcd8a5a7e2fc",
+  "oracleId": "e5139376-cdb1-4f1e-b417-b956d6b713b9",
+  "name": "Gloomwidow",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gloomwidow",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Spider",
+      "oracleText": "Reach\nThis creature can block only creatures with flying.",
+      "flavorText": "When gloomwidows mature, they abandon venom in favor of massive webs that span the eaves of cliffs.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mark Tedin",
+      "imageId": "99bda306-1e37-4359-a649-fcd8a5a7e2fc"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Reach"
+  ],
+  "setCode": "shm",
+  "collectorNumber": "117",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLAG_FIEND: CardData = {
+  "scryfallId": "a236723f-1628-4fd7-bba4-87c6c7b44eb5",
+  "oracleId": "4c5e38ca-39d7-4e27-8bb7-687d86fd67c4",
+  "name": "Slag Fiend",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slag Fiend",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Phyrexian Construct",
+      "oracleText": "Slag Fiend's power and toughness are each equal to the number of artifact cards in all graveyards.",
+      "flavorText": "\"Seal the furnace vents. Admit no others. We'll tend our forges without their tainted ways.\"\n—Decree of Urabrask",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Mike Bierek",
+      "imageId": "a236723f-1628-4fd7-bba4-87c6c7b44eb5"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "NPH-95",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PHANTOM_NINJA: CardData = {
+  "scryfallId": "a392b557-e809-4371-92d7-6e93caed4f1b",
+  "oracleId": "e7a13f43-1171-4808-9964-c5ad424027cb",
+  "name": "Phantom Ninja",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Phantom Ninja",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Creature — Illusion Ninja",
+      "oracleText": "This creature can't be blocked.",
+      "flavorText": "\"Ninjas can run across water, pull ladders from pockets, kill with a kiss, and slip between bricks. Pack of lies, I say.\"\n—Benden, teahouse gossip",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Joe Slucher",
+      "imageId": "a392b557-e809-4371-92d7-6e93caed4f1b"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "mh1",
+  "collectorNumber": "62",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BELLIGERENT_WHIPTAIL: CardData = {
+  "scryfallId": "a5b5b7d2-acb8-4aca-b9e7-67e59aeb384b",
+  "oracleId": "cf0a15f5-5f41-4eea-81f7-02059b9586a2",
+  "name": "Belligerent Whiptail",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Belligerent Whiptail",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Wurm",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gains first strike until end of turn.",
+      "flavorText": "\"Whiptails can sense a traveler's footsteps from a great distance. Measuring that distance has been . . . difficult.\"\n—Jalun, Affa sentry",
+      "power": "4",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Jakub Kasper",
+      "imageId": "a5b5b7d2-acb8-4aca-b9e7-67e59aeb384b"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "bfz",
+  "collectorNumber": "141",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NIGHTSHADE_STINGER: CardData = {
+  "scryfallId": "aa341824-bf3a-49ce-a8a0-ee53f537d626",
+  "oracleId": "c57edca9-b71e-4ec1-84d5-4b178969ccb7",
+  "name": "Nightshade Stinger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nightshade Stinger",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Faerie Rogue",
+      "oracleText": "Flying\nThis creature can't block.",
+      "flavorText": "\"Most faeries are harmless pranksters. Every now and again, though, you get one that crosses over from mischievous to malicious.\"\n—Gaddock Teeg",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Mark Poole",
+      "imageId": "aa341824-bf3a-49ce-a8a0-ee53f537d626"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "lrw",
+  "collectorNumber": "132",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CANTIVORE: CardData = {
+  "scryfallId": "b5243fc3-176b-44a3-9f1a-ab069a08757a",
+  "oracleId": "2ed5083e-1c58-48c0-8413-390971021d94",
+  "name": "Cantivore",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cantivore",
+      "manaCost": "{1}{W}{W}",
+      "typeLine": "Creature — Lhurgoyf",
+      "oracleText": "Vigilance\nCantivore's power and toughness are each equal to the number of enchantment cards in all graveyards.",
+      "flavorText": null,
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Daren Bader",
+      "imageId": "b5243fc3-176b-44a3-9f1a-ab069a08757a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "ody",
+  "collectorNumber": "13",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GEYSER_GLIDER: CardData = {
+  "scryfallId": "b8aec169-4c62-4d53-a19c-68baa20c8e59",
+  "oracleId": "840d1002-abf4-4d05-945a-05c3fe9a2ebd",
+  "name": "Geyser Glider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Geyser Glider",
+      "manaCost": "{3}{R}{R}",
+      "typeLine": "Creature — Elemental Beast",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gains flying until end of turn.",
+      "flavorText": "\"Quit pontificating, mage. The last thing we want to do is give it more hot air.\"\n—Tala Vertan, Makindi shieldmate",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Warren Mahy",
+      "imageId": "b8aec169-4c62-4d53-a19c-68baa20c8e59"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "zen",
+  "collectorNumber": "124",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ENRAGED_CERATOK: CardData = {
+  "scryfallId": "bcab8f40-aa49-47c0-a065-2e09286adfef",
+  "oracleId": "e1f3f377-c7b1-474c-aed6-78b061d138c1",
+  "name": "Enraged Ceratok",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Enraged Ceratok",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Rhino",
+      "oracleText": "This creature can't be blocked by creatures with power 2 or less.",
+      "flavorText": "\"There's no time to calm it down! Run!\"",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Lars Grant-West",
+      "imageId": "bcab8f40-aa49-47c0-a065-2e09286adfef"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "clu",
+  "collectorNumber": "162",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HEDRON_ROVER: CardData = {
+  "scryfallId": "c0a36448-ca96-4c10-baf9-89c248c3510b",
+  "oracleId": "1b2826ea-a3d5-4b8a-b362-0b0880d1cc48",
+  "name": "Hedron Rover",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hedron Rover",
+      "manaCost": "{4}",
+      "typeLine": "Artifact Creature — Construct",
+      "oracleText": "Landfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": "\"Now that it has woken up and wandered off, we should go see what it was guarding.\"\n—Gotzen, Bulwark explorer",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jason Felix",
+      "imageId": "c0a36448-ca96-4c10-baf9-89c248c3510b"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "wwk",
+  "collectorNumber": "125",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STURMGEIST: CardData = {
+  "scryfallId": "c409d1d0-fc45-40bf-adac-83b680209a38",
+  "oracleId": "b3045ee5-232b-4e63-8ea8-b5e46b49e71a",
+  "name": "Sturmgeist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sturmgeist",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nSturmgeist's power and toughness are each equal to the number of cards in your hand.\nWhenever this creature deals combat damage to a player, draw a card.",
+      "flavorText": null,
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "c409d1d0-fc45-40bf-adac-83b680209a38"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "isd",
+  "collectorNumber": "82",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HOVERGUARD_OBSERVER: CardData = {
+  "scryfallId": "c7ab80bf-d115-4155-82e1-9a3a70b1b67d",
+  "oracleId": "5ca8d756-a55a-4b36-b0a6-562a39484952",
+  "name": "Hoverguard Observer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hoverguard Observer",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Creature — Drone",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": "It could be made to run silently, but its low hum reminds the Neurok that they are always watched.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "c7ab80bf-d115-4155-82e1-9a3a70b1b67d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "dst",
+  "collectorNumber": "22",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRAVEN_KNIGHT: CardData = {
+  "scryfallId": "d4cbae27-4a1a-4e16-8876-9a2925c45302",
+  "oracleId": "27d138af-7c5d-4c7e-a310-63d5b03f039d",
+  "name": "Craven Knight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Craven Knight",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "This creature can't block.",
+      "flavorText": "\"I say victory is better than honor.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Charles Gillespie",
+      "imageId": "d4cbae27-4a1a-4e16-8876-9a2925c45302"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "por",
+  "collectorNumber": "85",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GEYSERFIELD_STALKER: CardData = {
+  "scryfallId": "d4d1e1e1-fa24-4e78-a77c-4d41a58b8aa0",
+  "oracleId": "d93d98ef-a5b6-4d6f-9828-fd5943471d0f",
+  "name": "Geyserfield Stalker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Geyserfield Stalker",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nLandfall — Whenever a land you control enters, this creature gets +2/+2 until end of turn.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Deruchenko Alexander",
+      "imageId": "d4d1e1e1-fa24-4e78-a77c-4d41a58b8aa0"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Menace",
+    "Landfall"
+  ],
+  "setCode": "bfz",
+  "collectorNumber": "111",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STRONGHOLD_ZEPPELIN: CardData = {
+  "scryfallId": "d672110d-b7c4-4233-9c46-73323be7204d",
+  "oracleId": "dbd86a37-8ac1-4bdb-9ba1-7caee99ab5f7",
+  "name": "Stronghold Zeppelin",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stronghold Zeppelin",
+      "manaCost": "{2}{U}{U}",
+      "typeLine": "Creature — Human",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": "As long as the stronghold controlled the sky, the rebels were doomed.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Arnie Swekel",
+      "imageId": "d672110d-b7c4-4233-9c46-73323be7204d"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "nem",
+  "collectorNumber": "47",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BELBE_S_PERCHER: CardData = {
+  "scryfallId": "d95dcb2e-8945-47dd-ad40-b5bdcc3ea742",
+  "oracleId": "81b51bb1-89b9-46a0-ad7a-a43c0d214f11",
+  "name": "Belbe's Percher",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Belbe's Percher",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.",
+      "flavorText": "Long and powerful, these birds were used to carry messages to and from the evincar.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "d95dcb2e-8945-47dd-ad40-b5bdcc3ea742"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "nem",
+  "collectorNumber": "53",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COVERT_OPERATIVE: CardData = {
+  "scryfallId": "dbda6799-3b55-4714-8305-713e1e198a15",
+  "oracleId": "c1f33eac-0f85-4f0f-8562-1737b5f6b23a",
+  "name": "Covert Operative",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Covert Operative",
+      "manaCost": "{4}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "This creature can't be blocked.",
+      "flavorText": "Some spies seek clarity. Others seek transparency.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "dbda6799-3b55-4714-8305-713e1e198a15"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "lgn",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SAZH_S_CHOCOBO: CardData = {
+  "scryfallId": "dda6b4d0-1b60-46b0-b321-b9ffe15afff4",
+  "oracleId": "c2b082b4-5d9c-4125-b353-d1cf4f334720",
+  "name": "Sazh's Chocobo",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sazh's Chocobo",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Landfall — Whenever a land you control enters, put a +1/+1 counter on this creature.",
+      "flavorText": "The chick has no name, as voicing the true identity of the animal might trigger ripples of destiny across Cocoon and cause a hurricane in Eden. Either that, or Sazh just hasn't thought of one yet.",
+      "power": "0",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Domenico Cava",
+      "imageId": "dda6b4d0-1b60-46b0-b321-b9ffe15afff4"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Landfall"
+  ],
+  "setCode": "fin",
+  "collectorNumber": "200",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TALAS_WARRIOR: CardData = {
+  "scryfallId": "de3d8cc5-5889-4e52-a32c-d15556fd2166",
+  "oracleId": "12beabf3-a84b-49c2-9462-8876a4ac74d4",
+  "name": "Talas Warrior",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Talas Warrior",
+      "manaCost": "{1}{U}{U}",
+      "typeLine": "Creature — Human Pirate Warrior",
+      "oracleText": "This creature can't be blocked.",
+      "flavorText": "The sea is in their blood. Literally.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Douglas Shuler",
+      "imageId": "de3d8cc5-5889-4e52-a32c-d15556fd2166"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "p02",
+  "collectorNumber": "53",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HARMONIOUS_GROVESTRIDER: CardData = {
+  "scryfallId": "e320abed-f145-42d3-b402-4f82e3a56389",
+  "oracleId": "0ebec97e-3cb1-41e2-a693-0febb5623016",
+  "name": "Harmonious Grovestrider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Harmonious Grovestrider",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "Ward {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nHarmonious Grovestrider's power and toughness are each equal to the number of lands you control.",
+      "flavorText": "Beyond the borders of Pinnacle space, alien worlds of untold wonder await.",
+      "power": "*",
+      "toughness": "*",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Ron Spencer",
+      "imageId": "e320abed-f145-42d3-b402-4f82e3a56389"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Ward"
+  ],
+  "setCode": "eoe",
+  "collectorNumber": "189",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ICECAVE_CRASHER: CardData = {
+  "scryfallId": "e6c1ed0c-0c0d-47a7-8ebc-67854cb226e0",
+  "oracleId": "b9650a0e-5795-42ff-84c6-6040e5cf4c90",
+  "name": "Icecave Crasher",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Icecave Crasher",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Beast",
+      "oracleText": "Trample\nLandfall — Whenever a land you control enters, this creature gets +1/+0 until end of turn.",
+      "flavorText": "As warmth crept across Evendo, many long-dormant species grew bolder.",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Julia Metzger",
+      "imageId": "e6c1ed0c-0c0d-47a7-8ebc-67854cb226e0"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Trample",
+    "Landfall"
+  ],
+  "setCode": "eoe",
+  "collectorNumber": "191",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BATTLEFIELD_PERCHER: CardData = {
+  "scryfallId": "f1ebf021-02a1-4a47-b581-c85a7a76cdec",
+  "oracleId": "2836c144-7268-411a-b651-351cc4ef8fe9",
+  "name": "Battlefield Percher",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Battlefield Percher",
+      "manaCost": "{3}{B}{B}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying\nThis creature can block only creatures with flying.\n{1}{B}: This creature gets +1/+1 until end of turn.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "f1ebf021-02a1-4a47-b581-c85a7a76cdec"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "nem",
+  "collectorNumber": "52",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -124687,6 +129980,74 @@ export const MERFOLK_WIZARD_1_1_U_CREATURE_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const BEAST_4_4_G_CREATURE_TOKEN: CardData = {
+  "scryfallId": "06b5e4d2-7eac-4ee9-82aa-80a668705679",
+  "oracleId": "695b14a0-920a-47bd-bd4a-7989862cdd0a",
+  "name": "Beast",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Beast",
+      "manaCost": "",
+      "typeLine": "Token Creature — Beast",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "06b5e4d2-7eac-4ee9-82aa-80a668705679"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tc21",
+  "collectorNumber": "11",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const ELEMENTAL_2_2_G_CREATURE_TOKEN: CardData = {
+  "scryfallId": "5dc134da-51b8-452d-b515-54def56fe0c7",
+  "oracleId": "e3c32eb9-508a-41d3-b85f-cb85ab2f2716",
+  "name": "Elemental",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Elemental",
+      "manaCost": "",
+      "typeLine": "Token Creature — Elemental",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Marco Nelor",
+      "imageId": "5dc134da-51b8-452d-b515-54def56fe0c7"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tznc",
+  "collectorNumber": "8",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -128181,6 +133542,155 @@ export const ENGINE_CARDS: CardData[] = [
   HALL,
   STUDY,
   BILLIARD_ROOM,
+  INVISIBLE_STALKER,
+  CRUSADER_OF_ODRIC,
+  NEZUMI_CUTTHROAT,
+  CLOUD_ELEMENTAL,
+  GROVE_RUMBLER,
+  BLIGHTED_AGENT,
+  SIGHTLESS_GHOUL,
+  EMERIA_ANGEL,
+  BATTLE_SQUADRON,
+  HORDE_OF_BOGGARTS,
+  SCAVENGING_SCARAB,
+  VAMPIRE_INTERLOPER,
+  SPLINTERFRIGHT,
+  PLASMA_ELEMENTAL,
+  REGAL_BUNNICORN,
+  FLEET_FOOTED_MONK,
+  STORMBOUND_GEIST,
+  NIGHTMARE,
+  SNAPPING_GNARLID,
+  BEAST_OF_BURDEN,
+  HULKING_OGRE,
+  SLITHER_BLADE,
+  YELLOW_SCARVES_GENERAL,
+  TIDAL_KRAKEN,
+  GOBLIN_RAIDER,
+  CARRION_FEEDER,
+  SPOREMOUND,
+  IRON_BARB_HELLION,
+  HULKING_CYCLOPS,
+  VAPORKIN,
+  DROVE_OF_ELVES,
+  KYREN_GLIDER,
+  TERRITORIAL_BALOTH,
+  BRUSHFIRE_ELEMENTAL,
+  REVENANT,
+  CROWD_OF_CINDERS,
+  STEEL_LEAF_CHAMPION,
+  YOUNG_WEI_RECRUITS,
+  MARO,
+  WAVE_WING_ELEMENTAL,
+  PHANTOM_WARRIOR,
+  OUTLAND_BOAR,
+  DREADWURM,
+  TERRAVORE,
+  CLOUD_SPIRIT,
+  RAMPAGING_BALOTHS,
+  BALOTH_WOODCRASHER,
+  PROWLING_FELIDAR,
+  DUSKMANTLE_OPERATIVE,
+  HEEDLESS_ONE,
+  FLEDGLING_GRIFFIN,
+  JHESSIAN_INFILTRATOR,
+  OGRE_TASKMASTER,
+  ZENDIKAR_S_ROIL,
+  MIST_CLOAKED_HERALD,
+  RECKLESS_ONE,
+  SCYTHE_LEOPARD,
+  KELDON_WARLORD,
+  DAKKON_BLACKBLADE,
+  CANOPY_BALOTH,
+  AESTHIR_GLIDER,
+  TERRITORIAL_SCYTHECAT,
+  PSYCHOSIS_CRAWLER,
+  CANYON_JERBOA,
+  AKOUM_HELLHOUND,
+  AMROU_KITHKIN,
+  TRITON_SHORESTALKER,
+  DAGGERCLAW_IMP,
+  DRIFT_OF_THE_DEAD,
+  MAKINDI_SLIDERUNNER,
+  TATTERED_HAUNTER,
+  MOLIMO_MARO_SORCERER,
+  BONEYARD_WURM,
+  HAGRA_CROCODILE,
+  ONDU_GREATHORN,
+  VINELASHER_KUDZU,
+  WELKIN_TERN,
+  YELLOW_SCARVES_TROOPS,
+  CLOUD_SPRITE,
+  LATCH_SEEKER,
+  JADDI_OFFSHOOT,
+  CLOUD_DJINN,
+  STORM_FLEET_SPRINTER,
+  PYGMY_PYROSAUR,
+  GILTGROVE_STALKER,
+  SKYCLAVE_GEOPEDE,
+  CRAVEN_GIANT,
+  LORD_OF_EXTINCTION,
+  WINDRIDER_EEL,
+  CLOUD_DRAGON,
+  BELOVED_PRINCESS,
+  GEIST_HONORED_MONK,
+  ELFSWORN_GIANT,
+  JUNGLE_LION,
+  GUDUL_LURKER,
+  GOLDMEADOW_DODGER,
+  HULKING_GOBLIN,
+  GOBLIN_GLIDER,
+  RISHADAN_AIRSHIP,
+  DUNGROVE_ELDER,
+  AZORIUS_KNIGHT_ARBITER,
+  PLATED_GEOPEDE,
+  SKYWINDER_DRAKE,
+  GREATER_SANDWURM,
+  HEDRON_SCRABBLER,
+  EUMIDIAN_TERRABOTANIST,
+  METATHRAN_SOLDIER,
+  SQUELCHING_LEECHES,
+  STEPPE_LYNX,
+  ELUSIVE_KRASIS,
+  SCRAPSKIN_DRAKE,
+  ARLINN_S_WOLF,
+  LONG_FINNED_SKYWHALE,
+  FLORA_COLOSSUS,
+  KAZANDU_NECTARPOT,
+  WANDERLIGHT_SPIRIT,
+  STRATOZEPPELID,
+  COGNIVORE,
+  KITHKIN_RABBLE,
+  ASHENMOOR_GOUGER,
+  REMNANT_ELEMENTAL,
+  YELLOW_SCARVES_CAVALRY,
+  SCION_OF_THE_WILD,
+  BURROWGUARD_MENTOR,
+  VALAKUT_PREDATOR,
+  CLOUD_PIRATES,
+  SNAPPING_CREEPER,
+  FAERIE_SWARM,
+  GLOOMWIDOW,
+  SLAG_FIEND,
+  PHANTOM_NINJA,
+  BELLIGERENT_WHIPTAIL,
+  NIGHTSHADE_STINGER,
+  CANTIVORE,
+  GEYSER_GLIDER,
+  ENRAGED_CERATOK,
+  HEDRON_ROVER,
+  STURMGEIST,
+  HOVERGUARD_OBSERVER,
+  CRAVEN_KNIGHT,
+  GEYSERFIELD_STALKER,
+  STRONGHOLD_ZEPPELIN,
+  BELBE_S_PERCHER,
+  COVERT_OPERATIVE,
+  SAZH_S_CHOCOBO,
+  TALAS_WARRIOR,
+  HARMONIOUS_GROVESTRIDER,
+  ICECAVE_CRASHER,
+  BATTLEFIELD_PERCHER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -128291,4 +133801,6 @@ export const ENGINE_CARDS: CardData[] = [
   WARRIOR_1_1_VIGILANCE_TOKEN,
   ROBOT_1_1_FLYING_TOKEN,
   MERFOLK_WIZARD_1_1_U_CREATURE_TOKEN,
+  BEAST_4_4_G_CREATURE_TOKEN,
+  ELEMENTAL_2_2_G_CREATURE_TOKEN,
 ];
