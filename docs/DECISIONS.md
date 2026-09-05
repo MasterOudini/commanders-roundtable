@@ -21409,3 +21409,55 @@ Fixtures 3,577 · botPool artifact 270 / creature 3,088 / enchantment 255 / inst
 **Reportables** (D315): the Aura and Equipment enters heads with their attach payloads, the land enters heads, the when-you-cast-this-spell head, the second-card and second-spell heads (a turn memory), the dealt-damage head, the Ally head; the payloads still refused (N damage to any target, loot, the monarch, energy, a look at the top cards, a basic land search); the classifier learning the heads; the modal seam (42); the "another" split;
 the by-name sacrifice cost; the remaining cost verbs; the prompt
 continuation seam; prior items stand.
+
+## D316 — M6.4fa: THE MIXED ROWS — the candidate probe admits activated lines the row maker reads beside the trigger heads; 25 cards land as generated rows (2026-09-05)
+
+**5,702 of 31,692 Commander-legal cards execute completely, up from
+5,677 (+25).** SHIPPED_SCRIPTS 3,223 → **3,248**;
+REFUSED ledger 1,093 → **1,093** (none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty). Fixtures
+3,577 → 3,602 (3,485 by name + 110 tokens: the 25 rowed cards; the Clue the twelve investigate rows make was already pinned). No engine change and no grammar
+change — the same row maker and generator as D315, one wider candidate probe.
+**Select pool 0 → 0.**
+
+**The gap, measured before it was built.** the D316 candidate probe over the database after D315: 62 blocked single-face permanents whose every unread line is a trigger the D315 grammar reads or an activated line whose effect is a row payload - 46 activations only, 15 triggers only, one mixed (lines: the activated Clue tokens 13, drains 7, mills 7, self counters 7, draw-and-lose 5; the enters mills 18 and tokens 8, the upkeep mills 6); the mass behind them: an Aura enters 129, landfall 126, a modal choose-one 100, power and toughness equal to something 98, regenerate 97, an Equipment enters 89, any-colour mana 80, can not block 75, an additional cost 58, enchanted creature has 55, can not be blocked 50, convoke 50, can not be countered 46, enters with X counters 45, attacks each combat 44, when you cast this spell 42, enchant player 42, heroic 41, a Spirit or Arcane spell 40, loot 39.
+
+**The rows.** D313–D315 took the cards whose EVERY unread line is a trigger
+the grammar reads; the select pool (D301–D306) took the cards whose every
+unread line the classifier calls scriptable. A card with an activated line
+beside a readable trigger, or with an activated line the classifier does not
+know but the row maker reads (a discard or tap-another cost, a D313–D315
+payload under a cost), was in neither — the probe named them:
+
+- `d316/zz-probe-d316b.node.test.ts`: a blocker line passes as a trigger
+  (head + payload, D315's list) OR as an activated line whose effect is a row
+  payload (the row maker checks the cost); the mana ability `{T}: Add {G}.`
+  is the engine's own and skipped.
+- `d316/make-rows6.cjs` + `gen-oneshot6.cjs`: D315's row maker and
+  generator, renamed — every activated line takes its ability index beside
+  the triggers, one module + one suite per row, each ability in its own game.
+- Rows land BY NAME; the classifier does not learn the heads this decision,
+  so the select pool stays 0 and only `complete` moves.
+
+- **Refused by name:** none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty.
+- **Not this decision:** the heads and payloads the grammar still refuses
+  (the costs the row maker cannot charge (tap two or three untapped creatures, an Ally, exile from the graveyard, exile this creature, sacrifice an artifact or creature), the target effects (a target creature's pump, trample, counters), the damage payloads, the ability-word activated lines (Boast, Exhaust, Cohort, Channel), the heads still outside (one or more cards put into the graveyard, sacrifice a token, deals combat damage to a creature); the mass behind - the Aura and Equipment enters heads, landfall, the modal choose-one, regenerate, any-colour mana, the can-not-block and can-not-be-blocked statics, convoke, enters with counters; the classifier learning the heads).
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** one generated suite per row (25 suites), each ability in
+its own game.
+
+**Landed:** no auto flips (no engine change) and 25 generated rows - the 62 candidates less the 37 the row maker still refuses (eight ability-word activated lines - Boast, three Exhaust, two Cohort, Channel, Mold Harvest - which the engine's cost parser refuses too; five lines outside both grammars - three morph, a crew, a cost line; the costs it cannot charge - tap two or three untapped creatures or Zombies, exile two cards or this card from the graveyard, exile this creature or a spell, sacrifice an artifact or creature; three target effects and two damage payloads; six heads outside the library; two untap-it and a surveil payload). The wave IS the landing: 25 rows - the ten Karlov Manor rooms whose {4}, {T} investigates beside a two-colour mana ability (Dining Room, Kitchen, Library, Lounge, Secret Passage, Ballroom, Conservatory, Hall, Study, Billiard Room), Magnifying Glass's and Floodhound's Clues, Skull Prophet's and Excavated Wall's mills and Morgue Thrull's sacrifice-to-mill, the drains (Vermin Gorger, Vampire Neonate, Lampad of Death's Vigil, Vampire Opportunist) and the opponents' life loss (Archers' Parapet, Engine Rat), the self-bounces (Oboro, Wydwen, Selenia), Metalspinner's Puzzleknot's enters and sacrifice draw-and-lose; the bot's own deck took 12 creatures, 11 lands and 2 artifacts more.
+
+Fixtures 3,602 · botPool artifact 272 / creature 3,100 / enchantment 255 / instant 947 / land 405 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1193, 1324, 3098, 5022, 6380] · batch.json
+25 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,358 files, 17,416 passing / 11 skipped ·
+500-seed gate, 6 shards, 333.0 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D316): the costs the row maker cannot charge (tap two or three untapped creatures, an Ally, exile from the graveyard, exile this creature, sacrifice an artifact or creature), the target effects (a target creature's pump, trample, counters), the damage payloads, the ability-word activated lines (Boast, Exhaust, Cohort, Channel), the heads still outside (one or more cards put into the graveyard, sacrifice a token, deals combat damage to a creature); the mass behind - the Aura and Equipment enters heads, landfall, the modal choose-one, regenerate, any-colour mana, the can-not-block and can-not-be-blocked statics, convoke, enters with counters; the classifier learning the heads; the modal seam; the "another" split; the
+by-name sacrifice cost; the remaining cost verbs; the prompt continuation
+seam; prior items stand.

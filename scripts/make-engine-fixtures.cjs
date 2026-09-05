@@ -3943,6 +3943,33 @@ const WANTED = [
   'Cold Case Cracker',
   'Gristle Grinner',
   'Lunk Errant',
+  // D316 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Vermin Gorger',
+  'Vampire Neonate',
+  'Magnifying Glass',
+  'Oboro, Palace in the Clouds',
+  'Morgue Thrull',
+  'Floodhound',
+  "Metalspinner's Puzzleknot",
+  'Wydwen, the Biting Gale',
+  "Archers' Parapet",
+  'Selenia, Dark Angel',
+  "Lampad of Death's Vigil",
+  'Engine Rat',
+  'Vampire Opportunist',
+  'Excavated Wall',
+  // D316 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Dining Room',
+  'Skull Prophet',
+  'Kitchen',
+  'Library',
+  'Lounge',
+  'Secret Passage',
+  'Ballroom',
+  'Conservatory',
+  'Hall',
+  'Study',
+  'Billiard Room',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

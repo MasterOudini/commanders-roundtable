@@ -7,6 +7,31 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { DINING_ROOM_SCRIPT } from './cards/diningRoom';
+import { SKULL_PROPHET_SCRIPT } from './cards/skullProphet';
+import { KITCHEN_SCRIPT } from './cards/kitchen';
+import { LIBRARY_SCRIPT } from './cards/library';
+import { LOUNGE_SCRIPT } from './cards/lounge';
+import { SECRET_PASSAGE_SCRIPT } from './cards/secretPassage';
+import { BALLROOM_SCRIPT } from './cards/ballroom';
+import { CONSERVATORY_SCRIPT } from './cards/conservatory';
+import { HALL_SCRIPT } from './cards/hall';
+import { STUDY_SCRIPT } from './cards/study';
+import { BILLIARD_ROOM_SCRIPT } from './cards/billiardRoom';
+import { VERMIN_GORGER_SCRIPT } from './cards/verminGorger';
+import { VAMPIRE_NEONATE_SCRIPT } from './cards/vampireNeonate';
+import { MAGNIFYING_GLASS_SCRIPT } from './cards/magnifyingGlass';
+import { OBORO_PALACE_IN_THE_CLOUDS_SCRIPT } from './cards/oboroPalaceInTheClouds';
+import { MORGUE_THRULL_SCRIPT } from './cards/morgueThrull';
+import { FLOODHOUND_SCRIPT } from './cards/floodhound';
+import { METALSPINNERS_PUZZLEKNOT_SCRIPT } from './cards/metalspinnersPuzzleknot';
+import { WYDWEN_THE_BITING_GALE_SCRIPT } from './cards/wydwenTheBitingGale';
+import { ARCHERS_PARAPET_SCRIPT } from './cards/archersParapet';
+import { SELENIA_DARK_ANGEL_SCRIPT } from './cards/seleniaDarkAngel';
+import { LAMPAD_OF_DEATHS_VIGIL_SCRIPT } from './cards/lampadOfDeathsVigil';
+import { ENGINE_RAT_SCRIPT } from './cards/engineRat';
+import { VAMPIRE_OPPORTUNIST_SCRIPT } from './cards/vampireOpportunist';
+import { EXCAVATED_WALL_SCRIPT } from './cards/excavatedWall';
 import { ROGUE_KAVU_SCRIPT } from './cards/rogueKavu';
 import { LUMBERKNOT_SCRIPT } from './cards/lumberknot';
 import { THRABEN_INSPECTOR_SCRIPT } from './cards/thrabenInspector';
@@ -3344,6 +3369,31 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DINING_ROOM_SCRIPT,
+  SKULL_PROPHET_SCRIPT,
+  KITCHEN_SCRIPT,
+  LIBRARY_SCRIPT,
+  LOUNGE_SCRIPT,
+  SECRET_PASSAGE_SCRIPT,
+  BALLROOM_SCRIPT,
+  CONSERVATORY_SCRIPT,
+  HALL_SCRIPT,
+  STUDY_SCRIPT,
+  BILLIARD_ROOM_SCRIPT,
+  VERMIN_GORGER_SCRIPT,
+  VAMPIRE_NEONATE_SCRIPT,
+  MAGNIFYING_GLASS_SCRIPT,
+  OBORO_PALACE_IN_THE_CLOUDS_SCRIPT,
+  MORGUE_THRULL_SCRIPT,
+  FLOODHOUND_SCRIPT,
+  METALSPINNERS_PUZZLEKNOT_SCRIPT,
+  WYDWEN_THE_BITING_GALE_SCRIPT,
+  ARCHERS_PARAPET_SCRIPT,
+  SELENIA_DARK_ANGEL_SCRIPT,
+  LAMPAD_OF_DEATHS_VIGIL_SCRIPT,
+  ENGINE_RAT_SCRIPT,
+  VAMPIRE_OPPORTUNIST_SCRIPT,
+  EXCAVATED_WALL_SCRIPT,
   ROGUE_KAVU_SCRIPT,
   LUMBERKNOT_SCRIPT,
   THRABEN_INSPECTOR_SCRIPT,

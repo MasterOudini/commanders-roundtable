@@ -120066,6 +120066,881 @@ export const LUNK_ERRANT: CardData = {
   "singleImage": true
 };
 
+export const VERMIN_GORGER: CardData = {
+  "scryfallId": "0633d5eb-2cae-429a-a58b-aee4de5e8faa",
+  "oracleId": "7b81596b-9487-4be1-a417-6913fa72299d",
+  "name": "Vermin Gorger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vermin Gorger",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Vampire",
+      "oracleText": "{T}, Sacrifice another creature: Each opponent loses 2 life and you gain 2 life.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Tobias Kwan",
+      "imageId": "0633d5eb-2cae-429a-a58b-aee4de5e8faa"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "j21",
+  "collectorNumber": "401",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VAMPIRE_NEONATE: CardData = {
+  "scryfallId": "167822a5-2ab5-42f5-afa4-562fe2d7501b",
+  "oracleId": "c0045925-25bf-403c-b721-5f05ba30985b",
+  "name": "Vampire Neonate",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vampire Neonate",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Vampire",
+      "oracleText": "{2}, {T}: Each opponent loses 1 life and you gain 1 life.",
+      "flavorText": "One day, they may be paragons of deadly elegance. For the moment, they possess nothing but thirst.",
+      "power": "0",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Daarken",
+      "imageId": "167822a5-2ab5-42f5-afa4-562fe2d7501b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "m19",
+  "collectorNumber": "124",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MAGNIFYING_GLASS: CardData = {
+  "scryfallId": "20995638-e217-49f1-bccc-d1a344694fd8",
+  "oracleId": "f2ce9e55-07c0-4f36-a59e-127693fc0f62",
+  "name": "Magnifying Glass",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Magnifying Glass",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{T}: Add {C}.\n{4}, {T}: Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": "Knight-Inquisitors of Saint Raban delve deep into mysteries best left unexplored.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Dan Murayama Scott",
+      "imageId": "20995638-e217-49f1-bccc-d1a344694fd8"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "c18",
+  "collectorNumber": "208",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const OBORO_PALACE_IN_THE_CLOUDS: CardData = {
+  "scryfallId": "22b7f560-ef32-496e-ac22-e1b725d08a08",
+  "oracleId": "645fb11b-d684-4bec-8532-8fa97e8f7b28",
+  "name": "Oboro, Palace in the Clouds",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Oboro, Palace in the Clouds",
+      "manaCost": "",
+      "typeLine": "Legendary Land",
+      "oracleText": "{T}: Add {U}.\n{1}: Return Oboro to its owner's hand.",
+      "flavorText": "The Brandywine flowed slow and broad before them. A large flat ferry-boat was moored beside the landing.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jonas De Ro",
+      "imageId": "22b7f560-ef32-496e-ac22-e1b725d08a08"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "ltc",
+  "collectorNumber": "371",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MORGUE_THRULL: CardData = {
+  "scryfallId": "270a26ce-3435-4fef-bc34-abbc6f1cf3f4",
+  "oracleId": "fc759e09-34b2-4004-8474-a6500dd1280c",
+  "name": "Morgue Thrull",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Morgue Thrull",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Thrull",
+      "oracleText": "Sacrifice this creature: Mill three cards.",
+      "flavorText": "It's so hard to find good help these days.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Robert Bliss",
+      "imageId": "270a26ce-3435-4fef-bc34-abbc6f1cf3f4"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Mill"
+  ],
+  "setCode": "sth",
+  "collectorNumber": "65",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FLOODHOUND: CardData = {
+  "scryfallId": "50b2a8a0-93a3-4e83-8f14-efbce07d2d3a",
+  "oracleId": "6dd8ba09-f117-4514-9e09-f9f9f5fb5025",
+  "name": "Floodhound",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Floodhound",
+      "manaCost": "{U}",
+      "typeLine": "Creature — Elemental Dog",
+      "oracleText": "{3}, {T}: Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Lius Lasahido",
+      "imageId": "50b2a8a0-93a3-4e83-8f14-efbce07d2d3a"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "j21",
+  "collectorNumber": "193",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const METALSPINNER_S_PUZZLEKNOT: CardData = {
+  "scryfallId": "56628644-df26-4cbc-b67c-d1b2f69ebe08",
+  "oracleId": "c19d2f54-2c3a-4cbe-8328-061d4b51f574",
+  "name": "Metalspinner's Puzzleknot",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Metalspinner's Puzzleknot",
+      "manaCost": "{2}",
+      "typeLine": "Artifact",
+      "oracleText": "When this artifact enters, you draw a card and you lose 1 life.\n{2}{B}, Sacrifice this artifact: You draw a card and you lose 1 life.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Vincent Proce",
+      "imageId": "56628644-df26-4cbc-b67c-d1b2f69ebe08"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "j25",
+  "collectorNumber": "755",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WYDWEN_THE_BITING_GALE: CardData = {
+  "scryfallId": "62b8f8e9-a2b0-41c5-9fae-340f7caaeff9",
+  "oracleId": "7891ec87-8d1c-42fc-b00a-4c64ee5edbff",
+  "name": "Wydwen, the Biting Gale",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wydwen, the Biting Gale",
+      "manaCost": "{2}{U}{B}",
+      "typeLine": "Legendary Creature — Faerie Wizard",
+      "oracleText": "Flash\nFlying\n{U}{B}, Pay 1 life: Return Wydwen to its owner's hand.",
+      "flavorText": "In a world of bright, cloudless skies, she is the dark storm on the horizon.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "U"
+      ],
+      "artist": "Matt Cavotta",
+      "imageId": "62b8f8e9-a2b0-41c5-9fae-340f7caaeff9"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying",
+    "Flash"
+  ],
+  "setCode": "c20",
+  "collectorNumber": "235",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ARCHERS_PARAPET: CardData = {
+  "scryfallId": "64ac0667-8ecc-4034-89bb-dce0af531014",
+  "oracleId": "9df1c48b-52a8-47d7-8315-272fecf1a8a0",
+  "name": "Archers' Parapet",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Archers' Parapet",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Wall",
+      "oracleText": "Defender\n{1}{B}, {T}: Each opponent loses 1 life.",
+      "flavorText": "Every shaft is graven with a name from a kin tree, calling upon the spirits of the ancestors to make it fly true.",
+      "power": "0",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Wayne Reynolds",
+      "imageId": "64ac0667-8ecc-4034-89bb-dce0af531014"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Defender"
+  ],
+  "setCode": "ktk",
+  "collectorNumber": "128",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SELENIA_DARK_ANGEL: CardData = {
+  "scryfallId": "664b57e3-9476-4d6a-8301-5a2f96bcfbf7",
+  "oracleId": "3db1ac09-e35a-4f50-97c4-f65dbc28daef",
+  "name": "Selenia, Dark Angel",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Selenia, Dark Angel",
+      "manaCost": "{3}{W}{B}",
+      "typeLine": "Legendary Creature — Phyrexian Angel",
+      "oracleText": "Flying\nPay 2 life: Return Selenia to its owner's hand.",
+      "flavorText": "\"I am light. I am dark. I must give my life to serve; not even death can release me.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Matthew D. Wilson",
+      "imageId": "664b57e3-9476-4d6a-8301-5a2f96bcfbf7"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "tpr",
+  "collectorNumber": "210",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LAMPAD_OF_DEATH_S_VIGIL: CardData = {
+  "scryfallId": "90609f70-ae14-4abb-be3a-f3f70437c4a5",
+  "oracleId": "e0f23e7e-2858-4f5e-9dd5-8a0ba934a048",
+  "name": "Lampad of Death's Vigil",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lampad of Death's Vigil",
+      "manaCost": "{1}{B}",
+      "typeLine": "Enchantment Creature — Nymph",
+      "oracleText": "{1}, Sacrifice a creature: Each opponent loses 1 life and you gain 1 life.",
+      "flavorText": "\"Grief-struck, she weeps for each mortal's final death.\"\n—Psemilla, Meletian poet",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jason Felix",
+      "imageId": "90609f70-ae14-4abb-be3a-f3f70437c4a5"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "THB-103",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ENGINE_RAT: CardData = {
+  "scryfallId": "949d6137-98d3-4f46-ab1e-08d7492af307",
+  "oracleId": "7e29aae9-815a-4999-ace6-7bc860acde32",
+  "name": "Engine Rat",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Engine Rat",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Zombie Rat",
+      "oracleText": "Deathtouch\n{5}{B}: Each opponent loses 2 life.",
+      "flavorText": "In a land of undeath, permanent pest control solutions are few and far between.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Camille Alquier",
+      "imageId": "949d6137-98d3-4f46-ab1e-08d7492af307"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Deathtouch"
+  ],
+  "setCode": "dft",
+  "collectorNumber": "84",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VAMPIRE_OPPORTUNIST: CardData = {
+  "scryfallId": "982538c4-0b93-416d-9110-e0d2602d70aa",
+  "oracleId": "6f525ccd-4776-492c-a1f9-8bce5740fb28",
+  "name": "Vampire Opportunist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vampire Opportunist",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Vampire",
+      "oracleText": "{6}{B}: Each opponent loses 2 life and you gain 2 life.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jason Rainville",
+      "imageId": "982538c4-0b93-416d-9110-e0d2602d70aa"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "anb",
+  "collectorNumber": "65",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const EXCAVATED_WALL: CardData = {
+  "scryfallId": "fed54d00-b11f-4529-864c-63a114617b36",
+  "oracleId": "16e48b95-f030-400c-a2b7-c3f3111cc165",
+  "name": "Excavated Wall",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Excavated Wall",
+      "manaCost": "{1}",
+      "typeLine": "Artifact Creature — Wall",
+      "oracleText": "Defender\n{1}, {T}: Mill a card. (Put the top card of your library into your graveyard.)",
+      "flavorText": "\"Don't be fooled by the quiet. These old stones are trying to talk to you.\"\n—Augusta, Lorehold dean",
+      "power": "0",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Zezhou Chen",
+      "imageId": "fed54d00-b11f-4529-864c-63a114617b36"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 1,
+  "keywords": [
+    "Mill",
+    "Defender"
+  ],
+  "setCode": "stx",
+  "collectorNumber": "255",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DINING_ROOM: CardData = {
+  "scryfallId": "1bf8dcb2-6fe7-4ab3-b290-fb427d116c74",
+  "oracleId": "0880461e-8943-443b-90e7-ff84eef46550",
+  "name": "Dining Room",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dining Room",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {R} or {G}.\n{4}, {T}: Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Arthur Yuan",
+      "imageId": "1bf8dcb2-6fe7-4ab3-b290-fb427d116c74"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "15",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKULL_PROPHET: CardData = {
+  "scryfallId": "2f5ec787-79f6-4922-a0f7-debde8f7a4be",
+  "oracleId": "39b51f62-8421-42d1-86d3-74fd6e6f31a2",
+  "name": "Skull Prophet",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skull Prophet",
+      "manaCost": "{B}{G}",
+      "typeLine": "Creature — Human Druid",
+      "oracleText": "{T}: Add {B} or {G}.\n{T}: Mill two cards. (Put the top two cards of your library into your graveyard.)",
+      "flavorText": "\"I study bone because that's where truth dwells. One monster knucklebone is wiser than all that damp meat in your head.\"",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "2f5ec787-79f6-4922-a0f7-debde8f7a4be"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Mill"
+  ],
+  "setCode": "iko",
+  "collectorNumber": "206",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KITCHEN: CardData = {
+  "scryfallId": "4388ae8f-a2c4-4e0d-a6a1-0204ff3f469b",
+  "oracleId": "47f71408-5509-4651-9121-fd0867adae00",
+  "name": "Kitchen",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kitchen",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {G} or {U}.\n{4}, {T}: Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Arthur Yuan",
+      "imageId": "4388ae8f-a2c4-4e0d-a6a1-0204ff3f469b"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LIBRARY: CardData = {
+  "scryfallId": "442cf173-8042-40fa-98d6-6ca93caa3e03",
+  "oracleId": "33a7d29a-ebc0-4606-91b6-7381e2a16016",
+  "name": "Library",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Library",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {U} or {R}.\n{4}, {T}: Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Arthur Yuan",
+      "imageId": "442cf173-8042-40fa-98d6-6ca93caa3e03"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LOUNGE: CardData = {
+  "scryfallId": "4b197079-488d-47c6-a494-8baf36c48667",
+  "oracleId": "98a22879-d0b2-441f-bcf6-a67b4552b73c",
+  "name": "Lounge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lounge",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {B} or {G}.\n{4}, {T}: Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Arthur Yuan",
+      "imageId": "4b197079-488d-47c6-a494-8baf36c48667"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "19",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SECRET_PASSAGE: CardData = {
+  "scryfallId": "6b35ede8-e882-46fd-9eda-9d6f64c73ea1",
+  "oracleId": "c6a46fc2-fc8f-4dcd-bca7-682abfbf303d",
+  "name": "Secret Passage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Secret Passage",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {U} or {B}.\n{4}, {T}: Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Arthur Yuan",
+      "imageId": "6b35ede8-e882-46fd-9eda-9d6f64c73ea1"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "20",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BALLROOM: CardData = {
+  "scryfallId": "6e982bf8-382f-4987-bc39-28e1ce290340",
+  "oracleId": "cb91e842-9f06-4863-a328-2cabe1bcfe27",
+  "name": "Ballroom",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ballroom",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {W} or {B}.\n{4}, {T}: Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Arthur Yuan",
+      "imageId": "6e982bf8-382f-4987-bc39-28e1ce290340"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "12",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CONSERVATORY: CardData = {
+  "scryfallId": "8bab22c5-4742-4f2e-bda1-26c72b09cd9c",
+  "oracleId": "8f88b0bf-81bd-4223-9dad-d8c49ff4b87a",
+  "name": "Conservatory",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Conservatory",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {G} or {W}.\n{4}, {T}: Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Arthur Yuan",
+      "imageId": "8bab22c5-4742-4f2e-bda1-26c72b09cd9c"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "14",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HALL: CardData = {
+  "scryfallId": "ab3d0e50-630a-4ccc-aa79-1db912ea801e",
+  "oracleId": "949e455d-6a9e-491a-892f-826cc8be0fd9",
+  "name": "Hall",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Hall",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {R} or {W}.\n{4}, {T}: Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Arthur Yuan",
+      "imageId": "ab3d0e50-630a-4ccc-aa79-1db912ea801e"
+    }
+  ],
+  "colorIdentity": [
+    "R",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STUDY: CardData = {
+  "scryfallId": "c694bc39-3eae-4b40-8f85-34785f9e75f1",
+  "oracleId": "7ffadb3f-0b88-416f-b1a1-876383c22720",
+  "name": "Study",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Study",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {W} or {U}.\n{4}, {T}: Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Arthur Yuan",
+      "imageId": "c694bc39-3eae-4b40-8f85-34785f9e75f1"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "21",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BILLIARD_ROOM: CardData = {
+  "scryfallId": "dc2a3de1-01ac-4425-8534-e5019e01f2cd",
+  "oracleId": "a4fc174e-7fa6-41a8-ae03-255f226840f9",
+  "name": "Billiard Room",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Billiard Room",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped.\n{T}: Add {B} or {R}.\n{4}, {T}: Investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Arthur Yuan",
+      "imageId": "dc2a3de1-01ac-4425-8534-e5019e01f2cd"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "clu",
+  "collectorNumber": "13",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -127281,6 +128156,31 @@ export const ENGINE_CARDS: CardData[] = [
   COLD_CASE_CRACKER,
   GRISTLE_GRINNER,
   LUNK_ERRANT,
+  VERMIN_GORGER,
+  VAMPIRE_NEONATE,
+  MAGNIFYING_GLASS,
+  OBORO_PALACE_IN_THE_CLOUDS,
+  MORGUE_THRULL,
+  FLOODHOUND,
+  METALSPINNER_S_PUZZLEKNOT,
+  WYDWEN_THE_BITING_GALE,
+  ARCHERS_PARAPET,
+  SELENIA_DARK_ANGEL,
+  LAMPAD_OF_DEATH_S_VIGIL,
+  ENGINE_RAT,
+  VAMPIRE_OPPORTUNIST,
+  EXCAVATED_WALL,
+  DINING_ROOM,
+  SKULL_PROPHET,
+  KITCHEN,
+  LIBRARY,
+  LOUNGE,
+  SECRET_PASSAGE,
+  BALLROOM,
+  CONSERVATORY,
+  HALL,
+  STUDY,
+  BILLIARD_ROOM,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
