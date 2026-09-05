@@ -21342,3 +21342,70 @@ Fixtures 3,560 · botPool artifact 270 / creature 3,072 / enchantment 254 / inst
 **Reportables** (D314): the payloads still refused (N damage to any target, loot, gain that much life, a target creature can not block, each opponent discards, target player mills), the heads still outside (becomes the target of a spell or ability, attacks and is not blocked, enchanted creature dies, equipped creature attacks); the classifier learning the new heads; convoke and improvise; the other graveyard casts; the modal seam (42); the "another" split;
 the by-name sacrifice cost; the remaining cost verbs; the prompt
 continuation seam; prior items stand.
+
+## D315 — M6.4ez: THE TRIGGER HEADS, PART 4 — nine more heads, the enters head on every permanent word and investigate in the one-shot generator; 17 cards land as generated rows (2026-09-04)
+
+**5,677 of 31,692 Commander-legal cards execute completely, up from
+5,660 (+17).** SHIPPED_SCRIPTS 3,206 → **3,223**;
+REFUSED ledger 1,093 → **1,093** (none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty). Fixtures
+3,560 → 3,577 (3,460 by name + 110 tokens: the 17 rowed cards; the Clue the six investigate rows make was already pinned). ZERO new token pins; no engine change
+— one generator, one row maker, one candidate probe. **Select pool 0 →
+0.**
+
+**The gap, measured before it was built.** the D315 candidate probe over the database after D314: 32 blocked single-face permanents whose every unread line the extended grammar reads (lines: the enters mills 18 and Clue tokens 11, the upkeep mills 6, the draw-step counters 6, the enters draw-and-lose 5, the upkeep counters 4, the end-step sacrifices 4, the attacks-alone pumps 3); the mass behind them is other heads and payloads - not a trigger at all 11,447, an Aura enters 129, a modal choose-one 100, an Equipment enters 89, when you cast this spell 42, a Spirit or Arcane spell 40, the monarch 35, energy 34, equipped creature attacks 32, blocks or becomes blocked by 30, your second card each turn 29, attacks and is not blocked 26, enchanted creature dies 25.
+
+**The rows.** D314 left the generator with a token and a per-item counter on
+a trigger; the candidate probe then named the heads the grammar still
+refused, and nine of them are the engine's own events with no new plumbing at
+all:
+
+- `d315/make-rows5.cjs`: the enters head reads "this Vehicle" and "this land"
+  beside this creature / permanent / artifact / enchantment; the end-step head
+  reads "each end step" beside "the end step"; nine more heads — "Whenever you
+  cast a spell" / "a creature spell" (`SpellCast`), "At the beginning of your
+  first main phase" (`StepBegan` precombatMain on your turn), "At the
+  beginning of each opponent's upkeep" (`StepBegan` upkeep on another's turn),
+  "Whenever this creature attacks alone" (one attacker, itself), "When this
+  creature leaves the battlefield" (looks back), "Whenever a creature dies"
+  (looks back, anyone's), "Whenever you draw a card" (`DrewCards`), and
+  "Whenever this creature enters or attacks" as TWO defs on one printed line
+  (an enters def and an attacks def, each proven in its own game);
+  "Investigate" as the Clue token.
+- `d315/gen-oneshot5.cjs`: the same one module + one suite per row; the cast
+  heads cast a Grizzly Bears from the hand, the first-main-phase,
+  each-opponent-upkeep and draws-card rows enter late and wait for turn 5 (or
+  the opponent's turn 4), attacks-alone declares the one attacker,
+  leaves-the-battlefield exiles the card by hand, a-creature-dies kills the
+  opponent's Cyclops, and a draw asserted under the draws-card head counts the
+  draw-step card itself.
+- Rows land BY NAME from the candidate probe (every blocked single-face
+  permanent whose EVERY unread line the grammar reads); the classifier does
+  not learn the heads this decision, so the select pool stays 0.
+
+- **Refused by name:** none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty.
+- **Not this decision:** the Aura and Equipment enters heads and their attach
+  payloads, the land enters heads, the when-you-cast-this-spell head, the
+  second-card and second-spell heads (a turn memory), the dealt-damage head,
+  the Ally head; the payloads still refused (N damage to any target, loot, the
+  monarch, energy, a look at the top cards, a basic land search); the
+  classifier's head library.
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** one generated suite per row (17 suites), each ability in
+its own game; the generator's own heads proven by the rows that use them.
+
+**Landed:** no auto flips (no engine change) and 17 generated rows - the 32 candidates less the 15 the row maker still refuses (three morph lines, two damage payloads, two untap-it under a block head, an exile and a discard cost, two graveyard-fill heads, a sacrifice-a-token head, a target-creature pump, a crew line, a cost line). The wave IS the landing: 17 rows - the Clue makers (Thraben Inspector's, Novice Inspector's and Drownyard Explorers' enters, Byway Courier's and Cold Case Cracker's deaths, Trail of Evidence's instant-or-sorcery cast), the draw-step counters (Clinquant Skymage, Lorescale Coatl, Oneirophage) and Burlfist Oak's draw-step pump, the attacks-alone pumps (Rogue Kavu, Reckless Ogre, Lunk Errant), the any-creature-dies rows (Lumberknot's counter, Gristle Grinner's pump), Primordial Sage's creature-cast draw and Syr Vondam's enters-and-attacks mass pump; the bot's own deck took 16 creatures and an enchantment more.
+
+Fixtures 3,577 · botPool artifact 270 / creature 3,088 / enchantment 255 / instant 947 / land 394 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1193, 1324, 3098, 5022, 6380] · batch.json
+17 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,333 files, 17,315 passing / 11 skipped ·
+500-seed gate, 6 shards, 312.1 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D315): the Aura and Equipment enters heads with their attach payloads, the land enters heads, the when-you-cast-this-spell head, the second-card and second-spell heads (a turn memory), the dealt-damage head, the Ally head; the payloads still refused (N damage to any target, loot, the monarch, energy, a look at the top cards, a basic land search); the classifier learning the heads; the modal seam (42); the "another" split;
+the by-name sacrifice cost; the remaining cost verbs; the prompt
+continuation seam; prior items stand.

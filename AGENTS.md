@@ -9670,6 +9670,36 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D314): the payloads still refused (N damage to any target, loot, gain that much life, a target creature can not block, each opponent discards, target player mills), the heads still outside (becomes the target of a spell or ability, attacks and is not blocked, enchanted creature dies, equipped creature attacks); the classifier learning the new heads; convoke and improvise; the other graveyard casts; the modal seam (42); the "another"
       split; the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4ez — THE TRIGGER HEADS, PART 4: nine more heads, the enters head on
+      every permanent word and investigate in the one-shot generator;
+      17 cards land as generated rows (2026-09-04):**
+      **5,677 of 31,692 Commander-legal cards now execute completely, up
+      from 5,660 (+17).** `SHIPPED_SCRIPTS` 3,223; ledger
+      1,093 (none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty). Fixtures 3,577 (3,460 by name + 110 tokens: the 17 rowed cards; the Clue the six investigate rows make was already pinned). ZERO token
+      pins; no engine change. **Select pool 0.** Decisions in **D315**.
+      ⚠️ **Measured first:** the D315 candidate probe over the database after D314: 32 blocked single-face permanents whose every unread line the extended grammar reads (lines: the enters mills 18 and Clue tokens 11, the upkeep mills 6, the draw-step counters 6, the enters draw-and-lose 5, the upkeep counters 4, the end-step sacrifices 4, the attacks-alone pumps 3); the mass behind them is other heads and payloads - not a trigger at all 11,447, an Aura enters 129, a modal choose-one 100, an Equipment enters 89, when you cast this spell 42, a Spirit or Arcane spell 40, the monarch 35, energy 34, equipped creature attacks 32, blocks or becomes blocked by 30, your second card each turn 29, attacks and is not blocked 26, enchanted creature dies 25.
+      ⚠️ **The rows:** `d315/make-rows5.cjs` + `gen-oneshot5.cjs` (from D314) — the
+      enters head on "this Vehicle" / "this land", "each end step", heads
+      cast a spell / a creature spell (`SpellCast`), your first main phase and
+      each opponent's upkeep (`StepBegan`, late entry), attacks alone, leaves
+      the battlefield and a creature dies (looks back), you draw a card
+      (`DrewCards`), enters-or-attacks as TWO defs on one line; Investigate as
+      the Clue token. One module + one suite per row. Rows land BY NAME from
+      the candidate probe; the classifier does not learn the heads yet, so the
+      pool stays 0 and only `complete` moves. NOT this decision: the Aura /
+      Equipment / land enters heads, the turn-memory heads, the payloads the
+      generator still refuses, the classifier's head library. Refused by name:
+      none this decision - the rows landed by name, none of them was in the ledger, and the pool stays empty.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips (no engine change) and 17 generated rows - the 32 candidates less the 15 the row maker still refuses (three morph lines, two damage payloads, two untap-it under a block head, an exile and a discard cost, two graveyard-fill heads, a sacrifice-a-token head, a target-creature pump, a crew line, a cost line). The wave IS the landing: 17 rows - the Clue makers (Thraben Inspector's, Novice Inspector's and Drownyard Explorers' enters, Byway Courier's and Cold Case Cracker's deaths, Trail of Evidence's instant-or-sorcery cast), the draw-step counters (Clinquant Skymage, Lorescale Coatl, Oneirophage) and Burlfist Oak's draw-step pump, the attacks-alone pumps (Rogue Kavu, Reckless Ogre, Lunk Errant), the any-creature-dies rows (Lumberknot's counter, Gristle Grinner's pump), Primordial Sage's creature-cast draw and Syr Vondam's enters-and-attacks mass pump; the bot's own deck took 16 creatures and an enchantment more. Tests: one generated suite per row.
+      Fixtures 3,577 · botPool artifact 270 / creature 3,088 / enchantment 255 / instant 947 / land 394 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1193, 1324, 3098, 5022, 6380] · batch.json
+      17 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 3,333 files, 17,315 passing / 11 skipped ·
+      500-seed gate, 6 shards, 312.1 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D315): the Aura and Equipment enters heads with their attach payloads, the land enters heads, the when-you-cast-this-spell head, the second-card and second-spell heads (a turn memory), the dealt-damage head, the Ally head; the payloads still refused (N damage to any target, loot, the monarch, energy, a look at the top cards, a basic land search); the classifier learning the heads; the modal seam (42); the "another"
+      split; the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

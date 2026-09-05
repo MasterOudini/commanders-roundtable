@@ -7,6 +7,23 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { ROGUE_KAVU_SCRIPT } from './cards/rogueKavu';
+import { LUMBERKNOT_SCRIPT } from './cards/lumberknot';
+import { THRABEN_INSPECTOR_SCRIPT } from './cards/thrabenInspector';
+import { NOVICE_INSPECTOR_SCRIPT } from './cards/noviceInspector';
+import { BYWAY_COURIER_SCRIPT } from './cards/bywayCourier';
+import { CLINQUANT_SKYMAGE_SCRIPT } from './cards/clinquantSkymage';
+import { DROWNYARD_EXPLORERS_SCRIPT } from './cards/drownyardExplorers';
+import { LORESCALE_COATL_SCRIPT } from './cards/lorescaleCoatl';
+import { BURLFIST_OAK_SCRIPT } from './cards/burlfistOak';
+import { PRIMORDIAL_SAGE_SCRIPT } from './cards/primordialSage';
+import { TRAIL_OF_EVIDENCE_SCRIPT } from './cards/trailOfEvidence';
+import { ONEIROPHAGE_SCRIPT } from './cards/oneirophage';
+import { RECKLESS_OGRE_SCRIPT } from './cards/recklessOgre';
+import { SYR_VONDAM_THE_LUCENT_SCRIPT } from './cards/syrVondamTheLucent';
+import { COLD_CASE_CRACKER_SCRIPT } from './cards/coldCaseCracker';
+import { GRISTLE_GRINNER_SCRIPT } from './cards/gristleGrinner';
+import { LUNK_ERRANT_SCRIPT } from './cards/lunkErrant';
 import { PHYREXIAN_ARENA_SCRIPT } from './cards/phyrexianArena';
 import { STONYBROOK_SCHOOLMASTER_SCRIPT } from './cards/stonybrookSchoolmaster';
 import { DUSK_LEGION_ZEALOT_SCRIPT } from './cards/duskLegionZealot';
@@ -3327,6 +3344,23 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ROGUE_KAVU_SCRIPT,
+  LUMBERKNOT_SCRIPT,
+  THRABEN_INSPECTOR_SCRIPT,
+  NOVICE_INSPECTOR_SCRIPT,
+  BYWAY_COURIER_SCRIPT,
+  CLINQUANT_SKYMAGE_SCRIPT,
+  DROWNYARD_EXPLORERS_SCRIPT,
+  LORESCALE_COATL_SCRIPT,
+  BURLFIST_OAK_SCRIPT,
+  PRIMORDIAL_SAGE_SCRIPT,
+  TRAIL_OF_EVIDENCE_SCRIPT,
+  ONEIROPHAGE_SCRIPT,
+  RECKLESS_OGRE_SCRIPT,
+  SYR_VONDAM_THE_LUCENT_SCRIPT,
+  COLD_CASE_CRACKER_SCRIPT,
+  GRISTLE_GRINNER_SCRIPT,
+  LUNK_ERRANT_SCRIPT,
   PHYREXIAN_ARENA_SCRIPT,
   STONYBROOK_SCHOOLMASTER_SCRIPT,
   DUSK_LEGION_ZEALOT_SCRIPT,

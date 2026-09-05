@@ -3925,6 +3925,24 @@ const WANTED = [
   'Baleful Force',
   'Luminous Angel',
   'Novice Occultist',
+  // D315 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Rogue Kavu',
+  'Lumberknot',
+  'Thraben Inspector',
+  'Novice Inspector',
+  'Byway Courier',
+  'Clinquant Skymage',
+  'Drownyard Explorers',
+  'Lorescale Coatl',
+  'Burlfist Oak',
+  'Primordial Sage',
+  'Trail of Evidence',
+  'Oneirophage',
+  'Reckless Ogre',
+  'Syr Vondam, the Lucent',
+  'Cold Case Cracker',
+  'Gristle Grinner',
+  'Lunk Errant',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

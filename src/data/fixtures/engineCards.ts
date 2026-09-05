@@ -119462,6 +119462,610 @@ export const NOVICE_OCCULTIST: CardData = {
   "singleImage": true
 };
 
+export const ROGUE_KAVU: CardData = {
+  "scryfallId": "0020bf27-8160-4aaa-a321-29c8f43d2624",
+  "oracleId": "17df95b2-49ef-43ca-b3c8-66a270f457a7",
+  "name": "Rogue Kavu",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rogue Kavu",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Kavu",
+      "oracleText": "Whenever this creature attacks alone, it gets +2/+0 until end of turn.",
+      "flavorText": "Every litter of kavu yields one cub that refuses to hunt with the pack.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Darrell Riche",
+      "imageId": "0020bf27-8160-4aaa-a321-29c8f43d2624"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "9ed",
+  "collectorNumber": "213★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LUMBERKNOT: CardData = {
+  "scryfallId": "05024abf-7528-4ae7-9df5-b2ab841e9912",
+  "oracleId": "6a9d6f32-c4a6-41ea-8188-235ea064dc53",
+  "name": "Lumberknot",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lumberknot",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Treefolk",
+      "oracleText": "Hexproof (This creature can't be the target of spells or abilities your opponents control.)\nWhenever a creature dies, put a +1/+1 counter on this creature.",
+      "flavorText": "Animated by geists fused in its oak, it hungers for more life to add to its core.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jason A. Engle",
+      "imageId": "05024abf-7528-4ae7-9df5-b2ab841e9912"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Hexproof"
+  ],
+  "setCode": "inr",
+  "collectorNumber": "414",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THRABEN_INSPECTOR: CardData = {
+  "scryfallId": "08a5007f-06a0-40fa-a252-c38baa6b5c6f",
+  "oracleId": "caa02547-66e3-4e27-a2d3-5e94f3e7a069",
+  "name": "Thraben Inspector",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thraben Inspector",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "When this creature enters, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": "\"If you've been at this as long as I have, nothing can surprise you. That's the hope, at least.\"",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Matt Stewart",
+      "imageId": "08a5007f-06a0-40fa-a252-c38baa6b5c6f"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "inr",
+  "collectorNumber": "45",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NOVICE_INSPECTOR: CardData = {
+  "scryfallId": "0ad38866-fc5f-4f62-89c1-afc0f50765aa",
+  "oracleId": "c206bdcb-d2c4-4bda-a979-6c0627ef8f73",
+  "name": "Novice Inspector",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Novice Inspector",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Detective",
+      "oracleText": "When this creature enters, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": "\"If the perfect evidence appears at your feet, your first task is to rule out misdirection.\"\n—The Ravnican Agency of Magicological Investigations handbook",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Fajareka Setiawan",
+      "imageId": "0ad38866-fc5f-4f62-89c1-afc0f50765aa"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "mkm",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BYWAY_COURIER: CardData = {
+  "scryfallId": "2f243a51-bbd3-4028-a469-469ab5591aae",
+  "oracleId": "e186cc6f-8c11-4475-a704-0b4c3a9eade9",
+  "name": "Byway Courier",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Byway Courier",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Human Scout",
+      "oracleText": "When this creature dies, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": "A good courier travels fast and asks no questions.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "2f243a51-bbd3-4028-a469-469ab5591aae"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "soi",
+  "collectorNumber": "196",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLINQUANT_SKYMAGE: CardData = {
+  "scryfallId": "36012810-0e83-4640-8ba7-7262229f1b84",
+  "oracleId": "d9a3207a-a330-4517-967e-f37c9a9f1355",
+  "name": "Clinquant Skymage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Clinquant Skymage",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Bird Wizard",
+      "oracleText": "Flying\nWhenever you draw a card, put a +1/+1 counter on this creature.",
+      "flavorText": "Despite their advanced intellect, some aven never quite shake their instinctive need to collect shiny baubles.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Kevin Sidharta",
+      "imageId": "36012810-0e83-4640-8ba7-7262229f1b84"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "fdn",
+  "collectorNumber": "33",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DROWNYARD_EXPLORERS: CardData = {
+  "scryfallId": "3714713f-deb4-4b1c-8764-35287293ca18",
+  "oracleId": "c1ebbe89-8976-4ed7-a68a-8b08aac4616c",
+  "name": "Drownyard Explorers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drownyard Explorers",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "When this creature enters, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": "\"Angels and inquisitors terrorize villages, but no one seems to notice the stirring out at sea.\"",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Anthony Palumbo",
+      "imageId": "3714713f-deb4-4b1c-8764-35287293ca18"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "soi",
+  "collectorNumber": "56",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LORESCALE_COATL: CardData = {
+  "scryfallId": "3be31fb0-115e-4e62-babd-16870f249f06",
+  "oracleId": "c87440aa-4616-49ff-a211-ebdc37767f62",
+  "name": "Lorescale Coatl",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lorescale Coatl",
+      "manaCost": "{1}{G}{U}",
+      "typeLine": "Creature — Snake",
+      "oracleText": "Whenever you draw a card, put a +1/+1 counter on this creature.",
+      "flavorText": "\"The enlightenment I never found in etherium I have found traced in the coatl's scales.\"\n—Ranalus, vedalken heretic",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "U"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "3be31fb0-115e-4e62-babd-16870f249f06"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "m21",
+  "collectorNumber": "221",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BURLFIST_OAK: CardData = {
+  "scryfallId": "3d0ec3bd-d894-4861-abcb-7b2e4f4de05c",
+  "oracleId": "95a08f25-8d44-4704-a4d1-a098bf010932",
+  "name": "Burlfist Oak",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Burlfist Oak",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Treefolk",
+      "oracleText": "Whenever you draw a card, this creature gets +2/+2 until end of turn.",
+      "flavorText": "If a tree fells you in the forest and no one is around to hear it, \"does it make a sound\" is the last thing you need to worry about.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Milivoj Ćeran",
+      "imageId": "3d0ec3bd-d894-4861-abcb-7b2e4f4de05c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "m21",
+  "collectorNumber": "174",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PRIMORDIAL_SAGE: CardData = {
+  "scryfallId": "3ede6241-5884-433e-b914-7e7e1f92687c",
+  "oracleId": "499f1e1e-d96e-481f-a5d9-eb38da927cd7",
+  "name": "Primordial Sage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Primordial Sage",
+      "manaCost": "{4}{G}{G}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Whenever you cast a creature spell, you may draw a card.",
+      "flavorText": "For each creature that arrives in its audience, the sage imparts another piece of ancient wisdom for all to hear.",
+      "power": "4",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Justin Sweet",
+      "imageId": "3ede6241-5884-433e-b914-7e7e1f92687c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "cma",
+  "collectorNumber": "138",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TRAIL_OF_EVIDENCE: CardData = {
+  "scryfallId": "4b150797-ee8d-42f8-adcb-2f4b1783c074",
+  "oracleId": "e10065ba-fe24-4974-a500-d4151397a4d9",
+  "name": "Trail of Evidence",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Trail of Evidence",
+      "manaCost": "{2}{U}",
+      "typeLine": "Enchantment",
+      "oracleText": "Whenever you cast an instant or sorcery spell, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": "\"Every answer seems to lead to a more terrifying question.\"\n—Jace Beleren",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Daniel Ljunggren",
+      "imageId": "4b150797-ee8d-42f8-adcb-2f4b1783c074"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Investigate"
+  ],
+  "setCode": "soi",
+  "collectorNumber": "93",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ONEIROPHAGE: CardData = {
+  "scryfallId": "61921b05-ee83-4768-a405-4d3355c0ad6e",
+  "oracleId": "48c97aeb-6591-4175-a24b-d3488bf3ab0b",
+  "name": "Oneirophage",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Oneirophage",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Squid Illusion",
+      "oracleText": "Flying\nWhenever you draw a card, put a +1/+1 counter on this creature.",
+      "flavorText": "It manifests at wizard academies to siphon inspiration from young prodigies.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Martina Pilcerova",
+      "imageId": "61921b05-ee83-4768-a405-4d3355c0ad6e"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "jmp",
+  "collectorNumber": "162",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RECKLESS_OGRE: CardData = {
+  "scryfallId": "90d27b79-a22d-48d9-86b2-7ad02cab8697",
+  "oracleId": "fe455177-d9e5-4893-ad87-ebbba5e2fa45",
+  "name": "Reckless Ogre",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reckless Ogre",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Ogre",
+      "oracleText": "Whenever this creature attacks alone, it gets +3/+0 until end of turn.",
+      "flavorText": "There is no such thing as a regiment of ogres.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "90d27b79-a22d-48d9-86b2-7ad02cab8697"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "exo",
+  "collectorNumber": "98",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SYR_VONDAM_THE_LUCENT: CardData = {
+  "scryfallId": "ea954205-5ff5-493b-bf30-6212042c2bc9",
+  "oracleId": "28225bae-2d96-4352-b256-0c2ff4ef65e9",
+  "name": "Syr Vondam, the Lucent",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Syr Vondam, the Lucent",
+      "manaCost": "{2}{W}{B}{B}",
+      "typeLine": "Legendary Creature — Human Knight",
+      "oracleText": "Deathtouch, lifelink\nWhenever Syr Vondam enters or attacks, other creatures you control get +1/+0 and gain deathtouch until end of turn.",
+      "flavorText": "A new dawn, burning away the darkness.",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Cristi Balanescu",
+      "imageId": "ea954205-5ff5-493b-bf30-6212042c2bc9"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Lifelink",
+    "Deathtouch"
+  ],
+  "setCode": "eoe",
+  "collectorNumber": "232",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const COLD_CASE_CRACKER: CardData = {
+  "scryfallId": "f082111b-9b1c-4a25-8c5d-d6ef77533a9b",
+  "oracleId": "2e18ee5b-cda3-428b-be91-939c410256ac",
+  "name": "Cold Case Cracker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cold Case Cracker",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Spirit Detective",
+      "oracleText": "Flying\nWhen this creature dies, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+      "flavorText": "\"It's a rare privilege to investigate one's own death.\"",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Wayne Wu",
+      "imageId": "f082111b-9b1c-4a25-8c5d-d6ef77533a9b"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying",
+    "Investigate"
+  ],
+  "setCode": "mkm",
+  "collectorNumber": "46",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRISTLE_GRINNER: CardData = {
+  "scryfallId": "f1d6e32e-6479-48b3-93ae-da5378c09bb1",
+  "oracleId": "419f4648-2ace-4bd4-9ae4-8d456688c089",
+  "name": "Gristle Grinner",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gristle Grinner",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "Whenever a creature dies, this creature gets +2/+2 until end of turn.",
+      "flavorText": "\"There it was, clawing the ice as it chittered and clicked its teeth. We fled in horror before it unearthed its grisly meal.\"\n—Aevar Borg, northern guide, journal entry",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dave Allsop",
+      "imageId": "f1d6e32e-6479-48b3-93ae-da5378c09bb1"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "jmp",
+  "collectorNumber": "242",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LUNK_ERRANT: CardData = {
+  "scryfallId": "f459acfa-a9db-43c6-b0e9-ed66d772a335",
+  "oracleId": "1c2445b4-e8be-452c-950d-f42e549daf9a",
+  "name": "Lunk Errant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lunk Errant",
+      "manaCost": "{5}{R}",
+      "typeLine": "Creature — Giant Warrior",
+      "oracleText": "Whenever this creature attacks alone, it gets +1/+1 and gains trample until end of turn.",
+      "flavorText": "\"One's plenty,\" observed the merrow. \"Way too plenty,\" agreed the boggart.",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Warren Mahy",
+      "imageId": "f459acfa-a9db-43c6-b0e9-ed66d772a335"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "mor",
+  "collectorNumber": "94",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -126660,6 +127264,23 @@ export const ENGINE_CARDS: CardData[] = [
   BALEFUL_FORCE,
   LUMINOUS_ANGEL,
   NOVICE_OCCULTIST,
+  ROGUE_KAVU,
+  LUMBERKNOT,
+  THRABEN_INSPECTOR,
+  NOVICE_INSPECTOR,
+  BYWAY_COURIER,
+  CLINQUANT_SKYMAGE,
+  DROWNYARD_EXPLORERS,
+  LORESCALE_COATL,
+  BURLFIST_OAK,
+  PRIMORDIAL_SAGE,
+  TRAIL_OF_EVIDENCE,
+  ONEIROPHAGE,
+  RECKLESS_OGRE,
+  SYR_VONDAM_THE_LUCENT,
+  COLD_CASE_CRACKER,
+  GRISTLE_GRINNER,
+  LUNK_ERRANT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
