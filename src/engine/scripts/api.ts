@@ -175,6 +175,14 @@ export interface CombatDef {
   /** `false` to stop `blocker` blocking `attacker`. */
   canBlock?(ctx: ScriptCtx, self: InstanceId, blocker: InstanceId, attacker: InstanceId): boolean;
   /**
+   * D341 - "can't attack or block alone": `false` when `candidate` may not be
+   * the ONLY creature in the declaration. Asked of a one-creature declaration
+   * by the attack handler and the block validator, after the pair checks; the
+   * prompt still lists the creature, since it may attack or block beside another.
+   */
+  canAttackAlone?(ctx: ScriptCtx, self: InstanceId, candidate: InstanceId): boolean;
+  canBlockAlone?(ctx: ScriptCtx, self: InstanceId, candidate: InstanceId): boolean;
+  /**
    * D335 - the first REQUIREMENT (CR 508.1d): "attacks each combat if able".
    * Asked only of a creature `canAttack` already admits; a true answer puts
    * it in `requiredAttackers`, and a declaration without it is refused.

@@ -212,7 +212,12 @@ export interface LookSpec {
 
 export interface NumericRestriction {
   readonly attr: 'manaValue' | 'power' | 'toughness';
-  readonly cmp: 'atMost' | 'atLeast';
+  /**
+   * D341 - Mentor's "with lesser power": `lessThanSource` / `greaterThanSource`
+   * compare against the SOURCE's own attribute, read at the choice; `value` is
+   * 0 and unused for those two.
+   */
+  readonly cmp: 'atMost' | 'atLeast' | 'lessThanSource' | 'greaterThanSource';
   readonly value: number;
 }
 

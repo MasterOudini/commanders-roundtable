@@ -96,6 +96,9 @@ export interface TargetingSource {
   readonly controller: PlayerId;
   /** CR 702.16b needs the SOURCE's colours, not the target's. */
   readonly colors: readonly ColorLetter[];
+  /** D341 - the source's own power and toughness, for "with lesser power" (Mentor); absent where no permanent is the source. */
+  readonly power?: number | null;
+  readonly toughness?: number | null;
 }
 
 /**
@@ -153,6 +156,8 @@ function alternativeAllows(a: TargetAlternative, c: TargetCandidate): boolean {
     if (actual === null) return false;
     if (a.numeric.cmp === 'atMost' && actual > a.numeric.value) return false;
     if (a.numeric.cmp === 'atLeast' && actual < a.numeric.value) return false;
+    // D341 - a comparison against the source needs the source, which a list alternative has not.
+    if (a.numeric.cmp === 'lessThanSource' || a.numeric.cmp === 'greaterThanSource') return false;
   }
   return true;
 }
@@ -255,6 +260,13 @@ export function specAdmits(spec: TargetSpec, src: TargetingSource, c: TargetCand
     if (actual === null) return false;
     if (spec.numeric.cmp === 'atMost' && actual > spec.numeric.value) return false;
     if (spec.numeric.cmp === 'atLeast' && actual < spec.numeric.value) return false;
+    // D341 - against the source's own attribute (Mentor): refused where the source has none to compare.
+    if (spec.numeric.cmp === 'lessThanSource' || spec.numeric.cmp === 'greaterThanSource') {
+      const own = spec.numeric.attr === 'toughness' ? src.toughness : src.power;
+      if (own === null || own === undefined) return false;
+      if (spec.numeric.cmp === 'lessThanSource' && !(actual < own)) return false;
+      if (spec.numeric.cmp === 'greaterThanSource' && !(actual > own)) return false;
+    }
   }
 
   return true;

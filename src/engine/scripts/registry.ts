@@ -7,6 +7,25 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { LU_XUN_SCHOLAR_GENERAL_SCRIPT } from './cards/luXunScholarGeneral';
+import { WOJEK_BODYGUARD_SCRIPT } from './cards/wojekBodyguard';
+import { JACKAL_FAMILIAR_SCRIPT } from './cards/jackalFamiliar';
+import { SUNHOME_STALWART_SCRIPT } from './cards/sunhomeStalwart';
+import { LOOTER_IL_KOR_SCRIPT } from './cards/looterIlKor';
+import { MOGG_FLUNKIES_SCRIPT } from './cards/moggFlunkies';
+import { NIV_MIZZET_DRACOGENIUS_SCRIPT } from './cards/nivMizzetDracogenius';
+import { EMBER_BEAST_SCRIPT } from './cards/emberBeast';
+import { HAMMER_DROPPER_SCRIPT } from './cards/hammerDropper';
+import { AMPHIBIOUS_KAVU_SCRIPT } from './cards/amphibiousKavu';
+import { BLADE_INSTRUCTOR_SCRIPT } from './cards/bladeInstructor';
+import { BARGING_SERGEANT_SCRIPT } from './cards/bargingSergeant';
+import { BOROS_CHALLENGER_SCRIPT } from './cards/borosChallenger';
+import { VEDALKEN_HERETIC_SCRIPT } from './cards/vedalkenHeretic';
+import { PARHELION_PATROL_SCRIPT } from './cards/parhelionPatrol';
+import { LOYAL_PEGASUS_SCRIPT } from './cards/loyalPegasus';
+import { BONDED_HORNCREST_SCRIPT } from './cards/bondedHorncrest';
+import { GHOST_HOUNDS_SCRIPT } from './cards/ghostHounds';
+import { SERRA_INQUISITORS_SCRIPT } from './cards/serraInquisitors';
 import { MARDU_HEART_PIERCER_SCRIPT } from './cards/marduHeartPiercer';
 import { STORM_FLEET_PYROMANCER_SCRIPT } from './cards/stormFleetPyromancer';
 import { KYTHEONS_IRREGULARS_SCRIPT } from './cards/kytheonsIrregulars';
@@ -4247,6 +4266,25 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  LU_XUN_SCHOLAR_GENERAL_SCRIPT,
+  WOJEK_BODYGUARD_SCRIPT,
+  JACKAL_FAMILIAR_SCRIPT,
+  SUNHOME_STALWART_SCRIPT,
+  LOOTER_IL_KOR_SCRIPT,
+  MOGG_FLUNKIES_SCRIPT,
+  NIV_MIZZET_DRACOGENIUS_SCRIPT,
+  EMBER_BEAST_SCRIPT,
+  HAMMER_DROPPER_SCRIPT,
+  AMPHIBIOUS_KAVU_SCRIPT,
+  BLADE_INSTRUCTOR_SCRIPT,
+  BARGING_SERGEANT_SCRIPT,
+  BOROS_CHALLENGER_SCRIPT,
+  VEDALKEN_HERETIC_SCRIPT,
+  PARHELION_PATROL_SCRIPT,
+  LOYAL_PEGASUS_SCRIPT,
+  BONDED_HORNCREST_SCRIPT,
+  GHOST_HOUNDS_SCRIPT,
+  SERRA_INQUISITORS_SCRIPT,
   MARDU_HEART_PIERCER_SCRIPT,
   STORM_FLEET_PYROMANCER_SCRIPT,
   KYTHEONS_IRREGULARS_SCRIPT,

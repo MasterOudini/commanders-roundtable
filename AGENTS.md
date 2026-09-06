@@ -10540,6 +10540,45 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D340): Unleash (10; an asked entry choice - the script-raised prompt seam - and a can't-block-with-a-counter def), Mentor (8; target attacking creature with lesser power - a relative numeric restriction), the other Threshold bodies (43), the any-colour mana line behind a priced or chooser cost (24), deals damage to a player / an opponent (4), blocks or becomes blocked by a colour or a type (4), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the counts outside the vocabulary (15), can't attack or block alone (5); then the script-raised prompt seam itself - the modal spells (276), the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split; the modal seam; the "another" split;
       the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4fz — THE SMALL SEAMS: Mentor's comparison against its own power, the
+      alone restriction, the any-damage twin defs and the blocked-by-a-colour
+      head; 19 cards land, 19 as generated rows (2026-09-06):**
+      **6,807 of 31,692 Commander-legal cards now execute completely, up
+      from 6,788 (+19).** `SHIPPED_SCRIPTS` 4,240; ledger
+      991 (no rows retired - none of the 19 was in the ledger; Goblin Banneret's Mentor stays out of the ledger too, refused by the row maker for its own test (a mentor of power 1 has no attacker of lesser power to aim at); measured: the REFUSED map's size). Fixtures 4,614 (4,474 by name + 133 tokens: the 19 rowed cards; no new token pins - the colour gifts (Thraben Standard Bearer, Coral Eel, Walking Corpse) and the Goblin were fixtures already). **Select pool
+      0.** Decisions in **D341**.
+      ⚠️ **Mentor's comparison** (`d341/apply-mentor-alone.cjs`): "with lesser
+      power" is a numeric restriction against the SOURCE — `NumericRestriction.cmp`
+      gains `lessThanSource` / `greaterThanSource`, `targetParse` reads the phrase,
+      `TargetingSource` carries the source's derived power and toughness
+      (`targetingSourceFor`), `specAdmits` compares. ⚠️ **Four more sources were
+      built bare and would each have refused the target the stacking check
+      admitted** — the trigger's answer, the staged answer, the resolution
+      re-check and the harness's own picker (the fuzz gate's answerer): all four
+      through the helper now, and the client's aim veil carries the view's derived
+      power. Test `mentor.test.ts`.
+      ⚠️ **The alone restriction:** `CombatDef.canAttackAlone?` / `canBlockAlone?`;
+      the attack handler and the block validator refuse a one-creature declaration
+      by name; the prompt still lists the creature. Test `alone.test.ts`.
+      ⚠️ **The generator** (`d341/make-gen31.cjs`): the any-damage heads as twin
+      defs (combat and noncombat damage are two events, D259), the
+      blocked-by-a-colour head with a gift per colour, Mentor read as a KEYWORD
+      line, the alone static as a combat kind, the block head's cleanup test at
+      turn five. Three ports: a generator scope fault, then turn four against five
+      and every Mentor refused, then 19 green.
+      Measured first: the D341 port's probe - D340's renamed - read 220 candidates after D340's rows landed (their first lines: etb tokens 100, equipped pumps 83, enters-with counters 72, activated self pumps 72, enchanted pumps 63, etb draws 48, the count CDA 48, activated self counters 40); the row maker took 19 (abilities 22) and refused 201 - 87 costs it cannot price, 27 lines that are neither an activated ability nor a library trigger, 19 effects outside its kinds, 18 leftover lines not among the printed lines, 15 counts outside the vocabulary, 8 ability-word activations, 6 trigger payloads that are not pumps, and a tail of one to four each. Of D340's measured seams: Mentor 8 measured, 7 landed (Goblin Banneret's power of 1 leaves no attacker of lesser power for the test); can't attack or block alone 5, plus Wojek Bodyguard beside its Mentor; deals damage to a player / an opponent 4; blocks or becomes blocked by a colour 3 (the fourth, a type predicate, is outside the vocabulary). NOT this decision: Unleash (10; an asked entry choice - the script-raised prompt seam - and a can't-block-with-a-counter def), Goblin Banneret's Mentor (a power-1 mentor needs a power-0 attacker in the test), the other Threshold bodies (43), the any-colour mana line behind a priced or chooser cost (24), blocks or becomes blocked by a TYPE (1), the enchantment-or-enchanted defender predicate (1), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the counts outside the vocabulary (15); then the script-raised prompt seam itself - the modal spells (276), the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split. Refused by name:
+      no rows retired - none of the 19 was in the ledger; Goblin Banneret's Mentor stays out of the ledger too, refused by the row maker for its own test (a mentor of power 1 has no attacker of lesser power to aim at); measured: the REFUSED map's size.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips and 19 generated rows in three ports - the first died in the generator (a scope fault in the block head's fire lines), the second landed 12 with three red (the block head's cleanup test read turn four, the fire turn) and refused every Mentor (the leftover is the bare keyword), the third landed 19 green once the source's power reached every check. The wave IS the landing: 19 rows - 7 with Mentor (Wojek Bodyguard, Sunhome Stalwart, Hammer Dropper, Blade Instructor, Barging Sergeant, Boros Challenger, Parhelion Patrol; Wojek Bodyguard also can't attack or block alone), 5 more that can't attack or block alone (Jackal Familiar, Mogg Flunkies, Ember Beast, Loyal Pegasus, Bonded Horncrest), 4 that read damage dealt to a player or an opponent, combat or not (Lu Xun, Scholar General; Looter il-Kor; Niv-Mizzet, Dracogenius; Vedalken Heretic) and 3 that read a block by a colour (Amphibious Kavu blue or black, Ghost Hounds white, Serra Inquisitors black). Tests: the two engine suites; one
+      generated suite per row.
+      Fixtures 4,614 · botPool artifact 366 / creature 3,939 / enchantment 345 / instant 947 / land 487 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1091, 1214, 2853, 4690, 6028] · batch.json
+      19 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,367 files, 21,841 passing / 11 skipped ·
+      500-seed gate, 6 shards, 588.5 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D341): Unleash (10; an asked entry choice - the script-raised prompt seam - and a can't-block-with-a-counter def), Goblin Banneret's Mentor (a power-1 mentor needs a power-0 attacker in the test), the other Threshold bodies (43), the any-colour mana line behind a priced or chooser cost (24), blocks or becomes blocked by a TYPE (1), the enchantment-or-enchanted defender predicate (1), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the counts outside the vocabulary (15); then the script-raised prompt seam itself - the modal spells (276), the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split; the modal seam; the "another" split;
+      the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

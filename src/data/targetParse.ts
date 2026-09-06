@@ -699,6 +699,23 @@ function readController(after: string, from: number): ControllerResult {
    * creature with power 4 or greater" — the app quoting a rule the card does not
    * have.
    */
+  // D341 - "with lesser power" / "with greater toughness" (Mentor): a comparison
+  // against the SOURCE, which the check reads off the targeting source.
+  const rel = searchable.match(/^\s+with\s+(lesser|greater)\s+(power|toughness)\b/i);
+  if (rel) {
+    const attr = (rel[2] ?? '').toLowerCase() === 'toughness' ? 'toughness' : 'power';
+    const cmp = (rel[1] ?? '').toLowerCase() === 'lesser' ? 'lessThanSource' : 'greaterThanSource';
+    const consumed = from + (rel[0]?.length ?? 0);
+    const rest = readController(after, consumed);
+    return {
+      controller: rest.controller,
+      zones: rest.zones,
+      numeric: { attr, cmp, value: 0 },
+      keyword: rest.keyword,
+      end: rest.end,
+    };
+  }
+
   const num = searchable.match(
     /^\s+with\s+(mana value|converted mana cost|power|toughness)\s+(\d+)\s+or\s+(less|greater|more)\b/i,
   );

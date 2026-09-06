@@ -12,7 +12,7 @@ import { ingestOracle } from '../oracle';
 import { NO_SCRIPTS, type ScriptRegistry } from '../scripts/registryCore';
 import { ENGINE_CARDS } from '../../data/fixtures/engineCards';
 import type { CardData } from '../../data/cardTypes';
-import type { EngineDeps } from '../loop';
+import { targetingSourceFor, type EngineDeps } from '../loop';
 import type { SetupPlayer, SetupSpec } from '../setup';
 import type { InstanceId, PlayerId } from '../types/ids';
 import type { Intent } from '../types/intents';
@@ -303,7 +303,8 @@ function sourceOf(
   if (!card) return null;
   const oracleCard = ORACLE.byPrinting(card.printingId);
   if (!oracleCard) return null;
-  return { controller: awaiting.player, colors: faceOf(oracleCard, card.faceIndex).colors };
+  // D341 - the source's own power and toughness, for a clause that compares against them (Mentor).
+  return targetingSourceFor(state, deps(), awaiting.source, awaiting.player) ?? { controller: awaiting.player, colors: faceOf(oracleCard, card.faceIndex).colors };
 }
 
 /** An instance id no card can have, so the handler rejects it BY NAME. */

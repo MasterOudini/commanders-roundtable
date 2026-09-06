@@ -59,6 +59,14 @@ export function canAttack(deps: CombatDeps, id: InstanceId): boolean {
  * — every board the shipped app has, since `SHIPPED_REGISTRY` ships — allocates
  * nothing and the whole check is one array-length test.
  */
+/** D341 - "can't attack or block alone": may this creature not be the only one declared? */
+export function mustNotAttackAlone(deps: CombatDeps, id: InstanceId): boolean {
+  return restrictedBy(deps, (def, ctx, self) => def.canAttackAlone?.(ctx, self, id) === false);
+}
+export function mustNotBlockAlone(deps: CombatDeps, id: InstanceId): boolean {
+  return restrictedBy(deps, (def, ctx, self) => def.canBlockAlone?.(ctx, self, id) === false);
+}
+
 /**
  * D338 - CR 508.1c, the restrictions that read the DEFENDER ("can't attack
  * unless defending player controls an Island"). Asked of each attacker/
@@ -253,6 +261,12 @@ export function validateBlockDeclaration(
         detail: `${ac.name} has menace — block it with two creatures or none.`,
       };
     }
+  }
+  // D341 - "can't attack or block alone": the only blocker declared may not be one that needs company.
+  const blockers = [...new Set(blocks.map((b) => b.blocker))];
+  const lone = blockers.length === 1 ? blockers[0] : undefined;
+  if (lone !== undefined && mustNotBlockAlone(deps, lone)) {
+    return { ok: false, reason: 'illegalBlock', detail: `${d(deps, lone).name} can't block alone.` };
   }
   return { ok: true };
 }

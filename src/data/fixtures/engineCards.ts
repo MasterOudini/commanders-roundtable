@@ -4480,6 +4480,25 @@ export const KNIGHT_OF_THE_PILGRIM_S_ROAD: CardData = F.KNIGHT_OF_THE_PILGRIM_S_
 export const FIRE_NATION_RAIDER: CardData = F.FIRE_NATION_RAIDER as CardData;
 export const PHARIKA_S_DISCIPLE: CardData = F.PHARIKA_S_DISCIPLE as CardData;
 export const STORM_FLEET_SPY: CardData = F.STORM_FLEET_SPY as CardData;
+export const LU_XUN_SCHOLAR_GENERAL: CardData = F.LU_XUN_SCHOLAR_GENERAL as CardData;
+export const WOJEK_BODYGUARD: CardData = F.WOJEK_BODYGUARD as CardData;
+export const JACKAL_FAMILIAR: CardData = F.JACKAL_FAMILIAR as CardData;
+export const SUNHOME_STALWART: CardData = F.SUNHOME_STALWART as CardData;
+export const LOOTER_IL_KOR: CardData = F.LOOTER_IL_KOR as CardData;
+export const MOGG_FLUNKIES: CardData = F.MOGG_FLUNKIES as CardData;
+export const NIV_MIZZET_DRACOGENIUS: CardData = F.NIV_MIZZET_DRACOGENIUS as CardData;
+export const EMBER_BEAST: CardData = F.EMBER_BEAST as CardData;
+export const HAMMER_DROPPER: CardData = F.HAMMER_DROPPER as CardData;
+export const AMPHIBIOUS_KAVU: CardData = F.AMPHIBIOUS_KAVU as CardData;
+export const BLADE_INSTRUCTOR: CardData = F.BLADE_INSTRUCTOR as CardData;
+export const BARGING_SERGEANT: CardData = F.BARGING_SERGEANT as CardData;
+export const BOROS_CHALLENGER: CardData = F.BOROS_CHALLENGER as CardData;
+export const VEDALKEN_HERETIC: CardData = F.VEDALKEN_HERETIC as CardData;
+export const PARHELION_PATROL: CardData = F.PARHELION_PATROL as CardData;
+export const LOYAL_PEGASUS: CardData = F.LOYAL_PEGASUS as CardData;
+export const BONDED_HORNCREST: CardData = F.BONDED_HORNCREST as CardData;
+export const GHOST_HOUNDS: CardData = F.GHOST_HOUNDS as CardData;
+export const SERRA_INQUISITORS: CardData = F.SERRA_INQUISITORS as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -9078,6 +9097,25 @@ export const ENGINE_CARDS: CardData[] = [
   FIRE_NATION_RAIDER,
   PHARIKA_S_DISCIPLE,
   STORM_FLEET_SPY,
+  LU_XUN_SCHOLAR_GENERAL,
+  WOJEK_BODYGUARD,
+  JACKAL_FAMILIAR,
+  SUNHOME_STALWART,
+  LOOTER_IL_KOR,
+  MOGG_FLUNKIES,
+  NIV_MIZZET_DRACOGENIUS,
+  EMBER_BEAST,
+  HAMMER_DROPPER,
+  AMPHIBIOUS_KAVU,
+  BLADE_INSTRUCTOR,
+  BARGING_SERGEANT,
+  BOROS_CHALLENGER,
+  VEDALKEN_HERETIC,
+  PARHELION_PATROL,
+  LOYAL_PEGASUS,
+  BONDED_HORNCREST,
+  GHOST_HOUNDS,
+  SERRA_INQUISITORS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

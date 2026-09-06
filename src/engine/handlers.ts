@@ -12,6 +12,7 @@ import {
   needsFirstStrikeSubstep,
   canAttack,
   canAttackDefender,
+  mustNotAttackAlone,
   requiredAttackers,
   validateBlockDeclaration,
 } from './combat';
@@ -37,7 +38,7 @@ import { n, narrated, their, vb, who } from './narrate';
 import { drawEvents } from './effects';
 import { apply } from './reducer';
 import { bottomCountFor, drawFromTop } from './setup';
-import { resolveAbility, stackPendingTriggers, type EngineDeps } from './loop';
+import { resolveAbility, stackPendingTriggers, targetingSourceFor, type EngineDeps } from './loop';
 import type { CardMove, EventBody } from './types/events';
 import type { AbilityRef, InstanceId, PlayerId, StackId, ZoneRef } from './types/ids';
 import type { TargetSpec } from './types/oracle';
@@ -981,7 +982,8 @@ function chooseTriggerTargets(
 
   const verdict = validateTargets(
     awaiting.specs,
-    { controller: intent.player, colors: face.colors },
+    // D341 - the source's own power and toughness, for a clause that compares against them (Mentor).
+    targetingSourceFor(state, deps, awaiting.source, intent.player) ?? { controller: intent.player, colors: face.colors },
     awaiting.label,
     intent.targets,
     candidatesFromState(state, deps),
@@ -1027,7 +1029,8 @@ function chooseTargets(
     ? face.activated[abilityIndexOf(pending.abilityRef)]?.targets ?? []
     : face.targets;
 
-  const src = { controller: intent.player, colors: face.colors };
+  // D341 - a staged ability's source carries its power and toughness; a spell on the stack has none.
+  const src = targetingSourceFor(state, deps, pending.card, intent.player) ?? { controller: intent.player, colors: face.colors };
   const verdict = validateTargets(
     specs,
     src,
@@ -1709,6 +1712,12 @@ function declareAttackers(
       const name = derive(state, deps.oracle, deps.scripts, a.card, cache).name || 'That creature';
       return reject('illegalAttacker', `${name} can't attack that defender.`);
     }
+  }
+  // D341 - "can't attack or block alone": the only attacker declared may not be one that needs company.
+  const lone = intent.attackers.length === 1 ? intent.attackers[0] : undefined;
+  if (lone && mustNotAttackAlone(cdeps, lone.card)) {
+    const name = derive(state, deps.oracle, deps.scripts, lone.card, cache).name || 'That creature';
+    return reject('illegalAttacker', `${name} can't attack alone.`);
   }
   // D335 - CR 508.1d: a creature that attacks each combat if able, and can,
   // must be in the declaration. Recomputed here rather than read off the

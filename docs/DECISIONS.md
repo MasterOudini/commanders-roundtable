@@ -22956,3 +22956,95 @@ Fixtures 4,595 · botPool artifact 366 / creature 3,920 / enchantment 345 / inst
 **Reportables** (D340): Unleash (10; an asked entry choice - the script-raised prompt seam - and a can't-block-with-a-counter def), Mentor (8; target attacking creature with lesser power - a relative numeric restriction), the other Threshold bodies (43), the any-colour mana line behind a priced or chooser cost (24), deals damage to a player / an opponent (4), blocks or becomes blocked by a colour or a type (4), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the counts outside the vocabulary (15), can't attack or block alone (5); then the script-raised prompt seam itself - the modal spells (276), the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split; the modal seam; the "another" split; the
 by-name sacrifice cost; the remaining cost verbs; the prompt continuation
 seam; prior items stand.
+
+## D341 — M6.4fz: THE SMALL SEAMS — Mentor's comparison against its own power, the alone restriction, the any-damage twin defs and the blocked-by-a-colour head; 19 cards land, 19 as generated rows (2026-09-06)
+
+**6,807 of 31,692 Commander-legal cards execute completely, up from
+6,788 (+19).** SHIPPED_SCRIPTS 4,221 → **4,240**;
+REFUSED ledger 991 → **991** (no rows retired - none of the 19 was in the ledger; Goblin Banneret's Mentor stays out of the ledger too, refused by the row maker for its own test (a mentor of power 1 has no attacker of lesser power to aim at); measured: the REFUSED map's size). Fixtures
+4,595 → 4,614 (4,474 by name + 133 tokens: the 19 rowed cards; no new token pins - the colour gifts (Thraben Standard Bearer, Coral Eel, Walking Corpse) and the Goblin were fixtures already). **Two small engine seams, and the
+source's power threaded through four bare sources the port found.** **Select
+pool 0 → 0.**
+
+**The gap, measured before it was built.** the D341 port's probe - D340's renamed - read 220 candidates after D340's rows landed (their first lines: etb tokens 100, equipped pumps 83, enters-with counters 72, activated self pumps 72, enchanted pumps 63, etb draws 48, the count CDA 48, activated self counters 40); the row maker took 19 (abilities 22) and refused 201 - 87 costs it cannot price, 27 lines that are neither an activated ability nor a library trigger, 19 effects outside its kinds, 18 leftover lines not among the printed lines, 15 counts outside the vocabulary, 8 ability-word activations, 6 trigger payloads that are not pumps, and a tail of one to four each. Of D340's measured seams: Mentor 8 measured, 7 landed (Goblin Banneret's power of 1 leaves no attacker of lesser power for the test); can't attack or block alone 5, plus Wojek Bodyguard beside its Mentor; deals damage to a player / an opponent 4; blocks or becomes blocked by a colour 3 (the fourth, a type predicate, is outside the vocabulary).
+
+**Mentor's comparison** (`d341/apply-mentor-alone.cjs`): "target attacking
+creature with lesser power" is a numeric restriction with no printed number —
+it compares against the SOURCE. `NumericRestriction.cmp` gains
+`lessThanSource` / `greaterThanSource`; `targetParse` reads "with lesser /
+greater power|toughness" ahead of the numeric block, recursing into the
+controller phrase the way D290 taught the keyword read; `TargetingSource`
+carries the source's DERIVED `power` and `toughness`, built once by
+`targetingSourceFor` (loop.ts) for a permanent on the battlefield and null
+otherwise; `specAdmits` compares, and refuses where the source has nothing to
+compare; a list alternative — which has no source at hand — refuses the
+relative forms outright.
+⚠️ **The port found FOUR more sources built bare** (`{ controller, colors }`),
+each of which would have refused the Goblin the stacking check (CR 603.3d) had
+just admitted: the trigger's answer (`chooseTriggerTargets`), the staged answer
+(`chooseTargets`, over `pending.card`), the resolution re-check
+(`targetsStillLegal` — a fizzle AFTER an accepted answer) and the harness's own
+`sourceOf`, which answers for the fuzz gate and would have cancelled a cast that
+does not exist on the first Mentor attack ("You are not casting anything"). All
+four go through the helper now (`d341/apply-mentor-source.cjs`,
+`apply-harness-source.cjs`), the bare literal as the fallback it always was;
+and the client's `legalTargetsFor` carries the view's DERIVED power for a source
+on the battlefield, so the aim veil agrees with the host. `mentor.test.ts`
+(Boros Challenger attacking beside a 1/1 Goblin and a 2/2 Bears): the
+equal-power Bears and the Cyclops at home are refused, the Goblin takes the
+counter, the game replays.
+
+**The alone restriction** ("~ can't attack or block alone"): a rule about the
+DECLARATION, not the creature. `CombatDef.canAttackAlone?` / `canBlockAlone?` —
+`false` when the candidate may not be the ONLY creature declared; `combat.ts`
+`mustNotAttackAlone` / `mustNotBlockAlone` over `restrictedBy`; the attack
+handler refuses a one-creature declaration by name (`illegalAttacker`, "can't
+attack alone") ahead of the D335 requirement check, `validateBlockDeclaration`
+a lone blocker (`illegalBlock`); the prompt still lists the creature and
+requires nothing of it. `alone.test.ts` (Mogg Flunkies): refused alone,
+accepted beside the Bears, and both halves of the block.
+
+**The generator** (`d341/make-gen31.cjs`, from D340's): the heads
+`dealsDamagePlayer` / `dealsDamageOpponent` as TWO defs on one printed line —
+the engine emits combat and noncombat damage as two events (D259's rule), so an
+"Any" twin watches `DamageDealt` beside `CombatDamageDealt`;
+`blocksOrBecomesBlockedBy` a colour, whose matcher reads the OTHER creature's
+derived colours and whose test puts a gift of that colour on the opponent's
+side (Thraben Standard Bearer white, Coral Eel blue, Walking Corpse black, the
+Cyclops red, Grizzly Bears green); Mentor as a KEYWORD line — the leftover
+reads "Mentor", so the row maker reads it at the keyword site as an attacks
+head whose payload is the keyword's own clause, the module's target spec
+parsed from that clause rather than the printed line, the Goblin put on p1's
+side to attack beside it, and a mentor of power 1 refused (no helper has lesser
+power); the alone static as a combat kind (`gen31-extras.cjs`: refused alone,
+accepted with the Bears); the block head's cleanup test reads turn five, as
+the shipped block heads do.
+⚠️ **Three ports:** the first died in the generator (the block head's fire
+lines read a helper that lives in the test-source scope — fixed in the
+generator's GENERATOR, never in the derived file); the second landed 12 with
+three red (a cleanup test at turn four against a fire on turn four) and refused
+every Mentor; the third landed 19 green once the source's power reached every
+check.
+
+- **Refused by name:** no rows retired - none of the 19 was in the ledger; Goblin Banneret's Mentor stays out of the ledger too, refused by the row maker for its own test (a mentor of power 1 has no attacker of lesser power to aim at); measured: the REFUSED map's size.
+- **Not this decision:** Unleash (10; an asked entry choice - the script-raised prompt seam - and a can't-block-with-a-counter def), Goblin Banneret's Mentor (a power-1 mentor needs a power-0 attacker in the test), the other Threshold bodies (43), the any-colour mana line behind a priced or chooser cost (24), blocks or becomes blocked by a TYPE (1), the enchantment-or-enchanted defender predicate (1), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the counts outside the vocabulary (15); then the script-raised prompt seam itself - the modal spells (276), the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split.
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** `mentor.test.ts` (1), `alone.test.ts` (3); one generated suite per
+row (19 suites), each ability in its own game.
+
+**Landed:** no auto flips and 19 generated rows in three ports - the first died in the generator (a scope fault in the block head's fire lines), the second landed 12 with three red (the block head's cleanup test read turn four, the fire turn) and refused every Mentor (the leftover is the bare keyword), the third landed 19 green once the source's power reached every check. The wave IS the landing: 19 rows - 7 with Mentor (Wojek Bodyguard, Sunhome Stalwart, Hammer Dropper, Blade Instructor, Barging Sergeant, Boros Challenger, Parhelion Patrol; Wojek Bodyguard also can't attack or block alone), 5 more that can't attack or block alone (Jackal Familiar, Mogg Flunkies, Ember Beast, Loyal Pegasus, Bonded Horncrest), 4 that read damage dealt to a player or an opponent, combat or not (Lu Xun, Scholar General; Looter il-Kor; Niv-Mizzet, Dracogenius; Vedalken Heretic) and 3 that read a block by a colour (Amphibious Kavu blue or black, Ghost Hounds white, Serra Inquisitors black).
+
+Fixtures 4,614 · botPool artifact 366 / creature 3,939 / enchantment 345 / instant 947 / land 487 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1091, 1214, 2853, 4690, 6028] · batch.json
+19 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,367 files, 21,841 passing / 11 skipped ·
+500-seed gate, 6 shards, 588.5 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D341): Unleash (10; an asked entry choice - the script-raised prompt seam - and a can't-block-with-a-counter def), Goblin Banneret's Mentor (a power-1 mentor needs a power-0 attacker in the test), the other Threshold bodies (43), the any-colour mana line behind a priced or chooser cost (24), blocks or becomes blocked by a TYPE (1), the enchantment-or-enchanted defender predicate (1), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the counts outside the vocabulary (15); then the script-raised prompt seam itself - the modal spells (276), the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split; the modal seam; the "another" split; the
+by-name sacrifice cost; the remaining cost verbs; the prompt continuation
+seam; prior items stand.

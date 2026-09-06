@@ -4995,6 +4995,29 @@ const WANTED = [
   "Pharika's Disciple",
   'Storm Fleet Spy',
   // D340 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D341 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D341 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D341 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Lu Xun, Scholar General',
+  'Wojek Bodyguard',
+  'Jackal Familiar',
+  'Sunhome Stalwart',
+  'Looter il-Kor',
+  'Mogg Flunkies',
+  'Niv-Mizzet, Dracogenius',
+  'Ember Beast',
+  'Hammer Dropper',
+  'Amphibious Kavu',
+  'Blade Instructor',
+  'Barging Sergeant',
+  'Boros Challenger',
+  'Vedalken Heretic',
+  'Parhelion Patrol',
+  'Loyal Pegasus',
+  'Bonded Horncrest',
+  'Ghost Hounds',
+  'Serra Inquisitors',
+  // D341 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -950,7 +950,7 @@ export function resolveAbility(
  * stack — a triggered ability has no card of its own (CR 113.7a), which is why
  * `StackObject.card` is null for one.
  */
-function targetingSourceFor(
+export function targetingSourceFor(
   state: GameState,
   deps: EngineDeps,
   source: InstanceId | null,
@@ -960,7 +960,9 @@ function targetingSourceFor(
   const card = state.cards[source];
   const printing = card ? deps.oracle.byPrinting(card.printingId) : undefined;
   if (!card || !printing) return null;
-  return { controller, colors: faceOf(printing, card.faceIndex).colors };
+  // D341 - the source's own power and toughness, for a clause that compares against it (Mentor).
+  const chars = card.zone.kind === 'battlefield' ? derive(state, deps.oracle, deps.scripts, source) : null;
+  return { controller, colors: faceOf(printing, card.faceIndex).colors, power: chars?.power ?? null, toughness: chars?.toughness ?? null };
 }
 
 function targetsStillLegal(
@@ -978,7 +980,9 @@ function targetsStillLegal(
   if (obj.targets.length === 0) return true;
   const specs = specsOverride ?? face?.targets ?? [];
   const candidates = candidatesFromState(state, deps);
-  const src = { controller: obj.controller, colors: face?.colors ?? [] };
+  // D341 - the source's own power and toughness ride the re-check too: Mentor's clause compares against them.
+  const own = targetingSourceFor(state, deps, obj.source ?? obj.card, obj.controller);
+  const src = { controller: obj.controller, colors: face?.colors ?? [], power: own?.power ?? null, toughness: own?.toughness ?? null };
   return obj.targets.some((target) => {
     const candidate = candidates.find(
       (c) => c.choice.kind === target.kind && c.choice.id === target.id,

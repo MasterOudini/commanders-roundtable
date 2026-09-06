@@ -509,7 +509,18 @@ export class ClientSession {
    */
   legalTargetsFor(specs: readonly TargetSpec[], sourceCard: InstanceId): TargetChoice[] {
     const face = this.faceFor(sourceCard);
-    const src = { controller: this.you, colors: face?.colors ?? [] };
+    // D341 - the source's own power and toughness, for a clause that compares
+    // against it ("with lesser power", Mentor). The view's numbers are the
+    // DERIVED ones, and only a permanent on the battlefield carries them - the
+    // host's rule (loop.ts), so the veil and the host agree on the same board.
+    const cv = this.view.cards[sourceCard];
+    const onBattlefield = this.view.seatOrder.some((p) => (this.view.zones[`bf:${p}`] ?? []).includes(sourceCard));
+    const src = {
+      controller: this.you,
+      colors: face?.colors ?? [],
+      power: onBattlefield ? (cv?.power ?? null) : null,
+      toughness: onBattlefield ? (cv?.toughness ?? null) : null,
+    };
     const candidates = this.candidatesFromView();
     const seen = new Set<string>();
     const out: TargetChoice[] = [];
