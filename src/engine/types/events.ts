@@ -375,6 +375,8 @@ export type EventBody =
   // D330 - CR 701.19: a regeneration shield put on a permanent, and one spent.
   | { readonly t: 'RegenerationShieldAdded'; readonly card: InstanceId }
   | { readonly t: 'Regenerated'; readonly card: InstanceId }
+  // D340 - CR 702.112: a creature became renowned.
+  | { readonly t: 'BecameRenowned'; readonly card: InstanceId }
 
   // ── non-combat effects ───────────────────────────────────────────────────
   /**

@@ -7,6 +7,24 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { MARDU_HEART_PIERCER_SCRIPT } from './cards/marduHeartPiercer';
+import { STORM_FLEET_PYROMANCER_SCRIPT } from './cards/stormFleetPyromancer';
+import { KYTHEONS_IRREGULARS_SCRIPT } from './cards/kytheonsIrregulars';
+import { MARDU_HORDECHIEF_SCRIPT } from './cards/marduHordechief';
+import { UNDERCITY_TROLL_SCRIPT } from './cards/undercityTroll';
+import { AKROAN_SERGEANT_SCRIPT } from './cards/akroanSergeant';
+import { WAR_ORACLE_SCRIPT } from './cards/warOracle';
+import { TOPAN_FREEBLADE_SCRIPT } from './cards/topanFreeblade';
+import { STALWART_AVEN_SCRIPT } from './cards/stalwartAven';
+import { FIREFIEND_ELEMENTAL_SCRIPT } from './cards/firefiendElemental';
+import { SKYSHIP_BUCCANEER_SCRIPT } from './cards/skyshipBuccaneer';
+import { RHOX_MAULERS_SCRIPT } from './cards/rhoxMaulers';
+import { GOREHORN_RAIDER_SCRIPT } from './cards/gorehornRaider';
+import { CITADEL_CASTELLAN_SCRIPT } from './cards/citadelCastellan';
+import { KNIGHT_OF_THE_PILGRIMS_ROAD_SCRIPT } from './cards/knightOfThePilgrimsRoad';
+import { FIRE_NATION_RAIDER_SCRIPT } from './cards/fireNationRaider';
+import { PHARIKAS_DISCIPLE_SCRIPT } from './cards/pharikasDisciple';
+import { STORM_FLEET_SPY_SCRIPT } from './cards/stormFleetSpy';
 import { SPRINGING_TIGER_SCRIPT } from './cards/springingTiger';
 import { WEREBEAR_SCRIPT } from './cards/werebear';
 import { CABAL_INITIATE_SCRIPT } from './cards/cabalInitiate';
@@ -4229,6 +4247,24 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MARDU_HEART_PIERCER_SCRIPT,
+  STORM_FLEET_PYROMANCER_SCRIPT,
+  KYTHEONS_IRREGULARS_SCRIPT,
+  MARDU_HORDECHIEF_SCRIPT,
+  UNDERCITY_TROLL_SCRIPT,
+  AKROAN_SERGEANT_SCRIPT,
+  WAR_ORACLE_SCRIPT,
+  TOPAN_FREEBLADE_SCRIPT,
+  STALWART_AVEN_SCRIPT,
+  FIREFIEND_ELEMENTAL_SCRIPT,
+  SKYSHIP_BUCCANEER_SCRIPT,
+  RHOX_MAULERS_SCRIPT,
+  GOREHORN_RAIDER_SCRIPT,
+  CITADEL_CASTELLAN_SCRIPT,
+  KNIGHT_OF_THE_PILGRIMS_ROAD_SCRIPT,
+  FIRE_NATION_RAIDER_SCRIPT,
+  PHARIKAS_DISCIPLE_SCRIPT,
+  STORM_FLEET_SPY_SCRIPT,
   SPRINGING_TIGER_SCRIPT,
   WEREBEAR_SCRIPT,
   CABAL_INITIATE_SCRIPT,

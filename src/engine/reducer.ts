@@ -173,6 +173,7 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     attachments: [],
     summonedOnTurn: null,
     phasedOut: false,
+    renowned: false,
     controller: owner,
     ptOverride: null,
     typeOverride: null,
@@ -270,6 +271,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
           activations: {},
           spellsCast: {},
           cardsDrawn: {},
+          attacked: false,
         },
         priority: {
           player: null,
@@ -649,6 +651,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
           activations: {},
           spellsCast: {},
           cardsDrawn: {},
+          attacked: false,
         },
         priority: { ...state.priority, passedSinceLastAction: [], player: null },
       };
@@ -816,6 +819,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'AttackersDeclared':
       return {
         ...state,
+        // D340 - Raid: the turn remembers that the active player attacked.
+        turn: body.attackers.length > 0 ? { ...state.turn, attacked: true } : state.turn,
         combat: {
           attackers: body.attackers.map((a) => ({
             card: a.card,
@@ -968,6 +973,11 @@ function applyBody(state: GameState, body: EventBody): GameState {
 
     // D330 - CR 701.19: a regeneration shield on the permanent, spent by the
     // next destruction this turn.
+    case 'BecameRenowned': {
+      const card = state.cards[body.card];
+      if (!card) return state;
+      return { ...state, cards: { ...state.cards, [body.card]: { ...card, renowned: true } } };
+    }
     case 'RegenerationShieldAdded':
       return {
         ...state,
@@ -1028,6 +1038,7 @@ function newInstance(
     summonedOnTurn: null,
     isCommander,
     isToken: false,
+    renowned: false,
     commanderCastCount: 0,
     ptOverride: null,
     typeOverride: null,

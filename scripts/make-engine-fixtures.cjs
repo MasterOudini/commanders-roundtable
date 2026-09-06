@@ -4975,6 +4975,26 @@ const WANTED = [
   'Metamorphic Wurm',
   'Mystic Penitent',
   // D339 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D340 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Mardu Heart-Piercer',
+  'Storm Fleet Pyromancer',
+  "Kytheon's Irregulars",
+  'Mardu Hordechief',
+  'Undercity Troll',
+  'Akroan Sergeant',
+  'War Oracle',
+  'Topan Freeblade',
+  'Stalwart Aven',
+  'Firefiend Elemental',
+  'Skyship Buccaneer',
+  'Rhox Maulers',
+  'Gorehorn Raider',
+  'Citadel Castellan',
+  "Knight of the Pilgrim's Road",
+  'Fire Nation Raider',
+  "Pharika's Disciple",
+  'Storm Fleet Spy',
+  // D340 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -5219,6 +5239,8 @@ const WANTED_TOKENS = [
   { name: 'Rat', set: 'ttdc', cn: '9', key: 'RAT_1_1_B_CREATURE_TOKEN' },
   // D339 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Squirrel', set: 'tunf', cn: '8', key: 'SQUIRREL_1_1_G_CREATURE_TOKEN' },
+  // D340 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Warrior', set: 'l14', cn: '4', key: 'WARRIOR_1_1_W_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

@@ -22902,3 +22902,57 @@ Fixtures 4,576 · botPool artifact 366 / creature 3,902 / enchantment 345 / inst
 **Reportables** (D339): Renown (11 whole; a renowned flag on the instance), Unleash (10; an asked entry choice and a can't-block-with-a-counter def), Raid's enters head (7; an attacked-this-turn turn memory), Mentor (8; target attacking creature with lesser power), the other Threshold bodies (43), the any-colour mana line behind a priced or chooser cost (24), deals damage to a player / an opponent (4), blocks or becomes blocked by a colour or a type (4), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the counts outside the vocabulary (15), can't attack or block alone (5); then the quoted abilities enchanted creatures and lands have (60 + 34 first blockers), Enchant player (42), the look at the top card of your library (38), the modal seam (276), the another split; the modal seam; the "another" split; the
 by-name sacrifice cost; the remaining cost verbs; the prompt continuation
 seam; prior items stand.
+
+## D340 — M6.4fy: RENOWN AND RAID — a renowned flag on the instance (CR 702.112) and an attacked-this-turn memory on the turn, each read by the row that names it; 18 cards land, 18 as generated rows (2026-09-06)
+
+**6,788 of 31,692 Commander-legal cards execute completely, up from
+6,770 (+18).** SHIPPED_SCRIPTS 4,203 → **4,221**;
+REFUSED ledger 991 → **991** (no rows retired - none of the 18 was in the ledger; measured: the REFUSED map's size). Fixtures
+4,576 → 4,595 (4,455 by name + 133 tokens: the 18 rowed cards and one new token pin (the Warrior, for Mardu Hordechief's Raid payload)). **Two small engine seams.** **Select
+pool 0 → 0.**
+
+**The gap, measured before it was built.** measured by the D339 probe (d338/make-probe-d339.cjs), which recorded Renown N and Raid's enters head as their own kinds among 259 candidates: 11 whole Renown cards (Renown 1 nine, Renown 2 two) and 7 whole Raid cards (damage to a target 3, a token 2, a draw 2); the D340 port's probe - D339's renamed - read 238 candidates after D339's rows landed, and the row maker took 18. Unleash (10) and Mentor (8), measured beside them, wait on an asked entry choice and a relative target restriction.
+
+**Renown** (`d340/apply-renown-raid.cjs`): `CardInstance.renowned`, set by
+the new `BecameRenowned` event and cleared with the other battlefield fields
+when the permanent leaves. "When this creature deals combat damage to a
+player, if it isn't renowned, put N +1/+1 counters on it and it becomes
+renowned" is a combat-damage trigger row whose `matches` reads the flag (the
+intervening if) and whose resolve reads it again before putting the counters
+and marking it. `renown.test.ts` (Topan Freeblade): the first hit counts, the
+second does not, a bounced creature starts over, the flag rides the hash.
+
+**Raid**: `TurnState.attacked` — whether the active player declared one or
+more attackers this turn; set by `AttackersDeclared`, cleared by `TurnBegan`.
+"Raid — When this creature enters, if you attacked this turn, ..." is an
+enters head whose `matches` reads it; the test attacks with the Bears on
+turn 3 and moves the card in after combat. `raid.test.ts` (Storm Fleet Spy):
+before an attack nothing, after one the draw, and the memory does not carry
+into the next turn.
+
+**The generator** (`d340/make-gen30.cjs`, from D339's): the two heads, the
+renown kind with its once-only resolve, the attack-then-enter fire, the
+asserts (the counters, the flag, the power) and the descriptions.
+
+- **Refused by name:** no rows retired - none of the 18 was in the ledger; measured: the REFUSED map's size.
+- **Not this decision:** Unleash (10; an asked entry choice - the script-raised prompt seam - and a can't-block-with-a-counter def), Mentor (8; target attacking creature with lesser power - a relative numeric restriction), the other Threshold bodies (43), the any-colour mana line behind a priced or chooser cost (24), deals damage to a player / an opponent (4), blocks or becomes blocked by a colour or a type (4), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the counts outside the vocabulary (15), can't attack or block alone (5); then the script-raised prompt seam itself - the modal spells (276), the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split.
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** `renown.test.ts` (3), `raid.test.ts` (3); one generated suite per
+row (18 suites), each ability in its own game.
+
+**Landed:** no auto flips and 18 generated rows in one pass, all green. The wave IS the landing: 18 rows - 11 with Renown (Kytheon's Irregulars, Undercity Troll, Akroan Sergeant, War Oracle, Topan Freeblade, Stalwart Aven, Firefiend Elemental, Rhox Maulers, Citadel Castellan, Knight of the Pilgrim's Road, Pharika's Disciple) and 7 with Raid (Mardu Heart-Piercer, Storm Fleet Pyromancer, Mardu Hordechief, Skyship Buccaneer, Gorehorn Raider, Fire Nation Raider, Storm Fleet Spy).
+
+Fixtures 4,595 · botPool artifact 366 / creature 3,920 / enchantment 345 / instant 947 / land 487 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1091, 1217, 2862, 4699, 6037] · batch.json
+18 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,346 files, 21,755 passing / 11 skipped ·
+500-seed gate, 6 shards, 551.5 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D340): Unleash (10; an asked entry choice - the script-raised prompt seam - and a can't-block-with-a-counter def), Mentor (8; target attacking creature with lesser power - a relative numeric restriction), the other Threshold bodies (43), the any-colour mana line behind a priced or chooser cost (24), deals damage to a player / an opponent (4), blocks or becomes blocked by a colour or a type (4), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the counts outside the vocabulary (15), can't attack or block alone (5); then the script-raised prompt seam itself - the modal spells (276), the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split; the modal seam; the "another" split; the
+by-name sacrifice cost; the remaining cost verbs; the prompt continuation
+seam; prior items stand.

@@ -169,6 +169,8 @@ export interface CardInstance {
   readonly summonedOnTurn: number | null;
   readonly isCommander: boolean;
   readonly isToken: boolean;
+  /** D340 - Renown (CR 702.112): set by `BecameRenowned`, cleared with the other battlefield fields when it leaves. */
+  readonly renowned: boolean;
   /** CR 903.8. Survives zone changes, which is the whole point. */
   readonly commanderCastCount: number;
   /** Tier-3 manual override, applied at layer 7d. */
@@ -767,6 +769,8 @@ export interface TurnState {
   readonly spellsCast: Readonly<Record<PlayerId, number>>;
   /** D336 - the turn memory: cards each player has drawn this turn ("your second card each turn"); cleared by `TurnBegan`. */
   readonly cardsDrawn: Readonly<Record<PlayerId, number>>;
+  /** D340 - Raid: whether the active player declared one or more attackers this turn; cleared by `TurnBegan`. */
+  readonly attacked: boolean;
 }
 
 /** One rendered narration line. Mirrors `src/view/types.ts` `LogEntry`. */

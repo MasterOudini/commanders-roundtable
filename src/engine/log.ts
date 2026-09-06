@@ -109,6 +109,7 @@ export function emptyState(seed = 'unseeded'): GameState {
       activations: {},
       spellsCast: {},
       cardsDrawn: {},
+      attacked: false,
     },
     priority: {
       player: null,
