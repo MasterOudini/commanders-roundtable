@@ -19,6 +19,7 @@ import {
   canActAtSorcerySpeed,
   castableFaces,
   discardCandidatesFor,
+  exileFromGraveyardCandidatesFor,
   sacrificeCandidatesFor,
   tapCandidatesFor,
 } from './legal';
@@ -709,6 +710,10 @@ function activateAbility(
   if (ability.cycling !== undefined && (card.zone.kind !== 'hand' || card.zone.player !== intent.player)) {
     return reject('wrongZone', 'Cycling is activated from your hand.');
   }
+  // D329 - an ability priced by exiling the card from the graveyard is activated from there (CR 113.6).
+  if (ability.exileSelfFromGraveyard && (card.zone.kind !== 'graveyard' || card.zone.player !== intent.player)) {
+    return reject('wrongZone', `${face.name}'s ability is activated from your graveyard.`);
+  }
   // D328 - CR 602.5b: "Activate only once each turn" is refused the second
   // time this turn (`legal.ts` stops offering it the same way).
   if (ability.oncePerTurn && (state.turn.activations[`${intent.card}|${oracleCard.oracleId}#a${intent.abilityIndex}`] ?? 0) >= 1) {
@@ -776,6 +781,28 @@ function activateAbility(
     );
     if (!picks.every((c) => legalDiscards.includes(c))) {
       return reject('illegalDiscard', `Those cards cannot pay ${face.name}'s "${ability.costText}" cost.`);
+    }
+  }
+  // D329 - the EXILE-FROM-GRAVEYARD chooser: the def gate, then exactly
+  // `count` distinct graveyard cards, re-validated against the offered list.
+  if (ability.exileFromGraveyardCost) {
+    if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+      return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
+    }
+    const picks = intent.exileFromGraveyard ?? [];
+    const want = ability.exileFromGraveyardCost.count;
+    if (picks.length !== want) {
+      return reject('needsExileFromGraveyard', `${face.name}'s cost exiles ${want} card${want === 1 ? '' : 's'} from your graveyard — say which.`);
+    }
+    if (new Set(picks).size !== picks.length) return reject('noSuchCard', 'You named the same card twice.');
+    const legalExiles = exileFromGraveyardCandidatesFor(
+      state,
+      (cid: InstanceId) => derive(state, deps.oracle, deps.scripts, cid),
+      intent.player,
+      ability.exileFromGraveyardCost,
+    );
+    if (!picks.every((c) => legalExiles.includes(c))) {
+      return reject('illegalExileFromGraveyard', `Those cards cannot pay ${face.name}'s "${ability.costText}" cost.`);
     }
   }
   // ⚠️ The TAP chooser (D286): the same gate and the same re-validation,
@@ -860,11 +887,17 @@ function activateAbility(
     ...(ability.sacrificeCost && intent.sacrifice ? { sacrifice: intent.sacrifice } : {}),
     ...(ability.discardCost && intent.discard ? { discard: [...intent.discard] } : {}),
     ...(ability.tapCost && intent.tap ? { tap: [...intent.tap] } : {}),
+    ...(ability.exileFromGraveyardCost && intent.exileFromGraveyard ? { exileFromGraveyard: [...intent.exileFromGraveyard] } : {}),
     // An ability is a chit, not a card on the stack. See D155.
     faceIndex: 0,
     // ⚠️ Records where the permanent IS, and is never used to move it — an
     // ability leaves its source on the battlefield.
-    from: ability.cycling !== undefined ? { kind: 'hand', player: intent.player } : { kind: 'battlefield', player: intent.player },
+    from:
+      ability.exileSelfFromGraveyard
+        ? { kind: 'graveyard', player: intent.player }
+        : ability.cycling !== undefined
+          ? { kind: 'hand', player: intent.player }
+          : { kind: 'battlefield', player: intent.player },
     stackId,
     stage: needsTargets ? 'targets' : 'pay',
     kind: 'ability',
@@ -1341,6 +1374,45 @@ function finishAbility(
     events.push(
       narrated(
         n`${who(state, pending.player)} ${vb(pending.player, 'cycles', 'cycle')} ${face.name}.`,
+        pending.player,
+        identity,
+      ),
+    );
+  }
+  // D329 - "Exile this card from your graveyard" IS the cost (CR 113.6), paid
+  // in the cost batch: the source leaves the graveyard before anything can
+  // respond, and the effect resolves off a source in exile.
+  if (ability.exileSelfFromGraveyard) {
+    const src = state.cards[pending.card];
+    if (!src || src.zone.kind !== 'graveyard' || src.zone.player !== pending.player) {
+      return reject('noSuchCard', 'The card is no longer in your graveyard.');
+    }
+    events.push({
+      t: 'CardsMoved',
+      moves: [{ card: pending.card, from: { kind: 'graveyard', player: pending.player }, to: { kind: 'exile', player: src.owner } }],
+    });
+    events.push(
+      narrated(
+        n`${who(state, pending.player)} ${vb(pending.player, 'exiles', 'exile')} ${face.name} from the graveyard.`,
+        pending.player,
+        identity,
+      ),
+    );
+  }
+  // D329 - the CHOSEN graveyard exiles: one `CardsMoved` in the cost batch.
+  if (ability.exileFromGraveyardCost && pending.exileFromGraveyard && pending.exileFromGraveyard.length > 0) {
+    const moves: { card: InstanceId; from: { kind: 'graveyard'; player: PlayerId }; to: { kind: 'exile'; player: PlayerId } }[] = [];
+    for (const chosen of pending.exileFromGraveyard) {
+      const inst = state.cards[chosen];
+      if (!inst || inst.zone.kind !== 'graveyard' || inst.zone.player !== pending.player) {
+        return reject('noSuchCard', 'A card chosen for the exile is no longer in your graveyard.');
+      }
+      moves.push({ card: chosen, from: { kind: 'graveyard', player: pending.player }, to: { kind: 'exile', player: inst.owner } });
+    }
+    events.push({ t: 'CardsMoved', moves });
+    events.push(
+      narrated(
+        n`${who(state, pending.player)} ${vb(pending.player, 'exiles', 'exile')} ${moves.length} card${moves.length === 1 ? '' : 's'} from the graveyard.`,
         pending.player,
         identity,
       ),

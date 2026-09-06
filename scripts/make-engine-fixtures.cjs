@@ -4638,6 +4638,38 @@ const WANTED = [
   'Pardic Lancer',
   'Darkthicket Wolf',
   // D328 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D329 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Grim Lavamancer',
+  'Goldmeadow Nomad',
+  'Mines of Moria',
+  'Cabal Patriarch',
+  "Ghoulcaller's Accomplice",
+  'Soul of Zendikar',
+  'Kessig Wolfrider',
+  'Moorland Haunt',
+  'Great Arashin City',
+  'Halo Scarab',
+  'Unwilling Ingredient',
+  'Bearscape',
+  'Dauntless Cathar',
+  'Nearheath Chaplain',
+  'Stonerise Spirit',
+  'Suspicious Shambler',
+  'Stoic Grove-Guide',
+  'Soul of Theros',
+  'Psychatog',
+  'Vault Robber',
+  'Sanctifier of Souls',
+  'Sarcatog',
+  'Placid Rottentail',
+  'Bramble Wurm',
+  'Survivor of Korlis',
+  'Scarred Vinebreeder',
+  'Tome Shredder',
+  'Littjara Glade-Warden',
+  'Mother Bear',
+  'Soul Shepherd',
+  // D329 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -4873,6 +4905,10 @@ const WANTED_TOKENS = [
   { name: 'Elemental', set: 'tdd1', cn: 'T1', key: 'ELEMENTAL_7_7_G_CREATURE_TRAMPLE_TOKEN' },
   // D328 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Vampire Knight', set: 'tsoi', cn: '4', key: 'VAMPIRE_KNIGHT_1_1_B_CREATURE_LIFELINK_TOKEN' },
+  // D329 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Wolf', set: 'tvow', cn: '11', key: 'WOLF_3_2_R_CREATURE_TOKEN' },
+  { name: 'Spirit', set: 'ttdm', cn: '6', key: 'SPIRIT_1_1_W_CREATURE_TOKEN' },
+  { name: 'Elf', set: 'tecl', cn: '4', key: 'ELF_2_2_BG_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

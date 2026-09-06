@@ -96,6 +96,11 @@ export type Intent =
        * (D286) — exactly `count`, re-validated against `tapCandidatesFor`.
        */
       readonly tap?: readonly InstanceId[];
+      /**
+       * D329 - which graveyard cards pay an "Exile N ... from your graveyard"
+       * cost - exactly `count`, re-validated against `exileFromGraveyardCandidatesFor`.
+       */
+      readonly exileFromGraveyard?: readonly InstanceId[];
     }
   | { readonly t: 'ChooseTargets'; readonly player: PlayerId; readonly targets: readonly TargetChoice[] }
   | { readonly t: 'ChooseX'; readonly player: PlayerId; readonly x: number }
@@ -284,6 +289,8 @@ export type RejectReason =
   | 'illegalDiscard'
   | 'needsTap'
   | 'illegalTap'
+  | 'needsExileFromGraveyard'
+  | 'illegalExileFromGraveyard'
   | 'invalidPaymentPlan'
   | 'landDropUsed'
   | 'notALand'

@@ -120,7 +120,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Exile-N-cards-from-your-graveyard as a COST is a chooser over a public
   // zone nothing charges yet — the graveyard sibling of the sacrifice
   // chooser (D164).
-  ['Bearscape', 'exile-from-graveyard cost'],
   // "…discards a card AT RANDOM" as an EFFECT — `ctx.random` is a stub at
   // every ScriptCtx site (D158), so no random card may ship until it is
   // wired to the seeded generator (D164).
@@ -194,11 +193,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // candidate. Graveyard-activated: the ability itself lives in the
   // graveyard, and legal.ts offers battlefield abilities only.
   ['Granite Shard', 'alternative activation cost'],
-  ['Great Arashin City', 'exile-from-graveyard cost'],
-  ['Grim Lavamancer', 'exile-from-graveyard cost'],
   ['Hagi Mob', 'once-per-turn trigger memory'],
   ['Half-Elf Monk', 'ability-word activated cost'],
-  ['Halo Scarab', 'graveyard-activated ability'],
   // Batch 21 (D179): one existing class and THREE new ones. `Hardened
   // Tactician` pays with "a token" — predicatesOf models card types and
   // subtypes, and token-ness is neither (isToken lives on the INSTANCE), so
@@ -239,7 +235,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Keldon Arsonist', 'multi-sacrifice cost'],
   // Batch 25 (D184): five refusals, ZERO new classes — every one an
   // existing named gap, which is the ledger's drainage doing its job.
-  ['Kessig Wolfrider', 'exile-from-graveyard cost'],
   ['Korozda Gorgon', 'remove-counter cost'],
   ['Krark-Clan Engineers', 'multi-sacrifice cost'],
   // Batch 26 (D185): FOUR new classes. `Lullmage's Familiar` needs kicker
@@ -696,7 +691,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Mind Bomb', 'script-raised prompt'],
   ['Mind Grind', 'cast-permission condition'],
   ['Minds Aglow', 'script-raised prompt'],
-  ['Mines of Moria', 'exile-from-graveyard cost'],
   ['Mischievous Mystic', 'once-per-turn trigger memory'],
   ['Misinformation', 'up-to-N targeting'],
   ['Misleading Motes', 'script-raised prompt'],
@@ -708,7 +702,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Mnemonic Nexus', 'ctx.random'],
   ['Molder', 'spell target parse (numeric exact)'],
   ['Moonlace', 'color change (indefinite)'],
-  ['Moorland Haunt', 'exile-from-graveyard cost'],
   ['Morbius the Living Vampire', 'graveyard-activated ability'],
   ['Most Valuable Slayer', 'combat target qualifier unenforced'],
   // D227 — BOTH parse refusals are PROBED (d227\probe-out.json): Mystic
@@ -870,7 +863,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Soratami Rainshaper', 'return-permanent cost'],
   ['Soul Diviner', 'remove-counter cost'],
   ['Soul Sear', 'temporary keyword/ability grant'],
-  ['Soul Shepherd', 'exile-from-graveyard cost'],
   // D250 (M6.4cm)
   ['Soul Summons', 'face-down (morph family)'],
   ['Spawnbinder Mage', 'ability-word activated cost'],
@@ -899,7 +891,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Steward of Solidarity', 'exert cost'],
   ['Stifle', 'ability countering'],
   ['Stolen Goods', 'play-from-exile permission'],
-  ['Stonerise Spirit', 'exile-from-graveyard cost'],
   ['Stormchaser Drake', 'becomes-targeted trigger'],
   // D254 (M6.4cq) — Stream of Acid was PROBED: 'target land or nonblack
   // creature' HALVES to a confident bare 'target land', dropping the
@@ -927,7 +918,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sunfall', 'incubate mechanic'],
   ['Supernatural Stamina', 'quoted-ability temporary grant'],
   ['Suppress', 'delayed trigger'],
-  ['Survivor of Korlis', 'graveyard-activated ability'],
   ['Sway of the Stars', 'ctx.random stub'],
 
   // D256 (M6.4cs) — ⚠️ up-to-N takes THREE more here and is comfortably the
@@ -1122,7 +1112,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Urza's Ruinous Blast", 'cast-permission condition'],
   ['Usher of the Fallen', 'once-per-turn memory'],
   ['Vanguard Seraph', 'once-per-turn memory'],
-  ['Vault Robber', 'exile-from-graveyard cost'],
   ['Vega, the Watcher', 'cast-zone discriminator'],
   ['Vertigo', 'temporary keyword loss'],
   ['Vex', 'script-raised prompt'],
@@ -1286,8 +1275,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Blooming Blast', 'gift mechanic'],
   ['Bonfire of the Damned', 'miracle mechanic'],
   ['Brainspoil', 'transmute mechanic'],
-  ['Bramble Wurm', 'graveyard-activated ability'],
-  ['Cabal Patriarch', 'exile-from-graveyard cost'],
   ['Cat Collector', 'once-per-turn trigger memory'],
   ['Cave-In', 'cast-time alternative cost'],
   ['Cerulean Wisps', 'UEOT color change'],
@@ -1491,7 +1478,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Skyscribing', 'hand-activated ability'],
   ['Snakeform', 'until-end-of-turn type change with P/T set'],
   ['Snapback', 'cast-time alternative cost'],
-  ['Soul of Zendikar', 'graveyard-activated ability'],
   ['Soul Spike', 'cast-time alternative cost'],
   ['SP//dr, Piloted by Peni', 'modified predicate'],
   ['Spiritualize', 'temporary game-wide trigger'],
@@ -1709,9 +1695,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hailstorm Valkyrie', 'snow mana cost'],
   ['Chilling Shade', 'snow mana cost'],
   ['Duergar Mine-Captain', 'untap-symbol cost'],
-  ['Soul of Theros', 'graveyard-activated ability'],
   ['Nephalia Moondrakes', 'graveyard-activated ability'],
-  ['Scarred Vinebreeder', 'exile-from-graveyard cost'],
   ['Quillspike', 'remove-counter cost'],
   ['Rift Elemental', 'remove-counter cost'],
   ['Skophos Warleader', 'multi-type sacrifice cost'],
@@ -1745,12 +1729,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D302 (M6.4em) — the triggered one-shot pool: the heads outside the library,
   // the keywords outside the grantable map, the costs no row charges.
-  ['Sanctifier of Souls', 'cost no table row charges (Exile a creature card from your graveyar)'],
 
   // D303 (M6.4en) — the counter one-shot pool: the or-typed sacrifice costs,
   // an exile-from-graveyard cost, a conditional enters-tapped replacement.
   ['Malevolent Noble', 'cost no table row charges (Sacrifice an artifact or another creature)'],
-  ['Tome Shredder', 'cost no table row charges (Exile an instant or sorcery card from your grave)'],
 
   // D303 (M6.4en) — the counter one-shot pool: the heads outside the library,
   // the per-item counters on an entering object, the costs no row charges.

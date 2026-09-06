@@ -179,6 +179,8 @@ export function parseActivatedAbilities(
         sacrificesSelf: false,
         sacrificeCost: null,
         discardCost: null,
+        exileFromGraveyardCost: null,
+        exileSelfFromGraveyard: false,
         removeCounterCost: null,
         tapCost: null,
         unpaidCosts: equipCost === null ? [equip[1] ?? ''] : [],
@@ -212,6 +214,8 @@ export function parseActivatedAbilities(
         sacrificesSelf: false,
         sacrificeCost: null,
         discardCost: null,
+        exileFromGraveyardCost: null,
+        exileSelfFromGraveyard: false,
         removeCounterCost: null,
         tapCost: null,
         unpaidCosts: cyclingCost === null ? [cycling[1] ?? ''] : [],
@@ -245,6 +249,8 @@ export function parseActivatedAbilities(
         sacrificesSelf: false,
         sacrificeCost: null,
         discardCost: null,
+        exileFromGraveyardCost: null,
+        exileSelfFromGraveyard: false,
         removeCounterCost: null,
         tapCost: crewAny === null ? null : { count: 0, another: true, any: crewAny, powerAtLeast: power },
         unpaidCosts: crewAny === null ? [`Crew ${power}`] : [],
@@ -271,6 +277,8 @@ export function parseActivatedAbilities(
     let sacrificeCost: ActivatedAbility['sacrificeCost'] = null;
     let discardCost: ActivatedAbility['discardCost'] = null;
     let tapCost: ActivatedAbility['tapCost'] = null;
+    let exileFromGraveyardCost: ActivatedAbility['exileFromGraveyardCost'] = null;
+    let exileSelfFromGraveyard = false;
     let removeCounterCost: ActivatedAbility['removeCounterCost'] = null;
     let isLoyalty = false;
 
@@ -313,6 +321,33 @@ export function parseActivatedAbilities(
       // D321 - "Sacrifice this creature" on a newer printing, "Sacrifice Spectacular
       // Spider-Man" on an older one: the same deterministic price.
       const sacSelfAlt = selfName ? '|' + selfName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') : '';
+      // D329 - "Exile this card from your graveyard" (CR 113.6): the ability is
+      // activated from the graveyard, the card exiled as its cost - the same
+      // deterministic price on an older printing that names the card.
+      if (new RegExp('^exile (?:this card' + sacSelfAlt + ') from your graveyard$', 'i').test(part.trim())) {
+        exileSelfFromGraveyard = true;
+        continue;
+      }
+      // D329 - "Exile N <predicate> cards from your graveyard": a chooser over
+      // the graveyard, priced by letting the activation name the cards
+      // (`ActivateAbility.exileFromGraveyard`) - the discard chooser's shape.
+      const exg = /^exile (a|an|one|two|three|four) (.+) from your graveyard$/i.exec(part.trim());
+      if (exg && exileFromGraveyardCost === null) {
+        const count = COUNT_WORDS[(exg[1] ?? '').toLowerCase()] ?? 0;
+        const rest = (exg[2] ?? '').trim();
+        if (count > 0 && /^cards?$/i.test(rest)) {
+          exileFromGraveyardCost = { count, any: null };
+          continue;
+        }
+        const stripped = rest.replace(/\s+cards?$/i, '');
+        if (count > 0 && stripped !== rest) {
+          const any = predicatesOf(singularNoun(stripped, count > 1));
+          if (any !== null) {
+            exileFromGraveyardCost = { count, any };
+            continue;
+          }
+        }
+      }
       if (new RegExp('^sacrifice (?:this [a-z]+' + sacSelfAlt + ')$', 'i').test(part.trim())) {
         sacrificesSelf = true;
         continue;
@@ -435,6 +470,8 @@ export function parseActivatedAbilities(
       discardCost,
       tapCost,
       removeCounterCost,
+      exileFromGraveyardCost,
+      exileSelfFromGraveyard,
       unpaidCosts,
       payable,
       isManaAbility,

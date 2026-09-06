@@ -7,6 +7,36 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { GRIM_LAVAMANCER_SCRIPT } from './cards/grimLavamancer';
+import { GOLDMEADOW_NOMAD_SCRIPT } from './cards/goldmeadowNomad';
+import { MINES_OF_MORIA_SCRIPT } from './cards/minesOfMoria';
+import { CABAL_PATRIARCH_SCRIPT } from './cards/cabalPatriarch';
+import { GHOULCALLERS_ACCOMPLICE_SCRIPT } from './cards/ghoulcallersAccomplice';
+import { SOUL_OF_ZENDIKAR_SCRIPT } from './cards/soulOfZendikar';
+import { KESSIG_WOLFRIDER_SCRIPT } from './cards/kessigWolfrider';
+import { MOORLAND_HAUNT_SCRIPT } from './cards/moorlandHaunt';
+import { GREAT_ARASHIN_CITY_SCRIPT } from './cards/greatArashinCity';
+import { HALO_SCARAB_SCRIPT } from './cards/haloScarab';
+import { UNWILLING_INGREDIENT_SCRIPT } from './cards/unwillingIngredient';
+import { BEARSCAPE_SCRIPT } from './cards/bearscape';
+import { DAUNTLESS_CATHAR_SCRIPT } from './cards/dauntlessCathar';
+import { NEARHEATH_CHAPLAIN_SCRIPT } from './cards/nearheathChaplain';
+import { STONERISE_SPIRIT_SCRIPT } from './cards/stoneriseSpirit';
+import { SUSPICIOUS_SHAMBLER_SCRIPT } from './cards/suspiciousShambler';
+import { STOIC_GROVE_GUIDE_SCRIPT } from './cards/stoicGroveGuide';
+import { SOUL_OF_THEROS_SCRIPT } from './cards/soulOfTheros';
+import { PSYCHATOG_SCRIPT } from './cards/psychatog';
+import { VAULT_ROBBER_SCRIPT } from './cards/vaultRobber';
+import { SANCTIFIER_OF_SOULS_SCRIPT } from './cards/sanctifierOfSouls';
+import { SARCATOG_SCRIPT } from './cards/sarcatog';
+import { PLACID_ROTTENTAIL_SCRIPT } from './cards/placidRottentail';
+import { BRAMBLE_WURM_SCRIPT } from './cards/brambleWurm';
+import { SURVIVOR_OF_KORLIS_SCRIPT } from './cards/survivorOfKorlis';
+import { SCARRED_VINEBREEDER_SCRIPT } from './cards/scarredVinebreeder';
+import { TOME_SHREDDER_SCRIPT } from './cards/tomeShredder';
+import { LITTJARA_GLADE_WARDEN_SCRIPT } from './cards/littjaraGladeWarden';
+import { MOTHER_BEAR_SCRIPT } from './cards/motherBear';
+import { SOUL_SHEPHERD_SCRIPT } from './cards/soulShepherd';
 import { TWINBLADE_SLASHER_SCRIPT } from './cards/twinbladeSlasher';
 import { CALL_THE_BLOODLINE_SCRIPT } from './cards/callTheBloodline';
 import { GHOR_CLAN_BLOODSCALE_SCRIPT } from './cards/ghorClanBloodscale';
@@ -4012,6 +4042,36 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GRIM_LAVAMANCER_SCRIPT,
+  GOLDMEADOW_NOMAD_SCRIPT,
+  MINES_OF_MORIA_SCRIPT,
+  CABAL_PATRIARCH_SCRIPT,
+  GHOULCALLERS_ACCOMPLICE_SCRIPT,
+  SOUL_OF_ZENDIKAR_SCRIPT,
+  KESSIG_WOLFRIDER_SCRIPT,
+  MOORLAND_HAUNT_SCRIPT,
+  GREAT_ARASHIN_CITY_SCRIPT,
+  HALO_SCARAB_SCRIPT,
+  UNWILLING_INGREDIENT_SCRIPT,
+  BEARSCAPE_SCRIPT,
+  DAUNTLESS_CATHAR_SCRIPT,
+  NEARHEATH_CHAPLAIN_SCRIPT,
+  STONERISE_SPIRIT_SCRIPT,
+  SUSPICIOUS_SHAMBLER_SCRIPT,
+  STOIC_GROVE_GUIDE_SCRIPT,
+  SOUL_OF_THEROS_SCRIPT,
+  PSYCHATOG_SCRIPT,
+  VAULT_ROBBER_SCRIPT,
+  SANCTIFIER_OF_SOULS_SCRIPT,
+  SARCATOG_SCRIPT,
+  PLACID_ROTTENTAIL_SCRIPT,
+  BRAMBLE_WURM_SCRIPT,
+  SURVIVOR_OF_KORLIS_SCRIPT,
+  SCARRED_VINEBREEDER_SCRIPT,
+  TOME_SHREDDER_SCRIPT,
+  LITTJARA_GLADE_WARDEN_SCRIPT,
+  MOTHER_BEAR_SCRIPT,
+  SOUL_SHEPHERD_SCRIPT,
   TWINBLADE_SLASHER_SCRIPT,
   CALL_THE_BLOODLINE_SCRIPT,
   GHOR_CLAN_BLOODSCALE_SCRIPT,

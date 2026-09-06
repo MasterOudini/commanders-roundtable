@@ -143353,6 +143353,1053 @@ export const DARKTHICKET_WOLF: CardData = {
   "singleImage": true
 };
 
+export const GRIM_LAVAMANCER: CardData = {
+  "scryfallId": "00c1c7c9-ca58-465a-9001-05e1c7baa51a",
+  "oracleId": "37445e06-88a1-4e2e-a432-383736c9b977",
+  "name": "Grim Lavamancer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Grim Lavamancer",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Human Wizard",
+      "oracleText": "{R}, {T}, Exile two cards from your graveyard: This creature deals 2 damage to any target.",
+      "flavorText": "\"Fools dig for water, corpses, or gold. The earth's real treasure is far deeper.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Michael Sutfin",
+      "imageId": "00c1c7c9-ca58-465a-9001-05e1c7baa51a"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "g06",
+  "collectorNumber": "2",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOLDMEADOW_NOMAD: CardData = {
+  "scryfallId": "00ddbe6c-11de-4bc6-aabe-d6d8385a838a",
+  "oracleId": "79dfe2eb-82b9-4dae-95c8-58fdf9006bc7",
+  "name": "Goldmeadow Nomad",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goldmeadow Nomad",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Kithkin Scout",
+      "oracleText": "{W}, Exile this card from your graveyard: Create a 1/1 green and white Kithkin creature token. Activate only as a sorcery.",
+      "flavorText": "\"During my time on the road, the emptiness I felt after severing myself from the thoughtweft has faded with every story heard and every tale spread.\"",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Paolo Parente",
+      "imageId": "00ddbe6c-11de-4bc6-aabe-d6d8385a838a"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "ecl",
+  "collectorNumber": "18",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MINES_OF_MORIA: CardData = {
+  "scryfallId": "0be723d6-4ada-4c3f-b87b-8ab83a4bbb8f",
+  "oracleId": "583cdebe-0195-45be-bd2e-5765f07cb902",
+  "name": "Mines of Moria",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mines of Moria",
+      "manaCost": "",
+      "typeLine": "Legendary Land",
+      "oracleText": "Mines of Moria enters tapped unless you control a legendary creature.\n{T}: Add {R}.\n{3}{R}, {T}, Exile three cards from your graveyard: Create two Treasure tokens.",
+      "flavorText": "\"Moria! Moria! Wonder of the Northern world!\"\n—Glóin",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Arthur Yuan",
+      "imageId": "0be723d6-4ada-4c3f-b87b-8ab83a4bbb8f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "ltr",
+  "collectorNumber": "257",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CABAL_PATRIARCH: CardData = {
+  "scryfallId": "0d2f0da3-a13e-4a45-98dc-6227cf952a5e",
+  "oracleId": "70d1caee-1c35-4fa3-bbc3-a7dcc226be90",
+  "name": "Cabal Patriarch",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cabal Patriarch",
+      "manaCost": "{3}{B}{B}{B}",
+      "typeLine": "Legendary Creature — Human Wizard",
+      "oracleText": "{2}{B}, Sacrifice a creature: Target creature gets -2/-2 until end of turn.\n{2}{B}, Exile a creature card from your graveyard: Target creature gets -2/-2 until end of turn.",
+      "flavorText": null,
+      "power": "5",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "0d2f0da3-a13e-4a45-98dc-6227cf952a5e"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "120",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GHOULCALLER_S_ACCOMPLICE: CardData = {
+  "scryfallId": "0dadc9ea-fd6b-449e-82cc-ca7cab7da1ce",
+  "oracleId": "16616aa2-5490-4fab-9de4-f37ca8c8be08",
+  "name": "Ghoulcaller's Accomplice",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ghoulcaller's Accomplice",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Rogue",
+      "oracleText": "{3}{B}, Exile this card from your graveyard: Create a 2/2 black Zombie creature token. Activate only as a sorcery.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dave Kendall",
+      "imageId": "0dadc9ea-fd6b-449e-82cc-ca7cab7da1ce"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "sir",
+  "collectorNumber": "112",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOUL_OF_ZENDIKAR: CardData = {
+  "scryfallId": "108a4330-d9dd-429d-a2f8-c355ff914883",
+  "oracleId": "87217160-0687-4482-b9a3-91bad8527675",
+  "name": "Soul of Zendikar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soul of Zendikar",
+      "manaCost": "{4}{G}{G}",
+      "typeLine": "Creature — Avatar",
+      "oracleText": "Reach\n{3}{G}{G}: Create a 3/3 green Beast creature token.\n{3}{G}{G}, Exile this card from your graveyard: Create a 3/3 green Beast creature token.",
+      "flavorText": null,
+      "power": "6",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Eytan Zana",
+      "imageId": "108a4330-d9dd-429d-a2f8-c355ff914883"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Reach"
+  ],
+  "setCode": "c19",
+  "collectorNumber": "182",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KESSIG_WOLFRIDER: CardData = {
+  "scryfallId": "180b1a4f-c071-4742-9c57-9d775be0ed4f",
+  "oracleId": "d9c42e56-1818-4b73-9cd6-1c5aaf6a5b56",
+  "name": "Kessig Wolfrider",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kessig Wolfrider",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Human Knight",
+      "oracleText": "Menace\n{2}{R}, {T}, Exile three cards from your graveyard: Create a 3/2 red Wolf creature token.",
+      "flavorText": "\"It's a perfect partnership. My village is safe from wolf attacks, and she gets to eat any vampires we catch.\"",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Bram Sels",
+      "imageId": "180b1a4f-c071-4742-9c57-9d775be0ed4f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Menace"
+  ],
+  "setCode": "vow",
+  "collectorNumber": "165",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MOORLAND_HAUNT: CardData = {
+  "scryfallId": "1d5569e3-278c-4cf3-860e-712010333fe6",
+  "oracleId": "5324192b-6687-41e4-8e56-326b21a5dbf3",
+  "name": "Moorland Haunt",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Moorland Haunt",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{W}{U}, {T}, Exile a creature card from your graveyard: Create a 1/1 white Spirit creature token with flying.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "James Paick",
+      "imageId": "1d5569e3-278c-4cf3-860e-712010333fe6"
+    }
+  ],
+  "colorIdentity": [
+    "U",
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "isd",
+  "collectorNumber": "244",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GREAT_ARASHIN_CITY: CardData = {
+  "scryfallId": "25785fc0-0949-467c-9305-f4614567e601",
+  "oracleId": "f40f374b-acaf-459d-9ccd-b0b22d1a3f28",
+  "name": "Great Arashin City",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Great Arashin City",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "This land enters tapped unless you control a Forest or a Plains.\n{T}: Add {B}.\n{1}{B}, {T}, Exile a creature card from your graveyard: Create a 1/1 white Spirit creature token.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Josu Solano",
+      "imageId": "25785fc0-0949-467c-9305-f4614567e601"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "ptdm",
+  "collectorNumber": "257p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HALO_SCARAB: CardData = {
+  "scryfallId": "2eead159-b9a1-4c64-affe-c77b0a9e4775",
+  "oracleId": "1201c146-54af-4668-a544-cde3ece23f2e",
+  "name": "Halo Scarab",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Halo Scarab",
+      "manaCost": "{2}",
+      "typeLine": "Artifact Creature — Insect",
+      "oracleText": "{2}, Exile this card from your graveyard: Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "It pulses with the colors that best complement the wearer's outfit.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Khurrum",
+      "imageId": "2eead159-b9a1-4c64-affe-c77b0a9e4775"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 2,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "snc",
+  "collectorNumber": "239",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UNWILLING_INGREDIENT: CardData = {
+  "scryfallId": "30448144-639a-43c7-a408-bd6ed543c231",
+  "oracleId": "40d483fb-0dc7-413e-87f9-8d7cb7883fca",
+  "name": "Unwilling Ingredient",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Unwilling Ingredient",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Frog",
+      "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\n{2}{B}, Exile this card from your graveyard: You draw a card and you lose 1 life.",
+      "flavorText": "\"Don't look at me like that. It was either this or being eaten by a groff.\"\n—Dina, Witherbloom mage-student",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "David Auden Nash",
+      "imageId": "30448144-639a-43c7-a408-bd6ed543c231"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Menace"
+  ],
+  "setCode": "stx",
+  "collectorNumber": "90",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BEARSCAPE: CardData = {
+  "scryfallId": "3284b61a-bd95-4846-ad3f-903cd1158867",
+  "oracleId": "7e481e22-4122-4259-8978-4727eb307195",
+  "name": "Bearscape",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bearscape",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "{1}{G}, Exile two cards from your graveyard: Create a 2/2 green Bear creature token.",
+      "flavorText": "\"Nature is the endless dance between life and death.\"\n—Seton, centaur druid",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "3284b61a-bd95-4846-ad3f-903cd1158867"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "229",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DAUNTLESS_CATHAR: CardData = {
+  "scryfallId": "35f8d43a-a62a-433a-afd3-a3b16ba7cb10",
+  "oracleId": "c14bd133-ff17-48b3-a1c8-56c93d8c6e43",
+  "name": "Dauntless Cathar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dauntless Cathar",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{1}{W}, Exile this card from your graveyard: Create a 1/1 white Spirit creature token with flying. Activate only as a sorcery.",
+      "flavorText": "\"The harder they try to extinguish my faith, the brighter it burns in the darkness.\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "35f8d43a-a62a-433a-afd3-a3b16ba7cb10"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "inr",
+  "collectorNumber": "339",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NEARHEATH_CHAPLAIN: CardData = {
+  "scryfallId": "362ec364-39c1-4a4b-8dfa-268fad2effdd",
+  "oracleId": "16c587db-d07b-47ab-8b03-c3b2cc7144f5",
+  "name": "Nearheath Chaplain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Nearheath Chaplain",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "Lifelink\n{2}{W}, Exile this card from your graveyard: Create two 1/1 white Spirit creature tokens with flying. Activate only as a sorcery.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Zoltan Boros",
+      "imageId": "362ec364-39c1-4a4b-8dfa-268fad2effdd"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Lifelink"
+  ],
+  "setCode": "soi",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STONERISE_SPIRIT: CardData = {
+  "scryfallId": "388f2e45-570f-4a35-b205-37e1345b5d06",
+  "oracleId": "9fbab5bc-c651-46dc-89b6-0bcfeadb3891",
+  "name": "Stonerise Spirit",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stonerise Spirit",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Spirit Bird",
+      "oracleText": "Flying\n{4}, Exile a card from your graveyard: Target creature gains flying until end of turn.",
+      "flavorText": "The carved cliffs of Pillardrop thrum with the sounds of ancient spirits rising from the past.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Uriah Voth",
+      "imageId": "388f2e45-570f-4a35-b205-37e1345b5d06"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "stx",
+  "collectorNumber": "32",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUSPICIOUS_SHAMBLER: CardData = {
+  "scryfallId": "3d2c5345-eb55-4bca-9183-b4e1404405f8",
+  "oracleId": "ea6ee33f-0cba-4e96-817f-dc89c9064ead",
+  "name": "Suspicious Shambler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Suspicious Shambler",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "{4}{B}{B}, Exile this card from your graveyard: Create two 2/2 black Zombie creature tokens. Activate only as a sorcery.",
+      "flavorText": "It was the perfect disguise—at least until its stomach started moaning.",
+      "power": "4",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Javier Charro",
+      "imageId": "3d2c5345-eb55-4bca-9183-b4e1404405f8"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "fdn",
+  "collectorNumber": "527",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STOIC_GROVE_GUIDE: CardData = {
+  "scryfallId": "3d5a3e25-c17a-47b1-a36d-d24d50e5bab3",
+  "oracleId": "96c4b51c-8a10-428c-a948-e1ba9c652bfd",
+  "name": "Stoic Grove-Guide",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stoic Grove-Guide",
+      "manaCost": "{4}{B/G}",
+      "typeLine": "Creature — Elf Druid",
+      "oracleText": "{1}{B/G}, Exile this card from your graveyard: Create a 2/2 black and green Elf creature token. Activate only as a sorcery.",
+      "flavorText": "Safewrights stationed within the Creakwood do not fear Shadowmoor's encroaching dark. They embrace it.",
+      "power": "5",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Tran Nguyen",
+      "imageId": "3d5a3e25-c17a-47b1-a36d-d24d50e5bab3"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "ecl",
+  "collectorNumber": "243",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOUL_OF_THEROS: CardData = {
+  "scryfallId": "63e391d3-cf19-4f73-9d39-22587e0f3c0d",
+  "oracleId": "d820b920-191c-43e3-ba6a-4cdceab1c06d",
+  "name": "Soul of Theros",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soul of Theros",
+      "manaCost": "{4}{W}{W}",
+      "typeLine": "Creature — Avatar",
+      "oracleText": "Vigilance\n{4}{W}{W}: Creatures you control get +2/+2 and gain first strike and lifelink until end of turn.\n{4}{W}{W}, Exile this card from your graveyard: Creatures you control get +2/+2 and gain first strike and lifelink until end of turn.",
+      "flavorText": null,
+      "power": "6",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Zack Stella",
+      "imageId": "63e391d3-cf19-4f73-9d39-22587e0f3c0d"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "m15",
+  "collectorNumber": "34",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PSYCHATOG: CardData = {
+  "scryfallId": "6757bf0e-489f-4be2-9e41-463b59f00dd1",
+  "oracleId": "d7c4da85-d1a5-4a27-812d-65d8ee1494dd",
+  "name": "Psychatog",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Psychatog",
+      "manaCost": "{1}{U}{B}",
+      "typeLine": "Creature — Atog",
+      "oracleText": "Discard a card: This creature gets +1/+1 until end of turn.\nExile two cards from your graveyard: This creature gets +1/+1 until end of turn.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "U"
+      ],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "6757bf0e-489f-4be2-9e41-463b59f00dd1"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "292",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VAULT_ROBBER: CardData = {
+  "scryfallId": "74f68014-489d-4f51-a959-0f335541cb4e",
+  "oracleId": "68c90a32-d6ee-4595-8517-5f4cb0e4062d",
+  "name": "Vault Robber",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vault Robber",
+      "manaCost": "{1}{R}",
+      "typeLine": "Creature — Dwarf Rogue",
+      "oracleText": "{1}, {T}, Exile a creature card from your graveyard: Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "flavorText": "The dwarves believe works of art should be passed down the generations, not buried with the dead.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Slawomir Maniak",
+      "imageId": "74f68014-489d-4f51-a959-0f335541cb4e"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Treasure"
+  ],
+  "setCode": "khm",
+  "collectorNumber": "158",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SANCTIFIER_OF_SOULS: CardData = {
+  "scryfallId": "7515fb94-0e9b-4b0d-b3f2-6b48c023cdfc",
+  "oracleId": "806fc324-a17a-4e65-a9b6-d739c471c7f8",
+  "name": "Sanctifier of Souls",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sanctifier of Souls",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "Whenever another creature you control enters, this creature gets +1/+1 until end of turn.\n{2}{W}, Exile a creature card from your graveyard: Create a 1/1 white Spirit creature token with flying.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "David Palumbo",
+      "imageId": "7515fb94-0e9b-4b0d-b3f2-6b48c023cdfc"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "pemn",
+  "collectorNumber": "39",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SARCATOG: CardData = {
+  "scryfallId": "760a329c-e815-49d3-8df1-d052ce19b0c6",
+  "oracleId": "e5afc145-1fc3-4d87-b175-0dcd9a81ae7c",
+  "name": "Sarcatog",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sarcatog",
+      "manaCost": "{1}{B}{R}",
+      "typeLine": "Creature — Atog",
+      "oracleText": "Exile two cards from your graveyard: This creature gets +1/+1 until end of turn.\nSacrifice an artifact: This creature gets +1/+1 until end of turn.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "R"
+      ],
+      "artist": "Mark Brill",
+      "imageId": "760a329c-e815-49d3-8df1-d052ce19b0c6"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "ody",
+  "collectorNumber": "293",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PLACID_ROTTENTAIL: CardData = {
+  "scryfallId": "7a87c5d2-3ebc-442b-8618-963cfc63855f",
+  "oracleId": "502f8beb-0132-492f-bbfb-acf1ea532967",
+  "name": "Placid Rottentail",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Placid Rottentail",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Fungus Rabbit",
+      "oracleText": "Vigilance\n{2}{G}, Exile this card from your graveyard: Put two +1/+1 counters on target creature. Activate only as a sorcery.",
+      "flavorText": "It had always loved munching on daisies and crystalweed, but lately its favorite snacks were the strange, round roots popping up everywhere.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Filip Burburan",
+      "imageId": "7a87c5d2-3ebc-442b-8618-963cfc63855f"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "mom",
+  "collectorNumber": "199",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BRAMBLE_WURM: CardData = {
+  "scryfallId": "7ed00113-a0d7-4825-b066-f911a1ffb900",
+  "oracleId": "db4f67a9-6b47-4abe-9367-718da9e0609e",
+  "name": "Bramble Wurm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bramble Wurm",
+      "manaCost": "{6}{G}",
+      "typeLine": "Creature — Wurm",
+      "oracleText": "Reach, trample\nWhen this creature enters, you gain 5 life.\n{2}{G}, Exile this card from your graveyard: You gain 5 life.",
+      "flavorText": null,
+      "power": "7",
+      "toughness": "6",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Lars Grant-West",
+      "imageId": "7ed00113-a0d7-4825-b066-f911a1ffb900"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 7,
+  "keywords": [
+    "Reach",
+    "Trample"
+  ],
+  "setCode": "inr",
+  "collectorNumber": "187",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SURVIVOR_OF_KORLIS: CardData = {
+  "scryfallId": "817bcc8d-a5b7-448c-a3eb-825dc65944ec",
+  "oracleId": "ca7a25f4-c280-48b8-9e04-b15f4c13e569",
+  "name": "Survivor of Korlis",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Survivor of Korlis",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "First strike\n{1}{W}, Exile this card from your graveyard: Scry 2.",
+      "flavorText": "At first, the merchant state of Korlis saw no need to involve itself in the conflict between Yotia and the Fallaji. Mishra's dragon engines changed that.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Julia Metzger",
+      "imageId": "817bcc8d-a5b7-448c-a3eb-825dc65944ec"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "First strike",
+    "Scry"
+  ],
+  "setCode": "bro",
+  "collectorNumber": "28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCARRED_VINEBREEDER: CardData = {
+  "scryfallId": "a60c51c2-3a24-4376-850c-cebd4d75adca",
+  "oracleId": "759e454e-ee8c-4b0e-9503-26e4c0a2a8f9",
+  "name": "Scarred Vinebreeder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scarred Vinebreeder",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Elf Shaman",
+      "oracleText": "{2}{B}, Exile an Elf card from your graveyard: This creature gets +3/+3 until end of turn.",
+      "flavorText": "For disfigured elves, there are few choices beyond death or nettlevine.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Alex Horley-Orlandelli",
+      "imageId": "a60c51c2-3a24-4376-850c-cebd4d75adca"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "lrw",
+  "collectorNumber": "138",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TOME_SHREDDER: CardData = {
+  "scryfallId": "a7cc9ea8-db4e-4f41-800f-fb0dbcb2c345",
+  "oracleId": "b145952b-52e3-4a66-b47e-f08a489f9443",
+  "name": "Tome Shredder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tome Shredder",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Wolf",
+      "oracleText": "Haste\n{T}, Exile an instant or sorcery card from your graveyard: Put a +1/+1 counter on this creature.",
+      "flavorText": "\"Quintorius, would you care to explain why you didn't complete your homework?\"\n—Augusta, Lorehold dean",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Sam Rowan",
+      "imageId": "a7cc9ea8-db4e-4f41-800f-fb0dbcb2c345"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Haste"
+  ],
+  "setCode": "stx",
+  "collectorNumber": "117",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LITTJARA_GLADE_WARDEN: CardData = {
+  "scryfallId": "a92dde51-310e-4f28-bd3b-d43b639785ec",
+  "oracleId": "438a0a7a-00bc-4d93-8e69-a8a6084523c5",
+  "name": "Littjara Glade-Warden",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Littjara Glade-Warden",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Shapeshifter",
+      "oracleText": "Changeling (This card is every creature type.)\n{2}{G}, {T}, Exile a creature card from your graveyard: Put two +1/+1 counters on target creature. Activate only as a sorcery.",
+      "flavorText": "In every tree, a restless spirit.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Deruchenko Alexander",
+      "imageId": "a92dde51-310e-4f28-bd3b-d43b639785ec"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Changeling"
+  ],
+  "setCode": "khm",
+  "collectorNumber": "182",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MOTHER_BEAR: CardData = {
+  "scryfallId": "ce2c30dd-f28a-4400-b6ea-f26462e45afc",
+  "oracleId": "fe742976-ef13-4c25-972f-254b1ed436de",
+  "name": "Mother Bear",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mother Bear",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Bear",
+      "oracleText": "{3}{G}{G}, Exile this card from your graveyard: Create two 2/2 green Bear creature tokens. Activate only as a sorcery.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Winona Nelson",
+      "imageId": "ce2c30dd-f28a-4400-b6ea-f26462e45afc"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "j21",
+  "collectorNumber": "604",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SOUL_SHEPHERD: CardData = {
+  "scryfallId": "f45a39ba-5fbf-46c3-8dc7-3058ac6d24e8",
+  "oracleId": "78dbcc18-291c-4b2c-9576-f8dc93914936",
+  "name": "Soul Shepherd",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Soul Shepherd",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Human Cleric",
+      "oracleText": "{W}, Exile a creature card from your graveyard: You gain 1 life.",
+      "flavorText": "\"The sidar who raised me had a saying: 'The first step into death is the hardest.'\"\n—Gerrard of the *Weatherlight*",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "John Coulthart",
+      "imageId": "f45a39ba-5fbf-46c3-8dc7-3058ac6d24e8"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "wth",
+  "collectorNumber": "26",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -147657,6 +148704,107 @@ export const VAMPIRE_KNIGHT_1_1_B_CREATURE_LIFELINK_TOKEN: CardData = {
   "singleImage": true
 };
 
+export const WOLF_3_2_R_CREATURE_TOKEN: CardData = {
+  "scryfallId": "001cc57e-f3fc-4790-a9e5-171b2e3e8739",
+  "oracleId": "04139d92-67d3-4e3c-a97f-158f24115044",
+  "name": "Wolf",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Wolf",
+      "manaCost": "",
+      "typeLine": "Token Creature — Wolf",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Antonio José Manzanedo",
+      "imageId": "001cc57e-f3fc-4790-a9e5-171b2e3e8739"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tvow",
+  "collectorNumber": "11",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const SPIRIT_1_1_W_CREATURE_TOKEN: CardData = {
+  "scryfallId": "f22410b3-5c0b-4282-9b0b-5ba61229b6e7",
+  "oracleId": "d5cf6e2e-ff20-4efa-a722-9e12925e2052",
+  "name": "Spirit",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Spirit",
+      "manaCost": "",
+      "typeLine": "Token Creature — Spirit",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Julie Dillon",
+      "imageId": "f22410b3-5c0b-4282-9b0b-5ba61229b6e7"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "ttdm",
+  "collectorNumber": "6",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
+export const ELF_2_2_BG_CREATURE_TOKEN: CardData = {
+  "scryfallId": "39b36f22-21f9-44fe-8a49-bdc859503342",
+  "oracleId": "c52d1bba-36d5-4ecc-bea2-847285e0cb71",
+  "name": "Elf",
+  "layout": "token",
+  "faces": [
+    {
+      "name": "Elf",
+      "manaCost": "",
+      "typeLine": "Token Creature — Elf",
+      "oracleText": "",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Pete Venters",
+      "imageId": "39b36f22-21f9-44fe-8a49-bdc859503342"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "tecl",
+  "collectorNumber": "4",
+  "commanderLegality": "not_legal",
+  "singleImage": true
+};
+
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
   PLAINS,
@@ -151791,6 +152939,36 @@ export const ENGINE_CARDS: CardData[] = [
   WILD_AESTHIR,
   PARDIC_LANCER,
   DARKTHICKET_WOLF,
+  GRIM_LAVAMANCER,
+  GOLDMEADOW_NOMAD,
+  MINES_OF_MORIA,
+  CABAL_PATRIARCH,
+  GHOULCALLER_S_ACCOMPLICE,
+  SOUL_OF_ZENDIKAR,
+  KESSIG_WOLFRIDER,
+  MOORLAND_HAUNT,
+  GREAT_ARASHIN_CITY,
+  HALO_SCARAB,
+  UNWILLING_INGREDIENT,
+  BEARSCAPE,
+  DAUNTLESS_CATHAR,
+  NEARHEATH_CHAPLAIN,
+  STONERISE_SPIRIT,
+  SUSPICIOUS_SHAMBLER,
+  STOIC_GROVE_GUIDE,
+  SOUL_OF_THEROS,
+  PSYCHATOG,
+  VAULT_ROBBER,
+  SANCTIFIER_OF_SOULS,
+  SARCATOG,
+  PLACID_ROTTENTAIL,
+  BRAMBLE_WURM,
+  SURVIVOR_OF_KORLIS,
+  SCARRED_VINEBREEDER,
+  TOME_SHREDDER,
+  LITTJARA_GLADE_WARDEN,
+  MOTHER_BEAR,
+  SOUL_SHEPHERD,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -151917,4 +153095,7 @@ export const ENGINE_CARDS: CardData[] = [
   ELEMENTAL_8_8_GW_CREATURE_VIGILANCE_TOKEN,
   ELEMENTAL_7_7_G_CREATURE_TRAMPLE_TOKEN,
   VAMPIRE_KNIGHT_1_1_B_CREATURE_LIFELINK_TOKEN,
+  WOLF_3_2_R_CREATURE_TOKEN,
+  SPIRIT_1_1_W_CREATURE_TOKEN,
+  ELF_2_2_BG_CREATURE_TOKEN,
 ];

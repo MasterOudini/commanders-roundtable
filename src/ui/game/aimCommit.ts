@@ -108,7 +108,7 @@ export function onVeilPick(choice: TargetChoice): void {
       player: table.viewer,
       card: mode.card,
       abilityIndex: mode.abilityIndex,
-      ...(mode.verb === 'discard' ? { discard: chosen } : { tap: chosen }),
+      ...(mode.verb === 'discard' ? { discard: chosen } : mode.verb === 'tap' ? { tap: chosen } : { exileFromGraveyard: chosen }),
     });
     return;
   }
@@ -181,6 +181,7 @@ export function startActivation(
     readonly needsSacrifice: boolean;
     readonly needsDiscard?: number;
     readonly needsTap?: number;
+    readonly needsExileFromGraveyard?: number;
   },
 ): void {
   const table = useTable.getState();
@@ -194,15 +195,17 @@ export function startActivation(
   // picks alone and lets the host raise its targets prompt.
   const needsDiscard = ability.needsDiscard ?? 0;
   const needsTap = ability.needsTap ?? 0;
-  if (needsDiscard > 0 || needsTap > 0) {
-    const verb = needsDiscard > 0 ? 'discard' : 'tap';
+  // D329 - the third pick: the graveyard cards an "Exile N ... from your graveyard" cost takes.
+  const needsExileGy = ability.needsExileFromGraveyard ?? 0;
+  if (needsDiscard > 0 || needsTap > 0 || needsExileGy > 0) {
+    const verb = needsDiscard > 0 ? 'discard' : needsTap > 0 ? 'tap' : 'exileFromGraveyard';
     table.setMode({
       kind: 'costPick',
       card,
       abilityIndex: ability.abilityIndex,
       name: ability.name,
       verb,
-      count: verb === 'discard' ? needsDiscard : needsTap,
+      count: verb === 'discard' ? needsDiscard : verb === 'tap' ? needsTap : needsExileGy,
       chosen: [],
     });
     beginAimFrom(card);

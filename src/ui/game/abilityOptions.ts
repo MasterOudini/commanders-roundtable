@@ -36,6 +36,8 @@ export interface AbilityOption {
   readonly needsDiscard: number;
   /** A "Tap N untapped …" cost (D286): N, or 0 when the ability has none. */
   readonly needsTap: number;
+  /** D329 - an "Exile N ... from your graveyard" cost: N, or 0 when the ability has none. */
+  readonly needsExileFromGraveyard: number;
 }
 
 /**
@@ -63,6 +65,7 @@ export function abilityOptionsFor(legal: readonly LegalAction[], card: string): 
       needsSacrifice: (a.sacrificeCandidates?.length ?? 0) > 0,
       needsDiscard: a.discardCandidates && a.discardCount ? a.discardCount : 0,
       needsTap: a.tapCandidates && a.tapCount ? a.tapCount : 0,
+      needsExileFromGraveyard: a.exileFromGraveyardCandidates && a.exileFromGraveyardCount ? a.exileFromGraveyardCount : 0,
     });
   }
   return out.sort((x, y) => x.abilityIndex - y.abilityIndex);

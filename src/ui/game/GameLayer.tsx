@@ -78,7 +78,7 @@ export function GameLayer({
       );
       const pool =
         live?.t === 'ActivateAbility'
-          ? ((mode.verb === 'discard' ? live.discardCandidates : live.tapCandidates) ?? [])
+          ? ((mode.verb === 'discard' ? live.discardCandidates : mode.verb === 'tap' ? live.tapCandidates : live.exileFromGraveyardCandidates) ?? [])
           : [];
       setTargets(pool.filter((id) => !mode.chosen.includes(id)).map((id) => ({ kind: 'card' as const, id })));
       return;

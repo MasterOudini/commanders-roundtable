@@ -10148,6 +10148,42 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D328): the graveyard-exile costs (exile this card / a creature card / two or three cards from your graveyard - 28 lines; an activation from the graveyard the engine does not offer), snow mana ({S} - 9), remove a counter from another permanent (6), tap an untapped Gate or Desert (4), return a land you control (3), the counts outside the vocabulary (15); then can not be countered (11 whole cards), the monarch, attacks each combat if able, the modal seam (42), the another split; the modal seam; the "another" split;
       the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4fn — THE GRAVEYARD COSTS: the engine activates from the graveyard and
+      charges "exile N cards from your graveyard", and the rows that follow;
+      30 cards land, 30 as generated rows (2026-09-06):**
+      **6,474 of 31,692 Commander-legal cards now execute completely, up
+      from 6,444 (+30).** `SHIPPED_SCRIPTS` 3,921; ledger
+      998 (18 rows retired by name - the graveyard activations and the exile-from-graveyard choosers the ledger held for a cost the engine charges now (Grim Lavamancer, Cabal Patriarch, Moorland Haunt, Vault Robber, Soul of Zendikar among them); measured, as since D328: the REFUSED map's size). Fixtures 4,291 (4,155 by name + 129 tokens: the 30 rowed cards and three token pins (Kessig Wolfrider's 3/2 Wolf, Great Arashin City's 1/1 white Spirit, Stoic Grove-Guide's 2/2 Elf)). An ENGINE change
+      (two seams, one patch) and the wave behind them (30 generated
+      rows). **Select pool 0.** Decisions in **D329**.
+      ⚠️ **Measured first:** the leftover probe over the database after D328: 126 blocked single-face permanents whose every leftover line the grammar reads; the row maker took 30 and refused 96 - 68 for costs it still cannot price (snow mana 9, remove a +1/+1 counter from a creature you control 5, sacrifice a Desert 3, return a land you control 3, tap an untapped Gate 3, tap two untapped artifacts and/or creatures 3) and 15 for counts outside the vocabulary; the graveyard costs had been 31 of the 99 cost refusals D328 left.
+      ⚠️ **The seams:** `ActivatedAbility.exileSelfFromGraveyard` (CR 113.6 —
+      "Exile this card from your graveyard", or the printed name; `legalActions`
+      walks the activator's graveyard the way it walks the hand for cycling and
+      offers the ability when its def is registered; the handler requires the
+      card there, `PendingCast.from` says so, `finishAbility` exiles it in the
+      cost batch; the effect resolves off a source in exile) and
+      `ActivatedAbility.exileFromGraveyardCost` (count + predicate; the discard
+      chooser's shape over the graveyard: `exileFromGraveyardCandidates`/`…Count`
+      on the legal action, `ActivateAbility.exileFromGraveyard` on the intent,
+      re-validated and exiled at payment; the veil pick's third verb). The row
+      maker (`d329/make-rows19.cjs` + `gen-oneshot19.cjs`, from D328) puts a
+      graveyard-activated card in the graveyard before the baseline and reads it
+      in exile after (a payload that reads the card on the battlefield is
+      refused); puts the chooser's fixtures in the graveyard, names them, reads
+      them in exile; the graveyard counts subtract what the cost took. NOT this
+      decision: snow mana ({S} - 9; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5; a chooser over counters on OTHER permanents), sacrifice a Desert / tap an untapped Gate or Desert (7; subtypes the fixtures lack), return a land you control (3), tap two untapped artifacts and/or creatures (3; a mixed predicate), the counts outside the vocabulary (15); then can not be countered (11 whole cards), the monarch, attacks each combat if able, the modal seam (42), the another split. Refused by name: 18 rows retired by name - the graveyard activations and the exile-from-graveyard choosers the ledger held for a cost the engine charges now (Grim Lavamancer, Cabal Patriarch, Moorland Haunt, Vault Robber, Soul of Zendikar among them); measured, as since D328: the REFUSED map's size.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips and 30 generated rows in three passes - the first crashed in the generator (the exile fixture list was a local of the arm builder, not a parameter of the fire lines - fix-gen19-1), the second ran 30 suites with one red (Bramble Wurm: an enters row moves its card to the battlefield before the baseline for every OTHER ability, which took the graveyard activation out of the graveyard - fix-gen19-2), the third 30 green. The wave IS the landing: 30 rows - 14 graveyard activations (Goldmeadow Nomad, Ghoulcaller's Accomplice, Soul of Zendikar, Halo Scarab, Unwilling Ingredient, Dauntless Cathar, Nearheath Chaplain, Suspicious Shambler, Stoic Grove-Guide, Soul of Theros, Placid Rottentail, Bramble Wurm, Survivor of Korlis, Mother Bear) and 16 exile-from-graveyard choosers (Grim Lavamancer, Mines of Moria, Cabal Patriarch, Kessig Wolfrider, Moorland Haunt, Great Arashin City, Bearscape, Stonerise Spirit, Psychatog, Vault Robber, Sanctifier of Souls, Sarcatog, Scarred Vinebreeder, Tome Shredder, Littjara Glade-Warden, Soul Shepherd); 17 of the 41 abilities make tokens, then self pumps (5), target pumps (3), counters on a target (2), mass pumps (2), life (2), damage, a draw with life, a scry, a self counter. Merfolk Pupil stays refused: its graveyard payload loots, and the generated graveyard count would read the card it exiled. Tests: the parser test; one generated
+      suite per row.
+      Fixtures 4,291 · botPool artifact 363 / creature 3,628 / enchantment 329 / instant 947 / land 484 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1098, 1223, 2910, 4771, 6111] · batch.json
+      30 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,036 files, 20,432 passing / 11 skipped ·
+      500-seed gate, 6 shards, 391.9 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D329): snow mana ({S} - 9; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5; a chooser over counters on OTHER permanents), sacrifice a Desert / tap an untapped Gate or Desert (7; subtypes the fixtures lack), return a land you control (3), tap two untapped artifacts and/or creatures (3; a mixed predicate), the counts outside the vocabulary (15); then can not be countered (11 whole cards), the monarch, attacks each combat if able, the modal seam (42), the another split; the modal seam; the "another" split;
+      the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

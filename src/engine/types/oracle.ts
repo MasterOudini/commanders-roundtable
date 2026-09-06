@@ -684,6 +684,20 @@ export interface ActivatedAbility {
    * control" is a decision and stays in `unpaidCosts`; so does "X".
    */
   readonly removeCounterCost: { readonly kind: string; readonly count: number } | null;
+  /**
+   * D329 - "Exile N <predicate> cards from your graveyard": a chooser over the
+   * activator's graveyard (the discard chooser's shape, D286), named by
+   * `ActivateAbility.exileFromGraveyard`; a `null` predicate list is "card(s)".
+   */
+  readonly exileFromGraveyardCost: {
+    readonly count: number;
+    readonly any: readonly import('../../data/replacementParse').PermanentPredicate[] | null;
+  } | null;
+  /**
+   * D329 - "Exile this card from your graveyard" (CR 113.6): the ability is
+   * activated from the GRAVEYARD and the card is exiled as its cost.
+   */
+  readonly exileSelfFromGraveyard: boolean;
   readonly unpaidCosts: readonly string[];
   readonly payable: boolean;
   /** CR 605 — does NOT use the stack. */

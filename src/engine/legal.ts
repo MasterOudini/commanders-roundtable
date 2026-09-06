@@ -91,6 +91,9 @@ export type LegalAction =
       readonly tapCount?: number;
       /** D311 - crew: the total POWER the chosen taps must reach (tapCount is 0 then). */
       readonly tapPower?: number;
+      /** D329 - an "Exile N ... from your graveyard" cost: the graveyard cards that may pay it, and N. */
+      readonly exileFromGraveyardCandidates?: readonly InstanceId[];
+      readonly exileFromGraveyardCount?: number;
     }
   | {
       /** D309 - turn a face-down permanent face up for its morph cost (a special action). */
@@ -262,6 +265,36 @@ export function legalActions(
       });
     }
   }
+  // D329 - ABILITIES ACTIVATED FROM THE GRAVEYARD (CR 113.6): "Exile this card
+  // from your graveyard: ..." - every card in the graveyard whose ability says
+  // so, when a script will run the effect (D159: the card is the price). The
+  // exile is charged in `finishAbility`; nothing else of the cost is looked at
+  // here because none of these abilities taps, sacrifices or chooses.
+  for (const id of state.zones.graveyard[player] ?? []) {
+    const card = cardFor(state, oracle, id);
+    if (!card) continue;
+    const inst = state.cards[id];
+    if (!inst) continue;
+    const face = faceOf(card, inst.faceIndex);
+    for (const ability of face.activated) {
+      if (!ability.exileSelfFromGraveyard || !ability.payable || ability.isManaAbility || ability.isLoyalty) continue;
+      if (ability.requiresTap || ability.requiresUntap || ability.sacrificeCost || ability.discardCost || ability.tapCost || ability.exileFromGraveyardCost) continue;
+      if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+      if (ability.sorceryOnly && !sorcerySpeed) continue;
+      if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
+      const problem = buildPaymentProblem(ability.manaCost, 0, [], 0, ability.lifeCost);
+      out.push({
+        t: 'ActivateAbility',
+        card: id,
+        abilityIndex: ability.index,
+        affordable: affordable(context.solve, problem),
+        requiresTap: false,
+        costText: ability.costText,
+        effectText: ability.effectText,
+        label: face.name,
+      });
+    }
+  }
   for (const id of state.zones.battlefield) {
     const inst = state.cards[id];
     if (!inst || inst.controller !== player || inst.phasedOut) continue;
@@ -275,6 +308,8 @@ export function legalActions(
     if (!d.hasAbilities) continue;
     for (const ability of face.activated) {
       if (ability.isManaAbility || ability.isLoyalty || !ability.payable) continue;
+      // D329 - priced by exiling the card from the graveyard: offered from there, not here.
+      if (ability.exileSelfFromGraveyard) continue;
       // D328 - CR 602.5b: activated this turn already, not offered again.
       if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
       // ⚠️ A DESTRUCTIVE COST IS OFFERED ONLY WHEN A SCRIPT WILL RUN THE EFFECT
@@ -314,6 +349,18 @@ export function legalActions(
           ability.discardCost,
         );
         if (discardCandidates.length < ability.discardCost.count) continue;
+      }
+      // D329 - the exile-from-graveyard chooser: the same gate, over the graveyard.
+      let exileGyCandidates: readonly InstanceId[] | null = null;
+      if (ability.exileFromGraveyardCost) {
+        if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        exileGyCandidates = exileFromGraveyardCandidatesFor(
+          state,
+          (cid) => derive(state, oracle, scripts, cid, context.cache),
+          player,
+          ability.exileFromGraveyardCost,
+        );
+        if (exileGyCandidates.length < ability.exileFromGraveyardCost.count) continue;
       }
       let tapCandidates: readonly InstanceId[] | null = null;
       if (ability.tapCost) {
@@ -369,6 +416,9 @@ export function legalActions(
         ...(sacCandidates ? { sacrificeCandidates: sacCandidates } : {}),
         ...(discardCandidates && ability.discardCost
           ? { discardCandidates, discardCount: ability.discardCost.count }
+          : {}),
+        ...(exileGyCandidates && ability.exileFromGraveyardCost
+          ? { exileFromGraveyardCandidates: exileGyCandidates, exileFromGraveyardCount: ability.exileFromGraveyardCost.count }
           : {}),
         ...(tapCandidates && ability.tapCost
           ? { tapCandidates, tapCount: ability.tapCost.count, ...(ability.tapCost.powerAtLeast !== undefined ? { tapPower: ability.tapCost.powerAtLeast } : {}) }
@@ -494,6 +544,24 @@ export function discardCandidatesFor(
 ): readonly InstanceId[] {
   const out: InstanceId[] = [];
   for (const id of state.zones.hand[player] ?? []) {
+    if (cost.any === null || predicateHit(cost.any, deriveOf(id))) out.push(id);
+  }
+  return out;
+}
+
+/**
+ * D329 - the graveyard cards that may pay an "Exile N <predicate> cards from
+ * your graveyard" cost: every card for "card(s)", the predicate's matches for
+ * a typed card. Offered and re-validated by the same function (D139).
+ */
+export function exileFromGraveyardCandidatesFor(
+  state: GameState,
+  deriveOf: (id: InstanceId) => PredicateChars,
+  player: PlayerId,
+  cost: NonNullable<ActivatedAbility['exileFromGraveyardCost']>,
+): readonly InstanceId[] {
+  const out: InstanceId[] = [];
+  for (const id of state.zones.graveyard[player] ?? []) {
     if (cost.any === null || predicateHit(cost.any, deriveOf(id))) out.push(id);
   }
   return out;
