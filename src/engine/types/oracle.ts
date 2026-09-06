@@ -694,6 +694,8 @@ export interface ActivatedAbility {
   readonly exileFromGraveyardCost: {
     readonly count: number;
     readonly any: readonly import('../../data/replacementParse').PermanentPredicate[] | null;
+    /** D334 - "another" / "other": the activating card itself is never a candidate. */
+    readonly another: boolean;
   } | null;
   /**
    * D329 - "Exile this card from your graveyard" (CR 113.6): the ability is

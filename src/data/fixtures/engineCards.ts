@@ -148665,6 +148665,738 @@ export const TEACHER_S_PEST: CardData = {
   "singleImage": true
 };
 
+export const SANITARIUM_SKELETON: CardData = {
+  "scryfallId": "03d77dc9-6f64-4ee8-9441-f0a15e84442f",
+  "oracleId": "d09b0648-e324-4a16-b78c-d1849177c04f",
+  "name": "Sanitarium Skeleton",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sanitarium Skeleton",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Skeleton",
+      "oracleText": "{2}{B}: Return this card from your graveyard to your hand.",
+      "flavorText": "His mind was lost long before his flesh.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "03d77dc9-6f64-4ee8-9441-f0a15e84442f"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "c19",
+  "collectorNumber": "127",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ADVANCED_STITCHWING: CardData = {
+  "scryfallId": "044b2bfc-a5cc-4505-831d-5e1e3a6fdb3c",
+  "oracleId": "7e5d2801-873f-4318-9c23-9a73e00e31a4",
+  "name": "Advanced Stitchwing",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Advanced Stitchwing",
+      "manaCost": "{3}{U}{U}",
+      "typeLine": "Creature — Zombie Horror",
+      "oracleText": "Flying\n{2}{U}, Discard two cards: Return this card from your graveyard to the battlefield tapped.",
+      "flavorText": "\"Improvement is a consequence of practice.\"\n—Stitcher Geralf",
+      "power": "3",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Johann Bodin",
+      "imageId": "044b2bfc-a5cc-4505-831d-5e1e3a6fdb3c"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "2x2",
+  "collectorNumber": "36",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DESPOILER_OF_SOULS: CardData = {
+  "scryfallId": "04a09fe4-d7a0-4065-968d-0837c3eafda0",
+  "oracleId": "cabb0cf3-124a-4f5f-9ca7-2d45a72159ca",
+  "name": "Despoiler of Souls",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Despoiler of Souls",
+      "manaCost": "{B}{B}",
+      "typeLine": "Creature — Horror",
+      "oracleText": "This creature can't block.\n{B}{B}, Exile two other creature cards from your graveyard: Return this card from your graveyard to the battlefield.",
+      "flavorText": "Rats and vultures devour. It desecrates.",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "04a09fe4-d7a0-4065-968d-0837c3eafda0"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "ori",
+  "collectorNumber": "93",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FIREWING_PHOENIX: CardData = {
+  "scryfallId": "08d7c90a-b999-4e0b-87df-7355d6c36fb1",
+  "oracleId": "326d9b5c-ac04-45b5-9a8c-a9be7d8cca1b",
+  "name": "Firewing Phoenix",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Firewing Phoenix",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Phoenix",
+      "oracleText": "Flying\n{1}{R}{R}{R}: Return this card from your graveyard to your hand.",
+      "flavorText": "\"When a phoenix nests in a volcano, we rejoice, for it means a hundred years of war.\"\n—Golmak, Keldon warlord",
+      "power": "4",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "James Paick",
+      "imageId": "08d7c90a-b999-4e0b-87df-7355d6c36fb1"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "uma",
+  "collectorNumber": "130",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const POSTMORTEM_PROFESSOR: CardData = {
+  "scryfallId": "0bd8796f-1c77-4792-8b7c-e77acbded2cf",
+  "oracleId": "0859d16e-2a1f-4b48-8687-99af8a8bdb38",
+  "name": "Postmortem Professor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Postmortem Professor",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Zombie Warlock",
+      "oracleText": "This creature can't block.\nWhenever this creature attacks, each opponent loses 1 life and you gain 1 life.\n{1}{B}, Exile an instant or sorcery card from your graveyard: Return this card from your graveyard to the battlefield.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nino Vecia",
+      "imageId": "0bd8796f-1c77-4792-8b7c-e77acbded2cf"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "psos",
+  "collectorNumber": "93p",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HAUNTED_DEAD: CardData = {
+  "scryfallId": "14a7c8b7-ca77-47a0-8965-949723ec902d",
+  "oracleId": "03259490-a789-4f96-8c5b-b410425bdd02",
+  "name": "Haunted Dead",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Haunted Dead",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "When this creature enters, create a 1/1 white Spirit creature token with flying.\n{1}{B}, Discard two cards: Return this card from your graveyard to the battlefield tapped.",
+      "flavorText": null,
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Lake Hurwitz",
+      "imageId": "14a7c8b7-ca77-47a0-8965-949723ec902d"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "emn",
+  "collectorNumber": "92",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TALONS_OF_WILDWOOD: CardData = {
+  "scryfallId": "1b372c44-fd8f-42ba-bdea-103cc7474ebe",
+  "oracleId": "2ff309e3-90e0-40e7-a277-3df057f8f198",
+  "name": "Talons of Wildwood",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Talons of Wildwood",
+      "manaCost": "{1}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has trample. (It can deal excess combat damage to the player or planeswalker it's attacking.)\n{2}{G}: Return this card from your graveyard to your hand.",
+      "flavorText": null,
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Uriah Voth",
+      "imageId": "1b372c44-fd8f-42ba-bdea-103cc7474ebe"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "M19-202",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCRAPHEAP_SCROUNGER: CardData = {
+  "scryfallId": "216a8e4e-ea7b-41c7-a982-b5751025ff25",
+  "oracleId": "d309e1e9-26e6-4a10-a3f4-352c7ba3f2ff",
+  "name": "Scrapheap Scrounger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Scrapheap Scrounger",
+      "manaCost": "{2}",
+      "typeLine": "Artifact Creature — Construct",
+      "oracleText": "This creature can't block.\n{1}{B}, Exile another creature card from your graveyard: Return this card from your graveyard to the battlefield.",
+      "flavorText": "Some machines refuse to accept their own obsolescence.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jason A. Engle",
+      "imageId": "216a8e4e-ea7b-41c7-a982-b5751025ff25"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "kld",
+  "collectorNumber": "231",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GRETA_SWEETTOOTH_SCOURGE: CardData = {
+  "scryfallId": "2cfd365e-34d1-4224-b925-119000311934",
+  "oracleId": "00173df7-a584-410c-af1d-ada9c791056a",
+  "name": "Greta, Sweettooth Scourge",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Greta, Sweettooth Scourge",
+      "manaCost": "{1}{B}{G}",
+      "typeLine": "Legendary Creature — Human Warrior",
+      "oracleText": "When Greta enters, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")\n{G}, Sacrifice a Food: Put a +1/+1 counter on target creature. Activate only as a sorcery.\n{1}{B}, Sacrifice a Food: You draw a card and you lose 1 life.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Steve Prescott",
+      "imageId": "2cfd365e-34d1-4224-b925-119000311934"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Food"
+  ],
+  "setCode": "woe",
+  "collectorNumber": "205",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLATTERING_AUGUR: CardData = {
+  "scryfallId": "2f6323ad-a3e9-40fb-a5bb-3e9ba41f7fa1",
+  "oracleId": "d88f249f-5bf1-448a-91d1-f81538dfd475",
+  "name": "Clattering Augur",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Clattering Augur",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Skeleton Shaman",
+      "oracleText": "This creature can't block.\nWhen this creature enters, you draw a card and you lose 1 life.\n{2}{B}{B}: Return this card from your graveyard to your hand.",
+      "flavorText": null,
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Josh Hass",
+      "imageId": "2f6323ad-a3e9-40fb-a5bb-3e9ba41f7fa1"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "j21",
+  "collectorNumber": "305",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JUNGLE_CREEPER: CardData = {
+  "scryfallId": "3d71282d-021c-4028-9ab7-f10e43e92c80",
+  "oracleId": "acc091c0-3891-41b9-b5f6-7537fe9493fe",
+  "name": "Jungle Creeper",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jungle Creeper",
+      "manaCost": "{1}{B}{G}",
+      "typeLine": "Creature — Elemental",
+      "oracleText": "{3}{B}{G}: Return this card from your graveyard to your hand.",
+      "flavorText": "\"You cannot kill it, not for long. It ripens where the ground is soaked with the blood of the slaughtered.\"\n—Atiuru, priest of the Verdant Sun",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Matt Stewart",
+      "imageId": "3d71282d-021c-4028-9ab7-f10e43e92c80"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [],
+  "setCode": "rix",
+  "collectorNumber": "161",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUMMONED_DROMEDARY: CardData = {
+  "scryfallId": "44d0277c-ca82-4334-a15a-cd67a9db0d02",
+  "oracleId": "697b14c6-fe6a-4880-9cf2-b6602a52ca0b",
+  "name": "Summoned Dromedary",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Summoned Dromedary",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Spirit Camel",
+      "oracleText": "Vigilance\n{1}{W}: Return this card from your graveyard to your hand. Activate only as a sorcery.",
+      "flavorText": "The camel had traveled this route so often in life that its spirit began moving as soon as the mage finished the summoning.",
+      "power": "4",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Craig J Spearing",
+      "imageId": "44d0277c-ca82-4334-a15a-cd67a9db0d02"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "sos",
+  "collectorNumber": "37",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VINEWEFT: CardData = {
+  "scryfallId": "4578f064-e9f8-4e87-8f46-7536af6c144e",
+  "oracleId": "f4a2d9eb-7f2b-4ee6-b38e-cf6e3a837b49",
+  "name": "Vineweft",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vineweft",
+      "manaCost": "{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +1/+1.\n{4}{G}: Return this card from your graveyard to your hand.",
+      "flavorText": "Fortified by the wilds.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Lucas Graciano",
+      "imageId": "4578f064-e9f8-4e87-8f46-7536af6c144e"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "m15",
+  "collectorNumber": "207",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KRAUL_SWARM: CardData = {
+  "scryfallId": "490dc165-b10d-4384-8c13-d7969844b2bb",
+  "oracleId": "ac97d8fc-15fa-4a60-96d3-4c09deafa83a",
+  "name": "Kraul Swarm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kraul Swarm",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Insect Warrior",
+      "oracleText": "Flying\n{2}{B}, Discard a creature card: Return this card from your graveyard to your hand.",
+      "flavorText": "The hive has a long memory. It knows how every member ever died, and to whom it owes the grudge.",
+      "power": "4",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jehan Choo",
+      "imageId": "490dc165-b10d-4384-8c13-d7969844b2bb"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "grn",
+  "collectorNumber": "73",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BESTIAL_BLOODLINE: CardData = {
+  "scryfallId": "55b9b8e5-1ed8-4be0-aad5-041a599c6841",
+  "oracleId": "a3ae6694-6314-42e2-bc12-d0e32d49b347",
+  "name": "Bestial Bloodline",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Bestial Bloodline",
+      "manaCost": "{1}{G}",
+      "typeLine": "Enchantment — Aura",
+      "oracleText": "Enchant creature\nEnchanted creature gets +2/+2.\n{4}{G}: Return this card from your graveyard to your hand.",
+      "flavorText": "\"There is a fierce joy in losing yourself to savagery, and a bitter pain in regaining your senses afterward. You could never understand.\"",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mila Pesic",
+      "imageId": "55b9b8e5-1ed8-4be0-aad5-041a599c6841"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Enchant"
+  ],
+  "setCode": "woe",
+  "collectorNumber": "162",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DURABLE_COILBUG: CardData = {
+  "scryfallId": "58725475-ff77-4511-9797-c44b0fa9909d",
+  "oracleId": "a421582a-f673-4f43-beb5-28ee785da11e",
+  "name": "Durable Coilbug",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Durable Coilbug",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "{4}{B}: Return this card from your graveyard to your hand.",
+      "flavorText": "\"I've seen them survive lava, trampling, and a moloch's digestive system. They just roll out and get on with their lives!\"\n—Gannet, Skysail zoologist",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Milivoj Ćeran",
+      "imageId": "58725475-ff77-4511-9797-c44b0fa9909d"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "j22",
+  "collectorNumber": "408",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PROJECT_DEATHLOK_SOLDIER: CardData = {
+  "scryfallId": "5c21a120-4ec7-46ec-974a-2204edb92abb",
+  "oracleId": "d89aa87a-d59a-41e2-b92f-15c9bc6d3d13",
+  "name": "Project Deathlok Soldier",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Project Deathlok Soldier",
+      "manaCost": "{B}",
+      "typeLine": "Artifact Creature — Zombie Soldier",
+      "oracleText": "{2}{B}: Return this card from your graveyard to your hand.",
+      "flavorText": "\"ENERGY OUTPUT AT 97.003%. WAKE UP, DEATHLOK UNIT. REPEAT: WAKE UP.\"",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "InHyuk Lee",
+      "imageId": "5c21a120-4ec7-46ec-974a-2204edb92abb"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "msh",
+  "collectorNumber": "109",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GHOULSTEED: CardData = {
+  "scryfallId": "6b8f7cfd-88db-4cc1-b65f-3462332a2873",
+  "oracleId": "dbc34afa-16bc-41f2-b74d-29bf2bfe24a9",
+  "name": "Ghoulsteed",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ghoulsteed",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Zombie Horse",
+      "oracleText": "{2}{B}, Discard two cards: Return this card from your graveyard to the battlefield tapped.",
+      "flavorText": "It once served a cathar roadwatcher, patrolling the crossways between villages. Its hooves still carry it along the same path.",
+      "power": "4",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jason Kang",
+      "imageId": "6b8f7cfd-88db-4cc1-b65f-3462332a2873"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [],
+  "setCode": "uma",
+  "collectorNumber": "97",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STITCHWING_SKAAB: CardData = {
+  "scryfallId": "7499f4f7-639f-45dd-b370-98ef161c7837",
+  "oracleId": "0b40e537-d385-450d-93a9-b60a25bfe508",
+  "name": "Stitchwing Skaab",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Stitchwing Skaab",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Zombie Horror",
+      "oracleText": "Flying\n{1}{U}, Discard two cards: Return this card from your graveyard to the battlefield tapped.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "7499f4f7-639f-45dd-b370-98ef161c7837"
+    }
+  ],
+  "colorIdentity": [
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying"
+  ],
+  "setCode": "j21",
+  "collectorNumber": "256",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MERCHANT_OF_MANY_HATS: CardData = {
+  "scryfallId": "752ffa24-93b6-4b33-bf10-7222357ac472",
+  "oracleId": "23820b45-2f3a-4b6e-99ea-d84caccb7e37",
+  "name": "Merchant of Many Hats",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Merchant of Many Hats",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Human Peasant Ally",
+      "oracleText": "{2}{B}: Return this card from your graveyard to your hand.",
+      "flavorText": "Also known as Dock the ferryman, Xu the fishmonger, and Bushi the river cleaner, depending on what job needed to be done in Jang Hui village.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Boell Oyino",
+      "imageId": "752ffa24-93b6-4b33-bf10-7222357ac472"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tla",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLAY_REVENANT: CardData = {
+  "scryfallId": "fc295bac-5031-46c8-8d9a-368656bcf6d3",
+  "oracleId": "c183186b-d92c-45a2-92d1-42e0df2b441f",
+  "name": "Clay Revenant",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Clay Revenant",
+      "manaCost": "{1}",
+      "typeLine": "Artifact Creature — Golem",
+      "oracleText": "This creature enters tapped.\n{2}{B}: Return this card from your graveyard to your hand.",
+      "flavorText": "Tawnos built his clay statues for durability, not knowing they'd keep fighting long after the war.",
+      "power": "1",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Filipe Pagliuso",
+      "imageId": "fc295bac-5031-46c8-8d9a-368656bcf6d3"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "bro",
+  "collectorNumber": "118",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -157351,6 +158083,27 @@ export const ENGINE_CARDS: CardData[] = [
   TUNNEL_RATS,
   PERSISTENT_SPECIMEN,
   TEACHER_S_PEST,
+  SANITARIUM_SKELETON,
+  ADVANCED_STITCHWING,
+  DESPOILER_OF_SOULS,
+  FIREWING_PHOENIX,
+  POSTMORTEM_PROFESSOR,
+  HAUNTED_DEAD,
+  TALONS_OF_WILDWOOD,
+  SCRAPHEAP_SCROUNGER,
+  GRETA_SWEETTOOTH_SCOURGE,
+  CLATTERING_AUGUR,
+  JUNGLE_CREEPER,
+  SUMMONED_DROMEDARY,
+  VINEWEFT,
+  KRAUL_SWARM,
+  BESTIAL_BLOODLINE,
+  DURABLE_COILBUG,
+  PROJECT_DEATHLOK_SOLDIER,
+  GHOULSTEED,
+  STITCHWING_SKAAB,
+  MERCHANT_OF_MANY_HATS,
+  CLAY_REVENANT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

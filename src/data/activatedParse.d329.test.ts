@@ -32,16 +32,16 @@ describe('D329 - the graveyard costs', () => {
 
   it('reads "Exile N cards from your graveyard" as a chooser with a count and no predicate', () => {
     const [a] = parse('{R}, {T}, Exile two cards from your graveyard: This creature deals 2 damage to any target.');
-    expect(a?.exileFromGraveyardCost).toEqual({ count: 2, any: null });
+    expect(a?.exileFromGraveyardCost).toEqual({ count: 2, any: null, another: false });
     expect(a?.exileSelfFromGraveyard).toBe(false);
     expect(a?.payable).toBe(true);
     const [b] = parse('{4}, Exile a card from your graveyard: Target creature gains flying until end of turn.');
-    expect(b?.exileFromGraveyardCost).toEqual({ count: 1, any: null });
+    expect(b?.exileFromGraveyardCost).toEqual({ count: 1, any: null, another: false });
   });
 
   it('reads a typed chooser through the predicate reader, "or" split', () => {
     const [a] = parse('{1}, {T}, Exile a creature card from your graveyard: Create a Treasure token.');
-    expect(a?.exileFromGraveyardCost).toEqual({ count: 1, any: [{ supertypes: [], types: ['Creature'], subtypes: [], colors: [] }] });
+    expect(a?.exileFromGraveyardCost).toEqual({ count: 1, any: [{ supertypes: [], types: ['Creature'], subtypes: [], colors: [] }], another: false });
     const [b] = parse('{2}{B}, Exile an Elf card from your graveyard: This creature gets +3/+3 until end of turn.');
     expect(b?.exileFromGraveyardCost?.any).toEqual([{ supertypes: [], types: [], subtypes: ['Elf'], colors: [] }]);
     const [c] = parse('{T}, Exile an instant or sorcery card from your graveyard: Put a +1/+1 counter on this creature.');

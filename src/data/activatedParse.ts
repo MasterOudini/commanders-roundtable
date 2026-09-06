@@ -334,19 +334,22 @@ export function parseActivatedAbilities(
       // D329 - "Exile N <predicate> cards from your graveyard": a chooser over
       // the graveyard, priced by letting the activation name the cards
       // (`ActivateAbility.exileFromGraveyard`) - the discard chooser's shape.
-      const exg = /^exile (a|an|one|two|three|four) (.+) from your graveyard$/i.exec(part.trim());
+      // D334 - "another creature card" / "two other cards": the card itself is not a candidate.
+      const exg = /^exile (a|an|one|two|three|four|another) (?:(other) )?(.+) from your graveyard$/i.exec(part.trim());
       if (exg && exileFromGraveyardCost === null) {
-        const count = COUNT_WORDS[(exg[1] ?? '').toLowerCase()] ?? 0;
-        const rest = (exg[2] ?? '').trim();
+        const word = (exg[1] ?? '').toLowerCase();
+        const count = word === 'another' ? 1 : (COUNT_WORDS[word] ?? 0);
+        const another = word === 'another' || exg[2] !== undefined;
+        const rest = (exg[3] ?? '').trim();
         if (count > 0 && /^cards?$/i.test(rest)) {
-          exileFromGraveyardCost = { count, any: null };
+          exileFromGraveyardCost = { count, any: null, another };
           continue;
         }
         const stripped = rest.replace(/\s+cards?$/i, '');
         if (count > 0 && stripped !== rest) {
           const any = predicatesOf(singularNoun(stripped, count > 1));
           if (any !== null) {
-            exileFromGraveyardCost = { count, any };
+            exileFromGraveyardCost = { count, any, another };
             continue;
           }
         }
@@ -476,7 +479,7 @@ export function parseActivatedAbilities(
       exileFromGraveyardCost,
       exileSelfFromGraveyard,
       // D333 - the effect names the zone the ability is activated from.
-      activatesFromGraveyard: new RegExp('^return (?:this card' + (selfName ? '|' + selfName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') : '') + ') from your graveyard to the battlefield', 'i').test(line.effectText),
+      activatesFromGraveyard: new RegExp('^return (?:this card' + (selfName ? '|' + selfName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') : '') + ') from your graveyard to (?:the battlefield|your hand)', 'i').test(line.effectText),
       unpaidCosts,
       payable,
       isManaAbility,

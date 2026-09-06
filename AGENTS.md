@@ -10302,6 +10302,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D333): the returns to hand (Return this card from your graveyard to your hand - 26; the same flag, one zone over), Discard two cards (4; the discard chooser's count is already the engine's), the Food and Blood fodder and the exile-another-creature-card chooser (the parser's another), snow mana ({S} - 11), remove a +1/+1 counter from a creature you control (5), the counts outside the vocabulary (15); then attacks each combat if able (46), can not be countered (11 whole cards), the second-card and second-spell turn memory (37 + 26), the modal seam (276), the another split; the modal seam; the "another" split;
       the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4fs — THE GRAVEYARD SEAM, CONTINUED: the returns to hand, the
+      discard-two costs, the Food fodder and the "another" chooser, and the rows
+      that follow; 21 cards land, 21 as generated rows
+      (2026-09-06):**
+      **6,612 of 31,692 Commander-legal cards now execute completely, up
+      from 6,591 (+21).** `SHIPPED_SCRIPTS` 4,059; ledger
+      998 (no rows retired - none of the 21 was in the ledger; measured: the REFUSED map's size). Fixtures 4,429 (4,293 by name + 129 tokens: the 21 rowed cards, no new token pins). A small ENGINE
+      change (one patch) and the wave behind it (21 generated rows).
+      **Select pool 0.** Decisions in **D334**.
+      ⚠️ **Measured first:** the leftover probe over the database after D333, with the return to hand as a payload: 145 blocked single-face permanents whose every leftover line the grammar reads; the row maker took 21 and refused 124 - the costs it still cannot price (snow mana 11, remove a +1/+1 counter from a creature you control 5, sacrifice a Desert 3, return a land you control 3, tap an untapped Gate 3, tap two untapped artifacts and/or creatures 3) and 15 counts outside the vocabulary among them; the parser's wider chooser alone moved 6 activated lines payable.
+      ⚠️ **The seam, one step wider:** `exileFromGraveyardCost.another` (the
+      activating card is never a candidate; the graveyard offer prices the
+      chooser as the battlefield offer does); "Return this card from your
+      graveyard to your hand" is `activatesFromGraveyard` one zone over. The
+      row maker (`d334/make-rows24.cjs` + `gen-oneshot24.cjs`, from D333):
+      "Discard two cards" as the chooser's count (the fixture put twice, named
+      together; hand and graveyard counts move by two), "Sacrifice a Food" as a
+      Food token fodder, the return to hand as a payload, the exile chooser on
+      a graveyard return. NOT this decision: snow mana ({S} - 11; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15); then attacks each combat if able (46; a declaration requirement), can not be countered (11 whole cards), the second-card and second-spell turn memory (37 + 26), the modal seam (276), the another split. Refused by name:
+      no rows retired - none of the 21 was in the ledger; measured: the REFUSED map's size.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips and 21 generated rows in one pass, all green. The wave IS the landing: 21 rows - 13 cards that return themselves from the graveyard to hand (Sanitarium Skeleton, Firewing Phoenix, Talons of Wildwood, Clattering Augur, Jungle Creeper, Summoned Dromedary, Vineweft, Kraul Swarm, Bestial Bloodline, Durable Coilbug, Project Deathlok Soldier, Merchant of Many Hats, Clay Revenant), 7 that return to the battlefield behind a cost D333 could not price - Discard two cards (Advanced Stitchwing, Haunted Dead, Ghoulsteed, Stitchwing Skaab) and the exile chooser that never offers the card itself (Despoiler of Souls, Postmortem Professor, Scrapheap Scrounger) - and Greta, Sweettooth Scourge, whose Food fodder the row maker reads now. Tests: the parser test; one generated
+      suite per row.
+      Fixtures 4,429 · botPool artifact 366 / creature 3,746 / enchantment 343 / instant 947 / land 487 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1098, 1223, 2910, 4770, 6110] · batch.json
+      21 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,178 files, 21,030 passing / 11 skipped ·
+      500-seed gate, 6 shards, 405.3 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D334): snow mana ({S} - 11; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15); then attacks each combat if able (46; a declaration requirement), can not be countered (11 whole cards), the second-card and second-spell turn memory (37 + 26), the modal seam (276), the another split; the modal seam; the "another" split;
+      the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

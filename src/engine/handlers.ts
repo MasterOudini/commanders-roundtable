@@ -799,6 +799,7 @@ function activateAbility(
       state,
       (cid: InstanceId) => derive(state, deps.oracle, deps.scripts, cid),
       intent.player,
+      intent.card,
       ability.exileFromGraveyardCost,
     );
     if (!picks.every((c) => legalExiles.includes(c))) {

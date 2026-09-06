@@ -4795,6 +4795,29 @@ const WANTED = [
   'Persistent Specimen',
   "Teacher's Pest",
   // D333 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D334 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Sanitarium Skeleton',
+  'Advanced Stitchwing',
+  'Despoiler of Souls',
+  'Firewing Phoenix',
+  'Postmortem Professor',
+  'Haunted Dead',
+  'Talons of Wildwood',
+  'Scrapheap Scrounger',
+  'Greta, Sweettooth Scourge',
+  'Clattering Augur',
+  'Jungle Creeper',
+  'Summoned Dromedary',
+  'Vineweft',
+  'Kraul Swarm',
+  'Bestial Bloodline',
+  'Durable Coilbug',
+  'Project Deathlok Soldier',
+  'Ghoulsteed',
+  'Stitchwing Skaab',
+  'Merchant of Many Hats',
+  'Clay Revenant',
+  // D334 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

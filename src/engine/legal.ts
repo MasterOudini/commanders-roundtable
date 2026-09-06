@@ -278,10 +278,22 @@ export function legalActions(
     const face = faceOf(card, inst.faceIndex);
     for (const ability of face.activated) {
       if (!(ability.exileSelfFromGraveyard || ability.activatesFromGraveyard) || !ability.payable || ability.isManaAbility || ability.isLoyalty) continue;
-      if (ability.requiresTap || ability.requiresUntap || ability.sacrificeCost || ability.discardCost || ability.tapCost || ability.exileFromGraveyardCost) continue;
+      if (ability.requiresTap || ability.requiresUntap || ability.sacrificeCost || ability.discardCost || ability.tapCost) continue;
       if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
       if (ability.sorceryOnly && !sorcerySpeed) continue;
       if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
+      // D334 - the exile-from-graveyard chooser on a graveyard-activated ability (the card itself never a candidate).
+      let gyChooser: readonly InstanceId[] | null = null;
+      if (ability.exileFromGraveyardCost) {
+        gyChooser = exileFromGraveyardCandidatesFor(
+          state,
+          (cid) => derive(state, oracle, scripts, cid, context.cache),
+          player,
+          id,
+          ability.exileFromGraveyardCost,
+        );
+        if (gyChooser.length < ability.exileFromGraveyardCost.count) continue;
+      }
       const problem = buildPaymentProblem(ability.manaCost, 0, [], 0, ability.lifeCost);
       out.push({
         t: 'ActivateAbility',
@@ -292,6 +304,9 @@ export function legalActions(
         costText: ability.costText,
         effectText: ability.effectText,
         label: face.name,
+        ...(gyChooser && ability.exileFromGraveyardCost
+          ? { exileFromGraveyardCandidates: gyChooser, exileFromGraveyardCount: ability.exileFromGraveyardCost.count }
+          : {}),
       });
     }
   }
@@ -358,6 +373,7 @@ export function legalActions(
           state,
           (cid) => derive(state, oracle, scripts, cid, context.cache),
           player,
+          id,
           ability.exileFromGraveyardCost,
         );
         if (exileGyCandidates.length < ability.exileFromGraveyardCost.count) continue;
@@ -558,10 +574,13 @@ export function exileFromGraveyardCandidatesFor(
   state: GameState,
   deriveOf: (id: InstanceId) => PredicateChars,
   player: PlayerId,
+  selfId: InstanceId,
   cost: NonNullable<ActivatedAbility['exileFromGraveyardCost']>,
 ): readonly InstanceId[] {
   const out: InstanceId[] = [];
   for (const id of state.zones.graveyard[player] ?? []) {
+    // D334 - "another": the activating card is never its own price.
+    if (cost.another && id === selfId) continue;
     if (cost.any === null || predicateHit(cost.any, deriveOf(id))) out.push(id);
   }
   return out;

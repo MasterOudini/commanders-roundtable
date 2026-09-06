@@ -7,6 +7,27 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { SANITARIUM_SKELETON_SCRIPT } from './cards/sanitariumSkeleton';
+import { ADVANCED_STITCHWING_SCRIPT } from './cards/advancedStitchwing';
+import { DESPOILER_OF_SOULS_SCRIPT } from './cards/despoilerOfSouls';
+import { FIREWING_PHOENIX_SCRIPT } from './cards/firewingPhoenix';
+import { POSTMORTEM_PROFESSOR_SCRIPT } from './cards/postmortemProfessor';
+import { HAUNTED_DEAD_SCRIPT } from './cards/hauntedDead';
+import { TALONS_OF_WILDWOOD_SCRIPT } from './cards/talonsOfWildwood';
+import { SCRAPHEAP_SCROUNGER_SCRIPT } from './cards/scrapheapScrounger';
+import { GRETA_SWEETTOOTH_SCOURGE_SCRIPT } from './cards/gretaSweettoothScourge';
+import { CLATTERING_AUGUR_SCRIPT } from './cards/clatteringAugur';
+import { JUNGLE_CREEPER_SCRIPT } from './cards/jungleCreeper';
+import { SUMMONED_DROMEDARY_SCRIPT } from './cards/summonedDromedary';
+import { VINEWEFT_SCRIPT } from './cards/vineweft';
+import { KRAUL_SWARM_SCRIPT } from './cards/kraulSwarm';
+import { BESTIAL_BLOODLINE_SCRIPT } from './cards/bestialBloodline';
+import { DURABLE_COILBUG_SCRIPT } from './cards/durableCoilbug';
+import { PROJECT_DEATHLOK_SOLDIER_SCRIPT } from './cards/projectDeathlokSoldier';
+import { GHOULSTEED_SCRIPT } from './cards/ghoulsteed';
+import { STITCHWING_SKAAB_SCRIPT } from './cards/stitchwingSkaab';
+import { MERCHANT_OF_MANY_HATS_SCRIPT } from './cards/merchantOfManyHats';
+import { CLAY_REVENANT_SCRIPT } from './cards/clayRevenant';
 import { REASSEMBLING_SKELETON_SCRIPT } from './cards/reassemblingSkeleton';
 import { DROWNYARD_TEMPLE_SCRIPT } from './cards/drownyardTemple';
 import { TUNNEL_RATS_SCRIPT } from './cards/tunnelRats';
@@ -4159,6 +4180,27 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SANITARIUM_SKELETON_SCRIPT,
+  ADVANCED_STITCHWING_SCRIPT,
+  DESPOILER_OF_SOULS_SCRIPT,
+  FIREWING_PHOENIX_SCRIPT,
+  POSTMORTEM_PROFESSOR_SCRIPT,
+  HAUNTED_DEAD_SCRIPT,
+  TALONS_OF_WILDWOOD_SCRIPT,
+  SCRAPHEAP_SCROUNGER_SCRIPT,
+  GRETA_SWEETTOOTH_SCOURGE_SCRIPT,
+  CLATTERING_AUGUR_SCRIPT,
+  JUNGLE_CREEPER_SCRIPT,
+  SUMMONED_DROMEDARY_SCRIPT,
+  VINEWEFT_SCRIPT,
+  KRAUL_SWARM_SCRIPT,
+  BESTIAL_BLOODLINE_SCRIPT,
+  DURABLE_COILBUG_SCRIPT,
+  PROJECT_DEATHLOK_SOLDIER_SCRIPT,
+  GHOULSTEED_SCRIPT,
+  STITCHWING_SKAAB_SCRIPT,
+  MERCHANT_OF_MANY_HATS_SCRIPT,
+  CLAY_REVENANT_SCRIPT,
   REASSEMBLING_SKELETON_SCRIPT,
   DROWNYARD_TEMPLE_SCRIPT,
   TUNNEL_RATS_SCRIPT,
