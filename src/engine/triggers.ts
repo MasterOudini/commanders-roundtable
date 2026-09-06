@@ -1078,6 +1078,10 @@ function readonlyCtx(
       isOnBattlefield: (id: InstanceId) => state.cards[id]?.zone.kind === 'battlefield',
     },
     random: { below: () => 0, shuffled: <T,>(xs: readonly T[]) => xs },
+    // D344 - the vocabulary payload resolves from the loop alone (a def's resolve): a static and a match never emit.
+    vocabulary: () => {
+      throw new Error('ScriptCtx.vocabulary is resolution-only: a static or a trigger match must not run effects');
+    },
   };
 }
 

@@ -7,6 +7,139 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { XIAHOU_DUN_THE_ONE_EYED_SCRIPT } from './cards/xiahouDunTheOneEyed';
+import { KOR_ENTANGLERS_SCRIPT } from './cards/korEntanglers';
+import { NOXIOUS_DRAGON_SCRIPT } from './cards/noxiousDragon';
+import { TREASURE_HUNTER_SCRIPT } from './cards/treasureHunter';
+import { ETERNAL_WITNESS_SCRIPT } from './cards/eternalWitness';
+import { SUN_TITAN_SCRIPT } from './cards/sunTitan';
+import { SPINE_OF_ISH_SAH_SCRIPT } from './cards/spineOfIshSah';
+import { RIDDLEMASTER_SPHINX_SCRIPT } from './cards/riddlemasterSphinx';
+import { PRIMEVAL_BOUNTY_SCRIPT } from './cards/primevalBounty';
+import { AURAMANCER_SCRIPT } from './cards/auramancer';
+import { GRAVEDIGGER_SCRIPT } from './cards/gravedigger';
+import { SURLY_FARRIER_SCRIPT } from './cards/surlyFarrier';
+import { QUARRY_BEETLE_SCRIPT } from './cards/quarryBeetle';
+import { RUNAWAY_BOULDER_SCRIPT } from './cards/runawayBoulder';
+import { ORDER_OF_WHITECLAY_SCRIPT } from './cards/orderOfWhiteclay';
+import { STOIC_BUILDER_SCRIPT } from './cards/stoicBuilder';
+import { CONCLAVE_NATURALISTS_SCRIPT } from './cards/conclaveNaturalists';
+import { HELLS_CARETAKER_SCRIPT } from './cards/hellsCaretaker';
+import { DREADBRINGER_LAMPADS_SCRIPT } from './cards/dreadbringerLampads';
+import { NECROMANTIC_THIRST_SCRIPT } from './cards/necromanticThirst';
+import { WOODFALL_PRIMUS_SCRIPT } from './cards/woodfallPrimus';
+import { CAULDRON_OF_ESSENCE_SCRIPT } from './cards/cauldronOfEssence';
+import { GRAVESHIFTER_SCRIPT } from './cards/graveshifter';
+import { RECLAMATION_SAGE_SCRIPT } from './cards/reclamationSage';
+import { CLOCK_OF_OMENS_SCRIPT } from './cards/clockOfOmens';
+import { SERPENT_ASSASSIN_SCRIPT } from './cards/serpentAssassin';
+import { MAZE_SKULLBOMB_SCRIPT } from './cards/mazeSkullbomb';
+import { CHARNELHOARD_WURM_SCRIPT } from './cards/charnelhoardWurm';
+import { ANCESTRAL_VENGEANCE_SCRIPT } from './cards/ancestralVengeance';
+import { ARGENTUM_ARMOR_SCRIPT } from './cards/argentumArmor';
+import { SANCTUM_GARGOYLE_SCRIPT } from './cards/sanctumGargoyle';
+import { SHIPWRECK_DOWSER_SCRIPT } from './cards/shipwreckDowser';
+import { SILENT_SENTINEL_SCRIPT } from './cards/silentSentinel';
+import { STINGERFLING_SPIDER_SCRIPT } from './cards/stingerflingSpider';
+import { CADAVER_IMP_SCRIPT } from './cards/cadaverImp';
+import { VONA_BUTCHER_OF_MAGAN_SCRIPT } from './cards/vonaButcherOfMagan';
+import { REYA_DAWNBRINGER_SCRIPT } from './cards/reyaDawnbringer';
+import { CHIME_OF_NIGHT_SCRIPT } from './cards/chimeOfNight';
+import { GATE_TO_PHYREXIA_SCRIPT } from './cards/gateToPhyrexia';
+import { DREAD_RIDER_SCRIPT } from './cards/dreadRider';
+import { BEQUEATHAL_SCRIPT } from './cards/bequeathal';
+import { STAFF_OF_DOMINATION_SCRIPT } from './cards/staffOfDomination';
+import { GLARING_AEGIS_SCRIPT } from './cards/glaringAegis';
+import { AURA_SHARDS_SCRIPT } from './cards/auraShards';
+import { BISHOP_OF_REBIRTH_SCRIPT } from './cards/bishopOfRebirth';
+import { MNEMONIC_WALL_SCRIPT } from './cards/mnemonicWall';
+import { VALGAVOTHS_FAITHFUL_SCRIPT } from './cards/valgavothsFaithful';
+import { SCRIVENER_SCRIPT } from './cards/scrivener';
+import { BURNER_ROCKET_SCRIPT } from './cards/burnerRocket';
+import { FURIOUS_ASSAULT_SCRIPT } from './cards/furiousAssault';
+import { PROFESSOR_ZEI_ANTHROPOLOGIST_SCRIPT } from './cards/professorZeiAnthropologist';
+import { OBSESSIVE_STITCHER_SCRIPT } from './cards/obsessiveStitcher';
+import { CABAL_SURGEON_SCRIPT } from './cards/cabalSurgeon';
+import { LOTUS_EYE_MYSTICS_SCRIPT } from './cards/lotusEyeMystics';
+import { VAMPIRE_SOULCALLER_SCRIPT } from './cards/vampireSoulcaller';
+import { DISPERSAL_TECHNICIAN_SCRIPT } from './cards/dispersalTechnician';
+import { LIGHTSHELL_DUO_SCRIPT } from './cards/lightshellDuo';
+import { SEEDSHIP_AGRARIAN_SCRIPT } from './cards/seedshipAgrarian';
+import { WEAVER_OF_LIGHTNING_SCRIPT } from './cards/weaverOfLightning';
+import { XUN_YU_WEI_ADVISOR_SCRIPT } from './cards/xunYuWeiAdvisor';
+import { CACOPHODON_SCRIPT } from './cards/cacophodon';
+import { MAKINDI_OX_SCRIPT } from './cards/makindiOx';
+import { FAERIE_DREAMTHIEF_SCRIPT } from './cards/faerieDreamthief';
+import { DARU_SANCTIFIER_SCRIPT } from './cards/daruSanctifier';
+import { WESTFOLD_RIDER_SCRIPT } from './cards/westfoldRider';
+import { GERALFS_MESSENGER_SCRIPT } from './cards/geralfsMessenger';
+import { SHALESKIN_PLOWER_SCRIPT } from './cards/shaleskinPlower';
+import { NEEDLETOOTH_RAPTOR_SCRIPT } from './cards/needletoothRaptor';
+import { LUMENGRID_SENTINEL_SCRIPT } from './cards/lumengridSentinel';
+import { DEEPWATER_HYPNOTIST_SCRIPT } from './cards/deepwaterHypnotist';
+import { TRITON_CAVALRY_SCRIPT } from './cards/tritonCavalry';
+import { SLIMY_DUALLEECH_SCRIPT } from './cards/slimyDualleech';
+import { QASALI_PRIDEMAGE_SCRIPT } from './cards/qasaliPridemage';
+import { MIND_DRILL_ASSAILANT_SCRIPT } from './cards/mindDrillAssailant';
+import { MIRRAN_SPY_SCRIPT } from './cards/mirranSpy';
+import { TETHMOS_HIGH_PRIEST_SCRIPT } from './cards/tethmosHighPriest';
+import { ANARCHIST_SCRIPT } from './cards/anarchist';
+import { SPITEFUL_BULLY_SCRIPT } from './cards/spitefulBully';
+import { ACADEMY_JOURNEYMAGE_SCRIPT } from './cards/academyJourneymage';
+import { RUSTVINE_CULTIVATOR_SCRIPT } from './cards/rustvineCultivator';
+import { MIGHTY_MUTANIMALS_SCRIPT } from './cards/mightyMutanimals';
+import { FIRE_OMEN_CRANE_SCRIPT } from './cards/fireOmenCrane';
+import { DRAGON_BROODMOTHER_SCRIPT } from './cards/dragonBroodmother';
+import { BUMBLEFLOWERS_SHAREPOT_SCRIPT } from './cards/bumbleflowersSharepot';
+import { ORGAN_GRINDER_SCRIPT } from './cards/organGrinder';
+import { RHOX_VETERAN_SCRIPT } from './cards/rhoxVeteran';
+import { DROSS_SKULLBOMB_SCRIPT } from './cards/drossSkullbomb';
+import { METEOR_SWORD_SCRIPT } from './cards/meteorSword';
+import { WILD_CELEBRANTS_SCRIPT } from './cards/wildCelebrants';
+import { SURGICAL_SKULLBOMB_SCRIPT } from './cards/surgicalSkullbomb';
+import { GLOWING_ANEMONE_SCRIPT } from './cards/glowingAnemone';
+import { HARRIER_STRIX_SCRIPT } from './cards/harrierStrix';
+import { WARCHANTER_OF_MOGIS_SCRIPT } from './cards/warchanterOfMogis';
+import { ENLIGHTENED_ASCETIC_SCRIPT } from './cards/enlightenedAscetic';
+import { ETHERSWORN_ADJUDICATOR_SCRIPT } from './cards/etherswornAdjudicator';
+import { STEELBANE_HYDRA_SCRIPT } from './cards/steelbaneHydra';
+import { PILLARDROP_WARDEN_SCRIPT } from './cards/pillardropWarden';
+import { TRAVELING_MINISTER_SCRIPT } from './cards/travelingMinister';
+import { APHETTO_ALCHEMIST_SCRIPT } from './cards/aphettoAlchemist';
+import { CARTOGRAPHER_SCRIPT } from './cards/cartographer';
+import { MISTFIRE_WEAVER_SCRIPT } from './cards/mistfireWeaver';
+import { RUBBLEBELT_MAVERICK_SCRIPT } from './cards/rubblebeltMaverick';
+import { HIGH_PRIEST_OF_PENANCE_SCRIPT } from './cards/highPriestOfPenance';
+import { NANTUKO_VIGILANTE_SCRIPT } from './cards/nantukoVigilante';
+import { SHINEWEND_SCRIPT } from './cards/shinewend';
+import { BONECALLER_CLERIC_SCRIPT } from './cards/bonecallerCleric';
+import { TREETOP_SNARESPINNER_SCRIPT } from './cards/treetopSnarespinner';
+import { SKINTHINNER_SCRIPT } from './cards/skinthinner';
+import { ZOOKEEPER_MECHAN_SCRIPT } from './cards/zookeeperMechan';
+import { BASILICA_SKULLBOMB_SCRIPT } from './cards/basilicaSkullbomb';
+import { LUX_CANNON_SCRIPT } from './cards/luxCannon';
+import { BATTERHORN_SCRIPT } from './cards/batterhorn';
+import { DEADSHOT_MINOTAUR_SCRIPT } from './cards/deadshotMinotaur';
+import { THISTLEDOWN_PLAYERS_SCRIPT } from './cards/thistledownPlayers';
+import { WAR_PRIEST_OF_THUNE_SCRIPT } from './cards/warPriestOfThune';
+import { VALKYRIE_AERIAL_UNIT_SCRIPT } from './cards/valkyrieAerialUnit';
+import { ARCHON_OF_FALLING_STARS_SCRIPT } from './cards/archonOfFallingStars';
+import { DEATHMARK_PRELATE_SCRIPT } from './cards/deathmarkPrelate';
+import { RACCOON_RALLIER_SCRIPT } from './cards/raccoonRallier';
+import { ULTIMA_WEAPON_SCRIPT } from './cards/ultimaWeapon';
+import { BEACON_HAWK_SCRIPT } from './cards/beaconHawk';
+import { WOEBEARER_SCRIPT } from './cards/woebearer';
+import { NANTUKO_CALMER_SCRIPT } from './cards/nantukoCalmer';
+import { WHIPTAIL_MOLOCH_SCRIPT } from './cards/whiptailMoloch';
+import { GLACIER_GODMAW_SCRIPT } from './cards/glacierGodmaw';
+import { LUNATIC_PANDORA_SCRIPT } from './cards/lunaticPandora';
+import { TIMELY_HORDEMATE_SCRIPT } from './cards/timelyHordemate';
+import { SKATEBOARD_SCRIPT } from './cards/skateboard';
+import { HIGH_FLYING_ACE_SCRIPT } from './cards/highFlyingAce';
+import { FLESHPULPER_GIANT_SCRIPT } from './cards/fleshpulperGiant';
+import { STONE_SEEDER_HIEROPHANT_SCRIPT } from './cards/stoneSeederHierophant';
+import { KAVARON_TURBODRONE_SCRIPT } from './cards/kavaronTurbodrone';
+import { URN_OF_GODFIRE_SCRIPT } from './cards/urnOfGodfire';
 import { COLOSSUS_OF_SARDIA_SCRIPT } from './cards/colossusOfSardia';
 import { STEADFAST_UNICORN_SCRIPT } from './cards/steadfastUnicorn';
 import { SHADOWS_OF_THE_PAST_SCRIPT } from './cards/shadowsOfThePast';
@@ -4299,6 +4432,139 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  XIAHOU_DUN_THE_ONE_EYED_SCRIPT,
+  KOR_ENTANGLERS_SCRIPT,
+  NOXIOUS_DRAGON_SCRIPT,
+  TREASURE_HUNTER_SCRIPT,
+  ETERNAL_WITNESS_SCRIPT,
+  SUN_TITAN_SCRIPT,
+  SPINE_OF_ISH_SAH_SCRIPT,
+  RIDDLEMASTER_SPHINX_SCRIPT,
+  PRIMEVAL_BOUNTY_SCRIPT,
+  AURAMANCER_SCRIPT,
+  GRAVEDIGGER_SCRIPT,
+  SURLY_FARRIER_SCRIPT,
+  QUARRY_BEETLE_SCRIPT,
+  RUNAWAY_BOULDER_SCRIPT,
+  ORDER_OF_WHITECLAY_SCRIPT,
+  STOIC_BUILDER_SCRIPT,
+  CONCLAVE_NATURALISTS_SCRIPT,
+  HELLS_CARETAKER_SCRIPT,
+  DREADBRINGER_LAMPADS_SCRIPT,
+  NECROMANTIC_THIRST_SCRIPT,
+  WOODFALL_PRIMUS_SCRIPT,
+  CAULDRON_OF_ESSENCE_SCRIPT,
+  GRAVESHIFTER_SCRIPT,
+  RECLAMATION_SAGE_SCRIPT,
+  CLOCK_OF_OMENS_SCRIPT,
+  SERPENT_ASSASSIN_SCRIPT,
+  MAZE_SKULLBOMB_SCRIPT,
+  CHARNELHOARD_WURM_SCRIPT,
+  ANCESTRAL_VENGEANCE_SCRIPT,
+  ARGENTUM_ARMOR_SCRIPT,
+  SANCTUM_GARGOYLE_SCRIPT,
+  SHIPWRECK_DOWSER_SCRIPT,
+  SILENT_SENTINEL_SCRIPT,
+  STINGERFLING_SPIDER_SCRIPT,
+  CADAVER_IMP_SCRIPT,
+  VONA_BUTCHER_OF_MAGAN_SCRIPT,
+  REYA_DAWNBRINGER_SCRIPT,
+  CHIME_OF_NIGHT_SCRIPT,
+  GATE_TO_PHYREXIA_SCRIPT,
+  DREAD_RIDER_SCRIPT,
+  BEQUEATHAL_SCRIPT,
+  STAFF_OF_DOMINATION_SCRIPT,
+  GLARING_AEGIS_SCRIPT,
+  AURA_SHARDS_SCRIPT,
+  BISHOP_OF_REBIRTH_SCRIPT,
+  MNEMONIC_WALL_SCRIPT,
+  VALGAVOTHS_FAITHFUL_SCRIPT,
+  SCRIVENER_SCRIPT,
+  BURNER_ROCKET_SCRIPT,
+  FURIOUS_ASSAULT_SCRIPT,
+  PROFESSOR_ZEI_ANTHROPOLOGIST_SCRIPT,
+  OBSESSIVE_STITCHER_SCRIPT,
+  CABAL_SURGEON_SCRIPT,
+  LOTUS_EYE_MYSTICS_SCRIPT,
+  VAMPIRE_SOULCALLER_SCRIPT,
+  DISPERSAL_TECHNICIAN_SCRIPT,
+  LIGHTSHELL_DUO_SCRIPT,
+  SEEDSHIP_AGRARIAN_SCRIPT,
+  WEAVER_OF_LIGHTNING_SCRIPT,
+  XUN_YU_WEI_ADVISOR_SCRIPT,
+  CACOPHODON_SCRIPT,
+  MAKINDI_OX_SCRIPT,
+  FAERIE_DREAMTHIEF_SCRIPT,
+  DARU_SANCTIFIER_SCRIPT,
+  WESTFOLD_RIDER_SCRIPT,
+  GERALFS_MESSENGER_SCRIPT,
+  SHALESKIN_PLOWER_SCRIPT,
+  NEEDLETOOTH_RAPTOR_SCRIPT,
+  LUMENGRID_SENTINEL_SCRIPT,
+  DEEPWATER_HYPNOTIST_SCRIPT,
+  TRITON_CAVALRY_SCRIPT,
+  SLIMY_DUALLEECH_SCRIPT,
+  QASALI_PRIDEMAGE_SCRIPT,
+  MIND_DRILL_ASSAILANT_SCRIPT,
+  MIRRAN_SPY_SCRIPT,
+  TETHMOS_HIGH_PRIEST_SCRIPT,
+  ANARCHIST_SCRIPT,
+  SPITEFUL_BULLY_SCRIPT,
+  ACADEMY_JOURNEYMAGE_SCRIPT,
+  RUSTVINE_CULTIVATOR_SCRIPT,
+  MIGHTY_MUTANIMALS_SCRIPT,
+  FIRE_OMEN_CRANE_SCRIPT,
+  DRAGON_BROODMOTHER_SCRIPT,
+  BUMBLEFLOWERS_SHAREPOT_SCRIPT,
+  ORGAN_GRINDER_SCRIPT,
+  RHOX_VETERAN_SCRIPT,
+  DROSS_SKULLBOMB_SCRIPT,
+  METEOR_SWORD_SCRIPT,
+  WILD_CELEBRANTS_SCRIPT,
+  SURGICAL_SKULLBOMB_SCRIPT,
+  GLOWING_ANEMONE_SCRIPT,
+  HARRIER_STRIX_SCRIPT,
+  WARCHANTER_OF_MOGIS_SCRIPT,
+  ENLIGHTENED_ASCETIC_SCRIPT,
+  ETHERSWORN_ADJUDICATOR_SCRIPT,
+  STEELBANE_HYDRA_SCRIPT,
+  PILLARDROP_WARDEN_SCRIPT,
+  TRAVELING_MINISTER_SCRIPT,
+  APHETTO_ALCHEMIST_SCRIPT,
+  CARTOGRAPHER_SCRIPT,
+  MISTFIRE_WEAVER_SCRIPT,
+  RUBBLEBELT_MAVERICK_SCRIPT,
+  HIGH_PRIEST_OF_PENANCE_SCRIPT,
+  NANTUKO_VIGILANTE_SCRIPT,
+  SHINEWEND_SCRIPT,
+  BONECALLER_CLERIC_SCRIPT,
+  TREETOP_SNARESPINNER_SCRIPT,
+  SKINTHINNER_SCRIPT,
+  ZOOKEEPER_MECHAN_SCRIPT,
+  BASILICA_SKULLBOMB_SCRIPT,
+  LUX_CANNON_SCRIPT,
+  BATTERHORN_SCRIPT,
+  DEADSHOT_MINOTAUR_SCRIPT,
+  THISTLEDOWN_PLAYERS_SCRIPT,
+  WAR_PRIEST_OF_THUNE_SCRIPT,
+  VALKYRIE_AERIAL_UNIT_SCRIPT,
+  ARCHON_OF_FALLING_STARS_SCRIPT,
+  DEATHMARK_PRELATE_SCRIPT,
+  RACCOON_RALLIER_SCRIPT,
+  ULTIMA_WEAPON_SCRIPT,
+  BEACON_HAWK_SCRIPT,
+  WOEBEARER_SCRIPT,
+  NANTUKO_CALMER_SCRIPT,
+  WHIPTAIL_MOLOCH_SCRIPT,
+  GLACIER_GODMAW_SCRIPT,
+  LUNATIC_PANDORA_SCRIPT,
+  TIMELY_HORDEMATE_SCRIPT,
+  SKATEBOARD_SCRIPT,
+  HIGH_FLYING_ACE_SCRIPT,
+  FLESHPULPER_GIANT_SCRIPT,
+  STONE_SEEDER_HIEROPHANT_SCRIPT,
+  KAVARON_TURBODRONE_SCRIPT,
+  URN_OF_GODFIRE_SCRIPT,
   COLOSSUS_OF_SARDIA_SCRIPT,
   STEADFAST_UNICORN_SCRIPT,
   SHADOWS_OF_THE_PAST_SCRIPT,

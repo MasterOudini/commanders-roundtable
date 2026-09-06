@@ -132,13 +132,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // "Exile this artifact" as a cost — sacrificesSelf ONE EVENT OVER
   // (CardsMoved to exile instead of graveyard); named cheap, not built yet.
   ['Brittle Effigy', 'exile-self cost'],
-  ['Cabal Surgeon', 'exile-from-graveyard cost'],
   // Batch 10 (D167).
   // "Your second spell each turn" is Axgard's per-turn trigger memory one
   // count over (D167).
   // Tap-two-untapped-ARTIFACTS as a cost — the tap-creatures chooser's
   // artifact sibling (D167).
-  ['Clock of Omens', 'tap-permanents cost'],
   // Batch 11 (D169).
   // "target opponent discards a card" from a trigger's resolve is the
   // script-raised prompt class (D160) — the caster's script asking ANOTHER
@@ -159,10 +157,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // created permanent that nothing can raise. Dromad Purebred is the
   // RECEIVER side of Aya's class — two simultaneous sources are two damage
   // instances batched into one event, so per-event firing under-fires.
-  ['Dragon Broodmother', 'token entry choice (devour)'],
   ['Dragonborn Champion', 'per-damage-entry trigger granularity'],
   ['Draugr Recruiter', 'once-per-turn trigger memory'],
-  ['Dread Rider', 'exile-from-graveyard cost'],
   ['Dune Diviner', 'tap-permanents cost'],
   // M6.4r (D174) — batch 16's two refusals. Ezio watches a CLASS of
   // creatures deal combat damage, so two simultaneous Assassins are two
@@ -741,8 +737,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ominous Sphinx', 'discard-event discriminator'],
   ['Ondu War Cleric', 'tap-creatures cost'],
   ['Open the Vaults', 'script-raised prompt'],
-  ['Order of Whiteclay', 'untap-symbol activation cost'],
-  ['Organ Grinder', 'exile-from-graveyard cost'],
   // D231 — Oust puts the creature SECOND from the top (Chronostutter's
   // class: the move event knows top and bottom only); Over the Top's mass
   // battlefield put includes AURAS whose enchant choice is a prompt (Open
@@ -849,7 +843,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sinister Concoction', 'discard-cost chooser'],
   ['Sleep', 'untap restriction'],
   ['Sleight of Mind', 'text-changing effect (CR 612)'],
-  ['Slimy Dualleech', 'spell target parse (numeric after controller)'],
   // D249 (M6.4cl)
   ['Slip On the Ring', 'the Ring mechanic'],
   ['Snap', 'up-to-N targeting'],
@@ -953,7 +946,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // LAND be untapped by a card that forbids it (Angelic Page, verbatim).
   // Befoul holds the negated-COLOUR direction (D199) and Devout Decree the
   // positive colour one (D208); nobody had probed a negated TYPE.
-  ['Thistledown Players', 'negated-type target qualifier'],
   ['The Ring Goes South', 'the Ring'],
   ['Thopter Foundry', 'token-predicate sacrifice cost'],
   ['Thoughtlace', 'indefinite color change'],
@@ -1634,7 +1626,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Repeal', 'cast-time X in target qualifier'],
   ["Venser's Diffusion", 'unparseable list alternative (suspended card)'],
   ['Premature Burial', 'entry-turn memory'],
-  ['Lunatic Pandora', 'self-sacrifice by name (cost)'],
   ['Unwind', 'script-raised prompt'],
   // ...and of the 29 cards the four D295 sentences made offerable in turn,
   // five: a becomes-targeted trigger, a delayed trigger ("this turn"), a cost
@@ -1729,14 +1720,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D303 (M6.4en) — the counter one-shot pool: the heads outside the library,
   // the per-item counters on an entering object, the costs no row charges.
-  ['Ancestral Vengeance', 'an Aura line outside the row shapes (When this Aura enters, put a +N/+N counter on ta)'],
-  ['Chime of Night', 'an Aura line outside the row shapes (When this Aura is put into a graveyard from the )'],
-  ['Bequeathal', 'an Aura line outside the row shapes (When enchanted creature dies, you draw two cards)'],
-  ['Glaring Aegis', 'an Aura line outside the row shapes (When this Aura enters, tap target creature an op)'],
   ['Daybreak Coronet', 'an Aura line outside the row shapes (Enchant creature with another Aura attached to i)'],
   ['Aspect of Lamprey', 'an Aura line outside the row shapes (When this Aura enters, target opponent discards )'],
   ['Dying Wail', 'an Aura line outside the row shapes (When enchanted creature dies, target player disc)'],
-  ['Failed Conversion', 'an Aura line outside the row shapes (When enchanted creature dies, surveil N.)'],
   ['Contaminated Bond', 'an Aura line outside the row shapes (Whenever enchanted creature attacks or blocks, i)'],
   ['Luminous Wake', 'an Aura line outside the row shapes (Whenever enchanted creature attacks or blocks, y)'],
   ['Viridian Harvest', 'an Aura line outside the row shapes (Enchant artifact)'],
@@ -1752,12 +1738,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D303 (M6.4en) — the counter one-shot pool: the heads outside the library,
   // the per-item counters on an entering object, the costs no row charges.
   ['Giant\'s Skewer', 'an Equipment line outside the row shapes (Whenever equipped creature deals combat damage t)'],
-  ['Argentum Armor', 'an Equipment trigger payload outside the row kinds (destroy target permanent.)'],
   ['Beamtown Beatstick', 'an Equipment line outside the row shapes (Whenever equipped creature deals combat damage t)'],
   ['Goggles of Night', 'an Equipment trigger payload outside the row kinds (scry N, then draw a card.)'],
-  ['Meteor Sword', 'an Equipment trigger payload outside the row kinds (destroy target permanent.)'],
-  ['Ultima Weapon', 'an Equipment trigger payload outside the row kinds (destroy target creature an opponent controls)'],
-  ['Skateboard', 'an Equipment trigger payload outside the row kinds (tap target permanent.)'],
 
   // D306 (M6.4eq) — the cycling pool: the cyclers whose other text the engine
   // cannot run yet - their cycling does (a spell outside the vocabulary, the
@@ -1853,37 +1835,24 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D308 (M6.4es) — the keyword-trigger pool: the carriers whose other
   // lines the vocabulary does not read yet - their keyword trigger runs.
   ['Dawnray Archer', 'a creature line outside the vocabulary (its exalted runs)'],
-  ['Geralf\'s Messenger', 'a creature line outside the vocabulary (its undying runs)'],
   ['Glen Elendra Archmage', 'a creature line outside the vocabulary (its persist runs)'],
-  ['Kithkin Spellduster', 'a creature line outside the vocabulary (its persist runs)'],
-  ['Lightshell Duo', 'a creature line outside the vocabulary (its prowess runs)'],
-  ['Lotus-Eye Mystics', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Mistfire Adept', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Pinnacle Monk // Mystic Peak', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Pollywog Prodigy', 'a creature line outside the vocabulary (its evolve runs)'],
-  ['Qasali Pridemage', 'a creature line outside the vocabulary (its exalted runs)'],
   ['Ray Fillet, Wave Warrior', 'a creature line outside the vocabulary (its evolve runs)'],
-  ['Shipwreck Dowser', 'a creature line outside the vocabulary (its prowess runs)'],
-  ['Woodfall Primus', 'a creature line outside the vocabulary (its persist runs)'],
   ['River Kelpie', 'a creature line outside the vocabulary (its persist runs)'],
 
   // D309 (M6.4et) — the morph pool: the morph creatures whose other
   // lines the vocabulary does not read yet - their morph runs.
-  ['Aphetto Alchemist', 'an activated line outside the vocabulary (its morph runs)'],
   ['Aphetto Exterminator', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
-  ['Daru Sanctifier', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Dwarven Blastminer', 'an activated line outside the vocabulary (its morph runs)'],
   ['Echo Tracer', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Gravel Slinger', 'an activated line outside the vocabulary (its morph runs)'],
   ['Grim Haruspex', 'a dies watcher over other creatures (its morph runs)'],
   ['Kolaghan Stormsinger', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
-  ['Mistfire Weaver', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Monastery Loremaster', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
-  ['Nantuko Vigilante', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Patron of the Wild', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Ponyback Brigade', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
-  ['Shaleskin Plower', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
-  ['Skinthinner', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Stratus Dancer', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Venomspout Brackus', 'an activated line outside the vocabulary (its morph runs)'],
   ['Voidmage Apprentice', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
@@ -1915,7 +1884,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D311 (M6.4ev) — the crew pool: the Vehicles whose other
   // lines the vocabulary does not read yet - their crew runs.
   ['Broadcast Rambler', 'an enters trigger outside the vocabulary (its crew runs)'],
-  ['Burner Rocket', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Captain America\'s Motorcycle', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Fire Nation Warship', 'a Vehicle line outside the vocabulary (its crew runs)'],
   ['High-Speed Hoverbike', 'an enters trigger outside the vocabulary (its crew runs)'],
@@ -1925,14 +1893,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D312 (M6.4ew) — the cost-reduction pool: the carriers whose other
   // lines the vocabulary does not read yet - their reduction is priced.
-  ['Academy Journeymage', 'an enters trigger outside the vocabulary (its reduction is priced)'],
   ['Allies at Last', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Blinkmoth Infusion', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Millicent, Restless Revenant', 'a permanent line outside the vocabulary (its reduction is priced)'],
   ['Neonate\'s Rush', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Polliwallop', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Rebel Salvo', 'a spell line outside the vocabulary (its reduction is priced)'],
-  ['Valkyrie Aerial Unit', 'an enters trigger outside the vocabulary (its reduction is priced)'],
   ['Visions of Villainy', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Voyage Home', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Chill of the Grave', 'a spell line outside the vocabulary (its reduction is priced)'],
@@ -1941,10 +1907,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D325 (M6.4fj) - the two cards the mana-ability seam made offerable that the row
   // maker still refuses: a tap-a-Gate cost, a two-type destroy.
   ['Heap Gate', 'a cost the row maker cannot charge (tap an untapped Gate you control)'],
-  ['Urn of Godfire', 'a payload outside the row grammar (destroy target creature or enchantment)'],
 
   // D327 (M6.4fl) - the sacrifice-a-token cost the engine does not charge: its chooser reads
   // types, subtypes and colours, and a token is none of them.
+
+  // D344 (M6.4gc) - the two rows the vocabulary generator refuses by name after its first port:
+  // a self-sacrifice on a creature that returns, and an attached static that empties the suite's Bears.
+  ['Kithkin Spellduster', 'a self-sacrifice on a creature that returns (persist) - the suite cannot assert its grave'],
+  ['Failed Conversion', 'an attached static whose toughness pump kills the 2/2 Bears the suite enchants'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

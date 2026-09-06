@@ -14,7 +14,7 @@
 
 import { assignBlockerDamage, creaturesInCombat, canAttack, canAttackDefender, legalDefenders, needsFirstStrikeSubstep, requiredAttackers, resolveCombatDamage } from './combat';
 import { derive, makeDeriveCache } from './derive';
-import { drawEvents, drewCardsMarker, effectResult } from './effects';
+import { drawEvents, drewCardsMarker, effectEvents, effectResult } from './effects';
 import { keywordTriggerDef } from './keywordTriggers';
 import { candidatesFromState, minimumLegalTargets, targetAllowed, untargetableByRule, type TargetingSource } from './targets';
 import { legalModes, modalEffects, modeSpecs } from './modes';
@@ -918,6 +918,17 @@ function scriptCtxFor(state: GameState, deps: EngineDeps): ScriptCtx {
       isOnBattlefield: (id: InstanceId) => state.cards[id]?.zone.kind === 'battlefield',
     },
     random: { below: () => 0, shuffled: <T,>(xs: readonly T[]) => xs },
+    // D344 - the vocabulary payload: the picks still legal for their clause
+    // (CR 608.2b, `withStillLegalPicks`), then the executor a spell uses, over
+    // this object's own targets, controller and source. `effectEvents` is the
+    // narrow entry on purpose: `vocabularyEffects` refuses randomness, so no
+    // RNG advance is dropped here.
+    vocabulary: (obj, effects, targets) => {
+      const srcCard = obj.source ? state.cards[obj.source] : undefined;
+      const srcPrinting = srcCard ? deps.oracle.byPrinting(srcCard.printingId) : undefined;
+      const srcFace = srcCard && srcPrinting ? faceOf(srcPrinting, srcCard.faceIndex) : null;
+      return effectEvents(state, deps, withStillLegalPicks(state, deps, obj, srcFace, targets), effects, cache);
+    },
   };
 }
 

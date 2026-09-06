@@ -514,6 +514,10 @@ export function makeScriptCtx(state: GameState, oracle: OracleDb, scripts: Scrip
       below: () => 0,
       shuffled: (xs) => xs,
     },
+    // D344 - the vocabulary payload resolves from the loop alone (a def's resolve): a static and a match never emit.
+    vocabulary: () => {
+      throw new Error('ScriptCtx.vocabulary is resolution-only: a static or a trigger match must not run effects');
+    },
   };
 }
 

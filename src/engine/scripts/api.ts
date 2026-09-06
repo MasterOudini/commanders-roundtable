@@ -17,7 +17,7 @@
 import type { ColorLetter } from '../../data/cardTypes';
 import type { EventBody, EventKind } from '../types/events';
 import type { AbilityRef, InstanceId, OracleId, PlayerId, ZoneKind } from '../types/ids';
-import type { DerivedCharacteristics, Keyword, ModeDecl, OracleDb, ParsedTypeLine, Protection, TargetSpec } from '../types/oracle';
+import type { DerivedCharacteristics, EffectSpec, Keyword, ModeDecl, OracleDb, ParsedTypeLine, Protection, TargetSpec } from '../types/oracle';
 import type { DefenderRef, GameOptions, GameState, StackObject } from '../types/state';
 
 /** The mutable form a static ability edits. Copied out of `derive()`'s workspace. */
@@ -72,6 +72,24 @@ export interface ScriptCtx {
   readonly query: EngineQueries;
   /** The loop threads the resulting rngAfter onto the emitted event. */
   readonly random: { below(n: number): number; shuffled<T>(xs: readonly T[]): readonly T[] };
+  /**
+   * D344 - THE VOCABULARY PAYLOAD. Resolve the engine's own effect vocabulary
+   * - the clauses `effectParse` reads for a spell - as THIS ability's payload:
+   * the stack object's targets are the aims, its controller is "you", and its
+   * source is the damage's source (a triggered ability has no card of its own,
+   * CR 113.7a). `targets` are the clauses the def declared; they are asked
+   * again here so a pick no longer legal for its clause is not affected while
+   * the rest resolve (CR 608.2b's other half, D343's `withStillLegalPicks`).
+   *
+   * ⚠️ A def reaches this ONLY through `scripts/vocabulary.ts`, whose
+   * `vocabularyEffects` / `vocabularyTargets` parse the printed payload once
+   * at module load and REFUSE what this cannot run: a sentence the vocabulary
+   * does not read whole (D90), a clause that is not confident, a clause that
+   * asks (a prompt inside an ability's resolution is the continuation seam),
+   * randomness (a def's `resolve` cannot thread the RNG onto the event), and
+   * a self clause of a kind that needs an aim.
+   */
+  vocabulary(obj: StackObject, effects: readonly EffectSpec[], targets: readonly TargetSpec[]): readonly EventBody[];
 }
 
 export interface TriggerDef {

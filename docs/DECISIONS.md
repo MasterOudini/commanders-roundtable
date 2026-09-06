@@ -23285,3 +23285,103 @@ Fixtures 4,650 · botPool artifact 367 / creature 3,965 / enchantment 346 / inst
 **Reportables** (D343): the modal PERMANENT lines (276 leftover lines on permanents whose first unread line is a choose-one: a trigger or an activation whose payload is modal - TriggerDef.modes / ActivatedDef.modes ship in this seam, so the row maker naming a mode per printed bullet is the wave), the modal spells beside another sentence (59) and the 265 with a mode outside the vocabulary or an unconfident clause, Unleash (10; an asked entry choice), the turn-memory conditions (a creature died this turn 2 + 1, a noncreature spell / an instant or sorcery cast this turn 2 + 2, an opponent lost life this turn 2, you gained life / discarded / created a token this turn - a per-turn record beside D336's tallies), the keyword-predicate condition (a creature with flying 2; a keyword on PermanentPredicate), the exactly-N hand size (1), the counts outside the vocabulary (15), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the other Threshold bodies (activated lines under other words, enchanted-creature and anthem bodies), Goblin Banneret's Mentor; then the rest of the script-raised prompt seam - the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split; the "another" split; the by-name sacrifice
 cost; the remaining cost verbs; the prompt continuation seam; prior items
 stand.
+
+## D344 — M6.4gc: THE VOCABULARY PAYLOAD — a generated row hands the engine its own effect vocabulary as the payload of a trigger or an activation: the printed sentence parsed once at module load, the clauses asked as the ability stacks, the picks still legal resolved through the executor a spell uses; 133 cards land, 133 as generated rows (2026-09-07)
+
+**7,053 of 31,692 Commander-legal cards execute completely, up from
+6,920 (+133).** SHIPPED_SCRIPTS 4,273 → **4,406**;
+REFUSED ledger 991 → **958** (35 rows retired by name (the port's remove-ledger-rows: the wave's cards whose refusal had been a payload the row kinds did not read), and two rows added back - Kithkin Spellduster (a self-sacrifice on a creature that returns: persist) and Failed Conversion (an attached static whose -4/-4 empties the suite's 2/2 Bears) - which the port's first run had landed and the generator now refuses by name; measured: the REFUSED map's size 991 -> 958). Fixtures
+4,650 → 4,783 (4,643 by name + 133 tokens: the 133 rows' cards (4,510 -> 4,643); no new token pins (every token a payload creates was pinned by the spells that create it)). **One engine seam in two patches and
+a generator that reads the vocabulary; the wave is the generator's.** **Select
+pool 0 → 0.**
+
+**The gap, measured before it was built.** the D344 probes over the database (d344/make-probe-d344.cjs -> zz-probe-d344c: D343's grammar over the 18,248 incomplete single-face permanents; make-probe-d344v.cjs -> zz-probe-d344v: the same with ONE fallback - a payload the row kinds do not read is offered to the engine's effect vocabulary): (1) the modal PERMANENT lines D343 named next - 276 print a modal head, 10 fully readable at the row kinds, 33 with the vocabulary fallback, 235 distinct first-blocker reasons behind the rest (modal-why.json): a wave of ten, so it waits; (2) EVERY incomplete card's kinds and first blocker dumped (all-cards.json), so a seam is sized offline before it is built - the first blockers are PAYLOADS by a wide margin (an activated payload 2,982, the enters head's 2,483, upkeep 483, attacks 356, the end step 206 ...; a static line outside every grammar 6,706; a head outside the library 2,181); (3) the vocabulary fallback: 274 distinct payload sentences the effect vocabulary reads whole with every clause confident (592 lines across the database; 18 ask, 2 use randomness, 221 target), and the probe's fully-covered cards 273 -> 601. D342's row maker over the 601 (make-rows33.cjs, unpatched): ZERO rowable - 88 cost verbs, 48 static lines, 39 activation conditions, 28 threshold or modal lines the accounting names but the card does not print; with the vocab kind: 172 rows (166 with a vocabulary ability) before the suite's own refusals, 134 after them (33 clauses with no fixture - combat-role 8, counted 7, tapped 3, nonbasic land 2, an Aura, a legendary card, a black card ...; 5 counter-a-spell payloads), 133 after the port's first run (Kithkin Spellduster's persist and Failed Conversion's -4/-4 refused by name; Xiahou Dun, the One-Eyed rowable once a graveyard clause with no card type reads as a creature card).
+
+**The seam** (`d344/apply-vocab-1.cjs`, `-1b`, `src/engine/scripts/vocabulary.ts`):
+`ScriptCtx.vocabulary(obj, effects, targets)` — `scriptCtxFor` hands the
+stack object through `withStillLegalPicks` (CR 608.2b's other half, D343's
+filter: a pick no longer legal for its clause is not affected while the rest
+resolve) to `effectEvents`, the executor a spell uses, over the ability's own
+targets, controller and source (a triggered ability has no card of its own,
+CR 113.7a, so the permanent is the damage's source). The NARROW entry on
+purpose: the helper refuses randomness, so no RNG advance is dropped. The two
+other ctx builders (`derive.ts` for statics, the bus's read-only ctx in
+`triggers.ts`) carry a throwing stub — the payload resolves from the loop
+alone. ⚠️ **A def reaches it only through the helpers, which parse the printed
+payload ONCE at module load and THROW BY NAME** (D90: a row must not claim a
+sentence half-read): `vocabularyEffects(payload, name)` — `parseEffects` must
+read the sentence `auto`; "at random" refused (a def's `resolve` returns events
+alone, so an RNG advance inside it would never be recorded); a clause that ASKS
+(discard, scry, surveil, look at the top) refused — the executor stops at an
+`AwaitingSet` and an ability's resolution has no continuation for the answer,
+which is the script-raised prompt seam, not this one; a SELF clause of a kind
+that needs an aim refused — "~ gets +1/+1" parses as a `pump` with no target
+and the executor resolves it for nothing, so the self pump stays a row kind of
+its own. `vocabularyTargets(payload)` — `parseTargetClauses`, every clause
+confident, in printed order.
+**The proof** (`src/engine/vocabularyPayload.test.ts`, 7, a testing script over
+Grizzly Bears): the clauses asked as the trigger stacks (`forKind: 'trigger'`)
+and the vocabulary resolving them (Sol Ring destroyed); a no-clause payload
+asking nothing and resolving for its controller; **a pick exiled in response
+skipped while the other clause resolves** (the Sol Ring stays in exile, the
+Hissing Miasma goes — the shape D343's patch 4 closed for spells, now on an
+ability); every pick gone and the ability not resolving at all; the refusals.
+
+**The generator** (`d344/make-gen33.cjs` + `gen33-vocab.cjs`, derived from
+D342's chain): the row maker reads a payload outside the row kinds through
+`vocab-ok.json` — the `-vocab` probe's dump of every payload the effect
+vocabulary read whole with every clause confident — as a `vocab` row kind
+carrying the parsed effects and clauses, and REFUSES what the suite cannot
+fixture (a combat-role clause, a counted clause, a tapped or nonbasic-land
+predicate, an Aura, a spell or battle, a two-type object, differing
+alternatives) or assert (`counter`, the controller kinds). The module declares
+`vocabularyEffects` / `vocabularyTargets` once per line and a def whose resolve
+is `ctx.vocabulary(obj, VOCAB, VOCAB_T)` — a trigger declares `targets:
+VOCAB_T`, an activation's clauses already live on the parsed face (D161). The
+suite puts ONE FIXTURE PER CLAUSE on the side the clause names — four creatures
+picked by what the clause asks (mana value, power, keyword, colour, subtype),
+Sol Ring / Hissing Miasma / Forest, graveyard cards by card type — ⚠️ **with a
+name the row does not already put on that side** (`put` finds a card by name,
+library first, then the other zones: Cauldron of Essence's graveyard Bears was
+carried off by the pinned Bears its dies-head puts in hand), aims the prompt at
+it — a step head's fire WAITS for the prompt instead of advancing to the later
+turn — and asserts each effect's mark: the zone, the tap, the damage or the
+death past toughness, the pump and its keywords, the counters; then the hand,
+the board and the life totals by every effect that moves them.
+
+⚠️ **The port's first run found the generator's own gaps with real rows** (134
+rows, 11 red): the board helper declared whether or not an assert read it
+(tsc); one printed line that is TWO defs (Sun Titan's enters-or-attacks) naming
+one variable twice; a player-or-planeswalker clause aimed at a creature
+(Furious Assault); a step head's fire advancing past the prompt (Deepwater
+Hypnotist, Warchanter of Mogis: the game ran out); a token row under a cast
+head not counting the creature the fire casts (Primeval Bounty — a D342 gap);
+an Aura the enchanted-creature heads cast onto the Bears not leaving the hand
+count (Necromantic Thirst); Kithkin Spellduster's PERSIST returning the creature
+its cost sacrificed (refused by name: a self-sacrifice on a creature that
+returns); Failed Conversion's -4/-4 emptying the 2/2 Bears (refused); and the
+stolen fixture above, with the copy count a pinned Bears beside a Bears cost
+needs (a D342 gap). Every one a generator change; no card was hand-fixed.
+
+**Tests:** `src/engine/vocabularyPayload.test.ts` (7) and one generated suite
+per row (133 GENERATED ROWS with a vocabulary payload (the kinds the rows carry: destroy 36, returnFromGraveyard 23, reanimate 15, pump 15, untap 10, damage 9, tap 7, bounce 6, draw 5, putCounters 4, loseLife 3, createToken 3, noop 2, gainLife 1): Kor Entanglers, Noxious Dragon, Treasure Hunter, Eternal Witness, Sun Titan, Spine of Ish Sah, Riddlemaster Sphinx, Primeval Bounty, Auramancer, Gravedigger, Surly Farrier, Quarry Beetle, Runaway Boulder, Order of Whiteclay, Stoic Builder, Conclave Naturalists, Hell's Caretaker, Dreadbringer Lampads, Necromantic Thirst, Woodfall Primus, Cauldron of Essence, Graveshifter, Reclamation Sage, Clock of Omens ... - the 133 named in d344/generated-oneshot-d344-names.json, each with its own suite (one fixture per clause, the prompt answered as the ability stacks, every effect asserted)).
+
+- **Refused by name:** 35 rows retired by name (the port's remove-ledger-rows: the wave's cards whose refusal had been a payload the row kinds did not read), and two rows added back - Kithkin Spellduster (a self-sacrifice on a creature that returns: persist) and Failed Conversion (an attached static whose -4/-4 empties the suite's 2/2 Bears) - which the port's first run had landed and the generator now refuses by name; measured: the REFUSED map's size 991 -> 958.
+- **Not this decision:** the vocabulary payloads the suite cannot fixture or assert yet (a counted clause - up to one, up to two - aimed at one fixture; a combat-role clause fired mid-combat; a tapped or nonbasic-land predicate; a spell clause for the 5 counter payloads; the 18 asking payloads - discard, scry, surveil, look at the top - once the continuation seam exists), the modal PERMANENT lines (276; 33 readable with the vocabulary), the cost verbs the probe's covered set names (121 - snow mana {S} 12, remove a counter from a creature you control 6, a Desert or a Gate to sacrifice or tap 7, return a land you control 6, tap two untapped artifacts and/or creatures 3, Blight, Exert, Mill four cards ...), the activation conditions (49 - the turn-memory ones first: an opponent lost life, a creature died, a noncreature or an instant or sorcery spell cast this turn), the static lines (58 - Unleash 10, the Threshold bodies 25, attacking creatures you control get +1/+0 or have double strike 9, All Slivers have 2), Add one mana of any color with a cost the engine does not charge (21), the counts outside the vocabulary (15), the 12 tokens outside TOKEN_TABLE; then the rest of D343's list - the modal spells beside another sentence (59) and the 265 with a mode outside the vocabulary, the exploits, the searches, the choices on entry, the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split.
+
+Nothing retired: no shipped def sat on any of the 133 - the vocabulary reads their payloads for the first time.
+
+Report: `effect:auto` 4,209 → 4,209, `effect:none` 14,849 →
+14,849, `withUnenforced` 280 → 280.
+
+**Landed:** No second wave: the rows are the landing, and the bot's own deck took 106 creatures, 18 artifacts and 9 enchantments more on the same sweep (the commander reaches 6,994 cards from 6,861; 191 fully-executable legendary creatures from 186).
+
+Fixtures 4,783 · botPool artifact 385 / creature 4,071 / enchantment 355 / instant 1,007 / land 492 / sorcery 743 - auto 948 / assisted 1,832 / autoAnyFace 957 · ladder [1058, 1142, 2771, 4599, 5936] · batch.json
+133 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,539 files, 22,604 passing / 11 skipped ·
+500-seed gate, 6 shards, 647.7 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D344): the vocabulary payloads the suite cannot fixture or assert yet (a counted clause - up to one, up to two - aimed at one fixture; a combat-role clause fired mid-combat; a tapped or nonbasic-land predicate; a spell clause for the 5 counter payloads; the 18 asking payloads - discard, scry, surveil, look at the top - once the continuation seam exists), the modal PERMANENT lines (276; 33 readable with the vocabulary), the cost verbs the probe's covered set names (121 - snow mana {S} 12, remove a counter from a creature you control 6, a Desert or a Gate to sacrifice or tap 7, return a land you control 6, tap two untapped artifacts and/or creatures 3, Blight, Exert, Mill four cards ...), the activation conditions (49 - the turn-memory ones first: an opponent lost life, a creature died, a noncreature or an instant or sorcery spell cast this turn), the static lines (58 - Unleash 10, the Threshold bodies 25, attacking creatures you control get +1/+0 or have double strike 9, All Slivers have 2), Add one mana of any color with a cost the engine does not charge (21), the counts outside the vocabulary (15), the 12 tokens outside TOKEN_TABLE; then the rest of D343's list - the modal spells beside another sentence (59) and the 265 with a mode outside the vocabulary, the exploits, the searches, the choices on entry, the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split; the "another" split; the by-name sacrifice
+cost; the remaining cost verbs; the prompt continuation seam; prior items
+stand.
