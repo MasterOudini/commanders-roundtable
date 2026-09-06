@@ -4788,6 +4788,13 @@ const WANTED = [
   'Staunch Throneguard',
   'Crimson Fleet Commodore',
   // D332 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D333 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Reassembling Skeleton',
+  'Drownyard Temple',
+  'Tunnel Rats',
+  'Persistent Specimen',
+  "Teacher's Pest",
+  // D333 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

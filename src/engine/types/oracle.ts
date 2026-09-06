@@ -700,6 +700,12 @@ export interface ActivatedAbility {
    * activated from the GRAVEYARD and the card is exiled as its cost.
    */
   readonly exileSelfFromGraveyard: boolean;
+  /**
+   * D333 - "Return this card from your graveyard to the battlefield ...": the
+   * ability is activated from the GRAVEYARD (CR 113.6) though its cost exiles
+   * nothing; the effect moves the card itself.
+   */
+  readonly activatesFromGraveyard: boolean;
   readonly unpaidCosts: readonly string[];
   readonly payable: boolean;
   /** CR 605 — does NOT use the stack. */

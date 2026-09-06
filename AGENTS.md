@@ -10271,6 +10271,37 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D332): the graveyard returns (Return this card from your graveyard to the battlefield - 114 lines outside unearth: an activation from the graveyard whose cost does not exile, the D329 zone flow one flag over), the enchanted keyword grants the probe misreads (60), snow mana ({S} - 11), remove a +1/+1 counter from a creature you control (5), the counts outside the vocabulary (15); then attacks each combat if able (46; a declaration requirement), can not be countered (11 whole cards), the second-card and second-spell turn memory (37 + 26), the modal seam (276 - a script-raised mode prompt), the another split; the modal seam; the "another" split;
       the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4fr — THE GRAVEYARD RETURNS: an activation from the graveyard whose
+      effect moves the card itself, and the rows that follow; 5 cards land,
+      5 as generated rows (2026-09-06):**
+      **6,591 of 31,692 Commander-legal cards now execute completely, up
+      from 6,586 (+5).** `SHIPPED_SCRIPTS` 4,038; ledger
+      998 (no rows retired - none of the 5 was in the ledger; measured: the REFUSED map's size). Fixtures 4,408 (4,272 by name + 129 tokens: the 5 rowed cards, no new token pins). An ENGINE change
+      (one flag, one patch) and the wave behind it (5 generated
+      rows). **Select pool 0.** Decisions in **D333**.
+      ⚠️ **Measured first:** the leftover probe over the database after D332, with the graveyard return as a payload: 128 blocked single-face permanents whose every leftover line the grammar reads; the row maker took 5 and refused 123 - 84 for costs it still cannot price (snow mana 11, remove a +1/+1 counter from a creature you control 5, Discard two cards 4, sacrifice a Desert 3, return a land you control 3, tap an untapped Gate 3, tap two untapped artifacts and/or creatures 3, exile another creature card from your graveyard 2) and 15 for counts outside the vocabulary; the plain returns had been 79 lines in the database, most of them on cards with a second line the grammar does not read.
+      ⚠️ **The seam:** `ActivatedAbility.activatesFromGraveyard` — read off the
+      effect ("Return this card / <name> from your graveyard to the
+      battlefield"); `legalActions` offers it from the graveyard and never from
+      the battlefield, the handler requires the card there, `PendingCast.from`
+      says so (D329's three sites, one flag wider; the cost exiles nothing).
+      The row maker (`d333/make-rows23.cjs` + `gen-oneshot23.cjs`, from D332)
+      reads the payload (`returnSelfFromGraveyard`, tapped or not); the def
+      moves the card from the graveyard to its controller's battlefield (taps
+      it when the card says so); the suite puts the card in the graveyard
+      before the baseline and reads it back on the battlefield. NOT this
+      decision: the returns to hand (Return this card from your graveyard to your hand - 26; the same flag, one zone over), Discard two cards (4; the discard chooser's count is already the engine's), the Food and Blood fodder and the exile-another-creature-card chooser (the parser's another), snow mana ({S} - 11), remove a +1/+1 counter from a creature you control (5), the counts outside the vocabulary (15); then attacks each combat if able (46), can not be countered (11 whole cards), the second-card and second-spell turn memory (37 + 26), the modal seam (276), the another split. Refused by name: no rows retired - none of the 5 was in the ledger; measured: the REFUSED map's size.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips and 5 generated rows in one pass, all green. The wave IS the landing: 5 rows - Reassembling Skeleton, Drownyard Temple, Tunnel Rats, Persistent Specimen and Teacher's Pest, the cards whose return is priced in mana alone. Twelve more cards carry the payload behind a cost the row maker still cannot price: Discard two cards (Advanced Stitchwing, Haunted Dead, Ghoulsteed, Stitchwing Skaab), exile another creature card or two from your graveyard (Scrapheap Scrounger, Despoiler of Souls), sacrifice a Food or two Blood tokens (Cauldron Familiar, Falkenrath Forebear), mill four (Rot Farm Skeleton), exile seven other cards (Bone Dragon); and 26 cards return themselves to HAND instead, a sentence the probe now names. Tests: the parser test; one generated
+      suite per row.
+      Fixtures 4,408 · botPool artifact 366 / creature 3,728 / enchantment 340 / instant 947 / land 487 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1098, 1223, 2910, 4770, 6110] · batch.json
+      5 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,156 files, 20,932 passing / 11 skipped ·
+      500-seed gate, 6 shards, 377.8 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D333): the returns to hand (Return this card from your graveyard to your hand - 26; the same flag, one zone over), Discard two cards (4; the discard chooser's count is already the engine's), the Food and Blood fodder and the exile-another-creature-card chooser (the parser's another), snow mana ({S} - 11), remove a +1/+1 counter from a creature you control (5), the counts outside the vocabulary (15); then attacks each combat if able (46), can not be countered (11 whole cards), the second-card and second-spell turn memory (37 + 26), the modal seam (276), the another split; the modal seam; the "another" split;
+      the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

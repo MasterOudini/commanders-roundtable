@@ -148495,6 +148495,176 @@ export const CRIMSON_FLEET_COMMODORE: CardData = {
   "singleImage": true
 };
 
+export const REASSEMBLING_SKELETON: CardData = {
+  "scryfallId": "00566375-e976-4e96-b751-cf0430452c9c",
+  "oracleId": "9dbc3530-b278-4c8d-b2cc-a09dfac9d5e5",
+  "name": "Reassembling Skeleton",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Reassembling Skeleton",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Skeleton Warrior",
+      "oracleText": "{1}{B}: Return this card from your graveyard to the battlefield tapped.",
+      "flavorText": "\"They may show up with the wrong thigh bone or mandible, but they always show up.\"\n—Zul Ashur, lich lord",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Austin Hsu",
+      "imageId": "00566375-e976-4e96-b751-cf0430452c9c"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "cmm",
+  "collectorNumber": "183",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DROWNYARD_TEMPLE: CardData = {
+  "scryfallId": "06c61b1b-d8fa-4c8b-9ddb-ca2682a3f5ef",
+  "oracleId": "c30f9be4-c274-4ad0-b5d7-7d3421aa4277",
+  "name": "Drownyard Temple",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drownyard Temple",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{3}: Return this card from your graveyard to the battlefield tapped.",
+      "flavorText": "\"This is it! All the cryptoliths point here!\"\n—Jace Beleren",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "John Avon",
+      "imageId": "06c61b1b-d8fa-4c8b-9ddb-ca2682a3f5ef"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "clb",
+  "collectorNumber": "892",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TUNNEL_RATS: CardData = {
+  "scryfallId": "70faf7d8-008a-454a-a21b-702aa661b8f9",
+  "oracleId": "0a8e5c48-885d-4ea8-9c68-a3e9213d4289",
+  "name": "Tunnel Rats",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tunnel Rats",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Rat",
+      "oracleText": "{4}{B}: Return this card from your graveyard to the battlefield tapped.",
+      "flavorText": "The Rat King's subjects are everywhere you don't want to be.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Daniel Romanovsky",
+      "imageId": "70faf7d8-008a-454a-a21b-702aa661b8f9"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [],
+  "setCode": "tmt",
+  "collectorNumber": "84",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PERSISTENT_SPECIMEN: CardData = {
+  "scryfallId": "acf75284-5568-45c5-b2a5-3fece06171e4",
+  "oracleId": "5f4ad578-f2c4-47f6-8080-8fbc17383f6f",
+  "name": "Persistent Specimen",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Persistent Specimen",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Skeleton",
+      "oracleText": "{2}{B}: Return this card from your graveyard to the battlefield tapped.",
+      "flavorText": "\"The jaw bone's connected to the skull bone. The skull bone's connected to the . . . uh . . . hook thingy.\"\n—Garl, stitcher's assistant",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Scott Murphy",
+      "imageId": "acf75284-5568-45c5-b2a5-3fece06171e4"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [],
+  "setCode": "j25",
+  "collectorNumber": "473",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEACHER_S_PEST: CardData = {
+  "scryfallId": "eaa358ac-761d-4507-aa15-3d4684027207",
+  "oracleId": "12397dbf-99a9-40c3-aa7c-76d09baad008",
+  "name": "Teacher's Pest",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Teacher's Pest",
+      "manaCost": "{B}{G}",
+      "typeLine": "Creature — Skeleton Pest",
+      "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhenever this creature attacks, you gain 1 life.\n{B}{G}: Return this card from your graveyard to the battlefield tapped.",
+      "flavorText": "\"Stop playing dead, Rinata. No one's believed you for a decade.\"\n—Moseo, dean of the vein",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Stephanie Cheung",
+      "imageId": "eaa358ac-761d-4507-aa15-3d4684027207"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Menace"
+  ],
+  "setCode": "sos",
+  "collectorNumber": "238",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -157176,6 +157346,11 @@ export const ENGINE_CARDS: CardData[] = [
   THORN_OF_THE_BLACK_ROSE,
   STAUNCH_THRONEGUARD,
   CRIMSON_FLEET_COMMODORE,
+  REASSEMBLING_SKELETON,
+  DROWNYARD_TEMPLE,
+  TUNNEL_RATS,
+  PERSISTENT_SPECIMEN,
+  TEACHER_S_PEST,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

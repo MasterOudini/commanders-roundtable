@@ -7,6 +7,11 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { REASSEMBLING_SKELETON_SCRIPT } from './cards/reassemblingSkeleton';
+import { DROWNYARD_TEMPLE_SCRIPT } from './cards/drownyardTemple';
+import { TUNNEL_RATS_SCRIPT } from './cards/tunnelRats';
+import { PERSISTENT_SPECIMEN_SCRIPT } from './cards/persistentSpecimen';
+import { TEACHERS_PEST_SCRIPT } from './cards/teachersPest';
 import { PALACE_SENTINELS_SCRIPT } from './cards/palaceSentinels';
 import { THRONE_OF_THE_HIGH_CITY_SCRIPT } from './cards/throneOfTheHighCity';
 import { THORN_OF_THE_BLACK_ROSE_SCRIPT } from './cards/thornOfTheBlackRose';
@@ -4154,6 +4159,11 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  REASSEMBLING_SKELETON_SCRIPT,
+  DROWNYARD_TEMPLE_SCRIPT,
+  TUNNEL_RATS_SCRIPT,
+  PERSISTENT_SPECIMEN_SCRIPT,
+  TEACHERS_PEST_SCRIPT,
   PALACE_SENTINELS_SCRIPT,
   THRONE_OF_THE_HIGH_CITY_SCRIPT,
   THORN_OF_THE_BLACK_ROSE_SCRIPT,

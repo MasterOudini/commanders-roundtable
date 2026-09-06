@@ -446,10 +446,10 @@ const POOL: Record<string, number> = {
   // TWENTY-card batch.
   // M6.4bc (D214): +8 instants, +7 sorceries, Flying Carpet, and Forum of
   // Amity.
-  creature: 3724,
+  creature: 3728,
   instant: 947,
   sorcery: 723,
-  land: 486,
+  land: 487,
   artifact: 366,
   enchantment: 340,
 };

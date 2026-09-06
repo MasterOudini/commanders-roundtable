@@ -711,7 +711,7 @@ function activateAbility(
     return reject('wrongZone', 'Cycling is activated from your hand.');
   }
   // D329 - an ability priced by exiling the card from the graveyard is activated from there (CR 113.6).
-  if (ability.exileSelfFromGraveyard && (card.zone.kind !== 'graveyard' || card.zone.player !== intent.player)) {
+  if ((ability.exileSelfFromGraveyard || ability.activatesFromGraveyard) && (card.zone.kind !== 'graveyard' || card.zone.player !== intent.player)) {
     return reject('wrongZone', `${face.name}'s ability is activated from your graveyard.`);
   }
   // D328 - CR 602.5b: "Activate only once each turn" is refused the second
@@ -893,7 +893,7 @@ function activateAbility(
     // ⚠️ Records where the permanent IS, and is never used to move it — an
     // ability leaves its source on the battlefield.
     from:
-      ability.exileSelfFromGraveyard
+      ability.exileSelfFromGraveyard || ability.activatesFromGraveyard
         ? { kind: 'graveyard', player: intent.player }
         : ability.cycling !== undefined
           ? { kind: 'hand', player: intent.player }

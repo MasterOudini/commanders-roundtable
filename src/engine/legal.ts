@@ -277,7 +277,7 @@ export function legalActions(
     if (!inst) continue;
     const face = faceOf(card, inst.faceIndex);
     for (const ability of face.activated) {
-      if (!ability.exileSelfFromGraveyard || !ability.payable || ability.isManaAbility || ability.isLoyalty) continue;
+      if (!(ability.exileSelfFromGraveyard || ability.activatesFromGraveyard) || !ability.payable || ability.isManaAbility || ability.isLoyalty) continue;
       if (ability.requiresTap || ability.requiresUntap || ability.sacrificeCost || ability.discardCost || ability.tapCost || ability.exileFromGraveyardCost) continue;
       if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
       if (ability.sorceryOnly && !sorcerySpeed) continue;
@@ -309,7 +309,7 @@ export function legalActions(
     for (const ability of face.activated) {
       if (ability.isManaAbility || ability.isLoyalty || !ability.payable) continue;
       // D329 - priced by exiling the card from the graveyard: offered from there, not here.
-      if (ability.exileSelfFromGraveyard) continue;
+      if (ability.exileSelfFromGraveyard || ability.activatesFromGraveyard) continue;
       // D328 - CR 602.5b: activated this turn already, not offered again.
       if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
       // ⚠️ A DESTRUCTIVE COST IS OFFERED ONLY WHEN A SCRIPT WILL RUN THE EFFECT
