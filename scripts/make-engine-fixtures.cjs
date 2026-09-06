@@ -5053,6 +5053,10 @@ const WANTED = [
   'Thunderhead Gunner',
   'Shu Farmer',
   // D342 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D343 - the modal seam: whole-text modal spells the vocabulary reads mode by mode.
+  'Crushing Canopy',
+  'Dawn to Dusk',
+  'Blue Elemental Blast',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

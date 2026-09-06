@@ -36,8 +36,14 @@
 // refuses to let an `activated` def claim a line.
 
 import type { CardData } from './cardTypes';
-import type { OracleFace, TargetSpec } from '../engine/types/oracle';
+import type { ModeDecl, OracleFace, TargetSpec } from '../engine/types/oracle';
 import type { CardScript } from '../engine/scripts/api';
+
+/** D343 - the modes a def declares (a trigger's or an activation's), none for the other kinds. */
+function modesOf(d: object): readonly ModeDecl[] {
+  const modes = (d as { readonly modes?: unknown }).modes;
+  return Array.isArray(modes) ? (modes as readonly ModeDecl[]) : [];
+}
 import { SHIPPED_SCRIPTS } from '../engine/scripts/registry';
 import { parseFace, parseProtection, parseWard, parseWardLife } from './oracleParse';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
@@ -140,10 +146,19 @@ export function lineClaims(scripts: readonly CardScript[]): ReadonlyMap<string, 
     for (const d of defs) {
       const t = scrub(d.text).trim();
       if (t !== '') entry(s.oracleId).sentences.add(t);
+      // D343 - a modal def claims its "• mode" lines with its own line.
+      for (const m of modesOf(d)) {
+        const mt = scrub('• ' + m.text).trim();
+        if (mt !== '') entry(s.oracleId).sentences.add(mt);
+      }
     }
     for (const d of s.activated ?? []) {
       const t = scrub(d.text).trim();
       if (t !== '') entry(s.oracleId).activated.add(t);
+      for (const m of d.modes ?? []) {
+        const mt = scrub('• ' + m.text).trim();
+        if (mt !== '') entry(s.oracleId).sentences.add(mt);
+      }
     }
     // A SPELL def carries the cast face's WHOLE printed text (SpellDef's
     // contract) while the accounting matches per LINE — split it, so a
@@ -372,7 +387,9 @@ export function enchantLineRuns(line: string, face: OracleFace): boolean {
   return spec !== undefined && enchantSpecRuns(spec);
 }
 
-function linesUnaccounted(
+// D343 - exported for the leftover probes: a modal face returns early on its
+// free target spec, and the lines behind it are what the modal seam sizes by.
+export function linesUnaccounted(
   rawText: string,
   face: OracleFace,
   printedKeywords: readonly string[],

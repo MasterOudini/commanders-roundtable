@@ -38,11 +38,12 @@ import { n, narrated, their, vb, who } from './narrate';
 import { drawEvents } from './effects';
 import { apply } from './reducer';
 import { bottomCountFor, drawFromTop } from './setup';
-import { resolveAbility, stackPendingTriggers, targetingSourceFor, type EngineDeps } from './loop';
+import { activatedModesFor, legalModesFor, resolveAbility, stackPendingTriggers, targetingSourceFor, triggerDefFor, type EngineDeps } from './loop';
+import { modeChoiceProblem, modeSpecs, modesInOrder } from './modes';
 import { activationConditionsHold, describeActivationConditions } from './activationConditions';
 import type { CardMove, EventBody } from './types/events';
 import type { AbilityRef, InstanceId, PlayerId, StackId, ZoneRef } from './types/ids';
-import type { TargetSpec } from './types/oracle';
+import type { ModeDecl, TargetSpec } from './types/oracle';
 import { candidatesFromState, validateTargets } from './targets';
 import { EMPTY_POOL, poolFrom, type ManaCost, type ManaPool, type ManaSymbolKey } from './types/mana';
 import {
@@ -80,6 +81,8 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
       return castSpell(state, intent, deps);
     case 'ChooseX':
       return chooseX(state, intent, deps);
+    case 'ChooseModes':
+      return chooseModes(state, intent, deps);
     case 'ActivateAbility':
       return activateAbility(state, intent, deps);
     case 'ChooseTargets':
@@ -546,8 +549,24 @@ function castSpell(
   // targets IS X, and asking for targets first makes those cards unaskable.
   // `PendingCast` lives in GAME STATE, which is what makes "Bob dropped while
   // choosing" recoverable rather than fatal.
+  // D343 - CR 601.2b: a MODAL spell's modes are chosen FIRST, before X and
+  // before targets, and the chosen modes' clauses are then what the spell
+  // aims. Named inline they are checked here (the host decides legality);
+  // absent, the `modes` stage asks. A face-down cast has no modes (CR 708.2).
+  const modal = setup.faceDown ? null : setup.face.modal;
+  const needsModes = modal !== null && intent.modes === undefined;
+  if (modal !== null && intent.modes !== undefined) {
+    const legal = legalModesFor(state, deps, intent.player, intent.card, modal.modes);
+    const problem = modeChoiceProblem(modal.modes.length, modal.min, modal.max, legal, intent.modes);
+    if (problem) return reject('illegalMode', problem);
+  }
+  if (needsModes && modal !== null && legalModesFor(state, deps, intent.player, intent.card, modal.modes).length < modal.min) {
+    return reject('illegalMode', `No mode of ${setup.face.name} has a legal target right now.`);
+  }
+  const chosenModes = modal !== null && intent.modes !== undefined ? modesInOrder(intent.modes) : [];
+  const spellSpecs = modal !== null ? modeSpecs(modal.modes, chosenModes) : setup.face.targets;
   const needsX = !setup.faceDown && !!setup.face.manaCost && setup.face.manaCost.xCount > 0 && intent.xValue === undefined;
-  const needsTargets = !setup.faceDown && setup.face.targets.length > 0 && intent.targets === undefined;
+  const needsTargets = !setup.faceDown && spellSpecs.length > 0 && intent.targets === undefined;
 
   /**
    * ⚠️ **INLINE TARGETS WERE NEVER CHECKED, AND THE HOST IS THE ONLY AUTHORITY**
@@ -565,9 +584,9 @@ function castSpell(
    */
   // D299: the clause each pick answers, fixed here and carried onto the spell.
   let targetSlots: readonly number[] | undefined;
-  if (!setup.faceDown && intent.targets !== undefined && setup.face.targets.length > 0) {
+  if (!setup.faceDown && intent.targets !== undefined && spellSpecs.length > 0) {
     const verdict = validateTargets(
-      setup.face.targets,
+      spellSpecs,
       { controller: intent.player, colors: setup.face.colors },
       setup.face.name,
       intent.targets,
@@ -577,18 +596,18 @@ function castSpell(
     targetSlots = verdict.assignment;
   }
 
-  if (needsX || needsTargets) {
+  if (needsModes || needsX || needsTargets) {
     const stackId = `s${state.counters.stack + 1}`;
     const pending: PendingCast = {
       player: intent.player,
       card: intent.card,
       from: setup.from,
       stackId,
-      stage: needsX ? 'x' : 'targets',
+      stage: needsModes ? 'modes' : needsX ? 'x' : 'targets',
       kind: 'spell',
       faceIndex,
       abilityRef: null,
-      modes: [],
+      modes: chosenModes,
       targets: intent.targets ?? [],
       ...(targetSlots !== undefined ? { targetSlots } : {}),
       xValue: intent.xValue ?? null,
@@ -622,9 +641,21 @@ function castSpell(
       // because it skips stack-zone cards.
       {
         t: 'AwaitingSet',
-        awaiting: needsX
-          ? { kind: 'chooseX', player: intent.player, stackId, source: intent.card, label: setup.face.name }
-          : targetsAwaiting(intent.player, stackId, intent.card, setup.face.name, setup.face.targets, 'spell'),
+        awaiting:
+          needsModes && modal !== null
+            ? modesAwaiting(
+                intent.player,
+                stackId,
+                intent.card,
+                setup.face.name,
+                modal.modes,
+                modal,
+                legalModesFor(state, deps, intent.player, intent.card, modal.modes),
+                'spell',
+              )
+            : needsX
+              ? { kind: 'chooseX', player: intent.player, stackId, source: intent.card, label: setup.face.name }
+              : targetsAwaiting(intent.player, stackId, intent.card, setup.face.name, spellSpecs, 'spell'),
       },
     ]);
   }
@@ -636,6 +667,7 @@ function castSpell(
     xValue: intent.xValue ?? 0,
     targets: intent.targets ?? [],
     ...(targetSlots !== undefined ? { targetSlots } : {}),
+    ...(modal !== null ? { modes: chosenModes } : {}),
     ...(intent.plan !== undefined ? { plan: intent.plan } : {}),
     setup,
   });
@@ -661,7 +693,9 @@ function chooseX(
   const problem = buildPaymentProblem(face.manaCost, intent.x, [], pending.taxApplied);
 
   // CR 601.2c follows 601.2b: with X known, ask for the targets it may size.
-  if (face.targets.length > 0 && pending.targets.length === 0) {
+  // D343 - a modal spell aims the CHOSEN modes' clauses.
+  const xSpecs = face.modal ? modeSpecs(face.modal.modes, pending.modes) : face.targets;
+  if (xSpecs.length > 0 && pending.targets.length === 0) {
     return accept([
       { t: 'XChosen', x: intent.x, problem },
       { t: 'CastStageSet', stage: 'targets' },
@@ -672,7 +706,7 @@ function chooseX(
           pending.stackId,
           pending.card,
           face.name,
-          face.targets,
+          xSpecs,
           'spell',
         ),
       },
@@ -874,9 +908,25 @@ function activateAbility(
   // prompt stage, which has always validated), but "the host decides legality"
   // is what the whole net layer rests on, and the test driver uses exactly
   // this seam. Same predicate, same message as the prompt stage.
-  if (intent.targets !== undefined && ability.targets.length > 0) {
+  // D343 - CR 602.2b: a MODAL ability's modes are chosen at activation, before
+  // its targets; the chosen modes' clauses are then what it aims. Its def
+  // declares the modes (`ActivatedDef.modes`); named inline they are checked
+  // here, absent the `modes` stage asks.
+  const abilityModal = activatedModesFor(deps, `${oracleCard.oracleId}#a${intent.abilityIndex}`);
+  const needsModes = abilityModal !== null && intent.modes === undefined;
+  if (abilityModal !== null && intent.modes !== undefined) {
+    const legal = legalModesFor(state, deps, intent.player, intent.card, abilityModal.modes);
+    const problem = modeChoiceProblem(abilityModal.modes.length, abilityModal.choice.min, abilityModal.choice.max, legal, intent.modes);
+    if (problem) return reject('illegalMode', problem);
+  }
+  if (needsModes && abilityModal !== null && legalModesFor(state, deps, intent.player, intent.card, abilityModal.modes).length < abilityModal.choice.min) {
+    return reject('illegalMode', `No mode of ${face.name}'s "${ability.costText}" ability has a legal target right now.`);
+  }
+  const chosenModes = abilityModal !== null && intent.modes !== undefined ? modesInOrder(intent.modes) : [];
+  const abilitySpecs = abilityModal !== null ? modeSpecs(abilityModal.modes, chosenModes) : ability.targets;
+  if (intent.targets !== undefined && abilitySpecs.length > 0) {
     const verdict = validateTargets(
-      ability.targets,
+      abilitySpecs,
       { controller: intent.player, colors: face.colors },
       face.name,
       intent.targets,
@@ -894,7 +944,7 @@ function activateAbility(
     ability.lifeCost +
     (ability.lifeCostCommanderColors ? (state.players[intent.player]?.identity.length ?? 0) : 0);
   const problem = buildPaymentProblem(ability.manaCost, 0, [], 0, lifeToPay);
-  const needsTargets = ability.targets.length > 0 && intent.targets === undefined;
+  const needsTargets = abilitySpecs.length > 0 && intent.targets === undefined;
 
   const pending: PendingCast = {
     player: intent.player,
@@ -917,10 +967,10 @@ function activateAbility(
           ? { kind: 'hand', player: intent.player }
           : { kind: 'battlefield', player: intent.player },
     stackId,
-    stage: needsTargets ? 'targets' : 'pay',
+    stage: needsModes ? 'modes' : needsTargets ? 'targets' : 'pay',
     kind: 'ability',
     abilityRef,
-    modes: [],
+    modes: chosenModes,
     targets: intent.targets ?? [],
     xValue: null,
     problem,
@@ -930,6 +980,24 @@ function activateAbility(
     taxApplied: 0,
   };
 
+  if (needsModes && abilityModal !== null) {
+    return accept([
+      { t: 'CastBegan', pending },
+      {
+        t: 'AwaitingSet',
+        awaiting: modesAwaiting(
+          intent.player,
+          stackId,
+          intent.card,
+          `${face.name} — ${ability.costText}: ${ability.effectText}`,
+          abilityModal.modes,
+          abilityModal.choice,
+          legalModesFor(state, deps, intent.player, intent.card, abilityModal.modes),
+          'ability',
+        ),
+      },
+    ]);
+  }
   if (needsTargets) {
     return accept([
       { t: 'CastBegan', pending },
@@ -940,7 +1008,7 @@ function activateAbility(
           stackId,
           intent.card,
           `${face.name} — ${ability.costText}: ${ability.effectText}`,
-          ability.targets,
+          abilitySpecs,
           'ability',
         ),
       },
@@ -950,6 +1018,111 @@ function activateAbility(
   return finishAbility(state, deps, pending, face, ability, oracleCard.colorIdentity, intent.plan);
 }
 
+/**
+ * D343 - the modes prompt's payload. `legal` is the host's own list and vouches
+ * for nothing: the answer is checked again against the same helper.
+ */
+function modesAwaiting(
+  player: PlayerId,
+  stackId: StackId,
+  source: InstanceId,
+  label: string,
+  modes: readonly ModeDecl[],
+  choice: { readonly min: number; readonly max: number },
+  legal: readonly number[],
+  forKind: 'spell' | 'ability' | 'trigger',
+): Extract<Awaiting, { kind: 'chooseModes' }> {
+  return {
+    kind: 'chooseModes',
+    player,
+    stackId,
+    source,
+    label,
+    options: modes.map((m) => m.text),
+    legal,
+    min: choice.min,
+    max: choice.max,
+    forKind,
+  };
+}
+
+/**
+ * D343 - the answer to `chooseModes` (CR 700.2). A TRIGGER's object is already
+ * on the stack: its modes are recorded on it and the chosen modes' targets are
+ * asked next, exactly as `stackPendingTriggers` asks a targeted trigger's. A
+ * SPELL or an ACTIVATION is a pending cast at stage `modes`: the modes are
+ * recorded on it and the cast moves on - to X (CR 601.2b), to the chosen
+ * modes' targets (601.2c), or straight to payment.
+ */
+function chooseModes(
+  state: GameState,
+  intent: Extract<Intent, { t: 'ChooseModes' }>,
+  deps: EngineDeps,
+): HandleResult {
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind !== 'chooseModes') return reject('noPendingCast', 'Nothing is waiting for a choice of modes.');
+  if (awaiting.player !== intent.player) return reject('notYourTurn', 'Those modes are not yours to choose.');
+  const problem = modeChoiceProblem(awaiting.options.length, awaiting.min, awaiting.max, awaiting.legal, intent.modes);
+  if (problem) return reject('illegalMode', problem);
+  const modes = modesInOrder(intent.modes);
+
+  if (awaiting.forKind === 'trigger') {
+    const obj = state.stack.find((o) => o.id === awaiting.stackId);
+    if (!obj) return reject('noPendingCast', 'That ability is no longer on the stack.');
+    const specs = modeSpecs(triggerDefFor(deps, obj)?.modes ?? [], modes);
+    const events: EventBody[] = [{ t: 'StackModesSet', stackId: obj.id, modes }];
+    events.push(
+      specs.length > 0
+        ? { t: 'AwaitingSet', awaiting: targetsAwaiting(intent.player, obj.id, awaiting.source, awaiting.label, specs, 'trigger') }
+        : { t: 'AwaitingSet', awaiting: null },
+    );
+    return accept(events);
+  }
+
+  const pending = state.pendingCast;
+  if (!pending || pending.player !== intent.player) return reject('noPendingCast', 'You are not casting anything.');
+  if (pending.stage !== 'modes') return reject('wrongCastStage', 'That spell is not waiting for a choice of modes.');
+  const card = state.cards[pending.card];
+  const oracleCard = card ? deps.oracle.byPrinting(card.printingId) : undefined;
+  if (!card || !oracleCard) return reject('noSuchCard', 'That card is not in the game.');
+  const face = faceOf(oracleCard, card.faceIndex);
+
+  if (pending.kind === 'ability') {
+    const ability = face.activated[abilityIndexOf(pending.abilityRef)];
+    if (!ability) return reject('notCastable', 'That permanent has no such ability.');
+    const specs = modeSpecs(activatedModesFor(deps, pending.abilityRef)?.modes ?? [], modes);
+    if (specs.length > 0) {
+      return accept([
+        { t: 'ModesChosen', modes },
+        { t: 'CastStageSet', stage: 'targets' },
+        { t: 'AwaitingSet', awaiting: targetsAwaiting(intent.player, pending.stackId, pending.card, awaiting.label, specs, 'ability') },
+      ]);
+    }
+    return finishAbility(state, deps, { ...pending, modes, stage: 'pay' }, face, ability, oracleCard.colorIdentity, undefined, [
+      { t: 'ModesChosen', modes },
+    ]);
+  }
+
+  const specs = modeSpecs(face.modal?.modes ?? [], modes);
+  if (!!face.manaCost && face.manaCost.xCount > 0 && pending.xValue === null) {
+    return accept([
+      { t: 'ModesChosen', modes },
+      { t: 'CastStageSet', stage: 'x' },
+      { t: 'AwaitingSet', awaiting: { kind: 'chooseX', player: intent.player, stackId: pending.stackId, source: pending.card, label: face.name } },
+    ]);
+  }
+  if (specs.length > 0) {
+    return accept([
+      { t: 'ModesChosen', modes },
+      { t: 'CastStageSet', stage: 'targets' },
+      { t: 'AwaitingSet', awaiting: targetsAwaiting(intent.player, pending.stackId, pending.card, face.name, specs, 'spell') },
+    ]);
+  }
+  return finishFromPending(state, deps, { ...pending, modes, stage: 'pay' }, face, oracleCard.colorIdentity, {
+    lead: [{ t: 'ModesChosen', modes }],
+  });
+}
+
 /** The prompt payload. Everything a reconnecting client needs to rebuild it. */
 function targetsAwaiting(
   player: PlayerId,
@@ -957,7 +1130,7 @@ function targetsAwaiting(
   source: InstanceId,
   label: string,
   specs: readonly TargetSpec[],
-  forKind: 'spell' | 'ability',
+  forKind: 'spell' | 'ability' | 'trigger',
 ): Extract<Awaiting, { kind: 'chooseTargets' }> {
   return {
     kind: 'chooseTargets',
@@ -1039,9 +1212,15 @@ function chooseTargets(
   const oracleCard = card ? deps.oracle.byPrinting(card.printingId) : undefined;
   if (!card || !oracleCard) return reject('noSuchCard', 'That card is not in the game.');
   const face = faceOf(oracleCard, card.faceIndex);
+  // D343 - a modal spell or ability aims the CHOSEN modes' clauses.
+  const abilityModal = pending.kind === 'ability' ? activatedModesFor(deps, pending.abilityRef) : null;
   const specs = pending.kind === 'ability'
-    ? face.activated[abilityIndexOf(pending.abilityRef)]?.targets ?? []
-    : face.targets;
+    ? abilityModal !== null
+      ? modeSpecs(abilityModal.modes, pending.modes)
+      : face.activated[abilityIndexOf(pending.abilityRef)]?.targets ?? []
+    : face.modal
+      ? modeSpecs(face.modal.modes, pending.modes)
+      : face.targets;
 
   // D341 - a staged ability's source carries its power and toughness; a spell on the stack has none.
   const src = targetingSourceFor(state, deps, pending.card, intent.player) ?? { controller: intent.player, colors: face.colors };
@@ -1156,6 +1335,8 @@ interface CompleteArgs {
   targets: readonly import('./types/state').TargetChoice[];
   /** D299: the clause each target answers (see `StackObject.targetSlots`). */
   targetSlots?: readonly number[];
+  /** D343: the chosen modes of a modal spell, in printed order. */
+  modes?: readonly number[];
   plan?: import('./types/mana').PaymentPlan;
   setup: CastSetup;
 }
@@ -1206,7 +1387,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     abilityRef: null,
     targets: args.targets,
     ...(args.targetSlots !== undefined ? { targetSlots: args.targetSlots } : {}),
-    modes: [],
+    modes: args.modes ?? [],
     xValue: args.xValue > 0 ? args.xValue : null,
     label: setup.faceDown ? 'a face-down creature' : setup.face.name,
     identity: setup.identity,
@@ -1492,7 +1673,7 @@ function finishAbility(
     source: pending.card,
     abilityRef: pending.abilityRef,
     targets: pending.targets,
-    modes: [],
+    modes: pending.modes,
     xValue: null,
     label: `${face.name} — ${ability.effectText}`,
     identity,

@@ -378,6 +378,18 @@ export function simplestAnswer(
       };
     case 'chooseColor':
       return { t: 'AnswerChooseColor', player: awaiting.player, color: 'W' };
+    /**
+     * D343 - the first offered mode(s): as many as the prompt requires, at least
+     * one when it allows any number. A cast with too few modes offered is
+     * cancelled (a trigger with too few is never raised).
+     */
+    case 'chooseModes': {
+      const want = Math.min(awaiting.max, Math.max(awaiting.min, 1));
+      const modes = awaiting.legal.slice(0, want);
+      return modes.length >= awaiting.min || awaiting.forKind === 'trigger'
+        ? { t: 'ChooseModes', player: awaiting.player, modes }
+        : { t: 'CancelPendingCast', player: awaiting.player };
+    }
 
     /**
      * ⚠️ `players` is never empty while this prompt is up — `advanceMulligan`

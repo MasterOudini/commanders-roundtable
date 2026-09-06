@@ -774,6 +774,32 @@ export interface ActivatedAbility {
   readonly crew?: { readonly line: string; readonly power: number };
 }
 
+/**
+ * D343 - one mode of a modal ability as a card script declares it: the printed
+ * text after the bullet, and its target clauses (parsed by the script from the
+ * same text). `StackObject.modes` holds the chosen indices; the def's `resolve`
+ * reads them.
+ */
+export interface ModeDecl {
+  readonly text: string;
+  readonly targets?: readonly TargetSpec[];
+}
+
+/** D343 - a modal SPELL's mode: its clauses and the effect vocabulary's read of its text. */
+export interface ModeSpec extends ModeDecl {
+  readonly targets: readonly TargetSpec[];
+  readonly effects: readonly EffectSpec[];
+  readonly effectMode: EffectMode;
+}
+
+/** D343 - a modal instant or sorcery: the head's printed line, how many modes it allows, the modes. */
+export interface ModalFace {
+  readonly line: number;
+  readonly min: number;
+  readonly max: number;
+  readonly modes: readonly ModeSpec[];
+}
+
 export interface OracleFace {
   readonly name: string;
   readonly typeLine: ParsedTypeLine;
@@ -869,6 +895,13 @@ export interface OracleFace {
    */
   readonly effects: readonly EffectSpec[];
   readonly effectMode: EffectMode;
+  /**
+   * D343 - THE MODAL SEAM: an instant or sorcery whose whole text is "Choose
+   * <word> —" and its "• mode" lines, each mode with its own target clauses and
+   * effects. Set only for that shape; `targets` and `effects` are then EMPTY
+   * (the modes carry them) and `effectMode` is `auto` when every mode is.
+   */
+  readonly modal: ModalFace | null;
   /**
    * CR 614.1c — this permanent enters the battlefield tapped.
    *

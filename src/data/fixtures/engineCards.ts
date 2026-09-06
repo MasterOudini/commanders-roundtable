@@ -4532,6 +4532,9 @@ export const PANG_TONG_YOUNG_PHOENIX: CardData = F.PANG_TONG_YOUNG_PHOENIX as Ca
 export const CABAL_TORTURER: CardData = F.CABAL_TORTURER as CardData;
 export const THUNDERHEAD_GUNNER: CardData = F.THUNDERHEAD_GUNNER as CardData;
 export const SHU_FARMER: CardData = F.SHU_FARMER as CardData;
+export const CRUSHING_CANOPY: CardData = F.CRUSHING_CANOPY as CardData;
+export const DAWN_TO_DUSK: CardData = F.DAWN_TO_DUSK as CardData;
+export const BLUE_ELEMENTAL_BLAST: CardData = F.BLUE_ELEMENTAL_BLAST as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -9182,6 +9185,9 @@ export const ENGINE_CARDS: CardData[] = [
   CABAL_TORTURER,
   THUNDERHEAD_GUNNER,
   SHU_FARMER,
+  CRUSHING_CANOPY,
+  DAWN_TO_DUSK,
+  BLUE_ELEMENTAL_BLAST,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

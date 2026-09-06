@@ -41,6 +41,7 @@ import { isPermanentType } from './oracleParse';
 import { parseEnchant, parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities } from './activatedParse';
 import { parseEffects } from './effectParse';
+import { parseModalFace } from './modalParse';
 import { enchantSpecRuns, SHIPPED_ACTIVATED_REFS, SHIPPED_SPELL_ORACLES, unaccountedLines } from './engineComplete';
 
 export interface Tier3Note {
@@ -178,7 +179,14 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
   // disclosure starts lying, and this one would lie in the direction that
   // matters, telling a player to check something the app is in fact checking.
   const isPermanent = isPermanentType(parseTypeLine(face.typeLine));
-  const specs = parseSpellTargets(text, isPermanent);
+  const isSpellFace = parseTypeLine(face.typeLine).types.some((t) => t === 'Instant' || t === 'Sorcery');
+  // D343 - a "Choose one -" face is read mode by mode, as oracleParse reads
+  // it: the targeting note asks the modes' own clauses, and the effect note
+  // below asks whether every mode is understood. Asking parseEffects over the
+  // whole text would read the mode lines as one unread sentence and tell the
+  // player the app does not run a spell the engine runs.
+  const modal = parseModalFace(text, face.name, isSpellFace);
+  const specs = modal ? modal.modes.flatMap((m) => [...m.targets]) : parseSpellTargets(text, isPermanent);
   const abilities = parseActivatedAbilities({
     oracleText: text,
     isPermanent,
@@ -191,19 +199,19 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
   // the most important disclosure in this file now that some spells execute:
   // "did that resolve, or do I have to do it?" is otherwise unanswerable from
   // the table, and guessing wrong in either direction ruins a game.
-  const parsedEffects = parseEffects(
-    text,
-    face.name,
-    parseTypeLine(face.typeLine).types.some((t) => t === 'Instant' || t === 'Sorcery'),
-  );
+  const effectMode = modal
+    ? modal.modes.every((m) => m.effectMode === 'auto')
+      ? 'auto'
+      : 'manual'
+    : parseEffects(text, face.name, isSpellFace).mode;
   // ⚠️ A SHIPPED SPELL DEF RUNS THE WHOLE CARD (D187) — the seam in loop.ts
   // outranks the vocabulary, so however the PARSER reads this spell, the app
   // executes every word of it and both notes would be lies. The same set the
   // client's assisted-offer suppression reads, built beside the line claims.
   if (!SHIPPED_SPELL_ORACLES.has(card.oracleId)) {
-    if (parsedEffects.mode === 'assisted') {
+    if (effectMode === 'assisted') {
       add('Part of its effect', 'the app offers the part it understands when this resolves — the rest is yours');
-    } else if (parsedEffects.mode === 'manual' && !isPermanent) {
+    } else if (effectMode === 'manual' && !isPermanent) {
       add('Its effect', 'read it and apply it with the manual tools — the app does not run this one');
     }
   }

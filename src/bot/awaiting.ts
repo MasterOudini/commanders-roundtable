@@ -375,6 +375,27 @@ export function answerAwaiting(
     }
 
     /**
+     * D343 - THE FIRST OFFERED MODE(S), AND SAID TO BE A POLICY. The modes are
+     * printed text, and `src/bot/` may not import an engine module that takes a
+     * `GameState` to price them; the card in the bot's deck was put there to be
+     * cast, so its first mode is the D128 accept one prompt over. As many as the
+     * prompt requires, at least one when it allows any number; a cast none of
+     * whose modes can be chosen is abandoned (the cast's own cancel, D102's
+     * shape) - a trigger with none is never raised (CR 603.3d).
+     */
+    case 'chooseModes': {
+      if (awaiting.player !== me) return wait('not my modes');
+      const want = Math.min(awaiting.max, Math.max(awaiting.min, 1));
+      const modes = awaiting.legal.slice(0, want);
+      if (modes.length < awaiting.min) {
+        return awaiting.forKind === 'trigger'
+          ? fault('noIntentForAwaiting', 'asked to choose modes with none offered')
+          : act({ t: 'CancelPendingCast', player: me }, 'no legal mode - abandon the cast');
+      }
+      return act({ t: 'ChooseModes', player: me, modes }, `choose mode ${modes.map((m) => m + 1).join(', ')}`);
+    }
+
+    /**
      * ⚠️ **KEEP EVERYTHING ON TOP IN THE REVEALED ORDER — A POLICY, AND SAID
      * TO BE ONE** (D195). A real scry decision prices the cards against what
      * the bot wants next, which is exactly the per-card judgement its

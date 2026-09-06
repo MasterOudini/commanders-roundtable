@@ -17,7 +17,7 @@
 import type { ColorLetter } from '../../data/cardTypes';
 import type { EventBody, EventKind } from '../types/events';
 import type { AbilityRef, InstanceId, OracleId, PlayerId, ZoneKind } from '../types/ids';
-import type { DerivedCharacteristics, Keyword, OracleDb, ParsedTypeLine, Protection, TargetSpec } from '../types/oracle';
+import type { DerivedCharacteristics, Keyword, ModeDecl, OracleDb, ParsedTypeLine, Protection, TargetSpec } from '../types/oracle';
 import type { DefenderRef, GameOptions, GameState, StackObject } from '../types/state';
 
 /** The mutable form a static ability edits. Copied out of `derive()`'s workspace. */
@@ -96,6 +96,16 @@ export interface TriggerDef {
    * the two moments, which is the whole reason targeting is a two-step rule.
    */
   readonly targets?: readonly TargetSpec[];
+  /**
+   * D343 - THE MODAL SEAM. A trigger whose line reads "..., choose one —" and
+   * prints its modes as "• " lines declares them here, in printed order, each
+   * with its own target clauses. The engine asks `chooseModes` as the trigger
+   * is put on the stack (CR 603.3c), then the chosen modes' targets; `resolve`
+   * reads `obj.modes`. `modeChoice` is how many may be chosen ("choose one" is
+   * the default, 1..1). The accounting claims the "• " lines with the def.
+   */
+  readonly modes?: readonly ModeDecl[];
+  readonly modeChoice?: { readonly min: number; readonly max: number };
   /**
    * PER-ITEM FAN-OUT (D190) — the granularity family's unlock. The bus fires
    * a def once per matching EVENT, and several event kinds BATCH their items
@@ -273,6 +283,9 @@ export interface ReplacementDef {
 export interface ActivatedDef {
   readonly ref: AbilityRef;
   readonly text: string;
+  /** D343 - the modes of a modal activated ability ("{T}: Choose one —"), as on `TriggerDef`; asked at activation (CR 602.2b). */
+  readonly modes?: readonly ModeDecl[];
+  readonly modeChoice?: { readonly min: number; readonly max: number };
   resolve(ctx: ScriptCtx, self: InstanceId, obj: StackObject): readonly EventBody[];
 }
 

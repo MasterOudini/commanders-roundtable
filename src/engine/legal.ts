@@ -14,6 +14,8 @@ import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf } from
 import { affordable, solveInputFor, type SolveInput } from './payment';
 import { isMainPhase } from './turn';
 import { activationConditionsHold } from './activationConditions';
+import { legalModes } from './modes';
+import { candidatesFromState } from './targets';
 import type { ScriptRegistry } from './scripts/registry';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
 import type { ActivatedAbility, OracleCard, OracleDb } from './types/oracle';
@@ -648,6 +650,19 @@ function castAction(
   if (face.manaCost === null) return null;
   if (from.kind === 'command' && !inst.isCommander) return null;
   if (!face.instantSpeed && !sorcerySpeed) return null;
+  // D343 - a MODAL spell is offered only while enough of its modes can be
+  // chosen against this board (CR 601.2c): a cast whose only legal answer is
+  // its own cancel is not a play, and offering it is D102's livelock. The
+  // host refuses such a cast by the same helper.
+  if (face.modal) {
+    const caster = from.player ?? inst.controller;
+    const offered = legalModes(
+      face.modal.modes,
+      { controller: caster, colors: face.colors, power: null, toughness: null },
+      candidatesFromState(state, { oracle, scripts }, ctx.cache),
+    );
+    if (offered.length < face.modal.min) return null;
+  }
 
   // D312 - the generic reductions the board grants this cast are folded into
   // the same adjustment the commander tax rides on: the offer's `tax` is what

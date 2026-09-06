@@ -29,7 +29,7 @@ import type {
 } from './ids';
 import type { ManaPool, PaymentProblem } from './mana';
 import type { NarrationPart } from './narration';
-import type { Keyword, TargetSpec } from './oracle';
+import type { Keyword, ModeDecl, TargetSpec } from './oracle';
 
 export type Phase =
   | 'beginning'
@@ -417,6 +417,13 @@ export interface PendingTrigger {
    * `GameState` — which replays without one.
    */
   readonly specs: readonly TargetSpec[];
+  /**
+   * D343 - the modes a modal trigger offers, copied from the `TriggerDef` the
+   * way `specs` is (the registry is out of reach at drain time); absent for
+   * the overwhelming majority. `modeChoice` is how many may be chosen.
+   */
+  readonly modes?: readonly ModeDecl[];
+  readonly modeChoice?: { readonly min: number; readonly max: number };
 }
 
 /**
@@ -499,6 +506,26 @@ export type Awaiting =
    * `pendingCast` and no `StackObject`; `checkInvariants` skips stack-zone cards,
    * so nothing caught it.
    */
+  /**
+   * D343 - CR 700.2 / 601.2b / 602.2b / 603.3c: the modes of a modal spell,
+   * activated ability or stacked trigger, chosen BEFORE X and before targets.
+   * `options` are the printed modes; `legal` the ones a player may choose now
+   * (a mode whose targets cannot be filled is not offered); the answer names
+   * between `min` and `max` of them. As with `chooseTargets`, `stackId` is a
+   * real object for a trigger and a not-yet-existing one for the other two.
+   */
+  | {
+      readonly kind: 'chooseModes';
+      readonly player: PlayerId;
+      readonly stackId: StackId;
+      readonly source: InstanceId;
+      readonly label: string;
+      readonly options: readonly string[];
+      readonly legal: readonly number[];
+      readonly min: number;
+      readonly max: number;
+      readonly forKind: 'spell' | 'ability' | 'trigger';
+    }
   | { readonly kind: 'chooseX'; readonly player: PlayerId; readonly stackId: StackId; readonly source: InstanceId; readonly label: string }
   /**
    * CR 601.2c.

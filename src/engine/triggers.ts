@@ -1007,6 +1007,8 @@ export function collectTriggers(
             // ⚠️ Copied, never looked up again: `PendingTrigger` is part of
             // `GameState`, which replays with no registry in reach.
             specs: def.targets ?? [],
+            // D343 - a modal trigger's modes ride the same way, for the same reason.
+            ...(def.modes && def.modes.length > 0 ? { modes: def.modes, modeChoice: def.modeChoice ?? { min: 1, max: 1 } } : {}),
             ...(item !== undefined ? { item } : {}),
           });
         }

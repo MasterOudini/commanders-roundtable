@@ -17,6 +17,7 @@ import { derive, makeDeriveCache } from './derive';
 import { drawEvents, drewCardsMarker, effectResult } from './effects';
 import { keywordTriggerDef } from './keywordTriggers';
 import { candidatesFromState, minimumLegalTargets, targetAllowed, untargetableByRule, type TargetingSource } from './targets';
+import { legalModes, modalEffects, modeSpecs } from './modes';
 import { checkGameOver, checkStateBasedActions } from './sba';
 import { emitted, type Emitted } from './log';
 import { faceOf } from './oracle';
@@ -28,10 +29,10 @@ import { shouldAutoPass, legalActions } from './legal';
 import type { ActivatedDef, ScriptCtx, TriggerDef } from './scripts/api';
 import type { ScriptRegistry } from './scripts/registry';
 import type { EventBody, GameEvent, ResolvedDamage } from './types/events';
-import type { InstanceId, PlayerId } from './types/ids';
+import type { AbilityRef, InstanceId, PlayerId } from './types/ids';
 import { EMPTY_POOL, poolTotal } from './types/mana';
 import type { RngState } from './rng';
-import type { OracleDb, OracleFace, TargetSpec } from './types/oracle';
+import type { ModeDecl, OracleDb, OracleFace, TargetSpec } from './types/oracle';
 import { apnapOrder, livingPlayers, type Awaiting, type GameState, type PendingTrigger, type StackObject } from './types/state';
 import { canBlock } from './combat';
 
@@ -210,7 +211,26 @@ export function stackPendingTriggers(
     // to cancel, so a driver handed an unanswerable targets prompt would have
     // no legal reply at all and the game would stop forever. D102's exact
     // shape, prevented rather than recovered from.
-    if (trigger.specs.length > 0) {
+    // D343 - A MODAL TRIGGER (CR 603.3c): its modes are chosen as it is put on
+    // the stack, and a mode is offered only while its targets can be filled.
+    // A trigger with fewer offerable modes than it must choose is removed the
+    // way a trigger with no legal target is (CR 603.3d) - the choice cannot be
+    // made, and a prompt with no legal answer would be a wedge (D102).
+    const modalLegal =
+      trigger.modes && trigger.modes.length > 0
+        ? legalModesFor(state, deps, trigger.controller, trigger.source, trigger.modes)
+        : null;
+    if (modalLegal !== null && modalLegal.length < (trigger.modeChoice?.min ?? 1)) {
+      drained.push(trigger.id);
+      events.push(
+        narrated(
+          n`${trigger.label} — no mode can be chosen, so it is removed from the stack (CR 603.3d).`,
+          trigger.controller,
+        ),
+      );
+      continue;
+    }
+    if (modalLegal === null && trigger.specs.length > 0) {
       const src = targetingSourceFor(state, deps, trigger.source, trigger.controller);
       const fill = src
         ? minimumLegalTargets(trigger.specs, src, candidatesFromState(state, deps))
@@ -252,6 +272,27 @@ export function stackPendingTriggers(
       narrated(n`${who(state, trigger.controller)}: ${trigger.label}`, trigger.controller),
     );
     drained.push(trigger.id);
+
+    // D343 - the modes are asked FIRST (CR 603.3c), the object already on the
+    // stack; the answer records them and asks the chosen modes' targets, so
+    // the drain stops here exactly as it stops for a targets prompt below.
+    if (modalLegal !== null && trigger.modes) {
+      const awaiting: Awaiting = {
+        kind: 'chooseModes',
+        player: trigger.controller,
+        stackId: obj.id,
+        source: trigger.source,
+        label: trigger.label,
+        options: trigger.modes.map((m) => m.text),
+        legal: modalLegal,
+        min: trigger.modeChoice?.min ?? 1,
+        max: trigger.modeChoice?.max ?? 1,
+        forKind: 'trigger',
+      };
+      events.push({ t: 'PendingTriggersCleared', ids: drained });
+      events.push({ t: 'AwaitingSet', awaiting });
+      return { events, stopped: true };
+    }
 
     // ⚠️ CR 603.3d — TARGETS ARE CHOSEN AS THE ABILITY IS PUT ON THE STACK, so
     // the object goes on and the question is asked in the same uninterruptible
@@ -640,7 +681,9 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     const oracleCard = deps.oracle.byPrinting(card.printingId);
     const face = oracleCard ? faceOf(oracleCard, card.faceIndex) : null;
 
-    if (!targetsStillLegal(state, deps, obj, face)) {
+    // D343 - a modal spell re-checks the CHOSEN modes' clauses (CR 608.2b).
+    const modalSpecs = face?.modal ? modeSpecs(face.modal.modes, obj.modes) : undefined;
+    if (!targetsStillLegal(state, deps, obj, face, modalSpecs)) {
       // CR 608.2b — a spell whose targets are all illegal is removed from the
       // stack and does nothing. It goes to the graveyard, not to exile.
       events.push({ t: 'SpellFizzled', stackId: obj.id });
@@ -687,10 +730,24 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     // assisted offer, or the parsed half runs twice.
     let rng: RngState | undefined;
     const spellDef = oracleCard ? deps.scripts.spell(oracleCard.oracleId) : undefined;
+    // D343 - CR 608.2b's OTHER HALF: the spell resolves and does not affect the
+    // targets that are no longer legal for their clause. The vocabulary runs
+    // over the picks that still are (a clause whose picks all went narrates,
+    // D137); `aimOf` alone admits a card in any zone, and a two-target destroy
+    // used to "destroy" a target exiled in response. A shipped def keeps the
+    // declared list and its own checks.
+    const resolving = withStillLegalPicks(state, deps, obj, face, modalSpecs ?? face?.targets ?? []);
     if (spellDef) {
       events.push(...spellDef.resolve(scriptCtxFor(state, deps), obj.card, obj));
+    } else if (face?.modal && face.effectMode === 'auto') {
+      // D343 - a modal spell resolves the CHOSEN modes' effects, each mode's
+      // target indices shifted over the chosen modes' clauses (`modalEffects`),
+      // which is the order the cast declared its targets in.
+      const result = effectResult(state, deps, resolving, modalEffects(face.modal, obj.modes));
+      events.push(...result.events);
+      rng = result.rng;
     } else if (face && face.effectMode === 'auto' && face.effects.length > 0) {
-      const result = effectResult(state, deps, obj, face.effects);
+      const result = effectResult(state, deps, resolving, face.effects);
       events.push(...result.events);
       rng = result.rng;
     }
@@ -771,7 +828,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
 }
 
 /** The `TriggerDef` behind a stack object, or undefined for anything else. */
-function triggerDefFor(deps: EngineDeps, obj: StackObject): TriggerDef | undefined {
+export function triggerDefFor(deps: EngineDeps, obj: StackObject): TriggerDef | undefined {
   if (!obj.abilityRef) return undefined;
   // D308 - a keyword trigger's ref names the keyword, not a script's def.
   const kw = keywordTriggerDef(obj.abilityRef);
@@ -787,10 +844,45 @@ function triggerDefFor(deps: EngineDeps, obj: StackObject): TriggerDef | undefin
  * also why a trigger's `abilityId` may never match /^a\d+$/ (D158's review
  * rule): `triggerDefFor` above would claim the activated object first.
  */
-function activatedDefFor(deps: EngineDeps, obj: StackObject): ActivatedDef | undefined {
+export function activatedDefFor(deps: EngineDeps, obj: StackObject): ActivatedDef | undefined {
   if (obj.kind !== 'activated' || !obj.abilityRef) return undefined;
   const script = deps.scripts.get(obj.abilityRef.slice(0, obj.abilityRef.indexOf('#')));
   return script?.activated?.find((d) => d.ref === obj.abilityRef);
+}
+
+/**
+ * D343 - the modes a modal ACTIVATED ability declares, looked up by the
+ * `${oracleId}#a${index}` ref the activation wrote; null when its def declares
+ * none (the overwhelming majority). "Choose one" is the default count.
+ */
+export function activatedModesFor(
+  deps: EngineDeps,
+  abilityRef: AbilityRef | null,
+): { readonly modes: readonly ModeDecl[]; readonly choice: { readonly min: number; readonly max: number } } | null {
+  if (!abilityRef) return null;
+  const script = deps.scripts.get(abilityRef.slice(0, abilityRef.indexOf('#')));
+  const def = script?.activated?.find((d) => d.ref === abilityRef);
+  if (!def?.modes || def.modes.length === 0) return null;
+  return { modes: def.modes, choice: def.modeChoice ?? { min: 1, max: 1 } };
+}
+
+/**
+ * D343 - the modes a player may choose NOW (CR 601.2c, 603.3d): a mode with no
+ * target clause is always offered; one with clauses only while every clause
+ * can be filled from the board - asked with the same helper the trigger
+ * stacking asks of a targeted trigger. The prompt carries the answer; the
+ * handler asks again (the prompt vouches for nothing).
+ */
+export function legalModesFor(
+  state: GameState,
+  deps: EngineDeps,
+  player: PlayerId,
+  source: InstanceId,
+  modes: readonly ModeDecl[],
+): number[] {
+  const src: TargetingSource =
+    targetingSourceFor(state, deps, source, player) ?? { controller: player, colors: [], power: null, toughness: null };
+  return legalModes(modes, src, candidatesFromState(state, deps));
 }
 
 /**
@@ -868,7 +960,19 @@ export function resolveAbility(
   const srcCard = obj.source ? state.cards[obj.source] : undefined;
   const srcPrinting = srcCard ? deps.oracle.byPrinting(srcCard.printingId) : undefined;
   const srcFace = srcCard && srcPrinting ? faceOf(srcPrinting, srcCard.faceIndex) : null;
-  if (obj.targets.length > 0 && !targetsStillLegal(state, deps, obj, srcFace, def?.targets ?? [])) {
+  // D343 - a modal ability re-checks the CHOSEN modes' clauses (CR 608.2b).
+  const modalModes = def?.modes ?? activatedDefFor(deps, obj)?.modes;
+  // ⚠️ AN ACTIVATED ABILITY'S CLAUSES LIVE ON THE PARSED FACE (gate 197,
+  // seed 306): the offer and the validation read `srcFace.activated[n].targets`,
+  // but this re-check asked the TRIGGER def alone, so with none it fell to the
+  // no-clause branch — and Mage il-Vec's ping, aimed at itself and answered by
+  // a Bolt, resolved on its own corpse: damage on a card in a graveyard.
+  const ref = obj.abilityRef ?? '';
+  const at = ref.indexOf('#a');
+  const printedAbility = obj.kind === 'activated' && at >= 0 && srcFace ? srcFace.activated[Number(ref.slice(at + 2))] : undefined;
+  const abilitySpecs =
+    modalModes && modalModes.length > 0 ? modeSpecs(modalModes, obj.modes) : def?.targets ?? printedAbility?.targets ?? [];
+  if (obj.targets.length > 0 && !targetsStillLegal(state, deps, obj, srcFace, abilitySpecs)) {
     events.push(
       narrated(
         n`${obj.label} — no legal target left, so it does not resolve (CR 608.2b).`,
@@ -1002,6 +1106,44 @@ function targetsStillLegal(
     if (specs.length === 0) return !untargetableByRule(src, candidate);
     return specs.some((spec) => targetAllowed(spec, src, candidate));
   });
+}
+
+/**
+ * D343 - the stack object with only the targets still legal for their clause
+ * (CR 608.2b: an illegal target is not affected; the spell still resolves for
+ * the rest). Per clause where the cast recorded `targetSlots`, by any clause
+ * otherwise (the shape `targetsStillLegal` asks); a face with no parsed clause
+ * keeps the CR restrictions alone. The slots stay aligned with the kept picks.
+ */
+function withStillLegalPicks(
+  state: GameState,
+  deps: EngineDeps,
+  obj: StackObject,
+  face: OracleFace | null,
+  specs: readonly TargetSpec[],
+): StackObject {
+  if (obj.targets.length === 0) return obj;
+  const candidates = candidatesFromState(state, deps);
+  const own = targetingSourceFor(state, deps, obj.source ?? obj.card, obj.controller);
+  const src = { controller: obj.controller, colors: face?.colors ?? [], power: own?.power ?? null, toughness: own?.toughness ?? null };
+  const targets: StackObject['targets'][number][] = [];
+  const slots: number[] = [];
+  obj.targets.forEach((target, k) => {
+    const candidate = candidates.find((c) => c.choice.kind === target.kind && c.choice.id === target.id);
+    if (!candidate) return;
+    const slot = obj.targetSlots?.[k];
+    const spec = slot !== undefined ? specs[slot] : undefined;
+    const ok = spec
+      ? targetAllowed(spec, src, candidate)
+      : specs.length === 0
+        ? !untargetableByRule(src, candidate)
+        : specs.some((s) => targetAllowed(s, src, candidate));
+    if (!ok) return;
+    targets.push(target);
+    if (slot !== undefined) slots.push(slot);
+  });
+  if (targets.length === obj.targets.length) return obj;
+  return { ...obj, targets, ...(obj.targetSlots !== undefined ? { targetSlots: slots } : {}) };
 }
 
 // ── the driver ───────────────────────────────────────────────────────────────

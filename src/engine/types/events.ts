@@ -250,6 +250,8 @@ export type EventBody =
    */
   | { readonly t: 'TargetsChosen'; readonly targets: readonly TargetChoice[]; readonly problem: PendingCast['problem'] }
   | { readonly t: 'XChosen'; readonly x: number; readonly problem: PendingCast['problem'] }
+  /** D343 - the modes a pending cast (a spell or an activation) chose, in printed order. */
+  | { readonly t: 'ModesChosen'; readonly modes: readonly number[] }
   | { readonly t: 'CastCancelled'; readonly stackId: StackId }
   | { readonly t: 'SpellCast'; readonly obj: StackObject }
   | { readonly t: 'AbilityPutOnStack'; readonly obj: StackObject }
@@ -283,6 +285,8 @@ export type EventBody =
   | { readonly t: 'ReplacementResolved' }
   | { readonly t: 'ColorChosen'; readonly card: InstanceId; readonly color: ColorLetter }
   | { readonly t: 'StackTargetsSet'; readonly stackId: StackId; readonly targets: readonly TargetChoice[] }
+  /** D343 - the modes a triggered ability already on the stack chose (CR 603.3c). */
+  | { readonly t: 'StackModesSet'; readonly stackId: StackId; readonly modes: readonly number[] }
   | { readonly t: 'CommanderCastCountIncreased'; readonly card: InstanceId; readonly to: number }
   | {
       readonly t: 'StackResolved';

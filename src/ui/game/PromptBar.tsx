@@ -114,6 +114,10 @@ function describe(
         return awaiting.player === viewer
           ? `Two effects want to change the same thing — which applies first?`
           : `${nameOf(seats, awaiting.player)} is ordering two replacement effects.`;
+      case 'chooseModes':
+        return awaiting.player === viewer
+          ? `${awaiting.label} — choose ${awaiting.min === awaiting.max ? awaiting.min : `${awaiting.min} to ${awaiting.max}`} mode${awaiting.max === 1 ? '' : 's'}.`
+          : `${nameOf(seats, awaiting.player)} is choosing a mode for ${awaiting.label}.`;
       case 'chooseColor':
         return awaiting.player === viewer
           ? `${awaiting.label} — name a colour.`
@@ -241,6 +245,8 @@ export function PromptBar() {
   // `onBatch` now), and its curated deck cannot contain an assisted card in the
   // first place, which `botPool.node.test.ts` asserts rather than assumes.
   const [offer, setOffer] = useState<EffectOffer | null>(null);
+  // D343 - the modes picked so far on a prompt that allows more than one.
+  const [modePicks, setModePicks] = useState<readonly number[]>([]);
   useEffect(
     () =>
       session.onSpellResolved(({ card, targets, controller }) => {
@@ -450,6 +456,45 @@ export function PromptBar() {
                 {o.label}
               </button>
             ))}
+          </>
+        )}
+        {awaiting?.kind === 'chooseModes' && mine('chooseModes') && (
+          <>
+            {awaiting.options.map((text, i) => {
+              const picked = modePicks.includes(i);
+              return (
+                <button
+                  key={i}
+                  type="button"
+                  className={awaiting.max === 1 || picked ? BTN : BTN_GHOST}
+                  data-action={`choose-mode-${i}`}
+                  disabled={!awaiting.legal.includes(i)}
+                  onClick={() => {
+                    if (awaiting.max === 1) {
+                      send({ t: 'ChooseModes', player: viewer, modes: [i] });
+                    } else {
+                      setModePicks(picked ? modePicks.filter((m) => m !== i) : [...modePicks, i]);
+                    }
+                  }}
+                >
+                  {text}
+                </button>
+              );
+            })}
+            {awaiting.max > 1 && (
+              <button
+                type="button"
+                className={BTN}
+                data-action="choose-modes-done"
+                disabled={modePicks.length < awaiting.min || modePicks.length > awaiting.max}
+                onClick={() => {
+                  send({ t: 'ChooseModes', player: viewer, modes: modePicks });
+                  setModePicks([]);
+                }}
+              >
+                Choose {modePicks.length}
+              </button>
+            )}
           </>
         )}
         {awaiting?.kind === 'chooseColor' && mine('chooseColor') && (

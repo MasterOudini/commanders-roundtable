@@ -732,6 +732,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
         ? { ...state, pendingCast: { ...state.pendingCast, xValue: body.x, problem: body.problem } }
         : state;
 
+    case 'ModesChosen':
+      return state.pendingCast ? { ...state, pendingCast: { ...state.pendingCast, modes: body.modes } } : state;
+
     case 'CastCancelled':
       return { ...state, pendingCast: null };
 
@@ -752,6 +755,12 @@ function applyBody(state: GameState, body: EventBody): GameState {
       return {
         ...state,
         stack: state.stack.map((o) => (o.id === body.stackId ? { ...o, targets: body.targets } : o)),
+      };
+
+    case 'StackModesSet':
+      return {
+        ...state,
+        stack: state.stack.map((o) => (o.id === body.stackId ? { ...o, modes: body.modes } : o)),
       };
 
     case 'SpellCast':

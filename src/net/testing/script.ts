@@ -94,6 +94,11 @@ export function simplestIntent(
         return awaiting.player === snapshot.you
           ? { t: 'AnswerChooseColor', player: awaiting.player, color: 'W' }
           : null;
+      /** D343 - the first offered mode(s), as many as the prompt requires. */
+      case 'chooseModes':
+        return awaiting.player === snapshot.you
+          ? { t: 'ChooseModes', player: awaiting.player, modes: awaiting.legal.slice(0, Math.min(awaiting.max, Math.max(awaiting.min, 1))) }
+          : null;
       case 'entersChoice':
         return awaiting.player === snapshot.you
           ? { t: 'AnswerEntersChoice', player: awaiting.player, source: awaiting.source, pay: false }

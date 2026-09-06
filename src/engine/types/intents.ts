@@ -51,6 +51,8 @@ export type Intent =
       readonly xValue?: number;
       readonly targets?: readonly TargetChoice[];
       readonly plan?: PaymentPlan;
+      /** D343 - the modes of a modal spell, named inline (a driver, a test); absent, the host asks. */
+      readonly modes?: readonly number[];
       /** D309 - cast face down as a 2/2 for {3} (morph, CR 702.37a). */
       readonly faceDown?: boolean;
     }
@@ -79,6 +81,8 @@ export type Intent =
       readonly card: InstanceId;
       readonly abilityIndex: number;
       readonly targets?: readonly TargetChoice[];
+      /** D343 - the modes of a modal ability (its def declares them), named inline; absent, the host asks. */
+      readonly modes?: readonly number[];
       readonly plan?: PaymentPlan;
       /**
        * Which permanent pays a "Sacrifice a <predicate>" cost (D168).
@@ -104,6 +108,8 @@ export type Intent =
     }
   | { readonly t: 'ChooseTargets'; readonly player: PlayerId; readonly targets: readonly TargetChoice[] }
   | { readonly t: 'ChooseX'; readonly player: PlayerId; readonly x: number }
+  /** D343 - the answer to `chooseModes`: the chosen mode indices, each at most once. */
+  | { readonly t: 'ChooseModes'; readonly player: PlayerId; readonly modes: readonly number[] }
   | { readonly t: 'PayCast'; readonly player: PlayerId; readonly plan: PaymentPlan }
   | { readonly t: 'CancelPendingCast'; readonly player: PlayerId }
   | { readonly t: 'TapForMana'; readonly player: PlayerId; readonly card: InstanceId; readonly abilityIndex: number; readonly outputChoice: number }
@@ -299,6 +305,7 @@ export type RejectReason =
   | 'noPendingChoice'
   | 'wrongCastStage'
   | 'illegalTarget'
+  | 'illegalMode'
   | 'illegalAttacker'
   /** D335 - CR 508.1d: a creature that attacks each combat if able was left out. */
   | 'attackRequired'

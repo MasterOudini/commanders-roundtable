@@ -124,6 +124,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // simplestAnswer's no-op scry.
   { names: ['Preordain'], copiesPerSeat: 1,
     counterKeys: ['scryChoices'], rotHistory: 'D195' },
+  // The modes prompt (D343) - a "choose one" instant whose two modes both
+  // target (a flyer, an enchantment); offered only while a mode can be chosen,
+  // answered by simplestAnswer's first-mode policy, then the aim.
+  { names: ['Crushing Canopy'], copiesPerSeat: 1,
+    counterKeys: ['modeChoices'], rotHistory: 'D343' },
   // The only TARGETED trigger — fires off Darksteel Citadel in FIXED_CORE.
   { names: ['Yotian Dissident'], copiesPerSeat: 1,
     counterKeys: ['triggerTargetsChosen'], rotHistory: 'D147' },
@@ -590,6 +595,8 @@ interface Run {
   readonly replacementChoices: number;
   /** Scry/surveil prompts raised by a resolving effect (D195). */
   readonly scryChoices: number;
+  /** Modes chosen for a spell, an activation or a trigger (D343). */
+  readonly modeChoices: number;
   /** Permanents that entered as a face other than the front one (CR 712). */
   readonly backFacesPlayed: number;
 }
@@ -604,7 +611,18 @@ function runOne(seed: number): Run {
   const check = (): void => {
     const problems = checkInvariants(game.state);
     if (problems.length > 0) {
-      throw new Error(`seed ${seed} @ event ${game.state.eventCount}: ${problems.join('; ')}`);
+      // D343 - the message names the events that last touched the offending
+      // ids, so a hole reads as a sequence rather than as a card number.
+      const ids = new Set<string>();
+      for (const p of problems) for (const m of p.matchAll(/\b(c\d+)\b/g)) ids.add(m[1] ?? '');
+      const trail = game.log
+        .filter((e) => {
+          const s = JSON.stringify(e.body);
+          return [...ids].some((id) => s.includes('"' + id + '"'));
+        })
+        .slice(-14)
+        .map((e) => '#' + e.seq + ' ' + JSON.stringify(e.body).slice(0, 260));
+      throw new Error(`seed ${seed} @ event ${game.state.eventCount}: ${problems.join('; ')}\n${trail.join('\n')}`);
     }
   };
   check();
@@ -742,6 +760,7 @@ function runOne(seed: number): Run {
     scryChoices: game.log.filter(
       (e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'scryChoice',
     ).length,
+    modeChoices: game.log.filter((e) => e.body.t === 'ModesChosen' || e.body.t === 'StackModesSet').length,
     // CR 608.2b for a TRIGGER — a distinct sentence from the spell fizzle, so
     // the two cannot be confused for each other.
     triggersFizzled: game.log.filter(
@@ -877,6 +896,7 @@ const TOTAL_KEYS = [
   'diesTriggers',
   'replacementChoices',
   'scryChoices',
+  'modeChoices',
   'entersDeclined',
 ] as const;
 type TotalKey = (typeof TOTAL_KEYS)[number] | 'finished';
@@ -1064,6 +1084,10 @@ function assertFloors(totals: Totals, seeds: number): void {
       // so at gate size the effect that stops and asks must have stopped and
       // asked somewhere.
       if (seeds >= 500) expect(totals.scryChoices).toBeGreaterThan(0);
+      // ⚠️ THE MODAL CANARY (D343): Crushing Canopy is a staple in every pool and
+      // is offered whenever a flyer or an enchantment stands, so at gate size a
+      // mode must have been chosen somewhere.
+      if (seeds >= 500) expect(totals.modeChoices).toBeGreaterThan(0);
 }
 
 describe('replay-equivalence fuzzer — THE GATE', () => {

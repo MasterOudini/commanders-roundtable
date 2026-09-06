@@ -28,12 +28,26 @@ import type {
   Protection,
 } from '../engine/types/oracle';
 import { NO_PROTECTION } from '../engine/types/oracle';
+import type { EffectMode, EffectSpec, ModalFace } from '../engine/types/oracle';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
 import { parseCostReductions } from './costParse';
 import { parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities } from './activatedParse';
 import { parseEffects } from './effectParse';
+import { parseModalFace } from './modalParse';
 import { parseEntersTapped, parseChoosesColorOnEntry } from './replacementParse';
+
+/**
+ * D343 - a modal face's effect mode from its modes: `auto` when EVERY mode is
+ * (the face warns `effect:auto` once), else manual (`effect:none`) - the
+ * assisted offer is a per-clause reading and a mode is a choice, so a partly
+ * readable modal card is offered nothing rather than half of a mode.
+ */
+function modalEffectSummary(modal: ModalFace, warn: Warn): { effects: EffectSpec[]; mode: EffectMode } {
+  const auto = modal.modes.every((m) => m.effectMode === 'auto');
+  warn(auto ? 'effect:auto' : 'effect:none');
+  return { effects: [], mode: auto ? 'auto' : 'manual' };
+}
 
 /** Every warning a parse produced, as `category` strings for tallying. */
 export type Warn = (category: string) => void;
@@ -796,10 +810,18 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     { oracleText: face.oracleText, isPermanent, producesMana, parseCost: parseManaCost, selfName: face.name.split(',')[0] ?? face.name },
     warn,
   );
-  const targets = parseSpellTargets(face.oracleText, isPermanent, warn);
   const isInstantOrSorcery =
     typeLine.types.includes('Instant') || typeLine.types.includes('Sorcery');
-  const parsedEffects = parseEffects(face.oracleText, face.name, isInstantOrSorcery, warn);
+  // D343 - THE MODAL SEAM: a modal instant or sorcery carries its clauses and
+  // its effects on its MODES (`modalParse.ts`); the face's own lists are then
+  // empty, and the cast aims the chosen modes' clauses (`engine/modes.ts`).
+  // The face is `auto` exactly when every mode is; otherwise it stays manual -
+  // a modal card is never half-executed (D90).
+  const modal = parseModalFace(face.oracleText, face.name, isInstantOrSorcery, warn);
+  const targets = modal ? [] : parseSpellTargets(face.oracleText, isPermanent, warn);
+  const parsedEffects = modal
+    ? modalEffectSummary(modal, warn)
+    : parseEffects(face.oracleText, face.name, isInstantOrSorcery, warn);
 
   // ⚠️ THE COVERAGE MEASUREMENT, and it belongs here rather than in
   // `parseKeywords` because only this function can see every Tier-2 field.
@@ -854,6 +876,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     activated,
     effects: parsedEffects.effects,
     effectMode: parsedEffects.mode,
+    modal,
     // ⚠️ Only a PERMANENT can enter the battlefield, so an instant whose text
     // somehow matched would be claiming a rule it can never reach.
     entersTapped: isPermanent ? parseEntersTapped(face.oracleText, face.name) : null,

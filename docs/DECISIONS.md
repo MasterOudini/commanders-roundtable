@@ -23152,3 +23152,136 @@ Fixtures 4,647 · botPool artifact 367 / creature 3,965 / enchantment 346 / inst
 **Reportables** (D342): the turn-memory conditions (a creature died this turn 2 + 1, a noncreature spell / an instant or sorcery cast this turn 2 + 2, an opponent lost life this turn 2, you gained life / discarded / created a token this turn - a per-turn record beside D336's tallies), the keyword-predicate condition (a creature with flying 2; a keyword on PermanentPredicate), the exactly-N hand size (1), the counts outside the vocabulary (15), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the other Threshold bodies (activated lines under other words, enchanted-creature and anthem bodies), Unleash (10; an asked entry choice), Goblin Banneret's Mentor; then the script-raised prompt seam itself - the modal spells (276), the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split; the modal seam; the "another" split; the
 by-name sacrifice cost; the remaining cost verbs; the prompt continuation
 seam; prior items stand.
+
+## D343 — M6.4gb: THE MODAL SEAM — a spell that says "Choose one —" reads mode by mode: the choice asked at the cast, the activation and the stacking of a trigger, a mode offered only while its targets can be chosen, and CR 608.2b's other half at resolution; 80 cards land, 0 as generated rows (2026-09-07)
+
+**6,920 of 31,692 Commander-legal cards execute completely, up from
+6,840 (+80).** SHIPPED_SCRIPTS 4,273 → **4,273**;
+REFUSED ledger 991 → **991** (no rows retired - none of the 80 was in the ledger (d343/modal-ledger-check.cjs: 0 of the 80 names in REFUSED; a modal spell had been a SPELL_STRUCTURAL refusal at the classifier, never a drafter's verdict); measured: the REFUSED map's size). Fixtures
+4,647 → 4,650 (4,510 by name + 133 tokens: the seam's three proof spells (Crushing Canopy, Dawn to Dusk, Blue Elemental Blast); no new token pins). **One engine seam in six patches — the
+sixth for a hole its gate found — and no wave behind it: the 80 are auto
+flips.** **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** the D343 probe (d343/zz-modal-spells.node.test.ts -> modal-spells.json) over the database: 404 incomplete single-face Commander-legal instants and sorceries print a Choose one / two / three / one or both / one or more / any number head; 59 print it beside another sentence (the head is not the whole text), 80 print it as the whole text with every mode inside the effect vocabulary and every target clause confident, and 265 carry a mode outside the vocabulary or an unconfident clause (modal-spells.json names each mode text). D294's probe had counted 355 modal spells and 42 all-modes-auto over the vocabulary of that day; the sentences D295-D301 taught the vocabulary since are the difference. The 80 are ZERO in the REFUSED ledger (d343/modal-ledger-check.cjs). The parse report says what the seam did across the database: a modal face's clauses are its modes' own now - target:modalUnion 2,751 -> 1,569, target:unparsedClause 1,166 -> 1,234 and target:unparsedCount 554 -> 610 (mode lines read one by one expose the clauses the whole-text union had blurred), facesWithSpecs 19,757 -> 18,575, specs 20,840 -> 19,658, free 3,328 -> 2,146; effect:auto 3,918 -> 4,209, effect:none 15,115 -> 14,849, effect:partial 5,298 -> 5,273; the bot pool's spell columns instant 947 -> 1,007 and sorcery 723 -> 743, auto 868 -> 948; tier3 silentAfter 7,150 -> 7,230 (the 80, silent because the disclosure asks the same reader now).
+
+**The modal face** (`d343/apply-modal-1.cjs`, `src/data/modalParse.ts`): a
+face whose whole text is a "Choose one —" / "two" / "three" / "one or both" /
+"one or more" / "any number" head over bullet lines is read as a `ModalFace`
+— `{line, min, max, modes}`, each mode its own `parseTargetClauses` and its own
+`parseEffects`, the face's own targets and effects EMPTY. The whole-text rule
+is D90's: a modal head with a sentence beside it stays unread rather than
+half-read, and a mode outside the vocabulary makes the whole face `manual`
+(`modalEffectSummary`: auto iff every mode is auto). `modeChoiceOf` turns the
+printed word into a range — one 1..1, two 2..2, three 3..3, one or both 1..2
+(and only over exactly two modes), one or more 1..n, any number 0..n.
+
+**The choice is a PROMPT, and it comes FIRST** (`-2`, `-3`): CR 601.2b puts
+the modes before X and before the targets, so the cast gains a stage `'modes'`
+ahead of the two that existed, raising `Awaiting chooseModes {player, stackId,
+source, label, options, legal, min, max, forKind}` — the twentieth `Awaiting`
+kind, eighteen with producers (D125's map caught it by name in three files at
+once). The same prompt serves an activation (602.2b) and a TRIGGER (603.3c —
+the modes are chosen as the ability is put on the stack, so
+`stackPendingTriggers` asks right after the drain has stacked it, and
+`PendingTrigger` carries the def's `modes`/`modeChoice` across the bus). The
+answer is `ChooseModes {player, modes}`, recorded as `ModesChosen` onto the
+pending cast or `StackModesSet` onto the stacked trigger, both on the log and
+so in the state hash; `modeChoiceProblem` refuses a repeat, a mode that is not
+one of the modes, too few, too many and a mode with no legal target, each by
+name (`illegalMode`). ⚠️ **A mode is OFFERED only while its targets can be
+chosen** — `legalModes` asks `minimumLegalTargets` of each mode's clauses, a
+mode with no clause always being legal — and **a spell is offered only while a
+mode can be**: `legal.ts`'s `castAction` returns null for a modal spell with
+fewer legal modes than its minimum, which is D102's livelock prevented at the
+offer rather than recovered from at the answer. A trigger with too few offerable
+modes is REMOVED from the stack as it would be stacked (603.3d, narrated).
+⚠️ After the choice, the rest of the cast reads ONLY the chosen modes:
+`modeSpecs` (their clauses in printed order) feeds the X and target stages and
+the resolution re-check, and `modalEffects` shifts each chosen mode's target
+indices by the clause counts of the chosen modes before it — a `Dawn to Dusk`
+with both modes aims two clauses, with one mode aims one.
+**The answerers** (`-3`): the bot, the harness's `simplestAnswer` and the net
+driver all take `legal.slice(0, min(max, max(min, 1)))` — a policy, said to be
+one (the bot cannot price a mode from a label); a cast with too few offered
+modes is cancelled, a trigger with too few is never raised. `PromptBar` draws
+one button per mode — a single click when one mode is the whole answer, picks
+and a "Choose N" button otherwise.
+⚠️ **CR 608.2b's OTHER HALF, found by the seam's own proof** (`-4`): the
+resolution re-check decided FIZZLE (every target illegal) and then ran the
+effects over EVERY declared target — and `aimOf` admits a card in ANY zone,
+`destroy` had no zone check, so `Dawn to Dusk` with one target exiled in
+response "destroyed" the exiled card: a card in two zones at once, caught by
+`assertInvariants`. The spell resolves and does not affect the targets that are
+no longer legal for their clause (608.2b): `withStillLegalPicks` filters the
+picks by the same predicate the fizzle asked — per clause where the cast
+recorded `targetSlots`, by any clause otherwise, a no-clause face keeping the
+CR restrictions alone — before the vocabulary runs, and a clause whose picks all
+went narrates as D137's does. A shipped def keeps the declared list and its own
+checks. Every effect and target suite stayed green through the change, which is
+the measure of how narrow the hole was: a multi-target vocabulary spell with one
+target gone.
+**The accounting** (`engineComplete.ts` `lineClaims`, `oracleParse.ts`,
+`tier3.ts`): a def with `modes` claims each `• ` line; oracleParse reads the
+face through `parseModalFace` and the targeting summary is the modes' own; and
+⚠️ **the disclosure was the one red the sweep found** — `tier3.ts` re-derived
+the effect note by asking `parseEffects` over the WHOLE text, which reads a
+modal face as `manual` and told the player, on all 80 cards, that the app does
+not run a spell the engine now runs. It asks `parseModalFace` first (D122's
+rule, the fifth time that file has learned it: never re-derive a parse beside
+the reader that already answers it).
+**The fuzz canary** (`apply-fuzz-canary.cjs`): `Crushing Canopy` is a
+`CANARY_STAPLE` in every seat of every seed (a "choose one" whose two modes both
+target — a flyer, an enchantment — so it is offered whenever either stands),
+the `modeChoices` counter reads `ModesChosen` + `StackModesSet`, and the floor
+is asserted at gate size. The 60-seed leg cannot prove it (the floor is a
+500-seed assertion), which is why the sharded aggregate is the proof.
+⚠️ **Gate 197's first run found a SECOND hole, PRE-EXISTING** (`-5`, seed
+306): `Mage il-Vec` pinged ITSELF, a Lightning Bolt in response killed it, and
+the ping RESOLVED — damage marked on a card in a graveyard, which the
+invariants name. An ACTIVATED ability's CR 608.2b re-check asked the TRIGGER
+def's clauses and, with none, fell to the no-clause branch (the CR restrictions
+alone), so a dead target let the ability run: its def, D328's generated row,
+trusted the re-check, where Prodigal Pyromancer's guards the zone itself and
+merely resolved for nothing. The clauses of an activated ability live on the
+PARSED FACE, where the offer and D161's validation already read them; the
+re-check reads them there now. The line read `def?.targets ?? []` before D343
+— the modal staple reshaped every seed and surfaced it (D168's shape: the
+gate's first run is where a latent hole is cheapest). The gate's failure names
+the EVENTS that last touched the offending ids now (a trail of fourteen), which
+is what made seed 306 a two-minute read. `activatedFizzle.test.ts` (3) stages
+the gate's own shape and the guarded def's: red without the fix — the same
+invariant — and green with it.
+
+**Tests:** `src/engine/modalSpell.test.ts` (13 — the parse, `modeChoiceOf`,
+`modalEffects`, `modeChoiceProblem`; Crushing Canopy's prompt fields, its
+enchantment mode, its inline flyer mode, an unofferable mode refused
+`illegalMode`, the spell not offered by `legalActions` when no mode is
+choosable and a hand-built cast refused, the replay hash; Dawn to Dusk with both
+modes, with one mode inline, and with a target exiled in response skipped while
+the other resolves; Blue Elemental Blast's permanent mode against Shivan Dragon
+and its spell mode countering a held Lightning Bolt through the staged prompt)
+and `src/engine/modalTrigger.test.ts` (4 — a testing `MODAL_BEARS` trigger with
+`modes`/`modeChoice`: the prompt with `forKind: 'trigger'` and the object
+already on the stack, `StackModesSet` on the log, a life mode with no target
+prompt, the flyer mode not offered without an opponent's creature plus the
+`illegalMode` and wrong-player refusals, the replay hash).
+
+- **Refused by name:** no rows retired - none of the 80 was in the ledger (d343/modal-ledger-check.cjs: 0 of the 80 names in REFUSED; a modal spell had been a SPELL_STRUCTURAL refusal at the classifier, never a drafter's verdict); measured: the REFUSED map's size.
+- **Not this decision:** the modal PERMANENT lines (276 leftover lines on permanents whose first unread line is a choose-one: a trigger or an activation whose payload is modal - TriggerDef.modes / ActivatedDef.modes ship in this seam, so the row maker naming a mode per printed bullet is the wave), the modal spells beside another sentence (59) and the 265 with a mode outside the vocabulary or an unconfident clause, Unleash (10; an asked entry choice), the turn-memory conditions (a creature died this turn 2 + 1, a noncreature spell / an instant or sorcery cast this turn 2 + 2, an opponent lost life this turn 2, you gained life / discarded / created a token this turn - a per-turn record beside D336's tallies), the keyword-predicate condition (a creature with flying 2; a keyword on PermanentPredicate), the exactly-N hand size (1), the counts outside the vocabulary (15), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the other Threshold bodies (activated lines under other words, enchanted-creature and anthem bodies), Goblin Banneret's Mentor; then the rest of the script-raised prompt seam - the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split.
+
+Nothing retired: no shipped spell def sat on a modal face (SpellDef v1 refused the choice), so the vocabulary reading the 80 whole retires no script.
+
+Report: `effect:auto` 3,918 → 4,209, `effect:none` 15,115 →
+14,849, `withUnenforced` 280 → 280.
+
+**Landed:** 80 AUTO FLIPS with no script - the whole-text modal spells whose every mode the vocabulary reads and whose every target clause reads confident, complete by the accounting alone once the face reads mode by mode (Crushing Canopy, Dawn to Dusk, Valorous Stance, Mouser Attack!, Blue Elemental Blast, Crush Contraband, Casualties of War, Unforgiving Aim, Subtle Strike, Feast or Famine, Ojutai's Command, Rip Apart, Fissure Vent, Ready to Rumble, Abrade ... - the 80 named in d343/modal-names.json); no generated rows, and the one sweep red was the DISCLOSURE, not a card: tier3.ts re-derived the effect note by asking parseEffects over the whole text, which reads a Choose one face as manual and told the player the app does not run a spell the engine runs - it asks parseModalFace first now (d343/apply-tier3-modal.cjs), the same reader oracleParse uses; and gate 197's first run went RED on the fuzz (seed 306: damage on a card in a graveyard) - a PRE-EXISTING hole the reshaped pool surfaced, an activated ability's CR 608.2b re-check with no clauses to ask (apply-modal-5.cjs; activatedFizzle.test.ts red without it, green with it); gate 198 is the landing's gate. No wave of rows: the seam's own flips are the landing, and the bot's own deck took 60 instants and 20 sorceries more on the same sweep (auto 868 -> 948; Abrade, a choose-one, displaced Alesha's Legacy; the commander reaches 6,861 cards from 6,781).
+
+Fixtures 4,650 · botPool artifact 367 / creature 3,965 / enchantment 346 / instant 1,007 / land 492 / sorcery 743 - auto 948 / assisted 1,832 / autoAnyFace 957 · ladder [1091, 1214, 2851, 4687, 6024] · batch.json
+80 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,405 files, 22,020 passing / 11 skipped ·
+500-seed gate, 6 shards, 517.8 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D343): the modal PERMANENT lines (276 leftover lines on permanents whose first unread line is a choose-one: a trigger or an activation whose payload is modal - TriggerDef.modes / ActivatedDef.modes ship in this seam, so the row maker naming a mode per printed bullet is the wave), the modal spells beside another sentence (59) and the 265 with a mode outside the vocabulary or an unconfident clause, Unleash (10; an asked entry choice), the turn-memory conditions (a creature died this turn 2 + 1, a noncreature spell / an instant or sorcery cast this turn 2 + 2, an opponent lost life this turn 2, you gained life / discarded / created a token this turn - a per-turn record beside D336's tallies), the keyword-predicate condition (a creature with flying 2; a keyword on PermanentPredicate), the exactly-N hand size (1), the counts outside the vocabulary (15), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the other Threshold bodies (activated lines under other words, enchanted-creature and anthem bodies), Goblin Banneret's Mentor; then the rest of the script-raised prompt seam - the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split; the "another" split; the by-name sacrifice
+cost; the remaining cost verbs; the prompt continuation seam; prior items
+stand.

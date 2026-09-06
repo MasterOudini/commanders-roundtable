@@ -408,8 +408,8 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // where the prompt bar offers the counter clause as one logged click.
       // These count FACES over every printing, which is why they are an order of
       // magnitude larger than `botPool`'s distinct-name figures.
-      'effect:none': 15115,
-      'effect:partial': 5298,
+      'effect:none': 14849,
+      'effect:partial': 5273,
       // D289: the target macro admits the KEYWORD qualifier ("with flying",
       // "without flying") now that TargetSpec.keyword is enforced, so 52 more
       // faces read whole (Plummet, Wing Snare, Roast, Defenestrate, ...), 67
@@ -420,7 +420,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // supertypes, tapped, token) are admitted by the target macro, so 152
       // more faces read whole - Doom Blade, Negate, Go for the Throat, Utter
       // End and kin.
-      'effect:auto': 3918, // D312: a priced reduction line is no clause either; D307: a spell's flashback line is no clause either; D306: a spell's cycling line is no clause; D301: the mass pump; D299: the counted-targets seam; D298: the graveyard-return slot; D297: subtype nouns and lists; D295: four sentences
+      'effect:auto': 4209, // D343: a modal face reads mode by mode; D312: a priced reduction line is no clause either; D307: a spell's flashback line is no clause either; D306: a spell's cycling line is no clause; D301: the mass pump; D299: the counted-targets seam; D298: the graveyard-return slot; D297: subtype nouns and lists; D295: four sentences
       // ⚠️ 13,581 → 10,372 in M6.4b (D159): `Sacrifice this <type>` and War
       // Room's commanders'-colors life phrase became CHARGEABLE cost parts, so
       // 3,209 printings' ability lines stopped warning `nonManaCost`. The
@@ -437,13 +437,13 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // same 1,125. Same def gate again.
       'activated:nonManaCost': 4869,
       'activated:loyalty': 4635,
-      'target:modalUnion': 2751,
+      'target:modalUnion': 1569,
       // D291: "attacking or blocking creature" used to lose its first word to
       // ADJECTIVE_RE and fall to free aim; the combat-role nouns parse now.
       // D293: a qualifier after a noun LIST binds one alternative in print, so
       // such a clause is free aim now instead of a narrowed read of its first
       // noun (+35); the six new lists take the other direction.
-      'target:unparsedClause': 1166,
+      'target:unparsedClause': 1234,
       'typeLine:unknownType': 729,
       'protection:unenforced': 677,
       // ⚠️ 629 → 540 when "any TYPE" started parsing (D116): 89 of these were
@@ -461,7 +461,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // D288: "up to X OTHER target ..." now reaches the up-to branch (four
       // clauses), so their unknown X is honestly counted here instead of
       // silently reading as exactly one.
-      'target:unparsedCount': 554,
+      'target:unparsedCount': 610,
       'ward:nonManaCost': 151,
       'mana:variableAmount': 88,
       'target:unparsedEnchant': 12,
@@ -482,10 +482,10 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
    */
   test('the targeting coverage matches the numbers pinned in D79', () => {
     expect(report.targets).toEqual({
-      facesWithSpecs: 19757,
-      specs: 20840,
+      facesWithSpecs: 18575,
+      specs: 19658,
       confident: 17512,
-      free: 3328,
+      free: 2146,
       enchant: 3536,
       // D288 admits "other" into the up-to window without recording it as
       // unenforced — the declaration-wide distinctness check enforces it —

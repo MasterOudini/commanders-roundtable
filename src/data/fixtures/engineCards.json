@@ -152504,6 +152504,105 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CRUSHING_CANOPY": {
+    "scryfallId": "01398f5f-f38e-45a7-b755-e65c8fa779f8",
+    "oracleId": "618cd1bc-4422-441b-906f-1a209277be93",
+    "name": "Crushing Canopy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crushing Canopy",
+        "manaCost": "{2}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Choose one —\n• Destroy target creature with flying.\n• Destroy target enchantment.",
+        "flavorText": "\"Do not mistake your lofty vantage point for safety.\"\n—Shaper Tuvasa",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "01398f5f-f38e-45a7-b755-e65c8fa779f8"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "386",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAWN_TO_DUSK": {
+    "scryfallId": "026ee3ff-bfd3-42d7-a4fa-2a6372599aef",
+    "oracleId": "c7a98058-b40d-4d74-9b97-6f04adf3c684",
+    "name": "Dawn to Dusk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dawn to Dusk",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "Choose one or both —\n• Return target enchantment card from your graveyard to your hand.\n• Destroy target enchantment.",
+        "flavorText": "\"The numbers of Nyxborn among us have swelled. Is this a sign of the gods' favor, or does it portend something else?\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Robbie Trevino",
+        "imageId": "026ee3ff-bfd3-42d7-a4fa-2a6372599aef"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "bng",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLUE_ELEMENTAL_BLAST": {
+    "scryfallId": "0892ec35-8bab-4fe5-8cc9-a25032d4bc8d",
+    "oracleId": "65e1558c-6b09-4ddc-b520-f19f4fb972af",
+    "name": "Blue Elemental Blast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blue Elemental Blast",
+        "manaCost": "{U}",
+        "typeLine": "Instant",
+        "oracleText": "Choose one —\n• Counter target red spell.\n• Destroy target red permanent.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Richard Thomas",
+        "imageId": "0892ec35-8bab-4fe5-8cc9-a25032d4bc8d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "3ed",
+    "collectorNumber": "49",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
