@@ -1696,14 +1696,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Skophos Warleader', 'multi-type sacrifice cost'],
   ['Orc General', 'multi-type sacrifice cost'],
   ['Oakhame Ranger // Bring Back', 'adventure (two faces)'],
-  ['Reaper of the Wilds', 'script-raised scry prompt'],
   ['Goro-Goro and Satoru', 'entered-this-turn combat-damage trigger'],
 
   // D301 part B — the pool the classifier offered beyond the probe: the trigger
   // heads the generator library does not read yet, the token-beside-pump
   // combinations, the costs no row charges, the alternative-cost spells, the
   // hand-activated abilities and the planeswalkers.
-  ['Appa, the Vigilant', 'trigger head outside the library'],
   ['Harbin, Vanguard Aviator', 'trigger head outside the library'],
   ['Wildfire Elemental', 'trigger head outside the library'],
   ['Cloudgoat Ranger', 'token trigger beside a one-shot pump (combined def)'],

@@ -10416,6 +10416,38 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D336): snow mana ({S} - 12 across three cost forms; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3, and Pearl Lake Ancient's three), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15), can't attack or block alone (5; the second declaration requirement), a must-attacker beside an attacking head (Toski); then the quoted abilities enchanted creatures and lands have (60 + 34 first blockers), Enchant player (42), the look at the top card of your library (38), the modal seam (276), the another split; the modal seam; the "another" split;
       the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4fv — THE WIDER HEADS: "another creature dies" and "a creature enters"
+      for any controller, the Ally rally and Battalion — the first generator-only
+      wave under the scoped gate; 41 cards land, 41 as generated
+      rows (2026-09-06):**
+      **6,710 of 31,692 Commander-legal cards now execute completely, up
+      from 6,669 (+41).** `SHIPPED_SCRIPTS` 4,157; ledger
+      991 (2 rows retired - Reaper of the Wilds and Appa, the Vigilant; measured: the REFUSED map's size). Fixtures 4,529 (4,391 by name + 131 tokens: the 41 rowed cards, no new token pins). **Select pool
+      0.** Decisions in **D337**.
+      ⚠️ **The heads** (`d337/make-gen27.cjs`): the dies and enters heads read every
+      controller where their cousins read yours; the Ally head (Rally) fires on the
+      card's own entry and on another Ally, tested by the etb path; Battalion reads a
+      declaration of three or more that includes the card, tested beside two Bears.
+      No engine change.
+      ⚠️ **The scoped gate, first use:** `verify.cjs --full --scope` ran everything
+      outside the card suites plus the wave's own (scoped: 120 files outside the card suites, 10,095 passing / 11 skipped, plus the wave's 41 suites, 107 passing); its first two attempts died
+      in the Windows shell at the spaces in node's path and then in the runner's
+      and the scope file's (`d337/fix-verify-scope-spawn.cjs`, `-2.cjs`: `node` from
+      PATH, both paths quoted). **Measured, the scope buys almost nothing:** 266 s
+      outside + 3 s for the 41 against 288 s for the whole suite at gate 190 - so
+      from D338 every gate runs the full unit suite; `--scope` stays as a tool.
+      Measured first: the leftover probe over the database after D336, in two passes with the wider heads as payloads: 147 then 177 blocked single-face permanents whose every leftover line the grammar reads - the 128 D336 left and 49 new (another creature dies 10, a creature enters 1, the Ally rally 21, Battalion 9, and 8 the wave did not take: deals damage to a player / an opponent 4, whose any-damage reading needs a def per damage event, and blocks or becomes blocked by a colour or a type 4); the row maker took 41 and refused 136 - the 128 as before and those 8, their heads not in its library. The cycling head read no whole card; the any-colour mana line, tried as an engine-native skip, was not reached (it arrives as an activated line the skip's cost did not cover) and stays measured at 27 + 25 first blockers. NOT this decision: deals damage to a player / an opponent (4; any damage, a def per damage event), blocks or becomes blocked by a colour or a type (4), the any-colour mana line (27 + 25 first blockers; a payment-problem seam), can't attack unless defending player controls (28), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3 + 3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15), can't attack or block alone (5), a must-attacker beside an attacking head (1); then the quoted abilities enchanted creatures and lands have (60 + 34 first blockers), Enchant player (42), the look at the top card of your library (38), Bushido (24), the modal seam (276), the another split. Refused by name:
+      2 rows retired - Reaper of the Wilds and Appa, the Vigilant; measured: the REFUSED map's size.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips; 41 generated rows, green after one generator correction (an enters head beside an attached row lists a second Grizzly Bears: put() had found the first on the battlefield under the Aura and moved it battlefield-to-battlefield, which no enters head reads - Mantle of Leadership). The wave IS the landing: 41 rows - 10 that read another creature dying, any controller (Reaper of the Wilds, Poison-Tip Archer, Scavenger Drake, Swarm of Bloodflies, Thanos, Death's Consort, Galvanic Juggernaut, Havengul Vampire, Algae Gharial, Rockslide Elemental, Rage Thrower), 1 that reads any creature entering (Mantle of Leadership), 21 Allies (Hada Freeblade, Oran-Rief Survivalist, Firemantle Mage, Bojuka Brigand, Tajuru Beastmaster, Kalastria Healer, Hero of Goma Fada, Lantern Scout, Kazandu Blademaster, Umara Raptor, Ondu Champion, Tajuru Warcaller, Nimana Sell-Sword, Kor Bladewhirl, Makindi Patrol, Graypelt Hunter, Resolute Blademaster, Appa, the Vigilant, Tuktuk Grunts, Makindi Shieldmate, Chasm Guide) and 9 with Battalion (Makeshift Battalion, Ordruun Veteran, Boros Mastiff, Wojek Halberdiers, Daring Skyjek, Bomber Corps, Boros Elite, Tajic, Blade of the Legion, Warmind Infantry). Tests: one generated suite per row.
+      Fixtures 4,529 · botPool artifact 366 / creature 3,842 / enchantment 345 / instant 947 / land 487 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1091, 1216, 2886, 4721, 6061] · batch.json
+      41 · select pool 0.
+      **Verified: `verify.cjs --full --scope` (sharded) — ALL FIVE GATES: scoped: 120 files outside the card suites, 10,095 passing / 11 skipped, plus the wave's 41 suites, 107 passing ·
+      500-seed gate, 6 shards, 517.1 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D337): deals damage to a player / an opponent (4; any damage, a def per damage event), blocks or becomes blocked by a colour or a type (4), the any-colour mana line (27 + 25 first blockers; a payment-problem seam), can't attack unless defending player controls (28), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3 + 3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15), can't attack or block alone (5), a must-attacker beside an attacking head (1); then the quoted abilities enchanted creatures and lands have (60 + 34 first blockers), Enchant player (42), the look at the top card of your library (38), Bushido (24), the modal seam (276), the another split; the modal seam; the "another" split;
+      the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

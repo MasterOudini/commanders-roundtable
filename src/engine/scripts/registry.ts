@@ -7,6 +7,47 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { REAPER_OF_THE_WILDS_SCRIPT } from './cards/reaperOfTheWilds';
+import { HADA_FREEBLADE_SCRIPT } from './cards/hadaFreeblade';
+import { ORAN_RIEF_SURVIVALIST_SCRIPT } from './cards/oranRiefSurvivalist';
+import { POISON_TIP_ARCHER_SCRIPT } from './cards/poisonTipArcher';
+import { FIREMANTLE_MAGE_SCRIPT } from './cards/firemantleMage';
+import { MAKESHIFT_BATTALION_SCRIPT } from './cards/makeshiftBattalion';
+import { ORDRUUN_VETERAN_SCRIPT } from './cards/ordruunVeteran';
+import { BOROS_MASTIFF_SCRIPT } from './cards/borosMastiff';
+import { SCAVENGER_DRAKE_SCRIPT } from './cards/scavengerDrake';
+import { BOJUKA_BRIGAND_SCRIPT } from './cards/bojukaBrigand';
+import { TAJURU_BEASTMASTER_SCRIPT } from './cards/tajuruBeastmaster';
+import { SWARM_OF_BLOODFLIES_SCRIPT } from './cards/swarmOfBloodflies';
+import { WOJEK_HALBERDIERS_SCRIPT } from './cards/wojekHalberdiers';
+import { KALASTRIA_HEALER_SCRIPT } from './cards/kalastriaHealer';
+import { THANOS_DEATHS_CONSORT_SCRIPT } from './cards/thanosDeathsConsort';
+import { HERO_OF_GOMA_FADA_SCRIPT } from './cards/heroOfGomaFada';
+import { LANTERN_SCOUT_SCRIPT } from './cards/lanternScout';
+import { DARING_SKYJEK_SCRIPT } from './cards/daringSkyjek';
+import { BOMBER_CORPS_SCRIPT } from './cards/bomberCorps';
+import { KAZANDU_BLADEMASTER_SCRIPT } from './cards/kazanduBlademaster';
+import { UMARA_RAPTOR_SCRIPT } from './cards/umaraRaptor';
+import { BOROS_ELITE_SCRIPT } from './cards/borosElite';
+import { ONDU_CHAMPION_SCRIPT } from './cards/onduChampion';
+import { TAJURU_WARCALLER_SCRIPT } from './cards/tajuruWarcaller';
+import { GALVANIC_JUGGERNAUT_SCRIPT } from './cards/galvanicJuggernaut';
+import { HAVENGUL_VAMPIRE_SCRIPT } from './cards/havengulVampire';
+import { NIMANA_SELL_SWORD_SCRIPT } from './cards/nimanaSellSword';
+import { ALGAE_GHARIAL_SCRIPT } from './cards/algaeGharial';
+import { MANTLE_OF_LEADERSHIP_SCRIPT } from './cards/mantleOfLeadership';
+import { KOR_BLADEWHIRL_SCRIPT } from './cards/korBladewhirl';
+import { MAKINDI_PATROL_SCRIPT } from './cards/makindiPatrol';
+import { GRAYPELT_HUNTER_SCRIPT } from './cards/graypeltHunter';
+import { TAJIC_BLADE_OF_THE_LEGION_SCRIPT } from './cards/tajicBladeOfTheLegion';
+import { RESOLUTE_BLADEMASTER_SCRIPT } from './cards/resoluteBlademaster';
+import { ROCKSLIDE_ELEMENTAL_SCRIPT } from './cards/rockslideElemental';
+import { WARMIND_INFANTRY_SCRIPT } from './cards/warmindInfantry';
+import { APPA_THE_VIGILANT_SCRIPT } from './cards/appaTheVigilant';
+import { TUKTUK_GRUNTS_SCRIPT } from './cards/tuktukGrunts';
+import { MAKINDI_SHIELDMATE_SCRIPT } from './cards/makindiShieldmate';
+import { RAGE_THROWER_SCRIPT } from './cards/rageThrower';
+import { CHASM_GUIDE_SCRIPT } from './cards/chasmGuide';
 import { MYSTIC_SKYFISH_SCRIPT } from './cards/mysticSkyfish';
 import { IMPROBABLE_ALLIANCE_SCRIPT } from './cards/improbableAlliance';
 import { FAERIE_VANDAL_SCRIPT } from './cards/faerieVandal';
@@ -4142,6 +4183,47 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  REAPER_OF_THE_WILDS_SCRIPT,
+  HADA_FREEBLADE_SCRIPT,
+  ORAN_RIEF_SURVIVALIST_SCRIPT,
+  POISON_TIP_ARCHER_SCRIPT,
+  FIREMANTLE_MAGE_SCRIPT,
+  MAKESHIFT_BATTALION_SCRIPT,
+  ORDRUUN_VETERAN_SCRIPT,
+  BOROS_MASTIFF_SCRIPT,
+  SCAVENGER_DRAKE_SCRIPT,
+  BOJUKA_BRIGAND_SCRIPT,
+  TAJURU_BEASTMASTER_SCRIPT,
+  SWARM_OF_BLOODFLIES_SCRIPT,
+  WOJEK_HALBERDIERS_SCRIPT,
+  KALASTRIA_HEALER_SCRIPT,
+  THANOS_DEATHS_CONSORT_SCRIPT,
+  HERO_OF_GOMA_FADA_SCRIPT,
+  LANTERN_SCOUT_SCRIPT,
+  DARING_SKYJEK_SCRIPT,
+  BOMBER_CORPS_SCRIPT,
+  KAZANDU_BLADEMASTER_SCRIPT,
+  UMARA_RAPTOR_SCRIPT,
+  BOROS_ELITE_SCRIPT,
+  ONDU_CHAMPION_SCRIPT,
+  TAJURU_WARCALLER_SCRIPT,
+  GALVANIC_JUGGERNAUT_SCRIPT,
+  HAVENGUL_VAMPIRE_SCRIPT,
+  NIMANA_SELL_SWORD_SCRIPT,
+  ALGAE_GHARIAL_SCRIPT,
+  MANTLE_OF_LEADERSHIP_SCRIPT,
+  KOR_BLADEWHIRL_SCRIPT,
+  MAKINDI_PATROL_SCRIPT,
+  GRAYPELT_HUNTER_SCRIPT,
+  TAJIC_BLADE_OF_THE_LEGION_SCRIPT,
+  RESOLUTE_BLADEMASTER_SCRIPT,
+  ROCKSLIDE_ELEMENTAL_SCRIPT,
+  WARMIND_INFANTRY_SCRIPT,
+  APPA_THE_VIGILANT_SCRIPT,
+  TUKTUK_GRUNTS_SCRIPT,
+  MAKINDI_SHIELDMATE_SCRIPT,
+  RAGE_THROWER_SCRIPT,
+  CHASM_GUIDE_SCRIPT,
   MYSTIC_SKYFISH_SCRIPT,
   IMPROBABLE_ALLIANCE_SCRIPT,
   FAERIE_VANDAL_SCRIPT,

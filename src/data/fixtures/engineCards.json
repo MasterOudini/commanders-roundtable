@@ -147064,6 +147064,1440 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "REAPER_OF_THE_WILDS": {
+    "scryfallId": "016d333a-6a04-42ff-ba65-b3a5d251893e",
+    "oracleId": "10494ce1-7a38-44ae-9881-a83e44daaf7b",
+    "name": "Reaper of the Wilds",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reaper of the Wilds",
+        "manaCost": "{2}{B}{G}",
+        "typeLine": "Creature — Gorgon",
+        "oracleText": "Whenever another creature dies, scry 1.\n{B}: This creature gains deathtouch until end of turn.\n{1}{G}: This creature gains hexproof until end of turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "016d333a-6a04-42ff-ba65-b3a5d251893e"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "ddm",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HADA_FREEBLADE": {
+    "scryfallId": "099718e6-9896-4d5e-8edb-3bc9a15c81ec",
+    "oracleId": "e9ad9df4-2fd6-4a22-b861-0a8d28f2fe10",
+    "name": "Hada Freeblade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hada Freeblade",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Soldier Ally",
+        "oracleText": "Whenever this creature or another Ally you control enters, you may put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Cyril Van Der Haegen",
+        "imageId": "099718e6-9896-4d5e-8edb-3bc9a15c81ec"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "dci",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORAN_RIEF_SURVIVALIST": {
+    "scryfallId": "0d598220-bddd-48a4-8c80-eb149c6292a3",
+    "oracleId": "36b4c44a-7682-4876-ae2a-35112cb55ec0",
+    "name": "Oran-Rief Survivalist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Oran-Rief Survivalist",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Warrior Ally",
+        "oracleText": "Whenever this creature or another Ally you control enters, you may put a +1/+1 counter on this creature.",
+        "flavorText": "\"I'm strong enough to survive alone. I'm smart enough to want companions at my side.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "0d598220-bddd-48a4-8c80-eb149c6292a3"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "zen",
+    "collectorNumber": "174",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "POISON_TIP_ARCHER": {
+    "scryfallId": "1677d49e-3d63-45bd-9849-01b1bdd95ad8",
+    "oracleId": "d0e810bb-5f38-4045-a718-30d423c05659",
+    "name": "Poison-Tip Archer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Poison-Tip Archer",
+        "manaCost": "{2}{B}{G}",
+        "typeLine": "Creature — Elf Archer",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nDeathtouch (Any amount of damage this deals to a creature is enough to destroy it.)\nWhenever another creature dies, each opponent loses 1 life.",
+        "flavorText": "\"One more step and you're mine.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Dmitry Burmak",
+        "imageId": "1677d49e-3d63-45bd-9849-01b1bdd95ad8"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Reach",
+      "Deathtouch"
+    ],
+    "setCode": "khc",
+    "collectorNumber": "90",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIREMANTLE_MAGE": {
+    "scryfallId": "197411bf-3307-4056-a7d4-31db0d4b8f9a",
+    "oracleId": "27599eff-19df-48e2-9a1e-0c087f42a075",
+    "name": "Firemantle Mage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Firemantle Mage",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Shaman Ally",
+        "oracleText": "Rally — Whenever this creature or another Ally you control enters, creatures you control gain menace until end of turn. (A creature with menace can't be blocked except by two or more creatures.)",
+        "flavorText": "\"Come on, you twisted things! Don't you want to get acquainted?\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "197411bf-3307-4056-a7d4-31db0d4b8f9a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Rally"
+    ],
+    "setCode": "bfz",
+    "collectorNumber": "145",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAKESHIFT_BATTALION": {
+    "scryfallId": "1ef55c3a-bba0-4379-b744-79eb91bcafe7",
+    "oracleId": "8b6e2feb-9e8f-4912-ada0-1614502d9813",
+    "name": "Makeshift Battalion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Makeshift Battalion",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Battalion — Whenever this creature and at least two other creatures attack, put a +1/+1 counter on this creature.",
+        "flavorText": "Their ranks are thin, their formation is improvised, their weapons are borrowed, and you'd best get out of their way.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "1ef55c3a-bba0-4379-b744-79eb91bcafe7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Battalion"
+    ],
+    "setCode": "rvr",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORDRUUN_VETERAN": {
+    "scryfallId": "20fea3f6-e64a-4964-86bc-c0b8fef0ab25",
+    "oracleId": "119af12a-b767-4408-9bb5-72a6d0ec63d1",
+    "name": "Ordruun Veteran",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ordruun Veteran",
+        "manaCost": "{2}{R}{W}",
+        "typeLine": "Creature — Minotaur Soldier",
+        "oracleText": "Battalion — Whenever this creature and at least two other creatures attack, this creature gains double strike until end of turn. (It deals both first-strike and regular combat damage.)",
+        "flavorText": "\"My father was Gruul, but I chose the precision of the legion over the fury of the pack.\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "20fea3f6-e64a-4964-86bc-c0b8fef0ab25"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Battalion"
+    ],
+    "setCode": "gtc",
+    "collectorNumber": "184",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOROS_MASTIFF": {
+    "scryfallId": "27a3bfb6-3843-4bda-bbcb-905e4b351dea",
+    "oracleId": "bcbaef07-1d5b-457b-b373-77d3a2884b39",
+    "name": "Boros Mastiff",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boros Mastiff",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Dog",
+        "oracleText": "Battalion — Whenever this creature and at least two other creatures attack, this creature gains lifelink until end of turn. (Damage dealt by a creature with lifelink also causes its controller to gain that much life.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "27a3bfb6-3843-4bda-bbcb-905e4b351dea"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Battalion"
+    ],
+    "setCode": "dgm",
+    "collectorNumber": "1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCAVENGER_DRAKE": {
+    "scryfallId": "30b7806f-c28f-40d4-b79e-f5a7725db298",
+    "oracleId": "7d51b860-f7a4-4b13-a83c-134931ae7baf",
+    "name": "Scavenger Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scavenger Drake",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Drake",
+        "oracleText": "Flying\nWhenever another creature dies, you may put a +1/+1 counter on this creature.",
+        "flavorText": "Dragons consider drakes to be mockeries of their perfection, destroying them on sight.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Trevor Claxton",
+        "imageId": "30b7806f-c28f-40d4-b79e-f5a7725db298"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ala",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOJUKA_BRIGAND": {
+    "scryfallId": "33e0aa67-0ea9-4c50-8297-369ab486fd0f",
+    "oracleId": "a1d82070-3198-4ead-9431-d90661e29741",
+    "name": "Bojuka Brigand",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bojuka Brigand",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Warrior Ally",
+        "oracleText": "This creature can't block.\nWhenever this creature or another Ally you control enters, you may put a +1/+1 counter on this creature.",
+        "flavorText": "\"I don't do tactics. I don't do guard duty. I do damage. Take it or leave it.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "33e0aa67-0ea9-4c50-8297-369ab486fd0f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "wwk",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TAJURU_BEASTMASTER": {
+    "scryfallId": "3447b4af-2eb2-48ae-a12e-2fdf83d4cb70",
+    "oracleId": "cc72ec48-9e8b-4ded-b445-f3a839fd1abe",
+    "name": "Tajuru Beastmaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tajuru Beastmaster",
+        "manaCost": "{5}{G}",
+        "typeLine": "Creature — Elf Warrior Ally",
+        "oracleText": "Rally — Whenever this creature or another Ally you control enters, creatures you control get +1/+1 until end of turn.",
+        "flavorText": "\"My mount needs neither reins nor bridle. We both share a common purpose.\"",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Greg Opalinski",
+        "imageId": "3447b4af-2eb2-48ae-a12e-2fdf83d4cb70"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Rally"
+    ],
+    "setCode": "bfz",
+    "collectorNumber": "193",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SWARM_OF_BLOODFLIES": {
+    "scryfallId": "3aad42e3-296a-4642-8b8d-a5dbbd391fda",
+    "oracleId": "767e4aa9-527f-425f-bffb-6d842e1fbb74",
+    "name": "Swarm of Bloodflies",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Swarm of Bloodflies",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Flying\nThis creature enters with two +1/+1 counters on it.\nWhenever another creature dies, put a +1/+1 counter on this creature.",
+        "flavorText": "Despite the name, they'll happily devour the flesh too.",
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ralph Horsley",
+        "imageId": "3aad42e3-296a-4642-8b8d-a5dbbd391fda"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "492",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WOJEK_HALBERDIERS": {
+    "scryfallId": "423f0870-dc1c-4cd8-b92c-6d5f92abbaec",
+    "oracleId": "96d6a400-f1bc-40f8-91ef-1d3cb96926f1",
+    "name": "Wojek Halberdiers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wojek Halberdiers",
+        "manaCost": "{R}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Battalion — Whenever this creature and at least two other creatures attack, this creature gains first strike until end of turn.",
+        "flavorText": "Tired of Boros interference, the Rakdos unleashed hellraiser goblins, hoping their corpses would weigh down the halberds.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Nic Klein",
+        "imageId": "423f0870-dc1c-4cd8-b92c-6d5f92abbaec"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Battalion"
+    ],
+    "setCode": "gtc",
+    "collectorNumber": "208",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KALASTRIA_HEALER": {
+    "scryfallId": "42c21cb3-21f4-4a8d-8068-52649f2a1846",
+    "oracleId": "b70718c3-a959-402a-a715-7a3c9724a70a",
+    "name": "Kalastria Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kalastria Healer",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire Cleric Ally",
+        "oracleText": "Rally — Whenever this creature or another Ally you control enters, each opponent loses 1 life and you gain 1 life.",
+        "flavorText": "\"Time and again, I have demonstrated my skills as a healer. Why, then, are you so ill at ease?\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "42c21cb3-21f4-4a8d-8068-52649f2a1846"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Rally"
+    ],
+    "setCode": "bfz",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THANOS_DEATH_S_CONSORT": {
+    "scryfallId": "4842d520-8bce-4b95-bcb6-bd9eb9374f90",
+    "oracleId": "3c067370-1e3d-4262-b7d6-f2bb2656b1d8",
+    "name": "Thanos, Death's Consort",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thanos, Death's Consort",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Legendary Creature — Eternal Villain",
+        "oracleText": "Lifelink\nWhenever another creature dies, put a +1/+1 counter on Thanos.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "4842d520-8bce-4b95-bcb6-bd9eb9374f90"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "508",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HERO_OF_GOMA_FADA": {
+    "scryfallId": "4ca3400c-0687-4a92-9236-f5a0d7eae337",
+    "oracleId": "f15908ea-2be0-4035-933d-4412fe032164",
+    "name": "Hero of Goma Fada",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hero of Goma Fada",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Human Knight Ally",
+        "oracleText": "Rally — Whenever this creature or another Ally you control enters, creatures you control gain indestructible until end of turn.",
+        "flavorText": "\"They seek to break us. Let us show them our strength!\"",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lake Hurwitz",
+        "imageId": "4ca3400c-0687-4a92-9236-f5a0d7eae337"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Rally"
+    ],
+    "setCode": "bfz",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LANTERN_SCOUT": {
+    "scryfallId": "517996f1-0783-4be8-be5d-3a0765d07421",
+    "oracleId": "803f2f95-533e-4b5a-8ede-d00fad779430",
+    "name": "Lantern Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lantern Scout",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Scout Ally",
+        "oracleText": "Rally — Whenever this creature or another Ally you control enters, creatures you control gain lifelink until end of turn.",
+        "flavorText": "Hedron lanterns fend off more than just the darkness.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "517996f1-0783-4be8-be5d-3a0765d07421"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Rally"
+    ],
+    "setCode": "pbfz",
+    "collectorNumber": "37s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DARING_SKYJEK": {
+    "scryfallId": "568b513a-7fe9-476d-a2d7-63f5b7ea524b",
+    "oracleId": "f15a202d-c1c4-49bd-924a-7a0a5667ff70",
+    "name": "Daring Skyjek",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Daring Skyjek",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Battalion — Whenever this creature and at least two other creatures attack, this creature gains flying until end of turn.",
+        "flavorText": "\"The hard part isn't landing in the saddle. The hard part is leaping before you see it.\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jason Chan",
+        "imageId": "568b513a-7fe9-476d-a2d7-63f5b7ea524b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Battalion"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "GK1-79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOMBER_CORPS": {
+    "scryfallId": "57c8165f-1118-4505-bb8d-0376d543e90a",
+    "oracleId": "a429c351-d281-4e49-8564-bd96bdf5c41b",
+    "name": "Bomber Corps",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bomber Corps",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Battalion — Whenever this creature and at least two other creatures attack, this creature deals 1 damage to any target.",
+        "flavorText": "\"Subtlety is for lawmages and spies.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chase Stone",
+        "imageId": "57c8165f-1118-4505-bb8d-0376d543e90a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Battalion"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "GK1-80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAZANDU_BLADEMASTER": {
+    "scryfallId": "5900da1d-5308-43cf-bbbc-b7c037f329ef",
+    "oracleId": "133f5d30-d883-493e-93a1-cf9583db460b",
+    "name": "Kazandu Blademaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kazandu Blademaster",
+        "manaCost": "{W}{W}",
+        "typeLine": "Creature — Human Soldier Ally",
+        "oracleText": "First strike, vigilance\nWhenever this creature or another Ally you control enters, you may put a +1/+1 counter on this creature.",
+        "flavorText": "\"If you hire a sell-sword, you'd better watch your back. Hire me, and I'll watch it for you.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Michael Komarck",
+        "imageId": "5900da1d-5308-43cf-bbbc-b7c037f329ef"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance",
+      "First strike"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "ZEN-16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UMARA_RAPTOR": {
+    "scryfallId": "6049cc80-1faa-48bf-897e-fefe5a8e7ab2",
+    "oracleId": "a58ee84f-1d9c-4924-b7b1-14a9b2ba3b98",
+    "name": "Umara Raptor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Umara Raptor",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Bird Ally",
+        "oracleText": "Flying\nWhenever this creature or another Ally you control enters, you may put a +1/+1 counter on this creature.",
+        "flavorText": "Messenger, weapon, friend.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Sam Wood",
+        "imageId": "6049cc80-1faa-48bf-897e-fefe5a8e7ab2"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOROS_ELITE": {
+    "scryfallId": "62774447-d586-44b3-8f4b-0d8094dfbb85",
+    "oracleId": "7c83fb45-03af-4f1a-b7e3-2c4f47511658",
+    "name": "Boros Elite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boros Elite",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Battalion — Whenever this creature and at least two other creatures attack, this creature gets +2/+2 until end of turn.",
+        "flavorText": "\"First, you must fight among the rank and file. It is there I will discern your skills as a leader.\"\n—Aurelia, to Gideon Jura",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Willian Murai",
+        "imageId": "62774447-d586-44b3-8f4b-0d8094dfbb85"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Battalion"
+    ],
+    "setCode": "gk1",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ONDU_CHAMPION": {
+    "scryfallId": "708e1979-902b-410a-ae46-3fd1d2acc31d",
+    "oracleId": "b638407b-4749-41fa-8054-f9db57b849ea",
+    "name": "Ondu Champion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ondu Champion",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Minotaur Warrior Ally",
+        "oracleText": "Rally — Whenever this creature or another Ally you control enters, creatures you control gain trample until end of turn.",
+        "flavorText": "\"Put a minotaur at the head of an army and suddenly all the soldiers act like they have horns.\"\n—Gideon Jura",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "708e1979-902b-410a-ae46-3fd1d2acc31d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Rally"
+    ],
+    "setCode": "bfz",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TAJURU_WARCALLER": {
+    "scryfallId": "762501fe-5102-4c21-8ad5-430590a59830",
+    "oracleId": "8b89c6f1-8c9e-43ef-ad6b-11424de090e4",
+    "name": "Tajuru Warcaller",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tajuru Warcaller",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Elf Warrior Ally",
+        "oracleText": "Rally — Whenever this creature or another Ally you control enters, creatures you control get +2/+2 until end of turn.",
+        "flavorText": "Her rallying cry reaches far beyond the Tajuru elves, inspiring all those who hear it.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Anastasia Ovchinnikova",
+        "imageId": "762501fe-5102-4c21-8ad5-430590a59830"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Rally"
+    ],
+    "setCode": "bfz",
+    "collectorNumber": "195",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GALVANIC_JUGGERNAUT": {
+    "scryfallId": "7a006dd2-8a7f-4eef-a6aa-b6bcc0b56ed6",
+    "oracleId": "a3d8c0f8-ebe8-4e28-bef1-e2a45c0d86d5",
+    "name": "Galvanic Juggernaut",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Galvanic Juggernaut",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Juggernaut",
+        "oracleText": "This creature attacks each combat if able.\nThis creature doesn't untap during your untap step.\nWhenever another creature dies, untap this creature.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Lucas Graciano",
+        "imageId": "7a006dd2-8a7f-4eef-a6aa-b6bcc0b56ed6"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "cns",
+    "collectorNumber": "200",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAVENGUL_VAMPIRE": {
+    "scryfallId": "89a4094d-fbcf-42e6-87ef-c722efc4d371",
+    "oracleId": "616b3ee0-4678-4562-a21a-5f2d31b9964c",
+    "name": "Havengul Vampire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Havengul Vampire",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Whenever this creature deals combat damage to a player, put a +1/+1 counter on it.\nWhenever another creature dies, put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "James Ryman",
+        "imageId": "89a4094d-fbcf-42e6-87ef-c722efc4d371"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "cn2",
+    "collectorNumber": "164",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIMANA_SELL_SWORD": {
+    "scryfallId": "8c504d12-a3ef-4588-a52d-734c20f6ac58",
+    "oracleId": "5093df46-92cb-4f79-a5cf-4351c1fcf36d",
+    "name": "Nimana Sell-Sword",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nimana Sell-Sword",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Human Warrior Ally",
+        "oracleText": "Whenever this creature or another Ally you control enters, you may put a +1/+1 counter on this creature.",
+        "flavorText": "\"He asked if I had work for him. No wasn't the right answer.\"\n—Samila, Murasa Expeditionary House",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Daarken",
+        "imageId": "8c504d12-a3ef-4588-a52d-734c20f6ac58"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "zen",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALGAE_GHARIAL": {
+    "scryfallId": "946e08b5-1c99-467c-abba-07ddede07a6c",
+    "oracleId": "7020dc51-8271-40a3-9c4c-ebd40c0b08b2",
+    "name": "Algae Gharial",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Algae Gharial",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Crocodile",
+        "oracleText": "Shroud (This creature can't be the target of spells or abilities.)\nWhenever another creature dies, you may put a +1/+1 counter on this creature.",
+        "flavorText": "It lurks just under the surface, using the algae-choked tar pits of Jund as both home and hunting blind.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Michael Ryan",
+        "imageId": "946e08b5-1c99-467c-abba-07ddede07a6c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Shroud"
+    ],
+    "setCode": "ala",
+    "collectorNumber": "123",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MANTLE_OF_LEADERSHIP": {
+    "scryfallId": "9ef5d122-cf18-42c3-be24-cfd92bd18be9",
+    "oracleId": "65c0d59b-3a94-49af-94cd-2ab4820a51f3",
+    "name": "Mantle of Leadership",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mantle of Leadership",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nWhenever a creature enters, enchanted creature gets +2/+2 until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "9ef5d122-cf18-42c3-be24-cfd92bd18be9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant",
+      "Flash"
+    ],
+    "setCode": "plc",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOR_BLADEWHIRL": {
+    "scryfallId": "aab38017-8119-4433-b80e-1bacb2e7a3fe",
+    "oracleId": "7024d9db-df2e-4eba-9fa0-76ebe3df05a7",
+    "name": "Kor Bladewhirl",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kor Bladewhirl",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Kor Soldier Ally",
+        "oracleText": "Rally — Whenever this creature or another Ally you control enters, creatures you control gain first strike until end of turn.",
+        "flavorText": "The high-pitched whirl of a hook is the only battle cry she needs.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "aab38017-8119-4433-b80e-1bacb2e7a3fe"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Rally"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "BFZ-34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAKINDI_PATROL": {
+    "scryfallId": "ae03f018-3062-4b1c-99b8-13fcffd70b49",
+    "oracleId": "d3f58efb-ba75-4caf-9e33-74236c707b83",
+    "name": "Makindi Patrol",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Makindi Patrol",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Knight Ally",
+        "oracleText": "Rally — Whenever this creature or another Ally you control enters, creatures you control gain vigilance until end of turn.",
+        "flavorText": "Working with his noble mount, he notices every form on the horizon, every scent in the air, every tremor in the earth.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "ae03f018-3062-4b1c-99b8-13fcffd70b49"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Rally"
+    ],
+    "setCode": "bfz",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAYPELT_HUNTER": {
+    "scryfallId": "b93b6f18-87f1-4b7c-bfdd-1b2a6384b00d",
+    "oracleId": "b0553bf6-ecc1-4d08-9777-19827658355b",
+    "name": "Graypelt Hunter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Graypelt Hunter",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Human Warrior Ally",
+        "oracleText": "Trample\nWhenever this creature or another Ally you control enters, you may put a +1/+1 counter on this creature.",
+        "flavorText": "He'll cleave wood and bone alike to carve a path for his allies.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "b93b6f18-87f1-4b7c-bfdd-1b2a6384b00d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "ddp",
+    "collectorNumber": "13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TAJIC_BLADE_OF_THE_LEGION": {
+    "scryfallId": "be5717c1-338e-446c-aa7e-93e79e4abb72",
+    "oracleId": "8951d797-6356-4f27-a6de-e013216274d6",
+    "name": "Tajic, Blade of the Legion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tajic, Blade of the Legion",
+        "manaCost": "{2}{R}{W}",
+        "typeLine": "Legendary Creature — Human Soldier",
+        "oracleText": "Indestructible\nBattalion — Whenever Tajic and at least two other creatures attack, Tajic gets +5/+5 until end of turn.",
+        "flavorText": "\"I run the maze alone, but I fight with the full might of the Legion.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "James Ryman",
+        "imageId": "be5717c1-338e-446c-aa7e-93e79e4abb72"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Indestructible",
+      "Battalion"
+    ],
+    "setCode": "dgm",
+    "collectorNumber": "107",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RESOLUTE_BLADEMASTER": {
+    "scryfallId": "bea96f8d-0c57-448d-8145-51f9cca04432",
+    "oracleId": "fec7b50a-7ed3-461d-9e91-e5c6ca9f774f",
+    "name": "Resolute Blademaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Resolute Blademaster",
+        "manaCost": "{3}{R}{W}",
+        "typeLine": "Creature — Human Soldier Ally",
+        "oracleText": "Rally — Whenever this creature or another Ally you control enters, creatures you control gain double strike until end of turn.",
+        "flavorText": "\"Great steel is born in the hottest forges. Great soldiers are born in war.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Joseph Meehan",
+        "imageId": "bea96f8d-0c57-448d-8145-51f9cca04432"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Rally"
+    ],
+    "setCode": "bfz",
+    "collectorNumber": "218",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROCKSLIDE_ELEMENTAL": {
+    "scryfallId": "d4f26025-8777-41a2-a871-ea8d1af164ae",
+    "oracleId": "c848a9d8-40d5-498d-9da9-e71a9ddeb5ab",
+    "name": "Rockslide Elemental",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rockslide Elemental",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "First strike\nWhenever another creature dies, you may put a +1/+1 counter on this creature.",
+        "flavorText": "On Jund, even the landscape is a deadly hunter. Volcanoes, tar pits, and rock slides seem to prey upon the living.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Joshua Hagler",
+        "imageId": "d4f26025-8777-41a2-a871-ea8d1af164ae"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "ala",
+    "collectorNumber": "112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WARMIND_INFANTRY": {
+    "scryfallId": "d8a5f801-9e55-4e14-85b0-5719521cd9d6",
+    "oracleId": "9e32750a-8e5f-4d81-92a8-c3d4ea1477fd",
+    "name": "Warmind Infantry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Warmind Infantry",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Elemental Soldier",
+        "oracleText": "Battalion — Whenever this creature and at least two other creatures attack, this creature gets +2/+0 until end of turn.",
+        "flavorText": "Before Aurelia denounced Niv-Mizzet, the two guilds had collaborated on the Warmind Initiative in pursuit of the ultimate soldier.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "d8a5f801-9e55-4e14-85b0-5719521cd9d6"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Battalion"
+    ],
+    "setCode": "gtc",
+    "collectorNumber": "111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "APPA_THE_VIGILANT": {
+    "scryfallId": "e5ead59f-4c09-4b56-913e-4ff5d6d48ac2",
+    "oracleId": "72994a7a-7c0d-4f28-8cc0-28161d098d7f",
+    "name": "Appa, the Vigilant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Appa, the Vigilant",
+        "manaCost": "{5}{W}{W}",
+        "typeLine": "Legendary Creature — Bison Ally",
+        "oracleText": "Flying, vigilance\nWhenever Appa or another Ally you control enters, creatures you control get +1/+1 and gain flying and vigilance until end of turn.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Fahmi Fauzi",
+        "imageId": "e5ead59f-4c09-4b56-913e-4ff5d6d48ac2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Vigilance"
+    ],
+    "setCode": "tle",
+    "collectorNumber": "62",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TUKTUK_GRUNTS": {
+    "scryfallId": "e6f37982-d2ae-4ff1-b5da-3936733f8108",
+    "oracleId": "200ce414-8583-4bbd-88a6-ca30babb613d",
+    "name": "Tuktuk Grunts",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tuktuk Grunts",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Goblin Warrior Ally",
+        "oracleText": "Haste\nWhenever this creature or another Ally you control enters, you may put a +1/+1 counter on this creature.",
+        "flavorText": "Goblins are more aggressive with a crowd to cheer them on.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "e6f37982-d2ae-4ff1-b5da-3936733f8108"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAKINDI_SHIELDMATE": {
+    "scryfallId": "e76e9555-966c-4fc3-9ef4-a0154ccb8329",
+    "oracleId": "b8a65e49-2379-42bf-823e-c208c2550aeb",
+    "name": "Makindi Shieldmate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Makindi Shieldmate",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Kor Soldier Ally",
+        "oracleText": "Defender\nWhenever this creature or another Ally you control enters, you may put a +1/+1 counter on this creature.",
+        "flavorText": "The more who rely on him, the more resolute he becomes.",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "e76e9555-966c-4fc3-9ef4-a0154ccb8329"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAGE_THROWER": {
+    "scryfallId": "f16db004-3e0c-491b-b8b6-0ae046d11761",
+    "oracleId": "f9697a59-46e2-4612-b30b-d041a38fdd30",
+    "name": "Rage Thrower",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rage Thrower",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "Whenever another creature dies, this creature deals 2 damage to target player or planeswalker.",
+        "flavorText": "\"Some lament these haunted times, but I'm a geistflame-tank-half-full kind of person.\"",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Peter Mohrbacher",
+        "imageId": "f16db004-3e0c-491b-b8b6-0ae046d11761"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "isd",
+    "collectorNumber": "157",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHASM_GUIDE": {
+    "scryfallId": "fbd0fad7-264d-40fc-a616-a88dc94fa4d7",
+    "oracleId": "446d3207-bff8-4edf-9b20-62abcc56427e",
+    "name": "Chasm Guide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chasm Guide",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Goblin Scout Ally",
+        "oracleText": "Rally — Whenever this creature or another Ally you control enters, creatures you control gain haste until end of turn.",
+        "flavorText": "With a single act of bravery, she went from expendable to indispensable.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "fbd0fad7-264d-40fc-a616-a88dc94fa4d7"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Rally"
+    ],
+    "setCode": "bfz",
+    "collectorNumber": "143",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

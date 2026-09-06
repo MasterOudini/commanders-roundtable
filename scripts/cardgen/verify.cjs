@@ -34,6 +34,9 @@ const shardsArg = process.argv.indexOf('--fuzz-shards');
 const SHARDS = shardsArg >= 0 ? Number(process.argv[shardsArg + 1]) : 6;
 if (!(SHARDS >= 1)) throw new Error('--fuzz-shards needs a positive count');
 const npx = 'npx';
+// D337 - the stages run through the shell on Windows, which splits an unquoted argument
+// at a space; a path that carries one (this repo's, the drafts') is quoted for it.
+const shellPath = (p) => (process.platform === 'win32' ? `"${p}"` : p);
 
 /**
  * ⚠️ Each entry says WHAT IT CATCHES, because a gate whose purpose nobody
@@ -61,7 +64,9 @@ const GATES = [
     catches: 'everything else, including the per-card tests landed with the batch — §6 gate 1',
     // D335 - no per-file isolation: the module graph is shared per worker, so the
     // library and the fixtures load once per worker instead of once per file.
-    cmd: scope ? [process.execPath, [join(__dirname, 'unit-scoped.cjs'), scope]] : [npx, ['vitest', 'run', '--no-isolate']],
+    // D337 - `node` from the shell's PATH, not process.execPath (the shell cut the executable's
+    // path at the space in Program Files), and both paths quoted for the same shell.
+    cmd: scope ? ['node', [shellPath(join(__dirname, 'unit-scoped.cjs')), shellPath(scope)]] : [npx, ['vitest', 'run', '--no-isolate']],
   },
   {
     name: 'the replay fuzz gate',
