@@ -209,6 +209,13 @@ export function effectResult(
         if (aim?.kind !== 'stack') break;
         const victim = state.stack.find((s) => s.id === aim.id);
         if (!victim) break;
+        // D336 - "This spell can't be countered.": the funnel would drop the
+        // counter anyway; saying so here keeps the resolver's own line honest.
+        const victimCard = victim.card === null ? undefined : state.cards[victim.card];
+        if (victimCard && deps.scripts.get(victimCard.oracleId)?.cantBeCountered !== undefined) {
+          out.push(narrated(`${victim.label} can't be countered.`, obj.controller, obj.identity));
+          break;
+        }
         out.push({ t: 'SpellCountered', stackId: victim.id });
         // A countered SPELL goes to its owner's graveyard; an ability just ceases.
         // D307 - a spell cast by flashback goes to exile instead (CR 702.34a).

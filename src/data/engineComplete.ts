@@ -131,6 +131,8 @@ export function lineClaims(scripts: readonly CardScript[]): ReadonlyMap<string, 
       ...(s.statics ?? []),
       ...(s.replacements ?? []),
       ...(s.combat ?? []),
+      // D336 - the can't-be-countered claim is a line the funnel consults.
+      ...(s.cantBeCountered ? [s.cantBeCountered] : []),
     ];
     for (const d of defs) {
       const t = scrub(d.text).trim();

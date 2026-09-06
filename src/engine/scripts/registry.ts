@@ -7,6 +7,39 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { MYSTIC_SKYFISH_SCRIPT } from './cards/mysticSkyfish';
+import { IMPROBABLE_ALLIANCE_SCRIPT } from './cards/improbableAlliance';
+import { FAERIE_VANDAL_SCRIPT } from './cards/faerieVandal';
+import { KNIGHTS_OF_DOL_AMROTH_SCRIPT } from './cards/knightsOfDolAmroth';
+import { TYRRANAX_REX_SCRIPT } from './cards/tyrranaxRex';
+import { THUNDER_DRAKE_SCRIPT } from './cards/thunderDrake';
+import { ATLANTEAN_CAVALRY_SCRIPT } from './cards/atlanteanCavalry';
+import { MISTCUTTER_HYDRA_SCRIPT } from './cards/mistcutterHydra';
+import { CARNAGE_TYRANT_SCRIPT } from './cards/carnageTyrant';
+import { IRENCRAG_PYROMANCER_SCRIPT } from './cards/irencragPyromancer';
+import { MISCHIEVOUS_MYSTIC_SCRIPT } from './cards/mischievousMystic';
+import { SKYLASHER_SCRIPT } from './cards/skylasher';
+import { BLOODHAZE_WOLVERINE_SCRIPT } from './cards/bloodhazeWolverine';
+import { AKROMA_ANGEL_OF_FURY_SCRIPT } from './cards/akromaAngelOfFury';
+import { JORI_EN_RUIN_DIVER_SCRIPT } from './cards/joriEnRuinDiver';
+import { SCRAGNOTH_SCRIPT } from './cards/scragnoth';
+import { RED_GHOST_INTANGIBLE_GENIUS_SCRIPT } from './cards/redGhostIntangibleGenius';
+import { MAD_RATTER_SCRIPT } from './cards/madRatter';
+import { GREAT_SABLE_STAG_SCRIPT } from './cards/greatSableStag';
+import { MALCOLM_THE_EYES_SCRIPT } from './cards/malcolmTheEyes';
+import { TERRA_STOMPER_SCRIPT } from './cards/terraStomper';
+import { BLURRED_MONGOOSE_SCRIPT } from './cards/blurredMongoose';
+import { CLARION_SPIRIT_SCRIPT } from './cards/clarionSpirit';
+import { THRUN_THE_LAST_TROLL_SCRIPT } from './cards/thrunTheLastTroll';
+import { STEELGAZE_GRIFFIN_SCRIPT } from './cards/steelgazeGriffin';
+import { LAT_NAM_ADEPT_SCRIPT } from './cards/latNamAdept';
+import { HIT_MONKEY_SCRIPT } from './cards/hitMonkey';
+import { PRINCE_IMRAHIL_THE_FAIR_SCRIPT } from './cards/princeImrahilTheFair';
+import { KNOWLEDGE_SEEKER_SCRIPT } from './cards/knowledgeSeeker';
+import { ERUDITE_WIZARD_SCRIPT } from './cards/eruditeWizard';
+import { LOXODON_EAVESDROPPER_SCRIPT } from './cards/loxodonEavesdropper';
+import { ILLVOI_OPERATIVE_SCRIPT } from './cards/illvoiOperative';
+import { BLUE_MARVEL_ADAM_BRASHEAR_SCRIPT } from './cards/blueMarvelAdamBrashear';
 import { BERSERKERS_OF_BLOOD_RIDGE_SCRIPT } from './cards/berserkersOfBloodRidge';
 import { UTVARA_SCALPER_SCRIPT } from './cards/utvaraScalper';
 import { BLOODROCK_CYCLOPS_SCRIPT } from './cards/bloodrockCyclops';
@@ -4109,6 +4142,39 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MYSTIC_SKYFISH_SCRIPT,
+  IMPROBABLE_ALLIANCE_SCRIPT,
+  FAERIE_VANDAL_SCRIPT,
+  KNIGHTS_OF_DOL_AMROTH_SCRIPT,
+  TYRRANAX_REX_SCRIPT,
+  THUNDER_DRAKE_SCRIPT,
+  ATLANTEAN_CAVALRY_SCRIPT,
+  MISTCUTTER_HYDRA_SCRIPT,
+  CARNAGE_TYRANT_SCRIPT,
+  IRENCRAG_PYROMANCER_SCRIPT,
+  MISCHIEVOUS_MYSTIC_SCRIPT,
+  SKYLASHER_SCRIPT,
+  BLOODHAZE_WOLVERINE_SCRIPT,
+  AKROMA_ANGEL_OF_FURY_SCRIPT,
+  JORI_EN_RUIN_DIVER_SCRIPT,
+  SCRAGNOTH_SCRIPT,
+  RED_GHOST_INTANGIBLE_GENIUS_SCRIPT,
+  MAD_RATTER_SCRIPT,
+  GREAT_SABLE_STAG_SCRIPT,
+  MALCOLM_THE_EYES_SCRIPT,
+  TERRA_STOMPER_SCRIPT,
+  BLURRED_MONGOOSE_SCRIPT,
+  CLARION_SPIRIT_SCRIPT,
+  THRUN_THE_LAST_TROLL_SCRIPT,
+  STEELGAZE_GRIFFIN_SCRIPT,
+  LAT_NAM_ADEPT_SCRIPT,
+  HIT_MONKEY_SCRIPT,
+  PRINCE_IMRAHIL_THE_FAIR_SCRIPT,
+  KNOWLEDGE_SEEKER_SCRIPT,
+  ERUDITE_WIZARD_SCRIPT,
+  LOXODON_EAVESDROPPER_SCRIPT,
+  ILLVOI_OPERATIVE_SCRIPT,
+  BLUE_MARVEL_ADAM_BRASHEAR_SCRIPT,
   BERSERKERS_OF_BLOOD_RIDGE_SCRIPT,
   UTVARA_SCALPER_SCRIPT,
   BLOODROCK_CYCLOPS_SCRIPT,

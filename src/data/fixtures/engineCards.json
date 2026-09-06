@@ -145909,6 +145909,1161 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "MYSTIC_SKYFISH": {
+    "scryfallId": "0002ab72-834b-4c81-82b1-0d2760ea96b0",
+    "oracleId": "645b5784-a6f7-4cf3-966a-e1a51420b96b",
+    "name": "Mystic Skyfish",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mystic Skyfish",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Fish",
+        "oracleText": "Whenever you draw your second card each turn, this creature gains flying until end of turn.",
+        "flavorText": "The problem wasn't that fish had learned how to fly. It was that sharks had adapted to follow them.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Alayna Danner",
+        "imageId": "0002ab72-834b-4c81-82b1-0d2760ea96b0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m21",
+    "collectorNumber": "326",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IMPROBABLE_ALLIANCE": {
+    "scryfallId": "0461867b-ec35-4d37-a398-5247e06c4afe",
+    "oracleId": "b4ca6a20-b1ba-4dee-ae8a-83f8edf360c4",
+    "name": "Improbable Alliance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Improbable Alliance",
+        "manaCost": "{U}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you draw your second card each turn, create a 1/1 blue Faerie creature token with flying.\n{4}{U}{R}: Draw a card, then discard a card.",
+        "flavorText": "\"I agreed to light his way as long as he always had my back.\"\n—Squill, Mistford pixie",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "0461867b-ec35-4d37-a398-5247e06c4afe"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "193",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FAERIE_VANDAL": {
+    "scryfallId": "04692219-8850-4b05-aa60-64f32b0daade",
+    "oracleId": "b872f147-00eb-4cf8-af8c-4144356b2089",
+    "name": "Faerie Vandal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Faerie Vandal",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Faerie Rogue",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nFlying\nWhenever you draw your second card each turn, put a +1/+1 counter on this creature.",
+        "flavorText": "History may be written by the triumphant, but it's often rewritten by the troublesome.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Paul Scott Canavan",
+        "imageId": "04692219-8850-4b05-aa60-64f32b0daade"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "znc",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KNIGHTS_OF_DOL_AMROTH": {
+    "scryfallId": "0c511371-97d7-47cc-934c-939dfbdd1c0b",
+    "oracleId": "3f8b189e-775c-41ad-839a-153a3200c708",
+    "name": "Knights of Dol Amroth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Knights of Dol Amroth",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Whenever you draw your second card each turn, put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tyler Jacobson",
+        "imageId": "0c511371-97d7-47cc-934c-939dfbdd1c0b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "432",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THUNDER_DRAKE": {
+    "scryfallId": "125d16a5-d7b8-4e50-aca1-5f94a0c19260",
+    "oracleId": "a0956c3d-d382-486a-81f1-9aa5cf49b2ab",
+    "name": "Thunder Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thunder Drake",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Elemental Drake",
+        "oracleText": "Flying\nWhenever you cast your second spell each turn, put a +1/+1 counter on this creature.",
+        "flavorText": "The arrival of the Planar Bridge caused eddies in the aether, creating some entirely new species while transforming others.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Yeong-Hao Han",
+        "imageId": "125d16a5-d7b8-4e50-aca1-5f94a0c19260"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "WAR-73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ATLANTEAN_CAVALRY": {
+    "scryfallId": "1319bf54-8705-4cc4-8d08-40f05fd09837",
+    "oracleId": "e929b730-9aa2-49e1-9a65-50afc0fbe3e0",
+    "name": "Atlantean Cavalry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Atlantean Cavalry",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Merfolk Soldier",
+        "oracleText": "Vigilance\nWhenever you draw your second card each turn, put a +1/+1 counter on this creature.",
+        "flavorText": "\"These surface dwellers feel safe with their feet on dry land. Let us remind them why they fear the deep water.\"\n—Namor the Sub-Mariner",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Eglė Mosakaitė",
+        "imageId": "1319bf54-8705-4cc4-8d08-40f05fd09837"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MISTCUTTER_HYDRA": {
+    "scryfallId": "141e30e4-db9a-4956-be10-13a763266939",
+    "oracleId": "30b5b764-478a-46fa-8f95-a1f515925a2d",
+    "name": "Mistcutter Hydra",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mistcutter Hydra",
+        "manaCost": "{X}{G}",
+        "typeLine": "Creature — Hydra",
+        "oracleText": "This spell can't be countered.\nHaste, protection from blue\nThis creature enters with X +1/+1 counters on it.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ryan Pancoast",
+        "imageId": "141e30e4-db9a-4956-be10-13a763266939"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Protection",
+      "Haste"
+    ],
+    "setCode": "pio",
+    "collectorNumber": "184",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CARNAGE_TYRANT": {
+    "scryfallId": "15e1b2a6-a4d1-445d-9c20-26eddff25047",
+    "oracleId": "8c411f4e-a091-447c-9450-d895b10b4985",
+    "name": "Carnage Tyrant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Carnage Tyrant",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "This spell can't be countered.\nTrample, hexproof",
+        "flavorText": "Sun Empire commanders are well versed in advanced martial strategy. Still, the correct maneuver is usually to deploy the giant, implacable death lizard.",
+        "power": "7",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Yeong-Hao Han",
+        "imageId": "15e1b2a6-a4d1-445d-9c20-26eddff25047"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Hexproof",
+      "Trample"
+    ],
+    "setCode": "pxln",
+    "collectorNumber": "179p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IRENCRAG_PYROMANCER": {
+    "scryfallId": "15eb0922-345e-43e0-bf29-bd7497fa0058",
+    "oracleId": "5abcc262-fbe1-4e81-897c-da5a8fb1f1f4",
+    "name": "Irencrag Pyromancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Irencrag Pyromancer",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Whenever you draw your second card each turn, this creature deals 3 damage to any target.",
+        "flavorText": "\"Fear of fire is a sensible instinct. If I were you, I'd be terrified.\"",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "15eb0922-345e-43e0-bf29-bd7497fa0058"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "peld",
+    "collectorNumber": "128p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MISCHIEVOUS_MYSTIC": {
+    "scryfallId": "20d89cec-528b-4b2a-87db-e11ce0000622",
+    "oracleId": "542831c6-6279-4977-9b29-0fb9c0ebf04d",
+    "name": "Mischievous Mystic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mischievous Mystic",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Flying\nWhenever you draw your second card each turn, create a 1/1 blue Faerie creature token with flying.",
+        "flavorText": "\"Don't worry about where they're taking me. The more pressing question is, why aren't they taking you?\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "20d89cec-528b-4b2a-87db-e11ce0000622"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYLASHER": {
+    "scryfallId": "2897f8d3-5519-4529-9393-0c7becacb690",
+    "oracleId": "153a4c11-e75f-46d7-b684-17d500ea13e6",
+    "name": "Skylasher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skylasher",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Flash\nThis spell can't be countered.\nReach, protection from blue",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "2897f8d3-5519-4529-9393-0c7becacb690"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Reach",
+      "Protection",
+      "Flash"
+    ],
+    "setCode": "pio",
+    "collectorNumber": "195",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODHAZE_WOLVERINE": {
+    "scryfallId": "29dfd4f1-abe4-4300-aa16-54a515f0c1e3",
+    "oracleId": "601fd61b-4939-459a-84d1-d947d29c9564",
+    "name": "Bloodhaze Wolverine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodhaze Wolverine",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Wolverine",
+        "oracleText": "Whenever you draw your second card each turn, this creature gets +1/+1 and gains first strike until end of turn.",
+        "flavorText": "\"Build a moat. If we're lucky, it can't swim.\"\n—Syr Branigan, knight of Ardenvale",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Evan Shipard",
+        "imageId": "29dfd4f1-abe4-4300-aa16-54a515f0c1e3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "502",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AKROMA_ANGEL_OF_FURY": {
+    "scryfallId": "2a81f0b5-5116-4946-89fc-18479bf85305",
+    "oracleId": "2b80faaf-92fd-4fa0-a3f6-8bb263e7ff1d",
+    "name": "Akroma, Angel of Fury",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Akroma, Angel of Fury",
+        "manaCost": "{5}{R}{R}{R}",
+        "typeLine": "Legendary Creature — Angel",
+        "oracleText": "This spell can't be countered.\nFlying, trample, protection from white and from blue\n{R}: Akroma gets +1/+0 until end of turn.\nMorph {3}{R}{R}{R} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "2a81f0b5-5116-4946-89fc-18479bf85305"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Flying",
+      "Morph",
+      "Protection",
+      "Trample"
+    ],
+    "setCode": "mkc",
+    "collectorNumber": "146",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JORI_EN_RUIN_DIVER": {
+    "scryfallId": "2e002ba5-b028-484a-8832-0a904df4bb36",
+    "oracleId": "4cd9b48e-5774-4a1c-857f-9f4a92db9b41",
+    "name": "Jori En, Ruin Diver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jori En, Ruin Diver",
+        "manaCost": "{1}{U}{R}",
+        "typeLine": "Legendary Creature — Merfolk Wizard",
+        "oracleText": "Whenever you cast your second spell each turn, draw a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "2e002ba5-b028-484a-8832-0a904df4bb36"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pogw",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCRAGNOTH": {
+    "scryfallId": "352c45b0-a20a-427c-8f2e-f461983ce968",
+    "oracleId": "9e66f2d6-cc51-4747-914d-2c04e439da2b",
+    "name": "Scragnoth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scragnoth",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "This spell can't be countered.\nProtection from blue",
+        "flavorText": "It possesses no intelligence, only counter-intelligence.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jeff Laubenstein",
+        "imageId": "352c45b0-a20a-427c-8f2e-f461983ce968"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "tsb",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RED_GHOST_INTANGIBLE_GENIUS": {
+    "scryfallId": "35bae013-51e9-4047-91e3-3b366ad0764e",
+    "oracleId": "9984d950-29dc-4d6b-8750-8d1bf86ea98f",
+    "name": "Red Ghost, Intangible Genius",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Red Ghost, Intangible Genius",
+        "manaCost": "{2}{U}{R}",
+        "typeLine": "Legendary Creature — Human Scientist Villain",
+        "oracleText": "Ward {2}\nRed Ghost can't be blocked.\nWhenever you draw your second card each turn, create a 3/3 red Ape Villain creature token with haste.",
+        "flavorText": "\"To me, my Super Apes!\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Nathaniel Himawan",
+        "imageId": "35bae013-51e9-4047-91e3-3b366ad0764e"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Ward"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "92",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAD_RATTER": {
+    "scryfallId": "36b15eb3-ad86-48cd-b414-b8a06f61635d",
+    "oracleId": "779fa24d-e9d2-475d-b3aa-dc0388b18307",
+    "name": "Mad Ratter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mad Ratter",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "Whenever you draw your second card each turn, create two 1/1 black Rat creature tokens.",
+        "flavorText": "\"Gather round and tell me all from the courts and castles.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "36b15eb3-ad86-48cd-b414-b8a06f61635d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "570",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GREAT_SABLE_STAG": {
+    "scryfallId": "451c8a79-1e8a-437d-836f-31155914c551",
+    "oracleId": "d6dbb83d-3215-4446-8480-8f1bf8cf2938",
+    "name": "Great Sable Stag",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Great Sable Stag",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Creature — Elk",
+        "oracleText": "This spell can't be countered.\nProtection from blue and from black (This creature can't be blocked, targeted, dealt damage, or enchanted by anything blue or black.)",
+        "flavorText": "Ineffable and incorruptible.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "451c8a79-1e8a-437d-836f-31155914c551"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "m10",
+    "collectorNumber": "186",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MALCOLM_THE_EYES": {
+    "scryfallId": "480de469-3fac-4a2b-8dec-7899ce00551e",
+    "oracleId": "7932ab35-39dc-4500-aa44-2ad7228f0d2a",
+    "name": "Malcolm, the Eyes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Malcolm, the Eyes",
+        "manaCost": "{U}{R}",
+        "typeLine": "Legendary Creature — Siren Pirate",
+        "oracleText": "Flying, haste\nWhenever you cast your second spell each turn, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Michael Walsh",
+        "imageId": "480de469-3fac-4a2b-8dec-7899ce00551e"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Investigate",
+      "Haste"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "295",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TERRA_STOMPER": {
+    "scryfallId": "4ab062f4-e4b1-4129-9027-d0ca1a723273",
+    "oracleId": "d688baac-0574-4d88-b7eb-a7384c298ef5",
+    "name": "Terra Stomper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Terra Stomper",
+        "manaCost": "{3}{G}{G}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "This spell can't be countered.\nTrample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)",
+        "flavorText": "Sometimes violent earthquakes, hurtling boulders, and unseasonable dust storms are wrongly attributed to the Roil.",
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Goran Josic",
+        "imageId": "4ab062f4-e4b1-4129-9027-d0ca1a723273"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "187",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLURRED_MONGOOSE": {
+    "scryfallId": "4b073e3f-6a6f-495a-ab16-39d906b660f1",
+    "oracleId": "588a5bac-dcad-410e-8878-0230500c2e3a",
+    "name": "Blurred Mongoose",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blurred Mongoose",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Mongoose",
+        "oracleText": "This spell can't be countered.\nShroud (This creature can't be the target of spells or abilities.)",
+        "flavorText": "\"The mongoose blew out its candle and was asleep in bed before the room went dark.\"\n—Llanowar fable",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "4b073e3f-6a6f-495a-ab16-39d906b660f1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Shroud"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "183",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLARION_SPIRIT": {
+    "scryfallId": "55882138-83a2-4a0a-96b0-6d5150edc4e3",
+    "oracleId": "dec20b18-afe6-405e-b47d-a757a5645c63",
+    "name": "Clarion Spirit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Clarion Spirit",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Whenever you cast your second spell each turn, create a 1/1 white Spirit creature token with flying.",
+        "flavorText": "To the living, the horn sounds faint and mournful, but to the spirits of Istfell, it is a thunderous call that must be obeyed.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Anastasia Ovchinnikova",
+        "imageId": "55882138-83a2-4a0a-96b0-6d5150edc4e3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "KHM-6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRUN_THE_LAST_TROLL": {
+    "scryfallId": "5d393da0-4cb6-4ae8-b747-8e6d0fa7f55a",
+    "oracleId": "1149e5ac-554a-41b1-84ae-bac42579c1aa",
+    "name": "Thrun, the Last Troll",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thrun, the Last Troll",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Legendary Creature — Troll Shaman",
+        "oracleText": "This spell can't be countered.\nHexproof (This creature can't be the target of spells or abilities your opponents control.)\n{1}{G}: Regenerate Thrun.",
+        "flavorText": "His crime was silence, and now he suffers it eternally.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jason Chan",
+        "imageId": "5d393da0-4cb6-4ae8-b747-8e6d0fa7f55a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Hexproof",
+      "Regenerate"
+    ],
+    "setCode": "mbs",
+    "collectorNumber": "92",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STEELGAZE_GRIFFIN": {
+    "scryfallId": "6d361328-8b0a-40a0-b5c0-215398fdfb47",
+    "oracleId": "3fdc082b-1abf-4715-9d66-105981c1f989",
+    "name": "Steelgaze Griffin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Steelgaze Griffin",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Griffin",
+        "oracleText": "Flying\nWhenever you draw your second card each turn, this creature gets +2/+0 until end of turn.",
+        "flavorText": "\"If we didn't guard our secrets, they wouldn't remain secrets for long.\"\n—Gadwick, the Wizened",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "J.P. Targete",
+        "imageId": "6d361328-8b0a-40a0-b5c0-215398fdfb47"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "eld",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LAT_NAM_ADEPT": {
+    "scryfallId": "74a90409-d651-4052-aa9b-3cb87f98da35",
+    "oracleId": "0d5a1870-6d26-47e7-a86c-f3ff15cb0707",
+    "name": "Lat-Nam Adept",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lat-Nam Adept",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Whenever you draw your second card each turn, put a +1/+1 counter on this creature.",
+        "flavorText": "\"Every book is a doorway to enlightenment. Curiosity is your key.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Zara Alfonso",
+        "imageId": "74a90409-d651-4052-aa9b-3cb87f98da35"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "j25",
+    "collectorNumber": "320",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HIT_MONKEY": {
+    "scryfallId": "7a253dc9-1593-4914-90ca-309aa3aed53d",
+    "oracleId": "e27d1993-8d83-449d-8a64-8b66086db995",
+    "name": "Hit-Monkey",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hit-Monkey",
+        "manaCost": "{3}{G}",
+        "typeLine": "Legendary Creature — Monkey Assassin",
+        "oracleText": "This spell can't be countered.\nReach, vigilance, deathtouch, hexproof, haste",
+        "flavorText": "\"He's a hitman. Who's a monkey. You don't believe me. Look around you, dude—he's real!\"\n—Deadpool, Wade Wilson",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Peter Scanlan",
+        "imageId": "7a253dc9-1593-4914-90ca-309aa3aed53d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Reach",
+      "Vigilance",
+      "Hexproof",
+      "Haste",
+      "Deathtouch"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "723",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRINCE_IMRAHIL_THE_FAIR": {
+    "scryfallId": "7d486def-7c3f-41e9-bb28-4582450a7b9e",
+    "oracleId": "4c66e0ca-2d8a-4f68-ad15-55d75959d6e8",
+    "name": "Prince Imrahil the Fair",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Prince Imrahil the Fair",
+        "manaCost": "{W}{U}",
+        "typeLine": "Legendary Creature — Human Noble",
+        "oracleText": "Whenever you draw your second card each turn, create a 1/1 white Human Soldier creature token.",
+        "flavorText": "\"The Lord Aragorn I hold to be my liege lord, whether he claim it or no. His wish is to me a command.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Justyna Dura",
+        "imageId": "7d486def-7c3f-41e9-bb28-4582450a7b9e"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "219",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KNOWLEDGE_SEEKER": {
+    "scryfallId": "8554e862-f78a-42f5-b876-076aac6c9504",
+    "oracleId": "bdc2d980-ca14-4040-a9a1-786d724dc65c",
+    "name": "Knowledge Seeker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Knowledge Seeker",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Fox Spirit",
+        "oracleText": "Vigilance\nWhenever you draw your second card each turn, put a +1/+1 counter on this creature.\nWhen this creature dies, create a Clue token. (It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Shiren",
+        "imageId": "8554e862-f78a-42f5-b876-076aac6c9504"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "tla",
+    "collectorNumber": "60",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ERUDITE_WIZARD": {
+    "scryfallId": "9273c417-0fcd-4273-b24e-afff76336d0c",
+    "oracleId": "7d4b6613-9000-4f53-9737-fe0338f3f629",
+    "name": "Erudite Wizard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Erudite Wizard",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Whenever you draw your second card each turn, put a +1/+1 counter on this creature.",
+        "flavorText": "\"Pretty baubles and gilded palaces may appeal to the egotist, but true wealth comes only through knowledge.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ioannis Fiore",
+        "imageId": "9273c417-0fcd-4273-b24e-afff76336d0c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOXODON_EAVESDROPPER": {
+    "scryfallId": "bbbf8c3a-6c74-42fd-bb8d-61e3f0a77848",
+    "oracleId": "141a2757-8f20-4e10-9866-bb5d612ed62d",
+    "name": "Loxodon Eavesdropper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loxodon Eavesdropper",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elephant Detective",
+        "oracleText": "When this creature enters, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")\nWhenever you draw your second card each turn, this creature gets +1/+1 and gains vigilance until end of turn.",
+        "flavorText": "He's all ears.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "bbbf8c3a-6c74-42fd-bb8d-61e3f0a77848"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Investigate"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ILLVOI_OPERATIVE": {
+    "scryfallId": "d0ae9fc7-1802-4806-9996-1f1f458ff6a7",
+    "oracleId": "2e0b225a-d4b4-4f53-8fea-8c6c37102920",
+    "name": "Illvoi Operative",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Illvoi Operative",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Jellyfish Rogue",
+        "oracleText": "Whenever you cast your second spell each turn, put a +1/+1 counter on this creature.",
+        "flavorText": "The Uthros Combine's first question for any scientific breakthrough is always: \"How can this be used to keep our next breakthrough secret?\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Quintin Gleim",
+        "imageId": "d0ae9fc7-1802-4806-9996-1f1f458ff6a7"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLUE_MARVEL_ADAM_BRASHEAR": {
+    "scryfallId": "de5c8482-462a-49ee-ae4d-1e0e8e0a4b97",
+    "oracleId": "16f9368a-5da5-4397-a127-c96cdd115b7b",
+    "name": "Blue Marvel, Adam Brashear",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blue Marvel, Adam Brashear",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Legendary Creature — Human Scientist Hero",
+        "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWard {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nWhenever you draw your second card each turn, put a +1/+1 counter on Blue Marvel.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mateus Manhanini",
+        "imageId": "de5c8482-462a-49ee-ae4d-1e0e8e0a4b97"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Ward"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "530",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIVINATION": {
+    "scryfallId": "1252243c-34e3-447b-b323-fffcbe128278",
+    "oracleId": "273b339c-964b-4a18-8eb5-ceb8abcdfd9e",
+    "name": "Divination",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Divination",
+        "manaCost": "{2}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Draw two cards.",
+        "flavorText": "\"The key to unlocking this puzzle is within you.\"\n—Doriel, mentor of Mistral Isle",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "1252243c-34e3-447b-b323-fffcbe128278"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m12",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -150182,6 +151337,74 @@
     "keywords": [],
     "setCode": "tecl",
     "collectorNumber": "4",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "APE_VILLAIN_3_3_R_CREATURE_HASTE_TOKEN": {
+    "scryfallId": "b0212004-3d0b-4dcd-b166-e5f80cb150a1",
+    "oracleId": "4b09946a-4d41-4768-bcb4-684898e3ce7e",
+    "name": "Ape Villain",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Ape Villain",
+        "manaCost": "",
+        "typeLine": "Token Creature — Ape Villain",
+        "oracleText": "Haste",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "b0212004-3d0b-4dcd-b166-e5f80cb150a1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "tmsc",
+    "collectorNumber": "26",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "RAT_1_1_B_CREATURE_TOKEN": {
+    "scryfallId": "02c73185-3062-4801-8ab2-5006b9c3b232",
+    "oracleId": "7c753b68-b519-43ba-9c58-4902f4850626",
+    "name": "Rat",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Rat",
+        "manaCost": "",
+        "typeLine": "Token Creature — Rat",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "02c73185-3062-4801-8ab2-5006b9c3b232"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ttdc",
+    "collectorNumber": "9",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

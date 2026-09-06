@@ -315,8 +315,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // scale — 19 of 25, the six refusals named — 1,742 → 1,761. M6.4d
       // (D161): thirteen more, and the selection taught two refusal shapes —
       // 1,761 → 1,774.
-      complete: 6636,
-      blocked: 25056,
+      complete: 6669,
+      blocked: 25023,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -325,7 +325,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1098,
+      scriptableToday: 1093,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -336,8 +336,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
-      layer6: 1417,
-      counter: 1487,
+      layer6: 1415,
+      counter: 1479,
       token: 974,
     });
   });
@@ -375,7 +375,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1098, 1223, 2910, 4770, 6110]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1093, 1218, 2902, 4753, 6093]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -462,11 +462,11 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       else split.unclaimed++;
       if (card.layer6Lines.some((t) => TEMPORARY.test(t))) temporary++;
     }
-    expect.soft(split).toEqual({ grant: 863, anthem: 169, restriction: 231, conditional: 154, unclaimed: 0 });
+    expect.soft(split).toEqual({ grant: 861, anthem: 169, restriction: 231, conditional: 154, unclaimed: 0 });
     // ⚠️ THE NUMBER THAT KEEPS `layer6` OUT OF `BUILT`. Asserted here rather than
     // written in the comment above, because D129's reason lived in a comment and
     // stayed there for twenty-four decisions after D147 closed it.
-    expect.soft(temporary).toBe(577);
+    expect.soft(temporary).toBe(575);
   });
 
   /**
@@ -547,8 +547,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1098, 1223]);
-    expect.soft(r.complete).toBe(6636);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1093, 1218]);
+    expect.soft(r.complete).toBe(6669);
   });
 });
 
@@ -667,9 +667,9 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
    */
   test('the residue splits into named families', () => {
     expect.soft(rr.residue).toEqual({
-      activatedCost: 2432,
-      triggeredShell: 2146,
-      damage: 777,
+      activatedCost: 2431,
+      triggeredShell: 2143,
+      damage: 776,
       exile: 927,
       staticShell: 715,
       attackBlock: 877,
@@ -677,7 +677,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
       drawDiscard: 357,
       tokensAndCounters: 376,
       copySpell: 224,
-      cantBeCountered: 109,
+      cantBeCountered: 98,
       gainControl: 66,
       wardHexproofGrant: 46,
       other: 3249,

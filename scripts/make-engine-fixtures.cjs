@@ -4844,6 +4844,41 @@ const WANTED = [
   'Ashen Monstrosity',
   'Impetuous Sunchaser',
   // D335 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D336 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Mystic Skyfish',
+  'Improbable Alliance',
+  'Faerie Vandal',
+  'Knights of Dol Amroth',
+  'Thunder Drake',
+  'Atlantean Cavalry',
+  'Mistcutter Hydra',
+  'Carnage Tyrant',
+  'Irencrag Pyromancer',
+  'Mischievous Mystic',
+  'Skylasher',
+  'Bloodhaze Wolverine',
+  'Akroma, Angel of Fury',
+  'Jori En, Ruin Diver',
+  'Scragnoth',
+  'Red Ghost, Intangible Genius',
+  'Mad Ratter',
+  'Great Sable Stag',
+  'Malcolm, the Eyes',
+  'Terra Stomper',
+  'Blurred Mongoose',
+  'Clarion Spirit',
+  'Thrun, the Last Troll',
+  'Steelgaze Griffin',
+  'Lat-Nam Adept',
+  'Hit-Monkey',
+  'Prince Imrahil the Fair',
+  'Knowledge Seeker',
+  'Erudite Wizard',
+  'Loxodon Eavesdropper',
+  'Illvoi Operative',
+  'Blue Marvel, Adam Brashear',
+  // D336 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Divination',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -5083,6 +5118,9 @@ const WANTED_TOKENS = [
   { name: 'Wolf', set: 'tvow', cn: '11', key: 'WOLF_3_2_R_CREATURE_TOKEN' },
   { name: 'Spirit', set: 'ttdm', cn: '6', key: 'SPIRIT_1_1_W_CREATURE_TOKEN' },
   { name: 'Elf', set: 'tecl', cn: '4', key: 'ELF_2_2_BG_CREATURE_TOKEN' },
+  // D336 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Ape Villain', set: 'tmsc', cn: '26', key: 'APE_VILLAIN_3_3_R_CREATURE_HASTE_TOKEN' },
+  { name: 'Rat', set: 'ttdc', cn: '9', key: 'RAT_1_1_B_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

@@ -303,4 +303,13 @@ export interface CardScript {
   readonly combat?: readonly CombatDef[];
   /** Whole-spell resolution for an instant or sorcery. See `SpellDef`. */
   readonly spell?: SpellDef;
+  /**
+   * D336 - "This spell can't be countered." A claim on the printed line that
+   * the replacement funnel consults: a counter's events - the `SpellCountered`
+   * and the move that would send the card off the stack - never apply to this
+   * card's spell. Every counter in the engine, the resolver's `counter` effect
+   * and the scripts that emit the event themselves, passes through that funnel,
+   * which is why the rule lives there and nowhere else.
+   */
+  readonly cantBeCountered?: { readonly abilityId: string; readonly text: string };
 }

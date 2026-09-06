@@ -13,6 +13,7 @@
 
 import { derive, makeDeriveCache } from './derive';
 import { faceOf } from './oracle';
+import { narrated } from './narrate';
 import type { ScriptRegistry } from './scripts/registry';
 import { KEYWORD_TRIGGERS } from './keywordTriggers';
 import type { CardMove, EventBody, GameEvent } from './types/events';
@@ -247,6 +248,39 @@ function runFanOut(
 }
 
 /**
+ * D336 - "This spell can't be countered." (CR 701.5a: countering it does
+ * nothing.) A counter's events arrive as a batch - the `SpellCountered` and,
+ * behind it, the move that would send the card off the stack - and every
+ * emitter in the engine sends them through this funnel, so this is the one
+ * place the rule is read: the counter is dropped, the move is dropped with it,
+ * and a line says so. Runs on the state BEFORE the batch, where the spell is
+ * still on the stack to be looked up.
+ */
+function withoutCountersOfTheUncounterable(state: GameState, scripts: ScriptRegistry, bodies: readonly EventBody[]): readonly EventBody[] {
+  if (!bodies.some((b) => b.t === 'SpellCountered')) return bodies;
+  const out = [...bodies];
+  for (let i = 0; i < out.length; i++) {
+    const ev = out[i];
+    if (!ev || ev.t !== 'SpellCountered') continue;
+    const victim = state.stack.find((s) => s.id === ev.stackId);
+    if (!victim || victim.card === null) continue;
+    const card = state.cards[victim.card];
+    if (!card || scripts.get(card.oracleId)?.cantBeCountered === undefined) continue;
+    out[i] = narrated(`${victim.label} can't be countered.`, victim.controller, victim.identity);
+    for (let j = i + 1; j < out.length; j++) {
+      const mv = out[j];
+      if (!mv || mv.t !== 'CardsMoved') continue;
+      const keep = mv.moves.filter((m) => !(m.card === victim.card && m.from.kind === 'stack'));
+      if (keep.length === mv.moves.length) continue;
+      if (keep.length === 0) out.splice(j, 1);
+      else out[j] = { ...mv, moves: keep };
+      break;
+    }
+  }
+  return out;
+}
+
+/**
  * Push a whole batch through the registered replacements.
  *
  * ⚠️ Each body starts with an EMPTY `used` — CR 614.5 again. A wrath that moves
@@ -257,8 +291,10 @@ export function runReplacementFunnel(
   state: GameState,
   oracle: OracleDb,
   scripts: ScriptRegistry,
-  bodies: readonly EventBody[],
+  rawBodies: readonly EventBody[],
 ): FunnelResult {
+  // D336 - the uncounterable rule, before anything else looks at the batch.
+  const bodies = withoutCountersOfTheUncounterable(state, scripts, rawBodies);
   const defs = scripts.replacements();
   const settled: EventBody[] = [];
 

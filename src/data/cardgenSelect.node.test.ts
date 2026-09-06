@@ -136,7 +136,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Batch 10 (D167).
   // "Your second spell each turn" is Axgard's per-turn trigger memory one
   // count over (D167).
-  ['Clarion Spirit', 'once-per-turn trigger memory'],
   // Tap-two-untapped-ARTIFACTS as a cost — the tap-creatures chooser's
   // artifact sibling (D167).
   ['Clock of Omens', 'tap-permanents cost'],
@@ -231,7 +230,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // concept anywhere (a cast-time promise on gift-carrying spells; nothing
   // raises, records or fulfils one).
   ['Jolly Gerbils', 'gift mechanic'],
-  ['Jori En, Ruin Diver', 'once-per-turn trigger memory'],
   ['Keldon Arsonist', 'multi-sacrifice cost'],
   // Batch 25 (D184): five refusals, ZERO new classes — every one an
   // existing named gap, which is the ledger's drainage doing its job.
@@ -252,7 +250,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Lifetap', 'per-tap-entry trigger granularity'],
   ['Linden, the Steadfast Queen', 'per-tap-entry trigger granularity'],
   ['Lyla, Holographic Assistant', 'draw-event discriminator'],
-  ['Mad Ratter', 'draw-event discriminator'],
   // Batch 27 (D186), five refusals and TWO new classes. Matoya names the
   // SCRY/SURVEIL EVENT DISCRIMINATOR: no event marks a scry — the peek is a
   // Tier-3 reveal and scry/surveil are UI MODES on it (D114), so "whenever
@@ -691,7 +688,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Mind Bomb', 'script-raised prompt'],
   ['Mind Grind', 'cast-permission condition'],
   ['Minds Aglow', 'script-raised prompt'],
-  ['Mischievous Mystic', 'once-per-turn trigger memory'],
   ['Misinformation', 'up-to-N targeting'],
   ['Misleading Motes', 'script-raised prompt'],
   ['Misstep', 'untap restriction'],
@@ -774,7 +770,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Presumed Dead', 'temporary non-keyword ability grant'],
   // D235 (M6.4bx)
   ['Primal Surge', 'script-raised prompt'],
-  ['Prince Imrahil the Fair', 'once-per-turn trigger memory'],
   ['Prismatic Lace', 'color change (indefinite)'],
   ['Prying Questions', 'script-raised prompt'],
   // D236 (M6.4by)

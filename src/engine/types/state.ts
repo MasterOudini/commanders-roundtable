@@ -763,6 +763,10 @@ export interface TurnState {
   readonly cleanupNeedsRepeat: boolean;
   /** D328 - CR 602.5b: how many times each `source|abilityRef` was activated this turn; cleared by `TurnBegan`. */
   readonly activations: Readonly<Record<string, number>>;
+  /** D336 - the turn memory: spells each player has cast this turn ("your second spell each turn"); cleared by `TurnBegan`. */
+  readonly spellsCast: Readonly<Record<PlayerId, number>>;
+  /** D336 - the turn memory: cards each player has drawn this turn ("your second card each turn"); cleared by `TurnBegan`. */
+  readonly cardsDrawn: Readonly<Record<PlayerId, number>>;
 }
 
 /** One rendered narration line. Mirrors `src/view/types.ts` `LogEntry`. */

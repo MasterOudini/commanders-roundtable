@@ -10378,6 +10378,44 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D335): snow mana ({S} - 12 across three cost forms; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15), can't attack or block alone (5; the second declaration requirement); then can not be countered (11 whole cards), the second-card and second-spell turn memory (37 + 26), the modal seam (276), the another split; the modal seam; the "another" split;
       the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4fu — THE TURN MEMORY AND THE UNCOUNTERABLE: per-turn spell and draw
+      tallies behind "your second spell / your second card each turn", and "This
+      spell can't be countered" read by the one funnel every counter passes
+      through; 33 cards land, 33 as generated rows (2026-09-06):**
+      **6,669 of 31,692 Commander-legal cards now execute completely, up
+      from 6,636 (+33).** `SHIPPED_SCRIPTS` 4,116; ledger
+      993 (5 rows retired - Mischievous Mystic, Mad Ratter, Prince Imrahil the Fair, Clarion Spirit and Jori En, Ruin Diver, the second-card and second-spell classes; measured: the REFUSED map's size). Fixtures 4,488 (4,350 by name + 131 tokens: the rowed cards, a Divination for the second-card tests, and two token pins (the Ape Villain, the Rat)). **Select pool
+      0.** Decisions in **D336**.
+      ⚠️ **The turn memory** (`d336/apply-turn-memory.cjs`): `TurnState.spellsCast`
+      and `TurnState.cardsDrawn`, per player, empty as a turn begins; the reducer
+      counts a `SpellCast` on its controller (an ability on the stack is not a
+      spell) and a `DrewCards` by the cards it names. The second-spell head reads
+      a tally of exactly 2 after the event; the second-card head a tally that
+      crossed 2 with this event (a draw step is one card, a Divination two).
+      ⚠️ **The uncounterable** (`CardScript.cantBeCountered`): a claim the
+      accounting counts and the replacement funnel consults at its head - a
+      `SpellCountered` whose spell claims the line becomes "X can't be countered."
+      and the move off the stack is dropped with it; every counter in the engine,
+      the resolver's `counter` effect and the twenty-odd scripts that emit the
+      event themselves, passes through that funnel, which is why the rule lives
+      there and nowhere else. Tests `turnMemory.test.ts`, `cantBeCountered.test.ts`.
+      ⚠️ **The generator** (`d336/make-gen26.cjs`): the two heads and the static
+      kind (in hand, cast, then Counterspell at the spell once the opponent holds
+      priority). Lessons: helper spells go to hand BEFORE the baseline (`put()`
+      finds an opening-hand copy and adds nothing); a second-card row enters
+      early. Measured first: the leftover probe over the database after D335, with the two turn-memory heads and the uncounterable line as payloads: 161 blocked single-face permanents whose every leftover line the grammar reads - the 126 D335 left and 35 new (13 can't-be-countered whole cards, 17 second-card, 5 second-spell); the row maker took 33 and refused 128: the 126 as before, Pearl Lake Ancient (return three lands you control - an unpriced cost) and Toski, Bearer of Secrets (a must-attacker beside a head whose test attacks with another creature). Across the whole leftover database the line was the FIRST blocker of 43 cards and the two heads of 37 + 26; the rest carry other blockers. NOT this decision: snow mana ({S} - 12 across three cost forms; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3, and Pearl Lake Ancient's three), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15), can't attack or block alone (5; the second declaration requirement), a must-attacker beside an attacking head (Toski); then the quoted abilities enchanted creatures and lands have (60 + 34 first blockers), Enchant player (42), the look at the top card of your library (38), the modal seam (276), the another split. Refused by
+      name: 5 rows retired - Mischievous Mystic, Mad Ratter, Prince Imrahil the Fair, Clarion Spirit and Jori En, Ruin Diver, the second-card and second-spell classes; measured: the REFUSED map's size.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips; 33 generated rows, green after two generator corrections (the helper spells go to hand BEFORE the baseline is measured - put() finds a card already in the opening hand and moves it hand-to-hand, adding nothing, which Jori En's draw exposed; a second-card row enters early, so a combat kind beside it is past summoning sickness on turn 3 - Red Ghost) and one refusal (Toski, Bearer of Secrets: a must-attacker beside a head whose test attacks with another creature). The wave IS the landing: 33 rows - 11 spells that can't be countered (Tyrranax Rex, Mistcutter Hydra, Carnage Tyrant, Skylasher, Akroma, Angel of Fury, Scragnoth, Great Sable Stag, Terra Stomper, Blurred Mongoose, Thrun, the Last Troll, Hit-Monkey), 17 that read your second card each turn (Mystic Skyfish, Improbable Alliance, Faerie Vandal, Knights of Dol Amroth, Atlantean Cavalry, Irencrag Pyromancer, Mischievous Mystic, Bloodhaze Wolverine, Red Ghost, Intangible Genius, Mad Ratter, Steelgaze Griffin, Lat-Nam Adept, Prince Imrahil the Fair, Knowledge Seeker, Erudite Wizard, Loxodon Eavesdropper, Blue Marvel, Adam Brashear) and 5 that read your second spell (Thunder Drake, Jori En, Ruin Diver, Malcolm, the Eyes, Clarion Spirit, Illvoi Operative). Tests: the two engine suites; one
+      generated suite per row.
+      Fixtures 4,488 · botPool artifact 366 / creature 3,802 / enchantment 344 / instant 947 / land 487 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1093, 1218, 2902, 4753, 6093] · batch.json
+      33 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,238 files, 21,289 passing / 11 skipped ·
+      500-seed gate, 6 shards, 495.7 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D336): snow mana ({S} - 12 across three cost forms; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3, and Pearl Lake Ancient's three), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15), can't attack or block alone (5; the second declaration requirement), a must-attacker beside an attacking head (Toski); then the quoted abilities enchanted creatures and lands have (60 + 34 first blockers), Enchant player (42), the look at the top card of your library (38), the modal seam (276), the another split; the modal seam; the "another" split;
+      the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

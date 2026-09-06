@@ -69,6 +69,13 @@ function recordActivation(turn: TurnState, obj: StackObject): TurnState {
   return { ...turn, activations: { ...turn.activations, [key]: (turn.activations[key] ?? 0) + 1 } };
 }
 
+/** D336 - the turn memory: a SPELL cast counts on its controller's tally; an ability put on the stack does not. */
+function recordSpell(turn: TurnState, body: EventBody): TurnState {
+  if (body.t !== 'SpellCast') return turn;
+  const who = body.obj.controller;
+  return { ...turn, spellsCast: { ...turn.spellsCast, [who]: (turn.spellsCast[who] ?? 0) + 1 } };
+}
+
 function withCard(state: GameState, id: InstanceId, patch: Partial<CardInstance>): GameState {
   const card = state.cards[id];
   if (!card) return state;
@@ -261,6 +268,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           turnBasedActionsDone: false,
           cleanupNeedsRepeat: false,
           activations: {},
+          spellsCast: {},
+          cardsDrawn: {},
         },
         priority: {
           player: null,
@@ -638,6 +647,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           turnBasedActionsDone: false,
           cleanupNeedsRepeat: false,
           activations: {},
+          spellsCast: {},
+          cardsDrawn: {},
         },
         priority: { ...state.priority, passedSinceLastAction: [], player: null },
       };
@@ -747,7 +758,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
         ...state,
         stack: [...state.stack, body.obj],
         pendingCast: null,
-        turn: recordActivation(state.turn, body.obj),
+        turn: recordSpell(recordActivation(state.turn, body.obj), body),
         priority: {
           ...state.priority,
           passedSinceLastAction: [],
@@ -784,12 +795,19 @@ function applyBody(state: GameState, body: EventBody): GameState {
 
     case 'OptionalTriggerAnswered':
     case 'EntersChoiceAnswered':
-    case 'DrewCards':
       // A marker for the log and the animation stream, like
       // `StateBasedActionsApplied`; what the answer DID travels as its own
-      // events in the same batch. (`DrewCards` marks a REAL draw beside its
-      // `CardsMoved` — the trigger bus's discriminator, D189.)
+      // events in the same batch.
       return state;
+
+    case 'DrewCards':
+      // A marker too: `DrewCards` marks a REAL draw beside its `CardsMoved`
+      // (the trigger bus's discriminator, D189). D336 - and the turn memory
+      // counts the cards it names ("your second card each turn").
+      return {
+        ...state,
+        turn: { ...state.turn, cardsDrawn: { ...state.turn.cardsDrawn, [body.player]: (state.turn.cardsDrawn[body.player] ?? 0) + body.cards.length } },
+      };
 
     // ── combat ───────────────────────────────────────────────────────────
     case 'CombatBegan':
