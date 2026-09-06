@@ -4952,6 +4952,29 @@ const WANTED = [
   // D338 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
   // D338 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
   'Kitsune Blademaster',
+  // D339 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Springing Tiger',
+  'Werebear',
+  'Cabal Initiate',
+  'Mystic Enforcer',
+  'Mystic Zealot',
+  'Mystic Crusader',
+  'Goblin Wardriver',
+  'Nimble Mongoose',
+  'Anurid Barkripper',
+  'Kuldotha Ringleader',
+  'Krosan Beast',
+  'Mystic Visionary',
+  "Seton's Scout",
+  'Billowing Shriekmass',
+  'Loxodon Partisan',
+  'Battlewise Aven',
+  'Accorder Paladin',
+  'Crashing Centaur',
+  'Dreadwing Scavenger',
+  'Metamorphic Wurm',
+  'Mystic Penitent',
+  // D339 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -5194,6 +5217,8 @@ const WANTED_TOKENS = [
   // D336 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Ape Villain', set: 'tmsc', cn: '26', key: 'APE_VILLAIN_3_3_R_CREATURE_HASTE_TOKEN' },
   { name: 'Rat', set: 'ttdc', cn: '9', key: 'RAT_1_1_B_CREATURE_TOKEN' },
+  // D339 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Squirrel', set: 'tunf', cn: '8', key: 'SQUIRREL_1_1_G_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

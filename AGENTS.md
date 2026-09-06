@@ -10487,6 +10487,32 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D338): the any-colour mana line behind a priced or chooser cost (24 whole: tap an untapped creature you control 7, {1} 4, and a tail - the mana-ability half of the payment problem), deals damage to a player / an opponent (4; a def per damage event), blocks or becomes blocked by a colour or a type (4), the enchantment-or-enchanted defender predicate (1), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3 + 3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15), can't attack or block alone (5), a must-attacker beside an attacking head (1); then the quoted abilities enchanted creatures and lands have (60 + 34 first blockers), Enchant player (42), the look at the top card of your library (38), the modal seam (276), the another split; the modal seam; the "another" split;
       the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4fx — THE THRESHOLD PHRASINGS AND BATTLE CRY: the Threshold read widened
+      to "this creature" and the reversed order, and Battle cry as an attacks
+      trigger row; a generator-only wave; 21 cards land, 21 as
+      generated rows (2026-09-06):**
+      **6,770 of 31,692 Commander-legal cards now execute completely, up
+      from 6,749 (+21).** `SHIPPED_SCRIPTS` 4,203; ledger
+      991 (no rows retired - none of the 21 was in the ledger; measured: the REFUSED map's size). Fixtures 4,576 (4,437 by name + 132 tokens: the 21 rowed cards and one new token pin (the Squirrel, for a Threshold card's token payload)). **Select pool
+      0.** Decisions in **D339**.
+      ⚠️ **The generator** (`d339/make-gen29.cjs`): the Threshold read accepts "this
+      creature" as the subject and the reversed order (the same kind, def, fire
+      and asserts as D335's); Battle cry is an attacks trigger row whose resolve
+      pumps each other attacking creature +1/+0 off the combat state, tested
+      attacking beside the Bears. No engine change; the gate ran the whole unit
+      suite (4,326 files, 21,675 passing / 11 skipped).
+      Measured first: the leftover probe over the database after D338, with Battle cry, every Threshold phrasing (its tail recorded), Raid's head and the Renown / Unleash / Mentor lines as payloads: 259 blocked single-face permanents whose every leftover line the grammar reads - the 159 D338 left and 100 new: Threshold lines the read missed 60 (29 with this creature as the subject, 4 in the reversed order, and a long tail of other bodies), Unleash 10, Renown 11, Mentor 8, Battle cry 4, Raid 7; the row maker took 21 (17 Threshold pumps and grants in the two phrasings, 4 Battle cry) and refused 238 - the 159 as before, 43 Threshold lines whose bodies are outside the read (activated abilities under Activate only if, enchanted-creature and anthem bodies, can't be blocked, a leftover sentence the printed line does not carry whole), and the four keyword mechanics measured for the decision after. NOT this decision: Renown (11 whole; a renowned flag on the instance), Unleash (10; an asked entry choice and a can't-block-with-a-counter def), Raid's enters head (7; an attacked-this-turn turn memory), Mentor (8; target attacking creature with lesser power), the other Threshold bodies (43), the any-colour mana line behind a priced or chooser cost (24), deals damage to a player / an opponent (4), blocks or becomes blocked by a colour or a type (4), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the counts outside the vocabulary (15), can't attack or block alone (5); then the quoted abilities enchanted creatures and lands have (60 + 34 first blockers), Enchant player (42), the look at the top card of your library (38), the modal seam (276), the another split. Refused by name:
+      no rows retired - none of the 21 was in the ledger; measured: the REFUSED map's size.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips and 21 generated rows in one pass, all green. The wave IS the landing: 21 rows - 17 Threshold creatures whose line the read had missed (Springing Tiger, Werebear, Cabal Initiate, Mystic Enforcer, Mystic Zealot, Mystic Crusader, Nimble Mongoose, Anurid Barkripper, Krosan Beast, Mystic Visionary, Seton's Scout, Billowing Shriekmass, Battlewise Aven, Crashing Centaur, Dreadwing Scavenger, Metamorphic Wurm, Mystic Penitent) and 4 with Battle cry (Goblin Wardriver, Kuldotha Ringleader, Loxodon Partisan, Accorder Paladin). Tests: one generated suite per row.
+      Fixtures 4,576 · botPool artifact 366 / creature 3,902 / enchantment 345 / instant 947 / land 487 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1091, 1217, 2862, 4699, 6039] · batch.json
+      21 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,326 files, 21,675 passing / 11 skipped ·
+      500-seed gate, 6 shards, 602.9 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D339): Renown (11 whole; a renowned flag on the instance), Unleash (10; an asked entry choice and a can't-block-with-a-counter def), Raid's enters head (7; an attacked-this-turn turn memory), Mentor (8; target attacking creature with lesser power), the other Threshold bodies (43), the any-colour mana line behind a priced or chooser cost (24), deals damage to a player / an opponent (4), blocks or becomes blocked by a colour or a type (4), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the counts outside the vocabulary (15), can't attack or block alone (5); then the quoted abilities enchanted creatures and lands have (60 + 34 first blockers), Enchant player (42), the look at the top card of your library (38), the modal seam (276), the another split; the modal seam; the "another" split;
+      the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

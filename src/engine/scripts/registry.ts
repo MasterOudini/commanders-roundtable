@@ -7,6 +7,27 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SPRINGING_TIGER_SCRIPT } from './cards/springingTiger';
+import { WEREBEAR_SCRIPT } from './cards/werebear';
+import { CABAL_INITIATE_SCRIPT } from './cards/cabalInitiate';
+import { MYSTIC_ENFORCER_SCRIPT } from './cards/mysticEnforcer';
+import { MYSTIC_ZEALOT_SCRIPT } from './cards/mysticZealot';
+import { MYSTIC_CRUSADER_SCRIPT } from './cards/mysticCrusader';
+import { GOBLIN_WARDRIVER_SCRIPT } from './cards/goblinWardriver';
+import { NIMBLE_MONGOOSE_SCRIPT } from './cards/nimbleMongoose';
+import { ANURID_BARKRIPPER_SCRIPT } from './cards/anuridBarkripper';
+import { KULDOTHA_RINGLEADER_SCRIPT } from './cards/kuldothaRingleader';
+import { KROSAN_BEAST_SCRIPT } from './cards/krosanBeast';
+import { MYSTIC_VISIONARY_SCRIPT } from './cards/mysticVisionary';
+import { SETONS_SCOUT_SCRIPT } from './cards/setonsScout';
+import { BILLOWING_SHRIEKMASS_SCRIPT } from './cards/billowingShriekmass';
+import { LOXODON_PARTISAN_SCRIPT } from './cards/loxodonPartisan';
+import { BATTLEWISE_AVEN_SCRIPT } from './cards/battlewiseAven';
+import { ACCORDER_PALADIN_SCRIPT } from './cards/accorderPaladin';
+import { CRASHING_CENTAUR_SCRIPT } from './cards/crashingCentaur';
+import { DREADWING_SCAVENGER_SCRIPT } from './cards/dreadwingScavenger';
+import { METAMORPHIC_WURM_SCRIPT } from './cards/metamorphicWurm';
+import { MYSTIC_PENITENT_SCRIPT } from './cards/mysticPenitent';
 import { SLIPSTREAM_EEL_SCRIPT } from './cards/slipstreamEel';
 import { CRAW_GIANT_SCRIPT } from './cards/crawGiant';
 import { AERATHI_BERSERKER_SCRIPT } from './cards/aerathiBerserker';
@@ -4208,6 +4229,27 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SPRINGING_TIGER_SCRIPT,
+  WEREBEAR_SCRIPT,
+  CABAL_INITIATE_SCRIPT,
+  MYSTIC_ENFORCER_SCRIPT,
+  MYSTIC_ZEALOT_SCRIPT,
+  MYSTIC_CRUSADER_SCRIPT,
+  GOBLIN_WARDRIVER_SCRIPT,
+  NIMBLE_MONGOOSE_SCRIPT,
+  ANURID_BARKRIPPER_SCRIPT,
+  KULDOTHA_RINGLEADER_SCRIPT,
+  KROSAN_BEAST_SCRIPT,
+  MYSTIC_VISIONARY_SCRIPT,
+  SETONS_SCOUT_SCRIPT,
+  BILLOWING_SHRIEKMASS_SCRIPT,
+  LOXODON_PARTISAN_SCRIPT,
+  BATTLEWISE_AVEN_SCRIPT,
+  ACCORDER_PALADIN_SCRIPT,
+  CRASHING_CENTAUR_SCRIPT,
+  DREADWING_SCAVENGER_SCRIPT,
+  METAMORPHIC_WURM_SCRIPT,
+  MYSTIC_PENITENT_SCRIPT,
   SLIPSTREAM_EEL_SCRIPT,
   CRAW_GIANT_SCRIPT,
   AERATHI_BERSERKER_SCRIPT,

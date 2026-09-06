@@ -149357,6 +149357,754 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SPRINGING_TIGER": {
+    "scryfallId": "04462629-fb03-40e8-84e6-4a66e4d5392b",
+    "oracleId": "2f8c4805-694d-4408-8eb5-9fb7ce278ded",
+    "name": "Springing Tiger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Springing Tiger",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Threshold — This creature gets +2/+2 as long as there are seven or more cards in your graveyard.",
+        "flavorText": "The ground trembled in a violent purr.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Arnie Swekel",
+        "imageId": "04462629-fb03-40e8-84e6-4a66e4d5392b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "272",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WEREBEAR": {
+    "scryfallId": "055b8b4e-4ff8-4526-9abc-ac2fa0dcf1b7",
+    "oracleId": "96cf3320-c730-4618-8768-28a179f4d9c0",
+    "name": "Werebear",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Werebear",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Bear Druid",
+        "oracleText": "{T}: Add {G}.\nThreshold — This creature gets +3/+3 as long as there are seven or more cards in your graveyard.",
+        "flavorText": "He exercises his right to bear arms.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "055b8b4e-4ff8-4526-9abc-ac2fa0dcf1b7"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "wc02",
+    "collectorNumber": "rl282",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CABAL_INITIATE": {
+    "scryfallId": "0f424e7f-4a5f-45a1-8960-228819940f51",
+    "oracleId": "2fc19fa3-c6c2-42c0-85fa-8d13e1baa145",
+    "name": "Cabal Initiate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cabal Initiate",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Warlock",
+        "oracleText": "Discard a card: This creature gains lifelink until end of turn.\nThreshold — This creature gets +1/+2 as long as there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Bastien L. Deharme",
+        "imageId": "0f424e7f-4a5f-45a1-8960-228819940f51"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "300",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYSTIC_ENFORCER": {
+    "scryfallId": "187ebb67-1bdd-4a9c-aeeb-554e7580ce24",
+    "oracleId": "cf3b79cc-ce97-48e9-a578-625e323d1b62",
+    "name": "Mystic Enforcer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mystic Enforcer",
+        "manaCost": "{2}{G}{W}",
+        "typeLine": "Creature — Human Nomad Mystic",
+        "oracleText": "Protection from black\nThreshold — As long as there are seven or more cards in your graveyard, this creature gets +3/+3 and has flying.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Gary Ruddell",
+        "imageId": "187ebb67-1bdd-4a9c-aeeb-554e7580ce24"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Protection",
+      "Threshold"
+    ],
+    "setCode": "dmr",
+    "collectorNumber": "192",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYSTIC_ZEALOT": {
+    "scryfallId": "1ba21062-5d13-47b9-bea1-ded8530a9aeb",
+    "oracleId": "5a47b99d-19dd-4830-89ee-35f4a74aa656",
+    "name": "Mystic Zealot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mystic Zealot",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Nomad Mystic",
+        "oracleText": "Threshold — As long as there are seven or more cards in your graveyard, this creature gets +1/+1 and has flying.",
+        "flavorText": "Nomad youths aspire to one of two roles in the tribe: priest or warrior. Their secret dream is to become both.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "1ba21062-5d13-47b9-bea1-ded8530a9aeb"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYSTIC_CRUSADER": {
+    "scryfallId": "27ce1baf-8a89-4884-b0f7-19311bfc8c4c",
+    "oracleId": "937d663d-c9a7-4312-a4cc-fcb54faa92bc",
+    "name": "Mystic Crusader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mystic Crusader",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Creature — Human Nomad Mystic",
+        "oracleText": "Protection from black and from red\nThreshold — As long as there are seven or more cards in your graveyard, this creature gets +1/+1 and has flying.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "27ce1baf-8a89-4884-b0f7-19311bfc8c4c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Protection",
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_WARDRIVER": {
+    "scryfallId": "2e220c87-1223-4998-b0e5-23e2d930fa6b",
+    "oracleId": "10849bbb-50ca-4194-a7cb-fa872272b29b",
+    "name": "Goblin Wardriver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Wardriver",
+        "manaCost": "{R}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Battle cry (Whenever this creature attacks, each other attacking creature gets +1/+0 until end of turn.)",
+        "flavorText": "\"A true warrior fights with whatever's handy.\"\n—Qerk of the Secret Warren",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chippy",
+        "imageId": "2e220c87-1223-4998-b0e5-23e2d930fa6b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Battle Cry"
+    ],
+    "setCode": "mbs",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIMBLE_MONGOOSE": {
+    "scryfallId": "32bfc161-7bf5-4796-b539-1cdeaa95e3de",
+    "oracleId": "1059f089-2693-4c89-92c5-39fe49beebb3",
+    "name": "Nimble Mongoose",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nimble Mongoose",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Mongoose",
+        "oracleText": "Shroud (This creature can't be the target of spells or abilities.)\nThreshold — This creature gets +2/+2 as long as there are seven or more cards in your graveyard.",
+        "flavorText": "One thread connected all the travelers' stories: the ferocity of the mongoose.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "32bfc161-7bf5-4796-b539-1cdeaa95e3de"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Shroud",
+      "Threshold"
+    ],
+    "setCode": "ema",
+    "collectorNumber": "179",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANURID_BARKRIPPER": {
+    "scryfallId": "33255dfd-f8a9-4a15-aac5-c53dc0257859",
+    "oracleId": "2cdd85c8-fa60-44ca-bc96-d38f029d2184",
+    "name": "Anurid Barkripper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Anurid Barkripper",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Creature — Frog Beast",
+        "oracleText": "Threshold — This creature gets +2/+2 as long as there are seven or more cards in your graveyard.",
+        "flavorText": "When it croaks, so do you.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "33255dfd-f8a9-4a15-aac5-c53dc0257859"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "jud",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KULDOTHA_RINGLEADER": {
+    "scryfallId": "3cda5434-c0a5-4551-8e30-b1923f0001b8",
+    "oracleId": "dff72513-b67a-4732-a8fc-269cbf21ae99",
+    "name": "Kuldotha Ringleader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kuldotha Ringleader",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Giant Berserker",
+        "oracleText": "Battle cry (Whenever this creature attacks, each other attacking creature gets +1/+0 until end of turn.)\nThis creature attacks each combat if able.",
+        "flavorText": "Being surrounded by goblins is less objectionable when they're fighting *for* you.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "3cda5434-c0a5-4551-8e30-b1923f0001b8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Battle Cry"
+    ],
+    "setCode": "mbs",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KROSAN_BEAST": {
+    "scryfallId": "47ea2f2d-14ca-4b57-b973-5ce7db35bebf",
+    "oracleId": "042a665d-2f63-4f7e-ac89-0d560da68085",
+    "name": "Krosan Beast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Krosan Beast",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Squirrel Beast",
+        "oracleText": "Threshold — This creature gets +7/+7 as long as there are seven or more cards in your graveyard.",
+        "flavorText": "The true Fist of Krosa is big and furry.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ivan Shavrin",
+        "imageId": "47ea2f2d-14ca-4b57-b973-5ce7db35bebf"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "196",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYSTIC_VISIONARY": {
+    "scryfallId": "48ed1b3d-0f7e-46ff-ada7-ebbd416ecf5b",
+    "oracleId": "bde74bcc-41b8-4014-b28e-2f6326e20799",
+    "name": "Mystic Visionary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mystic Visionary",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Nomad Mystic",
+        "oracleText": "Threshold — This creature has flying as long as there are seven or more cards in your graveyard.",
+        "flavorText": "\"The aven are heralds of divinity. The greatest glory is to join them in the sky.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "48ed1b3d-0f7e-46ff-ada7-ebbd416ecf5b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "35",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SETON_S_SCOUT": {
+    "scryfallId": "732bf7bb-5326-4742-8311-96ddbfe14b38",
+    "oracleId": "7b2a32ca-ef5b-40a5-acf7-aefac1d09e5b",
+    "name": "Seton's Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seton's Scout",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Centaur Druid Scout Archer",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nThreshold — This creature gets +2/+2 as long as there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mark Romanoski",
+        "imageId": "732bf7bb-5326-4742-8311-96ddbfe14b38"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Reach",
+      "Threshold"
+    ],
+    "setCode": "tor",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BILLOWING_SHRIEKMASS": {
+    "scryfallId": "7b3587a9-0667-4d53-807b-c437bcb1d7b3",
+    "oracleId": "ce45d6bd-74e3-401b-983d-028d3fb942da",
+    "name": "Billowing Shriekmass",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Billowing Shriekmass",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nWhen this creature enters, mill three cards. (Put the top three cards of your library into your graveyard.)\nThreshold — This creature gets +2/+1 as long as there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Brent Hollowell",
+        "imageId": "7b3587a9-0667-4d53-807b-c437bcb1d7b3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Threshold",
+      "Mill"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "56",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOXODON_PARTISAN": {
+    "scryfallId": "9fc32454-fc44-454e-ba25-7bd0687cf99d",
+    "oracleId": "9d2bfbb2-84df-4d7c-9989-7f5577f90d97",
+    "name": "Loxodon Partisan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loxodon Partisan",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Elephant Soldier",
+        "oracleText": "Battle cry (Whenever this creature attacks, each other attacking creature gets +1/+0 until end of turn.)",
+        "flavorText": "\"On every plane I've encountered loxodons, I've found stalwart and loyal friends.\"\n—Elspeth",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "9fc32454-fc44-454e-ba25-7bd0687cf99d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Battle Cry"
+    ],
+    "setCode": "ddo",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BATTLEWISE_AVEN": {
+    "scryfallId": "ca363409-cba9-43ed-bf88-3519521e1983",
+    "oracleId": "f165e482-5b87-4062-87ac-bbe8303f74c9",
+    "name": "Battlewise Aven",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Battlewise Aven",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Bird Soldier",
+        "oracleText": "Flying\nThreshold — As long as there are seven or more cards in your graveyard, this creature gets +1/+1 and has first strike.",
+        "flavorText": "Experience is a good teacher, not a kind one.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Wayne England",
+        "imageId": "ca363409-cba9-43ed-bf88-3519521e1983"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Threshold"
+    ],
+    "setCode": "jud",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ACCORDER_PALADIN": {
+    "scryfallId": "df0a4370-729d-40e7-b68b-21902648492d",
+    "oracleId": "6891c8b7-7112-40dc-8b94-b84ad1885e5e",
+    "name": "Accorder Paladin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Accorder Paladin",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Battle cry (Whenever this creature attacks, each other attacking creature gets +1/+0 until end of turn.)",
+        "flavorText": "\"I fight for the suns, the surface, and everything in between.\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kekai Kotaki",
+        "imageId": "df0a4370-729d-40e7-b68b-21902648492d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Battle Cry"
+    ],
+    "setCode": "mbs",
+    "collectorNumber": "1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRASHING_CENTAUR": {
+    "scryfallId": "e1f3a32a-bfd2-4c31-a349-3e62a84c20e1",
+    "oracleId": "d13a9cb1-1c76-4ac1-80d8-3c471753a588",
+    "name": "Crashing Centaur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crashing Centaur",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Centaur",
+        "oracleText": "{G}, Discard a card: This creature gains trample until end of turn.\nThreshold — As long as there are seven or more cards in your graveyard, this creature gets +2/+2 and has shroud. (It can't be the target of spells or abilities.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Eric Peterson",
+        "imageId": "e1f3a32a-bfd2-4c31-a349-3e62a84c20e1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "235",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREADWING_SCAVENGER": {
+    "scryfallId": "e24d838b-ab48-410a-9a50-dbfea5da089b",
+    "oracleId": "bbfd0de0-3558-4833-bae4-8efae44b7fff",
+    "name": "Dreadwing Scavenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dreadwing Scavenger",
+        "manaCost": "{1}{U}{B}",
+        "typeLine": "Creature — Nightmare Bird",
+        "oracleText": "Flying\nWhenever this creature enters or attacks, draw a card, then discard a card.\nThreshold — This creature gets +1/+1 and has deathtouch as long as there are seven or more cards in your graveyard.",
+        "flavorText": "It scours battlefields for corpses, consuming flesh and souls alike.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Xavier Ribeiro",
+        "imageId": "e24d838b-ab48-410a-9a50-dbfea5da089b"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Threshold"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "METAMORPHIC_WURM": {
+    "scryfallId": "f47e020a-ed73-465a-b7eb-a4eeccd096cc",
+    "oracleId": "512477f0-1083-423b-9675-a8bc852f7d88",
+    "name": "Metamorphic Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Metamorphic Wurm",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Elephant Wurm",
+        "oracleText": "Threshold — This creature gets +4/+4 as long as there are seven or more cards in your graveyard.",
+        "flavorText": "Only a handful have seen it transform. Or, from the wurm's perspective, only a mouthful.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "f47e020a-ed73-465a-b7eb-a4eeccd096cc"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "250",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYSTIC_PENITENT": {
+    "scryfallId": "fb37f08b-019e-4e6b-8b15-b2971a3b5ebb",
+    "oracleId": "d3d59704-569d-42a7-8b31-8a31b9c0395f",
+    "name": "Mystic Penitent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mystic Penitent",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Nomad Mystic",
+        "oracleText": "Vigilance\nThreshold — As long as there are seven or more cards in your graveyard, this creature gets +1/+1 and has flying.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Larry Elmore",
+        "imageId": "fb37f08b-019e-4e6b-8b15-b2971a3b5ebb"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Vigilance",
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -153698,6 +154446,39 @@
     "keywords": [],
     "setCode": "ttdc",
     "collectorNumber": "9",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SQUIRREL_1_1_G_CREATURE_TOKEN": {
+    "scryfallId": "0b4170e0-c899-481a-8076-cae9f3effc37",
+    "oracleId": "67f21c0c-2083-4eda-9dc3-cc8aee42289f",
+    "name": "Squirrel",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Squirrel",
+        "manaCost": "",
+        "typeLine": "Token Creature — Squirrel",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dave Greco",
+        "imageId": "0b4170e0-c899-481a-8076-cae9f3effc37"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tunf",
+    "collectorNumber": "8",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

@@ -4441,6 +4441,27 @@ export const STEAM_FRIGATE: CardData = F.STEAM_FRIGATE as CardData;
 export const DEEP_SEA_SERPENT: CardData = F.DEEP_SEA_SERPENT as CardData;
 export const SERPENT_OF_THE_ENDLESS_SEA: CardData = F.SERPENT_OF_THE_ENDLESS_SEA as CardData;
 export const KITSUNE_BLADEMASTER: CardData = F.KITSUNE_BLADEMASTER as CardData;
+export const SPRINGING_TIGER: CardData = F.SPRINGING_TIGER as CardData;
+export const WEREBEAR: CardData = F.WEREBEAR as CardData;
+export const CABAL_INITIATE: CardData = F.CABAL_INITIATE as CardData;
+export const MYSTIC_ENFORCER: CardData = F.MYSTIC_ENFORCER as CardData;
+export const MYSTIC_ZEALOT: CardData = F.MYSTIC_ZEALOT as CardData;
+export const MYSTIC_CRUSADER: CardData = F.MYSTIC_CRUSADER as CardData;
+export const GOBLIN_WARDRIVER: CardData = F.GOBLIN_WARDRIVER as CardData;
+export const NIMBLE_MONGOOSE: CardData = F.NIMBLE_MONGOOSE as CardData;
+export const ANURID_BARKRIPPER: CardData = F.ANURID_BARKRIPPER as CardData;
+export const KULDOTHA_RINGLEADER: CardData = F.KULDOTHA_RINGLEADER as CardData;
+export const KROSAN_BEAST: CardData = F.KROSAN_BEAST as CardData;
+export const MYSTIC_VISIONARY: CardData = F.MYSTIC_VISIONARY as CardData;
+export const SETON_S_SCOUT: CardData = F.SETON_S_SCOUT as CardData;
+export const BILLOWING_SHRIEKMASS: CardData = F.BILLOWING_SHRIEKMASS as CardData;
+export const LOXODON_PARTISAN: CardData = F.LOXODON_PARTISAN as CardData;
+export const BATTLEWISE_AVEN: CardData = F.BATTLEWISE_AVEN as CardData;
+export const ACCORDER_PALADIN: CardData = F.ACCORDER_PALADIN as CardData;
+export const CRASHING_CENTAUR: CardData = F.CRASHING_CENTAUR as CardData;
+export const DREADWING_SCAVENGER: CardData = F.DREADWING_SCAVENGER as CardData;
+export const METAMORPHIC_WURM: CardData = F.METAMORPHIC_WURM as CardData;
+export const MYSTIC_PENITENT: CardData = F.MYSTIC_PENITENT as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -4572,6 +4593,7 @@ export const SPIRIT_1_1_W_CREATURE_TOKEN: CardData = F.SPIRIT_1_1_W_CREATURE_TOK
 export const ELF_2_2_BG_CREATURE_TOKEN: CardData = F.ELF_2_2_BG_CREATURE_TOKEN as CardData;
 export const APE_VILLAIN_3_3_R_CREATURE_HASTE_TOKEN: CardData = F.APE_VILLAIN_3_3_R_CREATURE_HASTE_TOKEN as CardData;
 export const RAT_1_1_B_CREATURE_TOKEN: CardData = F.RAT_1_1_B_CREATURE_TOKEN as CardData;
+export const SQUIRREL_1_1_G_CREATURE_TOKEN: CardData = F.SQUIRREL_1_1_G_CREATURE_TOKEN as CardData;
 
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
@@ -8998,6 +9020,27 @@ export const ENGINE_CARDS: CardData[] = [
   DEEP_SEA_SERPENT,
   SERPENT_OF_THE_ENDLESS_SEA,
   KITSUNE_BLADEMASTER,
+  SPRINGING_TIGER,
+  WEREBEAR,
+  CABAL_INITIATE,
+  MYSTIC_ENFORCER,
+  MYSTIC_ZEALOT,
+  MYSTIC_CRUSADER,
+  GOBLIN_WARDRIVER,
+  NIMBLE_MONGOOSE,
+  ANURID_BARKRIPPER,
+  KULDOTHA_RINGLEADER,
+  KROSAN_BEAST,
+  MYSTIC_VISIONARY,
+  SETON_S_SCOUT,
+  BILLOWING_SHRIEKMASS,
+  LOXODON_PARTISAN,
+  BATTLEWISE_AVEN,
+  ACCORDER_PALADIN,
+  CRASHING_CENTAUR,
+  DREADWING_SCAVENGER,
+  METAMORPHIC_WURM,
+  MYSTIC_PENITENT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -9129,4 +9172,5 @@ export const ENGINE_CARDS: CardData[] = [
   ELF_2_2_BG_CREATURE_TOKEN,
   APE_VILLAIN_3_3_R_CREATURE_HASTE_TOKEN,
   RAT_1_1_B_CREATURE_TOKEN,
+  SQUIRREL_1_1_G_CREATURE_TOKEN,
 ];
