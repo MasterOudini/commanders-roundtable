@@ -101,7 +101,7 @@ const NAMED: Readonly<Record<string, string>> = {
   kicker: 'pay the extra cost yourself and apply the effect',
   multikicker: 'pay the extra cost yourself and apply the effect',
   morph: 'turn it face down with the card menu',
-  regenerate: 'apply the shield yourself',
+  // D330 - regeneration is the engine's now (CR 701.19): no note.
   prowess: 'add the bonus yourself with the counters tool',
   convoke: 'tap the creatures yourself',
   delve: 'exile the cards yourself',

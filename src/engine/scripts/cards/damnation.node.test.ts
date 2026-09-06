@@ -1,48 +1,78 @@
-// The tripwire under Damnation's whole-card claim: "They can't be
-// regenerated." is executed as NOTHING because the engine has no
-// regeneration — no shield, no effect that creates one, no SBA that
-// consults one. That is only honest while it stays true, so this scan
-// fails BY FILE NAME the day anything under src/engine/ implements or
-// consults regeneration, and Damnation (and every wipe shipped on the
-// same argument) must join the wave that models the interaction. D192.
+// The tripwire under Damnation's whole-card claim, rewritten for D330.
+//
+// D192's argument was VACUITY: "They can't be regenerated." executed as
+// nothing because the engine had no regeneration, and this scan failed by
+// file name the day anything under src/engine/ implemented or consulted
+// one. D330 built the shield (CR 701.19). The claim now rests on two facts
+// this test pins instead:
+//   1. the seam lives in exactly the files that are known to hold it - a
+//      new file that mentions regeneration must join this list on purpose,
+//      with its D-entry, and
+//   2. every wipe shipped on the old argument still carries the printed
+//      clause and never consults the shield: it moves the creatures itself,
+//      so a shielded creature dies to it exactly as the rules say (proven
+//      end to end for Damnation in `src/engine/regeneration.test.ts`).
 
-import { readdirSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { describe, expect, test } from 'vitest';
 
-describe('the regeneration vacuity argument (Damnation, D192)', () => {
-  test('no engine source implements or consults regeneration', () => {
-    const dir = join(__dirname, '..', '..');
-    const offenders: string[] = [];
+/** The wipes shipped on the vacuity argument (D192 ... D297), by module. */
+const WIPES_WITH_THE_CLAUSE = [
+  'damnation.ts', 'terminate.ts', 'wrathOfGod.ts', 'consumeTheMeek.ts', 'crumble.ts', 'devourInShadow.ts', 'fissure.ts',
+  'fleshToDust.ts', 'jokulhaups.ts', 'oxidize.ts', 'perish.ts', 'pillage.ts', 'plagueWind.ts', 'putrefy.ts', 'reprisal.ts',
+  'retributionOfTheMeek.ts', 'seedsOfInnocence.ts', 'shatterstorm.ts', 'smother.ts', 'windsOfRath.ts', 'darkHatchling.ts',
+  'murderousSpoils.ts', 'notoriousAssassin.ts', 'phyrexianBloodstock.ts', 'pitTrap.ts', 'plagueSpores.ts', 'sealOfDoom.ts',
+  'severSoul.ts', 'vendetta.ts', 'visaraTheDreadful.ts', 'wordOfBlasting.ts',
+];
+
+/** D330 - where the engine implements or consults the regeneration shield. */
+const THE_SEAM = [
+  'effects.ts',
+  'log.ts',
+  'loop.ts',
+  'reducer.ts',
+  'sba.ts',
+  'types/events.ts',
+  'types/oracle.ts',
+  'types/state.ts',
+];
+
+describe('the regeneration tripwire (Damnation, D192; the seam, D330)', () => {
+  const engineDir = join(__dirname, '..', '..');
+  const cardsDir = __dirname;
+
+  test('the seam lives in exactly the files known to hold it', () => {
+    const found: string[] = [];
     const walk = (d: string): void => {
       for (const entry of readdirSync(d, { withFileTypes: true })) {
         const p = join(d, entry.name);
         if (entry.isDirectory()) {
+          // Card scripts are the seam's CLIENTS (a regenerate line in their
+          // printed text and a shield event in their defs), never the seam.
+          if (p === cardsDir) continue;
           walk(p);
           continue;
         }
         if (!entry.name.endsWith('.ts')) continue;
         if (entry.name.includes('.test.')) continue;
-        // ⚠️ The cards SHIPPED ON the vacuity argument carry the printed
-        // clause in their own TEXT constants — they are the argument's
-        // clients, not implementations. A new wipe with the clause joins
-        // this list deliberately, with the D-entry updated beside it
-        // (D192 Damnation · D196 Terminate, Wrath of God · D204 Consume the
-        // Meek · D205 Crumble · D208 Devour in Shadow · D213 Fissure ·
-        // D214 Flesh to Dust · D221 Jokulhaups · D231 Oxidize · D232
-        // Perish · D233 Pillage, Plague Wind · D236 Putrefy · D239
-        // Reprisal · D240 Retribution of the Meek · D245 Seeds of
-        // Innocence · D246 Shatterstorm · D249 Smother · D269 Winds of Rath ·
-        // D295 Dark Hatchling, Murderous Spoils, Notorious Assassin, Phyrexian
-        // Bloodstock, Pit Trap, Plague Spores, Seal of Doom, Sever Soul,
-        // Vendetta, Visara the Dreadful - since D295 the sentence itself reads
-        // as a claimed no-op in `effectParse`; these scripts carry it in TEXT ·
-        // D297 Word of Blasting).
-        if (['damnation.ts', 'terminate.ts', 'wrathOfGod.ts', 'consumeTheMeek.ts', 'crumble.ts', 'devourInShadow.ts', 'fissure.ts', 'fleshToDust.ts', 'jokulhaups.ts', 'oxidize.ts', 'perish.ts', 'pillage.ts', 'plagueWind.ts', 'putrefy.ts', 'reprisal.ts', 'retributionOfTheMeek.ts', 'seedsOfInnocence.ts', 'shatterstorm.ts', 'smother.ts', 'windsOfRath.ts', 'darkHatchling.ts', 'murderousSpoils.ts', 'notoriousAssassin.ts', 'phyrexianBloodstock.ts', 'pitTrap.ts', 'plagueSpores.ts', 'sealOfDoom.ts', 'severSoul.ts', 'vendetta.ts', 'visaraTheDreadful.ts', 'wordOfBlasting.ts'].includes(entry.name)) continue;
-        if (/\bregenerat/i.test(readFileSync(p, 'utf8'))) offenders.push(p);
+        if (/\bregenerat/i.test(readFileSync(p, 'utf8'))) found.push(relative(engineDir, p).replace(/\\/g, '/'));
       }
     };
-    walk(dir);
-    expect(offenders).toEqual([]);
+    walk(engineDir);
+    expect(found.sort()).toEqual([...THE_SEAM].sort());
+  });
+
+  test('every wipe shipped on the vacuity argument still says the clause and never consults the shield', () => {
+    // The old list named a few wipes by their fixture rather than a module of
+    // their own (Terminate, Wrath of God resolve through `effectParse`); the
+    // check is over the modules that exist.
+    const shipped = WIPES_WITH_THE_CLAUSE.filter((name) => existsSync(join(cardsDir, name)));
+    expect(shipped.length).toBeGreaterThanOrEqual(25);
+    for (const name of shipped) {
+      const source = readFileSync(join(cardsDir, name), 'utf8');
+      expect(source, name).toMatch(/can't be regenerated/);
+      expect(source, name).not.toMatch(/regenerationShields|RegenerationShieldAdded|Regenerated/);
+    }
   });
 });

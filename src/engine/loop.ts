@@ -566,7 +566,7 @@ function endStep(state: GameState, deps: EngineDeps): Emitted {
     // CR 514.2 — "until end of turn" effects end here, in the same turn-based
     // action that wipes damage. A Giant Growth that outlived its turn would make
     // every subsequent combat wrong, quietly.
-    if (state.untilEndOfTurn.length > 0) events.push({ t: 'UntilEndOfTurnEnded' });
+    if (state.untilEndOfTurn.length > 0 || Object.keys(state.regenerationShields).length > 0) events.push({ t: 'UntilEndOfTurnEnded' });
   }
   void deps;
   return emitted(events);

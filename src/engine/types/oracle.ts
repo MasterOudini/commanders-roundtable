@@ -556,6 +556,8 @@ export interface EffectSpec {
   readonly targetIndex: number;
   /** Applies to the caster rather than to a target. `You gain 3 life`. */
   readonly self: boolean;
+  /** D330 - "It can't be regenerated." rides the destroy it follows: the shield is not consulted. */
+  readonly noRegenerate?: boolean;
   /**
    * D299: the clause reads "up to N" / "any number of" — declaring NO target
    * for it is legal, and the consumer skips the clause silently rather than

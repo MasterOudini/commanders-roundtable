@@ -144400,6 +144400,3114 @@ export const SOUL_SHEPHERD: CardData = {
   "singleImage": true
 };
 
+export const DRUDGE_SKELETONS: CardData = {
+  "scryfallId": "013de212-bb3c-4499-8a14-e8f764dedca3",
+  "oracleId": "c180ed02-07f4-4538-9bea-8c249234a8e2",
+  "name": "Drudge Skeletons",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drudge Skeletons",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Skeleton",
+      "oracleText": "{B}: Regenerate this creature. (The next time this creature would be destroyed this turn, instead tap it, remove it from combat, and heal all damage on it.)",
+      "flavorText": "\"The dead make good soldiers. They can't disobey orders, never surrender, and don't stop fighting when a random body part falls off.\"\n—Nevinyrral, *Necromancer's Handbook*",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jim Nelson",
+      "imageId": "013de212-bb3c-4499-8a14-e8f764dedca3"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Heal",
+    "Regenerate"
+  ],
+  "setCode": "9ed",
+  "collectorNumber": "126★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SENTRY_OF_THE_UNDERWORLD: CardData = {
+  "scryfallId": "018a9c98-1cb4-4c53-a765-c15808c4ab44",
+  "oracleId": "fd4d83fa-070c-46bf-a620-041f69acdea9",
+  "name": "Sentry of the Underworld",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sentry of the Underworld",
+      "manaCost": "{3}{W}{B}",
+      "typeLine": "Creature — Griffin Skeleton",
+      "oracleText": "Flying, vigilance\n{W}{B}, Pay 3 life: Regenerate this creature.",
+      "flavorText": "When Athreos gathers the newly dead to be ferried across the Five Rivers That Ring the World, he sends skeletal griffins to fetch those who stray.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "W"
+      ],
+      "artist": "Dave Kendall",
+      "imageId": "018a9c98-1cb4-4c53-a765-c15808c4ab44"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying",
+    "Vigilance",
+    "Regenerate"
+  ],
+  "setCode": "ths",
+  "collectorNumber": "202",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRUDGE_REAVERS: CardData = {
+  "scryfallId": "03c07d9a-afed-4028-9fa1-ec439b60f08f",
+  "oracleId": "3edc147f-a385-413a-99b6-27d2cf8cf930",
+  "name": "Drudge Reavers",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drudge Reavers",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Skeleton",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\n{B}: Regenerate this creature.",
+      "flavorText": "\"The surface of the land is blanched with salt, but the soil beneath is reddened with death—a fertile ground for necromancy.\"\n—Lim-Dûl the Necromancer",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Greg Staples",
+      "imageId": "03c07d9a-afed-4028-9fa1-ec439b60f08f"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Regenerate",
+    "Flash"
+  ],
+  "setCode": "tsp",
+  "collectorNumber": "105",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UTHDEN_TROLL: CardData = {
+  "scryfallId": "0403aef5-b5f3-4d07-a350-4874801b27e8",
+  "oracleId": "d6329dcc-b450-482a-8ee3-45449f7a4b3d",
+  "name": "Uthden Troll",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Uthden Troll",
+      "manaCost": "{2}{R}",
+      "typeLine": "Creature — Troll",
+      "oracleText": "{R}: Regenerate this creature.",
+      "flavorText": "\"Oi oi oi, me gotta hurt in 'ere,\nOi oi oi, me smell a ting is near,\nGonna bosh 'n gonna nosh 'n da\nhurt'll disappear.\"\n—Traditional",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Douglas Shuler",
+      "imageId": "0403aef5-b5f3-4d07-a350-4874801b27e8"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "3ed",
+  "collectorNumber": "182",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MISCHIEVOUS_POLTERGEIST: CardData = {
+  "scryfallId": "054254ee-29cf-48d7-afbf-cb6de83e513e",
+  "oracleId": "c12b5b9a-a46e-4635-8603-62c2ca5ee58e",
+  "name": "Mischievous Poltergeist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mischievous Poltergeist",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\nPay 1 life: Regenerate this creature.",
+      "flavorText": "\"The past is a ghost that haunts you from the moment it exists until the moment you don't.\"\n—Gerrard of the *Weatherlight*",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "DiTerlizzi",
+      "imageId": "054254ee-29cf-48d7-afbf-cb6de83e513e"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying",
+    "Regenerate"
+  ],
+  "setCode": "wth",
+  "collectorNumber": "74",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WILL_O_THE_WISP: CardData = {
+  "scryfallId": "066a1cd2-6778-45bb-84b8-4a9958cf10d7",
+  "oracleId": "8b60fcfe-fb90-4a00-a708-25b59bfc9b5a",
+  "name": "Will-o'-the-Wisp",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Will-o'-the-Wisp",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\n{B}: Regenerate this creature. (The next time this creature would be destroyed this turn, instead tap it, remove it from combat, and heal all damage on it.)",
+      "flavorText": "\"On dark nights you can still see the light of the Vess girl's lantern out in the Caligo, seeking her lost brother. Those who follow are doomed to join her endless search.\"\n—\"The Fall of the House of Vess\"",
+      "power": "0",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Rob Alexander",
+      "imageId": "066a1cd2-6778-45bb-84b8-4a9958cf10d7"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Flying",
+    "Heal",
+    "Regenerate"
+  ],
+  "setCode": "a25",
+  "collectorNumber": "115",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CADAVEROUS_KNIGHT: CardData = {
+  "scryfallId": "06e954b2-c8ce-4b6c-a118-4a14ffa72063",
+  "oracleId": "250a027f-2b3e-4eaf-899a-a9da8be20070",
+  "name": "Cadaverous Knight",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cadaverous Knight",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Zombie Knight",
+      "oracleText": "Flanking (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.)\n{1}{B}{B}: Regenerate this creature.",
+      "flavorText": "Grieve for the soul in death dishonored.\n—Shadow Guild saying",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dermot Power",
+      "imageId": "06e954b2-c8ce-4b6c-a118-4a14ffa72063"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flanking",
+    "Regenerate"
+  ],
+  "setCode": "mir",
+  "collectorNumber": "110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SUTURE_SPIRIT: CardData = {
+  "scryfallId": "08520f97-e7f5-45fc-9423-fa6a3a507671",
+  "oracleId": "4b2eba61-3937-4dc2-ad0a-e51fff8ecb80",
+  "name": "Suture Spirit",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Suture Spirit",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Spirit",
+      "oracleText": "Flying\n{W/B}{W/B}{W/B}: Regenerate target creature.",
+      "flavorText": "Is her need to heal born out of compassion or penance?",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Larry MacDougall",
+      "imageId": "08520f97-e7f5-45fc-9423-fa6a3a507671"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying",
+    "Regenerate"
+  ],
+  "setCode": "eve",
+  "collectorNumber": "16",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GORILLA_CHIEFTAIN: CardData = {
+  "scryfallId": "0a296e4f-7ac8-4c4b-99d1-c02963d26b74",
+  "oracleId": "4137ee86-bbf0-49dc-87c5-b48a384baac4",
+  "name": "Gorilla Chieftain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Gorilla Chieftain",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Ape",
+      "oracleText": "{1}{G}: Regenerate this creature.",
+      "flavorText": "\"In the soil of leadership sprout the seeds of immortality.\"\n—Kaysa, Elder Druid of the Juniper",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Quinton Hoover",
+      "imageId": "0a296e4f-7ac8-4c4b-99d1-c02963d26b74"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "6ed",
+  "collectorNumber": "235",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAGNAR: CardData = {
+  "scryfallId": "0a96bd0c-7b04-45ea-9b6f-e827a64a1bad",
+  "oracleId": "6d474413-e72f-414e-872f-aa00d38b7da4",
+  "name": "Ragnar",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ragnar",
+      "manaCost": "{G}{W}{U}",
+      "typeLine": "Legendary Creature — Human Cleric",
+      "oracleText": "{G}{W}{U}, {T}: Regenerate target creature.",
+      "flavorText": "\"On the field of honor, a soldier need have no fear.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "U",
+        "W"
+      ],
+      "artist": "Melissa A. Benson",
+      "imageId": "0a96bd0c-7b04-45ea-9b6f-e827a64a1bad"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "me3",
+  "collectorNumber": "167",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WAKE_OF_VULTURES: CardData = {
+  "scryfallId": "0c23716e-453e-4686-a8dd-ca1d67ad577d",
+  "oracleId": "2948b1d5-c12c-45c4-a3e8-aa470fcee1af",
+  "name": "Wake of Vultures",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wake of Vultures",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Bird",
+      "oracleText": "Flying\n{1}{B}, Sacrifice a creature: Regenerate this creature.",
+      "flavorText": "\"So the vulture said to the griffin, 'You gonna eat that?'\"\n—Azeworai, \"The Ugly Bird\"",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jeff Miracola",
+      "imageId": "0c23716e-453e-4686-a8dd-ca1d67ad577d"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying",
+    "Regenerate"
+  ],
+  "setCode": "ema",
+  "collectorNumber": "115",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CLAY_STATUE: CardData = {
+  "scryfallId": "0dd9b203-fa4c-4383-a671-265101f4453a",
+  "oracleId": "cc1ba59c-bb70-4da9-bbd0-a466075f9053",
+  "name": "Clay Statue",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Clay Statue",
+      "manaCost": "{4}",
+      "typeLine": "Artifact Creature — Golem",
+      "oracleText": "{2}: Regenerate this creature.",
+      "flavorText": "Tawnos won fame as Urza's greatest assistant. After he created these warriors, Urza ended his apprenticeship, promoting him directly to the rank of master.",
+      "power": "3",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Jesper Myrfors",
+      "imageId": "0dd9b203-fa4c-4383-a671-265101f4453a"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "4ed",
+  "collectorNumber": "305",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const UNWORTHY_DEAD: CardData = {
+  "scryfallId": "0f42c561-1762-43c4-a539-0cf9a5ce7f4f",
+  "oracleId": "7454e2cf-5ef2-4623-bac7-c375fd230595",
+  "name": "Unworthy Dead",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Unworthy Dead",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Phyrexian Skeleton",
+      "oracleText": "{B}: Regenerate this creature.",
+      "flavorText": "\"Great Yawgmoth moves across the seas of shard and bone and rust. We exalt him in life, in death, and in between.\"\n—*Phyrexian Scriptures*",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "0f42c561-1762-43c4-a539-0cf9a5ce7f4f"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "usg",
+  "collectorNumber": "163",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WALL_OF_BRAMBLES: CardData = {
+  "scryfallId": "104b4849-cfa0-438a-b01e-71995960aedf",
+  "oracleId": "f8d82a00-c10e-4b9e-9642-d05706900a97",
+  "name": "Wall of Brambles",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wall of Brambles",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Plant Wall",
+      "oracleText": "Defender (This creature can't attack.)\n{G}: Regenerate this creature.",
+      "flavorText": "\"What else, when chaos draws all forces inward to shape a single leaf.\" —Conrad Aiken",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Anson Maddocks",
+      "imageId": "104b4849-cfa0-438a-b01e-71995960aedf"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate",
+    "Defender"
+  ],
+  "setCode": "sum",
+  "collectorNumber": "224",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SCREECHING_HARPY: CardData = {
+  "scryfallId": "10c02902-4e3a-445e-9dd9-116806ddc966",
+  "oracleId": "58bbd316-e22c-4c23-8024-364122d1e9a2",
+  "name": "Screeching Harpy",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Screeching Harpy",
+      "manaCost": "{2}{B}{B}",
+      "typeLine": "Creature — Harpy Beast",
+      "oracleText": "Flying\n{1}{B}: Regenerate this creature.",
+      "flavorText": "\"They are called 'fowl' for a reason.\"\n—Mirri of the *Weatherlight*",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Una Fricker",
+      "imageId": "10c02902-4e3a-445e-9dd9-116806ddc966"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying",
+    "Regenerate"
+  ],
+  "setCode": "tmp",
+  "collectorNumber": "155",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const BLIGHT_MAMBA: CardData = {
+  "scryfallId": "11803603-eb22-4ec9-b308-5d73d17a6770",
+  "oracleId": "e11a856c-31d3-4f4b-a517-8a5134b88517",
+  "name": "Blight Mamba",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Blight Mamba",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Phyrexian Snake",
+      "oracleText": "Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)\n{1}{G}: Regenerate this creature.",
+      "flavorText": "Its venom drips with Phyrexia's hate.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Drew Baker",
+      "imageId": "11803603-eb22-4ec9-b308-5d73d17a6770"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate",
+    "Infect"
+  ],
+  "setCode": "onc",
+  "collectorNumber": "105",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TROLL_ASCETIC: CardData = {
+  "scryfallId": "1212c7dd-c45b-458f-94e4-3f090e22ce52",
+  "oracleId": "0585ea6a-ef78-4386-a22c-6b8d8fc6c03c",
+  "name": "Troll Ascetic",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Troll Ascetic",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Creature — Troll Shaman",
+      "oracleText": "Hexproof (This creature can't be the target of spells or abilities your opponents control.)\n{1}{G}: Regenerate this creature.",
+      "flavorText": null,
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Puddnhead",
+      "imageId": "1212c7dd-c45b-458f-94e4-3f090e22ce52"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Hexproof",
+    "Regenerate"
+  ],
+  "setCode": "ps11",
+  "collectorNumber": "162",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RIVER_BOA: CardData = {
+  "scryfallId": "12c165e6-4268-4c16-ac3c-876b4015d18d",
+  "oracleId": "86187aed-77ce-4b2d-aab0-0a8f807a9451",
+  "name": "River Boa",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "River Boa",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Snake",
+      "oracleText": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.)\n{G}: Regenerate this creature.",
+      "flavorText": "\"But no one heard the snake's gentle hiss for peace over the elephant's trumpeting of war.\"\n—Afari, *Tales*",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Steve White",
+      "imageId": "12c165e6-4268-4c16-ac3c-876b4015d18d"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Landwalk",
+    "Regenerate",
+    "Islandwalk"
+  ],
+  "setCode": "wc97",
+  "collectorNumber": "sg118sb",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SPECTRAL_LYNX: CardData = {
+  "scryfallId": "13099abe-721e-42b4-9666-9e6b5f1d75c9",
+  "oracleId": "b5187725-9a39-433c-ae09-eccd6111574c",
+  "name": "Spectral Lynx",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Spectral Lynx",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Cat Spirit",
+      "oracleText": "Protection from green\n{B}: Regenerate this creature.",
+      "flavorText": "A shadowy version of its corporeal cousin, this lynx hunts souls, not meals.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "13099abe-721e-42b4-9666-9e6b5f1d75c9"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate",
+    "Protection"
+  ],
+  "setCode": "apc",
+  "collectorNumber": "17",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LIM_D_L_S_HIGH_GUARD: CardData = {
+  "scryfallId": "1777f69c-869e-414e-afe3-892714a6032a",
+  "oracleId": "b0873be6-0b77-4ca4-8c45-a1207b184771",
+  "name": "Lim-Dûl's High Guard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lim-Dûl's High Guard",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Creature — Skeleton",
+      "oracleText": "First strike\n{1}{B}: Regenerate this creature.",
+      "flavorText": "\"The guard will forever stand ready. For them, death is merely an inconvenience, not an ending.\"\n—Chaeska, Keeper of Tresserhorn",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Anson Maddocks",
+      "imageId": "1777f69c-869e-414e-afe3-892714a6032a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "First strike",
+    "Regenerate"
+  ],
+  "setCode": "me2",
+  "collectorNumber": "103",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MIRE_BOA: CardData = {
+  "scryfallId": "190dffdc-9d85-430d-9aea-b75084104840",
+  "oracleId": "e9a3a466-df78-49a0-add3-975b94c5cd09",
+  "name": "Mire Boa",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Mire Boa",
+      "manaCost": "{1}{G}",
+      "typeLine": "Creature — Snake",
+      "oracleText": "Swampwalk (This creature can't be blocked as long as defending player controls a Swamp.)\n{G}: Regenerate this creature. (The next time this creature would be destroyed this turn, instead tap it, remove it from combat, and heal all damage on it.)",
+      "flavorText": "Mire slime courses through its veins in place of blood. No sooner does it bleed than it opens its mouth to replace the loss.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Greg Hildebrandt",
+      "imageId": "190dffdc-9d85-430d-9aea-b75084104840"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Landwalk",
+    "Heal",
+    "Swampwalk",
+    "Regenerate"
+  ],
+  "setCode": "plc",
+  "collectorNumber": "135",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PATCHWORK_GNOMES: CardData = {
+  "scryfallId": "1ab6b8ca-2e72-4f19-b73b-08b3f9fe6966",
+  "oracleId": "00ad27a1-9162-408d-ac75-970e45d7e06c",
+  "name": "Patchwork Gnomes",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Patchwork Gnomes",
+      "manaCost": "{3}",
+      "typeLine": "Artifact Creature — Gnome",
+      "oracleText": "Discard a card: Regenerate this creature. (The next time this creature would be destroyed this turn, instead tap it, remove it from combat, and heal all damage on it.)",
+      "flavorText": "One wizard's trash is another wizard's roving gang of abominations.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Filip Burburan",
+      "imageId": "1ab6b8ca-2e72-4f19-b73b-08b3f9fe6966"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Heal",
+    "Regenerate"
+  ],
+  "setCode": "uma",
+  "collectorNumber": "231",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SLITH_BLOODLETTER: CardData = {
+  "scryfallId": "22a04ccb-cb57-4548-81db-e1b77b09f5da",
+  "oracleId": "fbad6038-93ed-4a28-b1f0-ada54608758b",
+  "name": "Slith Bloodletter",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Slith Bloodletter",
+      "manaCost": "{B}{B}",
+      "typeLine": "Creature — Slith",
+      "oracleText": "Whenever this creature deals combat damage to a player, put a +1/+1 counter on it.\n{1}{B}: Regenerate this creature.",
+      "flavorText": "Goblins fear the slith, believing they are children banished from the womb of the Steel Mother, deep within Kuldotha.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Justin Sweet",
+      "imageId": "22a04ccb-cb57-4548-81db-e1b77b09f5da"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "mrd",
+  "collectorNumber": "77",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CINDERBONES: CardData = {
+  "scryfallId": "22dcf40c-62fb-4205-807e-71655066a61b",
+  "oracleId": "8e3c2f44-c4ca-4555-80c6-316e62c338dd",
+  "name": "Cinderbones",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cinderbones",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Elemental Skeleton",
+      "oracleText": "Wither (This deals damage to creatures in the form of -1/-1 counters.)\n{1}{B}: Regenerate this creature.",
+      "flavorText": "Not all coals lie quietly in their beds of cold ash.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "22dcf40c-62fb-4205-807e-71655066a61b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate",
+    "Wither"
+  ],
+  "setCode": "shm",
+  "collectorNumber": "59",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VILLAGE_ELDER: CardData = {
+  "scryfallId": "253a1d97-ec45-41c9-ba81-bbb6ab584b2b",
+  "oracleId": "adea6cb4-1e74-4137-9c80-1dde004a6b26",
+  "name": "Village Elder",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Village Elder",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Human Druid",
+      "oracleText": "{G}, {T}, Sacrifice a Forest: Regenerate target creature.",
+      "flavorText": "\"Enchant me with your tale-telling. Tell about Tree, Grass, River, and Wind. / Tell why Truth must fight with Falsehood, and why Truth will always win.\"\n—\"Love Song of Night and Day\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Donato Giancola",
+      "imageId": "253a1d97-ec45-41c9-ba81-bbb6ab584b2b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "mir",
+  "collectorNumber": "251",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PEWTER_GOLEM: CardData = {
+  "scryfallId": "28aa6682-bf11-4959-9d07-423a55f35199",
+  "oracleId": "c9d2c69e-6a4a-45b0-aff1-c19bcbe3b490",
+  "name": "Pewter Golem",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Pewter Golem",
+      "manaCost": "{5}",
+      "typeLine": "Artifact Creature — Golem",
+      "oracleText": "{1}{B}: Regenerate this creature.",
+      "flavorText": "Centuries before the first chimneys of Mephidross belched clouds of toxic gas, only the golems' movements stirred the air of Mirrodin.",
+      "power": "4",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Paolo Parente",
+      "imageId": "28aa6682-bf11-4959-9d07-423a55f35199"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "mrd",
+  "collectorNumber": "227",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DEEPWOOD_GHOUL: CardData = {
+  "scryfallId": "29cd6685-37ca-47c7-8f64-1fb86e9610ca",
+  "oracleId": "d99cd2d0-32b8-4edc-8089-557c48dd4be0",
+  "name": "Deepwood Ghoul",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Deepwood Ghoul",
+      "manaCost": "{2}{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "Pay 2 life: Regenerate this creature.",
+      "flavorText": "They feed on the living to stay undead.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Alan Pollack",
+      "imageId": "29cd6685-37ca-47c7-8f64-1fb86e9610ca"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "mmq",
+  "collectorNumber": "131",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_TURNCOAT: CardData = {
+  "scryfallId": "2ac74e64-8831-4af2-9c6d-22c533389144",
+  "oracleId": "297c2ddf-6d2d-4ed4-ab37-716514d5e3b6",
+  "name": "Goblin Turncoat",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Turncoat",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Goblin Mercenary",
+      "oracleText": "Sacrifice a Goblin: Regenerate this creature.",
+      "flavorText": "\"Goblins won't betray their own kind for any price. They'll do it for a very specific price.\"\n—Phage the Untouchable",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jim Nelson",
+      "imageId": "2ac74e64-8831-4af2-9c6d-22c533389144"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "lgn",
+  "collectorNumber": "72",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const GOBLIN_CHIRURGEON: CardData = {
+  "scryfallId": "2b710c21-e9f5-4660-80f6-2104ec65f63f",
+  "oracleId": "ea55db87-a5c3-49f7-b968-77510cdeb469",
+  "name": "Goblin Chirurgeon",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Goblin Chirurgeon",
+      "manaCost": "{R}",
+      "typeLine": "Creature — Goblin Shaman",
+      "oracleText": "Sacrifice a Goblin: Regenerate target creature.",
+      "flavorText": "The Chirurgeons patched up their fallen comrades with a gruesome mix of twisted limbs and mangled flesh.",
+      "power": "0",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Daniel Gelon",
+      "imageId": "2b710c21-e9f5-4660-80f6-2104ec65f63f"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "fem",
+  "collectorNumber": "54a",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SANGUINE_GUARD: CardData = {
+  "scryfallId": "2c1fa0c5-8eef-484e-9d5f-38e87d99ed73",
+  "oracleId": "d86cc093-5db9-437a-a5bd-77d6faf97ca0",
+  "name": "Sanguine Guard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Sanguine Guard",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Creature — Phyrexian Zombie Knight",
+      "oracleText": "First strike\n{1}{B}: Regenerate this creature.",
+      "flavorText": "\"Father of Machines! Your filigree gaze carves us, and the scars dance upon our grateful flesh.\"\n—*Phyrexian Scriptures*",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Kev Walker",
+      "imageId": "2c1fa0c5-8eef-484e-9d5f-38e87d99ed73"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "First strike",
+    "Regenerate"
+  ],
+  "setCode": "dde",
+  "collectorNumber": "9",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const PHYREXIAN_MONITOR: CardData = {
+  "scryfallId": "2ea36a97-4b2a-408a-b63b-03add41a675f",
+  "oracleId": "1eb6c28d-ebac-4016-ad07-c90081ee4983",
+  "name": "Phyrexian Monitor",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Phyrexian Monitor",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Phyrexian Skeleton",
+      "oracleText": "{B}: Regenerate this creature.",
+      "flavorText": "Being one would be an honor, if the word \"honor\" had any meaning in Phyrexia.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "2ea36a97-4b2a-408a-b63b-03add41a675f"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "UDS-64",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CUDGEL_TROLL: CardData = {
+  "scryfallId": "38cedd13-2f2a-4625-a074-ebbf34ae25e5",
+  "oracleId": "c2f86723-4765-4dac-a9f6-9cfa543613b2",
+  "name": "Cudgel Troll",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Cudgel Troll",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Troll",
+      "oracleText": "{G}: Regenerate this creature. (The next time this creature would be destroyed this turn, instead tap it, remove it from combat, and heal all damage on it.)",
+      "flavorText": null,
+      "power": "4",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jesper Ejsing",
+      "imageId": "38cedd13-2f2a-4625-a074-ebbf34ae25e5"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Heal",
+    "Regenerate"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "M10-174",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MARROW_BATS: CardData = {
+  "scryfallId": "38dcbad0-267e-411f-8e99-5d90b537bf9b",
+  "oracleId": "f20d96cc-3949-4888-a909-c7d67c4d31c7",
+  "name": "Marrow Bats",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Marrow Bats",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Bat Skeleton",
+      "oracleText": "Flying\nPay 4 life: Regenerate this creature.",
+      "flavorText": "\"No matter how far we push into Stensia, undeath will always remain in these lands.\"\n—Terhold, archmage of Drunau",
+      "power": "4",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jason A. Engle",
+      "imageId": "38dcbad0-267e-411f-8e99-5d90b537bf9b"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying",
+    "Regenerate"
+  ],
+  "setCode": "avr",
+  "collectorNumber": "113",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MEDICINE_BAG: CardData = {
+  "scryfallId": "399c06d5-af2a-47a1-9239-ff14224a026b",
+  "oracleId": "5801f773-e214-413d-968d-b84bf99f0642",
+  "name": "Medicine Bag",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Medicine Bag",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{1}, {T}, Discard a card: Regenerate target creature.",
+      "flavorText": "\"My medicine bag and I have treated countless wounds and illnesses. But never have I seen so many made so sick for so long. We will *never* eat Squee's cooking again.\"\n—Orim, journal",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "DiTerlizzi",
+      "imageId": "399c06d5-af2a-47a1-9239-ff14224a026b"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "exo",
+  "collectorNumber": "133",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ROOTWATER_ALLIGATOR: CardData = {
+  "scryfallId": "3a840bba-4725-45fd-885f-1b3d615dfa97",
+  "oracleId": "2bf84938-6049-4d03-b09e-85bd0763a187",
+  "name": "Rootwater Alligator",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rootwater Alligator",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Crocodile",
+      "oracleText": "Sacrifice a Forest: Regenerate this creature.",
+      "flavorText": "Subduing and skinning an alligator is the first rite of maturity adolescent merfolk must pass.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Stephen Daniele",
+      "imageId": "3a840bba-4725-45fd-885f-1b3d615dfa97"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "exo",
+  "collectorNumber": "122",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LOTLETH_TROLL: CardData = {
+  "scryfallId": "3b628197-f26c-457a-b9a4-c1f1d3e02f3d",
+  "oracleId": "61b1d7e5-6155-4204-b110-35a890551ec8",
+  "name": "Lotleth Troll",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Lotleth Troll",
+      "manaCost": "{B}{G}",
+      "typeLine": "Creature — Zombie Troll",
+      "oracleText": "Trample\nDiscard a creature card: Put a +1/+1 counter on this creature.\n{B}: Regenerate this creature.",
+      "flavorText": "He lurks in the undercity, eager for the corpse haulers to unload their rotting cargo.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Vincent Proce",
+      "imageId": "3b628197-f26c-457a-b9a4-c1f1d3e02f3d"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate",
+    "Trample"
+  ],
+  "setCode": "rtr",
+  "collectorNumber": "177",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FOG_OF_GNATS: CardData = {
+  "scryfallId": "3f1e9c54-134b-41da-8c3d-ec699d96778a",
+  "oracleId": "41f58e06-5ce0-4b2d-a280-5bb3b6c56dfe",
+  "name": "Fog of Gnats",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fog of Gnats",
+      "manaCost": "{B}{B}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "Flying\n{B}: Regenerate this creature.",
+      "flavorText": "You can swat a thousand gnats, but a thousand more will assail you.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jeff Miracola",
+      "imageId": "3f1e9c54-134b-41da-8c3d-ec699d96778a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Flying",
+    "Regenerate"
+  ],
+  "setCode": "ulg",
+  "collectorNumber": "53",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const YAVIMAYA_HOLLOW: CardData = {
+  "scryfallId": "47dd5c4b-5972-43e1-ae2a-ebf275006458",
+  "oracleId": "53d6113d-acdb-4754-9641-f7991a96c7b9",
+  "name": "Yavimaya Hollow",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Yavimaya Hollow",
+      "manaCost": "",
+      "typeLine": "Legendary Land",
+      "oracleText": "{T}: Add {C}.\n{G}, {T}: Regenerate target creature.",
+      "flavorText": "For all its traps and defenses, Yavimaya has its havens, too.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Douglas Shuler",
+      "imageId": "47dd5c4b-5972-43e1-ae2a-ebf275006458"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 0,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "uds",
+  "collectorNumber": "143",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RANGER_EN_VEC: CardData = {
+  "scryfallId": "4a89e82c-7206-4d74-95c6-ad3627e5a9ce",
+  "oracleId": "04bb6731-5662-48d5-9e48-99d378c4adaf",
+  "name": "Ranger en-Vec",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Ranger en-Vec",
+      "manaCost": "{1}{G}{W}",
+      "typeLine": "Creature — Human Soldier Archer Ranger",
+      "oracleText": "First strike\n{G}: Regenerate this creature.",
+      "flavorText": "\"The path of least resistance will seldom lead you beyond your doorstep.\"\n—Oracle *en*-Vec",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Randy Elliott",
+      "imageId": "4a89e82c-7206-4d74-95c6-ad3627e5a9ce"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "First strike",
+    "Regenerate"
+  ],
+  "setCode": "tmp",
+  "collectorNumber": "268",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CARRION_WALL: CardData = {
+  "scryfallId": "4b5ac075-1796-484e-97b9-ddd00433a40c",
+  "oracleId": "ce8750d4-1b74-4b02-afd8-6b639c1a9a78",
+  "name": "Carrion Wall",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Carrion Wall",
+      "manaCost": "{1}{B}{B}",
+      "typeLine": "Creature — Wall",
+      "oracleText": "Defender (This creature can't attack.)\n{1}{B}: Regenerate this creature.",
+      "flavorText": "A wall built from the bodies of the enemy will never lack building material in times of war.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Tony Szczudlo",
+      "imageId": "4b5ac075-1796-484e-97b9-ddd00433a40c"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate",
+    "Defender"
+  ],
+  "setCode": "8ed",
+  "collectorNumber": "121★",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKELETAL_CHANGELING: CardData = {
+  "scryfallId": "4e1def4e-929c-46ce-936d-307b7bd30e28",
+  "oracleId": "b9d388ca-1a63-4a11-bf33-9f7b87305a52",
+  "name": "Skeletal Changeling",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skeletal Changeling",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Shapeshifter",
+      "oracleText": "Changeling (This card is every creature type.)\n{1}{B}: Regenerate this creature.",
+      "flavorText": "Though they lack true flesh and bone of their own, changelings imitate either with equal ease.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Alan Pollack",
+      "imageId": "4e1def4e-929c-46ce-936d-307b7bd30e28"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate",
+    "Changeling"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "LRW-140",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DARKLING_STALKER: CardData = {
+  "scryfallId": "4eb883b7-da6a-45c3-9dde-61334a0ddcae",
+  "oracleId": "0103b2f2-05dd-40af-954d-303c144edb04",
+  "name": "Darkling Stalker",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Darkling Stalker",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Shade Spirit",
+      "oracleText": "{B}: Regenerate this creature.\n{B}: This creature gets +1/+1 until end of turn.",
+      "flavorText": "\"In this dark place, yes, I *am* afraid of my own shadow.\"\n—Mirri of the *Weatherlight*",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Susan Van Camp",
+      "imageId": "4eb883b7-da6a-45c3-9dde-61334a0ddcae"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "tmp",
+  "collectorNumber": "119",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DUTY_BOUND_DEAD: CardData = {
+  "scryfallId": "5150aa90-1284-4261-8625-2528139f0015",
+  "oracleId": "44ee7def-6de3-473a-a0ae-6cac1b00dab4",
+  "name": "Duty-Bound Dead",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Duty-Bound Dead",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Skeleton",
+      "oracleText": "Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\n{3}{B}: Regenerate this creature. (The next time this creature would be destroyed this turn, instead tap it, remove it from combat, and heal all damage on it.)",
+      "flavorText": null,
+      "power": "0",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Johannes Voss",
+      "imageId": "5150aa90-1284-4261-8625-2528139f0015"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Exalted",
+    "Heal",
+    "Regenerate"
+  ],
+  "setCode": "m13",
+  "collectorNumber": "92",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FANATICAL_DEVOTION: CardData = {
+  "scryfallId": "55ef6c7b-59b8-4acb-ba7d-1e4e517cd3a6",
+  "oracleId": "34e56412-4649-481d-be51-357b331d0b75",
+  "name": "Fanatical Devotion",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Fanatical Devotion",
+      "manaCost": "{2}{W}",
+      "typeLine": "Enchantment",
+      "oracleText": "Sacrifice a creature: Regenerate target creature.",
+      "flavorText": "The Oracle told Eladamri he would save his people by abandoning them. His followers adopted that ideal.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Massimiliano Frezzato",
+      "imageId": "55ef6c7b-59b8-4acb-ba7d-1e4e517cd3a6"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "NEM-8",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TOXIC_NIM: CardData = {
+  "scryfallId": "5823990c-8d40-4352-8d34-74332934adb2",
+  "oracleId": "afc2a3a7-eb69-4fcb-b3a3-444dccb735d7",
+  "name": "Toxic Nim",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Toxic Nim",
+      "manaCost": "{4}{B}{B}",
+      "typeLine": "Creature — Phyrexian Zombie",
+      "oracleText": "Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)\n{B}: Regenerate this creature.",
+      "flavorText": "The nim have become roving killers marshaled by whichever thane holds tenuous leadership.",
+      "power": "4",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Karl Kopinski",
+      "imageId": "5823990c-8d40-4352-8d34-74332934adb2"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Regenerate",
+    "Infect"
+  ],
+  "setCode": "nph",
+  "collectorNumber": "75",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CHARGING_TROLL: CardData = {
+  "scryfallId": "58956099-6b97-4c7b-ab23-9f9b4d50ef95",
+  "oracleId": "bbc1b96d-5a63-4091-a2c7-08bd289e0bf2",
+  "name": "Charging Troll",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Charging Troll",
+      "manaCost": "{2}{G}{W}",
+      "typeLine": "Creature — Troll",
+      "oracleText": "Vigilance\n{G}: Regenerate this creature.",
+      "flavorText": "They stop for nothing, not even the end of a battle.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "W"
+      ],
+      "artist": "Dave Dorman",
+      "imageId": "58956099-6b97-4c7b-ab23-9f9b4d50ef95"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Vigilance",
+    "Regenerate"
+  ],
+  "setCode": "inv",
+  "collectorNumber": "239",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const JUNGLE_TROLL: CardData = {
+  "scryfallId": "59fb9591-399a-4196-a52d-f2954d287a10",
+  "oracleId": "f1bb17d7-5396-4c99-88bb-f7ab7d47b023",
+  "name": "Jungle Troll",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Jungle Troll",
+      "manaCost": "{1}{R}{G}",
+      "typeLine": "Creature — Troll",
+      "oracleText": "{R}: Regenerate this creature.\n{G}: Regenerate this creature.",
+      "flavorText": "\"You eat plants; I eat plants. You eat beasts; I eat you.\"\n—Drulvurg, troll king",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G",
+        "R"
+      ],
+      "artist": "John Bolton",
+      "imageId": "59fb9591-399a-4196-a52d-f2954d287a10"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "R"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "mir",
+  "collectorNumber": "269",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WALL_OF_PINE_NEEDLES: CardData = {
+  "scryfallId": "5d879923-55fc-46ab-9306-5e1f10441c89",
+  "oracleId": "1d5bc31c-f4a1-4a59-b466-0347ddbbc7fb",
+  "name": "Wall of Pine Needles",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wall of Pine Needles",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Plant Wall",
+      "oracleText": "Defender (This creature can't attack.)\n{G}: Regenerate this creature.",
+      "flavorText": "The power of the forest takes a hundred forms. Some are more surprising than others.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Brian Snõddy",
+      "imageId": "5d879923-55fc-46ab-9306-5e1f10441c89"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Regenerate",
+    "Defender"
+  ],
+  "setCode": "ice",
+  "collectorNumber": "274",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const METATHRAN_ZOMBIE: CardData = {
+  "scryfallId": "6676a0f7-8213-4547-b2ac-b904cd418073",
+  "oracleId": "c631887c-e157-4a95-8a59-08a44854d07f",
+  "name": "Metathran Zombie",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Metathran Zombie",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Metathran Zombie",
+      "oracleText": "{B}: Regenerate this creature.",
+      "flavorText": "\"Rise, metathran. You shall serve a nobler cause in death.\"\n—Tsabo Tavoc, Phyrexian general",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Arnie Swekel",
+      "imageId": "6676a0f7-8213-4547-b2ac-b904cd418073"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "inv",
+  "collectorNumber": "63",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ASPHODEL_WANDERER: CardData = {
+  "scryfallId": "675112db-c477-43f4-b755-54162445fb49",
+  "oracleId": "a6ffcbc9-0990-4d95-a995-1b2f321256d7",
+  "name": "Asphodel Wanderer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Asphodel Wanderer",
+      "manaCost": "{B}",
+      "typeLine": "Creature — Skeleton Soldier",
+      "oracleText": "{2}{B}: Regenerate this creature.",
+      "flavorText": "He killed out of hate, so now only hate sustains him. He sought immortality, so the gods gave it to him.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Scott Chou",
+      "imageId": "675112db-c477-43f4-b755-54162445fb49"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "ths",
+  "collectorNumber": "77",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ASCETICISM: CardData = {
+  "scryfallId": "72eefa85-39de-4f9f-aba1-7520b358c6c4",
+  "oracleId": "9396546c-d067-4ce3-9c3d-b62cca970b4f",
+  "name": "Asceticism",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Asceticism",
+      "manaCost": "{3}{G}{G}",
+      "typeLine": "Enchantment",
+      "oracleText": "Creatures you control have hexproof.\n{1}{G}: Regenerate target creature. (The next time it would be destroyed this turn, instead tap it, remove it from combat, and heal all damage on it.)",
+      "flavorText": "\"Let my ignominy build walls thicker than iron and stronger than darksteel.\"\n—Thrun, the last troll",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Daarken",
+      "imageId": "72eefa85-39de-4f9f-aba1-7520b358c6c4"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Heal",
+    "Regenerate"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "SOM-110",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const FERAL_THALLID: CardData = {
+  "scryfallId": "72f77884-6cec-4ccc-b619-3492b04bc3f7",
+  "oracleId": "3953fd17-03f4-4431-99b5-87dcac5a279d",
+  "name": "Feral Thallid",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Feral Thallid",
+      "manaCost": "{3}{G}{G}{G}",
+      "typeLine": "Creature — Fungus",
+      "oracleText": "At the beginning of your upkeep, put a spore counter on this creature.\nRemove three spore counters from this creature: Regenerate this creature.",
+      "flavorText": "\"Born and bred of fungus, thallids were nearly impossible to kill.\"\n—*Sarpadian Empires, vol. I*",
+      "power": "6",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Rob Alexander",
+      "imageId": "72f77884-6cec-4ccc-b619-3492b04bc3f7"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "me2",
+  "collectorNumber": "161",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TATTERED_DRAKE: CardData = {
+  "scryfallId": "7d28cbc8-4dbb-465b-813d-52b2b2f73b14",
+  "oracleId": "1199a252-3c7c-4ae4-b063-dc132bfbea2f",
+  "name": "Tattered Drake",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tattered Drake",
+      "manaCost": "{4}{U}",
+      "typeLine": "Creature — Zombie Drake",
+      "oracleText": "Flying\n{B}: Regenerate this creature.",
+      "flavorText": "\"Drakes embody the worst of Ravnica: great potential, twisted by selfishness and greed.\"\n—Razia",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Glenn Fabry",
+      "imageId": "7d28cbc8-4dbb-465b-813d-52b2b2f73b14"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying",
+    "Regenerate"
+  ],
+  "setCode": "rav",
+  "collectorNumber": "68",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VAMPIRE_WARLORD: CardData = {
+  "scryfallId": "7e07929b-450c-45b0-85e6-512ad280a122",
+  "oracleId": "393586d3-1f1a-4f3a-96b8-ed1a8fdf00c6",
+  "name": "Vampire Warlord",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Vampire Warlord",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Vampire Warrior",
+      "oracleText": "Sacrifice another creature: Regenerate this creature. (The next time this creature would be destroyed this turn, instead tap it, remove it from combat, and heal all damage on it.)",
+      "flavorText": "\"How can you serve me? By dying.\"",
+      "power": "4",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Wesley Burt",
+      "imageId": "7e07929b-450c-45b0-85e6-512ad280a122"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Heal",
+    "Regenerate"
+  ],
+  "setCode": "m14",
+  "collectorNumber": "120",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HORNED_TROLL: CardData = {
+  "scryfallId": "7f2a6d10-054e-4d6f-aeb7-4204f02490c7",
+  "oracleId": "6ecc61ff-719a-405d-b02a-01607729d05c",
+  "name": "Horned Troll",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Horned Troll",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Troll",
+      "oracleText": "{G}: Regenerate this creature.",
+      "flavorText": "\"If I says it's a troll, it's a troll. Goblins is always right in Mercadia.\"\n—Squee",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Heather Hudson",
+      "imageId": "7f2a6d10-054e-4d6f-aeb7-4204f02490c7"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "mmq",
+  "collectorNumber": "251",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WOLFIR_AVENGER: CardData = {
+  "scryfallId": "88cc00e5-9683-4ccc-a914-c422b76f6014",
+  "oracleId": "83deda94-66e8-4655-9cd5-6d97d809946d",
+  "name": "Wolfir Avenger",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Wolfir Avenger",
+      "manaCost": "{1}{G}{G}",
+      "typeLine": "Creature — Wolf Warrior",
+      "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\n{1}{G}: Regenerate this creature.",
+      "flavorText": "Released from a dark curse and bound to a higher calling.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Daniel Ljunggren",
+      "imageId": "88cc00e5-9683-4ccc-a914-c422b76f6014"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate",
+    "Flash"
+  ],
+  "setCode": "avr",
+  "collectorNumber": "205",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const KIN_TREE_WARDEN: CardData = {
+  "scryfallId": "8a1e54d1-001e-4116-9fe1-03b987b4c1e8",
+  "oracleId": "1ea9517a-c2ed-4aec-8fd3-e603b0e7dec9",
+  "name": "Kin-Tree Warden",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Kin-Tree Warden",
+      "manaCost": "{G}",
+      "typeLine": "Creature — Human Warrior",
+      "oracleText": "{2}: Regenerate this creature.\nMorph {G} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+      "flavorText": "\"The amber of the tree and the blood of my veins are the same.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Volkan Baǵa",
+      "imageId": "8a1e54d1-001e-4116-9fe1-03b987b4c1e8"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Morph",
+    "Regenerate"
+  ],
+  "setCode": "plst",
+  "collectorNumber": "KTK-139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DUTIFUL_THRULL: CardData = {
+  "scryfallId": "8d586143-fac0-463f-96ec-c6b9fd582194",
+  "oracleId": "744fcf77-b597-48a0-92ec-f3a617c03df1",
+  "name": "Dutiful Thrull",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Dutiful Thrull",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Thrull",
+      "oracleText": "{B}: Regenerate this creature.",
+      "flavorText": "\"They are useful, but there's little satisfaction in supplication that throws itself under your heel.\"\n—Jozica, Orzhov enforcer",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Daarken",
+      "imageId": "8d586143-fac0-463f-96ec-c6b9fd582194"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "gtc",
+  "collectorNumber": "11",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TANGLE_HULK: CardData = {
+  "scryfallId": "8ed3c301-8d8e-45fe-902a-af03a79525be",
+  "oracleId": "f6d0360c-ebc6-48b5-80ad-d52dadcdd5f5",
+  "name": "Tangle Hulk",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tangle Hulk",
+      "manaCost": "{5}",
+      "typeLine": "Artifact Creature — Phyrexian Beast",
+      "oracleText": "{2}{G}: Regenerate this creature.",
+      "flavorText": "\"A true Phyrexian predator. It will never know death, just as nature intended.\"\n—Vorinclex, Voice of Hunger",
+      "power": "5",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Mark Zug",
+      "imageId": "8ed3c301-8d8e-45fe-902a-af03a79525be"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "mbs",
+  "collectorNumber": "139",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKYSHROUD_TROLL: CardData = {
+  "scryfallId": "925c488d-79db-47d1-b7be-851f31732026",
+  "oracleId": "2e6d3120-d41d-4e48-b33f-0f73c876fe69",
+  "name": "Skyshroud Troll",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skyshroud Troll",
+      "manaCost": "{2}{G}{G}",
+      "typeLine": "Creature — Troll Giant",
+      "oracleText": "{1}{G}: Regenerate this creature.",
+      "flavorText": "The elves and merfolk have nothing but bitterness for each other. The trolls, however, find them both rather tasty.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Matthew D. Wilson",
+      "imageId": "925c488d-79db-47d1-b7be-851f31732026"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "tmp",
+  "collectorNumber": "257",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DROWNED: CardData = {
+  "scryfallId": "92debe15-70c2-4d91-9fdc-f85c05ceef1d",
+  "oracleId": "3da87e58-6a4b-48c3-873c-bc654277d4df",
+  "name": "Drowned",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Drowned",
+      "manaCost": "{1}{U}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "{B}: Regenerate this creature.",
+      "flavorText": "We asked Captain Soll what became of the Serafina, but all he said was, \"Ships that go down shouldn't come back up.\"",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Quinton Hoover",
+      "imageId": "92debe15-70c2-4d91-9fdc-f85c05ceef1d"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "U"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "me4",
+  "collectorNumber": "47",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MARANG_RIVER_SKELETON: CardData = {
+  "scryfallId": "9497f7e6-2121-44a9-9bd6-258685636b1c",
+  "oracleId": "0cfbbb26-9e1c-4b79-8b32-dcc05739f5ea",
+  "name": "Marang River Skeleton",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Marang River Skeleton",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Skeleton",
+      "oracleText": "{B}: Regenerate this creature.\nMegamorph {3}{B} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its megamorph cost and put a +1/+1 counter on it.)",
+      "flavorText": "The gurgling of the Marang conceals both footsteps and screams.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Jack Wang",
+      "imageId": "9497f7e6-2121-44a9-9bd6-258685636b1c"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate",
+    "Megamorph"
+  ],
+  "setCode": "dtk",
+  "collectorNumber": "108",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUSHWOOD_HERBALIST: CardData = {
+  "scryfallId": "9afde98f-a429-4eff-9d06-8582267ac74b",
+  "oracleId": "2e35bcef-505a-4559-a1fe-f42f4543197f",
+  "name": "Rushwood Herbalist",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rushwood Herbalist",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Human Spellshaper",
+      "oracleText": "{G}, {T}, Discard a card: Regenerate target creature.",
+      "flavorText": "When generals gather their armies, healers gather their herbs.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Terese Nielsen",
+      "imageId": "9afde98f-a429-4eff-9d06-8582267ac74b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "mmq",
+  "collectorNumber": "265",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VOTARY_OF_THE_CONCLAVE: CardData = {
+  "scryfallId": "9bb6f929-5a19-421b-ae88-9bbb7e64756c",
+  "oracleId": "83837ceb-7aae-4257-8545-a6cf34656e3b",
+  "name": "Votary of the Conclave",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Votary of the Conclave",
+      "manaCost": "{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "{2}{G}: Regenerate this creature.",
+      "flavorText": "An ageless order, the votaries receive the gift of rejuvenation from the temple gardens they guard.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Alan Pollack",
+      "imageId": "9bb6f929-5a19-421b-ae88-9bbb7e64756c"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "rav",
+  "collectorNumber": "35",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SELESNYA_SENTRY: CardData = {
+  "scryfallId": "9c34c1f5-d509-4c66-ba41-c7958ef5ee44",
+  "oracleId": "29e8d973-0233-446e-b587-1c7508352642",
+  "name": "Selesnya Sentry",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Selesnya Sentry",
+      "manaCost": "{2}{W}",
+      "typeLine": "Creature — Elephant Soldier",
+      "oracleText": "{5}{G}: Regenerate this creature.",
+      "flavorText": "Ravnicans still tell tales about the Battle of Sumala where four Selesnya sentries held off an entire clan of Gruul warriors.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Wesley Burt",
+      "imageId": "9c34c1f5-d509-4c66-ba41-c7958ef5ee44"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "W"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "rtr",
+  "collectorNumber": "21",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const NIALL_SILVAIN: CardData = {
+  "scryfallId": "9d5911b5-a54e-4ebb-9c36-d4dc8e97bb4b",
+  "oracleId": "9d2dd032-bcef-4d04-8836-1eaff1c56b98",
+  "name": "Niall Silvain",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Niall Silvain",
+      "manaCost": "{G}{G}{G}",
+      "typeLine": "Creature — Ouphe",
+      "oracleText": "{G}{G}{G}{G}, {T}: Regenerate target creature.",
+      "flavorText": "This is his domain, and while you remain here you must value all life as you value your own.",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Christopher Rush",
+      "imageId": "9d5911b5-a54e-4ebb-9c36-d4dc8e97bb4b"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "drk",
+  "collectorNumber": "82",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const YAVIMAYA_GNATS: CardData = {
+  "scryfallId": "9d8b7020-ca8f-4867-bc51-13d824daf154",
+  "oracleId": "828c1a94-36e1-484b-afc8-87f85956d60d",
+  "name": "Yavimaya Gnats",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Yavimaya Gnats",
+      "manaCost": "{2}{G}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "Flying\n{G}: Regenerate this creature.",
+      "flavorText": "\"It is our third day of travel on the Yavimaya River, and still these creatures plague us. Davin Lansson, our naturalist, has facetiously labeled them 'gnats,' and the name has stuck.\"\n—Disa the Restless, journal entry",
+      "power": "0",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Dan Frazier",
+      "imageId": "9d8b7020-ca8f-4867-bc51-13d824daf154"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 3,
+  "keywords": [
+    "Flying",
+    "Regenerate"
+  ],
+  "setCode": "ice",
+  "collectorNumber": "280",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RESTLESS_DEAD: CardData = {
+  "scryfallId": "a237cff4-af6f-4745-bda1-e3ed2267fa89",
+  "oracleId": "5315ba59-ca80-498e-b21a-ed87e6a4c955",
+  "name": "Restless Dead",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Restless Dead",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Skeleton",
+      "oracleText": "{B}: Regenerate this creature.",
+      "flavorText": "The rich's heirs often thank them after death . . . but preferably not in person.\n—Suq'Ata epigram",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Ian Miller",
+      "imageId": "a237cff4-af6f-4745-bda1-e3ed2267fa89"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "mir",
+  "collectorNumber": "138",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const SKELETAL_KATHARI: CardData = {
+  "scryfallId": "a3e7e593-e5b0-4348-b8e5-20173d41aa39",
+  "oracleId": "5bcb63b4-6236-45c5-884d-188f8f5e8f02",
+  "name": "Skeletal Kathari",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Skeletal Kathari",
+      "manaCost": "{4}{B}",
+      "typeLine": "Creature — Bird Skeleton",
+      "oracleText": "Flying\n{B}, Sacrifice a creature: Regenerate this creature.",
+      "flavorText": "Undeath doesn't end the kathari's search for carrion; it only removes one corpse from the Dregscape.",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Carl Critchlow",
+      "imageId": "a3e7e593-e5b0-4348-b8e5-20173d41aa39"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Flying",
+    "Regenerate"
+  ],
+  "setCode": "ala",
+  "collectorNumber": "88",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const DRACONIAN_CYLIX: CardData = {
+  "scryfallId": "a419c9e3-5615-44f9-9256-94a3022bb69f",
+  "oracleId": "0880b36a-6141-4955-b532-cf88daca0869",
+  "name": "Draconian Cylix",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Draconian Cylix",
+      "manaCost": "{3}",
+      "typeLine": "Artifact",
+      "oracleText": "{2}, {T}, Discard a card at random: Regenerate target creature.",
+      "flavorText": "\"There is no gain without sacrifice.\"\n—Icatian proverb",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Edward P. Beard, Jr.",
+      "imageId": "a419c9e3-5615-44f9-9256-94a3022bb69f"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 3,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "fem",
+  "collectorNumber": "86",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CENTAUR_VETERAN: CardData = {
+  "scryfallId": "a83903c1-40fe-47a5-8bcc-2f0877c58225",
+  "oracleId": "bd4c9726-c7bb-4da4-99e5-e98d174d6a52",
+  "name": "Centaur Veteran",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Centaur Veteran",
+      "manaCost": "{5}{G}",
+      "typeLine": "Creature — Centaur",
+      "oracleText": "Trample\n{G}, Discard a card: Regenerate this creature.",
+      "flavorText": "He wears his scars like badges of honor, warning his foes that he's not easily defeated.",
+      "power": "3",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Mark Zug",
+      "imageId": "a83903c1-40fe-47a5-8bcc-2f0877c58225"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Regenerate",
+    "Trample"
+  ],
+  "setCode": "tor",
+  "collectorNumber": "123",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RAKSHASA_DEATHDEALER: CardData = {
+  "scryfallId": "ab4e0b33-dad1-4443-a7c7-a7bab067d04a",
+  "oracleId": "acdc17cf-8f8c-42ee-bede-481ce00cf4bf",
+  "name": "Rakshasa Deathdealer",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rakshasa Deathdealer",
+      "manaCost": "{B}{G}",
+      "typeLine": "Creature — Demon",
+      "oracleText": "{B}{G}: This creature gets +2/+2 until end of turn.\n{B}{G}: Regenerate this creature.",
+      "flavorText": "\"Death fills me and makes me strong. You, it will reduce to nothing.\"",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "John Severin Brassell",
+      "imageId": "ab4e0b33-dad1-4443-a7c7-a7bab067d04a"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "ktk",
+  "collectorNumber": "192",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LIVING_AIRSHIP: CardData = {
+  "scryfallId": "b0441eef-392e-4af4-b189-2f1fb8bf3fca",
+  "oracleId": "3bcead90-f7be-4fba-84e7-3d7c788a8b64",
+  "name": "Living Airship",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Living Airship",
+      "manaCost": "{3}{U}",
+      "typeLine": "Creature — Metathran",
+      "oracleText": "Flying\n{2}{G}: Regenerate this creature.",
+      "flavorText": "The ship has a crew of three: the pilot, the gunner, and the ship itself.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "U"
+      ],
+      "artist": "Mark Tedin",
+      "imageId": "b0441eef-392e-4af4-b189-2f1fb8bf3fca"
+    }
+  ],
+  "colorIdentity": [
+    "G",
+    "U"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying",
+    "Regenerate"
+  ],
+  "setCode": "apc",
+  "collectorNumber": "28",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const HERBAL_POULTICE: CardData = {
+  "scryfallId": "b20925a3-dd4f-477c-806a-a3ec0fd2e00d",
+  "oracleId": "4a8e1f8e-3740-4ff3-b7fa-390ea278fb95",
+  "name": "Herbal Poultice",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Herbal Poultice",
+      "manaCost": "{0}",
+      "typeLine": "Artifact",
+      "oracleText": "{3}, Sacrifice this artifact: Regenerate target creature.",
+      "flavorText": "\"Apply orange leaf to a wound at dawn to clean it, at dusk to prevent the same injury from happening again.\"\n—Kithkin superstition",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Scott Hampton",
+      "imageId": "b20925a3-dd4f-477c-806a-a3ec0fd2e00d"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "lrw",
+  "collectorNumber": "257",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CORRUPTED_HARVESTER: CardData = {
+  "scryfallId": "b54625ac-484f-4522-8048-38e01c545ac3",
+  "oracleId": "f105ccdd-65bc-4880-bbfe-f57fc0e060ea",
+  "name": "Corrupted Harvester",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Corrupted Harvester",
+      "manaCost": "{4}{B}{B}",
+      "typeLine": "Creature — Phyrexian Horror",
+      "oracleText": "{B}, Sacrifice a creature: Regenerate this creature.",
+      "flavorText": "\"Before the blessed assault begins, we must seek specimens that are well-adapted to our way of . . . life.\"\n—Sheoldred, Whispering One",
+      "power": "6",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Nils Hamm",
+      "imageId": "b54625ac-484f-4522-8048-38e01c545ac3"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 6,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "som",
+  "collectorNumber": "59",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const VIASHINO_SKELETON: CardData = {
+  "scryfallId": "b9451a62-31a4-4aaf-beef-2bf149f25ae3",
+  "oracleId": "a85e893c-6027-42eb-8d05-14c745cc8c95",
+  "name": "Viashino Skeleton",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Viashino Skeleton",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Lizard Skeleton",
+      "oracleText": "{1}{B}, Discard a card: Regenerate this creature.",
+      "flavorText": "Underneath the Dregscape lay the remains of creatures long extinct from Grixis.",
+      "power": "2",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Cole Eastburn",
+      "imageId": "b9451a62-31a4-4aaf-beef-2bf149f25ae3"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "ala",
+  "collectorNumber": "118",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const ODIOUS_TROW: CardData = {
+  "scryfallId": "bc2e0c36-645a-46c8-bd9e-4b8b591dfb58",
+  "oracleId": "0e9864e2-1bb4-4527-b2af-62433a90b669",
+  "name": "Odious Trow",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Odious Trow",
+      "manaCost": "{B/G}",
+      "typeLine": "Creature — Troll",
+      "oracleText": "{1}{B/G}: Regenerate this creature.",
+      "flavorText": "Trows are the vile trolls that lurk in the bogs of Shadowmoor. They reappear each night to frighten the living and gnaw the dead.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Warren Mahy",
+      "imageId": "bc2e0c36-645a-46c8-bd9e-4b8b591dfb58"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 1,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "eve",
+  "collectorNumber": "125",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const LOCUST_SWARM: CardData = {
+  "scryfallId": "bd269842-4c31-4398-9451-be0d941397ac",
+  "oracleId": "9963b6a9-d715-430e-9b5e-576fb688d944",
+  "name": "Locust Swarm",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Locust Swarm",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Insect",
+      "oracleText": "Flying\n{G}: Regenerate this creature.\n{G}: Untap this creature. Activate only once each turn.",
+      "flavorText": "Better a fierce thunderhead than a sky filled with locusts.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "William Donohoe",
+      "imageId": "bd269842-4c31-4398-9451-be0d941397ac"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Flying",
+    "Regenerate"
+  ],
+  "setCode": "mir",
+  "collectorNumber": "226",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WOODWRAITH_STRANGLER: CardData = {
+  "scryfallId": "be72ff91-f810-46c3-884f-6e65827824bc",
+  "oracleId": "c72ab66b-2011-449c-93a6-1808669653f0",
+  "name": "Woodwraith Strangler",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Woodwraith Strangler",
+      "manaCost": "{2}{B}{G}",
+      "typeLine": "Creature — Plant Zombie",
+      "oracleText": "Exile a creature card from your graveyard: Regenerate this creature.",
+      "flavorText": "\"Nothing could be more natural than roots sucking nourishment from the dead.\"\n—Savra",
+      "power": "2",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B",
+        "G"
+      ],
+      "artist": "Pat Lee",
+      "imageId": "be72ff91-f810-46c3-884f-6e65827824bc"
+    }
+  ],
+  "colorIdentity": [
+    "B",
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "rav",
+  "collectorNumber": "241",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const WALKING_DEAD: CardData = {
+  "scryfallId": "d7533a72-77d1-40cd-b3a1-7597d566c428",
+  "oracleId": "5791456c-7b3c-4e93-a6d1-94ab01858816",
+  "name": "Walking Dead",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Walking Dead",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Zombie",
+      "oracleText": "{B}: Regenerate this creature.",
+      "flavorText": "The Walking Dead are the remains of freakish experiments by the Necromantic Lords.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Dan Frazier",
+      "imageId": "d7533a72-77d1-40cd-b3a1-7597d566c428"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "leg",
+  "collectorNumber": "126",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEL_JILAD_EXILE: CardData = {
+  "scryfallId": "e3529277-8409-45fe-9f29-64354597e918",
+  "oracleId": "58987ca8-ee9b-412e-b08f-440588234e00",
+  "name": "Tel-Jilad Exile",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tel-Jilad Exile",
+      "manaCost": "{3}{G}",
+      "typeLine": "Creature — Troll Warrior",
+      "oracleText": "{1}{G}: Regenerate this creature.",
+      "flavorText": "For his crimes, he was made to forget all the trolls' secrets. Now he knows only that he is outcast, but not why.",
+      "power": "2",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Justin Sweet",
+      "imageId": "e3529277-8409-45fe-9f29-64354597e918"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "mrd",
+  "collectorNumber": "133",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const MANOR_SKELETON: CardData = {
+  "scryfallId": "e7b45197-d5c2-48c8-b72e-00236552e338",
+  "oracleId": "aa3f4938-ac4b-4f52-a8d3-481c1b387467",
+  "name": "Manor Skeleton",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Manor Skeleton",
+      "manaCost": "{1}{B}",
+      "typeLine": "Creature — Skeleton",
+      "oracleText": "Haste\n{1}{B}: Regenerate this creature.",
+      "flavorText": "Lungs dried to parchment wheeze blasphemies within a cage of bleached bone.",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "Eric Deschamps",
+      "imageId": "e7b45197-d5c2-48c8-b72e-00236552e338"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate",
+    "Haste"
+  ],
+  "setCode": "isd",
+  "collectorNumber": "106",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const TEL_JILAD_LIFEBREATHER: CardData = {
+  "scryfallId": "ee58a5ef-68ec-48cf-bb7e-73bcbe86cc3c",
+  "oracleId": "1ef49064-eb2a-49ae-917e-3d441ba14bf9",
+  "name": "Tel-Jilad Lifebreather",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Tel-Jilad Lifebreather",
+      "manaCost": "{4}{G}",
+      "typeLine": "Creature — Troll Shaman",
+      "oracleText": "{G}, {T}, Sacrifice a Forest: Regenerate target creature.",
+      "flavorText": "\"The Tangle loans you life. Spend it well.\"",
+      "power": "3",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "G"
+      ],
+      "artist": "Jim Nelson",
+      "imageId": "ee58a5ef-68ec-48cf-bb7e-73bcbe86cc3c"
+    }
+  ],
+  "colorIdentity": [
+    "G"
+  ],
+  "cmc": 5,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "5dn",
+  "collectorNumber": "96",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const RUSTED_SLASHER: CardData = {
+  "scryfallId": "f2228ee5-507a-46ba-82ae-72ba3088a568",
+  "oracleId": "098cc111-493b-470b-929c-67deb981240c",
+  "name": "Rusted Slasher",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Rusted Slasher",
+      "manaCost": "{4}",
+      "typeLine": "Artifact Creature — Phyrexian Horror",
+      "oracleText": "Sacrifice an artifact: Regenerate this creature.",
+      "flavorText": "\"It's a beautiful vision. Discarded debris is reborn as a singular entity.\"\n—Urabrask the Hidden",
+      "power": "4",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Adrian Smith",
+      "imageId": "f2228ee5-507a-46ba-82ae-72ba3088a568"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 4,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "mbs",
+  "collectorNumber": "128",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const REVERED_DEAD: CardData = {
+  "scryfallId": "f9a78d5c-27f8-4061-be89-0246fb69e752",
+  "oracleId": "96a57ce0-f1ab-4af7-8c18-8e35aad11780",
+  "name": "Revered Dead",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Revered Dead",
+      "manaCost": "{1}{W}",
+      "typeLine": "Creature — Spirit Soldier",
+      "oracleText": "{W}: Regenerate this creature.",
+      "flavorText": "\"The mists coalesced into silent warriors. We charged them and broke through their lines, only to see them swirl and re-form behind us.\"\n—Golas Mahr, black knight",
+      "power": "1",
+      "toughness": "1",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Ron Spears",
+      "imageId": "f9a78d5c-27f8-4061-be89-0246fb69e752"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 2,
+  "keywords": [
+    "Regenerate"
+  ],
+  "setCode": "plc",
+  "collectorNumber": "29",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -152969,6 +156077,91 @@ export const ENGINE_CARDS: CardData[] = [
   LITTJARA_GLADE_WARDEN,
   MOTHER_BEAR,
   SOUL_SHEPHERD,
+  DRUDGE_SKELETONS,
+  SENTRY_OF_THE_UNDERWORLD,
+  DRUDGE_REAVERS,
+  UTHDEN_TROLL,
+  MISCHIEVOUS_POLTERGEIST,
+  WILL_O_THE_WISP,
+  CADAVEROUS_KNIGHT,
+  SUTURE_SPIRIT,
+  GORILLA_CHIEFTAIN,
+  RAGNAR,
+  WAKE_OF_VULTURES,
+  CLAY_STATUE,
+  UNWORTHY_DEAD,
+  WALL_OF_BRAMBLES,
+  SCREECHING_HARPY,
+  BLIGHT_MAMBA,
+  TROLL_ASCETIC,
+  RIVER_BOA,
+  SPECTRAL_LYNX,
+  LIM_D_L_S_HIGH_GUARD,
+  MIRE_BOA,
+  PATCHWORK_GNOMES,
+  SLITH_BLOODLETTER,
+  CINDERBONES,
+  VILLAGE_ELDER,
+  PEWTER_GOLEM,
+  DEEPWOOD_GHOUL,
+  GOBLIN_TURNCOAT,
+  GOBLIN_CHIRURGEON,
+  SANGUINE_GUARD,
+  PHYREXIAN_MONITOR,
+  CUDGEL_TROLL,
+  MARROW_BATS,
+  MEDICINE_BAG,
+  ROOTWATER_ALLIGATOR,
+  LOTLETH_TROLL,
+  FOG_OF_GNATS,
+  YAVIMAYA_HOLLOW,
+  RANGER_EN_VEC,
+  CARRION_WALL,
+  SKELETAL_CHANGELING,
+  DARKLING_STALKER,
+  DUTY_BOUND_DEAD,
+  FANATICAL_DEVOTION,
+  TOXIC_NIM,
+  CHARGING_TROLL,
+  JUNGLE_TROLL,
+  WALL_OF_PINE_NEEDLES,
+  METATHRAN_ZOMBIE,
+  ASPHODEL_WANDERER,
+  ASCETICISM,
+  FERAL_THALLID,
+  TATTERED_DRAKE,
+  VAMPIRE_WARLORD,
+  HORNED_TROLL,
+  WOLFIR_AVENGER,
+  KIN_TREE_WARDEN,
+  DUTIFUL_THRULL,
+  TANGLE_HULK,
+  SKYSHROUD_TROLL,
+  DROWNED,
+  MARANG_RIVER_SKELETON,
+  RUSHWOOD_HERBALIST,
+  VOTARY_OF_THE_CONCLAVE,
+  SELESNYA_SENTRY,
+  NIALL_SILVAIN,
+  YAVIMAYA_GNATS,
+  RESTLESS_DEAD,
+  SKELETAL_KATHARI,
+  DRACONIAN_CYLIX,
+  CENTAUR_VETERAN,
+  RAKSHASA_DEATHDEALER,
+  LIVING_AIRSHIP,
+  HERBAL_POULTICE,
+  CORRUPTED_HARVESTER,
+  VIASHINO_SKELETON,
+  ODIOUS_TROW,
+  LOCUST_SWARM,
+  WOODWRAITH_STRANGLER,
+  WALKING_DEAD,
+  TEL_JILAD_EXILE,
+  MANOR_SKELETON,
+  TEL_JILAD_LIFEBREATHER,
+  RUSTED_SLASHER,
+  REVERED_DEAD,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

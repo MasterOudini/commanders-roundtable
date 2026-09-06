@@ -396,7 +396,14 @@ function applyBody(state: GameState, body: EventBody): GameState {
         };
         zones = addToZone(zones, move.to, move.card, move.placement ?? 'top');
       }
-      return { ...state, zones, cards };
+      // D330 - a shield belongs to the permanent on the battlefield; leaving takes it.
+      let regenerationShields = state.regenerationShields;
+      for (const move of body.moves) {
+        if (move.from.kind === 'battlefield' && move.to.kind !== 'battlefield' && regenerationShields[move.card] !== undefined) {
+          regenerationShields = Object.fromEntries(Object.entries(regenerationShields).filter(([k]) => k !== move.card));
+        }
+      }
+      return { ...state, zones, cards, regenerationShields };
     }
 
     case 'TokenCreated': {
@@ -938,9 +945,25 @@ function applyBody(state: GameState, body: EventBody): GameState {
         ],
       };
 
-    // CR 514.2 — every "until end of turn" effect ends at once, at cleanup.
+    // D330 - CR 701.19: a regeneration shield on the permanent, spent by the
+    // next destruction this turn.
+    case 'RegenerationShieldAdded':
+      return {
+        ...state,
+        regenerationShields: { ...state.regenerationShields, [body.card]: (state.regenerationShields[body.card] ?? 0) + 1 },
+      };
+    case 'Regenerated': {
+      const left = (state.regenerationShields[body.card] ?? 0) - 1;
+      const rest = Object.fromEntries(Object.entries(state.regenerationShields).filter(([k]) => k !== body.card));
+      return { ...state, regenerationShields: left > 0 ? { ...rest, [body.card]: left } : rest };
+    }
+
+    // CR 514.2 — every "until end of turn" effect ends at once, at cleanup —
+    // the regeneration shields with them (CR 701.19a: "this turn").
     case 'UntilEndOfTurnEnded':
-      return state.untilEndOfTurn.length === 0 ? state : { ...state, untilEndOfTurn: [] };
+      return state.untilEndOfTurn.length === 0 && Object.keys(state.regenerationShields).length === 0
+        ? state
+        : { ...state, untilEndOfTurn: [], regenerationShields: {} };
 
     case 'Narrated':
       return narrate(state, {

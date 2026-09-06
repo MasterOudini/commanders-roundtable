@@ -22322,3 +22322,61 @@ Fixtures 4,291 · botPool artifact 363 / creature 3,628 / enchantment 329 / inst
 **Reportables** (D329): snow mana ({S} - 9; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5; a chooser over counters on OTHER permanents), sacrifice a Desert / tap an untapped Gate or Desert (7; subtypes the fixtures lack), return a land you control (3), tap two untapped artifacts and/or creatures (3; a mixed predicate), the counts outside the vocabulary (15); then can not be countered (11 whole cards), the monarch, attacks each combat if able, the modal seam (42), the another split; the modal seam; the "another" split; the
 by-name sacrifice cost; the remaining cost verbs; the prompt continuation
 seam; prior items stand.
+
+## D330 — M6.4fo: REGENERATION — the engine regenerates (CR 701.19): a shield the next destruction spends, and the rows that follow; 85 cards land, 85 as generated rows (2026-09-06)
+
+**6,559 of 31,692 Commander-legal cards execute completely, up from
+6,474 (+85).** SHIPPED_SCRIPTS 3,921 → **4,006**;
+REFUSED ledger 998 → **998** (no rows retired - none of the 85 was in the ledger, whose classes are named by cost, and a regenerate line is a payload; measured: the REFUSED map's size). Fixtures
+4,291 → 4,376 (4,240 by name + 129 tokens: the 85 rowed cards, no new token pins). **An engine change** — one seam in
+one patch (`d330/apply-regeneration.cjs`) — and the wave behind it:
+85 generated rows. **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** the leftover probe over the database after D329, with regenerate as a payload: 206 blocked single-face permanents whose every leftover line the grammar reads (126 before; 106 of them carry a self regeneration); the row maker took 85 and refused 121 - 74 for costs it still cannot price (snow mana 11, remove a +1/+1 counter from a creature you control 5, sacrifice a Desert 3, return a land you control 3, tap an untapped Gate 3, tap two untapped artifacts and/or creatures 3), 16 regenerators the test Bolt cannot kill, 15 counts outside the vocabulary.
+
+**The seam.** Nothing regenerated, ever (D295 said so when it made "It can't
+be regenerated." whole by construction). Now:
+
+- **The shield** (CR 701.19): `GameState.regenerationShields` — per permanent,
+  put by `RegenerationShieldAdded`, spent by `Regenerated`, cleared with the
+  until-end-of-turn effects at cleanup and when the permanent leaves the
+  battlefield. In the hash like everything else.
+- **The two destructions it replaces**: the SBA for lethal damage (CR 704.5g —
+  `checkStateBasedActions` records a `regenerated` action instead of
+  `lethalDamage`) and the resolver's `destroy` effect. Both do what the rule
+  says: tap it, remove all damage, remove it from combat, spend the shield
+  ("<name> regenerates." in the log) — and neither moves it. "It can't be
+  regenerated" rides the destroy it follows (`EffectSpec.noRegenerate`, set by
+  D295's clause) and skips the shield, so Wrath of God and Terminate still
+  kill a shielded creature.
+- The row maker (`d330/make-rows20.cjs`) reads "Regenerate this creature." /
+  "Regenerate ~." and "Regenerate target creature."; the generated test puts
+  the shield, casts Lightning Bolt at the creature (a regenerate row is a
+  creature the Bolt would kill — toughness 1–3 — or the target is the
+  opponent's Cyclops), and reads it on the battlefield, tapped, undamaged,
+  the shield spent.
+
+- **Refused by name:** no rows retired - none of the 85 was in the ledger, whose classes are named by cost, and a regenerate line is a payload; measured: the REFUSED map's size.
+- **Not this decision:** the regenerators the Bolt cannot kill (16 - a destroy fixture in the test instead of the Bolt), regenerate enchanted creature (13 Auras), snow mana ({S} - 11; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15); then the modal seam (276 permanents whose first unread line is a choose-one), can not be countered (11 whole cards), the monarch, attacks each combat if able, the another split.
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** `src/engine/regeneration.test.ts` (a shielded creature survives
+Infernal Grasp tapped and undamaged; Terminate and Wrath of God still kill
+it; the shield is gone at cleanup) and one generated suite per row
+(85 suites), each ability in its own game.
+
+**Landed:** no auto flips and 85 generated rows in two passes - 84 suites green on the first with one red (Draconian Cylix: the Bolt a regenerate test casts from hand is one more card off a random-discard hand count) and thirty modules failing tsc (a regenerate def reads self alone, so its obj parameter had to be named away) - both fix-gen20-1 - and 85 green on the second; the Tier-3 disclosure's Regenerate note (apply the shield yourself) retired with the seam, which the shipped-script and tier3 consistency tests demanded; gate 184 then failed on D192's vacuity tripwire (no engine source mentions regeneration - true until this decision), rewritten to pin the seam's eight files and that every wipe shipped on the old argument still says the clause and never consults the shield (gate 184b). The wave IS the landing: 85 rows - 73 cards that regenerate themselves (Drudge Skeletons, Will-o'-the-Wisp, Troll Ascetic, River Boa, Mire Boa, Cudgel Troll, Lotleth Troll, Spectral Lynx among them) and 13 that regenerate a declared creature (Suture Spirit, Ragnar, Village Elder, Goblin Chirurgeon, Medicine Bag, Yavimaya Hollow, Draconian Cylix); 86 of the 93 abilities are the regenerations, then a self pump (2), a self counter (2), an anthem, an untap. Sixteen regenerators stay refused because the test's Bolt would not kill them (toughness 4 and up - Ghost Ship, Wall of Bone, Skeletal Wurm, Hellkite Overlord among them - and Mortivore and Uktabi Wildcats, whose toughness is a star).
+
+Fixtures 4,376 · botPool artifact 366 / creature 3,707 / enchantment 331 / instant 947 / land 485 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1098, 1223, 2910, 4770, 6110] · batch.json
+85 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,122 files, 20,786 passing / 11 skipped ·
+500-seed gate, 6 shards, 369.1 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D330): the regenerators the Bolt cannot kill (16 - a destroy fixture in the test instead of the Bolt), regenerate enchanted creature (13 Auras), snow mana ({S} - 11; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15); then the modal seam (276 permanents whose first unread line is a choose-one), can not be countered (11 whole cards), the monarch, attacks each combat if able, the another split; the modal seam; the "another" split; the
+by-name sacrifice cost; the remaining cost verbs; the prompt continuation
+seam; prior items stand.

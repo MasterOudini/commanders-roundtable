@@ -115,6 +115,8 @@ export type SbaAction =
    */
   | { readonly t: 'worldRule'; readonly card: InstanceId }
   | { readonly t: 'tokenCeasesToExist'; readonly card: InstanceId }
+  /** D330 - lethal damage met a regeneration shield: tapped, damage removed, out of combat, not destroyed. */
+  | { readonly t: 'regenerated'; readonly card: InstanceId }
   | { readonly t: 'counterAnnihilation'; readonly card: InstanceId; readonly amount: number };
 
 export type EventBody =
@@ -368,6 +370,9 @@ export type EventBody =
     }
   | { readonly t: 'RemovedFromCombat'; readonly cards: readonly InstanceId[] }
   | { readonly t: 'CombatEnded' }
+  // D330 - CR 701.19: a regeneration shield put on a permanent, and one spent.
+  | { readonly t: 'RegenerationShieldAdded'; readonly card: InstanceId }
+  | { readonly t: 'Regenerated'; readonly card: InstanceId }
 
   // ── non-combat effects ───────────────────────────────────────────────────
   /**

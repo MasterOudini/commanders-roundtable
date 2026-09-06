@@ -503,7 +503,7 @@ const RULES: readonly Rule[] = [
   {
     kind: 'noop',
     re: /^(?:it|they) can't be regenerated\.$/i,
-    build: () => ({ ...BASE, targetIndex: -1, self: true }),
+    build: () => ({ ...BASE, targetIndex: -1, self: true, noRegenerate: true }),
   },
   /**
    * M6.3c. `Battlegrowth` — "Put a +1/+1 counter on target creature." — and

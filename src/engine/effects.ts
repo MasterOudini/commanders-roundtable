@@ -176,6 +176,18 @@ export function effectResult(
           );
           break;
         }
+        // D330 - CR 701.19: a regeneration shield replaces the destruction -
+        // tapped, damage removed, out of combat, the shield spent - unless the
+        // spell says it can't be regenerated (the clause rides the same effects).
+        if ((state.regenerationShields[aim.id] ?? 0) > 0 && !effects.some((e) => e.noRegenerate === true)) {
+          const inst = state.cards[aim.id];
+          if (inst && !inst.tapped) out.push({ t: 'PermanentsTapped', cards: [aim.id] });
+          out.push({ t: 'DamageCleared', cards: [aim.id] });
+          out.push({ t: 'RemovedFromCombat', cards: [aim.id] });
+          out.push({ t: 'Regenerated', card: aim.id });
+          out.push(narrated(`${d.name} regenerates.`, obj.controller, obj.identity));
+          break;
+        }
         out.push(moveTo(aim.id, 'graveyard', aim.owner));
         break;
       }

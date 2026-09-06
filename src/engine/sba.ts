@@ -66,6 +66,7 @@ export function checkStateBasedActions(
   // 2–8 — the battlefield sweep.
   const counterChanges: { card: InstanceId; kind: string; delta: number }[] = [];
   const detachments: InstanceId[] = [];
+  const regenerated: InstanceId[] = [];
 
   for (const id of state.zones.battlefield) {
     const card = state.cards[id];
@@ -98,6 +99,12 @@ export function checkStateBasedActions(
 
     // 3 — lethal damage. This one IS a destruction, so indestructible saves it.
     if (hasLethalDamage(d, card) && !d.keywords.has('indestructible')) {
+      // D330 - CR 701.19 / 704.5g: a regeneration shield replaces the destruction.
+      if ((state.regenerationShields[id] ?? 0) > 0) {
+        actions.push({ t: 'regenerated', card: id });
+        regenerated.push(id);
+        continue;
+      }
       actions.push({ t: 'lethalDamage', card: id });
       moves.push({ card: id, from: battlefield, to: graveyard });
       doomed.add(id);
@@ -234,6 +241,21 @@ export function checkStateBasedActions(
     events.push({ t: 'AwaitingSet', awaiting: legendPrompt.awaiting });
   }
 
+  // D330 - the regeneration itself: tapped, damage removed, out of combat, the shield spent.
+  if (regenerated.length > 0) {
+    const untapped = regenerated.filter((id) => state.cards[id]?.tapped === false);
+    if (untapped.length > 0) events.push({ t: 'PermanentsTapped', cards: untapped });
+    events.push({ t: 'DamageCleared', cards: regenerated });
+    events.push({ t: 'RemovedFromCombat', cards: regenerated });
+    for (const id of regenerated) {
+      events.push({ t: 'Regenerated', card: id });
+      const card = state.cards[id];
+      if (!card) continue;
+      events.push(
+        narrated(`${derive(state, oracle, scripts, id, cache).name} regenerates.`, card.controller, oracle.byPrinting(card.printingId)?.colorIdentity ?? []),
+      );
+    }
+  }
   if (counterChanges.length > 0) events.push({ t: 'CountersChanged', changes: counterChanges });
   for (const id of detachments) events.push({ t: 'AttachmentChanged', card: id, to: null });
   if (ceased.length > 0) events.push({ t: 'TokensCeased', cards: ceased });

@@ -831,6 +831,12 @@ export interface GameState {
     /** D311 - card types gained until end of turn (a crewed Vehicle). Read at layer 4. */
     readonly types?: readonly string[];
   }[];
+  /**
+   * D330 - CR 701.19: regeneration shields per permanent (instance id), each
+   * spent by the next destruction this turn; cleared with the until-end-of-turn
+   * effects at cleanup and when the permanent leaves the battlefield.
+   */
+  readonly regenerationShields: Readonly<Record<string, number>>;
   readonly pendingTriggers: readonly PendingTrigger[];
   readonly winners: readonly PlayerId[];
   readonly rng: RngState;

@@ -7,6 +7,91 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { DRUDGE_SKELETONS_SCRIPT } from './cards/drudgeSkeletons';
+import { SENTRY_OF_THE_UNDERWORLD_SCRIPT } from './cards/sentryOfTheUnderworld';
+import { DRUDGE_REAVERS_SCRIPT } from './cards/drudgeReavers';
+import { UTHDEN_TROLL_SCRIPT } from './cards/uthdenTroll';
+import { MISCHIEVOUS_POLTERGEIST_SCRIPT } from './cards/mischievousPoltergeist';
+import { WILL_OTHE_WISP_SCRIPT } from './cards/willOTheWisp';
+import { CADAVEROUS_KNIGHT_SCRIPT } from './cards/cadaverousKnight';
+import { SUTURE_SPIRIT_SCRIPT } from './cards/sutureSpirit';
+import { GORILLA_CHIEFTAIN_SCRIPT } from './cards/gorillaChieftain';
+import { RAGNAR_SCRIPT } from './cards/ragnar';
+import { WAKE_OF_VULTURES_SCRIPT } from './cards/wakeOfVultures';
+import { CLAY_STATUE_SCRIPT } from './cards/clayStatue';
+import { UNWORTHY_DEAD_SCRIPT } from './cards/unworthyDead';
+import { WALL_OF_BRAMBLES_SCRIPT } from './cards/wallOfBrambles';
+import { SCREECHING_HARPY_SCRIPT } from './cards/screechingHarpy';
+import { BLIGHT_MAMBA_SCRIPT } from './cards/blightMamba';
+import { TROLL_ASCETIC_SCRIPT } from './cards/trollAscetic';
+import { RIVER_BOA_SCRIPT } from './cards/riverBoa';
+import { SPECTRAL_LYNX_SCRIPT } from './cards/spectralLynx';
+import { LIM_DLS_HIGH_GUARD_SCRIPT } from './cards/limDLsHighGuard';
+import { MIRE_BOA_SCRIPT } from './cards/mireBoa';
+import { PATCHWORK_GNOMES_SCRIPT } from './cards/patchworkGnomes';
+import { SLITH_BLOODLETTER_SCRIPT } from './cards/slithBloodletter';
+import { CINDERBONES_SCRIPT } from './cards/cinderbones';
+import { VILLAGE_ELDER_SCRIPT } from './cards/villageElder';
+import { PEWTER_GOLEM_SCRIPT } from './cards/pewterGolem';
+import { DEEPWOOD_GHOUL_SCRIPT } from './cards/deepwoodGhoul';
+import { GOBLIN_TURNCOAT_SCRIPT } from './cards/goblinTurncoat';
+import { GOBLIN_CHIRURGEON_SCRIPT } from './cards/goblinChirurgeon';
+import { SANGUINE_GUARD_SCRIPT } from './cards/sanguineGuard';
+import { PHYREXIAN_MONITOR_SCRIPT } from './cards/phyrexianMonitor';
+import { CUDGEL_TROLL_SCRIPT } from './cards/cudgelTroll';
+import { MARROW_BATS_SCRIPT } from './cards/marrowBats';
+import { MEDICINE_BAG_SCRIPT } from './cards/medicineBag';
+import { ROOTWATER_ALLIGATOR_SCRIPT } from './cards/rootwaterAlligator';
+import { LOTLETH_TROLL_SCRIPT } from './cards/lotlethTroll';
+import { FOG_OF_GNATS_SCRIPT } from './cards/fogOfGnats';
+import { YAVIMAYA_HOLLOW_SCRIPT } from './cards/yavimayaHollow';
+import { RANGER_EN_VEC_SCRIPT } from './cards/rangerEnVec';
+import { CARRION_WALL_SCRIPT } from './cards/carrionWall';
+import { SKELETAL_CHANGELING_SCRIPT } from './cards/skeletalChangeling';
+import { DARKLING_STALKER_SCRIPT } from './cards/darklingStalker';
+import { DUTY_BOUND_DEAD_SCRIPT } from './cards/dutyBoundDead';
+import { FANATICAL_DEVOTION_SCRIPT } from './cards/fanaticalDevotion';
+import { TOXIC_NIM_SCRIPT } from './cards/toxicNim';
+import { CHARGING_TROLL_SCRIPT } from './cards/chargingTroll';
+import { JUNGLE_TROLL_SCRIPT } from './cards/jungleTroll';
+import { WALL_OF_PINE_NEEDLES_SCRIPT } from './cards/wallOfPineNeedles';
+import { METATHRAN_ZOMBIE_SCRIPT } from './cards/metathranZombie';
+import { ASPHODEL_WANDERER_SCRIPT } from './cards/asphodelWanderer';
+import { ASCETICISM_SCRIPT } from './cards/asceticism';
+import { FERAL_THALLID_SCRIPT } from './cards/feralThallid';
+import { TATTERED_DRAKE_SCRIPT } from './cards/tatteredDrake';
+import { VAMPIRE_WARLORD_SCRIPT } from './cards/vampireWarlord';
+import { HORNED_TROLL_SCRIPT } from './cards/hornedTroll';
+import { WOLFIR_AVENGER_SCRIPT } from './cards/wolfirAvenger';
+import { KIN_TREE_WARDEN_SCRIPT } from './cards/kinTreeWarden';
+import { DUTIFUL_THRULL_SCRIPT } from './cards/dutifulThrull';
+import { TANGLE_HULK_SCRIPT } from './cards/tangleHulk';
+import { SKYSHROUD_TROLL_SCRIPT } from './cards/skyshroudTroll';
+import { DROWNED_SCRIPT } from './cards/drowned';
+import { MARANG_RIVER_SKELETON_SCRIPT } from './cards/marangRiverSkeleton';
+import { RUSHWOOD_HERBALIST_SCRIPT } from './cards/rushwoodHerbalist';
+import { VOTARY_OF_THE_CONCLAVE_SCRIPT } from './cards/votaryOfTheConclave';
+import { SELESNYA_SENTRY_SCRIPT } from './cards/selesnyaSentry';
+import { NIALL_SILVAIN_SCRIPT } from './cards/niallSilvain';
+import { YAVIMAYA_GNATS_SCRIPT } from './cards/yavimayaGnats';
+import { RESTLESS_DEAD_SCRIPT } from './cards/restlessDead';
+import { SKELETAL_KATHARI_SCRIPT } from './cards/skeletalKathari';
+import { DRACONIAN_CYLIX_SCRIPT } from './cards/draconianCylix';
+import { CENTAUR_VETERAN_SCRIPT } from './cards/centaurVeteran';
+import { RAKSHASA_DEATHDEALER_SCRIPT } from './cards/rakshasaDeathdealer';
+import { LIVING_AIRSHIP_SCRIPT } from './cards/livingAirship';
+import { HERBAL_POULTICE_SCRIPT } from './cards/herbalPoultice';
+import { CORRUPTED_HARVESTER_SCRIPT } from './cards/corruptedHarvester';
+import { VIASHINO_SKELETON_SCRIPT } from './cards/viashinoSkeleton';
+import { ODIOUS_TROW_SCRIPT } from './cards/odiousTrow';
+import { LOCUST_SWARM_SCRIPT } from './cards/locustSwarm';
+import { WOODWRAITH_STRANGLER_SCRIPT } from './cards/woodwraithStrangler';
+import { WALKING_DEAD_SCRIPT } from './cards/walkingDead';
+import { TEL_JILAD_EXILE_SCRIPT } from './cards/telJiladExile';
+import { MANOR_SKELETON_SCRIPT } from './cards/manorSkeleton';
+import { TEL_JILAD_LIFEBREATHER_SCRIPT } from './cards/telJiladLifebreather';
+import { RUSTED_SLASHER_SCRIPT } from './cards/rustedSlasher';
+import { REVERED_DEAD_SCRIPT } from './cards/reveredDead';
 import { GRIM_LAVAMANCER_SCRIPT } from './cards/grimLavamancer';
 import { GOLDMEADOW_NOMAD_SCRIPT } from './cards/goldmeadowNomad';
 import { MINES_OF_MORIA_SCRIPT } from './cards/minesOfMoria';
@@ -4042,6 +4127,91 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DRUDGE_SKELETONS_SCRIPT,
+  SENTRY_OF_THE_UNDERWORLD_SCRIPT,
+  DRUDGE_REAVERS_SCRIPT,
+  UTHDEN_TROLL_SCRIPT,
+  MISCHIEVOUS_POLTERGEIST_SCRIPT,
+  WILL_OTHE_WISP_SCRIPT,
+  CADAVEROUS_KNIGHT_SCRIPT,
+  SUTURE_SPIRIT_SCRIPT,
+  GORILLA_CHIEFTAIN_SCRIPT,
+  RAGNAR_SCRIPT,
+  WAKE_OF_VULTURES_SCRIPT,
+  CLAY_STATUE_SCRIPT,
+  UNWORTHY_DEAD_SCRIPT,
+  WALL_OF_BRAMBLES_SCRIPT,
+  SCREECHING_HARPY_SCRIPT,
+  BLIGHT_MAMBA_SCRIPT,
+  TROLL_ASCETIC_SCRIPT,
+  RIVER_BOA_SCRIPT,
+  SPECTRAL_LYNX_SCRIPT,
+  LIM_DLS_HIGH_GUARD_SCRIPT,
+  MIRE_BOA_SCRIPT,
+  PATCHWORK_GNOMES_SCRIPT,
+  SLITH_BLOODLETTER_SCRIPT,
+  CINDERBONES_SCRIPT,
+  VILLAGE_ELDER_SCRIPT,
+  PEWTER_GOLEM_SCRIPT,
+  DEEPWOOD_GHOUL_SCRIPT,
+  GOBLIN_TURNCOAT_SCRIPT,
+  GOBLIN_CHIRURGEON_SCRIPT,
+  SANGUINE_GUARD_SCRIPT,
+  PHYREXIAN_MONITOR_SCRIPT,
+  CUDGEL_TROLL_SCRIPT,
+  MARROW_BATS_SCRIPT,
+  MEDICINE_BAG_SCRIPT,
+  ROOTWATER_ALLIGATOR_SCRIPT,
+  LOTLETH_TROLL_SCRIPT,
+  FOG_OF_GNATS_SCRIPT,
+  YAVIMAYA_HOLLOW_SCRIPT,
+  RANGER_EN_VEC_SCRIPT,
+  CARRION_WALL_SCRIPT,
+  SKELETAL_CHANGELING_SCRIPT,
+  DARKLING_STALKER_SCRIPT,
+  DUTY_BOUND_DEAD_SCRIPT,
+  FANATICAL_DEVOTION_SCRIPT,
+  TOXIC_NIM_SCRIPT,
+  CHARGING_TROLL_SCRIPT,
+  JUNGLE_TROLL_SCRIPT,
+  WALL_OF_PINE_NEEDLES_SCRIPT,
+  METATHRAN_ZOMBIE_SCRIPT,
+  ASPHODEL_WANDERER_SCRIPT,
+  ASCETICISM_SCRIPT,
+  FERAL_THALLID_SCRIPT,
+  TATTERED_DRAKE_SCRIPT,
+  VAMPIRE_WARLORD_SCRIPT,
+  HORNED_TROLL_SCRIPT,
+  WOLFIR_AVENGER_SCRIPT,
+  KIN_TREE_WARDEN_SCRIPT,
+  DUTIFUL_THRULL_SCRIPT,
+  TANGLE_HULK_SCRIPT,
+  SKYSHROUD_TROLL_SCRIPT,
+  DROWNED_SCRIPT,
+  MARANG_RIVER_SKELETON_SCRIPT,
+  RUSHWOOD_HERBALIST_SCRIPT,
+  VOTARY_OF_THE_CONCLAVE_SCRIPT,
+  SELESNYA_SENTRY_SCRIPT,
+  NIALL_SILVAIN_SCRIPT,
+  YAVIMAYA_GNATS_SCRIPT,
+  RESTLESS_DEAD_SCRIPT,
+  SKELETAL_KATHARI_SCRIPT,
+  DRACONIAN_CYLIX_SCRIPT,
+  CENTAUR_VETERAN_SCRIPT,
+  RAKSHASA_DEATHDEALER_SCRIPT,
+  LIVING_AIRSHIP_SCRIPT,
+  HERBAL_POULTICE_SCRIPT,
+  CORRUPTED_HARVESTER_SCRIPT,
+  VIASHINO_SKELETON_SCRIPT,
+  ODIOUS_TROW_SCRIPT,
+  LOCUST_SWARM_SCRIPT,
+  WOODWRAITH_STRANGLER_SCRIPT,
+  WALKING_DEAD_SCRIPT,
+  TEL_JILAD_EXILE_SCRIPT,
+  MANOR_SKELETON_SCRIPT,
+  TEL_JILAD_LIFEBREATHER_SCRIPT,
+  RUSTED_SLASHER_SCRIPT,
+  REVERED_DEAD_SCRIPT,
   GRIM_LAVAMANCER_SCRIPT,
   GOLDMEADOW_NOMAD_SCRIPT,
   MINES_OF_MORIA_SCRIPT,
