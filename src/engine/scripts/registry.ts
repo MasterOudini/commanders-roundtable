@@ -7,6 +7,31 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SLIPSTREAM_EEL_SCRIPT } from './cards/slipstreamEel';
+import { CRAW_GIANT_SCRIPT } from './cards/crawGiant';
+import { AERATHI_BERSERKER_SCRIPT } from './cards/aerathiBerserker';
+import { HUNDING_GJORNERSEN_SCRIPT } from './cards/hundingGjornersen';
+import { BALDUVIAN_WAR_MAKERS_SCRIPT } from './cards/balduvianWarMakers';
+import { KUROS_TAKEN_SCRIPT } from './cards/kurosTaken';
+import { SEA_MONSTER_SCRIPT } from './cards/seaMonster';
+import { WU_WARSHIP_SCRIPT } from './cards/wuWarship';
+import { MARHAULT_ELSDRAGON_SCRIPT } from './cards/marhaultElsdragon';
+import { ARMORED_GALLEON_SCRIPT } from './cards/armoredGalleon';
+import { HAMMERHEAD_SHARK_SCRIPT } from './cards/hammerheadShark';
+import { ETHEREAL_WHISKERGILL_SCRIPT } from './cards/etherealWhiskergill';
+import { LURKING_GREEN_DRAGON_SCRIPT } from './cards/lurkingGreenDragon';
+import { FROST_GIANT_SCRIPT } from './cards/frostGiant';
+import { ZHOU_YU_CHIEF_COMMANDER_SCRIPT } from './cards/zhouYuChiefCommander';
+import { BATTLE_MAD_RONIN_SCRIPT } from './cards/battleMadRonin';
+import { WHIMWADER_SCRIPT } from './cards/whimwader';
+import { NUMAI_OUTCAST_SCRIPT } from './cards/numaiOutcast';
+import { CURSED_RONIN_SCRIPT } from './cards/cursedRonin';
+import { WOLVERINE_PACK_SCRIPT } from './cards/wolverinePack';
+import { RED_CLIFFS_ARMADA_SCRIPT } from './cards/redCliffsArmada';
+import { HORRIBLE_HORDES_SCRIPT } from './cards/horribleHordes';
+import { STEAM_FRIGATE_SCRIPT } from './cards/steamFrigate';
+import { DEEP_SEA_SERPENT_SCRIPT } from './cards/deepSeaSerpent';
+import { SERPENT_OF_THE_ENDLESS_SEA_SCRIPT } from './cards/serpentOfTheEndlessSea';
 import { REAPER_OF_THE_WILDS_SCRIPT } from './cards/reaperOfTheWilds';
 import { HADA_FREEBLADE_SCRIPT } from './cards/hadaFreeblade';
 import { ORAN_RIEF_SURVIVALIST_SCRIPT } from './cards/oranRiefSurvivalist';
@@ -4183,6 +4208,31 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SLIPSTREAM_EEL_SCRIPT,
+  CRAW_GIANT_SCRIPT,
+  AERATHI_BERSERKER_SCRIPT,
+  HUNDING_GJORNERSEN_SCRIPT,
+  BALDUVIAN_WAR_MAKERS_SCRIPT,
+  KUROS_TAKEN_SCRIPT,
+  SEA_MONSTER_SCRIPT,
+  WU_WARSHIP_SCRIPT,
+  MARHAULT_ELSDRAGON_SCRIPT,
+  ARMORED_GALLEON_SCRIPT,
+  HAMMERHEAD_SHARK_SCRIPT,
+  ETHEREAL_WHISKERGILL_SCRIPT,
+  LURKING_GREEN_DRAGON_SCRIPT,
+  FROST_GIANT_SCRIPT,
+  ZHOU_YU_CHIEF_COMMANDER_SCRIPT,
+  BATTLE_MAD_RONIN_SCRIPT,
+  WHIMWADER_SCRIPT,
+  NUMAI_OUTCAST_SCRIPT,
+  CURSED_RONIN_SCRIPT,
+  WOLVERINE_PACK_SCRIPT,
+  RED_CLIFFS_ARMADA_SCRIPT,
+  HORRIBLE_HORDES_SCRIPT,
+  STEAM_FRIGATE_SCRIPT,
+  DEEP_SEA_SERPENT_SCRIPT,
+  SERPENT_OF_THE_ENDLESS_SEA_SCRIPT,
   REAPER_OF_THE_WILDS_SCRIPT,
   HADA_FREEBLADE_SCRIPT,
   ORAN_RIEF_SURVIVALIST_SCRIPT,

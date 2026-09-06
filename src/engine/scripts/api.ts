@@ -18,7 +18,7 @@ import type { ColorLetter } from '../../data/cardTypes';
 import type { EventBody, EventKind } from '../types/events';
 import type { AbilityRef, InstanceId, OracleId, PlayerId, ZoneKind } from '../types/ids';
 import type { DerivedCharacteristics, Keyword, OracleDb, ParsedTypeLine, Protection, TargetSpec } from '../types/oracle';
-import type { GameOptions, GameState, StackObject } from '../types/state';
+import type { DefenderRef, GameOptions, GameState, StackObject } from '../types/state';
 
 /** The mutable form a static ability edits. Copied out of `derive()`'s workspace. */
 export interface MutableCharacteristics {
@@ -163,6 +163,15 @@ export interface CombatDef {
    * could not express one.
    */
   canAttack?(ctx: ScriptCtx, self: InstanceId, candidate: InstanceId): boolean;
+  /**
+   * D338 - a restriction that reads the DEFENDER: "can't attack unless
+   * defending player controls an Island". Asked of each attacker/defender
+   * pair at the declaration, after `canAttack` admitted the creature; the
+   * prompt's attackers list stays the defender-free question, since the
+   * creature may still attack another defender. A creature no legal
+   * defender admits is not able to attack, so no requirement asks it.
+   */
+  canAttackDefender?(ctx: ScriptCtx, self: InstanceId, candidate: InstanceId, defender: DefenderRef): boolean;
   /** `false` to stop `blocker` blocking `attacker`. */
   canBlock?(ctx: ScriptCtx, self: InstanceId, blocker: InstanceId, attacker: InstanceId): boolean;
   /**

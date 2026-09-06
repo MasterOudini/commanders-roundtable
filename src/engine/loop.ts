@@ -12,7 +12,7 @@
 // or it is blocked on a human (`priority.awaiting !== null`). Those are the only
 // two places the engine stops.
 
-import { assignBlockerDamage, creaturesInCombat, canAttack, legalDefenders, needsFirstStrikeSubstep, requiredAttackers, resolveCombatDamage } from './combat';
+import { assignBlockerDamage, creaturesInCombat, canAttack, canAttackDefender, legalDefenders, needsFirstStrikeSubstep, requiredAttackers, resolveCombatDamage } from './combat';
 import { derive, makeDeriveCache } from './derive';
 import { drawEvents, drewCardsMarker, effectResult } from './effects';
 import { keywordTriggerDef } from './keywordTriggers';
@@ -374,7 +374,11 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
             kind: 'declareAttackers',
             player: ap,
             attackers: possible,
-            required: requiredAttackers(deps2, possible),
+            // D338 - a creature no legal defender admits is not able to attack, so no requirement asks it.
+            required: requiredAttackers(
+              deps2,
+              possible.filter((id) => legalDefenders(deps2, ap).some((dref) => canAttackDefender(deps2, id, dref))),
+            ),
             defenders: legalDefenders(deps2, ap),
           },
         });

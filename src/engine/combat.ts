@@ -60,6 +60,15 @@ export function canAttack(deps: CombatDeps, id: InstanceId): boolean {
  * nothing and the whole check is one array-length test.
  */
 /**
+ * D338 - CR 508.1c, the restrictions that read the DEFENDER ("can't attack
+ * unless defending player controls an Island"). Asked of each attacker/
+ * defender PAIR at the declaration, after `canAttack` admitted the creature.
+ */
+export function canAttackDefender(deps: CombatDeps, id: InstanceId, defender: DefenderRef): boolean {
+  return !restrictedBy(deps, (def, ctx, self) => def.canAttackDefender?.(ctx, self, id, defender) === false);
+}
+
+/**
  * D335 - CR 508.1d: the creatures a registered requirement says must attack,
  * among those that can. "Attacks each combat if able" is satisfied by
  * attacking any legal defender, so the maximum the rule speaks of is met

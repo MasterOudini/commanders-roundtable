@@ -41,6 +41,9 @@ import type { CardScript } from '../engine/scripts/api';
 import { SHIPPED_SCRIPTS } from '../engine/scripts/registry';
 import { parseFace, parseProtection, parseWard, parseWardLife } from './oracleParse';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
+
+/** D338 - the keyword-trigger keywords printed WITH a number the engine reads (`keywordAmount`). */
+const NUMBERED_TRIGGER_KEYWORDS: ReadonlySet<string> = new Set(['bushido']);
 import { parseEnchant, scrub, splitAbilityLines } from './targetParse';
 import { parseEntersTappedLine, parseChoosesColorOnEntry } from './replacementParse';
 
@@ -214,6 +217,17 @@ function clauseAccounted(raw: string, face: OracleFace): boolean {
 
   const kw = canonicalKeyword(s);
   if (kw !== null) return face.keywords.includes(kw);
+
+  // D338 - a NUMBERED keyword the engine runs from its keyword-trigger table
+  // (`keywordTriggers.ts`: the number is read off the printed text at
+  // resolution). "Bushido 1" is that keyword and its amount, nothing else -
+  // Scryfall reports the bare keyword, so the clause is accounted the way the
+  // bare one is. Rampage is not in the table and stays a leftover.
+  const numbered = /^([a-z]+) (\d+)$/i.exec(s);
+  if (numbered) {
+    const nkw = canonicalKeyword(numbered[1] ?? '');
+    if (nkw !== null && NUMBERED_TRIGGER_KEYWORDS.has(nkw)) return face.keywords.includes(nkw);
+  }
 
   // Anchored at BOTH ends for the same reason, then confirmed by the parser: a
   // clause shaped like landwalk that `parseLandwalk` does not read is not one.

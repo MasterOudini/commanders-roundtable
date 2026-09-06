@@ -11,6 +11,7 @@ import {
   legalDefenders,
   needsFirstStrikeSubstep,
   canAttack,
+  canAttackDefender,
   requiredAttackers,
   validateBlockDeclaration,
 } from './combat';
@@ -1703,11 +1704,17 @@ function declareAttackers(
     }
     const ok = defenders.some((dref) => dref.kind === a.defender.kind && dref.id === a.defender.id);
     if (!ok) return reject('illegalAttacker', 'That is not a legal thing to attack.');
+    // D338 - a restriction that reads the defender ("unless defending player controls an Island").
+    if (!canAttackDefender(cdeps, a.card, a.defender)) {
+      const name = derive(state, deps.oracle, deps.scripts, a.card, cache).name || 'That creature';
+      return reject('illegalAttacker', `${name} can't attack that defender.`);
+    }
   }
   // D335 - CR 508.1d: a creature that attacks each combat if able, and can,
   // must be in the declaration. Recomputed here rather than read off the
   // prompt - a client's word is not a rule (D139).
-  const possible = state.zones.battlefield.filter((id) => canAttack(cdeps, id));
+  // D338 - a creature no legal defender admits is not able to attack, so no requirement asks it.
+  const possible = state.zones.battlefield.filter((id) => canAttack(cdeps, id) && defenders.some((dref) => canAttackDefender(cdeps, id, dref)));
   for (const id of requiredAttackers(cdeps, possible)) {
     if (seen.has(id)) continue;
     const name = derive(state, deps.oracle, deps.scripts, id, cache).name || 'That creature';

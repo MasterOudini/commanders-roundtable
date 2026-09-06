@@ -110974,42 +110974,6 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
-  "KITSUNE_BLADEMASTER": {
-    "scryfallId": "63546561-9980-4380-a7e6-4c85d7a35907",
-    "oracleId": "2db73fff-1a89-4006-945d-a244ff2f0bef",
-    "name": "Kitsune Blademaster",
-    "layout": "normal",
-    "faces": [
-      {
-        "name": "Kitsune Blademaster",
-        "manaCost": "{2}{W}",
-        "typeLine": "Creature — Fox Samurai",
-        "oracleText": "First strike\nBushido 1 (Whenever this creature blocks or becomes blocked, it gets +1/+1 until end of turn.)",
-        "flavorText": "Those kitsune trained in the blade preferred to fight with a blade-catching jitte in the off hand, buying them just enough time to deliver the first deadly cut.",
-        "power": "2",
-        "toughness": "2",
-        "loyalty": null,
-        "defense": null,
-        "colors": [
-          "W"
-        ],
-        "artist": "Keith Garletts",
-        "imageId": "63546561-9980-4380-a7e6-4c85d7a35907"
-      }
-    ],
-    "colorIdentity": [
-      "W"
-    ],
-    "cmc": 3,
-    "keywords": [
-      "Bushido",
-      "First strike"
-    ],
-    "setCode": "plst",
-    "collectorNumber": "CHK-25",
-    "commanderLegality": "legal",
-    "singleImage": true
-  },
   "FALLEN_ASKARI": {
     "scryfallId": "00107210-313f-49c1-84ff-92628f75b764",
     "oracleId": "4956008e-d912-48ba-9b82-176258281060",
@@ -148495,6 +148459,901 @@
     ],
     "setCode": "bfz",
     "collectorNumber": "143",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SLIPSTREAM_EEL": {
+    "scryfallId": "0424af24-f9f7-48d4-8481-bd1d983e1ece",
+    "oracleId": "74e6dd0f-2866-4d45-a214-8b09b837bc02",
+    "name": "Slipstream Eel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Slipstream Eel",
+        "manaCost": "{5}{U}{U}",
+        "typeLine": "Creature — Fish Beast",
+        "oracleText": "This creature can't attack unless defending player controls an Island.\nCycling {1}{U} ({1}{U}, Discard this card: Draw a card.)",
+        "flavorText": "\"It's a fine way to travel, if you don't mind the smell.\"",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "0424af24-f9f7-48d4-8481-bd1d983e1ece"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "cmd",
+    "collectorNumber": "62",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRAW_GIANT": {
+    "scryfallId": "06274d3b-8feb-4c68-adbc-b1ee633c3353",
+    "oracleId": "152b621e-4c18-438c-9999-77e2685fda79",
+    "name": "Craw Giant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Craw Giant",
+        "manaCost": "{3}{G}{G}{G}{G}",
+        "typeLine": "Creature — Giant",
+        "oracleText": "Trample\nRampage 2 (Whenever this creature becomes blocked, it gets +2/+2 until end of turn for each creature blocking it beyond the first.)",
+        "flavorText": "Harthag gave a jolly laugh as he surveyed the army before him. \"Ho ho ho! Midgets! You think you can stand in my way?\"",
+        "power": "6",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Scott Kirschner",
+        "imageId": "06274d3b-8feb-4c68-adbc-b1ee633c3353"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Trample",
+      "Rampage"
+    ],
+    "setCode": "5ed",
+    "collectorNumber": "285",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AERATHI_BERSERKER": {
+    "scryfallId": "06673800-22a7-4ee3-92fa-7c7cd4865d30",
+    "oracleId": "5cb495a2-c683-4066-b6ee-d0b7d8843cb9",
+    "name": "Aerathi Berserker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aerathi Berserker",
+        "manaCost": "{2}{R}{R}{R}",
+        "typeLine": "Creature — Human Berserker",
+        "oracleText": "Rampage 3 (Whenever this creature becomes blocked, it gets +3/+3 until end of turn for each creature blocking it beyond the first.)",
+        "flavorText": "Ærathi children who show promise are left to survive for a year in the wilderness. Those who return are shown the way of the Berserker.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Melissa A. Benson",
+        "imageId": "06673800-22a7-4ee3-92fa-7c7cd4865d30"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Rampage"
+    ],
+    "setCode": "leg",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HUNDING_GJORNERSEN": {
+    "scryfallId": "07d8e501-6857-4a52-a3b9-2bf0bee5b08c",
+    "oracleId": "dd4f3a78-3167-42d0-8334-5ac36750a253",
+    "name": "Hunding Gjornersen",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hunding Gjornersen",
+        "manaCost": "{3}{W}{U}{U}",
+        "typeLine": "Legendary Creature — Human Warrior",
+        "oracleText": "Rampage 1 (Whenever this creature becomes blocked, it gets +1/+1 until end of turn for each creature blocking it beyond the first.)",
+        "flavorText": "\"You would never guess, at the terrifying sight of the man, that Hunding was as charming a companion as one could wish for.\"",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Richard Thomas",
+        "imageId": "07d8e501-6857-4a52-a3b9-2bf0bee5b08c"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Rampage"
+    ],
+    "setCode": "leg",
+    "collectorNumber": "231",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BALDUVIAN_WAR_MAKERS": {
+    "scryfallId": "12fd561e-6a26-4140-a033-1204f5dda5f3",
+    "oracleId": "1bda7f60-f986-455b-9d56-bbd494e27c17",
+    "name": "Balduvian War-Makers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Balduvian War-Makers",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Human Barbarian",
+        "oracleText": "Haste\nRampage 1 (Whenever this creature becomes blocked, it gets +1/+1 until end of turn for each creature blocking it beyond the first.)",
+        "flavorText": "\"Those mewling Barbarians will cower before my righteous steel!\"\n—General Varchild",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mike Kimble",
+        "imageId": "12fd561e-6a26-4140-a033-1204f5dda5f3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Haste",
+      "Rampage"
+    ],
+    "setCode": "all",
+    "collectorNumber": "66a",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KURO_S_TAKEN": {
+    "scryfallId": "1e301a46-f321-4fa6-a8c4-08dd4079a458",
+    "oracleId": "8b787ba5-0b87-449f-98cd-9454445e2f48",
+    "name": "Kuro's Taken",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kuro's Taken",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Rat Samurai",
+        "oracleText": "Bushido 1 (Whenever this creature blocks or becomes blocked, it gets +1/+1 until end of turn.)\n{1}{B}: Regenerate this creature.",
+        "flavorText": "Simple bargains are the most tempting, and oni bargains are the simplest of all: eternal life for eternal service.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Puddnhead",
+        "imageId": "1e301a46-f321-4fa6-a8c4-08dd4079a458"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Bushido",
+      "Regenerate"
+    ],
+    "setCode": "sok",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEA_MONSTER": {
+    "scryfallId": "258c8829-80f5-49d3-9887-e6ed276440c9",
+    "oracleId": "21b07ce7-b4f9-438c-8c09-e624557d62d2",
+    "name": "Sea Monster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sea Monster",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Creature — Serpent",
+        "oracleText": "This creature can't attack unless defending player controls an Island.",
+        "flavorText": "\"Abandon ship!\"",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "John Howe",
+        "imageId": "258c8829-80f5-49d3-9887-e6ed276440c9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "7ed",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WU_WARSHIP": {
+    "scryfallId": "2e211d47-dab4-429a-a90b-5b8489441886",
+    "oracleId": "f184e860-05c3-43cf-a625-ab53427406c5",
+    "name": "Wu Warship",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wu Warship",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "This creature can't attack unless defending player controls an Island.",
+        "flavorText": "Both Wu and Wei warships patrolled the Yangtze River, the natural border between the two kingdoms.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jiang Zhuqing",
+        "imageId": "2e211d47-dab4-429a-a90b-5b8489441886"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ptk",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARHAULT_ELSDRAGON": {
+    "scryfallId": "2e805883-081b-478a-aa58-172b659571c2",
+    "oracleId": "c202f124-4283-48f6-aef1-470ad9ded22b",
+    "name": "Marhault Elsdragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Marhault Elsdragon",
+        "manaCost": "{3}{R}{R}{G}",
+        "typeLine": "Legendary Creature — Elf Warrior",
+        "oracleText": "Rampage 1 (Whenever this creature becomes blocked, it gets +1/+1 until end of turn for each creature blocking it beyond the first.)",
+        "flavorText": "Marhault Elsdragon follows a strict philosophy, never letting emotions cloud his thoughts. No chance observer could imagine the rage in his heart.",
+        "power": "4",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Mark Poole",
+        "imageId": "2e805883-081b-478a-aa58-172b659571c2"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Rampage"
+    ],
+    "setCode": "me3",
+    "collectorNumber": "161",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARMORED_GALLEON": {
+    "scryfallId": "484b2978-2da5-41cf-85d4-128e9dae75c0",
+    "oracleId": "637a10e8-4384-49a0-ad78-03da8930811e",
+    "name": "Armored Galleon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Armored Galleon",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "This creature can't attack unless defending player controls an Island.",
+        "flavorText": "\"Information equals profits. Our merchants sell it, or our pirates use it.\"\n—Jefan, Talas ship captain",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Doug Chaffee",
+        "imageId": "484b2978-2da5-41cf-85d4-128e9dae75c0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "p02",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAMMERHEAD_SHARK": {
+    "scryfallId": "48c1a040-9045-4977-84e4-695de0f886a9",
+    "oracleId": "ce176172-6c7b-40b0-a6d0-68e9c32b3402",
+    "name": "Hammerhead Shark",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hammerhead Shark",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Shark",
+        "oracleText": "This creature can't attack unless defending player controls an Island.",
+        "flavorText": "Cross the eyes of a hammerhead and you'll dot its teeth.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Stephen Daniele",
+        "imageId": "48c1a040-9045-4977-84e4-695de0f886a9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tpr",
+    "collectorNumber": "52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ETHEREAL_WHISKERGILL": {
+    "scryfallId": "5b9fa774-fb6d-4a2f-96d5-a449a423312e",
+    "oracleId": "3d3e6dc0-2aed-4afa-bfa9-59d04ade9bee",
+    "name": "Ethereal Whiskergill",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ethereal Whiskergill",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying\nThis creature can't attack unless defending player controls an Island.",
+        "flavorText": "Fallowsages debate whether the whiskergill is native to the Dark Meanders or merely dreamstuff made real.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "5b9fa774-fb6d-4a2f-96d5-a449a423312e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "60",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LURKING_GREEN_DRAGON": {
+    "scryfallId": "66de5a3e-7b08-438b-866e-9fce1a36b243",
+    "oracleId": "262e1cf6-61c8-444d-a71b-050eebcaf932",
+    "name": "Lurking Green Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lurking Green Dragon",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nThis creature can't attack unless defending player controls a creature with flying.",
+        "flavorText": "\"Territorial. Scary. No further notes.\"\n—Volo's field notes",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "66de5a3e-7b08-438b-866e-9fce1a36b243"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "239",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FROST_GIANT": {
+    "scryfallId": "6955d54f-7b37-4e43-8183-51677fb1ee11",
+    "oracleId": "56ed6af3-8f85-4907-9364-eca71f21bb11",
+    "name": "Frost Giant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frost Giant",
+        "manaCost": "{3}{R}{R}{R}",
+        "typeLine": "Creature — Giant",
+        "oracleText": "Rampage 2 (Whenever this creature becomes blocked, it gets +2/+2 until end of turn for each creature blocking it beyond the first.)",
+        "flavorText": "The Frost Giants have been out in the cold a long, long time, but they have their rage to keep them warm.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Daniel Gelon",
+        "imageId": "6955d54f-7b37-4e43-8183-51677fb1ee11"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Rampage"
+    ],
+    "setCode": "leg",
+    "collectorNumber": "148",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZHOU_YU_CHIEF_COMMANDER": {
+    "scryfallId": "6e2cf83b-417d-41ca-8e65-86aa65180c40",
+    "oracleId": "0b4742b7-e769-4354-beaf-6b4d18768ec1",
+    "name": "Zhou Yu, Chief Commander",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zhou Yu, Chief Commander",
+        "manaCost": "{5}{U}{U}",
+        "typeLine": "Legendary Creature — Human Soldier",
+        "oracleText": "Zhou Yu can't attack unless defending player controls an Island.",
+        "flavorText": "\"After making me, Zhou Yu, did you have to make Kongming?\"\n—Zhou Yu crying to heaven on his deathbed",
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Xu Xiaoming",
+        "imageId": "6e2cf83b-417d-41ca-8e65-86aa65180c40"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "ptk",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BATTLE_MAD_RONIN": {
+    "scryfallId": "a6e4394a-fa91-4cf9-99c1-dc0bc1011c5b",
+    "oracleId": "39a7c52d-0b89-47c1-a376-5004c94c2e0f",
+    "name": "Battle-Mad Ronin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Battle-Mad Ronin",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Samurai",
+        "oracleText": "Bushido 2 (Whenever this creature blocks or becomes blocked, it gets +2/+2 until end of turn.)\nThis creature attacks each combat if able.",
+        "flavorText": "\"I fought fiercely, bravely, and without mercy. Had I not struck down my captain in the heat of battle, I might have become a hero instead of an outcast.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Wayne England",
+        "imageId": "a6e4394a-fa91-4cf9-99c1-dc0bc1011c5b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Bushido"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHIMWADER": {
+    "scryfallId": "b10e1d8b-edae-4b5e-b897-2c0a307e650c",
+    "oracleId": "21d9ce2c-eb6a-4f43-a79b-0b99b3dc4a00",
+    "name": "Whimwader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Whimwader",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "This creature can't attack unless defending player controls a blue permanent.",
+        "flavorText": "\"Thought? Deceit? Progress? Now you're just making it hungry.\"\n—Abral, kithkin alchemist",
+        "power": "6",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jeff Easley",
+        "imageId": "b10e1d8b-edae-4b5e-b897-2c0a307e650c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "54",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NUMAI_OUTCAST": {
+    "scryfallId": "b878d1c2-34ce-4cb4-9ea3-8d7cd2028484",
+    "oracleId": "0319a50f-cbcd-45ab-9630-9e9f1498d23d",
+    "name": "Numai Outcast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Numai Outcast",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Human Samurai",
+        "oracleText": "Bushido 2 (Whenever this creature blocks or becomes blocked, it gets +2/+2 until end of turn.)\n{B}, Pay 5 life: Regenerate this creature.",
+        "flavorText": "\"Beware the blade of dishonor. It kills more silently than war, more quickly than age.\"\n—Sensei Golden-Tail",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "b878d1c2-34ce-4cb4-9ea3-8d7cd2028484"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Bushido",
+      "Regenerate"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CURSED_RONIN": {
+    "scryfallId": "b8f24fe9-22c4-4e53-9d7a-3cbf5533ac9b",
+    "oracleId": "23e98711-0b3f-446d-abcc-9b0378178feb",
+    "name": "Cursed Ronin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cursed Ronin",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Human Samurai",
+        "oracleText": "Bushido 1 (Whenever this creature blocks or becomes blocked, it gets +1/+1 until end of turn.)\n{B}: This creature gets +1/+1 until end of turn.",
+        "flavorText": "\"You are fortunate, my enemy. You have paid the price but once. I never stop paying.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "b8f24fe9-22c4-4e53-9d7a-3cbf5533ac9b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Bushido"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "107",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WOLVERINE_PACK": {
+    "scryfallId": "ba5aee52-095e-4c69-93eb-5adac11ed1fc",
+    "oracleId": "d67d9d82-2786-48fc-8107-11d12c5813d0",
+    "name": "Wolverine Pack",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wolverine Pack",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Wolverine",
+        "oracleText": "Rampage 2 (Whenever this creature becomes blocked, it gets +2/+2 until end of turn for each creature blocking it beyond the first.)",
+        "flavorText": "\"Give them great meals of beef and iron and steel, they will eat like wolves and fight like devils.\" —William Shakespeare, *King Henry V*",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jeff A. Menges",
+        "imageId": "ba5aee52-095e-4c69-93eb-5adac11ed1fc"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Rampage"
+    ],
+    "setCode": "leg",
+    "collectorNumber": "214",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RED_CLIFFS_ARMADA": {
+    "scryfallId": "c8fe0f33-35c7-439b-bece-4a9461b92352",
+    "oracleId": "063884e0-1f5e-4be9-930b-e73895b2fa41",
+    "name": "Red Cliffs Armada",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Red Cliffs Armada",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "This creature can't attack unless defending player controls an Island.",
+        "flavorText": "By the battle of Red Cliffs in the year 208, the Wu kingdom controlled more than 7,000 warships on the Yangtze.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Zhang Jiazhen",
+        "imageId": "c8fe0f33-35c7-439b-bece-4a9461b92352"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ptk",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HORRIBLE_HORDES": {
+    "scryfallId": "cf04f2cd-d9f8-4e0c-adaf-6d38bc14dd7a",
+    "oracleId": "79bfef02-3586-424a-aff9-a6ec0d4f1135",
+    "name": "Horrible Hordes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Horrible Hordes",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Spirit",
+        "oracleText": "Rampage 1 (Whenever this creature becomes blocked, it gets +1/+1 until end of turn for each creature blocking it beyond the first.)",
+        "flavorText": "Few are able to underestimate the hordes.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ian Miller",
+        "imageId": "cf04f2cd-d9f8-4e0c-adaf-6d38bc14dd7a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Rampage"
+    ],
+    "setCode": "mir",
+    "collectorNumber": "304",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STEAM_FRIGATE": {
+    "scryfallId": "ec3193cb-2c00-4ef8-bf2e-d3b1e3b875a3",
+    "oracleId": "2e00598c-4f06-45aa-87a7-c63b5e8e92f3",
+    "name": "Steam Frigate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Steam Frigate",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "This creature can't attack unless defending player controls an Island.",
+        "flavorText": "\"Is it merchants or is it pirates?\"\n\"It's Talas—there's no difference.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "ec3193cb-2c00-4ef8-bf2e-d3b1e3b875a3"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "p02",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEEP_SEA_SERPENT": {
+    "scryfallId": "f2d7f8d8-30fb-47c7-8927-646c41f0b9bc",
+    "oracleId": "7fbb98cc-585c-4184-97f5-9b3d3ebdb1e5",
+    "name": "Deep-Sea Serpent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deep-Sea Serpent",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Creature — Serpent",
+        "oracleText": "This creature can't attack unless defending player controls an Island.",
+        "flavorText": "Sailors fear the deep-sea serpent; others thank the gods it has no legs.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "f2d7f8d8-30fb-47c7-8927-646c41f0b9bc"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "por",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SERPENT_OF_THE_ENDLESS_SEA": {
+    "scryfallId": "f525d734-7e19-4c1e-a5c2-097b718df7c4",
+    "oracleId": "3b954d5f-3a93-4dd9-9d60-6097594d449c",
+    "name": "Serpent of the Endless Sea",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Serpent of the Endless Sea",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Serpent",
+        "oracleText": "Serpent of the Endless Sea's power and toughness are each equal to the number of Islands you control.\nThis creature can't attack unless defending player controls an Island.",
+        "flavorText": null,
+        "power": "*",
+        "toughness": "*",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "f525d734-7e19-4c1e-a5c2-097b718df7c4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "m10",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KITSUNE_BLADEMASTER": {
+    "scryfallId": "63546561-9980-4380-a7e6-4c85d7a35907",
+    "oracleId": "2db73fff-1a89-4006-945d-a244ff2f0bef",
+    "name": "Kitsune Blademaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kitsune Blademaster",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Fox Samurai",
+        "oracleText": "First strike\nBushido 1 (Whenever this creature blocks or becomes blocked, it gets +1/+1 until end of turn.)",
+        "flavorText": "Those kitsune trained in the blade preferred to fight with a blade-catching jitte in the off hand, buying them just enough time to deliver the first deadly cut.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Keith Garletts",
+        "imageId": "63546561-9980-4380-a7e6-4c85d7a35907"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Bushido",
+      "First strike"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "CHK-25",
     "commanderLegality": "legal",
     "singleImage": true
   },

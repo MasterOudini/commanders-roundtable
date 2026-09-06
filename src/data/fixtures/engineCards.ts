@@ -3323,7 +3323,6 @@ export const BEAST_ATTACK: CardData = F.BEAST_ATTACK as CardData;
 export const DEEP_ANALYSIS: CardData = F.DEEP_ANALYSIS as CardData;
 export const MONASTERY_SWIFTSPEAR: CardData = F.MONASTERY_SWIFTSPEAR as CardData;
 export const AKRASAN_SQUIRE: CardData = F.AKRASAN_SQUIRE as CardData;
-export const KITSUNE_BLADEMASTER: CardData = F.KITSUNE_BLADEMASTER as CardData;
 export const FALLEN_ASKARI: CardData = F.FALLEN_ASKARI as CardData;
 export const SAFEHOLD_ELITE: CardData = F.SAFEHOLD_ELITE as CardData;
 export const YOUNG_WOLF: CardData = F.YOUNG_WOLF as CardData;
@@ -4416,6 +4415,32 @@ export const TUKTUK_GRUNTS: CardData = F.TUKTUK_GRUNTS as CardData;
 export const MAKINDI_SHIELDMATE: CardData = F.MAKINDI_SHIELDMATE as CardData;
 export const RAGE_THROWER: CardData = F.RAGE_THROWER as CardData;
 export const CHASM_GUIDE: CardData = F.CHASM_GUIDE as CardData;
+export const SLIPSTREAM_EEL: CardData = F.SLIPSTREAM_EEL as CardData;
+export const CRAW_GIANT: CardData = F.CRAW_GIANT as CardData;
+export const AERATHI_BERSERKER: CardData = F.AERATHI_BERSERKER as CardData;
+export const HUNDING_GJORNERSEN: CardData = F.HUNDING_GJORNERSEN as CardData;
+export const BALDUVIAN_WAR_MAKERS: CardData = F.BALDUVIAN_WAR_MAKERS as CardData;
+export const KURO_S_TAKEN: CardData = F.KURO_S_TAKEN as CardData;
+export const SEA_MONSTER: CardData = F.SEA_MONSTER as CardData;
+export const WU_WARSHIP: CardData = F.WU_WARSHIP as CardData;
+export const MARHAULT_ELSDRAGON: CardData = F.MARHAULT_ELSDRAGON as CardData;
+export const ARMORED_GALLEON: CardData = F.ARMORED_GALLEON as CardData;
+export const HAMMERHEAD_SHARK: CardData = F.HAMMERHEAD_SHARK as CardData;
+export const ETHEREAL_WHISKERGILL: CardData = F.ETHEREAL_WHISKERGILL as CardData;
+export const LURKING_GREEN_DRAGON: CardData = F.LURKING_GREEN_DRAGON as CardData;
+export const FROST_GIANT: CardData = F.FROST_GIANT as CardData;
+export const ZHOU_YU_CHIEF_COMMANDER: CardData = F.ZHOU_YU_CHIEF_COMMANDER as CardData;
+export const BATTLE_MAD_RONIN: CardData = F.BATTLE_MAD_RONIN as CardData;
+export const WHIMWADER: CardData = F.WHIMWADER as CardData;
+export const NUMAI_OUTCAST: CardData = F.NUMAI_OUTCAST as CardData;
+export const CURSED_RONIN: CardData = F.CURSED_RONIN as CardData;
+export const WOLVERINE_PACK: CardData = F.WOLVERINE_PACK as CardData;
+export const RED_CLIFFS_ARMADA: CardData = F.RED_CLIFFS_ARMADA as CardData;
+export const HORRIBLE_HORDES: CardData = F.HORRIBLE_HORDES as CardData;
+export const STEAM_FRIGATE: CardData = F.STEAM_FRIGATE as CardData;
+export const DEEP_SEA_SERPENT: CardData = F.DEEP_SEA_SERPENT as CardData;
+export const SERPENT_OF_THE_ENDLESS_SEA: CardData = F.SERPENT_OF_THE_ENDLESS_SEA as CardData;
+export const KITSUNE_BLADEMASTER: CardData = F.KITSUNE_BLADEMASTER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -7855,7 +7880,6 @@ export const ENGINE_CARDS: CardData[] = [
   DEEP_ANALYSIS,
   MONASTERY_SWIFTSPEAR,
   AKRASAN_SQUIRE,
-  KITSUNE_BLADEMASTER,
   FALLEN_ASKARI,
   SAFEHOLD_ELITE,
   YOUNG_WOLF,
@@ -8948,6 +8972,32 @@ export const ENGINE_CARDS: CardData[] = [
   MAKINDI_SHIELDMATE,
   RAGE_THROWER,
   CHASM_GUIDE,
+  SLIPSTREAM_EEL,
+  CRAW_GIANT,
+  AERATHI_BERSERKER,
+  HUNDING_GJORNERSEN,
+  BALDUVIAN_WAR_MAKERS,
+  KURO_S_TAKEN,
+  SEA_MONSTER,
+  WU_WARSHIP,
+  MARHAULT_ELSDRAGON,
+  ARMORED_GALLEON,
+  HAMMERHEAD_SHARK,
+  ETHEREAL_WHISKERGILL,
+  LURKING_GREEN_DRAGON,
+  FROST_GIANT,
+  ZHOU_YU_CHIEF_COMMANDER,
+  BATTLE_MAD_RONIN,
+  WHIMWADER,
+  NUMAI_OUTCAST,
+  CURSED_RONIN,
+  WOLVERINE_PACK,
+  RED_CLIFFS_ARMADA,
+  HORRIBLE_HORDES,
+  STEAM_FRIGATE,
+  DEEP_SEA_SERPENT,
+  SERPENT_OF_THE_ENDLESS_SEA,
+  KITSUNE_BLADEMASTER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

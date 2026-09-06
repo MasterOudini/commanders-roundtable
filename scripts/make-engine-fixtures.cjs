@@ -3770,7 +3770,6 @@ const WANTED = [
   // D308 - the keyword-trigger seam test cards (prowess, exalted, bushido, flanking, persist, undying, evolve).
   'Monastery Swiftspear',
   'Akrasan Squire',
-  'Kitsune Blademaster',
   'Fallen Askari',
   'Safehold Elite',
   'Young Wolf',
@@ -4922,6 +4921,37 @@ const WANTED = [
   'Rage Thrower',
   'Chasm Guide',
   // D337 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D338 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D338 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D338 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Slipstream Eel',
+  'Craw Giant',
+  'Aerathi Berserker',
+  'Hunding Gjornersen',
+  'Balduvian War-Makers',
+  "Kuro's Taken",
+  'Sea Monster',
+  'Wu Warship',
+  'Marhault Elsdragon',
+  'Armored Galleon',
+  'Hammerhead Shark',
+  'Ethereal Whiskergill',
+  'Lurking Green Dragon',
+  'Frost Giant',
+  'Zhou Yu, Chief Commander',
+  'Battle-Mad Ronin',
+  'Whimwader',
+  'Numai Outcast',
+  'Cursed Ronin',
+  'Wolverine Pack',
+  'Red Cliffs Armada',
+  'Horrible Hordes',
+  'Steam Frigate',
+  'Deep-Sea Serpent',
+  'Serpent of the Endless Sea',
+  // D338 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D338 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Kitsune Blademaster',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

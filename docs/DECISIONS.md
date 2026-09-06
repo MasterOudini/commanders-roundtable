@@ -22788,3 +22788,70 @@ Fixtures 4,529 · botPool artifact 366 / creature 3,842 / enchantment 345 / inst
 **Reportables** (D337): deals damage to a player / an opponent (4; any damage, a def per damage event), blocks or becomes blocked by a colour or a type (4), the any-colour mana line (27 + 25 first blockers; a payment-problem seam), can't attack unless defending player controls (28), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3 + 3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15), can't attack or block alone (5), a must-attacker beside an attacking head (1); then the quoted abilities enchanted creatures and lands have (60 + 34 first blockers), Enchant player (42), the look at the top card of your library (38), Bushido (24), the modal seam (276), the another split; the modal seam; the "another" split; the
 by-name sacrifice cost; the remaining cost verbs; the prompt continuation
 seam; prior items stand.
+
+## D338 — M6.4fw: RAMPAGE, THE DEFENDER'S BOARD, AND THE BUSHIDO THAT WAS ALREADY THERE — Rampage as a trigger row, a combat restriction that reads the defender (CR 508.1c), and the accounting taught the numbered keyword the engine has run since D308; 39 cards land, 25 as generated rows (2026-09-06)
+
+**6,749 of 31,692 Commander-legal cards execute completely, up from
+6,710 (+39).** SHIPPED_SCRIPTS 4,157 → **4,182**;
+REFUSED ledger 991 → **991** (no rows retired - none of the 25 was in the ledger; measured: the REFUSED map's size). Fixtures
+4,529 → 4,554 (4,416 by name + 131 tokens: the 25 rowed cards; the first port's 18 Bushido rows were unlanded, and the unland took Kitsune Blademaster's fixture with them although the D308 keyword-trigger test had it first (re-added; the fixture DB counts it once); no new token pins). **One engine seam.** **Select pool
+0 → 0.**
+
+**The gap, measured before it was built.** the leftover probe over the database after D337, with the defender-read restriction, the old combat keywords and the any-colour mana line keyed by its cost as payloads: 198 blocked single-face permanents whose every leftover line the grammar reads - the 136 D337 left and 62 new (can't attack unless defending player controls: an Island 11, a creature with flying 1, a blue permanent 1, an enchantment or an enchanted permanent 1; Bushido 18 whole of 33; Rampage 8; the any-colour line 24 whole - none with a bare {T}, those are engine-native already - behind a priced or chooser cost: tap an untapped creature you control 7, {1} 4, and a tail of one each); the row maker took 39 and refused 159 - the 136 as before, Godhunter Octopus (the enchantment predicate) and the any-colour costs. Then the port showed Bushido was engine-native (every row doubled the pump), and the second pass after the accounting fix read 184 candidates and took 25.
+
+**The defender's board** (`d338/apply-attack-defender.cjs`):
+`CombatDef.canAttackDefender?(ctx, self, candidate, defender)` — a
+restriction asked of each attacker/defender PAIR at the declaration, after
+`canAttack` admitted the creature. The prompt's attackers list stays the
+defender-free question, since the creature may still attack someone else;
+the handler refuses the pair by name; and a creature no legal defender
+admits is not able to attack, so no requirement (D335) asks it — the
+handler's check and the prompt's `required` both filter by it. The bots
+already fall back to the required set on a refusal. `attackDefender.test.ts`
+(Sea Monster): listed, refused at a player without an Island, accepted once
+one is there, each defender's board read on its own at a three-player table.
+
+**The Bushido that was already there.** The first port rowed 18 Bushido
+cards as blocks-or-becomes-blocked pumps, and every one doubled (Konda's +10
+for Bushido 5): the engine has run bushido from D308's keyword-trigger table
+— prowess, exalted, bushido N, flanking, persist, undying, evolve, one table
+for every permanent whose derived keywords carry it, the number read off the
+printed text at resolution — and only the ACCOUNTING missed it, asking
+`canonicalKeyword` of the whole clause "bushido 1" and getting null.
+`d338/apply-bushido-accounting.cjs`: a numbered clause whose keyword is in
+the trigger table is accounted the way the bare keyword is
+(`NUMBERED_TRIGGER_KEYWORDS`, bushido alone; rampage is not in the table and
+stays a leftover). Those cards are complete with NO script; the rows were
+unlanded (`unland.cjs`, which learned the double-quoted WANTED form of a name
+with an apostrophe).
+
+**The generator** (`d338/make-gen28.cjs`, from D337's): "Rampage N" is a
+becomes-blocked trigger row whose pump reads the combat state (+N for each
+blocker beyond the first), tested blocked by two — the Cyclops and a Bears
+put down for it; "~ can't attack unless defending player controls an Island"
+(a Forest, a Swamp, a creature with flying, a blue permanent) is a combat
+kind whose def reads the defender through a per-module helper, tested
+refused, then accepted once the defender's gift is on the board.
+
+- **Refused by name:** no rows retired - none of the 25 was in the ledger; measured: the REFUSED map's size.
+- **Not this decision:** the any-colour mana line behind a priced or chooser cost (24 whole: tap an untapped creature you control 7, {1} 4, and a tail - the mana-ability half of the payment problem), deals damage to a player / an opponent (4; a def per damage event), blocks or becomes blocked by a colour or a type (4), the enchantment-or-enchanted defender predicate (1), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3 + 3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15), can't attack or block alone (5), a must-attacker beside an attacking head (1); then the quoted abilities enchanted creatures and lands have (60 + 34 first blockers), Enchant player (42), the look at the top card of your library (38), the modal seam (276), the another split.
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** `attackDefender.test.ts` (3); one generated suite per row
+(25 suites), each ability in its own game.
+
+**Landed:** no auto flips; the first port's 39 rows were 18 Bushido doublings (unlanded - the engine had run the keyword all along) beside 21 green; the second port's 25 rows green in one pass. The wave IS the landing: 25 rows - 8 with Rampage (Craw Giant, Aerathi Berserker, Hunding Gjornersen, Balduvian War-Makers, Marhault Elsdragon, Frost Giant, Wolverine Pack, Horrible Hordes), 13 that can't attack unless the defending player controls a thing (an Island for eleven, a creature with flying, a blue permanent: Slipstream Eel, Sea Monster, Wu Warship, Armored Galleon, Hammerhead Shark, Ethereal Whiskergill, Lurking Green Dragon, Zhou Yu, Chief Commander, Whimwader, Red Cliffs Armada, Steam Frigate, Deep-Sea Serpent, Serpent of the Endless Sea) and 4 Bushido cards whose other line the grammar reads (Kuro's Taken, Battle-Mad Ronin, Numai Outcast, Cursed Ronin) - and 14 more cards complete with no script at all, their only leftover the Bushido line the accounting reads now.
+
+Fixtures 4,554 · botPool artifact 366 / creature 3,881 / enchantment 345 / instant 947 / land 487 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1091, 1217, 2877, 4714, 6054] · batch.json
+25 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,305 files, 21,583 passing / 11 skipped ·
+500-seed gate, 6 shards, 529.3 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D338): the any-colour mana line behind a priced or chooser cost (24 whole: tap an untapped creature you control 7, {1} 4, and a tail - the mana-ability half of the payment problem), deals damage to a player / an opponent (4; a def per damage event), blocks or becomes blocked by a colour or a type (4), the enchantment-or-enchanted defender predicate (1), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3 + 3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15), can't attack or block alone (5), a must-attacker beside an attacking head (1); then the quoted abilities enchanted creatures and lands have (60 + 34 first blockers), Enchant player (42), the look at the top card of your library (38), the modal seam (276), the another split; the modal seam; the "another" split; the
+by-name sacrifice cost; the remaining cost verbs; the prompt continuation
+seam; prior items stand.
