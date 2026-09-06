@@ -23048,3 +23048,107 @@ Fixtures 4,614 · botPool artifact 366 / creature 3,939 / enchantment 345 / inst
 **Reportables** (D341): Unleash (10; an asked entry choice - the script-raised prompt seam - and a can't-block-with-a-counter def), Goblin Banneret's Mentor (a power-1 mentor needs a power-0 attacker in the test), the other Threshold bodies (43), the any-colour mana line behind a priced or chooser cost (24), blocks or becomes blocked by a TYPE (1), the enchantment-or-enchanted defender predicate (1), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the counts outside the vocabulary (15); then the script-raised prompt seam itself - the modal spells (276), the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split; the modal seam; the "another" split; the
 by-name sacrifice cost; the remaining cost verbs; the prompt continuation
 seam; prior items stand.
+
+## D342 — M6.4ga: THE ACTIVATION CONDITIONS — "Activate only <condition>" read by a closed vocabulary the engine evaluates, an unread condition an unpaid cost, the ability words stripped; 33 cards land, 33 as generated rows (2026-09-06)
+
+**6,840 of 31,692 Commander-legal cards execute completely, up from
+6,807 (+33).** SHIPPED_SCRIPTS 4,240 → **4,273**;
+REFUSED ledger 991 → **991** (no rows retired - none of the 33 was in the ledger (the family had been refused before the row maker, not by it); measured: the REFUSED map's size). Fixtures
+4,614 → 4,647 (4,507 by name + 133 tokens: the 33 rowed cards; no new token pins - the condition fixtures (Ant-Man, Scott Lang; Shivan Dragon; Warmth; Sol Ring; Walking Corpse; the basics) were fixtures already). **One engine seam in three
+patches, and the wave behind it.** **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** the D342 probe - D341's with every Activate only tail read off the payload and recorded as its own kind - read 275 candidates against 220 under D341's read (their first lines: etb tokens 100, equipped pumps 83, activated self pumps 75, enters-with counters 72, enchanted pumps 63, etb draws 48, the count CDA 48, activated draws 45); the 55 new cards carry 74 activation-condition lines in 51 wordings - during your turn, before attackers are declared 10, during your upkeep 8, during your turn 2, then the board conditions two and one apiece (a legendary creature, the card's own power, no cards in hand, an artifact, a Dragon, five lands, two black or green permanents, four creature cards in the graveyard) and the turn-memory ones the engine cannot answer (a creature died, a noncreature spell cast, an opponent lost life); across the whole database 217 such lines in 115 wordings, the three timing conditions leading (26 / 24 / 21). The row maker took 33 (abilities 40) and refused 242 - 88 costs it cannot price, 39 activation conditions outside the vocabulary (a creature died this turn, a noncreature or instant or sorcery spell cast this turn, an opponent lost life this turn, a creature with flying, a Yanggu or Vivien planeswalker, three lands with the same name, exactly seven cards in hand ...), 27 lines that are neither an activated ability nor a library trigger, 24 effects outside its kinds, 18 leftover lines not among the printed lines, 15 counts outside the vocabulary, 6 trigger payloads that are not pumps, 2 power conditions the card's own power does not meet, and a tail of one to four each. The parse report says what the seam did across the database: 241 activated abilities with a condition the vocabulary does not read became UNPAYABLE (activated:nonManaCost 4,628 -> 4,869; D79 payable 35,611 -> 35,370; tier3 payable 4,468 -> 4,389; 45 cards that said nothing say something now).
+
+**The activation conditions** (`d342/apply-activation-conditions.cjs`, `-2`,
+`-3`): "Activate only during your upkeep" · "during your turn, before attackers
+are declared" · "if you control a Swamp" · "if this creature's power is 4 or
+greater" — CR 602.5b–d, a condition checked as the ability is activated and
+never again. Since D328 the parser read exactly two tails ("once each turn",
+"as a sorcery") and IGNORED every other one: an ability with a printed
+condition parsed payable and would have been offered any time, its restriction
+silently dropped — harmless only because no shipped def sat on such a line, and
+the row maker refused them. `parseActivationConditions` reads the whole tail,
+its clauses joined by "and only" (the compound "as a sorcery and only once each
+turn" had been read as the sorcery half alone), into
+`ActivatedAbility.activateOnly`, a closed `ActivationCondition` union: the turn
+(during your turn / an opponent's, before attackers are declared, during your
+upkeep / any upkeep / the declare-blockers or declare-attackers step / combat),
+the board through D135's own grammar (`conditionOf`, exported: "you control a
+legendary creature", "a Yanggu planeswalker", "five or more basic lands") and a
+count ("two or more black permanents" — "permanent" names no card type, so it
+is D168's empty predicate carrying the colour), the card's own derived power,
+the hand size, the graveyard's cards of a type or of any type (Threshold's own
+wording). ⚠️ **A clause outside the vocabulary is an UNPAID cost**, never
+dropped: the ability is not payable, not offered, not claimable by a def, and
+the card stays incomplete (D90 — an unread restriction run as no restriction is
+half-execution with a confident face). `activationConditions.ts` answers every
+condition from state the engine holds — the turn record, DERIVED
+characteristics (a granted type counts, a silenced one does not; `conditionHolds`
+exported from triggers.ts for the board kinds), the hand and graveyard counts —
+so "if a creature died this turn" stays unread until the turn remembers it.
+`legal.ts` offers such an ability only while every condition holds (both the
+battlefield and the graveyard loops), `handlers.ts` refuses it by name beside
+D328's once-each-turn, before any cost is looked at.
+⚠️ **The ability words:** "Threshold — {1}{G}: Regenerate this creature.
+Activate only if there are seven or more cards in your graveyard." is an
+activated ability whose word has no rules meaning (CR 207.2c) — the whole rule
+is printed after it — yet `costParts` read "Threshold — {1}{G}" as one unpayable
+part. A CLOSED list of true ability words is stripped before the parts are read
+(the printed `costText` keeps the word); Boast, Exhaust and Channel are keywords
+printed in the same shape whose rule is NOT printed, and are not on it. Tests
+`activationConditions.test.ts` (the grammar, the compounds, the unread clauses,
+the evaluator on a real board through the turn).
+⚠️ **An ENGINE HOLE the port's own proof found** (`-4`): an ordinary activated
+ability was ACCEPTED with its source in the GRAVEYARD. `legal.ts` never offered
+one from there, but the handler required a zone only for cycling (the hand) and
+the graveyard activations (D329/D333) — a hand-built intent on a card anywhere
+else went straight to payment. The proof that broke Cryptic Caves' "five or
+more lands" by exiling one Forest left five (the Caves is a land itself), so the
+activation RESOLVED and sacrificed the land, and the real activation was then
+accepted from the graveyard and drew a second card. CR 602.2: refused by zone
+now, before any cost (`activateZone.test.ts`); D319's Spike Feeder test moved
+from the counter refusal to the zone one, because the emptied 0/0 had already
+died.
+
+**The generator** (`d342/make-gen32.cjs`, from D341's, its blocks spliced from
+`d342/snippets/`): the row maker reads every "Activate only" tail into the row
+— the two limits, and the conditions a test can set up (during your turn /
+before attackers, during your upkeep, a fixture the engine's predicate admits
+put down for "you control a Swamp / an artifact / a Dragon / a legendary
+creature / N or more lands or black permanents", the card's own power, the hand
+emptied, the graveyard filled); a true ability word no longer refuses the line.
+The suite proves every condition BOTH ways: the fixtures go down before the
+baseline; a timing condition is refused on the opponent's second turn (not your
+turn, not your upkeep) before the baseline is read; a board condition is broken
+at the fire moment — the fixture exiled and brought back, the hand refilled and
+exiled again, -1/-1 counters dropping the power and removed — and the activation
+refused for it, `timingRestriction` by name; an upkeep row fires at p1's
+third-turn UPKEEP, before the draw, so its hand baseline holds; the title names
+the condition. TRAPS: the hand is emptied AFTER the turn-3 draw and before the
+baseline (a hand-size row beside a hand fixture is refused at generation); a
+timing proof needs the card on the battlefield on turn 2 (a late-entering row is
+refused); the row's power must meet its own condition with a toughness that
+survives the proof's counters.
+
+- **Refused by name:** no rows retired - none of the 33 was in the ledger (the family had been refused before the row maker, not by it); measured: the REFUSED map's size.
+- **Not this decision:** the turn-memory conditions (a creature died this turn 2 + 1, a noncreature spell / an instant or sorcery cast this turn 2 + 2, an opponent lost life this turn 2, you gained life / discarded / created a token this turn - a per-turn record beside D336's tallies), the keyword-predicate condition (a creature with flying 2; a keyword on PermanentPredicate), the exactly-N hand size (1), the counts outside the vocabulary (15), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the other Threshold bodies (activated lines under other words, enchanted-creature and anthem bodies), Unleash (10; an asked entry choice), Goblin Banneret's Mentor; then the script-raised prompt seam itself - the modal spells (276), the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split.
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** `activationConditions.test.ts` (8), `activateZone.test.ts` (1); one
+generated suite per row (33 suites), each ability in its own game.
+
+**Landed:** no auto flips and 33 generated rows in three passes - the first landed 31 green with two red and a typecheck fault (the extra condition fixtures bound and unread), the second turned one red into an ENGINE FINDING (Cryptic Caves is one of its own five lands, so exiling one Forest left the condition standing, the proof's activation resolved and sacrificed the land, and the second activation was ACCEPTED from the graveyard - the handler had required a zone only for cycling and the graveyard activations), the third landed 33 green once every fixture of a condition is exiled for the proof, the graveyard is refused by zone (CR 602.2), the hand proof draws its cards off the library top by id (a second put() by name finds the card the first just moved), and a card that prints its own enters-tapped line returns tapped. The wave IS the landing: 33 rows - 32 whose activation carries a condition the engine now checks and Thunderhead Gunner, whose 'as a sorcery and only once each turn' the old read had halved: 10 during your turn, before attackers are declared (Stern Marshal, Talas Researcher, Wu Longbowman, Alaborn Veteran, Lu Su, Wu Advisor, Apprentice Sorcerer, Capricious Sorcerer, Temple Elder, Pang Tong, "Young Phoenix", Shu Farmer), 7 during your upkeep (Colossus of Sardia, Dwarven Weaponsmith, Undead Gladiator, Augur il-Vec, Llanowar Augur, Svyelunite Priest, Black Carriage), 2 during your turn (Steadfast Unicorn, Chained Brute), 3 Threshold activations whose word the cost parser strips now (Krosan Avenger, Chainflinger, Cabal Torturer), 2 behind a legendary creature (Rivendell, Haunt of the Dead Marshes), 3 behind an empty or near-empty hand (Sea Gate Wreckage, Fool's Tome, Dread Wanderer), and one apiece behind four creature cards in the graveyard (Shadows of the Past), five lands (Cryptic Caves), two black permanents (Leechridden Swamp), two green permanents (Sapseep Forest) and an enchantment (Heron-Blessed Geist, from the graveyard). Every suite proves the refusal with the condition broken and the resolution with it met.
+
+Fixtures 4,647 · botPool artifact 367 / creature 3,965 / enchantment 346 / instant 947 / land 492 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1091, 1214, 2851, 4687, 6024] · batch.json
+33 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,402 files, 21,998 passing / 11 skipped ·
+500-seed gate, 6 shards, 684.6 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D342): the turn-memory conditions (a creature died this turn 2 + 1, a noncreature spell / an instant or sorcery cast this turn 2 + 2, an opponent lost life this turn 2, you gained life / discarded / created a token this turn - a per-turn record beside D336's tallies), the keyword-predicate condition (a creature with flying 2; a keyword on PermanentPredicate), the exactly-N hand size (1), the counts outside the vocabulary (15), snow mana ({S} - 12), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), the other Threshold bodies (activated lines under other words, enchanted-creature and anthem bodies), Unleash (10; an asked entry choice), Goblin Banneret's Mentor; then the script-raised prompt seam itself - the modal spells (276), the exploits, the searches, the choices on entry - the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split; the modal seam; the "another" split; the
+by-name sacrifice cost; the remaining cost verbs; the prompt continuation
+seam; prior items stand.

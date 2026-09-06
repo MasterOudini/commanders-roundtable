@@ -709,7 +709,8 @@ function withEntersTapped(
  * `simplestAnswer` returning null. A ninth condition added and forgotten fails
  * `tsc -b` here rather than shipping.
  */
-function conditionHolds(
+// D342 - exported for `activationConditions.ts`: the same evaluator answers "Activate only if you control ...".
+export function conditionHolds(
   state: GameState,
   oracle: OracleDb,
   scripts: ScriptRegistry,

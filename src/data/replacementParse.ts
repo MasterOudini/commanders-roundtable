@@ -255,7 +255,8 @@ const CONDITIONS: readonly (readonly [RegExp, (m: RegExpMatchArray) => EntersTap
   ],
 ];
 
-function conditionOf(phrase: string): EntersTappedCondition | null {
+/** D342 - exported for the activation conditions ("Activate only if you control a Swamp"): one grammar for the board query. */
+export function conditionOf(phrase: string): EntersTappedCondition | null {
   const s = phrase.trim().replace(/\.$/, '').trim();
   for (const [re, build] of CONDITIONS) {
     const m = re.exec(s);

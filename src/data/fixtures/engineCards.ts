@@ -4499,6 +4499,39 @@ export const LOYAL_PEGASUS: CardData = F.LOYAL_PEGASUS as CardData;
 export const BONDED_HORNCREST: CardData = F.BONDED_HORNCREST as CardData;
 export const GHOST_HOUNDS: CardData = F.GHOST_HOUNDS as CardData;
 export const SERRA_INQUISITORS: CardData = F.SERRA_INQUISITORS as CardData;
+export const COLOSSUS_OF_SARDIA: CardData = F.COLOSSUS_OF_SARDIA as CardData;
+export const STEADFAST_UNICORN: CardData = F.STEADFAST_UNICORN as CardData;
+export const SHADOWS_OF_THE_PAST: CardData = F.SHADOWS_OF_THE_PAST as CardData;
+export const CRYPTIC_CAVES: CardData = F.CRYPTIC_CAVES as CardData;
+export const DWARVEN_WEAPONSMITH: CardData = F.DWARVEN_WEAPONSMITH as CardData;
+export const KROSAN_AVENGER: CardData = F.KROSAN_AVENGER as CardData;
+export const RIVENDELL: CardData = F.RIVENDELL as CardData;
+export const STERN_MARSHAL: CardData = F.STERN_MARSHAL as CardData;
+export const UNDEAD_GLADIATOR: CardData = F.UNDEAD_GLADIATOR as CardData;
+export const SEA_GATE_WRECKAGE: CardData = F.SEA_GATE_WRECKAGE as CardData;
+export const AUGUR_IL_VEC: CardData = F.AUGUR_IL_VEC as CardData;
+export const TALAS_RESEARCHER: CardData = F.TALAS_RESEARCHER as CardData;
+export const LLANOWAR_AUGUR: CardData = F.LLANOWAR_AUGUR as CardData;
+export const CHAINED_BRUTE: CardData = F.CHAINED_BRUTE as CardData;
+export const WU_LONGBOWMAN: CardData = F.WU_LONGBOWMAN as CardData;
+export const SVYELUNITE_PRIEST: CardData = F.SVYELUNITE_PRIEST as CardData;
+export const DREAD_WANDERER: CardData = F.DREAD_WANDERER as CardData;
+export const HERON_BLESSED_GEIST: CardData = F.HERON_BLESSED_GEIST as CardData;
+export const LEECHRIDDEN_SWAMP: CardData = F.LEECHRIDDEN_SWAMP as CardData;
+export const CHAINFLINGER: CardData = F.CHAINFLINGER as CardData;
+export const FOOL_S_TOME: CardData = F.FOOL_S_TOME as CardData;
+export const HAUNT_OF_THE_DEAD_MARSHES: CardData = F.HAUNT_OF_THE_DEAD_MARSHES as CardData;
+export const ALABORN_VETERAN: CardData = F.ALABORN_VETERAN as CardData;
+export const SAPSEEP_FOREST: CardData = F.SAPSEEP_FOREST as CardData;
+export const BLACK_CARRIAGE: CardData = F.BLACK_CARRIAGE as CardData;
+export const LU_SU_WU_ADVISOR: CardData = F.LU_SU_WU_ADVISOR as CardData;
+export const APPRENTICE_SORCERER: CardData = F.APPRENTICE_SORCERER as CardData;
+export const CAPRICIOUS_SORCERER: CardData = F.CAPRICIOUS_SORCERER as CardData;
+export const TEMPLE_ELDER: CardData = F.TEMPLE_ELDER as CardData;
+export const PANG_TONG_YOUNG_PHOENIX: CardData = F.PANG_TONG_YOUNG_PHOENIX as CardData;
+export const CABAL_TORTURER: CardData = F.CABAL_TORTURER as CardData;
+export const THUNDERHEAD_GUNNER: CardData = F.THUNDERHEAD_GUNNER as CardData;
+export const SHU_FARMER: CardData = F.SHU_FARMER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -9116,6 +9149,39 @@ export const ENGINE_CARDS: CardData[] = [
   BONDED_HORNCREST,
   GHOST_HOUNDS,
   SERRA_INQUISITORS,
+  COLOSSUS_OF_SARDIA,
+  STEADFAST_UNICORN,
+  SHADOWS_OF_THE_PAST,
+  CRYPTIC_CAVES,
+  DWARVEN_WEAPONSMITH,
+  KROSAN_AVENGER,
+  RIVENDELL,
+  STERN_MARSHAL,
+  UNDEAD_GLADIATOR,
+  SEA_GATE_WRECKAGE,
+  AUGUR_IL_VEC,
+  TALAS_RESEARCHER,
+  LLANOWAR_AUGUR,
+  CHAINED_BRUTE,
+  WU_LONGBOWMAN,
+  SVYELUNITE_PRIEST,
+  DREAD_WANDERER,
+  HERON_BLESSED_GEIST,
+  LEECHRIDDEN_SWAMP,
+  CHAINFLINGER,
+  FOOL_S_TOME,
+  HAUNT_OF_THE_DEAD_MARSHES,
+  ALABORN_VETERAN,
+  SAPSEEP_FOREST,
+  BLACK_CARRIAGE,
+  LU_SU_WU_ADVISOR,
+  APPRENTICE_SORCERER,
+  CAPRICIOUS_SORCERER,
+  TEMPLE_ELDER,
+  PANG_TONG_YOUNG_PHOENIX,
+  CABAL_TORTURER,
+  THUNDERHEAD_GUNNER,
+  SHU_FARMER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

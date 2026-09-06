@@ -39,6 +39,7 @@ import { drawEvents } from './effects';
 import { apply } from './reducer';
 import { bottomCountFor, drawFromTop } from './setup';
 import { resolveAbility, stackPendingTriggers, targetingSourceFor, type EngineDeps } from './loop';
+import { activationConditionsHold, describeActivationConditions } from './activationConditions';
 import type { CardMove, EventBody } from './types/events';
 import type { AbilityRef, InstanceId, PlayerId, StackId, ZoneRef } from './types/ids';
 import type { TargetSpec } from './types/oracle';
@@ -717,10 +718,23 @@ function activateAbility(
   if ((ability.exileSelfFromGraveyard || ability.activatesFromGraveyard) && (card.zone.kind !== 'graveyard' || card.zone.player !== intent.player)) {
     return reject('wrongZone', `${face.name}'s ability is activated from your graveyard.`);
   }
+  // D342 - every other activated ability of a permanent is activated from the
+  // BATTLEFIELD (CR 602.2). `legal.ts` never offered one from elsewhere, but the
+  // handler required a zone only for cycling and the graveyard activations, so a
+  // hand-built intent on a card in a graveyard went straight to payment - the D342
+  // port's own proof activated a sacrificed land from its graveyard.
+  if (ability.cycling === undefined && !ability.exileSelfFromGraveyard && !ability.activatesFromGraveyard && card.zone.kind !== 'battlefield') {
+    return reject('wrongZone', `${face.name} is not on the battlefield.`);
+  }
   // D328 - CR 602.5b: "Activate only once each turn" is refused the second
   // time this turn (`legal.ts` stops offering it the same way).
   if (ability.oncePerTurn && (state.turn.activations[`${intent.card}|${oracleCard.oracleId}#a${intent.abilityIndex}`] ?? 0) >= 1) {
     return reject('timingRestriction', `${face.name}'s "${ability.costText}" ability was activated this turn already.`);
+  }
+  // D342 - "Activate only <condition>": every condition the parser read must hold
+  // now (`legal.ts` offers the ability the same way); CR 602.5b-d.
+  if (ability.activateOnly.length > 0 && !activationConditionsHold(state, deps.oracle, deps.scripts, intent.player, intent.card, ability.activateOnly)) {
+    return reject('timingRestriction', `${face.name}'s "${ability.costText}" ability can be activated only ${describeActivationConditions(ability.activateOnly)}.`);
   }
   if (ability.isManaAbility) {
     return reject('notAManaAbility', 'That is a mana ability — tap it for mana instead.');

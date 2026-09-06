@@ -7,6 +7,39 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { COLOSSUS_OF_SARDIA_SCRIPT } from './cards/colossusOfSardia';
+import { STEADFAST_UNICORN_SCRIPT } from './cards/steadfastUnicorn';
+import { SHADOWS_OF_THE_PAST_SCRIPT } from './cards/shadowsOfThePast';
+import { CRYPTIC_CAVES_SCRIPT } from './cards/crypticCaves';
+import { DWARVEN_WEAPONSMITH_SCRIPT } from './cards/dwarvenWeaponsmith';
+import { KROSAN_AVENGER_SCRIPT } from './cards/krosanAvenger';
+import { RIVENDELL_SCRIPT } from './cards/rivendell';
+import { STERN_MARSHAL_SCRIPT } from './cards/sternMarshal';
+import { UNDEAD_GLADIATOR_SCRIPT } from './cards/undeadGladiator';
+import { SEA_GATE_WRECKAGE_SCRIPT } from './cards/seaGateWreckage';
+import { AUGUR_IL_VEC_SCRIPT } from './cards/augurIlVec';
+import { TALAS_RESEARCHER_SCRIPT } from './cards/talasResearcher';
+import { LLANOWAR_AUGUR_SCRIPT } from './cards/llanowarAugur';
+import { CHAINED_BRUTE_SCRIPT } from './cards/chainedBrute';
+import { WU_LONGBOWMAN_SCRIPT } from './cards/wuLongbowman';
+import { SVYELUNITE_PRIEST_SCRIPT } from './cards/svyelunitePriest';
+import { DREAD_WANDERER_SCRIPT } from './cards/dreadWanderer';
+import { HERON_BLESSED_GEIST_SCRIPT } from './cards/heronBlessedGeist';
+import { LEECHRIDDEN_SWAMP_SCRIPT } from './cards/leechriddenSwamp';
+import { CHAINFLINGER_SCRIPT } from './cards/chainflinger';
+import { FOOLS_TOME_SCRIPT } from './cards/foolsTome';
+import { HAUNT_OF_THE_DEAD_MARSHES_SCRIPT } from './cards/hauntOfTheDeadMarshes';
+import { ALABORN_VETERAN_SCRIPT } from './cards/alabornVeteran';
+import { SAPSEEP_FOREST_SCRIPT } from './cards/sapseepForest';
+import { BLACK_CARRIAGE_SCRIPT } from './cards/blackCarriage';
+import { LU_SU_WU_ADVISOR_SCRIPT } from './cards/luSuWuAdvisor';
+import { APPRENTICE_SORCERER_SCRIPT } from './cards/apprenticeSorcerer';
+import { CAPRICIOUS_SORCERER_SCRIPT } from './cards/capriciousSorcerer';
+import { TEMPLE_ELDER_SCRIPT } from './cards/templeElder';
+import { PANG_TONG_YOUNG_PHOENIX_SCRIPT } from './cards/pangTongYoungPhoenix';
+import { CABAL_TORTURER_SCRIPT } from './cards/cabalTorturer';
+import { THUNDERHEAD_GUNNER_SCRIPT } from './cards/thunderheadGunner';
+import { SHU_FARMER_SCRIPT } from './cards/shuFarmer';
 import { LU_XUN_SCHOLAR_GENERAL_SCRIPT } from './cards/luXunScholarGeneral';
 import { WOJEK_BODYGUARD_SCRIPT } from './cards/wojekBodyguard';
 import { JACKAL_FAMILIAR_SCRIPT } from './cards/jackalFamiliar';
@@ -4266,6 +4299,39 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  COLOSSUS_OF_SARDIA_SCRIPT,
+  STEADFAST_UNICORN_SCRIPT,
+  SHADOWS_OF_THE_PAST_SCRIPT,
+  CRYPTIC_CAVES_SCRIPT,
+  DWARVEN_WEAPONSMITH_SCRIPT,
+  KROSAN_AVENGER_SCRIPT,
+  RIVENDELL_SCRIPT,
+  STERN_MARSHAL_SCRIPT,
+  UNDEAD_GLADIATOR_SCRIPT,
+  SEA_GATE_WRECKAGE_SCRIPT,
+  AUGUR_IL_VEC_SCRIPT,
+  TALAS_RESEARCHER_SCRIPT,
+  LLANOWAR_AUGUR_SCRIPT,
+  CHAINED_BRUTE_SCRIPT,
+  WU_LONGBOWMAN_SCRIPT,
+  SVYELUNITE_PRIEST_SCRIPT,
+  DREAD_WANDERER_SCRIPT,
+  HERON_BLESSED_GEIST_SCRIPT,
+  LEECHRIDDEN_SWAMP_SCRIPT,
+  CHAINFLINGER_SCRIPT,
+  FOOLS_TOME_SCRIPT,
+  HAUNT_OF_THE_DEAD_MARSHES_SCRIPT,
+  ALABORN_VETERAN_SCRIPT,
+  SAPSEEP_FOREST_SCRIPT,
+  BLACK_CARRIAGE_SCRIPT,
+  LU_SU_WU_ADVISOR_SCRIPT,
+  APPRENTICE_SORCERER_SCRIPT,
+  CAPRICIOUS_SORCERER_SCRIPT,
+  TEMPLE_ELDER_SCRIPT,
+  PANG_TONG_YOUNG_PHOENIX_SCRIPT,
+  CABAL_TORTURER_SCRIPT,
+  THUNDERHEAD_GUNNER_SCRIPT,
+  SHU_FARMER_SCRIPT,
   LU_XUN_SCHOLAR_GENERAL_SCRIPT,
   WOJEK_BODYGUARD_SCRIPT,
   JACKAL_FAMILIAR_SCRIPT,

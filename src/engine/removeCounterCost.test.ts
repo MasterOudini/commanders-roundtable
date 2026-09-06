@@ -100,7 +100,10 @@ describe('D319 - the remove-a-counter cost, charged (Spike Feeder)', () => {
     expect(g.state.players.p1?.life).toBe(life0 + 4);
     const third = g.submit({ t: 'ActivateAbility', player: 'p1', card: feeder, abilityIndex: 1 });
     expect(third.ok).toBe(false);
-    if (!third.ok) expect(third.reason).toBe('notCastable');
+    // D342 - the second removal emptied the 0/0 Feeder's counters and the state-based action
+    // binned it, so the third activation is refused by ZONE first (an ordinary ability is
+    // activated from the battlefield, CR 602.2), ahead of the counter check it used to reach.
+    if (!third.ok) expect(third.reason).toBe('wrongZone');
     expect(g.state.players.p1?.life).toBe(life0 + 4);
   });
 

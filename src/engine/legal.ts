@@ -13,6 +13,7 @@ import { derive, makeDeriveCache, type DeriveCache } from './derive';
 import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf } from './mana';
 import { affordable, solveInputFor, type SolveInput } from './payment';
 import { isMainPhase } from './turn';
+import { activationConditionsHold } from './activationConditions';
 import type { ScriptRegistry } from './scripts/registry';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
 import type { ActivatedAbility, OracleCard, OracleDb } from './types/oracle';
@@ -282,6 +283,8 @@ export function legalActions(
       if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
       if (ability.sorceryOnly && !sorcerySpeed) continue;
       if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
+      // D342 - "Activate only <condition>": offered only while every read condition holds.
+      if (ability.activateOnly.length > 0 && !activationConditionsHold(state, oracle, scripts, player, id, ability.activateOnly, context.cache)) continue;
       // D334 - the exile-from-graveyard chooser on a graveyard-activated ability (the card itself never a candidate).
       let gyChooser: readonly InstanceId[] | null = null;
       if (ability.exileFromGraveyardCost) {
@@ -327,6 +330,8 @@ export function legalActions(
       if (ability.exileSelfFromGraveyard || ability.activatesFromGraveyard) continue;
       // D328 - CR 602.5b: activated this turn already, not offered again.
       if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
+      // D342 - "Activate only <condition>": offered only while every read condition holds.
+      if (ability.activateOnly.length > 0 && !activationConditionsHold(state, oracle, scripts, player, id, ability.activateOnly, context.cache)) continue;
       // ⚠️ A DESTRUCTIVE COST IS OFFERED ONLY WHEN A SCRIPT WILL RUN THE EFFECT
       // (D159). Charging mana for nothing is D122's disclosed status quo;
       // eating the permanent for nothing is not. Asked of the GAME'S registry,

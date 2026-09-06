@@ -315,8 +315,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // scale — 19 of 25, the six refusals named — 1,742 → 1,761. M6.4d
       // (D161): thirteen more, and the selection taught two refusal shapes —
       // 1,761 → 1,774.
-      complete: 6807,
-      blocked: 24885,
+      complete: 6840,
+      blocked: 24852,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -336,9 +336,9 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
-      layer6: 1372,
-      counter: 1467,
-      token: 972,
+      layer6: 1370,
+      counter: 1466,
+      token: 971,
     });
   });
 
@@ -375,7 +375,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1091, 1214, 2853, 4690, 6028]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1091, 1214, 2851, 4687, 6024]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -462,11 +462,11 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       else split.unclaimed++;
       if (card.layer6Lines.some((t) => TEMPORARY.test(t))) temporary++;
     }
-    expect.soft(split).toEqual({ grant: 843, anthem: 168, restriction: 214, conditional: 147, unclaimed: 0 });
+    expect.soft(split).toEqual({ grant: 841, anthem: 168, restriction: 214, conditional: 147, unclaimed: 0 });
     // ⚠️ THE NUMBER THAT KEEPS `layer6` OUT OF `BUILT`. Asserted here rather than
     // written in the comment above, because D129's reason lived in a comment and
     // stayed there for twenty-four decisions after D147 closed it.
-    expect.soft(temporary).toBe(561);
+    expect.soft(temporary).toBe(559);
   });
 
   /**
@@ -499,7 +499,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     }
     // ⚠️ THE SPELLS are the only part that could move `complete` — and every one
     // of them still needs the resolver.
-    expect.soft(byOwner).toEqual({ spell: 342, permanent: 630 });
+    expect.soft(byOwner).toEqual({ spell: 342, permanent: 629 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -514,7 +514,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     expect.soft(byKind).toEqual({
       copy: 114,
       predefined: 147,
-      withAbilities: 299,
+      withAbilities: 298,
       variable: 79,
       plain: 333,
       unclaimed: 0,
@@ -548,7 +548,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
     expect.soft(steps.map((s) => s.unlocked)).toEqual([1091, 1214]);
-    expect.soft(r.complete).toBe(6807);
+    expect.soft(r.complete).toBe(6840);
   });
 });
 
@@ -667,7 +667,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
    */
   test('the residue splits into named families', () => {
     expect.soft(rr.residue).toEqual({
-      activatedCost: 2428,
+      activatedCost: 2408,
       triggeredShell: 2141,
       damage: 771,
       exile: 927,
@@ -680,7 +680,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
       cantBeCountered: 98,
       gainControl: 66,
       wardHexproofGrant: 46,
-      other: 3248,
+      other: 3245,
     });
   });
 

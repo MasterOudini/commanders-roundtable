@@ -151411,6 +151411,1099 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "COLOSSUS_OF_SARDIA": {
+    "scryfallId": "00a80eae-6a58-4833-80fa-2c22d531b9d1",
+    "oracleId": "9be9625e-b98b-416b-aac4-9f7b2dfbd39d",
+    "name": "Colossus of Sardia",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Colossus of Sardia",
+        "manaCost": "{9}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nThis creature doesn't untap during your untap step.\n{9}: Untap this creature. Activate only during your upkeep.",
+        "flavorText": "Buried under a thin layer of dirt, it was known for centuries as Mount Sardia.",
+        "power": "9",
+        "toughness": "9",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Greg Staples",
+        "imageId": "00a80eae-6a58-4833-80fa-2c22d531b9d1"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 9,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "10e",
+    "collectorNumber": "317★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STEADFAST_UNICORN": {
+    "scryfallId": "01603c9a-480b-4840-9c46-f540e0c59d81",
+    "oracleId": "c823d38c-e73c-4e09-ab20-c5e7de1f1c64",
+    "name": "Steadfast Unicorn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Steadfast Unicorn",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Unicorn",
+        "oracleText": "{3}{W}: Creatures you control get +1/+1 and gain vigilance until end of turn. Activate only during your turn. (Attacking doesn't cause them to tap.)",
+        "flavorText": "As the majestic creature pranced through the market, furious haggling calmed and arguments trailed off.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Leesha Hannigan",
+        "imageId": "01603c9a-480b-4840-9c46-f540e0c59d81"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "j25",
+    "collectorNumber": "103",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHADOWS_OF_THE_PAST": {
+    "scryfallId": "02962013-fc5a-46be-9021-8fd40ab3027c",
+    "oracleId": "a5ba544f-b223-47c8-a408-b00512772107",
+    "name": "Shadows of the Past",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shadows of the Past",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a creature dies, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{4}{B}: Each opponent loses 2 life and you gain 2 life. Activate only if there are four or more creature cards in your graveyard.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ryan Yee",
+        "imageId": "02962013-fc5a-46be-9021-8fd40ab3027c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "ori",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRYPTIC_CAVES": {
+    "scryfallId": "03d864b7-8049-4ef7-ae50-ad28df7d87d9",
+    "oracleId": "b2eb7a64-a307-4a78-a25d-63fb3ae1e237",
+    "name": "Cryptic Caves",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cryptic Caves",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{1}, {T}, Sacrifice this land: Draw a card. Activate only if you control five or more lands.",
+        "flavorText": "Only when you've given up the search will the caves yield their secrets.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Sung Choi",
+        "imageId": "03d864b7-8049-4ef7-ae50-ad28df7d87d9"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "khc",
+    "collectorNumber": "109",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DWARVEN_WEAPONSMITH": {
+    "scryfallId": "0848d94a-2704-460f-986b-b192dd6d26b7",
+    "oracleId": "a3541870-3dc9-4571-be98-c0a2b6c468fb",
+    "name": "Dwarven Weaponsmith",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dwarven Weaponsmith",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Dwarf Artificer",
+        "oracleText": "{T}, Sacrifice an artifact: Put a +1/+1 counter on target creature. Activate only during your upkeep.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mark Poole",
+        "imageId": "0848d94a-2704-460f-986b-b192dd6d26b7"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "atq",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KROSAN_AVENGER": {
+    "scryfallId": "0afd6911-32b5-410a-afb0-fd3d2996fe59",
+    "oracleId": "8991b367-6fc1-4de7-a1ee-4edb57c44fc2",
+    "name": "Krosan Avenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Krosan Avenger",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "Trample\nThreshold — {1}{G}: Regenerate this creature. Activate only if there are seven or more cards in your graveyard.",
+        "flavorText": "She'd have a fearsome reputation if she left any survivors.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "D. Alexander Gregory",
+        "imageId": "0afd6911-32b5-410a-afb0-fd3d2996fe59"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Regenerate",
+      "Trample",
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "247",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIVENDELL": {
+    "scryfallId": "1127eb51-50ef-47f3-abfe-48895c832296",
+    "oracleId": "2550099d-b3e2-4eb6-9f36-0fc412828ca6",
+    "name": "Rivendell",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rivendell",
+        "manaCost": "",
+        "typeLine": "Legendary Land",
+        "oracleText": "Rivendell enters tapped unless you control a legendary creature.\n{T}: Add {U}.\n{1}{U}, {T}: Scry 2. Activate only if you control a legendary creature.",
+        "flavorText": "Many desired to see the house of Elrond, and breathe the air of that deep valley where the Fair Folk dwelt in peace.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Poole",
+        "imageId": "1127eb51-50ef-47f3-abfe-48895c832296"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "hoc",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STERN_MARSHAL": {
+    "scryfallId": "18fbfbc0-c55b-4e56-a3d2-5d09571c36c8",
+    "oracleId": "00602959-e9a1-4706-a1cb-70156a6fc713",
+    "name": "Stern Marshal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stern Marshal",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "{T}: Target creature gets +2/+2 until end of turn. Activate only during your turn, before attackers are declared.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "D. Alexander Gregory",
+        "imageId": "18fbfbc0-c55b-4e56-a3d2-5d09571c36c8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "por",
+    "collectorNumber": "32",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNDEAD_GLADIATOR": {
+    "scryfallId": "192187c6-8ad4-41cb-8000-8df3e80c739b",
+    "oracleId": "4da2425d-2118-4116-855d-2ef80693a7b7",
+    "name": "Undead Gladiator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Undead Gladiator",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Zombie Barbarian",
+        "oracleText": "{1}{B}, Discard a card: Return this card from your graveyard to your hand. Activate only during your upkeep.\nCycling {1}{B} ({1}{B}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jeff Easley",
+        "imageId": "192187c6-8ad4-41cb-8000-8df3e80c739b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "wc03",
+    "collectorNumber": "pk178",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEA_GATE_WRECKAGE": {
+    "scryfallId": "1c137634-7531-4573-9bfa-623d8edf839c",
+    "oracleId": "91f34686-cb96-49c0-b4a7-49dd1fd076e2",
+    "name": "Sea Gate Wreckage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sea Gate Wreckage",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}. ({C} represents colorless mana.)\n{2}{C}, {T}: Draw a card. Activate only if you have no cards in hand.",
+        "flavorText": "Once a center for knowledge, Sea Gate now serves as a reminder of what was lost.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Zack Stella",
+        "imageId": "1c137634-7531-4573-9bfa-623d8edf839c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "cmm",
+    "collectorNumber": "1028",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AUGUR_IL_VEC": {
+    "scryfallId": "1c1fdf86-22aa-4c18-a971-8ff1fd8b3de1",
+    "oracleId": "34e05dc1-35af-402d-96ae-e249b3738493",
+    "name": "Augur il-Vec",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Augur il-Vec",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Shadow (This creature can block or be blocked by only creatures with shadow.)\nSacrifice this creature: You gain 4 life. Activate only during your upkeep.",
+        "flavorText": "\"If it would end this exile, my life is yours.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "1c1fdf86-22aa-4c18-a971-8ff1fd8b3de1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Shadow"
+    ],
+    "setCode": "fut",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TALAS_RESEARCHER": {
+    "scryfallId": "1c51008b-7031-4dbc-b4d6-7433c05bf6dc",
+    "oracleId": "1ed662d7-65b9-4024-a892-c4559fb6aaf9",
+    "name": "Talas Researcher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Talas Researcher",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Human Pirate Wizard",
+        "oracleText": "{T}: Draw a card. Activate only during your turn, before attackers are declared.",
+        "flavorText": "From time, knowledge.\nFrom knowledge, power.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Kaja Foglio",
+        "imageId": "1c51008b-7031-4dbc-b4d6-7433c05bf6dc"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "p02",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LLANOWAR_AUGUR": {
+    "scryfallId": "1c8c9473-97f4-4875-8f06-d3a70d4cbe6d",
+    "oracleId": "b3052531-f7cf-44a7-9492-eb155d75268c",
+    "name": "Llanowar Augur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Llanowar Augur",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elf Shaman",
+        "oracleText": "Sacrifice this creature: Target creature gets +3/+3 and gains trample until end of turn. Activate only during your upkeep.",
+        "flavorText": "\"I am irrelevant. The future I hold in my hands is everything.\"",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tsutomu Kawade",
+        "imageId": "1c8c9473-97f4-4875-8f06-d3a70d4cbe6d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "fut",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHAINED_BRUTE": {
+    "scryfallId": "1d4e5c23-3a7f-4a6b-99c4-6a1487a9b097",
+    "oracleId": "3835cb81-b6e4-4be8-9d49-8307ddc2e1a2",
+    "name": "Chained Brute",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chained Brute",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Devil",
+        "oracleText": "This creature doesn't untap during your untap step.\n{1}, Sacrifice another creature: Untap this creature. Activate only during your turn.",
+        "flavorText": "A momentary lapse is all it needs to break free.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "1d4e5c23-3a7f-4a6b-99c4-6a1487a9b097"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WU_LONGBOWMAN": {
+    "scryfallId": "28e68635-b0ed-4a56-8b18-679f95db12b6",
+    "oracleId": "68fc55b9-55cc-4caf-a052-b44ddc0b346f",
+    "name": "Wu Longbowman",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wu Longbowman",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Soldier Archer",
+        "oracleText": "{T}: This creature deals 1 damage to any target. Activate only during your turn, before attackers are declared.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Xu Tan",
+        "imageId": "28e68635-b0ed-4a56-8b18-679f95db12b6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ptk",
+    "collectorNumber": "61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SVYELUNITE_PRIEST": {
+    "scryfallId": "316d25ae-7ac6-4f5b-93ab-0e0e28ec104b",
+    "oracleId": "fb7adbee-a3b0-42bf-988f-9d4faf6bd006",
+    "name": "Svyelunite Priest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Svyelunite Priest",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Cleric",
+        "oracleText": "{U}{U}, {T}: Target creature gains shroud until end of turn. Activate only during your upkeep. (It can't be the target of spells or abilities.)",
+        "flavorText": "\"Early Vodalians worshipped Svyelun, goddess of the Pearl Moon. Later she became a more abstract figure.\"\n—*Sarpadian Empires, vol. V*",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "316d25ae-7ac6-4f5b-93ab-0e0e28ec104b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "fem",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREAD_WANDERER": {
+    "scryfallId": "343fc82d-7d10-4489-8f7e-9995322114e2",
+    "oracleId": "88154d64-221f-4742-bccb-b1b61a2e8bf0",
+    "name": "Dread Wanderer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dread Wanderer",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Zombie Jackal",
+        "oracleText": "This creature enters tapped.\n{2}{B}: Return this card from your graveyard to the battlefield. Activate only as a sorcery and only if you have one or fewer cards in hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Josh Hass",
+        "imageId": "343fc82d-7d10-4489-8f7e-9995322114e2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "akh",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HERON_BLESSED_GEIST": {
+    "scryfallId": "3a79a435-9b58-4bcd-8544-79d9a71d85a2",
+    "oracleId": "9c5897cd-f209-4e51-adc2-d791e5671029",
+    "name": "Heron-Blessed Geist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Heron-Blessed Geist",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\n{3}{W}, Exile this card from your graveyard: Create two 1/1 white Spirit creature tokens with flying. Activate only if you control an enchantment and only as a sorcery.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "3a79a435-9b58-4bcd-8544-79d9a71d85a2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "286",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEECHRIDDEN_SWAMP": {
+    "scryfallId": "3bc4c0e9-3869-45c7-8335-7276606edef0",
+    "oracleId": "d83c86c1-126d-49e9-9b13-9e55784c49c5",
+    "name": "Leechridden Swamp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Leechridden Swamp",
+        "manaCost": "",
+        "typeLine": "Land — Swamp",
+        "oracleText": "({T}: Add {B}.)\nThis land enters tapped.\n{B}, {T}: Each opponent loses 1 life. Activate only if you control two or more black permanents.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Lars Grant-West",
+        "imageId": "3bc4c0e9-3869-45c7-8335-7276606edef0"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "hop",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHAINFLINGER": {
+    "scryfallId": "670a5bba-a10f-41f6-88cd-cef1dfe4bfa9",
+    "oracleId": "cfaf4871-2157-495d-bca8-d169bd1f7ae3",
+    "name": "Chainflinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chainflinger",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "{1}{R}, {T}: This creature deals 1 damage to any target.\nThreshold — {2}{R}, {T}: This creature deals 2 damage to any target. Activate only if there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "670a5bba-a10f-41f6-88cd-cef1dfe4bfa9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOOL_S_TOME": {
+    "scryfallId": "670e1d46-c5d4-48b6-a189-3c64076288dd",
+    "oracleId": "65589538-d3c1-4dfd-a328-71f57f556212",
+    "name": "Fool's Tome",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fool's Tome",
+        "manaCost": "{4}",
+        "typeLine": "Artifact — Book",
+        "oracleText": "{2}, {T}: Draw a card. Activate only if you have no cards in hand.",
+        "flavorText": "Squee: \"What's that?\" Ertai: \"It's a magical book.\" Squee: \"Am I smart enough ta use it?\" Ertai: \"You could say that.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Julie Baroh",
+        "imageId": "670e1d46-c5d4-48b6-a189-3c64076288dd"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "TMP-289",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAUNT_OF_THE_DEAD_MARSHES": {
+    "scryfallId": "673c6c12-2513-4d1b-acf0-6a1f741d49dd",
+    "oracleId": "0b683611-e46f-4105-b336-014d1556c8de",
+    "name": "Haunt of the Dead Marshes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Haunt of the Dead Marshes",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Nightmare Elf",
+        "oracleText": "When this creature enters, scry 1.\n{2}{B}: Return this card from your graveyard to the battlefield tapped. Activate only if you control a legendary creature.",
+        "flavorText": "\"You should not look in when the candles are lit.\"\n—Gollum",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Miklós Ligeti",
+        "imageId": "673c6c12-2513-4d1b-acf0-6a1f741d49dd"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "90",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALABORN_VETERAN": {
+    "scryfallId": "79d7992d-9acd-4eaa-b6e0-a47acb880548",
+    "oracleId": "7d9e905b-5f5c-4dbb-95cb-ccba0a5cbf8d",
+    "name": "Alaborn Veteran",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Alaborn Veteran",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "{T}: Target creature gets +2/+2 until end of turn. Activate only during your turn, before attackers are declared.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Henry Van Der Linde",
+        "imageId": "79d7992d-9acd-4eaa-b6e0-a47acb880548"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "p02",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAPSEEP_FOREST": {
+    "scryfallId": "81d3099d-4f22-425c-8955-903b6cfb88d3",
+    "oracleId": "8d4dcab0-86e5-4ff8-a90f-78a062664e16",
+    "name": "Sapseep Forest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sapseep Forest",
+        "manaCost": "",
+        "typeLine": "Land — Forest",
+        "oracleText": "({T}: Add {G}.)\nThis land enters tapped.\n{G}, {T}: You gain 1 life. Activate only if you control two or more green permanents.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Aleksi Briclot",
+        "imageId": "81d3099d-4f22-425c-8955-903b6cfb88d3"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "c21",
+    "collectorNumber": "313",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLACK_CARRIAGE": {
+    "scryfallId": "87068116-6000-44ee-b47f-f5cb8c233bb2",
+    "oracleId": "6bf5dcf1-5c93-42f4-adaf-a6f2e5807596",
+    "name": "Black Carriage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Black Carriage",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Horse",
+        "oracleText": "Trample\nThis creature doesn't untap during your untap step.\nSacrifice a creature: Untap this creature. Activate only during your upkeep.",
+        "flavorText": "\"The Baron's drivers are also driven.\"\n—Chandler",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "David A. Cherry",
+        "imageId": "87068116-6000-44ee-b47f-f5cb8c233bb2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "hml",
+    "collectorNumber": "42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LU_SU_WU_ADVISOR": {
+    "scryfallId": "9d361823-31ce-42c4-997d-3d3b52c0599a",
+    "oracleId": "59238ba1-fde4-4e43-9f24-b24125e59de0",
+    "name": "Lu Su, Wu Advisor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lu Su, Wu Advisor",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Legendary Creature — Human Advisor",
+        "oracleText": "{T}: Draw a card. Activate only during your turn, before attackers are declared.",
+        "flavorText": "Lu Su served as an intermediary between the Wu and Shu kingdoms until Zhou Yu's death in 210, when he became Wu's supreme commander.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Zhao Tan",
+        "imageId": "9d361823-31ce-42c4-997d-3d3b52c0599a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ptk",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "APPRENTICE_SORCERER": {
+    "scryfallId": "9e1fd317-5500-40e8-ad79-323832815f81",
+    "oracleId": "e26bf39f-2d1a-4bc1-aed2-d6d4505f1018",
+    "name": "Apprentice Sorcerer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Apprentice Sorcerer",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard Sorcerer",
+        "oracleText": "{T}: This creature deals 1 damage to any target. Activate only during your turn, before attackers are declared.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Christopher Rush",
+        "imageId": "9e1fd317-5500-40e8-ad79-323832815f81"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "p02",
+    "collectorNumber": "32",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAPRICIOUS_SORCERER": {
+    "scryfallId": "b8d5eec0-0afe-4af9-ba1b-70282df8cd0a",
+    "oracleId": "09fe624f-c66a-46e4-a9af-7e3c3ca1a4e3",
+    "name": "Capricious Sorcerer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Capricious Sorcerer",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard Sorcerer",
+        "oracleText": "{T}: This creature deals 1 damage to any target. Activate only during your turn, before attackers are declared.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Zina Saunders",
+        "imageId": "b8d5eec0-0afe-4af9-ba1b-70282df8cd0a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "por",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEMPLE_ELDER": {
+    "scryfallId": "db4d4b14-d774-430c-a483-be04a238718d",
+    "oracleId": "a0ace0db-1bd6-4b30-b0e2-d266967707d7",
+    "name": "Temple Elder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Temple Elder",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{T}: You gain 1 life. Activate only during your turn, before attackers are declared.",
+        "flavorText": "\"Give us breath. Give us life. Prepare us for the day we make.\"\n—The Alaborn \"Rite of Battle\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Horne",
+        "imageId": "db4d4b14-d774-430c-a483-be04a238718d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "p02",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PANG_TONG_YOUNG_PHOENIX": {
+    "scryfallId": "dd0d76db-0521-440f-94e5-db1544a8c7ea",
+    "oracleId": "6d9dc632-414e-480c-85ef-c2b98a6460ad",
+    "name": "Pang Tong, \"Young Phoenix\"",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pang Tong, \"Young Phoenix\"",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Legendary Creature — Human Advisor",
+        "oracleText": "{T}: Target creature gets +0/+2 until end of turn. Activate only during your turn, before attackers are declared.",
+        "flavorText": "\"...It was Pang Tong's boat-connecting scheme That let Zhou Yu accomplish his great deed.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Li Tie",
+        "imageId": "dd0d76db-0521-440f-94e5-db1544a8c7ea"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pz2",
+    "collectorNumber": "65813",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CABAL_TORTURER": {
+    "scryfallId": "ebcf8dd7-f45c-4ac2-9507-fa175fe89887",
+    "oracleId": "fbd295ee-545a-4eab-b000-c0b228dd412d",
+    "name": "Cabal Torturer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cabal Torturer",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Human Minion",
+        "oracleText": "{B}, {T}: Target creature gets -1/-1 until end of turn.\nThreshold — {3}{B}{B}, {T}: Target creature gets -2/-2 until end of turn. Activate only if there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "ebcf8dd7-f45c-4ac2-9507-fa175fe89887"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "tor",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THUNDERHEAD_GUNNER": {
+    "scryfallId": "ef537868-b2cb-4bbd-a935-b7f73f19bd06",
+    "oracleId": "d9b6656d-d71f-4359-bf6f-b76089741e29",
+    "name": "Thunderhead Gunner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thunderhead Gunner",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Shark Pirate",
+        "oracleText": "Reach\nDiscard a card: Draw a card. Activate only as a sorcery and only once each turn.",
+        "flavorText": "\"Fire the cannon, mates, fire it quick!\nThe sea's full of chum and we want our pick!\"\n—Keelhauler shanty",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mirko Failoni",
+        "imageId": "ef537868-b2cb-4bbd-a935-b7f73f19bd06"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "148",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHU_FARMER": {
+    "scryfallId": "fc6d6524-d8bd-4eb9-9222-747443492b8c",
+    "oracleId": "0d059577-0790-4033-b719-a74b6a62262e",
+    "name": "Shu Farmer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shu Farmer",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human",
+        "oracleText": "{T}: You gain 1 life. Activate only during your turn, before attackers are declared.",
+        "flavorText": "\"The common folk are ceaselessly active. The fields are fertile and the soil productive, and neither flood nor drought plagues us.\"\n—A Shu diplomat",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Li Xiaohua",
+        "imageId": "fc6d6524-d8bd-4eb9-9222-747443492b8c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ptk",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

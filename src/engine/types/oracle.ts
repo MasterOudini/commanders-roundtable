@@ -14,7 +14,7 @@ import type { CardData, ColorLetter } from '../../data/cardTypes';
 // ⚠️ A TYPE-ONLY import, so the 400-entry generated table does not become an
 // engine dependency. The table itself is read in `effectParse.ts`, at ingest.
 import type { TokenRef } from '../../data/tokenTable';
-import type { EntersTapped } from '../../data/replacementParse';
+import type { EntersTapped, EntersTappedCondition, PermanentPredicate } from '../../data/replacementParse';
 import type { ManaCost } from './mana';
 import type { ManaPool } from './mana';
 import type { OracleId, PrintingId } from './ids';
@@ -610,6 +610,27 @@ export type EffectMode = 'auto' | 'assisted' | 'manual';
  * ability misclassified as mana would vanish from the action list. This is the
  * same "never a second heuristic" rule `tier3.ts` learned the hard way.
  */
+/**
+ * D342 - "Activate only <condition>." (CR 602.5b-d): the printed conditions the
+ * engine can evaluate from the state it holds - the turn, the board (DERIVED),
+ * the hand and graveyard counts. Read by `activatedParse.parseActivationConditions`
+ * into `ActivatedAbility.activateOnly`, offered by `legal.ts` and refused by
+ * `handlers.ts` through `activationConditions.ts`. A condition outside this union
+ * is an UNPAID cost: never offered, never claimed with its restriction dropped.
+ */
+export type ActivationCondition =
+  | { readonly kind: 'duringYourTurn' }
+  | { readonly kind: 'duringOpponentsTurn' }
+  | { readonly kind: 'duringStep'; readonly step: 'upkeep' | 'declareAttackers' | 'declareBlockers'; readonly whose: 'yours' | 'any' }
+  | { readonly kind: 'duringCombat' }
+  | { readonly kind: 'beforeAttackersDeclared' }
+  | { readonly kind: 'board'; readonly condition: Exclude<EntersTappedCondition, { kind: 'payLife' }> }
+  | { readonly kind: 'controlCount'; readonly count: number; readonly any: readonly PermanentPredicate[] }
+  | { readonly kind: 'selfPowerAtLeast'; readonly power: number }
+  | { readonly kind: 'handSize'; readonly cmp: 'atMost' | 'exactly' | 'atLeast'; readonly count: number }
+  | { readonly kind: 'graveyardCards'; readonly count: number; readonly types: readonly string[] }
+  | { readonly kind: 'selfIsCreature' };
+
 export interface ActivatedAbility {
   /** Stable per face; the `AbilityRef` suffix. */
   readonly index: number;
@@ -722,6 +743,12 @@ export interface ActivatedAbility {
   readonly sorceryOnly: boolean;
   /** D328 - `Activate only once each turn` (CR 602.5b): refused and unoffered once `TurnState.activations` counts it. */
   readonly oncePerTurn: boolean;
+  /**
+   * D342 - every other `Activate only ...` condition the vocabulary read, ALL of
+   * which must hold at activation (`activationConditionsHold`). Empty when the
+   * line prints none; an unread one made the ability unpayable instead.
+   */
+  readonly activateOnly: readonly ActivationCondition[];
   readonly targets: readonly TargetSpec[];
   /**
    * D305 - THE EQUIPMENT SEAM. Set on the ability `activatedParse` synthesizes
