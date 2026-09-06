@@ -22365,7 +22365,7 @@ Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
 15,115, `withUnenforced` 280 → 280.
 
 **Tests:** `src/engine/regeneration.test.ts` (a shielded creature survives
-Infernal Grasp tapped and undamaged; Terminate and Wrath of God still kill
+Infernal Grasp tapped and undamaged; Terminate and Damnation still kill
 it; the shield is gone at cleanup) and one generated suite per row
 (85 suites), each ability in its own game.
 
@@ -22378,5 +22378,54 @@ Fixtures 4,376 · botPool artifact 366 / creature 3,707 / enchantment 331 / inst
 500-seed gate, 6 shards, 369.1 s wall · build clean · probe 124/124 · battery 130/130.
 
 **Reportables** (D330): the regenerators the Bolt cannot kill (16 - a destroy fixture in the test instead of the Bolt), regenerate enchanted creature (13 Auras), snow mana ({S} - 11; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15); then the modal seam (276 permanents whose first unread line is a choose-one), can not be countered (11 whole cards), the monarch, attacks each combat if able, the another split; the modal seam; the "another" split; the
+by-name sacrifice cost; the remaining cost verbs; the prompt continuation
+seam; prior items stand.
+
+## D331 — M6.4fp: THE REGENERATORS THE ROWS REFUSED — the regenerators the Bolt could not kill and the enchanted regenerators, as generated rows; 22 cards land, 22 as generated rows (2026-09-06)
+
+**6,581 of 31,692 Commander-legal cards execute completely, up from
+6,559 (+22).** SHIPPED_SCRIPTS 4,006 → **4,028**;
+REFUSED ledger 998 → **998** (no rows retired - none of the 22 was in the ledger; measured: the REFUSED map's size). Fixtures
+4,376 → 4,398 (4,262 by name + 129 tokens: the 22 rowed cards, no new token pins). **No engine change** — one row
+maker, one generator, the leftover probe. **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** the leftover probe over the database after D330, with the enchanted regeneration as a payload: 133 blocked single-face permanents whose every leftover line the grammar reads; the row maker took 22 - the big regenerators D330 refused for the Bolt and the enchanted ones - and refused 111, 74 of them for costs it still cannot price (snow mana 11, remove a +1/+1 counter from a creature you control 5, sacrifice a Desert 3, return a land you control 3, tap an untapped Gate 3, tap two untapped artifacts and/or creatures 3) and 15 for counts outside the vocabulary.
+
+**The rows.** D330 built the shield and proved it two ways; its wave read
+only the regenerators a Lightning Bolt would kill. Now:
+
+- **The big ones** (`d331/make-rows21.cjs`, `gen-oneshot21.cjs`): a
+  regenerator with toughness 4 or more is destroyed by Infernal Grasp in its
+  suite instead — the destroy half of the seam, exercised by every such
+  row rather than by one engine test — and read on the battlefield, tapped,
+  undamaged, the shield spent, as before.
+- **The enchanted ones**: "Regenerate enchanted creature." on an Aura
+  (`regenerateAttached`) — the Aura is cast onto the Bears as every Aura row
+  is, the shield lands on the Bears, the Bolt is cast at the Bears, and the
+  Bears is read regenerated.
+- Rows land BY NAME from the leftover probe; the classifier does not learn
+  the kinds this decision, so the select pool stays 0 and only `complete`
+  moves.
+
+- **Refused by name:** no rows retired - none of the 22 was in the ledger; measured: the REFUSED map's size.
+- **Not this decision:** snow mana ({S} - 11; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15); then the monarch (35 first refusals), attacks each combat if able (46; a declaration requirement), can not be countered (11 whole cards), the modal seam (276 permanents whose first unread line is a choose-one - a script-raised mode prompt), the another split.
+
+Nothing retired.
+
+Report: `effect:auto` 3,918 → 3,918, `effect:none` 15,115 →
+15,115, `withUnenforced` 280 → 280.
+
+**Tests:** one generated suite per row (22 suites), each ability in
+its own game.
+
+**Landed:** no auto flips and 22 generated rows in two passes - 21 suites green on the first with one red (Gaea's Embrace: an Aura that gives the enchanted Bears +3/+3 puts it past the Bolt's three damage, so nothing regenerated - fix-gen21-1 sends Infernal Grasp at the Bears when the Aura's static pump makes the Bolt fall short), 22 green on the second. The wave IS the landing: 22 rows - 13 regenerators the Bolt could not kill, destroyed by Infernal Grasp in their suites instead (Ghost Ship, Silvos, Rogue Elemental, Wall of Bone, Living Wall, Skithiryx, the Blight Dragon, Diabolic Machine, Skeletal Wurm, Ancient Silverback, Carnassid, Trestle Troll, Malach of the Dawn, Hellkite Overlord, Tunneler Wurm) and 9 Auras that regenerate the enchanted creature (Dark Privilege, Keldon Mantle, The Brute, Serpent Skin, Soul Channeling, Gaea's Embrace, Jolrael's Favor, Blessing of Leeches, Fortitude). Mortivore and Uktabi Wildcats (a star for toughness) and Krakilin (toughness 0) stay refused: nothing the test could kill.
+
+Fixtures 4,398 · botPool artifact 366 / creature 3,720 / enchantment 340 / instant 947 / land 485 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1098, 1223, 2910, 4770, 6110] · batch.json
+22 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,144 files, 20,886 passing / 11 skipped ·
+500-seed gate, 6 shards, 392.8 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D331): snow mana ({S} - 11; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15); then the monarch (35 first refusals), attacks each combat if able (46; a declaration requirement), can not be countered (11 whole cards), the modal seam (276 permanents whose first unread line is a choose-one - a script-raised mode prompt), the another split; the modal seam; the "another" split; the
 by-name sacrifice cost; the remaining cost verbs; the prompt continuation
 seam; prior items stand.

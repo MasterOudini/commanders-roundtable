@@ -4757,6 +4757,30 @@ const WANTED = [
   'Rusted Slasher',
   'Revered Dead',
   // D330 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D331 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Ghost Ship',
+  'Silvos, Rogue Elemental',
+  'Wall of Bone',
+  'Living Wall',
+  'Skithiryx, the Blight Dragon',
+  'Dark Privilege',
+  'Diabolic Machine',
+  'Keldon Mantle',
+  'Skeletal Wurm',
+  'Ancient Silverback',
+  'The Brute',
+  'Carnassid',
+  'Serpent Skin',
+  'Soul Channeling',
+  "Gaea's Embrace",
+  'Trestle Troll',
+  'Malach of the Dawn',
+  'Hellkite Overlord',
+  "Jolrael's Favor",
+  'Blessing of Leeches',
+  'Tunneler Wurm',
+  'Fortitude',
+  // D331 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

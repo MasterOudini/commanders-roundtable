@@ -7,6 +7,28 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { GHOST_SHIP_SCRIPT } from './cards/ghostShip';
+import { SILVOS_ROGUE_ELEMENTAL_SCRIPT } from './cards/silvosRogueElemental';
+import { WALL_OF_BONE_SCRIPT } from './cards/wallOfBone';
+import { LIVING_WALL_SCRIPT } from './cards/livingWall';
+import { SKITHIRYX_THE_BLIGHT_DRAGON_SCRIPT } from './cards/skithiryxTheBlightDragon';
+import { DARK_PRIVILEGE_SCRIPT } from './cards/darkPrivilege';
+import { DIABOLIC_MACHINE_SCRIPT } from './cards/diabolicMachine';
+import { KELDON_MANTLE_SCRIPT } from './cards/keldonMantle';
+import { SKELETAL_WURM_SCRIPT } from './cards/skeletalWurm';
+import { ANCIENT_SILVERBACK_SCRIPT } from './cards/ancientSilverback';
+import { THE_BRUTE_SCRIPT } from './cards/theBrute';
+import { CARNASSID_SCRIPT } from './cards/carnassid';
+import { SERPENT_SKIN_SCRIPT } from './cards/serpentSkin';
+import { SOUL_CHANNELING_SCRIPT } from './cards/soulChanneling';
+import { GAEAS_EMBRACE_SCRIPT } from './cards/gaeasEmbrace';
+import { TRESTLE_TROLL_SCRIPT } from './cards/trestleTroll';
+import { MALACH_OF_THE_DAWN_SCRIPT } from './cards/malachOfTheDawn';
+import { HELLKITE_OVERLORD_SCRIPT } from './cards/hellkiteOverlord';
+import { JOLRAELS_FAVOR_SCRIPT } from './cards/jolraelsFavor';
+import { BLESSING_OF_LEECHES_SCRIPT } from './cards/blessingOfLeeches';
+import { TUNNELER_WURM_SCRIPT } from './cards/tunnelerWurm';
+import { FORTITUDE_SCRIPT } from './cards/fortitude';
 import { DRUDGE_SKELETONS_SCRIPT } from './cards/drudgeSkeletons';
 import { SENTRY_OF_THE_UNDERWORLD_SCRIPT } from './cards/sentryOfTheUnderworld';
 import { DRUDGE_REAVERS_SCRIPT } from './cards/drudgeReavers';
@@ -4127,6 +4149,28 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GHOST_SHIP_SCRIPT,
+  SILVOS_ROGUE_ELEMENTAL_SCRIPT,
+  WALL_OF_BONE_SCRIPT,
+  LIVING_WALL_SCRIPT,
+  SKITHIRYX_THE_BLIGHT_DRAGON_SCRIPT,
+  DARK_PRIVILEGE_SCRIPT,
+  DIABOLIC_MACHINE_SCRIPT,
+  KELDON_MANTLE_SCRIPT,
+  SKELETAL_WURM_SCRIPT,
+  ANCIENT_SILVERBACK_SCRIPT,
+  THE_BRUTE_SCRIPT,
+  CARNASSID_SCRIPT,
+  SERPENT_SKIN_SCRIPT,
+  SOUL_CHANNELING_SCRIPT,
+  GAEAS_EMBRACE_SCRIPT,
+  TRESTLE_TROLL_SCRIPT,
+  MALACH_OF_THE_DAWN_SCRIPT,
+  HELLKITE_OVERLORD_SCRIPT,
+  JOLRAELS_FAVOR_SCRIPT,
+  BLESSING_OF_LEECHES_SCRIPT,
+  TUNNELER_WURM_SCRIPT,
+  FORTITUDE_SCRIPT,
   DRUDGE_SKELETONS_SCRIPT,
   SENTRY_OF_THE_UNDERWORLD_SCRIPT,
   DRUDGE_REAVERS_SCRIPT,
