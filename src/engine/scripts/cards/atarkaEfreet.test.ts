@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { ATARKA_EFREET_SCRIPT } from './atarkaEfreet';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { CAO_REN_WEI_COMMANDER_SCRIPT } from './caoRenWeiCommander';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

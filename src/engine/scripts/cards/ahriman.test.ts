@@ -5,7 +5,7 @@
 import { describe, expect, test } from 'vitest';
 import { faceOf } from '../../oracle';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { legalActions } from '../../legal';
 import { AHRIMAN_SCRIPT } from './ahriman';
 import { AHRIMAN } from '../../../data/fixtures/engineCards';

@@ -5,7 +5,7 @@
 // script here - the check is the engine's, asked of the spec the cast used.
 
 import { describe, expect, test } from 'vitest';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from './testing/harness';
 import type { Game } from './game';
 import type { InstanceId } from './types/ids';

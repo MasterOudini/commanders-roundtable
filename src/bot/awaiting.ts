@@ -22,7 +22,7 @@ import type { Awaiting, TargetChoice } from '../engine/types/state';
 import type { InstanceId, PlayerId } from '../engine/types/ids';
 import type { CardView, PlayerView } from '../view/types';
 import { parseTypeLine } from '../data/oracleParse';
-import { chooseAttacks, chooseBlocks } from './combat';
+import { chooseAttacks, chooseBlocks, requiredAttacks } from './combat';
 import { planTargets } from './targets';
 import { act, fault, wait, type BotDecision, type BotPort } from './types';
 
@@ -112,7 +112,8 @@ export function answerAwaiting(
       if (awaiting.player !== me) return wait('not my combat');
       // ⚠️ An empty declaration is unconditionally legal, so a second attempt
       // after a rejection can never itself be rejected.
-      const attacks = attempt > 0 ? [] : chooseAttacks(view, awaiting, me);
+      // D335 - the retry declares the required attackers and nothing else.
+      const attacks = attempt > 0 ? requiredAttacks(view, awaiting, me) : chooseAttacks(view, awaiting, me);
       return act({ t: 'DeclareAttackers', player: me, attackers: attacks }, `attack with ${attacks.length}`);
     }
 

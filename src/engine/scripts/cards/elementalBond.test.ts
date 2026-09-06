@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { ELEMENTAL_BOND_SCRIPT } from './elementalBond';
 import { DRAGON_5_5_TOKEN } from '../../../data/fixtures/engineCards';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';

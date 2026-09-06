@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { TERROR_OF_MOUNT_VELUS_SCRIPT } from './terrorOfMountVelus';
 import { advanceUntil, deps, holdEverywhere, must, put, startedGame } from '../../testing/harness';
 import { derive } from '../../derive';

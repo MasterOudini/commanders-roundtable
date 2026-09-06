@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { PIGGY_BANK_SCRIPT } from './piggyBank';
 import { advanceUntil, must, nameOf, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

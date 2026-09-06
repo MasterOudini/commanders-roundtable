@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { CLOUDCHASER_EAGLE_SCRIPT } from './cloudchaserEagle';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

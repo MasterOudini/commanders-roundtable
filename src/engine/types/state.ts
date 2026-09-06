@@ -454,6 +454,8 @@ export type Awaiting =
       readonly kind: 'declareAttackers';
       readonly player: PlayerId;
       readonly attackers: readonly InstanceId[];
+      /** D335 - CR 508.1d: the attackers a declaration must include (each attacks each combat if able). */
+      readonly required: readonly InstanceId[];
       readonly defenders: readonly DefenderRef[];
     }
   /**

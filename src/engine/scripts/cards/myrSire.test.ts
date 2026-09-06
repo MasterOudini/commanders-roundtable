@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { MYR_SIRE_SCRIPT } from './myrSire';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

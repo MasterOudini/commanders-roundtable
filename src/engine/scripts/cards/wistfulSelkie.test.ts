@@ -7,7 +7,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { WISTFUL_SELKIE_SCRIPT } from './wistfulSelkie';
 import { advanceUntil, idsIn, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

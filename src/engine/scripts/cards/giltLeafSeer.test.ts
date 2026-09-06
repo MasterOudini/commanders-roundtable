@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { GILT_LEAF_SEER_SCRIPT } from './giltLeafSeer';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

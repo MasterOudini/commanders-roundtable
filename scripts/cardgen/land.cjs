@@ -66,7 +66,8 @@ if (already.length > 0) {
 }
 
 const imports = landing.map((l) => `import { ${l.exported} } from './cards/${l.mod}';`).join(CR);
-const anchor = "import type { OracleId } from '../types/ids';";
+// D335 - the card imports follow the core re-export (registry.ts's head).
+const anchor = "export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';";
 if (!registry.includes(anchor)) {
   console.error('registry.ts has changed shape — land these by hand and fix this script.');
   process.exit(1);

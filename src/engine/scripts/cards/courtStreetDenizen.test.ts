@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { COURT_STREET_DENIZEN_SCRIPT } from './courtStreetDenizen';
 import { SOLDIER_TOKEN } from '../../../data/fixtures/engineCards';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';

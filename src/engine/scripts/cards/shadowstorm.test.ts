@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { SHADOWSTORM_SCRIPT } from './shadowstorm';
 import { DAUTHI_EMBRACE_SCRIPT } from './dauthiEmbrace';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from '../../testing/harness';

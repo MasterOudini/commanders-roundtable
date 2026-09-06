@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { KEEPER_OF_THE_NINE_GALES_SCRIPT } from './keeperOfTheNineGales';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

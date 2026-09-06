@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { NARSTAD_SCRAPPER_SCRIPT } from './narstadScrapper';
 import { advanceUntil, deps, holdEverywhere, must, put, startedGame } from '../../testing/harness';
 import { derive } from '../../derive';

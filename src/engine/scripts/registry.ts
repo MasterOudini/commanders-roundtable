@@ -4,9 +4,33 @@
 // array or undefined, which is exactly what makes the rest of the engine work
 // with no `if (scripted)` anywhere.
 
-import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
-import type { EventKind } from '../types/events';
-import type { OracleId } from '../types/ids';
+import type { CardScript } from './api';
+import { createRegistry, type ScriptRegistry } from './registryCore';
+export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BERSERKERS_OF_BLOOD_RIDGE_SCRIPT } from './cards/berserkersOfBloodRidge';
+import { UTVARA_SCALPER_SCRIPT } from './cards/utvaraScalper';
+import { BLOODROCK_CYCLOPS_SCRIPT } from './cards/bloodrockCyclops';
+import { CRAZED_GOBLIN_SCRIPT } from './cards/crazedGoblin';
+import { MAGE_RING_BULLY_SCRIPT } from './cards/mageRingBully';
+import { DARKSTEEL_JUGGERNAUT_SCRIPT } from './cards/darksteelJuggernaut';
+import { BLOODCRAZED_NEONATE_SCRIPT } from './cards/bloodcrazedNeonate';
+import { DARING_FIENDBONDER_SCRIPT } from './cards/daringFiendbonder';
+import { URBORG_DRAKE_SCRIPT } from './cards/urborgDrake';
+import { RUBBLEBELT_RECLUSE_SCRIPT } from './cards/rubblebeltRecluse';
+import { DAUTHI_SLAYER_SCRIPT } from './cards/dauthiSlayer';
+import { GOBLIN_BRIGAND_SCRIPT } from './cards/goblinBrigand';
+import { RIOT_PIKER_SCRIPT } from './cards/riotPiker';
+import { RECKLESS_BRUTE_SCRIPT } from './cards/recklessBrute';
+import { RED_HERRING_SCRIPT } from './cards/redHerring';
+import { VALLEY_DASHER_SCRIPT } from './cards/valleyDasher';
+import { FLAMEBORN_HELLION_SCRIPT } from './cards/flamebornHellion';
+import { TATTERMUNGE_MANIAC_SCRIPT } from './cards/tattermungeManiac';
+import { FRONTLINE_REBEL_SCRIPT } from './cards/frontlineRebel';
+import { PHYREXIAN_JUGGERNAUT_SCRIPT } from './cards/phyrexianJuggernaut';
+import { MONSTROUS_CARABID_SCRIPT } from './cards/monstrousCarabid';
+import { DEATHBELLOW_RAIDER_SCRIPT } from './cards/deathbellowRaider';
+import { ASHEN_MONSTROSITY_SCRIPT } from './cards/ashenMonstrosity';
+import { IMPETUOUS_SUNCHASER_SCRIPT } from './cards/impetuousSunchaser';
 import { SANITARIUM_SKELETON_SCRIPT } from './cards/sanitariumSkeleton';
 import { ADVANCED_STITCHWING_SCRIPT } from './cards/advancedStitchwing';
 import { DESPOILER_OF_SOULS_SCRIPT } from './cards/despoilerOfSouls';
@@ -4067,101 +4091,6 @@ import { WALL_OF_OMENS_SCRIPT } from './cards/wallOfOmens';
 import { BALEFUL_STRIX_SCRIPT } from './cards/balefulStrix';
 import { ONULET_SCRIPT } from './cards/onulet';
 
-export interface ScriptRegistry {
-  get(oracleId: OracleId): CardScript | undefined;
-  /**
-   * Triggers that could fire on this event kind.
-   *
-   * Indexed by `TriggerDef.event` so the cost is O(#candidate triggers) rather
-   * than O(#permanents × #triggers). With 84 permanents on a 4-player board and
-   * an event fired for every damage mark, the difference is the difference
-   * between a combat step and a frame drop.
-   */
-  triggersFor(event: EventKind): readonly { readonly script: CardScript; readonly def: TriggerDef }[];
-  staticsFor(layer: StaticDef['layer']): readonly { readonly script: CardScript; readonly def: StaticDef }[];
-  replacements(): readonly { readonly script: CardScript; readonly def: ReplacementDef }[];
-  /** Continuous combat restrictions, CR 508.1c / 509.1b. */
-  combat(): readonly { readonly script: CardScript; readonly def: CombatDef }[];
-  /** Whole-spell resolution for a resolving instant or sorcery. See `SpellDef`. */
-  spell(oracleId: OracleId): SpellDef | undefined;
-  readonly size: number;
-}
-
-class IndexedRegistry implements ScriptRegistry {
-  private readonly byOracle = new Map<OracleId, CardScript>();
-  private readonly byEvent = new Map<EventKind, { script: CardScript; def: TriggerDef }[]>();
-  private readonly byLayer = new Map<StaticDef['layer'], { script: CardScript; def: StaticDef }[]>();
-  private readonly reps: { script: CardScript; def: ReplacementDef }[] = [];
-  private readonly combats: { script: CardScript; def: CombatDef }[] = [];
-  private readonly spells = new Map<OracleId, SpellDef>();
-
-  constructor(scripts: readonly CardScript[]) {
-    for (const script of scripts) {
-      // ⚠️ A DUPLICATE ORACLE ID IS A CORRUPTED REGISTRY, NOT LAST-WRITE-WINS.
-      // `byOracle.set` would keep only the second script while every per-def
-      // index below APPENDS — so a twice-registered card DOUBLE-FIRES its
-      // triggers while `get()` reports only one of them. Harmless while the
-      // list is hand-curated; near-certain once generated family tables
-      // produce membership. Refuse loudly at construction.
-      if (this.byOracle.has(script.oracleId)) {
-        throw new Error(
-          `duplicate script for oracleId ${script.oracleId} (${script.name}) — ` +
-            'a second registration would double-fire its defs. Remove one.',
-        );
-      }
-      this.byOracle.set(script.oracleId, script);
-      for (const def of script.triggers ?? []) {
-        const list = this.byEvent.get(def.event) ?? [];
-        list.push({ script, def });
-        this.byEvent.set(def.event, list);
-      }
-      for (const def of script.statics ?? []) {
-        const list = this.byLayer.get(def.layer) ?? [];
-        list.push({ script, def });
-        this.byLayer.set(def.layer, list);
-      }
-      for (const def of script.replacements ?? []) this.reps.push({ script, def });
-      for (const def of script.combat ?? []) this.combats.push({ script, def });
-      if (script.spell) this.spells.set(script.oracleId, script.spell);
-    }
-  }
-
-  get(oracleId: OracleId): CardScript | undefined {
-    return this.byOracle.get(oracleId);
-  }
-
-  triggersFor(event: EventKind): readonly { readonly script: CardScript; readonly def: TriggerDef }[] {
-    return this.byEvent.get(event) ?? EMPTY_LIST;
-  }
-
-  staticsFor(layer: StaticDef['layer']): readonly { readonly script: CardScript; readonly def: StaticDef }[] {
-    return this.byLayer.get(layer) ?? EMPTY_LIST;
-  }
-
-  replacements(): readonly { readonly script: CardScript; readonly def: ReplacementDef }[] {
-    return this.reps;
-  }
-
-  combat(): readonly { readonly script: CardScript; readonly def: CombatDef }[] {
-    return this.combats;
-  }
-
-  spell(oracleId: OracleId): SpellDef | undefined {
-    return this.spells.get(oracleId);
-  }
-
-  get size(): number {
-    return this.byOracle.size;
-  }
-}
-
-/** Shared, so an empty lookup allocates nothing on a hot path. */
-const EMPTY_LIST: readonly never[] = [];
-
-export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
-  return new IndexedRegistry(scripts);
-}
-
 /**
  * **THE CARD SCRIPTS THE APP SHIPS.** Empty today; M6.4 fills it.
  *
@@ -4180,6 +4109,30 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BERSERKERS_OF_BLOOD_RIDGE_SCRIPT,
+  UTVARA_SCALPER_SCRIPT,
+  BLOODROCK_CYCLOPS_SCRIPT,
+  CRAZED_GOBLIN_SCRIPT,
+  MAGE_RING_BULLY_SCRIPT,
+  DARKSTEEL_JUGGERNAUT_SCRIPT,
+  BLOODCRAZED_NEONATE_SCRIPT,
+  DARING_FIENDBONDER_SCRIPT,
+  URBORG_DRAKE_SCRIPT,
+  RUBBLEBELT_RECLUSE_SCRIPT,
+  DAUTHI_SLAYER_SCRIPT,
+  GOBLIN_BRIGAND_SCRIPT,
+  RIOT_PIKER_SCRIPT,
+  RECKLESS_BRUTE_SCRIPT,
+  RED_HERRING_SCRIPT,
+  VALLEY_DASHER_SCRIPT,
+  FLAMEBORN_HELLION_SCRIPT,
+  TATTERMUNGE_MANIAC_SCRIPT,
+  FRONTLINE_REBEL_SCRIPT,
+  PHYREXIAN_JUGGERNAUT_SCRIPT,
+  MONSTROUS_CARABID_SCRIPT,
+  DEATHBELLOW_RAIDER_SCRIPT,
+  ASHEN_MONSTROSITY_SCRIPT,
+  IMPETUOUS_SUNCHASER_SCRIPT,
   SANITARIUM_SKELETON_SCRIPT,
   ADVANCED_STITCHWING_SCRIPT,
   DESPOILER_OF_SOULS_SCRIPT,
@@ -8258,18 +8211,5 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
  * The split is the fix, and it had to happen BEFORE the first script lands
  * rather than after: `NO_SCRIPTS` is genuinely empty and always will be.
  */
-export const SHIPPED_REGISTRY: ScriptRegistry = new IndexedRegistry(SHIPPED_SCRIPTS);
+export const SHIPPED_REGISTRY: ScriptRegistry = createRegistry(SHIPPED_SCRIPTS);
 
-/**
- * **A REGISTRY WITH NO SCRIPTS, FOREVER** — for a test that wants the engine's
- * script-less behaviour. ⚠️ The HOST does NOT default to this — it defaults to
- * `SHIPPED_REGISTRY`, because omitting `HostOptions.scripts` has to mean
- * "whatever the app ships" and not "nothing", or landing a script would change
- * the library and not the game.
- *
- * ⚠️ Built from a literal `[]`, never from `SHIPPED_SCRIPTS`. That is the whole
- * distinction from `SHIPPED_REGISTRY` above and the reason both exist: a test
- * asserting "a script-less card is zero registrations" must keep asserting it
- * when the app ships a thousand scripts.
- */
-export const NO_SCRIPTS: ScriptRegistry = new IndexedRegistry([]);

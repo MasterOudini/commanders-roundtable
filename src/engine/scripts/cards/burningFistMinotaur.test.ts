@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { BURNING_FIST_MINOTAUR_SCRIPT } from './burningFistMinotaur';
 import { advanceUntil, deps, holdEverywhere, must, put, startedGame } from '../../testing/harness';
 import { derive } from '../../derive';

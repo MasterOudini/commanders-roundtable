@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { THIEVING_MAGPIE_SCRIPT } from './thievingMagpie';
 import { SOULS_FIRE_SCRIPT } from './soulsFire';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from '../../testing/harness';

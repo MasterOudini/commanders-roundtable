@@ -4,7 +4,7 @@
 import { describe, expect, test } from 'vitest';
 import { faceOf } from '../../oracle';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { BOOK_OF_RASS_SCRIPT } from './bookOfRass';
 import { BOOK_OF_RASS } from '../../../data/fixtures/engineCards';
 import { ORACLE, advanceUntil, must, put, startedGame } from '../../testing/harness';

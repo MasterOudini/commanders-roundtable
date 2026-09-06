@@ -31,7 +31,7 @@
 import { describe, expect, test } from 'vitest';
 import { derive } from './derive';
 import { Game } from './game';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import {
   BRANCHING_EVOLUTION_SCRIPT,
   GRAVITY_SPHERE_SCRIPT,

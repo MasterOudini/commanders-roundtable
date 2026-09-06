@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { MALCATORS_WATCHER_SCRIPT } from './malcatorsWatcher';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

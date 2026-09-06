@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { FRANTIC_STRENGTH_SCRIPT } from './franticStrength';
 import { advanceUntil, deps, holdEverywhere, must, put, startedGame } from '../../testing/harness';
 import { derive } from '../../derive';

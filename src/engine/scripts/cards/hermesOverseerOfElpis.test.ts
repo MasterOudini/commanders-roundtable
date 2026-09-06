@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { HERMES_OVERSEER_OF_ELPIS_SCRIPT } from './hermesOverseerOfElpis';
 import { TOKEN_TABLE } from '../../../data/tokenTable';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from '../../testing/harness';

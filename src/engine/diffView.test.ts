@@ -4,7 +4,7 @@ import { legalActions } from './legal';
 import { project } from './project';
 import { seedRng, nextBelow } from './rng';
 import { deps, keepAll, newTestGame, ORACLE } from './testing/harness';
-import { NO_SCRIPTS } from './scripts/registry';
+import { NO_SCRIPTS } from './scripts/registryCore';
 import type { Game } from './game';
 import type { Intent } from './types/intents';
 import type { PlayerId } from './types/ids';

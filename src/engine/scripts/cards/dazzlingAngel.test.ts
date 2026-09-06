@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { DAZZLING_ANGEL_SCRIPT } from './dazzlingAngel';
 import { SOLDIER_TOKEN } from '../../../data/fixtures/engineCards';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';

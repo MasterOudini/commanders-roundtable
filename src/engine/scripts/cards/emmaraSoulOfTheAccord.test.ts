@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { EMMARA_SOUL_OF_THE_ACCORD_SCRIPT } from './emmaraSoulOfTheAccord';
 import { advanceUntil, battlefieldOf, must, nameOf, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

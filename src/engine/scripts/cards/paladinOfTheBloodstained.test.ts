@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { PALADIN_OF_THE_BLOODSTAINED_SCRIPT } from './paladinOfTheBloodstained';
 import { advanceUntil, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

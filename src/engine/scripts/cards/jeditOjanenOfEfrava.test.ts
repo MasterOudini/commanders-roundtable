@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { JEDIT_OJANEN_OF_EFRAVA_SCRIPT } from './jeditOjanenOfEfrava';
 import {
   advanceUntil,

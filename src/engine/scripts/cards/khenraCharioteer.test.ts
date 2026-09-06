@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { KHENRA_CHARIOTEER_SCRIPT } from './khenraCharioteer';
 import { advanceUntil, deps, holdEverywhere, must, put, startedGame } from '../../testing/harness';
 import { derive } from '../../derive';

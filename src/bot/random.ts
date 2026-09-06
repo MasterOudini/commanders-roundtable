@@ -135,7 +135,9 @@ export function decideRandom(
     if (awaiting.kind === 'declareAttackers' && awaiting.player === me && attempt === 0) {
       const defender = awaiting.defenders.find((d) => d.kind === 'player' && d.id !== me);
       if (!defender) return act({ t: 'DeclareAttackers', player: me, attackers: [] }, 'level 0 has nobody to attack');
-      const { value: chosen } = subset(rngFor(snapshot, cfg), awaiting.attackers);
+      const { value: picked } = subset(rngFor(snapshot, cfg), awaiting.attackers);
+      // D335 - CR 508.1d: the required attackers ride every declaration.
+      const chosen = [...new Set([...picked, ...awaiting.required])].sort((a, b) => a.localeCompare(b));
       return act(
         { t: 'DeclareAttackers', player: me, attackers: chosen.map((card) => ({ card, defender })) },
         `level 0 attacks with ${chosen.length}`,

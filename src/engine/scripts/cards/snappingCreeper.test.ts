@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { SNAPPING_CREEPER_SCRIPT } from './snappingCreeper';
 import { advanceUntil, deps, holdEverywhere, put, startedGame } from '../../testing/harness';
 import { derive } from '../../derive';

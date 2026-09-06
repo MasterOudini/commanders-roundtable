@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { CRESTED_HERDCALLER_SCRIPT } from './crestedHerdcaller';
 import { DINOSAUR_TOKEN } from '../../../data/fixtures/engineCards';
 import { advanceUntil, put, startedGame } from '../../testing/harness';

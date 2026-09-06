@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { WHIRLERMAKER_SCRIPT } from './whirlermaker';
 import { advanceUntil, battlefieldOf, deps, must, nameOf, put, startedGame } from '../../testing/harness';
 import { derive } from '../../derive';

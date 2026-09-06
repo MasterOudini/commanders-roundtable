@@ -11,6 +11,7 @@ import {
   legalDefenders,
   needsFirstStrikeSubstep,
   canAttack,
+  requiredAttackers,
   validateBlockDeclaration,
 } from './combat';
 import { derive, makeDeriveCache } from './derive';
@@ -1702,6 +1703,15 @@ function declareAttackers(
     }
     const ok = defenders.some((dref) => dref.kind === a.defender.kind && dref.id === a.defender.id);
     if (!ok) return reject('illegalAttacker', 'That is not a legal thing to attack.');
+  }
+  // D335 - CR 508.1d: a creature that attacks each combat if able, and can,
+  // must be in the declaration. Recomputed here rather than read off the
+  // prompt - a client's word is not a rule (D139).
+  const possible = state.zones.battlefield.filter((id) => canAttack(cdeps, id));
+  for (const id of requiredAttackers(cdeps, possible)) {
+    if (seen.has(id)) continue;
+    const name = derive(state, deps.oracle, deps.scripts, id, cache).name || 'That creature';
+    return reject('attackRequired', `${name} attacks each combat if able.`);
   }
 
   const events: EventBody[] = [

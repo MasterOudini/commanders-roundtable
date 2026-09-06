@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { RECLAIMING_VINES_SCRIPT } from './reclaimingVines';
 import { advanceUntil, find, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

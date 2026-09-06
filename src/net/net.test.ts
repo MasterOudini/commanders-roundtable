@@ -3,7 +3,7 @@ import { ClientSession } from './client';
 import { viewHash } from '../engine/diffView';
 import { project } from '../engine/project';
 import { createOracleDb } from '../engine/oracle';
-import { NO_SCRIPTS } from '../engine/scripts/registry';
+import { NO_SCRIPTS } from '../engine/scripts/registryCore';
 import { PROTOCOL_VERSION } from './protocol';
 import { unionIdentity } from './host';
 import * as CARDS from '../data/fixtures/engineCards';

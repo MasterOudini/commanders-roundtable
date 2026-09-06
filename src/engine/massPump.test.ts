@@ -8,7 +8,7 @@
 import { describe, expect, test } from 'vitest';
 import { parseEffects } from '../data/effectParse';
 import { oneShotRowShape } from '../data/primitives';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import { advanceUntil, deps, holdEverywhere, must, put, startedGame } from './testing/harness';
 import { derive } from './derive';
 import type { Game } from './game';

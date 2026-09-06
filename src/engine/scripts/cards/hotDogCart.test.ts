@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { HOT_DOG_CART_SCRIPT } from './hotDogCart';
 import { advanceUntil, battlefieldOf, nameOf, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

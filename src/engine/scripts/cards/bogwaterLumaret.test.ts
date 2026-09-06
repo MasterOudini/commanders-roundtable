@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { BOGWATER_LUMARET_SCRIPT } from './bogwaterLumaret';
 import { advanceUntil, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

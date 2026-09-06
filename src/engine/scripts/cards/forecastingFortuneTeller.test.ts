@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { FORECASTING_FORTUNE_TELLER_SCRIPT } from './forecastingFortuneTeller';
 import { advanceUntil, battlefieldOf, nameOf, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

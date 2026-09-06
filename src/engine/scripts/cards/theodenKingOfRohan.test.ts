@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { THEODEN_KING_OF_ROHAN_SCRIPT } from './theodenKingOfRohan';
 import { derive } from '../../derive';
 import { advanceUntil, must, put, startedGame, ORACLE } from '../../testing/harness';

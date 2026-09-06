@@ -16,7 +16,7 @@ import { Game } from './game';
 import { handle } from './handlers';
 import { replay, stateHash } from './log';
 import { applyReplacements } from './triggers';
-import { NO_SCRIPTS } from './scripts/registry';
+import { NO_SCRIPTS } from './scripts/registryCore';
 import type { GameState } from './types/state';
 import { findAnywhere, must, ORACLE, put, startedGame } from './testing/harness';
 

@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { VIRULENT_EMISSARY_SCRIPT } from './virulentEmissary';
 import { advanceUntil, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

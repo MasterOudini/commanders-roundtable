@@ -6,7 +6,7 @@
 import { describe, expect, test } from 'vitest';
 import { parseEffects } from '../data/effectParse';
 import { parseTargetClauses } from '../data/targetParse';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from './testing/harness';
 import type { Game } from './game';
 import type { InstanceId } from './types/ids';

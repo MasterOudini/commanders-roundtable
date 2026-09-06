@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { DAYSQUAD_MARSHAL_SCRIPT } from './daysquadMarshal';
 import { HUMAN_SOLDIER_TOKEN } from '../../../data/fixtures/engineCards';
 import { advanceUntil, put, startedGame } from '../../testing/harness';

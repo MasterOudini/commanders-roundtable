@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { CHARGING_STRIFEKNIGHT_SCRIPT } from './chargingStrifeknight';
 import { advanceUntil, idsIn, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

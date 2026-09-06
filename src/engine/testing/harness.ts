@@ -9,7 +9,7 @@
 
 import { Game, type GameOpts } from '../game';
 import { ingestOracle } from '../oracle';
-import { NO_SCRIPTS, type ScriptRegistry } from '../scripts/registry';
+import { NO_SCRIPTS, type ScriptRegistry } from '../scripts/registryCore';
 import { ENGINE_CARDS } from '../../data/fixtures/engineCards';
 import type { CardData } from '../../data/cardTypes';
 import type { EngineDeps } from '../loop';
@@ -407,8 +407,16 @@ export function simplestAnswer(
         cards: hand.slice(0, awaiting.count),
       };
     }
-    case 'declareAttackers':
-      return { t: 'DeclareAttackers', player: awaiting.player, attackers: [] };
+    case 'declareAttackers': {
+      // D335 - CR 508.1d: the simplest legal declaration is the REQUIRED attackers
+      // (each attacks each combat if able) at the first opponent, and nothing else.
+      const defender = awaiting.defenders.find((d) => d.kind === 'player');
+      return {
+        t: 'DeclareAttackers',
+        player: awaiting.player,
+        attackers: defender ? awaiting.required.map((card) => ({ card, defender })) : [],
+      };
+    }
     case 'chooseX':
       return { t: 'ChooseX', player: awaiting.player, x: 0 };
     /**

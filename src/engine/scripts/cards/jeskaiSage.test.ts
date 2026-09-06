@@ -5,7 +5,7 @@
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
 import { derive } from '../../derive';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { JESKAI_SAGE_SCRIPT } from './jeskaiSage';
 import { advanceUntil, deps, holdEverywhere, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

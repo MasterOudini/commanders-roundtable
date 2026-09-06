@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { SKYBEAST_TRACKER_SCRIPT } from './skybeastTracker';
 import { SIZZLE_SCRIPT } from './sizzle';
 import { SIP_OF_HEMLOCK_SCRIPT } from './sipOfHemlock';

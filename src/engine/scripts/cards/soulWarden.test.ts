@@ -5,7 +5,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { SOUL_WARDEN_SCRIPT } from './soulWarden';
 import { ESSENCE_WARDEN_SCRIPT } from './essenceWarden';
 import { SOLDIER_TOKEN, TREASURE_TOKEN } from '../../../data/fixtures/engineCards';

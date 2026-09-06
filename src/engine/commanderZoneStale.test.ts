@@ -7,7 +7,7 @@
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from './log';
 import { checkInvariants } from './invariants';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import { FLICKER_OF_FATE_SCRIPT } from './scripts/cards/flickerOfFate';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from './testing/harness';
 import type { Game } from './game';

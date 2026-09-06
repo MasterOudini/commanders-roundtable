@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { PRIEST_OF_THE_BLOOD_RITE_SCRIPT } from './priestOfTheBloodRite';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from '../../testing/harness';
 import { TOKEN_TABLE } from '../../../data/tokenTable';

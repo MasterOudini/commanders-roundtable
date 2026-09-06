@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { BEAST_OF_BURDEN_SCRIPT } from './beastOfBurden';
 import { advanceUntil, deps, holdEverywhere, put, startedGame } from '../../testing/harness';
 import { derive } from '../../derive';

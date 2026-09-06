@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { SUNHOME_FORTRESS_OF_THE_LEGION_SCRIPT } from './sunhomeFortressOfTheLegion';
 import { derive } from '../../derive';
 import { advanceUntil, holdEverywhere, must, put, startedGame, ORACLE } from '../../testing/harness';

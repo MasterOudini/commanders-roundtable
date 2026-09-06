@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { HERO_OF_PRECINCT_ONE_SCRIPT } from './heroOfPrecinctOne';
 import { advanceUntil, battlefieldOf, must, nameOf, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { PRODIGAL_PYROMANCER_SCRIPT } from './prodigalPyromancer';
 import { PRODIGAL_PYROMANCER, PRODIGAL_SORCERER } from '../../../data/fixtures/engineCards';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';

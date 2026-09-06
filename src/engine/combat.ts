@@ -59,6 +59,16 @@ export function canAttack(deps: CombatDeps, id: InstanceId): boolean {
  * — every board the shipped app has, since `SHIPPED_REGISTRY` ships — allocates
  * nothing and the whole check is one array-length test.
  */
+/**
+ * D335 - CR 508.1d: the creatures a registered requirement says must attack,
+ * among those that can. "Attacks each combat if able" is satisfied by
+ * attacking any legal defender, so the maximum the rule speaks of is met
+ * exactly when every one of these is declared.
+ */
+export function requiredAttackers(deps: CombatDeps, candidates: readonly InstanceId[]): InstanceId[] {
+  return candidates.filter((id) => restrictedBy(deps, (def, ctx, self) => def.mustAttack?.(ctx, self, id) === true));
+}
+
 function restrictedBy(
   deps: CombatDeps,
   ask: (def: CombatDef, ctx: ScriptCtx, self: InstanceId) => boolean,

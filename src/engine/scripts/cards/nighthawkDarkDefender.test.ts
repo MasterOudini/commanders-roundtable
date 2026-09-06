@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { NIGHTHAWK_DARK_DEFENDER_SCRIPT } from './nighthawkDarkDefender';
 import { derive } from '../../derive';
 import { ORACLE, advanceUntil, holdEverywhere, must, put, startedGame } from '../../testing/harness';

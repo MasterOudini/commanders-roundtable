@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { LOSSARNACH_CAPTAIN_SCRIPT } from './lossarnachCaptain';
 import { TOKEN_TABLE } from '../../../data/tokenTable';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from '../../testing/harness';

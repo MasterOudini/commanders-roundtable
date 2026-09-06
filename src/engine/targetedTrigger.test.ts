@@ -19,7 +19,7 @@ import { replay, stateHash } from './log';
 import { canBlock } from './combat';
 import { costStringOf, manaSourcesOf } from './mana';
 import { engineCompleteness } from '../data/engineComplete';
-import { createRegistry, NO_SCRIPTS } from './scripts/registry';
+import { createRegistry, NO_SCRIPTS } from './scripts/registryCore';
 import { SPINELESS_THUG_SCRIPT } from './testing/cardScripts';
 // The SHIPPED Onulet (M6.4a) and Yotian Dissident (M6.4c) — the testing copies
 // they replaced are gone, so these cases drive the scripts the app runs.

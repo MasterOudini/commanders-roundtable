@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { WATERWIND_SCOUT_SCRIPT } from './waterwindScout';
 import { advanceUntil, battlefieldOf, deps, nameOf, put, startedGame } from '../../testing/harness';
 import { derive } from '../../derive';

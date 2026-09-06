@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { CRIMSON_CARAVANEER_SCRIPT } from './crimsonCaravaneer';
 import { JUNK_TOKEN } from '../../../data/fixtures/engineCards';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';

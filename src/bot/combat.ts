@@ -279,9 +279,28 @@ export function chooseAttacks(view: PlayerView, prompt: AttackPrompt, me: Player
     set = set.slice(0, -1);
   }
 
-  return set
-    .sort((a, b) => a.instanceId.localeCompare(b.instanceId))
-    .map((c) => ({ card: c.instanceId, defender }));
+  // D335 - CR 508.1d: whatever the plan, a creature that attacks each combat
+  // if able is in the declaration.
+  const chosen = new Set(set.map((c) => c.instanceId));
+  for (const id of prompt.required) chosen.add(id);
+  return [...chosen]
+    .sort((a, b) => a.localeCompare(b))
+    .map((card) => ({ card, defender }));
+}
+
+/**
+ * D335 - the declaration that is always legal: the required attackers at the
+ * first opponent still in the game, and nothing else. The retry after a
+ * refusal uses it (an EMPTY declaration is no longer always legal).
+ */
+export function requiredAttacks(view: PlayerView, prompt: AttackPrompt, me: PlayerId): Attack[] {
+  if (prompt.required.length === 0) return [];
+  const defender = prompt.defenders
+    .filter((d): d is DefenderRef & { kind: 'player' } => d.kind === 'player')
+    .filter((d) => d.id !== me && !view.seats[d.id]?.lost)
+    .sort((a, b) => a.id.localeCompare(b.id))[0];
+  if (!defender) return [];
+  return [...prompt.required].sort((a, b) => a.localeCompare(b)).map((card) => ({ card, defender }));
 }
 
 /**

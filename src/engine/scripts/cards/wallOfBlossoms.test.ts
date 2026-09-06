@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { WALL_OF_BLOSSOMS_SCRIPT } from './wallOfBlossoms';
 import { advanceUntil, idsIn, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

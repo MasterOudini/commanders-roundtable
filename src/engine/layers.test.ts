@@ -18,7 +18,7 @@ import { canBlock } from './combat';
 import { derive } from './derive';
 import { Game } from './game';
 import { replay, stateHash } from './log';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import { GRAVITY_SPHERE_SCRIPT, LEVITATION_SCRIPT, HUMILITY_SCRIPT, KNIGHTHOOD_SCRIPT, KWENDE_SCRIPT, SPINELESS_THUG_SCRIPT } from './testing/cardScripts';
 import { advanceUntil, find, must, nameOf, ORACLE, put, startedGame, holdEverywhere } from './testing/harness';
 import type { InstanceId } from './types/ids';

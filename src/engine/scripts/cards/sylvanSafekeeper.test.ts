@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { SYLVAN_SAFEKEEPER_SCRIPT } from './sylvanSafekeeper';
 import { derive } from '../../derive';
 import { advanceUntil, must, put, startedGame, ORACLE } from '../../testing/harness';

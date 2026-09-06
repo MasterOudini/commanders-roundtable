@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { WAVE_WING_ELEMENTAL_SCRIPT } from './waveWingElemental';
 import { advanceUntil, deps, holdEverywhere, put, startedGame } from '../../testing/harness';
 import { derive } from '../../derive';

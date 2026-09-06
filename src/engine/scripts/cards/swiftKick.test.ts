@@ -14,7 +14,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { SWIFT_KICK_SCRIPT } from './swiftKick';
 import { derive } from '../../derive';
 import { advanceUntil, holdEverywhere, must, put, startedGame, ORACLE } from '../../testing/harness';

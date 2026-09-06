@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { PATRON_OF_THE_ARTS_SCRIPT } from './patronOfTheArts';
 import { NOGGLE_ROBBER, PATRON_OF_THE_ARTS } from '../../../data/fixtures/engineCards';
 import { advanceUntil, must, nameOf, put, startedGame } from '../../testing/harness';

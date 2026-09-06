@@ -2,7 +2,7 @@
 // a card at the beginning of their end step; a creature dealing combat damage
 // to the monarch makes its controller the monarch.
 import { describe, expect, test } from 'vitest';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import { THORN_OF_THE_BLACK_ROSE_SCRIPT } from './scripts/cards/thornOfTheBlackRose';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from './testing/harness';
 import type { Game } from './game';

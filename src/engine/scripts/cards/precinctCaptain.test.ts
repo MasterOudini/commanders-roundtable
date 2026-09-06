@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { PRECINCT_CAPTAIN_SCRIPT } from './precinctCaptain';
 import { advanceUntil, holdEverywhere, must, nameOf, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

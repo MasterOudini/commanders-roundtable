@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { HORIZON_CHIMERA_SCRIPT } from './horizonChimera';
 import { AZORIUS_LOCKET_SCRIPT } from './azoriusLocket';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';

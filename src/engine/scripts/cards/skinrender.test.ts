@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { SKINRENDER_SCRIPT } from './skinrender';
 import { derive } from '../../derive';
 import { advanceUntil, holdEverywhere, must, put, startedGame, ORACLE } from '../../testing/harness';

@@ -15,7 +15,7 @@
 import { describe, expect, test } from 'vitest';
 import { Game } from './game';
 import { replay, stateHash } from './log';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import { AJANIS_MANTRA } from './testing/cardScripts';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from './testing/harness';
 import type { CardScript } from './scripts/api';

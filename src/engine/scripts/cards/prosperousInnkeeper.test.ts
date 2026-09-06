@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { PROSPEROUS_INNKEEPER_SCRIPT } from './prosperousInnkeeper';
 import { TOKEN_TABLE } from '../../../data/tokenTable';
 import { advanceUntil, put, startedGame } from '../../testing/harness';

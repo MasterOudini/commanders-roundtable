@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { DEVOUT_WITNESS_SCRIPT } from './devoutWitness';
 import { advanceUntil, idsIn, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

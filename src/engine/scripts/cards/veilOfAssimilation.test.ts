@@ -6,7 +6,7 @@
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
 import { derive } from '../../derive';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { VEIL_OF_ASSIMILATION_SCRIPT } from './veilOfAssimilation';
 import { URZAS_FACTORY_SCRIPT } from './urzasFactory';
 import { ORACLE, advanceUntil, holdEverywhere, must, put, startedGame } from '../../testing/harness';

@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { CANYON_JERBOA_SCRIPT } from './canyonJerboa';
 import { advanceUntil, deps, holdEverywhere, put, startedGame } from '../../testing/harness';
 import { derive } from '../../derive';

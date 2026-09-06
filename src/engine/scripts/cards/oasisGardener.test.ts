@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { OASIS_GARDENER_SCRIPT } from './oasisGardener';
 import { advanceUntil, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

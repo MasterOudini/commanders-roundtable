@@ -4,7 +4,7 @@
 // ends at cleanup. The lethal-damage half is proven by every generated
 // regenerate suite (the Bolt).
 import { describe, expect, test } from 'vitest';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import { DRUDGE_SKELETONS_SCRIPT } from './scripts/cards/drudgeSkeletons';
 import { DAMNATION_SCRIPT } from './scripts/cards/damnation';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from './testing/harness';

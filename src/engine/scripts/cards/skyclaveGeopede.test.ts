@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { SKYCLAVE_GEOPEDE_SCRIPT } from './skyclaveGeopede';
 import { advanceUntil, deps, holdEverywhere, put, startedGame } from '../../testing/harness';
 import { derive } from '../../derive';

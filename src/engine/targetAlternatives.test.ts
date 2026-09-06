@@ -8,7 +8,7 @@
 import { describe, expect, test } from 'vitest';
 import { parseTargetClauses } from '../data/targetParse';
 import { targetAllowed, type TargetCandidate } from './targets';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from './testing/harness';
 import type { Game } from './game';
 import type { InstanceId } from './types/ids';

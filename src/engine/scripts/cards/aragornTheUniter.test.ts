@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { ARAGORN_THE_UNITER_SCRIPT } from './aragornTheUniter';
 import { TOPPLE_THE_STATUE_SCRIPT } from './toppleTheStatue';
 import { SORCEROUS_SIGHT_SCRIPT } from './sorcerousSight';

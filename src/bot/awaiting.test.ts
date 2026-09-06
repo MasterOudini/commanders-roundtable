@@ -123,7 +123,7 @@ function makePort(view: PlayerView): BotPort {
 const PROMPTS: readonly [Awaiting['kind'], Awaiting][] = [
   ['mulligan', { kind: 'mulligan', players: [FOE, ME], submitted: [] }],
   ['mulliganBottom', { kind: 'mulliganBottom', player: ME, count: 2 }],
-  ['declareAttackers', { kind: 'declareAttackers', player: ME, attackers: ['b1', 'b2'], defenders: [{ kind: 'player', id: FOE }] }],
+  ['declareAttackers', { kind: 'declareAttackers', player: ME, attackers: ['b1', 'b2'], required: [], defenders: [{ kind: 'player', id: FOE }] }],
   ['declareBlockers', { kind: 'declareBlockers', players: [ME], submitted: [], legal: [{ blocker: 'b1', attackers: ['e1'] }] }],
   ['orderBlockers', { kind: 'orderBlockers', player: ME, attacker: 'e1' }],
   ['orderAttackers', { kind: 'orderAttackers', player: ME, blocker: 'b1' }],

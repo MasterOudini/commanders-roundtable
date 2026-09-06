@@ -76,6 +76,7 @@ const attackPrompt = (attackers: CardView[]): Awaiting =>
     kind: 'declareAttackers',
     player: ME,
     attackers: attackers.map((c) => c.instanceId),
+    required: [],
     defenders: [{ kind: 'player', id: FOE }],
   }) as Awaiting;
 

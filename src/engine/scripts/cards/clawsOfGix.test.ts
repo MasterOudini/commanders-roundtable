@@ -6,7 +6,7 @@
 import { describe, expect, test } from 'vitest';
 import { faceOf } from '../../oracle';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { legalActions } from '../../legal';
 import { CLAWS_OF_GIX_SCRIPT } from './clawsOfGix';
 import { CLAWS_OF_GIX } from '../../../data/fixtures/engineCards';

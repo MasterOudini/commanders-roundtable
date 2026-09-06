@@ -4,7 +4,7 @@
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
 import { derive } from '../../derive';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { URBIS_PROTECTOR_SCRIPT } from './urbisProtector';
 import { ORACLE, advanceUntil, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

@@ -279,7 +279,7 @@ describe('simplestAnswer — the driver answers every prompt it is given', () =>
 
     for (const awaiting of [
       rewind,
-      { kind: 'declareAttackers', player: 'p1', attackers: [], defenders: [] },
+      { kind: 'declareAttackers', player: 'p1', attackers: [], required: [], defenders: [] },
       { kind: 'declareBlockers', players: ['p2'], submitted: [], legal: [] },
       { kind: 'orderBlockers', player: 'p1', attacker: 'nope' },
       { kind: 'orderAttackers', player: 'p1', blocker: 'nope' },

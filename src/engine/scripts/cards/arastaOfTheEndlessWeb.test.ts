@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { ARASTA_OF_THE_ENDLESS_WEB_SCRIPT } from './arastaOfTheEndlessWeb';
 import { advanceUntil, battlefieldOf, must, nameOf, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

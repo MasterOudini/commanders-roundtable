@@ -5,7 +5,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { CULT_OF_THE_WAXING_MOON_SCRIPT } from './cultOfTheWaxingMoon';
 import { WOLF_TOKEN } from '../../../data/fixtures/engineCards';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';

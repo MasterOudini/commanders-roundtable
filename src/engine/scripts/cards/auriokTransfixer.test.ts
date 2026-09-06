@@ -5,7 +5,7 @@
 import { describe, expect, test } from 'vitest';
 import { faceOf } from '../../oracle';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { AURIOK_TRANSFIXER_SCRIPT } from './auriokTransfixer';
 import { AURIOK_TRANSFIXER } from '../../../data/fixtures/engineCards';
 import { ORACLE, advanceUntil, must, put, startedGame } from '../../testing/harness';

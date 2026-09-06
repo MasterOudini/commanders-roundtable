@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { MOSSTODON_SCRIPT } from './mosstodon';
 import { derive } from '../../derive';
 import { ORACLE, advanceUntil, must, put, startedGame } from '../../testing/harness';

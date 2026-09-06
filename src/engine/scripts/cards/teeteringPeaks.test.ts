@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { TEETERING_PEAKS_SCRIPT } from './teeteringPeaks';
 import { derive } from '../../derive';
 import { advanceUntil, must, put, startedGame, ORACLE } from '../../testing/harness';

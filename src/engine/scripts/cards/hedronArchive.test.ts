@@ -6,7 +6,7 @@
 import { describe, expect, test } from 'vitest';
 import { faceOf } from '../../oracle';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { HEDRON_ARCHIVE_SCRIPT } from './hedronArchive';
 import { HEDRON_ARCHIVE } from '../../../data/fixtures/engineCards';
 import { ORACLE, advanceUntil, idsIn, must, put, startedGame } from '../../testing/harness';

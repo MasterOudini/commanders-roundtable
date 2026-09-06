@@ -4,7 +4,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { BATTLESONG_BERSERKER_SCRIPT } from './battlesongBerserker';
 import { derive } from '../../derive';
 import { ORACLE, advanceUntil, must, put, startedGame } from '../../testing/harness';

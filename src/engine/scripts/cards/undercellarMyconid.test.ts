@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { UNDERCELLAR_MYCONID_SCRIPT } from './undercellarMyconid';
 import { TREMOR_SCRIPT } from './tremor';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';

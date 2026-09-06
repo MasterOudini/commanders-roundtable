@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { VIASHINO_BLADESCOUT_SCRIPT } from './viashinoBladescout';
 import { advanceUntil, deps, must, put, startedGame } from '../../testing/harness';
 import { derive } from '../../derive';

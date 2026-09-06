@@ -7,7 +7,7 @@
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from './log';
 import { derive } from './derive';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import { legalActions } from './legal';
 import { advanceUntil, deps, holdEverywhere, must, put, startedGame } from './testing/harness';
 import type { Game } from './game';

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { derive, makeDeriveCache } from './derive';
-import { createRegistry, NO_SCRIPTS } from './scripts/registry';
+import { createRegistry, NO_SCRIPTS } from './scripts/registryCore';
 import type { CardScript, MutableCharacteristics, ScriptCtx } from './scripts/api';
 import { ORACLE, find, findAnywhere, must, put, startedGame } from './testing/harness';
 import type { InstanceId } from './types/ids';

@@ -6,7 +6,7 @@
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from './log';
 import { derive } from './derive';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import { advanceUntil, deps, holdEverywhere, put, startedGame } from './testing/harness';
 import type { Game } from './game';
 import type { InstanceId } from './types/ids';

@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { THIRD_PATH_ICONOCLAST_SCRIPT } from './thirdPathIconoclast';
 import { advanceUntil, battlefieldOf, holdEverywhere, must, nameOf, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

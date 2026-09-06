@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { legalActions, shouldAutoPass } from './legal';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import type { CardScript } from './scripts/api';
 import {
   ORACLE,

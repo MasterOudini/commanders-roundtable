@@ -6,7 +6,7 @@
 import { describe, expect, test } from 'vitest';
 import { faceOf } from '../../oracle';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { ARCANE_ENCYCLOPEDIA_SCRIPT } from './arcaneEncyclopedia';
 import { ARCANE_ENCYCLOPEDIA } from '../../../data/fixtures/engineCards';
 import { ORACLE, advanceUntil, idsIn, must, put, startedGame } from '../../testing/harness';

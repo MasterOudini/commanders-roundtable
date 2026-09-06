@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { NEBELGAST_BEGUILER_SCRIPT } from './nebelgastBeguiler';
 import { NEBELGAST_BEGUILER, MASTER_DECOY } from '../../../data/fixtures/engineCards';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';

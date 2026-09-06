@@ -6,7 +6,7 @@
 import { describe, expect, test } from 'vitest';
 import { faceOf } from '../../oracle';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { DESERTED_TEMPLE_SCRIPT } from './desertedTemple';
 import { DESERTED_TEMPLE } from '../../../data/fixtures/engineCards';
 import { ORACLE, advanceUntil, holdEverywhere, must, put, startedGame } from '../../testing/harness';

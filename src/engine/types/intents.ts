@@ -300,6 +300,8 @@ export type RejectReason =
   | 'wrongCastStage'
   | 'illegalTarget'
   | 'illegalAttacker'
+  /** D335 - CR 508.1d: a creature that attacks each combat if able was left out. */
+  | 'attackRequired'
   | 'illegalBlock'
   | 'menaceRequiresTwo'
   | 'notAwaitingThat'

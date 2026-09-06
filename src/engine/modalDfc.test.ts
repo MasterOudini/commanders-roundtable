@@ -21,7 +21,7 @@ import { describe, expect, test } from 'vitest';
 import { Game } from './game';
 import { replay, stateHash } from './log';
 import { legalActions } from './legal';
-import { NO_SCRIPTS } from './scripts/registry';
+import { NO_SCRIPTS } from './scripts/registryCore';
 import { advanceUntil, fullControl, must, ORACLE, put, startedGame } from './testing/harness';
 
 const REBIRTH = 'Malakir Rebirth // Malakir Mire';

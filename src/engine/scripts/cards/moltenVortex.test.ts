@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { legalActions } from '../../legal';
 import { MOLTEN_VORTEX_SCRIPT } from './moltenVortex';
 import { advanceUntil, deps, holdEverywhere, idsIn, must, put, startedGame } from '../../testing/harness';

@@ -12,7 +12,7 @@ import { describe, expect, test } from 'vitest';
 import { GRIZZLY_BEARS } from '../data/fixtures/engineCards';
 import { derive } from './derive';
 import { replay, stateHash } from './log';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import type { CardScript } from './scripts/api';
 import { advanceUntil, deps, holdEverywhere, must, put, startedGame } from './testing/harness';
 import type { Game } from './game';

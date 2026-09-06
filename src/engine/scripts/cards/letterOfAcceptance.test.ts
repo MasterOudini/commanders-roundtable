@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { LETTER_OF_ACCEPTANCE_SCRIPT } from './letterOfAcceptance';
 import { advanceUntil, idsIn, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

@@ -11,7 +11,7 @@ import { describe, expect, test } from 'vitest';
 import { parseActivatedAbilities } from '../data/activatedParse';
 import { parseManaCost } from '../data/oracleParse';
 import { replay, stateHash } from './log';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import { SPIKE_FEEDER_SCRIPT } from './scripts/cards/spikeFeeder';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from './testing/harness';
 import type { Game } from './game';

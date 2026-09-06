@@ -4,7 +4,7 @@
 import { describe, expect, test } from 'vitest';
 import { faceOf } from '../../oracle';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { BLINDING_SOULEATER_SCRIPT } from './blindingSouleater';
 import { BLINDING_SOULEATER } from '../../../data/fixtures/engineCards';
 import { ORACLE, advanceUntil, must, put, startedGame } from '../../testing/harness';

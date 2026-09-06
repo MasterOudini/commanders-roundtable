@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { AMBASSADOR_OAK_SCRIPT } from './ambassadorOak';
 import { advanceUntil, battlefieldOf, nameOf, put, startedGame } from '../../testing/harness';
 

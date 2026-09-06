@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { HEALER_OF_THE_GLADE_SCRIPT } from './healerOfTheGlade';
 import { advanceUntil, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

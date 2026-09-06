@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { SCRAPHEAP_SCRIPT } from './scrapheap';
 import { RUINOUS_ULTIMATUM_SCRIPT } from './ruinousUltimatum';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from '../../testing/harness';

@@ -20,7 +20,7 @@ import { describe, expect, test } from 'vitest';
 import { derive } from './derive';
 import { Game } from './game';
 import { replay, stateHash } from './log';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import { AJANIS_MANTRA, AJANIS_PRIDEMATE } from './testing/cardScripts';
 import {
   advanceUntil,
@@ -32,7 +32,7 @@ import {
   put,
   startedGame,
 } from './testing/harness';
-import { NO_SCRIPTS } from './scripts/registry';
+import { NO_SCRIPTS } from './scripts/registryCore';
 import type { InstanceId } from './types/ids';
 
 const SPELLS = ['Battlegrowth', 'Scar', 'Burst of Strength', 'Grizzly Bears', 'Typhoid Rats'];

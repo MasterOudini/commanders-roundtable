@@ -165,6 +165,12 @@ export interface CombatDef {
   canAttack?(ctx: ScriptCtx, self: InstanceId, candidate: InstanceId): boolean;
   /** `false` to stop `blocker` blocking `attacker`. */
   canBlock?(ctx: ScriptCtx, self: InstanceId, blocker: InstanceId, attacker: InstanceId): boolean;
+  /**
+   * D335 - the first REQUIREMENT (CR 508.1d): "attacks each combat if able".
+   * Asked only of a creature `canAttack` already admits; a true answer puts
+   * it in `requiredAttackers`, and a declaration without it is refused.
+   */
+  mustAttack?(ctx: ScriptCtx, self: InstanceId, candidate: InstanceId): boolean;
 }
 
 export interface StaticDef {

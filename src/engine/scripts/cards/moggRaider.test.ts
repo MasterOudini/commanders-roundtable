@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { MOGG_RAIDER_SCRIPT } from './moggRaider';
 import { MOGG_RAIDER, GOBLIN_SLEDDER } from '../../../data/fixtures/engineCards';
 import { derive } from '../../derive';

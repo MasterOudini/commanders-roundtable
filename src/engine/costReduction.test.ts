@@ -9,7 +9,7 @@ import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from './log';
 import { castReduction } from './costs';
 import { legalActions } from './legal';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import { faceOf } from './oracle';
 import { advanceUntil, deps, holdEverywhere, must, put, startedGame } from './testing/harness';
 import type { Game } from './game';

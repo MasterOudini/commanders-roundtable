@@ -5,7 +5,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { legalActions } from '../../legal';
 import { RUMMAGING_GOBLIN_SCRIPT } from './rummagingGoblin';
 import { advanceUntil, deps, idsIn, must, put, startedGame } from '../../testing/harness';

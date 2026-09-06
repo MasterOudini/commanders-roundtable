@@ -5,7 +5,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { legalActions } from '../../legal';
 import { AZAMI_LADY_OF_SCROLLS_SCRIPT } from './azamiLadyOfScrolls';
 import { advanceUntil, deps, must, put, startedGame } from '../../testing/harness';

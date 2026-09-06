@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { NOBLE_STEEDS_SCRIPT } from './nobleSteeds';
 import { derive } from '../../derive';
 import { ORACLE, advanceUntil, must, put, startedGame } from '../../testing/harness';

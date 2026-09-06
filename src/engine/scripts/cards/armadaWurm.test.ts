@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { ARMADA_WURM_SCRIPT } from './armadaWurm';
 import { advanceUntil, battlefieldOf, nameOf, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

@@ -180,7 +180,7 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // all rung 1 (the user's own decks) - rituals, wraths, fights, burn,
     // draw. Bedevil and Fall of the Hammer were pulled at draft time by
     // their own failing tests (spell target parse - see the REFUSED ledger).
-    expect(SHIPPED_SCRIPTS).toHaveLength(4059);
+    expect(SHIPPED_SCRIPTS).toHaveLength(4083);
   });
 });
 
@@ -209,7 +209,8 @@ describe('the shipped registry and the empty one stay apart', () => {
         // Tests may; so may the test harness and the registry that defines it.
         if (/\.test\.ts$/.test(entry)) continue;
         if (full.includes(join('engine', 'testing'))) continue;
-        if (entry === 'registry.ts') continue;
+        // D335 - the empty registry is DEFINED in registryCore.ts (registry.ts re-exports it).
+        if (entry === 'registry.ts' || entry === 'registryCore.ts') continue;
         if (/\bNO_SCRIPTS\b/.test(readFileSync(full, 'utf8'))) offenders.push(relative(process.cwd(), full));
       }
     };

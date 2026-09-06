@@ -10333,6 +10333,51 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D334): snow mana ({S} - 11; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15); then attacks each combat if able (46; a declaration requirement), can not be countered (11 whole cards), the second-card and second-spell turn memory (37 + 26), the modal seam (276), the another split; the modal seam; the "another" split;
       the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4ft — THE GATE AT SCALE: the unit gate stops loading the whole library
+      once per suite, a scoped gate for generator-only waves, the fixtures as
+      JSON — and the attack requirement (CR 508.1d) with its wave; 24 cards
+      land, 24 as generated rows (2026-09-06):**
+      **6,636 of 31,692 Commander-legal cards now execute completely, up
+      from 6,612 (+24).** `SHIPPED_SCRIPTS` 4,083; ledger
+      998 (no rows retired - none of the 24 was in the ledger; measured: the REFUSED map's size). Fixtures 4,453 (4,317 by name + 129 tokens: the 24 rowed cards, no new token pins). **Select pool
+      0.** Decisions in **D335**.
+      ⚠️ **The measurement:** gate 188's unit stage was 3,841 s wall for 4,178
+      files — 24,141 s of imports against 1,329 s of tests, because every
+      isolated suite (and the harness) imported `registry.ts`, which imports all
+      4,083 card modules and the 4.3 MB fixture database: 23.2 s of imports per
+      suite for 72 ms of tests, quadratic in the cards.
+      ⚠️ **The rework:** `registryCore.ts` (the interface, the indexed class,
+      `createRegistry`, `NO_SCRIPTS` — no card imports; `registry.ts` keeps the
+      shipped list and re-exports the core; the harness and 3,525 suites import
+      the core: one suite 23.2 s → 2.7 s); the unit gate runs `--no-isolate`
+      (a 45-suite chunk 11.1 s → 4.1 s; everything outside the cards green in
+      231 s); the fixtures as `engineCards.json`, read as a string and parsed once
+      behind a typed `engineCards.ts` index with the same names
+      (a suite importing only the index 1.77 s -> 0.36 s; one card suite 2.62 s -> 1.44 s of imports); `verify.cjs --scope <file>`
+      + `unit-scoped.cjs` (everything outside the card suites + the batch's
+      own). **The cadence:** an engine, data or bot change gates WITHOUT
+      `--scope`; the full unit suite runs at least every fifth decision and
+      always before a release; the pass line says when a run was scoped. This
+      decision's own gate is the full run: 4,203 files, 21,137 passing / 11 skipped (3,841 s → 331.8 s).
+      ⚠️ **The seam carried with it:** `CombatDef.mustAttack?`,
+      `requiredAttackers`, `required` on the declare-attackers prompt, the
+      handler's `attackRequired` refusal, both bots and the harness's simplest
+      answer declaring the required creatures (an empty declaration is no
+      longer always legal). The row maker (`d335/make-rows25.cjs` +
+      `gen25-extras.cjs`) reads "~ attacks each combat if able." as a combat
+      kind whose def is the requirement. Measured first: the leftover probe over the database after D334, with the attack requirement as a payload: 150 blocked single-face permanents whose every leftover line the grammar reads, 26 of them must-attackers; the row maker took 24 and refused 126 - 83 costs it still cannot price (snow mana 12 across {S}, {1}{S} and {S}{S}; remove a +1/+1 counter from a creature you control 5; sacrifice a Desert 3, tap an untapped Gate 3, return a land you control 3, tap two untapped artifacts and/or creatures 3; then a tail of one each), 15 counts outside the vocabulary, 5 can't-attack-or-block-alone lines, 4 enchanted-creature payloads after the Aura is sacrificed, and the rest by name in d335/unrowable-d335.json. NOT this
+      decision: snow mana ({S} - 12 across three cost forms; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15), can't attack or block alone (5; the second declaration requirement); then can not be countered (11 whole cards), the second-card and second-spell turn memory (37 + 26), the modal seam (276), the another split. Refused by name: no rows retired - none of the 24 was in the ledger; measured: the REFUSED map's size.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips; 24 generated rows, green once the harness's simplest answer declared the required attackers (the 8 reds were the empty declaration the engine now refuses). The wave IS the landing: 24 rows, every one a creature that attacks each combat if able - Berserkers of Blood Ridge, Utvara Scalper, Bloodrock Cyclops, Crazed Goblin, Mage-Ring Bully, Darksteel Juggernaut, Bloodcrazed Neonate, Daring Fiendbonder, Urborg Drake, Rubblebelt Recluse, Dauthi Slayer, Goblin Brigand, Riot Piker, Reckless Brute, Red Herring, Valley Dasher, Flameborn Hellion, Tattermunge Maniac, Frontline Rebel, Phyrexian Juggernaut, Monstrous Carabid, Deathbellow Raider, Ashen Monstrosity, Impetuous Sunchaser - each carrying the requirement beside lines the grammar already read. Tests: the whole unit suite under the
+      reworked gate; one generated suite per row.
+      Fixtures 4,453 · botPool artifact 366 / creature 3,770 / enchantment 343 / instant 947 / land 487 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1098, 1223, 2910, 4770, 6110] · batch.json
+      24 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,203 files, 21,137 passing / 11 skipped ·
+      500-seed gate, 6 shards, 526.9 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D335): snow mana ({S} - 12 across three cost forms; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15), can't attack or block alone (5; the second declaration requirement); then can not be countered (11 whole cards), the second-card and second-spell turn memory (37 + 26), the modal seam (276), the another split; the modal seam; the "another" split;
+      the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

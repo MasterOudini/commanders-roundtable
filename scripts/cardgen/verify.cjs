@@ -20,6 +20,13 @@ const { join } = require('node:path');
 
 const root = join(__dirname, '..', '..');
 const full = process.argv.includes('--full');
+// D335 - `--scope <file>`: the unit gate runs everything outside the card
+// suites plus the batch's own (unit-scoped.cjs) instead of every card suite.
+// For a generator-only wave; an engine, data or bot change gates WITHOUT it,
+// and the full unit suite is owed on the cadence AGENTS.md states.
+const scopeArg = process.argv.indexOf('--scope');
+const scope = scopeArg >= 0 ? process.argv[scopeArg + 1] : null;
+if (scopeArg >= 0 && !scope) throw new Error('--scope needs a file');
 // D296: --full runs the 500-seed gate as W concurrent SHARDS (default 6 of this
 // machine's 8 cores) and then one aggregate run that asserts the seed sets
 // partition [0, 500) exactly and the canary floors hold over the union.
@@ -50,9 +57,11 @@ const GATES = [
     cmd: [npx, ['vitest', 'run', 'src/data/shippedScripts.node.test.ts']],
   },
   {
-    name: 'the whole unit suite',
+    name: scope ? 'the unit suite, SCOPED (everything outside the card suites + the batch\'s own)' : 'the whole unit suite',
     catches: 'everything else, including the per-card tests landed with the batch — §6 gate 1',
-    cmd: [npx, ['vitest', 'run']],
+    // D335 - no per-file isolation: the module graph is shared per worker, so the
+    // library and the fixtures load once per worker instead of once per file.
+    cmd: scope ? [process.execPath, [join(__dirname, 'unit-scoped.cjs'), scope]] : [npx, ['vitest', 'run', '--no-isolate']],
   },
   {
     name: 'the replay fuzz gate',
@@ -134,7 +143,7 @@ for (const gate of GATES) {
 
 console.log('\n────────────────────────────────────────────────────────────────');
 if (failed === 0) {
-  console.log(`all ${GATES.length} gates passed${full ? '' : ' (fuzz gate at the default seed count)'}`);
+  console.log(`all ${GATES.length} gates passed${full ? '' : ' (fuzz gate at the default seed count)'}${scope ? ' (unit suite SCOPED - the full suite is owed on the cadence)' : ''}`);
   if (!full) console.log('⚠️ Run with --full before landing: the 500-seed gate is the one that matters.');
   process.exit(0);
 }

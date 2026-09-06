@@ -14,7 +14,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from './log';
-import { createRegistry } from './scripts/registry';
+import { createRegistry } from './scripts/registryCore';
 import {
   BRANCHING_EVOLUTION_SCRIPT as EVOLUTION,
   HARDENED_SCALES_SCRIPT as SCALES,

@@ -4,7 +4,7 @@
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
 import { derive } from '../../derive';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { PROVOKE_THE_TROLLS_SCRIPT } from './provokeTheTrolls';
 import { ORACLE, advanceUntil, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

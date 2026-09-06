@@ -3,7 +3,7 @@
 import { describe, expect, test } from 'vitest';
 import { faceOf } from '../../oracle';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { BOROS_LOCKET_SCRIPT } from './borosLocket';
 import { BOROS_LOCKET } from '../../../data/fixtures/engineCards';
 import { ORACLE, advanceUntil, must, put, startedGame } from '../../testing/harness';

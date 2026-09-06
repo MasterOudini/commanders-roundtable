@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { LUKE_CAGE_HERO_FOR_HIRE_SCRIPT } from './lukeCageHeroForHire';
 import { advanceUntil, battlefieldOf, nameOf, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';

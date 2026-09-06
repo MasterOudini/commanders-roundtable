@@ -4,7 +4,7 @@
 import { describe, expect, test } from 'vitest';
 import { faceOf } from '../../oracle';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { AZORIUS_LOCKET_SCRIPT } from './azoriusLocket';
 import { AZORIUS_LOCKET } from '../../../data/fixtures/engineCards';
 import { ORACLE, advanceUntil, must, put, startedGame } from '../../testing/harness';

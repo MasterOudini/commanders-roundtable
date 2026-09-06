@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { CRUSTACEAN_COMMANDO_SCRIPT } from './crustaceanCommando';
 import { MUTAGEN_TOKEN } from '../../../data/fixtures/engineCards';
 import { advanceUntil, put, startedGame } from '../../testing/harness';

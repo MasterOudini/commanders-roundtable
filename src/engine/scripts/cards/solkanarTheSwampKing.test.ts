@@ -3,7 +3,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { SOLKANAR_THE_SWAMP_KING_SCRIPT } from './solkanarTheSwampKing';
 import { SMOTHER_SCRIPT } from './smother';
 import { SOOTHING_BALM_SCRIPT } from './soothingBalm';

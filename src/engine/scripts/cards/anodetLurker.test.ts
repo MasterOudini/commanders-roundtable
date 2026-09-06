@@ -2,7 +2,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
-import { createRegistry } from '../registry';
+import { createRegistry } from '../registryCore';
 import { ANODET_LURKER_SCRIPT } from './anodetLurker';
 import { advanceUntil, must, put, startedGame } from '../../testing/harness';
 
