@@ -10242,6 +10242,35 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D331): snow mana ({S} - 11; the snow source concept in the payment problem), remove a +1/+1 counter from a creature you control (5), sacrifice a Desert / tap an untapped Gate (6), return a land you control (3), tap two untapped artifacts and/or creatures (3), the counts outside the vocabulary (15); then the monarch (35 first refusals), attacks each combat if able (46; a declaration requirement), can not be countered (11 whole cards), the modal seam (276 permanents whose first unread line is a choose-one - a script-raised mode prompt), the another split; the modal seam; the "another" split;
       the by-name sacrifice cost; the remaining cost verbs; the prompt
       continuation seam; prior items stand.
+- [x] **M6.4fq — THE MONARCH: the engine crowns the monarch (CR 724): the end-step
+      draw, the combat transfer, and the rows that follow; 5 cards land,
+      5 as generated rows (2026-09-06):**
+      **6,586 of 31,692 Commander-legal cards now execute completely, up
+      from 6,581 (+5).** `SHIPPED_SCRIPTS` 4,033; ledger
+      998 (no rows retired - none of the 5 was in the ledger; measured: the REFUSED map's size). Fixtures 4,403 (4,267 by name + 129 tokens: the 5 rowed cards, no new token pins). An ENGINE change
+      (one seam, one patch) and the wave behind it (5 generated
+      rows). **Select pool 0.** Decisions in **D332**.
+      ⚠️ **Measured first:** the leftover probe over the database after D331, with the crown as a payload: 116 blocked single-face permanents whose every leftover line the grammar reads; the row maker took 5 and refused 111 - 74 for costs it still cannot price (snow mana 11, remove a +1/+1 counter from a creature you control 5, sacrifice a Desert 3, return a land you control 3, tap an untapped Gate 3, tap two untapped artifacts and/or creatures 3) and 15 for counts outside the vocabulary; the crown had been the first unread line of 35 cards, and only 5 of them had no other.
+      ⚠️ **The seam:** `GameState.monarch` + `MonarchChanged {player}`; the
+      monarch draws at the beginning of their end step (loop.ts, the draw
+      step's shape in the `end` step's turn-based actions); a creature dealing
+      combat damage to the monarch makes its controller the monarch
+      (`damageSideEffects`, beside commander damage). The row maker
+      (`d332/make-rows22.cjs` + `gen-oneshot22.cjs`, from D331) reads "You
+      become the monarch." as a payload (etb and the other heads); the def moves
+      the crown and narrates; the suite reads `state.monarch`. NOT this
+      decision: the graveyard returns (Return this card from your graveyard to the battlefield - 114 lines outside unearth: an activation from the graveyard whose cost does not exile, the D329 zone flow one flag over), the enchanted keyword grants the probe misreads (60), snow mana ({S} - 11), remove a +1/+1 counter from a creature you control (5), the counts outside the vocabulary (15); then attacks each combat if able (46; a declaration requirement), can not be countered (11 whole cards), the second-card and second-spell turn memory (37 + 26), the modal seam (276 - a script-raised mode prompt), the another split. Refused by name: no rows retired - none of the 5 was in the ledger; measured: the REFUSED map's size.
+      Nothing retired. Report `effect:auto` 3,918 → 3,918,
+      `withUnenforced` 280 → 280.
+      **Landed:** no auto flips and 5 generated rows in one pass, all green; the engine test's third case was rewritten once (it read the old monarch's hand at the top of the next turn, before that player's own draw step). The wave IS the landing: 5 rows - the cards whose every line the grammar reads once the crown is a payload (Palace Sentinels, Throne of the High City, Thorn of the Black Rose, Staunch Throneguard, Crimson Fleet Commodore). The other thirty cards D331 counted under the payload carry a second line the grammar does not read yet (a combat-damage head that crowns, a draw the monarch triggers, an equip); they wait on those heads, not on the seam. Tests: `src/engine/monarch.test.ts`;
+      one generated suite per row.
+      Fixtures 4,403 · botPool artifact 366 / creature 3,724 / enchantment 340 / instant 947 / land 486 / sorcery 723 - auto 868 / assisted 1,840 / autoAnyFace 877 · ladder [1098, 1223, 2910, 4770, 6110] · batch.json
+      5 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,150 files, 20,909 passing / 11 skipped ·
+      500-seed gate, 6 shards, 390.9 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D332): the graveyard returns (Return this card from your graveyard to the battlefield - 114 lines outside unearth: an activation from the graveyard whose cost does not exile, the D329 zone flow one flag over), the enchanted keyword grants the probe misreads (60), snow mana ({S} - 11), remove a +1/+1 counter from a creature you control (5), the counts outside the vocabulary (15); then attacks each combat if able (46; a declaration requirement), can not be countered (11 whole cards), the second-card and second-spell turn memory (37 + 26), the modal seam (276 - a script-raised mode prompt), the another split; the modal seam; the "another" split;
+      the by-name sacrifice cost; the remaining cost verbs; the prompt
+      continuation seam; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

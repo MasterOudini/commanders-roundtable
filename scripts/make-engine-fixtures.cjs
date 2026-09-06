@@ -4781,6 +4781,13 @@ const WANTED = [
   'Tunneler Wurm',
   'Fortitude',
   // D331 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  // D332 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
+  'Palace Sentinels',
+  'Throne of the High City',
+  'Thorn of the Black Rose',
+  'Staunch Throneguard',
+  'Crimson Fleet Commodore',
+  // D332 - the trigger-head rows, part 4 (nine more heads, the enters head on every permanent word, investigate).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

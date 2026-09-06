@@ -123,6 +123,7 @@ export function emptyState(seed = 'unseeded'): GameState {
     regenerationShields: {},
     pendingTriggers: [],
     winners: [],
+    monarch: null,
     rng: seedRng(seed),
     eventCount: 0,
     counters: EMPTY_COUNTERS,

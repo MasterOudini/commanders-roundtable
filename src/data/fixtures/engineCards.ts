@@ -148327,6 +148327,174 @@ export const FORTITUDE: CardData = {
   "singleImage": true
 };
 
+export const PALACE_SENTINELS: CardData = {
+  "scryfallId": "1b2f7b10-b486-48dc-a87b-c315d99f3519",
+  "oracleId": "d29d3b44-06dd-45dd-bbb2-506a6fce6a8d",
+  "name": "Palace Sentinels",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Palace Sentinels",
+      "manaCost": "{3}{W}",
+      "typeLine": "Creature — Human Soldier",
+      "oracleText": "When this creature enters, you become the monarch.",
+      "flavorText": "\"One who ruled willing subjects would need no such protection.\"\n—Adriana, Captain of the Guard",
+      "power": "2",
+      "toughness": "4",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "W"
+      ],
+      "artist": "Aaron Miller",
+      "imageId": "1b2f7b10-b486-48dc-a87b-c315d99f3519"
+    }
+  ],
+  "colorIdentity": [
+    "W"
+  ],
+  "cmc": 4,
+  "keywords": [],
+  "setCode": "plst",
+  "collectorNumber": "CN2-19",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THRONE_OF_THE_HIGH_CITY: CardData = {
+  "scryfallId": "22766d81-21ca-429a-b2e2-fdb338a33aa4",
+  "oracleId": "9684447a-5955-4bc7-8ad0-8bb8b316873b",
+  "name": "Throne of the High City",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Throne of the High City",
+      "manaCost": "",
+      "typeLine": "Land",
+      "oracleText": "{T}: Add {C}.\n{4}, {T}, Sacrifice this land: You become the monarch.",
+      "flavorText": "A shining symbol of Paliano's true ruler—ambition.",
+      "power": null,
+      "toughness": null,
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Titus Lunter",
+      "imageId": "22766d81-21ca-429a-b2e2-fdb338a33aa4"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 0,
+  "keywords": [],
+  "setCode": "cn2",
+  "collectorNumber": "80",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const THORN_OF_THE_BLACK_ROSE: CardData = {
+  "scryfallId": "2b7538ad-cc41-4229-8a39-c1db21f2899a",
+  "oracleId": "a7894a81-8c0a-4015-8bc1-2698cf5306d1",
+  "name": "Thorn of the Black Rose",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Thorn of the Black Rose",
+      "manaCost": "{3}{B}",
+      "typeLine": "Creature — Human Assassin",
+      "oracleText": "Deathtouch\nWhen this creature enters, you become the monarch.",
+      "flavorText": "If bribery and intimidation fail, Marchesa turns to her favorite form of persuasion.",
+      "power": "1",
+      "toughness": "3",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "B"
+      ],
+      "artist": "David Gaillet",
+      "imageId": "2b7538ad-cc41-4229-8a39-c1db21f2899a"
+    }
+  ],
+  "colorIdentity": [
+    "B"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Deathtouch"
+  ],
+  "setCode": "cmr",
+  "collectorNumber": "154",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const STAUNCH_THRONEGUARD: CardData = {
+  "scryfallId": "41017b24-957b-403d-b417-d84ad2624794",
+  "oracleId": "c8131fb3-3146-4434-9e4b-ac88ab3cbe37",
+  "name": "Staunch Throneguard",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Staunch Throneguard",
+      "manaCost": "{5}",
+      "typeLine": "Artifact Creature — Construct",
+      "oracleText": "Vigilance\nWhen this creature enters, you become the monarch.",
+      "flavorText": "\"Brago in his arrogance let the throne's defenses fall dormant. Our new queen is not so incautious.\"\n—Livio, Oathsworn Sentinel",
+      "power": "2",
+      "toughness": "5",
+      "loyalty": null,
+      "defense": null,
+      "colors": [],
+      "artist": "Volkan Baǵa",
+      "imageId": "41017b24-957b-403d-b417-d84ad2624794"
+    }
+  ],
+  "colorIdentity": [],
+  "cmc": 5,
+  "keywords": [
+    "Vigilance"
+  ],
+  "setCode": "cmr",
+  "collectorNumber": "344",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
+export const CRIMSON_FLEET_COMMODORE: CardData = {
+  "scryfallId": "c90fdccf-30a6-40ee-9b35-83a6ee5c0681",
+  "oracleId": "d5ac319a-c870-4890-87c0-0e02f122f234",
+  "name": "Crimson Fleet Commodore",
+  "layout": "normal",
+  "faces": [
+    {
+      "name": "Crimson Fleet Commodore",
+      "manaCost": "{3}{R}",
+      "typeLine": "Creature — Ogre Pirate",
+      "oracleText": "Trample\nWhen this creature enters, you become the monarch.",
+      "flavorText": "\"Kindly steer your fleet clear of the waters west of Scrub Isle. It would be a shame to incinerate such exquisite maritime craftsmanship.\"\n—Commodore Axurik, to Admiral Yelise",
+      "power": "5",
+      "toughness": "2",
+      "loyalty": null,
+      "defense": null,
+      "colors": [
+        "R"
+      ],
+      "artist": "Sidharth Chaturvedi",
+      "imageId": "c90fdccf-30a6-40ee-9b35-83a6ee5c0681"
+    }
+  ],
+  "colorIdentity": [
+    "R"
+  ],
+  "cmc": 4,
+  "keywords": [
+    "Trample"
+  ],
+  "setCode": "cmr",
+  "collectorNumber": "171",
+  "commanderLegality": "legal",
+  "singleImage": true
+};
+
 export const SOLDIER_TOKEN: CardData = {
   "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
   "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -157003,6 +157171,11 @@ export const ENGINE_CARDS: CardData[] = [
   BLESSING_OF_LEECHES,
   TUNNELER_WURM,
   FORTITUDE,
+  PALACE_SENTINELS,
+  THRONE_OF_THE_HIGH_CITY,
+  THORN_OF_THE_BLACK_ROSE,
+  STAUNCH_THRONEGUARD,
+  CRIMSON_FLEET_COMMODORE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

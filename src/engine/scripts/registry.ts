@@ -7,6 +7,11 @@
 import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
+import { PALACE_SENTINELS_SCRIPT } from './cards/palaceSentinels';
+import { THRONE_OF_THE_HIGH_CITY_SCRIPT } from './cards/throneOfTheHighCity';
+import { THORN_OF_THE_BLACK_ROSE_SCRIPT } from './cards/thornOfTheBlackRose';
+import { STAUNCH_THRONEGUARD_SCRIPT } from './cards/staunchThroneguard';
+import { CRIMSON_FLEET_COMMODORE_SCRIPT } from './cards/crimsonFleetCommodore';
 import { GHOST_SHIP_SCRIPT } from './cards/ghostShip';
 import { SILVOS_ROGUE_ELEMENTAL_SCRIPT } from './cards/silvosRogueElemental';
 import { WALL_OF_BONE_SCRIPT } from './cards/wallOfBone';
@@ -4149,6 +4154,11 @@ export function createRegistry(scripts: readonly CardScript[]): ScriptRegistry {
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PALACE_SENTINELS_SCRIPT,
+  THRONE_OF_THE_HIGH_CITY_SCRIPT,
+  THORN_OF_THE_BLACK_ROSE_SCRIPT,
+  STAUNCH_THRONEGUARD_SCRIPT,
+  CRIMSON_FLEET_COMMODORE_SCRIPT,
   GHOST_SHIP_SCRIPT,
   SILVOS_ROGUE_ELEMENTAL_SCRIPT,
   WALL_OF_BONE_SCRIPT,

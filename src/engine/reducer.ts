@@ -571,6 +571,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'PoisonChanged':
       return withPlayer(state, body.player, { poison: body.to });
 
+    case 'MonarchChanged':
+      return { ...state, monarch: body.player };
+
     case 'ManaAdded': {
       const p = state.players[body.player];
       if (!p) return state;

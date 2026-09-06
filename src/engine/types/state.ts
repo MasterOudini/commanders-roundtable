@@ -839,6 +839,12 @@ export interface GameState {
   readonly regenerationShields: Readonly<Record<string, number>>;
   readonly pendingTriggers: readonly PendingTrigger[];
   readonly winners: readonly PlayerId[];
+  /**
+   * D332 - the monarch (CR 724): draws a card at the beginning of their end
+   * step; a creature dealing combat damage to them makes its controller the
+   * monarch. Null until a card says "you become the monarch".
+   */
+  readonly monarch: PlayerId | null;
   readonly rng: RngState;
   readonly eventCount: number;
   readonly counters: IdCounters;

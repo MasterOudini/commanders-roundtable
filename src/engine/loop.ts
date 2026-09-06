@@ -331,6 +331,25 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
       break;
     }
 
+    // D332 - CR 724.3: at the beginning of the monarch's end step, that
+    // player draws a card - the draw step's own shape, once more.
+    case 'end': {
+      if (state.monarch === ap) {
+        const library = state.zones.library[ap] ?? [];
+        if (library.length === 0) {
+          events.push({ t: 'DrewFromEmptyLibrary', player: ap });
+          events.push(narrated(n`${who(state, ap)} cannot draw as the monarch — ${their(ap)} library is empty.`, ap));
+        } else {
+          const drawn = drawFromTop(ap, 1, library);
+          events.push(...drawn);
+          const marker = drewCardsMarker(ap, drawn);
+          if (marker) events.push(marker);
+          events.push(narrated(n`${who(state, ap)} ${vb(ap, 'draws', 'draw')} a card as the monarch.`, ap));
+        }
+      }
+      break;
+    }
+
     case 'beginCombat':
       events.push({ t: 'CombatBegan' });
       break;
@@ -472,6 +491,18 @@ export function damageSideEffects(state: GameState, damages: readonly ResolvedDa
     const from = key.slice(cut + 1);
     const before = state.players[player]?.commanderDamage[from] ?? 0;
     events.push({ t: 'CommanderDamageDealt', player, from, amount, total: before + amount });
+  }
+  // D332 - CR 724.5: a creature dealing combat damage to the monarch makes
+  // its controller the monarch (the first such creature of the batch).
+  if (state.monarch !== null) {
+    for (const damage of damages) {
+      if (damage.target.kind !== 'player' || damage.target.id !== state.monarch || damage.amount <= 0) continue;
+      const source = state.cards[damage.source];
+      if (!source || source.controller === state.monarch) continue;
+      events.push({ t: 'MonarchChanged', player: source.controller });
+      events.push(narrated(n`${who(state, source.controller)} ${vb(source.controller, 'becomes', 'become')} the monarch.`, source.controller));
+      break;
+    }
   }
   return events;
 }
