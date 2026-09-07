@@ -16,7 +16,7 @@
 
 import type { RngState } from './rng';
 import { addToZone, removeFromZone } from './zones';
-import type { EventBody, GameEvent, ResolvedDamage } from './types/events';
+import type { CardMove, EventBody, GameEvent, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
 import { EMPTY_POOL, addPool, subPool } from './types/mana';
 import {
@@ -27,6 +27,7 @@ import {
   type NarrationLine,
   type PlayerState,
   type StackObject,
+  type TurnMemory,
   type TurnState,
   type Zones,
 } from './types/state';
@@ -69,11 +70,65 @@ function recordActivation(turn: TurnState, obj: StackObject): TurnState {
   return { ...turn, activations: { ...turn.activations, [key]: (turn.activations[key] ?? 0) + 1 } };
 }
 
+/** D348 - the empty record a turn starts with. */
+export const EMPTY_TURN_MEMORY: TurnMemory = {
+  cast: {},
+  died: [],
+  entered: {},
+  leftGraveyard: {},
+  discarded: {},
+  tokensCreated: {},
+  lostLife: {},
+  gainedLife: {},
+  attackers: 0,
+};
+
+/**
+ * D348 - what a batch of moves adds to the turn record: what died, what entered,
+ * what left a graveyard, what was discarded. ZONES ONLY - this file has no oracle,
+ * so the types are the checking side's question.
+ */
+function recordMoves(memory: TurnMemory, moves: readonly CardMove[], before: Readonly<Record<InstanceId, CardInstance>>): TurnMemory {
+  let died = memory.died;
+  let entered = memory.entered;
+  let leftGraveyard = memory.leftGraveyard;
+  let discarded = memory.discarded;
+  for (const move of moves) {
+    if (move.from.kind === 'battlefield' && move.to.kind === 'graveyard') {
+      // ⚠️ The controller it had WHEN it died (CR 608.2h, last known information):
+      // read off the instance BEFORE the batch applies, not after it lands.
+      const controller = before[move.card]?.controller ?? move.from.player;
+      if (controller !== null && controller !== undefined) died = [...died, { card: move.card, controller }];
+    }
+    if (move.to.kind === 'battlefield' && move.from.kind !== 'battlefield') {
+      const who = move.to.player ?? before[move.card]?.owner ?? null;
+      if (who !== null) entered = { ...entered, [who]: [...(entered[who] ?? []), move.card] };
+    }
+    if (move.from.kind === 'graveyard' && move.to.kind !== 'graveyard') {
+      const who = move.from.player;
+      if (who !== null) leftGraveyard = { ...leftGraveyard, [who]: (leftGraveyard[who] ?? 0) + 1 };
+    }
+    if (move.from.kind === 'hand' && move.to.kind === 'graveyard') {
+      const who = move.from.player;
+      if (who !== null) discarded = { ...discarded, [who]: (discarded[who] ?? 0) + 1 };
+    }
+  }
+  return { ...memory, died, entered, leftGraveyard, discarded };
+}
+
 /** D336 - the turn memory: a SPELL cast counts on its controller's tally; an ability put on the stack does not. */
 function recordSpell(turn: TurnState, body: EventBody): TurnState {
   if (body.t !== 'SpellCast') return turn;
   const who = body.obj.controller;
-  return { ...turn, spellsCast: { ...turn.spellsCast, [who]: (turn.spellsCast[who] ?? 0) + 1 } };
+  return {
+    ...turn,
+    spellsCast: { ...turn.spellsCast, [who]: (turn.spellsCast[who] ?? 0) + 1 },
+    // D348 - the card itself, so the check can ask what kind of spell it was.
+    memory:
+      body.obj.card === null
+        ? turn.memory
+        : { ...turn.memory, cast: { ...turn.memory.cast, [who]: [...(turn.memory.cast[who] ?? []), body.obj.card] } },
+  };
 }
 
 function withCard(state: GameState, id: InstanceId, patch: Partial<CardInstance>): GameState {
@@ -272,6 +327,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
           spellsCast: {},
           cardsDrawn: {},
           attacked: false,
+          memory: EMPTY_TURN_MEMORY,
         },
         priority: {
           player: null,
@@ -414,7 +470,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           regenerationShields = Object.fromEntries(Object.entries(regenerationShields).filter(([k]) => k !== move.card));
         }
       }
-      return { ...state, zones, cards, regenerationShields };
+      // D348 - the turn record, read off the instances BEFORE this batch applied.
+      return { ...state, zones, cards, regenerationShields, turn: { ...state.turn, memory: recordMoves(state.turn.memory, body.moves, state.cards) } };
     }
 
     case 'TokenCreated': {
@@ -432,6 +489,15 @@ function applyBody(state: GameState, body: EventBody): GameState {
         ...state,
         cards,
         zones: addToZone(state.zones, { kind: 'battlefield', player: null }, body.card),
+        // D348 - the turn remembers the token, and that it entered under its controller.
+        turn: {
+          ...state.turn,
+          memory: {
+            ...state.turn.memory,
+            tokensCreated: { ...state.turn.memory.tokensCreated, [body.controller]: (state.turn.memory.tokensCreated[body.controller] ?? 0) + 1 },
+            entered: { ...state.turn.memory.entered, [body.controller]: [...(state.turn.memory.entered[body.controller] ?? []), body.card] },
+          },
+        },
         counters: {
           ...state.counters,
           instance: Math.max(state.counters.instance, Number(body.card.slice(1)) || 0),
@@ -576,8 +642,16 @@ function applyBody(state: GameState, body: EventBody): GameState {
     }
 
     // ── players ──────────────────────────────────────────────────────────
-    case 'LifeChanged':
-      return withPlayer(state, body.player, { life: body.to });
+    case 'LifeChanged': {
+      // D348 - the turn remembers that this player lost or gained life.
+      const memory =
+        body.delta < 0
+          ? { ...state.turn.memory, lostLife: { ...state.turn.memory.lostLife, [body.player]: true } }
+          : body.delta > 0
+            ? { ...state.turn.memory, gainedLife: { ...state.turn.memory.gainedLife, [body.player]: true } }
+            : state.turn.memory;
+      return withPlayer({ ...state, turn: { ...state.turn, memory } }, body.player, { life: body.to });
+    }
 
     case 'PoisonChanged':
       return withPlayer(state, body.player, { poison: body.to });
@@ -652,6 +726,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
           spellsCast: {},
           cardsDrawn: {},
           attacked: false,
+          memory: EMPTY_TURN_MEMORY,
         },
         priority: { ...state.priority, passedSinceLastAction: [], player: null },
       };
@@ -829,7 +904,11 @@ function applyBody(state: GameState, body: EventBody): GameState {
       return {
         ...state,
         // D340 - Raid: the turn remembers that the active player attacked.
-        turn: body.attackers.length > 0 ? { ...state.turn, attacked: true } : state.turn,
+        // D348 - and how many attacked, for "if you attacked with two or more creatures this turn".
+        turn:
+          body.attackers.length > 0
+            ? { ...state.turn, attacked: true, memory: { ...state.turn.memory, attackers: state.turn.memory.attackers + body.attackers.length } }
+            : state.turn,
         combat: {
           attackers: body.attackers.map((a) => ({
             card: a.card,

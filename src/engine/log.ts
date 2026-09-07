@@ -8,7 +8,7 @@
 // rest on.
 
 import { hashOf } from './hash';
-import { apply } from './reducer';
+import { EMPTY_TURN_MEMORY, apply } from './reducer';
 import { seedRng, type RngState } from './rng';
 import { EMPTY_COUNTERS } from './types/ids';
 import type { EventBody, EventCause, GameEvent } from './types/events';
@@ -110,6 +110,7 @@ export function emptyState(seed = 'unseeded'): GameState {
       spellsCast: {},
       cardsDrawn: {},
       attacked: false,
+      memory: EMPTY_TURN_MEMORY,
     },
     priority: {
       player: null,

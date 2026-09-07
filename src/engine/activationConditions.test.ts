@@ -78,21 +78,65 @@ describe('D342 - the activation conditions', () => {
   });
 
   test('a clause outside the vocabulary is an unpaid cost, never dropped', () => {
+    // ⚠️ D348 moved two of the clauses this list was written with INTO the vocabulary (a creature dying,
+    // a noncreature spell cast), and the compound one reads whole now. These four still refuse, measured
+    // against the parser: a plural subtype count, a keyword on a permanent predicate, an opponent's
+    // permanent count, and a power threshold on somebody other than the source.
     for (const tail of [
-      'if a creature died this turn',
-      "if you've cast a noncreature spell this turn",
       'if you control two or more Elves',
       'if you control a creature with flying',
-      'if you have exactly seven cards in hand and only if an opponent lost life this turn',
+      'if an opponent controls four or more lands',
+      'if you control a creature with power 4 or greater',
     ]) {
       const a = ability(`{T}: Draw a card. Activate only ${tail}.`);
       expect(a.payable, tail).toBe(false);
       expect(a.unpaidCosts.some((c) => c.startsWith('activate only ')), tail).toBe(true);
     }
     // A read clause beside an unread one still refuses the whole ability.
-    const mixed = ability('{T}: Draw a card. Activate only during your turn and only if a creature died this turn.');
+    const mixed = ability('{T}: Draw a card. Activate only during your turn and only if you control a creature with flying.');
     expect(mixed.payable).toBe(false);
     expect(mixed.activateOnly).toEqual([{ kind: 'duringYourTurn' }]);
+  });
+
+  /**
+   * D348 - THE TURN RECORD. A clause about what this turn has already done reads into one condition
+   * kind, because `TurnMemory` is one map and the question is always the same shape: whose slot, how
+   * many, and (where the record holds card ids) what those cards had to be.
+   *
+   * ⚠️ The predicates ride the CONDITION and are derived by the CHECK: `reducer.ts` has no oracle, so
+   * "a noncreature spell" cannot be decided where the record is written.
+   */
+  test('the turn-record clauses read', () => {
+    const mem = (tail: string) => ability(`{T}: Draw a card. Activate only ${tail}.`);
+    expect(mem("if a creature died this turn").activateOnly).toEqual([
+      { kind: 'turnMemory', what: 'died', who: 'any', count: 1, any: [{ supertypes: [], types: ['Creature'], subtypes: [], colors: [] }], none: null },
+    ]);
+    expect(mem("if you've cast a noncreature spell this turn").activateOnly).toEqual([
+      { kind: 'turnMemory', what: 'cast', who: 'you', count: 1, any: null, none: [{ supertypes: [], types: ['Creature'], subtypes: [], colors: [] }] },
+    ]);
+    expect(mem("if you've cast two or more spells this turn").activateOnly).toEqual([
+      { kind: 'turnMemory', what: 'cast', who: 'you', count: 2, any: null, none: null },
+    ]);
+    expect(mem("if an opponent lost life this turn").activateOnly).toEqual([
+      { kind: 'turnMemory', what: 'lostLife', who: 'opponent', count: 1, any: null, none: null },
+    ]);
+    expect(mem("if you gained life this turn").activateOnly).toEqual([
+      { kind: 'turnMemory', what: 'gainedLife', who: 'you', count: 1, any: null, none: null },
+    ]);
+    expect(mem("if you've discarded a card this turn").activateOnly).toEqual([
+      { kind: 'turnMemory', what: 'discarded', who: 'you', count: 1, any: null, none: null },
+    ]);
+    expect(mem("if you created a token this turn").activateOnly).toEqual([
+      { kind: 'turnMemory', what: 'tokensCreated', who: 'you', count: 1, any: null, none: null },
+    ]);
+    expect(mem("if an artifact entered under your control this turn").activateOnly).toEqual([
+      { kind: 'turnMemory', what: 'entered', who: 'you', count: 1, any: [{ supertypes: [], types: ['Artifact'], subtypes: [], colors: [] }], none: null },
+    ]);
+    expect(mem("if a card left your graveyard this turn").activateOnly).toEqual([
+      { kind: 'turnMemory', what: 'leftGraveyard', who: 'you', count: 1, any: null, none: null },
+    ]);
+    // Every one of them is PAYABLE: an unread condition would be an unpaid cost instead.
+    expect(mem("if a creature died this turn").payable).toBe(true);
   });
 
   test('the evaluator reads the turn', () => {

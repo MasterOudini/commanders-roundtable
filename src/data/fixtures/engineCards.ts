@@ -4733,6 +4733,20 @@ export const BALDUR_S_GATE: CardData = F.BALDUR_S_GATE as CardData;
 export const MEMNITE: CardData = F.MEMNITE as CardData;
 export const BADLANDS: CardData = F.BADLANDS as CardData;
 export const BURRENTON_FORGE_TENDER: CardData = F.BURRENTON_FORGE_TENDER as CardData;
+export const IDOL_OF_OBLIVION: CardData = F.IDOL_OF_OBLIVION as CardData;
+export const FALKENRATH_PIT_FIGHTER: CardData = F.FALKENRATH_PIT_FIGHTER as CardData;
+export const TAPESTRY_OF_THE_AGES: CardData = F.TAPESTRY_OF_THE_AGES as CardData;
+export const POTIONER_S_TROVE: CardData = F.POTIONER_S_TROVE as CardData;
+export const GILT_BLADE_PROWLER: CardData = F.GILT_BLADE_PROWLER as CardData;
+export const FIXER_TECHNO_TERROR: CardData = F.FIXER_TECHNO_TERROR as CardData;
+export const GUTTERBONES: CardData = F.GUTTERBONES as CardData;
+export const HALL_OF_ORACLES: CardData = F.HALL_OF_ORACLES as CardData;
+export const UNDERCITY_SCROUNGER: CardData = F.UNDERCITY_SCROUNGER as CardData;
+export const SEEKER_OF_INSIGHT: CardData = F.SEEKER_OF_INSIGHT as CardData;
+export const BRACKISH_TRUDGE: CardData = F.BRACKISH_TRUDGE as CardData;
+export const ZHALFIRIN_DECOY: CardData = F.ZHALFIRIN_DECOY as CardData;
+export const ESSENCE_ANCHOR: CardData = F.ESSENCE_ANCHOR as CardData;
+export const CAGED_ZOMBIE: CardData = F.CAGED_ZOMBIE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -4867,6 +4881,7 @@ export const RAT_1_1_B_CREATURE_TOKEN: CardData = F.RAT_1_1_B_CREATURE_TOKEN as 
 export const SQUIRREL_1_1_G_CREATURE_TOKEN: CardData = F.SQUIRREL_1_1_G_CREATURE_TOKEN as CardData;
 export const WARRIOR_1_1_W_CREATURE_TOKEN: CardData = F.WARRIOR_1_1_W_CREATURE_TOKEN as CardData;
 export const KOR_ALLY_1_1_W_CREATURE_TOKEN: CardData = F.KOR_ALLY_1_1_W_CREATURE_TOKEN as CardData;
+export const ZOMBIE_DRUID_2_2_B_CREATURE_TOKEN: CardData = F.ZOMBIE_DRUID_2_2_B_CREATURE_TOKEN as CardData;
 
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
@@ -9585,6 +9600,20 @@ export const ENGINE_CARDS: CardData[] = [
   MEMNITE,
   BADLANDS,
   BURRENTON_FORGE_TENDER,
+  IDOL_OF_OBLIVION,
+  FALKENRATH_PIT_FIGHTER,
+  TAPESTRY_OF_THE_AGES,
+  POTIONER_S_TROVE,
+  GILT_BLADE_PROWLER,
+  FIXER_TECHNO_TERROR,
+  GUTTERBONES,
+  HALL_OF_ORACLES,
+  UNDERCITY_SCROUNGER,
+  SEEKER_OF_INSIGHT,
+  BRACKISH_TRUDGE,
+  ZHALFIRIN_DECOY,
+  ESSENCE_ANCHOR,
+  CAGED_ZOMBIE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -9719,4 +9748,5 @@ export const ENGINE_CARDS: CardData[] = [
   SQUIRREL_1_1_G_CREATURE_TOKEN,
   WARRIOR_1_1_W_CREATURE_TOKEN,
   KOR_ALLY_1_1_W_CREATURE_TOKEN,
+  ZOMBIE_DRUID_2_2_B_CREATURE_TOKEN,
 ];

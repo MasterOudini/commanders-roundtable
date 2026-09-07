@@ -7,6 +7,20 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { IDOL_OF_OBLIVION_SCRIPT } from './cards/idolOfOblivion';
+import { FALKENRATH_PIT_FIGHTER_SCRIPT } from './cards/falkenrathPitFighter';
+import { TAPESTRY_OF_THE_AGES_SCRIPT } from './cards/tapestryOfTheAges';
+import { POTIONERS_TROVE_SCRIPT } from './cards/potionersTrove';
+import { GILT_BLADE_PROWLER_SCRIPT } from './cards/giltBladeProwler';
+import { FIXER_TECHNO_TERROR_SCRIPT } from './cards/fixerTechnoTerror';
+import { GUTTERBONES_SCRIPT } from './cards/gutterbones';
+import { HALL_OF_ORACLES_SCRIPT } from './cards/hallOfOracles';
+import { UNDERCITY_SCROUNGER_SCRIPT } from './cards/undercityScrounger';
+import { SEEKER_OF_INSIGHT_SCRIPT } from './cards/seekerOfInsight';
+import { BRACKISH_TRUDGE_SCRIPT } from './cards/brackishTrudge';
+import { ZHALFIRIN_DECOY_SCRIPT } from './cards/zhalfirinDecoy';
+import { ESSENCE_ANCHOR_SCRIPT } from './cards/essenceAnchor';
+import { CAGED_ZOMBIE_SCRIPT } from './cards/cagedZombie';
 import { DUNE_DIVINER_SCRIPT } from './cards/duneDiviner';
 import { SHACKLEGEIST_SCRIPT } from './cards/shacklegeist';
 import { IFNIR_DEADLANDS_SCRIPT } from './cards/ifnirDeadlands';
@@ -4489,6 +4503,20 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  IDOL_OF_OBLIVION_SCRIPT,
+  FALKENRATH_PIT_FIGHTER_SCRIPT,
+  TAPESTRY_OF_THE_AGES_SCRIPT,
+  POTIONERS_TROVE_SCRIPT,
+  GILT_BLADE_PROWLER_SCRIPT,
+  FIXER_TECHNO_TERROR_SCRIPT,
+  GUTTERBONES_SCRIPT,
+  HALL_OF_ORACLES_SCRIPT,
+  UNDERCITY_SCROUNGER_SCRIPT,
+  SEEKER_OF_INSIGHT_SCRIPT,
+  BRACKISH_TRUDGE_SCRIPT,
+  ZHALFIRIN_DECOY_SCRIPT,
+  ESSENCE_ANCHOR_SCRIPT,
+  CAGED_ZOMBIE_SCRIPT,
   DUNE_DIVINER_SCRIPT,
   SHACKLEGEIST_SCRIPT,
   IFNIR_DEADLANDS_SCRIPT,

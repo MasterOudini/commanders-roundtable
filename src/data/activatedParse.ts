@@ -22,7 +22,7 @@
 // classifies them as activated and they stay Tier 3 exactly as `tier3.ts`
 // already claims.
 
-import type { ActivatedAbility, ActivationCondition, ManaProduction } from '../engine/types/oracle';
+import type { ActivatedAbility, ActivationCondition, ManaProduction, TurnMemoryQuestion } from '../engine/types/oracle';
 import type { ManaCost } from '../engine/types/mana';
 import type { Warn } from './oracleParse';
 import { parseTargetClauses, splitAbilityLines } from './targetParse';
@@ -100,6 +100,48 @@ export interface ActivationRead {
   readonly unread: string | null;
 }
 
+/**
+ * D348 - the printed clauses that ask what THIS TURN did. Every one is anchored at
+ * both ends, as the rest of this vocabulary is, and a wording outside the list stays
+ * unread rather than half-read.
+ */
+const TURN_MEMORY_RE =
+  /^if (?:(an opponent|you) (?:lost|gained) life this turn|(?:you've cast (?:a noncreature|an instant or sorcery|two or more) spells? this turn)|a creature died this turn|you've discarded a card this turn|you created a token this turn|an artifact entered under your control this turn|you had a creature enter the battlefield under your control this turn|a card left your graveyard this turn|you attacked with two or more creatures this turn)$/i;
+
+const P_CREATURE = [{ supertypes: [], types: ['Creature'], subtypes: [], colors: [] }];
+const P_ARTIFACT = [{ supertypes: [], types: ['Artifact'], subtypes: [], colors: [] }];
+const P_INSTANT_SORCERY = [
+  { supertypes: [], types: ['Instant'], subtypes: [], colors: [] },
+  { supertypes: [], types: ['Sorcery'], subtypes: [], colors: [] },
+];
+
+/** The condition one of those clauses means, or null when the wording is outside the list. */
+function turnMemoryCondition(mm: RegExpExecArray): ActivationCondition | null {
+  const c = (mm[0] ?? "").toLowerCase();
+  const of = (
+    what: TurnMemoryQuestion,
+    who: "you" | "opponent" | "any",
+    count: number,
+    any: readonly PermanentPredicate[] | null = null,
+    none: readonly PermanentPredicate[] | null = null,
+  ): ActivationCondition => ({ kind: "turnMemory", what, who, count, any, none });
+  if (/an opponent lost life this turn/.test(c)) return of("lostLife", "opponent", 1);
+  if (/you lost life this turn/.test(c)) return of("lostLife", "you", 1);
+  if (/you gained life this turn/.test(c)) return of("gainedLife", "you", 1);
+  if (/an opponent gained life this turn/.test(c)) return of("gainedLife", "opponent", 1);
+  if (/cast a noncreature spell this turn/.test(c)) return of("cast", "you", 1, null, P_CREATURE);
+  if (/cast an instant or sorcery spell this turn/.test(c)) return of("cast", "you", 1, P_INSTANT_SORCERY);
+  if (/cast two or more spells this turn/.test(c)) return of("cast", "you", 2);
+  if (/a creature died this turn/.test(c)) return of("died", "any", 1, P_CREATURE);
+  if (/you've discarded a card this turn/.test(c)) return of("discarded", "you", 1);
+  if (/you created a token this turn/.test(c)) return of("tokensCreated", "you", 1);
+  if (/an artifact entered under your control this turn/.test(c)) return of("entered", "you", 1, P_ARTIFACT);
+  if (/you had a creature enter the battlefield under your control this turn/.test(c)) return of("entered", "you", 1, P_CREATURE);
+  if (/a card left your graveyard this turn/.test(c)) return of("leftGraveyard", "you", 1);
+  if (/you attacked with two or more creatures this turn/.test(c)) return of("attackers", "any", 2);
+  return null;
+}
+
 export function parseActivationConditions(text: string, selfName?: string): ActivationRead {
   const m = ACTIVATE_ONLY_RE.exec(text);
   if (!m) return { conditions: [], sorceryOnly: false, oncePerTurn: false, unread: null };
@@ -133,6 +175,13 @@ export function parseActivationConditions(text: string, selfName?: string): Acti
     else if (/^during (?:the )?declare blockers step$/i.test(c)) conditions.push({ kind: 'duringStep', step: 'declareBlockers', whose: 'any' });
     else if (/^during (?:the )?declare attackers step$/i.test(c)) conditions.push({ kind: 'duringStep', step: 'declareAttackers', whose: 'any' });
     else if (/^during combat$/i.test(c)) conditions.push({ kind: 'duringCombat' });
+    // D348 - THE TURN RECORD conditions: what this turn has already done. The predicates
+    // ride the condition and the CHECK derives them, since the record holds ids.
+    else if ((mm = TURN_MEMORY_RE.exec(c))) {
+      const read = turnMemoryCondition(mm);
+      if (read === null) unread = unread ?? c;
+      else conditions.push(read);
+    }
     else if ((mm = controlCount.exec(c))) {
       const count = acNumber(mm[1]);
       const singular = acSingular(mm[2] ?? '');

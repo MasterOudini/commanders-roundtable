@@ -629,7 +629,28 @@ export type ActivationCondition =
   | { readonly kind: 'selfPowerAtLeast'; readonly power: number }
   | { readonly kind: 'handSize'; readonly cmp: 'atMost' | 'exactly' | 'atLeast'; readonly count: number }
   | { readonly kind: 'graveyardCards'; readonly count: number; readonly types: readonly string[] }
-  | { readonly kind: 'selfIsCreature' };
+  | { readonly kind: 'selfIsCreature' }
+  /**
+   * D348 - A CONDITION ON WHAT THIS TURN DID: "if a creature died this turn", "if
+   * an opponent lost life this turn", "if an artifact entered under your control
+   * this turn". One kind for all of them, because `TurnMemory` is one map and the
+   * question is always the same shape.
+   *
+   * `who` is whose slot to read - `you`, an `opponent` (any one of them), or
+   * `any`. `count` is how many the turn must have seen. `any`/`none` are the
+   * predicates the CHECK derives over the recorded cards (the record holds ids,
+   * not types): a noncreature spell is `none: [Creature]`, an instant or sorcery
+   * is `any: [Instant, Sorcery]`, a non-Skeleton creature is both.
+   */
+  | { readonly kind: 'turnMemory';
+      readonly what: TurnMemoryQuestion;
+      readonly who: 'you' | 'opponent' | 'any';
+      readonly count: number;
+      readonly any: readonly import("../../data/replacementParse").PermanentPredicate[] | null;
+      readonly none: readonly import("../../data/replacementParse").PermanentPredicate[] | null };
+
+/** D348 - which slot of the turn record a condition asks about. */
+export type TurnMemoryQuestion = 'cast' | 'died' | 'entered' | 'leftGraveyard' | 'discarded' | 'tokensCreated' | 'lostLife' | 'gainedLife' | 'attackers';
 
 export interface ActivatedAbility {
   /** Stable per face; the `AbilityRef` suffix. */

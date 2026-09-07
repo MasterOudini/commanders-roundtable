@@ -115,6 +115,37 @@ export function activationConditionsHold(
       case 'selfIsCreature':
         if (!d(source).isCreature) return false;
         break;
+      case 'turnMemory': {
+        // ⚠️ The record holds IDS (the reducer has no oracle): the types are asked HERE,
+        // off each recorded card, which is why this case derives and the reducer does not.
+        const memory = state.turn.memory;
+        const whose = (id: PlayerId): boolean =>
+          cond.who === 'any' ? true : cond.who === 'you' ? id === player : id !== player;
+        const fits = (id: InstanceId): boolean => {
+          if (!cond.any && !cond.none) return true;
+          const chars = d(id);
+          if (cond.any && !cond.any.some((p) => matchesAny(chars, [p]))) return false;
+          if (cond.none && cond.none.some((p) => matchesAny(chars, [p]))) return false;
+          return true;
+        };
+        let seen = 0;
+        if (cond.what === 'died') {
+          seen = memory.died.filter((e) => whose(e.controller) && fits(e.card)).length;
+        } else if (cond.what === 'cast' || cond.what === 'entered') {
+          const per = memory[cond.what];
+          for (const [id, cards] of Object.entries(per)) if (whose(id)) seen += cards.filter(fits).length;
+        } else if (cond.what === 'lostLife' || cond.what === 'gainedLife') {
+          const per = memory[cond.what];
+          for (const [id, did] of Object.entries(per)) if (did && whose(id)) seen += 1;
+        } else if (cond.what === 'attackers') {
+          seen = memory.attackers;
+        } else {
+          const per = memory[cond.what];
+          for (const [id, n] of Object.entries(per)) if (whose(id)) seen += n;
+        }
+        if (seen < cond.count) return false;
+        break;
+      }
     }
   }
   return true;
@@ -125,6 +156,8 @@ export function describeActivationConditions(conditions: readonly ActivationCond
   return conditions
     .map((cond) => {
       switch (cond.kind) {
+        case 'turnMemory':
+          return 'if this turn has seen it';
         case 'duringYourTurn':
           return 'during your turn';
         case 'duringOpponentsTurn':

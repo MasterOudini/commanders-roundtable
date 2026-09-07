@@ -159297,6 +159297,456 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "IDOL_OF_OBLIVION": {
+    "scryfallId": "0fca2f74-d220-47f1-964a-a4cd6e096fbf",
+    "oracleId": "c232d974-9c65-4bce-b045-e5a7cc0c62e0",
+    "name": "Idol of Oblivion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Idol of Oblivion",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Draw a card. Activate only if you created a token this turn.\n{8}, {T}, Sacrifice this artifact: Create a 10/10 colorless Eldrazi creature token.",
+        "flavorText": "\"Arise, great one, and cleanse the world of our enemies!\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Piotr Dura",
+        "imageId": "0fca2f74-d220-47f1-964a-a4cd6e096fbf"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "BLC-277",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FALKENRATH_PIT_FIGHTER": {
+    "scryfallId": "11288b40-ac13-4976-9824-b9606512cccb",
+    "oracleId": "46d6bc30-9a21-4476-947b-87951cd9c882",
+    "name": "Falkenrath Pit Fighter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Falkenrath Pit Fighter",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Vampire Warrior",
+        "oracleText": "{1}{R}, Discard a card, Sacrifice a Vampire: Draw two cards. Activate only if an opponent lost life this turn.",
+        "flavorText": "In the arena, vampires set aside all pretense of honor or civilization and fight like the predators they know themselves to be.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Anna Fehr",
+        "imageId": "11288b40-ac13-4976-9824-b9606512cccb"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "pmid",
+    "collectorNumber": "137s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TAPESTRY_OF_THE_AGES": {
+    "scryfallId": "122e5e24-d704-4f1c-9577-0f25aaabb7ed",
+    "oracleId": "9248f9b9-ddaa-459c-91e6-9045a65b0f07",
+    "name": "Tapestry of the Ages",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tapestry of the Ages",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}: Draw a card. Activate only if you've cast a noncreature spell this turn.",
+        "flavorText": "\"Abzan, Jeskai, Sultai, Mardu, Temur—names lost to history, yet worthy of further study.\"\n—Narset",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Yeong-Hao Han",
+        "imageId": "122e5e24-d704-4f1c-9577-0f25aaabb7ed"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dtk",
+    "collectorNumber": "246",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "POTIONER_S_TROVE": {
+    "scryfallId": "2123b349-4649-4a15-a8b5-b54414d2b1b7",
+    "oracleId": "d604c75e-9d81-49de-80bc-08f4ef3ee975",
+    "name": "Potioner's Trove",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Potioner's Trove",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add one mana of any color.\n{T}: You gain 2 life. Activate only if you've cast an instant or sorcery spell this turn.",
+        "flavorText": "The shops of Ribtruss Town sell anything that can be gathered within Titan's Grave. Just don't ask where they acquired their goods.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alessandra Pisano",
+        "imageId": "2123b349-4649-4a15-a8b5-b54414d2b1b7"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "sos",
+    "collectorNumber": "251",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GILT_BLADE_PROWLER": {
+    "scryfallId": "32a8cf47-cfe4-4a11-a57d-bebeb2fae437",
+    "oracleId": "63e86054-5e9c-48fe-92a1-b71aeb6ee57f",
+    "name": "Gilt-Blade Prowler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gilt-Blade Prowler",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "{1}, {T}, Pay 1 life: Draw a card. Activate only if you've discarded a card this turn.",
+        "flavorText": "\"Let's just say my people are in the business of capital acquisition and intellectual property speculation.\"\n—Er-Miral",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Evyn Fong",
+        "imageId": "32a8cf47-cfe4-4a11-a57d-bebeb2fae437"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh2",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIXER_TECHNO_TERROR": {
+    "scryfallId": "3f888843-4bdb-438d-8fb9-968edb2713ac",
+    "oracleId": "a47b71df-9357-4118-90c0-f86fca6d362b",
+    "name": "Fixer, Techno Terror",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fixer, Techno Terror",
+        "manaCost": "{1}{B}",
+        "typeLine": "Legendary Creature — Human Artificer Villain",
+        "oracleText": "{T}, Pay 2 life: Draw a card. Activate only if an artifact entered under your control this turn.",
+        "flavorText": "\"You've got a problem? I'm The Fixer. I fix things. It's what I do.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Filipe Pagliuso",
+        "imageId": "3f888843-4bdb-438d-8fb9-968edb2713ac"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "656",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GUTTERBONES": {
+    "scryfallId": "5411cb1a-c4dd-479c-8283-393a97711b51",
+    "oracleId": "76ae3779-c821-4cd3-8d0f-8c42d1206ce4",
+    "name": "Gutterbones",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gutterbones",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Skeleton Warrior",
+        "oracleText": "This creature enters tapped.\n{1}{B}: Return this card from your graveyard to your hand. Activate only during your turn and only if an opponent lost life this turn.",
+        "flavorText": "\"Down here, things don't stay dead.\"\n—Lavinia",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Grzegorz Rutkowski",
+        "imageId": "5411cb1a-c4dd-479c-8283-393a97711b51"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "prna",
+    "collectorNumber": "76s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HALL_OF_ORACLES": {
+    "scryfallId": "5bdbb987-4c22-4bf6-9705-c725f05ef5fd",
+    "oracleId": "0bb896ba-e15e-43a9-9120-e674d7ba003c",
+    "name": "Hall of Oracles",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hall of Oracles",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{1}, {T}: Add one mana of any color.\n{T}: Put a +1/+1 counter on target creature. Activate only as a sorcery and only if you've cast an instant or sorcery spell this turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Piotr Dura",
+        "imageId": "5bdbb987-4c22-4bf6-9705-c725f05ef5fd"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "pstx",
+    "collectorNumber": "267s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNDERCITY_SCROUNGER": {
+    "scryfallId": "6319b84b-8a3d-4bc8-af48-8b500f124be1",
+    "oracleId": "2750451f-348e-452f-88d0-bc921c46e8cc",
+    "name": "Undercity Scrounger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Undercity Scrounger",
+        "manaCost": "{2}{B}",
+        "typeLine": "Artifact Creature — Human Rogue",
+        "oracleText": "{T}: Create a Treasure token. Activate only if a creature died this turn. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "flavorText": "\"That will pay for another arm extension all by itself! Well, as long as it doesn't explode.\"",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mike Jordana",
+        "imageId": "6319b84b-8a3d-4bc8-af48-8b500f124be1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEEKER_OF_INSIGHT": {
+    "scryfallId": "7f0b7bfc-f126-4885-a663-6f8dcc52e663",
+    "oracleId": "a0b2d446-fe90-40f8-8674-7421c425b489",
+    "name": "Seeker of Insight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seeker of Insight",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{T}: Draw a card, then discard a card. Activate only if you've cast a noncreature spell this turn.",
+        "flavorText": "The Trial of Knowledge challenges and broadens the minds of initiates.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "7f0b7bfc-f126-4885-a663-6f8dcc52e663"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "akh",
+    "collectorNumber": "69",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRACKISH_TRUDGE": {
+    "scryfallId": "90ba37ee-159f-421f-8d37-a7b5f1b562f0",
+    "oracleId": "c775d3ef-2184-4425-8c8e-2bbc49687f76",
+    "name": "Brackish Trudge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brackish Trudge",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Fungus Beast",
+        "oracleText": "This creature enters tapped.\n{1}{B}: Return this card from your graveyard to your hand. Activate only if you gained life this turn.",
+        "flavorText": "Most trudges are covered with decaying plant matter, making them ideal breeding grounds for fungal spores.",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "90ba37ee-159f-421f-8d37-a7b5f1b562f0"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "stx",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZHALFIRIN_DECOY": {
+    "scryfallId": "b93b824c-414d-4dd5-848f-bff678a289ba",
+    "oracleId": "b22e55ef-fb74-4991-a43b-9d3ce06c23e5",
+    "name": "Zhalfirin Decoy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zhalfirin Decoy",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "{T}: Tap target creature. Activate only if you had a creature enter the battlefield under your control this turn.",
+        "flavorText": "\"Never let them take their eyes off you.\"\n—Sidar Jabari",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Paul Scott Canavan",
+        "imageId": "b93b824c-414d-4dd5-848f-bff678a289ba"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mh1",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ESSENCE_ANCHOR": {
+    "scryfallId": "e91c4509-918e-44ba-aa13-1991199fee9f",
+    "oracleId": "e28a3f0e-40bd-4293-b5eb-ec9d185c1e1c",
+    "name": "Essence Anchor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Essence Anchor",
+        "manaCost": "{2}{U}",
+        "typeLine": "Artifact",
+        "oracleText": "At the beginning of your upkeep, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)\n{T}: Create a 2/2 black Zombie Druid creature token. Activate only during your turn and only if a card left your graveyard this turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "David Astruga",
+        "imageId": "e91c4509-918e-44ba-aa13-1991199fee9f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Surveil"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAGED_ZOMBIE": {
+    "scryfallId": "f8067745-35b6-4abd-9ae9-712159a26c89",
+    "oracleId": "430b3e61-09a5-4390-b377-89830cacf66e",
+    "name": "Caged Zombie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Caged Zombie",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "{1}{B}, {T}: Each opponent loses 2 life. Activate only if a creature died this turn.",
+        "flavorText": "\"Six consecutive life sentences\" takes on a new meaning when necromancy is involved.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Josh Hass",
+        "imageId": "f8067745-35b6-4abd-9ae9-712159a26c89"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m21",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -163737,6 +164187,39 @@
     "keywords": [],
     "setCode": "tznc",
     "collectorNumber": "2",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ZOMBIE_DRUID_2_2_B_CREATURE_TOKEN": {
+    "scryfallId": "f10d5813-7818-43e8-b08d-4ed8c54d0366",
+    "oracleId": "d2c8634a-e0b5-4c9e-b720-be8b18fc49dc",
+    "name": "Zombie Druid",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Zombie Druid",
+        "manaCost": "",
+        "typeLine": "Token Creature — Zombie Druid",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Andrea Piparo",
+        "imageId": "f10d5813-7818-43e8-b08d-4ed8c54d0366"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ttdm",
+    "collectorNumber": "10",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

@@ -782,6 +782,36 @@ export interface PriorityState {
   readonly holdingPriority: PlayerId | null;
 }
 
+/**
+ * D348 - what one turn remembers, for an activation that asks about it ("if a
+ * creature died this turn", "if you gained life this turn"). Cleared by
+ * `TurnBegan`, like every other turn tally.
+ *
+ * ⚠️ IT STORES IDS, NOT TYPES. `reducer.ts` is pure in (state, event) and has no
+ * oracle, so it cannot ask whether the card that died was a creature; the CHECK
+ * derives them, where the oracle is. A card that has moved on since still derives
+ * from its printing, which is what "a creature died this turn" means.
+ */
+export interface TurnMemory {
+  /** The SPELL cards each player cast this turn. */
+  readonly cast: Readonly<Record<PlayerId, readonly InstanceId[]>>;
+  /** What went from the battlefield to a graveyard this turn, and who controlled it then. */
+  readonly died: readonly { readonly card: InstanceId; readonly controller: PlayerId }[];
+  /** What ENTERED the battlefield this turn, by the controller it entered under. */
+  readonly entered: Readonly<Record<PlayerId, readonly InstanceId[]>>;
+  /** How many cards left each player's graveyard this turn. */
+  readonly leftGraveyard: Readonly<Record<PlayerId, number>>;
+  /** How many cards each player discarded this turn (hand to graveyard). */
+  readonly discarded: Readonly<Record<PlayerId, number>>;
+  /** How many tokens each player created this turn. */
+  readonly tokensCreated: Readonly<Record<PlayerId, number>>;
+  /** Whether each player lost / gained life this turn. */
+  readonly lostLife: Readonly<Record<PlayerId, boolean>>;
+  readonly gainedLife: Readonly<Record<PlayerId, boolean>>;
+  /** How many creatures the active player declared as attackers this turn. */
+  readonly attackers: number;
+}
+
 export interface TurnState {
   readonly turnNumber: number;
   readonly activePlayer: PlayerId;
@@ -798,6 +828,8 @@ export interface TurnState {
   readonly cardsDrawn: Readonly<Record<PlayerId, number>>;
   /** D340 - Raid: whether the active player declared one or more attackers this turn; cleared by `TurnBegan`. */
   readonly attacked: boolean;
+  /** D348 - the turn record: what this turn has already done. */
+  readonly memory: TurnMemory;
 }
 
 /** One rendered narration line. Mirrors `src/view/types.ts` `LogEntry`. */

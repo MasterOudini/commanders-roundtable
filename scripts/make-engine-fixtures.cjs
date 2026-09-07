@@ -5264,6 +5264,22 @@ const WANTED = [
   'Memnite',
   'Badlands',
   'Burrenton Forge-Tender',
+  // D348 - THE TURN RECORD: the cards whose activation asks what this turn has already done.
+  'Idol of Oblivion',
+  'Falkenrath Pit Fighter',
+  'Tapestry of the Ages',
+  "Potioner's Trove",
+  'Gilt-Blade Prowler',
+  'Fixer, Techno Terror',
+  'Gutterbones',
+  'Hall of Oracles',
+  'Undercity Scrounger',
+  'Seeker of Insight',
+  'Brackish Trudge',
+  'Zhalfirin Decoy',
+  'Essence Anchor',
+  'Caged Zombie',
+  // D348 - THE TURN RECORD: the cards whose activation asks what this turn has already done.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -5512,6 +5528,8 @@ const WANTED_TOKENS = [
   { name: 'Warrior', set: 'l14', cn: '4', key: 'WARRIOR_1_1_W_CREATURE_TOKEN' },
   // D345 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Kor Ally', set: 'tznc', cn: '2', key: 'KOR_ALLY_1_1_W_CREATURE_TOKEN' },
+  // D348 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Zombie Druid', set: 'ttdm', cn: '10', key: 'ZOMBIE_DRUID_2_2_B_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

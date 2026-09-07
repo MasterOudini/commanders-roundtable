@@ -23618,3 +23618,100 @@ Fixtures 4,849 · botPool artifact 387 / creature 4,108 / enchantment 368 / inst
 **Reportables** (D347): the cost verbs the derivation still cannot pay (93: snow mana {S} 14 - a payment the engine does not track; a return-to-hand cost 14; an exile cost 14; a remove-a-counter-from-another-permanent cost 12; a counted sacrifice 10, which the engine itself refuses; Blight, Exert, Mill, Reveal, Pay half your life), the predicates the engine's own grammar cannot place (a nontoken or nonland permanent, an untapped creature, a creature with defender - a lowercase word `predicatesOf` refuses, so widening THAT is an engine decision), the trigger payloads outside both readers (52), the activation conditions (49, the turn-memory ones first), the effects outside the row kinds (48, of which 21 are Add one mana of any color whose blocker is the cost beside it), the vocabulary clauses the suite cannot fixture (36), the static lines (36: Unleash 10, Exploit 8, the Threshold bodies), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (13); then D346's list unchanged: the wider modal heads, the asking modes, the mode payloads outside both readers, the heads outside the library, the modal spells beside another sentence, the quoted abilities enchanted creatures and lands have, Enchant player, the look at the top card of your library; the "another" split; the by-name sacrifice
 cost; the remaining cost verbs; the prompt continuation seam; prior items
 stand.
+
+## D348 — M6.4gg: THE TURN RECORD — an activation that asks what this turn has already done is read, remembered and checked; 14 cards land, 14 as generated rows (2026-09-07)
+
+**7,124 of 31,692 Commander-legal cards execute completely, up from
+7,110 (+14).** SHIPPED_SCRIPTS 4,463 → **4,477**;
+REFUSED ledger 952 → **952** (no row moved and none was owed: not one of the fourteen was ever ledgered, because an activation condition the parser could not read was refused at the ROW MAKER and never reached a drafter; measured: the REFUSED map's size, unchanged at 952). Fixtures
+4,849 → 4,864 (4,722 by name + 135 tokens: the 14 rows' cards and one new token pin, the 2/2 black Zombie Druid Essence Anchor makes (ttdm 10)). **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** the D347 probe re-run over a tree 14 cards further on (the grammar is unchanged, the candidate set is not): 414 fully covered cards, down from 428 as the derived-cost rows became complete. The row maker's histogram named this decision's class second: 400 cards refused, 103 for a COST it cannot charge and 49 for an ACTIVATION CONDITION the parser would not read - and the largest family inside those 49 was a question about the turn itself (an opponent lost life this turn, a creature died this turn, you've cast a noncreature spell this turn, a card left your graveyard this turn), which nothing in `GameState` could answer because the turn remembered only its spell and draw tallies (D336). The refusals fall 49 -> 34 with the record built; the fifteen that remain are the clauses outside it (a keyword on a permanent predicate, an opponent's permanent count, a power threshold on somebody other than the source).
+
+**The record** (`TurnState.memory`, `src/engine/types/state.ts`): what one turn
+remembers, cleared by `TurnBegan` like every other turn tally — the SPELL cards
+each player cast, what went from the battlefield to a graveyard and who
+controlled it then, what entered under whom, how many cards left each graveyard,
+how many were discarded, how many tokens were made, whether each player lost or
+gained life, how many creatures attacked. `reducer.ts` writes it at the sites
+those events already pass: a `CardsMoved` batch, `TokenCreated`, `LifeChanged`,
+`SpellCast`, `AttackersDeclared`. Nothing new is emitted and nothing is
+inferred.
+
+⚠️ **IT STORES IDS, NOT TYPES, and that is the design rather than a shortcut.**
+`reducer.ts` is pure in (state, event) and has no oracle, so it cannot ask
+whether the card that died was a creature or whether the spell cast was a
+noncreature one. The CONDITION carries the predicates and
+`activationConditions.ts` derives them, where the oracle is. So there is exactly
+one `turnMemory` kind for all twelve clauses — `{what, who, count, any, none}` —
+because the record is one map and the question is always the same shape: whose
+slot, how many, and what those cards had to be.
+
+⚠️ **A death's controller is read BEFORE the batch applies** (CR 608.2h, last
+known information). After the move the instance no longer says who controlled
+it, so `recordMoves` reads the instances the batch is about to overwrite —
+the same property `withTransformCounters` has relied on since D108.
+
+⚠️ **The printed vocabulary is CLOSED and anchored at both ends** (D90).
+`TURN_MEMORY_RE` reads twelve clauses; a wording outside the list stays UNREAD,
+which under D342's rule makes the whole ability unpayable rather than quietly
+dropping the restriction. That is what makes widening the parser safe: the
+failure direction is refusal.
+
+⚠️ **THE PROOF RUNS BEFORE THE BASELINES, and that is the one structural
+difference from every earlier condition.** D342 proves a board condition by
+BREAKING it at the fire moment and restoring the board afterwards. A turn record
+cannot be restored — a dead creature, a cast spell, a life total are facts about
+the turn — so each suite attempts the activation on the EMPTY record first, is
+refused for the condition alone, and only then fills the record and fires. The
+recipes touch the board, the hand, the graveyard or a life total before any
+assertion baseline is taken, so nothing has to account for them.
+
+⚠️ **Three traps the port paid for, each fixed in the GENERATOR.** (1) A cost
+that TAPS needs its permanent straightened before the REFUSED attempt as well as
+before the fire: a row that enters late arrives past its own untap step, and
+`alreadyTapped` answers ahead of the condition — hiding the very refusal the
+proof asks for. The guard is the cost, never the printed text: a line that taps
+a card on the way in is one the ENGINE runs, so it is not among the leftover
+lines a row can read. (2) A row whose recipe reads the GRAVEYARD must not WAIT
+there. The staging zone that keeps a card off the battlefield while the turns
+pass is arbitrary; the graveyard made Essence Anchor's own arrival answer its own
+condition. It waits in exile now. (3) A turn-record row drops out of D342's
+turn-2 timing attempt: the memory proof is SHARPER, made in the turn-3 main
+phase where the timing condition already holds, so the refusal is for the record
+alone — and a late-entering row is not on the battlefield on the opponent's
+second turn at all.
+
+⚠️ **`attacked with two or more creatures this turn` is read by the parser and
+deliberately absent from the generator's table**: its fire would have to move to
+the postcombat main phase, which the scaffold does not do, so Minas Tirith stays
+refused rather than half-proven.
+
+⚠️ **D342's vocabulary pin was repinned, measured.** Two of the five clauses it
+named as outside the vocabulary are inside it now, and its compound case reads
+whole. A throwaway probe over the parser named four that still refuse — two
+Elves, a creature with flying, an opponent's four lands, a creature with power 4
+or greater — and those keep the teeth; the turn-record clauses get a pin of
+their own, with the exact conditions the probe printed.
+
+**Tests:** one generated suite per row (14 GENERATED ROWS whose activation reads the record (you cast a noncreature spell 4, an opponent lost life 2, a creature died 2, and one each of a creature entering, an artifact entering, a token created, a card discarded, a card leaving your graveyard, life gained): Idol of Oblivion, Falkenrath Pit Fighter, Tapestry of the Ages, Potioner's Trove, Gilt-Blade Prowler, Fixer, Techno Terror, Gutterbones, Hall of Oracles, Undercity Scrounger, Seeker of Insight, Brackish Trudge, Zhalfirin Decoy, Essence Anchor, Caged Zombie).
+
+- **Refused by name:** no row moved and none was owed: not one of the fourteen was ever ledgered, because an activation condition the parser could not read was refused at the ROW MAKER and never reached a drafter; measured: the REFUSED map's size, unchanged at 952.
+- **Not this decision:** the turn-record clauses the vocabulary still refuses (34 activation conditions in all: a keyword on a permanent predicate - a creature with flying 2; an opponent's permanent count 2; a power threshold on somebody other than the source 2; a plural subtype count; a planeswalker by subtype), the cost verbs the derivation cannot pay (93: snow mana {S} 14, a return-to-hand cost 14, an exile cost 14, a remove-a-counter-from-another-permanent cost 12, a counted sacrifice 10 which the engine itself refuses), the trigger payloads outside both readers (52), the effects outside the row kinds (48, of which 21 are Add one mana of any color whose blocker is the cost beside it), the vocabulary clauses the suite cannot fixture (36), the static lines (36: Unleash 10, Exploit 8, the Threshold bodies), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14); then D347's list unchanged: the modal permanent lines, the wider modal heads, the asking modes, the mode payloads outside both readers, the heads outside the library, the modal spells beside another sentence, the quoted abilities enchanted creatures and lands have, Enchant player, the look at the top card of your library.
+
+No ledger row retired: the class this decision drains was refused by the ROW MAKER, one step before the ledger, so its cards were never named in it.
+
+Report: `effect:auto` 4,209 → 4,209, `effect:none` 14,849 →
+14,849, `withUnenforced` 280 → 280.
+
+**Landed:** No second wave: the 14 rows are the landing, and the POOL took 9 creatures, 4 artifacts and a land more on the same sweep - the deck list itself did not move, and the commander's reach rose to 7,065 cards from 7,051, chosen from 193 fully-executable legendary creatures (192 before).
+
+Fixtures 4,864 · botPool artifact 391 / creature 4,117 / enchantment 368 / instant 1,007 / land 498 / sorcery 743 - auto 948 / assisted 1,832 / autoAnyFace 957 · ladder [1052, 1136, 2749, 4574, 5908] · batch.json
+14 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,611 files, 22,947 passing / 11 skipped ·
+500-seed gate, 6 shards, 702.5 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D348): the turn-record clauses the vocabulary still refuses (34 activation conditions in all: a keyword on a permanent predicate - a creature with flying 2; an opponent's permanent count 2; a power threshold on somebody other than the source 2; a plural subtype count; a planeswalker by subtype), the cost verbs the derivation cannot pay (93: snow mana {S} 14, a return-to-hand cost 14, an exile cost 14, a remove-a-counter-from-another-permanent cost 12, a counted sacrifice 10 which the engine itself refuses), the trigger payloads outside both readers (52), the effects outside the row kinds (48, of which 21 are Add one mana of any color whose blocker is the cost beside it), the vocabulary clauses the suite cannot fixture (36), the static lines (36: Unleash 10, Exploit 8, the Threshold bodies), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14); then D347's list unchanged: the modal permanent lines, the wider modal heads, the asking modes, the mode payloads outside both readers, the heads outside the library, the modal spells beside another sentence, the quoted abilities enchanted creatures and lands have, Enchant player, the look at the top card of your library; the "another" split; the by-name sacrifice
+cost; the remaining cost verbs; the prompt continuation seam; prior items
+stand.
