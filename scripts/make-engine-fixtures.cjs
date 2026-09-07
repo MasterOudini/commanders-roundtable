@@ -5219,6 +5219,29 @@ const WANTED = [
   'Giant-Sized Flying Ant',
   'Aven Surveyor',
   // D345 - the modal permanent rows: a trigger or an activation whose payload is a choose-one over printed bullets.
+  // D346 - the scoped anthem rows: a continuous line over a narrower set, and the fixtures its suites read it on.
+  'Goblin Oriflamme',
+  'Orcish Oriflamme',
+  'Blade Historian',
+  'Ohran Frostfang',
+  'Crystalline Sliver',
+  'Nobilis of War',
+  'Tempered Steel',
+  "Builder's Blessing",
+  'Castle',
+  "Berserkers' Onslaught",
+  'War Horn',
+  'Day of Destiny',
+  'Windbrisk Raptor',
+  'Wayspeaker Bodyguard',
+  'Thrumming Hivepool',
+  'Wingblade Disciple',
+  'Rising of the Day',
+  'Devoted Duelist',
+  'Warded Battlements',
+  // D346 - the scoped anthem rows: a continuous line over a narrower set, and the fixtures its suites read it on.
+  'Ornithopter',
+  'Metallic Sliver',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

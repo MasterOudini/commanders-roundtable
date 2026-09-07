@@ -157948,6 +157948,707 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "GOBLIN_ORIFLAMME": {
+    "scryfallId": "0259e4d8-849b-468e-a902-aa1d7f2d5b6a",
+    "oracleId": "836bd011-2da5-443a-a814-19a664b98a1a",
+    "name": "Goblin Oriflamme",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Oriflamme",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Attacking creatures you control get +1/+0.",
+        "flavorText": "\"It was difficult to tell whether the piles of gore within their warrens were mere trash heaps, sacred altars, or warnings.\"\n—*Sarpadian Empires, vol. IV*",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "0259e4d8-849b-468e-a902-aa1d7f2d5b6a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "539",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORCISH_ORIFLAMME": {
+    "scryfallId": "05259e47-b5a6-43af-a523-d906eca1be32",
+    "oracleId": "0b16a650-68b0-44dc-a9e1-15b7966e0b18",
+    "name": "Orcish Oriflamme",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orcish Oriflamme",
+        "manaCost": "{3}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Attacking creatures you control get +1/+0.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dan Frazier",
+        "imageId": "05259e47-b5a6-43af-a523-d906eca1be32"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "cei",
+    "collectorNumber": "167",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLADE_HISTORIAN": {
+    "scryfallId": "0577994e-b43b-4f16-aa9f-fac0ebc4d617",
+    "oracleId": "314f0a96-5e91-42a3-9d75-3f641f22a9ee",
+    "name": "Blade Historian",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blade Historian",
+        "manaCost": "{R/W}{R/W}{R/W}{R/W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Attacking creatures you control have double strike.",
+        "flavorText": "\"So you see, the reckless battle strategy of the Kathorran orcs was effective, but ultimately proved to be a double-edged sword. As did their double-edged swords.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Cristi Balanescu",
+        "imageId": "0577994e-b43b-4f16-aa9f-fac0ebc4d617"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pstx",
+    "collectorNumber": "165p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OHRAN_FROSTFANG": {
+    "scryfallId": "05b5e975-bd75-4f7c-829d-e87f8b24bc2f",
+    "oracleId": "b99ada26-9a61-4175-9fb8-15a106960220",
+    "name": "Ohran Frostfang",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ohran Frostfang",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Snow Creature — Snake",
+        "oracleText": "Attacking creatures you control have deathtouch.\nWhenever a creature you control deals combat damage to a player, draw a card.",
+        "flavorText": "\"Nonsense! Everyone knows that snakes are sluggish and docile when cold!\"\n—Bodrick the Overconfident, last words",
+        "power": "2",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ron Spears",
+        "imageId": "05b5e975-bd75-4f7c-829d-e87f8b24bc2f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "cmm",
+    "collectorNumber": "650",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRYSTALLINE_SLIVER": {
+    "scryfallId": "06551990-713c-4b8b-bebb-4e849babb5bb",
+    "oracleId": "ba3aa1eb-722a-47d3-83be-96daddb50265",
+    "name": "Crystalline Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crystalline Sliver",
+        "manaCost": "{W}{U}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have shroud. (They can't be the targets of spells or abilities.)",
+        "flavorText": "Bred as living shields, these slivers have proven unruly—they know they cannot be caught.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Allen Williams",
+        "imageId": "06551990-713c-4b8b-bebb-4e849babb5bb"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "sth",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NOBILIS_OF_WAR": {
+    "scryfallId": "0f002636-1971-468d-b171-7b8147829972",
+    "oracleId": "4789ac35-ca91-4046-8262-24c34e751cea",
+    "name": "Nobilis of War",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nobilis of War",
+        "manaCost": "{R/W}{R/W}{R/W}{R/W}{R/W}",
+        "typeLine": "Creature — Spirit Avatar",
+        "oracleText": "Flying\nAttacking creatures you control get +2/+0.",
+        "flavorText": "\"A great siege is a banquet to him; a long and terrible battle, the most exquisite delicacy.\"\n—*The Seer's Parables*",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "0f002636-1971-468d-b171-7b8147829972"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mm2",
+    "collectorNumber": "195",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEMPERED_STEEL": {
+    "scryfallId": "143cf473-681c-41b3-8719-55b878382368",
+    "oracleId": "e220138c-5fc6-487d-9fa9-f21b2fb1f12c",
+    "name": "Tempered Steel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tempered Steel",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "Artifact creatures you control get +2/+2.",
+        "flavorText": "\"Death shall prevail as long as our will falls to rust. May necessity anneal our resolve.\"\n—Ghalma the Shaper",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "143cf473-681c-41b3-8719-55b878382368"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "brc",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BUILDER_S_BLESSING": {
+    "scryfallId": "2ad27af1-b482-40d5-9dbb-11201ffa0410",
+    "oracleId": "33a64de1-dc78-43d3-b89e-b4b13049e174",
+    "name": "Builder's Blessing",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Builder's Blessing",
+        "manaCost": "{3}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "Untapped creatures you control get +0/+2.",
+        "flavorText": "\"Mix the mortar with holy wards, or blood will run in the streets.\"\n—Vadvar, Thraben stonewright",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "John Stanko",
+        "imageId": "2ad27af1-b482-40d5-9dbb-11201ffa0410"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "avr",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CASTLE": {
+    "scryfallId": "2ea3db44-85c5-4201-a5c9-ec14a9d244d6",
+    "oracleId": "f3179c3c-7e53-44d2-b579-b9e677efe9d9",
+    "name": "Castle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Castle",
+        "manaCost": "{3}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "Untapped creatures you control get +0/+2.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Dameon Willich",
+        "imageId": "2ea3db44-85c5-4201-a5c9-ec14a9d244d6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "2ed",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BERSERKERS_ONSLAUGHT": {
+    "scryfallId": "3da86edf-a0a4-42b2-b8f3-0c83b03d5e1d",
+    "oracleId": "85d2948c-1a79-418d-80c4-bc1012a4d313",
+    "name": "Berserkers' Onslaught",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Berserkers' Onslaught",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Attacking creatures you control have double strike.",
+        "flavorText": "\"Atarka's people starve while she feasts upon the bounty of their hunts. They must conquer ever more lands just for the sake of their own subsistence.\"\n—Arel, Unseen Whisperer",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "3da86edf-a0a4-42b2-b8f3-0c83b03d5e1d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "DTK-130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAR_HORN": {
+    "scryfallId": "45c17671-7c4a-4114-b2b7-d34af4e2f8c1",
+    "oracleId": "99bc739e-c745-47d8-8401-2f34b6becd85",
+    "name": "War Horn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "War Horn",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Attacking creatures you control get +1/+0.",
+        "flavorText": "The reverberations course through the warriors' veins, beat with their hearts, and pound with their footfalls as they charge into battle.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Lars Grant-West",
+        "imageId": "45c17671-7c4a-4114-b2b7-d34af4e2f8c1"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ori",
+    "collectorNumber": "243",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAY_OF_DESTINY": {
+    "scryfallId": "56b27e0c-bf8e-43d6-b99d-3e25d4954d34",
+    "oracleId": "64247fcb-0e1b-48c9-bdac-769d7edd8d1d",
+    "name": "Day of Destiny",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Day of Destiny",
+        "manaCost": "{3}{W}",
+        "typeLine": "Legendary Enchantment",
+        "oracleText": "Legendary creatures you control get +2/+2.",
+        "flavorText": "\"If you wish to die as a hero, you must first live as one.\"\n—General Takeno",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "56b27e0c-bf8e-43d6-b99d-3e25d4954d34"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dmc",
+    "collectorNumber": "99",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WINDBRISK_RAPTOR": {
+    "scryfallId": "5df7b710-d44c-4ebc-be5b-f81d697086c4",
+    "oracleId": "1fd729f6-27ea-4b07-81f0-885f2c0c00eb",
+    "name": "Windbrisk Raptor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Windbrisk Raptor",
+        "manaCost": "{5}{W}{W}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nAttacking creatures you control have lifelink.",
+        "flavorText": "It awakened to gloom-fouled skies and responded with a righteous rage that shook the heavens.",
+        "power": "5",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Omar Rayyan",
+        "imageId": "5df7b710-d44c-4ebc-be5b-f81d697086c4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "shm",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAYSPEAKER_BODYGUARD": {
+    "scryfallId": "5e5b2324-69fe-4105-b6f8-14dfbe359d59",
+    "oracleId": "b93eaf66-91b3-44da-851c-79810901be0c",
+    "name": "Wayspeaker Bodyguard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wayspeaker Bodyguard",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Orc Monk",
+        "oracleText": "When this creature enters, return target nonland permanent card with mana value 2 or less from your graveyard to your hand.\nFlurry — Whenever you cast your second spell each turn, tap target creature an opponent controls.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Inkognit",
+        "imageId": "5e5b2324-69fe-4105-b6f8-14dfbe359d59"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flurry"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRUMMING_HIVEPOOL": {
+    "scryfallId": "61e20008-654d-445d-b739-b52f4d1ea360",
+    "oracleId": "04ea21b3-084b-4746-9b49-99b6ef4f0885",
+    "name": "Thrumming Hivepool",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thrumming Hivepool",
+        "manaCost": "{6}",
+        "typeLine": "Artifact",
+        "oracleText": "Affinity for Slivers (This spell costs {1} less to cast for each Sliver you control.)\nSlivers you control have double strike and haste.\nAt the beginning of your upkeep, create two 1/1 colorless Sliver creature tokens.",
+        "flavorText": "\"I'll never escape this rock, but I fear they will.\"\n—Decrypted log 4.11",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rob Rey",
+        "imageId": "61e20008-654d-445d-b739-b52f4d1ea360"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [
+      "Affinity"
+    ],
+    "setCode": "peoe",
+    "collectorNumber": "247s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WINGBLADE_DISCIPLE": {
+    "scryfallId": "71de7dca-0231-4407-86a0-c7fc95f5aaa0",
+    "oracleId": "c566317e-cd82-46c1-b506-f41256d815f6",
+    "name": "Wingblade Disciple",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wingblade Disciple",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Monk",
+        "oracleText": "Flying\nFlurry — Whenever you cast your second spell each turn, create a 1/1 white Bird creature token with flying.",
+        "flavorText": "\"Our greatest teachers are those which the natural world has so thoroughly refined.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Julian Kok Joon Wen",
+        "imageId": "71de7dca-0231-4407-86a0-c7fc95f5aaa0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Flurry"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RISING_OF_THE_DAY": {
+    "scryfallId": "7a06a653-eca1-4fee-add5-45d2594885c3",
+    "oracleId": "434a20f8-3f87-4004-9155-0f196fc2257e",
+    "name": "Rising of the Day",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rising of the Day",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Creatures you control have haste.\nLegendary creatures you control get +1/+0.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Tyler Jacobson",
+        "imageId": "7a06a653-eca1-4fee-add5-45d2594885c3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "427",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEVOTED_DUELIST": {
+    "scryfallId": "bbf9c673-37b4-48ed-a9ea-13f8e3e6c47b",
+    "oracleId": "f7620c46-b3d8-4694-ac7c-a43933c86c22",
+    "name": "Devoted Duelist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Devoted Duelist",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Monk",
+        "oracleText": "Haste\nFlurry — Whenever you cast your second spell each turn, this creature deals 1 damage to each opponent.",
+        "flavorText": "\"Arrows? Ha! Wood and feather? Toys!\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Nathaniel Himawan",
+        "imageId": "bbf9c673-37b4-48ed-a9ea-13f8e3e6c47b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flurry",
+      "Haste"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WARDED_BATTLEMENTS": {
+    "scryfallId": "f234999b-54e9-40f5-a537-7d6ce169c710",
+    "oracleId": "7616dacf-44e2-4b03-b120-875cc2e50ea5",
+    "name": "Warded Battlements",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Warded Battlements",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Wall",
+        "oracleText": "Defender (This creature can't attack.)\nAttacking creatures you control get +1/+0.",
+        "flavorText": "In dire times, even a place of refuge can become a weapon of war.",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Titus Lunter",
+        "imageId": "f234999b-54e9-40f5-a537-7d6ce169c710"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "m21",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORNITHOPTER": {
+    "scryfallId": "00427d72-b140-45eb-b2ec-2ac2dab16966",
+    "oracleId": "a3a98bc9-caa0-49b7-951c-fe4e4f54e4ba",
+    "name": "Ornithopter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ornithopter",
+        "manaCost": "{0}",
+        "typeLine": "Artifact Creature — Thopter",
+        "oracleText": "Flying",
+        "flavorText": "\"It has been my honor to improve on Thran's original design. Perhaps history will remember me in some small part for my work.\"\n—Urza, in his apprenticeship",
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Amy Weber",
+        "imageId": "00427d72-b140-45eb-b2ec-2ac2dab16966"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "5ed",
+    "collectorNumber": "393",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "METALLIC_SLIVER": {
+    "scryfallId": "0f302984-9bf6-4583-865a-5545711e7a27",
+    "oracleId": "2dfafd63-83fb-4783-8e12-30018680a905",
+    "name": "Metallic Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Metallic Sliver",
+        "manaCost": "{1}",
+        "typeLine": "Artifact Creature — Sliver",
+        "oracleText": "",
+        "flavorText": "When the clever counterfeit was accepted by the hive, Volrath's influence upon the slivers grew even stronger.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Allen Williams",
+        "imageId": "0f302984-9bf6-4583-865a-5545711e7a27"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "tpr",
+    "collectorNumber": "226",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

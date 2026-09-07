@@ -4692,6 +4692,27 @@ export const GLAMERMITE: CardData = F.GLAMERMITE as CardData;
 export const EXHIBITION_MAGICIAN: CardData = F.EXHIBITION_MAGICIAN as CardData;
 export const GIANT_SIZED_FLYING_ANT: CardData = F.GIANT_SIZED_FLYING_ANT as CardData;
 export const AVEN_SURVEYOR: CardData = F.AVEN_SURVEYOR as CardData;
+export const GOBLIN_ORIFLAMME: CardData = F.GOBLIN_ORIFLAMME as CardData;
+export const ORCISH_ORIFLAMME: CardData = F.ORCISH_ORIFLAMME as CardData;
+export const BLADE_HISTORIAN: CardData = F.BLADE_HISTORIAN as CardData;
+export const OHRAN_FROSTFANG: CardData = F.OHRAN_FROSTFANG as CardData;
+export const CRYSTALLINE_SLIVER: CardData = F.CRYSTALLINE_SLIVER as CardData;
+export const NOBILIS_OF_WAR: CardData = F.NOBILIS_OF_WAR as CardData;
+export const TEMPERED_STEEL: CardData = F.TEMPERED_STEEL as CardData;
+export const BUILDER_S_BLESSING: CardData = F.BUILDER_S_BLESSING as CardData;
+export const CASTLE: CardData = F.CASTLE as CardData;
+export const BERSERKERS_ONSLAUGHT: CardData = F.BERSERKERS_ONSLAUGHT as CardData;
+export const WAR_HORN: CardData = F.WAR_HORN as CardData;
+export const DAY_OF_DESTINY: CardData = F.DAY_OF_DESTINY as CardData;
+export const WINDBRISK_RAPTOR: CardData = F.WINDBRISK_RAPTOR as CardData;
+export const WAYSPEAKER_BODYGUARD: CardData = F.WAYSPEAKER_BODYGUARD as CardData;
+export const THRUMMING_HIVEPOOL: CardData = F.THRUMMING_HIVEPOOL as CardData;
+export const WINGBLADE_DISCIPLE: CardData = F.WINGBLADE_DISCIPLE as CardData;
+export const RISING_OF_THE_DAY: CardData = F.RISING_OF_THE_DAY as CardData;
+export const DEVOTED_DUELIST: CardData = F.DEVOTED_DUELIST as CardData;
+export const WARDED_BATTLEMENTS: CardData = F.WARDED_BATTLEMENTS as CardData;
+export const ORNITHOPTER: CardData = F.ORNITHOPTER as CardData;
+export const METALLIC_SLIVER: CardData = F.METALLIC_SLIVER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -9503,6 +9524,27 @@ export const ENGINE_CARDS: CardData[] = [
   EXHIBITION_MAGICIAN,
   GIANT_SIZED_FLYING_ANT,
   AVEN_SURVEYOR,
+  GOBLIN_ORIFLAMME,
+  ORCISH_ORIFLAMME,
+  BLADE_HISTORIAN,
+  OHRAN_FROSTFANG,
+  CRYSTALLINE_SLIVER,
+  NOBILIS_OF_WAR,
+  TEMPERED_STEEL,
+  BUILDER_S_BLESSING,
+  CASTLE,
+  BERSERKERS_ONSLAUGHT,
+  WAR_HORN,
+  DAY_OF_DESTINY,
+  WINDBRISK_RAPTOR,
+  WAYSPEAKER_BODYGUARD,
+  THRUMMING_HIVEPOOL,
+  WINGBLADE_DISCIPLE,
+  RISING_OF_THE_DAY,
+  DEVOTED_DUELIST,
+  WARDED_BATTLEMENTS,
+  ORNITHOPTER,
+  METALLIC_SLIVER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

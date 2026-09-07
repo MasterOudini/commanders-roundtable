@@ -7,6 +7,25 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { GOBLIN_ORIFLAMME_SCRIPT } from './cards/goblinOriflamme';
+import { ORCISH_ORIFLAMME_SCRIPT } from './cards/orcishOriflamme';
+import { BLADE_HISTORIAN_SCRIPT } from './cards/bladeHistorian';
+import { OHRAN_FROSTFANG_SCRIPT } from './cards/ohranFrostfang';
+import { CRYSTALLINE_SLIVER_SCRIPT } from './cards/crystallineSliver';
+import { NOBILIS_OF_WAR_SCRIPT } from './cards/nobilisOfWar';
+import { TEMPERED_STEEL_SCRIPT } from './cards/temperedSteel';
+import { BUILDERS_BLESSING_SCRIPT } from './cards/buildersBlessing';
+import { CASTLE_SCRIPT } from './cards/castle';
+import { BERSERKERS_ONSLAUGHT_SCRIPT } from './cards/berserkersOnslaught';
+import { WAR_HORN_SCRIPT } from './cards/warHorn';
+import { DAY_OF_DESTINY_SCRIPT } from './cards/dayOfDestiny';
+import { WINDBRISK_RAPTOR_SCRIPT } from './cards/windbriskRaptor';
+import { WAYSPEAKER_BODYGUARD_SCRIPT } from './cards/wayspeakerBodyguard';
+import { THRUMMING_HIVEPOOL_SCRIPT } from './cards/thrummingHivepool';
+import { WINGBLADE_DISCIPLE_SCRIPT } from './cards/wingbladeDisciple';
+import { RISING_OF_THE_DAY_SCRIPT } from './cards/risingOfTheDay';
+import { DEVOTED_DUELIST_SCRIPT } from './cards/devotedDuelist';
+import { WARDED_BATTLEMENTS_SCRIPT } from './cards/wardedBattlements';
 import { ELDER_GARGAROTH_SCRIPT } from './cards/elderGargaroth';
 import { DEFIANT_OGRE_SCRIPT } from './cards/defiantOgre';
 import { GRAVITON_FUNDAMENTAL_FORCE_SCRIPT } from './cards/gravitonFundamentalForce';
@@ -4456,6 +4475,25 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GOBLIN_ORIFLAMME_SCRIPT,
+  ORCISH_ORIFLAMME_SCRIPT,
+  BLADE_HISTORIAN_SCRIPT,
+  OHRAN_FROSTFANG_SCRIPT,
+  CRYSTALLINE_SLIVER_SCRIPT,
+  NOBILIS_OF_WAR_SCRIPT,
+  TEMPERED_STEEL_SCRIPT,
+  BUILDERS_BLESSING_SCRIPT,
+  CASTLE_SCRIPT,
+  BERSERKERS_ONSLAUGHT_SCRIPT,
+  WAR_HORN_SCRIPT,
+  DAY_OF_DESTINY_SCRIPT,
+  WINDBRISK_RAPTOR_SCRIPT,
+  WAYSPEAKER_BODYGUARD_SCRIPT,
+  THRUMMING_HIVEPOOL_SCRIPT,
+  WINGBLADE_DISCIPLE_SCRIPT,
+  RISING_OF_THE_DAY_SCRIPT,
+  DEVOTED_DUELIST_SCRIPT,
+  WARDED_BATTLEMENTS_SCRIPT,
   ELDER_GARGAROTH_SCRIPT,
   DEFIANT_OGRE_SCRIPT,
   GRAVITON_FUNDAMENTAL_FORCE_SCRIPT,

@@ -10785,6 +10785,48 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D345): the wider modal heads (one or both, one or more, any number, choose two - the def needs modalEffects' index shift, which the engine already has for spells), the asking modes (a scry or a surveil inside an ability's resolution: the continuation seam), the 102 mode payloads outside both readers, the 21 + 18 heads outside the library (whenever you proliferate, whenever a Swamp you control enters, when this creature enters or dies), and then D344's own list unchanged: the vocabulary clauses the suite cannot fixture (a counted clause, a combat-role clause, a tapped or nonbasic-land predicate, a spell clause for the counter payloads), the cost verbs (121 - snow mana, remove a counter, a Desert or a Gate, return a land), the activation conditions (49 - the turn-memory ones first), the static lines (58 - Unleash 10, the Threshold bodies 25), Add one mana of any color with a cost the engine does not charge (21), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (12); then the modal spells beside another sentence (59) and the 265 with a mode outside the vocabulary, the exploits, the searches, the choices on entry, the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split; the "another" split; the by-name
       sacrifice cost; the remaining cost verbs; the prompt continuation seam;
       prior items stand.
+- [x] **M6.4ge — THE SCOPED ANTHEMS AND GRANTS: a continuous line over a NARROWER
+      set is the same static with one more conjunct, and a true ability word
+      before a trigger head is read past; 19 cards land, 19 as
+      generated rows (2026-09-07):**
+      **7,096 of 31,692 Commander-legal cards now execute completely, up
+      from 7,077 (+19).** `SHIPPED_SCRIPTS` 4,449; ledger
+      958 (no rows retired and none added - not one of the 19 was in the REFUSED ledger: a scoped continuous line had been outside the ROW MAKER's grammar, never a drafter's verdict; measured: the REFUSED map's size, unchanged at 958). Fixtures 4,829 (4,688 by name + 134 tokens: the 19 rows' cards and the two fixtures their scopes are read on (Ornithopter, an artifact creature; Metallic Sliver)). **Select pool
+      0.** Decisions in **D346**.
+      ⚠️ **No engine change:** the `StaticDef` layers and `appliesTo` already
+      carried it; the decision is the generator learning to read a sentence the
+      engine could already run — the cheapest measured class on the board (the
+      probe read those lines, the row maker did not).
+      ⚠️ **The scoped line** (`d346/gen35-scope.cjs`, `make-rows35.cjs`): the row
+      maker splits the scope phrase from the body and parses the BODY by the
+      canonical anthem regex ("Creatures you control " + body), so the body
+      vocabulary stays in ONE place and a scope cannot widen it; a generic
+      plural is guarded (Lands you control is not an anthem over creatures).
+      The conjuncts: attacking reads the LIVE combat, untapped reads the card,
+      the type/supertype/subtype scopes read the derived type line; an
+      "All <Subtype>" scope drops the controller check.
+      ⚠️ **The suite reads it on its OWN fixture** (Grizzly Bears, Ornithopter,
+      Ant-Man Scott Lang, Metallic Sliver — the last two new), attacks with it
+      where the scope says attacking and asserts at the declare-blockers
+      prompt, and keeps the opponent's Cyclops as the control. **Two anthems on
+      one card both land on that fixture**, so every anthem assert adds the
+      row's other anthems (Rising of the Day).
+      ⚠️ **A true ability word before a head** (`Flurry — Whenever you cast your
+      second spell…`) was never tried, because the prefix was a hand-written
+      list; the library is asked on the line and then past the word, as the cost
+      parser already does. The def's text stays the whole printed line.
+      Measured first: the D345 probe re-run over a tree 24 cards further on (d346/make-probe-d346.cjs; the grammar is unchanged, the candidate set is not): 447 fully covered cards, down from 471 as D345's modal permanents became complete. The row maker refused 428 of them, and its own histogram is the map of what is left: 121 a COST verb it cannot charge (snow mana {S} 12, remove a counter 6, a Desert or a Gate to sacrifice or tap 7, return a land 6, and a tail of some fifty singletons), 58 a line that is neither an activated ability nor a library trigger, 52 a trigger payload outside both readers, 49 an activation condition, 47 an effect outside the row kinds (21 of them Add one mana of any color, whose blocker is the COST beside it), 36 a vocabulary clause the suite cannot fixture, 16 a count outside the vocabulary, 13 a token outside TOKEN_TABLE. Inside the 58: Unleash 10 and Exploit 8 (both an asked choice on entry), 14 Threshold bodies the static grammar does not read, and the 17 SCOPED continuous lines this decision takes - which the PROBE already read (static:scopedAnthem 11, static:scopedGrant 7) while the row maker did not, so they were complete-but-unrowed, the cheapest measured class on the board. NOT this decision: the remaining Threshold bodies (14: an enchanted-creature body, an anthem body, a can't-be-blocked body, a CDA, and the intervening-if triggers - "whenever this creature attacks, IF there are seven or more cards in your graveyard" - which need a condition on the trigger's matches, not just the ability word stripped), Unleash (10) and Exploit (8) - both an asked choice as the creature enters, which is the entry-prompt seam - the cost verbs (121, snow mana first at 12), the activation conditions (49, the turn-memory ones first), the trigger payloads outside both readers (52), the vocabulary clauses the suite cannot fixture (36: a counted clause, a combat-role clause, a tapped or nonbasic-land predicate, a spell clause), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (13), "Enchanted creatures you control" (1, a scope that asks what is attached); then D345's list unchanged: the wider modal heads (one or both, one or more, any number), the asking modes, the 102 mode payloads outside both readers, the heads outside the library, the modal spells beside another sentence (59), the exploits, the searches, the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38). Refused by name:
+      no rows retired and none added - not one of the 19 was in the REFUSED ledger: a scoped continuous line had been outside the ROW MAKER's grammar, never a drafter's verdict; measured: the REFUSED map's size, unchanged at 958.
+      Nothing retired: no shipped def sat on any of the 19, and no ledger row named one. Report `effect:auto` 4,209 → 4,209,
+      `withUnenforced` 280 → 280.
+      **Landed:** No second wave: the 19 rows are the landing, and the bot's own deck took 9 creatures, 8 enchantments and 2 artifacts more on the same sweep (the commander reaches 7,037 cards from 7,018). Tests: one generated suite per row.
+      Fixtures 4,829 · botPool artifact 387 / creature 4,100 / enchantment 367 / instant 1,007 / land 492 / sorcery 743 - auto 948 / assisted 1,832 / autoAnyFace 957 · ladder [1058, 1142, 2755, 4583, 5919] · batch.json
+      19 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,582 files, 22,813 passing / 11 skipped ·
+      500-seed gate, 6 shards, 577.5 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D346): the remaining Threshold bodies (14: an enchanted-creature body, an anthem body, a can't-be-blocked body, a CDA, and the intervening-if triggers - "whenever this creature attacks, IF there are seven or more cards in your graveyard" - which need a condition on the trigger's matches, not just the ability word stripped), Unleash (10) and Exploit (8) - both an asked choice as the creature enters, which is the entry-prompt seam - the cost verbs (121, snow mana first at 12), the activation conditions (49, the turn-memory ones first), the trigger payloads outside both readers (52), the vocabulary clauses the suite cannot fixture (36: a counted clause, a combat-role clause, a tapped or nonbasic-land predicate, a spell clause), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (13), "Enchanted creatures you control" (1, a scope that asks what is attached); then D345's list unchanged: the wider modal heads (one or both, one or more, any number), the asking modes, the 102 mode payloads outside both readers, the heads outside the library, the modal spells beside another sentence (59), the exploits, the searches, the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38); the "another" split; the by-name
+      sacrifice cost; the remaining cost verbs; the prompt continuation seam;
+      prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
