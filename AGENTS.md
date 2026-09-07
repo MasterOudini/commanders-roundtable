@@ -10739,7 +10739,7 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       and the accounting stops charging a permanent for a cast-time choice it
       never makes; 24 cards land, 24 as generated rows (2026-09-07):**
       **7,077 of 31,692 Commander-legal cards now execute completely, up
-      from 6,920 (+24).** `SHIPPED_SCRIPTS` 4,430; ledger
+      from 7,053 (+24).** `SHIPPED_SCRIPTS` 4,430; ledger
       958 (no rows retired and none added - not one of the 24 was in the REFUSED ledger: a modal permanent had been unreachable at the ACCOUNTING (its face carried a cast-time target spec no script could claim), never a drafter's verdict; measured: the REFUSED map's size, unchanged at 958). Fixtures 4,808 (4,667 by name + 134 tokens: the 24 rows' cards, and one new token pin (the Kor Ally Retreat to Emeria makes)). **Select pool
       0.** Decisions in **D345**.
       ⚠️ **The accounting's half** (`d345/apply-modal-permanent.cjs`,
