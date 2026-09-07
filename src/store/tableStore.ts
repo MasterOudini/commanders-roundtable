@@ -147,7 +147,7 @@ export type TableMode =
       readonly card: string;
       readonly abilityIndex: number;
       readonly name: string;
-      readonly verb: 'discard' | 'tap' | 'exileFromGraveyard';
+      readonly verb: 'discard' | 'tap' | 'exileFromGraveyard' | 'returnToHand';
       readonly count: number;
       readonly chosen: readonly string[];
     };

@@ -5360,6 +5360,22 @@ const WANTED = [
   "Kamahl's Desire",
   'Frightcrawler',
   // D351 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  // D352 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  'Floodbringer',
+  'Quirion Ranger',
+  'Soratami Rainshaper',
+  'Meloku the Clouded Mirror',
+  'Soratami Mirror-Mage',
+  'Wirewood Symbiote',
+  'Scryb Ranger',
+  'Flooded Shoreline',
+  'Broken Fall',
+  'Soratami Cloudskater',
+  'Oboro Breezecaller',
+  'Soramaro, First to Dream',
+  'Molting Skin',
+  'Pearl Lake Ancient',
+  // D352 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -5610,6 +5626,8 @@ const WANTED_TOKENS = [
   { name: 'Kor Ally', set: 'tznc', cn: '2', key: 'KOR_ALLY_1_1_W_CREATURE_TOKEN' },
   // D348 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Zombie Druid', set: 'ttdm', cn: '10', key: 'ZOMBIE_DRUID_2_2_B_CREATURE_TOKEN' },
+  // D352 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Illusion', set: 'tcmr', cn: '17', key: 'ILLUSION_1_1_U_CREATURE_FLYING_TOKEN' },
 ];
 
 function constName(name) {

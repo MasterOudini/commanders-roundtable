@@ -378,6 +378,8 @@ export function parseActivatedAbilities(
         activatesFromGraveyard: false,
         removeCounterCost: null,
         tapCost: null,
+        returnCost: null,
+        returnsSelf: false,
         unpaidCosts: equipCost === null ? [equip[1] ?? ''] : [],
         payable: equipCost !== null,
         isManaAbility: false,
@@ -415,6 +417,8 @@ export function parseActivatedAbilities(
         activatesFromGraveyard: false,
         removeCounterCost: null,
         tapCost: null,
+        returnCost: null,
+        returnsSelf: false,
         unpaidCosts: cyclingCost === null ? [cycling[1] ?? ''] : [],
         payable: cyclingCost !== null,
         isManaAbility: false,
@@ -452,6 +456,8 @@ export function parseActivatedAbilities(
         activatesFromGraveyard: false,
         removeCounterCost: null,
         tapCost: crewAny === null ? null : { count: 0, another: true, any: crewAny, powerAtLeast: power },
+        returnCost: null,
+        returnsSelf: false,
         unpaidCosts: crewAny === null ? [`Crew ${power}`] : [],
         payable: crewAny !== null,
         isManaAbility: false,
@@ -480,6 +486,8 @@ export function parseActivatedAbilities(
     let exileFromGraveyardCost: ActivatedAbility['exileFromGraveyardCost'] = null;
     let exileSelfFromGraveyard = false;
     let removeCounterCost: ActivatedAbility['removeCounterCost'] = null;
+    let returnCost: ActivatedAbility['returnCost'] = null;
+    let returnsSelf = false;
     let isLoyalty = false;
 
     for (const part of parts) {
@@ -624,6 +632,29 @@ export function parseActivatedAbilities(
           continue;
         }
       }
+      // D352 - THE SELF RETURN: "Return this enchantment to its owner's hand" - the
+      // permanent that owns the ability goes to hand, deterministic, no chooser: the
+      // self-sacrifice's price one zone over. Its effect then resolves off a source in
+      // HAND, exactly as the self-sacrifice's resolves off one in the graveyard.
+      if (new RegExp("^return (?:this [a-z]+" + sacSelfAlt + ") to its owner's hand$", 'i').test(part.trim())) {
+        returnsSelf = true;
+        continue;
+      }
+      // D352 - THE RETURN CHOOSER: "Return a land you control to its owner's hand" /
+      // "Return three lands you control to their owner's hand" - the activation names
+      // the permanents (`ActivateAbility.returnToHand`), the tap chooser's shape. Anchored
+      // both ends; a plural noun is read back to the singular before `predicatesOf`, and a
+      // phrase it cannot place stays in `unpaidCosts` rather than being widened.
+      const retm = /^return (a|an|another|one|two|three|four|five) (.+) you control to (?:its|their) owner's hand$/i.exec(part.trim());
+      if (retm && returnCost === null) {
+        const word = (retm[1] ?? '').toLowerCase();
+        const count = COUNT_WORDS[word] ?? 0;
+        const any = count > 0 ? predicatesOf(singularNoun((retm[2] ?? '').trim(), count > 1)) : null;
+        if (any !== null) {
+          returnCost = { count, another: word === 'another', any };
+          continue;
+        }
+      }
       // ⚠️ The REMOVE-A-COUNTER cost (D319): "Remove a +1/+1 counter from this
       // creature" / "Remove two charge counters from this artifact" - SELF only
       // and a fixed count, so it is deterministic (no chooser): a PRICE the
@@ -678,6 +709,8 @@ export function parseActivatedAbilities(
       sacrificeCost,
       discardCost,
       tapCost,
+      returnCost,
+      returnsSelf,
       removeCounterCost,
       exileFromGraveyardCost,
       exileSelfFromGraveyard,

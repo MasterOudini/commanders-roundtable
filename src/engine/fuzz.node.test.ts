@@ -543,6 +543,8 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       // D311 - a crew offer names the power to reach: tap every candidate
       // (any number is legal), the count-shaped costs pick exactly N.
       const taps = chosen.tapPower !== undefined ? [...(chosen.tapCandidates ?? [])] : pickN(chosen.tapCandidates, chosen.tapCount);
+      // D352 - the return chooser: exactly N permanents you control, the same way.
+      const returns = pickN(chosen.returnCandidates, chosen.returnCount);
       return {
         t: 'ActivateAbility',
         player: holder,
@@ -551,6 +553,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
         ...(sac !== undefined ? { sacrifice: sac } : {}),
         ...(discards !== undefined ? { discard: discards } : {}),
         ...(taps !== undefined ? { tap: taps } : {}),
+        ...(returns !== undefined ? { returnToHand: returns } : {}),
       };
     }
   }

@@ -38,6 +38,8 @@ export interface AbilityOption {
   readonly needsTap: number;
   /** D329 - an "Exile N ... from your graveyard" cost: N, or 0 when the ability has none. */
   readonly needsExileFromGraveyard: number;
+  /** D352 - how many permanents a "Return N ... to its owner's hand" cost takes. */
+  readonly needsReturn: number;
 }
 
 /**
@@ -66,6 +68,7 @@ export function abilityOptionsFor(legal: readonly LegalAction[], card: string): 
       needsDiscard: a.discardCandidates && a.discardCount ? a.discardCount : 0,
       needsTap: a.tapCandidates && a.tapCount ? a.tapCount : 0,
       needsExileFromGraveyard: a.exileFromGraveyardCandidates && a.exileFromGraveyardCount ? a.exileFromGraveyardCount : 0,
+      needsReturn: a.returnCandidates && a.returnCount ? a.returnCount : 0,
     });
   }
   return out.sort((x, y) => x.abilityIndex - y.abilityIndex);

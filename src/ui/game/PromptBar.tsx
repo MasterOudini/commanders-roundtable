@@ -316,7 +316,7 @@ export function PromptBar() {
                 : mode.kind === 'sacrifice'
                   ? `Choose what ${mode.name} sacrifices`
                   : mode.kind === 'costPick'
-                    ? `${mode.verb === 'discard' ? 'Discard' : mode.verb === 'tap' ? 'Tap' : 'Exile from your graveyard'} ${mode.count - mode.chosen.length} more for ${mode.name}`
+                    ? `${mode.verb === 'discard' ? 'Discard' : mode.verb === 'tap' ? 'Tap' : mode.verb === 'returnToHand' ? 'Return to hand' : 'Exile from your graveyard'} ${mode.count - mode.chosen.length} more for ${mode.name}`
                     : describe(awaiting, priority, seats, viewer)}
         </p>
         {/* ⚠️ THE HONESTY LINE, and it is not decoration. `tier3.ts` established

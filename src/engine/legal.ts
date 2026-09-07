@@ -97,6 +97,9 @@ export type LegalAction =
       /** D329 - an "Exile N ... from your graveyard" cost: the graveyard cards that may pay it, and N. */
       readonly exileFromGraveyardCandidates?: readonly InstanceId[];
       readonly exileFromGraveyardCount?: number;
+      /** D352 - a "Return N ... to its owner's hand" cost: the permanents that may pay it, and N. */
+      readonly returnCandidates?: readonly InstanceId[];
+      readonly returnCount?: number;
     }
   | {
       /** D309 - turn a face-down permanent face up for its morph cost (a special action). */
@@ -282,6 +285,9 @@ export function legalActions(
     for (const ability of face.activated) {
       if (!(ability.exileSelfFromGraveyard || ability.activatesFromGraveyard) || !ability.payable || ability.isManaAbility || ability.isLoyalty) continue;
       if (ability.requiresTap || ability.requiresUntap || ability.sacrificeCost || ability.discardCost || ability.tapCost) continue;
+      // D352 - a return cost names permanents on the BATTLEFIELD; nothing activated from a
+      // graveyard is charged one here.
+      if (ability.returnCost || ability.returnsSelf) continue;
       if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
       if (ability.sorceryOnly && !sorcerySpeed) continue;
       if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
@@ -403,6 +409,22 @@ export function legalActions(
           if (reach < ability.tapCost.powerAtLeast) continue;
         }
       }
+      // D352 - THE RETURN chooser and the SELF return: the same def gate (moving your
+      // own permanent off the battlefield for nothing is not disclosed status quo) and the
+      // same "a cost you cannot pay is not offered" rule.
+      let returnCandidates: readonly InstanceId[] | null = null;
+      if (ability.returnsSelf && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+      if (ability.returnCost) {
+        if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        returnCandidates = returnCandidatesFor(
+          state,
+          (cid) => derive(state, oracle, scripts, cid, context.cache),
+          player,
+          id,
+          ability.returnCost,
+        );
+        if (returnCandidates.length < ability.returnCost.count) continue;
+      }
       // ⚠️ The REMOVE-A-COUNTER cost (D319): the same def gate, and "a cost you
       // cannot pay is not offered" - fewer counters than the count, no offer.
       if (ability.removeCounterCost) {
@@ -445,6 +467,9 @@ export function legalActions(
           : {}),
         ...(tapCandidates && ability.tapCost
           ? { tapCandidates, tapCount: ability.tapCost.count, ...(ability.tapCost.powerAtLeast !== undefined ? { tapPower: ability.tapCost.powerAtLeast } : {}) }
+          : {}),
+        ...(returnCandidates && ability.returnCost
+          ? { returnCandidates, returnCount: ability.returnCost.count }
           : {}),
       });
     }
@@ -610,6 +635,30 @@ export function tapCandidatesFor(
   for (const id of state.zones.battlefield) {
     const inst = state.cards[id];
     if (!inst || inst.controller !== player || inst.tapped) continue;
+    if (cost.another && id === selfId) continue;
+    if (predicateHit(cost.any, deriveOf(id))) out.push(id);
+  }
+  return out;
+}
+
+/**
+ * D352 - the permanents that may pay a "Return N <predicate> you control to its
+ * owner's hand" cost: controlled and matching; `another` drops the source.
+ * ⚠️ No tapped/untapped test and no summoning-sickness test — the wording asks
+ * for neither, and Quirion Ranger untapping the Forest it just returned is the
+ * whole point of the card.
+ */
+export function returnCandidatesFor(
+  state: GameState,
+  deriveOf: (id: InstanceId) => PredicateChars,
+  player: PlayerId,
+  selfId: InstanceId,
+  cost: NonNullable<ActivatedAbility['returnCost']>,
+): readonly InstanceId[] {
+  const out: InstanceId[] = [];
+  for (const id of state.zones.battlefield) {
+    const inst = state.cards[id];
+    if (!inst || inst.controller !== player) continue;
     if (cost.another && id === selfId) continue;
     if (predicateHit(cost.any, deriveOf(id))) out.push(id);
   }

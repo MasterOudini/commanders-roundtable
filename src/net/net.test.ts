@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import { ClientSession } from './client';
 import { viewHash } from '../engine/diffView';
 import { project } from '../engine/project';
@@ -17,6 +17,19 @@ import { zoneId } from '../view/types';
 // The §8.2-D list, run against a host and four clients in ONE process, all of
 // them over real `loopbackPair` transports — which is the production path the
 // host's own player takes, not a stand-in for it.
+//
+// ⚠️ THIS FILE'S TESTS GET 60 s, and the number is measured rather than chosen.
+// Each one builds a four-seat host over the SHIPPED registry and walks
+// `legalActions` between 120 and 4,000 times, so its cost grows with
+// `SHIPPED_SCRIPTS` — which is why the heaviest three were already handed 60 s
+// and 120 s by hand. Measured idle at 4,564 scripts: SEVEN tests run 14.4–15.3 s
+// against vitest's 20 s default, and under the whole suite's contention (4,699
+// files, `--no-isolate`) the one with no budget of its own timed out in gate 210
+// while passing 37/37 alone. One default beats a seventh hand-written number.
+// ⚠️ Deliberately NOT global: a real hang anywhere else still fails at 20 s, and
+// this raise follows the fuzz ceiling's rule (D167/D170/D181) — only after a
+// completed-and-equal run proved growth over hang.
+vi.setConfig({ testTimeout: 60_000 });
 
 async function fourPlayerGame() {
   const table = makeTable();

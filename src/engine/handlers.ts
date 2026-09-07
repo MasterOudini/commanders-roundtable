@@ -25,6 +25,7 @@ import {
   exileFromGraveyardCandidatesFor,
   sacrificeCandidatesFor,
   tapCandidatesFor,
+  returnCandidatesFor,
 } from './legal';
 import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom } from './mana';
 import { hybridCombinations, spendFromPool } from './mana';
@@ -886,6 +887,32 @@ function activateAbility(
       return reject('illegalTap', `Those permanents cannot pay ${face.name}'s "${ability.costText}" cost.`);
     }
   }
+  // D352 - THE RETURN chooser and the SELF return: the same gate and the same
+  // re-validation, over permanents the player controls.
+  if (ability.returnsSelf && !activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+    return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
+  }
+  if (ability.returnCost) {
+    if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+      return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
+    }
+    const picks = intent.returnToHand ?? [];
+    const want = ability.returnCost.count;
+    if (picks.length !== want) {
+      return reject('needsReturn', `${face.name}'s cost returns ${want} permanent${want === 1 ? '' : 's'} you control to your hand — say which.`);
+    }
+    if (new Set(picks).size !== picks.length) return reject('noSuchCard', 'You named the same permanent twice.');
+    const legalReturns = returnCandidatesFor(
+      state,
+      (cid: InstanceId) => derive(state, deps.oracle, deps.scripts, cid),
+      intent.player,
+      intent.card,
+      ability.returnCost,
+    );
+    if (!picks.every((c) => legalReturns.includes(c))) {
+      return reject('illegalReturn', `Those permanents cannot pay ${face.name}'s "${ability.costText}" cost.`);
+    }
+  }
   // ⚠️ The REMOVE-A-COUNTER cost (D319): the def gate, then the counters must be there.
   if (ability.removeCounterCost) {
     if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
@@ -956,6 +983,7 @@ function activateAbility(
     ...(ability.discardCost && intent.discard ? { discard: [...intent.discard] } : {}),
     ...(ability.tapCost && intent.tap ? { tap: [...intent.tap] } : {}),
     ...(ability.exileFromGraveyardCost && intent.exileFromGraveyard ? { exileFromGraveyard: [...intent.exileFromGraveyard] } : {}),
+    ...(ability.returnCost && intent.returnToHand ? { returnToHand: [...intent.returnToHand] } : {}),
     // An ability is a chit, not a card on the stack. See D155.
     faceIndex: 0,
     // ⚠️ Records where the permanent IS, and is never used to move it — an
@@ -1614,6 +1642,49 @@ function finishAbility(
     events.push(
       narrated(
         n`${who(state, pending.player)} ${vb(pending.player, 'exiles', 'exile')} ${moves.length} card${moves.length === 1 ? '' : 's'} from the graveyard.`,
+        pending.player,
+        identity,
+      ),
+    );
+  }
+  // D352 - THE CHOSEN RETURNS: one `CardsMoved` in the cost batch, battlefield to the
+  // OWNER's hand (a permanent you control but do not own goes home, CR 701.3a).
+  if (ability.returnCost && pending.returnToHand && pending.returnToHand.length > 0) {
+    const moves: { card: InstanceId; from: { kind: 'battlefield'; player: PlayerId }; to: { kind: 'hand'; player: PlayerId } }[] = [];
+    for (const chosen of pending.returnToHand) {
+      const inst = state.cards[chosen];
+      if (!inst || inst.zone.kind !== 'battlefield' || inst.controller !== pending.player) {
+        return reject('noSuchCard', 'A permanent chosen to return is no longer on the battlefield under your control.');
+      }
+      moves.push({ card: chosen, from: { kind: 'battlefield', player: pending.player }, to: { kind: 'hand', player: inst.owner } });
+    }
+    events.push({ t: 'CardsMoved', moves });
+    events.push(
+      narrated(
+        n`${who(state, pending.player)} ${vb(pending.player, 'returns', 'return')} ${moves.length} permanent${moves.length === 1 ? '' : 's'} to hand.`,
+        pending.player,
+        identity,
+      ),
+    );
+  }
+  // D352 - THE SELF RETURN: the source itself is the price, paid in the cost batch, so the
+  // effect resolves off a source in HAND - `resolveAbility` reads `obj.controller`.
+  if (ability.returnsSelf) {
+    const src = state.cards[pending.card];
+    if (!src) return reject('noSuchCard', 'That permanent is not in the game.');
+    events.push({
+      t: 'CardsMoved',
+      moves: [
+        {
+          card: pending.card,
+          from: { kind: 'battlefield', player: pending.player },
+          to: { kind: 'hand', player: src.owner },
+        },
+      ],
+    });
+    events.push(
+      narrated(
+        n`${who(state, pending.player)} ${vb(pending.player, 'returns', 'return')} ${face.name} to hand.`,
         pending.player,
         identity,
       ),

@@ -105,6 +105,12 @@ export type Intent =
        * cost - exactly `count`, re-validated against `exileFromGraveyardCandidatesFor`.
        */
       readonly exileFromGraveyard?: readonly InstanceId[];
+      /**
+       * D352 - which permanents pay a "Return N <predicate> you control to its
+       * owner's hand" cost - exactly `count`, re-validated against
+       * `returnCandidatesFor`.
+       */
+      readonly returnToHand?: readonly InstanceId[];
     }
   | { readonly t: 'ChooseTargets'; readonly player: PlayerId; readonly targets: readonly TargetChoice[] }
   | { readonly t: 'ChooseX'; readonly player: PlayerId; readonly x: number }
@@ -295,6 +301,8 @@ export type RejectReason =
   | 'illegalDiscard'
   | 'needsTap'
   | 'illegalTap'
+  | 'needsReturn'
+  | 'illegalReturn'
   | 'needsExileFromGraveyard'
   | 'illegalExileFromGraveyard'
   | 'invalidPaymentPlan'

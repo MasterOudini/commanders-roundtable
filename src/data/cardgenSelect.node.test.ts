@@ -169,8 +169,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // hand" as an ACTIVATION COST — the chooser one verb over from
   // sacrifice, with the bounce-cost machinery unbuilt.
   ['Firja, Judge of Valor', 'once-per-turn trigger memory'],
-  ['Floodbringer', 'return-permanent cost'],
-  ['Flooded Shoreline', 'return-permanent cost'],
   // Batch 18 (D176) — all three existing classes.
   // Batch 19 (D177) — TWO NEW classes. Multi-sacrifice: D168's
   // `ActivateAbility.sacrifice` names ONE permanent, so "Sacrifice two
@@ -250,7 +248,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // as the price, which no parse reads and no charge path pays. Meloku is
   // the return-permanent cost's third entry (D175's class).
   ['Matoya, Archon Elder', 'scry-surveil event discriminator'],
-  ['Meloku the Clouded Mirror', 'return-permanent cost'],
   // Wave 1 / M6.4ag (D192) — the first SpellDef batch's nine refusals.
   // Brainstorm, the scry cantrips, Electrodominance and Stinging Study all
   // need a resolve that can ASK (hand choice + ordering, scry decisions, a
@@ -722,7 +719,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Nuclear Fallout', 'rad counters'],
   ['Nullify', 'subtype list alternative'],
   ["O'aka, Traveling Merchant", 'remove-counter cost'],
-  ['Oboro Breezecaller', 'return-permanent cost'],
   ["Oketra's Last Mercy", 'untap restriction'],
   // D230 — Ominous Sphinx names the DISCARD-EVENT DISCRIMINATOR: a
   // discard is a bare hand-to-graveyard CardsMoved indistinguishable from
@@ -843,8 +839,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Slip On the Ring', 'the Ring mechanic'],
   ['Snap', 'up-to-N targeting'],
   ['Snare Tactician', 'cycling mechanic'],
-  ['Soratami Mirror-Mage', 'return-permanent cost'],
-  ['Soratami Rainshaper', 'return-permanent cost'],
   ['Soul Diviner', 'remove-counter cost'],
   ['Soul Sear', 'temporary keyword/ability grant'],
   // D250 (M6.4cm)

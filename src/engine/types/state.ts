@@ -390,6 +390,8 @@ export interface PendingCast {
   readonly tap?: readonly InstanceId[];
   /** D329 - the graveyard cards an "Exile N ... from your graveyard" cost chose; exiled in the cost batch. */
   readonly exileFromGraveyard?: readonly InstanceId[];
+  /** D352 - the permanents a "Return N ... to its owner's hand" cost chose; bounced in the cost batch. */
+  readonly returnToHand?: readonly InstanceId[];
   /** D299: the clause each declared target answers, carried to the `StackObject`. */
   readonly targetSlots?: readonly number[];
 }

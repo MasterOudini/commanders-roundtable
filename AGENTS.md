@@ -11054,6 +11054,69 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D351): the six Threshold lines the gate still cannot read (a body with 'an additional +2/-2' - Patriarch's Desire; a scope over the OPPONENT's creatures - Mindwhisker; a lure requirement, which the engine has no declaration REQUIREMENT for - Seton's Desire; a count over an opponent's permanents - Nantuko Blightcutter; a protection grant, which is not in the keyword map - Mystic Familiar; a subtype scope with no fixture - Nut Collector, whose Squirrels would otherwise be proven on a Sliver), the ~20 Threshold cards whose leftover line the accounting reports differently from the printed one (Teroh's Vanguard, the Possessed cycle, Fledgling Dragon ...), the clause fixtures still missing (24: a combat-role clause 8, a counted clause of two or three 5, an Aura, an Equipment in a graveyard, a spell clause), Unleash (10) and Exploit (8) - both an asked choice as the creature enters, the cost verbs the derivation cannot pay (104 across 72 verbs), the activation conditions outside the vocabulary (34, across 33 wordings), the trigger payloads outside both readers (20), Add one mana of any color behind a cost the engine does not charge (23), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14); the "another" split; the by-name
       sacrifice cost; the remaining cost verbs; the prompt continuation seam;
       prior items stand.
+- [x] **M6.4gk — THE RETURN COST: an activation cost that hands a permanent
+      back to its owner, charged like every other chooser; 14 cards land,
+      14 as generated rows (2026-09-07):**
+      **7,211 of 31,692 Commander-legal cards now execute completely, up
+      from 7,197 (+14).** `SHIPPED_SCRIPTS` 4,564; ledger
+      929 (six rows RETIRED by name - the cards the ledger has held under `return-permanent cost` since D175 and D186 (Floodbringer, Flooded Shoreline, Meloku the Clouded Mirror and their kin), the class drained the day it was built - and none added; measured: the REFUSED map's size 935 -> 929). Fixtures 4,952 (4,809 by name + 136 tokens: the 14 rows' cards, the Forests and Islands their costs pay with, and ONE new token pin - the 1/1 blue flying Illusion Meloku makes). **Select pool
+      0.** Decisions in **D352**.
+      ⚠️⚠️ **MEASURE A COST BUCKET BY PATCHING THE ROW MAKER, NOT BY READING
+      THE HISTOGRAM.** The row maker stops at the FIRST blocker, so "a cost it
+      cannot charge: 104" says nothing about which verb is worth building. A
+      throwaway copy that RECORDS an unreadable cost piece and carries on rowed
+      **84 of the 104 completely** and grouped them by verb — the return cost 14,
+      an exile cost 14, snow mana 13, a counted sacrifice 12, a remove-a-counter
+      chooser 11. That measurement is the decision.
+      ⚠️ **The cost is the tap chooser one verb over (D286)**: the parse prices
+      it (a plural read back to the singular; a phrase `predicatesOf` cannot
+      place stays unpaid), the offer names the candidates past the def gate, the
+      intent names the picks, the host RE-VALIDATES with the same function, and
+      the bounce is paid in the cost batch to the **OWNER** (CR 701.3a). No
+      tapped test and no summoning-sickness test — the wording asks for neither,
+      and Quirion Ranger untapping the Forest it just returned is the card.
+      ⚠️ Beside it the deterministic **SELF return**, the self-sacrifice's price
+      one zone over: the effect then resolves off a source in HAND, so a def
+      reads `obj.controller` and never the board position of `self`.
+      ⚠️ **A cost the ENGINE charges must be answerable by a PERSON**: the
+      client's chooser verb list grew a fourth entry in the same change, and the
+      fuzz driver answers it too, so the gate EXERCISES the cost rather than
+      offering it and taking the reject (D143's lesson, paid up front).
+      ⚠️⚠️ **THE LATENT BUG THE BATCH WALKED INTO, D351's one file over.** An
+      ANTHEM scope is an OBJECT with a `.kind`; a count CDA's scope is the STRING
+      "hand" or "battlefield". D351's `yesNameOf` asks every ability carrying a
+      `scope` field, so the first row holding both crashed the generator — and
+      the same confusion sent a count CDA down the scoped anthem's fire lines,
+      which settle and prove nothing. `isAnthemScope` is the guard, at all four
+      sites.
+      ⚠️ **A cost that MOVES THE BOARD moves every baseline the suite took
+      before the fire**: `retBoardAdj` / `retHandAdj` at every hand and board
+      assert, exactly as `gyAdj` does for the exile costs.
+      ⚠️ **The gate's one red was the NET SUITE'S BUDGET**, and the timeout is
+      the finding rather than this decision's: `simplestIntent` never submits an
+      `ActivateAbility`, so a return cost it cannot answer is unreachable from
+      that driver. Measured alone and idle, twice: 37/37 green, SEVEN of the
+      file's tests at 14.4-15.3 s against the 20 s default. Each builds a
+      four-seat host over the SHIPPED registry, so the cost grows with
+      `SHIPPED_SCRIPTS`; the file gets ONE default (60 s) rather than a seventh
+      hand-written number, under the fuzz ceiling's rule - after a
+      completed-and-equal run, never globally.
+      Measured first: the D351 probe re-run over a tree 10 cards further on: 327 fully covered cards, down from 337. The row maker refused all 327, and its histogram is tails with one seam in it: a COST it cannot charge 104 (72 distinct verbs), an activation condition 34 (33 wordings), an effect outside the row kinds 30 (23 of them Add one mana of any color, whose blocker is the cost beside it), a trigger payload 20, a clause fixture 20, a line that is neither an activated ability nor a library trigger 20, a leftover line the accounting reports differently from the printed one 18. THEN THE COST BUCKET WAS MEASURED PROPERLY: a throwaway copy of the row maker that RECORDS an unreadable cost instead of refusing it rowed 84 of the 104 completely, grouped by verb - the return cost 14, snow mana 13, a counted sacrifice 12, a remove-a-counter chooser 11, an exile cost 14 and a tail. The return cost is the largest, and it is the tap chooser one verb over. NOT this decision: the cost verbs the derivation still cannot pay (90 across 71 verbs after this one drains: snow mana {S} 13 across three cost forms - a payment the engine does not track at all; a remove-a-counter-from-another-permanent chooser 11; a counted sacrifice 12 - the engine charges a|an|another only; an exile cost 14; Blight, Exert, Mill, Pay half your life), the activation conditions outside the vocabulary (34, across 33 wordings), the lines that are neither an activated ability nor a library trigger (20: Unleash 10, Exploit 8 - both an asked choice as the creature enters), the leftover lines the accounting reports differently from the printed one (18: the Threshold cards whose quoted granted ability `scrub` blanks - Reborn Hero, the Possessed cycle, Fledgling Dragon), the effects outside the row kinds (30, of which 23 are Add one mana of any color whose blocker is the cost beside it), the trigger payloads outside both readers (20), the clause fixtures still missing (20: a combat-role clause, a counted clause of two or three, an Aura, an Equipment in a graveyard, a spell clause), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14), the six Threshold bodies outside the static grammar. Refused by name:
+      six rows RETIRED by name - the cards the ledger has held under `return-permanent cost` since D175 and D186 (Floodbringer, Flooded Shoreline, Meloku the Clouded Mirror and their kin), the class drained the day it was built - and none added; measured: the REFUSED map's size 935 -> 929.
+      Six ledger rows retired by name: the `return-permanent cost` class, named by D175 and grown by D186, emptied by the decision that built it. Report `effect:auto` 4,209 → 4,209,
+      `withUnenforced` 280 → 280. ⚠️ The seam reaches further than
+      the wave: `activated:nonManaCost` falls by 110 and `payable` rises by the
+      same 110 — 110 ability LINES carry a return cost, and the other 96 cards
+      are blocked on something else.
+      **Landed:** No second wave: the 14 rows are the landing, and the POOL took 11 creatures and 3 enchantments more on the same sweep - the commander's reach rose to 7,152 cards from 7,138, chosen from 199 fully-executable legendary creatures (197 before). Tests: `returnCost.test.ts` (14) and one
+      generated suite per row.
+      Fixtures 4,952 · botPool artifact 395 / creature 4,187 / enchantment 380 / instant 1,007 / land 499 / sorcery 743 - auto 948 / assisted 1,832 / autoAnyFace 957 · ladder [1029, 1092, 2696, 4520, 5853] · batch.json
+      14 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,699 files, 23,330 passed / 11 skipped ·
+      500-seed gate, 6 shards, 585.7 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D352): the cost verbs the derivation still cannot pay (90 across 71 verbs after this one drains: snow mana {S} 13 across three cost forms - a payment the engine does not track at all; a remove-a-counter-from-another-permanent chooser 11; a counted sacrifice 12 - the engine charges a|an|another only; an exile cost 14; Blight, Exert, Mill, Pay half your life), the activation conditions outside the vocabulary (34, across 33 wordings), the lines that are neither an activated ability nor a library trigger (20: Unleash 10, Exploit 8 - both an asked choice as the creature enters), the leftover lines the accounting reports differently from the printed one (18: the Threshold cards whose quoted granted ability `scrub` blanks - Reborn Hero, the Possessed cycle, Fledgling Dragon), the effects outside the row kinds (30, of which 23 are Add one mana of any color whose blocker is the cost beside it), the trigger payloads outside both readers (20), the clause fixtures still missing (20: a combat-role clause, a counted clause of two or three, an Aura, an Equipment in a graveyard, a spell clause), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14), the six Threshold bodies outside the static grammar; the "another" split; the by-name
+      sacrifice cost; the remaining cost verbs; the prompt continuation seam;
+      prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

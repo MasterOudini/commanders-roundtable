@@ -717,6 +717,26 @@ export interface ActivatedAbility {
     readonly powerAtLeast?: number;
   } | null;
   /**
+   * D352 - `Return N <predicate> you control to its owner's hand` — a bounce
+   * the player CHOOSES, in the tap chooser's shape (D286), named by
+   * `ActivateAbility.returnToHand`; `another` drops the source. ⚠️ Tapped or
+   * untapped, and the source itself IS a candidate unless the wording says
+   * otherwise — nothing about returning a permanent asks it to be ready.
+   */
+  readonly returnCost: {
+    readonly count: number;
+    readonly another: boolean;
+    readonly any: readonly import('../../data/replacementParse').PermanentPredicate[];
+  } | null;
+  /**
+   * D352 - `Return this enchantment to its owner's hand` — a SELF-return:
+   * deterministic, no chooser, so a price the engine takes (the
+   * self-sacrifice's rule, D159). ⚠️ Chargeable is not offerable, and
+   * `resolve` then runs with its source in HAND — read `obj.controller`,
+   * never the board position of `self`.
+   */
+  readonly returnsSelf: boolean;
+  /**
    * `Sacrifice this <type>` — a SELF-sacrifice: deterministic, no chooser, so
    * the engine can charge it (D159). ⚠️ Chargeable is not offerable: a
    * destructive cost is OFFERED only when the game's registry carries an

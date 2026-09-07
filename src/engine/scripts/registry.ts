@@ -7,6 +7,20 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FLOODBRINGER_SCRIPT } from './cards/floodbringer';
+import { QUIRION_RANGER_SCRIPT } from './cards/quirionRanger';
+import { SORATAMI_RAINSHAPER_SCRIPT } from './cards/soratamiRainshaper';
+import { MELOKU_THE_CLOUDED_MIRROR_SCRIPT } from './cards/melokuTheCloudedMirror';
+import { SORATAMI_MIRROR_MAGE_SCRIPT } from './cards/soratamiMirrorMage';
+import { WIREWOOD_SYMBIOTE_SCRIPT } from './cards/wirewoodSymbiote';
+import { SCRYB_RANGER_SCRIPT } from './cards/scrybRanger';
+import { FLOODED_SHORELINE_SCRIPT } from './cards/floodedShoreline';
+import { BROKEN_FALL_SCRIPT } from './cards/brokenFall';
+import { SORATAMI_CLOUDSKATER_SCRIPT } from './cards/soratamiCloudskater';
+import { OBORO_BREEZECALLER_SCRIPT } from './cards/oboroBreezecaller';
+import { SORAMARO_FIRST_TO_DREAM_SCRIPT } from './cards/soramaroFirstToDream';
+import { MOLTING_SKIN_SCRIPT } from './cards/moltingSkin';
+import { PEARL_LAKE_ANCIENT_SCRIPT } from './cards/pearlLakeAncient';
 import { NIGHTWHORL_HERMIT_SCRIPT } from './cards/nightwhorlHermit';
 import { CHILDHOOD_HORROR_SCRIPT } from './cards/childhoodHorror';
 import { ABOSHANS_DESIRE_SCRIPT } from './cards/aboshansDesire';
@@ -4576,6 +4590,20 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FLOODBRINGER_SCRIPT,
+  QUIRION_RANGER_SCRIPT,
+  SORATAMI_RAINSHAPER_SCRIPT,
+  MELOKU_THE_CLOUDED_MIRROR_SCRIPT,
+  SORATAMI_MIRROR_MAGE_SCRIPT,
+  WIREWOOD_SYMBIOTE_SCRIPT,
+  SCRYB_RANGER_SCRIPT,
+  FLOODED_SHORELINE_SCRIPT,
+  BROKEN_FALL_SCRIPT,
+  SORATAMI_CLOUDSKATER_SCRIPT,
+  OBORO_BREEZECALLER_SCRIPT,
+  SORAMARO_FIRST_TO_DREAM_SCRIPT,
+  MOLTING_SKIN_SCRIPT,
+  PEARL_LAKE_ANCIENT_SCRIPT,
   NIGHTWHORL_HERMIT_SCRIPT,
   CHILDHOOD_HORROR_SCRIPT,
   ABOSHANS_DESIRE_SCRIPT,
