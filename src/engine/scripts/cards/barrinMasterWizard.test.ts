@@ -35,7 +35,7 @@ describe('Barrin, Master Wizard', () => {
   test('a land pays "a permanent", and the creature bounces to its OWNER', () => {
     const { g, barrin, land, bears } = game();
     const handBefore = idsIn(g, 'p2', 'hand').length;
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: barrin, abilityIndex: 0, sacrifice: land }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: barrin, abilityIndex: 0, sacrifice: [land] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));
     settle(g);
     expect(g.state.cards[land]?.zone.kind).toBe('graveyard');
@@ -46,7 +46,7 @@ describe('Barrin, Master Wizard', () => {
 
   test('replays to the same hash', () => {
     const { g, barrin, land, bears } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: barrin, abilityIndex: 0, sacrifice: land }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: barrin, abilityIndex: 0, sacrifice: [land] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

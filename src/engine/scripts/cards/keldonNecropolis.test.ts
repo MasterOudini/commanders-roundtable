@@ -33,7 +33,7 @@ function fired(): { g: Game; bears: InstanceId } {
       player: 'p1',
       card: necropolis,
       abilityIndex: 1,
-      sacrifice: bears,
+      sacrifice: [bears],
     }),
   );
   advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);

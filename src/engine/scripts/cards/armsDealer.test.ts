@@ -36,7 +36,7 @@ function game(): { g: Game; dealer: InstanceId; goblin: InstanceId; myBears: Ins
 describe('Arms Dealer', () => {
   test('a Goblin pays, and the 4 damage kills the target through the SBA', () => {
     const { g, dealer, goblin, bears } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: dealer, abilityIndex: 0, sacrifice: goblin }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: dealer, abilityIndex: 0, sacrifice: [goblin] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));
     expect(g.state.cards[goblin]?.zone.kind).toBe('graveyard');
     settle(g);
@@ -49,14 +49,14 @@ describe('Arms Dealer', () => {
     // the Dealer IS a Goblin Rogue: eating itself is legal per the card. The
     // illegal pick is my own genuinely Goblin-less bear.
     const { g, dealer, myBears } = game();
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: dealer, abilityIndex: 0, sacrifice: myBears });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: dealer, abilityIndex: 0, sacrifice: [myBears] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
   });
 
   test('replays to the same hash', () => {
     const { g, dealer, goblin, bears } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: dealer, abilityIndex: 0, sacrifice: goblin }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: dealer, abilityIndex: 0, sacrifice: [goblin] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

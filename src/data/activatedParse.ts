@@ -380,6 +380,7 @@ export function parseActivatedAbilities(
         tapCost: null,
         returnCost: null,
         returnsSelf: false,
+        putCounterCost: null,
         unpaidCosts: equipCost === null ? [equip[1] ?? ''] : [],
         payable: equipCost !== null,
         isManaAbility: false,
@@ -419,6 +420,7 @@ export function parseActivatedAbilities(
         tapCost: null,
         returnCost: null,
         returnsSelf: false,
+        putCounterCost: null,
         unpaidCosts: cyclingCost === null ? [cycling[1] ?? ''] : [],
         payable: cyclingCost !== null,
         isManaAbility: false,
@@ -458,6 +460,7 @@ export function parseActivatedAbilities(
         tapCost: crewAny === null ? null : { count: 0, another: true, any: crewAny, powerAtLeast: power },
         returnCost: null,
         returnsSelf: false,
+        putCounterCost: null,
         unpaidCosts: crewAny === null ? [`Crew ${power}`] : [],
         payable: crewAny !== null,
         isManaAbility: false,
@@ -488,6 +491,7 @@ export function parseActivatedAbilities(
     let removeCounterCost: ActivatedAbility['removeCounterCost'] = null;
     let returnCost: ActivatedAbility['returnCost'] = null;
     let returnsSelf = false;
+    let putCounterCost: ActivatedAbility['putCounterCost'] = null;
     let isLoyalty = false;
 
     for (const part of parts) {
@@ -572,10 +576,20 @@ export function parseActivatedAbilities(
       // `.every` over empty arrays holds, which is exactly what the word
       // means. Chargeable is not offerable: the def gate in `legal.ts` and
       // `handlers.ts` still refuses an undef'd ability (D159's rule).
-      const sac = /^sacrifice (a|an|another) (.+)$/i.exec(part.trim());
+      // D353 - AND IT COUNTS. "Sacrifice two lands" / "Sacrifice three Treasures" is the
+      // same decision N times over, which is what the discard and tap choosers have said
+      // since D286; the plural noun is read back to the singular before `predicatesOf`, so
+      // the predicate grammar stays in one place. A COMPOUND ("two lands and this artifact")
+      // is two prices in one phrase and reaches `unpaidCosts` unchanged.
+      // D334's shape: the exclusion is a WORD between the count and the noun, so it needs its
+      // own group - "other creatures" reaching `predicatesOf` whole is a refusal, not a predicate.
+      const sac = /^sacrifice (a|an|another|one|two|three|four) (?:(other) )?(.+)$/i.exec(part.trim());
       if (sac && sacrificeCost === null) {
-        const another = (sac[1] ?? '').toLowerCase() === 'another';
-        const rest = (sac[2] ?? '').trim();
+        const word = (sac[1] ?? '').toLowerCase();
+        const another = word === 'another' || sac[2] !== undefined;
+        const count = word === 'another' ? 1 : (COUNT_WORDS[word] ?? 0);
+        const rest0 = (sac[3] ?? '').trim();
+        const rest = count > 1 ? singularNoun(rest0, true) : rest0;
         // D328 - "a token" / "a creature token" / "another creature or token" (`tokenPredicates`).
         const any =
           /^permanents?$/i.test(rest)
@@ -583,8 +597,20 @@ export function parseActivatedAbilities(
             : /\btokens?$/i.test(rest)
               ? tokenPredicates(rest)
               : predicatesOf(rest);
-        if (any !== null) {
-          sacrificeCost = { another, any };
+        if (any !== null && count > 0) {
+          sacrificeCost = { count, another, any };
+          continue;
+        }
+      }
+      // D353 - THE SELF COUNTER: "Put a -1/-1 counter on this creature" - the
+      // remove-a-counter cost's mirror (D319), SELF only and a fixed count, so a price the
+      // engine takes. "on a creature you control" is a decision and stays unpaid.
+      const pcm = new RegExp('^put (a|an|one|two|three|four|five) ([^ ]+) counters? on (?:this [a-z]+' + sacSelfAlt + ')$', 'i').exec(part.trim());
+      if (pcm && putCounterCost === null) {
+        const count = COUNT_WORDS[(pcm[1] ?? '').toLowerCase()] ?? 0;
+        const kind = pcm[2] ?? '';
+        if (count > 0 && kind !== '') {
+          putCounterCost = { kind, count };
           continue;
         }
       }
@@ -711,6 +737,7 @@ export function parseActivatedAbilities(
       tapCost,
       returnCost,
       returnsSelf,
+      putCounterCost,
       removeCounterCost,
       exileFromGraveyardCost,
       exileSelfFromGraveyard,

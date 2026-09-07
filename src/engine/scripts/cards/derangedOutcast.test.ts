@@ -37,7 +37,7 @@ function board(): { g: Game; outcast: InstanceId; monk: InstanceId; bears: Insta
 describe('Deranged Outcast', () => {
   test('a Human pays, and the target carries two +1/+1 counters', () => {
     const { g, outcast, monk, bears } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: outcast, abilityIndex: 0, sacrifice: monk }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: outcast, abilityIndex: 0, sacrifice: [monk] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));
     expect(g.state.cards[monk]?.zone.kind).toBe('graveyard');
     settle(g);
@@ -46,14 +46,14 @@ describe('Deranged Outcast', () => {
 
   test('a NON-Human creature cannot pay the Human-only cost', () => {
     const { g, outcast, bears } = board();
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: outcast, abilityIndex: 0, sacrifice: bears });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: outcast, abilityIndex: 0, sacrifice: [bears] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
   });
 
   test('replays to the same hash', () => {
     const { g, outcast, monk, bears } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: outcast, abilityIndex: 0, sacrifice: monk }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: outcast, abilityIndex: 0, sacrifice: [monk] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

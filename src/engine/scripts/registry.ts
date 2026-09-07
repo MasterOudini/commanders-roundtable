@@ -7,6 +7,21 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { WHISPER_BLOOD_LITURGIST_SCRIPT } from './cards/whisperBloodLiturgist';
+import { KELDON_ARSONIST_SCRIPT } from './cards/keldonArsonist';
+import { GOBLIN_WARRENS_SCRIPT } from './cards/goblinWarrens';
+import { SAVVY_HUNTER_SCRIPT } from './cards/savvyHunter';
+import { NECROSAVANT_SCRIPT } from './cards/necrosavant';
+import { DEVOTED_DRUID_SCRIPT } from './cards/devotedDruid';
+import { RUTHLESS_KNAVE_SCRIPT } from './cards/ruthlessKnave';
+import { KRARK_CLAN_ENGINEERS_SCRIPT } from './cards/krarkClanEngineers';
+import { EATER_OF_HOPE_SCRIPT } from './cards/eaterOfHope';
+import { CAULDRON_FAMILIAR_SCRIPT } from './cards/cauldronFamiliar';
+import { TYMARET_THE_MURDER_KING_SCRIPT } from './cards/tymaretTheMurderKing';
+import { GILDED_ASSAULT_CART_SCRIPT } from './cards/gildedAssaultCart';
+import { CINDERHAZE_WRETCH_SCRIPT } from './cards/cinderhazeWretch';
+import { COFFIN_PUPPETS_SCRIPT } from './cards/coffinPuppets';
+import { DUTIFUL_GRIFFIN_SCRIPT } from './cards/dutifulGriffin';
 import { FLOODBRINGER_SCRIPT } from './cards/floodbringer';
 import { QUIRION_RANGER_SCRIPT } from './cards/quirionRanger';
 import { SORATAMI_RAINSHAPER_SCRIPT } from './cards/soratamiRainshaper';
@@ -4590,6 +4605,21 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  WHISPER_BLOOD_LITURGIST_SCRIPT,
+  KELDON_ARSONIST_SCRIPT,
+  GOBLIN_WARRENS_SCRIPT,
+  SAVVY_HUNTER_SCRIPT,
+  NECROSAVANT_SCRIPT,
+  DEVOTED_DRUID_SCRIPT,
+  RUTHLESS_KNAVE_SCRIPT,
+  KRARK_CLAN_ENGINEERS_SCRIPT,
+  EATER_OF_HOPE_SCRIPT,
+  CAULDRON_FAMILIAR_SCRIPT,
+  TYMARET_THE_MURDER_KING_SCRIPT,
+  GILDED_ASSAULT_CART_SCRIPT,
+  CINDERHAZE_WRETCH_SCRIPT,
+  COFFIN_PUPPETS_SCRIPT,
+  DUTIFUL_GRIFFIN_SCRIPT,
   FLOODBRINGER_SCRIPT,
   QUIRION_RANGER_SCRIPT,
   SORATAMI_RAINSHAPER_SCRIPT,

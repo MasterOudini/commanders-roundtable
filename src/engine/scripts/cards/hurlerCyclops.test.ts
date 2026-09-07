@@ -39,7 +39,7 @@ describe('Hurler Cyclops', () => {
         player: 'p1',
         card: cyclops,
         abilityIndex: 0,
-        sacrifice: bears,
+        sacrifice: [bears],
       }),
     );
     advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);
@@ -56,7 +56,7 @@ describe('Hurler Cyclops', () => {
       player: 'p1',
       card: cyclops,
       abilityIndex: 0,
-      sacrifice: cyclops,
+      sacrifice: [cyclops],
     });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
@@ -70,7 +70,7 @@ describe('Hurler Cyclops', () => {
         player: 'p1',
         card: cyclops,
         abilityIndex: 0,
-        sacrifice: bears,
+        sacrifice: [bears],
       }),
     );
     advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);

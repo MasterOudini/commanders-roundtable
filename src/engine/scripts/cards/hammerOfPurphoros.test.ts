@@ -63,7 +63,7 @@ describe("Hammer of Purphoros", () => {
     const before = onBattlefield(g, 'p1');
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 2 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: forest }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: [forest] }));
     settle(g);
     expect(g.state.cards[forest]?.zone.kind).toBe('graveyard');
     expect(onBattlefield(g, 'p1')).toBe(before - 1 + 1);

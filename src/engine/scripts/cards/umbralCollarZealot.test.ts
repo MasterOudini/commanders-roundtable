@@ -36,7 +36,7 @@ function armed(): { g: Game; zealot: InstanceId; ring: InstanceId; bears: Instan
 describe('Umbral Collar Zealot', () => {
   test('sacrificing the ARTIFACT arm asks the surveil', () => {
     const { g, zealot, ring } = armed();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: zealot, abilityIndex: 0, sacrifice: ring }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: zealot, abilityIndex: 0, sacrifice: [ring] }));
     advanceUntil(g, (s) => s.priority.awaiting?.kind === 'scryChoice', 20_000);
     const awaiting = g.state.priority.awaiting;
     expect(awaiting?.kind === 'scryChoice' && awaiting.toGraveyard).toBe(true);
@@ -50,7 +50,7 @@ describe('Umbral Collar Zealot', () => {
 
   test('the CREATURE arm works too', () => {
     const { g, zealot, bears } = armed();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: zealot, abilityIndex: 0, sacrifice: bears }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: zealot, abilityIndex: 0, sacrifice: [bears] }));
     advanceUntil(g, (s) => s.priority.awaiting?.kind === 'scryChoice', 20_000);
     expect(g.state.cards[bears]?.zone.kind).toBe('graveyard');
   });
@@ -62,7 +62,7 @@ describe('Umbral Collar Zealot', () => {
       player: 'p1',
       card: zealot,
       abilityIndex: 0,
-      sacrifice: zealot,
+      sacrifice: [zealot],
     });
     expect(res.ok).toBe(false);
     expect(g.state.cards[zealot]?.zone.kind).toBe('battlefield');
@@ -70,7 +70,7 @@ describe('Umbral Collar Zealot', () => {
 
   test('replays to the same hash', () => {
     const { g, zealot, ring } = armed();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: zealot, abilityIndex: 0, sacrifice: ring }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: zealot, abilityIndex: 0, sacrifice: [ring] }));
     advanceUntil(g, (s) => s.priority.awaiting?.kind === 'scryChoice', 20_000);
     const lib = g.state.zones.library['p1'] ?? [];
     const revealed = lib.filter((id) => g.state.cards[id]?.revealedTo.includes('p1'));

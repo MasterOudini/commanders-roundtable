@@ -38,7 +38,7 @@ describe('Goblin Trenches', () => {
         player: 'p1',
         card: trenches,
         abilityIndex: 0,
-        sacrifice: mountain,
+        sacrifice: [mountain],
       }),
     );
     settle(g);
@@ -56,7 +56,7 @@ describe('Goblin Trenches', () => {
         player: 'p1',
         card: trenches,
         abilityIndex: 0,
-        sacrifice: mountain,
+        sacrifice: [mountain],
       }),
     );
     settle(g);

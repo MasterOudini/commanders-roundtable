@@ -43,6 +43,7 @@ describe('Carnage Altar', () => {
     expect(abilities[0]?.payable).toBe(true);
     expect(abilities[0]?.sacrificesSelf).toBe(false);
     expect(abilities[0]?.sacrificeCost).toEqual({
+      count: 1,
       another: false,
       any: [{ supertypes: [], types: ['Creature'], subtypes: [], colors: [] }],
     });
@@ -70,7 +71,7 @@ describe('Carnage Altar', () => {
     settle(g);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 3 }));
     const handBefore = idsIn(g, 'p1', 'hand').length;
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: altar, abilityIndex: 0, sacrifice: bears }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: altar, abilityIndex: 0, sacrifice: [bears] }));
     // ⚠️ BEFORE settling: the cost is already paid (CR 602.2b), so the Bears is
     // in the graveyard while the draw is still on the stack — and the ALTAR is
     // untouched, because the chooser cost never eats the source.
@@ -89,7 +90,7 @@ describe('Carnage Altar', () => {
     put(g, 'p1', BEARS);
     settle(g);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 3 }));
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: altar, abilityIndex: 0, sacrifice: altar });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: altar, abilityIndex: 0, sacrifice: [altar] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
     expect(g.state.cards[altar]?.zone.kind).toBe('battlefield');
@@ -144,7 +145,7 @@ describe('Carnage Altar', () => {
     advanceUntil(g, (s) => s.priority.player === 'p1' && s.priority.awaiting === null, 20_000);
     expect(g.state.combat?.attackers.some((a) => a.card === tok)).toBe(true);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 3 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: altar, abilityIndex: 0, sacrifice: tok as InstanceId }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: altar, abilityIndex: 0, sacrifice: [tok as InstanceId] }));
     settle(g);
     // The token is GONE — not in a graveyard, deleted — and combat must not
     // name it, or the state is one no event can repair.
@@ -159,7 +160,7 @@ describe('Carnage Altar', () => {
     const bears = put(g, 'p1', BEARS);
     settle(g);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 3 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: altar, abilityIndex: 0, sacrifice: bears }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: altar, abilityIndex: 0, sacrifice: [bears] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());

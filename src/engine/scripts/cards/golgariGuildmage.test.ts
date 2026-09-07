@@ -41,7 +41,7 @@ describe('Golgari Guildmage', () => {
     const { g, mage, dead, fodder } = board();
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'B', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 4 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: mage, abilityIndex: 0, sacrifice: fodder }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: mage, abilityIndex: 0, sacrifice: [fodder] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: dead }] }));
     settle(g);
     expect(g.state.cards[dead]?.zone).toEqual({ kind: 'hand', player: 'p1' });

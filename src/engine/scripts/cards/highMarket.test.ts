@@ -35,7 +35,7 @@ describe('High Market', () => {
     const { g, market, bears } = board();
     const before = g.state.players.p1?.life ?? 0;
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: market, abilityIndex: 1, sacrifice: bears }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: market, abilityIndex: 1, sacrifice: [bears] }),
     );
     settle(g);
     expect(g.state.cards[bears]?.zone.kind).toBe('graveyard');
@@ -49,7 +49,7 @@ describe('High Market', () => {
       player: 'p1',
       card: market,
       abilityIndex: 1,
-      sacrifice: fountain,
+      sacrifice: [fountain],
     });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
@@ -58,7 +58,7 @@ describe('High Market', () => {
   test('replays to the same hash', () => {
     const { g, market, bears } = board();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: market, abilityIndex: 1, sacrifice: bears }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: market, abilityIndex: 1, sacrifice: [bears] }),
     );
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

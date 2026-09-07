@@ -40,6 +40,7 @@ describe('Aura Fracture', () => {
     expect(abilities[0]?.payable).toBe(true);
     expect(abilities[0]?.manaCost).toBeNull();
     expect(abilities[0]?.sacrificeCost).toEqual({
+      count: 1,
       another: false,
       any: [{ supertypes: [], types: ['Land'], subtypes: [], colors: [] }],
     });
@@ -47,7 +48,7 @@ describe('Aura Fracture', () => {
 
   test('the land alone pays, and the enchantment dies — no mana funded anywhere', () => {
     const { g, fracture, land, mantra } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: fracture, abilityIndex: 0, sacrifice: land }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: fracture, abilityIndex: 0, sacrifice: [land] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: mantra }] }));
     settle(g);
     expect(g.state.cards[land]?.zone.kind).toBe('graveyard');
@@ -57,7 +58,7 @@ describe('Aura Fracture', () => {
 
   test('replays to the same hash', () => {
     const { g, fracture, land, mantra } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: fracture, abilityIndex: 0, sacrifice: land }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: fracture, abilityIndex: 0, sacrifice: [land] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: mantra }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

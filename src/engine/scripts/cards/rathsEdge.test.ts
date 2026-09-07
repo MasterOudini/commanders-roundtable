@@ -36,7 +36,7 @@ describe('Raths Edge', () => {
         player: 'p1',
         card: edge,
         abilityIndex: 1,
-        sacrifice: fodder,
+        sacrifice: [fodder],
         targets: [{ kind: 'player', id: 'p2' }],
       }),
     );
@@ -54,7 +54,7 @@ describe('Raths Edge', () => {
         player: 'p1',
         card: edge,
         abilityIndex: 1,
-        sacrifice: fodder,
+        sacrifice: [fodder],
         targets: [{ kind: 'player', id: 'p2' }],
       }),
     );

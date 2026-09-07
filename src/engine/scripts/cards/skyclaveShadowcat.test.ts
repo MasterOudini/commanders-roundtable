@@ -40,7 +40,7 @@ function armed(): { g: Game; self: InstanceId; bears: InstanceId; eel: InstanceI
 function activate(g: Game, self: InstanceId, fodder: InstanceId): void {
   must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
   must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'B', amount: 1 }));
-  must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: fodder }));
+  must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: [fodder] }));
   settle(g);
 }
 

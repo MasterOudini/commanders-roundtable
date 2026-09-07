@@ -34,7 +34,7 @@ describe('Orcish Bloodpainter', () => {
         player: 'p1',
         card: painter,
         abilityIndex: 0,
-        sacrifice: bears,
+        sacrifice: [bears],
       }),
     );
     expect(g.state.priority.awaiting?.kind).toBe('chooseTargets');
@@ -52,7 +52,7 @@ describe('Orcish Bloodpainter', () => {
         player: 'p1',
         card: painter,
         abilityIndex: 0,
-        sacrifice: bears,
+        sacrifice: [bears],
       }),
     );
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));

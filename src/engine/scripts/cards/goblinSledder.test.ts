@@ -41,7 +41,7 @@ describe('Goblin Sledder', () => {
         player: 'p1',
         card: sledder,
         abilityIndex: 0,
-        sacrifice: sledder,
+        sacrifice: [sledder],
       }),
     );
     expect(g.state.priority.awaiting?.kind).toBe('chooseTargets');
@@ -59,7 +59,7 @@ describe('Goblin Sledder', () => {
         player: 'p1',
         card: sledder,
         abilityIndex: 0,
-        sacrifice: sledder,
+        sacrifice: [sledder],
       }),
     );
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));

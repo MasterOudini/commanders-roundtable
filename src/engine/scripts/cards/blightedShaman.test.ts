@@ -42,7 +42,7 @@ function pt(g: Game, id: InstanceId): { power: number | null; toughness: number 
 describe('Blighted Shaman', () => {
   test('{T}, sacrifice a Swamp: +1/+1', () => {
     const { g, shaman, swamp, target } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 0, sacrifice: swamp }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 0, sacrifice: [swamp] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: target }] }));
     settle(g);
     expect(pt(g, target)).toEqual({ power: 3, toughness: 3 });
@@ -52,7 +52,7 @@ describe('Blighted Shaman', () => {
 
   test('{T}, sacrifice a creature: +2/+2', () => {
     const { g, shaman, target, fodder } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 1, sacrifice: fodder }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 1, sacrifice: [fodder] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: target }] }));
     settle(g);
     expect(pt(g, target)).toEqual({ power: 4, toughness: 4 });
@@ -61,13 +61,13 @@ describe('Blighted Shaman', () => {
 
   test('a creature is refused as the Swamp price', () => {
     const { g, shaman, fodder } = board();
-    const res = g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 0, sacrifice: fodder });
+    const res = g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 0, sacrifice: [fodder] });
     expect(res.ok).toBe(false);
   });
 
   test('replays to the same hash', () => {
     const { g, shaman, swamp, target } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 0, sacrifice: swamp }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 0, sacrifice: [swamp] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: target }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 4, 60_000);

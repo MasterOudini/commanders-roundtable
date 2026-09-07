@@ -70,7 +70,7 @@ describe('Jolene, Plundering Pugilist', () => {
     const [treasure] = treasuresOf(g, 'p1') as [InstanceId];
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: jolene, abilityIndex: 0, sacrifice: treasure }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: jolene, abilityIndex: 0, sacrifice: [treasure] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     expect(g.state.players['p2']?.life).toBe(lifeAfterCombat - 1);
@@ -81,7 +81,7 @@ describe('Jolene, Plundering Pugilist', () => {
     const { g, jolene, bomb } = board();
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
-    const res = g.submit({ t: 'ActivateAbility', player: 'p1', card: jolene, abilityIndex: 0, sacrifice: bomb });
+    const res = g.submit({ t: 'ActivateAbility', player: 'p1', card: jolene, abilityIndex: 0, sacrifice: [bomb] });
     expect(res.ok).toBe(false);
   });
 

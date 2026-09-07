@@ -34,7 +34,7 @@ describe('Dark Heart of the Wood', () => {
   test('a Forest pays the mana-free cost and the life arrives', () => {
     const { g, heart, forest } = game();
     const lifeBefore = g.state.players['p1']?.life ?? 0;
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: heart, abilityIndex: 0, sacrifice: forest }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: heart, abilityIndex: 0, sacrifice: [forest] }));
     settle(g);
     expect(g.state.cards[forest]?.zone.kind).toBe('graveyard');
     expect(g.state.players['p1']?.life).toBe(lifeBefore + 3);
@@ -42,14 +42,14 @@ describe('Dark Heart of the Wood', () => {
 
   test('a land that is not a Forest cannot pay', () => {
     const { g, heart, fountain } = game();
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: heart, abilityIndex: 0, sacrifice: fountain });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: heart, abilityIndex: 0, sacrifice: [fountain] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
   });
 
   test('replays to the same hash', () => {
     const { g, heart, forest } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: heart, abilityIndex: 0, sacrifice: forest }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: heart, abilityIndex: 0, sacrifice: [forest] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());

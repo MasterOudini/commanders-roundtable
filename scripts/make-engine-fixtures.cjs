@@ -5376,6 +5376,23 @@ const WANTED = [
   'Molting Skin',
   'Pearl Lake Ancient',
   // D352 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  // D353 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  'Whisper, Blood Liturgist',
+  'Keldon Arsonist',
+  'Goblin Warrens',
+  'Savvy Hunter',
+  'Necrosavant',
+  'Devoted Druid',
+  'Ruthless Knave',
+  'Krark-Clan Engineers',
+  'Eater of Hope',
+  'Cauldron Familiar',
+  'Tymaret, the Murder King',
+  'Gilded Assault Cart',
+  'Cinderhaze Wretch',
+  'Coffin Puppets',
+  'Dutiful Griffin',
+  // D353 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

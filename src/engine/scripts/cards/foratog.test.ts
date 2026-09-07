@@ -39,7 +39,7 @@ function armed(which: number): Armed {
   const life0 = g.state.players.p1?.life ?? 0;
   if (which === 0) {
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'G', amount: 1 }));
-      must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: fodder }));
+      must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: [fodder] }));
     settle(g);
   }
   return { g, self, life0, fodder };

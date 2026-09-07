@@ -26,7 +26,7 @@ function placed(): { g: Game; fodder: InstanceId; hawk: InstanceId; bears: Insta
   settle(g);
   must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'G', amount: 1 }));
   must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 4 }));
-  must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: fodder }));
+  must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: [fodder] }));
   return { g, fodder, hawk, bears };
 }
 

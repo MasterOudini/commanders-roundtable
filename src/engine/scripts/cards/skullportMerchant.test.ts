@@ -53,7 +53,7 @@ function armed(which: number): Armed {
   if (which === 1) {
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'B', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: fodder0 }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: [fodder0] }));
     settle(g);
     }
   return { g, self, no, life0, hand0, board0, p2life0, gy0, lib0, fodder0 };

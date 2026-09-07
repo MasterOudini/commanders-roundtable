@@ -63,7 +63,7 @@ describe("Teferi's Care", () => {
   test('{W}, sacrifice my enchantment: theirs is destroyed, the Care stays', () => {
     const { g, care, mine, theirs } = board();
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'W', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: care, abilityIndex: 0, sacrifice: mine }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: care, abilityIndex: 0, sacrifice: [mine] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: theirs }] }));
     settle(g);
     expect(g.state.cards[mine]?.zone).toEqual({ kind: 'graveyard', player: 'p1' });

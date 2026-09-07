@@ -47,7 +47,7 @@ describe('Etherium Astrolabe', () => {
     const { g, astrolabe } = board();
     const logAt = g.log.length;
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: astrolabe, abilityIndex: 0, sacrifice: astrolabe }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: astrolabe, abilityIndex: 0, sacrifice: [astrolabe] }),
     );
     expect(g.state.cards[astrolabe]?.zone.kind).toBe('graveyard');
     settle(g);
@@ -56,7 +56,7 @@ describe('Etherium Astrolabe', () => {
 
   test('a CREATURE cannot pay the artifact-only cost', () => {
     const { g, astrolabe, bears } = board();
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: astrolabe, abilityIndex: 0, sacrifice: bears });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: astrolabe, abilityIndex: 0, sacrifice: [bears] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
   });
@@ -64,7 +64,7 @@ describe('Etherium Astrolabe', () => {
   test('replays to the same hash', () => {
     const { g, astrolabe } = board();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: astrolabe, abilityIndex: 0, sacrifice: astrolabe }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: astrolabe, abilityIndex: 0, sacrifice: [astrolabe] }),
     );
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

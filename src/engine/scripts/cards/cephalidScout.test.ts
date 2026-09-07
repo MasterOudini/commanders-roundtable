@@ -34,7 +34,7 @@ describe('Cephalid Scout', () => {
   test('the land pays and the draw arrives — no tap anywhere in the cost', () => {
     const { g, scout, land } = game();
     const handBefore = idsIn(g, 'p1', 'hand').length;
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: scout, abilityIndex: 0, sacrifice: land }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: scout, abilityIndex: 0, sacrifice: [land] }));
     settle(g);
     expect(g.state.cards[land]?.zone.kind).toBe('graveyard');
     expect(idsIn(g, 'p1', 'hand').length).toBe(handBefore + 1);
@@ -43,7 +43,7 @@ describe('Cephalid Scout', () => {
 
   test('replays to the same hash', () => {
     const { g, scout, land } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: scout, abilityIndex: 0, sacrifice: land }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: scout, abilityIndex: 0, sacrifice: [land] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());

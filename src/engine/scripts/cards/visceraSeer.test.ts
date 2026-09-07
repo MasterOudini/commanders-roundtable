@@ -26,7 +26,7 @@ function activated(): { g: Game; seer: InstanceId; bears: InstanceId; revealed: 
   const seer = put(g, 'p1', SEER);
   settle(g);
   must(
-    g.submit({ t: 'ActivateAbility', player: 'p1', card: seer, abilityIndex: 0, sacrifice: bears }),
+    g.submit({ t: 'ActivateAbility', player: 'p1', card: seer, abilityIndex: 0, sacrifice: [bears] }),
   );
   advanceUntil(g, (s) => s.priority.awaiting?.kind === 'scryChoice', 20_000);
   const lib = g.state.zones.library['p1'] ?? [];

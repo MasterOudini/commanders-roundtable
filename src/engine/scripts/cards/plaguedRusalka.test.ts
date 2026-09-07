@@ -37,7 +37,7 @@ describe('Plagued Rusalka', () => {
         player: 'p1',
         card: rusalka,
         abilityIndex: 0,
-        sacrifice: bears,
+        sacrifice: [bears],
         targets: [{ kind: 'card', id: victim }],
       }),
     );
@@ -55,7 +55,7 @@ describe('Plagued Rusalka', () => {
         player: 'p1',
         card: rusalka,
         abilityIndex: 0,
-        sacrifice: rusalka,
+        sacrifice: [rusalka],
         targets: [{ kind: 'card', id: victim }],
       }),
     );
@@ -72,7 +72,7 @@ describe('Plagued Rusalka', () => {
         player: 'p1',
         card: rusalka,
         abilityIndex: 0,
-        sacrifice: bears,
+        sacrifice: [bears],
         targets: [{ kind: 'card', id: victim }],
       }),
     );

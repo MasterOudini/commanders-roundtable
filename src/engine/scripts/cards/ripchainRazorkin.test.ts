@@ -32,7 +32,7 @@ function drawn(): { g: Game; mid: number } {
       player: 'p1',
       card: razorkin,
       abilityIndex: 0,
-      sacrifice: mountain,
+      sacrifice: [mountain],
     }),
   );
   settle(g);

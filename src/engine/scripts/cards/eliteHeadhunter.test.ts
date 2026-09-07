@@ -35,7 +35,7 @@ describe('Elite Headhunter', () => {
   test('another creature pays, and the 2 damage kills the target', () => {
     const { g, headhunter, myBears, theirs } = board();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: headhunter, abilityIndex: 0, sacrifice: myBears }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: headhunter, abilityIndex: 0, sacrifice: [myBears] }),
     );
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: theirs }] }));
     expect(g.state.cards[myBears]?.zone.kind).toBe('graveyard');
@@ -51,7 +51,7 @@ describe('Elite Headhunter', () => {
       player: 'p1',
       card: headhunter,
       abilityIndex: 0,
-      sacrifice: headhunter,
+      sacrifice: [headhunter],
     });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
@@ -60,7 +60,7 @@ describe('Elite Headhunter', () => {
   test('replays to the same hash', () => {
     const { g, headhunter, myBears, theirs } = board();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: headhunter, abilityIndex: 0, sacrifice: myBears }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: headhunter, abilityIndex: 0, sacrifice: [myBears] }),
     );
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: theirs }] }));
     settle(g);

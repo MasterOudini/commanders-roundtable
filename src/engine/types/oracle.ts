@@ -681,6 +681,14 @@ export interface ActivatedAbility {
    * grammar so "a Forest or a Plains" reads one way everywhere.
    */
   readonly sacrificeCost: {
+    /**
+     * D353 - how many permanents the cost eats. 1 for "a"/"an"/"another"; the
+     * counted wordings ("Sacrifice two lands", "Sacrifice three Treasures")
+     * read their number here, exactly as the discard and tap choosers have
+     * since D286. ⚠️ A COMPOUND cost ("Sacrifice two lands and this artifact")
+     * is two prices in one phrase and stays in `unpaidCosts`.
+     */
+    readonly count: number;
     readonly another: boolean;
     readonly any: readonly import('../../data/replacementParse').PermanentPredicate[];
   } | null;
@@ -745,6 +753,12 @@ export interface ActivatedAbility {
    * `Sacrifice a creature` (a choice) stays in `unpaidCosts`.
    */
   readonly sacrificesSelf: boolean;
+  /**
+   * D353 - `Put a -1/-1 counter on this creature`: `removeCounterCost`'s
+   * mirror. SELF only and a fixed count, so it is a price rather than a
+   * decision; "on a creature you control" is a chooser and stays unpaid.
+   */
+  readonly putCounterCost: { readonly kind: string; readonly count: number } | null;
   /** Cost components the engine cannot charge, verbatim: `Sacrifice a creature`, `+1`. */
   /**
    * D319 - "Remove a +1/+1 counter from this creature": SELF only and a fixed

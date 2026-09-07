@@ -41,7 +41,7 @@ describe('Warren Soultrader', () => {
         player: 'p1',
         card: trader,
         abilityIndex: 0,
-        sacrifice: fodder,
+        sacrifice: [fodder],
       }),
     );
     settle(g);
@@ -58,7 +58,7 @@ describe('Warren Soultrader', () => {
       player: 'p1',
       card: trader,
       abilityIndex: 0,
-      sacrifice: trader,
+      sacrifice: [trader],
     });
     expect(res.ok).toBe(false);
   });
@@ -71,7 +71,7 @@ describe('Warren Soultrader', () => {
         player: 'p1',
         card: trader,
         abilityIndex: 0,
-        sacrifice: fodder,
+        sacrifice: [fodder],
       }),
     );
     settle(g);

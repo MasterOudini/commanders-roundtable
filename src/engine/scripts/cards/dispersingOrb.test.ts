@@ -35,7 +35,7 @@ function board(): { g: Game; orb: InstanceId; mountain: InstanceId; theirs: Inst
 describe('Dispersing Orb', () => {
   test('a land pays "a permanent", and the bounce reaches the OWNER\'s hand', () => {
     const { g, orb, mountain, theirs } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: orb, abilityIndex: 0, sacrifice: mountain }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: orb, abilityIndex: 0, sacrifice: [mountain] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: theirs }] }));
     expect(g.state.cards[mountain]?.zone.kind).toBe('graveyard');
     settle(g);
@@ -46,7 +46,7 @@ describe('Dispersing Orb', () => {
 
   test('replays to the same hash', () => {
     const { g, orb, mountain, theirs } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: orb, abilityIndex: 0, sacrifice: mountain }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: orb, abilityIndex: 0, sacrifice: [mountain] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: theirs }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

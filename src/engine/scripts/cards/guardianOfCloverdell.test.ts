@@ -46,7 +46,7 @@ describe('Guardian of Cloverdell', () => {
     const { g, guardian } = planted();
     const [soldier] = soldiersOf(g, 'p1') as [InstanceId];
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'G', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: guardian, abilityIndex: 0, sacrifice: soldier }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: guardian, abilityIndex: 0, sacrifice: [soldier] }));
     settle(g);
     expect(g.state.players['p1']?.life).toBe(41);
     expect(soldiersOf(g, 'p1').length).toBe(2);
@@ -56,7 +56,7 @@ describe('Guardian of Cloverdell', () => {
   test('the Treefolk is refused as the Kithkin price', () => {
     const { g, guardian } = planted();
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'G', amount: 1 }));
-    const res = g.submit({ t: 'ActivateAbility', player: 'p1', card: guardian, abilityIndex: 0, sacrifice: guardian });
+    const res = g.submit({ t: 'ActivateAbility', player: 'p1', card: guardian, abilityIndex: 0, sacrifice: [guardian] });
     expect(res.ok).toBe(false);
   });
 
@@ -64,7 +64,7 @@ describe('Guardian of Cloverdell', () => {
     const { g, guardian } = planted();
     const [soldier] = soldiersOf(g, 'p1') as [InstanceId];
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'G', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: guardian, abilityIndex: 0, sacrifice: soldier }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: guardian, abilityIndex: 0, sacrifice: [soldier] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 2, 60_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());

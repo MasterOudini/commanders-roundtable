@@ -40,7 +40,7 @@ describe('Thallid Soothsayer', () => {
     const { g, sooth, bears } = game();
     const before = hand(g);
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: sooth, abilityIndex: 0, sacrifice: bears }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: sooth, abilityIndex: 0, sacrifice: [bears] }),
     );
     settle(g);
     expect(g.state.cards[bears]?.zone.kind).toBe('graveyard');
@@ -51,7 +51,7 @@ describe('Thallid Soothsayer', () => {
     const { g, sooth } = game();
     const before = hand(g);
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: sooth, abilityIndex: 0, sacrifice: sooth }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: sooth, abilityIndex: 0, sacrifice: [sooth] }),
     );
     settle(g);
     expect(g.state.cards[sooth]?.zone.kind).toBe('graveyard');
@@ -65,7 +65,7 @@ describe('Thallid Soothsayer', () => {
       player: 'p1',
       card: sooth,
       abilityIndex: 0,
-      sacrifice: ring,
+      sacrifice: [ring],
     });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
@@ -74,7 +74,7 @@ describe('Thallid Soothsayer', () => {
   test('replays to the same hash', () => {
     const { g, sooth, bears } = game();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: sooth, abilityIndex: 0, sacrifice: bears }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: sooth, abilityIndex: 0, sacrifice: [bears] }),
     );
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

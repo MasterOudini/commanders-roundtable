@@ -38,7 +38,7 @@ describe('Akki Scrapchomper', () => {
   test('the LAND arm pays, the Chomper turns, and the draw arrives', () => {
     const { g, chomper, land } = game();
     const handBefore = idsIn(g, 'p1', 'hand').length;
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: chomper, abilityIndex: 0, sacrifice: land }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: chomper, abilityIndex: 0, sacrifice: [land] }));
     settle(g);
     expect(g.state.cards[land]?.zone.kind).toBe('graveyard');
     expect(idsIn(g, 'p1', 'hand').length).toBe(handBefore + 1);
@@ -47,7 +47,7 @@ describe('Akki Scrapchomper', () => {
 
   test('a CREATURE is neither artifact nor land and cannot pay', () => {
     const { g, chomper, bears } = game();
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: chomper, abilityIndex: 0, sacrifice: bears });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: chomper, abilityIndex: 0, sacrifice: [bears] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
     expect(g.state.cards[bears]?.zone.kind).toBe('battlefield');
@@ -55,7 +55,7 @@ describe('Akki Scrapchomper', () => {
 
   test('replays to the same hash', () => {
     const { g, chomper, land } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: chomper, abilityIndex: 0, sacrifice: land }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: chomper, abilityIndex: 0, sacrifice: [land] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 4, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());

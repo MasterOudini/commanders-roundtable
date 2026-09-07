@@ -54,11 +54,11 @@ function armed(which: number): Armed {
   if (which === 1) {
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 3 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'B', amount: 2 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: fodder0 }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: [fodder0] }));
     settle(g);
     }
   if (which === 2) {
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 1, sacrifice: fodder0 }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 1, sacrifice: [fodder0] }));
     settle(g);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'CastSpell', player: 'p1', card: bolt, targets: [{ kind: 'card', id: self }] }));

@@ -314,7 +314,7 @@ export function PromptBar() {
               : mode.kind === 'attach'
                 ? `Where does ${mode.name} go?`
                 : mode.kind === 'sacrifice'
-                  ? `Choose what ${mode.name} sacrifices`
+                  ? `Choose what ${mode.name} sacrifices — ${mode.count - mode.chosen.length} more`
                   : mode.kind === 'costPick'
                     ? `${mode.verb === 'discard' ? 'Discard' : mode.verb === 'tap' ? 'Tap' : mode.verb === 'returnToHand' ? 'Return to hand' : 'Exile from your graveyard'} ${mode.count - mode.chosen.length} more for ${mode.name}`
                     : describe(awaiting, priority, seats, viewer)}

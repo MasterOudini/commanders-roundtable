@@ -529,7 +529,6 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       // the offer, and the intent must NAME one or the host rejects it — pick
       // at random so the chooser is exercised across the gate's games.
       const sacs = chosen.sacrificeCandidates;
-      const sac = sacs && sacs.length > 0 ? sacs[p.below(sacs.length)] : undefined;
       // D286: a discard- or tap-cost ability arrives with its candidates and
       // its count; pick that many at random the same way.
       const pickN = <T>(pool: readonly T[] | undefined, n: number | undefined): readonly T[] | undefined => {
@@ -545,6 +544,8 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       const taps = chosen.tapPower !== undefined ? [...(chosen.tapCandidates ?? [])] : pickN(chosen.tapCandidates, chosen.tapCount);
       // D352 - the return chooser: exactly N permanents you control, the same way.
       const returns = pickN(chosen.returnCandidates, chosen.returnCount);
+      // D353 - the sacrifice chooser counts now: exactly N distinct candidates.
+      const sac = pickN(sacs, chosen.sacrificeCount);
       return {
         t: 'ActivateAbility',
         player: holder,

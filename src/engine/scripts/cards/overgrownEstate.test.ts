@@ -34,7 +34,7 @@ describe('Overgrown Estate', () => {
         player: 'p1',
         card: estate,
         abilityIndex: 0,
-        sacrifice: land,
+        sacrifice: [land],
       }),
     );
     settle(g);
@@ -50,7 +50,7 @@ describe('Overgrown Estate', () => {
         player: 'p1',
         card: estate,
         abilityIndex: 0,
-        sacrifice: land,
+        sacrifice: [land],
       }),
     );
     settle(g);

@@ -47,9 +47,9 @@ function armed(which: number): Armed {
   const lib0 = (g.state.zones.library.p1 ?? []).length;
   let refused = false;
   if (which === 0) {
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: fodder0 }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: [fodder0] }));
     settle(g);
-    { const again = g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: fodder0 }); refused = !again.ok && again.reason === 'timingRestriction'; }
+    { const again = g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: [fodder0] }); refused = !again.ok && again.reason === 'timingRestriction'; }
     settle(g);
     }
   return { g, self, no, life0, hand0, board0, p2life0, gy0, lib0, refused, fodder0 };

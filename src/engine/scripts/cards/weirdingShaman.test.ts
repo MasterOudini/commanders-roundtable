@@ -36,7 +36,7 @@ function board(): { g: Game; shaman: InstanceId; goblin: InstanceId } {
   return { g, shaman, goblin };
 }
 
-function activate(g: Game, shaman: InstanceId, sacrifice: InstanceId): void {
+function activate(g: Game, shaman: InstanceId, sacrifice: readonly InstanceId[]): void {
   must(
     g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 0, sacrifice }),
   );
@@ -46,7 +46,7 @@ function activate(g: Game, shaman: InstanceId, sacrifice: InstanceId): void {
 describe('Weirding Shaman', () => {
   test('eating ANOTHER Goblin leaves two DISTINCT Rogues', () => {
     const { g, shaman, goblin } = board();
-    activate(g, shaman, goblin);
+    activate(g, shaman, [goblin]);
     expect(g.state.cards[goblin]?.zone.kind).toBe('graveyard');
     expect(g.state.cards[shaman]?.zone.kind).toBe('battlefield');
     const made = rogues(g);
@@ -56,7 +56,7 @@ describe('Weirding Shaman', () => {
 
   test('it may eat ITSELF — "a Goblin" is not "another" — and still pays out', () => {
     const { g, shaman } = board();
-    activate(g, shaman, shaman);
+    activate(g, shaman, [shaman]);
     expect(g.state.cards[shaman]?.zone.kind).toBe('graveyard');
     const made = rogues(g);
     expect(made).toHaveLength(2);
@@ -65,7 +65,7 @@ describe('Weirding Shaman', () => {
 
   test('replays to the same hash', () => {
     const { g, shaman, goblin } = board();
-    activate(g, shaman, goblin);
+    activate(g, shaman, [goblin]);
     advanceUntil(g, (s) => s.turn.turnNumber >= 2, 60_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });

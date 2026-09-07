@@ -38,7 +38,7 @@ function armed(which: number): Armed {
   const p2life0 = g.state.players.p2?.life ?? 0;
   const gy0 = (g.state.zones.graveyard.p1 ?? []).length;
   if (which === 0) {
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: fodder0 }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: [fodder0] }));
     settle(g);
     }
   return { g, self, no, life0, hand0, board0, p2life0, gy0, fodder0 };

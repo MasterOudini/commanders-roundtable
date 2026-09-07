@@ -40,7 +40,7 @@ describe('Orcish Mechanics', () => {
         player: 'p1',
         card: mech,
         abilityIndex: 0,
-        sacrifice: ring,
+        sacrifice: [ring],
       }),
     );
     expect(g.state.priority.awaiting?.kind).toBe('chooseTargets');
@@ -58,7 +58,7 @@ describe('Orcish Mechanics', () => {
         player: 'p1',
         card: mech,
         abilityIndex: 0,
-        sacrifice: ring,
+        sacrifice: [ring],
       }),
     );
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));

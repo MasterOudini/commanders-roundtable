@@ -50,7 +50,7 @@ describe('Phyrexian Plaguelord', () => {
 
   test('sacrifice a creature, no mana: -1/-1', () => {
     const { g, lord, titan, fodder } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: lord, abilityIndex: 1, sacrifice: fodder }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: lord, abilityIndex: 1, sacrifice: [fodder] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: titan }] }));
     settle(g);
     expect(pt(g, titan)).toEqual({ power: 5, toughness: 5 });
@@ -60,7 +60,7 @@ describe('Phyrexian Plaguelord', () => {
 
   test('replays to the same hash', () => {
     const { g, lord, titan, fodder } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: lord, abilityIndex: 1, sacrifice: fodder }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: lord, abilityIndex: 1, sacrifice: [fodder] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: titan }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 4, 60_000);

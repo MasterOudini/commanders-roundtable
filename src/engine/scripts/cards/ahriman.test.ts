@@ -37,6 +37,7 @@ describe('Ahriman', () => {
     expect(abilities).toHaveLength(1);
     expect(abilities[0]?.payable).toBe(true);
     expect(abilities[0]?.sacrificeCost).toEqual({
+      count: 1,
       another: true,
       any: [
         { supertypes: [], types: ['Creature'], subtypes: [], colors: [] },
@@ -67,7 +68,7 @@ describe('Ahriman', () => {
     settle(g);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 3 }));
     const handBefore = idsIn(g, 'p1', 'hand').length;
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: eye, abilityIndex: 0, sacrifice: archive }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: eye, abilityIndex: 0, sacrifice: [archive] }));
     expect(g.state.cards[archive]?.zone.kind).toBe('graveyard');
     settle(g);
     expect(idsIn(g, 'p1', 'hand').length).toBe(handBefore + 1);
@@ -80,7 +81,7 @@ describe('Ahriman', () => {
     put(g, 'p1', BEARS);
     settle(g);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 3 }));
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: eye, abilityIndex: 0, sacrifice: eye });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: eye, abilityIndex: 0, sacrifice: [eye] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
     expect(g.state.cards[eye]?.zone.kind).toBe('battlefield');
@@ -92,7 +93,7 @@ describe('Ahriman', () => {
     const bears = put(g, 'p1', BEARS);
     settle(g);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 3 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: eye, abilityIndex: 0, sacrifice: bears }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: eye, abilityIndex: 0, sacrifice: [bears] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());

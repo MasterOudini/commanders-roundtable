@@ -29,7 +29,7 @@ function drained(): { g: Game; druid: string; bears: string; enchantment: string
       player: 'p1',
       card: druid,
       abilityIndex: 0,
-      sacrifice: bears,
+      sacrifice: [bears],
       targets: [{ kind: 'card', id: enchantment }],
     }),
   );

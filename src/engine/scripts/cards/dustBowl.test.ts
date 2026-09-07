@@ -31,7 +31,7 @@ function armed(): { g: Game; self: InstanceId; target: InstanceId; wrong: Instan
   advanceUntil(g, (s) => s.turn.turnNumber === 3 && s.turn.phase === 'precombatMain' && s.priority.player === 'p1' && s.priority.awaiting === null, 20_000);
   const life0 = g.state.players.p1?.life ?? 0;
   must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 3 }));
-  must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 1, sacrifice: forest }));
+  must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 1, sacrifice: [forest] }));
   return { g, self, target, wrong, life0, forest };
 }
 

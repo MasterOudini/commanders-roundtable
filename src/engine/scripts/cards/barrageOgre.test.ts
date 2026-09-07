@@ -33,7 +33,7 @@ function game(): { g: Game; ogre: InstanceId; archive: InstanceId } {
 describe('Barrage Ogre', () => {
   test('the artifact pays, the Ogre turns, and the target takes 2', () => {
     const { g, ogre, archive } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: ogre, abilityIndex: 0, sacrifice: archive }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: ogre, abilityIndex: 0, sacrifice: [archive] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     expect(g.state.cards[archive]?.zone.kind).toBe('graveyard');
@@ -43,7 +43,7 @@ describe('Barrage Ogre', () => {
 
   test('replays to the same hash', () => {
     const { g, ogre, archive } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: ogre, abilityIndex: 0, sacrifice: archive }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: ogre, abilityIndex: 0, sacrifice: [archive] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 4, 20_000);

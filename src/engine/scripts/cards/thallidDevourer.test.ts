@@ -71,7 +71,7 @@ function armed(which: number): Armed {
     settle(g);
     }
   if (which === 2) {
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 1, sacrifice: fodder0 }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 1, sacrifice: [fodder0] }));
     settle(g);
     }
   return { g, self, no, life0, hand0, board0, p2life0, gy0, lib0, cnt0, pt0, fodder0 };

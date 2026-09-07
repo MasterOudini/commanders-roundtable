@@ -48,7 +48,7 @@ describe('Thraxodemon', () => {
     const { g, demon, bears } = game();
     const before = hand(g);
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: demon, abilityIndex: 0, sacrifice: bears }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: demon, abilityIndex: 0, sacrifice: [bears] }),
     );
     settle(g);
     expect(g.state.cards[bears]?.zone.kind).toBe('graveyard');
@@ -58,7 +58,7 @@ describe('Thraxodemon', () => {
   test('an ARTIFACT is the other arm', () => {
     const { g, demon, ring } = game();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: demon, abilityIndex: 0, sacrifice: ring }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: demon, abilityIndex: 0, sacrifice: [ring] }),
     );
     settle(g);
     expect(g.state.cards[ring]?.zone.kind).toBe('graveyard');
@@ -71,7 +71,7 @@ describe('Thraxodemon', () => {
       player: 'p1',
       card: demon,
       abilityIndex: 0,
-      sacrifice: demon,
+      sacrifice: [demon],
     });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
@@ -84,7 +84,7 @@ describe('Thraxodemon', () => {
       player: 'p1',
       card: demon,
       abilityIndex: 0,
-      sacrifice: forest,
+      sacrifice: [forest],
     });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
@@ -93,7 +93,7 @@ describe('Thraxodemon', () => {
   test('replays to the same hash', () => {
     const { g, demon, bears } = game();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: demon, abilityIndex: 0, sacrifice: bears }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: demon, abilityIndex: 0, sacrifice: [bears] }),
     );
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 5, 60_000);

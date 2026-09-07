@@ -38,7 +38,7 @@ function game(): { g: Game; agent: InstanceId; fountain: InstanceId; bears: Inst
 describe('Agent of Shauku', () => {
   test('the chain: pick rides the intent, targets are STAGED, the cost waits for the answer', () => {
     const { g, agent, fountain, bears } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: agent, abilityIndex: 0, sacrifice: fountain }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: agent, abilityIndex: 0, sacrifice: [fountain] }));
     // The prompt is up and NOTHING has been paid yet — CR 601.2c before 601.2g.
     expect(g.state.priority.awaiting?.kind).toBe('chooseTargets');
     expect(g.state.cards[fountain]?.zone.kind).toBe('battlefield');
@@ -63,7 +63,7 @@ describe('Agent of Shauku', () => {
 
   test('replays to the same hash', () => {
     const { g, agent, fountain, bears } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: agent, abilityIndex: 0, sacrifice: fountain }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: agent, abilityIndex: 0, sacrifice: [fountain] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

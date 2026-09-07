@@ -34,11 +34,11 @@ describe('Ravenous Baloth', () => {
       player: 'p1',
       card: baloth,
       abilityIndex: 0,
-      sacrifice: bears,
+      sacrifice: [bears],
     });
     expect(wrong.ok).toBe(false);
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: baloth, abilityIndex: 0, sacrifice: baloth }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: baloth, abilityIndex: 0, sacrifice: [baloth] }),
     );
     settle(g);
     expect(g.state.cards[baloth]?.zone.kind).toBe('graveyard');
@@ -48,7 +48,7 @@ describe('Ravenous Baloth', () => {
   test('replays to the same hash', () => {
     const { g, baloth } = fed();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: baloth, abilityIndex: 0, sacrifice: baloth }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: baloth, abilityIndex: 0, sacrifice: [baloth] }),
     );
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 4, 20_000);

@@ -33,7 +33,7 @@ function board(): { g: Game; orb: InstanceId; land: InstanceId; bears: InstanceI
 describe('Zuran Orb', () => {
   test('a land buys 2 life, no mana needed', () => {
     const { g, orb, land } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: orb, abilityIndex: 0, sacrifice: land }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: orb, abilityIndex: 0, sacrifice: [land] }));
     settle(g);
     expect(g.state.cards[land]?.zone.kind).toBe('graveyard');
     expect(g.state.players['p1']?.life).toBe(42);
@@ -41,13 +41,13 @@ describe('Zuran Orb', () => {
 
   test('a creature is refused as the sacrifice', () => {
     const { g, orb, bears } = board();
-    const res = g.submit({ t: 'ActivateAbility', player: 'p1', card: orb, abilityIndex: 0, sacrifice: bears });
+    const res = g.submit({ t: 'ActivateAbility', player: 'p1', card: orb, abilityIndex: 0, sacrifice: [bears] });
     expect(res.ok).toBe(false);
   });
 
   test('replays to the same hash', () => {
     const { g, orb, land } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: orb, abilityIndex: 0, sacrifice: land }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: orb, abilityIndex: 0, sacrifice: [land] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 2, 60_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());

@@ -38,7 +38,7 @@ function saged(): { g: Game; mid: number; ring: InstanceId } {
       player: 'p1',
       card: sage,
       abilityIndex: 0,
-      sacrifice: ring,
+      sacrifice: [ring],
     }),
   );
   settle(g);

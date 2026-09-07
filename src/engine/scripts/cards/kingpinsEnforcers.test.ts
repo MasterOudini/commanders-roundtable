@@ -39,7 +39,7 @@ describe("Kingpin's Enforcers", () => {
         player: 'p1',
         card: enforcers,
         abilityIndex: 0,
-        sacrifice: archive,
+        sacrifice: [archive],
       }),
     );
     settle(g);
@@ -55,7 +55,7 @@ describe("Kingpin's Enforcers", () => {
         player: 'p1',
         card: enforcers,
         abilityIndex: 0,
-        sacrifice: archive,
+        sacrifice: [archive],
       }),
     );
     settle(g);

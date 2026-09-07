@@ -34,7 +34,7 @@ function armed(which: number): Armed {
   if (which === 1) {
     // D342 - the opponent's second turn: not your turn, not your upkeep - refused for the condition alone.
     advanceUntil(g, (s) => s.turn.turnNumber === 2 && s.turn.step === 'upkeep' && s.priority.player === 'p1' && s.priority.awaiting === null, 20_000);
-    { const early = g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: fodder0 }); condRefused = !early.ok && early.reason === 'timingRestriction'; }
+    { const early = g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: [fodder0] }); condRefused = !early.ok && early.reason === 'timingRestriction'; }
   }
   // p1's third-turn main phase: past summoning sickness (CR 302.6); the holds keep priority here.
   advanceUntil(g, (s) => s.turn.turnNumber === 3 && s.turn.phase === 'precombatMain' && s.priority.player === 'p1' && s.priority.awaiting === null, 20_000);
@@ -52,7 +52,7 @@ function armed(which: number): Armed {
     }
   if (which === 1) {
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: fodder0 }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: [fodder0] }));
     settle(g);
     }
   return { g, self, no, life0, hand0, board0, p2life0, gy0, lib0, condRefused, fodder0 };

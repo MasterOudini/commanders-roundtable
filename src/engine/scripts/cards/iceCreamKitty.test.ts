@@ -40,7 +40,7 @@ function armed(which: number): Armed {
   const lib0 = (g.state.zones.library.p1 ?? []).length;
   if (which === 0) {
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 2 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: fodder0 }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: [fodder0] }));
     settle(g);
     }
   if (which === 1) {

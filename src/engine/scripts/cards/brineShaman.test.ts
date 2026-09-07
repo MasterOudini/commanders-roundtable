@@ -74,7 +74,7 @@ function pt(g: Game, id: InstanceId): { power: number | null; toughness: number 
 describe('Brine Shaman', () => {
   test('{T}, sacrifice a creature: +2/+2', () => {
     const { g, shaman, target, fodder } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 0, sacrifice: fodder }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 0, sacrifice: [fodder] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: target }] }));
     settle(g);
     expect(pt(g, target)).toEqual({ power: 4, toughness: 4 });
@@ -84,7 +84,7 @@ describe('Brine Shaman', () => {
 
   test('{1}{U}{U}, sacrifice a creature: the held creature spell is countered', () => {
     const { g, shaman, fodder, spell, stackId } = held(BEARS, { symbol: 'G', colorless: 1 });
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 1, sacrifice: fodder }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 1, sacrifice: [fodder] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'stack', id: stackId }] }));
     settle(g);
     expect(g.state.cards[spell]?.zone.kind).toBe('graveyard');
@@ -94,14 +94,14 @@ describe('Brine Shaman', () => {
 
   test('an enchantment spell is refused at the aim ("creature spell")', () => {
     const { g, shaman, fodder, stackId } = held(FRACTURE, { symbol: 'W', colorless: 2 });
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 1, sacrifice: fodder }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 1, sacrifice: [fodder] }));
     const res = g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'stack', id: stackId }] });
     expect(res.ok).toBe(false);
   });
 
   test('replays to the same hash', () => {
     const { g, shaman, fodder, stackId } = held(BEARS, { symbol: 'G', colorless: 1 });
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 1, sacrifice: fodder }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: shaman, abilityIndex: 1, sacrifice: [fodder] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'stack', id: stackId }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

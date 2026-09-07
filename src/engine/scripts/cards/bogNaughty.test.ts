@@ -36,7 +36,7 @@ function game(): { g: Game; naughty: InstanceId; food: InstanceId; bears: Instan
 describe('Bog Naughty', () => {
   test('the Food pays, and -3/-3 kills the 2/2 through the SBA', () => {
     const { g, naughty, food, bears } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: naughty, abilityIndex: 0, sacrifice: food }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: naughty, abilityIndex: 0, sacrifice: [food] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));
     settle(g);
     // The Food died paying and then CEASED (CR 704.5d) — a token in a
@@ -48,14 +48,14 @@ describe('Bog Naughty', () => {
 
   test('the Bog Naughty itself cannot pay a Food-only cost', () => {
     const { g, naughty } = game();
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: naughty, abilityIndex: 0, sacrifice: naughty });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: naughty, abilityIndex: 0, sacrifice: [naughty] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
   });
 
   test('replays to the same hash', () => {
     const { g, naughty, food, bears } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: naughty, abilityIndex: 0, sacrifice: food }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: naughty, abilityIndex: 0, sacrifice: [food] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

@@ -162731,6 +162731,517 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "WHISPER_BLOOD_LITURGIST": {
+    "scryfallId": "0647feeb-ad7a-40c7-830f-f307ba8339ad",
+    "oracleId": "496ab82e-24a9-4a74-ba4b-992c7309b44a",
+    "name": "Whisper, Blood Liturgist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Whisper, Blood Liturgist",
+        "manaCost": "{3}{B}",
+        "typeLine": "Legendary Creature — Human Cleric",
+        "oracleText": "{T}, Sacrifice two creatures: Return target creature card from your graveyard to the battlefield.",
+        "flavorText": "\"Look how they beg for the knife! The Demonlord has trained them well.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "0647feeb-ad7a-40c7-830f-f307ba8339ad"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dom",
+    "collectorNumber": "111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KELDON_ARSONIST": {
+    "scryfallId": "113f58b1-d8d7-4544-8363-e2b96e9d2623",
+    "oracleId": "d32f973e-38db-4f74-aec6-258d25c1fb7d",
+    "name": "Keldon Arsonist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Keldon Arsonist",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "{1}, Sacrifice two lands: Destroy target land.",
+        "flavorText": "\"Fields can be replanted. Settlements can be rebuilt. Burn it all.\"\n—Latulla, Keldon overseer",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "113f58b1-d8d7-4544-8363-e2b96e9d2623"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pcy",
+    "collectorNumber": "92",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_WARRENS": {
+    "scryfallId": "1255654b-f983-4862-9112-9e378ea5d9fe",
+    "oracleId": "c1161505-1623-4475-a88e-2e48072cc2f1",
+    "name": "Goblin Warrens",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Warrens",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "{2}{R}, Sacrifice two Goblins: Create three 1/1 red Goblin creature tokens.",
+        "flavorText": "\"Goblins bred underground, their numbers hidden from the enemy until it was too late.\"\n—*Sarpadian Empires*, vol. IV",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dan Frazier",
+        "imageId": "1255654b-f983-4862-9112-9e378ea5d9fe"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "6ed",
+    "collectorNumber": "187",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAVVY_HUNTER": {
+    "scryfallId": "15c98441-2b31-4e48-a399-f36dffcfa41d",
+    "oracleId": "602132c2-8ee8-41f8-bfac-cb17d32203f5",
+    "name": "Savvy Hunter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Savvy Hunter",
+        "manaCost": "{1}{B}{G}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Whenever this creature attacks or blocks, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")\nSacrifice two Foods: Draw a card.",
+        "flavorText": "None of the other villagers dare venture into the wilds, so she feeds the whole hamlet herself.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Dan Dos Santos",
+        "imageId": "15c98441-2b31-4e48-a399-f36dffcfa41d"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Food"
+    ],
+    "setCode": "eld",
+    "collectorNumber": "200",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NECROSAVANT": {
+    "scryfallId": "164a9755-f003-456d-a827-d6ef6cc29a86",
+    "oracleId": "6732a587-e3cc-4c30-9267-f8949dd8724a",
+    "name": "Necrosavant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Necrosavant",
+        "manaCost": "{3}{B}{B}{B}",
+        "typeLine": "Creature — Zombie Giant",
+        "oracleText": "{3}{B}{B}, Sacrifice a creature: Return this card from your graveyard to the battlefield. Activate only during your upkeep.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "John Coulthart",
+        "imageId": "164a9755-f003-456d-a827-d6ef6cc29a86"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "6ed",
+    "collectorNumber": "145",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEVOTED_DRUID": {
+    "scryfallId": "1ab94f16-778d-4437-a1b9-2f67cd214cc0",
+    "oracleId": "cb814e16-acf7-41d5-a357-1323dcc369f3",
+    "name": "Devoted Druid",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Devoted Druid",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "{T}: Add {G}.\nPut a -1/-1 counter on this creature: Untap this creature.",
+        "flavorText": "\"Mana lurks in all things, even in the depths of one's own heart.\"",
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kimonas Theodossiou",
+        "imageId": "1ab94f16-778d-4437-a1b9-2f67cd214cc0"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "2x2",
+    "collectorNumber": "143",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUTHLESS_KNAVE": {
+    "scryfallId": "1ce91e38-4601-4354-ad1b-2c5c1c70da17",
+    "oracleId": "00225c40-27ff-410f-a591-5c788c6a2bd6",
+    "name": "Ruthless Knave",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ruthless Knave",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Orc Pirate",
+        "oracleText": "{2}{B}, Sacrifice a creature: Create two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")\nSacrifice three Treasures: Draw a card.",
+        "flavorText": "\"This scum is barely worth the trouble.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "1ce91e38-4601-4354-ad1b-2c5c1c70da17"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "119",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KRARK_CLAN_ENGINEERS": {
+    "scryfallId": "2110a5e2-31e1-4a63-96cd-56295f67d436",
+    "oracleId": "0964288c-0397-428a-9a84-784aaea4e040",
+    "name": "Krark-Clan Engineers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Krark-Clan Engineers",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Goblin Artificer",
+        "oracleText": "{R}, Sacrifice two artifacts: Destroy target artifact.",
+        "flavorText": "\"Well, I jammed the whatsit into the whackdoodle, but I think I broke the thingamajigger.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "2110a5e2-31e1-4a63-96cd-56295f67d436"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "5dn",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EATER_OF_HOPE": {
+    "scryfallId": "2e53342b-2df4-4a4e-969f-1e71e45e394d",
+    "oracleId": "3055381a-fb6b-47a3-8e77-a44768808e27",
+    "name": "Eater of Hope",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eater of Hope",
+        "manaCost": "{5}{B}{B}",
+        "typeLine": "Creature — Demon",
+        "oracleText": "Flying\n{B}, Sacrifice another creature: Regenerate this creature.\n{2}{B}, Sacrifice two other creatures: Destroy target creature.",
+        "flavorText": "Gods can be appeased. Demons, however . . .",
+        "power": "6",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Peter Mohrbacher",
+        "imageId": "2e53342b-2df4-4a4e-969f-1e71e45e394d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Regenerate"
+    ],
+    "setCode": "cma",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAULDRON_FAMILIAR": {
+    "scryfallId": "32cf273e-b8f7-434b-9d5d-883dfd6f7423",
+    "oracleId": "a7dc2e62-1c50-4ed7-b71f-2d782a447a5e",
+    "name": "Cauldron Familiar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cauldron Familiar",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "When this creature enters, each opponent loses 1 life and you gain 1 life.\nSacrifice a Food: Return this card from your graveyard to the battlefield.",
+        "flavorText": "Every day the cat returns to kill the same mouse, which sinks again into the cauldron's brew.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Milivoj Ćeran",
+        "imageId": "32cf273e-b8f7-434b-9d5d-883dfd6f7423"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "216",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TYMARET_THE_MURDER_KING": {
+    "scryfallId": "4c4ce848-a57d-4e88-8093-9fb1408523bc",
+    "oracleId": "0a029c61-b1de-427b-a8e8-36f3a23f001b",
+    "name": "Tymaret, the Murder King",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tymaret, the Murder King",
+        "manaCost": "{B}{R}",
+        "typeLine": "Legendary Creature — Zombie Warrior",
+        "oracleText": "{1}{R}, Sacrifice another creature: Tymaret deals 2 damage to target player or planeswalker.\n{1}{B}, Sacrifice a creature: Return this card from your graveyard to your hand.",
+        "flavorText": "His memories remained in the Underworld, but his cruelty crossed the Rivers with him.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "4c4ce848-a57d-4e88-8093-9fb1408523bc"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ths",
+    "collectorNumber": "207",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GILDED_ASSAULT_CART": {
+    "scryfallId": "5274c2fa-eb0e-438b-8a48-d0b58829083a",
+    "oracleId": "73da9297-4c7c-4388-820f-1189b5aa0b98",
+    "name": "Gilded Assault Cart",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gilded Assault Cart",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "Trample\nCrew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)\nSacrifice two Treasures: Return this card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Joseph Meehan",
+        "imageId": "5274c2fa-eb0e-438b-8a48-d0b58829083a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Crew",
+      "Trample"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "390",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CINDERHAZE_WRETCH": {
+    "scryfallId": "644319c2-f122-4369-b1f8-56ad7d8ce861",
+    "oracleId": "df6d9787-b423-4067-adf4-c09dcee1329e",
+    "name": "Cinderhaze Wretch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cinderhaze Wretch",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Elemental Shaman",
+        "oracleText": "{T}: Target player discards a card. Activate only during your turn.\nPut a -1/-1 counter on this creature: Untap this creature.",
+        "flavorText": "Thick smoke billows and twists to form disturbing faces that cackle and click their teeth to the popping embers.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "644319c2-f122-4369-b1f8-56ad7d8ce861"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "60",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COFFIN_PUPPETS": {
+    "scryfallId": "afcda8e4-d3dc-44f8-b277-b61fa261666b",
+    "oracleId": "e49771ab-cabb-4a5f-aef3-a0ac8147e6bf",
+    "name": "Coffin Puppets",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Coffin Puppets",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Sacrifice two lands: Return this card from your graveyard to the battlefield. Activate only during your upkeep and only if you control a Swamp.",
+        "flavorText": "The ground won't accept them.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Arnie Swekel",
+        "imageId": "afcda8e4-d3dc-44f8-b277-b61fa261666b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "pcy",
+    "collectorNumber": "60",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUTIFUL_GRIFFIN": {
+    "scryfallId": "b8e40377-990f-41ea-8dd2-62a998dcd128",
+    "oracleId": "f91ff377-a997-4f24-926c-76edcbf91a6c",
+    "name": "Dutiful Griffin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dutiful Griffin",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Griffin",
+        "oracleText": "Flying\n{2}{W}, Sacrifice two enchantments: Return this card from your graveyard to your hand.",
+        "flavorText": "She stayed by her master's side, leaving only to hunt. She would guard him until he woke, however long it took.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ilse Gort",
+        "imageId": "b8e40377-990f-41ea-8dd2-62a998dcd128"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

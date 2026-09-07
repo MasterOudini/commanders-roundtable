@@ -46,7 +46,7 @@ describe('Siege-Gang Commander', () => {
     const [goblin] = goblinsOf(g, 'p1') as [InstanceId];
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: commander, abilityIndex: 0, sacrifice: goblin }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: commander, abilityIndex: 0, sacrifice: [goblin] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     expect(g.state.players['p2']?.life).toBe(38);
@@ -58,7 +58,7 @@ describe('Siege-Gang Commander', () => {
     const [goblin] = goblinsOf(g, 'p1') as [InstanceId];
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: commander, abilityIndex: 0, sacrifice: goblin }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: commander, abilityIndex: 0, sacrifice: [goblin] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 2, 60_000);

@@ -45,7 +45,7 @@ describe('Sweettooth Witch', () => {
     const { g, witch } = cooked();
     const [food] = foods(g, 'p1') as [InstanceId];
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 2 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: witch, abilityIndex: 0, sacrifice: food }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: witch, abilityIndex: 0, sacrifice: [food] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     expect(g.state.players['p2']?.life).toBe(38);
@@ -57,7 +57,7 @@ describe('Sweettooth Witch', () => {
     const { g, witch } = cooked();
     const [food] = foods(g, 'p1') as [InstanceId];
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 2 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: witch, abilityIndex: 0, sacrifice: food }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: witch, abilityIndex: 0, sacrifice: [food] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 2, 60_000);

@@ -38,7 +38,7 @@ function board(): { g: Game; blighter: InstanceId; goblin: InstanceId; myBears: 
 describe('Earthblighter', () => {
   test('a Goblin pays and the target land is destroyed', () => {
     const { g, blighter, goblin, land } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: blighter, abilityIndex: 0, sacrifice: goblin }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: blighter, abilityIndex: 0, sacrifice: [goblin] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: land }] }));
     expect(g.state.cards[goblin]?.zone.kind).toBe('graveyard');
     settle(g);
@@ -48,14 +48,14 @@ describe('Earthblighter', () => {
 
   test('a NON-Goblin creature cannot pay the Goblin-only cost', () => {
     const { g, blighter, myBears } = board();
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: blighter, abilityIndex: 0, sacrifice: myBears });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: blighter, abilityIndex: 0, sacrifice: [myBears] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
   });
 
   test('replays to the same hash', () => {
     const { g, blighter, goblin, land } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: blighter, abilityIndex: 0, sacrifice: goblin }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: blighter, abilityIndex: 0, sacrifice: [goblin] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: land }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 4, 20_000);

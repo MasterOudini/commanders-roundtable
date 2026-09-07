@@ -48,7 +48,7 @@ describe('Pia and Kiran Nalaar', () => {
     const [thopter] = thoptersOf(g, 'p1') as [InstanceId];
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 2 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: nalaars, abilityIndex: 0, sacrifice: thopter }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: nalaars, abilityIndex: 0, sacrifice: [thopter] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     expect(g.state.players['p2']?.life).toBe(38);
@@ -59,7 +59,7 @@ describe('Pia and Kiran Nalaar', () => {
     const { g, nalaars, bears } = entered();
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 2 }));
-    const res = g.submit({ t: 'ActivateAbility', player: 'p1', card: nalaars, abilityIndex: 0, sacrifice: bears });
+    const res = g.submit({ t: 'ActivateAbility', player: 'p1', card: nalaars, abilityIndex: 0, sacrifice: [bears] });
     expect(res.ok).toBe(false);
   });
 
@@ -68,7 +68,7 @@ describe('Pia and Kiran Nalaar', () => {
     const [thopter] = thoptersOf(g, 'p1') as [InstanceId];
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 2 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: nalaars, abilityIndex: 0, sacrifice: thopter }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: nalaars, abilityIndex: 0, sacrifice: [thopter] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 2, 60_000);

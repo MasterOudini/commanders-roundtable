@@ -36,7 +36,7 @@ describe('Wall of Mulch', () => {
   test('eating the OTHER Wall draws a card', () => {
     const { g, mulch, runes, hand } = board();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: mulch, abilityIndex: 0, sacrifice: runes }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: mulch, abilityIndex: 0, sacrifice: [runes] }),
     );
     settle(g);
     expect(g.state.cards[runes]?.zone.kind).toBe('graveyard');
@@ -47,7 +47,7 @@ describe('Wall of Mulch', () => {
   test('it may eat ITSELF — "a Wall" is not "another"', () => {
     const { g, mulch, hand } = board();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: mulch, abilityIndex: 0, sacrifice: mulch }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: mulch, abilityIndex: 0, sacrifice: [mulch] }),
     );
     settle(g);
     expect(g.state.cards[mulch]?.zone.kind).toBe('graveyard');
@@ -57,7 +57,7 @@ describe('Wall of Mulch', () => {
   test('replays to the same hash', () => {
     const { g, mulch, runes } = board();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: mulch, abilityIndex: 0, sacrifice: runes }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: mulch, abilityIndex: 0, sacrifice: [runes] }),
     );
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 2, 60_000);

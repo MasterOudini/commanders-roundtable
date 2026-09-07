@@ -23,7 +23,7 @@ function vaulted(): { g: Game; vault: string; bears: string; drew: number } {
   advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
   must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 2 }));
   const logAt = g.log.length;
-  must(g.submit({ t: 'ActivateAbility', player: 'p1', card: vault, abilityIndex: 0, sacrifice: bears }));
+  must(g.submit({ t: 'ActivateAbility', player: 'p1', card: vault, abilityIndex: 0, sacrifice: [bears] }));
   settle(g);
   const drew = g.log
     .slice(logAt)

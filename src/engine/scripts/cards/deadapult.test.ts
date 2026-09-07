@@ -34,7 +34,7 @@ function game(): { g: Game; deadapult: InstanceId; zombie: InstanceId; bears: In
 describe('Deadapult', () => {
   test('the Zombie pays and the target player takes 2', () => {
     const { g, deadapult, zombie } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: deadapult, abilityIndex: 0, sacrifice: zombie }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: deadapult, abilityIndex: 0, sacrifice: [zombie] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     expect(g.state.cards[zombie]?.zone.kind).toBe('graveyard');
@@ -43,14 +43,14 @@ describe('Deadapult', () => {
 
   test('a bear is no Zombie', () => {
     const { g, deadapult, bears } = game();
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: deadapult, abilityIndex: 0, sacrifice: bears });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: deadapult, abilityIndex: 0, sacrifice: [bears] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
   });
 
   test('replays to the same hash', () => {
     const { g, deadapult, zombie } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: deadapult, abilityIndex: 0, sacrifice: zombie }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: deadapult, abilityIndex: 0, sacrifice: [zombie] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

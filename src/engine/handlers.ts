@@ -791,9 +791,14 @@ function activateAbility(
     if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
       return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
     }
-    if (!intent.sacrifice) {
-      return reject('needsSacrifice', `${face.name}'s cost sacrifices a permanent — say which one.`);
+    // D353 - EXACTLY `count` DISTINCT permanents, the discard chooser's rule (D286): a
+    // repeated id has length 2 and eats one permanent, which would charge half the cost.
+    const picks = intent.sacrifice ?? [];
+    const want = ability.sacrificeCost.count;
+    if (picks.length !== want) {
+      return reject('needsSacrifice', `${face.name}'s cost sacrifices ${want} permanent${want === 1 ? '' : 's'} — say which.`);
     }
+    if (new Set(picks).size !== picks.length) return reject('noSuchCard', 'You named the same permanent twice.');
     const legalSacs = sacrificeCandidatesFor(
       state,
       (cid: InstanceId) => derive(state, deps.oracle, deps.scripts, cid),
@@ -801,8 +806,8 @@ function activateAbility(
       intent.card,
       ability.sacrificeCost,
     );
-    if (!legalSacs.includes(intent.sacrifice)) {
-      return reject('illegalSacrifice', `That permanent cannot pay ${face.name}'s "${ability.costText}" cost.`);
+    if (!picks.every((c) => legalSacs.includes(c))) {
+      return reject('illegalSacrifice', `Those permanents cannot pay ${face.name}'s "${ability.costText}" cost.`);
     }
   }
   // ⚠️ The DISCARD chooser (D286): the def gate, then the CHOICE — exactly
@@ -913,6 +918,10 @@ function activateAbility(
       return reject('illegalReturn', `Those permanents cannot pay ${face.name}'s "${ability.costText}" cost.`);
     }
   }
+  // D353 - the SELF COUNTER: a deterministic price, so the def gate is the whole check.
+  if (ability.putCounterCost && !activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+    return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
+  }
   // ⚠️ The REMOVE-A-COUNTER cost (D319): the def gate, then the counters must be there.
   if (ability.removeCounterCost) {
     if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
@@ -979,7 +988,7 @@ function activateAbility(
     // The chosen sacrifice rides the pending so the targets prompt cannot
     // lose it (D168); an `Awaiting` blocks every intent in the gap, so the
     // validated choice cannot go stale either.
-    ...(ability.sacrificeCost && intent.sacrifice ? { sacrifice: intent.sacrifice } : {}),
+    ...(ability.sacrificeCost && intent.sacrifice ? { sacrifice: [...intent.sacrifice] } : {}),
     ...(ability.discardCost && intent.discard ? { discard: [...intent.discard] } : {}),
     ...(ability.tapCost && intent.tap ? { tap: [...intent.tap] } : {}),
     ...(ability.exileFromGraveyardCost && intent.exileFromGraveyard ? { exileFromGraveyard: [...intent.exileFromGraveyard] } : {}),
@@ -1499,26 +1508,31 @@ function finishAbility(
   // dies-triggers and the funnel see it like any other death. Validated at
   // activation and unreachable past the def gates, so it can never eat a
   // permanent for a scriptless ability.
-  if (ability.sacrificeCost && pending.sacrifice) {
-    const chosen = state.cards[pending.sacrifice];
-    if (!chosen || chosen.zone.kind !== 'battlefield') {
-      return reject('noSuchCard', 'The permanent chosen for the sacrifice is not on the battlefield.');
+  if (ability.sacrificeCost && pending.sacrifice && pending.sacrifice.length > 0) {
+    // D353 - N permanents in ONE `CardsMoved`, so every death is simultaneous and the
+    // dies-triggers see one batch, exactly as a wipe does.
+    const moves: { card: InstanceId; from: { kind: 'battlefield'; player: PlayerId }; to: { kind: 'graveyard'; player: PlayerId } }[] = [];
+    let chosen = state.cards[pending.sacrifice[0] as InstanceId];
+    for (const id of pending.sacrifice) {
+      const inst = state.cards[id];
+      if (!inst || inst.zone.kind !== 'battlefield') {
+        return reject('noSuchCard', 'A permanent chosen for the sacrifice is not on the battlefield.');
+      }
+      chosen = inst;
+      moves.push({ card: id, from: { kind: 'battlefield', player: inst.controller }, to: { kind: 'graveyard', player: inst.owner } });
     }
-    events.push({
-      t: 'CardsMoved',
-      moves: [
-        {
-          card: pending.sacrifice,
-          from: { kind: 'battlefield', player: chosen.controller },
-          to: { kind: 'graveyard', player: chosen.owner },
-        },
-      ],
-    });
+    events.push({ t: 'CardsMoved', moves });
     // The line names WHAT DIED, not the source — "You sacrifice Grizzly
     // Bears.", with the activation line below saying why (D100's rule: a
     // permanent must never leave the battlefield without the log saying so).
-    const chosenPrinting = deps.oracle.byPrinting(chosen.printingId);
-    const chosenName = chosenPrinting ? faceOf(chosenPrinting, chosen.faceIndex).name : 'a permanent';
+    // ⚠️ ONE permanent is named; N is a count, the discard chooser's wording (D286).
+    const chosenPrinting = chosen ? deps.oracle.byPrinting(chosen.printingId) : null;
+    const chosenName =
+      moves.length > 1
+        ? `${moves.length} permanents`
+        : chosenPrinting && chosen
+          ? faceOf(chosenPrinting, chosen.faceIndex).name
+          : 'a permanent';
     events.push(
       narrated(
         n`${who(state, pending.player)} ${vb(pending.player, 'sacrifices', 'sacrifice')} ${chosenName}.`,
@@ -1685,6 +1699,20 @@ function finishAbility(
     events.push(
       narrated(
         n`${who(state, pending.player)} ${vb(pending.player, 'returns', 'return')} ${face.name} to hand.`,
+        pending.player,
+        identity,
+      ),
+    );
+  }
+  // D353 - THE SELF COUNTER: the counters go ON as the cost is paid (CR 601.2h), the
+  // remove-a-counter cost's mirror. A -1/-1 counter may kill the permanent; the
+  // state-based action does that, not this.
+  if (ability.putCounterCost) {
+    const { kind: counterKind, count } = ability.putCounterCost;
+    events.push({ t: 'CountersChanged', changes: [{ card: pending.card, kind: counterKind, delta: count }] });
+    events.push(
+      narrated(
+        n`${who(state, pending.player)} ${vb(pending.player, 'puts', 'put')} ${count} ${counterKind} counter${count === 1 ? '' : 's'} on ${face.name}.`,
         pending.player,
         identity,
       ),

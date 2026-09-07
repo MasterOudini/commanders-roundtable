@@ -32,7 +32,7 @@ function stranded(): { g: Game; swamp: InstanceId; bears: InstanceId } {
       player: 'p1',
       card: strands,
       abilityIndex: 0,
-      sacrifice: swamp,
+      sacrifice: [swamp],
     }),
   );
   advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);

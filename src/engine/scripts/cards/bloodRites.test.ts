@@ -33,7 +33,7 @@ function game(): { g: Game; rites: InstanceId; bears: InstanceId } {
 describe('Blood Rites', () => {
   test('the creature pays and the target player takes 2', () => {
     const { g, rites, bears } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: rites, abilityIndex: 0, sacrifice: bears }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: rites, abilityIndex: 0, sacrifice: [bears] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     expect(g.state.cards[bears]?.zone.kind).toBe('graveyard');
@@ -42,7 +42,7 @@ describe('Blood Rites', () => {
 
   test('replays to the same hash', () => {
     const { g, rites, bears } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: rites, abilityIndex: 0, sacrifice: bears }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: rites, abilityIndex: 0, sacrifice: [bears] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

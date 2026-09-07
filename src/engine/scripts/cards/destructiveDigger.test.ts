@@ -49,7 +49,7 @@ describe('Destructive Digger', () => {
   test('a land pays the OR cost, and the draw arrives', () => {
     const { g, digger, mountain } = board();
     const logAt = g.log.length;
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: digger, abilityIndex: 0, sacrifice: mountain }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: digger, abilityIndex: 0, sacrifice: [mountain] }));
     expect(g.state.cards[mountain]?.zone.kind).toBe('graveyard');
     settle(g);
     expect(drawsFor(g, 'p1', logAt)).toBe(1);
@@ -58,14 +58,14 @@ describe('Destructive Digger', () => {
 
   test('a creature is NEITHER arm of "an artifact or land"', () => {
     const { g, digger, bears } = board();
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: digger, abilityIndex: 0, sacrifice: bears });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: digger, abilityIndex: 0, sacrifice: [bears] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
   });
 
   test('replays to the same hash', () => {
     const { g, digger, mountain } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: digger, abilityIndex: 0, sacrifice: mountain }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: digger, abilityIndex: 0, sacrifice: [mountain] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 4, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());

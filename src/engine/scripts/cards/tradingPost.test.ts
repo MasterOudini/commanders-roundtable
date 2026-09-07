@@ -58,7 +58,7 @@ describe('Trading Post', () => {
   test('sacrifice a creature: return the artifact card, refuse the creature card', () => {
     const { g, self, fodder, ring, bears } = armed();
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 2, sacrifice: fodder }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 2, sacrifice: [fodder] }));
     expect(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }).ok).toBe(false);
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: ring }] }));
     settle(g);
@@ -70,7 +70,7 @@ describe('Trading Post', () => {
     const { g, self, artifact } = armed();
     const before = (g.state.zones.hand.p1 ?? []).length;
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 3, sacrifice: artifact }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 3, sacrifice: [artifact] }));
     settle(g);
     expect(g.state.cards[artifact]?.zone.kind).toBe('graveyard');
     expect((g.state.zones.hand.p1 ?? []).length).toBe(before + 1);
@@ -79,7 +79,7 @@ describe('Trading Post', () => {
   test('replays to the same hash', () => {
     const { g, self, artifact } = armed();
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 3, sacrifice: artifact }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 3, sacrifice: [artifact] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 4, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());

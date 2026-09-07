@@ -32,7 +32,7 @@ function game(): { g: Game; hound: InstanceId; bears: InstanceId } {
 describe('Blazing Hellhound', () => {
   test('the OTHER creature pays and the target player takes 1', () => {
     const { g, hound, bears } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: hound, abilityIndex: 0, sacrifice: bears }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: hound, abilityIndex: 0, sacrifice: [bears] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     expect(g.state.cards[bears]?.zone.kind).toBe('graveyard');
@@ -41,7 +41,7 @@ describe('Blazing Hellhound', () => {
 
   test('"another" refuses the Hellhound itself', () => {
     const { g, hound } = game();
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: hound, abilityIndex: 0, sacrifice: hound });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: hound, abilityIndex: 0, sacrifice: [hound] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
     expect(g.state.cards[hound]?.zone.kind).toBe('battlefield');
@@ -49,7 +49,7 @@ describe('Blazing Hellhound', () => {
 
   test('replays to the same hash', () => {
     const { g, hound, bears } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: hound, abilityIndex: 0, sacrifice: bears }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: hound, abilityIndex: 0, sacrifice: [bears] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

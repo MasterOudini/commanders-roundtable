@@ -24036,3 +24036,97 @@ Fixtures 4,952 · botPool artifact 395 / creature 4,187 / enchantment 380 / inst
 
 **Reportables** (D352): the cost verbs the derivation still cannot pay (90 across 71 verbs after this one drains: snow mana {S} 13 across three cost forms - a payment the engine does not track at all; a remove-a-counter-from-another-permanent chooser 11; a counted sacrifice 12 - the engine charges a|an|another only; an exile cost 14; Blight, Exert, Mill, Pay half your life), the activation conditions outside the vocabulary (34, across 33 wordings), the lines that are neither an activated ability nor a library trigger (20: Unleash 10, Exploit 8 - both an asked choice as the creature enters), the leftover lines the accounting reports differently from the printed one (18: the Threshold cards whose quoted granted ability `scrub` blanks - Reborn Hero, the Possessed cycle, Fledgling Dragon), the effects outside the row kinds (30, of which 23 are Add one mana of any color whose blocker is the cost beside it), the trigger payloads outside both readers (20), the clause fixtures still missing (20: a combat-role clause, a counted clause of two or three, an Aura, an Equipment in a graveyard, a spell clause), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14), the six Threshold bodies outside the static grammar; the "another" split; the by-name sacrifice
 cost; the remaining cost verbs; the prompt continuation seam; prior items stand.
+
+## D353 — M6.4gl: THE COUNTED SACRIFICE — the sacrifice chooser learns the count the discard and tap choosers have carried since D286; 15 cards land, 15 as generated rows (2026-09-07)
+
+**7,226 of 31,692 Commander-legal cards execute completely, up from
+7,211 (+15).** SHIPPED_SCRIPTS 4,564 → **4,579**;
+REFUSED ledger 929 → **923** (six rows RETIRED by name - cards the ledger held under `multi-sacrifice` and for a guard that refused a graveyard activation beside any other cost piece - and none added; measured: the REFUSED map's size 929 -> 923). Fixtures
+4,952 → 4,967 (4,824 by name + 136 tokens: the 15 rows' cards and the Bears, Forests and Sol Rings their costs eat; no new token pin - the Treasures, Foods and Saprolings the counted costs sacrifice are made as TOKENS). **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** the D352 probe re-run over a tree 14 cards further on: 313 fully covered cards, down from 327. The row maker refused all 313 before this decision, and its histogram is tails: a COST it cannot charge 104 (72 distinct verbs), an activation condition 34, an effect outside the row kinds 30, a trigger payload 20, a clause fixture 20, a line that is neither an activated ability nor a library trigger 20, a leftover line the accounting reports differently 18. THEN THE COST BUCKET WAS MEASURED THE WAY D352 ESTABLISHED - a throwaway copy of the row maker that RECORDS an unreadable cost instead of refusing it - and it rowed 70 of the 104 completely, grouped by verb: a counted sacrifice 12, an exile cost 14, snow mana 13, a remove-a-counter chooser 11, a self counter 3. The counted sacrifice is the largest verb whose SHAPE the engine already has, since the discard and tap choosers have counted since D286.
+
+**The seam is one word.** `activatedParse` has charged `Sacrifice a|an|another
+<predicate>` since D168 and counted nothing, though `discardCost` and `tapCost`
+beside it have carried a `count` since D286 — so `Sacrifice two lands` was a cost
+the engine refused for the sake of that word. It counts now: the plural noun is
+read back to the singular before `predicatesOf` (so the predicate grammar stays
+in one place), `legal.ts` withholds the offer until there are `count` candidates,
+the host re-validates **exactly `count` DISTINCT picks** with the same predicate
+it offered by, and the permanents die in ONE `CardsMoved` so the dies-triggers
+see one batch, as a wipe does.
+
+⚠️ **`ActivateAbility.sacrifice` is a LIST now, and the type change is the
+point.** A second field for the counted case would have been two names for one
+idea (D111's split). Changing the type made every stale consumer a **compile
+error** — **376 sites across 240 files** — where a silent single-pick would have
+charged half a counted cost forever. That is D110's rule, paid in full.
+
+⚠️⚠️ **A MECHANICAL SWEEP MUST TELL CODE FROM PROSE.** The 376 sites were fixed
+by a regex over `sacrifice: <ident>`, and `\bsacrifice` matches inside
+*self-sacrifice*: it rewrote **34 comments and test names across 32 files** —
+including two comments this decision's own engine patch had written minutes
+earlier. `purity.node.test.ts` learned exactly this in D153 and grew
+`stripComments`; `sourceIntegrity` exists because a corrupt regex in an
+ASSERTION simply stops asserting. The revert is by position: a match after a
+`//`, or inside an unclosed quote, is prose.
+
+**Beside it, the SELF counter.** `Put a -1/-1 counter on this creature` is
+`removeCounterCost`'s mirror (D319) — self only, a fixed count, deterministic, so
+a price rather than a decision; "on a creature you control" needs a chooser and
+stays unpaid.
+
+⚠️ **`exilesSelf` was built and REVERTED in the same decision, on D158's rule.**
+`Exile this creature` is five cards, and the row maker's assert machinery reads a
+source that ends in the GRAVEYARD, not in exile — so the price would have shipped
+as a field nothing consumes, which is the dead-seam disease `ActivatedDef` sat in
+for three milestones. It lands with the rows that use it.
+
+⚠️⚠️ **A GUARD CAN BE TOO BROAD, and this one cost six cards.** The row maker
+refused *a graveyard return beside another cost piece* for every piece, because a
+tap or a self-sacrifice needs the card and the card is in the graveyard. A
+sacrifice FODDER is different: it sits on the battlefield, where the cost eats it.
+Dropping the fodder from that list freed six cards — and **three of them are
+SINGULAR sacrifices** that had been refused all along for a reason that never
+applied to them.
+
+⚠️ **Two generator traps, both paid for in a port.** A fodder list is sized for
+the row's LARGEST cost, so an ability that eats fewer must take only its own
+share — naming the whole list is `needsSacrifice` at the host, because the count
+must be exact (Eater of Hope eats one creature on one line and two on the other,
+off one list). And a PREDEFINED TOKEN TYPE is a token: the derived cost fixture
+found a printed Treasure-subtype creature — Goldhound — for `Sacrifice three
+Treasures`, which is neither the card nor a fixture; Treasure, Blood, Clue, Gold
+and Map joined the FODDER table's TOKEN entries.
+
+⚠️ D351's swap-order rule paid again: a swap whose anchor another swap CREATES
+must run after it, so the assert's `.slice` had to be folded into the swap that
+creates the loop rather than sit beside it.
+
+**Tests:** `countedSacrifice.test.ts` (18: the parse's edges — the plural, the
+subtype, "two other", a compound refused, the singular byte-for-byte unchanged —
+then the offer's count, the host's re-validation of too few and of one land named
+twice, both lands dying in one batch, and the Druid's counter) and one generated
+suite per row (15 GENERATED ROWS whose cost the engine now charges (a counted sacrifice 9, a graveyard return beside a sacrifice 4, a self -1/-1 counter 2): Whisper Blood Liturgist, Keldon Arsonist, Goblin Warrens, Savvy Hunter, Necrosavant, Devoted Druid, Ruthless Knave, Krark-Clan Engineers, Eater of Hope, Cauldron Familiar, Tymaret the Murder King, Gilded Assault Cart, Cinderhaze Wretch, Coffin Puppets, Dutiful Griffin).
+
+- **Refused by name:** six rows RETIRED by name - cards the ledger held under `multi-sacrifice` and for a guard that refused a graveyard activation beside any other cost piece - and none added; measured: the REFUSED map's size 929 -> 923.
+- **Not this decision:** the mana ability with a CHOOSER price (17 unsupported prices behind `Add one mana of any color`, the largest `{T}, Tap an untapped creature you control` at 7 - D325 charges only the deterministic pieces, and a mana ability uses no stack, so the choice cannot be a prompt the way an activation's is), snow mana ({S} - 14 cards across four cost forms; the engine has no snow-source concept at all), the remove-a-counter CHOOSER (11: a counter on a permanent the player names, and for `Remove a counter from an artifact` the counter KIND must be chosen too), the self exile (5 - `Exile this creature`, deterministic, but the suite's asserts read a source in the graveyard and not in exile), the activation conditions outside the vocabulary (34 across 33 wordings), the lines that are neither an activated ability nor a library trigger (20: Unleash 10, Exploit 8), the leftover lines the accounting reports differently from the printed one (18: the Threshold cards whose QUOTED granted ability `scrub` blanks), the trigger payloads outside both readers (20), the clause fixtures still missing (20), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14).
+
+Six ledger rows retired by name: the `multi-sacrifice` class D177 named, and the graveyard activations a too-broad guard had refused.
+
+Report: `effect:auto` 4,209 → 4,209, `effect:none` 14,849 →
+14,849, `withUnenforced` 280 → 280. ⚠️ The seam reaches far
+past the wave: `activated:nonManaCost` falls by **253** and `payable` rises by
+the same 253 — 253 ability LINES across the database carry one of these two
+costs, and the other 238 cards are blocked on something else and stay blocked.
+
+**Landed:** No second wave: the 15 rows are the landing, and the POOL took 13 creatures, an artifact and an enchantment more on the same sweep - the commander's reach rose to 7,167 cards from 7,152, chosen from 201 fully-executable legendary creatures (199 before).
+
+Fixtures 4,967 · botPool artifact 396 / creature 4,200 / enchantment 381 / instant 1,007 / land 499 / sorcery 743 - auto 948 / assisted 1,832 / autoAnyFace 957 · ladder [1023, 1086, 2690, 4513, 5846] · batch.json
+15 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,715 files, 23,415 passed / 11 skipped ·
+500-seed gate, 6 shards · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D353): the mana ability with a CHOOSER price (17 unsupported prices behind `Add one mana of any color`, the largest `{T}, Tap an untapped creature you control` at 7 - D325 charges only the deterministic pieces, and a mana ability uses no stack, so the choice cannot be a prompt the way an activation's is), snow mana ({S} - 14 cards across four cost forms; the engine has no snow-source concept at all), the remove-a-counter CHOOSER (11: a counter on a permanent the player names, and for `Remove a counter from an artifact` the counter KIND must be chosen too), the self exile (5 - `Exile this creature`, deterministic, but the suite's asserts read a source in the graveyard and not in exile), the activation conditions outside the vocabulary (34 across 33 wordings), the lines that are neither an activated ability nor a library trigger (20: Unleash 10, Exploit 8), the leftover lines the accounting reports differently from the printed one (18: the Threshold cards whose QUOTED granted ability `scrub` blanks), the trigger payloads outside both readers (20), the clause fixtures still missing (20), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14); the "another" split; the by-name sacrifice
+cost; the prompt continuation seam; prior items stand.

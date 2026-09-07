@@ -39,7 +39,7 @@ describe('Weaponize the Monsters', () => {
         player: 'p1',
         card,
         abilityIndex: 0,
-        sacrifice: fodder,
+        sacrifice: [fodder],
       }),
     );
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
@@ -56,7 +56,7 @@ describe('Weaponize the Monsters', () => {
         player: 'p1',
         card,
         abilityIndex: 0,
-        sacrifice: fodder,
+        sacrifice: [fodder],
       }),
     );
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: victim }] }));
@@ -72,7 +72,7 @@ describe('Weaponize the Monsters', () => {
         player: 'p1',
         card,
         abilityIndex: 0,
-        sacrifice: fodder,
+        sacrifice: [fodder],
       }),
     );
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));

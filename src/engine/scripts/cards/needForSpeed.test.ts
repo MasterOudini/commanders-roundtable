@@ -36,7 +36,7 @@ describe('Need for Speed', () => {
         player: 'p1',
         card: nfs,
         abilityIndex: 0,
-        sacrifice: land,
+        sacrifice: [land],
       }),
     );
     expect(g.state.priority.awaiting?.kind).toBe('chooseTargets');
@@ -56,7 +56,7 @@ describe('Need for Speed', () => {
         player: 'p1',
         card: nfs,
         abilityIndex: 0,
-        sacrifice: land,
+        sacrifice: [land],
       }),
     );
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));

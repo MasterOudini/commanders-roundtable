@@ -40,7 +40,7 @@ describe('Grim Backwoods', () => {
         player: 'p1',
         card: backwoods,
         abilityIndex: 1,
-        sacrifice: bears,
+        sacrifice: [bears],
       }),
     );
     settle(g);
@@ -56,7 +56,7 @@ describe('Grim Backwoods', () => {
         player: 'p1',
         card: backwoods,
         abilityIndex: 1,
-        sacrifice: bears,
+        sacrifice: [bears],
       }),
     );
     settle(g);

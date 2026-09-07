@@ -34,7 +34,7 @@ function armed(): { g: Game; cannon: InstanceId; myBears: InstanceId; land: Inst
 describe('Fodder Cannon', () => {
   test('a creature pays and the 4 damage kills the target', () => {
     const { g, cannon, myBears, theirs } = armed();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: cannon, abilityIndex: 0, sacrifice: myBears }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: cannon, abilityIndex: 0, sacrifice: [myBears] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: theirs }] }));
     expect(g.state.cards[myBears]?.zone.kind).toBe('graveyard');
     settle(g);
@@ -44,14 +44,14 @@ describe('Fodder Cannon', () => {
 
   test('a LAND cannot pay the creature-only cost', () => {
     const { g, cannon, land } = armed();
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: cannon, abilityIndex: 0, sacrifice: land });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: cannon, abilityIndex: 0, sacrifice: [land] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
   });
 
   test('replays to the same hash', () => {
     const { g, cannon, myBears, theirs } = armed();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: cannon, abilityIndex: 0, sacrifice: myBears }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: cannon, abilityIndex: 0, sacrifice: [myBears] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: theirs }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

@@ -30,7 +30,7 @@ describe('Gutless Ghoul', () => {
   test('sacrifices ITSELF and the life still arrives', () => {
     const { g, ghoul } = board();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: ghoul, abilityIndex: 0, sacrifice: ghoul }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: ghoul, abilityIndex: 0, sacrifice: [ghoul] }),
     );
     settle(g);
     expect(g.state.cards[ghoul]?.zone.kind).toBe('graveyard');
@@ -40,7 +40,7 @@ describe('Gutless Ghoul', () => {
   test('replays to the same hash', () => {
     const { g, ghoul } = board();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: ghoul, abilityIndex: 0, sacrifice: ghoul }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: ghoul, abilityIndex: 0, sacrifice: [ghoul] }),
     );
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

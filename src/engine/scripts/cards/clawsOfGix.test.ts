@@ -35,6 +35,7 @@ describe('Claws of Gix', () => {
     expect(abilities).toHaveLength(1);
     expect(abilities[0]?.payable).toBe(true);
     expect(abilities[0]?.sacrificeCost).toEqual({
+      count: 1,
       another: false,
       any: [{ supertypes: [], types: [], subtypes: [], colors: [] }],
     });
@@ -59,7 +60,7 @@ describe('Claws of Gix', () => {
     const fountain = put(g, 'p1', FOUNTAIN);
     settle(g);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: claws, abilityIndex: 0, sacrifice: fountain }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: claws, abilityIndex: 0, sacrifice: [fountain] }));
     expect(g.state.cards[fountain]?.zone.kind).toBe('graveyard');
     settle(g);
     // 40 to start, +1 from the Claws. The Fountain's own ETB gain needs ITS
@@ -74,7 +75,7 @@ describe('Claws of Gix', () => {
     settle(g);
     const lifeBefore = g.state.players['p1']?.life ?? 0;
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: claws, abilityIndex: 0, sacrifice: claws }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: claws, abilityIndex: 0, sacrifice: [claws] }));
     // The source is gone the moment the cost is paid…
     expect(g.state.cards[claws]?.zone.kind).toBe('graveyard');
     settle(g);
@@ -87,7 +88,7 @@ describe('Claws of Gix', () => {
     const claws = put(g, 'p1', CLAWS);
     settle(g);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: claws, abilityIndex: 0, sacrifice: claws }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: claws, abilityIndex: 0, sacrifice: [claws] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());

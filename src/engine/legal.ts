@@ -100,6 +100,8 @@ export type LegalAction =
       /** D352 - a "Return N ... to its owner's hand" cost: the permanents that may pay it, and N. */
       readonly returnCandidates?: readonly InstanceId[];
       readonly returnCount?: number;
+      /** D353 - how many permanents a "Sacrifice N <predicate>" cost eats. */
+      readonly sacrificeCount?: number;
     }
   | {
       /** D309 - turn a face-down permanent face up for its morph cost (a special action). */
@@ -349,6 +351,10 @@ export function legalActions(
       if (ability.sacrificesSelf && !activatedDefRegistered(scripts, card.oracleId, ability.index)) {
         continue;
       }
+      // D353 - the SELF COUNTER, beside the self-sacrifice: a deterministic price, and the
+      // same def gate. It is offered whenever the permanent is there - it is a PUT, not a
+      // remove, so nothing can make it unpayable.
+      if (ability.putCounterCost && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
       // ⚠️ The CHOOSER cost (D168): same def gate as the self-sacrifice —
       // eating a permanent for nothing is not disclosed status quo — plus
       // "a cost you cannot pay is not offered": no candidate, no offer.
@@ -362,7 +368,7 @@ export function legalActions(
           id,
           ability.sacrificeCost,
         );
-        if (sacCandidates.length === 0) continue;
+        if (sacCandidates.length < ability.sacrificeCost.count) continue;
       }
       // ⚠️ The DISCARD and TAP choosers (D286): the same def gate, and "a cost
       // you cannot pay is not offered" — fewer candidates than the count, no
@@ -458,7 +464,9 @@ export function legalActions(
         costText: ability.costText,
         effectText: ability.effectText,
         label: d.name,
-        ...(sacCandidates ? { sacrificeCandidates: sacCandidates } : {}),
+        ...(sacCandidates && ability.sacrificeCost
+          ? { sacrificeCandidates: sacCandidates, sacrificeCount: ability.sacrificeCost.count }
+          : {}),
         ...(discardCandidates && ability.discardCost
           ? { discardCandidates, discardCount: ability.discardCost.count }
           : {}),

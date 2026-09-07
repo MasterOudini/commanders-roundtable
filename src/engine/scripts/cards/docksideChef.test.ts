@@ -48,7 +48,7 @@ describe('Dockside Chef', () => {
   test('a creature pays the OR cost, and the draw arrives', () => {
     const { g, chef, bears } = board();
     const logAt = g.log.length;
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: chef, abilityIndex: 0, sacrifice: bears }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: chef, abilityIndex: 0, sacrifice: [bears] }));
     expect(g.state.cards[bears]?.zone.kind).toBe('graveyard');
     settle(g);
     expect(drawsFor(g, 'p1', logAt)).toBe(1);
@@ -57,14 +57,14 @@ describe('Dockside Chef', () => {
 
   test('a LAND is neither arm of "an artifact or creature"', () => {
     const { g, chef, mountain } = board();
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: chef, abilityIndex: 0, sacrifice: mountain });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: chef, abilityIndex: 0, sacrifice: [mountain] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
   });
 
   test('replays to the same hash', () => {
     const { g, chef, bears } = board();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: chef, abilityIndex: 0, sacrifice: bears }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: chef, abilityIndex: 0, sacrifice: [bears] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());

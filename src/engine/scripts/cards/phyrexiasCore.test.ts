@@ -23,7 +23,7 @@ function cored(): { g: Game; core: string; ring: string } {
   advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
   must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
   must(
-    g.submit({ t: 'ActivateAbility', player: 'p1', card: core, abilityIndex: 1, sacrifice: ring }),
+    g.submit({ t: 'ActivateAbility', player: 'p1', card: core, abilityIndex: 1, sacrifice: [ring] }),
   );
   settle(g);
   return { g, core, ring };

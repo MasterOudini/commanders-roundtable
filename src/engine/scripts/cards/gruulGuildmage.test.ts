@@ -42,7 +42,7 @@ describe('Gruul Guildmage', () => {
     const { g, mage, forest } = board();
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 3 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: mage, abilityIndex: 0, sacrifice: forest }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: mage, abilityIndex: 0, sacrifice: [forest] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     expect(g.state.players['p2']?.life).toBe(38);
@@ -53,7 +53,7 @@ describe('Gruul Guildmage', () => {
     const { g, mage, bears } = board();
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 3 }));
-    const res = g.submit({ t: 'ActivateAbility', player: 'p1', card: mage, abilityIndex: 0, sacrifice: bears });
+    const res = g.submit({ t: 'ActivateAbility', player: 'p1', card: mage, abilityIndex: 0, sacrifice: [bears] });
     expect(res.ok).toBe(false);
   });
 
@@ -71,7 +71,7 @@ describe('Gruul Guildmage', () => {
     const { g, mage, forest } = board();
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 3 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: mage, abilityIndex: 0, sacrifice: forest }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: mage, abilityIndex: 0, sacrifice: [forest] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 2, 60_000);

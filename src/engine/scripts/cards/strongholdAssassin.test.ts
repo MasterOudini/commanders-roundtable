@@ -30,7 +30,7 @@ function armed(): { g: Game; self: InstanceId; target: InstanceId; wrong: Instan
   // p1's third-turn main phase: past summoning sickness (CR 302.6); the holds keep priority here.
   advanceUntil(g, (s) => s.turn.turnNumber === 3 && s.turn.phase === 'precombatMain' && s.priority.player === 'p1' && s.priority.awaiting === null, 20_000);
   const life0 = g.state.players.p1?.life ?? 0;
-  must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: fodder }));
+  must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: [fodder] }));
   return { g, self, target, wrong, life0, fodder };
 }
 

@@ -35,7 +35,7 @@ function flayed(): { g: Game; flayer: InstanceId; bears: InstanceId } {
       player: 'p1',
       card: flayer,
       abilityIndex: 0,
-      sacrifice: flayer,
+      sacrifice: [flayer],
     }),
   );
   advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);

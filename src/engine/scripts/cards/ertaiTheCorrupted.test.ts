@@ -51,7 +51,7 @@ function game(): { g: Game; ertai: InstanceId; spare: InstanceId; land: Instance
 describe('Ertai, the Corrupted', () => {
   test('a creature pays the OR cost and the held spell is countered', () => {
     const { g, ertai, spare, bears, stackId } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: ertai, abilityIndex: 0, sacrifice: spare }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: ertai, abilityIndex: 0, sacrifice: [spare] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'stack', id: stackId }] }));
     expect(g.state.cards[spare]?.zone.kind).toBe('graveyard');
     settle(g);
@@ -62,14 +62,14 @@ describe('Ertai, the Corrupted', () => {
 
   test('a LAND is neither arm of "a creature or enchantment"', () => {
     const { g, ertai, land } = game();
-    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: ertai, abilityIndex: 0, sacrifice: land });
+    const r = g.submit({ t: 'ActivateAbility', player: 'p1', card: ertai, abilityIndex: 0, sacrifice: [land] });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
   });
 
   test('replays to the same hash', () => {
     const { g, ertai, spare, stackId } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: ertai, abilityIndex: 0, sacrifice: spare }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: ertai, abilityIndex: 0, sacrifice: [spare] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'stack', id: stackId }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 5, 20_000);

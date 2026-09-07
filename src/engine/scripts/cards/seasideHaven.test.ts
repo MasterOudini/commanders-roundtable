@@ -32,7 +32,7 @@ function havened(): { g: Game; mid: number; owl: InstanceId } {
       player: 'p1',
       card: haven,
       abilityIndex: 1,
-      sacrifice: owl,
+      sacrifice: [owl],
     }),
   );
   settle(g);

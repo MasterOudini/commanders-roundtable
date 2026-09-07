@@ -77,15 +77,22 @@ export function onVeilPick(choice: TargetChoice): void {
   // intent, and the host re-validates it with `sacrificeCandidatesFor` before
   // charging, so a stale click costs a refusal message and never a permanent.
   if (mode.kind === 'sacrifice') {
+    // D353 - N picks, the cost pick's rule: a repeat is ignored, and only the last one
+    // submits. One permanent is the same branch with a count of 1.
+    if (choice.kind !== 'card' || mode.chosen.includes(choice.id)) return;
+    const chosen = [...mode.chosen, choice.id];
+    if (chosen.length < mode.count) {
+      table.setMode({ ...mode, chosen });
+      return;
+    }
     useAim.getState().reset();
     table.setMode({ kind: 'idle' });
-    if (choice.kind !== 'card') return;
     session.submit({
       t: 'ActivateAbility',
       player: table.viewer,
       card: mode.card,
       abilityIndex: mode.abilityIndex,
-      sacrifice: choice.id,
+      sacrifice: chosen,
     });
     return;
   }
@@ -184,7 +191,7 @@ export function startActivation(
   ability: {
     readonly abilityIndex: number;
     readonly name: string;
-    readonly needsSacrifice: boolean;
+    readonly needsSacrifice: number;
     readonly needsDiscard?: number;
     readonly needsTap?: number;
     readonly needsExileFromGraveyard?: number;
@@ -192,8 +199,15 @@ export function startActivation(
   },
 ): void {
   const table = useTable.getState();
-  if (ability.needsSacrifice) {
-    table.setMode({ kind: 'sacrifice', card, abilityIndex: ability.abilityIndex, name: ability.name });
+  if (ability.needsSacrifice > 0) {
+    table.setMode({
+      kind: 'sacrifice',
+      card,
+      abilityIndex: ability.abilityIndex,
+      name: ability.name,
+      count: ability.needsSacrifice,
+      chosen: [],
+    });
     beginAimFrom(card);
     return;
   }

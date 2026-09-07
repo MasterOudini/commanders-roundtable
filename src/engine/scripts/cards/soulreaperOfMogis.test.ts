@@ -31,7 +31,7 @@ function reaped(): { g: Game; bears: InstanceId; before: number } {
       player: 'p1',
       card: reaper,
       abilityIndex: 0,
-      sacrifice: bears,
+      sacrifice: [bears],
     }),
   );
   settle(g);

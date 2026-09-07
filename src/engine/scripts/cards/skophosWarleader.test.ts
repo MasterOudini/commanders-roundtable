@@ -52,7 +52,7 @@ function armed(which: number): Armed {
   const lib0 = (g.state.zones.library.p1 ?? []).length;
   if (which === 0) {
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: fodder0 }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: [fodder0] }));
     settle(g);
     }
   return { g, self, no, life0, hand0, board0, p2life0, gy0, lib0, fodder0 };

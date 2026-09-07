@@ -35,7 +35,7 @@ function game(targetLand: string): { g: Game; ants: InstanceId; mine: InstanceId
 describe('Army Ants', () => {
   test('a land pays and the target land dies', () => {
     const { g, ants, mine, theirs } = game(FOUNTAIN);
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: ants, abilityIndex: 0, sacrifice: mine }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: ants, abilityIndex: 0, sacrifice: [mine] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: theirs }] }));
     settle(g);
     expect(g.state.cards[mine]?.zone.kind).toBe('graveyard');
@@ -45,7 +45,7 @@ describe('Army Ants', () => {
 
   test('an INDESTRUCTIBLE land survives, and the cost stays spent', () => {
     const { g, ants, mine, theirs } = game(CITADEL);
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: ants, abilityIndex: 0, sacrifice: mine }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: ants, abilityIndex: 0, sacrifice: [mine] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: theirs }] }));
     settle(g);
     expect(g.state.cards[theirs]?.zone.kind).toBe('battlefield');
@@ -55,7 +55,7 @@ describe('Army Ants', () => {
 
   test('replays to the same hash', () => {
     const { g, ants, mine, theirs } = game(FOUNTAIN);
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: ants, abilityIndex: 0, sacrifice: mine }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: ants, abilityIndex: 0, sacrifice: [mine] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: theirs }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 4, 20_000);

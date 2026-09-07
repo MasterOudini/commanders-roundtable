@@ -45,7 +45,7 @@ describe('Stimulus Package', () => {
   test('sacrifice a Treasure: a 1/1 Citizen', () => {
     const { g, pkg } = opened();
     const [treasure] = tokensOf(g, 'p1', TREASURE?.printingId) as [InstanceId];
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: pkg, abilityIndex: 0, sacrifice: treasure, targets: [] }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: pkg, abilityIndex: 0, sacrifice: [treasure], targets: [] }));
     settle(g);
     expect(tokensOf(g, 'p1', CITIZEN?.printingId).length).toBe(1);
     expect(tokensOf(g, 'p1', TREASURE?.printingId).length).toBe(1);
@@ -54,7 +54,7 @@ describe('Stimulus Package', () => {
   test('replays to the same hash', () => {
     const { g, pkg } = opened();
     const [treasure] = tokensOf(g, 'p1', TREASURE?.printingId) as [InstanceId];
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: pkg, abilityIndex: 0, sacrifice: treasure, targets: [] }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: pkg, abilityIndex: 0, sacrifice: [treasure], targets: [] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 2, 60_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());

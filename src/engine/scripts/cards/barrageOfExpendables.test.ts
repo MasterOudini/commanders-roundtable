@@ -32,7 +32,7 @@ function game(): { g: Game; barrage: InstanceId; bears: InstanceId } {
 describe('Barrage of Expendables', () => {
   test('a creature pays, and the player target takes 1', () => {
     const { g, barrage, bears } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: barrage, abilityIndex: 0, sacrifice: bears }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: barrage, abilityIndex: 0, sacrifice: [bears] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     expect(g.state.cards[bears]?.zone.kind).toBe('graveyard');
@@ -42,7 +42,7 @@ describe('Barrage of Expendables', () => {
 
   test('replays to the same hash', () => {
     const { g, barrage, bears } = game();
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: barrage, abilityIndex: 0, sacrifice: bears }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: barrage, abilityIndex: 0, sacrifice: [bears] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);

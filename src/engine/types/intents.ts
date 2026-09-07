@@ -89,7 +89,7 @@ export type Intent =
        * Required when the ability carries one; the host re-validates it
        * against `sacrificeCandidatesFor` — a client's word is not a rule.
        */
-      readonly sacrifice?: InstanceId;
+      readonly sacrifice?: readonly InstanceId[];
       /**
        * Which cards pay a "Discard N cards" cost (D286) — exactly `count`,
        * re-validated by the host against `discardCandidatesFor`.

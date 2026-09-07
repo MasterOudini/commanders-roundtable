@@ -35,7 +35,7 @@ function returned(): { g: Game; bears: InstanceId; onulet: InstanceId } {
       player: 'p1',
       card: awakening,
       abilityIndex: 0,
-      sacrifice: onulet,
+      sacrifice: [onulet],
     }),
   );
   advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);

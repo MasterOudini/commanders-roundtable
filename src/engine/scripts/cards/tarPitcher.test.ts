@@ -41,7 +41,7 @@ describe('Tar Pitcher', () => {
   test('a Goblin pays and the 2 damage kills the 2/2 through the SBA', () => {
     const { g, pitcher, goblin, bears } = game();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: pitcher, abilityIndex: 0, sacrifice: goblin }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: pitcher, abilityIndex: 0, sacrifice: [goblin] }),
     );
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));
     expect(g.state.cards[goblin]?.zone.kind).toBe('graveyard');
@@ -53,7 +53,7 @@ describe('Tar Pitcher', () => {
   test('a PLAYER is the other arm of "any target"', () => {
     const { g, pitcher, goblin } = game();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: pitcher, abilityIndex: 0, sacrifice: goblin }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: pitcher, abilityIndex: 0, sacrifice: [goblin] }),
     );
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
@@ -67,7 +67,7 @@ describe('Tar Pitcher', () => {
       player: 'p1',
       card: pitcher,
       abilityIndex: 0,
-      sacrifice: myBears,
+      sacrifice: [myBears],
     });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
@@ -76,7 +76,7 @@ describe('Tar Pitcher', () => {
   test('replays to the same hash', () => {
     const { g, pitcher, goblin, bears } = game();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: pitcher, abilityIndex: 0, sacrifice: goblin }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: pitcher, abilityIndex: 0, sacrifice: [goblin] }),
     );
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));
     settle(g);

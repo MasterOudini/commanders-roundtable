@@ -175,7 +175,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Goblins" has no carrier. Sacrifice-event discriminator: `EventCause`
   // has no sacrifice kind AND `matches` receives the event BODY, so a
   // "whenever you sacrifice" watcher would over-fire on every death.
-  ['Goblin Warrens', 'multi-sacrifice cost'],
   ['Goldmaw Champion', 'once-per-turn trigger memory'],
   ['Graf Mole', 'sacrifice-event discriminator'],
   // Batch 20 (D178) — THREE new classes. Alternative cost: "{3}, {T} or
@@ -222,11 +221,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // concept anywhere (a cast-time promise on gift-carrying spells; nothing
   // raises, records or fulfils one).
   ['Jolly Gerbils', 'gift mechanic'],
-  ['Keldon Arsonist', 'multi-sacrifice cost'],
   // Batch 25 (D184): five refusals, ZERO new classes — every one an
   // existing named gap, which is the ledger's drainage doing its job.
   ['Korozda Gorgon', 'remove-counter cost'],
-  ['Krark-Clan Engineers', 'multi-sacrifice cost'],
   // Batch 26 (D185): FOUR new classes. `Lullmage's Familiar` needs kicker
   // (a cast-time additional-cost choice nothing records); `Lurking
   // Chupacabra` needs explore; `Magmaw` sacrifices "a NONLAND permanent"
@@ -1153,7 +1150,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ⚠️ Batch-mates `Whirlwind` and `Windstorm` read the SAME keyword
   // RESOLVE-side and land fine. Same word, two fates, and the difference is
   // only whether it sits in a target noun.
-  ['Whisper, Blood Liturgist', 'multi-sacrifice cost'],
   ['Widespread Brutality', 'amass mechanic'],
   ['Wild Magic Surge', 'ctx.random'],
   ['Winds of Change', 'ctx.random'],
@@ -1429,11 +1425,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Rishkar's Expertise", 'free-cast permission'],
   ["Roilmage's Trick", 'converge (cast-time mana-color memory)'],
   ['Rouse', 'cast-time alternative cost'],
-  ['Ruthless Knave', 'multi-sacrifice cost'],
   ['Sadistic Slash', 'mayhem mechanic'],
   ['Sai, Master Thopterist', 'multi-sacrifice cost'],
   ["Saruman's Trickery", 'amass mechanic'],
-  ['Savvy Hunter', 'multi-sacrifice cost'],
   ['Scrollshift', 'up-to-N targeting'],
   ['Searing Barrage', 'mana-spent memory'],
   ['Send to Sleep', 'up-to-N targeting'],

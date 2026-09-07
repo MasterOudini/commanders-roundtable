@@ -44,7 +44,7 @@ describe('Pashalik Mons', () => {
     const { g, mons, dealer } = board();
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 3 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: mons, abilityIndex: 0, sacrifice: dealer }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: mons, abilityIndex: 0, sacrifice: [dealer] }));
     advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);
@@ -66,7 +66,7 @@ describe('Pashalik Mons', () => {
     const { g, mons, dealer } = board();
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 3 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: mons, abilityIndex: 0, sacrifice: dealer }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: mons, abilityIndex: 0, sacrifice: [dealer] }));
     advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
     settle(g);

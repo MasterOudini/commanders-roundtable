@@ -33,7 +33,7 @@ function tinkered(): { g: Game; paid: InstanceId; saved: InstanceId } {
       player: 'p1',
       card: slobad,
       abilityIndex: 0,
-      sacrifice: paid,
+      sacrifice: [paid],
     }),
   );
   advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);

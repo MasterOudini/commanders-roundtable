@@ -40,7 +40,7 @@ describe('Mogg Raider', () => {
         player: 'p1',
         card: raider,
         abilityIndex: 0,
-        sacrifice: raider,
+        sacrifice: [raider],
       }),
     );
     expect(g.state.priority.awaiting?.kind).toBe('chooseTargets');
@@ -60,7 +60,7 @@ describe('Mogg Raider', () => {
         player: 'p1',
         card: raider,
         abilityIndex: 0,
-        sacrifice: raider,
+        sacrifice: [raider],
       }),
     );
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));

@@ -36,7 +36,7 @@ describe('Sylvan Safekeeper', () => {
   test('a land pays and the target gains shroud — the cost waits for the answer', () => {
     const { g, keeper, forest, bears } = game();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: keeper, abilityIndex: 0, sacrifice: forest }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: keeper, abilityIndex: 0, sacrifice: [forest] }),
     );
     expect(g.state.priority.awaiting?.kind).toBe('chooseTargets');
     expect(g.state.cards[forest]?.zone.kind).toBe('battlefield');
@@ -53,7 +53,7 @@ describe('Sylvan Safekeeper', () => {
       player: 'p1',
       card: keeper,
       abilityIndex: 0,
-      sacrifice: bears,
+      sacrifice: [bears],
     });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
@@ -62,7 +62,7 @@ describe('Sylvan Safekeeper', () => {
   test('the shroud ENDS at cleanup, and it replays to the same hash', () => {
     const { g, keeper, forest, bears } = game();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: keeper, abilityIndex: 0, sacrifice: forest }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: keeper, abilityIndex: 0, sacrifice: [forest] }),
     );
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] }));
     settle(g);

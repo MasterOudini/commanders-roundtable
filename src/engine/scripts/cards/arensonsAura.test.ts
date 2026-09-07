@@ -71,7 +71,7 @@ describe("Arenson's Aura", () => {
   test('{W}, sacrifice an enchantment: the target enchantment is destroyed', () => {
     const { g, aura, mine, theirs } = board();
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'W', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: aura, abilityIndex: 0, sacrifice: mine }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: aura, abilityIndex: 0, sacrifice: [mine] }));
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: theirs }] }));
     settle(g);
     expect(g.state.cards[theirs]?.zone.kind).toBe('graveyard');
@@ -82,7 +82,7 @@ describe("Arenson's Aura", () => {
   test('a creature is not a legal target for the destroy', () => {
     const { g, aura, mine, bears } = board();
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'W', amount: 1 }));
-    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: aura, abilityIndex: 0, sacrifice: mine }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: aura, abilityIndex: 0, sacrifice: [mine] }));
     const res = g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: bears }] });
     expect(res.ok).toBe(false);
   });

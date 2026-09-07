@@ -29,7 +29,7 @@ function starved(): { g: Game; rusalka: InstanceId } {
       player: 'p1',
       card: rusalka,
       abilityIndex: 0,
-      sacrifice: rusalka,
+      sacrifice: [rusalka],
     }),
   );
   settle(g);

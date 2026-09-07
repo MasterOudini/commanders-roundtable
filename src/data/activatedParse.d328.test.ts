@@ -31,7 +31,7 @@ describe('D328 - the three cost reads', () => {
 
   it('reads "Sacrifice a token" as a token predicate the sacrifice chooser checks', () => {
     const [a] = parse('{T}, Sacrifice a token: Draw a card.');
-    expect(a?.sacrificeCost).toEqual({ another: false, any: [{ supertypes: [], types: [], subtypes: [], colors: [], token: true }] });
+    expect(a?.sacrificeCost).toEqual({ count: 1, another: false, any: [{ supertypes: [], types: [], subtypes: [], colors: [], token: true }] });
     expect(a?.payable).toBe(true);
     const [b] = parse('{T}, Sacrifice a creature token: Draw a card.');
     expect(b?.sacrificeCost?.any[0]).toMatchObject({ types: ['Creature'], token: true });
@@ -41,6 +41,7 @@ describe('D328 - the three cost reads', () => {
     // "another creature or token" is two alternatives: a creature, or a token (Ice Cream Kitty).
     const [d] = parse('{2}, Sacrifice another creature or token: Draw a card.');
     expect(d?.sacrificeCost).toEqual({
+      count: 1,
       another: true,
       any: [
         { supertypes: [], types: ['Creature'], subtypes: [], colors: [] },

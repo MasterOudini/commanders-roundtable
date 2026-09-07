@@ -30,7 +30,7 @@ function scorched(): { g: Game; bears: InstanceId } {
       player: 'p1',
       card: rusalka,
       abilityIndex: 0,
-      sacrifice: bears,
+      sacrifice: [bears],
       targets: [{ kind: 'player', id: 'p2' }],
     }),
   );

@@ -383,7 +383,7 @@ export interface PendingCast {
    * batch. Optional so every pre-D168 pending — and its replay — is
    * untouched.
    */
-  readonly sacrifice?: InstanceId;
+  readonly sacrifice?: readonly InstanceId[];
   /** The cards a "Discard N" cost chose (D286); charged in the cost batch. */
   readonly discard?: readonly InstanceId[];
   /** The permanents a "Tap N untapped …" cost chose (D286); tapped in the cost batch. */

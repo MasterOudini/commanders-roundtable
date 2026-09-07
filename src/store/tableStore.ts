@@ -134,6 +134,9 @@ export type TableMode =
       readonly abilityIndex: number;
       /** Shown in the prompt: the ability's own label. */
       readonly name: string;
+      /** D353 - how many permanents the cost eats, and what has been picked so far. */
+      readonly count: number;
+      readonly chosen: readonly string[];
     }
   /**
    * Naming the N cards or permanents a "Discard N" / "Tap N untapped …" cost

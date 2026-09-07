@@ -31,7 +31,8 @@ export interface AbilityOption {
    * the veil pick first. The candidates themselves are re-read off the CURRENT
    * legal action at pick time (`GameLayer`); this flag only routes the click.
    */
-  readonly needsSacrifice: boolean;
+  /** D353 - how many permanents the cost eats; 0 when it eats none. */
+  readonly needsSacrifice: number;
   /** A "Discard N" cost (D286): N, or 0 when the ability has none. */
   readonly needsDiscard: number;
   /** A "Tap N untapped …" cost (D286): N, or 0 when the ability has none. */
@@ -64,7 +65,7 @@ export function abilityOptionsFor(legal: readonly LegalAction[], card: string): 
       effect: a.effectText,
       name: a.label,
       affordable: a.affordable,
-      needsSacrifice: (a.sacrificeCandidates?.length ?? 0) > 0,
+      needsSacrifice: a.sacrificeCandidates && a.sacrificeCount ? a.sacrificeCount : 0,
       needsDiscard: a.discardCandidates && a.discardCount ? a.discardCount : 0,
       needsTap: a.tapCandidates && a.tapCount ? a.tapCount : 0,
       needsExileFromGraveyard: a.exileFromGraveyardCandidates && a.exileFromGraveyardCount ? a.exileFromGraveyardCount : 0,

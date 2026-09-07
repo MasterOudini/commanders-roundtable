@@ -42,7 +42,7 @@ describe('Slagdrill Scrapper', () => {
         player: 'p1',
         card: scrapper,
         abilityIndex: 0,
-        sacrifice: swamp,
+        sacrifice: [swamp],
       }),
     );
     settle(g);
@@ -57,7 +57,7 @@ describe('Slagdrill Scrapper', () => {
       player: 'p1',
       card: scrapper,
       abilityIndex: 0,
-      sacrifice: scrapper,
+      sacrifice: [scrapper],
     });
     expect(res.ok).toBe(false);
   });
@@ -70,7 +70,7 @@ describe('Slagdrill Scrapper', () => {
         player: 'p1',
         card: scrapper,
         abilityIndex: 0,
-        sacrifice: swamp,
+        sacrifice: [swamp],
       }),
     );
     settle(g);

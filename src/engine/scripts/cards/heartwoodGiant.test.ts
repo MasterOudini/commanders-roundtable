@@ -39,7 +39,7 @@ describe('Heartwood Giant', () => {
     const { g, giant, forest } = board();
     const before = g.state.players['p2']?.life ?? 0;
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: giant, abilityIndex: 0, sacrifice: forest }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: giant, abilityIndex: 0, sacrifice: [forest] }),
     );
     advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));
@@ -56,7 +56,7 @@ describe('Heartwood Giant', () => {
       player: 'p1',
       card: giant,
       abilityIndex: 0,
-      sacrifice: fountain,
+      sacrifice: [fountain],
     });
     expect(r.ok).toBe(false);
     expect(!r.ok && r.reason).toBe('illegalSacrifice');
@@ -65,7 +65,7 @@ describe('Heartwood Giant', () => {
   test('replays to the same hash', () => {
     const { g, giant, forest } = board();
     must(
-      g.submit({ t: 'ActivateAbility', player: 'p1', card: giant, abilityIndex: 0, sacrifice: forest }),
+      g.submit({ t: 'ActivateAbility', player: 'p1', card: giant, abilityIndex: 0, sacrifice: [forest] }),
     );
     advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);
     must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'player', id: 'p2' }] }));

@@ -31,7 +31,7 @@ function catapulted(): { g: Game; bears: InstanceId } {
       player: 'p1',
       card: catapult,
       abilityIndex: 0,
-      sacrifice: bears,
+      sacrifice: [bears],
     }),
   );
   advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);
