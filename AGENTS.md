@@ -11009,6 +11009,51 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D350): the clause fixtures still missing (24: a COMBAT-ROLE clause 8 - the suite must fire mid-combat with an attacking or blocking creature, which the attack heads already scaffold; a counted clause that takes TWO or three 5 - one fixture per pick, which the aim and the asserts do not carry yet; a clause whose alternatives differ 2; an Aura, an Equipment in a graveyard, a spell clause), the cost verbs the derivation cannot pay (104 across 72 verbs; the sacrifice and tap predicates the engine's own grammar cannot place lead them), the activation conditions outside the vocabulary (34), the lines that are neither an activated ability nor a library trigger (36: Unleash 10, Exploit 8, the Threshold bodies), the trigger payloads outside both readers (20), Add one mana of any color behind a cost the engine does not charge (23), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14); then D349's list unchanged: the three asking payloads the suite cannot answer (a scry, a surveil), the modal permanent lines, the wider modal heads, the asking modes, the heads outside the library, the modal spells beside another sentence, the quoted abilities enchanted creatures and lands have, Enchant player, the look at the top card of your library; the "another" split; the by-name
       sacrifice cost; the remaining cost verbs; the prompt continuation seam;
       prior items stand.
+- [x] **M6.4gj — THE THRESHOLD GATE: a line held behind seven cards in your
+      graveyard is read by handing its body back to the same static reader;
+      10 cards land, 10 as generated rows (2026-09-07):**
+      **7,197 of 31,692 Commander-legal cards now execute completely, up
+      from 7,187 (+10).** `SHIPPED_SCRIPTS` 4,550; ledger
+      935 (no row moved: a Threshold line the row maker could not read was refused one step before the ledger, so none of these cards was ever named in it; measured: the REFUSED map's size, unchanged at 935). Fixtures 4,937 (4,795 by name + 135 tokens: the 10 rows' cards and the helpers their suites read; no new token pin). **Select pool
+      0.** Decisions in **D351**.
+      ⚠️ **No engine change.** Every body here is a static the grammar has read
+      since D317, D322 or D346; what was missing is a reader that could see past
+      the condition holding it.
+      ⚠️ **The gate is a WRAPPER, not a second reader**: strip the ability word
+      and the condition, hand the BODY back to `parseStatic`, and mark what comes
+      out. The body vocabulary stays in one place (D346's rule for the scoped
+      anthems), so a gate can never widen it — and every emitter that already
+      knew the inner kind adds the same conjunct, `thresholdOf(ctx, self)`, the
+      helper the self pump has emitted since D335.
+      ⚠️ **A gated predicate is REWRITTEN, never composed by a call.** A "can't
+      block" predicate reads three parameters and calling it with four is a type
+      error; the condition goes in front of the inner body, which keeps its own
+      parameter list.
+      ⚠️⚠️ **THE LATENT BUG THIS BATCH WALKED INTO.** A scoped anthem over a
+      creature SUBTYPE was proven on one hard-coded fixture — Metallic Sliver —
+      whatever subtype the scope named. That is right for the Sliver scope D346
+      landed and wrong for every other: Nut Collector's Squirrels were asserted
+      on a card that is not a Squirrel, and the suite failed with the anthem
+      correctly not applying. The fixture table is keyed by subtype now, and a
+      subtype it does not hold is NO SCOPE — the card is refused by name rather
+      than proven on the wrong creature.
+      ⚠️ **Two tooling traps**: `String.prototype.replace` with a replacement
+      containing a dollar-backtick is a SPECIAL PATTERN (the text before the
+      match) and spliced a derive call into the middle of a regex; and a swap
+      whose anchor another swap creates must run AFTER it, because the list
+      applies in order to the source.
+      Measured first: the D350 probe re-run over a tree 15 cards further on: 337 fully covered cards, down from 352. The row maker refused all 337, and its histogram is a set of TAILS with three seams in it: a COST it cannot charge 104 (72 distinct verbs), a line that is neither an activated ability nor a library trigger 36, an activation condition 34 (33 distinct wordings), an effect outside the row kinds 30 (23 of them Add one mana of any color, whose blocker is the cost beside it), a trigger payload 20, a clause fixture 20. Reading the 36 named this decision: 16 Threshold lines, 10 Unleash and 8 Exploit - and the 16 Threshold bodies are statics the grammar has read since D317, D322 and D346, held behind a condition the reader could not see past. NOT this decision: the six Threshold lines the gate still cannot read (a body with 'an additional +2/-2' - Patriarch's Desire; a scope over the OPPONENT's creatures - Mindwhisker; a lure requirement, which the engine has no declaration REQUIREMENT for - Seton's Desire; a count over an opponent's permanents - Nantuko Blightcutter; a protection grant, which is not in the keyword map - Mystic Familiar; a subtype scope with no fixture - Nut Collector, whose Squirrels would otherwise be proven on a Sliver), the ~20 Threshold cards whose leftover line the accounting reports differently from the printed one (Teroh's Vanguard, the Possessed cycle, Fledgling Dragon ...), the clause fixtures still missing (24: a combat-role clause 8, a counted clause of two or three 5, an Aura, an Equipment in a graveyard, a spell clause), Unleash (10) and Exploit (8) - both an asked choice as the creature enters, the cost verbs the derivation cannot pay (104 across 72 verbs), the activation conditions outside the vocabulary (34, across 33 wordings), the trigger payloads outside both readers (20), Add one mana of any color behind a cost the engine does not charge (23), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14). Refused by name:
+      no row moved: a Threshold line the row maker could not read was refused one step before the ledger, so none of these cards was ever named in it; measured: the REFUSED map's size, unchanged at 935.
+      No ledger row retired: this class was refused by the ROW MAKER, one step before the ledger. Report `effect:auto` 4,209 → 4,209,
+      `withUnenforced` 280 → 280.
+      **Landed:** No second wave: the 10 rows are the landing, and the POOL took 7 creatures and 3 enchantments more on the same sweep - the commander's reach rose to 7,138 cards from 7,128. Tests: one generated suite per row.
+      Fixtures 4,937 · botPool artifact 395 / creature 4,176 / enchantment 377 / instant 1,007 / land 499 / sorcery 743 - auto 948 / assisted 1,832 / autoAnyFace 957 · ladder [1035, 1098, 2702, 4526, 5859] · batch.json
+      10 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,684 files, 23,258 passed / 11 skipped ·
+      500-seed gate, 6 shards, 630.8 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D351): the six Threshold lines the gate still cannot read (a body with 'an additional +2/-2' - Patriarch's Desire; a scope over the OPPONENT's creatures - Mindwhisker; a lure requirement, which the engine has no declaration REQUIREMENT for - Seton's Desire; a count over an opponent's permanents - Nantuko Blightcutter; a protection grant, which is not in the keyword map - Mystic Familiar; a subtype scope with no fixture - Nut Collector, whose Squirrels would otherwise be proven on a Sliver), the ~20 Threshold cards whose leftover line the accounting reports differently from the printed one (Teroh's Vanguard, the Possessed cycle, Fledgling Dragon ...), the clause fixtures still missing (24: a combat-role clause 8, a counted clause of two or three 5, an Aura, an Equipment in a graveyard, a spell clause), Unleash (10) and Exploit (8) - both an asked choice as the creature enters, the cost verbs the derivation cannot pay (104 across 72 verbs), the activation conditions outside the vocabulary (34, across 33 wordings), the trigger payloads outside both readers (20), Add one mana of any color behind a cost the engine does not charge (23), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14); the "another" split; the by-name
+      sacrifice cost; the remaining cost verbs; the prompt continuation seam;
+      prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

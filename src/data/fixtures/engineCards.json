@@ -161885,6 +161885,365 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "NIGHTWHORL_HERMIT": {
+    "scryfallId": "0928e04f-2568-41e8-b603-7a25cf5f94d0",
+    "oracleId": "99007c40-1eb5-4c3a-9889-6d12417d8191",
+    "name": "Nightwhorl Hermit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nightwhorl Hermit",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Rat Rogue",
+        "oracleText": "Vigilance\nThreshold — As long as there are seven or more cards in your graveyard, this creature gets +1/+0 and can't be blocked.",
+        "flavorText": "He etches his secrets onto the shimmering shells of mussels, saving them to share with the Great Snail.",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Valera Lutfullina",
+        "imageId": "0928e04f-2568-41e8-b603-7a25cf5f94d0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance",
+      "Threshold"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "62",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHILDHOOD_HORROR": {
+    "scryfallId": "10c180ea-2d1e-458e-b5d4-e87975eba968",
+    "oracleId": "29bebbaf-d47c-4369-8ff9-81816758da86",
+    "name": "Childhood Horror",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Childhood Horror",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Horror",
+        "oracleText": "Flying\nThreshold — As long as there are seven or more cards in your graveyard, this creature gets +2/+2 and can't block.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Larry Elmore",
+        "imageId": "10c180ea-2d1e-458e-b5d4-e87975eba968"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "123",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ABOSHAN_S_DESIRE": {
+    "scryfallId": "137b701e-6140-463e-84b5-58d8a728df40",
+    "oracleId": "95db05eb-2c25-43f2-8e18-dfc64f490634",
+    "name": "Aboshan's Desire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aboshan's Desire",
+        "manaCost": "{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has flying.\nThreshold — Enchanted creature has shroud as long as there are seven or more cards in your graveyard. (It can't be the target of spells or abilities.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ciruelo",
+        "imageId": "137b701e-6140-463e-84b5-58d8a728df40"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant",
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SILVER_SERAPH": {
+    "scryfallId": "1465ca9e-a997-4b8c-9677-6c7961f67eba",
+    "oracleId": "bcc7e32a-9cf9-4fdf-a0a4-e90ae42f1353",
+    "name": "Silver Seraph",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Silver Seraph",
+        "manaCost": "{5}{W}{W}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying\nThreshold — Other creatures you control get +2/+2 as long as there are seven or more cards in your graveyard.",
+        "flavorText": "A symbol of hope for hopeless times.",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matthew D. Wilson",
+        "imageId": "1465ca9e-a997-4b8c-9677-6c7961f67eba"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Flying",
+      "Threshold"
+    ],
+    "setCode": "jud",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PUTRID_IMP": {
+    "scryfallId": "1b9e6c5c-4bc4-4f41-8c2c-f5b8c97c53c5",
+    "oracleId": "7192ff07-9a84-49ad-a40c-ce255ce21544",
+    "name": "Putrid Imp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Putrid Imp",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Zombie Imp",
+        "oracleText": "Discard a card: This creature gains flying until end of turn.\nThreshold — As long as there are seven or more cards in your graveyard, this creature gets +1/+1 and can't block.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Wayne England",
+        "imageId": "1b9e6c5c-4bc4-4f41-8c2c-f5b8c97c53c5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "tor",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIRTY_WERERAT": {
+    "scryfallId": "3507696a-cce3-44c2-9d66-84d525228938",
+    "oracleId": "7fbd5f69-f6b4-4ad7-8e9e-47a798324f6c",
+    "name": "Dirty Wererat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dirty Wererat",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Human Rat Minion",
+        "oracleText": "{B}, Discard a card: Regenerate this creature.\nThreshold — As long as there are seven or more cards in your graveyard, this creature gets +2/+2 and can't block.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "3507696a-cce3-44c2-9d66-84d525228938"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Regenerate",
+      "Threshold"
+    ],
+    "setCode": "phuk",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KIRTAR_S_DESIRE": {
+    "scryfallId": "7f1e36fe-ecbe-46aa-9ee8-2ba4daba7d31",
+    "oracleId": "4f21a664-96e3-49be-ba9f-4af4b6bd7475",
+    "name": "Kirtar's Desire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kirtar's Desire",
+        "manaCost": "{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature can't attack.\nThreshold — Enchanted creature can't block as long as there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "7f1e36fe-ecbe-46aa-9ee8-2ba4daba7d31"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant",
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CEPHALID_INKMAGE": {
+    "scryfallId": "b7e47680-18c7-4ffb-aac4-c5db6e7095ba",
+    "oracleId": "8d979a0b-ba04-4abb-8f78-c707ce15351a",
+    "name": "Cephalid Inkmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cephalid Inkmage",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Octopus Wizard",
+        "oracleText": "When this creature enters, surveil 3. (Look at the top three cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)\nThreshold — This creature can't be blocked as long as there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Christopher Burdett",
+        "imageId": "b7e47680-18c7-4ffb-aac4-c5db6e7095ba"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Surveil",
+      "Threshold"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "32",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAMAHL_S_DESIRE": {
+    "scryfallId": "c99e1ded-7440-40a6-846b-7450a9b7d2a8",
+    "oracleId": "6cbe54e0-5d62-4aad-ad9c-98b70defbf96",
+    "name": "Kamahl's Desire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kamahl's Desire",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has first strike.\nThreshold — Enchanted creature gets +3/+0 as long as there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dave Dorman",
+        "imageId": "c99e1ded-7440-40a6-846b-7450a9b7d2a8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant",
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "199",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FRIGHTCRAWLER": {
+    "scryfallId": "d79129e7-6cc4-4060-8b76-3afbd2e0d456",
+    "oracleId": "96b611e9-38cc-4326-bb38-73084e99e6f5",
+    "name": "Frightcrawler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frightcrawler",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Horror",
+        "oracleText": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\nThreshold — As long as there are seven or more cards in your graveyard, this creature gets +2/+2 and can't block.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "d79129e7-6cc4-4060-8b76-3afbd2e0d456"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Threshold",
+      "Fear"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

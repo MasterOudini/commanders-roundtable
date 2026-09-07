@@ -4810,6 +4810,16 @@ export const ACID_WEB_SPIDER: CardData = F.ACID_WEB_SPIDER as CardData;
 export const WORT_BOGGART_AUNTIE: CardData = F.WORT_BOGGART_AUNTIE as CardData;
 export const CHOMPING_CHANGELING: CardData = F.CHOMPING_CHANGELING as CardData;
 export const ORE_GORGER: CardData = F.ORE_GORGER as CardData;
+export const NIGHTWHORL_HERMIT: CardData = F.NIGHTWHORL_HERMIT as CardData;
+export const CHILDHOOD_HORROR: CardData = F.CHILDHOOD_HORROR as CardData;
+export const ABOSHAN_S_DESIRE: CardData = F.ABOSHAN_S_DESIRE as CardData;
+export const SILVER_SERAPH: CardData = F.SILVER_SERAPH as CardData;
+export const PUTRID_IMP: CardData = F.PUTRID_IMP as CardData;
+export const DIRTY_WERERAT: CardData = F.DIRTY_WERERAT as CardData;
+export const KIRTAR_S_DESIRE: CardData = F.KIRTAR_S_DESIRE as CardData;
+export const CEPHALID_INKMAGE: CardData = F.CEPHALID_INKMAGE as CardData;
+export const KAMAHL_S_DESIRE: CardData = F.KAMAHL_S_DESIRE as CardData;
+export const FRIGHTCRAWLER: CardData = F.FRIGHTCRAWLER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -9740,6 +9750,16 @@ export const ENGINE_CARDS: CardData[] = [
   WORT_BOGGART_AUNTIE,
   CHOMPING_CHANGELING,
   ORE_GORGER,
+  NIGHTWHORL_HERMIT,
+  CHILDHOOD_HORROR,
+  ABOSHAN_S_DESIRE,
+  SILVER_SERAPH,
+  PUTRID_IMP,
+  DIRTY_WERERAT,
+  KIRTAR_S_DESIRE,
+  CEPHALID_INKMAGE,
+  KAMAHL_S_DESIRE,
+  FRIGHTCRAWLER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -7,6 +7,16 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { NIGHTWHORL_HERMIT_SCRIPT } from './cards/nightwhorlHermit';
+import { CHILDHOOD_HORROR_SCRIPT } from './cards/childhoodHorror';
+import { ABOSHANS_DESIRE_SCRIPT } from './cards/aboshansDesire';
+import { SILVER_SERAPH_SCRIPT } from './cards/silverSeraph';
+import { PUTRID_IMP_SCRIPT } from './cards/putridImp';
+import { DIRTY_WERERAT_SCRIPT } from './cards/dirtyWererat';
+import { KIRTARS_DESIRE_SCRIPT } from './cards/kirtarsDesire';
+import { CEPHALID_INKMAGE_SCRIPT } from './cards/cephalidInkmage';
+import { KAMAHLS_DESIRE_SCRIPT } from './cards/kamahlsDesire';
+import { FRIGHTCRAWLER_SCRIPT } from './cards/frightcrawler';
 import { MONASTERY_LOREMASTER_SCRIPT } from './cards/monasteryLoremaster';
 import { STEAM_CATAPULT_SCRIPT } from './cards/steamCatapult';
 import { FORERUNNER_OF_SLAUGHTER_SCRIPT } from './cards/forerunnerOfSlaughter';
@@ -4566,6 +4576,16 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  NIGHTWHORL_HERMIT_SCRIPT,
+  CHILDHOOD_HORROR_SCRIPT,
+  ABOSHANS_DESIRE_SCRIPT,
+  SILVER_SERAPH_SCRIPT,
+  PUTRID_IMP_SCRIPT,
+  DIRTY_WERERAT_SCRIPT,
+  KIRTARS_DESIRE_SCRIPT,
+  CEPHALID_INKMAGE_SCRIPT,
+  KAMAHLS_DESIRE_SCRIPT,
+  FRIGHTCRAWLER_SCRIPT,
   MONASTERY_LOREMASTER_SCRIPT,
   STEAM_CATAPULT_SCRIPT,
   FORERUNNER_OF_SLAUGHTER_SCRIPT,
