@@ -65,9 +65,13 @@ export function vocabularyEffects(payload: string, name: string): readonly Effec
   if (/\bat random\b/i.test(payload)) {
     throw new Error(`${name}: "${payload}" uses randomness, which a def's resolve cannot thread onto the event (the game would not replay).`);
   }
-  for (const effect of parsed.effects) {
-    if (ASKS.has(effect.kind)) {
-      throw new Error(`${name}: "${payload}" asks (${effect.kind}) - a prompt inside an ability's resolution is the continuation seam, not the vocabulary payload.`);
+  for (const [i, effect] of parsed.effects.entries()) {
+    // D349 - an ask is allowed as the LAST effect and nowhere else. `effectEvents` stops at the prompt, so
+    // a clause written after one would be dropped in silence (D344 refused every ask for that reason); with
+    // the ask last there is nothing to drop, which is D195's rule for spells and how a trigger has raised
+    // the discard since D285. Anywhere else it is still the continuation seam, and still a throw.
+    if (ASKS.has(effect.kind) && i !== parsed.effects.length - 1) {
+      throw new Error(`${name}: "${payload}" asks (${effect.kind}) before its last clause - a prompt with a clause after it would be dropped, which is the continuation seam.`);
     }
     if (effect.self && NEEDS_AIM.has(effect.kind)) {
       throw new Error(`${name}: "${payload}" is a self clause of a kind that needs an aim (${effect.kind}) - the executor would resolve it for nothing.`);

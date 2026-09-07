@@ -10920,6 +10920,52 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D348): the turn-record clauses the vocabulary still refuses (34 activation conditions in all: a keyword on a permanent predicate - a creature with flying 2; an opponent's permanent count 2; a power threshold on somebody other than the source 2; a plural subtype count; a planeswalker by subtype), the cost verbs the derivation cannot pay (93: snow mana {S} 14, a return-to-hand cost 14, an exile cost 14, a remove-a-counter-from-another-permanent cost 12, a counted sacrifice 10 which the engine itself refuses), the trigger payloads outside both readers (52), the effects outside the row kinds (48, of which 21 are Add one mana of any color whose blocker is the cost beside it), the vocabulary clauses the suite cannot fixture (36), the static lines (36: Unleash 10, Exploit 8, the Threshold bodies), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14); then D347's list unchanged: the modal permanent lines, the wider modal heads, the asking modes, the mode payloads outside both readers, the heads outside the library, the modal spells beside another sentence, the quoted abilities enchanted creatures and lands have, Enchant player, the look at the top card of your library; the "another" split; the by-name
       sacrifice cost; the remaining cost verbs; the prompt continuation seam;
       prior items stand.
+- [x] **M6.4gh — THE WIDER VOCABULARY PAYLOAD: a payload the engine's own
+      vocabulary reads is emitted under a trigger head, and a clause that asks
+      may be the payload's last effect; 48 cards land, 48 as
+      generated rows (2026-09-07):**
+      **7,172 of 31,692 Commander-legal cards now execute completely, up
+      from 7,124 (+48).** `SHIPPED_SCRIPTS` 4,525; ledger
+      940 (12 rows RETIRED by name - the cards the ledger held for a payload the row maker could not emit, which the vocabulary has read all along - and none added; measured: the REFUSED map's size 952 -> 940). Fixtures 4,912 (4,770 by name + 135 tokens: the 48 rows' cards; no new token pin (every token these payloads make was pinned already)). **Select pool
+      0.** Decisions in **D349**.
+      ⚠️ **ONE ENGINE LINE; the rest is the generator reaching what the engine
+      already does.** No reading is new: every payload here is a sentence
+      `parseEffects` has read since D344.
+      ⚠️ **The trigger re-read:** `parseEffect` claims "Tap target creature."
+      and its kin as ACTIVATED row kinds the TRIGGER emitter has no case for, so
+      29 payloads the vocabulary reads were refused as "not a pump". A payload
+      whose kind the trigger emitter cannot emit is offered to the vocabulary
+      now, and the allowlist is a named SET so the re-read and the refusal
+      cannot drift apart.
+      ⚠️ **The ask-last rule:** `vocabularyEffects` threw on ANY asking clause,
+      for a good reason — `effectEvents` stops at an `AwaitingSet`, so a clause
+      after the prompt would be dropped in silence (D90). With the ask LAST
+      there is nothing to drop: that is D195's rule for spells, and how D285's
+      targeted discards and D278's Necrogen Spellbomb have run from a trigger
+      and an activation ever since. An ask anywhere but last still throws by
+      name.
+      ⚠️ **The suite answers it**: `AnswerChooseFromZone` for the player the
+      clause names, then the cards are read into that player's graveyard. Scry
+      and surveil stay refused — three cards — because the scaffold has no
+      answer for their prompt yet, which is the honest reason to leave them.
+      ⚠️ **A refusal must name the CAUSE, not the kind.** The port's one real
+      red was an ENCHANTMENT with an attack head: the suite declares the row's
+      own card as the attacker. Widening the refusal by kind ("an optional
+      trigger that also targets") dropped 17 GREEN rows before the measurement
+      caught it; the refusal that shipped is an attack head on a card with no
+      creature body, and it costs exactly one card.
+      Measured first: the D348 probe re-run over a tree 14 cards further on (the grammar is unchanged, the candidate set is not): 400 fully covered cards, down from 414 as the turn-record rows became complete. The row maker refused all 400 before this decision, and its histogram named where they sit: a COST it cannot charge 103 (across 72 distinct verbs - a long tail, the biggest family snow mana at 13), a TRIGGER PAYLOAD it has no case for 52, an EFFECT outside its row kinds 48, a vocabulary clause the suite cannot fixture 36, a line that is neither an activated ability nor a library trigger 36, an activation condition 34. Reading the two payload rows against the vocabulary dump settled the decision: of the 52 trigger payloads, 29 are sentences the vocabulary reads whole with every clause confident and no prompt; of the 100 payload refusals in both rows, 24 more are read whole and refused ONLY because they ask (21 discards, 3 that scry or surveil). Nothing else on the board came close: the biggest cost verb is 13 cards. NOT this decision: the three asking payloads the suite cannot answer yet (a scry, a surveil and a scry beside damage - the answer is `AnswerScry`, which the scaffold has for its own scry rows and not for a vocabulary one), the 20 trigger payloads still outside both readers (a graveyard return under a head, a look at the top cards, a conditional discard, a regenerate), the cost verbs the derivation cannot pay (104 across 72 verbs, the largest families snow mana {S} 13, a return-to-hand cost 12, a remove-a-counter-from-another-permanent cost 8, a counted sacrifice 7, an exile-self cost 5), the activation conditions outside the vocabulary (34), the vocabulary clauses the suite cannot fixture (36: a counted clause, a combat-role clause, a tapped or nonbasic-land predicate, a spell clause), the lines that are neither an activated ability nor a library trigger (36: Unleash 10, Exploit 8, the Threshold bodies), Add one mana of any color behind a cost the engine does not charge (23), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14), an attack head on a card with no creature body (1 - a scaffold that attacks with a creature the row did not put down); then D348's list unchanged: the modal permanent lines, the wider modal heads, the asking modes, the heads outside the library, the modal spells beside another sentence, the quoted abilities enchanted creatures and lands have, Enchant player, the look at the top card of your library. Refused by name:
+      12 rows RETIRED by name - the cards the ledger held for a payload the row maker could not emit, which the vocabulary has read all along - and none added; measured: the REFUSED map's size 952 -> 940.
+      12 ledger rows retired by name: cards refused for a payload the row maker had no case for, which the vocabulary reads. Report `effect:auto` 4,209 → 4,209,
+      `withUnenforced` 280 → 280.
+      **Landed:** No second wave: the 48 rows are the landing, and the POOL took 39 creatures, 6 enchantments and 3 artifacts more on the same sweep - the commander's reach rose to 7,113 cards from 7,065, chosen from 196 fully-executable legendary creatures (193 before). Tests: one generated suite per row.
+      Fixtures 4,912 · botPool artifact 394 / creature 4,156 / enchantment 374 / instant 1,007 / land 498 / sorcery 743 - auto 948 / assisted 1,832 / autoAnyFace 957 · ladder [1040, 1108, 2721, 4545, 5879] · batch.json
+      48 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,659 files, 23,146 passing / 11 skipped ·
+      500-seed gate, 6 shards, 618.5 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D349): the three asking payloads the suite cannot answer yet (a scry, a surveil and a scry beside damage - the answer is `AnswerScry`, which the scaffold has for its own scry rows and not for a vocabulary one), the 20 trigger payloads still outside both readers (a graveyard return under a head, a look at the top cards, a conditional discard, a regenerate), the cost verbs the derivation cannot pay (104 across 72 verbs, the largest families snow mana {S} 13, a return-to-hand cost 12, a remove-a-counter-from-another-permanent cost 8, a counted sacrifice 7, an exile-self cost 5), the activation conditions outside the vocabulary (34), the vocabulary clauses the suite cannot fixture (36: a counted clause, a combat-role clause, a tapped or nonbasic-land predicate, a spell clause), the lines that are neither an activated ability nor a library trigger (36: Unleash 10, Exploit 8, the Threshold bodies), Add one mana of any color behind a cost the engine does not charge (23), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14), an attack head on a card with no creature body (1 - a scaffold that attacks with a creature the row did not put down); then D348's list unchanged: the modal permanent lines, the wider modal heads, the asking modes, the heads outside the library, the modal spells beside another sentence, the quoted abilities enchanted creatures and lands have, Enchant player, the look at the top card of your library; the "another" split; the by-name
+      sacrifice cost; the remaining cost verbs; the prompt continuation seam;
+      prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

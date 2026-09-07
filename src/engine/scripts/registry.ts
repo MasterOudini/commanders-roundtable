@@ -7,6 +7,54 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { NIBLIS_OF_THE_MIST_SCRIPT } from './cards/niblisOfTheMist';
+import { FESTERING_MUMMY_SCRIPT } from './cards/festeringMummy';
+import { ELITE_SKIRMISHER_SCRIPT } from './cards/eliteSkirmisher';
+import { NIBLIS_OF_THE_URN_SCRIPT } from './cards/niblisOfTheUrn';
+import { SEASONED_MARSHAL_SCRIPT } from './cards/seasonedMarshal';
+import { SUN_CE_YOUNG_CONQUERER_SCRIPT } from './cards/sunCeYoungConquerer';
+import { VOIDWIELDER_SCRIPT } from './cards/voidwielder';
+import { LEONIN_SNARECASTER_SCRIPT } from './cards/leoninSnarecaster';
+import { ANGLER_DRAKE_SCRIPT } from './cards/anglerDrake';
+import { ALABORN_CAVALIER_SCRIPT } from './cards/alabornCavalier';
+import { NECROPEDE_SCRIPT } from './cards/necropede';
+import { OATH_OF_THE_ANCIENT_WOOD_SCRIPT } from './cards/oathOfTheAncientWood';
+import { FLANKING_TROOPS_SCRIPT } from './cards/flankingTroops';
+import { KITSUNE_DAWNBLADE_SCRIPT } from './cards/kitsuneDawnblade';
+import { CARTOUCHE_OF_AMBITION_SCRIPT } from './cards/cartoucheOfAmbition';
+import { SEPARATIST_VOIDMAGE_SCRIPT } from './cards/separatistVoidmage';
+import { SOMNOMANCER_SCRIPT } from './cards/somnomancer';
+import { DISRUPTING_SCEPTER_SCRIPT } from './cards/disruptingScepter';
+import { APHETTO_EXTERMINATOR_SCRIPT } from './cards/aphettoExterminator';
+import { CRYPTWAILING_SCRIPT } from './cards/cryptwailing';
+import { LILIANAS_STEWARD_SCRIPT } from './cards/lilianasSteward';
+import { SCEPTER_OF_FUGUE_SCRIPT } from './cards/scepterOfFugue';
+import { SADISTIC_HYPNOTIST_SCRIPT } from './cards/sadisticHypnotist';
+import { LYLA_HOLOGRAPHIC_ASSISTANT_SCRIPT } from './cards/lylaHolographicAssistant';
+import { ASPECT_OF_LAMPREY_SCRIPT } from './cards/aspectOfLamprey';
+import { DYING_WAIL_SCRIPT } from './cards/dyingWail';
+import { IMPLEMENT_OF_MALICE_SCRIPT } from './cards/implementOfMalice';
+import { VODALIAN_HYPNOTIST_SCRIPT } from './cards/vodalianHypnotist';
+import { BRAIN_WEEVIL_SCRIPT } from './cards/brainWeevil';
+import { WOODCLOAKER_SCRIPT } from './cards/woodcloaker';
+import { NEZUMI_BONE_READER_SCRIPT } from './cards/nezumiBoneReader';
+import { GUARDIAN_GLADEWALKER_SCRIPT } from './cards/guardianGladewalker';
+import { CUNNING_ADVISOR_SCRIPT } from './cards/cunningAdvisor';
+import { ECHO_TRACER_SCRIPT } from './cards/echoTracer';
+import { ZURAN_ENCHANTER_SCRIPT } from './cards/zuranEnchanter';
+import { PATRON_OF_THE_WILD_SCRIPT } from './cards/patronOfTheWild';
+import { KOLAGHAN_STORMSINGER_SCRIPT } from './cards/kolaghanStormsinger';
+import { STRANDS_OF_UNDEATH_SCRIPT } from './cards/strandsOfUndeath';
+import { AUGUR_OF_SKULLS_SCRIPT } from './cards/augurOfSkulls';
+import { CAT_BURGLAR_SCRIPT } from './cards/catBurglar';
+import { MISTFIRE_ADEPT_SCRIPT } from './cards/mistfireAdept';
+import { NEPHALIA_MOONDRAKES_SCRIPT } from './cards/nephaliaMoondrakes';
+import { CABAL_INQUISITOR_SCRIPT } from './cards/cabalInquisitor';
+import { WINGBEAT_WARRIOR_SCRIPT } from './cards/wingbeatWarrior';
+import { WALL_OF_DISTORTION_SCRIPT } from './cards/wallOfDistortion';
+import { CAO_CAO_LORD_OF_WEI_SCRIPT } from './cards/caoCaoLordOfWei';
+import { OAKHEART_DRYADS_SCRIPT } from './cards/oakheartDryads';
+import { MINDWARPER_SCRIPT } from './cards/mindwarper';
 import { IDOL_OF_OBLIVION_SCRIPT } from './cards/idolOfOblivion';
 import { FALKENRATH_PIT_FIGHTER_SCRIPT } from './cards/falkenrathPitFighter';
 import { TAPESTRY_OF_THE_AGES_SCRIPT } from './cards/tapestryOfTheAges';
@@ -4503,6 +4551,54 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  NIBLIS_OF_THE_MIST_SCRIPT,
+  FESTERING_MUMMY_SCRIPT,
+  ELITE_SKIRMISHER_SCRIPT,
+  NIBLIS_OF_THE_URN_SCRIPT,
+  SEASONED_MARSHAL_SCRIPT,
+  SUN_CE_YOUNG_CONQUERER_SCRIPT,
+  VOIDWIELDER_SCRIPT,
+  LEONIN_SNARECASTER_SCRIPT,
+  ANGLER_DRAKE_SCRIPT,
+  ALABORN_CAVALIER_SCRIPT,
+  NECROPEDE_SCRIPT,
+  OATH_OF_THE_ANCIENT_WOOD_SCRIPT,
+  FLANKING_TROOPS_SCRIPT,
+  KITSUNE_DAWNBLADE_SCRIPT,
+  CARTOUCHE_OF_AMBITION_SCRIPT,
+  SEPARATIST_VOIDMAGE_SCRIPT,
+  SOMNOMANCER_SCRIPT,
+  DISRUPTING_SCEPTER_SCRIPT,
+  APHETTO_EXTERMINATOR_SCRIPT,
+  CRYPTWAILING_SCRIPT,
+  LILIANAS_STEWARD_SCRIPT,
+  SCEPTER_OF_FUGUE_SCRIPT,
+  SADISTIC_HYPNOTIST_SCRIPT,
+  LYLA_HOLOGRAPHIC_ASSISTANT_SCRIPT,
+  ASPECT_OF_LAMPREY_SCRIPT,
+  DYING_WAIL_SCRIPT,
+  IMPLEMENT_OF_MALICE_SCRIPT,
+  VODALIAN_HYPNOTIST_SCRIPT,
+  BRAIN_WEEVIL_SCRIPT,
+  WOODCLOAKER_SCRIPT,
+  NEZUMI_BONE_READER_SCRIPT,
+  GUARDIAN_GLADEWALKER_SCRIPT,
+  CUNNING_ADVISOR_SCRIPT,
+  ECHO_TRACER_SCRIPT,
+  ZURAN_ENCHANTER_SCRIPT,
+  PATRON_OF_THE_WILD_SCRIPT,
+  KOLAGHAN_STORMSINGER_SCRIPT,
+  STRANDS_OF_UNDEATH_SCRIPT,
+  AUGUR_OF_SKULLS_SCRIPT,
+  CAT_BURGLAR_SCRIPT,
+  MISTFIRE_ADEPT_SCRIPT,
+  NEPHALIA_MOONDRAKES_SCRIPT,
+  CABAL_INQUISITOR_SCRIPT,
+  WINGBEAT_WARRIOR_SCRIPT,
+  WALL_OF_DISTORTION_SCRIPT,
+  CAO_CAO_LORD_OF_WEI_SCRIPT,
+  OAKHEART_DRYADS_SCRIPT,
+  MINDWARPER_SCRIPT,
   IDOL_OF_OBLIVION_SCRIPT,
   FALKENRATH_PIT_FIGHTER_SCRIPT,
   TAPESTRY_OF_THE_AGES_SCRIPT,

@@ -242,7 +242,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Lifeblood', 'per-tap-entry trigger granularity'],
   ['Lifetap', 'per-tap-entry trigger granularity'],
   ['Linden, the Steadfast Queen', 'per-tap-entry trigger granularity'],
-  ['Lyla, Holographic Assistant', 'draw-event discriminator'],
   // Batch 27 (D186), five refusals and TWO new classes. Matoya names the
   // SCRY/SURVEIL EVENT DISCRIMINATOR: no event marks a scry — the peek is a
   // Tier-3 reveal and scry/surveil are UI MODES on it (D114), so "whenever
@@ -1676,7 +1675,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hailstorm Valkyrie', 'snow mana cost'],
   ['Chilling Shade', 'snow mana cost'],
   ['Duergar Mine-Captain', 'untap-symbol cost'],
-  ['Nephalia Moondrakes', 'graveyard-activated ability'],
   ['Quillspike', 'remove-counter cost'],
   ['Rift Elemental', 'remove-counter cost'],
   ['Orc General', 'multi-type sacrifice cost'],
@@ -1712,8 +1710,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D303 (M6.4en) — the counter one-shot pool: the heads outside the library,
   // the per-item counters on an entering object, the costs no row charges.
   ['Daybreak Coronet', 'an Aura line outside the row shapes (Enchant creature with another Aura attached to i)'],
-  ['Aspect of Lamprey', 'an Aura line outside the row shapes (When this Aura enters, target opponent discards )'],
-  ['Dying Wail', 'an Aura line outside the row shapes (When enchanted creature dies, target player disc)'],
   ['Contaminated Bond', 'an Aura line outside the row shapes (Whenever enchanted creature attacks or blocks, i)'],
   ['Luminous Wake', 'an Aura line outside the row shapes (Whenever enchanted creature attacks or blocks, y)'],
   ['Viridian Harvest', 'an Aura line outside the row shapes (Enchant artifact)'],
@@ -1827,7 +1823,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // lines the vocabulary does not read yet - their keyword trigger runs.
   ['Dawnray Archer', 'a creature line outside the vocabulary (its exalted runs)'],
   ['Glen Elendra Archmage', 'a creature line outside the vocabulary (its persist runs)'],
-  ['Mistfire Adept', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Pinnacle Monk // Mystic Peak', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Pollywog Prodigy', 'a creature line outside the vocabulary (its evolve runs)'],
   ['Ray Fillet, Wave Warrior', 'a creature line outside the vocabulary (its evolve runs)'],
@@ -1835,21 +1830,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D309 (M6.4et) — the morph pool: the morph creatures whose other
   // lines the vocabulary does not read yet - their morph runs.
-  ['Aphetto Exterminator', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Dwarven Blastminer', 'an activated line outside the vocabulary (its morph runs)'],
-  ['Echo Tracer', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Gravel Slinger', 'an activated line outside the vocabulary (its morph runs)'],
   ['Grim Haruspex', 'a dies watcher over other creatures (its morph runs)'],
-  ['Kolaghan Stormsinger', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Monastery Loremaster', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
-  ['Patron of the Wild', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Ponyback Brigade', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Stratus Dancer', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Venomspout Brackus', 'an activated line outside the vocabulary (its morph runs)'],
   ['Voidmage Apprentice', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Voidmage Prodigy', 'an activated line outside the vocabulary (its morph runs)'],
-  ['Wingbeat Warrior', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
-  ['Woodcloaker', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
 
   // D310 (M6.4eu) — the changeling / devoid pool: the carriers whose other
   // lines the vocabulary does not read yet - their changeling or devoid runs.
@@ -1862,7 +1851,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Forerunner of Slaughter', 'a creature line outside the vocabulary (its devoid runs)'],
   ['Gladewalker Ritualist', 'a creature line outside the vocabulary (its changeling runs)'],
   ['Grip of Desolation', 'a spell line outside the vocabulary (its devoid runs)'],
-  ['Guardian Gladewalker', 'a creature line outside the vocabulary (its changeling runs)'],
   ['Nameless Inversion', 'a spell line outside the vocabulary (its changeling runs)'],
   ['Oblivion Strike', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Reality Hemorrhage', 'a spell line outside the vocabulary (its devoid runs)'],

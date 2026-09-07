@@ -315,8 +315,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // scale — 19 of 25, the six refusals named — 1,742 → 1,761. M6.4d
       // (D161): thirteen more, and the selection taught two refusal shapes —
       // 1,761 → 1,774.
-      complete: 7124,
-      blocked: 24568,
+      complete: 7172,
+      blocked: 24520,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -325,19 +325,19 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1052,
+      scriptableToday: 1040,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
       // of which 169 genuinely needed nothing but the yes/no. It led D127's table
       // at 2,012 and is in fact the second SMALLEST row. See D153 and
       // `primitiveFor`.
-      optional: 78,
+      optional: 63,
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
       layer6: 1353,
-      counter: 1462,
+      counter: 1461,
       token: 969,
     });
   });
@@ -375,7 +375,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1052, 1136, 2749, 4574, 5908]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1040, 1108, 2721, 4545, 5879]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -547,8 +547,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1052, 1136]);
-    expect.soft(r.complete).toBe(7124);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1040, 1108]);
+    expect.soft(r.complete).toBe(7172);
   });
 });
 
@@ -667,11 +667,11 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
    */
   test('the residue splits into named families', () => {
     expect.soft(rr.residue).toEqual({
-      activatedCost: 2401,
+      activatedCost: 2399,
       triggeredShell: 2140,
       damage: 761,
       exile: 926,
-      staticShell: 708,
+      staticShell: 707,
       attackBlock: 868,
       lifeGainLoss: 591,
       drawDiscard: 355,
@@ -680,7 +680,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
       cantBeCountered: 98,
       gainControl: 66,
       wardHexproofGrant: 46,
-      other: 3226,
+      other: 3225,
     });
   });
 

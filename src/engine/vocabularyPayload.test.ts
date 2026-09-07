@@ -11,6 +11,7 @@ import { GRIZZLY_BEARS } from '../data/fixtures/engineCards';
 import { checkInvariants } from './invariants';
 import { replay, stateHash } from './log';
 import { createRegistry } from './scripts/registryCore';
+import { parseEffects } from '../data/effectParse';
 import { vocabularyEffects, vocabularyTargets } from './scripts/vocabulary';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from './testing/harness';
 import type { Game } from './game';
@@ -146,9 +147,25 @@ describe('D344 - the helpers refuse what the ctx cannot run, at module load', ()
     expect(() => vocabularyEffects('Flip a coin.', 'X')).toThrow(/whole/);
   });
 
-  test('a clause that asks', () => {
-    expect(() => vocabularyEffects('Scry 2.', 'X')).toThrow(/asks/);
-    expect(() => vocabularyEffects('Target opponent discards a card.', 'X')).toThrow(/asks/);
+  test('a clause that asks is read only as the LAST effect', () => {
+    // D349 - the ask is allowed at the end and nowhere else: `effectEvents` stops at the prompt, so a
+    // clause written after one would be dropped in silence. With nothing after it, nothing is dropped.
+    expect(vocabularyEffects('Scry 2.', 'X').map((e) => e.kind)).toEqual(['scry']);
+    expect(vocabularyEffects('Target opponent discards a card.', 'X').map((e) => e.kind)).toEqual(['discard']);
+    expect(vocabularyEffects('You gain 2 life. Surveil 1.', 'X').map((e) => e.kind)).toEqual(['gainLife', 'surveil']);
+    // ⚠️ An ask with a clause AFTER it is still the continuation seam and still a throw - and that branch
+    // is VACUOUS TODAY, measured: `parseEffects` folds a draw after a scry into `thenDraw`, so "Scry 1.
+    // Draw a card." is ONE effect, and every other ask-then-clause sentence comes back `assisted`. A
+    // fabricated negative would be a green tick over nothing (D128), so this TRIPWIRES the fact instead:
+    // the day the vocabulary reads one of these whole, this fails and the throw gets its real case.
+    for (const text of [
+      'Target player discards a card. You gain 2 life.',
+      'Surveil 1. You gain 2 life.',
+      'Scry 2. ~ deals 2 damage to any target.',
+      'Target player discards a card. Draw a card.',
+    ]) {
+      expect(parseEffects(text, 'X', true).mode, text).not.toBe('auto');
+    }
   });
 
   test('a confident clause list, in printed order', () => {
