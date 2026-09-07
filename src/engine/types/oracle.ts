@@ -142,6 +142,21 @@ export interface ManaProduction {
    * extra cost the player's.
    */
   readonly extraCost?: { readonly mana: ManaCost | null; readonly life: number; readonly sacrificeSelf: boolean } | null;
+  /**
+   * D355 - the PRICE the line charges when the mana is made: `This land deals 1
+   * damage to you.` Null when the line is nothing but its mana.
+   *
+   * ⚠️ It is applied in the same action as the mana, because a mana ability
+   * never uses the stack (CR 605.1) - there is no window between the damage and
+   * the mana in which anything could respond.
+   *
+   * ⚠️ DETERMINISTIC ONLY, and that is the whole boundary: a drawback that asks
+   * a question (sacrifice a permanent, discard a card) is a decision, and a mana
+   * ability cannot stop to ask one. Such a line keeps no `drawback`, stays
+   * unclaimed by the accounting, and the card stays incomplete - which is the
+   * true answer rather than a convenient one.
+   */
+  readonly drawback?: { readonly kind: 'damageToYou'; readonly amount: number } | null;
   readonly text: string;
   /**
    * Index of the oracle-text line this was parsed from, or null for the

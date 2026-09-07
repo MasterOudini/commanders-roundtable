@@ -165106,6 +165106,194 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BATTLEFIELD_FORGE": {
+    "scryfallId": "034c5944-aad3-4bf2-b79d-8da61ab1bd52",
+    "oracleId": "6b75b94e-83b7-457e-ac41-7ca90b5a59aa",
+    "name": "Battlefield Forge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Battlefield Forge",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}: Add {R} or {W}. This land deals 1 damage to you.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Darrell Riche",
+        "imageId": "034c5944-aad3-4bf2-b79d-8da61ab1bd52"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ori",
+    "collectorNumber": "244",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TALISMAN_OF_CURIOSITY": {
+    "scryfallId": "00413cf3-bc14-4881-8feb-829f11af0fdd",
+    "oracleId": "8c34b089-aad1-476e-958a-3077bf1bbb51",
+    "name": "Talisman of Curiosity",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Talisman of Curiosity",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {C}.\n{T}: Add {G} or {U}. This artifact deals 1 damage to you.",
+        "flavorText": "\"The pain of exploring is less than the pain of not knowing.\"\n—Tamiyo",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Lindsey Look",
+        "imageId": "00413cf3-bc14-4881-8feb-829f11af0fdd"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "m3c",
+    "collectorNumber": "309",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YAVIMAYA_COAST": {
+    "scryfallId": "0378af42-0e35-4ee0-96ed-d588a71c0bea",
+    "oracleId": "40b36bc6-c185-4bda-99e7-0118953c2c97",
+    "name": "Yavimaya Coast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Yavimaya Coast",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}: Add {G} or {U}. This land deals 1 damage to you.",
+        "flavorText": "As magnigoth trees expanded across the sea into Almaaz and New Argive, it became clear Yavimaya's borders were never confined by its coastline.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jesper Ejsing",
+        "imageId": "0378af42-0e35-4ee0-96ed-d588a71c0bea"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "m3c",
+    "collectorNumber": "410",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THALAKOS_LOWLANDS": {
+    "scryfallId": "00536ba7-1865-4895-8314-da8949d261c9",
+    "oracleId": "5a54d6a3-b1d0-42fe-9531-604b34d197f1",
+    "name": "Thalakos Lowlands",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thalakos Lowlands",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}: Add {W} or {U}. This land doesn't untap during your next untap step.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jeff A. Menges",
+        "imageId": "00536ba7-1865-4895-8314-da8949d261c9"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "brb",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAND_COLISEUM": {
+    "scryfallId": "0ea85b58-a396-4ee9-ba77-afc0b0742cf1",
+    "oracleId": "1cea9b82-d2e9-4758-8ec8-729fcf4bb7d7",
+    "name": "Grand Coliseum",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grand Coliseum",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {C}.\n{T}: Add one mana of any color. This land deals 1 damage to you.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Carl Critchlow",
+        "imageId": "0ea85b58-a396-4ee9-ba77-afc0b0742cf1"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "c16",
+    "collectorNumber": "299",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOGWELL_S_GYM": {
+    "scryfallId": "e63523d5-0f2c-436a-b411-662eb11fd150",
+    "oracleId": "850bb6f7-48d3-4d65-9220-b0bec5ee6b64",
+    "name": "Fogwell's Gym",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fogwell's Gym",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {R}. This land deals 1 damage to you.\n{2}{R}, {T}, Discard a card: Draw a card.",
+        "flavorText": "\"You trained here, Father. You trained and made me promise to stay away. I came here anyway. I became a fighter just like you. Endless hours. On the ropes. At the bag.\"\n—Matt Murdock",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Pace Wilder",
+        "imageId": "e63523d5-0f2c-436a-b411-662eb11fd150"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "754",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

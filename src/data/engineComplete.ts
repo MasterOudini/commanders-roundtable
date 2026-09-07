@@ -419,11 +419,15 @@ export function linesUnaccounted(
   // second sentence, and of nothing else.
   const modelled = new Set<number>();
   const anyMana = new Set<number>();
+  // D355 - a line whose second sentence is a PRICE the engine charges at the tap. Asked of the
+  // parser that read it, never re-read here - the fifth time this file has had to say so (D134).
+  const priced = new Set<number>();
   if (face.isPermanent) {
     for (const p of face.producesMana) {
       if (p.line === null) continue;
       anyMana.add(p.line);
       if (!p.conditional) modelled.add(p.line);
+      if (!p.conditional && p.drawback) priced.add(p.line);
     }
   }
 
@@ -431,7 +435,8 @@ export function linesUnaccounted(
   for (const [i, text] of lines.entries()) {
     const line = text.trim();
     if (line === '') continue;
-    if (modelled.has(i) && isManaOnlyLine(line)) continue;
+    // D355 - a priced line is accounted for too: the mana AND the damage happen, in one action.
+    if (modelled.has(i) && (isManaOnlyLine(line) || priced.has(i))) continue;
     // ⚠️ ASKED OF THE PARSER THAT DECIDED IT, never re-read here — the fourth
     // time this file has had to say so. `face.entersTapped` is already the
     // answer to "is this the unconditional clause"; a second regex here would

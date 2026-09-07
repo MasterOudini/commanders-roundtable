@@ -4904,6 +4904,12 @@ export const KITHKIN_BILLYRIDER: CardData = F.KITHKIN_BILLYRIDER as CardData;
 export const MAKINDI_AERONAUT: CardData = F.MAKINDI_AERONAUT as CardData;
 export const SWAB_GOBLIN: CardData = F.SWAB_GOBLIN as CardData;
 export const AEGIS_TURTLE: CardData = F.AEGIS_TURTLE as CardData;
+export const BATTLEFIELD_FORGE: CardData = F.BATTLEFIELD_FORGE as CardData;
+export const TALISMAN_OF_CURIOSITY: CardData = F.TALISMAN_OF_CURIOSITY as CardData;
+export const YAVIMAYA_COAST: CardData = F.YAVIMAYA_COAST as CardData;
+export const THALAKOS_LOWLANDS: CardData = F.THALAKOS_LOWLANDS as CardData;
+export const GRAND_COLISEUM: CardData = F.GRAND_COLISEUM as CardData;
+export const FOGWELL_S_GYM: CardData = F.FOGWELL_S_GYM as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -9929,6 +9935,12 @@ export const ENGINE_CARDS: CardData[] = [
   MAKINDI_AERONAUT,
   SWAB_GOBLIN,
   AEGIS_TURTLE,
+  BATTLEFIELD_FORGE,
+  TALISMAN_OF_CURIOSITY,
+  YAVIMAYA_COAST,
+  THALAKOS_LOWLANDS,
+  GRAND_COLISEUM,
+  FOGWELL_S_GYM,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

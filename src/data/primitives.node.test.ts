@@ -315,8 +315,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // scale — 19 of 25, the six refusals named — 1,742 → 1,761. M6.4d
       // (D161): thirteen more, and the selection taught two refusal shapes —
       // 1,761 → 1,774.
-      complete: 7258,
-      blocked: 24434,
+      complete: 7288,
+      blocked: 24404,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -416,7 +416,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // ⚠️ And it survived because `tappedLands` was PRINTED and never asserted.
     // That is the same failure as `BUILT` itself, one file over: a figure nobody
     // checks is a figure that can be wrong for as long as nobody looks.
-    expect.soft(tappedLands).toBe(17);
+    expect.soft(tappedLands).toBe(18);
   });
 
   /**
@@ -548,7 +548,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
     expect.soft(steps.map((s) => s.unlocked)).toEqual([1032, 1096]);
-    expect.soft(r.complete).toBe(7258);
+    expect.soft(r.complete).toBe(7288);
   });
 });
 
@@ -667,7 +667,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
    */
   test('the residue splits into named families', () => {
     expect.soft(rr.residue).toEqual({
-      activatedCost: 2396,
+      activatedCost: 2360,
       triggeredShell: 2140,
       damage: 761,
       exile: 926,

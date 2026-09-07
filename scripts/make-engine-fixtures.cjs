@@ -5455,6 +5455,14 @@ const WANTED = [
   'Makindi Aeronaut',
   'Swab Goblin',
   'Aegis Turtle',
+  // D354 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  'Battlefield Forge',
+  'Talisman of Curiosity',
+  'Yavimaya Coast',
+  'Thalakos Lowlands',
+  'Grand Coliseum',
+  // D355 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  "Fogwell's Gym",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -7,6 +7,7 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FOGWELLS_GYM_SCRIPT } from './cards/fogwellsGym';
 import { IMPERIOUS_PERFECT_SCRIPT } from './cards/imperiousPerfect';
 import { INSPIRING_VETERAN_SCRIPT } from './cards/inspiringVeteran';
 import { THUNDERING_SPINEBACK_SCRIPT } from './cards/thunderingSpineback';
@@ -4637,6 +4638,7 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FOGWELLS_GYM_SCRIPT,
   IMPERIOUS_PERFECT_SCRIPT,
   INSPIRING_VETERAN_SCRIPT,
   THUNDERING_SPINEBACK_SCRIPT,

@@ -11225,6 +11225,50 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       500-seed gate, 6 shards · build clean · probe 124/124 · battery 130/130.**
       ⚠️ **Reportables** (D354): the QUOTED granted ability (221 cards - 121 activated, 90 triggered, 9 static, 1 mixed - whose text `scrub` blanks, so the accounting reports a line ending at the verb and 113 outer grant lines select the ACTIVATED claim bucket because the classifier sees the colons inside the quotes), the grant vocabulary the engine already honours but the shapes do not (8 cards behind fear, intimidate, skulk, horsemanship, wither and exalted - and exalted is not a characteristic at all but a triggered ability `keywordTriggers.ts` runs, so it needs its own proof), a scope that is not a creature (Vehicles), the subtypes with no inert member in the format (Citizens, Saprolings), the 3/3 Phyrexian Golem outside TOKEN_TABLE, the four trigger heads outside the library (a head naming this creature OR another of a type, counted attackers, cast-from-exile, cards leaving a graveyard), the mana ability with a CHOOSER price (17 unsupported prices behind `Add one mana of any color`), snow mana ({S} - 14 cards across four cost forms), the remove-a-counter CHOOSER (11), the self exile (5), the activation conditions outside the vocabulary (34 across 33 wordings), the lines that are neither an activated ability nor a library trigger (20: Unleash 10, Exploit 8); the seam map itself, to be re-measured
       after every grammar rather than trusted as it stands; prior items stand.
+- [x] **M6.4gn — THE MANA ABILITY'S PRICE: the engine was tapping every painland
+      in the format and dealing nothing; 30 cards land, 1 as a
+      generated row (2026-09-07):**
+      **7,288 of 31,692 Commander-legal cards now execute completely, up
+      from 7,258 (+30).** `SHIPPED_SCRIPTS` 4,612; ledger
+      932 (unchanged - no row added and none retired; the class this decision opened was never in the ledger, because a painland was never OFFERED to a script, it was simply half-executed). Fixtures 5,028 (4,885 by name + 136 tokens: the one row's card and the five the seam's own test puts down - a painland, its artifact spelling, and the slow land that must STAY refused; no new token pin). **Select pool
+      0.** Decisions in **D355**.
+      ⚠️ **The seam is a second sentence**: `{T}: Add {R} or {W}. This land
+      deals 1 damage to you.` The production was never conditional, so the
+      source was offered and used — and the damage never happened.
+      `engineComplete` refused the line for exactly that reason, which is **D90
+      catching the ENGINE rather than a card**. `ManaProduction.drawback` is
+      read by the parser that already reads the line, `tapForMana` charges it in
+      the SAME accept as the mana (CR 605.1 — a mana ability does not use the
+      stack, so there is no window between them), and the accounting claims it.
+      ⚠️ **29 of the 30 cards land with NO SCRIPT AT ALL**: a mana ability is
+      native, so the coverage move is the accounting claiming a line the engine
+      runs correctly once the price is charged.
+      ⚠️ **The vocabulary is CLOSED and the boundary is pinned by a real card**:
+      `Thalakos Lowlands` reads `doesn't untap during your next untap step` —
+      the same shape, delayed state the engine lacks — and the seam test asserts
+      it stays INCOMPLETE so a later widening cannot quietly claim it.
+      ⚠️ **A field nothing fills is a DEAD SEAM (D158) and `tsc` cannot see it**:
+      `drawback` was declared on `ManaSource`, read by the handler and never
+      populated by `manaSourcesOf` — an optional field that is simply absent
+      type-checks perfectly, and the damage would silently never have happened.
+      ⚠️ The any-colour production is a DIFFERENT push in the same parser, so
+      Grand Coliseum needed the price wired twice.
+      ⚠️ For the drafts: **COPYING the previous decision's generator instead of
+      DERIVING it** leaves every hardcoded `d354` path pointing at the wrong
+      directory.
+      Measured first: the seam map's third family, split by what actually follows the mana. 181 cards carry a mana ability with something after it, and they are five different seams: a SPEND restriction 44, an ACTIVATION CONDITION 29, a DRAWBACK that deals damage to you 29, a variable amount 28, a drawback that does not untap 10, a multi-mode production 10. Only the damage drawback is DETERMINISTIC and expressible today - a mana ability does not use the stack and cannot stop to ask a question - and it is 29 cards over just 3 wordings (18 lands, 10 artifacts, 1 creature). Measured before it was built, and confirmed after: botPool gained exactly 18 lands, 10 artifacts and 1 creature. The seam was reached by elimination: the quoted granted ability is denser on paper (221 cards) but the second agent's dossier showed it is a shared runtime CARRIER plus several payload families rather than one batch, and the modal seam that looked densest of all was measured at ZERO. NOT this decision: the mana ability's OTHER prices, measured beside this one over the same 181-card family: a SPEND restriction (44 - `Spend this mana only to cast a creature spell`, which needs restricted mana in the pool, a concept the engine does not have), an ACTIVATION CONDITION (29 - `Activate only if you control a Swamp`), a drawback that does not untap next turn (10 - delayed state the engine lacks), a MULTI-MODE production (10 - `Add {W}{U}, {U}{B}, or {B}{R}`), and a VARIABLE amount (28 across 18 wordings - `Add {B} for each Swamp you control`); then the QUOTED granted ability (221 cards, dossier in d354/DESIGN-quoted-grant.md - a shared runtime CARRIER for granted abilities plus several payload families, not one batch), the grant vocabulary the engine honours but the shapes do not (8 cards - exalted among them, and exalted is a TRIGGERED ability rather than a characteristic), a scope that is not a creature (Vehicles), the subtypes with no inert member (Citizens, Saprolings), the 3/3 Phyrexian Golem outside TOKEN_TABLE, four trigger heads outside the library, snow mana ({S} - 14), the remove-a-counter CHOOSER (11), the activation conditions outside the vocabulary (34), Unleash 10 and Exploit 8. Refused by name:
+      unchanged - no row added and none retired; the class this decision opened was never in the ledger, because a painland was never OFFERED to a script, it was simply half-executed.
+      No ledger row retired and none added: 29 of the 30 cards land with NO script at all, because a mana ability is native - the engine's own path runs them the moment the accounting can claim the line. Report `effect:auto` 4,209 → 4,209,
+      `withUnenforced` 280 → 280 — neither moves. The Tier-3
+      disclosure does: `manaPart` 470 → 434 and the residue's `activatedCost` by
+      the same 36.
+      **Landed:** No second wave. The bot's own reach moved further than the coverage did: the deck now draws from 7,229 fully-executable cards (7,199 before) and its LAND count rose by 18 in one decision - the painlands are the mana base the format actually plays, and the bot could not touch one of them until now. Tests: `manaDrawback.test.ts` (8) and one
+      generated suite.
+      Fixtures 5,028 · botPool artifact 406 / creature 4,226 / enchantment 388 / instant 1,007 / land 518 / sorcery 743 - auto 948 / assisted 1,832 / autoAnyFace 957 · ladder [1032, 1096, 2666, 4489, 5824] · batch.json
+      30 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,749 files, 23,568 passed / 11 skipped ·
+      500-seed gate, 6 shards · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D355): the mana ability's OTHER prices, measured beside this one over the same 181-card family: a SPEND restriction (44 - `Spend this mana only to cast a creature spell`, which needs restricted mana in the pool, a concept the engine does not have), an ACTIVATION CONDITION (29 - `Activate only if you control a Swamp`), a drawback that does not untap next turn (10 - delayed state the engine lacks), a MULTI-MODE production (10 - `Add {W}{U}, {U}{B}, or {B}{R}`), and a VARIABLE amount (28 across 18 wordings - `Add {B} for each Swamp you control`); then the QUOTED granted ability (221 cards, dossier in d354/DESIGN-quoted-grant.md - a shared runtime CARRIER for granted abilities plus several payload families, not one batch), the grant vocabulary the engine honours but the shapes do not (8 cards - exalted among them, and exalted is a TRIGGERED ability rather than a characteristic), a scope that is not a creature (Vehicles), the subtypes with no inert member (Citizens, Saprolings), the 3/3 Phyrexian Golem outside TOKEN_TABLE, four trigger heads outside the library, snow mana ({S} - 14), the remove-a-counter CHOOSER (11), the activation conditions outside the vocabulary (34), Unleash 10 and Exploit 8; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

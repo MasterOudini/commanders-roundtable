@@ -1948,6 +1948,15 @@ function tapForMana(
     events.push({ t: 'CardsMoved', moves: [{ card: intent.card, from: { kind: 'battlefield', player: card.controller }, to: { kind: 'graveyard', player: card.owner } }] });
   }
   events.push({ t: 'ManaAdded', player: intent.player, mana: output.mana, source: intent.card });
+  // D355 - THE PRICE THE LINE CHARGES, in the SAME accept as the mana. A mana ability does not
+  // use the stack (CR 605.1), so there is no window between the two in which anything could
+  // respond - and a player who taps a painland at 1 life has already lost when the mana appears.
+  if (source.drawback) {
+    events.push({
+      t: 'DamageDealt',
+      damages: [{ source: intent.card, target: { kind: 'player', id: intent.player }, amount: source.drawback.amount, deathtouch: false, lifelinkTo: null, isCommanderDamage: false, viaTrample: 0, applyAs: 'normal', toxic: 0 }],
+    });
+  }
 
   // ⚠️ THE LOG SAID NOTHING ABOUT THIS UNTIL NOW, and it was the loudest silence
   // in the app: tapping a land emitted a tap and a pool change and no narration,

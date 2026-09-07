@@ -30,6 +30,8 @@ export interface ManaSource {
   readonly conditional: boolean;
   /** D325 - the cost beside the {T} the tap charges; absent or null for a plain source. */
   readonly extraCost?: ManaProduction['extraCost'];
+  /** D355 - the price the line charges when the mana is made. */
+  readonly drawback?: ManaProduction['drawback'];
   /**
    * Spend the LEAST flexible source first. A basic Forest is 0; an any-colour
    * creature is 6. This is what makes an auto-tap suggestion *good* rather than
@@ -139,6 +141,10 @@ export function manaSourcesOf(
         requiresTap: prod.requiresTap,
         conditional: prod.conditional,
         extraCost: prod.extraCost ?? null,
+        // D355 - the price the line charges when the mana is made, carried to the handler that
+        // charges it. A production with no price passes null, which is what every source but the
+        // painlands and the Talismans is.
+        drawback: prod.drawback ?? null,
         flexibilityRank: rankOf(d, outputs),
       });
     }

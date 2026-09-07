@@ -708,6 +708,8 @@ export function parseManaProduction(
         // board-scoped one — it knows what is on the battlefield exactly too.
         conditional: scope === 'all' ? conditional : unchargedExtra,
         extraCost: charged,
+        // D355 - Grand Coliseum prices its any-colour line exactly as a painland prices its two.
+        drawback: readManaDrawback(line, face.name),
         text: printed,
         line: lineIndex,
       });
@@ -753,10 +755,42 @@ export function parseManaProduction(
       warn('mana:noUsableOutput');
       continue;
     }
-    push({ outputs, anyColor: null, requiresTap, conditional, extraCost: charged, text: printed, line: lineIndex });
+    // D355 - the price the line charges beside the mana, read from the SCRUBBED line so a
+    // quoted granted ability's sentence can never be mistaken for this card's own.
+    push({ outputs, anyColor: null, requiresTap, conditional, extraCost: charged, drawback: readManaDrawback(line, face.name), text: printed, line: lineIndex });
   }
 
   return out;
+}
+
+/**
+ * D355 - THE PRICE A MANA LINE CHARGES. `{T}: Add {W} or {U}. This land deals 1
+ * damage to you.` is the painland cycle and the Talismans are its artifact
+ * spelling; the engine tapped both and added the mana without ever dealing the
+ * damage, which is exactly why `engineComplete` refused the line.
+ *
+ * ⚠️ DETERMINISTIC ONLY, and the boundary is the point: a mana ability does not
+ * use the stack (CR 605.1) and cannot stop to ask a question, so a drawback that
+ * asks one (sacrifice a permanent, discard a card) is not read here. Such a line
+ * keeps no drawback, the accounting keeps refusing it, and the card stays
+ * incomplete - which is the true answer rather than the convenient one (D90).
+ *
+ * ⚠️ EXACTLY TWO SENTENCES. A line with a third is something else again, and a
+ * reader that took only the first two would silence whatever followed.
+ */
+function readManaDrawback(line: string, cardName: string): NonNullable<ManaProduction['drawback']> | null {
+  const colon = line.indexOf(':');
+  const effect = colon >= 0 ? line.slice(colon + 1) : line;
+  const sentences = effect.split(/(?<=[.!])\s+/).map((s) => s.trim()).filter((s) => s !== '');
+  if (sentences.length !== 2) return null;
+  // The subject is printed as `This land` as often as by name (Grand Coliseum reads
+  // "Grand Coliseum deals 1 damage to you" on older printings), so both are read.
+  const short = (cardName.split(',')[0] ?? cardName).trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const self = `(?:This (?:land|artifact|creature|permanent|enchantment)${short === '' ? '' : '|' + short})`;
+  const m = new RegExp(`^${self} deals (\\d+) damage to you\\.$`, 'i').exec(sentences[1] ?? '');
+  if (!m) return null;
+  const amount = Number(m[1]);
+  return Number.isFinite(amount) && amount > 0 ? { kind: 'damageToYou', amount } : null;
 }
 
 function wordToNumber(word: string): number | null {

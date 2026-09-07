@@ -13,10 +13,15 @@ import type { OracleId } from '../engine/types/ids';
 // read `process.env` in this project, and because the same run measures the
 // whole database.
 //
-// Two cards in the INCOMPLETE list below were ACCEPTED by the first version of
-// the predicate and are the reason it has the two rules it has: `Ancient Tomb`
-// (a second sentence on a mana ability's line) and `Dark Ritual` (a spell whose
-// "Add" is not an ability anything can tap).
+// Two cards were ACCEPTED by the first version of the predicate and are the reason
+// it has the two rules it has: `Ancient Tomb` (a second sentence on a mana
+// ability's line) and `Dark Ritual` (a spell whose "Add" is not an ability
+// anything can tap).
+//
+// ⚠️ D355 MOVED ANCIENT TOMB to COMPLETE, and the rule it motivated did not move
+// with it: a second sentence still blocks the line unless the engine RUNS it, and
+// `Thalakos Lowlands` holds that guard now - same shape, a drawback (`doesn't untap
+// during your next untap step`) the engine has no delayed state for.
 
 /** Every word of these runs. A bot may be dealt them. */
 const COMPLETE: readonly [string, CardData][] = [
@@ -26,6 +31,10 @@ const COMPLETE: readonly [string, CardData][] = [
   ['Snow-Covered Forest', fx.SNOW_COVERED_FOREST],
   ['Command Tower', fx.COMMAND_TOWER],
   ['Tundra', fx.TUNDRA],
+  // D355 - `{T}: Add {C}{C}. This land deals 2 damage to you.` The engine tapped it, added the
+  // mana and dealt nothing for the whole arc; it charges the price at the tap now, so every
+  // word of the card runs.
+  ['Ancient Tomb', fx.ANCIENT_TOMB],
   // ⚠️ Dark Ritual sat in INCOMPLETE below from M6.1 to M6.4ag with the note
   // 'a sorcery-speed "Add {B}{B}{B}" is not an ability anything taps' — true
   // of the PARSER then and still true of it now. What changed is the SEAM:
@@ -253,7 +262,10 @@ const INCOMPLETE: readonly [string, CardData, string][] = [
   ['Krenko, Mob Boss', fx.KRENKO_MOB_BOSS, 'a PAYABLE activated ability whose effect never happens'],
   ['Kess, Dissident Mage', fx.KESS_DISSIDENT_MAGE, 'a static ability, and there is no layer for it'],
   ['Tarmogoyf', fx.TARMOGOYF, 'a characteristic-defining ability'],
-  ['Ancient Tomb', fx.ANCIENT_TOMB, 'the mana is fine; the 2 damage on the SAME LINE is not'],
+  // D355 - the shape Ancient Tomb used to hold: a mana line whose second sentence the engine
+  // does not run. It must stay refused, or a widened price vocabulary would claim a land the
+  // engine still untaps.
+  ['Thalakos Lowlands', fx.THALAKOS_LOWLANDS, "the mana is fine; the no-untap drawback on the SAME LINE is not"],
   ['Boros Garrison', fx.BOROS_GARRISON, 'enters tapped, which applyReplacements does not do'],
   ['Cultivate', fx.CULTIVATE, 'a sorcery searching a library — outside the closed vocabulary'],
   ['Grist, the Hunger Tide', fx.GRIST_THE_HUNGER_TIDE, 'loyalty abilities'],

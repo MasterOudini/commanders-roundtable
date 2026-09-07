@@ -251,10 +251,15 @@ describe('a permanent’s text, which the app does not run', () => {
    * cost beyond the tap, no activation condition, no once-per-turn limit, no
    * second sentence.
    */
-  test('a mana line that does MORE than add mana says the rest is yours', () => {
-    // Ancient Tomb: `{T}: Add {C}{C}. This land deals 2 damage to you.` — one
-    // line, and the app does exactly the first half of it. Silent until D124.
-    expect(what(C.ANCIENT_TOMB)).toEqual(['Part of its mana ability']);
+  test('a mana line that does MORE than add mana says the rest is yours - unless the engine does it', () => {
+    // Ancient Tomb: `{T}: Add {C}{C}. This land deals 2 damage to you.` — one line, and the app
+    // did exactly the first half of it. Silent until D124, and RUN since D355: the price is
+    // charged at the tap, so there is nothing left for the player to do by hand.
+    expect(what(C.ANCIENT_TOMB)).toEqual([]);
+    // ⚠️ THE DIRECTION THAT STILL MATTERS, on the same shape. Thalakos Lowlands reads
+    // `{T}: Add {W} or {U}. This land doesn't untap during your next untap step.` - a drawback
+    // the engine has no delayed state for, so the note stays and says so.
+    expect(what(C.THALAKOS_LOWLANDS)).toEqual(['Part of its mana ability']);
   });
 
   test('a cost beyond {T}, and a spend restriction, are the same note', () => {
