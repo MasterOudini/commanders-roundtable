@@ -131,6 +131,11 @@ export type Intent =
       readonly player: PlayerId;
       readonly blocks: readonly { readonly blocker: InstanceId; readonly attacker: InstanceId }[];
     }
+  /**
+   * D357 - the cards found. EMPTY IS LEGAL (CR 701.19b, failing to find), and the handler
+   * checks each against the predicate and the searcher's own library rather than trusting it.
+   */
+  | { readonly t: 'AnswerSearchLibrary'; readonly player: PlayerId; readonly cards: readonly InstanceId[] }
   | { readonly t: 'OrderBlockers'; readonly player: PlayerId; readonly attacker: InstanceId; readonly order: readonly InstanceId[] }
   | { readonly t: 'OrderAttackers'; readonly player: PlayerId; readonly blocker: InstanceId; readonly order: readonly InstanceId[] }
 

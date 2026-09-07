@@ -5476,6 +5476,12 @@ const WANTED = [
   'Azorius First-Wing',
   'Nacatl Savage',
   'Emrakul, the Aeons Torn',
+  // D357 - the library search: the carriers its seam test reads, and the ramp sorcery the fuzz staple deals.
+  'Rampant Growth',
+  'Demonic Tutor',
+  'Explosive Vegetation',
+  "Nature's Lore",
+  'Wood Elves',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

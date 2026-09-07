@@ -134,6 +134,14 @@ function describe(
       // simply wrong for a library peek, where the cards are in a panel and the
       // ones NOT chosen are what leave. A prompt bar that names the wrong place
       // sends the player looking for a control that is not there.
+      // D357 - a SEARCH names what is being looked for, because the panel it opens is the
+      // player's whole library and "choose a card" would not say which.
+      case 'searchLibrary':
+        if (awaiting.player !== viewer) {
+          return `${nameOf(seats, awaiting.player)} is searching their library.`;
+        }
+        const many = awaiting.count === 1 ? "a" : "up to " + awaiting.count;
+        return `${awaiting.label}: find ${many} ${awaiting.what}, or take nothing.`;
       case 'chooseFromZone':
         if (awaiting.player !== viewer) {
           return awaiting.zone === 'library'

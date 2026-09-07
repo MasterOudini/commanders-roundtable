@@ -478,6 +478,34 @@ export function effectResult(
         break;
       }
 
+      case 'search': {
+        const spec = effect.search;
+        if (!spec) break;
+        const lib = state.zones.library[controller] ?? [];
+        // An empty library asks nothing - there is no choice to make (D137's rule).
+        if (lib.length === 0) break;
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        // ⚠️ The reveal is what lets the searcher see the candidates at all: their contents
+        // are already in `cards` for anyone they are revealed to, and the projection turns
+        // that into a SORTED list. The order never leaves the host.
+        out.push({ t: 'CardsRevealed', cards: lib, to: [controller] });
+        out.push({
+          t: 'AwaitingSet',
+          awaiting: {
+            kind: 'searchLibrary',
+            player: controller,
+            count: spec.count,
+            what: spec.label,
+            predicates: spec.predicates,
+            destination: spec.destination,
+            tapped: spec.tapped,
+            shuffle: spec.shuffle,
+            label: obj.label,
+          },
+        });
+        break;
+      }
+
       case 'discard': {
         if (aim?.kind !== 'player') break;
         const hand = state.zones.hand[aim.id] ?? [];

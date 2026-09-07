@@ -274,6 +274,16 @@ export interface PlayerView {
    * never turns into a phantom "top of your library".
    */
   peek: InstanceId[];
+  /**
+   * D357 - the cards a LIBRARY SEARCH is offering this viewer, SORTED.
+   *
+   * ⚠️ **SORTED, NEVER IN LIBRARY ORDER.** A search shows a player their library, so every card
+   * in it is revealed to them - but handing back the real order would tell them their next draws,
+   * which is exactly what projection exists to prevent. They get the SET, the way a real player
+   * fans a deck out on the table. Empty unless a search prompt is up for this viewer, and never
+   * anyone else's library, because projection is per-viewer.
+   */
+  searching: InstanceId[];
 }
 
 // ── Events ───────────────────────────────────────────────────────────────────
@@ -372,6 +382,7 @@ export function emptyView(me: PlayerId = 'p1'): PlayerView {
     log: [],
     hiddenCounts: {},
     peek: [],
+    searching: [],
   };
 }
 

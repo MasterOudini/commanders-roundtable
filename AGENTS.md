@@ -11330,6 +11330,61 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,750 files, 23,590 passed / 11 skipped ·
       500-seed gate, 6 shards, 593.2 s wall · build clean · probe 124/124 · battery 130/130.**
       ⚠️ **Reportables** (D356): the protection qualities the parser still cannot decide (`the color of your choice` and `the chosen color` 147 printings - a chosen quality, which needs the choice recorded on the permanent the way D147's chosenColor is; `spells that are one or more colors` 16 - a qualified noun about a SPELL, which the aim layer can ask and the block and damage sites cannot; `everything until your next turn` 17 - a duration); then the two cards this seam made offerable and ledgered (a MULTICOLORED filter on the opponent-cast head, an entry head filtered on an opponent's nonbasic land); then the mana ability's OTHER prices from D355's own family (a SPEND restriction 44, an ACTIVATION CONDITION 29, a variable amount 28, a no-untap drawback 10, a multi-mode production 10); the QUOTED granted ability (221 cards, dossier in d354/DESIGN-quoted-grant.md - a shared runtime CARRIER plus several payload families, not one batch); the grant vocabulary the engine honours but the shapes do not (8 - exalted is a TRIGGERED ability, not a characteristic); a scope that is not a creature (Vehicles); the subtypes with no inert member (Citizens, Saprolings); the Phyrexian Golem outside TOKEN_TABLE; four trigger heads outside the library; snow mana {S} (14); the remove-a-counter chooser (11); the activation conditions outside the vocabulary (34); Unleash 10 and Exploit 8; prior items stand.
+- [x] **M6.4gp — THE LIBRARY SEARCH: the densest family the seam map holds, and
+      the engine had no verb for it at all; 44 cards land, ALL of them with
+      no script (2026-09-08):**
+      **7,368 of 31,692 Commander-legal cards now execute completely, up
+      from 7,324 (+44).** `SHIPPED_SCRIPTS` 4,612; ledger
+      934 (unchanged - no row added and none retired. The 84 cards this seam made offerable are NOT ledgered: they are OFFERED, and a ledger row is a drafter's verdict that something cannot be done. Repinning the pool instead is D289/D291's shape, where a seam leaves its wave to the decision after it). Fixtures 5,045 (4,909 by name + 136 tokens: the five carriers the seam test reads (Rampant Growth, Demonic Tutor, Explosive Vegetation, Nature's Lore, Wood Elves) - one per printed form, and Rampant Growth is also the fuzz staple that feeds the new counter; no new token pin). **Select pool
+      84.** Decisions in **D357**.
+      ⚠️ **514 CARDS, AND NO SEARCH ANYWHERE.** The re-measured seam map put a
+      library search first by a factor of 1.4 over the next family and 28 over
+      the one after — and a `grep` for one found nothing. CR 701.19 is now a verb:
+      the vocabulary reads the sentence, the resolution reveals the library to its
+      owner and stops, and `searchLibrary` (the **21st** `Awaiting` kind) takes
+      the answer.
+      ⚠️⚠️ **THE HAZARD IS THE WHOLE DESIGN.** A search must reveal the library to
+      its searcher — and `view.peek` (D114) walks that library **from the top,
+      taking every card revealed to the viewer**, so a naive reveal would hand
+      them their entire deck **in shuffle order**, which is the one thing
+      `project.ts` exists to strip. Knowing the order is only harmless because a
+      search shuffles, and three of the 514 do not. So the two library exceptions
+      are made MUTUALLY EXCLUSIVE: `view.searching` carries the candidates
+      **sorted**, and `peek` is **empty** while a search is up. That is its own
+      test, and it asserts the opponent's view carries neither.
+      ⚠️ **THE PREDICATE RIDES THE PROMPT; THE CANDIDATES NEVER DO.** What may not
+      cross the wire is one player's hidden zone (D137, D61) — `a basic land card`
+      is printed on the card in everyone's hand, and withholding it would leave
+      the client unable to filter its own list for no gain.
+      ⚠️ **FAILING TO FIND IS A REAL ANSWER** (CR 701.19b), so the count is a
+      MAXIMUM, an empty answer is accepted, and the panel commits on a BUTTON
+      rather than on the last click — the scry's rule for the scry's reason.
+      ⚠️ **MEASURE THE LANDING, NOT THE SEAM — D356's lesson, one decision later.**
+      The first cut read one wording and landed **23 of 514**. Grouping the misses
+      named five precise widenings — `put that card`, `up to two`, a comma-or noun
+      list, a bare `a card`, and `. Then shuffle.` as its own sentence — and
+      doubled it to 44.
+      ⚠️ **A NAME COLLISION THE PRODUCER GUARD CAUGHT.** The EFFECT kind and the
+      PROMPT kind were both `searchLibrary`, so the rule in `data/effectParse.ts`
+      read as `src/data/` constructing a prompt — the one thing that scan forbids.
+      The guard was right and the naming was wrong; the effect is `search` now,
+      and every other pair in this engine is already named apart
+      (`lookAtTop`/`chooseFromZone`, `scry`/`scryChoice`).
+      Measured first: the seam map, re-measured after D356 and grouped by the READER that would have to exist. 24,368 incomplete cards; 12,515 one piece from landing across 11,388 wordings - 1.10 each, flatter than D354's 1.13, so a wording table is further from finishing this than ever and only a grammar can. By family: a LIBRARY SEARCH 514, a grant whose payload is a quoted ability 355, an attached static the Aura/Equipment rows cannot read 351, a bare keyword or ability word 185, the Aura that redefines its host 18. The search wins by a factor of 1.4 over the next and by 28 over the one after that, and it was the only one the engine had no verb for at all. Within it: what is searched for - a basic land 145, a creature 35, an artifact 18, a land 14, a Forest 13, Plains 11, an Aura 9; where it goes - a hand 192, the battlefield tapped 126, the battlefield 101, a graveyard 10; and 511 of the 514 shuffle.. NOT this decision: the 84 cards this seam made offerable (the fetchlands and the search creatures - a `search` payload under a trigger or an activated head, which D344's `ctx.vocabulary` and D349's ask-last rule already carry, so it is a generated wave rather than a seam); then the search wordings still refused (a QUALIFIED noun - `a card with flash`, `mana value 3 or less` - which needs a predicate over a CARD rather than a permanent; a search of a graveyard as well as a library; `shuffle and put that card on top`, a destination the move has no name for); then the grant whose payload is a QUOTED ability (355 one-piece cards, dossier in d354/DESIGN-quoted-grant.md - a shared runtime CARRIER plus several payload families, NOT one batch); the attached statics the Aura and Equipment rows cannot read (351, whose mass is in compound shapes rather than one seam); the Aura that REDEFINES its host (18 - Lignify, Frogify, Darksteel Mutation, and every piece already exists: D151's `hasAbilities`, layer 7b's base P/T and D311's type change); the bare keyword or ability word (185, one card each). Refused by name:
+      unchanged - no row added and none retired. The 84 cards this seam made offerable are NOT ledgered: they are OFFERED, and a ledger row is a drafter's verdict that something cannot be done. Repinning the pool instead is D289/D291's shape, where a seam leaves its wave to the decision after it.
+      No script shipped and none retired: all 44 cards land with NO script at all, for the second decision running. A search is a sentence the effect vocabulary reads, so the coverage move is the verb and the prompt behind it. Report `effect:auto` 4,209 → **4,573** — the
+      largest single move since D301 — `effect:none` 14,849 → 14,305,
+      `withUnenforced` 280 → 280 (unmoved: a search names no target).
+      **Landed:** No wave here, and the pool says why: the seam refilled the offer stream with 84 cards whose search line now reads and whose remaining work is a generated row - the fetchlands, Evolving Wilds, Sakura-Tribe Elder, Wood Elves. They are D358's wave. The bot's own reach rose to 7,308 cards from 7,265 and its spell columns took 10 instants and 34 sorceries. Tests: `searchLibrary.test.ts` (14: the parse of
+      each printed form, two qualified nouns refused, the ask-last rule, the
+      prompt's exact keys, the projection hazard from both seats, the move and
+      the tap and the shuffle, failing to find, an illegal pick, over-count, and
+      the replay).
+      Fixtures 5,045 · botPool artifact 406 / creature 4,262 / enchantment 388 / instant 1,017 / land 518 / sorcery 777 - auto 994 / assisted 1,879 / autoAnyFace 1,003 · ladder [1119, 1226, 2812, 4645, 5990] · batch.json
+      44 · select pool 84.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,751 files, 23,604 passed / 11 skipped ·
+      500-seed gate, 6 shards, 573.5 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D357): the 84 cards this seam made offerable (the fetchlands and the search creatures - a `search` payload under a trigger or an activated head, which D344's `ctx.vocabulary` and D349's ask-last rule already carry, so it is a generated wave rather than a seam); then the search wordings still refused (a QUALIFIED noun - `a card with flash`, `mana value 3 or less` - which needs a predicate over a CARD rather than a permanent; a search of a graveyard as well as a library; `shuffle and put that card on top`, a destination the move has no name for); then the grant whose payload is a QUOTED ability (355 one-piece cards, dossier in d354/DESIGN-quoted-grant.md - a shared runtime CARRIER plus several payload families, NOT one batch); the attached statics the Aura and Equipment rows cannot read (351, whose mass is in compound shapes rather than one seam); the Aura that REDEFINES its host (18 - Lignify, Frogify, Darksteel Mutation, and every piece already exists: D151's `hasAbilities`, layer 7b's base P/T and D311's type change); the bare keyword or ability word (185, one card each); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

@@ -165726,6 +165726,171 @@
     "commanderLegality": "banned",
     "singleImage": true
   },
+  "RAMPANT_GROWTH": {
+    "scryfallId": "01d56cde-e186-41e7-bcb2-80736a989678",
+    "oracleId": "8539f295-5d58-4436-a73a-b9277c4c7795",
+    "name": "Rampant Growth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rampant Growth",
+        "manaCost": "{1}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+        "flavorText": "Nature grows solutions to her problems.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tom Kyffin",
+        "imageId": "01d56cde-e186-41e7-bcb2-80736a989678"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "8ed",
+    "collectorNumber": "274",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEMONIC_TUTOR": {
+    "scryfallId": "085ed548-a8c8-40b3-8183-51c060bc95cb",
+    "oracleId": "82004860-e589-4e38-8d61-8c0210e4ea39",
+    "name": "Demonic Tutor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Demonic Tutor",
+        "manaCost": "{1}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Search your library for a card, put that card into your hand, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Douglas Shuler",
+        "imageId": "085ed548-a8c8-40b3-8183-51c060bc95cb"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "30a",
+    "collectorNumber": "398",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXPLOSIVE_VEGETATION": {
+    "scryfallId": "015d9a5b-03a2-4341-90cc-e5be5b5fbc34",
+    "oracleId": "a0abd957-01a0-4aa9-8fc8-0e6840d21606",
+    "name": "Explosive Vegetation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Explosive Vegetation",
+        "manaCost": "{3}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle.",
+        "flavorText": "Torching Krosa would be pointless. It grows faster than it burns.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "John Avon",
+        "imageId": "015d9a5b-03a2-4341-90cc-e5be5b5fbc34"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dmc",
+    "collectorNumber": "132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NATURE_S_LORE": {
+    "scryfallId": "00a4ffc1-7731-42d9-b970-2a8d84cba14d",
+    "oracleId": "78826359-fe63-44ad-adc4-a17ffcd710e4",
+    "name": "Nature's Lore",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nature's Lore",
+        "manaCost": "{1}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+        "flavorText": "\"It is in our nature to recognize beauty, but to repeat it—ah, that is another feat altogether.\"\n—Hannah of Verdura",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alan Rabinowitz",
+        "imageId": "00a4ffc1-7731-42d9-b970-2a8d84cba14d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "5ed",
+    "collectorNumber": "316",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WOOD_ELVES": {
+    "scryfallId": "02de2d9d-2a7d-4059-9258-ef5b50f1f801",
+    "oracleId": "8973bd99-20f8-4867-90ef-50392147ee1b",
+    "name": "Wood Elves",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wood Elves",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Scout",
+        "oracleText": "When this creature enters, search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+        "flavorText": "Every branch a crossroads, every vine a swift steed.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Rebecca Guay",
+        "imageId": "02de2d9d-2a7d-4059-9258-ef5b50f1f801"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "p30a",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

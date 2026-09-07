@@ -560,6 +560,13 @@ export function simplestAnswer(
         toBottom: [],
       };
     }
+    case 'searchLibrary':
+      /**
+       * ⚠️ FAILS TO FIND, always. CR 701.19b makes declining legal on any board, and it runs no
+       * effect at all - so a rules test can never execute card text it did not ask for through
+       * this answer. The fuzz driver searches for real; this one keeps the harness inert.
+       */
+      return { t: 'AnswerSearchLibrary', player: awaiting.player, cards: [] };
     case 'chooseFromZone': {
       // ⚠️ TWO ZONES NOW (D141). A hand is read straight off the state; a
       // library offers only the cards the effect just REVEALED, and answering

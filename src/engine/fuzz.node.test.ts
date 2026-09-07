@@ -6,6 +6,7 @@ import { checkInvariants } from './invariants';
 import { legalActions } from './legal';
 import { project } from './project';
 import { replay, stateHash } from './log';
+import { faceOf } from './oracle';
 import { nextBelow, seedRng, shuffle, type RngState } from './rng';
 import { createRegistry, SHIPPED_SCRIPTS } from './scripts/registry';
 import {
@@ -124,6 +125,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // simplestAnswer's no-op scry.
   { names: ['Preordain'], copiesPerSeat: 1,
     counterKeys: ['scryChoices'], rotHistory: 'D195' },
+  // D357 - the library search. A one-mana sorcery every seat can cast, whose resolution stops
+  // and asks, and whose answer moves a card, taps it and shuffles - the three things the
+  // prompt exists to drive.
+  { names: ['Rampant Growth'], copiesPerSeat: 2,
+    counterKeys: ['librarySearches'], rotHistory: 'D357' },
   // The modes prompt (D343) - a "choose one" instant whose two modes both
   // target (a flyer, an enchantment); offered only while a mode can be chosen,
   // answered by simplestAnswer's first-mode policy, then the aim.
@@ -470,6 +476,27 @@ function answerFor(state: GameState, p: Picker): Intent | null {
      * than taking the first `count`, so the discard is not always the same
      * corner of the hand and a replay that depended on the order would diverge.
      */
+    case 'searchLibrary': {
+      // ⚠️ FINDS SOMETHING WHENEVER IT CAN. Failing to find is legal and the harness does it, but
+      // a gate that always declined would never move a card, never tap one and never shuffle -
+      // and those are the three things this prompt exists to drive.
+      const lib = state.zones.library[awaiting.player] ?? [];
+      const legal = lib.filter((id) => {
+        const inst = state.cards[id];
+        if (!inst) return false;
+        const printing = ORACLE.byPrinting(inst.printingId);
+        if (!printing) return false;
+        const f = faceOf(printing, 0);
+        return awaiting.predicates.some(
+          (p) =>
+            p.supertypes.every((t) => f.typeLine.supertypes.includes(t)) &&
+            p.types.every((t) => f.typeLine.types.includes(t)) &&
+            p.subtypes.every((t) => f.typeLine.subtypes.includes(t)) &&
+            p.colors.every((c) => f.colors.includes(c)),
+        );
+      });
+      return { t: 'AnswerSearchLibrary', player: awaiting.player, cards: legal.slice(0, awaiting.count) };
+    }
     case 'chooseFromZone': {
       const hand = [...(state.zones.hand[awaiting.player] ?? [])];
       const picked: string[] = [];
@@ -599,6 +626,8 @@ interface Run {
   readonly replacementChoices: number;
   /** Scry/surveil prompts raised by a resolving effect (D195). */
   readonly scryChoices: number;
+  /** Library searches raised by a resolving effect (D357). */
+  readonly librarySearches: number;
   /** Modes chosen for a spell, an activation or a trigger (D343). */
   readonly modeChoices: number;
   /** Permanents that entered as a face other than the front one (CR 712). */
@@ -764,6 +793,9 @@ function runOne(seed: number): Run {
     scryChoices: game.log.filter(
       (e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'scryChoice',
     ).length,
+    librarySearches: game.log.filter(
+      (e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'searchLibrary',
+    ).length,
     modeChoices: game.log.filter((e) => e.body.t === 'ModesChosen' || e.body.t === 'StackModesSet').length,
     // CR 608.2b for a TRIGGER — a distinct sentence from the spell fizzle, so
     // the two cannot be confused for each other.
@@ -900,6 +932,7 @@ const TOTAL_KEYS = [
   'diesTriggers',
   'replacementChoices',
   'scryChoices',
+  'librarySearches',
   'modeChoices',
   'entersDeclined',
 ] as const;
@@ -1151,6 +1184,14 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
     3_600_000,
   );
 
+  /**
+   * ⚠️ ITS OWN TIMEOUT, and the number is measured rather than guessed. Idle, with the limit
+   * lifted, this test passes in 25.7 s against the 20 s default - it plays 300 intents and D357
+   * put a library search in every seat's pool, so a whole library is revealed and cleared inside
+   * that loop repeatedly. Raised only after a COMPLETED run proved growth rather than a hang,
+   * which is the rule the 500-seed ceiling is raised under (D167, D170, D181), and raised HERE
+   * rather than for the file so a genuine hang in the six tests beside it still fails fast.
+   */
   test('a fuzzed game never leaks a library into any projection', () => {
     const p = picker('leak');
     const game = Game.create(
@@ -1187,6 +1228,30 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
         expect(game.state.cards[id]?.revealedTo.includes(viewer)).toBe(true);
         expect(ownLibrary[ownLibrary.length - 1 - i], `peek is not the top run, in order`).toBe(id);
       }
+      // ⚠️ D357 - THE SECOND LIBRARY EXCEPTION, bounded by the same three clauses. A search shows
+      // its searcher the SET of their library and never the ORDER, and never anyone else at all.
+      // Without this the gate would not notice a search leaking the shuffle order, which is the
+      // one thing the design exists to prevent.
+      const searchingNow =
+        game.state.priority.awaiting?.kind === 'searchLibrary' &&
+        game.state.priority.awaiting.player === viewer;
+      if (!searchingNow) {
+        expect(view.searching, `${viewer} is offered a search with no search prompt up`).toEqual([]);
+      }
+      for (const id of view.searching) {
+        expect(ownLibrary.includes(id), `${viewer} is offered a card not in their library`).toBe(true);
+        expect(game.state.cards[id]?.revealedTo.includes(viewer)).toBe(true);
+      }
+      // ⚠️ SORTED, which is the whole point: the library order must not survive the projection.
+      const searchNames = view.searching.map(
+        (id) => ORACLE.byPrinting(game.state.cards[id]?.printingId ?? '')?.name ?? id,
+      );
+      expect([...searchNames], 'searching is not sorted - the library order would leak').toEqual(
+        [...searchNames].sort(),
+      );
+      // ⚠️ AND THE TWO EXCEPTIONS NEVER OVERLAP: while a search is up the peek is empty, or the
+      // peek would walk the revealed library from the top and hand back the order anyway.
+      if (searchingNow) expect(view.peek, 'peek is live during a search').toEqual([]);
       for (const other of game.state.seating) {
         expect(view.zones[zoneId('lib', other)]).toBeUndefined();
         if (other === viewer) continue;
@@ -1195,7 +1260,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
         }
       }
     }
-  });
+  }, 60_000);
 
   test('a fuzzed game rewinds to any point and still replays', () => {
     const p = picker('rewind');

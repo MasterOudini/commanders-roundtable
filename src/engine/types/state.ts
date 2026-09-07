@@ -30,6 +30,7 @@ import type {
 import type { ManaPool, PaymentProblem } from './mana';
 import type { NarrationPart } from './narration';
 import type { Keyword, ModeDecl, TargetSpec } from './oracle';
+import type { PermanentPredicate } from '../../data/replacementParse';
 
 export type Phase =
   | 'beginning'
@@ -665,6 +666,35 @@ export type Awaiting =
         readonly life: number;
         readonly label: string;
       }[];
+    }
+  /**
+   * D357 - CR 701.19: the searcher picks from their OWN library, which they alone can see.
+   *
+   * ⚠️ **NO CARD IDS, for the reason `chooseFromZone` has none** - the union crosses the wire
+   * WHOLE (D61), so listing the candidates here would post one player's whole deck to every
+   * client. They reach the searcher through `view.searching`, which projection builds per
+   * viewer and SORTS, because the library order is the one thing projection exists to strip.
+   *
+   * ⚠️ `count` is a MAXIMUM. Failing to find is legal (CR 701.19b) and an empty answer is a
+   * real one.
+   */
+  | {
+      readonly kind: 'searchLibrary';
+      readonly player: PlayerId;
+      readonly count: number;
+      /**
+       * What may be found. This is PRINTED ON THE CARD, so it is public and rides the prompt
+       * - what may never cross the wire is the candidate LIST, which is one player's hidden
+       * zone. Without it the client could not filter its own list, which is D125's rule
+       * failed for no gain.
+       */
+      readonly predicates: readonly PermanentPredicate[];
+      /** The printed noun, so the bar can say what is being looked for. */
+      readonly what: string;
+      readonly destination: 'hand' | 'battlefield' | 'graveyard';
+      readonly tapped: boolean;
+      readonly shuffle: boolean;
+      readonly label: string;
     }
   /**
    * CR 701.8a — a player choosing cards out of their own hand to discard.

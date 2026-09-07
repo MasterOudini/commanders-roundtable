@@ -24421,3 +24421,110 @@ select pool 0.
 
 Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,750 files, 23,590 passed / 11 skipped · 500-seed gate, 6 shards, 593.2 s wall ·
 build clean · probe 124/124 · battery 130/130.
+
+## D357 — M6.4gp: THE LIBRARY SEARCH — the densest family the seam map holds, and the engine had no verb for it at all; 44 cards land, ALL of them with no script (2026-09-08)
+
+**7,368 of 31,692 Commander-legal cards execute completely, up from
+7,324 (+44).** SHIPPED_SCRIPTS 4,612 → **4,612**;
+REFUSED ledger 934 → **934** (unchanged - no row added and none retired. The 84 cards this seam made offerable are NOT ledgered: they are OFFERED, and a ledger row is a drafter's verdict that something cannot be done. Repinning the pool instead is D289/D291's shape, where a seam leaves its wave to the decision after it). Fixtures
+5,040 → 5,045 (4,909 by name + 136 tokens: the five carriers the seam test reads (Rampant Growth, Demonic Tutor, Explosive Vegetation, Nature's Lore, Wood Elves) - one per printed form, and Rampant Growth is also the fuzz staple that feeds the new counter; no new token pin). **Select pool 0 → 84.**
+
+**The gap, measured before it was built.** the seam map, re-measured after D356 and grouped by the READER that would have to exist. 24,368 incomplete cards; 12,515 one piece from landing across 11,388 wordings - 1.10 each, flatter than D354's 1.13, so a wording table is further from finishing this than ever and only a grammar can. By family: a LIBRARY SEARCH 514, a grant whose payload is a quoted ability 355, an attached static the Aura/Equipment rows cannot read 351, a bare keyword or ability word 185, the Aura that redefines its host 18. The search wins by a factor of 1.4 over the next and by 28 over the one after that, and it was the only one the engine had no verb for at all. Within it: what is searched for - a basic land 145, a creature 35, an artifact 18, a land 14, a Forest 13, Plains 11, an Aura 9; where it goes - a hand 192, the battlefield tapped 126, the battlefield 101, a graveyard 10; and 511 of the 514 shuffle..
+
+**514 cards, and no search anywhere.** `grep` for a library search across
+`src/engine/` and `src/data/effectParse.ts` found nothing: in two hundred
+decisions this engine had never looked at a library for a card. CR 701.19 is a
+verb now — `effectParse` reads the sentence into a `search` effect, the
+resolution reveals the library to its owner and stops, and `searchLibrary` — the
+**twenty-first** `Awaiting` kind — takes the answer.
+
+**⚠️⚠️ The hazard is the whole design.** A search shows the searcher their
+library, so every card in it must be `revealedTo` them. But `view.peek` (D114)
+walks that library **from the top, taking every card revealed to the viewer** —
+so a naive reveal would hand the searcher their entire deck **in shuffle order**,
+which is precisely what `project.ts` exists to strip. Knowing the order is only
+harmless because a search shuffles afterwards, and three of the 514 do not.
+
+So the two library exceptions are made mutually exclusive:
+
+- **`view.searching`** carries the candidates **sorted** (by name, then id) —
+  never library order, the way a real player fans a deck out on the table;
+- **`peek` is empty** while a search prompt is up for that viewer, so the two can
+  never overlap;
+- the prompt itself ships **no card ids** (D137's rule, D61's reason: the
+  `Awaiting` crosses the wire whole), so nothing reaches another seat at all;
+- `RevealCleared` over the library on the answer restores the invariant, and the
+  shuffle follows it.
+
+`searchLibrary.test.ts` asserts all four from both seats: the searcher's view
+carries their library sorted with `peek` empty, and the opponent's carries
+neither.
+
+**The predicate rides the prompt; the candidates never do.** What may not cross
+the wire is one player's hidden zone. `a basic land card` is printed on the card
+in everyone's hand, and withholding it would leave the client unable to filter
+its own list — D125's rule (a variant needs a client able to COMPUTE the answer)
+failed for no gain. The predicate goes through `predicatesOf`, the same reader
+the sacrifice and tap costs have asked since D168 and D286, so `a basic land`
+means one thing in this engine rather than two.
+
+**Failing to find is a real answer** (CR 701.19b). The count is a MAXIMUM, an
+empty answer is accepted by the handler, and the panel commits on a **button**
+rather than on the last click — the scry's rule for the scry's reason: keeping
+nothing and keeping everything are both real, so no click can be "the last one".
+A search that demanded its count would let a card lie about a deck it cannot see.
+
+**⚠️ Measure the landing, not the seam — D356's lesson, one decision later.** The
+first cut read one wording and landed **23 of 514**. Grouping the misses named
+exactly five gaps and no more: `put that card` beside `put it`; `up to two
+<noun> cards`, a count; a comma-or noun LIST (`a basic Plains, Island, or Swamp
+card`, whose leading adjectives distribute); a bare `a card` with no noun at all,
+whose empty predicate admits anything — the honest reading of `Demonic Tutor`;
+and `. Then shuffle.` as its own sentence, which the two-sentence window joins
+with a full stop rather than the comma the first pattern demanded. Fixing those
+doubled the landing to 44.
+
+**⚠️ A name collision the producer guard caught.** The EFFECT kind and the PROMPT
+kind were both called `searchLibrary`, and `awaitingProducers.node.test.ts` scans
+every non-engine source for a constructed `kind: '<awaiting kind>'` — so the
+effect rule in `data/effectParse.ts` read as `src/data/` constructing a prompt,
+the one thing that scan exists to forbid. The guard was right and the naming was
+wrong: the effect is `search` now, and every other pair in this engine is already
+named apart (`lookAtTop` against `chooseFromZone`, `scry` against `scryChoice`).
+
+**What is still refused, and why.** A qualified noun (`a card with flash`, `a
+creature card with mana value 3 or less`) needs a predicate over a CARD rather
+than a permanent — `predicatesOf` places types, supertypes, subtypes and colours
+and nothing else, and a search that found the wrong card is worse than one that
+is honestly unread. A search of a graveyard as well as a library, and
+`shuffle and put that card on top`, are each a destination the move has no name
+for. All three are measured and left.
+
+Tests: `searchLibrary.test.ts` — 14 checks in the order a search travels. The
+parse of each printed form (a basic land tapped, a bare card, `up to two`, a
+subtype untapped); two qualified nouns refused; the ask-last rule (a clause after
+the search lands the card `assisted`, D195); the prompt's exact key set, so a
+card id can never be added to it unnoticed; the projection hazard from both
+seats; the move, the tap and the shuffle, with the reveal cleared behind them;
+failing to find; a card the predicate does not admit, refused by name while the
+legal one is accepted on the same board; more than the count, refused; and the
+replay.
+
+Refused by name: unchanged - no row added and none retired. The 84 cards this seam made offerable are NOT ledgered: they are OFFERED, and a ledger row is a drafter's verdict that something cannot be done. Repinning the pool instead is D289/D291's shape, where a seam leaves its wave to the decision after it.
+Not this decision: the 84 cards this seam made offerable (the fetchlands and the search creatures - a `search` payload under a trigger or an activated head, which D344's `ctx.vocabulary` and D349's ask-last rule already carry, so it is a generated wave rather than a seam); then the search wordings still refused (a QUALIFIED noun - `a card with flash`, `mana value 3 or less` - which needs a predicate over a CARD rather than a permanent; a search of a graveyard as well as a library; `shuffle and put that card on top`, a destination the move has no name for); then the grant whose payload is a QUOTED ability (355 one-piece cards, dossier in d354/DESIGN-quoted-grant.md - a shared runtime CARRIER plus several payload families, NOT one batch); the attached statics the Aura and Equipment rows cannot read (351, whose mass is in compound shapes rather than one seam); the Aura that REDEFINES its host (18 - Lignify, Frogify, Darksteel Mutation, and every piece already exists: D151's `hasAbilities`, layer 7b's base P/T and D311's type change); the bare keyword or ability word (185, one card each).
+
+No script shipped and none retired: all 44 cards land with NO script at all, for the second decision running. A search is a sentence the effect vocabulary reads, so the coverage move is the verb and the prompt behind it.
+
+Report: `effect:auto` 4,209 → **4,573** — the largest single
+move since D301's one-shot vocabulary — `effect:none` 14,849 → 14,305,
+`effect:partial` 5,273 → 5,453, `withUnenforced` 280 → 280
+(unmoved, because a search names no target). What a script can express went
+1,034 → 1,119, and the ladder with it.
+
+Landed: No wave here, and the pool says why: the seam refilled the offer stream with 84 cards whose search line now reads and whose remaining work is a generated row - the fetchlands, Evolving Wilds, Sakura-Tribe Elder, Wood Elves. They are D358's wave. The bot's own reach rose to 7,308 cards from 7,265 and its spell columns took 10 instants and 34 sorceries.
+
+Fixtures 5,045 · botPool artifact 406 / creature 4,262 / enchantment 388 / instant 1,017 / land 518 / sorcery 777 - auto 994 / assisted 1,879 / autoAnyFace 1,003 · ladder [1119, 1226, 2812, 4645, 5990] · batch.json 44 ·
+select pool 84.
+
+Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,751 files, 23,604 passed / 11 skipped · 500-seed gate, 6 shards, 573.5 s wall ·
+build clean · probe 124/124 · battery 130/130.

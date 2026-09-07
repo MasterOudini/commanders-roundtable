@@ -124,6 +124,7 @@ const BODIES: AnyBody[] = [
       log: [],
       hiddenCounts: {},
       peek: [],
+    searching: [],
     },
     dict: {},
     session: {

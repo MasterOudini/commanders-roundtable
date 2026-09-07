@@ -45,6 +45,7 @@ import { activationConditionsHold, describeActivationConditions } from './activa
 import type { CardMove, EventBody } from './types/events';
 import type { AbilityRef, InstanceId, PlayerId, StackId, ZoneRef } from './types/ids';
 import type { ModeDecl, TargetSpec } from './types/oracle';
+import type { PermanentPredicate } from '../data/replacementParse';
 import { candidatesFromState, validateTargets } from './targets';
 import { EMPTY_POOL, poolFrom, type ManaCost, type ManaPool, type ManaSymbolKey } from './types/mana';
 import {
@@ -118,6 +119,8 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
       return answerChooseColor(state, intent);
     case 'AnswerEntersChoice':
       return answerEntersChoice(state, intent);
+    case 'AnswerSearchLibrary':
+      return answerSearchLibrary(state, intent, deps);
     case 'AnswerChooseFromZone':
       return answerChooseFromZone(state, intent);
     case 'AnswerOrderCards':
@@ -2486,6 +2489,103 @@ function answerEntersChoice(
  *     which a client cannot see and so cannot have picked honestly
  *   · a card in the right zone belonging to the wrong player
  */
+
+/**
+ * D357 - CR 701.19. The searcher names the cards they found; the handler checks each against the
+ * predicate and against their OWN library, moves them, clears the reveal and shuffles.
+ *
+ * ⚠️ EVERY CHECK IS HERE, because the prompt vouches for nothing (D137's rule): the cards must be
+ * in that player's library, must match the printed predicate, must not repeat, and must not exceed
+ * the count. Zero is always accepted.
+ *
+ * ⚠️ THE REVEAL IS CLEARED BEFORE THE SHUFFLE. A library still revealed to its owner after a search
+ * would keep feeding `view.searching` - and worse, once the prompt is gone `peek` walks it again
+ * and hands back the order. The clear is what restores the invariant.
+ */
+function answerSearchLibrary(
+  state: GameState,
+  intent: Extract<Intent, { t: 'AnswerSearchLibrary' }>,
+  deps: EngineDeps,
+): HandleResult {
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind !== 'searchLibrary' || awaiting.player !== intent.player) {
+    return reject('notAwaitingThat', 'You are not searching a library.');
+  }
+  if (intent.cards.length > awaiting.count) {
+    return reject('invalidAmount', `Choose at most ${awaiting.count} card${awaiting.count === 1 ? '' : 's'}.`);
+  }
+  const unique = new Set(intent.cards);
+  if (unique.size !== intent.cards.length) {
+    return reject('noSuchCard', 'You named the same card twice.');
+  }
+  const lib = state.zones.library[intent.player] ?? [];
+  for (const card of intent.cards) {
+    if (!lib.includes(card)) return reject('wrongZone', 'That card is not in your library.');
+    if (!cardMatchesSearch(state, deps, card, awaiting.predicates)) {
+      return reject('illegalTarget', `That card is not ${awaiting.what}.`);
+    }
+  }
+
+  const events: EventBody[] = [];
+  if (intent.cards.length > 0) {
+    const to =
+      awaiting.destination === 'hand'
+        ? { kind: 'hand' as const, player: intent.player }
+        : awaiting.destination === 'graveyard'
+          ? { kind: 'graveyard' as const, player: intent.player }
+          : { kind: 'battlefield' as const, player: intent.player };
+    events.push({
+      t: 'CardsMoved',
+      moves: intent.cards.map((card) => ({
+        card,
+        from: { kind: 'library' as const, player: intent.player },
+        to,
+      })),
+    });
+    // ⚠️ Tapped is a SEPARATE event rather than a flag on the move: the card enters through the
+    // ordinary funnel first, so D134's own "enters tapped" and D107's counters still run on it.
+    if (awaiting.tapped && awaiting.destination === 'battlefield') {
+      events.push({ t: 'PermanentsTapped', cards: [...intent.cards] });
+    }
+  }
+  // The reveal is cleared over the WHOLE library, not just the cards taken.
+  const stillThere = lib.filter((id) => !unique.has(id));
+  if (stillThere.length > 0) events.push({ t: 'RevealCleared', cards: stillThere });
+  events.push({ t: 'AwaitingSet', awaiting: null });
+
+  if (!awaiting.shuffle) return accept(events);
+  // ⚠️ The SEEDED generator, the only randomness this engine has, and the shuffle is over what is
+  // left after the move - shuffling the pre-move library would put the found card back.
+  const shuffled = shuffle(state.rng, stillThere);
+  events.push({ t: 'LibraryShuffled', player: intent.player, order: shuffled.value });
+  return accept(events, shuffled.next);
+}
+
+/**
+ * D357 - does a card in a library match a printed search predicate? Asked of the ORACLE face,
+ * because a card in a library has no derived characteristics - nothing is applying continuous
+ * effects to it.
+ */
+function cardMatchesSearch(
+  state: GameState,
+  deps: EngineDeps,
+  card: InstanceId,
+  predicates: readonly PermanentPredicate[],
+): boolean {
+  const inst = state.cards[card];
+  if (!inst) return false;
+  const printing = deps.oracle.byPrinting(inst.printingId);
+  if (!printing) return false;
+  const face = faceOf(printing, 0);
+  return predicates.some(
+    (p) =>
+      p.supertypes.every((t) => face.typeLine.supertypes.includes(t)) &&
+      p.types.every((t) => face.typeLine.types.includes(t)) &&
+      p.subtypes.every((t) => face.typeLine.subtypes.includes(t)) &&
+      p.colors.every((c) => face.colors.includes(c)),
+  );
+}
+
 function answerChooseFromZone(
   state: GameState,
   intent: Extract<Intent, { t: 'AnswerChooseFromZone' }>,

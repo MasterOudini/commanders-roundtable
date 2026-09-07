@@ -229,8 +229,23 @@ export class Projector {
     // hand one player the order of another's library — the same property that
     // makes `hiddenCounts` safe.
     const ownLibrary = state.zones.library[viewer] ?? [];
+    // ⚠️ D357 - THE TWO LIBRARY EXCEPTIONS ARE MUTUALLY EXCLUSIVE. A search reveals the WHOLE
+    // library to its searcher, and `peek` below walks it from the top taking everything revealed
+    // to the viewer - so without this the searcher would receive their deck in shuffle order.
+    // While a search is up they get `searching` (sorted) and no peek at all.
+    const search = state.priority.awaiting;
+    const searchingNow = search?.kind === 'searchLibrary' && search.player === viewer;
+    const searchingIds = searchingNow
+      ? [...ownLibrary]
+          .filter((id) => state.cards[id]?.revealedTo.includes(viewer))
+          .sort((a, b) => {
+            const an = this.oracle.byPrinting(state.cards[a]?.printingId ?? '')?.name ?? a;
+            const bn = this.oracle.byPrinting(state.cards[b]?.printingId ?? '')?.name ?? b;
+            return an === bn ? (a < b ? -1 : 1) : an < bn ? -1 : 1;
+          })
+      : [];
     const peeked: InstanceId[] = [];
-    for (let i = ownLibrary.length - 1; i >= 0; i--) {
+    for (let i = ownLibrary.length - 1; !searchingNow && i >= 0; i--) {
       const id = ownLibrary[i];
       if (id === undefined) break;
       if (!state.cards[id]?.revealedTo.includes(viewer)) break;
@@ -322,6 +337,7 @@ export class Projector {
       log,
       hiddenCounts,
       peek,
+      searching: searchingIds,
     };
   }
 

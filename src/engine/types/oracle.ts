@@ -522,7 +522,18 @@ export type EffectKind =
    * ⚠️ The second effect kind whose resolution STOPS and asks (after `discard`),
    * and the first whose prompt is over a zone the player has just been SHOWN.
    */
-  | 'lookAtTop';
+  | 'lookAtTop'
+  /**
+   * CR 701.19 - search a library for a card matching a predicate, put it somewhere, and shuffle.
+   * `Rampant Growth`, `Cultivate`, `Demonic Tutor`, every ramp land and every tutor.
+   *
+   * ⚠️ The THIRD effect kind whose resolution stops and asks (after `discard` and `lookAtTop`),
+   * and the first whose prompt is over a zone the player can see NONE of until it is raised.
+   * The candidates never ride the prompt - it crosses the wire whole (D61) - they reach the
+   * searcher through their own projection, SORTED, because the library's real order is the one
+   * thing `project.ts` exists to strip and a search is only allowed to show you the SET.
+   */
+  | 'search';
 
 /**
  * The counters a spell may put on or take off, and the list is CLOSED at two.
@@ -540,6 +551,32 @@ export type EffectKind =
  * the vocabulary for zero cards and one more thing to be wrong about.
  */
 export type CounterKind = '+1/+1' | '-1/-1';
+
+/**
+ * D357 - what a library search is allowed to find, and where it goes.
+ *
+ * ⚠️ `count` is a MAXIMUM and never a floor: CR 701.19b lets a player fail to find whatever the
+ * card says, so an answer of zero cards is always legal and the handler must accept it. A search
+ * that demanded its count would let a card lie about a deck it cannot see.
+ */
+export interface SearchSpec {
+  /** What may be chosen, through `predicatesOf` - the same reader the sacrifice and tap costs ask. */
+  readonly predicates: readonly PermanentPredicate[];
+  /** The printed noun, for the prompt the player reads (`a basic land card`). */
+  readonly label: string;
+  /** At most this many. */
+  readonly count: number;
+  readonly destination: 'hand' | 'battlefield' | 'graveyard';
+  /** The card arrives TAPPED - every ramp land, `Explosive Vegetation`, `Krosan Verge`. */
+  readonly tapped: boolean;
+  /**
+   * Whether the library is shuffled afterwards. 511 of the 514 measured cards shuffle, and the
+   * three that do not are why this is a field rather than an assumption: a search that showed
+   * the player their library and did NOT shuffle would leave them knowing their next draws, and
+   * that is exactly the case the sorted projection protects.
+   */
+  readonly shuffle: boolean;
+}
 
 export interface EffectSpec {
   readonly kind: EffectKind;
@@ -577,6 +614,8 @@ export interface EffectSpec {
   readonly token: TokenRef | null;
   /** `lookAtTop` only: how many to keep and where the rest go (D141). */
   readonly look: LookSpec | null;
+  /** `searchLibrary` only: what may be found, how many, and where it goes (D357). */
+  readonly search: SearchSpec | null;
   /**
    * `scry`/`surveil` only: cards drawn AFTER the choice resolves — the
    * "Scry 2, then draw a card" / "Surveil 1, then draw a card" shape

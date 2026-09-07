@@ -21,7 +21,8 @@
 // express as EVENTS is an effect it must not claim. `tier3.ts` asks this module
 // what it understood, and says so on the card.
 
-import type { CounterKind, EffectKind, EffectMode, EffectSpec, Keyword } from '../engine/types/oracle';
+import type { CounterKind, EffectKind, EffectMode, EffectSpec, Keyword, SearchSpec } from '../engine/types/oracle';
+import { predicatesOf } from './replacementParse';
 import type { Warn } from './oracleParse';
 import { scrub } from './targetParse';
 import { parseTokenClause, specKey } from './tokenParse';
@@ -176,6 +177,7 @@ const BASE: EffectFields = {
   counterKind: null,
   token: null,
   look: null,
+  search: null,
   atRandom: false,
   thenDraw: 0,
 };
@@ -272,6 +274,98 @@ function counterKindOf(raw: string | undefined): CounterKind | null {
  * is not understood — that is the whole safety property, and the reason these
  * read as strict rather than helpful.
  */
+
+/**
+ * D357 - CR 701.19, the LIBRARY SEARCH.
+ *
+ * 514 cards carried this sentence as their single remaining piece - the densest family the seam map
+ * holds - and the engine had no verb for it at all. What is searched for, measured: basic land 145,
+ * creature 35, artifact 18, land 14, Forest 13, Plains 11, Aura 9. Where it goes: hand 192,
+ * battlefield tapped 126, battlefield 101, graveyard 10. 511 of the 514 shuffle afterwards.
+ *
+ * ⚠️ THE SHUFFLE IS READ, NEVER ASSUMED. Three of the 514 do not shuffle, and a search that showed
+ * a player their library without shuffling would leave them knowing their next draws - which is the
+ * case the sorted projection in `project.ts` exists to protect.
+ */
+const SEARCH_WHERE = String.raw`(into your hand|onto the battlefield tapped|onto the battlefield|into your graveyard)`;
+const SEARCH_DEST: readonly (readonly [RegExp, SearchSpec['destination'], boolean])[] = [
+  [/onto the battlefield tapped/i, 'battlefield', true],
+  [/onto the battlefield/i, 'battlefield', false],
+  [/into your hand/i, 'hand', false],
+  [/into your graveyard/i, 'graveyard', false],
+];
+
+/**
+ * D357 - `basic Plains, Island, or Swamp` -> `basic Plains or basic Island or basic Swamp`.
+ *
+ * ⚠️ THE ADJECTIVES DISTRIBUTE. Everything before the first comma that is not the first noun
+ * qualifies every alternative - `basic` in the line above applies to all three, and a reader that
+ * kept it on the first only would find an Island that is not basic.
+ */
+function distributeList(noun: string): string {
+  if (!noun.includes(',')) return noun;
+  const parts = noun.split(/\s*,\s*/).map((p) => p.replace(/^or\s+/i, '').trim()).filter((p) => p !== '');
+  if (parts.length < 2) return noun;
+  const head = (parts[0] ?? '').split(/\s+/);
+  const lead = head.slice(0, -1);
+  return parts.map((p, i) => (i === 0 ? p : [...lead, p].join(' '))).join(' or ');
+}
+
+function searchRule(): Rule {
+  return {
+    kind: 'search',
+    re: new RegExp(
+      String.raw`^search your library for ` +
+        // `a`/`an`, or a COUNT that makes failing to find explicit.
+        String.raw`(?:(?:a|an)\b|up to (one|two|three|four)\b) ?` +
+        // The noun, or nothing at all - `Search your library for a card` is a real, unrestricted line.
+        String.raw`([a-zA-Z][a-zA-Z, ]*?)? ?cards?` +
+        String.raw`(?:, reveal (?:it|them|those cards))?` +
+        // `put it` / `put them` / `put that card` / `put those cards`, with the comma optional
+        // because some printings write `and put it` instead.
+        String.raw`(?:,| and) put (?:it|them|that card|those cards) ` +
+        SEARCH_WHERE +
+        // `, then shuffle` and `. Then shuffle.` are the same sentence to the two-sentence window.
+        String.raw`(?:[,.] ?then shuffle(?: your library)?| and shuffle(?: your library)?)?\.?$`,
+      'i',
+    ),
+    build: (m) => {
+      const COUNTS: Readonly<Record<string, number>> = { one: 1, two: 2, three: 3, four: 4 };
+      const count = m[1] ? (COUNTS[m[1].toLowerCase()] ?? 0) : 1;
+      if (count < 1) return null;
+      const noun = (m[2] ?? '').trim();
+      // ⚠️ A BARE `a card` IS UNRESTRICTED, and the empty predicate says so: `cardMatchesSearch`
+      // asks `every`, so a predicate with no supertype, type, subtype or colour admits any card.
+      // That is the honest reading of the line, not a hole - `Demonic Tutor` really does find
+      // anything.
+      const predicates = noun === ''
+        ? [{ supertypes: [], types: [], subtypes: [], colors: [] }]
+        // ⚠️ A COMMA LIST IS AN `or` LIST. `a basic Plains, Island, or Swamp card` names three
+        // alternatives and `predicatesOf` splits on `or` alone, so the commas become `or` first -
+        // and the leading adjectives distribute, which is why each alternative is rebuilt with
+        // every word that preceded the first comma.
+        : predicatesOf(distributeList(noun));
+      if (!predicates || predicates.length === 0) return null;
+      const where = (m[3] ?? '').toLowerCase();
+      const hit = SEARCH_DEST.find(([re]) => re.test(where));
+      if (!hit) return null;
+      return {
+        ...BASE,
+        targetIndex: -1,
+        self: true,
+        search: {
+          predicates,
+          label: (noun === '' ? 'card' : noun + ' card') + (count > 1 ? 's' : ''),
+          count,
+          destination: hit[1],
+          tapped: hit[2],
+          shuffle: /shuffle/i.test(m[0] ?? ''),
+        },
+      };
+    },
+  };
+}
+
 const RULES: readonly Rule[] = [
   {
     kind: 'damage',
@@ -747,6 +841,7 @@ const RULES: readonly Rule[] = [
       return { ...BASE, amount: spec.count, targetIndex: -1, self: true, token };
     },
   },
+  searchRule(),
 ];
 
 /**
@@ -924,7 +1019,7 @@ export function parseEffects(
    * where the player applies the parts by hand. (`lookAtTop` chains its own
    * follow-ups through the answer, so it carries the same constraint.)
    */
-  const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil']);
+  const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search']);
   if (effects.slice(0, -1).some((e) => ASKS.has(e.kind))) {
     warn('effect:partial');
     return { effects, mode: 'assisted' };

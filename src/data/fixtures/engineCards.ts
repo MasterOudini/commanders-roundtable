@@ -4922,6 +4922,11 @@ export const NATH_S_BUFFOON: CardData = F.NATH_S_BUFFOON as CardData;
 export const AZORIUS_FIRST_WING: CardData = F.AZORIUS_FIRST_WING as CardData;
 export const NACATL_SAVAGE: CardData = F.NACATL_SAVAGE as CardData;
 export const EMRAKUL_THE_AEONS_TORN: CardData = F.EMRAKUL_THE_AEONS_TORN as CardData;
+export const RAMPANT_GROWTH: CardData = F.RAMPANT_GROWTH as CardData;
+export const DEMONIC_TUTOR: CardData = F.DEMONIC_TUTOR as CardData;
+export const EXPLOSIVE_VEGETATION: CardData = F.EXPLOSIVE_VEGETATION as CardData;
+export const NATURE_S_LORE: CardData = F.NATURE_S_LORE as CardData;
+export const WOOD_ELVES: CardData = F.WOOD_ELVES as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -9965,6 +9970,11 @@ export const ENGINE_CARDS: CardData[] = [
   AZORIUS_FIRST_WING,
   NACATL_SAVAGE,
   EMRAKUL_THE_AEONS_TORN,
+  RAMPANT_GROWTH,
+  DEMONIC_TUTOR,
+  EXPLOSIVE_VEGETATION,
+  NATURE_S_LORE,
+  WOOD_ELVES,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

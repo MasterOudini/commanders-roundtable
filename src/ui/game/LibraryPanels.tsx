@@ -160,7 +160,9 @@ export function PeekPanel() {
   const awaiting = useTable((s) => s.awaiting);
   const pickOrder = useTable((s) => s.pickOrder);
   const view = useGame((s) => s.view);
-  const peek = view.peek;
+  // ⚠️ D357 - the two library projections are MUTUALLY EXCLUSIVE by construction: a search
+  // suppresses the peek, so whichever is non-empty is the one the rules are showing.
+  const peek = view.searching.length > 0 ? view.searching : view.peek;
 
   /**
    * ⚠️ **THE RULES CAN BE ASKING ABOUT THESE CARDS, and that changes what a
@@ -181,7 +183,9 @@ export function PeekPanel() {
         ? ({ kind: 'order', count: awaiting.count, label: awaiting.label, to: awaiting.destination } as const)
         : awaiting?.kind === 'scryChoice' && awaiting.player === viewer
           ? ({ kind: 'scry', count: awaiting.count, label: awaiting.label, toGrave: awaiting.toGraveyard } as const)
-          : null;
+          : awaiting?.kind === 'searchLibrary' && awaiting.player === viewer
+            ? ({ kind: 'search', count: awaiting.count, label: awaiting.label, what: awaiting.what } as const)
+            : null;
 
   if (peek.length === 0) return null;
 
@@ -216,7 +220,7 @@ export function PeekPanel() {
      * real answers, so "the last click submits" has no last click — the pick
      * list is the KEEP set (top first) and the button below commits it.
      */
-    if (prompt.kind === 'scry') {
+    if (prompt.kind === 'scry' || prompt.kind === 'search') {
       st.togglePick(id);
       return;
     }
@@ -234,6 +238,13 @@ export function PeekPanel() {
         ? { t: 'AnswerChooseFromZone', player: viewer, cards: next }
         : { t: 'AnswerOrderCards', player: viewer, cards: next },
     );
+    st.clearPick();
+  };
+
+  const submitSearch = (): void => {
+    if (prompt?.kind !== 'search') return;
+    const st = useTable.getState();
+    send({ t: 'AnswerSearchLibrary', player: viewer, cards: st.pickOrder });
     st.clearPick();
   };
 
@@ -272,6 +283,11 @@ export function PeekPanel() {
             ⚠️ The scry SUBMIT below is not that Done: it ANSWERS the prompt
             (keep-zero and keep-all are both real answers, so no click can be
             "the last one" and a commit button is the only honest control). */}
+        {prompt?.kind === 'search' && (
+          <button type="button" className={BTN_SMALL} data-peek-search-submit="" onClick={submitSearch}>
+            {pickOrder.length === 0 ? 'Find nothing' : `Take ${pickOrder.length}`}
+          </button>
+        )}
         {prompt?.kind === 'scry' && (
           <button type="button" className={BTN_SMALL} data-peek-scry-submit="" onClick={submitScry}>
             Keep {pickOrder.length}, rest to {prompt.toGrave ? 'graveyard' : 'bottom'}
@@ -297,6 +313,8 @@ export function PeekPanel() {
           ? `${copy.hint} Topmost first.`
           : prompt.kind === 'pick'
             ? `Click ${prompt.count} card${prompt.count === 1 ? '' : 's'} to keep. ${pickOrder.length}/${prompt.count} chosen.`
+            : prompt.kind === 'search'
+              ? `Click up to ${prompt.count} ${prompt.what} to take, then commit. Taking nothing is legal. ${pickOrder.length} chosen.`
             : prompt.kind === 'scry'
               ? `Click the cards to KEEP on top, in draw order; the rest go to the ${prompt.toGrave ? 'graveyard' : 'bottom'}. ${pickOrder.length} kept.`
               : `Click all ${prompt.count} in the order you want them, ${prompt.to} first. ${pickOrder.length}/${prompt.count} chosen.`}

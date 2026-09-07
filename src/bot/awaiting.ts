@@ -415,6 +415,20 @@ export function answerAwaiting(
         `scry ${awaiting.count}, keeping the order`,
       );
     }
+
+    case 'searchLibrary': {
+      if (awaiting.player !== me) return wait('not my search');
+      // ⚠️ A POLICY, said to be one. The bot can see its own candidates through `view.searching`
+      // and takes the first that matches - the prompt has already filtered to what is legal, so
+      // any of them is a legal answer and none is obviously best without evaluating the card.
+      const found = (view.searching ?? []).slice(0, awaiting.count);
+      return act(
+        { t: 'AnswerSearchLibrary', player: me, cards: found },
+        found.length === 0
+          ? `found nothing for ${awaiting.what}`
+          : `found ${found.length} ${awaiting.what}`,
+      );
+    }
   }
 
   // ⚠️ THE REAL GUARD IS THE COMPILE ERROR, not this line: `never` means a

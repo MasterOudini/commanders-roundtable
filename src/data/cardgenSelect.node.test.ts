@@ -1984,7 +1984,12 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // entry went stale.
     // D295 landed or ledgered all 137 D294 offerables - and the 29 its own four
     // sentences made offerable in turn. The pool is measured at zero.
-    expect.soft(all.length).toBe(0);
+    // ⚠️ D357 - NON-ZERO ON PURPOSE. The library search widened what a script can express, so
+    // the offer stream refilled with 84 cards whose search line now reads and whose remaining
+    // work is a row: the fetchlands, Evolving Wilds, Sakura-Tribe Elder, Wood Elves and their
+    // kin. They are OFFERED, not refused, so they belong here and not in the ledger - the
+    // D289/D291 shape, where a seam leaves its wave to the decision after it.
+    expect.soft(all.length).toBe(84);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);
