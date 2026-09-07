@@ -1884,6 +1884,18 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Magmaw', 'a sacrifice cost naming a predicate the engine cannot place (a nonland permanent)'],
   ['Malevolent Noble', 'a sacrifice cost whose alternative carries another (an artifact or another creature)'],
   ['Thopter Foundry', 'a sacrifice cost naming a predicate the engine cannot place (a nontoken artifact)'],
+
+  // D354 (M6.4gm) - the nine the tribal-lord scope made offerable that the row maker refuses, by
+  // four causes, none of them the scope grammar itself.
+  ['Aeronaut Admiral', 'a scoped anthem over a NON-CREATURE subtype (Vehicles) - the static applies to creatures'],
+  ['Darling of the Masses', 'a scoped anthem over Citizens - no inert Citizen in the format to prove it on'],
+  ['Thelonite Hermit', 'a scoped anthem over Saprolings - no inert Saproling in the format, and a turned-face-up head'],
+  ['Blade Splicer', 'a token outside TOKEN_TABLE (the 3/3 colorless Phyrexian Golem)'],
+  ['Master Splicer', 'a token outside TOKEN_TABLE (the 3/3 colorless Phyrexian Golem)'],
+  ['Arahbo, the First Fang', 'a trigger head outside the library (this creature OR another nontoken Cat enters)'],
+  ['Attuma, Atlantean Warlord', 'a trigger head outside the library (one or more Merfolk you control attack a player)'],
+  ['Pia Nalaar, Consul of Revival', 'a trigger head outside the library (you play a land or cast a spell FROM EXILE)'],
+  ['Quintorius, Field Historian', 'a trigger head outside the library (one or more cards leave your graveyard)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

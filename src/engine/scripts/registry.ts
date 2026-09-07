@@ -7,6 +7,38 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { IMPERIOUS_PERFECT_SCRIPT } from './cards/imperiousPerfect';
+import { INSPIRING_VETERAN_SCRIPT } from './cards/inspiringVeteran';
+import { THUNDERING_SPINEBACK_SCRIPT } from './cards/thunderingSpineback';
+import { REGISAUR_ALPHA_SCRIPT } from './cards/regisaurAlpha';
+import { NUT_COLLECTOR_SCRIPT } from './cards/nutCollector';
+import { MERFOLK_MISTBINDER_SCRIPT } from './cards/merfolkMistbinder';
+import { GOBLIN_TRASHMASTER_SCRIPT } from './cards/goblinTrashmaster';
+import { PRIDE_OF_THE_PERFECT_SCRIPT } from './cards/prideOfThePerfect';
+import { LEGION_LIEUTENANT_SCRIPT } from './cards/legionLieutenant';
+import { REGAL_IMPERIOSAUR_SCRIPT } from './cards/regalImperiosaur';
+import { BLADESTITCHED_SKAAB_SCRIPT } from './cards/bladestitchedSkaab';
+import { CANOPY_TACTICIAN_SCRIPT } from './cards/canopyTactician';
+import { SUPREME_PHANTOM_SCRIPT } from './cards/supremePhantom';
+import { WHITE_LOTUS_REINFORCEMENTS_SCRIPT } from './cards/whiteLotusReinforcements';
+import { LILIANAS_MASTERY_SCRIPT } from './cards/lilianasMastery';
+import { THICKET_CRASHER_SCRIPT } from './cards/thicketCrasher';
+import { KING_OF_THE_PRIDE_SCRIPT } from './cards/kingOfThePride';
+import { THIRSTING_BLOODLORD_SCRIPT } from './cards/thirstingBloodlord';
+import { SQUIRREL_SOVEREIGN_SCRIPT } from './cards/squirrelSovereign';
+import { KARGAN_WARLEADER_SCRIPT } from './cards/karganWarleader';
+import { YOTIAN_TACTICIAN_SCRIPT } from './cards/yotianTactician';
+import { BOLDWYR_AGGRESSOR_SCRIPT } from './cards/boldwyrAggressor';
+import { GRAF_HARVEST_SCRIPT } from './cards/grafHarvest';
+import { ALLIED_TEAMWORK_SCRIPT } from './cards/alliedTeamwork';
+import { SCION_OF_OONA_SCRIPT } from './cards/scionOfOona';
+import { CORSAIR_CAPTAIN_SCRIPT } from './cards/corsairCaptain';
+import { GRUUL_WAR_CHANT_SCRIPT } from './cards/gruulWarChant';
+import { SANCTUARY_LOCKDOWN_SCRIPT } from './cards/sanctuaryLockdown';
+import { TURTLE_POWER_SCRIPT } from './cards/turtlePower';
+import { LYRA_DAWNBRINGER_SCRIPT } from './cards/lyraDawnbringer';
+import { REGAL_CARACAL_SCRIPT } from './cards/regalCaracal';
+import { DEVIL_DINOSAUR_SCRIPT } from './cards/devilDinosaur';
 import { WHISPER_BLOOD_LITURGIST_SCRIPT } from './cards/whisperBloodLiturgist';
 import { KELDON_ARSONIST_SCRIPT } from './cards/keldonArsonist';
 import { GOBLIN_WARRENS_SCRIPT } from './cards/goblinWarrens';
@@ -4605,6 +4637,38 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  IMPERIOUS_PERFECT_SCRIPT,
+  INSPIRING_VETERAN_SCRIPT,
+  THUNDERING_SPINEBACK_SCRIPT,
+  REGISAUR_ALPHA_SCRIPT,
+  NUT_COLLECTOR_SCRIPT,
+  MERFOLK_MISTBINDER_SCRIPT,
+  GOBLIN_TRASHMASTER_SCRIPT,
+  PRIDE_OF_THE_PERFECT_SCRIPT,
+  LEGION_LIEUTENANT_SCRIPT,
+  REGAL_IMPERIOSAUR_SCRIPT,
+  BLADESTITCHED_SKAAB_SCRIPT,
+  CANOPY_TACTICIAN_SCRIPT,
+  SUPREME_PHANTOM_SCRIPT,
+  WHITE_LOTUS_REINFORCEMENTS_SCRIPT,
+  LILIANAS_MASTERY_SCRIPT,
+  THICKET_CRASHER_SCRIPT,
+  KING_OF_THE_PRIDE_SCRIPT,
+  THIRSTING_BLOODLORD_SCRIPT,
+  SQUIRREL_SOVEREIGN_SCRIPT,
+  KARGAN_WARLEADER_SCRIPT,
+  YOTIAN_TACTICIAN_SCRIPT,
+  BOLDWYR_AGGRESSOR_SCRIPT,
+  GRAF_HARVEST_SCRIPT,
+  ALLIED_TEAMWORK_SCRIPT,
+  SCION_OF_OONA_SCRIPT,
+  CORSAIR_CAPTAIN_SCRIPT,
+  GRUUL_WAR_CHANT_SCRIPT,
+  SANCTUARY_LOCKDOWN_SCRIPT,
+  TURTLE_POWER_SCRIPT,
+  LYRA_DAWNBRINGER_SCRIPT,
+  REGAL_CARACAL_SCRIPT,
+  DEVIL_DINOSAUR_SCRIPT,
   WHISPER_BLOOD_LITURGIST_SCRIPT,
   KELDON_ARSONIST_SCRIPT,
   GOBLIN_WARRENS_SCRIPT,

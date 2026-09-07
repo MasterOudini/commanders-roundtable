@@ -163242,6 +163242,1870 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "TERRAIN_ELEMENTAL": {
+    "scryfallId": "07997554-9fd7-4d6f-abaf-6c3fda9644d2",
+    "oracleId": "3a9b9fe0-1846-41fc-b7c3-ed9abef27a6a",
+    "name": "Terrain Elemental",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Terrain Elemental",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "",
+        "flavorText": "\"You tread upon the land all the time, yet you seem dismayed when it moves to step on you.\"\n—Nissa Revane",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "07997554-9fd7-4d6f-abaf-6c3fda9644d2"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "272†",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAPTOR_COMPANION": {
+    "scryfallId": "2d37fc42-0a7c-46b3-9270-333d370e479f",
+    "oracleId": "20e65887-c68c-4dc0-b74b-9ce093f40b06",
+    "name": "Raptor Companion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Raptor Companion",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "",
+        "flavorText": "A raptor will follow any order as long as that order is \"hunt,\" \"kill,\" or \"go for the guts.\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "2d37fc42-0a7c-46b3-9270-333d370e479f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EAGER_CADET": {
+    "scryfallId": "0732d372-1000-435e-905b-4a6c852ba427",
+    "oracleId": "39780477-01ba-40c6-8fe6-2178efb10b92",
+    "name": "Eager Cadet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eager Cadet",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "",
+        "flavorText": "\"Training? Seeing my crops burnt to cinders was all the 'training' I needed.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "0732d372-1000-435e-905b-4a6c852ba427"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "9ed",
+    "collectorNumber": "S1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TORMENTED_ANGEL": {
+    "scryfallId": "00d4d751-50df-4d8f-a6d9-4e76797c429a",
+    "oracleId": "176eeafd-0482-4fa4-9174-10f8b9494d9b",
+    "name": "Tormented Angel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tormented Angel",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying",
+        "flavorText": "Falling from heaven is not as painful as surviving the impact.",
+        "power": "1",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Greg Hildebrandt & Tim Hildebrandt",
+        "imageId": "00d4d751-50df-4d8f-a6d9-4e76797c429a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "uds",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SANCTUARY_CAT": {
+    "scryfallId": "61170c40-1e85-4fc2-804a-7fdc7062ac55",
+    "oracleId": "c623bc4b-7fc1-4bc1-84e9-71c301dd402f",
+    "name": "Sanctuary Cat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sanctuary Cat",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "61170c40-1e85-4fc2-804a-7fdc7062ac55"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "anb",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GILDED_SENTINEL": {
+    "scryfallId": "01cc1a59-76bf-4721-b4a7-ef746f3d3990",
+    "oracleId": "a382165d-d715-4836-b1ce-9e5d8dc56fb4",
+    "name": "Gilded Sentinel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gilded Sentinel",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "",
+        "flavorText": "The River Heralds fight to keep all others from reaching the golden city. The city has its own defenses.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Izzy",
+        "imageId": "01cc1a59-76bf-4721-b4a7-ef746f3d3990"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "239",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FALKENRATH_REAVER": {
+    "scryfallId": "cd2023b3-5999-44b1-a67f-3f2a76cb2d14",
+    "oracleId": "6cfd9d88-f450-4408-bbe2-94a2d295b24a",
+    "name": "Falkenrath Reaver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Falkenrath Reaver",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "",
+        "flavorText": "\"Each day there are new reports of homes along Getander Pass and Hofsaddel falling to vampires of a more savage nature. I've even heard tell that Anje Falkenrath has returned. Please send whatever help you can.\"\n—Sterin Gorn, letter to Thalia",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Daarken",
+        "imageId": "cd2023b3-5999-44b1-a67f-3f2a76cb2d14"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "emn",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLIFFHAVEN_SELL_SWORD": {
+    "scryfallId": "7f334767-4353-4379-a934-fa67075db439",
+    "oracleId": "5f0c8c60-96f1-4b26-a9f6-386e1cec517d",
+    "name": "Cliffhaven Sell-Sword",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cliffhaven Sell-Sword",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Kor Warrior",
+        "oracleText": "",
+        "flavorText": "\"I swing a sword. It's a simple life. A lot of adventurers just see me as some cheap muscle, but if my steel lets them return home with their lives and limbs intact, then I've done my job.\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "7f334767-4353-4379-a934-fa67075db439"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "znr",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KNIGHT_ERRANT": {
+    "scryfallId": "413f10fe-0e53-46ca-bd64-0d66dee8882d",
+    "oracleId": "920cc1a7-ac6b-44c0-ade7-347f05bba0f2",
+    "name": "Knight Errant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Knight Errant",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "",
+        "flavorText": "Knights are quick to pledge their loyalty and even quicker to charge into battle.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matthew D. Wilson",
+        "imageId": "413f10fe-0e53-46ca-bd64-0d66dee8882d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "7ed",
+    "collectorNumber": "24★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WILLOW_ELF": {
+    "scryfallId": "b8f0750c-1cce-4088-a848-f11fe3694d89",
+    "oracleId": "f88db161-3d00-4f45-b2a4-cbdc4f8e5312",
+    "name": "Willow Elf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Willow Elf",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "",
+        "flavorText": "The forest lives in the elf as the elf lives in the forest.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "DiTerlizzi",
+        "imageId": "b8f0750c-1cce-4088-a848-f11fe3694d89"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "s99",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HILL_GIANT": {
+    "scryfallId": "07724b6b-73e6-43b9-980f-149047c8e786",
+    "oracleId": "342199e0-15b6-4824-83da-25caef2592b3",
+    "name": "Hill Giant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hill Giant",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Giant",
+        "oracleText": "",
+        "flavorText": "Hill giants are mostly just big. Of course, that does count for a lot.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dany Orizio",
+        "imageId": "07724b6b-73e6-43b9-980f-149047c8e786"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "7ed",
+    "collectorNumber": "196★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WANDERING_ONES": {
+    "scryfallId": "8f973d6b-4a34-4b0e-b092-ead05bf2e535",
+    "oracleId": "1bbddbd2-9c85-4a1d-87aa-0c2eb2e0fb73",
+    "name": "Wandering Ones",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wandering Ones",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "",
+        "flavorText": "\"I saw them once, when I was a child. They led me to my parents' arms when I was lost. Why have they abandoned me now? Why won't they take me home again?\"\n—Unnamed beggar",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "8f973d6b-4a34-4b0e-b092-ead05bf2e535"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "chk",
+    "collectorNumber": "100",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MONS_S_GOBLIN_RAIDERS": {
+    "scryfallId": "0d3eff55-6a14-4c01-8b05-715094a319b3",
+    "oracleId": "a37159df-f6d7-4db6-85de-0ea77f425993",
+    "name": "Mons's Goblin Raiders",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mons's Goblin Raiders",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "",
+        "flavorText": "The intricate dynamics of Rundvelt Goblin affairs are often confused with anarchy. The chaos, however, is the chaos of a thundercloud, and direction will sporadically and violently appear. Pashalik Mons and his raiders are the thunderhead that leads in the storm.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jeff A. Menges",
+        "imageId": "0d3eff55-6a14-4c01-8b05-715094a319b3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "2ed",
+    "collectorNumber": "165",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOON_SPRITE": {
+    "scryfallId": "49d0acb1-bc07-42d5-a327-1617f0ed2c60",
+    "oracleId": "1e41136b-afa7-45ee-8d04-d0c7514b5387",
+    "name": "Moon Sprite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Moon Sprite",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Faerie",
+        "oracleText": "Flying",
+        "flavorText": "\"I am that merry wanderer of the night.\"\n—William Shakespeare,\n*A Midsummer Night's Dream*",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Terese Nielsen",
+        "imageId": "49d0acb1-bc07-42d5-a327-1617f0ed2c60"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "s00",
+    "collectorNumber": "42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TALAS_MERCHANT": {
+    "scryfallId": "2f779d7e-6e37-49bc-b76d-3bb490ff142b",
+    "oracleId": "6469f61d-1b4c-4813-bb4a-99f6e6388d7b",
+    "name": "Talas Merchant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Talas Merchant",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "",
+        "flavorText": "The trader let loose a laugh that made all around him check their purses.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Lubov",
+        "imageId": "2f779d7e-6e37-49bc-b76d-3bb490ff142b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "p02",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXPEDITION_ENVOY": {
+    "scryfallId": "41193ef1-1619-4448-9905-26b05079c79a",
+    "oracleId": "8bc7c769-33e0-4482-95fc-b344b772e174",
+    "name": "Expedition Envoy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Expedition Envoy",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Scout Ally",
+        "oracleText": "",
+        "flavorText": "The unofficial motto of every expedition house is \"ready for anything,\" a phrase whose significance has been amplified since the emergence of the Eldrazi.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "41193ef1-1619-4448-9905-26b05079c79a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "bfz",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SQUIRRELANOIDS": {
+    "scryfallId": "be08d2b0-375b-434f-9e6d-060809e0ed34",
+    "oracleId": "315ddc7a-c39c-43d9-b134-23acbd865e3e",
+    "name": "Squirrelanoids",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Squirrelanoids",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Squirrel Mutant",
+        "oracleText": "Deathtouch",
+        "flavorText": "It's best to never discover what they squirrel away.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Eilene Cherie",
+        "imageId": "be08d2b0-375b-434f-9e6d-060809e0ed34"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "81",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRUUL_WAR_CHANT": {
+    "scryfallId": "00cbf1b0-5aa5-4420-84ea-7ea777ae34a7",
+    "oracleId": "a9edb891-1a38-4b8a-8539-c459e8a52315",
+    "name": "Gruul War Chant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gruul War Chant",
+        "manaCost": "{2}{R}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Attacking creatures you control get +1/+0 and have menace.",
+        "flavorText": "\"We are the heart of the wild, the fire in its eyes, and the howl in its throat. Come, join the battle to which you were born.\"\n—Kroshkar, Gruul shaman",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "00cbf1b0-5aa5-4420-84ea-7ea777ae34a7"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "cn2",
+    "collectorNumber": "203",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SANCTUARY_LOCKDOWN": {
+    "scryfallId": "1387b7be-f69e-4919-9070-a89654c656f3",
+    "oracleId": "66793ddf-aca3-44cb-8742-4eee178f31c6",
+    "name": "Sanctuary Lockdown",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sanctuary Lockdown",
+        "manaCost": "{2}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "Humans you control get +1/+1.\n{2}, Tap two untapped Humans you control: Tap target creature an opponent controls.",
+        "flavorText": "\"Drannith gives no quarter to traitors.\"\n—General Kudro",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "1387b7be-f69e-4919-9070-a89654c656f3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "iko",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TURTLE_POWER": {
+    "scryfallId": "4079ca90-dcc3-4184-9dfc-a626e0776332",
+    "oracleId": "15934a19-a29e-4728-816f-20b610eec377",
+    "name": "Turtle Power!",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Turtle Power!",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Flash\nTurtles you control get +2/+2.",
+        "flavorText": "Unnoticed by the crowd, the strange canister bounced several more times, striking and smashing a glass jar which held four small turtles . . .",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Hokyoung Kim",
+        "imageId": "4079ca90-dcc3-4184-9dfc-a626e0776332"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LYRA_DAWNBRINGER": {
+    "scryfallId": "44899568-7aac-47ae-9f7d-b5414f65625b",
+    "oracleId": "592c91fc-6430-4c76-9460-65f047350f67",
+    "name": "Lyra Dawnbringer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lyra Dawnbringer",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Legendary Creature — Angel",
+        "oracleText": "Flying\nFirst strike (This creature deals combat damage before creatures without first strike.)\nLifelink (Damage dealt by this creature also causes you to gain that much life.)\nOther Angels you control get +1/+1 and have lifelink.",
+        "flavorText": "An angel among angels, she carries the hopes of the world skyward.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Donato Giancola",
+        "imageId": "44899568-7aac-47ae-9f7d-b5414f65625b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Lifelink",
+      "First strike"
+    ],
+    "setCode": "dmr",
+    "collectorNumber": "413",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REGAL_CARACAL": {
+    "scryfallId": "4588351e-bbc6-4866-b7b3-6491b8131f02",
+    "oracleId": "aa571676-b390-4b8a-baea-4c4cd60c01f6",
+    "name": "Regal Caracal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Regal Caracal",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Other Cats you control get +1/+1 and have lifelink. (Damage dealt by those creatures also causes you to gain that much life.)\nWhen this creature enters, create two 1/1 white Cat creature tokens with lifelink.",
+        "flavorText": "Oketra's closest viziers are known as her chosen, though others may have a better claim to that moniker.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Filip Burburan",
+        "imageId": "4588351e-bbc6-4866-b7b3-6491b8131f02"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "AKH-24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEVIL_DINOSAUR": {
+    "scryfallId": "fcb4c268-441f-41cf-8c25-538eefc6a710",
+    "oracleId": "08de884f-1930-43d6-8c23-04353a136b4e",
+    "name": "Devil Dinosaur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Devil Dinosaur",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Legendary Creature — Dinosaur",
+        "oracleText": "Trample\nOther Dinosaurs you control get +1/+1 and have hexproof. (They can't be the targets of spells or abilities your opponents control.)",
+        "flavorText": "\"His kind was never known to run from danger.\"\n—Moon-Boy",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Wero Gallo",
+        "imageId": "fcb4c268-441f-41cf-8c25-538eefc6a710"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "719",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IMPERIOUS_PERFECT": {
+    "scryfallId": "02a828f1-652b-48d5-851e-6f7cbe549161",
+    "oracleId": "3fa71348-fa4d-4f39-a451-cf1570591991",
+    "name": "Imperious Perfect",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Imperious Perfect",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "Other Elves you control get +1/+1.\n{G}, {T}: Create a 1/1 green Elf Warrior creature token.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "02a828f1-652b-48d5-851e-6f7cbe549161"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ps11",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INSPIRING_VETERAN": {
+    "scryfallId": "0c3f372d-259d-4a31-9491-2d369b3f3f8b",
+    "oracleId": "aa1a63dd-acb1-465f-8970-667b8d7c57c9",
+    "name": "Inspiring Veteran",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Inspiring Veteran",
+        "manaCost": "{R}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Other Knights you control get +1/+1.",
+        "flavorText": "\"I fight for my daughter, who may not set foot on a battlefield for many years. Remember who you fight for.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Scott Murphy",
+        "imageId": "0c3f372d-259d-4a31-9491-2d369b3f3f8b"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "194",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THUNDERING_SPINEBACK": {
+    "scryfallId": "0c65d26e-b529-43ba-9e6e-82aed27cbbfc",
+    "oracleId": "c9db31d7-00cf-4200-a11f-74cc2d9e843e",
+    "name": "Thundering Spineback",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thundering Spineback",
+        "manaCost": "{5}{G}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Other Dinosaurs you control get +1/+1.\n{5}{G}: Create a 3/3 green Dinosaur creature token with trample. (It can deal excess combat damage to the player or planeswalker it's attacking.)",
+        "flavorText": "\"It appears that nature has risen against us.\"\n—Captain Brinely Rage",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Brian Valeza",
+        "imageId": "0c65d26e-b529-43ba-9e6e-82aed27cbbfc"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "lcc",
+    "collectorNumber": "260",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REGISAUR_ALPHA": {
+    "scryfallId": "0e27be78-a209-4a64-a75a-bea677cca1b5",
+    "oracleId": "0673f4e0-66ff-458c-b4ba-eb067e560cce",
+    "name": "Regisaur Alpha",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Regisaur Alpha",
+        "manaCost": "{3}{R}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Other Dinosaurs you control have haste.\nWhen this creature enters, create a 3/3 green Dinosaur creature token with trample.",
+        "flavorText": "\"Seeing a pack of these monsters hunt together, I'm at a loss to imagine the size of their prey.\"\n—Adrian Adanto of Lujio",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Jonathan Kuo",
+        "imageId": "0e27be78-a209-4a64-a75a-bea677cca1b5"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "pxln",
+    "collectorNumber": "227s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NUT_COLLECTOR": {
+    "scryfallId": "1b866327-a857-485b-9399-4e61828e1d76",
+    "oracleId": "4e1bc03c-e131-4422-beba-0a45a26fdf43",
+    "name": "Nut Collector",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nut Collector",
+        "manaCost": "{5}{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "At the beginning of your upkeep, you may create a 1/1 green Squirrel creature token.\nThreshold — All Squirrels get +2/+2 as long as there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "1b866327-a857-485b-9399-4e61828e1d76"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "ODY-259",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERFOLK_MISTBINDER": {
+    "scryfallId": "2935b829-23fb-415e-90f2-2e0016b5cde9",
+    "oracleId": "be56dfea-1ece-4f06-b1cc-d7425b5018b4",
+    "name": "Merfolk Mistbinder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Merfolk Mistbinder",
+        "manaCost": "{G}{U}",
+        "typeLine": "Creature — Merfolk Shaman",
+        "oracleText": "Other Merfolk you control get +1/+1.",
+        "flavorText": "\"The mist clothes us when we are bare, hides us when we are alone, and unites us when we are together.\"\n—Nirit of Pashona's band",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "2935b829-23fb-415e-90f2-2e0016b5cde9"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "rix",
+    "collectorNumber": "164",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_TRASHMASTER": {
+    "scryfallId": "2bc69988-3c2d-4b76-a8c0-05926b9bbd08",
+    "oracleId": "0283bf5e-ddf2-4a4a-a7cf-d3e27eed7e7d",
+    "name": "Goblin Trashmaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Trashmaster",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Other Goblins you control get +1/+1.\nSacrifice a Goblin: Destroy target artifact.",
+        "flavorText": "\"Folks 'round here are too in love with their contraptions. Does them some good if we smash one every so often.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jakub Kasper",
+        "imageId": "2bc69988-3c2d-4b76-a8c0-05926b9bbd08"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m19",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRIDE_OF_THE_PERFECT": {
+    "scryfallId": "30272e6d-683d-4c9a-90d6-ea7908943267",
+    "oracleId": "83e2b251-bd60-4c5c-b9e2-32c22b28fb8b",
+    "name": "Pride of the Perfect",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pride of the Perfect",
+        "manaCost": "{3}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Elves you control get +2/+0.",
+        "flavorText": "Like moonglove's flowers, the greatest beauty often masks the greatest dangers.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lie Setiawan",
+        "imageId": "30272e6d-683d-4c9a-90d6-ea7908943267"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "cmr",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEGION_LIEUTENANT": {
+    "scryfallId": "33f7ff99-65d6-4e97-bdfa-b6e6eac0588f",
+    "oracleId": "5fa1b2f0-3ba4-49db-9cb5-b6130e4c255e",
+    "name": "Legion Lieutenant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Legion Lieutenant",
+        "manaCost": "{W}{B}",
+        "typeLine": "Creature — Vampire Knight",
+        "oracleText": "Other Vampires you control get +1/+1.",
+        "flavorText": "\"We long ago abandoned the things that make humans weak: friendship, marriage, family. All that remains is the strength of our devotion.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "33f7ff99-65d6-4e97-bdfa-b6e6eac0588f"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "rix",
+    "collectorNumber": "163",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REGAL_IMPERIOSAUR": {
+    "scryfallId": "36f569cc-ed09-4c27-b753-18b22ad7f425",
+    "oracleId": "83a76601-ef59-4888-af70-5088dd1f504c",
+    "name": "Regal Imperiosaur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Regal Imperiosaur",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Other Dinosaurs you control get +1/+1.",
+        "flavorText": "Initially frustrated by Muraganda's inconsistent biodiversity, Avishkari researchers made a breakthrough after mapping the plane's aetheric index—the wide variety of fauna was the result of raw magic, not evolution.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Stephanie Cheung",
+        "imageId": "36f569cc-ed09-4c27-b753-18b22ad7f425"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dft",
+    "collectorNumber": "177",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLADESTITCHED_SKAAB": {
+    "scryfallId": "3bda5cf5-309c-480d-8fa3-75c66480304a",
+    "oracleId": "d72b8254-3df8-431b-955a-ec2aea493e2b",
+    "name": "Bladestitched Skaab",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bladestitched Skaab",
+        "manaCost": "{U}{B}",
+        "typeLine": "Creature — Zombie Soldier",
+        "oracleText": "Other Zombies you control get +1/+0.",
+        "flavorText": "The surviving militia members reunited with their fallen comrades sooner than they'd hoped.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "3bda5cf5-309c-480d-8fa3-75c66480304a"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "inr",
+    "collectorNumber": "426",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CANOPY_TACTICIAN": {
+    "scryfallId": "3eaf48c9-09bc-4d81-a3a5-432219a71754",
+    "oracleId": "8b20d6f4-6322-4435-92d5-acaae74774f4",
+    "name": "Canopy Tactician",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Canopy Tactician",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "Other Elves you control get +1/+1.\n{T}: Add {G}{G}{G}.",
+        "flavorText": "\"Death and life are two ends of the same spear.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ekaterina Burmak",
+        "imageId": "3eaf48c9-09bc-4d81-a3a5-432219a71754"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "khm",
+    "collectorNumber": "378",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUPREME_PHANTOM": {
+    "scryfallId": "4bcfdeac-e0f5-4f36-bdeb-22c6462c5682",
+    "oracleId": "9c5f4d02-eedb-4c6c-9f13-1b7a45382483",
+    "name": "Supreme Phantom",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Supreme Phantom",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nOther Spirits you control get +1/+1.",
+        "flavorText": "A king's knowledge does not vanish when the heart stops beating.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Robbie Trevino",
+        "imageId": "4bcfdeac-e0f5-4f36-bdeb-22c6462c5682"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pm19",
+    "collectorNumber": "76p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHITE_LOTUS_REINFORCEMENTS": {
+    "scryfallId": "4c7e3e2f-d7ac-4d40-ab84-cb7efe06a316",
+    "oracleId": "c55a4b25-ccc4-49de-9f98-a829c547a64d",
+    "name": "White Lotus Reinforcements",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "White Lotus Reinforcements",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Creature — Human Soldier Ally",
+        "oracleText": "Vigilance\nOther Allies you control get +1/+1.",
+        "flavorText": "\"We're all part of the same ancient secret society, a group that transcends the divisions of the four nations.\"\n—Master Piandao",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Kotakan",
+        "imageId": "4c7e3e2f-d7ac-4d40-ab84-cb7efe06a316"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "tla",
+    "collectorNumber": "251",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LILIANA_S_MASTERY": {
+    "scryfallId": "4ff4a2f3-f923-428c-a402-4ff0e602139e",
+    "oracleId": "bd104c7e-311e-4b03-98d3-5f20f3a99d26",
+    "name": "Liliana's Mastery",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Liliana's Mastery",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Zombies you control get +1/+1.\nWhen this enchantment enters, create two 2/2 black Zombie creature tokens.",
+        "flavorText": "\"There are so many of them. It seems they've just been waiting for someone to serve.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "4ff4a2f3-f923-428c-a402-4ff0e602139e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "gnt",
+    "collectorNumber": "32",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THICKET_CRASHER": {
+    "scryfallId": "534eb449-3f1c-46ec-a965-0f5812e2c93e",
+    "oracleId": "998e850a-b3c7-4ab2-85ac-25beef98ab20",
+    "name": "Thicket Crasher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thicket Crasher",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elemental Rhino",
+        "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nOther Elementals you control have trample.",
+        "flavorText": "\"Tread too hard in the forest and it will tread on you in return.\"\n—Vivien Reid",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "534eb449-3f1c-46ec-a965-0f5812e2c93e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "m20",
+    "collectorNumber": "196",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KING_OF_THE_PRIDE": {
+    "scryfallId": "55c67d56-62d5-417a-b1a6-51c91ba3abb1",
+    "oracleId": "96d0e4dd-6cc2-4349-ac44-785b50f8dd90",
+    "name": "King of the Pride",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "King of the Pride",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Other Cats you control get +2/+1.",
+        "flavorText": "\"Glorious, to walk again across the savannah with my beloved.\"\n—\"Love Song of Night and Day\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jonathan Kuo",
+        "imageId": "55c67d56-62d5-417a-b1a6-51c91ba3abb1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "h1r",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THIRSTING_BLOODLORD": {
+    "scryfallId": "599e8ed3-4341-4373-8871-2768a90d98c1",
+    "oracleId": "b04ba676-a1f5-4216-9d93-3c475b504bfa",
+    "name": "Thirsting Bloodlord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thirsting Bloodlord",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Other Vampires you control get +1/+1.",
+        "flavorText": "\"A whole life, full of memories and experience, love and sorrow, drained drop by drop into this bottle. Could any feast be more glorious?\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Joseph Meehan",
+        "imageId": "599e8ed3-4341-4373-8871-2768a90d98c1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "293",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SQUIRREL_SOVEREIGN": {
+    "scryfallId": "5db1fca1-58bf-4860-9c5e-ae43f0122620",
+    "oracleId": "f43d1ea5-8127-4b64-a87b-ee5cc9b9e9fa",
+    "name": "Squirrel Sovereign",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Squirrel Sovereign",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Squirrel Noble",
+        "oracleText": "Other Squirrels you control get +1/+1.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ilse Gort",
+        "imageId": "5db1fca1-58bf-4860-9c5e-ae43f0122620"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j21",
+    "collectorNumber": "646",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KARGAN_WARLEADER": {
+    "scryfallId": "6f921dca-ce93-42d1-87b1-149973558467",
+    "oracleId": "63324e72-e580-456a-91be-766c9f07b7b3",
+    "name": "Kargan Warleader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kargan Warleader",
+        "manaCost": "{1}{R}{W}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Other Warriors you control get +1/+1.",
+        "flavorText": "From rebellion against the Akoum Skyclave to fighting the Eldrazi titans, the dragon-riding Kargan tribes have never missed an opportunity to defy the odds.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Colin Boyer",
+        "imageId": "6f921dca-ce93-42d1-87b1-149973558467"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "znr",
+    "collectorNumber": "224",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YOTIAN_TACTICIAN": {
+    "scryfallId": "760c0369-c2e4-4bd7-a301-9f707f5f48a8",
+    "oracleId": "0d9d7f04-6319-4596-8b74-de5a794936e5",
+    "name": "Yotian Tactician",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Yotian Tactician",
+        "manaCost": "{2}{W}{U}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Other Soldiers you control get +1/+1.",
+        "flavorText": "\"Time for the Iron Alliance to remind the qadir's army how inhospitable the Sword Marches can be.\"",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Fariba Khamseh",
+        "imageId": "760c0369-c2e4-4bd7-a301-9f707f5f48a8"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "bro",
+    "collectorNumber": "228",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOLDWYR_AGGRESSOR": {
+    "scryfallId": "76bbccd2-8a90-49a7-921a-6565b495efdf",
+    "oracleId": "ab32c671-7686-435b-a987-14a08f6790eb",
+    "name": "Boldwyr Aggressor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boldwyr Aggressor",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Giant Warrior",
+        "oracleText": "Double strike\nOther Giants you control have double strike.",
+        "flavorText": "During the Invasion, Clan Boldwyr's defense of their dolmens was legendary. Now they're more territorial than ever.",
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "76bbccd2-8a90-49a7-921a-6565b495efdf"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Double strike"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAF_HARVEST": {
+    "scryfallId": "83f2413f-987f-4eab-96c1-f662821546a5",
+    "oracleId": "d3ba6922-c2f7-45ab-87a3-d4bbd770d1ba",
+    "name": "Graf Harvest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Graf Harvest",
+        "manaCost": "{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Zombies you control have menace. (They can't be blocked except by two or more creatures.)\n{3}{B}, Exile a creature card from your graveyard: Create a 2/2 black Zombie creature token.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lake Hurwitz",
+        "imageId": "83f2413f-987f-4eab-96c1-f662821546a5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "421",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALLIED_TEAMWORK": {
+    "scryfallId": "8a347283-eb16-4339-945e-316a5ce9e2c5",
+    "oracleId": "ceddea59-de47-4ddd-b424-6e1dcb13ab79",
+    "name": "Allied Teamwork",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Allied Teamwork",
+        "manaCost": "{2}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, create a 1/1 white Ally creature token.\nAllies you control get +1/+1.",
+        "flavorText": "Jet's Freedom Fighters are a dangerous band whose strength lies in three things: their purpose, their numbers, and their bond.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Gemi",
+        "imageId": "8a347283-eb16-4339-945e-316a5ce9e2c5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tle",
+    "collectorNumber": "213",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCION_OF_OONA": {
+    "scryfallId": "937c75ac-b7cf-4af5-a7b7-9e90f43fa1a5",
+    "oracleId": "b34601d2-2aeb-4649-9d73-d0895611bd69",
+    "name": "Scion of Oona",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scion of Oona",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Faerie Soldier",
+        "oracleText": "Flash\nFlying\nOther Faerie creatures you control get +1/+1.\nOther Faeries you control have shroud. (They can't be the targets of spells or abilities.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Eric Fortune",
+        "imageId": "937c75ac-b7cf-4af5-a7b7-9e90f43fa1a5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "woc",
+    "collectorNumber": "109",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORSAIR_CAPTAIN": {
+    "scryfallId": "a9b016d4-ddf6-47d6-b934-a0b979b60680",
+    "oracleId": "a7ec13c6-7ade-433a-b5a2-047854eef486",
+    "name": "Corsair Captain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Corsair Captain",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "When this creature enters, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\nOther Pirates you control get +1/+1.",
+        "flavorText": "\"Lungs full of sea air and a hold full of loot. Ah, what a life!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "a9b016d4-ddf6-47d6-b934-a0b979b60680"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "jmp",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JASMINE_BOREAL": {
+    "scryfallId": "004af467-815a-47c0-a974-1ae49ca3a1a8",
+    "oracleId": "942407bf-862a-4a0b-b19d-b9f8ee833026",
+    "name": "Jasmine Boreal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jasmine Boreal",
+        "manaCost": "{3}{G}{W}",
+        "typeLine": "Legendary Creature — Human",
+        "oracleText": "",
+        "flavorText": "\"Peace must prevail, even if the wicked must die.\"",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Richard Kane Ferguson",
+        "imageId": "004af467-815a-47c0-a974-1ae49ca3a1a8"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "tsb",
+    "collectorNumber": "93",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STAUNCH_SHIELDMATE": {
+    "scryfallId": "db17f25a-32d1-469b-bb5f-f1761e227990",
+    "oracleId": "0a1a0911-dcd5-4a2f-8deb-abb5b273b0fb",
+    "name": "Staunch Shieldmate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Staunch Shieldmate",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Dwarf Soldier",
+        "oracleText": "",
+        "flavorText": "\"Gilded with gold from a dragon's trove, it is! And etched with the image of the dragon I slew to take it.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Bartłomiej Gaweł",
+        "imageId": "db17f25a-32d1-469b-bb5f-f1761e227990"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "m21",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KITHKIN_BILLYRIDER": {
+    "scryfallId": "0535b69f-247d-49c9-97e1-d988700578ab",
+    "oracleId": "142d2063-d692-42a6-b828-42d998914589",
+    "name": "Kithkin Billyrider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kithkin Billyrider",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Kithkin Knight",
+        "oracleText": "Double strike",
+        "flavorText": "\"Brother, guide my right hand. Sister, my left. Rest well, my kin, but Lorwyn still needs me. I will not be joining you quite yet.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Zara Alfonso",
+        "imageId": "0535b69f-247d-49c9-97e1-d988700578ab"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Double strike"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAKINDI_AERONAUT": {
+    "scryfallId": "a35d3113-6cb7-4b74-94a3-8160d9ac1b89",
+    "oracleId": "9f980829-90c1-43e2-a103-915f38317ed0",
+    "name": "Makindi Aeronaut",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Makindi Aeronaut",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Kor Scout Ally",
+        "oracleText": "Flying",
+        "flavorText": "\"The Eldrazi have surprised us before. It's my job to make sure that never happens again.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "a35d3113-6cb7-4b74-94a3-8160d9ac1b89"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ogw",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SWAB_GOBLIN": {
+    "scryfallId": "0403b8e5-29c5-4a4a-b9e7-1e79a7452f14",
+    "oracleId": "343ecf2f-0bbc-4840-8fb3-f5f61b26e76f",
+    "name": "Swab Goblin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Swab Goblin",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Pirate",
+        "oracleText": "",
+        "flavorText": "Though small, goblins can hold their own in a fight. Foolhardy confidence goes a long way.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "0403b8e5-29c5-4a4a-b9e7-1e79a7452f14"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "rix",
+    "collectorNumber": "203",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AEGIS_TURTLE": {
+    "scryfallId": "7003ebae-5d82-4360-ae63-0e51c37977ed",
+    "oracleId": "f84c30e7-2ea8-43ff-9356-1f907558cfd9",
+    "name": "Aegis Turtle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aegis Turtle",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Turtle",
+        "oracleText": "",
+        "flavorText": "\"The endurance of the ancient turtles in a land so harsh makes a strong case for patience, tranquility, and composure.\"\n—Gavi, nest warden",
+        "power": "0",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Milivoj Ćeran",
+        "imageId": "7003ebae-5d82-4360-ae63-0e51c37977ed"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

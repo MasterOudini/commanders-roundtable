@@ -11175,6 +11175,56 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D353): the mana ability with a CHOOSER price (17 unsupported prices behind `Add one mana of any color`, the largest `{T}, Tap an untapped creature you control` at 7 - D325 charges only the deterministic pieces, and a mana ability uses no stack, so the choice cannot be a prompt the way an activation's is), snow mana ({S} - 14 cards across four cost forms; the engine has no snow-source concept at all), the remove-a-counter CHOOSER (11: a counter on a permanent the player names, and for `Remove a counter from an artifact` the counter KIND must be chosen too), the self exile (5 - `Exile this creature`, deterministic, but the suite's asserts read a source in the graveyard and not in exile), the activation conditions outside the vocabulary (34 across 33 wordings), the lines that are neither an activated ability nor a library trigger (20: Unleash 10, Exploit 8), the leftover lines the accounting reports differently from the printed one (18: the Threshold cards whose QUOTED granted ability `scrub` blanks), the trigger payloads outside both readers (20), the clause fixtures still missing (20), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14); the "another" split; the by-name
       sacrifice cost; the remaining cost verbs; the prompt continuation seam;
       prior items stand.
+- [x] **M6.4gm — THE TRIBAL LORD: the scope's noun may be the subtype, and the
+      first honest map of what is left; 32 cards land, 32 as
+      generated rows (2026-09-07):**
+      **7,258 of 31,692 Commander-legal cards now execute completely, up
+      from 7,226 (+32).** `SHIPPED_SCRIPTS` 4,611; ledger
+      932 (nine rows ADDED by name and none retired - four causes, none of them the scope grammar: a scope that is not a creature (Vehicles), a subtype with no inert member in the format (Citizens, Saprolings), a token outside TOKEN_TABLE (the Splicers' 3/3 Phyrexian Golem) and four trigger heads outside the library; measured: the REFUSED map's size 923 -> 932). Fixtures 5,022 (4,879 by name + 136 tokens: the 32 rows' cards and the 21 SUBTYPE FIXTURES the scoped suites put down - one creature per subtype a lord scopes over, vanilla where the format prints one and keyword-only where it does not; no new token pin). **Select pool
+      0.** Decisions in **D354**.
+      ⚠️ **The seam is one noun**: `staticRowShape` has demanded the literal
+      words `creatures` or `permanents` since D300, so it read
+      `Other Knight creatures you control get +1/+1.` — which no card prints —
+      and refused `Other Knights you control get +1/+1.`, which is how every
+      tribal lord in the format is printed. The noun may be the subtype now, the
+      plural is LOOKED UP from the fixture table (Elf/Elves, Ally/Allies,
+      Merfolk/Merfolk each break a different guess), and the emitter already
+      composed `other` with a scope predicate.
+      ⚠️⚠️ **THE MEASUREMENT IS THE DECISION.** The first dump of every
+      incomplete card's whole remaining text (24,466 cards, 39,272 lines) named a
+      160-card seam sharing ONE wording. Measured before it was built, it would
+      have landed **zero**: `faceCompleteness` RETURNS EARLY on the target-spec
+      gate, so a card whose reported leftover is a spec has never had its
+      sentences read. Rebuilt on the union of specs and lines: **12,576 cards are
+      one piece from landing across 11,089 wordings — 1.13 each**, so a wording
+      table cannot finish this project and only a grammar can.
+      ⚠️⚠️ **A SUBTYPE IS SPELLED LIKE ANY CAPITALISED WORD**, so the first
+      widening read `You have hexproof.` as a tribal anthem and took five
+      player-scoped statics with it. `You`, `Player` and `Opponent` joined the
+      exclusion list; the yield is 31, not 36.
+      ⚠️ **A TEST THAT CANNOT FAIL IS NOT A PROOF**: five subtypes have no
+      vanilla member (every Angel, Faerie and Thopter flies), so the fixture
+      table records what each fixture is PRINTED with and the row maker refuses a
+      grant of it by name — beside a second guard, that a row whose scoped
+      anthems need two different fixtures cannot be proven on one board.
+      ⚠️ **A derive step that rebuilds a file must also re-extend it**:
+      `make-gen43.cjs` reverted `helpers.json`'s 21 subtype fixtures on every
+      run, including from inside `regen.sh`.
+      ⚠️⚠️ **PIPELINE TRAP: re-running the candidate probe mid-port excludes the
+      cards the port has just LANDED**, and `regen.sh` then unlands all of them
+      as dropped rows — 26 in one go. Re-probe only from a fully unlanded tree.
+      Measured first: the first dump of every incomplete card's whole remaining text - 24,466 cards, 39,272 leftover lines - and then the correction that made it usable. Read as reported, it said 13,264 cards were ONE line from landing, and named the densest seam ever measured in this arc: 160 modal spells whose single leftover is the same synthetic fragment. That seam was measured before it was built and would have landed EXACTLY ZERO, because `faceCompleteness` returns early on the target-spec gate and never examines the sentences behind it - so a card whose reported leftover is a spec has not been shown to be one step from anything. Rebuilt on the UNION of unread specs and unaccounted lines: exactly ONE card in the format is blocked by a target spec alone, 12,576 are one piece from landing, and they carry 11,089 distinct wordings - 1.13 cards per wording, with the top 100 wordings worth 764 cards. Grouped by the reader that would have to exist, the three densest families are a static grant to a scoped set (494 cards, 302 wordings), a bare keyword or ability word (274 / 81) and a mana ability with a drawback (181 / 121). The grant family was then sized exactly: 185 of it is a QUOTED granted ability, 55 is the plain grammar, and of those the classifier freed 31 with the scope widening alone - measured with the real `primitivesFor` over the whole database, not estimated. NOT this decision: the QUOTED granted ability (221 cards - 121 activated, 90 triggered, 9 static, 1 mixed - whose text `scrub` blanks, so the accounting reports a line ending at the verb and 113 outer grant lines select the ACTIVATED claim bucket because the classifier sees the colons inside the quotes), the grant vocabulary the engine already honours but the shapes do not (8 cards behind fear, intimidate, skulk, horsemanship, wither and exalted - and exalted is not a characteristic at all but a triggered ability `keywordTriggers.ts` runs, so it needs its own proof), a scope that is not a creature (Vehicles), the subtypes with no inert member in the format (Citizens, Saprolings), the 3/3 Phyrexian Golem outside TOKEN_TABLE, the four trigger heads outside the library (a head naming this creature OR another of a type, counted attackers, cast-from-exile, cards leaving a graveyard), the mana ability with a CHOOSER price (17 unsupported prices behind `Add one mana of any color`), snow mana ({S} - 14 cards across four cost forms), the remove-a-counter CHOOSER (11), the self exile (5), the activation conditions outside the vocabulary (34 across 33 wordings), the lines that are neither an activated ability nor a library trigger (20: Unleash 10, Exploit 8). Refused by name:
+      nine rows ADDED by name and none retired - four causes, none of them the scope grammar: a scope that is not a creature (Vehicles), a subtype with no inert member in the format (Citizens, Saprolings), a token outside TOKEN_TABLE (the Splicers' 3/3 Phyrexian Golem) and four trigger heads outside the library; measured: the REFUSED map's size 923 -> 932.
+      No ledger row retired: this decision adds nine and drains none, because the class it opened was never named in the ledger - the lords were never OFFERED at all. Report `effect:auto` 4,209 → 4,209,
+      `withUnenforced` 280 → 280 — neither moves, because a scoped
+      static is a PERMANENT's line. `layer6` falls 1,349 → 1,325 instead.
+      **Landed:** No second wave: the 32 rows are the landing. The bot's own reach moved with them - the deck now draws from 7,199 fully-executable cards (7,167 before) and its commander is chosen from 203 fully-executable legendary creatures (201 before). Tests: one generated suite per row.
+      Fixtures 5,022 · botPool artifact 396 / creature 4,225 / enchantment 388 / instant 1,007 / land 499 / sorcery 743 - auto 948 / assisted 1,832 / autoAnyFace 957 · ladder [1032, 1096, 2666, 4489, 5824] · batch.json
+      32 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,747 files, 23,555 passed / 11 skipped ·
+      500-seed gate, 6 shards · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D354): the QUOTED granted ability (221 cards - 121 activated, 90 triggered, 9 static, 1 mixed - whose text `scrub` blanks, so the accounting reports a line ending at the verb and 113 outer grant lines select the ACTIVATED claim bucket because the classifier sees the colons inside the quotes), the grant vocabulary the engine already honours but the shapes do not (8 cards behind fear, intimidate, skulk, horsemanship, wither and exalted - and exalted is not a characteristic at all but a triggered ability `keywordTriggers.ts` runs, so it needs its own proof), a scope that is not a creature (Vehicles), the subtypes with no inert member in the format (Citizens, Saprolings), the 3/3 Phyrexian Golem outside TOKEN_TABLE, the four trigger heads outside the library (a head naming this creature OR another of a type, counted attackers, cast-from-exile, cards leaving a graveyard), the mana ability with a CHOOSER price (17 unsupported prices behind `Add one mana of any color`), snow mana ({S} - 14 cards across four cost forms), the remove-a-counter CHOOSER (11), the self exile (5), the activation conditions outside the vocabulary (34 across 33 wordings), the lines that are neither an activated ability nor a library trigger (20: Unleash 10, Exploit 8); the seam map itself, to be re-measured
+      after every grammar rather than trusted as it stands; prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

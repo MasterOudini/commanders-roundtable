@@ -469,8 +469,14 @@ const SPELL_STRUCTURAL: readonly RegExp[] = [
  */
 const STATIC_KW = '(?:flying|trample|vigilance|haste|lifelink|deathtouch|first strike|double strike|menace|hexproof|indestructible|reach|defender|shroud|flash)';
 const STATIC_KWS = `${STATIC_KW}(?:(?:, | and |, and )${STATIC_KW})*`;
-const STATIC_ADJ = '(?:White|Blue|Black|Red|Green|Multicolored|(?!Non|Attacking|Blocking|Token|Legendary|Tapped|Untapped|Enchanted|Equipped|Snow|Basic|Face|Artifact|Enchantment|Land|Creature|Colorless|Commander|Modified|Historic|Outlaw|Party|Monocolored)[A-Z][a-z]+)';
-const STATIC_HEAD = `^(?:All |Other |)(?:${STATIC_ADJ} )?(?:[Cc]reatures|[Pp]ermanents)(?: you control)?`;
+const STATIC_ADJ = '(?:White|Blue|Black|Red|Green|Multicolored|(?!Non|Attacking|Blocking|Token|Legendary|Tapped|Untapped|Enchanted|Equipped|Snow|Basic|Face|Artifact|Enchantment|Land|Creature|Colorless|Commander|Modified|Historic|Outlaw|Party|Monocolored|You|Player|Opponent)[A-Z][a-z]+)';
+// D354 - THE SCOPE'S NOUN. A tribal lord prints `Other Knights you control get +1/+1.`, with the
+// SUBTYPE as the noun; the head above read only the literal words creatures and permanents, so no
+// lord in the format ever reached the pool. The subtype is spelled like the adjective already is,
+// and it carries the same exclusion list - `You have hexproof.` is a grant to the PLAYER, in a
+// different layer, and an anthem row emitted for it would not do what the card says (D90).
+const STATIC_NOUN = `(?:[Cc]reatures|[Pp]ermanents|${STATIC_ADJ}s?)`;
+const STATIC_HEAD = `^(?:All |Other |)(?:${STATIC_ADJ} )?${STATIC_NOUN}(?: you control)?`;
 const STATIC_ROW_SHAPES: readonly RegExp[] = [
   new RegExp(`${STATIC_HEAD} have ${STATIC_KWS}\\.$`),
   new RegExp(`${STATIC_HEAD} get [+-]\\d+/[+-]\\d+(?: and have ${STATIC_KWS})?\\.$`),

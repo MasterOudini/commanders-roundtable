@@ -315,8 +315,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // scale — 19 of 25, the six refusals named — 1,742 → 1,761. M6.4d
       // (D161): thirteen more, and the selection taught two refusal shapes —
       // 1,761 → 1,774.
-      complete: 7226,
-      blocked: 24466,
+      complete: 7258,
+      blocked: 24434,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -325,7 +325,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1023,
+      scriptableToday: 1032,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -336,7 +336,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
-      layer6: 1349,
+      layer6: 1325,
       counter: 1460,
       token: 968,
     });
@@ -375,7 +375,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1023, 1086, 2690, 4513, 5846]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1032, 1096, 2666, 4489, 5824]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -462,11 +462,11 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       else split.unclaimed++;
       if (card.layer6Lines.some((t) => TEMPORARY.test(t))) temporary++;
     }
-    expect.soft(split).toEqual({ grant: 833, anthem: 158, restriction: 211, conditional: 147, unclaimed: 0 });
+    expect.soft(split).toEqual({ grant: 822, anthem: 145, restriction: 211, conditional: 147, unclaimed: 0 });
     // ⚠️ THE NUMBER THAT KEEPS `layer6` OUT OF `BUILT`. Asserted here rather than
     // written in the comment above, because D129's reason lived in a comment and
     // stayed there for twenty-four decisions after D147 closed it.
-    expect.soft(temporary).toBe(555);
+    expect.soft(temporary).toBe(551);
   });
 
   /**
@@ -547,8 +547,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1023, 1086]);
-    expect.soft(r.complete).toBe(7226);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1032, 1096]);
+    expect.soft(r.complete).toBe(7258);
   });
 });
 
@@ -671,7 +671,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
       triggeredShell: 2140,
       damage: 761,
       exile: 926,
-      staticShell: 703,
+      staticShell: 687,
       attackBlock: 868,
       lifeGainLoss: 590,
       drawDiscard: 355,
@@ -680,7 +680,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
       cantBeCountered: 97,
       gainControl: 66,
       wardHexproofGrant: 46,
-      other: 3222,
+      other: 3219,
     });
   });
 
