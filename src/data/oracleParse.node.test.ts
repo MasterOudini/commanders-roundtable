@@ -437,7 +437,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // same 1,125. Same def gate again.
       'activated:nonManaCost': 4869,
       'activated:loyalty': 4635,
-      'target:modalUnion': 1569,
+      'target:modalUnion': 505,
       // D291: "attacking or blocking creature" used to lose its first word to
       // ADJECTIVE_RE and fall to free aim; the combat-role nouns parse now.
       // D293: a qualifier after a noun LIST binds one alternative in print, so
@@ -482,10 +482,10 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
    */
   test('the targeting coverage matches the numbers pinned in D79', () => {
     expect(report.targets).toEqual({
-      facesWithSpecs: 18575,
-      specs: 19658,
-      confident: 17512,
-      free: 2146,
+      facesWithSpecs: 17513,
+      specs: 18599,
+      confident: 17517,
+      free: 1082,
       enchant: 3536,
       // D288 admits "other" into the up-to window without recording it as
       // unenforced — the declaration-wide distinctness check enforces it —

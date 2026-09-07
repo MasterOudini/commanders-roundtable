@@ -10734,6 +10734,57 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D344): the vocabulary payloads the suite cannot fixture or assert yet (a counted clause - up to one, up to two - aimed at one fixture; a combat-role clause fired mid-combat; a tapped or nonbasic-land predicate; a spell clause for the 5 counter payloads; the 18 asking payloads - discard, scry, surveil, look at the top - once the continuation seam exists), the modal PERMANENT lines (276; 33 readable with the vocabulary), the cost verbs the probe's covered set names (121 - snow mana {S} 12, remove a counter from a creature you control 6, a Desert or a Gate to sacrifice or tap 7, return a land you control 6, tap two untapped artifacts and/or creatures 3, Blight, Exert, Mill four cards ...), the activation conditions (49 - the turn-memory ones first: an opponent lost life, a creature died, a noncreature or an instant or sorcery spell cast this turn), the static lines (58 - Unleash 10, the Threshold bodies 25, attacking creatures you control get +1/+0 or have double strike 9, All Slivers have 2), Add one mana of any color with a cost the engine does not charge (21), the counts outside the vocabulary (15), the 12 tokens outside TOKEN_TABLE; then the rest of D343's list - the modal spells beside another sentence (59) and the 265 with a mode outside the vocabulary, the exploits, the searches, the choices on entry, the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split; the "another" split; the by-name
       sacrifice cost; the remaining cost verbs; the prompt continuation seam;
       prior items stand.
+- [x] **M6.4gd — THE MODAL PERMANENT LINES: a trigger or an activation whose
+      printed payload is "choose one —" over bullets becomes ONE def with modes,
+      and the accounting stops charging a permanent for a cast-time choice it
+      never makes; 24 cards land, 24 as generated rows (2026-09-07):**
+      **7,077 of 31,692 Commander-legal cards now execute completely, up
+      from 6,920 (+24).** `SHIPPED_SCRIPTS` 4,430; ledger
+      958 (no rows retired and none added - not one of the 24 was in the REFUSED ledger: a modal permanent had been unreachable at the ACCOUNTING (its face carried a cast-time target spec no script could claim), never a drafter's verdict; measured: the REFUSED map's size, unchanged at 958). Fixtures 4,808 (4,667 by name + 134 tokens: the 24 rows' cards, and one new token pin (the Kor Ally Retreat to Emeria makes)). **Select pool
+      0.** Decisions in **D345**.
+      ⚠️ **The accounting's half** (`d345/apply-modal-permanent.cjs`,
+      `targetParse.ts`): `parseSpellTargets` tested the modal head against the
+      WHOLE text, so a permanent whose "choose one" sits on a triggered or an
+      activated line carried a cast-time free spec for a cast that aims nothing
+      — reported as the leftover "Choose a mode, then its target" on all 276
+      modal permanents, which NO script could claim: D343 shipped the seam, the
+      24 rows shipped defs with `modes`, and the disclosure still refused every
+      one (said by name, 24 times, by `shippedScripts.node.test.ts`). The union
+      is a SPELL line's; a modal head on a permanent's own ability is that
+      def's, and the printed lines behind it are read now. `target:modalUnion`
+      1,569 → 505, free specs 2,146 → 1,082.
+      ⚠️ **The generator** (`d345/make-gen34.cjs` + `gen34-modal.cjs`): the row
+      maker walks the leftover lines BY INDEX so a modal head takes its `• `
+      bullets, and a head or an activated line whose payload is "choose one —"
+      becomes ONE ABILITY PER MODE, each carrying that mode's parsed effect (a
+      row kind or D344's vocabulary) — so every existing emitter reads it and
+      only the def and the prompt are new. One def per modal LINE with `modes`
+      (the PRINTED bullet as `text`, the clauses from the payload) and
+      `modeChoice`, resolving by the chosen mode. **Choose-one only**: one mode
+      resolves, so the declared targets are its own clauses and no index shift
+      is needed, and an asking mode inside a multi-mode resolution cannot
+      arise. A head that is two defs declares its modes on both. The suite
+      fires the head, answers `chooseModes`, then its targets. A FLAVOUR NAME
+      before a payload ("Heckle — Tap target creature.") is stripped to read it
+      and kept in the printed text the accounting claims.
+      ⚠️ The port's runs found five generator gaps (a per-mode token constant,
+      two vocabulary modes colliding, an ACTIVATED modal def with no `modes` at
+      all, a mode naming its own card, and a derive behind a PIPE swallowing
+      its own failure so a whole round regenerated with the old generator); no
+      card was hand-fixed.
+      Measured first: the D345 probe (d345/make-probe-d345.cjs -> zz-probe-d345v, D344's vocabulary probe plus the FLAVOUR NAME a mode prints before its payload - "Heckle — Tap target creature.", "Cure Wounds — You gain 2 life." - which carries no rules meaning, stripped to READ the payload and kept in the printed line the accounting claims): of the 276 incomplete permanents printing a modal head, 33 have every mode inside the row kinds or the effect vocabulary, 36 with the flavour strip (the strip alone is 14 cards' first blocker; the rest of those 14 are blocked further on). The blockers behind the other 240 (modal-why.json): 102 a mode payload outside both readers (Proliferate, Cloak, a copy token, a search, an X count ...), 21 a head outside the library beside 18 modal heads outside it (whenever you proliferate, whenever a Swamp you control enters, when this creature enters or dies), 29 another line entirely, and the rest the payload classes every other wave meets. The row maker rowed 24 of the 36: three modes ask (a scry inside a resolution is the continuation seam), one head is a choose ONE OR BOTH (D345 is choose-one), Flash Thompson's 1..2 the same, and Titanium Man is a Vehicle whose crew the engine does not charge. NOT this decision: the wider modal heads (one or both, one or more, any number, choose two - the def needs modalEffects' index shift, which the engine already has for spells), the asking modes (a scry or a surveil inside an ability's resolution: the continuation seam), the 102 mode payloads outside both readers, the 21 + 18 heads outside the library (whenever you proliferate, whenever a Swamp you control enters, when this creature enters or dies), and then D344's own list unchanged: the vocabulary clauses the suite cannot fixture (a counted clause, a combat-role clause, a tapped or nonbasic-land predicate, a spell clause for the counter payloads), the cost verbs (121 - snow mana, remove a counter, a Desert or a Gate, return a land), the activation conditions (49 - the turn-memory ones first), the static lines (58 - Unleash 10, the Threshold bodies 25), Add one mana of any color with a cost the engine does not charge (21), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (12); then the modal spells beside another sentence (59) and the 265 with a mode outside the vocabulary, the exploits, the searches, the choices on entry, the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split. Refused by name:
+      no rows retired and none added - not one of the 24 was in the REFUSED ledger: a modal permanent had been unreachable at the ACCOUNTING (its face carried a cast-time target spec no script could claim), never a drafter's verdict; measured: the REFUSED map's size, unchanged at 958.
+      Nothing retired: no shipped def sat on any of the 24, and no ledger row named one. Report `effect:auto` 4,209 → 4,209,
+      `withUnenforced` 280 → 280.
+      **Landed:** No second wave: the seam and its 24 rows are the landing, and the bot's own deck took 20 creatures and 4 enchantments more on the same sweep (the commander reaches 7,018 cards from 6,994; Elder Gargaroth displaced Allied Strategies). Tests: one generated suite per row, one test per
+      mode.
+      Fixtures 4,808 · botPool artifact 385 / creature 4,091 / enchantment 359 / instant 1,007 / land 492 / sorcery 743 - auto 948 / assisted 1,832 / autoAnyFace 957 · ladder [1058, 1142, 2771, 4599, 5936] · batch.json
+      24 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,563 files, 22,733 passing / 11 skipped ·
+      500-seed gate, 6 shards, 541.7 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D345): the wider modal heads (one or both, one or more, any number, choose two - the def needs modalEffects' index shift, which the engine already has for spells), the asking modes (a scry or a surveil inside an ability's resolution: the continuation seam), the 102 mode payloads outside both readers, the 21 + 18 heads outside the library (whenever you proliferate, whenever a Swamp you control enters, when this creature enters or dies), and then D344's own list unchanged: the vocabulary clauses the suite cannot fixture (a counted clause, a combat-role clause, a tapped or nonbasic-land predicate, a spell clause for the counter payloads), the cost verbs (121 - snow mana, remove a counter, a Desert or a Gate, return a land), the activation conditions (49 - the turn-memory ones first), the static lines (58 - Unleash 10, the Threshold bodies 25), Add one mana of any color with a cost the engine does not charge (21), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (12); then the modal spells beside another sentence (59) and the 265 with a mode outside the vocabulary, the exploits, the searches, the choices on entry, the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38), the another split; the "another" split; the by-name
+      sacrifice cost; the remaining cost verbs; the prompt continuation seam;
+      prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

@@ -315,8 +315,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // scale — 19 of 25, the six refusals named — 1,742 → 1,761. M6.4d
       // (D161): thirteen more, and the selection taught two refusal shapes —
       // 1,761 → 1,774.
-      complete: 7053,
-      blocked: 24639,
+      complete: 7077,
+      blocked: 24615,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -548,7 +548,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
     expect.soft(steps.map((s) => s.unlocked)).toEqual([1058, 1142]);
-    expect.soft(r.complete).toBe(7053);
+    expect.soft(r.complete).toBe(7077);
   });
 });
 
@@ -669,18 +669,18 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
     expect.soft(rr.residue).toEqual({
       activatedCost: 2402,
       triggeredShell: 2140,
-      damage: 763,
+      damage: 762,
       exile: 926,
-      staticShell: 709,
+      staticShell: 708,
       attackBlock: 869,
-      lifeGainLoss: 599,
-      drawDiscard: 357,
+      lifeGainLoss: 591,
+      drawDiscard: 355,
       tokensAndCounters: 376,
       copySpell: 224,
       cantBeCountered: 98,
       gainControl: 66,
       wardHexproofGrant: 46,
-      other: 3242,
+      other: 3227,
     });
   });
 

@@ -1208,8 +1208,19 @@ const MODAL_RE = /\bchoose\s+(one|two|three|up to)\b/i;
  * execute is theatre.
  *
  * ⚠️ Modal spells emit ONE free spec for the whole face. The clauses belong to
- * modes, `PendingCast.modes` exists and nothing sets it, so taking the union
- * would demand four targets for a card that needs one.
+ * modes, and taking the union would demand four targets for a card that needs
+ * one. D343 reads a whole-text modal spell mode by mode before this, so what
+ * reaches the branch below is a modal head BESIDE another sentence.
+ *
+ * ⚠️ **AND IT IS A SPELL LINE'S UNION, NOT A PERMANENT'S** (D345). The test
+ * ran over the WHOLE text, so a permanent whose "choose one" sits on a
+ * triggered or an activated line got a cast-time spec for a cast that aims
+ * nothing - and `engineComplete` reported it as the leftover "Choose a mode,
+ * then its target" for every one of the 276 modal permanents, which no script
+ * could ever claim: 24 cards shipped a def with `modes` and the disclosure
+ * still refused them. A modal head on a permanent's own ability belongs to
+ * that ability's def, whose modes carry the clauses (D343's seam), and the
+ * printed lines behind it are what the accounting reads now.
  */
 export function parseSpellTargets(
   text: string,
@@ -1221,14 +1232,13 @@ export function parseSpellTargets(
   const enchant = parseEnchant(text, warn);
   if (enchant) return [enchant];
 
-  if (MODAL_RE.test(scrub(text))) {
-    warn('target:modalUnion');
-    return [{ ...FREE_TARGET, text: 'Choose a mode, then its target' }];
-  }
-
   const out: TargetSpec[] = [];
   for (const line of splitAbilityLines(text, isPermanent)) {
     if (line.kind !== 'spell') continue;
+    if (MODAL_RE.test(scrub(line.text))) {
+      warn('target:modalUnion');
+      return [{ ...FREE_TARGET, text: 'Choose a mode, then its target' }];
+    }
     out.push(...parseTargetClauses(line.text, warn));
   }
   return out;

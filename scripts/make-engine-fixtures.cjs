@@ -5193,6 +5193,32 @@ const WANTED = [
   // D344 - the vocabulary payload rows: a trigger or an activation whose payload the effect vocabulary reads whole.
   // D344 - the vocabulary payload rows: a trigger or an activation whose payload the effect vocabulary reads whole.
   'Xiahou Dun, the One-Eyed',
+  // D345 - the modal permanent rows: a trigger or an activation whose payload is a choose-one over printed bullets.
+  'Elder Gargaroth',
+  'Defiant Ogre',
+  'Graviton, Fundamental Force',
+  'Knight of Autumn',
+  'Sandsteppe Outcast',
+  'Retreat to Hagra',
+  'Tormentor Exarch',
+  'Inquisitor Exarch',
+  'Retreat to Emeria',
+  'Retreat to Kazandu',
+  'Irreverent Revelers',
+  'Goblin Cratermaker',
+  'Apothecary Stomper',
+  'Ferocification',
+  'Shambling Ghast',
+  'Trufflesnout',
+  'Coliseum Behemoth',
+  'Ravenous Sailback',
+  'Saurian Symbiote',
+  'Cosmogrand Zenith',
+  'Glamermite',
+  'Exhibition Magician',
+  'Giant-Sized Flying Ant',
+  'Aven Surveyor',
+  // D345 - the modal permanent rows: a trigger or an activation whose payload is a choose-one over printed bullets.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -5439,6 +5465,8 @@ const WANTED_TOKENS = [
   { name: 'Squirrel', set: 'tunf', cn: '8', key: 'SQUIRREL_1_1_G_CREATURE_TOKEN' },
   // D340 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Warrior', set: 'l14', cn: '4', key: 'WARRIOR_1_1_W_CREATURE_TOKEN' },
+  // D345 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Kor Ally', set: 'tznc', cn: '2', key: 'KOR_ALLY_1_1_W_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

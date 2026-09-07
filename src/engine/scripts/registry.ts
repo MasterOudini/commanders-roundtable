@@ -7,6 +7,30 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ELDER_GARGAROTH_SCRIPT } from './cards/elderGargaroth';
+import { DEFIANT_OGRE_SCRIPT } from './cards/defiantOgre';
+import { GRAVITON_FUNDAMENTAL_FORCE_SCRIPT } from './cards/gravitonFundamentalForce';
+import { KNIGHT_OF_AUTUMN_SCRIPT } from './cards/knightOfAutumn';
+import { SANDSTEPPE_OUTCAST_SCRIPT } from './cards/sandsteppeOutcast';
+import { RETREAT_TO_HAGRA_SCRIPT } from './cards/retreatToHagra';
+import { TORMENTOR_EXARCH_SCRIPT } from './cards/tormentorExarch';
+import { INQUISITOR_EXARCH_SCRIPT } from './cards/inquisitorExarch';
+import { RETREAT_TO_EMERIA_SCRIPT } from './cards/retreatToEmeria';
+import { RETREAT_TO_KAZANDU_SCRIPT } from './cards/retreatToKazandu';
+import { IRREVERENT_REVELERS_SCRIPT } from './cards/irreverentRevelers';
+import { GOBLIN_CRATERMAKER_SCRIPT } from './cards/goblinCratermaker';
+import { APOTHECARY_STOMPER_SCRIPT } from './cards/apothecaryStomper';
+import { FEROCIFICATION_SCRIPT } from './cards/ferocification';
+import { SHAMBLING_GHAST_SCRIPT } from './cards/shamblingGhast';
+import { TRUFFLESNOUT_SCRIPT } from './cards/trufflesnout';
+import { COLISEUM_BEHEMOTH_SCRIPT } from './cards/coliseumBehemoth';
+import { RAVENOUS_SAILBACK_SCRIPT } from './cards/ravenousSailback';
+import { SAURIAN_SYMBIOTE_SCRIPT } from './cards/saurianSymbiote';
+import { COSMOGRAND_ZENITH_SCRIPT } from './cards/cosmograndZenith';
+import { GLAMERMITE_SCRIPT } from './cards/glamermite';
+import { EXHIBITION_MAGICIAN_SCRIPT } from './cards/exhibitionMagician';
+import { GIANT_SIZED_FLYING_ANT_SCRIPT } from './cards/giantSizedFlyingAnt';
+import { AVEN_SURVEYOR_SCRIPT } from './cards/avenSurveyor';
 import { XIAHOU_DUN_THE_ONE_EYED_SCRIPT } from './cards/xiahouDunTheOneEyed';
 import { KOR_ENTANGLERS_SCRIPT } from './cards/korEntanglers';
 import { NOXIOUS_DRAGON_SCRIPT } from './cards/noxiousDragon';
@@ -4432,6 +4456,30 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ELDER_GARGAROTH_SCRIPT,
+  DEFIANT_OGRE_SCRIPT,
+  GRAVITON_FUNDAMENTAL_FORCE_SCRIPT,
+  KNIGHT_OF_AUTUMN_SCRIPT,
+  SANDSTEPPE_OUTCAST_SCRIPT,
+  RETREAT_TO_HAGRA_SCRIPT,
+  TORMENTOR_EXARCH_SCRIPT,
+  INQUISITOR_EXARCH_SCRIPT,
+  RETREAT_TO_EMERIA_SCRIPT,
+  RETREAT_TO_KAZANDU_SCRIPT,
+  IRREVERENT_REVELERS_SCRIPT,
+  GOBLIN_CRATERMAKER_SCRIPT,
+  APOTHECARY_STOMPER_SCRIPT,
+  FEROCIFICATION_SCRIPT,
+  SHAMBLING_GHAST_SCRIPT,
+  TRUFFLESNOUT_SCRIPT,
+  COLISEUM_BEHEMOTH_SCRIPT,
+  RAVENOUS_SAILBACK_SCRIPT,
+  SAURIAN_SYMBIOTE_SCRIPT,
+  COSMOGRAND_ZENITH_SCRIPT,
+  GLAMERMITE_SCRIPT,
+  EXHIBITION_MAGICIAN_SCRIPT,
+  GIANT_SIZED_FLYING_ANT_SCRIPT,
+  AVEN_SURVEYOR_SCRIPT,
   XIAHOU_DUN_THE_ONE_EYED_SCRIPT,
   KOR_ENTANGLERS_SCRIPT,
   NOXIOUS_DRAGON_SCRIPT,
