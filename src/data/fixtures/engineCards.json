@@ -158649,6 +158649,654 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "DUNE_DIVINER": {
+    "scryfallId": "01818188-e18e-4dc0-b7ef-34cedef64f7e",
+    "oracleId": "4bf308fc-a54e-4fba-b0fd-3bedb4db3b18",
+    "name": "Dune Diviner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dune Diviner",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Snake Cleric",
+        "oracleText": "{1}, Tap an untapped Desert you control: You gain 1 life.",
+        "flavorText": "The desert had once been a place of endless horror. It was now the last refuge as the city of Naktamun fell.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Min Yum",
+        "imageId": "01818188-e18e-4dc0-b7ef-34cedef64f7e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "hou",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHACKLEGEIST": {
+    "scryfallId": "04dc4dda-1bc2-4ff7-8b66-b55be96db6e8",
+    "oracleId": "7a1e4880-9abb-4018-84bd-91b5ec702c51",
+    "name": "Shacklegeist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shacklegeist",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nThis creature can block only creatures with flying.\nTap two untapped Spirits you control: Tap target creature you don't control.",
+        "flavorText": "The Blessed Sleep doesn't come easily to a mind chained by regrets.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "04dc4dda-1bc2-4ff7-8b66-b55be96db6e8"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pm21",
+    "collectorNumber": "70s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IFNIR_DEADLANDS": {
+    "scryfallId": "0b88728b-9b18-40c6-b634-f87f8da83665",
+    "oracleId": "af698bd5-5f56-4d2a-9f02-8c3e781210cd",
+    "name": "Ifnir Deadlands",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ifnir Deadlands",
+        "manaCost": "",
+        "typeLine": "Land — Desert",
+        "oracleText": "{T}: Add {C}.\n{T}, Pay 1 life: Add {B}.\n{2}{B}{B}, {T}, Sacrifice a Desert: Put two -1/-1 counters on target creature an opponent controls. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jonas De Ro",
+        "imageId": "0b88728b-9b18-40c6-b634-f87f8da83665"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "hou",
+    "collectorNumber": "179",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKELETAL_VAMPIRE": {
+    "scryfallId": "0eec62fe-2170-4e94-baa2-5e73114f0eb0",
+    "oracleId": "7ed8a69b-fba0-4d4d-98b2-311a92373669",
+    "name": "Skeletal Vampire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skeletal Vampire",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Vampire Skeleton",
+        "oracleText": "Flying\nWhen this creature enters, create two 1/1 black Bat creature tokens with flying.\n{3}{B}{B}, Sacrifice a Bat: Create two 1/1 black Bat creature tokens with flying.\nSacrifice a Bat: Regenerate this creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "0eec62fe-2170-4e94-baa2-5e73114f0eb0"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Regenerate"
+    ],
+    "setCode": "gvl",
+    "collectorNumber": "46",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIRE_SHADE": {
+    "scryfallId": "120822b8-02ae-411f-bda5-a774c21db66c",
+    "oracleId": "b77a7f4a-1b3a-440e-977c-1ba39e450581",
+    "name": "Mire Shade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mire Shade",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Shade",
+        "oracleText": "{B}, Sacrifice a Swamp: Put a +1/+1 counter on this creature. Activate only as a sorcery.",
+        "flavorText": "\"We realized the bog had not given up a soul but had come to claim a new one.\"\n—Scout Ekemet, final journal",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "120822b8-02ae-411f-bda5-a774c21db66c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mir",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HASHEP_OASIS": {
+    "scryfallId": "17aedf7f-52ec-4448-8b78-5b18a568ceaa",
+    "oracleId": "eab70fff-6a9f-4f9f-89a2-b6910c199e46",
+    "name": "Hashep Oasis",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hashep Oasis",
+        "manaCost": "",
+        "typeLine": "Land — Desert",
+        "oracleText": "{T}: Add {C}.\n{T}, Pay 1 life: Add {G}.\n{1}{G}{G}, {T}, Sacrifice a Desert: Target creature gets +3/+3 until end of turn. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jonas De Ro",
+        "imageId": "17aedf7f-52ec-4448-8b78-5b18a568ceaa"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "akr",
+    "collectorNumber": "301",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHEFET_DUNES": {
+    "scryfallId": "2ac19bca-0fd3-48ec-86a8-aa8be2f76853",
+    "oracleId": "8305715e-f711-47d6-8efe-d0efe4ced418",
+    "name": "Shefet Dunes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shefet Dunes",
+        "manaCost": "",
+        "typeLine": "Land — Desert",
+        "oracleText": "{T}: Add {C}.\n{T}, Pay 1 life: Add {W}.\n{2}{W}{W}, {T}, Sacrifice a Desert: Creatures you control get +1/+1 until end of turn. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Yeong-Hao Han",
+        "imageId": "2ac19bca-0fd3-48ec-86a8-aa8be2f76853"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "akr",
+    "collectorNumber": "329",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKULLPORT_MERCHANT": {
+    "scryfallId": "2bbb8865-dc37-4d56-9a2d-a92f7462c338",
+    "oracleId": "64ed5c35-8185-4e68-8028-b7b632ef5828",
+    "name": "Skullport Merchant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skullport Merchant",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Dwarf Citizen",
+        "oracleText": "When this creature enters, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\n{1}{B}, Sacrifice another creature or a Treasure: Draw a card.",
+        "flavorText": "\"Buy something or get out.\"",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "2bbb8865-dc37-4d56-9a2d-a92f7462c338"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "afr",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRACKLING_PERIMETER": {
+    "scryfallId": "3323c86c-73bd-4e23-9f80-54bf5c1dd0bc",
+    "oracleId": "413e880a-bdc8-41bc-923a-566b08e68d0b",
+    "name": "Crackling Perimeter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crackling Perimeter",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Tap an untapped Gate you control: This enchantment deals 1 damage to each opponent.",
+        "flavorText": "As the path he sought came into focus, Niv-Mizzet took steps to prevent others from approaching it.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Yeong-Hao Han",
+        "imageId": "3323c86c-73bd-4e23-9f80-54bf5c1dd0bc"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "gtc",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMUNAP_RUINS": {
+    "scryfallId": "39269bfc-9cc9-4ad2-add1-663ae47eb883",
+    "oracleId": "d0d35864-1edc-4af1-9b89-3d7e94908011",
+    "name": "Ramunap Ruins",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ramunap Ruins",
+        "manaCost": "",
+        "typeLine": "Land — Desert",
+        "oracleText": "{T}: Add {C}.\n{T}, Pay 1 life: Add {R}.\n{2}{R}{R}, {T}, Sacrifice a Desert: This land deals 2 damage to each opponent.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Florian de Gesincourt",
+        "imageId": "39269bfc-9cc9-4ad2-add1-663ae47eb883"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "HOU-181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKOPHOS_WARLEADER": {
+    "scryfallId": "59c39c70-8360-4c7c-b5fa-61c42828609a",
+    "oracleId": "883a2b57-1075-4479-920b-3f7d5da1f444",
+    "name": "Skophos Warleader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skophos Warleader",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Minotaur Warrior",
+        "oracleText": "{R}, Sacrifice another creature or an enchantment: This creature gets +1/+0 and gains menace until end of turn. (It can't be blocked except by two or more creatures.)",
+        "flavorText": "The minotaur polis of Skophos boasts grand temples to the god of slaughter.",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "59c39c70-8360-4c7c-b5fa-61c42828609a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "thb",
+    "collectorNumber": "154",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEAP_GATE": {
+    "scryfallId": "68489d65-1978-48b1-a903-2ef38c583239",
+    "oracleId": "35922a30-6b84-44dd-a2f0-306554a1ae90",
+    "name": "Heap Gate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Heap Gate",
+        "manaCost": "",
+        "typeLine": "Land — Gate",
+        "oracleText": "{T}: Add {C}.\n{1}, {T}: Add one mana of any color.\n{1}, {T}, Tap an untapped Gate you control: Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Andreas Rocha",
+        "imageId": "68489d65-1978-48b1-a903-2ef38c583239"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "354",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLOUDGOAT_RANGER": {
+    "scryfallId": "6c55419c-f4d3-46b4-9a46-8cf84612819b",
+    "oracleId": "e1c13a19-46cd-474b-a46b-a483be6b91bb",
+    "name": "Cloudgoat Ranger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cloudgoat Ranger",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Giant Warrior Ranger",
+        "oracleText": "When this creature enters, create three 1/1 white Kithkin Soldier creature tokens.\nTap three untapped Kithkin you control: This creature gets +2/+0 and gains flying until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "6c55419c-f4d3-46b4-9a46-8cf84612819b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "mma",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GATEWAY_SHADE": {
+    "scryfallId": "aa33fc15-3a4f-48bc-be7c-fdec1cb49c10",
+    "oracleId": "ff0647bc-87d1-45f0-ad5c-63c29174f404",
+    "name": "Gateway Shade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gateway Shade",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Shade",
+        "oracleText": "{B}: This creature gets +1/+1 until end of turn.\nTap an untapped Gate you control: This creature gets +2/+2 until end of turn.",
+        "flavorText": "Tireless and merciless, shades are harnessed as spies by the Dimir.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ryan Yee",
+        "imageId": "aa33fc15-3a4f-48bc-be7c-fdec1cb49c10"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "gtc",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BUCOLIC_RANCH": {
+    "scryfallId": "6c4f6b81-53d0-49fb-b404-c2ad67de7493",
+    "oracleId": "8f5902bf-4bc4-4d0c-84ea-a425307a4eb2",
+    "name": "Bucolic Ranch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bucolic Ranch",
+        "manaCost": "",
+        "typeLine": "Land — Desert",
+        "oracleText": "{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a Mount spell.\n{3}, {T}: Look at the top card of your library. If it's a Mount card, you may reveal it and put it into your hand. If you don't put it into your hand, you may put it on the bottom of your library.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Leonardo Borazio",
+        "imageId": "6c4f6b81-53d0-49fb-b404-c2ad67de7493"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "265",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLIGHT_KEEPER": {
+    "scryfallId": "3bcabe2d-82d2-4c1b-8f28-21dc29c9dbf2",
+    "oracleId": "1dc73412-c91c-48c9-bde6-b169add79b37",
+    "name": "Blight Keeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blight Keeper",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Bat Imp",
+        "oracleText": "Flying\n{7}{B}, {T}, Sacrifice this creature: Target opponent loses 4 life and you gain 4 life.",
+        "flavorText": "It withers fruit and flesh alike.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ben Wootten",
+        "imageId": "3bcabe2d-82d2-4c1b-8f28-21dc29c9dbf2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "92",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BALDUR_S_GATE": {
+    "scryfallId": "096012fb-a92b-4842-aee3-56d6598e9419",
+    "oracleId": "da307ea2-4df7-4d6b-be0f-9dc6ac93db61",
+    "name": "Baldur's Gate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Baldur's Gate",
+        "manaCost": "",
+        "typeLine": "Legendary Land — Gate",
+        "oracleText": "{T}: Add {C}.\n{2}, {T}: Add X mana of any one color, where X is the number of other Gates you control.",
+        "flavorText": "\"Of course I know what 'eponymous' means! It's a little horse.\"\n—Krizz, gate guard",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Titus Lunter",
+        "imageId": "096012fb-a92b-4842-aee3-56d6598e9419"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "CLB-345",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MEMNITE": {
+    "scryfallId": "4669327f-268f-43c2-ad57-555a02baa6a1",
+    "oracleId": "7663ac7c-1de3-4250-b96a-fae9dbd66a27",
+    "name": "Memnite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Memnite",
+        "manaCost": "{0}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "",
+        "flavorText": "Reminders of Memnarch's reign still skirr across Mirrodin, reminiscent of his form if not his power.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "rk post",
+        "imageId": "4669327f-268f-43c2-ad57-555a02baa6a1"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "dci",
+    "collectorNumber": "61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BADLANDS": {
+    "scryfallId": "268c3e1d-2d75-4504-964a-d185ac599fcd",
+    "oracleId": "13ff3222-91cb-4796-a34e-899ed817694c",
+    "name": "Badlands",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Badlands",
+        "manaCost": "",
+        "typeLine": "Land — Swamp Mountain",
+        "oracleText": "({T}: Add {B} or {R}.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rob Alexander",
+        "imageId": "268c3e1d-2d75-4504-964a-d185ac599fcd"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "me4",
+    "collectorNumber": "241",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BURRENTON_FORGE_TENDER": {
+    "scryfallId": "40dd31ae-f252-449b-9d79-749a9a255763",
+    "oracleId": "70bb275b-3458-4690-a50f-b231fbf0bccb",
+    "name": "Burrenton Forge-Tender",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Burrenton Forge-Tender",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Kithkin Wizard",
+        "oracleText": "Protection from red\nSacrifice this creature: Prevent all damage a red source of your choice would deal this turn.",
+        "flavorText": "\"We are a clachan of smiths. The forge is as comfortable to us as a small fire during a cool winter's evening.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Chuck Lukacs",
+        "imageId": "40dd31ae-f252-449b-9d79-749a9a255763"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "ima",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

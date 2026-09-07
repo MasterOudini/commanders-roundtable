@@ -10827,6 +10827,53 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       ⚠️ **Reportables** (D346): the remaining Threshold bodies (14: an enchanted-creature body, an anthem body, a can't-be-blocked body, a CDA, and the intervening-if triggers - "whenever this creature attacks, IF there are seven or more cards in your graveyard" - which need a condition on the trigger's matches, not just the ability word stripped), Unleash (10) and Exploit (8) - both an asked choice as the creature enters, which is the entry-prompt seam - the cost verbs (121, snow mana first at 12), the activation conditions (49, the turn-memory ones first), the trigger payloads outside both readers (52), the vocabulary clauses the suite cannot fixture (36: a counted clause, a combat-role clause, a tapped or nonbasic-land predicate, a spell clause), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (13), "Enchanted creatures you control" (1, a scope that asks what is attached); then D345's list unchanged: the wider modal heads (one or both, one or more, any number), the asking modes, the 102 mode payloads outside both readers, the heads outside the library, the modal spells beside another sentence (59), the exploits, the searches, the quoted abilities enchanted creatures and lands have (60 + 34), Enchant player (42), the look at the top card of your library (38); the "another" split; the by-name
       sacrifice cost; the remaining cost verbs; the prompt continuation seam;
       prior items stand.
+- [x] **M6.4gf — THE COST FIXTURE, DERIVED: a sacrifice or a tap cost the engine
+      has always been able to charge finally gets a row, because the card its
+      suite pays with is derived from the printed noun; 14 cards land,
+      14 as generated rows (2026-09-07):**
+      **7,110 of 31,692 Commander-legal cards now execute completely, up
+      from 7,096 (+14).** `SHIPPED_SCRIPTS` 4,463; ledger
+      952 (10 rows RETIRED by name - the ledger's oldest cost class draining itself, cards refused for a sacrifice or a tap the engine could always charge and no row could ever pay - and 4 added back: Infernal Tribute, Magmaw, Malevolent Noble and Thopter Foundry name a predicate the engine's own grammar cannot place (a nontoken permanent, a nonland permanent, an artifact or another creature, a nontoken artifact), which is what the port's eight notCastable rejects taught; measured: the REFUSED map's size 958 -> 952). Fixtures 4,849 (4,708 by name + 134 tokens: the 14 rows' cards and the five the derivation named to pay their costs (Bucolic Ranch a Desert, Baldur's Gate a Gate, Blight Keeper a Bat, Burrenton Forge-Tender a Kithkin, Acolyte of Xathrid a Cleric)). **Select pool
+      0.** Decisions in **D347**.
+      ⚠️ **No engine change:** the sacrifice chooser is D168's, the tap chooser
+      D286's, and both have charged these costs all along — the row maker asked
+      a HAND-WRITTEN table for the card its suite pays with, so "Sacrifice a
+      Goblin" had Raging Goblin and "Sacrifice a Desert" had nothing.
+      ⚠️ **The derivation** (`d347/gen36-fixture.cjs`): a fixture already in the
+      tree first, else the simplest card in the database that satisfies the
+      printed noun. A fixture must SIT STILL — no trigger, no static touching
+      other creatures, no Aura or Equipment, no 0 toughness or CDA body, and for
+      a tap cost it must not enter tapped; an activated ability is fine. Ties
+      break by mana value, then plainness, then name: deterministic.
+      ⚠️ **THE DERIVATION MUST MIRROR THE ENGINE, NOT OUT-READ IT.** The first
+      version accepted "artifacts and/or creatures", "a nonland permanent", "a
+      nontoken artifact", "a legendary permanent" on the tap path, and the port
+      answered with EIGHT `notCastable` rejects — a test for a cost the app
+      cannot pay. `enginePredicate` restates `predicateOf`: every word is a
+      colour, a supertype, a card type or a capitalised subtype, and a lowercase
+      word it cannot place refuses the whole predicate; alternatives split on
+      the WORD "or"; a plural is read back by the engine's irregular rule; the
+      sacrifice path is SINGULAR, because the engine charges no counted
+      sacrifice.
+      ⚠️ **The ledger is the pool's other half**: 10 rows retired (the cost class
+      refused longest, drained), 4 put back — retiring a row for a card the
+      generator then drops leaves it OFFERABLE, and the pool read 4 until they
+      were restored.
+      ⚠️ **A latent D345 bug, found by tsc**: the modal dispatch named the
+      resolve's third parameter unconditionally, so the first rows reading
+      neither the modes nor a target declared a parameter they never use.
+      Measured first: the D346 probe re-run over a tree 19 cards further on (the grammar is unchanged, the candidate set is not): 428 fully covered cards, down from 447 as the scoped anthems became complete. The row maker's own histogram named the biggest class by a wide margin: 121 cards refused for a COST it could not charge - 83 distinct verbs, and the two largest families were a SACRIFICE (31 cards) and a TAP (16), both of which the ENGINE has charged since D168 and D286. Nothing was missing but the fixture: the row maker looked its fodder up in a hand-written table, so "Sacrifice a Goblin" had Raging Goblin and "Sacrifice a Desert" had nothing at all. The rest of the 121 stays measured for later: snow mana 14, a return-to-hand cost 14, an exile cost 14, a remove-a-counter cost 12, a counted sacrifice 10 (which the engine does not charge either - it reads a|an|another only). NOT this decision: the cost verbs the derivation still cannot pay (93: snow mana {S} 14 - a payment the engine does not track; a return-to-hand cost 14; an exile cost 14; a remove-a-counter-from-another-permanent cost 12; a counted sacrifice 10, which the engine itself refuses; Blight, Exert, Mill, Reveal, Pay half your life), the predicates the engine's own grammar cannot place (a nontoken or nonland permanent, an untapped creature, a creature with defender - a lowercase word `predicatesOf` refuses, so widening THAT is an engine decision), the trigger payloads outside both readers (52), the activation conditions (49, the turn-memory ones first), the effects outside the row kinds (48, of which 21 are Add one mana of any color whose blocker is the cost beside it), the vocabulary clauses the suite cannot fixture (36), the static lines (36: Unleash 10, Exploit 8, the Threshold bodies), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (13); then D346's list unchanged: the wider modal heads, the asking modes, the mode payloads outside both readers, the heads outside the library, the modal spells beside another sentence, the quoted abilities enchanted creatures and lands have, Enchant player, the look at the top card of your library. Refused by name:
+      10 rows RETIRED by name - the ledger's oldest cost class draining itself, cards refused for a sacrifice or a tap the engine could always charge and no row could ever pay - and 4 added back: Infernal Tribute, Magmaw, Malevolent Noble and Thopter Foundry name a predicate the engine's own grammar cannot place (a nontoken permanent, a nonland permanent, an artifact or another creature, a nontoken artifact), which is what the port's eight notCastable rejects taught; measured: the REFUSED map's size 958 -> 952.
+      10 ledger rows retired by name: the cost class that had been refused longest, drained by giving its suites a fixture. Report `effect:auto` 4,209 → 4,209,
+      `withUnenforced` 280 → 280.
+      **Landed:** No second wave: the 14 rows are the landing, and the bot's own deck took 8 creatures, 5 lands and an enchantment more on the same sweep (the commander reaches 7,051 cards from 7,037). Tests: one generated suite per row.
+      Fixtures 4,849 · botPool artifact 387 / creature 4,108 / enchantment 368 / instant 1,007 / land 497 / sorcery 743 - auto 948 / assisted 1,832 / autoAnyFace 957 · ladder [1052, 1136, 2749, 4575, 5911] · batch.json
+      14 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,596 files, 22,879 passing / 11 skipped ·
+      500-seed gate, 6 shards, 797.2 s wall · build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D347): the cost verbs the derivation still cannot pay (93: snow mana {S} 14 - a payment the engine does not track; a return-to-hand cost 14; an exile cost 14; a remove-a-counter-from-another-permanent cost 12; a counted sacrifice 10, which the engine itself refuses; Blight, Exert, Mill, Reveal, Pay half your life), the predicates the engine's own grammar cannot place (a nontoken or nonland permanent, an untapped creature, a creature with defender - a lowercase word `predicatesOf` refuses, so widening THAT is an engine decision), the trigger payloads outside both readers (52), the activation conditions (49, the turn-memory ones first), the effects outside the row kinds (48, of which 21 are Add one mana of any color whose blocker is the cost beside it), the vocabulary clauses the suite cannot fixture (36), the static lines (36: Unleash 10, Exploit 8, the Threshold bodies), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (13); then D346's list unchanged: the wider modal heads, the asking modes, the mode payloads outside both readers, the heads outside the library, the modal spells beside another sentence, the quoted abilities enchanted creatures and lands have, Enchant player, the look at the top card of your library; the "another" split; the by-name
+      sacrifice cost; the remaining cost verbs; the prompt continuation seam;
+      prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

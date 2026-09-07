@@ -4713,6 +4713,26 @@ export const DEVOTED_DUELIST: CardData = F.DEVOTED_DUELIST as CardData;
 export const WARDED_BATTLEMENTS: CardData = F.WARDED_BATTLEMENTS as CardData;
 export const ORNITHOPTER: CardData = F.ORNITHOPTER as CardData;
 export const METALLIC_SLIVER: CardData = F.METALLIC_SLIVER as CardData;
+export const DUNE_DIVINER: CardData = F.DUNE_DIVINER as CardData;
+export const SHACKLEGEIST: CardData = F.SHACKLEGEIST as CardData;
+export const IFNIR_DEADLANDS: CardData = F.IFNIR_DEADLANDS as CardData;
+export const SKELETAL_VAMPIRE: CardData = F.SKELETAL_VAMPIRE as CardData;
+export const MIRE_SHADE: CardData = F.MIRE_SHADE as CardData;
+export const HASHEP_OASIS: CardData = F.HASHEP_OASIS as CardData;
+export const SHEFET_DUNES: CardData = F.SHEFET_DUNES as CardData;
+export const SKULLPORT_MERCHANT: CardData = F.SKULLPORT_MERCHANT as CardData;
+export const CRACKLING_PERIMETER: CardData = F.CRACKLING_PERIMETER as CardData;
+export const RAMUNAP_RUINS: CardData = F.RAMUNAP_RUINS as CardData;
+export const SKOPHOS_WARLEADER: CardData = F.SKOPHOS_WARLEADER as CardData;
+export const HEAP_GATE: CardData = F.HEAP_GATE as CardData;
+export const CLOUDGOAT_RANGER: CardData = F.CLOUDGOAT_RANGER as CardData;
+export const GATEWAY_SHADE: CardData = F.GATEWAY_SHADE as CardData;
+export const BUCOLIC_RANCH: CardData = F.BUCOLIC_RANCH as CardData;
+export const BLIGHT_KEEPER: CardData = F.BLIGHT_KEEPER as CardData;
+export const BALDUR_S_GATE: CardData = F.BALDUR_S_GATE as CardData;
+export const MEMNITE: CardData = F.MEMNITE as CardData;
+export const BADLANDS: CardData = F.BADLANDS as CardData;
+export const BURRENTON_FORGE_TENDER: CardData = F.BURRENTON_FORGE_TENDER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -9545,6 +9565,26 @@ export const ENGINE_CARDS: CardData[] = [
   WARDED_BATTLEMENTS,
   ORNITHOPTER,
   METALLIC_SLIVER,
+  DUNE_DIVINER,
+  SHACKLEGEIST,
+  IFNIR_DEADLANDS,
+  SKELETAL_VAMPIRE,
+  MIRE_SHADE,
+  HASHEP_OASIS,
+  SHEFET_DUNES,
+  SKULLPORT_MERCHANT,
+  CRACKLING_PERIMETER,
+  RAMUNAP_RUINS,
+  SKOPHOS_WARLEADER,
+  HEAP_GATE,
+  CLOUDGOAT_RANGER,
+  GATEWAY_SHADE,
+  BUCOLIC_RANCH,
+  BLIGHT_KEEPER,
+  BALDUR_S_GATE,
+  MEMNITE,
+  BADLANDS,
+  BURRENTON_FORGE_TENDER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

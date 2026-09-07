@@ -159,7 +159,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // instances batched into one event, so per-event firing under-fires.
   ['Dragonborn Champion', 'per-damage-entry trigger granularity'],
   ['Draugr Recruiter', 'once-per-turn trigger memory'],
-  ['Dune Diviner', 'tap-permanents cost'],
   // M6.4r (D174) — batch 16's two refusals. Ezio watches a CLASS of
   // creatures deal combat damage, so two simultaneous Assassins are two
   // instances batched into one event (Aya's class, dealer side widened).
@@ -213,7 +212,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // `Infernal Tribute` is Hardened Tactician's NONTOKEN mirror.
   ['Icebind Pillar', 'snow activation cost'],
   ['Illuminated Folio', 'reveal-cost chooser'],
-  ['Infernal Tribute', 'token-predicate sacrifice cost'],
   // Batch 23 (D182): two existing classes and ONE new one. `Jandor's Ring`
   // pays by discarding "the last card you drew this turn" — the engine
   // tracks no per-turn draw identity at all (the draw-event discriminator's
@@ -241,7 +239,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
   ['Lurking Chupacabra', 'explore mechanic'],
-  ['Magmaw', 'negated-type sacrifice predicate'],
   ['Lifeblood', 'per-tap-entry trigger granularity'],
   ['Lifetap', 'per-tap-entry trigger granularity'],
   ['Linden, the Steadfast Queen', 'per-tap-entry trigger granularity'],
@@ -947,7 +944,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Befoul holds the negated-COLOUR direction (D199) and Devout Decree the
   // positive colour one (D208); nobody had probed a negated TYPE.
   ['The Ring Goes South', 'the Ring'],
-  ['Thopter Foundry', 'token-predicate sacrifice cost'],
   ['Thoughtlace', 'indefinite color change'],
 
   // D260 (M6.4cw) — the most refusal-heavy batch since D238, and the reason
@@ -1461,7 +1457,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ⚠️ Silver Scrutiny may be cast AS THOUGH IT HAD FLASH when X is small:
   // a cast-timing permission, the cast stage's business.
   ['Silver Scrutiny', 'cast-permission condition'],
-  ['Skullport Merchant', 'compound sacrifice predicate'],
   ['Skyscribing', 'hand-activated ability'],
   ['Snakeform', 'until-end-of-turn type change with P/T set'],
   ['Snapback', 'cast-time alternative cost'],
@@ -1684,7 +1679,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Nephalia Moondrakes', 'graveyard-activated ability'],
   ['Quillspike', 'remove-counter cost'],
   ['Rift Elemental', 'remove-counter cost'],
-  ['Skophos Warleader', 'multi-type sacrifice cost'],
   ['Orc General', 'multi-type sacrifice cost'],
   ['Oakhame Ranger // Bring Back', 'adventure (two faces)'],
   ['Goro-Goro and Satoru', 'entered-this-turn combat-damage trigger'],
@@ -1695,9 +1689,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // hand-activated abilities and the planeswalkers.
   ['Harbin, Vanguard Aviator', 'trigger head outside the library'],
   ['Wildfire Elemental', 'trigger head outside the library'],
-  ['Cloudgoat Ranger', 'token trigger beside a one-shot pump (combined def)'],
   ['Flawless Maneuver', 'alternative cost'],
-  ['Gateway Shade', 'Gate tap cost'],
   ['Hardened Academic', 'trigger head outside the library'],
   ['Invasion Tactics', 'trigger head outside the library'],
   ['Ramosian Rally', 'alternative cost'],
@@ -1716,7 +1708,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D303 (M6.4en) — the counter one-shot pool: the or-typed sacrifice costs,
   // an exile-from-graveyard cost, a conditional enters-tapped replacement.
-  ['Malevolent Noble', 'cost no table row charges (Sacrifice an artifact or another creature)'],
 
   // D303 (M6.4en) — the counter one-shot pool: the heads outside the library,
   // the per-item counters on an entering object, the costs no row charges.
@@ -1906,7 +1897,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D325 (M6.4fj) - the two cards the mana-ability seam made offerable that the row
   // maker still refuses: a tap-a-Gate cost, a two-type destroy.
-  ['Heap Gate', 'a cost the row maker cannot charge (tap an untapped Gate you control)'],
 
   // D327 (M6.4fl) - the sacrifice-a-token cost the engine does not charge: its chooser reads
   // types, subtypes and colours, and a token is none of them.
@@ -1915,6 +1905,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a self-sacrifice on a creature that returns, and an attached static that empties the suite's Bears.
   ['Kithkin Spellduster', 'a self-sacrifice on a creature that returns (persist) - the suite cannot assert its grave'],
   ['Failed Conversion', 'an attached static whose toughness pump kills the 2/2 Bears the suite enchants'],
+
+  // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
+  // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a
+  // lowercase word it cannot place refuses the whole cost. The row maker mirrors it now.
+  ['Infernal Tribute', 'a sacrifice cost naming a predicate the engine cannot place (a nontoken permanent)'],
+  ['Magmaw', 'a sacrifice cost naming a predicate the engine cannot place (a nonland permanent)'],
+  ['Malevolent Noble', 'a sacrifice cost whose alternative carries another (an artifact or another creature)'],
+  ['Thopter Foundry', 'a sacrifice cost naming a predicate the engine cannot place (a nontoken artifact)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

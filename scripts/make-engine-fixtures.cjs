@@ -5242,6 +5242,28 @@ const WANTED = [
   // D346 - the scoped anthem rows: a continuous line over a narrower set, and the fixtures its suites read it on.
   'Ornithopter',
   'Metallic Sliver',
+  // D347 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  'Dune Diviner',
+  'Shacklegeist',
+  'Ifnir Deadlands',
+  'Skeletal Vampire',
+  'Mire Shade',
+  'Hashep Oasis',
+  'Shefet Dunes',
+  'Skullport Merchant',
+  'Crackling Perimeter',
+  'Ramunap Ruins',
+  'Skophos Warleader',
+  'Heap Gate',
+  'Cloudgoat Ranger',
+  'Gateway Shade',
+  // D347 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  'Bucolic Ranch',
+  'Blight Keeper',
+  "Baldur's Gate",
+  'Memnite',
+  'Badlands',
+  'Burrenton Forge-Tender',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

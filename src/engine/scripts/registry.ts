@@ -7,6 +7,20 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DUNE_DIVINER_SCRIPT } from './cards/duneDiviner';
+import { SHACKLEGEIST_SCRIPT } from './cards/shacklegeist';
+import { IFNIR_DEADLANDS_SCRIPT } from './cards/ifnirDeadlands';
+import { SKELETAL_VAMPIRE_SCRIPT } from './cards/skeletalVampire';
+import { MIRE_SHADE_SCRIPT } from './cards/mireShade';
+import { HASHEP_OASIS_SCRIPT } from './cards/hashepOasis';
+import { SHEFET_DUNES_SCRIPT } from './cards/shefetDunes';
+import { SKULLPORT_MERCHANT_SCRIPT } from './cards/skullportMerchant';
+import { CRACKLING_PERIMETER_SCRIPT } from './cards/cracklingPerimeter';
+import { RAMUNAP_RUINS_SCRIPT } from './cards/ramunapRuins';
+import { SKOPHOS_WARLEADER_SCRIPT } from './cards/skophosWarleader';
+import { HEAP_GATE_SCRIPT } from './cards/heapGate';
+import { CLOUDGOAT_RANGER_SCRIPT } from './cards/cloudgoatRanger';
+import { GATEWAY_SHADE_SCRIPT } from './cards/gatewayShade';
 import { GOBLIN_ORIFLAMME_SCRIPT } from './cards/goblinOriflamme';
 import { ORCISH_ORIFLAMME_SCRIPT } from './cards/orcishOriflamme';
 import { BLADE_HISTORIAN_SCRIPT } from './cards/bladeHistorian';
@@ -4475,6 +4489,20 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DUNE_DIVINER_SCRIPT,
+  SHACKLEGEIST_SCRIPT,
+  IFNIR_DEADLANDS_SCRIPT,
+  SKELETAL_VAMPIRE_SCRIPT,
+  MIRE_SHADE_SCRIPT,
+  HASHEP_OASIS_SCRIPT,
+  SHEFET_DUNES_SCRIPT,
+  SKULLPORT_MERCHANT_SCRIPT,
+  CRACKLING_PERIMETER_SCRIPT,
+  RAMUNAP_RUINS_SCRIPT,
+  SKOPHOS_WARLEADER_SCRIPT,
+  HEAP_GATE_SCRIPT,
+  CLOUDGOAT_RANGER_SCRIPT,
+  GATEWAY_SHADE_SCRIPT,
   GOBLIN_ORIFLAMME_SCRIPT,
   ORCISH_ORIFLAMME_SCRIPT,
   BLADE_HISTORIAN_SCRIPT,
