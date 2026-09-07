@@ -402,7 +402,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
    */
   test('the measured coverage matches the numbers pinned in D32', () => {
     expect(report.warnings).toEqual({
-      'keywords:noneTier2': 22748, // D310: changeling and devoid are Tier 2 now; D308: prowess, exalted, bushido, flanking, persist, undying, evolve are Tier 2 now
+      'keywords:noneTier2': 22747, // D310: changeling and devoid are Tier 2 now; D308: prowess, exalted, bushido, flanking, persist, undying, evolve are Tier 2 now
       // ⚠️ M6.3c moved all three (D130): the counter vocabulary took 115 FACES
       // out of "understood nothing" — 17 to fully understood and 98 to partly,
       // where the prompt bar offers the counter clause as one logged click.
@@ -445,7 +445,9 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // noun (+35); the six new lists take the other direction.
       'target:unparsedClause': 1234,
       'typeLine:unknownType': 729,
-      'protection:unenforced': 677,
+      // D356 - the seam's own mirror: a protection naming a card type, a subtype or a colour
+      // category is enforced now, so 244 lines that were recorded and unenforced are neither.
+      'protection:unenforced': 433,
       // ⚠️ 629 → 540 when "any TYPE" started parsing (D116): 89 of these were
       // Reflecting Pool and its family falling through to "there are no mana
       // symbols in this line", because the pattern only knew "any color".

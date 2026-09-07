@@ -188,12 +188,12 @@ describe.skipIf(!HAVE_DB)('the token resolver, over the real database', () => {
       // D289: one card (Fell the Pheasant) reads whole through the widened
       // target macro, so its token line leaves this bucket - the one-card
       // move primitives records as token 911 -> 910.
-      cards: 968,
-      lines: 1006,
-      parsed: 266,
-      unique: 244,
+      cards: 970,
+      lines: 1008,
+      parsed: 267,
+      unique: 245,
       noMatch: 22,
-      cardsFullyResolved: 230,
+      cardsFullyResolved: 231,
     });
   });
 

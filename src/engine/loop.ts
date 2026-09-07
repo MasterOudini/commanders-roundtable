@@ -1077,7 +1077,10 @@ export function targetingSourceFor(
   if (!card || !printing) return null;
   // D341 - the source's own power and toughness, for a clause that compares against it (Mentor).
   const chars = card.zone.kind === 'battlefield' ? derive(state, deps.oracle, deps.scripts, source) : null;
-  return { controller, colors: faceOf(printing, card.faceIndex).colors, power: chars?.power ?? null, toughness: chars?.toughness ?? null };
+  // D356 - the source's TYPE LINE rides with its colours, because `protection from artifacts`
+  // is a question about the source and the aim layer is where it is asked.
+  const srcFace = faceOf(printing, card.faceIndex);
+  return { controller, colors: srcFace.colors, typeLine: srcFace.typeLine, power: chars?.power ?? null, toughness: chars?.toughness ?? null };
 }
 
 function targetsStillLegal(
@@ -1097,7 +1100,7 @@ function targetsStillLegal(
   const candidates = candidatesFromState(state, deps);
   // D341 - the source's own power and toughness ride the re-check too: Mentor's clause compares against them.
   const own = targetingSourceFor(state, deps, obj.source ?? obj.card, obj.controller);
-  const src = { controller: obj.controller, colors: face?.colors ?? [], power: own?.power ?? null, toughness: own?.toughness ?? null };
+  const src = { controller: obj.controller, colors: face?.colors ?? [], typeLine: own?.typeLine, power: own?.power ?? null, toughness: own?.toughness ?? null };
   return obj.targets.some((target) => {
     const candidate = candidates.find(
       (c) => c.choice.kind === target.kind && c.choice.id === target.id,
@@ -1136,7 +1139,7 @@ function withStillLegalPicks(
   if (obj.targets.length === 0) return obj;
   const candidates = candidatesFromState(state, deps);
   const own = targetingSourceFor(state, deps, obj.source ?? obj.card, obj.controller);
-  const src = { controller: obj.controller, colors: face?.colors ?? [], power: own?.power ?? null, toughness: own?.toughness ?? null };
+  const src = { controller: obj.controller, colors: face?.colors ?? [], typeLine: own?.typeLine, power: own?.power ?? null, toughness: own?.toughness ?? null };
   const targets: StackObject['targets'][number][] = [];
   const slots: number[] = [];
   obj.targets.forEach((target, k) => {

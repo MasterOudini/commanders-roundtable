@@ -35,7 +35,7 @@
 
 import type { CardData, CardFace } from './cardTypes';
 import { canonicalKeyword } from '../engine/keywords';
-import { parseFlashback, parseManaCost, parseManaProduction, parseMorph, parseTypeLine } from './oracleParse';
+import { parseFlashback, parseManaCost, parseManaProduction, parseMorph, parseProtection, parseTypeLine } from './oracleParse';
 import { parseCostReductions } from './costParse';
 import { isPermanentType } from './oracleParse';
 import { parseEnchant, parseSpellTargets } from './targetParse';
@@ -141,15 +141,16 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
   // ⚠️ Protection is the one where the app enforces PART of the keyword. Saying
   // "protection is not automatic" would be a lie; saying nothing would let a
   // player assume `protection from Dragons` is being checked. Name the clause.
-  for (const m of text.matchAll(/protection from ([^.;\n(]+)/gi)) {
-    const clause = (m[1] ?? '').trim().toLowerCase().replace(/\.$/, '');
-    if (clause === '') continue;
-    if (/^(white|blue|black|red|green|everything|all colors|all colours)$/.test(clause)) continue;
-    // A multi-part clause of colours is enforced too ("black and from red").
-    if (/^(white|blue|black|red|green)(\s*(,|and from|and)\s*(white|blue|black|red|green))*$/.test(clause)) {
-      continue;
-    }
-    add(`Protection from ${clause}`, 'check it yourself — only protection from a colour is automatic');
+  //
+  // ⚠️ ASKED OF `parseProtection`, NEVER RE-DERIVED. This branch used to decide for itself which
+  // qualities the engine enforces - a regex over the five colour words - and D356 taught the
+  // engine three more (a card type, a subtype, a colour category) without it noticing, so it went
+  // on telling the player to check 28 cards the app now runs completely. That is D122's lie in
+  // the other direction, and this file has now paid for it five times. What is named is exactly
+  // what the parser left in `other`: the words it read and cannot enforce.
+  {
+    const p = parseProtection(text);
+    for (const word of p.other) add(`Protection from ${word}`, 'check it yourself — the app cannot decide this quality');
   }
 
   if (/\bward\b/i.test(text) && !ENFORCED_WARD.test(text)) {

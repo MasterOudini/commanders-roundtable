@@ -4910,6 +4910,18 @@ export const YAVIMAYA_COAST: CardData = F.YAVIMAYA_COAST as CardData;
 export const THALAKOS_LOWLANDS: CardData = F.THALAKOS_LOWLANDS as CardData;
 export const GRAND_COLISEUM: CardData = F.GRAND_COLISEUM as CardData;
 export const FOGWELL_S_GYM: CardData = F.FOGWELL_S_GYM as CardData;
+export const BELOVED_CHAPLAIN: CardData = F.BELOVED_CHAPLAIN as CardData;
+export const TEL_JILAD_ARCHERS: CardData = F.TEL_JILAD_ARCHERS as CardData;
+export const BANESLAYER_ANGEL: CardData = F.BANESLAYER_ANGEL as CardData;
+export const ELITE_INQUISITOR: CardData = F.ELITE_INQUISITOR as CardData;
+export const OVERSOUL_OF_DUSK: CardData = F.OVERSOUL_OF_DUSK as CardData;
+export const GUARDIAN_OF_THE_GUILDPACT: CardData = F.GUARDIAN_OF_THE_GUILDPACT as CardData;
+export const ENEMY_OF_THE_GUILDPACT: CardData = F.ENEMY_OF_THE_GUILDPACT as CardData;
+export const IRIDESCENT_ANGEL: CardData = F.IRIDESCENT_ANGEL as CardData;
+export const NATH_S_BUFFOON: CardData = F.NATH_S_BUFFOON as CardData;
+export const AZORIUS_FIRST_WING: CardData = F.AZORIUS_FIRST_WING as CardData;
+export const NACATL_SAVAGE: CardData = F.NACATL_SAVAGE as CardData;
+export const EMRAKUL_THE_AEONS_TORN: CardData = F.EMRAKUL_THE_AEONS_TORN as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -9941,6 +9953,18 @@ export const ENGINE_CARDS: CardData[] = [
   THALAKOS_LOWLANDS,
   GRAND_COLISEUM,
   FOGWELL_S_GYM,
+  BELOVED_CHAPLAIN,
+  TEL_JILAD_ARCHERS,
+  BANESLAYER_ANGEL,
+  ELITE_INQUISITOR,
+  OVERSOUL_OF_DUSK,
+  GUARDIAN_OF_THE_GUILDPACT,
+  ENEMY_OF_THE_GUILDPACT,
+  IRIDESCENT_ANGEL,
+  NATH_S_BUFFOON,
+  AZORIUS_FIRST_WING,
+  NACATL_SAVAGE,
+  EMRAKUL_THE_AEONS_TORN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

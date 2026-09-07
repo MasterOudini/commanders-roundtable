@@ -45,6 +45,7 @@ function modesOf(d: object): readonly ModeDecl[] {
   return Array.isArray(modes) ? (modes as readonly ModeDecl[]) : [];
 }
 import { SHIPPED_SCRIPTS } from '../engine/scripts/registry';
+import { protectionFullyRead } from '../engine/protection';
 import { parseFace, parseProtection, parseWard, parseWardLife } from './oracleParse';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
 
@@ -256,7 +257,10 @@ function clauseAccounted(raw: string, face: OracleFace): boolean {
     // enforce — protection from a card type, a name, a permanent. One entry is
     // enough to disqualify: the engine would let the bot be blocked by, or
     // target, something the card says it cannot be.
-    return p.other.length === 0 && (p.colors.length > 0 || p.fromEverything);
+    // D356 - "nothing left in `other`, and something enforceable read" - asked of the engine's own
+    // predicate rather than re-spelled here, so the accounting cannot claim a line the rule does
+    // not actually enforce.
+    return protectionFullyRead(p);
   }
 
   // ⚠️ `ward—Discard a card` is a decision, not a price (D68), and `parseWard`
@@ -300,7 +304,9 @@ function isManaOnlyLine(line: string): boolean {
  */
 function isKeywordLine(line: string, face: OracleFace): boolean {
   if (clauseAccounted(line, face)) return true;
-  const parts = line.split(',');
+  // D356 - a semicolon is the same list with the other punctuation (`Protection from
+  // artifacts; reach`), and every part still goes through the same anchored predicate.
+  const parts = line.split(/[,;]/);
   if (parts.length < 2) return false;
   return parts.every((p) => clauseAccounted(p, face));
 }

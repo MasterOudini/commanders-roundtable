@@ -78,9 +78,26 @@ export const KEYWORD_SET: ReadonlySet<string> = new Set<string>(TIER2_KEYWORDS);
 export interface Protection {
   readonly colors: readonly ColorLetter[];
   readonly fromEverything: boolean;
+  /**
+   * D356 - a card TYPE the card has protection from, singular and capitalised the way a type line
+   * spells it (`Artifact`, `Creature`, `Land`, `Enchantment`). Enforced.
+   */
+  readonly types?: readonly string[];
+  /**
+   * D356 - a SUBTYPE, stored AS PRINTED (`Vampires`, `Elves`, `Werewolves`) because the printed
+   * form is the plural and the engine stores the singular. `protectedFrom` matches the two with a
+   * closed set of English plural forms rather than deriving one - Elf/Elves and Werewolf/Werewolves
+   * break any rule that just appends an `s`, and a protection that silently fails to match is worse
+   * than one that is honestly unenforced.
+   */
+  readonly subtypes?: readonly string[];
+  /** D356 - `multicolored`, `monocolored` or `colorless`, decided from the source's colour list. */
+  readonly categories?: readonly ProtectionCategory[];
   /** Everything else the card says it has protection from, verbatim, unenforced. */
   readonly other: readonly string[];
 }
+
+export type ProtectionCategory = 'multicolored' | 'monocolored' | 'colorless';
 
 export const NO_PROTECTION: Protection = { colors: [], fromEverything: false, other: [] };
 

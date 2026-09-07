@@ -24,7 +24,8 @@
 import type { ColorLetter } from '../data/cardTypes';
 import type { InstanceId, PlayerId } from './types/ids';
 import type { GameState, TargetChoice } from './types/state';
-import type { Keyword, OracleDb, Protection, TargetAlternative, TargetKind, TargetRestrictions, TargetSpec } from './types/oracle';
+import type { Keyword, OracleDb, ParsedTypeLine, Protection, TargetAlternative, TargetKind, TargetRestrictions, TargetSpec } from './types/oracle';
+import { protectedFrom } from './protection';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
 import { faceOf } from './oracle';
 import type { ScriptRegistry } from './scripts/registry';
@@ -96,6 +97,11 @@ export interface TargetingSource {
   readonly controller: PlayerId;
   /** CR 702.16b needs the SOURCE's colours, not the target's. */
   readonly colors: readonly ColorLetter[];
+  /**
+   * D356 - the source's type line, where the caller has one. Absent is not "no types": it is
+   * "this caller cannot say", and a protection from a card type simply does not fire.
+   */
+  readonly typeLine?: ParsedTypeLine | undefined;
   /** D341 - the source's own power and toughness, for "with lesser power" (Mentor); absent where no permanent is the source. */
   readonly power?: number | null;
   readonly toughness?: number | null;
@@ -115,8 +121,8 @@ export interface TargetingSource {
 export function untargetableByRule(src: TargetingSource, c: TargetCandidate): boolean {
   if (c.shroud) return true;
   if (c.hexproof && src.controller !== c.controller) return true;
-  if (c.protection.fromEverything) return true;
-  if (c.protection.colors.some((col) => src.colors.includes(col))) return true;
+  // D356 - one predicate, shared with combat and the Aura fall-off.
+  if (protectedFrom(c.protection, { colors: src.colors, typeLine: src.typeLine })) return true;
   // `protection.other` is verbatim and UNENFORCED — `tier3.ts` already says so.
   return false;
 }

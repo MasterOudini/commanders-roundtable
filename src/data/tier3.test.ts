@@ -52,9 +52,18 @@ describe('tier3NotesFor', () => {
     expect(what(C.KOR_FIREWALKER)).not.toContain('Protection from red');
   });
 
-  test('protection from a non-colour IS mentioned, with the clause', () => {
+  // D356 - a card type, a subtype and a colour category are enforced now, so the disclosure says
+  // NOTHING about them: a card the engine runs completely is silent, which is the D122 invariant.
+  test('protection from a card type is enforced now and stays quiet', () => {
     const card = withText(C.GRIZZLY_BEARS, 'Protection from creatures', ['Protection']);
-    expect(what(card)).toEqual(['Protection from creatures']);
+    expect(what(card)).toEqual([]);
+  });
+
+  // ⚠️ AND THE OTHER HALF, which is what stops the silence being a lie: a quality the parser
+  // cannot decide is still named, so nobody assumes it is being checked.
+  test('protection from a quality the app cannot decide IS mentioned, with the words', () => {
+    const card = withText(C.GRIZZLY_BEARS, 'Protection from the color of your choice', ['Protection']);
+    expect(what(card)).toEqual(['Protection from the color of your choice']);
   });
 
   test('a multi-colour protection clause is still enforced and stays quiet', () => {

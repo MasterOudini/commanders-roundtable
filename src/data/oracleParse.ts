@@ -26,6 +26,7 @@ import type {
   OracleFace,
   ParsedTypeLine,
   Protection,
+  ProtectionCategory,
 } from '../engine/types/oracle';
 import { NO_PROTECTION } from '../engine/types/oracle';
 import type { EffectMode, EffectSpec, ModalFace } from '../engine/types/oracle';
@@ -345,17 +346,39 @@ const COLOR_WORDS: Readonly<Record<string, ColorLetter>> = {
  * recorded verbatim in `other` and NOT enforced. Half-enforcing it would be
  * worse than not enforcing it, because players would stop checking.
  */
+// D356 - the words a protection clause may name beside a colour, and what each is.
+const PROTECTION_TYPES: Record<string, string> = {
+  artifact: 'Artifact', artifacts: 'Artifact',
+  creature: 'Creature', creatures: 'Creature',
+  enchantment: 'Enchantment', enchantments: 'Enchantment',
+  land: 'Land', lands: 'Land',
+  instant: 'Instant', instants: 'Instant',
+  sorcery: 'Sorcery', sorceries: 'Sorcery',
+  planeswalker: 'Planeswalker', planeswalkers: 'Planeswalker',
+};
+const PROTECTION_CATEGORIES: Record<string, ProtectionCategory> = {
+  multicolored: 'multicolored', multicoloured: 'multicolored',
+  monocolored: 'monocolored', monocoloured: 'monocolored',
+  colorless: 'colorless', colourless: 'colorless',
+};
+
 export function parseProtection(oracleText: string, warn: Warn = NOOP_WARN): Protection {
   const text = oracleText ?? '';
   if (!/protection from/i.test(text)) return NO_PROTECTION;
   const colors: ColorLetter[] = [];
+  const types: string[] = [];
+  const subtypes: string[] = [];
+  const categories: ProtectionCategory[] = [];
   const other: string[] = [];
   let fromEverything = false;
 
   for (const m of text.matchAll(/protection from ([^.;\n(]+)/gi)) {
     const clause = (m[1] ?? '').trim();
     for (const part of clause.split(/\s*(?:,|\band from\b|\band\b)\s*/i)) {
-      const word = part.trim().toLowerCase().replace(/\.$/, '');
+      // D356 - `X, from Y, and from Z` hands the next part over with its own preposition still
+      // attached; strip it, because no protection quality is named `from ...`.
+      const bare = part.trim().replace(/^from\s+/i, '');
+      const word = bare.toLowerCase().replace(/\.$/, '');
       if (word === '') continue;
       if (word === 'everything') {
         fromEverything = true;
@@ -370,11 +393,34 @@ export function parseProtection(oracleText: string, warn: Warn = NOOP_WARN): Pro
         if (!colors.includes(color)) colors.push(color);
         continue;
       }
+      // D356 - `each color` is every colour, the same set `all colors` already meant.
+      if (word === 'each color' || word === 'each colour') {
+        for (const c of ['W', 'U', 'B', 'R', 'G'] as const) if (!colors.includes(c)) colors.push(c);
+        continue;
+      }
+      const type = PROTECTION_TYPES[word];
+      if (type) {
+        if (!types.includes(type)) types.push(type);
+        continue;
+      }
+      const category = PROTECTION_CATEGORIES[word];
+      if (category) {
+        if (!categories.includes(category)) categories.push(category);
+        continue;
+      }
+      // ⚠️ A SUBTYPE IS A SINGLE PLAIN WORD AND NOTHING ELSE. `the color of your choice until end
+      // of turn`, `mana value 3 or greater` and `each color with the most votes` are all clauses a
+      // card really prints, and every one of them would pass a looser test - then match no subtype,
+      // enforce nothing, and report itself as enforced. They stay in `other`, where they are true.
+      if (/^[a-z][a-z-]*$/.test(word)) {
+        if (!subtypes.includes(bare.replace(/\.$/, ''))) subtypes.push(bare.replace(/\.$/, ''));
+        continue;
+      }
       other.push(word);
       warn('protection:unenforced');
     }
   }
-  return { colors, fromEverything, other };
+  return { colors, fromEverything, types, subtypes, categories, other };
 }
 
 /**

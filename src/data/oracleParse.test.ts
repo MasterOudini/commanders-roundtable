@@ -218,11 +218,36 @@ describe('parseProtection', () => {
     expect(parseProtection('Protection from everything').fromEverything).toBe(true);
   });
 
-  test('a non-colour protection is recorded as UNENFORCED rather than guessed at', () => {
+  // D356 - a card TYPE, a SUBTYPE and a COLOUR CATEGORY are read into fields the engine
+  // consults; every other word still goes to `other` verbatim and enforced by nothing.
+  test('a card type, a subtype and a category are read into their own fields', () => {
     const seen: string[] = [];
     const p = parseProtection('Protection from creatures', (c) => seen.push(c));
     expect(p.colors).toEqual([]);
-    expect(p.other).toEqual(['creatures']);
+    expect(p.types).toEqual(['Creature']);
+    expect(p.other).toEqual([]);
+    expect(seen).not.toContain('protection:unenforced');
+    expect(parseProtection('Protection from Demons and from Dragons').subtypes).toEqual(['Demons', 'Dragons']);
+    expect(parseProtection('Protection from monocolored').categories).toEqual(['monocolored']);
+  });
+
+  test('a comma-separated list repeats the preposition and every member is read', () => {
+    // `Protection from Vampires, from Werewolves, and from Zombies` — the splitter cuts on the
+    // comma and hands the next part over with its own `from` still attached.
+    const p = parseProtection('Protection from Vampires, from Werewolves, and from Zombies');
+    expect(p.subtypes).toEqual(['Vampires', 'Werewolves', 'Zombies']);
+    expect(p.other).toEqual([]);
+    expect(parseProtection('Protection from blue, from black, and from red').colors).toEqual(['U', 'B', 'R']);
+  });
+
+  // ⚠️ THE RULE THIS FILE HAS ALWAYS HELD, on a quality the engine still cannot decide. A
+  // protection whose quality nobody has chosen yet is recorded verbatim and enforced by nothing,
+  // never guessed at — which is what keeps its card honestly INCOMPLETE.
+  test('a quality the parser cannot decide is recorded as UNENFORCED rather than guessed at', () => {
+    const seen: string[] = [];
+    const p = parseProtection('Protection from the color of your choice', (c) => seen.push(c));
+    expect(p.colors).toEqual([]);
+    expect(p.other).toEqual(['the color of your choice']);
     expect(seen).toContain('protection:unenforced');
   });
 

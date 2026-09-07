@@ -1203,6 +1203,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Zero Point Ballad', 'script-raised prompt'],
   ["Zoyowa's Justice", 'discover mechanic'],
   ['Zulaport Chainmage', 'tap-creatures cost'],
+  // D356 - the protection seam made these two offerable: their protection line reads now, and
+  // what is left is a trigger head the row library does not carry.
+  ['Soldier of the Pantheon', 'multicolored filter on the opponent-cast head'],
+  ['Spectrum Sentinel', "an opponent's nonbasic land entering"],
 
   // D272 (M6.4di) — the alphabet WRAPS to A; TWO new classes.
   //

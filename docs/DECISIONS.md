@@ -24306,3 +24306,118 @@ Fixtures 5,028 · botPool artifact 406 / creature 4,226 / enchantment 388 / inst
 500-seed gate, 6 shards · build clean · probe 124/124 · battery 130/130.
 
 **Reportables** (D355): the mana ability's OTHER prices, measured beside this one over the same 181-card family: a SPEND restriction (44 - `Spend this mana only to cast a creature spell`, which needs restricted mana in the pool, a concept the engine does not have), an ACTIVATION CONDITION (29 - `Activate only if you control a Swamp`), a drawback that does not untap next turn (10 - delayed state the engine lacks), a MULTI-MODE production (10 - `Add {W}{U}, {U}{B}, or {B}{R}`), and a VARIABLE amount (28 across 18 wordings - `Add {B} for each Swamp you control`); then the QUOTED granted ability (221 cards, dossier in d354/DESIGN-quoted-grant.md - a shared runtime CARRIER for granted abilities plus several payload families, not one batch), the grant vocabulary the engine honours but the shapes do not (8 cards - exalted among them, and exalted is a TRIGGERED ability rather than a characteristic), a scope that is not a creature (Vehicles), the subtypes with no inert member (Citizens, Saprolings), the 3/3 Phyrexian Golem outside TOKEN_TABLE, four trigger heads outside the library, snow mana ({S} - 14), the remove-a-counter CHOOSER (11), the activation conditions outside the vocabulary (34), Unleash 10 and Exploit 8; prior items stand.
+
+## D356 — M6.4go: PROTECTION FROM SOMETHING THAT IS NOT A COLOUR — a card type, a subtype and a colour category are read, and enforced at every site the rule has; 36 cards land, ALL of them with no script (2026-09-08)
+
+**7,324 of 31,692 Commander-legal cards execute completely, up from
+7,288 (+36).** SHIPPED_SCRIPTS 4,612 → **4,612**;
+REFUSED ledger 932 → **934** (two rows ADDED by name and none retired - the two cards the seam made OFFERABLE, each carrying a trigger head the row library does not hold: a MULTICOLORED filter on the opponent-cast head (Soldier of the Pantheon) and an entry head filtered on an opponent's NONBASIC LAND (Spectrum Sentinel). Neither is a protection question, so neither belongs in this seam; measured: the REFUSED map's size 932 -> 934). Fixtures
+5,028 → 5,040 (4,904 by name + 136 tokens: the twelve carriers the seam's own test reads - the ten it must complete, the plural proof, and the ONE card that must STAY refused (Emrakul, the Aeons Torn); every support body it needs (an artifact creature, an Elf, an Aura, an artifact source) was pinned already, and no new token pin). **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** the seam map's densest STRUCTURAL family, sized properly. `Protection.other` is verbatim and unenforced, so the accounting refuses any line naming a non-colour quality: 106 incomplete cards carry one. Of those, the ones whose EVERY remaining clause is either a keyword the engine has or a protection naming a card type, a subtype or a colour category measured at 28 - and the measurement was checked against the landing rather than trusted, which is how the two parser gaps behind the other three were found. The refusals are named in d356/STATIC-PROTECTION.md: the protection GRANTS (`target creature gains protection from the color of your choice`) are a chooser and a temporary grant, two mechanisms this decision is not, and they are the bulk of what is left..
+
+**`Protection.other` was verbatim and UNENFORCED.** `Protection` carried
+`colors` and `fromEverything` and dumped every other printed quality into
+`other` — recorded, disclosed, and enforced by nothing. `engineComplete`
+therefore refused any line naming one, which is right: the engine would
+otherwise have let the bot be blocked by an artifact its creature says cannot
+block it, or aim a Dragon's ability at a creature with protection from Dragons.
+That is D90's rule holding, and 106 incomplete cards sat behind it. This
+decision reads the words instead — a card TYPE, a SUBTYPE and a COLOUR CATEGORY
+are all decidable from facts the enforced half already had.
+
+**One predicate, four sites.** `src/engine/protection.ts` answers CR 702.16b
+once, and the four places that each spelled the colour-only test themselves now
+ask it: combat's block check, combat's damage check, the targeting layer's
+untargetable rule (which serves both the aim and CR 608.2b's resolution
+re-check), and the Aura fall-off in `sba.ts`. Four copies of a two-line colour
+test would have meant adding a card type to one of them and not the others — a rule that applies when a creature
+blocks and not when it is targeted, which is not a rule at all.
+
+**Every one of the 36 cards lands with NO script.** Protection is a
+CHARACTERISTIC the engine already consulted; nothing here needs a `TriggerDef`
+or an `ActivatedDef`. The coverage move is the predicate reading three more
+qualities and the accounting claiming the line, and `SHIPPED_SCRIPTS` does not
+move at all.
+
+**⚠️ The dead field, caught before it shipped.** `TargetingSource.typeLine` was
+declared on the interface, read by `protectedFrom`, and **populated by nobody**.
+The type answer would have been `undefined` at every targeting site: a
+protection from a card type would have been recorded, reported as enforced, and
+enforced nothing. That is D355's `ManaSource.drawback` one decision later, and
+the reason it survives review both times is that an OPTIONAL field which is
+simply absent type-checks perfectly. Four sites build that source — the host's
+one builder, the client's aim veil (whose answer must match the host's, D53),
+the Aura fall-off, and CR 608.2b's re-check — and the re-check turned out to be
+**the same line in two functions**, `targetsStillLegal` and D343's
+`withStillLegalPicks`. A protection enforced in one and not the other would be a
+rule that applies when a spell fizzles and not when one of its picks is dropped.
+
+**⚠️ The disclosure must ask the parser — the fifth time this file has learned
+it.** `tier3.ts` decided which protections are automatic with a regex of its
+own: the five colour words and lists of them. So the moment the engine started
+enforcing a card type, a subtype and a colour category, the disclosure went on
+telling the player to "check it yourself" about **28 cards the app now runs
+completely** — D122's lie in the other direction, and `tier3.node.test.ts`
+caught it by name on the first sweep. The branch asks `parseProtection` now — the
+same reader `engineComplete` asks — and names exactly the words that reader
+could not enforce. This file has now paid for that rule at D122, D124, D147,
+D343 and here.
+
+**⚠️ Measure the LANDING, not the seam.** The seam measured at 28 cards and
+landed **25**. The three misses were not noise: they named two real parser gaps.
+`Protection from Vampires, from Werewolves, and from Zombies` repeats the
+preposition, and the splitter handed the next part over with its own `from`
+still attached — so `from werewolves` matched no table, failed the
+single-plain-word subtype test, and went to `other` unenforced. And
+`Protection from artifacts; reach` is a keyword LIST printed with a semicolon,
+where `isKeywordLine` split on commas alone. Fixing both landed the three — **and
+eight more cards with nothing to do with protection**, every one a pure Tier-2
+keyword line printed with semicolons: `Haste; horsemanship`,
+`First strike; reach`, `Trample; haste; shroud`. A seam measured and then
+checked against its own landing is how those were found; a seam measured and
+trusted would have shipped 25 and left them.
+
+**⚠️ A plural is matched, not derived.** A card prints `protection from
+Werewolves` and the engine stores the subtype `Werewolf`; `Elves` stores `Elf`.
+A rule that appended an `s` would miss both, enforce nothing, and — worse —
+report itself as enforced, which is the one failure mode `other` exists to
+prevent. `pluralMatches` is a closed set of the forms English actually uses for
+creature types, and the seam test pins every subtype the batch names.
+
+**The boundary, pinned by a real card.** `protection from spells that are one or
+more colors` (16 printings, Emrakul's) stays in `other`: the engine has no way
+to ask "is this source a spell that is one or more colors" of a permanent's
+characteristics at the block and damage sites. `protection.test.ts` asserts
+Emrakul stays INCOMPLETE, so a later widening cannot quietly claim it.
+
+Tests: `protection.test.ts` — 17 checks in the order the quality travels. The
+parse of each printed form (a type, a subtype pair, the comma list, the colour
+list, both categories, `each color`, the semicolon line); the boundary; the
+predicate's plural, category and type answers, including that a caller with no
+type line gets no type answer rather than a wrong one; and the rule at four
+sites — an artifact creature refused as a blocker while an ordinary one is
+accepted on the same board, an artifact's combat damage prevented while the
+protected creature's own damage kills it, an artifact source refused as an aim
+while the creature beside it is taken, and an Aura refused as a cast onto a
+creature with protection from enchantments.
+
+Refused by name: two rows ADDED by name and none retired - the two cards the seam made OFFERABLE, each carrying a trigger head the row library does not hold: a MULTICOLORED filter on the opponent-cast head (Soldier of the Pantheon) and an entry head filtered on an opponent's NONBASIC LAND (Spectrum Sentinel). Neither is a protection question, so neither belongs in this seam; measured: the REFUSED map's size 932 -> 934.
+Not this decision: the protection qualities the parser still cannot decide (`the color of your choice` and `the chosen color` 147 printings - a chosen quality, which needs the choice recorded on the permanent the way D147's chosenColor is; `spells that are one or more colors` 16 - a qualified noun about a SPELL, which the aim layer can ask and the block and damage sites cannot; `everything until your next turn` 17 - a duration); then the two cards this seam made offerable and ledgered (a MULTICOLORED filter on the opponent-cast head, an entry head filtered on an opponent's nonbasic land); then the mana ability's OTHER prices from D355's own family (a SPEND restriction 44, an ACTIVATION CONDITION 29, a variable amount 28, a no-untap drawback 10, a multi-mode production 10); the QUOTED granted ability (221 cards, dossier in d354/DESIGN-quoted-grant.md - a shared runtime CARRIER plus several payload families, not one batch); the grant vocabulary the engine honours but the shapes do not (8 - exalted is a TRIGGERED ability, not a characteristic); a scope that is not a creature (Vehicles); the subtypes with no inert member (Citizens, Saprolings); the Phyrexian Golem outside TOKEN_TABLE; four trigger heads outside the library; snow mana {S} (14); the remove-a-counter chooser (11); the activation conditions outside the vocabulary (34); Unleash 10 and Exploit 8.
+
+No script retired and none shipped: all 36 cards land with NO script at all. Protection is a CHARACTERISTIC the engine already consulted - the block, the damage, the aim and the Aura fall-off each spelled the test themselves, colour-only - so the coverage move is the predicate reading three more qualities and the accounting claiming the line.
+
+Report: `effect:auto` 4,209 → 4,209, `withUnenforced` 280 →
+280 — neither moves, because a protection line is a permanent's
+characteristic rather than a spell's clause. What moves is the seam's own
+mirror: **`protection:unenforced` falls 677 → 433** across every printing, and
+the Tier-3 disclosure's `silentAfter` rises 7,598 → 7,627 while `residual` falls
+251 → 244 — the semicolon keyword lines the accounting can read now.
+
+Landed: No second wave, and no wave at all: the seam's own flips ARE the landing. The bot's deck took Baneslayer Angel (Aether Gale displaced) and its commander now reaches 7,265 cards from 7,229, chosen from 207 fully-executable legendary creatures (203 before).
+
+Fixtures 5,040 · botPool artifact 406 / creature 4,262 / enchantment 388 / instant 1,007 / land 518 / sorcery 743 - auto 948 / assisted 1,832 / autoAnyFace 957 · ladder [1034, 1099, 2670, 4495, 5833] · batch.json 36 ·
+select pool 0.
+
+Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,750 files, 23,590 passed / 11 skipped · 500-seed gate, 6 shards, 593.2 s wall ·
+build clean · probe 124/124 · battery 130/130.

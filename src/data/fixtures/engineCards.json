@@ -165294,6 +165294,438 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BELOVED_CHAPLAIN": {
+    "scryfallId": "5bb72237-05a7-489c-9b24-37b587eaf573",
+    "oracleId": "a07406b7-faa1-4ed3-ab84-314c40f3f7f1",
+    "name": "Beloved Chaplain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Beloved Chaplain",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Protection from creatures",
+        "flavorText": "Nomad and Nantuko, eagle and elephant; all the birds and beasts are charmed by his quiet dignity.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Darrell Riche",
+        "imageId": "5bb72237-05a7-489c-9b24-37b587eaf573"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "ODY-11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEL_JILAD_ARCHERS": {
+    "scryfallId": "3a1fde33-e86a-4146-9c90-4616a5fc0868",
+    "oracleId": "939203ec-3de4-44d8-932e-63a32e5f2d47",
+    "name": "Tel-Jilad Archers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tel-Jilad Archers",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Elf Archer",
+        "oracleText": "Protection from artifacts; reach (This creature can block creatures with flying.)",
+        "flavorText": "They are extensions of the Tangle, stretching its vines into the furthest reaches of the sky.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Marcelo Vignali",
+        "imageId": "3a1fde33-e86a-4146-9c90-4616a5fc0868"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Reach",
+      "Protection"
+    ],
+    "setCode": "mrd",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BANESLAYER_ANGEL": {
+    "scryfallId": "0b0974b4-b306-4026-b0a8-22bd9da3e384",
+    "oracleId": "0e11792b-7fe5-4208-aa0b-e5d09b2b65fe",
+    "name": "Baneslayer Angel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Baneslayer Angel",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying, first strike, lifelink, protection from Demons and from Dragons",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "0b0974b4-b306-4026-b0a8-22bd9da3e384"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Lifelink",
+      "First strike",
+      "Protection"
+    ],
+    "setCode": "m21",
+    "collectorNumber": "340",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELITE_INQUISITOR": {
+    "scryfallId": "19ed02c3-239a-40c9-a05f-3d662b15377a",
+    "oracleId": "4f7e865b-6ab0-4361-b864-63c38cdb2fed",
+    "name": "Elite Inquisitor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elite Inquisitor",
+        "manaCost": "{W}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "First strike, vigilance\nProtection from Vampires, from Werewolves, and from Zombies",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "19ed02c3-239a-40c9-a05f-3d662b15377a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance",
+      "First strike",
+      "Protection"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "42880",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OVERSOUL_OF_DUSK": {
+    "scryfallId": "8893842f-aa3f-45f6-8139-ca775d33792b",
+    "oracleId": "da790c72-63e7-4955-9435-d073767f9bb5",
+    "name": "Oversoul of Dusk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Oversoul of Dusk",
+        "manaCost": "{G/W}{G/W}{G/W}{G/W}{G/W}",
+        "typeLine": "Creature — Spirit Avatar",
+        "oracleText": "Protection from blue, from black, and from red",
+        "flavorText": "\"Some say she hid the sun herself, a desperate act to save it from its ultimate extinction.\"\n—*The Seer's Parables*",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "8893842f-aa3f-45f6-8139-ca775d33792b"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "shm",
+    "collectorNumber": "234",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GUARDIAN_OF_THE_GUILDPACT": {
+    "scryfallId": "c8dd004b-01e4-4fe1-a164-9f2ea8d7d88e",
+    "oracleId": "20822aa7-5f84-442d-add3-b56167e6eb38",
+    "name": "Guardian of the Guildpact",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Guardian of the Guildpact",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Protection from monocolored",
+        "flavorText": "The magic of the Guildpact gives aegis to the spirits pressed into its service. Upon entering the afterlife, they find new focus and are charged with defending the Guildpact against those who would see it broken.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Fred Hooper",
+        "imageId": "c8dd004b-01e4-4fe1-a164-9f2ea8d7d88e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "dis",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ENEMY_OF_THE_GUILDPACT": {
+    "scryfallId": "3dcc7d53-2510-4322-969c-1e138287562c",
+    "oracleId": "e5cf7b75-b59b-4cac-bfd2-13e452457d74",
+    "name": "Enemy of the Guildpact",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Enemy of the Guildpact",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Protection from multicolored",
+        "flavorText": "Guilds often exterminate those who saw or knew too much. Some vindictive souls retain their knowledge, using it in the afterlife to crush the guilded and the vile bargain that gives them power.",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Fred Hooper",
+        "imageId": "3dcc7d53-2510-4322-969c-1e138287562c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "dis",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IRIDESCENT_ANGEL": {
+    "scryfallId": "b0769d87-62f7-469a-936f-5a4f6b9360b6",
+    "oracleId": "28fa9211-96bb-4fef-81bf-8f58114a8df7",
+    "name": "Iridescent Angel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Iridescent Angel",
+        "manaCost": "{5}{W}{U}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying, protection from each color",
+        "flavorText": "She enraptures all, encompasses all, endures all.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Ryan Alexander Lee",
+        "imageId": "b0769d87-62f7-469a-936f-5a4f6b9360b6"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Protection"
+    ],
+    "setCode": "v15",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NATH_S_BUFFOON": {
+    "scryfallId": "66f077d2-34ab-45fa-84db-eb408c5a9996",
+    "oracleId": "da404c9c-3fb0-418c-947f-f42d6aff6899",
+    "name": "Nath's Buffoon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nath's Buffoon",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Goblin Rogue",
+        "oracleText": "Protection from Elves",
+        "flavorText": "Smik learned the elvish dance quickly enough. The most difficult, yet most important step was to stay out of Nath's sight until called to perform.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Thomas Denmark",
+        "imageId": "66f077d2-34ab-45fa-84db-eb408c5a9996"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AZORIUS_FIRST_WING": {
+    "scryfallId": "b675c1e6-add5-4959-a5be-f2571ccebcb4",
+    "oracleId": "08d02fdb-4b3f-4f55-b5fc-6bb4d2a14b1f",
+    "name": "Azorius First-Wing",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Azorius First-Wing",
+        "manaCost": "{W}{U}",
+        "typeLine": "Creature — Griffin",
+        "oracleText": "Flying, protection from enchantments",
+        "flavorText": "With a steady diet of lawbreakers, Azorius griffins inevitably develop a resistance to the contraband magic that taints much of their prey.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "b675c1e6-add5-4959-a5be-f2571ccebcb4"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Protection"
+    ],
+    "setCode": "dis",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NACATL_SAVAGE": {
+    "scryfallId": "ad602fba-6a73-4fd0-aff5-802c3be3100e",
+    "oracleId": "475412c9-8960-4085-bd8f-5f8a7c7485b9",
+    "name": "Nacatl Savage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nacatl Savage",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Cat Warrior",
+        "oracleText": "Protection from artifacts",
+        "flavorText": "\"Blades dull and armor dents. Marisi taught us that instinct is the only thing a true warrior needs.\"\n—Ajani",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "ad602fba-6a73-4fd0-aff5-802c3be3100e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "con",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMRAKUL_THE_AEONS_TORN": {
+    "scryfallId": "0e0d989d-7186-40dc-bdfe-cfbb77656bc8",
+    "oracleId": "900ca697-ad38-4b2b-bc74-2ff7eb6ea951",
+    "name": "Emrakul, the Aeons Torn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Emrakul, the Aeons Torn",
+        "manaCost": "{15}",
+        "typeLine": "Legendary Creature — Eldrazi",
+        "oracleText": "This spell can't be countered.\nWhen you cast this spell, take an extra turn after this one.\nFlying, protection from spells that are one or more colors, annihilator 6\nWhen Emrakul is put into a graveyard from anywhere, its owner shuffles their graveyard into their library.",
+        "flavorText": null,
+        "power": "15",
+        "toughness": "15",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Tedin",
+        "imageId": "0e0d989d-7186-40dc-bdfe-cfbb77656bc8"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 15,
+    "keywords": [
+      "Flying",
+      "Annihilator",
+      "Protection"
+    ],
+    "setCode": "uma",
+    "collectorNumber": "4",
+    "commanderLegality": "banned",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

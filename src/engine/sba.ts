@@ -10,6 +10,7 @@
 import type { ColorLetter } from '../data/cardTypes';
 import { derive, hasLethalDamage, makeDeriveCache, type DeriveCache } from './derive';
 import { faceOf } from './oracle';
+import { protectedFrom } from './protection';
 import { candidateFor, specAdmits } from './targets';
 import type { ScriptRegistry } from './scripts/registry';
 import type { EventBody, SbaAction } from './types/events';
@@ -352,8 +353,12 @@ function enchantAdmits(
   if (!spec || spec.kinds.length === 0) return true;
   const host = candidateFor(state, { oracle, scripts }, hostId, 'battlefield', cache);
   if (!host) return false;
-  if (host.protection.fromEverything || host.protection.colors.some((col) => auraColors.includes(col))) return false;
-  return specAdmits(spec, { controller: aura.controller, colors: auraColors }, host);
+  // D356 - CR 704.5m: an Aura the host has protection from falls off. The Aura is an Enchantment,
+  // so `protection from enchantments` reaches it now - and the type line comes from the Aura's own
+  // printed face rather than a second derive, which `appliesTo` forbids anyway.
+  const auraTypeLine = printing ? faceOf(printing, aura.faceIndex).typeLine : undefined;
+  if (protectedFrom(host.protection, { colors: auraColors, typeLine: auraTypeLine })) return false;
+  return specAdmits(spec, { controller: aura.controller, colors: auraColors, typeLine: auraTypeLine }, host);
 }
 
 export function checkGameOver(state: GameState): EventBody[] {

@@ -5463,6 +5463,19 @@ const WANTED = [
   'Grand Coliseum',
   // D355 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
   "Fogwell's Gym",
+  // D356 - the protection seam: the carriers its test reads, and the one card that must STAY refused.
+  'Beloved Chaplain',
+  'Tel-Jilad Archers',
+  'Baneslayer Angel',
+  'Elite Inquisitor',
+  'Oversoul of Dusk',
+  'Guardian of the Guildpact',
+  'Enemy of the Guildpact',
+  'Iridescent Angel',
+  "Nath's Buffoon",
+  'Azorius First-Wing',
+  'Nacatl Savage',
+  'Emrakul, the Aeons Torn',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

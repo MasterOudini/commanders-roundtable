@@ -2,6 +2,7 @@
 // handlers turn their answers into events.
 
 import { derive, makeScriptCtx, type DeriveCache } from './derive';
+import { protectedFrom } from './protection';
 import type { ScriptRegistry } from './scripts/registry';
 import type { CombatDef, ScriptCtx } from './scripts/api';
 import type { ResolvedDamage } from './types/events';
@@ -182,10 +183,11 @@ export function canBlock(
   if (ac.keywords.has('flying') && !bc.keywords.has('flying') && !bc.keywords.has('reach')) {
     return 'flying';
   }
-  // CR 702.16e: protection from a colour means "can't be blocked by" creatures
-  // of that colour — a different clause from the damage prevention below.
-  if (ac.protection.fromEverything) return 'protection';
-  if (ac.protection.colors.some((c) => bc.colors.includes(c))) return 'protection';
+  // CR 702.16e: protection from a quality means "can't be blocked by" creatures
+  // WITH that quality — a different clause from the damage prevention below.
+  // D356 - the quality may be a card type or a subtype, not only a colour, and one predicate
+  // answers for every site so the rule cannot differ between blocking and targeting.
+  if (protectedFrom(ac.protection, { colors: bc.colors, typeLine: bc.typeLine })) return 'protection';
   if (ac.keywords.has('fear') && !bc.typeLine.types.includes('Artifact') && !bc.colors.includes('B')) {
     return 'fear';
   }
@@ -566,8 +568,9 @@ function preventedAmount(
   if (!targetCard) return 0;
   const tc = d(deps, target);
   const sc = d(deps, source);
-  if (tc.protection.fromEverything) return 0;
-  if (tc.protection.colors.some((c) => sc.colors.includes(c))) return 0;
+  // D356 - the same predicate the block check asks, so `protection from artifacts` prevents an
+  // artifact's damage as surely as it stops its block.
+  if (protectedFrom(tc.protection, { colors: sc.colors, typeLine: sc.typeLine })) return 0;
   return amount;
 }
 

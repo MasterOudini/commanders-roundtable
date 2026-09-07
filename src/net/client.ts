@@ -518,6 +518,9 @@ export class ClientSession {
     const src = {
       controller: this.you,
       colors: face?.colors ?? [],
+      // D356 - the same type line the host reads, so the veil and the host agree about a
+      // protection from a card type rather than disagreeing at the submit.
+      typeLine: face?.typeLine,
       power: onBattlefield ? (cv?.power ?? null) : null,
       toughness: onBattlefield ? (cv?.toughness ?? null) : null,
     };
