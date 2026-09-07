@@ -1830,10 +1830,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D309 (M6.4et) — the morph pool: the morph creatures whose other
   // lines the vocabulary does not read yet - their morph runs.
-  ['Dwarven Blastminer', 'an activated line outside the vocabulary (its morph runs)'],
   ['Gravel Slinger', 'an activated line outside the vocabulary (its morph runs)'],
   ['Grim Haruspex', 'a dies watcher over other creatures (its morph runs)'],
-  ['Monastery Loremaster', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Ponyback Brigade', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Stratus Dancer', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Venomspout Brackus', 'an activated line outside the vocabulary (its morph runs)'],
@@ -1843,12 +1841,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D310 (M6.4eu) — the changeling / devoid pool: the carriers whose other
   // lines the vocabulary does not read yet - their changeling or devoid runs.
   ['Blades of Velis Vel', 'a spell line outside the vocabulary (its changeling runs)'],
-  ['Chomping Changeling', 'a creature line outside the vocabulary (its changeling runs)'],
   ['Complete Disregard', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Cryptic Cruiser', 'a creature line outside the vocabulary (its devoid runs)'],
   ['Ego Erasure', 'a spell line outside the vocabulary (its changeling runs)'],
   ['Flayer Drone', 'a creature line outside the vocabulary (its devoid runs)'],
-  ['Forerunner of Slaughter', 'a creature line outside the vocabulary (its devoid runs)'],
   ['Gladewalker Ritualist', 'a creature line outside the vocabulary (its changeling runs)'],
   ['Grip of Desolation', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Nameless Inversion', 'a spell line outside the vocabulary (its changeling runs)'],
@@ -1865,7 +1861,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Broadcast Rambler', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Captain America\'s Motorcycle', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Fire Nation Warship', 'a Vehicle line outside the vocabulary (its crew runs)'],
-  ['High-Speed Hoverbike', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Rangers\' Aetherhive', 'a Vehicle line outside the vocabulary (its crew runs)'],
   ['Silent Submersible', 'a combat trigger outside the vocabulary (its crew runs)'],
   ['Thopter Fabricator', 'a Vehicle line outside the vocabulary (its crew runs)'],

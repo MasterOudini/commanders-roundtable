@@ -23795,3 +23795,71 @@ Fixtures 4,912 · botPool artifact 394 / creature 4,156 / enchantment 374 / inst
 **Reportables** (D349): the three asking payloads the suite cannot answer yet (a scry, a surveil and a scry beside damage - the answer is `AnswerScry`, which the scaffold has for its own scry rows and not for a vocabulary one), the 20 trigger payloads still outside both readers (a graveyard return under a head, a look at the top cards, a conditional discard, a regenerate), the cost verbs the derivation cannot pay (104 across 72 verbs, the largest families snow mana {S} 13, a return-to-hand cost 12, a remove-a-counter-from-another-permanent cost 8, a counted sacrifice 7, an exile-self cost 5), the activation conditions outside the vocabulary (34), the vocabulary clauses the suite cannot fixture (36: a counted clause, a combat-role clause, a tapped or nonbasic-land predicate, a spell clause), the lines that are neither an activated ability nor a library trigger (36: Unleash 10, Exploit 8, the Threshold bodies), Add one mana of any color behind a cost the engine does not charge (23), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14), an attack head on a card with no creature body (1 - a scaffold that attacks with a creature the row did not put down); then D348's list unchanged: the modal permanent lines, the wider modal heads, the asking modes, the heads outside the library, the modal spells beside another sentence, the quoted abilities enchanted creatures and lands have, Enchant player, the look at the top card of your library; the "another" split; the by-name sacrifice
 cost; the remaining cost verbs; the prompt continuation seam; prior items
 stand.
+
+## D350 — M6.4gi: THE CLAUSE FIXTURES — the suite learns to put and aim four clauses the engine already read; 15 cards land, 15 as generated rows (2026-09-07)
+
+**7,187 of 31,692 Commander-legal cards execute completely, up from
+7,172 (+15).** SHIPPED_SCRIPTS 4,525 → **4,540**;
+REFUSED ledger 940 → **935** (5 rows RETIRED by name - cards the ledger held for a clause the suite could not aim at - and none added; measured: the REFUSED map's size 940 -> 935). Fixtures
+4,912 → 4,927 (4,785 by name + 135 tokens: the 15 rows' cards; no new token pin, and the four fixtures the clauses are aimed at (Metallic Sliver, Tundra, Accorder's Shield, Ant-Man, Scott Lang, Raging Goblin, Blaze) were pinned already). **Select pool 0 → 0.**
+
+**The gap, measured before it was built.** the D349 probe re-run over a tree 48 cards further on: 352 fully covered cards, down from 400 as the vocabulary-payload rows became complete. The row maker's histogram put the clause fixtures third and made them the cheapest thing on the board: a COST it cannot charge 104 (72 distinct verbs - a tail), 'a vocabulary clause the suite has no fixture for' 36, 'a line that is neither an activated ability nor a library trigger' 36 (Unleash 10, Exploit 8, the Threshold bodies), an activation condition 34, an effect outside the row kinds 30 (23 of them Add one mana of any color, whose blocker is the cost beside it). Reading the 36 by sub-class named this decision: a combat-role clause 8, a counted clause 9, a tapped creature 4, a graveyard card the lists did not hold 6, a nonbasic land 2, a colorless or power-1 body 2, an Equipment 1, an Aura 1, alternatives 2, a spell 1 - and twelve of those need nothing but a fixture and a tap.
+
+⚠️ **NO ENGINE CHANGE, AND NO READING CHANGED.** Every row here was refused
+because the SUITE had nothing to aim a clause at — not because the parser could
+not read it or the engine could not run it. That makes this the cheapest kind
+of decision the loop has: the measurement names the fixture, and the fixture is
+the whole build.
+
+**A counted clause that takes at most one pick.** "Up to one target creature"
+is aimed at exactly one fixture: declaring the one is a legal answer whether
+the clause's minimum is 0 or 1, and every effect on it runs once (D299's
+counted-targets seam). Only the guard had said no. A clause that can take TWO
+still needs a fixture apiece, which the aim and the assert side do not carry
+yet — five cards wait on that.
+
+**A tapped restriction is not a property of the fixture table.** "Target tapped
+creature" was refused because no fixture is tapped; but the suite already taps
+one before the fire, for an untap payload. The same line now serves a clause
+that demands a tapped target, and each fixture is tapped at most once however
+many reasons it has.
+
+**Four fixtures, appended.** Metallic Sliver is a 1/1 colorless artifact
+creature that sits perfectly still, and it answers both the colorless clause and
+the power-1-or-less one. Tundra is the nonbasic land: its whole text is a
+reminder-text mana line, so it sits as still as a Forest. Accorder's Shield is
+the Equipment, still while unattached. And the GRAVEYARD lists gain Ant-Man
+Scott Lang (legendary), Raging Goblin (a Goblin) and Blaze (a red sorcery at
+mana value 1). ⚠️ **Every one is APPENDED and the picker takes the first that
+fits**, so no clause that already had a fixture regenerates with a different
+one — which is what kept the wave to fifteen new suites instead of a rewrite.
+
+**A graveyard clause that names no card type may be aimed at any card.** The
+picker tried the CREATURE list and nothing else, so a Grizzly Bears was the only
+card it ever offered for "target card" or "target noncreature, nonland card" —
+and a numeric or negated-type restriction then refused it. Every list is tried
+now. ⚠️ A clause that DOES name a type is still refused when that list has
+nothing: widening it there would aim a creature clause at an instant.
+
+**Tests:** one generated suite per row (15 GENERATED ROWS whose clause the suite can now fixture (a counted 0..1 clause 4, a tapped creature 4, a graveyard card the lists had not held 4, a nonbasic land 2, a colorless or power-1 body 2, an Equipment 1): Monastery Loremaster, Steam Catapult, Forerunner of Slaughter, Loyal Retainers, Surrakar Banisher, Dwarven Blastminer, Bala Ged Scorpion, Stone Catapult, King's Assassin, High-Speed Hoverbike, Skemfar Elderhall, Acid Web Spider, Wort, Boggart Auntie, Chomping Changeling, Ore Gorger) — all fifteen green on the
+first port run.
+
+- **Refused by name:** 5 rows RETIRED by name - cards the ledger held for a clause the suite could not aim at - and none added; measured: the REFUSED map's size 940 -> 935.
+- **Not this decision:** the clause fixtures still missing (24: a COMBAT-ROLE clause 8 - the suite must fire mid-combat with an attacking or blocking creature, which the attack heads already scaffold; a counted clause that takes TWO or three 5 - one fixture per pick, which the aim and the asserts do not carry yet; a clause whose alternatives differ 2; an Aura, an Equipment in a graveyard, a spell clause), the cost verbs the derivation cannot pay (104 across 72 verbs; the sacrifice and tap predicates the engine's own grammar cannot place lead them), the activation conditions outside the vocabulary (34), the lines that are neither an activated ability nor a library trigger (36: Unleash 10, Exploit 8, the Threshold bodies), the trigger payloads outside both readers (20), Add one mana of any color behind a cost the engine does not charge (23), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14); then D349's list unchanged: the three asking payloads the suite cannot answer (a scry, a surveil), the modal permanent lines, the wider modal heads, the asking modes, the heads outside the library, the modal spells beside another sentence, the quoted abilities enchanted creatures and lands have, Enchant player, the look at the top card of your library.
+
+5 ledger rows retired by name: cards refused for a clause the suite had nothing to aim at.
+
+Report: `effect:auto` 4,209 → 4,209, `effect:none` 14,849 →
+14,849, `withUnenforced` 280 → 280.
+
+**Landed:** No second wave: the 15 rows are the landing, and the POOL took 13 creatures, a land and an artifact more on the same sweep - the commander's reach rose to 7,128 cards from 7,113, chosen from 197 fully-executable legendary creatures (196 before).
+
+Fixtures 4,927 · botPool artifact 395 / creature 4,169 / enchantment 374 / instant 1,007 / land 499 / sorcery 743 - auto 948 / assisted 1,832 / autoAnyFace 957 · ladder [1035, 1098, 2711, 4535, 5868] · batch.json
+15 · select pool 0.
+
+**Verified:** `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,674 files, 23,206 passing / 11 skipped ·
+500-seed gate, 6 shards, 575.8 s wall · build clean · probe 124/124 · battery 130/130.
+
+**Reportables** (D350): the clause fixtures still missing (24: a COMBAT-ROLE clause 8 - the suite must fire mid-combat with an attacking or blocking creature, which the attack heads already scaffold; a counted clause that takes TWO or three 5 - one fixture per pick, which the aim and the asserts do not carry yet; a clause whose alternatives differ 2; an Aura, an Equipment in a graveyard, a spell clause), the cost verbs the derivation cannot pay (104 across 72 verbs; the sacrifice and tap predicates the engine's own grammar cannot place lead them), the activation conditions outside the vocabulary (34), the lines that are neither an activated ability nor a library trigger (36: Unleash 10, Exploit 8, the Threshold bodies), the trigger payloads outside both readers (20), Add one mana of any color behind a cost the engine does not charge (23), the counts outside the vocabulary (16), the tokens outside TOKEN_TABLE (14); then D349's list unchanged: the three asking payloads the suite cannot answer (a scry, a surveil), the modal permanent lines, the wider modal heads, the asking modes, the heads outside the library, the modal spells beside another sentence, the quoted abilities enchanted creatures and lands have, Enchant player, the look at the top card of your library; the "another" split; the by-name sacrifice
+cost; the remaining cost verbs; the prompt continuation seam; prior items
+stand.

@@ -7,6 +7,21 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { MONASTERY_LOREMASTER_SCRIPT } from './cards/monasteryLoremaster';
+import { STEAM_CATAPULT_SCRIPT } from './cards/steamCatapult';
+import { FORERUNNER_OF_SLAUGHTER_SCRIPT } from './cards/forerunnerOfSlaughter';
+import { LOYAL_RETAINERS_SCRIPT } from './cards/loyalRetainers';
+import { SURRAKAR_BANISHER_SCRIPT } from './cards/surrakarBanisher';
+import { DWARVEN_BLASTMINER_SCRIPT } from './cards/dwarvenBlastminer';
+import { BALA_GED_SCORPION_SCRIPT } from './cards/balaGedScorpion';
+import { STONE_CATAPULT_SCRIPT } from './cards/stoneCatapult';
+import { KINGS_ASSASSIN_SCRIPT } from './cards/kingsAssassin';
+import { HIGH_SPEED_HOVERBIKE_SCRIPT } from './cards/highSpeedHoverbike';
+import { SKEMFAR_ELDERHALL_SCRIPT } from './cards/skemfarElderhall';
+import { ACID_WEB_SPIDER_SCRIPT } from './cards/acidWebSpider';
+import { WORT_BOGGART_AUNTIE_SCRIPT } from './cards/wortBoggartAuntie';
+import { CHOMPING_CHANGELING_SCRIPT } from './cards/chompingChangeling';
+import { ORE_GORGER_SCRIPT } from './cards/oreGorger';
 import { NIBLIS_OF_THE_MIST_SCRIPT } from './cards/niblisOfTheMist';
 import { FESTERING_MUMMY_SCRIPT } from './cards/festeringMummy';
 import { ELITE_SKIRMISHER_SCRIPT } from './cards/eliteSkirmisher';
@@ -4551,6 +4566,21 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MONASTERY_LOREMASTER_SCRIPT,
+  STEAM_CATAPULT_SCRIPT,
+  FORERUNNER_OF_SLAUGHTER_SCRIPT,
+  LOYAL_RETAINERS_SCRIPT,
+  SURRAKAR_BANISHER_SCRIPT,
+  DWARVEN_BLASTMINER_SCRIPT,
+  BALA_GED_SCORPION_SCRIPT,
+  STONE_CATAPULT_SCRIPT,
+  KINGS_ASSASSIN_SCRIPT,
+  HIGH_SPEED_HOVERBIKE_SCRIPT,
+  SKEMFAR_ELDERHALL_SCRIPT,
+  ACID_WEB_SPIDER_SCRIPT,
+  WORT_BOGGART_AUNTIE_SCRIPT,
+  CHOMPING_CHANGELING_SCRIPT,
+  ORE_GORGER_SCRIPT,
   NIBLIS_OF_THE_MIST_SCRIPT,
   FESTERING_MUMMY_SCRIPT,
   ELITE_SKIRMISHER_SCRIPT,

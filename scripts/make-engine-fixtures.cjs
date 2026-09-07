@@ -5331,6 +5331,23 @@ const WANTED = [
   'Cartouche of Ambition',
   'Separatist Voidmage',
   'Somnomancer',
+  // D350 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  'Monastery Loremaster',
+  'Steam Catapult',
+  'Forerunner of Slaughter',
+  'Loyal Retainers',
+  'Surrakar Banisher',
+  'Dwarven Blastminer',
+  'Bala Ged Scorpion',
+  'Stone Catapult',
+  "King's Assassin",
+  'High-Speed Hoverbike',
+  'Skemfar Elderhall',
+  'Acid Web Spider',
+  'Wort, Boggart Auntie',
+  'Chomping Changeling',
+  'Ore Gorger',
+  // D350 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

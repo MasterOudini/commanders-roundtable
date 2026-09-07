@@ -161378,6 +161378,513 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "MONASTERY_LOREMASTER": {
+    "scryfallId": "04d73869-4313-412c-9731-3cf96dea142c",
+    "oracleId": "1c8ef715-3c3c-4d04-9f30-941b870b11d3",
+    "name": "Monastery Loremaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Monastery Loremaster",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Djinn Wizard",
+        "oracleText": "Megamorph {5}{U} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its megamorph cost and put a +1/+1 counter on it.)\nWhen this creature is turned face up, return target noncreature, nonland card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ryan Alexander Lee",
+        "imageId": "04d73869-4313-412c-9731-3cf96dea142c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Megamorph"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "DTK-63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STEAM_CATAPULT": {
+    "scryfallId": "11fa8831-6a17-4ac4-8ea0-5599fbfb8e20",
+    "oracleId": "b6ea0c70-022a-43e4-aa40-3dc6a8b3b21e",
+    "name": "Steam Catapult",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Steam Catapult",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "{T}: Destroy target tapped creature. Activate only during your turn, before attackers are declared.",
+        "flavorText": "\"You idiots! Turn it around! Turn it around!\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "11fa8831-6a17-4ac4-8ea0-5599fbfb8e20"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "me4",
+    "collectorNumber": "29",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORERUNNER_OF_SLAUGHTER": {
+    "scryfallId": "195b867e-41ca-48af-bbd2-5e2c97411752",
+    "oracleId": "1c3b5d50-6b5c-49a3-b64b-5bee51d22725",
+    "name": "Forerunner of Slaughter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Forerunner of Slaughter",
+        "manaCost": "{B}{R}",
+        "typeLine": "Creature — Eldrazi Drone",
+        "oracleText": "Devoid (This card has no color.)\n{1}: Target colorless creature gains haste until end of turn.",
+        "flavorText": "\"While we delay, they're on the move. They will not wait as we bicker. We are losing this war by moments as our goal slips beyond our reach.\"\n—Gideon Jura",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "James Zapata",
+        "imageId": "195b867e-41ca-48af-bbd2-5e2c97411752"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Devoid"
+    ],
+    "setCode": "ddp",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOYAL_RETAINERS": {
+    "scryfallId": "2150950b-61e1-4146-b9ed-9794ef153ac7",
+    "oracleId": "55b88d43-ec45-4435-a316-1c8aee249ff0",
+    "name": "Loyal Retainers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loyal Retainers",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Advisor",
+        "oracleText": "Sacrifice this creature: Return target legendary creature card from your graveyard to the battlefield. Activate only during your turn, before attackers are declared.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Solomon Au Yeung",
+        "imageId": "2150950b-61e1-4146-b9ed-9794ef153ac7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "p30a",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SURRAKAR_BANISHER": {
+    "scryfallId": "27e88b32-ba7a-4a40-bbe6-903303079570",
+    "oracleId": "d48fd4b7-b60c-4932-abed-a8df1184db25",
+    "name": "Surrakar Banisher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Surrakar Banisher",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Surrakar",
+        "oracleText": "When this creature enters, you may return target tapped creature to its owner's hand.",
+        "flavorText": "Surrakar grab things they don't want.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "27e88b32-ba7a-4a40-bbe6-903303079570"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "DDO-43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DWARVEN_BLASTMINER": {
+    "scryfallId": "2970831a-738b-476f-9d46-39f10a1f91e7",
+    "oracleId": "b373e978-c58b-465a-b68a-9d4acec9dce0",
+    "name": "Dwarven Blastminer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dwarven Blastminer",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Dwarf",
+        "oracleText": "{2}{R}, {T}: Destroy target nonbasic land.\nMorph {R} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": "\"Life is too short for something like a hunk of rock to get in my way.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Gary Ruddell",
+        "imageId": "2970831a-738b-476f-9d46-39f10a1f91e7"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "199",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BALA_GED_SCORPION": {
+    "scryfallId": "4acb66bd-6abd-46dd-a272-09bea66e2917",
+    "oracleId": "753b4258-bc1d-47f4-b994-356507b0816a",
+    "name": "Bala Ged Scorpion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bala Ged Scorpion",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Scorpion",
+        "oracleText": "When this creature enters, you may destroy target creature with power 1 or less.",
+        "flavorText": "Fast and lethal, with a penchant for the weak and infirm.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Daarken",
+        "imageId": "4acb66bd-6abd-46dd-a272-09bea66e2917"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "roe",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STONE_CATAPULT": {
+    "scryfallId": "60303bfe-9158-4e25-a905-6522883ab671",
+    "oracleId": "c3ead850-3f22-4edb-ac96-40abbdf27905",
+    "name": "Stone Catapult",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stone Catapult",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "{T}: Destroy target tapped nonblack creature. Activate only during your turn, before attackers are declared.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Shang Huitong",
+        "imageId": "60303bfe-9158-4e25-a905-6522883ab671"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ptk",
+    "collectorNumber": "84",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KING_S_ASSASSIN": {
+    "scryfallId": "670a3149-54fb-4fd2-bc66-3ee9bcc3519d",
+    "oracleId": "4e3f89e2-2be6-4b96-b81c-007b6840af82",
+    "name": "King's Assassin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "King's Assassin",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Human Assassin",
+        "oracleText": "{T}: Destroy target tapped creature. Activate only during your turn, before attackers are declared.",
+        "flavorText": "Fear is as effective a weapon as the blade.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Zina Saunders",
+        "imageId": "670a3149-54fb-4fd2-bc66-3ee9bcc3519d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "por",
+    "collectorNumber": "98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HIGH_SPEED_HOVERBIKE": {
+    "scryfallId": "7c619116-1eae-439d-9b1f-639643458a23",
+    "oracleId": "9bf2f0d9-57fb-4e44-90a5-260d735076a0",
+    "name": "High-Speed Hoverbike",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "High-Speed Hoverbike",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "Flash\nFlying\nWhen this Vehicle enters, tap up to one target creature.\nCrew 1 (Tap any number of creatures you control with total power 1 or more: This Vehicle becomes an artifact creature until end of turn.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Julian Kok Joon Wen",
+        "imageId": "7c619116-1eae-439d-9b1f-639643458a23"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Crew",
+      "Flash"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "247",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKEMFAR_ELDERHALL": {
+    "scryfallId": "82c2a0f7-0f53-4627-8be8-227fde331a69",
+    "oracleId": "70965b80-c8ad-4718-ae20-12a4d8228898",
+    "name": "Skemfar Elderhall",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skemfar Elderhall",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {G}.\n{2}{B}{B}{G}, {T}, Sacrifice this land: Up to one target creature you don't control gets -2/-2 until end of turn. Create two 1/1 green Elf Warrior creature tokens. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Johannes Voss",
+        "imageId": "82c2a0f7-0f53-4627-8be8-227fde331a69"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "khm",
+    "collectorNumber": "268",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ACID_WEB_SPIDER": {
+    "scryfallId": "968a25a5-9ec1-47fa-bf1f-e65eb75fdb00",
+    "oracleId": "23d4f436-a417-4a26-b5b8-c698f11a186b",
+    "name": "Acid Web Spider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Acid Web Spider",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Reach\nWhen this creature enters, you may destroy target Equipment.",
+        "flavorText": "Its web is an excellent source of found copper for the daring or the stupid.",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Austin Hsu",
+        "imageId": "968a25a5-9ec1-47fa-bf1f-e65eb75fdb00"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "som",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WORT_BOGGART_AUNTIE": {
+    "scryfallId": "a08a1377-dede-47c8-8447-c9df125f3b14",
+    "oracleId": "6f477e2e-220e-48d9-9236-9564478e796a",
+    "name": "Wort, Boggart Auntie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wort, Boggart Auntie",
+        "manaCost": "{2}{B}{R}",
+        "typeLine": "Legendary Creature — Goblin Shaman",
+        "oracleText": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\nAt the beginning of your upkeep, you may return target Goblin card from your graveyard to your hand.",
+        "flavorText": "Auntie always knows which berries to lick, which kithkin to trick, and what to do when either goes wrong.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Larry MacDougall",
+        "imageId": "a08a1377-dede-47c8-8447-c9df125f3b14"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Fear"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "252",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHOMPING_CHANGELING": {
+    "scryfallId": "e187dcc6-19ad-4cf6-94b4-daf07f5144e5",
+    "oracleId": "d740dbd9-8e90-4121-8d53-c6ddf5178d58",
+    "name": "Chomping Changeling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chomping Changeling",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Shapeshifter",
+        "oracleText": "Changeling (This card is every creature type.)\nWhen this creature enters, destroy up to one target artifact or enchantment.",
+        "flavorText": "The knight was irritated when her rations went missing and truly baffled when her weapons started disappearing too.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jeff Laubenstein",
+        "imageId": "e187dcc6-19ad-4cf6-94b4-daf07f5144e5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Changeling"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "172",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORE_GORGER": {
+    "scryfallId": "ecc8bbb9-d6a1-474b-8f34-594b5a9d4178",
+    "oracleId": "e5a9d34b-c7d4-4682-8e26-dd82e38ee84e",
+    "name": "Ore Gorger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ore Gorger",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Whenever you cast a Spirit or Arcane spell, you may destroy target nonbasic land.",
+        "flavorText": "\"We've stumbled upon a network of caves not on our maps. We can only hope it is safe to spend the night.\"\n—Lost Battalion, message to General Takeno",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "rk post",
+        "imageId": "ecc8bbb9-d6a1-474b-8f34-594b5a9d4178"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "chk",
+    "collectorNumber": "182",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
