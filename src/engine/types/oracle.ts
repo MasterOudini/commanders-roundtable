@@ -65,6 +65,17 @@ export const TIER2_KEYWORDS = [
   'persist',
   'undying',
   'evolve',
+  // D361 - the same table, seven entries on: each of these prints a rule that IS a
+  // triggered ability whose every piece the engine already had. `soulshift` is the
+  // first keyword trigger that is OPTIONAL and TARGETS; `afterlife` the first that
+  // makes a token; `ingest` the first on combat damage.
+  'soulshift',
+  'afterlife',
+  'dethrone',
+  'melee',
+  'training',
+  'afflict',
+  'ingest',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',

@@ -48,9 +48,13 @@ import { SHIPPED_SCRIPTS } from '../engine/scripts/registry';
 import { protectionFullyRead } from '../engine/protection';
 import { parseFace, parseProtection, parseWard, parseWardLife } from './oracleParse';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
+import { KEYWORD_TRIGGERS } from '../engine/keywordTriggers';
 
 /** D338 - the keyword-trigger keywords printed WITH a number the engine reads (`keywordAmount`). */
-const NUMBERED_TRIGGER_KEYWORDS: ReadonlySet<string> = new Set(['bushido']);
+// D338 - and D361 added soulshift, afterlife and afflict, the three of the table's
+// part 2 that print a number. Rampage and modular are NOT here: neither is in the
+// table, so neither line is the engine's own.
+const NUMBERED_TRIGGER_KEYWORDS: ReadonlySet<string> = new Set(['bushido', 'soulshift', 'afterlife', 'afflict']);
 import { parseEnchant, scrub, splitAbilityLines } from './targetParse';
 import { parseEntersTappedLine, parseChoosesColorOnEntry } from './replacementParse';
 
@@ -308,7 +312,33 @@ function isKeywordLine(line: string, face: OracleFace): boolean {
   // artifacts; reach`), and every part still goes through the same anchored predicate.
   const parts = line.split(/[,;]/);
   if (parts.length < 2) return false;
-  return parts.every((p) => clauseAccounted(p, face));
+  if (!parts.every((p) => clauseAccounted(p, face))) return false;
+  // ⚠️ D361 - A TRIGGERED KEYWORD PRINTED TWICE IS TWO ABILITIES AND THE ENGINE
+  // HAS ONE. `derive`'s `keywords` is a SET and the trigger bus asks it
+  // `has(keyword)`, so `Soulshift 4, soulshift 4` fires once where the card
+  // fires twice — Forked-Branch Garami returns one Spirit where its own reminder
+  // text says up to two. Every part reads, and the line is still refused.
+  //
+  // Asked of the TABLE rather than of a list spelled here (D122's rule, and the
+  // reason a static keyword is exempt: flying printed twice is still flying).
+  const fired = new Map<string, number>();
+  for (const part of parts) {
+    const kw = triggerKeywordOf(part);
+    if (kw !== null) fired.set(kw, (fired.get(kw) ?? 0) + 1);
+  }
+  for (const n of fired.values()) if (n > 1) return false;
+  return true;
+}
+
+/** The keyword this clause IS, when the engine runs that keyword from its trigger table. */
+function triggerKeywordOf(clause: string): string | null {
+  const s = clause.trim().replace(/\.$/, '').trim();
+  const bare = canonicalKeyword(s);
+  if (bare !== null) return KEYWORD_TRIGGERS.has(bare) ? bare : null;
+  const numbered = /^([a-z]+) (\d+)$/i.exec(s);
+  if (!numbered) return null;
+  const kw = canonicalKeyword(numbered[1] ?? '');
+  return kw !== null && KEYWORD_TRIGGERS.has(kw) ? kw : null;
 }
 
 /** Does this clause OPEN with one of the keywords Scryfall printed on the card? */

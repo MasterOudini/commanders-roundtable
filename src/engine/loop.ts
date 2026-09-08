@@ -15,7 +15,7 @@
 import { assignBlockerDamage, creaturesInCombat, canAttack, canAttackDefender, legalDefenders, needsFirstStrikeSubstep, requiredAttackers, resolveCombatDamage } from './combat';
 import { derive, makeDeriveCache } from './derive';
 import { drawEvents, drewCardsMarker, effectEvents, effectResult } from './effects';
-import { keywordTriggerDef } from './keywordTriggers';
+import { keywordTargetSpecs, keywordTriggerDef } from './keywordTriggers';
 import { candidatesFromState, minimumLegalTargets, targetAllowed, untargetableByRule, type TargetingSource } from './targets';
 import { legalModes, modalEffects, modeSpecs } from './modes';
 import { checkGameOver, checkStateBasedActions } from './sba';
@@ -981,8 +981,21 @@ export function resolveAbility(
   const ref = obj.abilityRef ?? '';
   const at = ref.indexOf('#a');
   const printedAbility = obj.kind === 'activated' && at >= 0 && srcFace ? srcFace.activated[Number(ref.slice(at + 2))] : undefined;
+  // ⚠️ A KEYWORD TRIGGER'S CLAUSES LIVE ON THE TABLE (D361): `keywordTriggerDef`
+  // builds its def from an entry whose `targets` is a FUNCTION of the source, so
+  // the def carries none and this re-check would fall to the no-clause branch —
+  // and a soulshift aimed at a card somebody exiled in response would still count
+  // as legal. The same shape gate 197 caught for an activated ability.
+  // ⚠️ The `#kw:` test comes FIRST so an ordinary ability does not pay for a
+  // `ScriptCtx` it has no use for: every ability resolution passes through here.
+  const keywordSpecs =
+    obj.abilityRef?.includes('#kw:') && obj.source
+      ? keywordTargetSpecs(scriptCtxFor(state, deps), obj.abilityRef, obj.source)
+      : [];
   const abilitySpecs =
-    modalModes && modalModes.length > 0 ? modeSpecs(modalModes, obj.modes) : def?.targets ?? printedAbility?.targets ?? [];
+    modalModes && modalModes.length > 0
+      ? modeSpecs(modalModes, obj.modes)
+      : def?.targets ?? printedAbility?.targets ?? keywordSpecs;
   if (obj.targets.length > 0 && !targetsStillLegal(state, deps, obj, srcFace, abilitySpecs)) {
     events.push(
       narrated(

@@ -5644,6 +5644,42 @@ const WANTED = [
   'Wirewood Herald',
   'Wretched Throng',
   'Yavimaya Elder',
+
+  // D361 - THE KEYWORD-TRIGGER TABLE, PART 2. The 31 cards whose ONLY remaining
+  // piece was one of soulshift, afterlife, dethrone, melee, training, afflict or
+  // ingest - a bare printed keyword line the engine now runs from its own table,
+  // so every one of them is complete with NO script.
+  'Apprentice Sharpshooter',
+  'Body of Jukai',
+  'Crawling Filth',
+  'Culling Drone',
+  'Debtors\' Transport',
+  'Deputized Protester',
+  'Enraged Revolutionary',
+  'Gibbering Kami',
+  'Grenzo\'s Cutthroat',
+  'Gryff Rider',
+  'Hundred-Talon Kami',
+  'Imperious Oligarch',
+  'Kami of Empty Graves',
+  'Kami of Lunacy',
+  'Kami of the Palace Fields',
+  'Khenra Eternal',
+  'Marchesa\'s Emissary',
+  'Menagerie Liberator',
+  'Ministrant of Obligation',
+  'Mist Intruder',
+  'Nightsoil Kami',
+  'Orzhov Enforcer',
+  'Promised Kannushi',
+  'Spellweaver Eternal',
+  'Syndicate Messenger',
+  'Thousand-legged Kami',
+  'Torii Watchward',
+  'Treasonous Ogre',
+  'Venerable Kumo',
+  'Vine Kami',
+  'Wings of the Guard',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -5882,6 +5918,9 @@ const WANTED_TOKENS = [
   // D329 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Wolf', set: 'tvow', cn: '11', key: 'WOLF_3_2_R_CREATURE_TOKEN' },
   { name: 'Spirit', set: 'ttdm', cn: '6', key: 'SPIRIT_1_1_W_CREATURE_TOKEN' },
+  // D361 - `afterlife`'s Spirit: 1/1 white AND black, with flying. A distinct key
+  // from every other Spirit above, because the id is what the pool is keyed on.
+  { name: 'Spirit', set: 'wmkm', cn: '2', key: 'SPIRIT_BW_FLYING_TOKEN' },
   { name: 'Elf', set: 'tecl', cn: '4', key: 'ELF_2_2_BG_CREATURE_TOKEN' },
   // D336 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Ape Villain', set: 'tmsc', cn: '26', key: 'APE_VILLAIN_3_3_R_CREATURE_HASTE_TOKEN' },

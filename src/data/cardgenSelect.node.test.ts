@@ -2035,7 +2035,15 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // way round is the SCRIPTABLE number: a seam raises it (1,050 -> 1,145) because a sentence
     // the vocabulary can read is a card a row can take, and a wave lowers it (1,145 -> 1,067)
     // because a card a row has taken is one no row can take again.
-    expect.soft(all.length).toBe(0);
+    // ⚠️ D361 - NON-ZERO ON PURPOSE, and the scriptable number says so again: this is a
+    // SEAM (1,067 -> 1,080). Seven keywords joined the native trigger table, which landed
+    // the 31 cards whose ONLY remaining piece was the keyword line and left THIRTEEN more
+    // whose keyword line now reads and whose other line is an ordinary row - Burr Grafter,
+    // Eternal of Harsh Truths, Frontline Devastator, Hopeful Initiate, Knight of the Last
+    // Breath, Marchesa's Infiltrator, Merciless Eternal, Pus Kami, Rural Recruit, Scuttling
+    // Death, Sludge Crawler, Torens Fist of the Angels, Seraph of the Scales. They are
+    // OFFERED rather than refused, so they belong here and not in the ledger.
+    expect.soft(all.length).toBe(13);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

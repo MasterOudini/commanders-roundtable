@@ -170994,6 +170994,1113 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "APPRENTICE_SHARPSHOOTER": {
+    "scryfallId": "baca0984-65e1-4b70-8010-c487f593f86b",
+    "oracleId": "40d6e1ff-995b-42fc-8146-8d5e5f1adcd9",
+    "name": "Apprentice Sharpshooter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Apprentice Sharpshooter",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Archer",
+        "oracleText": "Reach\nTraining (Whenever this creature attacks with another creature with greater power, put a +1/+1 counter on this creature.)",
+        "flavorText": "Innistrad's best archers are trained by the Quiver of Kessig, an order of cathars who specialize in ranged combat.",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "baca0984-65e1-4b70-8010-c487f593f86b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach",
+      "Training"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "452",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BODY_OF_JUKAI": {
+    "scryfallId": "f43fe8e0-23ab-4fe7-8a48-1902be142c6a",
+    "oracleId": "90d33e75-17bd-4fc9-82f5-eff254135df5",
+    "name": "Body of Jukai",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Body of Jukai",
+        "manaCost": "{7}{G}{G}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Trample\nSoulshift 8 (When this creature dies, you may return target Spirit card with mana value 8 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "8",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Luca Zontini",
+        "imageId": "f43fe8e0-23ab-4fe7-8a48-1902be142c6a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 9,
+    "keywords": [
+      "Trample",
+      "Soulshift"
+    ],
+    "setCode": "bok",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRAWLING_FILTH": {
+    "scryfallId": "9c735bda-5454-4177-a23a-f9f00b7480d2",
+    "oracleId": "d76522e0-324f-4ec9-b36e-0fe7448aae69",
+    "name": "Crawling Filth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crawling Filth",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\nSoulshift 5 (When this creature dies, you may return target Spirit card with mana value 5 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Martina Pilcerova",
+        "imageId": "9c735bda-5454-4177-a23a-f9f00b7480d2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Fear",
+      "Soulshift"
+    ],
+    "setCode": "bok",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CULLING_DRONE": {
+    "scryfallId": "1a623415-46c0-45aa-ab75-1e2d9708013a",
+    "oracleId": "bda0ca68-78a6-4b32-842f-0bee9a9c84ef",
+    "name": "Culling Drone",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Culling Drone",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Eldrazi Drone",
+        "oracleText": "Devoid (This card has no color.)\nIngest (Whenever this creature deals combat damage to a player, that player exiles the top card of their library.)",
+        "flavorText": "Silence rules Bala Ged, broken only by the skittering of Eldrazi.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alejandro Mirabal",
+        "imageId": "1a623415-46c0-45aa-ab75-1e2d9708013a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Devoid",
+      "Ingest"
+    ],
+    "setCode": "bfz",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEBTORS_TRANSPORT": {
+    "scryfallId": "7cd03b99-d62e-428a-9e0d-097f1227a4da",
+    "oracleId": "72f89173-2998-45e6-94da-5b5bb9738a6b",
+    "name": "Debtors' Transport",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Debtors' Transport",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Thrull",
+        "oracleText": "Afterlife 2 (When this creature dies, create two 1/1 white and black Spirit creature tokens with flying.)",
+        "flavorText": "By design, the sarcophagus muffles the debtors' moans but does not silence them.",
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jakub Kasper",
+        "imageId": "7cd03b99-d62e-428a-9e0d-097f1227a4da"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Afterlife"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEPUTIZED_PROTESTER": {
+    "scryfallId": "8afe85a2-1947-4dd5-98f8-d7ff8df088a1",
+    "oracleId": "09947592-1730-4c1c-bfa5-be53a68d6919",
+    "name": "Deputized Protester",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deputized Protester",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nMelee (Whenever this creature attacks, it gets +1/+1 until end of turn for each opponent you attacked this combat.)",
+        "flavorText": "Butcher's training, warrior's heart.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "8afe85a2-1947-4dd5-98f8-d7ff8df088a1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Melee",
+      "Menace"
+    ],
+    "setCode": "cn2",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ENRAGED_REVOLUTIONARY": {
+    "scryfallId": "dffcd035-e7e7-4763-813c-5e4193cdb893",
+    "oracleId": "f4b8e856-17a9-44db-bce6-312a6bd2af32",
+    "name": "Enraged Revolutionary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Enraged Revolutionary",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Dethrone (Whenever this creature attacks the player with the most life or tied for most life, put a +1/+1 counter on it.)",
+        "flavorText": "When every right is voted away, only rage remains.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Drew Baker",
+        "imageId": "dffcd035-e7e7-4763-813c-5e4193cdb893"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Dethrone"
+    ],
+    "setCode": "cns",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIBBERING_KAMI": {
+    "scryfallId": "9a3e988f-314c-4e83-b279-c2a736933e64",
+    "oracleId": "8a5610bd-5f04-43f3-9e2e-d6c728ee899b",
+    "name": "Gibbering Kami",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gibbering Kami",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nSoulshift 3 (When this creature dies, you may return target Spirit card with mana value 3 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jim Pavelec",
+        "imageId": "9a3e988f-314c-4e83-b279-c2a736933e64"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Soulshift"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRENZO_S_CUTTHROAT": {
+    "scryfallId": "9bb46638-eeb2-4bb3-bef2-bedd343722ef",
+    "oracleId": "9a133991-8a7a-4bfd-b0ae-d76433450c03",
+    "name": "Grenzo's Cutthroat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grenzo's Cutthroat",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Rogue",
+        "oracleText": "First strike\nDethrone (Whenever this creature attacks the player with the most life or tied for most life, put a +1/+1 counter on it.)",
+        "flavorText": "\"Their guards are soft, ready to welcome a sharp dagger.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "9bb46638-eeb2-4bb3-bef2-bedd343722ef"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Dethrone",
+      "First strike"
+    ],
+    "setCode": "cns",
+    "collectorNumber": "32",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRYFF_RIDER": {
+    "scryfallId": "5317077b-370e-41a9-9162-c713362fd7f4",
+    "oracleId": "e1ca5c24-bbd8-4eed-bb2b-17163f90e72b",
+    "name": "Gryff Rider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gryff Rider",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Flying\nTraining (Whenever this creature attacks with another creature with greater power, put a +1/+1 counter on this creature.)",
+        "flavorText": "\"Keep your heels down and bend at the hips as your mount takes flight. She'll do the rest.\"\n—Anders, cathar drillmaster",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Yongjae Choi",
+        "imageId": "5317077b-370e-41a9-9162-c713362fd7f4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Training"
+    ],
+    "setCode": "vow",
+    "collectorNumber": "15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HUNDRED_TALON_KAMI": {
+    "scryfallId": "a7b2892a-5c16-4624-9a47-6a47f10e2466",
+    "oracleId": "100b4440-c588-423e-93d2-23c9b595614d",
+    "name": "Hundred-Talon Kami",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hundred-Talon Kami",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nSoulshift 4 (When this creature dies, you may return target Spirit card with mana value 4 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "a7b2892a-5c16-4624-9a47-6a47f10e2466"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Soulshift"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IMPERIOUS_OLIGARCH": {
+    "scryfallId": "81758315-e863-4338-8157-e3601ad1ce99",
+    "oracleId": "b0381c2a-40e2-4002-82e3-ae2d687daed3",
+    "name": "Imperious Oligarch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Imperious Oligarch",
+        "manaCost": "{W}{B}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Vigilance\nAfterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "81758315-e863-4338-8157-e3601ad1ce99"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Afterlife",
+      "Vigilance"
+    ],
+    "setCode": "pio",
+    "collectorNumber": "227",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAMI_OF_EMPTY_GRAVES": {
+    "scryfallId": "30502f07-760c-46d1-8b4a-d4bd4a23201f",
+    "oracleId": "bff92baa-fc0e-4da4-8bd5-e57e4963d642",
+    "name": "Kami of Empty Graves",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kami of Empty Graves",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Soulshift 3 (When this creature dies, you may return target Spirit card with mana value 3 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Greg Hildebrandt",
+        "imageId": "30502f07-760c-46d1-8b4a-d4bd4a23201f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Soulshift"
+    ],
+    "setCode": "sok",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAMI_OF_LUNACY": {
+    "scryfallId": "4baef070-d265-4c6d-9b4b-3cafbd3b34c3",
+    "oracleId": "5c848e4a-f0f7-4659-b7b1-f468efba9563",
+    "name": "Kami of Lunacy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kami of Lunacy",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nSoulshift 5 (When this creature dies, you may return target Spirit card with mana value 5 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "4baef070-d265-4c6d-9b4b-3cafbd3b34c3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Soulshift"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "119",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAMI_OF_THE_PALACE_FIELDS": {
+    "scryfallId": "690980ce-bbdc-4d52-b34e-2bad11e436a1",
+    "oracleId": "e8d44867-9519-41f2-aa0f-4079444aeef9",
+    "name": "Kami of the Palace Fields",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kami of the Palace Fields",
+        "manaCost": "{5}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying, first strike\nSoulshift 5 (When this creature dies, you may return target Spirit card with mana value 5 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "690980ce-bbdc-4d52-b34e-2bad11e436a1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "First strike",
+      "Soulshift"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KHENRA_ETERNAL": {
+    "scryfallId": "1892e24d-57c1-4a56-968a-77f8a8b508fc",
+    "oracleId": "91b46b22-8062-434b-8432-5ed1062ccaf9",
+    "name": "Khenra Eternal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Khenra Eternal",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie Jackal Warrior",
+        "oracleText": "Afflict 1 (Whenever this creature becomes blocked, defending player loses 1 life.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "1892e24d-57c1-4a56-968a-77f8a8b508fc"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Afflict"
+    ],
+    "setCode": "akr",
+    "collectorNumber": "109",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARCHESA_S_EMISSARY": {
+    "scryfallId": "567a2444-30c4-49aa-a1f4-b5f4fb98d6fa",
+    "oracleId": "7a67cb39-6b53-4f2b-a52c-3861119eba12",
+    "name": "Marchesa's Emissary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Marchesa's Emissary",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Hexproof (This creature can't be the target of spells or abilities your opponents control.)\nDethrone (Whenever this creature attacks the player with the most life or tied for most life, put a +1/+1 counter on it.)",
+        "flavorText": "\"The Black Rose doesn't tolerate weeds.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tyler Jacobson",
+        "imageId": "567a2444-30c4-49aa-a1f4-b5f4fb98d6fa"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Hexproof",
+      "Dethrone"
+    ],
+    "setCode": "cns",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MENAGERIE_LIBERATOR": {
+    "scryfallId": "e7b2b659-2689-4de0-aa07-2568b45f86a8",
+    "oracleId": "d91dd07a-93e1-4f88-b5f1-faa56df70ed0",
+    "name": "Menagerie Liberator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Menagerie Liberator",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Trample\nMelee (Whenever this creature attacks, it gets +1/+1 until end of turn for each opponent you attacked this combat.)",
+        "flavorText": "\"The wild are neither your thralls nor your amusement.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "e7b2b659-2689-4de0-aa07-2568b45f86a8"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample",
+      "Melee"
+    ],
+    "setCode": "cn2",
+    "collectorNumber": "67",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MINISTRANT_OF_OBLIGATION": {
+    "scryfallId": "30d9c9db-28a0-47fa-b561-6040e47c2392",
+    "oracleId": "0cee5539-d10b-4de2-aee8-e02f0e24ac26",
+    "name": "Ministrant of Obligation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ministrant of Obligation",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Afterlife 2 (When this creature dies, create two 1/1 white and black Spirit creature tokens with flying.)",
+        "flavorText": "When the price of your sins comes due, the Church of Deals is there to collect.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Bastien L. Deharme",
+        "imageId": "30d9c9db-28a0-47fa-b561-6040e47c2392"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Afterlife"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIST_INTRUDER": {
+    "scryfallId": "f8c2e662-d8c3-44d4-b666-fe0d4a046271",
+    "oracleId": "e4e9b48b-92f9-46ac-b55a-573bc328b11a",
+    "name": "Mist Intruder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mist Intruder",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Eldrazi Drone",
+        "oracleText": "Devoid (This card has no color.)\nFlying\nIngest (Whenever this creature deals combat damage to a player, that player exiles the top card of their library.)",
+        "flavorText": "The wastes spread as quickly as the wind.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jason Rainville",
+        "imageId": "f8c2e662-d8c3-44d4-b666-fe0d4a046271"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Devoid",
+      "Ingest"
+    ],
+    "setCode": "bfz",
+    "collectorNumber": "61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIGHTSOIL_KAMI": {
+    "scryfallId": "5902f863-171e-4bb2-9d48-2c679d41f1a9",
+    "oracleId": "2efd1c86-41ba-4b86-bf63-e60e3263cb06",
+    "name": "Nightsoil Kami",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nightsoil Kami",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Soulshift 5 (When this creature dies, you may return target Spirit card with mana value 5 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jim Nelson",
+        "imageId": "5902f863-171e-4bb2-9d48-2c679d41f1a9"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Soulshift"
+    ],
+    "setCode": "sok",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORZHOV_ENFORCER": {
+    "scryfallId": "6a72b49e-be14-485b-a467-31cbac9aa1c5",
+    "oracleId": "f60b879e-82b4-442d-a544-2349429fe4c9",
+    "name": "Orzhov Enforcer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orzhov Enforcer",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Deathtouch\nAfterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)",
+        "flavorText": "\"You'll pay what you owe, with your money or your life.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "6a72b49e-be14-485b-a467-31cbac9aa1c5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Afterlife",
+      "Deathtouch"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PROMISED_KANNUSHI": {
+    "scryfallId": "7aac4236-9573-4cff-88d9-711a56da4346",
+    "oracleId": "b92bd85f-20c4-410e-af19-77d987d7dc02",
+    "name": "Promised Kannushi",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Promised Kannushi",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "Soulshift 7 (When this creature dies, you may return target Spirit card with mana value 7 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Thompson",
+        "imageId": "7aac4236-9573-4cff-88d9-711a56da4346"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Soulshift"
+    ],
+    "setCode": "sok",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPELLWEAVER_ETERNAL": {
+    "scryfallId": "10466618-a867-4ec2-8e8c-e7217e06ea62",
+    "oracleId": "71f3d3d3-3f82-43f6-b2a9-d21afbdd7739",
+    "name": "Spellweaver Eternal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spellweaver Eternal",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Zombie Snake Wizard",
+        "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nAfflict 2 (Whenever this creature becomes blocked, defending player loses 2 life.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jason Felix",
+        "imageId": "10466618-a867-4ec2-8e8c-e7217e06ea62"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Prowess",
+      "Afflict"
+    ],
+    "setCode": "akr",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SYNDICATE_MESSENGER": {
+    "scryfallId": "10273046-4c74-42d8-afaa-6cfbe0bd4e8f",
+    "oracleId": "f5f4d78b-ed2b-471b-9ece-237fb55adc13",
+    "name": "Syndicate Messenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Syndicate Messenger",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nAfterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)",
+        "flavorText": "\"Many wings haunt the skies these days. Few of them bear good tidings.\"\n—Lavinia",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Viktor Titov",
+        "imageId": "10273046-4c74-42d8-afaa-6cfbe0bd4e8f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Afterlife"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THOUSAND_LEGGED_KAMI": {
+    "scryfallId": "5c88355e-dff0-4d51-a33c-08e14d6217d4",
+    "oracleId": "2f3bd1fc-387e-41b7-b19b-62dd9fbe2d10",
+    "name": "Thousand-legged Kami",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thousand-legged Kami",
+        "manaCost": "{6}{G}{G}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Soulshift 7 (When this creature dies, you may return target Spirit card with mana value 7 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nottsuo",
+        "imageId": "5c88355e-dff0-4d51-a33c-08e14d6217d4"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Soulshift"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "246",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TORII_WATCHWARD": {
+    "scryfallId": "b8ec0916-f320-4fad-9ec5-99aeecfda0e3",
+    "oracleId": "8b52c2ed-c1a1-4abc-a33b-223c3d0e229d",
+    "name": "Torii Watchward",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Torii Watchward",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Vigilance (Attacking doesn't cause this creature to tap.)\nSoulshift 4 (When this creature dies, you may return target Spirit card with mana value 4 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jeff Miracola",
+        "imageId": "b8ec0916-f320-4fad-9ec5-99aeecfda0e3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Vigilance",
+      "Soulshift"
+    ],
+    "setCode": "sok",
+    "collectorNumber": "30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TREASONOUS_OGRE": {
+    "scryfallId": "6bc3b304-4109-4f67-b0b0-f1c1de66ff0e",
+    "oracleId": "826d4279-1576-4898-a1c2-26fd547fb0d0",
+    "name": "Treasonous Ogre",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Treasonous Ogre",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Ogre Shaman",
+        "oracleText": "Dethrone (Whenever this creature attacks the player with the most life or tied for most life, put a +1/+1 counter on it.)\nPay 3 life: Add {R}.",
+        "flavorText": "The ogre was right, the view was breathtaking—mostly due to all the screaming on the way down.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jay Howell",
+        "imageId": "6bc3b304-4109-4f67-b0b0-f1c1de66ff0e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Dethrone"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "2007",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VENERABLE_KUMO": {
+    "scryfallId": "308566ed-18cc-4e3b-b5ab-d5b17795f2f1",
+    "oracleId": "3910a155-89dc-45fe-98ec-762e8e42f052",
+    "name": "Venerable Kumo",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Venerable Kumo",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nSoulshift 4 (When this creature dies, you may return target Spirit card with mana value 4 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "308566ed-18cc-4e3b-b5ab-d5b17795f2f1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Reach",
+      "Soulshift"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "248",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VINE_KAMI": {
+    "scryfallId": "fa5241c8-7f50-413e-9ac0-9ab0ad5c884c",
+    "oracleId": "e77923b9-7c72-4cc3-96dd-084908593a98",
+    "name": "Vine Kami",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vine Kami",
+        "manaCost": "{6}{G}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nSoulshift 6 (When this creature dies, you may return target Spirit card with mana value 6 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tsutomu Kawade",
+        "imageId": "fa5241c8-7f50-413e-9ac0-9ab0ad5c884c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Menace",
+      "Soulshift"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "249",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WINGS_OF_THE_GUARD": {
+    "scryfallId": "4084a009-f366-416b-b82d-a762189abf43",
+    "oracleId": "73c0a809-fb0e-4773-a385-a6e32feb03cd",
+    "name": "Wings of the Guard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wings of the Guard",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nMelee (Whenever this creature attacks, it gets +1/+1 until end of turn for each opponent you attacked this combat.)",
+        "flavorText": "Within the city walls, Adriana's falcons hunt vermin of all kinds.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "4084a009-f366-416b-b82d-a762189abf43"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Melee"
+    ],
+    "setCode": "cn2",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -175235,6 +176342,43 @@
     "keywords": [],
     "setCode": "ttdm",
     "collectorNumber": "6",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SPIRIT_BW_FLYING_TOKEN": {
+    "scryfallId": "00b75290-4d07-4c97-bf3e-3db9c4026b08",
+    "oracleId": "18ef473d-f958-4bff-8045-154f6adc6b04",
+    "name": "Spirit",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Spirit",
+        "manaCost": "",
+        "typeLine": "Token Creature — Spirit",
+        "oracleText": "Flying",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Yukihiro Maruo",
+        "imageId": "00b75290-4d07-4c97-bf3e-3db9c4026b08"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "wmkm",
+    "collectorNumber": "2",
     "commanderLegality": "not_legal",
     "singleImage": true
   },

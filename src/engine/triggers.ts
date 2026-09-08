@@ -1041,8 +1041,13 @@ export function collectTriggers(
             controller: card.controller,
             abilityRef: `${card.oracleId}#kw:${keyword}`,
             label: kt.label(ctx, id),
-            optional: false,
-            specs: [],
+            // D361 - a keyword trigger may be OPTIONAL (soulshift) and may TARGET,
+            // and both ride exactly as a script def's do. ⚠️ The clauses are asked
+            // of the entry HERE rather than stored on it, because a keyword's number
+            // is read off the printed text and a soulshift 3 and a soulshift 8 are
+            // the same table entry with different bounds.
+            optional: kt.optional === true,
+            specs: kt.targets ? kt.targets(ctx, id) : [],
             ...(item !== undefined ? { item } : {}),
           });
         }

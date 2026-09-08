@@ -49,6 +49,15 @@ const CANON: Readonly<Record<string, Keyword>> = {
   persist: 'persist',
   undying: 'undying',
   evolve: 'evolve',
+  // D361 - the table, part 2. Scryfall spells each of these as the bare keyword
+  // with the amount only in the printed text, exactly as it does for bushido.
+  soulshift: 'soulshift',
+  afterlife: 'afterlife',
+  dethrone: 'dethrone',
+  melee: 'melee',
+  training: 'training',
+  afflict: 'afflict',
+  ingest: 'ingest',
   // D310 - characteristic-defining keywords the derive reads at layer 1.
   changeling: 'changeling',
   devoid: 'devoid',

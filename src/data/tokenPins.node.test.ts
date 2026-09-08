@@ -6,6 +6,10 @@
 // script prints must resolve through the fixture oracle, which means its
 // printing is PINNED in `make-engine-fixtures.cjs`'s token list. This scans the
 // scripts by file and fails BY KEY.
+//
+// ⚠️ D361 - and the ENGINE's own table: `afterlife` creates its Spirit from
+// `keywordTriggers.ts`, which no script directory holds. A tripwire that cannot
+// see every site that creates a token is green over nothing.
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, test } from 'vitest';
@@ -17,9 +21,12 @@ describe('every token a shipped script creates is a pinned fixture (D298)', () =
     const dir = join(__dirname, '..', 'engine', 'scripts', 'cards');
     const missingKey: string[] = [];
     const unpinned: string[] = [];
-    for (const entry of readdirSync(dir)) {
-      if (!entry.endsWith('.ts') || entry.includes('.test.')) continue;
-      const src = readFileSync(join(dir, entry), 'utf8');
+    const files: [string, string][] = readdirSync(dir)
+      .filter((e) => e.endsWith('.ts') && !e.includes('.test.'))
+      .map((e) => [e, join(dir, e)]);
+    files.push(['keywordTriggers.ts', join(__dirname, '..', 'engine', 'keywordTriggers.ts')]);
+    for (const [entry, path] of files) {
+      const src = readFileSync(path, 'utf8');
       for (const m of src.matchAll(/tokenRef\('([^']+)'\)/g)) {
         const key = m[1] ?? '';
         const ref = TOKEN_TABLE[key];

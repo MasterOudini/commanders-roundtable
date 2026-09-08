@@ -11521,6 +11521,114 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,899 files, 24,211 passed / 11 skipped ·
       500-seed gate, 6 shards, 612.1 s wall · build clean · probe 124/124 · battery 130/130.**
       ⚠️ **Reportables** (D360): the search wordings the vocabulary still refuses (a qualifier over a KEYWORD - `a card with flash`; a graveyard searched as well as a library; `put those cards on top in any order`, a second decision and therefore an ordering prompt; `up to X` off the cast's X); the row maker's own seventeen (the colour-predicate sacrifice fixture first - it is five cards and the ENGINE already charges the cost); then the families the seam map holds - the grant whose payload is a QUOTED ability (355 one-piece cards, dossier in d354/DESIGN-quoted-grant.md, a shared runtime CARRIER plus several payload families rather than one batch), the attached statics the Aura and Equipment rows cannot read (351, mass in compound shapes), the Aura that REDEFINES its host (18 - Lignify, Frogify, Darksteel Mutation, and every piece already exists: D151's `hasAbilities`, layer 7b's base P/T, D311's type change), the bare keyword or ability word (185, one card each); prior items stand.
+- [x] **M6.4gt — THE KEYWORD-TRIGGER TABLE, PART 2: seven more keywords whose
+      printed rule is a triggered ability the engine already had, and a keyword
+      printed TWICE is two abilities the derive's Set cannot count; 31 cards
+      land, ALL of them with no script (2026-09-08):**
+      **7,554 of 31,692 Commander-legal cards now execute completely, up
+      from 7,524 (+30: 31 landed, ONE lost).** `SHIPPED_SCRIPTS` 4,759
+      (UNCHANGED — no script ships); ledger 966 (unchanged, and nothing was owed:
+      a bare keyword line was refused at the CLASSIFIER, one step before a
+      drafter, so not one of the 31 was ever named in it). Fixtures 5,236
+      (5,099 by name + 137 tokens: the 31 cards and ONE new token pin — the 1/1
+      white AND black flying Spirit `afterlife` makes, a distinct key from every
+      other Spirit in the list). **Select pool 0 → 13.** Decisions in **D361**.
+      ⚠️ **Measured first, and the measurement had to be corrected before it was
+      usable.** The seam map's densest family by cards-per-wording is a bare
+      keyword or ability word — 256 cards across 67 wordings, 3.82 each. A first
+      cut that allowed a dash followed by prose counted **1,159 cards across 286
+      "keywords"**: every ABILITY WORD in the format (`Landfall —`, `Domain —`),
+      swallowed whole by one `.*`. Refusing any line that carries sentence
+      punctuation or prose after the dash gives the honest figure — **206 cards
+      across 46 keywords** — and a per-keyword breakdown is what picks the seven.
+      ⚠️ **Every keyword is its own mechanic, so the family is not one decision.**
+      What IS one is D308's native table: seven keywords already run from one
+      entry apiece with no script per card, and seven more are that table one
+      entry over — soulshift 13, afterlife 5, dethrone 4, melee 3, training 2,
+      afflict 2, ingest 2, **31 cards, every one named in the probe before a line
+      was written and every one checked against the landing afterwards.**
+      ⚠️ Refused, each for a reason rather than a shrug: convoke 14, delve 5 and
+      improvise 6 are cast-time payment sources; suspend 13, cascade 9, myriad 7
+      and phasing 6 are subsystems; fabricate 10, unleash 9, riot 4, devour 4 and
+      enlist 5 ASK as the creature enters; modular 7 and bloodthirst 13 are
+      REPLACEMENTS rather than triggers, and modular's dies half needs the counter
+      count as last known information the engine does not carry; fading 4 and
+      vanishing 2 need a counter kind outside `'+1/+1' | '-1/-1'`; provoke 4
+      needs a block REQUIREMENT.
+      ⚠️ **The table gained the two fields its first entry needed:** `soulshift`
+      is the first keyword trigger that is OPTIONAL and that TARGETS. Both ride
+      machinery a script's def has used since D128 and D147; what is new is that
+      the bus copies them off the TABLE as well as off a def. ⚠️ `targets` is a
+      FUNCTION of (ctx, self), not an array, for the table's own reason — a
+      keyword's NUMBER is read off the printed text at resolution and never
+      stored, so a soulshift 3 and a soulshift 8 are the same entry with
+      different bounds — and the clause is handed to `parseTargetClauses`, the
+      reader every card script uses, rather than hand-built, so a keyword's aim
+      cannot drift from what the engine's own parser makes of the same words.
+      ⚠️ **CR 608.2b's re-check had to be taught to ask the table**, or a
+      soulshift aimed at a card somebody exiled in response would still have
+      counted as legal: gate 197's shape (an activated ability whose clauses live
+      on the parsed face, not on the def) one ability kind over.
+      ⚠️⚠️ **AND CHECKING THE LANDING AGAINST THE MEASUREMENT FOUND A
+      HALF-EXECUTION OLDER THAN THIS DECISION.** The wave was measured at 31 and
+      landed 32. The extra was `Forked-Branch Garami`, which prints **`Soulshift
+      4, soulshift 4`** — TWO instances, its own reminder text saying "up to two
+      target Spirit cards". `isKeywordLine` splits a comma list and accounts each
+      part, so both halves were accounted; but `derive`'s `keywords` is a **SET**
+      and the bus asks it `has(keyword)`, so the table fires ONCE. **And the
+      same shape had been claimed since D308: `Thor Odinson` and `Khenra
+      Spellspear` print PROWESS TWICE** — Scryfall's own reminder says "Each
+      instance of prowess triggers separately" — and both counted complete while
+      the engine fired it once. A keyword line that names a TRIGGER keyword more
+      than once is refused now (a static keyword printed twice is still that
+      keyword; a triggered one triggers twice), asked of the TABLE rather than of
+      a list spelled beside it. Thor Odinson is the one card the wave LOST, and
+      the legendary pool falling 209 → 208 is that fix, not a regression.
+      ⚠️ Three test-side faults, each a pinned trap met again: the optional prompt
+      is raised ON RESOLUTION, so the walk has to reach it (a whole priority round
+      after the aim); p1's second turn is turn 3 at two seats and turn **4** at
+      three, so a walk keyed on the NUMBER ran a three-seat game to `gameOver`;
+      and a library top snapshotted before the opponent's own draw step is a card
+      already drawn.
+      **Landed:** 31 AUTO FLIPS with no script — the 13 soulshift Kami and their
+      kin (Kami of Empty Graves, Venerable Kumo, Kami of Lunacy, Nightsoil Kami,
+      Thousand-legged Kami, Kami of the Palace Fields, Promised Kannushi,
+      Gibbering Kami, Crawling Filth, Hundred-Talon Kami, Torii Watchward, Body of
+      Jukai, Vine Kami), the 5 afterlife bodies (Syndicate Messenger, Ministrant
+      of Obligation, Orzhov Enforcer, Debtors' Transport, Imperious Oligarch), the
+      4 dethrone attackers (Marchesa's Emissary, Treasonous Ogre, Grenzo's
+      Cutthroat, Enraged Revolutionary), the 3 melee fliers (Wings of the Guard,
+      Deputized Protester, Menagerie Liberator), training (Gryff Rider, Apprentice
+      Sharpshooter), afflict (Spellweaver Eternal, Khenra Eternal) and ingest
+      (Culling Drone, Mist Intruder). No wave of rows: the seam's own flips ARE
+      the landing, and the bot's own reach rose to 7,494 cards from 7,464.
+      Tests: `keywordTriggers2.test.ts` (9: each keyword on one of its own cards,
+      both directions where the rule has two, and every game replays).
+      Fixtures 5,236 · botPool artifact 418 / creature 4,382 / enchantment 393 /
+      instant 1,020 / land 558 / sorcery 783 - auto 1,003 / assisted 1,881 /
+      autoAnyFace 1,012 · ladder [1080, 1146, 2741, 4579, 5925] · tier3 residual
+      244 → 214 · batch.json 31 · select pool 13.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,900 files, 24,220 passed / 11 skipped ·
+      500-seed gate, 6 shards, 684.7 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D361): the THIRTEEN cards this seam made offerable
+      (a keyword line that now reads beside one other line the row maker can take
+      — Burr Grafter, Eternal of Harsh Truths, Frontline Devastator, Hopeful
+      Initiate, Knight of the Last Breath, Marchesa's Infiltrator, Merciless
+      Eternal, Pus Kami, Rural Recruit, Scuttling Death, Sludge Crawler, Torens
+      Fist of the Angels, Seraph of the Scales); then the keywords the table
+      still refuses, each with its own missing piece — the ENTRY REPLACEMENTS
+      (bloodthirst 13, modular 7, graft 2: a keyword `ReplacementDef`, which the
+      table has no half for, and modular also wants the counter count as last
+      known information), the ENTRY CHOICES (fabricate 10, unleash 9, riot 4,
+      devour 4, enlist 5, amplify 3: an asked choice as the creature enters), the
+      counter KINDS outside `'+1/+1' | '-1/-1'` (fading 4, vanishing 2, sunburst
+      2), the block REQUIREMENT (provoke 4), and the cast-time payment sources
+      (convoke 14, delve 5, improvise 6); then the families the seam map holds —
+      the grant whose payload is a QUOTED ability (355 one-piece cards, dossier in
+      d354/DESIGN-quoted-grant.md), the attached statics the Aura and Equipment
+      rows cannot read (351), the Aura that REDEFINES its host (18); prior items
+      stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
