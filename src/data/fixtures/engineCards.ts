@@ -5155,6 +5155,19 @@ export const JESKAI_MONUMENT: CardData = F.JESKAI_MONUMENT as CardData;
 export const SPIKE_ROGUE: CardData = F.SPIKE_ROGUE as CardData;
 export const ARCUM_S_ASTROLABE: CardData = F.ARCUM_S_ASTROLABE as CardData;
 export const ICEHIDE_GOLEM: CardData = F.ICEHIDE_GOLEM as CardData;
+export const BOREAL_CENTAUR: CardData = F.BOREAL_CENTAUR as CardData;
+export const PILFERING_HAWK: CardData = F.PILFERING_HAWK as CardData;
+export const BOREAL_GRIFFIN: CardData = F.BOREAL_GRIFFIN as CardData;
+export const PHYREXIAN_IRONFOOT: CardData = F.PHYREXIAN_IRONFOOT as CardData;
+export const FROST_RAPTOR: CardData = F.FROST_RAPTOR as CardData;
+export const ZOMBIE_MUSHER: CardData = F.ZOMBIE_MUSHER as CardData;
+export const GRIM_DRAUGR: CardData = F.GRIM_DRAUGR as CardData;
+export const RIMEBOUND_DEAD: CardData = F.RIMEBOUND_DEAD as CardData;
+export const PHYREXIAN_SNOWCRUSHER: CardData = F.PHYREXIAN_SNOWCRUSHER as CardData;
+export const ICEBIND_PILLAR: CardData = F.ICEBIND_PILLAR as CardData;
+export const HAILSTORM_VALKYRIE: CardData = F.HAILSTORM_VALKYRIE as CardData;
+export const CHILLING_SHADE: CardData = F.CHILLING_SHADE as CardData;
+export const FROSTWALLA: CardData = F.FROSTWALLA as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -10436,6 +10449,19 @@ export const ENGINE_CARDS: CardData[] = [
   SPIKE_ROGUE,
   ARCUM_S_ASTROLABE,
   ICEHIDE_GOLEM,
+  BOREAL_CENTAUR,
+  PILFERING_HAWK,
+  BOREAL_GRIFFIN,
+  PHYREXIAN_IRONFOOT,
+  FROST_RAPTOR,
+  ZOMBIE_MUSHER,
+  GRIM_DRAUGR,
+  RIMEBOUND_DEAD,
+  PHYREXIAN_SNOWCRUSHER,
+  ICEBIND_PILLAR,
+  HAILSTORM_VALKYRIE,
+  CHILLING_SHADE,
+  FROSTWALLA,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

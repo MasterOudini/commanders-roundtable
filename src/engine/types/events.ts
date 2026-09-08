@@ -202,8 +202,20 @@ export type EventBody =
   | { readonly t: 'PoisonChanged'; readonly player: PlayerId; readonly delta: number; readonly to: number }
   /** D332 - CR 724: the crown moves to `player`. */
   | { readonly t: 'MonarchChanged'; readonly player: PlayerId }
-  | { readonly t: 'ManaAdded'; readonly player: PlayerId; readonly mana: ManaPool; readonly source: InstanceId | null }
-  | { readonly t: 'ManaSpent'; readonly player: PlayerId; readonly mana: ManaPool }
+  /**
+   * D364 - `snow` says the SOURCE was a snow permanent (CR 107.4s), so the mana
+   * this adds can pay `{S}`. REQUIRED on purpose: an optional flag a new emitter
+   * forgets type-checks perfectly and silently makes ordinary mana.
+   */
+  | {
+      readonly t: 'ManaAdded';
+      readonly player: PlayerId;
+      readonly mana: ManaPool;
+      readonly source: InstanceId | null;
+      readonly snow: boolean;
+    }
+  /** D364 - `snow` is the SUB-POOL of this spend that came from snow mana. */
+  | { readonly t: 'ManaSpent'; readonly player: PlayerId; readonly mana: ManaPool; readonly snow: ManaPool }
   /** `lost` is what the pool held, so the UI can say "you lost {R}{R}". */
   | { readonly t: 'ManaPoolEmptied'; readonly player: PlayerId; readonly lost: ManaPool }
   | {

@@ -38,7 +38,7 @@ export const SONGS_OF_THE_DAMNED_SCRIPT: CardScript = {
       }
       if (n <= 0) return [];
       return [
-        { t: 'ManaAdded', player: obj.controller, mana: { ...EMPTY_POOL, B: n }, source: self },
+        { t: 'ManaAdded', player: obj.controller, mana: { ...EMPTY_POOL, B: n }, source: self, snow: false },
       ];
     },
   },

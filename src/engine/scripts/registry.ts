@@ -7,6 +7,20 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BOREAL_CENTAUR_SCRIPT } from './cards/borealCentaur';
+import { PILFERING_HAWK_SCRIPT } from './cards/pilferingHawk';
+import { BOREAL_GRIFFIN_SCRIPT } from './cards/borealGriffin';
+import { PHYREXIAN_IRONFOOT_SCRIPT } from './cards/phyrexianIronfoot';
+import { FROST_RAPTOR_SCRIPT } from './cards/frostRaptor';
+import { ZOMBIE_MUSHER_SCRIPT } from './cards/zombieMusher';
+import { GRIM_DRAUGR_SCRIPT } from './cards/grimDraugr';
+import { RIMEBOUND_DEAD_SCRIPT } from './cards/rimeboundDead';
+import { PHYREXIAN_SNOWCRUSHER_SCRIPT } from './cards/phyrexianSnowcrusher';
+import { ICEBIND_PILLAR_SCRIPT } from './cards/icebindPillar';
+import { HAILSTORM_VALKYRIE_SCRIPT } from './cards/hailstormValkyrie';
+import { CHILLING_SHADE_SCRIPT } from './cards/chillingShade';
+import { FROSTWALLA_SCRIPT } from './cards/frostwalla';
+import { ARCUMS_ASTROLABE_SCRIPT } from './cards/arcumsAstrolabe';
 import { SOLEMN_SIMULACRUM_SCRIPT } from './cards/solemnSimulacrum';
 import { HOPEFUL_INITIATE_SCRIPT } from './cards/hopefulInitiate';
 import { GHAVE_GURU_OF_SPORES_SCRIPT } from './cards/ghaveGuruOfSpores';
@@ -4821,6 +4835,20 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BOREAL_CENTAUR_SCRIPT,
+  PILFERING_HAWK_SCRIPT,
+  BOREAL_GRIFFIN_SCRIPT,
+  PHYREXIAN_IRONFOOT_SCRIPT,
+  FROST_RAPTOR_SCRIPT,
+  ZOMBIE_MUSHER_SCRIPT,
+  GRIM_DRAUGR_SCRIPT,
+  RIMEBOUND_DEAD_SCRIPT,
+  PHYREXIAN_SNOWCRUSHER_SCRIPT,
+  ICEBIND_PILLAR_SCRIPT,
+  HAILSTORM_VALKYRIE_SCRIPT,
+  CHILLING_SHADE_SCRIPT,
+  FROSTWALLA_SCRIPT,
+  ARCUMS_ASTROLABE_SCRIPT,
   SOLEMN_SIMULACRUM_SCRIPT,
   HOPEFUL_INITIATE_SCRIPT,
   GHAVE_GURU_OF_SPORES_SCRIPT,

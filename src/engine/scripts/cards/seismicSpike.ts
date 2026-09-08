@@ -51,7 +51,7 @@ export const SEISMIC_SPIKE_SCRIPT: CardScript = {
         t: 'ManaAdded',
         player: obj.controller,
         mana: { ...EMPTY_POOL, R: 2 },
-        source: self,
+        source: self, snow: false
       });
       return events;
     },

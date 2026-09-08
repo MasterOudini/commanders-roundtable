@@ -29,7 +29,7 @@ export const CHANNEL_THE_SUNS_SCRIPT: CardScript = {
         t: 'ManaAdded',
         player: obj.controller,
         mana: { ...EMPTY_POOL, W: 1, U: 1, B: 1, R: 1, G: 1 },
-        source: self,
+        source: self, snow: false
       },
     ],
   },

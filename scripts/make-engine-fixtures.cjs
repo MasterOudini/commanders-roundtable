@@ -5721,6 +5721,20 @@ const WANTED = [
   // D363 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
   "Arcum's Astrolabe",
   'Icehide Golem',
+  // D364 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  'Boreal Centaur',
+  'Pilfering Hawk',
+  'Boreal Griffin',
+  'Phyrexian Ironfoot',
+  'Frost Raptor',
+  'Zombie Musher',
+  'Grim Draugr',
+  'Rimebound Dead',
+  'Phyrexian Snowcrusher',
+  'Icebind Pillar',
+  'Hailstorm Valkyrie',
+  'Chilling Shade',
+  'Frostwalla',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

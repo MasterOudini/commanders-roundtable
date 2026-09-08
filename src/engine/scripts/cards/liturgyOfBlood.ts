@@ -48,7 +48,7 @@ export const LITURGY_OF_BLOOD_SCRIPT: CardScript = {
         t: 'ManaAdded',
         player: obj.controller,
         mana: { ...EMPTY_POOL, B: 3 },
-        source: self,
+        source: self, snow: false
       });
       return events;
     },

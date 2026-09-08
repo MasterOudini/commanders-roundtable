@@ -148,6 +148,12 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // The modal DFC — the face path and D134's rule on a back face at once.
   { names: ['Malakir Rebirth // Malakir Mire'], copiesPerSeat: 1,
     counterKeys: ['backFacesPlayed'], rotHistory: 'D155' },
+  // D364 - the SNOW SOURCE. `poolSnow` is in the state hash, so without a snow
+  // permanent in the pool 500 seeds of equal replay hashes would prove nothing about
+  // it: every pool would hold zero snow mana and the field would replay perfectly
+  // because it never moved. Two per seat, because a land is only useful once tapped.
+  { names: ['Snow-Covered Forest'], copiesPerSeat: 2,
+    counterKeys: ['snowManaMade'], rotHistory: 'D364' },
 ];
 
 /** What every seat is GUARANTEED to hold of the staples, weights applied. */
@@ -648,6 +654,7 @@ interface Run {
   readonly replacementChoices: number;
   /** Scry/surveil prompts raised by a resolving effect (D195). */
   readonly scryChoices: number;
+  readonly snowManaMade: number;
   /** Library searches raised by a resolving effect (D357). */
   readonly librarySearches: number;
   /** Modes chosen for a spell, an activation or a trigger (D343). */
@@ -812,6 +819,9 @@ function runOne(seed: number): Run {
     // else, so unlike a counter over 'was a replacement applied' it cannot go
     // green on the single-effect path that has worked since D134.
     replacementChoices: game.log.filter((e) => e.body.t === 'ReplacementPending').length,
+    // D364 - mana a SNOW SOURCE made. Counted off the event rather than off the pool,
+    // because a pool is emptied at every step boundary and the making is the fact.
+    snowManaMade: game.log.filter((e) => e.body.t === 'ManaAdded' && e.body.snow).length,
     scryChoices: game.log.filter(
       (e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'scryChoice',
     ).length,
@@ -954,6 +964,7 @@ const TOTAL_KEYS = [
   'diesTriggers',
   'replacementChoices',
   'scryChoices',
+  'snowManaMade',
   'librarySearches',
   'modeChoices',
   'entersDeclined',
@@ -1143,6 +1154,9 @@ function assertFloors(totals: Totals, seeds: number): void {
       // so at gate size the effect that stops and asks must have stopped and
       // asked somewhere.
       if (seeds >= 500) expect(totals.scryChoices).toBeGreaterThan(0);
+      // D364 - at gate size only, like every rate canary: two snow lands a seat, and a
+      // pool with provenance is only proven by mana that actually carried it.
+      if (seeds >= 500) expect(totals.snowManaMade).toBeGreaterThan(0);
       // ⚠️ THE MODAL CANARY (D343): Crushing Canopy is a staple in every pool and
       // is offered whenever a flyer or an enchantment stands, so at gate size a
       // mode must have been chosen somewhere.
@@ -1173,7 +1187,8 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.tokensCreated} tokens created by the rules (${totals.tokensNamed} the oracle can name) · ` +
           `${totals.enteredTapped} permanents entered tapped · ` +
           `${totals.entersPaid} paid life to enter untapped / ${totals.entersDeclined} declined · ` +
-          `${totals.discardsChosen} discards chosen, ${totals.cardsDiscarded} moves of hand→graveyard`,
+          `${totals.discardsChosen} discards chosen, ${totals.cardsDiscarded} moves of hand→graveyard · ` +
+          `${totals.snowManaMade} mana made by a snow source`,
       );
 
       if (SHARD) {

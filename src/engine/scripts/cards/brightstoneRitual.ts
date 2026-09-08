@@ -33,7 +33,7 @@ export const BRIGHTSTONE_RITUAL_SCRIPT: CardScript = {
       }
       if (n === 0) return [];
       return [
-        { t: 'ManaAdded', player: obj.controller, mana: { ...EMPTY_POOL, R: n }, source: self },
+        { t: 'ManaAdded', player: obj.controller, mana: { ...EMPTY_POOL, R: n }, source: self, snow: false },
       ];
     },
   },

@@ -227,7 +227,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // hand that share a colour — the discard-cost chooser's shape over a
   // hidden zone plus a constraint the prompt would have to validate.
   // `Infernal Tribute` is Hardened Tactician's NONTOKEN mirror.
-  ['Icebind Pillar', 'snow activation cost'],
   ['Illuminated Folio', 'reveal-cost chooser'],
   // Batch 23 (D182): two existing classes and ONE new one. `Jandor's Ring`
   // pays by discarding "the last card you drew this turn" — the engine
@@ -1694,11 +1693,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // activation, a counter removed, a two-type sacrifice), with the four whose
   // second line the engine cannot run and one adventure.
   ['Diamond Faerie', 'snow mana cost'],
-  ['Boreal Griffin', 'snow mana cost'],
-  ['Frost Raptor', 'snow mana cost'],
-  ['Grim Draugr', 'snow mana cost'],
-  ['Hailstorm Valkyrie', 'snow mana cost'],
-  ['Chilling Shade', 'snow mana cost'],
   ['Duergar Mine-Captain', 'untap-symbol cost'],
   ['Rift Elemental', 'remove-counter cost'],
   ['Orc General', 'multi-type sacrifice cost'],
@@ -1945,9 +1939,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Fain, the Broker', 'a remove-counter cost naming no KIND - the engine has +1/+1 and -1/-1 and cannot enumerate the rest'],
   ["O'aka, Traveling Merchant", 'a remove-counter cost naming no KIND, over a predicate the engine cannot place (a nonland permanent)'],
   ['Rift Elemental', 'a remove-counter cost over a TIME counter and a suspended card - two things the engine has neither of'],
-  // ⚠️ And the OTHER direction of this decision: a cost the engine stopped claiming.
-  ["Arcum's Astrolabe", 'a {S} MANA COST - one mana from a snow source (CR 107.4s), which no script can claim and the engine cannot charge'],
-  ['Icehide Golem', 'a {S} MANA COST - the same, and the reason both left the complete set'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */

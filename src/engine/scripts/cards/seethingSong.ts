@@ -29,7 +29,7 @@ export const SEETHING_SONG_SCRIPT: CardScript = {
       const player = ctx.state.players[obj.controller];
       if (!player || player.hasLost) return [];
       return [
-        { t: 'ManaAdded', player: obj.controller, mana: { ...EMPTY_POOL, R: 5 }, source: self },
+        { t: 'ManaAdded', player: obj.controller, mana: { ...EMPTY_POOL, R: 5 }, source: self, snow: false },
       ];
     },
   },

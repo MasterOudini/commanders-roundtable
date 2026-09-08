@@ -114,7 +114,7 @@ const EMPTY_SESSION: SessionState = {
   finished: false,
   winners: [],
   legal: [],
-  solve: { pool: { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 }, sources: [], lifeAvailable: 0, eventCount: 0 },
+  solve: { pool: { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 }, poolSnow: { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 }, sources: [], lifeAvailable: 0, eventCount: 0 },
   seats: [],
   stateHash: '',
 };

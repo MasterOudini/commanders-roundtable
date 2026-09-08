@@ -287,6 +287,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
           life: body.options.startingLife,
           poison: 0,
           pool: EMPTY_POOL,
+          poolSnow: EMPTY_POOL,
           commanderDamage: {},
           commanderIds: [],
           landsPlayedThisTurn: 0,
@@ -662,17 +663,27 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'ManaAdded': {
       const p = state.players[body.player];
       if (!p) return state;
-      return withPlayer(state, body.player, { pool: addPool(p.pool, body.mana) });
+      // D364 - snow mana lands in BOTH pools; the sub-pool is what `{S}` can spend.
+      return withPlayer(state, body.player, {
+        pool: addPool(p.pool, body.mana),
+        poolSnow: body.snow ? addPool(p.poolSnow, body.mana) : p.poolSnow,
+      });
     }
 
     case 'ManaSpent': {
       const p = state.players[body.player];
       if (!p) return state;
-      return withPlayer(state, body.player, { pool: subPool(p.pool, body.mana) });
+      // D364 - the payment says how much of what it spent was snow mana; the
+      // sub-pool cannot be inferred here, because which mana paid which symbol
+      // is the PLAN's decision and this reducer has no plan.
+      return withPlayer(state, body.player, {
+        pool: subPool(p.pool, body.mana),
+        poolSnow: subPool(p.poolSnow, body.snow),
+      });
     }
 
     case 'ManaPoolEmptied':
-      return withPlayer(state, body.player, { pool: EMPTY_POOL });
+      return withPlayer(state, body.player, { pool: EMPTY_POOL, poolSnow: EMPTY_POOL });
 
     case 'CommanderDamageDealt': {
       const p = state.players[body.player];

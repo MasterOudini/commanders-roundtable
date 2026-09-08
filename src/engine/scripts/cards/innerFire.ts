@@ -28,7 +28,7 @@ export const INNER_FIRE_SCRIPT: CardScript = {
       const n = (ctx.state.zones.hand[obj.controller] ?? []).length;
       if (n <= 0) return [];
       return [
-        { t: 'ManaAdded', player: obj.controller, mana: { ...EMPTY_POOL, R: n }, source: self },
+        { t: 'ManaAdded', player: obj.controller, mana: { ...EMPTY_POOL, R: n }, source: self, snow: false },
       ];
     },
   },

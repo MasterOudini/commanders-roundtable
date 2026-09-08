@@ -33,6 +33,12 @@ export interface ManaSource {
   /** D355 - the price the line charges when the mana is made. */
   readonly drawback?: ManaProduction['drawback'];
   /**
+   * D364 - is this a SNOW SOURCE (CR 107.4s)? A permanent with the Snow supertype,
+   * read DERIVED rather than printed, because a permanent can be made snow.
+   * `{S}` is paid by mana from one of these, of any colour.
+   */
+  readonly snow: boolean;
+  /**
    * Spend the LEAST flexible source first. A basic Forest is 0; an any-colour
    * creature is 6. This is what makes an auto-tap suggestion *good* rather than
    * merely legal — hoarding Command Tower and not tapping a mana dork you might
@@ -138,6 +144,8 @@ export function manaSourcesOf(
         card: id,
         abilityIndex: prod.abilityIndex,
         outputs,
+        // D364 - DERIVED, never printed: a permanent made snow is a snow source.
+        snow: d.typeLine.supertypes.includes('Snow'),
         requiresTap: prod.requiresTap,
         conditional: prod.conditional,
         extraCost: prod.extraCost ?? null,
@@ -360,6 +368,12 @@ export interface ConcreteProblem {
   readonly colored: Readonly<Record<Color, number>>;
   readonly colorless: number;
   readonly generic: number;
+  /**
+   * D364 - how many of the mana paid must come from a SNOW SOURCE. It is a
+   * QUANTITY like generic (so `poolCovers` and `spendFromPool` count it) plus a
+   * constraint on WHERE that mana came from, which the payment reserves.
+   */
+  readonly snow: number;
   readonly lifeCost: number;
   readonly totalMana: number;
   readonly hybridChoices: readonly { readonly index: number; readonly option: number }[];
@@ -398,8 +412,9 @@ function concretise(
 ): ConcreteProblem {
   const colored: Record<Color, number> = { ...problem.colored };
   let colorless = problem.colorless;
-  // ⚠️ D363 - the snow requirement is NOT generic (see `buildPaymentProblem`); it is
-  // carried to the solver, which refuses the whole problem until a snow source exists.
+  // ⚠️ D363/D364 - the snow requirement is NOT generic (see `buildPaymentProblem`):
+  // it is one mana that must come from a SNOW SOURCE, so it rides its own field and
+  // the payment reserves it before the solver ever sees the rest.
   let generic = problem.generic;
   let lifeCost = problem.additionalLife;
   for (const choice of choices) {
@@ -424,9 +439,11 @@ function concretise(
         break;
     }
   }
-  let totalMana = colorless + generic;
+  // D364 - a snow symbol is one mana like any other, so it counts toward the
+  // QUANTITY; what is special is only where that mana must come from.
+  let totalMana = colorless + generic + problem.snow;
   for (const c of COLORS) totalMana += colored[c];
-  return { colored, colorless, generic, lifeCost, totalMana, hybridChoices: choices };
+  return { colored, colorless, generic, snow: problem.snow, lifeCost, totalMana, hybridChoices: choices };
 }
 
 /** Can this pool alone pay this concrete problem? Generic takes anything. */
@@ -438,7 +455,9 @@ export function poolCovers(pool: ManaPool, p: ConcreteProblem): boolean {
   }
   if (pool.C < p.colorless) return false;
   spare += pool.C - p.colorless;
-  return spare >= p.generic;
+  // D364 - the snow symbols are a QUANTITY here; that the mana is snow-sourced is
+  // the reservation's job, not this one's.
+  return spare >= p.generic + p.snow;
 }
 
 /** The exact pool spend for a concrete problem, or null if the pool cannot pay. */
@@ -447,7 +466,9 @@ export function spendFromPool(pool: ManaPool, p: ConcreteProblem): ManaPool | nu
   const spend: Record<ManaSymbolKey, number> = { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 };
   for (const c of COLORS) spend[c] = p.colored[c];
   spend.C = p.colorless;
-  let generic = p.generic;
+  // D364 - the snow symbols spend like generic; `payEvents` then says which of the
+  // spend was snow-sourced, and the reservation guaranteed that much is there.
+  let generic = p.generic + p.snow;
   // Spend the most plentiful surplus first, so a pool of {G}{G}{U} paying {1}
   // keeps the {U} that a later spell in the same step might need.
   const order: ManaSymbolKey[] = ['C', 'W', 'U', 'B', 'R', 'G'];

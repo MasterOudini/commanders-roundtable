@@ -35,7 +35,7 @@ export const ENERGY_TAP_SCRIPT: CardScript = {
         return card && card.zone.kind === 'battlefield' ? { id: t.id, card } : null;
       };
         { const p = perm(0); if (p && !p.card.tapped) events.push({ t: 'PermanentsTapped', cards: [p.id] }); }
-        { const p = perm(0); if (p && !p.card.tapped) { const mv = ctx.derive(p.id).manaValue ?? 0; if (mv > 0) events.push({ t: 'ManaAdded', player: obj.controller, mana: { W: 0, U: 0, B: 0, R: 0, G: 0, C: mv }, source: self }); } }
+        { const p = perm(0); if (p && !p.card.tapped) { const mv = ctx.derive(p.id).manaValue ?? 0; if (mv > 0) events.push({ t: 'ManaAdded', player: obj.controller, mana: { W: 0, U: 0, B: 0, R: 0, G: 0, C: mv }, source: self, snow: false }); } }
       return events;
     },
   },

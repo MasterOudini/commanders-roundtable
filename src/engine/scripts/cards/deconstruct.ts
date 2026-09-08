@@ -51,7 +51,7 @@ export const DECONSTRUCT_SCRIPT: CardScript = {
         t: 'ManaAdded',
         player: obj.controller,
         mana: { ...EMPTY_POOL, G: 3 },
-        source: self,
+        source: self, snow: false
       });
       return events;
     },

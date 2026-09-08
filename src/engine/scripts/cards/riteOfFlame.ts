@@ -44,7 +44,7 @@ export const RITE_OF_FLAME_SCRIPT: CardScript = {
           t: 'ManaAdded',
           player: obj.controller,
           mana: { ...EMPTY_POOL, R: 2 + named },
-          source: self,
+          source: self, snow: false
         },
       ];
     },

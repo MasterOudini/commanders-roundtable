@@ -570,16 +570,14 @@ export function faceCompleteness(card: CardData, faceIndex: number): Completenes
   // watch the effect skip itself. `unenforced` is the same failure one step in:
   // the KIND of object is checked and the restriction on it is not, so the bot
   // would happily Bolt a creature the card says it cannot touch.
-  // ⚠️ D363 - A COST THE ENGINE CANNOT CHARGE IS A CARD IT DOES NOT RUN. `{S}` is
-  // one mana produced by a SNOW SOURCE (CR 107.4s) and this engine records no
-  // provenance for the mana in a pool, so `payment.ts` refuses the whole problem.
-  // Until D363 the requirement was folded into GENERIC and both cards printing it
-  // - Arcum's Astrolabe and Icehide Golem - were counted complete while castable
-  // off any two lands. The card is still playable through the Tier-3 tools; it is
-  // no longer claimed as one the engine runs.
-  if ((raw.manaCost ?? '').includes('{S}')) {
-    return { complete: false, leftover: [raw.manaCost ?? '{S}'] };
-  }
+  // ⚠️ D363 refused a `{S}` mana cost here, and D364 removed that refusal - the SAME
+  // rule read in two directions. A cost the engine cannot charge is a card it does
+  // not claim: while the pool recorded no provenance, `{1}{S}` was charged as `{2}`
+  // and Arcum's Astrolabe was castable off two Mountains, so refusing was the honest
+  // answer. The pool records provenance now (`PlayerState.poolSnow`) and
+  // `payment.ts` reserves the snow before it solves, so the cost IS charged and
+  // leaving the refusal would be the mirror error - declining to claim a card the
+  // engine runs correctly.
 
   const specs = [...face.targets, ...face.activated.flatMap((a) => a.targets)];
   const unread = specs.filter((s) => s.kinds.length === 0 || s.unenforced.length > 0);

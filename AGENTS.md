@@ -11779,6 +11779,100 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       payload is a QUOTED ability (355 one-piece cards), the attached statics the
       Aura and Equipment rows cannot read (351), the Aura that REDEFINES its host
       (18), the bare keyword or ability word (185); prior items stand.
+- [x] **M6.4gw — THE SNOW SOURCE: the pool learns where its mana came from, and
+      `{S}` is paid from it (2026-09-08):**
+      **7,604 of 31,692 Commander-legal cards now execute completely, up from
+      7,589 (+15: 13 rowed, and 2 that came back).** `SHIPPED_SCRIPTS` 4,795 →
+      **4,809** (13 rows, and Arcum's Astrolabe RE-LANDED — D363 unlanded it and
+      this is the decision that earns it back); ledger 968 → **960** (eight rows
+      retired, every one held for a snow cost). Fixtures 5,278 → **5,291** (5,150
+      by name + 141 tokens). **Select pool 0.** Decisions in **D364**.
+      ⚠️ **D363 refused this cost; D364 builds the concept it refused to fake** —
+      the same rule read in two directions (a cost the engine cannot charge is a
+      card it does not claim), and doing only the first half is how the second one
+      hides.
+      ⚠️ **MEASURED, NOT ASSUMED.** D363's histogram put snow first at 14 cards,
+      but a refusal histogram stops at the FIRST blocker (D352), so a throwaway
+      row maker that spends `{S}` as ordinary mana priced it honestly: **13 rows**
+      (Goblin Engineer was already rowable). ⚠️ And the pricing showed what the
+      histogram could not: `Ohran Yeti` refuses for a SECOND snow reason — no
+      fixture for "target snow creature" — so the seam wants a snow CREATURE as
+      well as snow LANDS. D354's rule again: the card the measurement did not
+      predict is the finding.
+      ⚠️ **THE SEAM.** `{S}` is one mana from a SNOW SOURCE (CR 107.4s) — a
+      property of the SOURCE, not of the colour, so any colour pays it.
+      `PlayerState.poolSnow` is a SUB-POOL (`poolSnow[k] <= pool[k]`, asserted in
+      `invariants.ts` — a spend that broke it would let one Snow-Covered Forest pay
+      `{S}` twice); `ManaAdded.snow` rides the EVENT rather than being re-derived
+      at apply time (D107: `apply` is pure in (state, event) and cannot look a
+      printing up); `ManaSpent.snow` is the sub-pool of the spend that was snow,
+      because which mana paid which symbol is the PLAN's decision and the reducer
+      has no plan; `ManaSource.snow` is read DERIVED, since a permanent can be made
+      snow.
+      ⚠️ **Both fields are REQUIRED and the compiler named all 42 sites** — an
+      optional flag a new emitter forgets type-checks perfectly and silently makes
+      ordinary mana (D355's dead `drawback`, D356's dead `typeLine`, twice in ten
+      decisions). Twenty sites are ritual SPELLS saying `snow: false`, which is the
+      rule and not a shrug: the source of mana a spell makes is the spell.
+      ⚠️ **THE SOLVER IS NOT TOUCHED.** `payment.ts` is the engine's most fragile
+      and most performance-sensitive module (three tiers, a min-cost max-flow, a
+      0.100 ms benchmark, D53's client/host symmetry), so the snow symbols are
+      RESERVED before the solve and the remainder goes to the existing solver as it
+      stands — D363 had already taken snow out of `generic`, so "the problem minus
+      its `{S}`" is exactly today's problem. ⚠️ The cost of that choice, stated:
+      reserving a snow source a colour needed could miss a plan that exists,
+      bounded by reserving the LEAST FLEXIBLE snow source first
+      (`flexibilityRank` exists for this) and falling back to tapping by hand,
+      which `payment.ts`'s own header calls the honest answer.
+      ⚠️ **The wave's suites fund `{S}` by TAPPING A REAL SNOW-COVERED FOREST**,
+      never the hand tool: `ManualAddMana` adds ORDINARY mana, so a suite that used
+      it would pass whether or not any of this existed. ⚠️ D232's trap met again —
+      `put()` takes a card out of the opening HAND, so a land put AFTER the
+      baselines made the hand look one lighter, which is how Pilfering Hawk's loot
+      (draw one, discard one, net zero) read as a card missing. The lands are put
+      before the baselines and only tapped at fire.
+      ⚠️ **THE ACCOUNTING REVERSES with the engine**: `engineComplete`'s `{S}`
+      refusal and the Tier-3 note come out, because leaving them would be the
+      mirror error — the app declining to run a card it runs correctly. The
+      boundary that REMAINS is stated where it lives: the hand tool adds ordinary
+      mana, so a player applying mana by hand still cannot pay `{S}`.
+      ⚠️ **D363's own suite is REWRITTEN rather than adapted** (D117, and exactly
+      what D363 did to D319's). Most of it is still true and kept — five ordinary
+      mana still cannot pay `{S}`, a SHARPER test now: under D363 it passed because
+      nothing could pay a snow cost, here because that mana came from the wrong
+      place. Only the Astrolabe assertion changed sides.
+      ⚠️ **THE CANARY, because the state hash would have lied:** `poolSnow` is in
+      the state hash, so 500 seeds of equal replay hashes would have proved nothing
+      while every pool held zero snow mana — a field nothing fills replays
+      perfectly (D128). `Snow-Covered Forest` joins CANARY_STAPLES (D193) with a
+      `snowManaMade` floor: **311 mana made by a snow source in 60 seeds.**
+      **Landed:** 13 generated rows (the Boreal cycle, Frost Raptor, Zombie Musher,
+      Grim Draugr, Rimebound Dead, Phyrexian Ironfoot and Snowcrusher, Icebind
+      Pillar, Hailstorm Valkyrie, Chilling Shade, Frostwalla, Pilfering Hawk) and
+      2 cards back with NO script (Arcum's Astrolabe, Icehide Golem). The bot's own
+      reach rose to **7,544** cards from 7,529, and Icehide Golem went straight
+      into its deck. Tests: `snowCost.test.ts` (9, rewritten) and one generated
+      suite per row.
+      Fixtures 5,291 · botPool artifact 424 / creature 4,423 / enchantment 393 /
+      instant 1,020 / land 561 / sorcery 783 - auto 1,003 / assisted 1,881 /
+      autoAnyFace 1,012 · ladder [1056, 1121, 2715, 4549, 5892] · tier3
+      silentAfter 7,879 · batch.json 13 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,952 files, 24,481 passed / 11 skipped ·
+      500-seed gate, 6 shards, 720.1 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D364): the snow CREATURE fixture `Ohran Yeti` needs (the
+      fixture derivation reads types and subtypes, never supertypes); snow mana
+      from the Tier-3 hand tool (a control, not just a field); then D363's list
+      unchanged — the counter KINDS the remove-counter chooser refuses (five ledger
+      rows, every one about `CounterKind` rather than the chooser), the NONTOKEN
+      predicate `predicatesOf` cannot place, the keyword ENTRY REPLACEMENTS
+      (bloodthirst 13, modular 7, graft 2), the keyword ENTRY CHOICES (fabricate
+      10, unleash 9, riot 4, devour 4, enlist 5, amplify 3), the block REQUIREMENT
+      (provoke 4), the cast-time payment sources (convoke 14, delve 5, improvise
+      6); then the families the seam map holds — the grant whose payload is a
+      QUOTED ability (355 one-piece cards), the attached statics the Aura and
+      Equipment rows cannot read (351), the Aura that REDEFINES its host (18), the
+      bare keyword or ability word (185); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

@@ -30,7 +30,7 @@ function board(count: number): ManaSource[] {
         outputs: [{ mana: poolFrom({ [c]: 1 }), amount: 1 }],
         requiresTap: true,
         conditional: false,
-        flexibilityRank: 0,
+        flexibilityRank: 0, snow: false
       });
     } else if (i % 4 === 1) {
       out.push({
@@ -42,7 +42,7 @@ function board(count: number): ManaSource[] {
         ],
         requiresTap: true,
         conditional: false,
-        flexibilityRank: 2,
+        flexibilityRank: 2, snow: false
       });
     } else if (i % 4 === 2) {
       out.push({
@@ -51,7 +51,7 @@ function board(count: number): ManaSource[] {
         outputs: colors.map((x) => ({ mana: poolFrom({ [x]: 1 }), amount: 1 })),
         requiresTap: true,
         conditional: false,
-        flexibilityRank: 4,
+        flexibilityRank: 4, snow: false
       });
     } else {
       out.push({
@@ -60,7 +60,7 @@ function board(count: number): ManaSource[] {
         outputs: [{ mana: poolFrom({ [c]: 1 }), amount: 1 }],
         requiresTap: true,
         conditional: false,
-        flexibilityRank: 6,
+        flexibilityRank: 6, snow: false
       });
     }
   }
@@ -68,7 +68,7 @@ function board(count: number): ManaSource[] {
 }
 
 function input(sources: ManaSource[]): SolveInput {
-  return { pool: EMPTY_POOL, sources, lifeAvailable: 40, eventCount: 1 };
+  return { pool: EMPTY_POOL, poolSnow: EMPTY_POOL, sources, lifeAvailable: 40, eventCount: 1 };
 }
 
 describe('the min-cost max-flow tier', () => {
@@ -107,7 +107,7 @@ describe('the min-cost max-flow tier', () => {
         ],
         requiresTap: true,
         conditional: false,
-        flexibilityRank: 2,
+        flexibilityRank: 2, snow: false
       },
       {
         card: 'b',
@@ -118,7 +118,7 @@ describe('the min-cost max-flow tier', () => {
         ],
         requiresTap: true,
         conditional: false,
-        flexibilityRank: 2,
+        flexibilityRank: 2, snow: false
       },
     ];
     const problem = buildPaymentProblem(parseManaCost('{W}{U}'), 0, [], 0);
@@ -135,7 +135,7 @@ describe('the min-cost max-flow tier', () => {
         outputs: [{ mana: poolFrom({ G: 1 }), amount: 1 }],
         requiresTap: true,
         conditional: false,
-        flexibilityRank: 0,
+        flexibilityRank: 0, snow: false
       },
     ];
     const problem = buildPaymentProblem(parseManaCost('{U}{U}{U}'), 0, [], 0);

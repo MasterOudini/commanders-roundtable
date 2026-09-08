@@ -35,7 +35,7 @@ export const TURN_TO_DUST_SCRIPT: CardScript = {
         return card && card.zone.kind === 'battlefield' ? { id: t.id, card } : null;
       };
         { const p = perm(0); if (p && !ctx.derive(p.id).keywords.has('indestructible')) events.push({ t: 'CardsMoved', moves: [{ card: p.id, from: { kind: 'battlefield', player: p.card.controller }, to: { kind: 'graveyard', player: p.card.owner } }] }); }
-        events.push({ t: 'ManaAdded', player: obj.controller, mana: { W: 0, U: 0, B: 0, R: 0, G: 1, C: 0 }, source: self });
+        events.push({ t: 'ManaAdded', player: obj.controller, mana: { W: 0, U: 0, B: 0, R: 0, G: 1, C: 0 }, source: self, snow: false });
       return events;
     },
   },

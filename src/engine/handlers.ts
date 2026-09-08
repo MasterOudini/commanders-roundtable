@@ -1916,6 +1916,38 @@ function finishFromPending(
   return accept(events);
 }
 
+/**
+ * D364 - which part of a pool spend was SNOW mana.
+ *
+ * Non-snow first, because snow mana kept is a `{S}` still payable; snow only
+ * where the ordinary mana runs out, then topped up to the `{S}` requirement.
+ * The reservation in `payment.ts` is what guarantees the top-up can be met.
+ */
+function snowOfSpend(
+  spend: ManaPool,
+  snowAvailable: Record<ManaSymbolKey, number>,
+  total: Record<ManaSymbolKey, number>,
+  need: number,
+): ManaPool {
+  const out: Record<ManaSymbolKey, number> = { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 };
+  // Forced: more of this colour is being spent than there is ordinary mana of it.
+  for (const k of KEYS) {
+    const ordinary = Math.max(0, total[k] - snowAvailable[k]);
+    out[k] = Math.min(Math.max(0, spend[k] - ordinary), snowAvailable[k]);
+  }
+  let have = 0;
+  for (const k of KEYS) have += out[k];
+  // Topped up to what the {S} symbols require.
+  for (const k of KEYS) {
+    if (have >= need) break;
+    const room = Math.min(spend[k], snowAvailable[k]) - out[k];
+    const take = Math.min(Math.max(0, room), need - have);
+    out[k] += take;
+    have += take;
+  }
+  return { ...out };
+}
+
 /** Taps, mana added, mana spent, life paid — CR 601.2g/h, each its own event. */
 function payEvents(
   state: GameState,
@@ -1927,6 +1959,7 @@ function payEvents(
   const events: EventBody[] = [];
   const sources = manaSourcesOf(state, deps.oracle, deps.scripts, player, { includeConditional: true });
   const produced: Record<ManaSymbolKey, number> = { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 };
+  const producedSnow: Record<ManaSymbolKey, number> = { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 };
   const tapped: InstanceId[] = [];
 
   for (const tap of plan.taps) {
@@ -1935,7 +1968,9 @@ function payEvents(
     if (!source || !output) continue;
     if (source.requiresTap && !tapped.includes(tap.source)) tapped.push(tap.source);
     for (const k of KEYS) produced[k] += output.mana[k];
-    events.push({ t: 'ManaAdded', player, mana: output.mana, source: tap.source });
+    // D364 - snow mana is recorded as it is made; the source knows, the pool remembers.
+    if (source.snow) for (const k of KEYS) producedSnow[k] += output.mana[k];
+    events.push({ t: 'ManaAdded', player, mana: output.mana, source: tap.source, snow: source.snow });
   }
   if (tapped.length > 0) events.push({ t: 'PermanentsTapped', cards: tapped });
 
@@ -1948,7 +1983,19 @@ function payEvents(
   const total: Record<ManaSymbolKey, number> = { ...produced };
   for (const k of KEYS) total[k] += pool[k];
   const spend = concrete ? spendFromPool(total as ManaPool, concrete) : null;
-  if (spend) events.push({ t: 'ManaSpent', player, mana: spend });
+  if (spend) {
+    // D364 - the taps have already landed in the pool by the time this spend applies,
+    // so what is available as snow is the pool's own plus everything just produced.
+    const poolSnow = state.players[player]?.poolSnow ?? EMPTY_POOL;
+    const snowAvailable: Record<ManaSymbolKey, number> = { ...producedSnow };
+    for (const k of KEYS) snowAvailable[k] += poolSnow[k];
+    events.push({
+      t: 'ManaSpent',
+      player,
+      mana: spend,
+      snow: snowOfSpend(spend, snowAvailable, total, concrete?.snow ?? 0),
+    });
+  }
   if (plan.lifePaid > 0) {
     const life = state.players[player]?.life ?? 0;
     events.push({ t: 'LifeChanged', player, delta: -plan.lifePaid, to: life - plan.lifePaid });
@@ -1983,7 +2030,24 @@ function tapForMana(
 
   const events: EventBody[] = [];
   if (source.requiresTap) events.push({ t: 'PermanentsTapped', cards: [intent.card] });
-  if (extra?.mana) events.push({ t: 'ManaSpent', player: intent.player, mana: extra.mana });
+  if (extra?.mana) {
+    // D364 - a mana ability's own price is paid from the pool like any other, and the
+    // same rule decides which of it was snow: ordinary mana first.
+    const me = state.players[intent.player];
+    const poolSnow = me?.poolSnow ?? EMPTY_POOL;
+    const have: Record<ManaSymbolKey, number> = { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 };
+    const snowHave: Record<ManaSymbolKey, number> = { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 };
+    for (const k of KEYS) {
+      have[k] = me?.pool[k] ?? 0;
+      snowHave[k] = poolSnow[k];
+    }
+    events.push({
+      t: 'ManaSpent',
+      player: intent.player,
+      mana: extra.mana,
+      snow: snowOfSpend(extra.mana, snowHave, have, 0),
+    });
+  }
   if (extra && extra.life > 0) {
     const me = state.players[intent.player];
     if (me) events.push({ t: 'LifeChanged', player: intent.player, delta: -extra.life, to: me.life - extra.life });
@@ -1991,7 +2055,9 @@ function tapForMana(
   if (source.extraCost?.sacrificeSelf && card) {
     events.push({ t: 'CardsMoved', moves: [{ card: intent.card, from: { kind: 'battlefield', player: card.controller }, to: { kind: 'graveyard', player: card.owner } }] });
   }
-  events.push({ t: 'ManaAdded', player: intent.player, mana: output.mana, source: intent.card });
+  // D364 - THE ONE SITE THAT DECIDES WHETHER `{S}` CAN EVER BE PAID: a permanent with
+  // the Snow supertype makes snow mana, read DERIVED (a permanent can be made snow).
+  events.push({ t: 'ManaAdded', player: intent.player, mana: output.mana, source: intent.card, snow: source.snow });
   // D355 - THE PRICE THE LINE CHARGES, in the SAME accept as the mana. A mana ability does not
   // use the stack (CR 605.1), so there is no window between the two in which anything could
   // respond - and a player who taps a painland at 1 life has already lost when the mana appears.

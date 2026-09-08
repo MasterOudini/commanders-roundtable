@@ -170,7 +170,7 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
           t: 'ManaAdded',
           player: intent.target,
           mana: poolFrom({ [intent.symbol]: intent.amount }),
-          source: null,
+          source: null, snow: false
         },
         narrated(
           n`${me} ${vb(actor, 'adds', 'add')} ${intent.amount}{${intent.symbol}} to ${whoseElse(state, actor, intent.target)} pool.`,

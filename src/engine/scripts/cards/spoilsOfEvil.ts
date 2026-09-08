@@ -44,7 +44,7 @@ export const SPOILS_OF_EVIL_SCRIPT: CardScript = {
       }
       if (n <= 0) return [];
       const events: EventBody[] = [
-        { t: 'ManaAdded', player: obj.controller, mana: { ...EMPTY_POOL, C: n }, source: self },
+        { t: 'ManaAdded', player: obj.controller, mana: { ...EMPTY_POOL, C: n }, source: self, snow: false },
       ];
       const player = ctx.state.players[obj.controller];
       if (player && !player.hasLost) {

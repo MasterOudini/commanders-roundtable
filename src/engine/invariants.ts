@@ -111,6 +111,14 @@ export function checkInvariants(state: GameState): string[] {
     for (const [k, v] of Object.entries(player.pool)) {
       if (v < 0) problems.push(`${p} has a negative ${k} in their mana pool`);
     }
+    // D364 - `poolSnow` is a SUB-POOL: of the mana in the pool, how much came from a
+    // snow source. It can never exceed the pool it describes, and a spend that broke
+    // that would let `{S}` be paid twice off one Snow-Covered Forest.
+    for (const [k, v] of Object.entries(player.poolSnow)) {
+      if (v < 0) problems.push(`${p} has a negative ${k} in their snow mana`);
+      const held = player.pool[k as keyof typeof player.pool];
+      if (v > held) problems.push(`${p} has ${v} snow ${k} but only ${held} ${k} in the pool`);
+    }
     for (const id of player.commanderIds) {
       const card = state.cards[id];
       if (!card) problems.push(`${p} names missing commander ${id}`);

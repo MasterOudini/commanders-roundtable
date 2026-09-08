@@ -173395,6 +173395,443 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BOREAL_CENTAUR": {
+    "scryfallId": "05231fa1-47b8-49aa-9393-ec4d8384c41b",
+    "oracleId": "2b548f9a-c160-427d-9bb4-1fe940f8ab28",
+    "name": "Boreal Centaur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boreal Centaur",
+        "manaCost": "{1}{G}",
+        "typeLine": "Snow Creature — Centaur Warrior",
+        "oracleText": "{S}: This creature gets +1/+1 until end of turn. Activate only once each turn. ({S} can be paid with one mana from a snow source.)",
+        "flavorText": "Those who used reindeer as beasts of burden knew to avoid the centaurs, who raged at the enslavement of their spirit-kin.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Marcelo Vignali",
+        "imageId": "05231fa1-47b8-49aa-9393-ec4d8384c41b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "csp",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PILFERING_HAWK": {
+    "scryfallId": "21d98bb7-911b-410b-a4d3-54d411900717",
+    "oracleId": "8dbe7a06-3935-44a3-ac47-4ef00ed990f1",
+    "name": "Pilfering Hawk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pilfering Hawk",
+        "manaCost": "{1}{U}",
+        "typeLine": "Snow Creature — Bird",
+        "oracleText": "Flying\n{S}, {T}: Draw a card, then discard a card. ({S} can be paid with one mana from a snow source.)",
+        "flavorText": "\"Well, at least it left us a mouse in exchange. Er . . . ugh . . . make that half a mouse.\"\n—Binhald, Beskir veteran",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "21d98bb7-911b-410b-a4d3-54d411900717"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "336",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOREAL_GRIFFIN": {
+    "scryfallId": "36638e20-0a1d-4ea3-936c-2ea74add868a",
+    "oracleId": "862ecb4e-7030-48d5-bbdf-655662059430",
+    "name": "Boreal Griffin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boreal Griffin",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Snow Creature — Griffin",
+        "oracleText": "Flying\n{S}: This creature gains first strike until end of turn. ({S} can be paid with one mana from a snow source.)",
+        "flavorText": "\"More than snow falls from the Boreal skies.\"\n—Arkin Egilsson, skycaptain",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Cyril Van Der Haegen",
+        "imageId": "36638e20-0a1d-4ea3-936c-2ea74add868a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "csp",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHYREXIAN_IRONFOOT": {
+    "scryfallId": "49ff9859-92a4-4732-94bf-6c02b0a57338",
+    "oracleId": "83b4acd0-751d-4882-a32d-6c089bc652ee",
+    "name": "Phyrexian Ironfoot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Phyrexian Ironfoot",
+        "manaCost": "{3}",
+        "typeLine": "Snow Artifact Creature — Phyrexian Construct",
+        "oracleText": "This creature doesn't untap during your untap step.\n{1}{S}: Untap this creature. ({S} can be paid with one mana from a snow source.)",
+        "flavorText": "It took the Rimewind cultists days to realize they had successfully activated the creature—it just wasn't interested in moving.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Stephan Martiniere",
+        "imageId": "49ff9859-92a4-4732-94bf-6c02b0a57338"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "csp",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FROST_RAPTOR": {
+    "scryfallId": "4ab2f81a-fcbe-44d1-8281-04dd78bb9ea3",
+    "oracleId": "9ca01d83-7794-4952-8cd8-c2ecb32cffd5",
+    "name": "Frost Raptor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frost Raptor",
+        "manaCost": "{2}{U}",
+        "typeLine": "Snow Creature — Bird",
+        "oracleText": "Flying\n{S}{S}: This creature gains shroud until end of turn. ({S} can be paid with one mana from a snow source. A creature with shroud can't be the target of spells or abilities.)",
+        "flavorText": "The Rimewind wizards strove to perpetuate a magical winter. Their unnatural snows birthed unnatural beasts.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "4ab2f81a-fcbe-44d1-8281-04dd78bb9ea3"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "csp",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZOMBIE_MUSHER": {
+    "scryfallId": "51cf9ade-1c3d-4104-98fa-3c6a8cccc088",
+    "oracleId": "89f87341-c18f-4dc7-ba2e-81305383231e",
+    "name": "Zombie Musher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zombie Musher",
+        "manaCost": "{3}{B}",
+        "typeLine": "Snow Creature — Zombie",
+        "oracleText": "Snow landwalk (This creature can't be blocked as long as defending player controls a snow land.)\n{S}: Regenerate this creature. ({S} can be paid with one mana from a snow source.)",
+        "flavorText": "The World Spell thawed their icy graves, promising rest in soft, quiet earth at last. But Heidar called them to duty for a twisted cause.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "51cf9ade-1c3d-4104-98fa-3c6a8cccc088"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Landwalk",
+      "Regenerate"
+    ],
+    "setCode": "csp",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRIM_DRAUGR": {
+    "scryfallId": "54340c59-03a9-4d9d-bd27-9aed337ce75a",
+    "oracleId": "793fe164-6c57-4fe0-a955-d5f7ffe388a9",
+    "name": "Grim Draugr",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grim Draugr",
+        "manaCost": "{2}{B}",
+        "typeLine": "Snow Creature — Zombie Berserker",
+        "oracleText": "{1}{S}: This creature gets +1/+0 and gains menace until end of turn. (It can't be blocked except by two or more creatures. {S} can be paid with one mana from a snow source.)",
+        "flavorText": "She was a ragged shadow of her living form, but she had lost none of her deadly prowess.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Grzegorz Rutkowski",
+        "imageId": "54340c59-03a9-4d9d-bd27-9aed337ce75a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "khm",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIMEBOUND_DEAD": {
+    "scryfallId": "6877469b-f14e-4121-aa5d-6cea92ab7278",
+    "oracleId": "cfc58887-859d-4ba5-8507-1fb1aa4d37c0",
+    "name": "Rimebound Dead",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rimebound Dead",
+        "manaCost": "{B}",
+        "typeLine": "Snow Creature — Skeleton",
+        "oracleText": "{S}: Regenerate this creature. ({S} can be paid with one mana from a snow source.)",
+        "flavorText": "\"Tresserhorn is ours now. Dredge the lake and bring me all the bones you find. We'll build you a new army, the likes of which Terisiare has never seen.\"\n—Heidar, Rimewind master, to Haakon",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "6877469b-f14e-4121-aa5d-6cea92ab7278"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "csp",
+    "collectorNumber": "69",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHYREXIAN_SNOWCRUSHER": {
+    "scryfallId": "706bf04d-c3f8-4234-93a0-4ee55ac6e054",
+    "oracleId": "f20aa69a-e2eb-4103-9684-12390ef07c6c",
+    "name": "Phyrexian Snowcrusher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Phyrexian Snowcrusher",
+        "manaCost": "{6}",
+        "typeLine": "Snow Artifact Creature — Phyrexian Juggernaut",
+        "oracleText": "This creature attacks each combat if able.\n{1}{S}: This creature gets +1/+0 until end of turn. ({S} can be paid with one mana from a snow source.)",
+        "flavorText": "Its plow wasn't designed for snow, but to carve a path through shrieking armies.",
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dave Allsop",
+        "imageId": "706bf04d-c3f8-4234-93a0-4ee55ac6e054"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "CSP-140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ICEBIND_PILLAR": {
+    "scryfallId": "a3152f1f-5d3f-4bc4-9b6f-f2983ab3f691",
+    "oracleId": "18050051-63f6-4091-bf67-7a0701a0791d",
+    "name": "Icebind Pillar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Icebind Pillar",
+        "manaCost": "{2}{U}",
+        "typeLine": "Snow Artifact",
+        "oracleText": "{S}, {T}: Tap target artifact or creature. ({S} can be paid with one mana from a snow source.)",
+        "flavorText": "\"Oh, Valki. I'm disappointed in you. How could the god of lies be so gullible?\"\n—Tibalt",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Wisnu Tan",
+        "imageId": "a3152f1f-5d3f-4bc4-9b6f-f2983ab3f691"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "khm",
+    "collectorNumber": "62",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAILSTORM_VALKYRIE": {
+    "scryfallId": "a5a272b3-aaab-4c98-86a8-85c67a5f3d4d",
+    "oracleId": "d42ecab7-f6ce-4e50-97de-7aa1ced64ebe",
+    "name": "Hailstorm Valkyrie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hailstorm Valkyrie",
+        "manaCost": "{3}{B}",
+        "typeLine": "Snow Creature — Angel Wizard",
+        "oracleText": "Flying, trample\n{S}{S}: This creature gets +2/+2 until end of turn. ({S} can be paid with one mana from a snow source.)",
+        "flavorText": "When the path to Starnheim was opened, vengeance rained down upon the enemies of Bretagard.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Bram Sels",
+        "imageId": "a5a272b3-aaab-4c98-86a8-85c67a5f3d4d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Trample"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHILLING_SHADE": {
+    "scryfallId": "d050c8b9-2b5a-4025-9886-73c418f4e22f",
+    "oracleId": "1bbcfbad-c4c5-4818-b73c-26d83f7fa22c",
+    "name": "Chilling Shade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chilling Shade",
+        "manaCost": "{2}{B}",
+        "typeLine": "Snow Creature — Shade",
+        "oracleText": "Flying\n{S}: This creature gets +1/+1 until end of turn. ({S} can be paid with one mana from a snow source.)",
+        "flavorText": "Rimewind necromancers caught travelers in mystical blizzards then trapped their spirits in the mist of their final frozen breaths.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jeff Nentrup",
+        "imageId": "d050c8b9-2b5a-4025-9886-73c418f4e22f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "csp",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FROSTWALLA": {
+    "scryfallId": "fad4fc18-6f2c-45e4-a2c7-c2068b4f1a92",
+    "oracleId": "90772e8f-9b39-4cdd-864f-5e2c917f645e",
+    "name": "Frostwalla",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frostwalla",
+        "manaCost": "{2}{G}",
+        "typeLine": "Snow Creature — Lizard",
+        "oracleText": "{S}: This creature gets +2/+2 until end of turn. Activate only once each turn. ({S} can be paid with one mana from a snow source.)",
+        "flavorText": "Glare from the snows in the boreal expanse hides its true size.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "fad4fc18-6f2c-45e4-a2c7-c2068b4f1a92"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh1",
+    "collectorNumber": "165",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

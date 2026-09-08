@@ -30,6 +30,7 @@ import type { InstanceId, PlayerId } from './types/ids';
 import {
   COLORS,
   EMPTY_POOL,
+  poolTotal,
   type ManaPool,
   type ManaSymbolKey,
   type PaymentPlan,
@@ -44,6 +45,8 @@ const KEYS: readonly ManaSymbolKey[] = ['W', 'U', 'B', 'R', 'G', 'C'];
 /** Everything the solver needs, decoupled from GameState so it can run client-side. */
 export interface SolveInput {
   readonly pool: ManaPool;
+  /** D364 - of `pool`, how much came from a snow source. A sub-pool. */
+  readonly poolSnow: ManaPool;
   readonly sources: readonly ManaSource[];
   readonly lifeAvailable: number;
   readonly eventCount: number;
@@ -59,6 +62,7 @@ export function solveInputFor(
   const p = state.players[player];
   return {
     pool: p?.pool ?? EMPTY_POOL,
+    poolSnow: p?.poolSnow ?? EMPTY_POOL,
     sources: manaSourcesOf(state, oracle, scripts, player, cache ? { cache } : {}),
     lifeAvailable: p?.life ?? 0,
     eventCount: state.eventCount,
@@ -81,6 +85,16 @@ export function tierAFeasible(input: SolveInput, p: ConcreteProblem): boolean {
   for (const k of KEYS) available += input.pool[k];
   for (const s of input.sources) available += maxAmount(s);
   if (available < p.totalMana) return false;
+
+  // D364 - a NECESSARY condition on the snow requirement: enough mana that could
+  // have come from a snow source. Never a false negative (it counts every snow
+  // source at its best), which is this tier's whole contract.
+  if (p.snow > 0) {
+    let snowAvailable = 0;
+    for (const k of KEYS) snowAvailable += input.poolSnow[k];
+    for (const s of input.sources) if (s.snow) snowAvailable += maxAmount(s);
+    if (snowAvailable < p.snow) return false;
+  }
 
   for (const c of COLORS) {
     const need = p.colored[c];
@@ -114,16 +128,98 @@ export function tierAFeasible(input: SolveInput, p: ConcreteProblem): boolean {
  * priority round over a 7-card hand costs one build of the source list rather
  * than seven.
  */
+/**
+ * D364 - PAY THE `{S}` SYMBOLS FIRST, and return what is left to solve with.
+ *
+ * Pool snow first (already paid for), then snow SOURCES least-flexible first
+ * (`flexibilityRank` exists for exactly this judgement). Returns null when the
+ * board cannot produce that much snow mana at all.
+ *
+ * ⚠️ The remainder is the SAME shape the solver already takes, which is what
+ * keeps three tiers and a min-cost max-flow out of this decision entirely.
+ */
+function reserveSnow(
+  input: SolveInput,
+  need: number,
+): { readonly taps: PlannedTap[]; readonly rest: SolveInput } | null {
+  if (need <= 0) return { taps: [], rest: input };
+
+  const pool: Record<ManaSymbolKey, number> = { ...input.pool };
+  const poolSnow: Record<ManaSymbolKey, number> = { ...input.poolSnow };
+  let left = need;
+
+  // Pool snow first, and the LEAST useful colour first so a coloured requirement
+  // keeps the mana it needs: colourless, then whatever the pool holds most of.
+  const order: ManaSymbolKey[] = ['C', 'W', 'U', 'B', 'R', 'G'];
+  order.sort((a, b) => poolSnow[b] - poolSnow[a]);
+  for (const k of order) {
+    if (left <= 0) break;
+    const take = Math.min(left, poolSnow[k], pool[k]);
+    pool[k] -= take;
+    poolSnow[k] -= take;
+    left -= take;
+  }
+
+  const taps: PlannedTap[] = [];
+  const used = new Set<InstanceId>();
+  if (left > 0) {
+    const snowSources = input.sources
+      .filter((s) => s.snow)
+      .slice()
+      .sort((a, b) => a.flexibilityRank - b.flexibilityRank);
+    for (const s of snowSources) {
+      if (left <= 0) break;
+      if (used.has(s.card)) continue;
+      // The output that makes the MOST mana pays the most snow; ties keep the first.
+      let best = 0;
+      let bestAmount = 0;
+      for (let i = 0; i < s.outputs.length; i++) {
+        const amount = poolTotal(s.outputs[i]?.mana ?? EMPTY_POOL);
+        if (amount > bestAmount) {
+          bestAmount = amount;
+          best = i;
+        }
+      }
+      if (bestAmount <= 0) continue;
+      used.add(s.card);
+      taps.push({ source: s.card, abilityIndex: s.abilityIndex, outputChoice: best });
+      left -= bestAmount;
+    }
+  }
+  if (left > 0) return null;
+
+  return {
+    taps,
+    rest: {
+      ...input,
+      pool: pool as ManaPool,
+      poolSnow: poolSnow as ManaPool,
+      sources: input.sources.filter((s) => !used.has(s.card)),
+    },
+  };
+}
+
+/**
+ * D364 - the problem MINUS the snow the reservation has already paid: the symbols
+ * are gone and so is their quantity, or the solver would be asked to make mana that
+ * has already been made.
+ */
+function restOf(c: ConcreteProblem): ConcreteProblem {
+  return c.snow === 0 ? c : { ...c, snow: 0, totalMana: c.totalMana - c.snow };
+}
+
 export function affordable(input: SolveInput, problem: PaymentProblem): boolean {
-  // ⚠️ D363 - `{S}` IS NOT A COST THIS ENGINE CAN CHARGE. It is one mana produced
-  // by a snow source (CR 107.4s), and the pool carries no record of which mana came
-  // from where - so the honest answer is "not affordable" rather than charging it as
-  // generic, which is what `mana.ts` used to do and what let a {1}{S} artifact be
-  // cast off two Mountains. The card is still there, still movable by the Tier-3
-  // tools, and `engineComplete` no longer counts it as one the engine runs.
-  if (problem.snow > 0) return false;
+  // ⚠️ D363 refused `{S}` outright, because the pool recorded WHAT mana it held and
+  // never WHERE it came from - so `{1}{S}` was charged as `{2}` and Arcum's Astrolabe
+  // was castable off two Mountains. D364 gave the pool that record: the snow symbols
+  // are RESERVED here and the remainder goes to the untouched solver.
+  const reserved = reserveSnow(input, problem.snow);
+  if (!reserved) return false;
   for (const concrete of hybridCombinations(problem)) {
-    if (tierAFeasible(input, concrete)) return true;
+    // The reservation has paid the snow; what tier A must still find is the rest -
+    // and `totalMana` has to come down with it, or the remainder asks the solver for
+    // mana the reservation already produced.
+    if (tierAFeasible(reserved.rest, restOf(concrete))) return true;
   }
   return false;
 }
@@ -148,14 +244,37 @@ function emptyWorking(): Working {
  * turn it into `'cannotAfford'` with the cost in the message.
  */
 export function suggestPayment(input: SolveInput, problem: PaymentProblem): PaymentPlan | null {
+  // D364 - the snow symbols are paid before anything else, and the plan the solver
+  // builds for the remainder is merged with those taps. `finish` still prices the
+  // pool spend against the WHOLE concrete problem, so the reserved mana is spent too.
+  const reserved = reserveSnow(input, problem.snow);
+  if (!reserved) return null;
   for (const concrete of hybridCombinations(problem)) {
-    if (!tierAFeasible(input, concrete)) continue;
-    const greedy = solveGreedy(input, concrete);
-    if (greedy) return finish(input, concrete, greedy);
-    const flow = solveFlow(input, concrete);
-    if (flow) return finish(input, concrete, flow);
+    const rest = restOf(concrete);
+    if (!tierAFeasible(reserved.rest, rest)) continue;
+    const greedy = solveGreedy(reserved.rest, rest);
+    if (greedy) return finish(input, concrete, withReserved(greedy, reserved.taps, input));
+    const flow = solveFlow(reserved.rest, rest);
+    if (flow) return finish(input, concrete, withReserved(flow, reserved.taps, input));
   }
   return null;
+}
+
+/** D364 - fold the reserved snow taps back into a solved remainder. */
+function withReserved(w: Working, taps: readonly PlannedTap[], input: SolveInput): Working {
+  if (taps.length === 0) return w;
+  const surplus: Record<ManaSymbolKey, number> = { ...w.surplus };
+  for (const t of taps) {
+    const source = input.sources.find(
+      (s) => s.card === t.source && s.abilityIndex === t.abilityIndex,
+    );
+    const output = source?.outputs[t.outputChoice];
+    if (!output) continue;
+    for (const k of KEYS) surplus[k] += output.mana[k];
+  }
+  const used = new Set(w.used);
+  for (const t of taps) used.add(t.source);
+  return { surplus, taps: [...taps, ...w.taps], used };
 }
 
 function finish(input: SolveInput, concrete: ConcreteProblem, w: Working): PaymentPlan {

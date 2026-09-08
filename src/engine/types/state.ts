@@ -131,6 +131,14 @@ export interface PlayerState {
   readonly poison: number;
   readonly pool: ManaPool;
   /**
+   * D364 - of the mana in `pool`, how much came from a SNOW SOURCE (CR 107.4s).
+   *
+   * A SUB-POOL, so `poolSnow[k] <= pool[k]` always (asserted in `invariants.ts`).
+   * Snow is a property of the SOURCE and orthogonal to colour, which is why it
+   * cannot be a seventh key: `{S}` is paid by snow mana of ANY colour.
+   */
+  readonly poolSnow: ManaPool;
+  /**
    * Keyed by the COMMANDER'S INSTANCE ID, not by player.
    *
    * ⚠️ This is what makes a partner pair track separately at zero extra cost,
