@@ -101,7 +101,12 @@ export function splitAbilityLines(text: string, isPermanentSpell = false): Abili
       out.push({ text: line, kind: 'reminder', costText: '', effectText: line, index });
       continue;
     }
-    if (TRIGGER_RE.test(line)) {
+    // ⚠️ D366 - RECOGNITION READS THE MASK, NEVER THE RAW LINE. `scrub` blanks
+    // reminders and quoted spans in place with spaces of the same length, so an
+    // offset found here is the same offset in `line` - and a granted ability’s own
+    // words stop deciding the kind of the line that grants it.
+    const masked = scrub(line);
+    if (TRIGGER_RE.test(masked)) {
       out.push({ text: line, kind: 'triggered', costText: '', effectText: line, index });
       continue;
     }
@@ -111,8 +116,8 @@ export function splitAbilityLines(text: string, isPermanentSpell = false): Abili
     // brace — so a line that STARTS with a mana/tap symbol is a cost line at
     // any length (D159). War Room's cost is 82 characters: `{3}, {T}, Pay life
     // equal to the number of colors in your commanders' color identity`.
-    const colon = line.indexOf(':');
-    const stop = line.search(/[.;]/);
+    const colon = masked.indexOf(':');
+    const stop = masked.search(/[.;]/);
     const costLike = colon <= MAX_COST_LEN || line.startsWith('{');
     if (colon > 0 && costLike && (stop < 0 || colon < stop)) {
       out.push({

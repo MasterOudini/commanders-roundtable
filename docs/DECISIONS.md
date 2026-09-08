@@ -25370,3 +25370,109 @@ autoAnyFace 1,012 · ladder [1050, 1115, 2708, 4540, 5881] · tier3 silentAfter
 
 **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,965 files, 24,546 passed / 11 skipped · 500-seed
 gate, 6 shards, 724.6 s wall · build clean · probe 124/124 · battery 130/130.**
+
+## D366 — M6.4gy: THE QUOTED GRANT, part 1 — a line's kind stops being decided by words inside a quote (2026-09-08)
+
+**7,617 of 31,692 Commander-legal cards execute completely — UNCHANGED.**
+`SHIPPED_SCRIPTS` 4,822, REFUSED ledger 954, fixtures 5,309, select pool 0: all
+unmoved. **This decision lands no card.** What it moves is the accounting:
+**1,538 ability lines stop being called ACTIVATED because of a colon that
+belongs to a different ability**, and 147 more cards are correctly told their
+ability text is not run.
+
+**The prerequisite the quoted-grant dossier names, built on its own.** The
+seam map's second-densest family is the grant whose payload is a QUOTED ability
+— 355 one-piece cards — and `d354/DESIGN-quoted-grant.md` says plainly that it
+is "several seams, not one 221-card parser batch": a shared runtime CARRIER plus
+several payload families. It also measured the piece that has to come first, and
+that piece is an ACCOUNTING bug rather than a runtime one.
+
+### What it was
+
+`splitAbilityLines` decides what kind of ability a printed line is by testing the
+RAW line: first for a trigger word, then for a colon before the first sentence
+break. A line that GRANTS a quoted ability carries that ability's own words
+inside the quote, so both tests are answered by text belonging to a **different**
+ability:
+
+```
+Enchanted creature has "{T}: This creature deals 1 damage to any target."
+                        ^^^ the quote's colon is the first one → ACTIVATED
+
+Enchanted creature has "Whenever this creature attacks, draw a card."
+                        ^^^^^^^^ the quote's trigger word → TRIGGERED
+```
+
+Both lines are STATIC grants. The dossier measured the damage precisely: **113 of
+the 221 quoted-grant lines land in the activated claim bucket for this reason
+alone** — so a correct static implementation of one of those cards would produce
+the right text key in the *wrong bucket*, and the accounting would refuse it. The
+carrier cannot be built on top of that.
+
+### The fix, and why it is safe
+
+`scrub` already blanks reminder text and quoted spans **in place, with spaces of
+the same length**. So recognition reads a MASK of the line, and the substrings
+are still cut from the RAW line at the offsets the mask reports — an offset found
+in the mask is the same offset in the raw text, byte for byte. Every caller keeps
+the exact `costText` and `effectText` it had.
+
+⚠️ **THE MASK IS FOR RECOGNITION ONLY.** Cutting from the mask would hand every
+caller a line full of blanks; the whole design rests on `scrub` preserving
+length, and that property is now load-bearing in a second place.
+
+⚠️ **The teeth are the other half.** An activated ability whose EFFECT grants a
+quoted ability is *still activated* — `{1}: Target creature gains "{T}: Add
+{C}." until end of turn.` — because its colon is outside the quote, which is
+exactly the distinction being drawn. And a reminder that paraphrases a cost
+(cycling prints `({2}, Discard this card: Draw a card.)`) no longer makes a
+keyword line read as an activated ability.
+
+### Measured
+
+| | before | after |
+|---|---|---|
+| `activated:nonManaCost` | 4,395 | **2,857** |
+| ability lines | 44,874 | **43,336** |
+| `target:unparsedClause` | 1,234 | **1,195** |
+| targeting `confident` | 17,517 | **17,526** |
+| tier3 `abilityText` | 15,064 | **15,211** |
+| tier3 `residual` / `residualKeyword` | 214 | **237** |
+| `complete` | 7,617 | **7,617** |
+
+The 1,538-line fall is the reclassification; the 147-card rise in `abilityText`
+is the disclosure telling the truth — those cards carry a static grant whose text
+the app does not run, and it now says so instead of describing the line as a
+charged ability. ⚠️ `residual` and `residualKeyword` move by the SAME 23, which
+is the D124 invariant holding: everything still silent is a keyword line D68
+chose not to name.
+
+⚠️ **`complete` does not move, and that is the result to want.** A
+reclassification that moved coverage would mean it had changed what the engine
+RUNS, which it must not: no card gains or loses a claim here.
+
+### Not this decision
+
+The carrier itself — a runtime seam that gives a permanent an ability read off
+another card's quoted text — touches `derive`, `legal`, `handlers` and
+`resolveAbility` plus a new def kind, and it is the next decision. The payload
+families behind it are measured: **39 READABLE activated grants** (Enchanted
+creature 14, Enchanted land 10, All Slivers 7, Equipped creature 4, and 4
+others), 15 readable triggered ones, and the 82 + 75 whose payloads still sit
+outside both readers.
+
+Then D365's list — the counts outside the vocabulary (17), the activation
+conditions (35), the trigger payloads outside both readers (20); D364's — the
+snow CREATURE fixture, snow mana from the hand tool; D363's — the counter KINDS,
+the NONTOKEN predicate, the keyword ENTRY REPLACEMENTS and CHOICES, provoke,
+convoke/delve/improvise; then the rest of the seam map — the attached statics
+(351), the Aura that REDEFINES its host (18), the bare keyword or ability word
+(185).
+
+Fixtures 5,309 · botPool artifact 429 / creature 4,431 / enchantment 393 /
+instant 1,020 / land 561 / sorcery 783 — auto 1,003 / assisted 1,881 /
+autoAnyFace 1,012 · ladder [1050, 1115, 2708, 4540, 5881] · tier3 silentAfter
+7,915 · batch.json 0 · select pool 0.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,966 files, 24,553 passed / 11 skipped · 500-seed
+gate, 6 shards, 683.4 s wall · build clean · probe 124/124 · battery 130/130 idle (red on four DOM checks seconds after the fuzz leg - D270's load pattern).**

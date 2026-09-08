@@ -11947,6 +11947,80 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       (355 one-piece cards), the attached statics the Aura and Equipment rows
       cannot read (351), the Aura that REDEFINES its host (18), the bare keyword
       or ability word (185); prior items stand.
+- [x] **M6.4gy — THE QUOTED GRANT, part 1: a line's kind stops being decided by
+      words inside a quote (2026-09-08):**
+      **7,617 of 31,692 Commander-legal cards execute completely — UNCHANGED.**
+      `SHIPPED_SCRIPTS` 4,822, ledger 954, fixtures 5,309, select pool 0: all
+      unmoved. **This decision lands no card**; it corrects 1,538 ability lines
+      and is the prerequisite the quoted-grant dossier names. Decisions in
+      **D366**.
+      ⚠️⚠️ **A LINE'S KIND WAS BEING DECIDED BY A DIFFERENT ABILITY'S WORDS.**
+      `splitAbilityLines` tested the RAW line for a trigger word and then for a
+      colon before the first sentence break — and a line that GRANTS a quoted
+      ability carries that ability's own words inside the quote, so
+      `Enchanted creature has "{T}: This creature deals 1 damage to any target."`
+      read as ACTIVATED (the quote's colon is the first one) and
+      `Enchanted creature has "Whenever this creature attacks, draw a card."`
+      read as TRIGGERED. Both are STATIC grants. `d354/DESIGN-quoted-grant.md`
+      measured the cost exactly: **113 of the 221 quoted-grant lines land in the
+      activated claim bucket for this reason alone**, so a correct static
+      implementation of one of those cards would produce the right text key in
+      the WRONG bucket and the accounting would refuse it — which is why the
+      carrier cannot be built until this is.
+      ⚠️ **THE MASK IS FOR RECOGNITION ONLY, and `scrub`'s length is what makes
+      it safe.** `scrub` blanks reminders and quoted spans IN PLACE with spaces
+      of the same length, so an offset found in the mask is the same offset in
+      the raw line — recognition reads the mask, `costText` and `effectText` are
+      still cut from the RAW text, and every caller keeps the substrings it had.
+      Cutting from the mask would hand every caller a line full of blanks; that
+      property is load-bearing in a second place now.
+      ⚠️ **The teeth are the other half**: an activated ability whose EFFECT
+      grants a quoted ability is STILL activated (`{1}: Target creature gains
+      "{T}: Add {C}." until end of turn.`) because its colon is outside the
+      quote, which is exactly the distinction being drawn — and a reminder that
+      paraphrases a cost (cycling's `({2}, Discard this card: Draw a card.)`) no
+      longer makes a keyword line read as an activated ability.
+      ⚠️ **Measured:** `activated:nonManaCost` 4,395 → **2,857** (1,538 lines),
+      ability lines 44,874 → 43,336, `target:unparsedClause` 1,234 → 1,195,
+      targeting `confident` 17,517 → 17,526, tier3 `abilityText` 15,064 →
+      **15,211** (147 more cards correctly told their ability text is not run),
+      `silentAfter` 7,892 → 7,915. ⚠️ `residual` and `residualKeyword` both move
+      by the SAME 23 — the D124 invariant holding, since everything still silent
+      is a keyword line D68 chose not to name.
+      ⚠️ **`complete` DOES NOT MOVE, and that is the result to want.** A
+      reclassification that moved coverage would mean it had changed what the
+      engine RUNS, which it must not: no card gains or loses a claim here.
+      **Landed:** no cards and no rows — the accounting correction IS the
+      landing. Tests: `quoteAwareSplit.test.ts` (7: a granted activated ability
+      and a granted trigger both leaving the outer line static, a cycling
+      reminder, and the teeth — a real activated line keeping its RAW
+      substrings, a real trigger, D159's long cost, and an activated ability that
+      grants a quoted one).
+      Fixtures 5,309 · botPool artifact 429 / creature 4,431 / enchantment 393 /
+      instant 1,020 / land 561 / sorcery 783 - auto 1,003 / assisted 1,881 /
+      autoAnyFace 1,012 · ladder [1050, 1115, 2708, 4540, 5881] · tier3
+      silentAfter 7,915 · batch.json 0 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,966 files, 24,553 passed / 11 skipped ·
+      500-seed gate, 6 shards, 683.4 s wall · build clean · probe 124/124 ·
+      battery 130/130 idle (red on four DOM checks seconds after the fuzz leg - D270's load pattern).**
+      ⚠️ **Reportables** (D366): the CARRIER itself — a runtime seam giving a
+      permanent an ability read off another card's quoted text, which touches
+      `derive`, `legal`, `handlers` and `resolveAbility` plus a new def kind —
+      with its payload families measured: **39 READABLE activated grants**
+      (Enchanted creature 14, Enchanted land 10, All Slivers 7, Equipped creature
+      4, 4 others), 15 readable triggered ones, and the 82 + 75 whose payloads
+      still sit outside both readers; then D365's list — the counts outside the
+      vocabulary (17), the activation conditions (35), the trigger payloads
+      outside both readers (20) — and D364's — the snow CREATURE fixture, snow
+      mana from the Tier-3 hand tool — and D363's — the counter KINDS the
+      remove-counter chooser refuses, the NONTOKEN predicate `predicatesOf`
+      cannot place, the keyword ENTRY REPLACEMENTS (bloodthirst 13, modular 7,
+      graft 2), the ENTRY CHOICES (fabricate 10, unleash 9, riot 4, devour 4,
+      enlist 5, amplify 3), the block REQUIREMENT (provoke 4), the cast-time
+      payment sources (convoke 14, delve 5, improvise 6); then the rest of the
+      seam map — the attached statics the Aura and Equipment rows cannot read
+      (351), the Aura that REDEFINES its host (18), the bare keyword or ability
+      word (185); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

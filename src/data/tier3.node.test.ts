@@ -416,7 +416,7 @@ describe.skipIf(!HAVE_DB)('what the Tier-3 disclosure now says, measured', () =>
    * so the next kind of note added has to look at this number.
    */
   test('the longest note list is still panel-sized', () => {
-    expect.soft({ maxNotes: r.maxNotes, fourOrMore: r.fourOrMore }).toEqual({ maxNotes: 6, fourOrMore: 29 });
+    expect.soft({ maxNotes: r.maxNotes, fourOrMore: r.fourOrMore }).toEqual({ maxNotes: 6, fourOrMore: 26 });
   });
 
   /**
@@ -481,12 +481,12 @@ const MEASURED: Record<string, number> = {
   // ⚠️ M6.4l (D169): twenty-three silences — the batch's cards leaving both
   // note kinds, split by what each card is.
   // ⚠️ M6.4m (D170): twenty-three more, same shape.
-  abilityText: 15064,
+  abilityText: 15211,
   payable: 4238,
   manaPart: 434,
-  either: 17824,
-  eitherAnyFace: 17845,
-  wasSilent: 16134,
+  either: 17961,
+  eitherAnyFace: 17981,
+  wasSilent: 16498,
   // ⚠️ M6.3c moved the three SILENCE counters by exactly the seven cards the
   // counter vocabulary completed (D130), and moving them is the correct
   // behaviour rather than a regression: a card the engine now runs in full must
@@ -500,11 +500,11 @@ const MEASURED: Record<string, number> = {
   // nothing under them. M6.4b's PARSE widening does move it: these baselines
   // are parse-relative, and a line reclassified sentence→activated changes
   // what the old rules would have said too.
-  wasSilentAnyFace: 16014,
-  silentBefore: 24026,
-  silentAfter: 7892,
-  residual: 214,
-  residualKeyword: 214,
+  wasSilentAnyFace: 16382,
+  silentBefore: 24413,
+  silentAfter: 7915,
+  residual: 237,
+  residualKeyword: 237,
   residualManaLine: 0,
   residualOther: 0,
   strayMana: 0,

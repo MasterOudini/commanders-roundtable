@@ -435,7 +435,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // and `Tap N untapped <predicate> you control` became the DISCARD and
       // TAP choosers — 1,125 lines moved, and `payable` below grew by the
       // same 1,125. Same def gate again.
-      'activated:nonManaCost': 4395,
+      'activated:nonManaCost': 2857,
       'activated:loyalty': 4635,
       'target:modalUnion': 505,
       // D291: "attacking or blocking creature" used to lose its first word to
@@ -443,7 +443,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // D293: a qualifier after a noun LIST binds one alternative in print, so
       // such a clause is free aim now instead of a narrowed read of its first
       // noun (+35); the six new lists take the other direction.
-      'target:unparsedClause': 1234,
+      'target:unparsedClause': 1195,
       'typeLine:unknownType': 729,
       // D356 - the seam's own mirror: a protection naming a card type, a subtype or a colour
       // category is enforced now, so 244 lines that were recorded and unenforced are neither.
@@ -484,9 +484,9 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
    */
   test('the targeting coverage matches the numbers pinned in D79', () => {
     expect(report.targets).toEqual({
-      facesWithSpecs: 17513,
-      specs: 18599,
-      confident: 17517,
+      facesWithSpecs: 17522,
+      specs: 18608,
+      confident: 17526,
       free: 1082,
       enchant: 3536,
       // D288 admits "other" into the up-to window without recording it as
@@ -506,7 +506,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
     // the effect, `legal.ts`'s gate), `targeted` +50 (target clauses inside
     // the newly admitted lines).
     expect(report.activated).toEqual({
-      lines: 44874, // D311: the 529 synthesized Crew abilities
+      lines: 43336, // D311: the 529 synthesized Crew abilities
       // ⚠️ 28,133 → 29,933 in M6.4k (D168): the sacrifice-cost chooser's
       // 1,800 lines — the exact mirror of `nonManaCost`'s fall above.
       // ⚠️ 29,933 → 31,058 in M6.4dw (D286): the discard and tap choosers'
@@ -514,7 +514,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       payable: 35844,
       // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
       manaAbility: 11584,
-      targeted: 12269,
+      targeted: 11944,
     });
   });
 
