@@ -148,7 +148,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Batch 8 (D165).
   // Remove-a-+1/+1-counter-from-a-creature-you-control as a COST is a
   // chooser over counter state nothing charges yet (D165).
-  ['Bolrac-Clan Crusher', 'remove-counter cost'],
   // Batch 9 (D166).
   // "Exile this artifact" as a cost — sacrificesSelf ONE EVENT OVER
   // (CardsMoved to exile instead of graveyard); named cheap, not built yet.
@@ -244,7 +243,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Jolly Gerbils', 'gift mechanic'],
   // Batch 25 (D184): five refusals, ZERO new classes — every one an
   // existing named gap, which is the ledger's drainage doing its job.
-  ['Korozda Gorgon', 'remove-counter cost'],
   // Batch 26 (D185): FOUR new classes. `Lullmage's Familiar` needs kicker
   // (a cast-time additional-cost choice nothing records); `Lurking
   // Chupacabra` needs explore; `Magmaw` sacrifices "a NONLAND permanent"
@@ -1229,7 +1227,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Everbark Shaman', 'exile-from-graveyard cost (typed)'],
   ['Magus of the Order', 'multi-sacrifice cost'],
   ['Dark Petition', 'spell mastery'],
-  ['Honored Knight-Captain', 'search predicate with no fixture'],
   ['Myr Turbine', 'token outside TOKEN_TABLE'],
   ["New Generation's Technique", 'cast-time alternative cost'],
   ['Profane Tutor', 'suspend mechanic'],
@@ -1445,7 +1442,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Rally for the Throne', 'mana-spent memory'],
   ["Raphael's Technique", 'cast-time alternative cost'],
   ['Rat King, Pale Piper', 'token-predicate sacrifice cost'],
-  ['Ray Fillet, Man Ray', 'remove-counter cost'],
   ['Reality Anchor', 'temporary keyword/ability grant'],
   ['Reforge the Soul', 'miracle mechanic'],
   ['Refresh', 'regeneration'],
@@ -1473,7 +1469,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Scrollshift', 'up-to-N targeting'],
   ['Searing Barrage', 'mana-spent memory'],
   ['Send to Sleep', 'up-to-N targeting'],
-  ['Shapers of Nature', 'remove-counter cost'],
   ['Shimmering Mirage', 'script-raised prompt'],
   ['Shivan Meteor', 'suspend mechanic'],
   ['Shred Memory', 'transmute mechanic'],
@@ -1705,7 +1700,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hailstorm Valkyrie', 'snow mana cost'],
   ['Chilling Shade', 'snow mana cost'],
   ['Duergar Mine-Captain', 'untap-symbol cost'],
-  ['Quillspike', 'remove-counter cost'],
   ['Rift Elemental', 'remove-counter cost'],
   ['Orc General', 'multi-type sacrifice cost'],
   ['Oakhame Ranger // Bring Back', 'adventure (two faces)'],
@@ -1941,8 +1935,19 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D362 (M6.4gu) - the two of D361's thirteen the row maker refuses, each for a COST the
   // engine does not charge rather than a shape the wave chose to skip.
-  ['Hopeful Initiate', 'a remove-counter CHOOSER (two +1/+1 counters from AMONG creatures you control) - the engine charges the SELF counter only'],
   ['Knight of the Last Breath', 'a sacrifice cost naming a predicate the engine cannot place (another nontoken creature)'],
+
+  // D363 (M6.4gv) - what the remove-counter CHOOSER still refuses, and every one is
+  // about a counter KIND the engine cannot represent (`CounterKind` is +1/+1 and
+  // -1/-1, D130) rather than about the chooser itself.
+  ['Soul Diviner', 'a remove-counter cost naming no KIND and a noun list (an artifact, creature, land, or planeswalker)'],
+  ['Ion Storm', 'a remove-counter cost naming a KIND LIST, one of them a charge counter the engine cannot represent'],
+  ['Fain, the Broker', 'a remove-counter cost naming no KIND - the engine has +1/+1 and -1/-1 and cannot enumerate the rest'],
+  ["O'aka, Traveling Merchant", 'a remove-counter cost naming no KIND, over a predicate the engine cannot place (a nonland permanent)'],
+  ['Rift Elemental', 'a remove-counter cost over a TIME counter and a suspended card - two things the engine has neither of'],
+  // ⚠️ And the OTHER direction of this decision: a cost the engine stopped claiming.
+  ["Arcum's Astrolabe", 'a {S} MANA COST - one mana from a snow source (CR 107.4s), which no script can claim and the engine cannot charge'],
+  ['Icehide Golem', 'a {S} MANA COST - the same, and the reason both left the complete set'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
@@ -2053,6 +2058,10 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // charge. The tell that the two kinds are the right way round is the SCRIPTABLE
     // number again: D361 the seam RAISED it 1,067 -> 1,080, and this wave LOWERS it
     // 1,080 -> 1,069.
+    // ⚠️ D363 - ZERO again, and this decision is BOTH shapes at once: the chooser is a
+    // SEAM (it makes a cost chargeable) and its own rows are the WAVE (they take the
+    // cards that cost was blocking). The scriptable number falls 1,069 -> 1,063
+    // because the wave outweighs the seam.
     expect.soft(all.length).toBe(0);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.

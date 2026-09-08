@@ -115,6 +115,13 @@ export function tierAFeasible(input: SolveInput, p: ConcreteProblem): boolean {
  * than seven.
  */
 export function affordable(input: SolveInput, problem: PaymentProblem): boolean {
+  // ⚠️ D363 - `{S}` IS NOT A COST THIS ENGINE CAN CHARGE. It is one mana produced
+  // by a snow source (CR 107.4s), and the pool carries no record of which mana came
+  // from where - so the honest answer is "not affordable" rather than charging it as
+  // generic, which is what `mana.ts` used to do and what let a {1}{S} artifact be
+  // cast off two Mountains. The card is still there, still movable by the Tier-3
+  // tools, and `engineComplete` no longer counts it as one the engine runs.
+  if (problem.snow > 0) return false;
   for (const concrete of hybridCombinations(problem)) {
     if (tierAFeasible(input, concrete)) return true;
   }

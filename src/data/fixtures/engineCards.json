@@ -134025,35 +134025,6 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
-  "ARCUM_S_ASTROLABE": {
-    "scryfallId": "8dcaa85c-c4f1-4a3a-8328-6fcf865299e0",
-    "oracleId": "ec463bde-dadf-4044-8e41-71338fd4d62f",
-    "name": "Arcum's Astrolabe",
-    "layout": "normal",
-    "faces": [
-      {
-        "name": "Arcum's Astrolabe",
-        "manaCost": "{S}",
-        "typeLine": "Snow Artifact",
-        "oracleText": "({S} can be paid with one mana from a snow source.)\nWhen this artifact enters, draw a card.\n{1}, {T}: Add one mana of any color.",
-        "flavorText": "Though the Time of Ice has ended, its relics still slumber in New Argive.",
-        "power": null,
-        "toughness": null,
-        "loyalty": null,
-        "defense": null,
-        "colors": [],
-        "artist": "Igor Kieryluk",
-        "imageId": "8dcaa85c-c4f1-4a3a-8328-6fcf865299e0"
-      }
-    ],
-    "colorIdentity": [],
-    "cmc": 1,
-    "keywords": [],
-    "setCode": "plst",
-    "collectorNumber": "MH1-220",
-    "commanderLegality": "legal",
-    "singleImage": true
-  },
   "SENATE_GUILDMAGE": {
     "scryfallId": "913b3a2a-e3fd-4095-ab2a-5e356ea179df",
     "oracleId": "76f1cc7a-084e-410d-92cb-b8f6ab8da4e9",
@@ -172490,6 +172461,940 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SOLEMN_SIMULACRUM": {
+    "scryfallId": "00f9955f-a522-47bf-b064-92dd21a76b18",
+    "oracleId": "00c0543c-2a1f-4425-8283-4062d74a1637",
+    "name": "Solemn Simulacrum",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Solemn Simulacrum",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "When this creature enters, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.\nWhen this creature dies, you may draw a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Greg Staples",
+        "imageId": "00f9955f-a522-47bf-b064-92dd21a76b18"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mrd",
+    "collectorNumber": "245",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOPEFUL_INITIATE": {
+    "scryfallId": "011f9ce7-2b11-4fdb-80ff-e01cc3173edb",
+    "oracleId": "317169b8-9014-48e6-862b-ca21b706846e",
+    "name": "Hopeful Initiate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hopeful Initiate",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Warlock",
+        "oracleText": "Training (Whenever this creature attacks with another creature with greater power, put a +1/+1 counter on this creature.)\n{2}{W}, Remove two +1/+1 counters from among creatures you control: Destroy target artifact or enchantment.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "011f9ce7-2b11-4fdb-80ff-e01cc3173edb"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Training"
+    ],
+    "setCode": "pvow",
+    "collectorNumber": "20s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHAVE_GURU_OF_SPORES": {
+    "scryfallId": "03cb1519-1cab-4c59-9cf9-d5c44074bbce",
+    "oracleId": "e579a72f-4933-40fe-9e57-96f8d65370bc",
+    "name": "Ghave, Guru of Spores",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghave, Guru of Spores",
+        "manaCost": "{2}{W}{B}{G}",
+        "typeLine": "Legendary Creature — Fungus Shaman",
+        "oracleText": "Ghave enters with five +1/+1 counters on it.\n{1}, Remove a +1/+1 counter from a creature you control: Create a 1/1 green Saproling creature token.\n{1}, Sacrifice a creature: Put a +1/+1 counter on target creature.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G",
+          "W"
+        ],
+        "artist": "James Paick",
+        "imageId": "03cb1519-1cab-4c59-9cf9-d5c44074bbce"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "C16-200",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HONORED_KNIGHT_CAPTAIN": {
+    "scryfallId": "05a6ab03-f0b9-4738-a5f9-5d95bb22de75",
+    "oracleId": "69741d3b-1259-43f5-897f-6f4c3ca0844b",
+    "name": "Honored Knight-Captain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Honored Knight-Captain",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Advisor Knight",
+        "oracleText": "When this creature enters, create a 1/1 white Human Soldier creature token.\n{4}{W}{W}, Sacrifice this creature: Search your library for an Equipment card, put it onto the battlefield, then shuffle.",
+        "flavorText": "\"Hope can never fade so long as there's a hand to carry my sword when I fall.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Forrest Imel",
+        "imageId": "05a6ab03-f0b9-4738-a5f9-5d95bb22de75"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ULVENWALD_HYDRA": {
+    "scryfallId": "0700d1c1-faab-4a1a-b55d-a2fa4582a2b4",
+    "oracleId": "40b85f70-78b6-427a-9fb9-c3a72b8528ed",
+    "name": "Ulvenwald Hydra",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ulvenwald Hydra",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Hydra",
+        "oracleText": "Reach\nUlvenwald Hydra's power and toughness are each equal to the number of lands you control.\nWhen this creature enters, you may search your library for a land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": "*",
+        "toughness": "*",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "0700d1c1-faab-4a1a-b55d-a2fa4582a2b4"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "jmp",
+    "collectorNumber": "439",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RANGING_RAPTORS": {
+    "scryfallId": "08df7e63-65d6-4e42-8699-7510453d3100",
+    "oracleId": "2a86b70b-34ca-45df-8aa1-c3fb2da72dc3",
+    "name": "Ranging Raptors",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ranging Raptors",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Enrage — Whenever this creature is dealt damage, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "They cover their territory like a tide of teeth and claws.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Simon Dominic",
+        "imageId": "08df7e63-65d6-4e42-8699-7510453d3100"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enrage"
+    ],
+    "setCode": "gn2",
+    "collectorNumber": "49",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GREENSLEEVES_MARO_SORCERER": {
+    "scryfallId": "0969d7f3-cec5-4118-adb1-ff957eedf6ab",
+    "oracleId": "2ac2d483-2d2a-4912-8db4-04a5a2080831",
+    "name": "Greensleeves, Maro-Sorcerer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Greensleeves, Maro-Sorcerer",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Legendary Creature — Elemental Sorcerer",
+        "oracleText": "Protection from planeswalkers and from Wizards\nGreensleeves's power and toughness are each equal to the number of lands you control.\nLandfall — Whenever a land you control enters, create a 3/3 green Badger creature token.",
+        "flavorText": null,
+        "power": "*",
+        "toughness": "*",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tuan Duong Chu",
+        "imageId": "0969d7f3-cec5-4118-adb1-ff957eedf6ab"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Protection",
+      "Landfall"
+    ],
+    "setCode": "dmc",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TAMIYO_S_JOURNAL": {
+    "scryfallId": "0b8510d8-55dc-432f-9d6a-a65209c1c2ce",
+    "oracleId": "20591a83-7138-4876-b088-035bd3788be3",
+    "name": "Tamiyo's Journal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tamiyo's Journal",
+        "manaCost": "{5}",
+        "typeLine": "Legendary Artifact — Book",
+        "oracleText": "At the beginning of your upkeep, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")\n{T}, Sacrifice three Clues: Search your library for a card, put that card into your hand, then shuffle.",
+        "flavorText": "Entry 855: There's more to Avacyn's madness . . .",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Chase Stone",
+        "imageId": "0b8510d8-55dc-432f-9d6a-a65209c1c2ce"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [
+      "Investigate"
+    ],
+    "setCode": "psoi",
+    "collectorNumber": "265s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUILLSPIKE": {
+    "scryfallId": "14cb4054-d5d6-4015-ae86-6f99280afe0a",
+    "oracleId": "b8c748ed-7ba2-4f92-a9de-5080382c2fc2",
+    "name": "Quillspike",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quillspike",
+        "manaCost": "{2}{B/G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "{B/G}, Remove a -1/-1 counter from a creature you control: This creature gets +3/+3 until end of turn.",
+        "flavorText": "While it's true that a quillspike does heal the sick, it's just because it finds them tastier that way.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "14cb4054-d5d6-4015-ae86-6f99280afe0a"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "eve",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAY_FILLET_MAN_RAY": {
+    "scryfallId": "14e0892c-a556-43c3-974f-6be44188da2e",
+    "oracleId": "698098b8-b8e4-4e88-b13a-6b039579d192",
+    "name": "Ray Fillet, Man Ray",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ray Fillet, Man Ray",
+        "manaCost": "{3}{U}",
+        "typeLine": "Legendary Creature — Fish Mutant",
+        "oracleText": "Flying\nWhen Ray Fillet enters, create a Mutagen token. (It's an artifact with \"{1}, {T}, Sacrifice this token: Put a +1/+1 counter on target creature. Activate only as a sorcery.\")\n{2}, Remove a +1/+1 counter from a creature you control: Draw a card.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mirko Failoni",
+        "imageId": "14e0892c-a556-43c3-974f-6be44188da2e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "49",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CENTAUR_GARDEN": {
+    "scryfallId": "1ab33858-17ac-42e9-941c-1bf2409030f5",
+    "oracleId": "5cf92fd4-7c0b-4d8e-92f1-53dc2e0476fc",
+    "name": "Centaur Garden",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Centaur Garden",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {G}. This land deals 1 damage to you.\nThreshold — {G}, {T}, Sacrifice this land: Target creature gets +3/+3 until end of turn. Activate only if there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "1ab33858-17ac-42e9-941c-1bf2409030f5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "wc03",
+    "collectorNumber": "dh316",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ECOLOGIST_S_TERRARIUM": {
+    "scryfallId": "1d981026-b2df-4d8d-a9b4-296b011d9925",
+    "oracleId": "04b33a43-57f1-46e9-b2c2-1dd3f8a4935c",
+    "name": "Ecologist's Terrarium",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ecologist's Terrarium",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.\n{2}, {T}, Sacrifice this artifact: Put a +1/+1 counter on target creature. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "1d981026-b2df-4d8d-a9b4-296b011d9925"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "neo",
+    "collectorNumber": "246",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STONECOIL_SERPENT": {
+    "scryfallId": "354456dc-81da-4cd1-b7b1-7ea1ce1bcc9f",
+    "oracleId": "78124cd1-2658-43f3-a339-0755d84154d2",
+    "name": "Stonecoil Serpent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stonecoil Serpent",
+        "manaCost": "{X}",
+        "typeLine": "Artifact Creature — Snake",
+        "oracleText": "Reach, trample, protection from multicolored\nThis creature enters with X +1/+1 counters on it.",
+        "flavorText": "Cast out of Garenbrig for his crimes, Ennor turned to fae magic to fashion the perfect weapon for his revenge.",
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Poole",
+        "imageId": "354456dc-81da-4cd1-b7b1-7ea1ce1bcc9f"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Reach",
+      "Protection",
+      "Trample"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "976",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SULTAI_MONUMENT": {
+    "scryfallId": "45308e0e-b515-49ac-9960-a24e898dd321",
+    "oracleId": "9db71b76-eda7-49dd-af5a-3de18acb8ccb",
+    "name": "Sultai Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sultai Monument",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, search your library for a basic Swamp, Forest, or Island card, reveal it, put it into your hand, then shuffle.\n{2}{B}{G}{U}, {T}, Sacrifice this artifact: Create two 2/2 black Zombie Druid creature tokens. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Julian Kok Joon Wen",
+        "imageId": "45308e0e-b515-49ac-9960-a24e898dd321"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "247",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOLRAC_CLAN_CRUSHER": {
+    "scryfallId": "5080975e-693a-44f5-a718-9ee947dada6d",
+    "oracleId": "dbfa5409-5706-4de8-8152-e74b8d93910a",
+    "name": "Bolrac-Clan Crusher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bolrac-Clan Crusher",
+        "manaCost": "{3}{R}{G}",
+        "typeLine": "Creature — Ogre Warrior",
+        "oracleText": "{T}, Remove a +1/+1 counter from a creature you control: This creature deals 2 damage to any target.",
+        "flavorText": "Jaharg discovered that the shapes and symmetries so pleasing to the sculptor's eye also yielded a well-balanced bludgeon.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Craig J Spearing",
+        "imageId": "5080975e-693a-44f5-a718-9ee947dada6d"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "rna",
+    "collectorNumber": "159",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEMUR_MONUMENT": {
+    "scryfallId": "55e97b40-d898-4da5-8159-cca48eb298eb",
+    "oracleId": "5464d5ae-5be5-4e52-b9d0-ddce48fd93b3",
+    "name": "Temur Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Temur Monument",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, search your library for a basic Forest, Island, or Mountain card, reveal it, put it into your hand, then shuffle.\n{3}{G}{U}{R}, {T}, Sacrifice this artifact: Create a 5/5 green Elephant creature token. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Sam Burley",
+        "imageId": "55e97b40-d898-4da5-8159-cca48eb298eb"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "248",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PILGRIM_OF_THE_AGES": {
+    "scryfallId": "5c1fe64c-2c7a-4c1a-b0cd-cfdd095a146b",
+    "oracleId": "f67084bb-07f8-420a-ad6e-9ab9842d3ee6",
+    "name": "Pilgrim of the Ages",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pilgrim of the Ages",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "When this creature enters, you may search your library for a basic Plains card, reveal it, put it into your hand, then shuffle.\n{6}: Return this card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "JiHun Lee",
+        "imageId": "5c1fe64c-2c7a-4c1a-b0cd-cfdd095a146b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "gn3",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NOMAD_STADIUM": {
+    "scryfallId": "64300b71-050f-47a3-83be-f24480bdc01d",
+    "oracleId": "4034bec6-e3c7-4d3f-81df-7c903977a606",
+    "name": "Nomad Stadium",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nomad Stadium",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {W}. This land deals 1 damage to you.\nThreshold — {W}, {T}, Sacrifice this land: You gain 4 life. Activate only if there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "David Martin",
+        "imageId": "64300b71-050f-47a3-83be-f24480bdc01d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "322",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AINOK_GUIDE": {
+    "scryfallId": "6ee0801c-4c48-45c9-9201-68bbbd92951d",
+    "oracleId": "e5f96482-4bae-4d1b-97b2-dcc09676eb6e",
+    "name": "Ainok Guide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ainok Guide",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Dog Scout",
+        "oracleText": "When this creature enters, choose one —\n• Put a +1/+1 counter on this creature.\n• Search your library for a basic land card, reveal it, then shuffle and put that card on top.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "6ee0801c-4c48-45c9-9201-68bbbd92951d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j25",
+    "collectorNumber": "625",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOROZDA_GORGON": {
+    "scryfallId": "7006e5b9-d6a3-43ce-904b-b2ac0fea67e5",
+    "oracleId": "e9e18a5a-d265-456f-a049-fa4b7e223263",
+    "name": "Korozda Gorgon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Korozda Gorgon",
+        "manaCost": "{3}{B}{G}",
+        "typeLine": "Creature — Gorgon",
+        "oracleText": "Deathtouch\n{2}, Remove a +1/+1 counter from a creature you control: Target creature gets -1/-1 until end of turn.",
+        "flavorText": "\"Welcome to my collection.\"",
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "7006e5b9-d6a3-43ce-904b-b2ac0fea67e5"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "dgm",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHAPERS_OF_NATURE": {
+    "scryfallId": "7aa682fb-f5b6-41c1-9428-6043b0b76744",
+    "oracleId": "744f79da-240f-4d14-a98c-e2796645ae88",
+    "name": "Shapers of Nature",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shapers of Nature",
+        "manaCost": "{1}{G}{U}",
+        "typeLine": "Creature — Merfolk Shaman",
+        "oracleText": "{3}{G}: Put a +1/+1 counter on target creature.\n{2}{U}, Remove a +1/+1 counter from a creature you control: Draw a card.",
+        "flavorText": "Shapers adapt nature to fit their needs and then return it to the way it was, leaving no trace of their passing.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Chris Seaman",
+        "imageId": "7aa682fb-f5b6-41c1-9428-6043b0b76744"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "228",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CABAL_PIT": {
+    "scryfallId": "848d686a-e2f7-488d-947f-a555099b74b1",
+    "oracleId": "92392467-a22f-4dd7-a0eb-393bef956dc0",
+    "name": "Cabal Pit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cabal Pit",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {B}. This land deals 1 damage to you.\nThreshold — {B}, {T}, Sacrifice this land: Target creature gets -2/-2 until end of turn. Activate only if there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "848d686a-e2f7-488d-947f-a555099b74b1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "315",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MANTICORE_ETERNAL": {
+    "scryfallId": "b03a9686-d30b-4048-8b0a-23fd2f0aed4b",
+    "oracleId": "d859e9b3-7804-418d-be95-e03a5de290ca",
+    "name": "Manticore Eternal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Manticore Eternal",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Zombie Manticore",
+        "oracleText": "Afflict 3 (Whenever this creature becomes blocked, defending player loses 3 life.)\nThis creature attacks each combat if able.",
+        "flavorText": "While most Eternals were initiates who completed the trials, Bolas had plans for some of Amonkhet's other denizens.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Yeong-Hao Han",
+        "imageId": "b03a9686-d30b-4048-8b0a-23fd2f0aed4b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Afflict"
+    ],
+    "setCode": "hou",
+    "collectorNumber": "103",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BENTHIC_INFILTRATOR": {
+    "scryfallId": "b6072316-a837-4794-9ad8-d009f351360f",
+    "oracleId": "b2977807-5f46-424a-a6e9-14262f8a723a",
+    "name": "Benthic Infiltrator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Benthic Infiltrator",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Eldrazi Drone",
+        "oracleText": "Devoid (This card has no color.)\nIngest (Whenever this creature deals combat damage to a player, that player exiles the top card of their library.)\nThis creature can't be blocked.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mathias Kollros",
+        "imageId": "b6072316-a837-4794-9ad8-d009f351360f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Devoid",
+      "Ingest"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "BFZ-55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JESKAI_MONUMENT": {
+    "scryfallId": "d0193ad6-39b7-4558-bd3e-36f809332ea2",
+    "oracleId": "0b2b7d04-73f3-43f6-86e0-fa00cbbc6469",
+    "name": "Jeskai Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jeskai Monument",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, search your library for a basic Island, Mountain, or Plains card, reveal it, put it into your hand, then shuffle.\n{1}{U}{R}{W}, {T}, Sacrifice this artifact: Create two 1/1 white Bird creature tokens with flying. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Julian Kok Joon Wen",
+        "imageId": "d0193ad6-39b7-4558-bd3e-36f809332ea2"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "244",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIKE_ROGUE": {
+    "scryfallId": "f0d9b671-344b-460d-8f65-d65129db91c3",
+    "oracleId": "90ec956f-b6de-4214-9b5a-895280e542c1",
+    "name": "Spike Rogue",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spike Rogue",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Creature — Spike",
+        "oracleText": "This creature enters with two +1/+1 counters on it.\n{2}, Remove a +1/+1 counter from this creature: Put a +1/+1 counter on target creature.\n{2}, Remove a +1/+1 counter from a creature you control: Put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "f0d9b671-344b-460d-8f65-d65129db91c3"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "exo",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARCUM_S_ASTROLABE": {
+    "scryfallId": "8dcaa85c-c4f1-4a3a-8328-6fcf865299e0",
+    "oracleId": "ec463bde-dadf-4044-8e41-71338fd4d62f",
+    "name": "Arcum's Astrolabe",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arcum's Astrolabe",
+        "manaCost": "{S}",
+        "typeLine": "Snow Artifact",
+        "oracleText": "({S} can be paid with one mana from a snow source.)\nWhen this artifact enters, draw a card.\n{1}, {T}: Add one mana of any color.",
+        "flavorText": "Though the Time of Ice has ended, its relics still slumber in New Argive.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Igor Kieryluk",
+        "imageId": "8dcaa85c-c4f1-4a3a-8328-6fcf865299e0"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "MH1-220",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ICEHIDE_GOLEM": {
+    "scryfallId": "b2671c36-96fa-49e3-90dc-52820b2c8a62",
+    "oracleId": "29b925e9-1e98-471c-9b23-e0372ac86485",
+    "name": "Icehide Golem",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Icehide Golem",
+        "manaCost": "{S}",
+        "typeLine": "Snow Artifact Creature — Golem",
+        "oracleText": "({S} can be paid with one mana from a snow source.)",
+        "flavorText": "In colder climates, ice is more obedient than stone.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Paul Scott Canavan",
+        "imageId": "b2671c36-96fa-49e3-90dc-52820b2c8a62"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "mh1",
+    "collectorNumber": "224",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -177105,6 +178010,72 @@
     ],
     "setCode": "tvow",
     "collectorNumber": "15",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "BADGER_3_3_G_CREATURE_TOKEN": {
+    "scryfallId": "4e42cb2e-578f-4fec-a9a4-33b95b78229c",
+    "oracleId": "432a3442-c9d8-4756-b635-f37f05e2ab9b",
+    "name": "Badger",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Badger",
+        "manaCost": "",
+        "typeLine": "Token Creature — Badger",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tuan Duong Chu",
+        "imageId": "4e42cb2e-578f-4fec-a9a4-33b95b78229c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tdmu",
+    "collectorNumber": "15",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ELEPHANT_5_5_G_CREATURE_TOKEN": {
+    "scryfallId": "243bcfa9-0310-4d68-9864-df46069906fa",
+    "oracleId": "e543bedd-4667-4467-8e8b-161a5a82f7ac",
+    "name": "Elephant",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Elephant",
+        "manaCost": "",
+        "typeLine": "Token Creature — Elephant",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "243bcfa9-0310-4d68-9864-df46069906fa"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ttdm",
+    "collectorNumber": "14",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

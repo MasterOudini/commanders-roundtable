@@ -223,6 +223,13 @@ export function parseActivationConditions(text: string, selfName?: string): Acti
 }
 
 /**
+ * D363 - the counter kinds the engine can REPRESENT (`CounterKind`, D130). A cost
+ * naming any other counter is refused: the engine has never put a charge or a time
+ * counter on anything, so removing one is a price it could not take honestly.
+ */
+const ENGINE_COUNTER_KINDS: ReadonlySet<string> = new Set(['+1/+1', '-1/-1']);
+
+/**
  * D328 - "Sacrifice a token" / "a creature token" / "another creature or
  * token": the word the sacrifice chooser reads off the INSTANCE (`isToken`),
  * beside whatever predicate the words before it make - per alternative,
@@ -696,7 +703,28 @@ export function parseActivatedAbilities(
         const count = COUNT_WORDS[(rc[1] ?? '').toLowerCase()] ?? 0;
         const kind = rc[2] ?? '';
         if (count > 0 && kind !== '') {
-          removeCounterCost = { kind, count };
+          removeCounterCost = { kind, count, from: null };
+          continue;
+        }
+      }
+      // D363 - THE CHOOSER HALF: "Remove a +1/+1 counter from a creature you
+      // control" / "Remove two +1/+1 counters from among creatures you control".
+      // ⚠️ Anchored at both ends and read through `predicatesOf`, the same grammar
+      // the sacrifice chooser uses, so a phrase it cannot place stays unpaid rather
+      // than being widened - "from a nonland permanent you control" is refused for
+      // the same reason Magmaw's sacrifice is.
+      // ⚠️ The KIND must be one the engine can REPRESENT: "Remove a counter" (any
+      // kind) and "a charge counter" are refused, because `CounterKind` is +1/+1 and
+      // -1/-1 (D130) and a counter the engine never puts is one it cannot remove.
+      const rcc = /^remove (a|an|one|two|three|four|five) ([^ ]+) counters? from (?:among )?(.+) you control$/i.exec(part.trim());
+      if (rcc && removeCounterCost === null) {
+        const count = COUNT_WORDS[(rcc[1] ?? '').toLowerCase()] ?? 0;
+        const kind = rcc[2] ?? '';
+        const rest0 = (rcc[3] ?? '').trim();
+        const rest = count > 1 ? singularNoun(rest0, true) : rest0;
+        const from = /^permanents?$/i.test(rest) ? [{ supertypes: [], types: [], subtypes: [], colors: [] }] : predicatesOf(rest);
+        if (count > 0 && ENGINE_COUNTER_KINDS.has(kind) && from !== null) {
+          removeCounterCost = { kind, count, from };
           continue;
         }
       }

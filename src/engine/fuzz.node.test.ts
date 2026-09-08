@@ -573,6 +573,27 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       const returns = pickN(chosen.returnCandidates, chosen.returnCount);
       // D353 - the sacrifice chooser counts now: exactly N distinct candidates.
       const sac = pickN(sacs, chosen.sacrificeCount);
+      // D363 - the remove-counter chooser. ⚠️ Its picks are a MULTISET, so `pickN`
+      // (which draws WITHOUT replacement) is the wrong shape: a board with one
+      // creature carrying two counters legally pays a count of two, and drawing
+      // without replacement would call that unpayable and never exercise it.
+      const removeCounters = ((): readonly string[] | undefined => {
+        const pool = chosen.removeCounterCandidates;
+        const want = chosen.removeCounterCount;
+        const kind = chosen.removeCounterKind;
+        if (!pool || want === undefined || kind === undefined) return undefined;
+        const left = new Map<string, number>();
+        for (const id of pool) left.set(id, state.cards[id]?.counters[kind] ?? 0);
+        const out: string[] = [];
+        while (out.length < want) {
+          const able = [...left].filter(([, n]) => n > 0);
+          if (able.length === 0) return undefined;
+          const [id, n] = able[p.below(able.length)] as [string, number];
+          left.set(id, n - 1);
+          out.push(id);
+        }
+        return out;
+      })();
       return {
         t: 'ActivateAbility',
         player: holder,
@@ -582,6 +603,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
         ...(discards !== undefined ? { discard: discards } : {}),
         ...(taps !== undefined ? { tap: taps } : {}),
         ...(returns !== undefined ? { returnToHand: returns } : {}),
+        ...(removeCounters !== undefined ? { removeCounter: removeCounters } : {}),
       };
     }
   }

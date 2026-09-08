@@ -138,6 +138,15 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     notes.push({ what, how });
   };
 
+  // ⚠️ D363 - A SNOW MANA COST IS NOT ONE THE APP CAN CHARGE. `{S}` is one mana
+  // produced by a snow source (CR 107.4s), and this engine records no provenance
+  // for the mana in a pool - so `payment.ts` refuses the whole cost and the card is
+  // never castable through the app. Until D363 the requirement was folded into the
+  // GENERIC part and the card was cast off any mana at all, silently.
+  if ((face.manaCost ?? '').includes('{S}')) {
+    add(`Its ${face.manaCost} mana cost`, 'cast it with the manual tools - the app does not check that the mana came from a snow source');
+  }
+
   // ⚠️ Protection is the one where the app enforces PART of the keyword. Saying
   // "protection is not automatic" would be a lie; saying nothing would let a
   // player assume `protection from Dragons` is being checked. Name the clause.

@@ -121,7 +121,9 @@ export function onVeilPick(choice: TargetChoice): void {
           ? { tap: chosen }
           : mode.verb === 'returnToHand'
             ? { returnToHand: chosen }
-            : { exileFromGraveyard: chosen }),
+            : mode.verb === 'removeCounter'
+              ? { removeCounter: chosen }
+              : { exileFromGraveyard: chosen }),
     });
     return;
   }
@@ -196,6 +198,7 @@ export function startActivation(
     readonly needsTap?: number;
     readonly needsExileFromGraveyard?: number;
     readonly needsReturn?: number;
+    readonly needsRemoveCounter?: number;
   },
 ): void {
   const table = useTable.getState();
@@ -219,15 +222,28 @@ export function startActivation(
   // D329 - the third pick: the graveyard cards an "Exile N ... from your graveyard" cost takes.
   const needsExileGy = ability.needsExileFromGraveyard ?? 0;
   const needsReturn = ability.needsReturn ?? 0;
-  if (needsDiscard > 0 || needsTap > 0 || needsExileGy > 0 || needsReturn > 0) {
-    const verb = needsDiscard > 0 ? 'discard' : needsTap > 0 ? 'tap' : needsReturn > 0 ? 'returnToHand' : 'exileFromGraveyard';
+  // D363 - the fifth verb: the counters a "Remove N ... from a <predicate> you
+  // control" cost takes. ⚠️ Its picks are a MULTISET, so the panel may name one
+  // permanent twice where every other verb names each at most once.
+  const needsRemoveCounter = ability.needsRemoveCounter ?? 0;
+  if (needsDiscard > 0 || needsTap > 0 || needsExileGy > 0 || needsReturn > 0 || needsRemoveCounter > 0) {
+    const verb = needsDiscard > 0 ? 'discard' : needsTap > 0 ? 'tap' : needsReturn > 0 ? 'returnToHand' : needsRemoveCounter > 0 ? 'removeCounter' : 'exileFromGraveyard';
     table.setMode({
       kind: 'costPick',
       card,
       abilityIndex: ability.abilityIndex,
       name: ability.name,
       verb,
-      count: verb === 'discard' ? needsDiscard : verb === 'tap' ? needsTap : verb === 'returnToHand' ? needsReturn : needsExileGy,
+      count:
+        verb === 'discard'
+          ? needsDiscard
+          : verb === 'tap'
+            ? needsTap
+            : verb === 'returnToHand'
+              ? needsReturn
+              : verb === 'removeCounter'
+                ? needsRemoveCounter
+                : needsExileGy,
       chosen: [],
     });
     beginAimFrom(card);

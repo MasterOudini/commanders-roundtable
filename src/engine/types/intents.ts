@@ -111,6 +111,17 @@ export type Intent =
        * `returnCandidatesFor`.
        */
       readonly returnToHand?: readonly InstanceId[];
+      /**
+       * D363 - which permanents pay a "Remove N <kind> counters from a <predicate>
+       * you control" cost - exactly `count` picks, re-validated against
+       * `removeCounterCandidatesFor`.
+       *
+       * ⚠️ A MULTISET, not a set: "remove two +1/+1 counters from among creatures
+       * you control" may take both from ONE creature carrying two, so a permanent
+       * named k times must carry k counters. Every other chooser forbids a repeat;
+       * this one is about counters rather than about permanents.
+       */
+      readonly removeCounter?: readonly InstanceId[];
     }
   | { readonly t: 'ChooseTargets'; readonly player: PlayerId; readonly targets: readonly TargetChoice[] }
   | { readonly t: 'ChooseX'; readonly player: PlayerId; readonly x: number }
@@ -313,7 +324,11 @@ export type RejectReason =
   | 'needsTap'
   | 'illegalTap'
   | 'needsReturn'
+  /** D363 - the ability removes counters from permanents the player must name. */
+  | 'needsRemoveCounter'
   | 'illegalReturn'
+  /** D363 - the picks for a "Remove N counters from a <predicate> you control" cost. */
+  | 'illegalRemoveCounter'
   | 'needsExileFromGraveyard'
   | 'illegalExileFromGraveyard'
   | 'invalidPaymentPlan'

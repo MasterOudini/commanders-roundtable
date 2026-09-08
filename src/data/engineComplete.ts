@@ -570,6 +570,17 @@ export function faceCompleteness(card: CardData, faceIndex: number): Completenes
   // watch the effect skip itself. `unenforced` is the same failure one step in:
   // the KIND of object is checked and the restriction on it is not, so the bot
   // would happily Bolt a creature the card says it cannot touch.
+  // ⚠️ D363 - A COST THE ENGINE CANNOT CHARGE IS A CARD IT DOES NOT RUN. `{S}` is
+  // one mana produced by a SNOW SOURCE (CR 107.4s) and this engine records no
+  // provenance for the mana in a pool, so `payment.ts` refuses the whole problem.
+  // Until D363 the requirement was folded into GENERIC and both cards printing it
+  // - Arcum's Astrolabe and Icehide Golem - were counted complete while castable
+  // off any two lands. The card is still playable through the Tier-3 tools; it is
+  // no longer claimed as one the engine runs.
+  if ((raw.manaCost ?? '').includes('{S}')) {
+    return { complete: false, leftover: [raw.manaCost ?? '{S}'] };
+  }
+
   const specs = [...face.targets, ...face.activated.flatMap((a) => a.targets)];
   const unread = specs.filter((s) => s.kinds.length === 0 || s.unenforced.length > 0);
   if (unread.length > 0) {

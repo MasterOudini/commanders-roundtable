@@ -2,8 +2,11 @@
 // creature" is SELF only and a fixed count: deterministic, no chooser, so a
 // price the engine takes (parsed here; offered by `legal.ts` only while the
 // counters are there and only with a registered def; charged by `handlers.ts`
-// beside the self-sacrifice). "From a creature you control" is a decision and
-// stays unpaid; so does "X". The charge is proven on Spike Feeder's generated
+// beside the self-sacrifice). "From a creature you control" was a decision and
+// stayed unpaid until D363 built the chooser for it - `removeCounterCost.from`
+// is null HERE and a predicate list THERE, and `removeCounterChooser.test.ts`
+// proves that half. "X" is still a computed cost and still unpaid. The charge
+// is proven on Spike Feeder's generated
 // script: two counters on entry (CR 614.12, D318), two life per counter
 // removed, and the third activation refused with the counters gone.
 
@@ -22,7 +25,7 @@ const parse = (text: string) =>
 describe('D319 - the remove-a-counter cost, parsed', () => {
   test('"Remove a +1/+1 counter from this creature" is a price the engine takes', () => {
     const [a] = parse('{2}, Remove a +1/+1 counter from this creature: Draw a card.');
-    expect(a?.removeCounterCost).toEqual({ kind: '+1/+1', count: 1 });
+    expect(a?.removeCounterCost).toEqual({ kind: '+1/+1', count: 1, from: null });
     expect(a?.unpaidCosts).toEqual([]);
     expect(a?.payable).toBe(true);
     expect(a?.manaCost?.generic).toBe(2);
@@ -30,16 +33,30 @@ describe('D319 - the remove-a-counter cost, parsed', () => {
 
   test('two charge counters from this artifact, with the tap', () => {
     const [a] = parse('{T}, Remove two charge counters from this artifact: Add {C}{C}.');
-    expect(a?.removeCounterCost).toEqual({ kind: 'charge', count: 2 });
+    // ⚠️ The SELF form takes ANY counter kind - the engine removes what the card
+    // says without needing to represent it. D363's CHOOSER cannot: it names a
+    // permanent the player picks, so the kind must be one `CounterKind` holds.
+    expect(a?.removeCounterCost).toEqual({ kind: 'charge', count: 2, from: null });
     expect(a?.requiresTap).toBe(true);
     expect(a?.payable).toBe(true);
   });
 
-  test('"from a creature you control" is a decision and stays unpaid', () => {
+  // ⚠️ THIS CASE CHANGED SIDES IN D363, and the old one is gone rather than
+  // adapted: it asserted that a counter removed from a permanent the player
+  // NAMES stays unpaid, which was true only while the engine had no chooser
+  // for it. It has one now, so what is worth pinning HERE is the boundary -
+  // `from` is null for the SELF form and a predicate list for the chooser.
+  test('"from a creature you control" is the CHOOSER, and `from` is what tells them apart', () => {
     const [a] = parse('{1}, Remove a +1/+1 counter from a creature you control: Draw a card.');
-    expect(a?.removeCounterCost).toBeNull();
-    expect(a?.payable).toBe(false);
-    expect(a?.unpaidCosts).toEqual(['Remove a +1/+1 counter from a creature you control']);
+    expect(a?.removeCounterCost).toEqual({
+      kind: '+1/+1',
+      count: 1,
+      from: [{ supertypes: [], types: ['Creature'], subtypes: [], colors: [] }],
+    });
+    expect(a?.payable).toBe(true);
+    expect(a?.unpaidCosts).toEqual([]);
+    const [self] = parse('{1}, Remove a +1/+1 counter from this creature: Draw a card.');
+    expect(self?.removeCounterCost?.from).toBeNull();
   });
 
   test('"Remove X +1/+1 counters" is a computed cost and stays unpaid', () => {
@@ -56,7 +73,7 @@ describe('D319 - the remove-a-counter cost, parsed', () => {
       parseCost: (raw) => parseManaCost(raw),
       selfName: 'Brigone',
     });
-    expect(a?.removeCounterCost).toEqual({ kind: '+1/+1', count: 1 });
+    expect(a?.removeCounterCost).toEqual({ kind: '+1/+1', count: 1, from: null });
     expect(a?.payable).toBe(true);
     const [other] = parse('{T}, Remove a +1/+1 counter from Brigone: Draw a card.');
     expect(other?.removeCounterCost).toBeNull();

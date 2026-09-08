@@ -290,13 +290,19 @@ export function buildPaymentProblem(
   const colored: Record<Color, number> = { W: 0, U: 0, B: 0, R: 0, G: 0 };
   let colorless = 0;
   let generic = commanderTax;
+  let snow = 0;
   const hybrids: HybridRequirement[] = [];
 
   const fold = (cost: ManaCost | null): void => {
     if (!cost) return;
     for (const c of COLORS) colored[c] += cost.colored[c];
     colorless += cost.colorless;
-    generic += cost.generic + cost.snow + cost.xCount * Math.max(0, xValue);
+    // ⚠️ D363 - `cost.snow` is NOT folded in here any more. `{S}` is one mana from a
+    // SNOW SOURCE (CR 107.4s), and adding it to the generic requirement charged it as
+    // ordinary mana - Arcum’s Astrolabe castable off a Mountain. It rides its own
+    // field until the engine has a snow-source concept to satisfy it with.
+    generic += cost.generic + cost.xCount * Math.max(0, xValue);
+    snow += cost.snow;
     for (const h of cost.hybrids) hybrids.push({ index: hybrids.length, options: h.options });
   };
 
@@ -311,7 +317,7 @@ export function buildPaymentProblem(
   for (const c of COLORS) totalMana += colored[c];
   for (const h of hybrids) totalMana += minManaFor(h.options);
 
-  return { colored, colorless, generic, snow: 0, hybrids, additionalLife, totalMana };
+  return { colored, colorless, generic, snow, hybrids, additionalLife, totalMana };
 }
 
 /**
@@ -392,7 +398,9 @@ function concretise(
 ): ConcreteProblem {
   const colored: Record<Color, number> = { ...problem.colored };
   let colorless = problem.colorless;
-  let generic = problem.generic + problem.snow;
+  // ⚠️ D363 - the snow requirement is NOT generic (see `buildPaymentProblem`); it is
+  // carried to the solver, which refuses the whole problem until a snow source exists.
+  let generic = problem.generic;
   let lifeCost = problem.additionalLife;
   for (const choice of choices) {
     const req = problem.hybrids.find((h) => h.index === choice.index);

@@ -398,6 +398,12 @@ export interface PendingCast {
   readonly exileFromGraveyard?: readonly InstanceId[];
   /** D352 - the permanents a "Return N ... to its owner's hand" cost chose; bounced in the cost batch. */
   readonly returnToHand?: readonly InstanceId[];
+  /**
+   * D363 - the permanents a "Remove N <kind> counters from a <predicate> you
+   * control" cost chose; the counters come off in the cost batch.
+   * ⚠️ A MULTISET - a permanent named twice pays two counters.
+   */
+  readonly removeCounter?: readonly InstanceId[];
   /** D299: the clause each declared target answers, carried to the `StackObject`. */
   readonly targetSlots?: readonly number[];
 }

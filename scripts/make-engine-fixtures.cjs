@@ -4475,7 +4475,6 @@ const WANTED = [
   'Attended Socialite',
   'Atarka Efreet',
   'Amugaba',
-  "Arcum's Astrolabe",
   'Senate Guildmage',
   'Vodalian Merchant',
   'Forlorn Flats',
@@ -5692,6 +5691,36 @@ const WANTED = [
   'Sludge Crawler',
   'Torens, Fist of the Angels',
   'Seraph of the Scales',
+  // D363 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  'Solemn Simulacrum',
+  'Hopeful Initiate',
+  'Ghave, Guru of Spores',
+  'Honored Knight-Captain',
+  'Ulvenwald Hydra',
+  'Ranging Raptors',
+  'Greensleeves, Maro-Sorcerer',
+  "Tamiyo's Journal",
+  'Quillspike',
+  'Ray Fillet, Man Ray',
+  'Centaur Garden',
+  "Ecologist's Terrarium",
+  'Stonecoil Serpent',
+  'Sultai Monument',
+  'Bolrac-Clan Crusher',
+  'Temur Monument',
+  'Pilgrim of the Ages',
+  'Nomad Stadium',
+  'Ainok Guide',
+  'Korozda Gorgon',
+  'Shapers of Nature',
+  'Cabal Pit',
+  'Manticore Eternal',
+  'Benthic Infiltrator',
+  'Jeskai Monument',
+  'Spike Rogue',
+  // D363 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  "Arcum's Astrolabe",
+  'Icehide Golem',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -5950,6 +5979,9 @@ const WANTED_TOKENS = [
   // D362 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Boar', set: 'tvow', cn: '12', key: 'BOAR_3_1_G_CREATURE_TOKEN' },
   { name: 'Human Soldier', set: 'tvow', cn: '15', key: 'HUMAN_SOLDIER_1_1_GW_CREATURE_TRAINING_TOKEN' },
+  // D363 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Badger', set: 'tdmu', cn: '15', key: 'BADGER_3_3_G_CREATURE_TOKEN' },
+  { name: 'Elephant', set: 'ttdm', cn: '14', key: 'ELEPHANT_5_5_G_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

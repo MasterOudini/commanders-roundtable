@@ -41,6 +41,8 @@ export interface AbilityOption {
   readonly needsExileFromGraveyard: number;
   /** D352 - how many permanents a "Return N ... to its owner's hand" cost takes. */
   readonly needsReturn: number;
+  /** D363 - how many counters a "Remove N ... from a <predicate> you control" cost takes. */
+  readonly needsRemoveCounter: number;
 }
 
 /**
@@ -70,6 +72,7 @@ export function abilityOptionsFor(legal: readonly LegalAction[], card: string): 
       needsTap: a.tapCandidates && a.tapCount ? a.tapCount : 0,
       needsExileFromGraveyard: a.exileFromGraveyardCandidates && a.exileFromGraveyardCount ? a.exileFromGraveyardCount : 0,
       needsReturn: a.returnCandidates && a.returnCount ? a.returnCount : 0,
+      needsRemoveCounter: a.removeCounterCandidates && a.removeCounterCount ? a.removeCounterCount : 0,
     });
   }
   return out.sort((x, y) => x.abilityIndex - y.abilityIndex);

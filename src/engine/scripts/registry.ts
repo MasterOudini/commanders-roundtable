@@ -7,6 +7,32 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SOLEMN_SIMULACRUM_SCRIPT } from './cards/solemnSimulacrum';
+import { HOPEFUL_INITIATE_SCRIPT } from './cards/hopefulInitiate';
+import { GHAVE_GURU_OF_SPORES_SCRIPT } from './cards/ghaveGuruOfSpores';
+import { HONORED_KNIGHT_CAPTAIN_SCRIPT } from './cards/honoredKnightCaptain';
+import { ULVENWALD_HYDRA_SCRIPT } from './cards/ulvenwaldHydra';
+import { RANGING_RAPTORS_SCRIPT } from './cards/rangingRaptors';
+import { GREENSLEEVES_MARO_SORCERER_SCRIPT } from './cards/greensleevesMaroSorcerer';
+import { TAMIYOS_JOURNAL_SCRIPT } from './cards/tamiyosJournal';
+import { QUILLSPIKE_SCRIPT } from './cards/quillspike';
+import { RAY_FILLET_MAN_RAY_SCRIPT } from './cards/rayFilletManRay';
+import { CENTAUR_GARDEN_SCRIPT } from './cards/centaurGarden';
+import { ECOLOGISTS_TERRARIUM_SCRIPT } from './cards/ecologistsTerrarium';
+import { STONECOIL_SERPENT_SCRIPT } from './cards/stonecoilSerpent';
+import { SULTAI_MONUMENT_SCRIPT } from './cards/sultaiMonument';
+import { BOLRAC_CLAN_CRUSHER_SCRIPT } from './cards/bolracClanCrusher';
+import { TEMUR_MONUMENT_SCRIPT } from './cards/temurMonument';
+import { PILGRIM_OF_THE_AGES_SCRIPT } from './cards/pilgrimOfTheAges';
+import { NOMAD_STADIUM_SCRIPT } from './cards/nomadStadium';
+import { AINOK_GUIDE_SCRIPT } from './cards/ainokGuide';
+import { KOROZDA_GORGON_SCRIPT } from './cards/korozdaGorgon';
+import { SHAPERS_OF_NATURE_SCRIPT } from './cards/shapersOfNature';
+import { CABAL_PIT_SCRIPT } from './cards/cabalPit';
+import { MANTICORE_ETERNAL_SCRIPT } from './cards/manticoreEternal';
+import { BENTHIC_INFILTRATOR_SCRIPT } from './cards/benthicInfiltrator';
+import { JESKAI_MONUMENT_SCRIPT } from './cards/jeskaiMonument';
+import { SPIKE_ROGUE_SCRIPT } from './cards/spikeRogue';
 import { BURR_GRAFTER_SCRIPT } from './cards/burrGrafter';
 import { ETERNAL_OF_HARSH_TRUTHS_SCRIPT } from './cards/eternalOfHarshTruths';
 import { FRONTLINE_DEVASTATOR_SCRIPT } from './cards/frontlineDevastator';
@@ -1138,7 +1164,6 @@ import { APRIL_ONEIL_KUNOICHI_TRAINEE_SCRIPT } from './cards/aprilOneilKunoichiT
 import { ATTENDED_SOCIALITE_SCRIPT } from './cards/attendedSocialite';
 import { ATARKA_EFREET_SCRIPT } from './cards/atarkaEfreet';
 import { AMUGABA_SCRIPT } from './cards/amugaba';
-import { ARCUMS_ASTROLABE_SCRIPT } from './cards/arcumsAstrolabe';
 import { SENATE_GUILDMAGE_SCRIPT } from './cards/senateGuildmage';
 import { VODALIAN_MERCHANT_SCRIPT } from './cards/vodalianMerchant';
 import { FORLORN_FLATS_SCRIPT } from './cards/forlornFlats';
@@ -4796,6 +4821,32 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SOLEMN_SIMULACRUM_SCRIPT,
+  HOPEFUL_INITIATE_SCRIPT,
+  GHAVE_GURU_OF_SPORES_SCRIPT,
+  HONORED_KNIGHT_CAPTAIN_SCRIPT,
+  ULVENWALD_HYDRA_SCRIPT,
+  RANGING_RAPTORS_SCRIPT,
+  GREENSLEEVES_MARO_SORCERER_SCRIPT,
+  TAMIYOS_JOURNAL_SCRIPT,
+  QUILLSPIKE_SCRIPT,
+  RAY_FILLET_MAN_RAY_SCRIPT,
+  CENTAUR_GARDEN_SCRIPT,
+  ECOLOGISTS_TERRARIUM_SCRIPT,
+  STONECOIL_SERPENT_SCRIPT,
+  SULTAI_MONUMENT_SCRIPT,
+  BOLRAC_CLAN_CRUSHER_SCRIPT,
+  TEMUR_MONUMENT_SCRIPT,
+  PILGRIM_OF_THE_AGES_SCRIPT,
+  NOMAD_STADIUM_SCRIPT,
+  AINOK_GUIDE_SCRIPT,
+  KOROZDA_GORGON_SCRIPT,
+  SHAPERS_OF_NATURE_SCRIPT,
+  CABAL_PIT_SCRIPT,
+  MANTICORE_ETERNAL_SCRIPT,
+  BENTHIC_INFILTRATOR_SCRIPT,
+  JESKAI_MONUMENT_SCRIPT,
+  SPIKE_ROGUE_SCRIPT,
   BURR_GRAFTER_SCRIPT,
   ETERNAL_OF_HARSH_TRUTHS_SCRIPT,
   FRONTLINE_DEVASTATOR_SCRIPT,
@@ -5927,7 +5978,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   ATTENDED_SOCIALITE_SCRIPT,
   ATARKA_EFREET_SCRIPT,
   AMUGABA_SCRIPT,
-  ARCUMS_ASTROLABE_SCRIPT,
   SENATE_GUILDMAGE_SCRIPT,
   VODALIAN_MERCHANT_SCRIPT,
   FORLORN_FLATS_SCRIPT,

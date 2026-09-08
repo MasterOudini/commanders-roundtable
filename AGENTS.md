@@ -11612,6 +11612,23 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       500-seed gate, 6 shards, 684.7 s wall · build clean · probe 124/124 ·
       battery 130/130.**
       ⚠️ **Reportables** (D361): the THIRTEEN cards this seam made offerable
+      (a keyword line that now reads beside one other line the row maker can take
+      — Burr Grafter, Eternal of Harsh Truths, Frontline Devastator, Hopeful
+      Initiate, Knight of the Last Breath, Marchesa's Infiltrator, Merciless
+      Eternal, Pus Kami, Rural Recruit, Scuttling Death, Sludge Crawler, Torens
+      Fist of the Angels, Seraph of the Scales); then the keywords the table
+      still refuses, each with its own missing piece — the ENTRY REPLACEMENTS
+      (bloodthirst 13, modular 7, graft 2: a keyword `ReplacementDef`, which the
+      table has no half for, and modular also wants the counter count as last
+      known information), the ENTRY CHOICES (fabricate 10, unleash 9, riot 4,
+      devour 4, enlist 5, amplify 3: an asked choice as the creature enters), the
+      counter KINDS outside `'+1/+1' | '-1/-1'` (fading 4, vanishing 2, sunburst
+      2), the block REQUIREMENT (provoke 4), and the cast-time payment sources
+      (convoke 14, delve 5, improvise 6); then the families the seam map holds —
+      the grant whose payload is a QUOTED ability (355 one-piece cards, dossier in
+      d354/DESIGN-quoted-grant.md), the attached statics the Aura and Equipment
+      rows cannot read (351), the Aura that REDEFINES its host (18); prior items
+      stand.
 - [x] **M6.4gu — THE KEYWORD WAVE: eleven of D361's thirteen, and the two it
       refuses are both a COST the engine does not charge (2026-09-08):**
       **7,565 of 31,692 Commander-legal cards now execute completely, up
@@ -11679,23 +11696,89 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       is a QUOTED ability (355 one-piece cards), the attached statics the Aura and
       Equipment rows cannot read (351), the Aura that REDEFINES its host (18);
       prior items stand.
-      (a keyword line that now reads beside one other line the row maker can take
-      — Burr Grafter, Eternal of Harsh Truths, Frontline Devastator, Hopeful
-      Initiate, Knight of the Last Breath, Marchesa's Infiltrator, Merciless
-      Eternal, Pus Kami, Rural Recruit, Scuttling Death, Sludge Crawler, Torens
-      Fist of the Angels, Seraph of the Scales); then the keywords the table
-      still refuses, each with its own missing piece — the ENTRY REPLACEMENTS
-      (bloodthirst 13, modular 7, graft 2: a keyword `ReplacementDef`, which the
-      table has no half for, and modular also wants the counter count as last
-      known information), the ENTRY CHOICES (fabricate 10, unleash 9, riot 4,
-      devour 4, enlist 5, amplify 3: an asked choice as the creature enters), the
-      counter KINDS outside `'+1/+1' | '-1/-1'` (fading 4, vanishing 2, sunburst
-      2), the block REQUIREMENT (provoke 4), and the cast-time payment sources
-      (convoke 14, delve 5, improvise 6); then the families the seam map holds —
-      the grant whose payload is a QUOTED ability (355 one-piece cards, dossier in
-      d354/DESIGN-quoted-grant.md), the attached statics the Aura and Equipment
-      rows cannot read (351), the Aura that REDEFINES its host (18); prior items
-      stand.
+- [x] **M6.4gv — THE COST THE ENGINE DOES NOT CHARGE: the remove-counter chooser
+      built, and {S} stopped being claimed (2026-09-08):**
+      **7,589 of 31,692 Commander-legal cards now execute completely, up
+      from 7,565 (+24: 26 rowed, and 2 that left).** `SHIPPED_SCRIPTS` 4,770 →
+      **4,795** (26 landed, Arcum's Astrolabe UNLANDED); ledger 968 → **968**
+      (seven rows RETIRED because the chooser is the gap they were held for,
+      seven ADDED — five the chooser still refuses and the two the snow refusal
+      took). Fixtures 5,249 → **5,278** (5,137 by name + 141 tokens). **Select
+      pool 0.** Decisions in **D363**.
+      ⚠️ **One subject taken from both ends:** a cost the engine cannot charge is
+      a cost it must not claim (D90), and those are two different jobs — BUILD
+      the cost you can, STOP CLAIMING the one you cannot. Doing only the first is
+      how the second hides.
+      ⚠️ **THE CHOOSER.** D319 built "Remove a +1/+1 counter from this creature"
+      as SELF only and a fixed count, deliberately: deterministic, so a PRICE the
+      engine takes rather than a decision. A counter removed from a permanent the
+      player NAMES is the FIFTH chooser verb — after sacrifice (D168), discard
+      and tap (D286), exile-from-graveyard (D329) and return (D352) — named since
+      D329 and with a card refused for it in D362. `removeCounterCost.from` is a
+      predicate list or NULL, and null is D319's own SELF shape said out loud
+      rather than a second field beside it.
+      ⚠️ **ITS PICKS ARE A MULTISET WHERE EVERY OTHER CHOOSER'S ARE A SET** —
+      "remove two +1/+1 counters from among creatures you control" may take both
+      from ONE creature carrying two — so the offer's arithmetic is over
+      COUNTERS, not candidates (`removeCounterSupply`), a permanent named k times
+      must carry k counters, and any per-permanent count would call a board with
+      one two-counter creature unpayable. That is the one thing this verb does
+      not inherit from the four before it.
+      ⚠️ **The chooser's kinds are narrower than the SELF form's, correctly:** the
+      SELF form takes any printed kind (the engine removes what the card says
+      without representing it); the chooser names a permanent on the battlefield,
+      so the kind must be one `CounterKind` holds (D130). All five cards it still
+      refuses are refused for THAT — a kind named nowhere, a KIND LIST, a charge
+      counter, a time counter — never for the chooser.
+      ⚠️ **THE CLAIM.** `{S}` is one mana from a SNOW SOURCE (CR 107.4s), and
+      `mana.ts` folded `cost.snow` into the GENERIC requirement — so `{1}{S}` was
+      charged as `{2}` and Arcum's Astrolabe, a shipped script in the bot's own
+      pool, could be cast off two Mountains. Both Commander-legal cards with `{S}`
+      in a printed mana cost counted COMPLETE while the engine enforced no snow at
+      all: a rule the app CLAIMED and did not keep — D90's failure found in the
+      ENGINE rather than in a card. `{S}` now makes the payment problem unpayable,
+      the face is refused, and the Tier-3 note says so.
+      ⚠️ **The blast radius is the evidence it was real:** Arcum's Astrolabe had a
+      SHIPPED SCRIPT (unlanded here) and Icehide Golem was in the COMMITTED bot
+      deck (the deck guard caught it). ⚠️ And `residualOther` went 0 → 1 — a card
+      refused and unsaid — so the disclosure was taught from the same reader that
+      refuses it, for the SIXTH time in that file's life (D122, D124, D147, D343,
+      D356, here).
+      ⚠️ **The gate's first run went RED on D319's own suite, and that is the
+      guard working:** four cases asserted the shape this decision changed. Three
+      wanted the SELF form's `from: null` spelled out; the fourth asserted that
+      "from a creature you control" STAYS UNPAID — the rule this decision replaced
+      — and was REWRITTEN rather than adapted (D117), to pin the BOUNDARY instead:
+      `from` is null for the SELF form and a predicate list for the chooser.
+      **Landed:** 26 generated rows over the chooser — Ghave Guru of Spores,
+      Hopeful Initiate, Spike Rogue, Quillspike, Korozda Gorgon, Shapers of
+      Nature, Bolrac-Clan Crusher, Solemn Simulacrum and the Monument cycle,
+      Stonecoil Serpent, Ulvenwald Hydra — seven of them cards the ledger had been
+      holding for exactly this cost. The bot's own reach rose to **7,529** cards
+      from 7,505, chosen from **212** fully-executable legendary creatures (209
+      before). Tests: `removeCounterChooser.test.ts` (14), `snowCost.test.ts` (3)
+      and one generated suite per row.
+      Fixtures 5,278 · botPool artifact 422 / creature 4,410 / enchantment 393 /
+      instant 1,020 / land 561 / sorcery 783 - auto 1,003 / assisted 1,881 /
+      autoAnyFace 1,012 · ladder [1064, 1129, 2723, 4557, 5900] · tier3
+      silentAfter 7,864 · batch.json 26 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,938 files, 24,410 passed / 11 skipped ·
+      500-seed gate, 6 shards, 716.1 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D363): the SNOW SOURCE concept in the payment problem
+      (the pool learning which mana came from a snow source and the solver feeding
+      `{S}` only from those — 14 more cards, whose ACTIVATION cost is `{S}`); the
+      counter KINDS the chooser refuses (a kind named nowhere, a KIND LIST, charge
+      and time counters — five ledger rows, every one about `CounterKind` rather
+      than about the chooser); then D362's list unchanged — the NONTOKEN predicate
+      `predicatesOf` cannot place (five ledger rows on that one cause), the keyword
+      ENTRY REPLACEMENTS (bloodthirst 13, modular 7, graft 2), the keyword ENTRY
+      CHOICES (fabricate 10, unleash 9, riot 4, devour 4, enlist 5, amplify 3), the
+      block REQUIREMENT (provoke 4), the cast-time payment sources (convoke 14,
+      delve 5, improvise 6); then the families the seam map holds — the grant whose
+      payload is a QUOTED ability (355 one-piece cards), the attached statics the
+      Aura and Equipment rows cannot read (351), the Aura that REDEFINES its host
+      (18), the bare keyword or ability word (185); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

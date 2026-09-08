@@ -25008,3 +25008,122 @@ select pool 0.
 
 **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,911 files, 24,271 passed / 11 skipped · 500-seed
 gate, 6 shards, 633.4 s wall · build clean · probe 124/124 · battery 130/130.**
+
+## D363 — M6.4gv: THE COST THE ENGINE DOES NOT CHARGE — the remove-counter chooser built, and {S} stopped being claimed (2026-09-08)
+
+**7,589 of 31,692 Commander-legal cards execute completely, up from 7,565
+(+24: 26 rowed, and 2 that left).** `SHIPPED_SCRIPTS` 4,770 → **4,795** (26
+landed, and Arcum's Astrolabe UNLANDED — its shipped script cannot survive the
+other half of this decision). REFUSED ledger 968 → **968**: seven rows RETIRED
+because the chooser is the gap they were held for, seven ADDED — five the
+chooser still refuses and the two the snow refusal took. Fixtures 5,249 →
+**5,278** (5,137 by name + 141 tokens). **Select pool 0.**
+
+**One subject, taken from both ends.** A cost the engine cannot charge is a cost
+it must not claim (D90), and the two halves of that sentence are two different
+jobs: BUILD the cost you can, and STOP CLAIMING the one you cannot. This decision
+does one of each, on the same day, because doing only the first is how the second
+one hides.
+
+### The chooser
+
+D319 built "Remove a +1/+1 counter from this creature" as **SELF only and a fixed
+count**, deliberately: that shape is deterministic, which is exactly what made it
+a PRICE the engine could take rather than a decision. A counter removed from a
+permanent the player NAMES is a chooser — **the fifth verb** after sacrifice
+(D168), discard and tap (D286), exile-from-graveyard (D329) and return (D352),
+and it has been the named next step since D329 with a card refused for it in
+D362.
+
+`removeCounterCost.from` is `readonly PermanentPredicate[] | null` — **null is
+D319's SELF form, said out loud now that there is a second one** — and the shape
+is deliberately the one D319 already shipped rather than a second field beside
+it. The offer names the candidates past the def gate, the host re-validates with
+the SAME function the offer used, and the charge is one `CountersChanged` built
+from a `need` Map in the cost batch.
+
+⚠️ **THE PICKS ARE A MULTISET WHERE EVERY OTHER CHOOSER'S ARE A SET.** "Remove
+two +1/+1 counters from among creatures you control" may take BOTH from one
+creature carrying two, so a permanent named k times must carry k counters — and
+**the offer's arithmetic is therefore over COUNTERS, not over candidates**
+(`removeCounterSupply`). A board with one two-counter creature would be called
+unpayable by any per-permanent count, and that is the one thing this verb does
+not inherit from the four before it.
+
+⚠️ **The chooser's kinds are narrower than the SELF form's, and the asymmetry is
+correct.** The SELF form takes ANY printed counter kind — the engine removes what
+the card says without needing to represent it. The chooser cannot: it names a
+permanent on the battlefield, so the kind must be one `CounterKind` holds
+(`'+1/+1' | '-1/-1'`, D130). Every one of the five cards the chooser still
+refuses is refused for that and not for the chooser: a kind with no name at all
+("Remove a counter"), a KIND LIST, a charge counter, a time counter.
+
+⚠️ **A cost the engine charges must be answerable by a person** (D143, paid up
+front rather than found by playing): the client's chooser verb list grew its
+fifth entry in the same change, and the fuzz driver answers it too — with a
+**with-replacement** picker, because `pickN` draws without replacement and is
+simply the wrong shape for a multiset.
+
+### The claim
+
+`{S}` is one mana produced by a SNOW SOURCE (CR 107.4s). `mana.ts` folded
+`cost.snow` straight into the GENERIC requirement, so **`{1}{S}` was charged as
+`{2}`** — and `Arcum's Astrolabe`, a shipped script sitting in the bot's own
+pool, could be cast off two Mountains. Both Commander-legal cards with `{S}` in a
+printed mana cost were counted COMPLETE while the engine enforced no snow at all:
+**a rule the app claimed and did not keep**, which is the failure D90 exists to
+prevent, found in the engine rather than in a card.
+
+The honest move is the one D90 names. `{S}` rides its own field to the solver,
+`affordable()` refuses the problem, the cast is offered as unaffordable,
+`faceCompleteness` refuses the face, and `tier3.ts` says so on the card. Building
+the concept instead — the pool learning which mana came from a snow source, and
+the solver feeding `{S}` only from those — is its own decision, and it is worth
+14 more cards whose ACTIVATION cost is `{S}`.
+
+⚠️ **The blast radius is the evidence that it was real.** `Arcum's Astrolabe`
+had a SHIPPED SCRIPT, which had to be unlanded; `Icehide Golem` was in the
+COMMITTED bot deck, and the deck guard caught it the moment the refusal landed.
+A card the engine was mis-charging had reached both the shipped list and the
+bot's own seventy-five.
+
+⚠️ **And the disclosure had to be taught, for the sixth time in this file's
+life** (D122, D124, D147, D343, D356, here): `residualOther` went 0 → 1 the
+moment the face was refused — a card the app declines to run and says nothing
+about — so the Tier-3 note is written from the same reader that refuses it.
+
+### The wave, and the gate that caught the seam's own suite
+
+26 generated rows over the chooser — Ghave, Guru of Spores; Hopeful Initiate; the
+Spike Rogue; Quillspike; Korozda Gorgon; Shapers of Nature; Bolrac-Clan Crusher;
+Solemn Simulacrum and the Monument cycle; Stonecoil Serpent; Ulvenwald Hydra —
+seven of them cards the ledger has been holding for exactly this cost.
+
+⚠️ **The gate's first run went RED on D319's own suite, and that is the guard
+working.** Four cases asserted the shape this decision changed: three wanted the
+SELF form's `from: null` spelled out, and the fourth asserted that "from a
+creature you control" STAYS UNPAID — the rule this decision replaced. That one
+was **rewritten rather than adapted** (D117's precedent for a test that describes
+the old meaning): what is worth pinning there now is the BOUNDARY — `from` is
+null for the SELF form and a predicate list for the chooser — with the chooser's
+own behaviour proven in `removeCounterChooser.test.ts` where it belongs.
+
+**Landed:** 26 generated rows and one unlanded script. The bot's own reach rose
+to **7,529** cards from 7,505, chosen from **212** fully-executable legendary
+creatures (209 before).
+
+**Not this decision:** the SNOW SOURCE concept in the payment problem (14 more
+cards, whose activation cost is `{S}`); the counter KINDS the chooser refuses
+(a kind named nowhere, a KIND LIST, charge and time counters — five ledger rows,
+every one about `CounterKind` rather than about the chooser); then the families
+the seam map holds — the grant whose payload is a QUOTED ability (355 one-piece
+cards), the attached statics the Aura and Equipment rows cannot read (351), the
+Aura that REDEFINES its host (18), the bare keyword or ability word (185).
+
+Fixtures 5,278 · botPool artifact 422 / creature 4,410 / enchantment 393 /
+instant 1,020 / land 561 / sorcery 783 — auto 1,003 / assisted 1,881 /
+autoAnyFace 1,012 · ladder [1064, 1129, 2723, 4557, 5900] · tier3 silentAfter
+7,864 · batch.json 26 · select pool 0.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,938 files, 24,410 passed / 11 skipped · 500-seed
+gate, 6 shards, 716.1 s wall · build clean · probe 124/124 · battery 130/130.**

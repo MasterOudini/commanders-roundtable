@@ -883,10 +883,30 @@ export interface ActivatedAbility {
   /**
    * D319 - "Remove a +1/+1 counter from this creature": SELF only and a fixed
    * count, deterministic, so a price the engine takes (offered only while the
-   * counters are there, and only with a registered def). "from a creature you
-   * control" is a decision and stays in `unpaidCosts`; so does "X".
+   * counters are there, and only with a registered def). "X" stays in
+   * `unpaidCosts` - a computed cost the engine cannot compute.
+   *
+   * D363 - AND `from` NAMES THE CHOOSER. "Remove a +1/+1 counter from a creature
+   * you control" is the same price with a decision in it, so the ACTIVATION names
+   * the permanents (`ActivateAbility.removeCounter`) exactly as the sacrifice,
+   * discard, tap, return and exile-from-graveyard choosers do. `null` is SELF, the
+   * shape D319 shipped and every existing row still uses.
+   *
+   * ⚠️ THE KIND IS NEVER A CHOICE. `CounterKind` is +1/+1 and -1/-1 and nothing
+   * else (D130), so "Remove A COUNTER" - any kind - stays unpaid: the engine
+   * cannot enumerate what it cannot represent.
+   *
+   * ⚠️ REPETITION IS LEGAL where the sacrifice chooser forbids it. "Remove two
+   * +1/+1 counters from AMONG creatures you control" may take both from one
+   * creature carrying two, so the picks are a MULTISET and a permanent named k
+   * times must carry k counters.
    */
-  readonly removeCounterCost: { readonly kind: string; readonly count: number } | null;
+  readonly removeCounterCost: {
+    readonly kind: string;
+    readonly count: number;
+    /** D363 - the permanents the picks may name; `null` is this permanent alone. */
+    readonly from: readonly PermanentPredicate[] | null;
+  } | null;
   /**
    * D329 - "Exile N <predicate> cards from your graveyard": a chooser over the
    * activator's graveyard (the discard chooser's shape, D286), named by

@@ -100,6 +100,14 @@ export type LegalAction =
       /** D352 - a "Return N ... to its owner's hand" cost: the permanents that may pay it, and N. */
       readonly returnCandidates?: readonly InstanceId[];
       readonly returnCount?: number;
+      /**
+       * D363 - a "Remove N <kind> counters from a <predicate> you control" cost: the
+       * permanents carrying that counter, how many must come off, and which kind.
+       * ⚠️ The picks are a MULTISET - two counters may come off one permanent.
+       */
+      readonly removeCounterCandidates?: readonly InstanceId[];
+      readonly removeCounterCount?: number;
+      readonly removeCounterKind?: string;
       /** D353 - how many permanents a "Sacrifice N <predicate>" cost eats. */
       readonly sacrificeCount?: number;
     }
@@ -419,6 +427,7 @@ export function legalActions(
       // own permanent off the battlefield for nothing is not disclosed status quo) and the
       // same "a cost you cannot pay is not offered" rule.
       let returnCandidates: readonly InstanceId[] | null = null;
+      let removeCounterCandidates: readonly InstanceId[] | null = null;
       if (ability.returnsSelf && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
       if (ability.returnCost) {
         if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
@@ -433,9 +442,20 @@ export function legalActions(
       }
       // ⚠️ The REMOVE-A-COUNTER cost (D319): the same def gate, and "a cost you
       // cannot pay is not offered" - fewer counters than the count, no offer.
+      // D363 - and when the cost NAMES a predicate it is a chooser: the offer
+      // carries the candidates, and "a cost you cannot pay is not offered" is
+      // measured over the COUNTERS those candidates carry rather than over their
+      // number, because two counters may come off one creature.
       if (ability.removeCounterCost) {
         if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
-        if ((inst.counters[ability.removeCounterCost.kind] ?? 0) < ability.removeCounterCost.count) continue;
+        removeCounterCandidates = removeCounterCandidatesFor(
+          state,
+          (cid) => derive(state, oracle, scripts, cid, context.cache),
+          player,
+          id,
+          ability.removeCounterCost,
+        );
+        if (removeCounterSupply(state, removeCounterCandidates, ability.removeCounterCost.kind) < ability.removeCounterCost.count) continue;
       }
       if (ability.requiresTap && inst.tapped) continue;
       if (ability.requiresUntap && !inst.tapped) continue;
@@ -478,6 +498,13 @@ export function legalActions(
           : {}),
         ...(returnCandidates && ability.returnCost
           ? { returnCandidates, returnCount: ability.returnCost.count }
+          : {}),
+        ...(removeCounterCandidates && ability.removeCounterCost?.from
+          ? {
+              removeCounterCandidates,
+              removeCounterCount: ability.removeCounterCost.count,
+              removeCounterKind: ability.removeCounterCost.kind,
+            }
           : {}),
       });
     }
@@ -671,6 +698,44 @@ export function returnCandidatesFor(
     if (predicateHit(cost.any, deriveOf(id))) out.push(id);
   }
   return out;
+}
+
+/**
+ * D363 - the permanents a "Remove N <kind> counters from a <predicate> you
+ * control" cost may take its counters from: yours, matching the predicate, and
+ * CARRYING at least one counter of that kind. The offer and the host both ask
+ * this one function, so a client's word is never the rule (D168's shape).
+ *
+ * ⚠️ The COUNTERS, not the permanents, are what the count is over: a board with
+ * one creature carrying two counters can pay a count of two, which is why the
+ * caller compares the count against the TOTAL rather than the list length.
+ */
+export function removeCounterCandidatesFor(
+  state: GameState,
+  deriveOf: (id: InstanceId) => PredicateChars,
+  player: PlayerId,
+  selfId: InstanceId,
+  cost: NonNullable<ActivatedAbility['removeCounterCost']>,
+): readonly InstanceId[] {
+  if (cost.from === null) {
+    const self = state.cards[selfId];
+    return self && (self.counters[cost.kind] ?? 0) >= cost.count ? [selfId] : [];
+  }
+  const out: InstanceId[] = [];
+  for (const id of state.zones.battlefield) {
+    const inst = state.cards[id];
+    if (!inst || inst.controller !== player) continue;
+    if ((inst.counters[cost.kind] ?? 0) <= 0) continue;
+    if (predicateHit(cost.from, deriveOf(id))) out.push(id);
+  }
+  return out;
+}
+
+/** D363 - how many counters of that kind the candidates carry between them. */
+export function removeCounterSupply(state: GameState, candidates: readonly InstanceId[], kind: string): number {
+  let n = 0;
+  for (const id of candidates) n += state.cards[id]?.counters[kind] ?? 0;
+  return n;
 }
 
 function readyToTap(

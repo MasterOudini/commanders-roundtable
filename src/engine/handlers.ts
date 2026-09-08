@@ -25,6 +25,7 @@ import {
   exileFromGraveyardCandidatesFor,
   sacrificeCandidatesFor,
   tapCandidatesFor,
+  removeCounterCandidatesFor,
   returnCandidatesFor,
 } from './legal';
 import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom } from './mana';
@@ -934,8 +935,36 @@ function activateAbility(
     if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
       return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
     }
-    if ((card.counters[ability.removeCounterCost.kind] ?? 0) < ability.removeCounterCost.count) {
-      return reject('notCastable', `${face.name} does not have the counters its "${ability.costText}" cost removes.`);
+    if (ability.removeCounterCost.from === null) {
+      if ((card.counters[ability.removeCounterCost.kind] ?? 0) < ability.removeCounterCost.count) {
+        return reject('notCastable', `${face.name} does not have the counters its "${ability.costText}" cost removes.`);
+      }
+    } else {
+      // D363 - THE CHOOSER: re-validated against the same function the offer used,
+      // and the picks are a MULTISET - a permanent named k times must carry k
+      // counters of that kind.
+      const rcKind = ability.removeCounterCost.kind;
+      const rcCount = ability.removeCounterCost.count;
+      const picks = intent.removeCounter ?? [];
+      if (picks.length !== rcCount) {
+        return reject('illegalRemoveCounter', `${face.name}'s "${ability.costText}" cost removes ${rcCount} counter${rcCount === 1 ? '' : 's'}.`);
+      }
+      const rcLegal = new Set(
+        removeCounterCandidatesFor(
+          state,
+          (cid: InstanceId) => derive(state, deps.oracle, deps.scripts, cid),
+          intent.player,
+          intent.card,
+          ability.removeCounterCost,
+        ),
+      );
+      const rcNeed = new Map<InstanceId, number>();
+      for (const pick of picks) rcNeed.set(pick, (rcNeed.get(pick) ?? 0) + 1);
+      for (const [pick, n] of rcNeed) {
+        if (!rcLegal.has(pick) || (state.cards[pick]?.counters[rcKind] ?? 0) < n) {
+          return reject('illegalRemoveCounter', `Those counters cannot pay ${face.name}'s "${ability.costText}" cost.`);
+        }
+      }
     }
   }
   if (ability.requiresTap && card.tapped) return reject('alreadyTapped', `${face.name} is already tapped.`);
@@ -1000,6 +1029,7 @@ function activateAbility(
     ...(ability.tapCost && intent.tap ? { tap: [...intent.tap] } : {}),
     ...(ability.exileFromGraveyardCost && intent.exileFromGraveyard ? { exileFromGraveyard: [...intent.exileFromGraveyard] } : {}),
     ...(ability.returnCost && intent.returnToHand ? { returnToHand: [...intent.returnToHand] } : {}),
+    ...(ability.removeCounterCost?.from && intent.removeCounter ? { removeCounter: [...intent.removeCounter] } : {}),
     // An ability is a chit, not a card on the stack. See D155.
     faceIndex: 0,
     // ⚠️ Records where the permanent IS, and is never used to move it — an
@@ -1753,10 +1783,17 @@ function finishAbility(
     const src = state.cards[pending.card];
     if (!src) return reject('noSuchCard', 'That permanent is not in the game.');
     const { kind, count } = ability.removeCounterCost;
-    if ((src.counters[kind] ?? 0) < count) {
-      return reject('notCastable', `${face.name} no longer has the counters its "${ability.costText}" cost removes.`);
+    // D363 - the chooser named the permanents at activation and they rode the
+    // pending; the SELF cost (D319) names none and takes them off the source.
+    const need = new Map<InstanceId, number>();
+    if (ability.removeCounterCost.from === null) need.set(pending.card, count);
+    else for (const pick of pending.removeCounter ?? []) need.set(pick, (need.get(pick) ?? 0) + 1);
+    for (const [pick, n] of need) {
+      if ((state.cards[pick]?.counters[kind] ?? 0) < n) {
+        return reject('notCastable', `${face.name} no longer has the counters its "${ability.costText}" cost removes.`);
+      }
     }
-    events.push({ t: 'CountersChanged', changes: [{ card: pending.card, kind, delta: -count }] });
+    events.push({ t: 'CountersChanged', changes: [...need].map(([pick, n]) => ({ card: pick, kind, delta: -n })) });
     events.push(
       narrated(
         n`${who(state, pending.player)} ${vb(pending.player, 'removes', 'remove')} ${count} ${kind} counter${count === 1 ? '' : 's'} from ${face.name}.`,
