@@ -172101,6 +172101,395 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BURR_GRAFTER": {
+    "scryfallId": "935e52a1-a651-4d88-99a8-7de074a01576",
+    "oracleId": "eb527a7d-8957-4667-b50d-ed4398418664",
+    "name": "Burr Grafter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Burr Grafter",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Sacrifice this creature: Target creature gets +2/+2 until end of turn.\nSoulshift 3 (When this creature dies, you may return target Spirit card with mana value 3 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "935e52a1-a651-4d88-99a8-7de074a01576"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Soulshift"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "203",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ETERNAL_OF_HARSH_TRUTHS": {
+    "scryfallId": "0389daf7-0818-488f-8e6a-94818a6c94a6",
+    "oracleId": "5c09d646-afea-4fd0-9752-04820b81cc5b",
+    "name": "Eternal of Harsh Truths",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eternal of Harsh Truths",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Zombie Cleric",
+        "oracleText": "Afflict 2 (Whenever this creature becomes blocked, defending player loses 2 life.)\nWhenever this creature attacks and isn't blocked, draw a card.",
+        "flavorText": "\"If creating the Eternals was Bolas's plan here, what is his plan for the Eternals?\"\n—Jace Beleren",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Izzy",
+        "imageId": "0389daf7-0818-488f-8e6a-94818a6c94a6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Afflict"
+    ],
+    "setCode": "hou",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FRONTLINE_DEVASTATOR": {
+    "scryfallId": "21d8a65b-140d-438c-be9e-999bdf858275",
+    "oracleId": "5ace15b8-f853-4c44-b9c7-d307367b612c",
+    "name": "Frontline Devastator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frontline Devastator",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Zombie Minotaur Warrior",
+        "oracleText": "Afflict 2 (Whenever this creature becomes blocked, defending player loses 2 life.)\n{1}{R}: This creature gets +1/+0 until end of turn.",
+        "flavorText": "The God-Pharaoh's benevolence concealed the factory he created to produce an army of Eternals.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Tommy Arnold",
+        "imageId": "21d8a65b-140d-438c-be9e-999bdf858275"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Afflict"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "HOU-93",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARCHESA_S_INFILTRATOR": {
+    "scryfallId": "e9ac1e2c-1b9c-43b8-819e-9b391967e16c",
+    "oracleId": "9f05fab1-398a-4bd1-824d-6b1373dc9a94",
+    "name": "Marchesa's Infiltrator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Marchesa's Infiltrator",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Dethrone (Whenever this creature attacks the player with the most life or tied for most life, put a +1/+1 counter on it.)\nWhenever this creature deals combat damage to a player, draw a card.",
+        "flavorText": "\"Secrets, like coins, are easy to steal.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "e9ac1e2c-1b9c-43b8-819e-9b391967e16c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Dethrone"
+    ],
+    "setCode": "cns",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERCILESS_ETERNAL": {
+    "scryfallId": "11a6becd-15be-4f2d-8fda-35b1b289b28f",
+    "oracleId": "55c419e9-43f2-4d2d-8c13-057a48d47b53",
+    "name": "Merciless Eternal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Merciless Eternal",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Zombie Cleric",
+        "oracleText": "Afflict 2 (Whenever this creature becomes blocked, defending player loses 2 life.)\n{2}{B}, Discard a card: This creature gets +2/+2 until end of turn.",
+        "flavorText": "\"My work here is complete. The people have done everything required of them.\"\n—Nicol Bolas",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "11a6becd-15be-4f2d-8fda-35b1b289b28f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Afflict"
+    ],
+    "setCode": "hou",
+    "collectorNumber": "71",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PUS_KAMI": {
+    "scryfallId": "4f142dea-4751-453f-93a5-c8fdaba8a1b3",
+    "oracleId": "9b2471d4-2821-4220-becc-94bebfdc456f",
+    "name": "Pus Kami",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pus Kami",
+        "manaCost": "{5}{B}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "{B}, Sacrifice this creature: Destroy target nonblack creature.\nSoulshift 6 (When this creature dies, you may return target Spirit card with mana value 6 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dave Allsop",
+        "imageId": "4f142dea-4751-453f-93a5-c8fdaba8a1b3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Soulshift"
+    ],
+    "setCode": "bok",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RURAL_RECRUIT": {
+    "scryfallId": "1bf35971-f1c4-4ccb-af5c-fd396391bb4b",
+    "oracleId": "fda06d9e-d17f-4bb6-916b-06116e47c8e8",
+    "name": "Rural Recruit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rural Recruit",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Human Peasant",
+        "oracleText": "Training (Whenever this creature attacks with another creature with greater power, put a +1/+1 counter on this creature.)\nWhen this creature enters, create a 3/1 green Boar creature token.",
+        "flavorText": "The Dawnhart survivors welcome recruits of all shapes and sizes.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Eelis Kyttanen",
+        "imageId": "1bf35971-f1c4-4ccb-af5c-fd396391bb4b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Training"
+    ],
+    "setCode": "vow",
+    "collectorNumber": "216",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCUTTLING_DEATH": {
+    "scryfallId": "5b26172d-3c33-4535-9af8-721061a43b97",
+    "oracleId": "f9927216-edf2-4ef7-90eb-447b9e08f7b3",
+    "name": "Scuttling Death",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scuttling Death",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Sacrifice this creature: Target creature gets -1/-1 until end of turn.\nSoulshift 4 (When this creature dies, you may return target Spirit card with mana value 4 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "5b26172d-3c33-4535-9af8-721061a43b97"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Soulshift"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MM2-94",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SLUDGE_CRAWLER": {
+    "scryfallId": "9782b463-0677-40f4-ab2c-4c3ff19f1168",
+    "oracleId": "dd05294b-2c5b-48c2-a9f6-8a528baa3dff",
+    "name": "Sludge Crawler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sludge Crawler",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Eldrazi Drone",
+        "oracleText": "Devoid (This card has no color.)\nIngest (Whenever this creature deals combat damage to a player, that player exiles the top card of their library.)\n{2}: This creature gets +1/+1 until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Johann Bodin",
+        "imageId": "9782b463-0677-40f4-ab2c-4c3ff19f1168"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Devoid",
+      "Ingest"
+    ],
+    "setCode": "bfz",
+    "collectorNumber": "98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TORENS_FIST_OF_THE_ANGELS": {
+    "scryfallId": "162a3448-34fd-4de6-a6b4-f6d636eead8c",
+    "oracleId": "2cb96408-9195-4e41-ad9a-f8c74fbad083",
+    "name": "Torens, Fist of the Angels",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Torens, Fist of the Angels",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Legendary Creature — Human Cleric",
+        "oracleText": "Training (Whenever this creature attacks with another creature with greater power, put a +1/+1 counter on this creature.)\nWhenever you cast a creature spell, create a 1/1 green and white Human Soldier creature token with training.",
+        "flavorText": "He seems absolutely imperturbable. I can fancy what a wonderful power he must have over his patients.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "162a3448-34fd-4de6-a6b4-f6d636eead8c"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Training"
+    ],
+    "setCode": "vow",
+    "collectorNumber": "344",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SERAPH_OF_THE_SCALES": {
+    "scryfallId": "25938792-397a-4e9b-bf89-cc04d82cdea1",
+    "oracleId": "4a3acbf7-0699-4d7c-b4fa-aa15c7cde189",
+    "name": "Seraph of the Scales",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seraph of the Scales",
+        "manaCost": "{2}{W}{B}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying\n{W}: This creature gains vigilance until end of turn.\n{B}: This creature gains deathtouch until end of turn.\nAfterlife 2 (When this creature dies, create two 1/1 white and black Spirit creature tokens with flying.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "25938792-397a-4e9b-bf89-cc04d82cdea1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Afterlife"
+    ],
+    "setCode": "prna",
+    "collectorNumber": "205p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -176646,6 +177035,76 @@
     ],
     "setCode": "tcmr",
     "collectorNumber": "17",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "BOAR_3_1_G_CREATURE_TOKEN": {
+    "scryfallId": "975c4329-418a-4ada-82fa-9286fb61d61a",
+    "oracleId": "780beda2-0f2c-49f2-a3b5-41a31bfc5f7d",
+    "name": "Boar",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Boar",
+        "manaCost": "",
+        "typeLine": "Token Creature — Boar",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "975c4329-418a-4ada-82fa-9286fb61d61a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tvow",
+    "collectorNumber": "12",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "HUMAN_SOLDIER_1_1_GW_CREATURE_TRAINING_TOKEN": {
+    "scryfallId": "5f3c4810-7359-42b7-905f-4845f6d1daf6",
+    "oracleId": "397dd0fc-fc96-474e-b3a9-19872e310a67",
+    "name": "Human Soldier",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Human Soldier",
+        "manaCost": "",
+        "typeLine": "Token Creature — Human Soldier",
+        "oracleText": "Training (Whenever this creature attacks with another creature with greater power, put a +1/+1 counter on this creature.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Campbell White",
+        "imageId": "5f3c4810-7359-42b7-905f-4845f6d1daf6"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Training"
+    ],
+    "setCode": "tvow",
+    "collectorNumber": "15",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

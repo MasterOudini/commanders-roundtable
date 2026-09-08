@@ -5680,6 +5680,18 @@ const WANTED = [
   'Venerable Kumo',
   'Vine Kami',
   'Wings of the Guard',
+  // D362 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  'Burr Grafter',
+  'Eternal of Harsh Truths',
+  'Frontline Devastator',
+  "Marchesa's Infiltrator",
+  'Merciless Eternal',
+  'Pus Kami',
+  'Rural Recruit',
+  'Scuttling Death',
+  'Sludge Crawler',
+  'Torens, Fist of the Angels',
+  'Seraph of the Scales',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -5935,6 +5947,9 @@ const WANTED_TOKENS = [
   { name: 'Zombie Druid', set: 'ttdm', cn: '10', key: 'ZOMBIE_DRUID_2_2_B_CREATURE_TOKEN' },
   // D352 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Illusion', set: 'tcmr', cn: '17', key: 'ILLUSION_1_1_U_CREATURE_FLYING_TOKEN' },
+  // D362 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Boar', set: 'tvow', cn: '12', key: 'BOAR_3_1_G_CREATURE_TOKEN' },
+  { name: 'Human Soldier', set: 'tvow', cn: '15', key: 'HUMAN_SOLDIER_1_1_GW_CREATURE_TRAINING_TOKEN' },
 ];
 
 function constName(name) {

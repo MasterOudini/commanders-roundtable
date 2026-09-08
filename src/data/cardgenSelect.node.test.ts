@@ -1938,6 +1938,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Attuma, Atlantean Warlord', 'a trigger head outside the library (one or more Merfolk you control attack a player)'],
   ['Pia Nalaar, Consul of Revival', 'a trigger head outside the library (you play a land or cast a spell FROM EXILE)'],
   ['Quintorius, Field Historian', 'a trigger head outside the library (one or more cards leave your graveyard)'],
+
+  // D362 (M6.4gu) - the two of D361's thirteen the row maker refuses, each for a COST the
+  // engine does not charge rather than a shape the wave chose to skip.
+  ['Hopeful Initiate', 'a remove-counter CHOOSER (two +1/+1 counters from AMONG creatures you control) - the engine charges the SELF counter only'],
+  ['Knight of the Last Breath', 'a sacrifice cost naming a predicate the engine cannot place (another nontoken creature)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
@@ -2043,7 +2048,12 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // Breath, Marchesa's Infiltrator, Merciless Eternal, Pus Kami, Rural Recruit, Scuttling
     // Death, Sludge Crawler, Torens Fist of the Angels, Seraph of the Scales. They are
     // OFFERED rather than refused, so they belong here and not in the ledger.
-    expect.soft(all.length).toBe(13);
+    // ⚠️ D362 - BACK TO ZERO, and that is what a WAVE does. It rowed ELEVEN of D361's
+    // thirteen and ledgered the other two by name, each for a COST the engine does not
+    // charge. The tell that the two kinds are the right way round is the SCRIPTABLE
+    // number again: D361 the seam RAISED it 1,067 -> 1,080, and this wave LOWERS it
+    // 1,080 -> 1,069.
+    expect.soft(all.length).toBe(0);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

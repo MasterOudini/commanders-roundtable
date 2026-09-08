@@ -11612,6 +11612,73 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       500-seed gate, 6 shards, 684.7 s wall · build clean · probe 124/124 ·
       battery 130/130.**
       ⚠️ **Reportables** (D361): the THIRTEEN cards this seam made offerable
+- [x] **M6.4gu — THE KEYWORD WAVE: eleven of D361's thirteen, and the two it
+      refuses are both a COST the engine does not charge (2026-09-08):**
+      **7,565 of 31,692 Commander-legal cards now execute completely, up
+      from 7,554 (+11).** `SHIPPED_SCRIPTS` 4,759 → **4,770**; ledger 966 →
+      **968** (two rows ADDED by name, each with the reason the ROW MAKER gave).
+      Fixtures 5,236 → **5,249** (5,110 by name + 139 tokens: the 11 rowed cards
+      and TWO new token pins). **Select pool 13 → 0.** Decisions in **D362**.
+      ⚠️ **No new probe and no new grammar: D361's own measurement IS this
+      decision's input.** The seam left the select pool at 13 on purpose (the
+      D289/D291/D357/D359 shape), and those thirteen are the cards whose keyword
+      line D361 made the engine's own and whose ONE other line is an ordinary
+      row. The generator chain is D360's, DERIVED by renames alone with no swaps
+      at all — the first wave in some time that needed the row maker to learn
+      nothing.
+      ⚠️ **Eleven rows, and all eleven suites green on the FIRST run.** Every
+      shape was one the chain already had: a self-sacrifice cost paying a target
+      pump (Burr Grafter, Scuttling Death) or a destroy behind a negated-colour
+      aim (Pus Kami); the attacks-and-isn't-blocked head (Eternal of Harsh
+      Truths) and the combat-damage-to-a-player head (Marchesa's Infiltrator),
+      both paying a draw; activated self pumps at three different prices
+      (Frontline Devastator's mana, Merciless Eternal's discard cost, Sludge
+      Crawler's bare {2}); an enters token (Rural Recruit); a creature-cast token
+      (Torens, Fist of the Angels); and two activated keyword grants on one card
+      (Seraph of the Scales).
+      ⚠️ **The token Torens makes carries TRAINING** — the keyword D361 taught the
+      engine to run — so the wave's own product is a creature the native table
+      fires for. Both new pins are that kind of check: `Boar` (tvow 12) and the
+      G/W `Human Soldier` with training (tvow 15), mapped from TOKEN_TABLE's own
+      printingIds rather than guessed.
+      ⚠️ **The two refusals are COSTS THE ENGINE DOES NOT CHARGE, not shapes the
+      wave skipped.** `Hopeful Initiate` prints "Remove two +1/+1 counters from
+      AMONG creatures you control" — a remove-counter CHOOSER, where D319 built
+      the SELF counter only; `Knight of the Last Breath` prints "Sacrifice another
+      NONTOKEN creature", and `predicatesOf` cannot place a lowercase word it does
+      not know (D347's measured boundary, and the same cause as four rows already
+      in the ledger). Both are ledgered by name.
+      ⚠️ **The scriptable number is the tell, and it says WAVE:** 1,080 →
+      **1,069**. D361 was a seam and RAISED it (1,067 → 1,080) because a line the
+      engine reads is a card a row can take; this lowers it, because a card a row
+      has taken is one no row can take again. The pool is back to zero.
+      **Landed:** 11 generated rows — Burr Grafter, Eternal of Harsh Truths,
+      Frontline Devastator, Marchesa's Infiltrator, Merciless Eternal, Pus Kami,
+      Rural Recruit, Scuttling Death, Sludge Crawler, Torens Fist of the Angels,
+      Seraph of the Scales. The bot's own reach rose to 7,505 cards from 7,494,
+      chosen from **209** fully-executable legendary creatures (208 before —
+      Torens is the one that joined). Tests: one generated suite per row (29
+      checks).
+      Fixtures 5,249 · botPool artifact 418 / creature 4,393 / enchantment 393 /
+      instant 1,020 / land 558 / sorcery 783 - auto 1,003 / assisted 1,881 /
+      autoAnyFace 1,012 · ladder [1069, 1135, 2730, 4568, 5914] · tier3
+      silentAfter 7,840 · batch.json 11 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,911 files, 24,271 passed / 11 skipped ·
+      500-seed gate, 6 shards, 633.4 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D362): the remove-counter CHOOSER (a counter on a
+      permanent the player names, and for "from an artifact" the counter KIND too
+      — named since D329 and now with a card refused for it) and the NONTOKEN
+      predicate `predicatesOf` cannot place (five ledger rows on that one cause);
+      then D361's own list unchanged — the keyword ENTRY REPLACEMENTS
+      (bloodthirst 13, modular 7, graft 2), the keyword ENTRY CHOICES (fabricate
+      10, unleash 9, riot 4, devour 4, enlist 5, amplify 3), the counter KINDS
+      outside `'+1/+1' | '-1/-1'` (fading 4, vanishing 2, sunburst 2), the block
+      REQUIREMENT (provoke 4), the cast-time payment sources (convoke 14, delve 5,
+      improvise 6); then the families the seam map holds — the grant whose payload
+      is a QUOTED ability (355 one-piece cards), the attached statics the Aura and
+      Equipment rows cannot read (351), the Aura that REDEFINES its host (18);
+      prior items stand.
       (a keyword line that now reads beside one other line the row maker can take
       — Burr Grafter, Eternal of Harsh Truths, Frontline Devastator, Hopeful
       Initiate, Knight of the Last Breath, Marchesa's Infiltrator, Merciless

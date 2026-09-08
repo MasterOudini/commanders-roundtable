@@ -7,6 +7,17 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BURR_GRAFTER_SCRIPT } from './cards/burrGrafter';
+import { ETERNAL_OF_HARSH_TRUTHS_SCRIPT } from './cards/eternalOfHarshTruths';
+import { FRONTLINE_DEVASTATOR_SCRIPT } from './cards/frontlineDevastator';
+import { MARCHESAS_INFILTRATOR_SCRIPT } from './cards/marchesasInfiltrator';
+import { MERCILESS_ETERNAL_SCRIPT } from './cards/mercilessEternal';
+import { PUS_KAMI_SCRIPT } from './cards/pusKami';
+import { RURAL_RECRUIT_SCRIPT } from './cards/ruralRecruit';
+import { SCUTTLING_DEATH_SCRIPT } from './cards/scuttlingDeath';
+import { SLUDGE_CRAWLER_SCRIPT } from './cards/sludgeCrawler';
+import { TORENS_FIST_OF_THE_ANGELS_SCRIPT } from './cards/torensFistOfTheAngels';
+import { SERAPH_OF_THE_SCALES_SCRIPT } from './cards/seraphOfTheScales';
 import { FARHAVEN_ELF_SCRIPT } from './cards/farhavenElf';
 import { TREASURE_MAGE_SCRIPT } from './cards/treasureMage';
 import { ARTIFICERS_INTUITION_SCRIPT } from './cards/artificersIntuition';
@@ -4785,6 +4796,17 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BURR_GRAFTER_SCRIPT,
+  ETERNAL_OF_HARSH_TRUTHS_SCRIPT,
+  FRONTLINE_DEVASTATOR_SCRIPT,
+  MARCHESAS_INFILTRATOR_SCRIPT,
+  MERCILESS_ETERNAL_SCRIPT,
+  PUS_KAMI_SCRIPT,
+  RURAL_RECRUIT_SCRIPT,
+  SCUTTLING_DEATH_SCRIPT,
+  SLUDGE_CRAWLER_SCRIPT,
+  TORENS_FIST_OF_THE_ANGELS_SCRIPT,
+  SERAPH_OF_THE_SCALES_SCRIPT,
   FARHAVEN_ELF_SCRIPT,
   TREASURE_MAGE_SCRIPT,
   ARTIFICERS_INTUITION_SCRIPT,
