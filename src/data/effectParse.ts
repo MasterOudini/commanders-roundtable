@@ -21,8 +21,17 @@
 // express as EVENTS is an effect it must not claim. `tier3.ts` asks this module
 // what it understood, and says so on the card.
 
-import type { CounterKind, EffectKind, EffectMode, EffectSpec, Keyword, SearchSpec } from '../engine/types/oracle';
+import type {
+  CounterKind,
+  EffectKind,
+  EffectMode,
+  EffectSpec,
+  Keyword,
+  SearchQualifier,
+  SearchSpec,
+} from '../engine/types/oracle';
 import { predicatesOf } from './replacementParse';
+import type { PermanentPredicate } from './replacementParse';
 import type { Warn } from './oracleParse';
 import { scrub } from './targetParse';
 import { parseTokenClause, specKey } from './tokenParse';
@@ -287,7 +296,7 @@ function counterKindOf(raw: string | undefined): CounterKind | null {
  * a player their library without shuffling would leave them knowing their next draws - which is the
  * case the sorted projection in `project.ts` exists to protect.
  */
-const SEARCH_WHERE = String.raw`(into your hand|onto the battlefield tapped|onto the battlefield|into your graveyard)`;
+const SEARCH_WHERE = String.raw`into your hand|onto the battlefield tapped|onto the battlefield|into your graveyard`;
 const SEARCH_DEST: readonly (readonly [RegExp, SearchSpec['destination'], boolean])[] = [
   [/onto the battlefield tapped/i, 'battlefield', true],
   [/onto the battlefield/i, 'battlefield', false],
@@ -311,42 +320,90 @@ function distributeList(noun: string): string {
   return parts.map((p, i) => (i === 0 ? p : [...lead, p].join(' '))).join(' or ');
 }
 
+/**
+ * D359 - everything from `search your library for` to the end of the noun, shared by the two
+ * destination shapes so that one reading of the noun serves both.
+ *
+ * ⚠️ THE NAME RUNS THROUGH COMMAS, AND ONLY THROUGH THE ONES INSIDE IT. Twenty-odd cards search
+ * for a card named after a planeswalker - `a card named Chandra, Fire Artisan, reveal it, ...` -
+ * so a name that stopped at the first comma would look for a card called `Chandra` and find
+ * nothing. A comma continues the name only when an upper-case letter follows it; the sentence's
+ * own commas are always followed by `reveal`, `put` or `then`.
+ */
+const SEARCH_HEAD =
+  String.raw`^(?<may>you may )?search your library for ` +
+  // `a`/`an`, or a COUNT that makes failing to find explicit.
+  String.raw`(?:(?:a|an)\b|up to (?<count>one|two|three|four)\b) ?` +
+  // The noun, or nothing at all - `Search your library for a card` is a real, unrestricted line.
+  String.raw`(?<noun>[a-zA-Z][a-zA-Z, ]*?)? ?cards?` +
+  // A bound on the CARD rather than on its type line.
+  String.raw`(?<qual> with mana value (?<mvn>\d+) or (?<mvop>less|greater)` +
+  String.raw`| with mana value (?<mveq>\d+)` +
+  String.raw`| named (?<named>(?:[^,.]|,\s(?=[A-Z]))+?))?` +
+  String.raw`(?:(?:,| and) reveal (?:it|them|those cards|that card))?`;
+
+const COUNTS: Readonly<Record<string, number>> = { one: 1, two: 2, three: 3, four: 4 };
+
+/**
+ * The count, the predicates, the qualifier and the printed label - the four things both search
+ * shapes need and neither reads differently. Null when the noun is one `predicatesOf` refuses.
+ */
+function searchNoun(
+  g: Record<string, string | undefined>,
+): { count: number; predicates: readonly PermanentPredicate[]; qualifier: SearchQualifier | null; label: string } | null {
+  const count = g['count'] ? (COUNTS[g['count'].toLowerCase()] ?? 0) : 1;
+  if (count < 1) return null;
+  const noun = (g['noun'] ?? '').trim();
+  // ⚠️ A BARE `a card` IS UNRESTRICTED, and the empty predicate says so: `cardMatchesSearch`
+  // asks `every`, so a predicate with no supertype, type, subtype or colour admits any card.
+  // That is the honest reading of the line, not a hole - `Demonic Tutor` really does find
+  // anything.
+  const predicates = noun === ''
+    ? [{ supertypes: [], types: [], subtypes: [], colors: [] }]
+    // ⚠️ A COMMA LIST IS AN `or` LIST. `a basic Plains, Island, or Swamp card` names three
+    // alternatives and `predicatesOf` splits on `or` alone, so the commas become `or` first -
+    // and the leading adjectives distribute, which is why each alternative is rebuilt with
+    // every word that preceded the first comma.
+    : predicatesOf(distributeList(noun));
+  if (!predicates || predicates.length === 0) return null;
+
+  let qualifier: SearchQualifier | null = null;
+  if (g['mvn'] !== undefined && g['mvop'] !== undefined) {
+    const n = Number(g['mvn']);
+    if (!Number.isFinite(n)) return null;
+    qualifier = { manaValue: { op: g['mvop'].toLowerCase() === 'less' ? 'lte' : 'gte', n }, name: null };
+  } else if (g['mveq'] !== undefined) {
+    const n = Number(g['mveq']);
+    if (!Number.isFinite(n)) return null;
+    qualifier = { manaValue: { op: 'eq', n }, name: null };
+  } else if (g['named'] !== undefined) {
+    const name = g['named'].trim();
+    if (name === '') return null;
+    qualifier = { manaValue: null, name };
+  }
+
+  const label = (noun === '' ? 'card' : noun + ' card') + (count > 1 ? 's' : '') + (g['qual'] ?? '');
+  return { count, predicates, qualifier, label };
+}
+
 function searchRule(): Rule {
   return {
     kind: 'search',
     re: new RegExp(
-      String.raw`^search your library for ` +
-        // `a`/`an`, or a COUNT that makes failing to find explicit.
-        String.raw`(?:(?:a|an)\b|up to (one|two|three|four)\b) ?` +
-        // The noun, or nothing at all - `Search your library for a card` is a real, unrestricted line.
-        String.raw`([a-zA-Z][a-zA-Z, ]*?)? ?cards?` +
-        String.raw`(?:, reveal (?:it|them|those cards))?` +
+      SEARCH_HEAD +
         // `put it` / `put them` / `put that card` / `put those cards`, with the comma optional
         // because some printings write `and put it` instead.
         String.raw`(?:,| and) put (?:it|them|that card|those cards) ` +
-        SEARCH_WHERE +
+        String.raw`(?<where>` + SEARCH_WHERE + String.raw`)` +
         // `, then shuffle` and `. Then shuffle.` are the same sentence to the two-sentence window.
         String.raw`(?:[,.] ?then shuffle(?: your library)?| and shuffle(?: your library)?)?\.?$`,
       'i',
     ),
     build: (m) => {
-      const COUNTS: Readonly<Record<string, number>> = { one: 1, two: 2, three: 3, four: 4 };
-      const count = m[1] ? (COUNTS[m[1].toLowerCase()] ?? 0) : 1;
-      if (count < 1) return null;
-      const noun = (m[2] ?? '').trim();
-      // ⚠️ A BARE `a card` IS UNRESTRICTED, and the empty predicate says so: `cardMatchesSearch`
-      // asks `every`, so a predicate with no supertype, type, subtype or colour admits any card.
-      // That is the honest reading of the line, not a hole - `Demonic Tutor` really does find
-      // anything.
-      const predicates = noun === ''
-        ? [{ supertypes: [], types: [], subtypes: [], colors: [] }]
-        // ⚠️ A COMMA LIST IS AN `or` LIST. `a basic Plains, Island, or Swamp card` names three
-        // alternatives and `predicatesOf` splits on `or` alone, so the commas become `or` first -
-        // and the leading adjectives distribute, which is why each alternative is rebuilt with
-        // every word that preceded the first comma.
-        : predicatesOf(distributeList(noun));
-      if (!predicates || predicates.length === 0) return null;
-      const where = (m[3] ?? '').toLowerCase();
+      const g = m.groups ?? {};
+      const noun = searchNoun(g);
+      if (!noun) return null;
+      const where = (g['where'] ?? '').toLowerCase();
       const hit = SEARCH_DEST.find(([re]) => re.test(where));
       if (!hit) return null;
       return {
@@ -354,12 +411,58 @@ function searchRule(): Rule {
         targetIndex: -1,
         self: true,
         search: {
-          predicates,
-          label: (noun === '' ? 'card' : noun + ' card') + (count > 1 ? 's' : ''),
-          count,
+          predicates: noun.predicates,
+          label: noun.label,
+          count: noun.count,
           destination: hit[1],
           tapped: hit[2],
           shuffle: /shuffle/i.test(m[0] ?? ''),
+          optional: g['may'] !== undefined,
+          qualifier: noun.qualifier,
+        },
+      };
+    },
+  };
+}
+
+/**
+ * D359 - the tutor: `Search your library for a card, reveal it, then shuffle and put that card
+ * on top.`
+ *
+ * ⚠️ **NOTHING MOVES.** The found card never leaves the library; the library is shuffled and it
+ * is placed back on top of it, in that order. Reading it as a move to the hand and back would
+ * shuffle the wrong pile and put a different card on top, which the replay hash would then carry
+ * forever. The destination says so by name, and the answer handler writes one library order.
+ *
+ * The card is singular by construction - `put those cards on top in any order` is a different
+ * sentence with an ordering prompt behind it, and this rule does not match it.
+ */
+function searchTopRule(): Rule {
+  return {
+    kind: 'search',
+    re: new RegExp(
+      SEARCH_HEAD +
+        String.raw`[,.] ?then shuffle(?: your library)? and put (?:it|that card) on top(?: of your library)?\.?$`,
+      'i',
+    ),
+    build: (m) => {
+      const g = m.groups ?? {};
+      const noun = searchNoun(g);
+      if (!noun || noun.count !== 1) return null;
+      return {
+        ...BASE,
+        targetIndex: -1,
+        self: true,
+        search: {
+          predicates: noun.predicates,
+          label: noun.label,
+          count: 1,
+          destination: 'libraryTop',
+          tapped: false,
+          // The shuffle is not optional in this shape - it is printed in the middle of it.
+          shuffle: true,
+          optional: g['may'] !== undefined,
+          qualifier: noun.qualifier,
         },
       };
     },
@@ -842,6 +945,7 @@ const RULES: readonly Rule[] = [
     },
   },
   searchRule(),
+  searchTopRule(),
 ];
 
 /**

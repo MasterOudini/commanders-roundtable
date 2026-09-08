@@ -495,7 +495,7 @@ function answerFor(state: GameState, p: Picker): Intent | null {
             p.colors.every((c) => f.colors.includes(c)),
         );
       });
-      return { t: 'AnswerSearchLibrary', player: awaiting.player, cards: legal.slice(0, awaiting.count) };
+      return { t: 'AnswerSearchLibrary', player: awaiting.player, cards: legal.slice(0, awaiting.count), declined: false };
     }
     case 'chooseFromZone': {
       const hand = [...(state.zones.hand[awaiting.player] ?? [])];

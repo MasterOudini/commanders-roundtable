@@ -4995,6 +4995,9 @@ export const WAYFARER_S_BAUBLE: CardData = F.WAYFARER_S_BAUBLE as CardData;
 export const WILD_FIELD_SCARECROW: CardData = F.WILD_FIELD_SCARECROW as CardData;
 export const WOODED_FOOTHILLS: CardData = F.WOODED_FOOTHILLS as CardData;
 export const WORLD_MAP: CardData = F.WORLD_MAP as CardData;
+export const FARHAVEN_ELF: CardData = F.FARHAVEN_ELF as CardData;
+export const TREASURE_MAGE: CardData = F.TREASURE_MAGE as CardData;
+export const MYSTICAL_TUTOR: CardData = F.MYSTICAL_TUTOR as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -10111,6 +10114,9 @@ export const ENGINE_CARDS: CardData[] = [
   WILD_FIELD_SCARECROW,
   WOODED_FOOTHILLS,
   WORLD_MAP,
+  FARHAVEN_ELF,
+  TREASURE_MAGE,
+  MYSTICAL_TUTOR,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

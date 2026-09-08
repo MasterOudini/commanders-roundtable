@@ -29,7 +29,12 @@ import type {
 } from './ids';
 import type { ManaPool, PaymentProblem } from './mana';
 import type { NarrationPart } from './narration';
-import type { Keyword, ModeDecl, TargetSpec } from './oracle';
+import type {
+  Keyword,
+  ModeDecl,
+  SearchQualifier,
+  TargetSpec,
+} from './oracle';
 import type { PermanentPredicate } from '../../data/replacementParse';
 
 export type Phase =
@@ -691,10 +696,22 @@ export type Awaiting =
       readonly predicates: readonly PermanentPredicate[];
       /** The printed noun, so the bar can say what is being looked for. */
       readonly what: string;
-      readonly destination: 'hand' | 'battlefield' | 'graveyard';
+      readonly destination: 'hand' | 'battlefield' | 'graveyard' | 'libraryTop';
       readonly tapped: boolean;
       readonly shuffle: boolean;
       readonly label: string;
+      /**
+       * D359 - the FIRST of the search's two stages: `you may search your library`.
+       *
+       * ⚠️ **WHILE THIS IS TRUE, NOTHING HAS BEEN REVEALED.** The offer must be answered
+       * before the library is shown, or a player could look, decline, and keep the knowledge -
+       * the exact leak the sorted projection exists to prevent. So a prompt with `optional`
+       * true takes only yes or no; answering yes reveals the library and raises the SAME prompt
+       * again with `optional` false, which is the one that takes cards.
+       */
+      readonly optional: boolean;
+      /** A bound on the card itself (mana value, printed name), printed and therefore public. */
+      readonly qualifier: SearchQualifier | null;
     }
   /**
    * CR 701.8a — a player choosing cards out of their own hand to discard.

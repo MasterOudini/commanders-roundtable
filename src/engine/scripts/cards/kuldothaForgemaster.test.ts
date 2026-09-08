@@ -60,7 +60,7 @@ describe("Kuldotha Forgemaster", () => {
       const lib = [...(g.state.zones.library.p1 ?? [])];
       const found = lib.find((id) => nameOf(g, id) === "Sol Ring");
       expect(found, "Sol Ring is not in the library for the search to find").toBeDefined();
-      must(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [found as InstanceId] }));
+      must(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [found as InstanceId], declined: false }));
       settle(g);
       expect(g.state.cards[found as InstanceId]?.zone).toEqual({ kind: "battlefield", player: 'p1' });
     }

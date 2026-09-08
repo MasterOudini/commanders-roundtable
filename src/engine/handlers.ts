@@ -44,7 +44,11 @@ import { modeChoiceProblem, modeSpecs, modesInOrder } from './modes';
 import { activationConditionsHold, describeActivationConditions } from './activationConditions';
 import type { CardMove, EventBody } from './types/events';
 import type { AbilityRef, InstanceId, PlayerId, StackId, ZoneRef } from './types/ids';
-import type { ModeDecl, TargetSpec } from './types/oracle';
+import type {
+  ModeDecl,
+  SearchQualifier,
+  TargetSpec,
+} from './types/oracle';
 import type { PermanentPredicate } from '../data/replacementParse';
 import { candidatesFromState, validateTargets } from './targets';
 import { EMPTY_POOL, poolFrom, type ManaCost, type ManaPool, type ManaSymbolKey } from './types/mana';
@@ -2511,6 +2515,31 @@ function answerSearchLibrary(
   if (awaiting?.kind !== 'searchLibrary' || awaiting.player !== intent.player) {
     return reject('notAwaitingThat', 'You are not searching a library.');
   }
+  /**
+   * D359 - STAGE ONE. While the prompt is `optional` nothing has been revealed, so the only
+   * answers it takes are yes and no, and cards would name a library the player cannot see.
+   *
+   * ⚠️ **DECLINING IS NOT FINDING NOTHING.** Declining looks at nothing and shuffles nothing;
+   * finding nothing looked and still shuffles. Both are legal answers to different questions
+   * (CR 701.19b for the second), and the difference is visible in the seeded generator, so the
+   * two are kept apart all the way down rather than collapsed into an empty answer.
+   */
+  if (awaiting.optional) {
+    if (intent.cards.length > 0) {
+      return reject('noSuchCard', 'You have not looked at your library yet.');
+    }
+    if (intent.declined) {
+      return accept([{ t: 'AwaitingSet', awaiting: null }]);
+    }
+    const all = state.zones.library[intent.player] ?? [];
+    return accept([
+      { t: 'CardsRevealed', cards: all, to: [intent.player] },
+      { t: 'AwaitingSet', awaiting: { ...awaiting, optional: false } },
+    ]);
+  }
+  if (intent.declined) {
+    return reject('notAwaitingThat', 'This search is not optional.');
+  }
   if (intent.cards.length > awaiting.count) {
     return reject('invalidAmount', `Choose at most ${awaiting.count} card${awaiting.count === 1 ? '' : 's'}.`);
   }
@@ -2521,12 +2550,34 @@ function answerSearchLibrary(
   const lib = state.zones.library[intent.player] ?? [];
   for (const card of intent.cards) {
     if (!lib.includes(card)) return reject('wrongZone', 'That card is not in your library.');
-    if (!cardMatchesSearch(state, deps, card, awaiting.predicates)) {
+    if (!cardMatchesSearch(state, deps, card, awaiting.predicates, awaiting.qualifier)) {
       return reject('illegalTarget', `That card is not ${awaiting.what}.`);
     }
   }
 
   const events: EventBody[] = [];
+  /**
+   * D359 - THE TUTOR MOVES NOTHING. `then shuffle and put that card on top` shuffles the
+   * library and puts the found card back on top of it, in that order, and the card is in the
+   * library the whole time. One `LibraryShuffled` order says all of it: the array is
+   * BOTTOM-FIRST, so the found card is last.
+   *
+   * ⚠️ Its reveal is NOT cleared. The searcher is entitled to know what they put on top - that
+   * is the entire effect of a tutor - and `view.peek` reads exactly the revealed run from the
+   * top, which is the one card.
+   */
+  if (awaiting.destination === 'libraryTop') {
+    const rest = lib.filter((id) => !unique.has(id));
+    if (rest.length > 0) events.push({ t: 'RevealCleared', cards: rest });
+    events.push({ t: 'AwaitingSet', awaiting: null });
+    const mixed = shuffle(state.rng, rest);
+    events.push({
+      t: 'LibraryShuffled',
+      player: intent.player,
+      order: [...mixed.value, ...intent.cards],
+    });
+    return accept(events, mixed.next);
+  }
   if (intent.cards.length > 0) {
     const to =
       awaiting.destination === 'hand'
@@ -2571,12 +2622,34 @@ function cardMatchesSearch(
   deps: EngineDeps,
   card: InstanceId,
   predicates: readonly PermanentPredicate[],
+  qualifier: SearchQualifier | null,
 ): boolean {
   const inst = state.cards[card];
   if (!inst) return false;
   const printing = deps.oracle.byPrinting(inst.printingId);
   if (!printing) return false;
   const face = faceOf(printing, 0);
+  /**
+   * D359 - the qualifier is a CONJUNCT over the whole noun, not one more alternative:
+   * `a Rebel permanent card with mana value 2 or less` is one thing with a bound on it, and a
+   * reader that treated the bound as an `or` would fetch any Rebel at all.
+   *
+   * The NAME is matched against the whole printed card name rather than a face, because that is
+   * what `named` means in the rules (CR 201.2) - a modal double-faced card is named by its
+   * front face's full name, which is the name the printing carries.
+   */
+  if (qualifier) {
+    if (qualifier.name !== null && printing.name.toLowerCase() !== qualifier.name.toLowerCase()) {
+      return false;
+    }
+    const mv = qualifier.manaValue;
+    if (mv) {
+      const value = printing.manaValue;
+      if (mv.op === 'lte' && !(value <= mv.n)) return false;
+      if (mv.op === 'gte' && !(value >= mv.n)) return false;
+      if (mv.op === 'eq' && value !== mv.n) return false;
+    }
+  }
   return predicates.some(
     (p) =>
       p.supertypes.every((t) => face.typeLine.supertypes.includes(t)) &&

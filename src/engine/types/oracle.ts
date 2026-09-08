@@ -559,6 +559,25 @@ export type CounterKind = '+1/+1' | '-1/-1';
  * card says, so an answer of zero cards is always legal and the handler must accept it. A search
  * that demanded its count would let a card lie about a deck it cannot see.
  */
+/**
+ * D359 - a bound on the CARD rather than on its type line.
+ *
+ * ⚠️ **IT IS NOT A `PermanentPredicate` FIELD, AND THAT IS THE POINT.** The same predicate
+ * shape is read by the sacrifice chooser, the tap cost and the token resolver, none of which asks
+ * about mana value or a printed name - so a bound parked there would be carried past every one of
+ * them and silently ignored, which is the dead-field trap D355 paid for. It rides the SEARCH,
+ * where exactly one reader consumes it.
+ *
+ * The qualifier is a CONJUNCT: it narrows every predicate in the list at once, because
+ * `a Rebel permanent card with mana value 2 or less` is one noun with one bound on it.
+ */
+export interface SearchQualifier {
+  /** `with mana value 3 or less` / `or greater` / `with mana value 3`. */
+  readonly manaValue: { readonly op: 'lte' | 'gte' | 'eq'; readonly n: number } | null;
+  /** `a card named Squadron Hawk` - matched against the printed name, exactly. */
+  readonly name: string | null;
+}
+
 export interface SearchSpec {
   /** What may be chosen, through `predicatesOf` - the same reader the sacrifice and tap costs ask. */
   readonly predicates: readonly PermanentPredicate[];
@@ -566,7 +585,13 @@ export interface SearchSpec {
   readonly label: string;
   /** At most this many. */
   readonly count: number;
-  readonly destination: 'hand' | 'battlefield' | 'graveyard';
+  /**
+   * ⚠️ `libraryTop` IS NOT A MOVE. `Search your library for a card, then shuffle and put
+   * that card on top` never takes the card out of the library - the library is shuffled and the
+   * found card is placed back on top of it, which is why the answer handler writes ONE
+   * `LibraryShuffled` order rather than a move and a shuffle.
+   */
+  readonly destination: 'hand' | 'battlefield' | 'graveyard' | 'libraryTop';
   /** The card arrives TAPPED - every ramp land, `Explosive Vegetation`, `Krosan Verge`. */
   readonly tapped: boolean;
   /**
@@ -576,6 +601,19 @@ export interface SearchSpec {
    * that is exactly the case the sorted projection protects.
    */
   readonly shuffle: boolean;
+  /**
+   * D359 - `you may search your library for ...`.
+   *
+   * ⚠️ **DECLINING IS NOT FINDING NOTHING.** A search that finds nothing still looked, and
+   * still shuffles; a search declined never looked and never shuffles, and the difference is
+   * visible in the seeded generator and therefore in the replay hash. It is also an INFORMATION
+   * difference, which is the sharper one: the library may not be revealed until the offer is
+   * accepted, or a player could look, decline, and keep what they saw. The prompt is raised in
+   * two stages for exactly that reason.
+   */
+  readonly optional: boolean;
+  /** A bound on the card itself - mana value, printed name. Null when the noun carries none. */
+  readonly qualifier: SearchQualifier | null;
 }
 
 export interface EffectSpec {

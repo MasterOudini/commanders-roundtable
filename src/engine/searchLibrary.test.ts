@@ -27,8 +27,8 @@ function textOf(name: string): string {
   if (!card) throw new Error(`no fixture ${name}`);
   return card.data.faces[0]?.oracleText ?? '';
 }
-function searchOf(name: string) {
-  const r = parseEffects(textOf(name), name, true);
+function searchOf(name: string, line?: string) {
+  const r = parseEffects(line ?? textOf(name), name, true);
   return r.effects.find((e) => e.kind === 'search')?.search ?? null;
 }
 
@@ -84,16 +84,32 @@ describe('the library search (D357)', () => {
     expect(s?.tapped).toBe(false);
   });
 
-  test('a QUALIFIED noun is refused, and its card stays unread', () => {
-    // The engine cannot ask "does this card have flash" or "is its mana value 3 or less" of a card
-    // in a library, so the sentence stays unread and the card stays honestly blocked (D90).
-    for (const line of [
-      'Search your library for a creature card with mana value 3 or less, put it into your hand, then shuffle.',
-      'Search your library for an instant card or a card with flash, reveal it, put it into your hand, then shuffle.',
-    ]) {
-      const r = parseEffects(line, 'Probe', true);
-      expect(r.effects.some((e) => e.kind === 'search'), line).toBe(false);
-    }
+  // D359 - the qualified noun is READ now: a bound on the CARD (mana value, printed name) rides
+  // the search rather than the type-line predicate, and `cardMatchesSearch` is its one reader.
+  test('a QUALIFIED noun is a bound on the card, not one more alternative', () => {
+    const s1 = searchOf('Probe', 'Search your library for a creature card with mana value 3 or less, put it into your hand, then shuffle.');
+    expect(s1?.qualifier).toEqual({ manaValue: { op: 'lte', n: 3 }, name: null });
+    // ⚠️ AND THE PREDICATE IS STILL THE CREATURE. A reader that turned the bound into an `or`
+    // would fetch any card at all with mana value 3 or less.
+    expect(s1?.predicates).toEqual([{ supertypes: [], types: ['Creature'], subtypes: [], colors: [] }]);
+
+    const s2 = searchOf('Probe', 'Search your library for a card named Squadron Hawk, reveal it, put it into your hand, then shuffle.');
+    expect(s2?.qualifier).toEqual({ manaValue: null, name: 'Squadron Hawk' });
+
+    // ⚠️ THE NAME RUNS THROUGH ITS OWN COMMAS AND STOPS AT THE SENTENCE'S. Twenty-odd cards
+    // search for a planeswalker by full name, and a reader that stopped at the first comma would
+    // look for a card called "Chandra" and find nothing.
+    const s3 = searchOf('Probe', 'Search your library for a card named Chandra, Fire Artisan, reveal it, put it into your hand, then shuffle.');
+    expect(s3?.qualifier).toEqual({ manaValue: null, name: 'Chandra, Fire Artisan' });
+  });
+
+  test('a QUALIFIER the vocabulary has no reader for is still refused', () => {
+    // `a card with flash` asks about a keyword on a card in a library, which is a different
+    // question from mana value or name - so the sentence stays unread and the card stays
+    // honestly blocked (D90).
+    const line = 'Search your library for an instant card or a card with flash, reveal it, put it into your hand, then shuffle.';
+    const r = parseEffects(line, 'Probe', true);
+    expect(r.effects.some((e) => e.kind === 'search'), line).toBe(false);
   });
 
   test('an effect that ASKS must be last, or the card never runs by itself', () => {
@@ -117,8 +133,11 @@ describe('the library search (D357)', () => {
     expect(awaiting.count).toBe(1);
     // ⚠️ NO CARD IDS ON THE PROMPT — it crosses the wire whole (D61). The keys are exactly these.
     expect(Object.keys(awaiting).sort()).toEqual(
-      ['count', 'destination', 'kind', 'label', 'player', 'predicates', 'shuffle', 'tapped', 'what'].sort(),
+      ['count', 'destination', 'kind', 'label', 'optional', 'player', 'predicates', 'qualifier', 'shuffle', 'tapped', 'what'].sort(),
     );
+    // D359 - and `Rampant Growth` is not optional, so the reveal happened in one step.
+    expect(awaiting.optional).toBe(false);
+    expect(awaiting.qualifier).toBe(null);
   });
 
   test('⚠️ THE SEARCHER GETS THE SET, NEVER THE ORDER — and nobody else gets either', () => {
@@ -150,7 +169,7 @@ describe('the library search (D357)', () => {
     const forest = mine.searching.find((id) => ORACLE.byPrinting(g.state.cards[id]?.printingId ?? '')?.name === 'Forest');
     expect(forest).toBeDefined();
     const before = (g.state.zones.library['p1'] ?? []).length;
-    must(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [forest as string] }));
+    must(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [forest as string], declined: false }));
     settle(g);
     expect(g.state.cards[forest as string]?.zone.kind).toBe('battlefield');
     expect(g.state.cards[forest as string]?.tapped).toBe(true);
@@ -165,7 +184,7 @@ describe('the library search (D357)', () => {
   test('FAILING TO FIND is a real answer (CR 701.19b)', () => {
     const g = cast('Rampant Growth');
     const before = (g.state.zones.library['p1'] ?? []).length;
-    must(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [] }));
+    must(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [], declined: false }));
     settle(g);
     expect((g.state.zones.library['p1'] ?? []).length).toBe(before);
     expect(g.state.priority.awaiting).toBeNull();
@@ -179,11 +198,11 @@ describe('the library search (D357)', () => {
       (id) => ORACLE.byPrinting(g.state.cards[id]?.printingId ?? '')?.name === 'Grizzly Bears',
     );
     expect(bears).toBeDefined();
-    const r = g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [bears as string] });
+    const r = g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [bears as string], declined: false });
     expect(r.ok).toBe(false);
     // And the legal one is accepted on the same board.
     const forest = mine.searching.find((id) => ORACLE.byPrinting(g.state.cards[id]?.printingId ?? '')?.name === 'Forest');
-    must(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [forest as string] }));
+    must(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [forest as string], declined: false }));
   });
 
   test('more than the count is refused', () => {
@@ -193,7 +212,7 @@ describe('the library search (D357)', () => {
       (id) => ORACLE.byPrinting(g.state.cards[id]?.printingId ?? '')?.name === 'Forest',
     );
     expect(forests.length).toBeGreaterThan(1);
-    expect(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: forests }).ok).toBe(false);
+    expect(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: forests, declined: false }).ok).toBe(false);
   });
 
   test('a search with no shuffle leaves the library alone', () => {
@@ -212,7 +231,7 @@ describe('the library search (D357)', () => {
     const g = cast('Rampant Growth');
     const mine = view(g, 'p1');
     const forest = mine.searching.find((id) => ORACLE.byPrinting(g.state.cards[id]?.printingId ?? '')?.name === 'Forest');
-    must(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [forest as string] }));
+    must(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [forest as string], declined: false }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 2, 60_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());

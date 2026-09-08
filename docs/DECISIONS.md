@@ -24609,3 +24609,80 @@ select pool 0.
 
 Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,820 files, 23,881 passed / 11 skipped · 500-seed gate, 6 shards, 621.8 s wall ·
 build clean · probe 124/124 · battery 130/130.
+
+## D359 — M6.4gr: THE OPTIONAL SEARCH, THE QUALIFIED CARD AND THE TUTOR'S TOP — four clauses measured one at a time over the 419 searches still refused; 9 cards land, ALL of them with no script (2026-09-08)
+
+**7,446 of 31,692 Commander-legal cards execute completely, up from
+7,437 (+9).** `SHIPPED_SCRIPTS` 4,681 → **4,681**
+(UNCHANGED — no script ships here); REFUSED ledger 949 → **949**
+(UNCHANGED, and nothing was owed: the 95 cards this seam made offerable are OFFERED rather than refused, and a ledger row is a drafter's verdict that something cannot be done. Repinning the pool instead is D289/D291's shape, D357's most recently). Fixtures 5,113 → 5,116 (4,980 by name + 136 tokens: the three cards the seam's own test reads - Farhaven Elf and Treasure Mage, both OFFERED rather than shipped and run through a test-only script, and Mystical Tutor, which lands here with no script at all; NO new token pin). **Select pool
+0 → 95.**
+
+**Where this came from.** the 419 cards that STILL carried a search after D358 - the seam's own leftover, re-measured on a fresh true-leftover dump - grouped by SKELETON with the noun and the destination blanked, so what remained was grammar rather than vocabulary. 344 skeletons across the 419, and four clauses priced ONE AT A TIME by the payloads they would let the rule read: `you may search` 24 -> 65 (almost all of it trigger heads), a qualified card 24 -> 43 (the activated Rebel and Mercenary chains), `then shuffle and put that card on top` 24 -> 28 (the tutors), and `reveal that card` +0 alone, in because the other three need it. All four together: 120 of the 419.
+
+**⚠️⚠️ THE ONE PIECE THAT IS A DESIGN RATHER THAN A WIDENING: an optional search
+is asked in TWO STAGES.** `You may search your library for …` is not a search
+that may find nothing:
+
+- a search that finds **nothing** still LOOKED, and still shuffles;
+- a search **declined** never looked and never shuffles.
+
+Both are legal answers to different questions (CR 701.19b for the second), and
+the difference is visible in the seeded generator and therefore in the replay
+hash. **The sharper half is INFORMATION**: the library may not be revealed until
+the offer is accepted, or a player could look, decline, and keep what they
+saw — the exact leak the sorted projection (D357) exists to prevent. So the
+offer prompt **shows nothing** and takes only yes or no; accepting emits the
+reveal and raises the SAME prompt again with `optional: false`, and that second
+one takes cards. Declining ends it with no reveal, no move and no shuffle.
+
+**⚠️ The qualifier is a bound on the CARD, not one more alternative.**
+`a Rebel permanent card with mana value 2 or less` is one noun with a bound on
+it, and a reader that treated the bound as an `or` would fetch any Rebel at
+all — so it is a CONJUNCT over the whole predicate list. And it rides the
+**SEARCH**, never the shared `PermanentPredicate`: that same shape is read by
+the sacrifice chooser, the tap cost and the token resolver, none of which asks
+about mana value or a printed name, so a bound parked there would be carried
+past every one of them and silently ignored — **the dead-field trap D355 paid
+for**. ⚠️ The NAME runs through its own commas and stops at the sentence's:
+twenty-odd cards search for `a card named Chandra, Fire Artisan`, and a name
+that stopped at the first comma would look for a card called `Chandra` and find
+nothing.
+
+**⚠️ The tutor MOVES NOTHING.** `…then shuffle and put that card on top`
+shuffles the library and puts the found card back on top of it, **in that
+order**, and the card is in the library the whole time. Reading it as a move to
+the hand and back would shuffle the wrong pile and put a different card on top,
+which the replay hash would then carry forever. The destination says so by name
+(`libraryTop`) and the answer handler writes ONE library order. ⚠️ Its reveal is
+NOT cleared — knowing what is on top is the entire effect of a tutor, and
+`view.peek` reads exactly the revealed run from the top, which is the one card.
+
+**⚠️ And the DEAD FIELD was caught before it shipped, one decision after D356
+paid for it.** `declined` is REQUIRED on the intent rather than optional, so
+every one of the **80 construction sites across 74 files** became a compile
+error until it said which answer it meant. An optional search that defaulted to
+`false` somewhere would have looked at the library on the player's behalf.
+
+**Measured, not predicted, and the measurement is why there are FOUR clauses and
+not one:** the 419 cards that STILL carried a search after D358 - the seam's own leftover, re-measured on a fresh true-leftover dump - grouped by SKELETON with the noun and the destination blanked, so what remained was grammar rather than vocabulary. 344 skeletons across the 419, and four clauses priced ONE AT A TIME by the payloads they would let the rule read: `you may search` 24 -> 65 (almost all of it trigger heads), a qualified card 24 -> 43 (the activated Rebel and Mercenary chains), `then shuffle and put that card on top` 24 -> 28 (the tutors), and `reveal that card` +0 alone, in because the other three need it. All four together: 120 of the 419 — so `reveal that card` is in the decision although it is
+worth nothing on its own.
+
+Landed: NINE AUTO FLIPS AND NO SCRIPT, split exactly by the clause that freed each one. The TUTORS, on `then shuffle and put that card on top` - Mystical Tutor, Sylvan Tutor, Personal Tutor, Enlightened Tutor. And the REVEAL variant, on `reveal that card` beside the move - Eladamri's Call, Steelshaper's Gift, Merchant Scroll, Cateran Summons, Eerie Procession. Two spells the same probe listed stayed blocked and both say why: Open the Gates prints a noun LIST (`a basic land card or Gate card`) the rule reads as its first noun and then refuses, and Wargate's bound is the cast's X rather than a number.
+
+Nothing retired and nothing ledgered: no script ships here, so there is none to retire, and the 95 cards the widening made offerable are OFFERED rather than refused.
+
+Report: `effect:auto` 4,573 → **4,633** (the largest move
+since D357's own) and `effect:none` 14,305 → 14,241; `withUnenforced`
+280 → 280, unmoved, because a search names no target. **What a
+script can express RISES 1,050 → 1,145** — the opposite of a wave, and
+the right direction for a seam: a sentence the vocabulary can read is a card a
+row can take.
+
+Not this decision: the 95 cards this seam made offerable (the tutors' triggered kin, the Rebel and Mercenary chains, the fetch creatures whose `you may` the vocabulary could not see) - a generated wave, and the row maker needs one arm: a suite that ACCEPTS an optional offer before it answers the search; then the search wordings still refused (a qualifier over a KEYWORD - `a card with flash`; a graveyard searched as well as a library; `put those cards on top in any order`, which is a second decision and therefore an ordering prompt; `up to X` off the cast's X); then the families the seam map holds - the grant whose payload is a QUOTED ability (355 one-piece cards, dossier in d354/DESIGN-quoted-grant.md, a shared runtime CARRIER plus several payload families rather than one batch), the attached statics the Aura and Equipment rows cannot read (351, mass in compound shapes), the Aura that REDEFINES its host (18 - Lignify, Frogify, Darksteel Mutation, and every piece already exists: D151's `hasAbilities`, layer 7b's base P/T, D311's type change), the bare keyword or ability word (185, one card each).
+
+Fixtures 5,116 · botPool artifact 415 / creature 4,281 / enchantment 389 / instant 1,020 / land 558 / sorcery 783 - auto 1,003 / assisted 1,881 / autoAnyFace 1,012 · ladder [1145, 1211, 2800, 4634, 5980] · batch.json 9 ·
+select pool 95.
+
+Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,821 files, 23,891 passed / 11 skipped · 500-seed gate, 6 shards, 617.0 s wall ·
+build clean · probe 124/124 · battery 130/130.

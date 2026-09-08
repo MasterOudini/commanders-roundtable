@@ -2008,7 +2008,14 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // D289/D291 shape, where a seam leaves its wave to the decision after it.
     // ⚠️ D358 landed 69 of D357's 84 and ledgered the other fifteen by name, so the pool is
     // back to zero - the shape every wave decision ends in.
-    expect.soft(all.length).toBe(0);
+    // ⚠️ D359 - NINETY-FIVE, AND THAT IS DELIBERATE. A SEAM that widens what a sentence can
+    // say leaves its offer stream non-empty on purpose, and the decision after it lands the wave
+    // (D289/D291's shape, D357's most recently). These 95 are the cards whose search line reads
+    // now - the tutors' triggered kin, the Rebel and Mercenary chains, the fetch creatures whose
+    // `you may` the vocabulary could not see - and every one of them needs a ROW and nothing else.
+    // They are NOT ledgered, because a ledger row is a drafter's verdict that something cannot be
+    // done and these can.
+    expect.soft(all.length).toBe(95);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

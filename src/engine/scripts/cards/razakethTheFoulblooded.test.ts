@@ -54,7 +54,7 @@ describe("Razaketh, the Foulblooded", () => {
       const lib = [...(g.state.zones.library.p1 ?? [])];
       const found = lib.find((id) => nameOf(g, id) === "Forest");
       expect(found, "Forest is not in the library for the search to find").toBeDefined();
-      must(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [found as InstanceId] }));
+      must(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [found as InstanceId], declined: false }));
       settle(g);
       expect(g.state.cards[found as InstanceId]?.zone).toEqual({ kind: "hand", player: 'p1' });
     }

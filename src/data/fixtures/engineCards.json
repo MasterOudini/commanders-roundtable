@@ -168002,6 +168002,105 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FARHAVEN_ELF": {
+    "scryfallId": "007dc743-19e4-4086-8afe-364116b0c91c",
+    "oracleId": "4ce2357f-93e6-40ca-beca-8f4e15adc464",
+    "name": "Farhaven Elf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Farhaven Elf",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "When this creature enters, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "\"Verdant bloom does exist. It merely hides for its own safety.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Brandon Kitkouski",
+        "imageId": "007dc743-19e4-4086-8afe-364116b0c91c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pw26",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TREASURE_MAGE": {
+    "scryfallId": "051ff6cb-6f34-4d0c-b2dc-b2006fcfd39d",
+    "oracleId": "0848bb49-5758-41d6-a3e8-0c62e1768f52",
+    "name": "Treasure Mage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Treasure Mage",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "When this creature enters, you may search your library for an artifact card with mana value 6 or greater, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ryan Pancoast",
+        "imageId": "051ff6cb-6f34-4d0c-b2dc-b2006fcfd39d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "DDU-40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYSTICAL_TUTOR": {
+    "scryfallId": "000a5154-90ba-459e-b122-d6893dfdb56f",
+    "oracleId": "fb81f95c-70f8-4eb7-8d15-15d0ae23ec03",
+    "name": "Mystical Tutor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mystical Tutor",
+        "manaCost": "{U}",
+        "typeLine": "Instant",
+        "oracleText": "Search your library for an instant or sorcery card, reveal it, then shuffle and put that card on top.",
+        "flavorText": "Wisdom is a well that never runs dry. It offers the most to those with the deepest thirst for knowledge.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Richard Kane Ferguson",
+        "imageId": "000a5154-90ba-459e-b122-d6893dfdb56f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "dmr",
+    "collectorNumber": "421",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

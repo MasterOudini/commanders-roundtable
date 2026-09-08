@@ -5551,6 +5551,10 @@ const WANTED = [
   'Wild-Field Scarecrow',
   'Wooded Foothills',
   'World Map',
+  // D359 - the widened search: the optional two-stage offer, the qualified card and the tutor.
+  'Farhaven Elf',
+  'Treasure Mage',
+  'Mystical Tutor',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -418,12 +418,24 @@ export function answerAwaiting(
 
     case 'searchLibrary': {
       if (awaiting.player !== me) return wait('not my search');
+      /**
+       * D359 - the OFFER, and the bot always accepts it. A POLICY, said to be one: looking costs
+       * nothing the bot can evaluate, and the alternative is declining a tutor every time. It
+       * cannot see the candidates yet either way - `view.searching` is empty until it accepts,
+       * which is the point of the two stages.
+       */
+      if (awaiting.optional) {
+        return act(
+          { t: 'AnswerSearchLibrary', player: me, cards: [], declined: false },
+          `accepting the offer to search for ${awaiting.what}`,
+        );
+      }
       // ⚠️ A POLICY, said to be one. The bot can see its own candidates through `view.searching`
       // and takes the first that matches - the prompt has already filtered to what is legal, so
       // any of them is a legal answer and none is obviously best without evaluating the card.
       const found = (view.searching ?? []).slice(0, awaiting.count);
       return act(
-        { t: 'AnswerSearchLibrary', player: me, cards: found },
+        { t: 'AnswerSearchLibrary', player: me, cards: found, declined: false },
         found.length === 0
           ? `found nothing for ${awaiting.what}`
           : `found ${found.length} ${awaiting.what}`,

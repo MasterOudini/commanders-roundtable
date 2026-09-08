@@ -183,7 +183,10 @@ export function PeekPanel() {
         ? ({ kind: 'order', count: awaiting.count, label: awaiting.label, to: awaiting.destination } as const)
         : awaiting?.kind === 'scryChoice' && awaiting.player === viewer
           ? ({ kind: 'scry', count: awaiting.count, label: awaiting.label, toGrave: awaiting.toGraveyard } as const)
-          : awaiting?.kind === 'searchLibrary' && awaiting.player === viewer
+          // ⚠️ D359 - the OFFER stage is not this panel's question. While `optional` is true
+          // nothing has been revealed, so `peek` is empty and the panel would not render anyway;
+          // naming it here would only put a stale prompt kind on the panel's data attribute.
+          : awaiting?.kind === 'searchLibrary' && awaiting.player === viewer && !awaiting.optional
             ? ({ kind: 'search', count: awaiting.count, label: awaiting.label, what: awaiting.what } as const)
             : null;
 
@@ -244,7 +247,7 @@ export function PeekPanel() {
   const submitSearch = (): void => {
     if (prompt?.kind !== 'search') return;
     const st = useTable.getState();
-    send({ t: 'AnswerSearchLibrary', player: viewer, cards: st.pickOrder });
+    send({ t: 'AnswerSearchLibrary', player: viewer, cards: st.pickOrder, declined: false });
     st.clearPick();
   };
 

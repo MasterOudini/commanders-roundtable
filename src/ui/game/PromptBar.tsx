@@ -141,6 +141,11 @@ function describe(
           return `${nameOf(seats, awaiting.player)} is searching their library.`;
         }
         const many = awaiting.count === 1 ? "a" : "up to " + awaiting.count;
+        // D359 - the OFFER reads as a question, because at this point the player has been shown
+        // nothing at all and "find a creature card" would suggest a panel that is not there.
+        if (awaiting.optional) {
+          return `${awaiting.label}: search your library for ${many} ${awaiting.what}?`;
+        }
         return `${awaiting.label}: find ${many} ${awaiting.what}, or take nothing.`;
       case 'chooseFromZone':
         if (awaiting.player !== viewer) {
@@ -581,6 +586,31 @@ export function PromptBar() {
               }
             >
               Enter tapped
+            </button>
+          </>
+        )}
+
+        {/* ⚠️ D359 - THE OFFER IS A SEPARATE QUESTION FROM THE SEARCH, and it has to be:
+            declining after looking would leave the player knowing their library and skipping the
+            shuffle that was meant to take that knowledge away. So the offer is answered here,
+            with nothing revealed, and only "Search" opens the library panel at all. */}
+        {awaiting?.kind === 'searchLibrary' && mine('searchLibrary') && awaiting.optional && (
+          <>
+            <button
+              type="button"
+              className={BTN}
+              data-action="accept-search"
+              onClick={() => send({ t: 'AnswerSearchLibrary', player: viewer, cards: [], declined: false })}
+            >
+              Search
+            </button>
+            <button
+              type="button"
+              className={BTN_GHOST}
+              data-action="decline-search"
+              onClick={() => send({ t: 'AnswerSearchLibrary', player: viewer, cards: [], declined: true })}
+            >
+              Don't search
             </button>
           </>
         )}

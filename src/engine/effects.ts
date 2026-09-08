@@ -485,10 +485,16 @@ export function effectResult(
         // An empty library asks nothing - there is no choice to make (D137's rule).
         if (lib.length === 0) break;
         if (out.some((e) => e.t === 'AwaitingSet')) break;
+        // ⚠️ D359 - THE REVEAL WAITS FOR THE OFFER. `You may search your library` is asked
+        // before anything is shown, because a player who looked and then declined would keep
+        // what they saw AND skip the shuffle that was meant to bury it. The offer prompt shows
+        // nothing; accepting it reveals the library and raises the same prompt again with
+        // `optional` false. A search that is not optional still reveals here, in one step.
+        //
         // ⚠️ The reveal is what lets the searcher see the candidates at all: their contents
         // are already in `cards` for anyone they are revealed to, and the projection turns
         // that into a SORTED list. The order never leaves the host.
-        out.push({ t: 'CardsRevealed', cards: lib, to: [controller] });
+        if (!spec.optional) out.push({ t: 'CardsRevealed', cards: lib, to: [controller] });
         out.push({
           t: 'AwaitingSet',
           awaiting: {
@@ -501,6 +507,8 @@ export function effectResult(
             tapped: spec.tapped,
             shuffle: spec.shuffle,
             label: obj.label,
+            optional: spec.optional,
+            qualifier: spec.qualifier,
           },
         });
         break;

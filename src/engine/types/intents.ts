@@ -135,7 +135,13 @@ export type Intent =
    * D357 - the cards found. EMPTY IS LEGAL (CR 701.19b, failing to find), and the handler
    * checks each against the predicate and the searcher's own library rather than trusting it.
    */
-  | { readonly t: 'AnswerSearchLibrary'; readonly player: PlayerId; readonly cards: readonly InstanceId[] }
+  /**
+   * D359 - `declined` is REQUIRED, and that is the whole point of it: an optional search that
+   * defaulted to false somewhere would look at the library on the player's behalf. Making the
+   * field mandatory turns every construction site into a compile error until it says which
+   * answer it means. `declined` and a non-empty `cards` are contradictory and rejected.
+   */
+  | { readonly t: 'AnswerSearchLibrary'; readonly player: PlayerId; readonly cards: readonly InstanceId[]; readonly declined: boolean }
   | { readonly t: 'OrderBlockers'; readonly player: PlayerId; readonly attacker: InstanceId; readonly order: readonly InstanceId[] }
   | { readonly t: 'OrderAttackers'; readonly player: PlayerId; readonly blocker: InstanceId; readonly order: readonly InstanceId[] }
 

@@ -315,8 +315,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // scale — 19 of 25, the six refusals named — 1,742 → 1,761. M6.4d
       // (D161): thirteen more, and the selection taught two refusal shapes —
       // 1,761 → 1,774.
-      complete: 7437,
-      blocked: 24255,
+      complete: 7446,
+      blocked: 24246,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -325,14 +325,14 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1050,
+      scriptableToday: 1145,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
       // of which 169 genuinely needed nothing but the yes/no. It led D127's table
       // at 2,012 and is in fact the second SMALLEST row. See D153 and
       // `primitiveFor`.
-      optional: 94,
+      optional: 59,
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
@@ -375,7 +375,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1050, 1157, 2743, 4576, 5921]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1145, 1211, 2800, 4634, 5980]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -547,8 +547,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1050, 1157]);
-    expect.soft(r.complete).toBe(7437);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1145, 1211]);
+    expect.soft(r.complete).toBe(7446);
   });
 });
 
@@ -573,11 +573,18 @@ describe('a "you may" line is only `optional` if that is all it needs', () => {
   });
 
   test('and when it is not, the line says what it is really waiting on', () => {
-    // ⚠️ D357 - this used to read `effect:search`, and the change is the test working. The
-    // vocabulary reads a library search now, so the only thing this line is still missing is
-    // the yes/no - which is what `optional` means.
+    // ⚠️ THIS LINE HAS MOVED TWICE, and both moves are the test working. D357 read the search
+    // and it went `effect:search` -> `optional`: the yes/no was all that was left. D359 reads
+    // the yes/no too - `you may search` is one sentence to the vocabulary now, with a decline
+    // stage in front of it - so nothing is missing and the row is `scriptable`.
     expect.soft(
       of('When this creature enters, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.'),
+    ).toBe('scriptable');
+    // ⚠️ AND THE `you may` IS STILL A PRIMITIVE ON ITS OWN. A `may` over a payload the
+    // vocabulary does not read is still waiting on the yes/no and nothing else, which is what
+    // this row exists to say - the search stopped being an example of it, not the rule.
+    expect.soft(
+      of('When this creature dies, you may return target creature card from your graveyard to your hand.'),
     ).toBe('optional');
     expect.soft(of('At the beginning of your upkeep, you may put a quest counter on this enchantment.')).toBe(
       'effect:counter',
@@ -631,12 +638,19 @@ describe('a spell face is scriptable by the seam unless the line is structural (
   });
 
   test('a RULES row caught above keeps its claim — only the residue spills', () => {
-    // ⚠️ D357 - `optional` rather than `effect:search` since the search became expressible. The
-    // POINT of this test is unchanged: a RULES row caught above still keeps its claim instead of
-    // spilling to `scriptable`. Only which row moved.
+    // ⚠️ THE POINT IS UNCHANGED AND THE EXAMPLE HAS MOVED TWICE. A RULES row caught above still
+    // keeps its claim instead of spilling to `scriptable` - but the search is no longer an
+    // example of one, because D357 gave it a verb and D359 gave it its `you may`. The line
+    // below is: a `may` over a payload nothing reads, on a spell face, is `optional` and does
+    // not spill.
+    expect.soft(
+      of('You may return target creature card from your graveyard to your hand.', true),
+    ).toBe('optional');
+    // ⚠️ And the line that moved, kept here as the proof that it moved: the same sentence that
+    // was `optional` for D357 and D358 is `scriptable` now, on a spell face too.
     expect.soft(
       of('You may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.', true),
-    ).toBe('optional');
+    ).toBe('scriptable');
   });
 
   test('scrubbed quoted text (the double-space gap, D132) is refused', () => {
