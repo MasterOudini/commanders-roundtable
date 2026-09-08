@@ -168101,6 +168101,2899 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ABJURE": {
+    "scryfallId": "fbad9449-d09c-4fd0-b2ad-2aa3a29e03bf",
+    "oracleId": "dd97e457-07eb-4918-b780-ae7ff42a37e7",
+    "name": "Abjure",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Abjure",
+        "manaCost": "{U}",
+        "typeLine": "Instant",
+        "oracleText": "As an additional cost to cast this spell, sacrifice a blue permanent.\nCounter target spell.",
+        "flavorText": "Mirri's hackles rose as Ertai continued expounding his virtues. \"If that arrogant brat doesn't shut up soon,\" she growled to herself, \"I'm going to have to kill him.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ted Naifeh",
+        "imageId": "fbad9449-d09c-4fd0-b2ad-2aa3a29e03bf"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "wth",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ABSTERGO_ENTERTAINMENT": {
+    "scryfallId": "4d197866-7633-493c-80dd-ec3a09165934",
+    "oracleId": "d06a8026-1657-4404-8dff-64e44f1a14f8",
+    "name": "Abstergo Entertainment",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Abstergo Entertainment",
+        "manaCost": "",
+        "typeLine": "Legendary Land",
+        "oracleText": "{T}: Add {C}.\n{1}, {T}: Add one mana of any color.\n{3}, {T}, Exile Abstergo Entertainment: Return up to one target historic card from your graveyard to your hand, then exile all graveyards. (Artifacts, legendaries, and Sagas are historic.)",
+        "flavorText": "\"We make history yours!\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alexander Gering",
+        "imageId": "4d197866-7633-493c-80dd-ec3a09165934"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "acr",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALPHA_MYR": {
+    "scryfallId": "d9b39d84-43d2-4054-963a-340936eb1eec",
+    "oracleId": "4caa8e68-e599-416f-b839-3d009569ff29",
+    "name": "Alpha Myr",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Alpha Myr",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Myr",
+        "oracleText": "",
+        "flavorText": "Primero en cargar, primero en luchar.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dany Orizio",
+        "imageId": "d9b39d84-43d2-4054-963a-340936eb1eec"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ps11",
+    "collectorNumber": "183",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALPHA_TYRRANAX": {
+    "scryfallId": "4a2e5279-f28c-4a78-9f8a-16c9f72f8d38",
+    "oracleId": "8bed1349-4d0a-4544-ba66-c38e72cd2863",
+    "name": "Alpha Tyrranax",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Alpha Tyrranax",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Dinosaur Beast",
+        "oracleText": "",
+        "flavorText": "Hunger seized the tyrranax, and the Sylvok's vision quest ended in disaster.",
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "4a2e5279-f28c-4a78-9f8a-16c9f72f8d38"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "109",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANCESTRAL_VISION": {
+    "scryfallId": "307752ed-f4cc-4e2d-a0fd-0c677844e848",
+    "oracleId": "9728dec9-d482-4c7a-8cdc-44d010dc878d",
+    "name": "Ancestral Vision",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ancestral Vision",
+        "manaCost": "",
+        "typeLine": "Sorcery",
+        "oracleText": "Suspend 4—{U} (Rather than cast this card from your hand, pay {U} and exile it with four time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost.)\nTarget player draws three cards.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mark Poole",
+        "imageId": "307752ed-f4cc-4e2d-a0fd-0c677844e848"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Suspend"
+    ],
+    "setCode": "jvc",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARTIFICER_S_INTUITION": {
+    "scryfallId": "abe37c88-afd7-45ac-9f84-f4bd881a1462",
+    "oracleId": "be14b10a-7cac-47fc-a954-685091990291",
+    "name": "Artificer's Intuition",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Artificer's Intuition",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "{U}, Discard an artifact card: Search your library for an artifact card with mana value 1 or less, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Wayne England",
+        "imageId": "abe37c88-afd7-45ac-9f84-f4bd881a1462"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "5dn",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVARAX": {
+    "scryfallId": "421ee1c4-a105-41bf-83e9-edf3c49d057c",
+    "oracleId": "2e1deb7e-d40d-437e-b817-b66132d2d1d6",
+    "name": "Avarax",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Avarax",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Haste\nWhen this creature enters, you may search your library for a card named Avarax, reveal it, put it into your hand, then shuffle.\n{1}{R}: This creature gets +1/+0 until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "421ee1c4-a105-41bf-83e9-edf3c49d057c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "ema",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOGGART_HARBINGER": {
+    "scryfallId": "8ea8d2b8-bcac-410d-aa5a-e4a74f7d5315",
+    "oracleId": "56508ae7-6013-4149-8935-96b8d5091baa",
+    "name": "Boggart Harbinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boggart Harbinger",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Goblin Shaman",
+        "oracleText": "When this creature enters, you may search your library for a Goblin card, reveal it, then shuffle and put that card on top.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "8ea8d2b8-bcac-410d-aa5a-e4a74f7d5315"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "lrw",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BORDERLAND_RANGER": {
+    "scryfallId": "12124073-518a-498c-a817-400547ae7040",
+    "oracleId": "ffe25048-0bd4-49b5-aecb-2b1b57fb8d8b",
+    "name": "Borderland Ranger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Borderland Ranger",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Scout Ranger",
+        "oracleText": "When this creature enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"There's only one route from Kessig into Stensia. Unless you come with me.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "12124073-518a-498c-a817-400547ae7040"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "e02",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRAIDWOOD_SEXTANT": {
+    "scryfallId": "16dc7634-8ef5-4a03-8276-7e1dae4244c2",
+    "oracleId": "b44816b4-44ef-446d-a254-b4b7bc015a42",
+    "name": "Braidwood Sextant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Braidwood Sextant",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}, Sacrifice this artifact: Search your library for a basic land card, reveal that card, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Don Hazeltine",
+        "imageId": "16dc7634-8ef5-4a03-8276-7e1dae4244c2"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "uds",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BURDENED_STONEBACK": {
+    "scryfallId": "3278b8d0-3d2b-4d3d-bbf1-fd9b714b53ed",
+    "oracleId": "8a5e17a0-6f3c-49ed-b328-ed90a46ed6c5",
+    "name": "Burdened Stoneback",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Burdened Stoneback",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Giant Warrior",
+        "oracleText": "This creature enters with two -1/-1 counters on it.\n{1}{W}, Remove a counter from this creature: Target creature gains indestructible until end of turn. Activate only as a sorcery. (Damage and effects that say \"destroy\" don't destroy it. If its toughness is 0 or less, it still dies.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "3278b8d0-3d2b-4d3d-bbf1-fd9b714b53ed"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAMPUS_GUIDE": {
+    "scryfallId": "43c59814-3167-4b05-bb85-6c736f3956a4",
+    "oracleId": "5b8e0913-47e9-4d56-971d-abd91b0f7587",
+    "name": "Campus Guide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Campus Guide",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "When this creature enters, you may search your library for a basic land card, reveal it, then shuffle and put that card on top.",
+        "flavorText": "\"There's nowhere in Strixhaven I can't find. Where do you need to go?\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Slawomir Maniak",
+        "imageId": "43c59814-3167-4b05-bb85-6c736f3956a4"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "251",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAPTAIN_SISAY": {
+    "scryfallId": "22ca9f67-0097-4ff9-9246-fce61eab13d4",
+    "oracleId": "2e7a9ea9-f76c-4c12-950f-c613fa16cfa8",
+    "name": "Captain Sisay",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Captain Sisay",
+        "manaCost": "{2}{G}{W}",
+        "typeLine": "Legendary Creature — Human Soldier",
+        "oracleText": "{T}: Search your library for a legendary card, reveal that card, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Viacom",
+        "imageId": "22ca9f67-0097-4ff9-9246-fce61eab13d4"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tle",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CENTAUR_ROOTCASTER": {
+    "scryfallId": "3f10dfd9-9889-4d9e-872a-07623dee6b6b",
+    "oracleId": "0aaefa00-86f4-4e12-87ae-3a362d862fa4",
+    "name": "Centaur Rootcaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Centaur Rootcaster",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Centaur Druid",
+        "oracleText": "Whenever this creature deals combat damage to a player, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Eric Peterson",
+        "imageId": "3f10dfd9-9889-4d9e-872a-07623dee6b6b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "jud",
+    "collectorNumber": "109",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHANGELING_WAYFINDER": {
+    "scryfallId": "6c6061aa-a4da-4115-85b6-d0aa22f2386c",
+    "oracleId": "93409d98-93c8-4742-a635-2a4408e66c32",
+    "name": "Changeling Wayfinder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Changeling Wayfinder",
+        "manaCost": "{3}",
+        "typeLine": "Creature — Shapeshifter",
+        "oracleText": "Changeling (This card is every creature type.)\nWhen this creature enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "No map. No complaints.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Quintin Gleim",
+        "imageId": "6c6061aa-a4da-4115-85b6-d0aa22f2386c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Changeling"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CIVIC_WAYFINDER": {
+    "scryfallId": "5e9754ec-18d1-4c0f-abdd-49ce2d778083",
+    "oracleId": "b9e53414-c21f-4479-b8c1-8b36c3e6e006",
+    "name": "Civic Wayfinder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Civic Wayfinder",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Druid Warrior",
+        "oracleText": "When this creature enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"These alleys are not safe. Come, I can guide you back to the market square.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Cyril Van Der Haegen",
+        "imageId": "5e9754ec-18d1-4c0f-abdd-49ce2d778083"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ddr",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DARU_CAVALIER": {
+    "scryfallId": "eb2e9b7e-434e-477f-b3e8-e85ceb913650",
+    "oracleId": "ba0291ad-09ea-4fee-baa9-7778fbbb6ba7",
+    "name": "Daru Cavalier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Daru Cavalier",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "First strike\nWhen this creature enters, you may search your library for a card named Daru Cavalier, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Dany Orizio",
+        "imageId": "eb2e9b7e-434e-477f-b3e8-e85ceb913650"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEADEYE_QUARTERMASTER": {
+    "scryfallId": "5ba70d58-69fd-4675-85d2-90bc2595c01c",
+    "oracleId": "40abba38-533b-4f51-99e9-a2b337d65171",
+    "name": "Deadeye Quartermaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deadeye Quartermaster",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "When this creature enters, you may search your library for an Equipment or Vehicle card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"Welcome aboard, mate! You're going to need this.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Josh Hass",
+        "imageId": "5ba70d58-69fd-4675-85d2-90bc2595c01c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEVOTED_HERO": {
+    "scryfallId": "89fb4bf8-51b6-44a8-92ac-e5aec4e4f2bc",
+    "oracleId": "fff6f2d0-22b5-41d0-99dc-bc817c3bd166",
+    "name": "Devoted Hero",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Devoted Hero",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Elf Soldier",
+        "oracleText": "",
+        "flavorText": "The heart's courage is the soul's guardian.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "DiTerlizzi",
+        "imageId": "89fb4bf8-51b6-44a8-92ac-e5aec4e4f2bc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "por",
+    "collectorNumber": "13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRACONIC_MURALISTS": {
+    "scryfallId": "29baacd6-265e-45b9-bec1-0cb079bcd93f",
+    "oracleId": "4dfad4ec-9695-4f3a-8269-4cc00c26204c",
+    "name": "Draconic Muralists",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Draconic Muralists",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Dragon Bard",
+        "oracleText": "When this creature dies, you may search your library for a Dragon card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tom Babbey",
+        "imageId": "29baacd6-265e-45b9-bec1-0cb079bcd93f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "hbg",
+    "collectorNumber": "205",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUNE_MOVER": {
+    "scryfallId": "29d2c689-af37-433a-a012-e8d384702811",
+    "oracleId": "38d2176c-1a1e-4030-9c63-e28ba4a69b6d",
+    "name": "Dune Mover",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dune Mover",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Phyrexian Golem",
+        "oracleText": "Toxic 1 (Players dealt combat damage by this creature also get a poison counter.)\nWhen this creature enters, you may search your library for a basic land card, reveal it, then shuffle and put that card on top.",
+        "flavorText": "The shifting, unpredictable sands were deemed a disobedient affront to the Flesh Singularity.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kev Walker",
+        "imageId": "29d2c689-af37-433a-a012-e8d384702811"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Toxic"
+    ],
+    "setCode": "one",
+    "collectorNumber": "226",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELVISH_CLANCALLER": {
+    "scryfallId": "0f18dbbb-498c-4180-b467-f97b372d050b",
+    "oracleId": "a8f5440e-5d4b-420a-8cfd-27a3c72be0d2",
+    "name": "Elvish Clancaller",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elvish Clancaller",
+        "manaCost": "{G}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "Other Elves you control get +1/+1.\n{4}{G}{G}, {T}: Search your library for a card named Elvish Clancaller, put it onto the battlefield, then shuffle.",
+        "flavorText": "No single root feeds the forest.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "0f18dbbb-498c-4180-b467-f97b372d050b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pm19",
+    "collectorNumber": "179p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELVISH_HARBINGER": {
+    "scryfallId": "2f9bb6a2-a1ea-4ff5-b9d9-6b8794a90633",
+    "oracleId": "28ddc23c-5b0b-4747-9a33-6845acf27bec",
+    "name": "Elvish Harbinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elvish Harbinger",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "When this creature enters, you may search your library for an Elf card, reveal it, then shuffle and put that card on top.\n{T}: Add one mana of any color.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Larry MacDougall",
+        "imageId": "2f9bb6a2-a1ea-4ff5-b9d9-6b8794a90633"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dd1",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMBERMAGE_GOBLIN": {
+    "scryfallId": "0ee5aa80-32cc-486e-bbb2-5386eadaf4ca",
+    "oracleId": "f6e75db5-b119-4401-942c-bbaeeb694761",
+    "name": "Embermage Goblin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Embermage Goblin",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Goblin Wizard",
+        "oracleText": "When this creature enters, you may search your library for a card named Embermage Goblin, reveal it, put it into your hand, then shuffle.\n{T}: This creature deals 1 damage to any target.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "0ee5aa80-32cc-486e-bbb2-5386eadaf4ca"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ons",
+    "collectorNumber": "200★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ENVIRONMENTAL_SCIENTIST": {
+    "scryfallId": "f2bf6b36-43e4-49d9-98b2-cbb4304c248b",
+    "oracleId": "f30aa897-7027-47e7-ae58-73cbc448c1f0",
+    "name": "Environmental Scientist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Environmental Scientist",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "When this creature enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"Now to put into practice what I learned in class.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Piotr Dura",
+        "imageId": "f2bf6b36-43e4-49d9-98b2-cbb4304c248b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "sos",
+    "collectorNumber": "147",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FAERIE_HARBINGER": {
+    "scryfallId": "b95b126c-9c24-4d86-90c0-30e4b5f4a438",
+    "oracleId": "a171a01c-43f7-488a-870d-b1a9bcc501d1",
+    "name": "Faerie Harbinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Faerie Harbinger",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Faerie Wizard",
+        "oracleText": "Flash\nFlying\nWhen this creature enters, you may search your library for a Faerie card, reveal it, then shuffle and put that card on top.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Larry MacDougall",
+        "imageId": "b95b126c-9c24-4d86-90c0-30e4b5f4a438"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "LRW-61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FARFINDER": {
+    "scryfallId": "53f63f40-46f1-4b9e-b447-ff9274f2b926",
+    "oracleId": "7d306de8-a93b-429b-9436-0501be97dc8d",
+    "name": "Farfinder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Farfinder",
+        "manaCost": "{3}",
+        "typeLine": "Creature — Fox",
+        "oracleText": "Vigilance\nWhen this creature enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"Take us home,\" she whispered, and the fox's eyes began to glow.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Leesha Hannigan",
+        "imageId": "53f63f40-46f1-4b9e-b447-ff9274f2b926"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIERCE_EMPATH": {
+    "scryfallId": "05f44cfe-9e56-47f5-b0a1-3c59c29bfc00",
+    "oracleId": "5104053a-d394-4b00-82a4-60fd9f051a6e",
+    "name": "Fierce Empath",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fierce Empath",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "When this creature enters, you may search your library for a creature card with mana value 6 or greater, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alan Pollack",
+        "imageId": "05f44cfe-9e56-47f5-b0a1-3c59c29bfc00"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "cmd",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLAMEKIN_HARBINGER": {
+    "scryfallId": "0420119f-a25b-44c7-b82f-51d05dfd94c5",
+    "oracleId": "d6585e30-4ca0-4701-b274-b24f3508dd97",
+    "name": "Flamekin Harbinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flamekin Harbinger",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Elemental Shaman",
+        "oracleText": "When this creature enters, you may search your library for an Elemental card, reveal it, then shuffle and put that card on top.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Yu Maeda",
+        "imageId": "0420119f-a25b-44c7-b82f-51d05dfd94c5"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "1255",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOUNTAINPORT_BELL": {
+    "scryfallId": "a5c94bc0-a49d-451b-8e8d-64d46b8b8603",
+    "oracleId": "ea4c5b8f-a5ff-47dd-8e47-5ae7b21926b4",
+    "name": "Fountainport Bell",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fountainport Bell",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, you may search your library for a basic land card, reveal it, then shuffle and put that card on top.\n{1}, Sacrifice this artifact: Draw a card.",
+        "flavorText": "Fountainport's town crier once saved the townsfolk from predation by a rottenmouth viper with only their bell.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Néstor Ossandón Leal",
+        "imageId": "a5c94bc0-a49d-451b-8e8d-64d46b8b8603"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "blb",
+    "collectorNumber": "245",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIANT_HARBINGER": {
+    "scryfallId": "1f72f461-98d7-45e0-9968-9afb240fbf1e",
+    "oracleId": "2445e58b-87ed-4ab2-8209-a5e1f566fba7",
+    "name": "Giant Harbinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Giant Harbinger",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Giant Shaman",
+        "oracleText": "When this creature enters, you may search your library for a Giant card, reveal it, then shuffle and put that card on top.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "1f72f461-98d7-45e0-9968-9afb240fbf1e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "lrw",
+    "collectorNumber": "169",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIANT_LADYBUG": {
+    "scryfallId": "67f55ef7-8479-4d56-9801-cb4fd5526e73",
+    "oracleId": "abfe31f1-7c6d-4a7a-9f44-7f3e4166d9f1",
+    "name": "Giant Ladybug",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Giant Ladybug",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Reach\nWhen this creature enters, you may search your library for a basic land card, reveal it, then shuffle and put that card on top.",
+        "flavorText": "It's bad luck to step on one, but worse luck to have one step on you.",
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Marta Nael",
+        "imageId": "67f55ef7-8479-4d56-9801-cb4fd5526e73"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLAND": {
+    "scryfallId": "081ec377-30f4-4eb3-8801-78426045d100",
+    "oracleId": "74900080-80a6-4fd8-9557-5f773c0e4bec",
+    "name": "Gobland",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gobland",
+        "manaCost": "",
+        "typeLine": "Land Creature — Mountain Goblin",
+        "oracleText": "(Gobland isn't a spell, it's affected by summoning sickness, and it has \"{T}: Add {R}.\")\nGobland can't block.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Anik Sikder",
+        "imageId": "081ec377-30f4-4eb3-8801-78426045d100"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "mb2",
+    "collectorNumber": "563",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "GOBLIN_MATRON": {
+    "scryfallId": "2092e6db-1196-43bf-b7c9-07498fa7ca90",
+    "oracleId": "145737a7-c597-4dec-b752-207c2d0501e3",
+    "name": "Goblin Matron",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Matron",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "When this creature enters, you may search your library for a Goblin card, reveal that card, put it into your hand, then shuffle.",
+        "flavorText": "A mother only a child could love.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "2092e6db-1196-43bf-b7c9-07498fa7ca90"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh1",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HELIOD_S_PILGRIM": {
+    "scryfallId": "1a1e5ad3-00fa-4b6b-a0a3-d52fcbe897ac",
+    "oracleId": "0fe01c7d-f435-44c1-82f1-0ec2c47d4704",
+    "name": "Heliod's Pilgrim",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Heliod's Pilgrim",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "When this creature enters, you may search your library for an Aura card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Micah Epstein",
+        "imageId": "1a1e5ad3-00fa-4b6b-a0a3-d52fcbe897ac"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pmei",
+    "collectorNumber": "2020-6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOWLING_WOLF": {
+    "scryfallId": "09965519-274c-4082-88fe-639f77aa9cf6",
+    "oracleId": "d95d0b24-2e6f-4f61-8668-26effeaaf2fb",
+    "name": "Howling Wolf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Howling Wolf",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Wolf",
+        "oracleText": "When this creature enters, you may search your library for up to three cards named Howling Wolf, reveal them, put them into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "09965519-274c-4082-88fe-639f77aa9cf6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "cns",
+    "collectorNumber": "167",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HUNTING_CHEETAH": {
+    "scryfallId": "56a63628-17e6-4845-96b4-c82c3e7e8fb5",
+    "oracleId": "057e1cfc-d528-49e1-a386-9fb1edc1d135",
+    "name": "Hunting Cheetah",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hunting Cheetah",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Whenever this creature deals damage to an opponent, you may search your library for a Forest card, reveal that card, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Fang Yue",
+        "imageId": "56a63628-17e6-4845-96b4-c82c3e7e8fb5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ptk",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IMPERIAL_HELLKITE": {
+    "scryfallId": "1fc3c5f3-f71b-4a1e-bd90-365d23889925",
+    "oracleId": "99642419-ab24-4770-9f1c-84d2806441b5",
+    "name": "Imperial Hellkite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Imperial Hellkite",
+        "manaCost": "{5}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nMorph {6}{R}{R} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)\nWhen this creature is turned face up, you may search your library for a Dragon card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "1fc3c5f3-f71b-4a1e-bd90-365d23889925"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Morph"
+    ],
+    "setCode": "lgn",
+    "collectorNumber": "103",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KITHKIN_HARBINGER": {
+    "scryfallId": "64735178-3dc5-4a95-92fa-e15bd04e5733",
+    "oracleId": "a3d68848-e8cc-497c-951b-e7111f6d5142",
+    "name": "Kithkin Harbinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kithkin Harbinger",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Kithkin Wizard",
+        "oracleText": "When this creature enters, you may search your library for a Kithkin card, reveal it, then shuffle and put that card on top.",
+        "flavorText": "Her ears are open to even the softest voice.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "64735178-3dc5-4a95-92fa-e15bd04e5733"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "lrw",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOR_CARTOGRAPHER": {
+    "scryfallId": "4fb7a3ad-dfe8-4d6a-9f2c-2c0f1975ea99",
+    "oracleId": "a5f537f6-3254-45a3-a4e7-d4d4fd7a972d",
+    "name": "Kor Cartographer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kor Cartographer",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Kor Scout",
+        "oracleText": "When this creature enters, you may search your library for a Plains card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "Kor have no concept of exploration. They return to homelands forgotten.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ryan Pancoast",
+        "imageId": "4fb7a3ad-dfe8-4d6a-9f2c-2c0f1975ea99"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "DDI-13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LILIANA_S_SHADE": {
+    "scryfallId": "1cf0c01d-a4a0-43fb-970d-e428e9ac63d7",
+    "oracleId": "44f87b6e-0cc8-4088-8a94-8272b6b26869",
+    "name": "Liliana's Shade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Liliana's Shade",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Shade",
+        "oracleText": "When this creature enters, you may search your library for a Swamp card, reveal it, put it into your hand, then shuffle.\n{B}: This creature gets +1/+1 until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "1cf0c01d-a4a0-43fb-970d-e428e9ac63d7"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m13",
+    "collectorNumber": "98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOAM_LARVA": {
+    "scryfallId": "affa9314-0021-445e-9496-349254b16bf8",
+    "oracleId": "528a19d7-ee79-45a5-b27f-e0bff4213193",
+    "name": "Loam Larva",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loam Larva",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "When this creature enters, you may search your library for a basic land card, reveal it, then shuffle and put that card on top.",
+        "flavorText": "The forest floor of Murasa is home to life as diverse and vibrant as that of the canopy above.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jason Kang",
+        "imageId": "affa9314-0021-445e-9496-349254b16bf8"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ogw",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERROW_HARBINGER": {
+    "scryfallId": "b47af11c-1090-4f0a-8eea-64a3b639e535",
+    "oracleId": "035ee753-232f-4ba2-afbf-8d1eb162e6f8",
+    "name": "Merrow Harbinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Merrow Harbinger",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.)\nWhen this creature enters, you may search your library for a Merfolk card, reveal it, then shuffle and put that card on top.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "b47af11c-1090-4f0a-8eea-64a3b639e535"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Landwalk",
+      "Islandwalk"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MICROMANCER": {
+    "scryfallId": "3287e20f-a161-4522-8a72-3f2b914019b5",
+    "oracleId": "d2605782-09f1-4d52-b3e7-5ec1442bd9b5",
+    "name": "Micromancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Micromancer",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "When this creature enters, you may search your library for an instant or sorcery card with mana value 1, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"Ideas don't have to be big to be great.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ernanda Souza",
+        "imageId": "3287e20f-a161-4522-8a72-3f2b914019b5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dmu",
+    "collectorNumber": "431",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MUCK_RATS": {
+    "scryfallId": "cf2018ec-94e4-4e29-8b4b-ce30fb0d4a99",
+    "oracleId": "bca13a12-6723-4a5e-8f1b-21646a8b3e7e",
+    "name": "Muck Rats",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Muck Rats",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Rat",
+        "oracleText": "",
+        "flavorText": "\"Just as some fool said it couldn't get worse, the rats began to show up.\"\n—Foot soldier",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Una Fricker",
+        "imageId": "cf2018ec-94e4-4e29-8b4b-ce30fb0d4a99"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "s99",
+    "collectorNumber": "84",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYR_KINSMITH": {
+    "scryfallId": "6046e50a-f4c9-4029-a589-62a19371b734",
+    "oracleId": "97bb382b-16b2-44db-a2bd-de09ca90bfcc",
+    "name": "Myr Kinsmith",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Myr Kinsmith",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Myr",
+        "oracleText": "When this creature enters, you may search your library for a Myr card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"Our resistance is like the myr: small and easily overlooked, but loyal and resilient beyond measure.\"\n—Melira",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Cristi Balanescu",
+        "imageId": "6046e50a-f4c9-4029-a589-62a19371b734"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "one",
+    "collectorNumber": "236",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYR_MINDSERVANT": {
+    "scryfallId": "f98ce711-8f68-4487-b67b-be35796ffcff",
+    "oracleId": "c0ea83ab-f62e-43ee-b7ad-ddbbc8916632",
+    "name": "Myr Mindservant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Myr Mindservant",
+        "manaCost": "{1}",
+        "typeLine": "Artifact Creature — Myr",
+        "oracleText": "{2}, {T}: Shuffle your library.",
+        "flavorText": "It knows what you are planning, and does not approve.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dave Dorman",
+        "imageId": "f98ce711-8f68-4487-b67b-be35796ffcff"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "mrd",
+    "collectorNumber": "213",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NESTING_WURM": {
+    "scryfallId": "5da697da-7026-4dea-b494-8314d789160f",
+    "oracleId": "3160dada-d59f-4f23-8420-ba14f9df7514",
+    "name": "Nesting Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nesting Wurm",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Trample\nWhen this creature enters, you may search your library for up to three cards named Nesting Wurm, reveal them, put them into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "rk post",
+        "imageId": "5da697da-7026-4dea-b494-8314d789160f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "nem",
+    "collectorNumber": "107",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OBSIANUS_GOLEM": {
+    "scryfallId": "2508762a-4354-4783-91f7-45f5b6f693bd",
+    "oracleId": "ac41171e-c454-49e9-9004-c082ae099630",
+    "name": "Obsianus Golem",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Obsianus Golem",
+        "manaCost": "{6}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "",
+        "flavorText": "\"The foot stone is connected to the ankle stone, the ankle stone is connected to the leg stone...\"\n—Song of the Artificer",
+        "power": "4",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jesper Myrfors",
+        "imageId": "2508762a-4354-4783-91f7-45f5b6f693bd"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "30a",
+    "collectorNumber": "561",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OMEN_OF_THE_HUNT": {
+    "scryfallId": "7d4ebdea-78d4-4034-921b-735bdb11a716",
+    "oracleId": "53295b03-717d-481d-9d5c-212c5f30bbbf",
+    "name": "Omen of the Hunt",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Omen of the Hunt",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Flash\nWhen this enchantment enters, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\n{2}{G}, Sacrifice this enchantment: Scry 2.",
+        "flavorText": "\"My time will come, when no road will divide the endless verdure of the trees.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Piotr Dura",
+        "imageId": "7d4ebdea-78d4-4034-921b-735bdb11a716"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flash",
+      "Scry"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "192",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ONDU_GIANT": {
+    "scryfallId": "14024eba-58aa-4c28-afbe-cde407f7ddd7",
+    "oracleId": "ed8b2887-15fa-4e62-83ac-55973ac6f76c",
+    "name": "Ondu Giant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ondu Giant",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Giant Druid",
+        "oracleText": "When this creature enters, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "Some druids nurture gardens. Others nurture continents.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "14024eba-58aa-4c28-afbe-cde407f7ddd7"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pca",
+    "collectorNumber": "71",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ONE_WITH_NATURE": {
+    "scryfallId": "2321b01c-7eef-48cc-a86b-4074dfa5b86b",
+    "oracleId": "e48d3de9-a5e0-4a69-8377-9e3ad5fc5b77",
+    "name": "One with Nature",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "One with Nature",
+        "manaCost": "{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhenever enchanted creature deals combat damage to a player, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "2321b01c-7eef-48cc-a86b-4074dfa5b86b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "scg",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PILGRIM_S_EYE": {
+    "scryfallId": "23a621d0-ecd0-4f35-bbc9-9e997e81e79e",
+    "oracleId": "66155010-cc2c-449a-85d5-92c95aade514",
+    "name": "Pilgrim's Eye",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pilgrim's Eye",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Thopter",
+        "oracleText": "Flying\nWhen this creature enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dan Murayama Scott",
+        "imageId": "23a621d0-ecd0-4f35-bbc9-9e997e81e79e"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pio",
+    "collectorNumber": "257",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRIMAL_DRUID": {
+    "scryfallId": "e928f694-c53b-46c5-8390-fa24b53f559c",
+    "oracleId": "d031d7d2-1e41-4201-9073-c4c1be182ba4",
+    "name": "Primal Druid",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Primal Druid",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "When this creature dies, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "\"The power of the woods is only ever borrowed.\"",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "e928f694-c53b-46c5-8390-fa24b53f559c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "emn",
+    "collectorNumber": "167",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRIMEVAL_HERALD": {
+    "scryfallId": "8e32d87c-99c9-4ba3-9d57-e36b6263e815",
+    "oracleId": "495348d7-bc11-4209-8b0f-72db2e6c6993",
+    "name": "Primeval Herald",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Primeval Herald",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elf Scout",
+        "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nWhenever this creature enters or attacks, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tatiana Kirgetova",
+        "imageId": "8e32d87c-99c9-4ba3-9d57-e36b6263e815"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "702",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUANDRIX_CULTIVATOR": {
+    "scryfallId": "e3ca9ff7-0dcf-4ecc-879c-957d290ad7f5",
+    "oracleId": "73a63c92-6dce-4804-bcd4-3fcc942cf270",
+    "name": "Quandrix Cultivator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quandrix Cultivator",
+        "manaCost": "{1}{G}{G/U}{U}",
+        "typeLine": "Creature — Turtle Druid",
+        "oracleText": "When this creature enters, you may search your library for a basic Forest or Island card, put it onto the battlefield, then shuffle.",
+        "flavorText": "In the gardens spread across the Quandrix campus, fern turns to forest before class is even over.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Filip Burburan",
+        "imageId": "e3ca9ff7-0dcf-4ecc-879c-957d290ad7f5"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "stx",
+    "collectorNumber": "218",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUIRION_TRAILBLAZER": {
+    "scryfallId": "c2b258c1-5fb4-4072-bb32-ad364df1874a",
+    "oracleId": "a26c4076-c488-4700-8e32-4ceeeac2c29a",
+    "name": "Quirion Trailblazer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quirion Trailblazer",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elf Scout",
+        "oracleText": "When this creature enters, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+        "flavorText": "\"All that matters is the path ahead.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Rebecca Guay",
+        "imageId": "c2b258c1-5fb4-4072-bb32-ad364df1874a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "inv",
+    "collectorNumber": "205",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RANGER_OF_EOS": {
+    "scryfallId": "1a30ee26-5f78-4ac2-9105-1baa9ece8a21",
+    "oracleId": "b9c8b929-f3ee-457f-9cbc-9de18eb69dc5",
+    "name": "Ranger of Eos",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ranger of Eos",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Soldier Ranger",
+        "oracleText": "When this creature enters, you may search your library for up to two creature cards with mana value 1 or less, reveal them, put them into your hand, then shuffle.",
+        "flavorText": "At his side, humble beasts become weapons more deadly than sharpened steel.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "1a30ee26-5f78-4ac2-9105-1baa9ece8a21"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ala",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RATCATCHER": {
+    "scryfallId": "97a0cd9c-48ec-4914-9502-afacc58ce5fd",
+    "oracleId": "acba24c1-168c-473b-96bb-1ba836c69f22",
+    "name": "Ratcatcher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ratcatcher",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Ogre Rogue",
+        "oracleText": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\nAt the beginning of your upkeep, you may search your library for a Rat card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "An ogre's poisonous stench is like fine Kashkaval cheese to the noses lowest to the ground.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "97a0cd9c-48ec-4914-9502-afacc58ce5fd"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Fear"
+    ],
+    "setCode": "dis",
+    "collectorNumber": "52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCREAMING_SEAHAWK": {
+    "scryfallId": "cc5856ac-e710-44ee-8516-6070f4f31ce5",
+    "oracleId": "02b5ea0b-c0a3-4213-9064-e688190fca5e",
+    "name": "Screaming Seahawk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Screaming Seahawk",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhen this creature enters, you may search your library for a card named Screaming Seahawk, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "cc5856ac-e710-44ee-8516-6070f4f31ce5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEEDGUIDE_ASH": {
+    "scryfallId": "38f924c1-5815-462a-bb73-14d345b40a71",
+    "oracleId": "7ff007cb-c994-4643-a6d4-c58e030514e1",
+    "name": "Seedguide Ash",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seedguide Ash",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Treefolk Druid",
+        "oracleText": "When this creature dies, you may search your library for up to three Forest cards, put them onto the battlefield tapped, then shuffle.",
+        "flavorText": "\"May you shade three generations of seedlings.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "John Avon",
+        "imageId": "38f924c1-5815-462a-bb73-14d345b40a71"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "LRW-235",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHRINE_STEWARD": {
+    "scryfallId": "75e8d71c-3a0b-4042-a0f7-e99e92a79dc2",
+    "oracleId": "993a91fa-84ed-4688-9884-e03cbad6c791",
+    "name": "Shrine Steward",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shrine Steward",
+        "manaCost": "{5}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "When this creature enters, you may search your library for an Aura or Shrine card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "From broken swords, the first Imperials forged a peaceful servant to tend the shrines of Eiganjo.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "kleinerHai",
+        "imageId": "75e8d71c-3a0b-4042-a0f7-e99e92a79dc2"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "neo",
+    "collectorNumber": "259",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SILVERGLADE_ELEMENTAL": {
+    "scryfallId": "7bb44fe5-524e-4c61-b174-685edff2521c",
+    "oracleId": "a6d5d164-a06a-4383-b9d2-a7a33400631d",
+    "name": "Silverglade Elemental",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Silverglade Elemental",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "When this creature enters, you may search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Chippy",
+        "imageId": "7bb44fe5-524e-4c61-b174-685edff2521c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "MMQ-269",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKITTERING_SURVEYOR": {
+    "scryfallId": "734af2fa-bb6b-4abc-9b05-3f7202146d27",
+    "oracleId": "85364398-923c-4ee9-8519-576fce1c26f7",
+    "name": "Skittering Surveyor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skittering Surveyor",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "When this creature enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "Like a cross between a spider and a spyglass, but friendlier.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dan Murayama Scott",
+        "imageId": "734af2fa-bb6b-4abc-9b05-3f7202146d27"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "DOM-230",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYSHROUD_SENTINEL": {
+    "scryfallId": "a35ab55f-f677-45c8-bd32-56788a776b33",
+    "oracleId": "4f437f42-1ac5-4681-9b16-4eae9f49bb22",
+    "name": "Skyshroud Sentinel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skyshroud Sentinel",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "When this creature enters, you may search your library for up to three cards named Skyshroud Sentinel, reveal them, put them into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "a35ab55f-f677-45c8-bd32-56788a776b33"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "nem",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SLIVER_CONSTRUCT": {
+    "scryfallId": "3129645a-221c-4eb5-88fd-12cc742a1dfe",
+    "oracleId": "7d592d5b-95cf-4416-9ade-1c23a8ba01d1",
+    "name": "Sliver Construct",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sliver Construct",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Sliver Construct",
+        "oracleText": "",
+        "flavorText": "Slivers destroy those who come close to the Skep, the central hive. Shards of torn metal litter the ground as a warning to any artificers inquisitive about the hive's inner workings.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mathias Kollros",
+        "imageId": "3129645a-221c-4eb5-88fd-12cc742a1dfe"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m14",
+    "collectorNumber": "218",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPELLSEEKER": {
+    "scryfallId": "5cda8633-2661-4fa7-81b0-3ae535619a3c",
+    "oracleId": "47a785ed-8095-4685-8daa-02c4e2b0ffcd",
+    "name": "Spellseeker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spellseeker",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "When this creature enters, you may search your library for an instant or sorcery card with mana value 2 or less, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "Not content with mere answers, she hunts for the truth.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Anna Podedworna",
+        "imageId": "5cda8633-2661-4fa7-81b0-3ae535619a3c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "j20",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPHINX_SUMMONER": {
+    "scryfallId": "006b5000-2a8f-4020-9dbf-7170da13b54e",
+    "oracleId": "77ae7caa-e180-4efb-9348-ab389364b186",
+    "name": "Sphinx Summoner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sphinx Summoner",
+        "manaCost": "{3}{U}{B}",
+        "typeLine": "Artifact Creature — Sphinx",
+        "oracleText": "Flying\nWhen this creature enters, you may search your library for an artifact creature card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "006b5000-2a8f-4020-9dbf-7170da13b54e"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "con",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIDER_BOT": {
+    "scryfallId": "24df824a-c1d6-4f09-b866-313b31fec5fb",
+    "oracleId": "e4bb33b2-adde-4176-9274-7598b559aa6a",
+    "name": "Spider-Bot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spider-Bot",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Spider Robot Scout",
+        "oracleText": "Reach\nWhen this creature enters, you may search your library for a basic land card, reveal it, then shuffle and put that card on top.",
+        "flavorText": "\"Parker was a fool to waste his time on patrol. I'll have my spider-bots do it for me.\"\n—Superior Spider-Man, Otto Octavius",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Carlos Dattoli",
+        "imageId": "24df824a-c1d6-4f09-b866-313b31fec5fb"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "spm",
+    "collectorNumber": "173",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SQUADRON_HAWK": {
+    "scryfallId": "23a1db7e-b142-4743-a9dd-f737c5052b87",
+    "oracleId": "00ab9841-934f-4a66-a98d-68d01661b1c9",
+    "name": "Squadron Hawk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Squadron Hawk",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhen this creature enters, you may search your library for up to three cards named Squadron Hawk, reveal them, put them into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Martina Pilcerova",
+        "imageId": "23a1db7e-b142-4743-a9dd-f737c5052b87"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "39675",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STEELSHAPER_APPRENTICE": {
+    "scryfallId": "a4793de1-4d5d-4538-b48f-db5d31757bcc",
+    "oracleId": "bf325b3a-0b28-4660-8b51-4334b59a9034",
+    "name": "Steelshaper Apprentice",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Steelshaper Apprentice",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "{W}, {T}, Return this creature to its owner's hand: Search your library for an Equipment card, reveal that card, put it into your hand, then shuffle.",
+        "flavorText": "Theirs is a craft brought about by necessity, now raised to the level of art.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Greg Hildebrandt",
+        "imageId": "a4793de1-4d5d-4538-b48f-db5d31757bcc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dst",
+    "collectorNumber": "15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STRIXHAVEN_SKYCOACH": {
+    "scryfallId": "87741fbb-b426-4f83-a358-587b0907f081",
+    "oracleId": "e286a191-39d4-4073-b844-11d2aba911b4",
+    "name": "Strixhaven Skycoach",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Strixhaven Skycoach",
+        "manaCost": "{3}",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "Flying\nWhen this Vehicle enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.\nCrew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Michal Ivan",
+        "imageId": "87741fbb-b426-4f83-a358-587b0907f081"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Crew"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "252",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SURVIVAL_OF_THE_FITTEST": {
+    "scryfallId": "004a0178-b523-473f-8410-480e6aaec242",
+    "oracleId": "119d719d-e965-45b4-9bc9-ac03211b10c2",
+    "name": "Survival of the Fittest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Survival of the Fittest",
+        "manaCost": "{1}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "{G}, Discard a creature card: Search your library for a creature card, reveal that card, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "004a0178-b523-473f-8410-480e6aaec242"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "wc98",
+    "collectorNumber": "bs129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SYLVAN_RANGER": {
+    "scryfallId": "0dbe0c40-4c62-4d95-b8ff-86cd190f829a",
+    "oracleId": "29a90fda-541e-4923-b3ed-e2b35d02c74b",
+    "name": "Sylvan Ranger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sylvan Ranger",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Scout Ranger",
+        "oracleText": "When this creature enters, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"Not all paths are found on the forest floor.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "0dbe0c40-4c62-4d95-b8ff-86cd190f829a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "c14",
+    "collectorNumber": "216",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THALIA_S_LANCERS": {
+    "scryfallId": "4daf0b39-8baf-4455-b1d5-d287374c96aa",
+    "oracleId": "58b349ec-9987-4832-a8f3-8e92027ea75b",
+    "name": "Thalia's Lancers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thalia's Lancers",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "First strike\nWhen this creature enters, you may search your library for a legendary card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"Let the points of our lances lead the way.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "4daf0b39-8baf-4455-b1d5-d287374c96aa"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "EMN-47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOTEM_GUIDE_HARTEBEEST": {
+    "scryfallId": "101e4013-4185-4ded-a60e-6b8aac5cd5d8",
+    "oracleId": "c3a1bb65-556a-4016-a06a-3894710cb190",
+    "name": "Totem-Guide Hartebeest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Totem-Guide Hartebeest",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Antelope",
+        "oracleText": "When this creature enters, you may search your library for an Aura card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "The kor track hartebeests in hopes of finding magic to help fight the Eldrazi.",
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "John Avon",
+        "imageId": "101e4013-4185-4ded-a60e-6b8aac5cd5d8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "ROE-50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TREEFOLK_HARBINGER": {
+    "scryfallId": "9ef45cdc-2e1c-40c7-8978-b09a50f511fb",
+    "oracleId": "98c387bd-c9ba-464a-8380-839a5604a37f",
+    "name": "Treefolk Harbinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Treefolk Harbinger",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Treefolk Druid",
+        "oracleText": "When this creature enters, you may search your library for a Treefolk or Forest card, reveal it, then shuffle and put that card on top.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Larry MacDougall",
+        "imageId": "9ef45cdc-2e1c-40c7-8978-b09a50f511fb"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "lrw",
+    "collectorNumber": "239",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRIBUTE_MAGE": {
+    "scryfallId": "08505dcf-8e39-498c-b21a-5e074e7efe48",
+    "oracleId": "c2b51295-8820-425f-a517-55231123c7de",
+    "name": "Tribute Mage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tribute Mage",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "When this creature enters, you may search your library for an artifact card with mana value 2, reveal that card, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Scott Murphy",
+        "imageId": "08505dcf-8e39-498c-b21a-5e074e7efe48"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "MH1-73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRINKET_MAGE": {
+    "scryfallId": "2e006682-5236-4a32-9f3d-7337b2c42b21",
+    "oracleId": "ffc95093-24a2-4616-a44a-24788e8df9c8",
+    "name": "Trinket Mage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trinket Mage",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "When this creature enters, you may search your library for an artifact card with mana value 1 or less, reveal that card, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mark A. Nelson",
+        "imageId": "2e006682-5236-4a32-9f3d-7337b2c42b21"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tsr",
+    "collectorNumber": "320",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TROPHY_MAGE": {
+    "scryfallId": "077e9784-0b83-445d-8475-7eee24f8eddb",
+    "oracleId": "08afc0d7-192f-4ab6-b6a0-c4265cf5e225",
+    "name": "Trophy Mage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trophy Mage",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "When this creature enters, you may search your library for an artifact card with mana value 3, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Anna Steinbauer",
+        "imageId": "077e9784-0b83-445d-8475-7eee24f8eddb"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "klr",
+    "collectorNumber": "71",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRUSTWORTHY_SCOUT": {
+    "scryfallId": "8a65f118-3812-4698-8f43-669ceb6b7982",
+    "oracleId": "51d7b287-90d5-4e3b-a82c-6b98996154e1",
+    "name": "Trustworthy Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trustworthy Scout",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Scout",
+        "oracleText": "{1}{W}, Exile this card from your graveyard: Search your library for a card named Trustworthy Scout, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"Don't worry. If you lose me I'll be right behind you.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Joseph Meehan",
+        "imageId": "8a65f118-3812-4698-8f43-669ceb6b7982"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mh1",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIRIDIAN_EMISSARY": {
+    "scryfallId": "129fa334-f561-4fbd-9f51-2fa044b674e1",
+    "oracleId": "c93bce5a-48cc-4dc5-930b-1e084c2bae7d",
+    "name": "Viridian Emissary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Viridian Emissary",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Phyrexian Elf Scout",
+        "oracleText": "When this creature dies, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "129fa334-f561-4fbd-9f51-2fa044b674e1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mbs",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WELKIN_HAWK": {
+    "scryfallId": "8166253c-c6ac-4b5e-9746-09ce3774c66b",
+    "oracleId": "4547625a-0caf-4ecc-a65f-0fd2cad70294",
+    "name": "Welkin Hawk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Welkin Hawk",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhen this creature dies, you may search your library for a card named Welkin Hawk, reveal that card, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Rob Alexander",
+        "imageId": "8166253c-c6ac-4b5e-9746-09ce3774c66b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "exo",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHISPER_SQUAD": {
+    "scryfallId": "097eeb32-cfd5-4adb-ac30-d7762e6ea48f",
+    "oracleId": "e6b27729-fea5-46c9-8624-07ba291791df",
+    "name": "Whisper Squad",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Whisper Squad",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "{1}{B}: Search your library for a card named Whisper Squad, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "Ears can't hear them. Eyes see too many of them.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Stepan Alekseev",
+        "imageId": "097eeb32-cfd5-4adb-ac30-d7762e6ea48f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "iko",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WILD_WANDERER": {
+    "scryfallId": "0d20e020-30e1-4deb-8dfc-4c5fe056193d",
+    "oracleId": "ff16f889-9203-4874-919b-42e540cadcbc",
+    "name": "Wild Wanderer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wild Wanderer",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "When this creature enters, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "\"We all began in nature, and nature is where we belong.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "0d20e020-30e1-4deb-8dfc-4c5fe056193d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "173",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WIREWOOD_HERALD": {
+    "scryfallId": "35724e9f-efa6-47e7-ab4d-7defe38ba576",
+    "oracleId": "7a838374-fc40-4fb6-9d38-a96f01e7038a",
+    "name": "Wirewood Herald",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wirewood Herald",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "When this creature dies, you may search your library for an Elf card, reveal that card, put it into your hand, then shuffle.",
+        "flavorText": "The goblins laughed as the elf ran away, until more came back.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "35724e9f-efa6-47e7-ab4d-7defe38ba576"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ons",
+    "collectorNumber": "302",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WRETCHED_THRONG": {
+    "scryfallId": "990623c1-2b9c-454f-a844-7997aa84fff7",
+    "oracleId": "7e484372-a052-4df6-a6b2-2c6accccabef",
+    "name": "Wretched Throng",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wretched Throng",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Zombie Horror",
+        "oracleText": "When this creature dies, you may search your library for a card named Wretched Throng, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"Oh no. Oh no. Oh no. Oh no, again!\"\n—Beltstad, cathar recruit, last words",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Filip Burburan",
+        "imageId": "990623c1-2b9c-454f-a844-7997aa84fff7"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dbl",
+    "collectorNumber": "358",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YAVIMAYA_ELDER": {
+    "scryfallId": "1612bf83-c800-41de-ab06-fb1732d5b5a6",
+    "oracleId": "7fd4c452-07f2-492c-9c78-d1c6362d9eec",
+    "name": "Yavimaya Elder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Yavimaya Elder",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "When this creature dies, you may search your library for up to two basic land cards, reveal them, put them into your hand, then shuffle.\n{2}, Sacrifice this creature: Draw a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "1612bf83-c800-41de-ab06-fb1732d5b5a6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mic",
+    "collectorNumber": "147",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

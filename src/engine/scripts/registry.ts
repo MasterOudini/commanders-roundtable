@@ -7,6 +7,84 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FARHAVEN_ELF_SCRIPT } from './cards/farhavenElf';
+import { TREASURE_MAGE_SCRIPT } from './cards/treasureMage';
+import { ARTIFICERS_INTUITION_SCRIPT } from './cards/artificersIntuition';
+import { BOGGART_HARBINGER_SCRIPT } from './cards/boggartHarbinger';
+import { BORDERLAND_RANGER_SCRIPT } from './cards/borderlandRanger';
+import { BRAIDWOOD_SEXTANT_SCRIPT } from './cards/braidwoodSextant';
+import { CAMPUS_GUIDE_SCRIPT } from './cards/campusGuide';
+import { CAPTAIN_SISAY_SCRIPT } from './cards/captainSisay';
+import { CENTAUR_ROOTCASTER_SCRIPT } from './cards/centaurRootcaster';
+import { CHANGELING_WAYFINDER_SCRIPT } from './cards/changelingWayfinder';
+import { CIVIC_WAYFINDER_SCRIPT } from './cards/civicWayfinder';
+import { DARU_CAVALIER_SCRIPT } from './cards/daruCavalier';
+import { DEADEYE_QUARTERMASTER_SCRIPT } from './cards/deadeyeQuartermaster';
+import { DRACONIC_MURALISTS_SCRIPT } from './cards/draconicMuralists';
+import { DUNE_MOVER_SCRIPT } from './cards/duneMover';
+import { ELVISH_HARBINGER_SCRIPT } from './cards/elvishHarbinger';
+import { ENVIRONMENTAL_SCIENTIST_SCRIPT } from './cards/environmentalScientist';
+import { FAERIE_HARBINGER_SCRIPT } from './cards/faerieHarbinger';
+import { FARFINDER_SCRIPT } from './cards/farfinder';
+import { FIERCE_EMPATH_SCRIPT } from './cards/fierceEmpath';
+import { FLAMEKIN_HARBINGER_SCRIPT } from './cards/flamekinHarbinger';
+import { GIANT_HARBINGER_SCRIPT } from './cards/giantHarbinger';
+import { GIANT_LADYBUG_SCRIPT } from './cards/giantLadybug';
+import { GOBLIN_MATRON_SCRIPT } from './cards/goblinMatron';
+import { HELIODS_PILGRIM_SCRIPT } from './cards/heliodsPilgrim';
+import { HOWLING_WOLF_SCRIPT } from './cards/howlingWolf';
+import { HUNTING_CHEETAH_SCRIPT } from './cards/huntingCheetah';
+import { IMPERIAL_HELLKITE_SCRIPT } from './cards/imperialHellkite';
+import { KITHKIN_HARBINGER_SCRIPT } from './cards/kithkinHarbinger';
+import { KOR_CARTOGRAPHER_SCRIPT } from './cards/korCartographer';
+import { LOAM_LARVA_SCRIPT } from './cards/loamLarva';
+import { MERROW_HARBINGER_SCRIPT } from './cards/merrowHarbinger';
+import { MICROMANCER_SCRIPT } from './cards/micromancer';
+import { MYR_KINSMITH_SCRIPT } from './cards/myrKinsmith';
+import { NESTING_WURM_SCRIPT } from './cards/nestingWurm';
+import { ONDU_GIANT_SCRIPT } from './cards/onduGiant';
+import { ONE_WITH_NATURE_SCRIPT } from './cards/oneWithNature';
+import { PILGRIMS_EYE_SCRIPT } from './cards/pilgrimsEye';
+import { PRIMAL_DRUID_SCRIPT } from './cards/primalDruid';
+import { PRIMEVAL_HERALD_SCRIPT } from './cards/primevalHerald';
+import { QUANDRIX_CULTIVATOR_SCRIPT } from './cards/quandrixCultivator';
+import { QUIRION_TRAILBLAZER_SCRIPT } from './cards/quirionTrailblazer';
+import { RANGER_OF_EOS_SCRIPT } from './cards/rangerOfEos';
+import { RATCATCHER_SCRIPT } from './cards/ratcatcher';
+import { SCREAMING_SEAHAWK_SCRIPT } from './cards/screamingSeahawk';
+import { SEEDGUIDE_ASH_SCRIPT } from './cards/seedguideAsh';
+import { SHRINE_STEWARD_SCRIPT } from './cards/shrineSteward';
+import { SILVERGLADE_ELEMENTAL_SCRIPT } from './cards/silvergladeElemental';
+import { SKITTERING_SURVEYOR_SCRIPT } from './cards/skitteringSurveyor';
+import { SKYSHROUD_SENTINEL_SCRIPT } from './cards/skyshroudSentinel';
+import { SPELLSEEKER_SCRIPT } from './cards/spellseeker';
+import { SPHINX_SUMMONER_SCRIPT } from './cards/sphinxSummoner';
+import { SPIDER_BOT_SCRIPT } from './cards/spiderBot';
+import { SQUADRON_HAWK_SCRIPT } from './cards/squadronHawk';
+import { STEELSHAPER_APPRENTICE_SCRIPT } from './cards/steelshaperApprentice';
+import { STRIXHAVEN_SKYCOACH_SCRIPT } from './cards/strixhavenSkycoach';
+import { SURVIVAL_OF_THE_FITTEST_SCRIPT } from './cards/survivalOfTheFittest';
+import { SYLVAN_RANGER_SCRIPT } from './cards/sylvanRanger';
+import { THALIAS_LANCERS_SCRIPT } from './cards/thaliasLancers';
+import { TOTEM_GUIDE_HARTEBEEST_SCRIPT } from './cards/totemGuideHartebeest';
+import { TREEFOLK_HARBINGER_SCRIPT } from './cards/treefolkHarbinger';
+import { TRIBUTE_MAGE_SCRIPT } from './cards/tributeMage';
+import { TRINKET_MAGE_SCRIPT } from './cards/trinketMage';
+import { TROPHY_MAGE_SCRIPT } from './cards/trophyMage';
+import { TRUSTWORTHY_SCOUT_SCRIPT } from './cards/trustworthyScout';
+import { VIRIDIAN_EMISSARY_SCRIPT } from './cards/viridianEmissary';
+import { WELKIN_HAWK_SCRIPT } from './cards/welkinHawk';
+import { WHISPER_SQUAD_SCRIPT } from './cards/whisperSquad';
+import { WILD_WANDERER_SCRIPT } from './cards/wildWanderer';
+import { WIREWOOD_HERALD_SCRIPT } from './cards/wirewoodHerald';
+import { WRETCHED_THRONG_SCRIPT } from './cards/wretchedThrong';
+import { AVARAX_SCRIPT } from './cards/avarax';
+import { ELVISH_CLANCALLER_SCRIPT } from './cards/elvishClancaller';
+import { EMBERMAGE_GOBLIN_SCRIPT } from './cards/embermageGoblin';
+import { FOUNTAINPORT_BELL_SCRIPT } from './cards/fountainportBell';
+import { LILIANAS_SHADE_SCRIPT } from './cards/lilianasShade';
+import { OMEN_OF_THE_HUNT_SCRIPT } from './cards/omenOfTheHunt';
+import { YAVIMAYA_ELDER_SCRIPT } from './cards/yavimayaElder';
 import { ARID_MESA_SCRIPT } from './cards/aridMesa';
 import { BLOODSTAINED_MIRE_SCRIPT } from './cards/bloodstainedMire';
 import { DECEPTIVE_LANDSCAPE_SCRIPT } from './cards/deceptiveLandscape';
@@ -4707,6 +4785,84 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FARHAVEN_ELF_SCRIPT,
+  TREASURE_MAGE_SCRIPT,
+  ARTIFICERS_INTUITION_SCRIPT,
+  BOGGART_HARBINGER_SCRIPT,
+  BORDERLAND_RANGER_SCRIPT,
+  BRAIDWOOD_SEXTANT_SCRIPT,
+  CAMPUS_GUIDE_SCRIPT,
+  CAPTAIN_SISAY_SCRIPT,
+  CENTAUR_ROOTCASTER_SCRIPT,
+  CHANGELING_WAYFINDER_SCRIPT,
+  CIVIC_WAYFINDER_SCRIPT,
+  DARU_CAVALIER_SCRIPT,
+  DEADEYE_QUARTERMASTER_SCRIPT,
+  DRACONIC_MURALISTS_SCRIPT,
+  DUNE_MOVER_SCRIPT,
+  ELVISH_HARBINGER_SCRIPT,
+  ENVIRONMENTAL_SCIENTIST_SCRIPT,
+  FAERIE_HARBINGER_SCRIPT,
+  FARFINDER_SCRIPT,
+  FIERCE_EMPATH_SCRIPT,
+  FLAMEKIN_HARBINGER_SCRIPT,
+  GIANT_HARBINGER_SCRIPT,
+  GIANT_LADYBUG_SCRIPT,
+  GOBLIN_MATRON_SCRIPT,
+  HELIODS_PILGRIM_SCRIPT,
+  HOWLING_WOLF_SCRIPT,
+  HUNTING_CHEETAH_SCRIPT,
+  IMPERIAL_HELLKITE_SCRIPT,
+  KITHKIN_HARBINGER_SCRIPT,
+  KOR_CARTOGRAPHER_SCRIPT,
+  LOAM_LARVA_SCRIPT,
+  MERROW_HARBINGER_SCRIPT,
+  MICROMANCER_SCRIPT,
+  MYR_KINSMITH_SCRIPT,
+  NESTING_WURM_SCRIPT,
+  ONDU_GIANT_SCRIPT,
+  ONE_WITH_NATURE_SCRIPT,
+  PILGRIMS_EYE_SCRIPT,
+  PRIMAL_DRUID_SCRIPT,
+  PRIMEVAL_HERALD_SCRIPT,
+  QUANDRIX_CULTIVATOR_SCRIPT,
+  QUIRION_TRAILBLAZER_SCRIPT,
+  RANGER_OF_EOS_SCRIPT,
+  RATCATCHER_SCRIPT,
+  SCREAMING_SEAHAWK_SCRIPT,
+  SEEDGUIDE_ASH_SCRIPT,
+  SHRINE_STEWARD_SCRIPT,
+  SILVERGLADE_ELEMENTAL_SCRIPT,
+  SKITTERING_SURVEYOR_SCRIPT,
+  SKYSHROUD_SENTINEL_SCRIPT,
+  SPELLSEEKER_SCRIPT,
+  SPHINX_SUMMONER_SCRIPT,
+  SPIDER_BOT_SCRIPT,
+  SQUADRON_HAWK_SCRIPT,
+  STEELSHAPER_APPRENTICE_SCRIPT,
+  STRIXHAVEN_SKYCOACH_SCRIPT,
+  SURVIVAL_OF_THE_FITTEST_SCRIPT,
+  SYLVAN_RANGER_SCRIPT,
+  THALIAS_LANCERS_SCRIPT,
+  TOTEM_GUIDE_HARTEBEEST_SCRIPT,
+  TREEFOLK_HARBINGER_SCRIPT,
+  TRIBUTE_MAGE_SCRIPT,
+  TRINKET_MAGE_SCRIPT,
+  TROPHY_MAGE_SCRIPT,
+  TRUSTWORTHY_SCOUT_SCRIPT,
+  VIRIDIAN_EMISSARY_SCRIPT,
+  WELKIN_HAWK_SCRIPT,
+  WHISPER_SQUAD_SCRIPT,
+  WILD_WANDERER_SCRIPT,
+  WIREWOOD_HERALD_SCRIPT,
+  WRETCHED_THRONG_SCRIPT,
+  AVARAX_SCRIPT,
+  ELVISH_CLANCALLER_SCRIPT,
+  EMBERMAGE_GOBLIN_SCRIPT,
+  FOUNTAINPORT_BELL_SCRIPT,
+  LILIANAS_SHADE_SCRIPT,
+  OMEN_OF_THE_HUNT_SCRIPT,
+  YAVIMAYA_ELDER_SCRIPT,
   ARID_MESA_SCRIPT,
   BLOODSTAINED_MIRE_SCRIPT,
   DECEPTIVE_LANDSCAPE_SCRIPT,

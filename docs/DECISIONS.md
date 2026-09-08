@@ -24686,3 +24686,70 @@ select pool 95.
 
 Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,821 files, 23,891 passed / 11 skipped · 500-seed gate, 6 shards, 617.0 s wall ·
 build clean · probe 124/124 · battery 130/130.
+
+## D360 — M6.4gs: THE OPTIONAL-SEARCH WAVE — the fixture a search finds is DERIVED from the printed noun, and the card looking for itself finally knows its own name; 78 generated rows (2026-09-08)
+
+**7,524 of 31,692 Commander-legal cards execute completely, up from
+7,446 (+78).** `SHIPPED_SCRIPTS` 4,681 → **4,759**;
+REFUSED ledger 949 → **966** (seventeen rows ADDED by name, each with the reason the ROW MAKER gave: five Heralds on one cause (a sacrifice cost whose predicate is a COLOUR, which the fixture derivation has no card for), two searches naming two OTHER cards (Bogbrew Witch, Dragonstorm Forecaster), an attack head on a card with no creature body (Sword of the Animist), a land with no mana cost the test cannot cast (Flagstones of Trokair), a cycling trigger head (Krosan Tusker), a graveyard clause whose every fixture the suite already deals (Goblin Engineer), a spell line outside the vocabulary (Land Grant), and five whose leftover the probe reports differently from the printed line. The pool is back to ZERO). Fixtures
+5,116 → 5,204 (5,068 by name + 136 tokens: the 78 rowed cards and every card their suites read - the derived search fixtures among them, which is what an 88-name jump for a 78-card wave is; NO new token pin). **Select pool 95 → 0.**
+
+**Where this came from.** no new seam probe: D359's own measurement IS this decision's input. It left the select pool at 95 deliberately (D289/D291's shape - a seam leaves its wave to the decision after it), and those 95 are the cards whose widened search line reads and whose remaining work is a row. The row maker took 41 at first and refused 54, and its own histogram named the arm: 40 of the 54 were one line, `a search no fixture satisfies`, wanting thirteen things - 13 another copy of the searcher itself, 12 a subtype body, 7 a mana-value bound, and the rest a legendary card, an Equipment, an artifact creature. Deriving the fixture instead of tabling it took the wave 41 -> 62 -> 79 rows across three measured corrections.
+
+**The arm is D347's, one reader over.** D358 picked the card a search finds from
+a HAND-WRITTEN table of eight — five basics, a Bear, a Sol Ring, a Pacifism — so
+40 of the 95 were refused with one line: `a search no fixture satisfies`. D347
+turned the COST fodder table into a derivation for exactly this reason, and the
+same move works here: the search's own structured predicate picks the simplest
+card in the database that satisfies it, preferring one already pinned. ⚠️ The
+cost derivation could not be **called**: it reads a printed PHRASE where a search
+carries `predicatesOf`'s structure. So the card list, the quiet rule and the
+ordering are shared and the picker is its own — a copy of any of the three would
+have been the thing five entries of this file say not to do.
+
+**⚠️⚠️ AND THE WAVE FOUND A REAL ENGINE BUG IN THE SEAM IT CAME FROM.**
+`parseEffects` runs `selfRef` first, which replaces a card's own printed name
+with `~` — so Squadron Hawk's "search your library for up to three cards named
+Squadron Hawk" reaches the search rule as `cards named ~`. D359 stored that tilde
+verbatim as the qualifier's name and `cardMatchesSearch` then compared it against
+a printed card name, **which no card has**. THIRTEEN cards in this wave would
+have raised the prompt and REFUSED every legal answer: a search that looks
+correct and finds nothing, for ever, which is D90's half-execution wearing a
+prompt. The tilde is resolved where the card's name is known — `parseEffects`
+takes it as a parameter, and a rule's `build` receives the match and nothing
+else — and a qualifier naming some OTHER card is untouched.
+
+**Three measured corrections, 41 → 62 → 79 rows**, each read off the row maker's
+own histogram rather than guessed:
+
+- the derivation itself (41 → 62);
+- then the three causes its next run named — the tilde is the SCRUBBED
+  self-reference and not a name (9 cards); the cost-fixture loader keeps only the
+  types a fodder can be, so a spell was never in the pool (2); and the quiet rule
+  refuses an `Enchant` line, which is right for a card that must sit still and
+  wrong for one that is only found and moved (1).
+
+**And two generator faults the port's own run named**, both about a card that
+MOVES after the baseline is taken: an AURA row casts its own card during the fire
+(`castsFromHand` already said −1 on the hand and the board owed the matching +1);
+and the generic "the `{T}` cost tapped it" assert read a permanent whose own cost
+had **returned it to hand** (D352), where a tap is unobservable.
+
+Landed: 78 GENERATED ROWS, and the fixture derivation is what made them landable. The HARBINGERS and their kin, each searching for a card of its own tribe (Boggart, Elvish, Faerie, Flamekin, Giant, Kithkin, Merrow, Treefolk Harbinger, Goblin Matron, Elvish Harbinger, Wirewood Herald, Myr Kinsmith, Ratcatcher, Draconic Muralists, Imperial Hellkite); the cards that look for another copy of THEMSELVES, which is the thirteen the tilde bug would have broken (Squadron Hawk, Whisper Squad, Avarax, Daru Cavalier, Screaming Seahawk, Welkin Hawk, Howling Wolf, Nesting Wurm, Skyshroud Sentinel, Elvish Clancaller, Embermage Goblin, Trustworthy Scout, Wretched Throng); the mana-value tutors (Trinket Mage, Trophy Mage, Tribute Mage, Treasure Mage, Spellseeker, Micromancer, Fierce Empath, Ranger of Eos); the land fetchers whose `you may` the vocabulary could not read before D359 (Farhaven Elf, Borderland Ranger, Civic Wayfinder, Sylvan Ranger, Yavimaya Elder, Wild Wanderer, Ondu Giant, Primal Druid, Viridian Emissary); and the rest across the Equipment, Aura and legendary searches.
+
+Nothing retired: the seventeen refusals are new rows, and the 78 that landed were never in the ledger - they were OFFERED by D359 and repinned rather than ledgered, for exactly this reason.
+
+Report: `effect:auto` 4,633 → 4,633 and `withUnenforced`
+280 → 280 — neither moves, because a row lands a SCRIPT rather than
+widening a parser. **What a script can express FALLS 1,145 → 1,067**, and
+that fall is the measurement working: a seam RAISES that number because a
+sentence the vocabulary can read is a card a row can take, and a wave LOWERS it
+because a card a row has taken is one no row can take again.
+
+Not this decision: the search wordings the vocabulary still refuses (a qualifier over a KEYWORD - `a card with flash`; a graveyard searched as well as a library; `put those cards on top in any order`, a second decision and therefore an ordering prompt; `up to X` off the cast's X); the row maker's own seventeen (the colour-predicate sacrifice fixture first - it is five cards and the ENGINE already charges the cost); then the families the seam map holds - the grant whose payload is a QUOTED ability (355 one-piece cards, dossier in d354/DESIGN-quoted-grant.md, a shared runtime CARRIER plus several payload families rather than one batch), the attached statics the Aura and Equipment rows cannot read (351, mass in compound shapes), the Aura that REDEFINES its host (18 - Lignify, Frogify, Darksteel Mutation, and every piece already exists: D151's `hasAbilities`, layer 7b's base P/T, D311's type change), the bare keyword or ability word (185, one card each).
+
+Fixtures 5,204 · botPool artifact 418 / creature 4,352 / enchantment 393 / instant 1,020 / land 558 / sorcery 783 - auto 1,003 / assisted 1,881 / autoAnyFace 1,012 · ladder [1067, 1133, 2722, 4556, 5902] · batch.json 78 ·
+select pool 0.
+
+Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,899 files, 24,211 passed / 11 skipped · 500-seed gate, 6 shards, 612.1 s wall ·
+build clean · probe 124/124 · battery 130/130.

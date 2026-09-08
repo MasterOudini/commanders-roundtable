@@ -97,6 +97,27 @@ interface Candidate {
  * class strings exist so that day is findable with grep.
  */
 const REFUSED: ReadonlyMap<string, string> = new Map([
+  // D360 - the optional-search wave: the seventeen of 95 the row maker refused, each by the
+  // reason it gave. Five are one cause (a sacrifice cost whose predicate is a COLOUR, which the
+  // fixture derivation has no card for), two are a search naming two other cards, and five are
+  // cards whose leftover the probe reports differently from the printed line.
+  ["Angel's Herald", 'colour-predicate sacrifice cost (no derived fixture)'],
+  ["Behemoth's Herald", 'colour-predicate sacrifice cost (no derived fixture)'],
+  ["Demon's Herald", 'colour-predicate sacrifice cost (no derived fixture)'],
+  ["Dragon's Herald", 'colour-predicate sacrifice cost (no derived fixture)'],
+  ["Sphinx's Herald", 'colour-predicate sacrifice cost (no derived fixture)'],
+  ['Bogbrew Witch', 'a search naming two other cards'],
+  ['Dragonstorm Forecaster', 'a search naming two other cards'],
+  ['Sword of the Animist', 'an attack head on a card with no creature body'],
+  ['Flagstones of Trokair', 'a row the test cannot cast: no mana cost'],
+  ['Krosan Tusker', 'cycling trigger head'],
+  ['Goblin Engineer', 'a graveyard clause whose every fixture the suite already deals'],
+  ['Land Grant', 'a spell line outside the vocabulary'],
+  ['Mycosynth Wellspring', 'leftover reported differently from the printed line'],
+  ['Zur the Enchanter', 'leftover reported differently from the printed line'],
+  ['Forerunner of the Legion', 'leftover reported differently from the printed line'],
+  ['Heaped Harvest', 'leftover reported differently from the printed line'],
+  ['Rampart Architect', 'leftover reported differently from the printed line'],
   // ⚠️ The 'sacrifice-cost chooser' class — FIFTEEN entries at its peak, the
   // ledger's largest — was BUILT in D168 (`ActivateAbility.sacrifice`) and its
   // entries deleted the same day, so those cards re-enter the offer stream.
@@ -2008,14 +2029,13 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // D289/D291 shape, where a seam leaves its wave to the decision after it.
     // ⚠️ D358 landed 69 of D357's 84 and ledgered the other fifteen by name, so the pool is
     // back to zero - the shape every wave decision ends in.
-    // ⚠️ D359 - NINETY-FIVE, AND THAT IS DELIBERATE. A SEAM that widens what a sentence can
-    // say leaves its offer stream non-empty on purpose, and the decision after it lands the wave
-    // (D289/D291's shape, D357's most recently). These 95 are the cards whose search line reads
-    // now - the tutors' triggered kin, the Rebel and Mercenary chains, the fetch creatures whose
-    // `you may` the vocabulary could not see - and every one of them needs a ROW and nothing else.
-    // They are NOT ledgered, because a ledger row is a drafter's verdict that something cannot be
-    // done and these can.
-    expect.soft(all.length).toBe(95);
+    // ⚠️ D360 - BACK TO ZERO, and that is what a WAVE does. D359 was a SEAM and left 95 cards
+    // offerable on purpose; this decision rowed 78 of them and ledgered the other seventeen by
+    // name, each with the reason the row maker gave. The tell that the two kinds are the right
+    // way round is the SCRIPTABLE number: a seam raises it (1,050 -> 1,145) because a sentence
+    // the vocabulary can read is a card a row can take, and a wave lowers it (1,145 -> 1,067)
+    // because a card a row has taken is one no row can take again.
+    expect.soft(all.length).toBe(0);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

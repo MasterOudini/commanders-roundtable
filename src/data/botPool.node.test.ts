@@ -274,7 +274,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * becomes non-zero is a day worth noticing — and because a bug once made this
    * read 9 enchantments (see `clauseAccounted`'s substring note).
    */
-  test('enchantments execute now - 345 after the trigger heads; planeswalkers and battles still none', () => {
+  test('enchantments execute now - 393 after the trigger heads; planeswalkers and battles still none', () => {
     // ⚠️ This pinned exact ZEROES from M6.1 until M6.4c (D160), "because the
     // day one becomes non-zero is a day worth noticing" — `Ajani's Welcome`
     // was that day; `Captive Flame` (D166) and `Centaur Glade` (D167 — an
@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). Planeswalkers (loyalty costs) and battles are still
     // structurally out, and stay pinned at zero for the same reason the
     // enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(389);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(393);
     expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -446,12 +446,12 @@ const POOL: Record<string, number> = {
   // TWENTY-card batch.
   // M6.4bc (D214): +8 instants, +7 sorceries, Flying Carpet, and Forum of
   // Amity.
-  creature: 4281,
+  creature: 4352,
   instant: 1020,
   sorcery: 783,
   land: 558,
-  artifact: 415,
-  enchantment: 389,
+  artifact: 418,
+  enchantment: 393,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

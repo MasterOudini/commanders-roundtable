@@ -4998,6 +4998,94 @@ export const WORLD_MAP: CardData = F.WORLD_MAP as CardData;
 export const FARHAVEN_ELF: CardData = F.FARHAVEN_ELF as CardData;
 export const TREASURE_MAGE: CardData = F.TREASURE_MAGE as CardData;
 export const MYSTICAL_TUTOR: CardData = F.MYSTICAL_TUTOR as CardData;
+export const ABJURE: CardData = F.ABJURE as CardData;
+export const ABSTERGO_ENTERTAINMENT: CardData = F.ABSTERGO_ENTERTAINMENT as CardData;
+export const ALPHA_MYR: CardData = F.ALPHA_MYR as CardData;
+export const ALPHA_TYRRANAX: CardData = F.ALPHA_TYRRANAX as CardData;
+export const ANCESTRAL_VISION: CardData = F.ANCESTRAL_VISION as CardData;
+export const ARTIFICER_S_INTUITION: CardData = F.ARTIFICER_S_INTUITION as CardData;
+export const AVARAX: CardData = F.AVARAX as CardData;
+export const BOGGART_HARBINGER: CardData = F.BOGGART_HARBINGER as CardData;
+export const BORDERLAND_RANGER: CardData = F.BORDERLAND_RANGER as CardData;
+export const BRAIDWOOD_SEXTANT: CardData = F.BRAIDWOOD_SEXTANT as CardData;
+export const BURDENED_STONEBACK: CardData = F.BURDENED_STONEBACK as CardData;
+export const CAMPUS_GUIDE: CardData = F.CAMPUS_GUIDE as CardData;
+export const CAPTAIN_SISAY: CardData = F.CAPTAIN_SISAY as CardData;
+export const CENTAUR_ROOTCASTER: CardData = F.CENTAUR_ROOTCASTER as CardData;
+export const CHANGELING_WAYFINDER: CardData = F.CHANGELING_WAYFINDER as CardData;
+export const CIVIC_WAYFINDER: CardData = F.CIVIC_WAYFINDER as CardData;
+export const DARU_CAVALIER: CardData = F.DARU_CAVALIER as CardData;
+export const DEADEYE_QUARTERMASTER: CardData = F.DEADEYE_QUARTERMASTER as CardData;
+export const DEVOTED_HERO: CardData = F.DEVOTED_HERO as CardData;
+export const DRACONIC_MURALISTS: CardData = F.DRACONIC_MURALISTS as CardData;
+export const DUNE_MOVER: CardData = F.DUNE_MOVER as CardData;
+export const ELVISH_CLANCALLER: CardData = F.ELVISH_CLANCALLER as CardData;
+export const ELVISH_HARBINGER: CardData = F.ELVISH_HARBINGER as CardData;
+export const EMBERMAGE_GOBLIN: CardData = F.EMBERMAGE_GOBLIN as CardData;
+export const ENVIRONMENTAL_SCIENTIST: CardData = F.ENVIRONMENTAL_SCIENTIST as CardData;
+export const FAERIE_HARBINGER: CardData = F.FAERIE_HARBINGER as CardData;
+export const FARFINDER: CardData = F.FARFINDER as CardData;
+export const FIERCE_EMPATH: CardData = F.FIERCE_EMPATH as CardData;
+export const FLAMEKIN_HARBINGER: CardData = F.FLAMEKIN_HARBINGER as CardData;
+export const FOUNTAINPORT_BELL: CardData = F.FOUNTAINPORT_BELL as CardData;
+export const GIANT_HARBINGER: CardData = F.GIANT_HARBINGER as CardData;
+export const GIANT_LADYBUG: CardData = F.GIANT_LADYBUG as CardData;
+export const GOBLAND: CardData = F.GOBLAND as CardData;
+export const GOBLIN_MATRON: CardData = F.GOBLIN_MATRON as CardData;
+export const HELIOD_S_PILGRIM: CardData = F.HELIOD_S_PILGRIM as CardData;
+export const HOWLING_WOLF: CardData = F.HOWLING_WOLF as CardData;
+export const HUNTING_CHEETAH: CardData = F.HUNTING_CHEETAH as CardData;
+export const IMPERIAL_HELLKITE: CardData = F.IMPERIAL_HELLKITE as CardData;
+export const KITHKIN_HARBINGER: CardData = F.KITHKIN_HARBINGER as CardData;
+export const KOR_CARTOGRAPHER: CardData = F.KOR_CARTOGRAPHER as CardData;
+export const LILIANA_S_SHADE: CardData = F.LILIANA_S_SHADE as CardData;
+export const LOAM_LARVA: CardData = F.LOAM_LARVA as CardData;
+export const MERROW_HARBINGER: CardData = F.MERROW_HARBINGER as CardData;
+export const MICROMANCER: CardData = F.MICROMANCER as CardData;
+export const MUCK_RATS: CardData = F.MUCK_RATS as CardData;
+export const MYR_KINSMITH: CardData = F.MYR_KINSMITH as CardData;
+export const MYR_MINDSERVANT: CardData = F.MYR_MINDSERVANT as CardData;
+export const NESTING_WURM: CardData = F.NESTING_WURM as CardData;
+export const OBSIANUS_GOLEM: CardData = F.OBSIANUS_GOLEM as CardData;
+export const OMEN_OF_THE_HUNT: CardData = F.OMEN_OF_THE_HUNT as CardData;
+export const ONDU_GIANT: CardData = F.ONDU_GIANT as CardData;
+export const ONE_WITH_NATURE: CardData = F.ONE_WITH_NATURE as CardData;
+export const PILGRIM_S_EYE: CardData = F.PILGRIM_S_EYE as CardData;
+export const PRIMAL_DRUID: CardData = F.PRIMAL_DRUID as CardData;
+export const PRIMEVAL_HERALD: CardData = F.PRIMEVAL_HERALD as CardData;
+export const QUANDRIX_CULTIVATOR: CardData = F.QUANDRIX_CULTIVATOR as CardData;
+export const QUIRION_TRAILBLAZER: CardData = F.QUIRION_TRAILBLAZER as CardData;
+export const RANGER_OF_EOS: CardData = F.RANGER_OF_EOS as CardData;
+export const RATCATCHER: CardData = F.RATCATCHER as CardData;
+export const SCREAMING_SEAHAWK: CardData = F.SCREAMING_SEAHAWK as CardData;
+export const SEEDGUIDE_ASH: CardData = F.SEEDGUIDE_ASH as CardData;
+export const SHRINE_STEWARD: CardData = F.SHRINE_STEWARD as CardData;
+export const SILVERGLADE_ELEMENTAL: CardData = F.SILVERGLADE_ELEMENTAL as CardData;
+export const SKITTERING_SURVEYOR: CardData = F.SKITTERING_SURVEYOR as CardData;
+export const SKYSHROUD_SENTINEL: CardData = F.SKYSHROUD_SENTINEL as CardData;
+export const SLIVER_CONSTRUCT: CardData = F.SLIVER_CONSTRUCT as CardData;
+export const SPELLSEEKER: CardData = F.SPELLSEEKER as CardData;
+export const SPHINX_SUMMONER: CardData = F.SPHINX_SUMMONER as CardData;
+export const SPIDER_BOT: CardData = F.SPIDER_BOT as CardData;
+export const SQUADRON_HAWK: CardData = F.SQUADRON_HAWK as CardData;
+export const STEELSHAPER_APPRENTICE: CardData = F.STEELSHAPER_APPRENTICE as CardData;
+export const STRIXHAVEN_SKYCOACH: CardData = F.STRIXHAVEN_SKYCOACH as CardData;
+export const SURVIVAL_OF_THE_FITTEST: CardData = F.SURVIVAL_OF_THE_FITTEST as CardData;
+export const SYLVAN_RANGER: CardData = F.SYLVAN_RANGER as CardData;
+export const THALIA_S_LANCERS: CardData = F.THALIA_S_LANCERS as CardData;
+export const TOTEM_GUIDE_HARTEBEEST: CardData = F.TOTEM_GUIDE_HARTEBEEST as CardData;
+export const TREEFOLK_HARBINGER: CardData = F.TREEFOLK_HARBINGER as CardData;
+export const TRIBUTE_MAGE: CardData = F.TRIBUTE_MAGE as CardData;
+export const TRINKET_MAGE: CardData = F.TRINKET_MAGE as CardData;
+export const TROPHY_MAGE: CardData = F.TROPHY_MAGE as CardData;
+export const TRUSTWORTHY_SCOUT: CardData = F.TRUSTWORTHY_SCOUT as CardData;
+export const VIRIDIAN_EMISSARY: CardData = F.VIRIDIAN_EMISSARY as CardData;
+export const WELKIN_HAWK: CardData = F.WELKIN_HAWK as CardData;
+export const WHISPER_SQUAD: CardData = F.WHISPER_SQUAD as CardData;
+export const WILD_WANDERER: CardData = F.WILD_WANDERER as CardData;
+export const WIREWOOD_HERALD: CardData = F.WIREWOOD_HERALD as CardData;
+export const WRETCHED_THRONG: CardData = F.WRETCHED_THRONG as CardData;
+export const YAVIMAYA_ELDER: CardData = F.YAVIMAYA_ELDER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -10117,6 +10205,94 @@ export const ENGINE_CARDS: CardData[] = [
   FARHAVEN_ELF,
   TREASURE_MAGE,
   MYSTICAL_TUTOR,
+  ABJURE,
+  ABSTERGO_ENTERTAINMENT,
+  ALPHA_MYR,
+  ALPHA_TYRRANAX,
+  ANCESTRAL_VISION,
+  ARTIFICER_S_INTUITION,
+  AVARAX,
+  BOGGART_HARBINGER,
+  BORDERLAND_RANGER,
+  BRAIDWOOD_SEXTANT,
+  BURDENED_STONEBACK,
+  CAMPUS_GUIDE,
+  CAPTAIN_SISAY,
+  CENTAUR_ROOTCASTER,
+  CHANGELING_WAYFINDER,
+  CIVIC_WAYFINDER,
+  DARU_CAVALIER,
+  DEADEYE_QUARTERMASTER,
+  DEVOTED_HERO,
+  DRACONIC_MURALISTS,
+  DUNE_MOVER,
+  ELVISH_CLANCALLER,
+  ELVISH_HARBINGER,
+  EMBERMAGE_GOBLIN,
+  ENVIRONMENTAL_SCIENTIST,
+  FAERIE_HARBINGER,
+  FARFINDER,
+  FIERCE_EMPATH,
+  FLAMEKIN_HARBINGER,
+  FOUNTAINPORT_BELL,
+  GIANT_HARBINGER,
+  GIANT_LADYBUG,
+  GOBLAND,
+  GOBLIN_MATRON,
+  HELIOD_S_PILGRIM,
+  HOWLING_WOLF,
+  HUNTING_CHEETAH,
+  IMPERIAL_HELLKITE,
+  KITHKIN_HARBINGER,
+  KOR_CARTOGRAPHER,
+  LILIANA_S_SHADE,
+  LOAM_LARVA,
+  MERROW_HARBINGER,
+  MICROMANCER,
+  MUCK_RATS,
+  MYR_KINSMITH,
+  MYR_MINDSERVANT,
+  NESTING_WURM,
+  OBSIANUS_GOLEM,
+  OMEN_OF_THE_HUNT,
+  ONDU_GIANT,
+  ONE_WITH_NATURE,
+  PILGRIM_S_EYE,
+  PRIMAL_DRUID,
+  PRIMEVAL_HERALD,
+  QUANDRIX_CULTIVATOR,
+  QUIRION_TRAILBLAZER,
+  RANGER_OF_EOS,
+  RATCATCHER,
+  SCREAMING_SEAHAWK,
+  SEEDGUIDE_ASH,
+  SHRINE_STEWARD,
+  SILVERGLADE_ELEMENTAL,
+  SKITTERING_SURVEYOR,
+  SKYSHROUD_SENTINEL,
+  SLIVER_CONSTRUCT,
+  SPELLSEEKER,
+  SPHINX_SUMMONER,
+  SPIDER_BOT,
+  SQUADRON_HAWK,
+  STEELSHAPER_APPRENTICE,
+  STRIXHAVEN_SKYCOACH,
+  SURVIVAL_OF_THE_FITTEST,
+  SYLVAN_RANGER,
+  THALIA_S_LANCERS,
+  TOTEM_GUIDE_HARTEBEEST,
+  TREEFOLK_HARBINGER,
+  TRIBUTE_MAGE,
+  TRINKET_MAGE,
+  TROPHY_MAGE,
+  TRUSTWORTHY_SCOUT,
+  VIRIDIAN_EMISSARY,
+  WELKIN_HAWK,
+  WHISPER_SQUAD,
+  WILD_WANDERER,
+  WIREWOOD_HERALD,
+  WRETCHED_THRONG,
+  YAVIMAYA_ELDER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

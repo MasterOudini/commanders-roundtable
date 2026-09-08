@@ -1064,6 +1064,25 @@ export interface ParsedEffects {
  * one-shot resolution — and pretending otherwise would execute a creature's
  * "whenever this attacks" the moment it entered the battlefield.
  */
+/**
+ * D360 - `a card named ~` names THIS card.
+ *
+ * ⚠️ `selfRef` replaces a card's own printed name with `~` before any rule sees the sentence, so
+ * a card searching for another copy of itself (Squadron Hawk, Whisper Squad, Avarax - thirteen in
+ * the wave that found this) arrives here with `~` as its qualifier's name. Stored verbatim it
+ * matches nothing: `cardMatchesSearch` compares it against a printed name and no card is called
+ * `~`, so the prompt would come up and refuse every legal answer - a silent half-execution of
+ * exactly the shape D90 forbids.
+ *
+ * The tilde is resolved HERE because this is the only place that knows the card's name; a rule's
+ * `build` receives the match and nothing else. A qualifier naming some other card is untouched.
+ */
+function withSelfName(spec: EffectSpec, cardName: string): EffectSpec {
+  const search = spec.search;
+  if (!search || search.qualifier?.name !== '~') return spec;
+  return { ...spec, search: { ...search, qualifier: { ...search.qualifier, name: cardName } } };
+}
+
 export function parseEffects(
   oracleText: string,
   cardName: string,
@@ -1095,8 +1114,9 @@ export function parseEffects(
   // the same order `targetParse` produced its specs in.
   let nextTarget = 0;
   for (const clause of clauses) {
-    const spec = clause.spec;
-    if (!spec) continue;
+    const spec0 = clause.spec;
+    if (!spec0) continue;
+    const spec = withSelfName(spec0, cardName);
     understood++;
     // D299: an "up to N" / "any number of" clause may be declared with no target.
     const optional = OPTIONAL_COUNT.test(clause.text);
