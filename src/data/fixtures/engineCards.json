@@ -173832,6 +173832,436 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "THOPTER_ENGINEER": {
+    "scryfallId": "03ba03d0-c2fd-44fa-809e-3873e1c3e968",
+    "oracleId": "4ac53b34-20d2-4a53-bade-4f998fb6ae67",
+    "name": "Thopter Engineer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thopter Engineer",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "When this creature enters, create a 1/1 colorless Thopter artifact creature token with flying.\nArtifact creatures you control have haste. (They can attack and {T} as soon as they come under your control.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "03ba03d0-c2fd-44fa-809e-3873e1c3e968"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "c21",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MASTER_SPLICER": {
+    "scryfallId": "0e463146-40a7-4274-a5a6-adf71df05c4f",
+    "oracleId": "9e0c5919-aed6-4d98-85c8-2658be78bdf0",
+    "name": "Master Splicer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Master Splicer",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Phyrexian Human Artificer",
+        "oracleText": "When this creature enters, create a 3/3 colorless Phyrexian Golem artifact creature token.\nGolems you control get +1/+1.",
+        "flavorText": "Phyrexian artificers remove the flesh they no longer need and use it to bring their unholy creations to a greater semblance of life.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Chippy",
+        "imageId": "0e463146-40a7-4274-a5a6-adf71df05c4f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "29",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEGION_EXTRUDER": {
+    "scryfallId": "0ffddccb-4195-4c8b-b2b3-5c545c656fee",
+    "oracleId": "c77dc11e-d95d-4e7e-bb24-d971c179e9b0",
+    "name": "Legion Extruder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Legion Extruder",
+        "manaCost": "{1}{R}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, it deals 2 damage to any target.\n{2}, {T}, Sacrifice another artifact: Create a 3/3 colorless Golem artifact creature token.",
+        "flavorText": "When the vault door opened, ancient war machines rumbled to life.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Anton Solovianchyk",
+        "imageId": "0ffddccb-4195-4c8b-b2b3-5c545c656fee"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "big",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAI_MASTER_THOPTERIST": {
+    "scryfallId": "19316cbb-d1af-4ab7-b588-78637503e986",
+    "oracleId": "52241b9c-7a69-4176-9234-8bdab09d8e64",
+    "name": "Sai, Master Thopterist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sai, Master Thopterist",
+        "manaCost": "{2}{U}",
+        "typeLine": "Legendary Creature — Human Artificer",
+        "oracleText": "Whenever you cast an artifact spell, create a 1/1 colorless Thopter artifact creature token with flying.\n{1}{U}, Sacrifice two artifacts: Draw a card.",
+        "flavorText": "\"Industry without artistry is just a fancy way to fill the junkyard.\"",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Adam Paquette",
+        "imageId": "19316cbb-d1af-4ab7-b588-78637503e986"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m19",
+    "collectorNumber": "69",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THOPTER_FABRICATOR": {
+    "scryfallId": "1dd26a5a-ca58-4cb6-b599-7c84d601dc07",
+    "oracleId": "8aab9181-c306-471a-8061-9a7a7654dab5",
+    "name": "Thopter Fabricator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thopter Fabricator",
+        "manaCost": "{2}{U}",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "Flying\nWhenever you draw your second card each turn, create a 1/1 colorless Thopter artifact creature token with flying.\nCrew 2",
+        "flavorText": "Take flight on the wings of true innovation.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "William Tempest",
+        "imageId": "1dd26a5a-ca58-4cb6-b599-7c84d601dc07"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Crew"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "304",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BREYA_ETHERIUM_SHAPER": {
+    "scryfallId": "2143f700-7311-46a4-ad9b-4e743a345785",
+    "oracleId": "d460a9e2-5a7d-4562-880e-45174be19a9d",
+    "name": "Breya, Etherium Shaper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Breya, Etherium Shaper",
+        "manaCost": "{W}{U}{B}{R}",
+        "typeLine": "Legendary Artifact Creature — Human",
+        "oracleText": "When Breya enters, create two 1/1 blue Thopter artifact creature tokens with flying.\n{2}, Sacrifice two artifacts: Choose one —\n• Breya deals 3 damage to target player or planeswalker.\n• Target creature gets -4/-4 until end of turn.\n• You gain 5 life.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R",
+          "U",
+          "W"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "2143f700-7311-46a4-ad9b-4e743a345785"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "2xm",
+    "collectorNumber": "192",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FAIRGROUNDS_PATROL": {
+    "scryfallId": "21456767-bf7b-4813-b305-1bc3005f56b9",
+    "oracleId": "8b0689b5-7c68-46b3-a72a-4f97ef1d0a15",
+    "name": "Fairgrounds Patrol",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fairgrounds Patrol",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "{1}{W}, Exile this card from your graveyard: Create a 1/1 colorless Thopter artifact creature token with flying. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "21456767-bf7b-4813-b305-1bc3005f56b9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j21",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THOPTER_SQUADRON": {
+    "scryfallId": "25af067f-436c-4835-875a-3b2c2557104c",
+    "oracleId": "f1482ca4-610b-48fe-ac23-4526637bb72a",
+    "name": "Thopter Squadron",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thopter Squadron",
+        "manaCost": "{5}",
+        "typeLine": "Artifact Creature — Thopter",
+        "oracleText": "Flying\nThis creature enters with three +1/+1 counters on it.\n{1}, Remove a +1/+1 counter from this creature: Create a 1/1 colorless Thopter artifact creature token with flying. Activate only as a sorcery.\n{1}, Sacrifice another Thopter: Put a +1/+1 counter on this creature. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Doug Chaffee",
+        "imageId": "25af067f-436c-4835-875a-3b2c2557104c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "vma",
+    "collectorNumber": "286",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLADE_SPLICER": {
+    "scryfallId": "277bc4e5-f43a-4f1e-a7e9-11796e78fcdf",
+    "oracleId": "194166ad-0179-42a3-86b9-ba7f322ec576",
+    "name": "Blade Splicer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blade Splicer",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Phyrexian Human Artificer",
+        "oracleText": "When this creature enters, create a 3/3 colorless Phyrexian Golem artifact creature token.\nGolems you control have first strike.",
+        "flavorText": "\"Flesh is a betrayal of the self.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "277bc4e5-f43a-4f1e-a7e9-11796e78fcdf"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "2xm",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THOPTER_MECHANIC": {
+    "scryfallId": "282e630c-5d4a-469b-9b51-1127616dda34",
+    "oracleId": "a7e7be75-646d-4c99-8388-15bb422c8e25",
+    "name": "Thopter Mechanic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thopter Mechanic",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "Whenever you draw your second card each turn, put a +1/+1 counter on this creature.\nWhen this creature dies, create a 1/1 colorless Thopter artifact creature token with flying.",
+        "flavorText": "\"You want me to install a seat belt? Please. You're lucky to get a seat!\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Joshua Raphael",
+        "imageId": "282e630c-5d4a-469b-9b51-1127616dda34"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j25",
+    "collectorNumber": "372",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYR_TURBINE": {
+    "scryfallId": "71a76840-47f7-4e1e-b68b-00cb7da98cdf",
+    "oracleId": "b9043dcd-234f-4144-80db-1cb903c009ea",
+    "name": "Myr Turbine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Myr Turbine",
+        "manaCost": "{5}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Create a 1/1 colorless Myr artifact creature token.\n{T}, Tap five untapped Myr you control: Search your library for a Myr creature card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Randis Albion",
+        "imageId": "71a76840-47f7-4e1e-b68b-00cb7da98cdf"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "mbs",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TITAN_FORGE": {
+    "scryfallId": "7a3bb4ab-6fe7-4926-a929-3e37691f287a",
+    "oracleId": "3b02dfca-bcaa-4e22-b143-401ed250d016",
+    "name": "Titan Forge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Titan Forge",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{3}, {T}: Put a charge counter on this artifact.\n{T}, Remove three charge counters from this artifact: Create a 9/9 colorless Golem artifact creature token.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Svetlin Velinov",
+        "imageId": "7a3bb4ab-6fe7-4926-a929-3e37691f287a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mbs",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BROADCAST_RAMBLER": {
+    "scryfallId": "89ce2385-e33d-47b3-96c8-5a4672d9df7c",
+    "oracleId": "21aaecc7-b9ec-4068-8e47-4dffaa12f102",
+    "name": "Broadcast Rambler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Broadcast Rambler",
+        "manaCost": "{4}{W}",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "When this Vehicle enters, create a 1/1 colorless Thopter artifact creature token with flying.\nCrew 1 (Tap any number of creatures you control with total power 1 or more: This Vehicle becomes an artifact creature until end of turn.)",
+        "flavorText": "To keep up with the Grand Prix, reporters trained just as hard as the racers themselves.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ioannis Fiore",
+        "imageId": "89ce2385-e33d-47b3-96c8-5a4672d9df7c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Crew"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -178513,6 +178943,161 @@
     "keywords": [],
     "setCode": "ttdm",
     "collectorNumber": "14",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "GOLEM_3_3_ARTIFACT_CREATURE_TOKEN": {
+    "scryfallId": "406e2960-f560-48bb-b4a6-4bd35889a8f8",
+    "oracleId": "9859c54d-695b-4bb1-940e-cfd1c3301e89",
+    "name": "Golem",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Golem",
+        "manaCost": "",
+        "typeLine": "Token Artifact Creature — Golem",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Brian Valeza",
+        "imageId": "406e2960-f560-48bb-b4a6-4bd35889a8f8"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tbig",
+    "collectorNumber": "6",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "THOPTER_1_1_U_ARTIFACT_CREATURE_FLYING_TOKEN": {
+    "scryfallId": "52510a8b-a5a2-421b-a8b4-5ab60c848628",
+    "oracleId": "e3c8482e-ce21-43f8-ac07-c26c01941a4d",
+    "name": "Thopter",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Thopter",
+        "manaCost": "",
+        "typeLine": "Token Artifact Creature — Thopter",
+        "oracleText": "Flying",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Andrew Murray",
+        "imageId": "52510a8b-a5a2-421b-a8b4-5ab60c848628"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tala",
+    "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "PENTAVITE_1_1_ARTIFACT_CREATURE_FLYING_TOKEN": {
+    "scryfallId": "0a9a25fd-1a4c-4d63-bbfa-296ef53feb8b",
+    "oracleId": "c9e57f97-be25-4ab6-9158-d2677d7742f7",
+    "name": "Pentavite",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Pentavite",
+        "manaCost": "",
+        "typeLine": "Token Artifact Creature — Pentavite",
+        "oracleText": "Flying",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Greg Staples",
+        "imageId": "0a9a25fd-1a4c-4d63-bbfa-296ef53feb8b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tc14",
+    "collectorNumber": "29",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "GOLEM_9_9_ARTIFACT_CREATURE_TOKEN": {
+    "scryfallId": "2d84926d-5892-4c62-a943-fac9f0ddc569",
+    "oracleId": "80fe0a7b-a310-41a1-8417-c734402e9c4f",
+    "name": "Golem",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Golem",
+        "manaCost": "",
+        "typeLine": "Token Artifact Creature — Golem",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "9",
+        "toughness": "9",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Svetlin Velinov",
+        "imageId": "2d84926d-5892-4c62-a943-fac9f0ddc569"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tmbs",
+    "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "CONSTRUCT_1_1_ARTIFACT_CREATURE_DEFENDER_TOKEN": {
+    "scryfallId": "277c8c56-11a6-4aff-aaee-b9572cc7c6ef",
+    "oracleId": "ebddf9b8-fd1a-4a6b-bec8-3a63485e36c0",
+    "name": "Construct",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Construct",
+        "manaCost": "",
+        "typeLine": "Token Artifact Creature — Construct",
+        "oracleText": "Defender",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Victor Adame Minguez",
+        "imageId": "277c8c56-11a6-4aff-aaee-b9572cc7c6ef"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "tmed",
+    "collectorNumber": "G3",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

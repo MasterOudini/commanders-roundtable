@@ -5735,6 +5735,20 @@ const WANTED = [
   'Hailstorm Valkyrie',
   'Chilling Shade',
   'Frostwalla',
+  // D365 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  'Thopter Engineer',
+  'Master Splicer',
+  'Legion Extruder',
+  'Sai, Master Thopterist',
+  'Thopter Fabricator',
+  'Breya, Etherium Shaper',
+  'Fairgrounds Patrol',
+  'Thopter Squadron',
+  'Blade Splicer',
+  'Thopter Mechanic',
+  'Myr Turbine',
+  'Titan Forge',
+  'Broadcast Rambler',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -5996,6 +6010,12 @@ const WANTED_TOKENS = [
   // D363 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Badger', set: 'tdmu', cn: '15', key: 'BADGER_3_3_G_CREATURE_TOKEN' },
   { name: 'Elephant', set: 'ttdm', cn: '14', key: 'ELEPHANT_5_5_G_CREATURE_TOKEN' },
+  // D365 - the trigger-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
+  { name: 'Golem', set: 'tbig', cn: '6', key: 'GOLEM_3_3_ARTIFACT_CREATURE_TOKEN' },
+  { name: 'Thopter', set: 'tala', cn: '3', key: 'THOPTER_1_1_U_ARTIFACT_CREATURE_FLYING_TOKEN' },
+  { name: 'Pentavite', set: 'tc14', cn: '29', key: 'PENTAVITE_1_1_ARTIFACT_CREATURE_FLYING_TOKEN' },
+  { name: 'Golem', set: 'tmbs', cn: '3', key: 'GOLEM_9_9_ARTIFACT_CREATURE_TOKEN' },
+  { name: 'Construct', set: 'tmed', cn: 'G3', key: 'CONSTRUCT_1_1_ARTIFACT_CREATURE_DEFENDER_TOKEN' },
 ];
 
 function constName(name) {

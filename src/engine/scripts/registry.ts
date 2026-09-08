@@ -7,6 +7,19 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { THOPTER_ENGINEER_SCRIPT } from './cards/thopterEngineer';
+import { MASTER_SPLICER_SCRIPT } from './cards/masterSplicer';
+import { LEGION_EXTRUDER_SCRIPT } from './cards/legionExtruder';
+import { SAI_MASTER_THOPTERIST_SCRIPT } from './cards/saiMasterThopterist';
+import { THOPTER_FABRICATOR_SCRIPT } from './cards/thopterFabricator';
+import { BREYA_ETHERIUM_SHAPER_SCRIPT } from './cards/breyaEtheriumShaper';
+import { FAIRGROUNDS_PATROL_SCRIPT } from './cards/fairgroundsPatrol';
+import { THOPTER_SQUADRON_SCRIPT } from './cards/thopterSquadron';
+import { BLADE_SPLICER_SCRIPT } from './cards/bladeSplicer';
+import { THOPTER_MECHANIC_SCRIPT } from './cards/thopterMechanic';
+import { MYR_TURBINE_SCRIPT } from './cards/myrTurbine';
+import { TITAN_FORGE_SCRIPT } from './cards/titanForge';
+import { BROADCAST_RAMBLER_SCRIPT } from './cards/broadcastRambler';
 import { BOREAL_CENTAUR_SCRIPT } from './cards/borealCentaur';
 import { PILFERING_HAWK_SCRIPT } from './cards/pilferingHawk';
 import { BOREAL_GRIFFIN_SCRIPT } from './cards/borealGriffin';
@@ -4835,6 +4848,19 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  THOPTER_ENGINEER_SCRIPT,
+  MASTER_SPLICER_SCRIPT,
+  LEGION_EXTRUDER_SCRIPT,
+  SAI_MASTER_THOPTERIST_SCRIPT,
+  THOPTER_FABRICATOR_SCRIPT,
+  BREYA_ETHERIUM_SHAPER_SCRIPT,
+  FAIRGROUNDS_PATROL_SCRIPT,
+  THOPTER_SQUADRON_SCRIPT,
+  BLADE_SPLICER_SCRIPT,
+  THOPTER_MECHANIC_SCRIPT,
+  MYR_TURBINE_SCRIPT,
+  TITAN_FORGE_SCRIPT,
+  BROADCAST_RAMBLER_SCRIPT,
   BOREAL_CENTAUR_SCRIPT,
   PILFERING_HAWK_SCRIPT,
   BOREAL_GRIFFIN_SCRIPT,

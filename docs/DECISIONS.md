@@ -25263,3 +25263,110 @@ autoAnyFace 1,012 · ladder [1056, 1121, 2715, 4549, 5892] · tier3 silentAfter
 
 **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,952 files, 24,481 passed / 11 skipped · 500-seed
 gate, 6 shards, 720.1 s wall · build clean · probe 124/124 · battery 130/130.**
+
+## D365 — M6.4gx: THE ARTIFACT TOKEN — one word thrown away, and every artifact token in the format refused for it (2026-09-08)
+
+**7,617 of 31,692 Commander-legal cards execute completely, up from 7,604
+(+13).** `SHIPPED_SCRIPTS` 4,809 → **4,822**; REFUSED ledger 960 → **954** (six
+rows retired, every one refused for a token that was in the table all along).
+Fixtures 5,291 → **5,309** (5,163 by name + **146** tokens — five new pins).
+**Select pool 0.**
+
+**A one-line bug in the row maker, worth thirteen cards.** No engine change, no
+parser change: this is the generator being wrong about a key.
+
+### What it was
+
+`tokenKeyOf` reads a printed token description into the key `TOKEN_TABLE` is
+indexed by. Its pattern has always *accepted* "a 1/1 colorless Thopter **artifact
+creature** token with flying" — and then thrown the word away, keying the type
+slot as plain `Creature`:
+
+```
+Thopter|1/1||Creature|flying          ← what the row maker asked for
+Thopter|1/1||Artifact Creature|flying ← what TOKEN_TABLE holds
+```
+
+So **every artifact token in the format was refused as "outside TOKEN_TABLE"
+while being in the table the whole time.** The refusal was safe — it declined
+rather than creating the wrong token — but it was a refusal that should never
+have happened, and it had been quietly costing cards since the row maker learned
+tokens.
+
+⚠️ **The refusal histogram is what found it.** "A token outside TOKEN_TABLE" sat
+at 17 cards, and reading the actual strings rather than the bucket label showed
+seven of them asking for the same Thopter. A bucket name says where to look; the
+strings inside it say what is wrong.
+
+**Measured before and after: 1 rowable candidate → 14.** Thirteen landed
+(`Goblin Engineer` is skipped for an unrelated fixture collision), and five token
+printings needed pinning: the 3/3 Golem, the blue 1/1 Thopter, the Pentavite, the
+9/9 Golem and the defender Construct.
+
+### Two more of the same shape, found by the port
+
+Both failures the port turned up were **a `put()` stealing a card the row was
+already using** — D232's trap wearing two new faces.
+
+- ⚠️ **The search staging was taking a TAPPER off the battlefield.** D358's arm
+  rescues a copy the opening hand swallowed by moving it back to the library; it
+  looked for any copy *not in the library*, which on `Myr Turbine` — tap five Myr,
+  search for a sixth — meant one of the five it had just tapped to pay the cost.
+  The search then "found" it and put it back, so the board never moved. It rescues
+  only a copy in **hand** now, which is the case it exists for; a card on the
+  battlefield is there because the row put it there.
+- ⚠️ **`Sai, Master Thopterist` casts a Sol Ring and sacrifices Sol Rings**, so the
+  cast fixture and the sacrifice fodder share a name and the deck needed one more
+  copy. It got one — **inside `new Set([...])`, which deduplicated the deliberate
+  duplicate away.** Every other collision top-up in that expression sits OUTSIDE
+  the Set for exactly this reason; this one now does too.
+
+### The gate found a constant that had quietly become wrong
+
+⚠️ **The L1 pool theorem was a hardcoded number, and these thirteen scripts
+crossed it.** `poolFor` deals `STRIDE` rotating names per seat, so a run deals
+`SEEDS × 4 × STRIDE` slots over the sorted scripted list, and L1 requires every
+name in at least two of them. At the smallest leg the gate runs that is
+**9,600 slots** — against the **9,620** that 4,810 scripted names need. The gate
+named the shortfall exactly: the last twenty names of the sorted list, dealt once
+each.
+
+⚠️ **Bumping 40 to 41 would have bought eight decisions and rotted again** — the
+rate-canary rot class D193 ended for the staples, in a different constant. `STRIDE`
+is DERIVED from the list it depends on now, so it grows on its own (about one slot
+per 120 scripts) and the theorem cannot cross again. It is derived from a CONSTANT
+seed count and never the running one: a stride that moved with `CRT_FUZZ_SEEDS`
+would make the same seed deal different pools at different sizes, and "the same
+seed deals the same pool forever" is what replay rests on.
+
+### What landed
+
+13 generated rows: the Thopter makers (Thopter Engineer, Sai Master Thopterist,
+Thopter Fabricator, Thopter Squadron, Thopter Mechanic, Fairgrounds Patrol,
+Breya Etherium Shaper), the Golem makers (Master Splicer, Blade Splicer, Legion
+Extruder, Titan Forge, Myr Turbine) and Broadcast Rambler.
+
+⚠️ **Six of them were ledgered refusals**, including `Myr Turbine` (D358's "a
+token outside TOKEN_TABLE") and the Splicers' Phyrexian Golem — the refusal D354
+named while measuring the tribal lords. The stale-refusal guard named all six
+itself, which is what that guard is for.
+
+**Landed:** 13 rows, no auto flips (a generator fix moves no parser). The bot's
+own reach rose to **7,557** cards from 7,544, chosen from **214** fully-executable
+legendary creatures (212 before — Breya and Sai joined).
+
+**Not this decision:** the counts outside the vocabulary (17 cards — the CDA
+counts like "creatures named ~"), the activation conditions (35 across many
+wordings), the trigger payloads outside both readers (20); then D364's list — the
+snow CREATURE fixture, snow mana from the hand tool — and D363's — the counter
+KINDS, the NONTOKEN predicate, the keyword ENTRY REPLACEMENTS and CHOICES, provoke,
+convoke/delve/improvise; then the families the seam map holds — the QUOTED granted
+ability (355), the attached statics (351), the Aura that REDEFINES its host (18).
+
+Fixtures 5,309 · botPool artifact 429 / creature 4,431 / enchantment 393 /
+instant 1,020 / land 561 / sorcery 783 — auto 1,003 / assisted 1,881 /
+autoAnyFace 1,012 · ladder [1050, 1115, 2708, 4540, 5881] · tier3 silentAfter
+7,892 · batch.json 13 · select pool 0.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,965 files, 24,546 passed / 11 skipped · 500-seed
+gate, 6 shards, 724.6 s wall · build clean · probe 124/124 · battery 130/130.**

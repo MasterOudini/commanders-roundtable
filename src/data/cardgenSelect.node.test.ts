@@ -1226,7 +1226,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Everbark Shaman', 'exile-from-graveyard cost (typed)'],
   ['Magus of the Order', 'multi-sacrifice cost'],
   ['Dark Petition', 'spell mastery'],
-  ['Myr Turbine', 'token outside TOKEN_TABLE'],
   ["New Generation's Technique", 'cast-time alternative cost'],
   ['Profane Tutor', 'suspend mechanic'],
   ["Roamer's Routine", 'cast-time alternative cost'],
@@ -1463,7 +1462,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Roilmage's Trick", 'converge (cast-time mana-color memory)'],
   ['Rouse', 'cast-time alternative cost'],
   ['Sadistic Slash', 'mayhem mechanic'],
-  ['Sai, Master Thopterist', 'multi-sacrifice cost'],
   ["Saruman's Trickery", 'amass mechanic'],
   ['Scrollshift', 'up-to-N targeting'],
   ['Searing Barrage', 'mana-spent memory'],
@@ -1876,12 +1874,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D311 (M6.4ev) — the crew pool: the Vehicles whose other
   // lines the vocabulary does not read yet - their crew runs.
-  ['Broadcast Rambler', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Captain America\'s Motorcycle', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Fire Nation Warship', 'a Vehicle line outside the vocabulary (its crew runs)'],
   ['Rangers\' Aetherhive', 'a Vehicle line outside the vocabulary (its crew runs)'],
   ['Silent Submersible', 'a combat trigger outside the vocabulary (its crew runs)'],
-  ['Thopter Fabricator', 'a Vehicle line outside the vocabulary (its crew runs)'],
 
   // D312 (M6.4ew) — the cost-reduction pool: the carriers whose other
   // lines the vocabulary does not read yet - their reduction is priced.
@@ -1920,8 +1916,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Aeronaut Admiral', 'a scoped anthem over a NON-CREATURE subtype (Vehicles) - the static applies to creatures'],
   ['Darling of the Masses', 'a scoped anthem over Citizens - no inert Citizen in the format to prove it on'],
   ['Thelonite Hermit', 'a scoped anthem over Saprolings - no inert Saproling in the format, and a turned-face-up head'],
-  ['Blade Splicer', 'a token outside TOKEN_TABLE (the 3/3 colorless Phyrexian Golem)'],
-  ['Master Splicer', 'a token outside TOKEN_TABLE (the 3/3 colorless Phyrexian Golem)'],
   ['Arahbo, the First Fang', 'a trigger head outside the library (this creature OR another nontoken Cat enters)'],
   ['Attuma, Atlantean Warlord', 'a trigger head outside the library (one or more Merfolk you control attack a player)'],
   ['Pia Nalaar, Consul of Revival', 'a trigger head outside the library (you play a land or cast a spell FROM EXILE)'],

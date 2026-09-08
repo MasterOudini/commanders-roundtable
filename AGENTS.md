@@ -11873,6 +11873,80 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       QUOTED ability (355 one-piece cards), the attached statics the Aura and
       Equipment rows cannot read (351), the Aura that REDEFINES its host (18), the
       bare keyword or ability word (185); prior items stand.
+- [x] **M6.4gx — THE ARTIFACT TOKEN: one word thrown away, and every artifact
+      token in the format refused for it (2026-09-08):**
+      **7,617 of 31,692 Commander-legal cards now execute completely, up from
+      7,604 (+13).** `SHIPPED_SCRIPTS` 4,809 → **4,822**; ledger 960 → **954**
+      (six rows retired, every one refused for a token that was in the table all
+      along). Fixtures 5,291 → **5,309** (5,163 by name + **146** tokens — five
+      new pins). **Select pool 0.** Decisions in **D365**.
+      ⚠️ **A ONE-LINE BUG IN THE ROW MAKER, worth thirteen cards.** No engine
+      change and no parser change: `tokenKeyOf` has always ACCEPTED "a 1/1
+      colorless Thopter **artifact creature** token with flying" and then thrown
+      the word away, keying the type slot as plain `Creature` — while TOKEN_TABLE
+      keys the same token `Artifact Creature`. So every artifact token in the
+      format was refused as "outside TOKEN_TABLE" while being in the table the
+      whole time. The refusal was SAFE (it declined rather than making the wrong
+      token) but it should never have happened.
+      ⚠️ **The refusal histogram is what found it, and only by reading the STRINGS
+      rather than the bucket label**: "a token outside TOKEN_TABLE" sat at 17
+      cards, and seven of them were asking for the same Thopter. A bucket name
+      says where to look; the strings inside say what is wrong. Measured before
+      and after: **1 rowable candidate → 14**, thirteen landed.
+      ⚠️ **TWO MORE OF THE SAME SHAPE, found by the port — a `put()` stealing a
+      card the row was already using** (D232's trap in two new faces). D358's
+      search staging rescues a copy the opening hand swallowed by moving it back
+      to the library, and it looked for any copy NOT IN THE LIBRARY — which on
+      `Myr Turbine` (tap five Myr, search for a sixth) meant one of the five it
+      had just tapped to pay the cost: the search then "found" it and put it back,
+      so the board never moved. It rescues only a copy in HAND now, which is the
+      case it exists for. And `Sai, Master Thopterist` casts a Sol Ring and
+      sacrifices Sol Rings, so the deck needed one more copy — which it got
+      **inside `new Set([...])`, where the deliberate duplicate was deduplicated
+      away.** Every other collision top-up in that expression sits OUTSIDE the Set
+      for exactly this reason; this one now does too.
+      ⚠️ **AND THE GATE FOUND A CONSTANT THAT HAD QUIETLY BECOME WRONG.** `poolFor`
+      deals `STRIDE` rotating names per seat, so a run deals `SEEDS × 4 × STRIDE`
+      slots over the sorted scripted list and L1 needs every name in at least two.
+      At the smallest leg that is **9,600 slots against the 9,620** 4,810 scripted
+      names need, and these thirteen crossed it — the gate named the last twenty
+      names of the list, dealt once each. ⚠️ Bumping 40 to 41 would have bought
+      eight decisions and rotted again (D193's rate-canary rot class in a different
+      constant), so `STRIDE` is DERIVED from the list it depends on and grows on its
+      own — from a CONSTANT seed count, never the running one, because a stride that
+      moved with `CRT_FUZZ_SEEDS` would make the same seed deal different pools at
+      different sizes.
+      **Landed:** 13 generated rows — the Thopter makers (Thopter Engineer, Sai
+      Master Thopterist, Thopter Fabricator, Thopter Squadron, Thopter Mechanic,
+      Fairgrounds Patrol, Breya Etherium Shaper), the Golem makers (Master
+      Splicer, Blade Splicer, Legion Extruder, Titan Forge, Myr Turbine) and
+      Broadcast Rambler. ⚠️ SIX were ledgered refusals, including Myr Turbine
+      (D358's own) and the Splicers' Phyrexian Golem — the refusal D354 named
+      while measuring the tribal lords; the stale-refusal guard named all six
+      itself. The bot's reach rose to **7,557** cards from 7,544, chosen from
+      **214** fully-executable legendary creatures (212 before — Breya and Sai
+      joined). Tests: one generated suite per row (39 checks).
+      Fixtures 5,309 · botPool artifact 429 / creature 4,431 / enchantment 393 /
+      instant 1,020 / land 561 / sorcery 783 - auto 1,003 / assisted 1,881 /
+      autoAnyFace 1,012 · ladder [1050, 1115, 2708, 4540, 5881] · tier3
+      silentAfter 7,892 · batch.json 13 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,965 files, 24,546 passed / 11 skipped ·
+      500-seed gate, 6 shards, 724.6 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D365): the counts outside the vocabulary (17 cards — the
+      CDA counts like "creatures named ~"); the activation conditions (35 across
+      many wordings); the trigger payloads outside both readers (20); then D364's
+      list — the snow CREATURE fixture (the derivation reads types and subtypes,
+      never supertypes) and snow mana from the Tier-3 hand tool — and D363's — the
+      counter KINDS the remove-counter chooser refuses, the NONTOKEN predicate
+      `predicatesOf` cannot place, the keyword ENTRY REPLACEMENTS (bloodthirst 13,
+      modular 7, graft 2), the ENTRY CHOICES (fabricate 10, unleash 9, riot 4,
+      devour 4, enlist 5, amplify 3), the block REQUIREMENT (provoke 4), the
+      cast-time payment sources (convoke 14, delve 5, improvise 6); then the
+      families the seam map holds — the grant whose payload is a QUOTED ability
+      (355 one-piece cards), the attached statics the Aura and Equipment rows
+      cannot read (351), the Aura that REDEFINES its host (18), the bare keyword
+      or ability word (185); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

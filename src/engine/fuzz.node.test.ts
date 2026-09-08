@@ -220,8 +220,25 @@ const CORE_NAMES: ReadonlySet<string> = new Set([...FIXED_CORE, ...STAPLE_NAMES]
 const SCRIPTED_SORTED: readonly string[] = SHIPPED_SCRIPTS.map((s) => s.name)
   .filter((n) => !CORE_NAMES.has(n))
   .sort();
-/** Rotating slots per seat — 500 seeds × 4 seats × 40 = 80k slots per run. */
-const STRIDE = 40;
+/**
+ * Rotating slots per seat, DERIVED so the L1 theorem cannot rot.
+ *
+ * A run deals `SEEDS × 4 × STRIDE` slots over `SCRIPTED_SORTED`, and L1 needs
+ * every scripted name in at least TWO of them. A hardcoded 40 dealt 9,600 slots
+ * at the smallest leg the gate runs, and D365 took the list to 4,810 names -
+ * needing 9,620. The gate named the shortfall exactly: the last twenty names,
+ * dealt once each.
+ *
+ * ⚠️ Bumping the number would buy a handful of decisions and rot again, which is
+ * the rate-canary rot class D193 ended for the staples. Derived from the list it
+ * depends on, it grows on its own - about one slot per 120 scripts.
+ *
+ * ⚠️ From a CONSTANT seed count, never the RUNNING one: a stride that moved with
+ * `CRT_FUZZ_SEEDS` would make the same seed deal different pools at different
+ * sizes, and "the same seed deals the same pool forever" is what replay rests on.
+ */
+const L1_MIN_SEEDS = 60;
+const STRIDE = Math.max(40, Math.ceil((2 * SCRIPTED_SORTED.length) / (L1_MIN_SEEDS * 4)));
 
 function poolFor(seed: number, seat: number): readonly string[] {
   const rotating: string[] = [];
