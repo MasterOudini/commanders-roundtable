@@ -165891,6 +165891,2117 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ARID_MESA": {
+    "scryfallId": "152ddaab-83dd-4f74-bd7f-8a14c1a9d0f2",
+    "oracleId": "c5acf2a5-40f4-433d-a74d-1cb56c521464",
+    "name": "Arid Mesa",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arid Mesa",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Mountain or Plains card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Constantin Marin",
+        "imageId": "152ddaab-83dd-4f74-bd7f-8a14c1a9d0f2"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "spg",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODSTAINED_MIRE": {
+    "scryfallId": "115400ae-a43b-4b3d-9ea0-be1e7224dea5",
+    "oracleId": "fc0707c7-d504-4ccf-a0d2-3eb6e26e7a57",
+    "name": "Bloodstained Mire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodstained Mire",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Swamp or Mountain card, put it onto the battlefield, then shuffle.",
+        "flavorText": "A graveyard for conquerors and conquered alike.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Bruce Brenneise",
+        "imageId": "115400ae-a43b-4b3d-9ea0-be1e7224dea5"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "mh3",
+    "collectorNumber": "435",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DECEPTIVE_LANDSCAPE": {
+    "scryfallId": "2ae6828e-ff19-45db-8b59-61616353491f",
+    "oracleId": "1831fe12-dbe0-437f-8fc8-f01bbb701fe1",
+    "name": "Deceptive Landscape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deceptive Landscape",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}, Sacrifice this land: Search your library for a basic Plains, Swamp, or Forest card, put it onto the battlefield tapped, then shuffle.\nCycling {W}{B}{G} ({W}{B}{G}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Erikas Perl",
+        "imageId": "2ae6828e-ff19-45db-8b59-61616353491f"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "219",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EVOLVING_WILDS": {
+    "scryfallId": "107cd283-de27-494f-90b8-0dec55745255",
+    "oracleId": "a75445d3-1303-4bb5-89ad-26ea93fecd48",
+    "name": "Evolving Wilds",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Evolving Wilds",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "Without the interfering hands of civilization, nature will always shape itself to its own needs.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Steven Belledin",
+        "imageId": "107cd283-de27-494f-90b8-0dec55745255"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ddo",
+    "collectorNumber": "58",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KULDOTHA_FORGEMASTER": {
+    "scryfallId": "ad590bea-b872-4af7-a612-c8e8759d59df",
+    "oracleId": "b0f99367-4313-4bb1-a9fd-7711bc4ce40e",
+    "name": "Kuldotha Forgemaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kuldotha Forgemaster",
+        "manaCost": "{5}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "{T}, Sacrifice three artifacts: Search your library for an artifact card, put it onto the battlefield, then shuffle.",
+        "flavorText": "The goblins say it used to be larger, before it began to stoke the Great Furnace with pieces of itself.",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "jD",
+        "imageId": "ad590bea-b872-4af7-a612-c8e8759d59df"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "169",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARSH_FLATS": {
+    "scryfallId": "2b076441-b770-4a06-97ac-34a52822f4c0",
+    "oracleId": "dab520d0-20b4-4273-ba6b-eb07f85ea433",
+    "name": "Marsh Flats",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Marsh Flats",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Plains or Swamp card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Izzy",
+        "imageId": "2b076441-b770-4a06-97ac-34a52822f4c0"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "pmh2",
+    "collectorNumber": "248s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRISMATIC_VISTA": {
+    "scryfallId": "1ac01fff-4de6-4783-9489-4127e25bc641",
+    "oracleId": "032b8a0d-491a-4a12-ab9f-689010054d5b",
+    "name": "Prismatic Vista",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Prismatic Vista",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Pay 1 life, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Sam Burley",
+        "imageId": "1ac01fff-4de6-4783-9489-4127e25bc641"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "zne",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAKURA_TRIBE_ELDER": {
+    "scryfallId": "0632d42e-ee81-4ceb-82af-c5cbf32e3d1a",
+    "oracleId": "e3afc704-220f-498f-9eaa-0821b17dc24c",
+    "name": "Sakura-Tribe Elder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sakura-Tribe Elder",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Snake Shaman",
+        "oracleText": "Sacrifice this creature: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+        "flavorText": "There were no tombstones in orochi territory. Slain warriors were buried with a tree sapling, so they would become a part of the forest after death.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "0632d42e-ee81-4ceb-82af-c5cbf32e3d1a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "c15",
+    "collectorNumber": "200",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "URZA_S_CAVE": {
+    "scryfallId": "926916ed-2f22-4ba9-9427-194886ad6c1e",
+    "oracleId": "4474ecee-0ec3-409b-90df-738d9313fe3c",
+    "name": "Urza's Cave",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Urza's Cave",
+        "manaCost": "",
+        "typeLine": "Land — Urza's Cave",
+        "oracleText": "{T}: Add {C}.\n{3}, {T}, Sacrifice this land: Search your library for a land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "No matter how deep Urza delved, he couldn't escape his regrets.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Poole",
+        "imageId": "926916ed-2f22-4ba9-9427-194886ad6c1e"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "mh3",
+    "collectorNumber": "234",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VERDANT_CATACOMBS": {
+    "scryfallId": "15faa763-b897-4e86-b094-73f3236291a9",
+    "oracleId": "67d60b24-d429-4ded-90d9-06e49f28c396",
+    "name": "Verdant Catacombs",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Verdant Catacombs",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Swamp or Forest card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Vance Kovacs",
+        "imageId": "15faa763-b897-4e86-b094-73f3236291a9"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "mm3",
+    "collectorNumber": "249",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WINDSWEPT_HEATH": {
+    "scryfallId": "16f6ba7d-76fd-4f98-a41e-fde9a6f3ab64",
+    "oracleId": "29737a60-3ebd-40d9-b935-c4f54b90d45d",
+    "name": "Windswept Heath",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Windswept Heath",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Forest or Plains card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Anthony S. Waters",
+        "imageId": "16f6ba7d-76fd-4f98-a41e-fde9a6f3ab64"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "wc04",
+    "collectorNumber": "jn328",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARMILLARY_SPHERE": {
+    "scryfallId": "0c1afa73-cd98-4a4c-b9fe-3a84d4e7aeda",
+    "oracleId": "3963140c-da67-43e6-9514-fe9dc0a43c4d",
+    "name": "Armillary Sphere",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Armillary Sphere",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}, Sacrifice this artifact: Search your library for up to two basic land cards, reveal them, put them into your hand, then shuffle.",
+        "flavorText": "The mysterious purpose of two of the rings had eluded Esper mages—until now.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Franz Vohwinkel",
+        "imageId": "0c1afa73-cd98-4a4c-b9fe-3a84d4e7aeda"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "cma",
+    "collectorNumber": "207",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BAD_RIVER": {
+    "scryfallId": "7a78abdb-d1ac-49cb-a74b-9de21c06364a",
+    "oracleId": "259fc423-d078-4668-9e95-8c1a0d2e49ba",
+    "name": "Bad River",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bad River",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}, Sacrifice this land: Search your library for an Island or Swamp card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Terese Nielsen",
+        "imageId": "7a78abdb-d1ac-49cb-a74b-9de21c06364a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "mir",
+    "collectorNumber": "324",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BANT_PANORAMA": {
+    "scryfallId": "47af250f-7aa1-4edb-8a89-37b7a5673048",
+    "oracleId": "0a1d817d-dce8-4e83-a380-909f7c9eee46",
+    "name": "Bant Panorama",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bant Panorama",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{1}, {T}, Sacrifice this land: Search your library for a basic Forest, Plains, or Island card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "Bant's hearts are as pure as its air and as bright as its skies.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Donato Giancola",
+        "imageId": "47af250f-7aa1-4edb-8a89-37b7a5673048"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "td0",
+    "collectorNumber": "A122",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLIGHTED_WOODLAND": {
+    "scryfallId": "0a949030-a46c-4bac-bedc-c07d5c8464af",
+    "oracleId": "02679a2e-303d-412f-87d8-0a37a8ca259c",
+    "name": "Blighted Woodland",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blighted Woodland",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{3}{G}, {T}, Sacrifice this land: Search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jason Felix",
+        "imageId": "0a949030-a46c-4bac-bedc-c07d5c8464af"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "cmr",
+    "collectorNumber": "476",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOUNTIFUL_LANDSCAPE": {
+    "scryfallId": "b277752b-430a-4f09-8a98-b72f813dd52e",
+    "oracleId": "2eb69a8f-9456-4852-b868-85ae609d3441",
+    "name": "Bountiful Landscape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bountiful Landscape",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}, Sacrifice this land: Search your library for a basic Forest, Island, or Mountain card, put it onto the battlefield tapped, then shuffle.\nCycling {G}{U}{R} ({G}{U}{R}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Poole",
+        "imageId": "b277752b-430a-4f09-8a98-b72f813dd52e"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R",
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "217",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BURNISHED_HART": {
+    "scryfallId": "0f22bcce-4f9a-4e82-a684-63ab9cce90ed",
+    "oracleId": "893fed41-c144-433f-af88-bc7d419b7fb3",
+    "name": "Burnished Hart",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Burnished Hart",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Elk",
+        "oracleText": "{3}, Sacrifice this creature: Search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle.",
+        "flavorText": "Forged by divine hands to wander mortal realms.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Yeong-Hao Han",
+        "imageId": "0f22bcce-4f9a-4e82-a684-63ab9cce90ed"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "afc",
+    "collectorNumber": "200",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONTAMINATED_LANDSCAPE": {
+    "scryfallId": "e2312c49-1627-47ad-8113-78a999a97d8d",
+    "oracleId": "28196fd9-00c9-4cd0-b603-0eec8511ec79",
+    "name": "Contaminated Landscape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Contaminated Landscape",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}, Sacrifice this land: Search your library for a basic Plains, Island, or Swamp card, put it onto the battlefield tapped, then shuffle.\nCycling {W}{U}{B} ({W}{U}{B}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Donato Giancola",
+        "imageId": "e2312c49-1627-47ad-8113-78a999a97d8d"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "218",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAWNTREADER_ELK": {
+    "scryfallId": "127c969b-1c9a-4265-af0e-5b9dbe136064",
+    "oracleId": "de6d0248-79f6-48df-bdca-8ce207b2ec08",
+    "name": "Dawntreader Elk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dawntreader Elk",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elk",
+        "oracleText": "{G}, Sacrifice this creature: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "Silent as winter snow, it seeks wild places unspoiled by the walking dead.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "John Avon",
+        "imageId": "127c969b-1c9a-4265-af0e-5b9dbe136064"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dka",
+    "collectorNumber": "111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISCIPLES_OF_GIX": {
+    "scryfallId": "7d356456-865d-4c92-8923-ce7384e29a79",
+    "oracleId": "cb7e451b-a9d2-4f50-9651-b5df34e34d99",
+    "name": "Disciples of Gix",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Disciples of Gix",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Phyrexian Human",
+        "oracleText": "When this creature enters, search your library for up to three artifact cards, put them into your graveyard, then shuffle.",
+        "flavorText": "\"Machines feel no fear, no sorrow, no hunger—only glorious purpose, true and pure.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Peter Polach",
+        "imageId": "7d356456-865d-4c92-8923-ce7384e29a79"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "bro",
+    "collectorNumber": "90",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREAMSCAPE_ARTIST": {
+    "scryfallId": "4fdb8b9d-9b4f-48c6-9651-7937aaf15282",
+    "oracleId": "c2550f1a-b662-43e7-a0b2-843025739a8f",
+    "name": "Dreamscape Artist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dreamscape Artist",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Spellshaper",
+        "oracleText": "{2}{U}, {T}, Discard a card, Sacrifice a land: Search your library for up to two basic land cards, put them onto the battlefield, then shuffle.",
+        "flavorText": "He's mastered the art of sleight of land.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jim Murray",
+        "imageId": "4fdb8b9d-9b4f-48c6-9651-7937aaf15282"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "PLC-40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMBODIMENT_OF_SPRING": {
+    "scryfallId": "12444831-04de-432f-9dd1-dc3e99a388a3",
+    "oracleId": "e12bba04-b10f-4bbd-959c-560f31630951",
+    "name": "Embodiment of Spring",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Embodiment of Spring",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "{1}{G}, {T}, Sacrifice this creature: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "Arel dreamed of winter's end. The next morning she followed a strange trail and found a seedling in the snow.",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "12444831-04de-432f-9dd1-dc3e99a388a3"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "KTK-39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ESPER_PANORAMA": {
+    "scryfallId": "03324b45-dd69-45d2-a1c0-e3cc4cf1eaf5",
+    "oracleId": "6b9cd3d0-4316-4945-b960-12f51052d260",
+    "name": "Esper Panorama",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Esper Panorama",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{1}, {T}, Sacrifice this land: Search your library for a basic Plains, Island, or Swamp card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "Esper is an expansive canvas painted by precise, controlling hands.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Franz Vohwinkel",
+        "imageId": "03324b45-dd69-45d2-a1c0-e3cc4cf1eaf5"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ala",
+    "collectorNumber": "223",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXPEDITION_MAP": {
+    "scryfallId": "08e66835-c228-48fa-bcaa-eb96edbd4f5a",
+    "oracleId": "8fcf50cd-e6d0-4516-850f-d42ee75dcc3a",
+    "name": "Expedition Map",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Expedition Map",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}, Sacrifice this artifact: Search your library for a land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"I use maps to find out where explorers have already been. Then I go the other way.\"\n—Javad Nasrin, Ondu relic hunter",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Franz Vohwinkel",
+        "imageId": "08e66835-c228-48fa-bcaa-eb96edbd4f5a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "724",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FAUNA_SHAMAN": {
+    "scryfallId": "4ccab9dd-95b1-491b-b9d4-da60d87d8edd",
+    "oracleId": "35b8fa77-4e85-418b-b335-cd1af127075c",
+    "name": "Fauna Shaman",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fauna Shaman",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Shaman",
+        "oracleText": "{G}, {T}, Discard a creature card: Search your library for a creature card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nature Nurture",
+        "imageId": "4ccab9dd-95b1-491b-b9d4-da60d87d8edd"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "slp",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLOOD_PLAIN": {
+    "scryfallId": "3f0d377b-9bd0-4aa9-b672-dcf4eaf8b7a9",
+    "oracleId": "9043d8d5-b38a-406f-a44c-49f579c644f0",
+    "name": "Flood Plain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flood Plain",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}, Sacrifice this land: Search your library for a Plains or Island card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Pat Lewis",
+        "imageId": "3f0d377b-9bd0-4aa9-b672-dcf4eaf8b7a9"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ddi",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLOODED_STRAND": {
+    "scryfallId": "0df37cc8-3703-406a-adaf-ee0bb9d7aa61",
+    "oracleId": "f3c7af78-a77d-4134-82a2-a5ce84285a84",
+    "name": "Flooded Strand",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flooded Strand",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Plains or Island card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rob Alexander",
+        "imageId": "0df37cc8-3703-406a-adaf-ee0bb9d7aa61"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "g09",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FONT_OF_FERTILITY": {
+    "scryfallId": "198b8eb7-2e68-49a7-8023-76bdfb788d18",
+    "oracleId": "7fb6f960-38f6-45fa-bfec-d43fc174daa7",
+    "name": "Font of Fertility",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Font of Fertility",
+        "manaCost": "{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "{1}{G}, Sacrifice this enchantment: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "Drink deep, and know the path to the heart of the wilds.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jung Park",
+        "imageId": "198b8eb7-2e68-49a7-8023-76bdfb788d18"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "cp1",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOREBODING_LANDSCAPE": {
+    "scryfallId": "57fb0fa7-0c5c-4a75-9461-c51403c30282",
+    "oracleId": "bcfe1653-e602-4d38-abe7-bfcc7f203f9d",
+    "name": "Foreboding Landscape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Foreboding Landscape",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}, Sacrifice this land: Search your library for a basic Swamp, Forest, or Island card, put it onto the battlefield tapped, then shuffle.\nCycling {B}{G}{U} ({B}{G}{U}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Erikas Perl",
+        "imageId": "57fb0fa7-0c5c-4a75-9461-c51403c30282"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "221",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FRONTIER_GUIDE": {
+    "scryfallId": "2f70f45f-aad0-47d5-9ed1-d5b1d591f775",
+    "oracleId": "5f685846-60dc-45f9-b118-02e74a443e6a",
+    "name": "Frontier Guide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frontier Guide",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Scout",
+        "oracleText": "{3}{G}, {T}: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "\"The elders say Zendikar has no safe, peaceful places. How would they know? They've never looked.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "2f70f45f-aad0-47d5-9ed1-d5b1d591f775"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ddp",
+    "collectorNumber": "12",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRASSLANDS": {
+    "scryfallId": "2af68733-bae8-432c-9fdf-1764f469fa9b",
+    "oracleId": "e80bd454-8bc5-4921-90cf-6ad28a27a88b",
+    "name": "Grasslands",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grasslands",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}, Sacrifice this land: Search your library for a Forest or Plains card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "2af68733-bae8-432c-9fdf-1764f469fa9b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ddg",
+    "collectorNumber": "35",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GREENSEEKER": {
+    "scryfallId": "423d0c1d-1791-4c80-86d1-f87f3c6a8611",
+    "oracleId": "693d8203-4405-4488-9067-cc1cd8041cb4",
+    "name": "Greenseeker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Greenseeker",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elf Spellshaper",
+        "oracleText": "{G}, {T}, Discard a card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"A rumor passes among the snakes, whispered by the rushes, inspiring the seekers: the goddess Freyalise is alive in Skyshroud.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Rebecca Guay",
+        "imageId": "423d0c1d-1791-4c80-86d1-f87f3c6a8611"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "tsr",
+    "collectorNumber": "207",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRIXIS_PANORAMA": {
+    "scryfallId": "1f95488c-83ae-430c-97ef-1335ba09b12d",
+    "oracleId": "743f4488-fef1-4f4d-b745-d2de92423e00",
+    "name": "Grixis Panorama",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grixis Panorama",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{1}, {T}, Sacrifice this land: Search your library for a basic Island, Swamp, or Mountain card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "There is no height above Grixis that is free from the stench of death.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Nils Hamm",
+        "imageId": "1f95488c-83ae-430c-97ef-1335ba09b12d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "c17",
+    "collectorNumber": "254",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JOURNEYER_S_KITE": {
+    "scryfallId": "3aa17062-4355-468f-b8ba-352b7511b847",
+    "oracleId": "10aab5bc-5758-443b-ba4c-49f6c6d91262",
+    "name": "Journeyer's Kite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Journeyer's Kite",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{3}, {T}: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"From the clouds, you can see as far as the distant horizon. It's a reminder of the infinite possibilities of everyday life.\"\n—Noboru, master kitemaker",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Hiro Izawa",
+        "imageId": "3aa17062-4355-468f-b8ba-352b7511b847"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "chk",
+    "collectorNumber": "257",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JUND_PANORAMA": {
+    "scryfallId": "50d8346a-e0b5-41eb-be89-7d1eb0e84f28",
+    "oracleId": "f39f33ac-074d-442d-ae4c-1d694ee315f3",
+    "name": "Jund Panorama",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jund Panorama",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{1}, {T}, Sacrifice this land: Search your library for a basic Swamp, Mountain, or Forest card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "The sky is the dragon's throne, the seat from which it issues its fiery decrees.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jaime Jones",
+        "imageId": "50d8346a-e0b5-41eb-be89-7d1eb0e84f28"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ncc",
+    "collectorNumber": "408",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MISTY_RAINFOREST": {
+    "scryfallId": "1f47bd65-b37c-4b7e-a271-8d67e0c90deb",
+    "oracleId": "09dd85aa-47bc-4713-a9b9-8b52ff2285ed",
+    "name": "Misty Rainforest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Misty Rainforest",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Forest or Island card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ryan Yee",
+        "imageId": "1f47bd65-b37c-4b7e-a271-8d67e0c90deb"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "exp",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOUNTAIN_VALLEY": {
+    "scryfallId": "1acef291-70ad-4196-9276-de7b4d31016d",
+    "oracleId": "0b7393aa-d563-45bc-9946-8e7d1729d498",
+    "name": "Mountain Valley",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mountain Valley",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}, Sacrifice this land: Search your library for a Mountain or Forest card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kari Johnson",
+        "imageId": "1acef291-70ad-4196-9276-de7b4d31016d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "dmc",
+    "collectorNumber": "219",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NAYA_PANORAMA": {
+    "scryfallId": "4ba615a5-ad3a-4ad1-ab5f-69d7a3e4cf34",
+    "oracleId": "71e28800-c42c-48c0-95e5-0296be54a4e8",
+    "name": "Naya Panorama",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Naya Panorama",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{1}, {T}, Sacrifice this land: Search your library for a basic Mountain, Forest, or Plains card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "Between the thunderous footfalls of Naya's behemoths lie moments of perfect quiet.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Hideaki Takamura",
+        "imageId": "4ba615a5-ad3a-4ad1-ab5f-69d7a3e4cf34"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "znc",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NEVERWINTER_DRYAD": {
+    "scryfallId": "01234d4c-ff3d-40a8-8404-9790d3ee3620",
+    "oracleId": "a6e654fb-3567-4b92-ae9b-d064bba7112a",
+    "name": "Neverwinter Dryad",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Neverwinter Dryad",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Dryad",
+        "oracleText": "{2}, Sacrifice this creature: Search your library for a basic Forest card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jeff Dee",
+        "imageId": "01234d4c-ff3d-40a8-8404-9790d3ee3620"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "afr",
+    "collectorNumber": "329",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OASHRA_CULTIVATOR": {
+    "scryfallId": "189a8c23-4d30-4b0b-8561-b8c22bbc194a",
+    "oracleId": "c07bbe66-96ae-4fab-82b9-fc6dc4f549c3",
+    "name": "Oashra Cultivator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Oashra Cultivator",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "{2}{G}, {T}, Sacrifice this creature: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "\"Like fruits in the field, we will be harvested when the season is right.\"",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Sara Winters",
+        "imageId": "189a8c23-4d30-4b0b-8561-b8c22bbc194a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "697",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PERILOUS_LANDSCAPE": {
+    "scryfallId": "4b0bd07e-cf80-4d64-af29-f4cec6632b3e",
+    "oracleId": "e2b472dd-047d-47eb-9ebb-df6aa4b52dd4",
+    "name": "Perilous Landscape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Perilous Landscape",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}, Sacrifice this land: Search your library for a basic Island, Mountain, or Plains card, put it onto the battlefield tapped, then shuffle.\nCycling {U}{R}{W} ({U}{R}{W}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alayna Danner",
+        "imageId": "4b0bd07e-cf80-4d64-af29-f4cec6632b3e"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "223",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PLANAR_PORTAL": {
+    "scryfallId": "228f3008-68ac-4404-9585-9babae569697",
+    "oracleId": "d4b10505-2b7a-4099-aacb-ff2359b24310",
+    "name": "Planar Portal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Planar Portal",
+        "manaCost": "{6}",
+        "typeLine": "Artifact",
+        "oracleText": "{6}, {T}: Search your library for a card, put that card into your hand, then shuffle.",
+        "flavorText": "The sky split, and the air crackled and roiled. The Phyrexian invasion of Dominaria had finally begun.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Tedin",
+        "imageId": "228f3008-68ac-4404-9585-9babae569697"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "INV-308",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "POLLUTED_DELTA": {
+    "scryfallId": "0f7585c8-9e21-4eef-afc1-2852de23db2f",
+    "oracleId": "ef86989d-ce80-4e55-aece-7d11710eeffa",
+    "name": "Polluted Delta",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Polluted Delta",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Pay 1 life, Sacrifice this land: Search your library for an Island or Swamp card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rob Alexander",
+        "imageId": "0f7585c8-9e21-4eef-afc1-2852de23db2f"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ons",
+    "collectorNumber": "321",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PROMISING_VEIN": {
+    "scryfallId": "e9681a54-6413-4ff4-b6b1-ee4decb25bfa",
+    "oracleId": "861eb7d7-7616-4620-a4fd-4b8c3bf00dd1",
+    "name": "Promising Vein",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Promising Vein",
+        "manaCost": "",
+        "typeLine": "Land — Cave",
+        "oracleText": "{T}: Add {C}.\n{1}, {T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "United under the banner of the Brazen Coalition, pirates put aside their feuds to plunder the underground bounty.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Julian Kok Joon Wen",
+        "imageId": "e9681a54-6413-4ff4-b6b1-ee4decb25bfa"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "279",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAZAKETH_THE_FOULBLOODED": {
+    "scryfallId": "1fae3264-ff83-423e-915b-2f48d775b306",
+    "oracleId": "136c9ecb-59b4-4ef6-bcb2-7b8d3df3ee75",
+    "name": "Razaketh, the Foulblooded",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Razaketh, the Foulblooded",
+        "manaCost": "{5}{B}{B}{B}",
+        "typeLine": "Legendary Creature — Demon",
+        "oracleText": "Flying, trample\nPay 2 life, Sacrifice another creature: Search your library for a card, put that card into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Chris Rallis",
+        "imageId": "1fae3264-ff83-423e-915b-2f48d775b306"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Flying",
+      "Trample"
+    ],
+    "setCode": "akr",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RENEGADE_MAP": {
+    "scryfallId": "1b0d77f5-eaed-4b10-8431-e81e60336fd0",
+    "oracleId": "f8506acb-3fc5-4fdf-8304-586843db6cfd",
+    "name": "Renegade Map",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Renegade Map",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters tapped.\n{T}, Sacrifice this artifact: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"We have safe houses in every zone, but you'll never find one without this.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Lake Hurwitz",
+        "imageId": "1b0d77f5-eaed-4b10-8431-e81e60336fd0"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "AER-173",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROCKY_TAR_PIT": {
+    "scryfallId": "1e21c347-7aaf-42ae-abf3-f1283c5b54e6",
+    "oracleId": "8709b5b1-ef9e-45b2-bf4f-ef4c4d613dcd",
+    "name": "Rocky Tar Pit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rocky Tar Pit",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}, Sacrifice this land: Search your library for a Swamp or Mountain card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jeff Miracola",
+        "imageId": "1e21c347-7aaf-42ae-abf3-f1283c5b54e6"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "mir",
+    "collectorNumber": "329",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUNE_SCARRED_DEMON": {
+    "scryfallId": "0c9d67da-4fc9-4d4a-95e4-0303c5404705",
+    "oracleId": "14aefe99-fb60-4f1c-a71f-7ffbe94c8b13",
+    "name": "Rune-Scarred Demon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rune-Scarred Demon",
+        "manaCost": "{5}{B}{B}",
+        "typeLine": "Creature — Demon",
+        "oracleText": "Flying\nWhen this creature enters, search your library for a card, put it into your hand, then shuffle.",
+        "flavorText": "The litany of the infernal on his flesh pulses to the beating of his dark heart.",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Michael Komarck",
+        "imageId": "0c9d67da-4fc9-4d4a-95e4-0303c5404705"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "184",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCALDING_TARN": {
+    "scryfallId": "17c6ba55-2470-4dde-a7fa-137a60716c96",
+    "oracleId": "cb027150-848c-4a66-88ad-e20222304dd8",
+    "name": "Scalding Tarn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scalding Tarn",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Pay 1 life, Sacrifice this land: Search your library for an Island or Mountain card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Philip Straub",
+        "imageId": "17c6ba55-2470-4dde-a7fa-137a60716c96"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "mh2",
+    "collectorNumber": "439",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEETHING_LANDSCAPE": {
+    "scryfallId": "661fc907-7003-45c6-820c-9616e9a71c30",
+    "oracleId": "2d8635bd-ed96-4bb1-8718-6962a0eee3d5",
+    "name": "Seething Landscape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seething Landscape",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}, Sacrifice this land: Search your library for a basic Island, Swamp, or Mountain card, put it onto the battlefield tapped, then shuffle.\nCycling {U}{B}{R} ({U}{B}{R}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Piotr Dura",
+        "imageId": "661fc907-7003-45c6-820c-9616e9a71c30"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "225",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHATTERED_LANDSCAPE": {
+    "scryfallId": "b3da28c7-6e92-439d-a163-91682d4f11dc",
+    "oracleId": "7fbad3f2-66f6-4e3a-b9e0-1ddbcd94d42a",
+    "name": "Shattered Landscape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shattered Landscape",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}, Sacrifice this land: Search your library for a basic Mountain, Plains, or Swamp card, put it onto the battlefield tapped, then shuffle.\nCycling {R}{W}{B} ({R}{W}{B}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Erikas Perl",
+        "imageId": "b3da28c7-6e92-439d-a163-91682d4f11dc"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "226",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHELTERING_LANDSCAPE": {
+    "scryfallId": "0fe070f4-8877-4280-b8fd-869f3ac34ab6",
+    "oracleId": "5b932be0-4dac-41b9-9c59-f79e4cecc31a",
+    "name": "Sheltering Landscape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sheltering Landscape",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}, Sacrifice this land: Search your library for a basic Mountain, Forest, or Plains card, put it onto the battlefield tapped, then shuffle.\nCycling {R}{G}{W} ({R}{G}{W}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Erikas Perl",
+        "imageId": "0fe070f4-8877-4280-b8fd-869f3ac34ab6"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "227",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHIRE_TERRACE": {
+    "scryfallId": "25932483-58cd-4ae5-82bf-ab455177d117",
+    "oracleId": "619173f4-0403-49cd-9659-2fedd5028a90",
+    "name": "Shire Terrace",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shire Terrace",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{1}, {T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "Everything looked fresh, and the new green of Spring was shimmering in the fields.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jeremy Paillotin",
+        "imageId": "25932483-58cd-4ae5-82bf-ab455177d117"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "261",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SILKWING_SCOUT": {
+    "scryfallId": "04f165aa-2986-47d1-912d-d50490a15c0b",
+    "oracleId": "4c76db22-1992-448d-be4a-a9095420b8cc",
+    "name": "Silkwing Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Silkwing Scout",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Faerie Scout",
+        "oracleText": "Flying\n{G}, Sacrifice this creature: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Rebecca Guay",
+        "imageId": "04f165aa-2986-47d1-912d-d50490a15c0b"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "dis",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SILVERGLADE_PATHFINDER": {
+    "scryfallId": "80f268fa-b6ba-44c9-91f6-f2b8af0b8287",
+    "oracleId": "ac00d3db-d9e4-4fc3-a4ea-dd1187f406bb",
+    "name": "Silverglade Pathfinder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Silverglade Pathfinder",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Dryad Spellshaper",
+        "oracleText": "{1}{G}, {T}, Discard a card: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "rk post",
+        "imageId": "80f268fa-b6ba-44c9-91f6-f2b8af0b8287"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "MMQ-270",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TERMINAL_MORAINE": {
+    "scryfallId": "353a8ea8-3f1f-4f77-95bc-b09b96996285",
+    "oracleId": "58eaaa8b-45c6-439b-bdd1-5f4e77a75a8c",
+    "name": "Terminal Moraine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Terminal Moraine",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{2}, {T}, Sacrifice this land: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Scott Bailey",
+        "imageId": "353a8ea8-3f1f-4f77-95bc-b09b96996285"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "pls",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TERRAMORPHIC_EXPANSE": {
+    "scryfallId": "08ac4e43-4e16-46a2-96f5-58d5550984c4",
+    "oracleId": "1bd3e453-aa21-4ee6-95c2-d6d920ee8e7a",
+    "name": "Terramorphic Expanse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Terramorphic Expanse",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "Take two steps north into the unsettled future, south into the unquiet past, east into the present day, or west into the great unknown.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dan Murayama Scott",
+        "imageId": "08ac4e43-4e16-46a2-96f5-58d5550984c4"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "afc",
+    "collectorNumber": "267",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRANQUIL_LANDSCAPE": {
+    "scryfallId": "113f48b9-a972-4e2c-af95-05ab078e01f2",
+    "oracleId": "d4eb65d5-99fd-4daf-b7d3-8ebf99ee9c61",
+    "name": "Tranquil Landscape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tranquil Landscape",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}, Sacrifice this land: Search your library for a basic Forest, Plains, or Island card, put it onto the battlefield tapped, then shuffle.\nCycling {G}{W}{U} ({G}{W}{U}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Randy Gallegos",
+        "imageId": "113f48b9-a972-4e2c-af95-05ab078e01f2"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "231",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRAVELER_S_AMULET": {
+    "scryfallId": "195464f1-f01c-4211-950d-963c5bad786f",
+    "oracleId": "48b561dd-f23d-409a-87c8-e49902b2477b",
+    "name": "Traveler's Amulet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Traveler's Amulet",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{1}, Sacrifice this artifact: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "\"Why wander in search of a new home when the path is laid out before you?\"\n—Pytamun, former Nef-crop initiate",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Marco Nelor",
+        "imageId": "195464f1-f01c-4211-950d-963c5bad786f"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "hou",
+    "collectorNumber": "167",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TWISTED_LANDSCAPE": {
+    "scryfallId": "0d647d67-f963-43b4-ade8-6c90e91f65ac",
+    "oracleId": "db659cae-2078-423e-a6ed-63898dbab87f",
+    "name": "Twisted Landscape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Twisted Landscape",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}, Sacrifice this land: Search your library for a basic Swamp, Mountain, or Forest card, put it onto the battlefield tapped, then shuffle.\nCycling {B}{R}{G} ({B}{R}{G}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Piotr Dura",
+        "imageId": "0d647d67-f963-43b4-ade8-6c90e91f65ac"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "521",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIBRANT_CITYSCAPE": {
+    "scryfallId": "2bda06d5-1b67-4a01-b7f7-9fcad54b43e9",
+    "oracleId": "6a7f3e1f-6798-4644-b64c-7765f81f0938",
+    "name": "Vibrant Cityscape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vibrant Cityscape",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Julian Kok Joon Wen",
+        "imageId": "2bda06d5-1b67-4a01-b7f7-9fcad54b43e9"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "om1",
+    "collectorNumber": "188",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VILE_ENTOMBER": {
+    "scryfallId": "36590526-2f1b-4959-ba9e-55f3ebcffd1e",
+    "oracleId": "556dd333-4066-41f7-98f6-41794754de71",
+    "name": "Vile Entomber",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vile Entomber",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Zombie Warlock",
+        "oracleText": "Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.)\nWhen this creature enters, search your library for a card, put that card into your graveyard, then shuffle.",
+        "flavorText": "The dead are lonely in the crypt and always eager for company.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Chris Cold",
+        "imageId": "36590526-2f1b-4959-ba9e-55f3ebcffd1e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "403",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WANDERER_S_TWIG": {
+    "scryfallId": "8ea7b2c0-c641-478f-b8d9-17aa17fa1cbe",
+    "oracleId": "fd15a4b0-abd7-4bae-8331-81b85c94fce8",
+    "name": "Wanderer's Twig",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wanderer's Twig",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{1}, Sacrifice this artifact: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "For every tree who falls, there are countless sprouts waiting to rise.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dave Dorman",
+        "imageId": "8ea7b2c0-c641-478f-b8d9-17aa17fa1cbe"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "lrw",
+    "collectorNumber": "265",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WARPED_LANDSCAPE": {
+    "scryfallId": "16793435-8eb3-4d57-8683-de1120eb46b6",
+    "oracleId": "543e6bb3-a867-43bf-a737-2f5d6d8dc631",
+    "name": "Warped Landscape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Warped Landscape",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{2}, {T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "Each cryptolith twists the plane's mana, bending its flow to a singular purpose.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Cliff Childs",
+        "imageId": "16793435-8eb3-4d57-8683-de1120eb46b6"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "soi",
+    "collectorNumber": "280",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAYFARER_S_BAUBLE": {
+    "scryfallId": "084b7503-d05b-4eac-bb6f-ef3bf696437d",
+    "oracleId": "31f15274-301b-47c5-ba19-0ced04520878",
+    "name": "Wayfarer's Bauble",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wayfarer's Bauble",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}, Sacrifice this artifact: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+        "flavorText": "What better way to spend some fun quality time than collecting some snow globes?",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Marina Ortega Lorente",
+        "imageId": "084b7503-d05b-4eac-bb6f-ef3bf696437d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "pip",
+    "collectorNumber": "252",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WILD_FIELD_SCARECROW": {
+    "scryfallId": "1285b444-1668-4a3d-9fcd-8ce4e95c6d2f",
+    "oracleId": "f6a07af3-e54b-4dcb-ae2a-3dfdac386bab",
+    "name": "Wild-Field Scarecrow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wild-Field Scarecrow",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Scarecrow",
+        "oracleText": "Defender\n{2}, Sacrifice this creature: Search your library for up to two basic land cards, reveal them, put them into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jakub Kasper",
+        "imageId": "1285b444-1668-4a3d-9fcd-8ce4e95c6d2f"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "269",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WOODED_FOOTHILLS": {
+    "scryfallId": "1066a94a-8e4f-4d77-820b-7a77a18116f0",
+    "oracleId": "6587a463-a108-4854-b6d1-944e89b8c8a4",
+    "name": "Wooded Foothills",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wooded Foothills",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Mountain or Forest card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daarken",
+        "imageId": "1066a94a-8e4f-4d77-820b-7a77a18116f0"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "zne",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WORLD_MAP": {
+    "scryfallId": "70d9ab99-ec8a-402e-ba1d-ffa6c4c84a3f",
+    "oracleId": "51d4f95e-aad2-4e5f-9f15-a68bbdf9ab3e",
+    "name": "World Map",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "World Map",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{1}, {T}, Sacrifice this artifact: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.\n{3}, {T}, Sacrifice this artifact: Search your library for a land card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "And so their quest began.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Septian Fajrianto",
+        "imageId": "70d9ab99-ec8a-402e-ba1d-ffa6c4c84a3f"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "270",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

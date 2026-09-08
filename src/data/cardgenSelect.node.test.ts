@@ -1203,6 +1203,23 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Zero Point Ballad', 'script-raised prompt'],
   ["Zoyowa's Justice", 'discover mechanic'],
   ['Zulaport Chainmage', 'tap-creatures cost'],
+  // D358 - the wave the library search opened landed 69 of 84; these fifteen are what the row
+  // maker refused, each by the reason it gave.
+  ['Everbark Shaman', 'exile-from-graveyard cost (typed)'],
+  ['Magus of the Order', 'multi-sacrifice cost'],
+  ['Dark Petition', 'spell mastery'],
+  ['Honored Knight-Captain', 'search predicate with no fixture'],
+  ['Myr Turbine', 'token outside TOKEN_TABLE'],
+  ["New Generation's Technique", 'cast-time alternative cost'],
+  ['Profane Tutor', 'suspend mechanic'],
+  ["Roamer's Routine", 'cast-time alternative cost'],
+  ['Search for Tomorrow', 'suspend mechanic'],
+  ['Shadow-Rite Priest', 'scoped anthem beside a search'],
+  ["Splinter's Technique", 'cast-time alternative cost'],
+  ['The Masters of Evil', 'scoped anthem beside a search'],
+  ['Greater Tanuki', 'channel from hand'],
+  ['Horizon Seeker', 'a leftover the probe reports differently from the printed line'],
+  ['Magda, Brazen Outlaw', 'a leftover the probe reports differently from the printed line'],
   // D356 - the protection seam made these two offerable: their protection line reads now, and
   // what is left is a trigger head the row library does not carry.
   ['Soldier of the Pantheon', 'multicolored filter on the opponent-cast head'],
@@ -1989,7 +2006,9 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // work is a row: the fetchlands, Evolving Wilds, Sakura-Tribe Elder, Wood Elves and their
     // kin. They are OFFERED, not refused, so they belong here and not in the ledger - the
     // D289/D291 shape, where a seam leaves its wave to the decision after it.
-    expect.soft(all.length).toBe(84);
+    // ⚠️ D358 landed 69 of D357's 84 and ledgered the other fifteen by name, so the pool is
+    // back to zero - the shape every wave decision ends in.
+    expect.soft(all.length).toBe(0);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

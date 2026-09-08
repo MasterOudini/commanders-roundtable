@@ -24528,3 +24528,84 @@ select pool 84.
 
 Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,751 files, 23,604 passed / 11 skipped · 500-seed gate, 6 shards, 573.5 s wall ·
 build clean · probe 124/124 · battery 130/130.
+
+## D358 — M6.4gq: THE SEARCH WAVE — the format's whole mana base, and the only change it needed was a suite that can answer the prompt; 69 generated rows (2026-09-08)
+
+**7,437 of 31,692 Commander-legal cards execute completely, up from
+7,368 (+69).** SHIPPED_SCRIPTS 4,612 → **4,681**;
+REFUSED ledger 934 → **949** (fifteen rows ADDED by name, each with the reason the ROW MAKER gave and none of them guessed: suspend 2 (Profane Tutor, Search for Tomorrow), a cast-time alternative cost 3 (the two Techniques' Sneak, Roamer's Routine), an exile-from-graveyard cost, a multi-sacrifice cost, spell mastery, a token outside TOKEN_TABLE (Myr Turbine), a scoped anthem beside the search 2 (Shadow-Rite Priest, The Masters of Evil), a search predicate no fixture satisfies (Honored Knight-Captain's Equipment card), a channel from hand, and three whose leftover the probe reports differently from the printed line. The pool is back to ZERO). Fixtures
+5,045 → 5,113 (4,977 by name + 136 tokens: the 69 rowed cards and the basics their searches find; NO new token pin, because the one row whose payload needed a token outside TOKEN_TABLE was refused rather than pinned). **Select pool 84 → 0.**
+
+**Where this came from.** no new probe: D357's own measurement IS this decision's input. It left the select pool at 84 deliberately (D289/D291's shape - a seam leaves its wave to the decision after it), and those 84 are the cards whose search line reads and whose remaining work is a row. The row maker took 69 and refused 15, each by name.
+
+**The engine could already do it; the suite could not.** The row maker refused
+all 84 with one line — `a vocabulary effect the suite cannot assert: search`.
+`ctx.vocabulary` (D344) already ran a vocabulary payload, D349's ask-last rule
+already permitted a clause that asks, and D357 had put the search into the
+vocabulary. What was missing was a GENERATED SUITE that could answer the prompt.
+**Nothing under `src/engine/` changed in this decision at all** — it is a
+generator change and 69 rows.
+
+**The arm, and it is the discard arm's (D349) one verb over:**
+
+- a **fixture the search can actually find**, picked by the printed predicate
+  from the same tables the clause fixtures use, and dealt into the searcher's
+  deck so the library really holds one;
+- the prompt awaited, then answered with that card, found in the library by name;
+- the destination asserted, **and the tap with it** where the card says so.
+
+**⚠️ A search whose predicate no fixture satisfies is refused by name.** Failing
+to find is legal (CR 701.19b) — so a suite that answered "found nothing" would
+pass whether or not the search worked at all, which is D128's green-over-nothing
+in its purest form. `Honored Knight-Captain` wants an `Equipment card` and no
+fixture is one, so it is refused rather than tested vacuously.
+
+**⚠️ The fixture is staged, not hoped for.** Three rows failed the first run with
+`<card> is not in the library for the search to find`: the card was dealt into
+the deck and the opening hand took it — D232's trap, where `put()` draws from the
+LISTED deck and the opening seven come out of a padded thirty. Adding copies
+would be gambling on a shuffle, so the suite moves a stray copy back into the
+library before it fires. Deterministic whatever the seed does.
+
+**What landed is the mana base the format is built on**: every fetchland (Arid
+Mesa, Bloodstained Mire, Marsh Flats, Verdant Catacombs, Windswept Heath, Wooded
+Foothills, Prismatic Vista), the sac-lands and Panoramas (Evolving Wilds,
+Terramorphic Expanse, Bad River and the Mirage cycle, the five Panoramas, the
+Landscapes, Blighted Woodland), the ramp artifacts (Armillary Sphere, Wayfarer's
+Bauble, Traveler's Amulet, Wanderer's Twig, Terminal Moraine, World Map,
+Wild-Field Scarecrow) and the search creatures (Burnished Hart, Dawntreader Elk,
+Sakura-Tribe Elder, Wood Elves, Silverglade Pathfinder, Vile Entomber). **The
+bot's land pool rose 518 → 558 in one decision.**
+
+**The fifteen refusals are the row maker's own**, each by the reason it gave:
+suspend (Profane Tutor, Search for Tomorrow); a cast-time alternative cost (both
+Techniques' Sneak, Roamer's Routine); an exile-from-graveyard cost (Everbark
+Shaman); a multi-sacrifice cost (Magus of the Order); spell mastery (Dark
+Petition); a token outside `TOKEN_TABLE` (Myr Turbine — refused rather than
+pinned, because a pin is a decision and this row did not need one); a scoped
+anthem beside the search (Shadow-Rite Priest, The Masters of Evil); the search
+predicate with no fixture; a channel from hand (Greater Tanuki); and three whose
+leftover the probe reports differently from the printed line.
+
+Tests: one generated suite per row — 139 checks, each proving the cost's mark,
+the search answered from the library, the card at its destination (tapped where
+the card says so) and the replay hash.
+
+Refused by name: fifteen rows ADDED by name, each with the reason the ROW MAKER gave and none of them guessed: suspend 2 (Profane Tutor, Search for Tomorrow), a cast-time alternative cost 3 (the two Techniques' Sneak, Roamer's Routine), an exile-from-graveyard cost, a multi-sacrifice cost, spell mastery, a token outside TOKEN_TABLE (Myr Turbine), a scoped anthem beside the search 2 (Shadow-Rite Priest, The Masters of Evil), a search predicate no fixture satisfies (Honored Knight-Captain's Equipment card), a channel from hand, and three whose leftover the probe reports differently from the printed line. The pool is back to ZERO.
+Not this decision: the search wordings the vocabulary still refuses (a QUALIFIED noun - `a card with flash`, `mana value 3 or less` - which needs a predicate over a CARD rather than a permanent; a search of a graveyard as well as a library; `shuffle and put that card on top`); the row maker's own fifteen (suspend, the cast-time alternative cost, the exile-from-graveyard and multi-sacrifice costs, spell mastery, a scoped anthem beside a search); then the families the seam map still holds - the grant whose payload is a QUOTED ability (355 one-piece cards, dossier in d354/DESIGN-quoted-grant.md, a shared runtime CARRIER plus several payload families rather than one batch), the attached statics the Aura and Equipment rows cannot read (351, mass in compound shapes), the Aura that REDEFINES its host (18 - Lignify, Frogify, Darksteel Mutation, and every piece already exists: D151's `hasAbilities`, layer 7b's base P/T, D311's type change), the bare keyword or ability word (185, one card each).
+
+Nothing retired: the fifteen refusals are new rows, and the 69 that landed were never in the ledger - they were OFFERED by D357 and repinned rather than ledgered for exactly this reason.
+
+Report: `effect:auto` 4,573 → 4,573 and `withUnenforced` 280 →
+280 — neither moves, because a row lands a SCRIPT rather than
+widening a parser. What a script can express falls 1,119 → 1,050, and
+that fall is the measurement working: the pool a row could take shrinks every
+time one is taken (D130's rule, seen from the other side).
+
+Landed: No second wave: the pool measures ZERO. The bot's LAND pool rose 518 -> 558 in one decision - the mana base the format is actually built on - and its commander now reaches 7,377 cards from 7,308, chosen from 208 fully-executable legendary creatures.
+
+Fixtures 5,113 · botPool artifact 415 / creature 4,281 / enchantment 389 / instant 1,017 / land 558 / sorcery 777 - auto 994 / assisted 1,879 / autoAnyFace 1,003 · ladder [1050, 1157, 2743, 4576, 5921] · batch.json 69 ·
+select pool 0.
+
+Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,820 files, 23,881 passed / 11 skipped · 500-seed gate, 6 shards, 621.8 s wall ·
+build clean · probe 124/124 · battery 130/130.

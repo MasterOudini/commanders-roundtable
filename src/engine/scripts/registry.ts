@@ -7,6 +7,75 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ARID_MESA_SCRIPT } from './cards/aridMesa';
+import { BLOODSTAINED_MIRE_SCRIPT } from './cards/bloodstainedMire';
+import { DECEPTIVE_LANDSCAPE_SCRIPT } from './cards/deceptiveLandscape';
+import { EVOLVING_WILDS_SCRIPT } from './cards/evolvingWilds';
+import { KULDOTHA_FORGEMASTER_SCRIPT } from './cards/kuldothaForgemaster';
+import { MARSH_FLATS_SCRIPT } from './cards/marshFlats';
+import { PRISMATIC_VISTA_SCRIPT } from './cards/prismaticVista';
+import { SAKURA_TRIBE_ELDER_SCRIPT } from './cards/sakuraTribeElder';
+import { URZAS_CAVE_SCRIPT } from './cards/urzasCave';
+import { VERDANT_CATACOMBS_SCRIPT } from './cards/verdantCatacombs';
+import { WINDSWEPT_HEATH_SCRIPT } from './cards/windsweptHeath';
+import { WOOD_ELVES_SCRIPT } from './cards/woodElves';
+import { ARMILLARY_SPHERE_SCRIPT } from './cards/armillarySphere';
+import { BAD_RIVER_SCRIPT } from './cards/badRiver';
+import { BANT_PANORAMA_SCRIPT } from './cards/bantPanorama';
+import { BLIGHTED_WOODLAND_SCRIPT } from './cards/blightedWoodland';
+import { BOUNTIFUL_LANDSCAPE_SCRIPT } from './cards/bountifulLandscape';
+import { BURNISHED_HART_SCRIPT } from './cards/burnishedHart';
+import { CONTAMINATED_LANDSCAPE_SCRIPT } from './cards/contaminatedLandscape';
+import { DAWNTREADER_ELK_SCRIPT } from './cards/dawntreaderElk';
+import { DISCIPLES_OF_GIX_SCRIPT } from './cards/disciplesOfGix';
+import { DREAMSCAPE_ARTIST_SCRIPT } from './cards/dreamscapeArtist';
+import { EMBODIMENT_OF_SPRING_SCRIPT } from './cards/embodimentOfSpring';
+import { ESPER_PANORAMA_SCRIPT } from './cards/esperPanorama';
+import { EXPEDITION_MAP_SCRIPT } from './cards/expeditionMap';
+import { FAUNA_SHAMAN_SCRIPT } from './cards/faunaShaman';
+import { FLOOD_PLAIN_SCRIPT } from './cards/floodPlain';
+import { FLOODED_STRAND_SCRIPT } from './cards/floodedStrand';
+import { FONT_OF_FERTILITY_SCRIPT } from './cards/fontOfFertility';
+import { FOREBODING_LANDSCAPE_SCRIPT } from './cards/forebodingLandscape';
+import { FRONTIER_GUIDE_SCRIPT } from './cards/frontierGuide';
+import { GRASSLANDS_SCRIPT } from './cards/grasslands';
+import { GREENSEEKER_SCRIPT } from './cards/greenseeker';
+import { GRIXIS_PANORAMA_SCRIPT } from './cards/grixisPanorama';
+import { JOURNEYERS_KITE_SCRIPT } from './cards/journeyersKite';
+import { JUND_PANORAMA_SCRIPT } from './cards/jundPanorama';
+import { MISTY_RAINFOREST_SCRIPT } from './cards/mistyRainforest';
+import { MOUNTAIN_VALLEY_SCRIPT } from './cards/mountainValley';
+import { NAYA_PANORAMA_SCRIPT } from './cards/nayaPanorama';
+import { NEVERWINTER_DRYAD_SCRIPT } from './cards/neverwinterDryad';
+import { OASHRA_CULTIVATOR_SCRIPT } from './cards/oashraCultivator';
+import { PERILOUS_LANDSCAPE_SCRIPT } from './cards/perilousLandscape';
+import { PLANAR_PORTAL_SCRIPT } from './cards/planarPortal';
+import { POLLUTED_DELTA_SCRIPT } from './cards/pollutedDelta';
+import { PROMISING_VEIN_SCRIPT } from './cards/promisingVein';
+import { RAZAKETH_THE_FOULBLOODED_SCRIPT } from './cards/razakethTheFoulblooded';
+import { RENEGADE_MAP_SCRIPT } from './cards/renegadeMap';
+import { ROCKY_TAR_PIT_SCRIPT } from './cards/rockyTarPit';
+import { RUNE_SCARRED_DEMON_SCRIPT } from './cards/runeScarredDemon';
+import { SCALDING_TARN_SCRIPT } from './cards/scaldingTarn';
+import { SEETHING_LANDSCAPE_SCRIPT } from './cards/seethingLandscape';
+import { SHATTERED_LANDSCAPE_SCRIPT } from './cards/shatteredLandscape';
+import { SHELTERING_LANDSCAPE_SCRIPT } from './cards/shelteringLandscape';
+import { SHIRE_TERRACE_SCRIPT } from './cards/shireTerrace';
+import { SILKWING_SCOUT_SCRIPT } from './cards/silkwingScout';
+import { SILVERGLADE_PATHFINDER_SCRIPT } from './cards/silvergladePathfinder';
+import { TERMINAL_MORAINE_SCRIPT } from './cards/terminalMoraine';
+import { TERRAMORPHIC_EXPANSE_SCRIPT } from './cards/terramorphicExpanse';
+import { TRANQUIL_LANDSCAPE_SCRIPT } from './cards/tranquilLandscape';
+import { TRAVELERS_AMULET_SCRIPT } from './cards/travelersAmulet';
+import { TWISTED_LANDSCAPE_SCRIPT } from './cards/twistedLandscape';
+import { VIBRANT_CITYSCAPE_SCRIPT } from './cards/vibrantCityscape';
+import { VILE_ENTOMBER_SCRIPT } from './cards/vileEntomber';
+import { WANDERERS_TWIG_SCRIPT } from './cards/wanderersTwig';
+import { WARPED_LANDSCAPE_SCRIPT } from './cards/warpedLandscape';
+import { WAYFARERS_BAUBLE_SCRIPT } from './cards/wayfarersBauble';
+import { WILD_FIELD_SCARECROW_SCRIPT } from './cards/wildFieldScarecrow';
+import { WOODED_FOOTHILLS_SCRIPT } from './cards/woodedFoothills';
+import { WORLD_MAP_SCRIPT } from './cards/worldMap';
 import { FOGWELLS_GYM_SCRIPT } from './cards/fogwellsGym';
 import { IMPERIOUS_PERFECT_SCRIPT } from './cards/imperiousPerfect';
 import { INSPIRING_VETERAN_SCRIPT } from './cards/inspiringVeteran';
@@ -4638,6 +4707,75 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ARID_MESA_SCRIPT,
+  BLOODSTAINED_MIRE_SCRIPT,
+  DECEPTIVE_LANDSCAPE_SCRIPT,
+  EVOLVING_WILDS_SCRIPT,
+  KULDOTHA_FORGEMASTER_SCRIPT,
+  MARSH_FLATS_SCRIPT,
+  PRISMATIC_VISTA_SCRIPT,
+  SAKURA_TRIBE_ELDER_SCRIPT,
+  URZAS_CAVE_SCRIPT,
+  VERDANT_CATACOMBS_SCRIPT,
+  WINDSWEPT_HEATH_SCRIPT,
+  WOOD_ELVES_SCRIPT,
+  ARMILLARY_SPHERE_SCRIPT,
+  BAD_RIVER_SCRIPT,
+  BANT_PANORAMA_SCRIPT,
+  BLIGHTED_WOODLAND_SCRIPT,
+  BOUNTIFUL_LANDSCAPE_SCRIPT,
+  BURNISHED_HART_SCRIPT,
+  CONTAMINATED_LANDSCAPE_SCRIPT,
+  DAWNTREADER_ELK_SCRIPT,
+  DISCIPLES_OF_GIX_SCRIPT,
+  DREAMSCAPE_ARTIST_SCRIPT,
+  EMBODIMENT_OF_SPRING_SCRIPT,
+  ESPER_PANORAMA_SCRIPT,
+  EXPEDITION_MAP_SCRIPT,
+  FAUNA_SHAMAN_SCRIPT,
+  FLOOD_PLAIN_SCRIPT,
+  FLOODED_STRAND_SCRIPT,
+  FONT_OF_FERTILITY_SCRIPT,
+  FOREBODING_LANDSCAPE_SCRIPT,
+  FRONTIER_GUIDE_SCRIPT,
+  GRASSLANDS_SCRIPT,
+  GREENSEEKER_SCRIPT,
+  GRIXIS_PANORAMA_SCRIPT,
+  JOURNEYERS_KITE_SCRIPT,
+  JUND_PANORAMA_SCRIPT,
+  MISTY_RAINFOREST_SCRIPT,
+  MOUNTAIN_VALLEY_SCRIPT,
+  NAYA_PANORAMA_SCRIPT,
+  NEVERWINTER_DRYAD_SCRIPT,
+  OASHRA_CULTIVATOR_SCRIPT,
+  PERILOUS_LANDSCAPE_SCRIPT,
+  PLANAR_PORTAL_SCRIPT,
+  POLLUTED_DELTA_SCRIPT,
+  PROMISING_VEIN_SCRIPT,
+  RAZAKETH_THE_FOULBLOODED_SCRIPT,
+  RENEGADE_MAP_SCRIPT,
+  ROCKY_TAR_PIT_SCRIPT,
+  RUNE_SCARRED_DEMON_SCRIPT,
+  SCALDING_TARN_SCRIPT,
+  SEETHING_LANDSCAPE_SCRIPT,
+  SHATTERED_LANDSCAPE_SCRIPT,
+  SHELTERING_LANDSCAPE_SCRIPT,
+  SHIRE_TERRACE_SCRIPT,
+  SILKWING_SCOUT_SCRIPT,
+  SILVERGLADE_PATHFINDER_SCRIPT,
+  TERMINAL_MORAINE_SCRIPT,
+  TERRAMORPHIC_EXPANSE_SCRIPT,
+  TRANQUIL_LANDSCAPE_SCRIPT,
+  TRAVELERS_AMULET_SCRIPT,
+  TWISTED_LANDSCAPE_SCRIPT,
+  VIBRANT_CITYSCAPE_SCRIPT,
+  VILE_ENTOMBER_SCRIPT,
+  WANDERERS_TWIG_SCRIPT,
+  WARPED_LANDSCAPE_SCRIPT,
+  WAYFARERS_BAUBLE_SCRIPT,
+  WILD_FIELD_SCARECROW_SCRIPT,
+  WOODED_FOOTHILLS_SCRIPT,
+  WORLD_MAP_SCRIPT,
   FOGWELLS_GYM_SCRIPT,
   IMPERIOUS_PERFECT_SCRIPT,
   INSPIRING_VETERAN_SCRIPT,
