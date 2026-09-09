@@ -33,6 +33,11 @@ const THE_SEAM = [
   'loop.ts',
   'reducer.ts',
   'sba.ts',
+  // D373 - the vocabulary bridge names `regenerate` in NEEDS_AIM, because the verb the
+  // parser learned in D373 is aimable: a granted "Regenerate this permanent." resolves
+  // against the RECIPIENT (CR 113.7a). It consults the seam by naming it, not by reading
+  // the shield, so it joins the list rather than changing what the list means.
+  'scripts/vocabulary.ts',
   'types/events.ts',
   'types/oracle.ts',
   'types/state.ts',

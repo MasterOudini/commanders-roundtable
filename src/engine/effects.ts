@@ -16,7 +16,7 @@ import { shuffle, type RngState } from './rng';
 import type { EngineDeps } from './loop';
 import type { EventBody, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
-import type { EffectSpec } from './types/oracle';
+import { SELF_AIMED, type EffectSpec } from './types/oracle';
 import type { GameState, StackObject, TargetChoice } from './types/state';
 // Every line here has a CARD as its subject ("Lightning Bolt counters Negate."),
 // so none of them changes person for the reader and none needs parts.
@@ -117,7 +117,18 @@ export function effectResult(
   const steps: { effect: EffectSpec; aim: Aim | null; missing: boolean }[] = [];
   for (const effect of effects) {
     if (effect.self) {
-      steps.push({ effect, aim: null, missing: false });
+      if (SELF_AIMED.has(effect.kind)) {
+        // D373 - the subject is the SOURCE: for a granted ability the recipient (CR 113.7a),
+        // for a permanent's printed ability the permanent. A source that has left the
+        // battlefield is a subject that is gone, and the clause says so exactly as it
+        // says a lost target has - never a silent no-op (D90).
+        const inst = source ? state.cards[source] : undefined;
+        const aim: Aim | null =
+          source && inst && inst.zone.kind === 'battlefield' ? { kind: 'card', id: source, controller: inst.controller, owner: inst.owner } : null;
+        steps.push({ effect, aim, missing: aim === null });
+      } else {
+        steps.push({ effect, aim: null, missing: false });
+      }
       continue;
     }
     const picks = picksFor(obj, effect.targetIndex);
@@ -331,6 +342,16 @@ export function effectResult(
         if (aim?.kind !== 'card') break;
         if (!state.cards[aim.id]?.tapped) break;
         out.push({ t: 'PermanentsUntapped', cards: [aim.id] });
+        break;
+      }
+
+      case 'regenerate': {
+        if (aim?.kind !== 'card') break;
+        // D373 - CR 701.19: a shield on the permanent, spent by the next destruction this
+        // turn (`destroy` above and `sba.ts` both read it; cleanup clears it with the
+        // other until-end-of-turn effects). Only a permanent on the battlefield carries one.
+        if (state.cards[aim.id]?.zone.kind !== 'battlefield') break;
+        out.push({ t: 'RegenerationShieldAdded', card: aim.id });
         break;
       }
 

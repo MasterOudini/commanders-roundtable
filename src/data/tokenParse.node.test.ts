@@ -191,12 +191,12 @@ describe.skipIf(!HAVE_DB)('the token resolver, over the real database', () => {
       // D369: eight cards whose only OTHER unread line was an unless-pays or a
       // you-may-pay sentence read whole and left the sole-need population
       // (primitives records the same move as token 969 -> 961).
-      cards: 961,
-      lines: 999,
-      parsed: 259,
-      unique: 237,
+      cards: 958,
+      lines: 996,
+      parsed: 256,
+      unique: 234,
       noMatch: 22,
-      cardsFullyResolved: 223,
+      cardsFullyResolved: 220,
     });
   });
 

@@ -154,6 +154,20 @@ const ADJECTIVE =
 const COUNTED = '(?:(?:each of )?(?:up to (?:one|two|three)|two|three|any number of) )?';
 const TARGET = `(?:any target|${COUNTED}target ${ADJECTIVE}(?:${NOUNS})s?${QUALIFIER})`;
 const NUM = '(?:\\d+)';
+/**
+ * D373 - THE SELF SUBJECT: the clause is about the resolving object's own source.
+ * `selfRef` has already spelled the card's name and "This creature" as `~`; the
+ * lowercase form is what a quoted body prints after a trigger's head ("Whenever
+ * this creature attacks, this creature gets +1/+0 until end of turn").
+ *
+ * ⚠️ NEVER `it`. On a spell "it" is the previous sentence's target ("Destroy
+ * target creature. It can't be regenerated.", "... Untap it."), and a rule that
+ * admitted it here would read that sentence for the spell itself - a whole card
+ * going `auto` over a clause aimed at the wrong thing. A QUOTED body's leading
+ * "it" IS its recipient, and the vocabulary bridge spells it `~` before the parse,
+ * where the text is known to be a quoted body (`scripts/vocabulary.ts`).
+ */
+const SELF = '(?:this (?:creature|permanent|artifact|enchantment|land)|~)';
 
 const WORD_NUMBERS: Readonly<Record<string, number>> = {
   a: 1, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7,
@@ -633,6 +647,72 @@ const RULES: readonly Rule[] = [
     build: (m) => {
       const kws = grantedKeywords(m[1], m[2]);
       return kws !== null ? { ...BASE, keywords: kws, targetIndex: -1, self: true } : null;
+    },
+  },
+  /**
+   * D373 - THE SELF-AIMED EFFECT. "This creature gets +1/+0 until end of turn.",
+   * "Put a +1/+1 counter on this creature.", "Return this permanent to its owner's
+   * hand.", "Untap this creature.", "Regenerate this creature." - the subject is the
+   * resolving object's own SOURCE: for a granted ability the RECIPIENT (CR 113.7a),
+   * for a permanent's printed ability the permanent. `self: true, targetIndex: -1`
+   * exactly as the mass pump, and `effects.ts` aims a self clause of a `SELF_AIMED`
+   * kind at the source, or says the subject has gone. The same three pump shapes as
+   * the targeted pump above, over the same closed keyword map.
+   */
+  {
+    kind: 'pump',
+    re: new RegExp(`^${SELF} gets ([+-]${NUM})/([+-]${NUM}) until end of turn\\.$`, 'i'),
+    build: (m) => {
+      const p = Number(m[1]);
+      const t = Number(m[2]);
+      return Number.isFinite(p) && Number.isFinite(t) ? { ...BASE, power: p, toughness: t, targetIndex: -1, self: true } : null;
+    },
+  },
+  {
+    kind: 'pump',
+    re: new RegExp(`^${SELF} gets ([+-]${NUM})/([+-]${NUM}) and gains (${KW})(?: and (${KW}))? until end of turn\\.$`, 'i'),
+    build: (m) => {
+      const p = Number(m[1]);
+      const t = Number(m[2]);
+      const kws = grantedKeywords(m[3], m[4]);
+      return Number.isFinite(p) && Number.isFinite(t) && kws !== null
+        ? { ...BASE, power: p, toughness: t, keywords: kws, targetIndex: -1, self: true }
+        : null;
+    },
+  },
+  {
+    kind: 'pump',
+    re: new RegExp(`^${SELF} gains (${KW})(?: and (${KW}))? until end of turn\\.$`, 'i'),
+    build: (m) => {
+      const kws = grantedKeywords(m[1], m[2]);
+      return kws !== null ? { ...BASE, keywords: kws, targetIndex: -1, self: true } : null;
+    },
+  },
+  {
+    kind: 'putCounters',
+    re: new RegExp(`^put (${COUNT}) (${COUNTER_KIND}) counters? on ${SELF}\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      const kind = counterKindOf(m[2]);
+      return n === null || kind === null ? null : { ...BASE, amount: n, counterKind: kind, targetIndex: -1, self: true };
+    },
+  },
+  { kind: 'bounce', re: new RegExp(`^return ${SELF} to its owner(?:'|’)?s? hand\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  { kind: 'untap', re: new RegExp(`^untap ${SELF}\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  // D373 - CR 701.19, the verb itself: on the source, and on a target ("Regenerate target creature.").
+  { kind: 'regenerate', re: new RegExp(`^regenerate ${SELF}\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  { kind: 'regenerate', re: new RegExp(`^regenerate ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
+  /**
+   * D373 - CR 701.16a: "Investigate." is "create a Clue token", the printing resolved
+   * from TOKEN_TABLE at build time exactly as the token rule below resolves its own.
+   */
+  {
+    kind: 'createToken',
+    re: /^investigate\.$/i,
+    build: () => {
+      const spec = parseTokenClause('Create a Clue token.');
+      const token = spec ? TOKEN_TABLE[specKey(spec)] : undefined;
+      return token ? { ...BASE, amount: 1, targetIndex: -1, self: true, token } : null;
     },
   },
   { kind: 'tap', re: new RegExp(`^tap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },

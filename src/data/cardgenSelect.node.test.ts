@@ -441,7 +441,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dead Reckoning', 'script-raised prompt'],
   ['Deadshot', 'spell target parse (second clause)'],
   ['Death or Glory', 'opponent-chooses'],
-  ['Death Ward', 'regeneration'],
   ['Deathlace', 'color change (indefinite)'],
   // D207 — Deny the Witch counters ACTIVATED AND TRIGGERED ABILITIES on
   // the stack, a target kind and an un-cast the engine has no seam for;
@@ -676,7 +675,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Mass Manipulation', 'cast-time computed target count'],
   ['Meditate', 'phase skipping'],
   ['Memory Plunder', 'play-from-exile permission'],
-  ['Mending Touch', 'regeneration'],
   ['Mental Misstep', 'spell target parse (numeric exact)'],
   ['Merciless Repurposing', 'incubate mechanic'],
   ['Merfolk Falconer', 'kicker memory'],
@@ -791,10 +789,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Reality Shift', 'face-down (morph family)'],
   ['Reckless Impulse', 'play-from-exile permission'],
   ['Recross the Paths', 'clash mechanic'],
-  ['Regenerate', 'regeneration'],
+  ['Regenerate', 'its own name is its verb: selfRef spells the name ~ before any rule runs, so the sentence arrives as ~ target creature (D373)'],
   ['Reign of Terror', 'script-raised prompt'],
   ['Reinterpret', 'script-raised prompt'],
-  ['Reknit', 'regeneration'],
   ['Release the Ants', 'clash mechanic'],
   ['Relentless Advance', 'amass mechanic'],
   // D239 (M6.4cb)
@@ -1442,7 +1439,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Rat King, Pale Piper', 'token-predicate sacrifice cost'],
   ['Reality Anchor', 'temporary keyword/ability grant'],
   ['Reforge the Soul', 'miracle mechanic'],
-  ['Refresh', 'regeneration'],
   ['Refreshing Rain', 'cast-time alternative cost'],
   ['Resize', 'recover mechanic'],
   ['Restart Sequence', 'freerunning mechanic'],
@@ -2189,7 +2185,14 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // SEAM (26 cards it had never offered) and its own rows are the WAVE (23 of them).
     // D370 - BACK TO ZERO, and that is what a WAVE does: forty landed and the other 117 are in the
     // ledger above by name, each with the reason the row maker or the probe gave.
-    expect.soft(all.length).toBe(0);
+    // D373 - NON-ZERO on purpose, and this is the D369 shape: a SEAM leaves its wave to the
+    // decision after it. The vocabulary learned a SELF SUBJECT (a body about the resolving
+    // object's own source), which made 224 printed permanents offerable at a stroke - their
+    // sole unread sentence was "{2}: Regenerate ~" or "{1}: ~ gets +1/+0 until end of turn",
+    // and the classifier asks the vocabulary. D373 landed its own twenty QUOTED-GRANT rows
+    // (the payloads the seam was built for) and leaves these 224 to the row maker in D374.
+    // The tell is the scriptable number: a seam RAISES it, 1,170 -> 1,393.
+    expect.soft(all.length).toBe(224);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

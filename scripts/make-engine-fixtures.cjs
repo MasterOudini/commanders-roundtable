@@ -5888,6 +5888,28 @@ const WANTED = [
   "Multani's Harmony",
   'Paradise Mantle',
   'Sheltered Aerie',
+  // D373 - the self-aimed effect: the seam fixtures (a self pump and a regeneration granted to every Sliver).
+  'Barbed Sliver',
+  'Clot Sliver',
+  // D373 - the quoted-grant ROW-KIND wave: a body about the recipient itself.
+  'Trollhide',
+  'Oblivion Crown',
+  'Armor Sliver',
+  'Umbral Mantle',
+  'Hibernation Sliver',
+  'Thorncaster Sliver',
+  'Pursuit of Flight',
+  'Spectral Sliver',
+  'Curious Inquiry',
+  'Midnight Covenant',
+  'Tempered Sliver',
+  'Savage Silhouette',
+  'Scuttling Sliver',
+  'Molting Snakeskin',
+  'Skeletal Grimace',
+  'Consuming Fervor',
+  'Deviant Glee',
+  'Talons of Falkenrath',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

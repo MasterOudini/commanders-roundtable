@@ -53,7 +53,14 @@ describe('Auspicious Arrival', () => {
 
   test('the suppression predicate holds (D187)', () => {
     const text = AUSPICIOUS_ARRIVAL.faces[0]?.oracleText ?? '';
-    expect(parseEffects(text, AUSPICIOUS_ARRIVAL.name, true).mode).not.toBe('auto');
+    // ⚠️ D373 REVERSED THIS (D117: a test describing the old meaning is rewritten, not
+    // adapted). It read `not.toBe('auto')` because the vocabulary could not read
+    // `Investigate.`; now it can, so BOTH readers understand this card. That is safe and
+    // the card still runs exactly ONCE: `loop.ts` consults the spell def where the
+    // vocabulary ran (the def OUTRANKS it, D187), and `assistedEffectsFor` offers nothing
+    // for an `auto` face NOR for one carrying a shipped def. The hand script is now
+    // REDUNDANT rather than wrong - retiring it is a measured decision of its own.
+    expect(parseEffects(text, AUSPICIOUS_ARRIVAL.name, true).mode).toBe('auto');
     expect(SHIPPED_REGISTRY.spell(AUSPICIOUS_ARRIVAL.oracleId)).toBeDefined();
   });
 

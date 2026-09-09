@@ -7,6 +7,26 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BARBED_SLIVER_SCRIPT } from './cards/barbedSliver';
+import { TROLLHIDE_SCRIPT } from './cards/trollhide';
+import { OBLIVION_CROWN_SCRIPT } from './cards/oblivionCrown';
+import { ARMOR_SLIVER_SCRIPT } from './cards/armorSliver';
+import { UMBRAL_MANTLE_SCRIPT } from './cards/umbralMantle';
+import { HIBERNATION_SLIVER_SCRIPT } from './cards/hibernationSliver';
+import { THORNCASTER_SLIVER_SCRIPT } from './cards/thorncasterSliver';
+import { PURSUIT_OF_FLIGHT_SCRIPT } from './cards/pursuitOfFlight';
+import { CLOT_SLIVER_SCRIPT } from './cards/clotSliver';
+import { SPECTRAL_SLIVER_SCRIPT } from './cards/spectralSliver';
+import { CURIOUS_INQUIRY_SCRIPT } from './cards/curiousInquiry';
+import { MIDNIGHT_COVENANT_SCRIPT } from './cards/midnightCovenant';
+import { TEMPERED_SLIVER_SCRIPT } from './cards/temperedSliver';
+import { SAVAGE_SILHOUETTE_SCRIPT } from './cards/savageSilhouette';
+import { SCUTTLING_SLIVER_SCRIPT } from './cards/scuttlingSliver';
+import { MOLTING_SNAKESKIN_SCRIPT } from './cards/moltingSnakeskin';
+import { SKELETAL_GRIMACE_SCRIPT } from './cards/skeletalGrimace';
+import { CONSUMING_FERVOR_SCRIPT } from './cards/consumingFervor';
+import { DEVIANT_GLEE_SCRIPT } from './cards/deviantGlee';
+import { TALONS_OF_FALKENRATH_SCRIPT } from './cards/talonsOfFalkenrath';
 import { A_REALM_REBORN_SCRIPT } from './cards/aRealmReborn';
 import { BASAL_SLIVER_SCRIPT } from './cards/basalSliver';
 import { CITANUL_HIEROPHANTS_SCRIPT } from './cards/citanulHierophants';
@@ -4970,6 +4990,26 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BARBED_SLIVER_SCRIPT,
+  TROLLHIDE_SCRIPT,
+  OBLIVION_CROWN_SCRIPT,
+  ARMOR_SLIVER_SCRIPT,
+  UMBRAL_MANTLE_SCRIPT,
+  HIBERNATION_SLIVER_SCRIPT,
+  THORNCASTER_SLIVER_SCRIPT,
+  PURSUIT_OF_FLIGHT_SCRIPT,
+  CLOT_SLIVER_SCRIPT,
+  SPECTRAL_SLIVER_SCRIPT,
+  CURIOUS_INQUIRY_SCRIPT,
+  MIDNIGHT_COVENANT_SCRIPT,
+  TEMPERED_SLIVER_SCRIPT,
+  SAVAGE_SILHOUETTE_SCRIPT,
+  SCUTTLING_SLIVER_SCRIPT,
+  MOLTING_SNAKESKIN_SCRIPT,
+  SKELETAL_GRIMACE_SCRIPT,
+  CONSUMING_FERVOR_SCRIPT,
+  DEVIANT_GLEE_SCRIPT,
+  TALONS_OF_FALKENRATH_SCRIPT,
   A_REALM_REBORN_SCRIPT,
   BASAL_SLIVER_SCRIPT,
   CITANUL_HIEROPHANTS_SCRIPT,

@@ -465,6 +465,15 @@ export type EffectKind =
   | 'massPump'
   | 'tap'
   | 'untap'
+  /**
+   * D373 - CR 701.19: "Regenerate this creature." / "Regenerate target creature." -
+   * a shield on the permanent, spent by the next destruction this turn (`destroy`
+   * and `sba.ts` both read it; cleanup clears it with the other until-end-of-turn
+   * effects). The verb the row library had and the vocabulary did not: six quoted
+   * grants were one line from landing on it (Clot Sliver, Trollhide, Molting
+   * Snakeskin, Savage Silhouette, Skeletal Grimace, Consecrated by Blood).
+   */
+  | 'regenerate'
   | 'draw'
   | 'gainLife'
   | 'loseLife'
@@ -658,6 +667,21 @@ export interface PaySpec {
   readonly ifNotPaid: readonly EffectSpec[];
 }
 
+/**
+ * D373 - THE SELF-AIMED KINDS. A `self` clause of one of these is aimed by `effects.ts`
+ * at the resolving object's SOURCE - for a granted ability the RECIPIENT (CR 113.7a),
+ * for a permanent's printed ability the permanent - and the same arm that serves a
+ * target then serves the source. Every other self kind keeps its meaning (a draw is
+ * the caster's, the mass pump walks the board), and a self clause of an aimable kind
+ * OUTSIDE this set is still refused by the vocabulary bridge, because the executor
+ * would resolve it for nothing.
+ *
+ * ⚠️ CLOSED, and each member has a parser rule with the SELF subject and a proof in
+ * `selfAimed.test.ts`. A kind listed here without a rule would be a subject the
+ * executor claims and no sentence ever fills - a dead seam `tsc` cannot see (D158).
+ */
+export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate']);
+
 export interface EffectSpec {
   readonly kind: EffectKind;
   /** Damage dealt, life gained/lost, cards drawn. 0 where it does not apply. */
@@ -712,7 +736,14 @@ export interface EffectSpec {
    * `StackObject.targets`. -1 means "no target", e.g. `Draw three cards`.
    */
   readonly targetIndex: number;
-  /** Applies to the caster rather than to a target. `You gain 3 life`. */
+  /**
+   * No target clause: the subject is the caster (`You gain 3 life`), the board (the
+   * mass pump) - or, for a kind in `SELF_AIMED` (D373), the resolving object's own
+   * SOURCE: "This creature gets +1/+0 until end of turn." on a granted ability is the
+   * RECIPIENT (CR 113.7a), on a permanent's printed ability the permanent itself, and
+   * `effects.ts` aims the clause there - or says the subject has gone, exactly as it
+   * says a target has.
+   */
   readonly self: boolean;
   /** D330 - "It can't be regenerated." rides the destroy it follows: the shield is not consulted. */
   readonly noRegenerate?: boolean;

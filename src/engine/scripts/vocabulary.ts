@@ -21,15 +21,19 @@
  *   - RANDOMNESS ("at random") - `resolve` returns events alone, so an RNG
  *     advance made inside it would never be recorded and the game would not
  *     replay (`effects.ts` on `effectResult` vs `effectEvents`);
- *   - a SELF clause of a kind that needs an aim - "~ gets +1/+1" parses as a
- *     `pump` with no target, which the executor resolves for nothing; the
- *     self pump is a row kind of its own, and the parse must not pretend.
+ *   - a SELF clause of a kind that needs an aim and is not `SELF_AIMED` - the
+ *     executor would resolve it for nothing. (D373: a self pump, a counter on
+ *     the source, a self bounce or untap and a regeneration ARE self-aimed:
+ *     the executor aims them at the recipient, CR 113.7a - and a quoted body's
+ *     leading "it" / lowercase "this creature" is spelled `~` here, before the
+ *     parse, because only here is the text known to be a quoted body.)
  * `vocabularyTargets` refuses a clause that is not confident: an unread word
  * in "target creature with a bounty counter on it" would let the prompt
  * offer a creature the card does not allow.
  */
 import { parseEffects } from '../../data/effectParse';
 import { parseTargetClauses } from '../../data/targetParse';
+import { SELF_AIMED } from '../types/oracle';
 import type { EffectKind, EffectSpec, TargetSpec } from '../types/oracle';
 
 /** The kinds whose resolution stops and asks (`effectParse.ts`'s ASKS, one seam over). */
@@ -45,6 +49,7 @@ const NEEDS_AIM: ReadonlySet<EffectKind> = new Set([
   'pump',
   'tap',
   'untap',
+  'regenerate',
   'putCounters',
   'removeCounters',
   'returnFromGraveyard',
@@ -54,11 +59,27 @@ const NEEDS_AIM: ReadonlySet<EffectKind> = new Set([
 ]);
 
 /**
+ * D373 - a QUOTED body names its recipient the way a printed ability names its card:
+ * "this creature" in lowercase after a trigger's head (which `selfRef` does not read)
+ * and a leading "it" ("Whenever this creature attacks, it gets +1/+0"). Spelled `~`
+ * HERE, where the text is known to be a quoted body - `effectParse` must never read
+ * "it" on a spell, where it is the previous sentence's target. Only the subject
+ * positions of the self-aimed shapes are rewritten.
+ */
+function recipientAsSelf(payload: string): string {
+  return payload
+    .replace(/\bthis (?:creature|permanent|artifact|enchantment|land)\b/g, '~')
+    .replace(/^it (deals|gets|gains)\b/i, '~ $1')
+    .replace(/^(return|regenerate|untap|tap) it\b/i, '$1 ~')
+    .replace(/\bon it\.$/i, 'on ~.');
+}
+
+/**
  * The effect specs of a printed payload sentence, or a throw naming the card
  * and the sentence.
  */
 export function vocabularyEffects(payload: string, name: string): readonly EffectSpec[] {
-  const parsed = parseEffects(payload, name, true);
+  const parsed = parseEffects(recipientAsSelf(payload), name, true);
   if (parsed.mode !== 'auto' || parsed.effects.length === 0) {
     throw new Error(`${name}: the vocabulary does not read "${payload}" whole (${parsed.mode}) - a row must not claim it (D90).`);
   }
@@ -73,7 +94,9 @@ export function vocabularyEffects(payload: string, name: string): readonly Effec
     if (ASKS.has(effect.kind) && i !== parsed.effects.length - 1) {
       throw new Error(`${name}: "${payload}" asks (${effect.kind}) before its last clause - a prompt with a clause after it would be dropped, which is the continuation seam.`);
     }
-    if (effect.self && NEEDS_AIM.has(effect.kind)) {
+    // D373 - a self clause of a SELF_AIMED kind is aimed at the source by the executor; the refusal
+    // stays for the aimable kinds that have no subject without a target clause.
+    if (effect.self && NEEDS_AIM.has(effect.kind) && !SELF_AIMED.has(effect.kind)) {
       throw new Error(`${name}: "${payload}" is a self clause of a kind that needs an aim (${effect.kind}) - the executor would resolve it for nothing.`);
     }
   }

@@ -178530,6 +178530,700 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BARBED_SLIVER": {
+    "scryfallId": "05e5de3c-e615-481a-a8f2-8300864d5e07",
+    "oracleId": "8fbca9ba-8b83-40ca-9f7e-5c483ba76675",
+    "name": "Barbed Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Barbed Sliver",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Sliver creatures have \"{2}: This creature gets +1/+0 until end of turn.\"",
+        "flavorText": "Spans of spines leapt from one sliver to the next, forming a deadly hedge around the *Weatherlight*.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Scott Kirschner",
+        "imageId": "05e5de3c-e615-481a-a8f2-8300864d5e07"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "h09",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLOT_SLIVER": {
+    "scryfallId": "43b794b5-4fd4-404a-813a-11020fab0ddc",
+    "oracleId": "2a885729-0618-4a25-b18d-b0587f14718d",
+    "name": "Clot Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Clot Sliver",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have \"{2}: Regenerate this permanent.\"",
+        "flavorText": "\"One would think I would be accustomed to unexpected returns.\"\n—Hanna, *Weatherlight* navigator",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jeff Laubenstein",
+        "imageId": "43b794b5-4fd4-404a-813a-11020fab0ddc"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "h09",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TROLLHIDE": {
+    "scryfallId": "08b9c400-dc8f-4fe6-a868-fdf0d247086a",
+    "oracleId": "397df813-c759-4246-8def-122c7ff82d88",
+    "name": "Trollhide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trollhide",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has \"{1}{G}: Regenerate this creature.\" (The next time the creature would be destroyed this turn, instead tap it, remove it from combat, and heal all damage on it.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "08b9c400-dc8f-4fe6-a868-fdf0d247086a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Heal",
+      "Regenerate",
+      "Enchant"
+    ],
+    "setCode": "m14",
+    "collectorNumber": "197",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OBLIVION_CROWN": {
+    "scryfallId": "0cd5486b-c6f4-4cfc-9590-8ffc78b48b0a",
+    "oracleId": "e690461b-2925-4484-b6fa-69ca1166f5a2",
+    "name": "Oblivion Crown",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Oblivion Crown",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nEnchanted creature has \"Discard a card: This creature gets +1/+1 until end of turn.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "0cd5486b-c6f4-4cfc-9590-8ffc78b48b0a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant",
+      "Flash"
+    ],
+    "setCode": "fut",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARMOR_SLIVER": {
+    "scryfallId": "0fc72398-e594-4849-9dea-fc0eed82f26a",
+    "oracleId": "c284b1fd-f238-478a-bcf1-c4b8f32f11f3",
+    "name": "Armor Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Armor Sliver",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Sliver creatures have \"{2}: This creature gets +0/+1 until end of turn.\"",
+        "flavorText": "Hanna: \"We must learn how they protect each other.\"\nMirri: \"After they're done trying to kill us, all right?\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Scott Kirschner",
+        "imageId": "0fc72398-e594-4849-9dea-fc0eed82f26a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tpr",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UMBRAL_MANTLE": {
+    "scryfallId": "10e35711-aec9-4024-a2a6-9efff8c71df2",
+    "oracleId": "44f3241f-af82-4f2e-b15d-7f279bf6e816",
+    "name": "Umbral Mantle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Umbral Mantle",
+        "manaCost": "{3}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature has \"{3}, {Q}: This creature gets +2/+2 until end of turn.\" ({Q} is the untap symbol.)\nEquip {0}",
+        "flavorText": "It harnesses the power of night in a land where daylight fears to show itself.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Richard Sardinha",
+        "imageId": "10e35711-aec9-4024-a2a6-9efff8c71df2"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "shm",
+    "collectorNumber": "267",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HIBERNATION_SLIVER": {
+    "scryfallId": "1e224cfb-5bc1-490c-ab1e-f5405dc2fa0b",
+    "oracleId": "edb8a6d6-9e25-4048-a842-e854eece42c2",
+    "name": "Hibernation Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hibernation Sliver",
+        "manaCost": "{U}{B}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have \"Pay 2 life: Return this permanent to its owner's hand.\"",
+        "flavorText": "Mogglings have been known to play ball with hibernating slivers, completely unaware of their true nature.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Scott Kirschner",
+        "imageId": "1e224cfb-5bc1-490c-ab1e-f5405dc2fa0b"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "cmm",
+    "collectorNumber": "925",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THORNCASTER_SLIVER": {
+    "scryfallId": "3655d837-945f-4ff5-8952-cff5f7b2d18f",
+    "oracleId": "70623348-7eda-4c68-89cd-2356b0896b79",
+    "name": "Thorncaster Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thorncaster Sliver",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "Sliver creatures you control have \"Whenever this creature attacks, it deals 1 damage to any target.\"",
+        "flavorText": "Every inch of a sliver's body is a potential claw, appendage, or projectile.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Trevor Claxton",
+        "imageId": "3655d837-945f-4ff5-8952-cff5f7b2d18f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "m14",
+    "collectorNumber": "158",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PURSUIT_OF_FLIGHT": {
+    "scryfallId": "37a6290c-a0a8-4032-972b-84a7eef04dae",
+    "oracleId": "cdce8b86-81e3-443c-af91-f6b4f62f5b59",
+    "name": "Pursuit of Flight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pursuit of Flight",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has \"{U}: This creature gains flying until end of turn.\"",
+        "flavorText": "\"Watch the voltage. We don't need another charred, crashing viashino.\"\n—Bori Andon, Izzet blastseeker",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "37a6290c-a0a8-4032-972b-84a7eef04dae"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPECTRAL_SLIVER": {
+    "scryfallId": "47b77256-631f-41b9-bd46-32be39e3e8d3",
+    "oracleId": "b08d4381-1a75-4c59-9551-b3133f7495a3",
+    "name": "Spectral Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spectral Sliver",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Sliver Spirit",
+        "oracleText": "All Sliver creatures have \"{2}: This creature gets +1/+1 until end of turn.\"",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "47b77256-631f-41b9-bd46-32be39e3e8d3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "psal",
+    "collectorNumber": "D27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CURIOUS_INQUIRY": {
+    "scryfallId": "5a3603c6-92df-45c7-b402-1f0a552ea398",
+    "oracleId": "52fe8101-82af-4aed-a395-54e7b7639bd2",
+    "name": "Curious Inquiry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Curious Inquiry",
+        "manaCost": "{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has \"Whenever this creature deals combat damage to a player, investigate.\" (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+        "flavorText": "Each time he replayed the attack in his mind, new details emerged.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ekaterina Burmak",
+        "imageId": "5a3603c6-92df-45c7-b402-1f0a552ea398"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Investigate",
+      "Enchant"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIDNIGHT_COVENANT": {
+    "scryfallId": "5d797e91-3fc7-4f62-8cd8-dbd5f445e69c",
+    "oracleId": "f3f2db4b-4a07-453c-ae18-aeec0adc8d3d",
+    "name": "Midnight Covenant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Midnight Covenant",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{B}: This creature gets +1/+1 until end of turn.\"",
+        "flavorText": "\"Not all mortals fought the kami. The ogres revered the oni, while some humans made pacts based upon empty promises.\"\n—*The History of Kamigawa*",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "5d797e91-3fc7-4f62-8cd8-dbd5f445e69c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEMPERED_SLIVER": {
+    "scryfallId": "69026075-adfa-48b0-b30e-04b0a76904c3",
+    "oracleId": "536c36d9-5ef4-441c-a6c8-5806644d805c",
+    "name": "Tempered Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tempered Sliver",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "Sliver creatures you control have \"Whenever this creature deals combat damage to a player, put a +1/+1 counter on it.\"",
+        "flavorText": "The question isn't whether slivers will adapt to a world's perils but whether the world's perils will adapt to slivers.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mitchell Malloy",
+        "imageId": "69026075-adfa-48b0-b30e-04b0a76904c3"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh1",
+    "collectorNumber": "183",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAVAGE_SILHOUETTE": {
+    "scryfallId": "8b8547e0-2928-4edc-a15a-a613cb4d1eac",
+    "oracleId": "bc243497-d95a-44e0-b7e3-c56b4ff7cd69",
+    "name": "Savage Silhouette",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Savage Silhouette",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has \"{1}{G}: Regenerate this creature.\"",
+        "flavorText": "Some elves believe that their survival instincts are born of many cycles of reincarnation.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "8b8547e0-2928-4edc-a15a-a613cb4d1eac"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Regenerate",
+      "Enchant"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCUTTLING_SLIVER": {
+    "scryfallId": "9bb0d1e8-fc95-4698-9df7-a09f790c490c",
+    "oracleId": "7c3dcfea-f42c-4515-9b7d-6e9d8cb4d7f9",
+    "name": "Scuttling Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scuttling Sliver",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Sliver Trilobite",
+        "oracleText": "Sliver creatures you control have \"{2}: Untap this creature.\"",
+        "flavorText": "A living fossil active after eons of dormancy.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "9bb0d1e8-fc95-4698-9df7-a09f790c490c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "623",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOLTING_SNAKESKIN": {
+    "scryfallId": "b781cbcf-dbba-41c1-be02-2396b824a217",
+    "oracleId": "1a668556-da98-4f1e-b1f7-26b7d63357a1",
+    "name": "Molting Snakeskin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Molting Snakeskin",
+        "manaCost": "{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +2/+0 and has \"{2}{B}: Regenerate this creature.\"",
+        "flavorText": "Flesh wounds are meaningless to those who discard their flesh so readily.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "YW Tang",
+        "imageId": "b781cbcf-dbba-41c1-be02-2396b824a217"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Regenerate",
+      "Enchant"
+    ],
+    "setCode": "ktk",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKELETAL_GRIMACE": {
+    "scryfallId": "b9b28f37-d6b8-4d35-95e9-9533aea0a071",
+    "oracleId": "99e03fa0-8e0c-4b5d-880f-d7de201d5f41",
+    "name": "Skeletal Grimace",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skeletal Grimace",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has \"{B}: Regenerate this creature.\"",
+        "flavorText": "\"And then I realized we all have skeletons on the inside. Why wait until the bodies are dead to control them?\"\n—Jadar, ghoulcaller of Nephalia",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "b9b28f37-d6b8-4d35-95e9-9533aea0a071"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Regenerate",
+      "Enchant"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONSUMING_FERVOR": {
+    "scryfallId": "d529d230-89b0-453b-987b-a47e15bc3830",
+    "oracleId": "16dddf03-449c-4df0-9902-f8901f05656e",
+    "name": "Consuming Fervor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Consuming Fervor",
+        "manaCost": "{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +3/+3 and has \"At the beginning of your upkeep, put a -1/-1 counter on this creature.\"",
+        "flavorText": "Headlong is the only way to pass through the gate to the afterlife.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "d529d230-89b0-453b-987b-a47e15bc3830"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "akh",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEVIANT_GLEE": {
+    "scryfallId": "e150896e-8745-42ac-894b-8f42a92bd7a7",
+    "oracleId": "13aeccd5-cca2-4249-904d-d5516f977440",
+    "name": "Deviant Glee",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deviant Glee",
+        "manaCost": "{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +2/+1 and has \"{R}: This creature gains trample until end of turn.\"",
+        "flavorText": "\"You just need the right incentive to fulfill my dreams.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Michael C. Hayes",
+        "imageId": "e150896e-8745-42ac-894b-8f42a92bd7a7"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TALONS_OF_FALKENRATH": {
+    "scryfallId": "f8e38239-a9ec-4149-9c90-74dcd46ed95d",
+    "oracleId": "e79b1224-1baf-460f-bf12-92b51cd8071f",
+    "name": "Talons of Falkenrath",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Talons of Falkenrath",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nEnchanted creature has \"{1}{R}: This creature gets +2/+0 until end of turn.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "f8e38239-a9ec-4149-9c90-74dcd46ed95d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant",
+      "Flash"
+    ],
+    "setCode": "dka",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

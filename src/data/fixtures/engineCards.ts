@@ -5306,6 +5306,26 @@ export const MANAWEFT_SLIVER: CardData = F.MANAWEFT_SLIVER as CardData;
 export const MULTANI_S_HARMONY: CardData = F.MULTANI_S_HARMONY as CardData;
 export const PARADISE_MANTLE: CardData = F.PARADISE_MANTLE as CardData;
 export const SHELTERED_AERIE: CardData = F.SHELTERED_AERIE as CardData;
+export const BARBED_SLIVER: CardData = F.BARBED_SLIVER as CardData;
+export const CLOT_SLIVER: CardData = F.CLOT_SLIVER as CardData;
+export const TROLLHIDE: CardData = F.TROLLHIDE as CardData;
+export const OBLIVION_CROWN: CardData = F.OBLIVION_CROWN as CardData;
+export const ARMOR_SLIVER: CardData = F.ARMOR_SLIVER as CardData;
+export const UMBRAL_MANTLE: CardData = F.UMBRAL_MANTLE as CardData;
+export const HIBERNATION_SLIVER: CardData = F.HIBERNATION_SLIVER as CardData;
+export const THORNCASTER_SLIVER: CardData = F.THORNCASTER_SLIVER as CardData;
+export const PURSUIT_OF_FLIGHT: CardData = F.PURSUIT_OF_FLIGHT as CardData;
+export const SPECTRAL_SLIVER: CardData = F.SPECTRAL_SLIVER as CardData;
+export const CURIOUS_INQUIRY: CardData = F.CURIOUS_INQUIRY as CardData;
+export const MIDNIGHT_COVENANT: CardData = F.MIDNIGHT_COVENANT as CardData;
+export const TEMPERED_SLIVER: CardData = F.TEMPERED_SLIVER as CardData;
+export const SAVAGE_SILHOUETTE: CardData = F.SAVAGE_SILHOUETTE as CardData;
+export const SCUTTLING_SLIVER: CardData = F.SCUTTLING_SLIVER as CardData;
+export const MOLTING_SNAKESKIN: CardData = F.MOLTING_SNAKESKIN as CardData;
+export const SKELETAL_GRIMACE: CardData = F.SKELETAL_GRIMACE as CardData;
+export const CONSUMING_FERVOR: CardData = F.CONSUMING_FERVOR as CardData;
+export const DEVIANT_GLEE: CardData = F.DEVIANT_GLEE as CardData;
+export const TALONS_OF_FALKENRATH: CardData = F.TALONS_OF_FALKENRATH as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -10743,6 +10763,26 @@ export const ENGINE_CARDS: CardData[] = [
   MULTANI_S_HARMONY,
   PARADISE_MANTLE,
   SHELTERED_AERIE,
+  BARBED_SLIVER,
+  CLOT_SLIVER,
+  TROLLHIDE,
+  OBLIVION_CROWN,
+  ARMOR_SLIVER,
+  UMBRAL_MANTLE,
+  HIBERNATION_SLIVER,
+  THORNCASTER_SLIVER,
+  PURSUIT_OF_FLIGHT,
+  SPECTRAL_SLIVER,
+  CURIOUS_INQUIRY,
+  MIDNIGHT_COVENANT,
+  TEMPERED_SLIVER,
+  SAVAGE_SILHOUETTE,
+  SCUTTLING_SLIVER,
+  MOLTING_SNAKESKIN,
+  SKELETAL_GRIMACE,
+  CONSUMING_FERVOR,
+  DEVIANT_GLEE,
+  TALONS_OF_FALKENRATH,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

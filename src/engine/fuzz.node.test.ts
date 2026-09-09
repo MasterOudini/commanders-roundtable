@@ -162,6 +162,12 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // the solver auto-taps granted mana whenever a creature stands and a spell is cast.
   { names: ['Cryptolith Rite'], copiesPerSeat: 2,
     counterKeys: ['grantedManaMade'], rotHistory: 'D372' },
+  // D373 - the SELF-AIMED effect: a granted body about the RECIPIENT ITSELF. Barbed Sliver is a
+  // Sliver creature granting "{2}: This creature gets +1/+0" to all Sliver creatures, so it is
+  // inside its OWN scope and can pump ITSELF with no second Sliver on the board - which is what
+  // makes the canary self-sufficient at any pool size.
+  { names: ['Barbed Sliver'], copiesPerSeat: 2,
+    counterKeys: ['selfAimedResolved'], rotHistory: 'D373' },
 ];
 
 /** What every seat is GUARANTEED to hold of the staples, weights applied. */
@@ -690,6 +696,8 @@ interface Run {
   readonly snowManaMade: number;
   /** D372 - mana made by a permanent that PRINTS no mana ability (a granted one). */
   readonly grantedManaMade: number;
+  /** D373 - a granted ability's payload that landed on its own SOURCE (the recipient). */
+  readonly selfAimedResolved: number;
   /** Library searches raised by a resolving effect (D357). */
   readonly librarySearches: number;
   /** Modes chosen for a spell, an activation or a trigger (D343). */
@@ -869,6 +877,29 @@ function runOne(seed: number): Run {
       const f = faceOf(card, inst.faceIndex);
       return f.producesMana.length === 0 && f.typeLine.types.some((t) => t === 'Creature' || t === 'Land' || t === 'Artifact' || t === 'Enchantment');
     }).length,
+    // D373 - a GRANTED ability whose payload landed on its own SOURCE. Counted by walking BACK
+    // from the mark to the nearest `AbilityPutOnStack`: that object carries both the ref (a
+    // granted one says `#g`/`#gt`) and the source, so this cannot go green on a targeted effect
+    // that merely happened to hit the same permanent, nor on a printed self ability.
+    selfAimedResolved: game.log.filter((e, i) => {
+      const b = e.body;
+      const cards =
+        b.t === 'PtModifiedUntilEndOfTurn' || b.t === 'RegenerationShieldAdded'
+          ? [b.card]
+          : b.t === 'PermanentsUntapped'
+            ? b.cards
+            : b.t === 'CountersChanged'
+              ? b.changes.map((c) => c.card)
+              : [];
+      if (cards.length === 0) return false;
+      for (let k = i - 1; k >= 0 && i - k < 40; k--) {
+        const prev = game.log[k]?.body;
+        if (prev?.t !== 'AbilityPutOnStack') continue;
+        const ref = prev.obj.abilityRef;
+        return typeof ref === 'string' && /#gt?\d+$/.test(ref) && cards.includes(prev.obj.source as never);
+      }
+      return false;
+    }).length,
     scryChoices: game.log.filter(
       (e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'scryChoice',
     ).length,
@@ -1015,6 +1046,7 @@ const TOTAL_KEYS = [
   'scryChoices',
   'snowManaMade',
   'grantedManaMade',
+  'selfAimedResolved',
   'librarySearches',
   'modeChoices',
   'entersDeclined',
@@ -1217,6 +1249,9 @@ function assertFloors(totals: Totals, seeds: number): void {
       // D372 - at gate size only: two Cryptolith Rites a seat, and a granted production is
       // proven only by mana a recipient actually made.
       if (seeds >= 500) expect(totals.grantedManaMade).toBeGreaterThan(0);
+      // D373 - at gate size only: two Barbed Slivers a seat, each inside its own scope, and a
+      // self-aimed payload is proven only by a mark that actually landed on the recipient.
+      if (seeds >= 500) expect(totals.selfAimedResolved).toBeGreaterThan(0);
       // ⚠️ THE MODAL CANARY (D343): Crushing Canopy is a staple in every pool and
       // is offered whenever a flyer or an enchantment stands, so at gate size a
       // mode must have been chosen somewhere.
@@ -1250,6 +1285,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.discardsChosen} discards chosen, ${totals.cardsDiscarded} moves of hand→graveyard · ` +
           `${totals.snowManaMade} mana made by a snow source · ` +
           `${totals.grantedManaMade} by a granted mana ability · ` +
+          `${totals.selfAimedResolved} granted payloads that hit their own source · ` +
           `${totals.paymentsPaid} payments made / ${totals.paymentsDeclined} declined`,
       );
 

@@ -12663,6 +12663,134 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       5, improvise 6); then the seam map's rest - the attached statics the Aura
       and Equipment rows cannot read (351), the bare keyword or ability word
       (206); prior items stand.
+- [x] **M6.4hf — THE SELF-AIMED EFFECT: a body about the permanent that is
+      running it, and "it" is never a subject on the spell path (2026-09-09):**
+      **7,790 of 31,692 Commander-legal cards now execute completely, up from
+      7,757 (+33: THIRTEEN with no script at all, and twenty rows).**
+      `SHIPPED_SCRIPTS` 4,944 -> **4,964**; ledger 1,075 -> **1,071** (four
+      drained, one relabelled). Fixtures 5,434 -> **5,454**. `scriptableToday`
+      1,170 -> **1,393** and the select pool 0 -> **224**. Decisions in **D373**.
+      ⚠️⚠️ **THE MEASUREMENT OVERTURNED THE PLAN.** D372's reportables predicted
+      a NORMALISATION wave over the 37 row-kind grant payloads - read a lowercase
+      "this creature" and a leading "it" as the recipient, no engine change.
+      Measured against the real parsers: of 167 live payloads the vocabulary
+      reads SEVEN, and the self word fixes **ZERO** of the other 160. `damage`
+      already resolved "This creature deals" as its SOURCE and `selfRef` has
+      spelled a card's own name `~` from the beginning; what was missing was an
+      effect whose SUBJECT is the resolving object's own source. `pump` existed
+      only with a TARGET clause, `massPump` only with the board as its subject,
+      and `regenerate` did not exist as a verb at all - and `effects.ts` said so
+      downstream (`case 'pump': if (aim?.kind !== 'card') break;`), so a
+      hand-built spec would have hit the same `break`. There was no
+      generator-side version of it: a predicted wave was an engine seam.
+      ⚠️ **THE SEAM.** `effectParse.ts` gains a `SELF` subject (`this
+      creature|permanent|artifact|enchantment|land` or `~`) and nine rules over
+      it - the three pump shapes on the same closed `GRANTABLE` map the targeted
+      pump uses, a counter on the source, a self bounce, a self untap,
+      `regenerate` self and targeted (CR 701.19), and `Investigate.` (CR
+      701.16a, a Clue from `TOKEN_TABLE` at build time). `SELF_AIMED` beside
+      `EffectKind` is CLOSED - pump, putCounters, bounce, untap, regenerate -
+      every member with a rule and a proof, because a kind listed with no rule
+      is a subject the executor claims and no sentence fills (D158). `effects.ts`
+      aims such a clause at `obj.card ?? obj.source`.
+      ⚠️⚠️ **`it` IS NEVER A PARSER SUBJECT.** On a spell "it" is the PREVIOUS
+      sentence's target ("Destroy target creature. It can't be regenerated.",
+      "... Untap it."), so a rule admitting it would read that sentence for the
+      spell itself - a whole card going `auto` over a clause aimed at the wrong
+      thing (D90). A QUOTED body's "it" IS its recipient, so the rewrite lives in
+      `scripts/vocabulary.ts`, where the text is KNOWN to be a quoted body, and
+      nowhere else. The parser never sees the word.
+      ⚠️ **THE RECIPIENT IS THE SOURCE (CR 113.7a)** - `obj.source` on a granted
+      ability is the permanent that was GIVEN it, so the pump lands on the
+      Sliver, not on Barbed Sliver. A source that has LEFT is a subject that is
+      gone, narrated exactly as a lost target is - never a silent no-op.
+      ⚠️ **THE CARD NAMED REGENERATE** stays refused, and not for regeneration:
+      `selfRef` spells a card's own name `~` before any rule runs and this card's
+      name IS its verb, so the sentence arrives as "~ target creature." Its
+      ledger row now says that (D365: the label says where to look, the string
+      inside says what is wrong).
+      ⚠️ **THE UNTAP SYMBOL IS A COST AND ITS OFFER IS GATED ON BEING TAPPED.**
+      Umbral Mantle's `{3}, {Q}` was the wave's one red suite - the granted
+      ability was not offered at all, because `legal.ts` skips a `requiresUntap`
+      ability while the permanent is UNTAPPED. The engine was right and the
+      generator was wrong: fixed at the GENERATOR (D267), which taps the
+      recipient first and asserts it untapped afterwards - the card's whole point.
+      ⚠️⚠️ **THE GATE FOUND SIX REDS THE TARGETED RUNS COULD NOT.** (a) D187's
+      SUPPRESSION PREDICATE is how a seam announces that a HAND SCRIPT has become
+      redundant: Deduce, Foul Play and Auspicious Arrival each assert their text
+      does NOT read `auto`, written when the vocabulary could not read
+      `Investigate.`; it can now, so all three state the opposite of the truth and
+      are REWRITTEN (D117). The predicate was a statement about the WORLD, never a
+      safety rule - the card still runs exactly ONCE, closed twice over (`loop.ts`
+      consults the def where the vocabulary ran and it OUTRANKS it; and
+      `assistedEffectsFor` returns null both for an `auto` face and for one
+      carrying a shipped def). The three scripts are REDUNDANT, not wrong;
+      retiring them is a measured decision of its own. (b) THE REGENERATION
+      TRIPWIRE (D330) fired and was right to - `scripts/vocabulary.ts` names
+      `regenerate` in `NEEDS_AIM`, so it joined the seam's file list ON PURPOSE.
+      (c) Two bulk censuses moved: `oracleParse`'s effect modes (auto 4,732 ->
+      4,783) and `tokenParse`'s clause census DOWN (cards 961 -> 958) - three
+      `Investigate.` lines LEFT it, because D373's own rule reads them before the
+      token clause parser is asked.
+      **Landed:** thirteen with NO SCRIPT (the four `Regenerate target creature.`
+      spells the ledger held by name, and the investigate spells) and twenty
+      quoted-grant rows from one table - Armor, Barbed and Spectral Sliver (All
+      Sliver creatures), Clot and Hibernation Sliver (All Slivers), Scuttling,
+      Tempered and Thorncaster Sliver (Sliver creatures you control), Umbral
+      Mantle (Equipment) and eleven Auras. Of the 40 row-kind payloads the other
+      twenty are refused BY REASON: the vocabulary refuses 8 (a token outside
+      `TOKEN_TABLE` 3, `you may draw` 2, a loot, a computed count, a mass drain),
+      3 are `Commander creatures you own` (measured at ZERO, D371), 7 are a head
+      outside the library and 2 a CHOSEN sacrifice the scaffold does not stage.
+      The fuzz gate gained a `selfAimedResolved` floor off Barbed Sliver as a
+      canary staple - it is in its OWN scope, so it pumps itself with no second
+      Sliver on the board: **260 granted payloads that hit their own
+      source in the gate's 500 seeds.**
+      Fixtures 5,454 (5,301 by name + 146 tokens) · botPool artifact 440 /
+      creature 4,501 / enchantment 449 / instant 1,049 / land 566 / sorcery 785 -
+      auto 1,038 / assisted 1,905 / autoAnyFace 1,047 · ladder [1393, 1481, 3056,
+      4783, 6119] · `layer6` sole-need 1,299 -> 1,278 (grant 809 -> 792, anthem
+      132 -> 128) · tier3 silentAfter 8,089 · bot reach 7,696 -> **7,729** from
+      222 commanders · `batch.json` untouched at D371's 23 - the twenty came from
+      a TABLE, never the selector.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,113 files, 25,293 passed / 11 skipped ·
+      500-seed gate, 6 shards, 895.9 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D373): **the 224 the select pool now offers** - printed
+      permanents whose sole unread sentence was a self-aimed effect or a
+      regeneration ("{2}: Regenerate ~", "{T}: Put a +1/+1 counter on ~", "{1}: ~
+      gets +1/+0 until end of turn"), the biggest single opening since the
+      payment prompt (D369: 1,050 -> 1,207) and D374's wave, sized by the ROW
+      MAKER's own refusal histogram rather than by the pool (D352/D364); **the
+      three hand scripts the seam made REDUNDANT** (Deduce, Foul Play, Auspicious
+      Arrival - the vocabulary reads all three whole now, so their defs are a
+      second path to the same events; retiring them is its own measured decision,
+      and D187's predicate is where a seam ANNOUNCES the next such class); then the
+      twenty quoted-grant payloads this wave refused BY REASON - the three token
+      descriptions outside `TOKEN_TABLE` (a green-and-blue Drake, a named
+      Tarmogoyf, a 5/5 Beast), the `you may` payload (an optional trigger the
+      scaffold must ANSWER, not decline - D370's settle trap), the loot (a draw
+      then a discard ASK), `create that many` (a computed count), the mass drain,
+      the seven trigger HEADS outside the library and the CHOSEN sacrifice costs
+      (a permanent the intent must name, D168); then the 100-card tail across 94
+      shapes; a granted mana ability with a SPEND restriction; then D371's list -
+      the 18 whose grant REDEFINES the host's base P/T (Lignify, Frogify,
+      Darksteel Mutation), the NUMBERED grant keywords (bushido, afflict,
+      rampage), the three scopes D371 refused, `Commander creatures you own`
+      MEASURED AT ZERO; then D370's - the 52 trigger heads and 23 payloads the
+      row library does not hold, the X and computed payment prices (19), an
+      effect after the payment ask (9), echo (17) and cumulative upkeep (16);
+      then `as long as` (448 across 276 conditions); the granted STATIC (10),
+      the ENTERS and combat-role scaffold arms; then D365's - the counts
+      outside the vocabulary (17), the activation conditions (35), the trigger
+      payloads outside both readers (20) - and D364's snow CREATURE fixture,
+      D363's counter KINDS and NONTOKEN predicate, the keyword ENTRY
+      REPLACEMENTS (bloodthirst 13, modular 7, graft 2) and CHOICES (fabricate
+      10, unleash 9, riot 4, devour 4, enlist 5, amplify 3), the block
+      REQUIREMENT (provoke 4), the cast-time payment sources (convoke 14, delve
+      5, improvise 6); then the seam map's rest - the attached statics the Aura
+      and Equipment rows cannot read (351), the bare keyword or ability word
+      (206); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
