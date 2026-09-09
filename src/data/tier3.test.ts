@@ -160,9 +160,17 @@ describe('a permanent’s text, which the app does not run', () => {
     // rowed the anthem. Silent now, like Avacyn.
     expect(what(C.EMBLEM_OF_THE_WARMIND)).toEqual([]);
     // Akroma's Memorial grants five enforced keywords AND protection from two
-    // colours - a grant the row grammar does not read, so nothing runs the
-    // static and the note says it. This is the test's point now.
-    expect(what(C.AKROMA_S_MEMORIAL)).toEqual(['Its ability text']);
+    // colours - said until D371 read a grant as a LIST across three carriers
+    // (a keyword, a landwalk type, a protection quality). Silent now.
+    expect(what(C.AKROMA_S_MEMORIAL)).toEqual([]);
+    // ⚠️ THE EXAMPLE HAS MOVED THREE TIMES - Avacyn (D300), the Emblem (D324),
+    // the Memorial (D371) - and always the same way: the engine learned to run
+    // the static. Halvar is picked for a STRUCTURAL reason instead. His scope is
+    // a condition on ATTACHMENT, which `staticRowShape` does not read in any
+    // form, where every earlier example was a scope one widening away. When this
+    // one goes silent too, replace it the same way: find a grant the row grammar
+    // cannot express, not one it has not expressed yet.
+    expect(what(C.HALVAR_GOD_OF_BATTLE_SWORD_OF_THE_REALMS)).toContain('Its ability text');
     // Lightning Greaves ships since D305: `Equip {0}` is the engine's own
     // activated ability and the haste-and-shroud static a row - silent.
     expect(what(C.LIGHTNING_GREAVES)).toEqual([]);

@@ -469,8 +469,19 @@ const SPELL_STRUCTURAL: readonly RegExp[] = [
  * row can express the condition. "Colorless" stays out until a colorless
  * creature fixture can prove it.
  */
-const STATIC_KW = '(?:flying|trample|vigilance|haste|lifelink|deathtouch|first strike|double strike|menace|hexproof|indestructible|reach|defender|shroud|flash)';
-const STATIC_KWS = `${STATIC_KW}(?:(?:, | and |, and )${STATIC_KW})*`;
+// D371 - every Tier-2 keyword the engine enforces that carries NO number: the derive
+// installs it and `combat.ts`, the damage rules and `keywordTriggers.ts` read it off the
+// derived object, so a grant of one is a static the row already emits. The numbered
+// keywords (bushido N, soulshift N, afterlife N, afflict N, toxic N, poisonous N) stay
+// out: their number lives in the SOURCE`s printed text, which a recipient does not have.
+const STATIC_KW = '(?:flying|trample|vigilance|haste|lifelink|deathtouch|first strike|double strike|menace|hexproof|indestructible|reach|defender|shroud|flash|fear|intimidate|skulk|shadow|horsemanship|infect|wither|prowess|exalted|flanking|persist|undying|evolve|melee|training|dethrone|ingest|changeling|devoid)';
+// D371 - the two PARAMETERISED grants the derive keeps outside `keywords`: a landwalk type
+// and a protection quality. Both are ordinary statics with a different `modify`, and the
+// row maker refuses a protection phrase `parseProtection` cannot read.
+const STATIC_WALK = '(?:mountain|island|forest|swamp|plains)walk';
+const STATIC_PROT = '(?:protection from [a-z]+(?: and from [a-z]+)*)';
+const STATIC_GRANT = `(?:${STATIC_KW}|${STATIC_WALK}|${STATIC_PROT})`;
+const STATIC_KWS = `${STATIC_GRANT}(?:(?:, | and |, and )${STATIC_GRANT})*`;
 const STATIC_ADJ = '(?:White|Blue|Black|Red|Green|Multicolored|(?!Non|Attacking|Blocking|Token|Legendary|Tapped|Untapped|Enchanted|Equipped|Snow|Basic|Face|Artifact|Enchantment|Land|Creature|Colorless|Commander|Modified|Historic|Outlaw|Party|Monocolored|You|Player|Opponent)[A-Z][a-z]+)';
 // D354 - THE SCOPE'S NOUN. A tribal lord prints `Other Knights you control get +1/+1.`, with the
 // SUBTYPE as the noun; the head above read only the literal words creatures and permanents, so no

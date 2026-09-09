@@ -7,6 +7,29 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { AKROMAS_MEMORIAL_SCRIPT } from './cards/akromasMemorial';
+import { ABSOLUTE_GRACE_SCRIPT } from './cards/absoluteGrace';
+import { ABSOLUTE_LAW_SCRIPT } from './cards/absoluteLaw';
+import { ADRIANA_CAPTAIN_OF_THE_GUARD_SCRIPT } from './cards/adrianaCaptainOfTheGuard';
+import { AYSEN_HIGHWAY_SCRIPT } from './cards/aysenHighway';
+import { CORROSIVE_MENTOR_SCRIPT } from './cards/corrosiveMentor';
+import { ELVISH_CHAMPION_SCRIPT } from './cards/elvishChampion';
+import { FIRST_SLIVERS_CHOSEN_SCRIPT } from './cards/firstSliversChosen';
+import { GOBLIN_KING_SCRIPT } from './cards/goblinKing';
+import { HERALD_OF_HOOFBEATS_SCRIPT } from './cards/heraldOfHoofbeats';
+import { HIDDEN_PATH_SCRIPT } from './cards/hiddenPath';
+import { INTIMIDATION_SCRIPT } from './cards/intimidation';
+import { LORD_OF_ATLANTIS_SCRIPT } from './cards/lordOfAtlantis';
+import { LUMBERING_SATYR_SCRIPT } from './cards/lumberingSatyr';
+import { MASTER_OF_THE_PEARL_TRIDENT_SCRIPT } from './cards/masterOfThePearlTrident';
+import { SHADOW_SLIVER_SCRIPT } from './cards/shadowSliver';
+import { SIDEWINDER_SLIVER_SCRIPT } from './cards/sidewinderSliver';
+import { SUBLIME_ARCHANGEL_SCRIPT } from './cards/sublimeArchangel';
+import { SUN_QUAN_LORD_OF_WU_SCRIPT } from './cards/sunQuanLordOfWu';
+import { TITANIA_PROUD_PUMMELER_SCRIPT } from './cards/titaniaProudPummeler';
+import { BEHIND_THE_SCENES_SCRIPT } from './cards/behindTheScenes';
+import { ELADAMRI_LORD_OF_LEAVES_SCRIPT } from './cards/eladamriLordOfLeaves';
+import { SOKKA_TENACIOUS_TACTICIAN_SCRIPT } from './cards/sokkaTenaciousTactician';
 import { ARCHWAY_COMMONS_SCRIPT } from './cards/archwayCommons';
 import { CURSECATCHER_SCRIPT } from './cards/cursecatcher';
 import { DARBA_SCRIPT } from './cards/darba';
@@ -4936,6 +4959,29 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AKROMAS_MEMORIAL_SCRIPT,
+  ABSOLUTE_GRACE_SCRIPT,
+  ABSOLUTE_LAW_SCRIPT,
+  ADRIANA_CAPTAIN_OF_THE_GUARD_SCRIPT,
+  AYSEN_HIGHWAY_SCRIPT,
+  CORROSIVE_MENTOR_SCRIPT,
+  ELVISH_CHAMPION_SCRIPT,
+  FIRST_SLIVERS_CHOSEN_SCRIPT,
+  GOBLIN_KING_SCRIPT,
+  HERALD_OF_HOOFBEATS_SCRIPT,
+  HIDDEN_PATH_SCRIPT,
+  INTIMIDATION_SCRIPT,
+  LORD_OF_ATLANTIS_SCRIPT,
+  LUMBERING_SATYR_SCRIPT,
+  MASTER_OF_THE_PEARL_TRIDENT_SCRIPT,
+  SHADOW_SLIVER_SCRIPT,
+  SIDEWINDER_SLIVER_SCRIPT,
+  SUBLIME_ARCHANGEL_SCRIPT,
+  SUN_QUAN_LORD_OF_WU_SCRIPT,
+  TITANIA_PROUD_PUMMELER_SCRIPT,
+  BEHIND_THE_SCENES_SCRIPT,
+  ELADAMRI_LORD_OF_LEAVES_SCRIPT,
+  SOKKA_TENACIOUS_TACTICIAN_SCRIPT,
   ARCHWAY_COMMONS_SCRIPT,
   CURSECATCHER_SCRIPT,
   DARBA_SCRIPT,

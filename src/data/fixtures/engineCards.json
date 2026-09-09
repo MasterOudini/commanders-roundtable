@@ -177424,6 +177424,752 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ABSOLUTE_GRACE": {
+    "scryfallId": "fe7d1839-7180-4b4c-8ddb-7df24573f740",
+    "oracleId": "41785f7b-3d02-4b7f-86ff-b381f626142e",
+    "name": "Absolute Grace",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Absolute Grace",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "All creatures have protection from black.",
+        "flavorText": "In pursuit of Urza, the Phyrexians sent countless foul legions into Serra's realm. Though beaten back, they left it tainted with uncleansable evil.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jeff Miracola",
+        "imageId": "fe7d1839-7180-4b4c-8ddb-7df24573f740"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ABSOLUTE_LAW": {
+    "scryfallId": "59d1f05b-f165-47c7-8a78-3b60ee3298ca",
+    "oracleId": "f4aa8391-34d5-4ad2-a981-9aa08f8229db",
+    "name": "Absolute Law",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Absolute Law",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "All creatures have protection from red.",
+        "flavorText": "The strength of law is unwavering. It is an iron bar in a world of water.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Zug",
+        "imageId": "59d1f05b-f165-47c7-8a78-3b60ee3298ca"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ADRIANA_CAPTAIN_OF_THE_GUARD": {
+    "scryfallId": "01c2337d-1c3c-4c5e-8b06-dc8a8c56164e",
+    "oracleId": "de23275e-e9c1-4151-aed8-f79ead03d5d4",
+    "name": "Adriana, Captain of the Guard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Adriana, Captain of the Guard",
+        "manaCost": "{3}{R}{W}",
+        "typeLine": "Legendary Creature — Human Knight",
+        "oracleText": "Melee (Whenever this creature attacks, it gets +1/+1 until end of turn for each opponent you attacked this combat.)\nOther creatures you control have melee. (If a creature has multiple instances of melee, each triggers separately.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Chris Rallis",
+        "imageId": "01c2337d-1c3c-4c5e-8b06-dc8a8c56164e"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Melee"
+    ],
+    "setCode": "dmc",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AYSEN_HIGHWAY": {
+    "scryfallId": "adfa87eb-9a11-459c-bff8-87bb09b61b87",
+    "oracleId": "415bc26d-60fb-41ac-8006-7dd861671c14",
+    "name": "Aysen Highway",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aysen Highway",
+        "manaCost": "{3}{W}{W}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "White creatures have plainswalk. (They can't be blocked as long as defending player controls a Plains.)",
+        "flavorText": "\"Tread the roads of righteousness, Murat, lest you lose your way and be consumed.\"\n—Baris, Serra Inquisitor",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "NéNé Thomas",
+        "imageId": "adfa87eb-9a11-459c-bff8-87bb09b61b87"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "hml",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORROSIVE_MENTOR": {
+    "scryfallId": "140457ff-ee7d-48ec-8b91-ef5c2cc1ed74",
+    "oracleId": "380a1fbf-68bc-4456-9a67-f01c0174944c",
+    "name": "Corrosive Mentor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Corrosive Mentor",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Elemental Rogue",
+        "oracleText": "Black creatures you control have wither. (They deal damage to creatures in the form of -1/-1 counters.)",
+        "flavorText": "Guttering cinders stoke their dying flames by snuffing out the lights of others.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Daarken",
+        "imageId": "140457ff-ee7d-48ec-8b91-ef5c2cc1ed74"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELVISH_CHAMPION": {
+    "scryfallId": "08433b6b-f2af-4a52-abf8-3968d62d41fb",
+    "oracleId": "7e40f37c-9a0c-40e0-b195-7ea94b12f798",
+    "name": "Elvish Champion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elvish Champion",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "Other Elf creatures get +1/+1 and have forestwalk. (They can't be blocked as long as defending player controls a Forest.)",
+        "flavorText": "\"For what are leaves but countless blades\nTo fight a countless foe on high.\"\n—Elvish hymn",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "D. Alexander Gregory",
+        "imageId": "08433b6b-f2af-4a52-abf8-3968d62d41fb"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "9ed",
+    "collectorNumber": "238★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIRST_SLIVER_S_CHOSEN": {
+    "scryfallId": "5a05798c-9bc3-45ec-85d4-1c9769929bc9",
+    "oracleId": "f664596a-9ad1-4db3-95b0-457698ad2f66",
+    "name": "First Sliver's Chosen",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "First Sliver's Chosen",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "Sliver creatures you control have exalted. (Whenever a creature you control attacks alone, it gets +1/+1 until end of turn for each instance of exalted among permanents you control.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "5a05798c-9bc3-45ec-85d4-1c9769929bc9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "j21",
+    "collectorNumber": "81",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_KING": {
+    "scryfallId": "049d96ef-f46c-44d7-8ec4-cdbcc3cd0397",
+    "oracleId": "d236b3fc-0d3f-4d99-875d-e32a33fe5767",
+    "name": "Goblin King",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin King",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "Other Goblins get +1/+1 and have mountainwalk.",
+        "flavorText": "To be king, Numsgil did in Blog, who did in Unkful, who did in Viddle, who did in Loll, who did in Alrok . . . .",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jesper Myrfors",
+        "imageId": "049d96ef-f46c-44d7-8ec4-cdbcc3cd0397"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ath",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HERALD_OF_HOOFBEATS": {
+    "scryfallId": "7beebc99-b027-49e2-95ad-e51ce302457f",
+    "oracleId": "c9b40f24-c08e-4e05-a141-0a8a670d37c9",
+    "name": "Herald of Hoofbeats",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Herald of Hoofbeats",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Horsemanship (This creature can't be blocked except by creatures with horsemanship.)\nOther Knights you control have horsemanship.",
+        "flavorText": "Most dismissed her love of horses as a passing childhood fancy. Years later it saved their lives.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "7beebc99-b027-49e2-95ad-e51ce302457f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Horsemanship"
+    ],
+    "setCode": "moc",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HIDDEN_PATH": {
+    "scryfallId": "cbc93c0b-0ac8-4b8f-b2f6-96887d1acd77",
+    "oracleId": "f1c9f5df-d36a-4e15-bae4-81190e4be477",
+    "name": "Hidden Path",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hidden Path",
+        "manaCost": "{2}{G}{G}{G}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Green creatures have forestwalk. (They can't be blocked as long as defending player controls a Forest.)",
+        "flavorText": "\"Where moments before we were lost beyond hope, the strange, floating lights showed us the way and restored our morale.\"\n—Vervamon the Elder",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Rob Alexander",
+        "imageId": "cbc93c0b-0ac8-4b8f-b2f6-96887d1acd77"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "drk",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INTIMIDATION": {
+    "scryfallId": "1b9e1724-91cf-422e-909b-ddb69a6f9f76",
+    "oracleId": "a345d7d1-5d30-49a0-b139-a46f9419c50f",
+    "name": "Intimidation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Intimidation",
+        "manaCost": "{2}{B}{B}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Creatures you control have fear. (They can't be blocked except by artifact creatures and/or black creatures.)",
+        "flavorText": "\"If they move, kill them. In fact, kill one now to make sure the other understands.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Terese Nielsen",
+        "imageId": "1b9e1724-91cf-422e-909b-ddb69a6f9f76"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LORD_OF_ATLANTIS": {
+    "scryfallId": "06711cfc-ddd6-4c86-838a-4caa6e5a924b",
+    "oracleId": "cc7f290f-ca00-4285-9bdb-4b4402444f30",
+    "name": "Lord of Atlantis",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lord of Atlantis",
+        "manaCost": "{U}{U}",
+        "typeLine": "Creature — Merfolk",
+        "oracleText": "Other Merfolk get +1/+1 and have islandwalk. (They can't be blocked as long as defending player controls an Island.)",
+        "flavorText": "\"Ooh, a Tide Shaper! This is going straight into my Svyelun deck.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Billy Christian",
+        "imageId": "06711cfc-ddd6-4c86-838a-4caa6e5a924b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pw24",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LUMBERING_SATYR": {
+    "scryfallId": "5d897088-0667-4864-91c3-5f0ac7f9b220",
+    "oracleId": "fba1329d-d8bf-4c5e-9cf1-5410a42f732e",
+    "name": "Lumbering Satyr",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lumbering Satyr",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Satyr Beast",
+        "oracleText": "All creatures have forestwalk. (They can't be blocked as long as defending player controls a Forest.)",
+        "flavorText": "The satyr carves the path that all of Rushwood follows.\n—Cho-Arrim saying",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alan Pollack",
+        "imageId": "5d897088-0667-4864-91c3-5f0ac7f9b220"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "257",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MASTER_OF_THE_PEARL_TRIDENT": {
+    "scryfallId": "3367f862-cd88-4e6d-8e87-693080e5c431",
+    "oracleId": "9f6ea9fe-eee5-4dca-a34e-c66d3e218716",
+    "name": "Master of the Pearl Trident",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Master of the Pearl Trident",
+        "manaCost": "{U}{U}",
+        "typeLine": "Creature — Merfolk",
+        "oracleText": "Other Merfolk creatures you control get +1/+1 and have islandwalk. (They can't be blocked as long as defending player controls an Island.)",
+        "flavorText": "\"Let the land dwellers know the coast is no longer the border between our realms. A new age of empire has begun.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ryan Pancoast",
+        "imageId": "3367f862-cd88-4e6d-8e87-693080e5c431"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tsr",
+    "collectorNumber": "310",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHADOW_SLIVER": {
+    "scryfallId": "b9a757de-b218-4334-9056-e75898316adf",
+    "oracleId": "46ddc2e1-386f-4aaf-b37b-37b1708e0d9c",
+    "name": "Shadow Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shadow Sliver",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Sliver creatures have shadow. (They can block or be blocked by only creatures with shadow.)",
+        "flavorText": "These slivers, trapped between worlds since the Rathi overlay, are among the last to claim direct lineage from the lost Sliver Queen.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "b9a757de-b218-4334-9056-e75898316adf"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "624",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIDEWINDER_SLIVER": {
+    "scryfallId": "5616e0c7-1f1d-4716-95e5-773a8e3ae5e3",
+    "oracleId": "de8ccd32-f537-4a11-8dc4-e48836a0b139",
+    "name": "Sidewinder Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sidewinder Sliver",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Sliver creatures have flanking. (Whenever a creature without flanking blocks a Sliver, the blocking creature gets -1/-1 until end of turn.)",
+        "flavorText": "\"They encircled our patrol with the stealth of snakes, corralling us like livestock.\"\n—Merrik Aidar, Benalish patrol",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "5616e0c7-1f1d-4716-95e5-773a8e3ae5e3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "tsr",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUBLIME_ARCHANGEL": {
+    "scryfallId": "33ac93d2-80dd-4e2a-93b6-3e85526c7372",
+    "oracleId": "b5479c97-df19-49c7-b305-7a0336fd1cb3",
+    "name": "Sublime Archangel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sublime Archangel",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying\nExalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\nOther creatures you control have exalted. (If a creature has multiple instances of exalted, each triggers separately.)",
+        "flavorText": "\"The Angel has the TARDIS.\"\n—The Thirteenth Doctor",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Nephelomancer",
+        "imageId": "33ac93d2-80dd-4e2a-93b6-3e85526c7372"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Exalted"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "1381",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUN_QUAN_LORD_OF_WU": {
+    "scryfallId": "1cf311a8-5c3b-4473-9732-d0ddb1d42644",
+    "oracleId": "70503280-6bdf-431d-8213-367a9783463a",
+    "name": "Sun Quan, Lord of Wu",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sun Quan, Lord of Wu",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Legendary Creature — Human Soldier",
+        "oracleText": "Creatures you control have horsemanship. (They can't be blocked except by creatures with horsemanship.)",
+        "flavorText": "\"One score and four he reigned, the Southland king: / A dragon coiled, a tiger poised below the mighty Yangtze.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Xu Xiaoming",
+        "imageId": "1cf311a8-5c3b-4473-9732-d0ddb1d42644"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "cmm",
+    "collectorNumber": "498",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TITANIA_PROUD_PUMMELER": {
+    "scryfallId": "31255422-9afa-416c-90b2-62baf1d02cca",
+    "oracleId": "6d51f00e-46a5-4064-a0c8-e840c66dbf2b",
+    "name": "Titania, Proud Pummeler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Titania, Proud Pummeler",
+        "manaCost": "{3}{R}",
+        "typeLine": "Legendary Creature — Human Villain",
+        "oracleText": "First strike\nMelee (Whenever this creature attacks, it gets +1/+1 until end of turn for each opponent you attacked this combat.)\nOther creatures you control have melee.",
+        "flavorText": "\"I do my best talking with my fists.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Filipe Pagliuso",
+        "imageId": "31255422-9afa-416c-90b2-62baf1d02cca"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "First strike",
+      "Melee"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "62",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BEHIND_THE_SCENES": {
+    "scryfallId": "514d1c07-e559-49c7-a95c-2fa55fa65042",
+    "oracleId": "e84837bd-4f94-43e1-876e-d82cae6ee247",
+    "name": "Behind the Scenes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Behind the Scenes",
+        "manaCost": "{2}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Creatures you control have skulk. (They can't be blocked by creatures with greater power.)\n{4}{W}: Creatures you control get +1/+1 until end of turn.",
+        "flavorText": "It does no good to bar the gate when the enemy is already inside.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "David Gaillet",
+        "imageId": "514d1c07-e559-49c7-a95c-2fa55fa65042"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tdc",
+    "collectorNumber": "172",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELADAMRI_LORD_OF_LEAVES": {
+    "scryfallId": "0b1689f3-9dfa-4525-90b3-7af15f7eb720",
+    "oracleId": "dcbb6b0e-2219-4ba4-9720-3e58b59b4328",
+    "name": "Eladamri, Lord of Leaves",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eladamri, Lord of Leaves",
+        "manaCost": "{G}{G}",
+        "typeLine": "Legendary Creature — Elf Warrior",
+        "oracleText": "Other Elf creatures have forestwalk. (They can't be blocked as long as defending player controls a Forest.)\nOther Elves have shroud. (They can't be the targets of spells or abilities.)",
+        "flavorText": "\"We have been patient. We have planned our attack. We are ready . . . *now*.\"\n—Eladamri, Lord of Leaves",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ron Chironna",
+        "imageId": "0b1689f3-9dfa-4525-90b3-7af15f7eb720"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "224",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOKKA_TENACIOUS_TACTICIAN": {
+    "scryfallId": "03802747-84dc-426a-8902-89c87ca20015",
+    "oracleId": "6b68acc2-b9d5-495b-8054-c04bae1349f1",
+    "name": "Sokka, Tenacious Tactician",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sokka, Tenacious Tactician",
+        "manaCost": "{1}{U}{R}{W}",
+        "typeLine": "Legendary Creature — Human Warrior Ally",
+        "oracleText": "Menace, prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nOther Allies you control have menace and prowess.\nWhenever you cast a noncreature spell, create a 1/1 white Ally creature token.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U",
+          "W"
+        ],
+        "artist": "Robin Har",
+        "imageId": "03802747-84dc-426a-8902-89c87ca20015"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Prowess",
+      "Menace"
+    ],
+    "setCode": "ptla",
+    "collectorNumber": "242s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

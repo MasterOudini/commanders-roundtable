@@ -12443,6 +12443,119 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       rest — the attached statics the Aura and Equipment rows cannot read (351),
       the Aura that REDEFINES its host (18), the bare keyword or ability word
       (185); prior items stand.
+- [x] **M6.4hd — THE GRANT VOCABULARY: the static readers knew fifteen keywords
+      while the engine enforces thirty-nine, and two of the things a grant can
+      name are not keywords at all (2026-09-09):** **7,746 of 31,692
+      Commander-legal cards now execute completely, up from 7,723 (+23).**
+      `SHIPPED_SCRIPTS` 4,910 -> **4,933**; ledger 1,071 -> **1,074** (+3, each a
+      SCOPE the suite cannot prove). Fixtures 5,401 -> **5,423**. **Select pool
+      0 -> 26 -> 0** - BOTH shapes at once (D363's): the reader widening is a
+      SEAM, its own rows are the WAVE. Decisions in **D371**.
+      ⚠️ **MEASURED FIRST, on a seam map rebuilt after D370:** 23,969 incomplete,
+      **12,219 ONE piece from landing across 10,878 wordings - 1.12 each**, flat
+      for six decisions, so only a grammar finishes this. The densest family by
+      cards per wording is `a keyword or ability word alone` (229 / 61 = 3.75),
+      and inside it the one-piece grant cards split **158 quoted-ability payloads
+      / 155 KEYWORD payloads / 18 base-P/T redefinitions**. The 155 were invisible
+      for ONE reason: `STATIC_KW` lists **fifteen** keywords where
+      `TIER2_KEYWORDS` - what the ENGINE enforces - holds **thirty-nine**, so
+      "Creatures you control have intimidate." was filed under `layer6` and never
+      reached the pool, not because anything was missing but because the reader
+      did not know the word.
+      ⚠️⚠️ **A GRANT IS NOT ALWAYS A KEYWORD, and the derive keeps three things
+      apart:** a KEYWORD (`chars.keywords`, a Set), a LANDWALK TYPE
+      (`chars.landwalk`, a string[] `canBlock` reads - CR 702.13) and a
+      PROTECTION QUALITY (`chars.protection`, the structure D356 gave it). So the
+      widening is three, and a grant body is parsed as a LIST rather than as two
+      fixed slots, because Akroma's Memorial names six grants in one sentence
+      across two carriers.
+      ⚠️ **A NUMBERED KEYWORD STAYS OUT, and the reason is where the number
+      lives:** `keywordTriggers.ts` reads a bushido's or an afflict's number off
+      the SOURCE's printed text, and a creature GRANTED bushido has no printed
+      text to read it from - so the grant would install a keyword whose number
+      nothing can answer (D90's rule for grants, in the one place it still bites).
+      ⚠️ **The protection grant calls the INGEST's own reader:** `parseProtection`
+      is what built the printed keyword's structure since D356, so a granted
+      "protection from black and from red" and a printed one produce the SAME
+      `Protection` rather than two readings of the same words.
+      ⚠️⚠️ **`Commander creatures you own` WAS BUILT AND REVERTED IN THE SAME
+      HOUR.** It is 25 cards in the leftover survey and the head could not read it
+      twice over - `Commander` is in the adjective exclusion list and the relation
+      is OWNERSHIP rather than control - but measured with the REAL classifier it
+      opens **zero**: every one of those cards carries another blocker. A widening
+      no card exercises is a rule nobody has proven (D158's dead seam, one reader
+      over), so it came out.
+      ⚠️ **A GRANT GUARD THAT READS ONLY THE KEYWORD SET EMITS NOTHING** - the row
+      maker's `hasGrant` asked whether the keyword list was non-empty, so `Goblin
+      King`, whose whole grant is `mountainwalk`, produced a static that modified
+      nothing beside a suite asserting a keyword the card does not name. It asks
+      all three carriers now.
+      ⚠️ **THE PROBE AND THE CLASSIFIER MUST AGREE, and the probe is the one that
+      lies:** the candidate probe reads a scope head with a regex where the
+      classifier reads it with `staticRowShape`, so when the classifier widened
+      and the probe did not, nine cards were "not candidates" while the pool
+      offered them - which reads exactly like a missing card.
+      ⚠️ **`All creatures` HAS NO OUTSIDE, so the negative FLIPS:** an anthem row
+      proves the creature inside its scope has the grant and one outside it does
+      not, and for an unrestricted scope the second assertion is that the
+      OPPONENT'S creature has it TOO - the shape that catches a scope silently
+      narrowed to "you control".
+      ⚠️ **Gate 59's one red was the DISCLOSURE's example, for the THIRD time.**
+      `tier3.test.ts`'s "a static ability is said even when it grants an ENFORCED
+      keyword" has lost every example it has had to the engine growing - Avacyn
+      (D300), Emblem of the Warmind (D324), and now Akroma's Memorial, which this
+      grammar reads. REWRITTEN rather than adapted (D117), and its new example is
+      picked for a STRUCTURAL reason instead: Halvar's scope is a condition on
+      ATTACHMENT, which `staticRowShape` does not read in any form.
+      **Landed:** 23 rows from one table - the tribal lords whose grant is a
+      keyword the reader did not know (Lord of Atlantis, Master of the Pearl
+      Trident, Elvish Champion, Eladamri Lord of Leaves, Goblin King, Shadow
+      Sliver, Sidewinder Sliver, First Sliver's Chosen), the colour and global
+      grants (Absolute Grace, Absolute Law, Intimidation, Hidden Path, Aysen
+      Highway, Behind the Scenes, Corrosive Mentor, Lumbering Satyr), and the
+      legends and Equipment (Akroma's Memorial, Sun Quan Lord of Wu, Titania Proud
+      Pummeler, Adriana Captain of the Guard, Sublime Archangel, Herald of
+      Hoofbeats, Sokka Tenacious Tactician). ⚠️ THREE refused by name, every one a
+      SCOPE rather than a grant: **Rashel, Fist of Torm** (an Auras scope),
+      **Zarda, the Power Princess** (a Hero subtype no fixture body prints) and
+      **Righteous War** (two colour anthems one board cannot prove without
+      shifting the other's proof). The bot's own reach rose to **7,685** cards from
+      7,662, chosen from **222** fully-executable legendary creatures (217 before).
+      Fixtures 5,423 (5,270 by name + 146 tokens) · botPool artifact 437 /
+      creature 4,489 / enchantment 434 / instant 1,038 / land 565 / sorcery 783 -
+      auto 1,022 / assisted 1,909 / autoAnyFace 1,031 · ladder [1170, 1237, 2819,
+      4655, 5988] · `layer6` sole-need 1,319 -> 1,305 · tier3 silentAfter 8,045 ·
+      batch.json 23 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,080 files, 25,119 passed / 11 skipped ·
+      500-seed gate, 6 shards, 1,021.0 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D371): the 158 one-piece grant cards whose payload is a
+      QUOTED ability (the carrier D367/D368 built, its payload families still
+      unread) and the 18 whose grant REDEFINES the host's base P/T (Lignify,
+      Frogify, Darksteel Mutation - every piece exists: D151's `hasAbilities`,
+      layer 7b's base P/T, D311's type change); the NUMBERED grant keywords
+      (bushido, afflict, rampage - a granted keyword whose number lives on the
+      SOURCE's printed text, so the grant needs the number to ride the def); the
+      three scopes this decision refused (an Auras scope, a subtype with no
+      fixture body, two colour anthems on one board); ⚠️ and `Commander creatures
+      you own` is MEASURED AT ZERO and reverted - do not rebuild it without
+      re-measuring, because the 25 cards behind it each carry another blocker;
+      then D370's list unchanged - the 52 trigger heads and 23 payloads the row
+      library does not hold (the biggest generated-wave material on the board),
+      the X and computed payment prices (19), an effect after the payment ask (9),
+      the typed-spell compound clause (3) and the per-item payment (2), echo (17)
+      and cumulative upkeep (16) on the same prompt; then `as long as` (448 across
+      276 conditions - D342's `conditionOf` plus a dozen cheap predicates); the
+      granted STATIC (10), a granted MANA ability (CR 605's immediate path), the
+      ENTERS and combat-role scaffold arms; then D365's - the counts outside the
+      vocabulary (17), the activation conditions (35), the trigger payloads
+      outside both readers (20) - and D364's snow CREATURE fixture, D363's counter
+      KINDS and NONTOKEN predicate, the keyword ENTRY REPLACEMENTS (bloodthirst
+      13, modular 7, graft 2) and CHOICES (fabricate 10, unleash 9, riot 4, devour
+      4, enlist 5, amplify 3), the block REQUIREMENT (provoke 4), the cast-time
+      payment sources (convoke 14, delve 5, improvise 6); then the seam map's rest
+      - the attached statics the Aura and Equipment rows cannot read (351), the
+      bare keyword or ability word (206 after this wave); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

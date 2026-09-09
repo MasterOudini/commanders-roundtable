@@ -26117,3 +26117,142 @@ pool 0.
 
 **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,057 files, 25,024 passed / 11 skipped · 500-seed
 gate, 6 shards, 914.3 s wall · build clean · probe 124/124 · battery 130/130.**
+
+
+## D371 - M6.4hd: THE GRANT VOCABULARY - the reader knew fifteen keywords and the engine enforces thirty-nine (2026-09-09)
+
+**7,746 of 31,692 Commander-legal cards execute completely, up from 7,723
+(+23).** `SHIPPED_SCRIPTS` 4,910 -> **4,933**; REFUSED ledger 1,071 -> **1,074**
+(+3, each a SCOPE the suite cannot prove). Fixtures 5,401 -> **5,423**. **Select
+pool 0 -> 26 -> 0** - this decision is BOTH shapes at once (D363's): the reader
+widening is a SEAM, and its own rows are the WAVE.
+
+### Measured first, on a fresh seam map
+
+The true-leftover survey, rebuilt after D370: **23,969 incomplete, 12,219 ONE
+piece from landing across 10,878 wordings - 1.12 each**, flat for six decisions,
+so only a grammar finishes this. The densest family by cards per wording is `a
+keyword or ability word alone` at 229 / 61 = **3.75**, and inside it the
+one-piece grant cards split three ways: **158** whose payload is a QUOTED ability
+(D367/D368's carrier, its scopes and payloads), **155** whose payload is a
+KEYWORD, and 18 that redefine their host's base P/T.
+
+Of the 155, the classifier could see almost none of them - and the reason is one
+line. `STATIC_KW` lists **fifteen** keywords; `TIER2_KEYWORDS` - what the ENGINE
+enforces - holds **thirty-nine**. A card whose only leftover was "Creatures you
+control have intimidate." or "Enchanted creature has fear." was filed under
+`layer6` and never reached the pool, not because anything was missing but
+because the reader did not know the word.
+
+### The three carriers
+
+⚠️ **A GRANT IS NOT ALWAYS A KEYWORD.** The derive keeps three things apart, and
+the reader has to as well:
+| carrier | field | why it is its own |
+|---|---|---|
+| a keyword | `chars.keywords` (a Set) | a bare word |
+| a landwalk type | `chars.landwalk` (string[]) | it carries a LAND TYPE, and `canBlock` reads it there (CR 702.13) |
+| a protection quality | `chars.protection` | it carries a colour or a quality, and D356 gave it a structure |
+
+So the widening is three: every Tier-2 keyword that carries no NUMBER, plus
+`(mountain|island|forest|swamp|plains)walk`, plus `protection from <quality>` -
+and a grant body is parsed as a LIST rather than as two fixed slots, because
+Akroma's Memorial names six grants in one sentence across two of the carriers.
+
+⚠️ **A NUMBERED KEYWORD STAYS OUT, and the reason is where the number lives.**
+`keywordTriggers.ts` reads a bushido's or an afflict's number off the SOURCE's
+printed text; a creature GRANTED bushido has no printed text to read it from, so
+the grant would install a keyword whose number nothing can answer - D90's rule
+for grants, in the one place it still bites.
+
+⚠️ **The protection grant calls the INGEST's own reader.** `parseProtection` is
+what built the printed keyword's structure since D356, so a granted "protection
+from black and from red" and a printed one produce the SAME `Protection` rather
+than two readings of the same words (the rule `tier3.ts` has paid for six times,
+one module over).
+
+### The scopes, and the one that was reverted
+
+Four scope spellings the generator could not read, each printed by cards in this
+pool: `All creatures`, a COLOUR (`White creatures you control` - the classifier
+has read one since D300 and the generator never could, so those cards were
+offered and refused every time), `All Sliver creatures` (the subtype as an
+adjective) and `Other Merfolk` (a plural subtype with no "you control").
+
+⚠️ **`Commander creatures you own` was built and REVERTED in the same hour.** It
+is 25 cards in the leftover survey and the head could not read it twice over -
+`Commander` is in the adjective exclusion list and the relation is ownership
+rather than control - but measured with the REAL classifier it opens **zero**:
+every one of those cards carries another blocker. A widening no card exercises
+is a rule nobody has proven (D158's dead seam, one reader over), so it came out.
+
+### The reader is not the only thing that has to agree
+
+⚠️ **A GRANT GUARD THAT READS ONLY THE KEYWORD SET EMITS NOTHING.** The row
+maker's `hasGrant` asked whether the body's keyword list was non-empty, so
+`Goblin King` - whose whole grant is `mountainwalk` - produced a module with a
+static that modified nothing and a suite that asserted a keyword the card does
+not name. It asks all three carriers now.
+
+⚠️ **THE PROBE AND THE CLASSIFIER MUST AGREE, and the probe is the one that
+lies.** The candidate probe reads a scope head with a regex; the classifier
+reads it with `staticRowShape`. When the classifier widened and the probe did
+not, nine cards were "not candidates" while the pool offered them - a
+disagreement that reads exactly like a missing card. The probe's heads are
+generalised to the same shapes.
+
+⚠️ **A PLAIN ANTHEM WITH A GRANT BESIDE IT NEEDED THE CARRIERS TOO.** The
+scoped path emitted landwalk and protection and the plain-anthem path did not,
+so `Akroma's Memorial` - six grants on one line, two of them protections -
+compiled with an unused constant. One emitter, three carriers, both paths.
+
+### The scope, and the negative that has to flip
+
+An anthem row proves itself twice: the creature inside the scope HAS the grant,
+and one outside it does NOT. ⚠️ **`All creatures` has no outside**, so the
+negative is the assertion that the OPPONENT'S creature has it too - the same
+sentence read from the other side of the table, and the shape that would catch a
+scope silently narrowed to "you control".
+
+### The gate's one red was the disclosure's example, for the third time
+
+⚠️⚠️ Gate 59 failed on exactly one assertion out of 25,119, and it was not a
+card: `tier3.test.ts`'s **"a static ability is said even when it grants an
+ENFORCED keyword"**. That case has lost EVERY example it has ever had to the
+engine growing - Avacyn (D300), Emblem of the Warmind (D324), and now Akroma's
+Memorial, whose six grants this decision's grammar reads - because each one was
+chosen as a static the engine did not YET run.
+
+REWRITTEN rather than adapted (D117), and the replacement is picked for a
+STRUCTURAL reason instead: **Halvar's scope is a condition on ATTACHMENT**
+("creatures you control that are enchanted or equipped"), which
+`staticRowShape` does not read in any form, where every earlier example was a
+scope the grammar was one widening away from. The rule now sits in the test:
+when this one goes silent too, replace it with a grant the row grammar CANNOT
+express, never one it merely has not expressed yet.
+
+### Measured
+
+| | before | after |
+|---|---|---|
+| complete | 7,723 | **7,746** |
+| `SHIPPED_SCRIPTS` | 4,910 | **4,933** |
+| REFUSED ledger | 1,071 | **1,074** |
+| fixtures | 5,401 | **5,423** |
+| select pool | 0 -> 26 | **0** |
+| `scriptableToday` | 1,167 | **1,170** |
+| `layer6` sole-need | 1,319 | **1,305** |
+| tier3 `silentAfter` | 8,022 | **8,045** |
+
+The three refusals are named: **Rashel, Fist of Torm** (an Auras scope - a grant
+to a class of attachment rather than to creatures), **Zarda, the Power Princess**
+(a Hero subtype scope, which no fixture body prints) and **Righteous War** (two
+colour anthems on one card, which one board cannot prove without shifting the
+other's proof).
+
+The bot's own reach rose to **7,685** cards from 7,662, chosen from **222**
+fully-executable legendary creatures (217 before); Absolute Grace and Absolute
+Law went straight into its deck.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,080 files, 25,119 passed / 11 skipped · 500-seed
+gate, 6 shards, 1,021.0 s wall · build clean · probe 124/124 · battery 130/130.**

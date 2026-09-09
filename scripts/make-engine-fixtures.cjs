@@ -5851,6 +5851,30 @@ const WANTED = [
   // D370 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
   // D370 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
   'Fugitive Wizard',
+  // D371 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  'Absolute Grace',
+  'Absolute Law',
+  'Adriana, Captain of the Guard',
+  'Aysen Highway',
+  'Corrosive Mentor',
+  'Elvish Champion',
+  "First Sliver's Chosen",
+  'Goblin King',
+  'Herald of Hoofbeats',
+  'Hidden Path',
+  'Intimidation',
+  'Lord of Atlantis',
+  'Lumbering Satyr',
+  'Master of the Pearl Trident',
+  'Shadow Sliver',
+  'Sidewinder Sliver',
+  'Sublime Archangel',
+  'Sun Quan, Lord of Wu',
+  'Titania, Proud Pummeler',
+  'Behind the Scenes',
+  'Eladamri, Lord of Leaves',
+  'Sokka, Tenacious Tactician',
+  // D371 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
