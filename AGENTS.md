@@ -12791,6 +12791,119 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       5, improvise 6); then the seam map's rest - the attached statics the Aura
       and Equipment rows cannot read (351), the bare keyword or ability word
       (206); prior items stand.
+- [x] **M6.4hg — THE FILTERED TRIGGER HEAD: 127 head texts the library does not
+      hold are seven heads and a filter on the subject (2026-09-10):**
+      **7,850 of 31,692 Commander-legal cards now execute completely, up from
+      7,790 (+60).** `SHIPPED_SCRIPTS` 4,964 -> **5,024**; ledger 1,071 ->
+      **1,235** (+164 - every card of the 224 the wave did not take, by the
+      reason the row maker gave). Fixtures 5,454 -> **5,528** (two new token
+      pins). **Select pool 224 -> 0** - what a WAVE does, where a seam refills
+      it. Decisions in **D374**.
+      ⚠️ **MEASURED WITH A THROWAWAY, BECAUSE A HISTOGRAM STOPS AT THE FIRST
+      BLOCKER (D352).** D373 left 224 offerable; the row maker took NINE and
+      refused 168 of the rest with one line - `trigger head not in the library`.
+      A throwaway row maker that ACCEPTS any head and carries on priced it
+      honestly: **rows 171, unrowable 53**, so the head library was the only
+      thing between D373's seam and about 171 cards.
+      ⚠️⚠️ **AND THEIR SHAPE IS WHAT DECIDED THE MECHANISM.** By head
+      TEXT the 162 whose ONLY blocker is the head carry 180 head lines across
+      **127 DISTINCT texts - 1.42 cards each**, a long tail no library of
+      hand-written entries can finish. By BASE EVENT they collapse: enters 33,
+      cast 29, dies 16, blocks 13, sacrifice 10, attacks 7, other 54. **They are
+      not 127 heads. They are seven heads and a FILTER on the subject.**
+      ⚠️ **THE SEAM.** `filterlib.cjs` reads a head the library does not hold as
+      a BASE head plus a filter, over a CLOSED thirteen-word vocabulary
+      (`another`, a controller phrase, a card type, a negated type, a subtype, a
+      colour, colorless, multicolored, nontoken, historic, a keyword, a power
+      bound, a mana-value bound). A word it cannot place refuses the WHOLE head
+      (D90) - seventeen cards - and the filter emits ONE MORE CONJUNCT on the
+      base head's own matcher.
+      ⚠️⚠️ **THE HEAD NAME STAYS THE BASE'S, AND THAT IS THE DESIGN.** The
+      generator keys a dozen lists on a head name - the fire line, the board and
+      hand adjustments, whether the row's card starts in hand, the turn the test
+      ends on, which fixtures the deck carries. A NEW head name would have had to
+      join every one of them; a filter NARROWING an existing name inherits all of
+      it, and changes exactly two things: the matcher conjunct and the card the
+      suite deals.
+      ⚠️ **THE FIXTURE IS DERIVED FROM THE FILTER** (D347's cost fodder and
+      D360's search target, one reader over): the simplest QUIET card the filter
+      admits - no trigger, no board-wide static, no Enchant or Equip line - and
+      for a cast head a PERMANENT spell with no target and no X, so the board
+      goes up by exactly one however the filter reads. **A filter no card
+      satisfies REFUSES the row by name** (D350; three cards - two Cartouches,
+      whose every printing is an Aura and therefore not quiet, and Kurgadon,
+      whose head asks for a creature spell of mana value 6 or greater where the
+      cast derivation caps it at 5 so the suite can fund the cast).
+      ⚠️ **THE FIXTURE A GENERATOR DERIVES IS IN NO NAMES LIST** (D347, and D370
+      was bitten by Patron Wizard's Fugitive Wizard). The derivation picks
+      twenty-three head fixtures and WANTED already held eleven, so TWELVE are
+      named by neither the wave's own names nor `helpers.json`; the port
+      collects them AND sweeps every name every generated suite deals against
+      WANTED before it runs - 86 names across the 60 suites, 0 missing.
+      ⚠️ **A MATCHER THAT READS NEITHER PARAMETER.** A filter naming neither the
+      source nor its controller ("Whenever another Elf enters") emits a body
+      mentioning neither `ctx` nor `self`, and an unused parameter is a `tsc`
+      error: seven modules, fixed at the GENERATOR (D267) by naming the
+      parameters from the BODY.
+      ⚠️ **TWO CAST FIXTURES ON ONE CARD.** The four Duo cards print two cast
+      heads of different colours, so one variable cannot hold both - one per
+      distinct fixture, in ability order. A filtered ENTERS head beside a
+      filtered DIES head still cannot: they share the one `bears` variable, one
+      assigning it and the other declaring it, so such a row is refused by name.
+      ⚠️ **THE FIXTURE TEST PINS THE TOKEN COUNT BESIDE THE TOTAL** and the
+      port's `sed` repins only the total; two new pins moved it 146 -> 148 and
+      the guard caught it.
+      ⚠️ **INVARIANT 14, THREE TIMES IN ONE DECISION**: a doubled backslash in a
+      heredoc arrives SINGLE, so an applier whose anchor spelled one matched
+      nothing and a regex written with one was a syntax error. An applier writes
+      the currency sign and substitutes char 92 at runtime, and a payload past
+      ~100 lines goes in its own part file.
+      **Landed:** 60 generated rows, every suite green on the FIRST run - 51 of
+      them on a filtered head (24 enters, 26 cast, 6 dies) and nine on heads the
+      library already held (56 filtered abilities between them). The other 164 are ledgered by name: 93 a head the
+      library holds in no base at all, 17 a filtered head whose subject the
+      closed reader cannot place, 12 a trigger payload outside both readers, 10 a
+      REGENERATE payload the suite cannot assert, 9 an ability-word activated
+      line, 9 neither an activated ability nor a library trigger, 6 a cost, 3 a
+      filter no fixture satisfies.
+      Fixtures 5,528 (5,373 by name + 148 tokens) · botPool artifact 440 /
+      creature 4,560 / enchantment 450 / instant 1,049 / land 566 / sorcery 785 -
+      auto 1,038 / assisted 1,905 / autoAnyFace 1,047 (a row lands a SCRIPT, so
+      no parser number moves) · ladder [1333, 1421, 2996, 4723, 6059] ·
+      `scriptableToday` 1,393 -> **1,333**, the tell that a wave and not a seam
+      landed · tier3 silentAfter 8,089 -> **8,149** · bot reach 7,729 ->
+      **7,789** from 225 commanders (222 before) · `batch.json` 60 · select
+      pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5173 files, 25575 passed / 11 skipped ·
+      500-seed gate, 6 shards, 920.5 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D374): **the regenerate suite arm** (10 cards, the
+      largest single class this wave refused - the engine seam exists from D330,
+      and what is missing is a vocabulary-arm assert that shields, destroys and
+      proves the creature survived; six want a creature destroyer the chain
+      already stages and four a target ARTIFACT, which needs an artifact
+      destroyer); **the 93 heads the library holds in no base at all** (blocks
+      13, sacrifice 10, attacks 7 lead them, and each is a base the filter
+      mechanism then narrows for free); the 17 filtered heads whose subject is
+      outside the closed reader (a linked memory - `a creature dealt damage by
+      this creature this turn` 5 - an alternatives list 3, a timing phrase, a
+      team scope, a chosen colour); the three hand scripts D373 made REDUNDANT
+      (Deduce, Foul Play, Auspicious Arrival); the twenty quoted-grant payloads
+      D373 refused BY REASON; then the 100-card tail across 94 shapes; then
+      D371's list - the 18 whose grant REDEFINES the host's base P/T, the
+      NUMBERED grant keywords, `Commander creatures you own` MEASURED AT ZERO;
+      then D370's - the X and computed payment prices (19), an effect after the
+      payment ask (9), echo (17) and cumulative upkeep (16); then `as long as`
+      (448 across 276 conditions); the granted STATIC (10), the ENTERS and
+      combat-role scaffold arms; then D365's - the counts outside the vocabulary
+      (17), the activation conditions (35), the trigger payloads outside both
+      readers (20) - and D364's snow CREATURE fixture, D363's counter KINDS and
+      NONTOKEN predicate, the keyword ENTRY REPLACEMENTS (bloodthirst 13,
+      modular 7, graft 2) and CHOICES (fabricate 10, unleash 9, riot 4, devour
+      4, enlist 5, amplify 3), the block REQUIREMENT (provoke 4), the cast-time
+      payment sources (convoke 14, delve 5, improvise 6); then the seam map's
+      rest - the attached statics the Aura and Equipment rows cannot read (351),
+      the bare keyword or ability word (206); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

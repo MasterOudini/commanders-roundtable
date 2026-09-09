@@ -26562,3 +26562,168 @@ in the gate's 500 seeds.**
 
 **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,113 files, 25,293 passed / 11 skipped ·
 500-seed gate, 6 shards, 895.9 s wall · build clean · probe 124/124 · battery 130/130.**
+
+## D374 - M6.4hg: THE FILTERED TRIGGER HEAD - 127 head texts the library does not hold are seven heads and a filter on the subject (2026-09-10)
+
+**7,850 of 31,692 Commander-legal cards execute completely, up from 7,790
+(+60).** `SHIPPED_SCRIPTS` 4,964 -> **5,024**; REFUSED ledger 1,071 ->
+**1,235** (+164 - every card of the 224 the wave did not take, by the reason
+the row maker gave). Fixtures 5,454 -> **5,528** (two new token pins).
+`scriptableToday` 1,393 -> **1,333** and the select pool 224 -> **0** - what a
+WAVE does, where a seam raises both.
+
+### Measured with a throwaway, because a histogram stops at the first blocker
+
+D373's self-aimed subject left the select pool at **224** printed permanents.
+The real row maker took **nine** of them, and refused 215 with one line leading
+its histogram at 168: `trigger head not in the library`.
+
+That number says nothing useful on its own. A refusal histogram STOPS AT THE
+FIRST BLOCKER (D352), so 168 counts cards whose head is the first thing in the
+way and not cards the head is the ONLY thing in the way for. A THROWAWAY row
+maker that ACCEPTS any head and carries on priced it honestly:
+
+    real row maker:  rows   9, unrowable 215  (168 of them the head)
+    throwaway:       rows 171, unrowable  53
+
+So the trigger head library was the only thing between D373's seam and about
+**171** cards, and 162 of the 168 head-refused cards carry no second blocker.
+
+### And the SHAPE of the 168 is what decided the mechanism
+
+Take the **162** whose ONLY blocker is the head: they carry 180 head lines
+across **127 DISTINCT texts - 1.42 cards each**. That is a
+long tail, and a tail is exactly what a library of hand-written entries cannot
+finish: D313 through D320 added heads one at a time and each bought single
+digits. But grouped by BASE EVENT they collapse:
+
+| base | cards |
+|---|---|
+| enters | 33 |
+| cast | 29 |
+| dies | 16 |
+| blocks | 13 |
+| sacrifice | 10 |
+| attacks | 7 |
+| other | 54 |
+
+**They are not 127 heads. They are seven heads and a FILTER on the subject** -
+"Whenever another **Zombie you control** enters", "Whenever you cast a
+**green** spell", "Whenever a **nontoken creature you control** dies". One
+mechanism, not 127 entries.
+
+### The seam
+
+`filterlib.cjs` reads a head the library does not hold as a **BASE head plus a
+filter on its subject**. The filter vocabulary is CLOSED and thirteen words
+wide: `another`, a controller phrase (`you control`, `an opponent controls`), a
+card TYPE, a negated type (`noncreature`), a SUBTYPE, a colour, `colorless`,
+`multicolored`, `nontoken`, `historic`, a keyword qualifier (`with flying`), a
+power bound and a mana-value bound.
+
+A word the reader cannot place refuses the WHOLE head (D90) rather than reading
+part of it - seventeen cards, and each refusal names the word: a linked memory
+(`a creature dealt damage by this creature this turn`, five cards), an
+alternatives list (`another creature or planeswalker you control`, three), a
+timing phrase, a team scope, a chosen colour.
+
+The filter then emits **one more conjunct** on the base head's own `matches`
+source string, read off the DERIVED characteristics for a permanent and off the
+same oracle path the shipped cast-watchers use for a spell.
+
+### The head name stays the base's, and that is the design
+
+⚠️ The generator keys a dozen lists on a head NAME: which fire line the suite
+runs, whether the board goes up by one and the hand down by one, whether the
+row's card starts in hand, the turn the test ends on, which fixtures the two
+decks carry, whether the head looks back at the state before the event. A NEW
+head name would have had to be added to every one of them, and a list that
+forgot it would produce a suite that is wrong in a way nothing catches.
+
+A filter that NARROWS an existing head name inherits all of it. `enters` rides
+`anotherCreatureEnters` or `creatureEnters`, `cast` rides `castSpell` or
+`opponentCastsSpell`, `dies` rides `anotherCreatureDies` - and a dies head an
+OPPONENT controls rides `aCreatureDies`, which already kills the opponent's
+Cyclops, so it carries no fixture at all once the Cyclops is checked against
+the filter. **Exactly two things change: the matcher conjunct and the card the
+suite deals.**
+
+### The fixture is derived from the filter
+
+A filtered head only fires for a card the filter admits, so the suite must DEAL
+one, and the card is DERIVED (`gen74-headfix.cjs`) the way D347 derives a cost's
+fodder and D360 a search's target: the simplest card in the database the filter
+admits, tie-broken by mana value then name.
+
+A fixture must SIT STILL - no trigger, no board-wide static, no `Enchant` or
+`Equip` line - or the suite would be proving two cards at once. A CAST fixture
+is additionally a PERMANENT spell with no target and no `{X}`, so the board goes
+up by exactly one however the filter reads; an instant resolving into the
+graveyard would leave the board assert one short, and WHICH it picked would
+depend on the filter rather than on the head.
+
+⚠️ **A filter no card satisfies REFUSES the row by name** (D350): three cards.
+Two are a `Cartouche`, whose every printing is an Aura and therefore not quiet;
+the third is Kurgadon, whose head asks for a creature spell of mana value 6 or
+greater where the cast derivation caps mana value at 5 so the suite can fund the
+cast. A suite that fires nothing passes whether or not the head works.
+
+⚠️ **THE FIXTURE A GENERATOR DERIVES IS IN NO NAMES LIST** (D347, and D370 was
+bitten by Patron Wizard's Fugitive Wizard). The derivation picks twenty-three head
+fixtures and WANTED already held eleven, so twelve are named by neither the
+wave's own names nor `helpers.json`. The port collects
+them AND sweeps every name every generated suite deals against WANTED before it
+runs - 86 names across the 60 suites, 0 missing.
+
+### What the port found
+
+⚠️ **A matcher that reads NEITHER parameter.** A filter naming neither the
+source nor its controller ("Whenever another Elf enters", "Whenever a creature
+with flying dies") emits a body mentioning neither `ctx` nor `self`, and an
+unused parameter is a `tsc` error. Seven modules, fixed at the GENERATOR
+(D267): the parameter names come from the BODY.
+
+⚠️ **Two cast fixtures on one card.** The four Duo cards print two cast heads of
+different colours ("Whenever you cast a green spell ... Whenever you cast a
+white spell"), so one variable cannot hold both - one per distinct fixture, in
+ability order. But a filtered ENTERS head and a filtered DIES head share the one
+`bears` variable, one assigning it and the other declaring it, so a row carrying
+both is refused by name.
+
+⚠️ **The fixture test pins the TOKEN count beside the total**, and the port's
+`sed` repins only the total. Two new pins moved it 146 -> 148 and the guard
+caught it; the port script now says so.
+
+⚠️ **Invariant 14, three times in one decision.** A doubled backslash in a
+heredoc arrives SINGLE, so an applier whose anchor spelled one matched nothing
+and a regex written with one was a syntax error. An applier writes the currency
+sign and substitutes char 92 at runtime, and a payload past ~100 lines goes in
+its own part file because a single Bash command past that is truncated.
+
+`derive.cjs`'s file list had forgotten `gen53-extras.cjs`; it was derived on its
+own, because re-running the whole derive would have rebuilt the files this
+decision had already patched (D354).
+
+### Landed
+
+**60 generated rows, every suite green on the FIRST run** (60 files, 162 tests).
+Fifty-one ride a filtered head, carrying 56 filtered abilities between them -
+24 enters, 26 cast, 6 dies - and nine ride heads the library already held.
+
+The other 164 of the 224 are in the REFUSED ledger by name, each with the reason
+the row maker gave: **93 a head the library holds in no base at all** (blocks
+13, sacrifice 10, attacks 7 lead them), 17 a filtered head whose subject is
+outside the closed reader, 12 a trigger payload outside both readers, **10 a
+regenerate payload the suite cannot assert**, 9 an ability-word activated line,
+9 neither an activated ability nor a library trigger, 6 a cost, 3 a filter no
+fixture satisfies, and a tail of one or two each.
+
+Fixtures 5,528 (5,373 by name + 148 tokens) · botPool artifact 440 / creature
+4,560 / enchantment 450 / instant 1,049 / land 566 / sorcery 785 - auto 1,038 /
+assisted 1,905 / autoAnyFace 1,047, none of which moves, because a row lands a
+SCRIPT rather than widening a parser · ladder [1333, 1421, 2996, 4723, 6059] ·
+tier3 silentAfter 8,089 -> 8,149 · bot reach 7,729 -> **7,789** from 225
+commanders (222 before) · `batch.json` 60 · select pool 0.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5173 files, 25575 passed / 11 skipped ·
+500-seed gate, 6 shards, 920.5 s wall · build clean · probe 124/124 · battery 130/130.**
