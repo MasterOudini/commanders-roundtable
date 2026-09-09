@@ -22,6 +22,9 @@ import type { GameState, StackObject, TargetChoice } from './types/state';
 // so none of them changes person for the reader and none needs parts.
 import { narrated } from './narrate';
 import { drawFromTop } from './setup';
+import { buildPaymentProblem } from './mana';
+import { solveInputFor, suggestPayment } from './payment';
+import type { PlayerId as Payer } from './types/ids';
 
 /** The thing a clause is pointed at, already checked for still being there. */
 type Aim =
@@ -256,6 +259,64 @@ export function effectResult(
             ...(effect.keywords.length > 0 ? { keywords: effect.keywords } : {}),
           });
         }
+        break;
+      }
+
+      /**
+       * D369 - THE PAYMENT PROMPT. The payer is named by the printed sentence: the
+       * caster, the first target's controller (a spell on the stack, or a
+       * permanent), or the targeted player. Asked ONLY when they can pay - a life
+       * they do not have (CR 119.4) or a mana cost the solver cannot meet from the
+       * pool and the untapped sources is not a question, so the unpaid branch runs
+       * here, at once. Otherwise the prompt carries both branches and a snapshot
+       * of the object, because the spell has already left the stack (D136's shape).
+       */
+      case 'payOptional': {
+        const pay = effect.pay;
+        if (!pay) break;
+        let payer: Payer | null = null;
+        if (pay.who === 'controller') payer = controller;
+        else if (pay.who === 'targetPlayer') payer = aim?.kind === 'player' ? aim.id : null;
+        else if (aim?.kind === 'card') payer = aim.controller;
+        else if (aim?.kind === 'stack') payer = state.stack.find((s) => s.id === aim.id)?.controller ?? null;
+        if (!payer) break;
+        const seat = state.players[payer];
+        const problem = buildPaymentProblem(pay.cost, 0, [], 0, pay.life);
+        const can =
+          !!seat && seat.life >= pay.life && (pay.cost === null || suggestPayment(solveInputFor(state, deps.oracle, deps.scripts, payer, cache), problem) !== null);
+        if (!can) {
+          out.push(narrated(`${obj.label} - the price cannot be paid.`, obj.controller, obj.identity));
+          out.push(...effectResult(state, deps, obj, pay.ifNotPaid, cache).events);
+          break;
+        }
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        out.push({
+          t: 'AwaitingSet',
+          awaiting: {
+            kind: 'payMana',
+            player: payer,
+            cost: pay.cost,
+            life: pay.life,
+            label: obj.label,
+            controller: obj.controller,
+            source: obj.source,
+            card: obj.card,
+            identity: obj.identity,
+            targets: obj.targets,
+            ...(obj.targetSlots !== undefined ? { targetSlots: obj.targetSlots } : {}),
+            ifPaid: pay.ifPaid,
+            ifNotPaid: pay.ifNotPaid,
+          },
+        });
+        break;
+      }
+
+      // D369 - Sacrifice this creature: the object's own source, if it is still on the battlefield.
+      case 'sacrificeSelf': {
+        if (!source) break;
+        const inst = state.cards[source];
+        if (!inst || inst.zone.kind !== 'battlefield') break;
+        out.push(moveTo(source, 'graveyard', inst.owner));
         break;
       }
 

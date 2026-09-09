@@ -37,7 +37,7 @@ import { suggestPayment, solveInputFor, validatePlan } from './payment';
 import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle } from './rng';
 import { n, narrated, their, vb, who } from './narrate';
-import { drawEvents } from './effects';
+import { drawEvents, effectResult } from './effects';
 import { apply } from './reducer';
 import { bottomCountFor, drawFromTop } from './setup';
 import { abilityOfRef, activatedModesFor, legalModesFor, resolveAbility, stackPendingTriggers, targetingSourceFor, triggerDefFor, type EngineDeps } from './loop';
@@ -124,6 +124,8 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
       return answerChooseColor(state, intent);
     case 'AnswerEntersChoice':
       return answerEntersChoice(state, intent);
+    case 'AnswerPayMana':
+      return answerPayMana(state, intent, deps);
     case 'AnswerSearchLibrary':
       return answerSearchLibrary(state, intent, deps);
     case 'AnswerChooseFromZone':
@@ -1959,7 +1961,7 @@ function payEvents(
   deps: EngineDeps,
   player: PlayerId,
   plan: import('./types/mana').PaymentPlan,
-  setup: CastSetup,
+  setup: CastSetup | Pick<CastSetup, 'problem'>,
 ): EventBody[] {
   const events: EventBody[] = [];
   const sources = manaSourcesOf(state, deps.oracle, deps.scripts, player, { includeConditional: true });
@@ -2527,6 +2529,69 @@ function answerChooseColor(
       { t: 'AwaitingSet', awaiting: null },
     ],
   };
+}
+
+/**
+ * D369 - the payment prompt answered. Paying is validated and charged exactly as turning a
+ * morph face up is (D309): the client's plan or the host's suggestion, the same validator,
+ * the same `payEvents`. The decided branch then runs over the object the prompt
+ * snapshotted, on a SCRATCH state that has already paid (the scry answer's fold, D195), so
+ * a branch that reads life or the pool reads them after the price.
+ *
+ * THE LIFE IS RE-CHECKED HERE (D136's rule) and an unaffordable yes is REFUSED with a
+ * message rather than downgraded to "no": the player asked to pay.
+ */
+function answerPayMana(
+  state: GameState,
+  intent: Extract<Intent, { t: 'AnswerPayMana' }>,
+  deps: EngineDeps,
+): HandleResult {
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind !== 'payMana' || awaiting.player !== intent.player) {
+    return reject('notAwaitingThat', 'You are not being asked to pay for anything.');
+  }
+  const events: EventBody[] = [{ t: 'AwaitingSet', awaiting: null }, { t: 'PaymentAnswered', player: intent.player, paid: intent.pay, label: awaiting.label }];
+  if (intent.pay) {
+    const seat = state.players[intent.player];
+    if (awaiting.life > 0 && (!seat || seat.life < awaiting.life)) {
+      return reject('cannotAfford', `You do not have ${awaiting.life} life to pay.`);
+    }
+    const problem = buildPaymentProblem(awaiting.cost, 0, [], 0, awaiting.life);
+    const chosen = intent.plan ?? suggestPayment(solveInputFor(state, deps.oracle, deps.scripts, intent.player), problem);
+    if (!chosen) return reject('cannotAfford', `You cannot pay ${awaiting.cost?.raw ?? ''} for ${awaiting.label}.`);
+    const verdict = validatePlan(state, deps.oracle, deps.scripts, intent.player, problem, chosen);
+    if (verdict === 'stale') return reject('stalePaymentPlan', 'The board changed while you were paying. Try again.');
+    if (verdict === 'invalid') return reject('invalidPaymentPlan', 'That payment does not cover the cost.');
+    events.push(...payEvents(state, deps, intent.player, chosen, { problem }));
+    events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'pays', 'pay')} ${awaiting.cost?.raw ?? ''}${awaiting.life > 0 ? ` and ${String(awaiting.life)} life` : ''} for ${awaiting.label}.`, intent.player));
+  } else {
+    events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'does', 'do')} not pay for ${awaiting.label}.`, intent.player));
+  }
+  const branch = intent.pay ? awaiting.ifPaid : awaiting.ifNotPaid;
+  if (branch.length > 0) {
+    let scratch = state;
+    for (const body of events) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
+    const obj: StackObject = {
+      id: 'pay',
+      kind: awaiting.card ? 'spell' : 'triggered',
+      controller: awaiting.controller,
+      card: awaiting.card,
+      source: awaiting.source,
+      abilityRef: null,
+      targets: awaiting.targets,
+      ...(awaiting.targetSlots !== undefined ? { targetSlots: awaiting.targetSlots } : {}),
+      modes: [],
+      xValue: null,
+      label: awaiting.label,
+      identity: awaiting.identity,
+      taxApplied: 0,
+      isCommanderCast: false,
+      castFrom: null,
+      faceIndex: 0,
+    };
+    events.push(...effectResult(scratch, deps, obj, branch).events);
+  }
+  return accept(events);
 }
 
 function answerEntersChoice(

@@ -27,12 +27,13 @@ import type {
   EffectMode,
   EffectSpec,
   Keyword,
+  PaySpec,
   SearchQualifier,
   SearchSpec,
 } from '../engine/types/oracle';
 import { predicatesOf } from './replacementParse';
 import type { PermanentPredicate } from './replacementParse';
-import type { Warn } from './oracleParse';
+import { parseManaCost, type Warn } from './oracleParse';
 import { scrub } from './targetParse';
 import { parseTokenClause, specKey } from './tokenParse';
 import { TOKEN_TABLE } from './tokenTable';
@@ -189,6 +190,7 @@ const BASE: EffectFields = {
   search: null,
   atRandom: false,
   thenDraw: 0,
+  pay: null,
 };
 
 /**
@@ -480,6 +482,8 @@ const RULES: readonly Rule[] = [
   },
   { kind: 'destroy', re: new RegExp(`^destroy ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   { kind: 'exile', re: new RegExp(`^exile ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D369 - "Sacrifice this creature." as a body the pay prompt decides (a row's sentence).
+  { kind: 'sacrificeSelf', re: /^sacrifice (?:this (?:creature|permanent|artifact|enchantment|land|aura|equipment)|it|~)\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   { kind: 'counter', re: new RegExp(`^counter ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   {
     kind: 'bounce',
@@ -1040,7 +1044,60 @@ function clausesOf(text: string): Clause[] {
   return out;
 }
 
+/**
+ * D369 - THE PAYMENT SHAPES. "<body> unless <payer> pays <cost>." and "You may pay
+ * <cost>. If you do, <body>." The BODY is one sentence the table reads on its own, so
+ * what the prompt decides is exactly what the vocabulary already runs. Refused: a body
+ * that itself asks or uses randomness (no continuation past a prompt, no RNG through
+ * the answer), a body that starts "you may" (a second choice inside the first), a payer
+ * the engine cannot name ("any player", "they"), a cost with X.
+ */
+const PAY_COST = String.raw`((?:\{[^}]+\})+|\d+ life|(?:\{[^}]+\})+ and \d+ life)`;
+const UNLESS_RE = new RegExp(String.raw`^(.+?) unless (its controller|that player|you) pays? ${PAY_COST}\.$`, 'i');
+const MAY_PAY_RE = new RegExp(String.raw`^you may pay ${PAY_COST}\. if you do, (.+)$`, 'i');
+const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional']);
+
+function readPrice(raw: string): { cost: PaySpec['cost']; life: number } | null {
+  const life = raw.match(/(\d+) life$/i);
+  const mana = raw.match(/^(?:\{[^}]+\})+/);
+  const cost = mana ? parseManaCost(mana[0]) : null;
+  if (mana && (cost === null || cost.xCount > 0 || mana[0].includes('~'))) return null;
+  return { cost, life: life ? Number(life[1]) : 0 };
+}
+
+function payBody(sentence: string): EffectSpec | null {
+  if (/^you may\b/i.test(sentence)) return null;
+  const inner = matchRule(sentence.endsWith('.') ? sentence : sentence + '.');
+  if (!inner || PAY_BODY_REFUSED.has(inner.kind) || inner.atRandom) return null;
+  return inner;
+}
+
+function matchPayment(sentence: string): EffectSpec | null {
+  const u = sentence.match(UNLESS_RE);
+  if (u) {
+    const price = readPrice(u[3] ?? '');
+    const inner = payBody(u[1] ?? '');
+    if (!price || !inner) return null;
+    const who = /^its controller$/i.test(u[2] ?? '') ? 'targetController' : /^that player$/i.test(u[2] ?? '') ? 'targetPlayer' : 'controller';
+    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, who, ifPaid: [], ifNotPaid: [inner] } };
+  }
+  const m = sentence.match(MAY_PAY_RE);
+  if (m) {
+    const price = readPrice(m[1] ?? '');
+    const inner = payBody(m[2] ?? '');
+    if (!price || !inner) return null;
+    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, who: 'controller', ifPaid: [inner], ifNotPaid: [] } };
+  }
+  return null;
+}
+
 function matchSentence(sentence: string): EffectSpec | null {
+  const paid = matchPayment(sentence);
+  if (paid) return paid;
+  return matchRule(sentence);
+}
+
+function matchRule(sentence: string): EffectSpec | null {
   for (const rule of RULES) {
     const m = sentence.match(rule.re);
     if (!m) continue;
@@ -1077,6 +1134,12 @@ export interface ParsedEffects {
  * The tilde is resolved HERE because this is the only place that knows the card's name; a rule's
  * `build` receives the match and nothing else. A qualifier naming some other card is untouched.
  */
+function withBranchIndex(spec: EffectSpec, index: number): EffectSpec {
+  if (!spec.pay) return spec;
+  const re = (e: EffectSpec): EffectSpec => (e.targetIndex === -1 ? e : { ...e, targetIndex: index });
+  return { ...spec, pay: { ...spec.pay, ifPaid: spec.pay.ifPaid.map(re), ifNotPaid: spec.pay.ifNotPaid.map(re) } };
+}
+
 function withSelfName(spec: EffectSpec, cardName: string): EffectSpec {
   const search = spec.search;
   if (!search || search.qualifier?.name !== '~') return spec;
@@ -1120,7 +1183,9 @@ export function parseEffects(
     understood++;
     // D299: an "up to N" / "any number of" clause may be declared with no target.
     const optional = OPTIONAL_COUNT.test(clause.text);
-    effects.push(spec.targetIndex === -1 ? spec : { ...spec, targetIndex: nextTarget++, ...(optional ? { optional: true as const } : {}) });
+    const placed = spec.targetIndex === -1 ? spec : { ...spec, targetIndex: nextTarget++, ...(optional ? { optional: true as const } : {}) };
+    // D369 - a payment's branches aim where the wrapper aims: one printed clause, one index.
+    effects.push(placed.pay ? withBranchIndex(placed, placed.targetIndex) : placed);
   }
 
   if (understood === 0) {
@@ -1143,7 +1208,7 @@ export function parseEffects(
    * where the player applies the parts by hand. (`lookAtTop` chains its own
    * follow-ups through the answer, so it carries the same constraint.)
    */
-  const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search']);
+  const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional']);
   if (effects.slice(0, -1).some((e) => ASKS.has(e.kind))) {
     warn('effect:partial');
     return { effects, mode: 'assisted' };

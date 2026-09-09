@@ -240,9 +240,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * verified identical across isolated and full-suite runs.
    */
   test('D90 does not reproduce, and the vocabulary keeps moving it: 948 auto, 1,832 assisted (D199, D343)', () => {
-    expect.soft(r.spells.auto).toBe(1003);
-    expect.soft(r.spells.assisted).toBe(1881);
-    expect.soft(r.spells.autoAnyFace).toBe(1012);
+    expect.soft(r.spells.auto).toBe(1022);
+    expect.soft(r.spells.assisted).toBe(1909);
+    expect.soft(r.spells.autoAnyFace).toBe(1031);
   });
 
   /**
@@ -447,7 +447,7 @@ const POOL: Record<string, number> = {
   // M6.4bc (D214): +8 instants, +7 sorceries, Flying Carpet, and Forum of
   // Amity.
   creature: 4440,
-  instant: 1020,
+  instant: 1038,
   sorcery: 783,
   land: 561,
   artifact: 435,

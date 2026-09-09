@@ -2047,7 +2047,8 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // SEAM (it makes a cost chargeable) and its own rows are the WAVE (they take the
     // cards that cost was blocking). The scriptable number falls 1,069 -> 1,063
     // because the wave outweighs the seam.
-    expect.soft(all.length).toBe(0);
+    // D369 - the payment prompt made 157 cards OFFERABLE (their pay line reads; the rest is a row): the seam leaves its wave to the decision after it (D289, D357).
+    expect.soft(all.length).toBe(157);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

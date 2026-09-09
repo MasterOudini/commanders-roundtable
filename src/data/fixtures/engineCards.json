@@ -175931,6 +175931,105 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "MANA_LEAK": {
+    "scryfallId": "09d187b7-3006-418d-ab88-f3f39a97d035",
+    "oracleId": "c61fe162-2202-4e56-9ba0-393547f9875f",
+    "name": "Mana Leak",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mana Leak",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target spell unless its controller pays {3}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Christopher Rush",
+        "imageId": "09d187b7-3006-418d-ab88-f3f39a97d035"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "aa2",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORCE_SPIKE": {
+    "scryfallId": "03f6e465-8cfd-4eb6-a32e-76fc47934100",
+    "oracleId": "896ea218-3019-47e4-b0a0-2487335872bb",
+    "name": "Force Spike",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Force Spike",
+        "manaCost": "{U}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target spell unless its controller pays {1}.",
+        "flavorText": "\"I don't *think* so.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Nelson DeCastro",
+        "imageId": "03f6e465-8cfd-4eb6-a32e-76fc47934100"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "DDJ-14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MISCAST": {
+    "scryfallId": "033afbd5-9937-4957-98ba-48e469a490bb",
+    "oracleId": "e08c71aa-d35c-4c20-b4db-ae9d36ee3169",
+    "name": "Miscast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Miscast",
+        "manaCost": "{U}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target instant or sorcery spell unless its controller pays {3}.",
+        "flavorText": "\"Next time, try something more appropriate for your skill level.\"\n—Barrin, Tolarian archmage",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steve Argyle",
+        "imageId": "033afbd5-9937-4957-98ba-48e469a490bb"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "m21",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

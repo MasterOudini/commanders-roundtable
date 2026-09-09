@@ -29,6 +29,7 @@ import type { LegalAction } from '../engine/legal';
 import type { Intent, RejectReason } from '../engine/types/intents';
 import type { Awaiting, TargetChoice } from '../engine/types/state';
 import type { TargetSpec } from '../engine/types/oracle';
+import type { ManaCost, PaymentPlan } from '../engine/types/mana';
 import type { ScriptRegistry } from '../engine/scripts/registry';
 import type { CardData } from '../data/cardTypes';
 import type { EngineEvent, PlayerView } from '../view/types';
@@ -577,6 +578,11 @@ export function resync(): void {
  * implementation would drift, and the player would approve one payment and be
  * charged another — the one thing an auto-tapper must never do.
  */
+/** D369 - the plan a payment prompt would charge, previewed on this client (see `ClientSession.previewPayment`). */
+export function previewPayment(cost: ManaCost | null, life: number): { plan: PaymentPlan | null; taps: readonly string[] } {
+  return active()?.previewPayment(cost, life) ?? { plan: null, taps: [] };
+}
+
 export function previewCast(
   cardId: string,
   xValue = 0,

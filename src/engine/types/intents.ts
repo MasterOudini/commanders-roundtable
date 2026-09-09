@@ -177,6 +177,12 @@ export type Intent =
    */
   | { readonly t: 'AnswerOptionalTrigger'; readonly player: PlayerId; readonly stackId: StackId; readonly accept: boolean }
   /**
+   * D369 - the answer to a payment prompt. `plan` is the client's own solve (D53: the same
+   * solver the host validates with); omitted, the host suggests one - which is what every
+   * driver but a person does.
+   */
+  | { readonly t: 'AnswerPayMana'; readonly player: PlayerId; readonly pay: boolean; readonly plan?: PaymentPlan }
+  /**
    * CR 614.12. `pay: true` pays the life and the permanent stays untapped;
    * `false` leaves it tapped. Names the SOURCE rather than a stack id, because a
    * replacement effect never uses the stack. See D136.

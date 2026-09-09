@@ -487,6 +487,9 @@ export function simplestAnswer(
      * declines never reaches the half of the primitive that runs anything, and
      * a canary over a path nothing takes is the rot D102 names.
      */
+    // D369 - declining runs the unpaid branch and pays nothing, which no board can refuse.
+    case 'payMana':
+      return { t: 'AnswerPayMana', player: awaiting.player, pay: false };
     case 'optionalTrigger':
       return {
         t: 'AnswerOptionalTrigger',

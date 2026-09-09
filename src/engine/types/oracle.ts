@@ -495,6 +495,19 @@ export type EffectKind =
    * turns into events and is done; this one raises `Awaiting.chooseFromZone`
    * when the player has more cards than the effect takes.
    */
+  /**
+   * D369 - "<effect> unless <player> pays <cost>." and "You may pay <cost>. If
+   * you do, <effect>.": a PAYMENT the resolution stops to ask for, with the
+   * effect it decides riding the spec (`EffectSpec.pay`). The one effect kind
+   * whose consequence is chosen by the player it is aimed AT rather than by
+   * the caster - a counterspell that its target's controller can buy off.
+   */
+  | 'payOptional'
+  /**
+   * D369 - "Sacrifice this creature." - a body the pay prompt decides. A row's
+   * sentence, never a spell's: "sacrifice this creature unless you pay {U}".
+   */
+  | 'sacrificeSelf'
   | 'discard'
   /**
    * CR 701.18 / 701.42 — scry and surveil: look at the top N of your own
@@ -627,6 +640,24 @@ export interface SearchSpec {
   readonly qualifier: SearchQualifier | null;
 }
 
+/**
+ * D369 - what a `payOptional` clause asks and decides. `who` is the PAYER: the
+ * caster, the first target's controller ("unless its controller pays") or the
+ * targeted player. Exactly one branch is non-empty per printed shape: "unless"
+ * runs `ifNotPaid`, "you may pay ... if you do" runs `ifPaid`. The branches are
+ * ordinary specs parsed by the same rules, so what the prompt decides is
+ * exactly what the vocabulary already runs; a branch that itself ASKS is
+ * refused at parse time.
+ */
+export interface PaySpec {
+  /** The mana, printed; `null` when the price is life alone. Never carries X. */
+  readonly cost: ManaCost | null;
+  readonly life: number;
+  readonly who: 'controller' | 'targetController' | 'targetPlayer';
+  readonly ifPaid: readonly EffectSpec[];
+  readonly ifNotPaid: readonly EffectSpec[];
+}
+
 export interface EffectSpec {
   readonly kind: EffectKind;
   /** Damage dealt, life gained/lost, cards drawn. 0 where it does not apply. */
@@ -665,6 +696,8 @@ export interface EffectSpec {
   readonly look: LookSpec | null;
   /** `searchLibrary` only: what may be found, how many, and where it goes (D357). */
   readonly search: SearchSpec | null;
+  /** `payOptional` only: the price and the branches (D369). REQUIRED, `null` elsewhere (D355). */
+  readonly pay: PaySpec | null;
   /**
    * `scry`/`surveil` only: cards drawn AFTER the choice resolves — the
    * "Scry 2, then draw a card" / "Surveil 1, then draw a card" shape

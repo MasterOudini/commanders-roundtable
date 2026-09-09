@@ -70,6 +70,8 @@ export function simplestIntent(
        * it as `host t?` for weeks. Declining is the answer that runs no script
        * and therefore cannot be rejected by a board this driver never inspects.
        */
+      case 'payMana':
+        return awaiting.player === snapshot.you ? { t: 'AnswerPayMana', player: awaiting.player, pay: false } : null;
       case 'optionalTrigger':
         return awaiting.player === snapshot.you
           ? { t: 'AnswerOptionalTrigger', player: awaiting.player, stackId: awaiting.stackId, accept: false }

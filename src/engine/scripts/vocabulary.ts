@@ -33,7 +33,7 @@ import { parseTargetClauses } from '../../data/targetParse';
 import type { EffectKind, EffectSpec, TargetSpec } from '../types/oracle';
 
 /** The kinds whose resolution stops and asks (`effectParse.ts`'s ASKS, one seam over). */
-const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search']);
+const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional']);
 
 /** The kinds the executor resolves against an AIM; a self clause of one of these does nothing. */
 const NEEDS_AIM: ReadonlySet<EffectKind> = new Set([

@@ -5801,6 +5801,10 @@ const WANTED = [
   'Verdant Embrace',
   'Web-Shooters',
   // D368 - the granted-TRIGGER wave: the provider cards, and the bodies their suites prove the grant on.
+  // D369 - the payment prompt: the counters a target can buy off, and the fuzz staple.
+  'Mana Leak',
+  'Force Spike',
+  'Miscast',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

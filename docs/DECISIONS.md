@@ -25795,3 +25795,157 @@ autoAnyFace 1,012 - ladder [1050, 1115, 2699, 4531, 5872] - tier3 silentAfter
 
 **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,016 files, 24,808 passed / 11 skipped · 500-seed
 gate, 6 shards, 937.6 s wall · build clean · probe 124/124 · battery 130/130.**
+
+
+## D369 - M6.4hb: THE PAYMENT PROMPT - a resolution that stops to ask a player to pay, and the player it asks is not always the caster (2026-09-09)
+
+**7,683 of 31,692 Commander-legal cards execute completely, up from 7,665
+(+18) - ALL EIGHTEEN WITH NO SCRIPT.** `SHIPPED_SCRIPTS` 4,870 (unchanged);
+REFUSED ledger 954 (unchanged - not one of the eighteen was ever in it: a
+payment question had been refused at the CLASSIFIER as structural, never by a
+drafter). Fixtures 5,357 -> **5,360**. **Select pool 0 -> 157** - the seam
+leaves its wave to the decision after it (D289, D357, D359).
+
+### Measured first, and the two densest seams were priced against each other
+
+The seam map's leftover, sole-piece cards grouped by the reader that would have
+to exist: **"as long as" 448 cards** (a conditional static, but across 276
+distinct conditions and 236 bodies - the bodies are the static grammar since
+D317/D346/D351, the conditions a long tail with 14 at the top), and **the
+payment shapes: 168 "unless <player> pays" + 186 "you may pay <cost>. If you
+do" = 354 cards** on ONE prompt. Split by what the sentence carries: costs are
+plain mana 79 + 109 and a life tail; bodies are counter target spell 43,
+sacrifice this creature 21, draw a card 13, gain N life 12, untap target
+permanent 5, damage 5 - the vocabulary's own kinds. Echo (17) and cumulative
+upkeep (16) queue behind the same prompt. The prompt is the deeper engine seam,
+it is what this model is switched in for, and it is what the script-raised
+prompt class has been waiting on since D160: it went first.
+
+### The design
+
+One prompt for two printed shapes, because both ARE one question - *will you
+pay this?* - with one branch each:
+
+| shape | who is asked | paid | not paid |
+|---|---|---|---|
+| `<body> unless <payer> pays <cost>.` | the caster, the first target's controller, or the targeted player | nothing | the body |
+| `You may pay <cost>. If you do, <body>.` | the caster | the body | nothing |
+
+**`EffectSpec.pay: PaySpec`** carries the price and BOTH branches, and the body
+is parsed by the same rules as any sentence (`matchSentence` tries the two
+payment shapes, then the table; the body goes back through the table), so
+**what the prompt decides is exactly what the vocabulary already runs** and
+nothing new can hide inside a branch. Refused by name: a body that itself asks
+or uses randomness (no continuation past a prompt, no RNG through an answer), a
+body starting "you may" (a second choice inside the first), a payer the engine
+cannot name ("any player", "they"), a cost with X, and - found by the proof's
+own card named `X` - a price that carries the self-name marker. `payOptional`
+joins the ASK-LAST set (D195) in the parser and in `vocabulary.ts`. A new body
+kind, `sacrificeSelf`, reads "Sacrifice this creature." - a row's sentence,
+never a spell's.
+
+**The executor** names the payer off the clause (`controller`, the first
+target's controller through the card or the STACK, the targeted player) and
+asks **only when the payer can pay** - a life they lack (CR 119.4) or a mana
+cost `suggestPayment` cannot meet from their pool and untapped sources is not a
+question, so the unpaid branch runs at once, inline. Otherwise
+`Awaiting.payMana` (the **twenty-second** kind) carries the price, both
+branches and a SNAPSHOT of the object - controller, source, card, identity,
+targets, slots - because the spell that asked has already left the stack
+(D136's shape: the question comes last, the consequence arrives with the
+answer). Every field is public (D61): printed text, declared targets, a
+permanent.
+
+**The answer** (`AnswerPayMana {pay, plan?}`) is validated and charged exactly
+as turning a morph face up is (D309): the client's plan or the host's
+suggestion, `validatePlan`, `payEvents` - which now takes the PROBLEM alone,
+because a payment with no cast has no setup. The decided branch runs over the
+snapshotted object on a SCRATCH state that has already paid (the scry answer's
+fold, D195), so a branch that reads life or the pool reads them after the
+price. `PaymentAnswered` marks the log, for `EntersChoiceAnswered`'s reason.
+
+**The five answerers shipped with it** (D125, D143): the bot pays a benefit
+whenever it is asked (the prompt exists only while the price is payable) and a
+tax up to three mana, sending NO plan (the host suggests, D53); the harness and
+the net driver decline (the answer no board refuses); the fuzz gate flips a
+coin; and the client previews the price with `session.solve` - the SAME solver
+the host validates with - behind two buttons that say the price.
+
+### The landing
+
+**Eighteen spells complete with no script, because the vocabulary reads them
+whole now:** Mana Leak, Force Spike, Miscast, Convolute, Quench, Spell Pierce,
+Mana Tithe, Censor, Miscalculation, Mindstatic, Spell Snip, Revolutionary
+Rebuff, Lookout's Dispersal, Soul Read, Confounding Riddle, It'll Quench Ya!,
+Supreme Will (a modal whose OTHER mode is a look - D343's seam and this one in
+one card) and Jwari Disruption // Jwari Ruins (the first MDFC the payment
+prompt completes). ⚠️ The probe that named them counted nineteen: it asked
+`faceCompleteness(card, 0)`, and Reduce // Rubble is complete on its Reduce
+face alone - a split card is complete only when every face is (D130's lesson,
+one probe over).
+
+**And the pool refilled to 157** - the permanents whose pay line reads now and
+whose remaining work is a ROW (Phantasmal Forces, Crystal Rod, the Spiketails,
+the Talismans, Mentor of the Meek, Transguild Promenade …) plus the spells
+whose pay clause reads beside a clause that still does not. That wave is
+mechanical and it is the next decision's.
+
+### Proof
+
+`src/engine/payMana.test.ts` - nine tests, eight green on the first run: the
+parser reads both shapes with the body's own kind and index; the refusals hold;
+Mana Leak asks the SPELL'S controller, paying leaves the spell to resolve and
+the pool three lighter, declining counters it, a payer with nothing is never
+asked and the spell is countered at once, the wrong player cannot answer, and
+the game replays to the same hash after a payment; "you may pay {1}. If you do,
+draw a card" from a trigger draws when paid and nothing when declined, and asks
+nothing with nothing to pay. ⚠️ The ninth went red on its own card name: a
+test card named `X` had its `{X}` rewritten to `{~}` by `selfRef` before the
+price was read, and the price parsed as free. No printed card is named X, but a
+price carrying the marker is refused now regardless. The 60-seed fuzz leg is
+green with Mana Leak as a staple feeding two new counters.
+
+### A tooling finding, recorded because it bit twice in one decision
+
+⚠️⚠️ **A HEREDOC THROUGH THIS HARNESS HALVES BACKSLASHES.** An applier written
+with a DOUBLED backslash before a dot arrived carrying a single one and matched
+nothing; one written with a backslash-b would have arrived carrying a literal
+BACKSPACE - invariant 14’s exact trap, in a patch script rather than a regex.
+The convention from here: an applier never spells a backslash; it writes the
+currency sign and `patchlib.cjs` substitutes `String.fromCharCode(92)` at
+runtime. And one of the first appliers had already mangled a type import
+(`TargetSpec,, EffectSpec`) through the same halving before it was caught - by
+`tsc`, which is the guard that held. A single Bash command past ~100 lines is
+TRUNCATED besides (`unexpected EOF`), so every payload is split into part files.
+
+### Measured
+
+`complete` 7,665 -> **7,683** - `blocked` 24,027 -> 24,009 - `scriptableToday`
+1,050 -> **1,207** (the classifier's structural `unless` narrowed to the shapes
+the prompt does not read) - the ladder [1050, 1115, 2699, 4531, 5872] -> [1207,
+1274, 2872, 4708, 6040] - the parse report `effect:auto` 4,633 -> **4,732**,
+`effect:partial` 5,457 -> 5,522, `effect:none` 14,241 -> 14,077 (99 faces read
+whole, 65 more in part) - the token resolver’s sole-need population 969 ->
+961 - botPool instant 1,020 -> **1,038**, auto 1,003 ->
+1,022, assisted 1,881 -> 1,909 - tier3 `silentAfter` 7,963 -> **7,982**, the
+disclosure following the parser with nothing to teach it - the residue's
+lifeGainLoss 589 -> 570, drawDiscard 355 -> 329, tokensAndCounters 376 -> 302,
+other 3,113 -> 3,110. The bot's own reach rose to **7,622** cards from 7,605.
+
+**Not this decision:** the 157-card wave (a row arm that ANSWERS the prompt);
+echo (17) and cumulative upkeep (16) on the same prompt; "unless" with a payer
+the engine cannot name ("any player", "they" - a per-player ask); a body that
+asks ("unless you pay, discard a card"); X costs; "you may <effect> unless"
+(a second choice); then "as long as" (448 - the static grammar behind a
+condition vocabulary, D342's `conditionOf` plus a dozen cheap predicates); the
+granted STATIC (10); the 82 + 75 quoted payloads outside both readers; the
+ENTERS and combat-role scaffold arms; D365's list; the attached statics (351),
+the Aura that REDEFINES its host (18), the bare keyword (185).
+
+Fixtures 5,360 - botPool artifact 435 / creature 4,440 / enchantment 426 /
+instant 1,038 / land 561 / sorcery 783 - auto 1,022 / assisted 1,909 /
+autoAnyFace 1,031 - ladder [1207, 1274, 2872, 4708, 6040] - tier3 silentAfter
+7,982 - batch.json 18 - select pool 157.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,017 files, 24,817 passed / 11 skipped · 500-seed
+gate, 6 shards, 891.9 s wall · build clean · probe 124/124 · battery 130/130.**

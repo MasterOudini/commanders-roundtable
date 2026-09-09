@@ -117,6 +117,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // cost hardcoded to 2 cannot pass.
   { names: ['Godless Shrine', 'The Black Gate'], copiesPerSeat: 1,
     counterKeys: ['entersPaid', 'entersDeclined'], rotHistory: 'D136' },
+  // D369 - the payment prompt, BOTH answers: a counter its target can buy off.
+  { names: ['Mana Leak'], copiesPerSeat: 3,
+    counterKeys: ['paymentsPaid', 'paymentsDeclined'], rotHistory: 'D369' },
   // The only route to `chooseFromZone` — a real cast at a real player.
   { names: ['Mind Rot'], copiesPerSeat: 1,
     counterKeys: ['discardsChosen', 'cardsDiscarded'], rotHistory: 'D137 D176' },
@@ -480,6 +483,10 @@ function answerFor(state: GameState, p: Picker): Intent | null {
         stackId: awaiting.stackId,
         accept: p.below(2) === 0,
       };
+    // D369 - a coin flip for the reason above: the paying half is the one that charges a
+    // plan, and the prompt is raised only while the host can suggest one, so no plan rides.
+    case 'payMana':
+      return { t: 'AnswerPayMana', player: awaiting.player, pay: p.below(2) === 0 };
     /**
      * ⚠️ A COIN FLIP for the case above's reason, and here the declining half
      * is the one `simplestAnswer` would have left the gate stuck on: paying is
@@ -665,6 +672,8 @@ interface Run {
   readonly enteredTapped: number;
   readonly entersPaid: number;
   readonly entersDeclined: number;
+  readonly paymentsPaid: number;
+  readonly paymentsDeclined: number;
   readonly discardsChosen: number;
   readonly cardsDiscarded: number;
   readonly triggerTargetsChosen: number;
@@ -861,6 +870,8 @@ function runOne(seed: number): Run {
     ).length,
     entersPaid: game.log.filter((e) => e.body.t === 'EntersChoiceAnswered' && e.body.pay).length,
     entersDeclined: game.log.filter((e) => e.body.t === 'EntersChoiceAnswered' && !e.body.pay).length,
+    paymentsPaid: game.log.filter((e) => e.body.t === 'PaymentAnswered' && e.body.paid).length,
+    paymentsDeclined: game.log.filter((e) => e.body.t === 'PaymentAnswered' && !e.body.paid).length,
     // ⚠️ A MOVE that names a face — the one mechanism D155 rests on. Counting
     // `FaceIndexSet` instead would count TRANSFORMS, which is a different rule.
     backFacesPlayed: game.log.filter(
@@ -987,6 +998,8 @@ const TOTAL_KEYS = [
   'librarySearches',
   'modeChoices',
   'entersDeclined',
+  'paymentsPaid',
+  'paymentsDeclined',
 ] as const;
 type TotalKey = (typeof TOTAL_KEYS)[number] | 'finished';
 type Totals = Record<TotalKey, number>;
@@ -1116,6 +1129,11 @@ function assertFloors(totals: Totals, seeds: number): void {
       // untaken in all 500 seeds, and the tap count above would rise anyway.
       expect(totals.entersPaid).toBeGreaterThan(0);
       expect(totals.entersDeclined).toBeGreaterThan(0);
+      // D369 - THE PAYMENT CANARY, two numbers for the same reason, AT GATE SIZE: a
+      // counter needs a spell on the stack under it, which a 60-seed leg reaches too
+      // rarely to assert on.
+      if (seeds >= 500) expect(totals.paymentsPaid).toBeGreaterThan(0);
+      if (seeds >= 500) expect(totals.paymentsDeclined).toBeGreaterThan(0);
       // ⚠️ THE DISCARD CANARY. `CardsMoved` hand→graveyard also happens at
       // cleanup for a hand over seven, so the count alone would have been green
       // since M3; the narration counter is the one that only this path writes.
@@ -1207,7 +1225,8 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.enteredTapped} permanents entered tapped · ` +
           `${totals.entersPaid} paid life to enter untapped / ${totals.entersDeclined} declined · ` +
           `${totals.discardsChosen} discards chosen, ${totals.cardsDiscarded} moves of hand→graveyard · ` +
-          `${totals.snowManaMade} mana made by a snow source`,
+          `${totals.snowManaMade} mana made by a snow source · ` +
+          `${totals.paymentsPaid} payments made / ${totals.paymentsDeclined} declined`,
       );
 
       if (SHARD) {

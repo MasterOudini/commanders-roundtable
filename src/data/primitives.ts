@@ -433,7 +433,9 @@ const SPELL_STRUCTURAL: readonly RegExp[] = [
   /\bexchange\b/i,
   /\bextra turn\b/i,
   /\boutside the game\b/i,
-  /\bunless\b/i,
+  // D369 - "unless <player> pays" is the payment prompt now; every OTHER unless shape
+  // (unless a player discards, unless you control ...) is still structural.
+  /\bunless (?!(?:its controller|that player|you) pays?\b)/i,
   /\bdivided as you choose\b|\bdistribute\b|\bany number of\b/i,
   /\bchooses?\b/i,
   /\s{2,}/,

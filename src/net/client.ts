@@ -416,6 +416,17 @@ export class ClientSession {
    * is castable, what is affordable and what it costs; a second opinion here
    * would eventually disagree with the highlight on the card.
    */
+  /**
+   * D369 - the plan a payment prompt would charge, from the SAME solver the host
+   * validates with (D53). `null` means this client cannot pay - which the host's
+   * own gate should have prevented, since the prompt is raised only while it can.
+   */
+  previewPayment(cost: ManaCost | null, life: number): { plan: PaymentPlan | null; taps: readonly InstanceId[] } {
+    const problem = buildPaymentProblem(cost, 0, [], 0, life);
+    const plan = suggestPayment(this.session.solve, problem);
+    return { plan, taps: plan?.taps.map((t) => t.source) ?? [] };
+  }
+
   previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = []): CastPreview | null {
     const action = this.session.legal.find((a) => a.t === 'CastSpell' && a.card === cardId);
     if (action?.t !== 'CastSpell') return null;

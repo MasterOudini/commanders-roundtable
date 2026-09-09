@@ -102,6 +102,10 @@ function describe(
       // shipped without one and read "You is ordering blockers." (D101); the
       // cost of remembering is one ternary, and the cost of forgetting is a
       // sentence that has to be found by playing.
+      case 'payMana':
+        return awaiting.player === viewer
+          ? `${awaiting.label}: pay ${awaiting.cost?.raw ?? ''}${awaiting.life > 0 ? ` and ${awaiting.life} life` : ''}?`
+          : `${nameOf(seats, awaiting.player)} is deciding whether to pay for ${awaiting.label}.`;
       case 'optionalTrigger':
         return awaiting.player === viewer
           ? `${awaiting.label} — this one is optional.`
@@ -523,6 +527,31 @@ export function PromptBar() {
                 <ManaCost cost={`{${c}}`} />
               </button>
             ))}
+          </>
+        )}
+        {/* D369 - both buttons SAY THE PRICE, for the enters-choice's reason: the price is the
+            whole decision. The plan is the client's own solve; the host re-validates it. */}
+        {awaiting?.kind === 'payMana' && mine('payMana') && (
+          <>
+            <button
+              type="button"
+              className={BTN}
+              data-action="pay-mana"
+              onClick={() => {
+                const preview = session.previewPayment(awaiting.cost, awaiting.life);
+                send({ t: 'AnswerPayMana', player: viewer, pay: true, ...(preview.plan ? { plan: preview.plan } : {}) });
+              }}
+            >
+              Pay {awaiting.cost?.raw ?? ''}{awaiting.life > 0 ? ` + ${awaiting.life} life` : ''}
+            </button>
+            <button
+              type="button"
+              className={BTN_GHOST}
+              data-action="decline-pay-mana"
+              onClick={() => send({ t: 'AnswerPayMana', player: viewer, pay: false })}
+            >
+              Don't pay
+            </button>
           </>
         )}
         {awaiting?.kind === 'optionalTrigger' && mine('optionalTrigger') && (

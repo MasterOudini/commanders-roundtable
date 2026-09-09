@@ -350,6 +350,13 @@ export type EventBody =
    */
   | { readonly t: 'EntersChoiceAnswered'; readonly card: InstanceId; readonly player: PlayerId; readonly pay: boolean }
   /**
+   * D369 - a player's answer to a payment prompt, recorded before its consequence in the
+   * same batch. A MARKER for `EntersChoiceAnswered`'s reason: paying is a `ManaSpent` like
+   * any other and declining leaves no event of its own, so without this the log could not
+   * say a question had been asked, and the fuzz canary could not tell the answers apart.
+   */
+  | { readonly t: 'PaymentAnswered'; readonly player: PlayerId; readonly paid: boolean; readonly label: string }
+  /**
    * A player DREW (CR 121) — the marker beside the `CardsMoved` that did it,
    * with the drawn ids in DRAW ORDER. See D189.
    *

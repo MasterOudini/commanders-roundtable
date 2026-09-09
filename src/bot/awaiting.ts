@@ -258,6 +258,22 @@ export function answerAwaiting(
      * ⚠️ Reachable today, unlike the trigger above: `Temple Garden` and its nine
      * siblings are `engineComplete` as of D136, so the bot's pool can hold them.
      */
+    /**
+     * D369 - THE PAYMENT PROMPT, priced the way the enters-choice is: a NUMBER against
+     * the board. A benefit ("you may pay ... if you do") is taken whenever the host
+     * raised it, because the prompt exists only while the price is payable; a tax
+     * ("unless you pay") is paid up to three mana - past that the bot lets the spell
+     * go, which is D126's tempo reasoning: an untapped land is a turn of pressure.
+     * No plan is sent: the host suggests one (D53, the same solver either way).
+     */
+    case 'payMana': {
+      if (awaiting.player !== me) return wait('not my payment');
+      const life = view.seats[me]?.life ?? 0;
+      const mv = awaiting.cost?.manaValue ?? 0;
+      const benefit = awaiting.ifPaid.length > 0;
+      const pay = life - awaiting.life >= ENTERS_LIFE_FLOOR && (benefit || mv <= 3);
+      return act({ t: 'AnswerPayMana', player: me, pay }, pay ? `pay for ${awaiting.label}` : `decline to pay for ${awaiting.label}`);
+    }
     case 'entersChoice': {
       if (awaiting.player !== me) return wait('not my permanent');
       const life = view.seats[me]?.life ?? 0;

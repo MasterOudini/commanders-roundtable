@@ -893,6 +893,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
 
     case 'OptionalTriggerAnswered':
     case 'EntersChoiceAnswered':
+    case 'PaymentAnswered':
       // A marker for the log and the animation stream, like
       // `StateBasedActionsApplied`; what the answer DID travels as its own
       // events in the same batch.

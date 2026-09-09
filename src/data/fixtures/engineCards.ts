@@ -5229,6 +5229,9 @@ export const STAGGERING_INSIGHT: CardData = F.STAGGERING_INSIGHT as CardData;
 export const TAKE_FLIGHT: CardData = F.TAKE_FLIGHT as CardData;
 export const VERDANT_EMBRACE: CardData = F.VERDANT_EMBRACE as CardData;
 export const WEB_SHOOTERS: CardData = F.WEB_SHOOTERS as CardData;
+export const MANA_LEAK: CardData = F.MANA_LEAK as CardData;
+export const FORCE_SPIKE: CardData = F.FORCE_SPIKE as CardData;
+export const MISCAST: CardData = F.MISCAST as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -10589,6 +10592,9 @@ export const ENGINE_CARDS: CardData[] = [
   TAKE_FLIGHT,
   VERDANT_EMBRACE,
   WEB_SHOOTERS,
+  MANA_LEAK,
+  FORCE_SPIKE,
+  MISCAST,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

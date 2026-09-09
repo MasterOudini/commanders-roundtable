@@ -12221,6 +12221,118 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       5, improvise 6); then the seam map's rest — the attached statics the Aura
       and Equipment rows cannot read (351), the Aura that REDEFINES its host
       (18), the bare keyword or ability word (185); prior items stand.
+- [x] **M6.4hb — THE PAYMENT PROMPT: a resolution that stops to ask a player to
+      pay, and the player it asks is not always the caster (2026-09-09):**
+      **7,683 of 31,692 Commander-legal cards now execute completely, up from
+      7,665 (+18) — ALL EIGHTEEN WITH NO SCRIPT.** `SHIPPED_SCRIPTS` 4,870
+      (unchanged); ledger 954 (unchanged — not one of the eighteen was ever in
+      it: an `unless … pays` spell was a SPELL_STRUCTURAL refusal at the
+      classifier, never a drafter's verdict). Fixtures 5,357 → **5,360**.
+      **Select pool 0 → 157** — the seam leaves its wave to the next decision
+      (D289/D357/D359's shape). Decisions in **D369**.
+      ⚠️ **MEASURED FIRST, by what would LAND (D343/D354):** the two densest
+      one-piece families the seam map holds after D368 are `as long as` (448
+      cards, but across 276 distinct conditions — a condition VOCABULARY, not
+      one seam) and the payment question — **354 cards whose SOLE leftover is
+      `unless <who> pays <cost>` or `you may pay <cost>. If you do, …`**, and
+      the engine had NO prompt for either. Thirteen would land whole on the
+      spell side and the permanents behind them are a row-maker arm.
+      ⚠️⚠️ **ONE PROMPT FOR TWO SHAPES, AND BOTH BRANCHES RIDE THE SPEC.**
+      `EffectSpec.pay: PaySpec | null` (REQUIRED — a dead optional field is
+      D355's `drawback` and D356's `typeLine` again) carries the price, the
+      PAYER (`controller` / `targetController` / `targetPlayer`) and the two
+      consequence lists, `ifPaid` and `ifNotPaid`. "Counter target spell
+      unless its controller pays {3}" is `ifNotPaid: [counter]` with the payer
+      the SPELL'S controller; "You may pay {1}. If you do, draw a card" is
+      `ifPaid: [draw]` with the payer the caster. The executor (`payOptional`)
+      raises `payMana` — the **22nd** `Awaiting` kind — and the ANSWER carries
+      the consequence: `answerPayMana` charges the plan through the cast's own
+      machinery (`buildPaymentProblem` → `validatePlan` → `payEvents`, so a
+      stale or invalid plan is refused the way a cast's is), folds the payment
+      onto a SCRATCH state, and runs the chosen branch through `effectResult`
+      over a synthetic stack object that keeps the spell's targets. D136's
+      order holds: the entry happened, the question comes last (D195 — an
+      effect that ASKS must be the sentence's last), the answer does the rest.
+      ⚠️ **CR 119.4 — a payer who CANNOT pay is never asked**, and the
+      not-paid branch runs inline at once (Mana Leak against an empty pool
+      counters on the spot). The life price is re-checked at the answer, never
+      trusted from the prompt (D136's rule).
+      ⚠️ **The client previews with the same solver the host validates with**
+      (D53's symmetry): `session.previewPayment(cost, life)` runs
+      `suggestPayment` over the client's own `SolveInput`, and `PromptBar`'s
+      two buttons (`pay-mana` / `decline-pay-mana`) ship WITH the seam (D143 —
+      a prompt's answerers and its control are separate work, paid up front).
+      Five answerers: the bot pays when its life stays above the entries floor
+      and the price is cheap or the benefit is its own; `simplestAnswer` and
+      the net driver decline; the fuzz gate flips a coin, feeding two new
+      counters — `paymentsPaid` / `paymentsDeclined` — off **Mana Leak as a
+      canary staple** (D193, so the floor cannot rot).
+      ⚠️ **The parser REFUSES what it would half-run**: an X price, a body that
+      itself asks or is random, `you may <effect> unless` (a second choice), a
+      payer the engine cannot name (`they`, `any player`), and — found by the
+      seam's own test — a price carrying the `~` marker: a test card named `X`
+      had its `{X}` rewritten to `{~}` by `selfRef` before the price was read,
+      and the price parsed as FREE. No printed card is named X; the guard
+      stands anyway.
+      ⚠️⚠️ **A HEREDOC THROUGH THIS HARNESS HALVES BACKSLASHES** — an applier
+      written with a DOUBLED backslash before a dot arrived carrying a single one
+      and matched nothing, and a backslash-b would have arrived as a literal
+      BACKSPACE (invariant 14’s exact trap, in a patch script rather than a
+      regex); one early applier mangled a type import
+      through the same halving (`TargetSpec,, EffectSpec`), and `tsc` was the
+      guard that held. **An applier never spells a backslash now: it writes `¤`
+      and `patchlib.cjs` substitutes `String.fromCharCode(92)` at runtime.** And
+      a single Bash command past ~100 lines is TRUNCATED (`unexpected EOF`) —
+      payloads are split into part files.
+      ⚠️ **The classifier's structural `unless` narrowed to the shapes the
+      prompt does not read** (`unless (?!(?:its controller|that player|you)
+      pays?)`), so `scriptableToday` ROSE 1,050 → 1,207 — a seam raises it, a
+      wave lowers it — and the D191 unit pin was REWRITTEN rather than adapted
+      (D117): `{3}` reads scriptable; `unless its controller discards a card`
+      stays refused. Report `effect:auto` 4,633 → **4,732**, `effect:partial`
+      5,457 → 5,522, `effect:none` 14,241 → 14,077; the token resolver’s
+      sole-need population 969 → 961 (eight cards whose only other unread line
+      was a payment sentence).
+      **Landed:** 18 spells with NO script — Mana Leak, Force Spike, Miscast,
+      Convolute, Quench, Spell Pierce, Mana Tithe, Censor, Miscalculation,
+      Mindstatic, Spell Snip, Revolutionary Rebuff, Lookout's Dispersal, Soul
+      Read, Confounding Riddle, It'll Quench Ya!, Supreme Will (a modal whose
+      other mode is a look — D343's seam and this one on one card) and Jwari
+      Disruption // Jwari Ruins (the first MDFC the prompt completes). ⚠️ The
+      names probe first counted NINETEEN: it asked `faceCompleteness(card, 0)`
+      and Reduce // Rubble is complete on its Reduce face alone — a split card
+      is complete only when every face is. The bot's own reach rose to
+      **7,622** cards from 7,605. Tests: `payMana.test.ts` (9 — both parses,
+      the refusals, Mana Leak paid and declined and unaffordable, the wrong
+      player refused, the replay hash, and a `you may pay` trigger through a
+      test-only script).
+      Fixtures 5,360 (5,214 by name + 146 tokens) · botPool artifact 435 /
+      creature 4,440 / enchantment 426 / instant 1,038 / land 561 / sorcery
+      783 - auto 1,022 / assisted 1,909 / autoAnyFace 1,031 · ladder [1207,
+      1274, 2872, 4708, 6040] · tier3 silentAfter 7,982 · batch.json 18 ·
+      select pool 157.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,017 files, 24,817 passed / 11 skipped ·
+      500-seed gate, 6 shards, 891.9 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D369): the 157-card payment WAVE (a row-maker arm that
+      ANSWERS `payMana`: decline → assert the body ran, pay → assert the mana
+      spent — mechanical); echo (17) and cumulative upkeep (16) on the same
+      prompt; a payer the engine cannot name (`any player`, `they`); a body
+      that asks (`unless you pay, discard a card`); X prices; `you may
+      <effect> unless` (a second choice); then `as long as` (448 across 276
+      conditions — D342's `conditionOf` plus a dozen cheap predicates); the
+      granted STATIC (10), the 82 + 75 quoted payloads outside both readers,
+      the ENTERS and combat-role scaffold arms, `Commander creatures you own`;
+      then D365's list — the counts outside the vocabulary (17), the
+      activation conditions (35), the trigger payloads outside both readers
+      (20) — and D364's snow CREATURE fixture, D363's counter KINDS and
+      NONTOKEN predicate, the keyword ENTRY REPLACEMENTS (bloodthirst 13,
+      modular 7, graft 2) and CHOICES (fabricate 10, unleash 9, riot 4, devour
+      4, enlist 5, amplify 3), the block REQUIREMENT (provoke 4), the cast-time
+      payment sources (convoke 14, delve 5, improvise 6); then the seam map's
+      rest — the attached statics the Aura and Equipment rows cannot read
+      (351), the Aura that REDEFINES its host (18), the bare keyword or
+      ability word (185); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

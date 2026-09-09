@@ -27,13 +27,14 @@ import type {
   StackId,
   ZoneRef,
 } from './ids';
-import type { ManaPool, PaymentProblem } from './mana';
+import type { ManaCost, ManaPool, PaymentProblem } from './mana';
 import type { NarrationPart } from './narration';
 import type {
   Keyword,
   ModeDecl,
   SearchQualifier,
   TargetSpec,
+  EffectSpec,
 } from './oracle';
 import type { PermanentPredicate } from '../../data/replacementParse';
 
@@ -685,6 +686,32 @@ export type Awaiting =
         readonly life: number;
         readonly label: string;
       }[];
+    }
+  /**
+   * D369 - a PAYMENT a resolution stopped to ask for: "counter target spell
+   * unless its controller pays {3}", "you may pay {2}. If you do, draw a card".
+   * The player asked is the PAYER, who is not always the caster - Mana Leak asks the spell's
+   * controller. What is decided rides the prompt: the two branches are the specs the parser
+   * built from the printed sentence, and the object they resolve for is snapshotted here,
+   * because the spell that asked has already left the stack (D136's shape).
+   * Every field is public (D61). RAISED ONLY WHEN THE PAYER CAN PAY: an unaffordable price
+   * is not a question (CR 119.4 for life; a mana cost the solver cannot meet), so the unpaid
+   * branch runs at once.
+   */
+  | {
+      readonly kind: 'payMana';
+      readonly player: PlayerId;
+      readonly cost: ManaCost | null;
+      readonly life: number;
+      readonly label: string;
+      readonly controller: PlayerId;
+      readonly source: InstanceId | null;
+      readonly card: InstanceId | null;
+      readonly identity: readonly ColorLetter[];
+      readonly targets: readonly TargetChoice[];
+      readonly targetSlots?: readonly number[];
+      readonly ifPaid: readonly EffectSpec[];
+      readonly ifNotPaid: readonly EffectSpec[];
     }
   /**
    * D357 - CR 701.19: the searcher picks from their OWN library, which they alone can see.
