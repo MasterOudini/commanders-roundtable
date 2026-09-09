@@ -176030,6 +176030,1400 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ARCHWAY_COMMONS": {
+    "scryfallId": "b95d20ba-ad3a-4405-a3f2-e79df56e1a93",
+    "oracleId": "69c63055-ed44-4b32-b591-f3c6c2f3e7d1",
+    "name": "Archway Commons",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Archway Commons",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, sacrifice it unless you pay {1}.\n{T}: Add one mana of any color.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Piotr Dura",
+        "imageId": "b95d20ba-ad3a-4405-a3f2-e79df56e1a93"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "STX-263",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CURSECATCHER": {
+    "scryfallId": "20f2bfa5-bc30-46a4-b114-9d8c5b62e197",
+    "oracleId": "a59a23f2-158f-4dea-8593-75fe7b31b726",
+    "name": "Cursecatcher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cursecatcher",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "Sacrifice this creature: Counter target instant or sorcery spell unless its controller pays {1}.",
+        "flavorText": "\"Of all the things that can be stolen, opportunity is the most valuable.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "20f2bfa5-bc30-46a4-b114-9d8c5b62e197"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DARBA": {
+    "scryfallId": "d82636dc-4b3e-44a8-bc72-dab1275dfb6d",
+    "oracleId": "c64c0cb5-5a8c-4a2f-a0fc-8b080aaf90bb",
+    "name": "Darba",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Darba",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Bird Beast",
+        "oracleText": "At the beginning of your upkeep, sacrifice this creature unless you pay {G}{G}.",
+        "flavorText": "Legend has it the darba gave up its wings in return for an extra stomach.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "d82636dc-4b3e-44a8-bc72-dab1275dfb6d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pcy",
+    "collectorNumber": "111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISRUPTIVE_PITMAGE": {
+    "scryfallId": "5b0d9c2f-356c-4f27-8560-8ffceadac31c",
+    "oracleId": "c7a60f81-f7cb-4fd7-b422-963290964069",
+    "name": "Disruptive Pitmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Disruptive Pitmage",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{T}: Counter target spell unless its controller pays {1}.\nMorph {U} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": "\"Show weakness to hide your strength.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Darrell Riche",
+        "imageId": "5b0d9c2f-356c-4f27-8560-8ffceadac31c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "81",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISRUPTIVE_STUDENT": {
+    "scryfallId": "6a50779d-f5c8-4df1-8625-7edc8bb0251c",
+    "oracleId": "74315869-46e3-43a2-abc0-d86d0a70d343",
+    "name": "Disruptive Student",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Disruptive Student",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{T}: Counter target spell unless its controller pays {1}.",
+        "flavorText": "\"Teferi is a problem student. Always late for class. No appreciation for constructive use of time.\"\n—Barrin, progress report",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "6a50779d-f5c8-4df1-8625-7edc8bb0251c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "brb",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIVERSION_UNIT": {
+    "scryfallId": "e04d4fa6-1fa3-4bfd-a462-47c23ccf9124",
+    "oracleId": "4d739edc-4e02-4b35-a2a0-e9685c6e2889",
+    "name": "Diversion Unit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Diversion Unit",
+        "manaCost": "{1}{U}",
+        "typeLine": "Artifact Creature — Robot",
+        "oracleText": "Flying\n{U}, Sacrifice this creature: Counter target instant or sorcery spell unless its controller pays {3}.",
+        "flavorText": "\"Declarative: Goodbye.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Xabi Gaztelua",
+        "imageId": "e04d4fa6-1fa3-4bfd-a462-47c23ccf9124"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRIFTER_IL_DAL": {
+    "scryfallId": "4c3de909-b47e-45d7-9922-8d5e08a76ec9",
+    "oracleId": "dbe8ad46-d862-4ff6-bf17-238fb8341075",
+    "name": "Drifter il-Dal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drifter il-Dal",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Shadow (This creature can block or be blocked by only creatures with shadow.)\nAt the beginning of your upkeep, sacrifice this creature unless you pay {U}.",
+        "flavorText": "They study the deeds of their traitorous ancestors, hoping the stories may reveal a way back to the physical world.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Justin Sweet",
+        "imageId": "4c3de909-b47e-45d7-9922-8d5e08a76ec9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Shadow"
+    ],
+    "setCode": "tsp",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRIFTING_DJINN": {
+    "scryfallId": "971d0eda-91b8-48f2-a988-016bcc7ab35e",
+    "oracleId": "fdea1945-0bb6-4a83-8cb1-5ba6a4dc39bd",
+    "name": "Drifting Djinn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drifting Djinn",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Creature — Djinn",
+        "oracleText": "Flying\nAt the beginning of your upkeep, sacrifice this creature unless you pay {1}{U}.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "971d0eda-91b8-48f2-a988-016bcc7ab35e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Cycling"
+    ],
+    "setCode": "usg",
+    "collectorNumber": "71",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ERRATIC_PORTAL": {
+    "scryfallId": "2e652007-02f0-424f-b52c-c1540d1939bd",
+    "oracleId": "4a85cd7e-625b-4043-b7f1-999def26eb36",
+    "name": "Erratic Portal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Erratic Portal",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "{1}, {T}: Return target creature to its owner's hand unless its controller pays {1}.",
+        "flavorText": "\"In Barrin's name!\" cried Lyna as Hanna's sword passed through her, \"Ertai sends word that the portal is open—but not for long!\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Matson",
+        "imageId": "2e652007-02f0-424f-b52c-c1540d1939bd"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "exo",
+    "collectorNumber": "132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GATEWAY_PLAZA": {
+    "scryfallId": "3433a2c2-d252-4cd8-97e8-389875b2cda0",
+    "oracleId": "a6543f71-0326-4e1f-b58f-9ce325d5d036",
+    "name": "Gateway Plaza",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gateway Plaza",
+        "manaCost": "",
+        "typeLine": "Land — Gate",
+        "oracleText": "This land enters tapped.\nWhen this land enters, sacrifice it unless you pay {1}.\n{T}: Add one mana of any color.",
+        "flavorText": "The Chamber of the Guildpact has fallen silent, its bright promise broken.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jedd Chevrier",
+        "imageId": "3433a2c2-d252-4cd8-97e8-389875b2cda0"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "rna",
+    "collectorNumber": "247",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HUNGRY_MIST": {
+    "scryfallId": "085973eb-56cd-4bb5-aefd-bdf36f2d2a3e",
+    "oracleId": "dedfbd92-4f12-423c-9d56-167753f03bff",
+    "name": "Hungry Mist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hungry Mist",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "At the beginning of your upkeep, sacrifice this creature unless you pay {G}{G}.",
+        "flavorText": "\"All things must eat, after all. Even the air can hunger.\"\n—Gemma, Willow Priestess",
+        "power": "6",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "085973eb-56cd-4bb5-aefd-bdf36f2d2a3e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "hml",
+    "collectorNumber": "88a",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JUDGE_S_FAMILIAR": {
+    "scryfallId": "0fc51899-3970-416b-b7de-fadbc9678955",
+    "oracleId": "22b7975c-37a5-4895-b209-bdeeec0c6aea",
+    "name": "Judge's Familiar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Judge's Familiar",
+        "manaCost": "{W/U}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nSacrifice this creature: Counter target instant or sorcery spell unless its controller pays {1}.",
+        "flavorText": "\"It misses nothing and it has no sense of humor.\"\n—Barvisa, courtroom scribe",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Jack Wang",
+        "imageId": "0fc51899-3970-416b-b7de-fadbc9678955"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "218",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JUN_N_EFREET": {
+    "scryfallId": "398a2b0f-0b91-408c-8083-3bc89873b69f",
+    "oracleId": "afda663e-c5f7-4182-86f7-d95d71793717",
+    "name": "Junún Efreet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Junún Efreet",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Efreet",
+        "oracleText": "Flying\nAt the beginning of your upkeep, sacrifice this creature unless you pay {B}{B}.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Christopher Rush",
+        "imageId": "398a2b0f-0b91-408c-8083-3bc89873b69f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "4ed",
+    "collectorNumber": "143",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAMI_OF_THE_TENDED_GARDEN": {
+    "scryfallId": "bdedd830-9200-4e8b-84b4-00dc58cace35",
+    "oracleId": "e2770ebf-24e3-4787-956b-ca01aaa50a6f",
+    "name": "Kami of the Tended Garden",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kami of the Tended Garden",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "At the beginning of your upkeep, sacrifice this creature unless you pay {G}.\nSoulshift 3 (When this creature dies, you may return target Spirit card with mana value 3 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "bdedd830-9200-4e8b-84b4-00dc58cace35"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Soulshift"
+    ],
+    "setCode": "sok",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KROSAN_CLOUDSCRAPER": {
+    "scryfallId": "51ef4cda-e55b-45a8-9c02-4e77e5b15a9e",
+    "oracleId": "a0ff742b-f709-43ac-84d2-dc00c723bad6",
+    "name": "Krosan Cloudscraper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Krosan Cloudscraper",
+        "manaCost": "{7}{G}{G}{G}",
+        "typeLine": "Creature — Beast Mutant",
+        "oracleText": "At the beginning of your upkeep, sacrifice this creature unless you pay {G}{G}.\nMorph {7}{G}{G} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": null,
+        "power": "13",
+        "toughness": "13",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ron Spears",
+        "imageId": "51ef4cda-e55b-45a8-9c02-4e77e5b15a9e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 10,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "lgn",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOLTING_HARPY": {
+    "scryfallId": "ddfe33fb-71d5-4552-bcd3-f07e4e3847e1",
+    "oracleId": "c8dcb8d8-ae27-43ac-88e7-e59f2656e0ce",
+    "name": "Molting Harpy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Molting Harpy",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Harpy Mercenary",
+        "oracleText": "Flying\nAt the beginning of your upkeep, sacrifice this creature unless you pay {2}.",
+        "flavorText": "Shed harpy feathers leave painful wounds—which explains the harpies' mood.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jeff Laubenstein",
+        "imageId": "ddfe33fb-71d5-4552-bcd3-f07e4e3847e1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mmq",
+    "collectorNumber": "148",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MUNDUNGU": {
+    "scryfallId": "d6e320ca-848b-4743-93f1-ec04ef1ce402",
+    "oracleId": "3fb4161d-a5b9-411d-942c-2fdb039e7bde",
+    "name": "Mundungu",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mundungu",
+        "manaCost": "{1}{U}{B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{T}: Counter target spell unless its controller pays {1} and 1 life.",
+        "flavorText": "\"Our buried kings silently await the revolt of dead peasants.\"\n—Tuwile, mundungu of Aku",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Terese Nielsen",
+        "imageId": "d6e320ca-848b-4743-93f1-ec04ef1ce402"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "vis",
+    "collectorNumber": "132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PALLADIA_MORS": {
+    "scryfallId": "0ea81883-7cd6-4443-9733-39d25cc64328",
+    "oracleId": "d7121ac7-e425-46cd-b006-1af391d97f87",
+    "name": "Palladia-Mors",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Palladia-Mors",
+        "manaCost": "{2}{R}{R}{G}{G}{W}{W}",
+        "typeLine": "Legendary Creature — Elder Dragon",
+        "oracleText": "Flying, trample\nAt the beginning of your upkeep, sacrifice Palladia-Mors unless you pay {R}{G}{W}.",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R",
+          "W"
+        ],
+        "artist": "Edward P. Beard, Jr.",
+        "imageId": "0ea81883-7cd6-4443-9733-39d25cc64328"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R",
+      "W"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Flying",
+      "Trample"
+    ],
+    "setCode": "chr",
+    "collectorNumber": "82",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PATRON_WIZARD": {
+    "scryfallId": "10b863b8-7780-4bbe-a7f8-46bfdcb34a2b",
+    "oracleId": "2d70b4fe-7aaf-4ffd-920c-023b44707e1f",
+    "name": "Patron Wizard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Patron Wizard",
+        "manaCost": "{U}{U}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Tap an untapped Wizard you control: Counter target spell unless its controller pays {1}.",
+        "flavorText": "\"The best way to teach is by example.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Donato Giancola",
+        "imageId": "10b863b8-7780-4bbe-a7f8-46bfdcb34a2b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ody",
+    "collectorNumber": "89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHANTASMAL_FORCES": {
+    "scryfallId": "021b26cb-ec7d-464b-b835-82e60e86f827",
+    "oracleId": "06a158c6-7e36-49f8-a8e0-a7b7df5fd7ed",
+    "name": "Phantasmal Forces",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Phantasmal Forces",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Illusion",
+        "oracleText": "Flying\nAt the beginning of your upkeep, sacrifice this creature unless you pay {U}.",
+        "flavorText": "These beings embody the essence of true heroes long dead. Summoned from the dreamrealms, they rise to meet their enemies.",
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mark Poole",
+        "imageId": "021b26cb-ec7d-464b-b835-82e60e86f827"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "5ed",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PIT_RAPTOR": {
+    "scryfallId": "e37cd150-1064-43b7-919b-8922d8a18f21",
+    "oracleId": "92cdcafc-ffeb-436d-b2bd-d6ad895d0e08",
+    "name": "Pit Raptor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pit Raptor",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Bird Mercenary",
+        "oracleText": "Flying, first strike\nAt the beginning of your upkeep, sacrifice this creature unless you pay {2}{B}{B}.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Thomas Gianni",
+        "imageId": "e37cd150-1064-43b7-919b-8922d8a18f21"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "First strike"
+    ],
+    "setCode": "pcy",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RHYSTIC_DELUGE": {
+    "scryfallId": "0a3dd540-7f54-46fe-b1e8-7b07f57e71d0",
+    "oracleId": "d59cfff9-2bce-439a-9456-ae68eabbf67d",
+    "name": "Rhystic Deluge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rhystic Deluge",
+        "manaCost": "{2}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "{U}: Tap target creature unless its controller pays {1}.",
+        "flavorText": "\"I'll rain down on you with the power of magic itself. Then we'll see who prevails.\"\n—Alexi, zephyr mage",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "0a3dd540-7f54-46fe-b1e8-7b07f57e71d0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pcy",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUPTURE_SPIRE": {
+    "scryfallId": "168bfec4-ef2a-48b5-b78a-487703cbdae5",
+    "oracleId": "7eadffcb-1e15-44c1-b1db-78c71b8ec1ce",
+    "name": "Rupture Spire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rupture Spire",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, sacrifice it unless you pay {1}.\n{T}: Add one mana of any color.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jaime Jones",
+        "imageId": "168bfec4-ef2a-48b5-b78a-487703cbdae5"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "cma",
+    "collectorNumber": "267",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCHOOL_OF_PIRANHA": {
+    "scryfallId": "71217af5-3538-4e42-9343-3949b5306671",
+    "oracleId": "fad69c20-d6f4-4cf5-8e4c-bbda8d268edd",
+    "name": "School of Piranha",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "School of Piranha",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Fish",
+        "oracleText": "At the beginning of your upkeep, sacrifice this creature unless you pay {1}{U}.",
+        "flavorText": "Some schools aren't worth getting into.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "71217af5-3538-4e42-9343-3949b5306671"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "exo",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SORATAMI_SAVANT": {
+    "scryfallId": "43ea2db8-67c6-4bcd-8ba1-f620b8e8a8c4",
+    "oracleId": "33cbb650-a756-4e06-8b18-6cc97b2340b4",
+    "name": "Soratami Savant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soratami Savant",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Moonfolk Wizard",
+        "oracleText": "Flying\n{3}, Return a land you control to its owner's hand: Counter target spell unless its controller pays {3}.",
+        "flavorText": "\"To prevent, one must first predict.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jim Nelson",
+        "imageId": "43ea2db8-67c6-4bcd-8ba1-f620b8e8a8c4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "90",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIKETAIL_DRAKE": {
+    "scryfallId": "4db398ca-6b0b-4225-baaa-c4b1c243b2bd",
+    "oracleId": "6568859d-b96d-4015-84da-1a8960752737",
+    "name": "Spiketail Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spiketail Drake",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Drake",
+        "oracleText": "Flying\nSacrifice this creature: Counter target spell unless its controller pays {3}.",
+        "flavorText": "\"The spell will have to wait,\" said Alexi, pointing up. \"Drakes.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Michael Sutfin",
+        "imageId": "4db398ca-6b0b-4225-baaa-c4b1c243b2bd"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pcy",
+    "collectorNumber": "48",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIKETAIL_DRAKELING": {
+    "scryfallId": "c752a0b9-cc87-4c3e-a1e8-0162715e011a",
+    "oracleId": "989e390d-f86c-4468-a9ad-5970a571dcc7",
+    "name": "Spiketail Drakeling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spiketail Drakeling",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Creature — Drake",
+        "oracleText": "Flying\nSacrifice this creature: Counter target spell unless its controller pays {2}.",
+        "flavorText": "Drakelings fish with their tails, angling to snare succulent thoughts and memories on their psychic hooks.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dave Dorman",
+        "imageId": "c752a0b9-cc87-4c3e-a1e8-0162715e011a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tsp",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIKETAIL_HATCHLING": {
+    "scryfallId": "15f4905c-9227-4f0f-a41a-d7509740c1ce",
+    "oracleId": "8109aeff-1ba7-46c2-89ab-450d6ff99c28",
+    "name": "Spiketail Hatchling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spiketail Hatchling",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Drake",
+        "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nSacrifice this creature: Counter target spell unless its controller pays {1}.",
+        "flavorText": "It dodges waves of water to prepare for waves of magic.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "15f4905c-9227-4f0f-a41a-d7509740c1ce"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "10e",
+    "collectorNumber": "111★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPINDRIFT_DRAKE": {
+    "scryfallId": "c881c388-430f-4a4b-9cd1-fba0a2bc2cd6",
+    "oracleId": "53599f89-1598-4d3d-8aa7-75b397b258eb",
+    "name": "Spindrift Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spindrift Drake",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Drake",
+        "oracleText": "Flying\nAt the beginning of your upkeep, sacrifice this creature unless you pay {U}.",
+        "flavorText": "Sea brine for blood, washing foam for laughter.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Anthony S. Waters",
+        "imageId": "c881c388-430f-4a4b-9cd1-fba0a2bc2cd6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "sth",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRANSGUILD_PROMENADE": {
+    "scryfallId": "06dfd214-a1be-4fb0-9f55-4f38fdd29f43",
+    "oracleId": "98334bfa-c516-4c20-bdc5-9e32e7127adc",
+    "name": "Transguild Promenade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Transguild Promenade",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, sacrifice it unless you pay {1}.\n{T}: Add one mana of any color.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Noah Bradley",
+        "imageId": "06dfd214-a1be-4fb0-9f55-4f38fdd29f43"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "c16",
+    "collectorNumber": "334",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VECTIS_DOMINATOR": {
+    "scryfallId": "1cfb7589-a53e-4580-bd92-641fd4785934",
+    "oracleId": "1ed63322-f877-4f1c-90bd-e1adb3668d6d",
+    "name": "Vectis Dominator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vectis Dominator",
+        "manaCost": "{1}{W}{B}",
+        "typeLine": "Artifact Creature — Human Wizard",
+        "oracleText": "{T}: Tap target creature unless its controller pays 2 life.",
+        "flavorText": "\"I appreciate the artistry of the telemins, but the creatures of the other worlds provide a much more dramatic performance.\"\n—Ennor, mentalist",
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Zoltan Boros & Gabor Szikszai",
+        "imageId": "1cfb7589-a53e-4580-bd92-641fd4785934"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "arb",
+    "collectorNumber": "84",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VODALIAN_MAGE": {
+    "scryfallId": "2b3cc91d-6f87-4f2e-b3c7-8181d19a1f0b",
+    "oracleId": "8dee4577-0315-4c9f-ab1c-0c68e2ab6a76",
+    "name": "Vodalian Mage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vodalian Mage",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "{U}, {T}: Counter target spell unless its controller pays {1}.",
+        "flavorText": "Vodalian Mages were invaluable in magical combat. Unfortunately, the Homarids raided with strength, numbers, and very little magic.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Quinton Hoover",
+        "imageId": "2b3cc91d-6f87-4f2e-b3c7-8181d19a1f0b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "fem",
+    "collectorNumber": "30c",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHIPSTITCHED_ZOMBIE": {
+    "scryfallId": "9cd00b0b-2ac1-4926-a735-215f402ba1c4",
+    "oracleId": "c498f0ff-812a-4106-834b-f43a0a7e0bac",
+    "name": "Whipstitched Zombie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Whipstitched Zombie",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "At the beginning of your upkeep, sacrifice this creature unless you pay {B}.",
+        "flavorText": "Pity the tailor.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "9cd00b0b-2ac1-4926-a735-215f402ba1c4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pcy",
+    "collectorNumber": "81",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WILD_LEOTAU": {
+    "scryfallId": "a47bc387-ac1a-42b4-9427-fc944094b3a1",
+    "oracleId": "d5277fe0-b707-41bb-9ff9-62f8be249dd2",
+    "name": "Wild Leotau",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wild Leotau",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "At the beginning of your upkeep, sacrifice this creature unless you pay {G}.",
+        "flavorText": "\"Leotau that were born wild make the best mounts. It's like riding a thunderstorm.\"\n—Rafiq of the Many",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Michael Komarck",
+        "imageId": "a47bc387-ac1a-42b4-9427-fc944094b3a1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "con",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WIZARD_REPLICA": {
+    "scryfallId": "0678cc06-061b-4e8a-9727-23279d3c9df1",
+    "oracleId": "0ba3b1e0-1790-4247-93ab-72a43e8fb580",
+    "name": "Wizard Replica",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wizard Replica",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Wizard",
+        "oracleText": "Flying\n{U}, Sacrifice this creature: Counter target spell unless its controller pays {2}.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Carl Critchlow",
+        "imageId": "0678cc06-061b-4e8a-9727-23279d3c9df1"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "psal",
+    "collectorNumber": "H19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRAGON_TYRANT": {
+    "scryfallId": "04d1a29b-af80-4f9a-881b-ef7374ecbce1",
+    "oracleId": "6288865d-7f64-411f-a044-ca350cf6fb8d",
+    "name": "Dragon Tyrant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dragon Tyrant",
+        "manaCost": "{8}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, trample\nDouble strike (This creature deals both first-strike and regular combat damage.)\nAt the beginning of your upkeep, sacrifice this creature unless you pay {R}{R}{R}{R}.\n{R}: This creature gets +1/+0 until end of turn.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "04d1a29b-af80-4f9a-881b-ef7374ecbce1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 10,
+    "keywords": [
+      "Flying",
+      "Trample",
+      "Double strike"
+    ],
+    "setCode": "scg",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KURO_PITLORD": {
+    "scryfallId": "5bd8c713-cf40-45d0-944d-c8183fbcae16",
+    "oracleId": "c80a7d22-076a-4fd7-bcf4-4769143647f0",
+    "name": "Kuro, Pitlord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kuro, Pitlord",
+        "manaCost": "{6}{B}{B}{B}",
+        "typeLine": "Legendary Creature — Demon Spirit",
+        "oracleText": "At the beginning of your upkeep, sacrifice Kuro unless you pay {B}{B}{B}{B}.\nPay 1 life: Target creature gets -1/-1 until end of turn.",
+        "flavorText": null,
+        "power": "9",
+        "toughness": "9",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jon Foster",
+        "imageId": "5bd8c713-cf40-45d0-944d-c8183fbcae16"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 9,
+    "keywords": [],
+    "setCode": "aa4",
+    "collectorNumber": "15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VODALIAN_HEXCATCHER": {
+    "scryfallId": "1198e0f9-7240-4eae-85d1-4b8ee5d61458",
+    "oracleId": "4246b503-0da8-4de7-9343-9dfb3c3672df",
+    "name": "Vodalian Hexcatcher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vodalian Hexcatcher",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "Flash\nOther Merfolk you control get +1/+1.\nSacrifice a Merfolk: Counter target noncreature spell unless its controller pays {1}.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dmitry Burmak",
+        "imageId": "1198e0f9-7240-4eae-85d1-4b8ee5d61458"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "398",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOPEFUL_VIGIL": {
+    "scryfallId": "d382fd32-b1f5-4ec7-9d42-fc2915ed3bc9",
+    "oracleId": "33fff722-5cc5-4d0e-b788-166b3edb1223",
+    "name": "Hopeful Vigil",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hopeful Vigil",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, create a 2/2 white Knight creature token with vigilance.\nWhen this enchantment is put into a graveyard from the battlefield, scry 2.\n{2}{W}: Sacrifice this enchantment.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jake Murray",
+        "imageId": "d382fd32-b1f5-4ec7-9d42-fc2915ed3bc9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VAEVICTIS_ASMADI": {
+    "scryfallId": "00177fcf-92af-475a-a7f5-11ab645388a5",
+    "oracleId": "4d2cc2a8-e08a-420a-8922-c63e39129e23",
+    "name": "Vaevictis Asmadi",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vaevictis Asmadi",
+        "manaCost": "{2}{B}{B}{R}{R}{G}{G}",
+        "typeLine": "Legendary Creature — Elder Dragon",
+        "oracleText": "Flying\nAt the beginning of your upkeep, sacrifice Vaevictis Asmadi unless you pay {B}{R}{G}.\n{B}: Vaevictis Asmadi gets +1/+0 until end of turn.\n{R}: Vaevictis Asmadi gets +1/+0 until end of turn.\n{G}: Vaevictis Asmadi gets +1/+0 until end of turn.",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G",
+          "R"
+        ],
+        "artist": "Andi Rusu",
+        "imageId": "00177fcf-92af-475a-a7f5-11ab645388a5"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "R"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "bchr",
+    "collectorNumber": "89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FUGITIVE_WIZARD": {
+    "scryfallId": "0453fac7-10b9-49d7-8219-78faf9d92d0c",
+    "oracleId": "381fa2a9-69fc-4558-a0ac-fb99c6f8d77f",
+    "name": "Fugitive Wizard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fugitive Wizard",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "",
+        "flavorText": "The College of Lat-Nam is often forced to expel students whose experiments grow too risky or too cruel.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jim Nelson",
+        "imageId": "0453fac7-10b9-49d7-8219-78faf9d92d0c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "9ed",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

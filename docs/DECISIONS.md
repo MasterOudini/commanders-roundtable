@@ -25949,3 +25949,171 @@ autoAnyFace 1,031 - ladder [1207, 1274, 2872, 4708, 6040] - tier3 silentAfter
 
 **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,017 files, 24,817 passed / 11 skipped · 500-seed
 gate, 6 shards, 891.9 s wall · build clean · probe 124/124 · battery 130/130.**
+
+
+## D370 - M6.4hc: THE PAYMENT WAVE - the row maker learns to ANSWER a prompt, and paying has to STOP the body (2026-09-09)
+
+**7,723 of 31,692 Commander-legal cards execute completely, up from 7,683
+(+40).** `SHIPPED_SCRIPTS` 4,870 -> **4,910**; REFUSED ledger 954 -> **1,071**
+(+117 - every card of the 157 the wave did not take, by the reason the row maker
+or the candidate probe gave). Fixtures 5,360 -> **5,401**. **Select pool 157 ->
+0** - what a wave does, where a seam refills it.
+
+### No engine change, and that is the measurement
+
+D369 built the payment prompt and left its wave to this decision (D289/D357/
+D359's shape). Nothing in `src/engine/` moves here: the 40 cards run on the seam
+exactly as it shipped, and every line of this decision is the GENERATOR learning
+to answer a question the engine already asks. The tell is the classifier's own
+number - `scriptableToday` **1,207 -> 1,167**: a seam raises it (a line the
+engine reads is a card a row can take), a wave lowers it (a card a row has taken
+is one no row can take again).
+
+### The arm
+
+A payload whose effect is `payOptional` stops on resolution and asks a PLAYER to
+pay; the answer carries the consequence. So the suite proves **BOTH branches from
+one armed board, in two tests** - `declined` (the price unpaid, the body runs)
+and `paid` (the price taken, the body does not) - because a single-branch proof
+would pass with the two branches swapped. The title says which test is which.
+
+⚠️ **THE PAYER IS FUNDED WITH REAL UNTAPPED LANDS, never the hand tool.** A mana
+POOL empties at every step boundary (CR 500.4) and an upkeep trigger fires two
+boundaries after the board is armed, so pool mana would be gone before the
+question was asked; lands survive, `suggestPayment` finds them, and the paid
+branch's assert is then exact - the lands the payment spent are the ones now
+tapped, and declining leaves every one of them untapped.
+
+⚠️ **THE DECLINED BRANCH NEEDS THE SAME FUNDING**, which is the half that is easy
+to get wrong: the prompt exists only while the payer CAN pay (CR 119.4), so an
+unfunded payer is never asked and the body runs INLINE. That is a different rule
+- D369's own test proves it - and a suite that tested it here would be testing
+the absence of this seam.
+
+⚠️ **THE PAYER IS NOT ALWAYS THE ROW'S CONTROLLER.** `pay.who` decides: the
+upkeep and enters shapes ask p1, and every counter and every tap-unless asks the
+controller of the thing it was aimed at - which is p2. The generated suite reads
+the payer off the spec and answers as that player, and asserts the prompt named
+them.
+
+### The counter arm, and the settle that ate the prompt
+
+Fourteen of the forty are the Spiketail family - `Sacrifice this creature:
+Counter target spell unless its controller pays {N}.` - and their clause is a
+SPELL, which no generated suite had ever aimed at. The scaffold is Soulsworn
+Jury's (D250) generated: the OPPONENT casts a spell in its own main phase, the
+row's ability answers it, and the aim is `{ kind: 'stack', id: stackId }`.
+Divination is the one fixture every printed shape in this pool admits at once -
+a spell, an instant-or-sorcery, a noncreature - and it needs no target of its
+own, so the cast is a single submit.
+
+⚠️⚠️ **AND THE FIRST FOURTEEN WENT RED ON A TRAP WORTH WRITING DOWN.**
+`advanceUntil` ANSWERS every prompt it passes (the harness's own
+`simplestAnswer`, which declines), and `settle` IS an `advanceUntil` - so a fire
+that ends in a settle answers the payment question itself unless the settle's
+predicate is already true the moment the prompt goes up. For the sacrifice rows
+it was: the ability had left the stack, so `stack.length === 0` held and the
+settle returned with the prompt still standing. A COUNTER row still has the
+opponent's spell on the stack, so the same settle declined the price, resolved
+the counter, and left the test nothing to answer. **A scaffold that waits after
+raising a prompt must wait for the PROMPT OR the quiet board, never for the quiet
+board alone.**
+
+### Two more findings, both from the port
+
+⚠️ **A DERIVED COST FIXTURE IS IN NO NAMES LIST.** Patron Wizard's cost taps an
+untapped WIZARD, and D347's derivation picked `Fugitive Wizard` - a card the
+fixture WANTED list had never heard of, because a wave adds its own names and its
+carried `helpers.json`, and a fixture the ROW MAKER derives is in neither. The
+suite said so by name (`no fixture card named "Fugitive Wizard"`), and the fix is
+one line in `helpers.json`; the reusable half is the check: read every name a
+generated suite puts or deals against the WANTED list before the port, rather
+than after a red run.
+
+⚠️ **A PAYMENT ROW BESIDE A SECOND STEP-HEAD TRIGGER IS REFUSED BY NAME.** A
+payment row waits for its own upkeep two turns out, and a second step head fires
+on the way there: Breeding Pit makes a Thrull at every end step, so the board the
+test counts at the end holds two tokens the assert never asked for. Asserting
+around them would be arithmetic about the scaffold rather than about the card, so
+the row is refused with that reason and Breeding Pit is in the ledger. It costs
+one card.
+
+⚠️ **A SORCERY IS IN THE GRAVEYARD WHETHER IT WAS COUNTERED OR IT RESOLVED**, so
+the counter branch is read off the LOG (`SpellCountered` is there iff the price
+went unpaid) rather than off the zone - the same reason D344's own asserts read
+what an effect DID rather than where a card ended.
+
+### The landing
+
+**Forty rows, in five printed shapes:** 18 that sacrifice themselves at their
+controller's upkeep unless the price is paid (Hungry Mist, Phantasmal Forces,
+Darba, Pit Raptor, Molting Harpy, Krosan Cloudscraper, Junun Efreet, Whipstitched
+Zombie, Wild Leotau, Spindrift Drake, School of Piranha, Drifting Djinn, Drifter
+il-Dal, Kami of the Tended Garden, Palladia-Mors, Dragon Tyrant, Kuro Pitlord,
+Vaevictis Asmadi); 14 that counter a spell unless its controller pays
+(Cursecatcher, Judge's Familiar, the three Spiketails, Wizard Replica, Diversion
+Unit, Soratami Savant, Vodalian Mage, Vodalian Hexcatcher, Disruptive Pitmage,
+Disruptive Student, Mundungu, Patron Wizard); 4 lands that sacrifice themselves
+on entry (Archway Commons, Gateway Plaza, Rupture Spire, Transguild Promenade);
+2 that tap a creature unless its controller pays (Rhystic Deluge, Vectis
+Dominator) and 1 that bounces one (Erratic Portal); and Hopeful Vigil, whose own
+sacrifice is the payload. **48 abilities, 127 tests, every branch of every
+payment proven both ways.**
+
+**And 117 ledger rows**, each with the reason the row maker or the probe gave
+rather than a guessed one: 52 a trigger HEAD the row library does not hold
+("whenever a player casts a white spell", "whenever an opponent draws a card"),
+23 a payload outside both readers - generator gaps, not engine ones - and the
+rest the payment shapes D369 named as refused: an X price (9), a computed price
+(10, "pays {1} for each card in your graveyard"), a sentence or a line after the
+ask (9 - an effect that ASKS must be LAST, D195), a per-item payment (2), a
+typed-spell compound clause (3), a cast-time alternative cost, a computed life
+price.
+
+### The gate's own load, measured rather than suspected
+
+⚠️⚠️ Gates 56 and 57 both came back RED on ONE assert and it was not a card: the
+bot tournament's throughput floor, **19.76 and then 19.53 decisions per second
+against a floor of 20** - with the fuzz gate green at 917.6 s and all 5,057 other
+files passing, twice. It reproduced, so it is not noise; and measured ALONE on
+the idle machine the same tree reads **23.73 decisions per second** and passes,
+three times. **The gate's own unit stage costs that measurement about 18%** - it
+runs 5,057 files across several workers - so the number the gate was reading is
+the vitest pool's rather than the bot's.
+
+The floor moves 20 -> **15**, with all three measurements in the test's own
+comment (D181's rule for the fuzz ceiling, one pin over: move it only after a
+measurement proves growth rather than a wedge). ⚠️ **And the number to WATCH is
+the idle one**: 135/s when D126 set this up with a handful of scripts, 23.7/s at
+4,910 - the registry's growth, which is the cost D167 measured from the other
+side and named "the GAMES, not the bus". A wall-clock floor asserted inside a
+suite whose own size keeps growing is a canary for the SUITE.
+
+### Measured
+
+`complete` 7,683 -> **7,723** - `blocked` 24,009 -> 23,969 - `scriptableToday`
+1,207 -> **1,167** (a wave lowers it) - the ladder [1207, 1274, 2872, 4708, 6040]
+-> [1167, 1234, 2832, 4668, 6000] - botPool creature 4,440 -> **4,473**, land 561
+-> **565**, enchantment 426 -> 428, artifact 435 -> 436 (the spell columns do not
+move: no parser changed) - tier3 `silentAfter` 7,982 -> **8,022** and
+`abilityText` 15,163 -> 15,139, the disclosure and the accounting agreeing card
+for card. The bot's own reach rose to **7,662** cards from 7,622, chosen from
+**217** fully-executable legendary creatures (214 before).
+
+**Not this decision:** the 52 trigger heads and the 23 payloads the row library
+does not hold (each is a head or a payload, and the two together are the biggest
+generated-wave material on the board); the X and computed payment prices (19); an
+effect after the payment ask (9 - the answer's continuation would have to carry
+the rest of the sentence); the typed-spell compound clause (3); a per-item
+payment (2); echo (17) and cumulative upkeep (16) on the same prompt; then `as
+long as` (448 across 276 conditions); the granted STATIC (10), the 82 + 75 quoted
+payloads outside both readers, the ENTERS and combat-role scaffold arms.
+
+Fixtures 5,401 (5,248 by name + 146 tokens; the one name a derived cost needed) -
+botPool artifact 436 / creature 4,473 / enchantment 428 / instant 1,038 / land
+565 / sorcery 783 - auto 1,022 / assisted 1,909 / autoAnyFace 1,031 - ladder
+[1167, 1234, 2832, 4668, 6000] - tier3 silentAfter 8,022 - batch.json 40 - select
+pool 0.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,057 files, 25,024 passed / 11 skipped · 500-seed
+gate, 6 shards, 914.3 s wall · build clean · probe 124/124 · battery 130/130.**

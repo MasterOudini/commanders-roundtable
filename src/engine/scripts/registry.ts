@@ -7,6 +7,46 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ARCHWAY_COMMONS_SCRIPT } from './cards/archwayCommons';
+import { CURSECATCHER_SCRIPT } from './cards/cursecatcher';
+import { DARBA_SCRIPT } from './cards/darba';
+import { DISRUPTIVE_PITMAGE_SCRIPT } from './cards/disruptivePitmage';
+import { DISRUPTIVE_STUDENT_SCRIPT } from './cards/disruptiveStudent';
+import { DIVERSION_UNIT_SCRIPT } from './cards/diversionUnit';
+import { DRIFTER_IL_DAL_SCRIPT } from './cards/drifterIlDal';
+import { DRIFTING_DJINN_SCRIPT } from './cards/driftingDjinn';
+import { ERRATIC_PORTAL_SCRIPT } from './cards/erraticPortal';
+import { GATEWAY_PLAZA_SCRIPT } from './cards/gatewayPlaza';
+import { HUNGRY_MIST_SCRIPT } from './cards/hungryMist';
+import { JUDGES_FAMILIAR_SCRIPT } from './cards/judgesFamiliar';
+import { JUN_NEFREET_SCRIPT } from './cards/junNEfreet';
+import { KAMI_OF_THE_TENDED_GARDEN_SCRIPT } from './cards/kamiOfTheTendedGarden';
+import { KROSAN_CLOUDSCRAPER_SCRIPT } from './cards/krosanCloudscraper';
+import { MOLTING_HARPY_SCRIPT } from './cards/moltingHarpy';
+import { MUNDUNGU_SCRIPT } from './cards/mundungu';
+import { PALLADIA_MORS_SCRIPT } from './cards/palladiaMors';
+import { PATRON_WIZARD_SCRIPT } from './cards/patronWizard';
+import { PHANTASMAL_FORCES_SCRIPT } from './cards/phantasmalForces';
+import { PIT_RAPTOR_SCRIPT } from './cards/pitRaptor';
+import { RHYSTIC_DELUGE_SCRIPT } from './cards/rhysticDeluge';
+import { RUPTURE_SPIRE_SCRIPT } from './cards/ruptureSpire';
+import { SCHOOL_OF_PIRANHA_SCRIPT } from './cards/schoolOfPiranha';
+import { SORATAMI_SAVANT_SCRIPT } from './cards/soratamiSavant';
+import { SPIKETAIL_DRAKE_SCRIPT } from './cards/spiketailDrake';
+import { SPIKETAIL_DRAKELING_SCRIPT } from './cards/spiketailDrakeling';
+import { SPIKETAIL_HATCHLING_SCRIPT } from './cards/spiketailHatchling';
+import { SPINDRIFT_DRAKE_SCRIPT } from './cards/spindriftDrake';
+import { TRANSGUILD_PROMENADE_SCRIPT } from './cards/transguildPromenade';
+import { VECTIS_DOMINATOR_SCRIPT } from './cards/vectisDominator';
+import { VODALIAN_MAGE_SCRIPT } from './cards/vodalianMage';
+import { WHIPSTITCHED_ZOMBIE_SCRIPT } from './cards/whipstitchedZombie';
+import { WILD_LEOTAU_SCRIPT } from './cards/wildLeotau';
+import { WIZARD_REPLICA_SCRIPT } from './cards/wizardReplica';
+import { DRAGON_TYRANT_SCRIPT } from './cards/dragonTyrant';
+import { KURO_PITLORD_SCRIPT } from './cards/kuroPitlord';
+import { VODALIAN_HEXCATCHER_SCRIPT } from './cards/vodalianHexcatcher';
+import { HOPEFUL_VIGIL_SCRIPT } from './cards/hopefulVigil';
+import { VAEVICTIS_ASMADI_SCRIPT } from './cards/vaevictisAsmadi';
 import { CATHARS_CALL_SCRIPT } from './cards/catharsCall';
 import { COMMANDERS_AUTHORITY_SCRIPT } from './cards/commandersAuthority';
 import { COMMANDING_PRESENCE_SCRIPT } from './cards/commandingPresence';
@@ -4896,6 +4936,46 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ARCHWAY_COMMONS_SCRIPT,
+  CURSECATCHER_SCRIPT,
+  DARBA_SCRIPT,
+  DISRUPTIVE_PITMAGE_SCRIPT,
+  DISRUPTIVE_STUDENT_SCRIPT,
+  DIVERSION_UNIT_SCRIPT,
+  DRIFTER_IL_DAL_SCRIPT,
+  DRIFTING_DJINN_SCRIPT,
+  ERRATIC_PORTAL_SCRIPT,
+  GATEWAY_PLAZA_SCRIPT,
+  HUNGRY_MIST_SCRIPT,
+  JUDGES_FAMILIAR_SCRIPT,
+  JUN_NEFREET_SCRIPT,
+  KAMI_OF_THE_TENDED_GARDEN_SCRIPT,
+  KROSAN_CLOUDSCRAPER_SCRIPT,
+  MOLTING_HARPY_SCRIPT,
+  MUNDUNGU_SCRIPT,
+  PALLADIA_MORS_SCRIPT,
+  PATRON_WIZARD_SCRIPT,
+  PHANTASMAL_FORCES_SCRIPT,
+  PIT_RAPTOR_SCRIPT,
+  RHYSTIC_DELUGE_SCRIPT,
+  RUPTURE_SPIRE_SCRIPT,
+  SCHOOL_OF_PIRANHA_SCRIPT,
+  SORATAMI_SAVANT_SCRIPT,
+  SPIKETAIL_DRAKE_SCRIPT,
+  SPIKETAIL_DRAKELING_SCRIPT,
+  SPIKETAIL_HATCHLING_SCRIPT,
+  SPINDRIFT_DRAKE_SCRIPT,
+  TRANSGUILD_PROMENADE_SCRIPT,
+  VECTIS_DOMINATOR_SCRIPT,
+  VODALIAN_MAGE_SCRIPT,
+  WHIPSTITCHED_ZOMBIE_SCRIPT,
+  WILD_LEOTAU_SCRIPT,
+  WIZARD_REPLICA_SCRIPT,
+  DRAGON_TYRANT_SCRIPT,
+  KURO_PITLORD_SCRIPT,
+  VODALIAN_HEXCATCHER_SCRIPT,
+  HOPEFUL_VIGIL_SCRIPT,
+  VAEVICTIS_ASMADI_SCRIPT,
   CATHARS_CALL_SCRIPT,
   COMMANDERS_AUTHORITY_SCRIPT,
   COMMANDING_PRESENCE_SCRIPT,

@@ -5232,6 +5232,47 @@ export const WEB_SHOOTERS: CardData = F.WEB_SHOOTERS as CardData;
 export const MANA_LEAK: CardData = F.MANA_LEAK as CardData;
 export const FORCE_SPIKE: CardData = F.FORCE_SPIKE as CardData;
 export const MISCAST: CardData = F.MISCAST as CardData;
+export const ARCHWAY_COMMONS: CardData = F.ARCHWAY_COMMONS as CardData;
+export const CURSECATCHER: CardData = F.CURSECATCHER as CardData;
+export const DARBA: CardData = F.DARBA as CardData;
+export const DISRUPTIVE_PITMAGE: CardData = F.DISRUPTIVE_PITMAGE as CardData;
+export const DISRUPTIVE_STUDENT: CardData = F.DISRUPTIVE_STUDENT as CardData;
+export const DIVERSION_UNIT: CardData = F.DIVERSION_UNIT as CardData;
+export const DRIFTER_IL_DAL: CardData = F.DRIFTER_IL_DAL as CardData;
+export const DRIFTING_DJINN: CardData = F.DRIFTING_DJINN as CardData;
+export const ERRATIC_PORTAL: CardData = F.ERRATIC_PORTAL as CardData;
+export const GATEWAY_PLAZA: CardData = F.GATEWAY_PLAZA as CardData;
+export const HUNGRY_MIST: CardData = F.HUNGRY_MIST as CardData;
+export const JUDGE_S_FAMILIAR: CardData = F.JUDGE_S_FAMILIAR as CardData;
+export const JUN_N_EFREET: CardData = F.JUN_N_EFREET as CardData;
+export const KAMI_OF_THE_TENDED_GARDEN: CardData = F.KAMI_OF_THE_TENDED_GARDEN as CardData;
+export const KROSAN_CLOUDSCRAPER: CardData = F.KROSAN_CLOUDSCRAPER as CardData;
+export const MOLTING_HARPY: CardData = F.MOLTING_HARPY as CardData;
+export const MUNDUNGU: CardData = F.MUNDUNGU as CardData;
+export const PALLADIA_MORS: CardData = F.PALLADIA_MORS as CardData;
+export const PATRON_WIZARD: CardData = F.PATRON_WIZARD as CardData;
+export const PHANTASMAL_FORCES: CardData = F.PHANTASMAL_FORCES as CardData;
+export const PIT_RAPTOR: CardData = F.PIT_RAPTOR as CardData;
+export const RHYSTIC_DELUGE: CardData = F.RHYSTIC_DELUGE as CardData;
+export const RUPTURE_SPIRE: CardData = F.RUPTURE_SPIRE as CardData;
+export const SCHOOL_OF_PIRANHA: CardData = F.SCHOOL_OF_PIRANHA as CardData;
+export const SORATAMI_SAVANT: CardData = F.SORATAMI_SAVANT as CardData;
+export const SPIKETAIL_DRAKE: CardData = F.SPIKETAIL_DRAKE as CardData;
+export const SPIKETAIL_DRAKELING: CardData = F.SPIKETAIL_DRAKELING as CardData;
+export const SPIKETAIL_HATCHLING: CardData = F.SPIKETAIL_HATCHLING as CardData;
+export const SPINDRIFT_DRAKE: CardData = F.SPINDRIFT_DRAKE as CardData;
+export const TRANSGUILD_PROMENADE: CardData = F.TRANSGUILD_PROMENADE as CardData;
+export const VECTIS_DOMINATOR: CardData = F.VECTIS_DOMINATOR as CardData;
+export const VODALIAN_MAGE: CardData = F.VODALIAN_MAGE as CardData;
+export const WHIPSTITCHED_ZOMBIE: CardData = F.WHIPSTITCHED_ZOMBIE as CardData;
+export const WILD_LEOTAU: CardData = F.WILD_LEOTAU as CardData;
+export const WIZARD_REPLICA: CardData = F.WIZARD_REPLICA as CardData;
+export const DRAGON_TYRANT: CardData = F.DRAGON_TYRANT as CardData;
+export const KURO_PITLORD: CardData = F.KURO_PITLORD as CardData;
+export const VODALIAN_HEXCATCHER: CardData = F.VODALIAN_HEXCATCHER as CardData;
+export const HOPEFUL_VIGIL: CardData = F.HOPEFUL_VIGIL as CardData;
+export const VAEVICTIS_ASMADI: CardData = F.VAEVICTIS_ASMADI as CardData;
+export const FUGITIVE_WIZARD: CardData = F.FUGITIVE_WIZARD as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -10595,6 +10636,47 @@ export const ENGINE_CARDS: CardData[] = [
   MANA_LEAK,
   FORCE_SPIKE,
   MISCAST,
+  ARCHWAY_COMMONS,
+  CURSECATCHER,
+  DARBA,
+  DISRUPTIVE_PITMAGE,
+  DISRUPTIVE_STUDENT,
+  DIVERSION_UNIT,
+  DRIFTER_IL_DAL,
+  DRIFTING_DJINN,
+  ERRATIC_PORTAL,
+  GATEWAY_PLAZA,
+  HUNGRY_MIST,
+  JUDGE_S_FAMILIAR,
+  JUN_N_EFREET,
+  KAMI_OF_THE_TENDED_GARDEN,
+  KROSAN_CLOUDSCRAPER,
+  MOLTING_HARPY,
+  MUNDUNGU,
+  PALLADIA_MORS,
+  PATRON_WIZARD,
+  PHANTASMAL_FORCES,
+  PIT_RAPTOR,
+  RHYSTIC_DELUGE,
+  RUPTURE_SPIRE,
+  SCHOOL_OF_PIRANHA,
+  SORATAMI_SAVANT,
+  SPIKETAIL_DRAKE,
+  SPIKETAIL_DRAKELING,
+  SPIKETAIL_HATCHLING,
+  SPINDRIFT_DRAKE,
+  TRANSGUILD_PROMENADE,
+  VECTIS_DOMINATOR,
+  VODALIAN_MAGE,
+  WHIPSTITCHED_ZOMBIE,
+  WILD_LEOTAU,
+  WIZARD_REPLICA,
+  DRAGON_TYRANT,
+  KURO_PITLORD,
+  VODALIAN_HEXCATCHER,
+  HOPEFUL_VIGIL,
+  VAEVICTIS_ASMADI,
+  FUGITIVE_WIZARD,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

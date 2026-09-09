@@ -427,7 +427,15 @@ describe('level 1 against level 0', () => {
    */
   test('games finish, and decisions are cheap', () => {
     expect(m.draws / m.games, 'draw rate').toBeLessThan(0.05);
-    expect(m.decisions / (m.ms / 1000), 'decisions per second').toBeGreaterThan(20);
+    // D370 - 20 -> 15, and the three measurements are why. Inside the gate`s own unit
+    // stage (5,057 files, several workers) this tree reads 19.53 and 19.76 decisions per
+    // second; ALONE on the idle machine it reads 23.73 and passes. The pool costs the
+    // measurement about 18%, so a floor above the loaded rate fails on the suite`s size
+    // rather than on the bot (D106: never read a wall-clock number off a loaded machine).
+    // 15 still catches a real collapse - a third off today`s idle rate - and the number to
+    // WATCH is the idle one: 135/s at D126 with a handful of scripts, 23.7/s at 4,910,
+    // which is the registry`s growth and is the cost D167 measured from the other side.
+    expect(m.decisions / (m.ms / 1000), 'decisions per second').toBeGreaterThan(15);
   });
 });
 

@@ -12333,6 +12333,116 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       rest — the attached statics the Aura and Equipment rows cannot read
       (351), the Aura that REDEFINES its host (18), the bare keyword or
       ability word (185); prior items stand.
+- [x] **M6.4hc — THE PAYMENT WAVE: the row maker learns to ANSWER a prompt, and
+      paying has to STOP the body (2026-09-09):** **7,723 of 31,692
+      Commander-legal cards now execute completely, up from 7,683 (+40).**
+      `SHIPPED_SCRIPTS` 4,870 → **4,910**; ledger 954 → **1,071** (+117 — every
+      card of the 157 the wave did not take, by the reason the row maker or the
+      probe gave). Fixtures 5,360 → **5,401**. **Select pool 157 → 0** — what a
+      wave does, where a seam refills it. Decisions in **D370**.
+      ⚠️ **NO ENGINE CHANGE, and that is the measurement.** D369 built the
+      payment prompt and left its wave here (D289/D357/D359's shape); nothing in
+      `src/engine/` moves, and the forty run on the seam exactly as it shipped.
+      The tell is the classifier's own number — `scriptableToday` 1,207 →
+      **1,167**: a seam raises it, a wave lowers it.
+      ⚠️⚠️ **BOTH BRANCHES, IN TWO TESTS OFF ONE ARMED BOARD** — `declined` (the
+      price unpaid, the body runs) and `paid` (the price taken, the body does
+      NOT) — because a single-branch proof passes with the two branches swapped.
+      ⚠️ **THE PAYER IS FUNDED WITH REAL UNTAPPED LANDS, never the hand tool**: a
+      mana POOL empties at every step boundary (CR 500.4) and an upkeep trigger
+      fires two boundaries after the board is armed, so pool mana would be gone
+      before the question was asked — and the lands make the paid branch's assert
+      exact, since the ones the payment spent are the ones now tapped and
+      declining leaves every one untapped. ⚠️ **The DECLINED branch needs the
+      same funding**: the prompt exists only while the payer CAN pay (CR 119.4),
+      so an unfunded payer is never asked and the body runs INLINE — a different
+      rule, and D369's own test is where it belongs.
+      ⚠️ **THE PAYER IS NOT ALWAYS THE ROW'S CONTROLLER.** `pay.who` decides: the
+      upkeep and enters shapes ask p1; every counter and every tap-unless asks
+      the controller of what it was aimed at, which is p2. The suite reads the
+      payer off the spec, answers as that player, and asserts the prompt named
+      them.
+      ⚠️⚠️ **THE SETTLE THAT ATE THE PROMPT — the trap worth carrying.**
+      `advanceUntil` ANSWERS every prompt it passes (the harness's own
+      `simplestAnswer`, which declines), and `settle` IS an `advanceUntil`. A fire
+      that ends in a settle therefore answers the payment question itself unless
+      the settle's predicate already holds when the prompt goes up. For the
+      sacrifice rows it did — the ability had left the stack — so those passed;
+      a COUNTER row still has the opponent's spell on the stack, so the same
+      settle declined the price, resolved the counter and left the test nothing
+      to answer. **A scaffold that waits after raising a prompt waits for the
+      PROMPT OR the quiet board, never for the quiet board alone.**
+      ⚠️ **The counter arm is Soulsworn Jury's scaffold (D250), generated:** the
+      opponent casts a spell in its own main phase, the row's ability answers it,
+      and the aim is the stack object. Divination is the one fixture every
+      printed shape here admits at once — a spell, an instant-or-sorcery, a
+      noncreature — and it needs no target of its own. ⚠️ A sorcery is in the
+      graveyard whether it was countered or it resolved, so the branch is read
+      off the LOG (`SpellCountered`), never off the zone.
+      ⚠️ **A DERIVED COST FIXTURE IS IN NO NAMES LIST.** Patron Wizard's cost taps
+      an untapped Wizard and D347's derivation picked `Fugitive Wizard` — a name
+      the fixture WANTED list had never heard of, because a wave adds its own
+      names and its carried `helpers.json`, and a fixture the ROW MAKER derives is
+      in neither. The suite named it; the check that belongs in the port is to
+      read every name a generated suite puts or deals against WANTED first.
+      ⚠️⚠️ **THE GATE'S OWN LOAD, measured rather than suspected.** Gates 56 and
+      57 both came back RED on ONE assert and it was not a card: the bot
+      tournament's throughput floor, **19.76 then 19.53 decisions per second
+      against 20**, with the fuzz gate green and all 5,057 other files passing.
+      It reproduced, so it is not noise - and ALONE on the idle machine the same
+      tree reads **23.73/s** and passes, three times. The unit stage (5,057 files,
+      several workers) costs that measurement about 18%, so the gate was reading
+      the vitest pool rather than the bot. The floor moves 20 → **15** with all
+      three numbers in the test's own comment (D181's rule for the fuzz ceiling,
+      one pin over). ⚠️ The number to WATCH is the idle one: 135/s at D126 with a
+      handful of scripts, 23.7/s at 4,910 - the registry's growth, the cost D167
+      measured from the other side.
+      ⚠️ **A payment row beside a SECOND step-head trigger is refused by name**: a
+      payment row waits for its own upkeep two turns out, and Breeding Pit makes
+      a Thrull at every end step on the way, so the board the test counts holds
+      tokens the assert never asked for. One card.
+      **Landed:** 40 rows in five printed shapes — 18 that sacrifice themselves at
+      their controller's upkeep unless the price is paid (Hungry Mist, Phantasmal
+      Forces, Darba, Pit Raptor, Krosan Cloudscraper, Dragon Tyrant, Kuro
+      Pitlord, Vaevictis Asmadi and their kin), 14 that counter a spell unless its
+      controller pays (Cursecatcher, Judge's Familiar, the three Spiketails,
+      Wizard Replica, Patron Wizard, Mundungu, Soratami Savant …), 4 lands that
+      sacrifice themselves on entry (Archway Commons, Gateway Plaza, Rupture
+      Spire, Transguild Promenade), 2 that tap a creature unless its controller
+      pays and 1 that bounces one, and Hopeful Vigil. **48 abilities, 127 tests,
+      every payment proven both ways.** And **117 ledger rows**: 52 a trigger HEAD
+      the row library does not hold, 23 a payload outside both readers — generator
+      gaps, not engine ones — and the rest the payment shapes D369 named (an X
+      price 9, a computed price 10, a sentence or line after the ask 9, a per-item
+      payment 2, a typed-spell compound clause 3). The bot's own reach rose to
+      **7,662** cards from 7,622, from **217** fully-executable legendaries.
+      Fixtures 5,401 (5,248 by name + 146 tokens) · botPool artifact 436 /
+      creature 4,473 / enchantment 428 / instant 1,038 / land 565 / sorcery 783 -
+      auto 1,022 / assisted 1,909 / autoAnyFace 1,031 · ladder [1167, 1234, 2832,
+      4668, 6000] · tier3 silentAfter 8,022 · batch.json 40 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,057 files, 25,024 passed / 11 skipped ·
+      500-seed gate, 6 shards, 914.3 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D370): the 52 trigger heads and 23 payloads the row
+      library does not hold (the biggest generated-wave material on the board, and
+      each is a head or a payload rather than a seam); the X and computed payment
+      prices (19); an effect after the payment ask (9 — the answer's continuation
+      would have to carry the rest of the sentence); the typed-spell compound
+      clause (3) and the per-item payment (2); echo (17) and cumulative upkeep
+      (16) on the same prompt; then `as long as` (448 across 276 conditions —
+      D342's `conditionOf` plus a dozen cheap predicates); the granted STATIC
+      (10), the 82 + 75 quoted payloads outside both readers, a granted MANA
+      ability (CR 605's immediate path), the ENTERS and combat-role scaffold arms,
+      `Commander creatures you own`; then D365's list — the counts outside the
+      vocabulary (17), the activation conditions (35), the trigger payloads
+      outside both readers (20) — and D364's snow CREATURE fixture, D363's counter
+      KINDS and NONTOKEN predicate, the keyword ENTRY REPLACEMENTS (bloodthirst
+      13, modular 7, graft 2) and CHOICES (fabricate 10, unleash 9, riot 4, devour
+      4, enlist 5, amplify 3), the block REQUIREMENT (provoke 4), the cast-time
+      payment sources (convoke 14, delve 5, improvise 6); then the seam map's
+      rest — the attached statics the Aura and Equipment rows cannot read (351),
+      the Aura that REDEFINES its host (18), the bare keyword or ability word
+      (185); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
