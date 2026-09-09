@@ -147,7 +147,7 @@ export function useEngineTable() {
     (source: TargetSource, name: string, next: 'payment' | 'submit'): boolean => {
       const specs =
         source.kind === 'ability'
-          ? session.targetSpecsFor(source.card, source.abilityIndex)
+          ? session.targetSpecsFor(source.card, source.abilityIndex, source.grantRef)
           : session.targetSpecsFor(source.card);
       const max = specs.reduce((n, s) => n + s.max, 0);
       if (specs.length === 0 || max === 0) return false;

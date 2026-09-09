@@ -562,7 +562,14 @@ export class ClientSession {
   }
 
   /** The parsed target clauses of a card in hand, or of one of its abilities. */
-  targetSpecsFor(cardId: InstanceId, abilityIndex?: number): readonly TargetSpec[] {
+  targetSpecsFor(cardId: InstanceId, abilityIndex?: number, grantRef?: string): readonly TargetSpec[] {
+    // D367 - a GRANTED ability is not on the recipient's face: its parsed body
+    // lives on the provider's def (`ActivatedDef.granted`), which ships in the
+    // bundle exactly as the spell defs D187 reads here do.
+    if (grantRef !== undefined) {
+      const script = SHIPPED_REGISTRY.get(grantRef.slice(0, grantRef.indexOf('#')));
+      return script?.activated?.find((d) => d.ref === grantRef)?.granted?.targets ?? [];
+    }
     const face = this.faceFor(cardId);
     if (!face) return [];
     if (abilityIndex === undefined) return face.targets;

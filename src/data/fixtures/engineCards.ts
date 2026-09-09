@@ -5181,6 +5181,43 @@ export const THOPTER_MECHANIC: CardData = F.THOPTER_MECHANIC as CardData;
 export const MYR_TURBINE: CardData = F.MYR_TURBINE as CardData;
 export const TITAN_FORGE: CardData = F.TITAN_FORGE as CardData;
 export const BROADCAST_RAMBLER: CardData = F.BROADCAST_RAMBLER as CardData;
+export const ACIDIC_SLIVER: CardData = F.ACIDIC_SLIVER as CardData;
+export const ARCANE_TEACHINGS: CardData = F.ARCANE_TEACHINGS as CardData;
+export const BARBED_FIELD: CardData = F.BARBED_FIELD as CardData;
+export const CAUSTIC_TAR: CardData = F.CAUSTIC_TAR as CardData;
+export const CLAIM_OF_EREBOS: CardData = F.CLAIM_OF_EREBOS as CardData;
+export const DARKHEART_SLIVER: CardData = F.DARKHEART_SLIVER as CardData;
+export const DEBTOR_S_PULPIT: CardData = F.DEBTOR_S_PULPIT as CardData;
+export const EPHARA_S_RADIANCE: CardData = F.EPHARA_S_RADIANCE as CardData;
+export const EPIPHANY_STORM: CardData = F.EPIPHANY_STORM as CardData;
+export const FOOTFALL_CRATER: CardData = F.FOOTFALL_CRATER as CardData;
+export const FORBIDDEN_LORE: CardData = F.FORBIDDEN_LORE as CardData;
+export const FOUL_PRESENCE: CardData = F.FOUL_PRESENCE as CardData;
+export const FRONDLAND_FELIDAR: CardData = F.FRONDLAND_FELIDAR as CardData;
+export const HERMETIC_STUDY: CardData = F.HERMETIC_STUDY as CardData;
+export const HOLLOWHEAD_SLIVER: CardData = F.HOLLOWHEAD_SLIVER as CardData;
+export const LIGHTNING_PROWESS: CardData = F.LIGHTNING_PROWESS as CardData;
+export const MANRIKI_GUSARI: CardData = F.MANRIKI_GUSARI as CardData;
+export const MNEMONIC_SLIVER: CardData = F.MNEMONIC_SLIVER as CardData;
+export const NECROTIC_SLIVER: CardData = F.NECROTIC_SLIVER as CardData;
+export const ORACLE_S_INSIGHT: CardData = F.ORACLE_S_INSIGHT as CardData;
+export const POWER_OF_FIRE: CardData = F.POWER_OF_FIRE as CardData;
+export const PRESENCE_OF_GOND: CardData = F.PRESENCE_OF_GOND as CardData;
+export const PROPHETIC_RAVINGS: CardData = F.PROPHETIC_RAVINGS as CardData;
+export const PSIONIC_GIFT: CardData = F.PSIONIC_GIFT as CardData;
+export const QUICKSILVER_DAGGER: CardData = F.QUICKSILVER_DAGGER as CardData;
+export const RACECOURSE_FURY: CardData = F.RACECOURSE_FURY as CardData;
+export const RESPLENDENT_MENTOR: CardData = F.RESPLENDENT_MENTOR as CardData;
+export const SADISTIC_OBSESSION: CardData = F.SADISTIC_OBSESSION as CardData;
+export const SIREN_SONG_LYRE: CardData = F.SIREN_SONG_LYRE as CardData;
+export const SQUIRREL_NEST: CardData = F.SQUIRREL_NEST as CardData;
+export const TELEKINETIC_SLIVER: CardData = F.TELEKINETIC_SLIVER as CardData;
+export const TIN_STREET_MARKET: CardData = F.TIN_STREET_MARKET as CardData;
+export const UNDERWORLD_CONNECTIONS: CardData = F.UNDERWORLD_CONNECTIONS as CardData;
+export const VERDANT_FIELD: CardData = F.VERDANT_FIELD as CardData;
+export const VICTUAL_SLIVER: CardData = F.VICTUAL_SLIVER as CardData;
+export const VIRIDIAN_LONGBOW: CardData = F.VIRIDIAN_LONGBOW as CardData;
+export const WITCHES_EYE: CardData = F.WITCHES_EYE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -10493,6 +10530,43 @@ export const ENGINE_CARDS: CardData[] = [
   MYR_TURBINE,
   TITAN_FORGE,
   BROADCAST_RAMBLER,
+  ACIDIC_SLIVER,
+  ARCANE_TEACHINGS,
+  BARBED_FIELD,
+  CAUSTIC_TAR,
+  CLAIM_OF_EREBOS,
+  DARKHEART_SLIVER,
+  DEBTOR_S_PULPIT,
+  EPHARA_S_RADIANCE,
+  EPIPHANY_STORM,
+  FOOTFALL_CRATER,
+  FORBIDDEN_LORE,
+  FOUL_PRESENCE,
+  FRONDLAND_FELIDAR,
+  HERMETIC_STUDY,
+  HOLLOWHEAD_SLIVER,
+  LIGHTNING_PROWESS,
+  MANRIKI_GUSARI,
+  MNEMONIC_SLIVER,
+  NECROTIC_SLIVER,
+  ORACLE_S_INSIGHT,
+  POWER_OF_FIRE,
+  PRESENCE_OF_GOND,
+  PROPHETIC_RAVINGS,
+  PSIONIC_GIFT,
+  QUICKSILVER_DAGGER,
+  RACECOURSE_FURY,
+  RESPLENDENT_MENTOR,
+  SADISTIC_OBSESSION,
+  SIREN_SONG_LYRE,
+  SQUIRREL_NEST,
+  TELEKINETIC_SLIVER,
+  TIN_STREET_MARKET,
+  UNDERWORLD_CONNECTIONS,
+  VERDANT_FIELD,
+  VICTUAL_SLIVER,
+  VIRIDIAN_LONGBOW,
+  WITCHES_EYE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

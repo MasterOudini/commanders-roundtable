@@ -17,7 +17,7 @@ import type { TokenRef } from '../../data/tokenTable';
 import type { EntersTapped, EntersTappedCondition, PermanentPredicate } from '../../data/replacementParse';
 import type { ManaCost } from './mana';
 import type { ManaPool } from './mana';
-import type { OracleId, PrintingId } from './ids';
+import type { AbilityRef, InstanceId, OracleId, PrintingId } from './ids';
 
 /**
  * The Tier-2 keywords. This list IS the scope boundary — see AGENTS.md.
@@ -772,6 +772,31 @@ export type ActivationCondition =
 /** D348 - which slot of the turn record a condition asks about. */
 export type TurnMemoryQuestion = 'cast' | 'died' | 'entered' | 'leftGraveyard' | 'discarded' | 'tokensCreated' | 'lostLife' | 'gainedLife' | 'attackers';
 
+/**
+ * D367 - ONE activated ability a permanent HAS because ANOTHER permanent's
+ * static grants it: `Enchanted creature has "{T}: This creature deals 1 damage
+ * to any target."` The runtime carrier the quoted-grant dossier named as
+ * missing (d354/DESIGN-quoted-grant.md): `MutableCharacteristics` carried
+ * keywords and a `hasAbilities` flag and no list of granted abilities, so the
+ * engine could install a keyword and nothing else.
+ *
+ * `provider` is the permanent whose static installed it - its SCRIPT owns the
+ * def (`ref` is `<providerOracleId>#g<n>`, which `activatedDefFor` already
+ * resolves by prefix). The RECIPIENT is the ability's source (CR 113.7a):
+ * "this creature" and "you" resolve there, the recipient taps for its {T},
+ * and the recipient is what a stack object names as `source`.
+ *
+ * ⚠️ `ability` is the quoted body PARSED AS ANY PRINTED ABILITY IS
+ * (`scripts/grants.ts`, at module load, throwing by name on anything the
+ * engine cannot charge) - one object, shared by reference with the def's
+ * `granted`, so the offer and the resolution can never disagree about it.
+ */
+export interface GrantedActivated {
+  readonly provider: InstanceId;
+  readonly ref: AbilityRef;
+  readonly ability: ActivatedAbility;
+}
+
 export interface ActivatedAbility {
   /** Stable per face; the `AbilityRef` suffix. */
   readonly index: number;
@@ -1180,4 +1205,11 @@ export interface DerivedCharacteristics {
   readonly isLegendary: boolean;
   readonly manaValue: number;
   readonly producesMana: readonly ManaProduction[];
+  /**
+   * D367 - the activated abilities OTHER permanents' statics have installed on
+   * this one, in layer-6 order. Empty for almost everything; read by
+   * `legal.ts` beside the face's own `activated`. Cleared with every other
+   * ability when the object has lost its abilities (CR 613 layer 6).
+   */
+  readonly grantedActivated: readonly GrantedActivated[];
 }

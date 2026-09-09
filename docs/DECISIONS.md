@@ -25476,3 +25476,131 @@ autoAnyFace 1,012 · ladder [1050, 1115, 2708, 4540, 5881] · tier3 silentAfter
 
 **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 4,966 files, 24,553 passed / 11 skipped · 500-seed
 gate, 6 shards, 683.4 s wall · build clean · probe 124/124 · battery 130/130 idle (red on four DOM checks seconds after the fuzz leg - D270's load pattern).**
+
+## D367 — M6.4gz: THE QUOTED-GRANT CARRIER — a permanent may HAVE an ability another permanent's static installed on it (2026-09-09)
+
+**7,654 of 31,692 Commander-legal cards execute completely, up from 7,617
+(+37).** `SHIPPED_SCRIPTS` 4,822 → **4,859**; REFUSED ledger 954 (unchanged —
+none of the 37 was ever in it: a quoted grant was unreachable at the RUNTIME,
+never a drafter's verdict). Fixtures 5,309 → 5,346. **Select pool 0.**
+
+**The runtime half of the family D366 prepared.** The seam map's second-densest
+family is the grant whose payload is a quoted ability, and
+`d354/DESIGN-quoted-grant.md` measured the missing piece exactly:
+`MutableCharacteristics` carried keywords and a `hasAbilities` flag and **no list
+of granted abilities**, while `legal.ts` read activations off `face.activated`
+alone — so the engine could install a keyword on another permanent and nothing
+else. D366 fixed the accounting (the outer line is STATIC now); this is the
+carrier.
+
+### The design, in one sentence
+
+**A granted activated ability is an ordinary `ActivatedDef` on the PROVIDER's
+script whose ref is `<providerOracleId>#g<n>`, installed on the RECIPIENT's
+derived characteristics by an ordinary layer-6 `StaticDef`.** Everything else
+already existed:
+
+| piece | what it does | since |
+|---|---|---|
+| `StaticDef` at layer `'ability'` | reaches the candidate's characteristics | D129 |
+| `MutableCharacteristics.grantedActivated` | **the missing place to put it** | **D367** |
+| `legal.ts`'s offer | offers it beside the printed ones | widened here |
+| the cost machinery | charges tap, mana, life, sacrifice, discard | D159–D363 |
+| `activatedDefFor` | resolves a ref by its oracleId PREFIX | D159 |
+| `ctx.vocabulary` | runs the quoted body | D344 |
+
+⚠️ **THE RECIPIENT IS THE ABILITY'S SOURCE (CR 113.7a)**, and that is what makes
+the whole thing correct rather than merely wired: the recipient is offered the
+ability, pays its `{T}` with its own tap, sacrifices *itself* to
+`Sacrifice this permanent`, and is `obj.source` at resolution — so `This creature
+deals 1 damage to any target` deals it from the enchanted creature, not from the
+Aura.
+
+### What the carrier had to touch, and what it did not
+
+`GrantedActivated {provider, ref, ability}` is **REQUIRED** on both
+characteristic types, so the compiler named every construction site — the four
+workspaces, `cloneChars`, and `finish()`, where it becomes the **sixth**
+ability-shaped field a Humility'd object loses. An optional field nothing
+populated is D355's dead `drawback` and D356's dead `typeLine`, twice in ten
+decisions.
+
+⚠️ **`abilityOfRef()` is ONE reader, and it was written before it could be
+needed.** A ref is now `#a<n>` (the source's own face) or `#g<n>` (the provider's
+def) — and the handler's three pending re-finds and CR 608.2b's resolution
+re-check all asked the face directly. Gate 197 (seed 306) is what a re-check that
+reads the wrong place looks like: an activated ability resolving on its own
+corpse. All four sites go through the one reader now.
+
+⚠️ **The offer loop was UNIFIED rather than copied.** `legal.ts`'s battlefield
+loop carries nine separate `activatedDefRegistered` gates and every cost rule in
+the engine; a second loop for granted abilities would have been a second copy of
+all of it. The printed and granted abilities are one list now, and the def gate
+became `defReady` — for a printed ability the registered def (D159), for a
+granted one **met by construction**, because a granted ability exists only
+because a def installed it.
+
+⚠️ **The client half shipped WITH it** (D143's lesson, paid up front): the grant
+ref rides the legal action, the ability rows, both cost-pick modes, the targeting
+source and every intent the UI builds, and `targetSpecsFor` reads a granted
+ability's aim specs off the provider's def — because the recipient's own face
+does not print it.
+
+⚠️ **The quoted body is parsed ONCE at module load and refused by name**
+(`scripts/grants.ts`): a cost the engine cannot charge, two abilities in one
+quote, a ref that is not a grant. And a quoted MANA ability parses as an ordinary
+activation whose effect the vocabulary has no rule for — so it is refused there
+rather than half-run. A granted mana ability must take the engine's immediate
+mana path (CR 605), which is a later seam.
+
+### The wave
+
+**37 of the 39 readable activated grants**, generated from one table: 24 Auras
+(14 `Enchanted creature`, 10 `Enchanted land`), 8 Slivers, 4 Equipment,
+`Resplendent Mentor`'s white creatures and `Frondland Felidar`'s vigilant ones.
+Every other printed line on all 37 is already the engine's own — `Enchant`
+(D304), `Equip` (D305), `Cycling` (D306), `Vigilance` — which is why the grant
+line was the last thing between them and complete.
+
+⚠️ Two refused by name: `Quilled Sliver`'s payload aims at an *attacking or
+blocking* creature and the scaffold has no mid-combat arm (D350's named gap), and
+`Street Urchin`'s `Commander creatures you own` is a scope over ownership the
+grammar does not read.
+
+⚠️ Two generator faults the port found, both fixed at source: **`White creatures
+you control` matches the SUBTYPE shape**, so the colour scope had to be read
+first — there is no creature type called White, and a subtype reading grants to
+nothing; and a baseline nothing asserts is a `tsc` error, so each is declared
+only where its assert exists.
+
+⚠️ **The one test that could have been vacuous is not.** `Frondland Felidar`
+grants to creatures with vigilance and **no other fixture in the tree has
+vigilance** — but the Felidar prints it itself, so it is inside its own scope and
+the grant is provable on it, with the Cyclops as the standing negative.
+
+### Measured
+
+`complete` 7,617 → **7,654** · `blocked` 24,075 → 24,038 · `layer6` 1,330 →
+1,326 · the ladder [1050, 1115, 2708, 4540, 5881] → [1050, 1115, 2704, 4536,
+5877] · botPool artifact 429 → 433, creature 4,431 → 4,440, enchantment 393 →
+**417** · tier3 `silentAfter` 7,915 → **7,952** and `abilityText` 15,211 →
+**15,174** — the disclosure and the accounting agreeing card for card, **+37 and
+−37**. The bot's own reach rose to **7,594** cards from 7,557.
+
+**Not this decision:** the granted TRIGGERED ability (90 cards — the same carrier
+one def kind over: a `grantedTriggered` list the bus reads, where this reads the
+offer); the granted STATIC (10, several subsystems); the 82 + 75 whose payloads
+sit outside both readers; a granted MANA ability (CR 605's immediate path); the
+combat-role scaffold arm; `Commander creatures you own`. Then D365's list — the
+counts outside the vocabulary (17), the activation conditions (35), the trigger
+payloads outside both readers (20) — and the attached statics the Aura and
+Equipment rows cannot read (351), the Aura that REDEFINES its host (18), the bare
+keyword or ability word (185).
+
+Fixtures 5,346 · botPool artifact 433 / creature 4,440 / enchantment 417 /
+instant 1,020 / land 561 / sorcery 783 — auto 1,003 / assisted 1,881 /
+autoAnyFace 1,012 · ladder [1050, 1115, 2704, 4536, 5877] · tier3 silentAfter
+7,952 · batch.json 37 · select pool 0.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,004 files, 24,747 passed / 11 skipped · 500-seed
+gate, 6 shards, 743.2 s wall · build clean · probe 124/124 · battery 130/130.**

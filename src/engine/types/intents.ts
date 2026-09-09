@@ -9,7 +9,7 @@
 // declaration is atomic for the same reason.
 
 import type { ColorLetter } from '../../data/cardTypes';
-import type { InstanceId, PlayerId, StackId } from './ids';
+import type { AbilityRef, InstanceId, PlayerId, StackId } from './ids';
 import type { DefenderRef, StopPolicy, TargetChoice } from './state';
 import type { PaymentPlan } from './mana';
 
@@ -122,6 +122,13 @@ export type Intent =
        * this one is about counters rather than about permanents.
        */
       readonly removeCounter?: readonly InstanceId[];
+      /**
+       * D367 - activating an ability ANOTHER permanent's static GRANTED this one
+       * (`<providerOracleId>#g<n>`, carried on the legal action that offered it).
+       * Present, `abilityIndex` is ignored: the ability is read off the
+       * recipient's DERIVED object, and refused if the grant is no longer live.
+       */
+      readonly grantRef?: AbilityRef;
     }
   | { readonly t: 'ChooseTargets'; readonly player: PlayerId; readonly targets: readonly TargetChoice[] }
   | { readonly t: 'ChooseX'; readonly player: PlayerId; readonly x: number }

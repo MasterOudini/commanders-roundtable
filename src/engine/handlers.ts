@@ -40,7 +40,7 @@ import { n, narrated, their, vb, who } from './narrate';
 import { drawEvents } from './effects';
 import { apply } from './reducer';
 import { bottomCountFor, drawFromTop } from './setup';
-import { activatedModesFor, legalModesFor, resolveAbility, stackPendingTriggers, targetingSourceFor, triggerDefFor, type EngineDeps } from './loop';
+import { abilityOfRef, activatedModesFor, legalModesFor, resolveAbility, stackPendingTriggers, targetingSourceFor, triggerDefFor, type EngineDeps } from './loop';
 import { modeChoiceProblem, modeSpecs, modesInOrder } from './modes';
 import { activationConditionsHold, describeActivationConditions } from './activationConditions';
 import type { CardMove, EventBody } from './types/events';
@@ -751,8 +751,21 @@ function activateAbility(
   const oracleCard = deps.oracle.byPrinting(card.printingId);
   if (!oracleCard) return reject('noSuchCard', 'That card is not in the card database.');
   const face = faceOf(oracleCard, card.faceIndex);
-  const ability = face.activated[intent.abilityIndex];
+  // D367 - a GRANTED ability is read off the recipient's DERIVED object, which is
+  // where a grant exists: a stale intent for an Aura that has since left finds
+  // nothing and is refused here, before any cost. The ref the activation writes
+  // is the grant's, so `activatedDefFor` resolves the provider's def at
+  // resolution with this permanent as the source (CR 113.7a).
+  const grant = intent.grantRef !== undefined
+    ? derive(state, deps.oracle, deps.scripts, intent.card).grantedActivated.find((g) => g.ref === intent.grantRef)
+    : undefined;
+  if (intent.grantRef !== undefined && !grant) return reject('notCastable', `${face.name} no longer has that granted ability.`);
+  const ability = grant ? grant.ability : face.activated[intent.abilityIndex];
   if (!ability) return reject('notCastable', 'That permanent has no such ability.');
+  const abilityRef: AbilityRef = grant ? grant.ref : `${oracleCard.oracleId}#a${intent.abilityIndex}`;
+  // A printed ability's destructive cost is offered only past a registered def
+  // (D159); a granted ability EXISTS only because a def installed it.
+  const defReady = grant !== undefined || activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex);
   // D306 - cycling is activated from the hand and nowhere else (CR 702.29a).
   if (ability.cycling !== undefined && (card.zone.kind !== 'hand' || card.zone.player !== intent.player)) {
     return reject('wrongZone', 'Cycling is activated from your hand.');
@@ -771,7 +784,7 @@ function activateAbility(
   }
   // D328 - CR 602.5b: "Activate only once each turn" is refused the second
   // time this turn (`legal.ts` stops offering it the same way).
-  if (ability.oncePerTurn && (state.turn.activations[`${intent.card}|${oracleCard.oracleId}#a${intent.abilityIndex}`] ?? 0) >= 1) {
+  if (ability.oncePerTurn && (state.turn.activations[`${intent.card}|${abilityRef}`] ?? 0) >= 1) {
     return reject('timingRestriction', `${face.name}'s "${ability.costText}" ability was activated this turn already.`);
   }
   // D342 - "Activate only <condition>": every condition the parser read must hold
@@ -789,14 +802,14 @@ function activateAbility(
   // only for an ability the registry will RUN. The host re-checks because a
   // client's word is not a rule (D139's shape) — without this, a hand-built
   // intent could eat a permanent for no effect.
-  if (ability.sacrificesSelf && !activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+  if (ability.sacrificesSelf && !defReady) {
     return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
   }
   // ⚠️ The CHOOSER cost (D168): the def gate, then the CHOICE — required,
   // and re-validated with the same predicate `legal.ts` offered by, because
   // a client's word is not a rule (D139's shape, a third intent over).
   if (ability.sacrificeCost) {
-    if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+    if (!defReady) {
       return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
     }
     // D353 - EXACTLY `count` DISTINCT permanents, the discard chooser's rule (D286): a
@@ -822,7 +835,7 @@ function activateAbility(
   // `count` distinct hand cards, re-validated against the list `legal.ts`
   // offered by (a client's word is not a rule, D139).
   if (ability.discardCost) {
-    if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+    if (!defReady) {
       return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
     }
   }
@@ -851,7 +864,7 @@ function activateAbility(
   // D329 - the EXILE-FROM-GRAVEYARD chooser: the def gate, then exactly
   // `count` distinct graveyard cards, re-validated against the offered list.
   if (ability.exileFromGraveyardCost) {
-    if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+    if (!defReady) {
       return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
     }
     const picks = intent.exileFromGraveyard ?? [];
@@ -874,7 +887,7 @@ function activateAbility(
   // ⚠️ The TAP chooser (D286): the same gate and the same re-validation,
   // over untapped permanents the player controls.
   if (ability.tapCost) {
-    if (ability.crew === undefined && !activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+    if (ability.crew === undefined && !defReady) {
       return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
     }
     const picks = intent.tap ?? [];
@@ -902,11 +915,11 @@ function activateAbility(
   }
   // D352 - THE RETURN chooser and the SELF return: the same gate and the same
   // re-validation, over permanents the player controls.
-  if (ability.returnsSelf && !activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+  if (ability.returnsSelf && !defReady) {
     return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
   }
   if (ability.returnCost) {
-    if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+    if (!defReady) {
       return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
     }
     const picks = intent.returnToHand ?? [];
@@ -927,12 +940,12 @@ function activateAbility(
     }
   }
   // D353 - the SELF COUNTER: a deterministic price, so the def gate is the whole check.
-  if (ability.putCounterCost && !activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+  if (ability.putCounterCost && !defReady) {
     return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
   }
   // ⚠️ The REMOVE-A-COUNTER cost (D319): the def gate, then the counters must be there.
   if (ability.removeCounterCost) {
-    if (!activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex)) {
+    if (!defReady) {
       return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
     }
     if (ability.removeCounterCost.from === null) {
@@ -984,7 +997,7 @@ function activateAbility(
   // its targets; the chosen modes' clauses are then what it aims. Its def
   // declares the modes (`ActivatedDef.modes`); named inline they are checked
   // here, absent the `modes` stage asks.
-  const abilityModal = activatedModesFor(deps, `${oracleCard.oracleId}#a${intent.abilityIndex}`);
+  const abilityModal = activatedModesFor(deps, abilityRef);
   const needsModes = abilityModal !== null && intent.modes === undefined;
   if (abilityModal !== null && intent.modes !== undefined) {
     const legal = legalModesFor(state, deps, intent.player, intent.card, abilityModal.modes);
@@ -1008,7 +1021,6 @@ function activateAbility(
   }
 
   const stackId = `s${state.counters.stack + 1}`;
-  const abilityRef = `${oracleCard.oracleId}#a${intent.abilityIndex}`;
   // War Room's computed cost: the RULE was parsed, the NUMBER is read off the
   // player now (D159) — and it rides in the problem, so the targets stage, the
   // payment review and the wire all see the real price.
@@ -1162,7 +1174,7 @@ function chooseModes(
   const face = faceOf(oracleCard, card.faceIndex);
 
   if (pending.kind === 'ability') {
-    const ability = face.activated[abilityIndexOf(pending.abilityRef)];
+    const ability = abilityOfRef(deps, face, pending.abilityRef);
     if (!ability) return reject('notCastable', 'That permanent has no such ability.');
     const specs = modeSpecs(activatedModesFor(deps, pending.abilityRef)?.modes ?? [], modes);
     if (specs.length > 0) {
@@ -1291,7 +1303,7 @@ function chooseTargets(
   const specs = pending.kind === 'ability'
     ? abilityModal !== null
       ? modeSpecs(abilityModal.modes, pending.modes)
-      : face.activated[abilityIndexOf(pending.abilityRef)]?.targets ?? []
+      : abilityOfRef(deps, face, pending.abilityRef)?.targets ?? []
     : face.modal
       ? modeSpecs(face.modal.modes, pending.modes)
       : face.targets;
@@ -1309,7 +1321,7 @@ function chooseTargets(
   if (!verdict.ok) return reject('illegalTarget', verdict.message);
 
   if (pending.kind === 'ability') {
-    const ability = face.activated[abilityIndexOf(pending.abilityRef)];
+    const ability = abilityOfRef(deps, face, pending.abilityRef);
     if (!ability) return reject('notCastable', 'That permanent has no such ability.');
     // Ward applies to an ability's targets too (CR 702.21a).
     const wardA = wardTaxFor(state, deps, intent.player, intent.targets);
@@ -1351,13 +1363,6 @@ function chooseTargets(
       xAlreadyLogged: pending.xValue !== null,
     },
   );
-}
-
-/** `oracleId#aN` → N. Abilities are addressed by index within their face. */
-function abilityIndexOf(ref: AbilityRef | null): number {
-  if (!ref) return -1;
-  const hash = ref.indexOf('#a');
-  return hash < 0 ? -1 : Number(ref.slice(hash + 2));
 }
 
 function payCast(

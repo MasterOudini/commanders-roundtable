@@ -12021,6 +12021,100 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       seam map — the attached statics the Aura and Equipment rows cannot read
       (351), the Aura that REDEFINES its host (18), the bare keyword or ability
       word (185); prior items stand.
+- [x] **M6.4gz — THE QUOTED-GRANT CARRIER: a permanent may HAVE an ability
+      another permanent's static installed on it (2026-09-09):**
+      **7,654 of 31,692 Commander-legal cards now execute completely, up from
+      7,617 (+37).** `SHIPPED_SCRIPTS` 4,822 → **4,859**; ledger 954 (unchanged
+      — none of the 37 was ever in it: a quoted grant was unreachable at the
+      RUNTIME, never a drafter's verdict). Fixtures 5,309 → 5,346. **Select pool
+      0.** Decisions in **D367**.
+      ⚠️⚠️ **THE MISSING PLACE WAS A LIST ON THE DERIVED OBJECT.**
+      `d354/DESIGN-quoted-grant.md` measured it exactly: `MutableCharacteristics`
+      carried keywords and a `hasAbilities` flag and NO list of granted
+      abilities, while `legal.ts` read activations off `face.activated` alone —
+      so the engine could install a KEYWORD on another permanent and nothing
+      else. D366 fixed the accounting half (the outer line is STATIC now); this
+      is the runtime half, and **a granted activated ability is an ordinary
+      `ActivatedDef` on the PROVIDER's script (`<providerOracleId>#g<n>`)
+      installed on the RECIPIENT by an ordinary layer-6 `StaticDef`** — every
+      other piece already existed: the static seam (D129), the cost machinery
+      (D159–D363), `activatedDefFor` resolving a ref by its oracleId PREFIX
+      (D159), and `ctx.vocabulary` running the quoted body (D344).
+      ⚠️ **THE RECIPIENT IS THE ABILITY'S SOURCE (CR 113.7a)**, which is what
+      makes it correct rather than merely wired: it is offered the ability, pays
+      the `{T}` with its OWN tap, sacrifices ITSELF to "Sacrifice this
+      permanent", and is `obj.source` at resolution — so "This creature deals 1
+      damage to any target" deals it from the enchanted creature, never from the
+      Aura.
+      ⚠️ **`GrantedActivated` is REQUIRED on both characteristic types**, so the
+      compiler named every construction site — the four workspaces, `cloneChars`,
+      and `finish()`, where it is the SIXTH ability-shaped field a Humility'd
+      object loses. An optional field nothing populates is D355's dead
+      `drawback` and D356's dead `typeLine`, twice in ten decisions.
+      ⚠️ **`abilityOfRef()` IS ONE READER, WRITTEN BEFORE IT COULD BE NEEDED.** A
+      ref is now `#a<n>` (the source's own face) or `#g<n>` (the provider's def),
+      and the handler's three pending re-finds and CR 608.2b's resolution
+      re-check all asked the face directly — gate 197 (seed 306) is what a
+      re-check reading the wrong place looks like: an ability resolving on its
+      own corpse. All four sites go through the one reader.
+      ⚠️ **THE OFFER LOOP WAS UNIFIED, NOT COPIED.** `legal.ts`'s battlefield
+      loop carries nine `activatedDefRegistered` gates and every cost rule in the
+      engine; a second loop would have been a second copy of all of it. Printed
+      and granted abilities are ONE list now, and the gate became `defReady` —
+      the registered def for a printed ability (D159), **met by construction**
+      for a granted one, which exists only because a def installed it.
+      ⚠️ **The client half shipped WITH it** (D143's lesson, paid up front): the
+      grant ref rides the legal action, the ability rows, both cost-pick modes,
+      the targeting source and every intent the UI builds, and `targetSpecsFor`
+      reads a granted ability's aim specs off the PROVIDER's def, because the
+      recipient's own face does not print it.
+      ⚠️ **The quoted body is parsed ONCE at module load and refused by name**
+      (`scripts/grants.ts`): a cost the engine cannot charge, two abilities in
+      one quote, a ref that is not a grant — and a quoted MANA ability parses as
+      an ordinary activation whose effect the vocabulary has no rule for, so it
+      is refused there rather than half-run (CR 605's immediate path is a later
+      seam).
+      **Landed:** 37 of the 39 readable activated grants, from one table — 24
+      Auras (14 `Enchanted creature`, 10 `Enchanted land`), 8 Slivers, 4
+      Equipment, Resplendent Mentor's white creatures and Frondland Felidar's
+      vigilant ones. ⚠️ Every OTHER printed line on all 37 is already the
+      engine's own — Enchant (D304), Equip (D305), Cycling (D306), Vigilance —
+      which is why the grant line was the last thing between them and complete.
+      ⚠️ Two refused by name: Quilled Sliver's payload aims at an ATTACKING OR
+      BLOCKING creature and the scaffold has no mid-combat arm (D350's named
+      gap), and Street Urchin's "Commander creatures you own" is a scope over
+      ownership the grammar does not read. ⚠️ Two generator faults the port
+      found, both fixed at source: **"White creatures you control" matches the
+      SUBTYPE shape**, so the colour scope is read FIRST (there is no creature
+      type called White, and a subtype reading grants to nothing); and a baseline
+      nothing asserts is a `tsc` error. ⚠️ **The one test that could have been
+      vacuous is not**: Frondland Felidar grants to creatures with vigilance and
+      NO other fixture has vigilance — but the Felidar prints it itself, so it is
+      inside its own scope and the grant is provable on it.
+      Fixtures 5,346 · botPool artifact 433 / creature 4,440 / enchantment 417 /
+      instant 1,020 / land 561 / sorcery 783 - auto 1,003 / assisted 1,881 /
+      autoAnyFace 1,012 · ladder [1050, 1115, 2704, 4536, 5877] · tier3
+      silentAfter 7,952 (and `abilityText` 15,174 — the disclosure and the
+      accounting agreeing card for card, +37 and −37) · batch.json 37 · select
+      pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,004 files, 24,747 passed / 11 skipped ·
+      500-seed gate, 6 shards, 743.2 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D367): the granted TRIGGERED ability (90 cards — the
+      SAME carrier one def kind over: a `grantedTriggered` list the trigger bus
+      reads, where this one reads the offer), the granted STATIC (10, several
+      subsystems), the 82 + 75 whose payloads sit outside both readers, a granted
+      MANA ability (CR 605's immediate path), the combat-role scaffold arm, and
+      "Commander creatures you own"; then D365's list — the counts outside the
+      vocabulary (17), the activation conditions (35), the trigger payloads
+      outside both readers (20) — and D364's snow CREATURE fixture, D363's
+      counter KINDS and NONTOKEN predicate, the keyword ENTRY REPLACEMENTS
+      (bloodthirst 13, modular 7, graft 2) and CHOICES (fabricate 10, unleash 9,
+      riot 4, devour 4, enlist 5, amplify 3), the block REQUIREMENT (provoke 4),
+      the cast-time payment sources (convoke 14, delve 5, improvise 6); then the
+      seam map's rest — the attached statics the Aura and Equipment rows cannot
+      read (351), the Aura that REDEFINES its host (18), the bare keyword or
+      ability word (185); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

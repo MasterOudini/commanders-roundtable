@@ -92,6 +92,7 @@ export function onVeilPick(choice: TargetChoice): void {
       player: table.viewer,
       card: mode.card,
       abilityIndex: mode.abilityIndex,
+      ...(mode.grantRef !== undefined ? { grantRef: mode.grantRef } : {}),
       sacrifice: chosen,
     });
     return;
@@ -115,6 +116,7 @@ export function onVeilPick(choice: TargetChoice): void {
       player: table.viewer,
       card: mode.card,
       abilityIndex: mode.abilityIndex,
+      ...(mode.grantRef !== undefined ? { grantRef: mode.grantRef } : {}),
       ...(mode.verb === 'discard'
         ? { discard: chosen }
         : mode.verb === 'tap'
@@ -192,6 +194,8 @@ export function startActivation(
   card: string,
   ability: {
     readonly abilityIndex: number;
+    /** D367 - a granted ability's ref (absent for the permanent's own printed ones). */
+    readonly grantRef?: string;
     readonly name: string;
     readonly needsSacrifice: number;
     readonly needsDiscard?: number;
@@ -207,6 +211,7 @@ export function startActivation(
       kind: 'sacrifice',
       card,
       abilityIndex: ability.abilityIndex,
+      ...(ability.grantRef !== undefined ? { grantRef: ability.grantRef } : {}),
       name: ability.name,
       count: ability.needsSacrifice,
       chosen: [],
@@ -232,6 +237,7 @@ export function startActivation(
       kind: 'costPick',
       card,
       abilityIndex: ability.abilityIndex,
+      ...(ability.grantRef !== undefined ? { grantRef: ability.grantRef } : {}),
       name: ability.name,
       verb,
       count:
@@ -249,13 +255,13 @@ export function startActivation(
     beginAimFrom(card);
     return;
   }
-  const specs = session.targetSpecsFor(card, ability.abilityIndex);
+  const specs = session.targetSpecsFor(card, ability.abilityIndex, ability.grantRef);
   const max = specs.reduce((n, s) => n + s.max, 0);
   if (specs.length > 0 && max > 0) {
     const min = specs.reduce((n, s) => n + s.min, 0);
     table.setMode({
       kind: 'targeting',
-      source: { kind: 'ability', card, abilityIndex: ability.abilityIndex },
+      source: { kind: 'ability', card, abilityIndex: ability.abilityIndex, ...(ability.grantRef !== undefined ? { grantRef: ability.grantRef } : {}) },
       name: ability.name,
       chosen: [],
       specs,
@@ -266,7 +272,13 @@ export function startActivation(
     beginAimFrom(card);
     return;
   }
-  session.submit({ t: 'ActivateAbility', player: table.viewer, card, abilityIndex: ability.abilityIndex });
+  session.submit({
+    t: 'ActivateAbility',
+    player: table.viewer,
+    card,
+    abilityIndex: ability.abilityIndex,
+    ...(ability.grantRef !== undefined ? { grantRef: ability.grantRef } : {}),
+  });
 }
 
 /** Finish aiming: on to payment for a spell, or straight to the engine for an ability. */
@@ -291,6 +303,7 @@ export function commitTargets(): void {
       player: table.viewer,
       card: mode.source.card,
       abilityIndex: mode.source.abilityIndex,
+      ...(mode.source.grantRef !== undefined ? { grantRef: mode.source.grantRef } : {}),
       targets: [...mode.chosen],
     });
     table.setMode({ kind: 'idle' });

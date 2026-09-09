@@ -17,7 +17,7 @@ import { activationConditionsHold } from './activationConditions';
 import { legalModes } from './modes';
 import { candidatesFromState } from './targets';
 import type { ScriptRegistry } from './scripts/registry';
-import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
+import type { AbilityRef, InstanceId, PlayerId, ZoneRef } from './types/ids';
 import type { ActivatedAbility, OracleCard, OracleDb } from './types/oracle';
 import type { GameState } from './types/state';
 
@@ -110,6 +110,14 @@ export type LegalAction =
       readonly removeCounterKind?: string;
       /** D353 - how many permanents a "Sacrifice N <predicate>" cost eats. */
       readonly sacrificeCount?: number;
+      /**
+       * D367 - present when this ability was GRANTED to the permanent by another
+       * permanent's static (`<providerOracleId>#g<n>`). The intent must carry it
+       * back (`ActivateAbility.grantRef`); a client reads the ability's aim
+       * specs off the provider's def by this ref, since the recipient's own
+       * face does not print it.
+       */
+      readonly grantRef?: AbilityRef;
     }
   | {
       /** D309 - turn a face-down permanent face up for its morph cost (a special action). */
@@ -342,12 +350,24 @@ export function legalActions(
     // activated list comes from the ORACLE, not from the derived object, so a
     // silenced permanent would otherwise still offer every ability it prints.
     if (!d.hasAbilities) continue;
-    for (const ability of face.activated) {
+    // D367 - THE GRANTED ABILITY. The permanent's own printed abilities and the
+    // ones OTHER permanents' statics installed on it are offered by ONE loop, so
+    // every cost rule below applies to both. A printed ability needs a def
+    // registered before a destructive cost is offered (D159); a granted one
+    // EXISTS only because a def installed it, so its gate is met by construction.
+    const offerable: { ability: ActivatedAbility; grantRef: AbilityRef | null; defReady: boolean }[] = face.activated.map((ability) => ({
+      ability,
+      grantRef: null,
+      defReady: activatedDefRegistered(scripts, card.oracleId, ability.index),
+    }));
+    for (const g of d.grantedActivated) offerable.push({ ability: g.ability, grantRef: g.ref, defReady: true });
+    for (const { ability, grantRef, defReady } of offerable) {
       if (ability.isManaAbility || ability.isLoyalty || !ability.payable) continue;
+      const ref: AbilityRef = grantRef ?? `${card.oracleId}#a${ability.index}`;
       // D329 - priced by exiling the card from the graveyard: offered from there, not here.
       if (ability.exileSelfFromGraveyard || ability.activatesFromGraveyard) continue;
       // D328 - CR 602.5b: activated this turn already, not offered again.
-      if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
+      if (ability.oncePerTurn && (state.turn.activations[`${id}|${ref}`] ?? 0) >= 1) continue;
       // D342 - "Activate only <condition>": offered only while every read condition holds.
       if (ability.activateOnly.length > 0 && !activationConditionsHold(state, oracle, scripts, player, id, ability.activateOnly, context.cache)) continue;
       // ⚠️ A DESTRUCTIVE COST IS OFFERED ONLY WHEN A SCRIPT WILL RUN THE EFFECT
@@ -356,19 +376,19 @@ export function legalActions(
       // never the shipped list, so a test registry carrying the def is offered
       // it — and `tier3.ts` words the note for the undef'd case from this same
       // rule.
-      if (ability.sacrificesSelf && !activatedDefRegistered(scripts, card.oracleId, ability.index)) {
+      if (ability.sacrificesSelf && !defReady) {
         continue;
       }
       // D353 - the SELF COUNTER, beside the self-sacrifice: a deterministic price, and the
       // same def gate. It is offered whenever the permanent is there - it is a PUT, not a
       // remove, so nothing can make it unpayable.
-      if (ability.putCounterCost && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+      if (ability.putCounterCost && !defReady) continue;
       // ⚠️ The CHOOSER cost (D168): same def gate as the self-sacrifice —
       // eating a permanent for nothing is not disclosed status quo — plus
       // "a cost you cannot pay is not offered": no candidate, no offer.
       let sacCandidates: readonly InstanceId[] | null = null;
       if (ability.sacrificeCost) {
-        if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        if (!defReady) continue;
         sacCandidates = sacrificeCandidatesFor(
           state,
           (cid) => derive(state, oracle, scripts, cid, context.cache),
@@ -383,7 +403,7 @@ export function legalActions(
       // offer.
       let discardCandidates: readonly InstanceId[] | null = null;
       if (ability.discardCost) {
-        if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        if (!defReady) continue;
         discardCandidates = discardCandidatesFor(
           state,
           (cid) => derive(state, oracle, scripts, cid, context.cache),
@@ -395,7 +415,7 @@ export function legalActions(
       // D329 - the exile-from-graveyard chooser: the same gate, over the graveyard.
       let exileGyCandidates: readonly InstanceId[] | null = null;
       if (ability.exileFromGraveyardCost) {
-        if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        if (!defReady) continue;
         exileGyCandidates = exileFromGraveyardCandidatesFor(
           state,
           (cid) => derive(state, oracle, scripts, cid, context.cache),
@@ -408,7 +428,7 @@ export function legalActions(
       let tapCandidates: readonly InstanceId[] | null = null;
       if (ability.tapCost) {
         // D311 - crew's effect is the engine's own: no def to wait for.
-        if (ability.crew === undefined && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        if (ability.crew === undefined && !defReady) continue;
         tapCandidates = tapCandidatesFor(
           state,
           (cid) => derive(state, oracle, scripts, cid, context.cache),
@@ -428,9 +448,9 @@ export function legalActions(
       // same "a cost you cannot pay is not offered" rule.
       let returnCandidates: readonly InstanceId[] | null = null;
       let removeCounterCandidates: readonly InstanceId[] | null = null;
-      if (ability.returnsSelf && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+      if (ability.returnsSelf && !defReady) continue;
       if (ability.returnCost) {
-        if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        if (!defReady) continue;
         returnCandidates = returnCandidatesFor(
           state,
           (cid) => derive(state, oracle, scripts, cid, context.cache),
@@ -447,7 +467,7 @@ export function legalActions(
       // measured over the COUNTERS those candidates carry rather than over their
       // number, because two counters may come off one creature.
       if (ability.removeCounterCost) {
-        if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        if (!defReady) continue;
         removeCounterCandidates = removeCounterCandidatesFor(
           state,
           (cid) => derive(state, oracle, scripts, cid, context.cache),
@@ -475,6 +495,7 @@ export function legalActions(
         t: 'ActivateAbility',
         card: id,
         abilityIndex: ability.index,
+        ...(grantRef ? { grantRef } : {}),
         // ⚠️ The CHEAP feasibility check, the same one castAction uses. Building
         // a full payment PLAN per ability took the 40-source solver benchmark
         // from under 1 ms to 1.3 ms, and legalActions runs on every priority

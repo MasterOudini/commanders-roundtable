@@ -14,7 +14,7 @@ import type { TargetSpec } from '../engine/types/oracle';
  */
 export type TargetSource =
   | { readonly kind: 'spell'; readonly card: string }
-  | { readonly kind: 'ability'; readonly card: string; readonly abilityIndex: number }
+  | { readonly kind: 'ability'; readonly card: string; readonly abilityIndex: number; readonly grantRef?: string }
   | { readonly kind: 'stack'; readonly card: string };
 
 // UI state for the play surface: what the game is waiting for, what the player
@@ -132,6 +132,8 @@ export type TableMode =
       readonly kind: 'sacrifice';
       readonly card: string;
       readonly abilityIndex: number;
+      /** D367 - a granted ability's ref, when the activation is one (rides the intent). */
+      readonly grantRef?: string;
       /** Shown in the prompt: the ability's own label. */
       readonly name: string;
       /** D353 - how many permanents the cost eats, and what has been picked so far. */
@@ -149,6 +151,7 @@ export type TableMode =
       readonly kind: 'costPick';
       readonly card: string;
       readonly abilityIndex: number;
+      readonly grantRef?: string;
       readonly name: string;
       readonly verb: 'discard' | 'tap' | 'exileFromGraveyard' | 'returnToHand' | 'removeCounter';
       readonly count: number;

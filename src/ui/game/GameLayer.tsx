@@ -63,7 +63,7 @@ export function GameLayer({
     // An ability that left `legal` entirely offers nothing; Escape backs out.
     if (mode.kind === 'sacrifice') {
       const live = legal.find(
-        (a) => a.t === 'ActivateAbility' && a.card === mode.card && a.abilityIndex === mode.abilityIndex,
+        (a) => a.t === 'ActivateAbility' && a.card === mode.card && a.abilityIndex === mode.abilityIndex && (a.grantRef ?? null) === (mode.grantRef ?? null),
       );
       const candidates = live?.t === 'ActivateAbility' ? (live.sacrificeCandidates ?? []) : [];
       setTargets(candidates.map((id) => ({ kind: 'card' as const, id })));
@@ -74,7 +74,7 @@ export function GameLayer({
     // permanent that got tapped mid-pick stops being clickable.
     if (mode.kind === 'costPick') {
       const live = legal.find(
-        (a) => a.t === 'ActivateAbility' && a.card === mode.card && a.abilityIndex === mode.abilityIndex,
+        (a) => a.t === 'ActivateAbility' && a.card === mode.card && a.abilityIndex === mode.abilityIndex && (a.grantRef ?? null) === (mode.grantRef ?? null),
       );
       const pool =
         live?.t === 'ActivateAbility'

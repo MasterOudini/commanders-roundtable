@@ -622,6 +622,8 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
         player: holder,
         card: chosen.card,
         abilityIndex: chosen.abilityIndex,
+        // D367 - a granted ability carries its ref on the offer; the intent carries it back.
+        ...(chosen.grantRef !== undefined ? { grantRef: chosen.grantRef } : {}),
         ...(sac !== undefined ? { sacrifice: sac } : {}),
         ...(discards !== undefined ? { discard: discards } : {}),
         ...(taps !== undefined ? { tap: taps } : {}),

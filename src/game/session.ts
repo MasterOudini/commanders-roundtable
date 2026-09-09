@@ -654,8 +654,8 @@ export function legalTargetsFor(specs: readonly TargetSpec[], sourceCard: string
 }
 
 /** The parsed target clauses of a card, or of one of its activated abilities. */
-export function targetSpecsFor(cardId: string, abilityIndex?: number): readonly TargetSpec[] {
-  return active()?.targetSpecsFor(cardId, abilityIndex) ?? [];
+export function targetSpecsFor(cardId: string, abilityIndex?: number, grantRef?: string): readonly TargetSpec[] {
+  return active()?.targetSpecsFor(cardId, abilityIndex, grantRef) ?? [];
 }
 
 export function seatIds(): string[] {

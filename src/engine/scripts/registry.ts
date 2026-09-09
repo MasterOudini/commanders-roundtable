@@ -7,6 +7,43 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ACIDIC_SLIVER_SCRIPT } from './cards/acidicSliver';
+import { ARCANE_TEACHINGS_SCRIPT } from './cards/arcaneTeachings';
+import { BARBED_FIELD_SCRIPT } from './cards/barbedField';
+import { CAUSTIC_TAR_SCRIPT } from './cards/causticTar';
+import { CLAIM_OF_EREBOS_SCRIPT } from './cards/claimOfErebos';
+import { DARKHEART_SLIVER_SCRIPT } from './cards/darkheartSliver';
+import { DEBTORS_PULPIT_SCRIPT } from './cards/debtorsPulpit';
+import { EPHARAS_RADIANCE_SCRIPT } from './cards/epharasRadiance';
+import { EPIPHANY_STORM_SCRIPT } from './cards/epiphanyStorm';
+import { FOOTFALL_CRATER_SCRIPT } from './cards/footfallCrater';
+import { FORBIDDEN_LORE_SCRIPT } from './cards/forbiddenLore';
+import { FOUL_PRESENCE_SCRIPT } from './cards/foulPresence';
+import { FRONDLAND_FELIDAR_SCRIPT } from './cards/frondlandFelidar';
+import { HERMETIC_STUDY_SCRIPT } from './cards/hermeticStudy';
+import { HOLLOWHEAD_SLIVER_SCRIPT } from './cards/hollowheadSliver';
+import { LIGHTNING_PROWESS_SCRIPT } from './cards/lightningProwess';
+import { MANRIKI_GUSARI_SCRIPT } from './cards/manrikiGusari';
+import { MNEMONIC_SLIVER_SCRIPT } from './cards/mnemonicSliver';
+import { NECROTIC_SLIVER_SCRIPT } from './cards/necroticSliver';
+import { ORACLES_INSIGHT_SCRIPT } from './cards/oraclesInsight';
+import { POWER_OF_FIRE_SCRIPT } from './cards/powerOfFire';
+import { PRESENCE_OF_GOND_SCRIPT } from './cards/presenceOfGond';
+import { PROPHETIC_RAVINGS_SCRIPT } from './cards/propheticRavings';
+import { PSIONIC_GIFT_SCRIPT } from './cards/psionicGift';
+import { QUICKSILVER_DAGGER_SCRIPT } from './cards/quicksilverDagger';
+import { RACECOURSE_FURY_SCRIPT } from './cards/racecourseFury';
+import { RESPLENDENT_MENTOR_SCRIPT } from './cards/resplendentMentor';
+import { SADISTIC_OBSESSION_SCRIPT } from './cards/sadisticObsession';
+import { SIREN_SONG_LYRE_SCRIPT } from './cards/sirenSongLyre';
+import { SQUIRREL_NEST_SCRIPT } from './cards/squirrelNest';
+import { TELEKINETIC_SLIVER_SCRIPT } from './cards/telekineticSliver';
+import { TIN_STREET_MARKET_SCRIPT } from './cards/tinStreetMarket';
+import { UNDERWORLD_CONNECTIONS_SCRIPT } from './cards/underworldConnections';
+import { VERDANT_FIELD_SCRIPT } from './cards/verdantField';
+import { VICTUAL_SLIVER_SCRIPT } from './cards/victualSliver';
+import { VIRIDIAN_LONGBOW_SCRIPT } from './cards/viridianLongbow';
+import { WITCHES_EYE_SCRIPT } from './cards/witchesEye';
 import { THOPTER_ENGINEER_SCRIPT } from './cards/thopterEngineer';
 import { MASTER_SPLICER_SCRIPT } from './cards/masterSplicer';
 import { LEGION_EXTRUDER_SCRIPT } from './cards/legionExtruder';
@@ -4848,6 +4885,43 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ACIDIC_SLIVER_SCRIPT,
+  ARCANE_TEACHINGS_SCRIPT,
+  BARBED_FIELD_SCRIPT,
+  CAUSTIC_TAR_SCRIPT,
+  CLAIM_OF_EREBOS_SCRIPT,
+  DARKHEART_SLIVER_SCRIPT,
+  DEBTORS_PULPIT_SCRIPT,
+  EPHARAS_RADIANCE_SCRIPT,
+  EPIPHANY_STORM_SCRIPT,
+  FOOTFALL_CRATER_SCRIPT,
+  FORBIDDEN_LORE_SCRIPT,
+  FOUL_PRESENCE_SCRIPT,
+  FRONDLAND_FELIDAR_SCRIPT,
+  HERMETIC_STUDY_SCRIPT,
+  HOLLOWHEAD_SLIVER_SCRIPT,
+  LIGHTNING_PROWESS_SCRIPT,
+  MANRIKI_GUSARI_SCRIPT,
+  MNEMONIC_SLIVER_SCRIPT,
+  NECROTIC_SLIVER_SCRIPT,
+  ORACLES_INSIGHT_SCRIPT,
+  POWER_OF_FIRE_SCRIPT,
+  PRESENCE_OF_GOND_SCRIPT,
+  PROPHETIC_RAVINGS_SCRIPT,
+  PSIONIC_GIFT_SCRIPT,
+  QUICKSILVER_DAGGER_SCRIPT,
+  RACECOURSE_FURY_SCRIPT,
+  RESPLENDENT_MENTOR_SCRIPT,
+  SADISTIC_OBSESSION_SCRIPT,
+  SIREN_SONG_LYRE_SCRIPT,
+  SQUIRREL_NEST_SCRIPT,
+  TELEKINETIC_SLIVER_SCRIPT,
+  TIN_STREET_MARKET_SCRIPT,
+  UNDERWORLD_CONNECTIONS_SCRIPT,
+  VERDANT_FIELD_SCRIPT,
+  VICTUAL_SLIVER_SCRIPT,
+  VIRIDIAN_LONGBOW_SCRIPT,
+  WITCHES_EYE_SCRIPT,
   THOPTER_ENGINEER_SCRIPT,
   MASTER_SPLICER_SCRIPT,
   LEGION_EXTRUDER_SCRIPT,

@@ -17,7 +17,7 @@
 import type { ColorLetter } from '../../data/cardTypes';
 import type { EventBody, EventKind } from '../types/events';
 import type { AbilityRef, InstanceId, OracleId, PlayerId, ZoneKind } from '../types/ids';
-import type { DerivedCharacteristics, EffectSpec, Keyword, ModeDecl, OracleDb, ParsedTypeLine, Protection, TargetSpec } from '../types/oracle';
+import type { ActivatedAbility, DerivedCharacteristics, EffectSpec, GrantedActivated, Keyword, ModeDecl, OracleDb, ParsedTypeLine, Protection, TargetSpec } from '../types/oracle';
 import type { DefenderRef, GameOptions, GameState, StackObject } from '../types/state';
 
 /** The mutable form a static ability edits. Copied out of `derive()`'s workspace. */
@@ -51,6 +51,14 @@ export interface MutableCharacteristics {
   landwalk: string[];
   /** `Toxic N`. Layer 6 can grant the keyword; this is the amount that came with it. */
   toxicAmount: number;
+  /**
+   * D367 - THE GRANTED ABILITIES. A layer-6 static that reads "<scope> has
+   * \"<activated ability>\"" pushes one entry here from its `modify`; the
+   * recipient then OFFERS it (`legal.ts`), pays for it and is its source.
+   * The sixth ability-shaped field `finish()` clears for an object that has
+   * lost its abilities - a Humility'd creature keeps none of these either.
+   */
+  grantedActivated: GrantedActivated[];
 }
 
 export type DeriveFn = (id: InstanceId) => DerivedCharacteristics;
@@ -304,6 +312,15 @@ export interface ActivatedDef {
   /** D343 - the modes of a modal activated ability ("{T}: Choose one —"), as on `TriggerDef`; asked at activation (CR 602.2b). */
   readonly modes?: readonly ModeDecl[];
   readonly modeChoice?: { readonly min: number; readonly max: number };
+  /**
+   * D367 - set on the def of a GRANTED ability (`ref` is `<oracleId>#g<n>`):
+   * the quoted ability, parsed once at module load (`scripts/grants.ts`). The
+   * BOARD-INDEPENDENT copy - a client reads its aim specs from here, and CR
+   * 608.2b's re-check reads its clauses from here after the provider may have
+   * left (the ability is on the stack independently of its source, CR 113.7a).
+   * The same object the provider's static installs on the recipient.
+   */
+  readonly granted?: ActivatedAbility;
   resolve(ctx: ScriptCtx, self: InstanceId, obj: StackObject): readonly EventBody[];
 }
 

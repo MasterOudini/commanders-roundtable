@@ -18,6 +18,12 @@ import type { LegalAction } from '../../engine/legal';
 /** One activated ability the engine will charge and run, and what it needs. */
 export interface AbilityOption {
   readonly abilityIndex: number;
+  /**
+   * D367 - present when this ability was GRANTED by another permanent's static
+   * (`<providerOracleId>#g<n>`): rides the mode and the intent unchanged, and
+   * names the def a client reads the aim specs from.
+   */
+  readonly grantRef?: string;
   /** The printed cost — "{3}, {T}" — drawn as the row's leading glyphs. */
   readonly cost: string;
   /** The printed effect — "Draw a card." */
@@ -63,6 +69,7 @@ export function abilityOptionsFor(legal: readonly LegalAction[], card: string): 
     if (a.t !== 'ActivateAbility' || a.card !== card) continue;
     out.push({
       abilityIndex: a.abilityIndex,
+      ...(a.grantRef !== undefined ? { grantRef: a.grantRef } : {}),
       cost: a.costText,
       effect: a.effectText,
       name: a.label,

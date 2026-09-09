@@ -174262,6 +174262,1284 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ACIDIC_SLIVER": {
+    "scryfallId": "2d92c3f7-a589-4c87-aa17-0d9707605ff4",
+    "oracleId": "a149eeb1-007c-435d-9d55-34af205090e0",
+    "name": "Acidic Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Acidic Sliver",
+        "manaCost": "{B}{R}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have \"{2}, Sacrifice this permanent: This permanent deals 2 damage to any target.\"",
+        "flavorText": "The first sliver burst against the cave wall, and others piled in behind to deepen the new tunnel.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Jeff Miracola",
+        "imageId": "2d92c3f7-a589-4c87-aa17-0d9707605ff4"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "sth",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARCANE_TEACHINGS": {
+    "scryfallId": "02c56677-c8e2-4500-9ee0-0b102496f454",
+    "oracleId": "0b633017-bfdf-47cd-a60f-c93816b47e9c",
+    "name": "Arcane Teachings",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arcane Teachings",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature (Target a creature as you cast this. This card enters attached to that creature.)\nEnchanted creature gets +2/+2 and has \"{T}: This creature deals 1 damage to any target.\"",
+        "flavorText": "Dwarves may teach at the speed of stone, but their results are solid.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mark Brill",
+        "imageId": "02c56677-c8e2-4500-9ee0-0b102496f454"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "jud",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BARBED_FIELD": {
+    "scryfallId": "1c76db48-6f05-49c3-a49c-587c0a8a3613",
+    "oracleId": "45222123-f5e0-48ff-b80c-858727d155d7",
+    "name": "Barbed Field",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Barbed Field",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}: This land deals 1 damage to any target.\"",
+        "flavorText": "Wherever they went, the Keldons transformed the land into a weapon.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "1c76db48-6f05-49c3-a49c-587c0a8a3613"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "pcy",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAUSTIC_TAR": {
+    "scryfallId": "3700a61f-76fe-42e6-be93-0ba319b7b543",
+    "oracleId": "2b5f70ec-33da-4dff-9cff-fe05eb906685",
+    "name": "Caustic Tar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Caustic Tar",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}: Target player loses 3 life.\"",
+        "flavorText": "\"Twisted magic, twisted fate, Force the land to ooze with hate.\"\n—Cabal chant",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "John Avon",
+        "imageId": "3700a61f-76fe-42e6-be93-0ba319b7b543"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "122",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLAIM_OF_EREBOS": {
+    "scryfallId": "a51db556-b3e8-4628-9e39-6353023b0696",
+    "oracleId": "557dda97-c9e6-4d3d-95d8-8180ab9d87b3",
+    "name": "Claim of Erebos",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Claim of Erebos",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{1}{B}, {T}: Target player loses 2 life.\"",
+        "flavorText": "Priests of Erebos give an occasional reminder to mortals who have forgotten their mortality.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Zack Stella",
+        "imageId": "a51db556-b3e8-4628-9e39-6353023b0696"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "bng",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DARKHEART_SLIVER": {
+    "scryfallId": "3541ff31-0043-49a9-abac-77369f95b942",
+    "oracleId": "88e5b905-fe52-4fd6-8cdf-b7ede5166ebc",
+    "name": "Darkheart Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Darkheart Sliver",
+        "manaCost": "{B}{G}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have \"Sacrifice this permanent: You gain 3 life.\"",
+        "flavorText": "\"At first we thought we were in some haunted wood. Then the branches twisted and scuttled toward us.\"\n—Merrik Aidar, Benalish patrol",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "rk post",
+        "imageId": "3541ff31-0043-49a9-abac-77369f95b942"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plc",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEBTOR_S_PULPIT": {
+    "scryfallId": "fafb0372-6860-4b0b-b92e-873735489006",
+    "oracleId": "541c6564-ec39-4b14-8c02-dd6a5d122ed3",
+    "name": "Debtor's Pulpit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Debtor's Pulpit",
+        "manaCost": "{4}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}: Tap target creature.\"",
+        "flavorText": "\"You may not be able to pay. But you can still kneel.\"\n—Milana, Orzhov prelate",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "James Paick",
+        "imageId": "fafb0372-6860-4b0b-b92e-873735489006"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "gtc",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EPHARA_S_RADIANCE": {
+    "scryfallId": "e0741582-0c7b-4d5b-83a9-dd8862de1f24",
+    "oracleId": "0870e9f8-9e02-4997-9554-41a4e8eec4cb",
+    "name": "Ephara's Radiance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ephara's Radiance",
+        "manaCost": "{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{1}{W}, {T}: You gain 3 life.\"",
+        "flavorText": "\"Civilization is the sum of Ephara's gifts.\"\n—Olexa of the Twelve",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "James Ryman",
+        "imageId": "e0741582-0c7b-4d5b-83a9-dd8862de1f24"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "bng",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EPIPHANY_STORM": {
+    "scryfallId": "dd3a0128-4499-498d-9721-b1fd70ea84b4",
+    "oracleId": "833fe5f4-cfab-46ce-a4fe-250673896350",
+    "name": "Epiphany Storm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Epiphany Storm",
+        "manaCost": "{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{R}, {T}, Discard a card: Draw a card.\"",
+        "flavorText": "In Meletis, certain oracles are trained to be divine lightning rods, receiving countless visions in an instant.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "dd3a0128-4499-498d-9721-b1fd70ea84b4"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "bng",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOOTFALL_CRATER": {
+    "scryfallId": "f080d1bb-282b-4008-ab58-1a82e4bb7766",
+    "oracleId": "ca4fdf89-a74e-4086-8109-b0f9dd91710e",
+    "name": "Footfall Crater",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Footfall Crater",
+        "manaCost": "{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}: Target creature gains trample and haste until end of turn.\"\nCycling {1} ({1}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ravenna Tran",
+        "imageId": "f080d1bb-282b-4008-ab58-1a82e4bb7766"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant",
+      "Cycling"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "IKO-118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORBIDDEN_LORE": {
+    "scryfallId": "366069fb-3322-4992-aa1e-858951a8c492",
+    "oracleId": "d2853bad-a751-45ee-8269-24b0cdbc5c6b",
+    "name": "Forbidden Lore",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Forbidden Lore",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}: Target creature gets +2/+1 until end of turn.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Christopher Rush",
+        "imageId": "366069fb-3322-4992-aa1e-858951a8c492"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "me2",
+    "collectorNumber": "163",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOUL_PRESENCE": {
+    "scryfallId": "7c5a6fa8-d422-4e56-9e7b-2ff2fc8aecfe",
+    "oracleId": "16f3a09f-e29b-4fb5-95ed-d76ad550c2ad",
+    "name": "Foul Presence",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Foul Presence",
+        "manaCost": "{2}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets -1/-1 and has \"{T}: Target creature gets -1/-1 until end of turn.\"",
+        "flavorText": "The Phyrexians have one word that means both \"evolution\" and \"pain.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ray Lago",
+        "imageId": "7c5a6fa8-d422-4e56-9e7b-2ff2fc8aecfe"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "apc",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FRONDLAND_FELIDAR": {
+    "scryfallId": "2f8be72f-a46e-4955-8363-ddd0a0e2de46",
+    "oracleId": "bb504fb1-1d19-4d0b-958f-e8f2433e0575",
+    "name": "Frondland Felidar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frondland Felidar",
+        "manaCost": "{2}{G}{W}",
+        "typeLine": "Creature — Cat Beast",
+        "oracleText": "Vigilance\nCreatures you control with vigilance have \"{1}, {T}: Tap target creature.\"",
+        "flavorText": "\"Fear not the behemoth heard from miles away. Fear the stalking felidar, which reveals itself only for the kill.\"\n—Rielle, the Everwise",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "2f8be72f-a46e-4955-8363-ddd0a0e2de46"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "piko",
+    "collectorNumber": "186s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HERMETIC_STUDY": {
+    "scryfallId": "8321888a-a450-4c15-9461-255cfaa05367",
+    "oracleId": "792d7818-ee5c-4254-b969-7b50f475c629",
+    "name": "Hermetic Study",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hermetic Study",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{T}: This creature deals 1 damage to any target.\"",
+        "flavorText": "\"Books can be replaced; a prize student cannot. Be patient.\"\n—Urza, to Barrin",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "8321888a-a450-4c15-9461-255cfaa05367"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "usg",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOLLOWHEAD_SLIVER": {
+    "scryfallId": "7f05b162-90aa-4c95-903f-775a17d20359",
+    "oracleId": "739ad367-a4ff-4779-8888-3c27f0f60253",
+    "name": "Hollowhead Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hollowhead Sliver",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "Sliver creatures you control have \"{T}, Discard a card: Draw a card.\"",
+        "flavorText": "\"Brilliant! They evolved away from energy-taxing brains and respond only to spinal reflex arcs from the hive mind.\"\n—Rukarumel, field journal",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Johan Grenier",
+        "imageId": "7f05b162-90aa-4c95-903f-775a17d20359"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh1",
+    "collectorNumber": "132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIGHTNING_PROWESS": {
+    "scryfallId": "5578e3e2-2460-4dfb-9016-527463f2d918",
+    "oracleId": "85f40ced-a065-470a-a686-faaca17fa40c",
+    "name": "Lightning Prowess",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lightning Prowess",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has haste and \"{T}: This creature deals 1 damage to any target.\"",
+        "flavorText": "\"Undead flesh is dry and papery. A single spark and 'poof.' No more ghoul.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "David Rapoza",
+        "imageId": "5578e3e2-2460-4dfb-9016-527463f2d918"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "avr",
+    "collectorNumber": "145",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MANRIKI_GUSARI": {
+    "scryfallId": "9bc6542b-7672-4ea1-816c-33bc0c300f3c",
+    "oracleId": "cc2eb3e4-084c-471b-9fe0-72aa9ff2019a",
+    "name": "Manriki-Gusari",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Manriki-Gusari",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+2 and has \"{T}: Destroy target Equipment.\"\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Thomas Gianni",
+        "imageId": "9bc6542b-7672-4ea1-816c-33bc0c300f3c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "sok",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MNEMONIC_SLIVER": {
+    "scryfallId": "2b167347-2f8f-4338-a651-c7543d812597",
+    "oracleId": "101a5c2d-b0b4-45a7-b236-df474ac47356",
+    "name": "Mnemonic Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mnemonic Sliver",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have \"{2}, Sacrifice this permanent: Draw a card.\"",
+        "flavorText": "\"A jigsaw puzzle that lives, breeds, and thinks.\"\n—Hanna, *Weatherlight* navigator",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "2b167347-2f8f-4338-a651-c7543d812597"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NECROTIC_SLIVER": {
+    "scryfallId": "44e18843-06b4-480c-9291-c502542f72b1",
+    "oracleId": "9655569d-bfa5-4665-9371-9f275b8d223e",
+    "name": "Necrotic Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Necrotic Sliver",
+        "manaCost": "{1}{W}{B}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have \"{3}, Sacrifice this permanent: Destroy target permanent.\"",
+        "flavorText": "Though Volrath is long dead, the slivers have become everything he wanted them to be: mindless instruments of destruction and despair.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Dave Allsop",
+        "imageId": "44e18843-06b4-480c-9291-c502542f72b1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plc",
+    "collectorNumber": "159",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORACLE_S_INSIGHT": {
+    "scryfallId": "533d455a-88c9-4e41-b31e-5dcf821c6f6f",
+    "oracleId": "3f1f27ca-15e6-4ac6-8bd3-1e6b3ca00857",
+    "name": "Oracle's Insight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Oracle's Insight",
+        "manaCost": "{3}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{T}: Scry 1, then draw a card.\" (To scry 1, look at the top card of your library, then you may put that card on the bottom.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "533d455a-88c9-4e41-b31e-5dcf821c6f6f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant",
+      "Scry"
+    ],
+    "setCode": "bbd",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "POWER_OF_FIRE": {
+    "scryfallId": "094553a7-9513-4be5-aa24-4dbd939412c2",
+    "oracleId": "df4903cb-50fa-4620-8470-6a6a398fc1ef",
+    "name": "Power of Fire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Power of Fire",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{T}: This creature deals 1 damage to any target.\"",
+        "flavorText": "The cinders believe their flame was stolen by one they call the Extinguisher. All who now wield fire draw their desperate wrath.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Trevor Hairsine",
+        "imageId": "094553a7-9513-4be5-aa24-4dbd939412c2"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "cns",
+    "collectorNumber": "150",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRESENCE_OF_GOND": {
+    "scryfallId": "2660faeb-9681-4e35-b9f3-bff5d08a333e",
+    "oracleId": "ab42398c-f0a1-4b94-ac5f-b8768e1b4e05",
+    "name": "Presence of Gond",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Presence of Gond",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{T}: Create a 1/1 green Elf Warrior creature token.\"",
+        "flavorText": "\"Here lies Gond, hero of Safehold Taldwen. May he ever guide our quest.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Brandon Kitkouski",
+        "imageId": "2660faeb-9681-4e35-b9f3-bff5d08a333e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "c13",
+    "collectorNumber": "161",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PROPHETIC_RAVINGS": {
+    "scryfallId": "61f19581-cfd2-455d-a7f2-48143d30a724",
+    "oracleId": "69af7bff-fb8c-4f59-88a1-6bfa87ba400a",
+    "name": "Prophetic Ravings",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Prophetic Ravings",
+        "manaCost": "{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has haste and \"{T}, Discard a card: Draw a card.\"",
+        "flavorText": "\"Keep your herons and shrews! You will find nothing in the moon, for the moon is a lie! It has told me so!\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "61f19581-cfd2-455d-a7f2-48143d30a724"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "EMN-139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PSIONIC_GIFT": {
+    "scryfallId": "862fc18f-90d2-430d-aff2-47c1483dee9d",
+    "oracleId": "842bb10a-f056-4db8-a341-2d20796b99ba",
+    "name": "Psionic Gift",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Psionic Gift",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{T}: This creature deals 1 damage to any target.\"",
+        "flavorText": "For sale: Complete wizard's library. Rare scrolls, grimoires, and works of ancient spellcrafting! Slightly abridged.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dany Orizio",
+        "imageId": "862fc18f-90d2-430d-aff2-47c1483dee9d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUICKSILVER_DAGGER": {
+    "scryfallId": "07be7455-7ead-4ba5-b694-e021b28687d9",
+    "oracleId": "5c77bf76-bb0f-4e44-babe-0e7b7b555e1f",
+    "name": "Quicksilver Dagger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quicksilver Dagger",
+        "manaCost": "{1}{U}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{T}: This creature deals 1 damage to target player or planeswalker. You draw a card.\"",
+        "flavorText": "The dwarves call their quicksilver techniques \"improvisational weaponsmithing.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "07be7455-7ead-4ba5-b694-e021b28687d9"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "dmr",
+    "collectorNumber": "363",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RACECOURSE_FURY": {
+    "scryfallId": "15d13d35-b5f7-4d3d-a1fa-84178b28acae",
+    "oracleId": "b7093835-0f84-4ea4-b228-2e39bd2642ab",
+    "name": "Racecourse Fury",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Racecourse Fury",
+        "manaCost": "{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}: Target creature gains haste until end of turn.\"",
+        "flavorText": "Close finishes are settled by who can dismount and get to weapons first.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Sam Burley",
+        "imageId": "15d13d35-b5f7-4d3d-a1fa-84178b28acae"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RESPLENDENT_MENTOR": {
+    "scryfallId": "be87e59d-422c-4dd7-8867-423e784830a2",
+    "oracleId": "5b60a257-e4f8-412e-b146-b7983a384753",
+    "name": "Resplendent Mentor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Resplendent Mentor",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Kithkin Cleric",
+        "oracleText": "White creatures you control have \"{T}: You gain 1 life.\"",
+        "flavorText": "Thoughtweft gives new meaning to the phrase \"common knowledge.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Franz Vohwinkel",
+        "imageId": "be87e59d-422c-4dd7-8867-423e784830a2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SADISTIC_OBSESSION": {
+    "scryfallId": "64080d0d-163b-450d-8919-79a0465f3645",
+    "oracleId": "1c55af05-7fbe-4078-9463-689b21c0d3e4",
+    "name": "Sadistic Obsession",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sadistic Obsession",
+        "manaCost": "{3}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{B}, {T}: Put a -1/-1 counter on target creature.\"",
+        "flavorText": "Not everyone should take joy in their work.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "64080d0d-163b-450d-8919-79a0465f3645"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "mh1",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIREN_SONG_LYRE": {
+    "scryfallId": "cfeca720-3163-4391-b90d-5f7aa5f5987b",
+    "oracleId": "400da7e6-43f8-4539-8959-ec60a3cc431b",
+    "name": "Siren Song Lyre",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Siren Song Lyre",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature has \"{2}, {T}: Tap target creature.\"\nEquip {2}",
+        "flavorText": "A siren once tried to steal it out of jealousy but was caught by the song of its strings.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "James Paick",
+        "imageId": "cfeca720-3163-4391-b90d-5f7aa5f5987b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "bng",
+    "collectorNumber": "161",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SQUIRREL_NEST": {
+    "scryfallId": "22eccb27-1723-4c5a-96b8-85e6e5739c30",
+    "oracleId": "2d584333-b25e-4291-a2c9-80c6d9f8732a",
+    "name": "Squirrel Nest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Squirrel Nest",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}: Create a 1/1 green Squirrel creature token.\"",
+        "flavorText": "In the Krosan Forest, you've got to keep an eye out for the squirrels.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Anthony S. Waters",
+        "imageId": "22eccb27-1723-4c5a-96b8-85e6e5739c30"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "274",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TELEKINETIC_SLIVER": {
+    "scryfallId": "61b934ad-4858-4680-924a-53ea4f250f9e",
+    "oracleId": "31ec6a73-f742-4dc6-809d-28d3c461c2a0",
+    "name": "Telekinetic Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Telekinetic Sliver",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have \"{T}: Tap target permanent.\"",
+        "flavorText": "\"Slivers are guided only by simple instinct. Advance the hive, and you will be welcomed. Impede the hive, and you will face unrelenting opposition.\"\n—Freyalise",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Randy Elliott",
+        "imageId": "61b934ad-4858-4680-924a-53ea4f250f9e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tsp",
+    "collectorNumber": "84",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TIN_STREET_MARKET": {
+    "scryfallId": "1c1f543b-2222-4ef5-b4f7-2c3d2ea27fdc",
+    "oracleId": "5102b7c8-6886-4004-9992-416d22b4fce7",
+    "name": "Tin Street Market",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tin Street Market",
+        "manaCost": "{4}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}, Discard a card: Draw a card.\"",
+        "flavorText": "\"Sometimes I stroll along Tin Street and watch citizens busy with their daily lives. It reminds me why I do my job.\"\n—Arrester Lavinia, Tenth Precinct",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Noah Bradley",
+        "imageId": "1c1f543b-2222-4ef5-b4f7-2c3d2ea27fdc"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "gtc",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNDERWORLD_CONNECTIONS": {
+    "scryfallId": "19c52e3b-b3b8-4243-96fe-fa4c8eea7c59",
+    "oracleId": "39c10798-9dfc-47a2-9da3-b4038509aebe",
+    "name": "Underworld Connections",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Underworld Connections",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}, Pay 1 life: Draw a card.\"",
+        "flavorText": "If you're looking for it, it's available. The question is how much you're willing to pay.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Yeong-Hao Han",
+        "imageId": "19c52e3b-b3b8-4243-96fe-fa4c8eea7c59"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VERDANT_FIELD": {
+    "scryfallId": "d123da53-9fd3-492b-beb7-76d1c0f5e4f6",
+    "oracleId": "4d59fd2b-7fc6-49a7-8938-d3f08902a5a8",
+    "name": "Verdant Field",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Verdant Field",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}: Target creature gets +1/+1 until end of turn.\"",
+        "flavorText": "Jolrael tends the land so that the land will tend the beasts.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ron Spears",
+        "imageId": "d123da53-9fd3-492b-beb7-76d1c0f5e4f6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "pcy",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VICTUAL_SLIVER": {
+    "scryfallId": "097d513b-23e9-49a5-aa14-a381a3018cec",
+    "oracleId": "bd803b1c-1370-40db-a6c6-abad4b3d1602",
+    "name": "Victual Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Victual Sliver",
+        "manaCost": "{G}{W}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have \"{2}, Sacrifice this permanent: You gain 4 life.\"",
+        "flavorText": "\"We are kinfolk,\" explained Karn to the sliver queen. \"Just as you need your progeny to complete you, so do I need the pieces of the Legacy to make me whole.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Terese Nielsen",
+        "imageId": "097d513b-23e9-49a5-aa14-a381a3018cec"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tpr",
+    "collectorNumber": "215",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIRIDIAN_LONGBOW": {
+    "scryfallId": "6f10358e-4639-4873-9d0d-18f1b092b365",
+    "oracleId": "8b9119b0-9948-497f-aa92-2879d07bed1c",
+    "name": "Viridian Longbow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Viridian Longbow",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature has \"{T}: This creature deals 1 damage to any target.\"\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jeremy Jarvis",
+        "imageId": "6f10358e-4639-4873-9d0d-18f1b092b365"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "AFC-221",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WITCHES_EYE": {
+    "scryfallId": "6d989daa-78eb-4120-81b5-7866a7b04590",
+    "oracleId": "c8d479b8-b96c-4382-97d3-68d85cf371ba",
+    "name": "Witches' Eye",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Witches' Eye",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature has \"{1}, {T}: Scry 1.\" (To scry 1, look at the top card of your library, then you may put that card on the bottom.)\nEquip {1}",
+        "flavorText": "The price of prophecy is a vacant eye socket.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "6d989daa-78eb-4120-81b5-7866a7b04590"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip",
+      "Scry"
+    ],
+    "setCode": "ths",
+    "collectorNumber": "222",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

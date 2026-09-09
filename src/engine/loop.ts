@@ -32,7 +32,7 @@ import type { EventBody, GameEvent, ResolvedDamage } from './types/events';
 import type { AbilityRef, InstanceId, PlayerId } from './types/ids';
 import { EMPTY_POOL, poolTotal } from './types/mana';
 import type { RngState } from './rng';
-import type { ModeDecl, OracleDb, OracleFace, TargetSpec } from './types/oracle';
+import type { ActivatedAbility, ModeDecl, OracleDb, OracleFace, TargetSpec } from './types/oracle';
 import { apnapOrder, livingPlayers, type Awaiting, type GameState, type PendingTrigger, type StackObject } from './types/state';
 import { canBlock } from './combat';
 
@@ -844,6 +844,33 @@ export function triggerDefFor(deps: EngineDeps, obj: StackObject): TriggerDef | 
  * also why a trigger's `abilityId` may never match /^a\d+$/ (D158's review
  * rule): `triggerDefFor` above would claim the activated object first.
  */
+/**
+ * D367 - the parsed ability behind a ref, wherever it lives. `#a<n>` is the
+ * source's own printed line, read off its face; `#g<n>` is an ability ANOTHER
+ * permanent's static installed on it, read off the provider's def - the
+ * board-INDEPENDENT copy, because an ability on the stack exists apart from
+ * its source (CR 113.7a): the Aura may have left by the time the clauses are
+ * re-checked, and the ability still resolves for the targets still legal.
+ *
+ * ⚠️ ONE READER. The handler's three pending re-finds and the resolution's
+ * CR 608.2b re-check all go through here, so a ref kind added later has one
+ * place to be taught - gate 197 (seed 306) is what a re-check that read the
+ * wrong place looks like: an ability resolving on its own corpse.
+ */
+export function abilityOfRef(
+  deps: EngineDeps,
+  face: OracleFace | null,
+  ref: AbilityRef | null,
+): ActivatedAbility | undefined {
+  if (!ref) return undefined;
+  if (ref.includes('#g')) {
+    const script = deps.scripts.get(ref.slice(0, ref.indexOf('#')));
+    return script?.activated?.find((d) => d.ref === ref)?.granted;
+  }
+  const at = ref.indexOf('#a');
+  return at >= 0 ? face?.activated[Number(ref.slice(at + 2))] : undefined;
+}
+
 export function activatedDefFor(deps: EngineDeps, obj: StackObject): ActivatedDef | undefined {
   if (obj.kind !== 'activated' || !obj.abilityRef) return undefined;
   const script = deps.scripts.get(obj.abilityRef.slice(0, obj.abilityRef.indexOf('#')));
@@ -978,9 +1005,8 @@ export function resolveAbility(
   // but this re-check asked the TRIGGER def alone, so with none it fell to the
   // no-clause branch — and Mage il-Vec's ping, aimed at itself and answered by
   // a Bolt, resolved on its own corpse: damage on a card in a graveyard.
-  const ref = obj.abilityRef ?? '';
-  const at = ref.indexOf('#a');
-  const printedAbility = obj.kind === 'activated' && at >= 0 && srcFace ? srcFace.activated[Number(ref.slice(at + 2))] : undefined;
+  // D367 - and a GRANTED ability's clauses live on the provider's def (`granted`), read through the one reader.
+  const printedAbility = obj.kind === 'activated' ? abilityOfRef(deps, srcFace, obj.abilityRef) : undefined;
   // ⚠️ A KEYWORD TRIGGER'S CLAUSES LIVE ON THE TABLE (D361): `keywordTriggerDef`
   // builds its def from an entry whose `targets` is a FUNCTION of the source, so
   // the def carries none and this re-check would fall to the no-clause branch —
