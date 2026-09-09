@@ -26256,3 +26256,126 @@ Law went straight into its deck.
 
 **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,080 files, 25,119 passed / 11 skipped · 500-seed
 gate, 6 shards, 1,021.0 s wall · build clean · probe 124/124 · battery 130/130.**
+
+
+## D372 - M6.4he: THE GRANTED MANA ABILITY - a permanent may HAVE a mana ability another permanent's static installed on it, and a mana ability is not a def (2026-09-09)
+
+**7,757 of 31,692 Commander-legal cards execute completely, up from 7,746
+(+11).** `SHIPPED_SCRIPTS` 4,933 -> **4,944**; REFUSED ledger 1,074 -> **1,075**
+(+1: a SPEND restriction). Fixtures 5,423 -> **5,434**. Select pool **0**
+throughout - the eleven landed BY NAME, as every quoted grant has (D367/D368).
+
+### Measured first: the 173 live quoted grants, against today's readers
+
+D371 named the 158 one-piece cards whose grant payload is a QUOTED ability as
+the next family. Re-measured against the readers as they stand
+(d372/quoted-live.json): **173 of the dossier's 221 remain** (48 shipped in
+D367/D368), and **every one of them is ONE line from landing** - the grant line.
+The block is the PAYLOAD reader, never the carrier: 65 of 74 payable activated
+bodies and 67 of 79 triggered bodies fall outside the effect vocabulary, and the
+ten unpaid costs are all a NAMED provider ("Unattach Heartseeker", "Sacrifice
+Ninja's Kunai") the recipient cannot pay.
+
+Grouped by SHAPE, the 149 unread payloads are a tail - 121 shapes, 1.23 cards
+each - with two dense heads: **37 are row kinds the one-shot generator already
+emits** (a self pump 12, regenerate 6, a token 4, a counter on the recipient 6,
+a ping 2, a may-draw 2, a drain, investigate, a loot, a self bounce, a self
+untap) once the payload is read the way a
+row's own effect is, and **12 are MANA abilities** the vocabulary refuses on
+purpose - "{T}: Add one mana of any color." parses as an activation whose effect
+no rule reads, which D367 said was right: a granted mana ability must take CR
+605's immediate path, a seam that decision did not build. The other 100 are 94
+shapes. The mana ability is the seam; the 37 are its wave.
+
+⚠️ **A doubled backslash halves through the harness in a MEASUREMENT script
+too.** The first count read 41 because a doubled backslash-d in a template
+literal arrived single, which a template literal reads as a plain d, and every
+self pump fell out. A character class needs no backslash; the honest count is 49.
+
+### The design: a mana ability is not a def
+
+Every other granted ability is a DEF the recipient is offered, pays for and
+resolves through the stack (D367/D368). A mana ability never uses the stack
+(CR 605.1): it is offered, paid and resolved in ONE accept by `tapForMana`,
+which reads the recipient's DERIVED `producesMana` - as do the payment solver,
+the plan and the legal-action offer. So the carrier is the LIST, not a def:
+`MutableCharacteristics.producesMana`, seeded from the face in layer 1 (a
+face-down or unknown object has none), read by `finish()` off the workspace
+where it used to be read off the face - and a layer-6 static that reads
+`<scope> has "{T}: Add {G}."` pushes one production onto every recipient in its
+scope, with the recipient's NEXT `abilityIndex`. Nothing downstream changed:
+`manaSourcesOf`, `legalActions`, `tapForMana`, the plan resolution and the
+client's mana panel all read the offer or the derived list already, and the
+client previews with the host's own `SolveInput` (D53), so a granted source
+reaches the preview for free.
+
+⚠️ **The granted production is the INGEST's own reading.** `grantedMana` hands
+the quoted line to `parseManaProduction` as a one-line face, so a granted "two
+mana of any one color" and a printed one are the SAME structure (D356's rule
+for protection, one parser over) - and it refuses by name what that parser
+marks CONDITIONAL: a spend restriction, a cost piece the engine does not charge,
+an amount it cannot compute. Leyline Immersion's "five mana in any combination
+... Spend this mana only to cast spells" is refused twice over and ledgered once.
+
+⚠️ **The RECIPIENT is the source (CR 113.7a), and its price is its own.** Basal
+Sliver's "Sacrifice this permanent: Add {B}{B}" eats the SLIVER that used it,
+never Basal; Lotus Ring's "{T}, Sacrifice this creature" eats the equipped
+creature; Forgotten Monument's "Pay 1 life" is the Cave's controller's. And a
+priced production is never an auto-tap source (D325): the solver takes the
+plain grants by itself and leaves the priced ones to the hand menu, exactly as
+it does for a printed Signet.
+
+### What the proof found
+
+⚠️ **TWO GRANTS ON ONE SLIVER.** The seam's own test put Metallic Sliver under
+Basal Sliver on a board that also held Cryptolith Rite, and expected ONE
+production; the engine answered two, each with its own index - the Rite's tap
+first, Basal's sacrifice second, in timestamp order - and only the sacrifice
+was withheld from auto-tap. The test was rewritten to say so: a recipient inside
+two scopes carries both, and the index is what tells them apart.
+
+⚠️ **A printed mana ability keeps its index; the grant takes the next.**
+Llanowar Elves under Cryptolith Rite reads its {G} at 0 and any colour at 1,
+and tapping index 1 makes WHITE - which is the whole reason the index is the
+recipient's next rather than the provider's.
+
+⚠️ **THE SOLVER FUNDS A SPELL FROM IT** - the real source, never the hand tool
+(D364): on a board with no land, a Bears under Cryptolith Rite is p1's only
+source, and casting Llanowar Elves taps the Bears through `suggestPayment`.
+That is the one assertion that could not pass with the seam ripped out.
+
+⚠️ **`GrantedTriggered` was declared TWICE in `types/oracle.ts`** - D368's
+doubled insert, byte-identical, merged silently by declaration merging. The
+second copy is gone.
+
+⚠️ **The generator's `mana()` helper is declared only where it is called.** Nine
+of the eleven suites failed `tsc` on an unused helper because the Aura cast is
+its only caller; fixed at the generator, never in a suite (D267).
+
+### Measured
+
+| | before | after |
+|---|---|---|
+| complete | 7,746 | **7,757** |
+| `SHIPPED_SCRIPTS` | 4,933 | **4,944** |
+| REFUSED ledger | 1,074 | **1,075** |
+| fixtures | 5,423 | **5,434** |
+| botPool artifact / creature / enchantment / land | 437 / 4,489 / 434 / 565 | **439 / 4,493 / 438 / 566** |
+| `layer6` sole-need | 1,305 | **1,299** |
+| tier3 `silentAfter` | 8,045 | **8,056** |
+| `scriptableToday` | 1,170 | 1,170 (unmoved: the eleven landed by name) |
+
+The bot's own reach rose to **7,696** cards from 7,685, chosen from 222
+fully-executable legendary creatures.
+
+**Landed:** the eleven from one table - Cryptolith Rite, Citanul Hierophants
+and A Realm Reborn (every creature or permanent of yours), Gemhide Sliver,
+Basal Sliver and Manaweft Sliver (the hive), Multani's Harmony and Sheltered
+Aerie (Auras), Paradise Mantle and Lotus Ring (Equipment), Forgotten Monument
+(other Caves). Tests: `grantedMana.test.ts` (9) and one generated suite per
+row (33 checks). The fuzz gate gained a `grantedManaMade` floor off Cryptolith
+Rite as a canary staple: **946 mana made by a granted ability in the
+gate's 500 seeds.**
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,092 files, 25,183 passed / 11 skipped · 500-seed
+gate, 6 shards, 1,030.8 s wall · build clean · probe 124/124 · battery 130/130.**

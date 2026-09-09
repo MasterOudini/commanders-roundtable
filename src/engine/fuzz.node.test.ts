@@ -157,6 +157,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // because it never moved. Two per seat, because a land is only useful once tapped.
   { names: ['Snow-Covered Forest'], copiesPerSeat: 2,
     counterKeys: ['snowManaMade'], rotHistory: 'D364' },
+  // D372 - the GRANTED MANA ABILITY: a production a layer-6 static pushed onto a recipient
+  // that prints none. Cryptolith Rite makes every creature its controller has a source, so
+  // the solver auto-taps granted mana whenever a creature stands and a spell is cast.
+  { names: ['Cryptolith Rite'], copiesPerSeat: 2,
+    counterKeys: ['grantedManaMade'], rotHistory: 'D372' },
 ];
 
 /** What every seat is GUARANTEED to hold of the staples, weights applied. */
@@ -683,6 +688,8 @@ interface Run {
   /** Scry/surveil prompts raised by a resolving effect (D195). */
   readonly scryChoices: number;
   readonly snowManaMade: number;
+  /** D372 - mana made by a permanent that PRINTS no mana ability (a granted one). */
+  readonly grantedManaMade: number;
   /** Library searches raised by a resolving effect (D357). */
   readonly librarySearches: number;
   /** Modes chosen for a spell, an activation or a trigger (D343). */
@@ -850,6 +857,18 @@ function runOne(seed: number): Run {
     // D364 - mana a SNOW SOURCE made. Counted off the event rather than off the pool,
     // because a pool is emptied at every step boundary and the making is the fact.
     snowManaMade: game.log.filter((e) => e.body.t === 'ManaAdded' && e.body.snow).length,
+    // D372 - mana made by a permanent whose PRINTED face has no mana ability: a GRANTED one.
+    // Read off the event and the oracle face, never off the pool. A spell that makes mana
+    // (a ritual) is not a permanent, so the type-line check keeps it out.
+    grantedManaMade: game.log.filter((e) => {
+      if (e.body.t !== 'ManaAdded') return false;
+      const src = e.body.source;
+      const inst = src ? game.state.cards[src] : undefined;
+      const card = inst ? ORACLE.byPrinting(inst.printingId) : undefined;
+      if (!inst || !card) return false;
+      const f = faceOf(card, inst.faceIndex);
+      return f.producesMana.length === 0 && f.typeLine.types.some((t) => t === 'Creature' || t === 'Land' || t === 'Artifact' || t === 'Enchantment');
+    }).length,
     scryChoices: game.log.filter(
       (e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'scryChoice',
     ).length,
@@ -995,6 +1014,7 @@ const TOTAL_KEYS = [
   'replacementChoices',
   'scryChoices',
   'snowManaMade',
+  'grantedManaMade',
   'librarySearches',
   'modeChoices',
   'entersDeclined',
@@ -1194,6 +1214,9 @@ function assertFloors(totals: Totals, seeds: number): void {
       // D364 - at gate size only, like every rate canary: two snow lands a seat, and a
       // pool with provenance is only proven by mana that actually carried it.
       if (seeds >= 500) expect(totals.snowManaMade).toBeGreaterThan(0);
+      // D372 - at gate size only: two Cryptolith Rites a seat, and a granted production is
+      // proven only by mana a recipient actually made.
+      if (seeds >= 500) expect(totals.grantedManaMade).toBeGreaterThan(0);
       // ⚠️ THE MODAL CANARY (D343): Crushing Canopy is a staple in every pool and
       // is offered whenever a flyer or an enchantment stands, so at gate size a
       // mode must have been chosen somewhere.
@@ -1226,6 +1249,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.entersPaid} paid life to enter untapped / ${totals.entersDeclined} declined · ` +
           `${totals.discardsChosen} discards chosen, ${totals.cardsDiscarded} moves of hand→graveyard · ` +
           `${totals.snowManaMade} mana made by a snow source · ` +
+          `${totals.grantedManaMade} by a granted mana ability · ` +
           `${totals.paymentsPaid} payments made / ${totals.paymentsDeclined} declined`,
       );
 

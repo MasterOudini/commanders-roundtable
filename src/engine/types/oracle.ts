@@ -838,20 +838,6 @@ export interface GrantedTriggered {
   readonly ref: AbilityRef;
 }
 
-/**
- * D368 - ONE TRIGGERED ability a permanent has because ANOTHER permanent's static
- * granted it. The activated sibling below carries the parsed ability, because
- * `legal.ts` needs a cost to offer; a trigger needs no such copy - the bus reads
- * the def itself off the PROVIDER's script by `ref`, exactly as `triggerDefFor`
- * already resolves one at resolution.
- */
-export interface GrantedTriggered {
-  /** The permanent whose static installed this. Its script owns the def. */
-  readonly provider: InstanceId;
-  /** `<providerOracleId>#gt<n>` - the key the registry's grant index holds. */
-  readonly ref: AbilityRef;
-}
-
 export interface GrantedActivated {
   readonly provider: InstanceId;
   readonly ref: AbilityRef;

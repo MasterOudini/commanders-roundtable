@@ -39,9 +39,11 @@
  * non-mana and is refused at the vocabulary, never half-run.
  */
 import { parseActivatedAbilities } from '../../data/activatedParse';
-import { parseManaCost } from '../../data/oracleParse';
+import { parseManaCost, parseManaProduction } from '../../data/oracleParse';
+import type { CardFace } from '../../data/cardTypes';
+import type { MutableCharacteristics } from './api';
 import type { AbilityRef } from '../types/ids';
-import type { ActivatedAbility } from '../types/oracle';
+import type { ActivatedAbility, ManaProduction, ParsedTypeLine } from '../types/oracle';
 
 /** A grant, parsed: the ref the def carries and the ability the recipient is offered. */
 export interface GrantedActivatedDef {
@@ -91,4 +93,42 @@ export function grantedTriggerRef(ref: AbilityRef, name: string): AbilityRef {
     throw new Error(`${name}: a granted trigger's ref must read "<oracleId>#gt<n>", not "${ref}".`);
   }
   return ref;
+}
+
+/**
+ * D372 - THE GRANTED MANA ABILITY. A quoted "{T}: Add {G}." is a MANA ability
+ * (CR 605.1a), and a mana ability never uses the stack: it is offered, paid and
+ * resolved in one accept by `tapForMana`, which reads the recipient`s DERIVED
+ * `producesMana`. So the carrier is not a def at all - it is a production the
+ * provider`s layer-6 static pushes onto the recipient`s characteristics, read by
+ * the same ingest parser that reads a printed mana line, so a granted "one mana
+ * of any color" and a printed one are the SAME production (D356`s rule for
+ * protection, one parser over).
+ *
+ * Refused by name (D90): a line that is not exactly one mana ability, and a
+ * CONDITIONAL one - a spend restriction, an unread cost piece, an amount the
+ * engine cannot compute - which it would otherwise offer and then half-run.
+ */
+export function grantedMana(quoted: string, name: string): ManaProduction {
+  const face = { name, oracleText: quoted } as unknown as CardFace;
+  const typeLine: ParsedTypeLine = { supertypes: [], types: [], subtypes: [], raw: '' };
+  const parsed = parseManaProduction(face, typeLine);
+  if (parsed.length !== 1) {
+    throw new Error(`${name}: the quoted line "${quoted}" reads as ${parsed.length} mana abilities - a grant carries exactly one (D90).`);
+  }
+  const prod = parsed[0] as ManaProduction;
+  if (prod.conditional) {
+    throw new Error(`${name}: the quoted mana ability "${quoted}" is conditional (a spend restriction, a cost the engine does not charge, or an amount it cannot compute) - the grant must not claim it (D90).`);
+  }
+  return prod;
+}
+
+/**
+ * Install a granted production on a recipient, from a static`s `modify`. The
+ * `abilityIndex` is the recipient`s NEXT index - after its printed productions
+ * and any grant already installed - which is what `TapForMana` names and what
+ * `manaSourcesOf` reads back off the same derivation.
+ */
+export function pushGrantedMana(chars: MutableCharacteristics, prod: ManaProduction): void {
+  chars.producesMana.push({ ...prod, abilityIndex: chars.producesMana.length });
 }

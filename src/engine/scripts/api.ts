@@ -17,7 +17,7 @@
 import type { ColorLetter } from '../../data/cardTypes';
 import type { EventBody, EventKind } from '../types/events';
 import type { AbilityRef, InstanceId, OracleId, PlayerId, ZoneKind } from '../types/ids';
-import type { ActivatedAbility, DerivedCharacteristics, EffectSpec, GrantedActivated, GrantedTriggered, Keyword, ModeDecl, OracleDb, ParsedTypeLine, Protection, TargetSpec } from '../types/oracle';
+import type { ActivatedAbility, DerivedCharacteristics, EffectSpec, GrantedActivated, GrantedTriggered, Keyword, ManaProduction, ModeDecl, OracleDb, ParsedTypeLine, Protection, TargetSpec } from '../types/oracle';
 import type { DefenderRef, GameOptions, GameState, StackObject } from '../types/state';
 
 /** The mutable form a static ability edits. Copied out of `derive()`'s workspace. */
@@ -51,6 +51,15 @@ export interface MutableCharacteristics {
   landwalk: string[];
   /** `Toxic N`. Layer 6 can grant the keyword; this is the amount that came with it. */
   toxicAmount: number;
+  /**
+   * D372 - THE MANA ABILITIES this object has, printed AND granted. Seeded from the
+   * face in layer 1 (a face-down or unknown object has none); a layer-6 static that
+   * reads `<scope> has "{T}: Add {G}."` pushes one here, with the recipient`s next
+   * `abilityIndex`. A mana ability never uses the stack (CR 605), so this list - not a
+   * def - is the whole carrier: `manaSourcesOf`, the offer, `tapForMana` and the
+   * payment plan all read it off the derived object already.
+   */
+  producesMana: ManaProduction[];
   /**
    * D367 - THE GRANTED ABILITIES. A layer-6 static that reads "<scope> has
    * \"<activated ability>\"" pushes one entry here from its `modify`; the

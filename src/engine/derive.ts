@@ -112,7 +112,8 @@ function computeDerived(
       toxicAmount: 0,
       grantedActivated: [],
       grantedTriggered: [],
-    }, 0, []);
+      producesMana: [],
+    }, 0);
   }
 
   const chars = layerOne(inst, oracle);
@@ -200,8 +201,9 @@ function computeDerived(
 
   const card = inst.faceDown ? undefined : oracle.byPrinting(inst.printingId);
   const manaValue = card?.manaValue ?? 0;
-  const produces = inst.faceDown ? [] : (card ? faceOf(card, inst.faceIndex).producesMana : []);
-  return finish(chars, manaValue, produces);
+  // D372 - the mana abilities come off the WORKSPACE now (layer 1 seeded the printed
+  // ones, layer 6 may have pushed a granted one), never off the face here.
+  return finish(chars, manaValue);
 }
 
 /** D310 - a changeling's type line: its own subtypes, then every creature type the database prints. */
@@ -237,6 +239,7 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
       toxicAmount: 0,
       grantedActivated: [],
       grantedTriggered: [],
+      producesMana: [],
     };
   }
   const card = oracle.byPrinting(inst.printingId);
@@ -259,6 +262,7 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
       toxicAmount: 0,
       grantedActivated: [],
       grantedTriggered: [],
+      producesMana: [],
     };
   }
   const face = faceOf(card, inst.faceIndex);
@@ -284,6 +288,8 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
     // D367 - a printed object has no GRANTED abilities; only a layer-6 static adds one.
     grantedActivated: [],
     grantedTriggered: [],
+    // D372 - the printed mana abilities, a COPY: a layer-6 static may push a granted one.
+    producesMana: [...face.producesMana],
   };
 }
 
@@ -375,6 +381,7 @@ function cloneChars(chars: MutableCharacteristics): MutableCharacteristics {
     landwalk: [...chars.landwalk],
     grantedActivated: [...chars.grantedActivated],
     grantedTriggered: [...chars.grantedTriggered],
+    producesMana: [...chars.producesMana],
   };
 }
 
@@ -535,7 +542,6 @@ export function makeScriptCtx(state: GameState, oracle: OracleDb, scripts: Scrip
 function finish(
   chars: MutableCharacteristics,
   manaValue: number,
-  producesMana: DerivedCharacteristics['producesMana'],
 ): DerivedCharacteristics {
   const types = chars.typeLine.types;
   const isCreature = types.includes('Creature');
@@ -554,7 +560,7 @@ function finish(
   // payment solver. Clearing only `keywords` would leave a Humility'd Akroma
   // still unblockable by red and a Humility'd Signet still tapping for mana.
   const gone = !chars.hasAbilities;
-  const produces = gone ? [] : producesMana;
+  const produces = gone ? [] : chars.producesMana;
   return {
     name: chars.name,
     typeLine: chars.typeLine,

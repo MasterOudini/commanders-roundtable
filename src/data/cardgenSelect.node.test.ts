@@ -2064,6 +2064,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Rashel, Fist of Torm", 'a grant scoped to AURAS you control - every scope the generator reads is over creatures'],
   ["Zarda, the Power Princess", 'a grant scoped to a subtype with no fixture (Hero) - a scope is proven on a member of it'],
   ["Righteous War", 'two scoped anthems over different colours: one board cannot carry both proofs'],
+
+  // D372 (M6.4he) - THE GRANTED MANA ABILITY: of the twelve quoted mana grants, eleven landed and
+  // this one did not, for a restriction on the MANA rather than for anything about the grant.
+  ["Leyline Immersion", 'a granted MANA ability with a SPEND restriction (mana only for spells) - restricted mana in the pool is a concept the engine does not have'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
@@ -2179,6 +2183,8 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // cards that cost was blocking). The scriptable number falls 1,069 -> 1,063
     // because the wave outweighs the seam.
     // D369 - the payment prompt made 157 cards OFFERABLE (their pay line reads; the rest is a row): the seam leaves its wave to the decision after it (D289, D357).
+    // D372 - ZERO still: the granted MANA ability landed its eleven BY NAME (the classifier never
+    // offered a quoted grant, and does not now), so the pool neither filled nor drained.
     // D371 - ZERO again, and this decision is BOTH shapes at once (D363): the reader widening is a
     // SEAM (26 cards it had never offered) and its own rows are the WAVE (23 of them).
     // D370 - BACK TO ZERO, and that is what a WAVE does: forty landed and the other 117 are in the

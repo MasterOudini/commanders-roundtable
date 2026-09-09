@@ -7,6 +7,17 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { A_REALM_REBORN_SCRIPT } from './cards/aRealmReborn';
+import { BASAL_SLIVER_SCRIPT } from './cards/basalSliver';
+import { CITANUL_HIEROPHANTS_SCRIPT } from './cards/citanulHierophants';
+import { CRYPTOLITH_RITE_SCRIPT } from './cards/cryptolithRite';
+import { FORGOTTEN_MONUMENT_SCRIPT } from './cards/forgottenMonument';
+import { GEMHIDE_SLIVER_SCRIPT } from './cards/gemhideSliver';
+import { LOTUS_RING_SCRIPT } from './cards/lotusRing';
+import { MANAWEFT_SLIVER_SCRIPT } from './cards/manaweftSliver';
+import { MULTANIS_HARMONY_SCRIPT } from './cards/multanisHarmony';
+import { PARADISE_MANTLE_SCRIPT } from './cards/paradiseMantle';
+import { SHELTERED_AERIE_SCRIPT } from './cards/shelteredAerie';
 import { AKROMAS_MEMORIAL_SCRIPT } from './cards/akromasMemorial';
 import { ABSOLUTE_GRACE_SCRIPT } from './cards/absoluteGrace';
 import { ABSOLUTE_LAW_SCRIPT } from './cards/absoluteLaw';
@@ -4959,6 +4970,17 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  A_REALM_REBORN_SCRIPT,
+  BASAL_SLIVER_SCRIPT,
+  CITANUL_HIEROPHANTS_SCRIPT,
+  CRYPTOLITH_RITE_SCRIPT,
+  FORGOTTEN_MONUMENT_SCRIPT,
+  GEMHIDE_SLIVER_SCRIPT,
+  LOTUS_RING_SCRIPT,
+  MANAWEFT_SLIVER_SCRIPT,
+  MULTANIS_HARMONY_SCRIPT,
+  PARADISE_MANTLE_SCRIPT,
+  SHELTERED_AERIE_SCRIPT,
   AKROMAS_MEMORIAL_SCRIPT,
   ABSOLUTE_GRACE_SCRIPT,
   ABSOLUTE_LAW_SCRIPT,

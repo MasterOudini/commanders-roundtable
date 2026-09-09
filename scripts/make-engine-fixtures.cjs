@@ -5875,6 +5875,19 @@ const WANTED = [
   'Eladamri, Lord of Leaves',
   'Sokka, Tenacious Tactician',
   // D371 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  // D371 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  'Cryptolith Rite',
+  'Basal Sliver',
+  // D371 - the derived cost fixtures: a sacrifice or a tap cost the engine charges, and the cards its suites pay it with.
+  'A Realm Reborn',
+  'Citanul Hierophants',
+  'Forgotten Monument',
+  'Gemhide Sliver',
+  'Lotus Ring',
+  'Manaweft Sliver',
+  "Multani's Harmony",
+  'Paradise Mantle',
+  'Sheltered Aerie',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -315,8 +315,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // scale — 19 of 25, the six refusals named — 1,742 → 1,761. M6.4d
       // (D161): thirteen more, and the selection taught two refusal shapes —
       // 1,761 → 1,774.
-      complete: 7746,
-      blocked: 23946,
+      complete: 7757,
+      blocked: 23935,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -336,7 +336,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
-      layer6: 1305,
+      layer6: 1299,
       counter: 1456,
       token: 961,
     });
@@ -375,7 +375,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1170, 1237, 2819, 4655, 5988]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1170, 1237, 2813, 4649, 5982]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -462,7 +462,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       else split.unclaimed++;
       if (card.layer6Lines.some((t) => TEMPORARY.test(t))) temporary++;
     }
-    expect.soft(split).toEqual({ grant: 810, anthem: 137, restriction: 211, conditional: 147, unclaimed: 0 });
+    expect.soft(split).toEqual({ grant: 809, anthem: 132, restriction: 211, conditional: 147, unclaimed: 0 });
     // ⚠️ THE NUMBER THAT KEEPS `layer6` OUT OF `BUILT`. Asserted here rather than
     // written in the comment above, because D129's reason lived in a comment and
     // stayed there for twenty-four decisions after D147 closed it.
@@ -548,7 +548,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
     expect.soft(steps.map((s) => s.unlocked)).toEqual([1170, 1237]);
-    expect.soft(r.complete).toBe(7746);
+    expect.soft(r.complete).toBe(7757);
   });
 });
 
@@ -702,7 +702,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
       cantBeCountered: 97,
       gainControl: 66,
       wardHexproofGrant: 46,
-      other: 3097,
+      other: 3092,
     });
   });
 

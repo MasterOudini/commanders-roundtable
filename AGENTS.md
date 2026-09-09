@@ -12556,6 +12556,113 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       payment sources (convoke 14, delve 5, improvise 6); then the seam map's rest
       - the attached statics the Aura and Equipment rows cannot read (351), the
       bare keyword or ability word (206 after this wave); prior items stand.
+- [x] **M6.4he — THE GRANTED MANA ABILITY: a permanent may HAVE a mana ability
+      another permanent's static installed on it, and a mana ability is not a
+      def (2026-09-09):** **7,757 of 31,692 Commander-legal cards now execute
+      completely, up from 7,746 (+11).** `SHIPPED_SCRIPTS` 4,933 -> **4,944**;
+      ledger 1,074 -> **1,075** (+1, a SPEND restriction). Fixtures 5,423 ->
+      **5,434**. **Select pool 0 throughout** - the eleven landed BY NAME, as
+      every quoted grant has (D367/D368). Decisions in **D372**.
+      ⚠️ **MEASURED FIRST, against the readers as they stand:** of the dossier's
+      221 quoted grants, **173 remain** and EVERY one is ONE line from landing -
+      the grant line. The block is the PAYLOAD reader, never the carrier: 65 of
+      74 payable activated bodies and 67 of 79 triggered bodies fall outside the
+      effect vocabulary, and the ten unpaid costs all name the PROVIDER
+      ("Unattach Heartseeker"). By SHAPE the 149 unread payloads are a tail (121
+      shapes, 1.23 each) with two dense heads: **37 are row kinds the one-shot
+      generator already emits** (a self pump 12, regenerate 6, a token 4, a
+      counter on the recipient 6, a ping 2, a may-draw 2, a drain, investigate,
+      a loot, a self bounce, a self untap) once the
+      payload is read the way a row's own effect is, and **12 are MANA abilities**
+      the vocabulary refuses on purpose. The mana ability is the seam; the 37 are
+      its wave. ⚠️ A doubled backslash halves through the harness in a
+      MEASUREMENT script too - the first count read 41; a character class needs
+      no backslash, and the honest count is 49.
+      ⚠️⚠️ **A MANA ABILITY IS NOT A DEF.** Every other granted ability is a def
+      the recipient is offered, pays for and resolves through the stack; a mana
+      ability never uses the stack (CR 605.1) - it is offered, paid and resolved
+      in ONE accept by `tapForMana`, which reads the recipient's DERIVED
+      `producesMana`, as do the solver, the plan and the offer. So the carrier
+      is the LIST: `MutableCharacteristics.producesMana`, seeded from the face
+      in layer 1, read by `finish()` off the WORKSPACE where it used to be read
+      off the face - and a layer-6 static pushes one production onto every
+      recipient in its scope with the recipient's NEXT `abilityIndex`. Nothing
+      downstream changed, and the client previews with the host's own
+      `SolveInput` (D53), so a granted source reaches the preview for free.
+      ⚠️ **The granted production is the INGEST's own reading:** `grantedMana`
+      hands the quoted line to `parseManaProduction` as a one-line face, so a
+      granted "two mana of any one color" and a printed one are the SAME
+      structure (D356's rule, one parser over) - and it refuses by name what
+      that parser marks CONDITIONAL (Leyline Immersion's spend restriction).
+      ⚠️ **The RECIPIENT is the source (CR 113.7a) and its price is its own:**
+      Basal Sliver's "Sacrifice this permanent" eats the Sliver that used it,
+      never Basal; a priced production is never an auto-tap source (D325).
+      ⚠️ **TWO GRANTS ON ONE SLIVER.** The seam's own test put Metallic Sliver
+      under Basal Sliver on a board that also held Cryptolith Rite and expected
+      ONE production; the engine answered two, each with its own index - the
+      Rite's tap first, Basal's sacrifice second, in timestamp order - and only
+      the sacrifice was withheld from auto-tap. Rewritten to say so. And a
+      PRINTED mana ability keeps its index while the grant takes the next:
+      Llanowar Elves reads {G} at 0 and any colour at 1, and tapping 1 makes
+      WHITE.
+      ⚠️ **THE SOLVER FUNDS A SPELL FROM IT** - the real source, never the hand
+      tool (D364): on a board with no land a Bears under Cryptolith Rite is p1's
+      only source, and casting Llanowar Elves taps it through `suggestPayment`.
+      That is the one assertion that could not pass with the seam ripped out.
+      ⚠️ `GrantedTriggered` was declared TWICE in `types/oracle.ts` (D368's
+      doubled insert, byte-identical, merged silently) - the second copy is
+      gone. ⚠️ The generator's `mana()` helper is declared only where it is
+      called: nine of eleven suites failed `tsc` on an unused helper, fixed at
+      the generator (D267).
+      **Landed:** eleven from one table - Cryptolith Rite, Citanul Hierophants,
+      A Realm Reborn (every creature or permanent of yours), Gemhide Sliver,
+      Basal Sliver, Manaweft Sliver (the hive), Multani's Harmony, Sheltered
+      Aerie (Auras), Paradise Mantle, Lotus Ring (Equipment), Forgotten Monument
+      (other Caves). ⚠️ ONE refused by name: Leyline Immersion, a SPEND
+      restriction on the mana - restricted mana in the pool is a concept the
+      engine does not have. The bot's own reach rose to **7,696** cards from
+      7,685, chosen from 222 fully-executable legendary creatures. The fuzz gate
+      gained a `grantedManaMade` floor off Cryptolith Rite as a canary staple:
+      **946 mana made by a granted ability in the gate's 500 seeds.**
+      Fixtures 5,434 (5,281 by name + 146 tokens) · botPool artifact 439 /
+      creature 4,493 / enchantment 438 / instant 1,038 / land 566 / sorcery 783 -
+      auto 1,022 / assisted 1,909 / autoAnyFace 1,031 · ladder [1170, 1237, 2813,
+      4649, 5982] · `layer6` sole-need 1,305 -> 1,299 · tier3 silentAfter 8,056 ·
+      `scriptableToday` 1,170 (unmoved: the eleven landed by name) · select pool
+      0, and `batch.json` untouched at D371's 23 - the eleven came from a TABLE,
+      never the selector.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,092 files, 25,183 passed / 11 skipped ·
+      500-seed gate, 6 shards, 1,030.8 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D372): the 37 quoted-grant payloads that are ROW KINDS
+      the one-shot generator already emits (a self pump 12, regenerate 6, a token
+      4, a counter on the recipient 6, a ping 2, a may-draw 2, a drain,
+      investigate, a loot, a self bounce, a self untap)
+      - a generator wave on D367/D368's chain that reads a payload the way a
+      row's own effect is read (a lowercase "this creature" and a leading "it"
+      as the recipient), with nine of the fifteen triggered ones under a head
+      the library already holds; then the 100-card tail across 94 shapes, whose
+      densest are the payment shapes on a grant ("sacrifice this creature unless
+      you pay its mana cost" 2, a COMPUTED price), "put that many counters" (2)
+      and "sacrifice a creature" as an EFFECT (2); a granted mana ability with
+      a SPEND restriction (restricted mana in the pool); then D371's list -
+      the 18 whose grant REDEFINES the host's base P/T (Lignify, Frogify,
+      Darksteel Mutation), the NUMBERED grant keywords (bushido, afflict,
+      rampage), the three scopes D371 refused, `Commander creatures you own`
+      MEASURED AT ZERO; then D370's - the 52 trigger heads and 23 payloads the
+      row library does not hold, the X and computed payment prices (19), an
+      effect after the payment ask (9), echo (17) and cumulative upkeep (16);
+      then `as long as` (448 across 276 conditions); the granted STATIC (10),
+      the ENTERS and combat-role scaffold arms; then D365's - the counts
+      outside the vocabulary (17), the activation conditions (35), the trigger
+      payloads outside both readers (20) - and D364's snow CREATURE fixture,
+      D363's counter KINDS and NONTOKEN predicate, the keyword ENTRY
+      REPLACEMENTS (bloodthirst 13, modular 7, graft 2) and CHOICES (fabricate
+      10, unleash 9, riot 4, devour 4, enlist 5, amplify 3), the block
+      REQUIREMENT (provoke 4), the cast-time payment sources (convoke 14, delve
+      5, improvise 6); then the seam map's rest - the attached statics the Aura
+      and Equipment rows cannot read (351), the bare keyword or ability word
+      (206); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

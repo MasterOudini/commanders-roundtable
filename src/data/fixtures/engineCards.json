@@ -178170,6 +178170,366 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CRYPTOLITH_RITE": {
+    "scryfallId": "0a4e707f-b760-434d-ba97-a0fe651f3f6a",
+    "oracleId": "043f869d-b11c-4c0d-9591-2bf0df7bde55",
+    "name": "Cryptolith Rite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cryptolith Rite",
+        "manaCost": "{1}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Creatures you control have \"{T}: Add one mana of any color.\"",
+        "flavorText": "The chant was incomprehensible, but its power was unmistakable.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Zack Stella",
+        "imageId": "0a4e707f-b760-434d-ba97-a0fe651f3f6a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "inr",
+    "collectorNumber": "189",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BASAL_SLIVER": {
+    "scryfallId": "4564e9df-bfa3-48e5-a12e-f7e96a504cb1",
+    "oracleId": "18e7ba0d-88a5-466b-9228-d3f5aae8f83e",
+    "name": "Basal Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Basal Sliver",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have \"Sacrifice this permanent: Add {B}{B}.\"",
+        "flavorText": "\"Fascinating . . . These creatures display the paradox of tenacity and purposed self-destruction I have sought to breed into my thrulls.\"\n—Endrek Sahr, master breeder",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Drew Tucker",
+        "imageId": "4564e9df-bfa3-48e5-a12e-f7e96a504cb1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tsp",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "A_REALM_REBORN": {
+    "scryfallId": "13f4b6f3-736f-4f33-9d05-9bfd0b05b214",
+    "oracleId": "fd230ab5-874e-4827-9b5c-6d39d079cee6",
+    "name": "A Realm Reborn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "A Realm Reborn",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Other permanents you control have \"{T}: Add one mana of any color.\"",
+        "flavorText": "\"A new day now begins in Eorzea.\"\n—Raubahn Aldynn",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Susumu Kuroi",
+        "imageId": "13f4b6f3-736f-4f33-9d05-9bfd0b05b214"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "566",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CITANUL_HIEROPHANTS": {
+    "scryfallId": "3d68cbe2-545b-4b3e-b9a3-4d9d61945e68",
+    "oracleId": "f67df84f-667e-41cf-80f9-911abafe70ac",
+    "name": "Citanul Hierophants",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Citanul Hierophants",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "Creatures you control have \"{T}: Add {G}.\"",
+        "flavorText": "From deep in the caves beneath the forest, the hierophants planned the druids' raids against the enemy.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Vincent Evans",
+        "imageId": "3d68cbe2-545b-4b3e-b9a3-4d9d61945e68"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "USG-244",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORGOTTEN_MONUMENT": {
+    "scryfallId": "de8c1c02-e533-46b2-a3eb-91dff561854b",
+    "oracleId": "71393988-ad6f-43fd-9978-c0de15ae8e87",
+    "name": "Forgotten Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Forgotten Monument",
+        "manaCost": "",
+        "typeLine": "Land — Cave",
+        "oracleText": "{T}: Add {C}.\nOther Caves you control have \"{T}, Pay 1 life: Add one mana of any color.\"",
+        "flavorText": "The Komon Winaq left behind few written records, but their handiwork stands strong all throughout the Core.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Logan Feliciano",
+        "imageId": "de8c1c02-e533-46b2-a3eb-91dff561854b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "272",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GEMHIDE_SLIVER": {
+    "scryfallId": "110887a5-cbfd-431f-9208-06acc4ed2602",
+    "oracleId": "2c09ca09-8e62-4fe3-9b3d-61573dd2ffbc",
+    "name": "Gemhide Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gemhide Sliver",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have \"{T}: Add one mana of any color.\"",
+        "flavorText": "\"The land is weary. Even Skyshroud is depleted. We must find another source of mana—one that is growing despite our withering world.\"\n—Freyalise",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "John Matson",
+        "imageId": "110887a5-cbfd-431f-9208-06acc4ed2602"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tsr",
+    "collectorNumber": "205",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOTUS_RING": {
+    "scryfallId": "02267717-66e0-41f7-8009-75586a4aa4be",
+    "oracleId": "ca4d3d27-ea3a-44ac-96e9-b52b563129f8",
+    "name": "Lotus Ring",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lotus Ring",
+        "manaCost": "{3}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Indestructible\nEquipped creature gets +3/+3 and has vigilance and \"{T}, Sacrifice this creature: Add three mana of any one color.\"\nEquip {3}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alayna Danner",
+        "imageId": "02267717-66e0-41f7-8009-75586a4aa4be"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Indestructible",
+      "Equip"
+    ],
+    "setCode": "big",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MANAWEFT_SLIVER": {
+    "scryfallId": "1216b0b3-4f59-4e81-aaea-1b272e2b7c4e",
+    "oracleId": "bd47398d-da35-4a09-8754-771af91b14f4",
+    "name": "Manaweft Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Manaweft Sliver",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "Sliver creatures you control have \"{T}: Add one mana of any color.\"",
+        "flavorText": "\"I see in their interconnectedness a strange embodiment of the natural order.\"\n—Dionus, elvish archdruid",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Trevor Claxton",
+        "imageId": "1216b0b3-4f59-4e81-aaea-1b272e2b7c4e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "M14-184",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MULTANI_S_HARMONY": {
+    "scryfallId": "c76352ea-e3d2-4221-8ebe-e953301c35ab",
+    "oracleId": "81c223a5-5ff2-43e5-bd0b-25c4f72b2150",
+    "name": "Multani's Harmony",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Multani's Harmony",
+        "manaCost": "{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{T}: Add one mana of any color.\"",
+        "flavorText": "\"Welcome to paradise.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Darrell Riche",
+        "imageId": "c76352ea-e3d2-4221-8ebe-e953301c35ab"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "pls",
+    "collectorNumber": "84",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PARADISE_MANTLE": {
+    "scryfallId": "1252e9e2-2dd5-4bd6-aa56-f0a0ba056a77",
+    "oracleId": "c1121b83-1ba2-473d-89c9-e3bbd4529072",
+    "name": "Paradise Mantle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Paradise Mantle",
+        "manaCost": "{0}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature has \"{T}: Add one mana of any color.\"\nEquip {1}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Greg Hildebrandt",
+        "imageId": "1252e9e2-2dd5-4bd6-aa56-f0a0ba056a77"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHELTERED_AERIE": {
+    "scryfallId": "afecf5a8-3c9e-48e0-8818-e2e3183e958c",
+    "oracleId": "f2c408f6-3994-4a90-a9f5-f248eb976017",
+    "name": "Sheltered Aerie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sheltered Aerie",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}: Add two mana of any one color.\"",
+        "flavorText": "Dromoka's scalelords patrol the skies over Arashin, offering her people safety from the harsh world.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Raoul Vitale",
+        "imageId": "afecf5a8-3c9e-48e0-8818-e2e3183e958c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "206",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
