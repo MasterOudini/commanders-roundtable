@@ -26727,3 +26727,94 @@ commanders (222 before) · `batch.json` 60 · select pool 0.
 
 **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5173 files, 25575 passed / 11 skipped ·
 500-seed gate, 6 shards, 920.5 s wall · build clean · probe 124/124 · battery 130/130.**
+
+## D375 - M6.4hh: THE REGENERATE SUITE ARM - a shield asserted alone is half the rule (2026-09-10)
+
+**7,860 of 31,692 Commander-legal cards execute completely, up from 7,850
+(+10).** `SHIPPED_SCRIPTS` 5,024 -> **5,034**; REFUSED ledger 1,235 ->
+**1,225** (ten rows DELETED as their cards landed). Fixtures 5,528 ->
+**5,540**. `scriptableToday` 1,333 -> **1,323**. **No engine file is touched.**
+
+### A wave with no seam
+
+D374 ledgered ten cards under one line:
+
+    a vocabulary effect the suite cannot assert: regenerate
+
+The ENGINE has run regeneration since D330 - a shield the next destruction
+spends, `RegenerationShieldAdded` / `Regenerated` - and 107 generated rows
+already prove it for the `regenerate` ROW KINDS. What was missing was the
+VOCABULARY arm's assert: `ASSERTABLE` in the vocabulary suite builder had no
+`regenerate`, so a payload the engine runs perfectly was refused one step short
+of a row. Every file this decision changes is in the generator chain.
+
+### A shield asserted alone is half the rule
+
+`expect(g.state.regenerationShields[x]).toBe(1)` would be true and nearly
+worthless: it proves the ability resolved and nothing at all about what a shield
+IS. D330's own generated suites destroy the creature and assert it SURVIVED, and
+that is what makes a shield mean anything.
+
+So the arm does the same. The FIRE line puts the shield and then casts a
+destruction at the shielded permanent; the ASSERTS read it back **on the
+battlefield, TAPPED, undamaged, with the shield spent** (CR 701.19).
+
+⚠️ **The killer is picked from what the shielded permanent IS.** No
+creature-removal spell can hit an artifact, so a creature target is killed by
+**Murder** (`{1}{B}{B}`, "Destroy target creature.") and a noncreature artifact
+by **Shatter** (`{1}{R}`, "Destroy target artifact."). Both are instants naming
+one target and carrying no rider, so the kill is one submit and no life total
+moves under the asserts.
+
+### The guard that was costing two cards
+
+Two of the ten - `Clockwork Gnomes` and `Jhoira's Toolbox` - regenerate a
+**target artifact creature**, and the fixture reader refused every such clause
+outright:
+
+    if (/\btarget (?:\w+ )?(?:artifact|enchantment|land) creature\b/.test(c.text))
+      return { error: 'a two-type object clause: ' + c.text };
+
+⚠️ The ARTIFACT arm of that guard was redundant. `satisfies` already checks a
+clause's `cardTypes` against the fixture's own types, and `Metallic Sliver` - a
+1/1 colorless **Artifact Creature** - has been in the list since D371; a clause
+nothing serves is refused by `pick` with its own message, which is D374's rule
+one reader over. The guard is narrowed to `enchantment|land` creature, where the
+fixture list genuinely holds nothing and the message names the shape. Rows went
+**8 to 10**, which is exactly what the guard was costing.
+
+### What the port found
+
+⚠️ **THE FIXTURE A GENERATOR DERIVES IS IN NO NAMES LIST** - the third decision
+running (D347, D370, D374). `Murder` and `Shatter` are chosen by the generator
+from what each clause targets, so neither is in the batch's own names nor in
+`helpers.json`. The port collects them, and the sweep confirms every name the
+ten suites deal is a fixture: 19 names, 0 missing.
+
+Every one of the ten suites was green on the FIRST run, and `tsc` was clean on
+the first pass.
+
+### Landed
+
+**Ten reclaimed cards, ten rows**, and their ten ledger rows DELETED - which is
+what a Phase-1 reclaim does (D284/D285): `Clockwork Gnomes`, `Fiddlehead Kami`,
+`Horror of Horrors`, `Jhoira's Toolbox`, `Loxodon Mender`, `Metallurgeon`,
+`Pteron Ghost`, `Trolls of Tel-Jilad`, `Vagrant Plowbeasts`, `Welding Jar`.
+
+Four printed shapes are proven between them: a self regenerate under a cast
+trigger (Fiddlehead Kami), a targeted creature regenerate behind a mana cost
+(Trolls of Tel-Jilad, Vagrant Plowbeasts), a targeted ARTIFACT regenerate behind
+a `{T}` cost (Metallurgeon, Loxodon Mender), and one behind a SELF-SACRIFICE
+cost, where the source is already in the graveyard when the regeneration
+resolves (Welding Jar, Pteron Ghost).
+
+Fixtures 5,540 (5,385 by name + 148 tokens) · botPool artifact 441 / creature
+4,568 / enchantment 451 / instant 1,049 / land 566 / sorcery 785 - auto 1,038 /
+assisted 1,905 / autoAnyFace 1,047, none of which moves, because a row lands a
+SCRIPT rather than widening a parser · ladder [1323, 1411, 2986, 4713, 6049] ·
+tier3 silentAfter 8,149 -> 8,159 · bot reach 7,789 -> **7,799** from 225
+commanders · select pool 0, because a reclaim lands BY NAME from the ledger and
+never from the selector.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,183 files, 25,615 passed / 11 skipped ·
+500-seed gate, 6 shards, 981.1 s wall · build clean · probe 124/124 · battery 130/130.**

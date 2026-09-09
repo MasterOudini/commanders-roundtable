@@ -7,6 +7,16 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CLOCKWORK_GNOMES_SCRIPT } from './cards/clockworkGnomes';
+import { FIDDLEHEAD_KAMI_SCRIPT } from './cards/fiddleheadKami';
+import { HORROR_OF_HORRORS_SCRIPT } from './cards/horrorOfHorrors';
+import { JHOIRAS_TOOLBOX_SCRIPT } from './cards/jhoirasToolbox';
+import { LOXODON_MENDER_SCRIPT } from './cards/loxodonMender';
+import { METALLURGEON_SCRIPT } from './cards/metallurgeon';
+import { PTERON_GHOST_SCRIPT } from './cards/pteronGhost';
+import { TROLLS_OF_TEL_JILAD_SCRIPT } from './cards/trollsOfTelJilad';
+import { VAGRANT_PLOWBEASTS_SCRIPT } from './cards/vagrantPlowbeasts';
+import { WELDING_JAR_SCRIPT } from './cards/weldingJar';
 import { TIMID_DRAKE_SCRIPT } from './cards/timidDrake';
 import { BATTLEWAND_OAK_SCRIPT } from './cards/battlewandOak';
 import { GLAZE_FIEND_SCRIPT } from './cards/glazeFiend';
@@ -5050,6 +5060,16 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CLOCKWORK_GNOMES_SCRIPT,
+  FIDDLEHEAD_KAMI_SCRIPT,
+  HORROR_OF_HORRORS_SCRIPT,
+  JHOIRAS_TOOLBOX_SCRIPT,
+  LOXODON_MENDER_SCRIPT,
+  METALLURGEON_SCRIPT,
+  PTERON_GHOST_SCRIPT,
+  TROLLS_OF_TEL_JILAD_SCRIPT,
+  VAGRANT_PLOWBEASTS_SCRIPT,
+  WELDING_JAR_SCRIPT,
   TIMID_DRAKE_SCRIPT,
   BATTLEWAND_OAK_SCRIPT,
   GLAZE_FIEND_SCRIPT,

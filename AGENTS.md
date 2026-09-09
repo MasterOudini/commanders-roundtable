@@ -12904,6 +12904,87 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       payment sources (convoke 14, delve 5, improvise 6); then the seam map's
       rest - the attached statics the Aura and Equipment rows cannot read (351),
       the bare keyword or ability word (206); prior items stand.
+- [x] **M6.4hh — THE REGENERATE SUITE ARM: a shield asserted alone is half the
+      rule (2026-09-10):** **7,860 of 31,692 Commander-legal cards now execute
+      completely, up from 7,850 (+10).** `SHIPPED_SCRIPTS` 5,024 -> **5,034**;
+      ledger 1,235 -> **1,225** (ten rows DELETED as their cards landed, which
+      is what a Phase-1 reclaim does). Fixtures 5,528 -> **5,540**. **No engine
+      file is touched.** Decisions in **D375**.
+      ⚠️ **A WAVE WITH NO SEAM.** D374 ledgered ten cards under one line - `a
+      vocabulary effect the suite cannot assert: regenerate`. The ENGINE has run
+      regeneration since D330 (a shield the next destruction spends), and 107
+      generated rows already prove it for the regenerate ROW KINDS; what was
+      missing was the VOCABULARY arm's assert - `ASSERTABLE` had no
+      `regenerate`, so a payload the engine runs perfectly was refused one step
+      short of a row.
+      ⚠️⚠️ **A SHIELD ASSERTED ALONE IS HALF THE RULE.** Asserting the shield is
+      there would be true and nearly worthless: it proves the ability resolved
+      and nothing about what a shield IS. D330's own suites destroy the creature
+      and assert it SURVIVED, so the arm does the same - the fire line puts the
+      shield, then casts a destruction at the shielded permanent, and the asserts
+      read it back on the battlefield, TAPPED, undamaged, with the shield spent
+      (CR 701.19).
+      ⚠️ **THE KILLER IS PICKED FROM WHAT THE SHIELDED PERMANENT IS.** No
+      creature-removal spell can hit an artifact, so a creature target is killed
+      by Murder (`{1}{B}{B}`) and a noncreature artifact by Shatter (`{1}{R}`).
+      Both are instants naming one target with no rider, so the kill is one
+      submit and no life total moves.
+      ⚠️⚠️ **THE GUARD THAT WAS COSTING TWO CARDS.** Two of the ten regenerate a
+      TARGET ARTIFACT CREATURE, and the fixture reader refused every artifact-,
+      enchantment- or land-creature clause outright. The ARTIFACT arm of that
+      guard was redundant: `satisfies` already checks a clause's `cardTypes`
+      against the fixture's own types, and Metallic Sliver - a 1/1 colorless
+      ARTIFACT CREATURE - has been in the list since D371, while a clause nothing
+      serves is refused by `pick` with its own message (D374's rule). Narrowed to
+      enchantment and land creature, where the list genuinely holds nothing:
+      rows went 8 to 10.
+      ⚠️ **THE FIXTURE A GENERATOR DERIVES IS IN NO NAMES LIST** - the THIRD
+      decision running (D347, D370, D374). Murder and Shatter are chosen by the
+      generator from what each clause targets, so neither is in the batch's own
+      names nor in `helpers.json`; the port collects them and the sweep confirms
+      every name the ten suites deal is a fixture (19 names, 0 missing).
+      **Landed:** ten reclaimed cards, ten rows, every suite green on the FIRST
+      run and `tsc` clean on the first pass - Clockwork Gnomes, Fiddlehead Kami,
+      Horror of Horrors, Jhoira's Toolbox, Loxodon Mender, Metallurgeon, Pteron
+      Ghost, Trolls of Tel-Jilad, Vagrant Plowbeasts, Welding Jar. Four printed
+      shapes between them: a self regenerate under a cast trigger, a targeted
+      creature regenerate behind a mana cost, a targeted ARTIFACT regenerate
+      behind a `{T}` cost, and one behind a SELF-SACRIFICE cost, where the source
+      is already in the graveyard when the regeneration resolves.
+      Fixtures 5,540 (5,385 by name + 148 tokens) · botPool artifact 441 /
+      creature 4,568 / enchantment 451 / instant 1,049 / land 566 / sorcery 785 -
+      auto 1,038 / assisted 1,905 / autoAnyFace 1,047 (a row lands a SCRIPT, so
+      no parser number moves) · ladder [1323, 1411, 2986, 4713, 6049] ·
+      `scriptableToday` 1,333 -> **1,323** · tier3 silentAfter 8,149 ->
+      **8,159** · bot reach 7,789 -> **7,799** from 225 commanders · select pool
+      0 (a reclaim lands BY NAME from the ledger, never from the selector).
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,183 files, 25,615 passed / 11 skipped ·
+      500-seed gate, 6 shards, 981.1 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D375): **the 93 trigger heads the library holds in NO
+      base at all** - blocks 13, sacrifice 10, attacks 7 lead them, and each base
+      added is a base D374's filter mechanism then narrows for free, which is what
+      makes this the compounding half; the 17 filtered heads whose subject is
+      outside the closed reader (a linked memory - `a creature dealt damage by
+      this creature this turn` 5 - an alternatives list 3, a timing phrase, a team
+      scope, a chosen colour); the 12 trigger payloads outside both readers and
+      the 9 ability-word activated lines D374 ledgered; the three hand scripts
+      D373 made REDUNDANT (Deduce, Foul Play, Auspicious Arrival); the twenty
+      quoted-grant payloads D373 refused BY REASON; then the 100-card tail across
+      94 shapes; then D371's list - the 18 whose grant REDEFINES the host's base
+      P/T, the NUMBERED grant keywords, `Commander creatures you own` MEASURED AT
+      ZERO; then D370's - the X and computed payment prices (19), an effect after
+      the payment ask (9), echo (17) and cumulative upkeep (16); then `as long
+      as` (448 across 276 conditions); the granted STATIC (10), the ENTERS and
+      combat-role scaffold arms; then D365's - the counts outside the vocabulary
+      (17), the activation conditions (35), the trigger payloads outside both
+      readers (20) - and D364's snow CREATURE fixture, D363's counter KINDS and
+      NONTOKEN predicate, the keyword ENTRY REPLACEMENTS (bloodthirst 13, modular
+      7, graft 2) and CHOICES (fabricate 10, unleash 9, riot 4, devour 4, enlist
+      5, amplify 3), the block REQUIREMENT (provoke 4), the cast-time payment
+      sources (convoke 14, delve 5, improvise 6); then the seam map's rest - the
+      attached statics the Aura and Equipment rows cannot read (351), the bare
+      keyword or ability word (206); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

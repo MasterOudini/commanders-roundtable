@@ -181651,6 +181651,414 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CLOCKWORK_GNOMES": {
+    "scryfallId": "3e0ca2ea-e059-4742-8ce4-22876762048c",
+    "oracleId": "21d269f2-c11c-4094-b526-500f0785f483",
+    "name": "Clockwork Gnomes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Clockwork Gnomes",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Gnome",
+        "oracleText": "{3}, {T}: Regenerate target artifact creature.",
+        "flavorText": "\"Until I came to the Floating Isle, I never had to oil the servants.\"\n—Baki, Wizard Attendant",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Douglas Shuler",
+        "imageId": "3e0ca2ea-e059-4742-8ce4-22876762048c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "hml",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIDDLEHEAD_KAMI": {
+    "scryfallId": "db328ac4-1b7d-4310-9798-8c8dc8740062",
+    "oracleId": "7392c58b-1ba9-4cf3-8449-aa5de3c42130",
+    "name": "Fiddlehead Kami",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fiddlehead Kami",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Whenever you cast a Spirit or Arcane spell, regenerate this creature.",
+        "flavorText": "\"Like a riddle, it unwinds. Like a green wind, it reaches out. Like a sudden guilt, it seizes.\"\n—Snow Fur, kitsune poet",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Rebecca Guay",
+        "imageId": "db328ac4-1b7d-4310-9798-8c8dc8740062"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "sok",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HORROR_OF_HORRORS": {
+    "scryfallId": "07c7a302-937d-42db-aafd-dd03c20cc73a",
+    "oracleId": "b2e1a1c4-9147-4dfc-b202-c3d3f9c2d3dc",
+    "name": "Horror of Horrors",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Horror of Horrors",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Sacrifice a Swamp: Regenerate target black creature. (The next time that creature would be destroyed this turn, instead tap it, remove it from combat, and heal all damage on it.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Simon Bisley",
+        "imageId": "07c7a302-937d-42db-aafd-dd03c20cc73a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Heal",
+      "Regenerate"
+    ],
+    "setCode": "psal",
+    "collectorNumber": "F26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JHOIRA_S_TOOLBOX": {
+    "scryfallId": "edb38309-c02c-496c-894f-786a2f6e3d1c",
+    "oracleId": "a08475a6-1fac-4a3f-b343-aed16a61bc16",
+    "name": "Jhoira's Toolbox",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jhoira's Toolbox",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Insect",
+        "oracleText": "{2}: Regenerate target artifact creature.",
+        "flavorText": "It entertained Jhoira to craft a kit that could bring her the tools.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mike Raabe",
+        "imageId": "edb38309-c02c-496c-894f-786a2f6e3d1c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "ulg",
+    "collectorNumber": "128",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOXODON_MENDER": {
+    "scryfallId": "c17ac7c1-6d53-40b4-921f-4e23e4026041",
+    "oracleId": "b260b5b4-048b-4a70-ab3a-b0dd1ceb7aa8",
+    "name": "Loxodon Mender",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loxodon Mender",
+        "manaCost": "{5}{W}",
+        "typeLine": "Creature — Elephant Cleric",
+        "oracleText": "{W}, {T}: Regenerate target artifact.",
+        "flavorText": "The Auriok believe that in the hands of a loxodon, no weapon can be broken.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "c17ac7c1-6d53-40b4-921f-4e23e4026041"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "mrd",
+    "collectorNumber": "12",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "METALLURGEON": {
+    "scryfallId": "4ad9f9d5-62c1-4dae-a2c8-5552210a70a4",
+    "oracleId": "09373283-a5c1-4d8e-ad25-19cd55b1e869",
+    "name": "Metallurgeon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Metallurgeon",
+        "manaCost": "{1}{W}",
+        "typeLine": "Artifact Creature — Human Artificer",
+        "oracleText": "{W}, {T}: Regenerate target artifact.",
+        "flavorText": "\"By the time I got there, the heart had stopped. Fortunately, I was able to replace it with something better.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "4ad9f9d5-62c1-4dae-a2c8-5552210a70a4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "ala",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PTERON_GHOST": {
+    "scryfallId": "1aff26fc-e6d3-4135-96b9-0da7cb8b6dae",
+    "oracleId": "783c48b8-a760-4334-ac70-557af7802f33",
+    "name": "Pteron Ghost",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pteron Ghost",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Dinosaur Spirit",
+        "oracleText": "Flying\nSacrifice this creature: Regenerate target artifact.",
+        "flavorText": "Defending to the death isn't always enough.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Edward P. Beard, Jr.",
+        "imageId": "1aff26fc-e6d3-4135-96b9-0da7cb8b6dae"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Regenerate"
+    ],
+    "setCode": "dst",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TROLLS_OF_TEL_JILAD": {
+    "scryfallId": "6535f2ad-6cda-4be9-8e4f-6f062b63be31",
+    "oracleId": "4478e843-fd25-4ad1-93f8-2dee605386fc",
+    "name": "Trolls of Tel-Jilad",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trolls of Tel-Jilad",
+        "manaCost": "{5}{G}{G}",
+        "typeLine": "Creature — Troll Shaman",
+        "oracleText": "{1}{G}: Regenerate target green creature.",
+        "flavorText": "\"The secret of this world weighs upon us, and we have been shaped by time and duty to bear it.\"",
+        "power": "5",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Marcelo Vignali",
+        "imageId": "6535f2ad-6cda-4be9-8e4f-6f062b63be31"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "mrd",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VAGRANT_PLOWBEASTS": {
+    "scryfallId": "546b0a74-ebef-4596-b730-2190e20b2e66",
+    "oracleId": "e97870a3-855a-4701-8344-91a90095f70a",
+    "name": "Vagrant Plowbeasts",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vagrant Plowbeasts",
+        "manaCost": "{5}{G}{W}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "{1}: Regenerate target creature with power 5 or greater.",
+        "flavorText": "Plowbeasts of Naya escaped their harnesses in droves, content to snack on the conveniently cultivated fields of Eos and Valeron.",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Zoltan Boros & Gabor Szikszai",
+        "imageId": "546b0a74-ebef-4596-b730-2190e20b2e66"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "con",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WELDING_JAR": {
+    "scryfallId": "275ec0c4-1c59-4818-9999-b2389d17c2e7",
+    "oracleId": "e4a6c421-bef1-4360-a2dc-ae9c61d86b2f",
+    "name": "Welding Jar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Welding Jar",
+        "manaCost": "{0}",
+        "typeLine": "Artifact",
+        "oracleText": "Sacrifice this artifact: Regenerate target artifact.",
+        "flavorText": "The wires crawl over broken metal and heat themselves to melting, filling cracks quickly and efficiently.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Brill",
+        "imageId": "275ec0c4-1c59-4818-9999-b2389d17c2e7"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "2xm",
+    "collectorNumber": "307",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MURDER": {
+    "scryfallId": "0b5579cf-4e3f-4b65-a253-465459f3da81",
+    "oracleId": "938b4e2c-88d9-4637-bc00-e228920c9a78",
+    "name": "Murder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Murder",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Instant",
+        "oracleText": "Destroy target creature.",
+        "flavorText": "\"By fate or by will, every reign must come to an end.\"\n—Kethis, the Hidden Hand",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Allen Williams",
+        "imageId": "0b5579cf-4e3f-4b65-a253-465459f3da81"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "znc",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHATTER": {
+    "scryfallId": "03514df1-d480-4a2e-a4bf-7a049e889431",
+    "oracleId": "84d32e68-72b9-432d-a023-7bc6a26b8ad0",
+    "name": "Shatter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shatter",
+        "manaCost": "{1}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Destroy target artifact.",
+        "flavorText": "\"Such fuss over machines, Gerrard. Remember that you are the prize of the Legacy. Throw away your toys!\"\n—Orim, Samite healer",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Alexander Behnke",
+        "imageId": "03514df1-d480-4a2e-a4bf-7a049e889431"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tpr",
+    "collectorNumber": "159",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

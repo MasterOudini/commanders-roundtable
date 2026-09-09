@@ -5398,6 +5398,18 @@ export const NYXBORN_COURSER: CardData = F.NYXBORN_COURSER as CardData;
 export const SEGOVIAN_ANGEL: CardData = F.SEGOVIAN_ANGEL as CardData;
 export const SOLTARI_FOOT_SOLDIER: CardData = F.SOLTARI_FOOT_SOLDIER as CardData;
 export const TYROX_SAURID_TYRANT: CardData = F.TYROX_SAURID_TYRANT as CardData;
+export const CLOCKWORK_GNOMES: CardData = F.CLOCKWORK_GNOMES as CardData;
+export const FIDDLEHEAD_KAMI: CardData = F.FIDDLEHEAD_KAMI as CardData;
+export const HORROR_OF_HORRORS: CardData = F.HORROR_OF_HORRORS as CardData;
+export const JHOIRA_S_TOOLBOX: CardData = F.JHOIRA_S_TOOLBOX as CardData;
+export const LOXODON_MENDER: CardData = F.LOXODON_MENDER as CardData;
+export const METALLURGEON: CardData = F.METALLURGEON as CardData;
+export const PTERON_GHOST: CardData = F.PTERON_GHOST as CardData;
+export const TROLLS_OF_TEL_JILAD: CardData = F.TROLLS_OF_TEL_JILAD as CardData;
+export const VAGRANT_PLOWBEASTS: CardData = F.VAGRANT_PLOWBEASTS as CardData;
+export const WELDING_JAR: CardData = F.WELDING_JAR as CardData;
+export const MURDER: CardData = F.MURDER as CardData;
+export const SHATTER: CardData = F.SHATTER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -10929,6 +10941,18 @@ export const ENGINE_CARDS: CardData[] = [
   SEGOVIAN_ANGEL,
   SOLTARI_FOOT_SOLDIER,
   TYROX_SAURID_TYRANT,
+  CLOCKWORK_GNOMES,
+  FIDDLEHEAD_KAMI,
+  HORROR_OF_HORRORS,
+  JHOIRA_S_TOOLBOX,
+  LOXODON_MENDER,
+  METALLURGEON,
+  PTERON_GHOST,
+  TROLLS_OF_TEL_JILAD,
+  VAGRANT_PLOWBEASTS,
+  WELDING_JAR,
+  MURDER,
+  SHATTER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

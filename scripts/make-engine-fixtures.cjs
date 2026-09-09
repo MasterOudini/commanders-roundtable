@@ -5988,6 +5988,21 @@ const WANTED = [
   // D374 - the filtered trigger head: the rowed cards.
   // D374 - the cards the filtered heads fire on, DERIVED from each filter.
   // D374 - the helpers the wave's suites deal.
+  // D375 - the regenerate suite arm: the reclaimed cards.
+  'Clockwork Gnomes',
+  'Fiddlehead Kami',
+  'Horror of Horrors',
+  "Jhoira's Toolbox",
+  'Loxodon Mender',
+  'Metallurgeon',
+  'Pteron Ghost',
+  'Trolls of Tel-Jilad',
+  'Vagrant Plowbeasts',
+  'Welding Jar',
+  // D375 - the killers the regenerate arm casts at the shielded permanent.
+  'Murder',
+  'Shatter',
+  // D375 - the helpers the reclaim's suites deal.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
