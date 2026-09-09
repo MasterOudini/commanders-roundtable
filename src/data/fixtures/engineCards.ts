@@ -5218,6 +5218,17 @@ export const VERDANT_FIELD: CardData = F.VERDANT_FIELD as CardData;
 export const VICTUAL_SLIVER: CardData = F.VICTUAL_SLIVER as CardData;
 export const VIRIDIAN_LONGBOW: CardData = F.VIRIDIAN_LONGBOW as CardData;
 export const WITCHES_EYE: CardData = F.WITCHES_EYE as CardData;
+export const CATHAR_S_CALL: CardData = F.CATHAR_S_CALL as CardData;
+export const COMMANDER_S_AUTHORITY: CardData = F.COMMANDER_S_AUTHORITY as CardData;
+export const COMMANDING_PRESENCE: CardData = F.COMMANDING_PRESENCE as CardData;
+export const CREEPING_CRYSTAL_COATING: CardData = F.CREEPING_CRYSTAL_COATING as CardData;
+export const DIAMOND_PICK_AXE: CardData = F.DIAMOND_PICK_AXE as CardData;
+export const INFERNAL_SCARRING: CardData = F.INFERNAL_SCARRING as CardData;
+export const RELIC_BANE: CardData = F.RELIC_BANE as CardData;
+export const STAGGERING_INSIGHT: CardData = F.STAGGERING_INSIGHT as CardData;
+export const TAKE_FLIGHT: CardData = F.TAKE_FLIGHT as CardData;
+export const VERDANT_EMBRACE: CardData = F.VERDANT_EMBRACE as CardData;
+export const WEB_SHOOTERS: CardData = F.WEB_SHOOTERS as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -10567,6 +10578,17 @@ export const ENGINE_CARDS: CardData[] = [
   VICTUAL_SLIVER,
   VIRIDIAN_LONGBOW,
   WITCHES_EYE,
+  CATHAR_S_CALL,
+  COMMANDER_S_AUTHORITY,
+  COMMANDING_PRESENCE,
+  CREEPING_CRYSTAL_COATING,
+  DIAMOND_PICK_AXE,
+  INFERNAL_SCARRING,
+  RELIC_BANE,
+  STAGGERING_INSIGHT,
+  TAKE_FLIGHT,
+  VERDANT_EMBRACE,
+  WEB_SHOOTERS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

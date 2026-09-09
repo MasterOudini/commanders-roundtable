@@ -175540,6 +175540,397 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CATHAR_S_CALL": {
+    "scryfallId": "10d044a9-0149-4302-86e5-90623e54e36b",
+    "oracleId": "433e92d2-899a-4eed-98b9-80de5d25494b",
+    "name": "Cathar's Call",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cathar's Call",
+        "manaCost": "{2}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has vigilance and \"At the beginning of your end step, create a 1/1 white Human creature token.\"",
+        "flavorText": "Some cathars succumbed to despair at Avacyn's unmaking. The rest redoubled their efforts to carry out her work.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "10d044a9-0149-4302-86e5-90623e54e36b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "mid",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COMMANDER_S_AUTHORITY": {
+    "scryfallId": "08ef4383-11e7-4426-a04a-058570f46e47",
+    "oracleId": "57bc1106-81a0-4d91-94db-25e3a5f989cb",
+    "name": "Commander's Authority",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Commander's Authority",
+        "manaCost": "{4}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"At the beginning of your upkeep, create a 1/1 white Human creature token.\"",
+        "flavorText": "\"Wear her symbol with honor, a sign of faith upheld and honest deeds bravely done.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "08ef4383-11e7-4426-a04a-058570f46e47"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "avr",
+    "collectorNumber": "13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COMMANDING_PRESENCE": {
+    "scryfallId": "24e2f681-918e-4f1f-afb1-0f9587c0d7bf",
+    "oracleId": "03160a74-8b83-4e07-b702-977a91a6311f",
+    "name": "Commanding Presence",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Commanding Presence",
+        "manaCost": "{3}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has first strike and \"Whenever this creature deals combat damage to a player, create a 1/1 white Human Soldier creature token.\"",
+        "flavorText": "\"In every one of you I see a hero's heart.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Milivoj Ćeran",
+        "imageId": "24e2f681-918e-4f1f-afb1-0f9587c0d7bf"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CREEPING_CRYSTAL_COATING": {
+    "scryfallId": "ae4cebb7-927c-4958-974a-279924ec6d48",
+    "oracleId": "c23f2546-bf9e-4390-b6f7-c616920e04ca",
+    "name": "Creeping Crystal Coating",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Creeping Crystal Coating",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Flash\nEnchant creature\nEnchanted creature gets +0/+3 and has \"Whenever this creature attacks, create a Food token.\" (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+        "flavorText": "Jennamite, also known as \"creeping crystal,\" grows remarkably fast. It's also a delicious candy.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Hori Airi",
+        "imageId": "ae4cebb7-927c-4958-974a-279924ec6d48"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Food",
+      "Enchant",
+      "Flash"
+    ],
+    "setCode": "tle",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIAMOND_PICK_AXE": {
+    "scryfallId": "4ae30fa7-3d1d-417f-80d7-a668236cb2c1",
+    "oracleId": "542e7d60-3fc8-46e2-8786-f7c8b3d4c979",
+    "name": "Diamond Pick-Axe",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Diamond Pick-Axe",
+        "manaCost": "{R}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Indestructible (Effects that say \"destroy\" don't destroy this Equipment.)\nEquipped creature gets +1/+1 and has \"Whenever this creature attacks, create a Treasure token.\" (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\nEquip {2}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dibujante Nocturno",
+        "imageId": "4ae30fa7-3d1d-417f-80d7-a668236cb2c1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Indestructible",
+      "Treasure",
+      "Equip"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "143",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INFERNAL_SCARRING": {
+    "scryfallId": "5af212ef-cbf2-407b-9221-3a8cea6531dd",
+    "oracleId": "3fc640dd-6292-4d36-82fb-bd366bc00bd3",
+    "name": "Infernal Scarring",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Infernal Scarring",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +2/+0 and has \"When this creature dies, draw a card.\"",
+        "flavorText": "One who is marked by a demon in life is sure to be remembered as one in death.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "5af212ef-cbf2-407b-9221-3a8cea6531dd"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "ORI-102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RELIC_BANE": {
+    "scryfallId": "9cbafa51-693b-485c-807d-64020540f16a",
+    "oracleId": "3609d300-af9f-4ddf-ad0e-8bebeca15a04",
+    "name": "Relic Bane",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Relic Bane",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant artifact\nEnchanted artifact has \"At the beginning of your upkeep, you lose 2 life.\"",
+        "flavorText": "A sword that has seen cowardice in battle exacts the price of honor from its wielder.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Eric Peterson",
+        "imageId": "9cbafa51-693b-485c-807d-64020540f16a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "mrd",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STAGGERING_INSIGHT": {
+    "scryfallId": "125b8be1-76b9-434e-a505-5099d950767c",
+    "oracleId": "09071f5f-c9cb-43a9-b41d-faf6caf3beff",
+    "name": "Staggering Insight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Staggering Insight",
+        "manaCost": "{W}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has lifelink and \"Whenever this creature deals combat damage to a player, draw a card.\"",
+        "flavorText": "\"Only cowards flee from the truth.\"\n—Perisophia the philosopher",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Dmitry Burmak",
+        "imageId": "125b8be1-76b9-434e-a505-5099d950767c"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "228",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TAKE_FLIGHT": {
+    "scryfallId": "46a2108e-e45e-4b21-a03b-5f644b6043be",
+    "oracleId": "b4cf61e5-b2b7-4fb9-addf-db84dec49681",
+    "name": "Take Flight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Take Flight",
+        "manaCost": "{3}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+0 and has flying and \"Whenever this creature attacks, draw a card.\"",
+        "flavorText": "Though neither brother cared to admit it, flying the ancient thopter was their last happy moment together.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Joshua Cairos",
+        "imageId": "46a2108e-e45e-4b21-a03b-5f644b6043be"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VERDANT_EMBRACE": {
+    "scryfallId": "3dd1d130-98e7-4898-9f13-2bb58fa4777b",
+    "oracleId": "f0bbd988-50b7-476c-9183-dfabd4a95079",
+    "name": "Verdant Embrace",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Verdant Embrace",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +3/+3 and has \"At the beginning of each upkeep, create a 1/1 green Saproling creature token.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Stephen Tappin",
+        "imageId": "3dd1d130-98e7-4898-9f13-2bb58fa4777b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "tsp",
+    "collectorNumber": "232",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WEB_SHOOTERS": {
+    "scryfallId": "7a7c3434-4c66-4ce8-8030-4ab5a0b4cc76",
+    "oracleId": "ec528198-a38a-4ef7-9804-78a25c94ecc1",
+    "name": "Web-Shooters",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Web-Shooters",
+        "manaCost": "{1}{W}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+1 and has reach and \"Whenever this creature attacks, tap target creature an opponent controls.\"\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Camille Alquier",
+        "imageId": "7a7c3434-4c66-4ce8-8030-4ab5a0b4cc76"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "om1",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

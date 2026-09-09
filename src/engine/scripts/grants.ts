@@ -73,3 +73,22 @@ export function grantedActivated(quoted: string, ref: AbilityRef, name: string):
   }
   return { ref, ability, quoted };
 }
+
+/**
+ * D368 - THE TRIGGERED HALF. A granted trigger needs no parsed copy of itself:
+ * `legal.ts` had to be handed a COST to offer an activated ability, but the bus
+ * reads the def straight off the PROVIDER's script by ref. So the carrier stores
+ * `{ provider, ref }` alone, and this is the ref's shape guard.
+ *
+ * ⚠️ THE `gt` MARKER IS LOAD-BEARING, not decoration: `registryCore` indexes a
+ * trigger def as GRANTED precisely when its `abilityId` starts with it, and that
+ * index is the bus's gate. A granted trigger whose abilityId did not say so would
+ * be indexed only under its provider's oracleId, where the recipient's walk can
+ * never find it - it would simply never fire.
+ */
+export function grantedTriggerRef(ref: AbilityRef, name: string): AbilityRef {
+  if (!/#gt\d+$/.test(ref)) {
+    throw new Error(`${name}: a granted trigger's ref must read "<oracleId>#gt<n>", not "${ref}".`);
+  }
+  return ref;
+}

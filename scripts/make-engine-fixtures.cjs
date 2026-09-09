@@ -5788,6 +5788,19 @@ const WANTED = [
   'Viridian Longbow',
   "Witches' Eye",
   // D367 - the quoted-grant wave: the provider cards, and the bodies their suites prove the grant on.
+  // D368 - the granted-TRIGGER wave: the provider cards, and the bodies their suites prove the grant on.
+  "Cathar's Call",
+  "Commander's Authority",
+  'Commanding Presence',
+  'Creeping Crystal Coating',
+  'Diamond Pick-Axe',
+  'Infernal Scarring',
+  'Relic Bane',
+  'Staggering Insight',
+  'Take Flight',
+  'Verdant Embrace',
+  'Web-Shooters',
+  // D368 - the granted-TRIGGER wave: the provider cards, and the bodies their suites prove the grant on.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

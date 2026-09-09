@@ -1015,6 +1015,92 @@ export function collectTriggers(
       }
     }
   }
+  // ⚠️ D368 - THE GRANTED-TRIGGER SEAM, the other half of D367's carrier. A
+  // permanent may HAVE a triggered ability because another permanent's layer-6
+  // static installed it (`Enchanted creature has "Whenever this creature attacks,
+  // ..."`). The def lives on the PROVIDER's script and fires off the RECIPIENT, so
+  // the per-oracleId index every printed trigger uses cannot reach it: the registry
+  // holds a second index BY REF, and that index is also the gate - it is empty for
+  // every game carrying no grant, and the walk below is skipped entirely rather
+  // than deriving each permanent for each event.
+  //
+  // ⚠️ THE RECIPIENT IS THE SOURCE (CR 113.7a), exactly as in the activated half:
+  // `source` is the permanent the grant landed on, `controller` is ITS controller,
+  // and `label`/`matches`/`targets` are asked with the recipient's id - so "this
+  // creature" and "you" in the quoted body mean the recipient and its controller.
+  const grantIndex = scripts.grantedTriggerDefs();
+  if (grantIndex.size > 0) {
+    // ⚠️ THE SAME TWO GATES THE PRINTED WALK HAS, AND FOR THE SAME REASON.
+    // `grantIndex.size > 0` was the whole gate, and it is TRUE for every game
+    // from the moment the first `gt` def ships - so the walk below derived every
+    // battlefield permanent TWICE PER EVENT, for events no granted def can even
+    // match, because the `def.event` check sits inside the derive. Measured as a
+    // bot game taking 227 s. Gate on the event KIND first (the analogue of
+    // `triggersFor`, D162), then on a PROVIDER being in this game at all (the
+    // analogue of the present-def memo, D168): a grant reaches a permanent only
+    // because a provider's static installed it, so with no provider instance
+    // there is nothing to derive. Neither gate can change what is emitted, and
+    // the loops below are untouched - so the firing ORDER, and the replay hash,
+    // is unchanged.
+    const grantKinds = new Set<EventBody['t']>();
+    const grantProviders = new Set<string>();
+    for (const { script, def } of grantIndex.values()) {
+      grantKinds.add(def.event);
+      grantProviders.add(script.oracleId);
+    }
+    const providerPresentMemo: (boolean | undefined)[] = [undefined, undefined];
+    const providerPresent = (look: boolean): boolean => {
+      const at = look ? 1 : 0;
+      const got = providerPresentMemo[at];
+      if (got !== undefined) return got;
+      const idx = byOracle(look);
+      let any = false;
+      for (const oid of grantProviders) {
+        if ((idx.get(oid)?.length ?? 0) > 0) {
+          any = true;
+          break;
+        }
+      }
+      providerPresentMemo[at] = any;
+      return any;
+    };
+    for (const event of applied) {
+      if (!grantKinds.has(event.body.t)) continue;
+      for (const look of [false, true]) {
+        if (!providerPresent(look)) continue;
+        const state = look ? before : after;
+        const ctx = ctxOf(look);
+        for (const id of idsOf(look)) {
+          const card = state.cards[id];
+          if (!card || card.zone.kind !== 'battlefield') continue;
+          if (!hasAbilities(state, oracle, scripts, id)) continue;
+          for (const g of ctx.derive(id).grantedTriggered) {
+            const found = grantIndex.get(g.ref);
+            if (!found) continue;
+            const def = found.def;
+            if (def.event !== event.body.t) continue;
+            if ((def.looksBack === true) !== look) continue;
+            if (!def.activeZones.includes(card.zone.kind)) continue;
+            if (!def.matches(ctx, id, event.body)) continue;
+            const items: readonly (InstanceId | undefined)[] = def.perItem ? def.perItem(ctx, id, event.body) : [undefined];
+            for (const item of items) {
+              out.push({
+                id: `t${n++}`,
+                source: id,
+                controller: card.controller,
+                abilityRef: g.ref,
+                label: def.label(ctx, id, event.body),
+                optional: def.optional,
+                specs: def.targets ?? [],
+                ...(def.modes && def.modes.length > 0 ? { modes: def.modes, modeChoice: def.modeChoice ?? { min: 1, max: 1 } } : {}),
+                ...(item !== undefined ? { item } : {}),
+              });
+            }
+          }
+        }
+      }
+    }
+  }
   // ⚠️ D308 - THE KEYWORD-TRIGGER SEAM. A keyword ability that IS a trigger
   // (prowess, exalted, bushido, flanking, persist, undying, evolve) runs from
   // one table for every permanent whose DERIVED keywords carry it - printed or

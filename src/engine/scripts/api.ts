@@ -17,7 +17,7 @@
 import type { ColorLetter } from '../../data/cardTypes';
 import type { EventBody, EventKind } from '../types/events';
 import type { AbilityRef, InstanceId, OracleId, PlayerId, ZoneKind } from '../types/ids';
-import type { ActivatedAbility, DerivedCharacteristics, EffectSpec, GrantedActivated, Keyword, ModeDecl, OracleDb, ParsedTypeLine, Protection, TargetSpec } from '../types/oracle';
+import type { ActivatedAbility, DerivedCharacteristics, EffectSpec, GrantedActivated, GrantedTriggered, Keyword, ModeDecl, OracleDb, ParsedTypeLine, Protection, TargetSpec } from '../types/oracle';
 import type { DefenderRef, GameOptions, GameState, StackObject } from '../types/state';
 
 /** The mutable form a static ability edits. Copied out of `derive()`'s workspace. */
@@ -59,6 +59,12 @@ export interface MutableCharacteristics {
    * lost its abilities - a Humility'd creature keeps none of these either.
    */
   grantedActivated: GrantedActivated[];
+  /**
+   * D368 - the TRIGGERED half of the same carrier. A layer-6 static pushes
+   * `{ provider: self, ref }` here; `collectTriggers` walks it and looks the def
+   * up on the provider's script. The RECIPIENT is the trigger's source.
+   */
+  grantedTriggered: GrantedTriggered[];
 }
 
 export type DeriveFn = (id: InstanceId) => DerivedCharacteristics;

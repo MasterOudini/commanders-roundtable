@@ -7,6 +7,17 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CATHARS_CALL_SCRIPT } from './cards/catharsCall';
+import { COMMANDERS_AUTHORITY_SCRIPT } from './cards/commandersAuthority';
+import { COMMANDING_PRESENCE_SCRIPT } from './cards/commandingPresence';
+import { CREEPING_CRYSTAL_COATING_SCRIPT } from './cards/creepingCrystalCoating';
+import { DIAMOND_PICK_AXE_SCRIPT } from './cards/diamondPickAxe';
+import { INFERNAL_SCARRING_SCRIPT } from './cards/infernalScarring';
+import { RELIC_BANE_SCRIPT } from './cards/relicBane';
+import { STAGGERING_INSIGHT_SCRIPT } from './cards/staggeringInsight';
+import { TAKE_FLIGHT_SCRIPT } from './cards/takeFlight';
+import { VERDANT_EMBRACE_SCRIPT } from './cards/verdantEmbrace';
+import { WEB_SHOOTERS_SCRIPT } from './cards/webShooters';
 import { ACIDIC_SLIVER_SCRIPT } from './cards/acidicSliver';
 import { ARCANE_TEACHINGS_SCRIPT } from './cards/arcaneTeachings';
 import { BARBED_FIELD_SCRIPT } from './cards/barbedField';
@@ -4885,6 +4896,17 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CATHARS_CALL_SCRIPT,
+  COMMANDERS_AUTHORITY_SCRIPT,
+  COMMANDING_PRESENCE_SCRIPT,
+  CREEPING_CRYSTAL_COATING_SCRIPT,
+  DIAMOND_PICK_AXE_SCRIPT,
+  INFERNAL_SCARRING_SCRIPT,
+  RELIC_BANE_SCRIPT,
+  STAGGERING_INSIGHT_SCRIPT,
+  TAKE_FLIGHT_SCRIPT,
+  VERDANT_EMBRACE_SCRIPT,
+  WEB_SHOOTERS_SCRIPT,
   ACIDIC_SLIVER_SCRIPT,
   ARCANE_TEACHINGS_SCRIPT,
   BARBED_FIELD_SCRIPT,

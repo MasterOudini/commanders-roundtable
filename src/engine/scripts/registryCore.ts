@@ -19,6 +19,15 @@ export interface ScriptRegistry {
    * between a combat step and a frame drop.
    */
   triggersFor(event: EventKind): readonly { readonly script: CardScript; readonly def: TriggerDef }[];
+  /**
+   * D368 - every GRANTED trigger def in this registry, by its ref. A granted
+   * trigger lives on the PROVIDER's script and fires off the RECIPIENT, so the
+   * bus cannot reach it through the per-oracleId index every printed trigger
+   * uses. ⚠️ It is also the BUS'S GATE: empty means no game in this registry
+   * can have a granted trigger, so the whole walk is skipped rather than
+   * deriving every permanent for every event.
+   */
+  grantedTriggerDefs(): ReadonlyMap<string, { readonly script: CardScript; readonly def: TriggerDef }>;
   staticsFor(layer: StaticDef['layer']): readonly { readonly script: CardScript; readonly def: StaticDef }[];
   replacements(): readonly { readonly script: CardScript; readonly def: ReplacementDef }[];
   /** Continuous combat restrictions, CR 508.1c / 509.1b. */
@@ -31,6 +40,8 @@ export interface ScriptRegistry {
 class IndexedRegistry implements ScriptRegistry {
   private readonly byOracle = new Map<OracleId, CardScript>();
   private readonly byEvent = new Map<EventKind, { script: CardScript; def: TriggerDef }[]>();
+  /** D368 - granted trigger defs by ref; see `grantedTriggerDefs`. */
+  private readonly grants = new Map<string, { script: CardScript; def: TriggerDef }>();
   private readonly byLayer = new Map<StaticDef['layer'], { script: CardScript; def: StaticDef }[]>();
   private readonly reps: { script: CardScript; def: ReplacementDef }[] = [];
   private readonly combats: { script: CardScript; def: CombatDef }[] = [];
@@ -52,6 +63,17 @@ class IndexedRegistry implements ScriptRegistry {
       }
       this.byOracle.set(script.oracleId, script);
       for (const def of script.triggers ?? []) {
+        // ⚠️ D368 - a GRANTED trigger is indexed BY REF ONLY. It fires off a
+        // permanent that is not its script's card, so the per-oracleId index
+        // below can never reach it - and putting it there as well fires it a
+        // SECOND time off the PROVIDER, as an ability the provider does not
+        // have. The provider gives the quoted text away and keeps nothing; a
+        // provider inside its own scope still fires it, as a RECIPIENT,
+        // through the static that installed it.
+        if (def.abilityId.startsWith('gt')) {
+          this.grants.set(`${script.oracleId}#${def.abilityId}`, { script, def });
+          continue;
+        }
         const list = this.byEvent.get(def.event) ?? [];
         list.push({ script, def });
         this.byEvent.set(def.event, list);
@@ -73,6 +95,10 @@ class IndexedRegistry implements ScriptRegistry {
 
   triggersFor(event: EventKind): readonly { readonly script: CardScript; readonly def: TriggerDef }[] {
     return this.byEvent.get(event) ?? EMPTY_LIST;
+  }
+
+  grantedTriggerDefs(): ReadonlyMap<string, { readonly script: CardScript; readonly def: TriggerDef }> {
+    return this.grants;
   }
 
   staticsFor(layer: StaticDef['layer']): readonly { readonly script: CardScript; readonly def: StaticDef }[] {

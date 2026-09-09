@@ -111,6 +111,7 @@ function computeDerived(
       landwalk: [],
       toxicAmount: 0,
       grantedActivated: [],
+      grantedTriggered: [],
     }, 0, []);
   }
 
@@ -235,6 +236,7 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
       landwalk: [],
       toxicAmount: 0,
       grantedActivated: [],
+      grantedTriggered: [],
     };
   }
   const card = oracle.byPrinting(inst.printingId);
@@ -256,6 +258,7 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
       landwalk: [],
       toxicAmount: 0,
       grantedActivated: [],
+      grantedTriggered: [],
     };
   }
   const face = faceOf(card, inst.faceIndex);
@@ -280,6 +283,7 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
     toxicAmount: face.toxicAmount,
     // D367 - a printed object has no GRANTED abilities; only a layer-6 static adds one.
     grantedActivated: [],
+    grantedTriggered: [],
   };
 }
 
@@ -370,6 +374,7 @@ function cloneChars(chars: MutableCharacteristics): MutableCharacteristics {
     keywords: new Set(chars.keywords),
     landwalk: [...chars.landwalk],
     grantedActivated: [...chars.grantedActivated],
+    grantedTriggered: [...chars.grantedTriggered],
   };
 }
 
@@ -565,6 +570,7 @@ function finish(
     toxicAmount: gone ? 0 : chars.toxicAmount,
     // D367 - the sixth ability-shaped field: a granted ability is an ability.
     grantedActivated: gone ? [] : chars.grantedActivated,
+    grantedTriggered: gone ? [] : chars.grantedTriggered,
     isCreature,
     isLand: types.includes('Land'),
     isPermanent:

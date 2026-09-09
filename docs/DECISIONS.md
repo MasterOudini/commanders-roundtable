@@ -25604,3 +25604,194 @@ autoAnyFace 1,012 · ladder [1050, 1115, 2704, 4536, 5877] · tier3 silentAfter
 
 **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,004 files, 24,747 passed / 11 skipped · 500-seed
 gate, 6 shards, 743.2 s wall · build clean · probe 124/124 · battery 130/130.**
+
+## D368 - M6.4ha: THE GRANTED TRIGGERED ABILITY - the same carrier one def kind over, and the provider does not have what it hands out (2026-09-09)
+
+**7,665 of 31,692 Commander-legal cards execute completely, up from 7,654
+(+11).** `SHIPPED_SCRIPTS` 4,859 -> **4,870**; REFUSED ledger 954 (unchanged -
+none of the 11 was ever in it, for D367's own reason: a quoted grant was
+unreachable at the RUNTIME, never a drafter's verdict). Fixtures 5,346 ->
+**5,357**. **Select pool 0.**
+
+**D367 built the carrier and named this as the next thing**: a granted
+TRIGGERED ability is the same design one def kind over - a list on the derived
+object that the TRIGGER BUS reads, where D367's list is read by the OFFER. The
+provider's script carries an ordinary `TriggerDef`; an ordinary layer-6
+`StaticDef` installs a reference to it on the recipient; the bus walks the
+recipient's list and stacks the ability **with the recipient as its source**
+(CR 113.7a).
+
+### Measured first, and the paper figure was wrong
+
+D367 closed by naming this family at **90 cards**. Measured against what would
+actually LAND - the arc's own rule since D343/D354 - the granted-triggered
+family is **12 landable**, because the rest carry a second line no reader holds.
+The measurement also rebuilt the seam map on a fresh `true-leftover.json` (the
+reported leftover stops at the target-spec gate, so it must be taken from the
+UNION of unread specs and unaccounted lines): **24,038 incomplete cards, 12,280
+one piece from landing across 10,902 wordings - 1.13 each.** That ratio is flat
+and has been flat for five decisions: a wording table cannot finish this project
+and only a grammar can.
+
+The scoped-grant family was probed beside it (517 cards: 3 activated/OK, 12
+triggered/OK, 324 with no quote at all across a 294-shape tail, 88 + 57 + 33
+unreadable payloads) and the keyword family too (235 cards across 46 keywords -
+echo 17, convoke 14, suspend 13, bloodthirst 13, cascade / fabricate / scavenge
+10 each). **There is no denser sub-seam inside the grant family**, which is why
+a thin wave is the right one: it completes the carrier, and it is one def kind
+from a design already proven.
+
+### The design
+
+| piece | what it does | since |
+|---|---|---|
+| `StaticDef` at layer `'ability'` | reaches the candidate's characteristics | D129 |
+| `GrantedTriggered {provider, ref}` | **the missing place to put it** | **D368** |
+| the trigger bus | walks it beside the printed and keyword defs | widened here |
+| `TriggerDef` | matches, targets, optional, `perItem` | D128-D190 |
+| `grantedTriggerRef` | validates `<providerOracleId>#gt<n>` | D368 |
+
+`GrantedTriggered` is **REQUIRED** on both characteristic types, so the compiler
+named every construction site - the four workspaces, `cloneChars`, and
+`finish()`, where it is the **SEVENTH** ability-shaped field a Humility'd object
+loses. An optional field nothing populates is D355's dead `drawback`, D356's
+dead `typeLine` and D364's own warning: three times in fourteen decisions.
+
+### THE BUG THE CARRIER'S OWN PROOF FOUND
+
+The two firing tests came out at **exactly `scope + 1` life**, in both, every
+time - one firing more than the scope. The cause was in the registry: the
+indexing loop pushed **every** def into the per-oracleId `byEvent` index and
+*then* also into the grant index, so the provider fired the granted trigger a
+second time **as its own printed ability**.
+
+**A provider does not have what it hands out.** The quoted text is what it gives
+away; it keeps nothing. A `gt` def is indexed **BY REF ONLY** now - and a
+provider inside its own scope still fires it, as a RECIPIENT, through the static
+that installed it, which is exactly what the two tests measure. This is D367's
+shape from the other side: a `#g` activated def can never double-offer, because
+the provider's own FACE does not print it - and a trigger has no face to be
+absent from, so the index had to be told.
+
+**Checked by breaking it**: with the fix reverted, exactly three of the six
+carrier tests fail - the two firing ones and the break test written for it - and
+the derivation, the provider-leaves and the CR 613 cases do not move.
+
+### AND THE SECOND BUG, WHICH ONLY THE GATE COULD FIND
+
+The first full unit suite after the wave landed went RED across the **bot AND
+net** suites - every test that plays a real game taking 100-230 s, five of the
+bot suite's six failing, `four bots play without wedging` at **227 s**. Nothing
+was wrong with the cards.
+
+**The walk's only gate was `grantIndex.size > 0`, and that gate was FALSE for
+every game ever played until this decision.** The comment above it said so in as
+many words - *it is empty for every game carrying no grant, and the walk is
+skipped entirely rather than deriving each permanent for each event*. Shipping
+the first eleven `gt` defs made it TRUE for **every game in the format**, and
+what it then guarded was: for every event, for both looks, for every battlefield
+permanent, `hasAbilities()` and `ctx.derive(id)` - **because the
+`def.event !== event.body.t` check sits INSIDE the derive.**
+
+⚠️ **The printed walk has carried both answers for decisions and the new walk
+inherited neither**: a per-KIND index (D162, measured there as a 14% win over
+the scan it replaced) and a present-def memo (D168, which filters a kind's defs
+to those with an instance in this game). The granted walk has both now - the
+event's kind first, then whether any PROVIDER script has an instance at all -
+and neither can change what is emitted: an event whose kind no granted def
+declares would have been skipped by the inner check on every def anyway, and a
+grant reaches a permanent ONLY because a provider's static installed it, so with
+no provider instance there is no entry to find. The permanent loop and the inner
+list loop are untouched, so the firing order and the replay hash are unchanged.
+
+Measured, same machine, idle: the bot suite **437.9 s with 5 of 6 failing ->
+82.8 s, 6 of 6 green**; the net suite's tests **100-170 s each and failing -> 37
+green in 201 s**.
+
+⚠️ **THE LESSON IS ABOUT THE GATE, NOT THE WALK.** A seam whose cost is gated on
+a registry being non-empty is FREE for exactly as long as nobody uses it, and the
+decision that first uses it is the one that pays - so the carrier decision's own
+gate is the first that can see it. D367's gate was green with this walk already
+in the tree. **A gate that has only ever run with a seam switched off has not
+tested the seam.**
+
+### The carrier proof
+
+`src/engine/grantedTrigger.test.ts` - six tests, and the two that could have
+been vacuous are not:
+
+- the grant is derived onto every permanent in the scope **and no other** (an
+  opponent's creature is outside "creatures you control");
+- it FIRES off the recipient and the recipient is the source;
+- two creatures in the scope have TWO abilities and not one - **counted off the
+  board** rather than hard-coded, so the test cannot quietly agree with a wrong
+  scope;
+- the grant stops the moment the provider leaves;
+- a recipient that has lost its abilities does not fire it (CR 613 layer 6) -
+  proved with a real SILENCER script rather than by asserting a truism, and the
+  rule needs both reasons: `finish()` clears the list with every other
+  ability-shaped field, and the bus's own `hasAbilities` gate refuses the
+  recipient besides;
+- **the PROVIDER does not have what it hands out** - a granter whose scope
+  reaches nobody fires nothing at all.
+
+### The wave
+
+**11 cards**, generated from one table - the Auras Cathar's Call, Commander's
+Authority, Commanding Presence, Creeping Crystal Coating, Infernal Scarring,
+Relic Bane, Staggering Insight, Take Flight and Verdant Embrace, and the
+Equipment Diamond Pick-Axe and Web-Shooters. Every other printed line on all 11
+is already the engine's own - `Enchant` (D304), `Equip` (D305) - which is why
+the grant line was the last thing between them and complete.
+
+**A TWELFTH WAS LANDED AND THEN UNLANDED, and the refusal is the finding.**
+Harmonic Sliver's grant is an ENTERS trigger, and the scaffold puts the
+recipient down FIRST and only then installs the grant - so the granted "when
+this creature enters" has already missed its own event, and the suite's fire
+test settled and asserted **nothing but that the host exists**. That is D128's
+green tick over nothing, D350's rule and D361's, met in the wild. The `etb` head
+is refused BY NAME until the scaffold can put a second permanent into the scope
+after the grant lands; the module and its suite were deleted and the fixtures
+regenerated 5,358 -> 5,357.
+
+Four generator faults were fixed at source rather than in a card:
+`ctx.query.nameOf` does not exist (`EngineQueries` has `permanentsOf`,
+`controllerOf` and `isOnBattlefield`), so the label is a constant; a baseline
+nothing asserts is a `tsc` error; `mana()` is read only by the Aura path, so an
+Equipment row declared a helper nothing called; and a scaffold that never
+submits must not import `must`.
+
+**A SWAP WHOSE `to` CONTAINS ITS `from` IS NOT IDEMPOTENT.** The applier's guard
+is "the new text is present and the old absent", which such a swap can never
+satisfy - so a re-run after a later anchor failed doubled every insert already
+made: three lines in `derive.ts` and a `TS2300: Duplicate identifier` in two
+more files. Both repair scripts carry the lesson in their headers.
+
+### Measured
+
+`complete` 7,654 -> **7,665** - `blocked` 24,038 -> 24,027 - `layer6` 1,326 ->
+1,321 - the grant split 821 -> 816 - the residue's `other` 3,119 -> 3,113 - the
+ladder [1050, 1115, 2704, 4536, 5877] -> [1050, 1115, 2699, 4531, 5872] -
+botPool enchantment 417 -> **426** and artifact 433 -> **435** (the nine Auras
+and the two Equipment, exactly the wave) - tier3 `silentAfter` 7,952 -> **7,963**
+and `abilityText` 15,174 -> **15,163**, the disclosure and the accounting
+agreeing card for card, **+11 and -11**. The bot's own reach rose to **7,605**
+cards from 7,594.
+
+**Not this decision:** the granted STATIC (10, several subsystems); the 82 + 75
+whose payloads sit outside both readers; a granted MANA ability (CR 605's
+immediate path - the vocabulary REFUSES one today rather than half-running it);
+the combat-role scaffold arm and the ENTERS scaffold arm this decision named;
+`Commander creatures you own`. Then D365's list - the counts outside the
+vocabulary (17), the activation conditions (35), the trigger payloads outside
+both readers (20) - and the attached statics the Aura and Equipment rows cannot
+read (351), the Aura that REDEFINES its host (18), the bare keyword or ability
+word (185).
+
+Fixtures 5,357 - botPool artifact 435 / creature 4,440 / enchantment 426 /
+instant 1,020 / land 561 / sorcery 783 - auto 1,003 / assisted 1,881 /
+autoAnyFace 1,012 - ladder [1050, 1115, 2699, 4531, 5872] - tier3 silentAfter
+7,963 - batch.json 11 - select pool 0.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,016 files, 24,808 passed / 11 skipped · 500-seed
+gate, 6 shards, 937.6 s wall · build clean · probe 124/124 · battery 130/130.**

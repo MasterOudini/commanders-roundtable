@@ -12115,6 +12115,112 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       seam map's rest — the attached statics the Aura and Equipment rows cannot
       read (351), the Aura that REDEFINES its host (18), the bare keyword or
       ability word (185); prior items stand.
+- [x] **M6.4ha — THE GRANTED TRIGGERED ABILITY: the same carrier one def kind
+      over, and the provider does not have what it hands out (2026-09-09):**
+      **7,665 of 31,692 Commander-legal cards now execute completely, up from
+      7,654 (+11).** `SHIPPED_SCRIPTS` 4,859 → **4,870**; ledger 954 (unchanged
+      — none of the 11 was ever in it, for D367's own reason: a quoted grant was
+      unreachable at the RUNTIME, never a drafter's verdict). Fixtures 5,346 →
+      **5,357**. **Select pool 0.** Decisions in **D368**.
+      ⚠️⚠️ **THE BUG THE CARRIER'S OWN PROOF FOUND.** Both firing tests came out
+      at exactly `scope + 1` life — one firing more than the scope — because the
+      registry's indexing loop pushed EVERY def into the per-oracleId `byEvent`
+      index and then ALSO into the grant index, so the provider fired the granted
+      trigger a second time AS ITS OWN PRINTED ABILITY. **A provider does not
+      have what it hands out**: the quoted text is what it gives away and it
+      keeps nothing, so a `gt` def is indexed BY REF ONLY — and a provider inside
+      its own scope still fires it, as a RECIPIENT, through the static that
+      installed it. ⚠️ D367's shape from the other side: a `#g` activated def can
+      never double-offer because the provider's own FACE does not print it, and a
+      trigger has no face to be absent from, so the index had to be told.
+      ⚠️⚠️ **AND THE SECOND BUG, WHICH ONLY THE GATE COULD FIND.** The first
+      full unit suite after the wave landed went RED across the bot AND net
+      suites — every test that plays a real game at 100–230 s, five of the bot
+      suite's six failing, `four bots play without wedging` at **227 s**, and
+      nothing wrong with the cards. **The walk's only gate was
+      `grantIndex.size > 0`, and that gate was FALSE for every game ever played
+      until this decision** — its own comment said so. The first eleven `gt` defs
+      made it TRUE for every game in the format, and what it then guarded was:
+      for every event, for both looks, for every battlefield permanent,
+      `hasAbilities()` and `ctx.derive(id)` — because the `def.event` check sits
+      INSIDE the derive. ⚠️ The printed walk has carried both answers for
+      decisions and the new walk inherited NEITHER: a per-KIND index (D162) and a
+      present-def memo (D168). It has both now — the event's kind first, then
+      whether any PROVIDER script has an instance at all — and neither can change
+      what is emitted (an event of a kind no granted def declares was skipped by
+      the inner check anyway; a grant exists only because a provider's static
+      installed it), so the firing order and the replay hash are unchanged.
+      Measured idle: bot suite **437.9 s with 5 of 6 failing → 82.8 s, 6 of 6
+      green**; net suite **100–170 s per test and failing → 37 green in 201 s**.
+      ⚠️ **THE LESSON IS ABOUT THE GATE**: a seam whose cost is gated on a
+      registry being non-empty is free for exactly as long as nobody uses it, so
+      the decision that first uses it is the one that pays — D367's gate was
+      green with this walk already in the tree. **A gate that has only ever run
+      with a seam switched off has not tested the seam.**
+      ⚠️ **Checked by breaking it:** with the fix reverted exactly three of the
+      six carrier tests fail — the two firing ones and the break test written for
+      it — and the derivation, the provider-leaves and the CR 613 cases do not
+      move.
+      ⚠️ **MEASURED FIRST, AND THE PAPER FIGURE WAS WRONG:** D367 named this
+      family at 90 cards; measured by what would LAND (D343/D354's rule) it is
+      **12**. The seam map was rebuilt on a fresh `true-leftover.json` — the
+      reported leftover stops at the target-spec gate, so it must be taken from
+      the UNION of unread specs and unaccounted lines: **24,038 incomplete,
+      12,280 one piece from landing across 10,902 wordings — 1.13 each**, flat
+      for five decisions. The scoped-grant family (517) and the keyword family
+      (235 across 46 keywords) were probed beside it: **no denser sub-seam**, so
+      a thin wave that completes the carrier is the right one.
+      ⚠️ `GrantedTriggered {provider, ref}` is REQUIRED on both characteristic
+      types, so the compiler named every construction site — the four workspaces,
+      `cloneChars`, and `finish()`, where it is the **SEVENTH** ability-shaped
+      field a Humility'd object loses (D355's dead `drawback`, D356's dead
+      `typeLine`, D364's own warning: three times in fourteen decisions).
+      ⚠️⚠️ **A TWELFTH CARD WAS LANDED AND THEN UNLANDED, and the refusal is the
+      finding.** Harmonic Sliver's grant is an ENTERS trigger, and the scaffold
+      puts the recipient down FIRST and only then installs the grant — so the
+      granted "when this creature enters" has already missed its own event and
+      the fire test asserted nothing but that the host exists (D128's green tick
+      over nothing, D350's rule and D361's, in the wild). The `etb` head is
+      refused BY NAME until the scaffold can put a second permanent into the
+      scope after the grant lands; fixtures regenerated 5,358 → 5,357.
+      ⚠️ **A SWAP WHOSE `to` CONTAINS ITS `from` IS NOT IDEMPOTENT** — the guard
+      "new text present, old absent" can never fire — so a re-run after a later
+      anchor failed DOUBLED every insert already made (three lines in
+      `derive.ts`, `TS2300: Duplicate identifier` in two more files).
+      ⚠️ Four generator faults fixed at source: `ctx.query.nameOf` does not exist
+      (`EngineQueries` has `permanentsOf`, `controllerOf`, `isOnBattlefield`); a
+      baseline nothing asserts is a `tsc` error; `mana()` is read only by the
+      Aura path; a scaffold that never submits must not import `must`.
+      **Landed:** 11 rows from one table — the Auras Cathar's Call, Commander's
+      Authority, Commanding Presence, Creeping Crystal Coating, Infernal
+      Scarring, Relic Bane, Staggering Insight, Take Flight, Verdant Embrace and
+      the Equipment Diamond Pick-Axe, Web-Shooters. Every other printed line on
+      all 11 is already the engine's own (`Enchant` D304, `Equip` D305). The
+      bot's own reach rose to **7,605** cards from 7,594. Tests:
+      `grantedTrigger.test.ts` (6) and one generated suite per row.
+      Fixtures 5,357 · botPool artifact 435 / creature 4,440 / enchantment 426 /
+      instant 1,020 / land 561 / sorcery 783 - auto 1,003 / assisted 1,881 /
+      autoAnyFace 1,012 · ladder [1050, 1115, 2699, 4531, 5872] · tier3
+      silentAfter 7,963 (and `abilityText` 15,163 — the disclosure and the
+      accounting agreeing card for card, +11 and −11) · batch.json 11 · select
+      pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,016 files, 24,808 passed / 11 skipped ·
+      500-seed gate, 6 shards, 937.6 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D368): the granted STATIC (10, several subsystems), the
+      82 + 75 whose payloads sit outside both readers, a granted MANA ability
+      (CR 605's immediate path — the vocabulary REFUSES one today rather than
+      half-running it), the combat-role scaffold arm and the ENTERS scaffold arm
+      this decision named, and "Commander creatures you own"; then D365's list —
+      the counts outside the vocabulary (17), the activation conditions (35), the
+      trigger payloads outside both readers (20) — and D364's snow CREATURE
+      fixture, D363's counter KINDS and NONTOKEN predicate, the keyword ENTRY
+      REPLACEMENTS (bloodthirst 13, modular 7, graft 2) and CHOICES (fabricate
+      10, unleash 9, riot 4, devour 4, enlist 5, amplify 3), the block
+      REQUIREMENT (provoke 4), the cast-time payment sources (convoke 14, delve
+      5, improvise 6); then the seam map's rest — the attached statics the Aura
+      and Equipment rows cannot read (351), the Aura that REDEFINES its host
+      (18), the bare keyword or ability word (185); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). Planeswalkers (loyalty costs) and battles are still
     // structurally out, and stay pinned at zero for the same reason the
     // enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(417);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(426);
     expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -450,8 +450,8 @@ const POOL: Record<string, number> = {
   instant: 1020,
   sorcery: 783,
   land: 561,
-  artifact: 433,
-  enchantment: 417,
+  artifact: 435,
+  enchantment: 426,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {
