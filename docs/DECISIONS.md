@@ -28516,3 +28516,165 @@ the two-line shape (10), the three unstageable prevention fixtures, the Circles
 of Protection (52), CR 615.5's order, the payload arms, the 95 quoted-grant
 shapes, the spell-row table (21 of 43), the 55 REDUNDANT hand scripts; prior
 items stand.
+
+
+## D388 — THE CONDITIONAL STATIC: `as long as <condition>` on a static the row maker already reads (2026-09-10)
+
+**8,264 of 31,692 Commander-legal cards now execute completely, up from 8,111
+(+153, every one a generated row).** `SHIPPED_SCRIPTS` 5,232 → **5,385**; the
+REFUSED ledger 1,200 (unchanged — not one of the 153 was ever in it, and the 291
+the row maker refused were never OFFERED, so no drafter's verdict). Fixtures
+5,755 → **5,915** (5,760 by name + 148 tokens: the 153 cards and the SEVEN
+fixtures the conditions are met with — Aven Envoy, Gran Pulse Ochu, Kentaro the
+Smiling Cat, Rograkh Son of Rohgahh, Snubhorn Sentry, Triton Shorethief,
+Watchwolf). **No engine file is touched.** `scriptableToday` stays at 1,295: the
+wave landed BY NAME (D317/D374/D387's shape) because the classifier does not read
+a condition on a static, and the ladder's `layer6` rung fell 2,961 → 2,818 — the
+143 that left it are the cards the rung had been holding for exactly this. M6.4hu.
+
+### The measurement chose it, and it was priced from BOTH sides
+
+A fresh true-leftover after D387 (`7490e7ca`): **23,581 incomplete,
+11,890 one line from landing across 9,972 shapes — 1.19 each**, flatter than
+D387's 1.20. The mechanism map's densest family by cards is a bare keyword (397,
+but 209 shapes and every keyword its own mechanic — D361), then **`as long as`:
+386 one-piece cards across 347 shapes**. That reads as a tail — until the
+sentence is split at its own joint: **448 one-piece cards, 260 distinct
+CONDITIONS × 214 distinct BODIES**, and the bodies are the static grammar this
+row maker has read since D300/D346/D351 (`~ gets +N/+N` 88, `has <keyword>` ~60,
+both ~50, `can't be blocked` 12, an anthem). D374's move — 127 head texts were
+seven bases and a filter — one sentence over: a product of two small vocabularies
+looks like a tail from outside.
+
+Priced by what would LAND (D343/D354) with a CLOSED condition vocabulary times
+the existing body grammar: **139**. The row maker rowed **153** (two readers
+widened on its own histogram — the card's own name arrives as `~`, and the gate
+must run at the HEAD of `parseStatic`, because the anthem regex matches the whole
+line and swallows a trailing `as long as` into its body). The 291 refused, by the
+row maker's own histogram: **192 a condition outside the closed vocabulary** (a
+flat tail — `you control this creature` 14 and `remains on the battlefield` 6
+are DURATIONS on a one-shot, not gates; stickers 5; `remains exiled` 13; a
+planeswalker by subtype 5; `defending player controls` 3), 39 a line ending at a
+scrubbed quote (D366/D384's shape — `this creature has "…"`), 31 a body outside
+the static vocabulary (`can attack as though it didn't have defender` 5 — a
+WIDENING, where a `CombatDef` only narrows, D147), 19 spells, 3 conditional
+combat restrictions and 2 scoped anthems refused by name for this wave, 2 threshold
+bodies, 2 multi-face, 1 pump with a combat rider.
+
+### The seam is the generator's, and the engine already had every piece
+
+`StaticDef.appliesTo(ctx, self, candidate)` has received `ctx` since D129; D351
+gated a Threshold body on it with a per-module `thresholdOf(ctx, self)` conjunct
+and handed the BODY back to `parseStatic` so the gate could never widen the body
+vocabulary. This decision is that gate over a CONDITION VOCABULARY instead of one
+sentence: `gen88-cond.cjs` is the ONE closed reader (D346's rule — a scope, a
+count and now a condition each read in one place), with **nineteen kinds** — the
+graveyard's count and its card TYPES (threshold, delirium), a `you control
+<pred>` count over a closed predicate reader (a type, a capitalised subtype, a
+colour, `multicolored`, `nonland`, a supertype, `untapped`, `another`; metalcraft
+is `three or more artifacts`, hellbent's mirror `no untapped lands`), an
+opponent's board, the card itself equipped / enchanted / tapped / attacking /
+carrying a counter, the hand's size and its size against each opponent's, the
+turn's draws and casts and entries and deaths (D336's tallies and D348's record),
+the commander on the battlefield (lieutenant), life and poison and an opponent's
+graveyard (fateful hour and its kin).
+
+⚠️ **EVERY HELPER IS DERIVE-FREE, BY D317's RULE.** A static's condition is asked
+INSIDE a derive — every candidate's, every time — so a helper that called
+`ctx.derive` would recurse. The engine's own `activationConditionsHold` (D342)
+derives, because an activation is checked OUTSIDE a derive; it cannot be reused
+here, and that is why the condition is a per-module helper reading `ctx.state`,
+the PRINTED faces (`ctx.oracle.byPrinting(inst.printingId)?.faces[0]`, D317's
+count idiom), `ctx.state.turn.memory`, the life totals and the live combat. The
+boundary that buys is stated: a condition about a permanent's TYPE reads the
+printed line, so a Mycosynth-animated land is not an artifact to `metalcraft` —
+the same boundary the count CDA and the variable pump already stand on.
+
+### The suite proves BOTH stages, and three things the port taught it
+
+D381's rule, applied to a static: a condition is only proven by a read with it
+BROKEN. Every suite reads `condOff` — the subject at its printed base with the
+keyword absent — while the condition is unmet, then meets it and reads the static.
+A condition the armed board already satisfies (`it's untapped`, `no untapped
+lands`, a hand size) is BROKEN first; a condition the card itself satisfies (an
+artifact creature under `you control an artifact`) has no unmet stage and says so
+in its title. The stage is STAGED in the row maker — `COND.stage()` returns the
+lines and the deck names, or a refusal by name (`you control seven or more lands`
+was refused at a cap of three, and the cap is ten now: Forests are cheap).
+
+**153 suites / 306 tests green** — on the SECOND port. The first landed 144 and
+named three generator faults, each fixed at the GENERATOR (D267):
+
+- ⚠️ **A COUNTER THE STAGE PUTS MOVES P/T ON ITS OWN.** `as long as it has a
+  +1/+1 counter on it, it gets +1/+0`: the counter is layer 7d, so the met read is
+  base + the counter + the static, and a `-1/-1` counter on a 7/2 reads 6/1 with
+  the static absent. Five suites; D387's rule (a counted fixture must move the
+  count and nothing else) has a corollary: when the fixture IS the count, it moves
+  what it counts.
+- ⚠️ **A CREATURE THAT CANNOT BE BLOCKED NEVER SEES A DECLARE-BLOCKERS PROMPT**
+  (D232/D234) — and `as long as it's attacking, it has flying` is exactly a
+  creature the Cyclops cannot block the moment the condition it is proving holds.
+  Waiting for the prompt ran the combat out and read the static gone. The
+  attacking stage reads the MOMENT the attack is declared, with combat live and
+  no prompt asked for. Four suites (a shadow creature and a printed flyer too).
+- ⚠️ A fixture bound and never read is a `tsc` error (D374): the count stage
+  binds only what a later stage uses.
+
+⚠️ **THE STAGE LIVES ON THE ROW, so a stage fix is a RE-ROW.** The row maker
+stores each condition's stage lines beside the descriptor; regenerating from the
+old rows after fixing the reader produced the old suites byte for byte, twice.
+Re-row, then regenerate. ⚠️ **Invariant 14, twice, both caught by COUNTING
+backslashes against the original line:** a node patch hoisting the body regex
+spelled a DOUBLED backslash before the `d` and the harness halved it to a single one, which a template literal cooks to a bare `d`
+(silently `([+-]d+)`); and a swap anchor spelled with a doubled backslash before the `n` arrived as a REAL newline
+and matched nothing (the counted guard refused). Both appliers write a placeholder
+and substitute `String.fromCharCode(92)` at runtime.
+
+⚠️⚠️ **THE FIRST GATE WENT RED ON A FLOOR THAT NO LONGER MEASURES WHAT IT NAMES.**
+One assert in 27,207: the bot tournament's `decisions per second` read **14.67**
+against a floor of 15 inside the gate's unit stage (5,538 files, several workers);
+alone on the idle machine the bot battery read **18** (8,049 decisions in 455 s over
+120 games, 85.0% wins, 0 faults). The floor has now moved twice as the script count
+grew (20 → 15 at D370, 15 → 10 here) and D180's rule says a third move earns a
+MECHANISM: the decline is 135 → 23.7 → 18 with the SAME fixed deck, so the number
+reads the ENGINE's per-event work over a 5,385-script registry, not the bot's
+decision. The mechanism is an engine decision — time `decide()` apart from the
+submit, and find the walk that scales with the registry (the replacement funnel
+compares every battlefield permanent against every registered replacement def per
+event body, unindexed — 53 shipped modules carry one; a candidate, not a verdict).
+The three numbers are in the test's own comment and the gate was rerun from the top.
+
+**Measured:** `blocked` 23,581 → 23,428 · `complete` 8,111 → **8,264** · ladder
+`[1295, 1384, 2961, 4690, 6028]` → `[1295, 1384, 2818, 4547, 5885]` · `layer6`
+1,273 → 1,130 (grant 787 → 700, anthem 128 → 123, conditional 147 → 96) · tier3
+`silentAfter` 8,411 → **8,564**, `abilityText` 14,889 → 14,736 · botPool creature
+4,728 → 4,880, enchantment 477 → 478 (152 + 1 = 153) · the bot's reach 8,046 →
+**8,199** from **242** legendaries (239 — Go-Shintai of Life's Origin keeps the
+seat) · select pool 0 → 0 · no fuzz canary (a gated pump reaches the state hash
+through combat damage, D386's reasoning; and the 153 rows are dealt by the
+derived pool, D188).
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5538 files,
+27196 passed / 11 skipped · 500-seed gate, 6 shards, 1113.8 s wall · build
+clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D388): **the tournament floor's mechanism** (an ENGINE item — the bot's decision timed apart from the engine's submit, and the registry-scaling walk found by a profile rather than named; the floor is at 10 and may not move again); **the classifier still cannot see the shape** — an
+`as long as` tail on `staticRowShape` is a seam, but only with ONE condition
+vocabulary where the classifier can read it, and `parseCond` lives in the row
+maker beside D386's `parseCount`: the two want ONE move; **the conditional COMBAT
+restriction** (3 refused + `can attack as though it didn't have defender` 5 — a
+combat WIDENING, where `CombatDef` only narrows since D147; and the gated
+`cantBeBlocked` bodies want D381's two-combat arm on a static); the conditional
+SCOPED anthem (2); the 39 conditional lines ending at a scrubbed quote (the
+quoted-grant carrier under a gate — D367's shape one conjunct over); the 192
+conditions outside the vocabulary, of which the DURATIONS (`for as long as you
+control this creature` 14, `remains on the battlefield` 6, `remains exiled` 13)
+are a different mechanism — a continuous effect with an END, not a gate — and the
+planeswalker-by-subtype conditions (5) want a planeswalker fixture; then D387's
+list unchanged — the pump's remaining tail (78 over ~66 phrases), the activated
+pump with a count (~4), the blocked head on another subject (3), the negative
+pump per card in hand (2), ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS (gate debt, priced),
+the two-line shape (10), the three unstageable prevention fixtures, the Circles
+of Protection (52), CR 615.5's order, the payload arms, the 95 quoted-grant
+shapes, the spell-row table (21 of 43), the 55 REDUNDANT hand scripts; prior
+items stand.

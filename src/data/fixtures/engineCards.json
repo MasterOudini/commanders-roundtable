@@ -189362,6 +189362,5464 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "PARADISE_DRUID": {
+    "scryfallId": "000e2f80-7667-4a8b-91c2-359121d44ebb",
+    "oracleId": "e119869d-1f66-402b-8251-d351965cf0d3",
+    "name": "Paradise Druid",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Paradise Druid",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "This creature has hexproof as long as it's untapped. (It can't be the target of spells or abilities your opponents control.)\n{T}: Add one mana of any color.",
+        "flavorText": "\"There are many kinds of duty, and mine is to see our world grow and endure.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "000e2f80-7667-4a8b-91c2-359121d44ebb"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "woc",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TUINVALE_GUIDE": {
+    "scryfallId": "01334fed-781e-4864-83fd-d37f787a778b",
+    "oracleId": "dab16c93-9788-46e0-9345-838ebeda8d54",
+    "name": "Tuinvale Guide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tuinvale Guide",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Faerie Scout",
+        "oracleText": "Flying\nCelebration — This creature gets +1/+0 and has lifelink as long as two or more nonland permanents entered the battlefield under your control this turn.",
+        "flavorText": "\"Weary traveler, follow me. The night is a cage, and my light is the key.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Anastasia Ovchinnikova",
+        "imageId": "01334fed-781e-4864-83fd-d37f787a778b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Celebration"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DROVER_OF_THE_MIGHTY": {
+    "scryfallId": "013360b3-c335-46c0-abe3-b7e3760f62c9",
+    "oracleId": "6deba6e8-077b-4602-86af-64db766fbbd9",
+    "name": "Drover of the Mighty",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drover of the Mighty",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "This creature gets +2/+2 as long as you control a Dinosaur.\n{T}: Add one mana of any color.",
+        "flavorText": "\"I do not lead. They do not follow. We walk together.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "013360b3-c335-46c0-abe3-b7e3760f62c9"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "lcc",
+    "collectorNumber": "239",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_TOMB_RAIDER": {
+    "scryfallId": "018160fe-f602-43f5-8495-241a08eaa69c",
+    "oracleId": "37ce95bb-8ff5-47b9-85e4-21be7a794940",
+    "name": "Goblin Tomb Raider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Tomb Raider",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin Pirate",
+        "oracleText": "As long as you control an artifact, this creature gets +1/+0 and has haste.",
+        "flavorText": "Enterprising goblins can extract their body weight in loot. Ambitious ones have a big meal first.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kevin Sidharta",
+        "imageId": "018160fe-f602-43f5-8495-241a08eaa69c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "151",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THORNED_MOLOCH": {
+    "scryfallId": "01ab2615-5a02-4b59-b8bd-577b91a1a0e3",
+    "oracleId": "d2a49109-6db8-4f08-828c-da7a456a78a7",
+    "name": "Thorned Moloch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thorned Moloch",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Lizard",
+        "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nThis creature has first strike as long as it's attacking.",
+        "flavorText": "Those who fled the destruction of the city stumbled into the territory of their prickly neighbors.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "James Paick",
+        "imageId": "01ab2615-5a02-4b59-b8bd-577b91a1a0e3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Prowess"
+    ],
+    "setCode": "hou",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIGHTWALKER": {
+    "scryfallId": "01bf1837-41b0-4ff1-9cb1-ee2d75d410c7",
+    "oracleId": "6f4848d4-a5dc-4c71-955c-ad2b1cbb7ede",
+    "name": "Lightwalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lightwalker",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "This creature has flying as long as it has a +1/+1 counter on it.",
+        "flavorText": "\"The greatest gift Dromoka gives is the ability to fly without wings.\"\n—Urdnan, Dromoka warrior",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "01bf1837-41b0-4ff1-9cb1-ee2d75d410c7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dtk",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRABEN_FOULBLOODS": {
+    "scryfallId": "02340f20-d8c3-4824-9f21-7f073913971f",
+    "oracleId": "08adacab-96c3-4532-8ab3-0c8064fa4150",
+    "name": "Thraben Foulbloods",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thraben Foulbloods",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Zombie Dog",
+        "oracleText": "Delirium — This creature gets +1/+1 and has menace as long as there are four or more card types among cards in your graveyard. (A creature with menace can't be blocked except by two or more creatures.)",
+        "flavorText": "The famed hunting hounds of House Cecani continue to prove the quality of their pedigree.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "02340f20-d8c3-4824-9f21-7f073913971f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Delirium"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "EMN-108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHAPER_APPRENTICE": {
+    "scryfallId": "02955471-5ffc-4c7b-83fe-a69816415ca1",
+    "oracleId": "ee6b0bb4-9c40-435b-8a5d-fd89d7e29ae1",
+    "name": "Shaper Apprentice",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shaper Apprentice",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "This creature has flying as long as you control another Merfolk.",
+        "flavorText": "The River Heralds would wreck a thousand ships to keep intruders from finding the golden city.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Yongjae Choi",
+        "imageId": "02955471-5ffc-4c7b-83fe-a69816415ca1"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SECRETKEEPER": {
+    "scryfallId": "03247e03-747a-462a-ad74-49ce02d20f13",
+    "oracleId": "709a8bf0-bd0b-4ee0-9c06-98b7551447b5",
+    "name": "Secretkeeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Secretkeeper",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "As long as you have more cards in hand than each opponent, this creature gets +2/+2 and has flying.",
+        "flavorText": "It is all the things that humanity was not meant to know.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "03247e03-747a-462a-ad74-49ce02d20f13"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "sok",
+    "collectorNumber": "54",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GAVONY_IRONWRIGHT": {
+    "scryfallId": "05d8de75-b169-4426-94a4-b19cdfdffd89",
+    "oracleId": "99a4f104-c358-442a-8273-6fe94286edb5",
+    "name": "Gavony Ironwright",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gavony Ironwright",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Fateful hour — As long as you have 5 or less life, other creatures you control get +1/+4.",
+        "flavorText": "\"I wish my work could shelter everyone, yet I pray we are never so few that it does.\"",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "05d8de75-b169-4426-94a4-b19cdfdffd89"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Fateful hour"
+    ],
+    "setCode": "dka",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GATE_HOUND": {
+    "scryfallId": "06732c6f-c3b5-4c68-82a0-655cffff79db",
+    "oracleId": "762e01d8-c16a-44b8-8ba0-052d1a2f312f",
+    "name": "Gate Hound",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gate Hound",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Dog",
+        "oracleText": "Creatures you control have vigilance as long as this creature is enchanted.",
+        "flavorText": "\"Ditri, I leave this checkpoint in your capable teeth.\"\n—Kitov, nightguard patrol",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ralph Horsley",
+        "imageId": "06732c6f-c3b5-4c68-82a0-655cffff79db"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "rav",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KARGAN_DRAGONRIDER": {
+    "scryfallId": "069b3c69-ee4c-4fc9-981e-62db77f9821d",
+    "oracleId": "df366871-8ed7-4183-8b0c-414ca361a711",
+    "name": "Kargan Dragonrider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kargan Dragonrider",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "As long as you control a Dragon, this creature has flying.",
+        "flavorText": "\"Only those who give the dragons the respect they deserve may bear our title.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Opalinski",
+        "imageId": "069b3c69-ee4c-4fc9-981e-62db77f9821d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "561",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GEARSMITH_GUARDIAN": {
+    "scryfallId": "06a89661-47a3-4827-8c60-532c3934aa45",
+    "oracleId": "0c0f7092-3fe6-4a6e-8b4e-803810b43e50",
+    "name": "Gearsmith Guardian",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gearsmith Guardian",
+        "manaCost": "{5}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "This creature gets +2/+0 as long as you control a blue creature.",
+        "flavorText": "Made in its creator's image, though slightly more clangy.",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Deruchenko Alexander",
+        "imageId": "06a89661-47a3-4827-8c60-532c3934aa45"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "767",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCOURGE_WOLF": {
+    "scryfallId": "072f47ad-3055-4bd2-b7fd-cfbd22720d58",
+    "oracleId": "fd74d0f6-bbe5-47f6-af15-a127489ca7f3",
+    "name": "Scourge Wolf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scourge Wolf",
+        "manaCost": "{R}{R}",
+        "typeLine": "Creature — Wolf Horror",
+        "oracleText": "First strike\nDelirium — This creature has double strike as long as there are four or more card types among cards in your graveyard.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jama Jurabaev",
+        "imageId": "072f47ad-3055-4bd2-b7fd-cfbd22720d58"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Delirium",
+      "First strike"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "179",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INVENTOR_S_APPRENTICE": {
+    "scryfallId": "07649897-df87-48b4-8f70-a11230f7df41",
+    "oracleId": "ed8d54fa-ec02-45d6-b70e-4c7e1c66efd6",
+    "name": "Inventor's Apprentice",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Inventor's Apprentice",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "This creature gets +1/+1 as long as you control an artifact.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ryan Pancoast",
+        "imageId": "07649897-df87-48b4-8f70-a11230f7df41"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "klr",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EZURI_S_BRIGADE": {
+    "scryfallId": "079a6b44-3492-4484-aed1-5cd2449e702d",
+    "oracleId": "ae32c0a5-0874-4cab-9a24-29fa572f3193",
+    "name": "Ezuri's Brigade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ezuri's Brigade",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "Metalcraft — As long as you control three or more artifacts, this creature gets +4/+4 and has trample.",
+        "flavorText": "Riding ravenous, ever-growing vorracs is almost as dangerous as fitting them with saddles.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nic Klein",
+        "imageId": "079a6b44-3492-4484-aed1-5cd2449e702d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Metalcraft"
+    ],
+    "setCode": "som",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCORPION_SENTINEL": {
+    "scryfallId": "08ab5220-e5c1-472e-8217-97fd60e1773c",
+    "oracleId": "5e53fe9f-9995-47ff-85e9-f09b70d7af15",
+    "name": "Scorpion Sentinel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scorpion Sentinel",
+        "manaCost": "{1}{U}",
+        "typeLine": "Artifact Creature — Robot Scorpion",
+        "oracleText": "As long as you control seven or more lands, this creature gets +3/+0.",
+        "flavorText": "\"Barret, be careful! Attack while its tail's up, it's gonna counterattack with its laser.\"\n—Cloud Strife",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "HAISIRO",
+        "imageId": "08ab5220-e5c1-472e-8217-97fd60e1773c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EYEKITE": {
+    "scryfallId": "08bc1849-f601-4519-a92e-c4d4216b209a",
+    "oracleId": "fb3f2677-a31d-49ad-a9d1-7324733938d6",
+    "name": "Eyekite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eyekite",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Drake",
+        "oracleText": "Flying\nThis creature gets +2/+0 as long as you've drawn two or more cards this turn.",
+        "flavorText": "\"This one will need direction. After all, each of its eyes is larger than its brain.\"\n—Cyla, Lord of the Aerie",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "08bc1849-f601-4519-a92e-c4d4216b209a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "293",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIANT_TORTOISE": {
+    "scryfallId": "096f7ac8-c639-4347-9767-7305eaf490ba",
+    "oracleId": "2dd50d7f-941f-4deb-a15c-ee2357844c35",
+    "name": "Giant Tortoise",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Giant Tortoise",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Turtle",
+        "oracleText": "This creature gets +0/+3 as long as it's untapped.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Kaja Foglio",
+        "imageId": "096f7ac8-c639-4347-9767-7305eaf490ba"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "arn",
+    "collectorNumber": "15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SERRA_ASCENDANT": {
+    "scryfallId": "0a22ee47-fc56-436d-8570-88fbff421027",
+    "oracleId": "27ad3e00-6ffb-48f7-8469-8868d066d1e2",
+    "name": "Serra Ascendant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Serra Ascendant",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Monk",
+        "oracleText": "Lifelink (Damage dealt by this creature also causes you to gain that much life.)\nAs long as you have 30 or more life, this creature gets +5/+5 and has flying.",
+        "flavorText": "Faith in Serra is its own reward.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "0a22ee47-fc56-436d-8570-88fbff421027"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "ima",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRAGONLOFT_IDOL": {
+    "scryfallId": "0bdff68c-ad98-48b0-9e00-8c5032a3cdb1",
+    "oracleId": "736ce43b-28cd-4b8b-9936-3e3975a56b6a",
+    "name": "Dragonloft Idol",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dragonloft Idol",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Gargoyle",
+        "oracleText": "As long as you control a Dragon, this creature gets +1/+1 and has flying and trample.",
+        "flavorText": "The idols were forged during the time of the Khanfall, when the dragons came to rule Tarkir and its people aligned themselves with the five dragonlords.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jung Park",
+        "imageId": "0bdff68c-ad98-48b0-9e00-8c5032a3cdb1"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ima",
+    "collectorNumber": "215",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEAPFROG": {
+    "scryfallId": "0eefa088-cc53-41a4-b5ad-88483915cd8f",
+    "oracleId": "6614dbe5-d7c7-4a51-91db-912764050269",
+    "name": "Leapfrog",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Leapfrog",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Frog",
+        "oracleText": "This creature has flying as long as you've cast an instant or sorcery spell this turn.",
+        "flavorText": "\"Most compete for insects at street level. Some dwell near Izzet laboratories and ride the thermal updrafts.\"\n—Yolov, Simic bioengineer",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "0eefa088-cc53-41a4-b5ad-88483915cd8f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "clu",
+    "collectorNumber": "89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AURIOK_EDGEWRIGHT": {
+    "scryfallId": "0f76b18a-396b-41f5-b34b-ac232b7f316b",
+    "oracleId": "b718639d-cfba-4430-b5e3-1e644edd36d7",
+    "name": "Auriok Edgewright",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Auriok Edgewright",
+        "manaCost": "{W}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Metalcraft — This creature has double strike as long as you control three or more artifacts.",
+        "flavorText": "Auriok soldiers craft their own weapons, forging a connection to the steel with each blow of the hammer.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "0f76b18a-396b-41f5-b34b-ac232b7f316b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Metalcraft"
+    ],
+    "setCode": "som",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOUND_OF_THE_FARBOGS": {
+    "scryfallId": "0fc37615-ef72-4176-9e94-080e56af1d8a",
+    "oracleId": "7be2bc4e-3986-4f4f-bd5b-0a9f59b2f865",
+    "name": "Hound of the Farbogs",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hound of the Farbogs",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Zombie Dog",
+        "oracleText": "Delirium — This creature has menace as long as there are four or more card types among cards in your graveyard. (A creature with menace can't be blocked except by two or more creatures.)",
+        "flavorText": "As you hear it baying in the distance, you'll feel its breath on your neck.",
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Christine Choi",
+        "imageId": "0fc37615-ef72-4176-9e94-080e56af1d8a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Delirium"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AKKI_UNDERLING": {
+    "scryfallId": "106382db-56aa-4061-9d1e-17821937f1de",
+    "oracleId": "91f95d83-3637-4cf8-af6c-56bc4e4b2591",
+    "name": "Akki Underling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Akki Underling",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "As long as you have seven or more cards in hand, this creature gets +2/+1 and has first strike.",
+        "flavorText": "\"I lost my hounds in the war and thus found myself employing akki as servants. I found their training to be remarkably similar.\"\n—Kensuke, houndmaster",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Franz Vohwinkel",
+        "imageId": "106382db-56aa-4061-9d1e-17821937f1de"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "sok",
+    "collectorNumber": "93",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMBER_WEAVER": {
+    "scryfallId": "10effbe2-fd8e-44b6-a08c-3984a92254d9",
+    "oracleId": "c92221f7-76e8-483a-9d68-b19ff4d0baaf",
+    "name": "Ember Weaver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ember Weaver",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nAs long as you control a red permanent, this creature gets +1/+0 and has first strike.",
+        "flavorText": "\"Each night, the sun unravels and blows away. Each day, the spiders set a new one in the sky.\"\n—Sunseeder myth",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "10effbe2-fd8e-44b6-a08c-3984a92254d9"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "con",
+    "collectorNumber": "81",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXPEDITION_HEALER": {
+    "scryfallId": "11a00a88-de0e-4012-9ad8-ccb187dff7df",
+    "oracleId": "e8fbdf4b-ef64-4b82-b67f-ae5568772256",
+    "name": "Expedition Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Expedition Healer",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Kor Cleric",
+        "oracleText": "Vigilance\nThis creature has lifelink as long as you control another Cleric.",
+        "flavorText": "In any adventuring party, the cleric is the heart: healing wounds, inspiring courage, and raising morale.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Heonhwa",
+        "imageId": "11a00a88-de0e-4012-9ad8-ccb187dff7df"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WOODBORN_BEHEMOTH": {
+    "scryfallId": "11c690e8-57a8-46c8-b120-155a2c06e9cf",
+    "oracleId": "9bc458ac-5566-4978-aeaa-73b600d4ec29",
+    "name": "Woodborn Behemoth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Woodborn Behemoth",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "As long as you control eight or more lands, this creature gets +4/+4 and has trample. (It can deal excess combat damage to the player or planeswalker it's attacking.)",
+        "flavorText": "It carries the hopes of Zendikar's embattled wilds on its mighty boughs.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "11c690e8-57a8-46c8-b120-155a2c06e9cf"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "E01-79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VILLAGE_SURVIVORS": {
+    "scryfallId": "13c0e852-9966-4145-b7c3-ac957f729376",
+    "oracleId": "c26dd36f-a81a-4d97-9be2-d350e93da79e",
+    "name": "Village Survivors",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Village Survivors",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Human",
+        "oracleText": "Vigilance\nFateful hour — As long as you have 5 or less life, other creatures you control have vigilance.",
+        "flavorText": "As their villages fell to werewolves, fleeing refugees discovered they too had remarkable survival instincts.",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "David Rapoza",
+        "imageId": "13c0e852-9966-4145-b7c3-ac957f729376"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Fateful hour",
+      "Vigilance"
+    ],
+    "setCode": "dka",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEONIN_DEN_GUARD": {
+    "scryfallId": "149d0d46-0c2f-455a-bc8e-9dda22f9d60a",
+    "oracleId": "651220f7-223a-49b3-995d-32f08eb3a16a",
+    "name": "Leonin Den-Guard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Leonin Den-Guard",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Cat Soldier",
+        "oracleText": "As long as this creature is equipped, it gets +1/+1 and has vigilance.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Todd Lockwood",
+        "imageId": "149d0d46-0c2f-455a-bc8e-9dda22f9d60a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "psal",
+    "collectorNumber": "L29",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BONEPICKER_SKIRGE": {
+    "scryfallId": "14c1b7bb-79ca-44c2-9152-d302ca00eb3e",
+    "oracleId": "c42833e6-3e42-4bd6-acbc-d8e284e9833e",
+    "name": "Bonepicker Skirge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bonepicker Skirge",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Phyrexian Imp",
+        "oracleText": "Flying\nCorrupted — As long as an opponent has three or more poison counters, this creature has deathtouch and lifelink.",
+        "flavorText": "Even the most insignificant creature can be perfected.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Flavio Girón",
+        "imageId": "14c1b7bb-79ca-44c2-9152-d302ca00eb3e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Corrupted"
+    ],
+    "setCode": "one",
+    "collectorNumber": "436",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BANT_SUREBLADE": {
+    "scryfallId": "162feb2b-e641-4338-bcf1-1f7e7a11bb9d",
+    "oracleId": "610adb2b-9d52-4b70-92d1-0c7adeb93552",
+    "name": "Bant Sureblade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bant Sureblade",
+        "manaCost": "{G/U}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "As long as you control another multicolored permanent, this creature gets +1/+1 and has first strike.",
+        "flavorText": "Soldiers who fought through Grixis learned to hit first, recite the prayer of Asha later.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U",
+          "W"
+        ],
+        "artist": "Michael Komarck",
+        "imageId": "162feb2b-e641-4338-bcf1-1f7e7a11bb9d"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "arb",
+    "collectorNumber": "143",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JACE_S_PHANTASM": {
+    "scryfallId": "16829504-385c-4154-8e6d-f3fbaf273890",
+    "oracleId": "ab56df8f-0ba3-4d66-bde2-4c9b4acf07e5",
+    "name": "Jace's Phantasm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jace's Phantasm",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Illusion",
+        "oracleText": "Flying\nThis creature gets +4/+4 as long as an opponent has ten or more cards in their graveyard.",
+        "flavorText": "In the abstract memories of the Iquati, Jace found interesting ideas to improve upon.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "16829504-385c-4154-8e6d-f3fbaf273890"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "m13",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WEAPONS_TRAINER": {
+    "scryfallId": "16a0c5e4-c0e8-4be4-8d2f-391b7a6c74ff",
+    "oracleId": "d193f3b7-d205-4c49-ae52-6a095282e0b3",
+    "name": "Weapons Trainer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Weapons Trainer",
+        "manaCost": "{R}{W}",
+        "typeLine": "Creature — Human Soldier Ally",
+        "oracleText": "Other creatures you control get +1/+0 as long as you control an Equipment.",
+        "flavorText": "\"When I'm done training you, anything will be a deadly weapon.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Greg Opalinski",
+        "imageId": "16a0c5e4-c0e8-4be4-8d2f-391b7a6c74ff"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "OGW-160",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PARANOID_PARISH_BLADE": {
+    "scryfallId": "16bb6c60-1889-49ed-8767-8144cc5a9571",
+    "oracleId": "d1c2b124-5290-4e66-9f6b-4db4d662a74c",
+    "name": "Paranoid Parish-Blade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Paranoid Parish-Blade",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Delirium — This creature gets +1/+0 and has first strike as long as there are four or more card types among cards in your graveyard.",
+        "flavorText": "The mind is perfectly capable of creating its own monsters.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "16bb6c60-1889-49ed-8767-8144cc5a9571"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Delirium"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOUNDRY_SCREECHER": {
+    "scryfallId": "172a852f-dbea-45b5-b1c1-f67435e9c1ec",
+    "oracleId": "0e0bef57-d977-48d1-be78-9a4f0aacd9c0",
+    "name": "Foundry Screecher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Foundry Screecher",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Bat",
+        "oracleText": "Flying\nThis creature gets +1/+0 as long as you control an artifact.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "172a852f-dbea-45b5-b1c1-f67435e9c1ec"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "klr",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYHUNTER_CUB": {
+    "scryfallId": "17f573c5-7dba-4385-9c4f-30d512ca61a0",
+    "oracleId": "1e9ebdf3-306a-48e1-8096-6a1d289e108c",
+    "name": "Skyhunter Cub",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skyhunter Cub",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Cat Knight",
+        "oracleText": "As long as this creature is equipped, it gets +1/+1 and has flying.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "17f573c5-7dba-4385-9c4f-30d512ca61a0"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "psal",
+    "collectorNumber": "L42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEATHCAP_CULTIVATOR": {
+    "scryfallId": "17f9339a-d327-4239-a0d8-12f7ff58982b",
+    "oracleId": "26e555f1-e0ed-4b84-8783-1c0c968f462d",
+    "name": "Deathcap Cultivator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deathcap Cultivator",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "{T}: Add {B} or {G}.\nDelirium — This creature has deathtouch as long as there are four or more card types among cards in your graveyard.",
+        "flavorText": "The old hermit would never say what he fed his mushrooms, and people learned not to ask.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Karla Ortiz",
+        "imageId": "17f9339a-d327-4239-a0d8-12f7ff58982b"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Delirium"
+    ],
+    "setCode": "dsc",
+    "collectorNumber": "175",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INQUISITOR_S_OX": {
+    "scryfallId": "18c87f7c-a750-46fb-a361-24fd5c6688da",
+    "oracleId": "224788aa-3876-4844-949e-918e6273151d",
+    "name": "Inquisitor's Ox",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Inquisitor's Ox",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Ox",
+        "oracleText": "Delirium — This creature gets +1/+0 and has vigilance as long as there are four or more card types among cards in your graveyard.",
+        "flavorText": "Many fields now lie fallow in Gavony, as the oxen have been confiscated to perform other duties.",
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Vincent Proce",
+        "imageId": "18c87f7c-a750-46fb-a361-24fd5c6688da"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Delirium"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "SOI-24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CUTTHROAT_IL_DAL": {
+    "scryfallId": "192bc089-696d-41b4-a02f-d7dc166feedd",
+    "oracleId": "c70526a6-9071-4f34-b5fb-9d075021f667",
+    "name": "Cutthroat il-Dal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cutthroat il-Dal",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Hellbent — This creature has shadow as long as you have no cards in hand. (It can block or be blocked by only creatures with shadow.)",
+        "flavorText": "Her blades slashed across the noble's shadow. He scoffed, then fell over dead.",
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Vance Kovacs",
+        "imageId": "192bc089-696d-41b4-a02f-d7dc166feedd"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Hellbent"
+    ],
+    "setCode": "fut",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUTHLESS_CULLBLADE": {
+    "scryfallId": "1da2dc92-0352-4757-8249-67f08a2464d1",
+    "oracleId": "b7748ad6-a8cd-45e7-a4d6-4ee747722657",
+    "name": "Ruthless Cullblade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ruthless Cullblade",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire Warrior",
+        "oracleText": "This creature gets +2/+1 as long as an opponent has 10 or less life.",
+        "flavorText": "She wields a blade as bloodthirsty and elegant as herself.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "rk post",
+        "imageId": "1da2dc92-0352-4757-8249-67f08a2464d1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "wwk",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAZORFIELD_RHINO": {
+    "scryfallId": "2019a1b4-7f88-4c8a-9ef4-bdfbd2f9e9cc",
+    "oracleId": "834efbf7-7b93-42ac-ab20-0b7b8ca58a16",
+    "name": "Razorfield Rhino",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Razorfield Rhino",
+        "manaCost": "{6}",
+        "typeLine": "Artifact Creature — Rhino",
+        "oracleText": "Metalcraft — This creature gets +2/+2 as long as you control three or more artifacts.",
+        "flavorText": "Adapted to tread on razorgrass, the rhino proved adept at treading on Phyrexians as well.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kekai Kotaki",
+        "imageId": "2019a1b4-7f88-4c8a-9ef4-bdfbd2f9e9cc"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [
+      "Metalcraft"
+    ],
+    "setCode": "mbs",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUNSPEAR_SHIKARI": {
+    "scryfallId": "20ac29ef-02e1-4500-bb83-5987beeaa849",
+    "oracleId": "c49db060-2d4b-4dc8-8e54-7606e079c9fe",
+    "name": "Sunspear Shikari",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sunspear Shikari",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Cat Soldier",
+        "oracleText": "As long as this creature is equipped, it has first strike and lifelink. (It deals combat damage before creatures without first strike. Damage dealt by it also causes you to gain that much life.)",
+        "flavorText": "Left without their leader Raksha, the leonin split into two prides: one side supported the regent kha, while the other rebelled in fury.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Allen Williams",
+        "imageId": "20ac29ef-02e1-4500-bb83-5987beeaa849"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AERONAUT_TINKERER": {
+    "scryfallId": "21c3a636-962f-46e0-9c9e-48523547acd0",
+    "oracleId": "a15bb807-ea31-4bff-b573-c249c4c78dd6",
+    "name": "Aeronaut Tinkerer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aeronaut Tinkerer",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "This creature has flying as long as you control an artifact. (It can't be blocked except by creatures with flying or reach.)",
+        "flavorText": "Magic.Wizards.com",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Willian Murai",
+        "imageId": "21c3a636-962f-46e0-9c9e-48523547acd0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "purl",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANGELIC_OVERSEER": {
+    "scryfallId": "221d999c-dde1-4a0f-87cf-9e9f44969f94",
+    "oracleId": "ec22386d-42fd-40f9-b800-a043e80faabe",
+    "name": "Angelic Overseer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Angelic Overseer",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying\nAs long as you control a Human, this creature has hexproof and indestructible.",
+        "flavorText": "From mortal hope immortal power springs.",
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jason Chan",
+        "imageId": "221d999c-dde1-4a0f-87cf-9e9f44969f94"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DWARFHOLD_CHAMPION": {
+    "scryfallId": "2404a028-05f5-469b-80e0-e820721ff266",
+    "oracleId": "3db19689-73bb-48b2-a464-63615eb6bba0",
+    "name": "Dwarfhold Champion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dwarfhold Champion",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Dwarf Warrior",
+        "oracleText": "As long as this creature is equipped, it gets +0/+2.",
+        "flavorText": "Courage is neither a shield nor an axe, but the will to wield both in defense of the innocent.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Miguel Mercado",
+        "imageId": "2404a028-05f5-469b-80e0-e820721ff266"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "afr",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THUNDERBLUST": {
+    "scryfallId": "249ec37d-c4ed-4af6-8c30-bcec13c108fd",
+    "oracleId": "30d961f7-aae2-4e5a-8f83-9dc17c7dee47",
+    "name": "Thunderblust",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thunderblust",
+        "manaCost": "{2}{R}{R}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Haste\nThis creature has trample as long as it has a -1/-1 counter on it.\nPersist (When this creature dies, if it had no -1/-1 counters on it, return it to the battlefield under its owner's control with a -1/-1 counter on it.)",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "249ec37d-c4ed-4af6-8c30-bcec13c108fd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Persist",
+      "Haste"
+    ],
+    "setCode": "mm2",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUMMIT_APES": {
+    "scryfallId": "25d44ce7-b542-44e1-88b6-8f0d4a9ce430",
+    "oracleId": "01799149-4bca-417b-9e89-14493fd46c79",
+    "name": "Summit Apes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Summit Apes",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Ape",
+        "oracleText": "As long as you control a Mountain, this creature has menace. (It can't be blocked except by two or more creatures.)",
+        "flavorText": "\"If you climb Skyfang Peak, avoid the pass. Generations of apes made that trail, and they don't tolerate trespassers.\"\n—Sachir, Akoum Expeditionary House",
+        "power": "5",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Véronique Meignaud",
+        "imageId": "25d44ce7-b542-44e1-88b6-8f0d4a9ce430"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "WWK-114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KIRD_APE": {
+    "scryfallId": "27423c7b-d1fd-471b-9648-8ea5ed9ebaf2",
+    "oracleId": "fbbc3acb-c917-44ff-ac6f-9dd6ebe3f4ad",
+    "name": "Kird Ape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kird Ape",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Ape",
+        "oracleText": "This creature gets +1/+2 as long as you control a Forest.",
+        "flavorText": "It puts the \"fur\" in \"fury.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Terese Nielsen",
+        "imageId": "27423c7b-d1fd-471b-9648-8ea5ed9ebaf2"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "9ed",
+    "collectorNumber": "199",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OKINA_NIGHTWATCH": {
+    "scryfallId": "27975411-1e35-420e-8564-af7f323dfabb",
+    "oracleId": "d1c222fe-0ca7-415b-a28a-3b704df53d66",
+    "name": "Okina Nightwatch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Okina Nightwatch",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Human Monk",
+        "oracleText": "As long as you have more cards in hand than each opponent, this creature gets +3/+3.",
+        "flavorText": "Only the most skilled budoka could protect the Okina Shrine. Only the best of these protectors took the night watch.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "27975411-1e35-420e-8564-af7f323dfabb"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "36290",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXPEDITION_SKULKER": {
+    "scryfallId": "27b8c378-63dc-41b0-b7c9-6d784c78f037",
+    "oracleId": "1b6e0d65-202e-4fd3-861e-8d2eaffe3269",
+    "name": "Expedition Skulker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Expedition Skulker",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire Rogue",
+        "oracleText": "This creature has deathtouch as long as you control another Rogue. (Any amount of damage it deals to a creature is enough to destroy it.)",
+        "flavorText": "Rogues bring an array of useful skills to the work of an adventuring party: stealth, agility, the ability to locate and disarm traps, and a subtle, deadly fighting style.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "27b8c378-63dc-41b0-b7c9-6d784c78f037"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j25",
+    "collectorNumber": "436",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRASPING_SCOUNDREL": {
+    "scryfallId": "27e2cc54-a570-44d1-8463-9af58cd14b15",
+    "oracleId": "d8c3298f-da96-46ee-8b46-ce1d0df95f62",
+    "name": "Grasping Scoundrel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grasping Scoundrel",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "This creature gets +1/+0 as long as it's attacking.",
+        "flavorText": "\"I can hear the plunder calling. It asks for me by name.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "27e2cc54-a570-44d1-8463-9af58cd14b15"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "M19-312",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOXIC_IGUANAR": {
+    "scryfallId": "28fd2dce-b91f-441f-a3ea-af87cc925713",
+    "oracleId": "87e148a0-4299-4771-b68a-6652a4c1c535",
+    "name": "Toxic Iguanar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Toxic Iguanar",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Lizard",
+        "oracleText": "This creature has deathtouch as long as you control a green permanent. (Any amount of damage a creature with deathtouch deals to a creature is enough to destroy it.)",
+        "flavorText": "There are no \"weak\" creatures on Jund. Even the smallest can strike a deadly blow.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Brandon Kitkouski",
+        "imageId": "28fd2dce-b91f-441f-a3ea-af87cc925713"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "con",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GAELICAT": {
+    "scryfallId": "29606c49-e1a4-49c3-883b-9122c08bbbc7",
+    "oracleId": "34bdeca4-b1e0-4fa3-afe4-bec743a080b8",
+    "name": "Gaelicat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gaelicat",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Flying, vigilance\nAs long as you control two or more artifacts, this creature gets +2/+0.",
+        "flavorText": "\"That's the ticket! Now, let's get moving to North Mountain!\"\n—Galuf Baldesion",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Narendra Bintara Adi",
+        "imageId": "29606c49-e1a4-49c3-883b-9122c08bbbc7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Vigilance"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRASH_OF_RAPTORS": {
+    "scryfallId": "2a03b859-811c-45ff-8d8a-9e87e4bbf113",
+    "oracleId": "5f554df8-c70f-4212-aec7-597fe8a88553",
+    "name": "Thrash of Raptors",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thrash of Raptors",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "As long as you control another Dinosaur, this creature gets +2/+0 and has trample.",
+        "flavorText": "They glide through the undergrowth, drawn to sounds of disturbance. They attack in unison and all share in the kill. And then they move on.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jonathan Kuo",
+        "imageId": "2a03b859-811c-45ff-8d8a-9e87e4bbf113"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARMORY_GUARD": {
+    "scryfallId": "2a907337-8096-4110-8b83-be7eba309dc9",
+    "oracleId": "96c67950-df59-430c-94fd-234086c6c8f2",
+    "name": "Armory Guard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Armory Guard",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Giant Soldier",
+        "oracleText": "This creature has vigilance as long as you control a Gate.",
+        "flavorText": "The Dimir agents watched from the shadows. \"Eight hours, and I've yet to see him blink,\" Nefara hissed. \"I suggest we find another way in.\"",
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "2a907337-8096-4110-8b83-be7eba309dc9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ddl",
+    "collectorNumber": "12",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GARRISON_SERGEANT": {
+    "scryfallId": "2bd957a1-a354-48e9-80ad-66e49aa845fc",
+    "oracleId": "cdf8b698-57d6-4d17-8168-87680060c0d6",
+    "name": "Garrison Sergeant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Garrison Sergeant",
+        "manaCost": "{3}{R}{W}",
+        "typeLine": "Creature — Lizard Soldier",
+        "oracleText": "This creature has double strike as long as you control a Gate.",
+        "flavorText": "In the Legion, no flagpole is merely decorative, and every ceremonial sword bears an edge.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Gabor Szikszai",
+        "imageId": "2bd957a1-a354-48e9-80ad-66e49aa845fc"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "grn",
+    "collectorNumber": "172",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOR_DUELIST": {
+    "scryfallId": "2e176ad2-f51f-4932-a1b0-53c039757e0b",
+    "oracleId": "758dd2fd-d3ec-4782-9a60-12b0d79719da",
+    "name": "Kor Duelist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kor Duelist",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Kor Soldier",
+        "oracleText": "As long as this creature is equipped, it has double strike. (It deals both first-strike and regular combat damage.)",
+        "flavorText": "\"Swords cannot reach far enough. Chains cannot strike hard enough. An eternal dilemma, but a simple one.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Izzy",
+        "imageId": "2e176ad2-f51f-4932-a1b0-53c039757e0b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "gn3",
+    "collectorNumber": "13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIVINITY_OF_PRIDE": {
+    "scryfallId": "2e40c246-276b-45f1-ac86-f15c0df62a08",
+    "oracleId": "2c91c236-34d7-4454-a55a-784db7f68bde",
+    "name": "Divinity of Pride",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Divinity of Pride",
+        "manaCost": "{W/B}{W/B}{W/B}{W/B}{W/B}",
+        "typeLine": "Creature — Spirit Avatar",
+        "oracleText": "Flying, lifelink\nThis creature gets +4/+4 as long as you have 25 or more life.",
+        "flavorText": "\"She spoke of mystery and portent, of such unfathomable things that my mind screamed for pity.\"\n—*The Seer's Parables*",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "2e40c246-276b-45f1-ac86-f15c0df62a08"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Lifelink"
+    ],
+    "setCode": "c13",
+    "collectorNumber": "228",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXPEDITION_CHAMPION": {
+    "scryfallId": "30084dc1-f501-4b7c-972d-1a3b9137083a",
+    "oracleId": "d432857f-cff6-421e-949b-ce2f65854e1d",
+    "name": "Expedition Champion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Expedition Champion",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "This creature gets +2/+0 as long as you control another Warrior.",
+        "flavorText": "Warriors are combat specialists who bring their deadly skills to bear against the many foes that adventurers face in the course of their journeys.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Bram Sels",
+        "imageId": "30084dc1-f501-4b7c-972d-1a3b9137083a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "znr",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KITESAIL_CORSAIR": {
+    "scryfallId": "36056deb-a7f8-4bb3-9c51-890e96f41482",
+    "oracleId": "6103f294-f920-4307-af80-d44cc71167fd",
+    "name": "Kitesail Corsair",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kitesail Corsair",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "This creature has flying as long as it's attacking.",
+        "flavorText": "\"Why perch in the crow's nest when I can fly like the crows?\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Greg Opalinski",
+        "imageId": "36056deb-a7f8-4bb3-9c51-890e96f41482"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AINOK_ARTILLERIST": {
+    "scryfallId": "3a4c8964-06e4-4a24-9a7e-9cac0fb8518e",
+    "oracleId": "860d0449-8032-458b-8335-30be238d6689",
+    "name": "Ainok Artillerist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ainok Artillerist",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Dog Archer",
+        "oracleText": "This creature has reach as long as it has a +1/+1 counter on it. (It can block creatures with flying.)",
+        "flavorText": "\"In the Tarkir I once knew, the Abzan revered their ancestor trees. Now, as Dromoka, they cut their finest groves to make weapons.\"\n—Sarkhan Vol",
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "James Paick",
+        "imageId": "3a4c8964-06e4-4a24-9a7e-9cac0fb8518e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dtk",
+    "collectorNumber": "171",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARDENT_RECRUIT": {
+    "scryfallId": "3a7f9bd7-7232-4956-873d-52ff82eabfb3",
+    "oracleId": "9275108c-7eaf-4edd-aa6d-e5263d5ac7fd",
+    "name": "Ardent Recruit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ardent Recruit",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Metalcraft — This creature gets +2/+2 as long as you control three or more artifacts.",
+        "flavorText": "\"We lost our homes and our kin. We won't let those rotters take our future as well.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "3a7f9bd7-7232-4956-873d-52ff82eabfb3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Metalcraft"
+    ],
+    "setCode": "td2",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRILL_SKIMMER": {
+    "scryfallId": "3b60dc6a-3b38-4dde-9dd4-aa49a53f29ae",
+    "oracleId": "45657f7f-9760-41f9-bcf7-9fbd2bbdb918",
+    "name": "Drill-Skimmer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drill-Skimmer",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Thopter",
+        "oracleText": "Flying\nThis creature has shroud as long as you control another artifact creature. (It can't be the target of spells or abilities.)",
+        "flavorText": "In close proximity, their magnetic energies merge and form a field of protection.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Zug",
+        "imageId": "3b60dc6a-3b38-4dde-9dd4-aa49a53f29ae"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "dst",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNCHAINED_BERSERKER": {
+    "scryfallId": "3c700d86-2e53-4e46-a606-f42cdfade875",
+    "oracleId": "32e7befb-c083-4e17-aaeb-7247f317bbcf",
+    "name": "Unchained Berserker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Unchained Berserker",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Berserker",
+        "oracleText": "Protection from white (This creature can't be blocked, targeted, dealt damage, enchanted, or equipped by anything white.)\nThis creature gets +2/+0 as long as it's attacking.",
+        "flavorText": "Sathros turned his restraints to revenge.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Bram Sels",
+        "imageId": "3c700d86-2e53-4e46-a606-f42cdfade875"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "M20-164",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STAMPEDING_HORNCREST": {
+    "scryfallId": "3d4d4bb3-583c-4c3b-b6b7-342a78bbaec6",
+    "oracleId": "fa6413f9-aa32-4fdc-a539-327a4ea906fe",
+    "name": "Stampeding Horncrest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stampeding Horncrest",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "This creature has haste as long as you control another Dinosaur.",
+        "flavorText": "When the golden city opened, the dinosaurs inside were eager to greet the new visitors.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jonathan Kuo",
+        "imageId": "3d4d4bb3-583c-4c3b-b6b7-342a78bbaec6"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "rix",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOGGY_SWAMP_HUNTERS": {
+    "scryfallId": "3f6e5869-ca25-4b98-a844-8a498cb40aab",
+    "oracleId": "1941cf7a-ad53-4bce-beea-104951619a30",
+    "name": "Foggy Swamp Hunters",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Foggy Swamp Hunters",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Human Ranger Ally",
+        "oracleText": "As long as you've drawn two or more cards this turn, this creature has lifelink and menace. (It can't be blocked except by two or more creatures.)",
+        "flavorText": "\"Set my lines by the riverbed! Caught ten fish and I killed 'em dead!\"\n—Foggy Swamp Tribe ditty",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Bun Toujo",
+        "imageId": "3f6e5869-ca25-4b98-a844-8a498cb40aab"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tla",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BALOTH_PUP": {
+    "scryfallId": "3f9c87f4-4fa5-4c97-9654-c4acd250f850",
+    "oracleId": "cb06cf58-3cc6-429a-9bb0-be4b1c53de30",
+    "name": "Baloth Pup",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Baloth Pup",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "This creature has trample as long as it has a +1/+1 counter on it.",
+        "flavorText": "A young baloth channels its energy into playful destructiveness. Over time, it becomes less playful but no less destructive.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "3f9c87f4-4fa5-4c97-9654-c4acd250f850"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ogw",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKIRK_OUTRIDER": {
+    "scryfallId": "416de0f4-1540-4286-a1ac-4f57301c54e9",
+    "oracleId": "40e52554-74e9-4d15-9a38-fc945f7d7ab8",
+    "name": "Skirk Outrider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skirk Outrider",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "As long as you control a Beast, this creature gets +2/+2 and has trample.",
+        "flavorText": "Once the goblins thought about it, they preferred being atop a slateback to being in front of, behind, or underneath one.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "416de0f4-1540-4286-a1ac-4f57301c54e9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "lgn",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARMORY_VETERAN": {
+    "scryfallId": "4177f57e-c239-47e8-ae50-5f593f6d54ec",
+    "oracleId": "2b51bbb3-1514-4a79-861f-b9cec9f0ec1b",
+    "name": "Armory Veteran",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Armory Veteran",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Orc Warrior",
+        "oracleText": "As long as this creature is equipped, it has menace. (It can't be blocked except by two or more creatures.)",
+        "flavorText": "\"This one is for goblins, this one is for owlbears, this one is for toast, this one is for . . .\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "4177f57e-c239-47e8-ae50-5f593f6d54ec"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "afr",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PTERODON_KNIGHT": {
+    "scryfallId": "41f00a04-1336-4830-a6c2-514848afefd2",
+    "oracleId": "8feb7149-a4dc-491a-a0b4-d2e8b85a97ce",
+    "name": "Pterodon Knight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pterodon Knight",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "This creature has flying as long as you control a Dinosaur.",
+        "flavorText": "\"To rise like the sun—there is no greater feeling.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "41f00a04-1336-4830-a6c2-514848afefd2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WOOLLY_MAMMOTHS": {
+    "scryfallId": "47435a8d-b849-4af4-b6da-5ed376bad7af",
+    "oracleId": "6e5f1088-a5ab-48ec-be27-c88eb164cf63",
+    "name": "Woolly Mammoths",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Woolly Mammoths",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Creature — Elephant",
+        "oracleText": "This creature has trample as long as you control a snow land.",
+        "flavorText": "\"Mammoths may be good to ride on, but they're certainly bad to fall off of!\"\n—Disa the Restless, journal entry",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dan Frazier",
+        "imageId": "47435a8d-b849-4af4-b6da-5ed376bad7af"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "cst",
+    "collectorNumber": "278",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WU_ADMIRAL": {
+    "scryfallId": "499ae191-80ac-42bf-b49d-db343803bd56",
+    "oracleId": "578c5b92-9f7e-4645-9624-f2c1a16b6aaf",
+    "name": "Wu Admiral",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wu Admiral",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "This creature gets +1/+1 as long as an opponent controls an Island.",
+        "flavorText": "The Wu kingdom's well-trained admirals were integral to the Southlands' victory at Red Cliffs as well as the kingdom's defense.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Zhang Jiazhen",
+        "imageId": "499ae191-80ac-42bf-b49d-db343803bd56"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ptk",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BACKWOODS_SURVIVALISTS": {
+    "scryfallId": "4a3a65be-0ca1-437f-aafe-d96e8fe428ad",
+    "oracleId": "d2aecca6-fe03-4686-9daa-68f1f6c73ab4",
+    "name": "Backwoods Survivalists",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Backwoods Survivalists",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Delirium — This creature gets +1/+1 and has trample as long as there are four or more card types among cards in your graveyard.",
+        "flavorText": "Paranoia has driven some Kessig communities to hunt down anything—and anyone—that travels through their woods.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Chris Rallis",
+        "imageId": "4a3a65be-0ca1-437f-aafe-d96e8fe428ad"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Delirium"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "150",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARMORY_MICE": {
+    "scryfallId": "4b041949-6fb6-40a6-9329-f209be537219",
+    "oracleId": "68f7d1bf-48c7-483e-b17f-a60008854b46",
+    "name": "Armory Mice",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Armory Mice",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Mouse",
+        "oracleText": "Celebration — This creature gets +0/+2 as long as two or more nonland permanents entered the battlefield under your control this turn.",
+        "flavorText": "They help ensure that the forges of the dwarves are always squeaky clean.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Chris Seaman",
+        "imageId": "4b041949-6fb6-40a6-9329-f209be537219"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Celebration"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CASTLE_RAPTORS": {
+    "scryfallId": "4b980a75-8d2d-4d56-be76-48159ef33631",
+    "oracleId": "6f967951-99d3-4cce-bb26-b60b22bb99b0",
+    "name": "Castle Raptors",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Castle Raptors",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Bird Soldier",
+        "oracleText": "Flying\nAs long as this creature is untapped, it gets +0/+2.",
+        "flavorText": "\"Each place we see is as ruined and lifeless as the last. So here we stay, because this ruin is *ours*.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "4b980a75-8d2d-4d56-be76-48159ef33631"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tsr",
+    "collectorNumber": "12",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOAM_LION": {
+    "scryfallId": "4edfbb5f-6cb4-4971-b159-ee5f875ba260",
+    "oracleId": "18961e25-3feb-4dba-a77f-240a4d664ecb",
+    "name": "Loam Lion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loam Lion",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "This creature gets +1/+2 as long as you control a Forest.",
+        "flavorText": "In Zendikar, today's grassland could be tomorrow's jungle, and hunting grounds change as quickly as the weather.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Daniel Ljunggren",
+        "imageId": "4edfbb5f-6cb4-4971-b159-ee5f875ba260"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "wwk",
+    "collectorNumber": "13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIVID_FLYING_FISH": {
+    "scryfallId": "50334cea-de2d-449e-ac6c-77de8ca87620",
+    "oracleId": "e8ec9ba4-dc6b-437d-863f-5ec37f4ae9cd",
+    "name": "Vivid Flying Fish",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vivid Flying Fish",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Fish Lizard",
+        "oracleText": "This creature has flying as long as it's attacking. (It can't be blocked except by creatures with flying or reach.)",
+        "flavorText": "The rainbow seen above the Great Lake of Cloud Dream just after the rain is nothing but the vivid-colored flying fishes' ritual dance.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tingting Yeh",
+        "imageId": "50334cea-de2d-449e-ac6c-77de8ca87620"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pz2",
+    "collectorNumber": "70817",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPUR_GRAPPLER": {
+    "scryfallId": "50bf91a7-4d04-437c-a290-6adb52f25312",
+    "oracleId": "42784364-719a-49ca-b515-64146a8f82e8",
+    "name": "Spur Grappler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spur Grappler",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "This creature gets +2/+1 as long as you control no untapped lands.",
+        "flavorText": "Grapplers hunt in packs, driving their victims over steep mountain cliffs.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "50bf91a7-4d04-437c-a290-6adb52f25312"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pcy",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLOUDSCULPT_TECHNICIAN": {
+    "scryfallId": "51077a54-15cf-4088-8e84-088d72e8e861",
+    "oracleId": "7c5183be-cddf-48fb-a4b5-dc5f6faf26de",
+    "name": "Cloudsculpt Technician",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cloudsculpt Technician",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Jellyfish Artificer",
+        "oracleText": "Flying\nAs long as you control an artifact, this creature gets +1/+0.",
+        "flavorText": "A cloudsculptor at work is like a carefully balanced weather system, and just as dangerous to interfere with.",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Elizabeth Peiró",
+        "imageId": "51077a54-15cf-4088-8e84-088d72e8e861"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "49",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AERIAL_ENGINEER": {
+    "scryfallId": "5314bae2-4930-4f8a-8a52-853bc3feb88f",
+    "oracleId": "27f5969e-d613-4cbc-87af-98899bb5c58a",
+    "name": "Aerial Engineer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aerial Engineer",
+        "manaCost": "{2}{W}{U}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "As long as you control an artifact, this creature gets +2/+0 and has flying.",
+        "flavorText": "The best of their trade know every bolt of their rigs, stem to stern.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "5314bae2-4930-4f8a-8a52-853bc3feb88f"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m19",
+    "collectorNumber": "211",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GEARSMITH_PRODIGY": {
+    "scryfallId": "554c0b9b-3c92-44b3-90b4-a725c7b68a73",
+    "oracleId": "589d6b67-17ad-4ca7-9b0c-1b919bf03a27",
+    "name": "Gearsmith Prodigy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gearsmith Prodigy",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "This creature gets +1/+0 as long as you control an artifact.",
+        "flavorText": "Young artificers on Kaladesh let their imaginations run wild.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "554c0b9b-3c92-44b3-90b4-a725c7b68a73"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "303",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JOR_KADEEN_THE_PREVAILER": {
+    "scryfallId": "576d86b5-2541-4ebc-8992-73248af7c805",
+    "oracleId": "7c4dbaa8-e24f-4126-81fe-3f218f520d8c",
+    "name": "Jor Kadeen, the Prevailer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jor Kadeen, the Prevailer",
+        "manaCost": "{3}{R}{W}",
+        "typeLine": "Legendary Creature — Human Warrior",
+        "oracleText": "First strike\nMetalcraft — Creatures you control get +3/+0 as long as you control three or more artifacts.",
+        "flavorText": "\"As long as my hand holds a blade, there's hope for a pure Mirrodin once again.\"",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Austin Hsu",
+        "imageId": "576d86b5-2541-4ebc-8992-73248af7c805"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Metalcraft",
+      "First strike"
+    ],
+    "setCode": "c21",
+    "collectorNumber": "220",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOORLAND_DRIFTER": {
+    "scryfallId": "5839942c-0ad1-4f77-97a0-142b8ef2266c",
+    "oracleId": "f5fa9138-9640-4586-bc81-caa6b8eae8b6",
+    "name": "Moorland Drifter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Moorland Drifter",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Delirium — This creature has flying as long as there are four or more card types among cards in your graveyard.",
+        "flavorText": "It has no apparent purpose or direction. It simply drifts, buoyed by breezes both tangible and otherworldly.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ryan Yee",
+        "imageId": "5839942c-0ad1-4f77-97a0-142b8ef2266c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Delirium"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARMED_ASSAILANT": {
+    "scryfallId": "58d18eaa-493d-4e3f-920f-276e393ae74d",
+    "oracleId": "53d7722a-b60b-4520-abce-f31b1e6bba00",
+    "name": "Armed Assailant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Armed Assailant",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Villain",
+        "oracleText": "Deathtouch\nAs long as this creature is equipped, it gets +2/+0 and has menace. (It can't be blocked except by two or more creatures.)",
+        "flavorText": "\"No matter where you flee, I shall find you and destroy you!\"\n—Melter, Bruno Horgan",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "John Thacker",
+        "imageId": "58d18eaa-493d-4e3f-920f-276e393ae74d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "647",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPINEHORN_MINOTAUR": {
+    "scryfallId": "59d6fd7a-5456-472b-bbd3-6c613343cd5a",
+    "oracleId": "db46b8f4-22bb-4042-abe8-dd83b2426142",
+    "name": "Spinehorn Minotaur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spinehorn Minotaur",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Minotaur Berserker",
+        "oracleText": "As long as you've drawn two or more cards this turn, this creature has double strike.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "59d6fd7a-5456-472b-bbd3-6c613343cd5a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "j21",
+    "collectorNumber": "516",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COURT_HOMUNCULUS": {
+    "scryfallId": "5a61aded-0007-48fb-b1d6-1c69a8703400",
+    "oracleId": "b597e801-2648-48b9-8a21-02baa13e37af",
+    "name": "Court Homunculus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Court Homunculus",
+        "manaCost": "{W}",
+        "typeLine": "Artifact Creature — Homunculus",
+        "oracleText": "This creature gets +1/+1 as long as you control another artifact.",
+        "flavorText": "Mages of Esper measure their wealth and status by the number of servants in their retinues.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "5a61aded-0007-48fb-b1d6-1c69a8703400"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "mm2",
+    "collectorNumber": "13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIGILED_CONTENDER": {
+    "scryfallId": "5ba81e67-8fa5-441c-bf14-2d75c168a617",
+    "oracleId": "84ec7820-6608-459c-b172-80e8e3750cf4",
+    "name": "Sigiled Contender",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sigiled Contender",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "This creature has lifelink as long as it has a +1/+1 counter on it. (Damage dealt by this creature also causes you to gain that much life.)",
+        "flavorText": "\"All right. Warm-ups are over.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "5ba81e67-8fa5-441c-bf14-2d75c168a617"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m21",
+    "collectorNumber": "323",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYRIDER_TRAINEE": {
+    "scryfallId": "5c631c16-cf37-4d0f-81fa-f05bbc285b1c",
+    "oracleId": "d8b6d9be-11a6-402c-a847-ec6cababe560",
+    "name": "Skyrider Trainee",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skyrider Trainee",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "This creature has flying as long as it's enchanted.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "5c631c16-cf37-4d0f-81fa-f05bbc285b1c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "psal",
+    "collectorNumber": "G54",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOR_SCYTHEMASTER": {
+    "scryfallId": "5ce587ba-f23a-4548-a5b8-fca54984d4b4",
+    "oracleId": "21083222-12b6-4892-8078-1859140b7cc3",
+    "name": "Kor Scythemaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kor Scythemaster",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Kor Soldier Ally",
+        "oracleText": "This creature has first strike as long as it's attacking.",
+        "flavorText": "The kor of Zendikar are known for quiet determination in the face of overwhelming odds.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ryan Pancoast",
+        "imageId": "5ce587ba-f23a-4548-a5b8-fca54984d4b4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ogw",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NAYA_HUSHBLADE": {
+    "scryfallId": "5eed1b7f-0672-4066-9e21-c5252f6dc482",
+    "oracleId": "d1f986dc-e0f0-4cc6-9dc4-fe97608da332",
+    "name": "Naya Hushblade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Naya Hushblade",
+        "manaCost": "{R/W}{G}",
+        "typeLine": "Creature — Elf Rogue",
+        "oracleText": "As long as you control another multicolored permanent, this creature gets +1/+1 and has shroud. (It can't be the target of spells or abilities.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R",
+          "W"
+        ],
+        "artist": "Jason Chan",
+        "imageId": "5eed1b7f-0672-4066-9e21-c5252f6dc482"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "arb",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GNARLED_SAGE": {
+    "scryfallId": "5f22116a-8b6a-4bbe-999f-7329e1e2b2d9",
+    "oracleId": "c36d7c2b-204f-432e-b8e2-ffb3ffb49231",
+    "name": "Gnarled Sage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gnarled Sage",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Treefolk Druid",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nAs long as you've drawn two or more cards this turn, this creature gets +0/+2 and has vigilance. (Attacking doesn't cause it to tap.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Raoul Vitale",
+        "imageId": "5f22116a-8b6a-4bbe-999f-7329e1e2b2d9"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "m21",
+    "collectorNumber": "187",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMBRAAL_BRUISER": {
+    "scryfallId": "5f90f877-4033-4892-a6e7-22d2b393c65d",
+    "oracleId": "f432998f-7737-4f41-86b5-a4372bc5db2b",
+    "name": "Embraal Bruiser",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Embraal Bruiser",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "This creature enters tapped.\nThis creature has menace as long as you control an artifact.",
+        "flavorText": "In Embraal, inventor gangs defend their turf with ingenious devices and blunt objects.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "5f90f877-4033-4892-a6e7-22d2b393c65d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JUND_HACKBLADE": {
+    "scryfallId": "61e3b73a-598b-4854-b811-2fd40fbce2d0",
+    "oracleId": "e0e2184e-d4e3-4620-89c4-8378ce3a59c3",
+    "name": "Jund Hackblade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jund Hackblade",
+        "manaCost": "{B/G}{R}",
+        "typeLine": "Creature — Goblin Berserker",
+        "oracleText": "As long as you control another multicolored permanent, this creature gets +1/+1 and has haste.",
+        "flavorText": "The knights were halfway through their precombat rites before they realized the foul brute meant to start without them.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G",
+          "R"
+        ],
+        "artist": "Dan Dos Santos",
+        "imageId": "61e3b73a-598b-4854-b811-2fd40fbce2d0"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "arb",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BALLYNOCK_COHORT": {
+    "scryfallId": "61e9d49a-5f60-4b2a-b709-a5eb1c6cc249",
+    "oracleId": "7c415180-c179-474b-8c58-e7096bd2c763",
+    "name": "Ballynock Cohort",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ballynock Cohort",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Kithkin Soldier",
+        "oracleText": "First strike\nThis creature gets +1/+1 as long as you control another white creature.",
+        "flavorText": "A kithkin's worst enemy is solitude.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "61e9d49a-5f60-4b2a-b709-a5eb1c6cc249"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "EMA-3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOGGART_SPRITE_CHASER": {
+    "scryfallId": "6341b73b-a035-45a2-908d-879c8eed4bbd",
+    "oracleId": "e52d8e5c-59cf-48bb-80f7-f7996c8a81bc",
+    "name": "Boggart Sprite-Chaser",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boggart Sprite-Chaser",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "As long as you control a Faerie, this creature gets +1/+1 and has flying.",
+        "flavorText": "\"Auntie pointed out to the faerie how much mischief a flying boggart could wreak, and a beautiful new friendship was born.\"\n—A tale of Auntie Grub",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mark Poole",
+        "imageId": "6341b73b-a035-45a2-908d-879c8eed4bbd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "lrw",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOOD_CURSED_KNIGHT": {
+    "scryfallId": "644bb558-113e-4e49-a395-7e0036c3419c",
+    "oracleId": "fdf51294-6270-4c94-a2a9-8df37dfcaa0d",
+    "name": "Blood-Cursed Knight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blood-Cursed Knight",
+        "manaCost": "{1}{W}{B}",
+        "typeLine": "Creature — Vampire Knight",
+        "oracleText": "As long as you control an enchantment, this creature gets +1/+1 and has lifelink. (Damage dealt by this creature also causes you to gain that much life.)",
+        "flavorText": "\"The bloodlust shall not control me, for my oath is my greatest compulsion.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "644bb558-113e-4e49-a395-7e0036c3419c"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ori",
+    "collectorNumber": "211",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLOUDREACH_CAVALRY": {
+    "scryfallId": "65680bda-b999-4c2a-99a8-b03287e00807",
+    "oracleId": "fe4af83a-3554-44cd-94ed-18b773cf6d60",
+    "name": "Cloudreach Cavalry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cloudreach Cavalry",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "As long as you control a Bird, this creature gets +2/+2 and has flying.",
+        "flavorText": "\"It's easy to lose sight of hope until you gaze out from my vantage point.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "65680bda-b999-4c2a-99a8-b03287e00807"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "lgn",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEJIRI_MERFOLK": {
+    "scryfallId": "6ae04d82-56f5-4c72-b1c1-40c7d9640b7c",
+    "oracleId": "74231a46-7e2d-497f-ae66-b40f8989551c",
+    "name": "Sejiri Merfolk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sejiri Merfolk",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Soldier",
+        "oracleText": "As long as you control a Plains, this creature has first strike and lifelink. (Damage dealt by a creature with lifelink also causes its controller to gain that much life.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Anthony Francisco",
+        "imageId": "6ae04d82-56f5-4c72-b1c1-40c7d9640b7c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "wwk",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCORIA_CAT": {
+    "scryfallId": "7274f791-c9f1-49a1-9002-10e94caee96e",
+    "oracleId": "88ef3413-21bc-428a-9803-d275e437c4bd",
+    "name": "Scoria Cat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scoria Cat",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "This creature gets +3/+3 as long as you control no untapped lands.",
+        "flavorText": "Like a volcano, it too can erupt without warning.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrew Goldhawk",
+        "imageId": "7274f791-c9f1-49a1-9002-10e94caee96e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "pcy",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEATHMASK_NEZUMI": {
+    "scryfallId": "743e38d1-b1cd-4828-ad3d-529a9f882115",
+    "oracleId": "fede7174-261c-4724-b6b0-f2a71f8ff53f",
+    "name": "Deathmask Nezumi",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deathmask Nezumi",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Rat Shaman",
+        "oracleText": "As long as you have seven or more cards in hand, this creature gets +2/+1 and has fear. (It can't be blocked except by artifact creatures and/or black creatures.)",
+        "flavorText": "\"We had him cornered, we did . . . and, well, you know what they say about rats.\"\n—Araba patrol survivor",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "743e38d1-b1cd-4828-ad3d-529a9f882115"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "sok",
+    "collectorNumber": "66",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPECTRAL_CLOAK": {
+    "scryfallId": "7524fd0d-a675-41d6-bc99-bd3ba336893b",
+    "oracleId": "fadfa9f9-d096-4083-8630-1c18928133ff",
+    "name": "Spectral Cloak",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spectral Cloak",
+        "manaCost": "{U}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has shroud as long as it's untapped. (It can't be the target of spells or abilities.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Rob Alexander",
+        "imageId": "7524fd0d-a675-41d6-bc99-bd3ba336893b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "leg",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOLDGRAF_SCAVENGER": {
+    "scryfallId": "76755763-7c02-451f-b799-2106a3a4973b",
+    "oracleId": "558fe476-edbd-4f18-86ee-6d7f61331789",
+    "name": "Moldgraf Scavenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Moldgraf Scavenger",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Fungus",
+        "oracleText": "Delirium — This creature gets +3/+0 as long as there are four or more card types among cards in your graveyard.",
+        "flavorText": "\"When I was a child, we worried about picking the wrong mushrooms for the cook pot. Now we must worry about being picked ourselves.\"\n—Halana, Kessig ranger",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "76755763-7c02-451f-b799-2106a3a4973b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Delirium"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "218",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KITHKIN_GREATHEART": {
+    "scryfallId": "777d091f-7718-434f-894d-2fe40e0e67dd",
+    "oracleId": "6034e7c1-b3ec-4927-b517-f8e3ca87252e",
+    "name": "Kithkin Greatheart",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kithkin Greatheart",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Kithkin Soldier",
+        "oracleText": "As long as you control a Giant, this creature gets +1/+1 and has first strike.",
+        "flavorText": "Sometimes a curious giant singles out a \"little one\" to follow for a few days, never realizing the effect it will have on the little one's life.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "777d091f-7718-434f-894d-2fe40e0e67dd"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mma",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRESHER_LIZARD": {
+    "scryfallId": "7adc95ae-fe9d-4cee-9726-5bb2ea2247dd",
+    "oracleId": "46a69558-fad1-4a04-9bb6-8f971bbbb038",
+    "name": "Thresher Lizard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thresher Lizard",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Lizard",
+        "oracleText": "This creature gets +1/+2 as long as you have one or fewer cards in hand.",
+        "flavorText": "The sound of its plated tail beating on desert rocks is often mistaken for the footfalls of a much larger predator.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Craig J Spearing",
+        "imageId": "7adc95ae-fe9d-4cee-9726-5bb2ea2247dd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "AKH-150",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WILDFIRE_WICKERFOLK": {
+    "scryfallId": "7c7fbc6e-09c6-4f0e-92e2-766aae950b3d",
+    "oracleId": "50c7b13d-f217-45de-837c-49f934840368",
+    "name": "Wildfire Wickerfolk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wildfire Wickerfolk",
+        "manaCost": "{R}{G}",
+        "typeLine": "Artifact Creature — Scarecrow",
+        "oracleText": "Haste\nDelirium — This creature gets +1/+1 and has trample as long as there are four or more card types among cards in your graveyard.",
+        "flavorText": "\"Isn't fire supposed to *kill* those things?\"\n—Tyvar",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "J.Lonnee",
+        "imageId": "7c7fbc6e-09c6-4f0e-92e2-766aae950b3d"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Delirium",
+      "Haste"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "239",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRASH_OF_RHINO_BEETLES": {
+    "scryfallId": "7d18265b-f84f-483a-9c80-591bd93deeb4",
+    "oracleId": "61dd63b7-11dc-49db-8106-36d455a182be",
+    "name": "Crash of Rhino Beetles",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crash of Rhino Beetles",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Trample\nThis creature gets +10/+10 as long as you control ten or more lands.",
+        "flavorText": "\"When the herd moves, so should you.\"\n—Yon Basrel, Oran-Rief survivalist",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mike Burns",
+        "imageId": "7d18265b-f84f-483a-9c80-591bd93deeb4"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "pz2",
+    "collectorNumber": "70693",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IMPERIAL_LANCER": {
+    "scryfallId": "7ed3784a-2dc0-4626-aa6a-268c1e2ac83c",
+    "oracleId": "c0018eb9-6aae-4188-8f36-ab5fc69f5903",
+    "name": "Imperial Lancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Imperial Lancer",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "This creature has double strike as long as you control a Dinosaur.",
+        "flavorText": "\"Together my mount and I are stronger than either of us apart.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Viktor Titov",
+        "imageId": "7ed3784a-2dc0-4626-aa6a-268c1e2ac83c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIRALING_DUELIST": {
+    "scryfallId": "81ac77ab-e51a-4c5c-ab6b-3fb610a5fa27",
+    "oracleId": "cc803d43-cbbe-4964-8077-ba405a741047",
+    "name": "Spiraling Duelist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spiraling Duelist",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Human Berserker",
+        "oracleText": "Metalcraft — This creature has double strike as long as you control three or more artifacts.",
+        "flavorText": "\"I never move the same way twice. Those rotters can't grasp chaos.\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "81ac77ab-e51a-4c5c-ab6b-3fb610a5fa27"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Metalcraft"
+    ],
+    "setCode": "mbs",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KONDA_S_HATAMOTO": {
+    "scryfallId": "83425cf6-f6ad-4302-8f07-099eabdd4b40",
+    "oracleId": "6c076776-f497-4abf-ab06-f551768cffae",
+    "name": "Konda's Hatamoto",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Konda's Hatamoto",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Samurai",
+        "oracleText": "Bushido 1 (Whenever this creature blocks or becomes blocked, it gets +1/+1 until end of turn.)\nAs long as you control a legendary Samurai, this creature gets +1/+2 and has vigilance. (Attacking doesn't cause this creature to tap.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "83425cf6-f6ad-4302-8f07-099eabdd4b40"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Bushido"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIRIT_OF_THE_NIGHT": {
+    "scryfallId": "845c4b06-090f-4217-acb2-8900b7dab37c",
+    "oracleId": "73016220-2436-4072-96dd-65c0cb05fff4",
+    "name": "Spirit of the Night",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spirit of the Night",
+        "manaCost": "{6}{B}{B}{B}",
+        "typeLine": "Legendary Creature — Demon Spirit",
+        "oracleText": "Flying, trample, haste, protection from black\nSpirit of the Night has first strike as long as it's attacking.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Cliff Nielsen",
+        "imageId": "845c4b06-090f-4217-acb2-8900b7dab37c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 9,
+    "keywords": [
+      "Flying",
+      "Protection",
+      "Haste",
+      "Trample"
+    ],
+    "setCode": "mir",
+    "collectorNumber": "146",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARKOV_CRUSADER": {
+    "scryfallId": "87d8354b-df56-4294-9f8a-b7c92e31b88e",
+    "oracleId": "0a8511b9-ed7d-4e33-9c2f-96b9a4c535e2",
+    "name": "Markov Crusader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Markov Crusader",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Vampire Knight",
+        "oracleText": "Lifelink\nThis creature has haste as long as you control another Vampire.",
+        "flavorText": "The surviving members of the Markov bloodline drove through a crush of horrors to reclaim their ancestral home.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "87d8354b-df56-4294-9f8a-b7c92e31b88e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KITESAIL_APPRENTICE": {
+    "scryfallId": "88e2315e-41d9-4e46-bee4-c8f92e91e2a9",
+    "oracleId": "c2157f2c-a3a4-47aa-b33e-b2c65e11c2e5",
+    "name": "Kitesail Apprentice",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kitesail Apprentice",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Kor Soldier",
+        "oracleText": "As long as this creature is equipped, it gets +1/+1 and has flying.",
+        "flavorText": "Carving lines through the sky, kite sailors map trails for the pilgrims below to follow.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Austin Hsu",
+        "imageId": "88e2315e-41d9-4e46-bee4-c8f92e91e2a9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "wwk",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VINTARA_SNAPPER": {
+    "scryfallId": "897edf01-fc6f-4835-b025-c137d921ce09",
+    "oracleId": "57c5cbd6-432d-4d48-9fc6-5b8a6eb223f1",
+    "name": "Vintara Snapper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vintara Snapper",
+        "manaCost": "{G}{G}",
+        "typeLine": "Creature — Turtle",
+        "oracleText": "This creature has shroud as long as you control no untapped lands. (It can't be the target of spells or abilities.)",
+        "flavorText": "\"The snapper is still when all else moves\nAnd strikes when all are dozing.\"\n—*Tales of the Vintara Forest*",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Joel Biske",
+        "imageId": "897edf01-fc6f-4835-b025-c137d921ce09"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pcy",
+    "collectorNumber": "132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "APOSTLE_OF_INVASION": {
+    "scryfallId": "8a973487-5def-4771-bb77-5748cbd2f469",
+    "oracleId": "d56f1543-2b2d-4ce3-bcfe-41224a0cece4",
+    "name": "Apostle of Invasion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Apostle of Invasion",
+        "manaCost": "{4}{W}{W}",
+        "typeLine": "Creature — Phyrexian Angel",
+        "oracleText": "Flying\nCorrupted — As long as an opponent has three or more poison counters, this creature has double strike.",
+        "flavorText": "\"Be not afraid of the holy chorus. Join in rapturous harmony.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Marcela Bolívar",
+        "imageId": "8a973487-5def-4771-bb77-5748cbd2f469"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Corrupted"
+    ],
+    "setCode": "one",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRABAPPLE_COHORT": {
+    "scryfallId": "8c17b102-a25d-4fff-8718-3bdd53092552",
+    "oracleId": "470f0043-3ffe-470b-981f-425f0583a87e",
+    "name": "Crabapple Cohort",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crabapple Cohort",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Treefolk Warrior",
+        "oracleText": "This creature gets +1/+1 as long as you control another green creature.",
+        "flavorText": "Seven wives made seven pies from seven apples, each plucked from its branches. Now bare and bitter, it comes to exact its price: one apple, one bone.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Richard Whitters",
+        "imageId": "8c17b102-a25d-4fff-8718-3bdd53092552"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "109",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORTHODOXY_ENFORCER": {
+    "scryfallId": "8c938a0f-531c-4293-a89c-c7440d5acc5d",
+    "oracleId": "8e8875dc-72a4-47a4-bb99-ca817c177b82",
+    "name": "Orthodoxy Enforcer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orthodoxy Enforcer",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Phyrexian Cleric",
+        "oracleText": "Vigilance\nThis creature gets +2/+0 as long as you control two or more artifacts.",
+        "flavorText": "The mites sniff out any potential interlopers. He handles the rest.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Xavier Ribeiro",
+        "imageId": "8c938a0f-531c-4293-a89c-c7440d5acc5d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "one",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLEDGLING_OSPREY": {
+    "scryfallId": "8cd46bfa-ca09-422f-9891-db9399fa2d3a",
+    "oracleId": "d5482ccf-7c3f-45b8-aaa8-8f6686fe584d",
+    "name": "Fledgling Osprey",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fledgling Osprey",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "This creature has flying as long as it's enchanted.",
+        "flavorText": "It isn't truly born until its first flight.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "8cd46bfa-ca09-422f-9891-db9399fa2d3a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "uds",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FEN_STALKER": {
+    "scryfallId": "8e7d1125-7eb0-4065-bc2c-764689380fa8",
+    "oracleId": "cfd00c0e-d034-4b39-a3d3-f8b8842045dd",
+    "name": "Fen Stalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fen Stalker",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Nightstalker",
+        "oracleText": "This creature has fear as long as you control no untapped lands. (It can't be blocked except by artifact creatures and/or black creatures.)",
+        "flavorText": "As silent as a shadow, and just as hard to flee.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Edward P. Beard, Jr.",
+        "imageId": "8e7d1125-7eb0-4065-bc2c-764689380fa8"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pcy",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GNARLWOOD_DRYAD": {
+    "scryfallId": "8eae5e38-49ee-49ef-87ca-7b570d9ca2b8",
+    "oracleId": "e823639f-1308-47f6-9b51-8fd9a682489a",
+    "name": "Gnarlwood Dryad",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gnarlwood Dryad",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Dryad Horror",
+        "oracleText": "Deathtouch\nDelirium — This creature gets +2/+2 as long as there are four or more card types among cards in your graveyard.",
+        "flavorText": "As Emrakul's influence radiated across Innistrad, evacuation from Kessig's remote villages became increasingly difficult.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "8eae5e38-49ee-49ef-87ca-7b570d9ca2b8"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Deathtouch",
+      "Delirium"
+    ],
+    "setCode": "dsc",
+    "collectorNumber": "180",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MUDBRAWLER_COHORT": {
+    "scryfallId": "8fcb1f26-9a2a-40bd-b291-4ef8ce375cdf",
+    "oracleId": "788bd9ae-b78e-4c86-bf12-d4e19780491a",
+    "name": "Mudbrawler Cohort",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mudbrawler Cohort",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Haste\nThis creature gets +1/+1 as long as you control another red creature.",
+        "flavorText": "Before a raid, the members of Wort's gang egg each other on with tales of their hunger and what they'll do to sate it, each outdoing the last.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lucio Parrillo",
+        "imageId": "8fcb1f26-9a2a-40bd-b291-4ef8ce375cdf"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "shm",
+    "collectorNumber": "100",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEMON_S_JESTER": {
+    "scryfallId": "90a3f694-0cf3-4d25-8ab0-36a3f637ff9a",
+    "oracleId": "da67c329-ca12-45fc-a9cd-8fb6f27501a9",
+    "name": "Demon's Jester",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Demon's Jester",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Imp",
+        "oracleText": "Flying\nHellbent — This creature gets +2/+1 as long as you have no cards in hand.",
+        "flavorText": "They knock 'em dead, with or without the punch line.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "90a3f694-0cf3-4d25-8ab0-36a3f637ff9a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Hellbent"
+    ],
+    "setCode": "dis",
+    "collectorNumber": "42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KESSIG_DIRE_SWINE": {
+    "scryfallId": "9235ac46-dac9-46e6-9c7f-a69caaee1a2e",
+    "oracleId": "61c10a4c-b1d5-4777-a813-d231980be2a7",
+    "name": "Kessig Dire Swine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kessig Dire Swine",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Boar Horror",
+        "oracleText": "Delirium — This creature has trample as long as there are four or more card types among cards in your graveyard.",
+        "flavorText": "In the quiet of the Somberwald, new horrors stir.",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jason Kang",
+        "imageId": "9235ac46-dac9-46e6-9c7f-a69caaee1a2e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Delirium"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "214",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEONIN_LIGHTBRINGER": {
+    "scryfallId": "96ae13df-670e-49a0-99b0-baf908ac9eb4",
+    "oracleId": "1f874f7f-b959-4de5-a5db-e65a90ac2f9d",
+    "name": "Leonin Lightbringer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Leonin Lightbringer",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Cat Rebel",
+        "oracleText": "Ward {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nAs long as this creature is equipped, it gets +1/+1.",
+        "flavorText": "\"It's hard to fight for the future if you can't see the way forward.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ernanda Souza",
+        "imageId": "96ae13df-670e-49a0-99b0-baf908ac9eb4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Ward"
+    ],
+    "setCode": "one",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AURIOK_GLAIVEMASTER": {
+    "scryfallId": "97cce4d4-bff2-4dbb-bc12-1a726ad82dd4",
+    "oracleId": "77ec26f9-c7de-4bd8-bafb-8b9825891015",
+    "name": "Auriok Glaivemaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Auriok Glaivemaster",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "As long as this creature is equipped, it gets +1/+1 and has first strike.",
+        "flavorText": "\"Give me a bit of steel and I'll deliver it into the hearts of my enemies.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "John Matson",
+        "imageId": "97cce4d4-bff2-4dbb-bc12-1a726ad82dd4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "dst",
+    "collectorNumber": "1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DHUND_OPERATIVE": {
+    "scryfallId": "98f91094-5214-4268-8f91-5ba0b891256d",
+    "oracleId": "e025c802-9862-4dee-8c2a-b875eb001714",
+    "name": "Dhund Operative",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dhund Operative",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "As long as you control an artifact, this creature gets +1/+0 and has deathtouch.",
+        "flavorText": "Baral's spies always have the latest technology.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "98f91094-5214-4268-8f91-5ba0b891256d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "74",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRIXIS_GRIMBLADE": {
+    "scryfallId": "9dbcb812-15ad-4878-9968-cfa65a352703",
+    "oracleId": "04b1280a-b084-4f65-a3f4-2ba41d6c26fa",
+    "name": "Grixis Grimblade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grixis Grimblade",
+        "manaCost": "{U/R}{B}",
+        "typeLine": "Creature — Zombie Warrior",
+        "oracleText": "As long as you control another multicolored permanent, this creature gets +1/+1 and has deathtouch. (Any amount of damage it deals to a creature is enough to destroy that creature.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R",
+          "U"
+        ],
+        "artist": "Trevor Claxton",
+        "imageId": "9dbcb812-15ad-4878-9968-cfa65a352703"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "arb",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRENCH_STALKER": {
+    "scryfallId": "aa1b987a-a3b9-4cd1-85b0-e58df4130934",
+    "oracleId": "5a0c215a-2164-4cb8-89ff-2558b6b42dca",
+    "name": "Trench Stalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trench Stalker",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Beast Horror",
+        "oracleText": "As long as you've drawn two or more cards this turn, this creature has deathtouch and lifelink.",
+        "flavorText": "It can hear a panicked heartbeat from a thousand paces away.",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Nino Vecia",
+        "imageId": "aa1b987a-a3b9-4cd1-85b0-e58df4130934"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "bro",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOLTARI_LANCER": {
+    "scryfallId": "ab4b6c91-dd07-4d39-bd36-6fbf28e7698e",
+    "oracleId": "d2cbd71a-841b-4ff2-a794-247a030e0233",
+    "name": "Soltari Lancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soltari Lancer",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Soltari Knight",
+        "oracleText": "Shadow (This creature can block or be blocked by only creatures with shadow.)\nThis creature has first strike as long as it's attacking.",
+        "flavorText": "\"In times of war the victors rarely save their best for last.\"\n—Gerrard of the *Weatherlight*",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matthew D. Wilson",
+        "imageId": "ab4b6c91-dd07-4d39-bd36-6fbf28e7698e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Shadow"
+    ],
+    "setCode": "tmp",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAVBLADE_HEAVY": {
+    "scryfallId": "b3872341-d711-407b-85e4-46ccb99988e1",
+    "oracleId": "67821712-e58f-4fee-81af-021059ac72ea",
+    "name": "Gravblade Heavy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gravblade Heavy",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "As long as you control an artifact, this creature gets +1/+0 and has deathtouch.",
+        "flavorText": "It's difficult to dodge a weapon that commands gravity itself.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Andrew Mar",
+        "imageId": "b3872341-d711-407b-85e4-46ccb99988e1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIGANTOAD": {
+    "scryfallId": "bc10d648-4053-460f-bc52-9c20477bf6de",
+    "oracleId": "fa5e4aa5-e2cb-4c8c-91cb-554bec0f21d4",
+    "name": "Gigantoad",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gigantoad",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Frog",
+        "oracleText": "As long as you control seven or more lands, this creature gets +2/+2.",
+        "flavorText": "The gigantoad is known to venture outside of its comfort zone during downpours—much to the surprise of unsuspecting hikers.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Hristo D. Chukov",
+        "imageId": "bc10d648-4053-460f-bc52-9c20477bf6de"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "187",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYHUNTER_STRIKE_FORCE": {
+    "scryfallId": "beddac9b-e39c-4c7e-8ae7-0c3152178934",
+    "oracleId": "8ade0824-9fd0-417d-94dd-ac399e35b582",
+    "name": "Skyhunter Strike Force",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skyhunter Strike Force",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Cat Knight",
+        "oracleText": "Flying\nMelee (Whenever this creature attacks, it gets +1/+1 until end of turn for each opponent you attacked this combat.)\nLieutenant — As long as you control your commander, other creatures you control have melee.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "beddac9b-e39c-4c7e-8ae7-0c3152178934"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Melee",
+      "Lieutenant"
+    ],
+    "setCode": "onc",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUN_CRESTED_PTERODON": {
+    "scryfallId": "c298b51f-b725-4a51-a91e-4c66cf6dfe9d",
+    "oracleId": "747dbf0c-dcea-49d1-ab6c-d74016d580a4",
+    "name": "Sun-Crested Pterodon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sun-Crested Pterodon",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Flying\nThis creature has vigilance as long as you control another Dinosaur.",
+        "flavorText": "\"Pterodons tolerate no intrusion into their skies. Even the clouds must ask permission.\"\n—Mahuiz, Sun Empire archer",
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "c298b51f-b725-4a51-a91e-4c66cf6dfe9d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "rix",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCURRID_COLONY": {
+    "scryfallId": "c9c0a096-870d-443c-92d3-f7ec1f362616",
+    "oracleId": "7dd68fd9-f5a7-49ee-aa36-93d646254335",
+    "name": "Scurrid Colony",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scurrid Colony",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Squirrel",
+        "oracleText": "Reach\nThis creature gets +2/+2 as long as you control eight or more lands.",
+        "flavorText": "Scurrid teeth evolved to crack open nuts, but they work just as well for crushing bones if the nest is threatened.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "c9c0a096-870d-443c-92d3-f7ec1f362616"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "stx",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRIARBERRY_COHORT": {
+    "scryfallId": "caf9d87a-533c-4641-9738-e7b98d92b015",
+    "oracleId": "598283f3-ae29-43b9-8743-6c065136dcad",
+    "name": "Briarberry Cohort",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Briarberry Cohort",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Faerie Soldier",
+        "oracleText": "Flying\nThis creature gets +1/+1 as long as you control another blue creature.",
+        "flavorText": "A clique can cause far more mischief than one faerie on its own.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "caf9d87a-533c-4641-9738-e7b98d92b015"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "shm",
+    "collectorNumber": "30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIRIDIAN_BETRAYERS": {
+    "scryfallId": "cc6ea52f-4b24-45ff-99e1-4d0e1bd42875",
+    "oracleId": "1d5ebb4b-0248-4255-8e1a-bcba4d5eaf7f",
+    "name": "Viridian Betrayers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Viridian Betrayers",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Creature — Phyrexian Elf Warrior",
+        "oracleText": "This creature has infect as long as an opponent is poisoned. (It deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)",
+        "flavorText": "To secure a place in Phyrexia's ranks, they hunted their surviving kin.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "cc6ea52f-4b24-45ff-99e1-4d0e1bd42875"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "nph",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIRE_KAVU": {
+    "scryfallId": "ccdd0086-eb27-48b3-91cb-a113aa1de102",
+    "oracleId": "0bc58096-7925-4870-bb95-58cce51ea8e7",
+    "name": "Mire Kavu",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mire Kavu",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Kavu",
+        "oracleText": "This creature gets +1/+1 as long as you control a Swamp.",
+        "flavorText": "\"At this rate,\" said Sisay, \"the next kavu we see will have wings.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Wayne England",
+        "imageId": "ccdd0086-eb27-48b3-91cb-a113aa1de102"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pls",
+    "collectorNumber": "67",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHROME_STEED": {
+    "scryfallId": "ce881675-690f-4d4c-a951-ab8302e904ab",
+    "oracleId": "8475f55e-473c-4df0-bae2-3cbbbde4ff12",
+    "name": "Chrome Steed",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chrome Steed",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Horse",
+        "oracleText": "Metalcraft — This creature gets +2/+2 as long as you control three or more artifacts.",
+        "flavorText": "According to Auriok myth, it collects scrap in order to reassemble its lost rider.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jana Schirmer & Johannes Voss",
+        "imageId": "ce881675-690f-4d4c-a951-ab8302e904ab"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Metalcraft"
+    ],
+    "setCode": "som",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAND_BALL_GUEST": {
+    "scryfallId": "d6e75228-16af-42b0-8441-ed253a660cc9",
+    "oracleId": "0b0fdb28-f7b1-4c30-9f2c-14a9074da22d",
+    "name": "Grand Ball Guest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grand Ball Guest",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Peasant",
+        "oracleText": "Celebration — This creature gets +1/+1 and has trample as long as two or more nonland permanents entered the battlefield under your control this turn.",
+        "flavorText": "It takes a lot to pull a master blacksmith from their work, but Maurice couldn't pass up an invitation to a lavish Delverhaugh feast.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Leanna Crossan",
+        "imageId": "d6e75228-16af-42b0-8441-ed253a660cc9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Celebration"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RADIANT_ESSENCE": {
+    "scryfallId": "d9b1853c-d5b9-4361-8a2f-36946a62847b",
+    "oracleId": "48e2f2c3-9d99-4535-915f-551fbb59ade5",
+    "name": "Radiant Essence",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Radiant Essence",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "This creature gets +1/+2 as long as an opponent controls a black permanent.",
+        "flavorText": "\"Her beauty was the beauty of the Sun at midday, deadly to those who underestimated her strength.\"\n—Azeworai, \"Kenechi's Dream\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Jennifer Law",
+        "imageId": "d9b1853c-d5b9-4361-8a2f-36946a62847b"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mir",
+    "collectorNumber": "276",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GALLANT_PIE_WIELDER": {
+    "scryfallId": "e053d330-d0a2-4468-afba-42bf165b8fbf",
+    "oracleId": "fba2fa87-3f2a-4a9f-a19e-a1f9dada4118",
+    "name": "Gallant Pie-Wielder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gallant Pie-Wielder",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Dwarf Knight",
+        "oracleText": "First strike\nCelebration — This creature has double strike as long as two or more nonland permanents entered the battlefield under your control this turn.",
+        "flavorText": "\"Time for your just desserts, redcap scum!\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Forsyth",
+        "imageId": "e053d330-d0a2-4468-afba-42bf165b8fbf"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Celebration",
+      "First strike"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AURIOK_SUNCHASER": {
+    "scryfallId": "e274a8b3-2d92-43d9-a436-d3f6f619ca95",
+    "oracleId": "5e07d314-119f-4918-9105-77543ccae7e6",
+    "name": "Auriok Sunchaser",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Auriok Sunchaser",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Metalcraft — As long as you control three or more artifacts, this creature gets +2/+2 and has flying.",
+        "flavorText": "\"Grant me loft. Grant me light. Grant me the accuracy I need to kill all who threaten Bladehold.\"\n—Prayer to the Whitesun",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "James Ryman",
+        "imageId": "e274a8b3-2d92-43d9-a436-d3f6f619ca95"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Metalcraft"
+    ],
+    "setCode": "som",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WATER_WURM": {
+    "scryfallId": "e3da4a88-5225-467f-9240-f30bc1eee520",
+    "oracleId": "cfa373c4-6e42-4cf3-94a4-841f2824603e",
+    "name": "Water Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Water Wurm",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "This creature gets +0/+1 as long as an opponent controls an Island.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "e3da4a88-5225-467f-9240-f30bc1eee520"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "drk",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIGHT_REVELERS": {
+    "scryfallId": "e3f82c5c-77fa-45f3-a91e-4c2489444855",
+    "oracleId": "56697773-8a04-49b6-8327-895e972da7e7",
+    "name": "Night Revelers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Night Revelers",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "This creature has haste as long as an opponent controls a Human.",
+        "flavorText": "Vampires think of themselves as the indisputable nobility of Innistrad, able to do as they please. There are few who can prove them wrong.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Steve Argyle",
+        "imageId": "e3f82c5c-77fa-45f3-a91e-4c2489444855"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "isd",
+    "collectorNumber": "153",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ESPER_STORMBLADE": {
+    "scryfallId": "e60ac6f0-fdec-4e2c-86c6-02d36c7bbaf5",
+    "oracleId": "186b2fbd-8a59-4447-bd54-45a7c3ff5af2",
+    "name": "Esper Stormblade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Esper Stormblade",
+        "manaCost": "{W/B}{U}",
+        "typeLine": "Artifact Creature — Vedalken Wizard",
+        "oracleText": "As long as you control another multicolored permanent, this creature gets +1/+1 and has flying.",
+        "flavorText": "Stormcallers came to appreciate the novelty of Jund's volcanic updrafts.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U",
+          "W"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "e60ac6f0-fdec-4e2c-86c6-02d36c7bbaf5"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "arb",
+    "collectorNumber": "132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CARAPACE_FORGER": {
+    "scryfallId": "e9948e4c-d583-4fde-a305-df926cf00199",
+    "oracleId": "9e623e0a-3c2d-4536-b12f-9437ef820499",
+    "name": "Carapace Forger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Carapace Forger",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Artificer",
+        "oracleText": "Metalcraft — This creature gets +2/+2 as long as you control three or more artifacts.",
+        "flavorText": "\"Bows and whips cannot save us from these new horrors of the Mephidross.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "e9948e4c-d583-4fde-a305-df926cf00199"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Metalcraft"
+    ],
+    "setCode": "som",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PATRIOT_YOUNG_AVENGER": {
+    "scryfallId": "ea0705fd-5446-4960-8afc-ba005f006727",
+    "oracleId": "6c44d62f-52de-446c-9824-6b474534a612",
+    "name": "Patriot, Young Avenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Patriot, Young Avenger",
+        "manaCost": "{2}{R/W}",
+        "typeLine": "Legendary Creature — Human Hero",
+        "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nAs long as Patriot is equipped, other creatures you control get +1/+0.",
+        "flavorText": "\"I wear this uniform out of respect for Captain America . . . Isaiah Bradley, my grandfather.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Aniekan Udofia",
+        "imageId": "ea0705fd-5446-4960-8afc-ba005f006727"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Prowess"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "570",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIMANA_SKITTER_SNEAK": {
+    "scryfallId": "ea080141-6262-4595-8058-b2969b3f016b",
+    "oracleId": "d3168d01-12ea-4a93-9519-82a3544b5bf6",
+    "name": "Nimana Skitter-Sneak",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nimana Skitter-Sneak",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "As long as an opponent has eight or more cards in their graveyard, this creature gets +1/+0 and has menace. (It can't be blocked except by two or more creatures.)",
+        "flavorText": "\"When navigating dangerous terrain, one hundred legs are better than two.\"",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Campbell White",
+        "imageId": "ea080141-6262-4595-8058-b2969b3f016b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "znr",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCRAPYARD_MONGREL": {
+    "scryfallId": "eb00bd3a-833e-4226-a73e-17c9043c0994",
+    "oracleId": "b6c8f2fe-b097-49af-ab59-16590dedaf32",
+    "name": "Scrapyard Mongrel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scrapyard Mongrel",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Dog",
+        "oracleText": "As long as you control an artifact, this creature gets +2/+0 and has trample. (It can deal excess combat damage to the player or planeswalker it's attacking.)",
+        "flavorText": "Trespassers are welcome to try.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "eb00bd3a-833e-4226-a73e-17c9043c0994"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m15",
+    "collectorNumber": "160",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ASHENMOOR_COHORT": {
+    "scryfallId": "ebdef552-17d0-4b48-868e-058af02101be",
+    "oracleId": "c627f1a8-9a57-4eb9-a8a5-2c285446fe97",
+    "name": "Ashenmoor Cohort",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ashenmoor Cohort",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Elemental Warrior",
+        "oracleText": "This creature gets +1/+1 as long as you control another black creature.",
+        "flavorText": "\"None will concede a place for us in this world. If it is not for us, neither shall it be for them. We rest not until they choke in its cold ashes.\"\n—Illulia of Nighthearth",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lucio Parrillo",
+        "imageId": "ebdef552-17d0-4b48-868e-058af02101be"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "56",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHALMA_S_WARDEN": {
+    "scryfallId": "efbf5ff1-6539-4116-ad4f-ce412ae20640",
+    "oracleId": "3b17dc39-a564-4c61-b483-98ed3da4361b",
+    "name": "Ghalma's Warden",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghalma's Warden",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Elephant Soldier",
+        "oracleText": "Metalcraft — This creature gets +2/+2 as long as you control three or more artifacts.",
+        "flavorText": "A special unit guards the loxodon artificer known as Ghalma the Shaper. They are armed and armored in her finest works of silver and steel.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "efbf5ff1-6539-4116-ad4f-ce412ae20640"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Metalcraft"
+    ],
+    "setCode": "som",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GUUL_DRAZ_VAMPIRE": {
+    "scryfallId": "f3c92575-1c97-48bf-801b-22f34040cf9a",
+    "oracleId": "00d3fcdf-6959-4437-9bad-93a8625510a1",
+    "name": "Guul Draz Vampire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Guul Draz Vampire",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Vampire Rogue",
+        "oracleText": "As long as an opponent has 10 or less life, this creature gets +2/+1 and has intimidate. (It can't be blocked except by artifact creatures and/or creatures that share a color with it.)",
+        "flavorText": "\"A creature's bloodscent is a beacon that cannot be disguised.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steve Argyle",
+        "imageId": "f3c92575-1c97-48bf-801b-22f34040cf9a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "zen",
+    "collectorNumber": "93",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SNAPSAIL_GLIDER": {
+    "scryfallId": "fc98e0af-b18e-4172-bc56-19952ebd0303",
+    "oracleId": "43e2e1ed-5c6a-49b4-8ab8-57861c02fc3e",
+    "name": "Snapsail Glider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Snapsail Glider",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Metalcraft — This creature has flying as long as you control three or more artifacts.",
+        "flavorText": "Built from a reconfigured thresher, it charges with light reflected off the golden plain, ready to take to the air in case of danger.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Efrem Palacios",
+        "imageId": "fc98e0af-b18e-4172-bc56-19952ebd0303"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Metalcraft"
+    ],
+    "setCode": "som",
+    "collectorNumber": "203",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVEN_ENVOY": {
+    "scryfallId": "40ead30e-9f96-4fca-b619-fdc8d1b5e2e0",
+    "oracleId": "73cd8461-7930-4e2d-9a14-4d10db91e93e",
+    "name": "Aven Envoy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aven Envoy",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Bird Soldier",
+        "oracleText": "Flying",
+        "flavorText": "Their grieving faces tell far more than a list of casualties ever could.",
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "40ead30e-9f96-4fca-b619-fdc8d1b5e2e0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "lgn",
+    "collectorNumber": "30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAN_PULSE_OCHU": {
+    "scryfallId": "4dced21f-478c-4500-9484-af5864dea5cc",
+    "oracleId": "09b71c95-7b5d-4cee-a505-e0dda72715b7",
+    "name": "Gran Pulse Ochu",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gran Pulse Ochu",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Plant Beast",
+        "oracleText": "Deathtouch\n{8}: Until end of turn, this creature gets +1/+1 for each permanent card in your graveyard.",
+        "flavorText": "A mysterious beast that has grown large on its journey across Gran Pulse. Its children, known as microchus, accompany the ochu in combat against adventurers.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Domenico Cava",
+        "imageId": "4dced21f-478c-4500-9484-af5864dea5cc"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "189",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KENTARO_THE_SMILING_CAT": {
+    "scryfallId": "ddcea3b3-5852-4ae1-a952-7b392564cb9d",
+    "oracleId": "bfaf20a7-a11c-4f57-8eb6-b03b5223704d",
+    "name": "Kentaro, the Smiling Cat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kentaro, the Smiling Cat",
+        "manaCost": "{1}{W}",
+        "typeLine": "Legendary Creature — Human Samurai",
+        "oracleText": "Bushido 1 (Whenever this creature blocks or becomes blocked, it gets +1/+1 until end of turn.)\nYou may pay {X} rather than pay the mana cost for Samurai spells you cast, where X is that spell's mana value.",
+        "flavorText": "\"The bonds of bushido will draw the dishonored back someday, and I will be there waiting.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Donato Giancola",
+        "imageId": "ddcea3b3-5852-4ae1-a952-7b392564cb9d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Bushido"
+    ],
+    "setCode": "bok",
+    "collectorNumber": "13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROGRAKH_SON_OF_ROHGAHH": {
+    "scryfallId": "05e9d580-5da2-4559-b611-870726c53791",
+    "oracleId": "584cee10-f18c-4633-95cc-f2e7a11841ac",
+    "name": "Rograkh, Son of Rohgahh",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rograkh, Son of Rohgahh",
+        "manaCost": "{0}",
+        "typeLine": "Legendary Creature — Kobold Warrior",
+        "oracleText": "First strike, menace, trample\nPartner (You can have two commanders if both have partner.)",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Square Enix",
+        "imageId": "05e9d580-5da2-4559-b611-870726c53791"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "First strike",
+      "Partner",
+      "Trample",
+      "Menace"
+    ],
+    "setCode": "pf25",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SNUBHORN_SENTRY": {
+    "scryfallId": "3ee111e7-5309-46d5-b3ea-a049b3962c23",
+    "oracleId": "fc8d3933-f7fe-4849-aae7-737ce6f067de",
+    "name": "Snubhorn Sentry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Snubhorn Sentry",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Ascend (If you control ten or more permanents, you get the city's blessing for the rest of the game.)\nThis creature gets +3/+0 as long as you have the city's blessing.",
+        "flavorText": "They're fun to train—if you like stubborn, aggressive, and fiercely territorial.",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "3ee111e7-5309-46d5-b3ea-a049b3962c23"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Ascend"
+    ],
+    "setCode": "rix",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRITON_SHORETHIEF": {
+    "scryfallId": "d8f0fe22-dc89-4ad8-b5f6-6d91b61f1385",
+    "oracleId": "d8f6f61a-39c2-4bac-9f16-a5e6340f6301",
+    "name": "Triton Shorethief",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Triton Shorethief",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Merfolk Rogue",
+        "oracleText": "",
+        "flavorText": "At sunrise, the Champion and her companions awoke to find their supplies gone and Brygus, their sentry, dead. Carefully arranged piles of ornamental shells gave a clear warning: go no further.\n—*The Theriad*",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "d8f0fe22-dc89-4ad8-b5f6-6d91b61f1385"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "ths",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WATCHWOLF": {
+    "scryfallId": "49a40fcb-4edf-4ad1-92e9-eb1958688855",
+    "oracleId": "a35c2e20-eb90-4132-b65f-be1fcb569819",
+    "name": "Watchwolf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Watchwolf",
+        "manaCost": "{G}{W}",
+        "typeLine": "Creature — Wolf",
+        "oracleText": "",
+        "flavorText": "Only in Ravnica do the wolves watch the flock.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "49a40fcb-4edf-4ad1-92e9-eb1958688855"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "arc",
+    "collectorNumber": "100",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

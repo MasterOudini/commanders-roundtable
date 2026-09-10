@@ -1,0 +1,57 @@
+// `Drill-Skimmer` - a conditional static (as long as you control another artifact creature) threshold
+// until end of turn where it pumps (D194's carrier, D301). Generated from one table row.
+
+import { DRILL_SKIMMER } from '../../../data/fixtures/engineCards';
+import type { CardData } from '../../../data/cardTypes';
+import type { CardScript, ScriptCtx } from '../api';
+import type { InstanceId } from '../../types/ids';
+
+function printed(card: CardData, expected: string): string {
+  const actual = card.faces[0]?.oracleText;
+  if (actual !== expected) {
+    throw new Error(
+      `${card.name} reads "${actual}" and its script was written for "${expected}". ` +
+        'Re-read the card before re-registering it (D90).',
+    );
+  }
+  return expected;
+}
+
+const PRINTED = printed(DRILL_SKIMMER, "Flying\nThis creature has shroud as long as you control another artifact creature. (It can't be the target of spells or abilities.)");
+const LINES = PRINTED.split('\n');
+
+// "as long as you control another artifact creature" - read off the state, the PRINTED faces, the turn record, the life totals and the live combat; never derived (D317, D388).
+function cond1Of(ctx: ScriptCtx, self: InstanceId): boolean {
+  const me = ctx.query.controllerOf(self);
+  if (me === null) return false;
+  let n = 0;
+  for (const inst of Object.values(ctx.state.cards)) {
+    if (inst.zone.kind !== 'battlefield') continue;
+    if (inst.controller !== me) continue;
+    if (inst.id === self) continue;
+    const face = ctx.oracle.byPrinting(inst.printingId)?.faces[0];
+    if (!face) continue;
+    if (!face.typeLine.types.includes("Artifact")) continue;
+    if (!face.typeLine.types.includes("Creature")) continue;
+    n++;
+  }
+  return n >= 1;
+}
+
+
+export const DRILL_SKIMMER_SCRIPT: CardScript = {
+  oracleId: DRILL_SKIMMER.oracleId,
+  name: DRILL_SKIMMER.name,
+  statics: [
+    {
+      abilityId: 'threshold-grant-1',
+      text: LINES[1] as string,
+      layer: 'ability',
+      activeZones: ['battlefield'],
+      appliesTo: (ctx, self, candidate, _chars) => candidate === self && cond1Of(ctx, self),
+      modify: (chars) => {
+        chars.keywords.add("shroud");
+      },
+    },
+  ],
+};

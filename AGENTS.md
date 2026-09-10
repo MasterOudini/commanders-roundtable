@@ -14123,6 +14123,90 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       615.5's order, the payload arms, the 95 quoted-grant shapes, the spell-row
       table (21 of 43), the 55 REDUNDANT hand scripts; prior items stand.
 
+- [x] **M6.4hu — THE CONDITIONAL STATIC: `as long as <condition>` on a static
+      the row maker already reads (2026-09-10):** **8,264 of 31,692
+      Commander-legal cards now execute completely, up from 8,111 (+153, every
+      one a generated row).** `SHIPPED_SCRIPTS` 5,232 → **5,385**; ledger 1,200
+      (unchanged — none of the 153 was ever in it, and the 291 refused were never
+      OFFERED). Fixtures 5,755 → **5,915** (5,760 by name + 148 tokens: the 153
+      and the seven fixtures the conditions are met with). **No engine file is
+      touched**; `scriptableToday` stays at 1,295 (landed BY NAME — the
+      classifier does not read a condition on a static), and the ladder's
+      `layer6` rung fell 2,961 → 2,818. Decisions in **D388**.
+      ⚠️ **PRICED FROM BOTH SIDES.** Fresh true-leftover after D387: 23,581
+      incomplete, 11,890 one piece across 9,972 shapes. `as long as` reads as a
+      tail — 386 cards over 347 shapes — until the sentence is split at its own
+      joint: **448 one-piece cards, 260 CONDITIONS × 214 BODIES**, and the bodies
+      are the static grammar read since D300/D346/D351 (D374's move one sentence
+      over: a product of two small vocabularies looks like a tail from outside).
+      Priced at 139 landable; the row maker rowed 153 after two readers widened on
+      its own histogram (the card's own name arrives as `~`; the gate runs at the
+      HEAD of `parseStatic`, or the anthem regex swallows a trailing `as long
+      as`). Refused 291 by reason: 192 conditions outside the closed vocabulary
+      (durations, stickers, `remains exiled`, a planeswalker by subtype), 39
+      lines ending at a scrubbed quote (D366/D384), 31 bodies outside the static
+      vocabulary (`can attack as though it didn't have defender` 5 — a combat
+      WIDENING, D147), 19 spells, 3 conditional combat restrictions, 2 scoped
+      anthems, and a tail.
+      ⚠️ **THE SEAM IS THE GENERATOR'S** — D351's Threshold gate over a CONDITION
+      VOCABULARY: `gen88-cond.cjs` is the ONE closed reader (nineteen kinds: the
+      graveyard's count and its card types, `you control <pred>` over a closed
+      predicate reader, an opponent's board, the card itself equipped / enchanted
+      / tapped / attacking / carrying a counter, the hand's size, the turn's
+      draws, casts, entries and deaths, the commander on the battlefield, life,
+      poison, an opponent's graveyard), the BODY handed back to `parseStatic`
+      unchanged, and the def's `appliesTo` gaining one conjunct: a per-module
+      helper. ⚠️ **EVERY HELPER IS DERIVE-FREE (D317)** — a static's condition is
+      asked INSIDE a derive, so the engine's own `activationConditionsHold`
+      (D342), which derives, cannot be reused; the helpers read `ctx.state`, the
+      PRINTED faces, the turn record, the life totals and the live combat.
+      ⚠️ **BOTH STAGES, PROVEN** (D381): `condOff` reads the subject at its base
+      with the condition unmet — broken first where the armed board already
+      satisfies it — then the condition is met and the static read. **153 suites
+      / 306 tests green on the SECOND port**; the first landed 144 and named three
+      generator faults, each fixed at the GENERATOR (D267): a +1/+1 counter the
+      stage puts moves P/T ON ITS OWN (layer 7d — when the fixture IS the count,
+      it moves what it counts); a creature that cannot be blocked never sees a
+      declare-blockers prompt (D232/D234 — `as long as it's attacking, it has
+      flying` is exactly that creature, so the attacking stage reads the moment
+      the attack is declared); a fixture bound and never read is a `tsc` error.
+      ⚠️ **THE STAGE LIVES ON THE ROW, so a stage fix is a RE-ROW** — regenerating
+      from the old rows reproduced the old suites twice. ⚠️ Invariant 14 twice,
+      both caught by COUNTING backslashes against the original line (a hoisted
+      regex halved to a bare `d`; a swap anchor halved to a real newline).
+      ⚠️⚠️ **THE FIRST GATE WENT RED ON A FLOOR THAT NO LONGER MEASURES WHAT IT
+      NAMES**: the bot tournament's `decisions per second` read 14.67 against 15
+      under the gate's own load, 18 alone and idle (the bot battery: 8,049
+      decisions in 455 s, 85.0% wins, 0 faults). 135 → 23.7 → 18 on the SAME
+      fixed deck is the ENGINE's per-event work over the registry, not the bot;
+      the floor moves 15 → 10 (its THIRD move, so D180's rule now owes a
+      MECHANISM — an engine decision: time `decide()` apart from the submit and
+      profile the registry-scaling walk; the replacement funnel's unindexed
+      battlefield × defs comparison is one candidate). Rerun from the top.
+      Fixtures 5,915 · botPool creature 4,880 / enchantment 478 · ladder [1295,
+      1384, 2818, 4547, 5885] · `layer6` 1,130 (grant 700 / anthem 123 /
+      conditional 96) · tier3 silentAfter 8,564 · bot reach 8,046 → **8,199**
+      from **242** commanders · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5538 files, 27196 passed / 11 skipped ·
+      500-seed gate, 6 shards, 1113.8 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D388): the tournament floor's MECHANISM (an engine item; the floor is at 10 and may not move again); the classifier seam (an `as long as` tail on
+      `staticRowShape` needs ONE condition vocabulary where the classifier can
+      read it — `parseCond` and D386's `parseCount` want the same move); the
+      conditional COMBAT restriction (3 refused + the 5 `can attack as though it
+      didn't have defender` widenings); the conditional scoped anthem (2); the 39
+      conditional lines ending at a scrubbed quote (the quoted-grant carrier under
+      a gate); the DURATIONS among the 192 (`for as long as you control this
+      creature` 14, `remains on the battlefield` 6, `remains exiled` 13 — a
+      continuous effect with an END, another mechanism); then D387's list
+      unchanged — the pump's tail (78), the activated pump with a count (~4),
+      the blocked head on another subject (3), the negative pump per card in
+      hand (2), ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS (gate debt, priced), the
+      two-line shape (10), the three unstageable prevention fixtures, the Circles
+      of Protection (52), CR 615.5's order, the payload arms, the 95 quoted-grant
+      shapes, the spell-row table (21 of 43), the 55 REDUNDANT hand scripts;
+      prior items stand.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
