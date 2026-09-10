@@ -43369,6 +43369,138 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FOG": {
+    "scryfallId": "17d591ad-4f3d-4cc6-a888-e30b46ee0771",
+    "oracleId": "27e9db49-7af7-4bef-ad4c-bf5dfb92030d",
+    "name": "Fog",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fog",
+        "manaCost": "{G}",
+        "typeLine": "Instant",
+        "oracleText": "Prevent all combat damage that would be dealt this turn.",
+        "flavorText": "\"I fear no army or beast, but only the morning fog. Our assault can survive everything else.\"\n—Lord Hilneth",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "17d591ad-4f3d-4cc6-a888-e30b46ee0771"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "m13",
+    "collectorNumber": "172",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MENDING_HANDS": {
+    "scryfallId": "0ad55756-15c6-4c07-8b1c-1b8327c40f14",
+    "oracleId": "a612f30d-cd55-438b-a7de-8c80509183aa",
+    "name": "Mending Hands",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mending Hands",
+        "manaCost": "{W}",
+        "typeLine": "Instant",
+        "oracleText": "Prevent the next 4 damage that would be dealt to any target this turn.",
+        "flavorText": "\"I can staunch their blood, mend their flesh, and knit their bones. But I cannot restore their hope.\"\n—Tender-Hand, kitsune healer",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Douglas Shuler",
+        "imageId": "0ad55756-15c6-4c07-8b1c-1b8327c40f14"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "9ed",
+    "collectorNumber": "29★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INDESTRUCTIBLE_AURA": {
+    "scryfallId": "0397a4f3-6d7c-43d1-9fc2-c0eaf780ecb0",
+    "oracleId": "e10e8d56-bba6-412d-970e-c24969f32b5b",
+    "name": "Indestructible Aura",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Indestructible Aura",
+        "manaCost": "{W}",
+        "typeLine": "Instant",
+        "oracleText": "Prevent all damage that would be dealt to target creature this turn.",
+        "flavorText": "Theodar strode the battle lines, snatching swords with his bare hands and casting them aside until all cowered before him.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Poole",
+        "imageId": "0397a4f3-6d7c-43d1-9fc2-c0eaf780ecb0"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "chr",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEFEND_THE_HEARTH": {
+    "scryfallId": "c3e4c4c3-db3c-49d4-8080-1c93470f8b4d",
+    "oracleId": "1dd64972-5713-4c25-b7a5-a35a56886ef4",
+    "name": "Defend the Hearth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Defend the Hearth",
+        "manaCost": "{1}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Prevent all combat damage that would be dealt to players this turn.",
+        "flavorText": "The defenders said not a word. Their shields, spears, and stances were warning enough.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "c3e4c4c3-db3c-49d4-8080-1c93470f8b4d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ths",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "PIRANHA_MARSH": {
     "scryfallId": "9332ac39-1a34-42e2-9c84-645cbf1721cf",
     "oracleId": "6bc8fd7e-7616-484a-ac23-04d37c93733b",
@@ -184229,6 +184361,1173 @@
     ],
     "setCode": "pwcs",
     "collectorNumber": "2024-02",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALABASTER_WALL": {
+    "scryfallId": "9cf393a3-831e-4d3a-8404-ee83f60970aa",
+    "oracleId": "f9f52651-cc64-48c5-bc18-cd5f646dfb1f",
+    "name": "Alabaster Wall",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Alabaster Wall",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Wall",
+        "oracleText": "Defender (This creature can't attack.)\n{T}: Prevent the next 1 damage that would be dealt to any target this turn.",
+        "flavorText": "Its mortar is mixed with waters straight from the Fountain of Cho.",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "9cf393a3-831e-4d3a-8404-ee83f60970aa"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "mmq",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AMULET_OF_KROOG": {
+    "scryfallId": "3fc1716d-5817-49f4-a9db-c162e6ceacbf",
+    "oracleId": "8eca999e-f7f8-4354-b419-2df4249c4361",
+    "name": "Amulet of Kroog",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Amulet of Kroog",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}: Prevent the next 1 damage that would be dealt to any target this turn.",
+        "flavorText": "Among the first allies Urza gained were the people of Kroog. As a sign of friendship, Urza gave the healers of the city potent amulets; afterwards, thousands journeyed to Kroog in hope of healing.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Margaret Organ-Kean",
+        "imageId": "3fc1716d-5817-49f4-a9db-c162e6ceacbf"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "4ed",
+    "collectorNumber": "293",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARGIVIAN_BLACKSMITH": {
+    "scryfallId": "5f604338-5ee4-4c47-ad5a-5c805c96c8de",
+    "oracleId": "80240b6b-d20d-4dfb-a2c5-c272c3b43a70",
+    "name": "Argivian Blacksmith",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Argivian Blacksmith",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "{T}: Prevent the next 2 damage that would be dealt to target artifact creature this turn.",
+        "flavorText": "Through years of study and training, the Blacksmiths of Argive became adept at reassembling the mangled remains of the strange, mechanical creatures abounding in their native land.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kerstin Kaman",
+        "imageId": "5f604338-5ee4-4c47-ad5a-5c805c96c8de"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "atq",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVEN_REDEEMER": {
+    "scryfallId": "8a2fa0a3-e40f-49e4-a4fd-427e7e808afd",
+    "oracleId": "faac29f5-10ad-4800-a9d3-2259c4800352",
+    "name": "Aven Redeemer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aven Redeemer",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Bird Cleric",
+        "oracleText": "Flying\n{T}: Prevent the next 2 damage that would be dealt to any target this turn.",
+        "flavorText": "Redeemers rise with the sun, and the spirits of the people rise with them.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Tim Hildebrandt",
+        "imageId": "8a2fa0a3-e40f-49e4-a4fd-427e7e808afd"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "lgn",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BENEVOLENT_ANCESTOR": {
+    "scryfallId": "7e7ff919-60b6-4405-96aa-2dc6e52e2e3c",
+    "oracleId": "ee414d20-b18e-4bed-97fc-3c7535089ec1",
+    "name": "Benevolent Ancestor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Benevolent Ancestor",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Defender (This creature can't attack.)\n{T}: Prevent the next 1 damage that would be dealt to any target this turn.",
+        "flavorText": "Although the door is flimsy and the lock pathetically small, Josuri's family never fears the night outside.",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Nick Percival",
+        "imageId": "7e7ff919-60b6-4405-96aa-2dc6e52e2e3c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "IMA-12",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAREGIVER": {
+    "scryfallId": "0c33d3fe-cdd3-4829-8f10-6611f063983b",
+    "oracleId": "7661484b-1faa-4ed7-b77b-fc1e625d23e3",
+    "name": "Caregiver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Caregiver",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{W}, Sacrifice a creature: Prevent the next 1 damage that would be dealt to any target this turn.",
+        "flavorText": "\"The guilds each believe its way is right, but their ways only bring blood to Ravnica's streets and tears to Ravnica's families.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "William Simpson",
+        "imageId": "0c33d3fe-cdd3-4829-8f10-6611f063983b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "rav",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLERGY_EN_VEC": {
+    "scryfallId": "fcb0e068-16d0-4e1c-acad-0a6d34148c5a",
+    "oracleId": "a5a1b4c9-474a-42b7-b412-c2d43a3353db",
+    "name": "Clergy en-Vec",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Clergy en-Vec",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{T}: Prevent the next 1 damage that would be dealt to any target this turn.",
+        "flavorText": "\"Faith's shield is hammered out by the blows of unbelievers.\"\n—Oracle *en*-Vec",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "fcb0e068-16d0-4e1c-acad-0a6d34148c5a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COMBAT_MEDIC": {
+    "scryfallId": "2a324a98-31c2-470a-b792-96b6b098a58c",
+    "oracleId": "541b7b2f-7bb0-4858-8dc5-6e50de443c33",
+    "name": "Combat Medic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Combat Medic",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Cleric Soldier",
+        "oracleText": "{1}{W}: Prevent the next 1 damage that would be dealt to any target this turn.",
+        "flavorText": "\"We'd no sooner knock 'em back on their heels than that accursed sawbones would show up and patch 'em back together again.\"\n—Ivra Jursdotter",
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Susan Van Camp",
+        "imageId": "2a324a98-31c2-470a-b792-96b6b098a58c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "fem",
+    "collectorNumber": "1b",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DARU_HEALER": {
+    "scryfallId": "0e4f3eff-ac99-41e2-9003-9630cdb3ae23",
+    "oracleId": "630b1685-d0c9-4d94-97dc-70058fb52e5d",
+    "name": "Daru Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Daru Healer",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{T}: Prevent the next 1 damage that would be dealt to any target this turn.\nMorph {W} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Dany Orizio",
+        "imageId": "0e4f3eff-ac99-41e2-9003-9630cdb3ae23"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FEMEREF_HEALER": {
+    "scryfallId": "90dedd5e-e2ee-46ec-8541-27f1548b2a2a",
+    "oracleId": "e2117373-6f0a-41c8-ab6a-9014b9628e64",
+    "name": "Femeref Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Femeref Healer",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{T}: Prevent the next 1 damage that would be dealt to any target this turn.",
+        "flavorText": "\"Faith is my shield, and hope is my armor; I am vulnerable only to myself.\"\n—Asmira, Holy Avenger",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Steve Luke",
+        "imageId": "90dedd5e-e2ee-46ec-8541-27f1548b2a2a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mir",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIELD_SURGEON": {
+    "scryfallId": "bb830403-0832-47f7-b4b4-4f241f1b9112",
+    "oracleId": "730809d7-cb8c-495c-8972-7e85b967358e",
+    "name": "Field Surgeon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Field Surgeon",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Tap an untapped creature you control: Prevent the next 1 damage that would be dealt to target creature this turn.",
+        "flavorText": "Commanders order soldiers to attack. Field surgeons order them to heal. Both are obeyed without question.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "bb830403-0832-47f7-b4b4-4f241f1b9112"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "uds",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GODTOUCHER": {
+    "scryfallId": "032059cb-c1ad-4cc9-a89d-d68289800312",
+    "oracleId": "3094f214-5aa8-4003-8a1e-035485dfb978",
+    "name": "Godtoucher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Godtoucher",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elf Cleric",
+        "oracleText": "{1}{W}, {T}: Prevent all damage that would be dealt to target creature with power 5 or greater this turn.",
+        "flavorText": "\"Gargantuans die not in moments but in moons. There is still time to aid this noble ancient.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "032059cb-c1ad-4cc9-a89d-d68289800312"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ala",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KEI_TAKAHASHI": {
+    "scryfallId": "3c2fa512-3665-460a-bfbf-35a5cabdfd8f",
+    "oracleId": "f3229980-994e-4492-be98-267b781614c1",
+    "name": "Kei Takahashi",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kei Takahashi",
+        "manaCost": "{2}{G}{W}",
+        "typeLine": "Legendary Creature — Human Cleric",
+        "oracleText": "{T}: Prevent the next 2 damage that would be dealt to target creature this turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Scott Kirschner",
+        "imageId": "3c2fa512-3665-460a-bfbf-35a5cabdfd8f"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "bchr",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KITHKIN_HEALER": {
+    "scryfallId": "44032574-a5bc-4366-af65-9824fd4302a2",
+    "oracleId": "e3bd74f3-1f38-4162-a0be-c76ad63e2d9b",
+    "name": "Kithkin Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kithkin Healer",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Kithkin Cleric",
+        "oracleText": "{T}: Prevent the next 1 damage that would be dealt to any target this turn.",
+        "flavorText": "The empathetic nature of the thoughtweft allows kithkin healers to treat the cause of an illness rather than fight its symptoms.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Rebecca Guay",
+        "imageId": "44032574-a5bc-4366-af65-9824fd4302a2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "lrw",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOXODON_ANCHORITE": {
+    "scryfallId": "a55f0113-3ced-49c7-9fa8-f1cc873bdc4c",
+    "oracleId": "c70dded8-658b-4250-8057-54894350455c",
+    "name": "Loxodon Anchorite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loxodon Anchorite",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Elephant Cleric",
+        "oracleText": "{T}: Prevent the next 2 damage that would be dealt to any target this turn.",
+        "flavorText": "The loxodon ascribe religious superiority to those born albino, believing them to be spiritually pure.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jim Nelson",
+        "imageId": "a55f0113-3ced-49c7-9fa8-f1cc873bdc4c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "5dn",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARTYRS_TOMB": {
+    "scryfallId": "a906a775-7c2d-47b7-a20e-a325dd28d0bd",
+    "oracleId": "a0baa9eb-0b1e-4d90-a7a1-f7102f575467",
+    "name": "Martyrs' Tomb",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Martyrs' Tomb",
+        "manaCost": "{2}{W}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Pay 2 life: Prevent the next 1 damage that would be dealt to target creature this turn.",
+        "flavorText": "Honor the brave who fought,\nHonor the dead who fell,\nHonor the world they saved.\n—Memorial inscription",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Anthony S. Waters",
+        "imageId": "a906a775-7c2d-47b7-a20e-a325dd28d0bd"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "apc",
+    "collectorNumber": "110",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MASTER_APOTHECARY": {
+    "scryfallId": "f9ff6624-ed0e-43d0-9519-112979b165f5",
+    "oracleId": "067b54e4-18f3-48e3-b824-3aba7fcf2408",
+    "name": "Master Apothecary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Master Apothecary",
+        "manaCost": "{W}{W}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Tap an untapped Cleric you control: Prevent the next 2 damage that would be dealt to any target this turn.",
+        "flavorText": "It takes a remarkable cleric to turn a group of healers into a hospital.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Terese Nielsen",
+        "imageId": "f9ff6624-ed0e-43d0-9519-112979b165f5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ody",
+    "collectorNumber": "32",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MASTER_HEALER": {
+    "scryfallId": "5e5be6df-f35e-4696-a08e-fd725ee9b13c",
+    "oracleId": "7695b61a-8d44-44b1-9783-ea3114111c3e",
+    "name": "Master Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Master Healer",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{T}: Prevent the next 4 damage that would be dealt to any target this turn.",
+        "flavorText": "Her heart holds the pain of every soldier she's ever healed.",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Greg Hildebrandt & Tim Hildebrandt",
+        "imageId": "5e5be6df-f35e-4696-a08e-fd725ee9b13c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "7ed",
+    "collectorNumber": "27★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MILITANT_MONK": {
+    "scryfallId": "886a3cfd-7f83-480a-bb22-eec67ad35e4f",
+    "oracleId": "29c0a904-43e3-44c3-8e00-deea523de8eb",
+    "name": "Militant Monk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Militant Monk",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Creature — Human Monk Cleric",
+        "oracleText": "Vigilance\n{T}: Prevent the next 1 damage that would be dealt to any target this turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Brill",
+        "imageId": "886a3cfd-7f83-480a-bb22-eec67ad35e4f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "tor",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NECRA_DISCIPLE": {
+    "scryfallId": "ae7a771f-bd21-4388-857f-08160b24e26e",
+    "oracleId": "ef85a5eb-9cde-47b7-97e4-daa9aa9d4676",
+    "name": "Necra Disciple",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Necra Disciple",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{G}, {T}: Add one mana of any color.\n{W}, {T}: Prevent the next 1 damage that would be dealt to any target this turn.",
+        "flavorText": "\"The darkness merely hides the light.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jeff Miracola",
+        "imageId": "ae7a771f-bd21-4388-857f-08160b24e26e"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "apc",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NOBLE_VESTIGE": {
+    "scryfallId": "dae1e55c-bdf2-4327-9f97-032c2c3c7d0c",
+    "oracleId": "63ec8167-2dc3-49a6-a7ed-6b1474bbda2c",
+    "name": "Noble Vestige",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Noble Vestige",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\n{T}: Prevent the next 1 damage that would be dealt to target player or planeswalker this turn.",
+        "flavorText": "Most spirits are chained to this world by their despair, but he remains tethered by his hope for better days.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jason Chan",
+        "imageId": "dae1e55c-bdf2-4327-9f97-032c2c3c7d0c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "29",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OASIS": {
+    "scryfallId": "1d51a6de-7bb4-4e3d-82a7-a298c8d742ef",
+    "oracleId": "4533ce78-0594-4195-96fb-46cbadd0db69",
+    "name": "Oasis",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Oasis",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Prevent the next 1 damage that would be dealt to target creature this turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Brian Snõddy",
+        "imageId": "1d51a6de-7bb4-4e3d-82a7-a298c8d742ef"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "4ed",
+    "collectorNumber": "362",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORIM_SAMITE_HEALER": {
+    "scryfallId": "7086d077-f083-4870-8b0b-2d34aca49df1",
+    "oracleId": "9d405e5b-0cee-4c8f-b3ef-65765853b8a4",
+    "name": "Orim, Samite Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orim, Samite Healer",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Legendary Creature — Human Cleric",
+        "oracleText": "{T}: Prevent the next 3 damage that would be dealt to any target this turn.",
+        "flavorText": "\"The silkworm spins itself a new existence. So the healer weaves the threads of life.\"\n—Orim, Samite healer",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kaja Foglio",
+        "imageId": "7086d077-f083-4870-8b0b-2d34aca49df1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAMITE_HEALER": {
+    "scryfallId": "05a74bec-ba6c-45f3-bc25-60cda8fa908b",
+    "oracleId": "95a0ca48-d924-47f4-86ed-42c673ee778c",
+    "name": "Samite Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Samite Healer",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{T}: Prevent the next 1 damage that would be dealt to any target this turn.",
+        "flavorText": "Healers ultimately acquire the divine gifts of spiritual and physical wholeness. The most devout are also granted the ability to pass physical wholeness on to others.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Anson Maddocks",
+        "imageId": "05a74bec-ba6c-45f3-bc25-60cda8fa908b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "9ed",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SANCTUM_CUSTODIAN": {
+    "scryfallId": "27a64b98-9002-48fe-a3e5-4449050c87e1",
+    "oracleId": "4d979fbf-5009-47a1-8d77-b1ce80bbe90d",
+    "name": "Sanctum Custodian",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sanctum Custodian",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{T}: Prevent the next 2 damage that would be dealt to any target this turn.",
+        "flavorText": "Serra told them to guard Urza as he healed. Five years they stood.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "27a64b98-9002-48fe-a3e5-4449050c87e1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPLIT_TAIL_MIKO": {
+    "scryfallId": "0528fe29-f3c1-4d10-9030-053c3de57b7b",
+    "oracleId": "82732de2-b98d-4534-967f-2cf4c9e6bfbe",
+    "name": "Split-Tail Miko",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Split-Tail Miko",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Fox Cleric",
+        "oracleText": "{W}, {T}: Prevent the next 2 damage that would be dealt to any target this turn.",
+        "flavorText": "\"I wish there were no use for those with my talents. I wish that I could walk Kamigawa forgotten and unneeded, with no war wounds to heal and no broken bones to mend.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "0528fe29-f3c1-4d10-9030-053c3de57b7b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "bok",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SQUEE_S_TOY": {
+    "scryfallId": "2b524ae7-cb24-41af-b41b-3cb3ee8cf3b0",
+    "oracleId": "d0e33a3f-659a-4889-98f6-d0f385e259f1",
+    "name": "Squee's Toy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Squee's Toy",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Prevent the next 1 damage that would be dealt to target creature this turn.",
+        "flavorText": "As the horrors closed in on Gerrard, Squee trembled and clutched his toy for comfort. He didn't know where it came from or why it was so warm, but he was glad he'd kept it near.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Heather Hudson",
+        "imageId": "2b524ae7-cb24-41af-b41b-3cb3ee8cf3b0"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "309",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TREEFOLK_HEALER": {
+    "scryfallId": "73c6f5c0-686d-4b3a-add7-487f9fff5faa",
+    "oracleId": "a5ef15b5-83d2-4b23-9403-a9a52be46154",
+    "name": "Treefolk Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Treefolk Healer",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Treefolk Cleric",
+        "oracleText": "{2}{W}, {T}: Prevent the next 2 damage that would be dealt to any target this turn.",
+        "flavorText": "Protected by druids for untold centuries, the forest began to return the favor.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "73c6f5c0-686d-4b3a-add7-487f9fff5faa"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "inv",
+    "collectorNumber": "218",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TROUBLED_HEALER": {
+    "scryfallId": "54407ba7-6671-42a9-acbe-8a1104c7166c",
+    "oracleId": "4377cc84-19d3-48e0-9588-d18b4fbf4e6d",
+    "name": "Troubled Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Troubled Healer",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Sacrifice a land: Prevent the next 2 damage that would be dealt to any target this turn.",
+        "flavorText": "\"Which is worse: nothing to defend, or no one to defend it?\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Terese Nielsen",
+        "imageId": "54407ba7-6671-42a9-acbe-8a1104c7166c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pcy",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ABUNA_ACOLYTE": {
+    "scryfallId": "9e17bbf7-00c0-46f2-9718-2762fd7388d3",
+    "oracleId": "cf082161-47ff-46b9-926d-3fa5e5727861",
+    "name": "Abuna Acolyte",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Abuna Acolyte",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Cat Cleric",
+        "oracleText": "{T}: Prevent the next 1 damage that would be dealt to any target this turn.\n{T}: Prevent the next 2 damage that would be dealt to target artifact creature this turn.",
+        "flavorText": "\"You can break nothing I cannot mend.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "9e17bbf7-00c0-46f2-9718-2762fd7388d3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BARRENTON_MEDIC": {
+    "scryfallId": "8888e0aa-3682-4800-9c50-fff5d5c9547d",
+    "oracleId": "17661062-928c-4e33-a4f3-92ddc9d8c817",
+    "name": "Barrenton Medic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Barrenton Medic",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Kithkin Cleric",
+        "oracleText": "{T}: Prevent the next 1 damage that would be dealt to any target this turn.\nPut a -1/-1 counter on this creature: Untap this creature.",
+        "flavorText": "His dreams are filled with noxious powders and clinking vials.",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Trevor Hairsine",
+        "imageId": "8888e0aa-3682-4800-9c50-fff5d5c9547d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HYPOCHONDRIA": {
+    "scryfallId": "3467c940-dae4-4667-bec8-524dbce13283",
+    "oracleId": "74c90ddc-4c6e-479d-ad68-b444d3109258",
+    "name": "Hypochondria",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hypochondria",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "{W}, Discard a card: Prevent the next 3 damage that would be dealt to any target this turn.\n{W}, Sacrifice this enchantment: Prevent the next 3 damage that would be dealt to any target this turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "3467c940-dae4-4667-bec8-524dbce13283"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tor",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAKA_DISCIPLE": {
+    "scryfallId": "41462d43-4f9f-46ba-b79d-434597e74b6b",
+    "oracleId": "88c5a681-4095-4e37-9149-002bcbaf4c0b",
+    "name": "Raka Disciple",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Raka Disciple",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Minotaur Wizard",
+        "oracleText": "{W}, {T}: Prevent the next 1 damage that would be dealt to any target this turn.\n{U}, {T}: Target creature gains flying until end of turn.",
+        "flavorText": "\"The strong can also be subtle.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Arnie Swekel",
+        "imageId": "41462d43-4f9f-46ba-b79d-434597e74b6b"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "apc",
+    "collectorNumber": "66",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAMITE_ARCHER": {
+    "scryfallId": "07a262d7-6d0c-43d0-89b6-9f46a1a9eb69",
+    "oracleId": "5322a218-6a0c-4d86-835a-c87eb52aaf6a",
+    "name": "Samite Archer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Samite Archer",
+        "manaCost": "{1}{W}{U}",
+        "typeLine": "Creature — Human Cleric Archer",
+        "oracleText": "{T}: Prevent the next 1 damage that would be dealt to any target this turn.\n{T}: This creature deals 1 damage to any target.",
+        "flavorText": "\"I can preserve ten lives by taking one.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "07a262d7-6d0c-43d0-89b6-9f46a1a9eb69"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "inv",
+    "collectorNumber": "269",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SERRA_PALADIN": {
+    "scryfallId": "7bd25adf-4d97-4229-abdb-1c060036cfbd",
+    "oracleId": "2fdbbca7-d1d0-4834-84df-2c2d9953f83a",
+    "name": "Serra Paladin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Serra Paladin",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "{T}: Prevent the next 1 damage that would be dealt to any target this turn.\n{1}{W}{W}, {T}: Target creature gains vigilance until end of turn.",
+        "flavorText": "\"Would that I could be a Paladin again, but the dead hold no place among their ranks.\"\n—Ihsan's Shade",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "7bd25adf-4d97-4229-abdb-1c060036cfbd"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "hml",
+    "collectorNumber": "17",
     "commanderLegality": "legal",
     "singleImage": true
   },

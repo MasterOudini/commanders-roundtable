@@ -1717,6 +1717,12 @@ const WANTED = [
   'Pillage',
   'Pillardrop Rescuer',
   'Pinpoint Avalanche',
+  // D382 - CR 615, the prevention shield: one card per printed form of the
+  // grammar, so the seam's own suite proves each rather than one of them.
+  'Fog',
+  'Mending Hands',
+  'Indestructible Aura',
+  'Defend the Hearth',
   'Piranha Marsh',
   'Pith Driller',
   'Pitiless Plunderer',
@@ -6084,6 +6090,43 @@ const WANTED = [
   'Ruby, Daring Tracker',
   // D381 - the permanents the conditions and the destination filter are DERIVED to need.
   // D381 - the helpers the reclaim suites deal.
+  // D382 - the prevention shield: the wave the seam made offerable.
+  'Alabaster Wall',
+  'Amulet of Kroog',
+  'Argivian Blacksmith',
+  'Aven Redeemer',
+  'Benevolent Ancestor',
+  'Caregiver',
+  'Clergy en-Vec',
+  'Combat Medic',
+  'Daru Healer',
+  'Femeref Healer',
+  'Field Surgeon',
+  'Godtoucher',
+  'Kei Takahashi',
+  'Kithkin Healer',
+  'Loxodon Anchorite',
+  "Martyrs' Tomb",
+  'Master Apothecary',
+  'Master Healer',
+  'Militant Monk',
+  'Necra Disciple',
+  'Noble Vestige',
+  'Oasis',
+  'Orim, Samite Healer',
+  'Samite Healer',
+  'Sanctum Custodian',
+  'Split-Tail Miko',
+  "Squee's Toy",
+  'Treefolk Healer',
+  'Troubled Healer',
+  'Abuna Acolyte',
+  'Barrenton Medic',
+  'Hypochondria',
+  'Raka Disciple',
+  'Samite Archer',
+  'Serra Paladin',
+  // D382 - the helpers the prevention suites deal.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

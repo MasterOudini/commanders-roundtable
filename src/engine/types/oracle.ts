@@ -474,6 +474,17 @@ export type EffectKind =
    * Snakeskin, Savage Silhouette, Skeletal Grimace, Consecrated by Blood).
    */
   | 'regenerate'
+  /**
+   * D382 - CR 615: a prevention SHIELD. "Prevent all combat damage that would be
+   * dealt this turn." (the Fog cycle), "Prevent the next N damage that would be
+   * dealt to any target this turn.", and their kin. The shield goes on
+   * `GameState.preventionShields` and the replacement funnel spends it, because
+   * CR 615.1 says a prevention effect IS a replacement effect and the funnel is
+   * the one place every damage event passes through - a shield consulted at the
+   * emitter would be skipped by the hundreds of shipped modules that build a
+   * `DamageDealt` themselves (D233's measured gap).
+   */
+  | 'prevent'
   | 'draw'
   | 'gainLife'
   | 'loseLife'
@@ -747,6 +758,22 @@ export interface EffectSpec {
   readonly self: boolean;
   /** D330 - "It can't be regenerated." rides the destroy it follows: the shield is not consulted. */
   readonly noRegenerate?: boolean;
+  /**
+   * D382 - "The damage can't be prevented." (CR 615.9) rides the damage it
+   * follows, exactly as `noRegenerate` rides its destroy: the shields are not
+   * consulted for it. D233 wrote the tripwire that made this debt honest.
+   */
+  readonly cantBePrevented?: boolean;
+  /** D382 - `prevent`: how much (a number) or all of it this turn. */
+  readonly preventAmount?: number | 'all';
+  /** D382 - `prevent`: "combat damage" rather than any damage. */
+  readonly preventCombatOnly?: boolean;
+  /**
+   * D382 - `prevent` with NO target clause: what the shield covers. `any` is
+   * "damage that would be dealt this turn" with no recipient named at all (the
+   * Fog cycle); `players` and `you` name one.
+   */
+  readonly preventScope?: 'any' | 'players' | 'you';
   /**
    * D299: the clause reads "up to N" / "any number of" — declaring NO target
    * for it is legal, and the consumer skips the clause silently rather than

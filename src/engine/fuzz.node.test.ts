@@ -168,6 +168,13 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // makes the canary self-sufficient at any pool size.
   { names: ['Barbed Sliver'], copiesPerSeat: 2,
     counterKeys: ['selfAimedResolved'], rotHistory: 'D373' },
+  // D382 - THE PREVENTION SHIELD (CR 615). `preventionShields` IS part of `GameState` and so of
+  // the state hash, but 500 seeds of equal hashes prove nothing while every game's list is empty
+  // (D128's green tick over nothing, D364's own warning), so a source of shields is dealt to
+  // every seat. Fog is the self-sufficient one: {G}, no target to find, and its shield is
+  // COMBAT-wide, so the fuzzer's own attacks spend it without having to aim anything.
+  { names: ['Fog'], copiesPerSeat: 5,
+    counterKeys: ['preventionShields', 'damagePrevented'], rotHistory: 'D382' },
   // D377 - THE MOVE'S REASON. `reason` never reaches `GameState` (the reducer reads the moves and
   // moves the cards), so unlike D364's `poolSnow` the replay hash cannot vouch for it at all: what
   // these three prove is that REAL GAMES produce the three reasons a printed head watches for,
@@ -710,6 +717,9 @@ interface Run {
   readonly grantedManaMade: number;
   /** D373 - a granted ability's payload that landed on its own SOURCE (the recipient). */
   readonly selfAimedResolved: number;
+  /** D382 - CR 615: shields put up, and damage a shield actually stopped. */
+  readonly preventionShields: number;
+  readonly damagePrevented: number;
   /** D377 - moves the rules recorded a reason on: a sacrifice, a discard, a cycling discard. */
   readonly sacrificesRecorded: number;
   readonly discardsRecorded: number;
@@ -896,6 +906,13 @@ function runOne(seed: number): Run {
     sacrificesRecorded: countMoves(game, 'sacrifice'),
     discardsRecorded: countMoves(game, 'discard'),
     cyclingsRecorded: countMoves(game, 'cycling'),
+    // D382 - CR 615. The first counts the shields real games put up; the second counts the damage
+    // one actually stopped, which is the half a shield nothing spends could never prove.
+    preventionShields: game.log.filter((e) => e.body.t === 'PreventionShieldsAdded').length,
+    damagePrevented: game.log.reduce(
+      (n, e) => (e.body.t === 'DamagePrevented' ? n + e.body.spends.reduce((m, s) => m + s.amount, 0) : n),
+      0,
+    ),
     // D372 - mana made by a permanent whose PRINTED face has no mana ability: a GRANTED one.
     // Read off the event and the oracle face, never off the pool. A spell that makes mana
     // (a ritual) is not a permanent, so the type-line check keeps it out.
@@ -1086,6 +1103,8 @@ const TOTAL_KEYS = [
   'entersDeclined',
   'paymentsPaid',
   'paymentsDeclined',
+  'preventionShields',
+  'damagePrevented',
 ] as const;
 type TotalKey = (typeof TOTAL_KEYS)[number] | 'finished';
 type Totals = Record<TotalKey, number>;
@@ -1220,6 +1239,14 @@ function assertFloors(totals: Totals, seeds: number): void {
       // rarely to assert on.
       if (seeds >= 500) expect(totals.paymentsPaid).toBeGreaterThan(0);
       if (seeds >= 500) expect(totals.paymentsDeclined).toBeGreaterThan(0);
+      // D382 - THE PREVENTION CANARY, and it is TWO numbers because a shield nothing
+      // spends proves only half of CR 615. `preventionShields` is comfortable at any
+      // size (measured 56 at 60 seeds, 9 at 8), because Fog needs nothing but {G};
+      // `damagePrevented` is GATE SIZE ONLY, because the shield is COMBAT-wide and
+      // spending it needs the Fog cast on a turn that reaches combat damage - measured
+      // 4 at 60 seeds, which is a coin flip and not a floor (D155/D176's rule).
+      expect(totals.preventionShields).toBeGreaterThan(0);
+      if (seeds >= 500) expect(totals.damagePrevented).toBeGreaterThan(0);
       // ⚠️ THE DISCARD CANARY. `CardsMoved` hand→graveyard also happens at
       // cleanup for a hand over seven, so the count alone would have been green
       // since M3; the narration counter is the one that only this path writes.
@@ -1327,7 +1354,8 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.grantedManaMade} by a granted mana ability · ` +
           `${totals.selfAimedResolved} granted payloads that hit their own source · ` +
           `${totals.sacrificesRecorded} sacrifices / ${totals.discardsRecorded} discards / ${totals.cyclingsRecorded} cyclings recorded · ` +
-          `${totals.paymentsPaid} payments made / ${totals.paymentsDeclined} declined`,
+          `${totals.paymentsPaid} payments made / ${totals.paymentsDeclined} declined · ` +
+          `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented)`,
       );
 
       if (SHARD) {

@@ -7,6 +7,41 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ALABASTER_WALL_SCRIPT } from './cards/alabasterWall';
+import { AMULET_OF_KROOG_SCRIPT } from './cards/amuletOfKroog';
+import { ARGIVIAN_BLACKSMITH_SCRIPT } from './cards/argivianBlacksmith';
+import { AVEN_REDEEMER_SCRIPT } from './cards/avenRedeemer';
+import { BENEVOLENT_ANCESTOR_SCRIPT } from './cards/benevolentAncestor';
+import { CAREGIVER_SCRIPT } from './cards/caregiver';
+import { CLERGY_EN_VEC_SCRIPT } from './cards/clergyEnVec';
+import { COMBAT_MEDIC_SCRIPT } from './cards/combatMedic';
+import { DARU_HEALER_SCRIPT } from './cards/daruHealer';
+import { FEMEREF_HEALER_SCRIPT } from './cards/femerefHealer';
+import { FIELD_SURGEON_SCRIPT } from './cards/fieldSurgeon';
+import { GODTOUCHER_SCRIPT } from './cards/godtoucher';
+import { KEI_TAKAHASHI_SCRIPT } from './cards/keiTakahashi';
+import { KITHKIN_HEALER_SCRIPT } from './cards/kithkinHealer';
+import { LOXODON_ANCHORITE_SCRIPT } from './cards/loxodonAnchorite';
+import { MARTYRS_TOMB_SCRIPT } from './cards/martyrsTomb';
+import { MASTER_APOTHECARY_SCRIPT } from './cards/masterApothecary';
+import { MASTER_HEALER_SCRIPT } from './cards/masterHealer';
+import { MILITANT_MONK_SCRIPT } from './cards/militantMonk';
+import { NECRA_DISCIPLE_SCRIPT } from './cards/necraDisciple';
+import { NOBLE_VESTIGE_SCRIPT } from './cards/nobleVestige';
+import { OASIS_SCRIPT } from './cards/oasis';
+import { ORIM_SAMITE_HEALER_SCRIPT } from './cards/orimSamiteHealer';
+import { SAMITE_HEALER_SCRIPT } from './cards/samiteHealer';
+import { SANCTUM_CUSTODIAN_SCRIPT } from './cards/sanctumCustodian';
+import { SPLIT_TAIL_MIKO_SCRIPT } from './cards/splitTailMiko';
+import { SQUEES_TOY_SCRIPT } from './cards/squeesToy';
+import { TREEFOLK_HEALER_SCRIPT } from './cards/treefolkHealer';
+import { TROUBLED_HEALER_SCRIPT } from './cards/troubledHealer';
+import { ABUNA_ACOLYTE_SCRIPT } from './cards/abunaAcolyte';
+import { BARRENTON_MEDIC_SCRIPT } from './cards/barrentonMedic';
+import { HYPOCHONDRIA_SCRIPT } from './cards/hypochondria';
+import { RAKA_DISCIPLE_SCRIPT } from './cards/rakaDisciple';
+import { SAMITE_ARCHER_SCRIPT } from './cards/samiteArcher';
+import { SERRA_PALADIN_SCRIPT } from './cards/serraPaladin';
 import { BURNING_SUN_CAVALRY_SCRIPT } from './cards/burningSunCavalry';
 import { COURAGEOUS_GOBLIN_SCRIPT } from './cards/courageousGoblin';
 import { IMPERIAL_COSMOGRAPHER_SCRIPT } from './cards/imperialCosmographer';
@@ -5120,6 +5155,41 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ALABASTER_WALL_SCRIPT,
+  AMULET_OF_KROOG_SCRIPT,
+  ARGIVIAN_BLACKSMITH_SCRIPT,
+  AVEN_REDEEMER_SCRIPT,
+  BENEVOLENT_ANCESTOR_SCRIPT,
+  CAREGIVER_SCRIPT,
+  CLERGY_EN_VEC_SCRIPT,
+  COMBAT_MEDIC_SCRIPT,
+  DARU_HEALER_SCRIPT,
+  FEMEREF_HEALER_SCRIPT,
+  FIELD_SURGEON_SCRIPT,
+  GODTOUCHER_SCRIPT,
+  KEI_TAKAHASHI_SCRIPT,
+  KITHKIN_HEALER_SCRIPT,
+  LOXODON_ANCHORITE_SCRIPT,
+  MARTYRS_TOMB_SCRIPT,
+  MASTER_APOTHECARY_SCRIPT,
+  MASTER_HEALER_SCRIPT,
+  MILITANT_MONK_SCRIPT,
+  NECRA_DISCIPLE_SCRIPT,
+  NOBLE_VESTIGE_SCRIPT,
+  OASIS_SCRIPT,
+  ORIM_SAMITE_HEALER_SCRIPT,
+  SAMITE_HEALER_SCRIPT,
+  SANCTUM_CUSTODIAN_SCRIPT,
+  SPLIT_TAIL_MIKO_SCRIPT,
+  SQUEES_TOY_SCRIPT,
+  TREEFOLK_HEALER_SCRIPT,
+  TROUBLED_HEALER_SCRIPT,
+  ABUNA_ACOLYTE_SCRIPT,
+  BARRENTON_MEDIC_SCRIPT,
+  HYPOCHONDRIA_SCRIPT,
+  RAKA_DISCIPLE_SCRIPT,
+  SAMITE_ARCHER_SCRIPT,
+  SERRA_PALADIN_SCRIPT,
   BURNING_SUN_CAVALRY_SCRIPT,
   COURAGEOUS_GOBLIN_SCRIPT,
   IMPERIAL_COSMOGRAPHER_SCRIPT,

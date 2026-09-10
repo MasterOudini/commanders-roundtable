@@ -1,9 +1,12 @@
 // `Pinpoint Avalanche` — "Pinpoint Avalanche deals 4 damage to target
-// creature. The damage can't be prevented." Script damage never routes
-// through combat.ts's preventedAmount — the engine's ONE prevention
-// site — so the second sentence changes nothing today. This module's
-// file name sits in prevention.node.test.ts's exclude list: the tripwire
-// that fires the day noncombat prevention exists. D233.
+// creature. The damage can't be prevented."
+//
+// ⚠️ D233 shipped this on a VACUITY argument: script damage never routed
+// through a prevention site, so the second sentence changed nothing, and
+// `prevention.node.test.ts` was the tripwire that would fire the day that
+// stopped being true. D382 built CR 615, so it has fired — and the sentence is
+// modelled rather than vacuous now: `unpreventable` on the damage entry, which
+// `prevention.ts` reads before it consults a single shield.
 
 import { PINPOINT_AVALANCHE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
@@ -49,6 +52,7 @@ export const PINPOINT_AVALANCHE_SCRIPT: CardScript = {
               viaTrample: 0,
               toxic: 0,
               applyAs: 'normal',
+              unpreventable: true,
             },
           ],
         },

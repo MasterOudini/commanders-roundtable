@@ -16,6 +16,7 @@ import { faceOf } from './oracle';
 import { narrated } from './narrate';
 import type { ScriptRegistry } from './scripts/registry';
 import { KEYWORD_TRIGGERS } from './keywordTriggers';
+import { withoutPreventedDamage } from './prevention';
 import type { CardMove, EventBody, GameEvent } from './types/events';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
 import { isAskedCondition, type EntersTappedCondition } from '../data/replacementParse';
@@ -294,7 +295,11 @@ export function runReplacementFunnel(
   rawBodies: readonly EventBody[],
 ): FunnelResult {
   // D336 - the uncounterable rule, before anything else looks at the batch.
-  const bodies = withoutCountersOfTheUncounterable(state, scripts, rawBodies);
+  // D382 - and CR 615 prevention with it: a shield is spent ONCE over the whole
+  // batch, where `applyReplacements` sees one body at a time against a state
+  // that does not advance between them and would let two damage events each
+  // consume the same shield.
+  const bodies = withoutPreventedDamage(state, withoutCountersOfTheUncounterable(state, scripts, rawBodies));
   const defs = scripts.replacements();
   const settled: EventBody[] = [];
 

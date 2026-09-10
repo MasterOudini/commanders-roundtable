@@ -13589,6 +13589,81 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       cast-time payment sources (convoke 14, delve 5, improvise 6); then the seam
       map's rest — the attached statics the Aura and Equipment rows cannot read
       (351), the bare keyword or ability word (206); prior items stand.
+- [x] **M6.4ho — THE PREVENTION SHIELD (CR 615): a replacement effect, in the one
+      place every damage event passes through (2026-09-10):** **7,974 of 31,692
+      Commander-legal cards now execute completely, up from 7,920 (+54: NINETEEN
+      with no script at all, then 35 generated rows).** `SHIPPED_SCRIPTS` 5,094 →
+      **5,129**; ledger +15. Fixtures 5,603 → **5,642**. Decisions in **D382**.
+      ⚠️⚠️ **THE MEASUREMENT CHOSE IT, AND ITS FIRST TWO ANSWERS WERE TAILS.** The
+      whole REFUSED ledger was priced by what would LAND (D343/D354) from a fresh
+      TRUE-leftover dump — the UNION of unread specs and unaccounted lines, because
+      `faceCompleteness` returns early on the spec gate (D371). The biggest group,
+      `script-raised prompt`, is **76 of 80 one piece from landing across 74
+      DISTINCT sentences**; the flashback and cycling spell tails are 59 across 55.
+      Both are D354's shape: a wording table cannot finish this. Normalised by
+      SHAPE instead (D374's move, where 127 head texts were seven bases and a
+      filter) the one-piece population is **12,047 cards across 10,016 shapes** —
+      flatter than ever, with ONE peak: **293 cards whose single remaining piece is
+      a prevention sentence**, four times anything else.
+      ⚠️⚠️ **AND IT COULD NOT BE BUILT AT THE EMITTER — D233 HAD MEASURED WHY.**
+      That decision shipped `Pinpoint Avalanche` on a VACUITY argument ("The damage
+      can't be prevented." executed as NOTHING, because the engine's one prevention
+      site was `combat.ts`'s `preventedAmount`, which only the combat-damage
+      assignment consults) and left `prevention.node.test.ts` as the tripwire that
+      would fire the day it stopped being true. Its measurement is what rules the
+      obvious fix out: **hundreds of shipped modules build a `DamageDealt`
+      themselves**, so a shield consulted in `effects.ts` would be skipped by every
+      one of them — a Fog that stops an attack and not a scripted ping. ⚠️ **CR
+      615.1 says a prevention effect IS a replacement effect**, and the funnel
+      (D148) is the one place every event passes through: correct by construction
+      rather than by a list of call sites kept in step.
+      ⚠️ **THE WHOLE BATCH, NOT ONE EVENT** — `withoutCountersOfTheUncounterable`'s
+      shape (D336). `applyReplacements` is handed one body at a time against a
+      state that does not advance between them, so two damage events in one batch
+      would each see the same unspent shield and both consume it.
+      ⚠️ **PREVENTED DAMAGE IS NOT DEALT AT ALL** (CR 615.1), so an entry reduced to
+      zero is DROPPED and an event left with no entries is dropped with it: a
+      watcher must not see a damage event carrying nothing, and a lifelink or a
+      damage trigger must not fire for damage that never happened. ⚠️ The order is
+      the batch's and CR 615.5's choice is named UNBUILT (D134's fallback).
+      ⚠️ **THE TRIPWIRE FIRED AND ITS DEBT WAS EXACTLY ONE CARD.** The test is
+      REWRITTEN rather than adapted (D117) and pins the opposite claim — prevention
+      exists, it is applied in ONE place, `effects.ts` does not consult a shield
+      itself, and the sentence D233 could not model is modelled.
+      `ResolvedDamage.unpreventable` is OPTIONAL on purpose: the type is built by
+      hundreds of shipped modules and `unpreventable: false` in every one of them
+      would say nothing (D377's boundary on D355/D356's required-field rule).
+      ⚠️ **THE WAVE, AND THE ARM IT NEEDED.** The seam refilled the offer stream
+      with 50 cards and 35 landed (41 abilities, **every suite green on the first
+      run**). ⚠️ **A SHIELD ASSERTED ALONE IS HALF THE RULE** (D375, one mechanism
+      over): the fire casts `Spark Spray` at the shielded thing and the assert reads
+      the damage that never arrived — ONE damage, so one assert shape serves every
+      printed number, and without the seam it is a mark on the card. A shield with
+      NO target is REFUSED BY NAME (7): proving the Fog shape means declaring an
+      attack with a creature the row did not put down (D128).
+      ⚠️ **A BLANKET GUARD OUTLIVED ITS REASON, for the second time in eight
+      decisions.** The clause fixture picker refused any clause whose kinds included
+      `battle` — and `any target` is `[creature, player, planeswalker, battle]`, so
+      every prevention row was refused for a clause a CREATURE serves perfectly.
+      D375 narrowed the artifact arm of the same picker for the same reason.
+      ⚠️ **AND `patchlib.cjs` IS GENUINELY EOL-AWARE NOW**: it called itself so and
+      was not — a heredoc payload is LF, `triggers.ts` is CRLF, and the anchor
+      matched NOTHING. The counted guard caught it, which is the difference from
+      D258's silent `String.replace`, but catching it every time is not handling it.
+      ⚠️ The canary is TWO counters off a `Fog` staple, because a shield nothing
+      spends proves half of CR 615: **56 put up and 4 damage prevented at 60 seeds**,
+      so the first is a floor at any size and the second at gate size only.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5280 files,
+      26071 passed / 11 skipped · 500-seed gate, 6 shards, 814.8 s wall ·
+      build clean · probe 124/124 · battery 130/130.**
+      ⚠️ **Reportables** (D382): the 7 Fog-shaped rows and the combat-role clause
+      (the scaffold arm that must ATTACK — D350 named it and two waves have paid for
+      it); the 52 Circles of Protection (a prompt over SOURCES); the STATIC
+      prevention (4 cards — a continuous ability, not a one-shot shield); CR 615.5's
+      ordering choice; then the two TAILS the measurement named — `script-raised
+      prompt` (76 cards / 74 sentences) and the flashback and cycling spell bodies
+      (59 / 55), both wanting a spell-row TABLE rather than a seam; prior items
+      stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

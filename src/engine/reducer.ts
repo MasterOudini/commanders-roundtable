@@ -26,6 +26,7 @@ import {
   type GameState,
   type NarrationLine,
   type PlayerState,
+  type PreventionShield,
   type StackObject,
   type TurnMemory,
   type TurnState,
@@ -1089,12 +1090,31 @@ function applyBody(state: GameState, body: EventBody): GameState {
       return { ...state, regenerationShields: left > 0 ? { ...rest, [body.card]: left } : rest };
     }
 
+    // D382 - CR 615. The shield is put up here and spent by the funnel; an
+    // exhausted numeric one is dropped, an 'all' one stands until cleanup.
+    case 'PreventionShieldsAdded':
+      return { ...state, preventionShields: [...state.preventionShields, ...body.shields] };
+    case 'DamagePrevented': {
+      const spent = new Map(body.spends.map((s) => [s.id, s.amount]));
+      const next: PreventionShield[] = [];
+      for (const shield of state.preventionShields) {
+        const take = spent.get(shield.id);
+        if (take === undefined || shield.amount === 'all') { next.push(shield); continue; }
+        const rest = shield.amount - take;
+        if (rest > 0) next.push({ ...shield, amount: rest });
+      }
+      return { ...state, preventionShields: next };
+    }
+
     // CR 514.2 — every "until end of turn" effect ends at once, at cleanup —
-    // the regeneration shields with them (CR 701.19a: "this turn").
+    // the regeneration shields with them (CR 701.19a: "this turn"), and the
+    // prevention shields, every printed one of which says "this turn" (D382).
     case 'UntilEndOfTurnEnded':
-      return state.untilEndOfTurn.length === 0 && Object.keys(state.regenerationShields).length === 0
+      return state.untilEndOfTurn.length === 0 &&
+        Object.keys(state.regenerationShields).length === 0 &&
+        state.preventionShields.length === 0
         ? state
-        : { ...state, untilEndOfTurn: [], regenerationShields: {} };
+        : { ...state, untilEndOfTurn: [], regenerationShields: {}, preventionShields: [] };
 
     case 'Narrated':
       return narrate(state, {

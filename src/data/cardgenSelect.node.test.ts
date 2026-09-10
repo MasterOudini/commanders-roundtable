@@ -2162,6 +2162,21 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Squirrel Sanctuary', 'trigger payload outside both readers'],
   ['Tidus, Blitzball Star', 'trigger payload outside both readers'],
   ['Vorosh, the Hunter', 'trigger payload outside both readers'],
+  ['Alms', 'exile-the-top-of-your-graveyard cost'],
+  ['Clinging Mists', 'a spell line outside the vocabulary'],
+  ["D'Avenant Healer", 'a vocabulary clause the suite has no fixture for: a combat-role clause'],
+  ['Dawnstrider', 'a prevention shield with no target (the suite must attack to prove it)'],
+  ['Eiganjo Castle', 'a vocabulary clause the suite has no fixture for: target legendary creature'],
+  ['Glacial Crevasses', 'a prevention shield with no target (the suite must attack to prove it)'],
+  ['Kami of False Hope', 'a prevention shield with no target (the suite must attack to prove it)'],
+  ['Kitsune Healer', 'a vocabulary clause the suite has no fixture for: target legendary creature'],
+  ['Knight-Captain of Eos', 'a prevention shield with no target (the suite must attack to prove it)'],
+  ['Leery Fogbeast', 'a prevention shield with no target (the suite must attack to prove it)'],
+  ["Orim's Cure", 'a spell line outside the vocabulary'],
+  ['Pearl Shard', 'alternative activation cost'],
+  ['Spore Frog', 'a prevention shield with no target (the suite must attack to prove it)'],
+  ['Sunstone', 'a prevention shield with no target (the suite must attack to prove it)'],
+  ['Tangle', 'a spell line outside the vocabulary'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
@@ -2288,6 +2303,10 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // read as a BASE head plus a filter on its subject) rowed 60 of them, and the other 164 are
     // in the ledger above by name. The tell is the scriptable number, the other way this time:
     // a seam RAISES it and a wave LOWERS it, 1,393 -> 1,333.
+    // D382 - BACK TO ZERO, and that is what a WAVE does: the PREVENTION SHIELD (CR 615) made 50
+    // cards offerable, 35 landed as rows and the other 15 are in the ledger above by name, each
+    // with the reason the row maker gave. The tell is the scriptable number the other way:
+    // a seam RAISES it (1,263 -> 1,313) and a wave LOWERS it.
     expect.soft(all.length).toBe(0);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.

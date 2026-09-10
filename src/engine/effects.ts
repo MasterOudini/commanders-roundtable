@@ -105,6 +105,9 @@ export function effectResult(
   const source = obj.card ?? obj.source;
   // One allocator for every instance this resolution creates. See `createToken`.
   let nextInstance = state.counters.instance;
+  // D382 - one resolving object may put up more than one shield; the id must be
+  // stable across a replay, so it is the object's own id and a sequence.
+  let shieldSeq = 0;
 
   /**
    * D299 — ONE STEP PER (CLAUSE, PICK). A counted clause ("destroy up to two
@@ -170,7 +173,49 @@ export function effectResult(
     switch (effect.kind) {
       case 'damage': {
         if (!aim || aim.kind === 'stack' || !source) break;
-        out.push({ t: 'DamageDealt', damages: [damageTo(state, deps, source, aim, effect.amount, cache)] });
+        // D382 - CR 615.9. The clause rides the same effects, exactly as
+        // `noRegenerate` does for the destroy above.
+        const unpreventable = effects.some((e) => e.cantBePrevented === true);
+        out.push({
+          t: 'DamageDealt',
+          damages: [damageTo(state, deps, source, aim, effect.amount, cache, unpreventable)],
+        });
+        break;
+      }
+
+      /**
+       * D382 - CR 615: put the shield up. Spending it is the funnel's job
+       * (`prevention.ts`), which is what makes it apply to damage from any
+       * emitter rather than only to damage this file builds.
+       */
+      case 'prevent': {
+        const amount = effect.preventAmount;
+        if (amount === undefined) break;
+        const recipient =
+          effect.preventScope === 'any'
+            ? ({ kind: 'any' } as const)
+            : effect.preventScope === 'players'
+              ? ({ kind: 'players' } as const)
+              : effect.preventScope === 'you'
+                ? ({ kind: 'player', id: obj.controller } as const)
+                : aim?.kind === 'card'
+                  ? ({ kind: 'card', id: aim.id } as const)
+                  : aim?.kind === 'player'
+                    ? ({ kind: 'player', id: aim.id } as const)
+                    : null;
+        if (recipient === null) break;
+        shieldSeq += 1;
+        out.push({
+          t: 'PreventionShieldsAdded',
+          shields: [
+            {
+              id: `sh${obj.id}:${shieldSeq}`,
+              amount,
+              combatOnly: effect.preventCombatOnly === true,
+              recipient,
+            },
+          ],
+        });
         break;
       }
 
@@ -766,6 +811,7 @@ function damageTo(
   aim: Aim,
   amount: number,
   cache?: DeriveCache,
+  unpreventable = false,
 ): ResolvedDamage {
   const d = state.cards[source] ? derive(state, deps.oracle, deps.scripts, source, cache) : null;
   const infect = d?.keywords.has('infect') ?? false;
@@ -781,6 +827,7 @@ function damageTo(
     viaTrample: 0,
     toxic: d?.toxicAmount ?? 0,
     applyAs,
+    ...(unpreventable ? { unpreventable: true } : {}),
   };
 }
 

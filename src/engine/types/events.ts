@@ -36,6 +36,7 @@ import type {
   PendingReplacement,
   PendingTrigger,
   Phase,
+  PreventionShield,
   StackObject,
   Step,
   StopPolicy,
@@ -130,6 +131,15 @@ export interface ResolvedDamage {
    *                of a damage mark
    */
   readonly applyAs: 'normal' | 'poison' | 'wither';
+  /**
+   * D382 - "The damage can't be prevented." (CR 615.9). Optional, and
+   * deliberately so: `ResolvedDamage` is built by hundreds of shipped card
+   * modules and writing `unpreventable: false` into every one of them would say
+   * nothing (D377's boundary on the required-field rule). What replaces the
+   * compiler is `prevention.test.ts`, which pins both directions on the one
+   * card that prints the line.
+   */
+  readonly unpreventable?: boolean;
   /**
    * `Toxic N` — poison counters added ON TOP of normal combat damage to a
    * player. CR 702.180a. Unlike infect this is additive, not a replacement, so
@@ -452,6 +462,17 @@ export type EventBody =
    * the animation want to say which.
    */
   | { readonly t: 'DamageDealt'; readonly damages: readonly ResolvedDamage[] }
+  /**
+   * D382 - CR 615. A shield is put up by an effect that says so; the funnel
+   * spends it. Both are events because `preventionShields` is part of
+   * `GameState` and therefore of the state hash, so a shield the reducer
+   * invented would replay differently than it played (D107's rule).
+   */
+  | { readonly t: 'PreventionShieldsAdded'; readonly shields: readonly PreventionShield[] }
+  | {
+      readonly t: 'DamagePrevented';
+      readonly spends: readonly { readonly id: string; readonly amount: number }[];
+    }
   /**
    * A P/T modifier that lasts until the end of this turn (CR layer 7c).
    *

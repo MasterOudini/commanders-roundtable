@@ -125,6 +125,7 @@ export function emptyState(seed = 'unseeded'): GameState {
     pendingReplacement: null,
     untilEndOfTurn: [],
     regenerationShields: {},
+    preventionShields: [],
     pendingTriggers: [],
     winners: [],
     monarch: null,

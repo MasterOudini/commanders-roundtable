@@ -27548,3 +27548,167 @@ botPool creature 4,624 -> **4,628**, every other column unmoved. Ladder [1267,
 8,215 -> **8,219**. The bot's own reach rose to **7,859** cards from 7,855, chosen
 from **231** fully-executable legendary creatures (230 before). Select pool 0
 throughout - a Phase-1 reclaim lands BY NAME from the ledger (D284/D285).
+
+## D382 — the prevention shield (CR 615): a replacement effect, in the one place every damage event passes through
+
+**M6.4ho.** `complete` **7,920 → 7,974** (+54: **19 with no script at all** and 35
+generated rows). `SHIPPED_SCRIPTS` 5,094 → 5,129; the REFUSED ledger +15.
+
+### The measurement chose this, and the first two answers it gave were tails
+
+The ledger was priced by what would LAND (D343/D354) rather than by its labels: a
+throwaway probe dumped every ledgered card's TRUE leftover — the UNION of unread
+target specs and unaccounted lines, because `faceCompleteness` returns early on
+the spec gate (D371) — and grouped it. The biggest group by far was
+`script-raised prompt`, **76 of its 80 cards one piece from landing** — and those
+76 carry **74 distinct sentences**. The second, the flashback and cycling spell
+tails, is 59 cards across 55. Both are the shape D354 named: a wording table
+cannot finish this project.
+
+So the whole one-piece population was normalised by SHAPE instead — D374's move,
+where 127 head texts turned out to be seven bases and a filter. **12,047 cards
+across 10,016 shapes**, flatter than ever, with exactly one peak:
+**293 cards are one piece from landing and that piece is a prevention sentence**
+(507 incomplete cards carry one anywhere). Nothing else on the board was within a
+factor of four, and prevention has been a named item in `M6.4-LIBRARY-SPEC` since
+the arc began.
+
+### ⚠️⚠️ It could not be built at the emitter, and D233 had already measured why
+
+D233 shipped `Pinpoint Avalanche` on a VACUITY argument: "The damage can't be
+prevented." executed as NOTHING, because the engine's ONE prevention site was
+`combat.ts`'s `preventedAmount` (protection, CR 702.16c), which only the
+combat-damage assignment consults. It wrote `prevention.node.test.ts` as the
+tripwire that would fire the day that stopped being true.
+
+The gap it measured is exactly what rules out the obvious fix. **Hundreds of
+shipped card modules build a `DamageDealt` themselves**, so a shield consulted
+inside `effects.ts`'s `damageTo` would be skipped by every one of them — a Fog
+that stops an attack and not a scripted ping.
+
+⚠️ **CR 615.1 says a prevention effect IS a replacement effect**, and the
+replacement funnel (D148) is the one place every event passes through. That is
+where it lives, which makes it correct by construction rather than by a list of
+call sites kept in step.
+
+### The seam
+
+- `GameState.preventionShields` — a LIST, because two shields can cover the same
+  thing and CR 615.5 spends them one at a time. Cleared by the same
+  `UntilEndOfTurnEnded` as the P/T and the regeneration shields (D330's
+  precedent), because every printed form this reads says "this turn".
+- `PreventionShieldsAdded` and `DamagePrevented` are EVENTS, not reducer
+  inventions: `preventionShields` is part of `GameState` and so of the state
+  hash, so a shield the reducer conjured would replay differently than it played
+  (D107's rule).
+- ⚠️ `amount: 'all'` is not a big number. It never runs out this turn, where a
+  numeric shield shrinks by what it absorbs and is gone at zero; modelling "all"
+  as Infinity would replay the same and read as a bug.
+
+### ⚠️ The WHOLE BATCH, not one event
+
+`applyReplacements` is handed one body at a time against a state that does not
+advance between them, so two damage events in one batch would each see the same
+unspent shield and both consume it. `withoutPreventedDamage` walks the batch once
+with a working ledger, beside `withoutCountersOfTheUncounterable` — D336's own
+shape, and its own comment says why it is there rather than in the per-body pass.
+
+### ⚠️ Prevented damage is not DEALT at all
+
+CR 615.1, and it is a rewrite rather than a subtraction: an entry reduced to zero
+is DROPPED and an event left with no entries is dropped with it. A watcher must
+not see a damage event carrying nothing, and a lifelink or a damage trigger must
+not fire for damage that never happened.
+
+⚠️ **The order is the batch's, and CR 615.5's choice is named as unbuilt** — the
+affected player chooses when two shields could apply. D134's fallback for D134's
+reason: a deterministic order that replays, with the choice stated rather than
+quietly taken.
+
+### ⚠️ The tripwire fired, and the debt it guarded was exactly one card
+
+`prevention.node.test.ts` asserted that the noncombat pipeline never mentions
+prevention. It does now, so the test that rested on that argument is REWRITTEN
+rather than adapted (D117) and pins the opposite claim: that prevention exists,
+that it is applied in ONE place, that `effects.ts` does NOT consult a shield
+itself, and that the sentence D233 could not model is modelled.
+
+`ResolvedDamage.unpreventable` is OPTIONAL, and deliberately: the type is built
+by hundreds of shipped modules and writing `unpreventable: false` into every one
+of them would say nothing — D377's boundary on D355/D356's required-field rule.
+What replaces the compiler is the suite, on the one card that prints the line.
+
+### The vocabulary, and what it refuses
+
+Four printed forms, every one anchored at both ends (D90): a shield that read one
+word wider than the card prints would stop damage the card never claimed to. The
+Fog cycle names NO recipient at all, so its scope is `any` and it covers every
+creature and every player alike — which is why the scope is a FIELD rather than
+an aim. "The damage can't be prevented." is claimed as a `noop` whose FLAG rides
+the batch, `noRegenerate`'s shape (D330) one mechanism over.
+
+**Measured: `effect:auto` 4,783 → 4,865 (+82 faces)**, and **19 cards complete
+with NO SCRIPT** — the Fog cycle (8), the bare "prevent the next N to any target"
+spells (3), the targeted all-damage and combat-to-players pairs, and their kin.
+⚠️ `scriptableToday` **1,263 → 1,313**: a seam RAISES it.
+
+### The wave, and the arm it needed
+
+The seam refilled the offer stream with **50 cards** — the Samite Healer family
+and its kin, whose sole unread line was a prevention sentence. 35 landed as
+generated rows (41 abilities, **every suite green on the first run**), and the
+other 15 are in the ledger by name with the row maker's OWN reason.
+⚠️ `scriptableToday` **1,313 → 1,278**: a wave LOWERS it.
+
+⚠️ **A SHIELD ASSERTED ALONE IS HALF THE RULE** — D375's lesson one mechanism
+over. The fire line casts `Spark Spray` at the shielded thing and the assert
+reads the damage that never arrived. ONE damage, deliberately: it is fully
+prevented by every shield in this wave, so one assert shape serves them all, and
+without the seam it is a mark on the card.
+
+⚠️ **A shield with NO target is REFUSED BY NAME** (7 cards): the Fog shape covers
+everything and is combat-only, so proving it means declaring an attack with a
+creature the row did not put down. Refused rather than asserted vacuously (D128).
+
+### ⚠️ A blanket guard outlived its reason, for the second time in eight decisions
+
+The clause fixture picker refused any clause whose kinds included `battle` — and
+`any target` is `[creature, player, planeswalker, battle]`, so every prevention
+row was refused for a clause a CREATURE serves perfectly. D375 narrowed the
+artifact arm of the same picker for the same reason; only a clause with nothing
+but battles and planeswalkers in it has no fixture, and that is what stays
+refused. It was refusing the 42 targeted prevention abilities the shape count
+named, of which 41 landed.
+
+### ⚠️ And the applier is genuinely EOL-aware now
+
+`patchlib.cjs` calls itself EOL-aware and was not: a payload written by a heredoc
+is LF, `triggers.ts` is CRLF, and the anchor matched NOTHING. The counted guard
+caught it — which is the difference between this and D258, where a silent
+`String.replace` over a CRLF file reported success — but catching it every time
+is not handling it, so the payload is converted to the FILE's own line ending
+before it is matched and written.
+
+### The canary, because the state hash cannot vouch for an empty list
+
+`preventionShields` is in the state hash, so 500 seeds of equal hashes would
+prove nothing while every game's list stayed empty (D128's green tick over
+nothing, D364's own warning). `Fog` joins `CANARY_STAPLES`: {G}, no target to
+find, and its shield is COMBAT-wide, so the fuzzer's own attacks spend it without
+having to aim anything. TWO counters, because a shield nothing spends proves only
+half of CR 615 — **56 shields put up and 4 damage prevented at 60 seeds**, so the
+first is a floor at any size and the second at gate size only (D155/D176's rule).
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5280 files,
+26071 passed / 11 skipped · 500-seed gate, 6 shards, 814.8 s wall ·
+build clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D382): the 7 Fog-shaped rows and the combat-role clause (the
+scaffold arm that must ATTACK, which D350 named and two waves have now paid for);
+the 52 Circles of Protection (`the next time a source of your choice would deal
+damage to you`, a prompt over SOURCES); the STATIC prevention (`Prevent all
+combat damage that would be dealt to this creature.`, a continuous ability rather
+than a one-shot shield — 4 cards); CR 615.5's ordering choice; then the two tails
+the measurement named — `script-raised prompt` (76 cards, 74 sentences) and the
+flashback/cycling spell bodies (59 across 55), both of which want a spell-row
+TABLE rather than a seam; then prior items stand.

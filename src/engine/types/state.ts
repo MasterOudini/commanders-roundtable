@@ -950,6 +950,25 @@ export interface Zones {
   readonly command: Readonly<Record<PlayerId, readonly InstanceId[]>>;
 }
 
+/**
+ * One prevention shield. CR 615.
+ *
+ * ⚠️ `amount: 'all'` is not a big number: it never runs out this turn, where a
+ * numeric shield shrinks by what it absorbs and is gone when it reaches zero.
+ * Modelling "all" as Infinity would replay the same and read as a bug.
+ */
+export interface PreventionShield {
+  readonly id: string;
+  readonly amount: number | 'all';
+  /** "combat damage" rather than any damage. */
+  readonly combatOnly: boolean;
+  readonly recipient:
+    | { readonly kind: 'any' }
+    | { readonly kind: 'players' }
+    | { readonly kind: 'player'; readonly id: PlayerId }
+    | { readonly kind: 'card'; readonly id: InstanceId };
+}
+
 export interface GameState {
   readonly gameId: string;
   readonly options: GameOptions;
@@ -996,6 +1015,14 @@ export interface GameState {
    * effects at cleanup and when the permanent leaves the battlefield.
    */
   readonly regenerationShields: Readonly<Record<string, number>>;
+  /**
+   * D382 - CR 615: prevention shields, each standing between some damage and
+   * some recipient until this turn ends. A LIST rather than a map, because two
+   * shields can cover the same thing and CR 615.5 spends them one at a time;
+   * cleared by the same `UntilEndOfTurnEnded` as the P/T and the regeneration
+   * shields, because every printed one this reads says "this turn".
+   */
+  readonly preventionShields: readonly PreventionShield[];
   readonly pendingTriggers: readonly PendingTrigger[];
   readonly winners: readonly PlayerId[];
   /**

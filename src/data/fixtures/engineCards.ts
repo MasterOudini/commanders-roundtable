@@ -1312,6 +1312,10 @@ export const PIGGY_BANK: CardData = F.PIGGY_BANK as CardData;
 export const PILLAGE: CardData = F.PILLAGE as CardData;
 export const PILLARDROP_RESCUER: CardData = F.PILLARDROP_RESCUER as CardData;
 export const PINPOINT_AVALANCHE: CardData = F.PINPOINT_AVALANCHE as CardData;
+export const FOG: CardData = F.FOG as CardData;
+export const MENDING_HANDS: CardData = F.MENDING_HANDS as CardData;
+export const INDESTRUCTIBLE_AURA: CardData = F.INDESTRUCTIBLE_AURA as CardData;
+export const DEFEND_THE_HEARTH: CardData = F.DEFEND_THE_HEARTH as CardData;
 export const PIRANHA_MARSH: CardData = F.PIRANHA_MARSH as CardData;
 export const PITH_DRILLER: CardData = F.PITH_DRILLER as CardData;
 export const PITILESS_PLUNDERER: CardData = F.PITILESS_PLUNDERER as CardData;
@@ -5473,6 +5477,41 @@ export const BURNING_SUN_CAVALRY: CardData = F.BURNING_SUN_CAVALRY as CardData;
 export const COURAGEOUS_GOBLIN: CardData = F.COURAGEOUS_GOBLIN as CardData;
 export const IMPERIAL_COSMOGRAPHER: CardData = F.IMPERIAL_COSMOGRAPHER as CardData;
 export const RUBY_DARING_TRACKER: CardData = F.RUBY_DARING_TRACKER as CardData;
+export const ALABASTER_WALL: CardData = F.ALABASTER_WALL as CardData;
+export const AMULET_OF_KROOG: CardData = F.AMULET_OF_KROOG as CardData;
+export const ARGIVIAN_BLACKSMITH: CardData = F.ARGIVIAN_BLACKSMITH as CardData;
+export const AVEN_REDEEMER: CardData = F.AVEN_REDEEMER as CardData;
+export const BENEVOLENT_ANCESTOR: CardData = F.BENEVOLENT_ANCESTOR as CardData;
+export const CAREGIVER: CardData = F.CAREGIVER as CardData;
+export const CLERGY_EN_VEC: CardData = F.CLERGY_EN_VEC as CardData;
+export const COMBAT_MEDIC: CardData = F.COMBAT_MEDIC as CardData;
+export const DARU_HEALER: CardData = F.DARU_HEALER as CardData;
+export const FEMEREF_HEALER: CardData = F.FEMEREF_HEALER as CardData;
+export const FIELD_SURGEON: CardData = F.FIELD_SURGEON as CardData;
+export const GODTOUCHER: CardData = F.GODTOUCHER as CardData;
+export const KEI_TAKAHASHI: CardData = F.KEI_TAKAHASHI as CardData;
+export const KITHKIN_HEALER: CardData = F.KITHKIN_HEALER as CardData;
+export const LOXODON_ANCHORITE: CardData = F.LOXODON_ANCHORITE as CardData;
+export const MARTYRS_TOMB: CardData = F.MARTYRS_TOMB as CardData;
+export const MASTER_APOTHECARY: CardData = F.MASTER_APOTHECARY as CardData;
+export const MASTER_HEALER: CardData = F.MASTER_HEALER as CardData;
+export const MILITANT_MONK: CardData = F.MILITANT_MONK as CardData;
+export const NECRA_DISCIPLE: CardData = F.NECRA_DISCIPLE as CardData;
+export const NOBLE_VESTIGE: CardData = F.NOBLE_VESTIGE as CardData;
+export const OASIS: CardData = F.OASIS as CardData;
+export const ORIM_SAMITE_HEALER: CardData = F.ORIM_SAMITE_HEALER as CardData;
+export const SAMITE_HEALER: CardData = F.SAMITE_HEALER as CardData;
+export const SANCTUM_CUSTODIAN: CardData = F.SANCTUM_CUSTODIAN as CardData;
+export const SPLIT_TAIL_MIKO: CardData = F.SPLIT_TAIL_MIKO as CardData;
+export const SQUEE_S_TOY: CardData = F.SQUEE_S_TOY as CardData;
+export const TREEFOLK_HEALER: CardData = F.TREEFOLK_HEALER as CardData;
+export const TROUBLED_HEALER: CardData = F.TROUBLED_HEALER as CardData;
+export const ABUNA_ACOLYTE: CardData = F.ABUNA_ACOLYTE as CardData;
+export const BARRENTON_MEDIC: CardData = F.BARRENTON_MEDIC as CardData;
+export const HYPOCHONDRIA: CardData = F.HYPOCHONDRIA as CardData;
+export const RAKA_DISCIPLE: CardData = F.RAKA_DISCIPLE as CardData;
+export const SAMITE_ARCHER: CardData = F.SAMITE_ARCHER as CardData;
+export const SERRA_PALADIN: CardData = F.SERRA_PALADIN as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -6918,6 +6957,10 @@ export const ENGINE_CARDS: CardData[] = [
   PILLAGE,
   PILLARDROP_RESCUER,
   PINPOINT_AVALANCHE,
+  FOG,
+  MENDING_HANDS,
+  INDESTRUCTIBLE_AURA,
+  DEFEND_THE_HEARTH,
   PIRANHA_MARSH,
   PITH_DRILLER,
   PITILESS_PLUNDERER,
@@ -11079,6 +11122,41 @@ export const ENGINE_CARDS: CardData[] = [
   COURAGEOUS_GOBLIN,
   IMPERIAL_COSMOGRAPHER,
   RUBY_DARING_TRACKER,
+  ALABASTER_WALL,
+  AMULET_OF_KROOG,
+  ARGIVIAN_BLACKSMITH,
+  AVEN_REDEEMER,
+  BENEVOLENT_ANCESTOR,
+  CAREGIVER,
+  CLERGY_EN_VEC,
+  COMBAT_MEDIC,
+  DARU_HEALER,
+  FEMEREF_HEALER,
+  FIELD_SURGEON,
+  GODTOUCHER,
+  KEI_TAKAHASHI,
+  KITHKIN_HEALER,
+  LOXODON_ANCHORITE,
+  MARTYRS_TOMB,
+  MASTER_APOTHECARY,
+  MASTER_HEALER,
+  MILITANT_MONK,
+  NECRA_DISCIPLE,
+  NOBLE_VESTIGE,
+  OASIS,
+  ORIM_SAMITE_HEALER,
+  SAMITE_HEALER,
+  SANCTUM_CUSTODIAN,
+  SPLIT_TAIL_MIKO,
+  SQUEE_S_TOY,
+  TREEFOLK_HEALER,
+  TROUBLED_HEALER,
+  ABUNA_ACOLYTE,
+  BARRENTON_MEDIC,
+  HYPOCHONDRIA,
+  RAKA_DISCIPLE,
+  SAMITE_ARCHER,
+  SERRA_PALADIN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -787,6 +787,57 @@ const RULES: readonly Rule[] = [
     build: () => ({ ...BASE, targetIndex: -1, self: true, noRegenerate: true }),
   },
   /**
+   * D382 - CR 615.9, and `noRegenerate`'s shape one mechanism over. Claimed as a
+   * `noop` whose FLAG rides the batch: the sentence adds nothing of its own, it
+   * says the damage beside it ignores the shields. D233's tripwire existed
+   * because this was executed as NOTHING while no shield could exist.
+   */
+  {
+    kind: 'noop',
+    re: /^(?:the|that) damage can't be prevented\.$/i,
+    build: () => ({ ...BASE, targetIndex: -1, self: true, cantBePrevented: true }),
+  },
+  /**
+   * D382 - the prevention shield, CR 615. Four printed forms, every one anchored
+   * at both ends (D90): a shield that reads one word wider than the card prints
+   * would stop damage the card never claimed to stop.
+   *
+   * ⚠️ The Fog cycle - "Prevent all combat damage that would be dealt this
+   * turn." - names NO recipient at all, so its scope is `any` and it covers
+   * every creature and every player alike. That is the card, and it is why the
+   * scope is a field rather than an aim.
+   */
+  {
+    kind: 'prevent',
+    re: /^prevent all combat damage that would be dealt this turn\.$/i,
+    build: () => ({ ...BASE, targetIndex: -1, self: true, preventAmount: 'all', preventCombatOnly: true, preventScope: 'any' }),
+  },
+  {
+    kind: 'prevent',
+    re: /^prevent all (combat )?damage that would be dealt to (you|players) this turn\.$/i,
+    build: (m) => ({
+      ...BASE,
+      targetIndex: -1,
+      self: true,
+      preventAmount: 'all',
+      preventCombatOnly: m[1] !== undefined,
+      preventScope: m[2]?.toLowerCase() === 'you' ? 'you' : 'players',
+    }),
+  },
+  {
+    kind: 'prevent',
+    re: new RegExp(`^prevent all (combat )?damage that would be dealt to ${TARGET} this turn\.$`, 'i'),
+    build: (m) => ({ ...BASE, preventAmount: 'all', preventCombatOnly: m[1] !== undefined }),
+  },
+  {
+    kind: 'prevent',
+    re: new RegExp(`^prevent the next (${NUM}) (combat )?damage that would be dealt to ${TARGET} this turn\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      return n === null ? null : { ...BASE, preventAmount: n, preventCombatOnly: m[2] !== undefined };
+    },
+  },
+  /**
    * M6.3c. `Battlegrowth` — "Put a +1/+1 counter on target creature." — and
    * `Scar`, which is the same sentence with `-1/-1` and can kill through the
    * state-based action rather than through damage.
