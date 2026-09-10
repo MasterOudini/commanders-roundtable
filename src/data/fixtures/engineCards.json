@@ -183201,6 +183201,320 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "AKKI_RAIDER": {
+    "scryfallId": "c8fb34ae-157c-4f4b-bb47-2a9dc394a20c",
+    "oracleId": "bf9c5c0d-86a5-467a-863c-653279f2e6e7",
+    "name": "Akki Raider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Akki Raider",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Whenever a land is put into a graveyard from the battlefield, this creature gets +1/+0 until end of turn.",
+        "flavorText": "Akki were very territorial, attacking and destroying any settlements that came too close to their mountain homes. The more successful their raids, the bolder they became.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Martina Pilcerova",
+        "imageId": "c8fb34ae-157c-4f4b-bb47-2a9dc394a20c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "bok",
+    "collectorNumber": "92",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ATTUNED_HUNTER": {
+    "scryfallId": "d1a4f502-86a9-49fb-9cb9-7918d13c5313",
+    "oracleId": "f652c593-e8fa-42ff-a8b4-206556b273de",
+    "name": "Attuned Hunter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Attuned Hunter",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Ranger",
+        "oracleText": "Trample\nWhenever one or more cards leave your graveyard during your turn, put a +1/+1 counter on this creature.",
+        "flavorText": "\"Sokran is no mere bear. She is friend, family, and confidante—and more intelligent than some of my blood relatives.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Scott Murphy",
+        "imageId": "d1a4f502-86a9-49fb-9cb9-7918d13c5313"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CYAN_VENGEFUL_SAMURAI": {
+    "scryfallId": "a1e779b4-32dd-406b-8b68-48f6df458005",
+    "oracleId": "5a2fa420-c27f-4c14-b285-e0bb2828e053",
+    "name": "Cyan, Vengeful Samurai",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cyan, Vengeful Samurai",
+        "manaCost": "{6}{W}",
+        "typeLine": "Legendary Creature — Human Samurai",
+        "oracleText": "This spell costs {1} less to cast for each creature card in your graveyard.\nDouble strike\nWhenever one or more creature cards leave your graveyard, put a +1/+1 counter on Cyan.",
+        "flavorText": "\"There will be no mercy for thee!\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Christian Angel",
+        "imageId": "a1e779b4-32dd-406b-8b68-48f6df458005"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Double strike"
+    ],
+    "setCode": "fic",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOLDER_BEAST": {
+    "scryfallId": "1636f571-43ed-4b60-b5d9-129ff94dd0fa",
+    "oracleId": "2b732c6a-f09c-4ac0-ae3a-1d8820b69aba",
+    "name": "Molder Beast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Molder Beast",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Trample\nWhenever an artifact is put into a graveyard from the battlefield, this creature gets +2/+0 until end of turn.",
+        "flavorText": "\"A trail of scrap metal can lead it into an ambush. But take care not to overfeed it.\"\n—Adaran, Tangle hunter",
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randis Albion",
+        "imageId": "1636f571-43ed-4b60-b5d9-129ff94dd0fa"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "cmr",
+    "collectorNumber": "243",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OWLIN_HISTORIAN": {
+    "scryfallId": "5fe99be0-e1ec-485e-82f8-02eba7b82441",
+    "oracleId": "e1ebb60e-fbf3-4f8f-a76f-d637ec59ffb0",
+    "name": "Owlin Historian",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Owlin Historian",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Bird Cleric",
+        "oracleText": "Flying\nWhen this creature enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)\nWhenever one or more cards leave your graveyard, this creature gets +1/+1 until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matheus Graef",
+        "imageId": "5fe99be0-e1ec-485e-82f8-02eba7b82441"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Surveil"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROT_FARM_MORTIPEDE": {
+    "scryfallId": "023b0142-663a-47e7-a9f1-0b565a172b60",
+    "oracleId": "1f4d3a96-bc30-4362-9c1f-40bf79f78e78",
+    "name": "Rot Farm Mortipede",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rot Farm Mortipede",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Whenever one or more creature cards leave your graveyard, this creature gets +1/+0 and gains menace and lifelink until end of turn.",
+        "flavorText": "Every week, the necropsy lab's unclaimed bodies are transferred to the Golgari for \"recycling.\"",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Loïc Canavaggia",
+        "imageId": "023b0142-663a-47e7-a9f1-0b565a172b60"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mkm",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAVIOR_OF_THE_SLEEPING": {
+    "scryfallId": "7b4979d9-fafb-4e0e-868f-f4772109d7a7",
+    "oracleId": "412eb5ec-bf13-45fb-94b3-c41e62b19d1d",
+    "name": "Savior of the Sleeping",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Savior of the Sleeping",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Vigilance\nWhenever an enchantment you control is put into a graveyard from the battlefield, put a +1/+1 counter on this creature.",
+        "flavorText": "Even lost in slumber, the citizens of Ardenvale dream of a tireless protector standing guard over their homes.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Valera Lutfullina",
+        "imageId": "7b4979d9-fafb-4e0e-868f-f4772109d7a7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIRIT_MASCOT": {
+    "scryfallId": "123f1fde-d8de-4640-baa1-bb3781713168",
+    "oracleId": "34c572b2-dccf-43d9-a9c4-846653ad22da",
+    "name": "Spirit Mascot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spirit Mascot",
+        "manaCost": "{R}{W}",
+        "typeLine": "Creature — Spirit Ox",
+        "oracleText": "Whenever one or more cards leave your graveyard, put a +1/+1 counter on this creature.",
+        "flavorText": "Unflagging, unafraid, and undaunted.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Edgar Sánchez Hidalgo",
+        "imageId": "123f1fde-d8de-4640-baa1-bb3781713168"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "sos",
+    "collectorNumber": "230",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VULTUROUS_ZOMBIE": {
+    "scryfallId": "48fc8519-e145-410a-9c1b-717f2ad3e5f6",
+    "oracleId": "11a28f60-2456-4ed5-b1cc-03c395f55e59",
+    "name": "Vulturous Zombie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vulturous Zombie",
+        "manaCost": "{3}{B}{G}",
+        "typeLine": "Creature — Plant Zombie",
+        "oracleText": "Flying\nWhenever a card is put into an opponent's graveyard from anywhere, put a +1/+1 counter on this creature.",
+        "flavorText": "\"When something dies, all things benefit. Well okay, just our things.\"\n—Ezoc, Golgari rot farmer",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "48fc8519-e145-410a-9c1b-717f2ad3e5f6"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "cmd",
+    "collectorNumber": "236",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

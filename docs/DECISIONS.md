@@ -27099,3 +27099,90 @@ exit. ⚠️ **A check whose output you pipe is a check that cannot fail your sc
 **Verified: `verify.cjs --full` (sharded) - ALL FIVE GATES: 5215 files,
 25781 passed / 11 skipped · 500-seed gate, 6 shards, 835.4 s wall ·
 build clean · probe 124/124 · battery 130/130.**
+
+## D378 - M6.4hk: THE GRAVEYARD BASES - where a sacrifice needed a seam, a card leaving a graveyard says so in its own `from` (2026-09-10)
+
+**7,900 of 31,692 Commander-legal cards execute completely, up from 7,891 (+9).**
+`SHIPPED_SCRIPTS` 5,065 -> **5,074**; REFUSED ledger 1,194 -> **1,185** (nine rows
+DELETED as their cards landed). Fixtures 5,573 -> **5,582**. `scriptableToday`
+1,292 -> **1,283**. **No engine file is touched.**
+
+### The contrast with D377, which is the whole reason this one is cheap
+
+D377 had to build `CardMove.reason` because a sacrifice and a discard are
+INVISIBLE in the zones: both are an ordinary `CardsMoved`, and nothing on the event
+said which. The two bases D376's grouping left are the opposite case:
+
+- a card **LEAVING** a graveyard says so in its own `from` (`kind` and `player`);
+- a card **PUT INTO** a graveyard says so in its own `to`.
+
+So the whole decision is two head regexes, two matchers and two fire lines - the
+D374 mechanism reaching two more bases, with nothing under `src/engine/` moved.
+
+Ten cards across eight printed head texts, every one with no second blocker.
+
+### One regex for four printed forms
+
+    Whenever <subject> is put into <your | an opponent's | a> graveyard from <the battlefield | anywhere>, ...
+
+The two variables in the printed line are exactly the two the matcher needs - the
+destination player and the source zone - so one reader covers "a land is put into a
+graveyard from the battlefield", "an enchantment you control is put into a
+graveyard from the battlefield" and "a card is put into an opponent's graveyard
+from anywhere" at once.
+
+⚠️ **From the BATTLEFIELD this is CR 700.4's own definition of DYING**, so the
+filter reads `derive`: with `looksBack` the permanent is still on the battlefield
+in the before-state and its derived characteristics are the right ones. From
+ANYWHERE it is not - a card arriving from a hand or a library has no derivation at
+all - so the filter must be BARE there and any other subject refuses by name.
+
+### ⚠️ THE MOVER'S TYPE IS READ OFF THE ORACLE FACE, NEVER OFF `derive`
+
+D171 made this rule for the first graveyard-exit watcher and it is the reason the
+`leave your graveyard` filter is narrower than every other base's: **a card in a
+graveyard has no battlefield derivation**, so a `derive` read would be answering
+for a permanent that is not there. The matcher looks the printing up and reads
+`faceOf(oc, inst.faceIndex)`, which can answer about card types and subtypes and
+nothing else - so colours, keywords, power and mana value refuse the head rather
+than being read off something that does not exist.
+
+⚠️ **And a BARE subject asks nothing of the card, so it emits no oracle read at
+all.** The first cut always emitted the lookup and then `return true`, which leaves
+a binding nothing uses: a `tsc` error rather than a harmless extra line.
+
+### The fires, and why each is one submit
+
+| head | the arm | the fire |
+|---|---|---|
+| `cardLeavesYourGraveyard` | the fixture waits in p1's graveyard | move it to hand |
+| `cardPutIntoGraveyard` (from the battlefield) | the fixture is on the board | move it to the graveyard |
+| `cardPutIntoGraveyard` (from anywhere, an opponent's graveyard) | the fixture is in p2's hand | p2 moves it to p2's own graveyard |
+
+Every fixture is put down BEFORE the baselines (D377's rule: a `put` may take a
+card out of the OPENING HAND, and a baseline measured after it cannot tell), so the
+only thing that moves during the fire is what the head is about, and the assert
+adjustments are one line each - a graveyard exit is graveyard minus one and hand
+plus one, an entry is board minus one and graveyard plus one, and a head aimed at
+the OPPONENT's graveyard moves nothing p1 counts.
+
+### ⚠️ The derive's own rename was renamed
+
+The `sed` that turned `derive377.cjs` into `derive378.cjs` also rewrote the
+derive's own `.split('gen77-').join('gen78-')` into `.split('gen78-')...`, so its
+FROM side no longer quoted what it was meant to find and every internal `require`
+in the derived chain stayed at 77. That is D354's trap verbatim - **a DERIVE
+renames decision NUMBERS, so a swap's FROM side must quote what the rename leaves**
+- and the answer is the same as it was: the derive script's own replace table has
+to be exempt from the rename that produces it.
+
+### What landed
+
+Nine of the ten the ledger offered, every suite green on the FIRST run and `tsc`
+clean on the first pass. One refused BY NAME, and it keeps its ledger label because
+the label is still true of it: `Ultron's Auxiliary` prints TWO heads joined by an
+`or` in a single line, which the library holds in no base at any filter.
+
+**Verified: `verify.cjs --full` (sharded) - ALL FIVE GATES: 5224 files,
+25821 passed / 11 skipped · 500-seed gate, 6 shards, 768.3 s wall ·
+build clean · probe 124/124 · battery 130/130.**

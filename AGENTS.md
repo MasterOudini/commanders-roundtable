@@ -13191,6 +13191,81 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       6); then the seam map's rest — the attached statics the Aura and Equipment
       rows cannot read (351), the bare keyword or ability word (206); prior items
       stand.
+- [x] **M6.4hk — THE GRAVEYARD BASES: where a sacrifice needed a seam, a card
+      leaving a graveyard says so in its own `from` (2026-09-10):** **7,900 of
+      31,692 Commander-legal cards now execute completely, up from 7,891 (+9).**
+      `SHIPPED_SCRIPTS` 5,065 → **5,074**; ledger 1,194 → **1,185** (nine rows
+      DELETED as their cards landed). Fixtures 5,573 → **5,582**. **No engine file
+      is touched. Select pool 0** throughout — a Phase-1 reclaim lands BY NAME from
+      the ledger (D284/D285). Decisions in **D378**.
+      ⚠️ **THE CONTRAST WITH D377 IS THE WHOLE REASON THIS ONE IS CHEAP.** D377 had
+      to build `CardMove.reason` because a sacrifice and a discard are INVISIBLE in
+      the zones — both are an ordinary `CardsMoved` and nothing on the event said
+      which. A card LEAVING a graveyard says so in its own `from`, and a card PUT
+      INTO one in its own `to`, so the two bases D376's grouping left are two head
+      regexes, two matchers and two fire lines with nothing under `src/engine/`
+      moved.
+      ⚠️ **ONE REGEX FOR FOUR PRINTED FORMS**: `is put into <your | an opponent's |
+      a> graveyard from <the battlefield | anywhere>` — the two variables in the
+      printed line are exactly the two the matcher needs. From the BATTLEFIELD this
+      is CR 700.4's own definition of DYING, so the filter reads `derive` (with
+      `looksBack` the permanent is still there in the before-state); from ANYWHERE
+      it is not, so the filter must be BARE and any other subject refuses by name.
+      ⚠️⚠️ **THE MOVER'S TYPE IS READ OFF THE ORACLE FACE, NEVER OFF `derive`**
+      (D171's rule, and the reason the `leave your graveyard` filter is narrower
+      than every other base's): a card in a graveyard has no battlefield derivation,
+      so a `derive` read would be answering for a permanent that is not there. The
+      matcher reads `faceOf(oc, inst.faceIndex)`, which can answer about card types
+      and subtypes and nothing else — colours, keywords, power and mana value refuse
+      the head. ⚠️ And a BARE subject asks nothing of the card, so it emits no
+      oracle read at all: the first cut always emitted the lookup and then `return
+      true`, which leaves a binding nothing uses — a `tsc` error, not a harmless
+      extra line.
+      ⚠️ **THE DERIVE'S OWN RENAME WAS RENAMED.** The `sed` that turned
+      `derive377.cjs` into `derive378.cjs` also rewrote its own
+      `.split('gen77-').join('gen78-')` into `.split('gen78-')...`, so the FROM side
+      no longer quoted what it was meant to find and every internal `require` in the
+      derived chain stayed at 77 — D354's trap verbatim. A derive script's own
+      replace table has to be exempt from the rename that produces it.
+      Fixtures 5,582 (5,427 by name + 148 tokens) · botPool artifact 441 /
+      creature 4,608 / enchantment 451 / instant 1,049 / land 566 / sorcery 785 ·
+      ladder [1283, 1371, 2946, 4673, 6009] · `scriptableToday` 1,292 → **1,283** ·
+      tier3 silentAfter 8,199 · bot reach 7,839 from 228 commanders · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5224 files, 25821 passed / 11 skipped ·
+      500-seed gate, 6 shards, 768.3 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D378): **the 32-shape `other` tail** — 38 head lines
+      across 32 distinct texts, the last dense group D376's own grouping left, and
+      three of them are one line of reader each (`whenever a player cycles a card`
+      is D377's `youCycle` head with the controller check dropped, `whenever
+      another creature you control leaves the battlefield` is the leaves watcher
+      D228 shipped one filter over); the COMPOUND head — two heads joined by an
+      `or` in a single printed line (`Ultron's Auxiliary`, `Ivora, Insatiable
+      Heir`, `Cryptid Inspector`, `Marvel Boy`, `Perimeter Enforcer`), which is a
+      row-maker shape rather than a reader one: split the line and emit two defs;
+      then the filtered ENTERS forms the reader does not reach; then the 17
+      filtered heads whose subject is outside the closed reader (a linked memory 5,
+      an alternatives list 3, a timing phrase, a team scope, a chosen colour); a
+      MANUAL SACRIFICE tool (D377 — a card applied by hand can DISCARD and fire a
+      watcher now and cannot sacrifice, because the zones cannot tell a sacrifice
+      from a destroy); the 12 trigger payloads outside both readers and the 9
+      ability-word activated lines D374 ledgered; the three hand scripts D373 made
+      REDUNDANT (Deduce, Foul Play, Auspicious Arrival); the twenty quoted-grant
+      payloads D373 refused BY REASON; then the 100-card tail across 94 shapes;
+      then D371's list — the 18 whose grant REDEFINES the host's base P/T, the
+      NUMBERED grant keywords, `Commander creatures you own` MEASURED AT ZERO; then
+      D370's — the X and computed payment prices (19), an effect after the payment
+      ask (9), echo (17) and cumulative upkeep (16); then `as long as` (448 across
+      276 conditions); the granted STATIC (10), the ENTERS and combat-role scaffold
+      arms; then D365's — the counts outside the vocabulary (17), the activation
+      conditions (35), the trigger payloads outside both readers (20) — and D364's
+      snow CREATURE fixture, D363's counter KINDS and NONTOKEN predicate, the
+      keyword ENTRY REPLACEMENTS (bloodthirst 13, modular 7, graft 2) and CHOICES
+      (fabricate 10, unleash 9, riot 4, devour 4, enlist 5, amplify 3), the block
+      REQUIREMENT (provoke 4), the cast-time payment sources (convoke 14, delve 5,
+      improvise 6); then the seam map's rest — the attached statics the Aura and
+      Equipment rows cannot read (351), the bare keyword or ability word (206);
+      prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

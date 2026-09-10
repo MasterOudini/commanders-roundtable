@@ -6042,6 +6042,18 @@ const WANTED = [
   // D377 - the permanents the sacrifice and cycle heads fire on, DERIVED from each printed subject.
   'Blood Pet',
   // D377 - the helpers the reclaim suites deal.
+  // D378 - the graveyard bases: the reclaimed cards.
+  'Akki Raider',
+  'Attuned Hunter',
+  'Cyan, Vengeful Samurai',
+  'Molder Beast',
+  'Owlin Historian',
+  'Rot Farm Mortipede',
+  'Savior of the Sleeping',
+  'Spirit Mascot',
+  'Vulturous Zombie',
+  // D378 - the cards the graveyard heads move, DERIVED from each printed subject.
+  // D378 - the helpers the reclaim suites deal.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

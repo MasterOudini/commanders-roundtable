@@ -5443,6 +5443,15 @@ export const PRICKLY_MARMOSET: CardData = F.PRICKLY_MARMOSET as CardData;
 export const SHADOWSTORM_VIZIER: CardData = F.SHADOWSTORM_VIZIER as CardData;
 export const SLAUGHTER_PRIEST_OF_MOGIS: CardData = F.SLAUGHTER_PRIEST_OF_MOGIS as CardData;
 export const BLOOD_PET: CardData = F.BLOOD_PET as CardData;
+export const AKKI_RAIDER: CardData = F.AKKI_RAIDER as CardData;
+export const ATTUNED_HUNTER: CardData = F.ATTUNED_HUNTER as CardData;
+export const CYAN_VENGEFUL_SAMURAI: CardData = F.CYAN_VENGEFUL_SAMURAI as CardData;
+export const MOLDER_BEAST: CardData = F.MOLDER_BEAST as CardData;
+export const OWLIN_HISTORIAN: CardData = F.OWLIN_HISTORIAN as CardData;
+export const ROT_FARM_MORTIPEDE: CardData = F.ROT_FARM_MORTIPEDE as CardData;
+export const SAVIOR_OF_THE_SLEEPING: CardData = F.SAVIOR_OF_THE_SLEEPING as CardData;
+export const SPIRIT_MASCOT: CardData = F.SPIRIT_MASCOT as CardData;
+export const VULTUROUS_ZOMBIE: CardData = F.VULTUROUS_ZOMBIE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -11019,6 +11028,15 @@ export const ENGINE_CARDS: CardData[] = [
   SHADOWSTORM_VIZIER,
   SLAUGHTER_PRIEST_OF_MOGIS,
   BLOOD_PET,
+  AKKI_RAIDER,
+  ATTUNED_HUNTER,
+  CYAN_VENGEFUL_SAMURAI,
+  MOLDER_BEAST,
+  OWLIN_HISTORIAN,
+  ROT_FARM_MORTIPEDE,
+  SAVIOR_OF_THE_SLEEPING,
+  SPIRIT_MASCOT,
+  VULTUROUS_ZOMBIE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

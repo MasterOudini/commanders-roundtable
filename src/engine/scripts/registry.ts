@@ -7,6 +7,15 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { AKKI_RAIDER_SCRIPT } from './cards/akkiRaider';
+import { ATTUNED_HUNTER_SCRIPT } from './cards/attunedHunter';
+import { CYAN_VENGEFUL_SAMURAI_SCRIPT } from './cards/cyanVengefulSamurai';
+import { MOLDER_BEAST_SCRIPT } from './cards/molderBeast';
+import { OWLIN_HISTORIAN_SCRIPT } from './cards/owlinHistorian';
+import { ROT_FARM_MORTIPEDE_SCRIPT } from './cards/rotFarmMortipede';
+import { SAVIOR_OF_THE_SLEEPING_SCRIPT } from './cards/saviorOfTheSleeping';
+import { SPIRIT_MASCOT_SCRIPT } from './cards/spiritMascot';
+import { VULTUROUS_ZOMBIE_SCRIPT } from './cards/vulturousZombie';
 import { ABYSSAL_NOCTURNUS_SCRIPT } from './cards/abyssalNocturnus';
 import { BLOODBRIAR_SCRIPT } from './cards/bloodbriar';
 import { BODY_DROPPER_SCRIPT } from './cards/bodyDropper';
@@ -5091,6 +5100,15 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AKKI_RAIDER_SCRIPT,
+  ATTUNED_HUNTER_SCRIPT,
+  CYAN_VENGEFUL_SAMURAI_SCRIPT,
+  MOLDER_BEAST_SCRIPT,
+  OWLIN_HISTORIAN_SCRIPT,
+  ROT_FARM_MORTIPEDE_SCRIPT,
+  SAVIOR_OF_THE_SLEEPING_SCRIPT,
+  SPIRIT_MASCOT_SCRIPT,
+  VULTUROUS_ZOMBIE_SCRIPT,
   ABYSSAL_NOCTURNUS_SCRIPT,
   BLOODBRIAR_SCRIPT,
   BODY_DROPPER_SCRIPT,
