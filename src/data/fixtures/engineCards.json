@@ -183851,6 +183851,249 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FOE_LIAGE": {
+    "scryfallId": "d54cd688-8950-4a84-a74f-5f31b344b6c9",
+    "oracleId": "017cadd8-55ee-497a-84d4-6535173bc1eb",
+    "name": "Foe-liage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Foe-liage",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Plant Mutant",
+        "oracleText": "Whenever a land enters during your turn, put a +1/+1 counter on this creature.",
+        "flavorText": "\"Wilcox said a weed is but an unloved flower, but this is the kind of flower only his mother could love!\"\n—Donatello",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Villarrte",
+        "imageId": "d54cd688-8950-4a84-a74f-5f31b344b6c9"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tmc",
+    "collectorNumber": "122",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IVORA_INSATIABLE_HEIR": {
+    "scryfallId": "2ba70366-b6ae-423a-a8d8-29d2b8afd939",
+    "oracleId": "d847542b-7522-43ec-91b0-f0aba5d7dddd",
+    "name": "Ivora, Insatiable Heir",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ivora, Insatiable Heir",
+        "manaCost": "{1}{R}",
+        "typeLine": "Legendary Creature — Vampire Warrior",
+        "oracleText": "Trample\nWhen Ivora enters and whenever it deals combat damage to a player, create a Blood token. (It's an artifact with \"{1}, {T}, Discard a card, Sacrifice this token: Draw a card.\")\nWhenever you discard a card, put a +1/+1 counter on Ivora.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Canata Katana",
+        "imageId": "2ba70366-b6ae-423a-a8d8-29d2b8afd939"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PERIMETER_ENFORCER": {
+    "scryfallId": "1f88d077-5082-4a67-91e4-97aafb9a5e91",
+    "oracleId": "be8d3788-709b-4d10-861c-a6f27d4b63a6",
+    "name": "Perimeter Enforcer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Perimeter Enforcer",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Detective",
+        "oracleText": "Flying, lifelink\nWhenever another Detective you control enters and whenever a Detective you control is turned face up, this creature gets +1/+1 until end of turn.",
+        "flavorText": "He makes sure no one sets foot in a fresh crime scene—not even himself.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Josh Hass",
+        "imageId": "1f88d077-5082-4a67-91e4-97aafb9a5e91"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Lifelink"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ULTRON_S_AUXILIARY": {
+    "scryfallId": "b6f246bc-beb1-4dc6-9603-8f3b8fc65edb",
+    "oracleId": "ff1ddf25-df25-4733-b9f1-236ad5a08782",
+    "name": "Ultron's Auxiliary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ultron's Auxiliary",
+        "manaCost": "{1}{B}",
+        "typeLine": "Artifact Creature — Robot Villain",
+        "oracleText": "Menace\nWhenever another artifact is put into your graveyard from the battlefield or an artifact card is put into your graveyard from anywhere other than the battlefield, put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "b6f246bc-beb1-4dc6-9603-8f3b8fc65edb"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "669",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VAMPIRE_SCRIVENER": {
+    "scryfallId": "0a82b256-700c-4c95-bfe2-f3140b4366c7",
+    "oracleId": "a945710e-fab6-4b54-ba40-586f2e54baf4",
+    "name": "Vampire Scrivener",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vampire Scrivener",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Vampire Warlock",
+        "oracleText": "Flying\nWhenever you gain life during your turn, put a +1/+1 counter on this creature.\nWhenever you lose life during your turn, put a +1/+1 counter on this creature.",
+        "flavorText": "No one remains on her list for long.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Bastien L. Deharme",
+        "imageId": "0a82b256-700c-4c95-bfe2-f3140b4366c7"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "505",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAX_WANE_WITNESS": {
+    "scryfallId": "d90ea719-5320-46c6-a347-161853a14776",
+    "oracleId": "426dbe89-0cbb-4a3b-8812-d9761d063373",
+    "name": "Wax-Wane Witness",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wax-Wane Witness",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Bat Cleric",
+        "oracleText": "Flying, vigilance\nWhenever you gain or lose life during your turn, this creature gets +1/+0 until end of turn.",
+        "flavorText": "Batfolk clerics consider the cycle of light and darkness as a sacred allegory of life and death.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mila Pesic",
+        "imageId": "d90ea719-5320-46c6-a347-161853a14776"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Vigilance"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MISTY_KNIGHT_HERO_FOR_HIRE": {
+    "scryfallId": "6b963642-a103-44a0-9eb7-9c3fdde181b7",
+    "oracleId": "5b090ba3-0ecb-4585-b5b7-9d6028c32487",
+    "name": "Misty Knight, Hero for Hire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Misty Knight, Hero for Hire",
+        "manaCost": "{1}{R}",
+        "typeLine": "Legendary Creature — Human Detective Hero",
+        "oracleText": "{2}, {T}, Discard a card: Draw a card for each card you've discarded this turn.",
+        "flavorText": "\"Hello, hero. This is Control. Are you for hire tonight?\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Eglė Mosakaitė",
+        "imageId": "6b963642-a103-44a0-9eb7-9c3fdde181b7"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "msh",
+    "collectorNumber": "145",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

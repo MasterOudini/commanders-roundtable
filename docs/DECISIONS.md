@@ -27321,3 +27321,120 @@ is not a verdict on its own, so it was re-run ALONE on the quiet machine against
 the same tree: **130/130**. The close-out script aborted at the battery and wrote
 nothing, which is D377`s hardening working - a check whose output is piped cannot
 fail the script, and these are not piped.
+
+## D380 - M6.4hm: THE COMPOUND HEAD - one printed line that is two abilities (2026-09-10)
+
+**7,916 of 31,692 Commander-legal cards execute completely, up from 7,910 (+6).**
+`SHIPPED_SCRIPTS` 5,084 -> **5,090**; REFUSED ledger 1,175 -> **1,169** (six rows
+DELETED as their cards landed). Fixtures 5,592 -> **5,599**. `scriptableToday`
+1,273 -> **1,267**. **No engine file is touched.**
+
+### Measured first, and the measurement corrected the plan
+
+CR 603 treats two heads sharing a printed line as TWO abilities, so the answer is
+two defs on one line - which the row maker ALREADY emits for `entersOrAttacks`
+(D318) and the enters-or-dies pairs (D178). What was new is splitting the line and
+reading each half on its own.
+
+⚠️ **D379's brief warned to price the halves first, and it was right to.** A
+hand-written probe put the compound at three landable cards and had **Cryptid
+Inspector and Perimeter Enforcer swapped**, because it quoted the two printed lines
+from memory rather than from the dump. The row maker, reading the real leftover
+lines, landed Perimeter Enforcer and refused Cryptid Inspector (D374's rule: check
+the landing against the measurement; D251's: read the card off the dump).
+
+### The splitter, and why it runs on a MASK
+
+`compoundHalves` finds the joining word - `and whenever`, or a bare `or` before a
+determiner - and cuts the line into two halves carrying the SAME payload. Both get
+the SAME printed line index, so both defs claim the whole line and `lineClaims`
+claims it once: **the accounting does not change at all.**
+
+⚠️ **A LINE'S KIND IS DECIDED BY THE LINE, NEVER BY WORDS INSIDE A QUOTE** (D366).
+The split point is found on a MASK that blanks every quoted span IN PLACE with
+spaces of the same length, so an offset found in the mask still points into the raw
+text and every substring is cut from the RAW line. Proven both ways: a line whose
+QUOTED ability carries `or a land enters` is not split, and `attacks or blocks` is
+not split either, because no determiner follows its `or`.
+
+⚠️ **The splitter is a FALLBACK**, tried only when the line reads as no single head
+- so a pair head the library already names is never split - and a wrong split
+simply refuses, because a compound lands only when BOTH halves read.
+
+### The two half-widenings, and the pronoun that stayed out of the library
+
+- **`it` in the second half** names whatever the first half was about. The row
+  maker's own rule is that `it` names THIS permanent only under a head about this
+  permanent, so the pronoun is resolved IN THE SPLITTER, where both halves are in
+  hand - and the head library never learns a word whose meaning depends on a line
+  it cannot see.
+- **`from anywhere other than the battlefield`** is a third printed form of D378's
+  put-into-graveyard head with the zone NEGATED. The card it names never was a
+  permanent, so - exactly as D378's graveyard exit - its type is read off the
+  ORACLE FACE (D171) and the filter is narrowed to what a face can answer.
+
+### The compound at the VERB, and the timing that came with it
+
+`Whenever you gain OR lose life` is the same phenomenon one level down: one printed
+line naming two abilities, one per sign of the delta. It needed the `youLoseLife`
+MIRROR of a head the library already held - the same event with the delta's sign
+turned over - and nothing else.
+
+Beside it, `during your turn` is peeled off a head as a TIMING conjunct (CR 603.4's
+intervening if) rather than doubling every head in the library. ⚠️ The peel must
+happen AFTER the split source is taken, or two halves would each quietly lose the
+condition they share; and the reader that judges whether a half is landable must
+peel it too, or a half carrying the phrase is judged unreadable and the compound
+refused for a condition BOTH halves have. **The timing landed a card of its own** -
+Foe-liage, whose `Whenever a land enters during your turn` is a filtered enters
+head the phrase had been hiding.
+
+### Three generator faults the reading and the port found
+
+1. ⚠️ **Two defs on one card shared an ABILITY ID.** Ultron's Auxiliary watches its
+   own graveyard from two zones, so both halves rode `cardPutIntoGraveyard-1` - and
+   two defs sharing a ref is two abilities the engine cannot tell apart. The index
+   disambiguates only when it must, so every id shipped before this decision is
+   byte-identical.
+2. **Two tests on one card shared a TITLE**, for the same reason, and a failure
+   could not have said which half broke.
+3. ⚠️ **`put()` found the card the arm had already put down.** Perimeter Enforcer's
+   turned-face-up half keeps a Detective on the board from the arm on, and its
+   enters half must put ANOTHER one - but `put` finds a card by NAME in the
+   player's own listed deck (D232), so one listed copy is the copy already on the
+   battlefield, and a battlefield-to-battlefield move is no entry at all (D374's
+   trap). The extra copy sits OUTSIDE the `new Set`, where every collision top-up
+   in that expression lives - a deliberate duplicate INSIDE it is deduplicated away
+   (D365).
+
+### ⚠️ Refused by name, each with its reason
+
+- **the `while you control` condition on a combat head (4 cards)** - the condition
+  reads with the closed subject reader and its conjunct was built and tested, but
+  proving it needs a fire with the condition BROKEN that asserts nothing happened,
+  and this arm has one fire per ability. Refused on D379's own grounds, and the
+  two-stage arm is its own piece of work.
+- **the attacker COUNT (3 cards)** - `you attack with three or more creatures` and
+  `this creature and at least one other Warrior attack` need their own heads, a
+  per-row matcher and a derived attacking fixture.
+- **Cryptid Inspector** - `a face-down permanent` is outside the closed vocabulary
+  and its other half is an alternation.
+- **Marvel Boy, Noh-Varr** - a power-up ability, which the library holds in no base.
+
+### What landed
+
+Six rows: three true compounds (Ivora, Insatiable Heir - `When ~ enters and
+whenever it deals combat damage to a player`; Perimeter Enforcer - a filtered
+enters beside a filtered turned-face-up; Ultron's Auxiliary - its own graveyard
+from two zones), ONE verb compound (Wax-Wane Witness), Vampire Scrivener - whose two
+printed lines carry that same pair SPELLED OUT, so it lands on the mirror head and
+the timing peel and the splitter never sees it - and Foe-liage on the timing peel
+alone.
+
+Fixtures 5,599 (5,444 by name + 148 tokens) - one new name, the Detective the
+enters half is DERIVED to fire on; no new token pin. botPool creature 4,618 ->
+**4,624**, every other column unmoved. Ladder [1273, 1361, 2936, 4663, 5999] ->
+**[1267, 1355, 2930, 4657, 5993]**; tier3 `silentAfter` 8,209 -> **8,215**. The
+bot's own reach rose to **7,855** cards from 7,849, chosen from **230**
+fully-executable legendary creatures (229 before). Select pool 0 throughout - a
+Phase-1 reclaim lands BY NAME from the ledger (D284/D285).

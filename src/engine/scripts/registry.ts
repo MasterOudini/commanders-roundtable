@@ -7,6 +7,12 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FOE_LIAGE_SCRIPT } from './cards/foeLiage';
+import { IVORA_INSATIABLE_HEIR_SCRIPT } from './cards/ivoraInsatiableHeir';
+import { PERIMETER_ENFORCER_SCRIPT } from './cards/perimeterEnforcer';
+import { ULTRONS_AUXILIARY_SCRIPT } from './cards/ultronsAuxiliary';
+import { VAMPIRE_SCRIVENER_SCRIPT } from './cards/vampireScrivener';
+import { WAX_WANE_WITNESS_SCRIPT } from './cards/waxWaneWitness';
 import { AVEN_FARSEER_SCRIPT } from './cards/avenFarseer';
 import { FLAMING_FIST_OFFICER_SCRIPT } from './cards/flamingFistOfficer';
 import { FLEETING_AVEN_SCRIPT } from './cards/fleetingAven';
@@ -5110,6 +5116,12 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FOE_LIAGE_SCRIPT,
+  IVORA_INSATIABLE_HEIR_SCRIPT,
+  PERIMETER_ENFORCER_SCRIPT,
+  ULTRONS_AUXILIARY_SCRIPT,
+  VAMPIRE_SCRIVENER_SCRIPT,
+  WAX_WANE_WITNESS_SCRIPT,
   AVEN_FARSEER_SCRIPT,
   FLAMING_FIST_OFFICER_SCRIPT,
   FLEETING_AVEN_SCRIPT,

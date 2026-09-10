@@ -13377,6 +13377,117 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       improvise 6); then the seam map's rest — the attached statics the Aura and
       Equipment rows cannot read (351), the bare keyword or ability word (206);
       prior items stand.
+- [x] **M6.4hm — THE COMPOUND HEAD: one printed line that is two abilities
+      (2026-09-10):** **7,916 of 31,692 Commander-legal cards now execute
+      completely, up from 7,910 (+6).** `SHIPPED_SCRIPTS` 5,084 → **5,090**;
+      ledger 1,175 → **1,169** (six rows DELETED as their cards landed). Fixtures
+      5,592 → **5,599**. **No engine file is touched. Select pool 0** throughout —
+      a Phase-1 reclaim lands BY NAME from the ledger (D284/D285). Decisions in
+      **D380**.
+      ⚠️ **THE MEASUREMENT CORRECTED THE PLAN.** CR 603 treats two heads sharing a
+      printed line as TWO abilities, and the row maker ALREADY emits two defs on
+      one line for `entersOrAttacks` (D318) and the enters-or-dies pairs (D178) —
+      so what was new is splitting the line and reading each half on its own. D379's
+      brief warned to PRICE THE HALVES FIRST, and a hand-written probe that quoted
+      two printed lines from MEMORY rather than from the dump had **Cryptid
+      Inspector and Perimeter Enforcer swapped**; the row maker, reading the real
+      leftover lines, landed Perimeter Enforcer and refused Cryptid Inspector
+      (D374's rule, and D251's).
+      ⚠️⚠️ **THE SPLIT RUNS ON A MASK, NEVER ON THE RAW TEXT** (D366): the joining
+      word is found on a mask that blanks every quoted span IN PLACE with spaces of
+      the same length, so an offset found there still points into the raw text and
+      every substring is cut from the RAW line. Proven both ways — a line whose
+      QUOTED ability carries `or a land enters` is not split, and `attacks or
+      blocks` is not either, because no determiner follows its `or`. ⚠️ And the
+      splitter is a FALLBACK, tried only when the line reads as no single head, so
+      a pair head the library already names is never split and a wrong split simply
+      refuses: a compound lands only when BOTH halves read.
+      ⚠️ **Both halves take the SAME printed line index**, so both defs claim the
+      whole line and `lineClaims` claims it once — the accounting does not change
+      at all.
+      ⚠️ **The two half-widenings, and the pronoun that stayed OUT of the library.**
+      `it` in the second half names whatever the first half was about, and the row
+      maker's own rule is that `it` names THIS permanent only under a head about
+      this permanent — so the pronoun is resolved IN THE SPLITTER, where both
+      halves are in hand, and the head library never learns a word whose meaning
+      depends on a line it cannot see. `from anywhere other than the battlefield`
+      is a third printed form of D378's put-into-graveyard head with the zone
+      NEGATED: the card it names never was a permanent, so its type is read off the
+      ORACLE FACE (D171) and the filter is narrowed to what a face can answer.
+      ⚠️ **THE COMPOUND AT THE VERB.** `Whenever you gain OR lose life` is the same
+      phenomenon one level down — one printed line naming two abilities, one per
+      sign of the delta — and it needed the `youLoseLife` MIRROR of a head the
+      library already held and nothing else. Beside it `during your turn` is peeled
+      off a head as a TIMING conjunct (CR 603.4's intervening if) rather than
+      doubling every head in the library; ⚠️ the peel must happen AFTER the split
+      source is taken, and the reader that judges a half must peel it too, or two
+      halves quietly lose the condition they share. **The timing landed a card of
+      its own** — Foe-liage, whose `Whenever a land enters during your turn` is a
+      filtered enters head the phrase had been hiding.
+      ⚠️ **Three generator faults the reading and the port found:** two defs on one
+      card shared an ABILITY ID (Ultron's Auxiliary watches its own graveyard from
+      two zones — two defs sharing a ref is two abilities the engine cannot tell
+      apart); two tests on one card shared a TITLE, so a failure could not say which
+      half broke; and **`put()` found the card the arm had already put down** —
+      Perimeter Enforcer's turned-face-up half keeps a Detective on the board and
+      its enters half must put ANOTHER, but `put` finds a card by NAME in the
+      player's own listed deck (D232), and a battlefield-to-battlefield move is no
+      entry at all (D374). The extra copy sits OUTSIDE the `new Set`, where every
+      collision top-up lives (D365).
+      ⚠️ **Refused by name, each with its reason:** the `while you control`
+      condition on a combat head (4 — the condition reads with the closed subject
+      reader and its conjunct was built and tested, but proving it needs a fire
+      with the condition BROKEN that asserts nothing happened, and this arm has one
+      fire per ability: refused on D379's own grounds); the attacker COUNT (3 —
+      their own heads, a per-row matcher and a derived attacking fixture); Cryptid
+      Inspector (`a face-down permanent` is outside the closed vocabulary and its
+      other half is an alternation); Marvel Boy, Noh-Varr (a power-up ability,
+      which the library holds in no base).
+      **Landed:** six rows — three true compounds (Ivora, Insatiable Heir;
+      Perimeter Enforcer; Ultron's Auxiliary), ONE verb compound (Wax-Wane
+      Witness), Vampire Scrivener - whose two printed lines carry that same pair
+      SPELLED OUT, so it lands on the mirror head and the timing peel and the
+      splitter never sees it - and Foe-liage on the timing peel alone.
+      Fixtures 5,599 (5,444 by name + 148 tokens) — one new name, the Detective the
+      enters half is DERIVED to fire on; no new token pin · botPool artifact 441 /
+      creature 4,624 / enchantment 451 / instant 1,049 / land 566 / sorcery 785 ·
+      ladder [1267, 1355, 2930, 4657, 5993] · `scriptableToday` 1,273 → **1,267** ·
+      tier3 silentAfter 8,215 · bot reach 7,855 from 230 commanders · batch.json
+      6 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5240 files, 25896 passed / 11 skipped ·
+      500-seed gate, 6 shards, 772.8 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D380): **the `while you control` condition** (4 cards —
+      the conjunct exists and the proof does not: the arm needs a second fire with
+      the condition broken, which is the same two-stage shape D379 refused the
+      leaves head's destination filter for, so ONE arm closes both); the attacker
+      COUNT (3); the 31 heads the library holds in no base at all (expend 4, a
+      land-play head 3, an activated-ability head 3, a first-time-each-turn life
+      memory 2, a scry or surveil discriminator 2, then singletons); the compound
+      halves this decision refused (a face-down subject, an alternation, a power-up
+      ability); the filtered ENTERS forms the reader does not reach; then the 17
+      filtered heads whose subject is outside the closed reader (a linked memory 5,
+      an alternatives list 3, a timing phrase, a team scope, a chosen colour); a
+      MANUAL SACRIFICE tool (D377 — a card applied by hand can DISCARD and fire a
+      watcher now and cannot sacrifice, because the zones cannot tell a sacrifice
+      from a destroy); the 12 trigger payloads outside both readers and the 9
+      ability-word activated lines D374 ledgered; the three hand scripts D373 made
+      REDUNDANT (Deduce, Foul Play, Auspicious Arrival); the twenty quoted-grant
+      payloads D373 refused BY REASON; then the 100-card tail across 94 shapes;
+      then D371's list — the 18 whose grant REDEFINES the host's base P/T, the
+      NUMBERED grant keywords, `Commander creatures you own` MEASURED AT ZERO; then
+      D370's — the X and computed payment prices (19), an effect after the payment
+      ask (9), echo (17) and cumulative upkeep (16); then `as long as` (448 across
+      276 conditions); the granted STATIC (10), the ENTERS and combat-role scaffold
+      arms; then D365's — the counts outside the vocabulary (17), the activation
+      conditions (35), the trigger payloads outside both readers (20) — and D364's
+      snow CREATURE fixture, D363's counter KINDS and NONTOKEN predicate, the
+      keyword ENTRY REPLACEMENTS (bloodthirst 13, modular 7, graft 2) and CHOICES
+      (fabricate 10, unleash 9, riot 4, devour 4, enlist 5, amplify 3), the block
+      REQUIREMENT (provoke 4), the cast-time payment sources (convoke 14, delve 5,
+      improvise 6); then the seam map's rest — the attached statics the Aura and
+      Equipment rows cannot read (351), the bare keyword or ability word (206);
+      prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

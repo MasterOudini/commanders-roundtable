@@ -6067,6 +6067,16 @@ const WANTED = [
   'Warped Researcher',
   // D379 - the permanents the four new heads fire on, DERIVED from each printed subject.
   // D379 - the helpers the reclaim suites deal.
+  // D380 - the compound head: the reclaimed cards.
+  'Foe-liage',
+  'Ivora, Insatiable Heir',
+  'Perimeter Enforcer',
+  "Ultron's Auxiliary",
+  'Vampire Scrivener',
+  'Wax-Wane Witness',
+  // D380 - the permanents the compound halves fire on, DERIVED from each printed subject.
+  'Misty Knight, Hero for Hire',
+  // D380 - the helpers the reclaim suites deal.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
