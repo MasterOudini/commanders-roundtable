@@ -6203,6 +6203,28 @@ const WANTED = [
   'Armored Transport',
   'Dawn Elemental',
   // D385 - the helpers the prevention suites deal.
+  // D386 - the variable pump: gets +N/+N for each <count>, a static with a computed delta.
+  'Bravado',
+  'Salvage Slasher',
+  'Ancestral Mask',
+  'Nim Grotesque',
+  'Blanchwood Armor',
+  'Yavimaya Enchantress',
+  'Rampaging Brontodon',
+  'Helm of the Gods',
+  'Sigil of Valor',
+  'Empyrial Armor',
+  "Liliana's Elite",
+  'Earth Servant',
+  'Nim Lasher',
+  'Granite Grip',
+  'Sigil of the Nayan Gods',
+  'Pennon Blade',
+  'Boneclub Berserker',
+  'Nim Shrieker',
+  'Timbermaw Larva',
+  'Empyrial Plate',
+  'Guidelight Synergist',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

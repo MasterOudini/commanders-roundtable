@@ -319,8 +319,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // wave's rows. The other 34 are spells the seam reads whole with no script anywhere.
       // M6.4hq (D384): the QUOTED GRANT, 8,035 -> 8,040 - five cards whose only leftover was the
       // ability they hand out, which `scrub` blanks so the classifier could not see it at all.
-      complete: 8066,
-      blocked: 23626,
+      complete: 8087,
+      blocked: 23605,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -552,7 +552,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
     expect.soft(steps.map((s) => s.unlocked)).toEqual([1295, 1384]);
-    expect.soft(r.complete).toBe(8066);
+    expect.soft(r.complete).toBe(8087);
   });
 });
 
@@ -697,8 +697,8 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
       triggeredShell: 1981,
       damage: 749,
       exile: 920,
-      staticShell: 674,
-      attackBlock: 829,
+      staticShell: 661,
+      attackBlock: 826,
       lifeGainLoss: 565,
       drawDiscard: 328,
       tokensAndCounters: 300,
@@ -706,7 +706,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
       cantBeCountered: 97,
       gainControl: 66,
       wardHexproofGrant: 46,
-      other: 3007,
+      other: 3002,
     });
   });
 

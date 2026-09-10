@@ -5580,6 +5580,27 @@ export const LIGHT_OF_SANCTION: CardData = F.LIGHT_OF_SANCTION as CardData;
 export const DEFANG: CardData = F.DEFANG as CardData;
 export const ARMORED_TRANSPORT: CardData = F.ARMORED_TRANSPORT as CardData;
 export const DAWN_ELEMENTAL: CardData = F.DAWN_ELEMENTAL as CardData;
+export const BRAVADO: CardData = F.BRAVADO as CardData;
+export const SALVAGE_SLASHER: CardData = F.SALVAGE_SLASHER as CardData;
+export const ANCESTRAL_MASK: CardData = F.ANCESTRAL_MASK as CardData;
+export const NIM_GROTESQUE: CardData = F.NIM_GROTESQUE as CardData;
+export const BLANCHWOOD_ARMOR: CardData = F.BLANCHWOOD_ARMOR as CardData;
+export const YAVIMAYA_ENCHANTRESS: CardData = F.YAVIMAYA_ENCHANTRESS as CardData;
+export const RAMPAGING_BRONTODON: CardData = F.RAMPAGING_BRONTODON as CardData;
+export const HELM_OF_THE_GODS: CardData = F.HELM_OF_THE_GODS as CardData;
+export const SIGIL_OF_VALOR: CardData = F.SIGIL_OF_VALOR as CardData;
+export const EMPYRIAL_ARMOR: CardData = F.EMPYRIAL_ARMOR as CardData;
+export const LILIANA_S_ELITE: CardData = F.LILIANA_S_ELITE as CardData;
+export const EARTH_SERVANT: CardData = F.EARTH_SERVANT as CardData;
+export const NIM_LASHER: CardData = F.NIM_LASHER as CardData;
+export const GRANITE_GRIP: CardData = F.GRANITE_GRIP as CardData;
+export const SIGIL_OF_THE_NAYAN_GODS: CardData = F.SIGIL_OF_THE_NAYAN_GODS as CardData;
+export const PENNON_BLADE: CardData = F.PENNON_BLADE as CardData;
+export const BONECLUB_BERSERKER: CardData = F.BONECLUB_BERSERKER as CardData;
+export const NIM_SHRIEKER: CardData = F.NIM_SHRIEKER as CardData;
+export const TIMBERMAW_LARVA: CardData = F.TIMBERMAW_LARVA as CardData;
+export const EMPYRIAL_PLATE: CardData = F.EMPYRIAL_PLATE as CardData;
+export const GUIDELIGHT_SYNERGIST: CardData = F.GUIDELIGHT_SYNERGIST as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -11293,6 +11314,27 @@ export const ENGINE_CARDS: CardData[] = [
   DEFANG,
   ARMORED_TRANSPORT,
   DAWN_ELEMENTAL,
+  BRAVADO,
+  SALVAGE_SLASHER,
+  ANCESTRAL_MASK,
+  NIM_GROTESQUE,
+  BLANCHWOOD_ARMOR,
+  YAVIMAYA_ENCHANTRESS,
+  RAMPAGING_BRONTODON,
+  HELM_OF_THE_GODS,
+  SIGIL_OF_VALOR,
+  EMPYRIAL_ARMOR,
+  LILIANA_S_ELITE,
+  EARTH_SERVANT,
+  NIM_LASHER,
+  GRANITE_GRIP,
+  SIGIL_OF_THE_NAYAN_GODS,
+  PENNON_BLADE,
+  BONECLUB_BERSERKER,
+  NIM_SHRIEKER,
+  TIMBERMAW_LARVA,
+  EMPYRIAL_PLATE,
+  GUIDELIGHT_SYNERGIST,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

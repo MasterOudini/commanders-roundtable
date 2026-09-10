@@ -13984,6 +13984,78 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       payload shapes, the spell-row table (21 of 43), the 55 REDUNDANT hand
       scripts; prior items stand.
 
+- [x] **M6.4hs — THE VARIABLE PUMP: `gets +N/+N for each <count>` as a static
+      with a computed delta (2026-09-10):** **8,087 of 31,692 Commander-legal
+      cards now execute completely, up from 8,066 (+21, every one a generated
+      row).** `SHIPPED_SCRIPTS` 5,187 → **5,208**; ledger 1,200 (unchanged —
+      the row maker took every card the pricer offered). Fixtures 5,710 →
+      **5,731** — no new token pin. **No engine file is touched**, and
+      `scriptableToday` stays at 1,295: the wave landed BY NAME from its probe
+      (D317/D374's shape). Decisions in **D386**.
+      ⚠️ **THE MEASUREMENT KILLED TWO CANDIDATES BY READING THE REAL TEXT.** A
+      fresh true-leftover after D385: 23,626 incomplete, 11,934 one line from
+      landing across 9,991 shapes — 1.20 each. The one-shot prevention SCOPE
+      spells the shape map counts at 25 are **44 across 43 wordings (1.02)**;
+      the 29 Backgrounds whose leftover ENDS AT `have` (D366/D384's scrub) are
+      **29 payloads for 29 cards (1.00)**. Both dead. The variable pump is 120
+      cards on ONE mechanism, 21 landable on today's count vocabulary.
+      ⚠️ **THE SEAM WAS ALREADY THERE.** CR 613.4c's computed delta is
+      `StaticDef.modify(chars, ctx, self, candidate)` — `ctx` since D129,
+      D317's count CDA one layer down. Four placements from one generator
+      (D385's own-small-generator shape): the card itself, the enchanted
+      creature, the equipped creature (D322's `attachedTo`), and a one-shot
+      under an attack head (D301's carrier, the count read at RESOLUTION).
+      Every count reads PRINTED faces through `ctx.oracle.byPrinting`, never
+      `ctx.derive` (D317: a derive inside a derive recurses).
+      ⚠️ **WHAT `other` EXCLUDES DEPENDS ON THE SENTENCE** — the enchanted
+      creature for Bravado, the Aura ITSELF for Ancestral Mask — and excluding
+      BOTH ends is right in every case, since excluding a non-matching object
+      is a no-op. No guess, no refusal.
+      ⚠️ **THE SUITE PROVES THE COUNT MOVES**: the arm's board is KNOWN, so the
+      starting count is computed in the generator and the base asserted
+      absolutely; each counted fixture must move the derived P/T by exactly the
+      printed delta, and one leaving takes it back; a trigger row attacks twice
+      and asserts the pump ENDED between. **21 suites / 60 tests green.**
+      ⚠️ **Traps:** `put(…, 'hand')` moves a card the opening hand already holds
+      hand-to-hand, net zero (D232 on a HAND count — proven by REMOVAL instead);
+      an attack is declared at the declare-attackers PROMPT, not in the main
+      phase; an unused parameter is a `tsc` error (D374 — three shapes, all at
+      the generator, D267). ⚠️⚠️ **INVARIANT 14 THREE TIMES IN THIS DECISION'S
+      OWN TOOLING**, and the reusable half: **a DOUBLED backslash is halved by
+      the harness before the shell sees it — quoted heredoc or not, Python or
+      node** — so a Python replace meant for four escapes hit all 53 slashes in
+      the file. Spell a backslash as `String.fromCharCode(92)` from a node FILE,
+      and count them the same way.
+      Fixtures 5,731 (5,576 by name + 148 tokens) · botPool artifact 450 /
+      creature 4,709 / enchantment 474 (4 + 11 + 6 = the wave) · ladder
+      unmoved · residue attackBlock 826 / other 3,002 / staticShell 661 · tier3
+      silentAfter 8,387 · bot reach 8,001 → **8,022** from 237 commanders ·
+      select pool 0. No fuzz canary, measured: a computed delta changes derived
+      P/T and so combat damage, so the REPLAY HASH vouches for it (unlike
+      D385's static).
+      ⚠️⚠️ **THE FIRST GATE FAILED ON D385'S OWN FLOOR, AND THE FIX IS A
+      CORRECTION.** D385 made `staticDamagePrevented` unconditional on ONE
+      60-seed leg passing — a single sample, the coin flip D155/D176 name. The
+      21 new names shifted every seed's window (D193): the unit suite's 60-seed
+      run read ZERO and the 500-seed gate read **77**, every shard positive
+      (D385: 42). The floor is `seeds >= 500` now — measured at two sizes twice,
+      not softened to pass.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5361 files, 26464 passed / 11 skipped ·
+      500-seed gate, 6 shards, 830.8 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D386): the 99 variable-pump cards refused for their
+      COUNT (76 phrases, 67 singletons; the four densest — `creature blocking
+      it` 8, domain 6, `Equipment attached to it` 4, `Aura attached to it` 3 —
+      are ~21 more cards for four rows on the ONE count reader); the classifier
+      cannot see the shape (a `for each <count>` tail on `staticRowShape` is a
+      seam, but only with ONE count vocabulary, so it waits until `parseCount`
+      lives where the classifier can read it); then D385's list unchanged —
+      ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS (gate debt, priced), the two-line shape
+      (10), the three unstageable prevention fixtures, the Circles of
+      Protection (52), CR 615.5's order, the payload arms, the 95 quoted-grant
+      shapes, the spell-row table (21 of 43), the 55 REDUNDANT hand scripts;
+      prior items stand.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

@@ -1277,10 +1277,15 @@ function assertFloors(totals: Totals, seeds: number): void {
       // ⚠️ ITS FIRST STAPLE READ ZERO AT 500 SEEDS and the finding was the DRIVER, not the seam:
       // `declareBlockers` answers `blocks: []`, so a prevention effect that can only fire in a
       // block has no fuel here (see CANARY_STAPLES). The three staples now dealt are fuelled by
-      // damage the driver actually deals, and the floor is UNCONDITIONAL rather than gate-size
-      // only because that was MEASURED: a 60-seed leg passes this line, so the fuel does not
-      // need 500 seeds to show up (D155/D176's rule read the other way).
-      expect(totals.staticDamagePrevented).toBeGreaterThan(0);
+      // damage the driver actually deals.
+      // ⚠️ GATE SIZE ONLY, and D385 had this WRONG for one decision: it made the floor
+      // unconditional on the strength of ONE 60-seed leg passing - a single sample, which is
+      // exactly what D155/D176 call a coin flip. D386 added 21 scripted names, every seed's
+      // round-robin window shifted with them (D193), and the unit suite's 60-seed run read ZERO
+      // while the 500-seed gate read 77 with every shard positive (D385's gate: 42). Two samples
+      // at 60 (>0, 0) against two at 500 (42, 77): the fuel is reliable at gate size and nowhere
+      // smaller, and that is where the floor sits.
+      if (seeds >= 500) expect(totals.staticDamagePrevented).toBeGreaterThan(0);
       // ⚠️ THE DISCARD CANARY. `CardsMoved` hand→graveyard also happens at
       // cleanup for a hand over seven, so the count alone would have been green
       // since M3; the narration counter is the one that only this path writes.

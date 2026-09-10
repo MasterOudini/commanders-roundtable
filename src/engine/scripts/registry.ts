@@ -7,6 +7,27 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BRAVADO_SCRIPT } from './cards/bravado';
+import { SALVAGE_SLASHER_SCRIPT } from './cards/salvageSlasher';
+import { ANCESTRAL_MASK_SCRIPT } from './cards/ancestralMask';
+import { NIM_GROTESQUE_SCRIPT } from './cards/nimGrotesque';
+import { BLANCHWOOD_ARMOR_SCRIPT } from './cards/blanchwoodArmor';
+import { YAVIMAYA_ENCHANTRESS_SCRIPT } from './cards/yavimayaEnchantress';
+import { RAMPAGING_BRONTODON_SCRIPT } from './cards/rampagingBrontodon';
+import { HELM_OF_THE_GODS_SCRIPT } from './cards/helmOfTheGods';
+import { SIGIL_OF_VALOR_SCRIPT } from './cards/sigilOfValor';
+import { EMPYRIAL_ARMOR_SCRIPT } from './cards/empyrialArmor';
+import { LILIANAS_ELITE_SCRIPT } from './cards/lilianasElite';
+import { EARTH_SERVANT_SCRIPT } from './cards/earthServant';
+import { NIM_LASHER_SCRIPT } from './cards/nimLasher';
+import { GRANITE_GRIP_SCRIPT } from './cards/graniteGrip';
+import { SIGIL_OF_THE_NAYAN_GODS_SCRIPT } from './cards/sigilOfTheNayanGods';
+import { PENNON_BLADE_SCRIPT } from './cards/pennonBlade';
+import { BONECLUB_BERSERKER_SCRIPT } from './cards/boneclubBerserker';
+import { NIM_SHRIEKER_SCRIPT } from './cards/nimShrieker';
+import { TIMBERMAW_LARVA_SCRIPT } from './cards/timbermawLarva';
+import { EMPYRIAL_PLATE_SCRIPT } from './cards/empyrialPlate';
+import { GUIDELIGHT_SYNERGIST_SCRIPT } from './cards/guidelightSynergist';
 import { GUARD_GOMAZOA_SCRIPT } from './cards/guardGomazoa';
 import { WALL_OF_PUTRID_FLESH_SCRIPT } from './cards/wallOfPutridFlesh';
 import { CHO_MANNO_REVOLUTIONARY_SCRIPT } from './cards/choMannoRevolutionary';
@@ -5213,6 +5234,27 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BRAVADO_SCRIPT,
+  SALVAGE_SLASHER_SCRIPT,
+  ANCESTRAL_MASK_SCRIPT,
+  NIM_GROTESQUE_SCRIPT,
+  BLANCHWOOD_ARMOR_SCRIPT,
+  YAVIMAYA_ENCHANTRESS_SCRIPT,
+  RAMPAGING_BRONTODON_SCRIPT,
+  HELM_OF_THE_GODS_SCRIPT,
+  SIGIL_OF_VALOR_SCRIPT,
+  EMPYRIAL_ARMOR_SCRIPT,
+  LILIANAS_ELITE_SCRIPT,
+  EARTH_SERVANT_SCRIPT,
+  NIM_LASHER_SCRIPT,
+  GRANITE_GRIP_SCRIPT,
+  SIGIL_OF_THE_NAYAN_GODS_SCRIPT,
+  PENNON_BLADE_SCRIPT,
+  BONECLUB_BERSERKER_SCRIPT,
+  NIM_SHRIEKER_SCRIPT,
+  TIMBERMAW_LARVA_SCRIPT,
+  EMPYRIAL_PLATE_SCRIPT,
+  GUIDELIGHT_SYNERGIST_SCRIPT,
   GUARD_GOMAZOA_SCRIPT,
   WALL_OF_PUTRID_FLESH_SCRIPT,
   CHO_MANNO_REVOLUTIONARY_SCRIPT,

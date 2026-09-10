@@ -187849,6 +187849,712 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BRAVADO": {
+    "scryfallId": "019ba422-4837-400c-a913-b56d87b49e26",
+    "oracleId": "69b5af09-b3e6-4abf-b62e-9199c4f43ba7",
+    "name": "Bravado",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bravado",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 for each other creature you control.",
+        "flavorText": "\"We drive the dragons from our home. Why should we fear you?\"\n—Fire Eye, viashino bey",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jerry Tiritilli",
+        "imageId": "019ba422-4837-400c-a913-b56d87b49e26"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "usg",
+    "collectorNumber": "177",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SALVAGE_SLASHER": {
+    "scryfallId": "095b0fd1-7445-4dba-bb90-ddd5f5ee8573",
+    "oracleId": "196d6ef6-80d9-4bfd-a5ed-d9e8b00faad0",
+    "name": "Salvage Slasher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Salvage Slasher",
+        "manaCost": "{1}{B}",
+        "typeLine": "Artifact Creature — Human Rogue",
+        "oracleText": "This creature gets +1/+0 for each artifact card in your graveyard.",
+        "flavorText": "Esper artificers never imagined that one day their scraps would be pressed against their soft and fragile throats.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anthony Francisco",
+        "imageId": "095b0fd1-7445-4dba-bb90-ddd5f5ee8573"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "con",
+    "collectorNumber": "52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANCESTRAL_MASK": {
+    "scryfallId": "09f97283-3325-424a-9f31-65fe9a0bff97",
+    "oracleId": "db5380ed-ba28-4ea2-abc3-4998e2022903",
+    "name": "Ancestral Mask",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ancestral Mask",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 for each other enchantment on the battlefield.",
+        "flavorText": "The masks, like the ancient trees they're grown from, lend strength to the dryads.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Massimiliano Frezzato",
+        "imageId": "09f97283-3325-424a-9f31-65fe9a0bff97"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MMQ-229",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIM_GROTESQUE": {
+    "scryfallId": "11ae8bc7-8bf1-4fce-afaa-76acfb261419",
+    "oracleId": "ed4d4084-739b-43ac-bd2b-a86d1ecd7bbd",
+    "name": "Nim Grotesque",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nim Grotesque",
+        "manaCost": "{6}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "This creature gets +1/+0 for each artifact you control.",
+        "flavorText": "In the swirling mists, you could walk right up to one and not know until its teeth are in your throat.",
+        "power": "3",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anthony S. Waters & Cara Mitten",
+        "imageId": "11ae8bc7-8bf1-4fce-afaa-76acfb261419"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "5dn",
+    "collectorNumber": "56",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLANCHWOOD_ARMOR": {
+    "scryfallId": "1205388c-dd0d-48c0-809f-420312e54cca",
+    "oracleId": "80ea56ad-e741-4a85-b4e8-ce62e7d593d5",
+    "name": "Blanchwood Armor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blanchwood Armor",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 for each Forest you control.",
+        "flavorText": "\"There's never been a dwarven smith who could match the marvels that Gaea herself forges.\"\n—The Elvish Champion",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "1205388c-dd0d-48c0-809f-420312e54cca"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "7ed",
+    "collectorNumber": "232★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YAVIMAYA_ENCHANTRESS": {
+    "scryfallId": "18637e89-4794-46a8-bb80-b35211648d4f",
+    "oracleId": "495fc654-7986-4d76-9d5c-bc1484e98de2",
+    "name": "Yavimaya Enchantress",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Yavimaya Enchantress",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "This creature gets +1/+1 for each enchantment on the battlefield.",
+        "flavorText": "Her roots connect her to the forest's wishes.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matthew D. Wilson",
+        "imageId": "18637e89-4794-46a8-bb80-b35211648d4f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "9ed",
+    "collectorNumber": "284",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMPAGING_BRONTODON": {
+    "scryfallId": "18d9a1e7-fe87-40e0-bff9-a1fa84b3b949",
+    "oracleId": "bfea2229-a1ca-40c1-aaad-5f97add3f079",
+    "name": "Rampaging Brontodon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rampaging Brontodon",
+        "manaCost": "{5}{G}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Trample\nWhenever this creature attacks, it gets +1/+1 until end of turn for each land you control.",
+        "flavorText": "Not even the tallest tree stands a chance against the underside of a dinosaur's foot.",
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "18d9a1e7-fe87-40e0-bff9-a1fa84b3b949"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "jmp",
+    "collectorNumber": "423",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HELM_OF_THE_GODS": {
+    "scryfallId": "1ba006c8-0ffc-4e68-9a55-c7b842d3add9",
+    "oracleId": "52804094-47b9-40b9-999d-7c050d220e63",
+    "name": "Helm of the Gods",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Helm of the Gods",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+1 for each enchantment you control.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": "Its blessings are as numerous as the stars of Nyx.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Anthony Palumbo",
+        "imageId": "1ba006c8-0ffc-4e68-9a55-c7b842d3add9"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "ori",
+    "collectorNumber": "230",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIGIL_OF_VALOR": {
+    "scryfallId": "2005d5e8-750a-44d6-b09b-d7df68dc6926",
+    "oracleId": "b9447f25-f285-4b62-8976-4a49363dfdd7",
+    "name": "Sigil of Valor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sigil of Valor",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Whenever equipped creature attacks alone, it gets +1/+1 until end of turn for each other creature you control.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": "\"This war will be over quickly, so we can afford to make the medals out of gold.\"\n—Dispatch from the Merchant Council of Korlis",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dan Murayama Scott",
+        "imageId": "2005d5e8-750a-44d6-b09b-d7df68dc6926"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "brr",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMPYRIAL_ARMOR": {
+    "scryfallId": "5518a79f-bcae-417a-b01b-b6ff572be0be",
+    "oracleId": "ec9e8611-e785-4d5d-b6e1-bf63daf408df",
+    "name": "Empyrial Armor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Empyrial Armor",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 for each card in your hand.",
+        "flavorText": "\"An angel appeared in the smoldering skies above the fray, her clothes as flames, her armor as fire.\"\n—\"Hymn of Angelfire\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "D. Alexander Gregory",
+        "imageId": "5518a79f-bcae-417a-b01b-b6ff572be0be"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "wth",
+    "collectorNumber": "13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LILIANA_S_ELITE": {
+    "scryfallId": "5f826404-3df5-4b0c-9739-837938ac8401",
+    "oracleId": "b6492082-d0ef-4f7c-a4b1-f8ecf6eb0890",
+    "name": "Liliana's Elite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Liliana's Elite",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "This creature gets +1/+1 for each creature card in your graveyard.",
+        "flavorText": "\"You have to admit, Gideon—he has great form.\"\n—Liliana Vess",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "5f826404-3df5-4b0c-9739-837938ac8401"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "434",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EARTH_SERVANT": {
+    "scryfallId": "6007db49-f750-43c6-ac09-86a61efc1bb2",
+    "oracleId": "7ce30379-3f07-4b94-b2d6-a89b4763971b",
+    "name": "Earth Servant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Earth Servant",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "This creature gets +0/+1 for each Mountain you control.",
+        "flavorText": "\"Fire. Air. Water. These elements spread, filling in the spaces they are not. But earth is implacable like a sullen child.\"\n—Jestus Dreya, *Of Elements and Eternity*",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "6007db49-f750-43c6-ac09-86a61efc1bb2"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "m11",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIM_LASHER": {
+    "scryfallId": "7b66c698-02bd-48ef-a866-5251bdc02c16",
+    "oracleId": "0203e250-d60e-46c6-9c58-d620f0377be0",
+    "name": "Nim Lasher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nim Lasher",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "This creature gets +1/+0 for each artifact you control.",
+        "flavorText": "The rotting metal feeds the necrogen mists, and in turn the mists feed the nim.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "7b66c698-02bd-48ef-a866-5251bdc02c16"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mrd",
+    "collectorNumber": "71",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRANITE_GRIP": {
+    "scryfallId": "908c8414-5eff-4887-9007-43050058c2d0",
+    "oracleId": "19e09405-3294-4f98-a18f-60cf0a8a2e4e",
+    "name": "Granite Grip",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Granite Grip",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+0 for each Mountain you control.",
+        "flavorText": "\"Let me introduce you to Rocky.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ray Lago",
+        "imageId": "908c8414-5eff-4887-9007-43050058c2d0"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "7ed",
+    "collectorNumber": "195",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIGIL_OF_THE_NAYAN_GODS": {
+    "scryfallId": "a856dec4-fe4f-477c-9300-e9de86d3cc95",
+    "oracleId": "92017087-18f4-46ee-8808-5959d31d0011",
+    "name": "Sigil of the Nayan Gods",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sigil of the Nayan Gods",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 for each creature you control.\nCycling {G/W} ({G/W}, Discard this card: Draw a card.)",
+        "flavorText": "As the elves learned the hymns of angels, the knights learned the roars of titans.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "a856dec4-fe4f-477c-9300-e9de86d3cc95"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant",
+      "Cycling"
+    ],
+    "setCode": "arb",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PENNON_BLADE": {
+    "scryfallId": "afc89a7c-cdb9-45cd-a9e7-d66dd2066d1d",
+    "oracleId": "b97e6acd-a676-429e-b875-b734759ebea7",
+    "name": "Pennon Blade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pennon Blade",
+        "manaCost": "{3}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+1 for each creature you control.\nEquip {4} ({4}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": "Draped with the pennon of a fallen outpost, the sword came to symbolize the peoples of Zendikar becoming one.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "afc89a7c-cdb9-45cd-a9e7-d66dd2066d1d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "cmr",
+    "collectorNumber": "329",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BONECLUB_BERSERKER": {
+    "scryfallId": "b3dbbe30-3d6e-46f8-92c1-caee995cba1a",
+    "oracleId": "a08f69f9-de48-46d6-8b75-31886159cf45",
+    "name": "Boneclub Berserker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boneclub Berserker",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Goblin Berserker",
+        "oracleText": "This creature gets +2/+0 for each other Goblin you control.",
+        "flavorText": "Bolstered by the cheers of his warren, Trugg was ready to make his appearance in Auntie Grub's tales.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "b3dbbe30-3d6e-46f8-92c1-caee995cba1a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIM_SHRIEKER": {
+    "scryfallId": "c3a2c39b-b302-4cc3-b507-e4fe00614036",
+    "oracleId": "1dff7c82-e49f-45e8-8f66-d5801f420fa6",
+    "name": "Nim Shrieker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nim Shrieker",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Flying\nThis creature gets +1/+0 for each artifact you control.",
+        "flavorText": "As imps they were an annoyance. As nim they are a pestilence.",
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "c3a2c39b-b302-4cc3-b507-e4fe00614036"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mrd",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TIMBERMAW_LARVA": {
+    "scryfallId": "d68fc3bc-eb3b-4504-93a3-8943d07b23f8",
+    "oracleId": "e53532db-5b14-429e-8437-a369c5b8632b",
+    "name": "Timbermaw Larva",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Timbermaw Larva",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Whenever this creature attacks, it gets +1/+1 until end of turn for each Forest you control.",
+        "flavorText": "\"You can't trust your eyes. A tree might look healthy, but its insides tell a different tale.\"\n—Zahr Gada, Halimar expedition leader",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "d68fc3bc-eb3b-4504-93a3-8943d07b23f8"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "zen",
+    "collectorNumber": "189",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMPYRIAL_PLATE": {
+    "scryfallId": "d9086f9e-2c29-48ee-b0af-889351e86152",
+    "oracleId": "e95e100e-4886-4bde-825c-017e878ac825",
+    "name": "Empyrial Plate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Empyrial Plate",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+1 for each card in your hand.\nEquip {2}",
+        "flavorText": "A body clad in steel reflects a warrior's resolve.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Paolo Parente",
+        "imageId": "d9086f9e-2c29-48ee-b0af-889351e86152"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "c16",
+    "collectorNumber": "251",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GUIDELIGHT_SYNERGIST": {
+    "scryfallId": "fdaeea2c-d8aa-416f-95d6-6af888591fdf",
+    "oracleId": "c0bc3704-9bf9-4039-b3f8-205c1e5eb6e9",
+    "name": "Guidelight Synergist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Guidelight Synergist",
+        "manaCost": "{3}{W}",
+        "typeLine": "Artifact Creature — Robot Artificer",
+        "oracleText": "Flying\nThis creature gets +1/+0 for each artifact you control.",
+        "flavorText": "\"Declarative: A unit is only as strong as its network.\"",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Camille Alquier",
+        "imageId": "fdaeea2c-d8aa-416f-95d6-6af888591fdf"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
