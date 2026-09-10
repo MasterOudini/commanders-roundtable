@@ -13665,6 +13665,133 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       (59 / 55), both wanting a spell-row TABLE rather than a seam; prior items
       stand.
 
+- [x] **M6.4hp — THE SCOPED BOARD EFFECT: a sentence about a whole SCOPE, and the
+      wave it made offerable (2026-09-10):** **8,035 of 31,692 Commander-legal
+      cards now execute completely, up from 7,974 (+61: THIRTY-FOUR with no script
+      at all, then 27 generated rows).** `SHIPPED_SCRIPTS` 5,129 → **5,156**;
+      ledger 1,180 → **1,175** (SEVENTEEN rows DRAINED by the stale-refusal guard,
+      12 added by name). Fixtures 5,642 → **5,678** — no new token pin. **Select
+      pool 0 → 39 → 0.** Decisions in **D383**.
+      ⚠️ **THE CHOICE WAS A SEAM OR A TABLE, AND D373'S RULE SETTLED IT.** D382's
+      reportables named two TAILS — `script-raised prompt` (76 cards / 74 distinct
+      sentences) and the flashback and cycling spell bodies (59 / 55) — and a
+      wording table cannot finish either (D354). A spell-row table over the second
+      would land 37 cards with 37 scripts; the VOCABULARY SEAM under the sentences
+      those bodies are made of lands 29 with NO script and feeds every row payload
+      after it. A seam RAISES what a script can express and a wave LOWERS it, so
+      the seam goes first: measured before a line was written, `complete` 7,974 →
+      8,008 and `scriptableToday` 1,278 → 1,298.
+      ⚠️ **The seam** is a sentence about a whole SCOPE where the vocabulary could
+      only name ONE target or the caster's whole board: `BoardScope` on the oracle
+      types (creature / permanent / player, a controller, and the narrowings a
+      printed line carries — a card type, a keyword, a keyword the member must NOT
+      have, `attacking`), five effect kinds (`damageEach`, `destroyAll`,
+      `bounceAll`, `gainLifePer`, `toLibraryTop`) and `scopes` on the `massPump`
+      that had only ever meant "the creatures you control". `readScope()` is CLOSED
+      (D90) over D194's `GRANTABLE` map, and `scopeMembers` answers in ONE place —
+      `state.seating` for players, `derive` for permanents, so a granted keyword
+      and a layer-4 type change read the way the rest of the engine reads them.
+      ⚠️ **The engine corrected the test (D227):** the mass-pump case asserted a 2/2
+      under a `-1/-1` sweep was dead. It is a LIVING 1/1, and the test asserts the
+      derived P/T now — written from the effect's name rather than from the rules.
+      ⚠️⚠️ **THE SWEEP KILLS ITS OWN SOURCE — AND ITS OWN COST'S FIXTURES.** A row
+      whose card is a creature is inside its own `each creature` scope, so the
+      generated cost mark ("it is tapped") reads a card in the GRAVEYARD with its
+      battlefield fields cleared; `selfSweptBy` settles it from the printed
+      arithmetic and the death is asserted instead. ⚠️ And the same question has a
+      SECOND subject the first cut did not ask: a TAP cost's fixtures are creatures
+      on the same battlefield. Skirk Fire Marshal taps five Goblins and deals 10
+      damage to each creature, so the five it tapped are in the graveyard when the
+      assert reads them. `tapperSweptBy` asks the identical arithmetic of the
+      fixture's own toughness and both readings share ONE `sweptBy`, so a fix
+      cannot reach one subject and miss the other. Fixed at the GENERATOR (D267).
+      ⚠️⚠️ **INVARIANT 14, IN A PLACE IT HAD NOT BITTEN BEFORE:** a doubled
+      backslash halves in a heredoc, and this decision met it inside
+      `new RegExp(string)` in a MEASUREMENT script — the payload arrived single,
+      the JS string escape ate it, and a digit class became the letter `d`. The
+      sweep measured **1 card where the honest figure is 12**, the worst shape a
+      measurement error can take: a seam priced at a twelfth of its worth would not
+      have been built at all. Measurement scripts use regex LITERALS and explicit
+      character ranges now. ⚠️ And `patchlib.cjs` called itself EOL-aware and was
+      not — a heredoc payload is LF, `triggers.ts` is CRLF, and the anchor matched
+      NOTHING; the counted guard caught it (D258's trap is a SILENT replace), and
+      the payload is converted to the file's own line ending now.
+      ⚠️ **A probe knows only its own wave** (D371): two carried artefacts were a
+      previous decision's dump, so the row maker refused every row with "no
+      leftover lines from the probe"; and the payload harvester produced LOWERCASE
+      keys where the row maker looks up capitalised ones. Both regenerated rather
+      than trusted.
+      ⚠️ **The ledger corrected ITSELF on the same sweep:** the stale-refusal guard
+      (D163) named SEVENTEEN rows held under `a spell line outside the vocabulary`
+      since D306 and D307 — cycling and flashback spells whose bodies this seam
+      reads — and every one runs now with no script anywhere. A class is drained by
+      the decision that closes it, never by somebody remembering.
+      ⚠️ **No fuzz canary, measured rather than assumed:** the seam adds NOTHING to
+      `GameState` (`BoardScope` and `scopes` are ORACLE fields) and emits only
+      ordinary damage, move, counter and life events already in the state hash, so
+      D364's "a field nothing fills replays perfectly" does not apply; the 27
+      shipped rows are dealt by the derived pool (D188), and a new staple would
+      reshape every seed's decks for nothing. D374's 60-row wave took the same view.
+      ⚠️⚠️ **FIFTY-FIVE HAND SCRIPTS BECAME REDUNDANT, AND THE PREDICATE IS HOW
+      THEY SAID SO.** D187's suppression predicate asserts, per shipped spell def,
+      that the vocabulary does NOT read that card - it is how a seam ANNOUNCES a
+      redundant hand script (D373 met three). This seam met **55**: every board
+      wipe, mass bounce, mass debuff and board-sized burn hand-written since D192,
+      from Armageddon and Day of Judgment to Evacuation and Drown in Sorrow. Each
+      is REWRITTEN rather than adapted (D117) from the GATE's own list, never a
+      guess. ⚠️ The card still runs exactly ONCE - `loop.ts` consults the spell def
+      where the vocabulary ran and the def OUTRANKS it, and `assistedEffectsFor`
+      offers nothing for an `auto` face nor for one carrying a shipped def - so
+      they are redundant rather than wrong, and RETIRING 55 modules is a measured
+      decision of its own.
+      ⚠️ **And the seam's own executor was half of what its comment claimed:**
+      `destroyAll` skipped an indestructible member under a comment reading "exactly
+      as the targeted destroy above", and that case does TWO things, because D330
+      taught it the REGENERATION SHIELD (CR 701.19). A sweep is the same word, so a
+      shielded creature survives it - tapped, cleared, out of combat, the shield
+      spent - unless the card says it cannot be regenerated. Read per MEMBER.
+      ⚠️ **A sweep also catches what a TEST put on the board:** Tura Kennerüd casts
+      Tremor to prove its instant-or-sorcery watcher pays a Soldier, and Tremor
+      deals 1 damage to each creature without flying - a sentence this seam reads -
+      so the spell that FIRES the trigger sweeps the 1/1 the trigger just made and a
+      board count reads zero for a def that worked perfectly. Counted off the LOG
+      instead (D260): `TokenCreated` is where a trigger says what it did.
+      ⚠️ **AND THREE BACKGROUND WAITERS HAD BEEN SPINNING FOR SIX HOURS** - found by
+      the user reading the task list, not by anything here. Two were `until grep`
+      loops whose predicate could never match (a battery prints `Failures:`, which
+      is neither `FAIL` nor `failed`) and the third had crashed hours earlier and
+      hung on a bare `node -c`, which reads STDIN and never returns. Not idle: each
+      spawned a `sleep` and a PowerShell every 15-20 s WHILE THE GATE RAN, which is
+      the load D106/D255/D270 blame for spurious timeouts. Grep for a string the
+      tool actually prints, prefer a log grep to a process poll, one waiter per
+      thing, and `node --check <file>` - never a bare `node -c`.
+      Fixtures 5,678 (5,523 by name + 148 tokens) · botPool artifact 443 /
+      creature 4,683 / enchantment 455 / instant 1,085 / land 567 / sorcery 802 -
+      auto 1,166 / assisted 1,998 / autoAnyFace 1,175 · `oracleParse`
+      `effect:auto` 4,865 → **5,349** · ladder [1271, 1360, 2936, 4665, 6002] ·
+      tier3 silentAfter 8,335 · bot reach **7,970** from 235 commanders (7,912 from
+      233) · batch.json 27 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5308 files, 26200 passed / 11 skipped ·
+      500-seed gate, 6 shards, 810.5 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D383): **the 55 REDUNDANT hand scripts** (every board
+      wipe, mass bounce, mass debuff and board-sized burn whose text the vocabulary
+      reads whole now - they still run exactly once, so retiring them is a measured
+      decision rather than a repair, and it would be the FIRST time this arc removes
+      scripts, so `SHIPPED_SCRIPTS`, the fuzz pool and the accounting have to be
+      re-measured together); **the spell-row table** — the flashback and cycling
+      spell bodies this seam did not read, 37 of the 59 landable through a derived
+      `gen-spells.cjs`, now the densest thing on the board; **the combat-role
+      scaffold arm** (a clause or a scope read off the LIVE combat, which the suite
+      can only prove by attacking — D350 named it, D382 paid seven cards for it and
+      this decision two more, so it is owed by three waves); `gainLifePer` (4 — a
+      board-sized life gain the arm cannot pin, because the row's `refusal` reader
+      is not handed the row itself); the Circles of Protection (39 one-piece) and
+      the STATIC prevention (4), both from D382's list; then D382's list unchanged
+      — the `script-raised prompt` tail (76 cards / 74 sentences), the attached
+      statics the Aura and Equipment rows cannot read (351), the bare keyword or
+      ability word (206); prior items stand.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

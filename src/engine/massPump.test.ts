@@ -26,8 +26,14 @@ describe('the mass pump parses as a self clause (D301)', () => {
     expect(parseEffects('Creatures you control gain haste until end of turn.', 'X', true).mode).toBe('auto');
   });
 
-  test("an opponent's creatures, a subtype scope and a permanent grant stay out", () => {
-    expect(parseEffects('Creatures your opponents control get -1/-1 until end of turn.', 'X', true).mode).not.toBe('auto');
+  test("an opponent's creatures are IN now; a subtype scope and a permanent grant stay out", () => {
+    // ⚠️ D383 REVERSED THE FIRST (D117: a test describing the old meaning is rewritten, not
+    // adapted). `massPump` had only ever meant "the creatures you control"; the SCOPED BOARD
+    // EFFECT reads the same sentence over any scope its CLOSED reader can name, so an
+    // opponent's creatures are auto now. The other two still stand and for different reasons:
+    // `readScope` names no SUBTYPE scope at all, and a pump with no duration is not a pump
+    // this vocabulary runs.
+    expect(parseEffects('Creatures your opponents control get -1/-1 until end of turn.', 'X', true).mode).toBe('auto');
     expect(parseEffects('Elf creatures you control get +1/+1 until end of turn.', 'X', true).mode).not.toBe('auto');
     expect(parseEffects('Creatures you control get +1/+1.', 'X', true).mode).not.toBe('auto');
   });

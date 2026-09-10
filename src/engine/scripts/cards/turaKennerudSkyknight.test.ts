@@ -16,10 +16,16 @@ function settle(g: Game): void {
   advanceUntil(g, (s) => s.stack.length === 0 && s.pendingTriggers.length === 0, 20_000);
 }
 
+// ⚠️ D383 - COUNTED OFF THE LOG, NOT OFF THE BOARD. The sorcery this test casts is `Tremor`
+// ("deals 1 damage to each creature without flying"), a sentence the SCOPED BOARD EFFECT reads
+// now - so the spell that fires the trigger sweeps the 1/1 Soldier the trigger just made, and a
+// board count reads zero for a def that worked perfectly. The trigger is what this test is about,
+// and `TokenCreated` is where the trigger says so (D260's rule, D383's own lesson one subject
+// over: a sweep catches every creature on the board, including the ones the test put there).
 function soldiers(g: Game): number {
-  return g.state.zones.battlefield.filter((id) => {
-    const c = g.state.cards[id];
-    return c?.isToken && g.deps.oracle.byPrinting(c.printingId)?.name === 'Soldier';
+  return g.log.filter((e) => {
+    if (e.body.t !== 'TokenCreated') return false;
+    return g.deps.oracle.byPrinting(e.body.printingId)?.name === 'Soldier';
   }).length;
 }
 

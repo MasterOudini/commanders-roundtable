@@ -7,6 +7,33 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ASHEN_FIREBEAST_SCRIPT } from './cards/ashenFirebeast';
+import { FIRE_NATION_ARCHERS_SCRIPT } from './cards/fireNationArchers';
+import { HAMMERFIST_GIANT_SCRIPT } from './cards/hammerfistGiant';
+import { KING_CRAB_SCRIPT } from './cards/kingCrab';
+import { KRARK_CLAN_SHAMAN_SCRIPT } from './cards/krarkClanShaman';
+import { LOOMING_HOVERGUARD_SCRIPT } from './cards/loomingHoverguard';
+import { MAGMA_VEIN_SCRIPT } from './cards/magmaVein';
+import { PESTILENCE_DEMON_SCRIPT } from './cards/pestilenceDemon';
+import { ROCKCASTER_PLATOON_SCRIPT } from './cards/rockcasterPlatoon';
+import { ROOTRUNNER_SCRIPT } from './cards/rootrunner';
+import { SCATTERSHOT_ARCHER_SCRIPT } from './cards/scattershotArcher';
+import { SCREAMS_OF_THE_DAMNED_SCRIPT } from './cards/screamsOfTheDamned';
+import { SKIRK_FIRE_MARSHAL_SCRIPT } from './cards/skirkFireMarshal';
+import { SPEAR_SPEWER_SCRIPT } from './cards/spearSpewer';
+import { SPITTING_SPIDER_SCRIPT } from './cards/spittingSpider';
+import { SUBTERRANEAN_SPIRIT_SCRIPT } from './cards/subterraneanSpirit';
+import { THRASHING_WUMPUS_SCRIPT } from './cards/thrashingWumpus';
+import { VEDALKEN_DISMISSER_SCRIPT } from './cards/vedalkenDismisser';
+import { BRIMSTONE_TREBUCHET_SCRIPT } from './cards/brimstoneTrebuchet';
+import { CIVIC_GUILDMAGE_SCRIPT } from './cards/civicGuildmage';
+import { LIGHTNING_RIG_CREW_SCRIPT } from './cards/lightningRigCrew';
+import { LOBBER_CREW_SCRIPT } from './cards/lobberCrew';
+import { NETTLE_DRONE_SCRIPT } from './cards/nettleDrone';
+import { NIGHTSCAPE_APPRENTICE_SCRIPT } from './cards/nightscapeApprentice';
+import { SEPHIROTH_PLANETS_HEIR_SCRIPT } from './cards/sephirothPlanetsHeir';
+import { SUNSCAPE_APPRENTICE_SCRIPT } from './cards/sunscapeApprentice';
+import { TIBOR_AND_LUMIA_SCRIPT } from './cards/tiborAndLumia';
 import { ALABASTER_WALL_SCRIPT } from './cards/alabasterWall';
 import { AMULET_OF_KROOG_SCRIPT } from './cards/amuletOfKroog';
 import { ARGIVIAN_BLACKSMITH_SCRIPT } from './cards/argivianBlacksmith';
@@ -5155,6 +5182,33 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ASHEN_FIREBEAST_SCRIPT,
+  FIRE_NATION_ARCHERS_SCRIPT,
+  HAMMERFIST_GIANT_SCRIPT,
+  KING_CRAB_SCRIPT,
+  KRARK_CLAN_SHAMAN_SCRIPT,
+  LOOMING_HOVERGUARD_SCRIPT,
+  MAGMA_VEIN_SCRIPT,
+  PESTILENCE_DEMON_SCRIPT,
+  ROCKCASTER_PLATOON_SCRIPT,
+  ROOTRUNNER_SCRIPT,
+  SCATTERSHOT_ARCHER_SCRIPT,
+  SCREAMS_OF_THE_DAMNED_SCRIPT,
+  SKIRK_FIRE_MARSHAL_SCRIPT,
+  SPEAR_SPEWER_SCRIPT,
+  SPITTING_SPIDER_SCRIPT,
+  SUBTERRANEAN_SPIRIT_SCRIPT,
+  THRASHING_WUMPUS_SCRIPT,
+  VEDALKEN_DISMISSER_SCRIPT,
+  BRIMSTONE_TREBUCHET_SCRIPT,
+  CIVIC_GUILDMAGE_SCRIPT,
+  LIGHTNING_RIG_CREW_SCRIPT,
+  LOBBER_CREW_SCRIPT,
+  NETTLE_DRONE_SCRIPT,
+  NIGHTSCAPE_APPRENTICE_SCRIPT,
+  SEPHIROTH_PLANETS_HEIR_SCRIPT,
+  SUNSCAPE_APPRENTICE_SCRIPT,
+  TIBOR_AND_LUMIA_SCRIPT,
   ALABASTER_WALL_SCRIPT,
   AMULET_OF_KROOG_SCRIPT,
   ARGIVIAN_BLACKSMITH_SCRIPT,

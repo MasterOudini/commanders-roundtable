@@ -16,7 +16,8 @@ import { shuffle, type RngState } from './rng';
 import type { EngineDeps } from './loop';
 import type { EventBody, MoveReason, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
-import { SELF_AIMED, type EffectSpec } from './types/oracle';
+import { SELF_AIMED, type BoardScope, type EffectSpec } from './types/oracle';
+import { faceOf } from './oracle';
 import type { GameState, StackObject, TargetChoice } from './types/state';
 // Every line here has a CARD as its subject ("Lightning Bolt counters Negate."),
 // so none of them changes person for the reader and none needs parts.
@@ -304,17 +305,109 @@ export function effectResult(
         // D301 - every creature the controller controls, as the board derives
         // NOW (a Levitation-granted type counts; a face-down 2/2 is a creature).
         // One carrier entry per creature, the same shape the targeted pump emits.
-        for (const inst of Object.values(state.cards)) {
-          if (inst.zone.kind !== 'battlefield' || inst.controller !== controller) continue;
-          if (!derive(state, deps.oracle, deps.scripts, inst.id, cache).typeLine.types.includes('Creature')) continue;
+        // D383 - and any other scope the closed reader names; absent means the
+        // D301 one, so every spec shipped before means exactly what it meant.
+        for (const id of scopeMembers(state, deps, controller, effect.scopes ?? [MASS_PUMP_SCOPE], cache).cards) {
           out.push({
             t: 'PtModifiedUntilEndOfTurn',
-            card: inst.id,
+            card: id,
             power: effect.power,
             toughness: effect.toughness,
             ...(effect.keywords.length > 0 ? { keywords: effect.keywords } : {}),
           });
         }
+        break;
+      }
+
+      /**
+       * D383 - THE SCOPED BOARD EFFECTS. The set comes from ONE reader; the verbs
+       * emit exactly what their targeted cousins emit, so prevention (D382),
+       * protection, indestructible and every watcher see the same events they
+       * always did - one BATCH, because a sweep is simultaneous.
+       */
+      case 'damageEach': {
+        if (!source) break;
+        const m = scopeMembers(state, deps, controller, effect.scopes ?? [], cache);
+        const damages = [
+          ...m.cards.flatMap((id) => {
+            const inst = state.cards[id];
+            return inst === undefined
+              ? []
+              : [damageTo(state, deps, source, { kind: 'card', id, controller: inst.controller, owner: inst.owner }, effect.amount, cache)];
+          }),
+          ...m.players.map((p) => damageTo(state, deps, source, { kind: 'player', id: p }, effect.amount, cache)),
+        ];
+        if (damages.length > 0) out.push({ t: 'DamageDealt', damages });
+        break;
+      }
+
+      case 'destroyAll': {
+        const moves = [];
+        for (const id of scopeMembers(state, deps, controller, effect.scopes ?? [], cache).cards) {
+          const inst = state.cards[id];
+          if (!inst) continue;
+          // Indestructible is a Tier-2 keyword the engine knows and "destroy" is
+          // the word it answers, exactly as the targeted destroy above.
+          if (derive(state, deps.oracle, deps.scripts, id, cache).keywords.has('indestructible')) continue;
+          // ⚠️ D383 - AND SO IS THE REGENERATION SHIELD (CR 701.19). The first cut said "exactly
+          // as the targeted destroy above" and did only HALF of what that case does: a sweep is
+          // the same word, so a creature with a shield survives it - tapped, damage removed, out
+          // of combat, the shield spent - unless the card says it can't be regenerated. Per
+          // MEMBER, because each permanent has its own shield and none of them is shared.
+          if ((state.regenerationShields[id] ?? 0) > 0 && !effects.some((e) => e.noRegenerate === true)) {
+            if (!inst.tapped) out.push({ t: 'PermanentsTapped', cards: [id] });
+            out.push({ t: 'DamageCleared', cards: [id] });
+            out.push({ t: 'RemovedFromCombat', cards: [id] });
+            out.push({ t: 'Regenerated', card: id });
+            continue;
+          }
+          moves.push({ card: id, from: { kind: 'battlefield' as const, player: inst.controller }, to: { kind: 'graveyard' as const, player: inst.owner } });
+        }
+        if (moves.length > 0) out.push({ t: 'CardsMoved', moves });
+        break;
+      }
+
+      case 'bounceAll': {
+        const moves = [];
+        for (const id of scopeMembers(state, deps, controller, effect.scopes ?? [], cache).cards) {
+          const inst = state.cards[id];
+          if (!inst) continue;
+          moves.push({ card: id, from: { kind: 'battlefield' as const, player: inst.controller }, to: { kind: 'hand' as const, player: inst.owner } });
+        }
+        if (moves.length > 0) out.push({ t: 'CardsMoved', moves });
+        break;
+      }
+
+      case 'gainLifePer': {
+        const per = effect.perCount;
+        if (per === undefined) break;
+        const gy = state.zones.graveyard[controller] ?? [];
+        const n =
+          per === 'creaturesYouControl'
+            ? Object.values(state.cards).filter(
+                (c) => c.zone.kind === 'battlefield' && c.controller === controller && derive(state, deps.oracle, deps.scripts, c.id, cache).typeLine.types.includes('Creature'),
+              ).length
+            : per === 'cardsInYourGraveyard'
+              ? gy.length
+              : gy.filter((id) => {
+                  const inst = state.cards[id];
+                  const oc = inst ? deps.oracle.byPrinting(inst.printingId) : undefined;
+                  return oc !== undefined && inst !== undefined && faceOf(oc, inst.faceIndex).typeLine.types.includes('Creature');
+                }).length;
+        const gained = effect.amount * n;
+        const me = state.players[controller];
+        if (gained > 0 && me) out.push({ t: 'LifeChanged', player: controller, delta: gained, to: me.life + gained });
+        break;
+      }
+
+      case 'toLibraryTop': {
+        if (aim?.kind !== 'card') break;
+        const inst = state.cards[aim.id];
+        if (!inst) break;
+        out.push({
+          t: 'CardsMoved',
+          moves: [{ card: aim.id, from: { kind: 'battlefield', player: inst.controller }, to: { kind: 'library', player: inst.owner }, placement: 'top' }],
+        });
         break;
       }
 
@@ -829,6 +922,50 @@ function damageTo(
     applyAs,
     ...(unpreventable ? { unpreventable: true } : {}),
   };
+}
+
+/**
+ * D383 - ONE reader for every scoped board effect's set (D346's rule: the scope
+ * vocabulary lives in a single place, so a scope can never widen a body).
+ *
+ * ⚠️ Read from the board as it DERIVES NOW, exactly as `massPump` has since D301
+ * - a Levitation-granted type counts, a face-down permanent is a 2/2 creature -
+ * and from the LIVE combat for an attacking scope, so a sweep cast mid-combat
+ * means what the card says.
+ */
+const MASS_PUMP_SCOPE: BoardScope = { kind: 'creature', controller: 'you' };
+function scopeMembers(
+  state: GameState,
+  deps: EngineDeps,
+  controller: PlayerId,
+  scopes: readonly BoardScope[],
+  cache?: DeriveCache,
+): { cards: InstanceId[]; players: PlayerId[] } {
+  const cards: InstanceId[] = [];
+  const players: PlayerId[] = [];
+  const attacking = new Set((state.combat?.attackers ?? []).map((a) => a.card));
+  for (const scope of scopes) {
+    if (scope.kind === 'player') {
+      for (const p of state.seating) {
+        if (scope.controller === 'opponents' && p === controller) continue;
+        if (!players.includes(p)) players.push(p);
+      }
+      continue;
+    }
+    for (const id of state.zones.battlefield) {
+      const inst = state.cards[id];
+      if (!inst || cards.includes(id)) continue;
+      if (scope.controller === 'you' && inst.controller !== controller) continue;
+      if (scope.controller === 'opponents' && inst.controller === controller) continue;
+      const d = derive(state, deps.oracle, deps.scripts, id, cache);
+      if (scope.kind === 'creature' && !d.typeLine.types.includes('Creature')) continue;
+      if (scope.kind === 'permanent' && scope.type !== undefined && !d.typeLine.types.includes(scope.type)) continue;
+      if (scope.attacking === true && !attacking.has(id)) continue;
+      if (scope.keyword !== undefined && d.keywords.has(scope.keyword) === (scope.keywordAbsent === true)) continue;
+      cards.push(id);
+    }
+  }
+  return { cards, players };
 }
 
 function moveTo(card: InstanceId, kind: 'graveyard' | 'exile' | 'hand', player: PlayerId, reason?: MoveReason): EventBody {

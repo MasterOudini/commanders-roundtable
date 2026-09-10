@@ -1717,6 +1717,17 @@ const WANTED = [
   'Pillage',
   'Pillardrop Rescuer',
   'Pinpoint Avalanche',
+  // D383 - the scoped board effect: one card per printed form of the closed scope
+  // grammar, so the seam's own suite proves each rather than one of them.
+  'Fuel the Flames',
+  'Rolling Temblor',
+  'Claws of Wirewood',
+  'Hush',
+  'Rebuild',
+  'Suffocating Fumes',
+  'Pursue Glory',
+  'Folk Medicine',
+  'Grasp of Phantoms',
   // D382 - CR 615, the prevention shield: one card per printed form of the
   // grammar, so the seam's own suite proves each rather than one of them.
   'Fog',
@@ -6127,6 +6138,35 @@ const WANTED = [
   'Samite Archer',
   'Serra Paladin',
   // D382 - the helpers the prevention suites deal.
+  // D383 - the scoped board effect: the wave the seam made offerable.
+  'Ashen Firebeast',
+  'Fire Nation Archers',
+  'Hammerfist Giant',
+  'King Crab',
+  'Krark-Clan Shaman',
+  'Looming Hoverguard',
+  'Magma Vein',
+  'Pestilence Demon',
+  'Rockcaster Platoon',
+  'Rootrunner',
+  'Scattershot Archer',
+  'Screams of the Damned',
+  'Skirk Fire Marshal',
+  'Spear Spewer',
+  'Spitting Spider',
+  'Subterranean Spirit',
+  'Thrashing Wumpus',
+  'Vedalken Dismisser',
+  'Brimstone Trebuchet',
+  'Civic Guildmage',
+  'Lightning-Rig Crew',
+  'Lobber Crew',
+  'Nettle Drone',
+  'Nightscape Apprentice',
+  "Sephiroth, Planet's Heir",
+  'Sunscape Apprentice',
+  'Tibor and Lumia',
+  // D383 - the helpers the scoped-board suites deal.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

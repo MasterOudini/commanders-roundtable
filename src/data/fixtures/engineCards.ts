@@ -1312,6 +1312,15 @@ export const PIGGY_BANK: CardData = F.PIGGY_BANK as CardData;
 export const PILLAGE: CardData = F.PILLAGE as CardData;
 export const PILLARDROP_RESCUER: CardData = F.PILLARDROP_RESCUER as CardData;
 export const PINPOINT_AVALANCHE: CardData = F.PINPOINT_AVALANCHE as CardData;
+export const FUEL_THE_FLAMES: CardData = F.FUEL_THE_FLAMES as CardData;
+export const ROLLING_TEMBLOR: CardData = F.ROLLING_TEMBLOR as CardData;
+export const CLAWS_OF_WIREWOOD: CardData = F.CLAWS_OF_WIREWOOD as CardData;
+export const HUSH: CardData = F.HUSH as CardData;
+export const REBUILD: CardData = F.REBUILD as CardData;
+export const SUFFOCATING_FUMES: CardData = F.SUFFOCATING_FUMES as CardData;
+export const PURSUE_GLORY: CardData = F.PURSUE_GLORY as CardData;
+export const FOLK_MEDICINE: CardData = F.FOLK_MEDICINE as CardData;
+export const GRASP_OF_PHANTOMS: CardData = F.GRASP_OF_PHANTOMS as CardData;
 export const FOG: CardData = F.FOG as CardData;
 export const MENDING_HANDS: CardData = F.MENDING_HANDS as CardData;
 export const INDESTRUCTIBLE_AURA: CardData = F.INDESTRUCTIBLE_AURA as CardData;
@@ -5512,6 +5521,33 @@ export const HYPOCHONDRIA: CardData = F.HYPOCHONDRIA as CardData;
 export const RAKA_DISCIPLE: CardData = F.RAKA_DISCIPLE as CardData;
 export const SAMITE_ARCHER: CardData = F.SAMITE_ARCHER as CardData;
 export const SERRA_PALADIN: CardData = F.SERRA_PALADIN as CardData;
+export const ASHEN_FIREBEAST: CardData = F.ASHEN_FIREBEAST as CardData;
+export const FIRE_NATION_ARCHERS: CardData = F.FIRE_NATION_ARCHERS as CardData;
+export const HAMMERFIST_GIANT: CardData = F.HAMMERFIST_GIANT as CardData;
+export const KING_CRAB: CardData = F.KING_CRAB as CardData;
+export const KRARK_CLAN_SHAMAN: CardData = F.KRARK_CLAN_SHAMAN as CardData;
+export const LOOMING_HOVERGUARD: CardData = F.LOOMING_HOVERGUARD as CardData;
+export const MAGMA_VEIN: CardData = F.MAGMA_VEIN as CardData;
+export const PESTILENCE_DEMON: CardData = F.PESTILENCE_DEMON as CardData;
+export const ROCKCASTER_PLATOON: CardData = F.ROCKCASTER_PLATOON as CardData;
+export const ROOTRUNNER: CardData = F.ROOTRUNNER as CardData;
+export const SCATTERSHOT_ARCHER: CardData = F.SCATTERSHOT_ARCHER as CardData;
+export const SCREAMS_OF_THE_DAMNED: CardData = F.SCREAMS_OF_THE_DAMNED as CardData;
+export const SKIRK_FIRE_MARSHAL: CardData = F.SKIRK_FIRE_MARSHAL as CardData;
+export const SPEAR_SPEWER: CardData = F.SPEAR_SPEWER as CardData;
+export const SPITTING_SPIDER: CardData = F.SPITTING_SPIDER as CardData;
+export const SUBTERRANEAN_SPIRIT: CardData = F.SUBTERRANEAN_SPIRIT as CardData;
+export const THRASHING_WUMPUS: CardData = F.THRASHING_WUMPUS as CardData;
+export const VEDALKEN_DISMISSER: CardData = F.VEDALKEN_DISMISSER as CardData;
+export const BRIMSTONE_TREBUCHET: CardData = F.BRIMSTONE_TREBUCHET as CardData;
+export const CIVIC_GUILDMAGE: CardData = F.CIVIC_GUILDMAGE as CardData;
+export const LIGHTNING_RIG_CREW: CardData = F.LIGHTNING_RIG_CREW as CardData;
+export const LOBBER_CREW: CardData = F.LOBBER_CREW as CardData;
+export const NETTLE_DRONE: CardData = F.NETTLE_DRONE as CardData;
+export const NIGHTSCAPE_APPRENTICE: CardData = F.NIGHTSCAPE_APPRENTICE as CardData;
+export const SEPHIROTH_PLANET_S_HEIR: CardData = F.SEPHIROTH_PLANET_S_HEIR as CardData;
+export const SUNSCAPE_APPRENTICE: CardData = F.SUNSCAPE_APPRENTICE as CardData;
+export const TIBOR_AND_LUMIA: CardData = F.TIBOR_AND_LUMIA as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -6957,6 +6993,15 @@ export const ENGINE_CARDS: CardData[] = [
   PILLAGE,
   PILLARDROP_RESCUER,
   PINPOINT_AVALANCHE,
+  FUEL_THE_FLAMES,
+  ROLLING_TEMBLOR,
+  CLAWS_OF_WIREWOOD,
+  HUSH,
+  REBUILD,
+  SUFFOCATING_FUMES,
+  PURSUE_GLORY,
+  FOLK_MEDICINE,
+  GRASP_OF_PHANTOMS,
   FOG,
   MENDING_HANDS,
   INDESTRUCTIBLE_AURA,
@@ -11157,6 +11202,33 @@ export const ENGINE_CARDS: CardData[] = [
   RAKA_DISCIPLE,
   SAMITE_ARCHER,
   SERRA_PALADIN,
+  ASHEN_FIREBEAST,
+  FIRE_NATION_ARCHERS,
+  HAMMERFIST_GIANT,
+  KING_CRAB,
+  KRARK_CLAN_SHAMAN,
+  LOOMING_HOVERGUARD,
+  MAGMA_VEIN,
+  PESTILENCE_DEMON,
+  ROCKCASTER_PLATOON,
+  ROOTRUNNER,
+  SCATTERSHOT_ARCHER,
+  SCREAMS_OF_THE_DAMNED,
+  SKIRK_FIRE_MARSHAL,
+  SPEAR_SPEWER,
+  SPITTING_SPIDER,
+  SUBTERRANEAN_SPIRIT,
+  THRASHING_WUMPUS,
+  VEDALKEN_DISMISSER,
+  BRIMSTONE_TREBUCHET,
+  CIVIC_GUILDMAGE,
+  LIGHTNING_RIG_CREW,
+  LOBBER_CREW,
+  NETTLE_DRONE,
+  NIGHTSCAPE_APPRENTICE,
+  SEPHIROTH_PLANET_S_HEIR,
+  SUNSCAPE_APPRENTICE,
+  TIBOR_AND_LUMIA,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

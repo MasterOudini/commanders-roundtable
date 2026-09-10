@@ -240,9 +240,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * verified identical across isolated and full-suite runs.
    */
   test('D90 does not reproduce, and the vocabulary keeps moving it: 948 auto, 1,832 assisted (D199, D343)', () => {
-    expect.soft(r.spells.auto).toBe(1058);
-    expect.soft(r.spells.assisted).toBe(1931);
-    expect.soft(r.spells.autoAnyFace).toBe(1066);
+    expect.soft(r.spells.auto).toBe(1166);
+    expect.soft(r.spells.assisted).toBe(1998);
+    expect.soft(r.spells.autoAnyFace).toBe(1175);
   });
 
   /**
@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). Planeswalkers (loyalty costs) and battles are still
     // structurally out, and stay pinned at zero for the same reason the
     // enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(453);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(455);
     expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -446,12 +446,15 @@ const POOL: Record<string, number> = {
   // TWENTY-card batch.
   // M6.4bc (D214): +8 instants, +7 sorceries, Flying Carpet, and Forum of
   // Amity.
-  creature: 4658,
-  instant: 1068,
-  sorcery: 785,
+  // M6.4hp (D383): the SCOPED BOARD EFFECT reads a sentence about a whole scope, so +17 instants
+  // and +17 sorceries flip with no script at all, beside the wave's +25 creatures and +2
+  // enchantments.
+  creature: 4683,
+  instant: 1085,
+  sorcery: 802,
   land: 567,
   artifact: 443,
-  enchantment: 453,
+  enchantment: 455,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

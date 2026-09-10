@@ -1744,30 +1744,21 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // cannot run yet - their cycling does (a spell outside the vocabulary, the
   // when-you-cycle triggers, a cycle-or-discard head).
   ['Akroma\'s Vengeance', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Aura Extraction', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Brand', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Claws of Wirewood', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Curator of Mysteries', 'trigger head outside the library (whenever you cycle or discard another card)'],
   ['Drannith Healer', 'trigger head outside the library (whenever you cycle another card)'],
   ['Essence Fracture', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Fade from Memory', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Floodwaters', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Frostveil Ambush', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Fuel the Flames', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Go for Blood', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Hampering Snare', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Hush', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Inferno Jet', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Pest Control', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Pursue Glory', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Rapid Decay', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Rebuild', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Scarab Feast', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Spectacular Pileup', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Starstorm', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Startling Development', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Suffocating Fumes', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Sweltering Suns', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Trip Up', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Valiant Rescuer', 'trigger head outside the library (whenever you cycle another card for the first ti)'],
   ['Violent Impact', 'a spell line outside the vocabulary (its cycling runs)'],
@@ -1793,18 +1784,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D307 (M6.4er) — the flashback pool: the flashback spells whose other
   // sentences the vocabulary does not read yet - their flashback runs.
   ['Alter Reality', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Ancestral Tribute', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Auron\'s Inspiration', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Bulk Up', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Calibrated Blast', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Canopy Claws', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Coffin Purge', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Devil\'s Play', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Echo of Eons', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Folk Medicine', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Gnaw to the Bone', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Grasp of Phantoms', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Howling Gale', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Ignite the Future', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Kaleidoscorch', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Krosan Reclamation', 'a spell line outside the vocabulary (its flashback runs)'],
@@ -1817,7 +1802,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Recoup', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Rite of Harmony', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Rockalanche', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Rolling Temblor', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Ruthless Negotiation', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Sacred Fire', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Saving Grasp', 'a spell line outside the vocabulary (its flashback runs)'],
@@ -1829,7 +1813,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Solstice Revelations', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Tracker\'s Instincts', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Traitor\'s Clutch', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Volcanic Spray', 'a spell line outside the vocabulary (its flashback runs)'],
 
   // D308 (M6.4es) — the keyword-trigger pool: the carriers whose other
   // lines the vocabulary does not read yet - their keyword trigger runs.
@@ -2177,6 +2160,21 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Spore Frog', 'a prevention shield with no target (the suite must attack to prove it)'],
   ['Sunstone', 'a prevention shield with no target (the suite must attack to prove it)'],
   ['Tangle', 'a spell line outside the vocabulary'],
+
+  // D383 (M6.4hp) - the scoped board effect: the cards the seam made offerable that the row
+  // maker refused, each with the reason it gave.
+  ['Ancestor\'s Chosen', 'a board-sized life gain the suite cannot pin: You gain 1 life for each card in your graveyard.'],
+  ['Angel of Renewal', 'a board-sized life gain the suite cannot pin: You gain 1 life for each creature you control.'],
+  ['Bhaal\'s Invoker', 'ability-word activated line: Scorching Ray — {8}: ~ deals 4 damage to'],
+  ['Blighted Steppe', 'a board-sized life gain the suite cannot pin: You gain 2 life for each creature you control.'],
+  ['Dwarven Priest', 'a board-sized life gain the suite cannot pin: You gain 1 life for each creature you control.'],
+  ['Intruding Soulrager', 'cost: a sacrifice cost with no fixture the suite can put: Room'],
+  ['Iroh, Firebending Instructor', 'a scope read off the live combat (the suite must attack): Attacking creatures get +1/+1 until end of turn.'],
+  ['Nova Cleric', 'a scope with no witness the suite can put: Destroy all enchantments.'],
+  ['Pianna, Nomad Captain', 'a scope read off the live combat (the suite must attack): Attacking creatures get +1/+1 until end of turn.'],
+  ['Sting-Slinger', 'cost: Blight 1'],
+  ['Whirling Catapult', 'cost: Exile the top two cards of your library'],
+  ['Tegwyll\'s Scouring', 'a spell with a line outside the vocabulary: You may cast this spell as though it had flash by tapping th'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
@@ -2307,6 +2305,12 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // cards offerable, 35 landed as rows and the other 15 are in the ledger above by name, each
     // with the reason the row maker gave. The tell is the scriptable number the other way:
     // a seam RAISES it (1,263 -> 1,313) and a wave LOWERS it.
+    // D383 - BACK TO ZERO, which is what a WAVE does: the SCOPED BOARD EFFECT made 39 cards
+    // offerable, 27 landed as rows and the other 12 are in the ledger above by name, each with
+    // the reason the row maker gave. ⚠️ And the ledger corrected ITSELF on the same sweep:
+    // SEVENTEEN rows held under `a spell line outside the vocabulary` since D306/D307 were named
+    // STALE by the guard below, because the seam reads their bodies and they now run with no
+    // script at all. The tell is the scriptable number, which a seam RAISES and a wave LOWERS.
     expect.soft(all.length).toBe(0);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.

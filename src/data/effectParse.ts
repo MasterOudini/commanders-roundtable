@@ -22,6 +22,7 @@
 // what it understood, and says so on the card.
 
 import type {
+  BoardScope,
   CounterKind,
   EffectKind,
   EffectMode,
@@ -241,6 +242,36 @@ const GRANTABLE: ReadonlyMap<string, Keyword> = new Map<string, Keyword>([
   ['wither', 'wither'],
 ]);
 const KW = [...GRANTABLE.keys()].sort((a, b) => b.length - a.length).join('|');
+
+/**
+ * D383 - THE CLOSED SCOPE VOCABULARY. Every phrase a scoped board effect may
+ * name, and nothing else: a sentence naming a set outside this stays unread
+ * (D90), which is what keeps "each creature that dealt damage this turn" or
+ * "all nonland permanents" from being half-executed as something narrower.
+ *
+ * ⚠️ The keyword filter is GRANTABLE's own key set - every one of them a keyword
+ * the engine ENFORCES - so a filter can never name a quality `derive` cannot
+ * answer (the closed map IS the safety property here, exactly as it is for the
+ * pump's grant).
+ */
+const SCOPE = `(each creature(?: (?:with|without) (?:${KW}))?|each opponent|each player|all creatures|all artifacts|all enchantments|all lands|creatures your opponents control|creatures you control|attacking creatures)`;
+function readScope(raw: string | undefined): BoardScope | null {
+  if (raw === undefined) return null;
+  const s = raw.toLowerCase();
+  if (s === 'each opponent') return { kind: 'player', controller: 'opponents' };
+  if (s === 'each player') return { kind: 'player', controller: 'any' };
+  if (s === 'creatures you control') return { kind: 'creature', controller: 'you' };
+  if (s === 'creatures your opponents control') return { kind: 'creature', controller: 'opponents' };
+  if (s === 'attacking creatures') return { kind: 'creature', controller: 'any', attacking: true };
+  if (s === 'all creatures' || s === 'each creature') return { kind: 'creature', controller: 'any' };
+  if (s === 'all artifacts') return { kind: 'permanent', controller: 'any', type: 'Artifact' };
+  if (s === 'all enchantments') return { kind: 'permanent', controller: 'any', type: 'Enchantment' };
+  if (s === 'all lands') return { kind: 'permanent', controller: 'any', type: 'Land' };
+  const kw = /^each creature (with|without) (.+)$/.exec(s);
+  if (kw === null) return null;
+  const word = GRANTABLE.get(kw[2] as string);
+  return word === undefined ? null : { kind: 'creature', controller: 'any', keyword: word, keywordAbsent: kw[1] === 'without' };
+}
 
 function grantedKeywords(...raw: (string | undefined)[]): readonly Keyword[] | null {
   const out: Keyword[] = [];
@@ -648,6 +679,76 @@ const RULES: readonly Rule[] = [
       const kws = grantedKeywords(m[1], m[2]);
       return kws !== null ? { ...BASE, keywords: kws, targetIndex: -1, self: true } : null;
     },
+  },
+  /**
+   * D383 - THE SCOPED BOARD EFFECT. `massPump` above has walked a board-defined
+   * SET since D301; these are the same idea with the other verbs, over ONE closed
+   * scope reader (D346's rule for the scoped anthems: the scope vocabulary lives
+   * in a single place, so a scope can never widen a body).
+   *
+   * ⚠️ The reader is CLOSED and every rule is anchored at both ends (D90). A
+   * sentence with a rider - "If a creature dealt damage this way would die this
+   * turn, exile it instead", "If this spell was kicked ..." - is a DIFFERENT card
+   * and stays unread, which is why the anchored count (29) is a third of the 247
+   * cards that merely CARRY a scoped sentence.
+   */
+  {
+    kind: 'damageEach',
+    re: new RegExp(`^~ deals (${NUM}) damage to ${SCOPE}(?: and ${SCOPE})?\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      const a = readScope(m[2]);
+      const b = m[3] === undefined ? null : readScope(m[3]);
+      if (n === null || a === null || (m[3] !== undefined && b === null)) return null;
+      return { ...BASE, amount: n, targetIndex: -1, self: true, scopes: b === null ? [a] : [a, b] };
+    },
+  },
+  {
+    kind: 'destroyAll',
+    re: new RegExp(`^destroy ${SCOPE}\.$`, 'i'),
+    build: (m) => {
+      const s = readScope(m[1]);
+      return s === null || s.kind === 'player' ? null : { ...BASE, targetIndex: -1, self: true, scopes: [s] };
+    },
+  },
+  {
+    kind: 'bounceAll',
+    re: new RegExp(`^return ${SCOPE} to their owners(?:'|\u2019) hands\.$`, 'i'),
+    build: (m) => {
+      const s = readScope(m[1]);
+      return s === null || s.kind === 'player' ? null : { ...BASE, targetIndex: -1, self: true, scopes: [s] };
+    },
+  },
+  {
+    kind: 'massPump',
+    re: new RegExp(`^${SCOPE} get ([+-]${NUM})/([+-]${NUM})(?: and gain (${KW})(?: and (${KW}))?)? until end of turn\.$`, 'i'),
+    build: (m) => {
+      const s = readScope(m[1]);
+      const p = Number(m[2]);
+      const t = Number(m[3]);
+      const kws = m[4] === undefined ? [] : grantedKeywords(m[4], m[5]);
+      if (s === null || s.kind !== 'creature' || !Number.isFinite(p) || !Number.isFinite(t) || kws === null) return null;
+      return { ...BASE, power: p, toughness: t, keywords: kws, targetIndex: -1, self: true, scopes: [s] };
+    },
+  },
+  {
+    kind: 'gainLifePer',
+    re: new RegExp(`^you gain (${NUM}) life for each (creature you control|card in your graveyard|creature card in your graveyard)\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      const per =
+        m[2] === 'creature you control'
+          ? 'creaturesYouControl'
+          : m[2] === 'card in your graveyard'
+            ? 'cardsInYourGraveyard'
+            : 'creatureCardsInYourGraveyard';
+      return n === null ? null : { ...BASE, amount: n, targetIndex: -1, self: true, perCount: per };
+    },
+  },
+  {
+    kind: 'toLibraryTop',
+    re: new RegExp(`^put ${TARGET} on top of its owner(?:'|\u2019)s library\.$`, 'i'),
+    build: () => ({ ...BASE }),
   },
   /**
    * D373 - THE SELF-AIMED EFFECT. "This creature gets +1/+0 until end of turn.",

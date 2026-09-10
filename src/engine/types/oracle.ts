@@ -448,6 +448,24 @@ export function isFreeAim(spec: TargetSpec): boolean {
  * over again: an effect the engine cannot express as events is an effect it must
  * not pretend to execute.
  */
+/**
+ * D383 - one member of a scoped board effect's set. A CLOSED shape: a creature
+ * filter, a permanent type, or a group of players. Anything a printed sentence
+ * names outside this leaves the whole sentence unread (D90).
+ */
+export interface BoardScope {
+  readonly kind: 'creature' | 'permanent' | 'player';
+  /** Whose. `any` is every player's, which is what "each creature" means. */
+  readonly controller: 'you' | 'opponents' | 'any';
+  /** `permanent` only: the card type the sentence names. */
+  readonly type?: 'Creature' | 'Artifact' | 'Enchantment' | 'Land';
+  /** `creature` only: a Tier-2 keyword the member must have, or must not. */
+  readonly keyword?: Keyword;
+  readonly keywordAbsent?: boolean;
+  /** `creature` only: the member must be attacking right now. */
+  readonly attacking?: boolean;
+}
+
 export type EffectKind =
   | 'damage'
   | 'destroy'
@@ -485,6 +503,20 @@ export type EffectKind =
    * `DamageDealt` themselves (D233's measured gap).
    */
   | 'prevent'
+  /**
+   * D383 - THE SCOPED BOARD EFFECT. `massPump` (D301) has walked a board-defined
+   * SET rather than a target since it shipped; these are the same idea with the
+   * other verbs, over ONE closed scope reader: "~ deals N damage to each creature
+   * [without flying] [and each player]", "Destroy all enchantments.", "Return all
+   * artifacts to their owners' hands." A scoped effect consumes no target slot.
+   */
+  | 'damageEach'
+  | 'destroyAll'
+  | 'bounceAll'
+  /** D383 - "You gain N life for each <count>": a life gain the BOARD sizes. */
+  | 'gainLifePer'
+  /** D383 - "Put target creature on top of its owner's library." */
+  | 'toLibraryTop'
   | 'draw'
   | 'gainLife'
   | 'loseLife'
@@ -764,6 +796,17 @@ export interface EffectSpec {
    * consulted for it. D233 wrote the tripwire that made this debt honest.
    */
   readonly cantBePrevented?: boolean;
+  /**
+   * D383 - the set a scoped board effect applies to, read by ONE closed reader so
+   * the scope vocabulary lives in a single place (D346's rule for the scoped
+   * anthems). Absent on every clause that names a target instead.
+   *
+   * ⚠️ `massPump` carries it too and DEFAULTS to "creatures you control" when it
+   * is absent, so every spec shipped before D383 means exactly what it meant.
+   */
+  readonly scopes?: readonly BoardScope[];
+  /** D383 - `gainLifePer`: what the life gain counts. A CLOSED list. */
+  readonly perCount?: 'creaturesYouControl' | 'cardsInYourGraveyard' | 'creatureCardsInYourGraveyard';
   /** D382 - `prevent`: how much (a number) or all of it this turn. */
   readonly preventAmount?: number | 'all';
   /** D382 - `prevent`: "combat damage" rather than any damage. */

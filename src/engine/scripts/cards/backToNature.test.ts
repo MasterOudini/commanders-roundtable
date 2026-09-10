@@ -42,7 +42,14 @@ describe('Back to Nature', () => {
 
   test('the suppression predicate holds (D187)', () => {
     const text = BACK_TO_NATURE.faces[0]?.oracleText ?? '';
-    expect(parseEffects(text, BACK_TO_NATURE.name, true).mode).not.toBe('auto');
+    // ⚠️ D383 REVERSED THIS (D117: a test describing the old meaning is rewritten, not
+    // adapted). It read `not.toBe('auto')` because the vocabulary could not read a sentence
+    // about a whole SCOPE; it can now, so BOTH readers understand this card. That is safe and
+    // the card still runs exactly ONCE: `loop.ts` consults the spell def where the vocabulary
+    // ran and the def OUTRANKS it (D187), and `assistedEffectsFor` offers nothing for an `auto`
+    // face NOR for one carrying a shipped def. The hand script is REDUNDANT rather than wrong -
+    // retiring it is a measured decision of its own (D373).
+    expect(parseEffects(text, BACK_TO_NATURE.name, true).mode).toBe('auto');
     expect(SHIPPED_REGISTRY.spell(BACK_TO_NATURE.oracleId)).toBeDefined();
   });
 

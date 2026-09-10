@@ -64,12 +64,44 @@ describe('D330 - regeneration against a destroy effect', () => {
 
   // A scripted sweeper (Damnation, D-era hand script) moves the creatures itself
   // and never asks the shield - which is what "They can't be regenerated" means.
-  // (Wrath of God is not a vehicle: "Destroy all creatures" is outside the
-  // resolver's grammar, so the spell is manual and destroys nothing.)
+  // ⚠️ D383 REWROTE WHAT THIS COMMENT USED TO SAY (D117). It read "Wrath of God is
+  // not a vehicle: Destroy all creatures is outside the resolver's grammar, so the
+  // spell is manual and destroys nothing" - and the SCOPED BOARD EFFECT reads that
+  // sentence now, so the two cases below prove the shield on the VOCABULARY's own
+  // mass path with no script for either spell in this registry.
   test("Damnation: 'They can't be regenerated' skips the shield too", () => {
     const { g, self, no, card } = shielded('Damnation');
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 2 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'B', amount: 2 }));
+    must(g.submit({ t: 'CastSpell', player: 'p1', card }));
+    settle(g);
+    expect(g.state.cards[self]?.zone.kind).toBe('graveyard');
+    expect(g.state.cards[no]?.zone.kind).toBe('graveyard');
+    expect(g.state.regenerationShields).toEqual({});
+  });
+
+  // ⚠️ D383 - THE MASS PATH, THROUGH THE VOCABULARY. `destroyAll` skipped an
+  // indestructible member under a comment claiming it worked "exactly as the
+  // targeted destroy above" - and that case does TWO things (D330 taught it the
+  // shield). A sweep is the same word, so these two spells, neither of them
+  // scripted in this registry, prove both halves of CR 701.19 over a whole board.
+  test('Day of Judgment: the shield replaces the SWEEP too', () => {
+    const { g, self, no, card } = shielded('Day of Judgment');
+    must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 2 }));
+    must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'W', amount: 2 }));
+    must(g.submit({ t: 'CastSpell', player: 'p1', card }));
+    settle(g);
+    expect(g.state.cards[self]?.zone.kind).toBe('battlefield');
+    expect(g.state.cards[self]?.tapped).toBe(true);
+    expect(g.state.regenerationShields[self] ?? 0).toBe(0);
+    // The one without a shield is still swept, so the sweep itself is not being skipped.
+    expect(g.state.cards[no]?.zone.kind).toBe('graveyard');
+  });
+
+  test("Wrath of God: 'They can't be regenerated' skips the shield on the sweep", () => {
+    const { g, self, no, card } = shielded('Wrath of God');
+    must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 2 }));
+    must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'W', amount: 2 }));
     must(g.submit({ t: 'CastSpell', player: 'p1', card }));
     settle(g);
     expect(g.state.cards[self]?.zone.kind).toBe('graveyard');

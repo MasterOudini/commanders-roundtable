@@ -191,12 +191,14 @@ describe.skipIf(!HAVE_DB)('the token resolver, over the real database', () => {
       // D369: eight cards whose only OTHER unread line was an unless-pays or a
       // you-may-pay sentence read whole and left the sole-need population
       // (primitives records the same move as token 969 -> 961).
-      cards: 958,
-      lines: 996,
-      parsed: 256,
-      unique: 234,
+      // D383 - the SCOPED BOARD EFFECT reads a card's other sentence first, so one more card
+      // leaves this sole-need population (primitives records the same move as token 958 -> 957).
+      cards: 957,
+      lines: 995,
+      parsed: 255,
+      unique: 233,
       noMatch: 22,
-      cardsFullyResolved: 220,
+      cardsFullyResolved: 219,
     });
   });
 
