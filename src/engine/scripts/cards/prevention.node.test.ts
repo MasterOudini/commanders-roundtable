@@ -43,4 +43,16 @@ describe('prevention is built, and applied in one place (D382, closing D233)', (
     const src = readFileSync(join(__dirname, 'pinpointAvalanche.ts'), 'utf8');
     expect(src).toContain('unpreventable: true');
   });
+
+  test('D385 - the CONTINUOUS form is consulted in the same one place, and the emitters still are not', () => {
+    // CR 615 has two shapes: a shield that is spent (D382) and a static that is not (D385). Both
+    // are read by `prevention.ts` inside the funnel; `effects.ts` consults neither, because the
+    // emitters are exactly what a per-emitter check cannot cover (D233's measurement).
+    const prevention = readFileSync(join(engine, 'prevention.ts'), 'utf8');
+    expect(prevention).toContain('scripts.preventions()');
+    expect(prevention).toContain('hasAbilities');
+    const effects = readFileSync(join(engine, 'effects.ts'), 'utf8');
+    expect(effects.includes('preventions()')).toBe(false);
+    expect(readFileSync(join(engine, 'staticPrevention.test.ts'), 'utf8')).toContain('prevention: [');
+  });
 });

@@ -27,7 +27,9 @@
 //  • instants and sorceries whose EVERY sentence `parseEffects` understood
 //  • since M6.4a (D158): ability lines a SHIPPED card script claims — a line
 //    counts only when a script in `SHIPPED_SCRIPTS` carries its EXACT printed
-//    text on a def the engine actually consults (see `lineClaims` below)
+//    text on a def the engine actually consults (see `lineClaims` below) -
+//    a trigger, a static, a replacement, a combat restriction, a spell, the
+//    can't-be-countered claim, and since D385 a continuous PREVENTION effect
 //
 // Nothing else. A non-mana activated ability still has no effect even when a
 // script carries one — `ActivatedDef` is a seam nothing in the engine consults
@@ -157,6 +159,8 @@ export function lineClaims(scripts: readonly CardScript[]): ReadonlyMap<string, 
       ...(s.statics ?? []),
       ...(s.replacements ?? []),
       ...(s.combat ?? []),
+      // D385 - a continuous prevention effect is a line the funnel consults (CR 615).
+      ...(s.prevention ?? []),
       // D336 - the can't-be-countered claim is a line the funnel consults.
       ...(s.cantBeCountered ? [s.cantBeCountered] : []),
     ];

@@ -2197,6 +2197,18 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sunken Field', 'an effect the scaffold cannot assert: payOptional'],
   ['Heartseeker', 'an effect the scaffold cannot assert: destroy'],
   ['Trusty Boomerang', 'an effect the scaffold cannot assert: tap'],
+
+  // D385 (M6.4hr) - the continuous prevention effect (CR 615): the cards the classifier widening made
+  // offerable that the row maker refused, each with the reason it gave.
+  ['Well-Laid Plans', 'a prevention line outside the grammar: Prevent all damage that would be dealt to a creature by another creature if they'],
+  ['Goblin Furrier', 'a recipient no fixture provides: a snow creature'],
+  ['Tresserhorn Skyknight', 'a source no fixture provides: a creature with first strike'],
+  ['Desert Nomads', 'a source no fixture provides: a Desert that deals damage'],
+
+  // D385 (M6.4hr) - the continuous prevention effect (CR 615): the cards the classifier widening made
+  // offerable that the row maker refused, each with the reason it gave.
+  ['Demonic Torment', 'a prevention line beside an attached combat restriction on one Aura - the prevention generator carries one def per row and the Aura rows carry the attached static; what the pair needs is ONE generator that emits both (D384\'s two-line shape)'],
+  ['Ghostly Possession', 'a prevention line beside an attached keyword grant on one Aura - the prevention generator carries one def per row and the Aura rows carry the attached static; what the pair needs is ONE generator that emits both (D384\'s two-line shape)'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
@@ -2338,6 +2350,10 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // SEVENTEEN rows held under `a spell line outside the vocabulary` since D306/D307 were named
     // STALE by the guard below, because the seam reads their bodies and they now run with no
     // script at all. The tell is the scriptable number, which a seam RAISES and a wave LOWERS.
+    // D385 - BACK TO ZERO, BOTH shapes in one decision again (D363): the classifier reading a
+    // CONTINUOUS prevention line is the SEAM (scriptableToday 1,290 -> 1,321 before the wave), the 26
+    // rows are the WAVE (-> 1,295), and the six that stay are in the ledger above by name - four the
+    // row maker refused for a fixture it cannot stage, two a prevention line beside an attached static.
     expect.soft(all.length).toBe(0);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.

@@ -298,8 +298,10 @@ export function runReplacementFunnel(
   // D382 - and CR 615 prevention with it: a shield is spent ONCE over the whole
   // batch, where `applyReplacements` sees one body at a time against a state
   // that does not advance between them and would let two damage events each
-  // consume the same shield.
-  const bodies = withoutPreventedDamage(state, withoutCountersOfTheUncounterable(state, scripts, rawBodies));
+  // consume the same shield. D385 - the CONTINUOUS prevention abilities (a
+  // `PreventionDef` on a battlefield permanent) are asked in the same walk,
+  // which is why it takes the oracle and the registry now.
+  const bodies = withoutPreventedDamage(state, oracle, scripts, withoutCountersOfTheUncounterable(state, scripts, rawBodies));
   const defs = scripts.replacements();
   const settled: EventBody[] = [];
 

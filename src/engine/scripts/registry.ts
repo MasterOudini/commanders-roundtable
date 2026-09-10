@@ -7,6 +7,32 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { GUARD_GOMAZOA_SCRIPT } from './cards/guardGomazoa';
+import { WALL_OF_PUTRID_FLESH_SCRIPT } from './cards/wallOfPutridFlesh';
+import { CHO_MANNO_REVOLUTIONARY_SCRIPT } from './cards/choMannoRevolutionary';
+import { BUBBLE_MATRIX_SCRIPT } from './cards/bubbleMatrix';
+import { UNCLE_ISTVAN_SCRIPT } from './cards/uncleIstvan';
+import { DOLMEN_GATE_SCRIPT } from './cards/dolmenGate';
+import { FOG_BANK_SCRIPT } from './cards/fogBank';
+import { CHAMPION_LANCER_SCRIPT } from './cards/championLancer';
+import { GASEOUS_FORM_SCRIPT } from './cards/gaseousForm';
+import { WALL_OF_VAPOR_SCRIPT } from './cards/wallOfVapor';
+import { ARGOTHIAN_TREEFOLK_SCRIPT } from './cards/argothianTreefolk';
+import { HEART_OF_LIGHT_SCRIPT } from './cards/heartOfLight';
+import { EVERDAWN_CHAMPION_SCRIPT } from './cards/everdawnChampion';
+import { STATECRAFT_SCRIPT } from './cards/statecraft';
+import { EMMARA_TANDRIS_SCRIPT } from './cards/emmaraTandris';
+import { SANDSKIN_SCRIPT } from './cards/sandskin';
+import { MUZZLE_SCRIPT } from './cards/muzzle';
+import { ENCHANTED_BEING_SCRIPT } from './cards/enchantedBeing';
+import { INVIOLABILITY_SCRIPT } from './cards/inviolability';
+import { INDENTURED_OAF_SCRIPT } from './cards/indenturedOaf';
+import { SERAPH_OF_THE_SWORD_SCRIPT } from './cards/seraphOfTheSword';
+import { MARK_OF_ASYLUM_SCRIPT } from './cards/markOfAsylum';
+import { LIGHT_OF_SANCTION_SCRIPT } from './cards/lightOfSanction';
+import { DEFANG_SCRIPT } from './cards/defang';
+import { ARMORED_TRANSPORT_SCRIPT } from './cards/armoredTransport';
+import { DAWN_ELEMENTAL_SCRIPT } from './cards/dawnElemental';
 import { NOXIOUS_FIELD_SCRIPT } from './cards/noxiousField';
 import { ETERNAL_THIRST_SCRIPT } from './cards/eternalThirst';
 import { HOT_SPRINGS_SCRIPT } from './cards/hotSprings';
@@ -5187,6 +5213,32 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GUARD_GOMAZOA_SCRIPT,
+  WALL_OF_PUTRID_FLESH_SCRIPT,
+  CHO_MANNO_REVOLUTIONARY_SCRIPT,
+  BUBBLE_MATRIX_SCRIPT,
+  UNCLE_ISTVAN_SCRIPT,
+  DOLMEN_GATE_SCRIPT,
+  FOG_BANK_SCRIPT,
+  CHAMPION_LANCER_SCRIPT,
+  GASEOUS_FORM_SCRIPT,
+  WALL_OF_VAPOR_SCRIPT,
+  ARGOTHIAN_TREEFOLK_SCRIPT,
+  HEART_OF_LIGHT_SCRIPT,
+  EVERDAWN_CHAMPION_SCRIPT,
+  STATECRAFT_SCRIPT,
+  EMMARA_TANDRIS_SCRIPT,
+  SANDSKIN_SCRIPT,
+  MUZZLE_SCRIPT,
+  ENCHANTED_BEING_SCRIPT,
+  INVIOLABILITY_SCRIPT,
+  INDENTURED_OAF_SCRIPT,
+  SERAPH_OF_THE_SWORD_SCRIPT,
+  MARK_OF_ASYLUM_SCRIPT,
+  LIGHT_OF_SANCTION_SCRIPT,
+  DEFANG_SCRIPT,
+  ARMORED_TRANSPORT_SCRIPT,
+  DAWN_ELEMENTAL_SCRIPT,
   NOXIOUS_FIELD_SCRIPT,
   ETERNAL_THIRST_SCRIPT,
   HOT_SPRINGS_SCRIPT,

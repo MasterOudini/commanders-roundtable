@@ -5554,6 +5554,32 @@ export const HOT_SPRINGS: CardData = F.HOT_SPRINGS as CardData;
 export const CEREMONIAL_KNIFE: CardData = F.CEREMONIAL_KNIFE as CardData;
 export const NINJA_S_KUNAI: CardData = F.NINJA_S_KUNAI as CardData;
 export const FLOWERING_FIELD: CardData = F.FLOWERING_FIELD as CardData;
+export const GUARD_GOMAZOA: CardData = F.GUARD_GOMAZOA as CardData;
+export const WALL_OF_PUTRID_FLESH: CardData = F.WALL_OF_PUTRID_FLESH as CardData;
+export const CHO_MANNO_REVOLUTIONARY: CardData = F.CHO_MANNO_REVOLUTIONARY as CardData;
+export const BUBBLE_MATRIX: CardData = F.BUBBLE_MATRIX as CardData;
+export const UNCLE_ISTVAN: CardData = F.UNCLE_ISTVAN as CardData;
+export const DOLMEN_GATE: CardData = F.DOLMEN_GATE as CardData;
+export const FOG_BANK: CardData = F.FOG_BANK as CardData;
+export const CHAMPION_LANCER: CardData = F.CHAMPION_LANCER as CardData;
+export const GASEOUS_FORM: CardData = F.GASEOUS_FORM as CardData;
+export const WALL_OF_VAPOR: CardData = F.WALL_OF_VAPOR as CardData;
+export const ARGOTHIAN_TREEFOLK: CardData = F.ARGOTHIAN_TREEFOLK as CardData;
+export const HEART_OF_LIGHT: CardData = F.HEART_OF_LIGHT as CardData;
+export const EVERDAWN_CHAMPION: CardData = F.EVERDAWN_CHAMPION as CardData;
+export const STATECRAFT: CardData = F.STATECRAFT as CardData;
+export const EMMARA_TANDRIS: CardData = F.EMMARA_TANDRIS as CardData;
+export const SANDSKIN: CardData = F.SANDSKIN as CardData;
+export const MUZZLE: CardData = F.MUZZLE as CardData;
+export const ENCHANTED_BEING: CardData = F.ENCHANTED_BEING as CardData;
+export const INVIOLABILITY: CardData = F.INVIOLABILITY as CardData;
+export const INDENTURED_OAF: CardData = F.INDENTURED_OAF as CardData;
+export const SERAPH_OF_THE_SWORD: CardData = F.SERAPH_OF_THE_SWORD as CardData;
+export const MARK_OF_ASYLUM: CardData = F.MARK_OF_ASYLUM as CardData;
+export const LIGHT_OF_SANCTION: CardData = F.LIGHT_OF_SANCTION as CardData;
+export const DEFANG: CardData = F.DEFANG as CardData;
+export const ARMORED_TRANSPORT: CardData = F.ARMORED_TRANSPORT as CardData;
+export const DAWN_ELEMENTAL: CardData = F.DAWN_ELEMENTAL as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -11241,6 +11267,32 @@ export const ENGINE_CARDS: CardData[] = [
   CEREMONIAL_KNIFE,
   NINJA_S_KUNAI,
   FLOWERING_FIELD,
+  GUARD_GOMAZOA,
+  WALL_OF_PUTRID_FLESH,
+  CHO_MANNO_REVOLUTIONARY,
+  BUBBLE_MATRIX,
+  UNCLE_ISTVAN,
+  DOLMEN_GATE,
+  FOG_BANK,
+  CHAMPION_LANCER,
+  GASEOUS_FORM,
+  WALL_OF_VAPOR,
+  ARGOTHIAN_TREEFOLK,
+  HEART_OF_LIGHT,
+  EVERDAWN_CHAMPION,
+  STATECRAFT,
+  EMMARA_TANDRIS,
+  SANDSKIN,
+  MUZZLE,
+  ENCHANTED_BEING,
+  INVIOLABILITY,
+  INDENTURED_OAF,
+  SERAPH_OF_THE_SWORD,
+  MARK_OF_ASYLUM,
+  LIGHT_OF_SANCTION,
+  DEFANG,
+  ARMORED_TRANSPORT,
+  DAWN_ELEMENTAL,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

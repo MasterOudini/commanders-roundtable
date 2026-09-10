@@ -4,7 +4,7 @@
 // registry for a test or a game without loading the whole library - the cost
 // that made every isolated card suite pay for all 4,000 cards.
 
-import type { CardScript, CombatDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
+import type { CardScript, CombatDef, PreventionDef, ReplacementDef, SpellDef, StaticDef, TriggerDef } from './api';
 import type { EventKind } from '../types/events';
 import type { OracleId } from '../types/ids';
 
@@ -32,6 +32,14 @@ export interface ScriptRegistry {
   replacements(): readonly { readonly script: CardScript; readonly def: ReplacementDef }[];
   /** Continuous combat restrictions, CR 508.1c / 509.1b. */
   combat(): readonly { readonly script: CardScript; readonly def: CombatDef }[];
+  /**
+   * D385 - continuous prevention effects, CR 615. ⚠️ Also the FUNNEL'S GATE:
+   * empty means no game in this registry can have one, so the damage walk in
+   * `prevention.ts` skips the battlefield rather than deriving a source per
+   * damage batch (D368's lesson - a seam whose cost is gated on a registry
+   * being non-empty is free only until the first def lands).
+   */
+  preventions(): readonly { readonly script: CardScript; readonly def: PreventionDef }[];
   /** Whole-spell resolution for a resolving instant or sorcery. See `SpellDef`. */
   spell(oracleId: OracleId): SpellDef | undefined;
   readonly size: number;
@@ -45,6 +53,7 @@ class IndexedRegistry implements ScriptRegistry {
   private readonly byLayer = new Map<StaticDef['layer'], { script: CardScript; def: StaticDef }[]>();
   private readonly reps: { script: CardScript; def: ReplacementDef }[] = [];
   private readonly combats: { script: CardScript; def: CombatDef }[] = [];
+  private readonly prevents: { script: CardScript; def: PreventionDef }[] = [];
   private readonly spells = new Map<OracleId, SpellDef>();
 
   constructor(scripts: readonly CardScript[]) {
@@ -85,6 +94,7 @@ class IndexedRegistry implements ScriptRegistry {
       }
       for (const def of script.replacements ?? []) this.reps.push({ script, def });
       for (const def of script.combat ?? []) this.combats.push({ script, def });
+      for (const def of script.prevention ?? []) this.prevents.push({ script, def });
       if (script.spell) this.spells.set(script.oracleId, script.spell);
     }
   }
@@ -111,6 +121,10 @@ class IndexedRegistry implements ScriptRegistry {
 
   combat(): readonly { readonly script: CardScript; readonly def: CombatDef }[] {
     return this.combats;
+  }
+
+  preventions(): readonly { readonly script: CardScript; readonly def: PreventionDef }[] {
+    return this.prevents;
   }
 
   spell(oracleId: OracleId): SpellDef | undefined {

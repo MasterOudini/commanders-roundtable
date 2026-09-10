@@ -175,6 +175,23 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // COMBAT-wide, so the fuzzer's own attacks spend it without having to aim anything.
   { names: ['Fog'], copiesPerSeat: 5,
     counterKeys: ['preventionShields', 'damagePrevented'], rotHistory: 'D382' },
+  // D385 - THE CONTINUOUS PREVENTION EFFECT (CR 615), a `PreventionDef` on a battlefield
+  // permanent. Nothing on the state moves for it (a static spends nothing), so the replay hash
+  // cannot vouch for it at all (D364) and only the log can.
+  // ⚠️⚠️ THE FIRST STAPLE HERE WAS `Fog Bank` AND IT HAD NO FUEL, which this canary's own floor
+  // caught at ZERO over 500 seeds. Fog Bank is a 0/2 DEFENDER: it cannot attack, and the only
+  // combat damage it could take or deal is in a BLOCK - and `declareBlockers` above answers
+  // `blocks: []`, so THE FUZZ DRIVER HAS NEVER BLOCKED, IN THIS WHOLE ARC. A staple's fuel is a
+  // claim about what the DRIVER produces, never about what the card does (D193); the comment that
+  // shipped with it said "the fuzzer's own attacks run into it", which was an assumption about
+  // the driver that nothing had checked.
+  // These three are fuelled by damage the driver demonstrably deals: Statecraft absorbs the
+  // combat damage my own UNBLOCKED attackers deal to a player (the same damage Fog's shield is
+  // measured spending), and Bubble Matrix and Mark of Asylum absorb the noncombat pings the
+  // rotating pool's damage rows aim at creatures. Three cards, three fuels, one counter -
+  // D149's CR 616 pair one card wider.
+  { names: ['Statecraft', 'Bubble Matrix', 'Mark of Asylum'], copiesPerSeat: 2,
+    counterKeys: ['staticDamagePrevented'], rotHistory: 'D385' },
   // D377 - THE MOVE'S REASON. `reason` never reaches `GameState` (the reducer reads the moves and
   // moves the cards), so unlike D364's `poolSnow` the replay hash cannot vouch for it at all: what
   // these three prove is that REAL GAMES produce the three reasons a printed head watches for,
@@ -720,6 +737,8 @@ interface Run {
   /** D382 - CR 615: shields put up, and damage a shield actually stopped. */
   readonly preventionShields: number;
   readonly damagePrevented: number;
+  /** D385 - CR 615: damage a CONTINUOUS prevention ability (a `PreventionDef`) absorbed. */
+  readonly staticDamagePrevented: number;
   /** D377 - moves the rules recorded a reason on: a sacrifice, a discard, a cycling discard. */
   readonly sacrificesRecorded: number;
   readonly discardsRecorded: number;
@@ -911,6 +930,11 @@ function runOne(seed: number): Run {
     preventionShields: game.log.filter((e) => e.body.t === 'PreventionShieldsAdded').length,
     damagePrevented: game.log.reduce(
       (n, e) => (e.body.t === 'DamagePrevented' ? n + e.body.spends.reduce((m, s) => m + s.amount, 0) : n),
+      0,
+    ),
+    // D385 - the CONTINUOUS half of CR 615: what a `PreventionDef` absorbed, read off the same event.
+    staticDamagePrevented: game.log.reduce(
+      (n, e) => (e.body.t === 'DamagePrevented' ? n + e.body.statics.reduce((m, s) => m + s.amount, 0) : n),
       0,
     ),
     // D372 - mana made by a permanent whose PRINTED face has no mana ability: a GRANTED one.
@@ -1105,6 +1129,7 @@ const TOTAL_KEYS = [
   'paymentsDeclined',
   'preventionShields',
   'damagePrevented',
+  'staticDamagePrevented',
 ] as const;
 type TotalKey = (typeof TOTAL_KEYS)[number] | 'finished';
 type Totals = Record<TotalKey, number>;
@@ -1247,6 +1272,15 @@ function assertFloors(totals: Totals, seeds: number): void {
       // 4 at 60 seeds, which is a coin flip and not a floor (D155/D176's rule).
       expect(totals.preventionShields).toBeGreaterThan(0);
       if (seeds >= 500) expect(totals.damagePrevented).toBeGreaterThan(0);
+      // D385 - THE CONTINUOUS PREVENTION CANARY. A `PreventionDef` spends nothing, so the state
+      // hash proves nothing about it (D364) and only this count says the funnel consulted one.
+      // ⚠️ ITS FIRST STAPLE READ ZERO AT 500 SEEDS and the finding was the DRIVER, not the seam:
+      // `declareBlockers` answers `blocks: []`, so a prevention effect that can only fire in a
+      // block has no fuel here (see CANARY_STAPLES). The three staples now dealt are fuelled by
+      // damage the driver actually deals, and the floor is UNCONDITIONAL rather than gate-size
+      // only because that was MEASURED: a 60-seed leg passes this line, so the fuel does not
+      // need 500 seeds to show up (D155/D176's rule read the other way).
+      expect(totals.staticDamagePrevented).toBeGreaterThan(0);
       // ⚠️ THE DISCARD CANARY. `CardsMoved` hand→graveyard also happens at
       // cleanup for a hand over seven, so the count alone would have been green
       // since M3; the narration counter is the one that only this path writes.
@@ -1355,7 +1389,8 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.selfAimedResolved} granted payloads that hit their own source · ` +
           `${totals.sacrificesRecorded} sacrifices / ${totals.discardsRecorded} discards / ${totals.cyclingsRecorded} cyclings recorded · ` +
           `${totals.paymentsPaid} payments made / ${totals.paymentsDeclined} declined · ` +
-          `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented)`,
+          `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +
+          `${totals.staticDamagePrevented} damage absorbed by a continuous prevention ability`,
       );
 
       if (SHARD) {

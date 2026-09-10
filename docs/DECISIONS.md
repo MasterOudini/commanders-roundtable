@@ -28056,3 +28056,187 @@ to **0** · botDeck regenerated.
 - Then D383's list unchanged: the spell-row table (21 of 43, each its own op), the
   55 REDUNDANT hand scripts, the Circles of Protection (52) and the static
   prevention (4), and every prior item.
+
+## D385 — M6.4hr: THE STATIC PREVENTION — CR 615 as a continuous ability, the other half of D382's shield (2026-09-10)
+
+**8,066 of 31,692 Commander-legal cards now execute completely, up from 8,040
+(+26 — every one a generated row; a continuous prevention effect is a def, so
+there is no auto flip to have).** `SHIPPED_SCRIPTS` 5,161 → **5,187**; the
+REFUSED ledger 1,194 → **1,200** (+6, every one by the reason the row maker or
+the pool gave). Fixtures 5,684 → **5,710** — no new token pin. `scriptableToday`
+1,290 → **1,295**: the SEAM raised it by 31 and the WAVE lowered it by 26, both
+directions in one decision (D363/D384).
+
+### The measurement chose it, and the runner-up was priced rather than guessed
+
+A fresh `true-leftover.json` after D384: 23,652 incomplete cards, **11,960 one
+line from landing across 9,991 distinct shapes — 1.20 each**, flatter than
+D384's 1.13, so only a grammar finishes this (D354). Grouped by the MECHANISM
+that would have to exist rather than by wording:
+
+| candidate | cards | one seam? |
+|---|---|---|
+| **static prevention (continuous)** | **30** | yes — one mechanism |
+| variable pump `gets +N/+N for each X` | 120 / 87 counts | the pump is a seam, the counts are the tail: **21 land on today's count vocabulary**, priced with a throwaway (D352) |
+| bare keywords (convoke, cascade, bloodthirst …) | 120 / 23 | each its own mechanic (D361) |
+| circles of protection | 23 / 17 | a prompt over SOURCES |
+| commander-scope grant | 29 / 5 | D371 measured it at ZERO with the real classifier and reverted it |
+
+⚠️ D384's own next step — the quoted-grant payload tail — measured at **95 shapes
+over ~200 cards, 2.1 each, densest 8**: a tail, not a batch. The 30 prevention
+cards are the densest MECHANISM on the board, and the one D382 named as its own
+next step that D383 and D384 carried without building.
+
+### The seam
+
+D382 built the one-shot prevention SHIELD in the replacement funnel (D148) —
+consumable, spent by the next damage, gone at cleanup. What it did not build is
+the CONTINUOUS form: `Prevent all combat damage that would be dealt to this
+creature.` on a permanent, which prevents every time and spends nothing.
+
+- **`PreventionDef`** on `CardScript.prevention` — `abilityId`, `text`,
+  `activeZones`, and `prevents(ctx, self, entry, isCombat)`, asked once per
+  damage entry per source. The registry indexes it (`preventions()`), and that
+  accessor is the FUNNEL'S GATE (D368's lesson): an empty registry and no
+  shield means no walk at all.
+- **Consulted in `prevention.ts`, inside the funnel, and nowhere else.** CR
+  615.1 says a prevention effect IS a replacement effect, and the funnel is the
+  one place every damage event passes through — so this reaches the hundreds
+  of shipped modules that build a `DamageDealt` themselves (D233's
+  measurement). The tripwire `prevention.node.test.ts` gained a case pinning
+  that `effects.ts` still consults neither shape.
+- **The same gates as the static index and the replacement walk**: a face-down
+  source has no abilities (CR 708.2), and a source that has LOST its abilities
+  prevents nothing (CR 613 layer 6, `hasAbilities`) — proven with the testing
+  Humility, under which the wall dies.
+- **Asked BEFORE the shields, for the player's own reason:** a continuous
+  effect absorbs the whole entry at no cost, so a consumable shield asked first
+  would be spent on damage that was never going to land. Proven: a Mending
+  Hands on the wall is still at 4 after a Spark Spray. CR 615.5's ordering
+  choice stays UNBUILT (D134's fallback, named).
+- **Prevented damage is not dealt at all** (CR 615.1, D382): an absorbed entry
+  is DROPPED and an event left empty with it. `DamagePrevented` gains a
+  REQUIRED `statics` list — the event is built in exactly one place, so
+  D355/D356's rule holds without D377's boundary — and the reducer ignores it,
+  because nothing on the state moves for a static.
+- **`isCombat` is the EVENT'S kind**, never a question put to the source: the
+  engine emits combat and noncombat damage as two event kinds (D259).
+- **The classifier reads the line** (`preventionLineShape`, a closed grammar
+  over the printed recipients and sources, asked before the RULES rows) and the
+  accounting claims it (`lineClaims` adds the def kind). The disclosure needed
+  nothing: a claimed line goes silent through `lineClaims`, and `tier3.ts`
+  has no prevention note to unlearn.
+
+### The wave — a standalone generator, and what it refused by name
+
+The 30 cards are one printed shape, so `gen-prevent85.cjs` is its own small
+generator (D384's `gen-grants84.cjs` shape) rather than a branch of the
+2,700-line mainline: it parses each printed line by the SAME grammar the
+classifier reads (a verbatim lift, D384's rule), emits one `PreventionDef` whose
+predicate is spelled from the recipient and the source the line names, and a
+suite that proves the line BOTH ways — the covered damage never arrives and
+nothing is spent, and damage OUTSIDE the line lands (D375/D382: a shield asserted
+alone is half the rule, and a static has nothing on the state to assert at all).
+The fire is real: the Cyclops attacks and the wall blocks it, the Bears attacks
+into the Cyclops, a Spark Spray or a Lightning Bolt is cast, an opponent's
+Metallic Sliver attacks for the artifact source, an opponent's Holy Strength is
+CAST onto the Cyclops (D269) for the enchanted source, a Saproling is made for
+the token recipient. **26 rows, 78 tests, green.**
+
+⚠️ **Refused by name (6):** Well-Laid Plans (a colour-sharing condition the
+grammar does not read); Goblin Furrier, Tresserhorn Skyknight and Desert Nomads
+(a source or a recipient no fixture provides — a snow creature, a first-strike
+creature, a Desert that deals damage: D350's rule, refused rather than proven
+on nothing); and Demonic Torment and Ghostly Possession, two Auras whose
+prevention line sits beside an attached static — the prevention generator
+carries one def per row and the Aura rows carry the static, so the pair needs
+ONE generator that emits both (D384's two-line shape, met again).
+
+### The traps this decision paid for
+
+- ⚠️ **A NEGATIVE MUST BE OUTSIDE THE LINE, decided from the kind, the source
+  AND the recipient together.** The first cut sprayed the enchanted creature
+  under Heart of Light — "Prevent all damage that would be dealt to and dealt by
+  enchanted creature" — and the spray was, of course, prevented. A source
+  restriction or a combat kind is what a spell's noncombat spray at the
+  recipient proves; an all-damage `both` covers the recipient from every
+  source, so its negative is damage at something ELSE.
+- ⚠️ **AN OPPONENT'S INSTANT WAITS FOR THE OPPONENT'S PRIORITY.** Light of
+  Sanction's negative is the OPPONENT's Spark Spray at my creature, submitted
+  while p1 held priority — refused, and `must` said so. The helper passes
+  priority to p2 first.
+- ⚠️ **AN UNUSED HELPER IS A `tsc` ERROR**, and it was four suites' worth (and a
+  fifth on the second run). Fixed at the generator (D267): emit `dmg`, `landed`,
+  `spray` and `mana` only where a fire or an assert uses them.
+- ⚠️ **`BlockerDecl` carries `attackerOrder`, not `attacker`** — a blocker may
+  block several attackers — so "creatures blocking it" reads
+  `b.attackerOrder.includes(self)`.
+- ⚠️ **The counted repin guard refused my wrong count** (D258 working): the
+  ladder appears ONCE in `primitives.node.test.ts`, not twice, and the applier
+  wrote nothing until the count was right.
+- ⚠️ **Invariant 14, the TRUNCATION face:** a heredoc past ~83 lines was cut
+  mid-string (`unexpected EOF`), so the generator's suite half is two part
+  files. And the whole generator spells no backslash — `[.]` does an escape's
+  work and every newline is `String.fromCharCode(10)`.
+
+**Measured:** `blocked` 23,652 → 23,626 · ladder `[1295, 1384, 2961, 4690, 6028]`
+· residue `attackBlock` 842 → 829, `other` 3,028 → 3,007, `staticShell` 679 →
+674 · tier3 `silentAfter` 8,340 → **8,366**, `abilityText` 14,960 → 14,934 ·
+botPool artifact 446, creature 4,698, enchantment 459 → **468** · the bot's reach
+7,975 → **8,001** from 237 fully-executable legendaries · `oracleParse` unmoved
+(a row lands a script; no parser changed) · select pool 0 → 0, with the two
+two-line Auras seen mid-decision and ledgered.
+
+### ⚠️⚠️ The canary read ZERO at 500 seeds, and the finding was the DRIVER
+
+`staticDamagePrevented` counts what a `PreventionDef` absorbed, read off
+`DamagePrevented.statics` — because nothing on the state moves for a static, the
+replay hash cannot vouch for it (D364) and only the log can. The first staple was
+**`Fog Bank`**, and the gate's own floor caught it at **ZERO over 500 seeds** with
+every other stage green — types, the corpus, the accounting, 5,340 unit files and
+all six shards.
+
+**Fog Bank is a 0/2 DEFENDER.** It cannot attack, so the only combat damage it can
+take or deal is in a BLOCK — and the fuzz driver's `declareBlockers` answers
+`blocks: []`. ⚠️⚠️ **THE FUZZER HAS NEVER BLOCKED, IN THIS WHOLE ARC.** The
+comment that shipped with the staple said "a 0/2 flying defender that BLOCKS, so
+the fuzzer's own attacks run into it", which was an assumption about the DRIVER
+that nothing had checked — and D193's whole design is that **a staple's fuel is a
+claim about what the driver produces, never about what the card does.** A
+green-over-nothing (D128) inverted: a RED tick over nothing, which is the floor
+doing exactly the job it exists for.
+
+Three staples replace it, fuelled by damage the driver demonstrably deals —
+**Statecraft** absorbs the combat damage my own UNBLOCKED attackers deal to a
+player (the very damage Fog's shield is measured spending, 10 over 500 seeds),
+and **Bubble Matrix** and **Mark of Asylum** absorb the noncombat pings the
+rotating pool's damage rows aim at creatures. Three cards, three fuels, one
+counter — D149's CR 616 pair one card wider. Measured over the gate's 500 seeds:
+**42** damage absorbed — and the floor is UNCONDITIONAL rather than
+gate-size-only because that too was measured: a 60-seed leg passes it, so this
+fuel does not need 500 seeds to show up (D155/D176's rule read the other way).
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5340 files,
+26362 passed / 11 skipped · 500-seed gate, 6 shards, 910.5 s wall · build
+clean · probe 124/124 · battery 130/130.** Engine: `staticPrevention.test.ts`
+(6), the tripwire (4), D382's suite unchanged (6).
+
+⚠️ **Reportables** (D385): ⚠️⚠️ **THE FUZZ DRIVER NEVER BLOCKS** — `blocks: []`
+in every seed of the whole arc, so every `BlockersDeclared` head (D376's twelve
+rows, D229's Noble Stand `perItem`), `AttackerBecameBlocked` (D171) and every
+prevention effect that can only fire in a block are exercised by unit tests
+ALONE, and combat damage to a CREATURE never happens in 500 seeds. Teaching it
+to block reshapes every seed's games and therefore EVERY canary's number
+(D193's re-weighting rule), so it is its own decision and a large one — and it
+is the widest measured hole in the gate. Then: the two-line prevention Auras
+(2 — one generator emitting an attached static AND a prevention def, D384's
+two-line shape now owed by two families); the fixtures the wave could not stage (a first-strike
+creature, a snow creature, a Desert damage source — three cards); the
+variable pump `gets +N/+N for each X` (21 land on today's count vocabulary,
+priced in `price-varpump.json`; the pump is a seam, the 87 counts the tail);
+the Circles of Protection (23, a prompt over SOURCES); CR 615.5's ordering
+choice; then D384's list unchanged — the 8 two-line grant cards, the payload
+arms the scaffold cannot assert (`destroy`, `tap`, `payOptional`, the
+combat-role clause owed by FOUR waves), the 95 unread quoted-grant payload
+shapes, the spell-row table (21 of 43), the 55 REDUNDANT hand scripts; prior
+items stand.

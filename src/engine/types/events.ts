@@ -472,6 +472,14 @@ export type EventBody =
   | {
       readonly t: 'DamagePrevented';
       readonly spends: readonly { readonly id: string; readonly amount: number }[];
+      /**
+       * D385 - what a CONTINUOUS prevention ability (CR 615, `PreventionDef`)
+       * absorbed, by its source and ability. Nothing on the state moves for it -
+       * a static spends nothing - so the reducer ignores it; it is on the log so
+       * a game can say what happened and the fuzz gate can count it. REQUIRED:
+       * the event is built in exactly one place (D355/D356's rule holds).
+       */
+      readonly statics: readonly { readonly source: InstanceId; readonly abilityId: string; readonly amount: number }[];
     }
   /**
    * A P/T modifier that lasts until the end of this turn (CR layer 7c).

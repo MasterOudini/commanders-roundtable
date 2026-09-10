@@ -6175,6 +6175,34 @@ const WANTED = [
   "Ninja's Kunai",
   'Flowering Field',
   // D384 - the helpers the grant suites deal.
+  // D385 - the continuous prevention effect (CR 615): the wave the seam made offerable.
+  'Guard Gomazoa',
+  'Wall of Putrid Flesh',
+  'Cho-Manno, Revolutionary',
+  'Bubble Matrix',
+  'Uncle Istvan',
+  'Dolmen Gate',
+  'Fog Bank',
+  'Champion Lancer',
+  'Gaseous Form',
+  'Wall of Vapor',
+  'Argothian Treefolk',
+  'Heart of Light',
+  'Everdawn Champion',
+  'Statecraft',
+  'Emmara Tandris',
+  'Sandskin',
+  'Muzzle',
+  'Enchanted Being',
+  'Inviolability',
+  'Indentured Oaf',
+  'Seraph of the Sword',
+  'Mark of Asylum',
+  'Light of Sanction',
+  'Defang',
+  'Armored Transport',
+  'Dawn Elemental',
+  // D385 - the helpers the prevention suites deal.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

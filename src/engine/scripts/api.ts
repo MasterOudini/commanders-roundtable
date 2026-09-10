@@ -15,7 +15,7 @@
 // from `state.rng` — so even a coin-flip card replays bit-exactly.
 
 import type { ColorLetter } from '../../data/cardTypes';
-import type { EventBody, EventKind } from '../types/events';
+import type { EventBody, EventKind, ResolvedDamage } from '../types/events';
 import type { AbilityRef, InstanceId, OracleId, PlayerId, ZoneKind } from '../types/ids';
 import type { ActivatedAbility, DerivedCharacteristics, EffectSpec, GrantedActivated, GrantedTriggered, Keyword, ManaProduction, ModeDecl, OracleDb, ParsedTypeLine, Protection, TargetSpec } from '../types/oracle';
 import type { DefenderRef, GameOptions, GameState, StackObject } from '../types/state';
@@ -241,6 +241,36 @@ export interface CombatDef {
   mustAttack?(ctx: ScriptCtx, self: InstanceId, candidate: InstanceId): boolean;
 }
 
+/**
+ * D385 - A CONTINUOUS PREVENTION EFFECT (CR 615): "Prevent all combat damage
+ * that would be dealt to this creature." A static ability that prevents damage
+ * of a described kind EVERY time, with nothing consumed - the other half of
+ * D382's one-shot shield, which is spent.
+ *
+ * ⚠️ CONSULTED IN THE REPLACEMENT FUNNEL, and nowhere else. CR 615.1 says a
+ * prevention effect IS a replacement effect, and the funnel is the one place
+ * every damage event passes through - so this reaches the hundreds of shipped
+ * modules that build a `DamageDealt` themselves, which is exactly what D233
+ * measured a per-emitter check could never cover. `prevention.ts` walks every
+ * def on the battlefield (face-up, and only while its source still HAS
+ * abilities - CR 613 layer 6, the same gate the static index and the
+ * replacement walk apply) and asks it about each damage entry; a `true` drops
+ * the whole entry, because prevented damage is not dealt at all (CR 615.1).
+ *
+ * ⚠️ `entry.source` is an INSTANCE that may be on the stack (a spell) or gone
+ * (a dies trigger's source): read `ctx.state.cards[...]` before deriving it,
+ * and read the recipient off `entry.target`. `isCombat` is the EVENT's kind -
+ * "combat damage" and "noncombat damage" are decided there, never by asking
+ * the source.
+ */
+export interface PreventionDef {
+  readonly abilityId: string;
+  readonly text: string;
+  readonly activeZones: readonly ZoneKind[];
+  /** Does this ability prevent this damage entry? Asked once per entry, per source. */
+  prevents(ctx: ScriptCtx, self: InstanceId, entry: ResolvedDamage, isCombat: boolean): boolean;
+}
+
 export interface StaticDef {
   readonly abilityId: string;
   readonly text: string;
@@ -381,6 +411,8 @@ export interface CardScript {
   readonly activated?: readonly ActivatedDef[];
   /** Continuous combat RESTRICTIONS. See `CombatDef`. */
   readonly combat?: readonly CombatDef[];
+  /** D385 - continuous PREVENTION effects (CR 615). See `PreventionDef`. */
+  readonly prevention?: readonly PreventionDef[];
   /** Whole-spell resolution for an instant or sorcery. See `SpellDef`. */
   readonly spell?: SpellDef;
   /**

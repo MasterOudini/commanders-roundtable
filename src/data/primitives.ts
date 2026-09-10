@@ -706,6 +706,32 @@ export function grantLineShape(raw: string, cardName: string): boolean {
   return parseEffects(payload, cardName, true).mode === 'auto';
 }
 
+/**
+ * D385 - A CONTINUOUS PREVENTION LINE (CR 615). "Prevent all [combat|noncombat]
+ * damage that would be dealt to <recipient>[ by <source>]", "... dealt by
+ * <source>", "... dealt to and dealt by <X>", and "Prevent all damage that this
+ * creature would deal to <recipient>". The recipients and sources are exactly the
+ * printed forms the prevention row emits as a `PreventionDef` (D385's generator
+ * spells the same grammar, VERBATIM), so this cannot claim a line the row would
+ * then refuse (D90). A source or a recipient outside that closed list - "a
+ * creature ... if they share a color" - stays where it was.
+ *
+ * ⚠️ This is the CONTINUOUS form: a line ending "this turn" is a one-shot shield
+ * the effect vocabulary reads (D382), and it never reaches here as a permanent's
+ * leftover line.
+ */
+const PREVENT_KIND = '(?:combat |noncombat )?';
+const PREVENT_TO = '(?:this creature|~|enchanted creature|creatures you control|attacking creatures you control|creature tokens you control|creatures)';
+const PREVENT_BY = "(?:this creature|enchanted creature|creatures|creatures blocking it|creatures it's blocking|enchanted creatures|creatures with first strike|artifact sources|Deserts|sources you control)";
+const PREVENTION_LINE = new RegExp(
+  `^Prevent all (?:${PREVENT_KIND}damage that would be dealt (?:to and dealt by (?:this creature|enchanted creature|creatures you control)|to ${PREVENT_TO}(?: by ${PREVENT_BY})?|by ${PREVENT_BY})|damage that this creature would deal to (?:red|snow) creatures)\\.$`,
+);
+
+/** Is this printed line a continuous prevention effect a prevention row can emit (D385)? */
+export function preventionLineShape(text: string): boolean {
+  return PREVENTION_LINE.test(text.replace(/\\s*\\([^)]*\\)\\s*$/, ''));
+}
+
 export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace = false): Primitive {
   const text = line.text;
 
@@ -790,6 +816,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // whose scope the grant generator can emit (see `grantLineShape`) - asked of the RAW line,
   // because `scrub` blanks the quote and every reader above this one sees only the blank.
   if (grantLineShape(line.raw, cardName)) return 'scriptable';
+  // D385: a CONTINUOUS prevention line (CR 615) a prevention row can emit (see `preventionLineShape`).
+  if (preventionLineShape(text)) return 'scriptable';
 
   for (const [primitive, re] of RULES) if (re.test(text)) return primitive;
 
