@@ -188555,6 +188555,813 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "GOBLIN_GAVELEER": {
+    "scryfallId": "04e5739d-6a9b-4801-b5dc-1fd8562b6121",
+    "oracleId": "739621e6-e138-4ef9-87e8-c730b5a7f495",
+    "name": "Goblin Gaveleer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Gaveleer",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Trample\nThis creature gets +2/+0 for each Equipment attached to it.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "04e5739d-6a9b-4801-b5dc-1fd8562b6121"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "ha4",
+    "collectorNumber": "13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYR_ADAPTER": {
+    "scryfallId": "0d6ddde9-4427-4a0f-b05c-9cfd886aad2d",
+    "oracleId": "714f916a-10ac-4c54-b1c7-a97b7ad8b9e5",
+    "name": "Myr Adapter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Myr Adapter",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Myr",
+        "oracleText": "This creature gets +1/+1 for each Equipment attached to it.",
+        "flavorText": "\"The simplest way to plan ahead is merely to be ready for everything.\"\n—Pontifex, elder researcher",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ben Thompson",
+        "imageId": "0d6ddde9-4427-4a0f-b05c-9cfd886aad2d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mrd",
+    "collectorNumber": "210",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELVISH_BERSERKER": {
+    "scryfallId": "0ee84f5c-130b-4f44-a045-3e5728ce0950",
+    "oracleId": "c9046281-dedb-4246-8e5d-7786fe0c41c7",
+    "name": "Elvish Berserker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elvish Berserker",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elf Berserker",
+        "oracleText": "Whenever this creature becomes blocked, it gets +1/+1 until end of turn for each creature blocking it.",
+        "flavorText": "Their fury scatters enemies like a pile of dry leaves.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "0ee84f5c-130b-4f44-a045-3e5728ce0950"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "9ed",
+    "collectorNumber": "237",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "URIL_THE_MISTSTALKER": {
+    "scryfallId": "11e22185-47d0-465b-8181-afe194af5cac",
+    "oracleId": "4308a020-48cf-45fe-8074-dd5d0ac6d12d",
+    "name": "Uril, the Miststalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Uril, the Miststalker",
+        "manaCost": "{2}{R}{G}{W}",
+        "typeLine": "Legendary Creature — Beast",
+        "oracleText": "Hexproof (This creature can't be the target of spells or abilities your opponents control.)\nUril gets +2/+2 for each Aura attached to it.",
+        "flavorText": "It strides through the whitecover, mists in which even gargantuans can hide.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R",
+          "W"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "11e22185-47d0-465b-8181-afe194af5cac"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Hexproof"
+    ],
+    "setCode": "arb",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SQUIRREL_MOB": {
+    "scryfallId": "181254ce-259a-4b31-8937-728564f2baf3",
+    "oracleId": "451486df-6160-4ff7-b47c-dd3760417a31",
+    "name": "Squirrel Mob",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Squirrel Mob",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Creature — Squirrel",
+        "oracleText": "This creature gets +1/+1 for each other Squirrel on the battlefield.",
+        "flavorText": "An army of squirrels is still an army.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "181254ce-259a-4b31-8937-728564f2baf3"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ody",
+    "collectorNumber": "273",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ADELBERT_STEINER": {
+    "scryfallId": "1a67a991-1e52-4676-a2e3-2bc7aa943ab3",
+    "oracleId": "657a4500-4b47-4c78-945b-a7791af7d10e",
+    "name": "Adelbert Steiner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Adelbert Steiner",
+        "manaCost": "{1}{W}",
+        "typeLine": "Legendary Creature — Human Knight",
+        "oracleText": "Lifelink\nAdelbert Steiner gets +1/+1 for each Equipment you control.",
+        "flavorText": "\"Chivalry requires a knight to look after his comrades-in-arms. I will not abandon you!\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lorenzo Mastroianni",
+        "imageId": "1a67a991-1e52-4676-a2e3-2bc7aa943ab3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STRENGTH_OF_UNITY": {
+    "scryfallId": "1a9d4ff8-af35-413f-9aa2-f4c6e34fade2",
+    "oracleId": "00606d5e-a134-4363-9ee6-05e03d58f234",
+    "name": "Strength of Unity",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Strength of Unity",
+        "manaCost": "{3}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nDomain — Enchanted creature gets +1/+1 for each basic land type among lands you control.",
+        "flavorText": "All Dominarians agreed on one thing: they would not go down without a fight.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Andrew Goldhawk",
+        "imageId": "1a9d4ff8-af35-413f-9aa2-f4c6e34fade2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant",
+      "Domain"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXOTIC_CURSE": {
+    "scryfallId": "1eff81c4-c402-437d-aace-dfe875d9857d",
+    "oracleId": "344476b1-8710-4c7c-826d-efb7d13ceaa7",
+    "name": "Exotic Curse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Exotic Curse",
+        "manaCost": "{2}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nDomain — Enchanted creature gets -1/-1 for each basic land type among lands you control.",
+        "flavorText": "Fouler than a necromancer's kiss.\n—Jamuraan expression",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dany Orizio",
+        "imageId": "1eff81c4-c402-437d-aace-dfe875d9857d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant",
+      "Domain"
+    ],
+    "setCode": "dde",
+    "collectorNumber": "56",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RABID_WOMBAT": {
+    "scryfallId": "1f29a24b-0c45-4192-a855-4c414c016bb8",
+    "oracleId": "c886eeb5-f86f-48c8-9adb-af13015972b1",
+    "name": "Rabid Wombat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rabid Wombat",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Wombat",
+        "oracleText": "Vigilance\nThis creature gets +2/+2 for each Aura attached to it.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kaja Foglio",
+        "imageId": "1f29a24b-0c45-4192-a855-4c414c016bb8"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "chr",
+    "collectorNumber": "67",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHAMPION_OF_THE_FLAME": {
+    "scryfallId": "203dba7d-5e89-4a5a-998a-c26bf17c92f9",
+    "oracleId": "d9dbe40f-38e9-460a-b84f-4aa22650017e",
+    "name": "Champion of the Flame",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Champion of the Flame",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Trample\nThis creature gets +2/+2 for each Aura and Equipment attached to it.",
+        "flavorText": "Grand Warlord Radha's challengers are always defeated, but she rewards the most passionate with the Flame of Keld. After that, they burn for her.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "203dba7d-5e89-4a5a-998a-c26bf17c92f9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "210",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUAG_SICKNESS": {
+    "scryfallId": "21d56d13-b9de-44db-b235-4f7eea60f424",
+    "oracleId": "c7f2c629-0d3a-4556-951e-6bc5d74fd7bc",
+    "name": "Quag Sickness",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quag Sickness",
+        "manaCost": "{2}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets -1/-1 for each Swamp you control.",
+        "flavorText": "The dread gases didn't kill Farbid. But as he lay in the muck, miserable and helpless, watching ghouls and rats advance on him, he wished they had.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Martina Pilcerova",
+        "imageId": "21d56d13-b9de-44db-b235-4f7eea60f424"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "m11",
+    "collectorNumber": "111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOGG_SQUAD": {
+    "scryfallId": "4b267071-42a6-4e25-9c92-5bca32f8d9af",
+    "oracleId": "4dac142a-c8f8-45c8-85d3-40e170dee112",
+    "name": "Mogg Squad",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mogg Squad",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "This creature gets -1/-1 for each other creature on the battlefield.",
+        "flavorText": "As they crept into the *Weatherlight*'s hold, the squad leader held up his hand and whispered, \"Stop, goblins—what's that sound?\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Joel Biske",
+        "imageId": "4b267071-42a6-4e25-9c92-5bca32f8d9af"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "192",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAYFARING_GIANT": {
+    "scryfallId": "57e45de5-0e8b-41d3-979b-ec5a29cac682",
+    "oracleId": "e20e5ad9-36b5-4962-acc2-555d069c5daf",
+    "name": "Wayfaring Giant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wayfaring Giant",
+        "manaCost": "{5}{W}",
+        "typeLine": "Creature — Giant",
+        "oracleText": "Domain — This creature gets +1/+1 for each basic land type among lands you control.",
+        "flavorText": "Its stature and stride increase with each step it takes.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "57e45de5-0e8b-41d3-979b-ec5a29cac682"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Domain"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GANG_OF_ELK": {
+    "scryfallId": "5a84177f-43a3-4d14-9a4c-2ca931cfe092",
+    "oracleId": "b99d6d51-3ead-4b81-8e0c-f458619ebb24",
+    "name": "Gang of Elk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gang of Elk",
+        "manaCost": "{5}{G}",
+        "typeLine": "Creature — Elk Beast",
+        "oracleText": "Whenever this creature becomes blocked, it gets +2/+2 until end of turn for each creature blocking it.",
+        "flavorText": "The elk is Gaea's favorite, who wears the forest on its brow.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Una Fricker",
+        "imageId": "5a84177f-43a3-4d14-9a4c-2ca931cfe092"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "ulg",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JOHTULL_WURM": {
+    "scryfallId": "64a22e88-f7b1-48c8-a199-e57edcd50654",
+    "oracleId": "ab5a8242-4e42-43e6-a6ee-eeb0a8db3d11",
+    "name": "Johtull Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Johtull Wurm",
+        "manaCost": "{5}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Whenever this creature becomes blocked, it gets -2/-1 until end of turn for each creature blocking it beyond the first.",
+        "flavorText": "\"To bring her down we must be on all sides at once—leave one avenue open and we'll all be dead.\"\n—Taaveti of Kelsinko, Elvish Hunter",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daniel Gelon",
+        "imageId": "64a22e88-f7b1-48c8-a199-e57edcd50654"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "ice",
+    "collectorNumber": "250",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MILITANT_INQUISITOR": {
+    "scryfallId": "68d99f1f-80d6-4b5e-aeae-83fb8ae62cdc",
+    "oracleId": "d1e326e8-6e9e-4dbd-8c2f-0bef90db2bb7",
+    "name": "Militant Inquisitor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Militant Inquisitor",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "This creature gets +1/+0 for each Equipment you control.",
+        "flavorText": "\"I am an instrument of the church wielded against Avacyn's enemies.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "68d99f1f-80d6-4b5e-aeae-83fb8ae62cdc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "soi",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRACEBLADE_ARTISAN": {
+    "scryfallId": "9eedcf6c-5796-4843-b6b8-df78e11e72c2",
+    "oracleId": "2fa4e241-6b2f-4372-8bb6-a876e5ae7c50",
+    "name": "Graceblade Artisan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Graceblade Artisan",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Monk",
+        "oracleText": "This creature gets +2/+2 for each Aura attached to it.",
+        "flavorText": "\"Can you catch a snowflake on the edge of your blade? Her sword has snagged an entire blizzard.\"\n—Zogye, Ojutai mystic",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "9eedcf6c-5796-4843-b6b8-df78e11e72c2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dtk",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOLEM_SKIN_GAUNTLETS": {
+    "scryfallId": "a9519f2a-e98d-4f84-885c-24a9849a996d",
+    "oracleId": "2a956224-8bdb-40d8-8405-2aa29eb228e0",
+    "name": "Golem-Skin Gauntlets",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Golem-Skin Gauntlets",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+0 for each Equipment attached to it.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alan Pollack",
+        "imageId": "a9519f2a-e98d-4f84-885c-24a9849a996d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "mrd",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MANAFORCE_MACE": {
+    "scryfallId": "ab60e11f-ea7c-4d87-bc82-9e7f4eaeef5a",
+    "oracleId": "7e92be29-ccd1-4556-bb2a-ac7902bc77c2",
+    "name": "Manaforce Mace",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Manaforce Mace",
+        "manaCost": "{4}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Domain — Equipped creature gets +1/+1 for each basic land type among lands you control.\nEquip {3}",
+        "flavorText": "As the shards merged, relics once thought mundane regained forgotten powers.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jeremy Jarvis",
+        "imageId": "ab60e11f-ea7c-4d87-bc82-9e7f4eaeef5a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Equip",
+      "Domain"
+    ],
+    "setCode": "con",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAVU_SCOUT": {
+    "scryfallId": "cbc2670d-a3f4-47c2-b424-01fd379ff186",
+    "oracleId": "2bd91ce8-1797-4dd7-8150-0d4caa7dad61",
+    "name": "Kavu Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kavu Scout",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Kavu Scout",
+        "oracleText": "Domain — This creature gets +1/+0 for each basic land type among lands you control.",
+        "flavorText": "The kavu evolved for centuries deep inside Dominaria, and some can draw from its strength.",
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "DiTerlizzi",
+        "imageId": "cbc2670d-a3f4-47c2-b424-01fd379ff186"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Domain"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "151",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPARRING_GOLEM": {
+    "scryfallId": "d829d9de-83fa-4feb-8efc-0075315163c6",
+    "oracleId": "c54879da-0f1d-4ad0-b082-95f0e4d35685",
+    "name": "Sparring Golem",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sparring Golem",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "Whenever this creature becomes blocked, it gets +1/+1 until end of turn for each creature blocking it.",
+        "flavorText": "\"Part drill sergeant, part training dummy,\" thought Gerrard. \"I hope it can stand up to a real war.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adam Rex",
+        "imageId": "d829d9de-83fa-4feb-8efc-0075315163c6"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "inv",
+    "collectorNumber": "312",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOXODON_PUNISHER": {
+    "scryfallId": "df2b90b8-8306-4543-b9f4-3cfd033f5ca5",
+    "oracleId": "fc3869fd-1441-4d5e-9af5-f02857ed634a",
+    "name": "Loxodon Punisher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loxodon Punisher",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Elephant Soldier",
+        "oracleText": "This creature gets +2/+2 for each Equipment attached to it.",
+        "flavorText": "The loxodons believe punishment comes in two steps: pain and atonement. They carry a weapon for each.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Terese Nielsen",
+        "imageId": "df2b90b8-8306-4543-b9f4-3cfd033f5ca5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mrd",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JUNGLE_WURM": {
+    "scryfallId": "f17f81b9-1fa1-4062-a9b3-048179274c05",
+    "oracleId": "457705c9-5b0c-4c3a-89dd-80286fac6a6c",
+    "name": "Jungle Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jungle Wurm",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Whenever this creature becomes blocked, it gets -1/-1 until end of turn for each creature blocking it beyond the first.",
+        "flavorText": "Broad as a baobab—and about as smart.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tom Kyffin",
+        "imageId": "f17f81b9-1fa1-4062-a9b3-048179274c05"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "mir",
+    "collectorNumber": "224",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RABID_ELEPHANT": {
+    "scryfallId": "fe394a38-ee44-4342-adcf-8c65d14f4978",
+    "oracleId": "9daed342-e773-43ec-a8e2-98126b505e8a",
+    "name": "Rabid Elephant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rabid Elephant",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Elephant",
+        "oracleText": "Whenever this creature becomes blocked, it gets +2/+2 until end of turn for each creature blocking it.",
+        "flavorText": "When in doubt, stomp.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dave Dorman",
+        "imageId": "fe394a38-ee44-4342-adcf-8c65d14f4978"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ody",
+    "collectorNumber": "263",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

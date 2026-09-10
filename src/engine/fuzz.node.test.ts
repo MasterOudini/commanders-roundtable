@@ -1506,6 +1506,13 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
     }
   }, 60_000);
 
+  // D387 - an explicit budget, the projection-leak test's (D269), because this one plays a 200-intent
+  // game and then REPLAYS the whole log five times over the shipped registry, and it runs in EVERY
+  // shard at once. Measured: 18.7 s ALONE on the idle machine at 5,232 scripts, 25.8-30.6 s in four of
+  // six concurrent shards - past the 20 s default with every assertion green (D370's rule: a budget
+  // moves only after a COMPLETED run proves growth rather than a hang). The cost is the game, not the
+  // rewind: seed 0's pool shifts with every name the sorted list gains (D193/D365), so the game this
+  // test plays changes shape with each wave.
   test('a fuzzed game rewinds to any point and still replays', () => {
     const p = picker('rewind');
     const game = Game.create(
@@ -1525,7 +1532,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
       expect(checkInvariants(game.state)).toEqual([]);
       expect(stateHash(replay(game.log, game.seed))).toBe(game.hash());
     }
-  });
+  }, 60_000);
 });
 
 

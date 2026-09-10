@@ -5601,6 +5601,30 @@ export const NIM_SHRIEKER: CardData = F.NIM_SHRIEKER as CardData;
 export const TIMBERMAW_LARVA: CardData = F.TIMBERMAW_LARVA as CardData;
 export const EMPYRIAL_PLATE: CardData = F.EMPYRIAL_PLATE as CardData;
 export const GUIDELIGHT_SYNERGIST: CardData = F.GUIDELIGHT_SYNERGIST as CardData;
+export const GOBLIN_GAVELEER: CardData = F.GOBLIN_GAVELEER as CardData;
+export const MYR_ADAPTER: CardData = F.MYR_ADAPTER as CardData;
+export const ELVISH_BERSERKER: CardData = F.ELVISH_BERSERKER as CardData;
+export const URIL_THE_MISTSTALKER: CardData = F.URIL_THE_MISTSTALKER as CardData;
+export const SQUIRREL_MOB: CardData = F.SQUIRREL_MOB as CardData;
+export const ADELBERT_STEINER: CardData = F.ADELBERT_STEINER as CardData;
+export const STRENGTH_OF_UNITY: CardData = F.STRENGTH_OF_UNITY as CardData;
+export const EXOTIC_CURSE: CardData = F.EXOTIC_CURSE as CardData;
+export const RABID_WOMBAT: CardData = F.RABID_WOMBAT as CardData;
+export const CHAMPION_OF_THE_FLAME: CardData = F.CHAMPION_OF_THE_FLAME as CardData;
+export const QUAG_SICKNESS: CardData = F.QUAG_SICKNESS as CardData;
+export const MOGG_SQUAD: CardData = F.MOGG_SQUAD as CardData;
+export const WAYFARING_GIANT: CardData = F.WAYFARING_GIANT as CardData;
+export const GANG_OF_ELK: CardData = F.GANG_OF_ELK as CardData;
+export const JOHTULL_WURM: CardData = F.JOHTULL_WURM as CardData;
+export const MILITANT_INQUISITOR: CardData = F.MILITANT_INQUISITOR as CardData;
+export const GRACEBLADE_ARTISAN: CardData = F.GRACEBLADE_ARTISAN as CardData;
+export const GOLEM_SKIN_GAUNTLETS: CardData = F.GOLEM_SKIN_GAUNTLETS as CardData;
+export const MANAFORCE_MACE: CardData = F.MANAFORCE_MACE as CardData;
+export const KAVU_SCOUT: CardData = F.KAVU_SCOUT as CardData;
+export const SPARRING_GOLEM: CardData = F.SPARRING_GOLEM as CardData;
+export const LOXODON_PUNISHER: CardData = F.LOXODON_PUNISHER as CardData;
+export const JUNGLE_WURM: CardData = F.JUNGLE_WURM as CardData;
+export const RABID_ELEPHANT: CardData = F.RABID_ELEPHANT as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -11335,6 +11359,30 @@ export const ENGINE_CARDS: CardData[] = [
   TIMBERMAW_LARVA,
   EMPYRIAL_PLATE,
   GUIDELIGHT_SYNERGIST,
+  GOBLIN_GAVELEER,
+  MYR_ADAPTER,
+  ELVISH_BERSERKER,
+  URIL_THE_MISTSTALKER,
+  SQUIRREL_MOB,
+  ADELBERT_STEINER,
+  STRENGTH_OF_UNITY,
+  EXOTIC_CURSE,
+  RABID_WOMBAT,
+  CHAMPION_OF_THE_FLAME,
+  QUAG_SICKNESS,
+  MOGG_SQUAD,
+  WAYFARING_GIANT,
+  GANG_OF_ELK,
+  JOHTULL_WURM,
+  MILITANT_INQUISITOR,
+  GRACEBLADE_ARTISAN,
+  GOLEM_SKIN_GAUNTLETS,
+  MANAFORCE_MACE,
+  KAVU_SCOUT,
+  SPARRING_GOLEM,
+  LOXODON_PUNISHER,
+  JUNGLE_WURM,
+  RABID_ELEPHANT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

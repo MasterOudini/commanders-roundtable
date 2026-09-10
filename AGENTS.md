@@ -14056,6 +14056,73 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       shapes, the spell-row table (21 of 43), the 55 REDUNDANT hand scripts;
       prior items stand.
 
+- [x] **M6.4ht — THE VARIABLE PUMP, FOUR COUNTS WIDER: what is attached, the
+      domain, the blockers, and two nouns (2026-09-10):** **8,111 of 31,692
+      Commander-legal cards now execute completely, up from 8,087 (+24, every
+      one a generated row).** `SHIPPED_SCRIPTS` 5,208 → **5,232**; ledger 1,200
+      (unchanged — the nine refused were never OFFERED). Fixtures 5,731 →
+      **5,755** — no new token pin. **No engine SOURCE is touched** (only the fuzz test's rewind budget, below);
+      `scriptableToday` stays at 1,295 (landed BY NAME, D386's shape).
+      Decisions in **D387**.
+      ⚠️ **ONE READER, FOUR ROWS, AND A SIGN THE PRICER COULD NOT SEE.** The
+      variable pump's refused tail was 99 cards over 76 phrases; its four
+      densest are each one row on the ONE count reader (`parseCount`, D346) —
+      `creature blocking it` 8, domain 6, `Equipment attached to it` 4, `Aura
+      attached to it` 3 — plus two nouns (`Equipment`, its own plural;
+      `Squirrels`, on the quiet Squirrelanoids). ⚠️ The pricer's regex required
+      a `+` power, so TWELVE negative pumps were invisible to it (Exotic Curse,
+      Johtull Wurm, Quag Sickness, Mogg Squad …); widened, the family is 111,
+      landable 0 → 33, rowed 24.
+      ⚠️ **EACH NEW COUNT IS A DIFFERENT ARM, NOT A DIFFERENT EMITTER.** The
+      attached count's fixture must be P/T-NEUTRAL (Swiftfoot Boots, Pacifism
+      — Accorder's Shield would add its own `+0/+3` to the delta), and an
+      Equipment that counts Equipment COUNTS ITSELF once attached (Golem-Skin
+      Gauntlets starts at 1). Domain's suite puts a Forest, a Mountain, then a
+      SECOND Forest and asserts nothing moved — a set's negative. A BLOCKED
+      attacker may DIE in the same combat, so the blocker count is proven across
+      TWO GAMES (one blocker, two) read in the declare-blockers step, never
+      across two turns — `advanceUntil` stops ON the block prompt because the
+      prompt is the predicate (D370's trap is a predicate that holds without
+      it). A NEGATIVE pump takes ONE step, or the 2/2 host is binned mid-assert
+      (D323). The grammar reads the card's own name as a subject (`Uril gets`),
+      drops a leading ability word (`Domain —`, D342), and takes `becomes
+      blocked` as a head (D302's matcher).
+      ⚠️ **24 suites / 72 tests green on the FIRST run**; `tsc` named two
+      unused identifiers, both at the generator (D267). Refused by reason (9):
+      two activated pumps with a count, two spells, three blocked heads on
+      ANOTHER subject (the pumped object is the ITEM — D374's filtered head one
+      payload over), two negative pumps per card in hand (the opening hand
+      empties the creature on ENTRY). ⚠️ Two tooling traps: the chained `sed`
+      rewrote the derive's OWN replace table (D378 again — hand-written now),
+      and a patch script evaluated a `parsed.minus` meant for the emitted line.
+      ⚠️⚠️ **THE FIRST GATE WENT RED ON A BUDGET, NOT A CARD**: four of six
+      fuzz shards failed the rewind test at 25.8–30.6 s against the 20 s
+      default with every assertion green — **18.7 s alone on the idle
+      machine**, and six shards run it at once; the game it plays is seed
+      0's pool, which shifts with every name the sorted list gains
+      (D193/D365). It carries the projection-leak test's explicit 60 s
+      budget now (D370's rule — after a COMPLETED run), and the gate was
+      rerun from the top on the settled tree.
+      Fixtures 5,755 (5,600 by name + 148 tokens) · botPool artifact 452 /
+      creature 4,728 / enchantment 477 (2 + 19 + 3 = the wave) · ladder
+      unmoved · residue other 2,992 / staticShell 653 / triggeredShell 1,975 ·
+      tier3 silentAfter 8,411 · bot reach 8,022 → **8,046** from **239**
+      commanders (Uril and Adelbert Steiner joined) · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5385 files, 26584 passed / 11 skipped ·
+      500-seed gate, 6 shards, 1155.5 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D387): the pump's remaining tail (78 cards over ~66
+      phrases — `of its colors` 3, a DERIVED-colour count a static must not
+      derive from inside its own derive; party 2; a linked memory 2); the
+      activated pump with a count (~4, the one-shot generator learning a counted
+      amount); the blocked head on ANOTHER subject (3); the negative pump per
+      card in hand (2, an arm that empties the hand); the classifier seam
+      (waits on ONE count vocabulary); then D386's list unchanged — ⚠️⚠️ THE
+      FUZZ DRIVER NEVER BLOCKS (gate debt, priced), the two-line shape (10), the
+      three unstageable prevention fixtures, the Circles of Protection (52), CR
+      615.5's order, the payload arms, the 95 quoted-grant shapes, the spell-row
+      table (21 of 43), the 55 REDUNDANT hand scripts; prior items stand.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

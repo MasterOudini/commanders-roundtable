@@ -7,6 +7,30 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { GOBLIN_GAVELEER_SCRIPT } from './cards/goblinGaveleer';
+import { MYR_ADAPTER_SCRIPT } from './cards/myrAdapter';
+import { ELVISH_BERSERKER_SCRIPT } from './cards/elvishBerserker';
+import { URIL_THE_MISTSTALKER_SCRIPT } from './cards/urilTheMiststalker';
+import { SQUIRREL_MOB_SCRIPT } from './cards/squirrelMob';
+import { ADELBERT_STEINER_SCRIPT } from './cards/adelbertSteiner';
+import { STRENGTH_OF_UNITY_SCRIPT } from './cards/strengthOfUnity';
+import { EXOTIC_CURSE_SCRIPT } from './cards/exoticCurse';
+import { RABID_WOMBAT_SCRIPT } from './cards/rabidWombat';
+import { CHAMPION_OF_THE_FLAME_SCRIPT } from './cards/championOfTheFlame';
+import { QUAG_SICKNESS_SCRIPT } from './cards/quagSickness';
+import { MOGG_SQUAD_SCRIPT } from './cards/moggSquad';
+import { WAYFARING_GIANT_SCRIPT } from './cards/wayfaringGiant';
+import { GANG_OF_ELK_SCRIPT } from './cards/gangOfElk';
+import { JOHTULL_WURM_SCRIPT } from './cards/johtullWurm';
+import { MILITANT_INQUISITOR_SCRIPT } from './cards/militantInquisitor';
+import { GRACEBLADE_ARTISAN_SCRIPT } from './cards/gracebladeArtisan';
+import { GOLEM_SKIN_GAUNTLETS_SCRIPT } from './cards/golemSkinGauntlets';
+import { MANAFORCE_MACE_SCRIPT } from './cards/manaforceMace';
+import { KAVU_SCOUT_SCRIPT } from './cards/kavuScout';
+import { SPARRING_GOLEM_SCRIPT } from './cards/sparringGolem';
+import { LOXODON_PUNISHER_SCRIPT } from './cards/loxodonPunisher';
+import { JUNGLE_WURM_SCRIPT } from './cards/jungleWurm';
+import { RABID_ELEPHANT_SCRIPT } from './cards/rabidElephant';
 import { BRAVADO_SCRIPT } from './cards/bravado';
 import { SALVAGE_SLASHER_SCRIPT } from './cards/salvageSlasher';
 import { ANCESTRAL_MASK_SCRIPT } from './cards/ancestralMask';
@@ -5234,6 +5258,30 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GOBLIN_GAVELEER_SCRIPT,
+  MYR_ADAPTER_SCRIPT,
+  ELVISH_BERSERKER_SCRIPT,
+  URIL_THE_MISTSTALKER_SCRIPT,
+  SQUIRREL_MOB_SCRIPT,
+  ADELBERT_STEINER_SCRIPT,
+  STRENGTH_OF_UNITY_SCRIPT,
+  EXOTIC_CURSE_SCRIPT,
+  RABID_WOMBAT_SCRIPT,
+  CHAMPION_OF_THE_FLAME_SCRIPT,
+  QUAG_SICKNESS_SCRIPT,
+  MOGG_SQUAD_SCRIPT,
+  WAYFARING_GIANT_SCRIPT,
+  GANG_OF_ELK_SCRIPT,
+  JOHTULL_WURM_SCRIPT,
+  MILITANT_INQUISITOR_SCRIPT,
+  GRACEBLADE_ARTISAN_SCRIPT,
+  GOLEM_SKIN_GAUNTLETS_SCRIPT,
+  MANAFORCE_MACE_SCRIPT,
+  KAVU_SCOUT_SCRIPT,
+  SPARRING_GOLEM_SCRIPT,
+  LOXODON_PUNISHER_SCRIPT,
+  JUNGLE_WURM_SCRIPT,
+  RABID_ELEPHANT_SCRIPT,
   BRAVADO_SCRIPT,
   SALVAGE_SLASHER_SCRIPT,
   ANCESTRAL_MASK_SCRIPT,

@@ -28389,3 +28389,130 @@ three fixtures the prevention wave could not stage, the Circles of Protection
 (52), CR 615.5's ordering choice, the payload arms the scaffold cannot assert,
 the 95 quoted-grant payload shapes, the spell-row table (21 of 43), the 55
 REDUNDANT hand scripts; prior items stand.
+
+## D387 — M6.4ht: THE VARIABLE PUMP, FOUR COUNTS WIDER — what is attached, the domain, the blockers, and two nouns (2026-09-10)
+
+**8,111 of 31,692 Commander-legal cards now execute completely, up from 8,087
+(+24 — every one a generated row).** `SHIPPED_SCRIPTS` 5,208 → **5,232**; the
+REFUSED ledger 1,200 (unchanged — the nine the generator refused were never
+OFFERED, so there is no drafter's verdict to record). Fixtures 5,731 → **5,755**
+— no new token pin. **No engine SOURCE is touched** (the one engine file that moves is the gate's own test, and only its budget — below), and `scriptableToday` stays
+at 1,295: the wave landed BY NAME (D317/D374/D386's shape).
+
+### The measurement: one reader, four rows, and a sign the pricer could not see
+
+A fresh `true-leftover.json` after D386: 23,605 incomplete. The variable pump's
+refused tail measured **99 cards over 76 count phrases** (67 singletons), and
+its four densest phrases were each ONE row on the one count reader
+(`parseCount`, D346): `creature blocking it` (8), the domain count (6),
+`Equipment attached to it` (4), `Aura attached to it` (3). Two NOUN rows joined
+them (`Equipment`, its own plural; `Squirrels`, on the quiet Squirrelanoids —
+deathtouch and nothing else).
+
+⚠️ **THE PRICER'S SIGN HID TWELVE CARDS.** Its shape regex required a `+`
+before the power, so every NEGATIVE pump — Exotic Curse's `-1/-1` per basic
+type, Johtull Wurm's `-2/-1` per blocker beyond the first, Quag Sickness, Mogg
+Squad — was invisible to it while the generator's grammar read `[+-]`. Widened,
+the one-piece family is **111**, and the landable set after the four widenings
+went **0 → 33**. The generator then took 24 and refused 9 by reason.
+
+### What the reader learned, and what each count needed from the SUITE
+
+Every new count is a different ARM, not just a different emitter:
+
+- **attached** — `attachedTo === applied` over the attachment's PRINTED
+  subtype. ⚠️ **The counted fixture must be P/T-NEUTRAL**: Accorder's Shield
+  (`+0/+3`) or Holy Strength (`+1/+2`) would have added their own bonus to the
+  delta the assert reads. Swiftfoot Boots (hexproof and haste) and Pacifism
+  (can't attack or block) move the COUNT and nothing else. ⚠️ **An Equipment
+  that counts Equipment counts ITSELF** once attached — Golem-Skin Gauntlets'
+  starting count is 1, and the generator says so.
+- **domain** — the distinct basic types among the controller's lands, off
+  printed subtypes. The suite puts a Forest (+1), a Mountain (+1), then a
+  SECOND Forest and asserts NOTHING moved — the negative a set has and a count
+  does not.
+- **blockers** — `state.combat.blockers` filtered by `attackerOrder.includes`
+  (a blocker may block several attackers, D385), minus one for "beyond the
+  first", floored at zero. ⚠️ **A blocked attacker may DIE in the same combat**,
+  so the count is proven across TWO GAMES — blocked by one, blocked by two —
+  each read right after the trigger resolves in the declare-blockers step,
+  never across two turns. `advanceUntil` stops ON the block prompt because the
+  prompt IS the predicate (D370's trap is a predicate that holds without it),
+  and p2 declares the blocks by hand.
+- **a NEGATIVE pump takes ONE step** (+1 counted, then removed): a second
+  would empty the 2/2 host and the SBA would bin it mid-assert (D323's trap).
+- **the grammar**: the card's own name is a self subject (`Uril gets +2/+2`,
+  `Adelbert Steiner gets +1/+1` — spelled `~` before the grammar runs, D385),
+  a leading ability word is dropped (`Domain — `, D342), and `becomes blocked`
+  joins `attacks` as a head (`BlockersDeclared`, D302's matcher).
+
+**24 suites, 72 tests — every one green on the FIRST run**; `tsc` named two
+unused-identifier shapes (`c1` where only `c2` is removed, `COUNTED` on a
+domain row that put `'Forest'` literally), both fixed at the generator (D267).
+
+⚠️ **Refused by reason (9):** two activated pumps with a count (Power Armor's
+targeted, Wandering Goblins' self — the one-shot generator's shape with a count
+for an amount, not this generator's); two spells (Drown in Filth, Barreling
+Attack); three blocked heads on ANOTHER subject (General Marhault Elsdragon's
+`a creature you control`, Berserk Murlodont's `a Beast`, Spined Sliver's
+`that Sliver` — the pumped object is the ITEM, D374's filtered head one payload
+over); and two NEGATIVE pumps per card in hand (Grim Strider `-1/-1`, Dread
+Slag `-4/-4`), whose opening hand empties the creature on ENTRY — the arm must
+empty the hand first, and the hand-removal proof then has nothing to remove.
+
+### The traps this decision paid for
+
+- ⚠️ **A DERIVE'S OWN REPLACE TABLE IS NOT SAFE FROM THE SED THAT MAKES IT**
+  (D378, met again): the chained `sed` turned `['d386', 'd387']` into
+  `['d387', 'd386']`. The derive is written by hand now, its `TAKE` list
+  explicit.
+- ⚠️ **A GENERATOR'S PATCH SCRIPT MUST NOT EVALUATE WHAT IT MEANS TO EMIT**: a
+  `parsed.minus` inside the PATCH (which builds the generator's text) threw
+  `parsed is not defined` — the reference belonged in the emitted line.
+- ⚠️ The sign, the neutral fixture, the self-count, the one step, the two games
+  — each above, each caught before a suite ran because the arm was READ before
+  the port (D374/D376's habit).
+
+⚠️⚠️ **THE FIRST GATE WENT RED ON A BUDGET, NOT A CARD.** Four of six fuzz
+shards failed ONE test — `a fuzzed game rewinds to any point and still replays`
+— at 25.8–30.6 s against the 20 s default, every assertion green (a timeout,
+D269's shape). Measured ALONE on the idle machine: **18.7 s**, 1.3 s under the
+ceiling; six concurrent shards each run it at once. The cost is the GAME, not
+the rewind: the test plays seed 0's pool, and that pool shifts with every name
+the sorted list gains (D193/D365), so the game changes shape with each wave and
+this one crossed the edge. It gets the projection-leak test's explicit 60 s
+budget (D370's rule: after a COMPLETED run, never to hide a hang) — the one
+engine file this decision touches is the gate's own test, and only its budget;
+the gate was rerun from the top on the settled tree.
+
+**Measured:** `blocked` 23,605 → 23,581 · `complete` 8,087 → **8,111** · ladder
+`[1295, 1384, 2961, 4690, 6028]` UNMOVED · residue `other` 3,002 → 2,992,
+`staticShell` 661 → 653, `triggeredShell` 1,981 → 1,975 · tier3 `silentAfter`
+8,387 → **8,411**, `abilityText` 14,913 → 14,889 · botPool artifact 450 → 452
+(the two Equipment), creature 4,709 → 4,728 (nineteen), enchantment 474 →
+**477** (the three Auras) — 2 + 19 + 3 = 24 · the bot's reach 8,022 → **8,046**
+from **239** legendaries (237 — Uril and Adelbert Steiner joined) · select pool
+0 → 0 · no fuzz canary (D386's reasoning holds: a computed delta reaches the
+state hash through combat damage).
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5385 files,
+26584 passed / 11 skipped · 500-seed gate, 6 shards, 1155.5 s wall · build
+clean · probe 124/124 · battery 130/130.**
+
+⚠️ **Reportables** (D387): **the variable pump's remaining tail** — 78 one-piece
+cards over ~66 phrases after these four, the densest now `of its colors` (3, a
+count on the pumped object's DERIVED colours, which a static must not derive
+from inside its own derive — D317), `other attacking Aurochs` (2), party (2,
+refused mechanic), `creature tapped this way` (2, a linked memory); the
+**activated pump with a count** (Power Armor, Wandering Goblins, Sunbathing
+Rootwalla — the one-shot generator learning a counted amount, ~4); the
+**blocked head on ANOTHER subject** (3 — D374's filtered head with the pumped
+object as the item); the **negative pump per card in hand** (2 — an arm that
+empties the hand); the classifier still cannot see the shape (a `for each
+<count>` tail on `staticRowShape` is a seam, but only with ONE count vocabulary,
+so it waits until `parseCount` lives where the classifier can read it); then
+D386's list unchanged — ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS (gate debt, priced),
+the two-line shape (10), the three unstageable prevention fixtures, the Circles
+of Protection (52), CR 615.5's order, the payload arms, the 95 quoted-grant
+shapes, the spell-row table (21 of 43), the 55 REDUNDANT hand scripts; prior
+items stand.
