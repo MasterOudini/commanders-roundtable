@@ -6167,6 +6167,14 @@ const WANTED = [
   'Sunscape Apprentice',
   'Tibor and Lumia',
   // D383 - the helpers the scoped-board suites deal.
+  // D384 - the quoted grant: the wave the classifier widening made offerable.
+  'Noxious Field',
+  'Eternal Thirst',
+  'Hot Springs',
+  'Ceremonial Knife',
+  "Ninja's Kunai",
+  'Flowering Field',
+  // D384 - the helpers the grant suites deal.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -671,6 +671,41 @@ export function equipLineShape(text: string): boolean {
   return EQUIPPED_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
 }
 
+/**
+ * D384 - THE QUOTED GRANT, and the reason it needs the RAW line.
+ *
+ * ⚠️ `scrub` blanks a quoted ability IN PLACE, so a line that grants one arrives as
+ * `Enchanted creature has ` - it ends at the verb, and every reader in `primitiveFor` above this
+ * one is looking at the blank. That is why 244 cards whose ONLY leftover is a granted ability were
+ * never OFFERED: D354 named the blindness, D367 built the activated carrier, D368 the triggered
+ * one and D372 the mana one, and for seventeen decisions the classifier could not see the thing
+ * the carrier carries.
+ *
+ * The scopes are exactly the ones the grant generator emits (an Aura on a creature or a land, an
+ * Equipment, and the two Sliver scopes), and the payload is read by the SAME vocabulary that runs
+ * it at resolution - so this cannot claim a line the row would then refuse (D90).
+ */
+const GRANT_SCOPE = /^(?:Enchanted creature|Enchanted land|Equipped creature|All Slivers|Sliver creatures you control)\b/;
+const GRANT_BODY = /["\u201c]([^"\u201d]+)["\u201d]/;
+
+export function grantLineShape(raw: string, cardName: string): boolean {
+  if (!GRANT_SCOPE.test(raw)) return false;
+  const m = GRANT_BODY.exec(raw);
+  const body = m?.[1];
+  if (body === undefined || body === '') return false;
+  // An activated body is `<cost>: <effect>`; a triggered one is `<head>, <payload>`; anything else
+  // is a static the carrier has no def kind for, and it stays where it was.
+  const colon = body.indexOf(':');
+  const isTrigger = /^(?:When|Whenever|At)\b/.test(body);
+  const payload = isTrigger
+    ? body.slice(body.indexOf(',') + 1).trim()
+    : colon >= 0
+      ? body.slice(colon + 1).trim()
+      : '';
+  if (payload === '') return false;
+  return parseEffects(payload, cardName, true).mode === 'auto';
+}
+
 export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace = false): Primitive {
   const text = line.text;
 
@@ -751,6 +786,10 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   if (auraLineShape(text)) return 'scriptable';
   // D305: an equipped-creature static or restriction an Equipment row can emit (see `equipLineShape`).
   if (equipLineShape(text)) return 'scriptable';
+  // D384: a QUOTED ability this permanent grants another, whose payload the vocabulary reads and
+  // whose scope the grant generator can emit (see `grantLineShape`) - asked of the RAW line,
+  // because `scrub` blanks the quote and every reader above this one sees only the blank.
+  if (grantLineShape(line.raw, cardName)) return 'scriptable';
 
   for (const [primitive, re] of RULES) if (re.test(text)) return primitive;
 

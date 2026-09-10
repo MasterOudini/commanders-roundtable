@@ -5548,6 +5548,12 @@ export const NIGHTSCAPE_APPRENTICE: CardData = F.NIGHTSCAPE_APPRENTICE as CardDa
 export const SEPHIROTH_PLANET_S_HEIR: CardData = F.SEPHIROTH_PLANET_S_HEIR as CardData;
 export const SUNSCAPE_APPRENTICE: CardData = F.SUNSCAPE_APPRENTICE as CardData;
 export const TIBOR_AND_LUMIA: CardData = F.TIBOR_AND_LUMIA as CardData;
+export const NOXIOUS_FIELD: CardData = F.NOXIOUS_FIELD as CardData;
+export const ETERNAL_THIRST: CardData = F.ETERNAL_THIRST as CardData;
+export const HOT_SPRINGS: CardData = F.HOT_SPRINGS as CardData;
+export const CEREMONIAL_KNIFE: CardData = F.CEREMONIAL_KNIFE as CardData;
+export const NINJA_S_KUNAI: CardData = F.NINJA_S_KUNAI as CardData;
+export const FLOWERING_FIELD: CardData = F.FLOWERING_FIELD as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -11229,6 +11235,12 @@ export const ENGINE_CARDS: CardData[] = [
   SEPHIROTH_PLANET_S_HEIR,
   SUNSCAPE_APPRENTICE,
   TIBOR_AND_LUMIA,
+  NOXIOUS_FIELD,
+  ETERNAL_THIRST,
+  HOT_SPRINGS,
+  CEREMONIAL_KNIFE,
+  NINJA_S_KUNAI,
+  FLOWERING_FIELD,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

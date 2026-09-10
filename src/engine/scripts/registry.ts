@@ -7,6 +7,11 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { NOXIOUS_FIELD_SCRIPT } from './cards/noxiousField';
+import { ETERNAL_THIRST_SCRIPT } from './cards/eternalThirst';
+import { HOT_SPRINGS_SCRIPT } from './cards/hotSprings';
+import { CEREMONIAL_KNIFE_SCRIPT } from './cards/ceremonialKnife';
+import { FLOWERING_FIELD_SCRIPT } from './cards/floweringField';
 import { ASHEN_FIREBEAST_SCRIPT } from './cards/ashenFirebeast';
 import { FIRE_NATION_ARCHERS_SCRIPT } from './cards/fireNationArchers';
 import { HAMMERFIST_GIANT_SCRIPT } from './cards/hammerfistGiant';
@@ -5182,6 +5187,11 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  NOXIOUS_FIELD_SCRIPT,
+  ETERNAL_THIRST_SCRIPT,
+  HOT_SPRINGS_SCRIPT,
+  CEREMONIAL_KNIFE_SCRIPT,
+  FLOWERING_FIELD_SCRIPT,
   ASHEN_FIREBEAST_SCRIPT,
   FIRE_NATION_ARCHERS_SCRIPT,
   HAMMERFIST_GIANT_SCRIPT,
@@ -8808,7 +8818,7 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   SUSTENANCE_SCRIPT,
   SWALLOWING_PLAGUE_SCRIPT,
   SWELTER_SCRIPT,
-  SWIFT_KICK_SCRIPT,  STRANDS_OF_NIGHT_SCRIPT,
+  SWIFT_KICK_SCRIPT,  STRANDS_OF_NIGHT_SCRIPT,
   STREAM_OF_LIFE_SCRIPT,
   STREAM_OF_UNCONSCIOUSNESS_SCRIPT,
   STRENGTH_OF_CEDARS_SCRIPT,

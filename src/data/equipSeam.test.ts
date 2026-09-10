@@ -59,8 +59,8 @@ describe('the Equipment seam (D305)', () => {
     expect(equipLineRuns('Equip {1}{W}')).toBe(true);
     expect(equipLineRuns('Equip Knight {1}')).toBe(false);
     expect(equipLineRuns('Equip—Pay 2 life.')).toBe(false);
-    expect(primitiveFor({ text: 'Equip {2}', kind: 'sentence' }, 'X')).toBe('scriptable');
-    expect(primitiveFor({ text: 'Equip Knight {1}', kind: 'sentence' }, 'X')).toBe('keyword:equip');
+    expect(primitiveFor({ text: 'Equip {2}', kind: 'sentence', raw: 'Equip {2}' }, 'X')).toBe('scriptable');
+    expect(primitiveFor({ text: 'Equip Knight {1}', kind: 'sentence', raw: 'Equip Knight {1}' }, 'X')).toBe('keyword:equip');
   });
 
   test('the equipped-creature shapes a row can emit', () => {

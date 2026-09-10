@@ -28,7 +28,7 @@ describe('the Flashback seam (D307)', () => {
   test('the classifier files a mana Flashback as scriptable and a dash cost as keyword:altCost', () => {
     expect(flashbackLineRuns('Flashback {3}{U}')).toBe(true);
     expect(flashbackLineRuns('Flashback—Pay 3 life.')).toBe(false);
-    expect(primitiveFor({ text: 'Flashback {2}{G}{G}{G}', kind: 'sentence' }, 'X')).toBe('scriptable');
-    expect(primitiveFor({ text: 'Flashback—Pay 3 life.', kind: 'sentence' }, 'X')).toBe('keyword:altCost');
+    expect(primitiveFor({ text: 'Flashback {2}{G}{G}{G}', kind: 'sentence', raw: 'Flashback {2}{G}{G}{G}' }, 'X')).toBe('scriptable');
+    expect(primitiveFor({ text: 'Flashback—Pay 3 life.', kind: 'sentence', raw: 'Flashback—Pay 3 life.' }, 'X')).toBe('keyword:altCost');
   });
 });

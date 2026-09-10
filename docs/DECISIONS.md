@@ -27935,3 +27935,124 @@ took the same view.
 - Then D382's list unchanged — the `script-raised prompt` tail (76 cards / 74
   sentences), the attached statics the Aura and Equipment rows cannot read
   (351), the bare keyword or ability word (206), and every prior item.
+
+## D384 — the quoted grant: the classifier could not see what the carrier carries
+
+**M6.4hq.** `complete` **8,035 → 8,040** (+5). `SHIPPED_SCRIPTS` 5,156 → **5,161**;
+the REFUSED ledger 1,175 → **1,194** (+19, every one by the reason the row maker
+or the generator gave). BOTH shapes in one decision (D363): the classifier
+widening is the SEAM — the select pool went **0 → 24** where it had been empty —
+and the five rows are the WAVE.
+
+### The measurement, and the two candidates that died honestly
+
+D383's reportables named the spell-row table first. Re-priced after its own seam,
+it is **21 landable of 43** and each needs its own op. The ledger's biggest class,
+`script-raised prompt`, is **76 cards across 73 distinct shapes — 1.04 each**, the
+flattest tail on the board. Neither is a batch.
+
+The answer was a family nobody could see. **244 cards' every leftover is a quoted
+granted ability**, and the reason they had never been OFFERED is that `scrub`
+blanks a quoted body IN PLACE — so `linesUnaccounted` reports
+`Enchanted creature has ` and the line ends at the verb. The CARRIER has shipped
+for seventeen decisions (D367 activated, D368 triggered, D372 mana) and the
+classifier could not see the thing it carries. D354 measured the blindness; this
+is the reader that ends it.
+
+### The seam
+
+- `UnaccountedLine.raw` — the same line unscrubbed. **REQUIRED**, the rule D355
+  and D356 both paid for, and it earned its keep at once: the compiler named
+  **16 construction sites across 8 files**, and the first cut of the sweep listed
+  SEVEN files by hand and `tsc` named an eighth on the next run (D188 — every
+  hand list is a rot site; it sweeps the tree now).
+- `grantLineShape(raw, name)` — the scopes the grant generator actually emits, and
+  the payload read by the **same vocabulary that will run it at resolution**, so
+  the classifier cannot claim a line the row would then refuse (D90).
+
+Measured: `scriptableToday` 1,271 → **1,290** (the seam's +24 less the wave's −5),
+`layer6` 1,275 → 1,273, the grant split 789 → 787, the residue's `other`
+3,074 → 3,028.
+
+### ⚠️⚠️ THE CLAIM IS THE GRANT LINE, NOT THE FACE
+
+The five modules landed, registered, typechecked and passed their own suites —
+and every one of them left its card INCOMPLETE. `lineClaims` matches a def's text
+against ONE unaccounted line (D158), so a def claiming the whole printed face
+silences nothing at all. The generator's `multi` flag was counted off the row's
+`lines`, which are its LEFTOVERS (one, here) rather than its PRINTED lines (two),
+so it claimed `PRINTED` where D367's own shipped modules claim `LINES[n]`.
+
+⚠️ **Caught by `shippedScripts.node.test.ts`, which named all five** — "a script
+ships for it, but engineComplete still refuses it — `Enchanted land has`". That
+test exists for exactly this, and nothing else in the suite noticed.
+
+### ⚠️⚠️ A TARGETED PAYLOAD RAISES A PROMPT, AND `settle` DOES NOT ANSWER IT
+
+Two suites failed on a cost mark that never appeared, and the log said why:
+`CastBegan, AwaitingSet` and nothing after it. `settle`'s predicate — an empty
+stack and no pending triggers — **already holds while a `chooseTargets` awaiting
+is up**, because a staged activation has not put anything on the stack yet. So it
+returns at once, the target is never answered and the cost is never charged.
+
+That is D370's trap from the other side: there a settle ATE a prompt by answering
+it, here one walks past a prompt by not trying. **A scaffold that waits after
+raising a prompt waits for the prompt to be GONE too.**
+
+⚠️ And the fix exposed a second rule the generator had been getting away with:
+**where a cost mark can be read depends on whether the payload targets.** CR 601.2
+pays the cost as the last step of activating, and a staged activation pays it on
+the ANSWER (D169's own finding) — so a targeted row reads its tap AFTER the
+prompt is answered, and an untargeted one reads it at the submit.
+
+### ⚠️ A by-name sacrifice is not a cost, and the capital letter is the tell
+
+`Ninja's Kunai` grants `{1}, {T}, Sacrifice Ninja's Kunai:` — D377's by-name
+sacrifice class — and the carrier's own guard throws at MODULE LOAD rather than
+claim a cost the engine cannot charge. The row is refused at the generator now, so
+it is named in the ledger instead of shipping a module that cannot even import.
+⚠️ The first guard was too broad and took `Sacrifice two other creatures` with it,
+which is a COUNTED sacrifice D353 charges: the discriminator is the CAPITAL
+letter, because a by-name sacrifice names the CARD.
+
+### ⚠️ Invariant 14, twice in this decision's own appliers
+
+A doubled backslash halves in a heredoc, and it bit both directions: a sweep whose
+regex was spelled with escapes **would not compile at all**, and an anchor whose
+escapes halved **matched nothing** and the applier refused (the counted guard, D258,
+doing its job). Both rewritten to spell none — a character class does an escape's
+work, and a payload that needs one writes `¤`.
+
+⚠️ And a third of the same family, in a diagnostic rather than an applier:
+`cat > file` with no input redirect READS STDIN and never returns. That is the
+`node -c` hang one command over, and it cost a 300-second timeout.
+
+### Verified
+
+`node scripts/cardgen/verify.cjs --full --fuzz-shards 6` — **ALL FIVE GATES
+PASSED**: types clean · the conformance corpus green · the coverage accounting
+green over the real database · 5313 test files, 26225 passed / 11 skipped ·
+the 500-seed replay fuzz gate green over 6 shards, 841.0 s wall ·
+`npm run build` clean · probe 124/124 · battery 130/130.
+
+Re-measured: fixtures 5,678 → **5,684** (5,529 by name + 148 tokens, **no new
+token pin**) · the ladder [1290, 1379, 2955, 4684, 6022] · botPool artifact 444 /
+enchantment **459** · tier3 `silentAfter` 8,335 → **8,340** · the select pool back
+to **0** · botDeck regenerated.
+
+### Reportables
+
+- **The 8 two-line grant cards** — a grant line BESIDE an Aura ETB, a sac-draw or
+  an anthem. The grant generator carries one grant per row and the mainline row
+  maker carries everything else; what they need is ONE generator that emits both,
+  which is the largest single thing this family is waiting on.
+- **The payload arms the scaffold still cannot assert** — `destroy` and `tap` (a
+  clause fixture the grant scaffold does not stage), `payOptional` (the payMana
+  prompt, D369), and the combat-role clause, **now owed by four waves** (D350
+  named it; D375, D382 and D383 each paid).
+- **The chosen sacrifice cost** in a granted body (2 cards).
+- The 95 unread payload shapes behind the other ~200 quoted-grant cards — a tail,
+  and the vocabulary is what drains it.
+- Then D383's list unchanged: the spell-row table (21 of 43, each its own op), the
+  55 REDUNDANT hand scripts, the Circles of Protection (52) and the static
+  prevention (4), and every prior item.

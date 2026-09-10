@@ -42,6 +42,6 @@ describe('the crew seam (D311)', () => {
     expect(crewLineRuns('Crew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)')).toBe(true);
     expect(crewLineRuns('Crew 2')).toBe(true);
     expect(crewLineRuns('Crew')).toBe(false);
-    expect(primitiveFor({ text: 'Crew 3', kind: 'sentence' }, 'X')).toBe('scriptable');
+    expect(primitiveFor({ text: 'Crew 3', kind: 'sentence', raw: 'Crew 3' }, 'X')).toBe('scriptable');
   });
 });

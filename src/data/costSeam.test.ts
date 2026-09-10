@@ -56,8 +56,8 @@ describe('the cost-reduction seam (D312)', () => {
     expect(costReductionLineRuns('Affinity for artifacts')).toBe(true);
     expect(costReductionLineRuns('This spell costs {2} less to cast if you control a Zombie.')).toBe(true);
     expect(costReductionLineRuns('This spell costs {1} less to cast if a creature died this turn.')).toBe(false);
-    expect(primitiveFor({ text: 'Affinity for artifacts', kind: 'sentence' }, 'X')).toBe('scriptable');
-    expect(primitiveFor({ text: 'This spell costs {1} less to cast for each artifact you control.', kind: 'sentence' }, 'X')).toBe('scriptable');
-    expect(primitiveFor({ text: 'Affinity for tokens', kind: 'sentence' }, 'X')).toBe('keyword:altCost');
+    expect(primitiveFor({ text: 'Affinity for artifacts', kind: 'sentence', raw: 'Affinity for artifacts' }, 'X')).toBe('scriptable');
+    expect(primitiveFor({ text: 'This spell costs {1} less to cast for each artifact you control.', kind: 'sentence', raw: 'This spell costs {1} less to cast for each artifact you control.' }, 'X')).toBe('scriptable');
+    expect(primitiveFor({ text: 'Affinity for tokens', kind: 'sentence', raw: 'Affinity for tokens' }, 'X')).toBe('keyword:altCost');
   });
 });

@@ -2175,6 +2175,28 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sting-Slinger', 'cost: Blight 1'],
   ['Whirling Catapult', 'cost: Exile the top two cards of your library'],
   ['Tegwyll\'s Scouring', 'a spell with a line outside the vocabulary: You may cast this spell as though it had flash by tapping th'],
+
+  // D384 (M6.4hq) - the quoted grant: the cards the classifier widening made offerable that the row
+  // maker refused, each with the reason it gave.
+  ['Wrench', 'a grant line beside a second line this generator does not emit: Equipped creature gets +1/+1 and has vigilance and | {2}, Sacrifice this Equipme'],
+  ['Compulsory Rest', 'a grant line beside a second line this generator does not emit: Enchanted creature can\'t attack or block. | Enchanted creature has'],
+  ['Nurturing Presence', 'a grant line beside a second line this generator does not emit: Enchanted creature has | When this Aura enters, create a 1/1 white Spirit creatu'],
+  ['Pillory of the Sleepless', 'a grant line beside a second line this generator does not emit: Enchanted creature can\'t attack or block. | Enchanted creature has'],
+  ['Sticky Fingers', 'a grant line beside a second line this generator does not emit: Enchanted creature has menace and | When enchanted creature dies, draw a card.'],
+  ['Dormant Sliver', 'a grant line beside a second line this generator does not emit: All Sliver creatures have defender. | All Slivers have'],
+  ['Candlestick', 'a grant line beside a second line this generator does not emit: Equipped creature gets +1/+1 and has | {2}, Sacrifice this Equipment: Draw a car'],
+  ['Dragon Mantle', 'a grant line beside a second line this generator does not emit: When this Aura enters, draw a card. | Enchanted creature has'],
+  ['Deconstruction Hammer', 'a BY-NAME sacrifice cost the engine does not charge: {3}, {T}, Sacrifice Deconstruction Hammer'],
+  ['Lunarch Mantle', 'a CHOSEN sacrifice cost the scaffold does not stage: {1}, Sacrifice a permanent'],
+  ['Harmonic Sliver', 'a head outside the library: When this permanent enters'],
+  ['Consecrated by Blood', 'a CHOSEN sacrifice cost the scaffold does not stage: Sacrifice two other creatures'],
+  ['Quilled Sliver', 'a combat-role clause the scaffold cannot aim at: target attacking or blocking creature'],
+  ['Ninja\'s Kunai', 'a BY-NAME sacrifice cost the engine does not charge: {1}, {T}, Sacrifice Ninja\'s Kunai'],
+  ['Farmstead', 'an effect the scaffold cannot assert: payOptional'],
+  ['Leonin Bola', 'an effect the scaffold cannot assert: tap'],
+  ['Sunken Field', 'an effect the scaffold cannot assert: payOptional'],
+  ['Heartseeker', 'an effect the scaffold cannot assert: destroy'],
+  ['Trusty Boomerang', 'an effect the scaffold cannot assert: tap'],
 ]);
 
 /** Filled by `select()`: REFUSED entries whose card now runs completely. */
@@ -2305,6 +2327,11 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // cards offerable, 35 landed as rows and the other 15 are in the ledger above by name, each
     // with the reason the row maker gave. The tell is the scriptable number the other way:
     // a seam RAISES it (1,263 -> 1,313) and a wave LOWERS it.
+    // D384 - BACK TO ZERO again, and BOTH shapes in one decision (D363): the classifier learning
+    // to READ A QUOTED GRANT is the SEAM - it made 24 cards offerable where the pool had been
+    // empty, because `scrub` blanks a quoted body and every reader in `primitiveFor` was looking
+    // at the blank - and the five rows that landed are the WAVE. The other 19 are in the ledger
+    // above by name, each with the reason the row maker or the generator gave.
     // D383 - BACK TO ZERO, which is what a WAVE does: the SCOPED BOARD EFFECT made 39 cards
     // offerable, 27 landed as rows and the other 12 are in the ledger above by name, each with
     // the reason the row maker gave. ⚠️ And the ledger corrected ITSELF on the same sweep:

@@ -50,7 +50,7 @@ describe('the Cycling seam (D306)', () => {
     expect(cyclingLineRuns('Cycling {2}')).toBe(true);
     expect(cyclingLineRuns('Cycling {1}{W}')).toBe(true);
     expect(cyclingLineRuns('Basic landcycling {2}')).toBe(false);
-    expect(primitiveFor({ text: 'Cycling {2}', kind: 'sentence' }, 'X')).toBe('scriptable');
-    expect(primitiveFor({ text: 'Basic landcycling {2}', kind: 'sentence' }, 'X')).toBe('keyword:other');
+    expect(primitiveFor({ text: 'Cycling {2}', kind: 'sentence', raw: 'Cycling {2}' }, 'X')).toBe('scriptable');
+    expect(primitiveFor({ text: 'Basic landcycling {2}', kind: 'sentence', raw: 'Basic landcycling {2}' }, 'X')).toBe('keyword:other');
   });
 });

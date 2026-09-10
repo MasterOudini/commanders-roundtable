@@ -93,6 +93,18 @@ export interface UnaccountedLine {
   /** Scrubbed and trimmed — the same string `Completeness.leftover` carries. */
   readonly text: string;
   readonly kind: UnaccountedKind;
+  /**
+   * D384 - THE SAME LINE UNSCRUBBED, and the reason it is REQUIRED rather than
+   * optional. `scrub` blanks a quoted ability IN PLACE, so a line that GRANTS one
+   * reads `Enchanted creature has ` and ends at the verb - which is why the
+   * classifier has never been able to see a quoted body, and why 244 cards whose
+   * only leftover is a granted ability were never OFFERED (D354 measured the
+   * blindness; D367/D368/D372 built the carrier that runs them). Anything asking
+   * what a line MEANS reads `text`; only a reader that has to look inside a quote
+   * reads this. Required so the compiler names every construction site, the rule
+   * D355 and D356 both paid for.
+   */
+  readonly raw: string;
 }
 
 const COMPLETE: Completeness = { complete: true, leftover: [] };
@@ -436,6 +448,10 @@ export function linesUnaccounted(
   // line up with `ManaProduction.line` and with `splitAbilityLines`, both of
   // which index into the RAW text.
   const lines = scrub(rawText).split('\n');
+  // D384 - the same split over the RAW text. `scrub` blanks in place with spaces of the same
+  // length, so index i is the same line in both - the property this file's own header already
+  // relies on for `ManaProduction.line` and `splitAbilityLines`.
+  const raws = rawText.split('\n');
   const kinds = new Map(splitAbilityLines(rawText, face.isPermanent).map((l) => [l.index, l.kind]));
 
   // ⚠️ ONLY A PERMANENT'S. `parseManaProduction` reads any face with the word
@@ -541,7 +557,7 @@ export function linesUnaccounted(
           : isPrintedKeywordLine(line, printedKeywords)
             ? 'keyword'
             : 'sentence';
-    out.push({ text: line, kind });
+    out.push({ text: line, kind, raw: (raws[i] ?? text).trim() });
   }
   return out;
 }

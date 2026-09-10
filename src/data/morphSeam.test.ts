@@ -35,7 +35,7 @@ describe('the morph seam (D309)', () => {
   });
 
   test('the classifier files a mana morph scriptable and a dash morph as an alternative cost', () => {
-    const line = (text: string) => ({ text, kind: 'sentence' as const });
+    const line = (text: string) => ({ text, kind: 'sentence' as const, raw: text });
     expect(primitiveFor(line('Morph {5}{G}'), 'Woolly Loxodon')).toBe('scriptable');
     expect(primitiveFor(line('Megamorph {5}{G}'), 'Aerie Bowmasters')).toBe('scriptable');
     expect(primitiveFor(line('Morph—Discard a card.'), 'Dragon Wings')).toBe('keyword:altCost');

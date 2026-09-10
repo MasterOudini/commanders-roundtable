@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). Planeswalkers (loyalty costs) and battles are still
     // structurally out, and stay pinned at zero for the same reason the
     // enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(455);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(459);
     expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(0);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -452,9 +452,11 @@ const POOL: Record<string, number> = {
   creature: 4683,
   instant: 1085,
   sorcery: 802,
+  // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
+  // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 567,
-  artifact: 443,
-  enchantment: 455,
+  artifact: 444,
+  enchantment: 459,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

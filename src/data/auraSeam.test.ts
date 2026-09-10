@@ -28,9 +28,9 @@ describe('the Aura seam (D304)', () => {
   });
 
   test('the classifier files an enforced Enchant line as scriptable and a player one as keyword:aura', () => {
-    expect(primitiveFor({ text: 'Enchant creature', kind: 'keyword' }, 'X')).toBe('scriptable');
-    expect(primitiveFor({ text: 'Enchant creature you control', kind: 'keyword' }, 'X')).toBe('scriptable');
-    expect(primitiveFor({ text: 'Enchant player', kind: 'keyword' }, 'X')).toBe('keyword:aura');
+    expect(primitiveFor({ text: 'Enchant creature', kind: 'keyword', raw: 'Enchant creature' }, 'X')).toBe('scriptable');
+    expect(primitiveFor({ text: 'Enchant creature you control', kind: 'keyword', raw: 'Enchant creature you control' }, 'X')).toBe('scriptable');
+    expect(primitiveFor({ text: 'Enchant player', kind: 'keyword', raw: 'Enchant player' }, 'X')).toBe('keyword:aura');
   });
 
   test('the enchanted-creature shapes a row can emit', () => {

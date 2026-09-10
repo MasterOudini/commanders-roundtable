@@ -186772,6 +186772,208 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "NOXIOUS_FIELD": {
+    "scryfallId": "10c84d09-555c-472b-b445-5dd5a44cd555",
+    "oracleId": "c75ec3c6-2786-4386-b758-ac03610f2a99",
+    "name": "Noxious Field",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Noxious Field",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}: This land deals 1 damage to each creature and each player.\"",
+        "flavorText": "Ultimately, it became a three-way battle: the land attacked both armies.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Eric Peterson",
+        "imageId": "10c84d09-555c-472b-b445-5dd5a44cd555"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "pcy",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ETERNAL_THIRST": {
+    "scryfallId": "14ab1802-1756-44cf-8cf5-ca69f24875f2",
+    "oracleId": "a1b66fbf-14a3-4582-8414-53f432f96dad",
+    "name": "Eternal Thirst",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eternal Thirst",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has lifelink and \"Whenever a creature an opponent controls dies, put a +1/+1 counter on this creature.\" (Damage dealt by a creature with lifelink also causes its controller to gain that much life.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "14ab1802-1756-44cf-8cf5-ca69f24875f2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "ima",
+    "collectorNumber": "89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOT_SPRINGS": {
+    "scryfallId": "1d4fe072-81a7-424e-8d21-aaca010d5b1d",
+    "oracleId": "123880ad-7b54-4ab0-82eb-c78b12ab89a7",
+    "name": "Hot Springs",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hot Springs",
+        "manaCost": "{1}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land you control\nEnchanted land has \"{T}: Prevent the next 1 damage that would be dealt to any target this turn.\"",
+        "flavorText": "Warmth is life; heat is peace.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nicola Leonard",
+        "imageId": "1d4fe072-81a7-424e-8d21-aaca010d5b1d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "ice",
+    "collectorNumber": "248",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CEREMONIAL_KNIFE": {
+    "scryfallId": "779fa44a-444b-47fc-882b-d9da7714bd02",
+    "oracleId": "db221948-fcb9-4ef9-ae69-70266235dd04",
+    "name": "Ceremonial Knife",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ceremonial Knife",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+0 and has \"Whenever this creature deals combat damage, create a Blood token.\" (It's an artifact with \"{1}, {T}, Discard a card, Sacrifice this token: Draw a card.\")\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Antonio José Manzanedo",
+        "imageId": "779fa44a-444b-47fc-882b-d9da7714bd02"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "521",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NINJA_S_KUNAI": {
+    "scryfallId": "af6ae567-c77a-416a-b609-4df3d0dd2e18",
+    "oracleId": "fa5aefaf-432f-41d0-8e54-0e8b7bc7ba98",
+    "name": "Ninja's Kunai",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ninja's Kunai",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature has \"{1}, {T}, Sacrifice Ninja's Kunai: Ninja's Kunai deals 3 damage to any target.\"\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": "A point to pierce flesh and spirit alike.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "af6ae567-c77a-416a-b609-4df3d0dd2e18"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "252",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLOWERING_FIELD": {
+    "scryfallId": "c241fd76-f52d-48fc-864c-57caffa700f6",
+    "oracleId": "40155cfb-078a-4359-9551-9c71266d8a1c",
+    "name": "Flowering Field",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flowering Field",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}: Prevent the next 1 damage that would be dealt to any target this turn.\"",
+        "flavorText": "Some lands are soothing, and their peace can be felt in the soul.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jeff Miracola",
+        "imageId": "c241fd76-f52d-48fc-864c-57caffa700f6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "pcy",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
