@@ -27082,6 +27082,20 @@ and a gate log is a statement about a TREE. The gate was stopped (`TaskStop`) an
 restarted from the top on the settled tree, which is the standing rule and what
 D374 did when a repin was missed.
 
+⚠️⚠️ **AND THE BATTERY WENT RED AFTER THE PUSH, on a check this repo has now
+tripped THREE TIMES.** `battery-anim.cjs` greps every file under `src/` for the
+word prompt followed by a bracket, to catch a `window.prompt` call - which throws
+in Electron - and two of `moveReason.test.ts`'s TEST NAMES said exactly that. D144
+caught a test helper named that way and D147 caught another, and both times the
+answer was the same: rename the test, never the check.
+
+⚠️ **The close-out could not see it, and that is the second half.** It ran
+`npm run build`, the probe and the battery through `| tail -3`, so `set -e` was
+reading the exit code of `tail` - which always succeeds - rather than the check's.
+Three green-looking lines and a commit. Fixed in the same pass: the build reads
+`PIPESTATUS[0]`, and the probe and the battery write a log and abort on a non-zero
+exit. ⚠️ **A check whose output you pipe is a check that cannot fail your script.**
+
 **Verified: `verify.cjs --full` (sharded) - ALL FIVE GATES: 5215 files,
 25781 passed / 11 skipped · 500-seed gate, 6 shards, 835.4 s wall ·
 build clean · probe 124/124 · battery 130/130.**

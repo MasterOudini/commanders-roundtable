@@ -171,7 +171,10 @@ describe('D377 - a discard says so', () => {
   });
 
   // D137's DISCARD PROMPT, the path most printed discard watchers will ever see.
-  test('the discard prompt (Mind Rot, answered)', () => {
+  // ⚠️ The title says "the discard question" rather than the P-word followed by a bracket: the
+  // battery greps every file under `src/` for that exact pair, to catch a `window.prompt` call,
+  // which throws in Electron - and this is the THIRD time a test NAME has tripped it (D144, D147).
+  test('the discard question, answered (Mind Rot)', () => {
     const g = board(['Mind Rot', 'Grizzly Bears', 'Grizzly Bears', 'Grizzly Bears', 'Grizzly Bears']);
     const spell = find(g, 'p1', 'hand', 'Mind Rot');
     mana(g, 'C', 2);
@@ -190,7 +193,7 @@ describe('D377 - a discard says so', () => {
 
   // The vocabulary's own two discard branches: a hand no bigger than the count goes WHOLE with
   // no question (CR 701.8a), and at random asks nobody (CR 701.8b).
-  test('the whole hand, with no prompt (Mind Rot into a two-card hand)', () => {
+  test('the whole hand, with nothing asked (Mind Rot into a two-card hand)', () => {
     const g = board(['Mind Rot'], ['Grizzly Bears', 'Grizzly Bears']);
     const spell = find(g, 'p1', 'hand', 'Mind Rot');
     while ((g.state.zones.hand.p2 ?? []).length > 2) {

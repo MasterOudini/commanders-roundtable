@@ -13149,6 +13149,14 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       `src/engine/types/events.ts` while the gate's unit suite was running, so the
       gate was STOPPED and restarted from the top on the settled tree — nothing
       behavioural moved, and a gate log is a statement about a TREE.
+      ⚠️⚠️ **AND THE BATTERY WENT RED AFTER THE PUSH**, on a check this repo
+      has now tripped THREE times (D144, D147, here): `battery-anim.cjs` greps
+      `src/` for the word prompt followed by a bracket to catch a `window.prompt`
+      call, and two TEST NAMES in `moveReason.test.ts` said exactly that. Rename
+      the test, never the check. ⚠️ **And the close-out could not see it**: it
+      ran the build, the probe and the battery through `| tail -3`, so `set -e`
+      read the exit code of `tail` rather than the check. A check whose output you
+      pipe is a check that cannot fail your script.
       **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5215 files, 25781 passed / 11 skipped ·
       500-seed gate, 6 shards, 835.4 s wall · build clean · probe 124/124 ·
       battery 130/130.**
