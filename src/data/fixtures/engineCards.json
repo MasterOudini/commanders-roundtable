@@ -182059,6 +182059,453 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CAVE_TIGER": {
+    "scryfallId": "c782eb28-0cdd-4c3d-9d89-8b23c29cddd4",
+    "oracleId": "d3bac8b8-0b2a-4c67-b087-7a0bf1359468",
+    "name": "Cave Tiger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cave Tiger",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Whenever this creature becomes blocked by a creature, this creature gets +1/+1 until end of turn.",
+        "flavorText": "The druids found a haven in the cool limestone tunnels beneath Argoth. The invaders found only tigers.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Hannibal King",
+        "imageId": "c782eb28-0cdd-4c3d-9d89-8b23c29cddd4"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "241",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRIMSON_ROC": {
+    "scryfallId": "2e63836c-37af-49c1-84a1-8650ed072805",
+    "oracleId": "acc7d3b8-60f2-4f3b-9cf9-b6b39627d8f6",
+    "name": "Crimson Roc",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crimson Roc",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhenever this creature blocks a creature without flying, this creature gets +1/+0 and gains first strike until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ian Miller",
+        "imageId": "2e63836c-37af-49c1-84a1-8650ed072805"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mir",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EZURI_S_ARCHERS": {
+    "scryfallId": "32cc93af-d9a0-4ed8-8c22-686d005ea77e",
+    "oracleId": "bcaf3f32-c4e5-4d39-be98-bfc00327021b",
+    "name": "Ezuri's Archers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ezuri's Archers",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elf Archer",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nWhenever this creature blocks a creature with flying, this creature gets +3/+0 until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Shelly Wan",
+        "imageId": "32cc93af-d9a0-4ed8-8c22-686d005ea77e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "som",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HIGH_RISE_SAWJACK": {
+    "scryfallId": "2399c6d7-57f9-4100-ad64-3c8897a438f7",
+    "oracleId": "0049438b-e37e-4c57-820e-f2ddf3322170",
+    "name": "High-Rise Sawjack",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "High-Rise Sawjack",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Citizen",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nWhenever this creature blocks a creature with flying, this creature gets +2/+0 until end of turn.",
+        "flavorText": "Slicing girders, rescuing trapped workers, killing gigantic rust flies—one tool does it all!",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "2399c6d7-57f9-4100-ad64-3c8897a438f7"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "150",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NETCASTER_SPIDER": {
+    "scryfallId": "07c95074-32c8-426e-b615-8ad5427c6c1c",
+    "oracleId": "0ddb3fa0-447c-40c5-928a-541f3d543014",
+    "name": "Netcaster Spider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Netcaster Spider",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nWhenever this creature blocks a creature with flying, this creature gets +2/+0 until end of turn.",
+        "flavorText": "It is an expert at culling individuals who stray too far from the herd.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Yohann Schepacz",
+        "imageId": "07c95074-32c8-426e-b615-8ad5427c6c1c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "m20",
+    "collectorNumber": "184",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PYGMY_TROLL": {
+    "scryfallId": "7be9714d-125f-4700-879d-b920fe9f1b68",
+    "oracleId": "6f18f41e-df8d-4b59-87cc-ea167823fbda",
+    "name": "Pygmy Troll",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pygmy Troll",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Troll",
+        "oracleText": "Whenever this creature becomes blocked by a creature, this creature gets +1/+1 until end of turn.\n{G}: Regenerate this creature.",
+        "flavorText": "\"Who you callin' 'shorty'?\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daniel Gelon",
+        "imageId": "7be9714d-125f-4700-879d-b920fe9f1b68"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "exo",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RABID_WOLVERINES": {
+    "scryfallId": "99121a2b-c735-47be-b01e-cdf59809e7f3",
+    "oracleId": "ed076c39-9bfc-424a-8ce8-8572f7c0de73",
+    "name": "Rabid Wolverines",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rabid Wolverines",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Wolverine",
+        "oracleText": "Whenever this creature becomes blocked by a creature, this creature gets +1/+1 until end of turn.",
+        "flavorText": "Is there any other kind?",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "99121a2b-c735-47be-b01e-cdf59809e7f3"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "exo",
+    "collectorNumber": "119",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYSTINGER": {
+    "scryfallId": "dfea9941-3675-4c0f-bc4d-981c28deed36",
+    "oracleId": "6bb7419b-e085-4616-8e5c-4ed08cb2b4c1",
+    "name": "Skystinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skystinger",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Insect Warrior",
+        "oracleText": "Reach\nWhenever this creature blocks a creature with flying, this creature gets +5/+0 until end of turn.",
+        "flavorText": "Eumidian thermal wands protect their new home as well as thaw it.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Carlos Palma Cruchaga",
+        "imageId": "dfea9941-3675-4c0f-bc4d-981c28deed36"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "207",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SNARESPINNER": {
+    "scryfallId": "0b51c3b5-db70-4976-986d-ed3fc8584d1a",
+    "oracleId": "0f63de7b-03f2-49ad-b217-88fe9c50d68a",
+    "name": "Snarespinner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Snarespinner",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Reach\nWhenever this creature blocks a creature with flying, this creature gets +2/+0 until end of turn.",
+        "flavorText": "In the rich jungles of Yavimaya, bright colors are the perfect camouflage.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Michele Giorgi",
+        "imageId": "0b51c3b5-db70-4976-986d-ed3fc8584d1a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "179",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEL_JILAD_WOLF": {
+    "scryfallId": "ac40a1c6-88df-4f01-aa59-4ef3c6b57e75",
+    "oracleId": "e1fcab73-8a23-43ae-9d8b-9601ffa8663e",
+    "name": "Tel-Jilad Wolf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tel-Jilad Wolf",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Wolf",
+        "oracleText": "Whenever this creature becomes blocked by an artifact creature, this creature gets +3/+3 until end of turn.",
+        "flavorText": "Thanks to the wolves, Tel-Jilad is the one area of Mirrodin the myr don't see often.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "ac40a1c6-88df-4f01-aa59-4ef3c6b57e75"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dst",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIASHINO_WEAPONSMITH": {
+    "scryfallId": "def316ed-b080-4d1d-b946-d7a86ebb8ad9",
+    "oracleId": "f4d17f41-efd6-4173-ab6e-28b6fbcee10d",
+    "name": "Viashino Weaponsmith",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Viashino Weaponsmith",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Lizard",
+        "oracleText": "Whenever this creature becomes blocked by a creature, this creature gets +2/+2 until end of turn.",
+        "flavorText": "Within the rig settlement, those who have mastered the making of weapons earn highest honor.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dermot Power",
+        "imageId": "def316ed-b080-4d1d-b946-d7a86ebb8ad9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "226",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WOOLLY_SPIDER": {
+    "scryfallId": "2496a40a-1d67-44ea-900d-9c5fbd5034a7",
+    "oracleId": "811c6f52-03cb-49a9-a3c7-7f4ae40e7155",
+    "name": "Woolly Spider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Woolly Spider",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nWhenever this creature blocks a creature with flying, this creature gets +0/+2 until end of turn.",
+        "flavorText": "\"We need not fear the forces of the air; I've yet to see a spider without an appetite.\"\n—Taaveti of Kelsinko, elvish hunter",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daniel Gelon",
+        "imageId": "2496a40a-1d67-44ea-900d-9c5fbd5034a7"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "me2",
+    "collectorNumber": "189",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVEN_SKIRMISHER": {
+    "scryfallId": "05f7a3b1-4d92-4d32-a823-2e774c6e7e73",
+    "oracleId": "57d8d656-ccbd-4deb-abf1-a7fde4e7d691",
+    "name": "Aven Skirmisher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aven Skirmisher",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Bird Warrior",
+        "oracleText": "Flying",
+        "flavorText": "\"We do not hide from the dragons that pretend to rule the skies. If we did, the dragons would become our rulers, and our way of life would be lost.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "05f7a3b1-4d92-4d32-a823-2e774c6e7e73"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "frf",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

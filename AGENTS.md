@@ -12985,6 +12985,98 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       sources (convoke 14, delve 5, improvise 6); then the seam map's rest - the
       attached statics the Aura and Equipment rows cannot read (351), the bare
       keyword or ability word (206); prior items stand.
+- [x] **M6.4hi — THE FILTERED BLOCK HEADS: a block names TWO creatures, and the
+      filter is about the other one (2026-09-10):** **7,872 of 31,692
+      Commander-legal cards now execute completely, up from 7,860 (+12).**
+      `SHIPPED_SCRIPTS` 5,034 -> **5,046**; ledger 1,225 -> **1,213** (twelve
+      rows DELETED as their cards landed). Fixtures 5,540 -> **5,553**. **No
+      engine file is touched.** Decisions in **D376**.
+      ⚠️ **THE 93, GROUPED BY BASE.** D374's filter mechanism narrows a base the
+      library already holds; it cannot invent one. Ninety-three cards were left
+      in the ledger under `trigger head not in the library`, every one with NO
+      second blocker, and by the base event their head names: other 38 (32
+      distinct texts), **blocks 13 (5)**, discard or cycle 11 (6), a permanent is
+      sacrificed 11 (7), a card leaves a graveyard 10 (8), enters in filtered
+      forms 10 (7). The BLOCKS base is the densest one with a clean event, and
+      `BlockersDeclared` is already the library's event for three shipped heads.
+      ⚠️⚠️ **AND THE TWO BASES BEHIND IT ARE SEAMS, RE-MEASURED RATHER THAN
+      ASSUMED.** D177 refused the sacrifice base as a SACRIFICE-EVENT
+      DISCRIMINATOR and D230 the discard base the same way; `EventCause` still
+      carries only `rules | intent | manual | trigger | rewindCompensation` and
+      `matches` still receives the event BODY, so a "whenever you sacrifice
+      another permanent" watcher would fire on every death. Both stay refused,
+      and both are a typed cause rather than a head entry.
+      ⚠️ **A BLOCK NAMES TWO CREATURES.** The head is about the row's own and the
+      FILTER is about the other one, so D374's reader applies unchanged to the
+      other side of the block: a `blocks` head reads its conjuncts off
+      `ctx.derive(b.attacker)` with `b.blocker === self`, a `becomesBlocked` head
+      off `ctx.derive(b.blocker)` with `b.attacker === self`. The head NAME stays
+      the base's, so every list the generator keys on it keeps working. The
+      reader gained ONE word - `without <keyword>`, the negative of a qualifier
+      it already read.
+      ⚠️ **THE OTHER CREATURE IS DERIVED, AND IT HAS A JOB TO DO.** A block
+      fixture is not a card that sits still: it has to ATTACK for a `blocks` head
+      or BLOCK for a `becomesBlocked` one, so the derivation asks for power and
+      toughness at least 1 and no `defender` - and NEVER a LAND creature, because
+      Dryad Arbor is the plainest card in the database, wins every tie-break, and
+      is read by any row that counts lands. The two the format needed are Aven
+      Skirmisher (1/1 flying) and Memnite (a 1/1 colorless artifact creature,
+      which satisfies "an artifact creature", a bare creature and "a creature
+      without flying" at once). It is dealt to the OPPONENT through the `gift`
+      field the blocked-by predicate has used since D371.
+      ⚠️⚠️ **THE GIFT MUST RIDE THE ABILITY, AND THE FIRST GENERATION PROVED
+      IT.** The row maker carried the filter and not the gift, so every suite
+      attacked with the Cyclops - a 5/2 with no flying, which none of these
+      filters admits - and the trigger would have fired for nothing. Caught by
+      READING a generated suite before the port rather than by the port failing.
+      **Landed:** twelve reclaimed cards, twelve rows, 37 tests, every suite
+      green on the FIRST run and `tsc` clean on the first pass - Cave Tiger,
+      Crimson Roc, Ezuri's Archers, High-Rise Sawjack, Netcaster Spider, Pygmy
+      Troll, Rabid Wolverines, Skystinger, Snarespinner, Tel-Jilad Wolf, Viashino
+      Weaponsmith, Woolly Spider. The thirteenth blocks card stays refused:
+      Burning Sun Cavalry's head is attacks-or-blocks WHILE YOU CONTROL A
+      DINOSAUR, a condition on the board rather than a filter on the other
+      creature.
+      Fixtures 5,553 (5,398 by name + 148 tokens) · botPool artifact 441 /
+      creature 4,580 / enchantment 451 / instant 1,049 / land 566 / sorcery 785 -
+      auto 1,038 / assisted 1,905 / autoAnyFace 1,047 (a row lands a SCRIPT, so
+      no parser number moves) · ladder [1311, 1399, 2974, 4701, 6037] ·
+      `scriptableToday` 1,323 -> **1,311** · tier3 silentAfter 8,159 ->
+      **8,171** · bot reach 7,799 -> **7,811** from 225 commanders · select pool
+      0 (a reclaim lands BY NAME from the ledger, never from the selector).
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,195 files, 25,676 passed / 11 skipped ·
+      500-seed gate, 6 shards, 940.8 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D376): **the two discriminator SEAMS this decision
+      re-measured and refused** - a sacrifice base (11 head lines, D177) and a
+      discard-or-cycle base (11, D230), each needing a typed `EventCause` kind
+      rather than a head entry, and each a base D374's filter then narrows for
+      free; the graveyard-exit base (10 head lines: `whenever one or more cards
+      leave your graveyard`, `whenever a land is put into a graveyard from the
+      battlefield`); the filtered ENTERS forms the reader does not reach (10);
+      the 32-shape `other` tail (38 head lines - expend, a cycled card, an
+      activated ability of a subtype, a face-up turn, noncombat damage to an
+      opponent); Burning Sun Cavalry's board CONDITION on a combat head; then
+      the 17 filtered heads whose subject is outside the closed reader (a linked
+      memory 5, an alternatives list 3, a timing phrase, a team scope, a chosen
+      colour); the 12 trigger payloads outside both readers and the 9
+      ability-word activated lines D374 ledgered; the three hand scripts D373
+      made REDUNDANT (Deduce, Foul Play, Auspicious Arrival); the twenty
+      quoted-grant payloads D373 refused BY REASON; then the 100-card tail across
+      94 shapes; then D371's list - the 18 whose grant REDEFINES the host's base
+      P/T, the NUMBERED grant keywords, `Commander creatures you own` MEASURED AT
+      ZERO; then D370's - the X and computed payment prices (19), an effect after
+      the payment ask (9), echo (17) and cumulative upkeep (16); then `as long
+      as` (448 across 276 conditions); the granted STATIC (10), the ENTERS and
+      combat-role scaffold arms; then D365's - the counts outside the vocabulary
+      (17), the activation conditions (35), the trigger payloads outside both
+      readers (20) - and D364's snow CREATURE fixture, D363's counter KINDS and
+      NONTOKEN predicate, the keyword ENTRY REPLACEMENTS (bloodthirst 13, modular
+      7, graft 2) and CHOICES (fabricate 10, unleash 9, riot 4, devour 4, enlist
+      5, amplify 3), the block REQUIREMENT (provoke 4), the cast-time payment
+      sources (convoke 14, delve 5, improvise 6); then the seam map's rest - the
+      attached statics the Aura and Equipment rows cannot read (351), the bare
+      keyword or ability word (206); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

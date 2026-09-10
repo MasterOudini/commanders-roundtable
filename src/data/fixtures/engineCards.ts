@@ -5410,6 +5410,19 @@ export const VAGRANT_PLOWBEASTS: CardData = F.VAGRANT_PLOWBEASTS as CardData;
 export const WELDING_JAR: CardData = F.WELDING_JAR as CardData;
 export const MURDER: CardData = F.MURDER as CardData;
 export const SHATTER: CardData = F.SHATTER as CardData;
+export const CAVE_TIGER: CardData = F.CAVE_TIGER as CardData;
+export const CRIMSON_ROC: CardData = F.CRIMSON_ROC as CardData;
+export const EZURI_S_ARCHERS: CardData = F.EZURI_S_ARCHERS as CardData;
+export const HIGH_RISE_SAWJACK: CardData = F.HIGH_RISE_SAWJACK as CardData;
+export const NETCASTER_SPIDER: CardData = F.NETCASTER_SPIDER as CardData;
+export const PYGMY_TROLL: CardData = F.PYGMY_TROLL as CardData;
+export const RABID_WOLVERINES: CardData = F.RABID_WOLVERINES as CardData;
+export const SKYSTINGER: CardData = F.SKYSTINGER as CardData;
+export const SNARESPINNER: CardData = F.SNARESPINNER as CardData;
+export const TEL_JILAD_WOLF: CardData = F.TEL_JILAD_WOLF as CardData;
+export const VIASHINO_WEAPONSMITH: CardData = F.VIASHINO_WEAPONSMITH as CardData;
+export const WOOLLY_SPIDER: CardData = F.WOOLLY_SPIDER as CardData;
+export const AVEN_SKIRMISHER: CardData = F.AVEN_SKIRMISHER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -10953,6 +10966,19 @@ export const ENGINE_CARDS: CardData[] = [
   WELDING_JAR,
   MURDER,
   SHATTER,
+  CAVE_TIGER,
+  CRIMSON_ROC,
+  EZURI_S_ARCHERS,
+  HIGH_RISE_SAWJACK,
+  NETCASTER_SPIDER,
+  PYGMY_TROLL,
+  RABID_WOLVERINES,
+  SKYSTINGER,
+  SNARESPINNER,
+  TEL_JILAD_WOLF,
+  VIASHINO_WEAPONSMITH,
+  WOOLLY_SPIDER,
+  AVEN_SKIRMISHER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

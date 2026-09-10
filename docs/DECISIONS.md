@@ -26818,3 +26818,98 @@ never from the selector.
 
 **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,183 files, 25,615 passed / 11 skipped ·
 500-seed gate, 6 shards, 981.1 s wall · build clean · probe 124/124 · battery 130/130.**
+
+## D376 - M6.4hi: THE FILTERED BLOCK HEADS - a block names TWO creatures, and the filter is about the other one (2026-09-10)
+
+**7,872 of 31,692 Commander-legal cards execute completely, up from 7,860
+(+12).** `SHIPPED_SCRIPTS` 5,034 -> **5,046**; REFUSED ledger 1,225 ->
+**1,213** (twelve rows DELETED as their cards landed). Fixtures 5,540 ->
+**5,553**. `scriptableToday` 1,323 -> **1,311**. **No engine file is touched.**
+
+### The 93, grouped by base
+
+D374's filter mechanism NARROWS a base the library already holds; it cannot
+invent one. Ninety-three cards were left in the ledger under `trigger head not
+in the library`, and every one of them has NO second blocker. Grouped by the
+base event their head names:
+
+| base | head lines | distinct texts |
+|---|---|---|
+| other | 38 | 32 |
+| blocks | 13 | 5 |
+| discard / cycle | 11 | 6 |
+| a permanent is sacrificed | 11 | 7 |
+| a card leaves a graveyard | 10 | 8 |
+| enters (filtered forms) | 10 | 7 |
+
+The BLOCKS base is the densest one with a clean event - 13 head lines across
+only five texts - and `BlockersDeclared` is already the library's event for
+three shipped heads (`blocks`, `becomesBlocked`, `blocksOrBecomesBlockedBy`).
+
+⚠️⚠️ **And the two bases behind it are SEAMS, re-measured rather than assumed.**
+D177 refused the sacrifice base as a SACRIFICE-EVENT DISCRIMINATOR and D230 the
+discard base the same way. `EventCause` still carries only `rules | intent |
+manual | trigger | rewindCompensation`, and `matches` still receives the event
+BODY, so a "whenever you sacrifice another permanent" watcher would fire on
+every death. Both stay refused, and both are a TYPED CAUSE rather than a head
+entry - which is a different decision and a bigger one.
+
+### A block names two creatures
+
+    Whenever this creature blocks a creature with flying, ...
+             ^^^^^^^^^^^^ about the row's own    ^^^^^^^^^^^^^^^^^^^^ about the OTHER one
+
+So D374's reader applies unchanged, to the other side of the block. A `blocks`
+head reads its conjuncts off `ctx.derive(b.attacker)` with `b.blocker === self`;
+a `becomesBlocked` head off `ctx.derive(b.blocker)` with `b.attacker === self`.
+The head NAME stays the base's, so every list the generator keys on a head name
+keeps working - D374's own rule, one base over.
+
+The reader gained exactly one word: **`without <keyword>`**, the negative of a
+qualifier it already read, emitted as a negated conjunct.
+
+### The other creature is derived, and it has a job to do
+
+A block fixture is not a card that sits still. It has to **attack** (for a
+`blocks` head) or **block** (for a `becomesBlocked` one), so the derivation asks
+for a creature with power and toughness at least 1 and no `defender`.
+
+⚠️ **And never a LAND creature.** `Dryad Arbor` prints no rules text and costs
+nothing, so it wins every tie-break the derivation has - and a fixture that is
+also a land is read by any row that counts lands. Excluded by name of its type.
+
+The two the format needed are **Aven Skirmisher** (1/1 flying) and **Memnite**,
+a 1/1 colorless artifact creature that satisfies "an artifact creature", a bare
+creature and "a creature without flying" at once. The fixture is dealt to the
+OPPONENT through the `gift` field the blocked-by predicate has used since D371:
+one named creature on p2, attacked or blocked with by the base head's own fire
+line.
+
+⚠️⚠️ **THE GIFT MUST RIDE THE ABILITY, AND THE FIRST GENERATION PROVED IT.** The
+row maker carried the filter and not the gift, so every generated suite attacked
+with the Cyclops - a 5/2 with no flying, which none of these filters admits -
+and the trigger would have fired for nothing at all. Caught by READING a
+generated suite before the port, rather than by the port failing.
+
+### Landed
+
+**Twelve reclaimed cards, twelve rows, 37 tests, every suite green on the FIRST
+run and `tsc` clean on the first pass**, and their twelve ledger rows DELETED
+(D284/D285): Cave Tiger, Crimson Roc, Ezuri's Archers, High-Rise Sawjack,
+Netcaster Spider, Pygmy Troll, Rabid Wolverines, Skystinger, Snarespinner,
+Tel-Jilad Wolf, Viashino Weaponsmith, Woolly Spider.
+
+Seven ride `blocks a creature <filter>` and five `becomes blocked by <filter>`.
+The thirteenth blocks card stays refused: `Burning Sun Cavalry`'s head is
+attacks-or-blocks **while you control a Dinosaur**, a condition on the BOARD
+rather than a filter on the other creature.
+
+Fixtures 5,553 (5,398 by name + 148 tokens) · botPool artifact 441 / creature
+4,580 / enchantment 451 / instant 1,049 / land 566 / sorcery 785 - auto 1,038 /
+assisted 1,905 / autoAnyFace 1,047, none of which moves, because a row lands a
+SCRIPT rather than widening a parser · ladder [1311, 1399, 2974, 4701, 6037] ·
+tier3 silentAfter 8,159 -> 8,171 · bot reach 7,799 -> **7,811** from 225
+commanders · select pool 0, because a reclaim lands BY NAME from the ledger.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,195 files, 25,676 passed / 11 skipped ·
+500-seed gate, 6 shards, 940.8 s wall · build clean · probe 124/124 · battery 130/130.**

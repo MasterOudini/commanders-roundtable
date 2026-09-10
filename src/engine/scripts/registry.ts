@@ -7,6 +7,18 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CAVE_TIGER_SCRIPT } from './cards/caveTiger';
+import { CRIMSON_ROC_SCRIPT } from './cards/crimsonRoc';
+import { EZURIS_ARCHERS_SCRIPT } from './cards/ezurisArchers';
+import { HIGH_RISE_SAWJACK_SCRIPT } from './cards/highRiseSawjack';
+import { NETCASTER_SPIDER_SCRIPT } from './cards/netcasterSpider';
+import { PYGMY_TROLL_SCRIPT } from './cards/pygmyTroll';
+import { RABID_WOLVERINES_SCRIPT } from './cards/rabidWolverines';
+import { SKYSTINGER_SCRIPT } from './cards/skystinger';
+import { SNARESPINNER_SCRIPT } from './cards/snarespinner';
+import { TEL_JILAD_WOLF_SCRIPT } from './cards/telJiladWolf';
+import { VIASHINO_WEAPONSMITH_SCRIPT } from './cards/viashinoWeaponsmith';
+import { WOOLLY_SPIDER_SCRIPT } from './cards/woollySpider';
 import { CLOCKWORK_GNOMES_SCRIPT } from './cards/clockworkGnomes';
 import { FIDDLEHEAD_KAMI_SCRIPT } from './cards/fiddleheadKami';
 import { HORROR_OF_HORRORS_SCRIPT } from './cards/horrorOfHorrors';
@@ -5060,6 +5072,18 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CAVE_TIGER_SCRIPT,
+  CRIMSON_ROC_SCRIPT,
+  EZURIS_ARCHERS_SCRIPT,
+  HIGH_RISE_SAWJACK_SCRIPT,
+  NETCASTER_SPIDER_SCRIPT,
+  PYGMY_TROLL_SCRIPT,
+  RABID_WOLVERINES_SCRIPT,
+  SKYSTINGER_SCRIPT,
+  SNARESPINNER_SCRIPT,
+  TEL_JILAD_WOLF_SCRIPT,
+  VIASHINO_WEAPONSMITH_SCRIPT,
+  WOOLLY_SPIDER_SCRIPT,
   CLOCKWORK_GNOMES_SCRIPT,
   FIDDLEHEAD_KAMI_SCRIPT,
   HORROR_OF_HORRORS_SCRIPT,

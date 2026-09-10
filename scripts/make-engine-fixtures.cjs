@@ -6003,6 +6003,22 @@ const WANTED = [
   'Murder',
   'Shatter',
   // D375 - the helpers the reclaim's suites deal.
+  // D376 - the filtered block heads: the reclaimed cards.
+  'Cave Tiger',
+  'Crimson Roc',
+  "Ezuri's Archers",
+  'High-Rise Sawjack',
+  'Netcaster Spider',
+  'Pygmy Troll',
+  'Rabid Wolverines',
+  'Skystinger',
+  'Snarespinner',
+  'Tel-Jilad Wolf',
+  'Viashino Weaponsmith',
+  'Woolly Spider',
+  // D376 - the creatures the filtered block heads are blocked by, DERIVED from each filter.
+  'Aven Skirmisher',
+  // D376 - the helpers the reclaim's suites deal.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
