@@ -14,7 +14,7 @@
 import { derive, type DeriveCache } from './derive';
 import { shuffle, type RngState } from './rng';
 import type { EngineDeps } from './loop';
-import type { EventBody, ResolvedDamage } from './types/events';
+import type { EventBody, MoveReason, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
 import { SELF_AIMED, type EffectSpec } from './types/oracle';
 import type { GameState, StackObject, TargetChoice } from './types/state';
@@ -327,7 +327,9 @@ export function effectResult(
         if (!source) break;
         const inst = state.cards[source];
         if (!inst || inst.zone.kind !== 'battlefield') break;
-        out.push(moveTo(source, 'graveyard', inst.owner));
+        // D377 - the one sacrifice the VOCABULARY performs, so it carries the reason like the
+        // cost machinery's does: a watcher must not care which path sacrificed the permanent.
+        out.push(moveTo(source, 'graveyard', inst.owner, 'sacrifice'));
         break;
       }
 
@@ -607,6 +609,7 @@ export function effectResult(
               card,
               from: { kind: 'hand' as const, player: aim.id },
               to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? aim.id },
+              reason: 'discard' as const,
             })),
           });
           break;
@@ -625,6 +628,7 @@ export function effectResult(
               card,
               from: { kind: 'hand' as const, player: aim.id },
               to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? aim.id },
+              reason: 'discard' as const,
             })),
           });
           break;
@@ -780,10 +784,10 @@ function damageTo(
   };
 }
 
-function moveTo(card: InstanceId, kind: 'graveyard' | 'exile' | 'hand', player: PlayerId): EventBody {
+function moveTo(card: InstanceId, kind: 'graveyard' | 'exile' | 'hand', player: PlayerId, reason?: MoveReason): EventBody {
   return {
     t: 'CardsMoved',
-    moves: [{ card, from: { kind: 'battlefield', player: null }, to: { kind, player } }],
+    moves: [{ card, from: { kind: 'battlefield', player: null }, to: { kind, player }, ...(reason ? { reason } : {}) }],
   };
 }
 

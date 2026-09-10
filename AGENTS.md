@@ -13077,6 +13077,112 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       sources (convoke 14, delve 5, improvise 6); then the seam map's rest - the
       attached statics the Aura and Equipment rows cannot read (351), the bare
       keyword or ability word (206); prior items stand.
+- [x] **M6.4hj — THE MOVE'S REASON: the engine records WHY a card moved, and two
+      families the ledger has held since D177 land on it (2026-09-10):**
+      **7,891 of 31,692 Commander-legal cards now execute completely, up from
+      7,872 (+19).** `SHIPPED_SCRIPTS` 5,046 → **5,065**; ledger 1,213 →
+      **1,194** (nineteen rows DELETED as their cards landed, two RE-LABELLED).
+      Fixtures 5,553 → **5,573**. **Select pool 0** throughout — a Phase-1 reclaim
+      lands BY NAME from the ledger (D284/D285). Decisions in **D377**.
+      ⚠️⚠️ **A SACRIFICE AND A DISCARD LOOKED LIKE EVERY OTHER MOVE.** D376 grouped
+      the 93 heads the ledger still holds by BASE and named the two dense ones as
+      SEAMS rather than head entries — D177's SACRIFICE-EVENT DISCRIMINATOR and
+      D230's DISCARD-EVENT DISCRIMINATOR, the same missing piece seen twice. A
+      sacrifice is an ordinary battlefield-to-graveyard `CardsMoved` and a discard
+      an ordinary hand-to-graveyard one, `EventCause` carries five kinds and none
+      of them is a rules ACTION, and `TriggerDef.matches` receives the event BODY
+      rather than the `GameEvent` — so a widened cause would not have reached a def
+      at all. **`CardMove.reason` (`sacrifice | discard | cycling`) moves both
+      halves at once**: per MOVE because one `CardsMoved` is one simultaneous batch
+      and nothing says its moves share a reason, on the MOVE because `matches`
+      already receives the body. ⚠️ `cycling` is its own value rather than
+      `discard` plus a flag, because the printed heads tell them apart.
+      ⚠️ **TEN EMITTERS AND ONE TIER-3 INFERENCE.** The chosen and self sacrifice
+      costs, the mana ability's own price, the vocabulary's `sacrificeSelf`, the
+      chosen, random, prompted, whole-hand and at-random discards, and the cycling
+      cost — plus CR 701.8a: a manual hand-to-own-graveyard move IS a discard, so a
+      player applying a card by hand fires a shipped discard watcher. ⚠️ The
+      battlefield-to-graveyard move gets NOTHING and that asymmetry is the point: a
+      destroy, a sacrifice and the legend rule (CR 704.5j, expressly not a
+      sacrifice) are identical from the zones alone.
+      ⚠️⚠️ **THE FIELD IS OPTIONAL, AND D355/D356's REQUIRED-FIELD RULE HAS A
+      BOUNDARY — this is it.** Measured before choosing: **1,836 shipped card
+      modules construct a `CardsMoved` and not one of them is a sacrifice or a
+      discard**, so required would have meant writing `reason: null` into two
+      thousand generated files to say nothing. What replaces the compiler is
+      `moveReason.test.ts` — thirteen cases, one per emitter, each through a real
+      game, plus the two Tier-3 teeth — and a fuzz canary, because ⚠️ the replay
+      hash cannot vouch for this one at all: `reason` never reaches `GameState`.
+      Three floors off three self-sufficient staples (Bile Urchin sacrifices itself
+      for free, Rummaging Goblin's own cost is the discard, Lonely Sandbar cycles
+      from hand): at 60 seeds **61 sacrifices / 76 discards / 9 cyclings**.
+      ⚠️ **A HEAD IS ONLY LANDABLE IF A SUITE CAN FIRE IT.** Every sacrifice path is
+      a cost behind a def gate, so the one a generated suite can drive with nothing
+      shipped is D355's: a mana ability whose price is the permanent's own
+      sacrifice. **43 distinct cards in the format print that line** (17 lands,
+      14 artifacts, 11 creatures, 1 enchantment), and the fixture is DERIVED from the printed subject (D347/D360's shape) — Lotus Petal for a
+      permanent or an artifact, Blood Pet for a creature (its cost has NO tap, so
+      no summoning sickness), a Treasure token for a token. A Clue is refused (its
+      sacrifice pays for a DRAW, which needs a def) and so is `another creature or
+      artifact` (the closed reader has no alternation). A DISCARD needs no fixture:
+      a card off the LIBRARY TOP into the hand and straight out of it is CR
+      701.8a's own definition and takes nothing the row put down.
+      ⚠️ **A ROW WITH A SACRIFICE HEAD FIRES IT WHEN ITS OWN COST SACRIFICES.** Two
+      suites went red and neither was the seam: Body Dropper prints the head AND an
+      activated ability that sacrifices another creature, so the card genuinely
+      does both and the suite's baseline was wrong. The head's contribution rides
+      the PAYING ability now, and a head whose payload is neither a self pump nor a
+      self counter refuses the row rather than skewing an assert.
+      Fixtures 5,573 (5,418 by name + 148 tokens) · botPool artifact 441 /
+      creature 4,599 / enchantment 451 / instant 1,049 / land 566 / sorcery 785 ·
+      ladder [1292, 1380, 2955, 4682, 6018] · `scriptableToday` 1,311 → **1,292** ·
+      tier3 silentAfter 8,190 · bot reach 7,830 from 227 commanders · select
+      pool 0.
+      ⚠️ **AND THE SELF-AUDIT CAUGHT THREE FIGURES** (D374's rule, re-derived from
+      the SHIPPED reader before the close-out): the self-sacrifice mana pool was
+      counted over PRINTINGS with a looser cost pattern than the one that ships
+      (43 distinct cards, not 244); `D376 left 93 in the ledger` was what it
+      GROUPED rather than what it left (81); and the load-bearing one, `1,836
+      shipped card modules construct a CardsMoved`, had counted every module that
+      MENTIONS the event where most of them WATCH one. ⚠️ **AND A COMMENT IS AN
+      EDIT**: correcting the third of those touched a comment in
+      `src/engine/types/events.ts` while the gate's unit suite was running, so the
+      gate was STOPPED and restarted from the top on the settled tree — nothing
+      behavioural moved, and a gate log is a statement about a TREE.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5215 files, 25781 passed / 11 skipped ·
+      500-seed gate, 6 shards, 835.4 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D377): **the graveyard-exit base** (10 head lines:
+      `whenever one or more cards leave your graveyard`, `whenever a land is put
+      into a graveyard from the battlefield`) and the filtered ENTERS forms the
+      reader does not reach (10) — the two bases left in D376's grouping; the
+      32-shape `other` tail (38 head lines — expend, a cycled card, an activated
+      ability of a subtype, a face-up turn, noncombat damage to an opponent); the
+      three this decision refused BY NAME (a compound head, an alternation in a
+      filtered subject, a Clue the engine cannot spend); **a MANUAL SACRIFICE
+      tool** — a player applying a card by hand can discard and fire a watcher now
+      and cannot sacrifice, because the zones cannot tell a sacrifice from a
+      destroy, so it needs the player to say so; then the 17 filtered heads whose
+      subject is outside the closed reader (a linked memory 5, an alternatives list
+      3, a timing phrase, a team scope, a chosen colour); the 12 trigger payloads
+      outside both readers and the 9 ability-word activated lines D374 ledgered;
+      the three hand scripts D373 made REDUNDANT (Deduce, Foul Play, Auspicious
+      Arrival); the twenty quoted-grant payloads D373 refused BY REASON; then the
+      100-card tail across 94 shapes; then D371's list — the 18 whose grant
+      REDEFINES the host's base P/T, the NUMBERED grant keywords, `Commander
+      creatures you own` MEASURED AT ZERO; then D370's — the X and computed payment
+      prices (19), an effect after the payment ask (9), echo (17) and cumulative
+      upkeep (16); then `as long as` (448 across 276 conditions); the granted
+      STATIC (10), the ENTERS and combat-role scaffold arms; then D365's — the
+      counts outside the vocabulary (17), the activation conditions (35), the
+      trigger payloads outside both readers (20) — and D364's snow CREATURE
+      fixture, D363's counter KINDS and NONTOKEN predicate, the keyword ENTRY
+      REPLACEMENTS (bloodthirst 13, modular 7, graft 2) and CHOICES (fabricate 10,
+      unleash 9, riot 4, devour 4, enlist 5, amplify 3), the block REQUIREMENT
+      (provoke 4), the cast-time payment sources (convoke 14, delve 5, improvise
+      6); then the seam map's rest — the attached statics the Aura and Equipment
+      rows cannot read (351), the bare keyword or ability word (206); prior items
+      stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

@@ -6019,6 +6019,29 @@ const WANTED = [
   // D376 - the creatures the filtered block heads are blocked by, DERIVED from each filter.
   'Aven Skirmisher',
   // D376 - the helpers the reclaim's suites deal.
+  // D377 - the move-reason seam: the reclaimed cards.
+  'Abyssal Nocturnus',
+  'Bloodbriar',
+  'Body Dropper',
+  'Burdened Aerialist',
+  'Eloise, Nephalia Sleuth',
+  'Flameblade Adept',
+  'Flourishing Fox',
+  'Giant Fly',
+  'Gixian Infiltrator',
+  'Gleaming Geardrake',
+  'Grisly Survivor',
+  'Hekma Sentinels',
+  'Hobgoblin, Mantled Marauder',
+  'Horror of the Broken Lands',
+  'Pirate Peddlers',
+  'Pitiless Vizier',
+  'Prickly Marmoset',
+  'Shadowstorm Vizier',
+  'Slaughter-Priest of Mogis',
+  // D377 - the permanents the sacrifice and cycle heads fire on, DERIVED from each printed subject.
+  'Blood Pet',
+  // D377 - the helpers the reclaim suites deal.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

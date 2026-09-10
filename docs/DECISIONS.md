@@ -26913,3 +26913,175 @@ commanders · select pool 0, because a reclaim lands BY NAME from the ledger.
 
 **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5,195 files, 25,676 passed / 11 skipped ·
 500-seed gate, 6 shards, 940.8 s wall · build clean · probe 124/124 · battery 130/130.**
+
+## D377 - M6.4hj: THE MOVE'S REASON - the engine finally records WHY a card moved, and two families the ledger has held since D177 land on it (2026-09-10)
+
+**7,891 of 31,692 Commander-legal cards execute completely, up from
+7,872 (+19).** `SHIPPED_SCRIPTS` 5,046 -> **5,065**; REFUSED
+ledger 1,213 -> **1,194** (nineteen rows DELETED as their cards landed,
+two RE-LABELLED). Fixtures 5,553 -> **5,573**. `scriptableToday`
+1,311 -> **1,292**. ONE engine seam, ten emitters, one Tier-3
+inference.
+
+### What was measured, and why these two bases
+
+D376 grouped the 93 cards the ledger then held under `trigger head not in the
+library` by the base event their head names, landed twelve of them, and named the
+two dense ones of the 81 that were left as SEAMS rather than head entries. They are the same missing piece seen twice, and
+it had been named twice before: **D177** (`SACRIFICE-EVENT DISCRIMINATOR`) and
+**D230** (`DISCARD-EVENT DISCRIMINATOR`).
+
+| base | head lines | distinct texts |
+|---|---|---|
+| other | 38 | 32 |
+| **discard / cycle** | **11** | **6** |
+| **a permanent is sacrificed** | **11** | **7** |
+| a card leaves a graveyard | 10 | 8 |
+| enters (filtered forms) | 10 | 7 |
+
+A sacrifice is an ordinary battlefield-to-graveyard `CardsMoved` and a discard an
+ordinary hand-to-graveyard one, so a watcher written on the body alone fires on
+every death and on every other hand-to-graveyard move. `EventCause` carries five
+kinds and none of them is a rules ACTION; `TriggerDef.matches` receives the event
+BODY rather than the `GameEvent`, so a widened cause would not have reached a def
+at all. **Both halves had to move, and the cheapest place that moves both is the
+MOVE.**
+
+### The seam
+
+`CardMove.reason` - `'sacrifice' | 'discard' | 'cycling'`.
+
+- **Per MOVE, not per event**, because one `CardsMoved` is one simultaneous batch
+  and nothing says its moves share a reason.
+- **On the move, not on the cause**, because `matches` already receives the body,
+  so nothing else has to change.
+- **`cycling` is its own value** rather than `discard` plus a flag: a cycling
+  discard is BOTH, and the printed heads tell them apart - "Whenever you cycle or
+  discard a card" names the pair, "Whenever you cycle a card" one of them.
+
+Ten emitters fill it: the chosen sacrifice cost (D168/D353), the self-sacrifice
+cost (D159), the mana ability's own price (D355), the vocabulary's `sacrificeSelf`
+(D369), the chosen and the random discard costs (D286/D328), the discard prompt's
+answer (D137), the vocabulary's whole-hand and at-random discards, and the
+cycling cost (D306).
+
+⚠️ **AND ONE TIER-3 INFERENCE, which is the only place the ZONES can answer the
+question.** CR 701.8a says a discard IS the move from a hand to that player's
+graveyard, so a player applying a card by hand and doing exactly that has
+discarded, and a shipped discard watcher must fire for them. The
+battlefield-to-graveyard move gets NOTHING: a destroy, a sacrifice and the legend
+rule (CR 704.5j, which is expressly not a sacrifice) are identical from the zones
+alone, so inferring `sacrifice` there would fire a sacrifice trigger on every
+hand-applied death in the game. Both halves are pinned.
+
+### ⚠️⚠️ THE FIELD IS OPTIONAL, AND D355/D356'S RULE HAS A BOUNDARY
+
+D355 and D356 each made a new field REQUIRED so the compiler names every
+construction site, and both were right to: a field nothing fills is a dead seam
+`tsc` cannot see, and this file has recorded that failure three times in fourteen
+decisions. Measured here before choosing: **1,836 shipped card modules construct a
+`CardsMoved`, and not one of them is a sacrifice or a discard.** Required would
+have meant writing `reason: null` into two thousand generated files to say nothing
+at all.
+
+So the boundary is stated rather than the rule quietly dropped: **required is
+right until the downstream construction sites outnumber the emitters by three
+orders of magnitude**, and what replaces the compiler then is a test that drives
+every emitter and a canary that watches real games.
+
+`src/engine/moveReason.test.ts` does the first - thirteen cases, one per emitter,
+each through a real game, plus the two Tier-3 teeth. The fuzz gate does the
+second, and ⚠️ **the replay hash cannot vouch for this one at all**: `reason`
+never reaches `GameState` (the reducer reads the moves and moves the cards), so
+unlike D364's `poolSnow` there is nothing for 500 equal hashes to prove. Three
+counters with floors at gate size, fed by three staples chosen to be
+self-sufficient - Bile Urchin sacrifices ITSELF for free, Rummaging Goblin's own
+cost is the discard, and Lonely Sandbar cycles from hand with no board at all. At
+60 seeds: **61 sacrifices / 76 discards / 9 cyclings recorded.**
+
+### The wave: a head is only landable if a SUITE can fire it
+
+Every sacrifice path in this engine is a COST behind a def gate, so a generated
+suite cannot reach one without shipping a script first. The exception is the one
+D355 built: **a mana ability whose price is the permanent's own sacrifice.** The
+engine charges it with no def anywhere, so tapping such a permanent for mana IS a
+sacrifice the rules performed - one submit, no funding, nothing shipped.
+
+So the fixture is DERIVED from the printed subject, the way D347 derives a cost's
+fodder and D360 a search's target. Measured: **43 distinct Commander-legal cards
+print that line** - 17 lands, 14 artifacts, 11 creatures, 1 enchantment - of which
+40 are quiet enough to be a fixture at all, and the simplest one the filter admits
+is the answer.
+
+| printed subject | derived fixture |
+|---|---|
+| a permanent / another permanent / an artifact | Lotus Petal |
+| another creature | Blood Pet - and note its cost has NO tap, so no summoning sickness |
+| a token | a Treasure token, made by hand |
+| a Clue | **refused** - a Clue's sacrifice pays for a DRAW, which needs a def |
+| another creature or artifact | **refused** - the closed reader has no alternation |
+
+⚠️ A DISCARD needs no fixture at all: a card off the LIBRARY TOP into the hand and
+straight out of it is CR 701.8a's own definition of the word, it takes nothing the
+row put down (D200's trap), and the hand comes back level. A CYCLE cannot be fired
+by a discard, so those two rows deal `Lonely Sandbar` and activate its cycling.
+
+⚠️ **The head NAME is decided by what the SUITE must do, never by the verb set the
+printed line names** (D374's rule, one base over): "you cycle or discard a card"
+and "you discard a card" are ONE fire line with two different `matches`, because
+both fire on a discard; "you cycle a card" is its own, because a cycle cannot be.
+
+⚠️ **Each half of a two-verb head is proven somewhere, and not always in its own
+suite.** A `you cycle or discard` def matches both reasons and its suite fires a
+DISCARD, because that is the one submit that works for every card in the group;
+the CYCLING half is proven by `Flourishing Fox`, whose def matches `cycling`
+alone and whose suite cycles, and by the engine suite that pins the cycling cost
+as `cycling` rather than `discard`. Between them no branch is asserted by
+nothing.
+
+### ⚠️ A ROW WITH A SACRIFICE HEAD FIRES IT WHEN ITS OWN COST SACRIFICES
+
+Two suites went red and neither was the seam. `Body Dropper` prints "Whenever you
+sacrifice another creature, put a +1/+1 counter on this creature" AND "{B}{R},
+Sacrifice another creature: this creature gains menace", so the ACTIVATED
+ability's own test pays a sacrifice and the head answers it - the card genuinely
+does both, and the suite's baseline was what was wrong. The head's contribution
+now rides the PAYING ability (computed in the row maker, which asks whether the
+head's filter admits what the cost is about to eat), and a head whose payload is
+neither a self pump nor a self counter REFUSES the row rather than skewing an
+assert nobody would read twice.
+
+### What landed
+
+19 of the 22 the ledger offered - nine on the sacrifice base, ten on the discard
+and cycle bases. Three refused BY NAME, and each says where to look next: a
+compound head the library holds in no base (`When ~ enters AND whenever it deals
+combat damage to a player`), the alternation (`another creature or artifact`), and
+the Clue. ⚠️ The last two are RE-LABELLED in the ledger rather than left under
+`trigger head not in the library`, which is no longer true of either: the library
+holds both bases now, and the reason a ledger row gives is where the next decision
+starts looking (D365).
+
+### ⚠️ The self-audit, and what it caught
+
+Every measured figure was re-derived from the SHIPPED reader before the close-out
+(D374's rule), and three were wrong. The self-sacrifice mana pool was counted over
+PRINTINGS with a looser cost pattern than the one that shipped - **43 distinct
+cards, not 244**. `D376 left 93 in the ledger` was the number it GROUPED, not the
+number it left - **81**. And the load-bearing one: `1,997 shipped card modules
+construct a CardsMoved` counted every module that MENTIONS the event, and most of
+those WATCH one - **1,836 emit it**. That last figure is what says D355/D356's
+required-field rule cannot apply here, so it is exactly the one that most needed
+measuring twice; it is still an order of magnitude past the ten emitters, and the
+argument stands, but standing is not a reason to have quoted it wrong.
+
+⚠️ **AND ONE PROCESS TRAP: A COMMENT IS AN EDIT.** The third correction changed a
+number inside a comment in `src/engine/types/events.ts` while the gate's unit
+suite was running. Nothing behavioural moved and no assertion could have read it -
+and a gate log is a statement about a TREE. The gate was stopped (`TaskStop`) and
+restarted from the top on the settled tree, which is the standing rule and what
+D374 did when a repin was missed.
+
+**Verified: `verify.cjs --full` (sharded) - ALL FIVE GATES: 5215 files,
+25781 passed / 11 skipped · 500-seed gate, 6 shards, 835.4 s wall ·
+build clean · probe 124/124 · battery 130/130.**

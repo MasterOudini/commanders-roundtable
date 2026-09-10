@@ -64,7 +64,46 @@ export interface CardMove {
    * face belongs on it — exactly as `faceDown` already does.
    */
   readonly faceIndex?: number;
+  /**
+   * WHY this card moved, when the rules know a reason a card can watch for.
+   * `undefined` for every ordinary move - a destroy, a bounce, a draw, a token
+   * ceasing, a reanimation, a search - and set only where a rule performed one
+   * of the three CR actions a printed trigger names by verb (D377):
+   *
+   * - `sacrifice` - CR 701.17, a permanent its controller sacrificed
+   * - `discard`   - CR 701.8a, a card moved from its owner's hand to their graveyard
+   * - `cycling`   - CR 702.29a, the discard that IS the cycling cost
+   *
+   * A cycling discard is BOTH a cycle and a discard, and the printed heads tell
+   * them apart ("Whenever you cycle or discard a card" names both; "Whenever you
+   * cycle a card" names one), so it carries its own value rather than `discard`
+   * plus a flag.
+   *
+   * ⚠️ **IT RIDES ON THE MOVE, not on the cause.** `EventCause` has five kinds
+   * and none of them is a rules ACTION (D177, D230): a sacrifice is an ordinary
+   * battlefield-to-graveyard `CardsMoved` and a discard an ordinary
+   * hand-to-graveyard one, so a watcher written on the body alone fires on every
+   * death and every other hand-to-graveyard move. And `TriggerDef.matches`
+   * receives the event BODY rather than the `GameEvent`, so a widened cause would
+   * not reach a def at all. Per-MOVE rather than per-EVENT because one
+   * `CardsMoved` is one simultaneous batch and nothing says its moves share a
+   * reason.
+   *
+   * ⚠️ **AND IT IS OPTIONAL, WHERE D355 AND D356 MADE THEIR FIELDS REQUIRED.**
+   * That rule exists because a field nothing fills is a dead seam `tsc` cannot
+   * see - and it has a boundary, which is this: 1,836 shipped card modules
+   * construct a `CardsMoved`, and not one of them is a sacrifice or a discard, so
+   * required would mean writing `reason: null` into two thousand generated files
+   * to say nothing. What keeps it honest instead is `moveReason.test.ts`, which
+   * drives every emitter that must fill it, plus a fuzz canary with a floor
+   * (D364's answer for `poolSnow`, whose state hash would otherwise have replayed
+   * an empty value for ever).
+   */
+  readonly reason?: MoveReason;
 }
+
+/** See `CardMove.reason`. */
+export type MoveReason = 'sacrifice' | 'discard' | 'cycling';
 
 export interface ResolvedDamage {
   readonly source: InstanceId;

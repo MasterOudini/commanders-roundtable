@@ -63,12 +63,23 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
       const card = state.cards[intent.card];
       if (!card) return reject('noSuchCard', 'That card is not in the game.');
       const to: ZoneRef = { kind: intent.to.kind, player: intent.to.player };
+      // D377 - THE ONE TIER-3 MOVE WHOSE REASON THE RULES CAN READ OFF THE ZONES. CR 701.8a says
+      // a discard IS the move from a hand to that player's graveyard, so a player applying a card
+      // by hand and doing exactly that has discarded, and a shipped discard watcher must fire.
+      // ⚠️ The battlefield-to-graveyard move gets NOTHING, and that asymmetry is the point: a
+      // destroy, a sacrifice and the legend rule (CR 704.5j, which is expressly not a sacrifice)
+      // all look identical from the zones alone, so inferring `sacrifice` there would fire a
+      // sacrifice trigger on every hand-applied death. A manual sacrifice needs the player to say
+      // so, which is a tool this decision does not build.
+      const isDiscard =
+        card.zone.kind === 'hand' && to.kind === 'graveyard' && card.zone.player === intent.player && to.player === card.owner;
       const move: CardMove = {
         card: intent.card,
         from: card.zone,
         to,
         ...(intent.placement !== undefined ? { placement: intent.placement } : {}),
         ...(intent.faceDown !== undefined ? { faceDown: intent.faceDown } : {}),
+        ...(isDiscard ? { reason: 'discard' as const } : {}),
       };
       const name = nameOf(state, deps, intent.card);
       return accept([

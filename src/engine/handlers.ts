@@ -1555,7 +1555,10 @@ function finishAbility(
   if (ability.sacrificeCost && pending.sacrifice && pending.sacrifice.length > 0) {
     // D353 - N permanents in ONE `CardsMoved`, so every death is simultaneous and the
     // dies-triggers see one batch, exactly as a wipe does.
-    const moves: { card: InstanceId; from: { kind: 'battlefield'; player: PlayerId }; to: { kind: 'graveyard'; player: PlayerId } }[] = [];
+    // D377 - `reason: 'sacrifice'` is what tells a watcher this death was a sacrifice: the move
+    // itself is an ordinary battlefield-to-graveyard `CardsMoved`, which is exactly why D177
+    // refused the family for want of a discriminator.
+    const moves: { card: InstanceId; from: { kind: 'battlefield'; player: PlayerId }; to: { kind: 'graveyard'; player: PlayerId }; reason: 'sacrifice' }[] = [];
     let chosen = state.cards[pending.sacrifice[0] as InstanceId];
     for (const id of pending.sacrifice) {
       const inst = state.cards[id];
@@ -1563,7 +1566,7 @@ function finishAbility(
         return reject('noSuchCard', 'A permanent chosen for the sacrifice is not on the battlefield.');
       }
       chosen = inst;
-      moves.push({ card: id, from: { kind: 'battlefield', player: inst.controller }, to: { kind: 'graveyard', player: inst.owner } });
+      moves.push({ card: id, from: { kind: 'battlefield', player: inst.controller }, to: { kind: 'graveyard', player: inst.owner }, reason: 'sacrifice' });
     }
     events.push({ t: 'CardsMoved', moves });
     // The line names WHAT DIED, not the source — "You sacrifice Grizzly
@@ -1595,11 +1598,11 @@ function finishAbility(
     if (held.length < ability.discardCost.count) return reject('cannotAfford', `You cannot pay ${ability.costText} for ${face.name}.`);
     const drawn = shuffle(state.rng, held);
     rngAfter = drawn.next;
-    const moves: { card: InstanceId; from: { kind: 'hand'; player: PlayerId }; to: { kind: 'graveyard'; player: PlayerId } }[] = [];
+    const moves: { card: InstanceId; from: { kind: 'hand'; player: PlayerId }; to: { kind: 'graveyard'; player: PlayerId }; reason: 'discard' }[] = [];
     for (const chosen of drawn.value.slice(0, ability.discardCost.count)) {
       const inst = state.cards[chosen];
       if (!inst) return reject('noSuchCard', 'A card in your hand is not in the game.');
-      moves.push({ card: chosen, from: { kind: 'hand', player: pending.player }, to: { kind: 'graveyard', player: inst.owner } });
+      moves.push({ card: chosen, from: { kind: 'hand', player: pending.player }, to: { kind: 'graveyard', player: inst.owner }, reason: 'discard' });
     }
     events.push({ t: 'CardsMoved', moves });
     events.push(
@@ -1611,13 +1614,13 @@ function finishAbility(
     );
   }
   if (ability.discardCost && !ability.discardCost.atRandom && pending.discard && pending.discard.length > 0) {
-    const moves: { card: InstanceId; from: { kind: 'hand'; player: PlayerId }; to: { kind: 'graveyard'; player: PlayerId } }[] = [];
+    const moves: { card: InstanceId; from: { kind: 'hand'; player: PlayerId }; to: { kind: 'graveyard'; player: PlayerId }; reason: 'discard' }[] = [];
     for (const chosen of pending.discard) {
       const inst = state.cards[chosen];
       if (!inst || inst.zone.kind !== 'hand' || inst.zone.player !== pending.player) {
         return reject('noSuchCard', 'A card chosen for the discard is no longer in your hand.');
       }
-      moves.push({ card: chosen, from: { kind: 'hand', player: pending.player }, to: { kind: 'graveyard', player: inst.owner } });
+      moves.push({ card: chosen, from: { kind: 'hand', player: pending.player }, to: { kind: 'graveyard', player: inst.owner }, reason: 'discard' });
     }
     events.push({ t: 'CardsMoved', moves });
     events.push(
@@ -1656,7 +1659,10 @@ function finishAbility(
     }
     events.push({
       t: 'CardsMoved',
-      moves: [{ card: pending.card, from: { kind: 'hand', player: pending.player }, to: { kind: 'graveyard', player: src.owner } }],
+      // D377 - `cycling`, never `discard`: a cycling discard IS both, and the printed heads tell
+      // them apart ("Whenever you cycle or discard a card" names both, "Whenever you cycle a card"
+      // one), so the head reads the pair rather than the move carrying a second flag.
+      moves: [{ card: pending.card, from: { kind: 'hand', player: pending.player }, to: { kind: 'graveyard', player: src.owner }, reason: 'cycling' }],
     });
     events.push(
       narrated(
@@ -1772,6 +1778,7 @@ function finishAbility(
           card: pending.card,
           from: { kind: 'battlefield', player: pending.player },
           to: { kind: 'graveyard', player: src.owner },
+          reason: 'sacrifice',
         },
       ],
     });
@@ -2060,7 +2067,7 @@ function tapForMana(
     if (me) events.push({ t: 'LifeChanged', player: intent.player, delta: -extra.life, to: me.life - extra.life });
   }
   if (source.extraCost?.sacrificeSelf && card) {
-    events.push({ t: 'CardsMoved', moves: [{ card: intent.card, from: { kind: 'battlefield', player: card.controller }, to: { kind: 'graveyard', player: card.owner } }] });
+    events.push({ t: 'CardsMoved', moves: [{ card: intent.card, from: { kind: 'battlefield', player: card.controller }, to: { kind: 'graveyard', player: card.owner }, reason: 'sacrifice' }] });
   }
   // D364 - THE ONE SITE THAT DECIDES WHETHER `{S}` CAN EVER BE PAID: a permanent with
   // the Snow supertype makes snow mana, read DERIVED (a permanent can be made snow).
@@ -2940,10 +2947,13 @@ function answerChooseFromZone(
     if (!hand.includes(card)) return reject('wrongZone', 'That card is not in your hand.');
   }
 
+  // D377 - the DISCARD PROMPT's answer (D137). This is the path a spell that says "discard two
+  // cards" takes, so it is the one most printed discard watchers will ever see.
   const moves = intent.cards.map((card) => ({
     card,
     from: { kind: 'hand' as const, player: intent.player },
     to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? intent.player },
+    reason: 'discard' as const,
   }));
   return accept([
     { t: 'AwaitingSet', awaiting: null },

@@ -168,6 +168,18 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // makes the canary self-sufficient at any pool size.
   { names: ['Barbed Sliver'], copiesPerSeat: 2,
     counterKeys: ['selfAimedResolved'], rotHistory: 'D373' },
+  // D377 - THE MOVE'S REASON. `reason` never reaches `GameState` (the reducer reads the moves and
+  // moves the cards), so unlike D364's `poolSnow` the replay hash cannot vouch for it at all: what
+  // these three prove is that REAL GAMES produce the three reasons a printed head watches for,
+  // where `moveReason.test.ts` proves each emitter on a staged board. One staple per verb, each
+  // self-sufficient: Bile Urchin sacrifices ITSELF for free, Rummaging Goblin's own cost is the
+  // discard, and Lonely Sandbar cycles from hand with no board at all.
+  { names: ['Bile Urchin'], copiesPerSeat: 2,
+    counterKeys: ['sacrificesRecorded'], rotHistory: 'D377' },
+  { names: ['Rummaging Goblin'], copiesPerSeat: 2,
+    counterKeys: ['discardsRecorded'], rotHistory: 'D377' },
+  { names: ['Lonely Sandbar'], copiesPerSeat: 2,
+    counterKeys: ['cyclingsRecorded'], rotHistory: 'D377' },
 ];
 
 /** What every seat is GUARANTEED to hold of the staples, weights applied. */
@@ -698,12 +710,26 @@ interface Run {
   readonly grantedManaMade: number;
   /** D373 - a granted ability's payload that landed on its own SOURCE (the recipient). */
   readonly selfAimedResolved: number;
+  /** D377 - moves the rules recorded a reason on: a sacrifice, a discard, a cycling discard. */
+  readonly sacrificesRecorded: number;
+  readonly discardsRecorded: number;
+  readonly cyclingsRecorded: number;
   /** Library searches raised by a resolving effect (D357). */
   readonly librarySearches: number;
   /** Modes chosen for a spell, an activation or a trigger (D343). */
   readonly modeChoices: number;
   /** Permanents that entered as a face other than the front one (CR 712). */
   readonly backFacesPlayed: number;
+}
+
+/** D377 - every move in the log the rules gave `reason`, counted per MOVE. */
+function countMoves(game: Game, reason: 'sacrifice' | 'discard' | 'cycling'): number {
+  let n = 0;
+  for (const e of game.log) {
+    if (e.body.t !== 'CardsMoved') continue;
+    for (const m of e.body.moves) if (m.reason === reason) n += 1;
+  }
+  return n;
 }
 
 function runOne(seed: number): Run {
@@ -865,6 +891,11 @@ function runOne(seed: number): Run {
     // D364 - mana a SNOW SOURCE made. Counted off the event rather than off the pool,
     // because a pool is emptied at every step boundary and the making is the fact.
     snowManaMade: game.log.filter((e) => e.body.t === 'ManaAdded' && e.body.snow).length,
+    // D377 - the three rules ACTIONS the move records. Counted per MOVE rather than per event,
+    // because one batch is one simultaneous sacrifice of N permanents and each is its own.
+    sacrificesRecorded: countMoves(game, 'sacrifice'),
+    discardsRecorded: countMoves(game, 'discard'),
+    cyclingsRecorded: countMoves(game, 'cycling'),
     // D372 - mana made by a permanent whose PRINTED face has no mana ability: a GRANTED one.
     // Read off the event and the oracle face, never off the pool. A spell that makes mana
     // (a ritual) is not a permanent, so the type-line check keeps it out.
@@ -1047,6 +1078,9 @@ const TOTAL_KEYS = [
   'snowManaMade',
   'grantedManaMade',
   'selfAimedResolved',
+  'sacrificesRecorded',
+  'discardsRecorded',
+  'cyclingsRecorded',
   'librarySearches',
   'modeChoices',
   'entersDeclined',
@@ -1252,6 +1286,12 @@ function assertFloors(totals: Totals, seeds: number): void {
       // D373 - at gate size only: two Barbed Slivers a seat, each inside its own scope, and a
       // self-aimed payload is proven only by a mark that actually landed on the recipient.
       if (seeds >= 500) expect(totals.selfAimedResolved).toBeGreaterThan(0);
+      // D377 - at gate size only: the three rules ACTIONS a printed head names by verb. A move
+      // with no reason is indistinguishable from a move whose reason nothing set, so the only
+      // honest proof is that real games recorded all three.
+      if (seeds >= 500) expect(totals.sacrificesRecorded).toBeGreaterThan(0);
+      if (seeds >= 500) expect(totals.discardsRecorded).toBeGreaterThan(0);
+      if (seeds >= 500) expect(totals.cyclingsRecorded).toBeGreaterThan(0);
       // ⚠️ THE MODAL CANARY (D343): Crushing Canopy is a staple in every pool and
       // is offered whenever a flyer or an enchantment stands, so at gate size a
       // mode must have been chosen somewhere.
@@ -1286,6 +1326,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.snowManaMade} mana made by a snow source · ` +
           `${totals.grantedManaMade} by a granted mana ability · ` +
           `${totals.selfAimedResolved} granted payloads that hit their own source · ` +
+          `${totals.sacrificesRecorded} sacrifices / ${totals.discardsRecorded} discards / ${totals.cyclingsRecorded} cyclings recorded · ` +
           `${totals.paymentsPaid} payments made / ${totals.paymentsDeclined} declined`,
       );
 

@@ -7,6 +7,25 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ABYSSAL_NOCTURNUS_SCRIPT } from './cards/abyssalNocturnus';
+import { BLOODBRIAR_SCRIPT } from './cards/bloodbriar';
+import { BODY_DROPPER_SCRIPT } from './cards/bodyDropper';
+import { BURDENED_AERIALIST_SCRIPT } from './cards/burdenedAerialist';
+import { ELOISE_NEPHALIA_SLEUTH_SCRIPT } from './cards/eloiseNephaliaSleuth';
+import { FLAMEBLADE_ADEPT_SCRIPT } from './cards/flamebladeAdept';
+import { FLOURISHING_FOX_SCRIPT } from './cards/flourishingFox';
+import { GIANT_FLY_SCRIPT } from './cards/giantFly';
+import { GIXIAN_INFILTRATOR_SCRIPT } from './cards/gixianInfiltrator';
+import { GLEAMING_GEARDRAKE_SCRIPT } from './cards/gleamingGeardrake';
+import { GRISLY_SURVIVOR_SCRIPT } from './cards/grislySurvivor';
+import { HEKMA_SENTINELS_SCRIPT } from './cards/hekmaSentinels';
+import { HOBGOBLIN_MANTLED_MARAUDER_SCRIPT } from './cards/hobgoblinMantledMarauder';
+import { HORROR_OF_THE_BROKEN_LANDS_SCRIPT } from './cards/horrorOfTheBrokenLands';
+import { PIRATE_PEDDLERS_SCRIPT } from './cards/piratePeddlers';
+import { PITILESS_VIZIER_SCRIPT } from './cards/pitilessVizier';
+import { PRICKLY_MARMOSET_SCRIPT } from './cards/pricklyMarmoset';
+import { SHADOWSTORM_VIZIER_SCRIPT } from './cards/shadowstormVizier';
+import { SLAUGHTER_PRIEST_OF_MOGIS_SCRIPT } from './cards/slaughterPriestOfMogis';
 import { CAVE_TIGER_SCRIPT } from './cards/caveTiger';
 import { CRIMSON_ROC_SCRIPT } from './cards/crimsonRoc';
 import { EZURIS_ARCHERS_SCRIPT } from './cards/ezurisArchers';
@@ -5072,6 +5091,25 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ABYSSAL_NOCTURNUS_SCRIPT,
+  BLOODBRIAR_SCRIPT,
+  BODY_DROPPER_SCRIPT,
+  BURDENED_AERIALIST_SCRIPT,
+  ELOISE_NEPHALIA_SLEUTH_SCRIPT,
+  FLAMEBLADE_ADEPT_SCRIPT,
+  FLOURISHING_FOX_SCRIPT,
+  GIANT_FLY_SCRIPT,
+  GIXIAN_INFILTRATOR_SCRIPT,
+  GLEAMING_GEARDRAKE_SCRIPT,
+  GRISLY_SURVIVOR_SCRIPT,
+  HEKMA_SENTINELS_SCRIPT,
+  HOBGOBLIN_MANTLED_MARAUDER_SCRIPT,
+  HORROR_OF_THE_BROKEN_LANDS_SCRIPT,
+  PIRATE_PEDDLERS_SCRIPT,
+  PITILESS_VIZIER_SCRIPT,
+  PRICKLY_MARMOSET_SCRIPT,
+  SHADOWSTORM_VIZIER_SCRIPT,
+  SLAUGHTER_PRIEST_OF_MOGIS_SCRIPT,
   CAVE_TIGER_SCRIPT,
   CRIMSON_ROC_SCRIPT,
   EZURIS_ARCHERS_SCRIPT,
