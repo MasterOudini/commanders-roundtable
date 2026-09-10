@@ -183515,6 +183515,342 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "AVEN_FARSEER": {
+    "scryfallId": "47854e89-4d22-4eb6-a77d-6f04407bd2e5",
+    "oracleId": "4591e1e5-5cac-4812-80e0-67c1237862d3",
+    "name": "Aven Farseer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aven Farseer",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Bird Soldier",
+        "oracleText": "Flying\nWhenever a permanent is turned face up, put a +1/+1 counter on this creature.",
+        "flavorText": "His enemies' trickery and deceit only fuel his righteous anger.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Luca Zontini",
+        "imageId": "47854e89-4d22-4eb6-a77d-6f04407bd2e5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "scg",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLAMING_FIST_OFFICER": {
+    "scryfallId": "98722a04-0674-4083-b6f5-51bb88a99814",
+    "oracleId": "bf06b2a8-2bb5-4eae-8306-d051c5d9f462",
+    "name": "Flaming Fist Officer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flaming Fist Officer",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Gnome Soldier",
+        "oracleText": "Whenever another creature you control leaves the battlefield, put a +1/+1 counter on this creature.",
+        "flavorText": "\"Get the remaining citizens to safety! These miscreants have an appointment with my spear.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Darek Zabrocki",
+        "imageId": "98722a04-0674-4083-b6f5-51bb88a99814"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLEETING_AVEN": {
+    "scryfallId": "246a2758-0096-43b9-8193-d6ae5b41b6e6",
+    "oracleId": "7215b1d9-eb8b-41bc-a7e2-1930d9cd5365",
+    "name": "Fleeting Aven",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fleeting Aven",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Creature — Bird Wizard",
+        "oracleText": "Flying\nWhenever a player cycles a card, return this creature to its owner's hand.",
+        "flavorText": "\"Don't become so enthralled with magic that you forget you can fly without it.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Iain McCaig",
+        "imageId": "246a2758-0096-43b9-8193-d6ae5b41b6e6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIDEON_S_AVENGER": {
+    "scryfallId": "bb0a0d33-8862-433b-a078-82472e5f9af0",
+    "oracleId": "5ca79852-d90d-47b0-8427-4da90779e205",
+    "name": "Gideon's Avenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gideon's Avenger",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Whenever a creature an opponent controls becomes tapped, put a +1/+1 counter on this creature.",
+        "flavorText": "\"The good don't sit and wait for the evil to act. They prepare to defend. They prepare to punish.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "bb0a0d33-8862-433b-a078-82472e5f9af0"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m12",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NINTH_BRIDGE_PATROL": {
+    "scryfallId": "10a22cf8-4441-48ab-8adc-ae071cbc5999",
+    "oracleId": "21ad3d41-54e9-48f9-b150-be65f52ae464",
+    "name": "Ninth Bridge Patrol",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ninth Bridge Patrol",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Dwarf Soldier",
+        "oracleText": "Whenever another creature you control leaves the battlefield, put a +1/+1 counter on this creature.",
+        "flavorText": "The Consulate keeps watch at each of the eleven bridges to ensure that the market remains a haven for commerce, not for con artists.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ryan Alexander Lee",
+        "imageId": "10a22cf8-4441-48ab-8adc-ae071cbc5999"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STOIC_CHAMPION": {
+    "scryfallId": "6b69d619-c31b-472b-9ae8-d4503704680d",
+    "oracleId": "1203a80f-11ac-46ed-aa2a-5a6782b6303d",
+    "name": "Stoic Champion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stoic Champion",
+        "manaCost": "{W}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Whenever a player cycles a card, this creature gets +2/+2 until end of turn.",
+        "flavorText": "His outer calm belies his inner fury.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Greg Hildebrandt",
+        "imageId": "6b69d619-c31b-472b-9ae8-d4503704680d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "lgn",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUPER_SHREDDER": {
+    "scryfallId": "37a497b8-e908-4ddc-996e-a8470df72afb",
+    "oracleId": "b7ee76bf-d15a-489e-8f05-414788f8f649",
+    "name": "Super Shredder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Super Shredder",
+        "manaCost": "{1}{B}",
+        "typeLine": "Legendary Creature — Mutant Ninja Human",
+        "oracleText": "Menace\nWhenever another permanent leaves the battlefield, put a +1/+1 counter on Super Shredder.",
+        "flavorText": "\"I have molded myself into perfection, Hamato. Look upon me, and know fear.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Néstor Ossandón Leal",
+        "imageId": "37a497b8-e908-4ddc-996e-a8470df72afb"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VENGEFUL_TOWNSFOLK": {
+    "scryfallId": "2df404af-571a-4867-83f5-bb4163b433ff",
+    "oracleId": "c649d5ae-2f38-4737-8123-8069a2ba0bde",
+    "name": "Vengeful Townsfolk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vengeful Townsfolk",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Citizen",
+        "oracleText": "Whenever one or more other creatures you control die, put a +1/+1 counter on this creature.",
+        "flavorText": "\"The Sterling Company says they protect us, but where are they when the Hellspurs burn half the town? Counting their vaults!\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Irina Nordsol",
+        "imageId": "2df404af-571a-4867-83f5-bb4163b433ff"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAKE_THRASHER": {
+    "scryfallId": "606ffebe-1b17-4770-ab0c-f57ae549fc3f",
+    "oracleId": "f2d1e991-e13a-43c7-85aa-d53dd14822e6",
+    "name": "Wake Thrasher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wake Thrasher",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Merfolk Soldier",
+        "oracleText": "Whenever a permanent you control becomes untapped, this creature gets +1/+1 until end of turn.",
+        "flavorText": "Anyone who thinks merrows have more brains than brawn has never been run over by one.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "606ffebe-1b17-4770-ab0c-f57ae549fc3f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "369",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WARPED_RESEARCHER": {
+    "scryfallId": "5df94a4e-1371-4b75-a557-eeb83c23cf9d",
+    "oracleId": "069862f9-f051-40cc-84f2-c0208873a34c",
+    "name": "Warped Researcher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Warped Researcher",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Human Wizard Mutant",
+        "oracleText": "Whenever a player cycles a card, this creature gains flying and shroud until end of turn. (It can't be the target of spells or abilities.)",
+        "flavorText": "New insights yield new senses.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "rk post",
+        "imageId": "5df94a4e-1371-4b75-a557-eeb83c23cf9d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "lgn",
+    "collectorNumber": "56",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

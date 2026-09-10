@@ -27186,3 +27186,138 @@ the label is still true of it: `Ultron's Auxiliary` prints TWO heads joined by a
 **Verified: `verify.cjs --full` (sharded) - ALL FIVE GATES: 5224 files,
 25821 passed / 11 skipped · 500-seed gate, 6 shards, 768.3 s wall ·
 build clean · probe 124/124 · battery 130/130.**
+
+## D379 - M6.4hl: THE BASES THE LIBRARY HELD ONLY AS SELF - four heads whose whole gap was a `=== self` check (2026-09-10)
+
+**7,910 of 31,692 Commander-legal cards execute completely, up from 7,900 (+10).**
+`SHIPPED_SCRIPTS` 5,074 -> **5,084**; REFUSED ledger 1,185 -> **1,175** (ten rows
+DELETED as their cards landed, seven RELABELLED). Fixtures 5,582 -> **5,592**.
+`scriptableToday` 1,283 -> **1,273**. **No engine file is touched.**
+
+### Measured first, and reading the group by CARD is what changed the decision
+
+D378 left 51 cards under `trigger head not in the library`, and grouping them by
+the BASE event their head names put 38 head lines across 32 distinct texts in an
+`other` tail - which reads as a long tail no library can finish. Read card by
+card instead, **ten of the 51 print a head whose EVENT the engine has emitted
+since M3 and whose base the library holds only in its SELF form**:
+
+    When this creature leaves the battlefield, ...
+    When this creature is turned face up, ...
+    When this creature becomes tapped / becomes untapped, ...
+
+A printed line about any OTHER permanent could not reach one of them however
+plain its filter was, because the library's matcher asks `=== self`. That is
+D374's filter mechanism one base family over - what D376 did for the two block
+bases and D378 for the two graveyard ones.
+
+### The four bases, and the two smaller widenings beside them
+
+- **leaves the battlefield** - a `CardsMoved` whose `from` is the battlefield and
+  whose `to` is not. ⚠️ The permanent has GONE, so the head declares `looksBack`
+  for D377's own reason: after the move `clearBattlefieldFields` has reset its
+  controller to its OWNER (D264). Before the move it is still ON the battlefield,
+  so - unlike D378's graveyard exit, which had to read the ORACLE face (D171) -
+  the filter may read `derive` in full.
+- **becomes tapped / becomes untapped** - `PermanentsTapped` and
+  `PermanentsUntapped` name the permanents outright, so the filter is asked of
+  each of them and nothing looks back.
+- **turned face up** - `FaceDownSet` carries one card; dropping the `=== self`
+  check is the whole widening.
+- **a player cycles a card** - the discard base's caster list gains a third entry
+  beside `you` and `an opponent`.
+- **the PLURAL dies form** - `whenever one or more other creatures you control
+  die` is the same base under a wording the singular regex could not reach, and
+  the subject reader gained the determiner `other` and a plural with no
+  determiner at all.
+
+### ⚠️ THE PROOF MUST FIRE ON ANOTHER PERMANENT, OR THE WIDENING IS UNTESTED
+
+Every one of these bases is reached by DROPPING a check, so a suite that fired
+the trigger on the row's own card would pass with the check still in place -
+D128's green tick over nothing, in the one shape this decision could take.
+
+- The tap, the untap and the face-up turn each act on a FIXTURE the arm put down
+  before the baselines, never on `self`.
+- **`a player cycles a card` is fired by the OPPONENT, on their own turn.** p1's
+  own cycle satisfies `you cycle` as well, so a p1 fire would prove the def works
+  and say nothing at all about the widening.
+- The leaves fire moves its fixture to **EXILE rather than to a graveyard**,
+  because a death is the ONE exit the `dies` head already catches: proving this
+  base on a death would prove nothing it does not share with that one.
+
+### ⚠️ Refused by name, each with its reason
+
+- **`without dying` (1 card, Imperial Cosmographer)** - the destination filter is
+  the whole card (D259's words): a bounce, an exile and a library tuck all pay,
+  dying pays NOTHING. Proving that needs a fire that moves a permanent to a
+  graveyard and asserts nothing happened, which this arm does not have.
+- **a TOKEN subject (1 card, Twilight Drover)** - the suite must MAKE the token
+  before it can take it away.
+- **the COMPOUND head (5 cards)** - two heads joined by an `or` or an `and` in one
+  printed line (`Ultron's Auxiliary`, `Ivora, Insatiable Heir`, `Cryptid
+  Inspector`, `Marvel Boy, Noh-Varr`, `Perimeter Enforcer`). CR 603 treats those
+  as two abilities that happen to share a line, so the answer is two defs - a
+  ROW-MAKER change rather than a reader one.
+- **`a player discards a card`** - built for the CYCLE only. A discard by anybody
+  has no card in the pool to exercise it, and a widening no card exercises is a
+  rule nobody has proven (D371's `Commander creatures you own`, measured at zero
+  and reverted the same hour).
+
+⚠️ **And the three whose refusal REASON changed keep their place in the ledger and
+lose their label** (D365: a bucket label says where to look and the strings inside
+say what is wrong). Five rows read `compound trigger head` now, one `leaves head
+destination filter` and one `leaves head token subject`; a card refused for a new
+reason that still carries the old label makes the next grouping a lie.
+
+### Three generator faults the reading found BEFORE the port
+
+1. ⚠️ **The cleanup test was satisfied the moment it was asked.**
+   `aPlayerCycles` fires on the opponent's FOURTH turn and the `endTurn` map gave
+   it 4, so `advanceUntil(turnNumber >= 4)` returned at once and the test asserted
+   a pump that was still up. Its target is the fifth turn now; and a FILTERED
+   `becomesUntapped` - which taps and untaps by hand inside the third - dropped
+   from six to four.
+2. ⚠️ **A filtered `leavesBattlefield` claimed the row's own card had moved.**
+   `selfMoved` reads the TRIGGER name, and a filtered head keeps the base's name
+   (D374's whole point), so the board assert owed a -1 the row never paid. Both
+   sites ask whether the head carries a filter now.
+3. ⚠️ **The same for the untap's hand and library adjustments.** The SELF head
+   waits for its own fifth-turn untap step and p1 draws on the way; the filtered
+   one advances no turn at all, and all THREE sites keyed on that trigger had to
+   say so - found by a counted sweep rather than by the two the applier hit.
+
+### What landed
+
+Ten rows, **every suite green on the FIRST run** and `tsc` clean on the first
+pass: three on the leaves base (Flaming Fist Officer, Ninth Bridge Patrol, Super
+Shredder), three on the opponent's cycle (Fleeting Aven, Stoic Champion, Warped
+Researcher), and one each on the tap (Gideon's Avenger), the untap (Wake
+Thrasher), the face-up turn (Aven Farseer) and the plural dies form (Vengeful
+Townsfolk).
+
+⚠️ **The arithmetic, re-derived after the landing** (D374): FOURTEEN candidates -
+the ten self-only-base cards plus three `a player cycles a card` and one plural
+dies form - and ten landed. Two of the four that did not (Cryptid Inspector,
+Perimeter Enforcer) sit inside a COMPOUND line and are counted there.
+
+⚠️ The name sweep found **0 of the 15 names the ten suites deal** missing from
+WANTED - the three fixtures the derivation picked (Badlands, Crimson Kobolds,
+Lonely Sandbar) were all pinned already, which is not something to assume:
+D347, D370, D374, D375 and D376 each paid for the opposite.
+
+Fixtures 5,592 (5,437 by name + 148 tokens) - no new token pin. botPool creature
+4,608 -> **4,618**, every other column unmoved. Ladder [1283, 1371, 2946, 4673,
+6009] -> **[1273, 1361, 2936, 4663, 5999]**; tier3 `silentAfter` 8,199 ->
+**8,209**. The bot's own reach rose to **7,849** cards from 7,839, chosen from
+**229** fully-executable legendary creatures (228 before). Select pool 0
+throughout - a Phase-1 reclaim lands BY NAME from the ledger (D284/D285).
+
+### The battery, red once and not dismissed
+
+Run seconds after the 773.6 s fuzz leg the battery came back **122/126**, on four
+DOM checks about a land being rendered - the exact shape D270 and D276 record. It
+is not a verdict on its own, so it was re-run ALONE on the quiet machine against
+the same tree: **130/130**. The close-out script aborted at the battery and wrote
+nothing, which is D377`s hardening working - a check whose output is piped cannot
+fail the script, and these are not piped.

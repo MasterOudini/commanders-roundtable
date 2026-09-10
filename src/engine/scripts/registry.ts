@@ -7,6 +7,16 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { AVEN_FARSEER_SCRIPT } from './cards/avenFarseer';
+import { FLAMING_FIST_OFFICER_SCRIPT } from './cards/flamingFistOfficer';
+import { FLEETING_AVEN_SCRIPT } from './cards/fleetingAven';
+import { GIDEONS_AVENGER_SCRIPT } from './cards/gideonsAvenger';
+import { NINTH_BRIDGE_PATROL_SCRIPT } from './cards/ninthBridgePatrol';
+import { STOIC_CHAMPION_SCRIPT } from './cards/stoicChampion';
+import { SUPER_SHREDDER_SCRIPT } from './cards/superShredder';
+import { VENGEFUL_TOWNSFOLK_SCRIPT } from './cards/vengefulTownsfolk';
+import { WAKE_THRASHER_SCRIPT } from './cards/wakeThrasher';
+import { WARPED_RESEARCHER_SCRIPT } from './cards/warpedResearcher';
 import { AKKI_RAIDER_SCRIPT } from './cards/akkiRaider';
 import { ATTUNED_HUNTER_SCRIPT } from './cards/attunedHunter';
 import { CYAN_VENGEFUL_SAMURAI_SCRIPT } from './cards/cyanVengefulSamurai';
@@ -5100,6 +5110,16 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AVEN_FARSEER_SCRIPT,
+  FLAMING_FIST_OFFICER_SCRIPT,
+  FLEETING_AVEN_SCRIPT,
+  GIDEONS_AVENGER_SCRIPT,
+  NINTH_BRIDGE_PATROL_SCRIPT,
+  STOIC_CHAMPION_SCRIPT,
+  SUPER_SHREDDER_SCRIPT,
+  VENGEFUL_TOWNSFOLK_SCRIPT,
+  WAKE_THRASHER_SCRIPT,
+  WARPED_RESEARCHER_SCRIPT,
   AKKI_RAIDER_SCRIPT,
   ATTUNED_HUNTER_SCRIPT,
   CYAN_VENGEFUL_SAMURAI_SCRIPT,

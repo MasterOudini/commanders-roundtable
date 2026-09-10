@@ -6054,6 +6054,19 @@ const WANTED = [
   'Vulturous Zombie',
   // D378 - the cards the graveyard heads move, DERIVED from each printed subject.
   // D378 - the helpers the reclaim suites deal.
+  // D379 - the leaves base and three more filtered heads: the reclaimed cards.
+  'Aven Farseer',
+  'Flaming Fist Officer',
+  'Fleeting Aven',
+  "Gideon's Avenger",
+  'Ninth Bridge Patrol',
+  'Stoic Champion',
+  'Super Shredder',
+  'Vengeful Townsfolk',
+  'Wake Thrasher',
+  'Warped Researcher',
+  // D379 - the permanents the four new heads fire on, DERIVED from each printed subject.
+  // D379 - the helpers the reclaim suites deal.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

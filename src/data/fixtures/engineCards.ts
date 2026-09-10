@@ -5452,6 +5452,16 @@ export const ROT_FARM_MORTIPEDE: CardData = F.ROT_FARM_MORTIPEDE as CardData;
 export const SAVIOR_OF_THE_SLEEPING: CardData = F.SAVIOR_OF_THE_SLEEPING as CardData;
 export const SPIRIT_MASCOT: CardData = F.SPIRIT_MASCOT as CardData;
 export const VULTUROUS_ZOMBIE: CardData = F.VULTUROUS_ZOMBIE as CardData;
+export const AVEN_FARSEER: CardData = F.AVEN_FARSEER as CardData;
+export const FLAMING_FIST_OFFICER: CardData = F.FLAMING_FIST_OFFICER as CardData;
+export const FLEETING_AVEN: CardData = F.FLEETING_AVEN as CardData;
+export const GIDEON_S_AVENGER: CardData = F.GIDEON_S_AVENGER as CardData;
+export const NINTH_BRIDGE_PATROL: CardData = F.NINTH_BRIDGE_PATROL as CardData;
+export const STOIC_CHAMPION: CardData = F.STOIC_CHAMPION as CardData;
+export const SUPER_SHREDDER: CardData = F.SUPER_SHREDDER as CardData;
+export const VENGEFUL_TOWNSFOLK: CardData = F.VENGEFUL_TOWNSFOLK as CardData;
+export const WAKE_THRASHER: CardData = F.WAKE_THRASHER as CardData;
+export const WARPED_RESEARCHER: CardData = F.WARPED_RESEARCHER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -11037,6 +11047,16 @@ export const ENGINE_CARDS: CardData[] = [
   SAVIOR_OF_THE_SLEEPING,
   SPIRIT_MASCOT,
   VULTUROUS_ZOMBIE,
+  AVEN_FARSEER,
+  FLAMING_FIST_OFFICER,
+  FLEETING_AVEN,
+  GIDEON_S_AVENGER,
+  NINTH_BRIDGE_PATROL,
+  STOIC_CHAMPION,
+  SUPER_SHREDDER,
+  VENGEFUL_TOWNSFOLK,
+  WAKE_THRASHER,
+  WARPED_RESEARCHER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

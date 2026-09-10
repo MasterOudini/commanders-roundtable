@@ -13266,6 +13266,117 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       improvise 6); then the seam map's rest — the attached statics the Aura and
       Equipment rows cannot read (351), the bare keyword or ability word (206);
       prior items stand.
+- [x] **M6.4hl — THE BASES THE LIBRARY HELD ONLY AS SELF: four heads whose whole
+      gap was a `=== self` check (2026-09-10):** **7,910 of 31,692
+      Commander-legal cards now execute completely, up from 7,900 (+10).**
+      `SHIPPED_SCRIPTS` 5,074 → **5,084**; ledger 1,185 → **1,175** (ten rows
+      DELETED as their cards landed, seven RELABELLED). Fixtures 5,582 →
+      **5,592**. **No engine file is touched. Select pool 0** throughout — a
+      Phase-1 reclaim lands BY NAME from the ledger (D284/D285). Decisions in
+      **D379**.
+      ⚠️ **READING THE GROUP BY CARD IS WHAT CHANGED THE DECISION.** D378's own
+      grouping put 38 head lines across 32 distinct texts in an `other` tail,
+      which reads as a long tail no library can finish. Read card by card,
+      **ten of the 51 print a head whose EVENT the engine has emitted since M3
+      and whose base the library holds only in its SELF form** — a printed line
+      about any OTHER permanent could not reach one of them however plain its
+      filter was, because the library's matcher asks `=== self`. That is D374's
+      filter mechanism one base family over, as D376 did for the two block bases
+      and D378 for the two graveyard ones.
+      ⚠️ **THE FOUR BASES.** `leaves the battlefield` is a `CardsMoved` whose
+      `from` is the battlefield and whose `to` is not — the permanent has GONE, so
+      the head declares `looksBack` for D377's own reason (after the move
+      `clearBattlefieldFields` has reset its controller to its OWNER, D264), and
+      because before the move it is still ON the battlefield the filter may read
+      `derive` in FULL, unlike D378's graveyard exit which had to read the ORACLE
+      face (D171). `becomes tapped` and `becomes untapped` name their permanents
+      outright, so the filter is asked of each and nothing looks back. `turned
+      face up` carries one card, and dropping the self check is the whole
+      widening. Beside them two smaller ones: **`a player` joins `you` and `an
+      opponent`** on the cycle head, and the **PLURAL dies form** (`whenever one
+      or more other creatures you control die`) is the same base under a wording
+      the singular regex could not reach.
+      ⚠️⚠️ **THE PROOF MUST FIRE ON ANOTHER PERMANENT, OR THE WIDENING IS
+      UNTESTED.** Every one of these bases is reached by DROPPING a check, so a
+      suite firing on the row's own card passes with the check still in place
+      (D128, in the one shape this decision could take). The tap, the untap and
+      the face-up turn each act on a FIXTURE the arm put down before the
+      baselines; **`a player cycles a card` is fired by the OPPONENT on their own
+      turn**, because p1's own cycle satisfies `you cycle` too; and the leaves
+      fire moves its fixture to **EXILE rather than a graveyard**, since a death
+      is the ONE exit the `dies` head already catches.
+      ⚠️ **Refused by name, each with its reason:** `without dying` (1 —
+      the destination filter is the whole card, D259: proving it needs a fire that
+      moves a permanent to a graveyard and asserts nothing happened); a TOKEN
+      subject (1 — the suite must MAKE the token before it can take it away); the
+      COMPOUND head (5 — two heads joined by an `or` or an `and` in one printed
+      line, which CR 603 treats as two abilities: a ROW-MAKER change, not a reader
+      one); and `a player discards a card`, built for the CYCLE only because no
+      card in the pool exercises it (D371's rule). ⚠️ The three whose refusal
+      REASON changed keep their place in the ledger and lose their LABEL (D365) —
+      five rows read `compound trigger head` now, one `leaves head destination
+      filter`, one `leaves head token subject`.
+      ⚠️ **Three generator faults the reading found BEFORE the port**: the cleanup
+      test was satisfied the moment it was asked (`aPlayerCycles` fires on the
+      opponent's FOURTH turn and its `endTurn` said 4, so the test asserted a pump
+      that was still up); a filtered `leavesBattlefield` claimed the row's own
+      card had moved, because `selfMoved` reads the TRIGGER name and a filtered
+      head keeps the base's (D374's whole point); and the untap's hand and library
+      adjustments belong to the SELF head alone, which waits two turns and draws —
+      all THREE sites keyed on that trigger, found by a counted sweep rather than
+      by the two an applier anchor hit.
+      **Landed:** ten rows, **every suite green on the FIRST run** and `tsc` clean
+      on the first pass — three on the leaves base (Flaming Fist Officer, Ninth
+      Bridge Patrol, Super Shredder), three on the opponent's cycle (Fleeting
+      Aven, Stoic Champion, Warped Researcher) and one each on the tap (Gideon's
+      Avenger), the untap (Wake Thrasher), the face-up turn (Aven Farseer) and the
+      plural dies form (Vengeful Townsfolk). ⚠️ The name sweep found **0 of the 15
+      names the suites deal** missing from WANTED — the three fixtures the
+      derivation picked were all pinned already, which is not something to assume
+      (D347, D370, D374, D375 and D376 each paid for the opposite).
+      Fixtures 5,592 (5,437 by name + 148 tokens) · botPool artifact 441 /
+      creature 4,618 / enchantment 451 / instant 1,049 / land 566 / sorcery 785 ·
+      ladder [1273, 1361, 2936, 4663, 5999] · `scriptableToday` 1,283 →
+      **1,273** · tier3 silentAfter 8,209 · bot reach 7,849 from 229 commanders ·
+      batch.json 10 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5234 files, 25864 passed / 11 skipped ·
+      500-seed gate, 6 shards, 773.6 s wall · build clean · probe 124/124 ·
+      battery 130/130 idle (RED on four DOM checks seconds
+      after the fuzz leg, then 130/130 on the same tree with the machine quiet -
+      D270 and D276 load pattern, third instance).**
+      ⚠️ **Reportables** (D379): **the COMPOUND head** (5 cards — two heads on one
+      printed line; the row maker already emits two defs on one line for
+      `entersOrAttacks` (D318) and the enters-or-dies pairs (D178), so what is new
+      is splitting the line at the joining word and reading each half through
+      `readFilteredHead` — ⚠️ on the `scrub` MASK, never the raw text, or a quoted
+      ability containing the word `or` is split down the middle, D366); the 34
+      heads the library holds in no base at all (expend 4, the attacker-count and
+      board-condition combat heads 6, a scry or surveil discriminator 2, a
+      first-time-each-turn life memory 2, then singletons); the leaves head's
+      destination filter and its token subject; the filtered ENTERS forms the
+      reader does not reach; then the 17 filtered heads whose subject is outside
+      the closed reader (a linked memory 5, an alternatives list 3, a timing
+      phrase, a team scope, a chosen colour); a MANUAL SACRIFICE tool (D377 — a
+      card applied by hand can DISCARD and fire a watcher now and cannot
+      sacrifice, because the zones cannot tell a sacrifice from a destroy); the 12
+      trigger payloads outside both readers and the 9 ability-word activated lines
+      D374 ledgered; the three hand scripts D373 made REDUNDANT (Deduce, Foul
+      Play, Auspicious Arrival); the twenty quoted-grant payloads D373 refused BY
+      REASON; then the 100-card tail across 94 shapes; then D371's list — the 18
+      whose grant REDEFINES the host's base P/T, the NUMBERED grant keywords,
+      `Commander creatures you own` MEASURED AT ZERO; then D370's — the X and
+      computed payment prices (19), an effect after the payment ask (9), echo (17)
+      and cumulative upkeep (16); then `as long as` (448 across 276 conditions);
+      the granted STATIC (10), the ENTERS and combat-role scaffold arms; then
+      D365's — the counts outside the vocabulary (17), the activation conditions
+      (35), the trigger payloads outside both readers (20) — and D364's snow
+      CREATURE fixture, D363's counter KINDS and NONTOKEN predicate, the keyword
+      ENTRY REPLACEMENTS (bloodthirst 13, modular 7, graft 2) and CHOICES
+      (fabricate 10, unleash 9, riot 4, devour 4, enlist 5, amplify 3), the block
+      REQUIREMENT (provoke 4), the cast-time payment sources (convoke 14, delve 5,
+      improvise 6); then the seam map's rest — the attached statics the Aura and
+      Equipment rows cannot read (351), the bare keyword or ability word (206);
+      prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
