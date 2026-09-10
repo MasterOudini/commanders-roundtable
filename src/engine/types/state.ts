@@ -32,6 +32,7 @@ import type { NarrationPart } from './narration';
 import type {
   Keyword,
   ModeDecl,
+  LookFilter,
   SearchQualifier,
   TargetSpec,
   EffectSpec,
@@ -793,9 +794,25 @@ export type Awaiting =
        * Where the cards NOT chosen go — `library` prompts only, `null` for a
        * discard, where the unchosen simply stay in hand.
        */
-      readonly rest: 'graveyard' | 'bottom' | 'bottomOrdered' | 'topOrdered' | null;
-      /** Exactly this many — never "up to", because no card in the slice says so. */
+      readonly rest: 'graveyard' | 'bottom' | 'bottomOrdered' | 'topOrdered' | 'random' | null;
+      /** This many at most; exactly this many unless `min` says fewer are allowed. */
       readonly count: number;
+      /**
+       * D389 - the FEWEST the answer may name: `0` for `you may reveal ... and put it into
+       * your hand` (the pick is the player's to decline), absent on every older prompt, where
+       * it is `count`. ⚠️ OPTIONAL on the type for D377's reason, not against D355's rule:
+       * sixty-three shipped modules construct this prompt for a discard, and `min: n` written
+       * into every one of them would say nothing. The one emitter that sets it (the look in
+       * `effects.ts`) is pinned by its own test.
+       */
+      readonly min?: number;
+      /**
+       * D389 - the bound on the pick, PRINTED on the card and therefore public: the noun of
+       * `you may reveal a creature card from among them`. `null` or absent for an unfiltered
+       * look and for every discard. It carries no ids - the revealed run reaches the client
+       * through `view.peek`, as before.
+       */
+      readonly filter?: LookFilter | null;
       /** `Mind Rot` — what is making them do it, for the prompt bar. */
       readonly label: string;
     }

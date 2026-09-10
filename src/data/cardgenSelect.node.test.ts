@@ -188,7 +188,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Shoreline open a NEW class: "Return a land you control to its owner's
   // hand" as an ACTIVATION COST — the chooser one verb over from
   // sacrifice, with the bounce-cost machinery unbuilt.
-  ['Firja, Judge of Valor', 'once-per-turn trigger memory'],
+
   // Batch 18 (D176) — all three existing classes.
   // Batch 19 (D177) — TWO NEW classes. Multi-sacrifice: D168's
   // `ActivateAbility.sacrifice` names ONE permanent, so "Sacrifice two
@@ -1880,6 +1880,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D344 (M6.4gc) - the two rows the vocabulary generator refuses by name after its first port:
   // a self-sacrifice on a creature that returns, and an attached static that empties the suite's Bears.
   ['Kithkin Spellduster', 'a self-sacrifice on a creature that returns (persist) - the suite cannot assert its grave'],
+  // D389 - the eight the look-with-a-filter seam made OFFERABLE and the row maker or the engine refused, by reason.
+  ['Horn of the Mark', 'trigger head not in the library (an attacker COUNT: two or more creatures you control attack a player)'],
+  ['Search for Dagger', 'trigger head not in the library (your commander enters or attacks)'],
+  ['Siona, Captain of the Pyleas', 'trigger head not in the library (an Aura you control becomes attached to a creature you control)'],
+  ['Foul Emissary', 'trigger head not in the library (sacrificed while casting a spell with emerge)'],
+  ['Once Upon a Time', 'cast-time alternative cost (the first spell of the game is cast free)'],
+  ["Visionary's Dance", 'hand-activated ability (channel-shaped: {2}, Discard this card)'],
+  ['Creative Outburst', 'hand-activated ability (channel-shaped: {U/R}{U/R}, Discard this card)'],
+  ["Liliana's Spoils", 'two asks in one resolution (a targeted discard, then the look) - the prompt continuation seam'],
   ['Failed Conversion', 'an attached static whose toughness pump kills the 2/2 Bears the suite enchants'],
 
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:

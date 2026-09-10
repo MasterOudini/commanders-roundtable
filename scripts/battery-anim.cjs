@@ -4589,6 +4589,108 @@ async function sectionPrompts(js, send) {
   }
 
   /**
+   * THE LOOK WITH A FILTER (D389), driven by real clicks: `Arcane Infusion` reveals
+   * four and may keep one instant or sorcery card. Three things the panel has to do
+   * that D142's ordering never asked of it: REFUSE a revealed card the filter does
+   * not name (a land), never auto-send (keeping none is a legal answer, so the pick
+   * list is committed by a button), and commit ZERO when the player says so.
+   *
+   * ⚠️ D144's rule, paid up front: a prompt's answerers and its control are separate
+   * work, and "the bot can answer it" reads exactly like "it is finished".
+   */
+  const look = await js(`(async () => {
+    const out = { steps: [] };
+    const mk = (n, q) => ({ quantity: q, name: n, section: 'main', lineNo: 1, raw: q + 'x ' + n });
+    const deck = {
+      id: 'battery-look', name: 'battery look',
+      createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+      commanders: [{ quantity: 1, name: 'Talrand, Sky Summoner', section: 'commander', lineNo: 1, raw: '1x Talrand, Sky Summoner' }],
+      main: [mk('Arcane Infusion', 30), mk('Island', 35), mk('Mountain', 34)], sideboard: [], houseRuled: true, sourceText: '',
+    };
+    const wait = (ms) => new Promise((x) => setTimeout(x, ms));
+    const nameOf = (v, k) => (v.cards[k] && v.cards[k].card && v.cards[k].card.name) || '';
+    let savedId = null;
+    try {
+      const saved = await window.crt.decks.save(deck);
+      savedId = saved.id;
+      const solo = await import('/src/game/solo.ts');
+      const r = await solo.startSolo({ seats: 2, deckIds: [savedId, null], seed: 'battery-look' });
+      if (!r.ok) { out.error = r.message; return out; }
+      const e = window.__crt.engine;
+      e.submit({ t: 'MulliganDecision', player: 'p1', keep: true });
+      e.submit({ t: 'MulliganDecision', player: 'p2', keep: true });
+      await wait(700);
+      // Two Infusions in hand: one to cast, one staged on TOP so the reveal holds a match.
+      const inHand = () => (e.view().zones['hand:p1'] || []).filter((k) => nameOf(e.view(), k) === 'Arcane Infusion');
+      for (let attempt = 0; attempt < 8 && inHand().length < 2; attempt++) {
+        e.submit({ t: 'ManualDraw', player: 'p1', target: 'p1', count: 4 });
+        await wait(250);
+      }
+      const two = inHand();
+      if (two.length < 2) { out.error = 'no two Arcane Infusions reached hand'; return out; }
+      out.staged = e.submit({ t: 'ManualMoveCard', player: 'p1', card: two[1], to: { kind: 'library', player: 'p1' }, placement: 'top' });
+      e.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'U', amount: 2 });
+      e.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 2 });
+      await wait(300);
+      out.handBefore = (e.view().zones['hand:p1'] || []).length;
+      out.cast = e.submit({ t: 'CastSpell', player: 'p1', card: two[0], targets: [] });
+      for (let i = 0; i < 12 && !document.querySelector('[data-peek-pick-submit]'); i++) {
+        const v = e.view();
+        if (v.priority && !v.awaiting) e.submit({ t: 'PassPriority', player: v.priority });
+        await wait(250);
+      }
+      const els = () => [].slice.call(document.querySelectorAll('[data-peek-card]'));
+      out.panelCards = els().length;
+      out.hint = (document.querySelector('[data-peek-hint]') || {}).textContent || '';
+      out.submitText = (document.querySelector('[data-peek-pick-submit]') || {}).textContent || '';
+      if (out.panelCards === 0) { out.error = 'panel never opened'; return out; }
+      const v1 = e.view();
+      const ids = els().map((el) => el.dataset.peekCard);
+      const land = ids.find((k) => nameOf(v1, k) !== 'Arcane Infusion');
+      const spell = ids.find((k) => nameOf(v1, k) === 'Arcane Infusion');
+      out.hasBoth = !!land && !!spell;
+      // A land is not an instant or sorcery card: the click is refused and no badge appears.
+      if (land) { els()[ids.indexOf(land)].querySelector('[data-peek-pick]').click(); await wait(200); }
+      out.badgeAfterLand = document.querySelectorAll('[data-peek-pick="1"]').length;
+      out.awaitingAfterLand = (e.view().awaiting && e.view().awaiting.kind) || null;
+      // The spell is; then the button commits it.
+      if (spell) { els()[ids.indexOf(spell)].querySelector('[data-peek-pick]').click(); await wait(200); }
+      out.badgeAfterSpell = document.querySelectorAll('[data-peek-pick="1"]').length;
+      out.awaitingAfterSpell = (e.view().awaiting && e.view().awaiting.kind) || null;
+      out.submitTextAfter = (document.querySelector('[data-peek-pick-submit]') || {}).textContent || '';
+      document.querySelector('[data-peek-pick-submit]').click();
+      await wait(800);
+      out.panelAfter = document.querySelectorAll('[data-peek-card]').length;
+      out.awaitingAfter = (e.view().awaiting && e.view().awaiting.kind) || null;
+      out.keptInHand = spell ? (e.view().zones['hand:p1'] || []).includes(spell) : null;
+      out.handAfter = (e.view().zones['hand:p1'] || []).length;
+    } catch (err) {
+      out.error = String(err && err.message ? err.message : err);
+    } finally {
+      if (savedId) { try { await window.crt.decks.delete(savedId); } catch (e2) { out.cleanup = String(e2); } }
+    }
+    return out;
+  })()`);
+  if (look.error) {
+    const fatal = look.error === 'panel never opened';
+    check('the filtered look opens the panel and takes real clicks', !fatal, look.error);
+  } else {
+    check('a filtered look reveals four and offers a commit button, not a last click',
+      look.panelCards === 4 && /Keep none/.test(look.submitText || ''), `${look.panelCards} cards · button "${look.submitText}"`);
+    check('the hint names the noun and says keeping nothing is legal',
+      /instant or sorcery card/.test(look.hint || '') && /Keeping nothing is legal/.test(look.hint || ''), String(look.hint).slice(0, 90));
+    check('the reveal holds a land and a spell to tell apart', look.hasBoth === true, JSON.stringify({ hasBoth: look.hasBoth }));
+    check('clicking a land the filter does not name is refused, and the prompt stays up',
+      look.badgeAfterLand === 0 && look.awaitingAfterLand === 'chooseFromZone', `badges ${look.badgeAfterLand}, awaiting=${look.awaitingAfterLand}`);
+    check('clicking the spell rings it and the button counts it',
+      look.badgeAfterSpell === 1 && look.awaitingAfterSpell === 'chooseFromZone' && /Keep 1/.test(look.submitTextAfter || ''),
+      `badges ${look.badgeAfterSpell}, button "${look.submitTextAfter}"`);
+    check('the commit answers the prompt, closes the panel, and the kept card is in hand',
+      look.panelAfter === 0 && look.awaitingAfter === null && look.keptInHand === true && look.handAfter === look.handBefore,
+      `${look.panelAfter} cards left, awaiting=${look.awaitingAfter}, kept=${look.keptInHand}, hand ${look.handBefore} -> ${look.handAfter}`);
+  }
+
+  /**
    * PAY-TO-ENTER (D136) and the HAND DISCARD (D137), driven by real clicks.
    *
    * ⚠️ **D144's own reportable.** Both prompts were driven by hand when they

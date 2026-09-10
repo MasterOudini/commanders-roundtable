@@ -28678,3 +28678,183 @@ the two-line shape (10), the three unstageable prevention fixtures, the Circles
 of Protection (52), CR 615.5's order, the payload arms, the 95 quoted-grant
 shapes, the spell-row table (21 of 43), the 55 REDUNDANT hand scripts; prior
 items stand.
+
+
+## D389 — THE LIBRARY LOOK WITH A FILTER: `you may reveal a <noun> card from among them`, an optional pick, the rest in a random order (2026-09-11)
+
+**8,311 of 31,692 Commander-legal cards now execute completely, up from 8,264
+(+47: FIFTEEN with no script at all, then 32 generated rows).** `SHIPPED_SCRIPTS`
+5,385 → **5,417**; the REFUSED ledger 1,200 → **1,207** (Firja, Judge of Valor
+DRAINED by the stale-refusal guard the day its look landed — it had sat under
+`once-per-turn trigger memory` since D370, and the second-spell head has been the
+library's since D336; eight ADDED by reason). Fixtures 5,915 → **5,953** (5,798 by
+name + 148 tokens: the 32 rowed cards, the six proof cards of the seam's own test
+and the fixtures the looks are DERIVED to keep). `scriptableToday` 1,295 → **1,331**
+by the SEAM and → **1,302** by the WAVE, both directions in one decision (D363/D384);
+the select pool 0 → 36 → 8 → 0; the ladder `[1302, 1391, 2826, 4557, 5897]`. Bot
+reach 8,199 → **8,245** from **249** commanders (242 before). M6.4hv, on Fable 5.1.
+
+### The measurement chose it, by exact shape
+
+A fresh true-leftover after D388 (`bc4ab836`): **23,428 incomplete, 11,737 one
+piece from landing.** D388's mechanism map priced the families by *mechanism*;
+this decision priced the engine-seam candidates by **exact printed shape** — a
+regex family over every one-piece row, the head blanked — because a mechanism
+name says where to look and only the shapes say what a seam would have to read.
+The families, in order: `unless … pays` 103 (D369's shapes, mostly the computed
+prices), copy tokens 98, scry 81, equip 70, copy spells 61, spend-restricted mana
+56, `it can't be regenerated` 54, threaten 49, proliferate 48, enters-as-a-copy 42
+— and **the library look with a typed reveal at 57: 35 in a random order, 15 in
+any order, 7 of the singular graveyard form**, most of them trigger payloads under
+an enters head, every one blocked on the same three words D141's shape lacked. It
+is the densest family that is ONE engine seam rather than a subsystem (copy is CR
+707; the durations are a mechanism with an end; threaten is a control effect with
+an end), so it went first.
+
+### The seam: a filter, an optional pick, and a random order the ANSWER rolls
+
+`LookSpec` (D141) knew a count, a take and four destinations. Three things were
+missing, and each is small once its right home is found:
+
+- **The FILTER** is the search's own noun reader (D357): `distributeList` and
+  `predicatesOf` read `a Goblin, Swamp, or Mountain card`, `an instant or
+  sorcery card`, `a legendary creature card`, `a Mount creature card or a
+  Plains card` (the article and the word `card` repeated per alternative are
+  read back to the bare noun) — and a word the reader cannot place refuses the
+  WHOLE sentence (D90): `historic`, `noncreature, nonland`, `double-faced`,
+  `permanent` and the `and/or` list stay refused by name. `LookFilter` is
+  PUBLIC — it is printed on the card — so it rides the prompt as `filter`; the
+  revealed run still does not (D141). One reader for the whole engine:
+  `predicateAdmits` in `replacementParse.ts`, asked by the answer handler
+  (through `cardMatchesSearch`, which lost its private copy), the bot, the
+  harness, the fuzz driver, the net driver and the peek panel — the client hands
+  in `parseTypeLine`'s shape, the host the oracle face, the same structure.
+- **The OPTIONAL pick** is `min` on the prompt: `0` for `you may`, absent on
+  every older prompt, where it is `count`. ⚠️ `min` and `filter` are OPTIONAL on
+  the type for D377's reason and not against D355's rule: **sixty-three shipped
+  modules construct this prompt for a discard**, and `min: n` written into every
+  one of them would say nothing. The one emitter that sets them — the look in
+  `effects.ts` — is pinned by the seam's own keys test, D137's shape.
+- **The RANDOM order** is shuffled in the ANSWER handler off the seeded
+  generator, with the advanced state on the accept (D147's `rngAfter` rule: a
+  caller that dropped it would replay to a different bottom than it played).
+  `effectEvents` still has no rng, and it does not need one — the leftovers are
+  only known once the pick is answered, which is the honest reason D141 and
+  D142 could not read the sentence and this decision can.
+
+`MAX_SPAN` goes 2 → **3**: the filtered look prints three sentences that are one
+effect, and D150's guarantee carries it unchanged (a rule anchored at both ends
+cannot match a wider window, asserted with three independent sentences staying
+three). The graveyard form reads the singular `the other` with D141's arithmetic
+(exactly one left over), which is what Talas Lookout, Tower Geist, Sibsig
+Appraiser and Ral's Outburst print. Two pins CHANGED SIDES and were rewritten
+rather than adapted (D117): `Drawn from Dreams` (D141's "an order the engine
+cannot roll") and the two-pass "in a random order is still refused" both read
+`auto` now, and each test says why the middle outcome — the sentence read and its
+order decided for the player without the generator — must never come back.
+
+⚠️ **The prompt's control is the peek panel's, and it does two things D142's
+ordering never asked of it** (D143's lesson, paid up front): a card the noun does
+not name is REFUSED on the click, with the bar saying why, before the host would;
+and an optional pick never auto-sends — keeping none is a real answer, so the pick
+list is committed by a button (`Keep none` / `Keep 1`), D195's rule for the scry.
+`battery-anim.cjs prompts` drives the whole control with real clicks (D144). And a
+pre-existing hole closed on the way: the hand's click path answered ANY
+`chooseFromZone`, so a click on a hand card while a library look was up submitted
+hand cards against the library; it is hand-only now.
+
+### The wave — 47 through the mainline, 32 rows, and the arm the generator learned
+
+The pool is every one-piece card whose single leftover line the vocabulary reads
+since this decision, on the FRESH leftover (the 15 spells that read whole — Arcane
+Infusion, Drawn from Dreams, Ral's Outburst, the five Communes, Adventurous Impulse,
+Seek the Wilds, Peer Through Depths, Shimmer of Possibility, Sarkhan's Dragonfire,
+Ajani's Influence, Cowabunga!, Silundi Vision // Silundi Isle — had already left
+it): **47**, landed BY NAME (D317/D374/D388's shape), with the row maker's own
+refusal histogram as the measurement (D352/D364). **32 rows** — the typed reveal in
+both orders under the enters, attacks, dies, heroic, constellation, second-spell
+and tap heads, and the singular graveyard form; **15 refused by reason**: four
+heads outside the library (Marchesa's crime, Akal Pakal's end step with an
+intervening if, Horn of the Mark's attacker COUNT, Search for Dagger's commander),
+two filtered heads outside the closed reader (`cast or copy`, `a spell with mana
+value`), five nouns the reader refuses by design, two intervening-if payloads
+(Acclaimed Contender, Sandstalker Moloch) and Gift of the Gargantuan's `and/or`.
+The classifier then OFFERED eight — the two heads, and six cards outside the
+one-piece pool (an Aura-attach head, an emerge head, a free first cast, two
+hand-activated lines beside a look, and Liliana's Spoils) — every one ledgered by
+reason (D384's shape), and the pool reads zero.
+
+⚠️ **Liliana's Spoils is the first SPELL named for TWO ASKS IN ONE RESOLUTION** —
+a targeted discard, then the look — which D195's ask-last rule refuses and which
+is the prompt continuation seam's spell-side witness, beside the each-player
+prompt queue the brief priced.
+
+The generator's look arm, in three pieces:
+
+- **The keep is DERIVED** the way a search's find is (D347/D360's shape,
+  `lookFixture` beside `searchFixture`): the simplest quiet card the filter
+  admits — Dance of Panic for an enchantment, Sol Ring for an artifact, Ancestral
+  Vision for an instant or sorcery, a Forest for a land. A filter nothing serves
+  refuses the row BY NAME rather than testing a decline (D128: declining is legal,
+  so a suite that kept nothing would pass whether or not the filter was read).
+- **The keep is staged ON TOP before the fire, every dealt copy.** A look reveals
+  the top N at RESOLUTION and the answer may only name those; a single staged copy
+  was taken by a draw step the heroic fire crossed, so two copies are dealt
+  (outside the deck's Set, D365) and every copy in the library or the hand goes
+  on top. **The hand proof is LOCAL to the answer** — read right before it,
+  asserted `+ picks` after — because a witness `put()` out of the opening seven
+  (D232) had skewed the row-level `hand0 + 1` on Nessian Wanderer for a reason
+  that had nothing to do with the look.
+- ⚠️ **An ASKING vocabulary fire stops AT the prompt** (D370's trap, met twice).
+  A fire that ends in `settle` while a SPELL is still under the trigger — the
+  second spell of the turn under Firja, the heroic Growth under Meletis
+  Astronomer — answers the prompt through the harness and walks on, and the arm's
+  own wait then runs the game to `gameOver`. The generator strips the trailing
+  settle for an asking row the way it does for a targeted one; the arm's
+  `advanceUntil` is the wait.
+
+**32 suites / 65 tests green on the THIRD port.** The first two named the
+generator's own faults, each fixed at the generator (D267): a `const` declared
+inside the fire's `if (which === n) { … }` block while `armed()` returned it at
+function scope (`tsc`, by name, across 29 files), and an enters-or-attacks pair
+sharing one line tag so its per-ability variable was pushed twice (`varOf`'s
+shape, keyed on the trigger too).
+
+### Traps, and what the tooling taught
+
+- ⚠️ **AN AMPERSAND AFTER AN AND-LIST BACKGROUNDS THE WHOLE CHAIN**, `cd`
+  included — every later command on the line ran in the old directory, and a
+  repin chained the same way ran invisibly (its swaps landed; its output did not).
+- ⚠️ `select.cjs` prints NOTHING while its pins are red; the pool it computed is
+  in `scripts/cardgen/batch.json` regardless.
+- ⚠️ The classifier and the one-piece pool disagree at the edges: six of the eight
+  it offered were two-line cards the pool never held. Read the offered set through
+  the parser before deciding wave or ledger.
+- ⚠️ **THE FIXTURE PICKER'S LEGALITY GUARD READ A FIELD THE DATABASE DOES NOT
+  HAVE.** `gen89-fixture.cjs` skipped `commanderLegal === false` where the record says
+  `commanderLegality` (`legal` / `not_legal` / `banned`), so `undefined === false`
+  never fired - dead since D347 - and the mv-sorted derivation picked Little Girl
+  (Unhinged, `{HW}`, mv 0.5) and Dance of Panic as look fixtures. `oracleParse`'s
+  mana-value pin caught the first at the gate (red 1); the guard reads the
+  database's own field now and both suites were re-derived on legal cards (Eager
+  Cadet, Valgavoth's Lair) - fixtures 5,954 -> 5,953. A sweep of every pinned name
+  found two more: Gobland (D360, the same guard - reported) and Emrakul, the Aeons
+  Torn (D356's deliberate boundary).
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5570 files, 27333
+passed / 11 skipped · 500-seed gate, 6 shards, 1415.6 s wall · build clean · probe
+124/124 · battery green with the six new look-panel checks.**
+
+⚠️ **Reportables** (D389): the look's own tail — the four heads outside the library
+(the attacker COUNT and the commander head among them, D381's and D371's named
+gaps), the nouns the reader refuses (`historic` 3, `noncreature, nonland`,
+`double-faced`, `permanent`, `and/or`), the two intervening-if payloads, the
+`take: 0` ordering under a head, a filtered look that takes two; **the prompt
+continuation seam** now has a spell-side witness (Liliana's Spoils) and the
+each-player prompt QUEUE the brief priced (56); the non-legal fixture Gobland (D360's
+Goblin search fixture, derived through the dead legality guard this decision fixed -
+Emrakul is D356's deliberate boundary); then the brief's engine seams —
+threaten (49), proliferate (48), exchange control (24), the keyword entry
+replacements (23), the durations (33), copy (~200), spend-restricted mana (56); the
+two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER
+BLOCKS; then D388's list unchanged.

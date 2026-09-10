@@ -3,6 +3,8 @@ import { useTable } from '../../store/tableStore';
 import { useGame } from '../../store/gameStore';
 import { Card } from '../card/Card';
 import { BTN_GHOST_SMALL, BTN_SMALL, PANEL } from './styles';
+import { parseTypeLine } from '../../data/oracleParse';
+import { predicateAdmits } from '../../data/replacementParse';
 
 // The library: scry, surveil, mill, exile — and the panel that shows you what
 // you are looking at.
@@ -178,7 +180,7 @@ export function PeekPanel() {
    */
   const prompt =
     awaiting?.kind === 'chooseFromZone' && awaiting.player === viewer && awaiting.zone === 'library'
-      ? ({ kind: 'pick', count: awaiting.count, label: awaiting.label } as const)
+      ? ({ kind: 'pick', count: awaiting.count, min: awaiting.min ?? awaiting.count, filter: awaiting.filter ?? null, label: awaiting.label } as const)
       : awaiting?.kind === 'orderCards' && awaiting.player === viewer
         ? ({ kind: 'order', count: awaiting.count, label: awaiting.label, to: awaiting.destination } as const)
         : awaiting?.kind === 'scryChoice' && awaiting.player === viewer
@@ -227,6 +229,25 @@ export function PeekPanel() {
       st.togglePick(id);
       return;
     }
+    /**
+     * D389 - A LOOK WITH A FILTER refuses a card its noun does not name HERE, before the host
+     * would: the player is told why in the bar rather than by a rejected intent. And an
+     * OPTIONAL pick ("you may") never auto-sends - keeping none is a real answer, so the pick
+     * list is the KEEP set and the button below commits it (the scry's rule, D195).
+     */
+    if (prompt.kind === 'pick' && prompt.filter && !st.pickOrder.includes(id)) {
+      const c = view.cards[id];
+      const face = c?.card?.faces[c.faceIndex] ?? c?.card?.faces[0];
+      const ok = face ? predicateAdmits({ typeLine: parseTypeLine(face.typeLine), colors: face.colors }, prompt.filter.predicates) : false;
+      if (!ok) {
+        st.setMessage(`${face?.name ?? 'That card'} is not ${prompt.filter.what}.`);
+        return;
+      }
+    }
+    if (prompt.kind === 'pick' && prompt.min < prompt.count) {
+      if (st.pickOrder.includes(id) || st.pickOrder.length < prompt.count) st.togglePick(id);
+      return;
+    }
     if (st.pickOrder.includes(id)) {
       st.togglePick(id);
       return;
@@ -241,6 +262,13 @@ export function PeekPanel() {
         ? { t: 'AnswerChooseFromZone', player: viewer, cards: next }
         : { t: 'AnswerOrderCards', player: viewer, cards: next },
     );
+    st.clearPick();
+  };
+
+  const submitPick = (): void => {
+    if (prompt?.kind !== 'pick') return;
+    const st = useTable.getState();
+    send({ t: 'AnswerChooseFromZone', player: viewer, cards: st.pickOrder });
     st.clearPick();
   };
 
@@ -286,6 +314,11 @@ export function PeekPanel() {
             ⚠️ The scry SUBMIT below is not that Done: it ANSWERS the prompt
             (keep-zero and keep-all are both real answers, so no click can be
             "the last one" and a commit button is the only honest control). */}
+        {prompt?.kind === 'pick' && prompt.min < prompt.count && (
+          <button type="button" className={BTN_SMALL} data-peek-pick-submit="" onClick={submitPick}>
+            {pickOrder.length === 0 ? 'Keep none' : `Keep ${pickOrder.length}`}
+          </button>
+        )}
         {prompt?.kind === 'search' && (
           <button type="button" className={BTN_SMALL} data-peek-search-submit="" onClick={submitSearch}>
             {pickOrder.length === 0 ? 'Find nothing' : `Take ${pickOrder.length}`}
@@ -315,7 +348,9 @@ export function PeekPanel() {
         {prompt === null
           ? `${copy.hint} Topmost first.`
           : prompt.kind === 'pick'
-            ? `Click ${prompt.count} card${prompt.count === 1 ? '' : 's'} to keep. ${pickOrder.length}/${prompt.count} chosen.`
+            ? prompt.min < prompt.count
+              ? `Click up to ${prompt.count} ${prompt.filter?.what ?? 'card'}${prompt.count === 1 ? '' : 's'} to keep, then commit. Keeping nothing is legal. ${pickOrder.length} chosen.`
+              : `Click ${prompt.count} card${prompt.count === 1 ? '' : 's'} to keep. ${pickOrder.length}/${prompt.count} chosen.`
             : prompt.kind === 'search'
               ? `Click up to ${prompt.count} ${prompt.what} to take, then commit. Taking nothing is legal. ${pickOrder.length} chosen.`
             : prompt.kind === 'scry'

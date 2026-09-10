@@ -2,6 +2,8 @@ import type { ClientSession } from '../client';
 import type { Intent } from '../../engine/types/intents';
 import type { TestTable } from './table';
 import { planTargets } from '../../bot/targets';
+import { parseTypeLine } from '../../data/oracleParse';
+import { predicateAdmits } from '../../data/replacementParse';
 
 // Extracted so a measurement harness can reuse the same script the tests use.
 //
@@ -123,9 +125,18 @@ export function simplestIntent(
         // Two zones (D141): a library offers only what was just revealed.
         const hand =
           awaiting.zone === 'library' ? (v.peek ?? []) : (v.zones[`hand:${awaiting.player}`] ?? []);
+        // D389 - a filtered look admits only what its noun names; the driver reads the face it
+        // holds through the one reader, and an empty answer is legal when the pick is optional.
+        const filter = awaiting.zone === 'library' ? (awaiting.filter ?? null) : null;
+        const eligible = filter
+          ? hand.filter((id) => {
+              const face = v.cards[id]?.card?.faces[0];
+              return face ? predicateAdmits({ typeLine: parseTypeLine(face.typeLine), colors: face.colors }, filter.predicates) : false;
+            })
+          : hand;
         // Fewer than asked is a rejection rather than a wedge, and the engine
         // does not raise this unless the hand is bigger than the count.
-        return { t: 'AnswerChooseFromZone', player: awaiting.player, cards: hand.slice(0, awaiting.count) };
+        return { t: 'AnswerChooseFromZone', player: awaiting.player, cards: eligible.slice(0, awaiting.count) };
       }
       /**
        * ⚠️ Without this the script WEDGES, and it looks like a desync rather than

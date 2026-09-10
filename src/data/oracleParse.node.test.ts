@@ -410,8 +410,8 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // magnitude larger than `botPool`'s distinct-name figures.
       // D369: the payment prompt - an unless-pays and a you-may-pay sentence read whole
       // (99 faces read auto, 65 more partial, 164 leave none).
-      'effect:none': 13232,
-      'effect:partial': 5750,
+      'effect:none': 13181,
+      'effect:partial': 5760,
       // D289: the target macro admits the KEYWORD qualifier ("with flying",
       // "without flying") now that TargetSpec.keyword is enforced, so 52 more
       // faces read whole (Plummet, Wing Snare, Roast, Defenestrate, ...), 67
@@ -422,7 +422,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // supertypes, tapped, token) are admitted by the target macro, so 152
       // more faces read whole - Doom Blade, Negate, Go for the Throat, Utter
       // End and kin.
-      'effect:auto': 5349, // D383: the scoped board effect - a sentence about a whole scope; D369: the payment prompt; D359: the optional search, the qualified card and the tutor's top; D343: a modal face reads mode by mode; D312: a priced reduction line is no clause either; D307: a spell's flashback line is no clause either; D306: a spell's cycling line is no clause; D301: the mass pump; D299: the counted-targets seam; D298: the graveyard-return slot; D297: subtype nouns and lists; D295: four sentences
+      'effect:auto': 5390, // D383: the scoped board effect - a sentence about a whole scope; D369: the payment prompt; D359: the optional search, the qualified card and the tutor's top; D343: a modal face reads mode by mode; D312: a priced reduction line is no clause either; D307: a spell's flashback line is no clause either; D306: a spell's cycling line is no clause; D301: the mass pump; D299: the counted-targets seam; D298: the graveyard-return slot; D297: subtype nouns and lists; D295: four sentences
       // ⚠️ 13,581 → 10,372 in M6.4b (D159): `Sacrifice this <type>` and War
       // Room's commanders'-colors life phrase became CHARGEABLE cost parts, so
       // 3,209 printings' ability lines stopped warning `nonManaCost`. The

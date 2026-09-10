@@ -76,13 +76,30 @@ describe('pass two joins only what a rule asks for', () => {
     expect(r.effects.map((e) => e.kind)).toEqual(['draw']);
   });
 
-  /** The refusals D141 and D142 pinned are unchanged by the rewrite. */
-  test('“in a random order” is still refused', () => {
+  /**
+   * ⚠️ **THIS TEST CHANGED SIDES (D389).** From D150 to D388 it pinned "in a random
+   * order" as REFUSED - `effectEvents` has no rng. That reason went the honest way:
+   * the shuffle lives in the ANSWER handler, off the seeded generator, where the
+   * leftovers are known. What must never come back is the middle outcome - the
+   * sentence read and its order decided for the player without the generator.
+   */
+  test('“in a random order” is read now, still as one clause', () => {
     const r = parse(
       'Look at the top four cards of your library. Put one of them into your hand and the rest on the bottom of your library in a random order.',
     );
-    expect(r.mode).toBe('manual');
-    expect(r.effects).toEqual([]);
+    expect(r.mode).toBe('auto');
+    expect(r.effects).toHaveLength(1);
+    expect(r.effects[0]).toMatchObject({ kind: 'lookAtTop', amount: 4, look: { take: 1, rest: 'random' } });
+  });
+
+  /**
+   * D389 - `MAX_SPAN` is 3 now, and D150's property still carries it: a rule anchored
+   * at both ends cannot match a wider window, so three independent sentences stay three.
+   */
+  test('three independent sentences are not glued into one at the wider window', () => {
+    const r = parse('Destroy target creature. Draw two cards. You gain 2 life.');
+    expect(r.mode).toBe('auto');
+    expect(r.effects.map((e) => e.kind)).toEqual(['destroy', 'draw', 'gainLife']);
   });
 
   test('a single unread sentence is manual, as before', () => {

@@ -157,9 +157,14 @@ function describe(
             ? `${nameOf(seats, awaiting.player)} is looking at the top of their library.`
             : `${nameOf(seats, awaiting.player)} is discarding ${awaiting.count}.`;
         }
-        return awaiting.zone === 'library'
-          ? `${awaiting.label}: click ${awaiting.count} card${awaiting.count === 1 ? '' : 's'} to keep.`
-          : `${awaiting.label}: click ${awaiting.count} card${awaiting.count === 1 ? '' : 's'} in your hand to discard.`;
+        if (awaiting.zone === 'library') {
+          // D389 - a filtered, optional look names what may be kept and says nothing is legal.
+          const min = awaiting.min ?? awaiting.count;
+          return min < awaiting.count
+            ? `${awaiting.label}: click up to ${awaiting.count} ${awaiting.filter?.what ?? 'card'}${awaiting.count === 1 ? '' : 's'} to keep, then commit. Keeping nothing is legal.`
+            : `${awaiting.label}: click ${awaiting.count} card${awaiting.count === 1 ? '' : 's'} to keep.`;
+        }
+        return `${awaiting.label}: click ${awaiting.count} card${awaiting.count === 1 ? '' : 's'} in your hand to discard.`;
       case 'orderCards':
         return awaiting.player === viewer
           ? `${awaiting.label}: click your ${awaiting.count} cards in the order you want them, ${awaiting.destination} first.`

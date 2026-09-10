@@ -22,6 +22,8 @@ import type { Awaiting, TargetChoice } from '../engine/types/state';
 import type { InstanceId, PlayerId } from '../engine/types/ids';
 import type { CardView, PlayerView } from '../view/types';
 import { parseTypeLine } from '../data/oracleParse';
+import { predicateAdmits } from '../data/replacementParse';
+import type { LookFilter } from '../engine/types/oracle';
 import { chooseAttacks, chooseBlocks, requiredAttacks } from './combat';
 import { planTargets } from './targets';
 import { act, fault, wait, type BotDecision, type BotPort } from './types';
@@ -39,6 +41,12 @@ function myHand(view: PlayerView, me: PlayerId): CardView[] {
 function isLand(card: CardView): boolean {
   const face = card.card?.faces[0];
   return face ? parseTypeLine(face.typeLine).types.includes('Land') : false;
+}
+
+/** D389 - does a revealed card satisfy a look's filter? The face the client holds, through the one reader. */
+function admitsCard(filter: LookFilter, c: CardView): boolean {
+  const face = c.card?.faces[c.faceIndex] ?? c.card?.faces[0];
+  return face ? predicateAdmits({ typeLine: parseTypeLine(face.typeLine), colors: face.colors }, filter.predicates) : false;
 }
 
 /**
@@ -308,18 +316,23 @@ export function answerAwaiting(
         awaiting.zone === 'library'
           ? (view.peek ?? []).map((id) => view.cards[id]).filter((c): c is CardView => !!c)
           : myHand(view, me);
+      // D389 - a look with a FILTER admits only the revealed cards the printed noun names, and
+      // "you may" lets the answer be shorter than the count, down to nothing.
+      const filter = awaiting.zone === 'library' ? (awaiting.filter ?? null) : null;
+      const eligible = filter ? pool.filter((c) => admitsCard(filter, c)) : pool;
+      const min = awaiting.min ?? awaiting.count;
       const ordered =
-        awaiting.zone === 'library' ? [...pool].sort(worstFirst).reverse() : [...pool].sort(worstFirst);
+        awaiting.zone === 'library' ? [...eligible].sort(worstFirst).reverse() : [...eligible].sort(worstFirst);
       const cards = ordered.slice(0, awaiting.count).map((c) => c.instanceId);
-      // Short of the count means the engine asked for more than the hand holds,
+      // Short of the minimum means the engine asked for more than the zone holds,
       // which it does not do — but answering with fewer is a rejection, and a
       // fault says so where a silent short answer would look like a wedge.
-      if (cards.length < awaiting.count) {
-        return fault('noIntentForAwaiting', `asked for ${awaiting.count} cards, hand holds ${cards.length}`);
+      if (cards.length < min) {
+        return fault('noIntentForAwaiting', `asked for ${min} cards, ${awaiting.zone} holds ${cards.length}`);
       }
       return act(
         { t: 'AnswerChooseFromZone', player: me, cards },
-        `discard ${cards.length} to ${awaiting.label}`,
+        awaiting.zone === 'library' ? `keep ${cards.length} for ${awaiting.label}` : `discard ${cards.length} to ${awaiting.label}`,
       );
     }
 

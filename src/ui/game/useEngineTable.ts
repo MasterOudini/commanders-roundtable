@@ -235,7 +235,9 @@ export function useEngineTable() {
        * ⚠️ Unlike the bottoming above, this ACCUMULATES rather than sending each
        * card, because CR 701.8a discards the chosen cards simultaneously.
        */
-      if (awaiting?.kind === 'chooseFromZone' && awaiting.player === viewer) {
+      // D389 - the HAND prompt only: a library look is answered on the peek panel, and a click
+      // on a hand card while one is up used to submit that card against the library.
+      if (awaiting?.kind === 'chooseFromZone' && awaiting.player === viewer && awaiting.zone === 'hand') {
         const hand = zoneCards(view, zoneId('hand', viewer));
         if (!hand.includes(id)) return;
         const st = useTable.getState();

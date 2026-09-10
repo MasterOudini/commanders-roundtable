@@ -7,6 +7,38 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { TALAS_LOOKOUT_SCRIPT } from './cards/talasLookout';
+import { ECLIPSED_BOGGART_SCRIPT } from './cards/eclipsedBoggart';
+import { AUGUR_OF_BOLAS_SCRIPT } from './cards/augurOfBolas';
+import { STAUNCH_CREWMATE_SCRIPT } from './cards/staunchCrewmate';
+import { NESSIAN_WANDERER_SCRIPT } from './cards/nessianWanderer';
+import { HARALD_KING_OF_SKEMFAR_SCRIPT } from './cards/haraldKingOfSkemfar';
+import { ECLIPSED_MERROW_SCRIPT } from './cards/eclipsedMerrow';
+import { BRAZEN_UPSTART_SCRIPT } from './cards/brazenUpstart';
+import { ECLIPSED_KITHKIN_SCRIPT } from './cards/eclipsedKithkin';
+import { FAERIE_MECHANIST_SCRIPT } from './cards/faerieMechanist';
+import { FIRJA_JUDGE_OF_VALOR_SCRIPT } from './cards/firjaJudgeOfValor';
+import { TOWER_GEIST_SCRIPT } from './cards/towerGeist';
+import { BOROMIR_GONDORS_HOPE_SCRIPT } from './cards/boromirGondorsHope';
+import { MASTER_PIANDAO_SCRIPT } from './cards/masterPiandao';
+import { KOLAGHAN_WARMONGER_SCRIPT } from './cards/kolaghanWarmonger';
+import { COURAGEOUS_OUTRIDER_SCRIPT } from './cards/courageousOutrider';
+import { ECLIPSED_ELF_SCRIPT } from './cards/eclipsedElf';
+import { BUCKY_BARNES_EAGER_ALLY_SCRIPT } from './cards/buckyBarnesEagerAlly';
+import { GLINT_NEST_CRANE_SCRIPT } from './cards/glintNestCrane';
+import { FRONTIER_SEEKER_SCRIPT } from './cards/frontierSeeker';
+import { ECLIPSED_FLAMEKIN_SCRIPT } from './cards/eclipsedFlamekin';
+import { SIBSIG_APPRAISER_SCRIPT } from './cards/sibsigAppraiser';
+import { CASEY_JONES_JURY_RIG_JUSTICIAR_SCRIPT } from './cards/caseyJonesJuryRigJusticiar';
+import { FLORIFEROUS_VINEWALL_SCRIPT } from './cards/floriferousVinewall';
+import { SUMALA_WOODSHAPER_SCRIPT } from './cards/sumalaWoodshaper';
+import { DEFINITELY_NOT_ATURTLE_SCRIPT } from './cards/definitelyNotATurtle';
+import { ARCANISTS_OWL_SCRIPT } from './cards/arcanistsOwl';
+import { ASHE_PRINCESS_OF_DALMASCA_SCRIPT } from './cards/ashePrincessOfDalmasca';
+import { STONEFORGE_ACOLYTE_SCRIPT } from './cards/stoneforgeAcolyte';
+import { MELETIS_ASTRONOMER_SCRIPT } from './cards/meletisAstronomer';
+import { BRIGHTWOOD_TRACKER_SCRIPT } from './cards/brightwoodTracker';
+import { SKALLA_WOLF_SCRIPT } from './cards/skallaWolf';
 import { PARADISE_DRUID_SCRIPT } from './cards/paradiseDruid';
 import { TUINVALE_GUIDE_SCRIPT } from './cards/tuinvaleGuide';
 import { DROVER_OF_THE_MIGHTY_SCRIPT } from './cards/droverOfTheMighty';
@@ -5411,6 +5443,38 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  TALAS_LOOKOUT_SCRIPT,
+  ECLIPSED_BOGGART_SCRIPT,
+  AUGUR_OF_BOLAS_SCRIPT,
+  STAUNCH_CREWMATE_SCRIPT,
+  NESSIAN_WANDERER_SCRIPT,
+  HARALD_KING_OF_SKEMFAR_SCRIPT,
+  ECLIPSED_MERROW_SCRIPT,
+  BRAZEN_UPSTART_SCRIPT,
+  ECLIPSED_KITHKIN_SCRIPT,
+  FAERIE_MECHANIST_SCRIPT,
+  FIRJA_JUDGE_OF_VALOR_SCRIPT,
+  TOWER_GEIST_SCRIPT,
+  BOROMIR_GONDORS_HOPE_SCRIPT,
+  MASTER_PIANDAO_SCRIPT,
+  KOLAGHAN_WARMONGER_SCRIPT,
+  COURAGEOUS_OUTRIDER_SCRIPT,
+  ECLIPSED_ELF_SCRIPT,
+  BUCKY_BARNES_EAGER_ALLY_SCRIPT,
+  GLINT_NEST_CRANE_SCRIPT,
+  FRONTIER_SEEKER_SCRIPT,
+  ECLIPSED_FLAMEKIN_SCRIPT,
+  SIBSIG_APPRAISER_SCRIPT,
+  CASEY_JONES_JURY_RIG_JUSTICIAR_SCRIPT,
+  FLORIFEROUS_VINEWALL_SCRIPT,
+  SUMALA_WOODSHAPER_SCRIPT,
+  DEFINITELY_NOT_ATURTLE_SCRIPT,
+  ARCANISTS_OWL_SCRIPT,
+  ASHE_PRINCESS_OF_DALMASCA_SCRIPT,
+  STONEFORGE_ACOLYTE_SCRIPT,
+  MELETIS_ASTRONOMER_SCRIPT,
+  BRIGHTWOOD_TRACKER_SCRIPT,
+  SKALLA_WOLF_SCRIPT,
   PARADISE_DRUID_SCRIPT,
   TUINVALE_GUIDE_SCRIPT,
   DROVER_OF_THE_MIGHTY_SCRIPT,

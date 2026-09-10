@@ -28,6 +28,7 @@ import type {
   EffectMode,
   EffectSpec,
   Keyword,
+  LookFilter,
   PaySpec,
   SearchQualifier,
   SearchSpec,
@@ -390,6 +391,27 @@ const SEARCH_HEAD =
   String.raw`(?:(?:,| and) reveal (?:it|them|those cards|that card))?`;
 
 const COUNTS: Readonly<Record<string, number>> = { one: 1, two: 2, three: 3, four: 4 };
+
+/**
+ * D389 - the noun of a look's filter, `you may reveal a <noun> card from among them`, read by
+ * the search's own reader (`distributeList` + `predicatesOf`, D357) so one grammar names what
+ * a library may give up whether a search or a look is asking. A word the reader cannot place
+ * (`historic`, `noncreature`, `double-faced`) refuses the whole sentence (D90).
+ */
+const LOOK_NOUN = String.raw`(?:a|an) (?<noun>[a-zA-Z][a-zA-Z, ]*?) cards?`;
+function lookFilter(g: Record<string, string | undefined>): LookFilter | null {
+  const noun = (g['noun'] ?? '').trim();
+  if (noun === '') return null;
+  // `a Mount creature card or a Plains card` (Frontier Seeker) repeats the article and the word
+  // `card` per alternative; each is read back to its bare noun before the shared reader sees it.
+  const bare = distributeList(noun)
+    .split(/\bor\b/)
+    .map((p) => p.trim().replace(/^(?:a|an)\s+/i, '').replace(/\s+cards?$/i, ''))
+    .join(' or ');
+  const predicates = predicatesOf(bare);
+  if (!predicates || predicates.length === 0) return null;
+  return { predicates, what: noun + ' card' };
+}
 
 /**
  * The count, the predicates, the qualifier and the printed label - the four things both search
@@ -1104,14 +1126,17 @@ const RULES: readonly Rule[] = [
   {
     kind: 'lookAtTop',
     re: new RegExp(
-      `^look at the top (${COUNT}) cards of your library\\. put (${COUNT}) of them into your hand and the rest into your graveyard\\.$`,
+      `^look at the top (${COUNT}) cards of your library\\. put (${COUNT}) of them into your hand and (the rest|the other) into your graveyard\\.$`,
       'i',
     ),
     build: (m) => {
       const n = num(m[1]);
       const take = num(m[2]);
       if (n === null || take === null || take < 1 || take >= n) return null;
-      return { ...BASE, amount: n, targetIndex: -1, self: true, look: { take, rest: 'graveyard' } };
+      // D389 - "the OTHER into your graveyard" is singular (Talas Lookout, Ral's Outburst):
+      // exactly one card may be left over, the same arithmetic the bottom form checks.
+      if ((m[3] ?? '').toLowerCase() === 'the other' && n - take !== 1) return null;
+      return { ...BASE, amount: n, targetIndex: -1, self: true, look: { take, rest: 'graveyard', filter: null, optional: false } };
     },
   },
   {
@@ -1127,7 +1152,7 @@ const RULES: readonly Rule[] = [
       // sentence saying "the other" with two remaining is a printing this rule
       // has misread, and refusing is cheaper than being right by luck.
       if (n === null || take === null || take < 1 || n - take !== 1) return null;
-      return { ...BASE, amount: n, targetIndex: -1, self: true, look: { take, rest: 'bottom' } };
+      return { ...BASE, amount: n, targetIndex: -1, self: true, look: { take, rest: 'bottom', filter: null, optional: false } };
     },
   },
   /**
@@ -1139,9 +1164,9 @@ const RULES: readonly Rule[] = [
    * form is a different sentence, not a special case of the first — "then put
    * them back" has no "put N into your hand" clause at all.
    *
-   * ⚠️ STILL REFUSED: "in a RANDOM order" (2 lines). That needs the seeded
-   * generator, which `effectEvents` does not have, and no prompt fixes it —
-   * D137's refusal of "discards at random" is unaffected by D142.
+   * ⚠️ D389 - "in a RANDOM order" is READ now. `effectEvents` still has no
+   * generator and needs none: the shuffle happens in the ANSWER handler off the
+   * seeded rng (D147's `rngAfter` shape), which is where the leftovers are known.
    */
   {
     kind: 'lookAtTop',
@@ -1153,7 +1178,7 @@ const RULES: readonly Rule[] = [
       const n = num(m[1]);
       const take = num(m[2]);
       if (n === null || take === null || take < 1 || take >= n) return null;
-      return { ...BASE, amount: n, targetIndex: -1, self: true, look: { take, rest: 'bottomOrdered' } };
+      return { ...BASE, amount: n, targetIndex: -1, self: true, look: { take, rest: 'bottomOrdered', filter: null, optional: false } };
     },
   },
   {
@@ -1166,7 +1191,46 @@ const RULES: readonly Rule[] = [
       const n = num(m[1]);
       // ⚠️ `take: 0` — nothing goes to the hand. `effectEvents` reads that as
       // "skip the pick prompt", which is why the two forms can share one kind.
-      return n === null || n < 2 ? null : { ...BASE, amount: n, targetIndex: -1, self: true, look: { take: 0, rest: 'topOrdered' } };
+      return n === null || n < 2 ? null : { ...BASE, amount: n, targetIndex: -1, self: true, look: { take: 0, rest: 'topOrdered', filter: null, optional: false } };
+    },
+  },
+  /**
+   * D389 - THE LOOK WITH A FILTER, the densest one-piece family the fresh leftover
+   * held after D388 (57 cards, most of them trigger payloads under an enters head):
+   * "Look at the top N cards of your library. You may reveal a creature card from
+   * among them and put it into your hand. Put the rest on the bottom of your
+   * library in a random order." Three sentences, one effect (`MAX_SPAN` is 3 for
+   * it), and three things D141's shape did not have: a FILTER on the pick (the
+   * search's own noun reader - refused when a word cannot be placed), an OPTIONAL
+   * pick ("you may": down to none), and a RANDOM order for the leftovers, shuffled
+   * in the ANSWER handler off the seeded generator.
+   */
+  {
+    kind: 'lookAtTop',
+    re: new RegExp(
+      `^look at the top (${COUNT}) cards of your library\\. you may reveal ${LOOK_NOUN} from among them and put (?:it|that card) into your hand\\. put the rest on the bottom of your library in (?<order>a random order|any order)\\.$`,
+      'i',
+    ),
+    build: (m) => {
+      const n = num(m[1]);
+      const filter = lookFilter(m.groups ?? {});
+      if (n === null || n < 1 || !filter) return null;
+      const rest = (m.groups?.['order'] ?? '').toLowerCase() === 'any order' ? 'bottomOrdered' : 'random';
+      return { ...BASE, amount: n, targetIndex: -1, self: true, look: { take: 1, rest, filter, optional: true } };
+    },
+  },
+  /** D389 - the plain "in a random order" (`Drawn from Dreams`), read for the same reason. */
+  {
+    kind: 'lookAtTop',
+    re: new RegExp(
+      `^look at the top (${COUNT}) cards of your library\\. put (${COUNT}) of them into your hand and the rest on the bottom of your library in a random order\\.$`,
+      'i',
+    ),
+    build: (m) => {
+      const n = num(m[1]);
+      const take = num(m[2]);
+      if (n === null || take === null || take < 1 || take >= n) return null;
+      return { ...BASE, amount: n, targetIndex: -1, self: true, look: { take, rest: 'random', filter: null, optional: false } };
     },
   },
   {
@@ -1218,11 +1282,13 @@ function sentences(text: string): string[] {
 /**
  * How many printed sentences one effect may span.
  *
- * ⚠️ TWO, because that is the widest any rule is written for today — and raising
- * it needs no other change, which is the whole point of the rewrite. It is a
- * bound on the window, not a list of what may be joined.
+ * ⚠️ THREE since D389: the filtered look prints three sentences that are one
+ * effect ("Look at the top N. You may reveal a creature card from among them and
+ * put it into your hand. Put the rest on the bottom in a random order."), and
+ * raising the bound needed no other change - which is the whole point of the
+ * rewrite. It is a bound on the window, not a list of what may be joined.
  */
-const MAX_SPAN = 2;
+const MAX_SPAN = 3;
 
 /** D299: the counts a clause may be declared with NO target for. */
 const OPTIONAL_COUNT = /\b(?:up to (?:one|two|three)|any number of) target\b/i;

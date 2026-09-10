@@ -16,7 +16,9 @@ import { describe, expect, test } from 'vitest';
 import { Game } from './game';
 import { replay, stateHash } from './log';
 import { parseEffects } from '../data/effectParse';
-import { advanceUntil, findAnywhere, fullControl, must, ORACLE, put, startedGame } from './testing/harness';
+import { advanceUntil, findAnywhere, fullControl, must, nameOf, ORACLE, put, startedGame } from './testing/harness';
+import { parseEffects as parseSentence } from '../data/effectParse';
+import type { InstanceId } from './types/ids';
 
 const LANDS = ['Island', 'Island', 'Island'];
 const DECK = [
@@ -87,12 +89,19 @@ describe('the sentence (CR 701.16)', () => {
   });
 
   /**
-   * ⚠️ AND THE RANDOM ONE IS UNAFFECTED. A prompt cannot supply a shuffle:
-   * `effectEvents` has no RNG, and randomness in this engine comes only from the
-   * seeded generator threaded through the log. D137's refusal stands.
+   * ⚠️ **AND THE RANDOM ONE CHANGED SIDES TOO (D389).** D141 and D142 refused it
+   * because `effectEvents` has no rng. It still has none: the leftovers are only
+   * known once the pick is answered, so the ANSWER handler shuffles them off the
+   * seeded generator and the advanced state rides the accept (D147's rule).
    */
-  test('an order the engine cannot roll is still refused', () => {
-    expect(ORACLE.byName('Drawn from Dreams')?.faces[0]?.effectMode).not.toBe('auto');
+  test('an order the engine could not roll is rolled at the answer now', () => {
+    const face = ORACLE.byName('Drawn from Dreams')?.faces[0];
+    expect(face?.effectMode).toBe('auto');
+    expect(face?.effects[0]).toMatchObject({
+      kind: 'lookAtTop',
+      amount: 7,
+      look: { take: 2, rest: 'random', filter: null, optional: false },
+    });
   });
 
 
@@ -314,5 +323,162 @@ describe('choosing the order (CR 701.16, "in any order")', () => {
     );
     must(g.submit({ t: 'AnswerOrderCards', player: 'p1', cards: [...shown].reverse() }));
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
+});
+
+/**
+ * D389 - THE LOOK WITH A FILTER. "Look at the top N cards of your library. You may
+ * reveal a creature card from among them and put it into your hand. Put the rest on
+ * the bottom of your library in a random order." Three sentences, one effect, and
+ * three things D141's shape did not have: a FILTER on the pick (the search's own noun
+ * reader, D357), an OPTIONAL pick, and a RANDOM order for the leftovers - shuffled in
+ * the answer handler off the seeded generator, because that is where the leftovers
+ * are known. The filter is PRINTED on the card, so it rides the prompt with `min`
+ * beside it; the revealed run still does not (D141).
+ */
+describe('the look with a filter (D389)', () => {
+  const FLANDS = ['Island', 'Island', 'Mountain', 'Forest', 'Forest'];
+  // Exactly ONE card the filter admits among what will be staged on top.
+  const RDECK = ['Arcane Infusion', ...FLANDS, 'Grizzly Bears', 'Grizzly Bears', 'Grizzly Bears', 'Lightning Bolt'];
+  const CDECK = ['Commune with Nature', ...FLANDS, 'Lightning Bolt', 'Counterspell', 'Brainstorm', 'Grizzly Bears', 'Arcane Infusion'];
+
+  function fgame(deck: readonly string[]): Game {
+    const g = startedGame({ players: 2, decks: [deck, deck] });
+    fullControl(g, 'p1');
+    for (const l of FLANDS) put(g, 'p1', l);
+    return g;
+  }
+  /** Every copy of a name p1 holds in the library or the hand (`put` finds one by name; a look needs all of them). */
+  const mine = (g: Game, name: string): InstanceId[] =>
+    (Object.keys(g.state.cards) as InstanceId[]).filter((id) => {
+      const c = g.state.cards[id];
+      return !!c && c.owner === 'p1' && (c.zone.kind === 'library' || c.zone.kind === 'hand') && nameOf(g, id) === name;
+    });
+  /** Stage the library TOP: the last id named ends up on top (the top is the END of the array). */
+  function toTop(g: Game, ids: readonly InstanceId[]): void {
+    for (const id of ids) {
+      must(g.submit({ t: 'ManualMoveCard', player: 'p1', card: id, to: { kind: 'library', player: 'p1' }, placement: 'top' }));
+    }
+  }
+  const shownTo = (g: Game): InstanceId[] =>
+    (g.state.zones.library['p1'] ?? []).filter((id) => g.state.cards[id]?.revealedTo.includes('p1'));
+
+  test('the typed reveal is read on both orders, and the refusals stay refused', () => {
+    const inf = ORACLE.byName('Arcane Infusion')?.faces[0];
+    // Its second line is Flashback - the engine's own since D307, no clause of the spell's.
+    expect(inf?.oracleText.split('\n')[0]).toBe(
+      'Look at the top four cards of your library. You may reveal an instant or sorcery card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.',
+    );
+    expect(inf?.effectMode).toBe('auto');
+    expect(inf?.effects[0]).toMatchObject({
+      kind: 'lookAtTop',
+      amount: 4,
+      look: { take: 1, rest: 'random', optional: true, filter: { what: 'instant or sorcery card' } },
+    });
+    expect(inf?.effects[0]?.look?.filter?.predicates.map((p) => p.types)).toEqual([['Instant'], ['Sorcery']]);
+    const nat = ORACLE.byName('Commune with Nature')?.faces[0];
+    expect(nat?.effectMode).toBe('auto');
+    expect(nat?.effects[0]).toMatchObject({
+      kind: 'lookAtTop',
+      amount: 5,
+      look: { take: 1, rest: 'bottomOrdered', optional: true, filter: { what: 'creature card' } },
+    });
+    // A word the noun reader cannot place refuses the WHOLE sentence (D90).
+    expect(ORACLE.byName('Board the Weatherlight')?.faces[0]?.effectMode).not.toBe('auto');
+    expect(ORACLE.byName('Gift of the Gargantuan')?.faces[0]?.effectMode).not.toBe('auto');
+  });
+
+  /** "the OTHER into your graveyard" is singular, and the arithmetic is checked (D141's rule). */
+  test('the singular graveyard form is read, and refused when two are left over', () => {
+    const one = parseSentence('Look at the top two cards of your library. Put one of them into your hand and the other into your graveyard.', 'X', true);
+    expect(one.mode).toBe('auto');
+    expect(one.effects[0]).toMatchObject({ kind: 'lookAtTop', amount: 2, look: { take: 1, rest: 'graveyard' } });
+    const two = parseSentence('Look at the top three cards of your library. Put one of them into your hand and the other into your graveyard.', 'X', true);
+    expect(two.mode).not.toBe('auto');
+    const ral = ORACLE.byName("Ral's Outburst")?.faces[0];
+    expect(ral?.effectMode).toBe('auto');
+    expect(ral?.effects.map((e) => e.kind)).toEqual(['damage', 'lookAtTop']);
+  });
+  test('the prompt carries the filter and the minimum, and still no library id', () => {
+    const g = fgame(RDECK);
+    toTop(g, [...mine(g, 'Grizzly Bears'), ...mine(g, 'Lightning Bolt')]);
+    const before = [...(g.state.zones.library['p1'] ?? [])];
+    cast(g, 'Arcane Infusion');
+    const a = asking(g);
+    expect(a).toMatchObject({ player: 'p1', zone: 'library', count: 1, min: 0, rest: 'random', filter: { what: 'instant or sorcery card' } });
+    // ⚠️ The keys, pinned as D137 pins the discard's: `filter` and `min` are the two D389 added,
+    // both printed on the card. Nothing here names a card.
+    expect(Object.keys(a).sort()).toEqual(['count', 'filter', 'kind', 'label', 'min', 'player', 'rest', 'zone']);
+    const json = JSON.stringify(a);
+    for (const id of before) expect(json).not.toContain(id);
+    expect(shownTo(g)).toHaveLength(4);
+    expect(g.state.zones.library['p1']).toHaveLength(before.length);
+  });
+
+  test('a revealed card the filter does not admit is refused, and the prompt stays up', () => {
+    const g = fgame(RDECK);
+    toTop(g, [...mine(g, 'Grizzly Bears'), ...mine(g, 'Lightning Bolt')]);
+    cast(g, 'Arcane Infusion');
+    const bear = shownTo(g).find((id) => nameOf(g, id) === 'Grizzly Bears')!;
+    const r = g.submit({ t: 'AnswerChooseFromZone', player: 'p1', cards: [bear] });
+    expect(r.ok).toBe(false);
+    if (!r.ok) expect(r.reason).toBe('illegalTarget');
+    expect(asking(g).count).toBe(1);
+  });
+
+  test('the admitted pick goes to hand and the rest to the bottom in a rolled order', () => {
+    const g = fgame(RDECK);
+    toTop(g, [...mine(g, 'Grizzly Bears'), ...mine(g, 'Lightning Bolt')]);
+    cast(g, 'Arcane Infusion');
+    const shown = shownTo(g);
+    const bolt = shown.find((id) => nameOf(g, id) === 'Lightning Bolt')!;
+    const rest = shown.filter((id) => id !== bolt);
+    must(g.submit({ t: 'AnswerChooseFromZone', player: 'p1', cards: [bolt] }));
+    expect(g.state.priority.awaiting).toBeNull();
+    expect(g.state.zones.hand['p1']).toContain(bolt);
+    // ⚠️ THE BOTTOM IS INDEX 0 (D141), and the ORDER is the generator's: the three are the
+    // bottom three as a SET, and the reveal is cleared on all of them.
+    const lib = g.state.zones.library['p1'] ?? [];
+    expect([...lib.slice(0, 3)].sort()).toEqual([...rest].sort());
+    for (const id of rest) expect(g.state.cards[id]?.revealedTo).toEqual([]);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
+
+  test('declining keeps nothing, bottoms all four, and replays', () => {
+    const g = fgame(RDECK);
+    toTop(g, [...mine(g, 'Grizzly Bears'), ...mine(g, 'Lightning Bolt')]);
+    cast(g, 'Arcane Infusion');
+    const shown = shownTo(g);
+    const hand = (g.state.zones.hand['p1'] ?? []).length;
+    must(g.submit({ t: 'AnswerChooseFromZone', player: 'p1', cards: [] }));
+    expect(g.state.priority.awaiting).toBeNull();
+    expect(g.state.zones.hand['p1']).toHaveLength(hand);
+    const lib = g.state.zones.library['p1'] ?? [];
+    expect([...lib.slice(0, 4)].sort()).toEqual([...shown].sort());
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
+
+  /** "in any order" behind a filter chains into `orderCards` over the leftovers (D142), declined or not. */
+  test('the any-order form asks for the sequence after the pick, and after a decline', () => {
+    const g = fgame(CDECK);
+    toTop(g, [...mine(g, 'Lightning Bolt'), ...mine(g, 'Counterspell'), ...mine(g, 'Brainstorm'), ...mine(g, 'Arcane Infusion'), ...mine(g, 'Grizzly Bears')]);
+    cast(g, 'Commune with Nature');
+    expect(asking(g)).toMatchObject({ count: 1, min: 0, rest: 'bottomOrdered', filter: { what: 'creature card' } });
+    const shown = shownTo(g);
+    expect(shown).toHaveLength(5);
+    const bear = shown.find((id) => nameOf(g, id) === 'Grizzly Bears')!;
+    must(g.submit({ t: 'AnswerChooseFromZone', player: 'p1', cards: [bear] }));
+    const ord = g.state.priority.awaiting;
+    expect(ord).toMatchObject({ kind: 'orderCards', destination: 'bottom', count: 4 });
+    const rest = shownTo(g);
+    must(g.submit({ t: 'AnswerOrderCards', player: 'p1', cards: rest }));
+    expect(g.state.zones.hand['p1']).toContain(bear);
+    expect((g.state.zones.library['p1'] ?? []).slice(0, 4)).toEqual(rest);
+
+    const h = fgame(CDECK);
+    toTop(h, [...mine(h, 'Lightning Bolt'), ...mine(h, 'Counterspell'), ...mine(h, 'Brainstorm'), ...mine(h, 'Arcane Infusion'), ...mine(h, 'Grizzly Bears')]);
+    cast(h, 'Commune with Nature');
+    must(h.submit({ t: 'AnswerChooseFromZone', player: 'p1', cards: [] }));
+    expect(h.state.priority.awaiting).toMatchObject({ kind: 'orderCards', destination: 'bottom', count: 5 });
   });
 });

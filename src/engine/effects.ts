@@ -674,7 +674,10 @@ export function effectResult(
           }
           break;
         }
-        if (take >= top.length) {
+        // D389 - a look with a FILTER or an OPTIONAL pick always asks: the top may hold nothing
+        // the filter admits, and "you may" is the player's to decline. Only the plain form takes
+        // a library too short to choose from whole (CR 701.8a's one-legal-answer rule, D141).
+        if (take >= top.length && !look.filter && !look.optional) {
           out.push({
             t: 'CardsMoved',
             moves: top.map((card) => ({
@@ -694,6 +697,10 @@ export function effectResult(
             zone: 'library',
             rest: look.rest,
             count: take,
+            // D389 - the fewest the answer may name, and the bound on what it names. Both are
+            // PRINTED on the card, so both ride the prompt; the revealed run does not (D141).
+            min: look.optional ? 0 : take,
+            filter: look.filter,
             label: obj.label,
           },
         });

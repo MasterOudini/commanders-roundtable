@@ -189,6 +189,32 @@ export function predicatesOf(phrase: string): readonly PermanentPredicate[] | nu
 }
 
 /**
+ * D389 - does a printed face satisfy SOME alternative of a predicate list? ONE reader for
+ * every place that asks it of a card in a LIBRARY, which has no derived characteristics
+ * (D357): the answer handler, the bot, the harness, the fuzz driver and the peek panel. The
+ * client hands in `parseTypeLine`'s shape, the host the oracle face - the same structure.
+ */
+export function predicateAdmits(
+  face: {
+    readonly typeLine: {
+      readonly supertypes: readonly string[];
+      readonly types: readonly string[];
+      readonly subtypes: readonly string[];
+    };
+    readonly colors: readonly ColorLetter[];
+  },
+  predicates: readonly PermanentPredicate[],
+): boolean {
+  return predicates.some(
+    (p) =>
+      p.supertypes.every((t) => face.typeLine.supertypes.includes(t)) &&
+      p.types.every((t) => face.typeLine.types.includes(t)) &&
+      p.subtypes.every((t) => face.typeLine.subtypes.includes(t)) &&
+      p.colors.every((c) => face.colors.includes(c)),
+  );
+}
+
+/**
  * The seven board queries, tried in order.
  *
  * ⚠️ EVERY PATTERN IS ANCHORED AT BOTH ENDS, the same rule `effectParse`'s

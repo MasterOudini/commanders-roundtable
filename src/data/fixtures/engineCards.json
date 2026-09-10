@@ -194820,6 +194820,1317 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ARCANE_INFUSION": {
+    "scryfallId": "9ab520b7-ad87-4c8e-a454-5c022e378564",
+    "oracleId": "d5251d47-11de-41f7-9965-1f921e12d927",
+    "name": "Arcane Infusion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arcane Infusion",
+        "manaCost": "{U}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Look at the top four cards of your library. You may reveal an instant or sorcery card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.\nFlashback {3}{U}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Jason Felix",
+        "imageId": "9ab520b7-ad87-4c8e-a454-5c022e378564"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flashback"
+    ],
+    "setCode": "mid",
+    "collectorNumber": "210",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COMMUNE_WITH_NATURE": {
+    "scryfallId": "5224eec3-2941-4d16-a713-099e34e93eee",
+    "oracleId": "d4ed4260-5f38-4b55-ba6e-9f54f04d2360",
+    "name": "Commune with Nature",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Commune with Nature",
+        "manaCost": "{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Look at the top five cards of your library. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in any order.",
+        "flavorText": "Agatha befriended the beasts of the wilds, and under her influence they grew bolder ... and more savage. Some herbivores developed a taste for flesh.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jodie Muir",
+        "imageId": "5224eec3-2941-4d16-a713-099e34e93eee"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "woe",
+    "collectorNumber": "166",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAL_S_OUTBURST": {
+    "scryfallId": "6be3dd3e-50d2-4729-9caa-b2cd984f4c97",
+    "oracleId": "5e715875-28e0-44b4-af25-f6bb8ddec823",
+    "name": "Ral's Outburst",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ral's Outburst",
+        "manaCost": "{2}{U}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Ral's Outburst deals 3 damage to any target. Look at the top two cards of your library. Put one of them into your hand and the other into your graveyard.",
+        "flavorText": "\"Time to find the melting point of lazotep.\"\n—Ral Zarek",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Joseph Meehan",
+        "imageId": "6be3dd3e-50d2-4729-9caa-b2cd984f4c97"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "war",
+    "collectorNumber": "212",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOARD_THE_WEATHERLIGHT": {
+    "scryfallId": "a11d10fa-d42d-4867-9e2f-fc8de582d5e7",
+    "oracleId": "c4ce96d8-3ce4-4ed2-9ad3-73119aa79fbe",
+    "name": "Board the Weatherlight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Board the Weatherlight",
+        "manaCost": "{1}{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "Look at the top five cards of your library. You may reveal a historic card from among them and put it into your hand. Put the rest on the bottom of your library in a random order. (Artifacts, legendaries, and Sagas are historic.)",
+        "flavorText": "A new gathering for a new age.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Tyler Jacobson",
+        "imageId": "a11d10fa-d42d-4867-9e2f-fc8de582d5e7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dom",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIFT_OF_THE_GARGANTUAN": {
+    "scryfallId": "1850be87-54de-49b3-a407-6fb2b278b25c",
+    "oracleId": "34f9c2a9-ca7c-4a02-aec5-e8f407d09580",
+    "name": "Gift of the Gargantuan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gift of the Gargantuan",
+        "manaCost": "{2}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Look at the top four cards of your library. You may reveal a creature card and/or a land card from among them and put the revealed cards into your hand. Put the rest on the bottom of your library in any order.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jean-Sébastien Rossbach",
+        "imageId": "1850be87-54de-49b3-a407-6fb2b278b25c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ala",
+    "collectorNumber": "132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TALAS_LOOKOUT": {
+    "scryfallId": "0a4b9afe-aeb7-4c56-8a22-96e19a7a938c",
+    "oracleId": "68bde9ff-3206-4a9c-9233-4b2387dcd306",
+    "name": "Talas Lookout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Talas Lookout",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "Flying\nWhen this creature dies, look at the top two cards of your library. Put one of them into your hand and the other into your graveyard.",
+        "flavorText": "\"The Talas pirates are motivated by money, so we paid them twice what they could steal from us to spy for us instead.\"\n—Jhoira",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Julia Metzger",
+        "imageId": "0a4b9afe-aeb7-4c56-8a22-96e19a7a938c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "68",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ECLIPSED_BOGGART": {
+    "scryfallId": "0ac1d0b2-92a4-4a10-b2d1-e9bb90265cc3",
+    "oracleId": "9cc3b91b-ad70-4b01-b718-fda3819f84d0",
+    "name": "Eclipsed Boggart",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eclipsed Boggart",
+        "manaCost": "{B/R}{B/R}{B/R}",
+        "typeLine": "Creature — Goblin Scout",
+        "oracleText": "When this creature enters, look at the top four cards of your library. You may reveal a Goblin, Swamp, or Mountain card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Tiffany Turrill",
+        "imageId": "0ac1d0b2-92a4-4a10-b2d1-e9bb90265cc3"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "217",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AUGUR_OF_BOLAS": {
+    "scryfallId": "1337c056-7be9-4a04-a8c3-39d46ce34283",
+    "oracleId": "be5d6779-ecc9-44b9-8c4d-97a243059d55",
+    "name": "Augur of Bolas",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Augur of Bolas",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "When this creature enters, look at the top three cards of your library. You may reveal an instant or sorcery card from among them and put it into your hand. Put the rest on the bottom of your library in any order.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "1337c056-7be9-4a04-a8c3-39d46ce34283"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "c13",
+    "collectorNumber": "30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STAUNCH_CREWMATE": {
+    "scryfallId": "143e9845-8a11-4fc4-b116-29a929985146",
+    "oracleId": "8ab49974-3f06-4b6b-a416-d6f872b3887f",
+    "name": "Staunch Crewmate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Staunch Crewmate",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "When this creature enters, look at the top four cards of your library. You may reveal an artifact or Pirate card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": "\"Leave you? Not a chance. You still owe me money.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "L.A. Draws",
+        "imageId": "143e9845-8a11-4fc4-b116-29a929985146"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NESSIAN_WANDERER": {
+    "scryfallId": "1a4789a2-f201-4b05-954d-527d169de091",
+    "oracleId": "45703364-660a-4e73-a467-5ee47d936c1a",
+    "name": "Nessian Wanderer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nessian Wanderer",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Satyr Scout",
+        "oracleText": "Constellation — Whenever an enchantment you control enters, look at the top three cards of your library. You may reveal a land card from among them and put that card into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "1a4789a2-f201-4b05-954d-527d169de091"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Constellation"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "905",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HARALD_KING_OF_SKEMFAR": {
+    "scryfallId": "2329557d-cbb1-427e-bb63-1905fe68ee88",
+    "oracleId": "0089b07c-7f47-4a9a-9fb7-cc38ec9d7bcd",
+    "name": "Harald, King of Skemfar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Harald, King of Skemfar",
+        "manaCost": "{1}{B}{G}",
+        "typeLine": "Legendary Creature — Elf Warrior",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhen Harald enters, look at the top five cards of your library. You may reveal an Elf, Warrior, or Tyvar card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Grzegorz Rutkowski",
+        "imageId": "2329557d-cbb1-427e-bb63-1905fe68ee88"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "pmei",
+    "collectorNumber": "2021-3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ECLIPSED_MERROW": {
+    "scryfallId": "2352750d-404d-4928-9bdb-1b0db599b70f",
+    "oracleId": "a3a00b62-f07e-44ef-8d97-22a3e7a06f72",
+    "name": "Eclipsed Merrow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eclipsed Merrow",
+        "manaCost": "{W/U}{W/U}{W/U}",
+        "typeLine": "Creature — Merfolk Scout",
+        "oracleText": "When this creature enters, look at the top four cards of your library. You may reveal a Merfolk, Plains, or Island card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "2352750d-404d-4928-9bdb-1b0db599b70f"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "221",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRAZEN_UPSTART": {
+    "scryfallId": "25fd80c9-e86c-48bd-8c8b-654a29665931",
+    "oracleId": "e0a9c4be-74fe-4984-9028-60380db1575b",
+    "name": "Brazen Upstart",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brazen Upstart",
+        "manaCost": "{R}{G}{W}",
+        "typeLine": "Creature — Elf Shaman",
+        "oracleText": "Vigilance\nWhen this creature dies, look at the top five cards of your library. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R",
+          "W"
+        ],
+        "artist": "Samy Halim",
+        "imageId": "25fd80c9-e86c-48bd-8c8b-654a29665931"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "296",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ECLIPSED_KITHKIN": {
+    "scryfallId": "29e1cfa4-0ad8-4228-9f7e-cbab114d1d5f",
+    "oracleId": "e6227840-6e3e-48c7-b4a4-42cfd8f14b68",
+    "name": "Eclipsed Kithkin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eclipsed Kithkin",
+        "manaCost": "{G/W}{G/W}",
+        "typeLine": "Creature — Kithkin Scout",
+        "oracleText": "When this creature enters, look at the top four cards of your library. You may reveal a Kithkin, Forest, or Plains card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Filip Burburan",
+        "imageId": "29e1cfa4-0ad8-4228-9f7e-cbab114d1d5f"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "220",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FAERIE_MECHANIST": {
+    "scryfallId": "3029ea36-78f5-4d98-bd28-1e5292c85e8e",
+    "oracleId": "fcbe14c4-1b0d-486f-bb9c-0fed452668cb",
+    "name": "Faerie Mechanist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Faerie Mechanist",
+        "manaCost": "{3}{U}",
+        "typeLine": "Artifact Creature — Faerie Artificer",
+        "oracleText": "Flying\nWhen this creature enters, look at the top three cards of your library. You may reveal an artifact card from among them and put it into your hand. Put the rest on the bottom of your library in any order.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "3029ea36-78f5-4d98-bd28-1e5292c85e8e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mma",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIRJA_JUDGE_OF_VALOR": {
+    "scryfallId": "32f17c7c-cf1d-4cdf-b3a9-699a679ac215",
+    "oracleId": "7d5dcf8c-ecda-49ae-980c-c8c9016252d9",
+    "name": "Firja, Judge of Valor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Firja, Judge of Valor",
+        "manaCost": "{2}{W}{B}{B}",
+        "typeLine": "Legendary Creature — Angel Cleric",
+        "oracleText": "Flying, lifelink\nWhenever you cast your second spell each turn, look at the top three cards of your library. Put one of them into your hand and the rest into your graveyard.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "GodMachine",
+        "imageId": "32f17c7c-cf1d-4cdf-b3a9-699a679ac215"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Lifelink"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "88384",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOWER_GEIST": {
+    "scryfallId": "3304c2bc-2d05-497d-b92a-3de21a9d6b45",
+    "oracleId": "10e19453-84fb-4845-8db0-c9da52847e09",
+    "name": "Tower Geist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tower Geist",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nWhen this creature enters, look at the top two cards of your library. Put one of them into your hand and the other into your graveyard.",
+        "flavorText": "Jenrik's tower is served by those who once sought to enter it uninvited.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Izzy",
+        "imageId": "3304c2bc-2d05-497d-b92a-3de21a9d6b45"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ddq",
+    "collectorNumber": "30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOROMIR_GONDOR_S_HOPE": {
+    "scryfallId": "3c9b154f-808f-4338-ad95-a0a478460ad8",
+    "oracleId": "5bb5e4e5-c3b4-4f67-83e1-bde9ce9f18c4",
+    "name": "Boromir, Gondor's Hope",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boromir, Gondor's Hope",
+        "manaCost": "{2}{W}{U}",
+        "typeLine": "Legendary Creature — Human Warrior",
+        "oracleText": "Whenever Boromir enters or attacks, look at the top six cards of your library. You may reveal a Human or artifact card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": "\"Long have I wandered by roads forgotten, seeking the house of Elrond.\"",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Campbell White",
+        "imageId": "3c9b154f-808f-4338-ad95-a0a478460ad8"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ltc",
+    "collectorNumber": "49",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MASTER_PIANDAO": {
+    "scryfallId": "3e4a042c-f2a6-45e7-9444-acd1ca838b87",
+    "oracleId": "e294d9d2-df91-4410-85d3-8ffb13fb2285",
+    "name": "Master Piandao",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Master Piandao",
+        "manaCost": "{4}{W}",
+        "typeLine": "Legendary Creature — Human Warrior Ally",
+        "oracleText": "First strike\nWhenever Master Piandao attacks, look at the top four cards of your library. You may reveal an Ally, Equipment, or Lesson card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Brian Yuen",
+        "imageId": "3e4a042c-f2a6-45e7-9444-acd1ca838b87"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "tla",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOLAGHAN_WARMONGER": {
+    "scryfallId": "40366946-d9e7-4770-bca2-f6d1dcb73ff5",
+    "oracleId": "4c7e6520-d179-4590-afdc-92eb2c0740a6",
+    "name": "Kolaghan Warmonger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kolaghan Warmonger",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Ogre Warrior",
+        "oracleText": "Haste\nWhenever this creature attacks, look at the top six cards of your library. You may reveal a Dragon card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Domenico Cava",
+        "imageId": "40366946-d9e7-4770-bca2-f6d1dcb73ff5"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "mat",
+    "collectorNumber": "201",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COURAGEOUS_OUTRIDER": {
+    "scryfallId": "4123da54-9947-462e-9862-3eecc459a75b",
+    "oracleId": "00915480-ffa8-4930-a158-b1c1f75b7876",
+    "name": "Courageous Outrider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Courageous Outrider",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Scout",
+        "oracleText": "When this creature enters, look at the top four cards of your library. You may reveal a Human card from among them and put it into your hand. Put the rest on the bottom of your library in any order.",
+        "flavorText": "One silvery blast signaled that she wouldn't be arriving at Thraben alone.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ryan Alexander Lee",
+        "imageId": "4123da54-9947-462e-9862-3eecc459a75b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "emn",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ECLIPSED_ELF": {
+    "scryfallId": "57708ef7-ef10-49c4-8cf7-7055cf7280a0",
+    "oracleId": "7c89ef4d-b375-4644-ac8b-034effdbe98c",
+    "name": "Eclipsed Elf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eclipsed Elf",
+        "manaCost": "{B/G}{B/G}{B/G}",
+        "typeLine": "Creature — Elf Scout",
+        "oracleText": "When this creature enters, look at the top four cards of your library. You may reveal an Elf, Swamp, or Forest card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Heikala",
+        "imageId": "57708ef7-ef10-49c4-8cf7-7055cf7280a0"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "336",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BUCKY_BARNES_EAGER_ALLY": {
+    "scryfallId": "58a6ca84-64b8-4137-b3ce-9540b6dfa162",
+    "oracleId": "55bc5d06-7dd1-4403-af32-0e10d8bbe327",
+    "name": "Bucky Barnes, Eager Ally",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bucky Barnes, Eager Ally",
+        "manaCost": "{1}{W}",
+        "typeLine": "Legendary Creature — Human Soldier Hero",
+        "oracleText": "Vigilance\nWhen Bucky Barnes dies, look at the top four cards of your library. You may reveal an Equipment, Hero, or Soldier card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": "\"Yes sir, Cap! I won't let you down.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Dan Brereton",
+        "imageId": "58a6ca84-64b8-4137-b3ce-9540b6dfa162"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "586",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLINT_NEST_CRANE": {
+    "scryfallId": "5c6cb00c-4f1f-4c55-802b-7128378b4361",
+    "oracleId": "1983478a-cedb-4053-adab-ac5f1a163296",
+    "name": "Glint-Nest Crane",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Glint-Nest Crane",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhen this creature enters, look at the top four cards of your library. You may reveal an artifact card from among them and put it into your hand. Put the rest on the bottom of your library in any order.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "5c6cb00c-4f1f-4c55-802b-7128378b4361"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "klr",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FRONTIER_SEEKER": {
+    "scryfallId": "5fd49911-9ddb-4bef-8cd0-89f558ccd5cc",
+    "oracleId": "466cf331-2d9c-4ebc-84f6-30c890e1b637",
+    "name": "Frontier Seeker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frontier Seeker",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Scout",
+        "oracleText": "When this creature enters, look at the top five cards of your library. You may reveal a Mount creature card or a Plains card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Raluca Marinescu",
+        "imageId": "5fd49911-9ddb-4bef-8cd0-89f558ccd5cc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "368",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ECLIPSED_FLAMEKIN": {
+    "scryfallId": "6271b82d-5922-4de0-b763-129908ece6ee",
+    "oracleId": "48c641df-d511-4e35-b623-9d1fdb5240da",
+    "name": "Eclipsed Flamekin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eclipsed Flamekin",
+        "manaCost": "{1}{U/R}{U/R}",
+        "typeLine": "Creature — Elemental Scout",
+        "oracleText": "When this creature enters, look at the top four cards of your library. You may reveal an Elemental, Island, or Mountain card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Vanessa Gillings",
+        "imageId": "6271b82d-5922-4de0-b763-129908ece6ee"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "337",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIBSIG_APPRAISER": {
+    "scryfallId": "670c5b96-bac6-449b-a2bd-cb43750d3911",
+    "oracleId": "5b51958d-533a-45e4-aac1-3c157670978b",
+    "name": "Sibsig Appraiser",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sibsig Appraiser",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Zombie Advisor",
+        "oracleText": "When this creature enters, look at the top two cards of your library. Put one of them into your hand and the other into your graveyard.",
+        "flavorText": "\"Oh, I can absolutely verify its authenticity,\" chuckled Sarnai. \"I was there when it was made.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ina Wong",
+        "imageId": "670c5b96-bac6-449b-a2bd-cb43750d3911"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "56",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CASEY_JONES_JURY_RIG_JUSTICIAR": {
+    "scryfallId": "808a5bc0-0999-47cf-854c-30db6277efe5",
+    "oracleId": "b4c4fdb9-e034-49c0-9f7f-07e8cae19eb2",
+    "name": "Casey Jones, Jury-Rig Justiciar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Casey Jones, Jury-Rig Justiciar",
+        "manaCost": "{1}{R}",
+        "typeLine": "Legendary Creature — Human Berserker",
+        "oracleText": "Haste\nWhen Casey Jones enters, look at the top four cards of your library. You may reveal an artifact card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lordigan",
+        "imageId": "808a5bc0-0999-47cf-854c-30db6277efe5"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "87",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLORIFEROUS_VINEWALL": {
+    "scryfallId": "8382b7c7-762e-43f6-b285-e0cebe749fab",
+    "oracleId": "26685121-ab1f-4366-840b-c5a80508cde6",
+    "name": "Floriferous Vinewall",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Floriferous Vinewall",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Plant Wall",
+        "oracleText": "Defender\nWhen this creature enters, look at the top six cards of your library. You may reveal a land card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jakub Kasper",
+        "imageId": "8382b7c7-762e-43f6-b285-e0cebe749fab"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "163",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUMALA_WOODSHAPER": {
+    "scryfallId": "8c4e427e-c061-43c5-9e8e-34bf5b447ab1",
+    "oracleId": "5a44062b-f1db-4122-8570-1241a16cb895",
+    "name": "Sumala Woodshaper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sumala Woodshaper",
+        "manaCost": "{2}{G}{W}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "When this creature enters, look at the top four cards of your library. You may reveal a creature or enchantment card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Sara Winters",
+        "imageId": "8c4e427e-c061-43c5-9e8e-34bf5b447ab1"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "grn",
+    "collectorNumber": "200",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEFINITELY_NOT_A_TURTLE": {
+    "scryfallId": "8f15d16e-b9cc-4edd-9792-f5d452488778",
+    "oracleId": "3d8dfd57-7d26-4a3b-a9c3-33077c85b3db",
+    "name": "Definitely Not a Turtle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Definitely Not a Turtle",
+        "manaCost": "{3}",
+        "typeLine": "Creature — Mutant Ninja Turtle",
+        "oracleText": "When this creature dies, look at the top six cards of your library. You may reveal a land or legendary Turtle card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": "Nothing a New Yorker ain't seen a thousand times before.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Leonardo Vincent (Levinky)",
+        "imageId": "8f15d16e-b9cc-4edd-9792-f5d452488778"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tmc",
+    "collectorNumber": "98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARCANIST_S_OWL": {
+    "scryfallId": "9849087e-ea39-4667-b879-51ecdff4bf6a",
+    "oracleId": "4bd38337-fb79-4809-848a-308c682825d1",
+    "name": "Arcanist's Owl",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arcanist's Owl",
+        "manaCost": "{W/U}{W/U}{W/U}{W/U}",
+        "typeLine": "Artifact Creature — Bird",
+        "oracleText": "Flying\nWhen this creature enters, look at the top four cards of your library. You may reveal an artifact or enchantment card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Véronique Meignaud",
+        "imageId": "9849087e-ea39-4667-b879-51ecdff4bf6a"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "nec",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ASHE_PRINCESS_OF_DALMASCA": {
+    "scryfallId": "9b103e50-8bac-41d4-966e-a5d42132bc12",
+    "oracleId": "db75577d-1001-4088-999f-40684218a07f",
+    "name": "Ashe, Princess of Dalmasca",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ashe, Princess of Dalmasca",
+        "manaCost": "{2}{W}",
+        "typeLine": "Legendary Creature — Human Rebel Noble",
+        "oracleText": "Whenever Ashe attacks, look at the top five cards of your library. You may reveal an artifact card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": "\"I am simply myself. No more and no less. And I want only to be free.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Yumi Yaoshida",
+        "imageId": "9b103e50-8bac-41d4-966e-a5d42132bc12"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "425",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STONEFORGE_ACOLYTE": {
+    "scryfallId": "a5b1ec11-48c3-49d8-9dcd-1da5ffaf9184",
+    "oracleId": "c3c40f93-7e10-4139-b9e0-b6dfff8b8038",
+    "name": "Stoneforge Acolyte",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stoneforge Acolyte",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Kor Artificer Ally",
+        "oracleText": "Cohort — {T}, Tap an untapped Ally you control: Look at the top four cards of your library. You may reveal an Equipment card from among them and put it into your hand. Put the rest on the bottom of your library in any order.",
+        "flavorText": "\"The stone speaks. We are merely interpreters.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Chris Rallis",
+        "imageId": "a5b1ec11-48c3-49d8-9dcd-1da5ffaf9184"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Cohort"
+    ],
+    "setCode": "ogw",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MELETIS_ASTRONOMER": {
+    "scryfallId": "af9adca9-3e69-474f-896d-bb05b1d67252",
+    "oracleId": "6593a7c1-fb48-4e53-8e6a-339ad2cc4489",
+    "name": "Meletis Astronomer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Meletis Astronomer",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Heroic — Whenever you cast a spell that targets this creature, look at the top three cards of your library. You may reveal an enchantment card from among them and put it into your hand. Put the rest on the bottom of your library in any order.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "af9adca9-3e69-474f-896d-bb05b1d67252"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Heroic"
+    ],
+    "setCode": "bng",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRIGHTWOOD_TRACKER": {
+    "scryfallId": "e1fb9767-29bf-4a69-b37c-0925d41f6b46",
+    "oracleId": "f8d44858-1d21-43fd-b193-59ddf7c53785",
+    "name": "Brightwood Tracker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brightwood Tracker",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elf Scout",
+        "oracleText": "{5}{G}, {T}: Look at the top four cards of your library. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": "\"Many have walked here, but there is only one trail I seek.\"",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "e1fb9767-29bf-4a69-b37c-0925d41f6b46"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "166",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKALLA_WOLF": {
+    "scryfallId": "f320e9f2-963d-468a-bf7a-726ef11e886d",
+    "oracleId": "22da0659-7cd0-4277-b6d2-7d954dcd7729",
+    "name": "Skalla Wolf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skalla Wolf",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Wolf Spirit",
+        "oracleText": "When this creature enters, look at the top five cards of your library. You may reveal a green card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": "\"This imprint was the familiar of a friend.\"\n—Vivien Reid",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "f320e9f2-963d-468a-bf7a-726ef11e886d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "m19",
+    "collectorNumber": "303",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VALGAVOTH_S_LAIR": {
+    "scryfallId": "34c56d64-45a7-4385-a754-5e0793889c9d",
+    "oracleId": "660d44a2-391a-416c-b46c-ddcc3739f527",
+    "name": "Valgavoth's Lair",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Valgavoth's Lair",
+        "manaCost": "",
+        "typeLine": "Enchantment Land",
+        "oracleText": "Hexproof\nThis land enters tapped. As it enters, choose a color.\n{T}: Add one mana of the chosen color.",
+        "flavorText": "It is the one chamber whose location never changes, the rotten, rancorous heart of Duskmourn itself.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Martin de Diego Sádaba",
+        "imageId": "34c56d64-45a7-4385-a754-5e0793889c9d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Hexproof"
+    ],
+    "setCode": "pdsk",
+    "collectorNumber": "271s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

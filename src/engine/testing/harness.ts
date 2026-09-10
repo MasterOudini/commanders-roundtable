@@ -12,6 +12,7 @@ import { ingestOracle } from '../oracle';
 import { NO_SCRIPTS, type ScriptRegistry } from '../scripts/registryCore';
 import { ENGINE_CARDS } from '../../data/fixtures/engineCards';
 import type { CardData } from '../../data/cardTypes';
+import { predicateAdmits } from '../../data/replacementParse';
 import { targetingSourceFor, type EngineDeps } from '../loop';
 import type { SetupPlayer, SetupSpec } from '../setup';
 import type { InstanceId, PlayerId } from '../types/ids';
@@ -581,10 +582,20 @@ export function simplestAnswer(
               state.cards[id]?.revealedTo.includes(awaiting.player),
             )
           : (state.zones.hand[awaiting.player] ?? []);
+      // D389 - a filtered look admits only what its noun names, and "you may" takes nothing:
+      // the eligible run, up to the count, is legal whether it is empty or full.
+      const filter = awaiting.zone === 'library' ? (awaiting.filter ?? null) : null;
+      const eligible = filter
+        ? pool.filter((id) => {
+            const inst = state.cards[id];
+            const printing = inst ? ORACLE.byPrinting(inst.printingId) : undefined;
+            return printing ? predicateAdmits(faceOf(printing, 0), filter.predicates) : false;
+          })
+        : pool;
       return {
         t: 'AnswerChooseFromZone',
         player: awaiting.player,
-        cards: pool.slice(0, awaiting.count),
+        cards: eligible.slice(0, awaiting.count),
       };
     }
     /**

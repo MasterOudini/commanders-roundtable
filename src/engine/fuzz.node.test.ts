@@ -25,6 +25,7 @@ import {
 // mechanically; `createRegistry` throws on a duplicate oracleId, so a testing
 // script shadowing a shipped one cannot register twice silently.
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
+import { predicateAdmits } from '../data/replacementParse';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
 import type { Intent } from './types/intents';
@@ -575,10 +576,26 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       return { t: 'AnswerSearchLibrary', player: awaiting.player, cards: legal.slice(0, awaiting.count), declined: false };
     }
     case 'chooseFromZone': {
-      const hand = [...(state.zones.hand[awaiting.player] ?? [])];
+      // D389 - a LIBRARY look answers from the revealed run, through the look's own filter
+      // (asked of the oracle face, D357), between the prompt's `min` and its count. A hand
+      // discard is unchanged. An answer the handler would reject leaves the prompt up and spends
+      // the rest of the seed on rejections, so the pool has to be the legal one.
+      const pool =
+        awaiting.zone === 'library'
+          ? (state.zones.library[awaiting.player] ?? []).filter((id) => {
+              const inst = state.cards[id];
+              if (!inst || !inst.revealedTo.includes(awaiting.player)) return false;
+              if (!awaiting.filter) return true;
+              const face = ORACLE.byPrinting(inst.printingId)?.faces[0];
+              return face ? predicateAdmits(face, awaiting.filter.predicates) : false;
+            })
+          : [...(state.zones.hand[awaiting.player] ?? [])];
+      const min = awaiting.min ?? awaiting.count;
+      const most = Math.min(awaiting.count, pool.length);
+      const want = most > min ? min + p.below(most - min + 1) : most;
       const picked: string[] = [];
-      while (picked.length < awaiting.count && hand.length > 0) {
-        picked.push(...hand.splice(p.below(hand.length), 1));
+      while (picked.length < want && pool.length > 0) {
+        picked.push(...pool.splice(p.below(pool.length), 1));
       }
       return { t: 'AnswerChooseFromZone', player: awaiting.player, cards: picked };
     }

@@ -230,16 +230,36 @@ export type TargetController = 'any' | 'you' | 'opponent';
  * the same attribute under its pre-2021 name and normalises to `manaValue`.
  */
 /**
+ * D389 - the FILTER a look may carry: `You may reveal a creature card from among
+ * them and put it into your hand.` The noun is `predicatesOf`'s shape, read by the
+ * same reader a search's noun is (D357), and `what` is the printed noun for the
+ * prompt bar. It is PUBLIC - printed on the card - so it rides the prompt; what
+ * never crosses the wire is the revealed run itself.
+ */
+export interface LookFilter {
+  readonly predicates: readonly PermanentPredicate[];
+  readonly what: string;
+}
+
+/**
  * `lookAtTop` only: how many of the revealed cards are taken, and where the
  * rest go.
  *
- * ⚠️ **CLOSED AT TWO DESTINATIONS, and the two it leaves out are left out for
- * different reasons.** "on the bottom of your library IN ANY ORDER" (6 lines) is
- * a second decision the player is owed and this does not offer; "IN A RANDOM
- * order" (2 lines) needs the seeded generator, which `effectEvents` does not
- * have — D137's refusal of "discards at random", one card type along.
+ * ⚠️ **THE DESTINATIONS WERE CLOSED AT TWO (D141) AND OPENED ONE AT A TIME:**
+ * "in any order" when `Awaiting.orderCards` gave it somewhere to ask (D142), and
+ * "in a RANDOM order" when the ANSWER handler learned to shuffle the leftovers off
+ * the seeded generator (D389) - `effectEvents` still has no rng, and it does not
+ * need one, because the leftovers are only known once the pick is answered.
  */
 export interface LookSpec {
+  /**
+   * D389 - `you may reveal a <noun> card from among them`: the pick is bounded by a
+   * filter, and the sentence is REFUSED when the noun cannot be placed (D90). `null`
+   * for the plain forms.
+   */
+  readonly filter: LookFilter | null;
+  /** D389 - `you may`: the player may keep fewer than `take`, down to none. */
+  readonly optional: boolean;
   /** How many go to the hand. `0` for a pure re-ordering (`Index`). */
   readonly take: number;
   /**
@@ -250,7 +270,7 @@ export interface LookSpec {
    * graveyard has no order anybody chooses, and "the other" leaves one card,
    * so raising a prompt for either would be a question with one legal answer.
    */
-  readonly rest: 'graveyard' | 'bottom' | 'bottomOrdered' | 'topOrdered';
+  readonly rest: 'graveyard' | 'bottom' | 'bottomOrdered' | 'topOrdered' | 'random';
 }
 
 export interface NumericRestriction {

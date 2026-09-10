@@ -14207,6 +14207,75 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       shapes, the spell-row table (21 of 43), the 55 REDUNDANT hand scripts;
       prior items stand.
 
+- [x] **M6.4hv — THE LIBRARY LOOK WITH A FILTER: `you may reveal a <noun> card
+      from among them`, an optional pick, the rest in a random order
+      (2026-09-11):** **8,311 of 31,692 Commander-legal cards now execute
+      completely, up from 8,264 (+47: FIFTEEN with no script at all, then 32
+      generated rows).** `SHIPPED_SCRIPTS` 5,385 → **5,417**; ledger 1,200 →
+      **1,207** (Firja, Judge of Valor DRAINED by the stale-refusal guard the day
+      its look landed; eight ADDED by reason). Fixtures 5,915 → **5,953**.
+      `scriptableToday` 1,295 → 1,331 by the SEAM and → **1,302** by the WAVE;
+      the select pool 0 → 36 → 8 → 0; the ladder `[1302, 1391, 2826, 4557,
+      5897]`. Bot reach 8,199 → **8,245** from **249** commanders. Decisions in
+      **D389**, on Fable 5.1.
+      ⚠️ **THE MEASUREMENT CHOSE IT, BY EXACT SHAPE.** A fresh true-leftover
+      after D388 (23,428 incomplete, 11,737 one piece) priced the engine-seam
+      candidates by printed shape rather than by mechanism: the typed reveal is
+      the densest family that is ONE seam — 57 one-piece cards (35 random order,
+      15 any order, 7 singular graveyard), most trigger payloads under an enters
+      head, every one blocked on three words D141's shape lacked.
+      ⚠️ **THE SEAM:** `LookSpec.filter` through the search's OWN noun reader
+      (D357 — a word it cannot place refuses the sentence: `historic`,
+      `noncreature, nonland`, `double-faced`, `permanent`, `and/or` stay refused
+      by name) and `optional`; `rest: 'random'`, shuffled in the ANSWER off the
+      seeded generator with the advanced state on the accept (D147 —
+      `effectEvents` still has no rng and needs none); the prompt carries `min`
+      and `filter`, OPTIONAL on the type for D377's reason (sixty-three shipped
+      modules construct the hand prompt) and pinned by the seam's own keys test;
+      ONE reader `predicateAdmits` for the handler, the bot, the harness, the fuzz
+      driver, the net driver and the peek panel; `MAX_SPAN` 2 → 3 on D150's
+      guarantee; the graveyard form reads `the other`; two pins CHANGED SIDES and
+      were rewritten (D117 — Drawn from Dreams, the two-pass random refusal).
+      ⚠️ **THE CONTROL SHIPPED WITH IT** (D143/D144): the peek panel REFUSES a
+      card the noun does not name before the host would and commits an optional
+      pick by a button (keeping none is a legal answer, D195); a battery block
+      drives it with real clicks; the hand's click path is hand-only now (it used
+      to submit hand cards against a library look).
+      ⚠️ **THE WAVE:** 47 → 32 rows through the mainline; 15 refused by reason
+      (four heads outside the library, two filtered heads outside the closed
+      reader, five nouns, two intervening-ifs, an `and/or`); the classifier then
+      offered eight, all ledgered by reason — ⚠️ **Liliana's Spoils is the first
+      SPELL named for TWO ASKS IN ONE RESOLUTION**, the continuation seam's
+      spell-side witness. The generator's look arm DERIVES the keep (D347/D360's
+      shape), stages EVERY dealt copy on top before the fire (a crossed draw step
+      took the only one), proves the hand LOCALLY (a witness `put()` out of the
+      opening seven skewed the row-level assert, D232), and an ASKING vocabulary
+      fire stops AT the prompt — a settle while a spell is still under the trigger
+      answered it (D370's trap, on the second spell and the heroic Growth). Third
+      port green (32 suites / 65 tests); the first two named a const inside the
+      fire's block and an enters-or-attacks pair sharing a line tag.
+      ⚠️ **Traps:** an ampersand after an AND-list backgrounds the WHOLE chain,
+      `cd` included (twice); `select.cjs` prints nothing while its pins are red —
+      the pool is `batch.json`; the classifier offers past the one-piece pool, so
+      read the offered set through the parser before deciding wave or ledger;
+      ⚠️ **the fixture picker's legality guard read a field the database does not
+      have** (`commanderLegal` for `commanderLegality` - dead since D347): Little Girl
+      (Unhinged, `{HW}`, mv 0.5) and Dance of Panic were derived as look fixtures and
+      `oracleParse`'s mana-value pin caught the first at the gate (red 1) - the guard
+      reads the database's own field now, both suites re-derived on legal cards.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5570 files,
+      27333 passed / 11 skipped · 500-seed gate, 6 shards, 1415.6 s wall ·
+      build clean · probe 124/124 · battery green with the six look-panel checks.**
+      ⚠️ **Reportables** (D389): the look's tail (the four heads, the refused
+      nouns, the intervening-ifs, `take: 0` under a head, a filtered look that
+      takes two); the prompt CONTINUATION seam (Liliana's Spoils, the each-player
+      queue 56); the brief's seams — threaten 49, proliferate 48, exchange control
+      24, the keyword entry replacements 23, the durations 33, copy ~200,
+      spend-restricted mana 56; the two gate items — the tournament floor's
+      MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; the non-legal fixture Gobland
+      (D360's Goblin search fixture, derived through the same dead guard - Emrakul is
+      D356's deliberate boundary); then D388's list unchanged.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

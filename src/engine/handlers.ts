@@ -50,7 +50,7 @@ import type {
   SearchQualifier,
   TargetSpec,
 } from './types/oracle';
-import type { PermanentPredicate } from '../data/replacementParse';
+import { predicateAdmits, type PermanentPredicate } from '../data/replacementParse';
 import { candidatesFromState, validateTargets } from './targets';
 import { EMPTY_POOL, poolFrom, type ManaCost, type ManaPool, type ManaSymbolKey } from './types/mana';
 import {
@@ -129,7 +129,7 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
     case 'AnswerSearchLibrary':
       return answerSearchLibrary(state, intent, deps);
     case 'AnswerChooseFromZone':
-      return answerChooseFromZone(state, intent);
+      return answerChooseFromZone(state, intent, deps);
     case 'AnswerOrderCards':
       return answerOrderCards(state, intent);
     case 'AnswerScry':
@@ -2830,27 +2830,27 @@ function cardMatchesSearch(
       if (mv.op === 'eq' && value !== mv.n) return false;
     }
   }
-  return predicates.some(
-    (p) =>
-      p.supertypes.every((t) => face.typeLine.supertypes.includes(t)) &&
-      p.types.every((t) => face.typeLine.types.includes(t)) &&
-      p.subtypes.every((t) => face.typeLine.subtypes.includes(t)) &&
-      p.colors.every((c) => face.colors.includes(c)),
-  );
+  // D389 - the one reader the bot, the harness, the fuzz driver and the peek panel also ask.
+  return predicateAdmits(face, predicates);
 }
 
 function answerChooseFromZone(
   state: GameState,
   intent: Extract<Intent, { t: 'AnswerChooseFromZone' }>,
+  deps: EngineDeps,
 ): HandleResult {
   const awaiting = state.priority.awaiting;
   if (awaiting?.kind !== 'chooseFromZone' || awaiting.player !== intent.player) {
     return reject('notAwaitingThat', 'You are not being asked to choose cards.');
   }
-  if (intent.cards.length !== awaiting.count) {
+  // D389 - `min` is the fewest a look with "you may" takes; every older prompt is exact.
+  const min = awaiting.min ?? awaiting.count;
+  if (intent.cards.length > awaiting.count || intent.cards.length < min) {
     return reject(
       'invalidAmount',
-      `Choose exactly ${awaiting.count} card${awaiting.count === 1 ? '' : 's'}.`,
+      min === awaiting.count
+        ? `Choose exactly ${awaiting.count} card${awaiting.count === 1 ? '' : 's'}.`
+        : `Choose up to ${awaiting.count} card${awaiting.count === 1 ? '' : 's'}.`,
     );
   }
   const unique = new Set(intent.cards);
@@ -2869,8 +2869,18 @@ function answerChooseFromZone(
     const shown = lib.filter((id) => state.cards[id]?.revealedTo.includes(intent.player));
     for (const card of intent.cards) {
       if (!shown.includes(card)) return reject('wrongZone', 'That card is not one you are looking at.');
+      // D389 - the look's FILTER, asked of the oracle face the way a search's noun is (D357).
+      if (awaiting.filter && !cardMatchesSearch(state, deps, card, awaiting.filter.predicates, null)) {
+        return reject('illegalTarget', `That card is not ${awaiting.filter.what}.`);
+      }
     }
     const rest = shown.filter((id) => !unique.has(id));
+    // D389 - "in a random order": the leftovers are shuffled HERE, off the seeded generator, and
+    // the advanced state rides the accept (D147's `rngAfter` rule: a caller that dropped it would
+    // replay to a different bottom than it played). Only now are the leftovers known at all.
+    const mixed = awaiting.rest === 'random' ? shuffle(state.rng, rest) : null;
+    const bottomed = mixed ? mixed.value : rest;
+    const took = intent.cards.length === 0 ? 'nothing' : `${intent.cards.length} card${intent.cards.length === 1 ? '' : 's'}`;
     const toHand = intent.cards.map((card) => ({
       card,
       from: { kind: 'library' as const, player: intent.player },
@@ -2882,7 +2892,7 @@ function answerChooseFromZone(
      * this backwards would put the cards the player just declined straight back
      * under their next draw.
      */
-    const toRest = rest.map((card) =>
+    const toRest = bottomed.map((card) =>
       awaiting.rest === 'graveyard'
         ? {
             card,
@@ -2923,23 +2933,30 @@ function answerChooseFromZone(
         },
         { t: 'CardsMoved', moves: toHand },
         narrated(
-          n`${who(state, intent.player)} ${vb(intent.player, 'takes', 'take')} ${intent.cards.length} card${intent.cards.length === 1 ? '' : 's'}.`,
+          n`${who(state, intent.player)} ${vb(intent.player, 'takes', 'take')} ${took}.`,
           intent.player,
         ),
       ]);
     }
 
-    return accept([
+    const where =
+      awaiting.rest === 'graveyard'
+        ? 'into the graveyard'
+        : awaiting.rest === 'random'
+          ? 'on the bottom in a random order'
+          : 'on the bottom';
+    const events: EventBody[] = [
       { t: 'AwaitingSet', awaiting: null },
       { t: 'CardsMoved', moves: [...toHand, ...toRest] },
       // ⚠️ The reveal is CLEARED, or the player keeps seeing the cards that went
       // to the bottom for the rest of the game — `view.peek` reads `revealedTo`.
       { t: 'CardsRevealed', cards: [...shown], to: [] },
       narrated(
-        n`${who(state, intent.player)} ${vb(intent.player, 'takes', 'take')} ${intent.cards.length} card${intent.cards.length === 1 ? '' : 's'} and ${vb(intent.player, 'puts', 'put')} ${rest.length} ${awaiting.rest === 'graveyard' ? 'into the graveyard' : 'on the bottom'}.`,
+        n`${who(state, intent.player)} ${vb(intent.player, 'takes', 'take')} ${took} and ${vb(intent.player, 'puts', 'put')} ${rest.length} ${where}.`,
         intent.player,
       ),
-    ]);
+    ];
+    return mixed === null ? accept(events) : accept(events, mixed.next);
   }
 
   const hand = state.zones.hand[intent.player] ?? [];
