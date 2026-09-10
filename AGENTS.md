@@ -13488,6 +13488,107 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       improvise 6); then the seam map's rest — the attached statics the Aura and
       Equipment rows cannot read (351), the bare keyword or ability word (206);
       prior items stand.
+- [x] **M6.4hn — THE CONDITION-BROKEN ARM: one arm, two refusals, and three bugs it
+      uncovered (2026-09-10):** **7,920 of 31,692 Commander-legal cards now execute
+      completely, up from 7,916 (+4).** `SHIPPED_SCRIPTS` 5,090 → **5,094**; ledger
+      1,169 → **1,165** (four rows DELETED as their cards landed). Fixtures 5,599 →
+      **5,603**. **No engine file is touched. Select pool 0** throughout — a Phase-1
+      reclaim lands BY NAME from the ledger (D284/D285). Decisions in **D381**.
+      ⚠️ **ONE ARM, TWO REFUSALS.** D379 refused the leaves head's `without dying`
+      DESTINATION filter and D380 refused the `while you control` CONDITION on a
+      combat head, and both gave the same reason: a condition is only proven by a
+      fire with it BROKEN that asserts nothing happened, and the arm had one fire
+      per ability. Built once, both classes land. The stage-one check is a THROW
+      inside `armed()`, where the mark is in hand — the creature's P/T for a self
+      pump, its counters for a self counter — and ⚠️ **a payload outside those two
+      is REFUSED** rather than proven by a read the arm does not have, which is
+      D379's own rule applied to the arm that lifted it.
+      ⚠️⚠️ **A SILENT CONDITION-DROP, WHOSE EXPOSURE HAD ALREADY SHIPPED.**
+      `attacksOrBlocks`, `isDealtDamage` and `entersOrAttacks` push their two
+      abilities and `continue` BEFORE the general push at the foot of the trigger
+      branch, so a modifier added to that general push alone is silently dropped for
+      all three. **Burning Sun Cavalry rowed with its `while you control a Dinosaur`
+      GONE** and its def would have fired unconditionally — a card that does MORE
+      than it says, the one direction D90 forbids outright — caught by PRINTING the
+      rows rather than by a test. ⚠️ And D380's `during your turn` peel had the same
+      exposure already in the tree: it never bit, because none of D380's six rows is
+      a pair head, but it was one printed line away. Every modifier rides ONE `mods`
+      object spread into EVERY push now, so a condition cannot be dropped by adding
+      a branch.
+      ⚠️⚠️ **THE VEHICLE HEAD MATCHED ANY CARD THAT NAMES ITSELF.**
+      `vehicleAttacks` read `Whenever (this Vehicle|~) attacks` and sat ABOVE the
+      plain `attacks` head, so any card whose printed line names itself matched the
+      VEHICLE head first and would have been given a fire that CREWS it. Latent
+      since the head was added and never bitten — all four shipped Vehicles print
+      `this Vehicle` — and **Ruby, Daring Tracker is the first card to reach it**.
+      The `~` alternative is gone, which leaves every shipped row byte-identical.
+      ⚠️⚠️ **THE FIXTURE DERIVATION IGNORED THREE FIELDS A FILTER CAN CARRY.**
+      `admits` checked types, subtypes, colours, keywords, historic, power and mana
+      value and silently ignored `token`, `nontoken` and `keywordsNone` — so
+      Seasoned Warrenguard's `while you control a TOKEN` was handed **a Badlands**.
+      D350's rule is that a filter no fixture satisfies REFUSES the row and must
+      never be given one that ignores it: no card in the pool is a token, so that
+      field can never be met from there and refuses now; every card in it IS
+      nontoken, so that one always holds. Seasoned Warrenguard refuses by name,
+      which costs this decision a card and is the honest outcome.
+      ⚠️ **The blocks stage had to stop killing its own blocker.** `settle` stops at
+      the declaration, but the walk to a SECOND combat passes through the first
+      one's damage, and every card that reaches this arm is smaller than the
+      opponent's 4/4 Cyclops. Each blocks stage gets its OWN 1/1 Goblin, and each
+      Goblin dies to the block, which is why there are two.
+      ⚠️ **Two more faults the port found:** `permanentsOf(controllerOf(self))` does
+      not typecheck (`controllerOf` returns a player OR NULL and no narrowing fixes
+      that across two calls in one expression, so the scan reads the state
+      directly); and the cleanup target sat on the turn the two-stage fire itself
+      ends on — D380's own trap, one arm over.
+      **Landed:** four rows — three `while you control` combat heads (Burning Sun
+      Cavalry, whose ONE printed line is both an attacks and a blocks ability and is
+      proven twice on each; Courageous Goblin; Ruby, Daring Tracker) and Imperial
+      Cosmographer on the destination filter.
+      ⚠️ **Seasoned Warrenguard keeps its place in the ledger and loses its LABEL**
+      (D365): its head reads perfectly now and what refuses it is the FIXTURE, so it
+      reads `while-you-control condition on a token`.
+      ⚠️ **THE GATE WAS STOPPED AND RESTARTED**, because that relabel was written while
+      the five gates were running and a gate log is a statement about a TREE (D377).
+      Stopped with `TaskStop`, started again from the top on the settled tree - the
+      honest cost of an edit made a minute too late.
+      Fixtures 5,603 (5,448 by name + 148 tokens) — three new names, the permanents
+      the conditions and the destination filter are DERIVED to need; no new token
+      pin · botPool artifact 441 / creature 4,628 / enchantment 451 / instant 1,049 /
+      land 566 / sorcery 785 · ladder [1263, 1351, 2926, 4653, 5989] ·
+      `scriptableToday` 1,267 → **1,263** · tier3 silentAfter 8,219 · bot reach
+      7,859 from 231 commanders · batch.json 4 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5244 files, 25916 passed / 11 skipped ·
+      500-seed gate, 6 shards, 885.4 s wall · build clean · probe 124/124 ·
+      battery 130/130.**
+      ⚠️ **Reportables** (D381): the attacker COUNT (3 — `you attack with three or
+      more creatures` and `this creature and at least one other Warrior attack`:
+      their own heads, a per-row matcher, and a derived Warrior that can attack);
+      Seasoned Warrenguard's TOKEN condition (the arm must MAKE a token before the
+      second stage, which the token fodder machinery already does for a sacrifice
+      cost); the 28 heads the library holds in no base at all (expend 4, a land-play
+      head 3, an activated-ability head 3, a first-time-each-turn life memory 2, a
+      scry or surveil discriminator 2, then singletons); the leaves head's TOKEN
+      subject; the compound halves D380 refused (a face-down subject, an
+      alternation, a power-up ability); the filtered ENTERS forms the reader does
+      not reach; then the 17 filtered heads whose subject is outside the closed
+      reader; a MANUAL SACRIFICE tool (D377); the 12 trigger payloads outside both
+      readers and the 9 ability-word activated lines D374 ledgered; the three hand
+      scripts D373 made REDUNDANT; the twenty quoted-grant payloads D373 refused BY
+      REASON; then the 100-card tail across 94 shapes; then D371's list — the 18
+      whose grant REDEFINES the host's base P/T, the NUMBERED grant keywords,
+      `Commander creatures you own` MEASURED AT ZERO; then D370's — the X and
+      computed payment prices (19), an effect after the payment ask (9), echo (17)
+      and cumulative upkeep (16); then `as long as` (448 across 276 conditions); the
+      granted STATIC (10), the ENTERS and combat-role scaffold arms; then D365's —
+      the counts outside the vocabulary (17), the activation conditions (35), the
+      trigger payloads outside both readers (20) — and D364's snow CREATURE fixture,
+      D363's counter KINDS and NONTOKEN predicate, the keyword ENTRY REPLACEMENTS
+      (bloodthirst 13, modular 7, graft 2) and CHOICES (fabricate 10, unleash 9,
+      riot 4, devour 4, enlist 5, amplify 3), the block REQUIREMENT (provoke 4), the
+      cast-time payment sources (convoke 14, delve 5, improvise 6); then the seam
+      map's rest — the attached statics the Aura and Equipment rows cannot read
+      (351), the bare keyword or ability word (206); prior items stand.
 
 
 ⚠️ **One that protects the enforcement of every other one (D154):**

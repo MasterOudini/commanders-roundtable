@@ -7,6 +7,10 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BURNING_SUN_CAVALRY_SCRIPT } from './cards/burningSunCavalry';
+import { COURAGEOUS_GOBLIN_SCRIPT } from './cards/courageousGoblin';
+import { IMPERIAL_COSMOGRAPHER_SCRIPT } from './cards/imperialCosmographer';
+import { RUBY_DARING_TRACKER_SCRIPT } from './cards/rubyDaringTracker';
 import { FOE_LIAGE_SCRIPT } from './cards/foeLiage';
 import { IVORA_INSATIABLE_HEIR_SCRIPT } from './cards/ivoraInsatiableHeir';
 import { PERIMETER_ENFORCER_SCRIPT } from './cards/perimeterEnforcer';
@@ -5116,6 +5120,10 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BURNING_SUN_CAVALRY_SCRIPT,
+  COURAGEOUS_GOBLIN_SCRIPT,
+  IMPERIAL_COSMOGRAPHER_SCRIPT,
+  RUBY_DARING_TRACKER_SCRIPT,
   FOE_LIAGE_SCRIPT,
   IVORA_INSATIABLE_HEIR_SCRIPT,
   PERIMETER_ENFORCER_SCRIPT,

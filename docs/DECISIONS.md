@@ -27438,3 +27438,113 @@ enters half is DERIVED to fire on; no new token pin. botPool creature 4,618 ->
 bot's own reach rose to **7,855** cards from 7,849, chosen from **230**
 fully-executable legendary creatures (229 before). Select pool 0 throughout - a
 Phase-1 reclaim lands BY NAME from the ledger (D284/D285).
+
+## D381 - M6.4hn: THE CONDITION-BROKEN ARM - one arm, two refusals, and three bugs it uncovered (2026-09-10)
+
+**7,920 of 31,692 Commander-legal cards execute completely, up from 7,916 (+4).**
+`SHIPPED_SCRIPTS` 5,090 -> **5,094**; REFUSED ledger 1,169 -> **1,165** (four rows
+DELETED as their cards landed). Fixtures 5,599 -> **5,603**. `scriptableToday`
+1,267 -> **1,263**. **No engine file is touched.**
+
+### One arm, two refusals
+
+D379 refused the leaves head's `without dying` DESTINATION filter and D380 refused
+the `while you control` CONDITION on a combat head, and both refusals gave the
+same reason: a condition is only proven by a fire with it BROKEN that asserts
+nothing happened, and the arm had one fire per ability. This builds that arm once
+and both classes land.
+
+The shape is a two-stage fire whose stage-one check is a THROW inside `armed()`,
+where the mark is in hand:
+
+- a `while you control` head attacks (or blocks) with the condition OFF the board,
+  throws if the mark moved, puts the fixture and fires again two turns later;
+- a `without dying` head KILLS a permanent first - dying is the one exit that head
+  does not pay for (D259) - throws if the mark moved, then takes another away to
+  exile.
+
+The mark is the creature's P/T for a self pump and its counters for a self
+counter. ⚠️ **A payload outside those two is refused** rather than proven by a read
+the arm does not have - D379's own rule, applied to the arm that lifted it.
+
+### ⚠️ A SILENT CONDITION-DROP, whose exposure had already shipped
+
+`attacksOrBlocks`, `isDealtDamage` and `entersOrAttacks` push their two abilities
+and `continue` BEFORE the general push at the foot of the trigger branch, so a
+modifier added to that general push alone is silently dropped for all three.
+
+**Burning Sun Cavalry rowed with its `while you control a Dinosaur` GONE**, and its
+def would have fired unconditionally - a card that does MORE than it says, the one
+direction D90 forbids outright. It was caught by PRINTING the rows, not by a test.
+
+⚠️ **And D380's `during your turn` peel had the same exposure already in the
+tree.** It never bit, because none of D380's six rows is a pair head, but it was
+one printed line away. Every modifier rides ONE `mods` object spread into every
+push now, so a condition cannot be dropped by adding a branch.
+
+### ⚠️ The Vehicle head matched any card that names itself
+
+`vehicleAttacks` read `Whenever (this Vehicle|~) attacks` and sat ABOVE the plain
+`attacks` head, so ANY card whose printed line names itself matched the VEHICLE
+head first and would have been given a fire that CREWS it. Latent since the head
+was added and never bitten - all four shipped Vehicles print `this Vehicle` - and
+**Ruby, Daring Tracker is the first card to reach it**. The `~` alternative is
+gone, which leaves every shipped row byte-identical.
+
+### ⚠️ The fixture derivation ignored three fields a filter can carry
+
+`admits` checked types, subtypes, colours, keywords, historic, power and mana value
+- and silently ignored `token`, `nontoken` and `keywordsNone`. So Seasoned
+Warrenguard's `while you control a TOKEN` was handed **a Badlands**.
+
+D350's rule is that a filter no fixture satisfies REFUSES the row and must never be
+given one that ignores the filter. No card in the pool is a token, so `token` can
+never be met from there and refuses now; every card in it IS nontoken, so that one
+always holds; and `keywordsNone` is answered. Seasoned Warrenguard refuses by name,
+which is the honest outcome and costs this decision a card.
+
+### The blocks stage had to stop killing its own blocker
+
+`settle` stops at the declaration, but the walk to a SECOND combat passes through
+the first one's damage - and every card that reaches this arm is smaller than the
+opponent's 4/4 Cyclops. Each blocks stage gets its OWN 1/1 Goblin instead, and each
+Goblin dies to the block, which is why there are two.
+
+### Two more faults the port found
+
+1. **`permanentsOf(controllerOf(self))` does not typecheck.** `controllerOf`
+   returns a player OR NULL and `permanentsOf` takes a player, and no narrowing
+   fixes that across two calls inside one expression. The scan reads the state
+   directly instead.
+2. **The cleanup target sat on the turn the two-stage fire itself ends on** -
+   D380's own trap one arm over: `advanceUntil(turnNumber >= 4)` is satisfied the
+   moment it is asked when stage two ran at turn 5.
+
+### What landed
+
+Four rows: three `while you control` combat heads - Burning Sun Cavalry, whose ONE
+printed line is both an attacks and a blocks ability and is proven twice on each;
+Courageous Goblin; Ruby, Daring Tracker - and Imperial Cosmographer on the
+destination filter. Seasoned Warrenguard is refused by name for its token
+condition.
+
+⚠️ **And its LABEL went with the reason** (D365): it sat under `trigger head not in
+the library`, its head reads perfectly now, and what refuses it is the FIXTURE - so
+it reads `while-you-control condition on a token`, or the next grouping counts it
+against the wrong class.
+
+### ⚠️ The gate was stopped and restarted, because the tree moved under it
+
+That relabel was written while the five gates were running. A gate log is a
+statement about a TREE (D377), so the run was stopped with `TaskStop` and started
+again from the top on the settled tree - the honest cost of an edit made a minute
+too late, paid rather than papered over with a log describing a file that has since
+changed.
+
+Fixtures 5,603 (5,448 by name + 148 tokens) - three new names, the permanents the
+conditions and the destination filter are DERIVED to need; no new token pin.
+botPool creature 4,624 -> **4,628**, every other column unmoved. Ladder [1267,
+1355, 2930, 4657, 5993] -> **[1263, 1351, 2926, 4653, 5989]**; tier3 `silentAfter`
+8,215 -> **8,219**. The bot's own reach rose to **7,859** cards from 7,855, chosen
+from **231** fully-executable legendary creatures (230 before). Select pool 0
+throughout - a Phase-1 reclaim lands BY NAME from the ledger (D284/D285).

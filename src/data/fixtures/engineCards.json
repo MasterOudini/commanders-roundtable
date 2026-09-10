@@ -184094,6 +184094,144 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BURNING_SUN_CAVALRY": {
+    "scryfallId": "0c491ac0-4752-47a7-967e-456b6e4245de",
+    "oracleId": "9da7e8b5-887d-4174-b7aa-982fd052fcd1",
+    "name": "Burning Sun Cavalry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Burning Sun Cavalry",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Whenever this creature attacks or blocks while you control a Dinosaur, this creature gets +1/+1 until end of turn.",
+        "flavorText": "\"By fire and lightning, tooth and claw, we will send these invaders fleeing back to Torrezon!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "0c491ac0-4752-47a7-967e-456b6e4245de"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COURAGEOUS_GOBLIN": {
+    "scryfallId": "8db6819c-666a-409d-85a5-b9ac34d8dd2f",
+    "oracleId": "c107e271-5741-4a84-bfc4-3bc322972d0d",
+    "name": "Courageous Goblin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Courageous Goblin",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "Whenever this creature attacks while you control a creature with power 4 or greater, this creature gets +1/+0 and gains menace until end of turn. (It can't be blocked except by two or more creatures.)",
+        "flavorText": "\"Yeah! What he said!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ben Wootten",
+        "imageId": "8db6819c-666a-409d-85a5-b9ac34d8dd2f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "82",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IMPERIAL_COSMOGRAPHER": {
+    "scryfallId": "76cfd45f-62c4-4832-aae2-3f02d1dea38a",
+    "oracleId": "b2aa052c-08b7-4334-9ea7-e78da57ff9ea",
+    "name": "Imperial Cosmographer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Imperial Cosmographer",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Kree Scientist",
+        "oracleText": "Vigilance\nWhenever another creature you control leaves the battlefield without dying, put two +1/+1 counters on this creature.",
+        "flavorText": "\"The Supreme Intelligence guides our empire. It requires a constant infusion of knowledge.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Nino Is",
+        "imageId": "76cfd45f-62c4-4832-aae2-3f02d1dea38a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "624",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUBY_DARING_TRACKER": {
+    "scryfallId": "5dd5b018-bb3e-4333-a9c7-dac134b99b8c",
+    "oracleId": "5d1b0eee-3a7a-4f22-a40d-7658a368962a",
+    "name": "Ruby, Daring Tracker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ruby, Daring Tracker",
+        "manaCost": "{R}{G}",
+        "typeLine": "Legendary Creature — Human Scout",
+        "oracleText": "Haste (This creature can attack and {T} as soon as it comes under your control.)\nWhenever Ruby attacks while you control a creature with power 4 or greater, Ruby gets +2/+2 until end of turn.\n{T}: Add {R} or {G}.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "M.Matsumoto",
+        "imageId": "5dd5b018-bb3e-4333-a9c7-dac134b99b8c"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "pwcs",
+    "collectorNumber": "2024-02",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

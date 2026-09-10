@@ -6077,6 +6077,13 @@ const WANTED = [
   // D380 - the permanents the compound halves fire on, DERIVED from each printed subject.
   'Misty Knight, Hero for Hire',
   // D380 - the helpers the reclaim suites deal.
+  // D381 - the condition-broken arm: the reclaimed cards.
+  'Burning Sun Cavalry',
+  'Courageous Goblin',
+  'Imperial Cosmographer',
+  'Ruby, Daring Tracker',
+  // D381 - the permanents the conditions and the destination filter are DERIVED to need.
+  // D381 - the helpers the reclaim suites deal.
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
